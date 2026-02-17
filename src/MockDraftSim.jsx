@@ -373,11 +373,11 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
         <p style={{fontFamily:sans,fontSize:13,color:"#737373",margin:"0 0 24px"}}>Draft as any team. Compare players, make trades, fill your depth chart.</p>
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:16}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
-            <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>your team(s) <span style={{color:"#d4d4d4"}}>— up to 4</span></div>
+            <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>your team(s)</div>
             <button onClick={()=>setUserTeams(new Set())} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>clear</button>
           </div>
           <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
-            {ALL_TEAMS.sort().map(t=><button key={t} onClick={()=>{if(userTeams.has(t))toggleTeam(t);else if(userTeams.size<4)toggleTeam(t);}} style={{fontFamily:sans,fontSize:11,padding:"5px 12px",background:userTeams.has(t)?"#171717":"transparent",color:userTeams.has(t)?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:6,opacity:!userTeams.has(t)&&userTeams.size>=4?0.3:1}}><NFLTeamLogo team={t} size={16}/>{t}</button>)}
+            {ALL_TEAMS.sort().map(t=><button key={t} onClick={()=>toggleTeam(t)} style={{fontFamily:sans,fontSize:11,padding:"5px 12px",background:userTeams.has(t)?"#171717":"transparent",color:userTeams.has(t)?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:6}}><NFLTeamLogo team={t} size={16}/>{t}</button>)}
           </div>
         </div>
         <div style={{display:"flex",gap:12,marginBottom:16}}>
@@ -537,52 +537,30 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
             {/* Step 2: Select what you want from them */}
             {tradePartner&&<div style={{marginBottom:8}}>
               <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",letterSpacing:1,marginBottom:4}}>YOU GET:</div>
-              {partnerAssets.thisDraft.length>0&&<div style={{marginBottom:4}}>
-                <div style={{fontFamily:mono,fontSize:7,color:"#d4d4d4",marginBottom:2}}>This Draft</div>
-                <div style={{display:"flex",gap:3,flexWrap:"wrap"}}>
-                  {partnerAssets.thisDraft.map(p=>{const sel=tradeTarget?.idx===p.idx&&tradeTarget?.type==="current";
-                    return<button key={"c"+p.idx} onClick={()=>setTradeTarget(sel?null:p)} style={{fontFamily:sans,fontSize:9,padding:"3px 8px",background:sel?"#a855f7":"#fff",color:sel?"#fff":"#525252",border:"1px solid "+(sel?"#a855f7":"#e5e5e5"),borderRadius:5,cursor:"pointer"}}>{p.label} <span style={{fontSize:7,color:sel?"#e9d5ff":"#a3a3a3"}}>({p.value}pts)</span></button>;
-                  })}
+              {[{year:2026,label:"2026 (this draft)",picks:partnerAssets.thisDraft},{year:2027,label:"2027",picks:partnerAssets.futurePicks.filter(p=>p.year===2027)},{year:2028,label:"2028",picks:partnerAssets.futurePicks.filter(p=>p.year===2028)}].map(yr=>(
+                yr.picks.length>0&&<div key={yr.year} style={{marginBottom:4}}>
+                  <div style={{fontFamily:mono,fontSize:7,color:"#d4d4d4",marginBottom:2}}>{yr.label}</div>
+                  <div style={{display:"flex",gap:3,flexWrap:"wrap"}}>
+                    {yr.picks.map((p,i)=>{const sel=tradeTarget?.label===p.label&&tradeTarget?.type===p.type;
+                      return<button key={p.label+i} onClick={()=>setTradeTarget(sel?null:p)} style={{fontFamily:sans,fontSize:9,padding:"3px 8px",background:sel?"#a855f7":"#fff",color:sel?"#fff":"#525252",border:"1px solid "+(sel?"#a855f7":"#e5e5e5"),borderRadius:5,cursor:"pointer"}}>{p.type==="current"?p.label:`Rd${p.round}`} <span style={{fontSize:7,color:sel?"#e9d5ff":"#a3a3a3"}}>({p.value}pts)</span></button>;
+                    })}
+                  </div>
                 </div>
-              </div>}
-              <div>
-                <div style={{fontFamily:mono,fontSize:7,color:"#d4d4d4",marginBottom:2}}>Future Picks</div>
-                <div style={{display:"flex",gap:3,flexWrap:"wrap"}}>
-                  {partnerAssets.futurePicks.filter(p=>p.round<=3).map(p=>{const key=p.label;const sel=tradeTarget?.label===key&&tradeTarget?.type==="future";
-                    return<button key={key} onClick={()=>setTradeTarget(sel?null:p)} style={{fontFamily:sans,fontSize:9,padding:"3px 8px",background:sel?"#a855f7":"#fff",color:sel?"#fff":"#525252",border:"1px solid "+(sel?"#a855f7":"#e5e5e5"),borderRadius:5,cursor:"pointer"}}>{p.label} <span style={{fontSize:7,color:sel?"#e9d5ff":"#a3a3a3"}}>({p.value}pts)</span></button>;
-                  })}
-                </div>
-                <div style={{display:"flex",gap:3,flexWrap:"wrap",marginTop:2}}>
-                  {partnerAssets.futurePicks.filter(p=>p.round>3).map(p=>{const key=p.label;const sel=tradeTarget?.label===key&&tradeTarget?.type==="future";
-                    return<button key={key} onClick={()=>setTradeTarget(sel?null:p)} style={{fontFamily:sans,fontSize:8,padding:"2px 6px",background:sel?"#a855f7":"#fff",color:sel?"#fff":"#737373",border:"1px solid "+(sel?"#a855f7":"#e5e5e5"),borderRadius:4,cursor:"pointer"}}>{p.label} <span style={{fontSize:6,color:sel?"#e9d5ff":"#d4d4d4"}}>({p.value})</span></button>;
-                  })}
-                </div>
-              </div>
+              ))}
             </div>}
             {/* Step 3: Select what you give up */}
             {tradeTarget&&<div style={{marginBottom:8}}>
               <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",letterSpacing:1,marginBottom:4}}>YOU GIVE:</div>
-              {userAllPicks.thisDraft.length>0&&<div style={{marginBottom:4}}>
-                <div style={{fontFamily:mono,fontSize:7,color:"#d4d4d4",marginBottom:2}}>This Draft</div>
-                <div style={{display:"flex",gap:3,flexWrap:"wrap"}}>
-                  {userAllPicks.thisDraft.map(p=>{const sel=tradeUserPicks.some(x=>x.label===p.label&&x.type==="current");
-                    return<button key={"uc"+p.idx} onClick={()=>setTradeUserPicks(prev=>sel?prev.filter(x=>!(x.label===p.label&&x.type==="current")):[...prev,p])} style={{fontFamily:sans,fontSize:9,padding:"3px 8px",background:sel?"#171717":"#fff",color:sel?"#faf9f6":"#525252",border:"1px solid #e5e5e5",borderRadius:5,cursor:"pointer"}}>{p.label} <span style={{fontSize:7,color:sel?"#a3a3a3":"#d4d4d4"}}>({p.value}pts)</span></button>;
-                  })}
+              {[{year:2026,label:"2026 (this draft)",picks:userAllPicks.thisDraft},{year:2027,label:"2027",picks:userAllPicks.futurePicks.filter(p=>p.year===2027)},{year:2028,label:"2028",picks:userAllPicks.futurePicks.filter(p=>p.year===2028)}].map(yr=>(
+                yr.picks.length>0&&<div key={yr.year} style={{marginBottom:4}}>
+                  <div style={{fontFamily:mono,fontSize:7,color:"#d4d4d4",marginBottom:2}}>{yr.label}</div>
+                  <div style={{display:"flex",gap:3,flexWrap:"wrap"}}>
+                    {yr.picks.map((p,i)=>{const sel=tradeUserPicks.some(x=>x.label===p.label&&x.type===p.type);
+                      return<button key={p.label+i} onClick={()=>setTradeUserPicks(prev=>sel?prev.filter(x=>!(x.label===p.label&&x.type===p.type)):[...prev,p])} style={{fontFamily:sans,fontSize:9,padding:"3px 8px",background:sel?"#171717":"#fff",color:sel?"#faf9f6":"#525252",border:"1px solid #e5e5e5",borderRadius:5,cursor:"pointer"}}>{p.type==="current"?p.label:`Rd${p.round}`} <span style={{fontSize:7,color:sel?"#a3a3a3":"#d4d4d4"}}>({p.value}pts)</span></button>;
+                    })}
+                  </div>
                 </div>
-              </div>}
-              <div>
-                <div style={{fontFamily:mono,fontSize:7,color:"#d4d4d4",marginBottom:2}}>Future Picks</div>
-                <div style={{display:"flex",gap:3,flexWrap:"wrap"}}>
-                  {userAllPicks.futurePicks.filter(p=>p.round<=3).map(p=>{const key=p.label;const sel=tradeUserPicks.some(x=>x.label===key&&x.type==="future");
-                    return<button key={"uf"+key} onClick={()=>setTradeUserPicks(prev=>sel?prev.filter(x=>!(x.label===key&&x.type==="future")):[...prev,p])} style={{fontFamily:sans,fontSize:9,padding:"3px 8px",background:sel?"#171717":"#fff",color:sel?"#faf9f6":"#525252",border:"1px solid #e5e5e5",borderRadius:5,cursor:"pointer"}}>{p.label} <span style={{fontSize:7,color:sel?"#a3a3a3":"#d4d4d4"}}>({p.value}pts)</span></button>;
-                  })}
-                </div>
-                <div style={{display:"flex",gap:3,flexWrap:"wrap",marginTop:2}}>
-                  {userAllPicks.futurePicks.filter(p=>p.round>3).map(p=>{const key=p.label;const sel=tradeUserPicks.some(x=>x.label===key&&x.type==="future");
-                    return<button key={"uf"+key} onClick={()=>setTradeUserPicks(prev=>sel?prev.filter(x=>!(x.label===key&&x.type==="future")):[...prev,p])} style={{fontFamily:sans,fontSize:8,padding:"2px 6px",background:sel?"#171717":"#fff",color:sel?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:4,cursor:"pointer"}}>{p.label} <span style={{fontSize:6,color:sel?"#a3a3a3":"#d4d4d4"}}>({p.value})</span></button>;
-                  })}
-                </div>
-              </div>
+              ))}
             </div>}
             {/* Value bar + execute */}
             {tradeTarget&&tradeUserPicks.length>0&&(()=>{
