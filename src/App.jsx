@@ -26,7 +26,11 @@ function expectedScore(rA,rB){return 1/(1+Math.pow(10,(rB-rA)/400));}
 function eloUpdate(rA,rB,aWon,k=32){const eA=expectedScore(rA,rB);return{newA:rA+k*((aWon?1:0)-eA),newB:rB+k*((aWon?0:1)-(1-eA))};}
 function generateMatchups(ids){const m=[];for(let i=0;i<ids.length;i++)for(let j=i+1;j<ids.length;j++)m.push([ids[i],ids[j]]);for(let i=m.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[m[i],m[j]]=[m[j],m[i]];}return m;}
 function getNextMatchup(mups,done,ratings){const rem=mups.filter(m=>!done.has(`${m[0]}-${m[1]}`));if(!rem.length)return null;rem.sort((a,b)=>Math.abs((ratings[a[0]]||1500)-(ratings[a[1]]||1500))-Math.abs((ratings[b[0]]||1500)-(ratings[b[1]]||1500)));return rem[Math.floor(Math.random()*Math.min(3,rem.length))];}
-const DRAFT_ORDER=[{pick:1,team:"Raiders"},{pick:2,team:"Jets"},{pick:3,team:"Cardinals"},{pick:4,team:"Panthers"},{pick:5,team:"Bengals"},{pick:6,team:"Dolphins"},{pick:7,team:"Browns"},{pick:8,team:"Titans"},{pick:9,team:"Giants"},{pick:10,team:"Bears"},{pick:11,team:"Cowboys"},{pick:12,team:"49ers"},{pick:13,team:"Saints"},{pick:14,team:"Steelers"},{pick:15,team:"Rams"},{pick:16,team:"Cowboys"},{pick:17,team:"Jets"},{pick:18,team:"Chargers"},{pick:19,team:"Ravens"},{pick:20,team:"Chiefs"},{pick:21,team:"Buccaneers"},{pick:22,team:"Texans"},{pick:23,team:"Broncos"},{pick:24,team:"Browns"},{pick:25,team:"Commanders"},{pick:26,team:"Vikings"},{pick:27,team:"Eagles"},{pick:28,team:"Packers"},{pick:29,team:"Bills"},{pick:30,team:"Lions"},{pick:31,team:"Patriots"},{pick:32,team:"Seahawks"}];
+const DRAFT_ORDER=[{pick:1,team:"Raiders"},{pick:2,team:"Jets"},{pick:3,team:"Cardinals"},{pick:4,team:"Titans"},{pick:5,team:"Giants"},{pick:6,team:"Browns"},{pick:7,team:"Commanders"},{pick:8,team:"Saints"},{pick:9,team:"Chiefs"},{pick:10,team:"Bengals"},{pick:11,team:"Dolphins"},{pick:12,team:"Cowboys"},{pick:13,team:"Rams"},{pick:14,team:"Ravens"},{pick:15,team:"Buccaneers"},{pick:16,team:"Jets"},{pick:17,team:"Lions"},{pick:18,team:"Vikings"},{pick:19,team:"Panthers"},{pick:20,team:"Cowboys"},{pick:21,team:"Steelers"},{pick:22,team:"Chargers"},{pick:23,team:"Eagles"},{pick:24,team:"Browns"},{pick:25,team:"Bears"},{pick:26,team:"Bills"},{pick:27,team:"49ers"},{pick:28,team:"Texans"},{pick:29,team:"Rams"},{pick:30,team:"Broncos"},{pick:31,team:"Patriots"},{pick:32,team:"Seahawks"}];
+const NFL_TEAM_ABR={"Raiders":"LV","Jets":"NYJ","Cardinals":"ARI","Titans":"TEN","Giants":"NYG","Browns":"CLE","Commanders":"WAS","Saints":"NO","Chiefs":"KC","Bengals":"CIN","Dolphins":"MIA","Cowboys":"DAL","Rams":"LA","Ravens":"BAL","Buccaneers":"TB","Lions":"DET","Vikings":"MIN","Panthers":"CAR","Steelers":"PIT","Chargers":"LAC","Eagles":"PHI","Bears":"CHI","Bills":"BUF","49ers":"SF","Texans":"HOU","Broncos":"DEN","Patriots":"NE","Seahawks":"SEA"};
+const NFL_TEAM_ESPN={"Raiders":13,"Jets":20,"Cardinals":22,"Titans":10,"Giants":19,"Browns":5,"Commanders":28,"Saints":18,"Chiefs":12,"Bengals":4,"Dolphins":15,"Cowboys":6,"Rams":14,"Ravens":33,"Buccaneers":27,"Lions":8,"Vikings":16,"Panthers":29,"Steelers":23,"Chargers":24,"Eagles":21,"Bears":3,"Bills":2,"49ers":25,"Texans":34,"Broncos":7,"Patriots":17,"Seahawks":26};
+function nflLogo(team){const id=NFL_TEAM_ESPN[team];return id?`https://a.espncdn.com/i/teamlogos/nfl/500/${id}.png`:null;}
+function NFLTeamLogo({team,size=20}){const[err,setErr]=useState(false);const url=nflLogo(team);if(!url||err)return<span style={{fontFamily:"monospace",fontSize:size*0.5,color:"#a3a3a3"}}>{NFL_TEAM_ABR[team]||team}</span>;return<img src={url} alt={team} width={size} height={size} onError={()=>setErr(true)} style={{objectFit:"contain",flexShrink:0}}/>;}
 const MIN_COMPS=3;
 const font=`'Literata',Georgia,serif`;const mono=`'DM Mono','Courier New',monospace`;const sans=`'DM Sans','Helvetica Neue',sans-serif`;
 
@@ -228,7 +232,7 @@ function DraftBoard({user,onSignOut}){
   const CONSENSUS=useMemo(()=>["Cam Ward","Abdul Carter","Travis Hunter","Tetairoa McMillan","Will Johnson","Mason Graham","Shedeur Sanders","Tyler Warren","Ashton Jeanty","Will Campbell","Kelvin Banks Jr.","Mykel Williams","James Pearce Jr.","Luther Burden III","Malaki Starks","Jalen Milroe","Kenneth Grant","Colston Loveland","Jalon Walker","Emeka Egbuka","Derrick Harmon","Aireontae Ersery","Nic Scourton","Josh Simmons","Shavon Revel Jr.","Tyleik Williams","Benjamin Morrison","Sheild Sanders","Walter Nolen","Jack Sawyer","Omarion Hampton","Nick Singleton","Grey Zabel","Mike Matthews","Tate Ratledge","Donovan Jackson","Princely Umanmielen","Kevin Winston Jr.","David Hicks Jr.","Wyatt Milum","J.T. Tuimoloau","Tre Harris","Deone Walker","Quinshon Judkins","Landon Jackson","Isaiah Bond","Quinn Ewers","Dillon Gabriel","Carson Beck","Drew Allar"].map((name,i)=>({name,rank:i+1})),[]);
 
   // Team needs for mock draft
-  const TEAM_NEEDS=useMemo(()=>({"Raiders":["QB","WR","OL"],"Jets":["OL","WR","DL"],"Cardinals":["DL","OL","DB"],"Panthers":["QB","OL","DL"],"Bengals":["OL","DL","DB"],"Dolphins":["OL","QB","DL"],"Browns":["QB","WR","OL"],"Titans":["OL","WR","DL"],"Giants":["QB","OL","WR"],"Bears":["OL","WR","DB"],"Cowboys":["DL","OL","DB"],"49ers":["WR","DB","DL"],"Saints":["QB","OL","DL"],"Steelers":["WR","OL","DB"],"Rams":["OL","DL","DB"],"Chargers":["OL","DL","LB"],"Ravens":["WR","OL","DB"],"Chiefs":["WR","OL","DL"],"Buccaneers":["DL","OL","DB"],"Texans":["OL","DL","DB"],"Broncos":["OL","WR","DL"],"Commanders":["DL","OL","DB"],"Vikings":["OL","DL","DB"],"Eagles":["DL","LB","DB"],"Packers":["DL","OL","DB"],"Bills":["OL","WR","DL"],"Lions":["DL","DB","LB"],"Patriots":["OL","WR","DL"],"Seahawks":["DL","OL","LB"]}),[]);
+  const TEAM_NEEDS=useMemo(()=>({"Raiders":["QB","WR","CB"],"Jets":["OL","WR","DL"],"Cardinals":["OL","DL","DB"],"Titans":["DL","WR","OL"],"Giants":["WR","OL","QB"],"Browns":["QB","WR","OL"],"Commanders":["DL","OL","DB"],"Saints":["QB","OL","DL"],"Chiefs":["WR","OL","DB"],"Bengals":["OL","DL","DB"],"Dolphins":["QB","OL","DL"],"Cowboys":["DL","DB","OL"],"Rams":["DB","DL","OL"],"Ravens":["DL","WR","OL"],"Buccaneers":["OL","WR","DL"],"Lions":["DL","DB","LB"],"Vikings":["OL","DL","DB"],"Panthers":["DB","LB","DL"],"Steelers":["QB","WR","OL"],"Chargers":["OL","DL","LB"],"Eagles":["DL","LB","DB"],"Bears":["WR","OL","DB"],"Bills":["OL","WR","DL"],"49ers":["WR","DB","DL"],"Texans":["OL","DL","DB"],"Broncos":["OL","WR","DL"],"Patriots":["OL","WR","DL"],"Seahawks":["DL","OL","LB"]}),[]);
 
   // Load board from Supabase on mount
   useEffect(()=>{
@@ -295,7 +299,13 @@ function DraftBoard({user,onSignOut}){
     }
     setRatings(newRatings);
   },[getRanked,ratings]);
-  const getGrade=useCallback((id)=>{const t=traits[id];if(!t)return 0;const v=Object.values(t);return v.length?Math.round(v.reduce((a,b)=>a+b,0)/v.length):0;},[traits]);
+  const getGrade=useCallback((id)=>{const t=traits[id];if(!t||Object.keys(t).length===0){
+    // Fallback: estimate grade from consensus position
+    const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;
+    const cIdx=CONSENSUS.findIndex(c=>c.name===p.name);
+    if(cIdx>=0)return Math.max(40,Math.round(90-cIdx*0.8));
+    return 50;
+  }const v=Object.values(t);return v.length?Math.round(v.reduce((a,b)=>a+b,0)/v.length):50;},[traits]);
   const getBoard=useCallback(()=>PROSPECTS.filter(p=>rankedGroups.has(p.pos)).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings]);
   const finishTraits=useCallback((pos)=>{setTraitReviewedGroups(prev=>new Set([...prev,pos]));const ranked=getRanked(pos);const byGrade=[...ranked].sort((a,b)=>getGrade(b.id)-getGrade(a.id));const conflicts=ranked.map((p,i)=>{const gi=byGrade.findIndex(x=>x.id===p.id);return Math.abs(i-gi)>=3?{player:p,pairRank:i+1,gradeRank:gi+1,grade:getGrade(p.id)}:null;}).filter(Boolean);if(conflicts.length){setReconcileQueue(conflicts);setReconcileIndex(0);setPhase("reconcile");}else setPhase("pick-position");},[getRanked,getGrade]);
 
@@ -347,8 +357,23 @@ function DraftBoard({user,onSignOut}){
   // === RECONCILE ===
   if(phase==="reconcile"&&reconcileQueue.length>0){const item=reconcileQueue[Math.min(reconcileIndex,reconcileQueue.length-1)];const c=POS_COLORS[item.player.pos];const dir=item.gradeRank<item.pairRank?"higher":"lower";return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:500,margin:"0 auto",padding:"52px 24px"}}><p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 4px"}}>reconcile · {reconcileIndex+1} of {reconcileQueue.length}</p><div style={{height:3,background:"#e5e5e5",borderRadius:2,marginBottom:28,overflow:"hidden"}}><div style={{height:"100%",width:`${((reconcileIndex+1)/reconcileQueue.length)*100}%`,background:c,borderRadius:2}}/></div><div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:32,textAlign:"center"}}><SchoolLogo school={item.player.school} size={56}/><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c,marginBottom:4,marginTop:8}}>{item.player.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3",marginBottom:24}}>{item.player.school}</div><div style={{display:"flex",justifyContent:"center",gap:32,marginBottom:24}}>{[["gut rank",`#${item.pairRank}`,"#171717"],["grade rank",`#${item.gradeRank}`,dir==="higher"?"#16a34a":"#dc2626"],["composite",`${item.grade}`,"#171717"]].map(([label,val,col])=><div key={label}><div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:4}}>{label}</div><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:col}}>{val}</div></div>)}</div><p style={{fontFamily:sans,fontSize:14,color:"#737373",lineHeight:1.5,marginBottom:24}}>your traits suggest this player should rank <strong style={{color:dir==="higher"?"#16a34a":"#dc2626"}}>{dir}</strong> than your gut. accept?</p><div style={{display:"flex",gap:10,justifyContent:"center"}}><button onClick={()=>{const pos=item.player.pos;const rk=getRanked(pos);const ti=item.gradeRank-1;const tp=rk[ti];if(tp)setRatings(prev=>({...prev,[item.player.id]:(prev[tp.id]||1500)+(dir==="higher"?1:-1)}));reconcileIndex>=reconcileQueue.length-1?setPhase("pick-position"):setReconcileIndex(reconcileIndex+1);}} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 24px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>accept</button><button onClick={()=>reconcileIndex>=reconcileQueue.length-1?setPhase("pick-position"):setReconcileIndex(reconcileIndex+1)} style={{fontFamily:sans,fontSize:13,padding:"10px 24px",background:"transparent",color:"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>keep my rank</button></div></div></div></div>);}
 
+  // Build mock draft board: user rankings + consensus fallback for unranked positions
+  const mockDraftBoard=useMemo(()=>{
+    const userBoard=getBoard();
+    const userIds=new Set(userBoard.map(p=>p.id));
+    // For unranked positions, use consensus order or alphabetical
+    const consensusNames=["Fernando Mendoza","Caleb Downs","Jeremiyah Love","Rueben Bain Jr.","Francis Mauigoa","Spencer Fano","Carnell Tate","Arvell Reese","Sonny Styles","Mansoor Delane","Dillon Thieneman","Davison Igbinosun","T.J. Parker","Anthony Hill Jr.","Gracen Halton","Patrick Payton","Denzel Boston","Jordyn Tyson","CJ Daniels","Harold Perkins Jr.","Kenyon Sadiq","RJ Maryland","Oscar Delp","Kadyn Proctor","Billy Schrauth","Emmanuel Pregnon","Drew Shelton","Kayden McDonald","Christen Miller","Derrick Moore","Deontae Lawson","Anthony Lucas"];
+    const unranked=PROSPECTS.filter(p=>!userIds.has(p.id));
+    // Sort unranked by consensus position, then by name
+    unranked.sort((a,b)=>{
+      const ai=consensusNames.indexOf(a.name);const bi=consensusNames.indexOf(b.name);
+      if(ai>=0&&bi>=0)return ai-bi;if(ai>=0)return -1;if(bi>=0)return 1;return a.name.localeCompare(b.name);
+    });
+    return[...userBoard,...unranked];
+  },[getBoard]);
+
   // === MOCK DRAFT ===
-  if(showMockDraft){return<MockDraftSim board={getBoard()} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>setShowMockDraft(false)} setProfilePlayer={setProfilePlayer} profilePlayer={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings}/>;}
+  if(showMockDraft){return<MockDraftSim board={mockDraftBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>setShowMockDraft(false)} setProfilePlayer={setProfilePlayer} profilePlayer={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings}/>;}
 
   // === BIG BOARD ===
   if(phase==="board")return(<div><SaveBar/><div style={{paddingTop:32}}><BoardView getBoard={getBoard} getGrade={getGrade} rankedGroups={rankedGroups} setPhase={setPhase} setSelectedPlayer={setSelectedPlayer} setActivePos={setActivePos} traits={traits} compareA={compareA} compareB={compareB} setCompareA={setCompareA} setCompareB={setCompareB} setProfilePlayer={setProfilePlayer} setShowMockDraft={setShowMockDraft} communityBoard={communityBoard} setCommunityBoard={setCommunityBoard}/></div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={()=>setProfilePlayer(null)} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings}/>}</div>);
@@ -440,15 +465,15 @@ function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClose,setProfilePla
             <button onClick={()=>setUserTeams(new Set())} style={{fontFamily:sans,fontSize:11,padding:"5px 12px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#525252"}}>clear</button>
           </div>
           <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
-            {ALL_TEAMS.sort().map(t=><button key={t} onClick={()=>toggleTeam(t)} style={{fontFamily:sans,fontSize:11,padding:"5px 12px",background:userTeams.has(t)?"#171717":"transparent",color:userTeams.has(t)?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>{t}</button>)}
+            {ALL_TEAMS.sort().map(t=><button key={t} onClick={()=>toggleTeam(t)} style={{fontFamily:sans,fontSize:11,padding:"5px 12px",background:userTeams.has(t)?"#171717":"transparent",color:userTeams.has(t)?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:6}}><NFLTeamLogo team={t} size={16}/>{t}</button>)}
           </div>
         </div>
 
         <div style={{display:"flex",gap:12,marginBottom:16}}>
           <div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px"}}>
             <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>rounds</div>
-            <div style={{display:"flex",gap:6}}>
-              {[1,2,3,4,7].map(r=><button key={r} onClick={()=>setNumRounds(r)} style={{fontFamily:sans,fontSize:13,fontWeight:numRounds===r?700:400,padding:"8px 14px",background:numRounds===r?"#171717":"transparent",color:numRounds===r?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>{r}</button>)}
+            <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
+              {[1,2,3,4,5,6,7].map(r=><button key={r} onClick={()=>setNumRounds(r)} style={{fontFamily:sans,fontSize:13,fontWeight:numRounds===r?700:400,padding:"8px 14px",background:numRounds===r?"#171717":"transparent",color:numRounds===r?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>{r}</button>)}
             </div>
           </div>
           <div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px"}}>
@@ -502,14 +527,14 @@ function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClose,setProfilePla
             const showRound=i===0||pick.round!==picks[i-1].round;
             return<div key={i}>{showRound&&<div style={{padding:"8px 16px",background:"#f5f5f5",fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>round {pick.round}</div>}<div style={{display:"flex",alignItems:"center",gap:10,padding:"10px 16px",borderBottom:"1px solid #f5f5f5",background:isUser?"#22c55e06":"transparent"}}>
               <span style={{fontFamily:mono,fontSize:12,color:"#d4d4d4",width:28,textAlign:"right"}}>{pick.pick}</span>
-              <span style={{fontFamily:sans,fontSize:12,fontWeight:isUser?700:400,color:isUser?"#171717":"#a3a3a3",width:100}}>{pick.team}</span>
+              <span style={{display:"inline-flex",alignItems:"center",gap:6,fontFamily:sans,fontSize:12,fontWeight:isUser?700:400,color:isUser?"#171717":"#a3a3a3",width:120}}><NFLTeamLogo team={pick.team} size={18}/>{pick.team}</span>
               <span style={{fontFamily:mono,fontSize:10,color:c,width:28}}>{p.pos}</span>
               <SchoolLogo school={p.school} size={20}/>
               <span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",flex:1,cursor:"pointer"}} onClick={()=>setProfilePlayer(p)} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span>
               <span style={{fontFamily:font,fontSize:14,fontWeight:900,color:getGrade(pick.playerId)>=75?"#16a34a":getGrade(pick.playerId)>=55?"#ca8a04":"#dc2626"}}>{getGrade(pick.playerId)}</span>
             </div></div>;
           })}
-          {picks.length<totalPicks&&!isUserPick&&<div style={{padding:"16px",textAlign:"center"}}><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>⏳ pick #{picks.length+1} — {fullDraftOrder[picks.length]?.team} is on the clock...</span></div>}
+          {picks.length<totalPicks&&!isUserPick&&<div style={{padding:"16px",textAlign:"center",display:"flex",alignItems:"center",justifyContent:"center",gap:8}}><NFLTeamLogo team={fullDraftOrder[picks.length]?.team} size={20}/><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>pick #{picks.length+1} — {fullDraftOrder[picks.length]?.team} is on the clock...</span></div>}
           {picks.length>=totalPicks&&<div style={{padding:"20px",textAlign:"center"}}><p style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"0 0 4px"}}>draft complete!</p><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3"}}>your picks are highlighted in green</p></div>}
         </div>
       </div>
