@@ -4,23 +4,31 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 const JJ_VALUES={1:3000,2:2600,3:2200,4:1800,5:1700,6:1600,7:1500,8:1400,9:1350,10:1300,11:1250,12:1200,13:1150,14:1100,15:1050,16:1000,17:950,18:900,19:875,20:850,21:800,22:780,23:760,24:740,25:720,26:700,27:680,28:660,29:640,30:620,31:600,32:590,33:580,34:560,35:550,36:540,37:530,38:520,39:510,40:500,41:490,42:480,43:470,44:460,45:450,46:440,47:430,48:420,49:410,50:400,51:390,52:380,53:370,54:360,55:350,56:340,57:330,58:320,59:310,60:300,61:292,62:284,63:276,64:270,65:265,66:260,67:255,68:250,69:245,70:240,71:235,72:230,73:225,74:220,75:215,76:210,77:205,78:200,79:195,80:190,81:185,82:180,83:175,84:170,85:165,86:160,87:155,88:150,89:145,90:140,91:136,92:132,93:128,94:124,95:120,96:116,97:112,98:108,99:104,100:100};
 function getPickValue(n){return JJ_VALUES[n]||Math.max(5,Math.round(100-((n-100)*0.72)));}
 
-// Depth chart positions & mapping
-const DEPTH_POS=["QB","RB","WR1","WR2","WR3","TE","LT","LG","C","RG","RT","DE1","DT1","DT2","DE2","LB1","LB2","LB3","CB1","CB2","SS","FS","K"];
-const POS_TO_DEPTH={"QB":["QB"],"RB":["RB"],"WR":["WR1","WR2","WR3"],"TE":["TE"],"OL":["LT","LG","C","RG","RT"],"DL":["DE1","DT1","DT2","DE2"],"LB":["LB1","LB2","LB3"],"DB":["CB1","CB2","SS","FS"],"K/P":["K"]};
+// Depth chart: position groups with multiple slots each
+const DEPTH_GROUPS=[
+  {label:"QB",slots:["QB1","QB2"],posMatch:"QB"},
+  {label:"RB",slots:["RB1","RB2"],posMatch:"RB"},
+  {label:"WR",slots:["WR1","WR2","WR3","WR4"],posMatch:"WR"},
+  {label:"TE",slots:["TE1","TE2"],posMatch:"TE"},
+  {label:"OL",slots:["LT","LG","C","RG","RT"],posMatch:"OL"},
+  {label:"DL",slots:["DE1","DT1","DT2","DE2"],posMatch:"DL"},
+  {label:"LB",slots:["LB1","LB2","LB3"],posMatch:"LB"},
+  {label:"DB",slots:["CB1","CB2","SS","FS"],posMatch:"DB"},
+  {label:"K",slots:["K"],posMatch:"K/P"},
+];
+const ALL_SLOTS=DEPTH_GROUPS.flatMap(g=>g.slots);
 
-// Position mapping for needs
-const NEED_POS_MAP={"QB":"QB","RB":"RB","WR":"WR","TE":"TE","OL":"OL","DL":"DL","LB":"LB","DB":"DB","K/P":"K/P"};
-
-// Formation SVG: 4-3 defense + offense layout
+// Formation SVG positions
 const FORMATION_POSITIONS={
-  "QB":{x:50,y:88},"RB":{x:50,y:78},"WR1":{x:5,y:65},"WR2":{x:95,y:65},"WR3":{x:15,y:72},"TE":{x:80,y:68},
+  "QB1":{x:50,y:88},"QB2":null,"RB1":{x:50,y:78},"RB2":null,
+  "WR1":{x:5,y:65},"WR2":{x:95,y:65},"WR3":{x:15,y:72},"WR4":null,
+  "TE1":{x:80,y:68},"TE2":null,
   "LT":{x:32,y:68},"LG":{x:40,y:68},"C":{x:50,y:68},"RG":{x:60,y:68},"RT":{x:68,y:68},
   "DE1":{x:28,y:48},"DT1":{x:42,y:48},"DT2":{x:58,y:48},"DE2":{x:72,y:48},
   "LB1":{x:30,y:38},"LB2":{x:50,y:38},"LB3":{x:70,y:38},
   "CB1":{x:10,y:25},"CB2":{x:90,y:25},"SS":{x:65,y:18},"FS":{x:35,y:18},"K":{x:50,y:96}
 };
 
-// Value verdict
 function pickVerdict(pickNum,consRank){
   const diff=consRank-pickNum;
   if(diff>=20)return{text:"STEAL",color:"#16a34a",bg:"#dcfce7"};
@@ -47,9 +55,8 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
   const[tradeOffer,setTradeOffer]=useState(null);
   const[showResults,setShowResults]=useState(false);
   const[lastVerdict,setLastVerdict]=useState(null);
-  const[showTradeUp,setShowTradeUp]=useState(false);
-  const[tradeTarget,setTradeTarget]=useState(null);
-  const[undoStack,setUndoStack]=useState([]);
+  // tradeMap: pickIndex -> team that now owns it (overrides fullDraftOrder)
+  const[tradeMap,setTradeMap]=useState({});
 
   const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[PROSPECTS]);
   const gradeMap=useMemo(()=>{const m={};board.forEach(p=>m[p.id]=getGrade(p.id));return m;},[board,getGrade]);
@@ -66,9 +73,14 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
 
   const totalPicks=fullDraftOrder.length;
 
+  // Effective team at a pick index (respects trades)
+  const getPickTeam=useCallback((idx)=>{
+    return tradeMap[idx]||fullDraftOrder[idx]?.team;
+  },[tradeMap,fullDraftOrder]);
+
   const startDraft=useCallback(()=>{
     setAvailable(board.map(p=>p.id));
-    setPicks([]);setSetupDone(true);setShowResults(false);setUndoStack([]);setLastVerdict(null);
+    setPicks([]);setSetupDone(true);setShowResults(false);setTradeMap({});setLastVerdict(null);
   },[board]);
 
   // CPU pick logic
@@ -90,121 +102,110 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
 
   const isUserPick=useMemo(()=>{
     const n=picks.length;
-    return n<totalPicks&&userTeams.has(fullDraftOrder[n]?.team);
-  },[picks,userTeams,fullDraftOrder,totalPicks]);
+    if(n>=totalPicks)return false;
+    const team=getPickTeam(n);
+    return userTeams.has(team);
+  },[picks,userTeams,fullDraftOrder,totalPicks,getPickTeam]);
 
-  // === MAKE PICK (with undo support + per-pick verdict) ===
+  // Make a pick
   const makePick=useCallback((playerId,opts={})=>{
     const n=picks.length;if(n>=totalPicks)return;
-    const{team,round,pick}=fullDraftOrder[n];
-    // Save undo state
-    setUndoStack(prev=>[...prev,{picks:[...picks],available:[...available]}]);
-    const newPicks=[...picks,{pick,round,team,playerId,traded:opts.traded||false}];
+    const team=getPickTeam(n);
+    const{round,pick}=fullDraftOrder[n];
+    const newPicks=[...picks,{pick,round,team,playerId,traded:opts.traded||false,isUser:userTeams.has(team)&&!opts.traded}];
     setPicks(newPicks);
     setAvailable(prev=>prev.filter(id=>id!==playerId));
     // Per-pick verdict for user picks
-    if(userTeams.has(team)&&getConsensusRank&&!opts.traded){
+    if(userTeams.has(team)&&!opts.traded&&getConsensusRank){
       const p=prospectsMap[playerId];
       if(p){
         const rank=getConsensusRank(p.name);
         const v=pickVerdict(pick,rank);
         setLastVerdict({...v,player:p.name,pick,rank});
-        setTimeout(()=>setLastVerdict(null),3000);
+        setTimeout(()=>setLastVerdict(null),3500);
       }
     }
     if(newPicks.length>=totalPicks)setShowResults(true);
-  },[picks,fullDraftOrder,totalPicks,available,userTeams,prospectsMap,getConsensusRank]);
+  },[picks,fullDraftOrder,totalPicks,available,userTeams,prospectsMap,getConsensusRank,getPickTeam]);
 
-  // === UNDO ===
+  // === UNDO: rewind to just before the last USER pick ===
   const undo=useCallback(()=>{
-    if(undoStack.length===0)return;
-    const prev=undoStack[undoStack.length-1];
-    setPicks(prev.picks);
-    setAvailable(prev.available);
-    setUndoStack(s=>s.slice(0,-1));
+    if(picks.length===0)return;
+    // Find the index of the last user pick
+    let lastUserIdx=-1;
+    for(let i=picks.length-1;i>=0;i--){
+      if(picks[i].isUser){lastUserIdx=i;break;}
+    }
+    if(lastUserIdx===-1)return; // no user picks to undo
+    // Restore all players from lastUserIdx onward back to available
+    const removedPicks=picks.slice(lastUserIdx);
+    const restoredIds=removedPicks.map(p=>p.playerId);
+    const keptPicks=picks.slice(0,lastUserIdx);
+    // Rebuild available: current available + restored ids, in board order
+    const keptPlayerIds=new Set(keptPicks.map(p=>p.playerId));
+    const newAvailable=board.map(p=>p.id).filter(id=>!keptPlayerIds.has(id));
+    setPicks(keptPicks);
+    setAvailable(newAvailable);
     setLastVerdict(null);
     setShowResults(false);
-  },[undoStack]);
+    setTradeOffer(null);
+  },[picks,board]);
 
   // CPU auto-pick
   useEffect(()=>{
     if(!setupDone||picks.length>=totalPicks||paused)return;
-    const n=picks.length;const team=fullDraftOrder[n]?.team;
+    const n=picks.length;
+    const team=getPickTeam(n);
     if(userTeams.has(team))return;
     const timer=setTimeout(()=>{
       const pid=cpuPick(team,available);
       if(pid)makePick(pid);
     },speed);
     return()=>clearTimeout(timer);
-  },[picks,paused,available,userTeams,cpuPick,makePick,speed,setupDone,fullDraftOrder,totalPicks]);
+  },[picks,paused,available,userTeams,cpuPick,makePick,speed,setupDone,fullDraftOrder,totalPicks,getPickTeam]);
 
-  // CPU trade offers (rounds 1-3, 35% chance)
+  // CPU trade offers (rounds 1-3, 30% chance)
   useEffect(()=>{
     if(!isUserPick||tradeOffer||picks.length>=totalPicks)return;
     const userPickNum=picks.length;
     const userPickVal=getPickValue(userPickNum+1);
     const candidates=[];
     for(let i=userPickNum+3;i<Math.min(userPickNum+16,totalPicks);i++){
-      const t=fullDraftOrder[i];
-      if(t&&!userTeams.has(t.team)&&t.round<=3)candidates.push({idx:i,...t});
+      const t=getPickTeam(i);
+      if(t&&!userTeams.has(t)&&fullDraftOrder[i]?.round<=3)candidates.push({idx:i,team:t,...fullDraftOrder[i]});
     }
-    if(candidates.length>0&&Math.random()<0.35){
+    if(candidates.length>0&&Math.random()<0.30){
       const trader=candidates[Math.floor(Math.random()*candidates.length)];
       const theirVal=getPickValue(trader.pick);
       const futureRound=Math.min(trader.round+2,7);
       const futurePick=Math.min(trader.pick+64,totalPicks);
       const offerVal=theirVal+getPickValue(futurePick);
-      if(offerVal>=userPickVal*0.95){
-        setTradeOffer({fromTeam:trader.team,theirPick:trader.pick,theirRound:trader.round,futurePick,futureRound,userPick:userPickNum+1,userVal:userPickVal,offerVal:Math.round(offerVal)});
+      if(offerVal>=userPickVal*0.92){
+        setTradeOffer({fromTeam:trader.team,traderIdx:trader.idx,theirPick:trader.pick,theirRound:trader.round,futurePick,futureRound,userPickIdx:userPickNum,userPick:userPickNum+1,userVal:userPickVal,offerVal:Math.round(offerVal)});
       }
     }
-  },[isUserPick,picks,tradeOffer,totalPicks,fullDraftOrder,userTeams]);
+  },[isUserPick,picks,tradeOffer,totalPicks,fullDraftOrder,userTeams,getPickTeam]);
 
+  // === ACCEPT TRADE: CPU gets user's current slot, user gets CPU's slot ===
   const acceptTrade=useCallback(()=>{
     if(!tradeOffer)return;
     const cpuTeam=tradeOffer.fromTeam;
+    const userPickIdx=tradeOffer.userPickIdx;
+    const cpuPickIdx=tradeOffer.traderIdx;
+    // Remap ownership: user's current pick goes to CPU, CPU's pick goes to user
+    setTradeMap(prev=>({...prev,[userPickIdx]:cpuTeam,[cpuPickIdx]:[...userTeams][0]}));
+    // Now CPU makes the pick at user's current slot
     const pid=cpuPick(cpuTeam,available);
-    if(pid)makePick(pid,{traded:true});
+    if(pid){
+      const{round,pick}=fullDraftOrder[userPickIdx];
+      const newPicks=[...picks,{pick,round,team:cpuTeam,playerId:pid,traded:true,isUser:false}];
+      setPicks(newPicks);
+      setAvailable(prev=>prev.filter(id=>id!==pid));
+    }
     setTradeOffer(null);
-  },[tradeOffer,cpuPick,available,makePick]);
+  },[tradeOffer,cpuPick,available,picks,fullDraftOrder,userTeams]);
 
   const declineTrade=()=>setTradeOffer(null);
-
-  // === USER-INITIATED TRADE UP ===
-  const tradeUpTargets=useMemo(()=>{
-    if(!isUserPick)return[];
-    const userPickNum=picks.length+1;
-    const userVal=getPickValue(userPickNum);
-    const targets=[];
-    // Look at upcoming CPU picks within 10 spots ahead
-    for(let i=Math.max(0,picks.length-10);i<picks.length;i++){
-      // We look at FUTURE picks the user doesn't own
-    }
-    // Actually look at picks between now and 10 spots back in draft order that haven't happened
-    // The user wants to trade UP - swap with a team picking BEFORE them
-    // Since we're on the clock, we can offer to swap with the NEXT pick
-    // Better: let user pick any upcoming CPU pick slot to trade into
-    return targets;
-  },[isUserPick,picks]);
-
-  const proposeTrade=useCallback((targetPickIdx)=>{
-    const target=fullDraftOrder[targetPickIdx];
-    if(!target||userTeams.has(target.team))return;
-    const userPickNum=picks.length+1;
-    const targetPickNum=targetPickIdx+1;
-    const userVal=getPickValue(userPickNum);
-    const targetVal=getPickValue(targetPickNum);
-    setTradeTarget({targetTeam:target.team,targetPick:targetPickNum,targetRound:target.round,userPick:userPickNum,userVal,targetVal,deficit:targetVal-userVal});
-  },[fullDraftOrder,picks,userTeams]);
-
-  const executeTradeUp=useCallback(()=>{
-    if(!tradeTarget)return;
-    // User gives up their current pick position + the deficit in future picks
-    // CPU takes the user's slot, user gets the target's slot
-    // Simplified: just swap — the user already "paid" by concept
-    setTradeTarget(null);
-    setShowTradeUp(false);
-  },[tradeTarget]);
 
   const toggleTeam=(t)=>setUserTeams(prev=>{const n=new Set(prev);n.has(t)?n.delete(t):n.add(t);return n;});
   const toggleCompare=(p)=>{
@@ -216,16 +217,18 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
     });
   };
 
-  // Depth chart for user teams
+  // Depth chart: multiple players per position group
   const depthChart=useMemo(()=>{
     const chart={};
     [...userTeams].forEach(team=>{
       chart[team]={};
+      ALL_SLOTS.forEach(s=>chart[team][s]=null);
       const teamPicks=picks.filter(pk=>pk.team===team);
       teamPicks.forEach(pk=>{
         const p=prospectsMap[pk.playerId];if(!p)return;
-        const slots=POS_TO_DEPTH[p.pos]||[];
-        for(const slot of slots){
+        const group=DEPTH_GROUPS.find(g=>g.posMatch===p.pos);
+        if(!group)return;
+        for(const slot of group.slots){
           if(!chart[team][slot]){chart[team][slot]=p;break;}
         }
       });
@@ -318,35 +321,30 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
     });
   },[picks,userTeams,prospectsMap,getGrade,POS_COLORS,draftGrade]);
 
-  // Formation depth chart SVG component
+  // Formation depth chart component
   const FormationChart=({team})=>{
     const chart=depthChart[team]||{};
     return(
-      <svg viewBox="0 0 100 105" style={{width:"100%",maxWidth:260}}>
-        {/* Field background */}
-        <rect x="0" y="0" width="100" height="105" rx="4" fill="#1a472a" opacity="0.9"/>
+      <svg viewBox="0 0 100 105" style={{width:"100%",maxWidth:280}}>
+        <rect x="0" y="0" width="100" height="105" rx="4" fill="#15803d"/>
         {/* Yard lines */}
-        {[15,30,45,60,75,90].map(y=><line key={y} x1="2" y1={y*105/105} x2="98" y2={y*105/105} stroke="rgba(255,255,255,0.08)" strokeWidth="0.3"/>)}
-        {/* Line of scrimmage */}
-        <line x1="2" y1="58" x2="98" y2="58" stroke="#fbbf24" strokeWidth="0.5" strokeDasharray="2,2"/>
-        <text x="50" y="56" textAnchor="middle" fill="rgba(255,255,255,0.15)" fontSize="2.5" fontFamily="monospace">LINE OF SCRIMMAGE</text>
-        {/* OFFENSE label */}
-        <text x="50" y="64" textAnchor="middle" fill="rgba(255,255,255,0.2)" fontSize="2" fontFamily="monospace" letterSpacing="0.5">OFFENSE</text>
-        {/* DEFENSE label */}
-        <text x="50" y="44" textAnchor="middle" fill="rgba(255,255,255,0.2)" fontSize="2" fontFamily="monospace" letterSpacing="0.5">DEFENSE</text>
-        {/* Position dots + labels */}
-        {DEPTH_POS.map(slot=>{
+        {[20,40,58,75,90].map(y=><line key={y} x1="2" y1={y} x2="98" y2={y} stroke="rgba(255,255,255,0.1)" strokeWidth="0.3"/>)}
+        {/* LOS */}
+        <line x1="2" y1="58" x2="98" y2="58" stroke="#fbbf24" strokeWidth="0.6" strokeDasharray="2,1.5"/>
+        <text x="50" y="56" textAnchor="middle" fill="rgba(255,255,255,0.2)" fontSize="2.2" fontFamily="monospace">LINE OF SCRIMMAGE</text>
+        {/* Position dots */}
+        {ALL_SLOTS.map(slot=>{
           const pos=FORMATION_POSITIONS[slot];if(!pos)return null;
           const player=chart[slot];
           const filled=!!player;
-          const isOffense=pos.y>58;
-          const dotColor=filled?(isOffense?"#22c55e":"#3b82f6"):"rgba(255,255,255,0.15)";
+          const isOff=pos.y>58;
+          const dotColor=filled?(isOff?"#4ade80":"#60a5fa"):"rgba(255,255,255,0.25)";
           const lastName=player?player.name.split(" ").pop():"";
           return(
             <g key={slot}>
-              <circle cx={pos.x} cy={pos.y} r={filled?2.8:2} fill={dotColor} stroke={filled?"rgba(255,255,255,0.4)":"rgba(255,255,255,0.1)"} strokeWidth="0.3"/>
-              <text x={pos.x} y={pos.y-3.5} textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="1.8" fontFamily="monospace">{slot}</text>
-              {filled&&<text x={pos.x} y={pos.y+5} textAnchor="middle" fill="#fff" fontSize="2" fontWeight="bold" fontFamily="sans-serif">{lastName}</text>}
+              <circle cx={pos.x} cy={pos.y} r={filled?2.6:1.8} fill={dotColor} stroke={filled?"#fff":"rgba(255,255,255,0.15)"} strokeWidth="0.3"/>
+              <text x={pos.x} y={pos.y-3.5} textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="2" fontFamily="monospace" fontWeight="bold">{slot.replace(/\d$/,'')}</text>
+              {filled&&<text x={pos.x} y={pos.y+5} textAnchor="middle" fill="#fff" fontSize="2.2" fontWeight="bold" fontFamily="sans-serif">{lastName}</text>}
             </g>
           );
         })}
@@ -354,14 +352,39 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
     );
   };
 
+  // Depth chart list (shows all drafted players per group, not just 1)
+  const DepthList=({team})=>{
+    const chart=depthChart[team]||{};
+    return(
+      <div style={{marginTop:6}}>
+        {DEPTH_GROUPS.map(group=>{
+          const players=group.slots.map(s=>chart[s]).filter(Boolean);
+          if(players.length===0)return null;
+          return(
+            <div key={group.label} style={{marginBottom:4}}>
+              <div style={{fontFamily:mono,fontSize:7,color:"rgba(255,255,255,0.35)",letterSpacing:1,textTransform:"uppercase"}}>{group.label}</div>
+              {players.map((p,i)=>(
+                <div key={i} style={{fontFamily:sans,fontSize:9,color:"#fff",padding:"1px 0",display:"flex",gap:4}}>
+                  <span style={{color:"rgba(255,255,255,0.4)",width:14}}>{group.slots[i]}</span>
+                  <span style={{fontWeight:i===0?600:400,color:i===0?"#fff":"rgba(255,255,255,0.6)"}}>{p.name}</span>
+                </div>
+              ))}
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
   // Live needs component
   const LiveNeeds=({team})=>{
     const needs=liveNeeds[team]||{};
     const entries=Object.entries(needs).filter(([,v])=>v>0);
-    const filled=Object.entries(TEAM_NEEDS_DETAILED?.[team]||{}).filter(([k])=>!needs[k]||needs[k]===0);
+    const base=TEAM_NEEDS_DETAILED?.[team]||{};
+    const filled=Object.entries(base).filter(([k])=>!needs[k]||needs[k]===0);
     return(
-      <div style={{marginTop:8}}>
-        <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"rgba(255,255,255,0.4)",textTransform:"uppercase",marginBottom:4}}>needs</div>
+      <div style={{marginTop:6}}>
+        <div style={{fontFamily:mono,fontSize:7,letterSpacing:1.5,color:"rgba(255,255,255,0.35)",textTransform:"uppercase",marginBottom:3}}>needs</div>
         <div style={{display:"flex",flexWrap:"wrap",gap:3}}>
           {entries.map(([pos,count])=>(
             <span key={pos} style={{fontFamily:mono,fontSize:8,padding:"1px 5px",background:"rgba(239,68,68,0.2)",color:"#fca5a5",border:"1px solid rgba(239,68,68,0.3)",borderRadius:3}}>
@@ -378,6 +401,9 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
     );
   };
 
+  // How many user picks exist
+  const userPickCount=useMemo(()=>picks.filter(p=>p.isUser).length,[picks]);
+
   // === SETUP SCREEN ===
   if(!setupDone)return(
     <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
@@ -389,7 +415,7 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
         <h1 style={{fontSize:28,fontWeight:900,color:"#171717",margin:"0 0 4px"}}>war room</h1>
         <p style={{fontFamily:sans,fontSize:13,color:"#737373",margin:"0 0 24px"}}>Draft as any team. Compare players, make trades, fill your depth chart.</p>
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:16}}>
-          <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>your team(s) — select up to 4</div>
+          <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>your team(s)</div>
           <div style={{display:"flex",gap:6,marginBottom:12}}>
             <button onClick={()=>setUserTeams(new Set())} style={{fontFamily:sans,fontSize:11,padding:"5px 12px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#525252"}}>clear</button>
           </div>
@@ -401,7 +427,7 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
           <div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px"}}>
             <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>rounds</div>
             <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
-              {[1,2,3,4,7].map(r=><button key={r} onClick={()=>setNumRounds(r)} style={{fontFamily:sans,fontSize:13,fontWeight:numRounds===r?700:400,padding:"8px 14px",background:numRounds===r?"#171717":"transparent",color:numRounds===r?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>{r}</button>)}
+              {[1,2,3,4,5,6,7].map(r=><button key={r} onClick={()=>setNumRounds(r)} style={{fontFamily:sans,fontSize:13,fontWeight:numRounds===r?700:400,padding:"8px 14px",background:numRounds===r?"#171717":"transparent",color:numRounds===r?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>{r}</button>)}
             </div>
           </div>
           <div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px"}}>
@@ -419,8 +445,9 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
     </div>
   );
 
-  const currentRound=picks.length<totalPicks?fullDraftOrder[picks.length].round:numRounds;
-  const currentTeam=picks.length<totalPicks?fullDraftOrder[picks.length].team:"";
+  const currentPickIdx=picks.length;
+  const currentRound=currentPickIdx<totalPicks?fullDraftOrder[currentPickIdx].round:numRounds;
+  const currentTeam=currentPickIdx<totalPicks?getPickTeam(currentPickIdx):"";
 
   // === DRAFT RESULTS ===
   if(showResults&&picks.length>=totalPicks){
@@ -431,7 +458,7 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
           <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>draft complete</span>
           <button onClick={onClose} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>✕ exit</button>
         </div>
-        <div style={{maxWidth:700,margin:"0 auto",padding:"52px 24px 40px",textAlign:"center"}}>
+        <div style={{maxWidth:750,margin:"0 auto",padding:"52px 24px 40px",textAlign:"center"}}>
           <h1 style={{fontSize:36,fontWeight:900,color:"#171717",margin:"0 0 8px"}}>draft complete!</h1>
           {draftGrade&&<div style={{display:"inline-block",padding:"12px 32px",background:"#fff",border:`2px solid ${draftGrade.color}`,borderRadius:16,marginBottom:24}}>
             <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>draft grade</div>
@@ -439,9 +466,8 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
           </div>}
           <div style={{display:"flex",gap:8,justifyContent:"center",marginBottom:24}}>
             <button onClick={shareDraft} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 20px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>📤 share results</button>
-            <button onClick={()=>{setSetupDone(false);setPicks([]);setShowResults(false);}} style={{fontFamily:sans,fontSize:12,padding:"8px 20px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>draft again</button>
+            <button onClick={()=>{setSetupDone(false);setPicks([]);setShowResults(false);setTradeMap({});}} style={{fontFamily:sans,fontSize:12,padding:"8px 20px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>draft again</button>
           </div>
-          {/* Results by team */}
           {[...userTeams].map(team=>{
             const teamPicks=userPicks.filter(pk=>pk.team===team);
             return(
@@ -450,12 +476,9 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
                   <NFLTeamLogo team={team} size={20}/>
                   <span style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717"}}>{team}</span>
                 </div>
-                {/* Formation chart */}
                 <div style={{display:"flex",gap:16,marginBottom:12}}>
-                  <div style={{flex:1}}>
-                    <FormationChart team={team}/>
-                  </div>
-                  <div style={{flex:2,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
+                  <div style={{flex:"0 0 180px"}}><FormationChart team={team}/></div>
+                  <div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
                     {teamPicks.map((pk,i)=>{const p=prospectsMap[pk.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const g=getGrade(pk.playerId);const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;const v=pickVerdict(pk.pick,rank);
                       return<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"8px 14px",borderBottom:"1px solid #f5f5f5"}}>
                         <span style={{fontFamily:mono,fontSize:10,color:"#d4d4d4",width:44}}>Rd{pk.round} #{pk.pick}</span>
@@ -486,15 +509,15 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
           {isUserPick&&<span style={{fontFamily:sans,fontSize:10,fontWeight:700,color:"#22c55e"}}>YOUR PICK</span>}
         </div>
         <div style={{display:"flex",gap:6}}>
-          {undoStack.length>0&&<button onClick={undo} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:"#fef3c7",color:"#92400e"}}>↩ undo</button>}
-          <button onClick={()=>setShowDepth(!showDepth)} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:showDepth?"#171717":"transparent",color:showDepth?"#faf9f6":"#a3a3a3"}}>formation</button>
+          {userPickCount>0&&<button onClick={undo} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:"#fef3c7",color:"#92400e"}}>↩ undo</button>}
+          <button onClick={()=>setShowDepth(!showDepth)} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:showDepth?"#171717":"transparent",color:showDepth?"#faf9f6":"#a3a3a3"}}>depth chart</button>
           <button onClick={()=>setPaused(!paused)} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:paused?"#fef3c7":"transparent",color:paused?"#92400e":"#a3a3a3"}}>{paused?"▶ resume":"⏸ pause"}</button>
           <button onClick={onClose} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>✕ exit</button>
         </div>
       </div>
 
       {/* Per-pick verdict toast */}
-      {lastVerdict&&<div style={{position:"fixed",top:44,left:"50%",transform:"translateX(-50%)",zIndex:200,padding:"8px 20px",background:lastVerdict.bg,border:`2px solid ${lastVerdict.color}`,borderRadius:99,display:"flex",alignItems:"center",gap:8,animation:"fadeIn 0.3s ease"}}>
+      {lastVerdict&&<div style={{position:"fixed",top:44,left:"50%",transform:"translateX(-50%)",zIndex:200,padding:"8px 20px",background:lastVerdict.bg,border:`2px solid ${lastVerdict.color}`,borderRadius:99,display:"flex",alignItems:"center",gap:8,boxShadow:"0 4px 12px rgba(0,0,0,0.1)"}}>
         <span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:lastVerdict.color}}>{lastVerdict.text}</span>
         <span style={{fontFamily:sans,fontSize:11,color:"#525252"}}>{lastVerdict.player} — consensus #{lastVerdict.rank} at pick #{lastVerdict.pick}</span>
       </div>}
@@ -506,7 +529,7 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
           <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
             {picks.map((pick,i)=>{const p=prospectsMap[pick.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const isUser=userTeams.has(pick.team);
               const showRound=i===0||pick.round!==picks[i-1].round;
-              return<div key={i}>{showRound&&<div style={{padding:"5px 10px",background:"#f5f5f5",fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>round {pick.round}</div>}<div style={{display:"flex",alignItems:"center",gap:5,padding:"5px 10px",borderBottom:"1px solid #f8f8f8",background:isUser?"#22c55e06":"transparent",fontSize:11}}>
+              return<div key={i}>{showRound&&<div style={{padding:"5px 10px",background:"#f5f5f5",fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>round {pick.round}</div>}<div style={{display:"flex",alignItems:"center",gap:5,padding:"5px 10px",borderBottom:"1px solid #f8f8f8",background:isUser?"#22c55e06":"transparent"}}>
                 <span style={{fontFamily:mono,fontSize:9,color:"#d4d4d4",width:18,textAlign:"right"}}>{pick.pick}</span>
                 <NFLTeamLogo team={pick.team} size={13}/>
                 <span style={{fontFamily:mono,fontSize:8,color:c}}>{p.pos}</span>
@@ -521,15 +544,14 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
           </div>
         </div>
 
-        {/* CENTER: Available players + on the clock */}
+        {/* CENTER */}
         <div style={{flex:1,minWidth:0}}>
-          {/* Trade offer from CPU */}
+          {/* Trade offer */}
           {tradeOffer&&<div style={{background:"#a855f708",border:"2px solid #a855f7",borderRadius:12,padding:"14px 18px",marginBottom:10}}>
             <p style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",margin:"0 0 4px"}}>📞 Trade offer from {tradeOffer.fromTeam}</p>
             <p style={{fontFamily:sans,fontSize:11,color:"#525252",margin:"0 0 6px"}}>
               They want your pick #{tradeOffer.userPick}. Offering: Rd{tradeOffer.theirRound} #{tradeOffer.theirPick} + Rd{tradeOffer.futureRound} #{tradeOffer.futurePick}
             </p>
-            {/* Trade value bar */}
             <div style={{marginBottom:8}}>
               <div style={{display:"flex",justifyContent:"space-between",fontFamily:mono,fontSize:8,color:"#a3a3a3",marginBottom:2}}>
                 <span>your pick: {tradeOffer.userVal} pts</span>
@@ -550,16 +572,14 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
 
           {/* On the clock */}
           {isUserPick&&picks.length<totalPicks&&<div style={{background:"#22c55e08",border:"2px solid #22c55e",borderRadius:12,padding:"10px 14px",marginBottom:10}}>
-            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-              <div style={{display:"flex",alignItems:"center",gap:8}}>
-                <NFLTeamLogo team={currentTeam} size={22}/>
-                <div>
-                  <p style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",margin:0}}>You're on the clock — Rd {currentRound} Pick #{picks.length+1}</p>
-                  <div style={{display:"flex",gap:3,marginTop:3}}>
-                    {Object.entries(liveNeeds[currentTeam]||{}).filter(([,v])=>v>0).map(([pos,count])=>(
-                      <span key={pos} style={{fontFamily:mono,fontSize:8,padding:"1px 5px",background:`${POS_COLORS[pos]||"#737373"}15`,color:POS_COLORS[pos]||"#737373",borderRadius:3,border:`1px solid ${POS_COLORS[pos]||"#737373"}30`}}>{pos}{count>1?` ×${count}`:""}</span>
-                    ))}
-                  </div>
+            <div style={{display:"flex",alignItems:"center",gap:8}}>
+              <NFLTeamLogo team={currentTeam} size={22}/>
+              <div>
+                <p style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",margin:0}}>You're on the clock — Rd {currentRound} Pick #{picks.length+1}</p>
+                <div style={{display:"flex",gap:3,marginTop:3}}>
+                  {Object.entries(liveNeeds[currentTeam]||{}).filter(([,v])=>v>0).map(([pos,count])=>(
+                    <span key={pos} style={{fontFamily:mono,fontSize:8,padding:"1px 5px",background:`${POS_COLORS[pos]||"#737373"}15`,color:POS_COLORS[pos]||"#737373",borderRadius:3,border:`1px solid ${POS_COLORS[pos]||"#737373"}30`}}>{pos}{count>1?` ×${count}`:""}</span>
+                  ))}
                 </div>
               </div>
             </div>
@@ -601,16 +621,17 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
           </div>
         </div>
 
-        {/* RIGHT: Formation depth chart + live needs */}
-        {showDepth&&<div style={{width:270,flexShrink:0,maxHeight:"calc(100vh - 60px)",overflowY:"auto"}}>
+        {/* RIGHT: Depth chart panel */}
+        {showDepth&&<div style={{width:280,flexShrink:0,maxHeight:"calc(100vh - 60px)",overflowY:"auto"}}>
           {[...userTeams].map(team=>(
-            <div key={team} style={{background:"#0f172a",border:"1px solid #1e293b",borderRadius:12,padding:"12px",marginBottom:8}}>
-              <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:8}}>
+            <div key={team} style={{background:"#15803d",border:"1px solid #166534",borderRadius:12,padding:"10px",marginBottom:8}}>
+              <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:6}}>
                 <NFLTeamLogo team={team} size={16}/>
                 <span style={{fontFamily:sans,fontSize:12,fontWeight:700,color:"#fff"}}>{team}</span>
-                <span style={{fontFamily:mono,fontSize:8,color:"#64748b",marginLeft:"auto"}}>{picks.filter(pk=>pk.team===team).length} picks</span>
+                <span style={{fontFamily:mono,fontSize:8,color:"rgba(255,255,255,0.5)",marginLeft:"auto"}}>{picks.filter(pk=>pk.team===team).length} picks</span>
               </div>
               <FormationChart team={team}/>
+              <DepthList team={team}/>
               <LiveNeeds team={team}/>
             </div>
           ))}
