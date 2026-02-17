@@ -299,21 +299,50 @@ function DraftBoard({user,onSignOut}){
   const getBoard=useCallback(()=>PROSPECTS.filter(p=>rankedGroups.has(p.pos)).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings]);
   const finishTraits=useCallback((pos)=>{setTraitReviewedGroups(prev=>new Set([...prev,pos]));const ranked=getRanked(pos);const byGrade=[...ranked].sort((a,b)=>getGrade(b.id)-getGrade(a.id));const conflicts=ranked.map((p,i)=>{const gi=byGrade.findIndex(x=>x.id===p.id);return Math.abs(i-gi)>=3?{player:p,pairRank:i+1,gradeRank:gi+1,grade:getGrade(p.id)}:null;}).filter(Boolean);if(conflicts.length){setReconcileQueue(conflicts);setReconcileIndex(0);setPhase("reconcile");}else setPhase("pick-position");},[getRanked,getGrade]);
 
-  const SaveBar=()=>(<div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{user.email}</span><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontFamily:mono,fontSize:10,color:saving?"#ca8a04":"#d4d4d4"}}>{saving?"saving...":lastSaved?`saved ${new Date(lastSaved).toLocaleTimeString()}`:""}</span><button onClick={onSignOut} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>sign out</button></div></div>);
+  const SaveBar=()=>(<div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontFamily:font,fontSize:13,fontWeight:900,color:"#171717",cursor:"pointer",letterSpacing:-0.5}} onClick={()=>setPhase(rankedGroups.size>0?"pick-position":"home")}>BBL</span><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{user.email}</span></div><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontFamily:mono,fontSize:10,color:saving?"#ca8a04":"#d4d4d4"}}>{saving?"saving...":lastSaved?`saved ${new Date(lastSaved).toLocaleTimeString()}`:""}</span><button onClick={onSignOut} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>sign out</button></div></div>);
 
   if(phase==="loading")return(<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading your board...</p></div>);
 
   // === HOME ===
-  if(phase==="home")return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:720,margin:"0 auto",padding:"72px 24px 60px"}}><div style={{textAlign:"center",marginBottom:48}}><p style={{fontFamily:mono,fontSize:11,letterSpacing:3,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>2026 NFL Draft · Pittsburgh · April 23–25</p><h1 style={{fontSize:"clamp(42px,8vw,72px)",fontWeight:900,lineHeight:0.95,color:"#171717",margin:"0 0 20px",letterSpacing:-2}}>build your<br/>big board.</h1><p style={{fontSize:17,color:"#737373",lineHeight:1.6,maxWidth:460,margin:"0 auto 32px",fontFamily:sans}}>All 319 combine invitees. Pick A or B. Adjust traits. Get your board.</p><button onClick={()=>setPhase("pick-position")} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"14px 40px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>start ranking</button></div><div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:1,background:"#e5e5e5",borderRadius:12,overflow:"hidden",marginBottom:40}}>{[["319","prospects"],["9","positions"],["54","traits"]].map(([n,l])=><div key={l} style={{background:"#faf9f6",padding:"20px 16px",textAlign:"center"}}><div style={{fontSize:32,fontWeight:900,color:"#171717",fontFamily:font}}>{n}</div><div style={{fontSize:11,fontFamily:mono,color:"#a3a3a3",letterSpacing:2,textTransform:"uppercase"}}>{l}</div></div>)}</div><div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px"}}><p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>how it works</p>{[["01","Pick a position group","Start with QBs, WRs, or wherever."],["02","A vs B matchups","Pick the better prospect. Set confidence. Rankings form automatically."],["03","Tune the traits","Adjust position-specific sliders. Grades pre-populate from rankings."],["04","Reconcile & finalize","When gut and grades disagree, you decide."]].map(([num,title,desc])=><div key={num} style={{display:"flex",gap:16,marginBottom:16,alignItems:"flex-start"}}><span style={{fontFamily:mono,fontSize:12,color:"#d4d4d4",fontWeight:500,flexShrink:0,marginTop:2}}>{num}</span><div><div style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717",marginBottom:2}}>{title}</div><div style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",lineHeight:1.4}}>{desc}</div></div></div>)}</div></div></div>);
+  if(phase==="home"||phase==="pick-position"){
+    const hasBoardData=rankedGroups.size>0;
+    return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 60px"}}>
 
-  // === POSITION PICKER ===
-  if(phase==="pick-position")return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 40px"}}><h1 style={{fontSize:36,fontWeight:900,color:"#171717",margin:"0 0 4px",letterSpacing:-1}}>positions</h1><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",margin:"0 0 28px"}}>rank each group, then tune traits to build your board</p><div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(200px, 1fr))",gap:12}}>{POSITION_GROUPS.map(pos=>{const ct=(byPos[pos]||[]).length;const done=rankedGroups.has(pos);const reviewed=traitReviewedGroups.has(pos);const c=POS_COLORS[pos];return(<div key={pos} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"18px 20px",position:"relative"}}>{done&&<span style={{position:"absolute",top:12,right:14,fontSize:10,fontFamily:mono,color:"#22c55e"}}>ranked</span>}<div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c,marginBottom:2}}>{pos}</div><div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",marginBottom:14}}>{ct} prospects</div><div style={{display:"flex",gap:8,flexWrap:"wrap"}}>{!done?<button onClick={()=>startRanking(pos)} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"7px 18px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>rank</button>:<><button onClick={()=>{setActivePos(pos);setSelectedPlayer(getRanked(pos)[0]);setPhase("traits");}} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"7px 18px",background:reviewed?`${c}11`:"#171717",color:reviewed?c:"#faf9f6",border:reviewed?`1px solid ${c}33`:"none",borderRadius:99,cursor:"pointer"}}>{reviewed?"✓ traits":"traits"}</button><button onClick={()=>startRanking(pos)} style={{fontFamily:sans,fontSize:11,padding:"7px 14px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>re-vote</button></>}</div></div>);})}</div>{rankedGroups.size>0&&<div style={{textAlign:"center",marginTop:32}}><button onClick={()=>setPhase("board")} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"14px 36px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>view big board ({rankedGroups.size}/{POSITION_GROUPS.length-1})</button></div>}</div></div>);
+    {hasBoardData&&<div style={{marginBottom:32}}>
+      <h1 style={{fontSize:36,fontWeight:900,color:"#171717",margin:"0 0 20px",letterSpacing:-1}}>big board lab</h1>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:24}}>
+        <button onClick={()=>setPhase("board")} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px",textAlign:"left",cursor:"pointer"}}>
+          <div style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",marginBottom:4}}>📋 big board</div>
+          <div style={{fontFamily:sans,fontSize:13,color:"#a3a3a3"}}>{getBoard().length} prospects ranked</div>
+        </button>
+        <button onClick={()=>setShowMockDraft(true)} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px",textAlign:"left",cursor:"pointer"}}>
+          <div style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",marginBottom:4}}>🏈 mock draft</div>
+          <div style={{fontFamily:sans,fontSize:13,color:"#a3a3a3"}}>sim the draft with your board</div>
+        </button>
+      </div>
+    </div>}
+
+    {!hasBoardData&&<div style={{textAlign:"center",marginBottom:48}}>
+      <p style={{fontFamily:mono,fontSize:11,letterSpacing:3,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>2026 NFL Draft · Pittsburgh · April 23–25</p>
+      <h1 style={{fontSize:"clamp(42px,8vw,72px)",fontWeight:900,lineHeight:0.95,color:"#171717",margin:"0 0 20px",letterSpacing:-2}}>build your<br/>big board.</h1>
+      <p style={{fontSize:17,color:"#737373",lineHeight:1.6,maxWidth:460,margin:"0 auto 32px",fontFamily:sans}}>All 319 combine invitees. Pick A or B. Adjust traits. Get your board.</p>
+    </div>}
+
+    <h2 style={{fontFamily:font,fontSize:hasBoardData?20:36,fontWeight:900,color:"#171717",margin:"0 0 4px",letterSpacing:-1}}>{hasBoardData?"edit positions":"positions"}</h2>
+    <p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",margin:"0 0 20px"}}>rank each group, then tune traits to build your board</p>
+    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(200px, 1fr))",gap:12}}>{POSITION_GROUPS.map(pos=>{const ct=(byPos[pos]||[]).length;const done=rankedGroups.has(pos);const reviewed=traitReviewedGroups.has(pos);const c=POS_COLORS[pos];return(<div key={pos} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"18px 20px",position:"relative"}}>{done&&<span style={{position:"absolute",top:12,right:14,fontSize:10,fontFamily:mono,color:"#22c55e"}}>ranked</span>}<div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c,marginBottom:2}}>{pos}</div><div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",marginBottom:14}}>{ct} prospects</div><div style={{display:"flex",gap:8,flexWrap:"wrap"}}>{!done?<button onClick={()=>startRanking(pos)} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"7px 18px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>rank</button>:<><button onClick={()=>{setActivePos(pos);setSelectedPlayer(getRanked(pos)[0]);setPhase("traits");}} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"7px 18px",background:reviewed?`${c}11`:"#171717",color:reviewed?c:"#faf9f6",border:reviewed?`1px solid ${c}33`:"none",borderRadius:99,cursor:"pointer"}}>{reviewed?"✓ rankings":"rankings"}</button><button onClick={()=>startRanking(pos)} style={{fontFamily:sans,fontSize:11,padding:"7px 14px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>re-vote</button></>}</div></div>);})}</div>
+    {rankedGroups.size>0&&!hasBoardData&&<div style={{textAlign:"center",marginTop:32}}><button onClick={()=>setPhase("board")} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"14px 36px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>view big board ({rankedGroups.size}/{POSITION_GROUPS.length-1})</button></div>}
+
+    {!hasBoardData&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginTop:32}}><p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>how it works</p>{[["01","Pick a position group","Start with QBs, WRs, or wherever."],["02","A vs B matchups","Pick the better prospect. Set confidence. Rankings form automatically."],["03","Review rankings","Drag to reorder. Click names for full profiles with traits and similar players."],["04","Reconcile & finalize","When gut and grades disagree, you decide."]].map(([num,title,desc])=><div key={num} style={{display:"flex",gap:16,marginBottom:16,alignItems:"flex-start"}}><span style={{fontFamily:mono,fontSize:12,color:"#d4d4d4",fontWeight:500,flexShrink:0,marginTop:2}}>{num}</span><div><div style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717",marginBottom:2}}>{title}</div><div style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",lineHeight:1.4}}>{desc}</div></div></div>)}</div>}
+
+    </div></div>);
+  }
 
   // === RANKING ===
   if(phase==="ranking"&&currentMatchup&&activePos){const[aId,bId]=currentMatchup;const pA=prospectsMap[aId],pB=prospectsMap[bId];const c=POS_COLORS[activePos];const totalM=(matchups[activePos]||[]).length;const doneM=(completed[activePos]||new Set()).size;const ranked=getRanked(activePos);return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 40px"}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}><h1 style={{fontSize:28,fontWeight:900,color:c,margin:0}}>rank {activePos}s</h1>{canFinish&&<button onClick={()=>finishRanking(activePos,ratings)} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"8px 20px",background:"#22c55e",color:"#fff",border:"none",borderRadius:99,cursor:"pointer"}}>✓ done</button>}</div><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 8px"}}>who's the better prospect?</p><div style={{height:3,background:"#e5e5e5",borderRadius:2,marginBottom:28,overflow:"hidden"}}><div style={{height:"100%",width:`${(doneM/totalM)*100}%`,background:c,transition:"width 0.3s",borderRadius:2}}/></div><div style={{display:"flex",gap:12,marginBottom:24,alignItems:"stretch",position:"relative"}}><div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",zIndex:2,fontFamily:font,fontSize:16,fontWeight:900,color:"#d4d4d4",background:"#faf9f6",padding:"4px 10px",borderRadius:99,border:"1px solid #e5e5e5"}}>vs</div>{[{p:pA,id:aId},{p:pB,id:bId}].map(({p,id})=><button key={id} onClick={()=>{if(showConfidence)return;setPendingWinner(id);setShowConfidence(true);}} style={{flex:1,padding:"32px 20px",background:pendingWinner===id?`${c}08`:"#fff",border:pendingWinner===id?`2px solid ${c}`:"1px solid #e5e5e5",borderRadius:16,cursor:showConfidence?"default":"pointer",textAlign:"center",transition:"all 0.15s",display:"flex",flexDirection:"column",alignItems:"center",gap:6}} onMouseEnter={e=>{if(!showConfidence)e.currentTarget.style.borderColor=c;}} onMouseLeave={e=>{if(!showConfidence&&pendingWinner!==id)e.currentTarget.style.borderColor="#e5e5e5";}}><SchoolLogo school={p.school} size={48}/><div style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",lineHeight:1.1,marginTop:4}}>{p.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3"}}>{p.school}</div><span style={{fontFamily:mono,fontSize:10,fontWeight:500,color:c,background:`${c}0d`,padding:"3px 10px",borderRadius:4,border:`1px solid ${c}1a`}}>{p.pos}</span></button>)}</div>{showConfidence&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:24,textAlign:"center"}}><p style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",margin:"0 0 4px"}}>how confident?</p><p style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",margin:"0 0 16px"}}>higher = bigger rating swing</p><div style={{display:"flex",gap:8,justifyContent:"center",flexWrap:"wrap"}}>{[["coin flip",.2],["leaning",.5],["confident",.75],["lock",1]].map(([label,val])=><button key={label} onClick={()=>handlePick(pendingWinner,val)} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:val>=.75?"#171717":"transparent",color:val>=.75?"#faf9f6":"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}} onMouseEnter={e=>{e.currentTarget.style.background="#171717";e.currentTarget.style.color="#faf9f6";}} onMouseLeave={e=>{if(val<.75){e.currentTarget.style.background="transparent";e.currentTarget.style.color="#525252";}}}>{label}</button>)}</div><button onClick={()=>{setShowConfidence(false);setPendingWinner(null);}} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",marginTop:10}}>← pick again</button></div>}<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:16}}><p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 10px"}}>live rankings</p>{ranked.slice(0,10).map((p,i)=><div key={p.id} style={{display:"flex",alignItems:"center",gap:10,padding:"5px 0",borderBottom:i<9?"1px solid #f5f5f5":"none"}}><span style={{fontFamily:mono,fontSize:11,color:"#d4d4d4",width:20,textAlign:"right"}}>{i+1}</span><SchoolLogo school={p.school} size={20}/><span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",flex:1,cursor:"pointer",textDecoration:"none"}} onClick={e=>{e.stopPropagation();setProfilePlayer(p);}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{Math.round(ratings[p.id]||1500)}</span></div>)}</div><button onClick={()=>setPhase("pick-position")} style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"8px 20px",cursor:"pointer"}}>← back</button></div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={()=>setProfilePlayer(null)} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings}/>}</div>);}
 
   // === TRAITS ===
-  if(phase==="traits"&&activePos){const ranked=getRanked(activePos);const posTraits=POSITION_TRAITS[activePos]||[];const c=POS_COLORS[activePos];const cur=selectedPlayer||ranked[0];const curIdx=ranked.findIndex(p=>p.id===cur?.id);return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:900,margin:"0 auto",padding:"52px 24px 40px"}}><h1 style={{fontSize:28,fontWeight:900,color:c,margin:"0 0 4px"}}>{activePos} traits &amp; rankings</h1><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 24px"}}>drag to reorder · click to edit traits</p><div style={{display:"flex",gap:16}}><DraggableRankList ranked={ranked} activePos={activePos} cur={cur} c={c} getGrade={getGrade} setSelectedPlayer={setSelectedPlayer} movePlayer={movePlayer} setProfilePlayer={setProfilePlayer} font={font} mono={mono} sans={sans}/>{cur&&<div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:24}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:24,paddingBottom:16,borderBottom:"1px solid #f5f5f5"}}><div style={{display:"flex",alignItems:"center",gap:14}}><SchoolLogo school={cur.school} size={44}/><div><div style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717"}}>{cur.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3"}}>{cur.school}</div></div></div><div style={{textAlign:"right"}}><div style={{fontFamily:font,fontSize:36,fontWeight:900,color:getGrade(cur.id)>=75?"#16a34a":getGrade(cur.id)>=55?"#ca8a04":"#dc2626",lineHeight:1}}>{getGrade(cur.id)}</div><div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>grade</div></div></div><div style={{display:"flex",gap:24}}><div style={{flex:1}}>{posTraits.map(trait=>{const val=traits[cur.id]?.[trait]||50;return<div key={trait} style={{marginBottom:16}}><div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}><span style={{fontFamily:mono,fontSize:11,color:"#737373"}}>{trait}</span><span style={{fontFamily:font,fontSize:14,fontWeight:900,color:c}}>{val}</span></div><div style={{position:"relative",height:6}}><div style={{position:"absolute",inset:0,background:"#f5f5f5",borderRadius:3}}/><div style={{position:"absolute",top:0,left:0,height:"100%",width:`${val}%`,background:c,borderRadius:3,opacity:.7}}/><input type="range" min="0" max="100" value={val} onChange={e=>setTraits(prev=>({...prev,[cur.id]:{...prev[cur.id],[trait]:parseInt(e.target.value)}}))} style={{position:"absolute",top:-6,left:0,width:"100%",height:18,background:"transparent",cursor:"pointer",zIndex:2}}/></div></div>;})}</div><div style={{flexShrink:0,display:"flex",alignItems:"center"}}><RadarChart traits={posTraits} values={posTraits.map(t=>traits[cur.id]?.[t]||50)} color={c} size={180}/></div></div><div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:20,paddingTop:16,borderTop:"1px solid #f5f5f5"}}><button onClick={()=>curIdx>0&&setSelectedPlayer(ranked[curIdx-1])} disabled={curIdx<=0} style={{fontFamily:sans,fontSize:12,padding:"7px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:curIdx>0?"pointer":"default",color:curIdx>0?"#525252":"#d4d4d4"}}>← prev</button><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{curIdx+1} / {ranked.length}</span><button onClick={()=>curIdx<ranked.length-1&&setSelectedPlayer(ranked[curIdx+1])} disabled={curIdx>=ranked.length-1} style={{fontFamily:sans,fontSize:12,padding:"7px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:curIdx<ranked.length-1?"pointer":"default",color:curIdx<ranked.length-1?"#525252":"#d4d4d4"}}>next →</button></div></div>}</div><div style={{display:"flex",gap:10,marginTop:20,justifyContent:"center"}}><button onClick={()=>setPhase("pick-position")} style={{fontFamily:sans,fontSize:12,padding:"8px 20px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>← back</button><button onClick={()=>finishTraits(activePos)} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 28px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>finish traits →</button></div></div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={()=>setProfilePlayer(null)} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings}/>}</div>);}
+  if(phase==="traits"&&activePos){const ranked=getRanked(activePos);const posTraits=POSITION_TRAITS[activePos]||[];const c=POS_COLORS[activePos];const cur=selectedPlayer||ranked[0];const curIdx=ranked.findIndex(p=>p.id===cur?.id);return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:900,margin:"0 auto",padding:"52px 24px 40px"}}><h1 style={{fontSize:28,fontWeight:900,color:c,margin:"0 0 4px"}}>{activePos} rankings</h1><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 24px"}}>drag to reorder · click name for full profile</p><div style={{display:"flex",gap:16}}><DraggableRankList ranked={ranked} activePos={activePos} cur={cur} c={c} getGrade={getGrade} setSelectedPlayer={setSelectedPlayer} movePlayer={movePlayer} setProfilePlayer={setProfilePlayer} font={font} mono={mono} sans={sans}/>{cur&&<div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:24}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:20,paddingBottom:16,borderBottom:"1px solid #f5f5f5"}}><div style={{display:"flex",alignItems:"center",gap:14}}><SchoolLogo school={cur.school} size={44}/><div><div style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717",cursor:"pointer"}} onClick={()=>setProfilePlayer(cur)} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{cur.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3"}}>{cur.school}</div></div></div><div style={{textAlign:"right"}}><div style={{fontFamily:font,fontSize:36,fontWeight:900,color:getGrade(cur.id)>=75?"#16a34a":getGrade(cur.id)>=55?"#ca8a04":"#dc2626",lineHeight:1}}>{getGrade(cur.id)}</div><div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>grade</div></div></div><div style={{display:"flex",justifyContent:"center",marginBottom:16}}><RadarChart traits={posTraits} values={posTraits.map(t=>traits[cur.id]?.[t]||50)} color={c} size={220}/></div><div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"8px 16px"}}>{posTraits.map(trait=>{const val=traits[cur.id]?.[trait]||50;return<div key={trait} style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}><span style={{fontFamily:mono,fontSize:11,color:"#737373"}}>{trait}</span><span style={{fontFamily:font,fontSize:14,fontWeight:900,color:c}}>{val}</span></div>;})}</div>{notes[cur.id]&&<div style={{marginTop:16,padding:"10px 12px",background:"#faf9f6",borderRadius:8,border:"1px solid #f0f0f0"}}><div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",letterSpacing:1,textTransform:"uppercase",marginBottom:4}}>notes</div><div style={{fontFamily:sans,fontSize:12,color:"#525252",lineHeight:1.5}}>{notes[cur.id]}</div></div>}<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:20,paddingTop:16,borderTop:"1px solid #f5f5f5"}}><button onClick={()=>curIdx>0&&setSelectedPlayer(ranked[curIdx-1])} disabled={curIdx<=0} style={{fontFamily:sans,fontSize:12,padding:"7px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:curIdx>0?"pointer":"default",color:curIdx>0?"#525252":"#d4d4d4"}}>← prev</button><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{curIdx+1} / {ranked.length}</span><button onClick={()=>curIdx<ranked.length-1&&setSelectedPlayer(ranked[curIdx+1])} disabled={curIdx>=ranked.length-1} style={{fontFamily:sans,fontSize:12,padding:"7px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:curIdx<ranked.length-1?"pointer":"default",color:curIdx<ranked.length-1?"#525252":"#d4d4d4"}}>next →</button></div></div>}</div><div style={{display:"flex",gap:10,marginTop:20,justifyContent:"center"}}><button onClick={()=>setPhase("pick-position")} style={{fontFamily:sans,fontSize:12,padding:"8px 20px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>← back</button><button onClick={()=>finishTraits(activePos)} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 28px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>save rankings →</button></div></div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={()=>setProfilePlayer(null)} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings}/>}</div>);}
 
   // === RECONCILE ===
   if(phase==="reconcile"&&reconcileQueue.length>0){const item=reconcileQueue[Math.min(reconcileIndex,reconcileQueue.length-1)];const c=POS_COLORS[item.player.pos];const dir=item.gradeRank<item.pairRank?"higher":"lower";return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:500,margin:"0 auto",padding:"52px 24px"}}><p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 4px"}}>reconcile · {reconcileIndex+1} of {reconcileQueue.length}</p><div style={{height:3,background:"#e5e5e5",borderRadius:2,marginBottom:28,overflow:"hidden"}}><div style={{height:"100%",width:`${((reconcileIndex+1)/reconcileQueue.length)*100}%`,background:c,borderRadius:2}}/></div><div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:32,textAlign:"center"}}><SchoolLogo school={item.player.school} size={56}/><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c,marginBottom:4,marginTop:8}}>{item.player.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3",marginBottom:24}}>{item.player.school}</div><div style={{display:"flex",justifyContent:"center",gap:32,marginBottom:24}}>{[["gut rank",`#${item.pairRank}`,"#171717"],["grade rank",`#${item.gradeRank}`,dir==="higher"?"#16a34a":"#dc2626"],["composite",`${item.grade}`,"#171717"]].map(([label,val,col])=><div key={label}><div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:4}}>{label}</div><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:col}}>{val}</div></div>)}</div><p style={{fontFamily:sans,fontSize:14,color:"#737373",lineHeight:1.5,marginBottom:24}}>your traits suggest this player should rank <strong style={{color:dir==="higher"?"#16a34a":"#dc2626"}}>{dir}</strong> than your gut. accept?</p><div style={{display:"flex",gap:10,justifyContent:"center"}}><button onClick={()=>{const pos=item.player.pos;const rk=getRanked(pos);const ti=item.gradeRank-1;const tp=rk[ti];if(tp)setRatings(prev=>({...prev,[item.player.id]:(prev[tp.id]||1500)+(dir==="higher"?1:-1)}));reconcileIndex>=reconcileQueue.length-1?setPhase("pick-position"):setReconcileIndex(reconcileIndex+1);}} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 24px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>accept</button><button onClick={()=>reconcileIndex>=reconcileQueue.length-1?setPhase("pick-position"):setReconcileIndex(reconcileIndex+1)} style={{fontFamily:sans,fontSize:13,padding:"10px 24px",background:"transparent",color:"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>keep my rank</button></div></div></div></div>);}
@@ -328,15 +357,36 @@ function DraftBoard({user,onSignOut}){
 }
 
 function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClose,setProfilePlayer,profilePlayer,traits,setTraits,notes,setNotes,allProspects,CONSENSUS,ratings}){
-  const[picks,setPicks]=useState([]);const[available,setAvailable]=useState(()=>board.map(p=>p.id));
-  const[userTeam]=useState(()=>draftOrder[Math.floor(Math.random()*10)].team);
-  const[paused,setPaused]=useState(false);const[speed]=useState(800);
+  const ALL_TEAMS=[...new Set(draftOrder.map(d=>d.team))];
+  const[setupDone,setSetupDone]=useState(false);
+  const[userTeams,setUserTeams]=useState(new Set());
+  const[numRounds,setNumRounds]=useState(1);
+  const[speed,setSpeed]=useState(600);
+  const[picks,setPicks]=useState([]);
+  const[available,setAvailable]=useState([]);
+  const[paused,setPaused]=useState(false);
   const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[]);
   const gradeMap=useMemo(()=>{const m={};board.forEach(p=>m[p.id]=getGrade(p.id));return m;},[board,getGrade]);
 
+  // Generate full draft order for N rounds
+  const fullDraftOrder=useMemo(()=>{
+    const order=[];
+    for(let r=0;r<numRounds;r++){
+      const roundOrder=r%2===0?[...draftOrder]:[...draftOrder].reverse();
+      roundOrder.forEach((d,i)=>order.push({pick:order.length+1,round:r+1,team:d.team}));
+    }
+    return order;
+  },[numRounds,draftOrder]);
+
+  const totalPicks=fullDraftOrder.length;
+
+  const startDraft=useCallback(()=>{
+    setAvailable(board.map(p=>p.id));
+    setPicks([]);setSetupDone(true);
+  },[board]);
+
   const cpuPick=useCallback((team,avail)=>{
     const needs=teamNeeds[team]||["QB","WR","DL"];
-    // Score available players: need multiplier + grade
     let best=null,bestScore=-1;
     avail.forEach(id=>{
       const p=prospectsMap[id];if(!p)return;
@@ -349,48 +399,93 @@ function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClose,setProfilePla
   },[teamNeeds,prospectsMap,gradeMap]);
 
   const isUserPick=useMemo(()=>{
-    const nextPick=picks.length;
-    return nextPick<32&&draftOrder[nextPick]?.team===userTeam;
-  },[picks,userTeam]);
+    const n=picks.length;
+    return n<totalPicks&&userTeams.has(fullDraftOrder[n]?.team);
+  },[picks,userTeams,fullDraftOrder,totalPicks]);
 
   const makePick=useCallback((playerId)=>{
-    const pickNum=picks.length;if(pickNum>=32)return;
-    const team=draftOrder[pickNum].team;
-    setPicks(prev=>[...prev,{pick:pickNum+1,team,playerId}]);
+    const n=picks.length;if(n>=totalPicks)return;
+    const{team,round,pick}=fullDraftOrder[n];
+    setPicks(prev=>[...prev,{pick,round,team,playerId}]);
     setAvailable(prev=>prev.filter(id=>id!==playerId));
-  },[picks,draftOrder]);
+  },[picks,fullDraftOrder,totalPicks]);
 
-  // Auto-advance CPU picks
   useEffect(()=>{
-    if(picks.length>=32||paused)return;
-    const nextPick=picks.length;
-    const team=draftOrder[nextPick]?.team;
-    if(team===userTeam)return; // Wait for user
+    if(!setupDone||picks.length>=totalPicks||paused)return;
+    const n=picks.length;const team=fullDraftOrder[n]?.team;
+    if(userTeams.has(team))return;
     const timer=setTimeout(()=>{
       const pid=cpuPick(team,available);
       if(pid)makePick(pid);
     },speed);
     return()=>clearTimeout(timer);
-  },[picks,paused,available,userTeam,cpuPick,makePick,speed]);
+  },[picks,paused,available,userTeams,cpuPick,makePick,speed,setupDone,fullDraftOrder,totalPicks]);
+
+  const toggleTeam=(t)=>setUserTeams(prev=>{const n=new Set(prev);n.has(t)?n.delete(t):n.add(t);return n;});
+
+  // Setup screen
+  if(!setupDone)return(
+    <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
+      <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}>
+        <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>mock draft setup</span>
+        <button onClick={onClose} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>✕ exit</button>
+      </div>
+      <div style={{maxWidth:600,margin:"0 auto",padding:"52px 24px 40px"}}>
+        <h1 style={{fontSize:28,fontWeight:900,color:"#171717",margin:"0 0 24px"}}>mock draft setup</h1>
+
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:16}}>
+          <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>your team(s)</div>
+          <div style={{display:"flex",gap:6,marginBottom:12}}>
+            <button onClick={()=>setUserTeams(new Set(ALL_TEAMS))} style={{fontFamily:sans,fontSize:11,padding:"5px 12px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#525252"}}>select all</button>
+            <button onClick={()=>setUserTeams(new Set())} style={{fontFamily:sans,fontSize:11,padding:"5px 12px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#525252"}}>clear</button>
+          </div>
+          <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
+            {ALL_TEAMS.sort().map(t=><button key={t} onClick={()=>toggleTeam(t)} style={{fontFamily:sans,fontSize:11,padding:"5px 12px",background:userTeams.has(t)?"#171717":"transparent",color:userTeams.has(t)?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>{t}</button>)}
+          </div>
+        </div>
+
+        <div style={{display:"flex",gap:12,marginBottom:16}}>
+          <div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px"}}>
+            <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>rounds</div>
+            <div style={{display:"flex",gap:6}}>
+              {[1,2,3,4,7].map(r=><button key={r} onClick={()=>setNumRounds(r)} style={{fontFamily:sans,fontSize:13,fontWeight:numRounds===r?700:400,padding:"8px 14px",background:numRounds===r?"#171717":"transparent",color:numRounds===r?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>{r}</button>)}
+            </div>
+          </div>
+          <div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px"}}>
+            <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>cpu speed</div>
+            <div style={{display:"flex",gap:6}}>
+              {[["slow",1200],["medium",600],["fast",200]].map(([label,ms])=><button key={label} onClick={()=>setSpeed(ms)} style={{fontFamily:sans,fontSize:13,fontWeight:speed===ms?700:400,padding:"8px 14px",background:speed===ms?"#171717":"transparent",color:speed===ms?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>{label}</button>)}
+            </div>
+          </div>
+        </div>
+
+        <button onClick={startDraft} disabled={userTeams.size===0}
+          style={{width:"100%",fontFamily:sans,fontSize:14,fontWeight:700,padding:"14px",background:userTeams.size>0?"#171717":"#d4d4d4",color:"#faf9f6",border:"none",borderRadius:99,cursor:userTeams.size>0?"pointer":"default"}}>
+          start draft ({numRounds} round{numRounds>1?"s":""} · {userTeams.size} team{userTeams.size!==1?"s":""})
+        </button>
+      </div>
+    </div>
+  );
+
+  const currentRound=picks.length<totalPicks?fullDraftOrder[picks.length].round:numRounds;
 
   return(
     <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
       <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}>
-        <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>mock draft · you are the <strong style={{color:"#171717"}}>{userTeam}</strong></span>
+        <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>round {currentRound} · pick {picks.length+1>totalPicks?totalPicks:picks.length+1}/{totalPicks}</span>
         <div style={{display:"flex",gap:8}}>
           <button onClick={()=>setPaused(!paused)} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:paused?"#fef3c7":"transparent",color:paused?"#92400e":"#a3a3a3"}}>{paused?"▶ resume":"⏸ pause"}</button>
           <button onClick={onClose} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>✕ exit</button>
         </div>
       </div>
       <div style={{maxWidth:900,margin:"0 auto",padding:"52px 24px 40px"}}>
-        <h1 style={{fontSize:28,fontWeight:900,color:"#171717",margin:"0 0 4px"}}>mock draft simulator</h1>
-        <p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 20px"}}>AI teams draft by need. you pick for the {userTeam}.</p>
+        <h1 style={{fontSize:28,fontWeight:900,color:"#171717",margin:"0 0 20px"}}>mock draft</h1>
 
-        {isUserPick&&picks.length<32&&<div style={{background:"#22c55e11",border:"2px solid #22c55e",borderRadius:12,padding:"16px 20px",marginBottom:20}}>
-          <p style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717",margin:"0 0 8px"}}>🏈 You're on the clock! Pick #{picks.length+1} for the {userTeam}</p>
-          <p style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",margin:"0 0 12px"}}>needs: {(teamNeeds[userTeam]||[]).join(", ")}</p>
+        {isUserPick&&picks.length<totalPicks&&<div style={{background:"#22c55e11",border:"2px solid #22c55e",borderRadius:12,padding:"16px 20px",marginBottom:20}}>
+          <p style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717",margin:"0 0 8px"}}>🏈 You're on the clock! Rd {fullDraftOrder[picks.length].round} Pick #{picks.length+1} — {fullDraftOrder[picks.length].team}</p>
+          <p style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",margin:"0 0 12px"}}>needs: {(teamNeeds[fullDraftOrder[picks.length].team]||[]).join(", ")}</p>
           <div style={{maxHeight:300,overflowY:"auto"}}>
-            {available.slice(0,20).map(id=>{const p=prospectsMap[id];if(!p)return null;const g=getGrade(id);const c=POS_COLORS[p.pos];
+            {available.slice(0,25).map(id=>{const p=prospectsMap[id];if(!p)return null;const g=getGrade(id);const c=POS_COLORS[p.pos];
               return<div key={id} onClick={()=>makePick(id)} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px",cursor:"pointer",borderRadius:8,marginBottom:2,transition:"background 0.1s"}}
                 onMouseEnter={e=>e.currentTarget.style.background=`${c}08`} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
                 <span style={{fontFamily:mono,fontSize:10,color:c,width:28}}>{p.pos}</span>
@@ -403,18 +498,19 @@ function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClose,setProfilePla
         </div>}
 
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
-          {picks.map((pick,i)=>{const p=prospectsMap[pick.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const isUser=pick.team===userTeam;
-            return<div key={i} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 16px",borderBottom:i<picks.length-1?"1px solid #f5f5f5":"none",background:isUser?"#22c55e06":"transparent"}}>
-              <span style={{fontFamily:mono,fontSize:12,color:"#d4d4d4",width:24,textAlign:"right"}}>{pick.pick}</span>
+          {picks.map((pick,i)=>{const p=prospectsMap[pick.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const isUser=userTeams.has(pick.team);
+            const showRound=i===0||pick.round!==picks[i-1].round;
+            return<div key={i}>{showRound&&<div style={{padding:"8px 16px",background:"#f5f5f5",fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>round {pick.round}</div>}<div style={{display:"flex",alignItems:"center",gap:10,padding:"10px 16px",borderBottom:"1px solid #f5f5f5",background:isUser?"#22c55e06":"transparent"}}>
+              <span style={{fontFamily:mono,fontSize:12,color:"#d4d4d4",width:28,textAlign:"right"}}>{pick.pick}</span>
               <span style={{fontFamily:sans,fontSize:12,fontWeight:isUser?700:400,color:isUser?"#171717":"#a3a3a3",width:100}}>{pick.team}</span>
               <span style={{fontFamily:mono,fontSize:10,color:c,width:28}}>{p.pos}</span>
               <SchoolLogo school={p.school} size={20}/>
               <span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",flex:1,cursor:"pointer"}} onClick={()=>setProfilePlayer(p)} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span>
               <span style={{fontFamily:font,fontSize:14,fontWeight:900,color:getGrade(pick.playerId)>=75?"#16a34a":getGrade(pick.playerId)>=55?"#ca8a04":"#dc2626"}}>{getGrade(pick.playerId)}</span>
-            </div>;
+            </div></div>;
           })}
-          {picks.length<32&&!isUserPick&&<div style={{padding:"16px",textAlign:"center"}}><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>⏳ pick #{picks.length+1} — {draftOrder[picks.length]?.team} is on the clock...</span></div>}
-          {picks.length>=32&&<div style={{padding:"20px",textAlign:"center"}}><p style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"0 0 4px"}}>draft complete!</p><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3"}}>your {userTeam} picks are highlighted in green</p></div>}
+          {picks.length<totalPicks&&!isUserPick&&<div style={{padding:"16px",textAlign:"center"}}><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>⏳ pick #{picks.length+1} — {fullDraftOrder[picks.length]?.team} is on the clock...</span></div>}
+          {picks.length>=totalPicks&&<div style={{padding:"20px",textAlign:"center"}}><p style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"0 0 4px"}}>draft complete!</p><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3"}}>your picks are highlighted in green</p></div>}
         </div>
       </div>
       {profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={allProspects} getGrade={getGrade} onClose={()=>setProfilePlayer(null)} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings}/>}
@@ -456,26 +552,62 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
   const[filterPos,setFilterPos]=useState(null);const[showCommunity,setShowCommunity]=useState(false);const board=getBoard();const display=filterPos?board.filter(p=>p.pos===filterPos):board;
   const pA=compareA?board.find(p=>p.id===compareA):null;const pB=compareB?board.find(p=>p.id===compareB):null;const canCompare=pA&&pB&&pA.pos===pB.pos;
 
-  // Share top 10 as image
+  // Share top 10 as X-optimized image (1200x675)
   const shareTop10=useCallback(()=>{
-    const canvas=document.createElement('canvas');canvas.width=800;canvas.height=600;
+    const W=1200,H=675;
+    const canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;
     const ctx=canvas.getContext('2d');
-    ctx.fillStyle='#faf9f6';ctx.fillRect(0,0,800,600);
-    ctx.fillStyle='#171717';ctx.font='bold 32px Georgia';ctx.fillText('my big board',40,52);
-    ctx.fillStyle='#a3a3a3';ctx.font='11px monospace';ctx.fillText('BIGBOARDLAB.COM · 2026 NFL DRAFT',40,74);
-    ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(40,90);ctx.lineTo(760,90);ctx.stroke();
+    // Dark gradient background
+    const grad=ctx.createLinearGradient(0,0,W,H);
+    grad.addColorStop(0,'#0a0a0a');grad.addColorStop(1,'#1a1a2e');
+    ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
+    // Subtle grid pattern
+    ctx.strokeStyle='rgba(255,255,255,0.03)';ctx.lineWidth=1;
+    for(let x=0;x<W;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+    for(let y=0;y<H;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+    // Accent line at top
+    const acGrad=ctx.createLinearGradient(0,0,W,0);
+    acGrad.addColorStop(0,'#22c55e');acGrad.addColorStop(0.5,'#3b82f6');acGrad.addColorStop(1,'#a855f7');
+    ctx.fillStyle=acGrad;ctx.fillRect(0,0,W,4);
+    // Title
+    ctx.fillStyle='#fafafa';ctx.font='bold 36px Georgia,serif';ctx.fillText('MY BIG BOARD',48,56);
+    ctx.fillStyle='rgba(255,255,255,0.3)';ctx.font='500 12px monospace';ctx.fillText('BIGBOARDLAB.COM  ·  2026 NFL DRAFT  ·  TOP 10',48,78);
+    // Separator
+    ctx.strokeStyle='rgba(255,255,255,0.08)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(48,94);ctx.lineTo(W-48,94);ctx.stroke();
+    // Players
     const top10=board.slice(0,10);
     top10.forEach((p,i)=>{
-      const y=110+i*48;const grade=getGrade(p.id);const c=POS_COLORS[p.pos];
-      ctx.fillStyle=i%2===0?'#fff':'#f8f8f5';ctx.fillRect(40,y-4,720,44);
-      ctx.fillStyle='#d4d4d4';ctx.font='14px monospace';ctx.fillText(`${i+1}`.padStart(2),54,y+24);
-      ctx.fillStyle=c;ctx.font='bold 11px monospace';ctx.fillText(p.pos,100,y+24);
-      ctx.fillStyle='#171717';ctx.font='bold 16px sans-serif';ctx.fillText(p.name,150,y+22);
-      ctx.fillStyle='#a3a3a3';ctx.font='12px monospace';ctx.fillText(p.school,150,y+38);
-      ctx.fillStyle=grade>=75?'#16a34a':grade>=55?'#ca8a04':'#dc2626';
-      ctx.font='bold 20px Georgia';ctx.fillText(`${grade}`,710,y+26);
+      const y=112+i*54;const grade=getGrade(p.id);const c=POS_COLORS[p.pos];
+      // Row bg
+      ctx.fillStyle=i%2===0?'rgba(255,255,255,0.02)':'transparent';
+      ctx.fillRect(40,y,W-80,50);
+      // Rank number
+      ctx.fillStyle='rgba(255,255,255,0.15)';ctx.font='bold 18px Georgia,serif';
+      ctx.fillText(`${i+1}`.padStart(2,'0'),56,y+32);
+      // Position badge
+      ctx.fillStyle=c;ctx.font='bold 11px monospace';
+      const posW=ctx.measureText(p.pos).width+16;
+      ctx.globalAlpha=0.15;ctx.fillRect(100,y+14,posW,24);ctx.globalAlpha=1;
+      ctx.fillStyle=c;ctx.fillText(p.pos,108,y+31);
+      // Name
+      ctx.fillStyle='#fafafa';ctx.font='bold 20px sans-serif';
+      ctx.fillText(p.name,100+posW+16,y+30);
+      // School
+      const nameW=ctx.measureText(p.name).width;
+      ctx.fillStyle='rgba(255,255,255,0.3)';ctx.font='12px monospace';
+      ctx.fillText(p.school,100+posW+16+nameW+12,y+30);
+      // Grade
+      const gColor=grade>=75?'#22c55e':grade>=55?'#eab308':'#ef4444';
+      ctx.fillStyle=gColor;ctx.font='bold 28px Georgia,serif';
+      ctx.textAlign='right';ctx.fillText(`${grade}`,W-56,y+34);ctx.textAlign='left';
+      // Grade bar
+      ctx.fillStyle='rgba(255,255,255,0.05)';ctx.fillRect(W-160,y+38,96,3);
+      ctx.fillStyle=gColor;ctx.globalAlpha=0.6;ctx.fillRect(W-160,y+38,96*(grade/100),3);ctx.globalAlpha=1;
     });
-    ctx.fillStyle='#d4d4d4';ctx.font='10px monospace';ctx.fillText(`generated ${new Date().toLocaleDateString()}`,40,585);
+    // Footer
+    ctx.fillStyle='rgba(255,255,255,0.15)';ctx.font='10px monospace';
+    ctx.fillText(`GENERATED ${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}`,48,H-20);
+    ctx.textAlign='right';ctx.fillText('BUILD YOURS → BIGBOARDLAB.COM',W-48,H-20);ctx.textAlign='left';
     canvas.toBlob(blob=>{
       const url=URL.createObjectURL(blob);const a=document.createElement('a');
       a.href=url;a.download='my-big-board-top10.png';a.click();URL.revokeObjectURL(url);
