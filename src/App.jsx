@@ -265,9 +265,11 @@ function DraftBoard({user,onSignOut}){
       if(!error)setLastSaved(new Date().toISOString());
       // Also save to community board for aggregation
       if(rankedGroups.size>0){
-        const communityData={};
-        PROSPECTS.filter(p=>rankedGroups.has(p.pos)).forEach(p=>{communityData[p.id]=ratings[p.id]||1500;});
-        await supabase.from('community_boards').upsert({user_id:user.id,board_data:communityData},{onConflict:'user_id'}).catch(()=>{});
+        try{
+          const communityData={};
+          PROSPECTS.filter(p=>rankedGroups.has(p.pos)).forEach(p=>{communityData[p.id]=ratings[p.id]||1500;});
+          await supabase.from('community_boards').upsert({user_id:user.id,board_data:communityData},{onConflict:'user_id'});
+        }catch(e){}
       }
       setSaving(false);
     },2000);
@@ -307,6 +309,20 @@ function DraftBoard({user,onSignOut}){
     return 50;
   }const v=Object.values(t);return v.length?Math.round(v.reduce((a,b)=>a+b,0)/v.length):50;},[traits]);
   const getBoard=useCallback(()=>PROSPECTS.filter(p=>rankedGroups.has(p.pos)).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings]);
+
+  // Build mock draft board: user rankings + consensus fallback for unranked positions
+  const mockDraftBoard=useMemo(()=>{
+    const userBoard=getBoard();
+    const userIds=new Set(userBoard.map(p=>p.id));
+    const consensusNames=["Fernando Mendoza","Caleb Downs","Jeremiyah Love","Rueben Bain Jr.","Francis Mauigoa","Spencer Fano","Carnell Tate","Arvell Reese","Sonny Styles","Mansoor Delane","Dillon Thieneman","Davison Igbinosun","T.J. Parker","Anthony Hill Jr.","Gracen Halton","Patrick Payton","Denzel Boston","Jordyn Tyson","CJ Daniels","Harold Perkins Jr.","Kenyon Sadiq","RJ Maryland","Oscar Delp","Kadyn Proctor","Billy Schrauth","Emmanuel Pregnon","Drew Shelton","Kayden McDonald","Christen Miller","Derrick Moore","Deontae Lawson","Anthony Lucas"];
+    const unranked=PROSPECTS.filter(p=>!userIds.has(p.id));
+    unranked.sort((a,b)=>{
+      const ai=consensusNames.indexOf(a.name);const bi=consensusNames.indexOf(b.name);
+      if(ai>=0&&bi>=0)return ai-bi;if(ai>=0)return -1;if(bi>=0)return 1;return a.name.localeCompare(b.name);
+    });
+    return[...userBoard,...unranked];
+  },[getBoard]);
+
   const finishTraits=useCallback((pos)=>{setTraitReviewedGroups(prev=>new Set([...prev,pos]));const ranked=getRanked(pos);const byGrade=[...ranked].sort((a,b)=>getGrade(b.id)-getGrade(a.id));const conflicts=ranked.map((p,i)=>{const gi=byGrade.findIndex(x=>x.id===p.id);return Math.abs(i-gi)>=3?{player:p,pairRank:i+1,gradeRank:gi+1,grade:getGrade(p.id)}:null;}).filter(Boolean);if(conflicts.length){setReconcileQueue(conflicts);setReconcileIndex(0);setPhase("reconcile");}else setPhase("pick-position");},[getRanked,getGrade]);
 
   const SaveBar=()=>(<div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontFamily:font,fontSize:13,fontWeight:900,color:"#171717",cursor:"pointer",letterSpacing:-0.5}} onClick={()=>setPhase(rankedGroups.size>0?"pick-position":"home")}>BBL</span><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{user.email}</span></div><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontFamily:mono,fontSize:10,color:saving?"#ca8a04":"#d4d4d4"}}>{saving?"saving...":lastSaved?`saved ${new Date(lastSaved).toLocaleTimeString()}`:""}</span><button onClick={onSignOut} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>sign out</button></div></div>);
@@ -356,21 +372,6 @@ function DraftBoard({user,onSignOut}){
 
   // === RECONCILE ===
   if(phase==="reconcile"&&reconcileQueue.length>0){const item=reconcileQueue[Math.min(reconcileIndex,reconcileQueue.length-1)];const c=POS_COLORS[item.player.pos];const dir=item.gradeRank<item.pairRank?"higher":"lower";return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:500,margin:"0 auto",padding:"52px 24px"}}><p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 4px"}}>reconcile · {reconcileIndex+1} of {reconcileQueue.length}</p><div style={{height:3,background:"#e5e5e5",borderRadius:2,marginBottom:28,overflow:"hidden"}}><div style={{height:"100%",width:`${((reconcileIndex+1)/reconcileQueue.length)*100}%`,background:c,borderRadius:2}}/></div><div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:32,textAlign:"center"}}><SchoolLogo school={item.player.school} size={56}/><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c,marginBottom:4,marginTop:8}}>{item.player.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3",marginBottom:24}}>{item.player.school}</div><div style={{display:"flex",justifyContent:"center",gap:32,marginBottom:24}}>{[["gut rank",`#${item.pairRank}`,"#171717"],["grade rank",`#${item.gradeRank}`,dir==="higher"?"#16a34a":"#dc2626"],["composite",`${item.grade}`,"#171717"]].map(([label,val,col])=><div key={label}><div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:4}}>{label}</div><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:col}}>{val}</div></div>)}</div><p style={{fontFamily:sans,fontSize:14,color:"#737373",lineHeight:1.5,marginBottom:24}}>your traits suggest this player should rank <strong style={{color:dir==="higher"?"#16a34a":"#dc2626"}}>{dir}</strong> than your gut. accept?</p><div style={{display:"flex",gap:10,justifyContent:"center"}}><button onClick={()=>{const pos=item.player.pos;const rk=getRanked(pos);const ti=item.gradeRank-1;const tp=rk[ti];if(tp)setRatings(prev=>({...prev,[item.player.id]:(prev[tp.id]||1500)+(dir==="higher"?1:-1)}));reconcileIndex>=reconcileQueue.length-1?setPhase("pick-position"):setReconcileIndex(reconcileIndex+1);}} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 24px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>accept</button><button onClick={()=>reconcileIndex>=reconcileQueue.length-1?setPhase("pick-position"):setReconcileIndex(reconcileIndex+1)} style={{fontFamily:sans,fontSize:13,padding:"10px 24px",background:"transparent",color:"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>keep my rank</button></div></div></div></div>);}
-
-  // Build mock draft board: user rankings + consensus fallback for unranked positions
-  const mockDraftBoard=useMemo(()=>{
-    const userBoard=getBoard();
-    const userIds=new Set(userBoard.map(p=>p.id));
-    // For unranked positions, use consensus order or alphabetical
-    const consensusNames=["Fernando Mendoza","Caleb Downs","Jeremiyah Love","Rueben Bain Jr.","Francis Mauigoa","Spencer Fano","Carnell Tate","Arvell Reese","Sonny Styles","Mansoor Delane","Dillon Thieneman","Davison Igbinosun","T.J. Parker","Anthony Hill Jr.","Gracen Halton","Patrick Payton","Denzel Boston","Jordyn Tyson","CJ Daniels","Harold Perkins Jr.","Kenyon Sadiq","RJ Maryland","Oscar Delp","Kadyn Proctor","Billy Schrauth","Emmanuel Pregnon","Drew Shelton","Kayden McDonald","Christen Miller","Derrick Moore","Deontae Lawson","Anthony Lucas"];
-    const unranked=PROSPECTS.filter(p=>!userIds.has(p.id));
-    // Sort unranked by consensus position, then by name
-    unranked.sort((a,b)=>{
-      const ai=consensusNames.indexOf(a.name);const bi=consensusNames.indexOf(b.name);
-      if(ai>=0&&bi>=0)return ai-bi;if(ai>=0)return -1;if(bi>=0)return 1;return a.name.localeCompare(b.name);
-    });
-    return[...userBoard,...unranked];
-  },[getBoard]);
 
   // === MOCK DRAFT ===
   if(showMockDraft){return<MockDraftSim board={mockDraftBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>setShowMockDraft(false)} setProfilePlayer={setProfilePlayer} profilePlayer={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings}/>;}
