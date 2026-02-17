@@ -8,7 +8,7 @@ function getPickValue(n){return JJ_VALUES[n]||Math.max(10,Math.round(100-((n-100
 const DEPTH_POS=["QB","RB","WR1","WR2","WR3","TE","LT","LG","C","RG","RT","DE1","DT1","DT2","DE2","LB1","LB2","LB3","CB1","CB2","SS","FS","K"];
 const POS_TO_DEPTH={"QB":["QB"],"RB":["RB"],"WR":["WR1","WR2","WR3"],"TE":["TE"],"OL":["LT","LG","C","RG","RT"],"DL":["DE1","DT1","DT2","DE2"],"LB":["LB1","LB2","LB3"],"DB":["CB1","CB2","SS","FS"],"K/P":["K"]};
 
-export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClose,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo}){
+export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClose,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED}){
   const ALL_TEAMS=useMemo(()=>[...new Set(draftOrder.map(d=>d.team))],[draftOrder]);
   const[setupDone,setSetupDone]=useState(false);
   const[userTeams,setUserTeams]=useState(new Set());
@@ -46,16 +46,21 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
 
   const cpuPick=useCallback((team,avail)=>{
     const needs=teamNeeds[team]||["QB","WR","DL"];
+    const detailedNeeds=TEAM_NEEDS_DETAILED?.[team]||{};
     let best=null,bestScore=-1;
     avail.forEach(id=>{
       const p=prospectsMap[id];if(!p)return;
       const needIdx=needs.indexOf(p.pos);
-      const needMult=needIdx===0?3:needIdx===1?2:needIdx===2?1.5:0.8;
-      const score=(gradeMap[id]||50)*needMult;
+      // Use detailed needs for multiplier if available
+      const needCount=detailedNeeds[p.pos]||0;
+      const needMult=needCount>=2?3:needCount===1?2.5:needIdx===0?3:needIdx===1?2:needIdx===2?1.5:0.8;
+      // Use consensus grade for more realistic CPU behavior
+      const grade=getConsensusGrade?getConsensusGrade(p.name):(gradeMap[id]||50);
+      const score=grade*needMult;
       if(score>bestScore){bestScore=score;best=id;}
     });
     return best||avail[0];
-  },[teamNeeds,prospectsMap,gradeMap]);
+  },[teamNeeds,prospectsMap,gradeMap,getConsensusGrade,TEAM_NEEDS_DETAILED]);
 
   const isUserPick=useMemo(()=>{
     const n=picks.length;

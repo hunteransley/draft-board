@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { supabase } from "./supabase.js";
 import MockDraftSim from "./MockDraftSim.jsx";
+import { CONSENSUS_BOARD, getConsensusRank, getConsensusGrade, TEAM_NEEDS_DETAILED } from "./consensusData.js";
 
 // ============================================================
 // DATA: All 319 2026 NFL Combine Invitees
@@ -303,26 +304,16 @@ function DraftBoard({user,onSignOut}){
     setRatings(newRatings);
   },[getRanked,ratings]);
   const getGrade=useCallback((id)=>{const t=traits[id];if(!t||Object.keys(t).length===0){
-    // Fallback: estimate grade from consensus position
     const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;
-    const cIdx=CONSENSUS.findIndex(c=>c.name===p.name);
-    if(cIdx>=0)return Math.max(40,Math.round(90-cIdx*0.8));
-    return 50;
+    return getConsensusGrade(p.name);
   }const v=Object.values(t);return v.length?Math.round(v.reduce((a,b)=>a+b,0)/v.length):50;},[traits]);
   const getBoard=useCallback(()=>PROSPECTS.filter(p=>rankedGroups.has(p.pos)).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings]);
 
-  // Build mock draft board: user rankings + consensus fallback for unranked positions
+  // Build mock draft board: consensus order for all 319, user rankings override when graded
   const mockDraftBoard=useMemo(()=>{
-    const userBoard=getBoard();
-    const userIds=new Set(userBoard.map(p=>p.id));
-    const consensusNames=["Fernando Mendoza","Caleb Downs","Jeremiyah Love","Rueben Bain Jr.","Francis Mauigoa","Spencer Fano","Carnell Tate","Arvell Reese","Sonny Styles","Mansoor Delane","Dillon Thieneman","Davison Igbinosun","T.J. Parker","Anthony Hill Jr.","Gracen Halton","Patrick Payton","Denzel Boston","Jordyn Tyson","CJ Daniels","Harold Perkins Jr.","Kenyon Sadiq","RJ Maryland","Oscar Delp","Kadyn Proctor","Billy Schrauth","Emmanuel Pregnon","Drew Shelton","Kayden McDonald","Christen Miller","Derrick Moore","Deontae Lawson","Anthony Lucas"];
-    const unranked=PROSPECTS.filter(p=>!userIds.has(p.id));
-    unranked.sort((a,b)=>{
-      const ai=consensusNames.indexOf(a.name);const bi=consensusNames.indexOf(b.name);
-      if(ai>=0&&bi>=0)return ai-bi;if(ai>=0)return -1;if(bi>=0)return 1;return a.name.localeCompare(b.name);
-    });
-    return[...userBoard,...unranked];
-  },[getBoard]);
+    // Sort ALL prospects by consensus rank
+    return [...PROSPECTS].sort((a,b)=>getConsensusRank(a.name)-getConsensusRank(b.name));
+  },[]);
 
   const finishTraits=useCallback((pos)=>{setTraitReviewedGroups(prev=>new Set([...prev,pos]));const ranked=getRanked(pos);const byGrade=[...ranked].sort((a,b)=>getGrade(b.id)-getGrade(a.id));const conflicts=ranked.map((p,i)=>{const gi=byGrade.findIndex(x=>x.id===p.id);return Math.abs(i-gi)>=3?{player:p,pairRank:i+1,gradeRank:gi+1,grade:getGrade(p.id)}:null;}).filter(Boolean);if(conflicts.length){setReconcileQueue(conflicts);setReconcileIndex(0);setPhase("reconcile");}else setPhase("pick-position");},[getRanked,getGrade]);
 
@@ -331,7 +322,7 @@ function DraftBoard({user,onSignOut}){
   if(phase==="loading")return(<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading your board...</p></div>);
 
   // === MOCK DRAFT (check before phase returns to fix click bug) ===
-  if(showMockDraft){return<MockDraftSim board={mockDraftBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>setShowMockDraft(false)} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo}/>;}
+  if(showMockDraft){return<MockDraftSim board={mockDraftBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>setShowMockDraft(false)} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED}/>;}
 
   // === HOME ===
   if(phase==="home"||phase==="pick-position"){
