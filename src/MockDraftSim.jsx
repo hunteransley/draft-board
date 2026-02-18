@@ -129,7 +129,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[picks,setPicks]=useState([]);
   const[available,setAvailable]=useState([]);
   const[paused,setPaused]=useState(false);
-  const[filterPos,setFilterPos]=useState(null);
+  const[filterPos,setFilterPos]=useState(new Set());
   const[profilePlayer,setProfilePlayer]=useState(null);
   const[compareList,setCompareList]=useState([]);
   const[showCompare,setShowCompare]=useState(false);
@@ -382,8 +382,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   },[picks,userTeams,prospectsMap,TEAM_NEEDS_DETAILED]);
 
   const filteredAvailable=useMemo(()=>{
-    if(!filterPos)return available;
-    return available.filter(id=>{const p=prospectsMap[id];return p&&p.pos===filterPos;});
+    if(filterPos.size===0)return available;
+    return available.filter(id=>{const p=prospectsMap[id];return p&&filterPos.has(p.pos);});
   },[available,filterPos,prospectsMap]);
 
   const draftGrade=useMemo(()=>{
@@ -428,27 +428,68 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   },[picks,prospectsMap,getConsensusRank,totalPicks,userTeams,liveNeeds,TEAM_NEEDS_DETAILED]);
 
   const shareDraft=useCallback(()=>{
-    const up=picks.filter(pk=>pk.isUser);const W=1200,H=Math.min(900,200+up.length*44);
+    const up=picks.filter(pk=>pk.isUser);
+    const teams=[...new Set(up.map(pk=>pk.team))];
+    const W=1200,H=628;// Twitter card ratio
     const canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');
+    // Dark gradient background
     const grad=ctx.createLinearGradient(0,0,W,H);grad.addColorStop(0,'#0a0a0a');grad.addColorStop(1,'#1a1a2e');
     ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
-    const ac=ctx.createLinearGradient(0,0,W,0);ac.addColorStop(0,'#22c55e');ac.addColorStop(0.5,'#3b82f6');ac.addColorStop(1,'#a855f7');
+    // Pink-purple accent bar at top
+    const ac=ctx.createLinearGradient(0,0,W,0);ac.addColorStop(0,'#ec4899');ac.addColorStop(1,'#7c3aed');
     ctx.fillStyle=ac;ctx.fillRect(0,0,W,4);
-    ctx.fillStyle='#fafafa';ctx.font='bold 32px Georgia,serif';ctx.fillText('MY MOCK DRAFT',48,50);
-    ctx.fillStyle='rgba(255,255,255,0.3)';ctx.font='500 12px monospace';
-    ctx.fillText('BIGBOARDLAB.COM  ·  2026 NFL DRAFT'+(draftGrade?' — Grade: '+draftGrade.grade:''),48,72);
+    // Header
+    ctx.fillStyle='#fafafa';ctx.font='bold 36px Georgia,serif';ctx.fillText('MY MOCK DRAFT',48,52);
+    // Grade badge
+    if(draftGrade){
+      const gx=W-120;ctx.strokeStyle=draftGrade.color;ctx.lineWidth=3;
+      ctx.beginPath();ctx.roundRect(gx,18,80,48,8);ctx.stroke();
+      ctx.fillStyle='rgba(255,255,255,0.06)';ctx.beginPath();ctx.roundRect(gx,18,80,48,8);ctx.fill();
+      ctx.fillStyle=draftGrade.color;ctx.font='bold 32px Georgia,serif';ctx.textAlign='center';
+      ctx.fillText(draftGrade.grade,gx+40,52);ctx.textAlign='left';
+    }
+    // Subheader
+    ctx.fillStyle='rgba(255,255,255,0.35)';ctx.font='500 13px monospace';
+    ctx.fillText('BIGBOARDLAB.COM  ·  2026 NFL DRAFT  ·  '+teams.join(', '),48,78);
+    // Divider
+    const dg=ctx.createLinearGradient(48,0,W-48,0);dg.addColorStop(0,'#ec4899');dg.addColorStop(1,'#7c3aed');
+    ctx.fillStyle=dg;ctx.fillRect(48,90,W-96,2);
+    // Picks - two columns if many picks
+    const maxPerCol=Math.ceil(up.length/2);
+    const useTwo=up.length>8;
+    const colW=useTwo?(W-96)/2:W-96;
     up.forEach((pk,i)=>{
-      const p=prospectsMap[pk.playerId];if(!p)return;const y=100+i*44;const g=activeGrade(pk.playerId);const c=POS_COLORS[p.pos];
-      ctx.fillStyle=i%2===0?'rgba(255,255,255,0.02)':'transparent';ctx.fillRect(40,y,W-80,40);
-      ctx.fillStyle='rgba(255,255,255,0.15)';ctx.font='14px monospace';ctx.fillText('Rd'+pk.round,56,y+26);
-      ctx.fillStyle='rgba(255,255,255,0.3)';ctx.font='12px monospace';ctx.fillText('#'+pk.pick,110,y+26);
-      ctx.fillStyle=c;ctx.font='bold 11px monospace';ctx.fillText(p.pos,160,y+26);
-      ctx.fillStyle='#fafafa';ctx.font='bold 18px sans-serif';ctx.fillText(p.name,210,y+26);
+      const p=prospectsMap[pk.playerId];if(!p)return;
+      const col=useTwo&&i>=maxPerCol?1:0;
+      const row=useTwo?i-col*maxPerCol:i;
+      const x=48+col*(colW+24);
+      const rowH=useTwo?Math.min(38,Math.floor((H-140)/(maxPerCol))):Math.min(44,Math.floor((H-140)/up.length));
+      const y=108+row*rowH;
+      const g=activeGrade(pk.playerId);const c=POS_COLORS[p.pos];
+      // Subtle alternating rows
+      if(row%2===0){ctx.fillStyle='rgba(255,255,255,0.02)';ctx.fillRect(x-8,y-2,colW+16,rowH);}
+      // Round & pick
+      ctx.fillStyle='rgba(255,255,255,0.15)';ctx.font='12px monospace';ctx.fillText('Rd'+pk.round,x,y+20);
+      ctx.fillStyle='rgba(255,255,255,0.3)';ctx.font='12px monospace';ctx.fillText('#'+pk.pick,x+40,y+20);
+      // Position pill
+      ctx.fillStyle=c;ctx.font='bold 11px monospace';ctx.fillText(p.pos,x+80,y+20);
+      // Player name
+      ctx.fillStyle='#fafafa';ctx.font='bold 17px sans-serif';ctx.fillText(p.name,x+120,y+20);
+      // Grade
       const gc=g>=75?'#22c55e':g>=55?'#eab308':'#ef4444';
-      ctx.fillStyle=gc;ctx.font='bold 22px Georgia,serif';ctx.textAlign='right';ctx.fillText(''+g,W-56,y+28);ctx.textAlign='left';
+      ctx.fillStyle=gc;ctx.font='bold 20px Georgia,serif';ctx.textAlign='right';ctx.fillText(''+g,x+colW,y+22);ctx.textAlign='left';
     });
-    ctx.fillStyle='rgba(255,255,255,0.15)';ctx.font='10px monospace';ctx.fillText('BUILD YOURS at BIGBOARDLAB.COM',48,H-16);
-    canvas.toBlob(blob=>{const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='bigboardlab-mock-draft.png';a.click();URL.revokeObjectURL(url);});
+    // Footer branding
+    ctx.fillStyle='rgba(255,255,255,0.12)';ctx.font='11px monospace';ctx.fillText('BUILD YOUR OWN BIG BOARD at BIGBOARDLAB.COM',48,H-16);
+    // Bottom accent bar
+    ctx.fillStyle=ac;ctx.fillRect(0,H-4,W,4);
+    canvas.toBlob(blob=>{
+      if(navigator.share&&navigator.canShare?.({files:[new File([blob],'mock-draft.png',{type:'image/png'})]})){
+        navigator.share({files:[new File([blob],'bigboardlab-mock-draft.png',{type:'image/png'})],title:'My Mock Draft — Big Board Lab',text:'Check out my '+teams.join('/')+' mock draft'+(draftGrade?' — Grade: '+draftGrade.grade:'')+'! Build yours at bigboardlab.com'});
+      }else{
+        const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='bigboardlab-mock-draft.png';a.click();URL.revokeObjectURL(url);
+      }
+    });
   },[picks,prospectsMap,activeGrade,POS_COLORS,draftGrade]);
 
   const userPickCount=useMemo(()=>picks.filter(p=>p.isUser).length,[picks]);
@@ -457,17 +498,17 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const FormationChart=({team})=>{
     const chart=depthChart[team]||{};
     return(<svg viewBox="0 0 100 105" style={{width:"100%",maxWidth:280}}>
-      <rect x="0" y="0" width="100" height="105" rx="4" fill="#15803d"/>
-      {[20,40,58,75,90].map(y=><line key={y} x1="2" y1={y} x2="98" y2={y} stroke="rgba(255,255,255,0.08)" strokeWidth="0.3"/>)}
-      <line x1="2" y1="58" x2="98" y2="58" stroke="#fbbf24" strokeWidth="0.5" strokeDasharray="2,1.5"/>
+      <rect x="0" y="0" width="100" height="105" rx="4" fill="#1a1a2e"/>
+      {[20,40,58,75,90].map(y=><line key={y} x1="2" y1={y} x2="98" y2={y} stroke="rgba(255,255,255,0.06)" strokeWidth="0.3"/>)}
+      <line x1="2" y1="58" x2="98" y2="58" stroke="rgba(168,85,247,0.5)" strokeWidth="0.5" strokeDasharray="2,1.5"/>
       {Object.entries(FORMATION_POS).map(([slot,pos])=>{
         const entry=chart[slot];const filled=!!entry;const isDraft=entry?.isDraft;const isOff=pos.y>58;
-        const dotColor=isDraft?"#fbbf24":filled?(isOff?"#4ade80":"#60a5fa"):"rgba(255,255,255,0.2)";
+        const dotColor=isDraft?"#c084fc":filled?(isOff?"#60a5fa":"#818cf8"):"rgba(255,255,255,0.15)";
         const lastName=entry?entry.name.split(" ").pop():"";
         return(<g key={slot}>
-          <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={isDraft?"#fff":"rgba(255,255,255,0.3)"} strokeWidth={isDraft?"0.5":"0.2"}/>
+          <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={isDraft?"rgba(192,132,252,0.5)":"rgba(255,255,255,0.15)"} strokeWidth={isDraft?"0.5":"0.2"}/>
           <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="1.8" fontFamily="monospace">{slot.replace(/\d$/,'')}</text>
-          {filled&&<text x={pos.x} y={pos.y+4.5} textAnchor="middle" fill={isDraft?"#fbbf24":"rgba(255,255,255,0.55)"} fontSize={isDraft?"2.2":"1.8"} fontWeight={isDraft?"bold":"normal"} fontFamily="sans-serif">{lastName}</text>}
+          {filled&&<text x={pos.x} y={pos.y+4.5} textAnchor="middle" fill={isDraft?"#c084fc":"rgba(255,255,255,0.45)"} fontSize={isDraft?"2.2":"1.8"} fontWeight={isDraft?"bold":"normal"} fontFamily="sans-serif">{lastName}</text>}
         </g>);
       })}
     </svg>);
@@ -477,7 +518,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     const chart=depthChart[team]||{};
     const slotColor=dark?"rgba(255,255,255,0.3)":"#a3a3a3";
     const nameColor=dark?"rgba(255,255,255,0.55)":"#525252";
-    const draftColor=dark?"#fbbf24":"#ca8a04";
+    const draftColor=dark?"#c084fc":"#7c3aed";
     return(<div style={{marginTop:4}}>
       {DEPTH_GROUPS.map(group=>{
         const entries=group.slots.map(s=>({slot:s,entry:chart[s]})).filter(x=>x.entry);
@@ -687,8 +728,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           </div>
           {/* Position filter — horizontal scroll */}
           <div style={{display:"flex",gap:4,padding:"0 12px 8px",overflowX:"auto",WebkitOverflowScrolling:"touch"}}>
-            <button onClick={()=>setFilterPos(null)} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:!filterPos?"#171717":"transparent",color:!filterPos?"#faf9f6":"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",flexShrink:0}}>all</button>
-            {positions.map(pos=><button key={pos} onClick={()=>setFilterPos(filterPos===pos?null:pos)} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos===pos?POS_COLORS[pos]:"transparent",color:filterPos===pos?"#fff":POS_COLORS[pos],border:"1px solid "+(filterPos===pos?POS_COLORS[pos]:"#e5e5e5"),borderRadius:99,cursor:"pointer",flexShrink:0}}>{pos}</button>)}
+            <button onClick={()=>setFilterPos(new Set())} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.size===0?"#171717":"transparent",color:filterPos.size===0?"#faf9f6":"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",flexShrink:0}}>all</button>
+            {positions.map(pos=><button key={pos} onClick={()=>setFilterPos(prev=>{const n=new Set(prev);if(n.has(pos))n.delete(pos);else n.add(pos);return n;})} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.has(pos)?POS_COLORS[pos]:"transparent",color:filterPos.has(pos)?"#fff":POS_COLORS[pos],border:"1px solid "+(filterPos.has(pos)?POS_COLORS[pos]:"#e5e5e5"),borderRadius:99,cursor:"pointer",flexShrink:0}}>{pos}</button>)}
           </div>
         </div>
 
@@ -914,8 +955,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
           {/* Position filter */}
           <div style={{display:"flex",gap:4,flexWrap:"wrap",marginBottom:6}}>
-            <button onClick={()=>setFilterPos(null)} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:!filterPos?"#171717":"transparent",color:!filterPos?"#faf9f6":"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>all</button>
-            {positions.map(pos=><button key={pos} onClick={()=>setFilterPos(filterPos===pos?null:pos)} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos===pos?POS_COLORS[pos]:"transparent",color:filterPos===pos?"#fff":POS_COLORS[pos],border:"1px solid "+(filterPos===pos?POS_COLORS[pos]:"#e5e5e5"),borderRadius:99,cursor:"pointer"}}>{pos}</button>)}
+            <button onClick={()=>setFilterPos(new Set())} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.size===0?"#171717":"transparent",color:filterPos.size===0?"#faf9f6":"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>all</button>
+            {positions.map(pos=><button key={pos} onClick={()=>setFilterPos(prev=>{const n=new Set(prev);if(n.has(pos))n.delete(pos);else n.add(pos);return n;})} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.has(pos)?POS_COLORS[pos]:"transparent",color:filterPos.has(pos)?"#fff":POS_COLORS[pos],border:"1px solid "+(filterPos.has(pos)?POS_COLORS[pos]:"#e5e5e5"),borderRadius:99,cursor:"pointer"}}>{pos}</button>)}
           </div>
 
           {/* Compare bar */}
