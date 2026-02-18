@@ -175,6 +175,7 @@ function AuthScreen({onSignIn}){
     <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font,display:"flex",alignItems:"center",justifyContent:"center"}}>
       <div style={{maxWidth:400,width:"100%",padding:"0 24px"}}>
         <div style={{textAlign:"center",marginBottom:36}}>
+          <img src="/logo.png" alt="Big Board Lab" style={{width:120,height:"auto",marginBottom:16}}/>
           <p style={{fontFamily:mono,fontSize:11,letterSpacing:3,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>2026 NFL Draft</p>
           <h1 style={{fontSize:48,fontWeight:900,lineHeight:0.95,color:"#171717",margin:"0 0 12px",letterSpacing:-2}}>big board<br/>builder.</h1>
           <p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",lineHeight:1.5}}>450+ prospects. your rankings.<br/>saved across sessions.</p>
