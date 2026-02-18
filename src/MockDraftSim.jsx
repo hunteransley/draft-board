@@ -430,31 +430,34 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const shareDraft=useCallback(()=>{
     const up=picks.filter(pk=>pk.isUser);
     const teams=[...new Set(up.map(pk=>pk.team))];
-    const W=1200,H=628;// Twitter card ratio
+    const W=1200,H=628;
     const canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');
     // Dark gradient background
     const grad=ctx.createLinearGradient(0,0,W,H);grad.addColorStop(0,'#0a0a0a');grad.addColorStop(1,'#1a1a2e');
     ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
-    // Pink-purple accent bar at top
+    // Subtle grid
+    ctx.strokeStyle='rgba(255,255,255,0.03)';ctx.lineWidth=1;
+    for(let x=0;x<W;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+    for(let y=0;y<H;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+    // Pink-purple accent bar
     const ac=ctx.createLinearGradient(0,0,W,0);ac.addColorStop(0,'#ec4899');ac.addColorStop(1,'#7c3aed');
     ctx.fillStyle=ac;ctx.fillRect(0,0,W,4);
-    // Header
+    // Title
     ctx.fillStyle='#fafafa';ctx.font='bold 36px Georgia,serif';ctx.fillText('MY MOCK DRAFT',48,52);
-    // Grade badge
+    // Grade badge (no roundRect for compat)
     if(draftGrade){
-      const gx=W-120;ctx.strokeStyle=draftGrade.color;ctx.lineWidth=3;
-      ctx.beginPath();ctx.roundRect(gx,18,80,48,8);ctx.stroke();
-      ctx.fillStyle='rgba(255,255,255,0.06)';ctx.beginPath();ctx.roundRect(gx,18,80,48,8);ctx.fill();
+      const gx=W-120;
+      ctx.strokeStyle=draftGrade.color;ctx.lineWidth=3;ctx.strokeRect(gx,18,80,48);
       ctx.fillStyle=draftGrade.color;ctx.font='bold 32px Georgia,serif';ctx.textAlign='center';
       ctx.fillText(draftGrade.grade,gx+40,52);ctx.textAlign='left';
     }
-    // Subheader
+    // Subheader with logo text
     ctx.fillStyle='rgba(255,255,255,0.35)';ctx.font='500 13px monospace';
     ctx.fillText('BIGBOARDLAB.COM  ·  2026 NFL DRAFT  ·  '+teams.join(', '),48,78);
     // Divider
     const dg=ctx.createLinearGradient(48,0,W-48,0);dg.addColorStop(0,'#ec4899');dg.addColorStop(1,'#7c3aed');
     ctx.fillStyle=dg;ctx.fillRect(48,90,W-96,2);
-    // Picks - two columns if many picks
+    // Picks
     const maxPerCol=Math.ceil(up.length/2);
     const useTwo=up.length>8;
     const colW=useTwo?(W-96)/2:W-96;
@@ -466,23 +469,19 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       const rowH=useTwo?Math.min(38,Math.floor((H-140)/(maxPerCol))):Math.min(44,Math.floor((H-140)/up.length));
       const y=108+row*rowH;
       const g=activeGrade(pk.playerId);const c=POS_COLORS[p.pos];
-      // Subtle alternating rows
       if(row%2===0){ctx.fillStyle='rgba(255,255,255,0.02)';ctx.fillRect(x-8,y-2,colW+16,rowH);}
-      // Round & pick
       ctx.fillStyle='rgba(255,255,255,0.15)';ctx.font='12px monospace';ctx.fillText('Rd'+pk.round,x,y+20);
       ctx.fillStyle='rgba(255,255,255,0.3)';ctx.font='12px monospace';ctx.fillText('#'+pk.pick,x+40,y+20);
-      // Position pill
       ctx.fillStyle=c;ctx.font='bold 11px monospace';ctx.fillText(p.pos,x+80,y+20);
-      // Player name
       ctx.fillStyle='#fafafa';ctx.font='bold 17px sans-serif';ctx.fillText(p.name,x+120,y+20);
-      // Grade
       const gc=g>=75?'#22c55e':g>=55?'#eab308':'#ef4444';
       ctx.fillStyle=gc;ctx.font='bold 20px Georgia,serif';ctx.textAlign='right';ctx.fillText(''+g,x+colW,y+22);ctx.textAlign='left';
     });
-    // Footer branding
-    ctx.fillStyle='rgba(255,255,255,0.12)';ctx.font='11px monospace';ctx.fillText('BUILD YOUR OWN BIG BOARD at BIGBOARDLAB.COM',48,H-16);
-    // Bottom accent bar
-    ctx.fillStyle=ac;ctx.fillRect(0,H-4,W,4);
+    // Footer - bold branding
+    ctx.fillStyle=ac;ctx.fillRect(0,H-36,W,36);
+    ctx.fillStyle='#fafafa';ctx.font='bold 14px Georgia,serif';ctx.fillText('big board lab',16,H-12);
+    ctx.fillStyle='rgba(255,255,255,0.7)';ctx.font='11px monospace';
+    ctx.textAlign='right';ctx.fillText('BUILD YOURS → BIGBOARDLAB.COM',W-16,H-12);ctx.textAlign='left';
     canvas.toBlob(blob=>{
       if(navigator.share&&navigator.canShare?.({files:[new File([blob],'mock-draft.png',{type:'image/png'})]})){
         navigator.share({files:[new File([blob],'bigboardlab-mock-draft.png',{type:'image/png'})],title:'My Mock Draft — Big Board Lab',text:'Check out my '+teams.join('/')+' mock draft'+(draftGrade?' — Grade: '+draftGrade.grade:'')+'! Build yours at bigboardlab.com'});
@@ -498,17 +497,17 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const FormationChart=({team})=>{
     const chart=depthChart[team]||{};
     return(<svg viewBox="0 0 100 105" style={{width:"100%",maxWidth:280}}>
-      <rect x="0" y="0" width="100" height="105" rx="4" fill="#1a1a2e"/>
-      {[20,40,58,75,90].map(y=><line key={y} x1="2" y1={y} x2="98" y2={y} stroke="rgba(255,255,255,0.06)" strokeWidth="0.3"/>)}
-      <line x1="2" y1="58" x2="98" y2="58" stroke="rgba(168,85,247,0.5)" strokeWidth="0.5" strokeDasharray="2,1.5"/>
+      <rect x="0" y="0" width="100" height="105" rx="4" fill="#faf9f6" stroke="#e5e5e5" strokeWidth="0.5"/>
+      {[20,40,58,75,90].map(y=><line key={y} x1="2" y1={y} x2="98" y2={y} stroke="rgba(0,0,0,0.04)" strokeWidth="0.3"/>)}
+      <line x1="2" y1="58" x2="98" y2="58" stroke="rgba(124,58,237,0.3)" strokeWidth="0.5" strokeDasharray="2,1.5"/>
       {Object.entries(FORMATION_POS).map(([slot,pos])=>{
         const entry=chart[slot];const filled=!!entry;const isDraft=entry?.isDraft;const isOff=pos.y>58;
-        const dotColor=isDraft?"#c084fc":filled?(isOff?"#60a5fa":"#818cf8"):"rgba(255,255,255,0.15)";
+        const dotColor=isDraft?"#7c3aed":filled?(isOff?"#3b82f6":"#60a5fa"):"#d4d4d4";
         const lastName=entry?entry.name.split(" ").pop():"";
         return(<g key={slot}>
-          <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={isDraft?"rgba(192,132,252,0.5)":"rgba(255,255,255,0.15)"} strokeWidth={isDraft?"0.5":"0.2"}/>
-          <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="1.8" fontFamily="monospace">{slot.replace(/\d$/,'')}</text>
-          {filled&&<text x={pos.x} y={pos.y+4.5} textAnchor="middle" fill={isDraft?"#c084fc":"rgba(255,255,255,0.45)"} fontSize={isDraft?"2.2":"1.8"} fontWeight={isDraft?"bold":"normal"} fontFamily="sans-serif">{lastName}</text>}
+          <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={isDraft?"#7c3aed":"#a3a3a3"} strokeWidth={isDraft?"0.5":"0.2"}/>
+          <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="#a3a3a3" fontSize="1.8" fontFamily="monospace">{slot.replace(/\d$/,'')}</text>
+          {filled&&<text x={pos.x} y={pos.y+4.5} textAnchor="middle" fill={isDraft?"#7c3aed":"#525252"} fontSize={isDraft?"2.2":"1.8"} fontWeight={isDraft?"bold":"normal"} fontFamily="sans-serif">{lastName}</text>}
         </g>);
       })}
     </svg>);
@@ -516,9 +515,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
   const DepthList=({team,dark=true})=>{
     const chart=depthChart[team]||{};
-    const slotColor=dark?"rgba(255,255,255,0.3)":"#a3a3a3";
-    const nameColor=dark?"rgba(255,255,255,0.55)":"#525252";
-    const draftColor=dark?"#c084fc":"#7c3aed";
+    const slotColor=dark?"#a3a3a3":"#a3a3a3";
+    const nameColor=dark?"#525252":"#525252";
+    const draftColor=dark?"#7c3aed":"#7c3aed";
     return(<div style={{marginTop:4}}>
       {DEPTH_GROUPS.map(group=>{
         const entries=group.slots.map(s=>({slot:s,entry:chart[s]})).filter(x=>x.entry);
@@ -640,7 +639,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
                 })}
               </div>
               <div style={{display:"flex",gap:16,alignItems:"flex-start"}}>
-                <div style={{flex:"0 0 320px",background:"#15803d",borderRadius:12,padding:"16px"}}>
+                <div style={{flex:"0 0 320px",background:"#fff",borderRadius:12,padding:"16px"}}>
                   <FormationChart team={team}/>
                 </div>
                 <div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"12px 16px"}}>
@@ -679,18 +678,18 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const depthPanel=showDepth&&(<div style={{maxHeight:isMobile?"none":"calc(100vh - 60px)",overflowY:"auto"}}>
     {userTeams.size>1&&<div style={{display:"flex",gap:3,marginBottom:6}}>
       {[...userTeams].map((team,i)=>(
-        <button key={team} onClick={()=>setDepthTeamIdx(i)} style={{flex:1,fontFamily:sans,fontSize:10,fontWeight:depthTeamIdx===i?700:400,padding:"4px 6px",background:depthTeamIdx===i?"#166534":"rgba(21,128,61,0.3)",color:depthTeamIdx===i?"#fff":"rgba(255,255,255,0.6)",border:"1px solid #166534",borderRadius:6,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:3}}>
+        <button key={team} onClick={()=>setDepthTeamIdx(i)} style={{flex:1,fontFamily:sans,fontSize:10,fontWeight:depthTeamIdx===i?700:400,padding:"4px 6px",background:depthTeamIdx===i?"#171717":"#f5f5f5",color:depthTeamIdx===i?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:6,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:3}}>
           <NFLTeamLogo team={team} size={12}/>{team}
         </button>
       ))}
     </div>}
     {(()=>{const teamsArr=[...userTeams];const team=teamsArr[Math.min(depthTeamIdx,teamsArr.length-1)]||teamsArr[0];if(!team)return null;
       return(
-        <div style={{background:"#15803d",border:"1px solid #166534",borderRadius:12,padding:"10px"}}>
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"10px"}}>
           <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:4}}>
             <NFLTeamLogo team={team} size={16}/>
-            <span style={{fontFamily:sans,fontSize:12,fontWeight:700,color:"#fff"}}>{team}</span>
-            <span style={{fontFamily:mono,fontSize:8,color:"rgba(255,255,255,0.4)",marginLeft:"auto"}}>{picks.filter(pk=>pk.team===team).length} drafted</span>
+            <span style={{fontFamily:sans,fontSize:12,fontWeight:700,color:"#171717"}}>{team}</span>
+            <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginLeft:"auto"}}>{picks.filter(pk=>pk.team===team).length} drafted</span>
           </div>
           <FormationChart team={team}/>
           <DepthList team={team}/>
