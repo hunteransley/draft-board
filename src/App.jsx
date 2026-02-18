@@ -348,6 +348,8 @@ function DraftBoard({user,onSignOut}){
       <p style={{fontFamily:mono,fontSize:11,letterSpacing:3,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>2026 NFL Draft · Pittsburgh · April 23–25</p>
       <h1 style={{fontSize:"clamp(42px,8vw,72px)",fontWeight:900,lineHeight:0.95,color:"#171717",margin:"0 0 20px",letterSpacing:-2}}>build your<br/>big board.</h1>
       <p style={{fontSize:17,color:"#737373",lineHeight:1.6,maxWidth:460,margin:"0 auto 32px",fontFamily:sans}}>All 450+ prospects. Pick A or B. Adjust traits. Get your board.</p>
+      <button onClick={()=>setShowMockDraft(true)} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 28px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer",marginBottom:12}}>🏈 mock draft</button>
+      <p style={{fontFamily:sans,fontSize:11,color:"#a3a3a3"}}>or rank positions below to build your board first</p>
     </div>}
 
     <h2 style={{fontFamily:font,fontSize:hasBoardData?20:36,fontWeight:900,color:"#171717",margin:"0 0 4px",letterSpacing:-1}}>{hasBoardData?"edit positions":"positions"}</h2>
