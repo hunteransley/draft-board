@@ -56,7 +56,7 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
   const[lastVerdict,setLastVerdict]=useState(null);
   const[tradeMap,setTradeMap]=useState({});
   const[showTradeUp,setShowTradeUp]=useState(false);
-  const[tradeTarget,setTradeTarget]=useState(null);
+  const[tradeTarget,setTradeTarget]=useState([]); // array of picks user wants to GET
   const[tradeUserPicks,setTradeUserPicks]=useState([]);
   const[tradePartner,setTradePartner]=useState(null);
   const[depthTeamIdx,setDepthTeamIdx]=useState(0);
@@ -165,8 +165,8 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
   },[tradeOffer,cpuPick,available,fullDraftOrder,getPickTeam]);
 
   const declineTrade=()=>setTradeOffer(null);
-  const openTradeUp=()=>{setShowTradeUp(true);setTradeTarget(null);setTradeUserPicks([]);setTradePartner(null);};
-  const closeTradeUp=()=>{setShowTradeUp(false);setTradeTarget(null);setTradeUserPicks([]);setTradePartner(null);};
+  const openTradeUp=()=>{setShowTradeUp(true);setTradeTarget([]);setTradeUserPicks([]);setTradePartner(null);};
+  const closeTradeUp=()=>{setShowTradeUp(false);setTradeTarget([]);setTradeUserPicks([]);setTradePartner(null);};
 
   // All CPU teams for trade partner selection
   const allCpuTeams=useMemo(()=>{
@@ -210,13 +210,13 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
   },[userTeams,picks,totalPicks,getPickTeam,fullDraftOrder]);
 
   const executeTradeUp=useCallback(()=>{
-    if(!tradeTarget||tradeUserPicks.length===0||!tradePartner)return;
-    const tv=tradeTarget.value||getPickValue(tradeTarget.pick);
-    const ov=tradeUserPicks.reduce((s,p)=>s+(p.value||getPickValue(p.pick)),0);
+    if(tradeTarget.length===0||tradeUserPicks.length===0||!tradePartner)return;
+    const tv=tradeTarget.reduce((s,p)=>s+(p.value||0),0);
+    const ov=tradeUserPicks.reduce((s,p)=>s+(p.value||0),0);
     if(ov<tv*1.05)return;
     const ut=[...userTeams][0];const nm={...tradeMap};
-    // If target is a current draft pick, reassign it
-    if(tradeTarget.type==="current"&&tradeTarget.idx!=null){nm[tradeTarget.idx]=ut;}
+    // Reassign their current-draft picks to user
+    tradeTarget.filter(p=>p.type==="current"&&p.idx!=null).forEach(p=>{nm[p.idx]=ut;});
     // Reassign user's current-draft picks to the partner
     tradeUserPicks.filter(p=>p.type==="current"&&p.idx!=null).forEach(p=>{nm[p.idx]=tradePartner;});
     setTradeMap(nm);closeTradeUp();
@@ -374,7 +374,10 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:16}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
             <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>your team(s)</div>
-            <button onClick={()=>setUserTeams(new Set())} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>clear</button>
+            <div style={{display:"flex",gap:4}}>
+              <button onClick={()=>setUserTeams(new Set(ALL_TEAMS))} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>select all</button>
+              <button onClick={()=>setUserTeams(new Set())} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>clear</button>
+            </div>
           </div>
           <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
             {ALL_TEAMS.sort().map(t=><button key={t} onClick={()=>toggleTeam(t)} style={{fontFamily:sans,fontSize:11,padding:"5px 12px",background:userTeams.has(t)?"#171717":"transparent",color:userTeams.has(t)?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:6}}><NFLTeamLogo team={t} size={16}/>{t}</button>)}
@@ -528,43 +531,43 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
               <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",letterSpacing:1,marginBottom:4}}>TRADE WITH:</div>
               <div style={{display:"flex",gap:3,flexWrap:"wrap"}}>
                 {allCpuTeams.map(t=>(
-                  <button key={t} onClick={()=>{setTradePartner(t);setTradeTarget(null);setTradeUserPicks([]);}} style={{fontFamily:sans,fontSize:9,padding:"3px 8px",background:tradePartner===t?"#a855f7":"#fff",color:tradePartner===t?"#fff":"#737373",border:"1px solid "+(tradePartner===t?"#a855f7":"#e5e5e5"),borderRadius:5,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:3}}>
+                  <button key={t} onClick={()=>{setTradePartner(t);setTradeTarget([]);setTradeUserPicks([]);}} style={{fontFamily:sans,fontSize:9,padding:"3px 8px",background:tradePartner===t?"#a855f7":"#fff",color:tradePartner===t?"#fff":"#737373",border:"1px solid "+(tradePartner===t?"#a855f7":"#e5e5e5"),borderRadius:5,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:3}}>
                     <NFLTeamLogo team={t} size={11}/>{t}
                   </button>
                 ))}
               </div>
             </div>
-            {/* Step 2: Select what you want from them */}
+            {/* Step 2: Select what you want from them (multi-select) */}
             {tradePartner&&<div style={{marginBottom:8}}>
               <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",letterSpacing:1,marginBottom:4}}>YOU GET:</div>
               {[{year:2026,label:"2026 (this draft)",picks:partnerAssets.thisDraft},{year:2027,label:"2027",picks:partnerAssets.futurePicks.filter(p=>p.year===2027)},{year:2028,label:"2028",picks:partnerAssets.futurePicks.filter(p=>p.year===2028)}].map(yr=>(
                 yr.picks.length>0&&<div key={yr.year} style={{marginBottom:4}}>
                   <div style={{fontFamily:mono,fontSize:7,color:"#d4d4d4",marginBottom:2}}>{yr.label}</div>
                   <div style={{display:"flex",gap:3,flexWrap:"wrap"}}>
-                    {yr.picks.map((p,i)=>{const sel=tradeTarget?.label===p.label&&tradeTarget?.type===p.type;
-                      return<button key={p.label+i} onClick={()=>setTradeTarget(sel?null:p)} style={{fontFamily:sans,fontSize:9,padding:"3px 8px",background:sel?"#a855f7":"#fff",color:sel?"#fff":"#525252",border:"1px solid "+(sel?"#a855f7":"#e5e5e5"),borderRadius:5,cursor:"pointer"}}>{p.type==="current"?p.label:`Rd${p.round}`} <span style={{fontSize:7,color:sel?"#e9d5ff":"#a3a3a3"}}>({p.value}pts)</span></button>;
+                    {yr.picks.map((p,i)=>{const uid=p.type+"-"+p.label;const sel=tradeTarget.some(x=>(x.type+"-"+x.label)===uid);
+                      return<button key={uid+i} onClick={()=>{setTradeTarget(prev=>{const already=prev.some(x=>(x.type+"-"+x.label)===uid);return already?prev.filter(x=>(x.type+"-"+x.label)!==uid):[...prev,p];});}} style={{fontFamily:sans,fontSize:9,padding:"3px 8px",background:sel?"#a855f7":"#fff",color:sel?"#fff":"#525252",border:"1px solid "+(sel?"#a855f7":"#e5e5e5"),borderRadius:5,cursor:"pointer"}}>{p.type==="current"?p.label:`Rd${p.round}`} <span style={{fontSize:7,color:sel?"#e9d5ff":"#a3a3a3"}}>({p.value}pts)</span></button>;
                     })}
                   </div>
                 </div>
               ))}
             </div>}
-            {/* Step 3: Select what you give up */}
-            {tradeTarget&&<div style={{marginBottom:8}}>
+            {/* Step 3: Select what you give up (multi-select) */}
+            {tradeTarget.length>0&&<div style={{marginBottom:8}}>
               <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",letterSpacing:1,marginBottom:4}}>YOU GIVE:</div>
               {[{year:2026,label:"2026 (this draft)",picks:userAllPicks.thisDraft},{year:2027,label:"2027",picks:userAllPicks.futurePicks.filter(p=>p.year===2027)},{year:2028,label:"2028",picks:userAllPicks.futurePicks.filter(p=>p.year===2028)}].map(yr=>(
                 yr.picks.length>0&&<div key={yr.year} style={{marginBottom:4}}>
                   <div style={{fontFamily:mono,fontSize:7,color:"#d4d4d4",marginBottom:2}}>{yr.label}</div>
                   <div style={{display:"flex",gap:3,flexWrap:"wrap"}}>
-                    {yr.picks.map((p,i)=>{const sel=tradeUserPicks.some(x=>x.label===p.label&&x.type===p.type);
-                      return<button key={p.label+i} onClick={()=>setTradeUserPicks(prev=>sel?prev.filter(x=>!(x.label===p.label&&x.type===p.type)):[...prev,p])} style={{fontFamily:sans,fontSize:9,padding:"3px 8px",background:sel?"#171717":"#fff",color:sel?"#faf9f6":"#525252",border:"1px solid #e5e5e5",borderRadius:5,cursor:"pointer"}}>{p.type==="current"?p.label:`Rd${p.round}`} <span style={{fontSize:7,color:sel?"#a3a3a3":"#d4d4d4"}}>({p.value}pts)</span></button>;
+                    {yr.picks.map((p,i)=>{const uid=p.type+"-"+p.label;const sel=tradeUserPicks.some(x=>(x.type+"-"+x.label)===uid);
+                      return<button key={uid+i} onClick={()=>{setTradeUserPicks(prev=>{const already=prev.some(x=>(x.type+"-"+x.label)===uid);return already?prev.filter(x=>(x.type+"-"+x.label)!==uid):[...prev,p];});}} style={{fontFamily:sans,fontSize:9,padding:"3px 8px",background:sel?"#171717":"#fff",color:sel?"#faf9f6":"#525252",border:"1px solid #e5e5e5",borderRadius:5,cursor:"pointer"}}>{p.type==="current"?p.label:`Rd${p.round}`} <span style={{fontSize:7,color:sel?"#a3a3a3":"#d4d4d4"}}>({p.value}pts)</span></button>;
                     })}
                   </div>
                 </div>
               ))}
             </div>}
             {/* Value bar + execute */}
-            {tradeTarget&&tradeUserPicks.length>0&&(()=>{
-              const tv=tradeTarget.value||0;const ov=tradeUserPicks.reduce((s,p)=>s+(p.value||0),0);const enough=ov>=tv*1.05;
+            {tradeTarget.length>0&&tradeUserPicks.length>0&&(()=>{
+              const tv=tradeTarget.reduce((s,p)=>s+(p.value||0),0);const ov=tradeUserPicks.reduce((s,p)=>s+(p.value||0),0);const enough=ov>=tv*1.05;
               return(<div style={{marginTop:6}}>
                 <div style={{display:"flex",justifyContent:"space-between",fontFamily:mono,fontSize:8,color:"#a3a3a3",marginBottom:2}}>
                   <span>you get: {tv} pts</span><span>you give: {ov} pts</span>
