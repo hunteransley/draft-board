@@ -33,11 +33,15 @@ const RANK_OVERRIDES={"Sonny Styles":12,"Kenyon Sadiq":20};
 
 function pickVerdict(pickNum,consRank){
   if(consRank>=900)return{text:"UNKNOWN",color:"#737373",bg:"#f5f5f5"};
-  const diff=pickNum-consRank; // positive = player fell to you = value, negative = you reached up
-  if(diff>=20)return{text:"HUGE STEAL",color:"#16a34a",bg:"#dcfce7"};
-  if(diff>=8)return{text:"GREAT VALUE",color:"#22c55e",bg:"#f0fdf4"};
-  if(diff>=-5)return{text:"FAIR PICK",color:"#ca8a04",bg:"#fefce8"};
-  if(diff>=-15)return{text:"REACH",color:"#ea580c",bg:"#fff7ed"};
+  // Use draft value chart ratio — not raw pick difference
+  // Getting pick-3 player at pick-10 is massive; getting pick-110 player at pick-117 is nothing
+  const playerVal=getPickValue(consRank);
+  const slotVal=getPickValue(pickNum);
+  const ratio=playerVal/slotVal; // >1 = value (player worth more than slot), <1 = reach
+  if(ratio>=1.5)return{text:"HUGE STEAL",color:"#16a34a",bg:"#dcfce7"};
+  if(ratio>=1.15)return{text:"GREAT VALUE",color:"#22c55e",bg:"#f0fdf4"};
+  if(ratio>=0.85)return{text:"FAIR PICK",color:"#ca8a04",bg:"#fefce8"};
+  if(ratio>=0.55)return{text:"REACH",color:"#ea580c",bg:"#fff7ed"};
   return{text:"BIG REACH",color:"#dc2626",bg:"#fef2f2"};
 }
 
@@ -310,13 +314,43 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
   const draftGrade=useMemo(()=>{
     if(picks.length<totalPicks)return null;
     const up=picks.filter(pk=>pk.isUser);if(up.length===0)return null;
-    let tv=0;up.forEach(pk=>{const p=prospectsMap[pk.playerId];if(!p)return;const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;tv+=(pk.pick-rank);});
-    const avg=tv/up.length;
-    if(avg>=15)return{grade:"A+",color:"#16a34a"};if(avg>=10)return{grade:"A",color:"#16a34a"};
-    if(avg>=5)return{grade:"B+",color:"#22c55e"};if(avg>=0)return{grade:"B",color:"#ca8a04"};
-    if(avg>=-5)return{grade:"C+",color:"#ca8a04"};if(avg>=-10)return{grade:"C",color:"#dc2626"};
-    if(avg>=-15)return{grade:"D",color:"#dc2626"};return{grade:"F",color:"#dc2626"};
-  },[picks,prospectsMap,getConsensusRank,totalPicks]);
+    // Value score: average value ratio across picks (1.0 = picked exactly at consensus)
+    let totalRatio=0;
+    up.forEach(pk=>{
+      const p=prospectsMap[pk.playerId];if(!p)return;
+      const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;
+      const playerVal=getPickValue(rank<900?rank:pk.pick);
+      const slotVal=getPickValue(pk.pick);
+      totalRatio+=playerVal/slotVal;
+    });
+    const avgRatio=totalRatio/up.length; // 1.0 = fair, >1 = value, <1 = reach
+    // Needs score: what % of team needs were addressed
+    let needsBonus=0;
+    [...userTeams].forEach(team=>{
+      const base=TEAM_NEEDS_DETAILED?.[team]||{};
+      const totalNeeds=Object.values(base).reduce((s,v)=>s+v,0);
+      if(totalNeeds===0)return;
+      const remaining=liveNeeds[team]||{};
+      const remainingTotal=Object.values(remaining).reduce((s,v)=>s+v,0);
+      const filled=(totalNeeds-remainingTotal)/totalNeeds; // 0-1
+      needsBonus+=filled*0.15; // up to +0.15 per team
+    });
+    const teamCount=userTeams.size||1;
+    needsBonus=needsBonus/teamCount;
+    // Combined score: value ratio + needs bonus
+    // avgRatio of 1.0 + full needs = 1.15 → B+/A-
+    const score=avgRatio+needsBonus;
+    // Grade thresholds: all fair picks (1.0) + decent needs = B+ (above average)
+    if(score>=1.6)return{grade:"A+",color:"#16a34a"};
+    if(score>=1.4)return{grade:"A",color:"#16a34a"};
+    if(score>=1.2)return{grade:"B+",color:"#22c55e"};
+    if(score>=1.05)return{grade:"B",color:"#22c55e"};
+    if(score>=0.95)return{grade:"B-",color:"#ca8a04"};
+    if(score>=0.85)return{grade:"C+",color:"#ca8a04"};
+    if(score>=0.75)return{grade:"C",color:"#ca8a04"};
+    if(score>=0.65)return{grade:"D",color:"#dc2626"};
+    return{grade:"F",color:"#dc2626"};
+  },[picks,prospectsMap,getConsensusRank,totalPicks,userTeams,liveNeeds,TEAM_NEEDS_DETAILED]);
 
   const shareDraft=useCallback(()=>{
     const up=picks.filter(pk=>pk.isUser);const W=1200,H=Math.min(900,200+up.length*44);
