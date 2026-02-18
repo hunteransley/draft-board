@@ -114,8 +114,11 @@ function pickVerdict(pickNum,consRank){
   return{text:"BIG REACH",color:"#dc2626",bg:"#fef2f2"};
 }
 
-export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClose,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED}){
+export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED,rankedGroups}){
   const ALL_TEAMS=useMemo(()=>[...new Set(DRAFT_ORDER_2026.map(d=>d.team))],[]);
+  const[boardMode,setBoardMode]=useState("consensus");
+  const activeBoard=boardMode==="my"&&myBoard?myBoard:board;
+  const activeGrade=useCallback((id)=>{if(boardMode==="my")return getGrade(id);const p=PROSPECTS.find(x=>x.id===id);return p?getConsensusGrade(p.name):50;},[boardMode,getGrade,PROSPECTS,getConsensusGrade]);
   const[setupDone,setSetupDone]=useState(false);
   const[userTeams,setUserTeams]=useState(new Set());
   const[numRounds,setNumRounds]=useState(1);
@@ -139,7 +142,7 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
   const[depthTeamIdx,setDepthTeamIdx]=useState(0);
 
   const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[PROSPECTS]);
-  const gradeMap=useMemo(()=>{const m={};board.forEach(p=>m[p.id]=getGrade(p.id));return m;},[board,getGrade]);
+  const gradeMap=useMemo(()=>{const m={};activeBoard.forEach(p=>m[p.id]=activeGrade(p.id));return m;},[activeBoard,activeGrade]);
   const positions=["QB","RB","WR","TE","OL","DL","LB","DB","K/P"];
 
   const fullDraftOrder=useMemo(()=>{
@@ -153,9 +156,9 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
   },[picks,totalPicks,getPickTeam,fullDraftOrder]);
 
   const startDraft=useCallback(()=>{
-    setAvailable(board.map(p=>p.id));setPicks([]);setSetupDone(true);setShowResults(false);
+    setAvailable(activeBoard.map(p=>p.id));setPicks([]);setSetupDone(true);setShowResults(false);
     setTradeMap({});setLastVerdict(null);setTradeOffer(null);setShowTradeUp(false);
-  },[board]);
+  },[activeBoard]);
 
   const cpuPick=useCallback((team,avail,pickNum)=>{
     const needs=teamNeeds[team]||["QB","WR","DL"];
@@ -206,9 +209,9 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
     let li=-1;for(let i=picks.length-1;i>=0;i--){if(picks[i].isUser){li=i;break;}}
     if(li===-1)return;
     const kp=picks.slice(0,li);const ki=new Set(kp.map(p=>p.playerId));
-    setPicks(kp);setAvailable(board.map(p=>p.id).filter(id=>!ki.has(id)));
+    setPicks(kp);setAvailable(activeBoard.map(p=>p.id).filter(id=>!ki.has(id)));
     setLastVerdict(null);setShowResults(false);setTradeOffer(null);
-  },[picks,board]);
+  },[picks,activeBoard]);
 
   // CPU auto-pick — pauses when trade offer or trade panel is open
   useEffect(()=>{
@@ -432,7 +435,7 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
     ctx.fillStyle='rgba(255,255,255,0.3)';ctx.font='500 12px monospace';
     ctx.fillText('BIGBOARDLAB.COM  ·  2026 NFL DRAFT'+(draftGrade?' — Grade: '+draftGrade.grade:''),48,72);
     up.forEach((pk,i)=>{
-      const p=prospectsMap[pk.playerId];if(!p)return;const y=100+i*44;const g=getGrade(pk.playerId);const c=POS_COLORS[p.pos];
+      const p=prospectsMap[pk.playerId];if(!p)return;const y=100+i*44;const g=activeGrade(pk.playerId);const c=POS_COLORS[p.pos];
       ctx.fillStyle=i%2===0?'rgba(255,255,255,0.02)':'transparent';ctx.fillRect(40,y,W-80,40);
       ctx.fillStyle='rgba(255,255,255,0.15)';ctx.font='14px monospace';ctx.fillText('Rd'+pk.round,56,y+26);
       ctx.fillStyle='rgba(255,255,255,0.3)';ctx.font='12px monospace';ctx.fillText('#'+pk.pick,110,y+26);
@@ -443,7 +446,7 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
     });
     ctx.fillStyle='rgba(255,255,255,0.15)';ctx.font='10px monospace';ctx.fillText('BUILD YOURS at BIGBOARDLAB.COM',48,H-16);
     canvas.toBlob(blob=>{const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='bigboardlab-mock-draft.png';a.click();URL.revokeObjectURL(url);});
-  },[picks,prospectsMap,getGrade,POS_COLORS,draftGrade]);
+  },[picks,prospectsMap,activeGrade,POS_COLORS,draftGrade]);
 
   const userPickCount=useMemo(()=>picks.filter(p=>p.isUser).length,[picks]);
 
@@ -539,6 +542,13 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
             </div>
           </div>
         </div>
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:16}}>
+          <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>draft board</div>
+          <div style={{display:"flex",gap:6}}>
+            {[["consensus","Consensus Board"],["my","My Board"]].map(([mode,label])=><button key={mode} onClick={()=>setBoardMode(mode)} style={{flex:1,fontFamily:sans,fontSize:13,fontWeight:boardMode===mode?700:400,padding:"10px 14px",background:boardMode===mode?"#171717":"transparent",color:boardMode===mode?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>{label}</button>)}
+          </div>
+          <p style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",margin:"8px 0 0"}}>{boardMode==="consensus"?"Industry consensus rankings & grades":"Your pair-ranked positions first, then consensus for unranked groups"}</p>
+        </div>
         <button onClick={startDraft} disabled={userTeams.size===0} style={{width:"100%",fontFamily:sans,fontSize:14,fontWeight:700,padding:"14px",background:userTeams.size>0?"#171717":"#d4d4d4",color:"#faf9f6",border:"none",borderRadius:99,cursor:userTeams.size>0?"pointer":"default"}}>
           start draft ({numRounds} round{numRounds>1?"s":""} · {userTeams.size} team{userTeams.size!==1?"s":""})
         </button>
@@ -574,10 +584,10 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
             return(<div key={team} style={{marginBottom:32,textAlign:"left"}}>
               <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,justifyContent:"center"}}><NFLTeamLogo team={team} size={20}/><span style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717"}}>{team}</span></div>
               <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",marginBottom:12}}>
-                {tp.map((pk,i)=>{const p=prospectsMap[pk.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const g=getGrade(pk.playerId);const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;const v=pickVerdict(pk.pick,rank);
+                {tp.map((pk,i)=>{const p=prospectsMap[pk.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const g=activeGrade(pk.playerId);const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;const v=pickVerdict(pk.pick,rank);
                   return<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"8px 12px",borderBottom:"1px solid #f5f5f5"}}>
                     <span style={{fontFamily:mono,fontSize:10,color:"#d4d4d4",width:44}}>Rd{pk.round} #{pk.pick}</span>
-                    <span style={{fontFamily:mono,fontSize:10,color:c,width:28}}>{p.pos}</span>
+                    <span style={{fontFamily:mono,fontSize:10,color:c,width:28}}>{p.gpos||p.pos}</span>
                     <SchoolLogo school={p.school} size={16}/>
                     <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1}}>{p.name}</span>
                     <span style={{fontFamily:mono,fontSize:7,padding:"1px 5px",background:v.bg,color:v.color,borderRadius:3}}>{v.text}</span>
@@ -635,7 +645,7 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
               return<div key={i}>{showRound&&<div style={{padding:"5px 10px",background:"#f5f5f5",fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>round {pick.round}</div>}<div style={{display:"flex",alignItems:"center",gap:5,padding:"5px 10px",borderBottom:"1px solid #f8f8f8",background:isU?"rgba(34,197,94,0.02)":"transparent"}}>
                 <span style={{fontFamily:mono,fontSize:9,color:"#d4d4d4",width:18,textAlign:"right"}}>{pick.pick}</span>
                 <NFLTeamLogo team={pick.team} size={13}/>
-                <span style={{fontFamily:mono,fontSize:8,color:c}}>{p.pos}</span>
+                <span style={{fontFamily:mono,fontSize:8,color:c}}>{p.gpos||p.pos}</span>
                 <span style={{fontFamily:sans,fontSize:10,fontWeight:isU?600:400,color:isU?"#171717":"#737373",flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{p.name}</span>
                 {pick.traded&&<span style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.03)",padding:"1px 4px",borderRadius:2}}>TRD</span>}
               </div></div>;
@@ -763,10 +773,10 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
               <span style={{fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>available ({filteredAvailable.length})</span>
               <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>click name = profile</span>
             </div>
-            {filteredAvailable.slice(0,60).map(id=>{const p=prospectsMap[id];if(!p)return null;const g=getGrade(id);const c=POS_COLORS[p.pos];const inC=compareList.some(x=>x.id===p.id);const rank=getConsensusRank?getConsensusRank(p.name):null;
+            {filteredAvailable.slice(0,60).map(id=>{const p=prospectsMap[id];if(!p)return null;const g=activeGrade(id);const c=POS_COLORS[p.pos];const inC=compareList.some(x=>x.id===p.id);const rank=getConsensusRank?getConsensusRank(p.name):null;
               return<div key={id} style={{display:"flex",alignItems:"center",gap:6,padding:"6px 12px",borderBottom:"1px solid #f8f8f8"}}>
                 {rank&&rank<400&&<span style={{fontFamily:mono,fontSize:8,color:"#d4d4d4",width:22,textAlign:"right"}}>#{rank}</span>}
-                <span style={{fontFamily:mono,fontSize:9,color:c,width:24}}>{p.pos}</span>
+                <span style={{fontFamily:mono,fontSize:9,color:c,width:24}}>{p.gpos||p.pos}</span>
                 <SchoolLogo school={p.school} size={16}/>
                 <span style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#171717",flex:1,cursor:"pointer"}} onClick={()=>setProfilePlayer(p)} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span>
                 <span style={{fontFamily:font,fontSize:12,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626",width:24,textAlign:"right"}}>{g}</span>
@@ -811,12 +821,12 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
             <button onClick={()=>setShowCompare(false)} style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 12px",cursor:"pointer"}}>close</button>
           </div>
           <div style={{display:"grid",gridTemplateColumns:"repeat("+compareList.length+", 1fr)",gap:16}}>
-            {compareList.map(p=>{const c=POS_COLORS[p.pos];const pt=POSITION_TRAITS[p.pos]||[];const g=getGrade(p.id);const rank=getConsensusRank?getConsensusRank(p.name):null;
+            {compareList.map(p=>{const c=POS_COLORS[p.pos];const pt=POSITION_TRAITS[p.pos]||[];const g=activeGrade(p.id);const rank=getConsensusRank?getConsensusRank(p.name):null;
               return<div key={p.id} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:16,textAlign:"center"}}>
                 <SchoolLogo school={p.school} size={40}/>
                 <div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717",marginTop:8}}>{p.name}</div>
                 <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{p.school}</div>
-                <span style={{fontFamily:mono,fontSize:10,color:c,background:c+"11",padding:"2px 8px",borderRadius:4,border:"1px solid "+c+"22",display:"inline-block",margin:"6px 0"}}>{p.pos}</span>
+                <span style={{fontFamily:mono,fontSize:10,color:c,background:c+"11",padding:"2px 8px",borderRadius:4,border:"1px solid "+c+"22",display:"inline-block",margin:"6px 0"}}>{p.gpos||p.pos}</span>
                 {rank&&rank<400&&<div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>consensus #{rank}</div>}
                 <div style={{fontFamily:font,fontSize:32,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626",lineHeight:1,margin:"8px 0"}}>{g}</div>
                 <RadarChart traits={pt} values={pt.map(t=>traits[p.id]?.[t]||50)} color={c} size={140}/>
