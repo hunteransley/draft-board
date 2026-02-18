@@ -192,6 +192,8 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
     const isUser=userTeams.has(team)&&!opts.traded;
     const np=[...picks,{pick,round,team,playerId,traded:opts.traded||false,isUser}];
     setPicks(np);setAvailable(prev=>prev.filter(id=>id!==playerId));
+    // Making a pick dismisses any pending trade offer or trade panel
+    if(isUser){setTradeOffer(null);setShowTradeUp(false);}
     if(isUser&&getConsensusRank){
       const p=prospectsMap[playerId];
       if(p){const rank=getConsensusRank(p.name);const v=pickVerdict(pick,rank);setLastVerdict({...v,player:p.name,pick,rank});setTimeout(()=>setLastVerdict(null),3500);}
@@ -217,10 +219,13 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
     return()=>clearTimeout(timer);
   },[picks,paused,available,userTeams,cpuPick,makePick,speed,setupDone,fullDraftOrder,totalPicks,getPickTeam,tradeOffer,showTradeUp]);
 
-  // CPU trade offers
+  // CPU trade offers — only when it's actually the user's turn and no offer exists
   useEffect(()=>{
     if(!isUserPick||tradeOffer||showTradeUp||picks.length>=totalPicks)return;
-    const idx=picks.length;const uv=getPickValue(fullDraftOrder[idx].pick);
+    const idx=picks.length;
+    // Double-check this is still a user pick (guard against stale state)
+    if(!userTeams.has(getPickTeam(idx)))return;
+    const uv=getPickValue(fullDraftOrder[idx].pick);
     const cands=[];
     for(let i=idx+3;i<Math.min(idx+16,totalPicks);i++){const t=getPickTeam(i);if(t&&!userTeams.has(t)&&fullDraftOrder[i]?.round<=3)cands.push({idx:i,team:t,...fullDraftOrder[i]});}
     if(cands.length>0&&Math.random()<0.30){
