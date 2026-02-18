@@ -18,7 +18,7 @@ const DEPTH_GROUPS=[
 const ALL_SLOTS=DEPTH_GROUPS.flatMap(g=>g.slots);
 
 const FORMATION_POS={
-  QB1:{x:50,y:88},RB1:{x:50,y:78},WR1:{x:5,y:65},WR2:{x:95,y:65},WR3:{x:15,y:72},TE1:{x:80,y:68},
+  QB1:{x:50,y:78},RB1:{x:50,y:88},WR1:{x:5,y:65},WR2:{x:95,y:65},WR3:{x:22,y:65},TE1:{x:80,y:68},
   LT:{x:32,y:68},LG:{x:40,y:68},C:{x:50,y:68},RG:{x:60,y:68},RT:{x:68,y:68},
   DE1:{x:28,y:48},DT1:{x:42,y:48},DT2:{x:58,y:48},DE2:{x:72,y:48},
   LB1:{x:30,y:38},LB2:{x:50,y:38},LB3:{x:70,y:38},
@@ -233,36 +233,64 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
   const toggleTeam=(t)=>setUserTeams(prev=>{const n=new Set(prev);n.has(t)?n.delete(t):n.add(t);return n;});
   const toggleCompare=(p)=>{setCompareList(prev=>{const e=prev.find(x=>x.id===p.id);if(e)return prev.filter(x=>x.id!==p.id);if(prev.length>=4)return prev;return[...prev,p];});};
 
-  // Depth chart: NFL roster + drafted players overlay — drafted rookies slot in properly
+  // Depth chart: NFL roster + drafted players overlay — round-aware slotting
   const depthChart=useMemo(()=>{
     const chart={};
     [...userTeams].forEach(team=>{
-      // Build per-group arrays: roster first, then drafted on top
       chart[team]={};const roster=NFL_ROSTERS[team]||{};
-      // Collect roster entries per group
-      const groupPlayers={};
+      // Start with roster in slots
       DEPTH_GROUPS.forEach(g=>{
-        groupPlayers[g.label]=[];
-        g.slots.forEach(s=>{if(roster[s])groupPlayers[g.label].push({name:roster[s],isRoster:true,slot:s});});
+        g.slots.forEach(s=>{if(roster[s])chart[team][s]={name:roster[s],isRoster:true};});
       });
-      // Add drafted players to front of their group (they're starters/high picks)
-      picks.filter(pk=>pk.team===team).forEach(pk=>{
+      // Slot drafted players based on round
+      const teamPicks=picks.filter(pk=>pk.team===team);
+      teamPicks.forEach(pk=>{
         const p=prospectsMap[pk.playerId];if(!p)return;
         const group=DEPTH_GROUPS.find(g=>g.posMatch===p.pos);if(!group)return;
-        groupPlayers[group.label].unshift({name:p.name,isDraft:true});
-      });
-      // Map back to slots
-      DEPTH_GROUPS.forEach(g=>{
-        const players=groupPlayers[g.label];
-        g.slots.forEach((s,i)=>{chart[team][s]=players[i]||null;});
-        // Overflow beyond slot count
-        for(let i=g.slots.length;i<players.length;i++){
-          chart[team][g.slots[g.slots.length-1]+"_d"+i]=players[i];
+        const grade=getConsensusGrade?getConsensusGrade(p.name):(gradeMap[pk.playerId]||50);
+        const entry={name:p.name,isDraft:true};
+        if(pk.round===1||(pk.round===2&&grade>=80)){
+          // Starter: push existing starter down, take slot 1
+          const s1=group.slots[0];
+          if(chart[team][s1]){
+            // Find an empty slot to push the displaced player into
+            const emptySlot=group.slots.find(s=>!chart[team][s]);
+            if(emptySlot)chart[team][emptySlot]=chart[team][s1];
+          }
+          chart[team][s1]=entry;
+        }else if(pk.round<=3){
+          // Second slot
+          const target=group.slots[1]||group.slots[0];
+          if(!chart[team][target]){
+            chart[team][target]=entry;
+          }else{
+            // Find any empty slot in the group
+            const emptySlot=group.slots.find(s=>!chart[team][s]);
+            if(emptySlot)chart[team][emptySlot]=entry;
+            else{
+              // Overflow
+              const oi=Object.keys(chart[team]).filter(k=>k.startsWith(group.slots[group.slots.length-1]+"_d")).length;
+              chart[team][group.slots[group.slots.length-1]+"_d"+oi]=entry;
+            }
+          }
+        }else{
+          // Rd 4-7: last slot in the group
+          const target=group.slots[group.slots.length-1];
+          if(!chart[team][target]){
+            chart[team][target]=entry;
+          }else{
+            const emptySlot=group.slots.find(s=>!chart[team][s]);
+            if(emptySlot)chart[team][emptySlot]=entry;
+            else{
+              const oi=Object.keys(chart[team]).filter(k=>k.startsWith(group.slots[group.slots.length-1]+"_d")).length;
+              chart[team][group.slots[group.slots.length-1]+"_d"+oi]=entry;
+            }
+          }
         }
       });
     });
     return chart;
-  },[picks,userTeams,prospectsMap]);
+  },[picks,userTeams,prospectsMap,getConsensusGrade,gradeMap]);
 
   const liveNeeds=useMemo(()=>{
     const needs={};
@@ -336,8 +364,11 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
     </svg>);
   };
 
-  const DepthList=({team})=>{
+  const DepthList=({team,dark=true})=>{
     const chart=depthChart[team]||{};
+    const slotColor=dark?"rgba(255,255,255,0.3)":"#a3a3a3";
+    const nameColor=dark?"rgba(255,255,255,0.55)":"#525252";
+    const draftColor=dark?"#fbbf24":"#ca8a04";
     return(<div style={{marginTop:4}}>
       {DEPTH_GROUPS.map(group=>{
         const entries=group.slots.map(s=>({slot:s,entry:chart[s]})).filter(x=>x.entry);
@@ -345,12 +376,12 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
         if(entries.length===0&&extras.length===0)return null;
         return(<div key={group.label} style={{marginBottom:2}}>
           {entries.map(({slot,entry})=>(<div key={slot} style={{fontFamily:sans,fontSize:9,padding:"1px 0",display:"flex",gap:4}}>
-            <span style={{color:"rgba(255,255,255,0.3)",width:16,fontSize:7}}>{slot}</span>
-            <span style={{fontWeight:entry.isDraft?700:400,color:entry.isDraft?"#fbbf24":"rgba(255,255,255,0.55)"}}>{entry.name}{entry.isDraft?" ★":""}</span>
+            <span style={{color:slotColor,width:16,fontSize:7}}>{slot}</span>
+            <span style={{fontWeight:entry.isDraft?700:400,color:entry.isDraft?draftColor:nameColor}}>{entry.name}{entry.isDraft?" ★":""}</span>
           </div>))}
           {extras.map(({slot,entry})=>(<div key={slot} style={{fontFamily:sans,fontSize:9,padding:"1px 0",display:"flex",gap:4}}>
-            <span style={{color:"rgba(255,255,255,0.3)",width:16,fontSize:7}}>+</span>
-            <span style={{fontWeight:entry.isDraft?700:400,color:entry.isDraft?"#fbbf24":"rgba(255,255,255,0.55)"}}>{entry.name}{entry.isDraft?" ★":""}</span>
+            <span style={{color:slotColor,width:16,fontSize:7}}>+</span>
+            <span style={{fontWeight:entry.isDraft?700:400,color:entry.isDraft?draftColor:nameColor}}>{entry.name}{entry.isDraft?" ★":""}</span>
           </div>))}
         </div>);
       })}
@@ -425,7 +456,7 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
           <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>draft complete</span>
           <button onClick={onClose} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>✕ exit</button>
         </div>
-        <div style={{maxWidth:800,margin:"0 auto",padding:"52px 24px 40px",textAlign:"center"}}>
+        <div style={{maxWidth:900,margin:"0 auto",padding:"52px 24px 40px",textAlign:"center"}}>
           <h1 style={{fontSize:36,fontWeight:900,color:"#171717",margin:"0 0 8px"}}>draft complete!</h1>
           {draftGrade&&<div style={{display:"inline-block",padding:"12px 32px",background:"#fff",border:"2px solid "+draftGrade.color,borderRadius:16,marginBottom:24}}>
             <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>draft grade</div>
@@ -438,7 +469,7 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
           {[...userTeams].map(team=>{
             const tp=userPicks.filter(pk=>pk.team===team);if(tp.length===0)return null;
             return(<div key={team} style={{marginBottom:32,textAlign:"left"}}>
-              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8}}><NFLTeamLogo team={team} size={20}/><span style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717"}}>{team}</span></div>
+              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,justifyContent:"center"}}><NFLTeamLogo team={team} size={20}/><span style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717"}}>{team}</span></div>
               <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",marginBottom:12}}>
                 {tp.map((pk,i)=>{const p=prospectsMap[pk.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const g=getGrade(pk.playerId);const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;const v=pickVerdict(pk.pick,rank);
                   return<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"8px 12px",borderBottom:"1px solid #f5f5f5"}}>
@@ -451,9 +482,14 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
                   </div>;
                 })}
               </div>
-              <div style={{background:"#15803d",borderRadius:12,padding:"16px",maxWidth:480}}>
-                <FormationChart team={team}/>
-                <DepthList team={team}/>
+              <div style={{display:"flex",gap:16,alignItems:"flex-start"}}>
+                <div style={{flex:"0 0 320px",background:"#15803d",borderRadius:12,padding:"16px"}}>
+                  <FormationChart team={team}/>
+                </div>
+                <div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"12px 16px"}}>
+                  <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:6}}>depth chart</div>
+                  <DepthList team={team} dark={false}/>
+                </div>
               </div>
             </div>);
           })}
