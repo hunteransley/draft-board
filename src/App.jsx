@@ -248,6 +248,7 @@ function DraftBoard({user,onSignOut}){
   const[notes,setNotes]=useState({});
   const[communityBoard,setCommunityBoard]=useState(null);
   const[showMockDraft,setShowMockDraft]=useState(false);
+  const[showOnboarding,setShowOnboarding]=useState(()=>{try{return !localStorage.getItem('bbl_onboarded');}catch(e){return true;}});
 
   // Consensus Top 50 (aggregated from major draft media)
   const CONSENSUS=useMemo(()=>["Cam Ward","Abdul Carter","Travis Hunter","Tetairoa McMillan","Will Johnson","Mason Graham","Shedeur Sanders","Tyler Warren","Ashton Jeanty","Will Campbell","Kelvin Banks Jr.","Mykel Williams","James Pearce Jr.","Luther Burden III","Malaki Starks","Jalen Milroe","Kenneth Grant","Colston Loveland","Jalon Walker","Emeka Egbuka","Derrick Harmon","Aireontae Ersery","Nic Scourton","Josh Simmons","Shavon Revel Jr.","Tyleik Williams","Benjamin Morrison","Sheild Sanders","Walter Nolen","Jack Sawyer","Omarion Hampton","Nick Singleton","Grey Zabel","Mike Matthews","Tate Ratledge","Donovan Jackson","Princely Umanmielen","Kevin Winston Jr.","David Hicks Jr.","Wyatt Milum","J.T. Tuimoloau","Tre Harris","Deone Walker","Quinshon Judkins","Landon Jackson","Isaiah Bond","Quinn Ewers","Dillon Gabriel","Carson Beck","Drew Allar"].map((name,i)=>({name,rank:i+1})),[]);
@@ -261,14 +262,21 @@ function DraftBoard({user,onSignOut}){
       const{data}=await supabase.from('boards').select('board_data,updated_at').eq('user_id',user.id).single();
       if(data?.board_data){
         const d=data.board_data;
+        // Migrate old position group keys (OL->OT/IOL, DL->EDGE/DL, DB->CB/S)
+        let rg=d.rankedGroups||[];
+        const OLD_TO_NEW={"OL":["OT","IOL"],"DB":["CB","S"]};
+        let migrated=false;
+        const newRg=[];
+        rg.forEach(g=>{if(OLD_TO_NEW[g]){OLD_TO_NEW[g].forEach(n=>newRg.push(n));migrated=true;}else{newRg.push(g);}});
+        if(migrated)rg=newRg;
         if(d.ratings)setRatings(d.ratings);
         if(d.traits)setTraits(d.traits);
-        if(d.rankedGroups)setRankedGroups(new Set(d.rankedGroups));
+        if(rg.length>0)setRankedGroups(new Set(rg));
         if(d.traitReviewedGroups)setTraitReviewedGroups(new Set(d.traitReviewedGroups));
         if(d.compCount)setCompCount(d.compCount);
         if(d.notes)setNotes(d.notes);
         setLastSaved(data.updated_at);
-        setPhase(d.rankedGroups?.length>0?"pick-position":"home");
+        setPhase(rg.length>0?"pick-position":"home");
       }else{setPhase("home");}
     })();
   },[user.id]);
@@ -336,7 +344,7 @@ function DraftBoard({user,onSignOut}){
 
   const finishTraits=useCallback((pos)=>{setTraitReviewedGroups(prev=>new Set([...prev,pos]));const ranked=getRanked(pos);const byGrade=[...ranked].sort((a,b)=>getGrade(b.id)-getGrade(a.id));const conflicts=ranked.map((p,i)=>{const gi=byGrade.findIndex(x=>x.id===p.id);return Math.abs(i-gi)>=3?{player:p,pairRank:i+1,gradeRank:gi+1,grade:getGrade(p.id)}:null;}).filter(Boolean);if(conflicts.length){setReconcileQueue(conflicts);setReconcileIndex(0);setPhase("reconcile");}else setPhase("pick-position");},[getRanked,getGrade]);
 
-  const SaveBar=()=>(<div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}><div style={{display:"flex",alignItems:"center",gap:12}}><img src="/logo.png" alt="BBL" style={{height:24,cursor:"pointer"}} onClick={()=>setPhase(rankedGroups.size>0?"pick-position":"home")}/><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{user.email}</span></div><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontFamily:mono,fontSize:10,color:saving?"#ca8a04":"#d4d4d4"}}>{saving?"saving...":lastSaved?`saved ${new Date(lastSaved).toLocaleTimeString()}`:""}</span><button onClick={onSignOut} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>sign out</button></div></div>);
+  const SaveBar=()=>(<div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}><div style={{display:"flex",alignItems:"center",gap:12}}><img src="/logo.png" alt="BBL" style={{height:24,cursor:"pointer"}} onClick={()=>setPhase(rankedGroups.size>0?"pick-position":"home")}/><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{user.email}</span></div><div style={{display:"flex",alignItems:"center",gap:8}}>{!showOnboarding&&<button onClick={()=>setShowOnboarding(true)} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 8px",cursor:"pointer"}} title="How it works">?</button>}<span style={{fontFamily:mono,fontSize:10,color:saving?"#ca8a04":"#d4d4d4"}}>{saving?"saving...":lastSaved?`saved ${new Date(lastSaved).toLocaleTimeString()}`:""}</span><button onClick={onSignOut} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>sign out</button></div></div>);
 
   if(phase==="loading")return(<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading your board...</p></div>);
 
@@ -346,6 +354,8 @@ function DraftBoard({user,onSignOut}){
   // === HOME ===
   if(phase==="home"||phase==="pick-position"){
     const hasBoardData=rankedGroups.size>0;
+    const hasStaleData=!hasBoardData&&Object.keys(ratings).length>0;
+    const dismissOnboarding=()=>{setShowOnboarding(false);try{localStorage.setItem('bbl_onboarded','1');}catch(e){}};
     return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 60px"}}>
 
     {hasBoardData&&<div style={{marginBottom:32}}>
@@ -362,52 +372,48 @@ function DraftBoard({user,onSignOut}){
       </div>
     </div>}
 
-    {!hasBoardData&&<div style={{marginBottom:48}}>
-      <div style={{textAlign:"center",marginBottom:32}}>
-        <img src="/logo.png" alt="Big Board Lab" style={{width:80,height:"auto",marginBottom:12}}/>
-        <p style={{fontFamily:mono,fontSize:11,letterSpacing:3,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>2026 NFL Draft · Pittsburgh · April 23–25</p>
-        <h1 style={{fontSize:"clamp(36px,7vw,56px)",fontWeight:900,lineHeight:0.95,color:"#171717",margin:"0 0 16px",letterSpacing:-2}}>build your<br/>big board.</h1>
-      </div>
-
-      {/* How it works */}
-      <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:"24px 28px",marginBottom:20}}>
-        <h3 style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717",margin:"0 0 16px"}}>how it works</h3>
-        <div style={{display:"flex",flexDirection:"column",gap:16}}>
-          <div style={{display:"flex",gap:14,alignItems:"flex-start"}}>
-            <span style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#d4d4d4",lineHeight:1,flexShrink:0,width:28}}>1</span>
-            <div><div style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717",marginBottom:2}}>pair rank prospects</div><div style={{fontFamily:sans,fontSize:13,color:"#737373",lineHeight:1.4}}>Pick A or B for each position group. The more matchups you vote on, the more accurate your rankings get.</div></div>
-          </div>
-          <div style={{display:"flex",gap:14,alignItems:"flex-start"}}>
-            <span style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#d4d4d4",lineHeight:1,flexShrink:0,width:28}}>2</span>
-            <div><div style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717",marginBottom:2}}>fine-tune with trait sliders</div><div style={{fontFamily:sans,fontSize:13,color:"#737373",lineHeight:1.4}}>After ranking, adjust individual trait grades to dial in your evaluations. Moving sliders changes overall grades. Add scouting notes too.</div></div>
-          </div>
-          <div style={{display:"flex",gap:14,alignItems:"flex-start"}}>
-            <span style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#d4d4d4",lineHeight:1,flexShrink:0,width:28}}>3</span>
-            <div><div style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717",marginBottom:2}}>run mock drafts</div><div style={{fontFamily:sans,fontSize:13,color:"#737373",lineHeight:1.4}}>Draft as any team using your board or the consensus board. Make trades, track team needs, and fill your depth chart.</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>
-        <button onClick={()=>setShowMockDraft(true)} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",textAlign:"left",cursor:"pointer"}}>
-          <div style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717",marginBottom:4}}>🏈 mock draft</div>
-          <div style={{fontFamily:sans,fontSize:12,color:"#a3a3a3"}}>jump straight in with the consensus board</div>
-        </button>
-        <button onClick={()=>{const firstPos=POSITION_GROUPS[0];startRanking(firstPos);}} style={{background:"#171717",border:"none",borderRadius:12,padding:"16px 20px",textAlign:"left",cursor:"pointer"}}>
-          <div style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#faf9f6",marginBottom:4}}>🗳️ start ranking</div>
-          <div style={{fontFamily:sans,fontSize:12,color:"#a3a3a3"}}>begin with QBs and build your board</div>
-        </button>
+    {!hasBoardData&&<div style={{textAlign:"center",marginBottom:32}}>
+      <img src="/logo.png" alt="Big Board Lab" style={{width:80,height:"auto",marginBottom:12}}/>
+      <p style={{fontFamily:mono,fontSize:11,letterSpacing:3,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>2026 NFL Draft · Pittsburgh · April 23–25</p>
+      <h1 style={{fontSize:"clamp(36px,7vw,56px)",fontWeight:900,lineHeight:0.95,color:"#171717",margin:"0 0 16px",letterSpacing:-2}}>big board<br/>lab.</h1>
+      <div style={{display:"flex",gap:12,justifyContent:"center",marginTop:20}}>
+        <button onClick={()=>setShowMockDraft(true)} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 24px",background:"#fff",color:"#171717",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>🏈 mock draft</button>
+        <button onClick={()=>{const firstPos=POSITION_GROUPS[0];startRanking(firstPos);}} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 24px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>🗳️ start ranking</button>
       </div>
     </div>}
 
-    <h2 style={{fontFamily:font,fontSize:hasBoardData?20:36,fontWeight:900,color:"#171717",margin:"0 0 4px",letterSpacing:-1}}>{hasBoardData?"edit positions":"positions"}</h2>
+    {/* Dismissible onboarding */}
+    {showOnboarding&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:"20px 24px",marginBottom:24,position:"relative"}}>
+      <button onClick={dismissOnboarding} style={{position:"absolute",top:12,right:14,fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"2px 8px",cursor:"pointer"}}>✕</button>
+      <h3 style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717",margin:"0 0 14px"}}>how it works</h3>
+      <div style={{display:"flex",flexDirection:"column",gap:12}}>
+        <div style={{display:"flex",gap:12,alignItems:"flex-start"}}>
+          <span style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#d4d4d4",lineHeight:1,flexShrink:0,width:24}}>1</span>
+          <div><span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>pair rank prospects</span><span style={{fontFamily:sans,fontSize:13,color:"#737373"}}> — pick A or B for each position. more matchups = more accurate rankings.</span></div>
+        </div>
+        <div style={{display:"flex",gap:12,alignItems:"flex-start"}}>
+          <span style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#d4d4d4",lineHeight:1,flexShrink:0,width:24}}>2</span>
+          <div><span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>fine-tune traits</span><span style={{fontFamily:sans,fontSize:13,color:"#737373"}}> — adjust sliders to change overall grades. add scouting notes.</span></div>
+        </div>
+        <div style={{display:"flex",gap:12,alignItems:"flex-start"}}>
+          <span style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#d4d4d4",lineHeight:1,flexShrink:0,width:24}}>3</span>
+          <div><span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>mock draft</span><span style={{fontFamily:sans,fontSize:13,color:"#737373"}}> — draft as any team with your board or consensus. trade up, fill needs.</span></div>
+        </div>
+      </div>
+    </div>}
+
+    {/* Stale data warning */}
+    {hasStaleData&&<div style={{background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:12,padding:"12px 16px",marginBottom:20,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+      <span style={{fontFamily:sans,fontSize:13,color:"#92400e"}}>You have rankings from an old session. Reset to start fresh with the new position groups.</span>
+      <button onClick={()=>{setRatings({});setTraits({});setNotes({});setCompCount(0);}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer",flexShrink:0,marginLeft:12}}>reset</button>
+    </div>}
+
+    <h2 style={{fontFamily:font,fontSize:hasBoardData?20:24,fontWeight:900,color:"#171717",margin:"0 0 4px",letterSpacing:-1}}>{hasBoardData?"edit positions":"positions"}</h2>
     <p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",margin:"0 0 20px"}}>rank each group, then tune traits to build your board</p>
     <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(200px, 1fr))",gap:12}}>{POSITION_GROUPS.map(pos=>{const ct=(byPos[pos]||[]).length;const done=rankedGroups.has(pos);const reviewed=traitReviewedGroups.has(pos);const c=POS_COLORS[pos];return(<div key={pos} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"18px 20px",position:"relative"}}>{done&&<span style={{position:"absolute",top:12,right:14,fontSize:10,fontFamily:mono,color:"#22c55e"}}>ranked</span>}<div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c,marginBottom:2}}>{pos}</div><div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",marginBottom:14}}>{ct} prospects</div><div style={{display:"flex",gap:8,flexWrap:"wrap"}}>{!done?<button onClick={()=>startRanking(pos)} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"7px 18px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>rank</button>:<><button onClick={()=>{setActivePos(pos);setSelectedPlayer(getRanked(pos)[0]);setPhase("traits");}} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"7px 18px",background:reviewed?`${c}11`:"#171717",color:reviewed?c:"#faf9f6",border:reviewed?`1px solid ${c}33`:"none",borderRadius:99,cursor:"pointer"}}>{reviewed?"✓ rankings":"rankings"}</button><button onClick={()=>startRanking(pos)} style={{fontFamily:sans,fontSize:11,padding:"7px 14px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>re-vote</button></>}</div></div>);})}</div>
-    {rankedGroups.size>0&&!hasBoardData&&<div style={{textAlign:"center",marginTop:32}}><button onClick={()=>setPhase("board")} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"14px 36px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>view big board ({rankedGroups.size}/{POSITION_GROUPS.length})</button></div>}
+    {rankedGroups.size>0&&<div style={{textAlign:"center",marginTop:32}}><button onClick={()=>setPhase("board")} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"14px 36px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>view big board ({rankedGroups.size}/{POSITION_GROUPS.length})</button></div>}
 
     {rankedGroups.size>0&&<div style={{textAlign:"center",marginTop:20}}><button onClick={()=>{if(window.confirm("Reset all rankings, traits, and notes? This cannot be undone.")){setRatings({});setTraits({});setNotes({});setRankedGroups(new Set());setTraitReviewedGroups(new Set());setCompCount(0);setPhase("home");}}} style={{fontFamily:sans,fontSize:11,padding:"7px 18px",background:"transparent",color:"#dc2626",border:"1px solid #fecaca",borderRadius:99,cursor:"pointer"}}>reset all rankings</button></div>}
-
-    {!hasBoardData&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginTop:32}}><p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>how it works</p>{[["01","Pick a position group","Start with QBs, WRs, or wherever."],["02","A vs B matchups","Pick the better prospect. Set confidence. Rankings form automatically."],["03","Review rankings","Drag to reorder. Click names for full profiles with traits and similar players."],["04","Reconcile & finalize","When gut and grades disagree, you decide."]].map(([num,title,desc])=><div key={num} style={{display:"flex",gap:16,marginBottom:16,alignItems:"flex-start"}}><span style={{fontFamily:mono,fontSize:12,color:"#d4d4d4",fontWeight:500,flexShrink:0,marginTop:2}}>{num}</span><div><div style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717",marginBottom:2}}>{title}</div><div style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",lineHeight:1.4}}>{desc}</div></div></div>)}</div>}
 
     </div></div>);
   }
