@@ -27,6 +27,10 @@ const FORMATION_POS={
 
 const POS_DRAFT_VALUE={QB:1.08,OL:1.05,DL:1.06,WR:1.04,DB:1.03,TE:0.98,LB:0.97,RB:0.96,"K/P":0.7};
 
+// Override consensus ranks for players the board data may undervalue
+// These represent realistic draft range ceilings/floors based on current intel
+const RANK_OVERRIDES={"Sonny Styles":12,"Kenyon Sadiq":20};
+
 function pickVerdict(pickNum,consRank){
   if(consRank>=900)return{text:"UNKNOWN",color:"#737373",bg:"#f5f5f5"};
   const diff=pickNum-consRank; // positive = player fell to you = value, negative = you reached up
@@ -94,17 +98,21 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
     avail.forEach(id=>{
       const p=prospectsMap[id];if(!p)return;
       const grade=getConsensusGrade?getConsensusGrade(p.name):(gradeMap[id]||50);
+      const rawRank=getConsensusRank?getConsensusRank(p.name):999;
+      const consRank=RANK_OVERRIDES[p.name]||rawRank;
       const nc=dn[p.pos]||0;const ni=needs.indexOf(p.pos);
       const nm=nc>=2?12:nc===1?8:ni>=0&&ni<3?5:0;
       const pm=POS_DRAFT_VALUE[p.pos]||1.0;
-      // Grade is king: base score from grade^1.3 ensures elite players stay elite
-      // Needs add a flat bonus, positional value is a gentle multiplier
-      const base=Math.pow(grade+variance,1.3);
-      const score=(base+nm)*pm;
+      const base=Math.pow(Math.max(grade+variance,10),1.3);
+      // Anti-slide: if player's consensus rank is much higher than current pick, boost score
+      // This prevents elite talent from falling unrealistically far
+      const slide=consRank<900?(pickNum-consRank):0;
+      const slideBoost=slide>8?Math.pow(slide-8,1.5)*3:0;
+      const score=(base+nm+slideBoost)*pm;
       if(score>bestScore){bestScore=score;best=id;}
     });
     return best||avail[0];
-  },[teamNeeds,prospectsMap,gradeMap,getConsensusGrade,TEAM_NEEDS_DETAILED]);
+  },[teamNeeds,prospectsMap,gradeMap,getConsensusGrade,getConsensusRank,TEAM_NEEDS_DETAILED]);
 
   const isUserPick=useMemo(()=>{
     return picks.length<totalPicks&&userTeams.has(getPickTeam(picks.length));
@@ -429,22 +437,23 @@ export default function MockDraftSim({board,getGrade,teamNeeds,draftOrder,onClos
           </div>
           {[...userTeams].map(team=>{
             const tp=userPicks.filter(pk=>pk.team===team);if(tp.length===0)return null;
-            return(<div key={team} style={{marginBottom:24,textAlign:"left"}}>
+            return(<div key={team} style={{marginBottom:32,textAlign:"left"}}>
               <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8}}><NFLTeamLogo team={team} size={20}/><span style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717"}}>{team}</span></div>
-              <div style={{display:"flex",gap:16,marginBottom:12}}>
-                <div style={{flex:"0 0 180px"}}><FormationChart team={team}/></div>
-                <div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
-                  {tp.map((pk,i)=>{const p=prospectsMap[pk.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const g=getGrade(pk.playerId);const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;const v=pickVerdict(pk.pick,rank);
-                    return<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"8px 12px",borderBottom:"1px solid #f5f5f5"}}>
-                      <span style={{fontFamily:mono,fontSize:10,color:"#d4d4d4",width:44}}>Rd{pk.round} #{pk.pick}</span>
-                      <span style={{fontFamily:mono,fontSize:10,color:c,width:28}}>{p.pos}</span>
-                      <SchoolLogo school={p.school} size={16}/>
-                      <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1}}>{p.name}</span>
-                      <span style={{fontFamily:mono,fontSize:7,padding:"1px 5px",background:v.bg,color:v.color,borderRadius:3}}>{v.text}</span>
-                      <span style={{fontFamily:font,fontSize:12,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626"}}>{g}</span>
-                    </div>;
-                  })}
-                </div>
+              <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",marginBottom:12}}>
+                {tp.map((pk,i)=>{const p=prospectsMap[pk.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const g=getGrade(pk.playerId);const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;const v=pickVerdict(pk.pick,rank);
+                  return<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"8px 12px",borderBottom:"1px solid #f5f5f5"}}>
+                    <span style={{fontFamily:mono,fontSize:10,color:"#d4d4d4",width:44}}>Rd{pk.round} #{pk.pick}</span>
+                    <span style={{fontFamily:mono,fontSize:10,color:c,width:28}}>{p.pos}</span>
+                    <SchoolLogo school={p.school} size={16}/>
+                    <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1}}>{p.name}</span>
+                    <span style={{fontFamily:mono,fontSize:7,padding:"1px 5px",background:v.bg,color:v.color,borderRadius:3}}>{v.text}</span>
+                    <span style={{fontFamily:font,fontSize:12,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626"}}>{g}</span>
+                  </div>;
+                })}
+              </div>
+              <div style={{background:"#15803d",borderRadius:12,padding:"16px",maxWidth:480}}>
+                <FormationChart team={team}/>
+                <DepthList team={team}/>
               </div>
             </div>);
           })}
