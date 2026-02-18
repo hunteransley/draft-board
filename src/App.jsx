@@ -270,7 +270,7 @@ function DraftBoard({user,onSignOut}){
       if(rankedGroups.size>0){
         try{
           const communityData={};
-          PROSPECTS.filter(p=>rankedGroups.has(p.gpos||p.pos)).forEach(p=>{communityData[p.id]=ratings[p.id]||1500;});
+          PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;return rankedGroups.has(group);}).forEach(p=>{communityData[p.id]=ratings[p.id]||1500;});
           await supabase.from('community_boards').upsert({user_id:user.id,board_data:communityData},{onConflict:'user_id'});
         }catch(e){}
       }
@@ -280,7 +280,7 @@ function DraftBoard({user,onSignOut}){
   },[ratings,traits,rankedGroups,traitReviewedGroups,compCount,notes,user.id,phase]);
 
   const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[]);
-  const byPos=useMemo(()=>{const m={};PROSPECTS.forEach(p=>{const g=p.gpos||p.pos;if(!m[g])m[g]=[];m[g].push(p);});return m;},[]);
+  const byPos=useMemo(()=>{const m={};PROSPECTS.forEach(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;if(!m[group])m[group]=[];m[group].push(p);});return m;},[]);
   const startRanking=useCallback((pos)=>{const ids=(byPos[pos]||[]).map(p=>p.id);const allM=generateMatchups(ids);const r={...ratings};ids.forEach(id=>{if(!r[id])r[id]=INITIAL_ELO;});const c={...compCount};ids.forEach(id=>{if(!c[id])c[id]=0;});setRatings(r);setCompCount(c);setCompleted(prev=>({...prev,[pos]:new Set()}));setMatchups(prev=>({...prev,[pos]:allM}));setCurrentMatchup(getNextMatchup(allM,new Set(),r));setActivePos(pos);setPhase("ranking");},[ratings,compCount,byPos]);
   const handlePick=useCallback((winnerId,confidence=0.5)=>{if(!currentMatchup||!activePos)return;const[a,b]=currentMatchup;const aWon=winnerId===a;const k=24+(confidence*24);const{newA,newB}=eloUpdate(ratings[a]||1500,ratings[b]||1500,aWon,k);const ur={...ratings,[a]:newA,[b]:newB};setRatings(ur);const uc={...compCount,[a]:(compCount[a]||0)+1,[b]:(compCount[b]||0)+1};setCompCount(uc);const ns=new Set(completed[activePos]);ns.add(`${a}-${b}`);setCompleted(prev=>({...prev,[activePos]:ns}));const next=getNextMatchup(matchups[activePos],ns,ur);if(!next)finishRanking(activePos,ur);else setCurrentMatchup(next);setShowConfidence(false);setPendingWinner(null);},[currentMatchup,activePos,ratings,completed,matchups,compCount]);
   const canFinish=useMemo(()=>{if(!activePos||!byPos[activePos])return false;return byPos[activePos].every(p=>(compCount[p.id]||0)>=MIN_COMPS);},[activePos,byPos,compCount]);
@@ -308,7 +308,7 @@ function DraftBoard({user,onSignOut}){
     const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;
     return getConsensusGrade(p.name);
   }const v=Object.values(t);return v.length?Math.round(v.reduce((a,b)=>a+b,0)/v.length):50;},[traits]);
-  const getBoard=useCallback(()=>PROSPECTS.filter(p=>rankedGroups.has(p.gpos||p.pos)).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings]);
+  const getBoard=useCallback(()=>PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;return rankedGroups.has(group);}).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings]);
 
   // Build mock draft board: consensus order for all 319, user rankings override when graded
   const mockDraftBoard=useMemo(()=>{
@@ -323,7 +323,7 @@ function DraftBoard({user,onSignOut}){
   if(phase==="loading")return(<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading your board...</p></div>);
 
   // === MOCK DRAFT (check before phase returns to fix click bug) ===
-  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const aRanked=rankedGroups.has(a.gpos||a.pos);const bRanked=rankedGroups.has(b.gpos||b.pos);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>setShowMockDraft(false)} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups}/>;}
+  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA);const bRanked=rankedGroups.has(gB);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>setShowMockDraft(false)} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups}/>;}
 
   // === HOME ===
   if(phase==="home"||phase==="pick-position"){
