@@ -99,7 +99,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
               </div>
               <div style={{position:"relative",height:24,display:"flex",alignItems:"center"}}>
                 <div style={{position:"absolute",left:0,right:0,height:6,background:"#f0f0f0",borderRadius:3}}/>
-                <div style={{position:"absolute",left:0,height:6,width:`${val}%`,background:barColor,borderRadius:3,transition:"background 0.15s"}}/>
+                <div style={{position:"absolute",left:0,height:6,width:`${val}%`,background:"linear-gradient(90deg, #ec4899, #7c3aed)",borderRadius:3}}/>
                 <div style={{position:"absolute",left:`${val}%`,transform:"translateX(-50%)",fontSize:18,lineHeight:1,pointerEvents:"none",zIndex:3,filter:"drop-shadow(0 1px 2px rgba(0,0,0,.15))"}}>{emoji}</div>
                 <input type="range" min="0" max="100" value={val}
                   onChange={e=>setTraits(prev=>({...prev,[player.id]:{...prev[player.id],[trait]:parseInt(e.target.value)}}))}
