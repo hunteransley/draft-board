@@ -219,6 +219,7 @@ function AuthScreen({onSignIn}){
             </div>
           )}
         </div>
+        <p style={{textAlign:"center",marginTop:16}}><a href="/privacy.html" style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",textDecoration:"none"}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>privacy policy</a></p>
       </div>
     </div>
   );
