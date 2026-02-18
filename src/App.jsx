@@ -177,8 +177,8 @@ function AuthScreen({onSignIn}){
         <div style={{textAlign:"center",marginBottom:36}}>
           <img src="/logo.png" alt="Big Board Lab" style={{width:120,height:"auto",marginBottom:16}}/>
           <p style={{fontFamily:mono,fontSize:11,letterSpacing:3,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>2026 NFL Draft</p>
-          <h1 style={{fontSize:48,fontWeight:900,lineHeight:0.95,color:"#171717",margin:"0 0 12px",letterSpacing:-2}}>big board<br/>builder.</h1>
-          <p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",lineHeight:1.5}}>450+ prospects. your rankings.<br/>saved across sessions.</p>
+          <h1 style={{fontSize:48,fontWeight:900,lineHeight:0.95,color:"#171717",margin:"0 0 12px",letterSpacing:-2}}>big board<br/>lab.</h1>
+          <p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",lineHeight:1.5}}>450+ prospects. build your board.<br/>run mock drafts. share your takes.</p>
         </div>
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:28}}>
           {!sent?(
@@ -336,7 +336,7 @@ function DraftBoard({user,onSignOut}){
 
   const finishTraits=useCallback((pos)=>{setTraitReviewedGroups(prev=>new Set([...prev,pos]));const ranked=getRanked(pos);const byGrade=[...ranked].sort((a,b)=>getGrade(b.id)-getGrade(a.id));const conflicts=ranked.map((p,i)=>{const gi=byGrade.findIndex(x=>x.id===p.id);return Math.abs(i-gi)>=3?{player:p,pairRank:i+1,gradeRank:gi+1,grade:getGrade(p.id)}:null;}).filter(Boolean);if(conflicts.length){setReconcileQueue(conflicts);setReconcileIndex(0);setPhase("reconcile");}else setPhase("pick-position");},[getRanked,getGrade]);
 
-  const SaveBar=()=>(<div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontFamily:font,fontSize:13,fontWeight:900,color:"#171717",cursor:"pointer",letterSpacing:-0.5}} onClick={()=>setPhase(rankedGroups.size>0?"pick-position":"home")}>BBL</span><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{user.email}</span></div><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontFamily:mono,fontSize:10,color:saving?"#ca8a04":"#d4d4d4"}}>{saving?"saving...":lastSaved?`saved ${new Date(lastSaved).toLocaleTimeString()}`:""}</span><button onClick={onSignOut} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>sign out</button></div></div>);
+  const SaveBar=()=>(<div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}><div style={{display:"flex",alignItems:"center",gap:12}}><img src="/logo.png" alt="BBL" style={{height:24,cursor:"pointer"}} onClick={()=>setPhase(rankedGroups.size>0?"pick-position":"home")}/><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{user.email}</span></div><div style={{display:"flex",alignItems:"center",gap:12}}><span style={{fontFamily:mono,fontSize:10,color:saving?"#ca8a04":"#d4d4d4"}}>{saving?"saving...":lastSaved?`saved ${new Date(lastSaved).toLocaleTimeString()}`:""}</span><button onClick={onSignOut} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>sign out</button></div></div>);
 
   if(phase==="loading")return(<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading your board...</p></div>);
 
@@ -362,12 +362,42 @@ function DraftBoard({user,onSignOut}){
       </div>
     </div>}
 
-    {!hasBoardData&&<div style={{textAlign:"center",marginBottom:48}}>
-      <p style={{fontFamily:mono,fontSize:11,letterSpacing:3,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>2026 NFL Draft · Pittsburgh · April 23–25</p>
-      <h1 style={{fontSize:"clamp(42px,8vw,72px)",fontWeight:900,lineHeight:0.95,color:"#171717",margin:"0 0 20px",letterSpacing:-2}}>build your<br/>big board.</h1>
-      <p style={{fontSize:17,color:"#737373",lineHeight:1.6,maxWidth:460,margin:"0 auto 32px",fontFamily:sans}}>All 450+ prospects. Pick A or B. Adjust traits. Get your board.</p>
-      <button onClick={()=>setShowMockDraft(true)} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 28px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer",marginBottom:12}}>🏈 mock draft</button>
-      <p style={{fontFamily:sans,fontSize:11,color:"#a3a3a3"}}>or rank positions below to build your board first</p>
+    {!hasBoardData&&<div style={{marginBottom:48}}>
+      <div style={{textAlign:"center",marginBottom:32}}>
+        <img src="/logo.png" alt="Big Board Lab" style={{width:80,height:"auto",marginBottom:12}}/>
+        <p style={{fontFamily:mono,fontSize:11,letterSpacing:3,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>2026 NFL Draft · Pittsburgh · April 23–25</p>
+        <h1 style={{fontSize:"clamp(36px,7vw,56px)",fontWeight:900,lineHeight:0.95,color:"#171717",margin:"0 0 16px",letterSpacing:-2}}>build your<br/>big board.</h1>
+      </div>
+
+      {/* How it works */}
+      <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:"24px 28px",marginBottom:20}}>
+        <h3 style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717",margin:"0 0 16px"}}>how it works</h3>
+        <div style={{display:"flex",flexDirection:"column",gap:16}}>
+          <div style={{display:"flex",gap:14,alignItems:"flex-start"}}>
+            <span style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#d4d4d4",lineHeight:1,flexShrink:0,width:28}}>1</span>
+            <div><div style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717",marginBottom:2}}>pair rank prospects</div><div style={{fontFamily:sans,fontSize:13,color:"#737373",lineHeight:1.4}}>Pick A or B for each position group. The more matchups you vote on, the more accurate your rankings get.</div></div>
+          </div>
+          <div style={{display:"flex",gap:14,alignItems:"flex-start"}}>
+            <span style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#d4d4d4",lineHeight:1,flexShrink:0,width:28}}>2</span>
+            <div><div style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717",marginBottom:2}}>fine-tune with trait sliders</div><div style={{fontFamily:sans,fontSize:13,color:"#737373",lineHeight:1.4}}>After ranking, adjust individual trait grades to dial in your evaluations. Moving sliders changes overall grades. Add scouting notes too.</div></div>
+          </div>
+          <div style={{display:"flex",gap:14,alignItems:"flex-start"}}>
+            <span style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#d4d4d4",lineHeight:1,flexShrink:0,width:28}}>3</span>
+            <div><div style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717",marginBottom:2}}>run mock drafts</div><div style={{fontFamily:sans,fontSize:13,color:"#737373",lineHeight:1.4}}>Draft as any team using your board or the consensus board. Make trades, track team needs, and fill your depth chart.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}}>
+        <button onClick={()=>setShowMockDraft(true)} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",textAlign:"left",cursor:"pointer"}}>
+          <div style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717",marginBottom:4}}>🏈 mock draft</div>
+          <div style={{fontFamily:sans,fontSize:12,color:"#a3a3a3"}}>jump straight in with the consensus board</div>
+        </button>
+        <button onClick={()=>{const firstPos=POSITION_GROUPS[0];startRanking(firstPos);}} style={{background:"#171717",border:"none",borderRadius:12,padding:"16px 20px",textAlign:"left",cursor:"pointer"}}>
+          <div style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#faf9f6",marginBottom:4}}>🗳️ start ranking</div>
+          <div style={{fontFamily:sans,fontSize:12,color:"#a3a3a3"}}>begin with QBs and build your board</div>
+        </button>
+      </div>
     </div>}
 
     <h2 style={{fontFamily:font,fontSize:hasBoardData?20:36,fontWeight:900,color:"#171717",margin:"0 0 4px",letterSpacing:-1}}>{hasBoardData?"edit positions":"positions"}</h2>
