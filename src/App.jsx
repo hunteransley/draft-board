@@ -1,8 +1,15 @@
-import { useState, useEffect, useCallback, useMemo, useRef } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef, Component } from "react";
 import { supabase } from "./supabase.js";
 import MockDraftSim from "./MockDraftSim.jsx";
 import { CONSENSUS_BOARD, getConsensusRank, getConsensusGrade, TEAM_NEEDS_DETAILED } from "./consensusData.js";
 import { getProspectStats } from "./prospectStats.js";
+
+class ErrorBoundary extends Component{
+  constructor(props){super(props);this.state={hasError:false,error:null};}
+  static getDerivedStateFromError(error){return{hasError:true,error};}
+  componentDidCatch(error,info){console.error('Big Board Lab error:',error,info);}
+  render(){if(this.state.hasError){const sans="'DM Sans','Helvetica Neue',sans-serif";const mono="'DM Mono','Courier New',monospace";return(<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><div style={{textAlign:"center",maxWidth:400,padding:24}}><div style={{fontSize:48,marginBottom:16}}>🏈</div><h1 style={{fontFamily:sans,fontSize:20,fontWeight:700,color:"#171717",marginBottom:8}}>something went wrong</h1><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",marginBottom:20,lineHeight:1.5}}>your board data is safe. try reloading.</p><button onClick={()=>window.location.reload()} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 28px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>reload</button><details style={{marginTop:20,textAlign:"left"}}><summary style={{fontFamily:mono,fontSize:10,color:"#d4d4d4",cursor:"pointer"}}>error details</summary><pre style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginTop:8,whiteSpace:"pre-wrap",wordBreak:"break-all"}}>{this.state.error?.toString()}</pre></details></div></div>);}return this.props.children;}
+}
 
 // ============================================================
 // DATA: All 2026 NFL Draft Prospects (450+)
@@ -295,6 +302,7 @@ function DraftBoard({user,onSignOut}){
   const[pendingWinner,setPendingWinner]=useState(null);
   const[compareList,setCompareList]=useState([]);
   const[saving,setSaving]=useState(false);
+  const[saveFailed,setSaveFailed]=useState(false);
   const[lastSaved,setLastSaved]=useState(null);
   const[profilePlayer,setProfilePlayer]=useState(null);
   const[notes,setNotes]=useState({});
@@ -303,7 +311,12 @@ function DraftBoard({user,onSignOut}){
   const[showOnboarding,setShowOnboarding]=useState(()=>{try{return !localStorage.getItem('bbl_onboarded');}catch(e){return true;}});
 
   // Consensus Top 50 (aggregated from major draft media)
-  const CONSENSUS=useMemo(()=>["Cam Ward","Abdul Carter","Travis Hunter","Tetairoa McMillan","Will Johnson","Mason Graham","Shedeur Sanders","Tyler Warren","Ashton Jeanty","Will Campbell","Kelvin Banks Jr.","Mykel Williams","James Pearce Jr.","Luther Burden III","Malaki Starks","Jalen Milroe","Kenneth Grant","Colston Loveland","Jalon Walker","Emeka Egbuka","Derrick Harmon","Aireontae Ersery","Nic Scourton","Josh Simmons","Shavon Revel Jr.","Tyleik Williams","Benjamin Morrison","Sheild Sanders","Walter Nolen","Jack Sawyer","Omarion Hampton","Nick Singleton","Grey Zabel","Mike Matthews","Tate Ratledge","Donovan Jackson","Princely Umanmielen","Kevin Winston Jr.","David Hicks Jr.","Wyatt Milum","J.T. Tuimoloau","Tre Harris","Deone Walker","Quinshon Judkins","Landon Jackson","Isaiah Bond","Quinn Ewers","Dillon Gabriel","Carson Beck","Drew Allar"].map((name,i)=>({name,rank:i+1})),[]);
+  const CONSENSUS=useMemo(()=>{
+    if(CONSENSUS_BOARD&&CONSENSUS_BOARD.length>0){
+      return CONSENSUS_BOARD.slice(0,50).map((entry,i)=>({name:entry.name||entry,rank:i+1}));
+    }
+    return PROSPECTS.slice(0,50).map((p,i)=>({name:p.name,rank:i+1}));
+  },[]);
 
   // Team needs for mock draft
   const TEAM_NEEDS=useMemo(()=>({"Raiders":["QB","WR","CB"],"Jets":["OL","WR","DL"],"Cardinals":["OL","DL","DB"],"Titans":["DL","WR","OL"],"Giants":["WR","OL","QB"],"Browns":["QB","WR","OL"],"Commanders":["DL","OL","DB"],"Saints":["QB","OL","DL"],"Chiefs":["WR","OL","DB"],"Bengals":["OL","DL","DB"],"Dolphins":["QB","OL","DL"],"Cowboys":["DL","DB","OL"],"Rams":["DB","DL","OL"],"Ravens":["DL","WR","OL"],"Buccaneers":["OL","WR","DL"],"Lions":["DL","DB","LB"],"Vikings":["OL","DL","DB"],"Panthers":["DB","LB","DL"],"Steelers":["QB","WR","OL"],"Chargers":["OL","DL","LB"],"Eagles":["DL","LB","DB"],"Bears":["WR","OL","DB"],"Bills":["OL","WR","DL"],"49ers":["WR","DB","DL"],"Texans":["OL","DL","DB"],"Broncos":["OL","WR","DL"],"Patriots":["OL","WR","DL"],"Seahawks":["DL","OL","LB"],"Falcons":["OL","DL","DB"],"Colts":["OL","DL","WR"],"Jaguars":["DL","DB","OL"],"Packers":["DB","WR","DL"]}),[]);
@@ -311,6 +324,7 @@ function DraftBoard({user,onSignOut}){
   // Load board from Supabase on mount
   useEffect(()=>{
     (async()=>{
+      try{
       const{data}=await supabase.from('boards').select('board_data,updated_at').eq('user_id',user.id).single();
       if(data?.board_data){
         const d=data.board_data;
@@ -326,10 +340,13 @@ function DraftBoard({user,onSignOut}){
         if(rg.length>0)setRankedGroups(new Set(rg));
         if(d.traitReviewedGroups)setTraitReviewedGroups(new Set(d.traitReviewedGroups));
         if(d.compCount)setCompCount(d.compCount);
+        if(d.winCount)setWinCount(d.winCount);
+        if(d.completed){const c={};Object.entries(d.completed).forEach(([k,v])=>{c[k]=new Set(v);});setCompleted(c);}
         if(d.notes)setNotes(d.notes);
         setLastSaved(data.updated_at);
         setPhase(rg.length>0?"pick-position":"home");
       }else{setPhase("home");}
+      }catch(e){console.error('Failed to load board:',e);setPhase("home");}
     })();
   },[user.id]);
 
@@ -341,9 +358,9 @@ function DraftBoard({user,onSignOut}){
     saveTimer.current=setTimeout(async()=>{
       if(rankedGroups.size===0&&Object.keys(ratings).length===0)return;
       setSaving(true);
-      const boardData={ratings,traits,rankedGroups:[...rankedGroups],traitReviewedGroups:[...traitReviewedGroups],compCount,notes};
+      const boardData={ratings,traits,rankedGroups:[...rankedGroups],traitReviewedGroups:[...traitReviewedGroups],compCount,notes,completed:Object.fromEntries(Object.entries(completed).map(([k,v])=>[k,[...v]])),winCount};
       const{error}=await supabase.from('boards').upsert({user_id:user.id,board_data:boardData},{onConflict:'user_id'});
-      if(!error)setLastSaved(new Date().toISOString());
+      if(!error){setLastSaved(new Date().toISOString());setSaveFailed(false);}else{setSaveFailed(true);}
       // Also save to community board for aggregation
       if(rankedGroups.size>0){
         try{
@@ -372,6 +389,24 @@ function DraftBoard({user,onSignOut}){
   },[ratings,compCount,byPos,completed,prospectsMap,getConsensusRank]);
   const handlePick=useCallback((winnerId,confidence=0.5)=>{if(!currentMatchup||!activePos)return;const[a,b]=currentMatchup;const aWon=winnerId===a;const loserId=aWon?b:a;const k=24+(confidence*24);const{newA,newB}=eloUpdate(ratings[a]||1500,ratings[b]||1500,aWon,k);let winR=aWon?newA:newB;let loseR=aWon?newB:newA;if(winR<=loseR){const mid=(winR+loseR)/2;winR=mid+0.5;loseR=mid-0.5;}const ur={...ratings,[winnerId]:winR,[loserId]:loseR};setRatings(ur);const uc={...compCount,[a]:(compCount[a]||0)+1,[b]:(compCount[b]||0)+1};setCompCount(uc);setWinCount(prev=>({...prev,[winnerId]:(prev[winnerId]||0)+1}));const ns=new Set(completed[activePos]);ns.add(`${a}-${b}`);setCompleted(prev=>({...prev,[activePos]:ns}));const next=getNextMatchup(matchups[activePos],ns,ur);if(!next)finishRanking(activePos,ur);else setCurrentMatchup(next);setShowConfidence(false);setPendingWinner(null);},[currentMatchup,activePos,ratings,completed,matchups,compCount]);
   const canFinish=useMemo(()=>{if(!activePos||!byPos[activePos])return false;const done=(completed[activePos]||new Set()).size;return done>=8;},[activePos,byPos,completed]);
+
+  // Keyboard shortcuts for ranking: ←/→ or 1/2 to pick, 1-4 for confidence when shown
+  useEffect(()=>{
+    if(phase!=="ranking"||!currentMatchup)return;
+    const handler=(e)=>{
+      if(showConfidence&&pendingWinner){
+        const confMap={"1":0.2,"2":0.5,"3":0.75,"4":1};
+        if(confMap[e.key]){e.preventDefault();handlePick(pendingWinner,confMap[e.key]);}
+        if(e.key==="Escape"){setShowConfidence(false);setPendingWinner(null);}
+      }else{
+        const[aId,bId]=currentMatchup;
+        if(e.key==="ArrowLeft"||e.key==="1"){e.preventDefault();setPendingWinner(aId);setShowConfidence(true);}
+        if(e.key==="ArrowRight"||e.key==="2"){e.preventDefault();setPendingWinner(bId);setShowConfidence(true);}
+      }
+    };
+    window.addEventListener("keydown",handler);
+    return()=>window.removeEventListener("keydown",handler);
+  },[phase,currentMatchup,showConfidence,pendingWinner,handlePick]);
   const finishRanking=useCallback((pos,r)=>{const rts=r||ratings;const sorted=[...(byPos[pos]||[])].sort((a,b)=>(rts[b.id]||1500)-(rts[a.id]||1500));const nt={...traits};sorted.forEach((p,i)=>{if(!nt[p.id])nt[p.id]={};const base=Math.round(85-(i/Math.max(sorted.length-1,1))*50);(POSITION_TRAITS[p.gpos||p.pos]||POSITION_TRAITS[p.pos]||[]).forEach(t=>{nt[p.id][t]=Math.max(10,Math.min(99,base+Math.floor(Math.random()*16)-8));});});setTraits(nt);setRankedGroups(prev=>new Set([...prev,pos]));setPhase("pick-position");},[ratings,byPos,traits]);
   const getRanked=useCallback((pos)=>[...(byPos[pos]||[])].sort((a,b)=>(ratings[b.id]||1500)-(ratings[a.id]||1500)),[byPos,ratings]);
   const movePlayer=useCallback((pos,fromIdx,toIdx)=>{
@@ -393,9 +428,9 @@ function DraftBoard({user,onSignOut}){
     setRatings(newRatings);
   },[getRanked,ratings]);
   const getGrade=useCallback((id)=>{const t=traits[id];if(!t||Object.keys(t).length===0){
-    const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;
+    const p=prospectsMap[id];if(!p)return 50;
     return getConsensusGrade(p.name);
-  }const p=PROSPECTS.find(x=>x.id===id);const pos=p?(p.gpos||p.pos):"QB";const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let totalW=0,totalV=0;posTraits.forEach(trait=>{const w=weights[trait]||1/posTraits.length;const v=t[trait]||50;totalW+=w;totalV+=v*w;});return totalW>0?Math.round(totalV/totalW):50;},[traits]);
+  }const p=prospectsMap[id];const pos=p?(p.gpos||p.pos):"QB";const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let totalW=0,totalV=0;posTraits.forEach(trait=>{const w=weights[trait]||1/posTraits.length;const v=t[trait]||50;totalW+=w;totalV+=v*w;});return totalW>0?Math.round(totalV/totalW):50;},[traits,prospectsMap]);
   const getBoard=useCallback(()=>PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;return rankedGroups.has(group);}).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings]);
 
   // Build mock draft board: consensus order for all 319, user rankings override when graded
@@ -406,7 +441,7 @@ function DraftBoard({user,onSignOut}){
 
   const finishTraits=useCallback((pos)=>{setTraitReviewedGroups(prev=>new Set([...prev,pos]));const ranked=getRanked(pos);const byGrade=[...ranked].sort((a,b)=>getGrade(b.id)-getGrade(a.id));const conflicts=ranked.map((p,i)=>{const gi=byGrade.findIndex(x=>x.id===p.id);return Math.abs(i-gi)>=3?{player:p,pairRank:i+1,gradeRank:gi+1,grade:getGrade(p.id)}:null;}).filter(Boolean);if(conflicts.length){setReconcileQueue(conflicts);setReconcileIndex(0);setPhase("reconcile");}else setPhase("pick-position");},[getRanked,getGrade]);
 
-  const SaveBar=()=>(<div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}><div style={{display:"flex",alignItems:"center",gap:12}}><img src="/logo.png" alt="BBL" style={{height:24,cursor:"pointer"}} onClick={()=>setPhase(rankedGroups.size>0?"pick-position":"home")}/><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{user.email}</span></div><div style={{display:"flex",alignItems:"center",gap:8}}>{!showOnboarding&&<button onClick={()=>setShowOnboarding(true)} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 8px",cursor:"pointer"}} title="How it works">?</button>}<span style={{fontFamily:mono,fontSize:10,color:saving?"#ca8a04":"#d4d4d4"}}>{saving?"saving...":lastSaved?`saved ${new Date(lastSaved).toLocaleTimeString()}`:""}</span><button onClick={onSignOut} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>sign out</button></div></div>);
+  const SaveBar=()=>(<div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}><div style={{display:"flex",alignItems:"center",gap:12}}><img src="/logo.png" alt="BBL" style={{height:24,cursor:"pointer"}} onClick={()=>setPhase(rankedGroups.size>0?"pick-position":"home")}/><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{user.email}</span></div><div style={{display:"flex",alignItems:"center",gap:8}}>{!showOnboarding&&<button onClick={()=>setShowOnboarding(true)} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 8px",cursor:"pointer"}} title="How it works">?</button>}<span style={{fontFamily:mono,fontSize:10,color:saving?"#ca8a04":saveFailed?"#dc2626":"#d4d4d4"}}>{saving?"saving...":saveFailed?"save failed — retrying…":lastSaved?`saved ${new Date(lastSaved).toLocaleTimeString()}`:""}</span><button onClick={onSignOut} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>sign out</button></div></div>);
 
   if(phase==="loading")return(<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading your board...</p></div>);
 
@@ -476,7 +511,7 @@ function DraftBoard({user,onSignOut}){
     <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(200px, 1fr))",gap:12}}>{POSITION_GROUPS.map(pos=>{const ct=(byPos[pos]||[]).length;const done=rankedGroups.has(pos);const reviewed=traitReviewedGroups.has(pos);const c=POS_COLORS[pos];const doneCount=(completed[pos]||new Set()).size;const votedCount=done?(byPos[pos]||[]).filter(p=>(compCount[p.id]||0)>0).length:0;return(<div key={pos} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"18px 20px",position:"relative"}}>{done&&<span style={{position:"absolute",top:12,right:14,fontSize:10,fontFamily:mono,color:"#22c55e"}}>{votedCount}/{ct} ranked</span>}<div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c,marginBottom:2}}>{pos}</div><div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",marginBottom:14}}>{ct} prospects{doneCount>0&&!done?` · ${doneCount} compared`:""}</div><div style={{display:"flex",gap:8,flexWrap:"wrap"}}>{!done?<button onClick={()=>startRanking(pos)} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"7px 18px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>{doneCount>0?"resume":"rank"}</button>:<><button onClick={()=>{setActivePos(pos);setSelectedPlayer(getRanked(pos)[0]);setPhase("traits");}} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"7px 18px",background:reviewed?`${c}11`:"#171717",color:reviewed?c:"#faf9f6",border:reviewed?`1px solid ${c}33`:"none",borderRadius:99,cursor:"pointer"}}>{reviewed?"✓ rankings":"rankings"}</button><button onClick={()=>startRanking(pos)} style={{fontFamily:sans,fontSize:11,padding:"7px 14px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>refine</button></>}</div></div>);})}</div>
     {rankedGroups.size>0&&<div style={{textAlign:"center",marginTop:32}}><button onClick={()=>setPhase("board")} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"14px 36px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>view big board ({rankedGroups.size}/{POSITION_GROUPS.length})</button></div>}
 
-    {rankedGroups.size>0&&<div style={{textAlign:"center",marginTop:20}}><button onClick={()=>{if(window.confirm("Reset all rankings, traits, and notes? This cannot be undone.")){setRatings({});setTraits({});setNotes({});setRankedGroups(new Set());setTraitReviewedGroups(new Set());setCompCount(0);setPhase("home");}}} style={{fontFamily:sans,fontSize:11,padding:"7px 18px",background:"transparent",color:"#dc2626",border:"1px solid #fecaca",borderRadius:99,cursor:"pointer"}}>reset all rankings</button></div>}
+    {rankedGroups.size>0&&<div style={{textAlign:"center",marginTop:20}}><button onClick={()=>{if(window.confirm("Reset all rankings, traits, and notes? This cannot be undone.")){setRatings({});setTraits({});setNotes({});setRankedGroups(new Set());setTraitReviewedGroups(new Set());setCompCount({});setWinCount({});setCompleted({});setPhase("home");}}} style={{fontFamily:sans,fontSize:11,padding:"7px 18px",background:"transparent",color:"#dc2626",border:"1px solid #fecaca",borderRadius:99,cursor:"pointer"}}>reset all rankings</button></div>}
 
     </div></div>);
   }
@@ -721,5 +756,5 @@ export default function App(){
 
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
   if(!user)return<AuthScreen/>;
-  return<DraftBoard user={user} onSignOut={signOut}/>;
+  return<ErrorBoundary><DraftBoard user={user} onSignOut={signOut}/></ErrorBoundary>;
 }

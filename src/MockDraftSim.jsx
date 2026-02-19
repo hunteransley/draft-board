@@ -707,7 +707,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       },'image/png');
     }catch(e){
       console.error('share error',e);
-      alert('Share failed: '+e.message);
+      const isSafari=/^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      alert(isSafari?'Share failed — try using Chrome for best results.':'Share failed: '+e.message);
     }finally{
       // Hide the share card again
       node.style.position='absolute';
