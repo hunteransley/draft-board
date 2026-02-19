@@ -313,7 +313,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
       const slide=consRank<900?(pickNum-consRank):0;
       const gradeSlideMultiplier=grade>=88?6:grade>=80?4.5:3;
-      const slideBoost=slide>6?Math.pow(slide-6,1.5)*gradeSlideMultiplier:0;
+      // RANK_OVERRIDE players trigger slide panic at 3 picks past their override rank (not 6)
+      const slideThreshold=isOverride?3:6;
+      const slideBoost=slide>slideThreshold?Math.pow(slide-slideThreshold,1.5)*gradeSlideMultiplier:0;
       const reachThreshold=Math.round(12+prof.reachTolerance*15);
       const reachPenalty=slide<-reachThreshold&&round<=3?Math.abs(slide+reachThreshold)*1.5:0;
 
@@ -334,9 +336,15 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       let stageMod=1.0;
       if(prof.stage==="dynasty"||prof.stage==="contend"){if(nc>=2)stageMod=1.1;if(prof.stage==="dynasty"&&isBoosted&&nc>=1)stageMod=1.12;}
 
+      // RANK_OVERRIDE players get a proportional star bonus: the bigger the override jump,
+      // the more the CPU "knows" this player is special. Caps at ~12% to avoid rigidity.
+      const isOverride=!!RANK_OVERRIDES[p.name];
+      const overrideGap=isOverride?Math.max(0,rawRank-consRank):0;
+      const starBonus=isOverride?1.0+Math.min(0.12,overrideGap*0.003):1.0;
+
       const bpaComponent=base*finalBpaW*pm*rbPen*qbMod*teamPosBoost;
       const needComponent=nm*finalNeedW*12;
-      const score=(bpaComponent+needComponent+slideBoost-reachPenalty)*dimReturn*stageMod*runPenalty*urgencyBoost;
+      const score=(bpaComponent+needComponent+slideBoost-reachPenalty)*dimReturn*stageMod*runPenalty*urgencyBoost*starBonus;
       scored.push({id,score,grade,consRank});
     });
 
@@ -616,6 +624,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   },[picks,prospectsMap,getConsensusRank,totalPicks,userTeams,liveNeeds,TEAM_NEEDS_DETAILED]);
 
   const resultsRef=useRef(null);
+  const shareRef=useRef(null);
 
   const shareDraft=useCallback(async()=>{
     const up=picks.filter(pk=>pk.isUser);
@@ -624,17 +633,25 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     const isAllTeams=userTeams.size===32;
     if(!isSingleTeam&&!isAllTeams)return;
 
-    const node=resultsRef.current;
-    if(!node){alert('Results not ready');return;}
+    const node=shareRef.current;
+    if(!node){alert('Share card not ready');return;}
 
-    // Wait two animation frames so React has fully painted grades before capture
+    // Briefly make the share card visible for capture
+    node.style.position='fixed';
+    node.style.left='0';
+    node.style.top='0';
+    node.style.zIndex='-1';
+    node.style.opacity='1';
+    node.style.pointerEvents='none';
+
+    // Wait for paint
     await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
 
     try{
       const canvas=await html2canvas(node,{
         scale:2,
         useCORS:true,
-        allowTaint:false,
+        allowTaint:true,
         backgroundColor:'#faf9f6',
         logging:false,
         width:node.offsetWidth,
@@ -663,8 +680,103 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     }catch(e){
       console.error('share error',e);
       alert('Share failed: '+e.message);
+    }finally{
+      // Hide the share card again
+      node.style.position='absolute';
+      node.style.left='-9999px';
+      node.style.top='-9999px';
+      node.style.zIndex='-1';
+      node.style.opacity='0';
     }
-  },[picks,userTeams]);
+  },[picks,userTeams,prospectsMap,activeGrade,getConsensusRank,getConsensusGrade,draftGrade,gradeTeamPicks]);
+
+  // === SHARE CARD (rendered off-screen, captured by html2canvas) ===
+  const ShareCard=useMemo(()=>{
+    const isSingleTeam=userTeams.size===1;
+    const isAllTeams=userTeams.size===32;
+    if(!isSingleTeam&&!isAllTeams)return null;
+    const userPicks=picks.filter(pk=>pk.isUser);
+    if(userPicks.length===0)return null;
+
+    // All-32 mode: 4x8 first-round grid
+    if(isAllTeams){
+      const rd1=picks.filter(pk=>pk.round===1);
+      return(
+        <div ref={shareRef} style={{position:"absolute",left:-9999,top:-9999,zIndex:-1,opacity:0,width:520,background:"#faf9f6",padding:"20px 16px",fontFamily:font}}>
+          {/* Header with logo */}
+          <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
+            <img src={BBL_LOGO_B64} alt="BBL" style={{width:36,height:36,borderRadius:8}} crossOrigin="anonymous"/>
+            <div>
+              <div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717"}}>2026 NFL Draft</div>
+              <div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",letterSpacing:1}}>FIRST ROUND PREDICTIONS</div>
+            </div>
+          </div>
+          {/* 4-column grid */}
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr",gap:"3px 6px"}}>
+            {rd1.map((pk,i)=>{const p=prospectsMap[pk.playerId];if(!p)return null;const c=POS_COLORS[p.pos];
+              return<div key={i} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:6,padding:"4px 6px",display:"flex",alignItems:"center",gap:4}}>
+                <span style={{fontFamily:mono,fontSize:7,color:"#d4d4d4",width:14,textAlign:"right",flexShrink:0}}>{pk.pick}</span>
+                <NFLTeamLogo team={pk.team} size={12}/>
+                <div style={{flex:1,minWidth:0,overflow:"hidden"}}>
+                  <div style={{fontFamily:sans,fontSize:8,fontWeight:600,color:"#171717",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{p.name.split(" ").pop()}</div>
+                  <div style={{fontFamily:mono,fontSize:6,color:c}}>{p.gpos||p.pos}</div>
+                </div>
+              </div>;
+            })}
+          </div>
+          {/* Footer */}
+          <div style={{marginTop:10,paddingTop:8,borderTop:"1px solid #e5e5e5",textAlign:"center"}}>
+            <div style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717"}}>bigboardlab.com</div>
+            <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>build your own mock draft</div>
+          </div>
+        </div>
+      );
+    }
+
+    // Single-team mode: picks list + grade + logo
+    const team=[...userTeams][0];
+    const tp=userPicks.filter(pk=>pk.team===team);
+    return(
+      <div ref={shareRef} style={{position:"absolute",left:-9999,top:-9999,zIndex:-1,opacity:0,width:420,background:"#faf9f6",padding:"20px 16px",fontFamily:font}}>
+        {/* Header with logo */}
+        <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:4}}>
+          <img src={BBL_LOGO_B64} alt="BBL" style={{width:36,height:36,borderRadius:8}} crossOrigin="anonymous"/>
+          <div style={{flex:1}}>
+            <div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717"}}>2026 Mock Draft</div>
+            <div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",letterSpacing:1}}>WAR ROOM RESULTS</div>
+          </div>
+          {draftGrade&&<div style={{textAlign:"center",padding:"6px 16px",border:"2px solid "+draftGrade.color,borderRadius:10,background:"#fff"}}>
+            <div style={{fontFamily:mono,fontSize:7,letterSpacing:1,color:"#a3a3a3"}}>GRADE</div>
+            <div style={{fontFamily:font,fontSize:28,fontWeight:900,color:draftGrade.color,lineHeight:1}}>{draftGrade.grade}</div>
+          </div>}
+        </div>
+        {/* Team header */}
+        <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:8,marginTop:8}}>
+          <NFLTeamLogo team={team} size={18}/>
+          <span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>{team}</span>
+          <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{tp.length} pick{tp.length!==1?"s":""}</span>
+        </div>
+        {/* Picks list */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:10,overflow:"hidden",marginBottom:10}}>
+          {tp.map((pk,i)=>{const p=prospectsMap[pk.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const g=activeGrade(pk.playerId);const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;const g2=getConsensusGrade?getConsensusGrade(p.name):g;const v=pickVerdict(pk.pick,rank,g2);
+            return<div key={i} style={{display:"flex",alignItems:"center",gap:6,padding:"6px 10px",borderBottom:i<tp.length-1?"1px solid #f5f5f5":"none"}}>
+              <span style={{fontFamily:mono,fontSize:9,color:"#d4d4d4",width:42}}>Rd{pk.round} #{pk.pick}</span>
+              <span style={{fontFamily:mono,fontSize:9,color:c,width:24}}>{p.gpos||p.pos}</span>
+              <SchoolLogo school={p.school} size={14}/>
+              <span style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#171717",flex:1}}>{p.name}</span>
+              <span style={{fontFamily:mono,fontSize:6,padding:"1px 4px",background:v.bg,color:v.color,borderRadius:3}}>{v.text}</span>
+              <span style={{fontFamily:font,fontSize:11,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626",width:22,textAlign:"right"}}>{g}</span>
+            </div>;
+          })}
+        </div>
+        {/* Footer */}
+        <div style={{paddingTop:8,borderTop:"1px solid #e5e5e5",textAlign:"center"}}>
+          <div style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717"}}>bigboardlab.com</div>
+          <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>build your own mock draft · 2026 NFL Draft</div>
+        </div>
+      </div>
+    );
+  },[picks,userTeams,prospectsMap,activeGrade,getConsensusRank,getConsensusGrade,draftGrade,POS_COLORS,font,mono,sans]);
 
   // Canvas helper: rounded rectangle path
   function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
@@ -879,6 +991,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             <div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",letterSpacing:0.5}}>build your own mock draft · 2026 NFL Draft</div>
           </div>
         </div>
+        {/* Off-screen share card for html2canvas capture */}
+        {ShareCard}
       </div>
     );
   }
