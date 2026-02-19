@@ -141,7 +141,7 @@ const RANK_OVERRIDES={"Sonny Styles":8,"Kenyon Sadiq":20,"Jeremiyah Love":5};
 // GRADE_OVERRIDES: force a minimum grade for specific elite prospects
 // Use sparingly — only for players who are clearly mis-valued by the generic grade system
 // This does NOT affect other players at their position, only the named individual
-const GRADE_OVERRIDES={"Jeremiyah Love":91,"Sonny Styles":87};
+const GRADE_OVERRIDES={"Jeremiyah Love":91,"Sonny Styles":89};
 
 // === TEAM PERSONALITY PROFILES ===
 // bpaLean: 0-1, how much team trusts BPA (1.0=pure BPA like CIN, 0.3=heavy need like NO)
@@ -302,9 +302,11 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       const consRank=RANK_OVERRIDES[p.name]||rawRank;
       const nc=dn[pos]||0;const ni=needs.indexOf(pos);
       const nm=nc>=3?18:nc>=2?12:nc===1?8:ni>=0&&ni<3?5:ni>=0?2:(round>=3?-6:0);
-      // Elite-grade players (88+) bypass positional discount — their talent transcends position value
+      // Elite-grade players (88+) transcend positional value — their rarity at that
+      // talent level makes them premium picks regardless of position (Saquon at 2, Bijan at 8).
+      // Scale: grade 88 → 1.0, grade 91 → 1.075, grade 95 → 1.175
       const rawPm=POS_DRAFT_VALUE[pos]||1.0;
-      const pm=grade>=88?Math.max(rawPm,1.0):rawPm;
+      const pm=grade>=88?Math.max(rawPm,1.0+(grade-88)*0.025):rawPm;
       const base=Math.pow(Math.max(grade,10),1.3);
 
       const isBoosted=prof.posBoost.includes(pos);
@@ -644,6 +646,23 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     node.style.opacity='1';
     node.style.pointerEvents='none';
 
+    // Draw hero radar chart if present
+    const heroCanvas=node.querySelector('canvas[data-hero-radar]');
+    if(heroCanvas){
+      const up=picks.filter(pk=>pk.isUser);
+      const tp=up.filter(pk=>pk.team===[...userTeams][0]);
+      const rd1=tp.find(pk=>pk.round===1);
+      if(rd1){
+        const hp=prospectsMap[rd1.playerId];
+        if(hp){
+          const hc=POS_COLORS[hp.pos]||'#737373';
+          const ctx=heroCanvas.getContext('2d');
+          ctx.clearRect(0,0,160,160);
+          drawRadarChart(ctx,hp,80,80,160,hc);
+        }
+      }
+    }
+
     // Wait for paint
     await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
 
@@ -733,9 +752,16 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       );
     }
 
-    // Single-team mode: picks list + grade + logo
+    // Single-team mode: picks list + hero radar for pick 1 + grade + logo
     const team=[...userTeams][0];
     const tp=userPicks.filter(pk=>pk.team===team);
+    const rd1Pick=tp.find(pk=>pk.round===1);
+    const heroPlayer=rd1Pick?prospectsMap[rd1Pick.playerId]:null;
+    const heroPos=heroPlayer?(heroPlayer.gpos||heroPlayer.pos):null;
+    const heroTraits=heroPlayer&&heroPos?(POSITION_TRAITS[heroPos]||POSITION_TRAITS[heroPlayer.pos]||[]):[];
+    const heroColor=heroPlayer?(POS_COLORS[heroPlayer.pos]||"#737373"):"#737373";
+    const heroGrade=heroPlayer?activeGrade(rd1Pick.playerId):0;
+
     return(
       <div ref={shareRef} style={{position:"absolute",left:-9999,top:-9999,zIndex:-1,opacity:0,width:420,background:"#faf9f6",padding:"20px 16px",fontFamily:font}}>
         {/* Header with logo */}
@@ -756,6 +782,29 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           <span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>{team}</span>
           <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{tp.length} pick{tp.length!==1?"s":""}</span>
         </div>
+        {/* HERO: first-round pick with radar chart + trait bars */}
+        {heroPlayer&&heroTraits.length>0&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:10,padding:"12px 14px",marginBottom:8,display:"flex",gap:12,alignItems:"center"}}>
+          <canvas data-hero-radar="1" width={160} height={160} style={{width:140,height:140,flexShrink:0}}/>
+          <div style={{flex:1,minWidth:0}}>
+            <div style={{fontFamily:mono,fontSize:8,color:heroColor,letterSpacing:1,marginBottom:2}}>{heroPos} · Rd{rd1Pick.round} #{rd1Pick.pick}</div>
+            <div style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717",lineHeight:1.1,marginBottom:2}}>{heroPlayer.name}</div>
+            <div style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",marginBottom:8}}>{heroPlayer.school}</div>
+            <div style={{fontFamily:font,fontSize:32,fontWeight:900,color:heroGrade>=75?"#16a34a":heroGrade>=55?"#ca8a04":"#dc2626",lineHeight:1,marginBottom:8}}>{heroGrade}</div>
+            {/* Trait bars */}
+            <div style={{display:"flex",flexDirection:"column",gap:3}}>
+              {heroTraits.slice(0,5).map(t=>{
+                const val=traits[heroPlayer.id]?.[t]||50;
+                return<div key={t} style={{display:"flex",alignItems:"center",gap:4}}>
+                  <span style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",width:28,textAlign:"right",flexShrink:0}}>{t.split(' ').map(w=>w[0]).join('')}</span>
+                  <div style={{flex:1,height:4,background:"#e5e5e5",borderRadius:2,overflow:"hidden"}}>
+                    <div style={{height:"100%",width:val+"%",background:val>=75?heroColor:val>=50?heroColor+"88":"#d4d4d4",borderRadius:2}}/>
+                  </div>
+                  <span style={{fontFamily:font,fontSize:8,fontWeight:900,color:val>=75?heroColor:"#a3a3a3",width:16,textAlign:"right"}}>{val}</span>
+                </div>;
+              })}
+            </div>
+          </div>
+        </div>}
         {/* Picks list */}
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:10,overflow:"hidden",marginBottom:10}}>
           {tp.map((pk,i)=>{const p=prospectsMap[pk.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const g=activeGrade(pk.playerId);const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;const g2=getConsensusGrade?getConsensusGrade(p.name):g;const v=pickVerdict(pk.pick,rank,g2);
@@ -776,7 +825,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         </div>
       </div>
     );
-  },[picks,userTeams,prospectsMap,activeGrade,getConsensusRank,getConsensusGrade,draftGrade,POS_COLORS,font,mono,sans]);
+  },[picks,userTeams,prospectsMap,activeGrade,getConsensusRank,getConsensusGrade,draftGrade,POS_COLORS,font,mono,sans,traits,POSITION_TRAITS]);
 
   // Canvas helper: rounded rectangle path
   function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
