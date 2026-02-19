@@ -188,27 +188,31 @@ function pickVerdict(pickNum,consRank,grade){
   if(consRank>=900)return{text:"UNKNOWN",color:"#737373",bg:"#f5f5f5"};
   const playerVal=getPickValue(consRank);
   const slotVal=getPickValue(pickNum);
-  const ratio=playerVal/slotVal; // >1 = value (player worth more than slot), <1 = reach
 
-  // Grade modifier: elite players (85+) compress the reach penalty significantly.
-  // Taking a 90-grade player 3 spots early is NOT a reach — their talent justifies it.
-  // Raw ratio penalizes any pick above consensus slot, but grade context matters.
+  // Grade modifier: elite players picked slightly early isn't really a reach.
   const g=grade||50;
-  // How many picks "early" vs consensus
   const picksEarly=consRank-pickNum; // positive = picked before consensus slot
-  // For high-grade players, forgive up to (grade-70)/2 picks of earliness
-  // e.g. grade 90 → forgive up to 10 picks early; grade 80 → 5 picks; grade 70 → 0
   const gradeForgivePicks=Math.max(0,(g-70)/2);
-  const adjustedEarly=Math.max(0,picksEarly-gradeForgivePicks);
-  // Recompute ratio using adjusted consensus rank
-  const adjustedConsRank=consRank-Math.round(adjustedEarly);
-  const adjPlayerVal=getPickValue(Math.max(1,adjustedConsRank));
-  const adjRatio=adjPlayerVal/slotVal;
+  const forgivenRank=picksEarly>0?Math.min(picksEarly,gradeForgivePicks):0;
+  const effectiveRank=Math.max(1,consRank-Math.round(forgivenRank));
+  const effectiveVal=getPickValue(effectiveRank);
+  const adjRatio=effectiveVal/slotVal;
 
-  if(adjRatio>=1.5)return{text:"HUGE STEAL",color:"#16a34a",bg:"#dcfce7"};
-  if(adjRatio>=1.15)return{text:"GREAT VALUE",color:"#22c55e",bg:"#f0fdf4"};
-  if(adjRatio>=0.85)return{text:"FAIR PICK",color:"#ca8a04",bg:"#fefce8"};
-  if(adjRatio>=0.55)return{text:"REACH",color:"#ea580c",bg:"#fff7ed"};
+  // Round-aware thresholds: JJP curve flattens after pick 64, so tighten bands
+  const round=pickNum<=32?1:pickNum<=64?2:pickNum<=100?3:pickNum<=144?4:7;
+  const fairHi=round<=1?1.15:round<=2?1.12:1.08;
+  const fairLo=round<=1?0.85:round<=2?0.88:0.92;
+  const stealHi=round<=1?1.50:round<=2?1.35:1.20;
+  const reachLo=round<=1?0.55:round<=2?0.65:0.75;
+
+  // Pick-difference floor: can't be "fair" if you're 15+ picks from consensus
+  const pickDiff=Math.abs(pickNum-effectiveRank);
+  const diffOverride=pickDiff>=20;
+
+  if(adjRatio>=stealHi)return{text:"HUGE STEAL",color:"#16a34a",bg:"#dcfce7"};
+  if(adjRatio>=fairHi)return{text:"GREAT VALUE",color:"#22c55e",bg:"#f0fdf4"};
+  if(adjRatio>=fairLo&&(!diffOverride||pickDiff<15))return{text:"FAIR PICK",color:"#ca8a04",bg:"#fefce8"};
+  if(adjRatio>=reachLo)return{text:"REACH",color:"#ea580c",bg:"#fff7ed"};
   return{text:"BIG REACH",color:"#dc2626",bg:"#fef2f2"};
 }
 
@@ -352,24 +356,28 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
     if(scored.length===0)return avail[0];
 
+    // Apply score jitter scaled by team variance for run-to-run diversity.
+    // variance 1 (Bengals) → ±3% jitter. variance 4 (Saints) → ±12% jitter.
+    const jitterPct=prof.variance*0.03;
+    scored.forEach(s=>{s.score*=1+(Math.random()*2-1)*jitterPct;});
+
     // Sort by score descending
     scored.sort((a,b)=>b.score-a.score);
 
     // ── WEIGHTED RANDOM SELECTION ──
-    // Use softmax over a tier of close competitors. Tier is score-difference based, not
-    // percentage-based, so elite outliers (Love, Styles) don't get swamped by the pool.
+    // Use softmax over a tier of close competitors. Tier width is score-difference based,
+    // influenced by round (tighter in rd1) and team variance (wider for volatile teams).
     const topScore=scored[0].score;
     const topGrade=scored[0].grade||50;
 
     // Tier window: how close must a player be to compete?
-    // Round 1 is tight. Elite top player (grade 88+) narrows it further — they're the consensus pick.
-    const baseTierPct=round<=1?0.07:round<=2?0.11:round<=3?0.16:round<=5?0.22:0.30;
+    // Team variance widens the tier: variance 1 → baseTierPct, variance 4 → baseTierPct * 1.6
+    const baseTierPct=round<=1?0.08:round<=2?0.13:round<=3?0.18:round<=5?0.24:0.32;
+    const varianceMult=1.0+(prof.variance-1)*0.2; // variance 1→1.0, 2→1.2, 3→1.4, 4→1.6
     // If top scorer is elite grade, compress tier so they win more often
-    const tierPct=topGrade>=88?baseTierPct*0.55:baseTierPct;
-    const tierCandidates=scored.filter(s=>s.score>=topScore*(1-tierPct));
-
-    const maxCandidates=Math.max(1,Math.min(tierCandidates.length,Math.round(1+prof.variance/2)));
-    const pool=tierCandidates.slice(0,maxCandidates);
+    const eliteCompress=topGrade>=88?0.6:1.0;
+    const tierPct=baseTierPct*varianceMult*eliteCompress;
+    const pool=scored.filter(s=>s.score>=topScore*(1-tierPct));
 
     if(pool.length===1)return pool[0].id;
 
@@ -1165,7 +1173,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             <div style={{padding:"6px 10px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5",display:"flex",justifyContent:"space-between"}}>
               <span style={{fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>available ({filteredAvailable.length})</span>
             </div>
-            {filteredAvailable.slice(0,60).map(id=>{const p=prospectsMap[id];if(!p)return null;const g=activeGrade(id);const c=POS_COLORS[p.pos];const rank=getConsensusRank?getConsensusRank(p.name):null;
+            {filteredAvailable.map(id=>{const p=prospectsMap[id];if(!p)return null;const g=activeGrade(id);const c=POS_COLORS[p.pos];const rank=getConsensusRank?getConsensusRank(p.name):null;
               return<div key={id} style={{display:"flex",alignItems:"center",gap:5,padding:"8px 10px",borderBottom:"1px solid #f8f8f8"}}>
                 {rank&&rank<500?<span style={{fontFamily:mono,fontSize:8,color:"#d4d4d4",width:20,textAlign:"right"}}>#{rank}</span>:<span style={{fontFamily:mono,fontSize:8,color:"#e5e5e5",width:20,textAlign:"right"}}>—</span>}
                 <span style={{fontFamily:mono,fontSize:9,color:c,width:32}}>{p.gpos||p.pos}</span>
@@ -1376,7 +1384,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
               </div>
               <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>click name = profile</span>
             </div>
-            {filteredAvailable.slice(0,60).map(id=>{const p=prospectsMap[id];if(!p)return null;const g=activeGrade(id);const c=POS_COLORS[p.pos];const inC=compareList.some(x=>x.id===p.id);const rank=getConsensusRank?getConsensusRank(p.name):null;
+            {filteredAvailable.map(id=>{const p=prospectsMap[id];if(!p)return null;const g=activeGrade(id);const c=POS_COLORS[p.pos];const inC=compareList.some(x=>x.id===p.id);const rank=getConsensusRank?getConsensusRank(p.name):null;
               return<div key={id} style={{display:"flex",alignItems:"center",gap:6,padding:"6px 12px",borderBottom:"1px solid #f8f8f8"}}>
                 {rank&&rank<500?<span style={{fontFamily:mono,fontSize:8,color:"#d4d4d4",width:22,textAlign:"right"}}>#{rank}</span>:<span style={{fontFamily:mono,fontSize:8,color:"#e5e5e5",width:22,textAlign:"right"}}>—</span>}
                 <span style={{fontFamily:mono,fontSize:9,color:c,width:24}}>{p.gpos||p.pos}</span>
