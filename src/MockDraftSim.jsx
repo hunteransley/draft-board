@@ -223,7 +223,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[mobilePanel,setMobilePanel]=useState("board"); // "board" | "picks" | "depth"
   useEffect(()=>{const h=()=>setIsMobile(window.innerWidth<768);window.addEventListener('resize',h);return()=>window.removeEventListener('resize',h);},[]);
   const[numRounds,setNumRounds]=useState(1);
-  const[speed,setSpeed]=useState(600);
+  const[speed,setSpeed]=useState(50);
   const[picks,setPicks]=useState([]);
   const[available,setAvailable]=useState([]);
   const[paused,setPaused]=useState(false);
@@ -311,6 +311,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       const isPenalized=prof.posPenalty.includes(pos);
       const teamPosBoost=isBoosted?1.12:isPenalized&&round<=3?0.75:1.0;
 
+      const isOverride=!!RANK_OVERRIDES[p.name];
       const slide=consRank<900?(pickNum-consRank):0;
       const gradeSlideMultiplier=grade>=88?6:grade>=80?4.5:3;
       // RANK_OVERRIDE players trigger slide panic at 3 picks past their override rank (not 6)
@@ -338,7 +339,6 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
       // RANK_OVERRIDE players get a proportional star bonus: the bigger the override jump,
       // the more the CPU "knows" this player is special. Caps at ~12% to avoid rigidity.
-      const isOverride=!!RANK_OVERRIDES[p.name];
       const overrideGap=isOverride?Math.max(0,rawRank-consRank):0;
       const starBonus=isOverride?1.0+Math.min(0.12,overrideGap*0.003):1.0;
 
