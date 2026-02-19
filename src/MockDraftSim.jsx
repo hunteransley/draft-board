@@ -74,6 +74,39 @@ const DRAFT_ORDER_2026=[
 const JJ_VALUES={1:3000,2:2600,3:2200,4:1800,5:1700,6:1600,7:1500,8:1400,9:1350,10:1300,11:1250,12:1200,13:1150,14:1100,15:1050,16:1000,17:950,18:900,19:875,20:850,21:800,22:780,23:760,24:740,25:720,26:700,27:680,28:660,29:640,30:620,31:600,32:590,33:580,34:560,35:550,36:540,37:530,38:520,39:510,40:500,41:490,42:480,43:470,44:460,45:450,46:440,47:430,48:420,49:410,50:400,51:390,52:380,53:370,54:360,55:350,56:340,57:330,58:320,59:310,60:300,61:292,62:284,63:276,64:270,65:265,66:260,67:255,68:250,69:245,70:240,71:235,72:230,73:225,74:220,75:215,76:210,77:205,78:200,79:195,80:190,81:185,82:180,83:175,84:170,85:165,86:160,87:155,88:150,89:145,90:140,91:136,92:132,93:128,94:124,95:120,96:116,97:112,98:108,99:104,100:100};
 function getPickValue(n){return JJ_VALUES[n]||Math.max(5,Math.round(100-((n-100)*0.72)));}
 
+// Pure grade function — no hooks, callable anywhere
+function scoreTeamPicks(teamPicks,team,prospectsMap,getConsensusRank,liveNeeds,TEAM_NEEDS_DETAILED){
+  if(!teamPicks||teamPicks.length===0)return null;
+  let totalRatio=0,counted=0;
+  teamPicks.forEach(pk=>{
+    const p=prospectsMap[pk.playerId];if(!p)return;
+    const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;
+    const playerVal=getPickValue(rank<900?rank:pk.pick);
+    const slotVal=getPickValue(pk.pick);
+    if(slotVal>0){totalRatio+=playerVal/slotVal;counted++;}
+  });
+  if(counted===0)return null;
+  const avgRatio=totalRatio/counted;
+  const base=TEAM_NEEDS_DETAILED?.[team]||{};
+  const totalNeeds=Object.values(base).reduce((s,v)=>s+v,0);
+  let needsBonus=0;
+  if(totalNeeds>0){
+    const remaining=liveNeeds[team]||{};
+    const remainingTotal=Object.values(remaining).reduce((s,v)=>s+v,0);
+    needsBonus=((totalNeeds-remainingTotal)/totalNeeds)*0.15;
+  }
+  const score=avgRatio+needsBonus;
+  if(score>=1.6)return{grade:"A+",color:"#16a34a"};
+  if(score>=1.4)return{grade:"A",color:"#16a34a"};
+  if(score>=1.2)return{grade:"B+",color:"#22c55e"};
+  if(score>=1.05)return{grade:"B",color:"#22c55e"};
+  if(score>=0.95)return{grade:"B-",color:"#ca8a04"};
+  if(score>=0.85)return{grade:"C+",color:"#ca8a04"};
+  if(score>=0.75)return{grade:"C",color:"#ca8a04"};
+  if(score>=0.65)return{grade:"D",color:"#dc2626"};
+  return{grade:"F",color:"#dc2626"};
+}
+
 const DEPTH_GROUPS=[
   {label:"QB",slots:["QB1","QB2"],posMatch:"QB"},
   {label:"RB",slots:["RB1","RB2"],posMatch:"RB"},
@@ -269,7 +302,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       const consRank=RANK_OVERRIDES[p.name]||rawRank;
       const nc=dn[pos]||0;const ni=needs.indexOf(pos);
       const nm=nc>=3?18:nc>=2?12:nc===1?8:ni>=0&&ni<3?5:ni>=0?2:(round>=3?-6:0);
-      const pm=POS_DRAFT_VALUE[pos]||1.0;
+      // Elite-grade players (88+) bypass positional discount — their talent transcends position value
+      const rawPm=POS_DRAFT_VALUE[pos]||1.0;
+      const pm=grade>=88?Math.max(rawPm,1.0):rawPm;
       const base=Math.pow(Math.max(grade,10),1.3);
 
       const isBoosted=prof.posBoost.includes(pos);
@@ -311,25 +346,25 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     scored.sort((a,b)=>b.score-a.score);
 
     // ── WEIGHTED RANDOM SELECTION ──
-    // Instead of always taking #1, use softmax-style selection over top candidates.
-    // Players within a "tier" (score within X% of leader) genuinely compete.
-    // This mirrors real drafts: within a tier, team preference/surprise picks happen.
-    // Variance window scales with round: tighter in Rd1 (teams know their guy), wider later.
-    const tierPct=round<=1?0.06:round<=2?0.10:round<=3?0.14:round<=5?0.20:0.28;
+    // Use softmax over a tier of close competitors. Tier is score-difference based, not
+    // percentage-based, so elite outliers (Love, Styles) don't get swamped by the pool.
     const topScore=scored[0].score;
+    const topGrade=scored[0].grade||50;
+
+    // Tier window: how close must a player be to compete?
+    // Round 1 is tight. Elite top player (grade 88+) narrows it further — they're the consensus pick.
+    const baseTierPct=round<=1?0.07:round<=2?0.11:round<=3?0.16:round<=5?0.22:0.30;
+    // If top scorer is elite grade, compress tier so they win more often
+    const tierPct=topGrade>=88?baseTierPct*0.55:baseTierPct;
     const tierCandidates=scored.filter(s=>s.score>=topScore*(1-tierPct));
 
-    // Additional variance injection: team personality (prof.variance) widens/narrows the tier
-    // High-variance teams (Browns, Raiders) make more "surprising" picks within the tier
-    // Low-variance teams (Chiefs, Eagles) are more locked in
     const maxCandidates=Math.max(1,Math.min(tierCandidates.length,Math.round(1+prof.variance/2)));
     const pool=tierCandidates.slice(0,maxCandidates);
 
     if(pool.length===1)return pool[0].id;
 
-    // Softmax weights: exponential so top candidate still wins most often,
-    // but lower-ranked candidates in the tier have a real shot
-    const temp=round<=1?2.5:round<=3?1.8:1.2; // higher temp = more random
+    // Softmax: top scorer wins most often but tier has real competition
+    const temp=round<=1?2.5:round<=3?1.8:1.2;
     const weights=pool.map(s=>Math.exp(s.score/topScore/temp));
     const totalW=weights.reduce((a,b)=>a+b,0);
     let r=Math.random()*totalW;
@@ -541,61 +576,34 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     return available.filter(id=>{const p=prospectsMap[id];return p&&filterPos.has(p.pos);});
   },[available,filterPos,prospectsMap]);
 
-  // Grade a set of picks for a single team
+  // Grade wrapper — calls pure function with current hook values
   const gradeTeamPicks=useCallback((teamPicks,team)=>{
-    if(!teamPicks||teamPicks.length===0)return null;
-    let totalRatio=0;
-    teamPicks.forEach(pk=>{
-      const p=prospectsMap[pk.playerId];if(!p)return;
-      const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;
-      const playerVal=getPickValue(rank<900?rank:pk.pick);
-      const slotVal=getPickValue(pk.pick);
-      totalRatio+=playerVal/slotVal;
-    });
-    const avgRatio=totalRatio/teamPicks.length;
-    const base=TEAM_NEEDS_DETAILED?.[team]||{};
-    const totalNeeds=Object.values(base).reduce((s,v)=>s+v,0);
-    let needsBonus=0;
-    if(totalNeeds>0){
-      const remaining=liveNeeds[team]||{};
-      const remainingTotal=Object.values(remaining).reduce((s,v)=>s+v,0);
-      needsBonus=((totalNeeds-remainingTotal)/totalNeeds)*0.15;
-    }
-    const score=avgRatio+needsBonus;
-    if(score>=1.6)return{grade:"A+",color:"#16a34a"};
-    if(score>=1.4)return{grade:"A",color:"#16a34a"};
-    if(score>=1.2)return{grade:"B+",color:"#22c55e"};
-    if(score>=1.05)return{grade:"B",color:"#22c55e"};
-    if(score>=0.95)return{grade:"B-",color:"#ca8a04"};
-    if(score>=0.85)return{grade:"C+",color:"#ca8a04"};
-    if(score>=0.75)return{grade:"C",color:"#ca8a04"};
-    if(score>=0.65)return{grade:"D",color:"#dc2626"};
-    return{grade:"F",color:"#dc2626"};
+    return scoreTeamPicks(teamPicks,team,prospectsMap,getConsensusRank,liveNeeds,TEAM_NEEDS_DETAILED);
   },[prospectsMap,getConsensusRank,liveNeeds,TEAM_NEEDS_DETAILED]);
 
   // Overall draft grade — null for all-32 (prediction mode, not graded)
   const draftGrade=useMemo(()=>{
     if(picks.length<totalPicks)return null;
-    if(userTeams.size===32)return null; // all-32 is a prediction exercise, not graded
+    if(userTeams.size===32)return null;
     const up=picks.filter(pk=>pk.isUser);if(up.length===0)return null;
-    // For single team just use gradeTeamPicks on full picks
-    // For multi-team, average across teams
     if(userTeams.size===1){
-      return gradeTeamPicks(up,[...userTeams][0]);
+      return scoreTeamPicks(up,[...userTeams][0],prospectsMap,getConsensusRank,liveNeeds,TEAM_NEEDS_DETAILED);
     }
-    // Multi-team: compute per team, average the numeric score
+    // Multi-team: best overall score across all teams
     let totalScore=0,count=0;
     [...userTeams].forEach(team=>{
       const tp=up.filter(pk=>pk.team===team);if(!tp.length)return;
-      let tr=0;
+      let tr=0,c2=0;
       tp.forEach(pk=>{
         const p=prospectsMap[pk.playerId];if(!p)return;
         const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;
-        tr+=getPickValue(rank<900?rank:pk.pick)/getPickValue(pk.pick);
+        const sv=getPickValue(pk.pick);if(!sv)return;
+        tr+=getPickValue(rank<900?rank:pk.pick)/sv;c2++;
       });
-      totalScore+=tr/tp.length;count++;
+      if(c2>0){totalScore+=tr/c2;count++;}
     });
-    const avg=count>0?totalScore/count:1;
+    if(!count)return null;
+    const avg=totalScore/count;
     if(avg>=1.6)return{grade:"A+",color:"#16a34a"};
     if(avg>=1.4)return{grade:"A",color:"#16a34a"};
     if(avg>=1.2)return{grade:"B+",color:"#22c55e"};
@@ -605,7 +613,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     if(avg>=0.75)return{grade:"C",color:"#ca8a04"};
     if(avg>=0.65)return{grade:"D",color:"#dc2626"};
     return{grade:"F",color:"#dc2626"};
-  },[picks,prospectsMap,getConsensusRank,totalPicks,userTeams,gradeTeamPicks]);
+  },[picks,prospectsMap,getConsensusRank,totalPicks,userTeams,liveNeeds,TEAM_NEEDS_DETAILED]);
 
   const resultsRef=useRef(null);
 
@@ -866,10 +874,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             </div>);
           })}
           {/* URL footer — always visible in screenshot */}
-          <div style={{marginTop:32,paddingTop:16,borderTop:"1px solid #e5e5e5",textAlign:"center"}}>
-            <span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",letterSpacing:1}}>bigboardlab.com</span>
-            <span style={{fontFamily:mono,fontSize:11,color:"#d4d4d4",margin:"0 8px"}}>·</span>
-            <span style={{fontFamily:mono,fontSize:11,color:"#c0c0c0"}}>build your own mock draft</span>
+          <div style={{marginTop:32,paddingTop:20,borderTop:"2px solid #e5e5e5",textAlign:"center",background:"#fff",borderRadius:12,padding:"16px 24px"}}>
+            <div style={{fontFamily:sans,fontSize:15,fontWeight:700,color:"#171717",marginBottom:2}}>bigboardlab.com</div>
+            <div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",letterSpacing:0.5}}>build your own mock draft · 2026 NFL Draft</div>
           </div>
         </div>
       </div>
