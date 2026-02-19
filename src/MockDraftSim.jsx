@@ -541,36 +541,27 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     return available.filter(id=>{const p=prospectsMap[id];return p&&filterPos.has(p.pos);});
   },[available,filterPos,prospectsMap]);
 
-  const draftGrade=useMemo(()=>{
-    if(picks.length<totalPicks)return null;
-    const up=picks.filter(pk=>pk.isUser);if(up.length===0)return null;
-    // Value score: average value ratio across picks (1.0 = picked exactly at consensus)
+  // Grade a set of picks for a single team
+  const gradeTeamPicks=useCallback((teamPicks,team)=>{
+    if(!teamPicks||teamPicks.length===0)return null;
     let totalRatio=0;
-    up.forEach(pk=>{
+    teamPicks.forEach(pk=>{
       const p=prospectsMap[pk.playerId];if(!p)return;
       const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;
       const playerVal=getPickValue(rank<900?rank:pk.pick);
       const slotVal=getPickValue(pk.pick);
       totalRatio+=playerVal/slotVal;
     });
-    const avgRatio=totalRatio/up.length; // 1.0 = fair, >1 = value, <1 = reach
-    // Needs score: what % of team needs were addressed
+    const avgRatio=totalRatio/teamPicks.length;
+    const base=TEAM_NEEDS_DETAILED?.[team]||{};
+    const totalNeeds=Object.values(base).reduce((s,v)=>s+v,0);
     let needsBonus=0;
-    [...userTeams].forEach(team=>{
-      const base=TEAM_NEEDS_DETAILED?.[team]||{};
-      const totalNeeds=Object.values(base).reduce((s,v)=>s+v,0);
-      if(totalNeeds===0)return;
+    if(totalNeeds>0){
       const remaining=liveNeeds[team]||{};
       const remainingTotal=Object.values(remaining).reduce((s,v)=>s+v,0);
-      const filled=(totalNeeds-remainingTotal)/totalNeeds; // 0-1
-      needsBonus+=filled*0.15; // up to +0.15 per team
-    });
-    const teamCount=userTeams.size||1;
-    needsBonus=needsBonus/teamCount;
-    // Combined score: value ratio + needs bonus
-    // avgRatio of 1.0 + full needs = 1.15 → B+/A-
+      needsBonus=((totalNeeds-remainingTotal)/totalNeeds)*0.15;
+    }
     const score=avgRatio+needsBonus;
-    // Grade thresholds: all fair picks (1.0) + decent needs = B+ (above average)
     if(score>=1.6)return{grade:"A+",color:"#16a34a"};
     if(score>=1.4)return{grade:"A",color:"#16a34a"};
     if(score>=1.2)return{grade:"B+",color:"#22c55e"};
@@ -580,7 +571,41 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     if(score>=0.75)return{grade:"C",color:"#ca8a04"};
     if(score>=0.65)return{grade:"D",color:"#dc2626"};
     return{grade:"F",color:"#dc2626"};
-  },[picks,prospectsMap,getConsensusRank,totalPicks,userTeams,liveNeeds,TEAM_NEEDS_DETAILED]);
+  },[prospectsMap,getConsensusRank,liveNeeds,TEAM_NEEDS_DETAILED]);
+
+  // Overall draft grade — null for all-32 (prediction mode, not graded)
+  const draftGrade=useMemo(()=>{
+    if(picks.length<totalPicks)return null;
+    if(userTeams.size===32)return null; // all-32 is a prediction exercise, not graded
+    const up=picks.filter(pk=>pk.isUser);if(up.length===0)return null;
+    // For single team just use gradeTeamPicks on full picks
+    // For multi-team, average across teams
+    if(userTeams.size===1){
+      return gradeTeamPicks(up,[...userTeams][0]);
+    }
+    // Multi-team: compute per team, average the numeric score
+    let totalScore=0,count=0;
+    [...userTeams].forEach(team=>{
+      const tp=up.filter(pk=>pk.team===team);if(!tp.length)return;
+      let tr=0;
+      tp.forEach(pk=>{
+        const p=prospectsMap[pk.playerId];if(!p)return;
+        const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;
+        tr+=getPickValue(rank<900?rank:pk.pick)/getPickValue(pk.pick);
+      });
+      totalScore+=tr/tp.length;count++;
+    });
+    const avg=count>0?totalScore/count:1;
+    if(avg>=1.6)return{grade:"A+",color:"#16a34a"};
+    if(avg>=1.4)return{grade:"A",color:"#16a34a"};
+    if(avg>=1.2)return{grade:"B+",color:"#22c55e"};
+    if(avg>=1.05)return{grade:"B",color:"#22c55e"};
+    if(avg>=0.95)return{grade:"B-",color:"#ca8a04"};
+    if(avg>=0.85)return{grade:"C+",color:"#ca8a04"};
+    if(avg>=0.75)return{grade:"C",color:"#ca8a04"};
+    if(avg>=0.65)return{grade:"D",color:"#dc2626"};
+    return{grade:"F",color:"#dc2626"};
+  },[picks,prospectsMap,getConsensusRank,totalPicks,userTeams,gradeTeamPicks]);
 
   const resultsRef=useRef(null);
 
@@ -593,6 +618,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
     const node=resultsRef.current;
     if(!node){alert('Results not ready');return;}
+
+    // Wait two animation frames so React has fully painted grades before capture
+    await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
 
     try{
       const canvas=await html2canvas(node,{
@@ -793,19 +821,27 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         </div>
         <div ref={resultsRef} style={{maxWidth:900,margin:"0 auto",padding:"52px 24px 40px",textAlign:"center"}}>
           <h1 style={{fontSize:36,fontWeight:900,color:"#171717",margin:"0 0 8px"}}>draft complete!</h1>
-          {draftGrade&&<div style={{display:"inline-block",padding:"12px 32px",background:"#fff",border:"2px solid "+draftGrade.color,borderRadius:16,marginBottom:24}}>
+          {/* Overall grade — single team only, shown prominently at top */}
+          {draftGrade&&userTeams.size===1&&<div style={{display:"inline-block",padding:"12px 32px",background:"#fff",border:"2px solid "+draftGrade.color,borderRadius:16,marginBottom:24}}>
             <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>draft grade</div>
             <div style={{fontFamily:font,fontSize:56,fontWeight:900,color:draftGrade.color,lineHeight:1}}>{draftGrade.grade}</div>
             {tradeValueDelta!==0&&<div style={{fontFamily:mono,fontSize:10,color:tradeValueDelta>0?"#16a34a":"#dc2626",marginTop:4}}>trade surplus: {tradeValueDelta>0?"+":""}{tradeValueDelta} pts</div>}
           </div>}
+          {/* All-32: no grade, just a label */}
+          {userTeams.size===32&&<div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",marginBottom:24,letterSpacing:1}}>2026 NFL DRAFT · FIRST ROUND PREDICTIONS</div>}
           <div style={{display:"flex",gap:8,justifyContent:"center",marginBottom:24}}>
             {(userTeams.size===1||userTeams.size===32)&&<button onClick={shareDraft} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 20px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>🔮 share results</button>}
             <button onClick={()=>{setSetupDone(false);setPicks([]);setShowResults(false);setTradeMap({});}} style={{fontFamily:sans,fontSize:12,padding:"8px 20px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>draft again</button>
           </div>
           {[...userTeams].map(team=>{
             const tp=userPicks.filter(pk=>pk.team===team);if(tp.length===0)return null;
+            const teamGrade=userTeams.size!==32?gradeTeamPicks(tp,team):null;
             return(<div key={team} style={{marginBottom:32,textAlign:"left"}}>
-              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,justifyContent:"center"}}><NFLTeamLogo team={team} size={20}/><span style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717"}}>{team}</span></div>
+              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,justifyContent:"center"}}>
+                <NFLTeamLogo team={team} size={20}/>
+                <span style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717"}}>{team}</span>
+                {teamGrade&&<span style={{fontFamily:font,fontSize:18,fontWeight:900,color:teamGrade.color,marginLeft:4}}>{teamGrade.grade}</span>}
+              </div>
               <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",marginBottom:12}}>
                 {tp.map((pk,i)=>{const p=prospectsMap[pk.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const g=activeGrade(pk.playerId);const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;const g2=getConsensusGrade?getConsensusGrade(p.name):activeGrade(pk.playerId);const v=pickVerdict(pk.pick,rank,g2);
                   return<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"8px 12px",borderBottom:"1px solid #f5f5f5"}}>
@@ -829,6 +865,12 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
               </div>
             </div>);
           })}
+          {/* URL footer — always visible in screenshot */}
+          <div style={{marginTop:32,paddingTop:16,borderTop:"1px solid #e5e5e5",textAlign:"center"}}>
+            <span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",letterSpacing:1}}>bigboardlab.com</span>
+            <span style={{fontFamily:mono,fontSize:11,color:"#d4d4d4",margin:"0 8px"}}>·</span>
+            <span style={{fontFamily:mono,fontSize:11,color:"#c0c0c0"}}>build your own mock draft</span>
+          </div>
         </div>
       </div>
     );
