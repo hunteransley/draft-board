@@ -184,7 +184,16 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[tradeUserPicks,setTradeUserPicks]=useState([]);
   const[tradePartner,setTradePartner]=useState(null);
   const[depthTeamIdx,setDepthTeamIdx]=useState(0);
+  const[tradeValueDelta,setTradeValueDelta]=useState(0); // net JJP value from all trades
   const tradeDeclinedRef=useRef(0);
+
+  // Position run tracker: count how many of each pos drafted in last 8 picks
+  const recentPosCounts=useMemo(()=>{
+    const recent=picks.slice(-8);
+    const counts={};
+    recent.forEach(pk=>{const p=prospectsMap[pk.playerId];if(p)counts[p.pos]=(counts[p.pos]||0)+1;});
+    return counts;
+  },[picks,prospectsMap]);
 
   const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[PROSPECTS]);
   const gradeMap=useMemo(()=>{const m={};activeBoard.forEach(p=>m[p.id]=activeGrade(p.id));return m;},[activeBoard,activeGrade]);
@@ -202,7 +211,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
   const startDraft=useCallback(()=>{
     setAvailable(activeBoard.map(p=>p.id));setPicks([]);setSetupDone(true);setShowResults(false);
-    setTradeMap({});setLastVerdict(null);setTradeOffer(null);setShowTradeUp(false);
+    setTradeMap({});setLastVerdict(null);setTradeOffer(null);setShowTradeUp(false);setTradeValueDelta(0);
   },[activeBoard]);
 
   const cpuPick=useCallback((team,avail,pickNum)=>{
@@ -254,6 +263,16 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       const alreadyAtPos=posCounts[pos]||0;
       const dimReturn=alreadyAtPos>=3?0.4:alreadyAtPos>=2?0.65:alreadyAtPos>=1?0.85:1.0;
 
+      // Position run penalty: if 3+ of same pos taken in last 8 picks, devalue it
+      // Simulates "supply satisfied" across the league — teams pivot away from flooded positions
+      const recentRun=recentPosCounts[pos]||0;
+      const runPenalty=recentRun>=4?0.72:recentRun>=3?0.84:recentRun>=2?0.93:1.0;
+
+      // Need urgency: if team's #1 need player is available and sliding, boost heavily
+      const isTopNeed=nc>=2||(ni===0);
+      const isSliding=slide>4&&grade>=70;
+      const urgencyBoost=isTopNeed&&isSliding?1.18:1.0;
+
       // K/P filter, RB penalty, QB modifier
       if(pos==="K/P"&&round<=4)return;
       const rbPen=(pos==="RB"&&round===1&&grade<88)?0.7:1.0;
@@ -265,11 +284,11 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
       const bpaComponent=base*finalBpaW*pm*rbPen*qbMod*teamPosBoost;
       const needComponent=nm*finalNeedW*12;
-      const score=(bpaComponent+needComponent+slideBoost-reachPenalty)*dimReturn*stageMod;
+      const score=(bpaComponent+needComponent+slideBoost-reachPenalty)*dimReturn*stageMod*runPenalty*urgencyBoost;
       if(score>bestScore){bestScore=score;best=id;}
     });
     return best||avail[0];
-  },[teamNeeds,prospectsMap,gradeMap,getConsensusGrade,getConsensusRank,TEAM_NEEDS_DETAILED,picks]);
+  },[teamNeeds,prospectsMap,gradeMap,getConsensusGrade,getConsensusRank,TEAM_NEEDS_DETAILED,picks,recentPosCounts]);
 
   const isUserPick=useMemo(()=>{
     return picks.length<totalPicks&&userTeams.has(getPickTeam(picks.length));
@@ -330,6 +349,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     if(!tradeOffer)return;
     const ct=tradeOffer.fromTeam;const ui=tradeOffer.userPickIdx;const ci=tradeOffer.traderIdx;const ut=getPickTeam(ui);
     setTradeMap(prev=>({...prev,[ui]:ct,[ci]:ut}));
+    // Track JJP value delta: they give offerVal, we give userVal
+    setTradeValueDelta(prev=>prev+(tradeOffer.offerVal-tradeOffer.userVal));
     const pid=cpuPick(ct,available,fullDraftOrder[ui].pick);
     if(pid){const{round,pick}=fullDraftOrder[ui];setPicks(prev=>[...prev,{pick,round,team:ct,playerId:pid,traded:true,isUser:false}]);setAvailable(prev=>prev.filter(id=>id!==pid));}
     setTradeOffer(null);
@@ -701,6 +722,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           {draftGrade&&<div style={{display:"inline-block",padding:"12px 32px",background:"#fff",border:"2px solid "+draftGrade.color,borderRadius:16,marginBottom:24}}>
             <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>draft grade</div>
             <div style={{fontFamily:font,fontSize:56,fontWeight:900,color:draftGrade.color,lineHeight:1}}>{draftGrade.grade}</div>
+            {tradeValueDelta!==0&&<div style={{fontFamily:mono,fontSize:10,color:tradeValueDelta>0?"#16a34a":"#dc2626",marginTop:4}}>trade surplus: {tradeValueDelta>0?"+":""}{tradeValueDelta} pts</div>}
           </div>}
           <div style={{display:"flex",gap:8,justifyContent:"center",marginBottom:24}}>
             <button onClick={shareDraft} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 20px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>📤 share results</button>
@@ -804,6 +826,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             </div>
             <div style={{display:"flex",gap:4}}>
               {userPickCount>0&&<button onClick={undo} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:"#fef3c7",color:"#92400e"}}>↩</button>}
+              {isUserPick&&<button onClick={()=>makePick(cpuPick(currentTeam,available,fullDraftOrder[picks.length].pick))} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #22c55e",borderRadius:99,cursor:"pointer",background:"rgba(34,197,94,0.05)",color:"#16a34a"}}>🤖</button>}
               {isUserPick&&<button onClick={openTradeUp} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #a855f7",borderRadius:99,cursor:"pointer",background:"rgba(168,85,247,0.03)",color:"#a855f7"}}>📞</button>}
               <button onClick={()=>setPaused(!paused)} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:paused?"#fef3c7":"transparent",color:paused?"#92400e":"#a3a3a3"}}>{paused?"▶":"⏸"}</button>
               <button onClick={onClose} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 8px",cursor:"pointer"}}>✕</button>
@@ -919,9 +942,11 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         <div style={{display:"flex",alignItems:"center",gap:12}}>
           <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>round {currentRound} · pick {Math.min(picks.length+1,totalPicks)}/{totalPicks}</span>
           {isUserPick&&<span style={{fontFamily:sans,fontSize:10,fontWeight:700,color:"#22c55e"}}>YOUR PICK</span>}
+          {tradeValueDelta!==0&&<span style={{fontFamily:mono,fontSize:9,padding:"2px 8px",borderRadius:99,background:tradeValueDelta>0?"rgba(34,197,94,0.1)":"rgba(239,68,68,0.1)",color:tradeValueDelta>0?"#16a34a":"#dc2626",border:"1px solid "+(tradeValueDelta>0?"rgba(34,197,94,0.3)":"rgba(239,68,68,0.3)")}}>trades: {tradeValueDelta>0?"+":""}{tradeValueDelta} pts</span>}
         </div>
         <div style={{display:"flex",gap:6}}>
           {userPickCount>0&&<button onClick={undo} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:"#fef3c7",color:"#92400e"}}>↩ undo</button>}
+          {isUserPick&&<button onClick={()=>makePick(cpuPick(currentTeam,available,fullDraftOrder[picks.length].pick))} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #22c55e",borderRadius:99,cursor:"pointer",background:"rgba(34,197,94,0.05)",color:"#16a34a"}}>🤖 auto pick</button>}
           {isUserPick&&<button onClick={openTradeUp} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #a855f7",borderRadius:99,cursor:"pointer",background:"rgba(168,85,247,0.03)",color:"#a855f7"}}>📞 trade</button>}
           <button onClick={()=>setShowDepth(!showDepth)} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:showDepth?"#171717":"transparent",color:showDepth?"#faf9f6":"#a3a3a3"}}>formation</button>
           <button onClick={()=>setPaused(!paused)} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:paused?"#fef3c7":"transparent",color:paused?"#92400e":"#a3a3a3"}}>{paused?"▶ resume":"⏸ pause"}</button>
@@ -1051,8 +1076,13 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
           {/* Available players */}
           <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",maxHeight:"calc(100vh - 220px)",overflowY:"auto"}}>
-            <div style={{padding:"6px 12px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5",display:"flex",justifyContent:"space-between"}}>
+            <div style={{padding:"6px 12px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5",display:"flex",justifyContent:"space-between",alignItems:"center",gap:8,flexWrap:"wrap"}}>
               <span style={{fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>available ({filteredAvailable.length})</span>
+              <div style={{display:"flex",gap:3,flexWrap:"wrap"}}>
+                {Object.entries(recentPosCounts).filter(([,v])=>v>=2).sort((a,b)=>b[1]-a[1]).map(([pos,cnt])=>(
+                  <span key={pos} title={`${cnt} ${pos}s drafted in last 8 picks`} style={{fontFamily:mono,fontSize:7,padding:"1px 5px",background:(POS_COLORS[pos]||"#737373")+"20",color:POS_COLORS[pos]||"#737373",border:"1px solid "+(POS_COLORS[pos]||"#737373")+"40",borderRadius:3,cursor:"default"}}>{pos} 🔥{cnt}</span>
+                ))}
+              </div>
               <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>click name = profile</span>
             </div>
             {filteredAvailable.slice(0,60).map(id=>{const p=prospectsMap[id];if(!p)return null;const g=activeGrade(id);const c=POS_COLORS[p.pos];const inC=compareList.some(x=>x.id===p.id);const rank=getConsensusRank?getConsensusRank(p.name):null;
@@ -1082,6 +1112,12 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           </div>
           <div style={{display:"grid",gridTemplateColumns:isMobile?"1fr":"repeat("+compareList.length+", 1fr)",gap:16}}>
             {compareList.map(p=>{const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos];const pt=POSITION_TRAITS[p.gpos||p.pos]||POSITION_TRAITS[p.pos]||[];const g=activeGrade(p.id);const rank=getConsensusRank?getConsensusRank(p.name):null;
+              // Precompute per-trait max/min for color coding
+              const traitMaxMin={};
+              pt.forEach(t=>{
+                const vals=compareList.map(cp=>traits[cp.id]?.[t]||50);
+                traitMaxMin[t]={max:Math.max(...vals),min:Math.min(...vals)};
+              });
               return<div key={p.id} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:16,textAlign:"center"}}>
                 <SchoolLogo school={p.school} size={40}/>
                 <div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717",marginTop:8}}>{p.name}</div>
@@ -1090,11 +1126,24 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
                 {rank&&rank<400&&<div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>consensus #{rank}</div>}
                 <div style={{fontFamily:font,fontSize:32,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626",lineHeight:1,margin:"8px 0"}}>{g}</div>
                 <RadarChart traits={pt} values={pt.map(t=>traits[p.id]?.[t]||50)} color={c} size={140}/>
-                <div style={{textAlign:"left",marginTop:8}}>
-                  {pt.map(t=><div key={t} style={{display:"flex",justifyContent:"space-between",padding:"2px 0"}}>
-                    <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{t}</span>
-                    <span style={{fontFamily:font,fontSize:12,fontWeight:900,color:c}}>{traits[p.id]?.[t]||50}</span>
-                  </div>)}
+                <div style={{textAlign:"left",marginTop:8,background:"#fafaf9",borderRadius:8,padding:"8px 10px"}}>
+                  {pt.map(t=>{
+                    const val=traits[p.id]?.[t]||50;
+                    const{max,min}=traitMaxMin[t]||{max:val,min:val};
+                    const isBest=compareList.length>1&&val===max&&max!==min;
+                    const isWorst=compareList.length>1&&val===min&&max!==min;
+                    return<div key={t} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"3px 0",borderBottom:"1px solid #f0f0ee"}}>
+                      <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{t}</span>
+                      <div style={{display:"flex",alignItems:"center",gap:4}}>
+                        <div style={{width:40,height:4,background:"#e5e5e5",borderRadius:2,overflow:"hidden"}}>
+                          <div style={{height:"100%",width:(val)+'%',background:isBest?"#22c55e":isWorst?"#ef4444":c+"88",borderRadius:2,transition:"width 0.3s"}}/>
+                        </div>
+                        <span style={{fontFamily:font,fontSize:12,fontWeight:900,color:isBest?"#16a34a":isWorst?"#dc2626":c,minWidth:20,textAlign:"right"}}>{val}</span>
+                        {isBest&&<span style={{fontSize:9}}>▲</span>}
+                        {isWorst&&<span style={{fontSize:9,color:"#dc2626"}}>▼</span>}
+                      </div>
+                    </div>;
+                  })}
                 </div>
                 {isUserPick&&<button onClick={()=>{makePick(p.id);setShowCompare(false);setCompareList([]);}} style={{width:"100%",marginTop:10,fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px",background:"#22c55e",color:"#fff",border:"none",borderRadius:6,cursor:"pointer"}}>draft {p.name.split(" ").pop()}</button>}
               </div>;
