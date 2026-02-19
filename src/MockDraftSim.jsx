@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
+import { track } from "./track.js";
 import NFL_ROSTERS from "./nflRosters.js";
 // html2canvas loaded dynamically in shareDraft to avoid 40KB bundle bloat at page load
 
@@ -274,7 +275,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const startDraft=useCallback(()=>{
     setAvailable(activeBoard.map(p=>p.id));setPicks([]);setSetupDone(true);setShowResults(false);
     setTradeMap({});setLastVerdict(null);setTradeOffer(null);setShowTradeUp(false);setTradeValueDelta(0);
-  },[activeBoard]);
+    track("mock_draft_started",{rounds:numRounds,teams:[...userTeams],board_mode:boardMode});
+  },[activeBoard,numRounds,userTeams,boardMode]);
 
   const cpuPick=useCallback((team,avail,pickNum)=>{
     const needs=teamNeeds[team]||["QB","WR","DL"];
@@ -409,7 +411,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       const p=prospectsMap[playerId];
       if(p){const rank=getConsensusRank(p.name);const g2=getConsensusGrade?getConsensusGrade(p.name):50;const v=pickVerdict(pick,rank,g2);setLastVerdict({...v,player:p.name,pick,rank});setTimeout(()=>setLastVerdict(null),3500);}
     }
-    if(np.length>=totalPicks)setShowResults(true);
+    if(np.length>=totalPicks){setShowResults(true);track("mock_draft_completed",{rounds:numRounds,total_picks:np.length,teams:[...userTeams],trades:Object.keys(tradeMap).length});}
   },[picks,fullDraftOrder,totalPicks,userTeams,prospectsMap,getConsensusRank,getPickTeam]);
 
   const undo=useCallback(()=>{
@@ -642,6 +644,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     const isSingleTeam=userTeams.size===1;
     const isAllTeams=userTeams.size===32;
     if(!isSingleTeam&&!isAllTeams)return;
+    track("share_triggered",{type:isSingleTeam?"single_team":"all_teams",teams:[...userTeams],picks:up.length});
 
     const node=shareRef.current;
     if(!node){alert('Share card not ready');return;}

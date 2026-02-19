@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo, useRef, Component } from "react";
 import { supabase } from "./supabase.js";
+import { track, trackOnce, setTrackingUser } from "./track.js";
 import MockDraftSim from "./MockDraftSim.jsx";
 import { CONSENSUS_BOARD, getConsensusRank, getConsensusGrade, TEAM_NEEDS_DETAILED } from "./consensusData.js";
 import { getProspectStats } from "./prospectStats.js";
@@ -345,6 +346,7 @@ function DraftBoard({user,onSignOut}){
         if(d.notes)setNotes(d.notes);
         setLastSaved(data.updated_at);
         setPhase(rg.length>0?"pick-position":"home");
+        if(rg.length>0)trackOnce("session_return",{positions_ranked:rg.length});
       }else{setPhase("home");}
       }catch(e){console.error('Failed to load board:',e);setPhase("home");}
     })();
@@ -377,6 +379,7 @@ function DraftBoard({user,onSignOut}){
   const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[]);
   const byPos=useMemo(()=>{const m={};PROSPECTS.forEach(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;if(!m[group])m[group]=[];m[group].push(p);});return m;},[]);
   const startRanking=useCallback((pos)=>{const ids=(byPos[pos]||[]).map(p=>p.id);
+    track("ranking_started",{position:pos,prospects:ids.length});
     // Build consensus order map: id → consensus position rank (lower = better)
     const consOrder={};ids.forEach(id=>{const p=prospectsMap[id];if(p){const cr=getConsensusRank(p.name);consOrder[id]=cr<900?cr:999;}});
     const allM=generateMatchups(ids,consOrder);
@@ -407,7 +410,7 @@ function DraftBoard({user,onSignOut}){
     window.addEventListener("keydown",handler);
     return()=>window.removeEventListener("keydown",handler);
   },[phase,currentMatchup,showConfidence,pendingWinner,handlePick]);
-  const finishRanking=useCallback((pos,r)=>{const rts=r||ratings;const sorted=[...(byPos[pos]||[])].sort((a,b)=>(rts[b.id]||1500)-(rts[a.id]||1500));const nt={...traits};sorted.forEach((p,i)=>{if(!nt[p.id])nt[p.id]={};const base=Math.round(85-(i/Math.max(sorted.length-1,1))*50);(POSITION_TRAITS[p.gpos||p.pos]||POSITION_TRAITS[p.pos]||[]).forEach(t=>{nt[p.id][t]=Math.max(10,Math.min(99,base+Math.floor(Math.random()*16)-8));});});setTraits(nt);setRankedGroups(prev=>new Set([...prev,pos]));setPhase("pick-position");},[ratings,byPos,traits]);
+  const finishRanking=useCallback((pos,r)=>{const rts=r||ratings;const sorted=[...(byPos[pos]||[])].sort((a,b)=>(rts[b.id]||1500)-(rts[a.id]||1500));const votedCount=(byPos[pos]||[]).filter(p=>(compCount[p.id]||0)>0).length;const doneCount=(completed[pos]||new Set()).size;track("ranking_saved",{position:pos,comparisons:doneCount,players_voted:votedCount,total_prospects:(byPos[pos]||[]).length});const nt={...traits};sorted.forEach((p,i)=>{if(!nt[p.id])nt[p.id]={};const base=Math.round(85-(i/Math.max(sorted.length-1,1))*50);(POSITION_TRAITS[p.gpos||p.pos]||POSITION_TRAITS[p.pos]||[]).forEach(t=>{nt[p.id][t]=Math.max(10,Math.min(99,base+Math.floor(Math.random()*16)-8));});});setTraits(nt);setRankedGroups(prev=>new Set([...prev,pos]));setPhase("pick-position");},[ratings,byPos,traits,compCount,completed]);
   const getRanked=useCallback((pos)=>[...(byPos[pos]||[])].sort((a,b)=>(ratings[b.id]||1500)-(ratings[a.id]||1500)),[byPos,ratings]);
   const movePlayer=useCallback((pos,fromIdx,toIdx)=>{
     if(fromIdx===toIdx)return;
@@ -743,11 +746,15 @@ export default function App(){
 
   useEffect(()=>{
     supabase.auth.getSession().then(({data:{session}})=>{
-      setUser(session?.user||null);
+      const u=session?.user||null;
+      setUser(u);
+      if(u){setTrackingUser(u.id);trackOnce("signup");}
       setLoading(false);
     });
     const{data:{subscription}}=supabase.auth.onAuthStateChange((_,session)=>{
-      setUser(session?.user||null);
+      const u=session?.user||null;
+      setUser(u);
+      if(u)setTrackingUser(u.id);
     });
     return()=>subscription.unsubscribe();
   },[]);
