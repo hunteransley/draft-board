@@ -63,7 +63,9 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
   const[isOpen,setIsOpen]=useState(false);
   useEffect(()=>{setTimeout(()=>setIsOpen(true),10);return()=>setIsOpen(false);},[player.id]);
   const handleClose=()=>{setIsOpen(false);setTimeout(onClose,300);};
-  const c=POS_COLORS[player.pos];const posTraits=POSITION_TRAITS[player.pos]||[];
+  const c=POS_COLORS[player.gpos||player.pos]||POS_COLORS[player.pos];
+  const posTraits=POSITION_TRAITS[player.gpos||player.pos]||POSITION_TRAITS[player.pos]||[];
+  const ps=getProspectStats(player.name,player.school);
   const grade=getGrade(player.id);
   const similar=getSimilarPlayers(player,allProspects,traits,5);
   const gradeColor=grade>=75?"#16a34a":grade>=55?"#ca8a04":"#dc2626";
@@ -85,6 +87,24 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
             <span style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>grade</span>
           </div>
         </div>
+
+        {ps&&<div style={{padding:"0 24px 16px"}}>
+          {(ps.rank||ps.posRank)&&<div style={{textAlign:"center",marginBottom:8}}>
+            <span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{ps.rank?"#"+ps.rank+" overall":""}{ps.posRank?" · "+(player.gpos||player.pos)+" #"+ps.posRank:""}</span>
+          </div>}
+          {(ps.height||ps.weight||ps.cls)&&<div style={{display:"flex",justifyContent:"center",gap:12,marginBottom:8,flexWrap:"wrap"}}>
+            {[ps.height&&{label:"HT",val:ps.height},ps.weight&&{label:"WT",val:ps.weight+" lbs"},ps.cls&&{label:"YR",val:ps.cls}].filter(Boolean).map(({label,val})=>(
+              <div key={label} style={{textAlign:"center",background:"#fff",border:"1px solid #e5e5e5",borderRadius:8,padding:"6px 12px",minWidth:60}}>
+                <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:2}}>{label}</div>
+                <div style={{fontFamily:mono,fontSize:13,fontWeight:700,color:"#171717"}}>{val}</div>
+              </div>
+            ))}
+          </div>}
+          {ps.statLine&&<div style={{background:"#f9f9f6",border:"1px solid #f0f0f0",borderRadius:8,padding:"10px 14px",textAlign:"center"}}>
+            <div style={{fontFamily:mono,fontSize:12,color:"#525252",lineHeight:1.4}}>{ps.statLine}</div>
+            {ps.statExtra&&<div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",marginTop:4,lineHeight:1.4}}>{ps.statExtra}</div>}
+          </div>}
+        </div>}
 
         <div style={{padding:"24px",display:"flex",justifyContent:"center"}}>
           <RadarChart traits={posTraits} values={posTraits.map(t=>traits[player.id]?.[t]||50)} color={c} size={200}/>
