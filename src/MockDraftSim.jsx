@@ -538,43 +538,29 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         const group=DEPTH_GROUPS.find(g=>g.posMatch===p.pos);if(!group)return;
         const grade=getConsensusGrade?getConsensusGrade(p.name):(gradeMap[pk.playerId]||50);
         const entry={name:p.name,isDraft:true};
+        // Determine target slot index based on round/grade
+        let targetIdx=group.slots.length-1; // default: last slot for late rounds
         if(pk.round===1||(pk.round===2&&grade>=80)){
-          // Starter: push existing starter down, take slot 1
-          const s1=group.slots[0];
-          if(chart[team][s1]){
-            // Find an empty slot to push the displaced player into
-            const emptySlot=group.slots.find(s=>!chart[team][s]);
-            if(emptySlot)chart[team][emptySlot]=chart[team][s1];
-          }
-          chart[team][s1]=entry;
+          targetIdx=0; // starter
         }else if(pk.round<=3){
-          // Second slot
-          const target=group.slots[1]||group.slots[0];
-          if(!chart[team][target]){
-            chart[team][target]=entry;
-          }else{
-            // Find any empty slot in the group
-            const emptySlot=group.slots.find(s=>!chart[team][s]);
-            if(emptySlot)chart[team][emptySlot]=entry;
-            else{
-              // Overflow
-              const oi=Object.keys(chart[team]).filter(k=>k.startsWith(group.slots[group.slots.length-1]+"_d")).length;
-              chart[team][group.slots[group.slots.length-1]+"_d"+oi]=entry;
-            }
-          }
+          targetIdx=Math.min(1,group.slots.length-1); // second slot
+        }
+        // Find the actual insertion point: use target or first empty if target is occupied by a draft pick
+        let insertIdx=targetIdx;
+        // If target slot is empty, just place there
+        if(!chart[team][group.slots[insertIdx]]){
+          chart[team][group.slots[insertIdx]]=entry;
         }else{
-          // Rd 4-7: last slot in the group
-          const target=group.slots[group.slots.length-1];
-          if(!chart[team][target]){
-            chart[team][target]=entry;
-          }else{
-            const emptySlot=group.slots.find(s=>!chart[team][s]);
-            if(emptySlot)chart[team][emptySlot]=entry;
-            else{
-              const oi=Object.keys(chart[team]).filter(k=>k.startsWith(group.slots[group.slots.length-1]+"_d")).length;
-              chart[team][group.slots[group.slots.length-1]+"_d"+oi]=entry;
+          // Shift everyone from insertIdx down by one to make room
+          // Work from the bottom up so we don't overwrite
+          for(let i=group.slots.length-1;i>insertIdx;i--){
+            const prevSlot=group.slots[i-1];
+            const curSlot=group.slots[i];
+            if(chart[team][prevSlot]){
+              chart[team][curSlot]=chart[team][prevSlot];
             }
           }
+          chart[team][group.slots[insertIdx]]=entry;
         }
       });
     });
