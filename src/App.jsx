@@ -393,18 +393,20 @@ function DraftBoard({user,onSignOut}){
   const handlePick=useCallback((winnerId,confidence=0.5)=>{if(!currentMatchup||!activePos)return;const[a,b]=currentMatchup;const aWon=winnerId===a;const loserId=aWon?b:a;const k=24+(confidence*24);const{newA,newB}=eloUpdate(ratings[a]||1500,ratings[b]||1500,aWon,k);let winR=aWon?newA:newB;let loseR=aWon?newB:newA;if(winR<=loseR){const mid=(winR+loseR)/2;winR=mid+0.5;loseR=mid-0.5;}const ur={...ratings,[winnerId]:winR,[loserId]:loseR};setRatings(ur);const uc={...compCount,[a]:(compCount[a]||0)+1,[b]:(compCount[b]||0)+1};setCompCount(uc);setWinCount(prev=>({...prev,[winnerId]:(prev[winnerId]||0)+1}));const ns=new Set(completed[activePos]);ns.add(`${a}-${b}`);setCompleted(prev=>({...prev,[activePos]:ns}));const next=getNextMatchup(matchups[activePos],ns,ur);if(!next)finishRanking(activePos,ur);else setCurrentMatchup(next);setShowConfidence(false);setPendingWinner(null);},[currentMatchup,activePos,ratings,completed,matchups,compCount]);
   const canFinish=useMemo(()=>{if(!activePos||!byPos[activePos])return false;const done=(completed[activePos]||new Set()).size;return done>=8;},[activePos,byPos,completed]);
 
-  // Keyboard shortcuts for ranking: ←/→ or 1/2 to pick, 1-4 for confidence when shown
+  // Keyboard shortcuts for ranking: ←/→ to pick player, 1-4 for confidence, Esc to cancel
   useEffect(()=>{
     if(phase!=="ranking"||!currentMatchup)return;
     const handler=(e)=>{
+      // Don't capture if user is typing in an input
+      if(e.target.tagName==="INPUT"||e.target.tagName==="TEXTAREA")return;
       if(showConfidence&&pendingWinner){
         const confMap={"1":0.2,"2":0.5,"3":0.75,"4":1};
         if(confMap[e.key]){e.preventDefault();handlePick(pendingWinner,confMap[e.key]);}
         if(e.key==="Escape"){setShowConfidence(false);setPendingWinner(null);}
-      }else{
+      }else if(!showConfidence){
         const[aId,bId]=currentMatchup;
-        if(e.key==="ArrowLeft"||e.key==="1"){e.preventDefault();setPendingWinner(aId);setShowConfidence(true);}
-        if(e.key==="ArrowRight"||e.key==="2"){e.preventDefault();setPendingWinner(bId);setShowConfidence(true);}
+        if(e.key==="ArrowLeft"){e.preventDefault();setPendingWinner(aId);setShowConfidence(true);}
+        if(e.key==="ArrowRight"){e.preventDefault();setPendingWinner(bId);setShowConfidence(true);}
       }
     };
     window.addEventListener("keydown",handler);
