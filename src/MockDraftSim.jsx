@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import NFL_ROSTERS from "./nflRosters.js";
-import html2canvas from "html2canvas";
+// html2canvas loaded dynamically in shareDraft to avoid 40KB bundle bloat at page load
 
 const DRAFT_ORDER_2026=[
 {pick:1,round:1,team:"Raiders"},{pick:2,round:1,team:"Jets"},{pick:3,round:1,team:"Cardinals"},{pick:4,round:1,team:"Titans"},
@@ -216,7 +216,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const ALL_TEAMS=useMemo(()=>[...new Set(DRAFT_ORDER_2026.map(d=>d.team))],[]);
   const[boardMode,setBoardMode]=useState("consensus");
   const activeBoard=boardMode==="my"&&myBoard?myBoard:board;
-  const activeGrade=useCallback((id)=>{if(boardMode==="my")return getGrade(id);const p=PROSPECTS.find(x=>x.id===id);return p?getConsensusGrade(p.name):50;},[boardMode,getGrade,PROSPECTS,getConsensusGrade]);
+  const activeGrade=useCallback((id)=>{if(boardMode==="my")return getGrade(id);const p=prospectsMap[id];return p?getConsensusGrade(p.name):50;},[boardMode,getGrade,prospectsMap,getConsensusGrade]);
   const[setupDone,setSetupDone]=useState(false);
   const[userTeams,setUserTeams]=useState(new Set());
   const[isMobile,setIsMobile]=useState(typeof window!=='undefined'&&window.innerWidth<768);
@@ -667,6 +667,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
 
     try{
+      const {default:html2canvas}=await import("html2canvas");
       const canvas=await html2canvas(node,{
         scale:2,
         useCORS:true,
@@ -870,7 +871,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const userPickCount=useMemo(()=>picks.filter(p=>p.isUser).length,[picks]);
 
   // Sub-components
-  const FormationChart=({team})=>{
+  const renderFormation=useCallback((team)=>{
     const chart=depthChart[team]||{};
     return(<svg viewBox="0 0 100 105" style={{width:"100%",maxWidth:280}}>
       <rect x="0" y="0" width="100" height="105" rx="4" fill="#faf9f6" stroke="#e5e5e5" strokeWidth="0.5"/>
@@ -887,13 +888,13 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         </g>);
       })}
     </svg>);
-  };
+  },[depthChart]);
 
-  const DepthList=({team,dark=true})=>{
+  const renderDepthList=useCallback((team,dark=true)=>{
     const chart=depthChart[team]||{};
-    const slotColor=dark?"#a3a3a3":"#a3a3a3";
-    const nameColor=dark?"#525252":"#525252";
-    const draftColor=dark?"#7c3aed":"#7c3aed";
+    const slotColor="#a3a3a3";
+    const nameColor="#525252";
+    const draftColor="#7c3aed";
     return(<div style={{marginTop:4}}>
       {DEPTH_GROUPS.map(group=>{
         const entries=group.slots.map(s=>({slot:s,entry:chart[s]})).filter(x=>x.entry);
@@ -911,9 +912,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         </div>);
       })}
     </div>);
-  };
+  },[depthChart,sans]);
 
-  const LiveNeeds=({team})=>{
+  const renderLiveNeeds=useCallback((team)=>{
     const needs=liveNeeds[team]||{};const entries=Object.entries(needs).filter(([,v])=>v>0);
     const base=TEAM_NEEDS_DETAILED?.[team]||{};const filled=Object.entries(base).filter(([k])=>!needs[k]||needs[k]===0);
     return(<div style={{marginTop:4}}>
@@ -923,7 +924,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         {filled.map(([pos])=>(<span key={pos} style={{fontFamily:mono,fontSize:7,padding:"1px 4px",background:"rgba(34,197,94,0.15)",color:"#86efac",borderRadius:3,textDecoration:"line-through",opacity:0.5}}>{pos} ✓</span>))}
       </div>
     </div>);
-  };
+  },[liveNeeds,TEAM_NEEDS_DETAILED,mono]);
 
   // === SETUP SCREEN ===
   if(!setupDone)return(
@@ -1025,11 +1026,11 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
               </div>
               <div style={{display:"flex",gap:16,alignItems:"flex-start"}}>
                 <div style={{flex:"0 0 320px",background:"#fff",borderRadius:12,padding:"16px"}}>
-                  <FormationChart team={team}/>
+                  {renderFormation(team)}
                 </div>
                 <div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"12px 16px"}}>
                   <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:6}}>depth chart</div>
-                  <DepthList team={team} dark={false}/>
+                  {renderDepthList(team,false)}
                 </div>
               </div>
             </div>);
@@ -1083,9 +1084,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             <span style={{fontFamily:sans,fontSize:12,fontWeight:700,color:"#171717"}}>{team}</span>
             <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginLeft:"auto"}}>{picks.filter(pk=>pk.team===team).length} drafted</span>
           </div>
-          <FormationChart team={team}/>
-          <DepthList team={team}/>
-          <LiveNeeds team={team}/>
+          {renderFormation(team)}
+          {renderDepthList(team)}
+          {renderLiveNeeds(team)}
         </div>
       );
     })()}
