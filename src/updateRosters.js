@@ -3,6 +3,11 @@
  * updateRosters.js — Pull ESPN depth charts for all 32 NFL teams
  * Run: node updateRosters.js
  * Output: overwrites nflRosters.js in the same directory
+ * 
+ * Slot names match MockDraftSim DEPTH_GROUPS:
+ *   QB1,QB2 | RB1,RB2 | WR1-WR4 | TE1,TE2
+ *   LT,LG,C,RG,RT | DE1,DT1,DT2,DE2 | LB1,LB2,LB3
+ *   CB1,CB2,SS,FS | K
  */
 
 import { writeFileSync } from "fs";
@@ -23,31 +28,50 @@ const TEAMS = [
   {id:26,abbr:"SEA"},{id:27,abbr:"TB"},{id:10,abbr:"TEN"},{id:28,abbr:"WAS"}
 ];
 
-// Max slots per position prefix in our depth chart UI
-const MAX_SLOTS = {
-  QB:2, RB:2, WR:4, TE:2,
-  LT:1, LG:1, C:1, RG:1, RT:1,
-  DE:2, DT:2, LB:3, CB:2, SS:1, FS:1,
-  K:1
+// ESPN depthchart position key → what slot(s) to fill
+// Each entry: { slot, numbered } where numbered=true means append counter (DE1,DE2)
+// and numbered=false means use slot name as-is (LT, SS, K)
+const MAPPINGS = {
+  // Offense
+  qb:  { slot:"QB",  numbered:true,  max:2 },
+  rb:  { slot:"RB",  numbered:true,  max:2 },
+  wr1: { slot:"WR",  numbered:true,  max:1 },
+  wr2: { slot:"WR",  numbered:true,  max:1 },
+  wr3: { slot:"WR",  numbered:true,  max:1 },
+  te:  { slot:"TE",  numbered:true,  max:2 },
+  lt:  { slot:"LT",  numbered:false, max:1 },
+  lg:  { slot:"LG",  numbered:false, max:1 },
+  c:   { slot:"C",   numbered:false, max:1 },
+  rg:  { slot:"RG",  numbered:false, max:1 },
+  rt:  { slot:"RT",  numbered:false, max:1 },
+  // Defense — DE maps to DE1/DE2, DT maps to DT1/DT2
+  lde: { slot:"DE",  numbered:true,  max:1 },
+  rde: { slot:"DE",  numbered:true,  max:1 },
+  nt:  { slot:"DT",  numbered:true,  max:1 },
+  ldt: { slot:"DT",  numbered:true,  max:1 },
+  rdt: { slot:"DT",  numbered:true,  max:1 },
+  dt:  { slot:"DT",  numbered:true,  max:1 },
+  // LB numbered: LB1,LB2,LB3
+  wlb: { slot:"LB",  numbered:true,  max:1 },
+  slb: { slot:"LB",  numbered:true,  max:1 },
+  lilb:{ slot:"LB",  numbered:true,  max:1 },
+  rilb:{ slot:"LB",  numbered:true,  max:1 },
+  mlb: { slot:"LB",  numbered:true,  max:1 },
+  sam: { slot:"LB",  numbered:true,  max:1 },
+  will:{ slot:"LB",  numbered:true,  max:1 },
+  mike:{ slot:"LB",  numbered:true,  max:1 },
+  // CB numbered: CB1,CB2
+  lcb: { slot:"CB",  numbered:true,  max:1 },
+  rcb: { slot:"CB",  numbered:true,  max:1 },
+  // Safeties: bare slot names SS, FS (no number)
+  ss:  { slot:"SS",  numbered:false, max:1 },
+  fs:  { slot:"FS",  numbered:false, max:1 },
+  // Kicker: bare K
+  pk:  { slot:"K",   numbered:false, max:1 },
 };
 
-// ESPN depthchart key → our slot prefix
-// Format: data.depthchart[].positions.{key}.athletes[]
-const KEY_TO_SLOT = {
-  // Offense (group: "3WR 1TE" or similar)
-  qb: "QB", rb: "RB", te: "TE",
-  wr1: "WR", wr2: "WR", wr3: "WR",
-  lt: "LT", lg: "LG", c: "C", rg: "RG", rt: "RT",
-  // Defense (group: "Base 3-4 D" or "Base 4-3 D" etc)
-  lde: "DE", rde: "DE",
-  nt: "DT", ldt: "DT", rdt: "DT", dt: "DT",
-  wlb: "LB", slb: "LB", lilb: "LB", rilb: "LB", mlb: "LB",
-  sam: "LB", will: "LB", mike: "LB",
-  lcb: "CB", rcb: "CB",
-  ss: "SS", fs: "FS",
-  // Special teams
-  pk: "K",
-};
+// Max per numbered slot prefix
+const SLOT_MAX = { QB:2, RB:2, WR:4, TE:2, DE:2, DT:2, LB:3, CB:2 };
 
 function parseDepthChart(data) {
   const chart = {};
@@ -57,25 +81,27 @@ function parseDepthChart(data) {
   for (const group of groups) {
     const positions = group?.positions || {};
     for (const [key, posData] of Object.entries(positions)) {
-      const slot = KEY_TO_SLOT[key];
-      if (!slot) continue;
-
-      const max = MAX_SLOTS[slot];
-      if (!max) continue;
+      const m = MAPPINGS[key];
+      if (!m) continue;
 
       const athletes = posData?.athletes || [];
-      // Take starter (first athlete) — or first + second for positions with 2+ depth
-      const toTake = key.startsWith("wr") ? 1 : Math.min(athletes.length, max - (counters[slot] || 0));
-      
+      const toTake = Math.min(athletes.length, m.max);
+
       for (let i = 0; i < toTake; i++) {
         const name = athletes[i]?.displayName;
         if (!name) continue;
 
-        const count = (counters[slot] || 0) + 1;
-        if (count > max) break;
-
-        counters[slot] = count;
-        chart[`${slot}${count}`] = name;
+        if (m.numbered) {
+          const count = (counters[m.slot] || 0) + 1;
+          const max = SLOT_MAX[m.slot] || 2;
+          if (count > max) break;
+          counters[m.slot] = count;
+          chart[`${m.slot}${count}`] = name;
+        } else {
+          // Single slot — use bare name (LT, SS, K, etc.)
+          if (chart[m.slot]) continue; // already filled
+          chart[m.slot] = name;
+        }
       }
     }
   }
