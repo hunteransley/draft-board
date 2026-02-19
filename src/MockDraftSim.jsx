@@ -1149,9 +1149,13 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           <div style={{display:"flex",gap:3,flexWrap:"wrap",marginBottom:6}}>
             {allCpuTeams.map(t=>(<button key={t} onClick={()=>{setTradePartner(t);setTradeTarget([]);setTradeUserPicks([]);}} style={{fontFamily:sans,fontSize:9,padding:"3px 6px",background:tradePartner===t?"#a855f7":"#fff",color:tradePartner===t?"#fff":"#737373",border:"1px solid "+(tradePartner===t?"#a855f7":"#e5e5e5"),borderRadius:5,cursor:"pointer"}}><NFLTeamLogo team={t} size={10}/></button>))}
           </div>
-          {tradePartner&&tradeEval&&<div style={{display:"flex",gap:6,marginTop:6}}>
-            <button onClick={executeTrade} disabled={!tradeEval||!tradeEval.valid} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"5px 14px",background:tradeEval?.valid?"#a855f7":"#d4d4d4",color:"#fff",border:"none",borderRadius:99,cursor:tradeEval?.valid?"pointer":"default"}}>execute</button>
-          </div>}
+          {tradePartner&&tradeTarget.length>0&&tradeUserPicks.length>0&&(()=>{
+            const tv=tradeTarget.reduce((s,p)=>s+(p.value||0),0);const ov=tradeUserPicks.reduce((s,p)=>s+(p.value||0),0);const enough=ov>=tv*1.05;
+            return<div style={{marginTop:6}}>
+              <div style={{fontFamily:mono,fontSize:8,color:enough?"#16a34a":"#dc2626"}}>{enough?"OFFER SUFFICIENT":"NEED MORE (~5% OVERPAY)"}</div>
+              <button onClick={executeTradeUp} disabled={!enough} style={{marginTop:4,fontFamily:sans,fontSize:11,fontWeight:700,padding:"5px 14px",background:enough?"#a855f7":"#d4d4d4",color:"#fff",border:"none",borderRadius:99,cursor:enough?"pointer":"default"}}>execute trade</button>
+            </div>;
+          })()}
         </div>}
 
         {/* Available players — main scrollable area */}
