@@ -531,13 +531,6 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       DEPTH_GROUPS.forEach(g=>{
         g.slots.forEach(s=>{if(roster[s])chart[team][s]={name:roster[s],isRoster:true};});
       });
-      // Slot drafted players based on round
-      const teamPicks=picks.filter(pk=>pk.team===team);
-      teamPicks.forEach(pk=>{
-        const p=prospectsMap[pk.playerId];if(!p)return;
-        const group=DEPTH_GROUPS.find(g=>g.posMatch===p.pos);if(!group)return;
-        const grade=getConsensusGrade?getConsensusGrade(p.name):(gradeMap[pk.playerId]||50);
-        const entry={name:p.name,isDraft:true};
       // Slot drafted players based on round and grade
       const teamPicks=picks.filter(pk=>pk.team===team);
       teamPicks.forEach(pk=>{
