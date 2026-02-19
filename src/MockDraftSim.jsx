@@ -535,67 +535,245 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
   const shareDraft=useCallback(()=>{
     const up=picks.filter(pk=>pk.isUser);
+    if(up.length===0)return;
     const teams=[...new Set(up.map(pk=>pk.team))];
+    const team=teams[0];
+    const firstPick=up[0];
+    const firstPlayer=prospectsMap[firstPick?.playerId];
+    const remainingPicks=up.slice(1);
     const W=1200,H=628;
-    const canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');
-    // Dark gradient background
-    const grad=ctx.createLinearGradient(0,0,W,H);grad.addColorStop(0,'#0a0a0a');grad.addColorStop(1,'#1a1a2e');
-    ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
-    // Subtle grid
-    ctx.strokeStyle='rgba(255,255,255,0.03)';ctx.lineWidth=1;
-    for(let x=0;x<W;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
-    for(let y=0;y<H;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
-    // Pink-purple accent bar
-    const ac=ctx.createLinearGradient(0,0,W,0);ac.addColorStop(0,'#ec4899');ac.addColorStop(1,'#7c3aed');
-    ctx.fillStyle=ac;ctx.fillRect(0,0,W,4);
-    // Title
-    ctx.fillStyle='#fafafa';ctx.font='bold 36px Georgia,serif';ctx.fillText('MY MOCK DRAFT',48,52);
-    // Grade badge (no roundRect for compat)
-    if(draftGrade){
-      const gx=W-120;
-      ctx.strokeStyle=draftGrade.color;ctx.lineWidth=3;ctx.strokeRect(gx,18,80,48);
-      ctx.fillStyle=draftGrade.color;ctx.font='bold 32px Georgia,serif';ctx.textAlign='center';
-      ctx.fillText(draftGrade.grade,gx+40,52);ctx.textAlign='left';
-    }
-    // Subheader with logo text
-    ctx.fillStyle='rgba(255,255,255,0.35)';ctx.font='500 13px monospace';
-    ctx.fillText('BIGBOARDLAB.COM  ·  2026 NFL DRAFT  ·  '+teams.join(', '),48,78);
-    // Divider
-    const dg=ctx.createLinearGradient(48,0,W-48,0);dg.addColorStop(0,'#ec4899');dg.addColorStop(1,'#7c3aed');
-    ctx.fillStyle=dg;ctx.fillRect(48,90,W-96,2);
-    // Picks
-    const maxPerCol=Math.ceil(up.length/2);
-    const useTwo=up.length>8;
-    const colW=useTwo?(W-96)/2:W-96;
-    up.forEach((pk,i)=>{
-      const p=prospectsMap[pk.playerId];if(!p)return;
-      const col=useTwo&&i>=maxPerCol?1:0;
-      const row=useTwo?i-col*maxPerCol:i;
-      const x=48+col*(colW+24);
-      const rowH=useTwo?Math.min(38,Math.floor((H-140)/(maxPerCol))):Math.min(44,Math.floor((H-140)/up.length));
-      const y=108+row*rowH;
-      const g=activeGrade(pk.playerId);const c=POS_COLORS[p.pos];
-      if(row%2===0){ctx.fillStyle='rgba(255,255,255,0.02)';ctx.fillRect(x-8,y-2,colW+16,rowH);}
-      ctx.fillStyle='rgba(255,255,255,0.15)';ctx.font='12px monospace';ctx.fillText('Rd'+pk.round,x,y+20);
-      ctx.fillStyle='rgba(255,255,255,0.3)';ctx.font='12px monospace';ctx.fillText('#'+pk.pick,x+40,y+20);
-      ctx.fillStyle=c;ctx.font='bold 11px monospace';ctx.fillText(p.pos,x+80,y+20);
-      ctx.fillStyle='#fafafa';ctx.font='bold 17px sans-serif';ctx.fillText(p.name,x+120,y+20);
-      const gc=g>=75?'#22c55e':g>=55?'#eab308':'#ef4444';
-      ctx.fillStyle=gc;ctx.font='bold 20px Georgia,serif';ctx.textAlign='right';ctx.fillText(''+g,x+colW,y+22);ctx.textAlign='left';
+    const canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;
+    const ctx=canvas.getContext('2d');
+
+    const drawCard=()=>{
+      // === BACKGROUND — matches site cream ===
+      ctx.fillStyle='#faf9f6';ctx.fillRect(0,0,W,H);
+
+      // Outer border
+      ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;ctx.strokeRect(0.5,0.5,W-1,H-1);
+
+      // Left column background (white card)
+      const LC=400; // left col width
+      ctx.fillStyle='#ffffff';ctx.fillRect(0,0,LC,H);
+      ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;
+      ctx.beginPath();ctx.moveTo(LC,0);ctx.lineTo(LC,H);ctx.stroke();
+
+      // === LEFT COLUMN ===
+      // Logo — load and draw, or fallback to text
+      const logoImg=new Image();
+      logoImg.onload=()=>{
+        // Logo: top-left, tasteful size
+        const LH=36;const LW=LH*(logoImg.width/logoImg.height);
+        ctx.drawImage(logoImg,28,22,LW,LH);
+        // Redraw everything that depends on logo position
+        finishCard();
+      };
+      logoImg.onerror=()=>{
+        // Fallback: text logo
+        ctx.fillStyle='#171717';ctx.font='bold 18px Georgia,serif';ctx.fillText('big board lab',28,46);
+        finishCard();
+      };
+      logoImg.src='/logo.png';
+    };
+
+    const finishCard=()=>{
+      const LC=400;
+      const c=firstPlayer?POS_COLORS[firstPlayer.gpos||firstPlayer.pos]||POS_COLORS[firstPlayer.pos]||'#7c3aed':'#7c3aed';
+      const firstGrade=firstPlayer?activeGrade(firstPick.playerId):null;
+
+      // === TEAM NAME (prominent, below logo) ===
+      const drawTeamLabel=()=>{
+        ctx.fillStyle='#171717';ctx.font='bold 20px system-ui,sans-serif';ctx.fillText(team,28,90);
+        ctx.fillStyle='#a3a3a3';ctx.font='10px monospace';ctx.fillText('2026 NFL DRAFT',28,108);
+        drawFirstPickHero();
+      };
+      drawTeamLabel();
+
+      const drawFirstPickHero=()=>{
+        if(!firstPlayer){drawPicksList();return;}
+
+        // Divider
+        ctx.fillStyle='#f0f0f0';ctx.fillRect(28,122,LC-56,1);
+
+        // First pick label
+        ctx.fillStyle='#a3a3a3';ctx.font='10px monospace';
+        ctx.letterSpacing='2px';ctx.fillText('FIRST PICK',28,142);ctx.letterSpacing='0px';
+
+        // Pick number badge
+        ctx.fillStyle='#f5f5f5';
+        roundRect(ctx,28,150,56,22,4);ctx.fill();
+        ctx.fillStyle='#737373';ctx.font='bold 11px monospace';ctx.textAlign='center';
+        ctx.fillText('Rd'+firstPick.round+' #'+firstPick.pick,56,165);ctx.textAlign='left';
+
+        // Position pill
+        ctx.fillStyle=c+'18';
+        roundRect(ctx,92,150,52,22,4);ctx.fill();
+        ctx.fillStyle=c;ctx.font='bold 11px monospace';ctx.textAlign='center';
+        ctx.fillText(firstPlayer.gpos||firstPlayer.pos,118,165);ctx.textAlign='left';
+
+        // Player name — big
+        ctx.fillStyle='#171717';ctx.font='bold 26px system-ui,sans-serif';
+        ctx.fillText(firstPlayer.name,28,200);
+
+        // School
+        ctx.fillStyle='#737373';ctx.font='13px monospace';
+        ctx.fillText(firstPlayer.school,28,218);
+
+        // Grade badge — right side of left col
+        if(firstGrade!==null){
+          const gc=firstGrade>=75?'#16a34a':firstGrade>=55?'#ca8a04':'#dc2626';
+          ctx.fillStyle=gc+'15';
+          roundRect(ctx,LC-76,148,56,40,8);ctx.fill();
+          ctx.strokeStyle=gc+'40';ctx.lineWidth=1;
+          roundRect(ctx,LC-76,148,56,40,8);ctx.stroke();
+          ctx.fillStyle=gc;ctx.font='bold 30px Georgia,serif';ctx.textAlign='center';
+          ctx.fillText(''+firstGrade,LC-48,177);ctx.textAlign='left';
+          ctx.fillStyle='#a3a3a3';ctx.font='8px monospace';ctx.textAlign='center';
+          ctx.fillText('GRADE',LC-48,188);ctx.textAlign='left';
+        }
+
+        // === SPIDER CHART ===
+        drawRadarChart(ctx,firstPlayer,230,LC/2,300,c);
+
+        drawPicksList();
+      };
+
+      const drawPicksList=()=>{
+        // === RIGHT COLUMN — picks list ===
+        const RX=LC+32;const RW=W-LC-64;
+
+        // Header
+        ctx.fillStyle='#a3a3a3';ctx.font='10px monospace';
+        ctx.fillText('MY DRAFT · '+team.toUpperCase(),RX,36);
+
+        // Draft grade top right
+        if(draftGrade){
+          const gc=draftGrade.color;
+          ctx.fillStyle=gc+'15';
+          roundRect(ctx,W-80,16,56,32,6);ctx.fill();
+          ctx.strokeStyle=gc+'50';ctx.lineWidth=1;
+          roundRect(ctx,W-80,16,56,32,6);ctx.stroke();
+          ctx.fillStyle=gc;ctx.font='bold 20px Georgia,serif';ctx.textAlign='center';
+          ctx.fillText(draftGrade.grade,W-52,37);ctx.textAlign='left';
+          ctx.fillStyle='#a3a3a3';ctx.font='8px monospace';ctx.textAlign='center';
+          ctx.fillText('GRADE',W-52,47);ctx.textAlign='left';
+        }
+
+        // Thin divider under header
+        ctx.fillStyle='#e5e5e5';ctx.fillRect(RX,46,RW,1);
+
+        // All user picks (first pick first, then rest)
+        const allPicks=up;
+        const rowH=Math.min(46,Math.floor((H-80)/Math.max(allPicks.length,1)));
+        const maxRows=Math.floor((H-80)/rowH);
+
+        allPicks.slice(0,maxRows).forEach((pk,i)=>{
+          const p=prospectsMap[pk.playerId];if(!p)return;
+          const g=activeGrade(pk.playerId);
+          const pc=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos]||'#737373';
+          const y=56+i*rowH;
+          const isFirst=i===0;
+
+          // Row bg — first pick subtly highlighted
+          if(isFirst){ctx.fillStyle=pc+'08';ctx.fillRect(RX-8,y,RW+16,rowH-2);}
+          else if(i%2===0){ctx.fillStyle='#fafaf9';ctx.fillRect(RX-8,y,RW+16,rowH-2);}
+
+          // Round + pick number
+          ctx.fillStyle='#d4d4d4';ctx.font='10px monospace';
+          ctx.fillText('Rd'+pk.round,RX,y+rowH*0.45);
+          ctx.fillStyle='#a3a3a3';
+          ctx.fillText('#'+pk.pick,RX+30,y+rowH*0.45);
+
+          // Position pill
+          ctx.fillStyle=pc+'18';
+          roundRect(ctx,RX+66,y+rowH*0.2,38,rowH*0.55,3);ctx.fill();
+          ctx.fillStyle=pc;ctx.font='bold 9px monospace';ctx.textAlign='center';
+          ctx.fillText(p.gpos||p.pos,RX+85,y+rowH*0.56);ctx.textAlign='left';
+
+          // Name
+          ctx.fillStyle=isFirst?'#171717':'#525252';
+          ctx.font=(isFirst?'bold ':'')+''+(isFirst?14:13)+'px system-ui,sans-serif';
+          // Truncate long names
+          let name=p.name;
+          ctx.font=(isFirst?'bold 14px':'13px')+' system-ui,sans-serif';
+          while(ctx.measureText(name).width>RW-140&&name.length>8)name=name.slice(0,-2);
+          if(name!==p.name)name+='…';
+          ctx.fillText(name,RX+114,y+rowH*0.56);
+
+          // Grade
+          const gc=g>=75?'#16a34a':g>=55?'#ca8a04':'#dc2626';
+          ctx.fillStyle=gc;ctx.font='bold '+(isFirst?16:14)+'px Georgia,serif';ctx.textAlign='right';
+          ctx.fillText(''+g,RX+RW,y+rowH*0.58);ctx.textAlign='left';
+
+          // Bottom border
+          if(i<allPicks.length-1){ctx.fillStyle='#f5f5f5';ctx.fillRect(RX,y+rowH-1,RW,1);}
+        });
+
+        // === FOOTER — URL branding ===
+        ctx.fillStyle='#f0f0ee';ctx.fillRect(0,H-40,W,40);
+        ctx.fillStyle='#e5e5e5';ctx.fillRect(0,H-40,W,1);
+        // Logo text left
+        ctx.fillStyle='#171717';ctx.font='bold 13px Georgia,serif';ctx.fillText('big board lab',20,H-15);
+        // URL center
+        ctx.fillStyle='#a3a3a3';ctx.font='11px monospace';ctx.textAlign='center';
+        ctx.fillText('bigboardlab.com · 2026 NFL Draft',W/2,H-15);ctx.textAlign='left';
+        // CTA right
+        ctx.fillStyle='#737373';ctx.font='11px monospace';ctx.textAlign='right';
+        ctx.fillText('build yours at bigboardlab.com',W-20,H-15);ctx.textAlign='left';
+
+        // Done — export
+        canvas.toBlob(blob=>{
+          if(navigator.share&&navigator.canShare?.({files:[new File([blob],'mock-draft.png',{type:'image/png'})]})){
+            navigator.share({files:[new File([blob],'bigboardlab-mock-draft.png',{type:'image/png'})],title:'My Mock Draft — Big Board Lab',text:'Check out my '+team+' mock draft'+(draftGrade?' — Grade: '+draftGrade.grade:'')+'! Build yours at bigboardlab.com'});
+          }else{
+            const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='bigboardlab-mock-draft.png';a.click();URL.revokeObjectURL(url);
+          }
+        });
+      };
+    };
+
+    drawCard();
+  },[picks,prospectsMap,activeGrade,POS_COLORS,POSITION_TRAITS,traits,draftGrade,font,mono,sans]);
+
+  // Canvas helper: rounded rectangle path
+  function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
+
+  // Canvas radar chart — mirrors the SVG RadarChart component
+  function drawRadarChart(ctx,player,cy,cx,size,color){
+    const pos=player.gpos||player.pos;
+    const posTraits=POSITION_TRAITS[pos]||POSITION_TRAITS[player.pos]||[];
+    if(posTraits.length===0)return;
+    const r=size/2-28;const n=posTraits.length;
+    const angles=posTraits.map((_,i)=>(Math.PI*2*i)/n-Math.PI/2);
+    const vals=posTraits.map(t=>traits[player.id]?.[t]||50);
+
+    // Grid rings
+    [0.25,0.5,0.75,1].forEach(lv=>{
+      ctx.beginPath();
+      angles.forEach((a,i)=>{const px=cx+r*lv*Math.cos(a);const py=cy+r*lv*Math.sin(a);i===0?ctx.moveTo(px,py):ctx.lineTo(px,py);});
+      ctx.closePath();ctx.strokeStyle='#e5e5e5';ctx.lineWidth=0.75;ctx.stroke();
     });
-    // Footer - bold branding
-    ctx.fillStyle=ac;ctx.fillRect(0,H-36,W,36);
-    ctx.fillStyle='#fafafa';ctx.font='bold 14px Georgia,serif';ctx.fillText('big board lab',16,H-12);
-    ctx.fillStyle='rgba(255,255,255,0.7)';ctx.font='11px monospace';
-    ctx.textAlign='right';ctx.fillText('BUILD YOURS → BIGBOARDLAB.COM',W-16,H-12);ctx.textAlign='left';
-    canvas.toBlob(blob=>{
-      if(navigator.share&&navigator.canShare?.({files:[new File([blob],'mock-draft.png',{type:'image/png'})]})){
-        navigator.share({files:[new File([blob],'bigboardlab-mock-draft.png',{type:'image/png'})],title:'My Mock Draft — Big Board Lab',text:'Check out my '+teams.join('/')+' mock draft'+(draftGrade?' — Grade: '+draftGrade.grade:'')+'! Build yours at bigboardlab.com'});
-      }else{
-        const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='bigboardlab-mock-draft.png';a.click();URL.revokeObjectURL(url);
-      }
+    // Axes
+    angles.forEach(a=>{
+      ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+r*Math.cos(a),cy+r*Math.sin(a));
+      ctx.strokeStyle='#e5e5e5';ctx.lineWidth=0.75;ctx.stroke();
     });
-  },[picks,prospectsMap,activeGrade,POS_COLORS,draftGrade]);
+    // Fill polygon
+    ctx.beginPath();
+    angles.forEach((a,i)=>{const v=(vals[i]||50)/100;const px=cx+r*v*Math.cos(a);const py=cy+r*v*Math.sin(a);i===0?ctx.moveTo(px,py):ctx.lineTo(px,py);});
+    ctx.closePath();ctx.fillStyle=color+'28';ctx.fill();
+    ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();
+    // Dots
+    angles.forEach((a,i)=>{const v=(vals[i]||50)/100;ctx.beginPath();ctx.arc(cx+r*v*Math.cos(a),cy+r*v*Math.sin(a),3.5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
+    // Labels — abbreviated like the SVG version
+    ctx.fillStyle='#737373';ctx.font='9px monospace';ctx.textAlign='center';
+    posTraits.forEach((t,i)=>{
+      const lr=r+16;const lx=cx+lr*Math.cos(angles[i]);const ly=cy+lr*Math.sin(angles[i]);
+      const abbr=t.split(' ').map(w=>w[0]).join('');
+      ctx.fillText(abbr,lx,ly+3);
+    });
+    ctx.textAlign='left';
+  }
 
   const userPickCount=useMemo(()=>picks.filter(p=>p.isUser).length,[picks]);
 
