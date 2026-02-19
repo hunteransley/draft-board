@@ -216,7 +216,6 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const ALL_TEAMS=useMemo(()=>[...new Set(DRAFT_ORDER_2026.map(d=>d.team))],[]);
   const[boardMode,setBoardMode]=useState("consensus");
   const activeBoard=boardMode==="my"&&myBoard?myBoard:board;
-  const activeGrade=useCallback((id)=>{if(boardMode==="my")return getGrade(id);const p=prospectsMap[id];return p?getConsensusGrade(p.name):50;},[boardMode,getGrade,prospectsMap,getConsensusGrade]);
   const[setupDone,setSetupDone]=useState(false);
   const[userTeams,setUserTeams]=useState(new Set());
   const[isMobile,setIsMobile]=useState(typeof window!=='undefined'&&window.innerWidth<768);
@@ -245,6 +244,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const tradeDeclinedRef=useRef(0);
 
   const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[PROSPECTS]);
+  const activeGrade=useCallback((id)=>{if(boardMode==="my")return getGrade(id);const p=prospectsMap[id];return p?getConsensusGrade(p.name):50;},[boardMode,getGrade,prospectsMap,getConsensusGrade]);
 
   // Position run tracker: count how many of each pos drafted in last 8 picks
   const recentPosCounts=useMemo(()=>{
