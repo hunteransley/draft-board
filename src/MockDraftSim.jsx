@@ -187,6 +187,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[tradeValueDelta,setTradeValueDelta]=useState(0); // net JJP value from all trades
   const tradeDeclinedRef=useRef(0);
 
+  const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[PROSPECTS]);
+
   // Position run tracker: count how many of each pos drafted in last 8 picks
   const recentPosCounts=useMemo(()=>{
     const recent=picks.slice(-8);
@@ -195,7 +197,6 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     return counts;
   },[picks,prospectsMap]);
 
-  const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[PROSPECTS]);
   const gradeMap=useMemo(()=>{const m={};activeBoard.forEach(p=>m[p.id]=activeGrade(p.id));return m;},[activeBoard,activeGrade]);
   const positions=["QB","RB","WR","TE","OL","DL","LB","DB","K/P"];
 
@@ -826,7 +827,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             </div>
             <div style={{display:"flex",gap:4}}>
               {userPickCount>0&&<button onClick={undo} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:"#fef3c7",color:"#92400e"}}>↩</button>}
-              {isUserPick&&<button onClick={()=>makePick(cpuPick(currentTeam,available,fullDraftOrder[picks.length].pick))} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #22c55e",borderRadius:99,cursor:"pointer",background:"rgba(34,197,94,0.05)",color:"#16a34a"}}>🤖</button>}
+
               {isUserPick&&<button onClick={openTradeUp} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #a855f7",borderRadius:99,cursor:"pointer",background:"rgba(168,85,247,0.03)",color:"#a855f7"}}>📞</button>}
               <button onClick={()=>setPaused(!paused)} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:paused?"#fef3c7":"transparent",color:paused?"#92400e":"#a3a3a3"}}>{paused?"▶":"⏸"}</button>
               <button onClick={onClose} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 8px",cursor:"pointer"}}>✕</button>
@@ -946,7 +947,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         </div>
         <div style={{display:"flex",gap:6}}>
           {userPickCount>0&&<button onClick={undo} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:"#fef3c7",color:"#92400e"}}>↩ undo</button>}
-          {isUserPick&&<button onClick={()=>makePick(cpuPick(currentTeam,available,fullDraftOrder[picks.length].pick))} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #22c55e",borderRadius:99,cursor:"pointer",background:"rgba(34,197,94,0.05)",color:"#16a34a"}}>🤖 auto pick</button>}
+
           {isUserPick&&<button onClick={openTradeUp} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #a855f7",borderRadius:99,cursor:"pointer",background:"rgba(168,85,247,0.03)",color:"#a855f7"}}>📞 trade</button>}
           <button onClick={()=>setShowDepth(!showDepth)} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:showDepth?"#171717":"transparent",color:showDepth?"#faf9f6":"#a3a3a3"}}>formation</button>
           <button onClick={()=>setPaused(!paused)} style={{fontFamily:sans,fontSize:10,padding:"3px 10px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:paused?"#fef3c7":"transparent",color:paused?"#92400e":"#a3a3a3"}}>{paused?"▶ resume":"⏸ pause"}</button>
