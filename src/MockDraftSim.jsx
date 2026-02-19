@@ -98,7 +98,9 @@ const POS_DRAFT_VALUE={QB:1.08,OL:1.05,DL:1.06,WR:1.04,DB:1.03,TE:0.98,LB:0.97,R
 
 // Override consensus ranks for players the board data may undervalue
 // These represent realistic draft range ceilings/floors based on current intel
-const RANK_OVERRIDES={"Sonny Styles":12,"Kenyon Sadiq":20};
+// RANK_OVERRIDES: force consensus rank used by CPU to be higher (lower number = picked earlier)
+// Use for players whose real-world buzz clearly exceeds their positional consensus slot
+const RANK_OVERRIDES={"Sonny Styles":8,"Kenyon Sadiq":20,"Jeremiyah Love":5};
 
 // === TEAM PERSONALITY PROFILES ===
 // bpaLean: 0-1, how much team trusts BPA (1.0=pure BPA like CIN, 0.3=heavy need like NO)
@@ -141,17 +143,31 @@ const TEAM_PROFILES={
   Ravens:{bpaLean:0.7,posBoost:["OL","WR","DB"],posPenalty:[],stage:"contend",reachTolerance:0.35,variance:2},
 };
 
-function pickVerdict(pickNum,consRank){
+function pickVerdict(pickNum,consRank,grade){
   if(consRank>=900)return{text:"UNKNOWN",color:"#737373",bg:"#f5f5f5"};
-  // Use draft value chart ratio — not raw pick difference
-  // Getting pick-3 player at pick-10 is massive; getting pick-110 player at pick-117 is nothing
   const playerVal=getPickValue(consRank);
   const slotVal=getPickValue(pickNum);
   const ratio=playerVal/slotVal; // >1 = value (player worth more than slot), <1 = reach
-  if(ratio>=1.5)return{text:"HUGE STEAL",color:"#16a34a",bg:"#dcfce7"};
-  if(ratio>=1.15)return{text:"GREAT VALUE",color:"#22c55e",bg:"#f0fdf4"};
-  if(ratio>=0.85)return{text:"FAIR PICK",color:"#ca8a04",bg:"#fefce8"};
-  if(ratio>=0.55)return{text:"REACH",color:"#ea580c",bg:"#fff7ed"};
+
+  // Grade modifier: elite players (85+) compress the reach penalty significantly.
+  // Taking a 90-grade player 3 spots early is NOT a reach — their talent justifies it.
+  // Raw ratio penalizes any pick above consensus slot, but grade context matters.
+  const g=grade||50;
+  // How many picks "early" vs consensus
+  const picksEarly=consRank-pickNum; // positive = picked before consensus slot
+  // For high-grade players, forgive up to (grade-70)/2 picks of earliness
+  // e.g. grade 90 → forgive up to 10 picks early; grade 80 → 5 picks; grade 70 → 0
+  const gradeForgivePicks=Math.max(0,(g-70)/2);
+  const adjustedEarly=Math.max(0,picksEarly-gradeForgivePicks);
+  // Recompute ratio using adjusted consensus rank
+  const adjustedConsRank=consRank-Math.round(adjustedEarly);
+  const adjPlayerVal=getPickValue(Math.max(1,adjustedConsRank));
+  const adjRatio=adjPlayerVal/slotVal;
+
+  if(adjRatio>=1.5)return{text:"HUGE STEAL",color:"#16a34a",bg:"#dcfce7"};
+  if(adjRatio>=1.15)return{text:"GREAT VALUE",color:"#22c55e",bg:"#f0fdf4"};
+  if(adjRatio>=0.85)return{text:"FAIR PICK",color:"#ca8a04",bg:"#fefce8"};
+  if(adjRatio>=0.55)return{text:"REACH",color:"#ea580c",bg:"#fff7ed"};
   return{text:"BIG REACH",color:"#dc2626",bg:"#fef2f2"};
 }
 
@@ -256,7 +272,10 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
       // Anti-slide with team-specific reach tolerance
       const slide=consRank<900?(pickNum-consRank):0;
-      const slideBoost=slide>6?Math.pow(slide-6,1.5)*3:0;
+      // Elite grades get a much stronger slide boost — a 90-grade player falling 8 picks
+      // should trigger near-panic across the league, not just a mild nudge
+      const gradeSlideMultiplier=grade>=88?6:grade>=80?4.5:3;
+      const slideBoost=slide>6?Math.pow(slide-6,1.5)*gradeSlideMultiplier:0;
       const reachThreshold=Math.round(12+prof.reachTolerance*15);
       const reachPenalty=slide<-reachThreshold&&round<=3?Math.abs(slide+reachThreshold)*1.5:0;
 
@@ -276,7 +295,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
       // K/P filter, RB penalty, QB modifier
       if(pos==="K/P"&&round<=4)return;
-      const rbPen=(pos==="RB"&&round===1&&grade<88)?0.7:1.0;
+      // RB round 1 penalty: still real (RBs are devalued), but elite grades (85+) exempt
+      // Love at 90+ grade should not be penalized — his talent transcends the positional bias
+      const rbPen=(pos==="RB"&&round===1&&grade<85)?0.72:1.0;
       const qbMod=pos==="QB"?(nc>=2?1.3:nc>=1?1.1:ni>=0?0.9:0.5):1.0;
 
       // Stage modifier: contenders value need more, rebuilders lean BPA
@@ -305,7 +326,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     if(isUser){setTradeOffer(null);setShowTradeUp(false);}
     if(isUser&&getConsensusRank){
       const p=prospectsMap[playerId];
-      if(p){const rank=getConsensusRank(p.name);const v=pickVerdict(pick,rank);setLastVerdict({...v,player:p.name,pick,rank});setTimeout(()=>setLastVerdict(null),3500);}
+      if(p){const rank=getConsensusRank(p.name);const g2=getConsensusGrade?getConsensusGrade(p.name):50;const v=pickVerdict(pick,rank,g2);setLastVerdict({...v,player:p.name,pick,rank});setTimeout(()=>setLastVerdict(null),3500);}
     }
     if(np.length>=totalPicks)setShowResults(true);
   },[picks,fullDraftOrder,totalPicks,userTeams,prospectsMap,getConsensusRank,getPickTeam]);
@@ -558,22 +579,13 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;
       ctx.beginPath();ctx.moveTo(LC,0);ctx.lineTo(LC,H);ctx.stroke();
 
-      // === LEFT COLUMN ===
-      // Logo — load and draw, or fallback to text
-      const logoImg=new Image();
-      logoImg.onload=()=>{
-        // Logo: top-left, tasteful size
-        const LH=36;const LW=LH*(logoImg.width/logoImg.height);
-        ctx.drawImage(logoImg,28,22,LW,LH);
-        // Redraw everything that depends on logo position
-        finishCard();
-      };
-      logoImg.onerror=()=>{
-        // Fallback: text logo
-        ctx.fillStyle='#171717';ctx.font='bold 18px Georgia,serif';ctx.fillText('big board lab',28,46);
-        finishCard();
-      };
-      logoImg.src='/logo.png';
+      // === LOGO — drawn as text to avoid canvas CORS taint from image loads ===
+      // Site logo font treatment: bold serif "big board lab" with accent dot
+      ctx.fillStyle='#171717';ctx.font='bold 20px Georgia,serif';ctx.fillText('big board lab',28,44);
+      // Accent underline matching site color
+      ctx.fillStyle='#7c3aed';ctx.fillRect(28,48,130,2);
+
+      finishCard();
     };
 
     const finishCard=()=>{
@@ -722,13 +734,16 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         ctx.fillText('build yours at bigboardlab.com',W-20,H-15);ctx.textAlign='left';
 
         // Done — export
-        canvas.toBlob(blob=>{
-          if(navigator.share&&navigator.canShare?.({files:[new File([blob],'mock-draft.png',{type:'image/png'})]})){
-            navigator.share({files:[new File([blob],'bigboardlab-mock-draft.png',{type:'image/png'})],title:'My Mock Draft — Big Board Lab',text:'Check out my '+team+' mock draft'+(draftGrade?' — Grade: '+draftGrade.grade:'')+'! Build yours at bigboardlab.com'});
-          }else{
-            const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='bigboardlab-mock-draft.png';a.click();URL.revokeObjectURL(url);
-          }
-        });
+        try{
+          canvas.toBlob(blob=>{
+            if(!blob){console.error('BBL share: canvas toBlob returned null — possible taint');return;}
+            if(navigator.share&&navigator.canShare?.({files:[new File([blob],'mock-draft.png',{type:'image/png'})]})){
+              navigator.share({files:[new File([blob],'bigboardlab-mock-draft.png',{type:'image/png'})],title:'My Mock Draft — Big Board Lab',text:'Check out my '+team+' mock draft'+(draftGrade?' — Grade: '+draftGrade.grade:'')+'! Build yours at bigboardlab.com'}).catch(console.error);
+            }else{
+              const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='bigboardlab-mock-draft.png';a.click();setTimeout(()=>URL.revokeObjectURL(url),2000);
+            }
+          },'image/png');
+        }catch(e){console.error('BBL share error:',e);}
       };
     };
 
@@ -904,7 +919,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             {tradeValueDelta!==0&&<div style={{fontFamily:mono,fontSize:10,color:tradeValueDelta>0?"#16a34a":"#dc2626",marginTop:4}}>trade surplus: {tradeValueDelta>0?"+":""}{tradeValueDelta} pts</div>}
           </div>}
           <div style={{display:"flex",gap:8,justifyContent:"center",marginBottom:24}}>
-            <button onClick={shareDraft} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 20px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>📤 share results</button>
+            <button onClick={shareDraft} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 20px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>🔮 share results</button>
             <button onClick={()=>{setSetupDone(false);setPicks([]);setShowResults(false);setTradeMap({});}} style={{fontFamily:sans,fontSize:12,padding:"8px 20px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>draft again</button>
           </div>
           {[...userTeams].map(team=>{
@@ -912,7 +927,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             return(<div key={team} style={{marginBottom:32,textAlign:"left"}}>
               <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,justifyContent:"center"}}><NFLTeamLogo team={team} size={20}/><span style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717"}}>{team}</span></div>
               <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",marginBottom:12}}>
-                {tp.map((pk,i)=>{const p=prospectsMap[pk.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const g=activeGrade(pk.playerId);const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;const v=pickVerdict(pk.pick,rank);
+                {tp.map((pk,i)=>{const p=prospectsMap[pk.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const g=activeGrade(pk.playerId);const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;const g2=getConsensusGrade?getConsensusGrade(p.name):activeGrade(pk.playerId);const v=pickVerdict(pk.pick,rank,g2);
                   return<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"8px 12px",borderBottom:"1px solid #f5f5f5"}}>
                     <span style={{fontFamily:mono,fontSize:10,color:"#d4d4d4",width:44}}>Rd{pk.round} #{pk.pick}</span>
                     <span style={{fontFamily:mono,fontSize:10,color:c,width:28}}>{p.gpos||p.pos}</span>
