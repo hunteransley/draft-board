@@ -538,29 +538,35 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         const group=DEPTH_GROUPS.find(g=>g.posMatch===p.pos);if(!group)return;
         const grade=getConsensusGrade?getConsensusGrade(p.name):(gradeMap[pk.playerId]||50);
         const entry={name:p.name,isDraft:true};
-        // Determine target slot index based on round/grade
-        let targetIdx=group.slots.length-1; // default: last slot for late rounds
-        if(pk.round===1||(pk.round===2&&grade>=80)){
-          targetIdx=0; // starter
-        }else if(pk.round<=3){
-          targetIdx=Math.min(1,group.slots.length-1); // second slot
-        }
-        // Find the actual insertion point: use target or first empty if target is occupied by a draft pick
-        let insertIdx=targetIdx;
-        // If target slot is empty, just place there
-        if(!chart[team][group.slots[insertIdx]]){
-          chart[team][group.slots[insertIdx]]=entry;
-        }else{
-          // Shift everyone from insertIdx down by one to make room
-          // Work from the bottom up so we don't overwrite
-          for(let i=group.slots.length-1;i>insertIdx;i--){
-            const prevSlot=group.slots[i-1];
-            const curSlot=group.slots[i];
-            if(chart[team][prevSlot]){
-              chart[team][curSlot]=chart[team][prevSlot];
-            }
+      // Slot drafted players based on round and grade
+      const teamPicks=picks.filter(pk=>pk.team===team);
+      teamPicks.forEach(pk=>{
+        const p=prospectsMap[pk.playerId];if(!p)return;
+        const group=DEPTH_GROUPS.find(g=>g.posMatch===p.pos);if(!group)return;
+        const grade=getConsensusGrade?getConsensusGrade(p.name):(gradeMap[pk.playerId]||50);
+        const entry={name:p.name,isDraft:true};
+        if(pk.round===1||grade>=85){
+          // Day 1 starter or elite grade: take slot 0, shift everyone down
+          for(let i=group.slots.length-1;i>0;i--){
+            if(chart[team][group.slots[i-1]])chart[team][group.slots[i]]=chart[team][group.slots[i-1]];
           }
-          chart[team][group.slots[insertIdx]]=entry;
+          chart[team][group.slots[0]]=entry;
+        }else if(pk.round<=3&&grade>=70){
+          // Quality day 2 pick: target slot 1, shift slot 1+ down
+          const tgt=Math.min(1,group.slots.length-1);
+          for(let i=group.slots.length-1;i>tgt;i--){
+            if(chart[team][group.slots[i-1]])chart[team][group.slots[i]]=chart[team][group.slots[i-1]];
+          }
+          chart[team][group.slots[tgt]]=entry;
+        }else{
+          // Late round / low grade: find first empty slot, no shifting
+          const emptyIdx=group.slots.findIndex(s=>!chart[team][s]);
+          if(emptyIdx>=0){
+            chart[team][group.slots[emptyIdx]]=entry;
+          }else{
+            // All full — take last slot (replaces deepest backup)
+            chart[team][group.slots[group.slots.length-1]]=entry;
+          }
         }
       });
     });
