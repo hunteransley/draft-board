@@ -770,7 +770,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       {Object.entries(FORMATION_POS).map(([slot,pos])=>{
         const entry=chart[slot];const filled=!!entry;const isDraft=entry?.isDraft;const isOff=pos.y>58;
         const dotColor=isDraft?"#7c3aed":filled?(isOff?"#3b82f6":"#60a5fa"):"#d4d4d4";
-        const lastName=entry?entry.name.split(" ").pop():"";
+        const nameParts=entry?entry.name.split(" "):[];const raw=nameParts.pop()||"";const lastName=entry?(/^(Jr\.?|Sr\.?|II|III|IV|V)$/i.test(raw)?(nameParts.pop()||raw)+" "+raw:raw):"";
         return(<g key={slot}>
           <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={isDraft?"#7c3aed":"#a3a3a3"} strokeWidth={isDraft?"0.5":"0.2"}/>
           <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="#a3a3a3" fontSize="1.8" fontFamily="monospace">{slot.replace(/\d$/,'')}</text>
