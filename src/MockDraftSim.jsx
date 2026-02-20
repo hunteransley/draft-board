@@ -234,6 +234,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[compareList,setCompareList]=useState([]);
   const[showCompare,setShowCompare]=useState(false);
   const[showDepth,setShowDepth]=useState(true);
+  const[mobileDepthOpen,setMobileDepthOpen]=useState(false);
+  const[depthSheetTeam,setDepthSheetTeam]=useState("");
   const[tradeOffer,setTradeOffer]=useState(null);
   const[showResults,setShowResults]=useState(false);
   const[lastVerdict,setLastVerdict]=useState(null);
@@ -1045,6 +1047,10 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
         {/* Sticky bottom: needs + your picks */}
         <div style={{position:"sticky",bottom:0,zIndex:100,background:"#fff",borderTop:"1px solid #e5e5e5",padding:"8px 12px"}}>
+          {/* Depth chart floating button */}
+          <button onClick={()=>{if(!depthSheetTeam||!userTeams.has(depthSheetTeam))setDepthSheetTeam([...userTeams][0]||currentTeam);setMobileDepthOpen(true);}} style={{position:"absolute",top:-44,right:12,fontFamily:sans,fontSize:10,fontWeight:700,padding:"6px 12px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer",boxShadow:"0 2px 8px rgba(0,0,0,0.15)",display:"flex",alignItems:"center",gap:5,zIndex:101}}>
+            <NFLTeamLogo team={[...userTeams][0]||currentTeam} size={14}/><span>depth</span>
+          </button>
           {/* Needs row */}
           <div style={{marginBottom:userPicks.length>0?6:0}}>
             <div style={{fontFamily:mono,fontSize:7,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:3}}>needs</div>
@@ -1067,6 +1073,42 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             </div>
           </div>}
         </div>
+
+        {/* Mobile depth chart bottom sheet */}
+        {mobileDepthOpen&&<div style={{position:"fixed",inset:0,zIndex:250,display:"flex",flexDirection:"column",justifyContent:"flex-end"}} onClick={()=>setMobileDepthOpen(false)}>
+          <div style={{position:"absolute",inset:0,background:"rgba(0,0,0,0.4)"}}/>
+          <div style={{position:"relative",background:"#faf9f6",borderRadius:"20px 20px 0 0",maxHeight:"85vh",display:"flex",flexDirection:"column",boxShadow:"0 -4px 20px rgba(0,0,0,0.1)"}} onClick={e=>e.stopPropagation()}>
+            {/* Drag handle */}
+            <div style={{display:"flex",justifyContent:"center",padding:"10px 0 4px"}}>
+              <div style={{width:36,height:4,background:"#d4d4d4",borderRadius:2}}/>
+            </div>
+            {/* Header with team selector */}
+            <div style={{padding:"4px 16px 10px"}}>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                <div style={{display:"flex",alignItems:"center",gap:8}}>
+                  <NFLTeamLogo team={depthSheetTeam} size={20}/>
+                  <span style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717"}}>{depthSheetTeam}</span>
+                  <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{picks.filter(pk=>pk.team===depthSheetTeam).length} drafted</span>
+                </div>
+                <button onClick={()=>setMobileDepthOpen(false)} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 10px",cursor:"pointer"}}>✕</button>
+              </div>
+              {userTeams.size>1&&<div style={{display:"flex",gap:4,marginTop:8,overflowX:"auto",WebkitOverflowScrolling:"touch"}}>
+                {[...userTeams].map(t=><button key={t} onClick={()=>setDepthSheetTeam(t)} style={{fontFamily:sans,fontSize:10,fontWeight:depthSheetTeam===t?700:400,padding:"4px 10px",background:depthSheetTeam===t?"#171717":"transparent",color:depthSheetTeam===t?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",flexShrink:0,display:"flex",alignItems:"center",gap:4}}><NFLTeamLogo team={t} size={12}/>{t}</button>)}
+              </div>}
+            </div>
+            {/* Scrollable content */}
+            <div style={{flex:1,overflowY:"auto",padding:"0 12px 20px",WebkitOverflowScrolling:"touch"}}>
+              <FormationChart team={depthSheetTeam}/>
+              <div style={{marginTop:12,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"10px 12px"}}>
+                <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:6}}>depth chart</div>
+                <DepthList team={depthSheetTeam} dark={false}/>
+              </div>
+              <div style={{marginTop:10}}>
+                <LiveNeeds team={depthSheetTeam}/>
+              </div>
+            </div>
+          </div>
+        </div>}
 
         {/* Profile overlay */}
         {profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={allProspects} getGrade={getGrade} onClose={()=>setProfilePlayer(null)} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings}/>}
