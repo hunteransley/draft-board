@@ -436,7 +436,7 @@ function DraftBoard({user,onSignOut}){
     setPartialProgress(prev=>({...prev,[activePos]:{matchups:matchups[activePos]||[],completed:ns,ratings:ur}}));
     const next=getNextMatchup(matchups[activePos],ns,ur,uc,posRankFn);if(!next)finishRanking(activePos,ur);else setCurrentMatchup(next);setShowConfidence(false);setPendingWinner(null);},[currentMatchup,activePos,ratings,completed,matchups,compCount,posRankFn]);
   const canFinish=useMemo(()=>{if(!activePos||!byPos[activePos])return false;return byPos[activePos].every(p=>(compCount[p.id]||0)>=MIN_COMPS);},[activePos,byPos,compCount]);
-  const canSim=useMemo(()=>{if(!activePos)return false;const doneCount=(completed[activePos]||new Set()).size;return doneCount>=10;},[activePos,completed]);
+  const canSim=useMemo(()=>{if(!activePos)return false;const doneCount=(completed[activePos]||new Set()).size;return doneCount>=20;},[activePos,completed]);
   const simAndFinish=useCallback((pos)=>{
     const ids=(byPos[pos]||[]).map(p=>p.id);
     const currentCompleted=completed[pos]||partialProgress[pos]?.completed||new Set();
@@ -592,7 +592,7 @@ function DraftBoard({user,onSignOut}){
     {canSim&&<button onClick={()=>simAndFinish(activePos)} style={{fontFamily:sans,fontSize:11,padding:"8px 16px",background:"linear-gradient(135deg,#ec4899,#7c3aed)",color:"#fff",border:"none",borderRadius:99,cursor:"pointer"}}>sim rest ⚡</button>}
     <button onClick={()=>{setPartialProgress(prev=>({...prev,[activePos]:{matchups:matchups[activePos]||[],completed:completed[activePos]||new Set(),ratings}}));setPhase("pick-position");}} style={{fontFamily:sans,fontSize:11,padding:"8px 14px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>save & exit</button>
   </div></div><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 8px"}}>who's the better prospect?</p>{(()=>{
-  const simThreshold=10;
+  const simThreshold=20;
   const simPct=30; // sim marker sits at 30% of bar visually
   const rawPct=doneM/totalM;
   // Compress: 0-simThreshold maps to 0-simPct%, simThreshold-totalM maps to simPct-100%
