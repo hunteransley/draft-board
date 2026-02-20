@@ -254,15 +254,40 @@ function AuthScreen({onSignIn}){
     if(err){setError(err.message);setLoading(false);}else{setSent(true);setLoading(false);}
   };
 
+  const features=[
+    {emoji:"⚖️",title:"Pair-by-pair prospect ranking",desc:"No spreadsheets. Choose between two players, head-to-head, until your board builds itself."},
+    {emoji:"🎚️",title:"Grade every prospect with sliders",desc:"Arm strength, burst, coverage instincts — dial in traits and watch grades update in real time."},
+    {emoji:"🧠",title:"32 AI GMs with real personalities",desc:"Each CPU team drafts differently. The Bengals take BPA. The Saints reach. The Eagles play dynasty."},
+    {emoji:"🔄",title:"CPU teams trade with each other",desc:"Watch the Rams trade up to steal your guy. Just like real draft night."},
+    {emoji:"📋",title:"Live depth chart updates",desc:"Every pick lands on the roster in real time. See starters displaced and needs filled."},
+    {emoji:"🎯",title:"Every pick graded instantly",desc:"Steal, value, or reach — get a verdict on every selection and see how your draft stacks up."},
+  ];
+
   return(
-    <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font,display:"flex",alignItems:"center",justifyContent:"center"}}>
-      <div style={{maxWidth:400,width:"100%",padding:"0 24px"}}>
-        <div style={{textAlign:"center",marginBottom:36}}>
-          <img src="/logo.png" alt="Big Board Lab" style={{width:120,height:"auto",marginBottom:16}}/>
-          <p style={{fontFamily:mono,fontSize:11,letterSpacing:3,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>2026 NFL Draft</p>
-          <h1 style={{fontSize:48,fontWeight:900,lineHeight:0.95,color:"#171717",margin:"0 0 12px",letterSpacing:-2}}>big board lab</h1>
-          <p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",lineHeight:1.5}}>450+ prospects. build your board.<br/>run mock drafts. share your takes.</p>
-        </div>
+    <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
+      {/* Hero */}
+      <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"80px 24px 40px",textAlign:"center"}}>
+        <img src="/logo.png" alt="Big Board Lab" style={{width:100,height:"auto",marginBottom:16}}/>
+        <p style={{fontFamily:mono,fontSize:11,letterSpacing:3,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>2026 NFL Draft</p>
+        <h1 style={{fontSize:48,fontWeight:900,lineHeight:0.95,color:"#171717",margin:"0 0 16px",letterSpacing:-2}}>big board lab</h1>
+        <p style={{fontFamily:sans,fontSize:18,color:"#525252",lineHeight:1.5,maxWidth:480,margin:"0 auto"}}>Rank prospects. Grade them your way. Run the most realistic mock draft ever built.</p>
+      </div>
+
+      {/* Features */}
+      <div style={{maxWidth:780,margin:"0 auto",padding:"0 24px 40px",display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))",gap:12}}>
+        {features.map((f,i)=>(
+          <div key={i} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px",display:"flex",gap:14,alignItems:"flex-start"}}>
+            <span style={{fontSize:22,lineHeight:1,flexShrink:0,marginTop:1}}>{f.emoji}</span>
+            <div>
+              <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>{f.title}</div>
+              <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>{f.desc}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Sign In */}
+      <div style={{maxWidth:400,margin:"0 auto",padding:"0 24px 60px"}}>
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:28}}>
           {!sent?(
             <>
@@ -299,7 +324,10 @@ function AuthScreen({onSignIn}){
             </div>
           )}
         </div>
-        <p style={{textAlign:"center",marginTop:16}}><a href="/privacy.html" style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",textDecoration:"none"}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>privacy policy</a></p>
+        <div style={{textAlign:"center",marginTop:20}}>
+          <p style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",margin:"0 0 4px"}}>free to use · no credit card required</p>
+          <a href="/privacy.html" style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",textDecoration:"none"}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>privacy policy</a>
+        </div>
       </div>
     </div>
   );
