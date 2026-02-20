@@ -744,9 +744,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const userPickCount=useMemo(()=>picks.filter(p=>p.isUser).length,[picks]);
 
   // Sub-components
-  const FormationChart=({team})=>{
+  const FormationChart=({team,maxW=280})=>{
     const chart=depthChart[team]||{};
-    return(<svg viewBox="0 0 100 105" style={{width:"100%",maxWidth:280}}>
+    return(<svg viewBox="0 0 100 105" style={{width:"100%",maxWidth:maxW}}>
       <rect x="0" y="0" width="100" height="105" rx="4" fill="#faf9f6" stroke="#e5e5e5" strokeWidth="0.5"/>
       {[20,40,58,75,90].map(y=><line key={y} x1="2" y1={y} x2="98" y2={y} stroke="rgba(0,0,0,0.04)" strokeWidth="0.3"/>)}
       <line x1="2" y1="58" x2="98" y2="58" stroke="rgba(124,58,237,0.3)" strokeWidth="0.5" strokeDasharray="2,1.5"/>
@@ -1048,8 +1048,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         {/* Sticky bottom: needs + your picks */}
         <div style={{position:"sticky",bottom:0,zIndex:100,background:"#fff",borderTop:"1px solid #e5e5e5",padding:"8px 12px"}}>
           {/* Depth chart floating button */}
-          <button onClick={()=>{if(!depthSheetTeam||!userTeams.has(depthSheetTeam))setDepthSheetTeam([...userTeams][0]||currentTeam);setMobileDepthOpen(true);}} style={{position:"absolute",top:-44,right:12,fontFamily:sans,fontSize:10,fontWeight:700,padding:"6px 12px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer",boxShadow:"0 2px 8px rgba(0,0,0,0.15)",display:"flex",alignItems:"center",gap:5,zIndex:101}}>
-            <NFLTeamLogo team={[...userTeams][0]||currentTeam} size={14}/><span>depth</span>
+          <button onClick={()=>{if(!depthSheetTeam||!userTeams.has(depthSheetTeam))setDepthSheetTeam([...userTeams][0]||currentTeam);setMobileDepthOpen(true);}} style={{position:"absolute",top:-48,right:12,fontFamily:sans,fontSize:11,fontWeight:700,padding:"8px 14px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer",boxShadow:"0 2px 8px rgba(0,0,0,0.15)",display:"flex",alignItems:"center",gap:6,zIndex:101}}>
+            <NFLTeamLogo team={[...userTeams][0]||currentTeam} size={16}/><span>depth</span>
           </button>
           {/* Needs row */}
           <div style={{marginBottom:userPicks.length>0?6:0}}>
@@ -1098,7 +1098,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             </div>
             {/* Scrollable content */}
             <div style={{flex:1,overflowY:"auto",padding:"0 12px 20px",WebkitOverflowScrolling:"touch"}}>
-              <FormationChart team={depthSheetTeam}/>
+              <FormationChart team={depthSheetTeam} maxW={600}/>
               <div style={{marginTop:12,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"10px 12px"}}>
                 <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:6}}>depth chart</div>
                 <DepthList team={depthSheetTeam} dark={false}/>
