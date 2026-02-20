@@ -449,11 +449,15 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     const currentPick=fullDraftOrder[currentIdx]?.pick;
     if(!currentPick||currentPick>64)return null; // only trade up in rounds 1-2
 
+    // Teams that already traded up recently can't trade again for 8 picks
+    const recentTraders=new Set(cpuTradeLog.filter(t=>currentIdx-t.pickIdx<8).map(t=>t.fromTeam));
+
     const candidateTeams=[];
     for(let i=currentIdx+2;i<Math.min(currentIdx+13,totalPicks);i++){
       const t=getPickTeam(i);
       if(!t||userTeams.has(t)||t===currentTeam)continue;
       const prof=TEAM_PROFILES[t]||{reachTolerance:0.3,stage:"retool",variance:2,bpaLean:0.5,posBoost:[]};
+      if(recentTraders.has(t))continue; // cooldown
 
       // === PATH 1: ANALYTICAL — team has a clear target they love ===
       const needs=teamNeeds[t]||["QB","WR","DL"];
@@ -473,7 +477,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         const gradeScore=Math.pow(grade,1.2);
         const slideBonus=slide>3?slide*3:0;
         const isBoosted=prof.posBoost?.includes(pos)?1.15:1.0;
-        const score=gradeScore*needFit*isBoosted+slideBonus;
+        const score=(gradeScore*needFit*isBoosted+slideBonus)*(0.85+Math.random()*0.30);
         if(score>bestScore){secondScore=bestScore;bestScore=score;bestPlayer={id,name:p.name,grade,consRank,pos,score};}
         else if(score>secondScore){secondScore=score;}
       });
@@ -517,9 +521,13 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       });
     }
     if(candidateTeams.length===0)return null;
-    candidateTeams.sort((a,b)=>b.separation-a.separation);
+    // Weighted random among candidates so different teams win each sim
+    const weights=candidateTeams.map(c=>Math.pow(c.separation,2));
+    const totalW=weights.reduce((a,b)=>a+b,0);
+    let r=Math.random()*totalW;
+    for(let ci=0;ci<candidateTeams.length;ci++){r-=weights[ci];if(r<=0)return candidateTeams[ci];}
     return candidateTeams[0];
-  },[cpuTrades,getPickTeam,fullDraftOrder,totalPicks,userTeams,teamNeeds,available,prospectsMap,getConsensusGrade,getConsensusRank,TEAM_NEEDS_DETAILED]);
+  },[cpuTrades,cpuTradeLog,getPickTeam,fullDraftOrder,totalPicks,userTeams,teamNeeds,available,prospectsMap,getConsensusGrade,getConsensusRank,TEAM_NEEDS_DETAILED]);
 
   // CPU auto-pick — pauses when trade offer or trade panel is open
   useEffect(()=>{
