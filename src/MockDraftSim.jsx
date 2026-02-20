@@ -263,7 +263,23 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   },[picks,prospectsMap]);
 
   const gradeMap=useMemo(()=>{const m={};activeBoard.forEach(p=>m[p.id]=activeGrade(p.id));return m;},[activeBoard,activeGrade]);
-  const positions=["QB","RB","WR","TE","OL","DL","LB","DB","K/P"];
+  const positions=["QB","RB","WR","TE","OL","EDGE","IDL","LB","CB","S","K/P"];
+  // Map granular filter labels to prospect fields
+  const posFilterMatch=(p,filterLabel)=>{
+    if(!p)return false;
+    const gpos=p.gpos||p.pos;
+    if(filterLabel==="EDGE")return p.pos==="DL"&&(gpos==="EDGE"||gpos==="DE"||gpos==="OLB");
+    if(filterLabel==="IDL")return p.pos==="DL"&&(gpos==="IDL"||gpos==="DT"||gpos==="NT"||gpos==="DL");
+    if(filterLabel==="CB")return p.pos==="DB"&&(gpos==="CB");
+    if(filterLabel==="S")return p.pos==="DB"&&(gpos==="S"||gpos==="SAF"||gpos==="FS"||gpos==="SS");
+    return p.pos===filterLabel;
+  };
+  // Map granular position labels to colors (EDGE/IDL share DL color, CB/S share DB color)
+  const granularPosColor=(label)=>{
+    if(label==="EDGE"||label==="IDL")return POS_COLORS["DL"];
+    if(label==="CB"||label==="S")return POS_COLORS["DB"];
+    return POS_COLORS[label]||"#999";
+  };
 
   const fullDraftOrder=useMemo(()=>{
     return DRAFT_ORDER_2026.filter(d=>d.round<=numRounds);
@@ -802,7 +818,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
   const filteredAvailable=useMemo(()=>{
     if(filterPos.size===0)return available;
-    return available.filter(id=>{const p=prospectsMap[id];return p&&filterPos.has(p.pos);});
+    return available.filter(id=>{const p=prospectsMap[id];return p&&[...filterPos].some(f=>posFilterMatch(p,f));});
   },[available,filterPos,prospectsMap]);
 
   // Grade wrapper — calls pure function with current hook values
@@ -1196,7 +1212,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           {/* Position filter — horizontal scroll */}
           <div style={{display:"flex",gap:4,padding:"0 12px 8px",overflowX:"auto",WebkitOverflowScrolling:"touch"}}>
             <button onClick={()=>setFilterPos(new Set())} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.size===0?"#171717":"transparent",color:filterPos.size===0?"#faf9f6":"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",flexShrink:0}}>all</button>
-            {positions.map(pos=><button key={pos} onClick={()=>setFilterPos(prev=>{const n=new Set(prev);if(n.has(pos))n.delete(pos);else n.add(pos);return n;})} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.has(pos)?POS_COLORS[pos]:"transparent",color:filterPos.has(pos)?"#fff":POS_COLORS[pos],border:"1px solid "+(filterPos.has(pos)?POS_COLORS[pos]:"#e5e5e5"),borderRadius:99,cursor:"pointer",flexShrink:0}}>{pos}</button>)}
+            {positions.map(pos=><button key={pos} onClick={()=>setFilterPos(prev=>{const n=new Set(prev);if(n.has(pos))n.delete(pos);else n.add(pos);return n;})} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.has(pos)?granularPosColor(pos):"transparent",color:filterPos.has(pos)?"#fff":granularPosColor(pos),border:"1px solid "+(filterPos.has(pos)?granularPosColor(pos):"#e5e5e5"),borderRadius:99,cursor:"pointer",flexShrink:0}}>{pos}</button>)}
           </div>
         </div>
 
@@ -1465,7 +1481,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           {/* Position filter */}
           <div style={{display:"flex",gap:4,flexWrap:"wrap",marginBottom:6}}>
             <button onClick={()=>setFilterPos(new Set())} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.size===0?"#171717":"transparent",color:filterPos.size===0?"#faf9f6":"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>all</button>
-            {positions.map(pos=><button key={pos} onClick={()=>setFilterPos(prev=>{const n=new Set(prev);if(n.has(pos))n.delete(pos);else n.add(pos);return n;})} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.has(pos)?POS_COLORS[pos]:"transparent",color:filterPos.has(pos)?"#fff":POS_COLORS[pos],border:"1px solid "+(filterPos.has(pos)?POS_COLORS[pos]:"#e5e5e5"),borderRadius:99,cursor:"pointer"}}>{pos}</button>)}
+            {positions.map(pos=><button key={pos} onClick={()=>setFilterPos(prev=>{const n=new Set(prev);if(n.has(pos))n.delete(pos);else n.add(pos);return n;})} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.has(pos)?granularPosColor(pos):"transparent",color:filterPos.has(pos)?"#fff":granularPosColor(pos),border:"1px solid "+(filterPos.has(pos)?granularPosColor(pos):"#e5e5e5"),borderRadius:99,cursor:"pointer"}}>{pos}</button>)}
           </div>
 
           {/* Compare bar */}
