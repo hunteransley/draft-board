@@ -709,14 +709,26 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         // Determine preferred starting slot based on granular position
         const gpos=p.gpos||p.pos;
         let preferredSlot=group.slots[0];
+        // Build position-appropriate slot list for DL and DB
+        let allowedSlots=group.slots;
         if(group.posMatch==="DL"){
-          // EDGE/DE → DE1, IDL/DT/NT → DT1
-          if(gpos==="IDL"||gpos==="DT"||gpos==="NT")preferredSlot="DT1";
-          else preferredSlot="DE1";
+          // EDGE/DE -> DE slots only, IDL/DT/NT -> DT slots only
+          if(gpos==="IDL"||gpos==="DT"||gpos==="NT"){
+            preferredSlot="DT1";
+            allowedSlots=["DT1","DT2"];
+          }else{
+            preferredSlot="DE1";
+            allowedSlots=["DE1","DE2"];
+          }
         }else if(group.posMatch==="DB"){
-          // S/SAF → SS, CB → CB1
-          if(gpos==="S"||gpos==="SAF"||gpos==="FS"||gpos==="SS")preferredSlot="SS";
-          else preferredSlot="CB1";
+          // S/SAF -> safety slots, CB -> CB slots
+          if(gpos==="S"||gpos==="SAF"||gpos==="FS"||gpos==="SS"){
+            preferredSlot="SS";
+            allowedSlots=["SS","FS"];
+          }else{
+            preferredSlot="CB1";
+            allowedSlots=["CB1","CB2"];
+          }
         }
         // Determine target tier: 1=starter, 2=second string, 3=third string, 0=overflow
         let tier=0;
@@ -729,47 +741,47 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           // Starter: take preferred slot, push existing player down
           const s1=preferredSlot;
           if(chart[team][s1]){
-            const emptySlot=group.slots.find(s=>!chart[team][s]);
+            const emptySlot=allowedSlots.find(s=>!chart[team][s]);
             if(emptySlot)chart[team][emptySlot]=chart[team][s1];
           }
           chart[team][s1]=entry;
         }else if(tier===2){
           // Second string
-          const target=group.slots[1]||group.slots[0];
+          const target=allowedSlots[1]||allowedSlots[0];
           if(!chart[team][target]){
             chart[team][target]=entry;
           }else{
-            const emptySlot=group.slots.find(s=>!chart[team][s]);
+            const emptySlot=allowedSlots.find(s=>!chart[team][s]);
             if(emptySlot)chart[team][emptySlot]=entry;
             else{
-              const oi=Object.keys(chart[team]).filter(k=>k.startsWith(group.slots[group.slots.length-1]+"_d")).length;
-              chart[team][group.slots[group.slots.length-1]+"_d"+oi]=entry;
+              const oi=Object.keys(chart[team]).filter(k=>k.startsWith(allowedSlots[allowedSlots.length-1]+"_d")).length;
+              chart[team][allowedSlots[allowedSlots.length-1]+"_d"+oi]=entry;
             }
           }
         }else if(tier===3){
           // Third string
-          const target=group.slots[2]||group.slots[group.slots.length-1]||group.slots[0];
+          const target=allowedSlots.length>2?allowedSlots[2]:(allowedSlots[allowedSlots.length-1]||allowedSlots[0]);
           if(!chart[team][target]){
             chart[team][target]=entry;
           }else{
-            const emptySlot=group.slots.find(s=>!chart[team][s]);
+            const emptySlot=allowedSlots.find(s=>!chart[team][s]);
             if(emptySlot)chart[team][emptySlot]=entry;
             else{
-              const oi=Object.keys(chart[team]).filter(k=>k.startsWith(group.slots[group.slots.length-1]+"_d")).length;
-              chart[team][group.slots[group.slots.length-1]+"_d"+oi]=entry;
+              const oi=Object.keys(chart[team]).filter(k=>k.startsWith(allowedSlots[allowedSlots.length-1]+"_d")).length;
+              chart[team][allowedSlots[allowedSlots.length-1]+"_d"+oi]=entry;
             }
           }
         }else{
           // Overflow: Rd 4-7 below 70 — new slot at end
-          const target=group.slots[group.slots.length-1];
+          const target=allowedSlots[allowedSlots.length-1];
           if(!chart[team][target]){
             chart[team][target]=entry;
           }else{
-            const emptySlot=group.slots.find(s=>!chart[team][s]);
+            const emptySlot=allowedSlots.find(s=>!chart[team][s]);
             if(emptySlot)chart[team][emptySlot]=entry;
             else{
-              const oi=Object.keys(chart[team]).filter(k=>k.startsWith(group.slots[group.slots.length-1]+"_d")).length;
-              chart[team][group.slots[group.slots.length-1]+"_d"+oi]=entry;
+              const oi=Object.keys(chart[team]).filter(k=>k.startsWith(allowedSlots[allowedSlots.length-1]+"_d")).length;
+              chart[team][allowedSlots[allowedSlots.length-1]+"_d"+oi]=entry;
             }
           }
         }
@@ -953,7 +965,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     return(<div style={{marginTop:4}}>
       {DEPTH_GROUPS.map(group=>{
         const entries=group.slots.map(s=>({slot:s,entry:chart[s]})).filter(x=>x.entry);
-        const extras=Object.entries(chart).filter(([k])=>k.startsWith(group.slots[group.slots.length-1]+"_d")).map(([k,v])=>({slot:k,entry:v}));
+        const extras=Object.entries(chart).filter(([k])=>group.slots.some(s=>k.startsWith(s+"_d"))).map(([k,v])=>({slot:k,entry:v}));
         if(entries.length===0&&extras.length===0)return null;
         return(<div key={group.label} style={{marginBottom:2}}>
           {entries.map(({slot,entry})=>(<div key={slot} style={{fontFamily:sans,fontSize:9,padding:"1px 0",display:"flex",gap:4}}>
