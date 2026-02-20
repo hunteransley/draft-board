@@ -895,11 +895,11 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
                   </div>;
                 })}
               </div>
-              <div style={{display:"flex",gap:16,alignItems:"flex-start"}}>
-                <div style={{flex:"0 0 320px",background:"#fff",borderRadius:12,padding:"16px"}}>
+              <div style={{display:"flex",gap:16,alignItems:"flex-start",flexWrap:"wrap"}}>
+                <div style={{flex:"1 1 280px",minWidth:260,background:"#fff",borderRadius:12,padding:"16px"}}>
                   <FormationChart team={team}/>
                 </div>
-                <div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"12px 16px"}}>
+                <div style={{flex:"1 1 280px",minWidth:200,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"12px 16px"}}>
                   <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:6}}>depth chart</div>
                   <DepthList team={team} dark={false}/>
                 </div>
