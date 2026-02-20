@@ -1,4 +1,4 @@
-// NFL Rosters — auto-generated from ESPN depth charts on 2026-02-19
+// NFL Rosters — auto-generated from ESPN depth charts on 2026-02-20
 // Run: node updateRosters.js to refresh
 
 const NFL_ROSTERS = {
