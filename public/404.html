@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Big Board Lab</title>
+<link rel="icon" href="/favicon.ico">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0a0a0a;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #faf9f6;
+    overflow: hidden;
+  }
+  .container {
+    text-align: center;
+    padding: 24px;
+    max-width: 480px;
+  }
+  .four-oh-four {
+    font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #525252;
+    margin-bottom: 32px;
+  }
+  .gif-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 32px;
+    border: 1px solid #1a1a1a;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  }
+  .gif-wrap img {
+    width: 100%;
+    display: block;
+  }
+  h1 {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  h1 span { color: #22c55e; }
+  h1 span:last-of-type { color: #ef4444; }
+  .sub {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    color: #737373;
+    margin-bottom: 32px;
+  }
+  .cta {
+    display: inline-block;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #faf9f6;
+    background: #171717;
+    border: 1px solid #333;
+    padding: 12px 32px;
+    border-radius: 99px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .cta:hover {
+    background: #faf9f6;
+    color: #0a0a0a;
+    border-color: #faf9f6;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="four-oh-four">404 · page not found</div>
+  <div class="gif-wrap">
+    <img src="https://media.tenor.com/rx55cHosEbIAAAAM/jameis-winston-drew-brees.gif" alt="Fumble">
+  </div>
+  <h1>Sometimes you eat a <span>W</span>.<br>Sometimes an <span>L</span>.</h1>
+  <p class="sub">This page doesn't exist. But your draft board is waiting.</p>
+  <a href="/" class="cta">Go Home →</a>
+</div>
+</body>
+</html>
