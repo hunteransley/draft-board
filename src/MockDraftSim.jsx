@@ -443,24 +443,19 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   },[picks,activeBoard]);
 
   // === CPU-to-CPU TRADE-UP LOGIC ===
-  // Evaluates whether a team picking later wants to trade up to the current CPU pick.
-  // Triggers when an elite player is sliding and a team behind desperately wants them.
   const evaluateCpuTradeUp=useCallback((currentIdx)=>{
     if(!cpuTrades)return null;
     const currentTeam=getPickTeam(currentIdx);
     const currentPick=fullDraftOrder[currentIdx]?.pick;
     if(!currentPick||currentPick>64)return null; // only trade up in rounds 1-2
 
-    // Score available players for each team in the next 8 slots
     const candidateTeams=[];
     for(let i=currentIdx+2;i<Math.min(currentIdx+13,totalPicks);i++){
       const t=getPickTeam(i);
       if(!t||userTeams.has(t)||t===currentTeam)continue;
-      const prof=TEAM_PROFILES[t]||{reachTolerance:0.3,stage:"retool",variance:2,bpaLean:0.5};
-      // Only aggressive teams trade up
-      if(prof.reachTolerance<0.25&&prof.stage!=="contend"&&prof.stage!=="dynasty")continue;
+      const prof=TEAM_PROFILES[t]||{reachTolerance:0.3,stage:"retool",variance:2,bpaLean:0.5,posBoost:[]};
 
-      // Score available players for this team
+      // === PATH 1: ANALYTICAL — team has a clear target they love ===
       const needs=teamNeeds[t]||["QB","WR","DL"];
       const dn=TEAM_NEEDS_DETAILED?.[t]||{};
       let bestPlayer=null,bestScore=0,secondScore=0;
@@ -469,12 +464,11 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         const pos=p.pos;
         const baseGrade=getConsensusGrade?getConsensusGrade(p.name):(0);
         const grade=GRADE_OVERRIDES[p.name]?Math.max(baseGrade,GRADE_OVERRIDES[p.name]):baseGrade;
-        if(grade<75)return; // trade up for good players, not just elite
+        if(grade<70)return;
         const rawRank=getConsensusRank?getConsensusRank(p.name):999;
         const consRank=RANK_OVERRIDES[p.name]||rawRank;
         const nc=dn[pos]||0;const ni=needs.indexOf(pos);
         const slide=consRank<900?(currentPick-consRank):0;
-        // Is this player a strong fit AND sliding?
         const needFit=nc>=2?2.0:nc>=1?1.5:ni>=0&&ni<3?1.2:ni>=0?1.0:0.5;
         const gradeScore=Math.pow(grade,1.2);
         const slideBonus=slide>3?slide*3:0;
@@ -483,30 +477,37 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         if(score>bestScore){secondScore=bestScore;bestScore=score;bestPlayer={id,name:p.name,grade,consRank,pos,score};}
         else if(score>secondScore){secondScore=score;}
       });
+
       if(!bestPlayer)continue;
-      // Only trade up if there's a clear preference — target is meaningfully better than alternatives
       const separation=secondScore>0?bestScore/secondScore:2.0;
-      if(separation<1.20)continue;
-      // Teams trade up to prevent losing their guy, not just to grab sliders
-      // Only skip if the player is projected to still be available at their own pick
+
+      // Check trade value
       const theirPickIdx=i;
-      const picksBetween=theirPickIdx-currentIdx;
-      // If player's consensus rank is well past the trading team's slot, they'd get them anyway
-      if(bestPlayer.consRank<900&&bestPlayer.consRank>fullDraftOrder[theirPickIdx]?.pick+3)continue;
       const theirPickNum=fullDraftOrder[theirPickIdx]?.pick;
       const currentVal=getPickValue(currentPick);
       const theirVal=getPickValue(theirPickNum);
-      // Find a sweetener pick to make up the difference
       let sweetenerIdx=null,sweetenerVal=0;
       for(let j=theirPickIdx+1;j<totalPicks;j++){
         if(getPickTeam(j)===t){sweetenerIdx=j;sweetenerVal=getPickValue(fullDraftOrder[j]?.pick||999);break;}
       }
       const totalOffer=theirVal+sweetenerVal;
-      if(totalOffer<currentVal*0.82)continue; // teams overpay in real life
+      if(totalOffer<currentVal*0.78)continue; // teams frequently overpay
 
-      // Probability based on team aggressiveness
-      const tradeProb=prof.stage==="dynasty"?0.50:prof.stage==="contend"?0.55:prof.reachTolerance>=0.4?0.40:0.25;
-      if(Math.random()>tradeProb)continue;
+      // === PATH 2: IMPULSE — random chance based on team personality ===
+      // Every aggressive team has a small chance to just trade up each pick
+      const baseImpulse=prof.stage==="dynasty"?0.08:prof.stage==="contend"?0.10:prof.reachTolerance>=0.4?0.07:0.03;
+      // Impulse increases in top 15 (more action at top of draft)
+      const topBoost=currentPick<=10?2.0:currentPick<=20?1.5:1.0;
+      // Impulse increases if their best player is a strong need fit
+      const needBoost=separation>=1.15?1.5:1.0;
+      const impulseChance=baseImpulse*topBoost*needBoost;
+
+      // Analytical path: higher separation = higher chance
+      const analyticalChance=separation>=1.30?0.55:separation>=1.15?0.35:0.0;
+
+      // Combined: either path can trigger the trade
+      const finalChance=Math.min(0.65,impulseChance+analyticalChance);
+      if(Math.random()>finalChance)continue;
 
       candidateTeams.push({
         team:t,theirPickIdx,theirPickNum,sweetenerIdx,
@@ -516,7 +517,6 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       });
     }
     if(candidateTeams.length===0)return null;
-    // Pick the most desperate team (highest separation)
     candidateTeams.sort((a,b)=>b.separation-a.separation);
     return candidateTeams[0];
   },[cpuTrades,getPickTeam,fullDraftOrder,totalPicks,userTeams,teamNeeds,available,prospectsMap,getConsensusGrade,getConsensusRank,TEAM_NEEDS_DETAILED]);
