@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import NFL_ROSTERS from "./nflRosters.js";
-import html2canvas from "html2canvas";
+// Canvas-based share image (no html2canvas dependency)
 
 const DRAFT_ORDER_2026=[
 {pick:1,round:1,team:"Raiders"},{pick:2,round:1,team:"Jets"},{pick:3,round:1,team:"Cardinals"},{pick:4,round:1,team:"Titans"},
@@ -873,47 +873,184 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     const isAllTeams=userTeams.size===32;
     if(!isSingleTeam&&!isAllTeams)return;
 
-    const node=resultsRef.current;
-    if(!node){alert('Results not ready');return;}
+    const team=isSingleTeam?[...userTeams][0]:'NFL Draft';
+    const teamPicks=isSingleTeam?up.filter(pk=>pk.team===team):up;
+    const chart=depthChart[team]||{};
 
-    // Wait two animation frames so React has fully painted grades before capture
-    await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+    // === Canvas dimensions ===
+    const scale=2; // 2× for retina crispness
+    const W=800,pad=32,colGap=28;
+    const pickRowH=28,depthRowH=16,depthGroupGap=8;
+    const headerH=110,pickHeaderH=28,depthHeaderH=28,footerH=64;
 
-    try{
-      const canvas=await html2canvas(node,{
-        scale:2,
-        useCORS:true,
-        allowTaint:false,
-        backgroundColor:'#faf9f6',
-        logging:false,
-        width:node.offsetWidth,
-        height:node.offsetHeight,
-      });
+    // Calculate height dynamically
+    const pickCount=teamPicks.length;
+    const depthGroups=DEPTH_GROUPS.map(g=>{
+      const entries=g.slots.map(s=>({slot:s,entry:chart[s]})).filter(x=>x.entry);
+      const extras=Object.entries(chart).filter(([k])=>g.slots.some(s=>k.startsWith(s+"_d"))).map(([k,v])=>({slot:k,entry:v}));
+      return{label:g.label,items:[...entries,...extras]};
+    }).filter(g=>g.items.length>0);
+    const depthRowCount=depthGroups.reduce((s,g)=>s+g.items.length,0);
+    const depthTotalH=depthHeaderH+depthRowCount*depthRowH+depthGroups.length*depthGroupGap+16;
+    const picksTotalH=pickHeaderH+pickCount*pickRowH+16;
+    const bodyH=Math.max(picksTotalH,depthTotalH);
+    const H=headerH+bodyH+footerH+pad*2;
 
-      const teams=[...userTeams];
-      const label=isSingleTeam?teams[0]:'mock-draft';
+    const canvas=document.createElement('canvas');
+    canvas.width=W*scale;canvas.height=H*scale;
+    const ctx=canvas.getContext('2d');
+    ctx.scale(scale,scale);
 
-      canvas.toBlob(blob=>{
-        if(!blob){alert('Could not generate image');return;}
-        if(navigator.share&&navigator.canShare&&navigator.canShare({files:[new File([blob],'draft.png',{type:'image/png'})]})){
-          navigator.share({
-            files:[new File([blob],`bigboardlab-${label}.png`,{type:'image/png'})],
-            title:'My Mock Draft — Big Board Lab',
-            text:'Build yours at bigboardlab.com'
-          }).catch(()=>{});
-        }else{
-          const url=URL.createObjectURL(blob);
-          const a=document.createElement('a');a.href=url;
-          a.download=`bigboardlab-${label}.png`;
-          document.body.appendChild(a);a.click();document.body.removeChild(a);
-          setTimeout(()=>URL.revokeObjectURL(url),3000);
-        }
-      },'image/png');
-    }catch(e){
-      console.error('share error',e);
-      alert('Share failed: '+e.message);
+    // === Background ===
+    ctx.fillStyle='#faf9f6';
+    ctx.fillRect(0,0,W,H);
+
+    // === Header gradient bar ===
+    for(let x=0;x<W;x++){
+      const r=x/W;
+      ctx.fillStyle=`rgb(${Math.round(236-r*68)},${Math.round(72-r*17)},${Math.round(153+r*94)})`;
+      ctx.fillRect(x,0,1,4);
     }
-  },[picks,userTeams]);
+
+    // === Logo ===
+    try{
+      const logoImg=new Image();
+      logoImg.src=BBL_LOGO_B64;
+      await new Promise((res,rej)=>{logoImg.onload=res;logoImg.onerror=rej;setTimeout(rej,2000);});
+      ctx.drawImage(logoImg,pad,16,48,48);
+    }catch(e){}
+
+    // === Title & team ===
+    ctx.fillStyle='#171717';ctx.font='bold 22px system-ui,-apple-system,sans-serif';
+    ctx.textAlign='left';ctx.textBaseline='top';
+    ctx.fillText('BIG BOARD LAB',pad+58,20);
+    ctx.fillStyle='#a3a3a3';ctx.font='12px ui-monospace,monospace';
+    ctx.fillText('2026 NFL MOCK DRAFT',pad+58,46);
+
+    // Team + Grade on right
+    ctx.textAlign='right';
+    ctx.fillStyle='#171717';ctx.font='bold 20px system-ui,-apple-system,sans-serif';
+    ctx.fillText(team,W-pad,20);
+    if(draftGrade){
+      ctx.fillStyle=draftGrade.color;ctx.font='bold 42px system-ui,-apple-system,sans-serif';
+      ctx.fillText(draftGrade.grade,W-pad,44);
+    }
+    if(tradeValueDelta!==0){
+      ctx.fillStyle=tradeValueDelta>0?'#16a34a':'#dc2626';
+      ctx.font='10px ui-monospace,monospace';
+      ctx.fillText('trade surplus: '+(tradeValueDelta>0?'+':'')+tradeValueDelta+' pts',W-pad,draftGrade?90:50);
+    }
+    ctx.textAlign='left';
+
+    // === Divider ===
+    ctx.fillStyle='#e5e5e5';ctx.fillRect(pad,headerH,W-pad*2,1);
+
+    // === Two columns ===
+    const bodyY=headerH+pad;
+    const leftW=Math.round((W-pad*2-colGap)*0.55);
+    const rightX=pad+leftW+colGap;
+    const rightW=W-pad-rightX;
+
+    // --- LEFT: Picks ---
+    ctx.fillStyle='#a3a3a3';ctx.font='bold 9px ui-monospace,monospace';
+    ctx.fillText('YOUR PICKS',pad,bodyY);
+
+    let py=bodyY+pickHeaderH;
+    teamPicks.forEach(pk=>{
+      const p=prospectsMap[pk.playerId];if(!p)return;
+      const g=activeGrade(pk.playerId);
+      const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;
+      const g2=getConsensusGrade?getConsensusGrade(p.name):g;
+      const v=pickVerdict(pk.pick,rank,g2);
+      const c=POS_COLORS[p.pos]||'#525252';
+
+      // Row bg
+      ctx.fillStyle='#fff';roundRect(ctx,pad,py,leftW,pickRowH-3,4);ctx.fill();
+      ctx.strokeStyle='#f0f0f0';ctx.lineWidth=0.5;ctx.stroke();
+
+      // Pick number
+      ctx.fillStyle='#a3a3a3';ctx.font='10px ui-monospace,monospace';ctx.textAlign='left';
+      ctx.fillText('Rd'+pk.round+' #'+pk.pick,pad+6,py+9);
+
+      // Position
+      ctx.fillStyle=c;ctx.font='bold 9px ui-monospace,monospace';
+      ctx.fillText(p.gpos||p.pos,pad+66,py+9);
+
+      // Name
+      ctx.fillStyle='#171717';ctx.font='bold 12px system-ui,-apple-system,sans-serif';
+      ctx.fillText(p.name,pad+98,py+9);
+
+      // Verdict pill
+      const vw=ctx.measureText(v.text).width+10;
+      const vx=pad+leftW-vw-34;
+      ctx.fillStyle=v.bg;roundRect(ctx,vx,py+3,vw,16,8);ctx.fill();
+      ctx.fillStyle=v.color;ctx.font='bold 7px ui-monospace,monospace';
+      ctx.fillText(v.text,vx+5,py+9);
+
+      // Grade
+      ctx.fillStyle=g>=75?'#16a34a':g>=55?'#ca8a04':'#dc2626';
+      ctx.font='bold 14px system-ui,-apple-system,sans-serif';ctx.textAlign='right';
+      ctx.fillText(String(g),pad+leftW-6,py+9);
+      ctx.textAlign='left';
+
+      py+=pickRowH;
+    });
+
+    // --- RIGHT: Depth Chart ---
+    ctx.fillStyle='#a3a3a3';ctx.font='bold 9px ui-monospace,monospace';
+    ctx.fillText('DEPTH CHART',rightX,bodyY);
+
+    let dy=bodyY+depthHeaderH;
+    depthGroups.forEach(group=>{
+      group.items.forEach(({slot,entry})=>{
+        const isDraft=entry.isDraft;
+        // Slot label
+        ctx.fillStyle='#a3a3a3';ctx.font='9px ui-monospace,monospace';
+        ctx.fillText(slot.replace(/_d\d+$/,'+'),rightX,dy+5);
+        // Name
+        ctx.fillStyle=isDraft?'#7c3aed':'#525252';
+        ctx.font=(isDraft?'bold ':'')+' 11px system-ui,-apple-system,sans-serif';
+        ctx.fillText(entry.name+(isDraft?' ★':''),rightX+32,dy+5);
+        dy+=depthRowH;
+      });
+      dy+=depthGroupGap;
+    });
+
+    // === Footer ===
+    const fy=H-footerH;
+    ctx.fillStyle='#e5e5e5';ctx.fillRect(pad,fy,W-pad*2,1);
+    ctx.fillStyle='#171717';ctx.font='bold 16px system-ui,-apple-system,sans-serif';ctx.textAlign='center';
+    ctx.fillText('bigboardlab.com',W/2,fy+20);
+    ctx.fillStyle='#a3a3a3';ctx.font='12px system-ui,-apple-system,sans-serif';
+    ctx.fillText('Rank prospects · Grade them your way · Run the most realistic mock draft ever built',W/2,fy+40);
+    ctx.textAlign='left';
+
+    // === Bottom gradient bar ===
+    for(let x=0;x<W;x++){
+      const r=x/W;
+      ctx.fillStyle=`rgb(${Math.round(236-r*68)},${Math.round(72-r*17)},${Math.round(153+r*94)})`;
+      ctx.fillRect(x,H-4,1,4);
+    }
+
+    // === Export ===
+    const label=isSingleTeam?team:'mock-draft';
+    canvas.toBlob(blob=>{
+      if(!blob){alert('Could not generate image');return;}
+      if(navigator.share&&navigator.canShare&&navigator.canShare({files:[new File([blob],'draft.png',{type:'image/png'})]})){
+        navigator.share({
+          files:[new File([blob],`bigboardlab-${label}.png`,{type:'image/png'})],
+          title:'My Mock Draft — Big Board Lab',
+          text:'Build yours at bigboardlab.com'
+        }).catch(()=>{});
+      }else{
+        const url=URL.createObjectURL(blob);
+        const a=document.createElement('a');a.href=url;
+        a.download=`bigboardlab-${label}.png`;
+        document.body.appendChild(a);a.click();document.body.removeChild(a);
+        setTimeout(()=>URL.revokeObjectURL(url),3000);
+      }
+    },'image/png');
+  },[picks,userTeams,prospectsMap,activeGrade,getConsensusRank,getConsensusGrade,draftGrade,tradeValueDelta,depthChart,POS_COLORS]);
 
   // Canvas helper: rounded rectangle path
   function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
