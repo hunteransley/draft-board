@@ -805,11 +805,141 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
 }
 
 // ============================================================
+// Admin Dashboard (gated by email)
+// ============================================================
+const ADMIN_EMAILS=["hunteransley@gmail.com"];
+function AdminDashboard({user,onBack}){
+  const[stats,setStats]=useState(null);
+  const[loading,setLoading]=useState(true);
+  const[users,setUsers]=useState([]);
+  useEffect(()=>{
+    (async()=>{
+      try{
+        // Fetch all boards
+        const{data:boards}=await supabase.from('boards').select('user_id,board_data,updated_at');
+        const{data:community}=await supabase.from('community_boards').select('user_id,board_data');
+        const totalUsers=boards?.length||0;
+        const activeToday=boards?.filter(b=>{const d=new Date(b.updated_at);const now=new Date();return(now-d)<86400000;}).length||0;
+        const activeWeek=boards?.filter(b=>{const d=new Date(b.updated_at);const now=new Date();return(now-d)<604800000;}).length||0;
+        // Position ranking stats
+        const posStats={};
+        const partialCount={};
+        const simmedCount={};
+        let totalRankedPositions=0;
+        let totalPartialPositions=0;
+        let hasNotes=0;
+        let hasMockDraft=0;
+        const userDetails=(boards||[]).map(b=>{
+          const d=b.board_data||{};
+          const rg=d.rankedGroups||[];
+          const pp=d.partialProgress?Object.keys(d.partialProgress):[];
+          const noteCount=d.notes?Object.keys(d.notes).length:0;
+          if(noteCount>0)hasNotes++;
+          rg.forEach(pos=>{posStats[pos]=(posStats[pos]||0)+1;totalRankedPositions++;});
+          pp.forEach(pos=>{partialCount[pos]=(partialCount[pos]||0)+1;totalPartialPositions++;});
+          return{
+            userId:b.user_id,
+            updatedAt:b.updated_at,
+            rankedPositions:rg.length,
+            partialPositions:pp.length,
+            positions:rg,
+            partials:pp,
+            noteCount,
+            totalRatings:d.ratings?Object.keys(d.ratings).length:0
+          };
+        }).sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt));
+        // Avg positions ranked per user (among those who ranked any)
+        const rankers=userDetails.filter(u=>u.rankedPositions>0);
+        const avgPositions=rankers.length>0?(rankers.reduce((s,u)=>s+u.rankedPositions,0)/rankers.length).toFixed(1):0;
+        setStats({totalUsers,activeToday,activeWeek,posStats,partialCount,totalRankedPositions,totalPartialPositions,avgPositions,hasNotes,communityUsers:community?.length||0});
+        setUsers(userDetails);
+      }catch(e){console.error(e);}
+      setLoading(false);
+    })();
+  },[]);
+  if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading admin...</p></div>;
+  return(
+    <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
+      <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#171717",borderBottom:"1px solid #333"}}>
+        <span style={{fontFamily:mono,fontSize:11,color:"#faf9f6",letterSpacing:2}}>⚙️ ADMIN DASHBOARD</span>
+        <button onClick={onBack} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"1px solid #444",borderRadius:99,padding:"3px 12px",cursor:"pointer"}}>← back to app</button>
+      </div>
+      <div style={{maxWidth:900,margin:"0 auto",padding:"52px 24px 60px"}}>
+        {/* KPI Cards */}
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(160px, 1fr))",gap:12,marginBottom:32}}>
+          {[
+            ["Total Users",stats.totalUsers,"#171717"],
+            ["Active Today",stats.activeToday,"#22c55e"],
+            ["Active This Week",stats.activeWeek,"#3b82f6"],
+            ["Community Boards",stats.communityUsers,"#7c3aed"],
+            ["Avg Positions/User",stats.avgPositions,"#f59e0b"],
+            ["Users w/ Notes",stats.hasNotes,"#0891b2"],
+          ].map(([label,val,color])=>(
+            <div key={label} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
+              <div style={{fontFamily:font,fontSize:32,fontWeight:900,color,lineHeight:1}}>{val}</div>
+              <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginTop:6}}>{label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Position Breakdown */}
+        <h2 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"0 0 12px"}}>positions ranked</h2>
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:32}}>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(120px, 1fr))",gap:8}}>
+            {POSITION_GROUPS.map(pos=>{
+              const full=stats.posStats[pos]||0;
+              const partial=stats.partialCount[pos]||0;
+              const c=POS_COLORS[pos];
+              return<div key={pos} style={{textAlign:"center",padding:"10px",background:`${c}08`,borderRadius:8}}>
+                <div style={{fontFamily:font,fontSize:20,fontWeight:900,color:c}}>{pos}</div>
+                <div style={{fontFamily:mono,fontSize:18,fontWeight:900,color:"#171717",marginTop:4}}>{full}</div>
+                <div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>fully ranked</div>
+                {partial>0&&<div style={{fontFamily:mono,fontSize:11,color:"#ca8a04",marginTop:2}}>{partial} partial</div>}
+              </div>;
+            })}
+          </div>
+        </div>
+
+        {/* User Table */}
+        <h2 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"0 0 12px"}}>users ({users.length})</h2>
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 80px 80px 80px 120px",gap:8,padding:"10px 16px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5"}}>
+            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>User ID</span>
+            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Ranked</span>
+            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Partial</span>
+            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Notes</span>
+            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Last Active</span>
+          </div>
+          <div style={{maxHeight:500,overflowY:"auto"}}>
+            {users.map((u,i)=>(
+              <div key={u.userId} style={{display:"grid",gridTemplateColumns:"1fr 80px 80px 80px 120px",gap:8,padding:"8px 16px",borderBottom:i<users.length-1?"1px solid #f5f5f5":"none",alignItems:"center"}}>
+                <span style={{fontFamily:mono,fontSize:10,color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{u.userId.slice(0,12)}…</span>
+                <span style={{fontFamily:mono,fontSize:12,fontWeight:700,color:u.rankedPositions>0?"#22c55e":"#d4d4d4"}}>{u.rankedPositions}/{POSITION_GROUPS.length}</span>
+                <span style={{fontFamily:mono,fontSize:12,color:u.partialPositions>0?"#ca8a04":"#d4d4d4"}}>{u.partialPositions}</span>
+                <span style={{fontFamily:mono,fontSize:12,color:u.noteCount>0?"#0891b2":"#d4d4d4"}}>{u.noteCount}</span>
+                <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{new Date(u.updatedAt).toLocaleDateString()} {new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
 // Root App: handles auth state
 // ============================================================
 export default function App(){
   const[user,setUser]=useState(null);
   const[loading,setLoading]=useState(true);
+  const[showAdmin,setShowAdmin]=useState(()=>window.location.hash==="#admin");
+
+  useEffect(()=>{
+    const onHash=()=>setShowAdmin(window.location.hash==="#admin");
+    window.addEventListener("hashchange",onHash);
+    return()=>window.removeEventListener("hashchange",onHash);
+  },[]);
 
   useEffect(()=>{
     supabase.auth.getSession().then(({data:{session}})=>{
@@ -826,5 +956,6 @@ export default function App(){
 
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
   if(!user)return<AuthScreen/>;
+  if(showAdmin&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
   return<DraftBoard user={user} onSignOut={signOut}/>;
 }
