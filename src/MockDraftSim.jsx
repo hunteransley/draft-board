@@ -556,7 +556,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         // Determine target tier: 1=starter, 2=second string, 3=third string, 0=overflow
         let tier=0;
         if(pk.round===1){tier=1;}
-        else if(pk.round===2){tier=grade>=85?1:grade>=80?2:3;}
+        else if(pk.round===2){tier=grade>=85?1:grade>=70?2:3;}
         else if(pk.round===3){tier=grade>=80?2:3;}
         else{tier=grade>=70?3:0;}
 
