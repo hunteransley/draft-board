@@ -495,18 +495,18 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
       // === PATH 2: IMPULSE — random chance based on team personality ===
       // Every aggressive team has a small chance to just trade up each pick
-      const baseImpulse=prof.stage==="dynasty"?0.08:prof.stage==="contend"?0.10:prof.reachTolerance>=0.4?0.07:0.03;
+      const baseImpulse=prof.stage==="dynasty"?0.04:prof.stage==="contend"?0.05:prof.reachTolerance>=0.4?0.035:0.015;
       // Impulse increases in top 15 (more action at top of draft)
-      const topBoost=currentPick<=10?2.0:currentPick<=20?1.5:1.0;
+      const topBoost=currentPick<=10?1.6:currentPick<=20?1.3:1.0;
       // Impulse increases if their best player is a strong need fit
-      const needBoost=separation>=1.15?1.5:1.0;
+      const needBoost=separation>=1.15?1.4:1.0;
       const impulseChance=baseImpulse*topBoost*needBoost;
 
       // Analytical path: higher separation = higher chance
-      const analyticalChance=separation>=1.30?0.55:separation>=1.15?0.35:0.0;
+      const analyticalChance=separation>=1.30?0.35:separation>=1.15?0.18:0.0;
 
       // Combined: either path can trigger the trade
-      const finalChance=Math.min(0.65,impulseChance+analyticalChance);
+      const finalChance=Math.min(0.45,impulseChance+analyticalChance);
       if(Math.random()>finalChance)continue;
 
       candidateTeams.push({
