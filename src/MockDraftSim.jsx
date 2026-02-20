@@ -487,12 +487,13 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       // Only trade up if there's a clear preference — target is meaningfully better than alternatives
       const separation=secondScore>0?bestScore/secondScore:2.0;
       if(separation<1.20)continue;
-      // Only trade up if the player is actually sliding (available later than expected)
-      if(bestPlayer.consRank<900&&currentPick<=bestPlayer.consRank+2)continue;
-
-      // Check trade value: can they afford it?
+      // Teams trade up to prevent losing their guy, not just to grab sliders
+      // Only skip if the player is projected to still be available at their own pick
       const theirPickIdx=i;
-      const theirPickNum=fullDraftOrder[i]?.pick;
+      const picksBetween=theirPickIdx-currentIdx;
+      // If player's consensus rank is well past the trading team's slot, they'd get them anyway
+      if(bestPlayer.consRank<900&&bestPlayer.consRank>fullDraftOrder[theirPickIdx]?.pick+3)continue;
+      const theirPickNum=fullDraftOrder[theirPickIdx]?.pick;
       const currentVal=getPickValue(currentPick);
       const theirVal=getPickValue(theirPickNum);
       // Find a sweetener pick to make up the difference
@@ -998,7 +999,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
               <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>cpu trades</div>
               <p style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",margin:"4px 0 0"}}>CPU teams can trade up with each other when elite players slide</p>
             </div>
-            <button onClick={()=>setCpuTrades(prev=>!prev)} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"8px 16px",background:cpuTrades?"#171717":"transparent",color:cpuTrades?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>{cpuTrades?"on":"off"}</button>
+            <button onClick={()=>setCpuTrades(prev=>!prev)} style={{width:48,height:26,borderRadius:13,border:"none",background:cpuTrades?"linear-gradient(135deg,#a855f7,#ec4899)":"#d4d4d4",cursor:"pointer",position:"relative",transition:"background 0.2s"}}><div style={{width:20,height:20,borderRadius:10,background:"#fff",position:"absolute",top:3,left:cpuTrades?25:3,transition:"left 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)"}}/></button>
           </div>
         </div>
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:16}}>
