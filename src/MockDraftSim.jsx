@@ -553,32 +553,49 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           if(gpos==="S"||gpos==="SAF"||gpos==="FS"||gpos==="SS")preferredSlot="SS";
           else preferredSlot="CB1";
         }
-        if(pk.round===1||(pk.round===2&&grade>=80)){
-          // Starter: push existing starter down, take preferred slot
+        // Determine target tier: 1=starter, 2=second string, 3=third string, 0=overflow
+        let tier=0;
+        if(pk.round===1){tier=1;}
+        else if(pk.round===2){tier=grade>=85?1:grade>=80?2:3;}
+        else if(pk.round===3){tier=grade>=80?2:3;}
+        else{tier=grade>=70?3:0;}
+
+        if(tier===1){
+          // Starter: take preferred slot, push existing player down
           const s1=preferredSlot;
           if(chart[team][s1]){
-            // Find an empty slot to push the displaced player into
             const emptySlot=group.slots.find(s=>!chart[team][s]);
             if(emptySlot)chart[team][emptySlot]=chart[team][s1];
           }
           chart[team][s1]=entry;
-        }else if(pk.round<=3){
-          // Second slot
+        }else if(tier===2){
+          // Second string
           const target=group.slots[1]||group.slots[0];
           if(!chart[team][target]){
             chart[team][target]=entry;
           }else{
-            // Find any empty slot in the group
             const emptySlot=group.slots.find(s=>!chart[team][s]);
             if(emptySlot)chart[team][emptySlot]=entry;
             else{
-              // Overflow
+              const oi=Object.keys(chart[team]).filter(k=>k.startsWith(group.slots[group.slots.length-1]+"_d")).length;
+              chart[team][group.slots[group.slots.length-1]+"_d"+oi]=entry;
+            }
+          }
+        }else if(tier===3){
+          // Third string
+          const target=group.slots[2]||group.slots[group.slots.length-1]||group.slots[0];
+          if(!chart[team][target]){
+            chart[team][target]=entry;
+          }else{
+            const emptySlot=group.slots.find(s=>!chart[team][s]);
+            if(emptySlot)chart[team][emptySlot]=entry;
+            else{
               const oi=Object.keys(chart[team]).filter(k=>k.startsWith(group.slots[group.slots.length-1]+"_d")).length;
               chart[team][group.slots[group.slots.length-1]+"_d"+oi]=entry;
             }
           }
         }else{
-          // Rd 4-7: last slot in the group
+          // Overflow: Rd 4-7 below 70 — new slot at end
           const target=group.slots[group.slots.length-1];
           if(!chart[team][target]){
             chart[team][target]=entry;
