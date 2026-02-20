@@ -263,19 +263,23 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   },[picks,prospectsMap]);
 
   const gradeMap=useMemo(()=>{const m={};activeBoard.forEach(p=>m[p.id]=activeGrade(p.id));return m;},[activeBoard,activeGrade]);
-  const positions=["QB","RB","WR","TE","OL","EDGE","IDL","LB","CB","S","K/P"];
+  const positions=["QB","RB","WR","TE","OT","IOL","EDGE","IDL","LB","CB","S","K/P"];
   // Map granular filter labels to prospect fields
   const posFilterMatch=(p,filterLabel)=>{
     if(!p)return false;
     const gpos=p.gpos||p.pos;
+    if(filterLabel==="OT")return p.pos==="OL"&&(gpos==="OT"||gpos==="T");
+    if(filterLabel==="IOL")return p.pos==="OL"&&(gpos==="IOL"||gpos==="OG"||gpos==="OC"||gpos==="G"||gpos==="C"||gpos==="OL");
     if(filterLabel==="EDGE")return p.pos==="DL"&&(gpos==="EDGE"||gpos==="DE"||gpos==="OLB");
     if(filterLabel==="IDL")return p.pos==="DL"&&(gpos==="IDL"||gpos==="DT"||gpos==="NT"||gpos==="DL");
     if(filterLabel==="CB")return p.pos==="DB"&&(gpos==="CB");
     if(filterLabel==="S")return p.pos==="DB"&&(gpos==="S"||gpos==="SAF"||gpos==="FS"||gpos==="SS");
     return p.pos===filterLabel;
   };
-  // Map granular position labels to colors (EDGE/IDL share DL color, CB/S share DB color)
+  // Map granular position labels to colors (use parent colors where needed)
   const granularPosColor=(label)=>{
+    if(label==="OT")return POS_COLORS["OT"]||POS_COLORS["OL"];
+    if(label==="IOL")return POS_COLORS["IOL"]||POS_COLORS["OL"];
     if(label==="EDGE"||label==="IDL")return POS_COLORS["DL"];
     if(label==="CB"||label==="S")return POS_COLORS["DB"];
     return POS_COLORS[label]||"#999";
