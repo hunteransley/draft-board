@@ -285,6 +285,22 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     const dn=TEAM_NEEDS_DETAILED?.[team]||{};
     const prof=TEAM_PROFILES[team]||{bpaLean:0.55,posBoost:[],posPenalty:[],stage:"retool",reachTolerance:0.3,variance:2,gposBoost:[]};
     if(pickNum===1){const m=avail.find(id=>{const p=prospectsMap[id];return p&&p.name==="Fernando Mendoza";});if(m)return m;}
+
+    // Elite slide protection: consensus top-5 talents that the CPU must not let fall
+    // Love (RB) and Styles (S) get positionally discounted by the scoring formula,
+    // but in reality teams would never pass on them this late. 85% chance to snap them up.
+    if(pickNum>=6){
+      const eliteSliders=[
+        {name:"Jeremiyah Love",floor:8},
+        {name:"Sonny Styles",floor:10},
+      ];
+      for(const es of eliteSliders){
+        if(pickNum>es.floor){
+          const match=avail.find(id=>{const p=prospectsMap[id];return p&&p.name===es.name;});
+          if(match&&Math.random()<0.85)return match;
+        }
+      }
+    }
     const round=pickNum<=32?1:pickNum<=64?2:pickNum<=100?3:pickNum<=144?4:pickNum<=180?5:pickNum<=220?6:7;
 
     // === STAGE-BASED BPA/NEED SHIFTS ===
