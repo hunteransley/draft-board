@@ -453,12 +453,12 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
     // Score available players for each team in the next 8 slots
     const candidateTeams=[];
-    for(let i=currentIdx+2;i<Math.min(currentIdx+9,totalPicks);i++){
+    for(let i=currentIdx+2;i<Math.min(currentIdx+13,totalPicks);i++){
       const t=getPickTeam(i);
       if(!t||userTeams.has(t)||t===currentTeam)continue;
       const prof=TEAM_PROFILES[t]||{reachTolerance:0.3,stage:"retool",variance:2,bpaLean:0.5};
       // Only aggressive teams trade up
-      if(prof.reachTolerance<0.3&&prof.stage!=="contend"&&prof.stage!=="dynasty")continue;
+      if(prof.reachTolerance<0.25&&prof.stage!=="contend"&&prof.stage!=="dynasty")continue;
 
       // Score available players for this team
       const needs=teamNeeds[t]||["QB","WR","DL"];
@@ -469,7 +469,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         const pos=p.pos;
         const baseGrade=getConsensusGrade?getConsensusGrade(p.name):(0);
         const grade=GRADE_OVERRIDES[p.name]?Math.max(baseGrade,GRADE_OVERRIDES[p.name]):baseGrade;
-        if(grade<80)return; // only trade up for good players
+        if(grade<75)return; // trade up for good players, not just elite
         const rawRank=getConsensusRank?getConsensusRank(p.name):999;
         const consRank=RANK_OVERRIDES[p.name]||rawRank;
         const nc=dn[pos]||0;const ni=needs.indexOf(pos);
@@ -484,9 +484,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         else if(score>secondScore){secondScore=score;}
       });
       if(!bestPlayer)continue;
-      // Only trade up if there's a clear separation — the target is 1.4× better than alternatives
+      // Only trade up if there's a clear preference — target is meaningfully better than alternatives
       const separation=secondScore>0?bestScore/secondScore:2.0;
-      if(separation<1.35)continue;
+      if(separation<1.20)continue;
       // Only trade up if the player is actually sliding (available later than expected)
       if(bestPlayer.consRank<900&&currentPick<=bestPlayer.consRank+2)continue;
 
@@ -501,10 +501,10 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         if(getPickTeam(j)===t){sweetenerIdx=j;sweetenerVal=getPickValue(fullDraftOrder[j]?.pick||999);break;}
       }
       const totalOffer=theirVal+sweetenerVal;
-      if(totalOffer<currentVal*0.88)continue; // not enough value
+      if(totalOffer<currentVal*0.82)continue; // teams overpay in real life
 
       // Probability based on team aggressiveness
-      const tradeProb=prof.stage==="dynasty"?0.35:prof.stage==="contend"?0.40:prof.reachTolerance>=0.4?0.30:0.20;
+      const tradeProb=prof.stage==="dynasty"?0.50:prof.stage==="contend"?0.55:prof.reachTolerance>=0.4?0.40:0.25;
       if(Math.random()>tradeProb)continue;
 
       candidateTeams.push({
