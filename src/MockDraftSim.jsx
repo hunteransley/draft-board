@@ -227,7 +227,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[mobilePanel,setMobilePanel]=useState("board"); // "board" | "picks" | "depth"
   useEffect(()=>{const h=()=>setIsMobile(window.innerWidth<768);window.addEventListener('resize',h);return()=>window.removeEventListener('resize',h);},[]);
   const[numRounds,setNumRounds]=useState(1);
-  const[speed,setSpeed]=useState(600);
+  const[speed,setSpeed]=useState(50);
   const[picks,setPicks]=useState([]);
   const[available,setAvailable]=useState([]);
   const[paused,setPaused]=useState(false);
@@ -248,6 +248,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[tradePartner,setTradePartner]=useState(null);
   const[depthTeamIdx,setDepthTeamIdx]=useState(0);
   const[tradeValueDelta,setTradeValueDelta]=useState(0); // net JJP value from all trades
+  const[cpuTrades,setCpuTrades]=useState(true); // CPU-to-CPU trades enabled
+  const[cpuTradeLog,setCpuTradeLog]=useState([]); // [{fromTeam,toTeam,pickIdx,gave:[],got:[]}]
   const tradeDeclinedRef=useRef(0);
 
   const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[PROSPECTS]);
@@ -275,7 +277,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
   const startDraft=useCallback(()=>{
     setAvailable(activeBoard.map(p=>p.id));setPicks([]);setSetupDone(true);setShowResults(false);
-    setTradeMap({});setLastVerdict(null);setTradeOffer(null);setShowTradeUp(false);setTradeValueDelta(0);
+    setTradeMap({});setLastVerdict(null);setTradeOffer(null);setShowTradeUp(false);setTradeValueDelta(0);setCpuTradeLog([]);
   },[activeBoard]);
 
   const cpuPick=useCallback((team,avail,pickNum)=>{
@@ -440,14 +442,119 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     setLastVerdict(null);setShowResults(false);setTradeOffer(null);
   },[picks,activeBoard]);
 
+  // === CPU-to-CPU TRADE-UP LOGIC ===
+  // Evaluates whether a team picking later wants to trade up to the current CPU pick.
+  // Triggers when an elite player is sliding and a team behind desperately wants them.
+  const evaluateCpuTradeUp=useCallback((currentIdx)=>{
+    if(!cpuTrades)return null;
+    const currentTeam=getPickTeam(currentIdx);
+    const currentPick=fullDraftOrder[currentIdx]?.pick;
+    if(!currentPick||currentPick>64)return null; // only trade up in rounds 1-2
+
+    // Score available players for each team in the next 8 slots
+    const candidateTeams=[];
+    for(let i=currentIdx+2;i<Math.min(currentIdx+9,totalPicks);i++){
+      const t=getPickTeam(i);
+      if(!t||userTeams.has(t)||t===currentTeam)continue;
+      const prof=TEAM_PROFILES[t]||{reachTolerance:0.3,stage:"retool",variance:2,bpaLean:0.5};
+      // Only aggressive teams trade up
+      if(prof.reachTolerance<0.3&&prof.stage!=="contend"&&prof.stage!=="dynasty")continue;
+
+      // Score available players for this team
+      const needs=teamNeeds[t]||["QB","WR","DL"];
+      const dn=TEAM_NEEDS_DETAILED?.[t]||{};
+      let bestPlayer=null,bestScore=0,secondScore=0;
+      available.forEach(id=>{
+        const p=prospectsMap[id];if(!p)return;
+        const pos=p.pos;
+        const baseGrade=getConsensusGrade?getConsensusGrade(p.name):(0);
+        const grade=GRADE_OVERRIDES[p.name]?Math.max(baseGrade,GRADE_OVERRIDES[p.name]):baseGrade;
+        if(grade<80)return; // only trade up for good players
+        const rawRank=getConsensusRank?getConsensusRank(p.name):999;
+        const consRank=RANK_OVERRIDES[p.name]||rawRank;
+        const nc=dn[pos]||0;const ni=needs.indexOf(pos);
+        const slide=consRank<900?(currentPick-consRank):0;
+        // Is this player a strong fit AND sliding?
+        const needFit=nc>=2?2.0:nc>=1?1.5:ni>=0&&ni<3?1.2:ni>=0?1.0:0.5;
+        const gradeScore=Math.pow(grade,1.2);
+        const slideBonus=slide>3?slide*3:0;
+        const isBoosted=prof.posBoost?.includes(pos)?1.15:1.0;
+        const score=gradeScore*needFit*isBoosted+slideBonus;
+        if(score>bestScore){secondScore=bestScore;bestScore=score;bestPlayer={id,name:p.name,grade,consRank,pos,score};}
+        else if(score>secondScore){secondScore=score;}
+      });
+      if(!bestPlayer)continue;
+      // Only trade up if there's a clear separation — the target is 1.4× better than alternatives
+      const separation=secondScore>0?bestScore/secondScore:2.0;
+      if(separation<1.35)continue;
+      // Only trade up if the player is actually sliding (available later than expected)
+      if(bestPlayer.consRank<900&&currentPick<=bestPlayer.consRank+2)continue;
+
+      // Check trade value: can they afford it?
+      const theirPickIdx=i;
+      const theirPickNum=fullDraftOrder[i]?.pick;
+      const currentVal=getPickValue(currentPick);
+      const theirVal=getPickValue(theirPickNum);
+      // Find a sweetener pick to make up the difference
+      let sweetenerIdx=null,sweetenerVal=0;
+      for(let j=theirPickIdx+1;j<totalPicks;j++){
+        if(getPickTeam(j)===t){sweetenerIdx=j;sweetenerVal=getPickValue(fullDraftOrder[j]?.pick||999);break;}
+      }
+      const totalOffer=theirVal+sweetenerVal;
+      if(totalOffer<currentVal*0.88)continue; // not enough value
+
+      // Probability based on team aggressiveness
+      const tradeProb=prof.stage==="dynasty"?0.35:prof.stage==="contend"?0.40:prof.reachTolerance>=0.4?0.30:0.20;
+      if(Math.random()>tradeProb)continue;
+
+      candidateTeams.push({
+        team:t,theirPickIdx,theirPickNum,sweetenerIdx,
+        sweetenerPick:sweetenerIdx!==null?fullDraftOrder[sweetenerIdx]?.pick:null,
+        sweetenerRound:sweetenerIdx!==null?fullDraftOrder[sweetenerIdx]?.round:null,
+        targetPlayer:bestPlayer,separation,totalOffer,currentVal
+      });
+    }
+    if(candidateTeams.length===0)return null;
+    // Pick the most desperate team (highest separation)
+    candidateTeams.sort((a,b)=>b.separation-a.separation);
+    return candidateTeams[0];
+  },[cpuTrades,getPickTeam,fullDraftOrder,totalPicks,userTeams,teamNeeds,available,prospectsMap,getConsensusGrade,getConsensusRank,TEAM_NEEDS_DETAILED]);
+
   // CPU auto-pick — pauses when trade offer or trade panel is open
   useEffect(()=>{
     if(!setupDone||picks.length>=totalPicks||paused||tradeOffer||showTradeUp)return;
     const n=picks.length;const team=getPickTeam(n);
     if(userTeams.has(team))return;
-    const timer=setTimeout(()=>{const pid=cpuPick(team,available,fullDraftOrder[n].pick);if(pid)makePick(pid);},speed);
+    const timer=setTimeout(()=>{
+      // Check for CPU-to-CPU trade-up first
+      const cpuTrade=evaluateCpuTradeUp(n);
+      if(cpuTrade){
+        // Execute the trade: swap picks in tradeMap
+        const tradingTeam=cpuTrade.team;
+        setTradeMap(prev=>{
+          const nm={...prev,[n]:tradingTeam,[cpuTrade.theirPickIdx]:team};
+          if(cpuTrade.sweetenerIdx!==null)nm[cpuTrade.sweetenerIdx]=team;
+          return nm;
+        });
+        // Log the trade for UI display
+        const gaveLabels=[`Rd${fullDraftOrder[cpuTrade.theirPickIdx].round} #${cpuTrade.theirPickNum}`];
+        if(cpuTrade.sweetenerIdx!==null)gaveLabels.push(`Rd${cpuTrade.sweetenerRound} #${cpuTrade.sweetenerPick}`);
+        const gotLabels=[`Rd${fullDraftOrder[n].round} #${fullDraftOrder[n].pick}`];
+        setCpuTradeLog(prev=>[...prev,{fromTeam:tradingTeam,toTeam:team,pickIdx:n,gave:gaveLabels,got:gotLabels,targetPlayer:cpuTrade.targetPlayer.name}]);
+        // Execute the pick directly for the trading team (can't use makePick due to async tradeMap)
+        const pid=cpuPick(tradingTeam,available,fullDraftOrder[n].pick);
+        if(pid){
+          const{round,pick}=fullDraftOrder[n];
+          setPicks(prev=>[...prev,{pick,round,team:tradingTeam,playerId:pid,traded:true,isUser:false}]);
+          setAvailable(prev=>prev.filter(id=>id!==pid));
+          if(picks.length+1>=totalPicks)setShowResults(true);
+        }
+      }else{
+        const pid=cpuPick(team,available,fullDraftOrder[n].pick);if(pid)makePick(pid);
+      }
+    },speed);
     return()=>clearTimeout(timer);
-  },[picks,paused,available,userTeams,cpuPick,makePick,speed,setupDone,fullDraftOrder,totalPicks,getPickTeam,tradeOffer,showTradeUp]);
+  },[picks,paused,available,userTeams,cpuPick,makePick,speed,setupDone,fullDraftOrder,totalPicks,getPickTeam,tradeOffer,showTradeUp,evaluateCpuTradeUp]);
 
   // CPU trade offers — only when it's actually the user's turn and no offer exists
   useEffect(()=>{
@@ -886,6 +993,15 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           </div>
         </div>
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:16}}>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+            <div>
+              <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>cpu trades</div>
+              <p style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",margin:"4px 0 0"}}>CPU teams can trade up with each other when elite players slide</p>
+            </div>
+            <button onClick={()=>setCpuTrades(prev=>!prev)} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"8px 16px",background:cpuTrades?"#171717":"transparent",color:cpuTrades?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>{cpuTrades?"on":"off"}</button>
+          </div>
+        </div>
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:16}}>
           <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>draft board</div>
           <div style={{display:"flex",gap:6}}>
             {[["consensus","Consensus Board"],["my","My Board"]].map(([mode,label])=><button key={mode} onClick={()=>setBoardMode(mode)} style={{flex:1,fontFamily:sans,fontSize:13,fontWeight:boardMode===mode?700:400,padding:"10px 14px",background:boardMode===mode?"#171717":"transparent",color:boardMode===mode?"#faf9f6":"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>{label}</button>)}
@@ -979,7 +1095,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           <NFLTeamLogo team={pick.team} size={13}/>
           <span style={{fontFamily:mono,fontSize:8,color:c}}>{p.gpos||p.pos}</span>
           <span style={{fontFamily:sans,fontSize:10,fontWeight:isU?600:400,color:isU?"#171717":"#737373",flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{p.name}</span>
-          {pick.traded&&<span style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.03)",padding:"1px 4px",borderRadius:2}}>TRD</span>}
+          {pick.traded&&(()=>{const ct=cpuTradeLog.find(t=>t.pickIdx===i);return ct?<span title={`${ct.fromTeam} traded ${ct.gave.join(" + ")} to ${ct.toTeam} for ${ct.got.join(" + ")}`} style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 4px",borderRadius:2,cursor:"help"}}>🔄 TRD</span>:<span style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.03)",padding:"1px 4px",borderRadius:2}}>TRD</span>;})()}
         </div></div>;
       })}
       {picks.length<totalPicks&&<div style={{padding:"8px 10px",display:"flex",alignItems:"center",gap:5}}>
