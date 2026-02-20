@@ -48,7 +48,24 @@ function generateMatchups(ids,consensusRankFn){
   const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
   return[...shuffle(phase1),...shuffle(phase2),...shuffle(phase3)];
 }
-function getNextMatchup(mups,done,ratings){const rem=mups.filter(m=>!done.has(`${m[0]}-${m[1]}`));if(!rem.length)return null;rem.sort((a,b)=>Math.abs((ratings[a[0]]||1500)-(ratings[a[1]]||1500))-Math.abs((ratings[b[0]]||1500)-(ratings[b[1]]||1500)));return rem[Math.floor(Math.random()*Math.min(3,rem.length))];}
+function getNextMatchup(mups,done,ratings,compCounts,consensusRankFn){
+  const rem=mups.filter(m=>!done.has(`${m[0]}-${m[1]}`));
+  if(!rem.length)return null;
+  // Score each remaining matchup: prefer matchups involving top consensus players with few comparisons
+  rem.forEach(m=>{
+    const crA=consensusRankFn?.(m[0])||999;const crB=consensusRankFn?.(m[1])||999;
+    const ccA=compCounts?.[m[0]]||0;const ccB=compCounts?.[m[1]]||0;
+    // Priority: top consensus players who haven't been compared much
+    // Lower score = higher priority
+    const consensusBonus=(Math.min(crA,crB)<=5?-200:Math.min(crA,crB)<=10?-100:Math.min(crA,crB)<=15?-50:0);
+    const undersampledBonus=-(Math.max(0,3-ccA)*40+Math.max(0,3-ccB)*40); // bonus for players under 3 comps
+    const eloCloseness=Math.abs((ratings[m[0]]||1500)-(ratings[m[1]]||1500));
+    m._score=consensusBonus+undersampledBonus+eloCloseness;
+  });
+  rem.sort((a,b)=>a._score-b._score);
+  // Pick from top 3 candidates with slight randomness
+  return rem[Math.floor(Math.random()*Math.min(3,rem.length))];
+}
 const DRAFT_ORDER=[{pick:1,team:"Raiders"},{pick:2,team:"Jets"},{pick:3,team:"Cardinals"},{pick:4,team:"Titans"},{pick:5,team:"Giants"},{pick:6,team:"Browns"},{pick:7,team:"Commanders"},{pick:8,team:"Saints"},{pick:9,team:"Chiefs"},{pick:10,team:"Bengals"},{pick:11,team:"Dolphins"},{pick:12,team:"Cowboys"},{pick:13,team:"Rams"},{pick:14,team:"Ravens"},{pick:15,team:"Buccaneers"},{pick:16,team:"Jets"},{pick:17,team:"Lions"},{pick:18,team:"Vikings"},{pick:19,team:"Panthers"},{pick:20,team:"Cowboys"},{pick:21,team:"Steelers"},{pick:22,team:"Chargers"},{pick:23,team:"Eagles"},{pick:24,team:"Browns"},{pick:25,team:"Bears"},{pick:26,team:"Bills"},{pick:27,team:"49ers"},{pick:28,team:"Texans"},{pick:29,team:"Rams"},{pick:30,team:"Broncos"},{pick:31,team:"Patriots"},{pick:32,team:"Seahawks"}];
 const NFL_TEAM_ABR={"Raiders":"LV","Jets":"NYJ","Cardinals":"ARI","Titans":"TEN","Giants":"NYG","Browns":"CLE","Commanders":"WAS","Saints":"NO","Chiefs":"KC","Bengals":"CIN","Dolphins":"MIA","Cowboys":"DAL","Rams":"LA","Ravens":"BAL","Buccaneers":"TB","Lions":"DET","Vikings":"MIN","Panthers":"CAR","Steelers":"PIT","Chargers":"LAC","Eagles":"PHI","Bears":"CHI","Bills":"BUF","49ers":"SF","Texans":"HOU","Broncos":"DEN","Patriots":"NE","Seahawks":"SEA","Falcons":"ATL","Colts":"IND","Jaguars":"JAX","Packers":"GB"};
 const NFL_TEAM_ESPN={"Raiders":13,"Jets":20,"Cardinals":22,"Titans":10,"Giants":19,"Browns":5,"Commanders":28,"Saints":18,"Chiefs":12,"Bengals":4,"Dolphins":15,"Cowboys":6,"Rams":14,"Ravens":33,"Buccaneers":27,"Lions":8,"Vikings":16,"Panthers":29,"Steelers":23,"Chargers":24,"Eagles":21,"Bears":3,"Bills":2,"49ers":25,"Texans":34,"Broncos":7,"Patriots":17,"Seahawks":26,"Falcons":1,"Colts":11,"Jaguars":30,"Packers":9};
@@ -387,6 +404,7 @@ function DraftBoard({user,onSignOut}){
 
   const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[]);
   const byPos=useMemo(()=>{const m={};PROSPECTS.forEach(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;if(!m[group])m[group]=[];m[group].push(p);});return m;},[]);
+  const posRankFn=useCallback((id)=>{const p=prospectsMap[id];if(!p)return 999;const ps=getProspectStats(p.name,p.school);return ps?.posRank||getConsensusRank(p.name)||999;},[prospectsMap]);
   const startRanking=useCallback((pos,resume=false)=>{
     const ids=(byPos[pos]||[]).map(p=>p.id);
     const consensusRankFn=(id)=>{const p=prospectsMap[id];if(!p)return 999;const ps=getProspectStats(p.name,p.school);return ps?.posRank||getConsensusRank(p.name)||999;};
@@ -408,15 +426,15 @@ function DraftBoard({user,onSignOut}){
     setRatings(r);setCompCount(c);
     setCompleted(prev=>({...prev,[pos]:doneSet}));
     setMatchups(prev=>({...prev,[pos]:allM}));
-    const next=getNextMatchup(allM,doneSet,r);
+    const next=getNextMatchup(allM,doneSet,r,c,posRankFn);
     if(!next){finishRanking(pos,r);return;}
     setCurrentMatchup(next);
     setActivePos(pos);setPhase("ranking");
-  },[ratings,compCount,byPos,partialProgress,prospectsMap]);
+  },[ratings,compCount,byPos,partialProgress,prospectsMap,posRankFn]);
   const handlePick=useCallback((winnerId,confidence=0.5)=>{if(!currentMatchup||!activePos)return;const[a,b]=currentMatchup;const aWon=winnerId===a;const k=24+(confidence*24);const{newA,newB}=eloUpdate(ratings[a]||1500,ratings[b]||1500,aWon,k);const ur={...ratings,[a]:newA,[b]:newB};setRatings(ur);const uc={...compCount,[a]:(compCount[a]||0)+1,[b]:(compCount[b]||0)+1};setCompCount(uc);setWinCount(prev=>({...prev,[winnerId]:(prev[winnerId]||0)+1}));const ns=new Set(completed[activePos]);ns.add(`${a}-${b}`);setCompleted(prev=>({...prev,[activePos]:ns}));
     // Save partial progress for resume
     setPartialProgress(prev=>({...prev,[activePos]:{matchups:matchups[activePos]||[],completed:ns,ratings:ur}}));
-    const next=getNextMatchup(matchups[activePos],ns,ur);if(!next)finishRanking(activePos,ur);else setCurrentMatchup(next);setShowConfidence(false);setPendingWinner(null);},[currentMatchup,activePos,ratings,completed,matchups,compCount]);
+    const next=getNextMatchup(matchups[activePos],ns,ur,uc,posRankFn);if(!next)finishRanking(activePos,ur);else setCurrentMatchup(next);setShowConfidence(false);setPendingWinner(null);},[currentMatchup,activePos,ratings,completed,matchups,compCount,posRankFn]);
   const canFinish=useMemo(()=>{if(!activePos||!byPos[activePos])return false;return byPos[activePos].every(p=>(compCount[p.id]||0)>=MIN_COMPS);},[activePos,byPos,compCount]);
   const canSim=useMemo(()=>{if(!activePos)return false;const doneCount=(completed[activePos]||new Set()).size;return doneCount>=10;},[activePos,completed]);
   const simAndFinish=useCallback((pos)=>{
