@@ -507,18 +507,18 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     const needs=teamNeeds[team]||["QB","WR","DL"];
     const dn=TEAM_NEEDS_DETAILED?.[team]||{};
     const rivals=DIVISION_RIVALS[team]||[];
-    // Get rival top-1 needs within 7 picks, and track which rival picks where
-    const rivalTopNeeds=[];// [{team, pos, pickIdx}]
+    // Get rival top-2 LIVE needs within 7 picks
+    const rivalTopNeeds=[];// [{team, positions:[pos1,pos2], pickIdx}]
     for(let i=picks.length+1;i<Math.min(picks.length+8,fullDraftOrder.length);i++){
       const t=getPickTeam(i);
       if(rivals.includes(t)){
-        const rNeeds=teamNeeds[t]||[];
-        const rn=TEAM_NEEDS_DETAILED?.[t]||{};
-        // Find top-1 need: highest count in detailed needs, or first in needs array
-        let topNeed=rNeeds[0]||null;
-        let topCount=0;
-        Object.entries(rn).forEach(([pos,count])=>{if(count>topCount){topCount=count;topNeed=pos;}});
-        if(topNeed)rivalTopNeeds.push({team:t,pos:topNeed,pickIdx:i});
+        // Compute live needs for this rival (base needs minus what they've already drafted)
+        const base={...(TEAM_NEEDS_DETAILED?.[t]||{})};
+        picks.filter(pk=>pk.team===t).forEach(pk=>{const p=prospectsMap[pk.playerId];if(p&&base[p.pos]>0)base[p.pos]--;});
+        // Find top-2 needs by remaining count
+        const sorted=Object.entries(base).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]);
+        const topPositions=sorted.slice(0,2).map(([pos])=>pos);
+        if(topPositions.length>0)rivalTopNeeds.push({team:t,positions:topPositions,pickIdx:i});
       }
     }
     // Pre-compute: for each position, what's the top 33% threshold among available?
@@ -543,21 +543,20 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       if((nc>=2||(nc>=1&&ni<=1)||(ni===0))&&alreadyAtPos<2){
         t.push({tag:"NEED",color:"#0369a1",bg:"#e0f2fe"});
       }
-      // SLIDE: consensus rank is well above current pick (scaled by round)
+      // SLIDE: consensus rank is well above current pick (scaled by draft position)
       const consRank=getConsensusRank?getConsensusRank(p.name):999;
-      const round=pickNum<=32?1:pickNum<=64?2:3;
-      const slideThreshold=round===1?8:round===2?12:15;
+      const slideThreshold=pickNum<=15?5:pickNum<=32?7:pickNum<=64?12:15;
       if(consRank<900&&(pickNum-consRank)>=slideThreshold){
         t.push({tag:"SLIDE",color:"#c026d3",bg:"#fae8ff"});
       }
-      // RIVAL: a division rival picking within 7 picks has this as their TOP-1 need,
+      // RIVAL: a division rival picking within 7 picks has this as their top-2 LIVE need,
       // AND this player is top 33% available at their position OR has 65+ grade
       const playerGrade=getConsensusGrade?getConsensusGrade(p.name):50;
       const posRank=posRankMap[id]||999;
       const top33Cutoff=posTop33[pos]||1;
       const isEliteAvail=posRank<=top33Cutoff||playerGrade>=65;
       if(isEliteAvail&&consRank<900){
-        const matchingRival=rivalTopNeeds.find(r=>r.pos===pos);
+        const matchingRival=rivalTopNeeds.find(r=>r.positions.includes(pos));
         if(matchingRival){
           t.push({tag:"RIVAL",color:"#dc2626",bg:"#fef2f2"});
         }
