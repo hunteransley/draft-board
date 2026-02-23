@@ -891,7 +891,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
     if(isSingleTeam){
       // ================================================================
-      // SINGLE TEAM — light bg, tight layout, radar chart
+      // SINGLE TEAM — light bg, tight layout
+      // Logo in dark footer, spider card under picks
       // ================================================================
       const W=900,pad=32,colGap=24;
       const pickRowH=42;
@@ -908,42 +909,36 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
       // Best pick for radar
       const bestPick=teamPicks.reduce((best,pk)=>{const g=activeGrade(pk.playerId);return(!best||g>best.grade)?{pk,grade:g}:best;},null);
-      const radarSize=180;
-      const radarH=bestPick?radarSize+50:0;
+      const radarSize=200;
+      const radarCardH=bestPick?radarSize+70:0;
 
       const depthTotalH=depthRowCount*depthRowH+depthGroups.length*depthGroupGap+20;
       const picksTotalH=24+teamPicks.length*pickRowH;
-      const rightContentH=depthTotalH+radarH;
-      const bodyH=Math.max(picksTotalH,rightContentH);
-      const headerH=72;
-      const footerH=40;
+      const leftContentH=picksTotalH+radarCardH;
+      const bodyH=Math.max(leftContentH,depthTotalH);
+      const headerH=62;
+      const footerH=60;
       const H=headerH+bodyH+footerH+pad;
 
       canvas.width=W*scale;canvas.height=H*scale;
       ctx.scale(scale,scale);
 
-      // Background
       ctx.fillStyle='#faf9f6';ctx.fillRect(0,0,W,H);
-
-      // Top accent — team color
       ctx.fillStyle=accent;ctx.fillRect(0,0,W,4);
 
-      // === HEADER ===
-      try{const logo=new Image();logo.src=BBL_LOGO_B64;await new Promise((r,j)=>{logo.onload=r;logo.onerror=j;setTimeout(j,2000);});ctx.drawImage(logo,pad,14,40,40);}catch(e){}
-
+      // === HEADER — text only, no logo ===
       ctx.textBaseline='top';ctx.textAlign='left';
       ctx.fillStyle='#171717';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
-      ctx.fillText('BIG BOARD LAB',pad+48,18);
+      ctx.fillText('BIG BOARD LAB',pad,16);
       ctx.fillStyle='#a3a3a3';ctx.font='11px ui-monospace,monospace';
-      ctx.fillText('2026 NFL MOCK DRAFT',pad+48,38);
+      ctx.fillText('2026 NFL MOCK DRAFT',pad,38);
 
-      // Team name + grade + logo
-      try{const tLogo=await loadImg(nflLogoUrl(team));ctx.drawImage(tLogo,W-pad-42,14,42,42);}catch(e){}
+      try{const tLogo=await loadImg(nflLogoUrl(team));ctx.drawImage(tLogo,W-pad-42,12,42,42);}catch(e){}
       ctx.textAlign='right';
       ctx.fillStyle='#171717';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
-      ctx.fillText(team,W-pad-50,18);
-      if(draftGrade){ctx.fillStyle=draftGrade.color;ctx.font='bold 28px -apple-system,system-ui,sans-serif';ctx.fillText(draftGrade.grade,W-pad-50,38);}
-      if(tradeValueDelta!==0){ctx.fillStyle=tradeValueDelta>0?'#16a34a':'#dc2626';ctx.font='9px ui-monospace,monospace';ctx.fillText('trade: '+(tradeValueDelta>0?'+':'')+tradeValueDelta+' pts',W-pad-50,draftGrade?66:44);}
+      ctx.fillText(team,W-pad-50,16);
+      if(draftGrade){ctx.fillStyle=draftGrade.color;ctx.font='bold 28px -apple-system,system-ui,sans-serif';ctx.fillText(draftGrade.grade,W-pad-50,36);}
+      if(tradeValueDelta!==0){ctx.fillStyle=tradeValueDelta>0?'#16a34a':'#dc2626';ctx.font='9px ui-monospace,monospace';ctx.fillText('trade: '+(tradeValueDelta>0?'+':'')+tradeValueDelta+' pts',W-pad-50,draftGrade?64:42);}
       ctx.textAlign='left';
 
       ctx.fillStyle='#e5e5e5';ctx.fillRect(pad,headerH,W-pad*2,1);
@@ -993,6 +988,24 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         py+=pickRowH;
       }
 
+      // RADAR CHART — below picks, own card
+      if(bestPick){
+        const bp=prospectsMap[bestPick.pk.playerId];
+        if(bp){
+          const cardY=py+12;
+          const cardH=radarCardH-12;
+          ctx.fillStyle='#fff';rr(pad,cardY,leftW,cardH,8);ctx.fill();
+          ctx.strokeStyle='#f0f0f0';ctx.lineWidth=0.5;ctx.stroke();
+          ctx.fillStyle=accent;ctx.fillRect(pad,cardY+4,3,cardH-8);
+          ctx.fillStyle='#a3a3a3';ctx.font='bold 9px ui-monospace,monospace';ctx.textAlign='center';
+          ctx.fillText('TOP PICK — '+(bp.gpos||bp.pos)+' '+bp.name.toUpperCase(),pad+leftW/2,cardY+14);
+          ctx.textAlign='left';
+          const radarCx=pad+leftW/2;
+          const radarCy=cardY+radarSize/2+40;
+          drawRadarChart(ctx,bp,radarCy,radarCx,radarSize,accent);
+        }
+      }
+
       // RIGHT: DEPTH CHART (no group headers)
       ctx.fillStyle=accent;ctx.font='bold 9px ui-monospace,monospace';
       ctx.fillText('DEPTH CHART',rightX,bodyY);
@@ -1009,30 +1022,19 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         dy+=depthGroupGap;
       }
 
-      // RADAR CHART for best pick
-      if(bestPick){
-        const bp=prospectsMap[bestPick.pk.playerId];
-        if(bp){
-          const radarCx=rightX+rightW/2;
-          const radarCy=dy+radarSize/2+20;
-          ctx.fillStyle='#a3a3a3';ctx.font='bold 9px ui-monospace,monospace';ctx.textAlign='center';
-          ctx.fillText('TOP PICK — '+(bp.gpos||bp.pos)+' '+bp.name.toUpperCase(),radarCx,dy+6);
-          ctx.textAlign='left';
-          drawRadarChart(ctx,bp,radarCy,radarCx,radarSize,accent);
-        }
-      }
-
-      // FOOTER
+      // === DARK FOOTER with BBL logo ===
       const fy=H-footerH;
-      ctx.fillStyle='#e5e5e5';ctx.fillRect(pad,fy,W-pad*2,1);
-      ctx.fillStyle='#a3a3a3';ctx.font='11px -apple-system,system-ui,sans-serif';ctx.textAlign='center';
-      ctx.fillText('bigboardlab.com — Rank prospects · Grade them your way · The most realistic mock draft ever built',W/2,fy+14);
-      ctx.textAlign='left';
+      ctx.fillStyle='#111111';ctx.fillRect(0,fy,W,footerH);
+      try{const logo=new Image();logo.src=BBL_LOGO_B64;await new Promise((r,j)=>{logo.onload=r;logo.onerror=j;setTimeout(j,2000);});ctx.drawImage(logo,pad,fy+10,40,40);}catch(e){}
+      ctx.fillStyle='#ffffff';ctx.font='bold 15px -apple-system,system-ui,sans-serif';ctx.textBaseline='top';
+      ctx.fillText('bigboardlab.com',pad+48,fy+12);
+      ctx.fillStyle='#737373';ctx.font='11px -apple-system,system-ui,sans-serif';
+      ctx.fillText('Rank prospects · Grade them your way · The most realistic mock draft ever built',pad+48,fy+32);
       ctx.fillStyle=accent;ctx.fillRect(0,H-3,W,3);
 
     }else{
       // ================================================================
-      // ALL 32 — landscape 1200×675, light
+      // ALL 32 — landscape 1200×675, light bg, dark footer
       // ================================================================
       const W=1200,H=675;
       canvas.width=W*scale;canvas.height=H*scale;
@@ -1044,12 +1046,11 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       grad.addColorStop(0,'#E31837');grad.addColorStop(0.25,'#003594');grad.addColorStop(0.5,'#4F2683');grad.addColorStop(0.75,'#006778');grad.addColorStop(1,'#FFB612');
       ctx.fillStyle=grad;ctx.fillRect(0,0,W,4);
 
-      try{const logo=new Image();logo.src=BBL_LOGO_B64;await new Promise((r,j)=>{logo.onload=r;logo.onerror=j;setTimeout(j,2000);});ctx.drawImage(logo,pad,10,28,28);}catch(e){}
       ctx.textBaseline='top';ctx.textAlign='left';
       ctx.fillStyle='#171717';ctx.font='bold 14px -apple-system,system-ui,sans-serif';
-      ctx.fillText('BIG BOARD LAB',pad+34,12);
+      ctx.fillText('BIG BOARD LAB',pad,12);
       ctx.fillStyle='#a3a3a3';ctx.font='10px ui-monospace,monospace';
-      ctx.fillText('2026 NFL MOCK DRAFT',pad+34,28);
+      ctx.fillText('2026 NFL MOCK DRAFT',pad,28);
 
       ctx.textAlign='center';ctx.fillStyle='#171717';
       ctx.font='bold 16px -apple-system,system-ui,sans-serif';
@@ -1059,7 +1060,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
       const bodyY=52,cols=4,rows=8;
       const colW=(W-pad*2-((cols-1)*10))/cols;
-      const rowH=74;
+      const rowH=72;
 
       const r1picks=picks.filter(pk=>pk.round===1).slice(0,32);
       const logoCache={};
@@ -1094,22 +1095,29 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         ctx.fillStyle='#a3a3a3';ctx.font='10px -apple-system,system-ui,sans-serif';drawTrunc(ctx,p.school||'',x+48,y+54,colW-56);
       }
 
-      ctx.fillStyle='#e5e5e5';ctx.fillRect(pad,H-28,W-pad*2,1);
-      ctx.fillStyle='#a3a3a3';ctx.font='10px -apple-system,system-ui,sans-serif';ctx.textAlign='center';
-      ctx.fillText('bigboardlab.com — The most realistic mock draft simulator ever built',W/2,H-16);
-      ctx.textAlign='left';
+      // Dark footer
+      const footerH=36;
+      ctx.fillStyle='#111111';ctx.fillRect(0,H-footerH,W,footerH);
+      try{const logo=new Image();logo.src=BBL_LOGO_B64;await new Promise((r,j)=>{logo.onload=r;logo.onerror=j;setTimeout(j,2000);});ctx.drawImage(logo,pad,H-footerH+4,28,28);}catch(e){}
+      ctx.fillStyle='#ffffff';ctx.font='bold 12px -apple-system,system-ui,sans-serif';ctx.textBaseline='top';
+      ctx.fillText('bigboardlab.com',pad+34,H-footerH+6);
+      ctx.fillStyle='#737373';ctx.font='10px -apple-system,system-ui,sans-serif';
+      ctx.fillText('The most realistic mock draft simulator ever built',pad+34,H-footerH+20);
       ctx.fillStyle=grad;ctx.fillRect(0,H-3,W,3);
     }
 
-    // === EXPORT ===
+    // === EXPORT — direct download only (fixes double-image bug) ===
     const label=isSingleTeam?team:'mock-draft';
     canvas.toBlob(blob=>{
       if(!blob){alert('Could not generate image');return;}
-      if(navigator.share&&navigator.canShare&&navigator.canShare({files:[new File([blob],'draft.png',{type:'image/png'})]})){
-        navigator.share({files:[new File([blob],`bigboardlab-${label}.png`,{type:'image/png'})],title:'My Mock Draft — Big Board Lab',text:'Build yours at bigboardlab.com'}).catch(()=>{});
-      }else{
-        const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`bigboardlab-${label}.png`;document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(()=>URL.revokeObjectURL(url),3000);
-      }
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement('a');
+      a.href=url;
+      a.download=`bigboardlab-${label}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(()=>URL.revokeObjectURL(url),3000);
     },'image/png');
   },[picks,userTeams,prospectsMap,activeGrade,getConsensusRank,getConsensusGrade,draftGrade,tradeValueDelta,depthChart,POS_COLORS,cpuTradeLog,fullDraftOrder]);
 
