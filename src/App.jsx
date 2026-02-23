@@ -810,73 +810,151 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
   const dismissCompareTip=()=>{setShowCompareTip(false);try{localStorage.setItem('bbl_compare_tip_seen','1');}catch(e){}};
 
   // Share top 10 as X-optimized image (1200x675)
-  const shareTop10=useCallback(()=>{
-    const W=1200,H=675;
-    const canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;
-    const ctx=canvas.getContext('2d');
-    // Dark gradient background
-    const grad=ctx.createLinearGradient(0,0,W,H);
-    grad.addColorStop(0,'#0a0a0a');grad.addColorStop(1,'#1a1a2e');
-    ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
-    // Subtle grid pattern
-    ctx.strokeStyle='rgba(255,255,255,0.03)';ctx.lineWidth=1;
-    for(let x=0;x<W;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
-    for(let y=0;y<H;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
-    // Accent line at top
-    const acGrad=ctx.createLinearGradient(0,0,W,0);
-    acGrad.addColorStop(0,'#ec4899');acGrad.addColorStop(1,'#7c3aed');
-    ctx.fillStyle=acGrad;ctx.fillRect(0,0,W,4);
-    // Title
-    ctx.fillStyle='#fafafa';ctx.font='bold 36px Georgia,serif';ctx.fillText('MY BIG BOARD',48,56);
-    ctx.fillStyle='rgba(255,255,255,0.3)';ctx.font='500 12px monospace';ctx.fillText('BIGBOARDLAB.COM  ·  2026 NFL DRAFT  ·  TOP 10',48,78);
+  const shareTop10=useCallback(async()=>{
+    const singlePos=filterPos.size===1?[...filterPos][0]:null;
+    const top10=(singlePos?board.filter(p=>(p.gpos||p.pos)===singlePos):board).slice(0,10);
+    if(top10.length===0)return;
+
+    const scale=2;
+    const W=1080,rowH=120,headerH=80,footerH=48;
+    const H=headerH+rowH*top10.length+footerH+20;
+    const canvas=document.createElement('canvas');canvas.width=W*scale;canvas.height=H*scale;
+    const ctx=canvas.getContext('2d');ctx.scale(scale,scale);
+
+    // Background
+    ctx.fillStyle='#faf9f6';ctx.fillRect(0,0,W,H);
+
+    // Gradient top bar
+    const tGrad=ctx.createLinearGradient(0,0,W,0);
+    tGrad.addColorStop(0,'#ec4899');tGrad.addColorStop(1,'#7c3aed');
+    ctx.fillStyle=tGrad;ctx.fillRect(0,0,W,4);
+
+    // Header
+    ctx.textBaseline='top';ctx.textAlign='left';
+    ctx.fillStyle='#171717';ctx.font='bold 28px -apple-system,system-ui,sans-serif';
+    const title=singlePos?`MY TOP 10 ${singlePos}s`:'MY BIG BOARD — TOP 10';
+    ctx.fillText(title,32,20);
+    ctx.fillStyle='#a3a3a3';ctx.font='10px ui-monospace,monospace';
+    ctx.fillText('BIGBOARDLAB.COM  ·  2026 NFL DRAFT',32,52);
+
     // Separator
-    const dg=ctx.createLinearGradient(48,0,W-48,0);dg.addColorStop(0,'#ec4899');dg.addColorStop(1,'#7c3aed');
-    ctx.fillStyle=dg;ctx.fillRect(48,92,W-96,2);
-    // Players
-    const top10=board.slice(0,10);
+    const sGrad=ctx.createLinearGradient(32,0,W-32,0);
+    sGrad.addColorStop(0,'#ec4899');sGrad.addColorStop(1,'#7c3aed');
+    ctx.fillStyle=sGrad;ctx.fillRect(32,headerH-6,W-64,2);
+
+    // Load school logos
+    const logoCache={};
+    const schools=[...new Set(top10.map(p=>p.school))];
+    await Promise.all(schools.map(async s=>{
+      const url=schoolLogo(s);
+      if(!url)return;
+      try{const img=new Image();img.crossOrigin='anonymous';img.src=url;await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;setTimeout(rej,2000);});logoCache[s]=img;}catch(e){}
+    }));
+
+    // Draw radar chart on canvas
+    const drawRadar=(cx,cy,r,traitNames,values,color)=>{
+      const n=traitNames.length;if(n<3)return;
+      const angles=traitNames.map((_,i)=>(Math.PI*2*i)/n-Math.PI/2);
+      // Grid rings
+      ctx.strokeStyle='#e0e0e0';ctx.lineWidth=0.5;
+      [0.25,0.5,0.75,1].forEach(lv=>{
+        ctx.beginPath();
+        angles.forEach((a,i)=>{const x=cx+r*lv*Math.cos(a),y=cy+r*lv*Math.sin(a);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+        ctx.closePath();ctx.stroke();
+      });
+      // Spokes
+      angles.forEach(a=>{ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+r*Math.cos(a),cy+r*Math.sin(a));ctx.stroke();});
+      // Data polygon
+      const pts=angles.map((a,i)=>{const v=(values[i]||50)/100;return[cx+r*v*Math.cos(a),cy+r*v*Math.sin(a)];});
+      ctx.beginPath();pts.forEach(([x,y],i)=>i===0?ctx.moveTo(x,y):ctx.lineTo(x,y));ctx.closePath();
+      ctx.fillStyle=color+'25';ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.stroke();
+      // Dots
+      pts.forEach(([x,y])=>{ctx.beginPath();ctx.arc(x,y,2,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
+      // Labels
+      ctx.fillStyle='#999';ctx.font='7px ui-monospace,monospace';ctx.textAlign='center';ctx.textBaseline='middle';
+      traitNames.forEach((t,i)=>{
+        const lr=r+12;const x=cx+lr*Math.cos(angles[i]),y=cy+lr*Math.sin(angles[i]);
+        const abbr=t.split(' ').map(w=>w[0]).join('');
+        ctx.fillText(abbr,x,y);
+      });
+      ctx.textAlign='left';ctx.textBaseline='top';
+    };
+
+    // Rows
     top10.forEach((p,i)=>{
-      const y=112+i*54;const grade=getGrade(p.id);const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos];
-      // Row bg
-      ctx.fillStyle=i%2===0?'rgba(255,255,255,0.02)':'transparent';
-      ctx.fillRect(40,y,W-80,50);
-      // Rank number
-      ctx.fillStyle='rgba(255,255,255,0.15)';ctx.font='bold 18px Georgia,serif';
-      ctx.fillText(`${i+1}`.padStart(2,'0'),56,y+32);
-      // Position badge
-      ctx.fillStyle=c;ctx.font='bold 11px monospace';
-      const posW=ctx.measureText(p.pos).width+16;
-      ctx.globalAlpha=0.15;ctx.fillRect(100,y+14,posW,24);ctx.globalAlpha=1;
-      ctx.fillStyle=c;ctx.fillText(p.pos,108,y+31);
-      // Name
-      ctx.fillStyle='#fafafa';ctx.font='bold 20px sans-serif';
-      ctx.fillText(p.name,100+posW+16,y+30);
-      // School
-      const nameW=ctx.measureText(p.name).width;
-      ctx.fillStyle='rgba(255,255,255,0.3)';ctx.font='12px monospace';
-      ctx.fillText(p.school,100+posW+16+nameW+12,y+30);
+      const y=headerH+i*rowH;
+      const grade=getGrade(p.id);
+      const posKey=(p.gpos||p.pos)==='K'||(p.gpos||p.pos)==='P'||(p.gpos||p.pos)==='LS'?'K/P':(p.gpos||p.pos);
+      const c=POS_COLORS[posKey]||POS_COLORS[p.pos]||'#525252';
+      const posTraits=POSITION_TRAITS[p.pos]||POSITION_TRAITS[posKey]||[];
+      const traitVals=posTraits.map(t=>traits[p.id]?.[t]||50);
+
+      // Alt row bg
+      if(i%2===0){ctx.fillStyle='rgba(0,0,0,0.015)';ctx.fillRect(24,y,W-48,rowH);}
+      // Left accent
+      ctx.fillStyle=c;ctx.fillRect(24,y+8,3,rowH-16);
+
+      // Rank
+      ctx.fillStyle='#d4d4d4';ctx.font='bold 18px ui-monospace,monospace';
+      ctx.textAlign='right';ctx.fillText(`${i+1}`.padStart(2,' '),64,y+48);ctx.textAlign='left';
+
+      // Pos pill
+      ctx.fillStyle=c+'18';
+      const posText=p.gpos||p.pos;
+      ctx.font='bold 11px ui-monospace,monospace';
+      const pw=ctx.measureText(posText).width+14;
+      const rr=(x,ry,w,h,rad)=>{ctx.beginPath();ctx.moveTo(x+rad,ry);ctx.lineTo(x+w-rad,ry);ctx.quadraticCurveTo(x+w,ry,x+w,ry+rad);ctx.lineTo(x+w,ry+h-rad);ctx.quadraticCurveTo(x+w,ry+h,x+w-rad,ry+h);ctx.lineTo(x+rad,ry+h);ctx.quadraticCurveTo(x,ry+h,x,ry+h-rad);ctx.lineTo(x,ry+rad);ctx.quadraticCurveTo(x,ry,x+rad,ry);ctx.closePath();};
+      rr(78,y+42,pw,20,4);ctx.fill();
+      ctx.fillStyle=c;ctx.fillText(posText,85,y+47);
+
+      // School logo
+      const logoX=78+pw+14;
+      if(logoCache[p.school])ctx.drawImage(logoCache[p.school],logoX,y+32,36,36);
+
+      // Name + school text
+      const nameX=logoX+46;
+      ctx.fillStyle='#171717';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
+      ctx.fillText(p.name,nameX,y+38);
+      ctx.fillStyle='#a3a3a3';ctx.font='12px -apple-system,system-ui,sans-serif';
+      ctx.fillText(p.school,nameX,y+60);
+
+      // Radar chart (right side)
+      const radarCx=W-180,radarCy=y+rowH/2,radarR=38;
+      if(posTraits.length>=3)drawRadar(radarCx,radarCy,radarR,posTraits,traitVals,c);
+
       // Grade
-      const gColor=grade>=75?'#22c55e':grade>=55?'#eab308':'#ef4444';
-      ctx.fillStyle=gColor;ctx.font='bold 28px Georgia,serif';
-      ctx.textAlign='right';ctx.fillText(`${grade}`,W-56,y+34);ctx.textAlign='left';
-      // Grade bar
-      ctx.fillStyle='rgba(255,255,255,0.05)';ctx.fillRect(W-160,y+38,96,3);
-      ctx.fillStyle=gColor;ctx.globalAlpha=0.6;ctx.fillRect(W-160,y+38,96*(grade/100),3);ctx.globalAlpha=1;
+      const gColor=grade>=75?'#16a34a':grade>=55?'#ca8a04':'#dc2626';
+      ctx.fillStyle=gColor;ctx.font='bold 32px -apple-system,system-ui,sans-serif';
+      ctx.textAlign='right';ctx.fillText(`${grade}`,W-42,y+42);ctx.textAlign='left';
     });
-    // Footer - branded bar
-    const footGrad=ctx.createLinearGradient(0,0,W,0);footGrad.addColorStop(0,'#ec4899');footGrad.addColorStop(1,'#7c3aed');
-    ctx.fillStyle=footGrad;ctx.fillRect(0,H-36,W,36);
-    ctx.fillStyle='#fafafa';ctx.font='bold 14px Georgia,serif';ctx.fillText('big board lab',16,H-12);
-    ctx.fillStyle='rgba(255,255,255,0.7)';ctx.font='11px monospace';
-    ctx.textAlign='right';ctx.fillText(`${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}  ·  BUILD YOURS → BIGBOARDLAB.COM`,W-16,H-12);ctx.textAlign='left';
-    canvas.toBlob(blob=>{
-      if(navigator.share&&navigator.canShare?.({files:[new File([blob],'big-board.png',{type:'image/png'})]})){
-        navigator.share({files:[new File([blob],'my-big-board-top10.png',{type:'image/png'})],title:'My Big Board — Big Board Lab',text:'My 2026 NFL Draft Big Board! Build yours at bigboardlab.com'});
-      }else{
-        const url=URL.createObjectURL(blob);const a=document.createElement('a');
-        a.href=url;a.download='my-big-board-top10.png';a.click();URL.revokeObjectURL(url);
+
+    // Footer
+    const fy=H-footerH;
+    ctx.fillStyle='#111';ctx.fillRect(0,fy,W,footerH);
+    ctx.fillStyle='#fff';ctx.font='bold 13px -apple-system,system-ui,sans-serif';
+    ctx.textBaseline='middle';
+    ctx.fillText('bigboardlab.com',32,fy+footerH/2);
+    ctx.fillStyle='#888';ctx.font='11px -apple-system,system-ui,sans-serif';
+    ctx.textAlign='right';
+    ctx.fillText(`${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}  ·  BUILD YOURS → BIGBOARDLAB.COM`,W-32,fy+footerH/2);
+    ctx.textAlign='left';ctx.textBaseline='top';
+    // Gradient bottom bar
+    const bGrad=ctx.createLinearGradient(0,0,W,0);bGrad.addColorStop(0,'#ec4899');bGrad.addColorStop(1,'#7c3aed');
+    ctx.fillStyle=bGrad;ctx.fillRect(0,H-3,W,3);
+
+    // Export
+    canvas.toBlob(async blob=>{
+      if(!blob)return;
+      const fname=singlePos?`bigboardlab-top10-${singlePos}.png`:'bigboardlab-top10.png';
+      const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if(isMobile&&navigator.share&&navigator.canShare){
+        try{const file=new File([blob],fname,{type:'image/png'});if(navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'My Big Board — Big Board Lab',text:'My 2026 NFL Draft Big Board! Build yours at bigboardlab.com'});return;}}catch(e){}
       }
+      try{await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
+        const toast=document.createElement('div');toast.textContent='📋 copied to clipboard';toast.style.cssText='position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#171717;color:#faf9f6;padding:10px 20px;border-radius:99px;font-family:-apple-system,sans-serif;font-size:13px;z-index:9999;';document.body.appendChild(toast);setTimeout(()=>toast.remove(),2500);
+      }catch(e){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=fname;a.click();URL.revokeObjectURL(url);}
     });
-  },[board,getGrade]);
+  },[board,getGrade,filterPos,traits]);
 
   // Load community board
   const loadCommunity=useCallback(async()=>{
@@ -895,7 +973,7 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
   return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><div style={{maxWidth:800,margin:"0 auto",padding:"40px 24px"}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}><h1 style={{fontSize:36,fontWeight:900,color:"#171717",margin:0,letterSpacing:-1}}>your big board</h1><div style={{display:"flex",gap:8}}><button onClick={()=>setPhase("pick-position")} style={{fontFamily:sans,fontSize:12,padding:"8px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>← edit</button></div></div><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 12px"}}>{display.length} prospects ranked</p>
 
     <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:12}}>
-      <button onClick={shareTop10} style={{fontFamily:sans,fontSize:11,fontWeight:600,padding:"6px 14px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>📤 share top 10</button>
+      {filterPos.size<=1&&<button onClick={shareTop10} style={{fontFamily:sans,fontSize:11,fontWeight:600,padding:"6px 14px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>📤 share top 10</button>}
       <button onClick={()=>setShowMockDraft(true)} style={{fontFamily:sans,fontSize:11,fontWeight:600,padding:"6px 14px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>🏈 mock draft</button>
     </div>
 
