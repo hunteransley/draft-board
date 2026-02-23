@@ -585,7 +585,7 @@ function DraftBoard({user,onSignOut}){
     const dismissOnboarding=()=>{setShowOnboarding(false);try{localStorage.setItem('bbl_onboarded','1');}catch(e){}};
 
     // Consensus big board — all prospects sorted by consensus rank
-    const consensusBoard=PROSPECTS.filter(p=>{const cr=getConsensusRank(p.name);return cr&&cr<=300;}).sort((a,b)=>getConsensusRank(a.name)-getConsensusRank(b.name));
+    const consensusBoard=PROSPECTS.filter(p=>{const cr=getConsensusRank(p.name);return cr&&cr<999;}).sort((a,b)=>getConsensusRank(a.name)-getConsensusRank(b.name));
     // User big board
     const userBoard=getBoard();
 
