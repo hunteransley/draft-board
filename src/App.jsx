@@ -644,7 +644,13 @@ function DraftBoard({user,onSignOut}){
 
           {/* Team picker — always visible, multi-select */}
           <div style={{marginBottom:mockTeamSet.size>0?16:0}}>
-            <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#64748b",textTransform:"uppercase",marginBottom:8}}>{mockTeamPicker?"your team"+(mockTeamSet.size>1?"s":""):"pick your team"}</div>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
+              <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#64748b",textTransform:"uppercase"}}>{mockTeamSet.size>0?"your team"+(mockTeamSet.size>1?"s":""):"pick your team"}</div>
+              <div style={{display:"flex",gap:4}}>
+                <button onClick={()=>{setMockTeamSet(new Set(topTeams));setMockTeamPicker(topTeams[0]);}} style={{fontFamily:sans,fontSize:9,padding:"3px 8px",background:"transparent",border:"1px solid rgba(255,255,255,0.1)",borderRadius:99,cursor:"pointer",color:"#64748b"}}>select all</button>
+                <button onClick={()=>{setMockTeamSet(new Set());setMockTeamPicker("");}} style={{fontFamily:sans,fontSize:9,padding:"3px 8px",background:"transparent",border:"1px solid rgba(255,255,255,0.1)",borderRadius:99,cursor:"pointer",color:"#64748b"}}>clear</button>
+              </div>
+            </div>
             <div style={{display:"flex",flexWrap:"wrap",gap:5}}>
               {topTeams.sort().map(t=>{const sel=mockTeamSet.has(t);return<button key={t} onClick={()=>{const ns=new Set(mockTeamSet);if(ns.has(t))ns.delete(t);else ns.add(t);setMockTeamSet(ns);setMockTeamPicker(ns.size>0?[...ns][0]:"");}} style={{fontFamily:sans,fontSize:10,fontWeight:sel?700:600,padding:"5px 10px",background:sel?"rgba(236,72,153,0.2)":"rgba(255,255,255,0.06)",color:sel?"#f9a8d4":"#cbd5e1",border:sel?"1px solid rgba(236,72,153,0.4)":"1px solid rgba(255,255,255,0.08)",borderRadius:8,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,transition:"all 0.15s"}} onMouseEnter={e=>{if(!sel){e.currentTarget.style.background="rgba(255,255,255,0.12)";e.currentTarget.style.color="#f1f5f9";}}} onMouseLeave={e=>{if(!sel){e.currentTarget.style.background="rgba(255,255,255,0.06)";e.currentTarget.style.color="#cbd5e1";}}}><NFLTeamLogo team={t} size={14}/>{t}</button>;})}
             </div>

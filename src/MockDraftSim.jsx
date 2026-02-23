@@ -194,8 +194,6 @@ const TEAM_PROFILES={
   Ravens:{bpaLean:0.7,posBoost:["OL","WR","DB"],posPenalty:[],stage:"contend",reachTolerance:0.35,variance:2,gposBoost:["EDGE","NT","IDL"]},
 };
 
-function pickVerdict(pickNum,consRank,grade){
-
 // Division map for RIVAL tags
 const DIVISION_RIVALS={
   // AFC East
@@ -215,6 +213,8 @@ const DIVISION_RIVALS={
   // NFC West
   "Cardinals":["49ers","Rams","Seahawks"],"49ers":["Cardinals","Rams","Seahawks"],"Rams":["Cardinals","49ers","Seahawks"],"Seahawks":["Cardinals","49ers","Rams"],
 };
+
+function pickVerdict(pickNum,consRank,grade){
   if(consRank>=900)return{text:"UNKNOWN",color:"#737373",bg:"#f5f5f5"};
   const playerVal=getPickValue(consRank);
   const slotVal=getPickValue(pickNum);
@@ -1376,6 +1376,16 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   };
 
   // === SETUP SCREEN ===
+  // If launching from home screen, show a loading state instead of setup screen during auto-start
+  if(!setupDone&&mockLaunchTeam&&mockLaunchTeam instanceof Set&&mockLaunchTeam.size>0)return(
+    <div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}>
+      <div style={{textAlign:"center"}}>
+        <div style={{fontSize:32,marginBottom:8}}>🏈</div>
+        <div style={{fontFamily:mono,fontSize:11,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>setting up war room...</div>
+      </div>
+    </div>
+  );
+
   if(!setupDone)return(
     <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
       <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}>
