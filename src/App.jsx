@@ -392,6 +392,8 @@ function DraftBoard({user,onSignOut}){
   const[showMockDraft,setShowMockDraft]=useState(false);
   const[mockLaunchTeam,setMockLaunchTeam]=useState(null);
   const[mockTeamPicker,setMockTeamPicker]=useState(()=>{try{return localStorage.getItem('bbl_fav_team')||"";}catch(e){return"";}});
+  const[mockRounds,setMockRounds]=useState(1);
+  const[mockSpeed,setMockSpeed]=useState(200);
   useEffect(()=>{if(showMockDraft)trackEvent(user.id,'mock_draft_started');},[showMockDraft]);
   const[boardTab,setBoardTab]=useState("consensus");
   const[boardFilter,setBoardFilter]=useState(new Set());
@@ -571,7 +573,7 @@ function DraftBoard({user,onSignOut}){
   if(phase==="loading")return(<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading your board...</p></div>);
 
   // === MOCK DRAFT (check before phase returns to fix click bug) ===
-  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA);const bRanked=rankedGroups.has(gB);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}}/>;}
+  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA);const bRanked=rankedGroups.has(gB);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}}/>;}
   // === HOME ===
   if(phase==="home"||phase==="pick-position"){
     const hasBoardData=rankedGroups.size>0||Object.keys(partialProgress).length>0;
@@ -609,7 +611,7 @@ function DraftBoard({user,onSignOut}){
         <h1 style={{fontSize:"clamp(28px,6vw,40px)",fontWeight:900,color:"#171717",margin:"0 0 2px",letterSpacing:-1.5}}>big board lab</h1>
         <p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:0}}>2026 NFL Draft · Pittsburgh · April 23–25</p>
       </div>
-      <button onClick={()=>setShowMockDraft(true)} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"7px 16px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",flexShrink:0}}>🏈 war room</button>
+      <button onClick={()=>setShowMockDraft(true)} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"7px 16px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",flexShrink:0}}>🏈 mock draft</button>
     </div>
 
     {/* Stale data warning */}
@@ -621,12 +623,14 @@ function DraftBoard({user,onSignOut}){
     {/* Mock Draft Launcher — primary CTA for new and returning users */}
     {(()=>{
       const topTeams=["Raiders","Jets","Cardinals","Titans","Giants","Browns","Commanders","Saints","Chiefs","Bengals","Dolphins","Cowboys","Rams","Ravens","Buccaneers","Lions","Vikings","Panthers","Steelers","Chargers","Eagles","Bears","Bills","49ers","Texans","Broncos","Patriots","Seahawks"];
-      const launchMock=(team)=>{
-        if(team){try{localStorage.setItem('bbl_fav_team',team);}catch(e){}}
-        setMockTeamPicker(team);
+      const launchMock=()=>{
         setShowMockDraft(true);
-        setMockLaunchTeam(team);
-        trackEvent(user.id,'mock_draft_cta_click',{team:team||"none"});
+        setMockLaunchTeam(mockTeamPicker);
+        trackEvent(user.id,'mock_draft_cta_click',{team:mockTeamPicker||"none"});
+      };
+      const selectTeam=(team)=>{
+        setMockTeamPicker(team);
+        try{localStorage.setItem('bbl_fav_team',team);}catch(e){}
       };
       return <div style={{background:"linear-gradient(135deg,#0f172a,#1e293b)",borderRadius:16,overflow:"hidden",marginBottom:24,position:"relative"}}>
         <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:"linear-gradient(90deg,#ec4899,#7c3aed)"}}/>
@@ -639,21 +643,36 @@ function DraftBoard({user,onSignOut}){
             </div>
             <span style={{fontSize:28,flexShrink:0,marginTop:4}}>🏈</span>
           </div>
-          {!mockTeamPicker?(
-            <div>
-              <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#64748b",textTransform:"uppercase",marginBottom:8}}>pick your team</div>
-              <div style={{display:"flex",flexWrap:"wrap",gap:5}}>
-                {topTeams.sort().map(t=><button key={t} onClick={()=>launchMock(t)} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:"rgba(255,255,255,0.06)",color:"#cbd5e1",border:"1px solid rgba(255,255,255,0.08)",borderRadius:8,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,transition:"all 0.15s"}} onMouseEnter={e=>{e.currentTarget.style.background="rgba(255,255,255,0.12)";e.currentTarget.style.color="#f1f5f9";}} onMouseLeave={e=>{e.currentTarget.style.background="rgba(255,255,255,0.06)";e.currentTarget.style.color="#cbd5e1";}}><NFLTeamLogo team={t} size={14}/>{t}</button>)}
+
+          {/* Team picker */}
+          <div style={{marginBottom:mockTeamPicker?16:0}}>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#64748b",textTransform:"uppercase",marginBottom:8}}>{mockTeamPicker?"your team":"pick your team"}</div>
+            <div style={{display:"flex",flexWrap:"wrap",gap:5}}>
+              {topTeams.sort().map(t=><button key={t} onClick={()=>selectTeam(t)} style={{fontFamily:sans,fontSize:10,fontWeight:mockTeamPicker===t?700:600,padding:"5px 10px",background:mockTeamPicker===t?"rgba(236,72,153,0.2)":"rgba(255,255,255,0.06)",color:mockTeamPicker===t?"#f9a8d4":"#cbd5e1",border:mockTeamPicker===t?"1px solid rgba(236,72,153,0.4)":"1px solid rgba(255,255,255,0.08)",borderRadius:8,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,transition:"all 0.15s"}} onMouseEnter={e=>{if(mockTeamPicker!==t){e.currentTarget.style.background="rgba(255,255,255,0.12)";e.currentTarget.style.color="#f1f5f9";}}} onMouseLeave={e=>{if(mockTeamPicker!==t){e.currentTarget.style.background="rgba(255,255,255,0.06)";e.currentTarget.style.color="#cbd5e1";}}}><NFLTeamLogo team={t} size={14}/>{t}</button>)}
+            </div>
+          </div>
+
+          {/* Expanded options — show after team selected */}
+          {mockTeamPicker&&<div>
+            <div style={{display:"flex",gap:12,marginBottom:12}}>
+              <div style={{flex:1}}>
+                <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#64748b",textTransform:"uppercase",marginBottom:6}}>rounds</div>
+                <div style={{display:"flex",gap:4,flexWrap:"wrap"}}>
+                  {[1,2,3,4,7].map(r=><button key={r} onClick={()=>setMockRounds(r)} style={{fontFamily:sans,fontSize:11,fontWeight:mockRounds===r?700:400,padding:"6px 12px",background:mockRounds===r?"rgba(255,255,255,0.15)":"rgba(255,255,255,0.04)",color:mockRounds===r?"#f1f5f9":"#94a3b8",border:"1px solid rgba(255,255,255,0.08)",borderRadius:8,cursor:"pointer"}}>{r}</button>)}
+                </div>
+              </div>
+              <div style={{flex:1}}>
+                <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#64748b",textTransform:"uppercase",marginBottom:6}}>speed</div>
+                <div style={{display:"flex",gap:4,flexWrap:"wrap"}}>
+                  {[["slow",1200],["med",600],["fast",200],["instant",50]].map(([label,ms])=><button key={label} onClick={()=>setMockSpeed(ms)} style={{fontFamily:sans,fontSize:11,fontWeight:mockSpeed===ms?700:400,padding:"6px 12px",background:mockSpeed===ms?"rgba(255,255,255,0.15)":"rgba(255,255,255,0.04)",color:mockSpeed===ms?"#f1f5f9":"#94a3b8",border:"1px solid rgba(255,255,255,0.08)",borderRadius:8,cursor:"pointer"}}>{label}</button>)}
+                </div>
               </div>
             </div>
-          ):(
-            <div style={{display:"flex",gap:10,alignItems:"center"}}>
-              <button onClick={()=>launchMock(mockTeamPicker)} style={{flex:1,fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 20px",background:"linear-gradient(135deg,#ec4899,#7c3aed)",color:"#fff",border:"none",borderRadius:99,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>
-                <NFLTeamLogo team={mockTeamPicker} size={18}/> draft as {mockTeamPicker} →
-              </button>
-              <button onClick={()=>{setMockTeamPicker("");try{localStorage.removeItem('bbl_fav_team');}catch(e){}}} style={{fontFamily:sans,fontSize:10,color:"#64748b",background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.08)",borderRadius:99,padding:"8px 12px",cursor:"pointer"}}>change</button>
-            </div>
-          )}
+
+            <button onClick={launchMock} style={{width:"100%",fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 20px",background:"linear-gradient(135deg,#ec4899,#7c3aed)",color:"#fff",border:"none",borderRadius:99,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>
+              <NFLTeamLogo team={mockTeamPicker} size={18}/> draft as {mockTeamPicker} →
+            </button>
+          </div>}
         </div>
       </div>;
     })()}
