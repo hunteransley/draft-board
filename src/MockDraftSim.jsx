@@ -966,11 +966,16 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         const v=pickVerdict(pk.pick,rank,g2);
         const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos]||'#525252';
 
+        // Detect trade: was this pick slot originally owned by a different team?
+        const pickIdx=picks.findIndex(x=>x.pick===pk.pick&&x.round===pk.round&&x.playerId===pk.playerId);
+        const origOwner=pickIdx>=0?fullDraftOrder[pickIdx]?.team:null;
+        const wasTrade=origOwner&&origOwner!==pk.team;
+
         ctx.fillStyle='#fff';rr(pad,py,leftW,pickRowH-3,5);ctx.fill();
         ctx.strokeStyle='#f0f0f0';ctx.lineWidth=0.5;ctx.stroke();
         ctx.fillStyle=accent;ctx.fillRect(pad,py+2,3,pickRowH-7);
 
-        if(pk.traded){ctx.fillStyle='rgba(168,85,247,0.08)';rr(pad+8,py+24,28,11,3);ctx.fill();ctx.fillStyle='#a855f7';ctx.font='bold 7px ui-monospace,monospace';ctx.fillText('🔄 TRD',pad+10,py+29);}
+        if(wasTrade){ctx.fillStyle='rgba(168,85,247,0.08)';const trdTxt='🔄 via '+(TEAM_ABBR[origOwner]||origOwner);ctx.font='bold 7px ui-monospace,monospace';const trdW=ctx.measureText(trdTxt).width+8;rr(pad+8,py+24,trdW,11,3);ctx.fill();ctx.fillStyle='#a855f7';ctx.fillText(trdTxt,pad+12,py+29);}
 
         ctx.fillStyle='#a3a3a3';ctx.font='10px ui-monospace,monospace';ctx.textAlign='left';
         ctx.fillText('Rd'+pk.round+' #'+pk.pick,pad+8,py+12);
@@ -981,10 +986,15 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         ctx.fillStyle='#a3a3a3';ctx.font='10px -apple-system,system-ui,sans-serif';
         drawTrunc(ctx,p.school||'',pad+108,py+27,leftW-210);
 
-        const vw=ctx.measureText(v.text).width+10;
-        ctx.fillStyle=v.bg;rr(pad+leftW-vw-40,py+6,vw,16,8);ctx.fill();
-        ctx.fillStyle=v.color;ctx.font='bold 7px ui-monospace,monospace';
-        ctx.fillText(v.text,pad+leftW-vw-35,py+12);
+        // Verdict pill — measure AFTER setting the correct font
+        ctx.font='bold 8px ui-monospace,monospace';
+        const vw=ctx.measureText(v.text).width+14;
+        const vx=pad+leftW-vw-34;
+        ctx.fillStyle=v.bg;rr(vx,py+6,vw,16,8);ctx.fill();
+        ctx.fillStyle=v.color;
+        ctx.textAlign='center';
+        ctx.fillText(v.text,vx+vw/2,py+12);
+        ctx.textAlign='left';
 
         ctx.fillStyle=g>=75?'#16a34a':g>=55?'#ca8a04':'#dc2626';
         ctx.font='bold 16px -apple-system,system-ui,sans-serif';ctx.textAlign='right';
