@@ -391,9 +391,11 @@ function DraftBoard({user,onSignOut}){
   const[communityBoard,setCommunityBoard]=useState(null);
   const[showMockDraft,setShowMockDraft]=useState(false);
   const[mockLaunchTeam,setMockLaunchTeam]=useState(null);
-  const[mockTeamPicker,setMockTeamPicker]=useState(()=>{try{return localStorage.getItem('bbl_fav_team')||"";}catch(e){return"";}});
+  const[mockTeamPicker,setMockTeamPicker]=useState("");
   const[mockRounds,setMockRounds]=useState(1);
   const[mockSpeed,setMockSpeed]=useState(200);
+  const[mockCpuTrades,setMockCpuTrades]=useState(true);
+  const[mockBoardMode,setMockBoardMode]=useState("consensus");
   useEffect(()=>{if(showMockDraft)trackEvent(user.id,'mock_draft_started');},[showMockDraft]);
   const[boardTab,setBoardTab]=useState("consensus");
   const[boardFilter,setBoardFilter]=useState(new Set());
@@ -573,7 +575,7 @@ function DraftBoard({user,onSignOut}){
   if(phase==="loading")return(<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading your board...</p></div>);
 
   // === MOCK DRAFT (check before phase returns to fix click bug) ===
-  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA);const bRanked=rankedGroups.has(gB);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}}/>;}
+  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA);const bRanked=rankedGroups.has(gB);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} mockLaunchCpuTrades={mockCpuTrades} mockLaunchBoardMode={mockBoardMode} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}}/>;}
   // === HOME ===
   if(phase==="home"||phase==="pick-position"){
     const hasBoardData=rankedGroups.size>0||Object.keys(partialProgress).length>0;
@@ -626,11 +628,7 @@ function DraftBoard({user,onSignOut}){
       const launchMock=()=>{
         setShowMockDraft(true);
         setMockLaunchTeam(mockTeamPicker);
-        trackEvent(user.id,'mock_draft_cta_click',{team:mockTeamPicker||"none"});
-      };
-      const selectTeam=(team)=>{
-        setMockTeamPicker(team);
-        try{localStorage.setItem('bbl_fav_team',team);}catch(e){}
+        trackEvent(user.id,'mock_draft_cta_click',{team:mockTeamPicker,rounds:mockRounds,speed:mockSpeed});
       };
       return <div style={{background:"linear-gradient(135deg,#0f172a,#1e293b)",borderRadius:16,overflow:"hidden",marginBottom:24,position:"relative"}}>
         <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:"linear-gradient(90deg,#ec4899,#7c3aed)"}}/>
@@ -644,27 +642,45 @@ function DraftBoard({user,onSignOut}){
             <span style={{fontSize:28,flexShrink:0,marginTop:4}}>🏈</span>
           </div>
 
-          {/* Team picker */}
+          {/* Team picker — always visible */}
           <div style={{marginBottom:mockTeamPicker?16:0}}>
             <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#64748b",textTransform:"uppercase",marginBottom:8}}>{mockTeamPicker?"your team":"pick your team"}</div>
             <div style={{display:"flex",flexWrap:"wrap",gap:5}}>
-              {topTeams.sort().map(t=><button key={t} onClick={()=>selectTeam(t)} style={{fontFamily:sans,fontSize:10,fontWeight:mockTeamPicker===t?700:600,padding:"5px 10px",background:mockTeamPicker===t?"rgba(236,72,153,0.2)":"rgba(255,255,255,0.06)",color:mockTeamPicker===t?"#f9a8d4":"#cbd5e1",border:mockTeamPicker===t?"1px solid rgba(236,72,153,0.4)":"1px solid rgba(255,255,255,0.08)",borderRadius:8,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,transition:"all 0.15s"}} onMouseEnter={e=>{if(mockTeamPicker!==t){e.currentTarget.style.background="rgba(255,255,255,0.12)";e.currentTarget.style.color="#f1f5f9";}}} onMouseLeave={e=>{if(mockTeamPicker!==t){e.currentTarget.style.background="rgba(255,255,255,0.06)";e.currentTarget.style.color="#cbd5e1";}}}><NFLTeamLogo team={t} size={14}/>{t}</button>)}
+              {topTeams.sort().map(t=><button key={t} onClick={()=>setMockTeamPicker(mockTeamPicker===t?"":t)} style={{fontFamily:sans,fontSize:10,fontWeight:mockTeamPicker===t?700:600,padding:"5px 10px",background:mockTeamPicker===t?"rgba(236,72,153,0.2)":"rgba(255,255,255,0.06)",color:mockTeamPicker===t?"#f9a8d4":"#cbd5e1",border:mockTeamPicker===t?"1px solid rgba(236,72,153,0.4)":"1px solid rgba(255,255,255,0.08)",borderRadius:8,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,transition:"all 0.15s"}} onMouseEnter={e=>{if(mockTeamPicker!==t){e.currentTarget.style.background="rgba(255,255,255,0.12)";e.currentTarget.style.color="#f1f5f9";}}} onMouseLeave={e=>{if(mockTeamPicker!==t){e.currentTarget.style.background="rgba(255,255,255,0.06)";e.currentTarget.style.color="#cbd5e1";}}}><NFLTeamLogo team={t} size={14}/>{t}</button>)}
             </div>
           </div>
 
-          {/* Expanded options — show after team selected */}
-          {mockTeamPicker&&<div>
-            <div style={{display:"flex",gap:12,marginBottom:12}}>
-              <div style={{flex:1}}>
+          {/* Options accordion — appears after team selected */}
+          {mockTeamPicker&&<div style={{animation:"fadeIn 0.2s ease"}}>
+            {/* Rounds + Speed row */}
+            <div style={{display:"flex",gap:12,marginBottom:12,flexWrap:"wrap"}}>
+              <div style={{flex:"1 1 180px"}}>
                 <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#64748b",textTransform:"uppercase",marginBottom:6}}>rounds</div>
                 <div style={{display:"flex",gap:4,flexWrap:"wrap"}}>
-                  {[1,2,3,4,7].map(r=><button key={r} onClick={()=>setMockRounds(r)} style={{fontFamily:sans,fontSize:11,fontWeight:mockRounds===r?700:400,padding:"6px 12px",background:mockRounds===r?"rgba(255,255,255,0.15)":"rgba(255,255,255,0.04)",color:mockRounds===r?"#f1f5f9":"#94a3b8",border:"1px solid rgba(255,255,255,0.08)",borderRadius:8,cursor:"pointer"}}>{r}</button>)}
+                  {[1,2,3,4,5,6,7].map(r=><button key={r} onClick={()=>setMockRounds(r)} style={{fontFamily:sans,fontSize:11,fontWeight:mockRounds===r?700:400,padding:"6px 12px",background:mockRounds===r?"rgba(255,255,255,0.15)":"rgba(255,255,255,0.04)",color:mockRounds===r?"#f1f5f9":"#94a3b8",border:"1px solid rgba(255,255,255,0.08)",borderRadius:8,cursor:"pointer"}}>{r}</button>)}
                 </div>
               </div>
-              <div style={{flex:1}}>
+              <div style={{flex:"1 1 180px"}}>
                 <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#64748b",textTransform:"uppercase",marginBottom:6}}>speed</div>
                 <div style={{display:"flex",gap:4,flexWrap:"wrap"}}>
                   {[["slow",1200],["med",600],["fast",200],["instant",50]].map(([label,ms])=><button key={label} onClick={()=>setMockSpeed(ms)} style={{fontFamily:sans,fontSize:11,fontWeight:mockSpeed===ms?700:400,padding:"6px 12px",background:mockSpeed===ms?"rgba(255,255,255,0.15)":"rgba(255,255,255,0.04)",color:mockSpeed===ms?"#f1f5f9":"#94a3b8",border:"1px solid rgba(255,255,255,0.08)",borderRadius:8,cursor:"pointer"}}>{label}</button>)}
+                </div>
+              </div>
+            </div>
+
+            {/* CPU Trades + Board Mode row */}
+            <div style={{display:"flex",gap:12,marginBottom:16,flexWrap:"wrap"}}>
+              <div style={{flex:"1 1 180px",display:"flex",alignItems:"center",justifyContent:"space-between",padding:"8px 12px",background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.08)",borderRadius:8}}>
+                <div>
+                  <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#64748b",textTransform:"uppercase"}}>cpu trades</div>
+                  <div style={{fontFamily:sans,fontSize:10,color:"#64748b",marginTop:2}}>AI teams trade up for elite players</div>
+                </div>
+                <button onClick={()=>setMockCpuTrades(prev=>!prev)} style={{width:40,height:22,borderRadius:11,border:"none",background:mockCpuTrades?"linear-gradient(135deg,#a855f7,#ec4899)":"#475569",cursor:"pointer",position:"relative",transition:"background 0.2s",flexShrink:0}}><div style={{width:16,height:16,borderRadius:8,background:"#fff",position:"absolute",top:3,left:mockCpuTrades?21:3,transition:"left 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.3)"}}/></button>
+              </div>
+              <div style={{flex:"1 1 180px"}}>
+                <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#64748b",textTransform:"uppercase",marginBottom:6}}>draft board</div>
+                <div style={{display:"flex",gap:4}}>
+                  {[["consensus","Consensus"],["my","My Board"]].map(([mode,label])=><button key={mode} onClick={()=>setMockBoardMode(mode)} style={{flex:1,fontFamily:sans,fontSize:11,fontWeight:mockBoardMode===mode?700:400,padding:"6px 12px",background:mockBoardMode===mode?"rgba(255,255,255,0.15)":"rgba(255,255,255,0.04)",color:mockBoardMode===mode?"#f1f5f9":"#94a3b8",border:"1px solid rgba(255,255,255,0.08)",borderRadius:8,cursor:"pointer"}}>{label}</button>)}
                 </div>
               </div>
             </div>
