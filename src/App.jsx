@@ -391,6 +391,9 @@ function DraftBoard({user,onSignOut}){
   const[communityBoard,setCommunityBoard]=useState(null);
   const[showMockDraft,setShowMockDraft]=useState(false);
   useEffect(()=>{if(showMockDraft)trackEvent(user.id,'mock_draft_started');},[showMockDraft]);
+  const[boardTab,setBoardTab]=useState("consensus");
+  const[boardFilter,setBoardFilter]=useState(new Set());
+  useEffect(()=>{if(rankedGroups.size>0)setBoardTab("my");},[rankedGroups.size]);
   const[lockedPlayer,setLockedPlayer]=useState(null);
   const[showOnboarding,setShowOnboarding]=useState(()=>{try{return !localStorage.getItem('bbl_onboarded');}catch(e){return true;}});
 
@@ -581,8 +584,6 @@ function DraftBoard({user,onSignOut}){
     const userBoard=getBoard();
 
     // Board toggle state
-    const[boardTab,setBoardTab]=useState(hasBoardData?"my":"consensus");
-    const[boardFilter,setBoardFilter]=useState(new Set());
     const showBoard=boardTab==="my"?userBoard:consensusBoard;
     const filteredBoard=boardFilter.size>0?showBoard.filter(p=>{const g=(p.gpos||p.pos)==="K"||(p.gpos||p.pos)==="P"||(p.gpos||p.pos)==="LS"?"K/P":(p.gpos||p.pos);return boardFilter.has(g);}):showBoard;
 
