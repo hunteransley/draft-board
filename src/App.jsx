@@ -510,7 +510,14 @@ function DraftBoard({user,onSignOut}){
     setPartialProgress(prev=>{const n={...prev};delete n[pos];return n;});
     finishRanking(pos,merged);
   },[byPos,completed,matchups,ratings,compCount,prospectsMap,partialProgress]);
-  const finishRanking=useCallback((pos,r)=>{const rts=r||ratings;const sorted=[...(byPos[pos]||[])].sort((a,b)=>(rts[b.id]||1500)-(rts[a.id]||1500));const nt={...traits};sorted.forEach((p,i)=>{if(!nt[p.id])nt[p.id]={};if(nt[p.id].__ceiling==null)nt[p.id].__ceiling="normal";const base=Math.round(85-(i/Math.max(sorted.length-1,1))*50);(POSITION_TRAITS[p.gpos||p.pos]||POSITION_TRAITS[p.pos]||[]).forEach(t=>{nt[p.id][t]=Math.max(10,Math.min(99,base+Math.floor(Math.random()*16)-8));});});setTraits(nt);setRankedGroups(prev=>new Set([...prev,pos]));setPartialProgress(prev=>{const n={...prev};delete n[pos];return n;});setPhase("pick-position");},[ratings,byPos,traits]);
+  const finishRanking=useCallback((pos,r)=>{const rts=r||ratings;const sorted=[...(byPos[pos]||[])].sort((a,b)=>(rts[b.id]||1500)-(rts[a.id]||1500));const nt={...traits};const posTraits=POSITION_TRAITS[pos]||POSITION_TRAITS[sorted[0]?.pos]||[];const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];
+    // Step 1: Generate initial traits based on Elo rank
+    sorted.forEach((p,i)=>{if(!nt[p.id])nt[p.id]={};if(nt[p.id].__ceiling==null)nt[p.id].__ceiling="normal";const base=Math.round(85-(i/Math.max(sorted.length-1,1))*50);(POSITION_TRAITS[p.gpos||p.pos]||POSITION_TRAITS[p.pos]||[]).forEach(t=>{nt[p.id][t]=Math.max(10,Math.min(99,base+Math.floor(Math.random()*16)-8));});});
+    // Step 2: Compute grade for a player given traits
+    const computeGrade=(id)=>{const t=nt[id];if(!t)return 50;const pt=POSITION_TRAITS[pos]||[];let tw=0,tv=0;pt.forEach(trait=>{const w=weights[trait]||1/pt.length;const v=t[trait]||50;tw+=w;tv+=v*w;});return tw>0?tv/tw:50;};
+    // Step 3: Reconcile — scale traits so grades strictly decrease with rank
+    for(let pass=0;pass<10;pass++){let clean=true;for(let i=1;i<sorted.length;i++){const prev=computeGrade(sorted[i-1].id);const cur=computeGrade(sorted[i].id);if(cur>=prev){clean=false;const target=prev-1;if(cur>0){const ratio=Math.max(0.5,target/cur);const pt=POSITION_TRAITS[sorted[i].gpos||sorted[i].pos]||[];pt.forEach(trait=>{nt[sorted[i].id][trait]=Math.max(10,Math.round((nt[sorted[i].id][trait]||50)*ratio));});}}}if(clean)break;}
+    setTraits(nt);setRankedGroups(prev=>new Set([...prev,pos]));setPartialProgress(prev=>{const n={...prev};delete n[pos];return n;});setPhase("pick-position");},[ratings,byPos,traits]);
   const getRanked=useCallback((pos)=>[...(byPos[pos]||[])].sort((a,b)=>(ratings[b.id]||1500)-(ratings[a.id]||1500)),[byPos,ratings]);
   const movePlayer=useCallback((pos,fromIdx,toIdx)=>{
     if(fromIdx===toIdx)return;
@@ -534,7 +541,7 @@ function DraftBoard({user,onSignOut}){
     const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;
     return getConsensusGrade(p.name);
   }const p=PROSPECTS.find(x=>x.id===id);const pos=p?(p.gpos||p.pos):"QB";const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let totalW=0,totalV=0;posTraits.forEach(trait=>{const w=weights[trait]||1/posTraits.length;const v=t[trait]||50;totalW+=w;totalV+=v*w;});const base=totalW>0?totalV/totalW:50;const ceil=t.__ceiling;if(!ceil||ceil==="normal")return Math.round(base);let rawW=0,rawV=0;posTraits.forEach(trait=>{const teach=TRAIT_TEACHABILITY[trait]??0.5;if(teach<0.4){const w=weights[trait]||1/posTraits.length;rawW+=w;rawV+=(t[trait]||50)*w;}});const rawScore=rawW>0?rawV/rawW:base;const gap=rawScore-base;if(ceil==="high")return Math.max(1,Math.min(99,Math.round(base+Math.max(gap*0.5,0)+4)));if(ceil==="elite")return Math.max(1,Math.min(99,Math.round(base+Math.max(gap*0.7,0)+7)));if(ceil==="capped")return Math.max(1,Math.min(99,Math.round(base-Math.max(-gap*0.3,0)-3)));return Math.round(base);},[traits]);
-  const getBoard=useCallback(()=>PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;return rankedGroups.has(group);}).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings]);
+  const getBoard=useCallback(()=>PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;return rankedGroups.has(group)||traits[p.id]&&Object.keys(traits[p.id]).length>1;}).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings,traits]);
 
   // Build mock draft board: consensus order for all 319, user rankings override when graded
   const mockDraftBoard=useMemo(()=>{
@@ -553,7 +560,7 @@ function DraftBoard({user,onSignOut}){
 
   // === HOME ===
   if(phase==="home"||phase==="pick-position"){
-    const hasBoardData=rankedGroups.size>0;
+    const hasBoardData=rankedGroups.size>0||Object.keys(partialProgress).length>0;
     const hasStaleData=!hasBoardData&&Object.keys(ratings).length>0&&!sessionStorage.getItem('bbl_stale_dismissed');
     const dismissStale=()=>{sessionStorage.setItem('bbl_stale_dismissed','1');setRatings({});setTraits({});setCompCount({});setWinCount({});};
     const dismissOnboarding=()=>{setShowOnboarding(false);try{localStorage.setItem('bbl_onboarded','1');}catch(e){}};
