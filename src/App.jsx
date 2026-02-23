@@ -652,7 +652,7 @@ function DraftBoard({user,onSignOut}){
                 <span style={{fontFamily:mono,fontSize:9,fontWeight:600,color:c,background:`${c}0d`,padding:"2px 7px",borderRadius:4}}>{p.gpos||p.pos}</span>
               </div>
               <SchoolLogo school={p.school} size={20}/>
-              <div style={{flex:1,minWidth:0}}>
+              <div style={{flex:1,minWidth:0,marginLeft:10}}>
                 <span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>{p.name}</span>
                 <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginLeft:6}}>{p.school}</span>
               </div>
