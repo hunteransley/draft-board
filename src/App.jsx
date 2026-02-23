@@ -923,83 +923,94 @@ function AdminDashboard({user,onBack}){
   useEffect(()=>{
     (async()=>{
       try{
-        // Fetch boards + community + events
-        const{data:boards}=await supabase.from('boards').select('user_id,board_data,updated_at');
-        const{data:community}=await supabase.from('community_boards').select('user_id,board_data');
-        const{data:evts}=await supabase.from('events').select('*').order('created_at',{ascending:false}).limit(500);
-        const allEvents=evts||[];
+        // Fetch from all sources in parallel
+        const[boardsRes,communityRes,evtsRes,authCountRes,authUsersRes]=await Promise.all([
+          supabase.from('boards').select('user_id,board_data,updated_at'),
+          supabase.from('community_boards').select('user_id,board_data'),
+          supabase.from('events').select('*').order('created_at',{ascending:false}).limit(1000),
+          supabase.rpc('get_auth_user_count'),
+          supabase.rpc('get_auth_users_summary'),
+        ]);
+        const boards=boardsRes.data||[];
+        const community=communityRes.data||[];
+        const allEvents=evtsRes.data||[];
+        const totalUsers=authCountRes.data||0;
+        const authUsers=authUsersRes.data||[];
 
-        // Real user count from events (distinct user_ids who have any event)
-        const eventUserIds=new Set(allEvents.map(e=>e.user_id));
-        const boardUserIds=new Set((boards||[]).map(b=>b.user_id));
-        const allUserIds=new Set([...eventUserIds,...boardUserIds]);
-        const totalUsers=allUserIds.size;
-
-        // Activity from events
         const now=new Date();
-        const activeToday=new Set(allEvents.filter(e=>(now-new Date(e.created_at))<86400000).map(e=>e.user_id)).size;
-        const activeWeek=new Set(allEvents.filter(e=>(now-new Date(e.created_at))<604800000).map(e=>e.user_id)).size;
-        // Also check board saves for activity
-        const boardActiveToday=new Set((boards||[]).filter(b=>(now-new Date(b.updated_at))<86400000).map(b=>b.user_id));
-        const boardActiveWeek=new Set((boards||[]).filter(b=>(now-new Date(b.updated_at))<604800000).map(b=>b.user_id));
-        const combinedToday=new Set([...new Set(allEvents.filter(e=>(now-new Date(e.created_at))<86400000).map(e=>e.user_id)),...boardActiveToday]).size;
-        const combinedWeek=new Set([...new Set(allEvents.filter(e=>(now-new Date(e.created_at))<604800000).map(e=>e.user_id)),...boardActiveWeek]).size;
 
-        // Event counts by type
+        // Auth-based activity (most accurate)
+        const activeToday=authUsers.filter(u=>u.last_sign_in_at&&(now-new Date(u.last_sign_in_at))<86400000).length;
+        const activeWeek=authUsers.filter(u=>u.last_sign_in_at&&(now-new Date(u.last_sign_in_at))<604800000).length;
+
+        // Real signups from auth (created_at = account creation, not login)
+        const signupsToday=authUsers.filter(u=>(now-new Date(u.created_at))<86400000).length;
+        const signupsWeek=authUsers.filter(u=>(now-new Date(u.created_at))<604800000).length;
+
+        // Event counts by type (deduplicated where relevant)
         const eventCounts={};
         allEvents.forEach(e=>{eventCounts[e.event]=(eventCounts[e.event]||0)+1;});
+        // Unique users who did each event type
+        const uniqueEventUsers={};
+        allEvents.forEach(e=>{if(!uniqueEventUsers[e.event])uniqueEventUsers[e.event]=new Set();uniqueEventUsers[e.event].add(e.user_id);});
 
-        // Signups (from events)
-        const signups=allEvents.filter(e=>e.event==='signup');
-        const signupsToday=signups.filter(e=>(now-new Date(e.created_at))<86400000).length;
-        const signupsWeek=signups.filter(e=>(now-new Date(e.created_at))<604800000).length;
-
-        // Mock drafts started
+        // Mock drafts — unique sessions (count events, not unique users)
         const mockDrafts=allEvents.filter(e=>e.event==='mock_draft_started').length;
+        const mockDraftUsers=new Set(allEvents.filter(e=>e.event==='mock_draft_started').map(e=>e.user_id)).size;
+
+        // Rankings completed
+        const rankingsCompleted=allEvents.filter(e=>e.event==='ranking_completed').length;
 
         // Position ranking stats from boards
         const posStats={};
         const partialCount={};
-        let totalRankedPositions=0;
         let hasNotes=0;
-        const userDetails=(boards||[]).map(b=>{
+        const boardMap=new Map(boards.map(b=>[b.user_id,b]));
+        boards.forEach(b=>{
           const d=b.board_data||{};
           const rg=d.rankedGroups||[];
           const pp=d.partialProgress?Object.keys(d.partialProgress):[];
-          const noteCount=d.notes?Object.keys(d.notes).length:0;
-          if(noteCount>0)hasNotes++;
-          rg.forEach(pos=>{posStats[pos]=(posStats[pos]||0)+1;totalRankedPositions++;});
+          if(d.notes&&Object.keys(d.notes).length>0)hasNotes++;
+          rg.forEach(pos=>{posStats[pos]=(posStats[pos]||0)+1;});
           pp.forEach(pos=>{partialCount[pos]=(partialCount[pos]||0)+1;});
-          // Find last event for this user
-          const lastEvent=allEvents.find(e=>e.user_id===b.user_id);
-          const lastActivity=lastEvent?new Date(Math.max(new Date(b.updated_at),new Date(lastEvent.created_at))):new Date(b.updated_at);
+        });
+
+        // Build user list from auth (source of truth)
+        const userDetails=authUsers.map(au=>{
+          const b=boardMap.get(au.id);
+          const d=b?.board_data||{};
+          const rg=d.rankedGroups||[];
+          const pp=d.partialProgress?Object.keys(d.partialProgress):[];
+          const noteCount=d.notes?Object.keys(d.notes).length:0;
+          const userEvts=allEvents.filter(e=>e.user_id===au.id);
+          const lastEvent=userEvts[0];
+          const lastActivity=new Date(Math.max(
+            au.last_sign_in_at?new Date(au.last_sign_in_at):0,
+            b?new Date(b.updated_at):0,
+            lastEvent?new Date(lastEvent.created_at):0
+          ));
           return{
-            userId:b.user_id,
+            userId:au.id,
+            email:au.email||'',
+            createdAt:au.created_at,
             updatedAt:lastActivity.toISOString(),
             rankedPositions:rg.length,
             partialPositions:pp.length,
-            positions:rg,
-            partials:pp,
             noteCount,
-            totalRatings:d.ratings?Object.keys(d.ratings).length:0
+            eventCount:userEvts.length,
+            hasBoard:!!b,
           };
         }).sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt));
 
-        // Add event-only users (signed up but never saved a board)
-        const boardUserSet=new Set((boards||[]).map(b=>b.user_id));
-        const eventOnlyUsers=[...eventUserIds].filter(id=>!boardUserSet.has(id)).map(id=>{
-          const userEvents=allEvents.filter(e=>e.user_id===id);
-          const last=userEvents[0];
-          return{userId:id,updatedAt:last?.created_at||'',rankedPositions:0,partialPositions:0,positions:[],partials:[],noteCount:0,totalRatings:0,eventOnly:true};
-        });
-        const allUsers=[...userDetails,...eventOnlyUsers].sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt));
-
         const rankers=userDetails.filter(u=>u.rankedPositions>0);
         const avgPositions=rankers.length>0?(rankers.reduce((s,u)=>s+u.rankedPositions,0)/rankers.length).toFixed(1):0;
-        setStats({totalUsers,activeToday:combinedToday,activeWeek:combinedWeek,posStats,partialCount,totalRankedPositions,avgPositions,hasNotes,communityUsers:community?.length||0,eventCounts,signupsToday,signupsWeek,mockDrafts});
-        setUsers(allUsers);
+
+        setStats({totalUsers,activeToday,activeWeek,posStats,partialCount,avgPositions,hasNotes,
+          communityUsers:community.length,eventCounts,uniqueEventUsers,signupsToday,signupsWeek,
+          mockDrafts,mockDraftUsers,rankingsCompleted});
+        setUsers(userDetails);
         setEvents(allEvents.slice(0,50));
-      }catch(e){console.error(e);}
+      }catch(e){console.error('Admin fetch error:',e);}
       setLoading(false);
     })();
   },[]);
@@ -1012,20 +1023,22 @@ function AdminDashboard({user,onBack}){
       </div>
       <div style={{maxWidth:900,margin:"0 auto",padding:"52px 24px 60px"}}>
         {/* KPI Cards */}
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(140px, 1fr))",gap:12,marginBottom:32}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(130px, 1fr))",gap:10,marginBottom:32}}>
           {[
             ["Total Users",stats.totalUsers,"#171717"],
             ["Active Today",stats.activeToday,"#22c55e"],
             ["Active This Week",stats.activeWeek,"#3b82f6"],
-            ["Signups Today",stats.signupsToday,"#8b5cf6"],
-            ["Signups This Week",stats.signupsWeek,"#a855f7"],
+            ["New Today",stats.signupsToday,"#8b5cf6"],
+            ["New This Week",stats.signupsWeek,"#a855f7"],
             ["Mock Drafts",stats.mockDrafts,"#f59e0b"],
+            ["Users Drafted",stats.mockDraftUsers,"#ea580c"],
+            ["Rankings Done",stats.rankingsCompleted,"#0891b2"],
             ["Community Boards",stats.communityUsers,"#7c3aed"],
-            ["Avg Pos/User",stats.avgPositions,"#0891b2"],
-            ["Users w/ Notes",stats.hasNotes,"#06b6d4"],
+            ["Avg Pos/User",stats.avgPositions,"#06b6d4"],
+            ["Users w/ Notes",stats.hasNotes,"#14b8a6"],
           ].map(([label,val,color])=>(
-            <div key={label} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
-              <div style={{fontFamily:font,fontSize:28,fontWeight:900,color,lineHeight:1}}>{val}</div>
+            <div key={label} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"14px 16px"}}>
+              <div style={{fontFamily:font,fontSize:26,fontWeight:900,color,lineHeight:1}}>{val}</div>
               <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginTop:6}}>{label}</div>
             </div>
           ))}
@@ -1035,12 +1048,14 @@ function AdminDashboard({user,onBack}){
         <h2 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"0 0 12px"}}>event breakdown</h2>
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:32}}>
           <div style={{display:"flex",flexWrap:"wrap",gap:12}}>
-            {Object.entries(stats.eventCounts||{}).sort((a,b)=>b[1]-a[1]).map(([evt,count])=>(
-              <div key={evt} style={{padding:"8px 16px",background:"#f9f9f7",borderRadius:8,textAlign:"center"}}>
+            {Object.entries(stats.eventCounts||{}).sort((a,b)=>b[1]-a[1]).map(([evt,count])=>{
+              const uniqueUsers=stats.uniqueEventUsers?.[evt]?.size||0;
+              return<div key={evt} style={{padding:"8px 16px",background:"#f9f9f7",borderRadius:8,textAlign:"center",minWidth:100}}>
                 <div style={{fontFamily:mono,fontSize:18,fontWeight:900,color:"#171717"}}>{count}</div>
                 <div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{evt}</div>
-              </div>
-            ))}
+                <div style={{fontFamily:mono,fontSize:9,color:"#737373",marginTop:2}}>{uniqueUsers} users</div>
+              </div>;
+            })}
           </div>
         </div>
 
@@ -1065,21 +1080,23 @@ function AdminDashboard({user,onBack}){
         {/* User Table */}
         <h2 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"0 0 12px"}}>users ({users.length})</h2>
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 80px 80px 80px 120px",gap:8,padding:"10px 16px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5"}}>
-            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>User ID</span>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 80px 80px 60px 110px 110px",gap:6,padding:"10px 16px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5"}}>
+            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Email</span>
             <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Ranked</span>
-            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Partial</span>
+            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Events</span>
             <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Notes</span>
+            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Signed Up</span>
             <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Last Active</span>
           </div>
           <div style={{maxHeight:500,overflowY:"auto"}}>
             {users.map((u,i)=>(
-              <div key={u.userId} style={{display:"grid",gridTemplateColumns:"1fr 80px 80px 80px 120px",gap:8,padding:"8px 16px",borderBottom:i<users.length-1?"1px solid #f5f5f5":"none",alignItems:"center",background:u.eventOnly?"#fefce8":"transparent"}}>
-                <span style={{fontFamily:mono,fontSize:10,color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{u.userId.slice(0,12)}…{u.eventOnly&&<span style={{color:"#ca8a04",marginLeft:4}}>new</span>}</span>
+              <div key={u.userId} style={{display:"grid",gridTemplateColumns:"1fr 80px 80px 60px 110px 110px",gap:6,padding:"8px 16px",borderBottom:i<users.length-1?"1px solid #f5f5f5":"none",alignItems:"center",background:!u.hasBoard?"#fefce8":"transparent"}}>
+                <span style={{fontFamily:mono,fontSize:10,color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{u.email||u.userId.slice(0,12)+'…'}</span>
                 <span style={{fontFamily:mono,fontSize:12,fontWeight:700,color:u.rankedPositions>0?"#22c55e":"#d4d4d4"}}>{u.rankedPositions}/{POSITION_GROUPS.length}</span>
-                <span style={{fontFamily:mono,fontSize:12,color:u.partialPositions>0?"#ca8a04":"#d4d4d4"}}>{u.partialPositions}</span>
+                <span style={{fontFamily:mono,fontSize:12,color:u.eventCount>0?"#3b82f6":"#d4d4d4"}}>{u.eventCount}</span>
                 <span style={{fontFamily:mono,fontSize:12,color:u.noteCount>0?"#0891b2":"#d4d4d4"}}>{u.noteCount}</span>
-                <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{u.updatedAt?new Date(u.updatedAt).toLocaleDateString()+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
+                <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.createdAt?new Date(u.createdAt).toLocaleDateString():""}</span>
+                <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.updatedAt?new Date(u.updatedAt).toLocaleDateString()+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
               </div>
             ))}
           </div>
