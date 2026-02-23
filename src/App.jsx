@@ -394,7 +394,7 @@ function DraftBoard({user,onSignOut}){
   const[mockTeamPicker,setMockTeamPicker]=useState("");
   const[mockTeamSet,setMockTeamSet]=useState(new Set());
   const[mockRounds,setMockRounds]=useState(1);
-  const[mockSpeed,setMockSpeed]=useState(200);
+  const[mockSpeed,setMockSpeed]=useState(50);
   const[mockCpuTrades,setMockCpuTrades]=useState(true);
   const[mockBoardMode,setMockBoardMode]=useState("consensus");
   useEffect(()=>{if(showMockDraft)trackEvent(user.id,'mock_draft_started');},[showMockDraft]);
