@@ -281,13 +281,18 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   // Auto-launch when coming from home screen CTA with a team pre-selected
   const hasAutoLaunched=useRef(false);
   useEffect(()=>{
-    if(mockLaunchTeam&&!hasAutoLaunched.current&&!setupDone){
+    if(mockLaunchTeam&&mockLaunchTeam instanceof Set&&mockLaunchTeam.size>0&&!hasAutoLaunched.current&&!setupDone){
       hasAutoLaunched.current=true;
-      setUserTeams(new Set([mockLaunchTeam]));
+      setUserTeams(mockLaunchTeam);
       if(mockLaunchRounds)setNumRounds(mockLaunchRounds);
       if(mockLaunchSpeed)setSpeed(mockLaunchSpeed);
       if(typeof mockLaunchCpuTrades==='boolean')setCpuTrades(mockLaunchCpuTrades);
       if(mockLaunchBoardMode)setBoardMode(mockLaunchBoardMode);
+      // Auto-start the draft immediately — skip the setup screen
+      setTimeout(()=>{
+        setAvailable(activeBoard.map(p=>p.id));setPicks([]);setSetupDone(true);setShowResults(false);
+        setTradeMap({});setLastVerdict(null);setTradeOffer(null);setShowTradeUp(false);setTradeValueDelta(0);setCpuTradeLog([]);
+      },50);
     }
   },[mockLaunchTeam]);
 

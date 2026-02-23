@@ -390,8 +390,9 @@ function DraftBoard({user,onSignOut}){
   const[partialProgress,setPartialProgress]=useState({}); // {pos: {matchups:[], completed:Set, ratings:{}}}
   const[communityBoard,setCommunityBoard]=useState(null);
   const[showMockDraft,setShowMockDraft]=useState(false);
-  const[mockLaunchTeam,setMockLaunchTeam]=useState(null);
+  const[mockLaunchTeam,setMockLaunchTeam]=useState(null);// Set of teams or null
   const[mockTeamPicker,setMockTeamPicker]=useState("");
+  const[mockTeamSet,setMockTeamSet]=useState(new Set());
   const[mockRounds,setMockRounds]=useState(1);
   const[mockSpeed,setMockSpeed]=useState(200);
   const[mockCpuTrades,setMockCpuTrades]=useState(true);
@@ -613,7 +614,6 @@ function DraftBoard({user,onSignOut}){
         <h1 style={{fontSize:"clamp(28px,6vw,40px)",fontWeight:900,color:"#171717",margin:"0 0 2px",letterSpacing:-1.5}}>big board lab</h1>
         <p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:0}}>2026 NFL Draft · Pittsburgh · April 23–25</p>
       </div>
-      <button onClick={()=>setShowMockDraft(true)} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"7px 16px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",flexShrink:0}}>🏈 mock draft</button>
     </div>
 
     {/* Stale data warning */}
@@ -627,8 +627,8 @@ function DraftBoard({user,onSignOut}){
       const topTeams=["Raiders","Jets","Cardinals","Titans","Giants","Browns","Commanders","Saints","Chiefs","Bengals","Dolphins","Cowboys","Rams","Ravens","Buccaneers","Lions","Vikings","Panthers","Steelers","Chargers","Eagles","Bears","Bills","49ers","Texans","Broncos","Patriots","Seahawks"];
       const launchMock=()=>{
         setShowMockDraft(true);
-        setMockLaunchTeam(mockTeamPicker);
-        trackEvent(user.id,'mock_draft_cta_click',{team:mockTeamPicker,rounds:mockRounds,speed:mockSpeed});
+        setMockLaunchTeam(mockTeamSet);
+        trackEvent(user.id,'mock_draft_cta_click',{teams:[...mockTeamSet].join(','),rounds:mockRounds,speed:mockSpeed});
       };
       return <div style={{background:"linear-gradient(135deg,#0f172a,#1e293b)",borderRadius:16,overflow:"hidden",marginBottom:24,position:"relative"}}>
         <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:"linear-gradient(90deg,#ec4899,#7c3aed)"}}/>
@@ -642,16 +642,16 @@ function DraftBoard({user,onSignOut}){
             <span style={{fontSize:28,flexShrink:0,marginTop:4}}>🏈</span>
           </div>
 
-          {/* Team picker — always visible */}
-          <div style={{marginBottom:mockTeamPicker?16:0}}>
-            <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#64748b",textTransform:"uppercase",marginBottom:8}}>{mockTeamPicker?"your team":"pick your team"}</div>
+          {/* Team picker — always visible, multi-select */}
+          <div style={{marginBottom:mockTeamSet.size>0?16:0}}>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#64748b",textTransform:"uppercase",marginBottom:8}}>{mockTeamPicker?"your team"+(mockTeamSet.size>1?"s":""):"pick your team"}</div>
             <div style={{display:"flex",flexWrap:"wrap",gap:5}}>
-              {topTeams.sort().map(t=><button key={t} onClick={()=>setMockTeamPicker(mockTeamPicker===t?"":t)} style={{fontFamily:sans,fontSize:10,fontWeight:mockTeamPicker===t?700:600,padding:"5px 10px",background:mockTeamPicker===t?"rgba(236,72,153,0.2)":"rgba(255,255,255,0.06)",color:mockTeamPicker===t?"#f9a8d4":"#cbd5e1",border:mockTeamPicker===t?"1px solid rgba(236,72,153,0.4)":"1px solid rgba(255,255,255,0.08)",borderRadius:8,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,transition:"all 0.15s"}} onMouseEnter={e=>{if(mockTeamPicker!==t){e.currentTarget.style.background="rgba(255,255,255,0.12)";e.currentTarget.style.color="#f1f5f9";}}} onMouseLeave={e=>{if(mockTeamPicker!==t){e.currentTarget.style.background="rgba(255,255,255,0.06)";e.currentTarget.style.color="#cbd5e1";}}}><NFLTeamLogo team={t} size={14}/>{t}</button>)}
+              {topTeams.sort().map(t=>{const sel=mockTeamSet.has(t);return<button key={t} onClick={()=>{const ns=new Set(mockTeamSet);if(ns.has(t))ns.delete(t);else ns.add(t);setMockTeamSet(ns);setMockTeamPicker(ns.size>0?[...ns][0]:"");}} style={{fontFamily:sans,fontSize:10,fontWeight:sel?700:600,padding:"5px 10px",background:sel?"rgba(236,72,153,0.2)":"rgba(255,255,255,0.06)",color:sel?"#f9a8d4":"#cbd5e1",border:sel?"1px solid rgba(236,72,153,0.4)":"1px solid rgba(255,255,255,0.08)",borderRadius:8,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,transition:"all 0.15s"}} onMouseEnter={e=>{if(!sel){e.currentTarget.style.background="rgba(255,255,255,0.12)";e.currentTarget.style.color="#f1f5f9";}}} onMouseLeave={e=>{if(!sel){e.currentTarget.style.background="rgba(255,255,255,0.06)";e.currentTarget.style.color="#cbd5e1";}}}><NFLTeamLogo team={t} size={14}/>{t}</button>;})}
             </div>
           </div>
 
           {/* Options accordion — appears after team selected */}
-          {mockTeamPicker&&<div style={{animation:"fadeIn 0.2s ease"}}>
+          {mockTeamSet.size>0&&<div style={{animation:"fadeIn 0.2s ease"}}>
             {/* Rounds + Speed row */}
             <div style={{display:"flex",gap:12,marginBottom:12,flexWrap:"wrap"}}>
               <div style={{flex:"1 1 180px"}}>
@@ -686,7 +686,8 @@ function DraftBoard({user,onSignOut}){
             </div>
 
             <button onClick={launchMock} style={{width:"100%",fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 20px",background:"linear-gradient(135deg,#ec4899,#7c3aed)",color:"#fff",border:"none",borderRadius:99,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>
-              <NFLTeamLogo team={mockTeamPicker} size={18}/> draft as {mockTeamPicker} →
+              {mockTeamSet.size===1?<><NFLTeamLogo team={[...mockTeamSet][0]} size={18}/> draft as {[...mockTeamSet][0]} →</>:
+               mockTeamSet.size>1?<>start draft ({mockTeamSet.size} teams) →</>:null}
             </button>
           </div>}
         </div>
