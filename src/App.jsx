@@ -459,6 +459,7 @@ function DraftBoard({user,onSignOut}){
   const byPos=useMemo(()=>{const m={};PROSPECTS.forEach(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;if(!m[group])m[group]=[];m[group].push(p);});return m;},[]);
   const posRankFn=useCallback((id)=>{const p=prospectsMap[id];if(!p)return 999;const ps=getProspectStats(p.name,p.school);return ps?.posRank||getConsensusRank(p.name)||999;},[prospectsMap]);
   const startRanking=useCallback((pos,resume=false)=>{
+    setLockedPlayer(null);
     const ids=(byPos[pos]||[]).map(p=>p.id);
     const consensusRankFn=(id)=>{const p=prospectsMap[id];if(!p)return 999;const ps=getProspectStats(p.name,p.school);return ps?.posRank||getConsensusRank(p.name)||999;};
     let allM,doneSet,r,c;
@@ -479,7 +480,7 @@ function DraftBoard({user,onSignOut}){
     setRatings(r);setCompCount(c);
     setCompleted(prev=>({...prev,[pos]:doneSet}));
     setMatchups(prev=>({...prev,[pos]:allM}));
-    const next=getNextMatchup(allM,doneSet,r,c,posRankFn,lockedPlayer);
+    const next=getNextMatchup(allM,doneSet,r,c,posRankFn,null);
     if(!next){finishRanking(pos,r);return;}
     setCurrentMatchup(next);
     setActivePos(pos);setPhase("ranking");
