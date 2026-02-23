@@ -646,10 +646,12 @@ function DraftBoard({user,onSignOut}){
             const grade=boardTab==="my"?getGrade(p.id):getConsensusGrade(p.name);
             const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos]||"#525252";
             const rank=boardTab==="consensus"?getConsensusRank(p.name):i+1;
-            return<div key={p.id} style={{display:"flex",alignItems:"center",gap:0,padding:"8px 16px",borderBottom:"1px solid #f8f8f6",cursor:"pointer"}} onClick={()=>setProfilePlayer(p)} onMouseEnter={e=>e.currentTarget.style.background="#faf9f6"} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
-              <span style={{fontFamily:mono,fontSize:11,color:"#d4d4d4",width:26,textAlign:"right",flexShrink:0}}>{rank}</span>
-              <span style={{fontFamily:mono,fontSize:9,fontWeight:600,color:c,background:`${c}0d`,padding:"2px 7px",borderRadius:4,marginLeft:10,flexShrink:0}}>{p.gpos||p.pos}</span>
-              <div style={{width:76,flexShrink:0,display:"flex",justifyContent:"flex-end",paddingRight:10}}><SchoolLogo school={p.school} size={20}/></div>
+            return<div key={p.id} style={{display:"flex",alignItems:"center",padding:"8px 16px",borderBottom:"1px solid #f8f8f6",cursor:"pointer"}} onClick={()=>setProfilePlayer(p)} onMouseEnter={e=>e.currentTarget.style.background="#faf9f6"} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+              <div style={{width:80,flexShrink:0,display:"flex",alignItems:"center",gap:8}}>
+                <span style={{fontFamily:mono,fontSize:11,color:"#d4d4d4",width:22,textAlign:"right",flexShrink:0}}>{rank}</span>
+                <span style={{fontFamily:mono,fontSize:9,fontWeight:600,color:c,background:`${c}0d`,padding:"2px 7px",borderRadius:4}}>{p.gpos||p.pos}</span>
+              </div>
+              <SchoolLogo school={p.school} size={20}/>
               <div style={{flex:1,minWidth:0}}>
                 <span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>{p.name}</span>
                 <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginLeft:6}}>{p.school}</span>
