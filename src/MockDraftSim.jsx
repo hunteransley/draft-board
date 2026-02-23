@@ -642,8 +642,13 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
   // All CPU teams for trade partner selection
   const allCpuTeams=useMemo(()=>{
+    // When controlling all 32: allow trading with any team except the one currently picking
+    if(userTeams.size>=ALL_TEAMS.length){
+      const currentTeam=picks.length<totalPicks?getPickTeam(picks.length):null;
+      return ALL_TEAMS.filter(t=>t!==currentTeam).sort();
+    }
     return ALL_TEAMS.filter(t=>!userTeams.has(t)).sort();
-  },[ALL_TEAMS,userTeams]);
+  },[ALL_TEAMS,userTeams,picks.length,totalPicks,getPickTeam]);
 
   // Get a trade partner's available assets: remaining picks this draft + future year picks
   const partnerAssets=useMemo(()=>{
