@@ -879,7 +879,6 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
 
     <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:12}}>
       <button onClick={shareTop10} style={{fontFamily:sans,fontSize:11,fontWeight:600,padding:"6px 14px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>📤 share top 10</button>
-      <button onClick={loadCommunity} style={{fontFamily:sans,fontSize:11,fontWeight:600,padding:"6px 14px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>👥 community board</button>
       <button onClick={()=>setShowMockDraft(true)} style={{fontFamily:sans,fontSize:11,fontWeight:600,padding:"6px 14px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>🏈 mock draft</button>
     </div>
 
