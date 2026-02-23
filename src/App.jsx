@@ -871,14 +871,22 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
       // Dots
       pts.forEach(([x,y])=>{ctx.beginPath();ctx.arc(x,y,2,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
       // Labels
-      ctx.fillStyle='#999';ctx.font='7px ui-monospace,monospace';ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillStyle='#999';ctx.font='7px -apple-system,system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
       traitNames.forEach((t,i)=>{
-        const lr=r+12;const x=cx+lr*Math.cos(angles[i]),y=cy+lr*Math.sin(angles[i]);
-        const abbr=t.split(' ').map(w=>w[0]).join('');
-        ctx.fillText(abbr,x,y);
+        const lr=r+18;const x=cx+lr*Math.cos(angles[i]),y=cy+lr*Math.sin(angles[i]);
+        ctx.fillText(t,x,y);
       });
       ctx.textAlign='left';ctx.textBaseline='top';
     };
+
+    // Compute position ranks for all board players
+    const posRanks={};
+    board.forEach((p,i)=>{
+      const pk=(p.gpos||p.pos)==='K'||(p.gpos||p.pos)==='P'||(p.gpos||p.pos)==='LS'?'K/P':(p.gpos||p.pos);
+      if(!posRanks[pk])posRanks[pk]=0;
+      posRanks[pk]++;
+      p._posRank=posRanks[pk];
+    });
 
     // Rows
     top10.forEach((p,i)=>{
@@ -909,17 +917,24 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
 
       // School logo
       const logoX=78+pw+14;
-      if(logoCache[p.school])ctx.drawImage(logoCache[p.school],logoX,y+32,36,36);
+      if(logoCache[p.school])ctx.drawImage(logoCache[p.school],logoX,y+28,40,40);
 
-      // Name + school text
-      const nameX=logoX+46;
+      // Name + school + position rank
+      const nameX=logoX+50;
       ctx.fillStyle='#171717';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
-      ctx.fillText(p.name,nameX,y+38);
+      ctx.fillText(p.name,nameX,y+32);
       ctx.fillStyle='#a3a3a3';ctx.font='12px -apple-system,system-ui,sans-serif';
-      ctx.fillText(p.school,nameX,y+60);
+      ctx.fillText(p.school,nameX,y+54);
+      // Position rank label
+      if(p._posRank){
+        const prText=posText+p._posRank;
+        const schoolW=ctx.measureText(p.school).width;
+        ctx.fillStyle=c;ctx.font='bold 10px ui-monospace,monospace';
+        ctx.fillText(prText,nameX+schoolW+10,y+55);
+      }
 
-      // Radar chart (right side)
-      const radarCx=W-180,radarCy=y+rowH/2,radarR=38;
+      // Radar chart (shifted left for full labels)
+      const radarCx=W-210,radarCy=y+rowH/2,radarR=34;
       if(posTraits.length>=3)drawRadar(radarCx,radarCy,radarR,posTraits,traitVals,c);
 
       // Grade
@@ -928,12 +943,18 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
       ctx.textAlign='right';ctx.fillText(`${grade}`,W-42,y+42);ctx.textAlign='left';
     });
 
+    // Load logo for footer
+    let logoImg=null;
+    try{logoImg=new Image();logoImg.src='/logo.png';await new Promise((res,rej)=>{logoImg.onload=res;logoImg.onerror=rej;setTimeout(rej,2000);});}catch(e){logoImg=null;}
+
     // Footer
     const fy=H-footerH;
     ctx.fillStyle='#111';ctx.fillRect(0,fy,W,footerH);
+    const logoOffset=logoImg?36:0;
+    if(logoImg)ctx.drawImage(logoImg,24,fy+8,32,32);
     ctx.fillStyle='#fff';ctx.font='bold 13px -apple-system,system-ui,sans-serif';
     ctx.textBaseline='middle';
-    ctx.fillText('bigboardlab.com',32,fy+footerH/2);
+    ctx.fillText('bigboardlab.com',24+logoOffset+8,fy+footerH/2);
     ctx.fillStyle='#888';ctx.font='11px -apple-system,system-ui,sans-serif';
     ctx.textAlign='right';
     ctx.fillText(`${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}  ·  BUILD YOURS → BIGBOARDLAB.COM`,W-32,fy+footerH/2);
