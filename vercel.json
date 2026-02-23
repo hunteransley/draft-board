@@ -1,5 +1,9 @@
 {
   "rewrites": [
-    { "source": "/((?!blog|privacy|robots|sitemap|404|og-image|logo).*)", "destination": "/index.html" }
+    { "source": "/blog/:path*", "destination": "/blog/:path*" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/robots.txt", "destination": "/robots.txt" },
+    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
