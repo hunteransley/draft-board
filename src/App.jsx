@@ -1007,7 +1007,14 @@ function AdminDashboard({user,onBack}){
 
         setStats({totalUsers,activeToday,activeWeek,posStats,partialCount,avgPositions,hasNotes,
           communityUsers:community.length,eventCounts,uniqueEventUsers,signupsToday,signupsWeek,
-          mockDrafts,mockDraftUsers,rankingsCompleted});
+          mockDrafts,mockDraftUsers,rankingsCompleted,
+          // Funnel: compute from auth users + boards + events
+          funnelSignedUp:totalUsers,
+          funnelStartedRanking:new Set(allEvents.filter(e=>e.event==='ranking_started').map(e=>e.user_id)).size||boards.filter(b=>{const d=b.board_data||{};return(d.rankedGroups||[]).length>0||(d.partialProgress&&Object.keys(d.partialProgress).length>0);}).length,
+          funnelCompletedPos:new Set([...allEvents.filter(e=>e.event==='ranking_completed').map(e=>e.user_id),...boards.filter(b=>(b.board_data?.rankedGroups||[]).length>0).map(b=>b.user_id)]).size,
+          funnelRanMock:new Set(allEvents.filter(e=>e.event==='mock_draft_started').map(e=>e.user_id)).size,
+          funnelShared:new Set(allEvents.filter(e=>e.event==='share_triggered').map(e=>e.user_id)).size,
+        });
         setUsers(userDetails);
         setEvents(allEvents.slice(0,50));
       }catch(e){console.error('Admin fetch error:',e);}
@@ -1015,105 +1022,136 @@ function AdminDashboard({user,onBack}){
     })();
   },[]);
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading admin...</p></div>;
+
+  // Compute user status tags
+  const tagUser=(u)=>{
+    if(u.rankedPositions>=6)return{label:"power user",color:"#16a34a",bg:"#f0fdf4"};
+    if(u.rankedPositions>0)return{label:"engaged",color:"#3b82f6",bg:"#eff6ff"};
+    if(u.eventCount>2)return{label:"exploring",color:"#ca8a04",bg:"#fefce8"};
+    if(u.hasBoard)return{label:"signed up",color:"#a3a3a3",bg:"#fafafa"};
+    return{label:"bounced",color:"#d4d4d4",bg:"#fafafa"};
+  };
+
   return(
     <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
       <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#171717",borderBottom:"1px solid #333"}}>
         <span style={{fontFamily:mono,fontSize:11,color:"#faf9f6",letterSpacing:2}}>⚙️ ADMIN DASHBOARD</span>
         <button onClick={onBack} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"1px solid #444",borderRadius:99,padding:"3px 12px",cursor:"pointer"}}>← back to app</button>
       </div>
-      <div style={{maxWidth:900,margin:"0 auto",padding:"52px 24px 60px"}}>
-        {/* KPI Cards */}
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(130px, 1fr))",gap:10,marginBottom:32}}>
+      <div style={{maxWidth:920,margin:"0 auto",padding:"52px 24px 60px"}}>
+
+        {/* FUNNEL */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:24}}>
+          <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:14}}>user funnel</div>
           {[
-            ["Total Users",stats.totalUsers,"#171717"],
-            ["Active Today",stats.activeToday,"#22c55e"],
-            ["Active This Week",stats.activeWeek,"#3b82f6"],
+            {label:"Signed Up",count:stats.funnelSignedUp,color:"#171717"},
+            {label:"Started Ranking",count:stats.funnelStartedRanking,color:"#3b82f6"},
+            {label:"Completed a Position",count:stats.funnelCompletedPos,color:"#8b5cf6"},
+            {label:"Ran Mock Draft",count:stats.funnelRanMock,color:"#f59e0b"},
+            {label:"Shared Results",count:stats.funnelShared,color:"#22c55e"},
+          ].map((step,i)=>{
+            const pct=stats.funnelSignedUp>0?Math.round(step.count/stats.funnelSignedUp*100):0;
+            const barW=stats.funnelSignedUp>0?Math.max(step.count/stats.funnelSignedUp*100,2):0;
+            return<div key={step.label} style={{marginBottom:i<4?10:0}}>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:3}}>
+                <span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717"}}>{step.label}</span>
+                <span style={{fontFamily:mono,fontSize:13,fontWeight:900,color:step.color}}>{step.count} <span style={{fontSize:10,fontWeight:400,color:"#a3a3a3"}}>{pct}%</span></span>
+              </div>
+              <div style={{height:6,background:"#f5f5f5",borderRadius:99,overflow:"hidden"}}>
+                <div style={{height:"100%",width:barW+"%",background:step.color,borderRadius:99,transition:"width 0.3s"}}/>
+              </div>
+            </div>;
+          })}
+        </div>
+
+        {/* KPI Cards — focused */}
+        <div style={{display:"grid",gridTemplateColumns:"repeat(6, 1fr)",gap:10,marginBottom:24}}>
+          {[
+            ["Total",stats.totalUsers,"#171717"],
+            ["Today",stats.activeToday,"#22c55e"],
+            ["This Week",stats.activeWeek,"#3b82f6"],
             ["New Today",stats.signupsToday,"#8b5cf6"],
-            ["New This Week",stats.signupsWeek,"#a855f7"],
+            ["New Week",stats.signupsWeek,"#a855f7"],
             ["Mock Drafts",stats.mockDrafts,"#f59e0b"],
-            ["Users Drafted",stats.mockDraftUsers,"#ea580c"],
-            ["Rankings Done",stats.rankingsCompleted,"#0891b2"],
-            ["Community Boards",stats.communityUsers,"#7c3aed"],
-            ["Avg Pos/User",stats.avgPositions,"#06b6d4"],
-            ["Users w/ Notes",stats.hasNotes,"#14b8a6"],
           ].map(([label,val,color])=>(
-            <div key={label} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"14px 16px"}}>
-              <div style={{fontFamily:font,fontSize:26,fontWeight:900,color,lineHeight:1}}>{val}</div>
-              <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginTop:6}}>{label}</div>
+            <div key={label} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:10,padding:"12px 14px",textAlign:"center"}}>
+              <div style={{fontFamily:font,fontSize:24,fontWeight:900,color,lineHeight:1}}>{val}</div>
+              <div style={{fontFamily:mono,fontSize:7,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginTop:5}}>{label}</div>
             </div>
           ))}
         </div>
 
-        {/* Event Activity */}
-        <h2 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"0 0 12px"}}>event breakdown</h2>
-        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:32}}>
-          <div style={{display:"flex",flexWrap:"wrap",gap:12}}>
+        {/* Event Breakdown — compact */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:24}}>
+          <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>events</div>
+          <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
             {Object.entries(stats.eventCounts||{}).sort((a,b)=>b[1]-a[1]).map(([evt,count])=>{
-              const uniqueUsers=stats.uniqueEventUsers?.[evt]?.size||0;
-              return<div key={evt} style={{padding:"8px 16px",background:"#f9f9f7",borderRadius:8,textAlign:"center",minWidth:100}}>
-                <div style={{fontFamily:mono,fontSize:18,fontWeight:900,color:"#171717"}}>{count}</div>
-                <div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{evt}</div>
-                <div style={{fontFamily:mono,fontSize:9,color:"#737373",marginTop:2}}>{uniqueUsers} users</div>
+              const uu=stats.uniqueEventUsers?.[evt]?.size||0;
+              return<div key={evt} style={{padding:"6px 12px",background:"#f9f9f7",borderRadius:6,textAlign:"center",minWidth:80}}>
+                <div style={{fontFamily:mono,fontSize:16,fontWeight:900,color:"#171717"}}>{count}<span style={{fontSize:10,fontWeight:400,color:"#a3a3a3",marginLeft:3}}>{uu}u</span></div>
+                <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>{evt.replace(/_/g,' ')}</div>
               </div>;
             })}
           </div>
         </div>
 
-        {/* Position Breakdown */}
-        <h2 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"0 0 12px"}}>positions ranked</h2>
-        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:32}}>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(120px, 1fr))",gap:8}}>
+        {/* Positions Ranked — compact row */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:24}}>
+          <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>positions ranked</div>
+          <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
             {POSITION_GROUPS.map(pos=>{
               const full=stats.posStats[pos]||0;
               const partial=stats.partialCount[pos]||0;
               const c=POS_COLORS[pos];
-              return<div key={pos} style={{textAlign:"center",padding:"10px",background:`${c}08`,borderRadius:8}}>
-                <div style={{fontFamily:font,fontSize:20,fontWeight:900,color:c}}>{pos}</div>
-                <div style={{fontFamily:mono,fontSize:18,fontWeight:900,color:"#171717",marginTop:4}}>{full}</div>
-                <div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>fully ranked</div>
-                {partial>0&&<div style={{fontFamily:mono,fontSize:11,color:"#ca8a04",marginTop:2}}>{partial} partial</div>}
+              return<div key={pos} style={{textAlign:"center",padding:"6px 10px",background:`${c}08`,borderRadius:6,minWidth:60}}>
+                <div style={{fontFamily:font,fontSize:14,fontWeight:900,color:c}}>{pos}</div>
+                <div style={{fontFamily:mono,fontSize:14,fontWeight:900,color:"#171717"}}>{full}{partial>0&&<span style={{fontSize:10,color:"#ca8a04"}}>+{partial}</span>}</div>
               </div>;
             })}
           </div>
         </div>
 
-        {/* User Table */}
-        <h2 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"0 0 12px"}}>users ({users.length})</h2>
-        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 80px 80px 60px 110px 110px",gap:6,padding:"10px 16px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5"}}>
-            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Email</span>
-            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Ranked</span>
-            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Events</span>
-            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Notes</span>
-            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Signed Up</span>
-            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Last Active</span>
+        {/* Users Table */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",marginBottom:24}}>
+          <div style={{padding:"14px 16px",borderBottom:"1px solid #f0f0f0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+            <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717"}}>users ({users.length})</span>
+            <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{users.filter(u=>u.rankedPositions>0).length} engaged · {users.filter(u=>!u.hasBoard).length} bounced</span>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 70px 70px 70px 90px 90px",gap:4,padding:"8px 16px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5"}}>
+            {["Email","Status","Ranked","Events","Signed Up","Last Active"].map(h=><span key={h} style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>{h}</span>)}
           </div>
           <div style={{maxHeight:500,overflowY:"auto"}}>
-            {users.map((u,i)=>(
-              <div key={u.userId} style={{display:"grid",gridTemplateColumns:"1fr 80px 80px 60px 110px 110px",gap:6,padding:"8px 16px",borderBottom:i<users.length-1?"1px solid #f5f5f5":"none",alignItems:"center",background:!u.hasBoard?"#fefce8":"transparent"}}>
+            {users.map((u,i)=>{
+              const tag=tagUser(u);
+              return<div key={u.userId} style={{display:"grid",gridTemplateColumns:"1fr 70px 70px 70px 90px 90px",gap:4,padding:"7px 16px",borderBottom:i<users.length-1?"1px solid #f8f8f6":"none",alignItems:"center"}}>
                 <span style={{fontFamily:mono,fontSize:10,color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{u.email||u.userId.slice(0,12)+'…'}</span>
-                <span style={{fontFamily:mono,fontSize:12,fontWeight:700,color:u.rankedPositions>0?"#22c55e":"#d4d4d4"}}>{u.rankedPositions}/{POSITION_GROUPS.length}</span>
-                <span style={{fontFamily:mono,fontSize:12,color:u.eventCount>0?"#3b82f6":"#d4d4d4"}}>{u.eventCount}</span>
-                <span style={{fontFamily:mono,fontSize:12,color:u.noteCount>0?"#0891b2":"#d4d4d4"}}>{u.noteCount}</span>
-                <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.createdAt?new Date(u.createdAt).toLocaleDateString():""}</span>
-                <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.updatedAt?new Date(u.updatedAt).toLocaleDateString()+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
-              </div>
-            ))}
+                <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:tag.color,background:tag.bg,padding:"2px 6px",borderRadius:4,textAlign:"center"}}>{tag.label}</span>
+                <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:u.rankedPositions>0?"#22c55e":"#e5e5e5",textAlign:"center"}}>{u.rankedPositions}/{POSITION_GROUPS.length}</span>
+                <span style={{fontFamily:mono,fontSize:11,color:u.eventCount>0?"#3b82f6":"#e5e5e5",textAlign:"center"}}>{u.eventCount}</span>
+                <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.createdAt?new Date(u.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric'}):""}</span>
+                <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.updatedAt?new Date(u.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric'})+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
+              </div>;
+            })}
           </div>
         </div>
 
-        {/* Recent Events Log */}
-        <h2 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"32px 0 12px"}}>recent events</h2>
+        {/* Recent Events — compact log */}
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
-          <div style={{maxHeight:400,overflowY:"auto"}}>
-            {events.map((e,i)=>(
-              <div key={e.id} style={{display:"grid",gridTemplateColumns:"100px 1fr 1fr 140px",gap:8,padding:"6px 16px",borderBottom:i<events.length-1?"1px solid #f5f5f5":"none",fontSize:11,fontFamily:mono,alignItems:"center"}}>
-                <span style={{color:e.event==='signup'?"#22c55e":e.event==='mock_draft_started'?"#f59e0b":e.event==='ranking_completed'?"#3b82f6":"#a3a3a3",fontWeight:700}}>{e.event}</span>
-                <span style={{color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{e.user_id?.slice(0,12)}…</span>
-                <span style={{color:"#a3a3a3"}}>{e.metadata&&Object.keys(e.metadata).length>0?JSON.stringify(e.metadata):""}</span>
-                <span style={{color:"#a3a3a3"}}>{new Date(e.created_at).toLocaleDateString()} {new Date(e.created_at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}</span>
-              </div>
-            ))}
+          <div style={{padding:"14px 16px",borderBottom:"1px solid #f0f0f0"}}>
+            <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717"}}>recent events</span>
+          </div>
+          <div style={{maxHeight:350,overflowY:"auto"}}>
+            {events.map((e,i)=>{
+              const evtColor=e.event==='signup'?"#22c55e":e.event==='mock_draft_started'?"#f59e0b":e.event==='ranking_completed'?"#3b82f6":e.event==='ranking_started'?"#8b5cf6":"#a3a3a3";
+              // Find email for this user
+              const eu=users.find(u=>u.userId===e.user_id);
+              return<div key={e.id} style={{display:"grid",gridTemplateColumns:"110px 1fr 1fr 120px",gap:6,padding:"5px 16px",borderBottom:i<events.length-1?"1px solid #fafaf8":"none",fontSize:10,fontFamily:mono,alignItems:"center"}}>
+                <span style={{color:evtColor,fontWeight:700}}>{e.event.replace(/_/g,' ')}</span>
+                <span style={{color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{eu?.email||e.user_id?.slice(0,12)+'…'}</span>
+                <span style={{color:"#a3a3a3",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{e.metadata&&Object.keys(e.metadata).length>0?JSON.stringify(e.metadata):""}</span>
+                <span style={{color:"#d4d4d4"}}>{new Date(e.created_at).toLocaleDateString('en-US',{month:'short',day:'numeric'})} {new Date(e.created_at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}</span>
+              </div>;
+            })}
           </div>
         </div>
       </div>
