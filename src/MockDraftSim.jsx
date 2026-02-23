@@ -1144,22 +1144,31 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       ctx.fillStyle=grad;ctx.fillRect(0,H-3,W,3);
     }
 
-    // === EXPORT — clipboard first, download fallback ===
+    // === EXPORT — clipboard + toast on desktop, share sheet on mobile ===
     const label=isSingleTeam?team:'mock-draft';
     canvas.toBlob(async blob=>{
       if(!blob){alert('Could not generate image');return;}
+      const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if(isMobile&&navigator.share&&navigator.canShare){
+        try{
+          const file=new File([blob],`bigboardlab-${label}.png`,{type:'image/png'});
+          if(navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'My Mock Draft — Big Board Lab',text:'Build yours at bigboardlab.com'});return;}
+        }catch(e){}
+      }
+      // Desktop: clipboard + toast
       try{
         await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
-        // Brief visual confirmation could be added in UI
+        // Show toast
+        const toast=document.createElement('div');
+        toast.textContent='✓ Copied to clipboard';
+        Object.assign(toast.style,{position:'fixed',bottom:'32px',left:'50%',transform:'translateX(-50%)',background:'#171717',color:'#fff',padding:'10px 24px',borderRadius:'99px',fontSize:'14px',fontWeight:'600',fontFamily:'-apple-system,system-ui,sans-serif',zIndex:'99999',boxShadow:'0 4px 12px rgba(0,0,0,0.15)',transition:'opacity 0.3s'});
+        document.body.appendChild(toast);
+        setTimeout(()=>{toast.style.opacity='0';setTimeout(()=>toast.remove(),300);},2000);
       }catch(e){
-        // Clipboard failed (permissions or non-secure context) — fall back to download
+        // Clipboard failed — fall back to download
         const url=URL.createObjectURL(blob);
-        const a=document.createElement('a');
-        a.href=url;
-        a.download=`bigboardlab-${label}.png`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+        const a=document.createElement('a');a.href=url;a.download=`bigboardlab-${label}.png`;
+        document.body.appendChild(a);a.click();document.body.removeChild(a);
         setTimeout(()=>URL.revokeObjectURL(url),3000);
       }
     },'image/png');
