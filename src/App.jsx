@@ -574,65 +574,108 @@ function DraftBoard({user,onSignOut}){
     const hasStaleData=!hasBoardData&&Object.keys(ratings).length>0&&!sessionStorage.getItem('bbl_stale_dismissed');
     const dismissStale=()=>{sessionStorage.setItem('bbl_stale_dismissed','1');setRatings({});setTraits({});setCompCount({});setWinCount({});};
     const dismissOnboarding=()=>{setShowOnboarding(false);try{localStorage.setItem('bbl_onboarded','1');}catch(e){}};
+
+    // Consensus big board — all prospects sorted by consensus rank
+    const consensusBoard=PROSPECTS.filter(p=>{const cr=getConsensusRank(p.name);return cr&&cr<=300;}).sort((a,b)=>getConsensusRank(a.name)-getConsensusRank(b.name));
+    // User big board
+    const userBoard=getBoard();
+
+    // Board toggle state
+    const[boardTab,setBoardTab]=useState(hasBoardData?"my":"consensus");
+    const[boardFilter,setBoardFilter]=useState(new Set());
+    const showBoard=boardTab==="my"?userBoard:consensusBoard;
+    const filteredBoard=boardFilter.size>0?showBoard.filter(p=>{const g=(p.gpos||p.pos)==="K"||(p.gpos||p.pos)==="P"||(p.gpos||p.pos)==="LS"?"K/P":(p.gpos||p.pos);return boardFilter.has(g);}):showBoard;
+
     return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 60px"}}>
 
-    {hasBoardData&&<div style={{marginBottom:32}}>
-      <h1 style={{fontSize:36,fontWeight:900,color:"#171717",margin:"0 0 20px",letterSpacing:-1}}>big board lab</h1>
-      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:24}}>
-        <button onClick={()=>setPhase("board")} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px",textAlign:"left",cursor:"pointer"}}>
-          <div style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",marginBottom:4}}>📋 big board</div>
-          <div style={{fontFamily:sans,fontSize:13,color:"#a3a3a3"}}>{getBoard().length} prospects ranked</div>
-        </button>
-        <button onClick={()=>setShowMockDraft(true)} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px",textAlign:"left",cursor:"pointer"}}>
-          <div style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",marginBottom:4}}>🏈 mock draft</div>
-          <div style={{fontFamily:sans,fontSize:13,color:"#a3a3a3"}}>sim the draft with your board</div>
-        </button>
-      </div>
+    {/* First-visit banner — differentiators, not flow */}
+    {showOnboarding&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"14px 20px",marginBottom:20,display:"flex",alignItems:"center",justifyContent:"space-between",gap:12}}>
+      <p style={{fontFamily:sans,fontSize:13,color:"#525252",margin:0,lineHeight:1.5}}>
+        <span style={{fontWeight:700,color:"#171717"}}>welcome to BBL</span> — rank & grade 450+ prospects with pairwise comparisons · mock draft against AI GMs with real trade logic · view depth chart impact and share your results
+      </p>
+      <button onClick={dismissOnboarding} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",flexShrink:0,padding:"4px"}}>✕</button>
     </div>}
 
-    {!hasBoardData&&<div style={{textAlign:"center",marginBottom:32}}>
-      <img src="/logo.png" alt="Big Board Lab" style={{width:80,height:"auto",marginBottom:12}}/>
-      <p style={{fontFamily:mono,fontSize:11,letterSpacing:3,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>2026 NFL Draft · Pittsburgh · April 23–25</p>
-      <h1 style={{fontSize:"clamp(36px,7vw,56px)",fontWeight:900,lineHeight:1,color:"#171717",margin:"0 0 16px",letterSpacing:-2}}>big board lab</h1>
-      <div style={{display:"flex",gap:12,justifyContent:"center",marginTop:20}}>
-        <button onClick={()=>setShowMockDraft(true)} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 24px",background:"#fff",color:"#171717",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>🏈 mock draft</button>
-        <button onClick={()=>{const firstPos=POSITION_GROUPS[0];startRanking(firstPos);}} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 24px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>⚖️ start ranking</button>
+    {/* Header */}
+    <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end",marginBottom:16}}>
+      <div>
+        <h1 style={{fontSize:"clamp(28px,6vw,40px)",fontWeight:900,color:"#171717",margin:"0 0 2px",letterSpacing:-1.5}}>big board lab</h1>
+        <p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:0}}>2026 NFL Draft · Pittsburgh · April 23–25</p>
       </div>
-    </div>}
-
-    {/* Dismissible onboarding */}
-    {showOnboarding&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:"20px 24px",marginBottom:24,position:"relative"}}>
-      <button onClick={dismissOnboarding} style={{position:"absolute",top:12,right:14,fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"2px 8px",cursor:"pointer"}}>✕</button>
-      <h3 style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717",margin:"0 0 14px"}}>how it works</h3>
-      <div style={{display:"flex",flexDirection:"column",gap:12}}>
-        <div style={{display:"flex",gap:12,alignItems:"flex-start"}}>
-          <span style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#d4d4d4",lineHeight:1,flexShrink:0,width:24}}>1</span>
-          <div><span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>pair rank top prospects</span><span style={{fontFamily:sans,fontSize:13,color:"#737373"}}> — pick A or B starting with the top players. rank a few to establish your top 10, or sim the rest.</span></div>
-        </div>
-        <div style={{display:"flex",gap:12,alignItems:"flex-start"}}>
-          <span style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#d4d4d4",lineHeight:1,flexShrink:0,width:24}}>2</span>
-          <div><span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>fine-tune rankings</span><span style={{fontFamily:sans,fontSize:13,color:"#737373"}}> — drag to reorder, adjust trait sliders to change grades. add scouting notes.</span></div>
-        </div>
-        <div style={{display:"flex",gap:12,alignItems:"flex-start"}}>
-          <span style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#d4d4d4",lineHeight:1,flexShrink:0,width:24}}>3</span>
-          <div><span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>mock draft</span><span style={{fontFamily:sans,fontSize:13,color:"#737373"}}> — draft as any team with your board or consensus. trade up, fill needs.</span></div>
-        </div>
-      </div>
-    </div>}
+      <button onClick={()=>setShowMockDraft(true)} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 20px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer",flexShrink:0}}>🏈 mock draft</button>
+    </div>
 
     {/* Stale data warning */}
-    {hasStaleData&&<div style={{background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:12,padding:"12px 16px",marginBottom:20,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-      <span style={{fontFamily:sans,fontSize:13,color:"#92400e"}}>You have rankings from an old session. Reset to start fresh with the new position groups.</span>
+    {hasStaleData&&<div style={{background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:12,padding:"12px 16px",marginBottom:16,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+      <span style={{fontFamily:sans,fontSize:13,color:"#92400e"}}>You have rankings from an old session. Reset to start fresh.</span>
       <button onClick={dismissStale} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer",flexShrink:0,marginLeft:12}}>reset</button>
     </div>}
 
-    <h2 style={{fontFamily:font,fontSize:hasBoardData?20:24,fontWeight:900,color:"#171717",margin:"0 0 4px",letterSpacing:-1}}>{hasBoardData?"edit positions":"positions"}</h2>
-    <p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",margin:"0 0 20px"}}>rank each group, then tune traits to build your board</p>
+    {/* Big Board Module */}
+    <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,overflow:"hidden",marginBottom:24}}>
+      {/* Toggle tabs */}
+      <div style={{display:"flex",borderBottom:"1px solid #f0f0f0"}}>
+        <button onClick={()=>setBoardTab("consensus")} style={{flex:1,fontFamily:sans,fontSize:13,fontWeight:boardTab==="consensus"?700:500,padding:"14px 16px",background:"transparent",border:"none",borderBottom:boardTab==="consensus"?"2px solid #171717":"2px solid transparent",color:boardTab==="consensus"?"#171717":"#a3a3a3",cursor:"pointer"}}>consensus big board</button>
+        <button onClick={()=>setBoardTab("my")} style={{flex:1,fontFamily:sans,fontSize:13,fontWeight:boardTab==="my"?700:500,padding:"14px 16px",background:"transparent",border:"none",borderBottom:boardTab==="my"?"2px solid #171717":"2px solid transparent",color:boardTab==="my"?"#171717":"#a3a3a3",cursor:"pointer"}}>my big board{rankedGroups.size>0&&<span style={{fontFamily:mono,fontSize:10,color:"#22c55e",marginLeft:6}}>{rankedGroups.size}/{POSITION_GROUPS.length}</span>}</button>
+      </div>
+
+      {/* Position filter pills */}
+      <div style={{padding:"10px 16px 6px",display:"flex",gap:5,flexWrap:"wrap"}}>
+        <button onClick={()=>setBoardFilter(new Set())} style={{fontFamily:mono,fontSize:10,padding:"3px 10px",background:boardFilter.size===0?"#171717":"transparent",color:boardFilter.size===0?"#faf9f6":"#a3a3a3",border:"1px solid "+(boardFilter.size===0?"#171717":"#e5e5e5"),borderRadius:99,cursor:"pointer"}}>all</button>
+        {POSITION_GROUPS.map(pos=>{const active=boardFilter.has(pos);const c=POS_COLORS[pos];return<button key={pos} onClick={()=>setBoardFilter(prev=>{const n=new Set(prev);if(n.has(pos))n.delete(pos);else n.add(pos);return n;})} style={{fontFamily:mono,fontSize:10,padding:"3px 10px",background:active?`${c}11`:"transparent",color:active?c:"#a3a3a3",border:`1px solid ${active?c+"33":"#e5e5e5"}`,borderRadius:99,cursor:"pointer"}}>{pos}</button>;})}
+      </div>
+
+      {/* Board content */}
+      {boardTab==="my"&&userBoard.length===0?(
+        /* My Big Board empty state — inline CTA */
+        <div style={{padding:"40px 24px",textAlign:"center"}}>
+          <div style={{fontSize:40,marginBottom:12}}>⚖️</div>
+          <h3 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"0 0 8px"}}>build your board</h3>
+          <p style={{fontFamily:sans,fontSize:14,color:"#737373",margin:"0 0 6px",maxWidth:380,marginLeft:"auto",marginRight:"auto",lineHeight:1.5}}>
+            pick A or B in head-to-head matchups to rank prospects your way. start with QBs — it only takes a few minutes.
+          </p>
+          {rankedGroups.size>0&&<p style={{fontFamily:mono,fontSize:11,color:"#22c55e",margin:"0 0 16px"}}>{rankedGroups.size} position{rankedGroups.size!==1?"s":""} ranked so far</p>}
+          <button onClick={()=>startRanking("QB")} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 28px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>rank QBs →</button>
+          <p style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",margin:"12px 0 0"}}>or pick any position below</p>
+        </div>
+      ):(
+        /* Board list */
+        <div style={{maxHeight:480,overflowY:"auto"}}>
+          {filteredBoard.slice(0,100).map((p,i)=>{
+            const grade=boardTab==="my"?getGrade(p.id):getConsensusGrade(p.name);
+            const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos]||"#525252";
+            const rank=boardTab==="consensus"?getConsensusRank(p.name):i+1;
+            return<div key={p.id} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 16px",borderBottom:"1px solid #f8f8f6",cursor:"pointer"}} onClick={()=>setProfilePlayer(p)} onMouseEnter={e=>e.currentTarget.style.background="#faf9f6"} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+              <span style={{fontFamily:mono,fontSize:11,color:"#d4d4d4",width:26,textAlign:"right",flexShrink:0}}>{rank}</span>
+              <span style={{fontFamily:mono,fontSize:9,fontWeight:600,color:c,background:`${c}0d`,padding:"2px 7px",borderRadius:4,flexShrink:0}}>{p.gpos||p.pos}</span>
+              <SchoolLogo school={p.school} size={20}/>
+              <div style={{flex:1,minWidth:0}}>
+                <span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>{p.name}</span>
+                <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginLeft:6}}>{p.school}</span>
+              </div>
+              {grade&&<span style={{fontFamily:font,fontSize:14,fontWeight:900,color:grade>=75?"#16a34a":grade>=55?"#ca8a04":"#dc2626",flexShrink:0}}>{grade}</span>}
+            </div>;
+          })}
+          {filteredBoard.length>100&&<div style={{padding:"12px 16px",textAlign:"center"}}><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>showing top 100 of {filteredBoard.length}</span></div>}
+        </div>
+      )}
+
+      {/* Board footer */}
+      {boardTab==="my"&&userBoard.length>0&&<div style={{padding:"10px 16px",borderTop:"1px solid #f0f0f0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+        <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{userBoard.length} prospects ranked</span>
+        <button onClick={()=>setPhase("board")} style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>full board view →</button>
+      </div>}
+      {boardTab==="consensus"&&<div style={{padding:"10px 16px",borderTop:"1px solid #f0f0f0",display:"flex",justifyContent:"center",alignItems:"center"}}>
+        <span style={{fontFamily:sans,fontSize:11,color:"#a3a3a3"}}>disagree? <button onClick={()=>setBoardTab("my")} style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717",background:"none",border:"none",cursor:"pointer",textDecoration:"underline",padding:0}}>build your own rankings</button></span>
+      </div>}
+    </div>
+
+    {/* Position Grid */}
+    <h2 style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717",margin:"0 0 4px",letterSpacing:-0.5}}>{hasBoardData?"edit positions":"rank by position"}</h2>
+    <p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 14px"}}>rank each group to build your board</p>
     <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(200px, 1fr))",gap:12}}>{POSITION_GROUPS.map(pos=>{const ct=(byPos[pos]||[]).length;const done=rankedGroups.has(pos);const partial=!!partialProgress[pos];const reviewed=traitReviewedGroups.has(pos);const c=POS_COLORS[pos];
-      // Count completed comparisons for partial
       const completedCount=partial?(partialProgress[pos].completed?.size||0):0;
       const totalMatchups=partial?(partialProgress[pos].matchups?.length||0):0;
-      const rankedCount=partial?byPos[pos]?.filter(p=>(compCount[p.id]||0)>=MIN_COMPS).length||0:0;
       return(<div key={pos} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"18px 20px",position:"relative"}}>
         {done&&<span style={{position:"absolute",top:12,right:14,fontSize:10,fontFamily:mono,color:"#22c55e"}}>✓ ranked</span>}
         {partial&&!done&&<span style={{position:"absolute",top:12,right:14,fontSize:10,fontFamily:mono,color:"#ca8a04"}}>{completedCount}/{totalMatchups}</span>}
