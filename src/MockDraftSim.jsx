@@ -909,8 +909,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
       // Best pick for radar
       const bestPick=teamPicks.reduce((best,pk)=>{const g=activeGrade(pk.playerId);return(!best||g>best.grade)?{pk,grade:g}:best;},null);
-      const radarSize=200;
-      const radarCardH=bestPick?radarSize+70:0;
+      const radarSize=220;
+      const radarCardH=bestPick?radarSize+110:0;
 
       const depthTotalH=depthRowCount*depthRowH+depthGroups.length*depthGroupGap+20;
       const picksTotalH=24+teamPicks.length*pickRowH;
@@ -988,20 +988,58 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         py+=pickRowH;
       }
 
-      // RADAR CHART — below picks, own card
+      // SCOUTING CARD — school logo, player info, grade, rank + radar
       if(bestPick){
         const bp=prospectsMap[bestPick.pk.playerId];
         if(bp){
           const cardY=py+12;
           const cardH=radarCardH-12;
+          // Card bg
           ctx.fillStyle='#fff';rr(pad,cardY,leftW,cardH,8);ctx.fill();
           ctx.strokeStyle='#f0f0f0';ctx.lineWidth=0.5;ctx.stroke();
           ctx.fillStyle=accent;ctx.fillRect(pad,cardY+4,3,cardH-8);
-          ctx.fillStyle='#a3a3a3';ctx.font='bold 9px ui-monospace,monospace';ctx.textAlign='center';
-          ctx.fillText('TOP PICK — '+(bp.gpos||bp.pos)+' '+bp.name.toUpperCase(),pad+leftW/2,cardY+14);
+
+          // School logo — left side of header
+          const infoY=cardY+14;
+          let schoolLoaded=false;
+          try{
+            const sUrl=schoolLogo(bp.school);
+            if(sUrl){const sImg=await loadImg(sUrl);ctx.drawImage(sImg,pad+14,infoY,32,32);schoolLoaded=true;}
+          }catch(e){}
+          const textX=schoolLoaded?pad+54:pad+14;
+
+          // Player name — bold
+          ctx.fillStyle='#171717';ctx.font='bold 16px -apple-system,system-ui,sans-serif';ctx.textBaseline='top';
+          ctx.fillText(bp.name,textX,infoY);
+
+          // Position + School
+          const bpPos=bp.gpos||bp.pos;
+          const bpColor=POS_COLORS[bpPos]||POS_COLORS[bp.pos]||'#525252';
+          ctx.fillStyle=bpColor;ctx.font='bold 10px ui-monospace,monospace';
+          ctx.fillText(bpPos,textX,infoY+20);
+          ctx.fillStyle='#a3a3a3';ctx.font='11px -apple-system,system-ui,sans-serif';
+          ctx.fillText(bp.school||'',textX+ctx.measureText(bpPos).width+8,infoY+20);
+
+          // Grade — right-aligned in header area
+          const bpGrade=bestPick.grade;
+          ctx.fillStyle=bpGrade>=75?'#16a34a':bpGrade>=55?'#ca8a04':'#dc2626';
+          ctx.font='bold 28px -apple-system,system-ui,sans-serif';ctx.textAlign='right';
+          ctx.fillText(String(bpGrade),pad+leftW-14,infoY);
+
+          // Rank — below grade
+          const bpRank=getConsensusRank?getConsensusRank(bp.name):null;
+          if(bpRank&&bpRank<900){
+            ctx.fillStyle='#a3a3a3';ctx.font='9px ui-monospace,monospace';
+            ctx.fillText('CONSENSUS #'+bpRank,pad+leftW-14,infoY+28);
+          }
           ctx.textAlign='left';
+
+          // Thin divider
+          ctx.fillStyle='#f0f0f0';ctx.fillRect(pad+14,infoY+40,leftW-28,1);
+
+          // Radar centered below info
           const radarCx=pad+leftW/2;
-          const radarCy=cardY+radarSize/2+40;
+          const radarCy=infoY+44+radarSize/2+8;
           drawRadarChart(ctx,bp,radarCy,radarCx,radarSize,accent);
         }
       }
@@ -1106,30 +1144,36 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       ctx.fillStyle=grad;ctx.fillRect(0,H-3,W,3);
     }
 
-    // === EXPORT — direct download only (fixes double-image bug) ===
+    // === EXPORT — clipboard first, download fallback ===
     const label=isSingleTeam?team:'mock-draft';
-    canvas.toBlob(blob=>{
+    canvas.toBlob(async blob=>{
       if(!blob){alert('Could not generate image');return;}
-      const url=URL.createObjectURL(blob);
-      const a=document.createElement('a');
-      a.href=url;
-      a.download=`bigboardlab-${label}.png`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      setTimeout(()=>URL.revokeObjectURL(url),3000);
+      try{
+        await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
+        // Brief visual confirmation could be added in UI
+      }catch(e){
+        // Clipboard failed (permissions or non-secure context) — fall back to download
+        const url=URL.createObjectURL(blob);
+        const a=document.createElement('a');
+        a.href=url;
+        a.download=`bigboardlab-${label}.png`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(()=>URL.revokeObjectURL(url),3000);
+      }
     },'image/png');
   },[picks,userTeams,prospectsMap,activeGrade,getConsensusRank,getConsensusGrade,draftGrade,tradeValueDelta,depthChart,POS_COLORS,cpuTradeLog,fullDraftOrder]);
 
   // Canvas helper: rounded rectangle path
   function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
 
-  // Canvas radar chart — mirrors the SVG RadarChart component
+  // Canvas radar chart — full trait labels
   function drawRadarChart(ctx,player,cy,cx,size,color){
     const pos=player.gpos||player.pos;
     const posTraits=POSITION_TRAITS[pos]||POSITION_TRAITS[player.pos]||[];
     if(posTraits.length===0)return;
-    const r=size/2-28;const n=posTraits.length;
+    const r=size/2-32;const n=posTraits.length;
     const angles=posTraits.map((_,i)=>(Math.PI*2*i)/n-Math.PI/2);
     const vals=posTraits.map(t=>traits[player.id]?.[t]||50);
 
@@ -1151,14 +1195,16 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();
     // Dots
     angles.forEach((a,i)=>{const v=(vals[i]||50)/100;ctx.beginPath();ctx.arc(cx+r*v*Math.cos(a),cy+r*v*Math.sin(a),3.5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
-    // Labels — abbreviated like the SVG version
-    ctx.fillStyle='#737373';ctx.font='9px monospace';ctx.textAlign='center';
+    // Labels — FULL trait names
+    ctx.fillStyle='#737373';ctx.font='bold 9px -apple-system,system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
     posTraits.forEach((t,i)=>{
-      const lr=r+16;const lx=cx+lr*Math.cos(angles[i]);const ly=cy+lr*Math.sin(angles[i]);
-      const abbr=t.split(' ').map(w=>w[0]).join('');
-      ctx.fillText(abbr,lx,ly+3);
+      const lr=r+24;const lx=cx+lr*Math.cos(angles[i]);const ly=cy+lr*Math.sin(angles[i]);
+      // Adjust alignment based on position around the circle
+      const a=angles[i];
+      if(Math.abs(Math.cos(a))>0.3){ctx.textAlign=Math.cos(a)>0?'left':'right';}else{ctx.textAlign='center';}
+      ctx.fillText(t,lx,ly);
     });
-    ctx.textAlign='left';
+    ctx.textAlign='left';ctx.textBaseline='top';
   }
 
   const userPickCount=useMemo(()=>picks.filter(p=>p.isUser).length,[picks]);
