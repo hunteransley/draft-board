@@ -55,7 +55,7 @@
     position: sticky; top: 0; z-index: 50;
     background: rgba(250,249,246,0.92); backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
-    padding: 10px 24px;
+    padding: 10px 24px; height: 46px;
     display: flex; justify-content: space-between; align-items: center;
   }
   .top-bar a.logo { font-family: Georgia, serif; font-weight: 900; font-size: 18px; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
@@ -108,7 +108,6 @@
   }
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
   thead th {
-    position: sticky; top: 45px; z-index: 10;
     background: var(--bg); padding: 10px 6px; text-align: left;
     font-size: 10px; font-weight: 700; letter-spacing: 0.8px;
     text-transform: uppercase; color: var(--muted);
@@ -178,7 +177,7 @@
   <div class="badge">NFL Combine 2026</div>
   <h1>2026 NFL Scouting Combine Results</h1>
   <p class="subtitle">Every measurement and athletic test for 450+ draft prospects. Sort any column, filter by position, then rank them yourself on Big Board Lab.</p>
-  <p class="last-updated">Last updated: <span id="lastUpdated">Feb 24, 2026</span> · Indianapolis, IN</p>
+  <p class="last-updated">Last updated: <span id="lastUpdated">Feb 23, 2026 20:11</span> · Indianapolis, IN</p>
 </div>
 
 <div class="controls">
@@ -214,7 +213,8 @@
         <th data-col="shuttle" data-type="num">Shuttle <span class="arrow"></span></th>
       </tr>
     </thead>
-    <tbody id="tableBody"></tbody>
+    <tbody id="tableBody">
+    </tbody>
   </table>
 </div>
 
@@ -237,7 +237,8 @@
 
 <script>
 const COMBINE_DATA = [
-  {name:"Fernando Mendoza",pos:"QB",school:"Indiana",rank:1,height:"6-5",weight:225,forty:null,vertical:null,broad:null,bench:null,cone:null,shuttle:null},
+  {name:"__SENTINEL__",pos:"",school:"",rank:0,height:null,weight:null,forty:null,vertical:null,broad:null,bench:null,cone:null,shuttle:null},
+  {name:"Fernando Mendoza",pos:"QB",school:"Indiana",rank:1,height:null,weight:null,forty:null,vertical:null,broad:null,bench:null,cone:null,shuttle:null},
   {name:"Ty Simpson",pos:"QB",school:"Alabama",rank:2,height:null,weight:null,forty:null,vertical:null,broad:null,bench:null,cone:null,shuttle:null},
   {name:"Garrett Nussmeier",pos:"QB",school:"LSU",rank:3,height:null,weight:null,forty:null,vertical:null,broad:null,bench:null,cone:null,shuttle:null},
   {name:"Drew Allar",pos:"QB",school:"Penn State",rank:4,height:null,weight:null,forty:null,vertical:null,broad:null,bench:null,cone:null,shuttle:null},
@@ -746,28 +747,31 @@ function getSorted(data) {
 
 function render() {
   const filtered = getSorted(getFiltered());
-  document.getElementById('resultCount').textContent = filtered.length;
+  document.getElementById('resultCount').textContent = filtered.filter(p => p.name !== '__SENTINEL__').length;
   const tbody = document.getElementById('tableBody');
-  tbody.innerHTML = filtered.map(p => {
+  let html = '';
+  filtered.forEach(p => {
+    if (p.name === '__SENTINEL__') return;
     const fmt = (col, val, unit) => {
-      if (val === null || val === undefined) return `<td class="num-cell pending">—</td>`;
-      return `<td class="num-cell ${gradeClass(col, val)}">${val}${unit||''}</td>`;
+      if (val === null || val === undefined) return '<td class="num-cell pending">—</td>';
+      return '<td class="num-cell ' + gradeClass(col, val) + '">' + val + (unit||'') + '</td>';
     };
-    return `<tr>
-      <td class="num-cell" style="color:var(--muted)">${p.rank||'—'}</td>
-      <td class="name-cell"><a href="https://bigboardlab.com">${p.name}</a><a href="https://bigboardlab.com" class="rank-link">rank →</a></td>
-      <td class="pos-cell">${p.pos}</td>
-      <td class="school-cell">${p.school}</td>
-      <td class="num-cell">${p.height||'—'}</td>
-      ${fmt('weight', p.weight)}
-      ${fmt('forty', p.forty, 's')}
-      ${fmt('vertical', p.vertical, '"')}
-      ${fmt('broad', p.broad, '"')}
-      ${fmt('bench', p.bench)}
-      ${fmt('cone', p.cone, 's')}
-      ${fmt('shuttle', p.shuttle, 's')}
-    </tr>`;
-  }).join('');
+    html += '<tr>';
+    html += '<td class="num-cell" style="color:var(--muted)">' + (p.rank||'—') + '</td>';
+    html += '<td class="name-cell"><a href="https://bigboardlab.com">' + p.name + '</a><a href="https://bigboardlab.com" class="rank-link">rank →</a></td>';
+    html += '<td class="pos-cell">' + p.pos + '</td>';
+    html += '<td class="school-cell">' + p.school + '</td>';
+    html += '<td class="num-cell">' + (p.height||'—') + '</td>';
+    html += fmt('weight', p.weight);
+    html += fmt('forty', p.forty, 's');
+    html += fmt('vertical', p.vertical, '"');
+    html += fmt('broad', p.broad, '"');
+    html += fmt('bench', p.bench);
+    html += fmt('cone', p.cone, 's');
+    html += fmt('shuttle', p.shuttle, 's');
+    html += '</tr>';
+  });
+  tbody.innerHTML = html;
   document.querySelectorAll('thead th').forEach(th => {
     const arrow = th.querySelector('.arrow');
     arrow.textContent = th.dataset.col === sortCol ? (sortDir === 'asc' ? '▲' : '▼') : '';
