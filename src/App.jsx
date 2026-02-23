@@ -590,11 +590,16 @@ function DraftBoard({user,onSignOut}){
     return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 60px"}}>
 
     {/* First-visit banner — differentiators, not flow */}
-    {showOnboarding&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"14px 20px",marginBottom:20,display:"flex",alignItems:"center",justifyContent:"space-between",gap:12}}>
-      <p style={{fontFamily:sans,fontSize:13,color:"#525252",margin:0,lineHeight:1.5}}>
-        <span style={{fontWeight:700,color:"#171717"}}>welcome to BBL</span> — rank & grade 450+ prospects with pairwise comparisons · mock draft against AI GMs with real trade logic · view depth chart impact and share your results
-      </p>
-      <button onClick={dismissOnboarding} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",flexShrink:0,padding:"4px"}}>✕</button>
+    {showOnboarding&&<div style={{background:"linear-gradient(135deg,#ec4899,#7c3aed)",borderRadius:13,padding:2,marginBottom:20}}>
+      <div style={{background:"#fff",borderRadius:11,padding:"14px 20px",display:"flex",alignItems:"flex-start",justifyContent:"space-between",gap:12}}>
+        <div style={{fontFamily:sans,fontSize:13,color:"#525252",margin:0,lineHeight:1.7}}>
+          <span style={{fontWeight:700,color:"#171717"}}>welcome to BBL</span><br/>
+          <span>⚖️ rank & grade 450+ prospects by pair rankings and sliding trait scores</span><br/>
+          <span>🏈 mock draft against AI GMs with real team tendencies and trade logic</span><br/>
+          <span>📊 view depth chart updates post-draft and share your results</span>
+        </div>
+        <button onClick={dismissOnboarding} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",flexShrink:0,padding:"4px",marginTop:-2}}>✕</button>
+      </div>
     </div>}
 
     {/* Header */}
@@ -664,10 +669,22 @@ function DraftBoard({user,onSignOut}){
       )}
 
       {/* Board footer */}
-      {boardTab==="my"&&userBoard.length>0&&<div style={{padding:"10px 16px",borderTop:"1px solid #f0f0f0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-        <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{userBoard.length} prospects ranked</span>
-        <button onClick={()=>setPhase("board")} style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>full board view →</button>
-      </div>}
+      {boardTab==="my"&&userBoard.length>0&&(()=>{
+        const nextPos=POSITION_GROUPS.find(pos=>!rankedGroups.has(pos)&&!partialProgress[pos]);
+        const contPos=POSITION_GROUPS.find(pos=>!rankedGroups.has(pos)&&partialProgress[pos]);
+        return<div style={{padding:"10px 16px",borderTop:"1px solid #f0f0f0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{rankedGroups.size}/{POSITION_GROUPS.length} positions · {userBoard.length} prospects</span>
+          <div style={{display:"flex",gap:8}}>
+            {rankedGroups.size>=POSITION_GROUPS.length?
+              <button onClick={()=>setPhase("board")} style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>full board view →</button>
+            :contPos?
+              <button onClick={()=>startRanking(contPos,true)} style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#faf9f6",background:"#171717",border:"none",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>continue {contPos}s →</button>
+            :nextPos?
+              <button onClick={()=>startRanking(nextPos)} style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#faf9f6",background:"#171717",border:"none",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>rank {nextPos}s →</button>
+            :null}
+          </div>
+        </div>;
+      })()}
       {boardTab==="consensus"&&<div style={{padding:"10px 16px",borderTop:"1px solid #f0f0f0",display:"flex",justifyContent:"center",alignItems:"center"}}>
         <span style={{fontFamily:sans,fontSize:11,color:"#a3a3a3"}}>disagree? <button onClick={()=>setBoardTab("my")} style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717",background:"none",border:"none",cursor:"pointer",textDecoration:"underline",padding:0}}>build your own rankings</button></span>
       </div>}
