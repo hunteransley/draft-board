@@ -4,6 +4,11 @@ import MockDraftSim from "./MockDraftSim.jsx";
 import { CONSENSUS_BOARD, getConsensusRank, getConsensusGrade, TEAM_NEEDS_DETAILED } from "./consensusData.js";
 import { getProspectStats } from "./prospectStats.js";
 
+// Fire-and-forget event tracking — never blocks UI, silently drops on error
+function trackEvent(userId,event,metadata={}){
+  try{supabase.from('events').insert({user_id:userId,event,metadata}).then();}catch(e){}
+}
+
 // ============================================================
 // DATA: All 2026 NFL Draft Prospects (450+)
 // ============================================================
@@ -385,6 +390,7 @@ function DraftBoard({user,onSignOut}){
   const[partialProgress,setPartialProgress]=useState({}); // {pos: {matchups:[], completed:Set, ratings:{}}}
   const[communityBoard,setCommunityBoard]=useState(null);
   const[showMockDraft,setShowMockDraft]=useState(false);
+  useEffect(()=>{if(showMockDraft)trackEvent(user.id,'mock_draft_started');},[showMockDraft]);
   const[lockedPlayer,setLockedPlayer]=useState(null);
   const[showOnboarding,setShowOnboarding]=useState(()=>{try{return !localStorage.getItem('bbl_onboarded');}catch(e){return true;}});
 
@@ -460,6 +466,7 @@ function DraftBoard({user,onSignOut}){
   const posRankFn=useCallback((id)=>{const p=prospectsMap[id];if(!p)return 999;const ps=getProspectStats(p.name,p.school);return ps?.posRank||getConsensusRank(p.name)||999;},[prospectsMap]);
   const startRanking=useCallback((pos,resume=false)=>{
     setLockedPlayer(null);
+    trackEvent(user.id,'ranking_started',{position:pos,resume});
     const ids=(byPos[pos]||[]).map(p=>p.id);
     const consensusRankFn=(id)=>{const p=prospectsMap[id];if(!p)return 999;const ps=getProspectStats(p.name,p.school);return ps?.posRank||getConsensusRank(p.name)||999;};
     let allM,doneSet,r,c;
@@ -520,7 +527,7 @@ function DraftBoard({user,onSignOut}){
     const computeGrade=(id)=>{const t=nt[id];if(!t)return 50;const pt=POSITION_TRAITS[pos]||[];let tw=0,tv=0;pt.forEach(trait=>{const w=weights[trait]||1/pt.length;const v=t[trait]||50;tw+=w;tv+=v*w;});return tw>0?tv/tw:50;};
     // Step 3: Reconcile — scale traits so grades strictly decrease with rank
     for(let pass=0;pass<10;pass++){let clean=true;for(let i=1;i<sorted.length;i++){const prev=computeGrade(sorted[i-1].id);const cur=computeGrade(sorted[i].id);if(cur>=prev){clean=false;const target=prev-1;if(cur>0){const ratio=Math.max(0.5,target/cur);const pt=POSITION_TRAITS[sorted[i].gpos||sorted[i].pos]||[];pt.forEach(trait=>{nt[sorted[i].id][trait]=Math.max(10,Math.round((nt[sorted[i].id][trait]||50)*ratio));});}}}if(clean)break;}
-    setTraits(nt);setRankedGroups(prev=>new Set([...prev,pos]));setPartialProgress(prev=>{const n={...prev};delete n[pos];return n;});setPhase("pick-position");},[ratings,byPos,traits]);
+    setTraits(nt);setRankedGroups(prev=>new Set([...prev,pos]));setPartialProgress(prev=>{const n={...prev};delete n[pos];return n;});trackEvent(user.id,'ranking_completed',{position:pos});setPhase("pick-position");},[ratings,byPos,traits,user.id]);
   const getRanked=useCallback((pos)=>[...(byPos[pos]||[])].sort((a,b)=>(ratings[b.id]||1500)-(ratings[a.id]||1500)),[byPos,ratings]);
   const movePlayer=useCallback((pos,fromIdx,toIdx)=>{
     if(fromIdx===toIdx)return;
@@ -912,23 +919,49 @@ function AdminDashboard({user,onBack}){
   const[stats,setStats]=useState(null);
   const[loading,setLoading]=useState(true);
   const[users,setUsers]=useState([]);
+  const[events,setEvents]=useState([]);
   useEffect(()=>{
     (async()=>{
       try{
-        // Fetch all boards
+        // Fetch boards + community + events
         const{data:boards}=await supabase.from('boards').select('user_id,board_data,updated_at');
         const{data:community}=await supabase.from('community_boards').select('user_id,board_data');
-        const totalUsers=boards?.length||0;
-        const activeToday=boards?.filter(b=>{const d=new Date(b.updated_at);const now=new Date();return(now-d)<86400000;}).length||0;
-        const activeWeek=boards?.filter(b=>{const d=new Date(b.updated_at);const now=new Date();return(now-d)<604800000;}).length||0;
-        // Position ranking stats
+        const{data:evts}=await supabase.from('events').select('*').order('created_at',{ascending:false}).limit(500);
+        const allEvents=evts||[];
+
+        // Real user count from events (distinct user_ids who have any event)
+        const eventUserIds=new Set(allEvents.map(e=>e.user_id));
+        const boardUserIds=new Set((boards||[]).map(b=>b.user_id));
+        const allUserIds=new Set([...eventUserIds,...boardUserIds]);
+        const totalUsers=allUserIds.size;
+
+        // Activity from events
+        const now=new Date();
+        const activeToday=new Set(allEvents.filter(e=>(now-new Date(e.created_at))<86400000).map(e=>e.user_id)).size;
+        const activeWeek=new Set(allEvents.filter(e=>(now-new Date(e.created_at))<604800000).map(e=>e.user_id)).size;
+        // Also check board saves for activity
+        const boardActiveToday=new Set((boards||[]).filter(b=>(now-new Date(b.updated_at))<86400000).map(b=>b.user_id));
+        const boardActiveWeek=new Set((boards||[]).filter(b=>(now-new Date(b.updated_at))<604800000).map(b=>b.user_id));
+        const combinedToday=new Set([...new Set(allEvents.filter(e=>(now-new Date(e.created_at))<86400000).map(e=>e.user_id)),...boardActiveToday]).size;
+        const combinedWeek=new Set([...new Set(allEvents.filter(e=>(now-new Date(e.created_at))<604800000).map(e=>e.user_id)),...boardActiveWeek]).size;
+
+        // Event counts by type
+        const eventCounts={};
+        allEvents.forEach(e=>{eventCounts[e.event]=(eventCounts[e.event]||0)+1;});
+
+        // Signups (from events)
+        const signups=allEvents.filter(e=>e.event==='signup');
+        const signupsToday=signups.filter(e=>(now-new Date(e.created_at))<86400000).length;
+        const signupsWeek=signups.filter(e=>(now-new Date(e.created_at))<604800000).length;
+
+        // Mock drafts started
+        const mockDrafts=allEvents.filter(e=>e.event==='mock_draft_started').length;
+
+        // Position ranking stats from boards
         const posStats={};
         const partialCount={};
-        const simmedCount={};
         let totalRankedPositions=0;
-        let totalPartialPositions=0;
         let hasNotes=0;
-        let hasMockDraft=0;
         const userDetails=(boards||[]).map(b=>{
           const d=b.board_data||{};
           const rg=d.rankedGroups||[];
@@ -936,10 +969,13 @@ function AdminDashboard({user,onBack}){
           const noteCount=d.notes?Object.keys(d.notes).length:0;
           if(noteCount>0)hasNotes++;
           rg.forEach(pos=>{posStats[pos]=(posStats[pos]||0)+1;totalRankedPositions++;});
-          pp.forEach(pos=>{partialCount[pos]=(partialCount[pos]||0)+1;totalPartialPositions++;});
+          pp.forEach(pos=>{partialCount[pos]=(partialCount[pos]||0)+1;});
+          // Find last event for this user
+          const lastEvent=allEvents.find(e=>e.user_id===b.user_id);
+          const lastActivity=lastEvent?new Date(Math.max(new Date(b.updated_at),new Date(lastEvent.created_at))):new Date(b.updated_at);
           return{
             userId:b.user_id,
-            updatedAt:b.updated_at,
+            updatedAt:lastActivity.toISOString(),
             rankedPositions:rg.length,
             partialPositions:pp.length,
             positions:rg,
@@ -948,11 +984,21 @@ function AdminDashboard({user,onBack}){
             totalRatings:d.ratings?Object.keys(d.ratings).length:0
           };
         }).sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt));
-        // Avg positions ranked per user (among those who ranked any)
+
+        // Add event-only users (signed up but never saved a board)
+        const boardUserSet=new Set((boards||[]).map(b=>b.user_id));
+        const eventOnlyUsers=[...eventUserIds].filter(id=>!boardUserSet.has(id)).map(id=>{
+          const userEvents=allEvents.filter(e=>e.user_id===id);
+          const last=userEvents[0];
+          return{userId:id,updatedAt:last?.created_at||'',rankedPositions:0,partialPositions:0,positions:[],partials:[],noteCount:0,totalRatings:0,eventOnly:true};
+        });
+        const allUsers=[...userDetails,...eventOnlyUsers].sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt));
+
         const rankers=userDetails.filter(u=>u.rankedPositions>0);
         const avgPositions=rankers.length>0?(rankers.reduce((s,u)=>s+u.rankedPositions,0)/rankers.length).toFixed(1):0;
-        setStats({totalUsers,activeToday,activeWeek,posStats,partialCount,totalRankedPositions,totalPartialPositions,avgPositions,hasNotes,communityUsers:community?.length||0});
-        setUsers(userDetails);
+        setStats({totalUsers,activeToday:combinedToday,activeWeek:combinedWeek,posStats,partialCount,totalRankedPositions,avgPositions,hasNotes,communityUsers:community?.length||0,eventCounts,signupsToday,signupsWeek,mockDrafts});
+        setUsers(allUsers);
+        setEvents(allEvents.slice(0,50));
       }catch(e){console.error(e);}
       setLoading(false);
     })();
@@ -966,20 +1012,36 @@ function AdminDashboard({user,onBack}){
       </div>
       <div style={{maxWidth:900,margin:"0 auto",padding:"52px 24px 60px"}}>
         {/* KPI Cards */}
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(160px, 1fr))",gap:12,marginBottom:32}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill, minmax(140px, 1fr))",gap:12,marginBottom:32}}>
           {[
             ["Total Users",stats.totalUsers,"#171717"],
             ["Active Today",stats.activeToday,"#22c55e"],
             ["Active This Week",stats.activeWeek,"#3b82f6"],
+            ["Signups Today",stats.signupsToday,"#8b5cf6"],
+            ["Signups This Week",stats.signupsWeek,"#a855f7"],
+            ["Mock Drafts",stats.mockDrafts,"#f59e0b"],
             ["Community Boards",stats.communityUsers,"#7c3aed"],
-            ["Avg Positions/User",stats.avgPositions,"#f59e0b"],
-            ["Users w/ Notes",stats.hasNotes,"#0891b2"],
+            ["Avg Pos/User",stats.avgPositions,"#0891b2"],
+            ["Users w/ Notes",stats.hasNotes,"#06b6d4"],
           ].map(([label,val,color])=>(
             <div key={label} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
-              <div style={{fontFamily:font,fontSize:32,fontWeight:900,color,lineHeight:1}}>{val}</div>
-              <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginTop:6}}>{label}</div>
+              <div style={{fontFamily:font,fontSize:28,fontWeight:900,color,lineHeight:1}}>{val}</div>
+              <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginTop:6}}>{label}</div>
             </div>
           ))}
+        </div>
+
+        {/* Event Activity */}
+        <h2 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"0 0 12px"}}>event breakdown</h2>
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:32}}>
+          <div style={{display:"flex",flexWrap:"wrap",gap:12}}>
+            {Object.entries(stats.eventCounts||{}).sort((a,b)=>b[1]-a[1]).map(([evt,count])=>(
+              <div key={evt} style={{padding:"8px 16px",background:"#f9f9f7",borderRadius:8,textAlign:"center"}}>
+                <div style={{fontFamily:mono,fontSize:18,fontWeight:900,color:"#171717"}}>{count}</div>
+                <div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{evt}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Position Breakdown */}
@@ -1012,12 +1074,27 @@ function AdminDashboard({user,onBack}){
           </div>
           <div style={{maxHeight:500,overflowY:"auto"}}>
             {users.map((u,i)=>(
-              <div key={u.userId} style={{display:"grid",gridTemplateColumns:"1fr 80px 80px 80px 120px",gap:8,padding:"8px 16px",borderBottom:i<users.length-1?"1px solid #f5f5f5":"none",alignItems:"center"}}>
-                <span style={{fontFamily:mono,fontSize:10,color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{u.userId.slice(0,12)}…</span>
+              <div key={u.userId} style={{display:"grid",gridTemplateColumns:"1fr 80px 80px 80px 120px",gap:8,padding:"8px 16px",borderBottom:i<users.length-1?"1px solid #f5f5f5":"none",alignItems:"center",background:u.eventOnly?"#fefce8":"transparent"}}>
+                <span style={{fontFamily:mono,fontSize:10,color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{u.userId.slice(0,12)}…{u.eventOnly&&<span style={{color:"#ca8a04",marginLeft:4}}>new</span>}</span>
                 <span style={{fontFamily:mono,fontSize:12,fontWeight:700,color:u.rankedPositions>0?"#22c55e":"#d4d4d4"}}>{u.rankedPositions}/{POSITION_GROUPS.length}</span>
                 <span style={{fontFamily:mono,fontSize:12,color:u.partialPositions>0?"#ca8a04":"#d4d4d4"}}>{u.partialPositions}</span>
                 <span style={{fontFamily:mono,fontSize:12,color:u.noteCount>0?"#0891b2":"#d4d4d4"}}>{u.noteCount}</span>
-                <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{new Date(u.updatedAt).toLocaleDateString()} {new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}</span>
+                <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{u.updatedAt?new Date(u.updatedAt).toLocaleDateString()+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Recent Events Log */}
+        <h2 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"32px 0 12px"}}>recent events</h2>
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
+          <div style={{maxHeight:400,overflowY:"auto"}}>
+            {events.map((e,i)=>(
+              <div key={e.id} style={{display:"grid",gridTemplateColumns:"100px 1fr 1fr 140px",gap:8,padding:"6px 16px",borderBottom:i<events.length-1?"1px solid #f5f5f5":"none",fontSize:11,fontFamily:mono,alignItems:"center"}}>
+                <span style={{color:e.event==='signup'?"#22c55e":e.event==='mock_draft_started'?"#f59e0b":e.event==='ranking_completed'?"#3b82f6":"#a3a3a3",fontWeight:700}}>{e.event}</span>
+                <span style={{color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{e.user_id?.slice(0,12)}…</span>
+                <span style={{color:"#a3a3a3"}}>{e.metadata&&Object.keys(e.metadata).length>0?JSON.stringify(e.metadata):""}</span>
+                <span style={{color:"#a3a3a3"}}>{new Date(e.created_at).toLocaleDateString()} {new Date(e.created_at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}</span>
               </div>
             ))}
           </div>
@@ -1044,10 +1121,12 @@ export default function App(){
   useEffect(()=>{
     supabase.auth.getSession().then(({data:{session}})=>{
       setUser(session?.user||null);
+      if(session?.user)trackEvent(session.user.id,'session_return');
       setLoading(false);
     });
-    const{data:{subscription}}=supabase.auth.onAuthStateChange((_,session)=>{
+    const{data:{subscription}}=supabase.auth.onAuthStateChange((event,session)=>{
       setUser(session?.user||null);
+      if(session?.user&&event==='SIGNED_IN')trackEvent(session.user.id,'signup');
     });
     return()=>subscription.unsubscribe();
   },[]);
