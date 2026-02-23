@@ -222,7 +222,7 @@ function pickVerdict(pickNum,consRank,grade){
   return{text:"BIG REACH",color:"#dc2626",bg:"#fef2f2"};
 }
 
-export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED,rankedGroups}){
+export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED,rankedGroups,mockLaunchTeam,onRankPosition}){
   const ALL_TEAMS=useMemo(()=>[...new Set(DRAFT_ORDER_2026.map(d=>d.team))],[]);
   const[boardMode,setBoardMode]=useState("consensus");
   const activeBoard=boardMode==="my"&&myBoard?myBoard:board;
@@ -257,6 +257,20 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[cpuTrades,setCpuTrades]=useState(true); // CPU-to-CPU trades enabled
   const[cpuTradeLog,setCpuTradeLog]=useState([]); // [{fromTeam,toTeam,pickIdx,gave:[],got:[]}]
   const tradeDeclinedRef=useRef(0);
+
+  // Auto-launch when coming from home screen CTA with a team pre-selected
+  const hasAutoLaunched=useRef(false);
+  useEffect(()=>{
+    if(mockLaunchTeam&&!hasAutoLaunched.current&&!setupDone){
+      hasAutoLaunched.current=true;
+      setUserTeams(new Set([mockLaunchTeam]));
+      // Small delay to let state settle, then auto-start
+      setTimeout(()=>{
+        setAvailable(activeBoard.map(p=>p.id));setPicks([]);setSetupDone(true);setShowResults(false);
+        setTradeMap({});setLastVerdict(null);setTradeOffer(null);setShowTradeUp(false);setTradeValueDelta(0);setCpuTradeLog([]);
+      },50);
+    }
+  },[mockLaunchTeam]);
 
   const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[PROSPECTS]);
 
@@ -459,6 +473,70 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const isUserPick=useMemo(()=>{
     return picks.length<totalPicks&&userTeams.has(getPickTeam(picks.length));
   },[picks,userTeams,totalPicks,getPickTeam]);
+
+  // Compute top 3 recommended picks for user's turn (uses same scoring as cpuPick)
+  const recommendedPicks=useMemo(()=>{
+    if(!isUserPick||available.length===0)return new Set();
+    const team=getPickTeam(picks.length);
+    const pickNum=fullDraftOrder[picks.length]?.pick||1;
+    const needs=teamNeeds[team]||["QB","WR","DL"];
+    const dn=TEAM_NEEDS_DETAILED?.[team]||{};
+    const prof=TEAM_PROFILES[team]||{bpaLean:0.55,posBoost:[],posPenalty:[],stage:"retool",reachTolerance:0.3,variance:2,gposBoost:[]};
+    const round=pickNum<=32?1:pickNum<=64?2:pickNum<=100?3:pickNum<=144?4:pickNum<=180?5:pickNum<=220?6:7;
+    let stageBpaShift=0,stageNeedShift=0;
+    if(prof.stage==="dynasty"){stageBpaShift=0.15;stageNeedShift=-0.12;}
+    else if(prof.stage==="contend"){stageBpaShift=-0.08;stageNeedShift=0.18;}
+    else if(prof.stage==="rebuild"){stageBpaShift=round<=2?0.12:-0.05;stageNeedShift=round<=2?-0.1:0.15;}
+    const bpaW=0.6+prof.bpaLean*0.8+stageBpaShift;
+    const needW=1.15-prof.bpaLean+stageNeedShift;
+    const roundNeedShift=round<=2?0:round<=4?0.15:0.3;
+    const roundBpaShift=round<=2?0:round<=4?-0.1:-0.2;
+    const finalBpaW=Math.max(0.3,bpaW+roundBpaShift);
+    const finalNeedW=Math.max(0.2,needW+roundNeedShift);
+    const teamDrafted=picks.filter(pk=>pk.team===team).map(pk=>{const p=prospectsMap[pk.playerId];return p?p.pos:null;}).filter(Boolean);
+    const posCounts={};teamDrafted.forEach(pos=>{posCounts[pos]=(posCounts[pos]||0)+1;});
+    const scored=[];
+    available.forEach(id=>{
+      const p=prospectsMap[id];if(!p)return;
+      const pos=p.pos;
+      const baseGrade=getConsensusGrade?getConsensusGrade(p.name):(gradeMap[id]||50);
+      const grade=GRADE_OVERRIDES[p.name]?Math.max(baseGrade,GRADE_OVERRIDES[p.name]):baseGrade;
+      const rawRank=getConsensusRank?getConsensusRank(p.name):999;
+      const consRank=RANK_OVERRIDES[p.name]||rawRank;
+      const nc=dn[pos]||0;const ni=needs.indexOf(pos);
+      const nm=nc>=3?18:nc>=2?12:nc===1?8:ni>=0&&ni<3?5:ni>=0?2:(round>=3?-6:0);
+      const rawPm=POS_DRAFT_VALUE[pos]||1.0;
+      const pm=grade>=88?Math.max(rawPm,1.0):rawPm;
+      const base=Math.pow(Math.max(grade,10),1.3);
+      const isBoosted=prof.posBoost.includes(pos);
+      const isPenalized=prof.posPenalty.includes(pos);
+      const teamPosBoost=isBoosted?1.12:isPenalized&&round<=3?0.75:1.0;
+      const slide=consRank<900?(pickNum-consRank):0;
+      const gradeSlideMultiplier=grade>=88?6:grade>=80?4.5:3;
+      const slideBoost=slide>6?Math.pow(slide-6,1.5)*gradeSlideMultiplier:0;
+      const reachThreshold=Math.round(12+prof.reachTolerance*15);
+      const reachPenalty=slide<-reachThreshold&&round<=3?Math.abs(slide+reachThreshold)*1.5:0;
+      const alreadyAtPos=posCounts[pos]||0;
+      const dimReturn=alreadyAtPos>=3?0.4:alreadyAtPos>=2?0.65:alreadyAtPos>=1?0.85:1.0;
+      const gpos=p.gpos||p.pos;
+      const isSchemefit=(prof.gposBoost||[]).includes(gpos);
+      const schemeBoost=isSchemefit?1.15:1.0;
+      if(pos==="K/P"&&round<=4)return;
+      const rbPen=(pos==="RB"&&round===1&&grade<85)?0.72:1.0;
+      const qbMod=pos==="QB"?(nc>=2?1.3:nc>=1?1.1:ni>=0?0.9:0.5):1.0;
+      let stageMod=1.0;
+      if(prof.stage==="dynasty"){stageMod=grade>=85?1.15:nc>=2?1.05:0.95;if(grade>=90&&alreadyAtPos<=1)stageMod*=1.1;}
+      else if(prof.stage==="contend"){stageMod=nc>=2?1.25:nc>=1?1.12:ni>=0?1.0:0.82;}
+      else if(prof.stage==="rebuild"){if(round<=2)stageMod=grade>=80?1.15:1.0;else stageMod=nc>=2?1.2:nc>=1?1.1:0.9;}
+      else{stageMod=nc>=2?1.1:1.0;}
+      const bpaComponent=base*finalBpaW*pm*rbPen*qbMod*teamPosBoost*schemeBoost;
+      const needComponent=nm*finalNeedW*12;
+      const score=(bpaComponent+needComponent+slideBoost-reachPenalty)*dimReturn*stageMod;
+      scored.push({id,score});
+    });
+    scored.sort((a,b)=>b.score-a.score);
+    return new Set(scored.slice(0,3).map(s=>s.id));
+  },[isUserPick,available,picks,getPickTeam,fullDraftOrder,teamNeeds,TEAM_NEEDS_DETAILED,prospectsMap,getConsensusGrade,getConsensusRank,gradeMap]);
 
   const makePick=useCallback((playerId,opts={})=>{
     const n=picks.length;if(n>=totalPicks)return;
@@ -1375,6 +1453,50 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             {(userTeams.size===1||userTeams.size===32)&&<button onClick={shareDraft} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 20px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>🔮 share results</button>}
             <button onClick={()=>{setSetupDone(false);setPicks([]);setShowResults(false);setTradeMap({});}} style={{fontFamily:sans,fontSize:12,padding:"8px 20px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>draft again</button>
           </div>
+
+          {/* Post-draft ranking CTA — challenge user to build their own board */}
+          {onRankPosition&&(()=>{
+            // Find a position where CPU made a pick the user might disagree with
+            // Look at CPU picks in rounds 1-2 where the player was a "reach" or controversial
+            const cpuPicks=picks.filter(pk=>!pk.isUser&&pk.round<=2);
+            const positionOpportunities=[];
+            const positionsSeen=new Set();
+            cpuPicks.forEach(pk=>{
+              const p=prospectsMap[pk.playerId];if(!p)return;
+              const pos=p.gpos||p.pos;const parentPos=p.pos==="OL"?(pos==="IOL"?"IOL":"OT"):p.pos==="DL"?(pos==="EDGE"?"EDGE":"DL"):p.pos==="DB"?(pos==="S"?"S":"CB"):p.pos;
+              const mappedPos=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S","K/P"].includes(parentPos)?parentPos:p.pos;
+              if(positionsSeen.has(mappedPos))return;
+              positionsSeen.add(mappedPos);
+              const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;
+              const g2=getConsensusGrade?getConsensusGrade(p.name):50;
+              const v=pickVerdict(pk.pick,rank,g2);
+              if(v.text==="REACH"||v.text==="BIG REACH"||rank>pk.pick+8){
+                positionOpportunities.push({player:p,pick:pk.pick,pos:mappedPos,verdict:v});
+              }
+            });
+            // Also suggest positions the user hasn't ranked yet
+            const unrankedPositions=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"].filter(pos=>!rankedGroups?.has(pos));
+            // Pick the best CTA — controversial pick first, then unranked position
+            const controversial=positionOpportunities[0];
+            const suggestPos=controversial?controversial.pos:unrankedPositions[0];
+            if(!suggestPos)return null;
+            return<div style={{background:"linear-gradient(135deg,#fdf4ff,#f5f3ff)",border:"1px solid #e9d5ff",borderRadius:12,padding:"16px 20px",marginBottom:20,textAlign:"left"}}>
+              <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#7c3aed",textTransform:"uppercase",marginBottom:6}}>think you know better?</div>
+              {controversial?
+                <p style={{fontFamily:sans,fontSize:13,color:"#525252",margin:"0 0 12px",lineHeight:1.5}}>
+                  <strong style={{color:"#171717"}}>{controversial.player.name}</strong> went at pick #{controversial.pick} — a <strong style={{color:controversial.verdict.color}}>{controversial.verdict.text.toLowerCase()}</strong>. 
+                  Rank the {suggestPos}s yourself and your next mock draft will use <em>your</em> board.
+                </p>
+              :
+                <p style={{fontFamily:sans,fontSize:13,color:"#525252",margin:"0 0 12px",lineHeight:1.5}}>
+                  Build your own {suggestPos} rankings and your next mock draft will draft based on <em>your</em> evaluations, not consensus.
+                </p>
+              }
+              <button onClick={()=>onRankPosition(suggestPos)} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 24px",background:"#7c3aed",color:"#fff",border:"none",borderRadius:99,cursor:"pointer"}}>
+                rank {suggestPos}s my way →
+              </button>
+            </div>;
+          })()}
           {[...userTeams].map(team=>{
             const tp=userPicks.filter(pk=>pk.team===team);if(tp.length===0)return null;
             const teamGrade=userTeams.size!==32?gradeTeamPicks(tp,team):null;
@@ -1531,12 +1653,13 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             <div style={{padding:"6px 10px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5",display:"flex",justifyContent:"space-between"}}>
               <span style={{fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>available ({filteredAvailable.length})</span>
             </div>
-            {filteredAvailable.slice(0,60).map(id=>{const p=prospectsMap[id];if(!p)return null;const g=activeGrade(id);const c=POS_COLORS[p.pos];const rank=getConsensusRank?getConsensusRank(p.name):null;
-              return<div key={id} style={{display:"flex",alignItems:"center",gap:5,padding:"8px 10px",borderBottom:"1px solid #f8f8f8"}}>
+            {filteredAvailable.slice(0,60).map(id=>{const p=prospectsMap[id];if(!p)return null;const g=activeGrade(id);const c=POS_COLORS[p.pos];const rank=getConsensusRank?getConsensusRank(p.name):null;const isRec=recommendedPicks.has(id);
+              return<div key={id} style={{display:"flex",alignItems:"center",gap:5,padding:"8px 10px",borderBottom:"1px solid #f8f8f8",background:isRec&&isUserPick?"rgba(34,197,94,0.03)":"transparent"}}>
                 {rank&&rank<500?<span style={{fontFamily:mono,fontSize:8,color:"#d4d4d4",width:20,textAlign:"right"}}>#{rank}</span>:<span style={{fontFamily:mono,fontSize:8,color:"#e5e5e5",width:20,textAlign:"right"}}>—</span>}
                 <span style={{fontFamily:mono,fontSize:9,color:c,width:32}}>{p.gpos||p.pos}</span>
                 <SchoolLogo school={p.school} size={18}/>
                 <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}} onClick={()=>setProfilePlayer(p)}>{p.name}</span>
+                {isRec&&isUserPick&&<span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#16a34a",background:"#dcfce7",padding:"2px 5px",borderRadius:3,flexShrink:0,letterSpacing:0.5}}>BPA</span>}
                 <span style={{fontFamily:font,fontSize:13,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626",width:24,textAlign:"right"}}>{g}</span>
                 {isUserPick&&<button onClick={()=>makePick(id)} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"4px 10px",background:"#22c55e",color:"#fff",border:"none",borderRadius:6,cursor:"pointer",flexShrink:0}}>draft</button>}
               </div>;
