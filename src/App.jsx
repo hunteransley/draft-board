@@ -493,7 +493,7 @@ function DraftBoard({user,onSignOut}){
     const next=getNextMatchup(allM,doneSet,r,c,posRankFn,null);
     if(!next){finishRanking(pos,r);return;}
     setCurrentMatchup(next);
-    setActivePos(pos);setPhase("ranking");
+    setActivePos(pos);setPhase("ranking");window.scrollTo(0,0);
   },[ratings,compCount,byPos,partialProgress,prospectsMap,posRankFn]);
   const handlePick=useCallback((winnerId,confidence=0.5)=>{if(!currentMatchup||!activePos)return;const[a,b]=currentMatchup;const aWon=winnerId===a;const k=24+(confidence*24);const{newA,newB}=eloUpdate(ratings[a]||1500,ratings[b]||1500,aWon,k);const ur={...ratings,[a]:newA,[b]:newB};setRatings(ur);const uc={...compCount,[a]:(compCount[a]||0)+1,[b]:(compCount[b]||0)+1};setCompCount(uc);setWinCount(prev=>({...prev,[winnerId]:(prev[winnerId]||0)+1}));const ns=new Set(completed[activePos]);ns.add(`${a}-${b}`);setCompleted(prev=>({...prev,[activePos]:ns}));
     // Save partial progress for resume
@@ -530,7 +530,7 @@ function DraftBoard({user,onSignOut}){
     const computeGrade=(id)=>{const t=nt[id];if(!t)return 50;const pt=POSITION_TRAITS[pos]||[];let tw=0,tv=0;pt.forEach(trait=>{const w=weights[trait]||1/pt.length;const v=t[trait]||50;tw+=w;tv+=v*w;});return tw>0?tv/tw:50;};
     // Step 3: Reconcile — scale traits so grades strictly decrease with rank
     for(let pass=0;pass<10;pass++){let clean=true;for(let i=1;i<sorted.length;i++){const prev=computeGrade(sorted[i-1].id);const cur=computeGrade(sorted[i].id);if(cur>=prev){clean=false;const target=prev-1;if(cur>0){const ratio=Math.max(0.5,target/cur);const pt=POSITION_TRAITS[sorted[i].gpos||sorted[i].pos]||[];pt.forEach(trait=>{nt[sorted[i].id][trait]=Math.max(10,Math.round((nt[sorted[i].id][trait]||50)*ratio));});}}}if(clean)break;}
-    setTraits(nt);setRankedGroups(prev=>new Set([...prev,pos]));setPartialProgress(prev=>{const n={...prev};delete n[pos];return n;});trackEvent(user.id,'ranking_completed',{position:pos});setPhase("pick-position");},[ratings,byPos,traits,user.id]);
+    setTraits(nt);setRankedGroups(prev=>new Set([...prev,pos]));setPartialProgress(prev=>{const n={...prev};delete n[pos];return n;});trackEvent(user.id,'ranking_completed',{position:pos});setPhase("pick-position");window.scrollTo(0,0);},[ratings,byPos,traits,user.id]);
   const getRanked=useCallback((pos)=>[...(byPos[pos]||[])].sort((a,b)=>(ratings[b.id]||1500)-(ratings[a.id]||1500)),[byPos,ratings]);
   const movePlayer=useCallback((pos,fromIdx,toIdx)=>{
     if(fromIdx===toIdx)return;
