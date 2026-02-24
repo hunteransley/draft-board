@@ -1513,7 +1513,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             {(userTeams.size===1||userTeams.size===32)&&<button onClick={shareDraft} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 20px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>🔮 share results</button>}
             <button onClick={()=>{setSetupDone(false);setPicks([]);setShowResults(false);setTradeMap({});}} style={{fontFamily:sans,fontSize:12,padding:"8px 20px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>draft again</button>
             {myGuys&&<button onClick={()=>{setShowMyGuysOverlay(true);if(setMyGuysUpdated)setMyGuysUpdated(false);}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:myGuysUpdated?"linear-gradient(135deg,#ec4899,#7c3aed)":mockCount>0?"#171717":"transparent",color:myGuysUpdated||mockCount>0?"#fff":"#a3a3a3",border:myGuysUpdated||mockCount>0?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",position:"relative",transition:"all 0.2s"}}>
-              👀 my guys{myGuys.length>0&&<span style={{fontFamily:mono,fontSize:10,marginLeft:4,opacity:0.7}}>{myGuys.length}/10</span>}
+              👀 my guys
               {myGuysUpdated&&<span style={{position:"absolute",top:-2,right:-2,width:8,height:8,borderRadius:4,background:"#ec4899",border:"2px solid #faf9f6"}}/>}
             </button>}
           </div>
@@ -1627,6 +1627,36 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             <div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",letterSpacing:0.5}}>build your own mock draft · 2026 NFL Draft</div>
           </div>
         </div>
+
+        {/* My Guys overlay — results screen */}
+        {showMyGuysOverlay&&<div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.6)",zIndex:400,display:"flex",alignItems:"center",justifyContent:"center",padding:16}} onClick={()=>setShowMyGuysOverlay(false)}>
+          <div style={{background:"#faf9f6",borderRadius:16,padding:24,maxWidth:720,width:"100%",maxHeight:"85vh",overflowY:"auto"}} onClick={e=>e.stopPropagation()}>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
+              <h2 style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717",margin:0,letterSpacing:-0.5}}>👀 my guys</h2>
+              <button onClick={()=>setShowMyGuysOverlay(false)} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",padding:"4px 8px"}}>✕</button>
+            </div>
+            <p style={{fontFamily:sans,fontSize:13,color:"#737373",margin:"0 0 4px",lineHeight:1.5}}>the prospects you bang the table for every time you mock</p>
+            <p style={{fontFamily:mono,fontSize:10,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 16px"}}>{mockCount||0} mock{(mockCount||0)!==1?"s":""} completed · {(myGuys||[]).length}/10 guys identified</p>
+            {(!myGuys||myGuys.length===0)?<div style={{textAlign:"center",padding:"32px 0"}}><div style={{fontSize:32,marginBottom:8}}>👀</div><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>complete a mock to start discovering your guys</p></div>
+            :<div style={{display:"grid",gridTemplateColumns:"repeat(2, 1fr)",gap:10}}>
+              {myGuys.map((g,i)=>{const c=POS_COLORS[g.pos]||"#525252";return<div key={g.name} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:14}}>
+                <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:6}}>
+                  <span style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#d4d4d4"}}>{i+1}</span>
+                  <div style={{flex:1,minWidth:0}}>
+                    <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{g.name}</div>
+                  </div>
+                  <span style={{fontFamily:mono,fontSize:9,fontWeight:600,color:c,background:`${c}0d`,padding:"2px 7px",borderRadius:4}}>{g.pos}</span>
+                </div>
+                <div style={{display:"flex",justifyContent:"space-between",padding:"6px 0 0",borderTop:"1px solid #f5f5f5"}}>
+                  <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:0.5}}>you pick</div><div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#171717"}}>{g.avgPick}</div></div>
+                  <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:0.5}}>consensus</div><div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#a3a3a3"}}>{g.consensusRank}</div></div>
+                  <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:0.5}}>reach</div><div style={{fontFamily:font,fontSize:14,fontWeight:900,color:g.delta>0?"#16a34a":"#dc2626"}}>{g.delta>0?"+":""}{g.delta}</div></div>
+                  <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:0.5}}>drafted</div><div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#171717"}}>{g.timesDrafted}x</div></div>
+                </div>
+              </div>;})}
+            </div>}
+          </div>
+        </div>}
       </div>
     );
   }

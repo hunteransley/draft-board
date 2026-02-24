@@ -774,86 +774,134 @@ function DraftBoard({user,onSignOut}){
         </div>
 
         {myGuys.length>0&&<div style={{textAlign:"center",marginTop:24}}>
-          <button id="share-my-guys-btn" onClick={async()=>{
-            const btn=document.getElementById("share-my-guys-btn");
+          <button onClick={async()=>{
             const count=myGuys.length;
-            const rows=Math.max(count,5);
-            const rowH=40;
-            const headerH=64;
-            const footerH=32;
-            const padTop=16;
-            const padBot=16;
-            const W=720;
-            const H=rows>5?(padTop+headerH+10*rowH+footerH+padBot):(padTop+headerH+5*rowH+footerH+padBot);
-            const c=document.createElement("canvas");c.width=W;c.height=H;
-            const ctx=c.getContext("2d");
+            const maxSlots=count>5?10:5;
+            const scale=2;
+            const W=1080,rowH=120,headerH=80,footerH=48;
+            const H=headerH+rowH*maxSlots+footerH+20;
+            const canvas=document.createElement('canvas');canvas.width=W*scale;canvas.height=H*scale;
+            const ctx=canvas.getContext('2d');ctx.scale(scale,scale);
             // Background
-            ctx.fillStyle="#171717";ctx.fillRect(0,0,W,H);
+            ctx.fillStyle='#faf9f6';ctx.fillRect(0,0,W,H);
+            // Gradient top bar
+            const tGrad=ctx.createLinearGradient(0,0,W,0);
+            tGrad.addColorStop(0,'#ec4899');tGrad.addColorStop(1,'#7c3aed');
+            ctx.fillStyle=tGrad;ctx.fillRect(0,0,W,4);
             // Header
-            let y=padTop;
-            ctx.fillStyle="#faf9f6";ctx.font="bold 28px sans-serif";
-            ctx.fillText("\ud83d\udc40 MY GUYS",24,y+38);
-            ctx.fillStyle="#a3a3a3";ctx.font="bold 11px sans-serif";
-            ctx.fillText("bigboardlab.com",W-24-ctx.measureText("bigboardlab.com").width,y+38);
-            y+=headerH;
-            // Column headers
-            ctx.fillStyle="#525252";ctx.font="bold 10px sans-serif";
-            ctx.fillText("#",24,y-4);ctx.fillText("NAME",56,y-4);ctx.fillText("POS",320,y-4);
-            ctx.fillText("AVG PK",420,y-4);ctx.fillText("CONS",520,y-4);ctx.fillText("DELTA",620,y-4);
+            ctx.textBaseline='top';ctx.textAlign='left';
+            ctx.fillStyle='#171717';ctx.font='bold 28px -apple-system,system-ui,sans-serif';
+            ctx.fillText('\ud83d\udc40 MY GUYS',32,20);
+            ctx.fillStyle='#a3a3a3';ctx.font='10px ui-monospace,monospace';
+            ctx.fillText('BIGBOARDLAB.COM  \u00b7  2026 NFL DRAFT',32,52);
+            // Separator
+            const sGrad=ctx.createLinearGradient(32,0,W-32,0);
+            sGrad.addColorStop(0,'#ec4899');sGrad.addColorStop(1,'#7c3aed');
+            ctx.fillStyle=sGrad;ctx.fillRect(32,headerH-6,W-64,2);
+            // Load school logos
+            const logoCache={};
+            const prospectMap={};
+            myGuys.forEach(g=>{const p=PROSPECTS.find(pr=>pr.name===g.name);if(p)prospectMap[g.name]=p;});
+            const schools=[...new Set(Object.values(prospectMap).map(p=>p.school).filter(Boolean))];
+            await Promise.all(schools.map(async s=>{
+              const url=schoolLogo(s);if(!url)return;
+              try{const img=new Image();img.crossOrigin='anonymous';img.src=url;await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;setTimeout(rej,2000);});logoCache[s]=img;}catch(e){}
+            }));
+            // Rounded rect helper
+            const rr=(x,y,w,h,r)=>{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();};
             // Rows
-            const maxRows=rows>5?10:5;
-            for(let i=0;i<maxRows;i++){
-              const ry=y+i*rowH;
-              if(i%2===0){ctx.fillStyle="#1f1f1f";ctx.fillRect(0,ry,W,rowH);}
+            for(let i=0;i<maxSlots;i++){
+              const y=headerH+i*rowH;
               if(i<count){
                 const g=myGuys[i];
-                // Rank number
-                ctx.fillStyle="#525252";ctx.font="bold 14px sans-serif";
-                ctx.fillText(String(i+1),24,ry+25);
-                // Name
-                ctx.fillStyle="#faf9f6";ctx.font="bold 15px sans-serif";
-                ctx.fillText(g.name,56,ry+25);
-                // Position pill
-                const posColor=POS_COLORS[g.pos]||"#525252";
+                const p=prospectMap[g.name];
+                const c=POS_COLORS[g.pos]||'#525252';
+                // Alt row bg
+                if(i%2===0){ctx.fillStyle='rgba(0,0,0,0.015)';ctx.fillRect(24,y,W-48,rowH);}
+                // Left accent
+                ctx.fillStyle=c;ctx.fillRect(24,y+8,3,rowH-16);
+                // Rank
+                ctx.fillStyle='#d4d4d4';ctx.font='bold 18px ui-monospace,monospace';
+                ctx.textAlign='right';ctx.fillText(`${i+1}`.padStart(2,' '),64,y+48);ctx.textAlign='left';
+                // Pos pill
                 const posText=g.pos;
-                const pw=ctx.measureText(posText).width+16;
-                ctx.fillStyle=posColor;
-                ctx.beginPath();ctx.roundRect(316,ry+10,pw,22,4);ctx.fill();
-                ctx.fillStyle="#fff";ctx.font="bold 11px sans-serif";
-                ctx.fillText(posText,324,ry+25);
-                // Avg pick
-                ctx.fillStyle="#a3a3a3";ctx.font="14px sans-serif";
-                ctx.fillText(String(g.avgPick),424,ry+25);
-                // Consensus rank
-                ctx.fillText(g.consensusRank<999?String(g.consensusRank):"-",524,ry+25);
-                // Delta
+                ctx.font='bold 11px ui-monospace,monospace';
+                const pw=ctx.measureText(posText).width+14;
+                ctx.fillStyle=c+'18';rr(78,y+42,pw,20,4);ctx.fill();
+                ctx.fillStyle=c;ctx.fillText(posText,85,y+47);
+                // School logo
+                const logoX=78+pw+14;
+                const school=p?.school;
+                if(school&&logoCache[school])ctx.drawImage(logoCache[school],logoX,y+28,40,40);
+                // Name + school
+                const nameX=logoX+50;
+                ctx.fillStyle='#171717';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
+                ctx.fillText(g.name,nameX,y+32);
+                ctx.fillStyle='#a3a3a3';ctx.font='12px -apple-system,system-ui,sans-serif';
+                ctx.fillText(school||'',nameX,y+54);
+                // Stats — right aligned
+                ctx.textAlign='right';
+                ctx.fillStyle='#a3a3a3';ctx.font='9px ui-monospace,monospace';
+                ctx.fillText('AVG PICK',W-200,y+30);
+                ctx.fillStyle='#171717';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
+                ctx.fillText(String(g.avgPick),W-200,y+44);
+                ctx.fillStyle='#a3a3a3';ctx.font='9px ui-monospace,monospace';
+                ctx.fillText('CONSENSUS',W-115,y+30);
+                ctx.fillStyle='#737373';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
+                ctx.fillText(g.consensusRank<999?String(g.consensusRank):'-',W-115,y+44);
+                ctx.fillStyle='#a3a3a3';ctx.font='9px ui-monospace,monospace';
+                ctx.fillText('DELTA',W-42,y+30);
                 const d=g.delta;
-                ctx.fillStyle=d>0?"#22c55e":d<0?"#ef4444":"#a3a3a3";
-                ctx.font="bold 14px sans-serif";
-                ctx.fillText((d>0?"+":"")+String(d),624,ry+25);
+                ctx.fillStyle=d>0?'#16a34a':d<0?'#dc2626':'#a3a3a3';
+                ctx.font='bold 18px -apple-system,system-ui,sans-serif';
+                ctx.fillText((d>0?'+':'')+String(d),W-42,y+44);
+                ctx.textAlign='left';
               }else{
                 // Empty dashed slot
-                ctx.setLineDash([6,4]);ctx.strokeStyle="#333";ctx.lineWidth=1;
-                ctx.strokeRect(24,ry+8,W-48,rowH-16);
+                ctx.setLineDash([8,6]);ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;
+                rr(24,y+8,W-48,rowH-16,8);ctx.stroke();
                 ctx.setLineDash([]);
-                ctx.fillStyle="#333";ctx.font="bold 14px sans-serif";
-                ctx.fillText(String(i+1),24,ry+25);
+                ctx.fillStyle='#d4d4d4';ctx.font='bold 18px ui-monospace,monospace';
+                ctx.textAlign='right';ctx.fillText(`${i+1}`.padStart(2,' '),64,y+48);ctx.textAlign='left';
               }
             }
+            // Load logo for footer
+            let logoImg=null;
+            try{logoImg=new Image();logoImg.src='/logo.png';await new Promise((res,rej)=>{logoImg.onload=res;logoImg.onerror=rej;setTimeout(rej,2000);});}catch(e){logoImg=null;}
             // Footer
-            const fy=y+maxRows*rowH+8;
-            ctx.fillStyle="#525252";ctx.font="10px sans-serif";
-            ctx.fillText("generated by Big Board Lab · bigboardlab.com",W/2-ctx.measureText("generated by Big Board Lab · bigboardlab.com").width/2,fy+10);
-            // Copy to clipboard
-            try{
-              const blob=await new Promise(r=>c.toBlob(r,"image/png"));
-              await navigator.clipboard.write([new ClipboardItem({"image/png":blob})]);
-              const prev=btn.textContent;btn.textContent="copied!";
-              setTimeout(()=>{btn.textContent=prev;},2000);
-            }catch(e){
-              const prev=btn.textContent;btn.textContent="copy failed";
-              setTimeout(()=>{btn.textContent=prev;},2000);
-            }
+            const fy=H-footerH;
+            ctx.fillStyle='#111';ctx.fillRect(0,fy,W,footerH);
+            const logoOffset=logoImg?36:0;
+            if(logoImg)ctx.drawImage(logoImg,24,fy+8,32,32);
+            ctx.fillStyle='#fff';ctx.font='bold 13px -apple-system,system-ui,sans-serif';
+            ctx.textBaseline='middle';
+            ctx.fillText('bigboardlab.com',24+logoOffset+8,fy+footerH/2);
+            ctx.fillStyle='#888';ctx.font='11px -apple-system,system-ui,sans-serif';
+            ctx.textAlign='right';
+            ctx.fillText(`${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}  \u00b7  BUILD YOURS \u2192 BIGBOARDLAB.COM`,W-32,fy+footerH/2);
+            ctx.textAlign='left';ctx.textBaseline='top';
+            // Gradient bottom bar
+            const bGrad=ctx.createLinearGradient(0,0,W,0);bGrad.addColorStop(0,'#ec4899');bGrad.addColorStop(1,'#7c3aed');
+            ctx.fillStyle=bGrad;ctx.fillRect(0,H-3,W,3);
+            // Export
+            canvas.toBlob(async blob=>{
+              if(!blob)return;
+              const fname='bigboardlab-my-guys.png';
+              const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+              if(isMobile&&navigator.share&&navigator.canShare){
+                try{const file=new File([blob],fname,{type:'image/png'});if(navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'My Guys \u2014 Big Board Lab',text:'My 2026 NFL Draft guys! Build yours at bigboardlab.com'});return;}}catch(e){}
+              }
+              try{
+                await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
+                const toast=document.createElement('div');toast.textContent='\u2713 Copied to clipboard';
+                Object.assign(toast.style,{position:'fixed',bottom:'32px',left:'50%',transform:'translateX(-50%)',background:'#171717',color:'#fff',padding:'10px 24px',borderRadius:'99px',fontSize:'14px',fontWeight:'600',fontFamily:'-apple-system,system-ui,sans-serif',zIndex:'99999',boxShadow:'0 4px 12px rgba(0,0,0,0.15)',transition:'opacity 0.3s'});
+                document.body.appendChild(toast);
+                setTimeout(()=>{toast.style.opacity='0';setTimeout(()=>toast.remove(),300);},2000);
+              }catch(e){
+                const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=fname;
+                document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(()=>URL.revokeObjectURL(url),3000);
+              }
+            },'image/png');
           }} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"12px 28px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>share my guys</button>
         </div>}
       </div>
