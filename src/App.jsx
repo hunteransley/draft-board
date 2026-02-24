@@ -1618,7 +1618,7 @@ function AdminDashboard({user,onBack}){
 
         // Anonymous activity (last 7 days)
         const weekAgo=new Date(now-604800000);
-        const anonEvents=allEvents.filter(e=>!e.user_id);
+        const anonEvents=allEvents.filter(e=>e.user_id===null||e.user_id===undefined||e.metadata?.guest===true);
         const anonWeek=anonEvents.filter(e=>new Date(e.created_at)>=weekAgo);
         const anonMocksStarted=anonWeek.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').length;
         const anonMocksCompleted=anonWeek.filter(e=>e.event==='mock_draft_completed').length;
