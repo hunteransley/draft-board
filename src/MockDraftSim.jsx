@@ -347,8 +347,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const startDraft=useCallback(()=>{
     setAvailable(activeBoard.map(p=>p.id));setPicks([]);setSetupDone(true);setShowResults(false);
     setTradeMap({});setLastVerdict(null);setTradeOffer(null);setShowTradeUp(false);setTradeValueDelta(0);setCpuTradeLog([]);
-    if(trackEvent)trackEvent(userId,'mock_draft_sim_started',{team:[...userTeams].join(','),rounds,speed,cpuTrades,boardMode,guest:!!isGuestUser});
-  },[activeBoard,trackEvent,userId,isGuestUser,userTeams,rounds,speed,cpuTrades,boardMode]);
+    if(trackEvent)trackEvent(userId,'mock_draft_sim_started',{team:[...userTeams].join(','),rounds:numRounds,speed,cpuTrades,boardMode,guest:!!isGuestUser});
+  },[activeBoard,trackEvent,userId,isGuestUser,userTeams,numRounds,speed,cpuTrades,boardMode]);
 
   const cpuPick=useCallback((team,avail,pickNum)=>{
     const needs=teamNeeds[team]||["QB","WR","DL"];
@@ -586,7 +586,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     }
     if(np.length>=totalPicks){
       setShowResults(true);
-      if(trackEvent)trackEvent(userId,'mock_draft_completed',{team:[...userTeams].join(','),rounds,totalPicks:np.length,guest:!!isGuestUser});
+      if(trackEvent)trackEvent(userId,'mock_draft_completed',{team:[...userTeams].join(','),rounds:numRounds,totalPicks:np.length,guest:!!isGuestUser});
       if(onMockComplete){
         const mockId=crypto.randomUUID();
         onMockComplete(np.map(pk=>{
