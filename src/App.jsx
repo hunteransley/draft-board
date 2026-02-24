@@ -9,9 +9,13 @@ import { getStatBasedTraits } from "./statTraits.js";
 const GEN_SUFFIXES=/^(Jr\.?|Sr\.?|II|III|IV|V|VI|VII|VIII)$/i;
 function shortName(name){const p=name.split(" ");const last=p.pop()||"";return GEN_SUFFIXES.test(last)?(p.pop()||last)+" "+last:last;}
 
+if(!window.__bbl_session){
+  window.__bbl_session='anon_'+Math.random().toString(36).substr(2,9)+'_'+Date.now();
+}
+
 // Fire-and-forget event tracking — never blocks UI, silently drops on error
 function trackEvent(userId,event,metadata={}){
-  try{supabase.from('events').insert({user_id:userId,event,metadata}).then();}catch(e){}
+  try{supabase.from('events').insert({user_id:userId||null,event,metadata,session_id:window.__bbl_session||null}).then();}catch(e){}
 }
 
 // ============================================================
@@ -474,7 +478,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
   const[mockSpeed,setMockSpeed]=useState(50);
   const[mockCpuTrades,setMockCpuTrades]=useState(true);
   const[mockBoardMode,setMockBoardMode]=useState("consensus");
-  useEffect(()=>{if(showMockDraft&&user?.id)trackEvent(user.id,'mock_draft_started');},[showMockDraft]);
+  useEffect(()=>{if(showMockDraft)trackEvent(user?.id,'mock_draft_started',{guest:!user});},[showMockDraft]);
   const[boardTab,setBoardTab]=useState("consensus");
   const[boardFilter,setBoardFilter]=useState(new Set());
   useEffect(()=>{if(rankedGroups.size>0)setBoardTab("my");},[rankedGroups.size]);
@@ -555,7 +559,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
   const posRankFn=useCallback((id)=>{const p=prospectsMap[id];if(!p)return 999;const ps=getProspectStats(p.name,p.school);return ps?.posRank||getConsensusRank(p.name)||999;},[prospectsMap]);
   const startRanking=useCallback((pos,resume=false)=>{
     setLockedPlayer(null);
-    if(user?.id)trackEvent(user.id,'ranking_started',{position:pos,resume});
+    trackEvent(user?.id,'ranking_started',{position:pos,resume,guest:!user});
     const ids=(byPos[pos]||[]).map(p=>p.id);
     const consensusRankFn=(id)=>{const p=prospectsMap[id];if(!p)return 999;const ps=getProspectStats(p.name,p.school);return ps?.posRank||getConsensusRank(p.name)||999;};
     let allM,doneSet,r,c;
@@ -616,7 +620,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
     const computeGrade=(id)=>{const t=nt[id];if(!t)return 50;const pt=POSITION_TRAITS[pos]||[];let tw=0,tv=0;pt.forEach(trait=>{const w=weights[trait]||1/pt.length;const v=t[trait]||50;tw+=w;tv+=v*w;});return tw>0?tv/tw:50;};
     // Step 3: Reconcile — scale traits so grades strictly decrease with rank
     for(let pass=0;pass<10;pass++){let clean=true;for(let i=1;i<sorted.length;i++){const prev=computeGrade(sorted[i-1].id);const cur=computeGrade(sorted[i].id);if(cur>=prev){clean=false;const target=prev-1;if(cur>0){const ratio=Math.max(0.5,target/cur);const pt=POSITION_TRAITS[sorted[i].gpos||sorted[i].pos]||[];pt.forEach(trait=>{nt[sorted[i].id][trait]=Math.max(10,Math.round((nt[sorted[i].id][trait]||50)*ratio));});}}}if(clean)break;}
-    setTraits(nt);setRankedGroups(prev=>new Set([...prev,pos]));setPartialProgress(prev=>{const n={...prev};delete n[pos];return n;});if(user?.id)trackEvent(user.id,'ranking_completed',{position:pos});setPhase("pick-position");window.scrollTo(0,0);},[ratings,byPos,traits,user?.id]);
+    setTraits(nt);setRankedGroups(prev=>new Set([...prev,pos]));setPartialProgress(prev=>{const n={...prev};delete n[pos];return n;});trackEvent(user?.id,'ranking_completed',{position:pos,guest:!user});setPhase("pick-position");window.scrollTo(0,0);},[ratings,byPos,traits,user?.id]);
   const getRanked=useCallback((pos)=>[...(byPos[pos]||[])].sort((a,b)=>(ratings[b.id]||1500)-(ratings[a.id]||1500)),[byPos,ratings]);
   const movePlayer=useCallback((pos,fromIdx,toIdx)=>{
     if(fromIdx===toIdx)return;
@@ -714,7 +718,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
   if(phase==="loading")return(<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading your board...</p></div>);
 
 
-  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA);const bRanked=rankedGroups.has(gB);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} onMockComplete={saveMockPicks} myGuys={myGuys} myGuysUpdated={myGuysUpdated} setMyGuysUpdated={setMyGuysUpdated} mockCount={mockCount} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} mockLaunchCpuTrades={mockCpuTrades} mockLaunchBoardMode={mockBoardMode} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}} isGuest={isGuest} onRequireAuth={onRequireAuth}/>;}
+  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA);const bRanked=rankedGroups.has(gB);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} onMockComplete={saveMockPicks} myGuys={myGuys} myGuysUpdated={myGuysUpdated} setMyGuysUpdated={setMyGuysUpdated} mockCount={mockCount} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} mockLaunchCpuTrades={mockCpuTrades} mockLaunchBoardMode={mockBoardMode} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}} isGuest={isGuest} onRequireAuth={onRequireAuth} trackEvent={trackEvent} userId={user?.id} isGuestUser={!user}/>;}
   // === HOME ===
   // My Guys page — full screen overlay
   if(showMyGuys){
@@ -989,7 +993,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
       const launchMock=()=>{
         setShowMockDraft(true);
         setMockLaunchTeam(mockTeamSet);
-        if(user?.id)trackEvent(user.id,'mock_draft_cta_click',{teams:[...mockTeamSet].join(','),rounds:mockRounds,speed:mockSpeed});
+        trackEvent(user?.id,'mock_draft_cta_click',{teams:[...mockTeamSet].join(','),rounds:mockRounds,speed:mockSpeed,guest:!user});
       };
       return <div style={{background:"linear-gradient(135deg,#0f172a,#1e293b)",borderRadius:16,overflow:"hidden",marginBottom:24,position:"relative"}}>
         <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:"linear-gradient(90deg,#ec4899,#7c3aed)"}}/>
@@ -1588,6 +1592,7 @@ function AdminDashboard({user,onBack}){
           const pp=d.partialProgress?Object.keys(d.partialProgress):[];
           const noteCount=d.notes?Object.keys(d.notes).length:0;
           const userEvts=allEvents.filter(e=>e.user_id===au.id);
+          const mockCount=userEvts.filter(e=>e.event==='mock_draft_completed'||e.event==='mock_draft_sim_started').length;
           const lastEvent=userEvts[0];
           const lastActivity=new Date(Math.max(
             au.last_sign_in_at?new Date(au.last_sign_in_at):0,
@@ -1603,6 +1608,7 @@ function AdminDashboard({user,onBack}){
             partialPositions:pp.length,
             noteCount,
             eventCount:userEvts.length,
+            mockCount,
             hasBoard:!!b,
           };
         }).sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt));
@@ -1610,15 +1616,29 @@ function AdminDashboard({user,onBack}){
         const rankers=userDetails.filter(u=>u.rankedPositions>0);
         const avgPositions=rankers.length>0?(rankers.reduce((s,u)=>s+u.rankedPositions,0)/rankers.length).toFixed(1):0;
 
+        // Anonymous activity (last 7 days)
+        const weekAgo=new Date(now-604800000);
+        const anonEvents=allEvents.filter(e=>!e.user_id);
+        const anonWeek=anonEvents.filter(e=>new Date(e.created_at)>=weekAgo);
+        const anonMocksStarted=anonWeek.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').length;
+        const anonMocksCompleted=anonWeek.filter(e=>e.event==='mock_draft_completed').length;
+        const anonShares=anonWeek.filter(e=>e.event==='share_results').length;
+        const anonTeams={};
+        anonWeek.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').forEach(e=>{
+          const t=e.metadata?.team||e.metadata?.teams;if(t){anonTeams[t]=(anonTeams[t]||0)+1;}
+        });
+        const anonTopTeams=Object.entries(anonTeams).sort((a,b)=>b[1]-a[1]).slice(0,5);
+
         setStats({totalUsers,activeToday,activeWeek,posStats,partialCount,avgPositions,hasNotes,
           communityUsers:community.length,eventCounts,uniqueEventUsers,signupsToday,signupsWeek,
           mockDrafts,mockDraftUsers,rankingsCompleted,
+          anonMocksStarted,anonMocksCompleted,anonShares,anonTopTeams,
           // Funnel: compute from auth users + boards + events
           funnelSignedUp:totalUsers,
           funnelStartedRanking:new Set(allEvents.filter(e=>e.event==='ranking_started').map(e=>e.user_id)).size||boards.filter(b=>{const d=b.board_data||{};return(d.rankedGroups||[]).length>0||(d.partialProgress&&Object.keys(d.partialProgress).length>0);}).length,
           funnelCompletedPos:new Set([...allEvents.filter(e=>e.event==='ranking_completed').map(e=>e.user_id),...boards.filter(b=>(b.board_data?.rankedGroups||[]).length>0).map(b=>b.user_id)]).size,
-          funnelRanMock:new Set(allEvents.filter(e=>e.event==='mock_draft_started').map(e=>e.user_id)).size,
-          funnelShared:new Set(allEvents.filter(e=>e.event==='share_triggered').map(e=>e.user_id)).size,
+          funnelRanMock:new Set(allEvents.filter(e=>e.event==='mock_draft_started'||e.event==='mock_draft_completed').filter(e=>e.user_id).map(e=>e.user_id)).size,
+          funnelShared:new Set(allEvents.filter(e=>e.event==='share_triggered'||e.event==='share_results').map(e=>e.user_id)).size,
         });
         setUsers(userDetails);
         setEvents(allEvents.slice(0,50));
@@ -1630,11 +1650,12 @@ function AdminDashboard({user,onBack}){
 
   // Compute user status tags
   const tagUser=(u)=>{
-    if(u.rankedPositions>=6)return{label:"power user",color:"#16a34a",bg:"#f0fdf4"};
-    if(u.rankedPositions>0)return{label:"engaged",color:"#3b82f6",bg:"#eff6ff"};
-    if(u.eventCount>2)return{label:"exploring",color:"#ca8a04",bg:"#fefce8"};
-    if(u.hasBoard)return{label:"signed up",color:"#a3a3a3",bg:"#fafafa"};
-    return{label:"bounced",color:"#d4d4d4",bg:"#fafafa"};
+    const hasMocks=u.mockCount>0;
+    if(u.rankedPositions>0&&hasMocks)return{label:"power user",color:"#16a34a",bg:"#f0fdf4"};
+    if(hasMocks)return{label:"drafter",color:"#f59e0b",bg:"#fffbeb"};
+    if(u.rankedPositions>0)return{label:"ranker",color:"#3b82f6",bg:"#eff6ff"};
+    if(u.eventCount>2)return{label:"explorer",color:"#ca8a04",bg:"#fefce8"};
+    return{label:"one-visit",color:"#d4d4d4",bg:"#fafafa"};
   };
 
   return(
@@ -1649,15 +1670,18 @@ function AdminDashboard({user,onBack}){
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:24}}>
           <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:14}}>user funnel</div>
           {[
+            {label:"Guest Mocks Started",count:stats.anonMocksStarted,color:"#a3a3a3"},
+            {label:"Guest Mocks Completed",count:stats.anonMocksCompleted,color:"#737373"},
             {label:"Signed Up",count:stats.funnelSignedUp,color:"#171717"},
             {label:"Started Ranking",count:stats.funnelStartedRanking,color:"#3b82f6"},
             {label:"Completed a Position",count:stats.funnelCompletedPos,color:"#8b5cf6"},
-            {label:"Ran Mock Draft",count:stats.funnelRanMock,color:"#f59e0b"},
+            {label:"Signed-In Mocks",count:stats.funnelRanMock,color:"#f59e0b"},
             {label:"Shared Results",count:stats.funnelShared,color:"#22c55e"},
           ].map((step,i)=>{
-            const pct=stats.funnelSignedUp>0?Math.round(step.count/stats.funnelSignedUp*100):0;
-            const barW=stats.funnelSignedUp>0?Math.max(step.count/stats.funnelSignedUp*100,2):0;
-            return<div key={step.label} style={{marginBottom:i<4?10:0}}>
+            const maxCount=Math.max(stats.anonMocksStarted||0,stats.funnelSignedUp||0,1);
+            const pct=Math.round(step.count/maxCount*100);
+            const barW=maxCount>0?Math.max(step.count/maxCount*100,step.count>0?2:0):0;
+            return<div key={step.label} style={{marginBottom:i<6?10:0}}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:3}}>
                 <span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717"}}>{step.label}</span>
                 <span style={{fontFamily:mono,fontSize:13,fontWeight:900,color:step.color}}>{step.count} <span style={{fontSize:10,fontWeight:400,color:"#a3a3a3"}}>{pct}%</span></span>
@@ -1716,11 +1740,32 @@ function AdminDashboard({user,onBack}){
           </div>
         </div>
 
+        {/* Anonymous Activity */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:24}}>
+          <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>anonymous activity (7 days)</div>
+          <div style={{display:"flex",flexWrap:"wrap",gap:10}}>
+            {[["Guest Mocks Started",stats.anonMocksStarted,"#737373"],["Guest Mocks Completed",stats.anonMocksCompleted,"#525252"],["Guest Shares",stats.anonShares,"#22c55e"]].map(([l,v,c])=>(
+              <div key={l} style={{padding:"8px 14px",background:"#f9f9f7",borderRadius:8,textAlign:"center",minWidth:100}}>
+                <div style={{fontFamily:font,fontSize:20,fontWeight:900,color:c}}>{v}</div>
+                <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>{l}</div>
+              </div>
+            ))}
+          </div>
+          {stats.anonTopTeams?.length>0&&<div style={{marginTop:12}}>
+            <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginBottom:6}}>popular guest teams</div>
+            <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
+              {stats.anonTopTeams.map(([team,count])=>(
+                <span key={team} style={{fontFamily:mono,fontSize:10,padding:"3px 8px",background:"#f5f5f5",borderRadius:4,color:"#525252"}}>{team} ({count})</span>
+              ))}
+            </div>
+          </div>}
+        </div>
+
         {/* Users Table */}
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",marginBottom:24}}>
           <div style={{padding:"14px 16px",borderBottom:"1px solid #f0f0f0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
             <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717"}}>users ({users.length})</span>
-            <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{users.filter(u=>u.rankedPositions>0).length} engaged · {users.filter(u=>!u.hasBoard).length} bounced</span>
+            <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{users.filter(u=>tagUser(u).label==="power user").length} power · {users.filter(u=>tagUser(u).label==="drafter").length} drafters · {users.filter(u=>tagUser(u).label==="ranker").length} rankers</span>
           </div>
           <div style={{display:"grid",gridTemplateColumns:"1fr 70px 70px 70px 90px 90px",gap:4,padding:"8px 16px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5"}}>
             {["Email","Status","Ranked","Events","Signed Up","Last Active"].map(h=><span key={h} style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>{h}</span>)}
@@ -1747,12 +1792,12 @@ function AdminDashboard({user,onBack}){
           </div>
           <div style={{maxHeight:350,overflowY:"auto"}}>
             {events.map((e,i)=>{
-              const evtColor=e.event==='signup'?"#22c55e":e.event==='mock_draft_started'?"#f59e0b":e.event==='ranking_completed'?"#3b82f6":e.event==='ranking_started'?"#8b5cf6":"#a3a3a3";
+              const evtColor=e.event==='signup'?"#22c55e":e.event.includes('mock_draft')?"#f59e0b":e.event==='ranking_completed'?"#3b82f6":e.event==='ranking_started'?"#8b5cf6":e.event==='share_results'?"#22c55e":"#a3a3a3";
               // Find email for this user
               const eu=users.find(u=>u.userId===e.user_id);
               return<div key={e.id} style={{display:"grid",gridTemplateColumns:"110px 1fr 1fr 120px",gap:6,padding:"5px 16px",borderBottom:i<events.length-1?"1px solid #fafaf8":"none",fontSize:10,fontFamily:mono,alignItems:"center"}}>
                 <span style={{color:evtColor,fontWeight:700}}>{e.event.replace(/_/g,' ')}</span>
-                <span style={{color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{eu?.email||e.user_id?.slice(0,12)+'…'}</span>
+                <span style={{color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{eu?.email||e.session_id||e.user_id?.slice(0,12)+'…'}</span>
                 <span style={{color:"#a3a3a3",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{e.metadata&&Object.keys(e.metadata).length>0?JSON.stringify(e.metadata):""}</span>
                 <span style={{color:"#d4d4d4"}}>{new Date(e.created_at).toLocaleDateString('en-US',{month:'short',day:'numeric'})} {new Date(e.created_at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}</span>
               </div>;
