@@ -879,6 +879,15 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             preferredSlot="CB1";
             allowedSlots=["CB1","CB2"];
           }
+        }else if(group.posMatch==="OL"){
+          // IOL/OG/OC/G/C -> guard/center slots, OT/T -> tackle slots
+          if(gpos==="IOL"||gpos==="OG"||gpos==="OC"||gpos==="G"||gpos==="C"){
+            preferredSlot="LG";
+            allowedSlots=["LG","C","RG"];
+          }else{
+            preferredSlot="LT";
+            allowedSlots=["LT","RT"];
+          }
         }
         // Determine target tier: 1=starter, 2=second string, 3=third string, 0=overflow
         let tier=0;
