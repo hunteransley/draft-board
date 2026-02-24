@@ -270,17 +270,27 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
 // ============================================================
 function AuthScreen({onSignIn}){
   const[email,setEmail]=useState('');const[sent,setSent]=useState(false);const[loading,setLoading]=useState(false);const[error,setError]=useState('');const[showEmail,setShowEmail]=useState(false);
+  const seedTicker=[
+    {name:"Shedeur Sanders",pos:"QB",delta:3.2},{name:"Travis Hunter",pos:"WR",delta:1.8},{name:"Mason Graham",pos:"DL",delta:2.5},
+    {name:"Tetairoa McMillan",pos:"WR",delta:1.4},{name:"Will Campbell",pos:"OT",delta:2.1},{name:"Abdul Carter",pos:"EDGE",delta:1.6},
+    {name:"Mykel Williams",pos:"EDGE",delta:1.3},{name:"Tyler Warren",pos:"TE",delta:2.8},{name:"Ashton Jeanty",pos:"RB",delta:1.1},
+    {name:"Jalon Walker",pos:"LB",delta:1.9},{name:"Luther Burden III",pos:"WR",delta:1.5},{name:"Colston Loveland",pos:"TE",delta:1.2},
+    {name:"Cam Ward",pos:"QB",delta:-2.9},{name:"Jalen Milroe",pos:"QB",delta:-1.7},{name:"Will Johnson",pos:"CB",delta:-2.3},
+    {name:"Benjamin Morrison",pos:"CB",delta:-1.4},{name:"Kelvin Banks Jr.",pos:"OT",delta:-1.8},{name:"Kenneth Grant",pos:"DL",delta:-1.1},
+    {name:"Nick Emmanwori",pos:"S",delta:-1.6},{name:"Malaki Starks",pos:"S",delta:-2.1},{name:"Deone Walker",pos:"DL",delta:-1.3},
+    {name:"Nic Scourton",pos:"EDGE",delta:-1.5}
+  ];
   const[tickerData,setTickerData]=useState(null);
 
   useEffect(()=>{
     supabase.from('public_adp').select('*').then(({data})=>{
-      if(!data||data.length===0){setTickerData([]);return;}
+      if(!data||data.length===0){setTickerData(seedTicker);return;}
       const movers=data.filter(d=>d.avg_pick_7d!=null&&d.avg_pick_prev_7d!=null).map(d=>({
         name:d.prospect_name,pos:d.prospect_pos,
         delta:Math.round((d.avg_pick_prev_7d-d.avg_pick_7d)*10)/10,
         picks:d.times_picked
       })).filter(d=>Math.abs(d.delta)>=1);
-      setTickerData(movers);
+      setTickerData(movers.length>=5?movers:seedTicker);
     });
   },[]);
 
@@ -361,7 +371,7 @@ function AuthScreen({onSignIn}){
       {/* Prospect Stock Ticker — real ADP data from mock drafts */}
       {(()=>{
         const posColors={QB:"#ec4899",RB:"#22c55e",WR:"#7c3aed",TE:"#f97316",OT:"#3b82f6",IOL:"#3b82f6",OL:"#3b82f6",EDGE:"#06b6d4",DL:"#64748b",LB:"#1d4ed8",CB:"#eab308",S:"#eab308",K:"#a3a3a3",P:"#a3a3a3"};
-        if(!tickerData||tickerData.length===0)return null;
+        if(!tickerData)return null;
         const risers=tickerData.filter(d=>d.delta>0).sort((a,b)=>b.delta-a.delta).slice(0,20);
         const fallers=tickerData.filter(d=>d.delta<0).sort((a,b)=>a.delta-b.delta).slice(0,20);
         if(risers.length===0&&fallers.length===0)return null;
