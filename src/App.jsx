@@ -634,28 +634,6 @@ function DraftBoard({user,onSignOut}){
   if(phase==="loading")return(<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading your board...</p></div>);
 
   // === MOCK DRAFT (check before phase returns to fix click bug) ===
-  // Save mock draft picks to Supabase for ADP tracking and My Guys
-  const saveMockPicks=useCallback(async(picks)=>{
-    if(!user?.id||!picks?.length)return;
-    try{
-      const rows=picks.map(pk=>({
-        user_id:user.id,
-        mock_id:pk.mockId,
-        prospect_name:pk.prospectName,
-        prospect_pos:pk.prospectPos,
-        team:pk.team,
-        pick_number:pk.pickNumber,
-        round:pk.round,
-        is_user_pick:pk.isUserPick,
-        grade:pk.grade
-      }));
-      for(let i=0;i<rows.length;i+=50){
-        await supabase.from('mock_picks').insert(rows.slice(i,i+50));
-      }
-      loadMyGuys();
-    }catch(e){console.error('Failed to save mock picks:',e);}
-  },[user?.id]);
-
   // My Guys state
   const[myGuys,setMyGuys]=useState([]);
   const[myGuysUpdated,setMyGuysUpdated]=useState(false);
@@ -690,6 +668,28 @@ function DraftBoard({user,onSignOut}){
       setMyGuys(sorted);
     }catch(e){console.error('Failed to load my guys:',e);}
   },[user?.id,getConsensusRank]);
+
+  // Save mock draft picks to Supabase for ADP tracking and My Guys
+  const saveMockPicks=useCallback(async(picks)=>{
+    if(!user?.id||!picks?.length)return;
+    try{
+      const rows=picks.map(pk=>({
+        user_id:user.id,
+        mock_id:pk.mockId,
+        prospect_name:pk.prospectName,
+        prospect_pos:pk.prospectPos,
+        team:pk.team,
+        pick_number:pk.pickNumber,
+        round:pk.round,
+        is_user_pick:pk.isUserPick,
+        grade:pk.grade
+      }));
+      for(let i=0;i<rows.length;i+=50){
+        await supabase.from('mock_picks').insert(rows.slice(i,i+50));
+      }
+      loadMyGuys();
+    }catch(e){console.error('Failed to save mock picks:',e);}
+  },[user?.id,loadMyGuys]);
 
   useEffect(()=>{loadMyGuys();},[loadMyGuys]);
 
