@@ -316,6 +316,52 @@ function AuthScreen({onSignIn}){
       </div>
 
       {/* Sign In */}
+      {/* Prospect Stock Ticker */}
+      {(()=>{
+        const posColors={QB:"#ec4899",RB:"#22c55e",WR:"#7c3aed",TE:"#f97316",OT:"#3b82f6",IOL:"#3b82f6",OL:"#3b82f6",EDGE:"#06b6d4",DL:"#64748b",LB:"#1d4ed8",CB:"#eab308",S:"#eab308",K:"#a3a3a3",P:"#a3a3a3"};
+        const cb=PROSPECTS.filter(p=>{const cr=getConsensusRank(p.name);return cr&&cr<999;}).sort((a,b)=>getConsensusRank(a.name)-getConsensusRank(b.name));
+        const seed=42;const rng=(i)=>{let s=seed+i*2654435761;s=((s^(s>>>16))*0x45d9f3b)>>>0;return(s&0xffff)/0xffff;};
+        const tickerData=cb.slice(0,80).map((p,i)=>{
+          const variance=Math.round((rng(i)-0.4)*12);
+          if(Math.abs(variance)<2)return null;
+          return{name:p.name,pos:p.gpos||p.pos,delta:variance};
+        }).filter(Boolean);
+        const risers=tickerData.filter(d=>d.delta<0).sort((a,b)=>a.delta-b.delta).slice(0,20);
+        const fallers=tickerData.filter(d=>d.delta>0).sort((a,b)=>b.delta-a.delta).slice(0,20);
+        const risersLoop=[...risers,...risers];
+        const fallersLoop=[...fallers,...fallers];
+        const ps=(d)=>({display:"inline-flex",alignItems:"center",gap:5,padding:"4px 10px",borderRadius:99,flexShrink:0,background:d.delta<0?"rgba(34,197,94,0.08)":"rgba(239,68,68,0.08)",border:`1px solid ${d.delta<0?"rgba(34,197,94,0.15)":"rgba(239,68,68,0.15)"}`});
+        if(risers.length===0&&fallers.length===0)return null;
+        return<div style={{maxWidth:780,margin:"0 auto",padding:"0 24px 24px"}}>
+          <div style={{overflow:"hidden",borderRadius:12,background:"#fff",border:"1px solid #e5e5e5",padding:"10px 0"}}>
+            <div style={{fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",padding:"0 16px 8px",display:"flex",justifyContent:"space-between"}}>
+              <span>📈 mock draft risers</span><span>mock draft fallers 📉</span>
+            </div>
+            <div style={{overflow:"hidden",marginBottom:6}}>
+              <div style={{display:"flex",gap:8,animation:"tickerRight 35s linear infinite",width:"max-content"}}>
+                {risersLoop.map((d,i)=><div key={`r${i}`} style={ps(d)}>
+                  <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:posColors[d.pos]||"#525252"}}>{d.pos}</span>
+                  <span style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#171717"}}>{d.name.split(" ").pop()}</span>
+                  <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#22c55e"}}>↑{Math.abs(d.delta)}</span>
+                </div>)}
+              </div>
+            </div>
+            <div style={{overflow:"hidden"}}>
+              <div style={{display:"flex",gap:8,animation:"tickerLeft 40s linear infinite",width:"max-content"}}>
+                {fallersLoop.map((d,i)=><div key={`f${i}`} style={ps(d)}>
+                  <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:posColors[d.pos]||"#525252"}}>{d.pos}</span>
+                  <span style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#171717"}}>{d.name.split(" ").pop()}</span>
+                  <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#ef4444"}}>↓{d.delta}</span>
+                </div>)}
+              </div>
+            </div>
+            <style>{`
+              @keyframes tickerRight{0%{transform:translateX(-50%)}100%{transform:translateX(0%)}}
+              @keyframes tickerLeft{0%{transform:translateX(0%)}100%{transform:translateX(-50%)}}
+            `}</style>
+          </div>
+        </div>;
+      })()}
       <div style={{maxWidth:400,margin:"0 auto",padding:"0 24px 60px"}}>
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:28}}>
           {!sent?(
