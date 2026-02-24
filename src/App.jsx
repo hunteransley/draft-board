@@ -379,10 +379,8 @@ function AuthScreen({onSignIn}){
         const fallersLoop=[...fallers,...fallers];
         const ps=(d)=>({display:"inline-flex",alignItems:"center",gap:5,padding:"4px 10px",borderRadius:99,flexShrink:0,background:d.delta>0?"rgba(34,197,94,0.08)":"rgba(239,68,68,0.08)",border:`1px solid ${d.delta>0?"rgba(34,197,94,0.15)":"rgba(239,68,68,0.15)"}`});
         return<div style={{maxWidth:780,margin:"0 auto",padding:"0 24px 24px"}}>
+          <div style={{fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",textAlign:"center",marginBottom:6}}>risers & fallers</div>
           <div style={{overflow:"hidden",borderRadius:12,background:"#fff",border:"1px solid #e5e5e5",padding:"10px 0"}}>
-            <div style={{fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",padding:"0 16px 8px",display:"flex",justifyContent:"space-between"}}>
-              <span>📈 mock draft risers</span><span>mock draft fallers 📉</span>
-            </div>
             {risers.length>0&&<div style={{overflow:"hidden",marginBottom:fallers.length>0?6:0}}>
               <div style={{display:"flex",gap:8,animation:"tickerRight 35s linear infinite",width:"max-content"}}>
                 {risersLoop.map((d,i)=><div key={`r${i}`} style={ps(d)}>
