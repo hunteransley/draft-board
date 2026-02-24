@@ -270,6 +270,19 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
 // ============================================================
 function AuthScreen({onSignIn}){
   const[email,setEmail]=useState('');const[sent,setSent]=useState(false);const[loading,setLoading]=useState(false);const[error,setError]=useState('');const[showEmail,setShowEmail]=useState(false);
+  const[tickerData,setTickerData]=useState(null);
+
+  useEffect(()=>{
+    supabase.from('public_adp').select('*').then(({data})=>{
+      if(!data||data.length===0){setTickerData([]);return;}
+      const movers=data.filter(d=>d.avg_pick_7d!=null&&d.avg_pick_prev_7d!=null).map(d=>({
+        name:d.prospect_name,pos:d.prospect_pos,
+        delta:Math.round((d.avg_pick_prev_7d-d.avg_pick_7d)*10)/10,
+        picks:d.times_picked
+      })).filter(d=>Math.abs(d.delta)>=1);
+      setTickerData(movers);
+    });
+  },[]);
 
   const handleGoogle=async()=>{
     const{error:err}=await supabase.auth.signInWithOAuth({provider:'google',options:{redirectTo:window.location.origin}});
@@ -345,28 +358,22 @@ function AuthScreen({onSignIn}){
         </div>
       </div>
 
-      {/* Prospect Stock Ticker */}
+      {/* Prospect Stock Ticker — real ADP data from mock drafts */}
       {(()=>{
         const posColors={QB:"#ec4899",RB:"#22c55e",WR:"#7c3aed",TE:"#f97316",OT:"#3b82f6",IOL:"#3b82f6",OL:"#3b82f6",EDGE:"#06b6d4",DL:"#64748b",LB:"#1d4ed8",CB:"#eab308",S:"#eab308",K:"#a3a3a3",P:"#a3a3a3"};
-        const cb=PROSPECTS.filter(p=>{const cr=getConsensusRank(p.name);return cr&&cr<999;}).sort((a,b)=>getConsensusRank(a.name)-getConsensusRank(b.name));
-        const seed=42;const rng=(i)=>{let s=seed+i*2654435761;s=((s^(s>>>16))*0x45d9f3b)>>>0;return(s&0xffff)/0xffff;};
-        const tickerData=cb.slice(0,80).map((p,i)=>{
-          const variance=Math.round((rng(i)-0.4)*12);
-          if(Math.abs(variance)<2)return null;
-          return{name:p.name,pos:p.gpos||p.pos,delta:variance};
-        }).filter(Boolean);
-        const risers=tickerData.filter(d=>d.delta<0).sort((a,b)=>a.delta-b.delta).slice(0,20);
-        const fallers=tickerData.filter(d=>d.delta>0).sort((a,b)=>b.delta-a.delta).slice(0,20);
+        if(!tickerData||tickerData.length===0)return null;
+        const risers=tickerData.filter(d=>d.delta>0).sort((a,b)=>b.delta-a.delta).slice(0,20);
+        const fallers=tickerData.filter(d=>d.delta<0).sort((a,b)=>a.delta-b.delta).slice(0,20);
+        if(risers.length===0&&fallers.length===0)return null;
         const risersLoop=[...risers,...risers];
         const fallersLoop=[...fallers,...fallers];
-        const ps=(d)=>({display:"inline-flex",alignItems:"center",gap:5,padding:"4px 10px",borderRadius:99,flexShrink:0,background:d.delta<0?"rgba(34,197,94,0.08)":"rgba(239,68,68,0.08)",border:`1px solid ${d.delta<0?"rgba(34,197,94,0.15)":"rgba(239,68,68,0.15)"}`});
-        if(risers.length===0&&fallers.length===0)return null;
+        const ps=(d)=>({display:"inline-flex",alignItems:"center",gap:5,padding:"4px 10px",borderRadius:99,flexShrink:0,background:d.delta>0?"rgba(34,197,94,0.08)":"rgba(239,68,68,0.08)",border:`1px solid ${d.delta>0?"rgba(34,197,94,0.15)":"rgba(239,68,68,0.15)"}`});
         return<div style={{maxWidth:780,margin:"0 auto",padding:"0 24px 24px"}}>
           <div style={{overflow:"hidden",borderRadius:12,background:"#fff",border:"1px solid #e5e5e5",padding:"10px 0"}}>
             <div style={{fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",padding:"0 16px 8px",display:"flex",justifyContent:"space-between"}}>
               <span>📈 mock draft risers</span><span>mock draft fallers 📉</span>
             </div>
-            <div style={{overflow:"hidden",marginBottom:6}}>
+            {risers.length>0&&<div style={{overflow:"hidden",marginBottom:fallers.length>0?6:0}}>
               <div style={{display:"flex",gap:8,animation:"tickerRight 35s linear infinite",width:"max-content"}}>
                 {risersLoop.map((d,i)=><div key={`r${i}`} style={ps(d)}>
                   <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:posColors[d.pos]||"#525252"}}>{d.pos}</span>
@@ -374,16 +381,16 @@ function AuthScreen({onSignIn}){
                   <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#22c55e"}}>↑{Math.abs(d.delta)}</span>
                 </div>)}
               </div>
-            </div>
-            <div style={{overflow:"hidden"}}>
+            </div>}
+            {fallers.length>0&&<div style={{overflow:"hidden"}}>
               <div style={{display:"flex",gap:8,animation:"tickerLeft 40s linear infinite",width:"max-content"}}>
                 {fallersLoop.map((d,i)=><div key={`f${i}`} style={ps(d)}>
                   <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:posColors[d.pos]||"#525252"}}>{d.pos}</span>
                   <span style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#171717"}}>{d.name.split(" ").pop()}</span>
-                  <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#ef4444"}}>↓{d.delta}</span>
+                  <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#ef4444"}}>↓{Math.abs(d.delta)}</span>
                 </div>)}
               </div>
-            </div>
+            </div>}
             <style>{`
               @keyframes tickerRight{0%{transform:translateX(-50%)}100%{transform:translateX(0%)}}
               @keyframes tickerLeft{0%{transform:translateX(0%)}100%{transform:translateX(-50%)}}
@@ -627,8 +634,153 @@ function DraftBoard({user,onSignOut}){
   if(phase==="loading")return(<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading your board...</p></div>);
 
   // === MOCK DRAFT (check before phase returns to fix click bug) ===
-  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA);const bRanked=rankedGroups.has(gB);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} mockLaunchCpuTrades={mockCpuTrades} mockLaunchBoardMode={mockBoardMode} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}}/>;}
+  // Save mock draft picks to Supabase for ADP tracking and My Guys
+  const saveMockPicks=useCallback(async(picks)=>{
+    if(!user?.id||!picks?.length)return;
+    try{
+      const rows=picks.map(pk=>({
+        user_id:user.id,
+        mock_id:pk.mockId,
+        prospect_name:pk.prospectName,
+        prospect_pos:pk.prospectPos,
+        team:pk.team,
+        pick_number:pk.pickNumber,
+        round:pk.round,
+        is_user_pick:pk.isUserPick,
+        grade:pk.grade
+      }));
+      for(let i=0;i<rows.length;i+=50){
+        await supabase.from('mock_picks').insert(rows.slice(i,i+50));
+      }
+      loadMyGuys();
+    }catch(e){console.error('Failed to save mock picks:',e);}
+  },[user?.id]);
+
+  // My Guys state
+  const[myGuys,setMyGuys]=useState([]);
+  const[myGuysUpdated,setMyGuysUpdated]=useState(false);
+  const[showMyGuys,setShowMyGuys]=useState(false);
+  const[mockCount,setMockCount]=useState(0);
+
+  const loadMyGuys=useCallback(async()=>{
+    if(!user?.id)return;
+    try{
+      const{data,error}=await supabase.from('mock_picks').select('prospect_name,prospect_pos,pick_number,is_user_pick,grade,mock_id').eq('user_id',user.id);
+      if(error||!data)return;
+      const uniqueMocks=new Set(data.map(d=>d.mock_id));
+      setMockCount(uniqueMocks.size);
+      const userPicks=data.filter(d=>d.is_user_pick);
+      const pm={};
+      userPicks.forEach(pk=>{
+        if(!pm[pk.prospect_name])pm[pk.prospect_name]={name:pk.prospect_name,pos:pk.prospect_pos,picks:[],grades:[]};
+        pm[pk.prospect_name].picks.push(pk.pick_number);
+        if(pk.grade!=null)pm[pk.prospect_name].grades.push(pk.grade);
+      });
+      const candidates=Object.values(pm).filter(p=>p.picks.length>=2).map(p=>{
+        const avgPick=p.picks.reduce((a,b)=>a+b,0)/p.picks.length;
+        const cr=getConsensusRank(p.name)||999;
+        const delta=cr-avgPick;
+        const avgGrade=p.grades.length>0?Math.round(p.grades.reduce((a,b)=>a+b,0)/p.grades.length):null;
+        return{...p,avgPick:Math.round(avgPick*10)/10,consensusRank:cr,delta:Math.round(delta*10)/10,timesDrafted:p.picks.length,avgGrade};
+      });
+      const sorted=candidates.sort((a,b)=>b.delta-a.delta||b.timesDrafted-a.timesDrafted).slice(0,10);
+      const prevNames=myGuys.map(g=>g.name).join(',');
+      const newNames=sorted.map(g=>g.name).join(',');
+      if(prevNames&&newNames!==prevNames)setMyGuysUpdated(true);
+      setMyGuys(sorted);
+    }catch(e){console.error('Failed to load my guys:',e);}
+  },[user?.id,getConsensusRank]);
+
+  useEffect(()=>{loadMyGuys();},[loadMyGuys]);
+
+  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA);const bRanked=rankedGroups.has(gB);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} onMockComplete={saveMockPicks} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} mockLaunchCpuTrades={mockCpuTrades} mockLaunchBoardMode={mockBoardMode} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}}/>;}
   // === HOME ===
+  // My Guys page — full screen overlay
+  if(showMyGuys){
+    const TRAIT_MAP=POSITION_TRAITS;
+    const emptySlots=Array.from({length:Math.max(0,10-myGuys.length)});
+    return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
+      <SaveBar/>
+      <div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 60px"}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
+          <div>
+            <h1 style={{fontSize:32,fontWeight:900,color:"#171717",margin:"0 0 4px",letterSpacing:-1}}>my guys</h1>
+            <p style={{fontFamily:sans,fontSize:13,color:"#737373",margin:0,lineHeight:1.5}}>the prospects you bang the table for every time you mock</p>
+          </div>
+          <button onClick={()=>setShowMyGuys(false)} style={{fontFamily:sans,fontSize:12,padding:"8px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>← back</button>
+        </div>
+        <p style={{fontFamily:mono,fontSize:10,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 20px"}}>{mockCount} mock{mockCount!==1?"s":""} completed · {myGuys.length}/10 guys identified</p>
+
+        {/* 2x5 grid */}
+        <div style={{display:"grid",gridTemplateColumns:"repeat(2, 1fr)",gap:12}}>
+          {myGuys.map((g,i)=>{
+            const c=POS_COLORS[g.pos]||"#525252";
+            const prospect=PROSPECTS.find(p=>p.name===g.name);
+            const traitPos=g.pos==="DB"?(getProspectStats(g.name)?.gpos||"CB"):g.pos==="OL"?"OT":g.pos;
+            const traitKeys=TRAIT_MAP[traitPos]||TRAIT_MAP["QB"];
+            const traitVals=traitKeys.map(t=>(traits[prospect?.id]?.[t]??50)/100);
+            // Spider chart SVG
+            const cx=60,cy=60,r=45,n=traitKeys.length;
+            const points=(vals)=>vals.map((v,j)=>{const a=(Math.PI*2*j/n)-Math.PI/2;return[cx+r*v*Math.cos(a),cy+r*v*Math.sin(a)];});
+            const poly=(pts)=>pts.map(p=>p.join(",")).join(" ");
+            const gridLevels=[0.25,0.5,0.75,1];
+
+            return<div key={g.name} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:14,padding:16,cursor:"pointer",transition:"border-color 0.15s"}} onClick={()=>{if(prospect){setProfilePlayer(prospect);}}} onMouseEnter={e=>e.currentTarget.style.borderColor=c} onMouseLeave={e=>e.currentTarget.style.borderColor="#e5e5e5"}>
+              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8}}>
+                <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#d4d4d4"}}>{i+1}</span>
+                <SchoolLogo school={prospect?.school||""} size={24}/>
+                <div style={{flex:1,minWidth:0}}>
+                  <div style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{g.name}</div>
+                  <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{prospect?.school||""}</div>
+                </div>
+                <span style={{fontFamily:mono,fontSize:10,fontWeight:600,color:c,background:`${c}0d`,padding:"2px 8px",borderRadius:4}}>{g.pos}</span>
+              </div>
+
+              {/* Spider chart */}
+              <svg viewBox="0 0 120 120" style={{width:"100%",maxWidth:160,margin:"0 auto",display:"block"}}>
+                {gridLevels.map(lv=><polygon key={lv} points={poly(points(traitKeys.map(()=>lv)))} fill="none" stroke="#e5e5e5" strokeWidth={lv===1?0.8:0.4}/>)}
+                {traitKeys.map((t,j)=>{const a=(Math.PI*2*j/n)-Math.PI/2;const lx=cx+r*1.18*Math.cos(a);const ly=cy+r*1.18*Math.sin(a);return<text key={t} x={lx} y={ly} textAnchor="middle" dominantBaseline="central" style={{fontSize:3.5,fill:"#a3a3a3",fontFamily:mono}}>{t.split(" ")[0]}</text>;})}
+                <polygon points={poly(points(traitVals))} fill={`${c}20`} stroke={c} strokeWidth={1.2}/>
+                {points(traitVals).map(([px,py],j)=><circle key={j} cx={px} cy={py} r={1.5} fill={c}/>)}
+              </svg>
+
+              {/* Stats row */}
+              <div style={{display:"flex",justifyContent:"space-between",marginTop:8,padding:"8px 0 0",borderTop:"1px solid #f5f5f5"}}>
+                <div style={{textAlign:"center"}}>
+                  <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>you pick</div>
+                  <div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717"}}>{g.avgPick}</div>
+                </div>
+                <div style={{textAlign:"center"}}>
+                  <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>consensus</div>
+                  <div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#a3a3a3"}}>{g.consensusRank}</div>
+                </div>
+                <div style={{textAlign:"center"}}>
+                  <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>reach</div>
+                  <div style={{fontFamily:font,fontSize:16,fontWeight:900,color:g.delta>0?"#16a34a":"#dc2626"}}>+{g.delta}</div>
+                </div>
+                <div style={{textAlign:"center"}}>
+                  <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>drafted</div>
+                  <div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717"}}>{g.timesDrafted}x</div>
+                </div>
+              </div>
+            </div>;
+          })}
+
+          {/* Empty slots */}
+          {emptySlots.map((_,i)=><div key={`empty${i}`} style={{background:"#faf9f6",border:"2px dashed #e5e5e5",borderRadius:14,padding:16,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:200}}>
+            <div style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#e5e5e5"}}>{myGuys.length+i+1}</div>
+            <div style={{fontFamily:sans,fontSize:11,color:"#d4d4d4",textAlign:"center",marginTop:4}}>mock more to discover</div>
+          </div>)}
+        </div>
+
+        {myGuys.length>0&&<div style={{textAlign:"center",marginTop:24}}>
+          <button onClick={()=>{/* TODO: share card generation */}} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"12px 28px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>share my guys</button>
+        </div>}
+      </div>
+      {profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={()=>setProfilePlayer(null)} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings}/>}
+    </div>);
+  }
+
   if(phase==="home"||phase==="pick-position"){
     const hasBoardData=rankedGroups.size>0||Object.keys(partialProgress).length>0;
     const hasStaleData=!hasBoardData&&Object.keys(ratings).length>0&&!sessionStorage.getItem('bbl_stale_dismissed');
@@ -665,6 +817,10 @@ function DraftBoard({user,onSignOut}){
         <h1 style={{fontSize:"clamp(28px,6vw,40px)",fontWeight:900,color:"#171717",margin:"0 0 2px",letterSpacing:-1.5}}>big board lab</h1>
         <p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:0}}>2026 NFL Draft · Pittsburgh · April 23–25</p>
       </div>
+      <button onClick={()=>{setShowMyGuys(true);setMyGuysUpdated(false);}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:myGuysUpdated?"linear-gradient(135deg,#ec4899,#7c3aed)":mockCount>0?"#171717":"transparent",color:myGuysUpdated||mockCount>0?"#fff":"#a3a3a3",border:myGuysUpdated||mockCount>0?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",position:"relative",transition:"all 0.2s"}}>
+        my guys{myGuys.length>0&&<span style={{fontFamily:mono,fontSize:10,marginLeft:4,opacity:0.7}}>{myGuys.length}/10</span>}
+        {myGuysUpdated&&<span style={{position:"absolute",top:-2,right:-2,width:8,height:8,borderRadius:4,background:"#ec4899",border:"2px solid #faf9f6"}}/>}
+      </button>
     </div>
 
     {/* Stale data warning */}
