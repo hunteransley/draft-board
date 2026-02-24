@@ -222,7 +222,7 @@ function pickVerdict(pickNum,consRank,grade){
   return{text:"BIG REACH",color:"#dc2626",bg:"#fef2f2"};
 }
 
-export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,onMockComplete,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED,rankedGroups}){
+export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,onMockComplete,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED,rankedGroups,mockLaunchTeam,mockLaunchRounds,mockLaunchSpeed,mockLaunchCpuTrades,mockLaunchBoardMode,onRankPosition}){
   const ALL_TEAMS=useMemo(()=>[...new Set(DRAFT_ORDER_2026.map(d=>d.team))],[]);
   const[boardMode,setBoardMode]=useState("consensus");
   const activeBoard=boardMode==="my"&&myBoard?myBoard:board;
@@ -255,6 +255,23 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[depthTeamIdx,setDepthTeamIdx]=useState(0);
   const[tradeValueDelta,setTradeValueDelta]=useState(0); // net JJP value from all trades
   const[cpuTrades,setCpuTrades]=useState(true); // CPU-to-CPU trades enabled
+
+  // Auto-start: if launched from homepage with pre-selected settings, skip setup
+  useEffect(()=>{
+    if(mockLaunchTeam&&mockLaunchTeam.size>0&&!setupDone){
+      setUserTeams(mockLaunchTeam);
+      if(mockLaunchRounds)setNumRounds(mockLaunchRounds);
+      if(mockLaunchSpeed)setSpeed(mockLaunchSpeed);
+      if(mockLaunchCpuTrades!=null)setCpuTrades(mockLaunchCpuTrades);
+      if(mockLaunchBoardMode)setBoardMode(mockLaunchBoardMode);
+      // Trigger start
+      const ab=mockLaunchBoardMode==="my"&&myBoard?myBoard:board;
+      setAvailable(ab.map(p=>p.id));
+      setPicks([]);
+      setSetupDone(true);
+      setShowResults(false);
+    }
+  },[mockLaunchTeam]);
   const[cpuTradeLog,setCpuTradeLog]=useState([]); // [{fromTeam,toTeam,pickIdx,gave:[],got:[]}]
   const tradeDeclinedRef=useRef(0);
 
