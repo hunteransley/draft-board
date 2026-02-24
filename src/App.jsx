@@ -840,21 +840,26 @@ function DraftBoard({user,onSignOut}){
                 ctx.fillStyle='#a3a3a3';ctx.font='12px -apple-system,system-ui,sans-serif';
                 ctx.fillText(school||'',nameX,y+54);
                 // Stats — right aligned
+                // Stats — right aligned, matching web UI
                 ctx.textAlign='right';
                 ctx.fillStyle='#a3a3a3';ctx.font='9px ui-monospace,monospace';
-                ctx.fillText('AVG PICK',W-200,y+30);
+                ctx.fillText('YOU PICK',W-280,y+30);
                 ctx.fillStyle='#171717';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
-                ctx.fillText(String(g.avgPick),W-200,y+44);
+                ctx.fillText(String(g.avgPick),W-280,y+44);
                 ctx.fillStyle='#a3a3a3';ctx.font='9px ui-monospace,monospace';
-                ctx.fillText('CONSENSUS',W-115,y+30);
-                ctx.fillStyle='#737373';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
-                ctx.fillText(g.consensusRank<999?String(g.consensusRank):'-',W-115,y+44);
+                ctx.fillText('CONSENSUS',W-190,y+30);
+                ctx.fillStyle='#a3a3a3';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
+                ctx.fillText(g.consensusRank<999?String(g.consensusRank):'-',W-190,y+44);
                 ctx.fillStyle='#a3a3a3';ctx.font='9px ui-monospace,monospace';
-                ctx.fillText('DELTA',W-42,y+30);
+                ctx.fillText('REACH',W-105,y+30);
                 const d=g.delta;
                 ctx.fillStyle=d>0?'#16a34a':d<0?'#dc2626':'#a3a3a3';
                 ctx.font='bold 18px -apple-system,system-ui,sans-serif';
-                ctx.fillText((d>0?'+':'')+String(d),W-42,y+44);
+                ctx.fillText((d>0?'+':'')+String(d),W-105,y+44);
+                ctx.fillStyle='#a3a3a3';ctx.font='9px ui-monospace,monospace';
+                ctx.fillText('DRAFTED',W-42,y+30);
+                ctx.fillStyle='#171717';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
+                ctx.fillText(g.timesDrafted+'x',W-42,y+44);
                 ctx.textAlign='left';
               }else{
                 // Empty dashed slot
@@ -946,7 +951,7 @@ function DraftBoard({user,onSignOut}){
         <p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:0}}>2026 NFL Draft · Pittsburgh · April 23–25</p>
       </div>
       <button onClick={()=>{setShowMyGuys(true);setMyGuysUpdated(false);}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:myGuysUpdated?"linear-gradient(135deg,#ec4899,#7c3aed)":mockCount>0?"#171717":"transparent",color:myGuysUpdated||mockCount>0?"#fff":"#a3a3a3",border:myGuysUpdated||mockCount>0?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",position:"relative",transition:"all 0.2s"}}>
-        👀 my guys{myGuys.length>0&&<span style={{fontFamily:mono,fontSize:10,marginLeft:4,opacity:0.7}}>{myGuys.length}/10</span>}
+        👀 my guys
         {myGuysUpdated&&<span style={{position:"absolute",top:-2,right:-2,width:8,height:8,borderRadius:4,background:"#ec4899",border:"2px solid #faf9f6"}}/>}
       </button>
     </div>
