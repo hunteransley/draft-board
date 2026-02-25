@@ -1607,6 +1607,8 @@ function AdminDashboard({user,onBack}){
   const[loading,setLoading]=useState(true);
   const[users,setUsers]=useState([]);
   const[events,setEvents]=useState([]);
+  const[excludeAdmin,setExcludeAdmin]=useState(true);
+  const[allEventsRaw,setAllEventsRaw]=useState([]);
   useEffect(()=>{
     (async()=>{
       try{
@@ -1620,7 +1622,9 @@ function AdminDashboard({user,onBack}){
         ]);
         const boards=boardsRes.data||[];
         const community=communityRes.data||[];
-        const allEvents=evtsRes.data||[];
+        const allEventsData=evtsRes.data||[];
+        const adminId=user?.id;
+        const allEvents=adminId?allEventsData.filter(e=>e.user_id!==adminId):allEventsData;
         const totalUsers=authCountRes.data||0;
         const authUsers=authUsersRes.data||[];
 
@@ -1719,12 +1723,23 @@ function AdminDashboard({user,onBack}){
           funnelShared:new Set(allEvents.filter(e=>e.event==='share_triggered'||e.event==='share_results').map(e=>e.user_id)).size,
         });
         setUsers(userDetails);
+        setAllEventsRaw(allEventsData);
         setEvents(allEvents.slice(0,50));
       }catch(e){console.error('Admin fetch error:',e);}
       setLoading(false);
     })();
   },[]);
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading admin...</p></div>;
+
+  // Filter events/stats based on admin toggle
+  const adminId=user?.id;
+  const displayEvents=excludeAdmin?events:allEventsRaw.slice(0,50);
+  const displayEventCounts=useMemo(()=>{
+    const src=excludeAdmin?allEventsRaw.filter(e=>e.user_id!==adminId):allEventsRaw;
+    const counts={};src.forEach(e=>{counts[e.event]=(counts[e.event]||0)+1;});
+    const unique={};src.forEach(e=>{if(!unique[e.event])unique[e.event]=new Set();unique[e.event].add(e.user_id);});
+    return{counts,unique};
+  },[excludeAdmin,allEventsRaw,adminId]);
 
   // Compute user status tags
   const tagUser=(u)=>{
@@ -1740,7 +1755,13 @@ function AdminDashboard({user,onBack}){
     <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
       <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#171717",borderBottom:"1px solid #333"}}>
         <span style={{fontFamily:mono,fontSize:11,color:"#faf9f6",letterSpacing:2}}>⚙️ ADMIN DASHBOARD</span>
-        <button onClick={onBack} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"1px solid #444",borderRadius:99,padding:"3px 12px",cursor:"pointer"}}>← back to app</button>
+        <div style={{display:"flex",alignItems:"center",gap:12}}>
+          <label style={{display:"flex",alignItems:"center",gap:6,cursor:"pointer"}}>
+            <input type="checkbox" checked={excludeAdmin} onChange={e=>setExcludeAdmin(e.target.checked)} style={{accentColor:"#22c55e"}}/>
+            <span style={{fontFamily:mono,fontSize:9,color:excludeAdmin?"#22c55e":"#737373"}}>exclude admin</span>
+          </label>
+          <button onClick={onBack} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"1px solid #444",borderRadius:99,padding:"3px 12px",cursor:"pointer"}}>← back to app</button>
+        </div>
       </div>
       <div style={{maxWidth:920,margin:"0 auto",padding:"52px 24px 60px"}}>
 
@@ -1792,8 +1813,8 @@ function AdminDashboard({user,onBack}){
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:24}}>
           <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>events</div>
           <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
-            {Object.entries(stats.eventCounts||{}).sort((a,b)=>b[1]-a[1]).map(([evt,count])=>{
-              const uu=stats.uniqueEventUsers?.[evt]?.size||0;
+            {Object.entries(displayEventCounts.counts||{}).sort((a,b)=>b[1]-a[1]).map(([evt,count])=>{
+              const uu=displayEventCounts.unique?.[evt]?.size||0;
               return<div key={evt} style={{padding:"6px 12px",background:"#f9f9f7",borderRadius:6,textAlign:"center",minWidth:80}}>
                 <div style={{fontFamily:mono,fontSize:16,fontWeight:900,color:"#171717"}}>{count}<span style={{fontSize:10,fontWeight:400,color:"#a3a3a3",marginLeft:3}}>{uu}u</span></div>
                 <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>{evt.replace(/_/g,' ')}</div>
@@ -1869,11 +1890,11 @@ function AdminDashboard({user,onBack}){
             <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717"}}>recent events</span>
           </div>
           <div style={{maxHeight:350,overflowY:"auto"}}>
-            {events.map((e,i)=>{
+            {displayEvents.map((e,i)=>{
               const evtColor=e.event==='signup'?"#22c55e":e.event.includes('mock_draft')?"#f59e0b":e.event==='ranking_completed'?"#3b82f6":e.event==='ranking_started'?"#8b5cf6":e.event==='share_results'?"#22c55e":"#a3a3a3";
               // Find email for this user
               const eu=users.find(u=>u.userId===e.user_id);
-              return<div key={e.id} style={{display:"grid",gridTemplateColumns:"110px 1fr 1fr 120px",gap:6,padding:"5px 16px",borderBottom:i<events.length-1?"1px solid #fafaf8":"none",fontSize:10,fontFamily:mono,alignItems:"center"}}>
+              return<div key={e.id} style={{display:"grid",gridTemplateColumns:"110px 1fr 1fr 120px",gap:6,padding:"5px 16px",borderBottom:i<displayEvents.length-1?"1px solid #fafaf8":"none",fontSize:10,fontFamily:mono,alignItems:"center"}}>
                 <span style={{color:evtColor,fontWeight:700}}>{e.event.replace(/_/g,' ')}</span>
                 <span style={{color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{eu?.email||e.session_id||e.user_id?.slice(0,12)+'…'}</span>
                 <span style={{color:"#a3a3a3",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{e.metadata&&Object.keys(e.metadata).length>0?JSON.stringify(e.metadata):""}</span>
