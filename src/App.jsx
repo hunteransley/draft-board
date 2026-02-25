@@ -834,10 +834,13 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
         {myGuys.length>0&&<div style={{textAlign:"center",marginTop:24}}>
           <button onClick={async()=>{
             const count=myGuys.length;
-            const maxSlots=count>5?10:5;
+            const rows=Math.ceil(count/2)||1;
             const scale=2;
-            const W=1080,rowH=120,headerH=80,footerH=48;
-            const H=headerH+rowH*maxSlots+footerH+20;
+            const W=1200,headerH=90,footerH=52,cardGap=14,padX=32,padTop=16;
+            const colW=(W-padX*2-cardGap)/2;
+            const cardH=260;
+            const gridH=rows*cardH+(rows-1)*cardGap;
+            const H=headerH+padTop+gridH+padTop+footerH;
             const canvas=document.createElement('canvas');canvas.width=W*scale;canvas.height=H*scale;
             const ctx=canvas.getContext('2d');ctx.scale(scale,scale);
             // Background
@@ -848,14 +851,14 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
             ctx.fillStyle=tGrad;ctx.fillRect(0,0,W,4);
             // Header
             ctx.textBaseline='top';ctx.textAlign='left';
-            ctx.fillStyle='#171717';ctx.font='bold 28px -apple-system,system-ui,sans-serif';
-            ctx.fillText('\ud83d\udc40 MY GUYS',32,20);
-            ctx.fillStyle='#a3a3a3';ctx.font='10px ui-monospace,monospace';
-            ctx.fillText('BIGBOARDLAB.COM  \u00b7  2026 NFL DRAFT',32,52);
+            ctx.fillStyle='#171717';ctx.font='bold 32px -apple-system,system-ui,sans-serif';
+            ctx.fillText('\ud83d\udc40 MY GUYS',padX,22);
+            ctx.fillStyle='#a3a3a3';ctx.font='11px ui-monospace,monospace';
+            ctx.fillText('BIGBOARDLAB.COM  \u00b7  2026 NFL DRAFT',padX,60);
             // Separator
-            const sGrad=ctx.createLinearGradient(32,0,W-32,0);
+            const sGrad=ctx.createLinearGradient(padX,0,W-padX,0);
             sGrad.addColorStop(0,'#ec4899');sGrad.addColorStop(1,'#7c3aed');
-            ctx.fillStyle=sGrad;ctx.fillRect(32,headerH-6,W-64,2);
+            ctx.fillStyle=sGrad;ctx.fillRect(padX,headerH-6,W-padX*2,2);
             // Load school logos
             const logoCache={};
             const prospectMap={};
@@ -867,66 +870,93 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
             }));
             // Rounded rect helper
             const rr=(x,y,w,h,r)=>{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();};
-            // Rows
-            for(let i=0;i<maxSlots;i++){
-              const y=headerH+i*rowH;
-              if(i<count){
-                const g=myGuys[i];
-                const p=prospectMap[g.name];
-                const c=POS_COLORS[g.pos]||'#525252';
-                // Alt row bg
-                if(i%2===0){ctx.fillStyle='rgba(0,0,0,0.015)';ctx.fillRect(24,y,W-48,rowH);}
-                // Left accent
-                ctx.fillStyle=c;ctx.fillRect(24,y+8,3,rowH-16);
-                // Rank
-                ctx.fillStyle='#d4d4d4';ctx.font='bold 18px ui-monospace,monospace';
-                ctx.textAlign='right';ctx.fillText(`${i+1}`.padStart(2,' '),64,y+48);ctx.textAlign='left';
-                // Pos pill
-                const posText=g.pos;
-                ctx.font='bold 11px ui-monospace,monospace';
-                const pw=ctx.measureText(posText).width+14;
-                ctx.fillStyle=c+'18';rr(78,y+42,pw,20,4);ctx.fill();
-                ctx.fillStyle=c;ctx.fillText(posText,85,y+47);
-                // School logo
-                const logoX=78+pw+14;
-                const school=p?.school;
-                if(school&&logoCache[school])ctx.drawImage(logoCache[school],logoX,y+28,40,40);
-                // Name + school
-                const nameX=logoX+50;
-                ctx.fillStyle='#171717';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
-                ctx.fillText(g.name,nameX,y+32);
-                ctx.fillStyle='#a3a3a3';ctx.font='12px -apple-system,system-ui,sans-serif';
-                ctx.fillText(school||'',nameX,y+54);
-                // Stats — right aligned
-                // Stats — right aligned, matching web UI
-                ctx.textAlign='right';
-                ctx.fillStyle='#a3a3a3';ctx.font='9px ui-monospace,monospace';
-                ctx.fillText('YOU PICK',W-280,y+30);
-                ctx.fillStyle='#171717';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
-                ctx.fillText(String(g.avgPick),W-280,y+44);
-                ctx.fillStyle='#a3a3a3';ctx.font='9px ui-monospace,monospace';
-                ctx.fillText('CONSENSUS',W-190,y+30);
-                ctx.fillStyle='#a3a3a3';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
-                ctx.fillText(g.consensusRank<999?String(g.consensusRank):'-',W-190,y+44);
-                ctx.fillStyle='#a3a3a3';ctx.font='9px ui-monospace,monospace';
-                ctx.fillText('REACH',W-105,y+30);
-                const d=g.delta;
-                ctx.fillStyle=d>0?'#16a34a':d<0?'#dc2626':'#a3a3a3';
-                ctx.font='bold 18px -apple-system,system-ui,sans-serif';
-                ctx.fillText((d>0?'+':'')+String(d),W-105,y+44);
-                ctx.fillStyle='#a3a3a3';ctx.font='9px ui-monospace,monospace';
-                ctx.fillText('DRAFTED',W-42,y+30);
-                ctx.fillStyle='#171717';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
-                ctx.fillText(g.timesDrafted+'x',W-42,y+44);
-                ctx.textAlign='left';
-              }else{
-                // Empty dashed slot
-                ctx.setLineDash([8,6]);ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;
-                rr(24,y+8,W-48,rowH-16,8);ctx.stroke();
-                ctx.setLineDash([]);
-                ctx.fillStyle='#d4d4d4';ctx.font='bold 18px ui-monospace,monospace';
-                ctx.textAlign='right';ctx.fillText(`${i+1}`.padStart(2,' '),64,y+48);ctx.textAlign='left';
+            // Draw radar helper
+            const drawCardRadar=(cx0,cy0,rad,traitNames,values,color)=>{
+              const n=traitNames.length;if(n<3)return;
+              const angles=traitNames.map((_,j)=>(Math.PI*2*j/n)-Math.PI/2);
+              const pt=(a,v)=>[cx0+rad*v*Math.cos(a),cy0+rad*v*Math.sin(a)];
+              // Grid rings
+              [0.25,0.5,0.75,1].forEach(lv=>{
+                ctx.beginPath();angles.forEach((a,j)=>{const[px,py]=pt(a,lv);j===0?ctx.moveTo(px,py):ctx.lineTo(px,py);});ctx.closePath();
+                ctx.strokeStyle='#e5e5e5';ctx.lineWidth=lv===1?0.8:0.4;ctx.stroke();
+              });
+              // Trait labels
+              ctx.fillStyle='#a3a3a3';ctx.font='7px ui-monospace,monospace';ctx.textAlign='center';ctx.textBaseline='middle';
+              angles.forEach((a,j)=>{const[lx,ly]=pt(a,1.22);ctx.fillText(traitNames[j].split(' ')[0],lx,ly);});
+              // Filled polygon
+              ctx.beginPath();angles.forEach((a,j)=>{const v=Math.max(0.05,values[j]||0);const[px,py]=pt(a,v);j===0?ctx.moveTo(px,py):ctx.lineTo(px,py);});ctx.closePath();
+              ctx.fillStyle=color+'20';ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=1.2;ctx.stroke();
+              // Dots
+              angles.forEach((a,j)=>{const v=Math.max(0.05,values[j]||0);const[px,py]=pt(a,v);ctx.beginPath();ctx.arc(px,py,2,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
+              ctx.textAlign='left';ctx.textBaseline='top';
+            };
+            // 2x5 card grid
+            const TRAIT_MAP=POSITION_TRAITS;
+            for(let i=0;i<count;i++){
+              const col=i%2,row=Math.floor(i/2);
+              const cx0=padX+col*(colW+cardGap);
+              const cy0=headerH+padTop+row*(cardH+cardGap);
+              const g=myGuys[i];
+              const p=prospectMap[g.name];
+              const c=POS_COLORS[g.pos]||'#525252';
+              // Card background
+              ctx.fillStyle='#ffffff';rr(cx0,cy0,colW,cardH,14);ctx.fill();
+              ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;rr(cx0,cy0,colW,cardH,14);ctx.stroke();
+              // Top row: rank + logo + name/school + pos pill
+              const tx=cx0+16,ty=cy0+16;
+              // Rank number
+              ctx.fillStyle='#d4d4d4';ctx.font='bold 22px -apple-system,system-ui,sans-serif';
+              ctx.textAlign='left';ctx.textBaseline='top';
+              ctx.fillText(String(i+1),tx,ty);
+              // School logo
+              const logoX=tx+30;
+              const school=p?.school;
+              if(school&&logoCache[school])ctx.drawImage(logoCache[school],logoX,ty-2,28,28);
+              // Name + school text
+              const nameX=logoX+34;
+              ctx.fillStyle='#171717';ctx.font='bold 16px -apple-system,system-ui,sans-serif';
+              const maxNameW=colW-16-30-34-60;
+              ctx.save();ctx.beginPath();ctx.rect(nameX,ty,maxNameW,30);ctx.clip();
+              ctx.fillText(g.name,nameX,ty);
+              ctx.restore();
+              ctx.fillStyle='#a3a3a3';ctx.font='10px ui-monospace,monospace';
+              ctx.fillText(school||'',nameX,ty+20);
+              // Pos pill (right side)
+              const posText=g.pos;
+              ctx.font='bold 10px ui-monospace,monospace';
+              const pw=ctx.measureText(posText).width+14;
+              const pillX=cx0+colW-16-pw;
+              ctx.fillStyle=c+'18';rr(pillX,ty+2,pw,20,4);ctx.fill();
+              ctx.fillStyle=c;ctx.fillText(posText,pillX+7,ty+7);
+              // Spider chart (centered in card)
+              const traitPos=g.pos==='DB'?(getProspectStats(g.name)?.gpos||'CB'):g.pos==='OL'?'OT':g.pos;
+              const traitKeys=TRAIT_MAP[traitPos]||TRAIT_MAP['QB'];
+              const traitVals=traitKeys.map(t=>tv(traits,p?.id,t,g.name,p?.school||'')/100);
+              const radarCx=cx0+colW/2;
+              const radarCy=cy0+52+70;
+              const radarR=58;
+              drawCardRadar(radarCx,radarCy,radarR,traitKeys,traitVals,c);
+              // Bottom row: grade + badge emojis
+              const by=cy0+cardH-40;
+              // Thin separator
+              ctx.fillStyle='#f5f5f5';ctx.fillRect(cx0+16,by-6,colW-32,1);
+              // Grade
+              const grade=p?getGrade(p.id):null;
+              if(grade){
+                ctx.font='bold 24px -apple-system,system-ui,sans-serif';
+                ctx.fillStyle=grade>=75?'#16a34a':grade>=55?'#ca8a04':'#dc2626';
+                ctx.textAlign='left';ctx.textBaseline='top';
+                ctx.fillText(String(grade),cx0+16,by);
               }
+              // Trait badge emojis
+              const badges=p?prospectBadges[p.id]||[]:[];
+              if(badges.length>0){
+                ctx.font='14px -apple-system,system-ui,sans-serif';
+                ctx.textAlign='right';ctx.textBaseline='top';
+                const badgeStr=badges.map(b=>b.emoji).join(' ');
+                ctx.fillText(badgeStr,cx0+colW-16,by+4);
+              }
+              ctx.textAlign='left';ctx.textBaseline='top';
             }
             // Load logo for footer
             let logoImg=null;
@@ -935,13 +965,13 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
             const fy=H-footerH;
             ctx.fillStyle='#111';ctx.fillRect(0,fy,W,footerH);
             const logoOffset=logoImg?36:0;
-            if(logoImg)ctx.drawImage(logoImg,24,fy+8,32,32);
-            ctx.fillStyle='#fff';ctx.font='bold 13px -apple-system,system-ui,sans-serif';
+            if(logoImg)ctx.drawImage(logoImg,padX,fy+10,32,32);
+            ctx.fillStyle='#fff';ctx.font='bold 14px -apple-system,system-ui,sans-serif';
             ctx.textBaseline='middle';
-            ctx.fillText('bigboardlab.com',24+logoOffset+8,fy+footerH/2);
+            ctx.fillText('bigboardlab.com',padX+logoOffset+8,fy+footerH/2);
             ctx.fillStyle='#888';ctx.font='11px -apple-system,system-ui,sans-serif';
             ctx.textAlign='right';
-            ctx.fillText(`${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}  \u00b7  BUILD YOURS \u2192 BIGBOARDLAB.COM`,W-32,fy+footerH/2);
+            ctx.fillText(`${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}  \u00b7  BUILD YOURS \u2192 BIGBOARDLAB.COM`,W-padX,fy+footerH/2);
             ctx.textAlign='left';ctx.textBaseline='top';
             // Gradient bottom bar
             const bGrad=ctx.createLinearGradient(0,0,W,0);bGrad.addColorStop(0,'#ec4899');bGrad.addColorStop(1,'#7c3aed');
