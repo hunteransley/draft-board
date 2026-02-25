@@ -1187,8 +1187,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
 
       {/* Board footer */}
       {boardTab==="my"&&userBoard.length>0&&(()=>{
-        const nextPos=POSITION_GROUPS.find(pos=>!rankedGroups.has(pos)&&!partialProgress[pos]);
-        const contPos=POSITION_GROUPS.find(pos=>!rankedGroups.has(pos)&&partialProgress[pos]);
+        const filterArr=boardFilter.size>0?POSITION_GROUPS.filter(pos=>boardFilter.has(pos)):POSITION_GROUPS;
+        const contPos=filterArr.find(pos=>!rankedGroups.has(pos)&&partialProgress[pos])||POSITION_GROUPS.find(pos=>!rankedGroups.has(pos)&&partialProgress[pos]);
+        const nextPos=filterArr.find(pos=>!rankedGroups.has(pos)&&!partialProgress[pos])||POSITION_GROUPS.find(pos=>!rankedGroups.has(pos)&&!partialProgress[pos]);
         return<div style={{padding:"10px 16px",borderTop:"1px solid #f0f0f0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
           <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{rankedGroups.size}/{POSITION_GROUPS.length} positions · {userBoard.length} prospects</span>
           <div style={{display:"flex",gap:8}}>
