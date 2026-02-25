@@ -1,5 +1,8 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import NFL_ROSTERS from "./nflRosters.js";
+import { getScoutingTraits } from "./scoutingData.js";
+import { getStatBasedTraits } from "./statTraits.js";
+import { getProspectStats } from "./prospectStats.js";
 // Canvas-based share image (no html2canvas dependency)
 
 // Suffix-aware short name: "Rueben Bain Jr." → "Bain Jr." not "Jr."
@@ -246,11 +249,16 @@ function pickVerdict(pickNum,consRank,grade){
   return{text:"BIG REACH",color:"#dc2626",bg:"#fef2f2"};
 }
 
-export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,onMockComplete,myGuys,myGuysUpdated,setMyGuysUpdated,mockCount,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED,rankedGroups,mockLaunchTeam,mockLaunchRounds,mockLaunchSpeed,mockLaunchCpuTrades,mockLaunchBoardMode,onRankPosition,isGuest,onRequireAuth,trackEvent,userId,isGuestUser}){
+export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,onMockComplete,myGuys,myGuysUpdated,setMyGuysUpdated,mockCount,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED,rankedGroups,mockLaunchTeam,mockLaunchRounds,mockLaunchSpeed,mockLaunchCpuTrades,mockLaunchBoardMode,onRankPosition,isGuest,onRequireAuth,trackEvent,userId,isGuestUser,traitThresholds,qualifiesForFilter,prospectBadges,TRAIT_ABBREV,TRAIT_EMOJI}){
+  const TRAIT_SHORT={"Contested Catches":"Contested","Man Coverage":"Man Cov","Contact Balance":"Contact Bal","Directional Control":"Directional","Decision Making":"Decision","Pocket Presence":"Pocket Pres","Pass Catching":"Pass Catch","Run Blocking":"Run Block","Pass Protection":"Pass Prot","Hand Usage":"Hand Use","Run Defense":"Run Def","Zone Coverage":"Zone Cov","Leg Strength":"Leg Str"};
+  // Trait value with scouting fallback (same chain as App.jsx tv())
+  const tvFn=useCallback((id,trait)=>{const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;return traits[id]?.[trait]??getScoutingTraits(p.name,p.school)?.[trait]??getStatBasedTraits(p.name,p.school)?.[trait]??50;},[traits,PROSPECTS]);
   const ALL_TEAMS=useMemo(()=>[...new Set(DRAFT_ORDER_2026.map(d=>d.team))],[]);
   const[boardMode,setBoardMode]=useState("consensus");
   const activeBoard=boardMode==="my"&&myBoard?myBoard:board;
-  const activeGrade=useCallback((id)=>{if(boardMode==="my")return getGrade(id);const p=PROSPECTS.find(x=>x.id===id);return p?getConsensusGrade(p.name):50;},[boardMode,getGrade,PROSPECTS,getConsensusGrade]);
+  const activeGrade=useCallback((id)=>getGrade(id),[getGrade]);
+  // Board rank lookup: position in the active board (1-indexed)
+  const boardRankMap=useMemo(()=>{const m={};activeBoard.forEach((p,i)=>{m[p.id]=i+1;});return m;},[activeBoard]);
   const[setupDone,setSetupDone]=useState(false);
   const[userTeams,setUserTeams]=useState(new Set());
   const[isMobile,setIsMobile]=useState(typeof window!=='undefined'&&window.innerWidth<768);
@@ -262,6 +270,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[available,setAvailable]=useState([]);
   const[paused,setPaused]=useState(false);
   const[filterPos,setFilterPos]=useState(new Set());
+  const[traitFilter,setTraitFilter]=useState(new Set());
+  useEffect(()=>{setTraitFilter(new Set());},[filterPos]);
   const[profilePlayer,setProfilePlayer]=useState(null);
   const[compareList,setCompareList]=useState([]);
   const[showCompare,setShowCompare]=useState(false);
@@ -966,9 +976,11 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   },[picks,userTeams,prospectsMap,TEAM_NEEDS_DETAILED]);
 
   const filteredAvailable=useMemo(()=>{
-    if(filterPos.size===0)return available;
-    return available.filter(id=>{const p=prospectsMap[id];return p&&[...filterPos].some(f=>posFilterMatch(p,f));});
-  },[available,filterPos,prospectsMap]);
+    let result=available;
+    if(filterPos.size>0)result=result.filter(id=>{const p=prospectsMap[id];return p&&[...filterPos].some(f=>posFilterMatch(p,f));});
+    if(traitFilter.size>0&&filterPos.size===1&&qualifiesForFilter){const rawPos=[...filterPos][0];const pos=rawPos==="IDL"?"DL":rawPos;result=result.filter(id=>[...traitFilter].some(t=>qualifiesForFilter(id,pos,t)));}
+    return result;
+  },[available,filterPos,prospectsMap,traitFilter,qualifiesForFilter]);
 
   // Grade wrapper — calls pure function with current hook values
   const gradeTeamPicks=useCallback((teamPicks,team)=>{
@@ -1333,32 +1345,33 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     const posTraits=POSITION_TRAITS[pos]||POSITION_TRAITS[player.pos]||[];
     if(posTraits.length===0)return;
     const r=size/2-32;const n=posTraits.length;
+    const K=1.8;const curve=(v)=>Math.pow(v/100,K)*100;const FLOOR=curve(40);
     const angles=posTraits.map((_,i)=>(Math.PI*2*i)/n-Math.PI/2);
-    const vals=posTraits.map(t=>traits[player.id]?.[t]||50);
+    const vals=posTraits.map(t=>tvFn(player.id,t));
 
-    // Grid rings
-    [0.25,0.5,0.75,1].forEach(lv=>{
+    // Grid rings — non-linear spacing matching power curve
+    [50,60,70,80,90,100].forEach(lv=>{
+      const frac=Math.max(0,(curve(lv)-FLOOR)/(100-FLOOR));
       ctx.beginPath();
-      angles.forEach((a,i)=>{const px=cx+r*lv*Math.cos(a);const py=cy+r*lv*Math.sin(a);i===0?ctx.moveTo(px,py):ctx.lineTo(px,py);});
-      ctx.closePath();ctx.strokeStyle='#e5e5e5';ctx.lineWidth=0.75;ctx.stroke();
+      angles.forEach((a,i)=>{const px=cx+r*frac*Math.cos(a);const py=cy+r*frac*Math.sin(a);i===0?ctx.moveTo(px,py):ctx.lineTo(px,py);});
+      ctx.closePath();ctx.strokeStyle=lv===70?'#d4d4d4':'#e5e5e5';ctx.lineWidth=lv===70?0.8:0.5;ctx.stroke();
     });
     // Axes
     angles.forEach(a=>{
       ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+r*Math.cos(a),cy+r*Math.sin(a));
-      ctx.strokeStyle='#e5e5e5';ctx.lineWidth=0.75;ctx.stroke();
+      ctx.strokeStyle='#e5e5e5';ctx.lineWidth=0.5;ctx.stroke();
     });
-    // Fill polygon
+    // Fill polygon — power curve applied to values
     ctx.beginPath();
-    angles.forEach((a,i)=>{const v=(vals[i]||50)/100;const px=cx+r*v*Math.cos(a);const py=cy+r*v*Math.sin(a);i===0?ctx.moveTo(px,py):ctx.lineTo(px,py);});
+    angles.forEach((a,i)=>{const v=Math.max(0,(curve(vals[i]||50)-FLOOR)/(100-FLOOR));const px=cx+r*v*Math.cos(a);const py=cy+r*v*Math.sin(a);i===0?ctx.moveTo(px,py):ctx.lineTo(px,py);});
     ctx.closePath();ctx.fillStyle=color+'28';ctx.fill();
     ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();
     // Dots
-    angles.forEach((a,i)=>{const v=(vals[i]||50)/100;ctx.beginPath();ctx.arc(cx+r*v*Math.cos(a),cy+r*v*Math.sin(a),3.5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
+    angles.forEach((a,i)=>{const v=Math.max(0,(curve(vals[i]||50)-FLOOR)/(100-FLOOR));ctx.beginPath();ctx.arc(cx+r*v*Math.cos(a),cy+r*v*Math.sin(a),3.5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
     // Labels — FULL trait names
     ctx.fillStyle='#737373';ctx.font='bold 9px -apple-system,system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
     posTraits.forEach((t,i)=>{
       const lr=r+24;const lx=cx+lr*Math.cos(angles[i]);const ly=cy+lr*Math.sin(angles[i]);
-      // Adjust alignment based on position around the circle
       const a=angles[i];
       if(Math.abs(Math.cos(a))>0.3){ctx.textAlign=Math.cos(a)>0?'left':'right';}else{ctx.textAlign='center';}
       ctx.fillText(t,lx,ly);
@@ -1722,6 +1735,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     const base=TEAM_NEEDS_DETAILED?.[currentTeam]||{};const filled=Object.entries(base).filter(([k])=>!needs[k]||needs[k]===0);
     return(
       <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font,display:"flex",flexDirection:"column"}}>
+        <style>{`.trait-pills-scroll::-webkit-scrollbar{display:none;}`}</style>
         {/* Sticky top: round/pick + actions */}
         <div style={{position:"sticky",top:0,zIndex:100,background:"#fff",borderBottom:"1px solid #e5e5e5"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 12px"}}>
@@ -1745,6 +1759,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             <button onClick={()=>setFilterPos(new Set())} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.size===0?"#171717":"transparent",color:filterPos.size===0?"#faf9f6":"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",flexShrink:0}}>all</button>
             {positions.map(pos=><button key={pos} onClick={()=>setFilterPos(prev=>{const n=new Set(prev);if(n.has(pos))n.delete(pos);else n.add(pos);return n;})} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.has(pos)?granularPosColor(pos):"transparent",color:filterPos.has(pos)?"#fff":granularPosColor(pos),border:"1px solid "+(filterPos.has(pos)?granularPosColor(pos):"#e5e5e5"),borderRadius:99,cursor:"pointer",flexShrink:0}}>{pos}</button>)}
           </div>
+          {filterPos.size===1&&(()=>{const rawPos=[...filterPos][0];const pos=rawPos==="IDL"?"DL":rawPos;const posTraits=(POSITION_TRAITS||{})[pos]||[];if(!posTraits.length)return null;const c=(POS_COLORS||{})[pos]||(POS_COLORS||{})[rawPos]||"#525252";return<div className="trait-pills-scroll" style={{display:"flex",gap:4,padding:"0 12px 6px",overflowX:"auto",WebkitOverflowScrolling:"touch",flexWrap:"nowrap",scrollbarWidth:"none"}}>{posTraits.map(trait=>{const active=traitFilter.has(trait);const count=available.filter(id=>qualifiesForFilter&&qualifiesForFilter(id,pos,trait)).length;return<button key={trait} onClick={()=>setTraitFilter(prev=>{const n=new Set(prev);n.has(trait)?n.delete(trait):n.add(trait);return n;})} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",background:active?c+"18":"transparent",color:active?"#171717":"#525252",border:"1px solid "+(active?c+"44":c+"25"),borderRadius:99,cursor:"pointer",flexShrink:0,display:"flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{(TRAIT_EMOJI||{})[trait]}</span><span>{TRAIT_SHORT[trait]||trait}</span><span style={{fontSize:8,opacity:0.7}}>({count})</span></button>;})}</div>;})()}
         </div>
 
         {/* Verdict toast */}
@@ -1782,13 +1797,15 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             <div style={{padding:"6px 10px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5",display:"flex",justifyContent:"space-between"}}>
               <span style={{fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>available ({filteredAvailable.length})</span>
             </div>
-            {filteredAvailable.slice(0,60).map(id=>{const p=prospectsMap[id];if(!p)return null;const g=activeGrade(id);const c=POS_COLORS[p.pos];const rank=getConsensusRank?getConsensusRank(p.name):null;const tags=playerTags[id]||[];
+            {filteredAvailable.length===0&&traitFilter.size>0&&<div style={{padding:"16px",textAlign:"center",fontFamily:sans,fontSize:12,color:"#a3a3a3",fontStyle:"italic"}}>no available prospects meet this threshold</div>}
+            {filteredAvailable.slice(0,60).map(id=>{const p=prospectsMap[id];if(!p)return null;const g=activeGrade(id);const c=POS_COLORS[p.pos];const rank=boardRankMap[id];const tags=playerTags[id]||[];
               return<div key={id} style={{display:"flex",alignItems:"center",gap:5,padding:"8px 10px",borderBottom:"1px solid #f8f8f8",background:tags.length>0&&isUserPick?"rgba(240,249,255,0.5)":"transparent"}}>
-                {rank&&rank<500?<span style={{fontFamily:mono,fontSize:8,color:"#d4d4d4",width:20,textAlign:"right"}}>#{rank}</span>:<span style={{fontFamily:mono,fontSize:8,color:"#e5e5e5",width:20,textAlign:"right"}}>—</span>}
+                {rank?<span style={{fontFamily:mono,fontSize:8,color:"#d4d4d4",width:20,textAlign:"right"}}>#{rank}</span>:<span style={{fontFamily:mono,fontSize:8,color:"#e5e5e5",width:20,textAlign:"right"}}>—</span>}
                 <span style={{fontFamily:mono,fontSize:9,color:c,width:32}}>{p.gpos||p.pos}</span>
                 <SchoolLogo school={p.school} size={18}/>
                 <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}} onClick={()=>setProfilePlayer(p)}>{p.name}</span>
                 {isUserPick&&tags.map(t=><span key={t.tag} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:t.color,background:t.bg,padding:"2px 5px",borderRadius:3,flexShrink:0,letterSpacing:0.5}}>{t.tag}</span>)}
+                {(prospectBadges&&prospectBadges[id]||[]).map(b=><span key={b.trait} title={b.trait+" "+b.score} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:c,background:c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{b.emoji}</span>)}
                 <span style={{fontFamily:font,fontSize:13,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626",width:24,textAlign:"right"}}>{g}</span>
                 {isUserPick&&<button onClick={()=>makePick(id)} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"4px 10px",background:"#22c55e",color:"#fff",border:"none",borderRadius:6,cursor:"pointer",flexShrink:0}}>draft</button>}
               </div>;
@@ -1916,6 +1933,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   // === DESKTOP DRAFT SCREEN ===
   return(
     <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
+      <style>{`.trait-pills-scroll::-webkit-scrollbar{display:none;}`}</style>
       {/* Top bar */}
       <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}>
         <div style={{display:"flex",alignItems:"center",gap:12}}>
@@ -2045,6 +2063,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             <button onClick={()=>setFilterPos(new Set())} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.size===0?"#171717":"transparent",color:filterPos.size===0?"#faf9f6":"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>all</button>
             {positions.map(pos=><button key={pos} onClick={()=>setFilterPos(prev=>{const n=new Set(prev);if(n.has(pos))n.delete(pos);else n.add(pos);return n;})} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.has(pos)?granularPosColor(pos):"transparent",color:filterPos.has(pos)?"#fff":granularPosColor(pos),border:"1px solid "+(filterPos.has(pos)?granularPosColor(pos):"#e5e5e5"),borderRadius:99,cursor:"pointer"}}>{pos}</button>)}
           </div>
+          {filterPos.size===1&&(()=>{const rawPos=[...filterPos][0];const pos=rawPos==="IDL"?"DL":rawPos;const posTraits=(POSITION_TRAITS||{})[pos]||[];if(!posTraits.length)return null;const c=(POS_COLORS||{})[pos]||(POS_COLORS||{})[rawPos]||"#525252";return<div className="trait-pills-scroll" style={{display:"flex",gap:4,marginBottom:6,overflowX:"auto",WebkitOverflowScrolling:"touch",flexWrap:"nowrap",scrollbarWidth:"none"}}>{posTraits.map(trait=>{const active=traitFilter.has(trait);const count=available.filter(id=>qualifiesForFilter&&qualifiesForFilter(id,pos,trait)).length;return<button key={trait} onClick={()=>setTraitFilter(prev=>{const n=new Set(prev);n.has(trait)?n.delete(trait):n.add(trait);return n;})} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",background:active?c+"18":"transparent",color:active?"#171717":"#525252",border:"1px solid "+(active?c+"44":c+"25"),borderRadius:99,cursor:"pointer",flexShrink:0,display:"flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{(TRAIT_EMOJI||{})[trait]}</span><span>{TRAIT_SHORT[trait]||trait}</span><span style={{fontSize:8,opacity:0.7}}>({count})</span></button>;})}</div>;})()}
 
           {/* Compare bar */}
           {compareList.length>0&&<div style={{background:"#fff",border:"1px solid #3b82f6",borderRadius:8,padding:"6px 10px",marginBottom:6,display:"flex",alignItems:"center",gap:6,flexWrap:"wrap"}}>
@@ -2064,13 +2083,15 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
               </div>
               <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>click name = profile</span>
             </div>
-            {filteredAvailable.slice(0,60).map(id=>{const p=prospectsMap[id];if(!p)return null;const g=activeGrade(id);const c=POS_COLORS[p.pos];const inC=compareList.some(x=>x.id===p.id);const rank=getConsensusRank?getConsensusRank(p.name):null;const tags=playerTags[id]||[];
+            {filteredAvailable.length===0&&traitFilter.size>0&&<div style={{padding:"16px",textAlign:"center",fontFamily:sans,fontSize:12,color:"#a3a3a3",fontStyle:"italic"}}>no available prospects meet this threshold</div>}
+            {filteredAvailable.slice(0,60).map(id=>{const p=prospectsMap[id];if(!p)return null;const g=activeGrade(id);const c=POS_COLORS[p.pos];const inC=compareList.some(x=>x.id===p.id);const rank=boardRankMap[id];const tags=playerTags[id]||[];
               return<div key={id} style={{display:"flex",alignItems:"center",gap:6,padding:"6px 12px",borderBottom:"1px solid #f8f8f8",background:tags.length>0&&isUserPick?"rgba(240,249,255,0.4)":"transparent"}}>
-                {rank&&rank<500?<span style={{fontFamily:mono,fontSize:8,color:"#d4d4d4",width:22,textAlign:"right"}}>#{rank}</span>:<span style={{fontFamily:mono,fontSize:8,color:"#e5e5e5",width:22,textAlign:"right"}}>—</span>}
+                {rank?<span style={{fontFamily:mono,fontSize:8,color:"#d4d4d4",width:22,textAlign:"right"}}>#{rank}</span>:<span style={{fontFamily:mono,fontSize:8,color:"#e5e5e5",width:22,textAlign:"right"}}>—</span>}
                 <span style={{fontFamily:mono,fontSize:9,color:c,width:24}}>{p.gpos||p.pos}</span>
                 <SchoolLogo school={p.school} size={16}/>
                 <span style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#171717",flex:1,cursor:"pointer"}} onClick={()=>setProfilePlayer(p)} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span>
                 {isUserPick&&tags.map(t=><span key={t.tag} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:t.color,background:t.bg,padding:"2px 5px",borderRadius:3,flexShrink:0,letterSpacing:0.5}}>{t.tag}</span>)}
+                {(prospectBadges&&prospectBadges[id]||[]).map(b=><span key={b.trait} title={b.trait+" "+b.score} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:c,background:c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{b.emoji}</span>)}
                 <span style={{fontFamily:font,fontSize:12,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626",width:24,textAlign:"right"}}>{g}</span>
                 <button onClick={()=>toggleCompare(p)} style={{fontFamily:mono,fontSize:7,padding:"2px 5px",background:inC?"#3b82f6":"transparent",color:inC?"#fff":"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:4,cursor:"pointer"}}>{inC?"✓":"+"}</button>
                 {isUserPick&&<button onClick={()=>makePick(id)} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"3px 10px",background:"#22c55e",color:"#fff",border:"none",borderRadius:6,cursor:"pointer"}}>draft</button>}
@@ -2091,11 +2112,11 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             <button onClick={()=>setShowCompare(false)} style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 12px",cursor:"pointer"}}>close</button>
           </div>
           <div style={{display:"grid",gridTemplateColumns:isMobile?"1fr":"repeat("+compareList.length+", 1fr)",gap:16}}>
-            {compareList.map(p=>{const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos];const pt=POSITION_TRAITS[p.gpos||p.pos]||POSITION_TRAITS[p.pos]||[];const g=activeGrade(p.id);const rank=getConsensusRank?getConsensusRank(p.name):null;
+            {compareList.map(p=>{const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos];const pt=POSITION_TRAITS[p.gpos||p.pos]||POSITION_TRAITS[p.pos]||[];const g=activeGrade(p.id);const rank=getConsensusRank?getConsensusRank(p.name):null;const ps=getProspectStats(p.name,p.school);const posRank=ps?.posRank;
               // Precompute per-trait max/min for color coding
               const traitMaxMin={};
               pt.forEach(t=>{
-                const vals=compareList.map(cp=>traits[cp.id]?.[t]||50);
+                const vals=compareList.map(cp=>tvFn(cp.id,t));
                 traitMaxMin[t]={max:Math.max(...vals),min:Math.min(...vals)};
               });
               return<div key={p.id} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:16,textAlign:"center"}}>
@@ -2103,12 +2124,12 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
                 <div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717",marginTop:8}}>{p.name}</div>
                 <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{p.school}</div>
                 <span style={{fontFamily:mono,fontSize:10,color:c,background:c+"11",padding:"2px 8px",borderRadius:4,border:"1px solid "+c+"22",display:"inline-block",margin:"6px 0"}}>{p.gpos||p.pos}</span>
-                {rank&&rank<400&&<div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>consensus #{rank}</div>}
+                {rank&&rank<400&&<div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>consensus #{rank}{posRank&&<span> · {p.gpos||p.pos} #{posRank}</span>}</div>}
                 <div style={{fontFamily:font,fontSize:32,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626",lineHeight:1,margin:"8px 0"}}>{g}</div>
-                <RadarChart traits={pt} values={pt.map(t=>traits[p.id]?.[t]||50)} color={c} size={140}/>
+                <RadarChart traits={pt} values={pt.map(t=>tvFn(p.id,t))} color={c} size={140}/>
                 <div style={{textAlign:"left",marginTop:8,background:"#fafaf9",borderRadius:8,padding:"8px 10px"}}>
                   {pt.map(t=>{
-                    const val=traits[p.id]?.[t]||50;
+                    const val=tvFn(p.id,t);
                     const{max,min}=traitMaxMin[t]||{max:val,min:val};
                     const isBest=compareList.length>1&&val===max&&max!==min;
                     const isWorst=compareList.length>1&&val===min&&max!==min;
