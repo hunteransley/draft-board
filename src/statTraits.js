@@ -164,7 +164,7 @@ export function getStatBasedTraits(name, school) {
     if (p.tkl) {
       traits = {};
       traits["Tackling"] = lerp(p.tkl, [[30,38],[50,52],[70,68],[90,82],[110,93]]);
-      traits["Blitz Ability"] = lerp(p.sck + p.tfl, [[2,38],[5,52],[9,68],[14,82],[20,95]]);
+      traits["Pass Rush"] = lerp(p.sck + p.tfl, [[2,38],[5,52],[9,68],[14,82],[20,95]]);
       traits["Coverage"] = lerp(p.pd, [[0,42],[2,55],[4,68],[7,80],[10,92]]);
     }
   }

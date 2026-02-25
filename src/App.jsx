@@ -4,6 +4,7 @@ import MockDraftSim from "./MockDraftSim.jsx";
 import { CONSENSUS_BOARD, getConsensusRank, getConsensusGrade, TEAM_NEEDS_DETAILED } from "./consensusData.js";
 import { getProspectStats } from "./prospectStats.js";
 import { getStatBasedTraits } from "./statTraits.js";
+import { getScoutingTraits } from "./scoutingData.js";
 
 // Suffix-aware short name: "Rueben Bain Jr." → "Bain Jr." not "Jr."
 const GEN_SUFFIXES=/^(Jr\.?|Sr\.?|II|III|IV|V|VI|VII|VIII)$/i;
@@ -35,10 +36,10 @@ const PROSPECTS_RAW = [
 const PROSPECTS = PROSPECTS_RAW.map((p,i)=>({...p,id:`p${i}`,gpos:(getProspectStats(p.name,p.school)?.gpos)||p.pos}));
 const SCHOOL_ESPN_ID={"Alabama":333,"Arizona State":9,"Arizona":12,"Arkansas":8,"Auburn":2,"BYU":252,"Baylor":239,"Boise State":68,"Boston College":103,"Buffalo":2084,"Cal":25,"California":25,"Central Michigan":2117,"Cincinnati":2132,"Clemson":228,"Dartmouth":159,"Duke":150,"Florida International":2229,"Florida State":52,"Florida":57,"Georgia State":2247,"Georgia Tech":59,"Georgia":61,"Houston":248,"Illinois":356,"Incarnate Word":2916,"Indiana":84,"Iowa State":66,"Iowa":2294,"James Madison":256,"Kansas State":2306,"Kansas":2305,"Kentucky":96,"LSU":99,"Louisiana Tech":2348,"Louisiana-Lafayette":309,"Louisville":97,"Maryland":120,"Memphis":235,"Miami":2390,"Miami (FL)":2390,"Miami (OH)":193,"Michigan State":127,"Michigan":130,"Minnesota":135,"Mississippi State":344,"Mississippi":145,"Missouri":142,"Montana":149,"N.C. State":152,"NC State":152,"Navy":2426,"Nebraska":158,"New Mexico":167,"North Carolina":153,"North Dakota State":2449,"Northwestern":77,"Notre Dame":87,"Ohio State":194,"Oklahoma":201,"Oregon":2483,"Oregon State":204,"Penn State":213,"Pittsburgh":221,"Rutgers":164,"SMU":2567,"San Diego State":21,"Slippery Rock":2596,"South Alabama":6,"South Carolina":2579,"South Carolina State":2569,"Southeastern Louisiana":2545,"Southern Miss":2572,"Stanford":24,"Stephen F. Austin":2617,"Syracuse":183,"TCU":2628,"Tennessee":2633,"Texas A&M":245,"Texas State":326,"Texas Tech":2641,"Texas":251,"Toledo":2649,"UCF":2116,"UCLA":26,"UConn":41,"USC":30,"UTSA":2636,"Utah":254,"Vanderbilt":238,"Virginia":258,"Virginia Tech":259,"Virginia Union":2762,"Wake Forest":154,"Washington":264,"Western Michigan":2711,"Wisconsin":275,"Wyoming":2751};
 function schoolLogo(s){const id=SCHOOL_ESPN_ID[s];return id?`https://a.espncdn.com/i/teamlogos/ncaa/500/${id}.png`:null;}
-const POSITION_TRAITS={QB:["Arm Strength","Accuracy","Pocket Presence","Mobility","Decision Making","Leadership"],RB:["Vision","Burst","Power","Elusiveness","Pass Catching","Pass Protection"],WR:["Route Running","Separation","Hands","YAC Ability","Speed","Contested Catches"],TE:["Receiving","Route Running","Blocking","Athleticism","Hands","Versatility"],OT:["Pass Protection","Run Blocking","Footwork","Anchor","Athleticism","Versatility"],IOL:["Pass Protection","Run Blocking","Pulling","Strength","Awareness","Versatility"],EDGE:["Pass Rush","Bend","First Step","Hand Usage","Motor","Run Defense"],DL:["Pass Rush","Run Defense","First Step","Hand Usage","Motor","Versatility"],LB:["Tackling","Coverage","Blitz Ability","Instincts","Athleticism","Range"],CB:["Coverage","Ball Skills","Tackling","Speed","Press","Football IQ"],S:["Coverage","Range","Ball Skills","Tackling","Versatility","Football IQ"],"K/P":["Leg Strength","Accuracy","Consistency","Clutch","Directional Control","Hang Time"]};
-const TRAIT_EMOJI={"Arm Strength":"💪","Accuracy":"🎯","Pocket Presence":"🧊","Mobility":"🏃","Decision Making":"🧠","Leadership":"👑","Vision":"👁️","Burst":"⚡","Power":"🦬","Elusiveness":"💨","Pass Catching":"🧤","Pass Protection":"🛡️","Route Running":"✂️","Separation":"🌀","Hands":"🤲","YAC Ability":"🔥","Speed":"🏎️","Contested Catches":"🏀","Receiving":"📡","Blocking":"🧱","Athleticism":"🦅","Versatility":"🔄","Run Blocking":"⛏️","Footwork":"👟","Anchor":"⚓","Pulling":"🚂","Strength":"🏋️","Awareness":"📡","Pass Rush":"🌪️","Bend":"🐍","First Step":"⚡","Hand Usage":"🤚","Motor":"🔋","Run Defense":"🧱","Tackling":"💥","Coverage":"🪂","Blitz Ability":"🚀","Instincts":"🧠","Range":"📡","Ball Skills":"🧲","Press":"✋","Football IQ":"📋","Leg Strength":"🦵","Consistency":"📏","Clutch":"❄️","Directional Control":"🧭","Hang Time":"⏱️"};
-const TRAIT_WEIGHTS={QB:{"Accuracy":.25,"Decision Making":.22,"Pocket Presence":.18,"Arm Strength":.15,"Leadership":.12,"Mobility":.08},RB:{"Vision":.22,"Elusiveness":.20,"Burst":.18,"Power":.15,"Pass Catching":.13,"Pass Protection":.12},WR:{"Route Running":.22,"Separation":.20,"Hands":.18,"Speed":.16,"YAC Ability":.13,"Contested Catches":.11},TE:{"Receiving":.20,"Blocking":.20,"Route Running":.18,"Hands":.16,"Athleticism":.14,"Versatility":.12},OT:{"Pass Protection":.25,"Footwork":.20,"Anchor":.18,"Run Blocking":.15,"Athleticism":.12,"Versatility":.10},IOL:{"Run Blocking":.22,"Pass Protection":.22,"Strength":.18,"Pulling":.14,"Awareness":.13,"Versatility":.11},EDGE:{"Pass Rush":.24,"First Step":.20,"Bend":.18,"Hand Usage":.15,"Motor":.13,"Run Defense":.10},DL:{"Run Defense":.22,"Pass Rush":.20,"First Step":.18,"Hand Usage":.16,"Motor":.14,"Versatility":.10},LB:{"Instincts":.22,"Tackling":.20,"Coverage":.18,"Athleticism":.15,"Blitz Ability":.13,"Range":.12},CB:{"Coverage":.24,"Ball Skills":.20,"Speed":.18,"Press":.15,"Football IQ":.13,"Tackling":.10},S:{"Coverage":.22,"Range":.20,"Ball Skills":.18,"Tackling":.16,"Football IQ":.14,"Versatility":.10},"K/P":{"Accuracy":.25,"Leg Strength":.22,"Consistency":.20,"Clutch":.13,"Directional Control":.12,"Hang Time":.08}};
-const TRAIT_TEACHABILITY={"Arm Strength":.1,"Accuracy":.7,"Pocket Presence":.6,"Mobility":.1,"Decision Making":.65,"Leadership":.5,"Vision":.4,"Burst":.1,"Power":.2,"Elusiveness":.15,"Pass Catching":.6,"Pass Protection":.7,"Route Running":.75,"Separation":.5,"Hands":.5,"YAC Ability":.3,"Speed":.05,"Contested Catches":.4,"Receiving":.6,"Blocking":.7,"Athleticism":.05,"Versatility":.3,"Run Blocking":.7,"Footwork":.65,"Anchor":.3,"Pulling":.6,"Strength":.2,"Awareness":.6,"Pass Rush":.4,"Bend":.15,"First Step":.1,"Hand Usage":.65,"Motor":.2,"Run Defense":.6,"Tackling":.6,"Coverage":.5,"Blitz Ability":.4,"Instincts":.35,"Range":.1,"Ball Skills":.3,"Press":.55,"Football IQ":.6,"Leg Strength":.1,"Consistency":.5,"Clutch":.3,"Directional Control":.6,"Hang Time":.2};
+const POSITION_TRAITS={QB:["Arm Strength","Accuracy","Pocket Presence","Mobility","Decision Making","Leadership"],RB:["Vision","Contact Balance","Power","Elusiveness","Pass Catching","Speed"],WR:["Route Running","Separation","Hands","YAC Ability","Speed","Contested Catches"],TE:["Receiving","Route Running","Blocking","Athleticism","Hands","Speed"],OT:["Pass Protection","Run Blocking","Footwork","Anchor","Athleticism","Strength"],IOL:["Pass Protection","Run Blocking","Pulling","Strength","Anchor","Versatility"],EDGE:["Pass Rush","Bend","First Step","Power","Motor","Run Defense"],DL:["Pass Rush","Run Defense","First Step","Hand Usage","Motor","Strength"],LB:["Tackling","Coverage","Pass Rush","Instincts","Athleticism","Range"],CB:["Man Coverage","Ball Skills","Zone Coverage","Speed","Press","Nickel"],S:["Man Coverage","Range","Ball Skills","Tackling","Speed","Nickel"],"K/P":["Leg Strength","Accuracy","Consistency","Clutch","Directional Control","Hang Time"]};
+const TRAIT_EMOJI={"Arm Strength":"💪","Accuracy":"🎯","Pocket Presence":"🧊","Mobility":"🏃","Decision Making":"🧠","Leadership":"👑","Vision":"👁️","Contact Balance":"⚖️","Power":"🦬","Elusiveness":"💨","Pass Catching":"🧤","Route Running":"✂️","Separation":"🌀","Hands":"🤲","YAC Ability":"🔥","Speed":"🏎️","Contested Catches":"🏀","Receiving":"📡","Blocking":"🧱","Athleticism":"🦅","Versatility":"🔄","Run Blocking":"⛏️","Footwork":"👟","Anchor":"⚓","Pulling":"🚂","Strength":"🏋️","Pass Rush":"🌪️","Bend":"🐍","First Step":"⚡","Hand Usage":"🤚","Motor":"🔋","Run Defense":"🧱","Tackling":"💥","Coverage":"🪂","Man Coverage":"🔒","Zone Coverage":"🪂","Nickel":"🪙","Instincts":"🧠","Range":"📡","Ball Skills":"🧲","Press":"✋","Leg Strength":"🦵","Consistency":"📏","Clutch":"❄️","Directional Control":"🧭","Hang Time":"⏱️","Pass Protection":"🛡️"};
+const TRAIT_WEIGHTS={QB:{"Accuracy":.25,"Decision Making":.22,"Pocket Presence":.18,"Arm Strength":.15,"Leadership":.12,"Mobility":.08},RB:{"Vision":.22,"Elusiveness":.20,"Contact Balance":.18,"Power":.15,"Pass Catching":.13,"Speed":.12},WR:{"Route Running":.22,"Separation":.20,"Hands":.18,"Speed":.16,"YAC Ability":.13,"Contested Catches":.11},TE:{"Receiving":.20,"Blocking":.20,"Route Running":.18,"Hands":.16,"Athleticism":.14,"Speed":.12},OT:{"Pass Protection":.25,"Footwork":.20,"Anchor":.18,"Run Blocking":.15,"Athleticism":.12,"Strength":.10},IOL:{"Run Blocking":.22,"Pass Protection":.22,"Strength":.18,"Pulling":.14,"Anchor":.13,"Versatility":.11},EDGE:{"Pass Rush":.24,"First Step":.20,"Bend":.18,"Power":.15,"Motor":.13,"Run Defense":.10},DL:{"Run Defense":.22,"Pass Rush":.20,"First Step":.18,"Hand Usage":.16,"Motor":.14,"Strength":.10},LB:{"Instincts":.22,"Tackling":.20,"Coverage":.18,"Athleticism":.15,"Pass Rush":.13,"Range":.12},CB:{"Man Coverage":.24,"Ball Skills":.20,"Speed":.18,"Press":.15,"Zone Coverage":.13,"Nickel":.10},S:{"Man Coverage":.22,"Range":.20,"Ball Skills":.18,"Tackling":.16,"Speed":.14,"Nickel":.10},"K/P":{"Accuracy":.25,"Leg Strength":.22,"Consistency":.20,"Clutch":.13,"Directional Control":.12,"Hang Time":.08}};
+const TRAIT_TEACHABILITY={"Arm Strength":.1,"Accuracy":.7,"Pocket Presence":.6,"Mobility":.1,"Decision Making":.65,"Leadership":.5,"Vision":.4,"Contact Balance":.2,"Power":.2,"Elusiveness":.15,"Pass Catching":.6,"Pass Protection":.7,"Route Running":.75,"Separation":.5,"Hands":.5,"YAC Ability":.3,"Speed":.05,"Contested Catches":.4,"Receiving":.6,"Blocking":.7,"Athleticism":.05,"Versatility":.3,"Run Blocking":.7,"Footwork":.65,"Anchor":.3,"Pulling":.6,"Strength":.2,"Pass Rush":.4,"Bend":.15,"First Step":.1,"Hand Usage":.65,"Motor":.2,"Run Defense":.6,"Tackling":.6,"Coverage":.5,"Man Coverage":.5,"Zone Coverage":.5,"Nickel":.45,"Instincts":.35,"Range":.1,"Ball Skills":.3,"Press":.55,"Leg Strength":.1,"Consistency":.5,"Clutch":.3,"Directional Control":.6,"Hang Time":.2};
 const POSITION_GROUPS=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S","K/P"];
 const POS_EMOJI={QB:"🎯",RB:"🏃",WR:"🧤",TE:"🦾",OT:"🛡️",IOL:"🧱",EDGE:"🌪️",DL:"🦬",LB:"💥",CB:"🏝️",S:"🦅","K/P":"🦵"};
 const POS_COLORS={QB:"#1e3a5f",RB:"#5b21b6",WR:"#0d9488",TE:"#0891b2",OT:"#b45309",IOL:"#d97706",OL:"#b45309",EDGE:"#15803d",DL:"#166534",LB:"#4338ca",CB:"#0f766e",S:"#047857",DB:"#0f766e","K/P":"#78716c"};
@@ -114,6 +115,9 @@ const font=`'Literata',Georgia,serif`;const mono=`'DM Mono','Courier New',monosp
 
 // ============================================================
 // Components
+// Trait value lookup: user traits → scouting → stat-derived → 50
+function tv(userTraits,id,trait,name,school){return userTraits[id]?.[trait]??getScoutingTraits(name,school)?.[trait]??getStatBasedTraits(name,school)?.[trait]??50;}
+
 // ============================================================
 function SchoolLogo({school,size=32}){const[err,setErr]=useState(false);const url=schoolLogo(school);if(!url||err)return<div style={{width:size,height:size,borderRadius:"50%",background:"#f0f0f0",display:"flex",alignItems:"center",justifyContent:"center",fontSize:size*0.4,fontWeight:700,color:"#a3a3a3",flexShrink:0,fontFamily:"system-ui"}}>{school.charAt(0)}</div>;return<img src={url} alt={school} width={size} height={size} onError={()=>setErr(true)} style={{objectFit:"contain",flexShrink:0}}/>;}
 
@@ -121,10 +125,10 @@ function RadarChart({traits,values,color,size=180}){const cx=size/2,cy=size/2,r=
 
 function getSimilarPlayers(player,allProspects,traits,count=5){
   const pos=player.gpos||player.pos;const posTraits=POSITION_TRAITS[pos]||POSITION_TRAITS[player.pos]||[];
-  const myVals=posTraits.map(t=>traits[player.id]?.[t]??getStatBasedTraits(player.name,player.school)?.[t]??50);
+  const myVals=posTraits.map(t=>tv(traits,player.id,t,player.name,player.school));
   const others=allProspects.filter(p=>(p.gpos||p.pos)===(player.gpos||player.pos)&&p.id!==player.id);
   const scored=others.map(p=>{
-    const vals=posTraits.map(t=>traits[p.id]?.[t]??getStatBasedTraits(p.name,p.school)?.[t]??50);
+    const vals=posTraits.map(t=>tv(traits,p.id,t,p.name,p.school));
     const dist=Math.sqrt(posTraits.reduce((sum,_,i)=>sum+Math.pow(myVals[i]-vals[i],2),0));
     return{player:p,distance:dist};
   });
@@ -180,7 +184,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
         </div>}
 
         <div style={{padding:"24px",display:"flex",justifyContent:"center"}}>
-          <RadarChart traits={posTraits} values={posTraits.map(t=>traits[player.id]?.[t]??getStatBasedTraits(player.name,player.school)?.[t]??50)} color={c} size={200}/>
+          <RadarChart traits={posTraits} values={posTraits.map(t=>tv(traits,player.id,t,player.name,player.school))} color={c} size={200}/>
         </div>
 
         <div style={{padding:"0 24px 16px"}}>
@@ -207,7 +211,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
             </div>
           );})()}
           <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>traits</div>
-          {posTraits.map(trait=>{const val=traits[player.id]?.[trait]??getStatBasedTraits(player.name,player.school)?.[trait]??50;const emoji=TRAIT_EMOJI[trait]||"";const t=val/100;const r=Math.round(236+(124-236)*t);const g=Math.round(72+(58-72)*t);const b=Math.round(153+(237-153)*t);const barColor=`rgb(${r},${g},${b})`;return(
+          {posTraits.map(trait=>{const val=tv(traits,player.id,trait,player.name,player.school);const emoji=TRAIT_EMOJI[trait]||"";const t=val/100;const r=Math.round(236+(124-236)*t);const g=Math.round(72+(58-72)*t);const b=Math.round(153+(237-153)*t);const barColor=`rgb(${r},${g},${b})`;return(
             <div key={trait} style={{marginBottom:16}}>
               <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}>
                 <span style={{fontFamily:mono,fontSize:11,color:"#737373"}}>{trait}</span>
@@ -640,10 +644,21 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
     }
     setRatings(newRatings);
   },[getRanked,ratings]);
-  const getGrade=useCallback((id)=>{const t=traits[id];if(!t||Object.keys(t).length===0){
-    const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;
-    return getConsensusGrade(p.name);
-  }const p=PROSPECTS.find(x=>x.id===id);const pos=p?(p.gpos||p.pos):"QB";const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let totalW=0,totalV=0;posTraits.forEach(trait=>{const w=weights[trait]||1/posTraits.length;const v=t[trait]||50;totalW+=w;totalV+=v*w;});const base=totalW>0?totalV/totalW:50;const ceil=t.__ceiling;if(!ceil||ceil==="normal")return Math.round(base);let rawW=0,rawV=0;posTraits.forEach(trait=>{const teach=TRAIT_TEACHABILITY[trait]??0.5;if(teach<0.4){const w=weights[trait]||1/posTraits.length;rawW+=w;rawV+=(t[trait]||50)*w;}});const rawScore=rawW>0?rawV/rawW:base;const gap=rawScore-base;if(ceil==="high")return Math.max(1,Math.min(99,Math.round(base+Math.max(gap*0.5,0)+4)));if(ceil==="elite")return Math.max(1,Math.min(99,Math.round(base+Math.max(gap*0.7,0)+7)));if(ceil==="capped")return Math.max(1,Math.min(99,Math.round(base-Math.max(-gap*0.3,0)-3)));return Math.round(base);},[traits]);
+  // Grade computation: user traits → scouting traits → fallback 50
+  const gradeFromTraits=useCallback((traitObj,pos)=>{
+    const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];
+    let totalW=0,totalV=0;posTraits.forEach(trait=>{const w=weights[trait]||1/posTraits.length;const v=traitObj[trait]||50;totalW+=w;totalV+=v*w;});
+    return totalW>0?totalV/totalW:50;
+  },[]);
+  const getGrade=useCallback((id)=>{const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;
+    const pos=p.gpos||p.pos;const t=traits[id];
+    // If user has set traits, use those (existing behavior with ceiling support)
+    if(t&&Object.keys(t).length>0){const base=gradeFromTraits(t,pos);const ceil=t.__ceiling;if(!ceil||ceil==="normal")return Math.round(base);const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let rawW=0,rawV=0;posTraits.forEach(trait=>{const teach=TRAIT_TEACHABILITY[trait]??0.5;if(teach<0.4){const w=weights[trait]||1/posTraits.length;rawW+=w;rawV+=(t[trait]||50)*w;}});const rawScore=rawW>0?rawV/rawW:base;const gap=rawScore-base;if(ceil==="high")return Math.max(1,Math.min(99,Math.round(base+Math.max(gap*0.5,0)+4)));if(ceil==="elite")return Math.max(1,Math.min(99,Math.round(base+Math.max(gap*0.7,0)+7)));if(ceil==="capped")return Math.max(1,Math.min(99,Math.round(base-Math.max(-gap*0.3,0)-3)));return Math.round(base);}
+    // No user traits — use scouting data
+    const sc=getScoutingTraits(p.name,p.school);
+    if(sc)return Math.round(gradeFromTraits(sc,pos));
+    return 50;
+  },[traits,gradeFromTraits]);
   const getBoard=useCallback(()=>PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;return rankedGroups.has(group)||traits[p.id]&&Object.keys(traits[p.id]).length>1;}).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings,traits]);
 
   // Build mock draft board: consensus order for all 319, user rankings override when graded
@@ -743,7 +758,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
             const prospect=PROSPECTS.find(p=>p.name===g.name);
             const traitPos=g.pos==="DB"?(getProspectStats(g.name)?.gpos||"CB"):g.pos==="OL"?"OT":g.pos;
             const traitKeys=TRAIT_MAP[traitPos]||TRAIT_MAP["QB"];
-            const traitVals=traitKeys.map(t=>(traits[prospect?.id]?.[t]??getStatBasedTraits(g.name,g.school)?.[t]??50)/100);
+            const traitVals=traitKeys.map(t=>tv(traits,prospect?.id,t,g.name,g.school)/100);
             // Spider chart SVG
             const cx=60,cy=60,r=45,n=traitKeys.length;
             const points=(vals)=>vals.map((v,j)=>{const a=(Math.PI*2*j/n)-Math.PI/2;return[cx+r*v*Math.cos(a),cy+r*v*Math.sin(a)];});
@@ -946,7 +961,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
     const dismissOnboarding=()=>{setShowOnboarding(false);try{localStorage.setItem('bbl_onboarded','1');}catch(e){}};
 
     // Consensus big board — all prospects sorted by consensus rank
-    const consensusBoard=PROSPECTS.filter(p=>{const cr=getConsensusRank(p.name);return cr&&cr<999;}).sort((a,b)=>getConsensusRank(a.name)-getConsensusRank(b.name));
+    const consensusBoard=[...PROSPECTS].sort((a,b)=>{const ga=getGrade(a.id),gb=getGrade(b.id);if(gb!==ga)return gb-ga;return getConsensusRank(a.name)-getConsensusRank(b.name);});
     // User big board
     const userBoard=getBoard();
 
@@ -1096,7 +1111,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
         /* Board list */
         <div style={{maxHeight:480,overflowY:"auto"}}>
           {filteredBoard.slice(0,100).map((p,i)=>{
-            const grade=boardTab==="my"?getGrade(p.id):getConsensusGrade(p.name);
+            const grade=getGrade(p.id);
             const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos]||"#525252";
             const rank=boardTab==="consensus"?getConsensusRank(p.name):i+1;
             return<div key={p.id} style={{display:"flex",alignItems:"center",padding:"8px 16px",borderBottom:"1px solid #f8f8f6",cursor:"pointer"}} onClick={()=>setProfilePlayer(p)} onMouseEnter={e=>e.currentTarget.style.background="#faf9f6"} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
@@ -1194,7 +1209,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
 })()}<div style={{display:"flex",gap:12,marginBottom:24,alignItems:"stretch",position:"relative"}}><div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",zIndex:2,fontFamily:font,fontSize:16,fontWeight:900,color:"#d4d4d4",background:"#faf9f6",padding:"4px 10px",borderRadius:99,border:"1px solid #e5e5e5"}}>vs</div>{[{p:pA,id:aId},{p:pB,id:bId}].map(({p,id})=>{const ps=getProspectStats(p.name,p.school);return<button key={id} onClick={()=>{if(showConfidence)return;if(isGuest){onRequireAuth("sign in to vote and build your big board");return;}setPendingWinner(id);setShowConfidence(true);}} style={{flex:1,padding:"24px 16px 20px",background:pendingWinner===id?`${c}08`:"#fff",border:pendingWinner===id?`2px solid ${c}`:"1px solid #e5e5e5",borderRadius:16,cursor:showConfidence?"default":"pointer",textAlign:"center",transition:"all 0.15s",display:"flex",flexDirection:"column",alignItems:"center",gap:4}} onMouseEnter={e=>{if(!showConfidence)e.currentTarget.style.borderColor=c;}} onMouseLeave={e=>{if(!showConfidence&&pendingWinner!==id)e.currentTarget.style.borderColor="#e5e5e5";}}><SchoolLogo school={p.school} size={44}/><div style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",lineHeight:1.1,marginTop:2}}>{p.name}</div><div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{p.school}</div><div style={{display:"flex",gap:6,alignItems:"center",marginTop:2}}><span style={{fontFamily:mono,fontSize:10,fontWeight:500,color:c,background:`${c}0d`,padding:"3px 10px",borderRadius:4,border:`1px solid ${c}1a`}}>{p.gpos||p.pos}</span>{ps&&<span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{ps.rank?"#"+ps.rank+" ovr":"NR"}{ps.posRank?" · "+(p.gpos||p.pos)+ps.posRank:""}</span>}</div>{ps&&(ps.height||ps.weight)&&<div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginTop:2}}>{[ps.height,ps.weight?ps.weight+"lbs":"",ps.cls?("yr "+ps.cls):""].filter(Boolean).join(" · ")}</div>}{ps&&ps.statLine&&<div style={{fontFamily:mono,fontSize:10,color:"#525252",marginTop:4,lineHeight:1.3,background:"#f9f9f6",padding:"4px 8px",borderRadius:6,border:"1px solid #f0f0f0",maxWidth:"100%"}}>{ps.statLine}{ps.statExtra&&<><br/><span style={{color:"#a3a3a3"}}>{ps.statExtra}</span></>}</div>}{(compCount[id]||0)>=2&&<div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",marginTop:4}}>{Math.round(((winCount[id]||0)/(compCount[id]))*100)}% pick rate</div>}</button>})}</div>{showConfidence&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:24,textAlign:"center"}}><p style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",margin:"0 0 4px"}}>how confident?</p><p style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",margin:"0 0 16px"}}>higher = bigger rating swing</p><div style={{display:"flex",gap:8,justifyContent:"center",flexWrap:"wrap"}}>{[["coin flip",.2],["leaning",.5],["confident",.75],["lock",1]].map(([label,val])=><button key={label} onClick={()=>handlePick(pendingWinner,val)} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:val>=.75?"#171717":"transparent",color:val>=.75?"#faf9f6":"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}} onMouseEnter={e=>{e.currentTarget.style.background="#171717";e.currentTarget.style.color="#faf9f6";}} onMouseLeave={e=>{if(val<.75){e.currentTarget.style.background="transparent";e.currentTarget.style.color="#525252";}}}>{label}</button>)}</div><button onClick={()=>{setShowConfidence(false);setPendingWinner(null);}} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",marginTop:10}}>← pick again</button></div>}<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:16}}>{lockedPlayer&&(()=>{const lp=prospectsMap[lockedPlayer];const remLocked=(matchups[activePos]||[]).filter(m=>!((completed[activePos]||new Set()).has(`${m[0]}-${m[1]}`))&&(m[0]===lockedPlayer||m[1]===lockedPlayer));return<div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"8px 12px",marginBottom:12,background:"linear-gradient(135deg,#fef3c7,#fef9c3)",border:"1px solid #fbbf24",borderRadius:8}}><div style={{display:"flex",alignItems:"center",gap:8}}><span style={{fontSize:14}}>🎯</span><span style={{fontFamily:sans,fontSize:12,fontWeight:700,color:"#92400e"}}>{lp?.name} focus mode</span><span style={{fontFamily:mono,fontSize:10,color:"#b45309"}}>{remLocked.length} left</span></div><button onClick={()=>{setLockedPlayer(null);const ns=completed[activePos]||new Set();const next=getNextMatchup(matchups[activePos],ns,ratings,compCount,posRankFn,null);if(next)setCurrentMatchup(next);}} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"4px 10px",background:"#fff",color:"#92400e",border:"1px solid #fbbf24",borderRadius:99,cursor:"pointer"}}>unlock</button></div>;})()}<p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 10px"}}>live rankings</p><div style={{maxHeight:400,overflowY:"auto"}}>{ranked.map((p,i)=>{const isLocked=lockedPlayer===p.id;return<div key={p.id} className="rank-row" style={{display:"flex",alignItems:"center",gap:10,padding:"5px 0",borderBottom:i<ranked.length-1?"1px solid #f5f5f5":"none",background:isLocked?"#fef9c3":"transparent",borderRadius:isLocked?4:0,margin:isLocked?"0 -4px":"0",padding:isLocked?"5px 4px":"5px 0"}}><span style={{fontFamily:mono,fontSize:11,color:"#d4d4d4",width:20,textAlign:"right"}}>{i+1}</span><SchoolLogo school={p.school} size={20}/><span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",flex:1,cursor:"pointer",textDecoration:"none"}} onClick={e=>{e.stopPropagation();setProfilePlayer(p);}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{Math.round(ratings[p.id]||1500)}</span><button onClick={e=>{e.stopPropagation();if(isLocked){setLockedPlayer(null);const ns=completed[activePos]||new Set();const next=getNextMatchup(matchups[activePos],ns,ratings,compCount,posRankFn,null);if(next)setCurrentMatchup(next);}else{setLockedPlayer(p.id);const ns=completed[activePos]||new Set();const next=getNextMatchup(matchups[activePos],ns,ratings,compCount,posRankFn,p.id);if(next)setCurrentMatchup(next);else setLockedPlayer(null);}}} title={isLocked?"Unlock":"Focus matchups on this player"} style={{fontSize:12,background:"none",border:"none",cursor:"pointer",padding:"2px 4px",opacity:isLocked?1:0,transition:"opacity 0.15s",flexShrink:0}} className="lock-btn">{isLocked?"🎯":"📌"}</button></div>;})}</div><style>{`.rank-row:hover .lock-btn{opacity:1!important;}@media(max-width:768px){.lock-btn{display:none!important;}}`}</style></div><button onClick={()=>{setLockedPlayer(null);const done=completed[activePos]||new Set();if(done.size>0){setPartialProgress(prev=>({...prev,[activePos]:{matchups:matchups[activePos]||[],completed:done,ratings}}));}setPhase("pick-position");}} style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"8px 20px",cursor:"pointer"}}>← save & exit</button></div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={()=>setProfilePlayer(null)} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth}/>}</div>);}
 
   // === TRAITS ===
-  if(phase==="traits"&&activePos){const ranked=getRanked(activePos);const posTraits=POSITION_TRAITS[activePos]||[];const c=POS_COLORS[activePos];const cur=selectedPlayer||ranked[0];const curIdx=ranked.findIndex(p=>p.id===cur?.id);return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:900,margin:"0 auto",padding:"52px 24px 40px"}}><h1 style={{fontSize:28,fontWeight:900,color:c,margin:"0 0 4px"}}>{activePos} rankings</h1><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 24px"}}>drag to reorder · click name for full profile</p><div style={{display:"flex",gap:16,flexWrap:"wrap"}}><DraggableRankList ranked={ranked} activePos={activePos} cur={cur} c={c} getGrade={getGrade} setSelectedPlayer={setSelectedPlayer} movePlayer={movePlayer} setProfilePlayer={setProfilePlayer} font={font} mono={mono} sans={sans} isGuest={isGuest} onRequireAuth={onRequireAuth}/>{cur&&<div style={{flex:"1 1 300px",minWidth:260,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:24}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:20,paddingBottom:16,borderBottom:"1px solid #f5f5f5"}}><div style={{display:"flex",alignItems:"center",gap:14}}><SchoolLogo school={cur.school} size={44}/><div><div style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717",cursor:"pointer"}} onClick={()=>setProfilePlayer(cur)} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{cur.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3"}}>{cur.school}</div></div></div><div style={{textAlign:"right"}}><div style={{fontFamily:font,fontSize:36,fontWeight:900,color:getGrade(cur.id)>=75?"#16a34a":getGrade(cur.id)>=55?"#ca8a04":"#dc2626",lineHeight:1}}>{getGrade(cur.id)}</div><div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>grade</div></div></div><div style={{display:"flex",justifyContent:"center",marginBottom:16}}><RadarChart traits={posTraits} values={posTraits.map(t=>traits[cur.id]?.[t]??getStatBasedTraits(cur.name,cur.school)?.[t]??50)} color={c} size={220}/></div>{(()=>{const ceil=traits[cur.id]?.__ceiling||"normal";const m={capped:{icon:"🔒",label:"Capped",color:"#737373",bg:"#f5f5f5"},normal:{icon:"📊",label:"Normal",color:"#64748b",bg:"#f0f4ff"},high:{icon:"🔥",label:"High Ceiling",color:"#b45309",bg:"#fef3c7"},elite:{icon:"⭐",label:"Elite Ceiling",color:"#7c3aed",bg:"#f3e8ff"}};const s=m[ceil]||m.normal;return ceil!=="normal"?<div style={{marginBottom:12,paddingBottom:12,borderBottom:"1px solid #f0f0f0"}}><div style={{display:"inline-flex",alignItems:"center",gap:6,padding:"4px 12px",background:s.bg,borderRadius:99}}><span style={{fontSize:13}}>{s.icon}</span><span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:s.color}}>{s.label}</span></div></div>:null;})()}<div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"8px 16px"}}>{posTraits.map(trait=>{const val=traits[cur.id]?.[trait]??getStatBasedTraits(cur.name,cur.school)?.[trait]??50;return<div key={trait} style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}><span style={{fontFamily:mono,fontSize:11,color:"#737373"}}>{TRAIT_EMOJI[trait]||""} {trait}</span><span style={{fontFamily:font,fontSize:14,fontWeight:900,color:`rgb(${Math.round(236+(124-236)*(val/100))},${Math.round(72+(58-72)*(val/100))},${Math.round(153+(237-153)*(val/100))})`}}>{val}</span></div>;})}</div>{notes[cur.id]&&<div style={{marginTop:16,padding:"10px 12px",background:"#faf9f6",borderRadius:8,border:"1px solid #f0f0f0"}}><div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",letterSpacing:1,textTransform:"uppercase",marginBottom:4}}>notes</div><div style={{fontFamily:sans,fontSize:12,color:"#525252",lineHeight:1.5}}>{notes[cur.id]}</div></div>}<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:20,paddingTop:16,borderTop:"1px solid #f5f5f5"}}><button onClick={()=>curIdx>0&&setSelectedPlayer(ranked[curIdx-1])} disabled={curIdx<=0} style={{fontFamily:sans,fontSize:12,padding:"7px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:curIdx>0?"pointer":"default",color:curIdx>0?"#525252":"#d4d4d4"}}>← prev</button><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{curIdx+1} / {ranked.length}</span><button onClick={()=>curIdx<ranked.length-1&&setSelectedPlayer(ranked[curIdx+1])} disabled={curIdx>=ranked.length-1} style={{fontFamily:sans,fontSize:12,padding:"7px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:curIdx<ranked.length-1?"pointer":"default",color:curIdx<ranked.length-1?"#525252":"#d4d4d4"}}>next →</button></div></div>}</div><div style={{display:"flex",gap:10,marginTop:20,justifyContent:"center",flexWrap:"wrap"}}>
+  if(phase==="traits"&&activePos){const ranked=getRanked(activePos);const posTraits=POSITION_TRAITS[activePos]||[];const c=POS_COLORS[activePos];const cur=selectedPlayer||ranked[0];const curIdx=ranked.findIndex(p=>p.id===cur?.id);return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:900,margin:"0 auto",padding:"52px 24px 40px"}}><h1 style={{fontSize:28,fontWeight:900,color:c,margin:"0 0 4px"}}>{activePos} rankings</h1><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 24px"}}>drag to reorder · click name for full profile</p><div style={{display:"flex",gap:16,flexWrap:"wrap"}}><DraggableRankList ranked={ranked} activePos={activePos} cur={cur} c={c} getGrade={getGrade} setSelectedPlayer={setSelectedPlayer} movePlayer={movePlayer} setProfilePlayer={setProfilePlayer} font={font} mono={mono} sans={sans} isGuest={isGuest} onRequireAuth={onRequireAuth}/>{cur&&<div style={{flex:"1 1 300px",minWidth:260,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:24}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:20,paddingBottom:16,borderBottom:"1px solid #f5f5f5"}}><div style={{display:"flex",alignItems:"center",gap:14}}><SchoolLogo school={cur.school} size={44}/><div><div style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717",cursor:"pointer"}} onClick={()=>setProfilePlayer(cur)} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{cur.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3"}}>{cur.school}</div></div></div><div style={{textAlign:"right"}}><div style={{fontFamily:font,fontSize:36,fontWeight:900,color:getGrade(cur.id)>=75?"#16a34a":getGrade(cur.id)>=55?"#ca8a04":"#dc2626",lineHeight:1}}>{getGrade(cur.id)}</div><div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>grade</div></div></div><div style={{display:"flex",justifyContent:"center",marginBottom:16}}><RadarChart traits={posTraits} values={posTraits.map(t=>tv(traits,cur.id,t,cur.name,cur.school))} color={c} size={220}/></div>{(()=>{const ceil=traits[cur.id]?.__ceiling||"normal";const m={capped:{icon:"🔒",label:"Capped",color:"#737373",bg:"#f5f5f5"},normal:{icon:"📊",label:"Normal",color:"#64748b",bg:"#f0f4ff"},high:{icon:"🔥",label:"High Ceiling",color:"#b45309",bg:"#fef3c7"},elite:{icon:"⭐",label:"Elite Ceiling",color:"#7c3aed",bg:"#f3e8ff"}};const s=m[ceil]||m.normal;return ceil!=="normal"?<div style={{marginBottom:12,paddingBottom:12,borderBottom:"1px solid #f0f0f0"}}><div style={{display:"inline-flex",alignItems:"center",gap:6,padding:"4px 12px",background:s.bg,borderRadius:99}}><span style={{fontSize:13}}>{s.icon}</span><span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:s.color}}>{s.label}</span></div></div>:null;})()}<div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"8px 16px"}}>{posTraits.map(trait=>{const val=tv(traits,cur.id,trait,cur.name,cur.school);return<div key={trait} style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}><span style={{fontFamily:mono,fontSize:11,color:"#737373"}}>{TRAIT_EMOJI[trait]||""} {trait}</span><span style={{fontFamily:font,fontSize:14,fontWeight:900,color:`rgb(${Math.round(236+(124-236)*(val/100))},${Math.round(72+(58-72)*(val/100))},${Math.round(153+(237-153)*(val/100))})`}}>{val}</span></div>;})}</div>{notes[cur.id]&&<div style={{marginTop:16,padding:"10px 12px",background:"#faf9f6",borderRadius:8,border:"1px solid #f0f0f0"}}><div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",letterSpacing:1,textTransform:"uppercase",marginBottom:4}}>notes</div><div style={{fontFamily:sans,fontSize:12,color:"#525252",lineHeight:1.5}}>{notes[cur.id]}</div></div>}<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:20,paddingTop:16,borderTop:"1px solid #f5f5f5"}}><button onClick={()=>curIdx>0&&setSelectedPlayer(ranked[curIdx-1])} disabled={curIdx<=0} style={{fontFamily:sans,fontSize:12,padding:"7px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:curIdx>0?"pointer":"default",color:curIdx>0?"#525252":"#d4d4d4"}}>← prev</button><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{curIdx+1} / {ranked.length}</span><button onClick={()=>curIdx<ranked.length-1&&setSelectedPlayer(ranked[curIdx+1])} disabled={curIdx>=ranked.length-1} style={{fontFamily:sans,fontSize:12,padding:"7px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:curIdx<ranked.length-1?"pointer":"default",color:curIdx<ranked.length-1?"#525252":"#d4d4d4"}}>next →</button></div></div>}</div><div style={{display:"flex",gap:10,marginTop:20,justifyContent:"center",flexWrap:"wrap"}}>
   <button onClick={()=>setPhase("pick-position")} style={{fontFamily:sans,fontSize:12,padding:"8px 20px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>← back</button>
   <button onClick={()=>finishTraits(activePos)} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 28px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>save rankings →</button>
   <button onClick={()=>{if(window.confirm(`Reset ${activePos} rankings? This will clear all pair comparisons and traits for this position.`)){
@@ -1343,7 +1358,7 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
       const posKey=(p.gpos||p.pos)==='K'||(p.gpos||p.pos)==='P'||(p.gpos||p.pos)==='LS'?'K/P':(p.gpos||p.pos);
       const c=POS_COLORS[posKey]||POS_COLORS[p.pos]||'#525252';
       const posTraits=POSITION_TRAITS[p.pos]||POSITION_TRAITS[posKey]||[];
-      const traitVals=posTraits.map(t=>traits[p.id]?.[t]??getStatBasedTraits(p.name,p.school)?.[t]??50);
+      const traitVals=posTraits.map(t=>tv(traits,p.id,t,p.name,p.school));
 
       // Alt row bg
       if(i%2===0){ctx.fillStyle='rgba(0,0,0,0.015)';ctx.fillRect(24,y,W-48,rowH);}
@@ -1503,14 +1518,14 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
       {samePos&&<>
         <div style={{display:"flex",justifyContent:"center",gap:8,marginTop:16,flexWrap:"wrap"}}>
           {compPlayers.map((p,ci)=>{const posTraits=POSITION_TRAITS[p.pos]||[];return<div key={p.id} style={{position:"relative"}}>
-            <RadarChart traits={posTraits} values={posTraits.map(t=>traits[p.id]?.[t]??getStatBasedTraits(p.name,p.school)?.[t]??50)} color={compColors[ci]} size={160}/>
+            <RadarChart traits={posTraits} values={posTraits.map(t=>tv(traits,p.id,t,p.name,p.school))} color={compColors[ci]} size={160}/>
             <div style={{position:"absolute",bottom:0,left:"50%",transform:"translateX(-50%)",fontFamily:mono,fontSize:9,color:compColors[ci],whiteSpace:"nowrap"}}>{shortName(p.name)}</div>
           </div>;})}
         </div>
         <div style={{marginTop:12}}>
           {(POSITION_TRAITS[compPlayers[0].pos]||[]).map(trait=><div key={trait} style={{display:"grid",gridTemplateColumns:`100px repeat(${compPlayers.length},1fr)`,gap:8,padding:"4px 0",borderBottom:"1px solid #f8f8f8",alignItems:"center"}}>
             <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{trait}</span>
-            {compPlayers.map((p,ci)=>{const val=traits[p.id]?.[trait]??getStatBasedTraits(p.name,p.school)?.[trait]??50;const best=Math.max(...compPlayers.map(cp=>traits[cp.id]?.[trait]??getStatBasedTraits(cp.name,cp.school)?.[trait]??50));const worst=Math.min(...compPlayers.map(cp=>traits[cp.id]?.[trait]??getStatBasedTraits(cp.name,cp.school)?.[trait]??50));return<div key={p.id} style={{textAlign:"center"}}>
+            {compPlayers.map((p,ci)=>{const val=tv(traits,p.id,trait,p.name,p.school);const best=Math.max(...compPlayers.map(cp=>tv(traits,cp.id,trait,cp.name,cp.school)));const worst=Math.min(...compPlayers.map(cp=>tv(traits,cp.id,trait,cp.name,cp.school)));return<div key={p.id} style={{textAlign:"center"}}>
               <span style={{fontFamily:font,fontSize:13,fontWeight:700,color:compPlayers.length>1&&val===best&&best!==worst?compColors[ci]:compPlayers.length>1&&val===worst&&best!==worst?"#d4d4d4":"#525252"}}>{val}</span>
             </div>;})}
           </div>)}
@@ -1810,17 +1825,247 @@ function AdminDashboard({user,onBack}){
 }
 
 // ============================================================
+// OG Preview: renders a 1200x630 composite for Open Graph image capture
+// ============================================================
+function OGRadar({traits,values,color,size=200}){
+  // Like RadarChart but with full trait labels
+  const cx=size/2,cy=size/2,r=size/2-32,n=traits.length;
+  const angles=traits.map((_,i)=>(Math.PI*2*i)/n-Math.PI/2);
+  const pv=angles.map((a,i)=>{const v=(values[i]||50)/100;return[cx+r*v*Math.cos(a),cy+r*v*Math.sin(a)];});
+  return(<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+    {[.25,.5,.75,1].map(lv=><polygon key={lv} points={angles.map(a=>`${cx+r*lv*Math.cos(a)},${cy+r*lv*Math.sin(a)}`).join(" ")} fill="none" stroke="#e5e5e5" strokeWidth="0.5"/>)}
+    {angles.map((a,i)=><line key={i} x1={cx} y1={cy} x2={cx+r*Math.cos(a)} y2={cy+r*Math.sin(a)} stroke="#e5e5e5" strokeWidth="0.5"/>)}
+    <polygon points={pv.map(p=>p.join(",")).join(" ")} fill={`${color}18`} stroke={color} strokeWidth="2"/>
+    {pv.map((p,i)=><circle key={i} cx={p[0]} cy={p[1]} r="3" fill={color}/>)}
+    {traits.map((t,i)=>{const lr=r+22;const x=cx+lr*Math.cos(angles[i]);const y=cy+lr*Math.sin(angles[i]);
+      return<text key={t} x={x} y={y} textAnchor="middle" dominantBaseline="middle" style={{fontSize:"7.5px",fill:"#737373",fontFamily:"'DM Sans',sans-serif",fontWeight:500}}>{t}</text>;
+    })}
+  </svg>);
+}
+function OGPreview(){
+  const NFL_IDS={Raiders:13,Jets:20,Cardinals:22,Titans:10,Giants:19,Browns:5,Commanders:28,Saints:18,Chiefs:12,Bengals:4,Dolphins:15,Cowboys:6,Rams:14,Ravens:33,Buccaneers:27,Lions:8,Vikings:16,Panthers:29,Steelers:23,Chargers:24,Eagles:21,Bears:3,Bills:2,"49ers":25,Texans:34,Broncos:7,Patriots:17,Seahawks:26,Falcons:1,Colts:11,Jaguars:30,Packers:9};
+  const nflLogo=(team)=>`https://a.espncdn.com/i/teamlogos/nfl/500/${NFL_IDS[team]}.png`;
+  const ref=useRef(null);
+  const download=async()=>{
+    const html2canvas=(await import("html2canvas")).default;
+    const canvas=await html2canvas(ref.current,{width:1200,height:630,scale:2,backgroundColor:"#faf9f6",useCORS:true});
+    const a=document.createElement("a");a.href=canvas.toDataURL("image/png");a.download="og-image.png";a.click();
+  };
+
+  const mendozaColor=POS_COLORS.QB;
+  const bainColor=POS_COLORS.EDGE;
+  const baileyColor=POS_COLORS.DL;
+
+  const mockPicks=[
+    {pick:1,team:"Raiders",name:"Fernando Mendoza",pos:"QB",color:POS_COLORS.QB,user:true},
+    {pick:2,team:"Jets",name:"Rueben Bain Jr.",pos:"EDGE",color:POS_COLORS.EDGE},
+    {pick:3,team:"Cardinals",name:"Arvell Reese",pos:"LB",color:POS_COLORS.LB},
+    {pick:4,team:"Titans",name:"David Bailey",pos:"EDGE",color:POS_COLORS.EDGE},
+    {pick:5,team:"Giants",name:"Francis Mauigoa",pos:"OT",color:POS_COLORS.OT},
+    {pick:6,team:"Browns",name:"Spencer Fano",pos:"OT",color:POS_COLORS.OT},
+    {pick:7,team:"Commanders",name:"Carnell Tate",pos:"WR",color:POS_COLORS.WR},
+    {pick:8,team:"Saints",name:"Caleb Downs",pos:"S",color:POS_COLORS.S},
+    {pick:9,team:"Chiefs",name:"Jeremiyah Love",pos:"RB",color:POS_COLORS.RB,traded:true},
+    {pick:10,team:"Bengals",name:"Jordyn Tyson",pos:"WR",color:POS_COLORS.WR},
+  ];
+
+  const depthGroups=[
+    {label:"OFFENSE",slots:[
+      {slot:"QB1",name:"Derek Carr"},{slot:"QB2",name:"Jake Haener"},
+      {slot:"RB1",name:"Jeremiyah Love",draft:true},{slot:"RB2",name:"Kendre Miller"},
+      {slot:"WR1",name:"Chris Olave"},{slot:"WR2",name:"Rashid Shaheed"},{slot:"WR3",name:"Cedrick Wilson"},
+      {slot:"TE1",name:"Taysom Hill"},{slot:"TE2",name:"Foster Moreau"},
+      {slot:"LT",name:"Trevor Penning"},{slot:"LG",name:"Lucas Patrick"},{slot:"C",name:"Erik McCoy"},{slot:"RG",name:"Cesar Ruiz"},{slot:"RT",name:"Ryan Ramczyk"},
+    ]},
+    {label:"DEFENSE",slots:[
+      {slot:"DE1",name:"Chase Young"},{slot:"DT1",name:"Khalen Saunders"},{slot:"DT2",name:"Bryan Bresee"},{slot:"DE2",name:"Carl Granderson"},
+      {slot:"LB1",name:"Demario Davis"},{slot:"LB2",name:"Pete Werner"},{slot:"LB3",name:"D'Marco Jackson"},
+      {slot:"CB1",name:"Kool-Aid McKinstry"},{slot:"CB2",name:"Alontae Taylor"},{slot:"CB3",name:"Keionte Scott",draft:true},
+      {slot:"SS",name:"Jordan Howden"},{slot:"FS",name:"Tyrann Mathieu"},
+    ]},
+    {label:"ST",slots:[{slot:"K",name:"Blake Grupe"}]},
+  ];
+
+  const sliderTraits=[
+    {label:"Arm Strength",emoji:"💪",val:78},
+    {label:"Accuracy",emoji:"🎯",val:72},
+    {label:"Pocket Presence",emoji:"🧊",val:68},
+    {label:"Mobility",emoji:"🏃",val:82},
+    {label:"Decision Making",emoji:"🧠",val:65},
+    {label:"Leadership",emoji:"👑",val:70},
+  ];
+
+  return(
+    <div style={{minHeight:"100vh",background:"#1a1a1a",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:24,padding:40}}>
+      <div style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>OG Image Preview — 1200 x 630</div>
+      <div ref={ref} style={{width:1200,height:630,background:"#faf9f6",overflow:"hidden",display:"flex",flexDirection:"column"}}>
+
+        {/* ===== TOP BRANDED HEADER ===== */}
+        <div style={{height:56,background:"#171717",display:"flex",alignItems:"center",justifyContent:"space-between",padding:"0 28px",position:"relative",flexShrink:0}}>
+          <div style={{position:"absolute",bottom:0,left:0,right:0,height:3,background:"linear-gradient(90deg, #ec4899, #7c3aed, #3b82f6, #22c55e)"}}/>
+          <div style={{display:"flex",alignItems:"center",gap:12}}>
+            <img src="/logo.png" alt="" style={{height:26,filter:"brightness(0) invert(1)"}}/>
+            <span style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#fff",letterSpacing:"-0.02em"}}>Big Board Lab</span>
+          </div>
+          <span style={{fontFamily:sans,fontSize:13,color:"#a3a3a3"}}>Build your board. Run your war room. 32 AI GMs. Free.</span>
+          <span style={{fontFamily:mono,fontSize:12,color:"#737373",letterSpacing:"0.5px"}}>bigboardlab.com</span>
+        </div>
+
+        {/* ===== CONTENT PANELS ===== */}
+        <div style={{flex:1,display:"flex",overflow:"hidden"}}>
+
+          {/* PANEL 1: Mock Draft Picks */}
+          <div style={{width:195,background:"#fff",borderRight:"1px solid #e5e5e5",display:"flex",flexDirection:"column",flexShrink:0}}>
+            <div style={{padding:"10px 12px 6px",borderBottom:"1px solid #f0f0f0"}}>
+              <div style={{fontFamily:font,fontSize:12,fontWeight:900,color:"#171717"}}>Mock Draft</div>
+              <div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",marginTop:1,letterSpacing:1,textTransform:"uppercase"}}>Round 1 · 2026</div>
+            </div>
+            <div style={{flex:1,overflow:"hidden"}}>
+              {mockPicks.map(p=>(
+                <div key={p.pick} style={{display:"flex",alignItems:"center",gap:4,padding:"4px 10px",borderBottom:"1px solid #f8f8f8",background:p.user?"rgba(34,197,94,0.04)":"transparent"}}>
+                  <span style={{fontFamily:mono,fontSize:8,color:"#d4d4d4",width:14,textAlign:"right"}}>{p.pick}</span>
+                  <img src={nflLogo(p.team)} alt="" width={13} height={13} style={{objectFit:"contain"}}/>
+                  <span style={{fontFamily:mono,fontSize:7,color:p.color,width:28}}>{p.pos}</span>
+                  <span style={{fontFamily:sans,fontSize:8,fontWeight:p.user?600:400,color:p.user?"#171717":"#737373",flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{p.name}</span>
+                  {p.user&&<span style={{fontFamily:mono,fontSize:5,color:"#22c55e",background:"rgba(34,197,94,0.1)",padding:"1px 3px",borderRadius:2,whiteSpace:"nowrap"}}>YOU</span>}
+                  {p.traded&&<span style={{fontFamily:mono,fontSize:5,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 3px",borderRadius:2}}>TRD</span>}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* PANEL 2: Saints Depth Chart */}
+          <div style={{width:180,background:"#fff",borderRight:"1px solid #e5e5e5",display:"flex",flexDirection:"column",flexShrink:0}}>
+            <div style={{padding:"10px 10px 6px",borderBottom:"1px solid #f0f0f0",display:"flex",alignItems:"center",gap:6}}>
+              <img src={nflLogo("Saints")} alt="" width={18} height={18} style={{objectFit:"contain"}}/>
+              <div>
+                <div style={{fontFamily:font,fontSize:11,fontWeight:900,color:"#171717"}}>Saints</div>
+                <div style={{fontFamily:mono,fontSize:6,color:"#a3a3a3",letterSpacing:1,textTransform:"uppercase"}}>Depth Chart</div>
+              </div>
+            </div>
+            <div style={{flex:1,padding:"4px 8px",overflow:"hidden"}}>
+              {depthGroups.map(g=>(
+                <div key={g.label} style={{marginBottom:2}}>
+                  <div style={{fontFamily:mono,fontSize:6,color:"#a3a3a3",letterSpacing:1,padding:"3px 0 1px",borderBottom:"1px solid #f5f5f5",marginBottom:1}}>{g.label}</div>
+                  {g.slots.map(s=>(
+                    <div key={s.slot} style={{display:"flex",gap:3,padding:"1.5px 0",fontFamily:sans,fontSize:8}}>
+                      <span style={{color:"#b5b5b5",width:20,fontSize:6,fontFamily:mono}}>{s.slot}</span>
+                      <span style={{fontWeight:s.draft?700:400,color:s.draft?"#7c3aed":"#525252"}}>{s.name}{s.draft?" ★":""}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* PANEL 3: Mendoza — Spider Chart + Trait Sliders combined */}
+          <div style={{width:340,background:"#fff",borderRight:"1px solid #e5e5e5",display:"flex",flexDirection:"column",flexShrink:0}}>
+            {/* Header with Indiana logo */}
+            <div style={{padding:"10px 16px 6px",borderBottom:"1px solid #f0f0f0",display:"flex",alignItems:"center",gap:8}}>
+              <SchoolLogo school="Indiana" size={28}/>
+              <div>
+                <div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#171717"}}>Fernando Mendoza</div>
+                <div style={{display:"flex",gap:6,alignItems:"center",marginTop:1}}>
+                  <span style={{fontFamily:mono,fontSize:8,color:mendozaColor,background:`${mendozaColor}0d`,padding:"2px 6px",borderRadius:3,border:`1px solid ${mendozaColor}1a`}}>QB</span>
+                  <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>Indiana · #1 Overall · 6'5" 225</span>
+                </div>
+              </div>
+            </div>
+            {/* Spider + Sliders side by side */}
+            <div style={{flex:1,display:"flex",overflow:"hidden"}}>
+              {/* Spider chart */}
+              <div style={{width:180,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+                <OGRadar traits={POSITION_TRAITS.QB} values={[78,72,68,82,65,70]} color={mendozaColor} size={172}/>
+              </div>
+              {/* Trait sliders */}
+              <div style={{flex:1,padding:"10px 14px 10px 0",display:"flex",flexDirection:"column",justifyContent:"center"}}>
+                {sliderTraits.map(s=>{
+                  const t=s.val/100;
+                  const r=Math.round(236+(124-236)*t);
+                  const g=Math.round(72+(58-72)*t);
+                  const b=Math.round(153+(237-153)*t);
+                  const barColor=`rgb(${r},${g},${b})`;
+                  return(
+                    <div key={s.label} style={{marginBottom:8}}>
+                      <div style={{display:"flex",justifyContent:"space-between",marginBottom:2}}>
+                        <span style={{fontFamily:mono,fontSize:7,color:"#737373"}}>{s.label}</span>
+                        <span style={{fontFamily:font,fontSize:9,fontWeight:900,color:barColor}}>{s.val}</span>
+                      </div>
+                      <div style={{position:"relative",height:10,display:"flex",alignItems:"center"}}>
+                        <div style={{position:"absolute",left:0,right:0,height:4,background:"#f0f0f0",borderRadius:2}}/>
+                        <div style={{position:"absolute",left:0,height:4,width:`${s.val}%`,background:"linear-gradient(90deg, #ec4899, #7c3aed)",borderRadius:2}}/>
+                        <div style={{position:"absolute",left:`${s.val}%`,transform:"translateX(-50%)",fontSize:9,lineHeight:1,pointerEvents:"none",zIndex:3,filter:"drop-shadow(0 1px 1px rgba(0,0,0,.12))"}}>{s.emoji}</div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* PANEL 4: Pairwise Comparison */}
+          <div style={{flex:1,background:"#fff",display:"flex",flexDirection:"column"}}>
+            <div style={{padding:"10px 12px 6px",borderBottom:"1px solid #f0f0f0",textAlign:"center"}}>
+              <div style={{fontFamily:font,fontSize:12,fontWeight:900,color:"#171717"}}>Who's Your Pick?</div>
+              <div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",marginTop:1,letterSpacing:1,textTransform:"uppercase"}}>Edge Rankings</div>
+            </div>
+            <div style={{flex:1,display:"flex",gap:8,padding:"8px 10px",alignItems:"stretch",position:"relative"}}>
+              <div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",zIndex:2,fontFamily:font,fontSize:11,fontWeight:900,color:"#d4d4d4",background:"#fff",padding:"2px 7px",borderRadius:99,border:"1px solid #e5e5e5"}}>vs</div>
+              {/* Bain card — selected */}
+              <div style={{flex:1,padding:"10px 8px",background:`${bainColor}06`,border:`2px solid ${bainColor}`,borderRadius:10,textAlign:"center",display:"flex",flexDirection:"column",alignItems:"center",gap:2}}>
+                <SchoolLogo school="Miami" size={28}/>
+                <div style={{fontFamily:font,fontSize:13,fontWeight:900,color:"#171717",lineHeight:1.1}}>Rueben Bain Jr.</div>
+                <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>Miami</div>
+                <span style={{fontFamily:mono,fontSize:7,color:bainColor,background:`${bainColor}0d`,padding:"2px 6px",borderRadius:3,border:`1px solid ${bainColor}1a`}}>EDGE · #2 OVR</span>
+                <div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3"}}>6'3" · 275lbs</div>
+                <div style={{fontFamily:mono,fontSize:7,color:"#525252",background:"#f9f9f6",padding:"2px 5px",borderRadius:3,border:"1px solid #f0f0f0",lineHeight:1.3}}>54 tkl · 15.5 tfl · 9.5 sck</div>
+                <RadarChart traits={POSITION_TRAITS.EDGE} values={[88,82,90,76,85,72]} color={bainColor} size={120}/>
+              </div>
+              {/* Bailey card */}
+              <div style={{flex:1,padding:"10px 8px",background:"#fff",border:"1px solid #e5e5e5",borderRadius:10,textAlign:"center",display:"flex",flexDirection:"column",alignItems:"center",gap:2}}>
+                <SchoolLogo school="Tennessee" size={28}/>
+                <div style={{fontFamily:font,fontSize:13,fontWeight:900,color:"#171717",lineHeight:1.1}}>Dominic Bailey</div>
+                <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>Tennessee</div>
+                <span style={{fontFamily:mono,fontSize:7,color:baileyColor,background:`${baileyColor}0d`,padding:"2px 6px",borderRadius:3,border:`1px solid ${baileyColor}1a`}}>DL · #18 OVR</span>
+                <div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3"}}>6'4" · 290lbs</div>
+                <div style={{fontFamily:mono,fontSize:7,color:"#525252",background:"#f9f9f6",padding:"2px 5px",borderRadius:3,border:"1px solid #f0f0f0",lineHeight:1.3}}>42 tkl · 8.0 tfl · 5.5 sck</div>
+                <RadarChart traits={POSITION_TRAITS.DL} values={[74,78,80,72,82,68]} color={baileyColor} size={120}/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ===== BOTTOM STRIP ===== */}
+        <div style={{height:32,background:"#171717",display:"flex",alignItems:"center",justifyContent:"center",gap:8,flexShrink:0,position:"relative"}}>
+          <div style={{position:"absolute",top:0,left:0,right:0,height:2,background:"linear-gradient(90deg, #ec4899, #7c3aed, #3b82f6, #22c55e)"}}/>
+          <span style={{fontFamily:sans,fontSize:11,color:"#525252"}}>2026 NFL Mock Draft Simulator</span>
+          <span style={{color:"#525252",fontSize:8}}>·</span>
+          <span style={{fontFamily:sans,fontSize:11,color:"#525252"}}>Big Board Builder</span>
+          <span style={{color:"#525252",fontSize:8}}>·</span>
+          <span style={{fontFamily:sans,fontSize:11,color:"#525252"}}>32 AI GMs with CPU Trades</span>
+          <span style={{color:"#525252",fontSize:8}}>·</span>
+          <span style={{fontFamily:sans,fontSize:11,color:"#525252"}}>Live Depth Charts</span>
+        </div>
+      </div>
+
+      <button onClick={download} style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#fff",background:"#7c3aed",border:"none",padding:"12px 32px",borderRadius:8,cursor:"pointer"}}>Download as PNG</button>
+    </div>
+  );
+}
+
+// ============================================================
 // Root App: handles auth state
 // ============================================================
 export default function App(){
   const[user,setUser]=useState(null);
   const[loading,setLoading]=useState(true);
   const[showAdmin,setShowAdmin]=useState(()=>window.location.hash==="#admin");
+  const[showOG,setShowOG]=useState(()=>window.location.hash==="#og-preview");
   const[isGuest,setIsGuest]=useState(false);
   const[authPrompt,setAuthPrompt]=useState(null);
 
   useEffect(()=>{
-    const onHash=()=>setShowAdmin(window.location.hash==="#admin");
+    const onHash=()=>{setShowAdmin(window.location.hash==="#admin");setShowOG(window.location.hash==="#og-preview");};
     window.addEventListener("hashchange",onHash);
     return()=>window.removeEventListener("hashchange",onHash);
   },[]);
@@ -1841,6 +2086,7 @@ export default function App(){
   const signOut=async()=>{await supabase.auth.signOut();setUser(null);};
 
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
+  if(showOG)return<OGPreview/>;
   if(!user&&!isGuest)return<AuthScreen onSkip={()=>setIsGuest(true)}/>;
   if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
   return<>
