@@ -1131,6 +1131,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         drawTrunc(ctx,p.name,pad+108,py+12,leftW-210);
         ctx.fillStyle='#a3a3a3';ctx.font='10px -apple-system,system-ui,sans-serif';
         drawTrunc(ctx,p.school||'',pad+108,py+27,leftW-210);
+        // Trait badge emojis
+        const pBadges=prospectBadges&&prospectBadges[pk.playerId]||[];
+        if(pBadges.length>0){const schoolW=ctx.measureText(p.school||'').width;ctx.font='11px -apple-system,system-ui,sans-serif';let bx=pad+108+schoolW+6;pBadges.forEach(b=>{ctx.fillText(b.emoji,bx,py+27);bx+=14;});}
 
         // Verdict pill — measure AFTER setting the correct font
         ctx.font='bold 8px ui-monospace,monospace';
@@ -1292,6 +1295,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         ctx.fillStyle=c;ctx.font='bold 10px ui-monospace,monospace';ctx.fillText(p.gpos||p.pos,x+10,y+38);
         ctx.fillStyle='#171717';ctx.font='bold 13px -apple-system,system-ui,sans-serif';drawTrunc(ctx,p.name,x+48,y+38,colW-56);
         ctx.fillStyle='#a3a3a3';ctx.font='10px -apple-system,system-ui,sans-serif';drawTrunc(ctx,p.school||'',x+48,y+54,colW-56);
+        // Trait badge emojis
+        const pBadges32=prospectBadges&&prospectBadges[pk.playerId]||[];
+        if(pBadges32.length>0){ctx.font='10px -apple-system,system-ui,sans-serif';const sw=ctx.measureText(p.school||'').width;let bx=x+48+sw+4;pBadges32.forEach(b=>{ctx.fillText(b.emoji,bx,y+54);bx+=13;});}
       }
 
       // Dark footer

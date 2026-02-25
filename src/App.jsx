@@ -1442,13 +1442,19 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
       ctx.fillText(p.name,nameX,y+32);
       ctx.fillStyle='#a3a3a3';ctx.font='12px -apple-system,system-ui,sans-serif';
       ctx.fillText(p.school,nameX,y+54);
-      // Position rank label
+      // Position rank label + trait badges
+      ctx.font='12px -apple-system,system-ui,sans-serif';
+      let afterSchoolX=nameX+ctx.measureText(p.school).width;
       if(p._posRank){
         const prText=posText+p._posRank;
-        const schoolW=ctx.measureText(p.school).width;
+        afterSchoolX+=10;
         ctx.fillStyle=c;ctx.font='bold 10px ui-monospace,monospace';
-        ctx.fillText(prText,nameX+schoolW+10,y+55);
+        ctx.fillText(prText,afterSchoolX,y+55);
+        afterSchoolX+=ctx.measureText(prText).width;
       }
+      // Trait badge emojis
+      const badges=prospectBadges[p.id]||[];
+      if(badges.length>0){afterSchoolX+=8;ctx.font='12px -apple-system,system-ui,sans-serif';badges.forEach(b=>{ctx.fillText(b.emoji,afterSchoolX,y+53);afterSchoolX+=16;});}
 
       // Radar chart (shifted left for full labels)
       const radarCx=W-210,radarCy=y+rowH/2,radarR=34;
