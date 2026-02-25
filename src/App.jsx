@@ -45,6 +45,7 @@ const TRAIT_TEACHABILITY={"Arm Strength":.1,"Accuracy":.7,"Pocket Presence":.6,"
 const POSITION_GROUPS=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S","K/P"];
 const POS_EMOJI={QB:"🎯",RB:"🏃",WR:"🧤",TE:"🦾",OT:"🛡️",IOL:"🧱",EDGE:"🌪️",DL:"🦬",LB:"💥",CB:"🏝️",S:"🦅","K/P":"🦵"};
 const POS_COLORS={QB:"#1e3a5f",RB:"#5b21b6",WR:"#0d9488",TE:"#0891b2",OT:"#b45309",IOL:"#d97706",OL:"#b45309",EDGE:"#15803d",DL:"#166534",LB:"#4338ca",CB:"#0f766e",S:"#047857",DB:"#0f766e","K/P":"#78716c"};
+const SCHOOL_CONFERENCE={"Alabama":"SEC","Arizona":"Big 12","Arizona State":"Big 12","Arkansas":"SEC","Auburn":"SEC","Baylor":"Big 12","Boise State":"MWC","Boston College":"ACC","Buffalo":"MAC","BYU":"Big 12","Cal":"Big Ten","California":"Big Ten","Central Michigan":"MAC","Cincinnati":"Big 12","Clemson":"ACC","Dartmouth":"Ivy","Duke":"ACC","Florida":"SEC","Florida International":"CUSA","Florida State":"ACC","Georgia":"SEC","Georgia State":"Sun Belt","Georgia Tech":"ACC","Houston":"Big 12","Illinois":"Big Ten","Incarnate Word":"FCS","Indiana":"Big Ten","Iowa":"Big Ten","Iowa State":"Big 12","James Madison":"Sun Belt","John Carroll":"D3","Kansas":"Big 12","Kansas State":"Big 12","Kentucky":"SEC","Louisiana Tech":"CUSA","Louisiana-Lafayette":"Sun Belt","Louisville":"ACC","LSU":"SEC","Maryland":"Big Ten","Memphis":"AAC","Miami":"ACC","Miami (FL)":"ACC","Miami (OH)":"MAC","Michigan":"Big Ten","Michigan State":"Big Ten","Minnesota":"Big Ten","Mississippi":"SEC","Mississippi State":"SEC","Missouri":"SEC","Montana":"FCS","N.C. State":"ACC","NC State":"ACC","Navy":"AAC","Nebraska":"Big Ten","New Mexico":"MWC","North Carolina":"ACC","North Dakota State":"FCS","Northwestern":"Big Ten","Notre Dame":"Ind","Ohio State":"Big Ten","Oklahoma":"SEC","Oregon":"Big Ten","Oregon State":"Pac-12","Penn State":"Big Ten","Pittsburgh":"ACC","Rutgers":"Big Ten","San Diego State":"MWC","Slippery Rock":"D2","SMU":"ACC","South Alabama":"Sun Belt","South Carolina":"SEC","South Carolina State":"FCS","Southeastern Louisiana":"FCS","Southern Miss":"Sun Belt","Stanford":"ACC","Stephen F. Austin":"FCS","Syracuse":"ACC","TCU":"Big 12","Tennessee":"SEC","Texas":"SEC","Texas A&M":"SEC","Texas State":"Sun Belt","Texas Tech":"Big 12","Toledo":"MAC","UCF":"Big 12","UCLA":"Big Ten","UConn":"Ind","USC":"Big Ten","Utah":"Big 12","UTSA":"AAC","Vanderbilt":"SEC","Virginia":"ACC","Virginia Tech":"ACC","Virginia Union":"D2","Wake Forest":"ACC","Washington":"Big Ten","Western Michigan":"MAC","Wisconsin":"Big Ten","Wyoming":"MWC"};
 const INITIAL_ELO=1500;
 function expectedScore(rA,rB){return 1/(1+Math.pow(10,(rB-rA)/400));}
 function eloUpdate(rA,rB,aWon,k=32){const eA=expectedScore(rA,rB);return{newA:rA+k*((aWon?1:0)-eA),newB:rB+k*((aWon?0:1)-(1-eA))};}
@@ -782,6 +783,73 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
   if(showMyGuys){
     const TRAIT_MAP=POSITION_TRAITS;
     const emptySlots=Array.from({length:Math.max(0,10-myGuys.length)});
+
+    // Scouting Fingerprint — generate insight pills from My Guys data
+    const fingerprint=(()=>{
+      if(myGuys.length<5)return[];
+      const pills=[];
+      const guys=myGuys.map(g=>{const p=PROSPECTS.find(pr=>pr.name===g.name);return{...g,prospect:p,gpos:p?.gpos||g.pos,school:p?.school||"",id:p?.id};});
+
+      // 1. Position concentrations
+      const posCounts={};
+      guys.forEach(g=>{const pos=g.gpos==="K"||g.gpos==="P"||g.gpos==="LS"?"K/P":g.gpos;posCounts[pos]=(posCounts[pos]||0)+1;});
+      const topPos=Object.entries(posCounts).sort((a,b)=>b[1]-a[1]);
+      if(topPos.length>0&&topPos[0][1]>=Math.ceil(guys.length*0.3)){
+        const[pos,cnt]=topPos[0];
+        pills.push({emoji:POS_EMOJI[pos]||"📋",text:`${pos} heavy`,detail:`${cnt}/${guys.length}`,color:POS_COLORS[pos]||"#525252"});
+      }else if(topPos.length>=4&&topPos[0][1]-topPos[topPos.length-1][1]<=1){
+        pills.push({emoji:"🔀",text:"balanced board",detail:"",color:"#525252"});
+      }
+
+      // 2. Trait clusters — aggregate badge traits
+      const traitCounts={};
+      guys.forEach(g=>{if(!g.id)return;const badges=prospectBadges[g.id]||[];badges.forEach(b=>{traitCounts[b.trait]=(traitCounts[b.trait]||0)+1;});});
+      const topTraits=Object.entries(traitCounts).filter(([,c])=>c>=3).sort((a,b)=>b[1]-a[1]).slice(0,2);
+      topTraits.forEach(([trait,cnt])=>{
+        const labels={"Pass Rush":"pass rush magnet","Speed":"speed obsessed","Man Coverage":"lockdown lean","Accuracy":"accuracy snob","Motor":"motor lovers","Ball Skills":"ball hawk bias","Tackling":"sure tacklers","Vision":"vision seekers","Hands":"reliable hands","First Step":"first step fanatic","Athleticism":"athletic bias"};
+        pills.push({emoji:TRAIT_EMOJI[trait]||"⭐",text:labels[trait]||trait.toLowerCase(),detail:`${cnt}x`,color:"#7c3aed"});
+      });
+
+      // 3. Ceiling tendency
+      const ceilCounts={elite:0,high:0,normal:0,capped:0};
+      guys.forEach(g=>{const sc=getScoutingTraits(g.name,g.school);const c=sc?.__ceiling||"normal";ceilCounts[c]++;});
+      const upside=ceilCounts.elite+ceilCounts.high;
+      if(upside>=Math.ceil(guys.length*0.6)){
+        pills.push({emoji:"⭐",text:"ceiling chaser",detail:`${upside}/${guys.length} high+`,color:"#ea580c"});
+      }else if(ceilCounts.capped>=Math.ceil(guys.length*0.3)){
+        pills.push({emoji:"🔒",text:"floor first",detail:`${ceilCounts.capped} capped`,color:"#64748b"});
+      }
+
+      // 4. Draft behavior (delta-based)
+      const avgDelta=guys.reduce((s,g)=>s+g.delta,0)/guys.length;
+      if(avgDelta>10){
+        pills.push({emoji:"📈",text:"value hunter",detail:`+${Math.round(avgDelta)} avg`,color:"#16a34a"});
+      }else if(avgDelta<-5){
+        pills.push({emoji:"🎲",text:"reach drafter",detail:`${Math.round(avgDelta)} avg`,color:"#dc2626"});
+      }else{
+        pills.push({emoji:"⚖️",text:"consensus aligned",detail:`${avgDelta>0?"+":""}${Math.round(avgDelta)}`,color:"#525252"});
+      }
+
+      // 5. Conference leans
+      const confCounts={};
+      guys.forEach(g=>{const conf=SCHOOL_CONFERENCE[g.school];if(conf&&conf!=="FCS"&&conf!=="D2"&&conf!=="D3"&&conf!=="Ind")confCounts[conf]=(confCounts[conf]||0)+1;});
+      const topConf=Object.entries(confCounts).sort((a,b)=>b[1]-a[1]);
+      if(topConf.length>0&&topConf[0][1]>=Math.ceil(guys.length*0.5)){
+        pills.push({emoji:"🏈",text:`${topConf[0][0]} lean`,detail:`${topConf[0][1]}/${guys.length}`,color:"#0369a1"});
+      }
+
+      // 6. School repeats
+      const schoolCounts={};
+      guys.forEach(g=>{if(g.school)schoolCounts[g.school]=(schoolCounts[g.school]||0)+1;});
+      const repeats=Object.entries(schoolCounts).filter(([,c])=>c>=2).sort((a,b)=>b[1]-a[1]);
+      if(repeats.length>0){
+        const[sch,cnt]=repeats[0];
+        pills.push({emoji:"🏫",text:`${sch} pipeline`,detail:`${cnt}`,color:"#7c3aed"});
+      }
+
+      return pills.slice(0,6);
+    })();
+
     return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
       <SaveBar/>
       <div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 60px"}}>
@@ -792,7 +860,19 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
           </div>
           <button onClick={()=>setShowMyGuys(false)} style={{fontFamily:sans,fontSize:12,padding:"8px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>← back</button>
         </div>
-        <p style={{fontFamily:mono,fontSize:10,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 20px"}}>{mockCount} mock{mockCount!==1?"s":""} completed · {myGuys.length}/10 guys identified</p>
+        <p style={{fontFamily:mono,fontSize:10,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>{mockCount} mock{mockCount!==1?"s":""} completed · {myGuys.length}/10 guys identified</p>
+
+        {/* Scouting Fingerprint */}
+        {fingerprint.length>0&&<div style={{marginBottom:16}}>
+          <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>scouting fingerprint</div>
+          <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
+            {fingerprint.map((pill,i)=><span key={i} style={{fontFamily:sans,fontSize:11,fontWeight:600,color:pill.color,background:`${pill.color}0d`,border:`1px solid ${pill.color}22`,padding:"4px 10px",borderRadius:99,display:"inline-flex",alignItems:"center",gap:4,whiteSpace:"nowrap"}}>
+              <span>{pill.emoji}</span>
+              <span>{pill.text}</span>
+              {pill.detail&&<span style={{fontFamily:mono,fontSize:9,opacity:0.7}}>({pill.detail})</span>}
+            </span>)}
+          </div>
+        </div>}
 
         {/* 2x5 grid */}
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))",gap:12}}>
@@ -861,11 +941,12 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
             const count=myGuys.length;
             const rows=Math.ceil(count/2)||1;
             const scale=2;
+            const fpH=fingerprint.length>0?36:0;
             const W=1200,headerH=90,footerH=52,cardGap=14,padX=32,padTop=16;
             const colW=(W-padX*2-cardGap)/2;
             const cardH=260;
             const gridH=rows*cardH+(rows-1)*cardGap;
-            const H=headerH+padTop+gridH+padTop+footerH;
+            const H=headerH+fpH+padTop+gridH+padTop+footerH;
             const canvas=document.createElement('canvas');canvas.width=W*scale;canvas.height=H*scale;
             const ctx=canvas.getContext('2d');ctx.scale(scale,scale);
             // Background
@@ -884,6 +965,22 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
             const sGrad=ctx.createLinearGradient(padX,0,W-padX,0);
             sGrad.addColorStop(0,'#ec4899');sGrad.addColorStop(1,'#7c3aed');
             ctx.fillStyle=sGrad;ctx.fillRect(padX,headerH-6,W-padX*2,2);
+            // Rounded rect helper
+            const rr=(x,y,w,h,r)=>{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();};
+            // Fingerprint pills
+            if(fingerprint.length>0){
+              let fpX=padX;const fpY=headerH+6;
+              ctx.font='11px -apple-system,system-ui,sans-serif';
+              fingerprint.forEach(pill=>{
+                const label=`${pill.emoji} ${pill.text}${pill.detail?' ('+pill.detail+')':''}`;
+                const tw=ctx.measureText(label).width+16;
+                ctx.fillStyle=pill.color+'18';rr(fpX,fpY,tw,22,11);ctx.fill();
+                ctx.fillStyle=pill.color;ctx.font='bold 11px -apple-system,system-ui,sans-serif';
+                ctx.textBaseline='middle';ctx.fillText(label,fpX+8,fpY+11);
+                fpX+=tw+8;
+              });
+              ctx.textBaseline='top';ctx.textAlign='left';
+            }
             // Load school logos
             const logoCache={};
             const prospectMap={};
@@ -893,8 +990,6 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
               const url=schoolLogo(s);if(!url)return;
               try{const img=new Image();img.crossOrigin='anonymous';img.src=url;await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;setTimeout(rej,2000);});logoCache[s]=img;}catch(e){}
             }));
-            // Rounded rect helper
-            const rr=(x,y,w,h,r)=>{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();};
             // Draw radar helper
             const drawCardRadar=(cx0,cy0,rad,traitNames,values,color)=>{
               const n=traitNames.length;if(n<3)return;
@@ -920,7 +1015,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
             for(let i=0;i<count;i++){
               const col=i%2,row=Math.floor(i/2);
               const cx0=padX+col*(colW+cardGap);
-              const cy0=headerH+padTop+row*(cardH+cardGap);
+              const cy0=headerH+fpH+padTop+row*(cardH+cardGap);
               const g=myGuys[i];
               const p=prospectMap[g.name];
               const c=POS_COLORS[g.pos]||'#525252';
