@@ -542,7 +542,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
     if(phase==="loading")return;
     if(saveTimer.current)clearTimeout(saveTimer.current);
     saveTimer.current=setTimeout(async()=>{
-      if(rankedGroups.size===0&&Object.keys(ratings).length===0)return;
+      if(rankedGroups.size===0&&Object.keys(ratings).length===0&&!lastSaved)return;
       setSaving(true);
       const ppSerialized={};
       Object.entries(partialProgress).forEach(([pos,data])=>{
