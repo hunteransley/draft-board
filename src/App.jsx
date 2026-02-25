@@ -190,7 +190,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
         </div>
 
         <div style={{padding:"0 24px 16px"}}>
-          {(()=>{const ceil=traits[player.id]?.__ceiling||"normal";const tiers=[
+          {(()=>{const ceil=traits[player.id]?.__ceiling||getScoutingTraits(player.name,player.school)?.__ceiling||"normal";const tiers=[
             {key:"capped",icon:"🔒",label:"Capped",desc:"What you see is what you get",bg:"linear-gradient(135deg, #1e1e1e, #2d2d2d)",border:"#404040",glow:"rgba(100,100,100,.3)",text:"#a3a3a3"},
             {key:"normal",icon:"📊",label:"Normal",desc:"Standard projection",bg:"linear-gradient(135deg, #1a1a2e, #16213e)",border:"#334155",glow:"rgba(99,102,241,.25)",text:"#94a3b8"},
             {key:"high",icon:"🔥",label:"High",desc:"The tools are there",bg:"linear-gradient(135deg, #312e1c, #3d2e0a)",border:"#854d0e",glow:"rgba(234,179,8,.3)",text:"#fbbf24"},
@@ -670,9 +670,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
     const pos=p.gpos||p.pos;const t=traits[id];
     // If user has set traits, use those (existing behavior with ceiling support)
     if(t&&Object.keys(t).length>0){const sc=getScoutingTraits(p.name,p.school)||{};const st=getStatBasedTraits(p.name,p.school)||{};const merged={...st,...sc,...t};const grade=gradeFromTraits(merged,pos);const ceil=t.__ceiling;if(!ceil||ceil==="normal")return grade;const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let rawW=0,rawV=0;posTraits.forEach(trait=>{const teach=TRAIT_TEACHABILITY[trait]??0.5;if(teach<0.4){const w=weights[trait]||1/posTraits.length;rawW+=w;rawV+=(merged[trait]||50)*w;}});const rawScore=rawW>0?rawV/rawW:grade;const gap=rawScore-grade;if(ceil==="high")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.5,0)+4)));if(ceil==="elite")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.7,0)+7)));if(ceil==="capped")return Math.max(1,Math.min(99,Math.round(grade-Math.max(-gap*0.3,0)-3)));return grade;}
-    // No user traits — use scouting data
+    // No user traits — use scouting data (with optional default ceiling)
     const sc=getScoutingTraits(p.name,p.school);
-    if(sc)return gradeFromTraits(sc,pos);
+    if(sc){const grade=gradeFromTraits(sc,pos);const ceil=sc.__ceiling;if(!ceil||ceil==="normal")return grade;const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let rawW=0,rawV=0;posTraits.forEach(trait=>{const teach=TRAIT_TEACHABILITY[trait]??0.5;if(teach<0.4){const w=weights[trait]||1/posTraits.length;rawW+=w;rawV+=(sc[trait]||50)*w;}});const rawScore=rawW>0?rawV/rawW:grade;const gap=rawScore-grade;if(ceil==="high")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.5,0)+4)));if(ceil==="elite")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.7,0)+7)));if(ceil==="capped")return Math.max(1,Math.min(99,Math.round(grade-Math.max(-gap*0.3,0)-3)));return grade;}
     return 50;
   },[traits,gradeFromTraits]);
   const getBoard=useCallback(()=>PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;return rankedGroups.has(group);}).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings,traits]);
