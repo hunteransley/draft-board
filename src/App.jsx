@@ -224,7 +224,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
                 <div style={{position:"absolute",left:0,height:6,width:`${val}%`,background:"linear-gradient(90deg, #ec4899, #7c3aed)",borderRadius:3}}/>
                 <div style={{position:"absolute",left:`${val}%`,transform:"translateX(-50%)",fontSize:18,lineHeight:1,pointerEvents:"none",zIndex:3,filter:"drop-shadow(0 1px 2px rgba(0,0,0,.15))"}}>{emoji}</div>
                 <input type="range" min="0" max="100" value={val}
-                  onChange={e=>{if(isGuest){onRequireAuth("want to edit traits and lock in your grades?");return;}setTraits(prev=>({...prev,[player.id]:{...prev[player.id],[trait]:parseInt(e.target.value)}}));}}
+                  onChange={e=>{if(isGuest){onRequireAuth("want to edit traits and lock in your grades?");return;}setTraits(prev=>{const existing=prev[player.id]||{};if(!existing.__ceiling){const sc=getScoutingTraits(player.name,player.school);if(sc?.__ceiling)existing.__ceiling=sc.__ceiling;}return{...prev,[player.id]:{...existing,[trait]:parseInt(e.target.value)}};});}}
                   style={{position:"absolute",left:0,width:"100%",height:24,background:"transparent",cursor:isGuest?"default":"pointer",zIndex:4,opacity:0,margin:0}}/>
               </div>
             </div>
