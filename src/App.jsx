@@ -357,11 +357,11 @@ function AuthScreen({onSignIn,onSkip}){
   };
 
   const features=[
-    {emoji:"⚖️",title:"Pair-by-pair prospect ranking",desc:"No spreadsheets. Choose between two players, head-to-head, until your board builds itself."},
-    {emoji:"🎚️",title:"Grade every prospect with sliders",desc:"Arm strength, burst, coverage instincts — dial in traits and watch grades update in real time."},
+    {emoji:"🔍",title:"Filter by elite traits",desc:"Find the best route runners, pass rushers, or ball hawks. Filter any position by standout traits."},
     {emoji:"🧠",title:"32 AI GMs with real personalities",desc:"Each CPU team drafts differently. The Bengals take BPA. The Saints reach. The Eagles play dynasty."},
-    {emoji:"🔄",title:"CPU teams trade with each other",desc:"Watch the Rams trade up to steal your guy. Just like real draft night."},
+    {emoji:"⚖️",title:"Pair-by-pair prospect ranking",desc:"No spreadsheets. Choose between two players, head-to-head, until your board builds itself."},
     {emoji:"📋",title:"Live depth chart updates",desc:"Every pick lands on the roster in real time. See starters displaced and needs filled."},
+    {emoji:"🎚️",title:"Spider charts & trait grading",desc:"Arm strength, burst, coverage instincts — dial in traits and watch grades update in real time."},
     {emoji:"🎯",title:"Every pick graded instantly",desc:"Steal, value, or reach — get a verdict on every selection and see how your draft stacks up."},
   ];
 
@@ -691,6 +691,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
   // My Guys state
   const[myGuys,setMyGuys]=useState([]);
   const[myGuysUpdated,setMyGuysUpdated]=useState(false);
+  const myGuysInitialLoad=useRef(true);
   const[showMyGuys,setShowMyGuys]=useState(false);
   const[mockCount,setMockCount]=useState(0);
 
@@ -718,7 +719,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
       const sorted=candidates.sort((a,b)=>b.delta-a.delta||b.timesDrafted-a.timesDrafted).slice(0,10);
       const prevNames=myGuys.map(g=>g.name).join(',');
       const newNames=sorted.map(g=>g.name).join(',');
-      if(newNames&&newNames!==prevNames)setMyGuysUpdated(true);
+      if(newNames&&newNames!==prevNames&&!myGuysInitialLoad.current)setMyGuysUpdated(true);
+      myGuysInitialLoad.current=false;
       setMyGuys(sorted);
     }catch(e){console.error('Failed to load my guys:',e);}
   },[user?.id,getConsensusRank]);
@@ -768,13 +770,13 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
         <p style={{fontFamily:mono,fontSize:10,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 20px"}}>{mockCount} mock{mockCount!==1?"s":""} completed · {myGuys.length}/10 guys identified</p>
 
         {/* 2x5 grid */}
-        <div style={{display:"grid",gridTemplateColumns:"repeat(2, 1fr)",gap:12}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))",gap:12}}>
           {myGuys.map((g,i)=>{
             const c=POS_COLORS[g.pos]||"#525252";
             const prospect=PROSPECTS.find(p=>p.name===g.name);
             const traitPos=g.pos==="DB"?(getProspectStats(g.name)?.gpos||"CB"):g.pos==="OL"?"OT":g.pos;
             const traitKeys=TRAIT_MAP[traitPos]||TRAIT_MAP["QB"];
-            const traitVals=traitKeys.map(t=>tv(traits,prospect?.id,t,g.name,g.school)/100);
+            const traitVals=traitKeys.map(t=>tv(traits,prospect?.id,t,g.name,prospect?.school||"")/100);
             // Spider chart SVG
             const cx=60,cy=60,r=45,n=traitKeys.length;
             const points=(vals)=>vals.map((v,j)=>{const a=(Math.PI*2*j/n)-Math.PI/2;return[cx+r*v*Math.cos(a),cy+r*v*Math.sin(a)];});
@@ -1117,16 +1119,18 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
         <div style={{padding:"40px 24px",textAlign:"center"}}>
           <div style={{fontSize:40,marginBottom:12}}>⚖️</div>
           <h3 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"0 0 8px"}}>build your board</h3>
+          {(()=>{const targetPos=boardFilter.size===1?[...boardFilter][0]:POSITION_GROUPS.find(pos=>!rankedGroups.has(pos))||"QB";return<>
           <p style={{fontFamily:sans,fontSize:14,color:"#737373",margin:"0 0 6px",maxWidth:380,marginLeft:"auto",marginRight:"auto",lineHeight:1.5}}>
-            pick A or B in head-to-head matchups to rank prospects your way. start with QBs — it only takes a few minutes.
+            pick A or B in head-to-head matchups to rank prospects your way. start with {targetPos}s — it only takes a few minutes.
           </p>
           {rankedGroups.size>0&&<p style={{fontFamily:mono,fontSize:11,color:"#22c55e",margin:"0 0 16px"}}>{rankedGroups.size} position{rankedGroups.size!==1?"s":""} ranked so far</p>}
-          <button onClick={()=>{startRanking("QB");}} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 28px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>rank QBs →</button>
+          <button onClick={()=>{startRanking(targetPos);}} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 28px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>rank {targetPos}s →</button>
           <p style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",margin:"12px 0 0"}}>or pick any position below</p>
+          </>;})()}
         </div>
       ):(
         /* Board list */
-        <div style={{maxHeight:480,overflowY:"auto"}}>
+        <div>
           {(boardShowAll?filteredBoard:filteredBoard.slice(0,100)).map((p,i)=>{
             const grade=getGrade(p.id);
             const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos]||"#525252";
