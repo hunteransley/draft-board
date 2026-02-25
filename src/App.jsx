@@ -1729,17 +1729,18 @@ function AdminDashboard({user,onBack}){
       setLoading(false);
     })();
   },[]);
-  if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading admin...</p></div>;
-
-  // Filter events/stats based on admin toggle
+  // Filter events/stats based on admin toggle (must be before early return)
   const adminId=user?.id;
-  const displayEvents=excludeAdmin?events:allEventsRaw.slice(0,50);
+  const displayEvents=excludeAdmin?events:(allEventsRaw||[]).slice(0,50);
   const displayEventCounts=useMemo(()=>{
-    const src=excludeAdmin?allEventsRaw.filter(e=>e.user_id!==adminId):allEventsRaw;
+    const raw=allEventsRaw||[];
+    const src=excludeAdmin?raw.filter(e=>e.user_id!==adminId):raw;
     const counts={};src.forEach(e=>{counts[e.event]=(counts[e.event]||0)+1;});
     const unique={};src.forEach(e=>{if(!unique[e.event])unique[e.event]=new Set();unique[e.event].add(e.user_id);});
     return{counts,unique};
   },[excludeAdmin,allEventsRaw,adminId]);
+
+  if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading admin...</p></div>;
 
   // Compute user status tags
   const tagUser=(u)=>{
