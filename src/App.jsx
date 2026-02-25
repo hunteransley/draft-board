@@ -1160,7 +1160,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
         </div>
       ):(
         /* Board list */
-        <div>
+        <div style={boardShowAll?{}:{maxHeight:480,overflowY:"auto"}}>
           {(boardShowAll?filteredBoard:filteredBoard.slice(0,100)).map((p,i)=>{
             const grade=getGrade(p.id);
             const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos]||"#525252";
@@ -1181,7 +1181,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
               {grade&&<span style={{fontFamily:font,fontSize:14,fontWeight:900,color:grade>=75?"#16a34a":grade>=55?"#ca8a04":"#dc2626",flexShrink:0}}>{grade}</span>}
             </div>;
           })}
-          {filteredBoard.length>100&&<div style={{padding:"12px 16px",textAlign:"center"}}><button onClick={()=>setBoardShowAll(v=>!v)} style={{fontFamily:mono,fontSize:10,color:"#525252",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>{boardShowAll?`show top 100`:`view all ${filteredBoard.length} prospects`}</button></div>}
+          <div style={{padding:"12px 16px",textAlign:"center"}}><button onClick={()=>setBoardShowAll(v=>!v)} style={{fontFamily:mono,fontSize:10,color:"#525252",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>{boardShowAll?`show less`:`view all ${filteredBoard.length} prospects`}</button></div>
         </div>
       )}
 
