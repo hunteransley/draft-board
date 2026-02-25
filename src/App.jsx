@@ -675,7 +675,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
     if(sc)return gradeFromTraits(sc,pos);
     return 50;
   },[traits,gradeFromTraits]);
-  const getBoard=useCallback(()=>PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;return rankedGroups.has(group)||traits[p.id]&&Object.keys(traits[p.id]).length>1;}).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings,traits]);
+  const getBoard=useCallback(()=>PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;return rankedGroups.has(group);}).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings,traits]);
 
   // Build mock draft board: consensus order for all 319, user rankings override when graded
   const mockDraftBoard=useMemo(()=>{
