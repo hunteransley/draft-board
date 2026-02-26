@@ -1698,9 +1698,41 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
               </button>
             </div>;
           })()}
-          {[...userTeams].map(team=>{
+          {userTeams.size===32?(()=>{
+            // Group picks by round
+            const rounds={};
+            picks.forEach(pk=>{if(!rounds[pk.round])rounds[pk.round]=[];rounds[pk.round].push(pk);});
+            return Object.entries(rounds).sort((a,b)=>a[0]-b[0]).map(([rd,rdPicks])=>{
+              const half=Math.ceil(rdPicks.length/2);
+              const leftCol=rdPicks.slice(0,half);
+              const rightCol=rdPicks.slice(half);
+              const renderPick=(pk,i)=>{const p=prospectsMap[pk.playerId];if(!p)return null;const c=POS_COLORS[p.pos];
+                return<div key={i} style={{display:"flex",alignItems:"center",gap:6,padding:"6px 10px",borderBottom:"1px solid #f5f5f5"}}>
+                  <span style={{fontFamily:mono,fontSize:11,color:"#d4d4d4",width:22,textAlign:"right",flexShrink:0}}>{pk.pick}</span>
+                  <NFLTeamLogo team={pk.team} size={16}/>
+                  <span style={{fontFamily:mono,fontSize:10,color:c,width:32,flexShrink:0}}>{p.gpos||p.pos}</span>
+                  <SchoolLogo school={p.school} size={16}/>
+                  <span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{p.name}</span>
+                  <span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",flexShrink:0}}>{p.school}</span>
+                  {pk.traded&&<span style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 4px",borderRadius:2,flexShrink:0}}>TRD</span>}
+                </div>;
+              };
+              return<div key={rd} style={{marginBottom:24,textAlign:"left"}}>
+                <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8,textAlign:"center"}}>round {rd}</div>
+                <div className="all32-round" style={{display:"flex",gap:12}}>
+                  <div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
+                    {leftCol.map(renderPick)}
+                  </div>
+                  {rightCol.length>0&&<div style={{flex:1,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
+                    {rightCol.map(renderPick)}
+                  </div>}
+                </div>
+                <style>{`@media(max-width:640px){.all32-round{flex-direction:column!important;}}`}</style>
+              </div>;
+            });
+          })():[...userTeams].map(team=>{
             const tp=userPicks.filter(pk=>pk.team===team);if(tp.length===0)return null;
-            const teamGrade=userTeams.size!==32?gradeTeamPicks(tp,team):null;
+            const teamGrade=gradeTeamPicks(tp,team);
             return(<div key={team} style={{marginBottom:32,textAlign:"left"}}>
               <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,justifyContent:"center"}}>
                 <NFLTeamLogo team={team} size={20}/>
