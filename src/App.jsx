@@ -1773,6 +1773,7 @@ function AdminDashboard({user,onBack}){
   const[events,setEvents]=useState([]);
   const[excludeAdmin,setExcludeAdmin]=useState(true);
   const[allEventsRaw,setAllEventsRaw]=useState([]);
+  const[showEventLog,setShowEventLog]=useState(false);
   useEffect(()=>{
     (async()=>{
       try{
@@ -1838,7 +1839,7 @@ function AdminDashboard({user,onBack}){
           const pp=d.partialProgress?Object.keys(d.partialProgress):[];
           const noteCount=d.notes?Object.keys(d.notes).length:0;
           const userEvts=allEvents.filter(e=>e.user_id===au.id);
-          const mockCount=userEvts.filter(e=>e.event==='mock_draft_completed'||e.event==='mock_draft_sim_started').length;
+          const mockCount=userEvts.filter(e=>e.event==='mock_draft_completed').length;
           const lastEvent=userEvts[0];
           const lastActivity=new Date(Math.max(
             au.last_sign_in_at?new Date(au.last_sign_in_at):0,
@@ -1862,29 +1863,40 @@ function AdminDashboard({user,onBack}){
         const rankers=userDetails.filter(u=>u.rankedPositions>0);
         const avgPositions=rankers.length>0?(rankers.reduce((s,u)=>s+u.rankedPositions,0)/rankers.length).toFixed(1):0;
 
-        // Anonymous activity (last 7 days)
-        const weekAgo=new Date(now-604800000);
-        const anonEvents=allEvents.filter(e=>e.user_id===null||e.user_id===undefined||e.metadata?.guest===true);
-        const anonWeek=anonEvents.filter(e=>new Date(e.created_at)>=weekAgo);
-        const anonMocksStarted=anonWeek.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').length;
-        const anonMocksCompleted=anonWeek.filter(e=>e.event==='mock_draft_completed').length;
-        const anonShares=anonWeek.filter(e=>e.event==='share_results').length;
-        const anonTeams={};
-        anonWeek.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').forEach(e=>{
-          const t=e.metadata?.team||e.metadata?.teams;if(t){anonTeams[t]=(anonTeams[t]||0)+1;}
+        // Activity heatmap (last 14 days)
+        const dayMap={};
+        const fourteenAgo=new Date(now-14*86400000);
+        allEvents.filter(e=>new Date(e.created_at)>=fourteenAgo).forEach(e=>{
+          const d=new Date(e.created_at).toISOString().slice(0,10);
+          dayMap[d]=(dayMap[d]||0)+1;
         });
-        const anonTopTeams=Object.entries(anonTeams).sort((a,b)=>b[1]-a[1]).slice(0,5);
+        const heatmap=Array.from({length:14},(_,i)=>{
+          const d=new Date(now-(13-i)*86400000).toISOString().slice(0,10);
+          return{date:d,count:dayMap[d]||0};
+        });
+
+        // Feature usage stats
+        const rankingsStarted=allEvents.filter(e=>e.event==='ranking_started').length;
+        const mocksStarted=allEvents.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').length;
+        const mocksCompleted=allEvents.filter(e=>e.event==='mock_draft_completed').length;
+        const totalShares=allEvents.filter(e=>e.event==='share_results'||e.event==='share_triggered').length;
+        const shareUsers=new Set(allEvents.filter(e=>e.event==='share_results'||e.event==='share_triggered').map(e=>e.user_id)).size;
+        const noteUsers=boards.filter(b=>{const d=b.board_data||{};return d.notes&&Object.keys(d.notes).length>0;}).length;
+
+        // Guest mocks (all-time, for funnel top)
+        const guestMocksAll=allEvents.filter(e=>(e.user_id===null||e.user_id===undefined||e.metadata?.guest===true)&&(e.event==='mock_draft_sim_started'||e.event==='mock_draft_started')).length;
+        // Funnel step counts
+        const funnelVisited=Math.max(guestMocksAll,totalUsers);
+        const funnelSignedUp=totalUsers;
+        const funnelRankedPos=new Set([...allEvents.filter(e=>e.event==='ranking_completed').map(e=>e.user_id),...boards.filter(b=>(b.board_data?.rankedGroups||[]).length>0).map(b=>b.user_id)]).size;
+        const funnelRanMock=new Set(allEvents.filter(e=>e.event==='mock_draft_started'||e.event==='mock_draft_completed').filter(e=>e.user_id).map(e=>e.user_id)).size;
+        const funnelShared=new Set(allEvents.filter(e=>e.event==='share_triggered'||e.event==='share_results').filter(e=>e.user_id).map(e=>e.user_id)).size;
 
         setStats({totalUsers,activeToday,activeWeek,posStats,partialCount,avgPositions,hasNotes,
           communityUsers:community.length,eventCounts,uniqueEventUsers,signupsToday,signupsWeek,
           mockDrafts,mockDraftUsers,rankingsCompleted,
-          anonMocksStarted,anonMocksCompleted,anonShares,anonTopTeams,
-          // Funnel: compute from auth users + boards + events
-          funnelSignedUp:totalUsers,
-          funnelStartedRanking:new Set(allEvents.filter(e=>e.event==='ranking_started').map(e=>e.user_id)).size||boards.filter(b=>{const d=b.board_data||{};return(d.rankedGroups||[]).length>0||(d.partialProgress&&Object.keys(d.partialProgress).length>0);}).length,
-          funnelCompletedPos:new Set([...allEvents.filter(e=>e.event==='ranking_completed').map(e=>e.user_id),...boards.filter(b=>(b.board_data?.rankedGroups||[]).length>0).map(b=>b.user_id)]).size,
-          funnelRanMock:new Set(allEvents.filter(e=>e.event==='mock_draft_started'||e.event==='mock_draft_completed').filter(e=>e.user_id).map(e=>e.user_id)).size,
-          funnelShared:new Set(allEvents.filter(e=>e.event==='share_triggered'||e.event==='share_results').map(e=>e.user_id)).size,
+          heatmap,rankingsStarted,mocksStarted,mocksCompleted,totalShares,shareUsers,noteUsers,
+          funnelVisited,funnelSignedUp,funnelRankedPos,funnelRanMock,funnelShared,
         });
         setUsers(userDetails);
         setAllEventsRaw(allEventsData);
@@ -1930,134 +1942,155 @@ function AdminDashboard({user,onBack}){
       </div>
       <div style={{maxWidth:920,margin:"0 auto",padding:"52px 24px 60px"}}>
 
-        {/* FUNNEL */}
-        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:24}}>
-          <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:14}}>user funnel</div>
+        {/* SECTION 1: KPI Strip — 4 cards */}
+        <div style={{display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:12,marginBottom:24}}>
           {[
-            {label:"Guest Mocks Started",count:stats.anonMocksStarted,color:"#a3a3a3"},
-            {label:"Guest Mocks Completed",count:stats.anonMocksCompleted,color:"#737373"},
-            {label:"Signed Up",count:stats.funnelSignedUp,color:"#171717"},
-            {label:"Started Ranking",count:stats.funnelStartedRanking,color:"#3b82f6"},
-            {label:"Completed a Position",count:stats.funnelCompletedPos,color:"#8b5cf6"},
-            {label:"Signed-In Mocks",count:stats.funnelRanMock,color:"#f59e0b"},
-            {label:"Shared Results",count:stats.funnelShared,color:"#22c55e"},
-          ].map((step,i)=>{
-            const maxCount=Math.max(stats.anonMocksStarted||0,stats.funnelSignedUp||0,1);
-            const pct=Math.round(step.count/maxCount*100);
-            const barW=maxCount>0?Math.max(step.count/maxCount*100,step.count>0?2:0):0;
-            return<div key={step.label} style={{marginBottom:i<6?10:0}}>
-              <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:3}}>
-                <span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717"}}>{step.label}</span>
-                <span style={{fontFamily:mono,fontSize:13,fontWeight:900,color:step.color}}>{step.count} <span style={{fontSize:10,fontWeight:400,color:"#a3a3a3"}}>{pct}%</span></span>
-              </div>
-              <div style={{height:6,background:"#f5f5f5",borderRadius:99,overflow:"hidden"}}>
-                <div style={{height:"100%",width:barW+"%",background:step.color,borderRadius:99,transition:"width 0.3s"}}/>
-              </div>
-            </div>;
-          })}
-        </div>
-
-        {/* KPI Cards — focused */}
-        <div style={{display:"grid",gridTemplateColumns:"repeat(6, 1fr)",gap:10,marginBottom:24}}>
-          {[
-            ["Total",stats.totalUsers,"#171717"],
-            ["Today",stats.activeToday,"#22c55e"],
-            ["This Week",stats.activeWeek,"#3b82f6"],
-            ["New Today",stats.signupsToday,"#8b5cf6"],
-            ["New Week",stats.signupsWeek,"#a855f7"],
-            ["Mock Drafts",stats.mockDrafts,"#f59e0b"],
-          ].map(([label,val,color])=>(
-            <div key={label} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:10,padding:"12px 14px",textAlign:"center"}}>
-              <div style={{fontFamily:font,fontSize:24,fontWeight:900,color,lineHeight:1}}>{val}</div>
-              <div style={{fontFamily:mono,fontSize:7,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginTop:5}}>{label}</div>
+            {label:"Users",value:stats.totalUsers,sub:`+${stats.signupsWeek} this week`,color:"#171717"},
+            {label:"Active (7d)",value:stats.activeWeek,sub:`${stats.activeToday} today`,color:"#3b82f6"},
+            {label:"Mocks Run",value:stats.mocksCompleted,sub:`${stats.mockDraftUsers} users`,color:"#f59e0b"},
+            {label:"Shared",value:stats.totalShares,sub:`${stats.shareUsers} users`,color:"#22c55e"},
+          ].map(c=>(
+            <div key={c.label} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:10,padding:"16px 18px",textAlign:"center"}}>
+              <div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c.color,lineHeight:1}}>{c.value}</div>
+              <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginTop:6}}>{c.label}</div>
+              <div style={{fontFamily:mono,fontSize:10,color:"#737373",marginTop:4}}>{c.sub}</div>
             </div>
           ))}
         </div>
 
-        {/* Event Breakdown — compact */}
-        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:24}}>
-          <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>events</div>
-          <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
-            {Object.entries(displayEventCounts.counts||{}).sort((a,b)=>b[1]-a[1]).map(([evt,count])=>{
-              const uu=displayEventCounts.unique?.[evt]?.size||0;
-              return<div key={evt} style={{padding:"6px 12px",background:"#f9f9f7",borderRadius:6,textAlign:"center",minWidth:80}}>
-                <div style={{fontFamily:mono,fontSize:16,fontWeight:900,color:"#171717"}}>{count}<span style={{fontSize:10,fontWeight:400,color:"#a3a3a3",marginLeft:3}}>{uu}u</span></div>
-                <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>{evt.replace(/_/g,' ')}</div>
+        {/* SECTION 2: Conversion Funnel — step-over-step */}
+        {(()=>{
+          const steps=[
+            {label:"Visited",count:stats.funnelVisited,color:"#a3a3a3"},
+            {label:"Signed Up",count:stats.funnelSignedUp,color:"#171717"},
+            {label:"Ranked a Position",count:stats.funnelRankedPos,color:"#3b82f6"},
+            {label:"Ran a Mock Draft",count:stats.funnelRanMock,color:"#f59e0b"},
+            {label:"Shared Results",count:stats.funnelShared,color:"#22c55e"},
+          ];
+          const topCount=steps[0].count||1;
+          return<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:24}}>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:16}}>conversion funnel</div>
+            {steps.map((step,i)=>{
+              const prevCount=i>0?steps[i-1].count:step.count;
+              const convPct=prevCount>0?Math.round(step.count/prevCount*100):0;
+              const barW=topCount>0?Math.max(step.count/topCount*100,step.count>0?2:0):0;
+              return<div key={step.label}>
+                {i>0&&<div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",padding:"2px 0 2px 8px"}}>↓ {convPct}%</div>}
+                <div style={{marginBottom:i<steps.length-1?4:0}}>
+                  <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:3}}>
+                    <span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717"}}>{step.label}</span>
+                    <span style={{fontFamily:mono,fontSize:13,fontWeight:900,color:step.color}}>{step.count}</span>
+                  </div>
+                  <div style={{height:6,background:"#f5f5f5",borderRadius:99,overflow:"hidden"}}>
+                    <div style={{height:"100%",width:barW+"%",background:step.color,borderRadius:99,transition:"width 0.3s"}}/>
+                  </div>
+                </div>
               </div>;
             })}
-          </div>
-        </div>
+          </div>;
+        })()}
 
-        {/* Positions Ranked — compact row */}
-        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:24}}>
-          <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>positions ranked</div>
-          <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
-            {POSITION_GROUPS.map(pos=>{
-              const full=stats.posStats[pos]||0;
-              const partial=stats.partialCount[pos]||0;
-              const c=POS_COLORS[pos];
-              return<div key={pos} style={{textAlign:"center",padding:"6px 10px",background:`${c}08`,borderRadius:6,minWidth:60}}>
-                <div style={{fontFamily:font,fontSize:14,fontWeight:900,color:c}}>{pos}</div>
-                <div style={{fontFamily:mono,fontSize:14,fontWeight:900,color:"#171717"}}>{full}{partial>0&&<span style={{fontSize:10,color:"#ca8a04"}}>+{partial}</span>}</div>
-              </div>;
-            })}
+        {/* SECTION 3: Activity Heatmap — last 14 days */}
+        {stats.heatmap&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:24}}>
+          <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>activity — last 14 days</div>
+          <div style={{display:"flex",gap:4}}>
+            {(()=>{
+              const maxC=Math.max(...stats.heatmap.map(d=>d.count),1);
+              return stats.heatmap.map(d=>{
+                const intensity=d.count/maxC;
+                const bg=d.count===0?"#f5f5f5":`rgba(34,197,94,${0.15+intensity*0.85})`;
+                const dayLabel=new Date(d.date+'T12:00:00').toLocaleDateString('en-US',{weekday:'narrow'});
+                const dateLabel=new Date(d.date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'});
+                return<div key={d.date} style={{flex:1,textAlign:"center"}} title={`${dateLabel}: ${d.count} events`}>
+                  <div style={{height:36,background:bg,borderRadius:4,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:3}}>
+                    <span style={{fontFamily:mono,fontSize:d.count>0?11:9,fontWeight:700,color:d.count===0?"#d4d4d4":intensity>0.5?"#fff":"#166534"}}>{d.count||"·"}</span>
+                  </div>
+                  <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>{dayLabel}</div>
+                </div>;
+              });
+            })()}
           </div>
-        </div>
+        </div>}
 
-        {/* Anonymous Activity */}
-        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:24}}>
-          <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>anonymous activity (7 days)</div>
-          <div style={{display:"flex",flexWrap:"wrap",gap:10}}>
-            {[["Guest Mocks Started",stats.anonMocksStarted,"#737373"],["Guest Mocks Completed",stats.anonMocksCompleted,"#525252"],["Guest Shares",stats.anonShares,"#22c55e"]].map(([l,v,c])=>(
-              <div key={l} style={{padding:"8px 14px",background:"#f9f9f7",borderRadius:8,textAlign:"center",minWidth:100}}>
-                <div style={{fontFamily:font,fontSize:20,fontWeight:900,color:c}}>{v}</div>
-                <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>{l}</div>
-              </div>
-            ))}
-          </div>
-          {stats.anonTopTeams?.length>0&&<div style={{marginTop:12}}>
-            <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginBottom:6}}>popular guest teams</div>
-            <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
-              {stats.anonTopTeams.map(([team,count])=>(
-                <span key={team} style={{fontFamily:mono,fontSize:10,padding:"3px 8px",background:"#f5f5f5",borderRadius:4,color:"#525252"}}>{team} ({count})</span>
-              ))}
+        {/* SECTION 4: Engagement Breakdown — two panels */}
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:24}}>
+          {/* Left: Positions Ranked */}
+          <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>positions ranked <span style={{color:"#d4d4d4"}}>of {stats.totalUsers} users</span></div>
+            <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
+              {POSITION_GROUPS.map(pos=>{
+                const full=stats.posStats[pos]||0;
+                const partial=stats.partialCount[pos]||0;
+                const c=POS_COLORS[pos];
+                return<div key={pos} style={{textAlign:"center",padding:"6px 10px",background:`${c}08`,borderRadius:6,minWidth:55}}>
+                  <div style={{fontFamily:font,fontSize:13,fontWeight:900,color:c}}>{pos}</div>
+                  <div style={{fontFamily:mono,fontSize:13,fontWeight:900,color:"#171717"}}>{full}{partial>0&&<span style={{fontSize:10,color:"#ca8a04"}}>+{partial}</span>}</div>
+                </div>;
+              })}
             </div>
-          </div>}
+          </div>
+          {/* Right: Feature Usage */}
+          <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>feature usage</div>
+            <div style={{display:"flex",flexDirection:"column",gap:8}}>
+              {[
+                {label:"Rankings",started:stats.rankingsStarted,completed:stats.rankingsCompleted,color:"#3b82f6"},
+                {label:"Mocks",started:stats.mocksStarted,completed:stats.mocksCompleted,color:"#f59e0b"},
+              ].map(f=>{
+                const rate=f.started>0?Math.round(f.completed/f.started*100):0;
+                return<div key={f.label} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
+                  <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>{f.label}</span>
+                  <span style={{fontFamily:mono,fontSize:11,color:f.color}}>{f.completed}<span style={{color:"#a3a3a3",fontSize:10}}>/{f.started} </span><span style={{fontWeight:700,color:f.color}}>{rate}%</span></span>
+                </div>;
+              })}
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
+                <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Share Rate</span>
+                <span style={{fontFamily:mono,fontSize:11,color:"#22c55e"}}>{stats.mocksCompleted>0?Math.round(stats.totalShares/stats.mocksCompleted*100):0}% <span style={{color:"#a3a3a3",fontSize:10}}>({stats.totalShares} shares)</span></span>
+              </div>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
+                <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Notes Written</span>
+                <span style={{fontFamily:mono,fontSize:11,color:"#8b5cf6"}}>{stats.noteUsers} <span style={{color:"#a3a3a3",fontSize:10}}>users</span></span>
+              </div>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
+                <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Community Boards</span>
+                <span style={{fontFamily:mono,fontSize:11,color:"#171717"}}>{stats.communityUsers} <span style={{color:"#a3a3a3",fontSize:10}}>published</span></span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Users Table */}
+        {/* SECTION 5: Users Table */}
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",marginBottom:24}}>
           <div style={{padding:"14px 16px",borderBottom:"1px solid #f0f0f0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
             <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717"}}>users ({users.length})</span>
             <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{users.filter(u=>tagUser(u).label==="power user").length} power · {users.filter(u=>tagUser(u).label==="drafter").length} drafters · {users.filter(u=>tagUser(u).label==="ranker").length} rankers</span>
           </div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 70px 70px 70px 90px 90px",gap:4,padding:"8px 16px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5"}}>
-            {["Email","Status","Ranked","Events","Signed Up","Last Active"].map(h=><span key={h} style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>{h}</span>)}
+          <div style={{display:"grid",gridTemplateColumns:"1fr 80px 70px 60px 100px",gap:4,padding:"8px 16px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5"}}>
+            {["Email","Status","Ranked","Mocks","Last Active"].map(h=><span key={h} style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>{h}</span>)}
           </div>
           <div style={{maxHeight:500,overflowY:"auto"}}>
             {users.map((u,i)=>{
               const tag=tagUser(u);
-              return<div key={u.userId} style={{display:"grid",gridTemplateColumns:"1fr 70px 70px 70px 90px 90px",gap:4,padding:"7px 16px",borderBottom:i<users.length-1?"1px solid #f8f8f6":"none",alignItems:"center"}}>
+              return<div key={u.userId} style={{display:"grid",gridTemplateColumns:"1fr 80px 70px 60px 100px",gap:4,padding:"7px 16px",borderBottom:i<users.length-1?"1px solid #f8f8f6":"none",alignItems:"center"}}>
                 <span style={{fontFamily:mono,fontSize:10,color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{u.email||u.userId.slice(0,12)+'…'}</span>
                 <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:tag.color,background:tag.bg,padding:"2px 6px",borderRadius:4,textAlign:"center"}}>{tag.label}</span>
                 <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:u.rankedPositions>0?"#22c55e":"#e5e5e5",textAlign:"center"}}>{u.rankedPositions}/{POSITION_GROUPS.length}</span>
-                <span style={{fontFamily:mono,fontSize:11,color:u.eventCount>0?"#3b82f6":"#e5e5e5",textAlign:"center"}}>{u.eventCount}</span>
-                <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.createdAt?new Date(u.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric'}):""}</span>
+                <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:u.mockCount>0?"#f59e0b":"#e5e5e5",textAlign:"center"}}>{u.mockCount}</span>
                 <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.updatedAt?new Date(u.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric'})+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
               </div>;
             })}
           </div>
         </div>
 
-        {/* Recent Events — compact log */}
+        {/* SECTION 6: Recent Events — collapsible */}
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
-          <div style={{padding:"14px 16px",borderBottom:"1px solid #f0f0f0"}}>
-            <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717"}}>recent events</span>
+          <div style={{padding:"14px 16px",borderBottom:showEventLog?"1px solid #f0f0f0":"none",display:"flex",justifyContent:"space-between",alignItems:"center",cursor:"pointer"}} onClick={()=>setShowEventLog(v=>!v)}>
+            <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717"}}>event log</span>
+            <button style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",background:"#f5f5f5",border:"1px solid #e5e5e5",borderRadius:6,padding:"4px 10px",cursor:"pointer"}}>{showEventLog?"hide":"show"}</button>
           </div>
-          <div style={{maxHeight:350,overflowY:"auto"}}>
+          {showEventLog&&<div style={{maxHeight:350,overflowY:"auto"}}>
             {displayEvents.map((e,i)=>{
               const evtColor=e.event==='signup'?"#22c55e":e.event.includes('mock_draft')?"#f59e0b":e.event==='ranking_completed'?"#3b82f6":e.event==='ranking_started'?"#8b5cf6":e.event==='share_results'?"#22c55e":"#a3a3a3";
-              // Find email for this user
               const eu=users.find(u=>u.userId===e.user_id);
               return<div key={e.id} style={{display:"grid",gridTemplateColumns:"110px 1fr 1fr 120px",gap:6,padding:"5px 16px",borderBottom:i<displayEvents.length-1?"1px solid #fafaf8":"none",fontSize:10,fontFamily:mono,alignItems:"center"}}>
                 <span style={{color:evtColor,fontWeight:700}}>{e.event.replace(/_/g,' ')}</span>
@@ -2066,7 +2099,7 @@ function AdminDashboard({user,onBack}){
                 <span style={{color:"#d4d4d4"}}>{new Date(e.created_at).toLocaleDateString('en-US',{month:'short',day:'numeric'})} {new Date(e.created_at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}</span>
               </div>;
             })}
-          </div>
+          </div>}
         </div>
       </div>
     </div>
