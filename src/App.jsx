@@ -1755,10 +1755,12 @@ function AdminDashboard({user,onBack}){
     (async()=>{
       try{
         // Fetch from all sources in parallel
-        const[boardsRes,communityRes,evtsRes,authCountRes,authUsersRes]=await Promise.all([
+        const fourteenAgo=new Date(Date.now()-14*86400000).toISOString();
+        const[boardsRes,communityRes,evtsRes,heatmapRes,authCountRes,authUsersRes]=await Promise.all([
           supabase.from('boards').select('user_id,board_data,updated_at'),
           supabase.from('community_boards').select('user_id,board_data'),
-          supabase.from('events').select('*').order('created_at',{ascending:false}).limit(1000),
+          supabase.from('events').select('*').order('created_at',{ascending:false}).limit(5000),
+          supabase.from('events').select('created_at').gte('created_at',fourteenAgo).limit(50000),
           supabase.rpc('get_auth_user_count'),
           supabase.rpc('get_auth_users_summary'),
         ]);
@@ -1877,10 +1879,10 @@ function AdminDashboard({user,onBack}){
         const rankers=userDetails.filter(u=>u.rankedPositions>0);
         const avgPositions=rankers.length>0?(rankers.reduce((s,u)=>s+u.rankedPositions,0)/rankers.length).toFixed(1):0;
 
-        // Activity heatmap (last 14 days)
+        // Activity heatmap (last 14 days) — from dedicated date-filtered query
+        const heatmapEvents=heatmapRes.data||[];
         const dayMap={};
-        const fourteenAgo=new Date(now-14*86400000);
-        allEvents.filter(e=>new Date(e.created_at)>=fourteenAgo).forEach(e=>{
+        heatmapEvents.forEach(e=>{
           const d=new Date(e.created_at).toISOString().slice(0,10);
           dayMap[d]=(dayMap[d]||0)+1;
         });
