@@ -1606,10 +1606,13 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
     if(top10.length===0)return;
 
     const scale=2;
-    const W=1080,rowH=120,headerH=80,footerH=48;
-    const H=headerH+rowH*top10.length+footerH+20;
+    const W=1200,padX=32,cardH=114,cardGap=12,headerH=90,footerH=52;
+    const H=headerH+top10.length*(cardH+cardGap)+footerH+16;
     const canvas=document.createElement('canvas');canvas.width=W*scale;canvas.height=H*scale;
     const ctx=canvas.getContext('2d');ctx.scale(scale,scale);
+
+    // Rounded rect helper
+    const rr=(x,y,w,h,r)=>{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();};
 
     // Background
     ctx.fillStyle='#faf9f6';ctx.fillRect(0,0,W,H);
@@ -1625,18 +1628,17 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
 
     // Header
     ctx.textBaseline='top';ctx.textAlign='left';
-    const logoSize=36,logoPad=bblLogoImg?logoSize+12:0;
-    if(bblLogoImg)ctx.drawImage(bblLogoImg,32,16,logoSize,logoSize);
-    ctx.fillStyle='#171717';ctx.font='bold 28px -apple-system,system-ui,sans-serif';
-    const title=singlePos?`MY TOP 10 ${singlePos}s`:'MY BIG BOARD — TOP 10';
-    ctx.fillText(title,32+logoPad,20);
+    if(bblLogoImg)ctx.drawImage(bblLogoImg,padX,22,36,36);
+    ctx.fillStyle='#171717';ctx.font='bold 32px -apple-system,system-ui,sans-serif';
+    const title=singlePos?`\u{1f4cb} MY TOP 10 ${singlePos}s`:'\u{1f4cb} MY BIG BOARD \u2014 TOP 10';
+    ctx.fillText(title,padX+48,22);
     ctx.fillStyle='#a3a3a3';ctx.font='11px ui-monospace,monospace';
-    ctx.fillText('BIGBOARDLAB.COM  ·  2026 NFL DRAFT',32+logoPad,52);
+    ctx.fillText('BIGBOARDLAB.COM  \u00b7  2026 NFL DRAFT',padX+48,56);
 
-    // Separator
-    const sGrad=ctx.createLinearGradient(32,0,W-32,0);
+    // Gradient separator
+    const sGrad=ctx.createLinearGradient(padX,0,W-padX,0);
     sGrad.addColorStop(0,'#ec4899');sGrad.addColorStop(1,'#7c3aed');
-    ctx.fillStyle=sGrad;ctx.fillRect(32,headerH-6,W-64,2);
+    ctx.fillStyle=sGrad;ctx.fillRect(padX,headerH-6,W-padX*2,2);
 
     // Load school logos
     const logoCache={};
@@ -1665,11 +1667,11 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
       ctx.beginPath();pts.forEach(([x,y],i)=>i===0?ctx.moveTo(x,y):ctx.lineTo(x,y));ctx.closePath();
       ctx.fillStyle=color+'25';ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.stroke();
       // Dots
-      pts.forEach(([x,y])=>{ctx.beginPath();ctx.arc(x,y,2,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
+      pts.forEach(([x,y])=>{ctx.beginPath();ctx.arc(x,y,2.5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
       // Labels
-      ctx.fillStyle='#999';ctx.font='8px -apple-system,system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillStyle='#999';ctx.font='9px -apple-system,system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
       traitNames.forEach((t,i)=>{
-        const lr=r+18;const x=cx+lr*Math.cos(angles[i]),y=cy+lr*Math.sin(angles[i]);
+        const lr=r+16;const x=cx+lr*Math.cos(angles[i]),y=cy+lr*Math.sin(angles[i]);
         ctx.fillText(t,x,y);
       });
       ctx.textAlign='left';ctx.textBaseline='top';
@@ -1684,65 +1686,69 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
       p._posRank=posRanks[pk];
     });
 
-    // Rows
+    // Cards
     top10.forEach((p,i)=>{
-      const y=headerH+i*rowH;
+      const cy=headerH+i*(cardH+cardGap);
       const grade=getGrade(p.id);
       const posKey=(p.gpos||p.pos)==='K'||(p.gpos||p.pos)==='P'||(p.gpos||p.pos)==='LS'?'K/P':(p.gpos||p.pos);
       const c=POS_COLORS[posKey]||POS_COLORS[p.pos]||'#525252';
       const posTraits=POSITION_TRAITS[p.pos]||POSITION_TRAITS[posKey]||[];
       const traitVals=posTraits.map(t=>tv(traits,p.id,t,p.name,p.school));
 
-      // Alt row bg
-      if(i%2===0){ctx.fillStyle='rgba(0,0,0,0.025)';ctx.fillRect(24,y,W-48,rowH);}
-      // Left accent
-      ctx.fillStyle=c;ctx.fillRect(24,y+8,4,rowH-16);
+      // Card background — white, rounded, bordered
+      ctx.fillStyle='#ffffff';rr(padX,cy,W-padX*2,cardH,14);ctx.fill();
+      ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;rr(padX,cy,W-padX*2,cardH,14);ctx.stroke();
 
-      // Rank
-      ctx.fillStyle='#d4d4d4';ctx.font='bold 18px ui-monospace,monospace';
-      ctx.textAlign='right';ctx.fillText(`${i+1}`.padStart(2,' '),64,y+48);ctx.textAlign='left';
+      // Position-colored left accent bar
+      ctx.fillStyle=c;ctx.fillRect(padX+1,cy+8,4,cardH-16);
 
-      // Pos pill
-      ctx.fillStyle=c+'18';
-      const posText=p.gpos||p.pos;
-      ctx.font='bold 11px ui-monospace,monospace';
-      const pw=ctx.measureText(posText).width+14;
-      const rr=(x,ry,w,h,rad)=>{ctx.beginPath();ctx.moveTo(x+rad,ry);ctx.lineTo(x+w-rad,ry);ctx.quadraticCurveTo(x+w,ry,x+w,ry+rad);ctx.lineTo(x+w,ry+h-rad);ctx.quadraticCurveTo(x+w,ry+h,x+w-rad,ry+h);ctx.lineTo(x+rad,ry+h);ctx.quadraticCurveTo(x,ry+h,x,ry+h-rad);ctx.lineTo(x,ry+rad);ctx.quadraticCurveTo(x,ry,x+rad,ry);ctx.closePath();};
-      rr(78,y+42,pw,20,4);ctx.fill();
-      ctx.fillStyle=c;ctx.fillText(posText,85,y+47);
+      // Rank — bold 28px mono, right-aligned
+      ctx.fillStyle='#d4d4d4';ctx.font='bold 28px ui-monospace,monospace';
+      ctx.textAlign='right';ctx.fillText(`${i+1}`.padStart(2,' '),padX+56,cy+cardH/2-14);ctx.textAlign='left';
 
       // School logo
-      const logoX=78+pw+14;
-      if(logoCache[p.school])ctx.drawImage(logoCache[p.school],logoX,y+26,44,44);
+      if(logoCache[p.school])ctx.drawImage(logoCache[p.school],padX+70,cy+cardH/2-24,48,48);
 
-      // Name + school + position rank
-      const nameX=logoX+54;
-      ctx.fillStyle='#171717';ctx.font='bold 20px -apple-system,system-ui,sans-serif';
-      ctx.fillText(p.name,nameX,y+30);
-      ctx.fillStyle='#a3a3a3';ctx.font='12px -apple-system,system-ui,sans-serif';
-      ctx.fillText(p.school,nameX,y+54);
-      // Position rank label + trait badges
-      ctx.font='12px -apple-system,system-ui,sans-serif';
-      let afterSchoolX=nameX+ctx.measureText(p.school).width;
+      // Player name
+      ctx.fillStyle='#171717';ctx.font='bold 22px -apple-system,system-ui,sans-serif';
+      ctx.fillText(p.name,padX+130,cy+26);
+
+      // Second line: position pill + school + position rank + badges
+      const posText=p.gpos||p.pos;
+      ctx.font='bold 12px ui-monospace,monospace';
+      const pw=ctx.measureText(posText).width+14;
+      // Position pill
+      ctx.fillStyle=c+'18';rr(padX+130,cy+54-4,pw,24,6);ctx.fill();
+      ctx.fillStyle=c;ctx.font='bold 12px ui-monospace,monospace';
+      ctx.fillText(posText,padX+130+7,cy+54+2);
+
+      // School name
+      let afterX=padX+130+pw+10;
+      ctx.fillStyle='#a3a3a3';ctx.font='13px -apple-system,system-ui,sans-serif';
+      ctx.fillText(p.school,afterX,cy+54+2);
+      afterX+=ctx.measureText(p.school).width;
+
+      // Position rank
       if(p._posRank){
         const prText=posText+p._posRank;
-        afterSchoolX+=10;
-        ctx.fillStyle=c;ctx.font='bold 10px ui-monospace,monospace';
-        ctx.fillText(prText,afterSchoolX,y+55);
-        afterSchoolX+=ctx.measureText(prText).width;
+        afterX+=12;
+        ctx.fillStyle=c;ctx.font='bold 11px ui-monospace,monospace';
+        ctx.fillText(prText,afterX,cy+54+3);
+        afterX+=ctx.measureText(prText).width;
       }
-      // Trait badge emojis
-      const badges=prospectBadges[p.id]||[];
-      if(badges.length>0){afterSchoolX+=12;ctx.font='14px -apple-system,system-ui,sans-serif';badges.forEach(b=>{ctx.fillText(b.emoji,afterSchoolX,y+52);afterSchoolX+=18;});}
 
-      // Radar chart (shifted left for full labels)
-      const radarCx=W-220,radarCy=y+rowH/2,radarR=38;
+      // Badge emojis
+      const badges=prospectBadges[p.id]||[];
+      if(badges.length>0){afterX+=14;ctx.font='15px -apple-system,system-ui,sans-serif';badges.forEach(b=>{ctx.fillText(b.emoji,afterX,cy+54);afterX+=20;});}
+
+      // Radar chart
+      const radarCx=W-padX-170,radarCy=cy+cardH/2,radarR=42;
       if(posTraits.length>=3)drawRadar(radarCx,radarCy,radarR,posTraits,traitVals,c);
 
-      // Grade
+      // Grade — bold 36px, right-aligned
       const gColor=grade>=75?'#16a34a':grade>=55?'#ca8a04':'#dc2626';
-      ctx.fillStyle=gColor;ctx.font='bold 32px -apple-system,system-ui,sans-serif';
-      ctx.textAlign='right';ctx.fillText(`${grade}`,W-42,y+42);ctx.textAlign='left';
+      ctx.fillStyle=gColor;ctx.font='bold 36px -apple-system,system-ui,sans-serif';
+      ctx.textAlign='right';ctx.fillText(`${grade}`,W-padX-16,cy+34);ctx.textAlign='left';
     });
 
     // Footer
@@ -1750,13 +1756,13 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
     ctx.fillStyle='#111';ctx.fillRect(0,fy,W,footerH);
     let footerLogoImg=null;
     try{footerLogoImg=new Image();footerLogoImg.src=BBL_LOGO_B64;await new Promise((res,rej)=>{footerLogoImg.onload=res;footerLogoImg.onerror=rej;setTimeout(rej,2000);});}catch(e){footerLogoImg=null;}
-    if(footerLogoImg)ctx.drawImage(footerLogoImg,24,fy+8,32,32);
+    if(footerLogoImg)ctx.drawImage(footerLogoImg,padX,fy+10,32,32);
     ctx.fillStyle='#fff';ctx.font='bold 14px -apple-system,system-ui,sans-serif';
     ctx.textBaseline='middle';
-    ctx.fillText('bigboardlab.com',24+44,fy+footerH/2);
+    ctx.fillText('bigboardlab.com',padX+44,fy+footerH/2);
     ctx.fillStyle='#888';ctx.font='11px -apple-system,system-ui,sans-serif';
     ctx.textAlign='right';
-    ctx.fillText(`${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}  ·  BUILD YOURS → BIGBOARDLAB.COM`,W-32,fy+footerH/2);
+    ctx.fillText(`${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}  \u00b7  BUILD YOURS \u2192 BIGBOARDLAB.COM`,W-padX,fy+footerH/2);
     ctx.textAlign='left';ctx.textBaseline='top';
     // Gradient bottom bar
     const bGrad=ctx.createLinearGradient(0,0,W,0);bGrad.addColorStop(0,'#ec4899');bGrad.addColorStop(1,'#7c3aed');
