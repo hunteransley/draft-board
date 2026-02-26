@@ -628,6 +628,9 @@ async function main() {
       bench: p.bench || null,
       cone: p.cone || null,
       shuttle: p.shuttle || null,
+      arms: null,
+      hands: null,
+      wingspan: null,
     };
   });
 
@@ -656,6 +659,10 @@ async function main() {
         const cone = parseNum(row.cone);
         const shuttle = parseNum(row.shuttle);
 
+        const arms = parseNum(row.arms || row.arm_length || row.arm);
+        const hands = parseNum(row.hands || row.hand_size || row.hand);
+        const wing = parseNum(row.wingspan || row.wing);
+
         if (htRaw) r.heightInches = htRaw;
         if (ht) r.height = ht;
         if (wt) r.weight = wt;
@@ -665,6 +672,9 @@ async function main() {
         if (bench) r.bench = bench;
         if (cone) r.cone = cone;
         if (shuttle) r.shuttle = shuttle;
+        if (arms) r.arms = arms;
+        if (hands) r.hands = hands;
+        if (wing) r.wingspan = wing;
         matchCount++;
       }
     });
@@ -696,6 +706,9 @@ async function main() {
         if (!r.bench) r.bench = parseNum(row.bench);
         if (!r.cone) r.cone = parseNum(row.cone || row['3cone'] || row['3-cone']);
         if (!r.shuttle) r.shuttle = parseNum(row.shuttle);
+        if (!r.arms) r.arms = parseNum(row.arms || row.arm_length || row.arm);
+        if (!r.hands) r.hands = parseNum(row.hands || row.hand_size || row.hand);
+        if (!r.wingspan) r.wingspan = parseNum(row.wingspan || row.wing);
         manualCount++;
       }
     });
@@ -737,9 +750,11 @@ async function main() {
   BBL_PROSPECTS.forEach(p => {
     const r = results[p.name];
     // Only include prospects with at least some data
-    const hasData = r.height || r.weight || r.forty || r.vertical || r.broad || r.bench || r.cone || r.shuttle;
+    const hasData = r.height || r.weight || r.forty || r.vertical || r.broad || r.bench || r.cone || r.shuttle || r.arms || r.hands || r.wingspan;
     if (!hasData) return;
     const key = normName(p.name) + '|' + p.school.toLowerCase().trim();
+    // Compute Speed Score: (weight * 200) / (forty^4) — weight-adjusted speed metric
+    const speedScore = (r.weight && r.forty) ? Math.round((r.weight * 200) / Math.pow(r.forty, 4) * 100) / 100 : null;
     combineJson[key] = {
       height: r.heightInches || null,
       weight: r.weight || null,
@@ -749,6 +764,10 @@ async function main() {
       bench: r.bench || null,
       cone: r.cone || null,
       shuttle: r.shuttle || null,
+      arms: r.arms || null,
+      hands: r.hands || null,
+      wingspan: r.wingspan || null,
+      speedScore: speedScore,
     };
   });
   fs.writeFileSync(COMBINE_JSON_PATH, JSON.stringify(combineJson, null, 2));

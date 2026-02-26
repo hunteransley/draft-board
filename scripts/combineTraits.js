@@ -1,10 +1,17 @@
 #!/usr/bin/env node
 /**
- * Combine Trait Adjustment Calculator
+ * Combine Trait Adjustment Calculator (v2 — Winks Research-Based)
  *
- * Reads src/combineData.json + src/scoutingTraits.json, applies deterministic
- * drill-to-trait mappings using lerp breakpoints, outputs
+ * Reads src/combineData.json + src/scoutingTraits.json, applies research-backed
+ * drill-to-trait mappings with Speed Score and position splits, outputs
  * scripts/combine-trait-adjustments.json for review.
+ *
+ * KEY CHANGES from v1 (based on Hayden Winks combine research):
+ * - Speed Score (weight-adjusted 40) added as primary for most positions; raw 40 kept as partial
+ * - Position splits: RB at 210lbs, WR at 6'0, DT at 310lbs
+ * - Three Cone is #1 for EDGE (promoted from partial to primary)
+ * - Bench Press demoted everywhere except OT
+ * - Vertical promoted for CB and S
  *
  * USAGE:
  *   node scripts/combineTraits.js                       # all prospects
@@ -62,7 +69,7 @@ const POSITION_TRAITS = {
   S: ["Man Coverage", "Range", "Ball Skills", "Tackling", "Speed", "Nickel"],
 };
 
-// ── Lerp function (from statTraits.js) ───────────────────────
+// ── Lerp function ────────────────────────────────────────────
 function lerp(val, bps) {
   if (val <= bps[0][0]) return bps[0][1];
   if (val >= bps[bps.length - 1][0]) return bps[bps.length - 1][1];
@@ -76,10 +83,16 @@ function lerp(val, bps) {
   return bps[bps.length - 1][1];
 }
 
-// ── Position-Specific Breakpoints ────────────────────────────
-// For "lower is better" drills (40, cone, shuttle), breakpoints are
-// ascending in time but descending in score — lerp handles this naturally.
+// ── Speed Score ──────────────────────────────────────────────
+// Formula: (weight * 200) / (forty^4)
+// Higher = better. Contextualizes speed relative to mass.
+function speedScore(weight, forty) {
+  if (!weight || !forty) return null;
+  return Math.round((weight * 200) / Math.pow(forty, 4) * 100) / 100;
+}
 
+// ── Position-Specific Breakpoints ────────────────────────────
+// Raw drill breakpoints (lower is better for forty/cone/shuttle)
 const BREAKPOINTS = {
   forty: {
     QB:   [[4.40,99],[4.50,90],[4.60,80],[4.70,68],[4.80,55],[4.95,40],[5.10,28]],
@@ -159,86 +172,184 @@ const BREAKPOINTS = {
     CB:   [[3.85,99],[3.98,90],[4.10,78],[4.22,65],[4.35,52],[4.50,38]],
     S:    [[3.95,99],[4.08,88],[4.20,75],[4.32,62],[4.45,48],[4.60,35]],
   },
+  // Speed Score breakpoints by position (higher = better)
+  // Calibrated from nflverse historical combine data distributions
+  speedScore: {
+    RB:   [[85,35],[95,48],[105,60],[115,72],[125,82],[135,92],[145,99]],
+    WR:   [[80,35],[90,48],[100,60],[110,72],[120,82],[130,92],[140,99]],
+    TE:   [[85,35],[95,48],[105,62],[115,75],[125,85],[135,95],[145,99]],
+    IOL:  [[65,35],[72,48],[80,60],[88,72],[95,82],[103,92],[110,99]],
+    EDGE: [[90,35],[100,48],[110,62],[120,75],[130,85],[140,95],[150,99]],
+    DL:   [[75,35],[85,48],[95,62],[105,75],[115,85],[125,95],[135,99]],
+    LB:   [[90,35],[100,48],[110,62],[120,75],[130,85],[140,95],[150,99]],
+    S:    [[85,35],[95,48],[105,62],[115,75],[125,85],[135,95],[145,99]],
+  },
 };
 
-// ── Drill-to-Trait Mappings ──────────────────────────────────
+// ── Research-Backed Drill-to-Trait Mappings ──────────────────
+// Based on Hayden Winks' research on which drills are predictive by position.
+//
 // "primary" = 75% scouting + 25% combine
 // "partial" = 85% scouting + 15% combine
-const DRILL_TRAIT_MAP = {
-  QB: {
-    forty: [{ trait: "Mobility", weight: "partial" }],
-  },
-  RB: {
-    forty:    [{ trait: "Speed", weight: "primary" }],
-    bench:    [{ trait: "Power", weight: "partial" }],
-    vertical: [{ trait: "Elusiveness", weight: "partial" }],
-    broad:    [{ trait: "Elusiveness", weight: "partial" }],
-    cone:     [{ trait: "Elusiveness", weight: "primary" }],
-    shuttle:  [{ trait: "Contact Balance", weight: "partial" }],
-  },
-  WR: {
-    forty:    [{ trait: "Speed", weight: "primary" }],
-    vertical: [{ trait: "Contested Catches", weight: "partial" }],
-    broad:    [{ trait: "YAC Ability", weight: "partial" }],
-    cone:     [{ trait: "Route Running", weight: "partial" }],
-    shuttle:  [{ trait: "Separation", weight: "partial" }],
-  },
-  TE: {
-    forty:    [{ trait: "Speed", weight: "primary" }],
-    bench:    [{ trait: "Blocking", weight: "partial" }],
-    vertical: [{ trait: "Athleticism", weight: "primary" }],
-    broad:    [{ trait: "Athleticism", weight: "partial" }],
-    cone:     [{ trait: "Route Running", weight: "partial" }],
-  },
-  OT: {
-    bench:    [{ trait: "Strength", weight: "primary" }],
-    broad:    [{ trait: "Athleticism", weight: "primary" }],
-    cone:     [{ trait: "Footwork", weight: "partial" }],
-    shuttle:  [{ trait: "Footwork", weight: "partial" }],
-    forty:    [{ trait: "Athleticism", weight: "partial" }],
-  },
-  IOL: {
-    bench:    [{ trait: "Strength", weight: "primary" }],
-    broad:    [{ trait: "Pulling", weight: "partial" }],
-    cone:     [{ trait: "Pulling", weight: "partial" }],
-    shuttle:  [{ trait: "Versatility", weight: "partial" }],
-  },
-  EDGE: {
-    forty:    [{ trait: "First Step", weight: "partial" }],
-    bench:    [{ trait: "Power", weight: "primary" }],
-    vertical: [{ trait: "Bend", weight: "partial" }],
-    broad:    [{ trait: "First Step", weight: "partial" }],
-    cone:     [{ trait: "Bend", weight: "primary" }],
-    shuttle:  [{ trait: "Bend", weight: "partial" }],
-  },
-  DL: {
-    bench:    [{ trait: "Strength", weight: "primary" }],
-    forty:    [{ trait: "First Step", weight: "partial" }],
-    broad:    [{ trait: "First Step", weight: "partial" }],
-    cone:     [{ trait: "Hand Usage", weight: "partial" }],
-  },
-  LB: {
-    forty:    [{ trait: "Athleticism", weight: "primary" }],
-    bench:    [{ trait: "Pass Rush", weight: "partial" }],
-    vertical: [{ trait: "Athleticism", weight: "partial" }],
-    broad:    [{ trait: "Range", weight: "partial" }],
-    cone:     [{ trait: "Coverage", weight: "partial" }],
-    shuttle:  [{ trait: "Coverage", weight: "partial" }],
-  },
-  CB: {
-    forty:    [{ trait: "Speed", weight: "primary" }],
-    vertical: [{ trait: "Ball Skills", weight: "partial" }],
-    cone:     [{ trait: "Man Coverage", weight: "primary" }],
-    shuttle:  [{ trait: "Zone Coverage", weight: "partial" }],
-  },
-  S: {
-    forty:    [{ trait: "Speed", weight: "primary" }],
-    broad:    [{ trait: "Range", weight: "partial" }],
-    cone:     [{ trait: "Man Coverage", weight: "partial" }],
-    shuttle:  [{ trait: "Nickel", weight: "partial" }],
-    bench:    [{ trait: "Tackling", weight: "partial" }],
-  },
-};
+//
+// getDrillTraitMap returns position-specific mappings that may vary
+// based on prospect height/weight (size splits).
+
+function getDrillTraitMap(pos, data) {
+  const weight = data.weight || 0;
+  const height = data.height || 0; // in inches
+
+  switch (pos) {
+    case "QB":
+      return {
+        forty: [{ trait: "Mobility", weight: "partial" }],
+      };
+
+    case "RB":
+      if (weight < 210) {
+        // Small RBs: Three Cone and agility matter most
+        return {
+          cone:     [{ trait: "Elusiveness", weight: "primary" }],
+          shuttle:  [{ trait: "Contact Balance", weight: "primary" }],
+          speedScore: [{ trait: "Speed", weight: "partial" }],
+          forty:    [{ trait: "Speed", weight: "partial" }],
+          broad:    [{ trait: "Elusiveness", weight: "partial" }],
+          vertical: [{ trait: "Elusiveness", weight: "partial" }],
+        };
+      } else {
+        // Big RBs (210+): Speed Score and Broad Jump matter most
+        return {
+          speedScore: [{ trait: "Speed", weight: "primary" }],
+          broad:    [{ trait: "Power", weight: "primary" }],
+          forty:    [{ trait: "Speed", weight: "partial" }],
+          cone:     [{ trait: "Elusiveness", weight: "partial" }],
+          shuttle:  [{ trait: "Contact Balance", weight: "partial" }],
+          vertical: [{ trait: "Elusiveness", weight: "partial" }],
+        };
+      }
+
+    case "WR":
+      if (height < 72) {
+        // Small WRs (<6'0): Speed Score and Shuttle matter most
+        return {
+          speedScore: [{ trait: "Speed", weight: "primary" }],
+          shuttle:  [{ trait: "Separation", weight: "primary" }],
+          forty:    [{ trait: "Speed", weight: "partial" }],
+          cone:     [{ trait: "Route Running", weight: "partial" }],
+          broad:    [{ trait: "YAC Ability", weight: "partial" }],
+          vertical: [{ trait: "Contested Catches", weight: "partial" }],
+        };
+      } else {
+        // Big WRs (6'0+): Broad Jump matters most
+        return {
+          broad:    [{ trait: "YAC Ability", weight: "primary" }, { trait: "Contested Catches", weight: "partial" }],
+          speedScore: [{ trait: "Speed", weight: "partial" }],
+          forty:    [{ trait: "Speed", weight: "partial" }],
+          shuttle:  [{ trait: "Separation", weight: "partial" }],
+          cone:     [{ trait: "Route Running", weight: "partial" }],
+          vertical: [{ trait: "Contested Catches", weight: "partial" }],
+        };
+      }
+
+    case "TE":
+      // Speed Score, Three Cone, and Vertical matter most
+      return {
+        speedScore: [{ trait: "Speed", weight: "primary" }],
+        cone:     [{ trait: "Route Running", weight: "primary" }],
+        vertical: [{ trait: "Athleticism", weight: "primary" }],
+        forty:    [{ trait: "Speed", weight: "partial" }],
+        broad:    [{ trait: "Athleticism", weight: "partial" }],
+        bench:    [{ trait: "Blocking", weight: "partial" }],
+      };
+
+    case "OT":
+      // Raw 40, Broad Jump, and Bench matter most (one of few positions where bench is predictive)
+      return {
+        forty:    [{ trait: "Athleticism", weight: "primary" }],
+        broad:    [{ trait: "Athleticism", weight: "primary" }],
+        bench:    [{ trait: "Strength", weight: "primary" }],
+        cone:     [{ trait: "Footwork", weight: "partial" }],
+        shuttle:  [{ trait: "Footwork", weight: "partial" }],
+      };
+
+    case "IOL":
+      // Speed Score and Short Shuttle matter most
+      return {
+        speedScore: [{ trait: "Pulling", weight: "primary" }],
+        shuttle:  [{ trait: "Versatility", weight: "primary" }],
+        forty:    [{ trait: "Pulling", weight: "partial" }],
+        broad:    [{ trait: "Pulling", weight: "partial" }],
+        cone:     [{ trait: "Pulling", weight: "partial" }],
+        bench:    [{ trait: "Strength", weight: "partial" }],
+      };
+
+    case "EDGE":
+      // Three Cone is #1, then Broad Jump and Speed Score
+      return {
+        cone:     [{ trait: "Bend", weight: "primary" }],
+        broad:    [{ trait: "First Step", weight: "primary" }],
+        speedScore: [{ trait: "First Step", weight: "primary" }],
+        forty:    [{ trait: "First Step", weight: "partial" }],
+        shuttle:  [{ trait: "Bend", weight: "partial" }],
+        bench:    [{ trait: "Power", weight: "partial" }],
+        vertical: [{ trait: "Bend", weight: "partial" }],
+      };
+
+    case "DL":
+      if (weight < 310) {
+        // Sub-310 DT: Speed Score and Three Cone matter most
+        return {
+          speedScore: [{ trait: "First Step", weight: "primary" }],
+          cone:     [{ trait: "Hand Usage", weight: "primary" }],
+          forty:    [{ trait: "First Step", weight: "partial" }],
+          broad:    [{ trait: "First Step", weight: "partial" }],
+          bench:    [{ trait: "Strength", weight: "partial" }],
+        };
+      } else {
+        // 310+ DT: Speed Score matters most (other drills less predictive)
+        return {
+          speedScore: [{ trait: "First Step", weight: "primary" }],
+          forty:    [{ trait: "First Step", weight: "partial" }],
+          broad:    [{ trait: "First Step", weight: "partial" }],
+          bench:    [{ trait: "Strength", weight: "partial" }],
+        };
+      }
+
+    case "LB":
+      // Speed Score and Short Shuttle matter most
+      return {
+        speedScore: [{ trait: "Athleticism", weight: "primary" }],
+        shuttle:  [{ trait: "Coverage", weight: "primary" }],
+        forty:    [{ trait: "Athleticism", weight: "partial" }],
+        broad:    [{ trait: "Range", weight: "partial" }],
+        cone:     [{ trait: "Coverage", weight: "partial" }],
+        vertical: [{ trait: "Athleticism", weight: "partial" }],
+      };
+
+    case "CB":
+      // Raw 40, Vertical, and Three Cone matter most
+      return {
+        forty:    [{ trait: "Speed", weight: "primary" }],
+        vertical: [{ trait: "Ball Skills", weight: "primary" }],
+        cone:     [{ trait: "Man Coverage", weight: "primary" }],
+        shuttle:  [{ trait: "Zone Coverage", weight: "partial" }],
+      };
+
+    case "S":
+      // Speed Score and Vertical matter most
+      return {
+        speedScore: [{ trait: "Speed", weight: "primary" }],
+        vertical: [{ trait: "Range", weight: "primary" }],
+        forty:    [{ trait: "Speed", weight: "partial" }],
+        broad:    [{ trait: "Range", weight: "partial" }],
+        cone:     [{ trait: "Man Coverage", weight: "partial" }],
+        shuttle:  [{ trait: "Nickel", weight: "partial" }],
+      };
+
+    default:
+      return {};
+  }
+}
 
 // ── Helpers ──────────────────────────────────────────────────
 function normalize(name) {
@@ -246,15 +357,11 @@ function normalize(name) {
 }
 
 function getPosition(key) {
-  // Check prospectStats for gpos first
   if (prospectStats[key]?.gpos) return prospectStats[key].gpos;
-  // Fall back — try to extract from BBL list embedded in App.jsx
-  // Parse the pos from the key lookup approach
   return null;
 }
 
 function getDisplayName(key) {
-  // Try prospectStats first — no display name there, reconstruct from key
   const parts = key.split("|");
   const name = parts[0].split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
   return name;
@@ -270,36 +377,62 @@ for (let i = 0; i < args.length; i++) {
 }
 
 // ── Main ─────────────────────────────────────────────────────
-console.log(`\n${c.cyan}${c.bold}NFL Combine Trait Calculator${c.reset}\n`);
+console.log(`\n${c.cyan}${c.bold}NFL Combine Trait Calculator v2 (Winks Research)${c.reset}\n`);
 
 const adjustments = {};
 let totalAdjustments = 0;
 let prospectsWithData = 0;
+let speedScoreCount = 0;
+let splitCount = { smallRB: 0, bigRB: 0, smallWR: 0, bigWR: 0, lightDT: 0, heavyDT: 0 };
 
 for (const [key, data] of Object.entries(combineData)) {
   const pos = getPosition(key);
-  if (!pos || !DRILL_TRAIT_MAP[pos]) continue;
+  if (!pos) continue;
 
   // Apply filters
   if (filterPosition && pos !== filterPosition) continue;
   if (filterProspect && !key.includes(filterProspect)) continue;
 
+  // Compute Speed Score if we have weight + forty
+  const ss = speedScore(data.weight, data.forty);
+  const dataWithSS = { ...data, speedScore: ss };
+
+  // Get position-specific drill map (may vary by weight/height)
+  const drillMap = getDrillTraitMap(pos, data);
+  if (!drillMap || Object.keys(drillMap).length === 0) continue;
+
+  // Track splits
+  if (pos === "RB") { if ((data.weight || 999) < 210) splitCount.smallRB++; else splitCount.bigRB++; }
+  if (pos === "WR") { if ((data.height || 999) < 72) splitCount.smallWR++; else splitCount.bigWR++; }
+  if (pos === "DL") { if ((data.weight || 999) < 310) splitCount.lightDT++; else splitCount.heavyDT++; }
+
   const scouting = scoutingTraits[key];
-  const drillMap = DRILL_TRAIT_MAP[pos];
 
   // Collect all drill scores mapped to traits
-  const traitInputs = {}; // trait -> [{score, weight}]
+  const traitInputs = {};
   const drillsUsed = {};
 
   for (const [drill, mappings] of Object.entries(drillMap)) {
-    const drillVal = data[drill];
-    if (drillVal == null) continue;
+    let drillVal;
+    let displayVal;
 
+    if (drill === "speedScore") {
+      if (!ss) continue;
+      drillVal = ss;
+      displayVal = ss;
+      speedScoreCount++;
+    } else {
+      drillVal = data[drill];
+      displayVal = data[drill];
+      if (drillVal == null) continue;
+    }
+
+    // Get breakpoints — speedScore has its own, raw drills use position-specific
     const bps = BREAKPOINTS[drill]?.[pos];
     if (!bps) continue;
 
     const combineScore = lerp(drillVal, bps);
-    drillsUsed[drill] = drillVal;
+    drillsUsed[drill] = displayVal;
 
     for (const { trait, weight } of mappings) {
       if (!traitInputs[trait]) traitInputs[trait] = [];
@@ -322,12 +455,11 @@ for (const [key, data] of Object.entries(combineData)) {
     let weightType;
 
     if (hasPrimary) {
-      // Use primary drill score
-      const primary = inputs.find(i => i.weight === "primary");
-      combineScore = primary.combineScore;
+      // Average all primary drill scores (may have multiple primaries now)
+      const primaries = inputs.filter(i => i.weight === "primary");
+      combineScore = Math.round(primaries.reduce((sum, i) => sum + i.combineScore, 0) / primaries.length);
       weightType = "primary";
     } else {
-      // Average all partial drill scores
       const avg = inputs.reduce((sum, i) => sum + i.combineScore, 0) / inputs.length;
       combineScore = Math.round(avg);
       weightType = "partial";
@@ -338,28 +470,39 @@ for (const [key, data] of Object.entries(combineData)) {
     const delta = blended - current;
 
     if (delta !== 0) {
-      traitAdjustments[trait] = { current, combineScore, blended, weight: weightType, delta };
+      traitAdjustments[trait] = { current, combineScore, blended, weight: weightType, delta, drills: inputs.map(i => i.drill) };
       totalAdjustments++;
     }
   }
 
   if (Object.keys(traitAdjustments).length > 0) {
+    // Determine which split was used
+    let split = null;
+    if (pos === "RB") split = (data.weight || 999) < 210 ? "<210lbs" : "210+lbs";
+    if (pos === "WR") split = (data.height || 999) < 72 ? "<6'0" : "6'0+";
+    if (pos === "DL") split = (data.weight || 999) < 310 ? "<310lbs" : "310+lbs";
+
     adjustments[key] = {
       name: displayName,
       position: pos,
+      split,
+      speedScore: ss,
       drills: drillsUsed,
       traitAdjustments,
     };
 
     // Console output
-    console.log(`${c.bold}${displayName}${c.reset} ${c.gray}(${pos})${c.reset}`);
+    const splitTag = split ? ` ${c.magenta}[${split}]${c.reset}` : "";
+    console.log(`${c.bold}${displayName}${c.reset} ${c.gray}(${pos})${c.reset}${splitTag}`);
     const drillStr = Object.entries(drillsUsed).map(([d, v]) => `${d}: ${v}`).join(", ");
     console.log(`  ${c.dim}Drills: ${drillStr}${c.reset}`);
+    if (ss) console.log(`  ${c.blue}Speed Score: ${ss}${c.reset}`);
 
     for (const [trait, adj] of Object.entries(traitAdjustments)) {
       const arrow = adj.delta > 0 ? `${c.green}+${adj.delta}` : `${c.red}${adj.delta}`;
       const tag = adj.weight === "primary" ? `${c.yellow}primary${c.reset}` : `${c.gray}partial${c.reset}`;
-      console.log(`  ${trait}: ${adj.current} ${c.dim}->${c.reset} ${c.bold}${adj.blended}${c.reset} (${arrow}${c.reset}) [${tag}] ${c.dim}combine=${adj.combineScore}${c.reset}`);
+      const drillList = adj.drills.join("+");
+      console.log(`  ${trait}: ${adj.current} ${c.dim}->${c.reset} ${c.bold}${adj.blended}${c.reset} (${arrow}${c.reset}) [${tag}] ${c.dim}combine=${adj.combineScore} via ${drillList}${c.reset}`);
     }
     console.log();
   }
@@ -369,8 +512,12 @@ for (const [key, data] of Object.entries(combineData)) {
 const output = {
   meta: {
     timestamp: new Date().toISOString(),
+    version: 2,
+    methodology: "Hayden Winks research-based drill-to-trait mapping with Speed Score and position splits",
     prospects_with_data: prospectsWithData,
     adjustments_computed: totalAdjustments,
+    speed_scores_computed: speedScoreCount,
+    position_splits: splitCount,
   },
   adjustments,
 };
@@ -381,6 +528,13 @@ writeFileSync(outPath, JSON.stringify(output, null, 2));
 console.log(`${c.cyan}${c.bold}Summary${c.reset}`);
 console.log(`  Prospects with combine data: ${prospectsWithData}`);
 console.log(`  Trait adjustments computed: ${totalAdjustments}`);
+console.log(`  Speed Scores used: ${speedScoreCount}`);
+if (splitCount.smallRB + splitCount.bigRB > 0)
+  console.log(`  RB splits: ${splitCount.smallRB} small (<210) / ${splitCount.bigRB} big (210+)`);
+if (splitCount.smallWR + splitCount.bigWR > 0)
+  console.log(`  WR splits: ${splitCount.smallWR} small (<6'0) / ${splitCount.bigWR} big (6'0+)`);
+if (splitCount.lightDT + splitCount.heavyDT > 0)
+  console.log(`  DT splits: ${splitCount.lightDT} light (<310) / ${splitCount.heavyDT} heavy (310+)`);
 console.log(`  Output: ${outPath}\n`);
 
 if (prospectsWithData === 0) {
