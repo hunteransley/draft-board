@@ -1092,12 +1092,14 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       ctx.fillStyle='#a3a3a3';ctx.font='11px ui-monospace,monospace';
       ctx.fillText('BIGBOARDLAB.COM  \u00b7  2026 NFL DRAFT',pad,60);
 
-      try{const tLogo=await loadImg(nflLogoUrl(team));ctx.drawImage(tLogo,W-pad-48,18,48,48);}catch(e){}
+      // Team logo flush right, text left of logo
+      const teamLogoX=W-pad-44;
+      try{const tLogo=await loadImg(nflLogoUrl(team));ctx.drawImage(tLogo,teamLogoX,16,44,44);}catch(e){}
       ctx.textAlign='right';
       ctx.fillStyle='#171717';ctx.font='bold 20px -apple-system,system-ui,sans-serif';
-      ctx.fillText(team,W-pad-56,22);
-      if(draftGrade){ctx.fillStyle=draftGrade.color;ctx.font='bold 32px -apple-system,system-ui,sans-serif';ctx.fillText(draftGrade.grade,W-pad-56,48);}
-      if(tradeValueDelta!==0){ctx.fillStyle=tradeValueDelta>0?'#16a34a':'#dc2626';ctx.font='9px ui-monospace,monospace';ctx.fillText('trade: '+(tradeValueDelta>0?'+':'')+tradeValueDelta+' pts',W-pad-56,draftGrade?76:48);}
+      ctx.fillText(team,teamLogoX-10,22);
+      if(draftGrade){ctx.fillStyle=draftGrade.color;ctx.font='bold 32px -apple-system,system-ui,sans-serif';ctx.fillText(draftGrade.grade,teamLogoX-10,48);}
+      if(tradeValueDelta!==0){ctx.fillStyle=tradeValueDelta>0?'#16a34a':'#dc2626';ctx.font='9px ui-monospace,monospace';ctx.fillText('trade: '+(tradeValueDelta>0?'+':'')+tradeValueDelta+' pts',teamLogoX-10,draftGrade?76:48);}
       ctx.textAlign='left';
 
       // Separator — matching My Guys
@@ -1154,11 +1156,11 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         ctx.fillStyle=c+'18';rr(pad+68,py+10,posW,20,4);ctx.fill();
         ctx.fillStyle=c;ctx.fillText(posText,pad+75,py+16);
 
-        // School logo
+        // School logo — fixed x so all rows align regardless of pill width
         const sLogo=schoolCache[p.school];
-        const logoX=pad+68+posW+10;
-        if(sLogo)ctx.drawImage(sLogo,logoX,py+8,24,24);
-        const nameX=logoX+(sLogo?30:0);
+        const fixedLogoX=pad+120;
+        if(sLogo)ctx.drawImage(sLogo,fixedLogoX,py+8,24,24);
+        const nameX=fixedLogoX+(sLogo?30:0);
 
         // Player name — bold 16px sans, #171717
         ctx.fillStyle='#171717';ctx.font='bold 16px -apple-system,system-ui,sans-serif';
