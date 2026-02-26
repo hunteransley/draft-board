@@ -1852,6 +1852,28 @@ function AdminDashboard({user,onBack}){
           };
         }).sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt));
 
+        // Synthetic "Anonymous Visitors" row from guest events
+        const anonEvtsAll=allEvents.filter(e=>e.user_id===null||e.user_id===undefined||e.metadata?.guest===true);
+        if(anonEvtsAll.length>0){
+          const anonMocks=anonEvtsAll.filter(e=>e.event==='mock_draft_completed').length;
+          const anonShares=anonEvtsAll.filter(e=>e.event==='share_results'||e.event==='share_triggered').length;
+          const anonRankStarted=anonEvtsAll.filter(e=>e.event==='ranking_started').length;
+          const anonRankCompleted=anonEvtsAll.filter(e=>e.event==='ranking_completed').length;
+          const anonLast=anonEvtsAll[0];
+          const anonSessions=new Set(anonEvtsAll.map(e=>e.session_id).filter(Boolean)).size;
+          userDetails.unshift({
+            userId:'__anonymous__',
+            email:`anonymous visitors (${anonSessions} sessions)`,
+            createdAt:anonEvtsAll[anonEvtsAll.length-1]?.created_at,
+            updatedAt:anonLast?anonLast.created_at:null,
+            rankedPositions:0,rankedGroups:[],partialPositions:0,partialGroups:[],noteCount:0,
+            eventCount:anonEvtsAll.length,
+            mockCount:anonMocks,shareCount:anonShares,
+            rankingsStartedU:anonRankStarted,rankingsCompletedU:anonRankCompleted,
+            hasBoard:false,isAnon:true,
+          });
+        }
+
         const rankers=userDetails.filter(u=>u.rankedPositions>0);
         const avgPositions=rankers.length>0?(rankers.reduce((s,u)=>s+u.rankedPositions,0)/rankers.length).toFixed(1):0;
 
@@ -1942,6 +1964,7 @@ function AdminDashboard({user,onBack}){
 
   // Compute user status tags
   const tagUser=(u)=>{
+    if(u.isAnon)return{label:"anonymous",color:"#737373",bg:"#f5f5f5"};
     const hasMocks=u.mockCount>0;
     if(u.rankedPositions>0&&hasMocks)return{label:"power user",color:"#16a34a",bg:"#f0fdf4"};
     if(hasMocks)return{label:"drafter",color:"#f59e0b",bg:"#fffbeb"};
@@ -2156,7 +2179,7 @@ function AdminDashboard({user,onBack}){
         {/* SECTION 5: Users Table */}
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",marginBottom:24}}>
           <div style={{padding:"14px 16px",borderBottom:"1px solid #f0f0f0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-            <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717"}}>users ({users.length})</span>
+            <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717"}}>users ({users.filter(u=>!u.isAnon).length})</span>
             <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{users.filter(u=>tagUser(u).label==="power user").length} power · {users.filter(u=>tagUser(u).label==="drafter").length} drafters · {users.filter(u=>tagUser(u).label==="ranker").length} rankers</span>
           </div>
           <div className="admin-table-head" style={{padding:"8px 16px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5"}}>
@@ -2176,7 +2199,7 @@ function AdminDashboard({user,onBack}){
                   <span className="admin-table-hide" style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.updatedAt?new Date(u.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric'})+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
                 </div>
                 {isExp&&(()=>{
-                  const ue={};(allEventsRaw||[]).filter(e=>e.user_id===u.userId).forEach(e=>{ue[e.event]=(ue[e.event]||0)+1;});
+                  const ue={};(allEventsRaw||[]).filter(e=>u.isAnon?(e.user_id===null||e.user_id===undefined||e.metadata?.guest===true):e.user_id===u.userId).forEach(e=>{ue[e.event]=(ue[e.event]||0)+1;});
                   const evtColor=ev=>ev==='signup'||ev==='login'?"#22c55e":ev.includes('mock_draft')?"#f59e0b":ev.includes('ranking')?"#3b82f6":ev.includes('share')?"#22c55e":ev==='session_return'?"#a3a3a3":"#8b5cf6";
                   return<div style={{padding:"8px 16px 12px",background:"#f9f9f7",borderBottom:i<users.length-1?"1px solid #e5e5e5":"none"}}>
                   <div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:8}}>
@@ -2200,7 +2223,7 @@ function AdminDashboard({user,onBack}){
                     </div>}
                   </div>
                   <div style={{display:"flex",gap:12,fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>
-                    <span>signed up {u.createdAt?new Date(u.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):""}</span>
+                    <span>{u.isAnon?"first seen":"signed up"} {u.createdAt?new Date(u.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):""}</span>
                     <span>last active {u.updatedAt?new Date(u.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric'})+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
                   </div>
                 </div>})()}
