@@ -586,7 +586,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
   },[ratings,traits,rankedGroups,traitReviewedGroups,compCount,notes,partialProgress,user?.id,phase]);
 
   const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[]);
-  const byPos=useMemo(()=>{const m={};PROSPECTS.forEach(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;if(!m[group])m[group]=[];m[group].push(p);});return m;},[]);
+  const byPos=useMemo(()=>{const m={};const seen=new Set();PROSPECTS.forEach(p=>{if(seen.has(p.id))return;seen.add(p.id);const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;if(!m[group])m[group]=[];m[group].push(p);});return m;},[]);
   // Trait thresholds: per-position percentile cutoffs
   const traitThresholds=useMemo(()=>{const result={};Object.entries(POSITION_TRAITS).forEach(([pos,posTraits])=>{const players=byPos[pos]||[];if(!players.length)return;result[pos]={};posTraits.forEach(trait=>{const values=players.map(p=>tv(traits,p.id,trait,p.name,p.school)).sort((a,b)=>a-b);const n=values.length;result[pos][trait]={p80:values[Math.floor(n*0.8)]||50,p90:values[Math.floor(n*0.9)]||50};});});return result;},[traits,byPos]);
   const qualifiesForFilter=useCallback((id,pos,trait)=>{const p=PROSPECTS.find(x=>x.id===id);if(!p)return false;const th=traitThresholds[pos]?.[trait];if(!th)return false;const score=tv(traits,id,trait,p.name,p.school);return score>=th.p80&&score>75;},[traitThresholds,traits]);
@@ -596,7 +596,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
   const startRanking=useCallback((pos,resume=false)=>{
     setLockedPlayer(null);
     trackEvent(user?.id,'ranking_started',{position:pos,resume,guest:!user});
-    const ids=(byPos[pos]||[]).map(p=>p.id);
+    const ids=[...new Set((byPos[pos]||[]).map(p=>p.id))];
     const consensusRankFn=(id)=>{const p=prospectsMap[id];if(!p)return 999;const ps=getProspectStats(p.name,p.school);return ps?.posRank||getConsensusRank(p.name)||999;};
     let allM,doneSet,r,c;
     if(resume&&partialProgress[pos]){
@@ -628,7 +628,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
   const canFinish=useMemo(()=>{if(!activePos||!byPos[activePos])return false;return byPos[activePos].every(p=>(compCount[p.id]||0)>=MIN_COMPS);},[activePos,byPos,compCount]);
   const canSim=useMemo(()=>{if(!activePos)return false;const doneCount=(completed[activePos]||new Set()).size;return doneCount>=20;},[activePos,completed]);
   const simAndFinish=useCallback((pos)=>{
-    const ids=(byPos[pos]||[]).map(p=>p.id);
+    const ids=[...new Set((byPos[pos]||[]).map(p=>p.id))];
     const currentCompleted=completed[pos]||partialProgress[pos]?.completed||new Set();
     const currentMatchups=matchups[pos]||partialProgress[pos]?.matchups||[];
     const consensusRankFn=(id)=>{const p=prospectsMap[id];if(!p)return 999;const ps=getProspectStats(p.name,p.school);return ps?.posRank||getConsensusRank(p.name)||999;};
@@ -655,7 +655,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
     trackEvent(user?.id,'ranking_completed',{position:pos,guest:!user});
     setPhase("pick-position");window.scrollTo(0,0);
   },[user?.id]);
-  const getRanked=useCallback((pos)=>[...(byPos[pos]||[])].sort((a,b)=>(ratings[b.id]||1500)-(ratings[a.id]||1500)),[byPos,ratings]);
+  const getRanked=useCallback((pos)=>{const seen=new Set();return[...(byPos[pos]||[])].filter(p=>{if(seen.has(p.id))return false;seen.add(p.id);return true;}).sort((a,b)=>(ratings[b.id]||1500)-(ratings[a.id]||1500));},[byPos,ratings]);
   const movePlayer=useCallback((pos,fromIdx,toIdx)=>{
     if(fromIdx===toIdx)return;
     const ranked=getRanked(pos);
