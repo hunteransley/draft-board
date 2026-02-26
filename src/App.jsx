@@ -730,6 +730,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
   const myGuysInitialLoad=useRef(true);
   const[showMyGuys,setShowMyGuys]=useState(false);
   const[mockCount,setMockCount]=useState(0);
+  const traitsRef=useRef(traits);traitsRef.current=traits;
+  const ratingsRef=useRef(ratings);ratingsRef.current=ratings;
+  const getGradeRef=useRef(getGrade);getGradeRef.current=getGrade;
 
   const loadMyGuys=useCallback(async()=>{
     if(!user?.id)return;
@@ -755,14 +758,14 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
         // Find prospect for grade lookup
         const prospect=PROSPECTS.find(x=>x.name===p.name);
         const hasUserInput=prospect&&(
-          (traits[prospect.id]&&Object.keys(traits[prospect.id]).length>0)||
-          (ratings[prospect.id]&&ratings[prospect.id]!==1500)
+          (traitsRef.current[prospect.id]&&Object.keys(traitsRef.current[prospect.id]).length>0)||
+          (ratingsRef.current[prospect.id]&&ratingsRef.current[prospect.id]!==1500)
         );
 
         // Signal 1: User ranking vs consensus (0-100)
         let rankingSignal=50;
         if(hasUserInput&&prospect){
-          const userGrade=getGrade(prospect.id);
+          const userGrade=getGradeRef.current(prospect.id);
           const consGrade=getConsensusGrade(p.name);
           rankingSignal=Math.max(0,Math.min(100,((userGrade-consGrade)+30)/60*100));
         }
@@ -789,7 +792,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
       myGuysInitialLoad.current=false;
       setMyGuys(sorted);
     }catch(e){console.error('Failed to load my guys:',e);}
-  },[user?.id,getConsensusRank,getGrade,getConsensusGrade,traits,ratings]);
+  },[user?.id,getConsensusRank]);
 
   // Save mock draft picks to Supabase for ADP tracking and My Guys
   const saveMockPicks=useCallback(async(picks)=>{
