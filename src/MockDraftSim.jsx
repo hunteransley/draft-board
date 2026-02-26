@@ -1092,14 +1092,31 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       ctx.fillStyle='#a3a3a3';ctx.font='11px ui-monospace,monospace';
       ctx.fillText('BIGBOARDLAB.COM  \u00b7  2026 NFL DRAFT',pad,60);
 
-      // Team logo flush right, text left of logo
-      const teamLogoX=W-pad-44;
-      try{const tLogo=await loadImg(nflLogoUrl(team));ctx.drawImage(tLogo,teamLogoX,16,44,44);}catch(e){}
+      // Team identity — [logo] [team name] [grade pill] on one line, right-aligned
       ctx.textAlign='right';
-      ctx.fillStyle='#171717';ctx.font='bold 20px -apple-system,system-ui,sans-serif';
-      ctx.fillText(team,teamLogoX-10,22);
-      if(draftGrade){ctx.fillStyle=draftGrade.color;ctx.font='bold 32px -apple-system,system-ui,sans-serif';ctx.fillText(draftGrade.grade,teamLogoX-10,48);}
-      if(tradeValueDelta!==0){ctx.fillStyle=tradeValueDelta>0?'#16a34a':'#dc2626';ctx.font='9px ui-monospace,monospace';ctx.fillText('trade: '+(tradeValueDelta>0?'+':'')+tradeValueDelta+' pts',teamLogoX-10,draftGrade?76:48);}
+      // Measure grade pill first so we can lay out right-to-left
+      let gradeW=0;
+      if(draftGrade){
+        ctx.font='bold 26px -apple-system,system-ui,sans-serif';
+        gradeW=ctx.measureText(draftGrade.grade).width+20;
+      }
+      const gradePillX=W-pad-gradeW;
+      const teamTextX=gradePillX-(draftGrade?12:0);
+      ctx.fillStyle='#171717';ctx.font='bold 24px -apple-system,system-ui,sans-serif';
+      const teamTextW=ctx.measureText(team).width;
+      const teamLogoX=teamTextX-teamTextW-56;
+      try{const tLogo=await loadImg(nflLogoUrl(team));ctx.drawImage(tLogo,teamLogoX,14,48,48);}catch(e){}
+      ctx.fillText(team,teamTextX,24);
+      // Grade in shaded pill
+      if(draftGrade){
+        ctx.fillStyle=draftGrade.color+'18';rr(gradePillX,18,gradeW,36,6);ctx.fill();
+        ctx.strokeStyle=draftGrade.color+'40';ctx.lineWidth=1;rr(gradePillX,18,gradeW,36,6);ctx.stroke();
+        ctx.fillStyle=draftGrade.color;ctx.font='bold 26px -apple-system,system-ui,sans-serif';
+        ctx.textAlign='center';ctx.fillText(draftGrade.grade,gradePillX+gradeW/2,22);
+      }
+      // Trade value delta below the line
+      ctx.textAlign='right';
+      if(tradeValueDelta!==0){ctx.fillStyle=tradeValueDelta>0?'#16a34a':'#dc2626';ctx.font='9px ui-monospace,monospace';ctx.fillText('trade: '+(tradeValueDelta>0?'+':'')+tradeValueDelta+' pts',W-pad,62);}
       ctx.textAlign='left';
 
       // Separator — matching My Guys
