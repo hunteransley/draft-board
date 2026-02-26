@@ -913,11 +913,14 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         else{tier=grade>=70?3:0;}
 
         if(tier===1){
-          // Starter: take preferred slot, push existing player down
+          // Starter: take preferred slot, cascade everyone down
           const s1=preferredSlot;
-          if(chart[team][s1]){
-            const emptySlot=allowedSlots.find(s=>!chart[team][s]);
-            if(emptySlot)chart[team][emptySlot]=chart[team][s1];
+          const idx=allowedSlots.indexOf(s1);
+          if(idx>=0&&chart[team][s1]){
+            // Shift all players from preferred slot down by one
+            for(let j=allowedSlots.length-1;j>idx;j--){
+              if(chart[team][allowedSlots[j-1]])chart[team][allowedSlots[j]]=chart[team][allowedSlots[j-1]];
+            }
           }
           chart[team][s1]=entry;
         }else if(tier===2){
