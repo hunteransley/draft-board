@@ -1049,7 +1049,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       // Logo in dark footer, spider card under picks
       // ================================================================
       const W=900,pad=32,colGap=24;
-      const pickRowH=42;
+      const pickRowH=48;
       const depthRowH=16,depthGroupGap=4;
 
       // Depth chart data — flat, no group headers
@@ -1078,14 +1078,19 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       ctx.scale(scale,scale);
 
       ctx.fillStyle='#faf9f6';ctx.fillRect(0,0,W,H);
-      ctx.fillStyle=accent;ctx.fillRect(0,0,W,4);
+      // Pink→purple gradient top bar
+      const tGrad=ctx.createLinearGradient(0,0,W,0);
+      tGrad.addColorStop(0,'#ec4899');tGrad.addColorStop(1,'#7c3aed');
+      ctx.fillStyle=tGrad;ctx.fillRect(0,0,W,4);
+      // Thin team accent bar below
+      ctx.fillStyle=accent;ctx.fillRect(0,4,W,2);
 
-      // === HEADER — text only, no logo ===
+      // === HEADER ===
       ctx.textBaseline='top';ctx.textAlign='left';
-      ctx.fillStyle='#171717';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
+      ctx.fillStyle='#171717';ctx.font='bold 22px -apple-system,system-ui,sans-serif';
       ctx.fillText('BIG BOARD LAB',pad,16);
       ctx.fillStyle='#a3a3a3';ctx.font='11px ui-monospace,monospace';
-      ctx.fillText('2026 NFL MOCK DRAFT',pad,38);
+      ctx.fillText('2026 NFL MOCK DRAFT',pad,42);
 
       try{const tLogo=await loadImg(nflLogoUrl(team));ctx.drawImage(tLogo,W-pad-42,12,42,42);}catch(e){}
       ctx.textAlign='right';
@@ -1096,6 +1101,10 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       ctx.textAlign='left';
 
       ctx.fillStyle='#e5e5e5';ctx.fillRect(pad,headerH,W-pad*2,1);
+      // Gradient separator
+      const sGrad=ctx.createLinearGradient(pad,0,W-pad,0);
+      sGrad.addColorStop(0,'#ec4899');sGrad.addColorStop(1,'#7c3aed');
+      ctx.fillStyle=sGrad;ctx.fillRect(pad,headerH+1,W-pad*2,2);
 
       // === TWO COLUMNS ===
       const bodyY=headerH+12;
@@ -1130,10 +1139,10 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         ctx.fillText('Rd'+pk.round+' #'+pk.pick,pad+8,py+12);
         ctx.fillStyle=c;ctx.font='bold 10px ui-monospace,monospace';
         ctx.fillText(p.gpos||p.pos,pad+72,py+12);
-        ctx.fillStyle='#171717';ctx.font='bold 14px -apple-system,system-ui,sans-serif';
+        ctx.fillStyle='#171717';ctx.font='bold 15px -apple-system,system-ui,sans-serif';
         drawTrunc(ctx,p.name,pad+108,py+12,leftW-210);
-        ctx.fillStyle='#a3a3a3';ctx.font='10px -apple-system,system-ui,sans-serif';
-        drawTrunc(ctx,p.school||'',pad+108,py+27,leftW-210);
+        ctx.fillStyle='#a3a3a3';ctx.font='11px -apple-system,system-ui,sans-serif';
+        drawTrunc(ctx,p.school||'',pad+108,py+28,leftW-210);
         // Trait badge emojis
         const pBadges=prospectBadges&&prospectBadges[pk.playerId]||[];
         if(pBadges.length>0){const schoolW=ctx.measureText(p.school||'').width;ctx.font='11px -apple-system,system-ui,sans-serif';let bx=pad+108+schoolW+6;pBadges.forEach(b=>{ctx.fillText(b.emoji,bx,py+27);bx+=14;});}
@@ -1235,37 +1244,38 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       ctx.fillText('bigboardlab.com',pad+48,fy+12);
       ctx.fillStyle='#737373';ctx.font='11px -apple-system,system-ui,sans-serif';
       ctx.fillText('Rank prospects · Grade them your way · The most realistic mock draft ever built',pad+48,fy+32);
-      ctx.fillStyle=accent;ctx.fillRect(0,H-3,W,3);
+      const bGrad=ctx.createLinearGradient(0,0,W,0);bGrad.addColorStop(0,'#ec4899');bGrad.addColorStop(1,'#7c3aed');
+      ctx.fillStyle=bGrad;ctx.fillRect(0,H-3,W,3);
 
     }else{
       // ================================================================
       // ALL 32 — landscape 1200×675, light bg, dark footer
       // ================================================================
-      const W=1200,H=675;
+      const W=1200,H=714;
       canvas.width=W*scale;canvas.height=H*scale;
       ctx.scale(scale,scale);
       const pad=24;
       ctx.fillStyle='#faf9f6';ctx.fillRect(0,0,W,H);
 
       const grad=ctx.createLinearGradient(0,0,W,0);
-      grad.addColorStop(0,'#E31837');grad.addColorStop(0.25,'#003594');grad.addColorStop(0.5,'#4F2683');grad.addColorStop(0.75,'#006778');grad.addColorStop(1,'#FFB612');
+      grad.addColorStop(0,'#ec4899');grad.addColorStop(1,'#7c3aed');
       ctx.fillStyle=grad;ctx.fillRect(0,0,W,4);
 
-      ctx.textBaseline='top';ctx.textAlign='left';
-      ctx.fillStyle='#171717';ctx.font='bold 14px -apple-system,system-ui,sans-serif';
-      ctx.fillText('BIG BOARD LAB',pad,12);
-      ctx.fillStyle='#a3a3a3';ctx.font='10px ui-monospace,monospace';
-      ctx.fillText('2026 NFL MOCK DRAFT',pad,28);
-
+      ctx.textBaseline='top';
       ctx.textAlign='center';ctx.fillStyle='#171717';
-      ctx.font='bold 16px -apple-system,system-ui,sans-serif';
+      ctx.font='bold 18px -apple-system,system-ui,sans-serif';
       ctx.fillText('2026 NFL MOCK DRAFT — ROUND 1',W/2,14);
+      ctx.fillStyle='#a3a3a3';ctx.font='11px ui-monospace,monospace';
+      ctx.fillText('BIGBOARDLAB.COM',W/2,36);
       ctx.textAlign='left';
-      ctx.fillStyle='#e5e5e5';ctx.fillRect(pad,44,W-pad*2,1);
+      ctx.fillStyle='#e5e5e5';ctx.fillRect(pad,52,W-pad*2,1);
+      const sepGrad=ctx.createLinearGradient(pad,0,W-pad,0);
+      sepGrad.addColorStop(0,'#ec4899');sepGrad.addColorStop(1,'#7c3aed');
+      ctx.fillStyle=sepGrad;ctx.fillRect(pad,53,W-pad*2,2);
 
-      const bodyY=52,cols=4,rows=8;
+      const bodyY=62,cols=4,rows=8;
       const colW=(W-pad*2-((cols-1)*10))/cols;
-      const rowH=72;
+      const rowH=74;
 
       const r1picks=picks.filter(pk=>pk.round===1).slice(0,32);
       const logoCache={};
@@ -1304,14 +1314,15 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       }
 
       // Dark footer
-      const footerH=36;
+      const footerH=48;
       ctx.fillStyle='#111111';ctx.fillRect(0,H-footerH,W,footerH);
-      try{const logo=new Image();logo.src=BBL_LOGO_B64;await new Promise((r,j)=>{logo.onload=r;logo.onerror=j;setTimeout(j,2000);});ctx.drawImage(logo,pad,H-footerH+4,28,28);}catch(e){}
-      ctx.fillStyle='#ffffff';ctx.font='bold 12px -apple-system,system-ui,sans-serif';ctx.textBaseline='top';
-      ctx.fillText('bigboardlab.com',pad+34,H-footerH+6);
+      try{const logo=new Image();logo.src=BBL_LOGO_B64;await new Promise((r,j)=>{logo.onload=r;logo.onerror=j;setTimeout(j,2000);});ctx.drawImage(logo,pad,H-footerH+8,32,32);}catch(e){}
+      ctx.fillStyle='#ffffff';ctx.font='bold 13px -apple-system,system-ui,sans-serif';ctx.textBaseline='top';
+      ctx.fillText('bigboardlab.com',pad+40,H-footerH+10);
       ctx.fillStyle='#737373';ctx.font='10px -apple-system,system-ui,sans-serif';
-      ctx.fillText('The most realistic mock draft simulator ever built',pad+34,H-footerH+20);
-      ctx.fillStyle=grad;ctx.fillRect(0,H-3,W,3);
+      ctx.fillText('The most realistic mock draft simulator ever built',pad+40,H-footerH+26);
+      const bGrad32=ctx.createLinearGradient(0,0,W,0);bGrad32.addColorStop(0,'#ec4899');bGrad32.addColorStop(1,'#7c3aed');
+      ctx.fillStyle=bGrad32;ctx.fillRect(0,H-3,W,3);
     }
 
     // === EXPORT — clipboard + toast on desktop, share sheet on mobile ===
