@@ -2813,8 +2813,6 @@ function OGRadar({traits,values,color,size=200}){
   </svg>);
 }
 function OGPreview(){
-  const NFL_IDS={Raiders:13,Jets:20,Cardinals:22,Titans:10,Giants:19,Browns:5,Commanders:28,Saints:18,Chiefs:12,Bengals:4,Dolphins:15,Cowboys:6,Rams:14,Ravens:33,Buccaneers:27,Lions:8,Vikings:16,Panthers:29,Steelers:23,Chargers:24,Eagles:21,Bears:3,Bills:2,"49ers":25,Texans:34,Broncos:7,Patriots:17,Seahawks:26,Falcons:1,Colts:11,Jaguars:30,Packers:9};
-  const nflLogo=(team)=>`https://a.espncdn.com/i/teamlogos/nfl/500/${NFL_IDS[team]}.png`;
   const ref=useRef(null);
   const download=async()=>{
     const html2canvas=(await import("html2canvas")).default;
@@ -2822,199 +2820,152 @@ function OGPreview(){
     const a=document.createElement("a");a.href=canvas.toDataURL("image/png");a.download="og-image.png";a.click();
   };
 
-  const mendozaColor=POS_COLORS.QB;
-  const bainColor=POS_COLORS.EDGE;
-  const baileyColor=POS_COLORS.DL;
+  const ogProspects=[
+    PROSPECTS.find(p=>p.name==="Rueben Bain Jr."),
+    PROSPECTS.find(p=>p.name==="Caleb Downs"),
+    PROSPECTS.find(p=>p.name==="Francis Mauigoa"),
+    PROSPECTS.find(p=>p.name==="Garrett Nussmeier"),
+    PROSPECTS.find(p=>p.name==="Jordyn Tyson"),
+    PROSPECTS.find(p=>p.name==="David Bailey"),
+    PROSPECTS.find(p=>p.name==="Arvell Reese"),
+  ].filter(Boolean);
 
-  const mockPicks=[
-    {pick:1,team:"Raiders",name:"Fernando Mendoza",pos:"QB",color:POS_COLORS.QB,user:true},
-    {pick:2,team:"Jets",name:"Rueben Bain Jr.",pos:"EDGE",color:POS_COLORS.EDGE},
-    {pick:3,team:"Cardinals",name:"Arvell Reese",pos:"LB",color:POS_COLORS.LB},
-    {pick:4,team:"Titans",name:"David Bailey",pos:"EDGE",color:POS_COLORS.EDGE},
-    {pick:5,team:"Giants",name:"Francis Mauigoa",pos:"OT",color:POS_COLORS.OT},
-    {pick:6,team:"Browns",name:"Spencer Fano",pos:"OT",color:POS_COLORS.OT},
-    {pick:7,team:"Commanders",name:"Carnell Tate",pos:"WR",color:POS_COLORS.WR},
-    {pick:8,team:"Saints",name:"Caleb Downs",pos:"S",color:POS_COLORS.S},
-    {pick:9,team:"Chiefs",name:"Jeremiyah Love",pos:"RB",color:POS_COLORS.RB,traded:true},
-    {pick:10,team:"Bengals",name:"Jordyn Tyson",pos:"WR",color:POS_COLORS.WR},
-  ];
-
-  const depthGroups=[
-    {label:"OFFENSE",slots:[
-      {slot:"QB1",name:"Derek Carr"},{slot:"QB2",name:"Jake Haener"},
-      {slot:"RB1",name:"Jeremiyah Love",draft:true},{slot:"RB2",name:"Kendre Miller"},
-      {slot:"WR1",name:"Chris Olave"},{slot:"WR2",name:"Rashid Shaheed"},{slot:"WR3",name:"Cedrick Wilson"},
-      {slot:"TE1",name:"Taysom Hill"},{slot:"TE2",name:"Foster Moreau"},
-      {slot:"LT",name:"Trevor Penning"},{slot:"LG",name:"Lucas Patrick"},{slot:"C",name:"Erik McCoy"},{slot:"RG",name:"Cesar Ruiz"},{slot:"RT",name:"Ryan Ramczyk"},
-    ]},
-    {label:"DEFENSE",slots:[
-      {slot:"DE1",name:"Chase Young"},{slot:"DT1",name:"Khalen Saunders"},{slot:"DT2",name:"Bryan Bresee"},{slot:"DE2",name:"Carl Granderson"},
-      {slot:"LB1",name:"Demario Davis"},{slot:"LB2",name:"Pete Werner"},{slot:"LB3",name:"D'Marco Jackson"},
-      {slot:"CB1",name:"Kool-Aid McKinstry"},{slot:"CB2",name:"Alontae Taylor"},{slot:"CB3",name:"Keionte Scott",draft:true},
-      {slot:"SS",name:"Jordan Howden"},{slot:"FS",name:"Tyrann Mathieu"},
-    ]},
-    {label:"ST",slots:[{slot:"K",name:"Blake Grupe"}]},
-  ];
-
-  const sliderTraits=[
-    {label:"Arm Strength",emoji:"💪",val:78},
-    {label:"Accuracy",emoji:"🎯",val:72},
-    {label:"Pocket Presence",emoji:"🧊",val:68},
-    {label:"Mobility",emoji:"🏃",val:82},
-    {label:"Decision Making",emoji:"🧠",val:65},
-    {label:"Leadership",emoji:"👑",val:70},
-  ];
+  const pairA=PROSPECTS.find(p=>p.name==="Rueben Bain Jr.");
+  const pairB=PROSPECTS.find(p=>p.name==="David Bailey");
+  const profileP=PROSPECTS.find(p=>p.name==="Garrett Nussmeier");
+  const teamLogos=["Raiders","Jets","Cardinals","Titans","Giants","Browns","Commanders","Saints","Chiefs","Bengals","Dolphins","Cowboys","Rams","Ravens","Buccaneers","Lions"];
 
   return(
     <div style={{minHeight:"100vh",background:"#1a1a1a",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:24,padding:40}}>
       <div style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>OG Image Preview — 1200 x 630</div>
       <div ref={ref} style={{width:1200,height:630,background:"#faf9f6",overflow:"hidden",display:"flex",flexDirection:"column"}}>
 
-        {/* ===== TOP BRANDED HEADER ===== */}
-        <div style={{height:56,background:"#171717",display:"flex",alignItems:"center",justifyContent:"space-between",padding:"0 28px",position:"relative",flexShrink:0}}>
-          <div style={{position:"absolute",bottom:0,left:0,right:0,height:3,background:"linear-gradient(90deg, #ec4899, #7c3aed, #3b82f6, #22c55e)"}}/>
-          <div style={{display:"flex",alignItems:"center",gap:12}}>
-            <img src="/logo.png" alt="" style={{height:26,filter:"brightness(0) invert(1)"}}/>
-            <span style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#fff",letterSpacing:"-0.02em"}}>Big Board Lab</span>
-          </div>
-          <span style={{fontFamily:sans,fontSize:13,color:"#a3a3a3"}}>Build your board. Run your war room. 32 AI GMs. Free.</span>
-          <span style={{fontFamily:mono,fontSize:12,color:"#737373",letterSpacing:"0.5px"}}>bigboardlab.com</span>
-        </div>
+        {/* ===== CONTENT ===== */}
+        <div style={{flex:1,display:"flex",padding:32,gap:24}}>
 
-        {/* ===== CONTENT PANELS ===== */}
-        <div style={{flex:1,display:"flex",overflow:"hidden"}}>
-
-          {/* PANEL 1: Mock Draft Picks */}
-          <div style={{width:195,background:"#fff",borderRight:"1px solid #e5e5e5",display:"flex",flexDirection:"column",flexShrink:0}}>
-            <div style={{padding:"10px 12px 6px",borderBottom:"1px solid #f0f0f0"}}>
-              <div style={{fontFamily:font,fontSize:12,fontWeight:900,color:"#171717"}}>Mock Draft</div>
-              <div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",marginTop:1,letterSpacing:1,textTransform:"uppercase"}}>Round 1 · 2026</div>
-            </div>
-            <div style={{flex:1,overflow:"hidden"}}>
-              {mockPicks.map(p=>(
-                <div key={p.pick} style={{display:"flex",alignItems:"center",gap:4,padding:"4px 10px",borderBottom:"1px solid #f8f8f8",background:p.user?"rgba(34,197,94,0.04)":"transparent"}}>
-                  <span style={{fontFamily:mono,fontSize:8,color:"#d4d4d4",width:14,textAlign:"right"}}>{p.pick}</span>
-                  <img src={nflLogo(p.team)} alt="" width={13} height={13} style={{objectFit:"contain"}}/>
-                  <span style={{fontFamily:mono,fontSize:7,color:p.color,width:28}}>{p.pos}</span>
-                  <span style={{fontFamily:sans,fontSize:8,fontWeight:p.user?600:400,color:p.user?"#171717":"#737373",flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{p.name}</span>
-                  {p.user&&<span style={{fontFamily:mono,fontSize:5,color:"#22c55e",background:"rgba(34,197,94,0.1)",padding:"1px 3px",borderRadius:2,whiteSpace:"nowrap"}}>YOU</span>}
-                  {p.traded&&<span style={{fontFamily:mono,fontSize:5,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 3px",borderRadius:2}}>TRD</span>}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* PANEL 2: Saints Depth Chart */}
-          <div style={{width:180,background:"#fff",borderRight:"1px solid #e5e5e5",display:"flex",flexDirection:"column",flexShrink:0}}>
-            <div style={{padding:"10px 10px 6px",borderBottom:"1px solid #f0f0f0",display:"flex",alignItems:"center",gap:6}}>
-              <img src={nflLogo("Saints")} alt="" width={18} height={18} style={{objectFit:"contain"}}/>
-              <div>
-                <div style={{fontFamily:font,fontSize:11,fontWeight:900,color:"#171717"}}>Saints</div>
-                <div style={{fontFamily:mono,fontSize:6,color:"#a3a3a3",letterSpacing:1,textTransform:"uppercase"}}>Depth Chart</div>
-              </div>
-            </div>
-            <div style={{flex:1,padding:"4px 8px",overflow:"hidden"}}>
-              {depthGroups.map(g=>(
-                <div key={g.label} style={{marginBottom:2}}>
-                  <div style={{fontFamily:mono,fontSize:6,color:"#a3a3a3",letterSpacing:1,padding:"3px 0 1px",borderBottom:"1px solid #f5f5f5",marginBottom:1}}>{g.label}</div>
-                  {g.slots.map(s=>(
-                    <div key={s.slot} style={{display:"flex",gap:3,padding:"1.5px 0",fontFamily:sans,fontSize:8}}>
-                      <span style={{color:"#b5b5b5",width:20,fontSize:6,fontFamily:mono}}>{s.slot}</span>
-                      <span style={{fontWeight:s.draft?700:400,color:s.draft?"#7c3aed":"#525252"}}>{s.name}{s.draft?" ★":""}</span>
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* PANEL 3: Mendoza — Spider Chart + Trait Sliders combined */}
-          <div style={{width:340,background:"#fff",borderRight:"1px solid #e5e5e5",display:"flex",flexDirection:"column",flexShrink:0}}>
-            {/* Header with Indiana logo */}
-            <div style={{padding:"10px 16px 6px",borderBottom:"1px solid #f0f0f0",display:"flex",alignItems:"center",gap:8}}>
-              <SchoolLogo school="Indiana" size={28}/>
-              <div>
-                <div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#171717"}}>Fernando Mendoza</div>
-                <div style={{display:"flex",gap:6,alignItems:"center",marginTop:1}}>
-                  <span style={{fontFamily:mono,fontSize:8,color:mendozaColor,background:`${mendozaColor}0d`,padding:"2px 6px",borderRadius:3,border:`1px solid ${mendozaColor}1a`}}>QB</span>
-                  <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>Indiana · #1 Overall · 6'5" 225</span>
+          {/* LEFT — Hero + Big Board */}
+          <div style={{width:420,display:"flex",flexDirection:"column",gap:20,flexShrink:0}}>
+            {/* Hero */}
+            <div>
+              <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
+                <img src="/logo.png" alt="" style={{width:75,height:"auto"}}/>
+                <div>
+                  <div style={{fontFamily:mono,fontSize:8,letterSpacing:3,color:"#a3a3a3",textTransform:"uppercase"}}>2026 NFL Draft</div>
+                  <div style={{fontFamily:font,fontSize:32,fontWeight:900,color:"#171717",lineHeight:1,letterSpacing:-1.5}}>big board lab</div>
                 </div>
               </div>
+              <div style={{fontFamily:sans,fontSize:13,color:"#737373",lineHeight:1.5}}>Rank prospects. Grade every trait. Run the most realistic mock draft ever built.</div>
+              <div style={{width:80,height:3,background:"linear-gradient(90deg,#ec4899,#7c3aed)",borderRadius:99,marginTop:10}}/>
             </div>
-            {/* Spider + Sliders side by side */}
-            <div style={{flex:1,display:"flex",overflow:"hidden"}}>
-              {/* Spider chart */}
-              <div style={{width:180,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
-                <OGRadar traits={POSITION_TRAITS.QB} values={[78,72,68,82,65,70]} color={mendozaColor} size={172}/>
+
+            {/* Mini Big Board */}
+            <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",flex:1}}>
+              <div style={{padding:"10px 14px",borderBottom:"1px solid #f0f0f0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                <div style={{fontFamily:font,fontSize:13,fontWeight:900,color:"#171717"}}>Big Board</div>
+                <div style={{display:"flex",gap:4}}>
+                  {["QB","WR","EDGE","OT","S"].map(g=><span key={g} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:POS_COLORS[g],background:`${POS_COLORS[g]}0d`,padding:"2px 6px",borderRadius:99}}>{g}</span>)}
+                </div>
               </div>
-              {/* Trait sliders */}
-              <div style={{flex:1,padding:"10px 14px 10px 0",display:"flex",flexDirection:"column",justifyContent:"center"}}>
-                {sliderTraits.map(s=>{
-                  const t=s.val/100;
-                  const r=Math.round(236+(124-236)*t);
-                  const g=Math.round(72+(58-72)*t);
-                  const b=Math.round(153+(237-153)*t);
-                  const barColor=`rgb(${r},${g},${b})`;
-                  return(
-                    <div key={s.label} style={{marginBottom:8}}>
-                      <div style={{display:"flex",justifyContent:"space-between",marginBottom:2}}>
-                        <span style={{fontFamily:mono,fontSize:7,color:"#737373"}}>{s.label}</span>
-                        <span style={{fontFamily:font,fontSize:9,fontWeight:900,color:barColor}}>{s.val}</span>
-                      </div>
-                      <div style={{position:"relative",height:10,display:"flex",alignItems:"center"}}>
-                        <div style={{position:"absolute",left:0,right:0,height:4,background:"#f0f0f0",borderRadius:2}}/>
-                        <div style={{position:"absolute",left:0,height:4,width:`${s.val}%`,background:"linear-gradient(90deg, #ec4899, #7c3aed)",borderRadius:2}}/>
-                        <div style={{position:"absolute",left:`${s.val}%`,transform:"translateX(-50%)",fontSize:9,lineHeight:1,pointerEvents:"none",zIndex:3,filter:"drop-shadow(0 1px 1px rgba(0,0,0,.12))"}}>{s.emoji}</div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+              {ogProspects.map((p,i)=>{const c=POS_COLORS[p.gpos||p.pos];const posTraits=POSITION_TRAITS[p.gpos||p.pos]||[];const vals=posTraits.map(t=>tv({},p.id,t,p.name,p.school));return<div key={p.id} style={{display:"flex",alignItems:"center",gap:8,padding:"6px 14px",borderBottom:i<ogProspects.length-1?"1px solid #f5f5f5":"none"}}>
+                <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:"#d4d4d4",width:18,textAlign:"right"}}>{i+1}</span>
+                <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:c,background:`${c}0d`,padding:"2px 7px",borderRadius:99}}>{p.gpos||p.pos}</span>
+                <SchoolLogo school={p.school} size={20}/>
+                <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1}}>{p.name}</span>
+                <MiniRadar values={vals} color={c} size={22}/>
+              </div>;})}
             </div>
           </div>
 
-          {/* PANEL 4: Pairwise Comparison */}
-          <div style={{flex:1,background:"#fff",display:"flex",flexDirection:"column"}}>
-            <div style={{padding:"10px 12px 6px",borderBottom:"1px solid #f0f0f0",textAlign:"center"}}>
-              <div style={{fontFamily:font,fontSize:12,fontWeight:900,color:"#171717"}}>Who's Your Pick?</div>
-              <div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",marginTop:1,letterSpacing:1,textTransform:"uppercase"}}>Edge Rankings</div>
-            </div>
-            <div style={{flex:1,display:"flex",gap:8,padding:"8px 10px",alignItems:"stretch",position:"relative"}}>
-              <div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",zIndex:2,fontFamily:font,fontSize:11,fontWeight:900,color:"#d4d4d4",background:"#fff",padding:"2px 7px",borderRadius:99,border:"1px solid #e5e5e5"}}>vs</div>
-              {/* Bain card — selected */}
-              <div style={{flex:1,padding:"10px 8px",background:`${bainColor}06`,border:`2px solid ${bainColor}`,borderRadius:10,textAlign:"center",display:"flex",flexDirection:"column",alignItems:"center",gap:2}}>
-                <SchoolLogo school="Miami" size={28}/>
-                <div style={{fontFamily:font,fontSize:13,fontWeight:900,color:"#171717",lineHeight:1.1}}>Rueben Bain Jr.</div>
-                <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>Miami</div>
-                <span style={{fontFamily:mono,fontSize:7,color:bainColor,background:`${bainColor}0d`,padding:"2px 6px",borderRadius:3,border:`1px solid ${bainColor}1a`}}>EDGE · #2 OVR</span>
-                <div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3"}}>6'3" · 275lbs</div>
-                <div style={{fontFamily:mono,fontSize:7,color:"#525252",background:"#f9f9f6",padding:"2px 5px",borderRadius:3,border:"1px solid #f0f0f0",lineHeight:1.3}}>54 tkl · 15.5 tfl · 9.5 sck</div>
-                <RadarChart traits={POSITION_TRAITS.EDGE} values={[88,82,90,76,85,72]} color={bainColor} size={120}/>
+          {/* RIGHT — 2x2 feature cards */}
+          <div style={{flex:1,display:"grid",gridTemplateColumns:"1fr 1fr",gridTemplateRows:"1fr 1fr",gap:16}}>
+
+            {/* Card 1 — Pair Ranking */}
+            <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:16,display:"flex",flexDirection:"column"}}>
+              <div style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717",marginBottom:4}}>Head-to-Head Rankings</div>
+              <div style={{fontFamily:sans,fontSize:9,color:"#a3a3a3",marginBottom:10}}>Pick who you'd draft first</div>
+              <div style={{flex:1,display:"flex",gap:10,alignItems:"center",justifyContent:"center"}}>
+                {pairA&&pairB&&(()=>{const cA=POS_COLORS[pairA.gpos||pairA.pos];const cB=POS_COLORS[pairB.gpos||pairB.pos];
+                  const card=(p,pc,sel)=><div style={{background:sel?`${pc}06`:"#faf9f6",border:sel?`2px solid ${pc}`:`1.5px solid ${pc}22`,borderRadius:10,padding:"10px 14px",textAlign:"center"}}>
+                    <SchoolLogo school={p.school} size={28}/>
+                    <div style={{fontFamily:font,fontSize:12,fontWeight:800,color:"#171717",marginTop:4,lineHeight:1.1}}>{shortName(p.name)}</div>
+                    <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:pc,background:`${pc}0d`,padding:"1px 6px",borderRadius:99,display:"inline-block",marginTop:4}}>{p.gpos||p.pos}</span>
+                  </div>;
+                  return<>{card(pairA,cA,true)}<span style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#d4d4d4"}}>vs</span>{card(pairB,cB,false)}</>;
+                })()}
               </div>
-              {/* Bailey card */}
-              <div style={{flex:1,padding:"10px 8px",background:"#fff",border:"1px solid #e5e5e5",borderRadius:10,textAlign:"center",display:"flex",flexDirection:"column",alignItems:"center",gap:2}}>
-                <SchoolLogo school="Tennessee" size={28}/>
-                <div style={{fontFamily:font,fontSize:13,fontWeight:900,color:"#171717",lineHeight:1.1}}>Dominic Bailey</div>
-                <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>Tennessee</div>
-                <span style={{fontFamily:mono,fontSize:7,color:baileyColor,background:`${baileyColor}0d`,padding:"2px 6px",borderRadius:3,border:`1px solid ${baileyColor}1a`}}>DL · #18 OVR</span>
-                <div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3"}}>6'4" · 290lbs</div>
-                <div style={{fontFamily:mono,fontSize:7,color:"#525252",background:"#f9f9f6",padding:"2px 5px",borderRadius:3,border:"1px solid #f0f0f0",lineHeight:1.3}}>42 tkl · 8.0 tfl · 5.5 sck</div>
-                <RadarChart traits={POSITION_TRAITS.DL} values={[74,78,80,72,82,68]} color={baileyColor} size={120}/>
+              <div style={{display:"flex",gap:5,justifyContent:"center",marginTop:8}}>
+                {["coin flip","leaning","confident","lock"].map((l,i)=><span key={l} style={{fontFamily:sans,fontSize:7,fontWeight:600,background:i>=2?"#171717":"#fff",color:i>=2?"#faf9f6":"#525252",border:`1px solid ${i>=2?"#171717":"#e5e5e5"}`,borderRadius:99,padding:"2px 8px"}}>{l}</span>)}
+              </div>
+            </div>
+
+            {/* Card 2 — Trait Grading */}
+            <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:16,display:"flex",flexDirection:"column"}}>
+              <div style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717",marginBottom:4}}>Spider Charts & Trait Grading</div>
+              <div style={{fontFamily:sans,fontSize:9,color:"#a3a3a3",marginBottom:10}}>Slide traits, watch grades update</div>
+              {(()=>{if(!profileP)return null;const pos=profileP.gpos||profileP.pos;const posTraits=POSITION_TRAITS[pos]||[];const c=POS_COLORS[pos];const vals=[82,75,68,72,78,65];
+                return<div style={{flex:1,display:"flex",alignItems:"center",gap:10}}>
+                  <div style={{display:"flex",flexDirection:"column",gap:4,flex:1}}>
+                    {posTraits.map((t,i)=>{const v=vals[i]||60;return<div key={t} style={{display:"flex",alignItems:"center",gap:4}}>
+                      <span style={{fontFamily:mono,fontSize:7,fontWeight:600,color:"#a3a3a3",width:22,textAlign:"right",flexShrink:0}}>{TRAIT_ABBREV[t]||t.slice(0,3).toUpperCase()}</span>
+                      <div style={{flex:1,height:4,background:"#f0f0f0",borderRadius:99,overflow:"hidden"}}><div style={{width:`${v}%`,height:"100%",background:"linear-gradient(90deg,#ec4899,#7c3aed)",borderRadius:99}}/></div>
+                      <span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#525252",width:14,textAlign:"right"}}>{v}</span>
+                    </div>;})}
+                  </div>
+                  <OGRadar traits={posTraits} values={vals} color={c} size={150}/>
+                </div>;
+              })()}
+            </div>
+
+            {/* Card 3 — 32 AI GMs */}
+            <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:16,display:"flex",flexDirection:"column"}}>
+              <div style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717",marginBottom:4}}>Mock Draft vs 32 AI GMs</div>
+              <div style={{fontFamily:sans,fontSize:9,color:"#a3a3a3",marginBottom:10}}>Real team tendencies & trade logic</div>
+              <div style={{flex:1,display:"flex",flexDirection:"column",justifyContent:"center",gap:8}}>
+                <div style={{display:"grid",gridTemplateColumns:"repeat(8,1fr)",gap:6}}>
+                  {teamLogos.map(t=><div key={t} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:2}}>
+                    <NFLTeamLogo team={t} size={22}/>
+                    <span style={{fontFamily:mono,fontSize:6,color:"#a3a3a3",fontWeight:600}}>{NFL_TEAM_ABR[t]}</span>
+                  </div>)}
+                </div>
+                <div style={{textAlign:"center"}}>
+                  <span style={{fontFamily:sans,fontSize:10,fontWeight:700,color:"#fff",background:"linear-gradient(135deg,#ec4899,#7c3aed)",borderRadius:99,padding:"5px 18px",display:"inline-block"}}>start draft</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 4 — Filter by Traits + Depth Charts */}
+            <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:16,display:"flex",flexDirection:"column"}}>
+              <div style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717",marginBottom:4}}>Filter by Elite Traits</div>
+              <div style={{fontFamily:sans,fontSize:9,color:"#a3a3a3",marginBottom:8}}>Rank & draft by specific skills</div>
+              <div style={{display:"flex",flexWrap:"wrap",gap:4,marginBottom:10}}>
+                {["Pass Rush","Speed","Man Coverage","Route Running","Accuracy","Hands"].map(t=><span key={t} style={{fontFamily:sans,fontSize:7,fontWeight:600,color:"#7c3aed",background:"#f5f3ff",border:"1px solid #ede9fe",borderRadius:99,padding:"2px 7px",display:"inline-flex",alignItems:"center",gap:2}}>
+                  <span style={{fontSize:7}}>{TRAIT_EMOJI[t]}</span>{t}
+                </span>)}
+              </div>
+              <div style={{flex:1,borderRadius:8,overflow:"hidden",border:"1px solid #f0f0f0"}}>
+                <div style={{fontFamily:mono,fontSize:7,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase",padding:"5px 8px",borderBottom:"1px solid #f0f0f0",display:"flex",alignItems:"center",gap:4}}>
+                  <span style={{fontSize:8}}>🚀</span> ranking by: pass rush
+                </div>
+                {[{name:"Bain Jr.",pos:"EDGE",val:92},{name:"Parker",pos:"EDGE",val:88},{name:"Bailey",pos:"DL",val:85},{name:"Halton",pos:"DL",val:82}].map((p,i)=>{const c=POS_COLORS[p.pos];return<div key={p.name} style={{display:"flex",alignItems:"center",gap:5,padding:"3px 8px",borderBottom:i<3?"1px solid #f8f8f8":"none"}}>
+                  <span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:c,background:`${c}0d`,padding:"1px 5px",borderRadius:99}}>{p.pos}</span>
+                  <span style={{fontFamily:sans,fontSize:9,fontWeight:600,color:"#171717",flex:1}}>{p.name}</span>
+                  <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#7c3aed"}}>{p.val}</span>
+                </div>;})}
               </div>
             </div>
           </div>
         </div>
 
         {/* ===== BOTTOM STRIP ===== */}
-        <div style={{height:32,background:"#171717",display:"flex",alignItems:"center",justifyContent:"center",gap:8,flexShrink:0,position:"relative"}}>
-          <div style={{position:"absolute",top:0,left:0,right:0,height:2,background:"linear-gradient(90deg, #ec4899, #7c3aed, #3b82f6, #22c55e)"}}/>
-          <span style={{fontFamily:sans,fontSize:11,color:"#525252"}}>2026 NFL Mock Draft Simulator</span>
-          <span style={{color:"#525252",fontSize:8}}>·</span>
-          <span style={{fontFamily:sans,fontSize:11,color:"#525252"}}>Big Board Builder</span>
-          <span style={{color:"#525252",fontSize:8}}>·</span>
-          <span style={{fontFamily:sans,fontSize:11,color:"#525252"}}>32 AI GMs with CPU Trades</span>
-          <span style={{color:"#525252",fontSize:8}}>·</span>
-          <span style={{fontFamily:sans,fontSize:11,color:"#525252"}}>Live Depth Charts</span>
+        <div style={{height:36,background:"#171717",display:"flex",alignItems:"center",justifyContent:"space-between",padding:"0 32px",flexShrink:0,position:"relative"}}>
+          <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:"linear-gradient(90deg,#ec4899,#7c3aed)"}}/>
+          <div style={{display:"flex",alignItems:"center",gap:8}}>
+            <img src="/logo.png" alt="" style={{height:16,filter:"brightness(0) invert(1)"}}/>
+            <span style={{fontFamily:font,fontSize:13,fontWeight:900,color:"#fff",letterSpacing:"-0.02em"}}>bigboardlab.com</span>
+          </div>
+          <div style={{display:"flex",gap:16}}>
+            {["450+ Prospects","Trait Grading","32 AI GMs","Live Depth Charts","Share Results"].map(t=><span key={t} style={{fontFamily:sans,fontSize:10,color:"#737373"}}>{t}</span>)}
+          </div>
         </div>
       </div>
 
