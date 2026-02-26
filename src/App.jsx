@@ -1799,7 +1799,14 @@ function AdminDashboard({user,onBack}){
         const community=communityRes.data||[];
         const allEventsData=evtsRes.data||[];
         const adminId=user?.id;
-        const allEvents=adminId?allEventsData.filter(e=>e.user_id!==adminId):allEventsData;
+        const allEventsFiltered=adminId?allEventsData.filter(e=>e.user_id!==adminId):allEventsData;
+        // Fix historical signup inflation — only keep 1 signup per user, relabel rest as login
+        // Events are desc by created_at, so collect all signup indices per user, keep only the last (earliest)
+        const signupIndices={};
+        allEventsFiltered.forEach((e,i)=>{if(e.event==='signup'){if(!signupIndices[e.user_id])signupIndices[e.user_id]=[];signupIndices[e.user_id].push(i);}});
+        const relabelSet=new Set();
+        Object.values(signupIndices).forEach(idxs=>{idxs.slice(0,-1).forEach(i=>relabelSet.add(i));});
+        const allEvents=allEventsFiltered.map((e,i)=>relabelSet.has(i)?{...e,event:'login'}:e);
         const totalUsers=authCountRes.data||0;
         const authUsers=authUsersRes.data||[];
 
