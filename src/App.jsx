@@ -1622,18 +1622,13 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
     tGrad.addColorStop(0,'#ec4899');tGrad.addColorStop(1,'#7c3aed');
     ctx.fillStyle=tGrad;ctx.fillRect(0,0,W,4);
 
-    // Load BBL logo for header
-    let bblLogoImg=null;
-    try{bblLogoImg=new Image();bblLogoImg.src=BBL_LOGO_B64;await new Promise((res,rej)=>{bblLogoImg.onload=res;bblLogoImg.onerror=rej;setTimeout(rej,2000);});}catch(e){bblLogoImg=null;}
-
-    // Header
+    // Header — matching My Guys (no logo in header)
     ctx.textBaseline='top';ctx.textAlign='left';
-    if(bblLogoImg)ctx.drawImage(bblLogoImg,padX,22,36,36);
     ctx.fillStyle='#171717';ctx.font='bold 32px -apple-system,system-ui,sans-serif';
     const title=singlePos?`\u{1f4cb} MY TOP 10 ${singlePos}s`:'\u{1f4cb} MY BIG BOARD \u2014 TOP 10';
-    ctx.fillText(title,padX+48,22);
+    ctx.fillText(title,padX,22);
     ctx.fillStyle='#a3a3a3';ctx.font='11px ui-monospace,monospace';
-    ctx.fillText('BIGBOARDLAB.COM  \u00b7  2026 NFL DRAFT',padX+48,56);
+    ctx.fillText('BIGBOARDLAB.COM  \u00b7  2026 NFL DRAFT',padX,56);
 
     // Gradient separator
     const sGrad=ctx.createLinearGradient(padX,0,W-padX,0);
@@ -1751,15 +1746,16 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
       ctx.textAlign='right';ctx.fillText(`${grade}`,W-padX-16,cy+34);ctx.textAlign='left';
     });
 
-    // Footer
+    // Footer — matching My Guys exactly (use /logo.png for transparency)
+    let logoImg=null;
+    try{logoImg=new Image();logoImg.crossOrigin='anonymous';logoImg.src='/logo.png';await new Promise((res,rej)=>{logoImg.onload=res;logoImg.onerror=rej;setTimeout(rej,2000);});}catch(e){logoImg=null;}
     const fy=H-footerH;
     ctx.fillStyle='#111';ctx.fillRect(0,fy,W,footerH);
-    let footerLogoImg=null;
-    try{footerLogoImg=new Image();footerLogoImg.src=BBL_LOGO_B64;await new Promise((res,rej)=>{footerLogoImg.onload=res;footerLogoImg.onerror=rej;setTimeout(rej,2000);});}catch(e){footerLogoImg=null;}
-    if(footerLogoImg)ctx.drawImage(footerLogoImg,padX,fy+10,32,32);
+    const logoOffset=logoImg?36:0;
+    if(logoImg)ctx.drawImage(logoImg,padX,fy+10,32,32);
     ctx.fillStyle='#fff';ctx.font='bold 14px -apple-system,system-ui,sans-serif';
     ctx.textBaseline='middle';
-    ctx.fillText('bigboardlab.com',padX+44,fy+footerH/2);
+    ctx.fillText('bigboardlab.com',padX+logoOffset+8,fy+footerH/2);
     ctx.fillStyle='#888';ctx.font='11px -apple-system,system-ui,sans-serif';
     ctx.textAlign='right';
     ctx.fillText(`${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}  \u00b7  BUILD YOURS \u2192 BIGBOARDLAB.COM`,W-padX,fy+footerH/2);

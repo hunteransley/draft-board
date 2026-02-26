@@ -1085,13 +1085,12 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       // Thin team accent bar below
       ctx.fillStyle=accent;ctx.fillRect(0,4,W,2);
 
-      // === HEADER — matching My Guys ===
+      // === HEADER — matching My Guys (no logo in header) ===
       ctx.textBaseline='top';ctx.textAlign='left';
-      try{const bblLogo=new Image();bblLogo.src=BBL_LOGO_B64;await new Promise((r,j)=>{bblLogo.onload=r;bblLogo.onerror=j;setTimeout(j,2000);});ctx.drawImage(bblLogo,pad,22,36,36);}catch(e){}
       ctx.fillStyle='#171717';ctx.font='bold 32px -apple-system,system-ui,sans-serif';
-      ctx.fillText('BIG BOARD LAB',pad+48,22);
+      ctx.fillText('BIG BOARD LAB',pad,22);
       ctx.fillStyle='#a3a3a3';ctx.font='11px ui-monospace,monospace';
-      ctx.fillText('BIGBOARDLAB.COM  \u00b7  2026 NFL DRAFT',pad+48,60);
+      ctx.fillText('BIGBOARDLAB.COM  \u00b7  2026 NFL DRAFT',pad,60);
 
       try{const tLogo=await loadImg(nflLogoUrl(team));ctx.drawImage(tLogo,W-pad-48,18,48,48);}catch(e){}
       ctx.textAlign='right';
@@ -1112,7 +1111,14 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       const rightX=pad+leftW+colGap;
       const rightW=W-pad-rightX;
 
-      // LEFT: PICKS
+      // LEFT: PICKS — load school logos first
+      const pickSchools=[...new Set(teamPicks.map(pk=>prospectsMap[pk.playerId]?.school).filter(Boolean))];
+      const schoolCache={};
+      await Promise.all(pickSchools.map(async s=>{
+        const url=schoolLogo(s);if(!url)return;
+        try{schoolCache[s]=await loadImg(url,2000);}catch(e){}
+      }));
+
       ctx.fillStyle=accent;ctx.font='bold 10px ui-monospace,monospace';
       ctx.fillText('YOUR PICKS',pad,bodyY);
       let py=bodyY+20;
@@ -1124,57 +1130,75 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         const v=pickVerdict(pk.pick,rank,g2);
         const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos]||'#525252';
 
-        // Detect trade: was this pick slot originally owned by a different team?
+        // Detect trade
         const pickIdx=picks.findIndex(x=>x.pick===pk.pick&&x.round===pk.round&&x.playerId===pk.playerId);
         const origOwner=pickIdx>=0?fullDraftOrder[pickIdx]?.team:null;
         const wasTrade=origOwner&&origOwner!==pk.team;
 
-        // Card — matching My Guys: #ffffff, 14px radius, 1px #e5e5e5
+        // Card bg — white, 14px radius, 1px #e5e5e5 border
         ctx.fillStyle='#ffffff';rr(pad,py,leftW,pickRowH-6,14);ctx.fill();
         ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;rr(pad,py,leftW,pickRowH-6,14);ctx.stroke();
         ctx.fillStyle=accent;ctx.fillRect(pad+1,py+8,4,pickRowH-22);
 
-        // Round/pick — subtle mono
+        // Round/pick label
         ctx.fillStyle='#d4d4d4';ctx.font='bold 10px ui-monospace,monospace';ctx.textAlign='left';
-        ctx.fillText('R'+pk.round+' #'+pk.pick,pad+14,py+22);
+        ctx.fillText('R'+pk.round+' #'+pk.pick,pad+14,py+12);
 
-        // Position pill — matching My Guys: c+'18' bg, bold 10px mono, 20px h, 4px r
+        // Trade pill below round/pick
+        if(wasTrade){ctx.fillStyle='rgba(168,85,247,0.08)';const trdTxt='\u{1f504} via '+(TEAM_ABBR[origOwner]||origOwner);ctx.font='bold 8px ui-monospace,monospace';const trdW=ctx.measureText(trdTxt).width+10;rr(pad+14,py+26,trdW,14,4);ctx.fill();ctx.fillStyle='#a855f7';ctx.fillText(trdTxt,pad+18,py+31);}
+
+        // Position pill
         const posText=p.gpos||p.pos;
         ctx.font='bold 10px ui-monospace,monospace';
         const posW=ctx.measureText(posText).width+14;
-        ctx.fillStyle=c+'18';rr(pad+68,py+16,posW,20,4);ctx.fill();
-        ctx.fillStyle=c;ctx.fillText(posText,pad+75,py+22);
+        ctx.fillStyle=c+'18';rr(pad+68,py+10,posW,20,4);ctx.fill();
+        ctx.fillStyle=c;ctx.fillText(posText,pad+75,py+16);
 
-        // Player name — matching My Guys: bold 16px sans, #171717
-        const nameX=pad+68+posW+12;
+        // School logo
+        const sLogo=schoolCache[p.school];
+        const logoX=pad+68+posW+10;
+        if(sLogo)ctx.drawImage(sLogo,logoX,py+8,24,24);
+        const nameX=logoX+(sLogo?30:0);
+
+        // Player name — bold 16px sans, #171717
         ctx.fillStyle='#171717';ctx.font='bold 16px -apple-system,system-ui,sans-serif';
-        drawTrunc(ctx,p.name,nameX,py+18,leftW-posW-170);
+        drawTrunc(ctx,p.name,nameX,py+10,leftW-nameX+pad-80);
 
-        // School — matching My Guys: 10px mono, #a3a3a3
+        // School text — 10px mono, #a3a3a3
         ctx.fillStyle='#a3a3a3';ctx.font='10px ui-monospace,monospace';
-        drawTrunc(ctx,p.school||'',nameX,py+40,leftW-posW-170);
+        drawTrunc(ctx,p.school||'',nameX,py+30,leftW-nameX+pad-80);
 
-        // Trade pill
-        if(wasTrade){ctx.fillStyle='rgba(168,85,247,0.08)';const trdTxt='\u{1f504} via '+(TEAM_ABBR[origOwner]||origOwner);ctx.font='bold 8px ui-monospace,monospace';const trdW=ctx.measureText(trdTxt).width+10;rr(pad+14,py+42,trdW,14,4);ctx.fill();ctx.fillStyle='#a855f7';ctx.fillText(trdTxt,pad+18,py+47);}
-
-        // Badge emojis — matching My Guys: 14px, proper spacing
+        // Badge emojis in colored pills — matching site UI: color+"0d" bg, 3px radius
         const pBadges=prospectBadges&&prospectBadges[pk.playerId]||[];
-        if(pBadges.length>0){ctx.font='10px ui-monospace,monospace';const schoolW=ctx.measureText(p.school||'').width;ctx.font='14px -apple-system,system-ui,sans-serif';let bx=nameX+schoolW+10;pBadges.forEach(b=>{ctx.fillText(b.emoji,bx,py+38);bx+=16;});}
+        if(pBadges.length>0){
+          ctx.font='bold 10px ui-monospace,monospace';
+          const schoolW=ctx.measureText(p.school||'').width;
+          let bx=nameX+schoolW+6;
+          pBadges.forEach(b=>{
+            const bc=POS_COLORS[p.gpos||p.pos]||'#525252';
+            ctx.font='10px -apple-system,system-ui,sans-serif';
+            const ew=ctx.measureText(b.emoji).width+8;
+            ctx.fillStyle=bc+'0d';rr(bx,py+28,ew,16,3);ctx.fill();
+            ctx.fillStyle=bc;ctx.font='bold 10px -apple-system,system-ui,sans-serif';
+            ctx.fillText(b.emoji,bx+4,py+31);
+            bx+=ew+3;
+          });
+        }
 
-        // Verdict pill — matching My Guys pill style
+        // Verdict pill — right side
         ctx.font='bold 9px ui-monospace,monospace';
         const vw=ctx.measureText(v.text).width+14;
         const vx=pad+leftW-vw-52;
-        ctx.fillStyle=v.bg;rr(vx,py+16,vw,18,9);ctx.fill();
+        ctx.fillStyle=v.bg;rr(vx,py+42,vw,18,9);ctx.fill();
         ctx.fillStyle=v.color;
         ctx.textAlign='center';
-        ctx.fillText(v.text,vx+vw/2,py+23);
+        ctx.fillText(v.text,vx+vw/2,py+49);
         ctx.textAlign='left';
 
-        // Grade — matching My Guys: bold 24px sans
+        // Grade — 900 weight, proportional to row (not oversized ESPN style)
         ctx.fillStyle=g>=75?'#16a34a':g>=55?'#ca8a04':'#dc2626';
-        ctx.font='bold 24px -apple-system,system-ui,sans-serif';ctx.textAlign='right';
-        ctx.fillText(String(g),pad+leftW-14,py+20);
+        ctx.font='900 18px -apple-system,system-ui,sans-serif';ctx.textAlign='right';
+        ctx.fillText(String(g),pad+leftW-14,py+18);
         ctx.textAlign='left';
         py+=pickRowH;
       }
@@ -1253,13 +1277,16 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         dy+=depthGroupGap;
       }
 
-      // === FOOTER — matching My Guys exactly ===
+      // === FOOTER — matching My Guys exactly (use /logo.png for transparency) ===
+      let logoImg=null;
+      try{logoImg=new Image();logoImg.crossOrigin='anonymous';logoImg.src='/logo.png';await new Promise((r,j)=>{logoImg.onload=r;logoImg.onerror=j;setTimeout(j,2000);});}catch(e){logoImg=null;}
       const fy=H-footerH;
       ctx.fillStyle='#111';ctx.fillRect(0,fy,W,footerH);
-      try{const logo=new Image();logo.src=BBL_LOGO_B64;await new Promise((r,j)=>{logo.onload=r;logo.onerror=j;setTimeout(j,2000);});ctx.drawImage(logo,pad,fy+10,32,32);}catch(e){}
+      const logoOffset=logoImg?36:0;
+      if(logoImg)ctx.drawImage(logoImg,pad,fy+10,32,32);
       ctx.fillStyle='#fff';ctx.font='bold 14px -apple-system,system-ui,sans-serif';
       ctx.textBaseline='middle';
-      ctx.fillText('bigboardlab.com',pad+44,fy+footerH/2);
+      ctx.fillText('bigboardlab.com',pad+logoOffset+8,fy+footerH/2);
       ctx.fillStyle='#888';ctx.font='11px -apple-system,system-ui,sans-serif';
       ctx.textAlign='right';
       ctx.fillText(`${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}  \u00b7  BUILD YOURS \u2192 BIGBOARDLAB.COM`,W-pad,fy+footerH/2);
@@ -1336,11 +1363,14 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       // Dark footer
       const footerH=48;
       ctx.fillStyle='#111111';ctx.fillRect(0,H-footerH,W,footerH);
-      try{const logo=new Image();logo.src=BBL_LOGO_B64;await new Promise((r,j)=>{logo.onload=r;logo.onerror=j;setTimeout(j,2000);});ctx.drawImage(logo,pad,H-footerH+8,32,32);}catch(e){}
+      let logo32=null;
+      try{logo32=new Image();logo32.crossOrigin='anonymous';logo32.src='/logo.png';await new Promise((r,j)=>{logo32.onload=r;logo32.onerror=j;setTimeout(j,2000);});}catch(e){logo32=null;}
+      const lo32=logo32?36:0;
+      if(logo32)ctx.drawImage(logo32,pad,H-footerH+8,32,32);
       ctx.fillStyle='#ffffff';ctx.font='bold 13px -apple-system,system-ui,sans-serif';ctx.textBaseline='top';
-      ctx.fillText('bigboardlab.com',pad+40,H-footerH+10);
+      ctx.fillText('bigboardlab.com',pad+lo32+4,H-footerH+10);
       ctx.fillStyle='#737373';ctx.font='10px -apple-system,system-ui,sans-serif';
-      ctx.fillText('The most realistic mock draft simulator ever built',pad+40,H-footerH+26);
+      ctx.fillText('The most realistic mock draft simulator ever built',pad+lo32+4,H-footerH+26);
       const bGrad32=ctx.createLinearGradient(0,0,W,0);bGrad32.addColorStop(0,'#ec4899');bGrad32.addColorStop(1,'#7c3aed');
       ctx.fillStyle=bGrad32;ctx.fillRect(0,H-3,W,3);
     }
