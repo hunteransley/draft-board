@@ -330,7 +330,7 @@ function AuthModal({message,onClose}){
 // ============================================================
 // Auth Screen
 // ============================================================
-function AuthScreen({onSignIn,onSkip}){
+function AuthScreen({onSignIn,onSkip,onOpenGuide}){
   const[error,setError]=useState('');
   const seedTicker=[
     // Risers (20)
@@ -369,14 +369,10 @@ function AuthScreen({onSignIn,onSkip}){
     if(err)setError(err.message);
   };
 
-  const features=[
-    {emoji:"🔍",title:"Filter by elite traits",desc:"Find the best route runners, pass rushers, or ball hawks. Filter any position by standout traits."},
-    {emoji:"🧠",title:"32 AI GMs with real personalities",desc:"Each CPU team drafts differently. The Bengals take BPA. The Saints reach. The Eagles play dynasty."},
-    {emoji:"⚖️",title:"Pair-by-pair prospect ranking",desc:"No spreadsheets. Choose between two players, head-to-head, until your board builds itself."},
-    {emoji:"📋",title:"Live depth chart updates",desc:"Every pick lands on the roster in real time. See starters displaced and needs filled."},
-    {emoji:"🎚️",title:"Spider charts & trait grading",desc:"Arm strength, burst, coverage instincts — dial in traits and watch grades update in real time."},
-    {emoji:"🎯",title:"Every pick graded instantly",desc:"Steal, value, or reach — get a verdict on every selection and see how your draft stacks up."},
-  ];
+  const demoPair=[PROSPECTS.find(p=>p.name==="Rueben Bain Jr."),PROSPECTS.find(p=>p.name==="David Bailey")].filter(Boolean);
+  const demoQB=PROSPECTS.find(p=>p.name==="Garrett Nussmeier");
+  const demoBoard=[PROSPECTS.find(p=>p.name==="Rueben Bain Jr."),PROSPECTS.find(p=>p.name==="Caleb Downs"),PROSPECTS.find(p=>p.name==="Francis Mauigoa")].filter(Boolean);
+  const homeTeams=["Raiders","Jets","Cardinals","Titans","Giants","Browns","Commanders","Saints"];
 
   return(
     <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
@@ -444,15 +440,114 @@ function AuthScreen({onSignIn,onSkip}){
 
       {/* Features */}
       <div style={{maxWidth:780,margin:"0 auto",padding:"0 24px 40px",display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))",gap:12}}>
-        {features.map((f,i)=>(
-          <div key={i} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px",display:"flex",gap:14,alignItems:"flex-start"}}>
-            <span style={{fontSize:22,lineHeight:1,flexShrink:0,marginTop:1}}>{f.emoji}</span>
-            <div>
-              <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>{f.title}</div>
-              <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>{f.desc}</div>
-            </div>
+
+        {/* 1 — Pair ranking */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
+          <div style={{marginBottom:12}}>
+            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>Pair-by-pair prospect ranking</div>
+            <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>Choose between two players, head-to-head, until your board builds itself.</div>
           </div>
-        ))}
+          <div style={{display:"flex",gap:8,alignItems:"center",justifyContent:"center"}}>
+            {(()=>{const cards=demoPair.map(p=>{const c=POS_COLORS[p.gpos||p.pos];return<div key={p.id} style={{flex:"0 0 auto",background:"#faf9f6",border:`1.5px solid ${c}22`,borderRadius:10,padding:"8px 12px",textAlign:"center",minWidth:0}}>
+              <SchoolLogo school={p.school} size={24}/>
+              <div style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717",marginTop:4,lineHeight:1.1}}>{shortName(p.name)}</div>
+              <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:c,background:`${c}0d`,padding:"1px 6px",borderRadius:99,display:"inline-block",marginTop:3}}>{p.gpos||p.pos}</span>
+            </div>;});return<>{cards[0]}<span style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#d4d4d4"}}>vs</span>{cards[1]}</>;})()}
+          </div>
+        </div>
+
+        {/* 2 — Trait grading */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
+          <div style={{marginBottom:12}}>
+            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>Spider charts & trait grading</div>
+            <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>Dial in traits and watch radar charts and grades update in real time.</div>
+          </div>
+          {(()=>{if(!demoQB)return null;const pos=demoQB.gpos||demoQB.pos;const posTraits=POSITION_TRAITS[pos]||[];const c=POS_COLORS[pos];const vals=[82,75,68,72,78,65];
+            return<div style={{display:"flex",alignItems:"center",gap:8}}>
+              <div style={{display:"flex",flexDirection:"column",gap:4,flex:1,minWidth:0}}>
+                {posTraits.slice(0,4).map((t,i)=>{const v=vals[i]||60;return<div key={t} style={{display:"flex",alignItems:"center",gap:4}}>
+                  <span style={{fontFamily:mono,fontSize:7,fontWeight:600,color:"#a3a3a3",width:24,textAlign:"right",flexShrink:0}}>{TRAIT_ABBREV[t]||t.slice(0,3).toUpperCase()}</span>
+                  <div style={{flex:1,height:4,background:"#f0f0f0",borderRadius:99,overflow:"hidden"}}><div style={{width:`${v}%`,height:"100%",background:"linear-gradient(90deg,#ec4899,#7c3aed)",borderRadius:99}}/></div>
+                  <span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#525252",width:16,textAlign:"right"}}>{v}</span>
+                </div>;})}
+              </div>
+              <RadarChart traits={posTraits} values={vals} color={c} size={90}/>
+            </div>;
+          })()}
+        </div>
+
+        {/* 3 — 32 AI GMs */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
+          <div style={{marginBottom:12}}>
+            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>32 AI GMs with real tendencies</div>
+            <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>Each CPU team drafts differently based on real needs and front office style.</div>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:6}}>
+            {homeTeams.map(t=><div key={t} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:4}}>
+              <NFLTeamLogo team={t} size={20}/>
+              <span style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",fontWeight:600}}>{NFL_TEAM_ABR[t]}</span>
+            </div>)}
+          </div>
+        </div>
+
+        {/* 4 — Depth charts */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
+          <div style={{marginBottom:12}}>
+            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>Live depth chart updates</div>
+            <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>Every pick lands on the roster in real time. Watch starters get displaced.</div>
+          </div>
+          <div style={{borderRadius:8,overflow:"hidden",border:"1px solid #f0f0f0"}}>
+            {[{slot:"QB1",name:"F. Mendoza",draft:true},{slot:"EDGE1",name:"K. Mack"},{slot:"CB2",name:"A. Terrell",draft:true}].map((r,i)=><div key={r.slot} style={{display:"flex",alignItems:"center",gap:6,padding:"4px 8px",borderBottom:i<2?"1px solid #f5f5f5":"none",background:r.draft?"rgba(34,197,94,0.04)":"transparent"}}>
+              <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:"#a3a3a3",width:36}}>{r.slot}</span>
+              <span style={{fontFamily:sans,fontSize:11,fontWeight:r.draft?600:400,color:r.draft?"#171717":"#737373",flex:1}}>{r.name}</span>
+              {r.draft&&<span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#22c55e",background:"rgba(34,197,94,0.1)",padding:"1px 6px",borderRadius:99}}>NEW</span>}
+            </div>)}
+          </div>
+        </div>
+
+        {/* 5 — Trait filtering */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
+          <div style={{marginBottom:12}}>
+            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>Filter by elite traits</div>
+            <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>Find the best pass rushers, ball hawks, or route runners across every position.</div>
+          </div>
+          <div style={{display:"flex",flexWrap:"wrap",gap:4,justifyContent:"center",marginBottom:8}}>
+            {["Pass Rush","Speed","Man Coverage","Hands"].map(t=><span key={t} style={{fontFamily:sans,fontSize:9,fontWeight:600,color:"#7c3aed",background:"#f5f3ff",border:"1px solid #ede9fe",borderRadius:99,padding:"3px 8px",display:"inline-flex",alignItems:"center",gap:3}}>
+              <span style={{fontSize:9}}>{TRAIT_EMOJI[t]}</span>{t}
+            </span>)}
+          </div>
+          <div style={{borderRadius:8,overflow:"hidden",border:"1px solid #f0f0f0"}}>
+            {[{name:"Bain Jr.",pos:"EDGE",val:92},{name:"Parker",pos:"EDGE",val:88},{name:"Bailey",pos:"DL",val:85}].map((p,i)=>{const c=POS_COLORS[p.pos];return<div key={p.name} style={{display:"flex",alignItems:"center",gap:6,padding:"4px 8px",borderBottom:i<2?"1px solid #f5f5f5":"none"}}>
+              <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:c,background:`${c}0d`,padding:"1px 6px",borderRadius:99}}>{p.pos}</span>
+              <span style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#171717",flex:1}}>{p.name}</span>
+              <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#7c3aed"}}>{p.val}</span>
+            </div>;})}
+          </div>
+        </div>
+
+        {/* 6 — Big board */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
+          <div style={{marginBottom:12}}>
+            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>Your board builds itself</div>
+            <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>Rankings, grades, and radar charts — all in one view. Share it with one tap.</div>
+          </div>
+          <div style={{borderRadius:8,overflow:"hidden",border:"1px solid #f0f0f0"}}>
+            {demoBoard.map((p,i)=>{const c=POS_COLORS[p.gpos||p.pos];const posTraits=POSITION_TRAITS[p.gpos||p.pos]||[];const vals=posTraits.map(t=>tv({},p.id,t,p.name,p.school));return<div key={p.id} style={{display:"flex",alignItems:"center",gap:6,padding:"4px 8px",borderBottom:i<demoBoard.length-1?"1px solid #f5f5f5":"none"}}>
+              <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#a3a3a3",width:16,textAlign:"right"}}>{i+1}</span>
+              <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:c,background:`${c}0d`,padding:"1px 6px",borderRadius:99}}>{p.gpos||p.pos}</span>
+              <SchoolLogo school={p.school} size={16}/>
+              <span style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#171717",flex:1}}>{shortName(p.name)}</span>
+              <MiniRadar values={vals} color={c} size={20}/>
+            </div>;})}
+          </div>
+        </div>
+      </div>
+
+      {/* Guide CTA */}
+      <div style={{textAlign:"center",padding:"0 24px 32px"}}>
+        <span onClick={onOpenGuide} style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#7c3aed",cursor:"pointer",display:"inline-flex",alignItems:"center",gap:6}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>
+          see everything you can do →
+        </span>
       </div>
 
       {/* Privacy */}
@@ -2973,7 +3068,7 @@ export default function App(){
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
   if(showGuide)return<GuidePage onBack={()=>{window.history.pushState({},'','/');setShowGuide(false);}}/>;
   if(showOG)return<OGPreview/>;
-  if(!user&&!isGuest)return<AuthScreen onSkip={()=>setIsGuest(true)}/>;
+  if(!user&&!isGuest)return<AuthScreen onSkip={()=>setIsGuest(true)} onOpenGuide={navigateToGuide}/>;
   if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
   return<>
     <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} onRequireAuth={(msg)=>{
