@@ -1498,7 +1498,7 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
     if(top10.length===0)return;
 
     const scale=2;
-    const W=1200,padX=32,cardH=114,cardGap=12,headerH=90,footerH=52;
+    const W=1200,padX=32,cardH=134,cardGap=12,headerH=90,footerH=52;
     const H=headerH+top10.length*(cardH+cardGap)+footerH+16;
     const canvas=document.createElement('canvas');canvas.width=W*scale;canvas.height=H*scale;
     const ctx=canvas.getContext('2d');ctx.scale(scale,scale);
