@@ -1761,7 +1761,7 @@ function AdminDashboard({user,onBack}){
           supabase.from('boards').select('user_id,board_data,updated_at'),
           supabase.from('community_boards').select('user_id,board_data'),
           supabase.from('events').select('*').order('created_at',{ascending:false}).limit(5000),
-          supabase.from('events').select('created_at').gte('created_at',fourteenAgo).limit(50000),
+          supabase.from('events').select('created_at,user_id,session_id').gte('created_at',fourteenAgo).limit(50000),
           supabase.rpc('get_auth_user_count'),
           supabase.rpc('get_auth_users_summary'),
         ]);
@@ -1892,10 +1892,34 @@ function AdminDashboard({user,onBack}){
           return{date:d,count:dayMap[d]||0};
         });
 
+        // Signup heatmap (last 14 days) — from auth user created_at
+        const signupDayMap={};
+        authUsers.forEach(u=>{if(u.created_at){const d=new Date(u.created_at).toISOString().slice(0,10);if(d>=fourteenAgo.slice(0,10))signupDayMap[d]=(signupDayMap[d]||0)+1;}});
+        const signupHeatmap=Array.from({length:14},(_,i)=>{
+          const d=new Date(now-(13-i)*86400000).toISOString().slice(0,10);
+          return{date:d,count:signupDayMap[d]||0};
+        });
+
+        // Anonymous sessions heatmap (last 14 days) — unique session_ids per day
+        const anonSessionDayMap={};
+        heatmapEvents.filter(e=>!e.user_id).forEach(e=>{
+          const d=new Date(e.created_at).toISOString().slice(0,10);
+          if(!anonSessionDayMap[d])anonSessionDayMap[d]=new Set();
+          if(e.session_id)anonSessionDayMap[d].add(e.session_id);
+        });
+        const anonSessionHeatmap=Array.from({length:14},(_,i)=>{
+          const d=new Date(now-(13-i)*86400000).toISOString().slice(0,10);
+          return{date:d,count:anonSessionDayMap[d]?anonSessionDayMap[d].size:0};
+        });
+
         // Feature usage stats
         const rankingsStarted=allEvents.filter(e=>e.event==='ranking_started').length;
         const mocksStarted=allEvents.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').length;
         const mocksCompleted=allEvents.filter(e=>e.event==='mock_draft_completed').length;
+        const mockSimEvents=allEvents.filter(e=>e.event==='mock_draft_sim_started');
+        const singleTeamMocks=mockSimEvents.filter(e=>{const t=e.metadata?.team||'';return t&&!t.includes(',');}).length;
+        const multiTeamMocks=mockSimEvents.filter(e=>{const t=e.metadata?.team||'';return t&&t.includes(',');}).length;
+        const allTeamMocks=mockSimEvents.filter(e=>{const t=e.metadata?.team||'';return t&&t.split(',').length>=32;}).length;
         const totalShares=allEvents.filter(e=>e.event==='share_results'||e.event==='share_triggered').length;
         const shareUsers=new Set(allEvents.filter(e=>e.event==='share_results'||e.event==='share_triggered').map(e=>e.user_id)).size;
         const noteUsers=boards.filter(b=>{const d=b.board_data||{};return d.notes&&Object.keys(d.notes).length>0;}).length;
@@ -1940,7 +1964,7 @@ function AdminDashboard({user,onBack}){
         setStats({totalUsers,activeToday,activeWeek,posStats,partialCount,avgPositions,hasNotes,
           communityUsers:community.length,eventCounts,uniqueEventUsers,signupsToday,signupsWeek,
           mockDrafts,mockDraftUsers,rankingsCompleted,
-          heatmap,rankingsStarted,mocksStarted,mocksCompleted,totalShares,shareUsers,noteUsers,
+          heatmap,signupHeatmap,anonSessionHeatmap,rankingsStarted,mocksStarted,mocksCompleted,singleTeamMocks,multiTeamMocks,allTeamMocks,totalShares,shareUsers,noteUsers,
           guestMocksStarted,guestMocksCompleted,guestShares,guestMocksWeek,guestTopTeams,
           signupFlows,
           funnelVisited,funnelSignedUp,funnelRankedPos,funnelRanMock,funnelShared,
@@ -2074,6 +2098,48 @@ function AdminDashboard({user,onBack}){
           </div>
         </div>}
 
+        {stats.signupHeatmap&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:24}}>
+          <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>signups — last 14 days</div>
+          <div style={{display:"flex",gap:4}}>
+            {(()=>{
+              const maxC=Math.max(...stats.signupHeatmap.map(d=>d.count),1);
+              return stats.signupHeatmap.map(d=>{
+                const intensity=d.count/maxC;
+                const bg=d.count===0?"#f5f5f5":`rgba(124,58,237,${0.15+intensity*0.85})`;
+                const dayLabel=new Date(d.date+'T12:00:00').toLocaleDateString('en-US',{weekday:'narrow'});
+                const dateLabel=new Date(d.date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'});
+                return<div key={d.date} style={{flex:1,textAlign:"center"}} title={`${dateLabel}: ${d.count} signups`}>
+                  <div style={{height:36,background:bg,borderRadius:4,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:3}}>
+                    <span style={{fontFamily:mono,fontSize:d.count>0?11:9,fontWeight:700,color:d.count===0?"#d4d4d4":intensity>0.5?"#fff":"#5b21b6"}}>{d.count||"·"}</span>
+                  </div>
+                  <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>{dayLabel}</div>
+                </div>;
+              });
+            })()}
+          </div>
+        </div>}
+
+        {stats.anonSessionHeatmap&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:24}}>
+          <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>anonymous visits — last 14 days</div>
+          <div style={{display:"flex",gap:4}}>
+            {(()=>{
+              const maxC=Math.max(...stats.anonSessionHeatmap.map(d=>d.count),1);
+              return stats.anonSessionHeatmap.map(d=>{
+                const intensity=d.count/maxC;
+                const bg=d.count===0?"#f5f5f5":`rgba(249,115,22,${0.15+intensity*0.85})`;
+                const dayLabel=new Date(d.date+'T12:00:00').toLocaleDateString('en-US',{weekday:'narrow'});
+                const dateLabel=new Date(d.date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'});
+                return<div key={d.date} style={{flex:1,textAlign:"center"}} title={`${dateLabel}: ${d.count} sessions`}>
+                  <div style={{height:36,background:bg,borderRadius:4,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:3}}>
+                    <span style={{fontFamily:mono,fontSize:d.count>0?11:9,fontWeight:700,color:d.count===0?"#d4d4d4":intensity>0.5?"#fff":"#9a3412"}}>{d.count||"·"}</span>
+                  </div>
+                  <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>{dayLabel}</div>
+                </div>;
+              });
+            })()}
+          </div>
+        </div>}
+
         {/* Guest Activity + Signup Flows — side by side */}
         <div className="admin-2col">
           <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
@@ -2149,6 +2215,10 @@ function AdminDashboard({user,onBack}){
                   <span style={{fontFamily:mono,fontSize:11,color:f.color}}>{f.completed}<span style={{color:"#a3a3a3",fontSize:10}}>/{f.started} </span><span style={{fontWeight:700,color:f.color}}>{rate}%</span></span>
                 </div>;
               })}
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
+                <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Mock Breakdown</span>
+                <span style={{fontFamily:mono,fontSize:11,color:"#f59e0b"}}>{stats.singleTeamMocks} <span style={{color:"#a3a3a3",fontSize:10}}>1-team</span> · {stats.multiTeamMocks-stats.allTeamMocks} <span style={{color:"#a3a3a3",fontSize:10}}>multi</span> · {stats.allTeamMocks} <span style={{color:"#a3a3a3",fontSize:10}}>32-team</span></span>
+              </div>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
                 <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Share Rate</span>
                 <span style={{fontFamily:mono,fontSize:11,color:"#22c55e"}}>{stats.mocksCompleted>0?Math.round(stats.totalShares/stats.mocksCompleted*100):0}% <span style={{color:"#a3a3a3",fontSize:10}}>({stats.totalShares} shares)</span></span>
