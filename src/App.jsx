@@ -745,21 +745,51 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
         pm[pk.prospect_name].picks.push(pk.pick_number);
         if(pk.grade!=null)pm[pk.prospect_name].grades.push(pk.grade);
       });
+      const totalMocks=uniqueMocks.size||1;
       const candidates=Object.values(pm).map(p=>{
         const avgPick=p.picks.reduce((a,b)=>a+b,0)/p.picks.length;
         const cr=getConsensusRank(p.name)||999;
         const delta=cr-avgPick;
         const avgGrade=p.grades.length>0?Math.round(p.grades.reduce((a,b)=>a+b,0)/p.grades.length):null;
-        return{...p,avgPick:Math.round(avgPick*10)/10,consensusRank:cr,delta:Math.round(delta*10)/10,timesDrafted:p.picks.length,avgGrade};
+
+        // Find prospect for grade lookup
+        const prospect=PROSPECTS.find(x=>x.name===p.name);
+        const hasUserInput=prospect&&(
+          (traits[prospect.id]&&Object.keys(traits[prospect.id]).length>0)||
+          (ratings[prospect.id]&&ratings[prospect.id]!==1500)
+        );
+
+        // Signal 1: User ranking vs consensus (0-100)
+        let rankingSignal=50;
+        if(hasUserInput&&prospect){
+          const userGrade=getGrade(prospect.id);
+          const consGrade=getConsensusGrade(p.name);
+          rankingSignal=Math.max(0,Math.min(100,((userGrade-consGrade)+30)/60*100));
+        }
+
+        // Signal 2: Draft frequency (0-100)
+        const frequencySignal=Math.min(100,(p.picks.length/totalMocks)*100);
+
+        // Signal 3: Draft position vs consensus, clamped (0-100)
+        const clampedDelta=Math.max(-50,Math.min(50,delta));
+        const draftSignal=clampedDelta+50;
+
+        // Weighted score — redistribute ranking weight if no user input
+        const rw=hasUserInput?0.50:0;
+        const fw=hasUserInput?0.30:0.55;
+        const dw=hasUserInput?0.20:0.45;
+        const score=rw*rankingSignal+fw*frequencySignal+dw*draftSignal;
+
+        return{...p,avgPick:Math.round(avgPick*10)/10,consensusRank:cr,delta:Math.round(delta*10)/10,timesDrafted:p.picks.length,avgGrade,score:Math.round(score*10)/10};
       });
-      const sorted=candidates.sort((a,b)=>b.delta-a.delta||b.timesDrafted-a.timesDrafted).slice(0,10);
+      const sorted=candidates.sort((a,b)=>b.score-a.score).slice(0,10);
       const prevNames=myGuys.map(g=>g.name).join(',');
       const newNames=sorted.map(g=>g.name).join(',');
       if(newNames&&newNames!==prevNames&&!myGuysInitialLoad.current)setMyGuysUpdated(true);
       myGuysInitialLoad.current=false;
       setMyGuys(sorted);
     }catch(e){console.error('Failed to load my guys:',e);}
-  },[user?.id,getConsensusRank]);
+  },[user?.id,getConsensusRank,getGrade,getConsensusGrade,traits,ratings]);
 
   // Save mock draft picks to Supabase for ADP tracking and My Guys
   const saveMockPicks=useCallback(async(picks)=>{
@@ -928,8 +958,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
                   <div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#a3a3a3"}}>{g.consensusRank}</div>
                 </div>
                 <div style={{textAlign:"center"}}>
-                  <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>reach</div>
-                  <div style={{fontFamily:font,fontSize:16,fontWeight:900,color:g.delta>0?"#16a34a":"#dc2626"}}>+{g.delta}</div>
+                  <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>score</div>
+                  <div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717"}}>{g.score}</div>
                 </div>
                 <div style={{textAlign:"center"}}>
                   <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>drafted</div>
