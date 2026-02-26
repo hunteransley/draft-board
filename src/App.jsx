@@ -2376,16 +2376,35 @@ function AdminDashboard({user,onBack}){
 function GuidePage({onBack}){
   useEffect(()=>{trackEvent(null,'guide_viewed');},[]);
   useEffect(()=>{
+    const guideTitle='How to Use Big Board Lab | 2026 NFL Draft Board Builder Guide';
+    const guideDesc='Learn how to rank prospects, grade traits, run AI mock drafts, compare players, and build your 2026 NFL big board with Big Board Lab.';
+    const guideUrl='https://bigboardlab.com/guide';
+    // Save originals
     const origTitle=document.title;
-    const origDesc=document.querySelector('meta[name="description"]')?.getAttribute('content');
+    const saveMeta=(sel)=>{const el=document.querySelector(sel);return el?el.getAttribute('content'):null;};
+    const origDesc=saveMeta('meta[name="description"]');
     const origCanonical=document.querySelector('link[rel="canonical"]')?.getAttribute('href');
-    document.title="How to Use Big Board Lab | 2026 NFL Draft Board Builder Guide";
-    let metaDesc=document.querySelector('meta[name="description"]');
-    if(!metaDesc){metaDesc=document.createElement('meta');metaDesc.name='description';document.head.appendChild(metaDesc);}
-    metaDesc.setAttribute('content','Learn how to rank prospects, grade traits, run AI mock drafts, compare players, and build your 2026 NFL big board with Big Board Lab.');
+    const origOgTitle=saveMeta('meta[property="og:title"]');
+    const origOgDesc=saveMeta('meta[property="og:description"]');
+    const origOgUrl=saveMeta('meta[property="og:url"]');
+    const origTwTitle=saveMeta('meta[name="twitter:title"]');
+    const origTwDesc=saveMeta('meta[name="twitter:description"]');
+    // Helper to set or create a meta tag
+    const setMeta=(sel,attr,val)=>{let el=document.querySelector(sel);if(!el){el=document.createElement('meta');const[a,v]=attr.split('=');el.setAttribute(a,v);document.head.appendChild(el);}el.setAttribute('content',val);return el;};
+    // Set guide meta
+    document.title=guideTitle;
+    setMeta('meta[name="description"]','name=description',guideDesc);
     let canonical=document.querySelector('link[rel="canonical"]');
     if(!canonical){canonical=document.createElement('link');canonical.rel='canonical';document.head.appendChild(canonical);}
-    canonical.setAttribute('href','https://bigboardlab.com/guide');
+    canonical.setAttribute('href',guideUrl);
+    // OG tags
+    setMeta('meta[property="og:title"]','property=og:title',guideTitle);
+    setMeta('meta[property="og:description"]','property=og:description',guideDesc);
+    setMeta('meta[property="og:url"]','property=og:url',guideUrl);
+    // Twitter tags
+    setMeta('meta[name="twitter:title"]','name=twitter:title',guideTitle);
+    setMeta('meta[name="twitter:description"]','name=twitter:description',guideDesc);
+    // JSON-LD HowTo
     const ld=document.createElement('script');ld.type='application/ld+json';
     ld.textContent=JSON.stringify({"@context":"https://schema.org","@type":"HowTo","name":"How to Use Big Board Lab","description":"Build your own 2026 NFL draft big board with pair rankings, trait grading, AI mock drafts, and more.","step":[
       {"@type":"HowToStep","name":"Rank Prospects Head-to-Head","text":"Compare two players side by side and pick a winner to build Elo rankings."},
@@ -2400,7 +2419,18 @@ function GuidePage({onBack}){
       {"@type":"HowToStep","name":"Drag to Reorder","text":"Fine-tune your board by dragging players into your preferred order."}
     ]});
     document.head.appendChild(ld);
-    return()=>{document.title=origTitle;if(origDesc)metaDesc.setAttribute('content',origDesc);if(origCanonical)canonical.setAttribute('href',origCanonical);else canonical.remove();ld.remove();};
+    // Cleanup: restore originals
+    return()=>{
+      document.title=origTitle;
+      if(origDesc)setMeta('meta[name="description"]','name=description',origDesc);
+      if(origCanonical)canonical.setAttribute('href',origCanonical);else canonical.remove();
+      if(origOgTitle)setMeta('meta[property="og:title"]','property=og:title',origOgTitle);
+      if(origOgDesc)setMeta('meta[property="og:description"]','property=og:description',origOgDesc);
+      if(origOgUrl)setMeta('meta[property="og:url"]','property=og:url',origOgUrl);
+      if(origTwTitle)setMeta('meta[name="twitter:title"]','name=twitter:title',origTwTitle);
+      if(origTwDesc)setMeta('meta[name="twitter:description"]','name=twitter:description',origTwDesc);
+      ld.remove();
+    };
   },[]);
 
   const scrollTo=(id)=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});};
