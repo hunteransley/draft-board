@@ -853,12 +853,12 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
     return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
       <SaveBar/>
       <div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 60px"}}>
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:16,marginBottom:8}}>
           <div>
             <h1 style={{fontSize:32,fontWeight:900,color:"#171717",margin:"0 0 4px",letterSpacing:-1}}>my guys</h1>
             <p style={{fontFamily:sans,fontSize:13,color:"#737373",margin:0,lineHeight:1.5}}>the prospects you bang the table for every time you mock</p>
           </div>
-          <button onClick={()=>setShowMyGuys(false)} style={{fontFamily:sans,fontSize:12,padding:"8px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>← back</button>
+          <button onClick={()=>setShowMyGuys(false)} style={{fontFamily:sans,fontSize:12,padding:"8px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3",whiteSpace:"nowrap",flexShrink:0}}>← back</button>
         </div>
         <p style={{fontFamily:mono,fontSize:10,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>{mockCount} mock{mockCount!==1?"s":""} completed · {myGuys.length}/10 guys identified</p>
 
@@ -1296,7 +1296,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
               <div style={{flex:1,minWidth:0,marginLeft:10,display:"flex",alignItems:"center",gap:4}}>
                 <span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>{p.name}</span>
                 <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginLeft:6}}>{p.school}</span>
-                {(prospectBadges[p.id]||[]).map(b=><span key={b.trait} title={b.trait+" "+b.score} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:c,background:c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{b.emoji}</span>)}
+                {(boardTraitFilter.size>0?(prospectBadges[p.id]||[]).filter(b=>boardTraitFilter.has(b.trait)):(prospectBadges[p.id]||[])).map(b=><span key={b.trait} title={b.trait+" "+b.score} className={boardTraitFilter.size>0?"":"board-badge"} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:c,background:c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{b.emoji}</span>)}
               </div>
               {grade&&<span style={{fontFamily:font,fontSize:14,fontWeight:900,color:grade>=75?"#16a34a":grade>=55?"#ca8a04":"#dc2626",flexShrink:0}}>{grade}</span>}
             </div>;
@@ -1304,6 +1304,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
           <div style={{padding:"12px 16px",textAlign:"center"}}><button onClick={()=>setBoardShowAll(v=>!v)} style={{fontFamily:mono,fontSize:10,color:"#525252",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>{boardShowAll?`show less`:`view all ${filteredBoard.length} prospects`}</button></div>
         </div>
       )}
+      <style>{`@media(max-width:600px){.board-badge{display:none!important;}}`}</style>
 
       {/* Board footer */}
       {boardTab==="my"&&userBoard.length>0&&(()=>{
