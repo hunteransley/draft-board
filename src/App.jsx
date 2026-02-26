@@ -2368,6 +2368,7 @@ function AdminDashboard({user,onBack}){
 // Guide Page: /guide — how to use Big Board Lab
 // ============================================================
 function GuidePage({onBack}){
+  useEffect(()=>{trackEvent(null,'guide_viewed');},[]);
   useEffect(()=>{
     const origTitle=document.title;
     const origDesc=document.querySelector('meta[name="description"]')?.getAttribute('content');
