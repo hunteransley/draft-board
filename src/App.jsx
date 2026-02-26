@@ -1755,9 +1755,9 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
       </div>
       {samePos&&<>
         <div style={{display:"flex",justifyContent:"center",gap:8,marginTop:16,flexWrap:"wrap"}}>
-          {compPlayers.map((p,ci)=>{const posTraits=POSITION_TRAITS[p.pos]||[];return<div key={p.id} style={{position:"relative"}}>
+          {compPlayers.map((p,ci)=>{const posTraits=POSITION_TRAITS[p.pos]||[];return<div key={p.id} style={{position:"relative",display:"flex",flexDirection:"column",alignItems:"center"}}>
             <RadarChart traits={posTraits} values={posTraits.map(t=>tv(traits,p.id,t,p.name,p.school))} color={compColors[ci]} size={160}/>
-            <div style={{position:"absolute",bottom:0,left:"50%",transform:"translateX(-50%)",fontFamily:mono,fontSize:9,color:compColors[ci],whiteSpace:"nowrap"}}>{shortName(p.name)}</div>
+            <div style={{fontFamily:mono,fontSize:9,color:compColors[ci],whiteSpace:"nowrap",marginTop:-4}}>{shortName(p.name)}</div>
           </div>;})}
         </div>
         <div style={{marginTop:12}}>
