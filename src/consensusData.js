@@ -149,4 +149,8 @@ export const TEAM_NEEDS_DETAILED = {
   "Broncos":    {OL:1, WR:1, DL:1, DB:1, LB:1},
   "Patriots":   {OL:2, WR:1, DL:1, DB:1},
   "Seahawks":   {DL:2, OL:1, LB:1, DB:1},
+  "Falcons":    {DL:2, WR:1, DB:1, LB:1},
+  "Colts":      {DL:2, OL:1, WR:1, DB:1},
+  "Packers":    {DB:2, OL:1, DL:1, LB:1},
+  "Jaguars":    {DB:2, LB:1, OL:1, DL:1},
 };

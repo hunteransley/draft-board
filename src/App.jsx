@@ -623,11 +623,11 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const[lockedPlayer,setLockedPlayer]=useState(null);
   const[showOnboarding,setShowOnboarding]=useState(()=>{try{return !localStorage.getItem('bbl_onboarded');}catch(e){return true;}});
 
-  // Consensus Top 50 (aggregated from major draft media)
-  const CONSENSUS=useMemo(()=>["Cam Ward","Abdul Carter","Travis Hunter","Tetairoa McMillan","Will Johnson","Mason Graham","Shedeur Sanders","Tyler Warren","Ashton Jeanty","Will Campbell","Kelvin Banks Jr.","Mykel Williams","James Pearce Jr.","Luther Burden III","Malaki Starks","Jalen Milroe","Kenneth Grant","Colston Loveland","Jalon Walker","Emeka Egbuka","Derrick Harmon","Aireontae Ersery","Nic Scourton","Josh Simmons","Shavon Revel Jr.","Tyleik Williams","Benjamin Morrison","Sheild Sanders","Walter Nolen","Jack Sawyer","Omarion Hampton","Nick Singleton","Grey Zabel","Mike Matthews","Tate Ratledge","Donovan Jackson","Princely Umanmielen","Kevin Winston Jr.","David Hicks Jr.","Wyatt Milum","J.T. Tuimoloau","Tre Harris","Deone Walker","Quinshon Judkins","Landon Jackson","Isaiah Bond","Quinn Ewers","Dillon Gabriel","Carson Beck","Drew Allar"].map((name,i)=>({name,rank:i+1})),[]);
+  // Consensus rankings derived from consensusData.js CONSENSUS_BOARD (2026 class)
+  const CONSENSUS=useMemo(()=>CONSENSUS_BOARD.map((name,i)=>({name,rank:i+1})),[]);
 
   // Team needs for mock draft
-  const TEAM_NEEDS=useMemo(()=>({"Raiders":["QB","WR","CB"],"Jets":["OL","WR","DL"],"Cardinals":["OL","DL","DB"],"Titans":["DL","WR","OL"],"Giants":["WR","OL","QB"],"Browns":["QB","WR","OL"],"Commanders":["DL","OL","DB"],"Saints":["QB","OL","DL"],"Chiefs":["WR","OL","DB"],"Bengals":["OL","DL","DB"],"Dolphins":["QB","OL","DL"],"Cowboys":["DL","DB","OL"],"Rams":["DB","DL","OL"],"Ravens":["DL","WR","OL"],"Buccaneers":["OL","WR","DL"],"Lions":["DL","DB","LB"],"Vikings":["OL","DL","DB"],"Panthers":["DB","LB","DL"],"Steelers":["QB","WR","OL"],"Chargers":["OL","DL","LB"],"Eagles":["DL","LB","DB"],"Bears":["WR","OL","DB"],"Bills":["OL","WR","DL"],"49ers":["WR","DB","DL"],"Texans":["OL","DL","DB"],"Broncos":["OL","WR","DL"],"Patriots":["OL","WR","DL"],"Seahawks":["DL","OL","LB"]}),[]);
+  const TEAM_NEEDS=useMemo(()=>({"Raiders":["QB","WR","CB"],"Jets":["OL","WR","DL"],"Cardinals":["OL","DL","DB"],"Titans":["DL","WR","OL"],"Giants":["WR","OL","QB"],"Browns":["QB","WR","OL"],"Commanders":["DL","OL","DB"],"Saints":["QB","OL","DL"],"Chiefs":["WR","OL","DB"],"Bengals":["OL","DL","DB"],"Dolphins":["QB","OL","DL"],"Cowboys":["DL","DB","OL"],"Rams":["DB","DL","OL"],"Ravens":["DL","WR","OL"],"Buccaneers":["OL","WR","DL"],"Lions":["DL","DB","LB"],"Vikings":["OL","DL","DB"],"Panthers":["DB","LB","DL"],"Steelers":["QB","WR","OL"],"Chargers":["OL","DL","LB"],"Eagles":["DL","LB","DB"],"Bears":["WR","OL","DB"],"Bills":["OL","WR","DL"],"49ers":["WR","DB","DL"],"Texans":["OL","DL","DB"],"Broncos":["OL","WR","DL"],"Patriots":["OL","WR","DL"],"Seahawks":["DL","OL","LB"],"Falcons":["DL","WR","DB"],"Colts":["DL","OL","WR"],"Packers":["DB","OL","DL"],"Jaguars":["DB","LB","OL"]}),[]);
 
   // Load board from Supabase on mount
   useEffect(()=>{
@@ -1313,7 +1313,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
 
     {/* Mock Draft Launcher — primary CTA for new and returning users */}
     {(()=>{
-      const topTeams=["Raiders","Jets","Cardinals","Titans","Giants","Browns","Commanders","Saints","Chiefs","Bengals","Dolphins","Cowboys","Rams","Ravens","Buccaneers","Lions","Vikings","Panthers","Steelers","Chargers","Eagles","Bears","Bills","49ers","Texans","Broncos","Patriots","Seahawks"];
+      const topTeams=["Raiders","Jets","Cardinals","Titans","Giants","Browns","Commanders","Saints","Chiefs","Bengals","Dolphins","Cowboys","Rams","Ravens","Buccaneers","Lions","Vikings","Panthers","Steelers","Chargers","Eagles","Bears","Bills","49ers","Texans","Broncos","Patriots","Seahawks","Falcons","Colts","Packers","Jaguars"];
       const launchMock=()=>{
         setShowMockDraft(true);
         setMockLaunchTeam(mockTeamSet);
