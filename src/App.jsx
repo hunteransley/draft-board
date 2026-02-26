@@ -2327,7 +2327,7 @@ export default function App(){
     });
     const{data:{subscription}}=supabase.auth.onAuthStateChange((event,session)=>{
       setUser(session?.user||null);
-      if(session?.user&&event==='SIGNED_IN')trackEvent(session.user.id,'signup');
+      if(session?.user&&event==='SIGNED_IN'){const created=new Date(session.user.created_at);const isNew=(Date.now()-created.getTime())<10000;trackEvent(session.user.id,isNew?'signup':'login');}
     });
     return()=>subscription.unsubscribe();
   },[]);
