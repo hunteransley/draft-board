@@ -981,7 +981,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     let logoImg=null;try{logoImg=new Image();logoImg.src='/logo.png';await new Promise((res,rej)=>{logoImg.onload=res;logoImg.onerror=rej;setTimeout(rej,2000);});}catch(e){logoImg=null;}
     const fy=H-footerH;ctx.fillStyle='#111';ctx.fillRect(0,fy,W,footerH);const logoOffset=logoImg?36:0;if(logoImg)ctx.drawImage(logoImg,padX,fy+10,32,32);ctx.fillStyle='#fff';ctx.font='bold 14px -apple-system,system-ui,sans-serif';ctx.textBaseline='middle';ctx.fillText('bigboardlab.com',padX+logoOffset+8,fy+footerH/2);ctx.fillStyle='#888';ctx.font='11px -apple-system,system-ui,sans-serif';ctx.textAlign='right';ctx.fillText(`${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}  \u00b7  BUILD YOURS \u2192 BIGBOARDLAB.COM`,W-padX,fy+footerH/2);ctx.textAlign='left';ctx.textBaseline='top';
     const bGrad=ctx.createLinearGradient(0,0,W,0);bGrad.addColorStop(0,'#ec4899');bGrad.addColorStop(1,'#7c3aed');ctx.fillStyle=bGrad;ctx.fillRect(0,H-3,W,3);
-    canvas.toBlob(async blob=>{if(!blob)return;const fname='bigboardlab-my-guys.png';const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);if(isMobile&&navigator.share&&navigator.canShare){try{const file=new File([blob],fname,{type:'image/png'});if(navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'My Guys \u2014 Big Board Lab',text:'My 2026 NFL Draft guys! Build yours at bigboardlab.com'});return;}}catch(e){}}try{await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);setCopiedShare("my-guys");setTimeout(()=>setCopiedShare(null),1500);}catch(e){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=fname;document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(()=>URL.revokeObjectURL(url),3000);}},'image/png');
+    canvas.toBlob(async blob=>{if(!blob)return;const fname='bigboardlab-my-guys.png';const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);if(isMobile&&navigator.share&&navigator.canShare){try{const file=new File([blob],fname,{type:'image/png'});if(navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'My Guys \u2014 Big Board Lab',text:'My 2026 NFL Draft guys! Build yours at bigboardlab.com'});return;}}catch(e){}}try{await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);setCopiedShare("my-guys");setTimeout(()=>setCopiedShare(null),1500);}catch(e){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=fname;document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(()=>URL.revokeObjectURL(url),3000);}trackEvent(user?.id,'share_triggered',{type:'my_guys',count:myGuys.length,guest:!user});},'image/png');
   },[myGuys,traits,getGrade,prospectBadges]);
 
   // Share top 10 (overall or position-specific) as branded image
@@ -1132,6 +1132,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
       try{await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
         setCopiedShare("top10");setTimeout(()=>setCopiedShare(null),1500);
       }catch(e){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=fname;a.click();URL.revokeObjectURL(url);}
+      trackEvent(user?.id,'share_triggered',{type:singlePos?'position_top10':'board_top10',position:singlePos||'all',guest:!user});
     });
   },[getBoard,getGrade,traits,prospectBadges]);
 
@@ -1920,8 +1921,11 @@ function AdminDashboard({user,onBack}){
         const singleTeamMocks=mockCompletedEvents.filter(e=>{const t=e.metadata?.team||'';return t&&!t.includes(',');}).length;
         const multiTeamMocks=mockCompletedEvents.filter(e=>{const t=e.metadata?.team||'';return t&&t.includes(',');}).length;
         const allTeamMocks=mockCompletedEvents.filter(e=>{const t=e.metadata?.team||'';return t&&t.split(',').length>=32;}).length;
-        const totalShares=allEvents.filter(e=>e.event==='share_results'||e.event==='share_triggered').length;
-        const shareUsers=new Set(allEvents.filter(e=>e.event==='share_results'||e.event==='share_triggered').map(e=>e.user_id)).size;
+        const shareEvents=allEvents.filter(e=>e.event==='share_results'||e.event==='share_triggered');
+        const totalShares=shareEvents.length;
+        const shareUsers=new Set(shareEvents.map(e=>e.user_id)).size;
+        const shareByType={};
+        shareEvents.forEach(e=>{const t=e.metadata?.type||'mock_single';shareByType[t]=(shareByType[t]||0)+1;});
         const noteUsers=boards.filter(b=>{const d=b.board_data||{};return d.notes&&Object.keys(d.notes).length>0;}).length;
 
         // Guest / anonymous activity (all-time + last 7 days)
@@ -1964,7 +1968,7 @@ function AdminDashboard({user,onBack}){
         setStats({totalUsers,activeToday,activeWeek,posStats,partialCount,avgPositions,hasNotes,
           communityUsers:community.length,eventCounts,uniqueEventUsers,signupsToday,signupsWeek,
           mockDrafts,mockDraftUsers,rankingsCompleted,
-          heatmap,signupHeatmap,anonSessionHeatmap,rankingsStarted,mocksStarted,mocksCompleted,singleTeamMocks,multiTeamMocks,allTeamMocks,totalShares,shareUsers,noteUsers,
+          heatmap,signupHeatmap,anonSessionHeatmap,rankingsStarted,mocksStarted,mocksCompleted,singleTeamMocks,multiTeamMocks,allTeamMocks,totalShares,shareUsers,shareByType,noteUsers,
           guestMocksStarted,guestMocksCompleted,guestShares,guestMocksWeek,guestTopTeams,
           signupFlows,
           funnelVisited,funnelSignedUp,funnelRankedPos,funnelRanMock,funnelShared,
@@ -2220,9 +2224,13 @@ function AdminDashboard({user,onBack}){
                 <span style={{fontFamily:mono,fontSize:11,color:"#f59e0b"}}>{stats.singleTeamMocks} <span style={{color:"#a3a3a3",fontSize:10}}>1-team</span> · {stats.multiTeamMocks-stats.allTeamMocks} <span style={{color:"#a3a3a3",fontSize:10}}>multi</span> · {stats.allTeamMocks} <span style={{color:"#a3a3a3",fontSize:10}}>32-team</span></span>
               </div>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
-                <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Share Rate</span>
-                <span style={{fontFamily:mono,fontSize:11,color:"#22c55e"}}>{stats.mocksCompleted>0?Math.round(stats.totalShares/stats.mocksCompleted*100):0}% <span style={{color:"#a3a3a3",fontSize:10}}>({stats.totalShares} shares)</span></span>
+                <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Shares</span>
+                <span style={{fontFamily:mono,fontSize:11,color:"#22c55e"}}>{stats.totalShares} <span style={{color:"#a3a3a3",fontSize:10}}>total · {stats.shareUsers} users</span></span>
               </div>
+              {stats.shareByType&&Object.keys(stats.shareByType).length>0&&<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
+                <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Share Breakdown</span>
+                <span style={{fontFamily:mono,fontSize:11,color:"#22c55e"}}>{Object.entries(stats.shareByType).sort((a,b)=>b[1]-a[1]).map(([t,c])=><span key={t}>{c} <span style={{color:"#a3a3a3",fontSize:10}}>{t.replace(/_/g,' ')}</span></span>).reduce((a,b)=>[a,' · ',b])}</span>
+              </div>}
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
                 <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Notes Written</span>
                 <span style={{fontFamily:mono,fontSize:11,color:"#8b5cf6"}}>{stats.noteUsers} <span style={{color:"#a3a3a3",fontSize:10}}>users</span></span>
@@ -3019,7 +3027,7 @@ export default function App(){
   if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
   return<>
     <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} onRequireAuth={(msg)=>{
-      const src=msg.includes('vote')||msg.includes('big board')?'pair rank':msg.includes('trait')||msg.includes('grade')||msg.includes('slider')?'sliders':msg.includes('mock')||msg.includes('draft')?'mock draft':msg.includes('reorder')?'pair rank':msg.includes('note')?'notes':msg.includes('share')||msg.includes('guys')?'share':'homepage';
+      const src=msg.includes('vote')||msg.includes('big board')?'pair rank':msg.includes('trait')||msg.includes('grade')||msg.includes('slider')?'sliders':msg.includes('mock')||msg.includes('draft')?'mock draft':msg.includes('reorder')?'pair rank':msg.includes('note')?'notes':msg.includes('guys')?'my guys':msg.includes('share')?'share':msg.includes('save')?'save':'homepage';
       authSourceRef.current=src;
       setAuthPrompt(msg);
     }}/>

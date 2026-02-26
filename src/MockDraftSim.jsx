@@ -1400,7 +1400,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     // === EXPORT — clipboard + toast on desktop, share sheet on mobile ===
     const label=isSingleTeam?team:'mock-draft';
     canvas.toBlob(async blob=>{
-      if(trackEvent)trackEvent(userId,'share_results',{team:[...userTeams].join(','),grade:draftGrade?.grade||null,guest:!!isGuestUser});
+      if(trackEvent)trackEvent(userId,'share_triggered',{type:isAllTeams?'mock_all32':'mock_single',team:[...userTeams].join(','),grade:draftGrade?.grade||null,guest:!!isGuestUser});
       if(!blob){alert('Could not generate image');return;}
       const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       if(isMobile&&navigator.share&&navigator.canShare){
