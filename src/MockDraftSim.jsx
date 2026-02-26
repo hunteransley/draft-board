@@ -1049,7 +1049,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       // Logo in dark footer, spider card under picks
       // ================================================================
       const W=900,pad=32,colGap=24;
-      const pickRowH=48;
+      const pickRowH=58;
       const depthRowH=16,depthGroupGap=4;
 
       // Depth chart data — flat, no group headers
@@ -1129,37 +1129,37 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         const origOwner=pickIdx>=0?fullDraftOrder[pickIdx]?.team:null;
         const wasTrade=origOwner&&origOwner!==pk.team;
 
-        ctx.fillStyle='#fff';rr(pad,py,leftW,pickRowH-3,5);ctx.fill();
-        ctx.strokeStyle='#f0f0f0';ctx.lineWidth=0.5;ctx.stroke();
-        ctx.fillStyle=accent;ctx.fillRect(pad,py+2,3,pickRowH-7);
+        ctx.fillStyle='#fff';rr(pad,py,leftW,pickRowH-4,8);ctx.fill();
+        ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;ctx.stroke();
+        ctx.fillStyle=accent;ctx.fillRect(pad,py+4,4,pickRowH-12);
 
-        if(wasTrade){ctx.fillStyle='rgba(168,85,247,0.08)';const trdTxt='🔄 via '+(TEAM_ABBR[origOwner]||origOwner);ctx.font='bold 7px ui-monospace,monospace';const trdW=ctx.measureText(trdTxt).width+8;rr(pad+8,py+24,trdW,11,3);ctx.fill();ctx.fillStyle='#a855f7';ctx.fillText(trdTxt,pad+12,py+29);}
+        if(wasTrade){ctx.fillStyle='rgba(168,85,247,0.08)';const trdTxt='🔄 via '+(TEAM_ABBR[origOwner]||origOwner);ctx.font='bold 8px ui-monospace,monospace';const trdW=ctx.measureText(trdTxt).width+10;rr(pad+10,py+32,trdW,13,4);ctx.fill();ctx.fillStyle='#a855f7';ctx.fillText(trdTxt,pad+14,py+37);}
 
-        ctx.fillStyle='#a3a3a3';ctx.font='10px ui-monospace,monospace';ctx.textAlign='left';
-        ctx.fillText('Rd'+pk.round+' #'+pk.pick,pad+8,py+12);
-        ctx.fillStyle=c;ctx.font='bold 10px ui-monospace,monospace';
-        ctx.fillText(p.gpos||p.pos,pad+72,py+12);
-        ctx.fillStyle='#171717';ctx.font='bold 15px -apple-system,system-ui,sans-serif';
-        drawTrunc(ctx,p.name,pad+108,py+12,leftW-210);
-        ctx.fillStyle='#a3a3a3';ctx.font='11px -apple-system,system-ui,sans-serif';
-        drawTrunc(ctx,p.school||'',pad+108,py+28,leftW-210);
+        ctx.fillStyle='#a3a3a3';ctx.font='11px ui-monospace,monospace';ctx.textAlign='left';
+        ctx.fillText('Rd'+pk.round+' #'+pk.pick,pad+10,py+14);
+        ctx.fillStyle=c;ctx.font='bold 11px ui-monospace,monospace';
+        ctx.fillText(p.gpos||p.pos,pad+76,py+14);
+        ctx.fillStyle='#171717';ctx.font='bold 17px -apple-system,system-ui,sans-serif';
+        drawTrunc(ctx,p.name,pad+112,py+12,leftW-220);
+        ctx.fillStyle='#a3a3a3';ctx.font='12px -apple-system,system-ui,sans-serif';
+        drawTrunc(ctx,p.school||'',pad+112,py+32,leftW-220);
         // Trait badge emojis
         const pBadges=prospectBadges&&prospectBadges[pk.playerId]||[];
-        if(pBadges.length>0){const schoolW=ctx.measureText(p.school||'').width;ctx.font='11px -apple-system,system-ui,sans-serif';let bx=pad+108+schoolW+6;pBadges.forEach(b=>{ctx.fillText(b.emoji,bx,py+27);bx+=14;});}
+        if(pBadges.length>0){const schoolW=ctx.measureText(p.school||'').width;ctx.font='12px -apple-system,system-ui,sans-serif';let bx=pad+112+schoolW+10;pBadges.forEach(b=>{ctx.fillText(b.emoji,bx,py+31);bx+=16;});}
 
-        // Verdict pill — measure AFTER setting the correct font
-        ctx.font='bold 8px ui-monospace,monospace';
-        const vw=ctx.measureText(v.text).width+14;
-        const vx=pad+leftW-vw-34;
-        ctx.fillStyle=v.bg;rr(vx,py+6,vw,16,8);ctx.fill();
+        // Verdict pill
+        ctx.font='bold 9px ui-monospace,monospace';
+        const vw=ctx.measureText(v.text).width+16;
+        const vx=pad+leftW-vw-40;
+        ctx.fillStyle=v.bg;rr(vx,py+8,vw,18,9);ctx.fill();
         ctx.fillStyle=v.color;
         ctx.textAlign='center';
-        ctx.fillText(v.text,vx+vw/2,py+12);
+        ctx.fillText(v.text,vx+vw/2,py+15);
         ctx.textAlign='left';
 
         ctx.fillStyle=g>=75?'#16a34a':g>=55?'#ca8a04':'#dc2626';
-        ctx.font='bold 16px -apple-system,system-ui,sans-serif';ctx.textAlign='right';
-        ctx.fillText(String(g),pad+leftW-6,py+12);
+        ctx.font='bold 24px -apple-system,system-ui,sans-serif';ctx.textAlign='right';
+        ctx.fillText(String(g),pad+leftW-10,py+14);
         ctx.textAlign='left';
         py+=pickRowH;
       }

@@ -1713,12 +1713,12 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
 
       // School logo
       const logoX=78+pw+14;
-      if(logoCache[p.school])ctx.drawImage(logoCache[p.school],logoX,y+28,40,40);
+      if(logoCache[p.school])ctx.drawImage(logoCache[p.school],logoX,y+26,44,44);
 
       // Name + school + position rank
-      const nameX=logoX+50;
-      ctx.fillStyle='#171717';ctx.font='bold 18px -apple-system,system-ui,sans-serif';
-      ctx.fillText(p.name,nameX,y+32);
+      const nameX=logoX+54;
+      ctx.fillStyle='#171717';ctx.font='bold 20px -apple-system,system-ui,sans-serif';
+      ctx.fillText(p.name,nameX,y+30);
       ctx.fillStyle='#a3a3a3';ctx.font='12px -apple-system,system-ui,sans-serif';
       ctx.fillText(p.school,nameX,y+54);
       // Position rank label + trait badges
@@ -1733,7 +1733,7 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
       }
       // Trait badge emojis
       const badges=prospectBadges[p.id]||[];
-      if(badges.length>0){afterSchoolX+=8;ctx.font='12px -apple-system,system-ui,sans-serif';badges.forEach(b=>{ctx.fillText(b.emoji,afterSchoolX,y+53);afterSchoolX+=16;});}
+      if(badges.length>0){afterSchoolX+=12;ctx.font='14px -apple-system,system-ui,sans-serif';badges.forEach(b=>{ctx.fillText(b.emoji,afterSchoolX,y+52);afterSchoolX+=18;});}
 
       // Radar chart (shifted left for full labels)
       const radarCx=W-220,radarCy=y+rowH/2,radarR=38;
