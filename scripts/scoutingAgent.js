@@ -108,124 +108,54 @@ function loadExistingTraits() {
   return JSON.parse(readFileSync(path, "utf8"));
 }
 
+// ── NFL.com URL Map ──────────────────────────────────────────
+// NFL.com prospect pages require UUIDs. We scrape the listing once to build a map.
+let nflUrlMap = null; // slug → full URL
+
+async function buildNflUrlMap() {
+  if (nflUrlMap) return nflUrlMap;
+  nflUrlMap = new Map();
+
+  console.log(`  ${c.dim}Building NFL.com prospect URL map...${c.reset}`);
+  const b = await launchBrowser();
+  let page;
+  try {
+    page = await b.newPage();
+    await page.setUserAgent(
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    );
+    await page.goto("https://www.nfl.com/combine/tracker/participants/", {
+      waitUntil: "networkidle2",
+      timeout: 20000,
+    });
+    await sleep(2000);
+
+    // Scroll to load more prospects
+    for (let i = 0; i < 10; i++) {
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+      await sleep(1000);
+    }
+
+    const links = await page.evaluate(() =>
+      [...document.querySelectorAll('a[href*="/prospects/"]')].map((a) => a.href)
+    );
+
+    for (const link of links) {
+      const m = link.match(/\/prospects\/([\w-]+)\/([\w-]+)/);
+      if (m) nflUrlMap.set(m[1], link);
+    }
+    console.log(`  ${c.dim}Found ${nflUrlMap.size} NFL.com prospect URLs${c.reset}`);
+  } catch (err) {
+    console.log(`  ${c.yellow}[!]${c.reset} Failed to build NFL.com URL map: ${err.message}`);
+  } finally {
+    if (page) try { await page.close(); } catch (_) {}
+  }
+
+  return nflUrlMap;
+}
+
 // ── Source Registry ──────────────────────────────────────────
-const SOURCES = [
-  {
-    name: "NFL.com",
-    id: "nfl",
-    requiresPuppeteer: true,
-    enabled: true,
-    buildUrl(prospect) {
-      const parts = prospect.name.toLowerCase().replace(/[.']/g, "").replace(/\s+(jr|sr|ii|iii|iv|v)$/i, "").trim().split(/\s+/);
-      const slug = parts.join("-");
-      return `https://www.nfl.com/prospects/${slug}/`;
-    },
-    extractText(html) {
-      // Look for scouting report sections
-      const sections = [];
-      // Match prospect profile/overview/analysis content
-      const profileMatch = html.match(/class="[^"]*prospect[^"]*"[^>]*>([\s\S]*?)<\/(?:section|div)>/gi);
-      if (profileMatch) {
-        for (const block of profileMatch) {
-          const text = block.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-          if (text.length > 50) sections.push(text);
-        }
-      }
-      // Also try overview/analysis sections
-      const overviewMatch = html.match(/(?:overview|analysis|scouting\s*report|strengths|weaknesses)[^>]*>([\s\S]*?)<\/(?:section|div|article)>/gi);
-      if (overviewMatch) {
-        for (const block of overviewMatch) {
-          const text = block.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-          if (text.length > 50) sections.push(text);
-        }
-      }
-      const combined = sections.join("\n\n");
-      return combined.length > 50 ? combined : null;
-    },
-  },
-  {
-    name: "NFL Draft Buzz",
-    id: "draftbuzz",
-    requiresPuppeteer: false,
-    enabled: true,
-    buildUrl(prospect) {
-      const parts = prospect.name.replace(/[.']/g, "").trim().split(/\s+/);
-      const first = encodeURIComponent(parts[0]);
-      const last = encodeURIComponent(parts.slice(1).join("-"));
-      const school = encodeURIComponent(prospect.school.replace(/\s+/g, "-"));
-      return `https://www.nfldraftbuzz.com/Player/${first}-${last}/${school}`;
-    },
-    extractText(html) {
-      // Look for article body / scouting report content
-      const bodyMatch = html.match(/<article[^>]*>([\s\S]*?)<\/article>/i) ||
-        html.match(/class="[^"]*(?:player-bio|scouting|report|analysis)[^"]*"[^>]*>([\s\S]*?)<\/div>/gi);
-      if (bodyMatch) {
-        const text = (Array.isArray(bodyMatch) ? bodyMatch.map((b) => b.replace(/<[^>]+>/g, " ")).join(" ") : bodyMatch[1].replace(/<[^>]+>/g, " "))
-          .replace(/\s+/g, " ")
-          .trim();
-        return text.length > 50 ? text : null;
-      }
-      return null;
-    },
-  },
-  {
-    name: "CBS Sports",
-    id: "cbs",
-    requiresPuppeteer: false,
-    enabled: true,
-    buildUrl(prospect) {
-      const slug = slugify(prospect.name);
-      return `https://www.cbssports.com/nfl/draft/players/${slug}/`;
-    },
-    extractText(html) {
-      const match = html.match(/class="[^"]*(?:player-bio|prospect|scouting|analysis)[^"]*"[^>]*>([\s\S]*?)<\/(?:div|section)>/gi);
-      if (match) {
-        const text = match.map((b) => b.replace(/<[^>]+>/g, " ")).join(" ").replace(/\s+/g, " ").trim();
-        return text.length > 50 ? text : null;
-      }
-      return null;
-    },
-  },
-  {
-    name: "FOX Sports",
-    id: "fox",
-    requiresPuppeteer: true,
-    enabled: true,
-    buildUrl(prospect) {
-      const slug = slugify(prospect.name);
-      return `https://www.foxsports.com/nfl-draft/prospects/${slug}`;
-    },
-    extractText(html) {
-      const match = html.match(/class="[^"]*(?:prospect|bio|scouting|analysis)[^"]*"[^>]*>([\s\S]*?)<\/(?:div|section)>/gi);
-      if (match) {
-        const text = match.map((b) => b.replace(/<[^>]+>/g, " ")).join(" ").replace(/\s+/g, " ").trim();
-        return text.length > 50 ? text : null;
-      }
-      return null;
-    },
-  },
-  {
-    name: "The Athletic",
-    id: "athletic",
-    requiresPuppeteer: false,
-    enabled: true,
-    buildUrl(prospect) {
-      const query = encodeURIComponent(`${prospect.name} ${prospect.school} NFL draft scouting report`);
-      return `https://www.nytimes.com/athletic/search/?q=${query}`;
-    },
-    extractText(html) {
-      // Free preview text from search results
-      const snippets = [];
-      const matches = html.matchAll(/class="[^"]*(?:snippet|preview|excerpt|description)[^"]*"[^>]*>([\s\S]*?)<\/[^>]+>/gi);
-      for (const m of matches) {
-        const text = m[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-        if (text.length > 30) snippets.push(text);
-      }
-      const combined = snippets.join("\n");
-      return combined.length > 50 ? combined : null;
-    },
-  },
-];
+const SOURCE_NAMES = ["NFL.com"];
 
 // ── Fetch Helpers ────────────────────────────────────────────
 let browser = null;
@@ -233,7 +163,7 @@ let browser = null;
 async function launchBrowser() {
   if (browser) return browser;
   const puppeteer = await import("puppeteer");
-  browser = await puppeteer.default.launch({
+  browser = await puppeteer.launch({
     headless: "new",
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
@@ -249,7 +179,7 @@ async function closeBrowser() {
   }
 }
 
-async function fetchWithPuppeteer(url) {
+async function fetchPageText(url) {
   const b = await launchBrowser();
   let page;
   try {
@@ -257,53 +187,65 @@ async function fetchWithPuppeteer(url) {
     await page.setUserAgent(
       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     );
-    await page.goto(url, { waitUntil: "domcontentloaded", timeout: 15000 });
-    // Wait a bit for JS rendering
+    await page.goto(url, { waitUntil: "networkidle2", timeout: 15000 });
     await sleep(2000);
-    const html = await page.content();
-    return html;
+    // Extract rendered text (not raw HTML) — this captures JS-rendered content
+    const text = await page.evaluate(() => document.body.innerText);
+    return text;
   } catch (err) {
     if (err.message && err.message.includes("Target closed")) {
-      // Browser crashed, relaunch
       browser = null;
       const b2 = await launchBrowser();
       page = await b2.newPage();
       await page.setUserAgent(
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
       );
-      await page.goto(url, { waitUntil: "domcontentloaded", timeout: 15000 });
+      await page.goto(url, { waitUntil: "networkidle2", timeout: 15000 });
       await sleep(2000);
-      return await page.content();
+      return await page.evaluate(() => document.body.innerText);
     }
     throw err;
   } finally {
-    if (page) {
-      try {
-        await page.close();
-      } catch (_) {}
-    }
+    if (page) try { await page.close(); } catch (_) {}
   }
 }
 
-async function fetchWithHttp(url) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 10000);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-      },
-    });
-    if (!res.ok) return null;
-    return await res.text();
-  } catch {
-    return null;
-  } finally {
-    clearTimeout(timeout);
+// ── NFL.com Scouting Text Extraction ─────────────────────────
+// NFL.com Zierlein reports have bullet-point strengths/weaknesses as plain text.
+// We extract lines between the player header and the grading scale footer.
+function extractNflScoutingText(pageText) {
+  const lines = pageText.split("\n").map((l) => l.trim()).filter((l) => l.length > 0);
+
+  const scoutingLines = [];
+  let capturing = false;
+
+  for (const line of lines) {
+    // Start capturing at the overview/summary line (long descriptive sentence)
+    if (!capturing && line.length > 80 && (
+      line.includes("passer") || line.includes("runner") || line.includes("receiver") ||
+      line.includes("blocker") || line.includes("rusher") || line.includes("coverage") ||
+      line.includes("defender") || line.includes("tackler") || line.includes("athlete") ||
+      line.includes("game is built") || line.includes("prospect") || line.includes("player")
+    )) {
+      capturing = true;
+    }
+
+    if (capturing) {
+      // Stop at grading scale / footer content
+      if (line.includes("Grades before") || line.includes("different grading") ||
+          line.includes("NFL Enterprises") || line.includes("clicking any of the buttons")) {
+        break;
+      }
+      // Skip nav/UI noise
+      if (line.length < 20) continue;
+      if (line.includes("Subscribe") || line.includes("NFL+") || line.includes("REDZONE")) continue;
+
+      scoutingLines.push(line);
+    }
   }
+
+  const combined = scoutingLines.join("\n");
+  return combined.length > 100 ? combined : null;
 }
 
 // ── Fetch All Sources for a Prospect ─────────────────────────
@@ -311,37 +253,31 @@ async function fetchAllSources(prospect) {
   const results = [];
   const sourceStats = {};
 
-  for (const source of SOURCES) {
-    if (!source.enabled) continue;
+  // NFL.com — requires UUID URL from pre-built map
+  const urlMap = await buildNflUrlMap();
+  const nameSlug = slugify(prospect.name);
+  const nflUrl = urlMap.get(nameSlug);
 
-    const url = source.buildUrl(prospect);
-    let text = null;
-    let charCount = 0;
-
+  if (nflUrl) {
     try {
-      const html = source.requiresPuppeteer
-        ? await fetchWithPuppeteer(url)
-        : await fetchWithHttp(url);
-
-      if (html) {
-        text = source.extractText(html);
-        if (text) charCount = text.length;
+      const pageText = await fetchPageText(nflUrl);
+      const scoutingText = extractNflScoutingText(pageText);
+      if (scoutingText) {
+        console.log(`  ${c.green}[+]${c.reset} NFL.com — ${scoutingText.length} chars`);
+        results.push({ source: "NFL.com", text: scoutingText });
+        sourceStats["NFL.com"] = scoutingText.length;
+      } else {
+        console.log(`  ${c.red}[-]${c.reset} NFL.com — no scouting text found`);
+        sourceStats["NFL.com"] = 0;
       }
     } catch (err) {
-      // Log and continue
+      console.log(`  ${c.red}[-]${c.reset} NFL.com — error: ${err.message}`);
+      sourceStats["NFL.com"] = 0;
     }
-
-    if (text) {
-      console.log(`  ${c.green}[+]${c.reset} ${source.name} — ${charCount} chars`);
-      results.push({ source: source.name, text });
-    } else {
-      console.log(`  ${c.red}[-]${c.reset} ${source.name} — not found`);
-    }
-
-    sourceStats[source.name] = text ? charCount : 0;
-
-    // Delay between requests
     await sleep(randomDelay());
+  } else {
+    console.log(`  ${c.red}[-]${c.reset} NFL.com — prospect not in listing`);
+    sourceStats["NFL.com"] = 0;
   }
 
   return { results, sourceStats };
@@ -579,7 +515,7 @@ async function main() {
   let newProspects = 0;
 
   // Initialize source hit counters
-  for (const s of SOURCES) sourceHits[s.name] = 0;
+  for (const name of SOURCE_NAMES) sourceHits[name] = 0;
 
   try {
     for (let i = 0; i < prospects.length; i++) {
@@ -657,7 +593,7 @@ async function main() {
   const output = {
     meta: {
       timestamp: new Date().toISOString(),
-      sources_used: SOURCES.filter((s) => s.enabled).map((s) => s.name),
+      sources_used: SOURCE_NAMES,
       prospects_processed: prospectsProcessed,
       filters: {
         position: opts.position || "all",
