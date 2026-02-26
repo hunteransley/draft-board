@@ -2186,7 +2186,7 @@ function AdminDashboard({user,onBack}){
             <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{users.filter(u=>tagUser(u).label==="power user").length} power · {users.filter(u=>tagUser(u).label==="drafter").length} drafters · {users.filter(u=>tagUser(u).label==="ranker").length} rankers</span>
           </div>
           <div className="admin-table-head" style={{padding:"8px 16px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5"}}>
-            {["Email","Status","Ranked","Mocks"].map(h=><span key={h} style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>{h}</span>)}
+            {["Email","Status","Ranked","Activity"].map(h=><span key={h} style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>{h}</span>)}
             <span className="admin-table-hide" style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Last Active</span>
           </div>
           <div style={{maxHeight:500,overflowY:"auto"}}>
@@ -2198,7 +2198,7 @@ function AdminDashboard({user,onBack}){
                   <span style={{fontFamily:mono,fontSize:10,color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{u.email||u.userId.slice(0,12)+'…'}</span>
                   <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:tag.color,background:tag.bg,padding:"2px 6px",borderRadius:4,textAlign:"center"}}>{tag.label}</span>
                   <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:u.rankedPositions>0?"#22c55e":"#e5e5e5",textAlign:"center"}}>{u.rankedPositions}/{POSITION_GROUPS.length}</span>
-                  <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:u.mockCount>0?"#f59e0b":"#e5e5e5",textAlign:"center"}}>{u.mockCount}</span>
+                  <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:u.eventCount>0?"#3b82f6":"#e5e5e5",textAlign:"center"}}>{u.eventCount}</span>
                   <span className="admin-table-hide" style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.updatedAt?new Date(u.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric'})+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
                 </div>
                 {isExp&&<div style={{padding:"8px 16px 12px",background:"#f9f9f7",borderBottom:i<users.length-1?"1px solid #e5e5e5":"none"}}>
