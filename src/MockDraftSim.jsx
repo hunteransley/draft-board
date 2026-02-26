@@ -1619,7 +1619,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           {/* All-32: no grade, just a label */}
           {userTeams.size===32&&<div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",marginBottom:24,letterSpacing:1}}>2026 NFL DRAFT · FIRST ROUND PREDICTIONS</div>}
           <div style={{display:"flex",gap:8,justifyContent:"center",marginBottom:24}}>
-            {(userTeams.size===1||userTeams.size===32)&&<button onClick={shareDraft} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"12px 28px",background:"#171717",border:"none",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:6}}>🖼️<span style={{backgroundImage:"linear-gradient(135deg,#ec4899,#7c3aed)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>share results</span></button>}
+            {(userTeams.size===1||userTeams.size===32)&&<button onClick={shareDraft} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"12px 28px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:6}}>🖼️<span className="shimmer-text">share results</span></button>}
             <button onClick={()=>{setSetupDone(false);setPicks([]);setShowResults(false);setTradeMap({});}} style={{fontFamily:sans,fontSize:12,padding:"8px 20px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>draft again</button>
             {myGuys&&<button onClick={()=>{if(isGuest){onRequireAuth("want to see and share the guys you draft more than others?");return;}if(trackEvent)trackEvent(userId,'my_guys_viewed',{count:(myGuys||[]).length});setShowMyGuysOverlay(true);if(setMyGuysUpdated)setMyGuysUpdated(false);}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:myGuysUpdated?"linear-gradient(135deg,#ec4899,#7c3aed)":mockCount>0?"#171717":"transparent",color:myGuysUpdated||mockCount>0?"#fff":"#a3a3a3",border:myGuysUpdated||mockCount>0?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",position:"relative",transition:"all 0.2s"}}>
               👀 my guys
@@ -1790,7 +1790,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
               <div style={{display:"flex",alignItems:"center",gap:10}}>
                 <h2 style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717",margin:0,letterSpacing:-0.5}}>👀 my guys</h2>
-                {onShareMyGuys&&(myGuys||[]).length>0&&<button onClick={onShareMyGuys} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"8px 18px",background:"#171717",border:"none",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,flexShrink:0}}>🖼️<span style={{backgroundImage:"linear-gradient(135deg,#ec4899,#7c3aed)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>share</span></button>}
+                {onShareMyGuys&&(myGuys||[]).length>0&&<button onClick={onShareMyGuys} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"8px 18px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,flexShrink:0}}>🖼️<span className="shimmer-text">share my guys</span></button>}
               </div>
               <button onClick={()=>setShowMyGuysOverlay(false)} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",padding:"4px 8px"}}>✕</button>
             </div>
@@ -2123,7 +2123,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
               <div style={{display:"flex",alignItems:"center",gap:10}}>
                 <h2 style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717",margin:0,letterSpacing:-0.5}}>👀 my guys</h2>
-                {onShareMyGuys&&(myGuys||[]).length>0&&<button onClick={onShareMyGuys} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"8px 18px",background:"#171717",border:"none",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,flexShrink:0}}>🖼️<span style={{backgroundImage:"linear-gradient(135deg,#ec4899,#7c3aed)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>share</span></button>}
+                {onShareMyGuys&&(myGuys||[]).length>0&&<button onClick={onShareMyGuys} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"8px 18px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,flexShrink:0}}>🖼️<span className="shimmer-text">share my guys</span></button>}
               </div>
               <button onClick={()=>setShowMyGuysOverlay(false)} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",padding:"4px 8px"}}>✕</button>
             </div>
