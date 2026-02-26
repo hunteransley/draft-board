@@ -982,6 +982,157 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     canvas.toBlob(async blob=>{if(!blob)return;const fname='bigboardlab-my-guys.png';const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);if(isMobile&&navigator.share&&navigator.canShare){try{const file=new File([blob],fname,{type:'image/png'});if(navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'My Guys \u2014 Big Board Lab',text:'My 2026 NFL Draft guys! Build yours at bigboardlab.com'});return;}}catch(e){}}try{await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);const toast=document.createElement('div');toast.textContent='\u2713 Copied to clipboard';Object.assign(toast.style,{position:'fixed',bottom:'32px',left:'50%',transform:'translateX(-50%)',background:'#171717',color:'#fff',padding:'10px 24px',borderRadius:'99px',fontSize:'14px',fontWeight:'600',fontFamily:'-apple-system,system-ui,sans-serif',zIndex:'99999',boxShadow:'0 4px 12px rgba(0,0,0,0.15)',transition:'opacity 0.3s'});document.body.appendChild(toast);setTimeout(()=>{toast.style.opacity='0';setTimeout(()=>toast.remove(),300);},2000);}catch(e){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=fname;document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(()=>URL.revokeObjectURL(url),3000);}},'image/png');
   },[myGuys,traits,getGrade,prospectBadges]);
 
+  // Share top 10 (overall or position-specific) as branded image
+  const sharePositionTop10=useCallback(async(pos)=>{
+    const board=getBoard();
+    const singlePos=pos||null;
+    const top10=(singlePos?board.filter(p=>(p.gpos||p.pos)===singlePos):board).slice(0,10);
+    if(top10.length===0)return;
+
+    const scale=2;
+    const W=1200,padX=32,cardH=134,cardGap=12,headerH=90,footerH=52;
+    const H=headerH+top10.length*(cardH+cardGap)+footerH+16;
+    const canvas=document.createElement('canvas');canvas.width=W*scale;canvas.height=H*scale;
+    const ctx=canvas.getContext('2d');ctx.scale(scale,scale);
+
+    const rr=(x,y,w,h,r)=>{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();};
+
+    ctx.fillStyle='#faf9f6';ctx.fillRect(0,0,W,H);
+
+    const tGrad=ctx.createLinearGradient(0,0,W,0);
+    tGrad.addColorStop(0,'#ec4899');tGrad.addColorStop(1,'#7c3aed');
+    ctx.fillStyle=tGrad;ctx.fillRect(0,0,W,4);
+
+    ctx.textBaseline='top';ctx.textAlign='left';
+    ctx.fillStyle='#171717';ctx.font='bold 32px -apple-system,system-ui,sans-serif';
+    const title=singlePos?`\u{1f4cb} MY TOP 10 ${singlePos}s`:'\u{1f4cb} MY BIG BOARD \u2014 TOP 10';
+    ctx.fillText(title,padX,22);
+    ctx.fillStyle='#a3a3a3';ctx.font='11px ui-monospace,monospace';
+    ctx.fillText('BIGBOARDLAB.COM  \u00b7  2026 NFL DRAFT',padX,56);
+
+    const sGrad=ctx.createLinearGradient(padX,0,W-padX,0);
+    sGrad.addColorStop(0,'#ec4899');sGrad.addColorStop(1,'#7c3aed');
+    ctx.fillStyle=sGrad;ctx.fillRect(padX,headerH-6,W-padX*2,2);
+
+    const logoCache={};
+    const schools=[...new Set(top10.map(p=>p.school))];
+    await Promise.all(schools.map(async s=>{
+      const url=schoolLogo(s);
+      if(!url)return;
+      try{const img=new Image();img.crossOrigin='anonymous';img.src=url;await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;setTimeout(rej,2000);});logoCache[s]=img;}catch(e){}
+    }));
+
+    const drawRadar=(cx,cy,r,traitNames,values,color)=>{
+      const n=traitNames.length;if(n<3)return;
+      const angles=traitNames.map((_,i)=>(Math.PI*2*i)/n-Math.PI/2);
+      ctx.strokeStyle='#e0e0e0';ctx.lineWidth=0.5;
+      [0.25,0.5,0.75,1].forEach(lv=>{
+        ctx.beginPath();
+        angles.forEach((a,i)=>{const x=cx+r*lv*Math.cos(a),y=cy+r*lv*Math.sin(a);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+        ctx.closePath();ctx.stroke();
+      });
+      angles.forEach(a=>{ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+r*Math.cos(a),cy+r*Math.sin(a));ctx.stroke();});
+      const pts=angles.map((a,i)=>{const v=(values[i]||50)/100;return[cx+r*v*Math.cos(a),cy+r*v*Math.sin(a)];});
+      ctx.beginPath();pts.forEach(([x,y],i)=>i===0?ctx.moveTo(x,y):ctx.lineTo(x,y));ctx.closePath();
+      ctx.fillStyle=color+'25';ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.stroke();
+      pts.forEach(([x,y])=>{ctx.beginPath();ctx.arc(x,y,2.5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
+      ctx.fillStyle='#999';ctx.font='9px -apple-system,system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+      traitNames.forEach((t,i)=>{
+        const lr=r+16;const x=cx+lr*Math.cos(angles[i]),y=cy+lr*Math.sin(angles[i]);
+        ctx.fillText(t,x,y);
+      });
+      ctx.textAlign='left';ctx.textBaseline='top';
+    };
+
+    const posRanks={};
+    board.forEach((p,i)=>{
+      const pk=(p.gpos||p.pos)==='K'||(p.gpos||p.pos)==='P'||(p.gpos||p.pos)==='LS'?'K/P':(p.gpos||p.pos);
+      if(!posRanks[pk])posRanks[pk]=0;
+      posRanks[pk]++;
+      p._posRank=posRanks[pk];
+    });
+
+    top10.forEach((p,i)=>{
+      const cy=headerH+i*(cardH+cardGap);
+      const grade=getGrade(p.id);
+      const posKey=(p.gpos||p.pos)==='K'||(p.gpos||p.pos)==='P'||(p.gpos||p.pos)==='LS'?'K/P':(p.gpos||p.pos);
+      const c=POS_COLORS[posKey]||POS_COLORS[p.pos]||'#525252';
+      const posTraits=POSITION_TRAITS[p.pos]||POSITION_TRAITS[posKey]||[];
+      const traitVals=posTraits.map(t=>tv(traits,p.id,t,p.name,p.school));
+
+      ctx.fillStyle='#ffffff';rr(padX,cy,W-padX*2,cardH,14);ctx.fill();
+      ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;rr(padX,cy,W-padX*2,cardH,14);ctx.stroke();
+
+      ctx.fillStyle=c;ctx.fillRect(padX+1,cy+8,4,cardH-16);
+
+      ctx.fillStyle='#d4d4d4';ctx.font='bold 28px ui-monospace,monospace';
+      ctx.textAlign='right';ctx.fillText(`${i+1}`.padStart(2,' '),padX+56,cy+cardH/2-14);ctx.textAlign='left';
+
+      if(logoCache[p.school])ctx.drawImage(logoCache[p.school],padX+70,cy+cardH/2-24,48,48);
+
+      ctx.fillStyle='#171717';ctx.font='bold 22px -apple-system,system-ui,sans-serif';
+      ctx.fillText(p.name,padX+130,cy+26);
+
+      const posText=p.gpos||p.pos;
+      ctx.font='bold 12px ui-monospace,monospace';
+      const pw=ctx.measureText(posText).width+14;
+      ctx.fillStyle=c+'18';rr(padX+130,cy+54-4,pw,24,6);ctx.fill();
+      ctx.fillStyle=c;ctx.font='bold 12px ui-monospace,monospace';
+      ctx.fillText(posText,padX+130+7,cy+54+2);
+
+      let afterX=padX+130+pw+10;
+      ctx.fillStyle='#a3a3a3';ctx.font='13px -apple-system,system-ui,sans-serif';
+      ctx.fillText(p.school,afterX,cy+54+2);
+      afterX+=ctx.measureText(p.school).width;
+
+      if(p._posRank){
+        const prText=posText+p._posRank;
+        afterX+=12;
+        ctx.fillStyle=c;ctx.font='bold 11px ui-monospace,monospace';
+        ctx.fillText(prText,afterX,cy+54+3);
+        afterX+=ctx.measureText(prText).width;
+      }
+
+      const badges=prospectBadges[p.id]||[];
+      if(badges.length>0){afterX+=14;ctx.font='15px -apple-system,system-ui,sans-serif';badges.forEach(b=>{ctx.fillText(b.emoji,afterX,cy+54);afterX+=20;});}
+
+      const radarCx=W-padX-170,radarCy=cy+cardH/2,radarR=42;
+      if(posTraits.length>=3)drawRadar(radarCx,radarCy,radarR,posTraits,traitVals,c);
+
+      const gColor=grade>=75?'#16a34a':grade>=55?'#ca8a04':'#dc2626';
+      ctx.fillStyle=gColor;ctx.font='bold 36px -apple-system,system-ui,sans-serif';
+      ctx.textAlign='right';ctx.fillText(`${grade}`,W-padX-16,cy+34);ctx.textAlign='left';
+    });
+
+    let logoImg=null;
+    try{logoImg=new Image();logoImg.crossOrigin='anonymous';logoImg.src='/logo.png';await new Promise((res,rej)=>{logoImg.onload=res;logoImg.onerror=rej;setTimeout(rej,2000);});}catch(e){logoImg=null;}
+    const fy=H-footerH;
+    ctx.fillStyle='#111';ctx.fillRect(0,fy,W,footerH);
+    const logoOffset=logoImg?36:0;
+    if(logoImg)ctx.drawImage(logoImg,padX,fy+10,32,32);
+    ctx.fillStyle='#fff';ctx.font='bold 14px -apple-system,system-ui,sans-serif';
+    ctx.textBaseline='middle';
+    ctx.fillText('bigboardlab.com',padX+logoOffset+8,fy+footerH/2);
+    ctx.fillStyle='#888';ctx.font='11px -apple-system,system-ui,sans-serif';
+    ctx.textAlign='right';
+    ctx.fillText(`${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}  \u00b7  BUILD YOURS \u2192 BIGBOARDLAB.COM`,W-padX,fy+footerH/2);
+    ctx.textAlign='left';ctx.textBaseline='top';
+    const bGrad=ctx.createLinearGradient(0,0,W,0);bGrad.addColorStop(0,'#ec4899');bGrad.addColorStop(1,'#7c3aed');
+    ctx.fillStyle=bGrad;ctx.fillRect(0,H-3,W,3);
+
+    canvas.toBlob(async blob=>{
+      if(!blob)return;
+      const fname=singlePos?`bigboardlab-top10-${singlePos}.png`:'bigboardlab-top10.png';
+      const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if(isMobile&&navigator.share&&navigator.canShare){
+        try{const file=new File([blob],fname,{type:'image/png'});if(navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'My Big Board — Big Board Lab',text:'My 2026 NFL Draft Big Board! Build yours at bigboardlab.com'});return;}}catch(e){}
+      }
+      try{await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
+        const toast=document.createElement('div');toast.textContent='\u2713 Copied to clipboard';Object.assign(toast.style,{position:'fixed',bottom:'32px',left:'50%',transform:'translateX(-50%)',background:'#171717',color:'#fff',padding:'10px 24px',borderRadius:'99px',fontSize:'14px',fontWeight:'600',fontFamily:'-apple-system,system-ui,sans-serif',zIndex:'99999',boxShadow:'0 4px 12px rgba(0,0,0,0.15)',transition:'opacity 0.3s'});document.body.appendChild(toast);setTimeout(()=>{toast.style.opacity='0';setTimeout(()=>toast.remove(),300);},2000);
+      }catch(e){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=fname;a.click();URL.revokeObjectURL(url);}
+    });
+  },[getBoard,getGrade,traits,prospectBadges]);
+
   if(phase==="loading")return(<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading your board...</p></div>);
 
 
@@ -1419,7 +1570,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
 })()}<div style={{display:"flex",gap:12,marginBottom:24,alignItems:"stretch",position:"relative"}}><div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",zIndex:2,fontFamily:font,fontSize:16,fontWeight:900,color:"#d4d4d4",background:"#faf9f6",padding:"4px 10px",borderRadius:99,border:"1px solid #e5e5e5"}}>vs</div>{[{p:pA,id:aId},{p:pB,id:bId}].map(({p,id})=>{const ps=getProspectStats(p.name,p.school);return<button key={id} onClick={()=>{if(showConfidence)return;if(isGuest){onRequireAuth("sign in to vote and build your big board");return;}setPendingWinner(id);setShowConfidence(true);}} style={{flex:1,padding:"24px 16px 20px",background:pendingWinner===id?`${c}08`:"#fff",border:pendingWinner===id?`2px solid ${c}`:"1px solid #e5e5e5",borderRadius:16,cursor:showConfidence?"default":"pointer",textAlign:"center",transition:"all 0.15s",display:"flex",flexDirection:"column",alignItems:"center",gap:4}} onMouseEnter={e=>{if(!showConfidence)e.currentTarget.style.borderColor=c;}} onMouseLeave={e=>{if(!showConfidence&&pendingWinner!==id)e.currentTarget.style.borderColor="#e5e5e5";}}><SchoolLogo school={p.school} size={44}/><div style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",lineHeight:1.1,marginTop:2}}>{p.name}</div><div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{p.school}</div><div style={{display:"flex",gap:6,alignItems:"center",marginTop:2}}><span style={{fontFamily:mono,fontSize:10,fontWeight:500,color:c,background:`${c}0d`,padding:"3px 10px",borderRadius:4,border:`1px solid ${c}1a`}}>{p.gpos||p.pos}</span>{ps&&<span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{ps.rank?"#"+ps.rank+" ovr":"NR"}{ps.posRank?" · "+(p.gpos||p.pos)+ps.posRank:""}</span>}</div>{ps&&(ps.height||ps.weight)&&<div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginTop:2}}>{[ps.height,ps.weight?ps.weight+"lbs":"",ps.cls?("yr "+ps.cls):""].filter(Boolean).join(" · ")}</div>}{ps&&ps.statLine&&<div style={{fontFamily:mono,fontSize:10,color:"#525252",marginTop:4,lineHeight:1.3,background:"#f9f9f6",padding:"4px 8px",borderRadius:6,border:"1px solid #f0f0f0",maxWidth:"100%"}}>{ps.statLine}{ps.statExtra&&<><br/><span style={{color:"#a3a3a3"}}>{ps.statExtra}</span></>}</div>}{(compCount[id]||0)>=2&&<div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",marginTop:4}}>{Math.round(((winCount[id]||0)/(compCount[id]))*100)}% pick rate</div>}</button>})}</div>{showConfidence&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:24,textAlign:"center"}}><p style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",margin:"0 0 4px"}}>how confident?</p><p style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",margin:"0 0 16px"}}>higher = bigger rating swing</p><div style={{display:"flex",gap:8,justifyContent:"center",flexWrap:"wrap"}}>{[["coin flip",.2],["leaning",.5],["confident",.75],["lock",1]].map(([label,val])=><button key={label} onClick={()=>handlePick(pendingWinner,val)} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:val>=.75?"#171717":"transparent",color:val>=.75?"#faf9f6":"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}} onMouseEnter={e=>{e.currentTarget.style.background="#171717";e.currentTarget.style.color="#faf9f6";}} onMouseLeave={e=>{if(val<.75){e.currentTarget.style.background="transparent";e.currentTarget.style.color="#525252";}}}>{label}</button>)}</div><button onClick={()=>{setShowConfidence(false);setPendingWinner(null);}} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",marginTop:10}}>← pick again</button></div>}<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:16}}>{lockedPlayer&&(()=>{const lp=prospectsMap[lockedPlayer];const remLocked=(matchups[activePos]||[]).filter(m=>!((completed[activePos]||new Set()).has(`${m[0]}-${m[1]}`))&&(m[0]===lockedPlayer||m[1]===lockedPlayer));return<div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"8px 12px",marginBottom:12,background:"linear-gradient(135deg,#fef3c7,#fef9c3)",border:"1px solid #fbbf24",borderRadius:8}}><div style={{display:"flex",alignItems:"center",gap:8}}><span style={{fontSize:14}}>🎯</span><span style={{fontFamily:sans,fontSize:12,fontWeight:700,color:"#92400e"}}>{lp?.name} focus mode</span><span style={{fontFamily:mono,fontSize:10,color:"#b45309"}}>{remLocked.length} left</span></div><button onClick={()=>{setLockedPlayer(null);const ns=completed[activePos]||new Set();const next=getNextMatchup(matchups[activePos],ns,ratings,compCount,posRankFn,null);if(next)setCurrentMatchup(next);}} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"4px 10px",background:"#fff",color:"#92400e",border:"1px solid #fbbf24",borderRadius:99,cursor:"pointer"}}>unlock</button></div>;})()}<p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 10px"}}>live rankings</p><div style={{maxHeight:400,overflowY:"auto"}}>{ranked.map((p,i)=>{const isLocked=lockedPlayer===p.id;return<div key={p.id} className="rank-row" style={{display:"flex",alignItems:"center",gap:10,padding:"5px 0",borderBottom:i<ranked.length-1?"1px solid #f5f5f5":"none",background:isLocked?"#fef9c3":"transparent",borderRadius:isLocked?4:0,margin:isLocked?"0 -4px":"0",padding:isLocked?"5px 4px":"5px 0"}}><span style={{fontFamily:mono,fontSize:11,color:"#d4d4d4",width:20,textAlign:"right"}}>{i+1}</span><SchoolLogo school={p.school} size={20}/><span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",flex:1,cursor:"pointer",textDecoration:"none"}} onClick={e=>{e.stopPropagation();setProfilePlayer(p);}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{Math.round(ratings[p.id]||1500)}</span><button onClick={e=>{e.stopPropagation();if(isLocked){setLockedPlayer(null);const ns=completed[activePos]||new Set();const next=getNextMatchup(matchups[activePos],ns,ratings,compCount,posRankFn,null);if(next)setCurrentMatchup(next);}else{setLockedPlayer(p.id);const ns=completed[activePos]||new Set();const next=getNextMatchup(matchups[activePos],ns,ratings,compCount,posRankFn,p.id);if(next)setCurrentMatchup(next);else setLockedPlayer(null);}}} title={isLocked?"Unlock":"Focus matchups on this player"} style={{fontSize:12,background:"none",border:"none",cursor:"pointer",padding:"2px 4px",opacity:isLocked?1:0,transition:"opacity 0.15s",flexShrink:0}} className="lock-btn">{isLocked?"🎯":"📌"}</button></div>;})}</div><style>{`.rank-row:hover .lock-btn{opacity:1!important;}@media(max-width:768px){.lock-btn{display:none!important;}.reorder-hint-desktop{display:none!important;}.reorder-hint-mobile{display:inline!important;}}`}</style></div><button onClick={()=>{setLockedPlayer(null);const done=completed[activePos]||new Set();if(done.size>0){setPartialProgress(prev=>({...prev,[activePos]:{matchups:matchups[activePos]||[],completed:done,ratings}}));}setPhase("pick-position");}} style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"8px 20px",cursor:"pointer"}}>← save & exit</button></div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth}/>}</div>);}
 
   // === TRAITS ===
-  if(phase==="traits"&&activePos){const ranked=getRanked(activePos);const posTraits=POSITION_TRAITS[activePos]||[];const c=POS_COLORS[activePos];const cur=selectedPlayer||ranked[0];const curIdx=ranked.findIndex(p=>p.id===cur?.id);return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:900,margin:"0 auto",padding:"52px 24px 40px"}}><h1 style={{fontSize:28,fontWeight:900,color:c,margin:"0 0 4px"}}>{activePos} rankings</h1><style>{`@media(max-width:768px){.reorder-hint-desktop{display:none!important;}.reorder-hint-mobile{display:inline!important;}}`}</style><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 24px"}}><span className="reorder-hint-desktop">drag to reorder</span><span className="reorder-hint-mobile" style={{display:"none"}}>hold to reorder</span> · click name for full profile</p><div style={{display:"flex",gap:16,flexWrap:"wrap"}}><DraggableRankList ranked={ranked} activePos={activePos} cur={cur} c={c} getGrade={getGrade} setSelectedPlayer={setSelectedPlayer} movePlayer={movePlayer} setProfilePlayer={setProfilePlayer} font={font} mono={mono} sans={sans} isGuest={isGuest} onRequireAuth={onRequireAuth}/>{cur&&<div style={{flex:"1 1 300px",minWidth:260,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:24}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:20,paddingBottom:16,borderBottom:"1px solid #f5f5f5"}}><div style={{display:"flex",alignItems:"center",gap:14}}><SchoolLogo school={cur.school} size={44}/><div><div style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717",cursor:"pointer"}} onClick={()=>setProfilePlayer(cur)} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{cur.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3"}}>{cur.school}</div></div></div><div style={{textAlign:"right"}}><div style={{fontFamily:font,fontSize:36,fontWeight:900,color:getGrade(cur.id)>=75?"#16a34a":getGrade(cur.id)>=55?"#ca8a04":"#dc2626",lineHeight:1}}>{getGrade(cur.id)}</div><div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>grade</div></div></div><div style={{display:"flex",justifyContent:"center",marginBottom:16}}><RadarChart traits={posTraits} values={posTraits.map(t=>tv(traits,cur.id,t,cur.name,cur.school))} color={c} size={220}/></div>{(()=>{const ceil=traits[cur.id]?.__ceiling||"normal";const m={capped:{icon:"🔒",label:"Capped",color:"#737373",bg:"#f5f5f5"},normal:{icon:"📊",label:"Normal",color:"#64748b",bg:"#f0f4ff"},high:{icon:"🔥",label:"High Ceiling",color:"#b45309",bg:"#fef3c7"},elite:{icon:"⭐",label:"Elite Ceiling",color:"#7c3aed",bg:"#f3e8ff"}};const s=m[ceil]||m.normal;return ceil!=="normal"?<div style={{marginBottom:12,paddingBottom:12,borderBottom:"1px solid #f0f0f0"}}><div style={{display:"inline-flex",alignItems:"center",gap:6,padding:"4px 12px",background:s.bg,borderRadius:99}}><span style={{fontSize:13}}>{s.icon}</span><span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:s.color}}>{s.label}</span></div></div>:null;})()}<div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"8px 16px"}}>{posTraits.map(trait=>{const val=tv(traits,cur.id,trait,cur.name,cur.school);return<div key={trait} style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}><span style={{fontFamily:mono,fontSize:11,color:"#737373"}}>{TRAIT_EMOJI[trait]||""} {trait}</span><span style={{fontFamily:font,fontSize:14,fontWeight:900,color:`rgb(${Math.round(236+(124-236)*(val/100))},${Math.round(72+(58-72)*(val/100))},${Math.round(153+(237-153)*(val/100))})`}}>{val}</span></div>;})}</div>{notes[cur.id]&&<div style={{marginTop:16,padding:"10px 12px",background:"#faf9f6",borderRadius:8,border:"1px solid #f0f0f0"}}><div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",letterSpacing:1,textTransform:"uppercase",marginBottom:4}}>notes</div><div style={{fontFamily:sans,fontSize:12,color:"#525252",lineHeight:1.5}}>{notes[cur.id]}</div></div>}<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:20,paddingTop:16,borderTop:"1px solid #f5f5f5"}}><button onClick={()=>curIdx>0&&setSelectedPlayer(ranked[curIdx-1])} disabled={curIdx<=0} style={{fontFamily:sans,fontSize:12,padding:"7px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:curIdx>0?"pointer":"default",color:curIdx>0?"#525252":"#d4d4d4"}}>← prev</button><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{curIdx+1} / {ranked.length}</span><button onClick={()=>curIdx<ranked.length-1&&setSelectedPlayer(ranked[curIdx+1])} disabled={curIdx>=ranked.length-1} style={{fontFamily:sans,fontSize:12,padding:"7px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:curIdx<ranked.length-1?"pointer":"default",color:curIdx<ranked.length-1?"#525252":"#d4d4d4"}}>next →</button></div></div>}</div><div style={{display:"flex",gap:10,marginTop:20,justifyContent:"center",flexWrap:"wrap"}}>
+  if(phase==="traits"&&activePos){const ranked=getRanked(activePos);const posTraits=POSITION_TRAITS[activePos]||[];const c=POS_COLORS[activePos];const cur=selectedPlayer||ranked[0];const curIdx=ranked.findIndex(p=>p.id===cur?.id);return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:900,margin:"0 auto",padding:"52px 24px 40px"}}><div style={{display:"flex",alignItems:"center",gap:12,margin:"0 0 4px"}}><h1 style={{fontSize:28,fontWeight:900,color:c,margin:0}}>{activePos} rankings</h1><button onClick={()=>sharePositionTop10(activePos)} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"8px 18px",background:"#171717",border:"none",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,flexShrink:0}}>🖼️<span style={{backgroundImage:"linear-gradient(135deg,#ec4899,#7c3aed)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>share top 10</span></button></div><style>{`@media(max-width:768px){.reorder-hint-desktop{display:none!important;}.reorder-hint-mobile{display:inline!important;}}`}</style><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 24px"}}><span className="reorder-hint-desktop">drag to reorder</span><span className="reorder-hint-mobile" style={{display:"none"}}>hold to reorder</span> · click name for full profile</p><div style={{display:"flex",gap:16,flexWrap:"wrap"}}><DraggableRankList ranked={ranked} activePos={activePos} cur={cur} c={c} getGrade={getGrade} setSelectedPlayer={setSelectedPlayer} movePlayer={movePlayer} setProfilePlayer={setProfilePlayer} font={font} mono={mono} sans={sans} isGuest={isGuest} onRequireAuth={onRequireAuth}/>{cur&&<div style={{flex:"1 1 300px",minWidth:260,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:24}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:20,paddingBottom:16,borderBottom:"1px solid #f5f5f5"}}><div style={{display:"flex",alignItems:"center",gap:14}}><SchoolLogo school={cur.school} size={44}/><div><div style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717",cursor:"pointer"}} onClick={()=>setProfilePlayer(cur)} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{cur.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3"}}>{cur.school}</div></div></div><div style={{textAlign:"right"}}><div style={{fontFamily:font,fontSize:36,fontWeight:900,color:getGrade(cur.id)>=75?"#16a34a":getGrade(cur.id)>=55?"#ca8a04":"#dc2626",lineHeight:1}}>{getGrade(cur.id)}</div><div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>grade</div></div></div><div style={{display:"flex",justifyContent:"center",marginBottom:16}}><RadarChart traits={posTraits} values={posTraits.map(t=>tv(traits,cur.id,t,cur.name,cur.school))} color={c} size={220}/></div>{(()=>{const ceil=traits[cur.id]?.__ceiling||"normal";const m={capped:{icon:"🔒",label:"Capped",color:"#737373",bg:"#f5f5f5"},normal:{icon:"📊",label:"Normal",color:"#64748b",bg:"#f0f4ff"},high:{icon:"🔥",label:"High Ceiling",color:"#b45309",bg:"#fef3c7"},elite:{icon:"⭐",label:"Elite Ceiling",color:"#7c3aed",bg:"#f3e8ff"}};const s=m[ceil]||m.normal;return ceil!=="normal"?<div style={{marginBottom:12,paddingBottom:12,borderBottom:"1px solid #f0f0f0"}}><div style={{display:"inline-flex",alignItems:"center",gap:6,padding:"4px 12px",background:s.bg,borderRadius:99}}><span style={{fontSize:13}}>{s.icon}</span><span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:s.color}}>{s.label}</span></div></div>:null;})()}<div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"8px 16px"}}>{posTraits.map(trait=>{const val=tv(traits,cur.id,trait,cur.name,cur.school);return<div key={trait} style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}><span style={{fontFamily:mono,fontSize:11,color:"#737373"}}>{TRAIT_EMOJI[trait]||""} {trait}</span><span style={{fontFamily:font,fontSize:14,fontWeight:900,color:`rgb(${Math.round(236+(124-236)*(val/100))},${Math.round(72+(58-72)*(val/100))},${Math.round(153+(237-153)*(val/100))})`}}>{val}</span></div>;})}</div>{notes[cur.id]&&<div style={{marginTop:16,padding:"10px 12px",background:"#faf9f6",borderRadius:8,border:"1px solid #f0f0f0"}}><div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",letterSpacing:1,textTransform:"uppercase",marginBottom:4}}>notes</div><div style={{fontFamily:sans,fontSize:12,color:"#525252",lineHeight:1.5}}>{notes[cur.id]}</div></div>}<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:20,paddingTop:16,borderTop:"1px solid #f5f5f5"}}><button onClick={()=>curIdx>0&&setSelectedPlayer(ranked[curIdx-1])} disabled={curIdx<=0} style={{fontFamily:sans,fontSize:12,padding:"7px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:curIdx>0?"pointer":"default",color:curIdx>0?"#525252":"#d4d4d4"}}>← prev</button><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{curIdx+1} / {ranked.length}</span><button onClick={()=>curIdx<ranked.length-1&&setSelectedPlayer(ranked[curIdx+1])} disabled={curIdx>=ranked.length-1} style={{fontFamily:sans,fontSize:12,padding:"7px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:curIdx<ranked.length-1?"pointer":"default",color:curIdx<ranked.length-1?"#525252":"#d4d4d4"}}>next →</button></div></div>}</div><div style={{display:"flex",gap:10,marginTop:20,justifyContent:"center",flexWrap:"wrap"}}>
   <button onClick={()=>setPhase("pick-position")} style={{fontFamily:sans,fontSize:12,padding:"8px 20px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>← back</button>
   <button onClick={()=>finishTraits(activePos)} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 28px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>save rankings →</button>
   <button onClick={()=>{if(window.confirm(`Reset ${activePos} rankings? This will clear all pair comparisons and traits for this position.`)){
@@ -1439,7 +1590,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   if(phase==="reconcile"&&reconcileQueue.length>0){const item=reconcileQueue[Math.min(reconcileIndex,reconcileQueue.length-1)];const c=POS_COLORS[item.player.pos];const dir=item.gradeRank<item.pairRank?"higher":"lower";return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:500,margin:"0 auto",padding:"52px 24px"}}><p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 4px"}}>reconcile · {reconcileIndex+1} of {reconcileQueue.length}</p><div style={{height:3,background:"#e5e5e5",borderRadius:2,marginBottom:28,overflow:"hidden"}}><div style={{height:"100%",width:`${((reconcileIndex+1)/reconcileQueue.length)*100}%`,background:c,borderRadius:2}}/></div><div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:32,textAlign:"center"}}><SchoolLogo school={item.player.school} size={56}/><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c,marginBottom:4,marginTop:8}}>{item.player.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3",marginBottom:24}}>{item.player.school}</div><div style={{display:"flex",justifyContent:"center",gap:32,marginBottom:24}}>{[["gut rank",`#${item.pairRank}`,"#171717"],["grade rank",`#${item.gradeRank}`,dir==="higher"?"#16a34a":"#dc2626"],["composite",`${item.grade}`,"#171717"]].map(([label,val,col])=><div key={label}><div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:4}}>{label}</div><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:col}}>{val}</div></div>)}</div><p style={{fontFamily:sans,fontSize:14,color:"#737373",lineHeight:1.5,marginBottom:24}}>your traits suggest this player should rank <strong style={{color:dir==="higher"?"#16a34a":"#dc2626"}}>{dir}</strong> than your gut. accept?</p><div style={{display:"flex",gap:10,justifyContent:"center"}}><button onClick={()=>{const pos=item.player.pos;const rk=getRanked(pos);const ti=item.gradeRank-1;const tp=rk[ti];if(tp)setRatings(prev=>({...prev,[item.player.id]:(prev[tp.id]||1500)+(dir==="higher"?1:-1)}));reconcileIndex>=reconcileQueue.length-1?setPhase("pick-position"):setReconcileIndex(reconcileIndex+1);}} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 24px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>accept</button><button onClick={()=>reconcileIndex>=reconcileQueue.length-1?setPhase("pick-position"):setReconcileIndex(reconcileIndex+1)} style={{fontFamily:sans,fontSize:13,padding:"10px 24px",background:"transparent",color:"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>keep my rank</button></div></div></div></div>);}
 
   // === BIG BOARD ===
-  if(phase==="board")return(<div><SaveBar/><div style={{paddingTop:32}}><BoardView getBoard={getBoard} getGrade={getGrade} rankedGroups={rankedGroups} setPhase={setPhase} setSelectedPlayer={setSelectedPlayer} setActivePos={setActivePos} traits={traits} compareList={compareList} setCompareList={setCompareList} setProfilePlayer={setProfilePlayer} setShowMockDraft={setShowMockDraft} communityBoard={communityBoard} setCommunityBoard={setCommunityBoard} ratings={ratings} byPos={byPos} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges}/></div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth}/>}</div>);
+  if(phase==="board")return(<div><SaveBar/><div style={{paddingTop:32}}><BoardView getBoard={getBoard} getGrade={getGrade} rankedGroups={rankedGroups} setPhase={setPhase} setSelectedPlayer={setSelectedPlayer} setActivePos={setActivePos} traits={traits} compareList={compareList} setCompareList={setCompareList} setProfilePlayer={setProfilePlayer} setShowMockDraft={setShowMockDraft} communityBoard={communityBoard} setCommunityBoard={setCommunityBoard} ratings={ratings} byPos={byPos} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} sharePositionTop10={sharePositionTop10}/></div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth}/>}</div>);
 
   return(<>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth}/>}</>);
 }
@@ -1483,192 +1634,13 @@ function DraggableRankList({ranked,activePos,cur,c,getGrade,setSelectedPlayer,mo
   );
 }
 
-function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,setActivePos,traits,compareList,setCompareList,setProfilePlayer,setShowMockDraft,communityBoard,setCommunityBoard,ratings,byPos,traitThresholds,qualifiesForFilter,prospectBadges}){
+function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,setActivePos,traits,compareList,setCompareList,setProfilePlayer,setShowMockDraft,communityBoard,setCommunityBoard,ratings,byPos,traitThresholds,qualifiesForFilter,prospectBadges,sharePositionTop10}){
   const[filterPos,setFilterPos]=useState(new Set());const[traitFilter,setTraitFilter]=useState(new Set());useEffect(()=>{setTraitFilter(new Set());},[filterPos]);const[showCommunity,setShowCommunity]=useState(false);const board=getBoard();let display=filterPos.size>0?board.filter(p=>filterPos.has(p.gpos||p.pos)):board;if(traitFilter.size>0&&filterPos.size===1){const pos=[...filterPos][0];display=display.filter(p=>[...traitFilter].some(t=>qualifiesForFilter(p.id,pos,t)));}
   const compPlayers=compareList.map(id=>board.find(p=>p.id===id)).filter(Boolean);
   const samePos=compPlayers.length>=2&&compPlayers.every(p=>p.pos===compPlayers[0].pos);
   const compColors=["#2563eb","#dc2626","#16a34a","#f59e0b"];
   const[showCompareTip,setShowCompareTip]=useState(()=>{try{return!localStorage.getItem('bbl_compare_tip_seen');}catch(e){return true;}});
   const dismissCompareTip=()=>{setShowCompareTip(false);try{localStorage.setItem('bbl_compare_tip_seen','1');}catch(e){}};
-
-  // Share top 10 as X-optimized image (1200x675)
-  const shareTop10=useCallback(async()=>{
-    const singlePos=filterPos.size===1?[...filterPos][0]:null;
-    const top10=(singlePos?board.filter(p=>(p.gpos||p.pos)===singlePos):board).slice(0,10);
-    if(top10.length===0)return;
-
-    const scale=2;
-    const W=1200,padX=32,cardH=134,cardGap=12,headerH=90,footerH=52;
-    const H=headerH+top10.length*(cardH+cardGap)+footerH+16;
-    const canvas=document.createElement('canvas');canvas.width=W*scale;canvas.height=H*scale;
-    const ctx=canvas.getContext('2d');ctx.scale(scale,scale);
-
-    // Rounded rect helper
-    const rr=(x,y,w,h,r)=>{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();};
-
-    // Background
-    ctx.fillStyle='#faf9f6';ctx.fillRect(0,0,W,H);
-
-    // Gradient top bar
-    const tGrad=ctx.createLinearGradient(0,0,W,0);
-    tGrad.addColorStop(0,'#ec4899');tGrad.addColorStop(1,'#7c3aed');
-    ctx.fillStyle=tGrad;ctx.fillRect(0,0,W,4);
-
-    // Header — matching My Guys (no logo in header)
-    ctx.textBaseline='top';ctx.textAlign='left';
-    ctx.fillStyle='#171717';ctx.font='bold 32px -apple-system,system-ui,sans-serif';
-    const title=singlePos?`\u{1f4cb} MY TOP 10 ${singlePos}s`:'\u{1f4cb} MY BIG BOARD \u2014 TOP 10';
-    ctx.fillText(title,padX,22);
-    ctx.fillStyle='#a3a3a3';ctx.font='11px ui-monospace,monospace';
-    ctx.fillText('BIGBOARDLAB.COM  \u00b7  2026 NFL DRAFT',padX,56);
-
-    // Gradient separator
-    const sGrad=ctx.createLinearGradient(padX,0,W-padX,0);
-    sGrad.addColorStop(0,'#ec4899');sGrad.addColorStop(1,'#7c3aed');
-    ctx.fillStyle=sGrad;ctx.fillRect(padX,headerH-6,W-padX*2,2);
-
-    // Load school logos
-    const logoCache={};
-    const schools=[...new Set(top10.map(p=>p.school))];
-    await Promise.all(schools.map(async s=>{
-      const url=schoolLogo(s);
-      if(!url)return;
-      try{const img=new Image();img.crossOrigin='anonymous';img.src=url;await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;setTimeout(rej,2000);});logoCache[s]=img;}catch(e){}
-    }));
-
-    // Draw radar chart on canvas
-    const drawRadar=(cx,cy,r,traitNames,values,color)=>{
-      const n=traitNames.length;if(n<3)return;
-      const angles=traitNames.map((_,i)=>(Math.PI*2*i)/n-Math.PI/2);
-      // Grid rings
-      ctx.strokeStyle='#e0e0e0';ctx.lineWidth=0.5;
-      [0.25,0.5,0.75,1].forEach(lv=>{
-        ctx.beginPath();
-        angles.forEach((a,i)=>{const x=cx+r*lv*Math.cos(a),y=cy+r*lv*Math.sin(a);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
-        ctx.closePath();ctx.stroke();
-      });
-      // Spokes
-      angles.forEach(a=>{ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+r*Math.cos(a),cy+r*Math.sin(a));ctx.stroke();});
-      // Data polygon
-      const pts=angles.map((a,i)=>{const v=(values[i]||50)/100;return[cx+r*v*Math.cos(a),cy+r*v*Math.sin(a)];});
-      ctx.beginPath();pts.forEach(([x,y],i)=>i===0?ctx.moveTo(x,y):ctx.lineTo(x,y));ctx.closePath();
-      ctx.fillStyle=color+'25';ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.stroke();
-      // Dots
-      pts.forEach(([x,y])=>{ctx.beginPath();ctx.arc(x,y,2.5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
-      // Labels
-      ctx.fillStyle='#999';ctx.font='9px -apple-system,system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
-      traitNames.forEach((t,i)=>{
-        const lr=r+16;const x=cx+lr*Math.cos(angles[i]),y=cy+lr*Math.sin(angles[i]);
-        ctx.fillText(t,x,y);
-      });
-      ctx.textAlign='left';ctx.textBaseline='top';
-    };
-
-    // Compute position ranks for all board players
-    const posRanks={};
-    board.forEach((p,i)=>{
-      const pk=(p.gpos||p.pos)==='K'||(p.gpos||p.pos)==='P'||(p.gpos||p.pos)==='LS'?'K/P':(p.gpos||p.pos);
-      if(!posRanks[pk])posRanks[pk]=0;
-      posRanks[pk]++;
-      p._posRank=posRanks[pk];
-    });
-
-    // Cards
-    top10.forEach((p,i)=>{
-      const cy=headerH+i*(cardH+cardGap);
-      const grade=getGrade(p.id);
-      const posKey=(p.gpos||p.pos)==='K'||(p.gpos||p.pos)==='P'||(p.gpos||p.pos)==='LS'?'K/P':(p.gpos||p.pos);
-      const c=POS_COLORS[posKey]||POS_COLORS[p.pos]||'#525252';
-      const posTraits=POSITION_TRAITS[p.pos]||POSITION_TRAITS[posKey]||[];
-      const traitVals=posTraits.map(t=>tv(traits,p.id,t,p.name,p.school));
-
-      // Card background — white, rounded, bordered
-      ctx.fillStyle='#ffffff';rr(padX,cy,W-padX*2,cardH,14);ctx.fill();
-      ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;rr(padX,cy,W-padX*2,cardH,14);ctx.stroke();
-
-      // Position-colored left accent bar
-      ctx.fillStyle=c;ctx.fillRect(padX+1,cy+8,4,cardH-16);
-
-      // Rank — bold 28px mono, right-aligned
-      ctx.fillStyle='#d4d4d4';ctx.font='bold 28px ui-monospace,monospace';
-      ctx.textAlign='right';ctx.fillText(`${i+1}`.padStart(2,' '),padX+56,cy+cardH/2-14);ctx.textAlign='left';
-
-      // School logo
-      if(logoCache[p.school])ctx.drawImage(logoCache[p.school],padX+70,cy+cardH/2-24,48,48);
-
-      // Player name
-      ctx.fillStyle='#171717';ctx.font='bold 22px -apple-system,system-ui,sans-serif';
-      ctx.fillText(p.name,padX+130,cy+26);
-
-      // Second line: position pill + school + position rank + badges
-      const posText=p.gpos||p.pos;
-      ctx.font='bold 12px ui-monospace,monospace';
-      const pw=ctx.measureText(posText).width+14;
-      // Position pill
-      ctx.fillStyle=c+'18';rr(padX+130,cy+54-4,pw,24,6);ctx.fill();
-      ctx.fillStyle=c;ctx.font='bold 12px ui-monospace,monospace';
-      ctx.fillText(posText,padX+130+7,cy+54+2);
-
-      // School name
-      let afterX=padX+130+pw+10;
-      ctx.fillStyle='#a3a3a3';ctx.font='13px -apple-system,system-ui,sans-serif';
-      ctx.fillText(p.school,afterX,cy+54+2);
-      afterX+=ctx.measureText(p.school).width;
-
-      // Position rank
-      if(p._posRank){
-        const prText=posText+p._posRank;
-        afterX+=12;
-        ctx.fillStyle=c;ctx.font='bold 11px ui-monospace,monospace';
-        ctx.fillText(prText,afterX,cy+54+3);
-        afterX+=ctx.measureText(prText).width;
-      }
-
-      // Badge emojis
-      const badges=prospectBadges[p.id]||[];
-      if(badges.length>0){afterX+=14;ctx.font='15px -apple-system,system-ui,sans-serif';badges.forEach(b=>{ctx.fillText(b.emoji,afterX,cy+54);afterX+=20;});}
-
-      // Radar chart
-      const radarCx=W-padX-170,radarCy=cy+cardH/2,radarR=42;
-      if(posTraits.length>=3)drawRadar(radarCx,radarCy,radarR,posTraits,traitVals,c);
-
-      // Grade — bold 36px, right-aligned
-      const gColor=grade>=75?'#16a34a':grade>=55?'#ca8a04':'#dc2626';
-      ctx.fillStyle=gColor;ctx.font='bold 36px -apple-system,system-ui,sans-serif';
-      ctx.textAlign='right';ctx.fillText(`${grade}`,W-padX-16,cy+34);ctx.textAlign='left';
-    });
-
-    // Footer — matching My Guys exactly (use /logo.png for transparency)
-    let logoImg=null;
-    try{logoImg=new Image();logoImg.crossOrigin='anonymous';logoImg.src='/logo.png';await new Promise((res,rej)=>{logoImg.onload=res;logoImg.onerror=rej;setTimeout(rej,2000);});}catch(e){logoImg=null;}
-    const fy=H-footerH;
-    ctx.fillStyle='#111';ctx.fillRect(0,fy,W,footerH);
-    const logoOffset=logoImg?36:0;
-    if(logoImg)ctx.drawImage(logoImg,padX,fy+10,32,32);
-    ctx.fillStyle='#fff';ctx.font='bold 14px -apple-system,system-ui,sans-serif';
-    ctx.textBaseline='middle';
-    ctx.fillText('bigboardlab.com',padX+logoOffset+8,fy+footerH/2);
-    ctx.fillStyle='#888';ctx.font='11px -apple-system,system-ui,sans-serif';
-    ctx.textAlign='right';
-    ctx.fillText(`${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}  \u00b7  BUILD YOURS \u2192 BIGBOARDLAB.COM`,W-padX,fy+footerH/2);
-    ctx.textAlign='left';ctx.textBaseline='top';
-    // Gradient bottom bar
-    const bGrad=ctx.createLinearGradient(0,0,W,0);bGrad.addColorStop(0,'#ec4899');bGrad.addColorStop(1,'#7c3aed');
-    ctx.fillStyle=bGrad;ctx.fillRect(0,H-3,W,3);
-
-    // Export
-    canvas.toBlob(async blob=>{
-      if(!blob)return;
-      const fname=singlePos?`bigboardlab-top10-${singlePos}.png`:'bigboardlab-top10.png';
-      const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      if(isMobile&&navigator.share&&navigator.canShare){
-        try{const file=new File([blob],fname,{type:'image/png'});if(navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'My Big Board — Big Board Lab',text:'My 2026 NFL Draft Big Board! Build yours at bigboardlab.com'});return;}}catch(e){}
-      }
-      try{await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
-        const toast=document.createElement('div');toast.textContent='\u2713 Copied to clipboard';Object.assign(toast.style,{position:'fixed',bottom:'32px',left:'50%',transform:'translateX(-50%)',background:'#171717',color:'#fff',padding:'10px 24px',borderRadius:'99px',fontSize:'14px',fontWeight:'600',fontFamily:'-apple-system,system-ui,sans-serif',zIndex:'99999',boxShadow:'0 4px 12px rgba(0,0,0,0.15)',transition:'opacity 0.3s'});document.body.appendChild(toast);setTimeout(()=>{toast.style.opacity='0';setTimeout(()=>toast.remove(),300);},2000);
-      }catch(e){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=fname;a.click();URL.revokeObjectURL(url);}
-    });
-  },[board,getGrade,filterPos,traits]);
 
   // Load community board
   const loadCommunity=useCallback(async()=>{
@@ -1685,7 +1657,7 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
   },[]);
 
   const activeSinglePos=filterPos.size===1?[...filterPos][0]:null;
-  return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><div style={{maxWidth:800,margin:"0 auto",padding:"40px 24px"}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}><div style={{display:"flex",alignItems:"center",gap:12}}><h1 style={{fontSize:36,fontWeight:900,color:activeSinglePos?(POS_COLORS[activeSinglePos]||"#171717"):"#171717",margin:0,letterSpacing:-1}}>{activeSinglePos?`${activeSinglePos} rankings`:"your big board"}</h1>{filterPos.size<=1&&display.length>0&&<button onClick={shareTop10} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"8px 18px",background:"#171717",border:"none",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,flexShrink:0}}>🖼️<span style={{backgroundImage:"linear-gradient(135deg,#ec4899,#7c3aed)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>{activeSinglePos?`share top 10`:"share top 10"}</span></button>}</div><div style={{display:"flex",gap:8}}><button onClick={()=>setPhase("pick-position")} style={{fontFamily:sans,fontSize:12,padding:"8px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>← edit</button></div></div><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 12px"}}>{display.length} prospects ranked</p>
+  return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><div style={{maxWidth:800,margin:"0 auto",padding:"40px 24px"}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}><div style={{display:"flex",alignItems:"center",gap:12}}><h1 style={{fontSize:36,fontWeight:900,color:activeSinglePos?(POS_COLORS[activeSinglePos]||"#171717"):"#171717",margin:0,letterSpacing:-1}}>{activeSinglePos?`${activeSinglePos} rankings`:"your big board"}</h1>{filterPos.size<=1&&display.length>0&&<button onClick={()=>sharePositionTop10(activeSinglePos)} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"8px 18px",background:"#171717",border:"none",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,flexShrink:0}}>🖼️<span style={{backgroundImage:"linear-gradient(135deg,#ec4899,#7c3aed)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>share top 10</span></button>}</div><div style={{display:"flex",gap:8}}><button onClick={()=>setPhase("pick-position")} style={{fontFamily:sans,fontSize:12,padding:"8px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>← edit</button></div></div><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 12px"}}>{display.length} prospects ranked</p>
 
     <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:12}}>
       <button onClick={()=>setShowMockDraft(true)} style={{fontFamily:sans,fontSize:11,fontWeight:600,padding:"6px 14px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>🏈 mock draft</button>
