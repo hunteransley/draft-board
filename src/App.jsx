@@ -1805,18 +1805,40 @@ function AdminDashboard({user,onBack}){
         // Rankings completed
         const rankingsCompleted=allEvents.filter(e=>e.event==='ranking_completed').length;
 
-        // Position ranking stats from boards
+        // Position ranking stats — combine boards (saved users) + events (all users incl guests)
         const posStats={};
         const partialCount={};
         let hasNotes=0;
         const boardMap=new Map(boards.map(b=>[b.user_id,b]));
+        // From boards: saved user data
         boards.forEach(b=>{
           const d=b.board_data||{};
-          const rg=d.rankedGroups||[];
-          const pp=d.partialProgress?Object.keys(d.partialProgress):[];
           if(d.notes&&Object.keys(d.notes).length>0)hasNotes++;
-          rg.forEach(pos=>{posStats[pos]=(posStats[pos]||0)+1;});
-          pp.forEach(pos=>{partialCount[pos]=(partialCount[pos]||0)+1;});
+        });
+        // From events: count unique users who completed each position (includes guests)
+        const rankCompletedEvents=allEvents.filter(e=>e.event==='ranking_completed'&&e.metadata?.position);
+        const rankStartedEvents=allEvents.filter(e=>e.event==='ranking_started'&&e.metadata?.position);
+        const completedByPos={};
+        rankCompletedEvents.forEach(e=>{
+          const pos=e.metadata.position;
+          const uid=e.user_id||e.session_id||'anon';
+          if(!completedByPos[pos])completedByPos[pos]=new Set();
+          completedByPos[pos].add(uid);
+        });
+        const startedByPos={};
+        rankStartedEvents.forEach(e=>{
+          const pos=e.metadata.position;
+          const uid=e.user_id||e.session_id||'anon';
+          if(!startedByPos[pos])startedByPos[pos]=new Set();
+          startedByPos[pos].add(uid);
+        });
+        POSITION_GROUPS.forEach(pos=>{
+          const completed=completedByPos[pos]?completedByPos[pos].size:0;
+          const started=startedByPos[pos]?startedByPos[pos].size:0;
+          posStats[pos]=completed;
+          // Partial = started but not completed (subtract completed users from started)
+          const partialUsers=startedByPos[pos]?new Set([...startedByPos[pos]].filter(u=>!completedByPos[pos]?.has(u))):new Set();
+          partialCount[pos]=partialUsers.size;
         });
 
         // Build user list from auth (source of truth)
@@ -2192,7 +2214,7 @@ function AdminDashboard({user,onBack}){
         <div className="admin-2col">
           {/* Left: Positions Ranked */}
           <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
-            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>positions ranked <span style={{color:"#d4d4d4"}}>of {stats.totalUsers} users</span></div>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>positions ranked <span style={{color:"#d4d4d4"}}>unique users (incl guests)</span></div>
             <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
               {POSITION_GROUPS.map(pos=>{
                 const full=stats.posStats[pos]||0;
