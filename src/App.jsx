@@ -5,6 +5,7 @@ import { CONSENSUS_BOARD, getConsensusRank, getConsensusGrade, TEAM_NEEDS_DETAIL
 import { getProspectStats } from "./prospectStats.js";
 import { getStatBasedTraits } from "./statTraits.js";
 import { getScoutingTraits } from "./scoutingData.js";
+import { getCombineData, formatHeight } from "./combineData.js";
 
 // Suffix-aware short name: "Rueben Bain Jr." → "Bain Jr." not "Jr."
 const GEN_SUFFIXES=/^(Jr\.?|Sr\.?|II|III|IV|V|VI|VII|VIII)$/i;
@@ -146,6 +147,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
   const c=POS_COLORS[player.gpos||player.pos]||POS_COLORS[player.pos];
   const posTraits=POSITION_TRAITS[player.gpos||player.pos]||POSITION_TRAITS[player.pos]||[];
   const ps=getProspectStats(player.name,player.school);
+  const cd=getCombineData(player.name,player.school);
   const grade=getGrade(player.id);
   const similar=getSimilarPlayers(player,allProspects,traits,5);
   const gradeColor=grade>=75?"#16a34a":grade>=55?"#ca8a04":"#dc2626";
@@ -172,14 +174,22 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
           {(ps.rank||ps.posRank)&&<div style={{textAlign:"center",marginBottom:8}}>
             <span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{ps.rank?"#"+ps.rank+" overall":""}{ps.posRank?" · "+(player.gpos||player.pos)+" #"+ps.posRank:""}</span>
           </div>}
-          {(ps.height||ps.weight||ps.cls)&&<div style={{display:"flex",justifyContent:"center",gap:12,marginBottom:8,flexWrap:"wrap"}}>
-            {[ps.height&&{label:"HT",val:ps.height},ps.weight&&{label:"WT",val:ps.weight+" lbs"},ps.cls&&{label:"YR",val:ps.cls}].filter(Boolean).map(({label,val})=>(
+          {(ps.height||ps.weight||ps.cls||cd)&&<div style={{display:"flex",justifyContent:"center",gap:12,marginBottom:8,flexWrap:"wrap"}}>
+            {[(cd?.height?{label:"HT",val:formatHeight(cd.height)}:ps.height&&{label:"HT",val:ps.height}),(cd?.weight?{label:"WT",val:cd.weight+" lbs"}:ps.weight&&{label:"WT",val:ps.weight+" lbs"}),ps.cls&&{label:"YR",val:ps.cls}].filter(Boolean).map(({label,val})=>(
               <div key={label} style={{textAlign:"center",background:"#fff",border:"1px solid #e5e5e5",borderRadius:8,padding:"6px 12px",minWidth:60}}>
                 <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:2}}>{label}</div>
                 <div style={{fontFamily:mono,fontSize:13,fontWeight:700,color:"#171717"}}>{val}</div>
               </div>
             ))}
           </div>}
+          {cd&&(()=>{const drills=[cd.forty&&{label:"40",val:cd.forty+"s"},cd.vertical&&{label:"VJ",val:cd.vertical+'"'},cd.broad&&{label:"BJ",val:cd.broad+'"'},cd.bench&&{label:"BP",val:cd.bench},cd.cone&&{label:"3C",val:cd.cone+"s"},cd.shuttle&&{label:"SH",val:cd.shuttle+"s"}].filter(Boolean);return drills.length>0&&<div style={{display:"flex",justifyContent:"center",gap:8,marginBottom:8,flexWrap:"wrap"}}>
+            {drills.map(({label,val})=>(
+              <div key={label} style={{textAlign:"center",background:"#eff6ff",border:"1px solid #bfdbfe",borderRadius:8,padding:"6px 10px",minWidth:48}}>
+                <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#6b9bd2",textTransform:"uppercase",marginBottom:2}}>{label}</div>
+                <div style={{fontFamily:mono,fontSize:13,fontWeight:700,color:"#1e40af"}}>{val}</div>
+              </div>
+            ))}
+          </div>;})()}
           {ps.statLine&&<div style={{background:"#f9f9f6",border:"1px solid #f0f0f0",borderRadius:8,padding:"10px 14px",textAlign:"center"}}>
             <div style={{fontFamily:mono,fontSize:12,color:"#525252",lineHeight:1.4}}>{ps.statLine}</div>
             {ps.statExtra&&<div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",marginTop:4,lineHeight:1.4}}>{ps.statExtra}</div>}

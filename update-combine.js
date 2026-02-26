@@ -18,18 +18,21 @@
  * then manual CSV fills gaps. Your BBL prospect list is always the base.
  */
 
-const https = require('https');
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+import https from 'https';
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // ============================================================
 // CONFIG
 // ============================================================
 const NFLVERSE_COMBINE_URL = 'https://github.com/nflverse/nflverse-data/releases/download/combine/combine.csv';
 const MANUAL_CSV_PATH = path.join(__dirname, 'combine-manual.csv');
-const HTML_TEMPLATE_PATH = path.join(__dirname, 'combine-results.html');
-const OUTPUT_PATH = path.join(__dirname, 'combine-results.html');
+const HTML_TEMPLATE_PATH = path.join(__dirname, 'public', 'blog', '2026-nfl-combine-results.html');
+const OUTPUT_PATH = path.join(__dirname, 'public', 'blog', '2026-nfl-combine-results.html');
+const COMBINE_JSON_PATH = path.join(__dirname, 'src', 'combineData.json');
 const SEASON = 2026;
 
 // ============================================================
@@ -617,6 +620,7 @@ async function main() {
     results[p.name] = {
       ...p,
       height: p.height || null,
+      heightInches: null,
       weight: p.weight || null,
       forty: p.forty || null,
       vertical: p.vertical || null,
@@ -642,6 +646,7 @@ async function main() {
       const match = findMatch(row, bblMap);
       if (match) {
         const r = results[match.name];
+        const htRaw = parseNum(row.ht);
         const ht = parseHeight(row.ht);
         const wt = parseNum(row.wt);
         const forty = parseNum(row.forty);
@@ -650,7 +655,8 @@ async function main() {
         const bench = parseNum(row.bench);
         const cone = parseNum(row.cone);
         const shuttle = parseNum(row.shuttle);
-        
+
+        if (htRaw) r.heightInches = htRaw;
         if (ht) r.height = ht;
         if (wt) r.weight = wt;
         if (forty) r.forty = forty;
@@ -679,7 +685,9 @@ async function main() {
       if (match) {
         const r = results[match.name];
         // Manual only fills gaps - doesn't overwrite nflverse data
+        const htRawManual = parseNum(row.height || row.ht);
         const ht = parseHeight(row.height || row.ht);
+        if (htRawManual && !r.heightInches) r.heightInches = htRawManual;
         if (ht && !r.height) r.height = ht;
         if (!r.weight) r.weight = parseNum(row.weight || row.wt);
         if (!r.forty) r.forty = parseNum(row.forty || row['40']);
@@ -723,7 +731,29 @@ async function main() {
   );
   
   fs.writeFileSync(OUTPUT_PATH, updatedHtml);
-  
+
+  // ---- Write src/combineData.json ----
+  const combineJson = {};
+  BBL_PROSPECTS.forEach(p => {
+    const r = results[p.name];
+    // Only include prospects with at least some data
+    const hasData = r.height || r.weight || r.forty || r.vertical || r.broad || r.bench || r.cone || r.shuttle;
+    if (!hasData) return;
+    const key = normName(p.name) + '|' + p.school.toLowerCase().trim();
+    combineJson[key] = {
+      height: r.heightInches || null,
+      weight: r.weight || null,
+      forty: r.forty || null,
+      vertical: r.vertical || null,
+      broad: r.broad || null,
+      bench: r.bench || null,
+      cone: r.cone || null,
+      shuttle: r.shuttle || null,
+    };
+  });
+  fs.writeFileSync(COMBINE_JSON_PATH, JSON.stringify(combineJson, null, 2));
+  console.log(`\n📊 Wrote ${Object.keys(combineJson).length} prospects to ${COMBINE_JSON_PATH}`);
+
   // Stats
   const filled = BBL_PROSPECTS.filter(p => {
     const r = results[p.name];
