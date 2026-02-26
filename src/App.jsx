@@ -2201,17 +2201,19 @@ function AdminDashboard({user,onBack}){
                   <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:u.eventCount>0?"#3b82f6":"#e5e5e5",textAlign:"center"}}>{u.eventCount}</span>
                   <span className="admin-table-hide" style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.updatedAt?new Date(u.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric'})+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
                 </div>
-                {isExp&&<div style={{padding:"8px 16px 12px",background:"#f9f9f7",borderBottom:i<users.length-1?"1px solid #e5e5e5":"none"}}>
-                  <div style={{display:"flex",flexWrap:"wrap",gap:8,marginBottom:8}}>
-                    {[
-                      ["Mocks",u.mockCount,"#f59e0b"],
-                      ["Shares",u.shareCount,"#22c55e"],
-                      ["Notes",u.noteCount,"#8b5cf6"],
-                      ["Events",u.eventCount,"#3b82f6"],
-                    ].map(([l,v,c])=><div key={l} style={{padding:"4px 10px",background:"#fff",borderRadius:6,textAlign:"center",minWidth:50,border:"1px solid #e5e5e5"}}>
-                      <div style={{fontFamily:mono,fontSize:14,fontWeight:900,color:v>0?c:"#e5e5e5"}}>{v}</div>
-                      <div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3"}}>{l}</div>
+                {isExp&&(()=>{
+                  const ue={};(allEventsRaw||[]).filter(e=>e.user_id===u.userId).forEach(e=>{ue[e.event]=(ue[e.event]||0)+1;});
+                  const evtColor=ev=>ev==='signup'||ev==='login'?"#22c55e":ev.includes('mock_draft')?"#f59e0b":ev.includes('ranking')?"#3b82f6":ev.includes('share')?"#22c55e":ev==='session_return'?"#a3a3a3":"#8b5cf6";
+                  return<div style={{padding:"8px 16px 12px",background:"#f9f9f7",borderBottom:i<users.length-1?"1px solid #e5e5e5":"none"}}>
+                  <div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:8}}>
+                    {Object.entries(ue).sort((a,b)=>b[1]-a[1]).map(([evt,count])=><div key={evt} style={{padding:"4px 8px",background:"#fff",borderRadius:6,textAlign:"center",minWidth:50,border:"1px solid #e5e5e5"}}>
+                      <div style={{fontFamily:mono,fontSize:13,fontWeight:900,color:evtColor(evt)}}>{count}</div>
+                      <div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3"}}>{evt.replace(/_/g,' ')}</div>
                     </div>)}
+                    {u.noteCount>0&&<div style={{padding:"4px 8px",background:"#fff",borderRadius:6,textAlign:"center",minWidth:50,border:"1px solid #e5e5e5"}}>
+                      <div style={{fontFamily:mono,fontSize:13,fontWeight:900,color:"#8b5cf6"}}>{u.noteCount}</div>
+                      <div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3"}}>notes</div>
+                    </div>}
                   </div>
                   <div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:6}}>
                     {u.rankedGroups.length>0&&<div style={{display:"flex",alignItems:"center",gap:4,flexWrap:"wrap"}}>
@@ -2227,7 +2229,7 @@ function AdminDashboard({user,onBack}){
                     <span>signed up {u.createdAt?new Date(u.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):""}</span>
                     <span>last active {u.updatedAt?new Date(u.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric'})+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
                   </div>
-                </div>}
+                </div>})()}
               </div>;
             })}
           </div>
