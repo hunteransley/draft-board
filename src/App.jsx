@@ -1883,10 +1883,38 @@ function AdminDashboard({user,onBack}){
         const shareUsers=new Set(allEvents.filter(e=>e.event==='share_results'||e.event==='share_triggered').map(e=>e.user_id)).size;
         const noteUsers=boards.filter(b=>{const d=b.board_data||{};return d.notes&&Object.keys(d.notes).length>0;}).length;
 
-        // Guest mocks (all-time, for funnel top)
-        const guestMocksAll=allEvents.filter(e=>(e.user_id===null||e.user_id===undefined||e.metadata?.guest===true)&&(e.event==='mock_draft_sim_started'||e.event==='mock_draft_started')).length;
-        // Funnel step counts
-        const funnelVisited=Math.max(guestMocksAll,totalUsers);
+        // Guest / anonymous activity (all-time + last 7 days)
+        const anonEvents=allEvents.filter(e=>e.user_id===null||e.user_id===undefined||e.metadata?.guest===true);
+        const weekAgo=new Date(now-604800000);
+        const anonWeek=anonEvents.filter(e=>new Date(e.created_at)>=weekAgo);
+        const guestMocksStarted=anonEvents.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').length;
+        const guestMocksCompleted=anonEvents.filter(e=>e.event==='mock_draft_completed').length;
+        const guestShares=anonEvents.filter(e=>e.event==='share_results').length;
+        const guestMocksWeek=anonWeek.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').length;
+        const guestTeams={};
+        anonEvents.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').forEach(e=>{
+          const t=e.metadata?.team||e.metadata?.teams;if(t){guestTeams[t]=(guestTeams[t]||0)+1;}
+        });
+        const guestTopTeams=Object.entries(guestTeams).sort((a,b)=>b[1]-a[1]).slice(0,5);
+
+        // Signup flow inference — look at each user's first event to determine entry point
+        const signupFlows={};
+        const signupEvents=allEvents.filter(e=>e.event==='signup');
+        signupEvents.forEach(se=>{
+          const source=se.metadata?.source;
+          if(source){signupFlows[source]=(signupFlows[source]||0)+1;return;}
+          // Infer from first non-signup event for this user
+          const firstEvt=allEvents.filter(e=>e.user_id===se.user_id&&e.event!=='signup'&&e.event!=='login').pop();
+          const flow=firstEvt?
+            (firstEvt.event==='mock_draft_started'||firstEvt.event==='mock_draft_sim_started'||firstEvt.event==='mock_draft_completed'?'mock draft':
+            firstEvt.event==='ranking_started'||firstEvt.event==='ranking_completed'?'pair rank':
+            firstEvt.event==='share_results'||firstEvt.event==='share_triggered'?'share':
+            'homepage'):'homepage';
+          signupFlows[flow]=(signupFlows[flow]||0)+1;
+        });
+
+        // Funnel step counts — guest activity is true top of funnel
+        const funnelVisited=guestMocksStarted+totalUsers;
         const funnelSignedUp=totalUsers;
         const funnelRankedPos=new Set([...allEvents.filter(e=>e.event==='ranking_completed').map(e=>e.user_id),...boards.filter(b=>(b.board_data?.rankedGroups||[]).length>0).map(b=>b.user_id)]).size;
         const funnelRanMock=new Set(allEvents.filter(e=>e.event==='mock_draft_started'||e.event==='mock_draft_completed').filter(e=>e.user_id).map(e=>e.user_id)).size;
@@ -1896,6 +1924,8 @@ function AdminDashboard({user,onBack}){
           communityUsers:community.length,eventCounts,uniqueEventUsers,signupsToday,signupsWeek,
           mockDrafts,mockDraftUsers,rankingsCompleted,
           heatmap,rankingsStarted,mocksStarted,mocksCompleted,totalShares,shareUsers,noteUsers,
+          guestMocksStarted,guestMocksCompleted,guestShares,guestMocksWeek,guestTopTeams,
+          signupFlows,
           funnelVisited,funnelSignedUp,funnelRankedPos,funnelRanMock,funnelShared,
         });
         setUsers(userDetails);
@@ -1961,7 +1991,7 @@ function AdminDashboard({user,onBack}){
         {/* SECTION 2: Conversion Funnel — step-over-step */}
         {(()=>{
           const steps=[
-            {label:"Visited",count:stats.funnelVisited,color:"#a3a3a3"},
+            {label:`Visited (${stats.guestMocksStarted} guests + ${stats.funnelSignedUp} signed up)`,count:stats.funnelVisited,color:"#a3a3a3"},
             {label:"Signed Up",count:stats.funnelSignedUp,color:"#171717"},
             {label:"Ranked a Position",count:stats.funnelRankedPos,color:"#3b82f6"},
             {label:"Ran a Mock Draft",count:stats.funnelRanMock,color:"#f59e0b"},
@@ -2012,6 +2042,50 @@ function AdminDashboard({user,onBack}){
           </div>
         </div>}
 
+        {/* Guest Activity + Signup Flows — side by side */}
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:24}}>
+          <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>guest activity</div>
+            <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
+              {[["Mocks Started",stats.guestMocksStarted,"#737373"],["Mocks Completed",stats.guestMocksCompleted,"#525252"],["Shares",stats.guestShares,"#22c55e"]].map(([l,v,c])=>(
+                <div key={l} style={{padding:"6px 12px",background:"#f9f9f7",borderRadius:6,textAlign:"center",minWidth:80}}>
+                  <div style={{fontFamily:font,fontSize:18,fontWeight:900,color:c}}>{v}</div>
+                  <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>{l}</div>
+                </div>
+              ))}
+            </div>
+            <div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",marginTop:8}}>{stats.guestMocksWeek} guest mocks this week</div>
+            {stats.guestTopTeams?.length>0&&<div style={{marginTop:8}}>
+              <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginBottom:4}}>popular guest teams</div>
+              <div style={{display:"flex",gap:4,flexWrap:"wrap"}}>
+                {stats.guestTopTeams.map(([team,count])=>(
+                  <span key={team} style={{fontFamily:mono,fontSize:9,padding:"2px 6px",background:"#f5f5f5",borderRadius:4,color:"#525252"}}>{team} ({count})</span>
+                ))}
+              </div>
+            </div>}
+          </div>
+          <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>signup flows</div>
+            {Object.keys(stats.signupFlows||{}).length>0?<div style={{display:"flex",flexDirection:"column",gap:6}}>
+              {Object.entries(stats.signupFlows).sort((a,b)=>b[1]-a[1]).map(([flow,count])=>{
+                const total=Object.values(stats.signupFlows).reduce((s,v)=>s+v,0);
+                const pct=total>0?Math.round(count/total*100):0;
+                return<div key={flow} style={{display:"flex",alignItems:"center",gap:8}}>
+                  <div style={{flex:1}}>
+                    <div style={{display:"flex",justifyContent:"space-between",marginBottom:2}}>
+                      <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>{flow}</span>
+                      <span style={{fontFamily:mono,fontSize:11,color:"#525252"}}>{count} <span style={{fontSize:9,color:"#a3a3a3"}}>{pct}%</span></span>
+                    </div>
+                    <div style={{height:4,background:"#f5f5f5",borderRadius:99,overflow:"hidden"}}>
+                      <div style={{height:"100%",width:pct+"%",background:"#8b5cf6",borderRadius:99}}/>
+                    </div>
+                  </div>
+                </div>;
+              })}
+            </div>:<div style={{fontFamily:sans,fontSize:12,color:"#a3a3a3"}}>no signup events tracked yet</div>}
+          </div>
+        </div>
+
         {/* SECTION 4: Engagement Breakdown — two panels */}
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:24}}>
           {/* Left: Positions Ranked */}
@@ -2056,6 +2130,20 @@ function AdminDashboard({user,onBack}){
                 <span style={{fontFamily:mono,fontSize:11,color:"#171717"}}>{stats.communityUsers} <span style={{color:"#a3a3a3",fontSize:10}}>published</span></span>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* All Events — compact pills */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:24}}>
+          <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>all events by type</div>
+          <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
+            {Object.entries(displayEventCounts.counts||{}).sort((a,b)=>b[1]-a[1]).map(([evt,count])=>{
+              const uu=displayEventCounts.unique?.[evt]?.size||0;
+              return<div key={evt} style={{padding:"5px 10px",background:"#f9f9f7",borderRadius:6,textAlign:"center",minWidth:70}}>
+                <div style={{fontFamily:mono,fontSize:14,fontWeight:900,color:"#171717"}}>{count}<span style={{fontSize:9,fontWeight:400,color:"#a3a3a3",marginLeft:3}}>{uu}u</span></div>
+                <div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3"}}>{evt.replace(/_/g,' ')}</div>
+              </div>;
+            })}
           </div>
         </div>
 
@@ -2345,6 +2433,7 @@ export default function App(){
   const[showOG,setShowOG]=useState(()=>window.location.hash==="#og-preview");
   const[isGuest,setIsGuest]=useState(false);
   const[authPrompt,setAuthPrompt]=useState(null);
+  const authSourceRef=useRef(null);
 
   useEffect(()=>{
     const onHash=()=>{setShowAdmin(window.location.hash==="#admin");setShowOG(window.location.hash==="#og-preview");};
@@ -2360,7 +2449,7 @@ export default function App(){
     });
     const{data:{subscription}}=supabase.auth.onAuthStateChange((event,session)=>{
       setUser(session?.user||null);
-      if(session?.user&&event==='SIGNED_IN'){const created=new Date(session.user.created_at);const isNew=(Date.now()-created.getTime())<10000;trackEvent(session.user.id,isNew?'signup':'login');}
+      if(session?.user&&event==='SIGNED_IN'){const created=new Date(session.user.created_at);const isNew=(Date.now()-created.getTime())<10000;trackEvent(session.user.id,isNew?'signup':'login',isNew?{source:authSourceRef.current||'homepage'}:{});}
     });
     return()=>subscription.unsubscribe();
   },[]);
@@ -2372,7 +2461,11 @@ export default function App(){
   if(!user&&!isGuest)return<AuthScreen onSkip={()=>setIsGuest(true)}/>;
   if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
   return<>
-    <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onRequireAuth={(msg)=>setAuthPrompt(msg)}/>
+    <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onRequireAuth={(msg)=>{
+      const src=msg.includes('vote')||msg.includes('big board')?'pair rank':msg.includes('trait')||msg.includes('grade')||msg.includes('slider')?'sliders':msg.includes('mock')||msg.includes('draft')?'mock draft':msg.includes('reorder')?'pair rank':msg.includes('note')?'notes':msg.includes('share')||msg.includes('guys')?'share':'homepage';
+      authSourceRef.current=src;
+      setAuthPrompt(msg);
+    }}/>
     {authPrompt&&<AuthModal message={authPrompt} onClose={()=>setAuthPrompt(null)}/>}
   </>;
 }
