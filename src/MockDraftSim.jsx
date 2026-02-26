@@ -249,7 +249,7 @@ function pickVerdict(pickNum,consRank,grade){
   return{text:"BIG REACH",color:"#dc2626",bg:"#fef2f2"};
 }
 
-export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,onMockComplete,myGuys,myGuysUpdated,setMyGuysUpdated,mockCount,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED,rankedGroups,mockLaunchTeam,mockLaunchRounds,mockLaunchSpeed,mockLaunchCpuTrades,mockLaunchBoardMode,onRankPosition,isGuest,onRequireAuth,trackEvent,userId,isGuestUser,traitThresholds,qualifiesForFilter,prospectBadges,TRAIT_ABBREV,TRAIT_EMOJI,SCHOOL_CONFERENCE,POS_EMOJI,onShareMyGuys}){
+export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,onMockComplete,myGuys,myGuysUpdated,setMyGuysUpdated,mockCount,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED,rankedGroups,mockLaunchTeam,mockLaunchRounds,mockLaunchSpeed,mockLaunchCpuTrades,mockLaunchBoardMode,onRankPosition,isGuest,onRequireAuth,trackEvent,userId,isGuestUser,traitThresholds,qualifiesForFilter,prospectBadges,TRAIT_ABBREV,TRAIT_EMOJI,SCHOOL_CONFERENCE,POS_EMOJI,onShareMyGuys,copiedShare:parentCopiedShare}){
   const TRAIT_SHORT={"Contested Catches":"Contested","Man Coverage":"Man Cov","Contact Balance":"Contact Bal","Directional Control":"Directional","Decision Making":"Decision","Pocket Presence":"Pocket Pres","Pass Catching":"Pass Catch","Run Blocking":"Run Block","Pass Protection":"Pass Prot","Hand Usage":"Hand Use","Run Defense":"Run Def","Zone Coverage":"Zone Cov","Leg Strength":"Leg Str"};
   // Trait value with scouting fallback (same chain as App.jsx tv())
   const tvFn=useCallback((id,trait)=>{const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;return traits[id]?.[trait]??getScoutingTraits(p.name,p.school)?.[trait]??getStatBasedTraits(p.name,p.school)?.[trait]??50;},[traits,PROSPECTS]);
@@ -281,6 +281,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[tradeOffer,setTradeOffer]=useState(null);
   const[showResults,setShowResults]=useState(false);
   const[showMyGuysOverlay,setShowMyGuysOverlay]=useState(false);
+  const[copiedDraft,setCopiedDraft]=useState(false);
   const[lastVerdict,setLastVerdict]=useState(null);
   const[tradeMap,setTradeMap]=useState({});
   const[showTradeUp,setShowTradeUp]=useState(false);
@@ -1025,6 +1026,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   },[picks,prospectsMap,getConsensusRank,totalPicks,userTeams,liveNeeds,TEAM_NEEDS_DETAILED]);
 
   const resultsRef=useRef(null);
+  const ctaPickRef=useRef(null);
 
   const shareDraft=useCallback(async()=>{
     const up=picks.filter(pk=>pk.isUser);
@@ -1409,12 +1411,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       // Desktop: clipboard + toast
       try{
         await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
-        // Show toast
-        const toast=document.createElement('div');
-        toast.textContent='✓ Copied to clipboard';
-        Object.assign(toast.style,{position:'fixed',bottom:'32px',left:'50%',transform:'translateX(-50%)',background:'#171717',color:'#fff',padding:'10px 24px',borderRadius:'99px',fontSize:'14px',fontWeight:'600',fontFamily:'-apple-system,system-ui,sans-serif',zIndex:'99999',boxShadow:'0 4px 12px rgba(0,0,0,0.15)',transition:'opacity 0.3s'});
-        document.body.appendChild(toast);
-        setTimeout(()=>{toast.style.opacity='0';setTimeout(()=>toast.remove(),300);},2000);
+        setCopiedDraft(true);setTimeout(()=>setCopiedDraft(false),1500);
       }catch(e){
         // Clipboard failed — fall back to download
         const url=URL.createObjectURL(blob);
@@ -1619,7 +1616,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           {/* All-32: no grade, just a label */}
           {userTeams.size===32&&<div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",marginBottom:24,letterSpacing:1}}>2026 NFL DRAFT · FIRST ROUND PREDICTIONS</div>}
           <div style={{display:"flex",gap:8,justifyContent:"center",marginBottom:24}}>
-            {(userTeams.size===1||userTeams.size===32)&&<button onClick={shareDraft} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"12px 28px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:6}}>🖼️<span className="shimmer-text">share results</span></button>}
+            {(userTeams.size===1||userTeams.size===32)&&<button onClick={shareDraft} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"12px 28px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:6,position:"relative"}}><span style={{display:"inline-flex",alignItems:"center",gap:6,visibility:copiedDraft?"hidden":"visible"}}>🖼️<span className="shimmer-text">share results</span></span>{copiedDraft&&<span style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#a3a3a3",fontWeight:400}}>copied</span>}</button>}
             <button onClick={()=>{setSetupDone(false);setPicks([]);setShowResults(false);setTradeMap({});}} style={{fontFamily:sans,fontSize:12,padding:"8px 20px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>draft again</button>
             {myGuys&&<button onClick={()=>{if(isGuest){onRequireAuth("want to see and share the guys you draft more than others?");return;}if(trackEvent)trackEvent(userId,'my_guys_viewed',{count:(myGuys||[]).length});setShowMyGuysOverlay(true);if(setMyGuysUpdated)setMyGuysUpdated(false);}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:myGuysUpdated?"linear-gradient(135deg,#ec4899,#7c3aed)":mockCount>0?"#171717":"transparent",color:myGuysUpdated||mockCount>0?"#fff":"#a3a3a3",border:myGuysUpdated||mockCount>0?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",position:"relative",transition:"all 0.2s"}}>
               👀 my guys
@@ -1667,9 +1664,12 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
                   cpuCandidates.push({player:p,pick:pk.pick,pos,verdict:v,isUserPick:false});
                 }
               });
-              // Shuffle and pick one randomly for variance
+              // Pick one randomly but stabilize across re-renders via ref
               if(cpuCandidates.length>0){
-                ctaPick=cpuCandidates[Math.floor(Math.random()*cpuCandidates.length)];
+                if(!ctaPickRef.current||!cpuCandidates.find(c=>c.player.name===ctaPickRef.current.player.name)){
+                  ctaPickRef.current=cpuCandidates[Math.floor(Math.random()*cpuCandidates.length)];
+                }
+                ctaPick=ctaPickRef.current;
               }
             }
 
@@ -1822,7 +1822,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
               <div style={{display:"flex",alignItems:"center",gap:10}}>
                 <h2 style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717",margin:0,letterSpacing:-0.5}}>👀 my guys</h2>
-                {onShareMyGuys&&(myGuys||[]).length>0&&<button onClick={onShareMyGuys} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"8px 18px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,flexShrink:0}}>🖼️<span className="shimmer-text">share my guys</span></button>}
+                {onShareMyGuys&&(myGuys||[]).length>0&&<button onClick={onShareMyGuys} style={{fontFamily:sans,fontSize:12,fontWeight:parentCopiedShare==="my-guys"?400:700,padding:"8px 18px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,flexShrink:0}}>{parentCopiedShare==="my-guys"?<span style={{color:"#a3a3a3"}}>copied</span>:<>🖼️<span className="shimmer-text">share my guys</span></>}</button>}
               </div>
               <button onClick={()=>setShowMyGuysOverlay(false)} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",padding:"4px 8px"}}>✕</button>
             </div>
@@ -2155,7 +2155,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
               <div style={{display:"flex",alignItems:"center",gap:10}}>
                 <h2 style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717",margin:0,letterSpacing:-0.5}}>👀 my guys</h2>
-                {onShareMyGuys&&(myGuys||[]).length>0&&<button onClick={onShareMyGuys} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"8px 18px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,flexShrink:0}}>🖼️<span className="shimmer-text">share my guys</span></button>}
+                {onShareMyGuys&&(myGuys||[]).length>0&&<button onClick={onShareMyGuys} style={{fontFamily:sans,fontSize:12,fontWeight:parentCopiedShare==="my-guys"?400:700,padding:"8px 18px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",gap:5,flexShrink:0}}>{parentCopiedShare==="my-guys"?<span style={{color:"#a3a3a3"}}>copied</span>:<>🖼️<span className="shimmer-text">share my guys</span></>}</button>}
               </div>
               <button onClick={()=>setShowMyGuysOverlay(false)} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",padding:"4px 8px"}}>✕</button>
             </div>
