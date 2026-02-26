@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/blog/:slug((?!.*\\.html$)[a-z0-9-]+)", "destination": "/blog/:slug.html", "statusCode": 301 }
+  ],
   "rewrites": [
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/robots.txt", "destination": "/robots.txt" },
