@@ -249,7 +249,7 @@ function pickVerdict(pickNum,consRank,grade){
   return{text:"BIG REACH",color:"#dc2626",bg:"#fef2f2"};
 }
 
-export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,onMockComplete,myGuys,myGuysUpdated,setMyGuysUpdated,mockCount,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED,rankedGroups,mockLaunchTeam,mockLaunchRounds,mockLaunchSpeed,mockLaunchCpuTrades,mockLaunchBoardMode,onRankPosition,isGuest,onRequireAuth,trackEvent,userId,isGuestUser,traitThresholds,qualifiesForFilter,prospectBadges,TRAIT_ABBREV,TRAIT_EMOJI}){
+export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,onMockComplete,myGuys,myGuysUpdated,setMyGuysUpdated,mockCount,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED,rankedGroups,mockLaunchTeam,mockLaunchRounds,mockLaunchSpeed,mockLaunchCpuTrades,mockLaunchBoardMode,onRankPosition,isGuest,onRequireAuth,trackEvent,userId,isGuestUser,traitThresholds,qualifiesForFilter,prospectBadges,TRAIT_ABBREV,TRAIT_EMOJI,SCHOOL_CONFERENCE,POS_EMOJI}){
   const TRAIT_SHORT={"Contested Catches":"Contested","Man Coverage":"Man Cov","Contact Balance":"Contact Bal","Directional Control":"Directional","Decision Making":"Decision","Pocket Presence":"Pocket Pres","Pass Catching":"Pass Catch","Run Blocking":"Run Block","Pass Protection":"Pass Prot","Hand Usage":"Hand Use","Run Defense":"Run Def","Zone Coverage":"Zone Cov","Leg Strength":"Leg Str"};
   // Trait value with scouting fallback (same chain as App.jsx tv())
   const tvFn=useCallback((id,trait)=>{const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;return traits[id]?.[trait]??getScoutingTraits(p.name,p.school)?.[trait]??getStatBasedTraits(p.name,p.school)?.[trait]??50;},[traits,PROSPECTS]);
@@ -1657,35 +1657,116 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           </div>
         </div>
 
-        {/* My Guys overlay — results screen */}
-        {showMyGuysOverlay&&<div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.6)",zIndex:400,display:"flex",alignItems:"center",justifyContent:"center",padding:16}} onClick={()=>setShowMyGuysOverlay(false)}>
+        {/* My Guys overlay — results screen (matches homepage view) */}
+        {showMyGuysOverlay&&(()=>{
+          const TRAIT_MAP=POSITION_TRAITS;
+          const emptySlots=Array.from({length:Math.max(0,10-(myGuys||[]).length)});
+          const guys=(myGuys||[]).map(g=>{const p=PROSPECTS.find(pr=>pr.name===g.name);return{...g,prospect:p,gpos:p?.gpos||g.pos,school:p?.school||"",id:p?.id};});
+          const fingerprint=(()=>{
+            if(guys.length<5)return[];
+            const pills=[];
+            const posCounts={};
+            guys.forEach(g=>{const pos=g.gpos==="K"||g.gpos==="P"||g.gpos==="LS"?"K/P":g.gpos;posCounts[pos]=(posCounts[pos]||0)+1;});
+            const topPos=Object.entries(posCounts).sort((a,b)=>b[1]-a[1]);
+            if(topPos.length>0&&topPos[0][1]>=Math.ceil(guys.length*0.3)){
+              const[pos,cnt]=topPos[0];
+              pills.push({emoji:(POS_EMOJI||{})[pos]||"📋",text:`${pos} heavy`,detail:`${cnt}/${guys.length}`,color:POS_COLORS[pos]||"#525252"});
+            }else if(topPos.length>=4&&topPos[0][1]-topPos[topPos.length-1][1]<=1){
+              pills.push({emoji:"🔀",text:"balanced board",detail:"",color:"#525252"});
+            }
+            const traitCounts={};
+            guys.forEach(g=>{if(!g.id)return;const badges=prospectBadges[g.id]||[];badges.forEach(b=>{traitCounts[b.trait]=(traitCounts[b.trait]||0)+1;});});
+            const topTraits=Object.entries(traitCounts).filter(([,c])=>c>=3).sort((a,b)=>b[1]-a[1]).slice(0,2);
+            topTraits.forEach(([trait,cnt])=>{
+              const labels={"Pass Rush":"pass rush magnet","Speed":"speed obsessed","Man Coverage":"lockdown lean","Accuracy":"accuracy snob","Motor":"motor lovers","Ball Skills":"ball hawk bias","Tackling":"sure tacklers","Vision":"vision seekers","Hands":"reliable hands","First Step":"first step fanatic","Athleticism":"athletic bias"};
+              pills.push({emoji:(TRAIT_EMOJI||{})[trait]||"⭐",text:labels[trait]||trait.toLowerCase(),detail:`${cnt}x`,color:"#7c3aed"});
+            });
+            const ceilCounts={elite:0,high:0,normal:0,capped:0};
+            guys.forEach(g=>{const sc=getScoutingTraits(g.name,g.school);const c=sc?.__ceiling||"normal";ceilCounts[c]++;});
+            const upside=ceilCounts.elite+ceilCounts.high;
+            if(upside>=Math.ceil(guys.length*0.6)){
+              pills.push({emoji:"⭐",text:"ceiling chaser",detail:`${upside}/${guys.length} high+`,color:"#ea580c"});
+            }else if(ceilCounts.capped>=Math.ceil(guys.length*0.3)){
+              pills.push({emoji:"🔒",text:"floor first",detail:`${ceilCounts.capped} capped`,color:"#64748b"});
+            }
+            const avgDelta=guys.reduce((s,g)=>s+g.delta,0)/guys.length;
+            if(avgDelta>10)pills.push({emoji:"📈",text:"value hunter",detail:`+${Math.round(avgDelta)} avg`,color:"#16a34a"});
+            else if(avgDelta<-5)pills.push({emoji:"🎲",text:"reach drafter",detail:`${Math.round(avgDelta)} avg`,color:"#dc2626"});
+            else pills.push({emoji:"⚖️",text:"consensus aligned",detail:`${avgDelta>0?"+":""}${Math.round(avgDelta)}`,color:"#525252"});
+            if(SCHOOL_CONFERENCE){
+              const confCounts={};
+              guys.forEach(g=>{const conf=SCHOOL_CONFERENCE[g.school];if(conf&&conf!=="FCS"&&conf!=="D2"&&conf!=="D3"&&conf!=="Ind")confCounts[conf]=(confCounts[conf]||0)+1;});
+              const topConf=Object.entries(confCounts).sort((a,b)=>b[1]-a[1]);
+              if(topConf.length>0&&topConf[0][1]>=Math.ceil(guys.length*0.5))pills.push({emoji:"🏈",text:`${topConf[0][0]} lean`,detail:`${topConf[0][1]}/${guys.length}`,color:"#0369a1"});
+            }
+            const schoolCounts={};
+            guys.forEach(g=>{if(g.school)schoolCounts[g.school]=(schoolCounts[g.school]||0)+1;});
+            const repeats=Object.entries(schoolCounts).filter(([,c])=>c>=2).sort((a,b)=>b[1]-a[1]);
+            if(repeats.length>0){const[sch,cnt]=repeats[0];pills.push({emoji:"🏫",text:`${sch} pipeline`,detail:`${cnt}`,color:"#7c3aed"});}
+            return pills.slice(0,6);
+          })();
+          return<div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.6)",zIndex:400,display:"flex",alignItems:"center",justifyContent:"center",padding:16}} onClick={()=>setShowMyGuysOverlay(false)}>
           <div style={{background:"#faf9f6",borderRadius:16,padding:24,maxWidth:720,width:"100%",maxHeight:"85vh",overflowY:"auto"}} onClick={e=>e.stopPropagation()}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
               <h2 style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717",margin:0,letterSpacing:-0.5}}>👀 my guys</h2>
               <button onClick={()=>setShowMyGuysOverlay(false)} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",padding:"4px 8px"}}>✕</button>
             </div>
             <p style={{fontFamily:sans,fontSize:13,color:"#737373",margin:"0 0 4px",lineHeight:1.5}}>the prospects you bang the table for every time you mock</p>
-            <p style={{fontFamily:mono,fontSize:10,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 16px"}}>{mockCount||0} mock{(mockCount||0)!==1?"s":""} completed · {(myGuys||[]).length}/10 guys identified</p>
+            <p style={{fontFamily:mono,fontSize:10,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>{mockCount||0} mock{(mockCount||0)!==1?"s":""} completed · {(myGuys||[]).length}/10 guys identified</p>
+
+            {fingerprint.length>0&&<div style={{marginBottom:16}}>
+              <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>scouting fingerprint</div>
+              <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
+                {fingerprint.map((pill,i)=><span key={i} style={{fontFamily:sans,fontSize:11,fontWeight:600,color:pill.color,background:`${pill.color}0d`,border:`1px solid ${pill.color}22`,padding:"4px 10px",borderRadius:99,display:"inline-flex",alignItems:"center",gap:4,whiteSpace:"nowrap"}}>
+                  <span>{pill.emoji}</span><span>{pill.text}</span>{pill.detail&&<span style={{fontFamily:mono,fontSize:9,opacity:0.7}}>({pill.detail})</span>}
+                </span>)}
+              </div>
+            </div>}
+
             {(!myGuys||myGuys.length===0)?<div style={{textAlign:"center",padding:"32px 0"}}><div style={{fontSize:32,marginBottom:8}}>👀</div><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>complete a mock to start discovering your guys</p></div>
-            :<div style={{display:"grid",gridTemplateColumns:"repeat(2, 1fr)",gap:10}}>
-              {myGuys.map((g,i)=>{const c=POS_COLORS[g.pos]||"#525252";return<div key={g.name} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:14}}>
-                <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:6}}>
-                  <span style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#d4d4d4"}}>{i+1}</span>
-                  <div style={{flex:1,minWidth:0}}>
-                    <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{g.name}</div>
+            :<div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))",gap:12}}>
+              {myGuys.map((g,i)=>{
+                const c=POS_COLORS[g.pos]||"#525252";
+                const prospect=PROSPECTS.find(p=>p.name===g.name);
+                const traitPos=g.pos==="DB"?(getProspectStats(g.name)?.gpos||"CB"):g.pos==="OL"?"OT":g.pos;
+                const traitKeys=TRAIT_MAP[traitPos]||TRAIT_MAP["QB"];
+                const traitVals=traitKeys.map(t=>tvFn(prospect?.id,t)/100);
+                const cx=60,cy=60,r=45,n=traitKeys.length;
+                const pts=(vals)=>vals.map((v,j)=>{const a=(Math.PI*2*j/n)-Math.PI/2;return[cx+r*v*Math.cos(a),cy+r*v*Math.sin(a)];});
+                const poly=(p)=>p.map(pt=>pt.join(",")).join(" ");
+                const gridLevels=[0.25,0.5,0.75,1];
+                return<div key={g.name} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:14,padding:16,cursor:"pointer",transition:"border-color 0.15s"}} onClick={()=>{if(prospect)setProfilePlayer(prospect);}} onMouseEnter={e=>e.currentTarget.style.borderColor=c} onMouseLeave={e=>e.currentTarget.style.borderColor="#e5e5e5"}>
+                  <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8}}>
+                    <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#d4d4d4"}}>{i+1}</span>
+                    <SchoolLogo school={prospect?.school||""} size={24}/>
+                    <div style={{flex:1,minWidth:0}}>
+                      <div style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{g.name}</div>
+                      <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{prospect?.school||""}</div>
+                    </div>
+                    <span style={{fontFamily:mono,fontSize:10,fontWeight:600,color:c,background:`${c}0d`,padding:"2px 8px",borderRadius:4}}>{g.pos}</span>
                   </div>
-                  <span style={{fontFamily:mono,fontSize:9,fontWeight:600,color:c,background:`${c}0d`,padding:"2px 7px",borderRadius:4}}>{g.pos}</span>
-                </div>
-                <div style={{display:"flex",justifyContent:"space-between",padding:"6px 0 0",borderTop:"1px solid #f5f5f5"}}>
-                  <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:0.5}}>you pick</div><div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#171717"}}>{g.avgPick}</div></div>
-                  <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:0.5}}>consensus</div><div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#a3a3a3"}}>{g.consensusRank}</div></div>
-                  <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:0.5}}>reach</div><div style={{fontFamily:font,fontSize:14,fontWeight:900,color:g.delta>0?"#16a34a":"#dc2626"}}>{g.delta>0?"+":""}{g.delta}</div></div>
-                  <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:0.5}}>drafted</div><div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#171717"}}>{g.timesDrafted}x</div></div>
-                </div>
-              </div>;})}
+                  <svg viewBox="0 0 120 120" style={{width:"100%",maxWidth:160,margin:"0 auto",display:"block"}}>
+                    {gridLevels.map(lv=><polygon key={lv} points={poly(pts(traitKeys.map(()=>lv)))} fill="none" stroke="#e5e5e5" strokeWidth={lv===1?0.8:0.4}/>)}
+                    {traitKeys.map((t,j)=>{const a=(Math.PI*2*j/n)-Math.PI/2;const lx=cx+r*1.18*Math.cos(a);const ly=cy+r*1.18*Math.sin(a);return<text key={t} x={lx} y={ly} textAnchor="middle" dominantBaseline="central" style={{fontSize:3.5,fill:"#a3a3a3",fontFamily:mono}}>{t.split(" ")[0]}</text>;})}
+                    <polygon points={poly(pts(traitVals))} fill={`${c}20`} stroke={c} strokeWidth={1.2}/>
+                    {pts(traitVals).map(([px,py],j)=><circle key={j} cx={px} cy={py} r={1.5} fill={c}/>)}
+                  </svg>
+                  <div style={{display:"flex",justifyContent:"space-between",marginTop:8,padding:"8px 0 0",borderTop:"1px solid #f5f5f5"}}>
+                    <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>you pick</div><div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717"}}>{g.avgPick}</div></div>
+                    <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>consensus</div><div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#a3a3a3"}}>{g.consensusRank}</div></div>
+                    <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>score</div><div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717"}}>{g.score}</div></div>
+                    <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>drafted</div><div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717"}}>{g.timesDrafted}x</div></div>
+                  </div>
+                </div>;
+              })}
+              {emptySlots.map((_,i)=><div key={`empty${i}`} style={{background:"#faf9f6",border:"2px dashed #e5e5e5",borderRadius:14,padding:16,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:200}}>
+                <div style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#e5e5e5"}}>{(myGuys||[]).length+i+1}</div>
+                <div style={{fontFamily:sans,fontSize:11,color:"#d4d4d4",textAlign:"center",marginTop:4}}>mock more to discover</div>
+              </div>)}
             </div>}
           </div>
-        </div>}
+        </div>;
+        })()}
       </div>
     );
   }
@@ -1906,35 +1987,116 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           </div>
         </div>}
 
-        {/* My Guys overlay — dismissible modal on results screen */}
-        {showMyGuysOverlay&&<div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.6)",zIndex:400,display:"flex",alignItems:"center",justifyContent:"center",padding:16}} onClick={()=>setShowMyGuysOverlay(false)}>
+        {/* My Guys overlay — dismissible modal on desktop draft screen (matches homepage view) */}
+        {showMyGuysOverlay&&(()=>{
+          const TRAIT_MAP=POSITION_TRAITS;
+          const emptySlots=Array.from({length:Math.max(0,10-(myGuys||[]).length)});
+          const guys=(myGuys||[]).map(g=>{const p=PROSPECTS.find(pr=>pr.name===g.name);return{...g,prospect:p,gpos:p?.gpos||g.pos,school:p?.school||"",id:p?.id};});
+          const fingerprint=(()=>{
+            if(guys.length<5)return[];
+            const pills=[];
+            const posCounts={};
+            guys.forEach(g=>{const pos=g.gpos==="K"||g.gpos==="P"||g.gpos==="LS"?"K/P":g.gpos;posCounts[pos]=(posCounts[pos]||0)+1;});
+            const topPos=Object.entries(posCounts).sort((a,b)=>b[1]-a[1]);
+            if(topPos.length>0&&topPos[0][1]>=Math.ceil(guys.length*0.3)){
+              const[pos,cnt]=topPos[0];
+              pills.push({emoji:(POS_EMOJI||{})[pos]||"📋",text:`${pos} heavy`,detail:`${cnt}/${guys.length}`,color:POS_COLORS[pos]||"#525252"});
+            }else if(topPos.length>=4&&topPos[0][1]-topPos[topPos.length-1][1]<=1){
+              pills.push({emoji:"🔀",text:"balanced board",detail:"",color:"#525252"});
+            }
+            const traitCounts={};
+            guys.forEach(g=>{if(!g.id)return;const badges=prospectBadges[g.id]||[];badges.forEach(b=>{traitCounts[b.trait]=(traitCounts[b.trait]||0)+1;});});
+            const topTraits=Object.entries(traitCounts).filter(([,c])=>c>=3).sort((a,b)=>b[1]-a[1]).slice(0,2);
+            topTraits.forEach(([trait,cnt])=>{
+              const labels={"Pass Rush":"pass rush magnet","Speed":"speed obsessed","Man Coverage":"lockdown lean","Accuracy":"accuracy snob","Motor":"motor lovers","Ball Skills":"ball hawk bias","Tackling":"sure tacklers","Vision":"vision seekers","Hands":"reliable hands","First Step":"first step fanatic","Athleticism":"athletic bias"};
+              pills.push({emoji:(TRAIT_EMOJI||{})[trait]||"⭐",text:labels[trait]||trait.toLowerCase(),detail:`${cnt}x`,color:"#7c3aed"});
+            });
+            const ceilCounts={elite:0,high:0,normal:0,capped:0};
+            guys.forEach(g=>{const sc=getScoutingTraits(g.name,g.school);const c=sc?.__ceiling||"normal";ceilCounts[c]++;});
+            const upside=ceilCounts.elite+ceilCounts.high;
+            if(upside>=Math.ceil(guys.length*0.6)){
+              pills.push({emoji:"⭐",text:"ceiling chaser",detail:`${upside}/${guys.length} high+`,color:"#ea580c"});
+            }else if(ceilCounts.capped>=Math.ceil(guys.length*0.3)){
+              pills.push({emoji:"🔒",text:"floor first",detail:`${ceilCounts.capped} capped`,color:"#64748b"});
+            }
+            const avgDelta=guys.reduce((s,g)=>s+g.delta,0)/guys.length;
+            if(avgDelta>10)pills.push({emoji:"📈",text:"value hunter",detail:`+${Math.round(avgDelta)} avg`,color:"#16a34a"});
+            else if(avgDelta<-5)pills.push({emoji:"🎲",text:"reach drafter",detail:`${Math.round(avgDelta)} avg`,color:"#dc2626"});
+            else pills.push({emoji:"⚖️",text:"consensus aligned",detail:`${avgDelta>0?"+":""}${Math.round(avgDelta)}`,color:"#525252"});
+            if(SCHOOL_CONFERENCE){
+              const confCounts={};
+              guys.forEach(g=>{const conf=SCHOOL_CONFERENCE[g.school];if(conf&&conf!=="FCS"&&conf!=="D2"&&conf!=="D3"&&conf!=="Ind")confCounts[conf]=(confCounts[conf]||0)+1;});
+              const topConf=Object.entries(confCounts).sort((a,b)=>b[1]-a[1]);
+              if(topConf.length>0&&topConf[0][1]>=Math.ceil(guys.length*0.5))pills.push({emoji:"🏈",text:`${topConf[0][0]} lean`,detail:`${topConf[0][1]}/${guys.length}`,color:"#0369a1"});
+            }
+            const schoolCounts={};
+            guys.forEach(g=>{if(g.school)schoolCounts[g.school]=(schoolCounts[g.school]||0)+1;});
+            const repeats=Object.entries(schoolCounts).filter(([,c])=>c>=2).sort((a,b)=>b[1]-a[1]);
+            if(repeats.length>0){const[sch,cnt]=repeats[0];pills.push({emoji:"🏫",text:`${sch} pipeline`,detail:`${cnt}`,color:"#7c3aed"});}
+            return pills.slice(0,6);
+          })();
+          return<div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.6)",zIndex:400,display:"flex",alignItems:"center",justifyContent:"center",padding:16}} onClick={()=>setShowMyGuysOverlay(false)}>
           <div style={{background:"#faf9f6",borderRadius:16,padding:24,maxWidth:720,width:"100%",maxHeight:"85vh",overflowY:"auto"}} onClick={e=>e.stopPropagation()}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
               <h2 style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717",margin:0,letterSpacing:-0.5}}>👀 my guys</h2>
               <button onClick={()=>setShowMyGuysOverlay(false)} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",padding:"4px 8px"}}>✕</button>
             </div>
             <p style={{fontFamily:sans,fontSize:13,color:"#737373",margin:"0 0 4px",lineHeight:1.5}}>the prospects you bang the table for every time you mock</p>
-            <p style={{fontFamily:mono,fontSize:10,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 16px"}}>{mockCount||0} mock{(mockCount||0)!==1?"s":""} completed · {(myGuys||[]).length}/10 guys identified</p>
+            <p style={{fontFamily:mono,fontSize:10,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>{mockCount||0} mock{(mockCount||0)!==1?"s":""} completed · {(myGuys||[]).length}/10 guys identified</p>
+
+            {fingerprint.length>0&&<div style={{marginBottom:16}}>
+              <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>scouting fingerprint</div>
+              <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
+                {fingerprint.map((pill,i)=><span key={i} style={{fontFamily:sans,fontSize:11,fontWeight:600,color:pill.color,background:`${pill.color}0d`,border:`1px solid ${pill.color}22`,padding:"4px 10px",borderRadius:99,display:"inline-flex",alignItems:"center",gap:4,whiteSpace:"nowrap"}}>
+                  <span>{pill.emoji}</span><span>{pill.text}</span>{pill.detail&&<span style={{fontFamily:mono,fontSize:9,opacity:0.7}}>({pill.detail})</span>}
+                </span>)}
+              </div>
+            </div>}
+
             {(!myGuys||myGuys.length===0)?<div style={{textAlign:"center",padding:"32px 0"}}><div style={{fontSize:32,marginBottom:8}}>👀</div><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>complete a mock to start discovering your guys</p></div>
-            :<div style={{display:"grid",gridTemplateColumns:"repeat(2, 1fr)",gap:10}}>
-              {myGuys.map((g,i)=>{const c=POS_COLORS[g.pos]||"#525252";return<div key={g.name} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:14}}>
-                <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:6}}>
-                  <span style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#d4d4d4"}}>{i+1}</span>
-                  <div style={{flex:1,minWidth:0}}>
-                    <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{g.name}</div>
+            :<div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))",gap:12}}>
+              {myGuys.map((g,i)=>{
+                const c=POS_COLORS[g.pos]||"#525252";
+                const prospect=PROSPECTS.find(p=>p.name===g.name);
+                const traitPos=g.pos==="DB"?(getProspectStats(g.name)?.gpos||"CB"):g.pos==="OL"?"OT":g.pos;
+                const traitKeys=TRAIT_MAP[traitPos]||TRAIT_MAP["QB"];
+                const traitVals=traitKeys.map(t=>tvFn(prospect?.id,t)/100);
+                const cx=60,cy=60,r=45,n=traitKeys.length;
+                const pts=(vals)=>vals.map((v,j)=>{const a=(Math.PI*2*j/n)-Math.PI/2;return[cx+r*v*Math.cos(a),cy+r*v*Math.sin(a)];});
+                const poly=(p)=>p.map(pt=>pt.join(",")).join(" ");
+                const gridLevels=[0.25,0.5,0.75,1];
+                return<div key={g.name} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:14,padding:16,cursor:"pointer",transition:"border-color 0.15s"}} onClick={()=>{if(prospect)setProfilePlayer(prospect);}} onMouseEnter={e=>e.currentTarget.style.borderColor=c} onMouseLeave={e=>e.currentTarget.style.borderColor="#e5e5e5"}>
+                  <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8}}>
+                    <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#d4d4d4"}}>{i+1}</span>
+                    <SchoolLogo school={prospect?.school||""} size={24}/>
+                    <div style={{flex:1,minWidth:0}}>
+                      <div style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{g.name}</div>
+                      <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{prospect?.school||""}</div>
+                    </div>
+                    <span style={{fontFamily:mono,fontSize:10,fontWeight:600,color:c,background:`${c}0d`,padding:"2px 8px",borderRadius:4}}>{g.pos}</span>
                   </div>
-                  <span style={{fontFamily:mono,fontSize:9,fontWeight:600,color:c,background:`${c}0d`,padding:"2px 7px",borderRadius:4}}>{g.pos}</span>
-                </div>
-                <div style={{display:"flex",justifyContent:"space-between",padding:"6px 0 0",borderTop:"1px solid #f5f5f5"}}>
-                  <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:0.5}}>you pick</div><div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#171717"}}>{g.avgPick}</div></div>
-                  <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:0.5}}>consensus</div><div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#a3a3a3"}}>{g.consensusRank}</div></div>
-                  <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:0.5}}>reach</div><div style={{fontFamily:font,fontSize:14,fontWeight:900,color:g.delta>0?"#16a34a":"#dc2626"}}>{g.delta>0?"+":""}{g.delta}</div></div>
-                  <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:0.5}}>drafted</div><div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#171717"}}>{g.timesDrafted}x</div></div>
-                </div>
-              </div>;})}
+                  <svg viewBox="0 0 120 120" style={{width:"100%",maxWidth:160,margin:"0 auto",display:"block"}}>
+                    {gridLevels.map(lv=><polygon key={lv} points={poly(pts(traitKeys.map(()=>lv)))} fill="none" stroke="#e5e5e5" strokeWidth={lv===1?0.8:0.4}/>)}
+                    {traitKeys.map((t,j)=>{const a=(Math.PI*2*j/n)-Math.PI/2;const lx=cx+r*1.18*Math.cos(a);const ly=cy+r*1.18*Math.sin(a);return<text key={t} x={lx} y={ly} textAnchor="middle" dominantBaseline="central" style={{fontSize:3.5,fill:"#a3a3a3",fontFamily:mono}}>{t.split(" ")[0]}</text>;})}
+                    <polygon points={poly(pts(traitVals))} fill={`${c}20`} stroke={c} strokeWidth={1.2}/>
+                    {pts(traitVals).map(([px,py],j)=><circle key={j} cx={px} cy={py} r={1.5} fill={c}/>)}
+                  </svg>
+                  <div style={{display:"flex",justifyContent:"space-between",marginTop:8,padding:"8px 0 0",borderTop:"1px solid #f5f5f5"}}>
+                    <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>you pick</div><div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717"}}>{g.avgPick}</div></div>
+                    <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>consensus</div><div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#a3a3a3"}}>{g.consensusRank}</div></div>
+                    <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>score</div><div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717"}}>{g.score}</div></div>
+                    <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>drafted</div><div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717"}}>{g.timesDrafted}x</div></div>
+                  </div>
+                </div>;
+              })}
+              {emptySlots.map((_,i)=><div key={`empty${i}`} style={{background:"#faf9f6",border:"2px dashed #e5e5e5",borderRadius:14,padding:16,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:200}}>
+                <div style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#e5e5e5"}}>{(myGuys||[]).length+i+1}</div>
+                <div style={{fontFamily:sans,fontSize:11,color:"#d4d4d4",textAlign:"center",marginTop:4}}>mock more to discover</div>
+              </div>)}
             </div>}
           </div>
-        </div>}
+        </div>;
+        })()}
       </div>
     );
   }
