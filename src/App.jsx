@@ -1916,10 +1916,10 @@ function AdminDashboard({user,onBack}){
         const rankingsStarted=allEvents.filter(e=>e.event==='ranking_started').length;
         const mocksStarted=allEvents.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').length;
         const mocksCompleted=allEvents.filter(e=>e.event==='mock_draft_completed').length;
-        const mockSimEvents=allEvents.filter(e=>e.event==='mock_draft_sim_started');
-        const singleTeamMocks=mockSimEvents.filter(e=>{const t=e.metadata?.team||'';return t&&!t.includes(',');}).length;
-        const multiTeamMocks=mockSimEvents.filter(e=>{const t=e.metadata?.team||'';return t&&t.includes(',');}).length;
-        const allTeamMocks=mockSimEvents.filter(e=>{const t=e.metadata?.team||'';return t&&t.split(',').length>=32;}).length;
+        const mockCompletedEvents=allEvents.filter(e=>e.event==='mock_draft_completed');
+        const singleTeamMocks=mockCompletedEvents.filter(e=>{const t=e.metadata?.team||'';return t&&!t.includes(',');}).length;
+        const multiTeamMocks=mockCompletedEvents.filter(e=>{const t=e.metadata?.team||'';return t&&t.includes(',');}).length;
+        const allTeamMocks=mockCompletedEvents.filter(e=>{const t=e.metadata?.team||'';return t&&t.split(',').length>=32;}).length;
         const totalShares=allEvents.filter(e=>e.event==='share_results'||e.event==='share_triggered').length;
         const shareUsers=new Set(allEvents.filter(e=>e.event==='share_results'||e.event==='share_triggered').map(e=>e.user_id)).size;
         const noteUsers=boards.filter(b=>{const d=b.board_data||{};return d.notes&&Object.keys(d.notes).length>0;}).length;
@@ -2212,11 +2212,11 @@ function AdminDashboard({user,onBack}){
                 const rate=f.started>0?Math.round(f.completed/f.started*100):0;
                 return<div key={f.label} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
                   <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>{f.label}</span>
-                  <span style={{fontFamily:mono,fontSize:11,color:f.color}}>{f.completed}<span style={{color:"#a3a3a3",fontSize:10}}>/{f.started} </span><span style={{fontWeight:700,color:f.color}}>{rate}%</span></span>
+                  <span style={{fontFamily:mono,fontSize:11,color:f.color}}>{f.completed} <span style={{color:"#a3a3a3",fontSize:10}}>completed</span> / {f.started} <span style={{color:"#a3a3a3",fontSize:10}}>started</span> <span style={{fontWeight:700,color:f.color}}>{rate}%</span></span>
                 </div>;
               })}
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
-                <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Mock Breakdown</span>
+                <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Completed Mocks</span>
                 <span style={{fontFamily:mono,fontSize:11,color:"#f59e0b"}}>{stats.singleTeamMocks} <span style={{color:"#a3a3a3",fontSize:10}}>1-team</span> · {stats.multiTeamMocks-stats.allTeamMocks} <span style={{color:"#a3a3a3",fontSize:10}}>multi</span> · {stats.allTeamMocks} <span style={{color:"#a3a3a3",fontSize:10}}>32-team</span></span>
               </div>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
