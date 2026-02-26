@@ -1456,18 +1456,27 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth}){
 function DraggableRankList({ranked,activePos,cur,c,getGrade,setSelectedPlayer,movePlayer,setProfilePlayer,font,mono,sans,isGuest,onRequireAuth}){
   const[dragIdx,setDragIdx]=useState(null);
   const[overIdx,setOverIdx]=useState(null);
+  // Touch long-press drag support
+  const touchState=useRef({timer:null,dragging:false,startIdx:null,startY:0,currentIdx:null});
+  const listRef=useRef(null);
   const handleDragStart=(e,i)=>{if(isGuest){e.preventDefault();onRequireAuth("sign in to reorder your rankings");return;}setDragIdx(i);e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',i);};
   const handleDragOver=(e,i)=>{e.preventDefault();e.dataTransfer.dropEffect='move';setOverIdx(i);};
   const handleDrop=(e,i)=>{e.preventDefault();if(dragIdx!==null&&dragIdx!==i)movePlayer(activePos,dragIdx,i);setDragIdx(null);setOverIdx(null);};
   const handleDragEnd=()=>{setDragIdx(null);setOverIdx(null);};
+  const getIdxFromY=(y)=>{if(!listRef.current)return null;const rows=listRef.current.children;for(let i=0;i<rows.length;i++){const r=rows[i].getBoundingClientRect();if(y>=r.top&&y<=r.bottom)return i;}return null;};
+  const handleTouchStart=(e,i)=>{if(isGuest)return;const ts=touchState.current;ts.startY=e.touches[0].clientY;ts.startIdx=i;ts.timer=setTimeout(()=>{ts.dragging=true;setDragIdx(i);if(navigator.vibrate)navigator.vibrate(30);},400);};
+  const handleTouchMove=(e)=>{const ts=touchState.current;if(!ts.dragging){if(ts.timer&&Math.abs(e.touches[0].clientY-ts.startY)>8){clearTimeout(ts.timer);ts.timer=null;}return;}e.preventDefault();const idx=getIdxFromY(e.touches[0].clientY);if(idx!==null&&idx!==ts.currentIdx){ts.currentIdx=idx;setOverIdx(idx);}};
+  const handleTouchEnd=()=>{const ts=touchState.current;if(ts.timer){clearTimeout(ts.timer);ts.timer=null;}if(ts.dragging&&ts.startIdx!==null&&ts.currentIdx!==null&&ts.startIdx!==ts.currentIdx){movePlayer(activePos,ts.startIdx,ts.currentIdx);}ts.dragging=false;ts.startIdx=null;ts.currentIdx=null;setDragIdx(null);setOverIdx(null);};
   return(
     <div style={{flex:"1 1 260px",minWidth:220,maxWidth:400,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
       <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",padding:"12px 16px 4px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-        <span>rankings</span>{!isGuest&&<span style={{fontSize:9,letterSpacing:1,color:"#d4d4d4",fontWeight:400}}>drag to reorder</span>}
+        <span>rankings</span>{!isGuest&&<span style={{fontSize:9,letterSpacing:1,color:"#d4d4d4",fontWeight:400}}>hold to reorder</span>}
       </div>
-      <div style={{maxHeight:480,overflowY:"auto"}}>
+      <div ref={listRef} style={{maxHeight:480,overflowY:"auto"}}>
         {ranked.map((p,i)=>(
-          <div key={p.id} draggable={!isGuest} onDragStart={e=>handleDragStart(e,i)} onDragOver={e=>handleDragOver(e,i)} onDrop={e=>handleDrop(e,i)} onDragEnd={handleDragEnd} onClick={()=>setSelectedPlayer(p)}
+          <div key={p.id} draggable={!isGuest} onDragStart={e=>handleDragStart(e,i)} onDragOver={e=>handleDragOver(e,i)} onDrop={e=>handleDrop(e,i)} onDragEnd={handleDragEnd}
+            onTouchStart={e=>handleTouchStart(e,i)} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}
+            onClick={()=>setSelectedPlayer(p)}
             style={{display:"flex",alignItems:"center",gap:6,padding:"7px 12px 7px 8px",borderLeft:cur?.id===p.id?`3px solid ${c}`:"3px solid transparent",background:dragIdx===i?"#f0f0f0":overIdx===i&&dragIdx!==null?`${c}0a`:cur?.id===p.id?`${c}06`:"transparent",cursor:isGuest?"pointer":"grab",userSelect:"none",borderBottom:overIdx===i&&dragIdx!==null?`2px solid ${c}`:"1px solid transparent",transition:"background 0.1s",opacity:dragIdx===i?0.5:1}}>
             {!isGuest&&<span style={{fontFamily:mono,fontSize:9,color:"#d4d4d4",cursor:"grab",padding:"0 2px",flexShrink:0}}>⠿</span>}
             <span style={{fontFamily:mono,fontSize:11,color:"#d4d4d4",width:16,textAlign:"right",flexShrink:0}}>{i+1}</span>
@@ -1970,10 +1979,24 @@ function AdminDashboard({user,onBack}){
           <button onClick={onBack} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"1px solid #444",borderRadius:99,padding:"3px 12px",cursor:"pointer"}}>← back to app</button>
         </div>
       </div>
+      <style>{`
+        .admin-kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+        .admin-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+        .admin-table-head,.admin-table-row{display:grid;grid-template-columns:1fr 80px 70px 60px 100px;gap:4px}
+        .admin-event-row{display:grid;grid-template-columns:110px 1fr 1fr 120px;gap:6px}
+        @media(max-width:700px){
+          .admin-kpi{grid-template-columns:repeat(2,1fr)}
+          .admin-2col{grid-template-columns:1fr}
+          .admin-table-head,.admin-table-row{grid-template-columns:1fr 60px 50px 40px}
+          .admin-table-hide{display:none}
+          .admin-event-row{grid-template-columns:90px 1fr 90px}
+          .admin-event-meta{display:none}
+        }
+      `}</style>
       <div style={{maxWidth:920,margin:"0 auto",padding:"52px 24px 60px"}}>
 
         {/* SECTION 1: KPI Strip — 4 cards */}
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:12,marginBottom:24}}>
+        <div className="admin-kpi">
           {[
             {label:"Users",value:stats.totalUsers,sub:`+${stats.signupsWeek} this week`,color:"#171717"},
             {label:"Active (7d)",value:stats.activeWeek,sub:`${stats.activeToday} today`,color:"#3b82f6"},
@@ -2043,7 +2066,7 @@ function AdminDashboard({user,onBack}){
         </div>}
 
         {/* Guest Activity + Signup Flows — side by side */}
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:24}}>
+        <div className="admin-2col">
           <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
             <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>guest activity</div>
             <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
@@ -2087,7 +2110,7 @@ function AdminDashboard({user,onBack}){
         </div>
 
         {/* SECTION 4: Engagement Breakdown — two panels */}
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:24}}>
+        <div className="admin-2col">
           {/* Left: Positions Ranked */}
           <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
             <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>positions ranked <span style={{color:"#d4d4d4"}}>of {stats.totalUsers} users</span></div>
@@ -2153,18 +2176,19 @@ function AdminDashboard({user,onBack}){
             <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717"}}>users ({users.length})</span>
             <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{users.filter(u=>tagUser(u).label==="power user").length} power · {users.filter(u=>tagUser(u).label==="drafter").length} drafters · {users.filter(u=>tagUser(u).label==="ranker").length} rankers</span>
           </div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 80px 70px 60px 100px",gap:4,padding:"8px 16px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5"}}>
-            {["Email","Status","Ranked","Mocks","Last Active"].map(h=><span key={h} style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>{h}</span>)}
+          <div className="admin-table-head" style={{padding:"8px 16px",background:"#f9f9f7",borderBottom:"1px solid #e5e5e5"}}>
+            {["Email","Status","Ranked","Mocks"].map(h=><span key={h} style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>{h}</span>)}
+            <span className="admin-table-hide" style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Last Active</span>
           </div>
           <div style={{maxHeight:500,overflowY:"auto"}}>
             {users.map((u,i)=>{
               const tag=tagUser(u);
-              return<div key={u.userId} style={{display:"grid",gridTemplateColumns:"1fr 80px 70px 60px 100px",gap:4,padding:"7px 16px",borderBottom:i<users.length-1?"1px solid #f8f8f6":"none",alignItems:"center"}}>
+              return<div key={u.userId} className="admin-table-row" style={{padding:"7px 16px",borderBottom:i<users.length-1?"1px solid #f8f8f6":"none",alignItems:"center"}}>
                 <span style={{fontFamily:mono,fontSize:10,color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{u.email||u.userId.slice(0,12)+'…'}</span>
                 <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:tag.color,background:tag.bg,padding:"2px 6px",borderRadius:4,textAlign:"center"}}>{tag.label}</span>
                 <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:u.rankedPositions>0?"#22c55e":"#e5e5e5",textAlign:"center"}}>{u.rankedPositions}/{POSITION_GROUPS.length}</span>
                 <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:u.mockCount>0?"#f59e0b":"#e5e5e5",textAlign:"center"}}>{u.mockCount}</span>
-                <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.updatedAt?new Date(u.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric'})+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
+                <span className="admin-table-hide" style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.updatedAt?new Date(u.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric'})+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
               </div>;
             })}
           </div>
@@ -2180,10 +2204,10 @@ function AdminDashboard({user,onBack}){
             {displayEvents.map((e,i)=>{
               const evtColor=e.event==='signup'?"#22c55e":e.event.includes('mock_draft')?"#f59e0b":e.event==='ranking_completed'?"#3b82f6":e.event==='ranking_started'?"#8b5cf6":e.event==='share_results'?"#22c55e":"#a3a3a3";
               const eu=users.find(u=>u.userId===e.user_id);
-              return<div key={e.id} style={{display:"grid",gridTemplateColumns:"110px 1fr 1fr 120px",gap:6,padding:"5px 16px",borderBottom:i<displayEvents.length-1?"1px solid #fafaf8":"none",fontSize:10,fontFamily:mono,alignItems:"center"}}>
+              return<div key={e.id} className="admin-event-row" style={{padding:"5px 16px",borderBottom:i<displayEvents.length-1?"1px solid #fafaf8":"none",fontSize:10,fontFamily:mono,alignItems:"center"}}>
                 <span style={{color:evtColor,fontWeight:700}}>{e.event.replace(/_/g,' ')}</span>
                 <span style={{color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{eu?.email||e.session_id||e.user_id?.slice(0,12)+'…'}</span>
-                <span style={{color:"#a3a3a3",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{e.metadata&&Object.keys(e.metadata).length>0?JSON.stringify(e.metadata):""}</span>
+                <span className="admin-event-meta" style={{color:"#a3a3a3",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{e.metadata&&Object.keys(e.metadata).length>0?JSON.stringify(e.metadata):""}</span>
                 <span style={{color:"#d4d4d4"}}>{new Date(e.created_at).toLocaleDateString('en-US',{month:'short',day:'numeric'})} {new Date(e.created_at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}</span>
               </div>;
             })}
