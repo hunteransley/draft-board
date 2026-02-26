@@ -727,7 +727,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     const next=getNextMatchup(allM,doneSet,r,c,posRankFn,null);
     if(!next){finishRanking(pos,r);return;}
     setCurrentMatchup(next);
-    setActivePos(pos);setPhase("ranking");window.scrollTo(0,0);
+    setActivePos(pos);setPhase("ranking");
   },[ratings,compCount,byPos,partialProgress,prospectsMap,posRankFn]);
   const handlePick=useCallback((winnerId,confidence=0.5)=>{if(!currentMatchup||!activePos)return;const[a,b]=currentMatchup;const aWon=winnerId===a;const k=24+(confidence*24);const{newA,newB}=eloUpdate(ratings[a]||1500,ratings[b]||1500,aWon,k);const ur={...ratings,[a]:newA,[b]:newB};setRatings(ur);const uc={...compCount,[a]:(compCount[a]||0)+1,[b]:(compCount[b]||0)+1};setCompCount(uc);setWinCount(prev=>({...prev,[winnerId]:(prev[winnerId]||0)+1}));const ns=new Set(completed[activePos]);ns.add(`${a}-${b}`);setCompleted(prev=>({...prev,[activePos]:ns}));
     // Save partial progress for resume
@@ -761,7 +761,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     setRankedGroups(prev=>new Set([...prev,pos]));
     setPartialProgress(prev=>{const n={...prev};delete n[pos];return n;});
     trackEvent(user?.id,'ranking_completed',{position:pos,guest:!user});
-    setPhase("pick-position");window.scrollTo(0,0);
+    setPhase("pick-position");
   },[user?.id]);
   const getRanked=useCallback((pos)=>{const seen=new Set();return[...(byPos[pos]||[])].filter(p=>{if(seen.has(p.id))return false;seen.add(p.id);return true;}).sort((a,b)=>(ratings[b.id]||1500)-(ratings[a.id]||1500));},[byPos,ratings]);
   const movePlayer=useCallback((pos,fromIdx,toIdx)=>{
@@ -829,6 +829,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const[showMyGuys,setShowMyGuys]=useState(false);
   const[mockCount,setMockCount]=useState(0);
   const[copiedShare,setCopiedShare]=useState(null);
+  useEffect(()=>{window.scrollTo(0,0);},[phase,showMyGuys]);
   const traitsRef=useRef(traits);traitsRef.current=traits;
   const ratingsRef=useRef(ratings);ratingsRef.current=ratings;
   const getGradeRef=useRef(getGrade);getGradeRef.current=getGrade;
