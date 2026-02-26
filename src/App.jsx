@@ -1783,6 +1783,7 @@ function AdminDashboard({user,onBack}){
   const[excludeAdmin,setExcludeAdmin]=useState(true);
   const[allEventsRaw,setAllEventsRaw]=useState([]);
   const[showEventLog,setShowEventLog]=useState(false);
+  const[expandedUser,setExpandedUser]=useState(null);
   useEffect(()=>{
     (async()=>{
       try{
@@ -1849,6 +1850,9 @@ function AdminDashboard({user,onBack}){
           const noteCount=d.notes?Object.keys(d.notes).length:0;
           const userEvts=allEvents.filter(e=>e.user_id===au.id);
           const mockCount=userEvts.filter(e=>e.event==='mock_draft_completed').length;
+          const shareCount=userEvts.filter(e=>e.event==='share_results'||e.event==='share_triggered').length;
+          const rankingsStartedU=userEvts.filter(e=>e.event==='ranking_started').length;
+          const rankingsCompletedU=userEvts.filter(e=>e.event==='ranking_completed').length;
           const lastEvent=userEvts[0];
           const lastActivity=new Date(Math.max(
             au.last_sign_in_at?new Date(au.last_sign_in_at):0,
@@ -1861,10 +1865,15 @@ function AdminDashboard({user,onBack}){
             createdAt:au.created_at,
             updatedAt:lastActivity.toISOString(),
             rankedPositions:rg.length,
+            rankedGroups:rg,
             partialPositions:pp.length,
+            partialGroups:pp,
             noteCount,
             eventCount:userEvts.length,
             mockCount,
+            shareCount,
+            rankingsStartedU,
+            rankingsCompletedU,
             hasBoard:!!b,
           };
         }).sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt));
@@ -2183,12 +2192,42 @@ function AdminDashboard({user,onBack}){
           <div style={{maxHeight:500,overflowY:"auto"}}>
             {users.map((u,i)=>{
               const tag=tagUser(u);
-              return<div key={u.userId} className="admin-table-row" style={{padding:"7px 16px",borderBottom:i<users.length-1?"1px solid #f8f8f6":"none",alignItems:"center"}}>
-                <span style={{fontFamily:mono,fontSize:10,color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{u.email||u.userId.slice(0,12)+'…'}</span>
-                <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:tag.color,background:tag.bg,padding:"2px 6px",borderRadius:4,textAlign:"center"}}>{tag.label}</span>
-                <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:u.rankedPositions>0?"#22c55e":"#e5e5e5",textAlign:"center"}}>{u.rankedPositions}/{POSITION_GROUPS.length}</span>
-                <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:u.mockCount>0?"#f59e0b":"#e5e5e5",textAlign:"center"}}>{u.mockCount}</span>
-                <span className="admin-table-hide" style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.updatedAt?new Date(u.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric'})+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
+              const isExp=expandedUser===u.userId;
+              return<div key={u.userId}>
+                <div className="admin-table-row" onClick={()=>setExpandedUser(isExp?null:u.userId)} style={{padding:"7px 16px",borderBottom:isExp?"none":i<users.length-1?"1px solid #f8f8f6":"none",alignItems:"center",cursor:"pointer"}}>
+                  <span style={{fontFamily:mono,fontSize:10,color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{u.email||u.userId.slice(0,12)+'…'}</span>
+                  <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:tag.color,background:tag.bg,padding:"2px 6px",borderRadius:4,textAlign:"center"}}>{tag.label}</span>
+                  <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:u.rankedPositions>0?"#22c55e":"#e5e5e5",textAlign:"center"}}>{u.rankedPositions}/{POSITION_GROUPS.length}</span>
+                  <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:u.mockCount>0?"#f59e0b":"#e5e5e5",textAlign:"center"}}>{u.mockCount}</span>
+                  <span className="admin-table-hide" style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.updatedAt?new Date(u.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric'})+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
+                </div>
+                {isExp&&<div style={{padding:"8px 16px 12px",background:"#f9f9f7",borderBottom:i<users.length-1?"1px solid #e5e5e5":"none"}}>
+                  <div style={{display:"flex",flexWrap:"wrap",gap:8,marginBottom:8}}>
+                    {[
+                      ["Mocks",u.mockCount,"#f59e0b"],
+                      ["Shares",u.shareCount,"#22c55e"],
+                      ["Notes",u.noteCount,"#8b5cf6"],
+                      ["Events",u.eventCount,"#3b82f6"],
+                    ].map(([l,v,c])=><div key={l} style={{padding:"4px 10px",background:"#fff",borderRadius:6,textAlign:"center",minWidth:50,border:"1px solid #e5e5e5"}}>
+                      <div style={{fontFamily:mono,fontSize:14,fontWeight:900,color:v>0?c:"#e5e5e5"}}>{v}</div>
+                      <div style={{fontFamily:mono,fontSize:7,color:"#a3a3a3"}}>{l}</div>
+                    </div>)}
+                  </div>
+                  <div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:6}}>
+                    {u.rankedGroups.length>0&&<div style={{display:"flex",alignItems:"center",gap:4,flexWrap:"wrap"}}>
+                      <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>ranked:</span>
+                      {u.rankedGroups.map(pos=><span key={pos} style={{fontFamily:mono,fontSize:9,fontWeight:700,color:POS_COLORS[pos]||"#525252",background:`${POS_COLORS[pos]||"#525252"}0d`,padding:"1px 5px",borderRadius:3}}>{pos}</span>)}
+                    </div>}
+                    {u.partialGroups.length>0&&<div style={{display:"flex",alignItems:"center",gap:4,flexWrap:"wrap"}}>
+                      <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>in progress:</span>
+                      {u.partialGroups.map(pos=><span key={pos} style={{fontFamily:mono,fontSize:9,color:"#ca8a04",background:"#fefce8",padding:"1px 5px",borderRadius:3}}>{pos}</span>)}
+                    </div>}
+                  </div>
+                  <div style={{display:"flex",gap:12,fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>
+                    <span>signed up {u.createdAt?new Date(u.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):""}</span>
+                    <span>last active {u.updatedAt?new Date(u.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric'})+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
+                  </div>
+                </div>}
               </div>;
             })}
           </div>
