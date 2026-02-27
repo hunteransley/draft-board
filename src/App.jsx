@@ -1923,34 +1923,37 @@ function AdminDashboard({user,onBack}){
         const avgPositions=rankers.length>0?(rankers.reduce((s,u)=>s+u.rankedPositions,0)/rankers.length).toFixed(1):0;
 
         // Activity heatmap (last 14 days) — from dedicated date-filtered query
+        // Use local dates (not UTC) so "today" matches the user's timezone
+        const localDateStr=(dt)=>{const x=new Date(dt);return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');};
         const heatmapEvents=heatmapRes.data||[];
         const dayMap={};
         heatmapEvents.forEach(e=>{
-          const d=new Date(e.created_at).toISOString().slice(0,10);
+          const d=localDateStr(e.created_at);
           dayMap[d]=(dayMap[d]||0)+1;
         });
         const heatmap=Array.from({length:14},(_,i)=>{
-          const d=new Date(now-(13-i)*86400000).toISOString().slice(0,10);
+          const d=localDateStr(new Date(now-(13-i)*86400000));
           return{date:d,count:dayMap[d]||0};
         });
 
         // Signup heatmap (last 14 days) — from auth user created_at
         const signupDayMap={};
-        authUsers.forEach(u=>{if(u.created_at){const d=new Date(u.created_at).toISOString().slice(0,10);if(d>=fourteenAgo.slice(0,10))signupDayMap[d]=(signupDayMap[d]||0)+1;}});
+        const fourteenAgoLocal=localDateStr(new Date(now-14*86400000));
+        authUsers.forEach(u=>{if(u.created_at){const d=localDateStr(u.created_at);if(d>=fourteenAgoLocal)signupDayMap[d]=(signupDayMap[d]||0)+1;}});
         const signupHeatmap=Array.from({length:14},(_,i)=>{
-          const d=new Date(now-(13-i)*86400000).toISOString().slice(0,10);
+          const d=localDateStr(new Date(now-(13-i)*86400000));
           return{date:d,count:signupDayMap[d]||0};
         });
 
         // Anonymous sessions heatmap (last 14 days) — unique session_ids per day
         const anonSessionDayMap={};
         heatmapEvents.filter(e=>!e.user_id).forEach(e=>{
-          const d=new Date(e.created_at).toISOString().slice(0,10);
+          const d=localDateStr(e.created_at);
           if(!anonSessionDayMap[d])anonSessionDayMap[d]=new Set();
           if(e.session_id)anonSessionDayMap[d].add(e.session_id);
         });
         const anonSessionHeatmap=Array.from({length:14},(_,i)=>{
-          const d=new Date(now-(13-i)*86400000).toISOString().slice(0,10);
+          const d=localDateStr(new Date(now-(13-i)*86400000));
           return{date:d,count:anonSessionDayMap[d]?anonSessionDayMap[d].size:0};
         });
 
