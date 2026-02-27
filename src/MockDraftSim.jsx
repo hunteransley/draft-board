@@ -272,7 +272,6 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[filterPos,setFilterPos]=useState(new Set());
   const[traitFilter,setTraitFilter]=useState(new Set());
   useEffect(()=>{setTraitFilter(new Set());},[filterPos]);
-  useEffect(()=>{window.scrollTo(0,0);},[setupDone,showResults]);
   const[profilePlayer,setProfilePlayer]=useState(null);
   const[compareList,setCompareList]=useState([]);
   const[showCompare,setShowCompare]=useState(false);
@@ -281,6 +280,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[depthSheetTeam,setDepthSheetTeam]=useState("");
   const[tradeOffer,setTradeOffer]=useState(null);
   const[showResults,setShowResults]=useState(false);
+  useEffect(()=>{window.scrollTo(0,0);},[setupDone,showResults]);
   const[showMyGuysOverlay,setShowMyGuysOverlay]=useState(false);
   const[copiedDraft,setCopiedDraft]=useState(false);
   const[lastVerdict,setLastVerdict]=useState(null);
