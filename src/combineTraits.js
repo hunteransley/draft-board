@@ -410,7 +410,7 @@ export function getCombineAdjustedTraits(name, school) {
       combineCeiling = "capped";
     } else if (ath >= 98 && exp != null && exp >= 95) {
       combineCeiling = "elite";
-    } else if (ath >= 95 && exp != null && exp >= 90) {
+    } else if (ath >= 95 && exp != null && exp >= 95) {
       combineCeiling = "high";
     }
 
