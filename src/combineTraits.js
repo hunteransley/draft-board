@@ -408,9 +408,9 @@ export function getCombineAdjustedTraits(name, school) {
     let combineCeiling = "normal";
     if (ath < 40) {
       combineCeiling = "capped";
-    } else if (ath >= 95 || (ath >= 85 && exp != null && exp >= 95)) {
+    } else if (ath >= 98 && exp != null && exp >= 95) {
       combineCeiling = "elite";
-    } else if (ath >= 75 || (ath >= 65 && exp != null && exp >= 90)) {
+    } else if (ath >= 95 && exp != null && exp >= 90) {
       combineCeiling = "high";
     }
 
