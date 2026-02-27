@@ -561,7 +561,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       // NEED: top-2 team need and not already over-drafted at this position
       const nc=dn[pos]||0;const ni=needs.indexOf(pos);
       const alreadyAtPos=posCounts[pos]||0;
-      if((nc>=2||(nc>=1&&ni<=1)||(ni===0))&&alreadyAtPos<2){
+      if((nc>=2||(nc>=1&&ni<=2)||(ni===0))&&alreadyAtPos<2){
         t.push({tag:"NEED",color:"#0369a1",bg:"#e0f2fe"});
       }
       // SLIDE: consensus rank is well above current pick (scaled by draft position)
