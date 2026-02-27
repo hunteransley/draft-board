@@ -33,7 +33,153 @@ const MANUAL_CSV_PATH = path.join(__dirname, 'combine-manual.csv');
 const HTML_TEMPLATE_PATH = path.join(__dirname, 'public', 'blog', '2026-nfl-combine-results.html');
 const OUTPUT_PATH = path.join(__dirname, 'public', 'blog', '2026-nfl-combine-results.html');
 const COMBINE_JSON_PATH = path.join(__dirname, 'src', 'combineData.json');
+const PERCENTILES_JSON_PATH = path.join(__dirname, 'src', 'combinePercentiles.json');
 const SEASON = 2026;
+
+// ============================================================
+// POSITION MAPPING (nflverse → BBL)
+// ============================================================
+const NFLVERSE_POS_MAP = {
+  'QB': 'QB', 'RB': 'RB', 'FB': 'RB', 'WR': 'WR',
+  'TE': 'TE', 'OT': 'OT', 'T': 'OT', 'OG': 'IOL', 'G': 'IOL', 'C': 'IOL',
+  'OL': 'OT', // generic OL defaults to OT
+  'DE': 'EDGE', 'EDGE': 'EDGE', 'OLB': 'LB',
+  'DT': 'DL', 'NT': 'DL', 'DL': 'DL',
+  'ILB': 'LB', 'LB': 'LB', 'MLB': 'LB',
+  'CB': 'CB', 'DB': 'CB',
+  'FS': 'S', 'SS': 'S', 'S': 'S',
+};
+
+// ============================================================
+// BREAKPOINTS (from scripts/combineTraits.js)
+// ============================================================
+const BREAKPOINTS = {
+  forty: {
+    QB:[[4.40,99],[4.50,90],[4.60,80],[4.70,68],[4.80,55],[4.95,40],[5.10,28]],
+    RB:[[4.30,99],[4.38,95],[4.45,88],[4.52,78],[4.60,68],[4.70,55],[4.80,40]],
+    WR:[[4.25,99],[4.32,95],[4.40,88],[4.48,78],[4.55,68],[4.65,55],[4.75,42]],
+    TE:[[4.40,99],[4.50,92],[4.58,82],[4.65,72],[4.75,60],[4.85,48],[4.95,35]],
+    OT:[[4.75,99],[4.85,90],[4.95,78],[5.05,65],[5.15,55],[5.30,40]],
+    IOL:[[4.80,99],[4.90,90],[5.00,78],[5.10,65],[5.20,52],[5.35,38]],
+    EDGE:[[4.45,99],[4.55,92],[4.65,82],[4.75,70],[4.85,58],[4.95,45]],
+    DL:[[4.60,99],[4.70,92],[4.80,82],[4.90,70],[5.00,58],[5.15,42]],
+    LB:[[4.40,99],[4.48,92],[4.55,84],[4.62,74],[4.70,64],[4.80,52],[4.90,40]],
+    CB:[[4.25,99],[4.32,95],[4.38,90],[4.45,82],[4.52,72],[4.60,60],[4.70,45]],
+    S:[[4.30,99],[4.38,94],[4.45,86],[4.52,76],[4.60,65],[4.70,52],[4.80,40]],
+  },
+  vertical: {
+    QB:[[28,40],[32,55],[35,70],[38,82],[41,92],[44,99]],
+    RB:[[30,40],[33,55],[36,70],[39,82],[42,92],[45,99]],
+    WR:[[30,40],[33,55],[36,70],[39,82],[42,92],[45,99]],
+    TE:[[28,40],[31,52],[34,65],[37,78],[40,90],[43,99]],
+    OT:[[24,40],[27,52],[30,65],[33,78],[36,90],[39,99]],
+    IOL:[[22,40],[25,52],[28,65],[31,78],[34,90],[37,99]],
+    EDGE:[[28,40],[31,55],[34,70],[37,82],[40,92],[43,99]],
+    DL:[[26,40],[29,52],[32,65],[35,78],[38,90],[41,99]],
+    LB:[[28,40],[31,55],[34,68],[37,80],[40,92],[43,99]],
+    CB:[[32,40],[35,55],[38,72],[41,85],[44,95],[46,99]],
+    S:[[30,40],[33,55],[36,70],[39,82],[42,92],[45,99]],
+  },
+  broad: {
+    QB:[[96,40],[102,55],[108,68],[114,80],[120,90],[126,99]],
+    RB:[[108,40],[114,55],[120,70],[126,82],[132,92],[138,99]],
+    WR:[[108,40],[114,55],[120,70],[126,82],[132,92],[138,99]],
+    TE:[[104,40],[110,55],[116,68],[122,80],[128,90],[134,99]],
+    OT:[[96,40],[102,52],[108,65],[114,78],[120,90],[126,99]],
+    IOL:[[92,40],[98,52],[104,65],[110,78],[116,90],[122,99]],
+    EDGE:[[108,40],[114,55],[120,70],[126,82],[132,92],[138,99]],
+    DL:[[100,40],[106,52],[112,65],[118,78],[124,90],[130,99]],
+    LB:[[108,40],[114,55],[120,68],[126,80],[132,92],[138,99]],
+    CB:[[112,40],[118,55],[124,72],[130,85],[136,95],[140,99]],
+    S:[[108,40],[114,55],[120,70],[126,82],[132,92],[138,99]],
+  },
+  bench: {
+    QB:[[12,40],[16,55],[20,70],[24,82],[28,92],[32,99]],
+    RB:[[16,40],[19,55],[22,68],[25,80],[28,90],[32,99]],
+    WR:[[10,40],[13,52],[16,65],[19,78],[22,90],[26,99]],
+    TE:[[16,40],[19,52],[22,65],[25,78],[28,90],[32,99]],
+    OT:[[20,40],[24,55],[28,70],[32,82],[36,92],[40,99]],
+    IOL:[[22,40],[26,55],[30,70],[34,82],[38,92],[42,99]],
+    EDGE:[[18,40],[22,55],[26,70],[30,82],[34,92],[38,99]],
+    DL:[[20,40],[24,55],[28,68],[32,80],[36,92],[40,99]],
+    LB:[[16,40],[19,52],[22,65],[25,78],[28,90],[32,99]],
+    CB:[[8,40],[11,52],[14,65],[17,78],[20,90],[24,99]],
+    S:[[10,40],[13,52],[16,65],[19,78],[22,90],[26,99]],
+  },
+  cone: {
+    QB:[[6.70,99],[6.90,85],[7.10,70],[7.30,55],[7.50,40]],
+    RB:[[6.60,99],[6.80,88],[7.00,75],[7.15,60],[7.30,45],[7.50,32]],
+    WR:[[6.50,99],[6.65,90],[6.80,78],[6.95,65],[7.10,52],[7.30,38]],
+    TE:[[6.70,99],[6.85,88],[7.00,75],[7.15,62],[7.30,48],[7.50,35]],
+    OT:[[7.20,99],[7.40,85],[7.60,70],[7.80,55],[8.00,40]],
+    IOL:[[7.10,99],[7.30,85],[7.50,70],[7.70,55],[7.90,40]],
+    EDGE:[[6.70,99],[6.85,88],[7.00,75],[7.15,60],[7.30,45],[7.50,32]],
+    DL:[[6.90,99],[7.10,85],[7.30,70],[7.50,55],[7.70,40]],
+    LB:[[6.60,99],[6.80,88],[7.00,75],[7.15,60],[7.30,45],[7.50,32]],
+    CB:[[6.40,99],[6.55,90],[6.70,78],[6.85,65],[7.00,52],[7.20,38]],
+    S:[[6.50,99],[6.70,88],[6.85,75],[7.00,62],[7.15,48],[7.35,35]],
+  },
+  shuttle: {
+    QB:[[4.00,99],[4.15,85],[4.30,70],[4.45,55],[4.60,40]],
+    RB:[[3.95,99],[4.10,88],[4.22,75],[4.35,62],[4.50,48],[4.65,35]],
+    WR:[[3.90,99],[4.02,90],[4.15,78],[4.28,65],[4.40,52],[4.55,38]],
+    TE:[[4.00,99],[4.15,88],[4.28,75],[4.40,62],[4.55,48],[4.70,35]],
+    OT:[[4.40,99],[4.55,85],[4.70,70],[4.85,55],[5.00,40]],
+    IOL:[[4.35,99],[4.50,85],[4.65,70],[4.80,55],[4.95,40]],
+    EDGE:[[4.10,99],[4.22,88],[4.35,75],[4.48,60],[4.60,45],[4.75,32]],
+    DL:[[4.30,99],[4.45,85],[4.60,70],[4.75,55],[4.90,40]],
+    LB:[[4.00,99],[4.12,88],[4.25,75],[4.38,62],[4.50,48],[4.65,35]],
+    CB:[[3.85,99],[3.98,90],[4.10,78],[4.22,65],[4.35,52],[4.50,38]],
+    S:[[3.95,99],[4.08,88],[4.20,75],[4.32,62],[4.45,48],[4.60,35]],
+  },
+  speedScore: {
+    RB:[[85,35],[95,48],[105,60],[115,72],[125,82],[135,92],[145,99]],
+    WR:[[80,35],[90,48],[100,60],[110,72],[120,82],[130,92],[140,99]],
+    TE:[[85,35],[95,48],[105,62],[115,75],[125,85],[135,95],[145,99]],
+    IOL:[[65,35],[72,48],[80,60],[88,72],[95,82],[103,92],[110,99]],
+    EDGE:[[90,35],[100,48],[110,62],[120,75],[130,85],[140,95],[150,99]],
+    DL:[[75,35],[85,48],[95,62],[105,75],[115,85],[125,95],[135,99]],
+    LB:[[90,35],[100,48],[110,62],[120,75],[130,85],[140,95],[150,99]],
+    S:[[85,35],[95,48],[105,62],[115,75],[125,85],[135,95],[145,99]],
+  },
+};
+
+function lerp(val, bps) {
+  if (val <= bps[0][0]) return bps[0][1];
+  if (val >= bps[bps.length - 1][0]) return bps[bps.length - 1][1];
+  for (let i = 1; i < bps.length; i++) {
+    if (val <= bps[i][0]) {
+      const [x0, y0] = bps[i - 1];
+      const [x1, y1] = bps[i];
+      return Math.round(y0 + (y1 - y0) * ((val - x0) / (x1 - x0)));
+    }
+  }
+  return bps[bps.length - 1][1];
+}
+
+function computeSpeedScore(weight, forty) {
+  if (!weight || !forty) return null;
+  return Math.round((weight * 200) / Math.pow(forty, 4) * 100) / 100;
+}
+
+// Binary search to find percentile rank in sorted array
+function getPercentile(value, sortedArr) {
+  if (!sortedArr || sortedArr.length === 0) return null;
+  let lo = 0, hi = sortedArr.length;
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1;
+    if (sortedArr[mid] < value) lo = mid + 1;
+    else hi = mid;
+  }
+  return Math.round((lo / sortedArr.length) * 100);
+}
+
+// For drills where lower is better (forty, cone, shuttle), invert percentile
+function getPercentileInverted(value, sortedArr) {
+  if (!sortedArr || sortedArr.length === 0) return null;
+  const raw = getPercentile(value, sortedArr);
+  return 100 - raw;
+}
 
 // ============================================================
 // BBL PROSPECT LIST (from App.jsx PROSPECTS_RAW)
@@ -635,12 +781,14 @@ async function main() {
   });
 
   let matchCount = 0;
+  let allRows = []; // store all nflverse rows for historical percentiles
 
   // ---- SOURCE 1: nflverse CSV ----
   console.log('📡 Fetching nflverse combine data...');
   try {
     const csv = await fetchURL(NFLVERSE_COMBINE_URL);
     const rows = parseCSV(csv);
+    allRows = rows; // save for percentile computation
     // Filter to current season
     const current = rows.filter(r => parseInt(r.season) === SEASON);
     console.log(`  ✅ Got ${rows.length} total rows, ${current.length} for ${SEASON}`);
@@ -715,6 +863,93 @@ async function main() {
     console.log(`  ✅ Applied ${manualCount} manual overrides`);
   }
 
+  // ---- BUILD HISTORICAL PERCENTILE TABLES ----
+  console.log('\n📊 Building historical percentile tables...');
+  // Include height (ht) and weight (wt) alongside drills
+  const drillFields = ['forty', 'vertical', 'broad_jump', 'bench', 'cone', 'shuttle', 'ht', 'wt'];
+  const drillKeys = ['forty', 'vertical', 'broad', 'bench', 'cone', 'shuttle', 'height', 'weight'];
+  // Drills where lower = better (inverted percentile)
+  const INVERTED_DRILLS = new Set(['forty', 'cone', 'shuttle']);
+  const percentilesData = {};
+
+  // Group all historical rows by BBL position
+  allRows.forEach(row => {
+    const pos = NFLVERSE_POS_MAP[(row.pos || '').toUpperCase()];
+    if (!pos) return;
+    if (!percentilesData[pos]) percentilesData[pos] = {};
+    drillFields.forEach((field, idx) => {
+      const val = parseNum(row[field]);
+      if (val == null) return;
+      const key = drillKeys[idx];
+      if (!percentilesData[pos][key]) percentilesData[pos][key] = [];
+      percentilesData[pos][key].push(val);
+    });
+  });
+
+  // Sort all arrays for binary search
+  Object.values(percentilesData).forEach(posData => {
+    Object.keys(posData).forEach(drill => {
+      posData[drill].sort((a, b) => a - b);
+    });
+  });
+
+  // ---- BUILD HISTORICAL RAS COMPOSITES PER POSITION ----
+  // For each historical player, compute their average percentile across available metrics,
+  // then collect all composites per position for double-percentile ranking.
+  console.log('  📈 Computing historical RAS composites...');
+  const historicalComposites = {}; // pos → sorted array of composite scores
+  const allMetrics = ['forty', 'vertical', 'broad', 'bench', 'cone', 'shuttle', 'height', 'weight'];
+
+  // Re-iterate all rows to compute per-player composites
+  allRows.forEach(row => {
+    const pos = NFLVERSE_POS_MAP[(row.pos || '').toUpperCase()];
+    if (!pos) return;
+    const posPerc = percentilesData[pos];
+    if (!posPerc) return;
+
+    // Compute this player's per-metric percentiles
+    const playerPercs = [];
+    const vals = {
+      forty: parseNum(row.forty),
+      vertical: parseNum(row.vertical),
+      broad: parseNum(row.broad_jump),
+      bench: parseNum(row.bench),
+      cone: parseNum(row.cone),
+      shuttle: parseNum(row.shuttle),
+      height: parseNum(row.ht),
+      weight: parseNum(row.wt),
+    };
+
+    for (const metric of allMetrics) {
+      if (vals[metric] == null || !posPerc[metric]) continue;
+      const perc = INVERTED_DRILLS.has(metric)
+        ? getPercentileInverted(vals[metric], posPerc[metric])
+        : getPercentile(vals[metric], posPerc[metric]);
+      playerPercs.push(perc);
+    }
+
+    // Need at least 3 metrics for a meaningful composite
+    if (playerPercs.length >= 3) {
+      const composite = playerPercs.reduce((a, b) => a + b, 0) / playerPercs.length;
+      if (!historicalComposites[pos]) historicalComposites[pos] = [];
+      historicalComposites[pos].push(composite);
+    }
+  });
+
+  // Sort historical composites for percentile ranking
+  for (const pos in historicalComposites) {
+    historicalComposites[pos].sort((a, b) => a - b);
+  }
+
+  const compCounts = Object.entries(historicalComposites).map(([p, d]) => `${p}(${d.length})`).join(', ');
+  console.log(`  ✅ Historical composites: ${compCounts}`);
+
+  // Write percentiles JSON
+  fs.writeFileSync(PERCENTILES_JSON_PATH, JSON.stringify(percentilesData, null, 2));
+  const posCounts = Object.entries(percentilesData).map(([p, d]) => `${p}(${d.forty?.length || 0})`).join(', ');
+  console.log(`  ✅ Wrote percentile tables: ${posCounts}`);
+  console.log(`  📁 ${PERCENTILES_JSON_PATH}`);
+
   // ---- GENERATE OUTPUT ----
   console.log('\n📝 Generating combine-results.html...');
   
@@ -753,8 +988,84 @@ async function main() {
     const hasData = r.height || r.weight || r.forty || r.vertical || r.broad || r.bench || r.cone || r.shuttle || r.arms || r.hands || r.wingspan;
     if (!hasData) return;
     const key = normName(p.name) + '|' + p.school.toLowerCase().trim();
+    // BBL position for this prospect
+    const bblPos = p.pos === 'OL' ? 'OT' : (p.pos === 'DB' ? 'CB' : p.pos);
     // Compute Speed Score: (weight * 200) / (forty^4) — weight-adjusted speed metric
-    const speedScore = (r.weight && r.forty) ? Math.round((r.weight * 200) / Math.pow(r.forty, 4) * 100) / 100 : null;
+    const ss = computeSpeedScore(r.weight, r.forty);
+
+    // Compute per-drill percentiles (position-specific)
+    const posPerc = percentilesData[bblPos] || {};
+    const percentiles = {};
+    const scores = {};
+
+    // Individual drills
+    if (r.forty && posPerc.forty) {
+      percentiles.forty = getPercentileInverted(r.forty, posPerc.forty);
+      if (BREAKPOINTS.forty[bblPos]) scores.forty = lerp(r.forty, BREAKPOINTS.forty[bblPos]);
+    }
+    if (r.vertical && posPerc.vertical) {
+      percentiles.vertical = getPercentile(r.vertical, posPerc.vertical);
+      if (BREAKPOINTS.vertical[bblPos]) scores.vertical = lerp(r.vertical, BREAKPOINTS.vertical[bblPos]);
+    }
+    if (r.broad && posPerc.broad) {
+      percentiles.broad = getPercentile(r.broad, posPerc.broad);
+      if (BREAKPOINTS.broad[bblPos]) scores.broad = lerp(r.broad, BREAKPOINTS.broad[bblPos]);
+    }
+    if (r.bench && posPerc.bench) {
+      percentiles.bench = getPercentile(r.bench, posPerc.bench);
+      if (BREAKPOINTS.bench[bblPos]) scores.bench = lerp(r.bench, BREAKPOINTS.bench[bblPos]);
+    }
+    if (r.cone && posPerc.cone) {
+      percentiles.cone = getPercentileInverted(r.cone, posPerc.cone);
+      if (BREAKPOINTS.cone[bblPos]) scores.cone = lerp(r.cone, BREAKPOINTS.cone[bblPos]);
+    }
+    if (r.shuttle && posPerc.shuttle) {
+      percentiles.shuttle = getPercentileInverted(r.shuttle, posPerc.shuttle);
+      if (BREAKPOINTS.shuttle[bblPos]) scores.shuttle = lerp(r.shuttle, BREAKPOINTS.shuttle[bblPos]);
+    }
+    // Height + weight percentiles
+    const heightInches = r.heightInches || null;
+    if (heightInches && posPerc.height) {
+      percentiles.height = getPercentile(heightInches, posPerc.height);
+    }
+    if (r.weight && posPerc.weight) {
+      percentiles.weight = getPercentile(r.weight, posPerc.weight);
+    }
+
+    // Speed Score percentile + score
+    if (ss && BREAKPOINTS.speedScore[bblPos]) {
+      scores.speedScore = lerp(ss, BREAKPOINTS.speedScore[bblPos]);
+    }
+
+    // Composite scores
+    // Athletic Score (RAS-like): double-percentile ranking
+    // Step 1: Compute raw composite = average of all per-metric percentiles (incl height/weight)
+    // Step 2: Rank that composite against ALL historical composites at this position
+    // Uses one decimal place (like RAS) for finer granularity at the top
+    const athMetrics = ['forty', 'vertical', 'broad', 'bench', 'cone', 'shuttle', 'height', 'weight'];
+    const athPercs = athMetrics.filter(m => percentiles[m] != null).map(m => percentiles[m]);
+    let athleticScore = null;
+    if (athPercs.length >= 3 && historicalComposites[bblPos]) {
+      const rawComposite = athPercs.reduce((a, b) => a + b, 0) / athPercs.length;
+      // Rank against historical composites with one-decimal precision
+      const arr = historicalComposites[bblPos];
+      let lo = 0, hi = arr.length;
+      while (lo < hi) { const mid = (lo + hi) >> 1; if (arr[mid] < rawComposite) lo = mid + 1; else hi = mid; }
+      athleticScore = Math.round((lo / arr.length) * 1000) / 10; // e.g. 99.9, 97.3
+      // Cap at 99.9 (not 100.0)
+      if (athleticScore >= 100) athleticScore = 99.9;
+    }
+
+    // Agility Score: average of cone + shuttle percentiles
+    const agilityScore = (percentiles.cone != null && percentiles.shuttle != null)
+      ? Math.round((percentiles.cone + percentiles.shuttle) / 2)
+      : (percentiles.cone != null ? percentiles.cone : percentiles.shuttle != null ? percentiles.shuttle : null);
+
+    // Explosion Score: average of vertical + broad percentiles
+    const explosionScore = (percentiles.vertical != null && percentiles.broad != null)
+      ? Math.round((percentiles.vertical + percentiles.broad) / 2)
+      : (percentiles.vertical != null ? percentiles.vertical : percentiles.broad != null ? percentiles.broad : null);
+
     combineJson[key] = {
       height: r.heightInches || null,
       weight: r.weight || null,
@@ -767,7 +1078,12 @@ async function main() {
       arms: r.arms || null,
       hands: r.hands || null,
       wingspan: r.wingspan || null,
-      speedScore: speedScore,
+      speedScore: ss,
+      percentiles: Object.keys(percentiles).length > 0 ? percentiles : undefined,
+      scores: Object.keys(scores).length > 0 ? scores : undefined,
+      athleticScore: athleticScore,
+      agilityScore: agilityScore,
+      explosionScore: explosionScore,
     };
   });
   fs.writeFileSync(COMBINE_JSON_PATH, JSON.stringify(combineJson, null, 2));

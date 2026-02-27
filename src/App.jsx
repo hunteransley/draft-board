@@ -6,6 +6,7 @@ import { getProspectStats } from "./prospectStats.js";
 import { getStatBasedTraits } from "./statTraits.js";
 import { getScoutingTraits } from "./scoutingData.js";
 import { getCombineData, formatHeight } from "./combineData.js";
+import { getCombineScores } from "./combineTraits.js";
 
 // Suffix-aware short name: "Rueben Bain Jr." → "Bain Jr." not "Jr."
 const GEN_SUFFIXES=/^(Jr\.?|Sr\.?|II|III|IV|V|VI|VII|VIII)$/i;
@@ -151,6 +152,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
   const posTraits=POSITION_TRAITS[player.gpos||player.pos]||POSITION_TRAITS[player.pos]||[];
   const ps=getProspectStats(player.name,player.school);
   const cd=getCombineData(player.name,player.school);
+  const cs=getCombineScores(player.name,player.school);
   const grade=getGrade(player.id);
   const similar=getSimilarPlayers(player,allProspects,traits,5);
   const gradeColor=grade>=75?"#16a34a":grade>=55?"#ca8a04":"#dc2626";
@@ -178,18 +180,27 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
             <span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{ps.rank?"#"+ps.rank+" overall":""}{ps.posRank?" · "+(player.gpos||player.pos)+" #"+ps.posRank:""}</span>
           </div>}
           {(ps.height||ps.weight||ps.cls||cd)&&<div style={{display:"flex",justifyContent:"center",gap:12,marginBottom:8,flexWrap:"wrap"}}>
-            {[(cd?.height?{label:"HT",val:formatHeight(cd.height)}:ps.height&&{label:"HT",val:ps.height}),(cd?.weight?{label:"WT",val:cd.weight+" lbs"}:ps.weight&&{label:"WT",val:ps.weight+" lbs"}),ps.cls&&{label:"YR",val:ps.cls}].filter(Boolean).map(({label,val})=>(
+            {[(cd?.height?{label:"HT",val:formatHeight(cd.height)}:ps.height&&{label:"HT",val:ps.height}),(cd?.weight?{label:"WT",val:cd.weight+" lbs"}:ps.weight&&{label:"WT",val:ps.weight+" lbs"}),ps.cls&&{label:"YR",val:ps.cls},cd?.arms&&{label:"ARM",val:cd.arms+'"'},cd?.hands&&{label:"HAND",val:cd.hands+'"'},cd?.wingspan&&{label:"WING",val:cd.wingspan+'"'}].filter(Boolean).map(({label,val})=>(
               <div key={label} style={{textAlign:"center",background:"#fff",border:"1px solid #e5e5e5",borderRadius:8,padding:"6px 12px",minWidth:60}}>
                 <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:2}}>{label}</div>
                 <div style={{fontFamily:mono,fontSize:13,fontWeight:700,color:"#171717"}}>{val}</div>
               </div>
             ))}
           </div>}
-          {cd&&(()=>{const drills=[cd.forty&&{label:"40",val:cd.forty+"s"},cd.vertical&&{label:"VJ",val:cd.vertical+'"'},cd.broad&&{label:"BJ",val:Math.floor(cd.broad/12)+"'"+cd.broad%12+'"'},cd.bench&&{label:"BP",val:cd.bench},cd.cone&&{label:"3C",val:cd.cone+"s"},cd.shuttle&&{label:"SH",val:cd.shuttle+"s"}].filter(Boolean);return drills.length>0&&<div style={{display:"flex",justifyContent:"center",gap:8,marginBottom:8,flexWrap:"wrap"}}>
-            {drills.map(({label,val})=>(
+          {cd&&(()=>{const pct=cs?.percentiles||{};const drills=[cd.forty&&{label:"40",val:cd.forty+"s",perc:pct.forty},cd.vertical&&{label:"VJ",val:cd.vertical+'"',perc:pct.vertical},cd.broad&&{label:"BJ",val:Math.floor(cd.broad/12)+"'"+cd.broad%12+'"',perc:pct.broad},cd.bench&&{label:"BP",val:cd.bench,perc:pct.bench},cd.cone&&{label:"3C",val:cd.cone+"s",perc:pct.cone},cd.shuttle&&{label:"SH",val:cd.shuttle+"s",perc:pct.shuttle}].filter(Boolean);return drills.length>0&&<div style={{display:"flex",justifyContent:"center",gap:8,marginBottom:8,flexWrap:"wrap"}}>
+            {drills.map(({label,val,perc})=>(
               <div key={label} style={{textAlign:"center",background:"#eff6ff",border:"1px solid #bfdbfe",borderRadius:8,padding:"6px 10px",minWidth:48}}>
                 <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#6b9bd2",textTransform:"uppercase",marginBottom:2}}>{label}</div>
                 <div style={{fontFamily:mono,fontSize:13,fontWeight:700,color:"#1e40af"}}>{val}</div>
+                {perc!=null&&<div style={{fontFamily:mono,fontSize:9,fontWeight:600,color:perc>=80?"#16a34a":perc>=50?"#ca8a04":"#dc2626",marginTop:2}}>{perc}th</div>}
+              </div>
+            ))}
+          </div>;})()}
+          {cs&&(()=>{const composites=[cs.speedScore!=null&&{label:"SPD",val:Math.round(cs.speedScore),color:"#7c3aed",bg:"#f5f3ff",border:"#ddd6fe"},cs.agilityScore!=null&&{label:"AGI",val:cs.agilityScore,color:"#0891b2",bg:"#ecfeff",border:"#a5f3fc"},cs.explosionScore!=null&&{label:"EXP",val:cs.explosionScore,color:"#0d9488",bg:"#f0fdfa",border:"#99f6e4"},cs.athleticScore!=null&&{label:"ATH",val:cs.athleticScore,color:"#ea580c",bg:"#fff7ed",border:"#fed7aa"}].filter(Boolean);return composites.length>0&&<div style={{display:"flex",justifyContent:"center",gap:8,marginBottom:8,flexWrap:"wrap"}}>
+            {composites.map(({label,val,color,bg,border})=>(
+              <div key={label} style={{textAlign:"center",background:bg,border:`1px solid ${border}`,borderRadius:8,padding:"6px 10px",minWidth:48}}>
+                <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color,textTransform:"uppercase",marginBottom:2}}>{label}</div>
+                <div style={{fontFamily:mono,fontSize:13,fontWeight:700,color}}>{val}</div>
               </div>
             ))}
           </div>;})()}
@@ -1448,6 +1459,11 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         <button onClick={()=>setBoardTab("consensus")} style={{flex:1,fontFamily:sans,fontSize:13,fontWeight:boardTab==="consensus"?700:500,padding:"14px 16px",background:"transparent",border:"none",borderBottom:boardTab==="consensus"?"2px solid #171717":"2px solid transparent",color:boardTab==="consensus"?"#171717":"#a3a3a3",cursor:"pointer"}}>consensus big board</button>
         <button onClick={()=>setBoardTab("my")} style={{flex:1,fontFamily:sans,fontSize:13,fontWeight:boardTab==="my"?700:500,padding:"14px 16px",background:"transparent",border:"none",borderBottom:boardTab==="my"?"2px solid #171717":"2px solid transparent",color:boardTab==="my"?"#171717":"#a3a3a3",cursor:"pointer"}}>my big board{rankedGroups.size>0&&<span style={{fontFamily:mono,fontSize:10,color:"#22c55e",marginLeft:6}}>{rankedGroups.size}/{POSITION_GROUPS.length}</span>}</button>
       </div>
+
+      {/* Temporary combine note */}
+      {boardTab==="consensus"&&<div style={{margin:"8px 16px 0",padding:"8px 12px",background:"#fefce8",border:"1px solid #fde68a",borderRadius:8}}>
+        <span style={{fontFamily:sans,fontSize:11,color:"#92400e",lineHeight:1.4}}>Consensus board updating as NFL Combine results roll in. Mock draft simulator remains unchanged until Combine is complete.</span>
+      </div>}
 
       {/* Position filter pills */}
       <div style={{padding:"10px 16px 6px",display:"flex",gap:5,flexWrap:"wrap"}}>

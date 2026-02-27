@@ -46,7 +46,7 @@ const scoutingTraits = JSON.parse(readFileSync(join(ROOT, "src/scoutingTraits.js
 
 // Load prospect list from prospectStats.js to get gpos
 const statsSource = readFileSync(join(ROOT, "src/prospectStats.js"), "utf8");
-const jsonMatch = statsSource.match(/const S=(\{.*?\});/s);
+const jsonMatch = statsSource.match(/^const S=(\{.*\});$/m);
 if (!jsonMatch) throw new Error("Could not parse S from prospectStats.js");
 const prospectStats = JSON.parse(jsonMatch[1]);
 

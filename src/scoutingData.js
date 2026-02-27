@@ -1,4 +1,5 @@
 import SCOUTING from "./scoutingTraits.json";
+import { getCombineAdjustedTraits } from "./combineTraits.js";
 
 // Name normalization — matches prospectStats.js pattern
 function normalize(name) {
@@ -6,6 +7,8 @@ function normalize(name) {
 }
 
 export function getScoutingTraits(name, school) {
+  const adjusted = getCombineAdjustedTraits(name, school);
+  if (adjusted) return adjusted;
   if (!name) return null;
   if (!school) { const n = normalize(name); for (const k in SCOUTING) { if (k.startsWith(n + "|")) return SCOUTING[k]; } return null; }
   const key = normalize(name) + "|" + school.toLowerCase().replace(/\s+/g, " ").trim();
