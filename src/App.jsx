@@ -838,7 +838,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     const sorted=[...PROSPECTS].sort((a,b)=>{const ga=getScoutingGrade(a.id),gb=getScoutingGrade(b.id);if(gb!==ga)return gb-ga;return getConsensusRank(a.name)-getConsensusRank(b.name);});
     return sorted.map((p,i)=>({name:p.name,rank:i+1}));
   },[getScoutingGrade]);
-  const getBoard=useCallback(()=>PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;const hasTraitEdits=traits[p.id]&&Object.keys(traits[p.id]).some(k=>k!=='__ceiling');return rankedGroups.has(group)||hasTraitEdits;}).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings,traits]);
+  const getBoard=useCallback(()=>PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;const hasTraitEdits=traits[p.id]&&Object.keys(traits[p.id]).length>0;return rankedGroups.has(group)||hasTraitEdits;}).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings,traits]);
 
   // Build mock draft board: consensus order for all 319, user rankings override when graded
   const mockDraftBoard=useMemo(()=>{
