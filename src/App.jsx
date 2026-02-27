@@ -1798,10 +1798,12 @@ function AdminDashboard({user,onBack}){
     (async()=>{
       try{
         // Fetch from all sources in parallel
-        const[boardsRes,communityRes,evtsRes,authCountRes,authUsersRes]=await Promise.all([
+        const fourteenAgo=new Date(Date.now()-14*86400000).toISOString();
+        const[boardsRes,communityRes,evtsRes,heatmapRes,authCountRes,authUsersRes]=await Promise.all([
           supabase.from('boards').select('user_id,board_data,updated_at'),
           supabase.from('community_boards').select('user_id,board_data'),
           supabase.from('events').select('*').order('created_at',{ascending:false}).limit(5000),
+          supabase.from('events').select('created_at,user_id,session_id').gte('created_at',fourteenAgo).order('created_at',{ascending:false}).limit(50000),
           supabase.rpc('get_auth_user_count'),
           supabase.rpc('get_auth_users_summary'),
         ]);
@@ -1920,13 +1922,12 @@ function AdminDashboard({user,onBack}){
         const rankers=userDetails.filter(u=>u.rankedPositions>0);
         const avgPositions=rankers.length>0?(rankers.reduce((s,u)=>s+u.rankedPositions,0)/rankers.length).toFixed(1):0;
 
-        // Activity heatmap (last 14 days) — built from allEventsData (same source as activity log)
+        // Activity heatmap (last 14 days) — from dedicated 14-day query (ordered, up to 50k events)
         // Use local dates (not UTC) so "today" matches the user's timezone
         const localDateStr=(dt)=>{const x=new Date(dt);return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');};
-        const fourteenAgoLocal=localDateStr(new Date(now-14*86400000));
-        const recentEvents=allEventsData.filter(e=>localDateStr(e.created_at)>=fourteenAgoLocal);
+        const heatmapEvents=heatmapRes.data||[];
         const dayMap={};
-        recentEvents.forEach(e=>{
+        heatmapEvents.forEach(e=>{
           const d=localDateStr(e.created_at);
           dayMap[d]=(dayMap[d]||0)+1;
         });
@@ -1937,6 +1938,7 @@ function AdminDashboard({user,onBack}){
 
         // Signup heatmap (last 14 days) — from auth user created_at
         const signupDayMap={};
+        const fourteenAgoLocal=localDateStr(new Date(now-14*86400000));
         authUsers.forEach(u=>{if(u.created_at){const d=localDateStr(u.created_at);if(d>=fourteenAgoLocal)signupDayMap[d]=(signupDayMap[d]||0)+1;}});
         const signupHeatmap=Array.from({length:14},(_,i)=>{
           const d=localDateStr(new Date(now-(13-i)*86400000));
@@ -1945,7 +1947,7 @@ function AdminDashboard({user,onBack}){
 
         // Anonymous sessions heatmap (last 14 days) — unique session_ids per day
         const anonSessionDayMap={};
-        recentEvents.filter(e=>!e.user_id).forEach(e=>{
+        heatmapEvents.filter(e=>!e.user_id).forEach(e=>{
           const d=localDateStr(e.created_at);
           if(!anonSessionDayMap[d])anonSessionDayMap[d]=new Set();
           if(e.session_id)anonSessionDayMap[d].add(e.session_id);
