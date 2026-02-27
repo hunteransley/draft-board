@@ -276,12 +276,12 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
             onFocus={e=>{if(isGuest){onRequireAuth("want to save scouting notes?");e.target.blur();return;}e.target.style.borderColor=c;}} onBlur={e=>e.target.style.borderColor="#e5e5e5"}/>
         </div>
 
-        {(()=>{const cr=consensus?.find(x=>x.name===player.name);const userRank=allProspects.filter(p=>(p.gpos||p.pos)===(player.gpos||player.pos)).sort((a,b)=>(ratings?.[b.id]||1500)-(ratings?.[a.id]||1500)).findIndex(p=>p.id===player.id)+1;return cr?(
+        {(()=>{const cr=consensus?.find(x=>x.name===player.name);const userRank=[...allProspects].sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);if(d!==0)return d;const r=(ratings?.[b.id]||1500)-(ratings?.[a.id]||1500);return r!==0?r:getConsensusRank(a.name)-getConsensusRank(b.name);}).findIndex(p=>p.id===player.id)+1;return cr?(
           <div style={{padding:"0 24px 16px"}}>
             <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>vs consensus</div>
             <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:8,padding:"12px 14px",display:"flex",gap:20,justifyContent:"center"}}>
               <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",marginBottom:2}}>CONSENSUS</div><div style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717"}}>#{cr.rank}</div></div>
-              <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",marginBottom:2}}>YOUR RANK (POS)</div><div style={{fontFamily:font,fontSize:22,fontWeight:900,color:userRank<cr.rank?"#16a34a":userRank>cr.rank?"#dc2626":"#171717"}}>#{userRank}</div></div>
+              <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",marginBottom:2}}>YOUR RANK</div><div style={{fontFamily:font,fontSize:22,fontWeight:900,color:userRank<cr.rank?"#16a34a":userRank>cr.rank?"#dc2626":"#171717"}}>#{userRank}</div></div>
               <div style={{textAlign:"center"}}><div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",marginBottom:2}}>DIFF</div><div style={{fontFamily:font,fontSize:22,fontWeight:900,color:cr.rank-userRank>0?"#16a34a":cr.rank-userRank<0?"#dc2626":"#a3a3a3"}}>{cr.rank-userRank>0?"+":""}{cr.rank-userRank===0?"—":cr.rank-userRank}</div></div>
             </div>
           </div>
@@ -644,9 +644,6 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const[lockedPlayer,setLockedPlayer]=useState(null);
   const[showOnboarding,setShowOnboarding]=useState(()=>{try{return !localStorage.getItem('bbl_onboarded');}catch(e){return true;}});
 
-  // Consensus rankings derived from consensusData.js CONSENSUS_BOARD (2026 class)
-  const CONSENSUS=useMemo(()=>CONSENSUS_BOARD.map((name,i)=>({name,rank:i+1})),[]);
-
   // Team needs for mock draft
   const TEAM_NEEDS=useMemo(()=>({"Raiders":["QB","WR","CB"],"Jets":["OL","WR","DL"],"Cardinals":["OL","DL","DB"],"Titans":["DL","WR","OL"],"Giants":["WR","OL","QB"],"Browns":["QB","WR","OL"],"Commanders":["DL","OL","DB"],"Saints":["QB","OL","DL"],"Chiefs":["WR","OL","DB"],"Bengals":["OL","DL","DB"],"Dolphins":["QB","OL","DL"],"Cowboys":["DL","DB","OL"],"Rams":["DB","DL","OL"],"Ravens":["DL","WR","OL"],"Buccaneers":["OL","WR","DL"],"Lions":["DL","DB","LB"],"Vikings":["OL","DL","DB"],"Panthers":["DB","LB","DL"],"Steelers":["QB","WR","OL"],"Chargers":["OL","DL","LB"],"Eagles":["DL","LB","DB"],"Bears":["WR","OL","DB"],"Bills":["OL","WR","DL"],"49ers":["WR","DB","DL"],"Texans":["OL","DL","DB"],"Broncos":["OL","WR","DL"],"Patriots":["OL","WR","DL"],"Seahawks":["DL","OL","LB"],"Falcons":["DL","WR","DB"],"Colts":["DL","OL","WR"],"Packers":["DB","OL","DL"],"Jaguars":["DB","LB","OL"]}),[]);
 
@@ -836,6 +833,11 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     if(sc){const grade=gradeFromTraits(sc,pos);const ceil=sc.__ceiling;if(!ceil||ceil==="normal")return grade;const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let rawW=0,rawV=0;posTraits.forEach(trait=>{const teach=TRAIT_TEACHABILITY[trait]??0.5;if(teach<0.4){const w=weights[trait]||1/posTraits.length;rawW+=w;rawV+=(sc[trait]||50)*w;}});const rawScore=rawW>0?rawV/rawW:grade;const gap=rawScore-grade;if(ceil==="high")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.5,0)+4)));if(ceil==="elite")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.7,0)+7)));if(ceil==="capped")return Math.max(1,Math.min(99,Math.round(grade-Math.max(-gap*0.3,0)-3)));return grade;}
     return 50;
   },[gradeFromTraits]);
+  // Consensus rankings for player profile drawer — matches public consensus board (grade-sorted)
+  const CONSENSUS=useMemo(()=>{
+    const sorted=[...PROSPECTS].sort((a,b)=>{const ga=getScoutingGrade(a.id),gb=getScoutingGrade(b.id);if(gb!==ga)return gb-ga;return getConsensusRank(a.name)-getConsensusRank(b.name);});
+    return sorted.map((p,i)=>({name:p.name,rank:i+1}));
+  },[getScoutingGrade]);
   const getBoard=useCallback(()=>PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;const hasTraitEdits=traits[p.id]&&Object.keys(traits[p.id]).some(k=>k!=='__ceiling');return rankedGroups.has(group)||hasTraitEdits;}).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings,traits]);
 
   // Build mock draft board: consensus order for all 319, user rankings override when graded
