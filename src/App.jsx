@@ -634,33 +634,35 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   useEffect(()=>{
     if(!user?.id){setPhase("home");return;}
     (async()=>{
-      const{data}=await supabase.from('boards').select('board_data,updated_at').eq('user_id',user.id).single();
-      if(data?.board_data){
-        const d=data.board_data;
-        // Migrate old position group keys (OL->OT/IOL, DL->EDGE/DL, DB->CB/S)
-        let rg=d.rankedGroups||[];
-        const OLD_TO_NEW={"OL":["OT","IOL"],"DB":["CB","S"]};
-        let migrated=false;
-        const newRg=[];
-        rg.forEach(g=>{if(OLD_TO_NEW[g]){OLD_TO_NEW[g].forEach(n=>newRg.push(n));migrated=true;}else{newRg.push(g);}});
-        if(migrated)rg=newRg;
-        if(d.ratings)setRatings(d.ratings);
-        if(d.traits)setTraits(d.traits);
-        if(rg.length>0)setRankedGroups(new Set(rg));
-        if(d.traitReviewedGroups)setTraitReviewedGroups(new Set(d.traitReviewedGroups));
-        if(d.compCount)setCompCount(d.compCount);
-        if(d.notes)setNotes(d.notes);
-        if(d.partialProgress){
-          // Restore partial progress — convert completed arrays back to Sets
-          const pp={};
-          Object.entries(d.partialProgress).forEach(([pos,data])=>{
-            pp[pos]={matchups:data.matchups||[],completed:new Set(data.completed||[]),ratings:data.ratings||{}};
-          });
-          setPartialProgress(pp);
-        }
-        setLastSaved(data.updated_at);
-        setPhase(rg.length>0?"pick-position":"home");
-      }else{setPhase("home");}
+      try{
+        const{data}=await supabase.from('boards').select('board_data,updated_at').eq('user_id',user.id).single();
+        if(data?.board_data){
+          const d=data.board_data;
+          // Migrate old position group keys (OL->OT/IOL, DL->EDGE/DL, DB->CB/S)
+          let rg=d.rankedGroups||[];
+          const OLD_TO_NEW={"OL":["OT","IOL"],"DB":["CB","S"]};
+          let migrated=false;
+          const newRg=[];
+          rg.forEach(g=>{if(OLD_TO_NEW[g]){OLD_TO_NEW[g].forEach(n=>newRg.push(n));migrated=true;}else{newRg.push(g);}});
+          if(migrated)rg=newRg;
+          if(d.ratings)setRatings(d.ratings);
+          if(d.traits)setTraits(d.traits);
+          if(rg.length>0)setRankedGroups(new Set(rg));
+          if(d.traitReviewedGroups)setTraitReviewedGroups(new Set(d.traitReviewedGroups));
+          if(d.compCount)setCompCount(d.compCount);
+          if(d.notes)setNotes(d.notes);
+          if(d.partialProgress){
+            // Restore partial progress — convert completed arrays back to Sets
+            const pp={};
+            Object.entries(d.partialProgress).forEach(([pos,data])=>{
+              pp[pos]={matchups:data.matchups||[],completed:new Set(data.completed||[]),ratings:data.ratings||{}};
+            });
+            setPartialProgress(pp);
+          }
+          setLastSaved(data.updated_at);
+          setPhase(rg.length>0?"pick-position":"home");
+        }else{setPhase("home");}
+      }catch(e){console.error('Board load error:',e);setPhase("home");}
     })();
   },[user?.id]);
 
@@ -673,21 +675,23 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     saveTimer.current=setTimeout(async()=>{
       if(rankedGroups.size===0&&Object.keys(ratings).length===0&&!lastSaved)return;
       setSaving(true);
-      const ppSerialized={};
-      Object.entries(partialProgress).forEach(([pos,data])=>{
-        ppSerialized[pos]={matchups:data.matchups||[],completed:[...(data.completed||[])],ratings:data.ratings||{}};
-      });
-      const boardData={ratings,traits,rankedGroups:[...rankedGroups],traitReviewedGroups:[...traitReviewedGroups],compCount,notes,partialProgress:ppSerialized};
-      const{error}=await supabase.from('boards').upsert({user_id:user.id,board_data:boardData},{onConflict:'user_id'});
-      if(!error)setLastSaved(new Date().toISOString());
-      // Also save to community board for aggregation
-      if(rankedGroups.size>0){
-        try{
-          const communityData={};
-          PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;return rankedGroups.has(group);}).forEach(p=>{communityData[p.id]=ratings[p.id]||1500;});
-          await supabase.from('community_boards').upsert({user_id:user.id,board_data:communityData},{onConflict:'user_id'});
-        }catch(e){}
-      }
+      try{
+        const ppSerialized={};
+        Object.entries(partialProgress).forEach(([pos,data])=>{
+          ppSerialized[pos]={matchups:data.matchups||[],completed:[...(data.completed||[])],ratings:data.ratings||{}};
+        });
+        const boardData={ratings,traits,rankedGroups:[...rankedGroups],traitReviewedGroups:[...traitReviewedGroups],compCount,notes,partialProgress:ppSerialized};
+        const{error}=await supabase.from('boards').upsert({user_id:user.id,board_data:boardData},{onConflict:'user_id'});
+        if(!error)setLastSaved(new Date().toISOString());
+        // Also save to community board for aggregation
+        if(rankedGroups.size>0){
+          try{
+            const communityData={};
+            PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;return rankedGroups.has(group);}).forEach(p=>{communityData[p.id]=ratings[p.id]||1500;});
+            await supabase.from('community_boards').upsert({user_id:user.id,board_data:communityData},{onConflict:'user_id'});
+          }catch(e){}
+        }
+      }catch(e){console.error('Board save error:',e);}
       setSaving(false);
     },2000);
     return()=>{if(saveTimer.current)clearTimeout(saveTimer.current);};
@@ -1976,7 +1980,7 @@ function AdminDashboard({user,onBack}){
         setUsers(userDetails);
         setAllEventsRaw(allEventsData);
         setEvents(allEvents.slice(0,50));
-      }catch(e){console.error('Admin fetch error:',e);}
+      }catch(e){console.error('Admin fetch error:',e);setStats(null);}
       setLoading(false);
     })();
   },[]);
@@ -1992,6 +1996,7 @@ function AdminDashboard({user,onBack}){
   },[excludeAdmin,allEventsRaw,adminId]);
 
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading admin...</p></div>;
+  if(!stats)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:12}}><p style={{fontFamily:sans,fontSize:14,color:"#dc2626"}}>failed to load admin data</p><button onClick={onBack} style={{fontFamily:sans,fontSize:13,padding:"8px 20px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>← back</button></div>;
 
   // Compute user status tags
   const tagUser=(u)=>{
@@ -3018,7 +3023,7 @@ export default function App(){
     return()=>subscription.unsubscribe();
   },[]);
 
-  const signOut=async()=>{await supabase.auth.signOut();setUser(null);};
+  const signOut=async()=>{try{await supabase.auth.signOut();}catch(e){}setUser(null);};
 
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
   if(showGuide)return<GuidePage onBack={()=>{window.history.pushState({},'','/');setShowGuide(false);}}/>;
