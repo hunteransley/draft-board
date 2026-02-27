@@ -1799,14 +1799,22 @@ function AdminDashboard({user,onBack}){
       try{
         // Fetch from all sources in parallel
         const fourteenAgo=new Date(Date.now()-14*86400000).toISOString();
-        const[boardsRes,communityRes,evtsRes,heatmapRes,authCountRes,authUsersRes]=await Promise.all([
+        const[boardsRes,communityRes,evtsRes,authCountRes,authUsersRes]=await Promise.all([
           supabase.from('boards').select('user_id,board_data,updated_at'),
           supabase.from('community_boards').select('user_id,board_data'),
           supabase.from('events').select('*').order('created_at',{ascending:false}).limit(5000),
-          supabase.from('events').select('created_at,user_id,session_id').gte('created_at',fourteenAgo).order('created_at',{ascending:false}).limit(50000),
           supabase.rpc('get_auth_user_count'),
           supabase.rpc('get_auth_users_summary'),
         ]);
+        // Paginate heatmap events — Supabase caps rows per request (often 1000)
+        let heatmapAll=[];
+        const pageSize=1000;
+        for(let page=0;;page++){
+          const{data}=await supabase.from('events').select('created_at,user_id,session_id').gte('created_at',fourteenAgo).order('created_at',{ascending:false}).range(page*pageSize,(page+1)*pageSize-1);
+          if(!data||data.length===0)break;
+          heatmapAll=heatmapAll.concat(data);
+          if(data.length<pageSize)break;
+        }
         const boards=boardsRes.data||[];
         const community=communityRes.data||[];
         const allEventsData=evtsRes.data||[];
@@ -1925,7 +1933,7 @@ function AdminDashboard({user,onBack}){
         // Activity heatmap (last 14 days) — from dedicated 14-day query (ordered, up to 50k events)
         // Use local dates (not UTC) so "today" matches the user's timezone
         const localDateStr=(dt)=>{const x=new Date(dt);return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');};
-        const heatmapEvents=heatmapRes.data||[];
+        const heatmapEvents=heatmapAll;
         const dayMap={};
         heatmapEvents.forEach(e=>{
           const d=localDateStr(e.created_at);
