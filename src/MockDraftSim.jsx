@@ -249,7 +249,7 @@ function pickVerdict(pickNum,consRank,grade){
   return{text:"BIG REACH",color:"#dc2626",bg:"#fef2f2"};
 }
 
-export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,onMockComplete,myGuys,myGuysUpdated,setMyGuysUpdated,mockCount,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED,rankedGroups,mockLaunchTeam,mockLaunchRounds,mockLaunchSpeed,mockLaunchCpuTrades,mockLaunchBoardMode,onRankPosition,isGuest,onRequireAuth,trackEvent,userId,isGuestUser,traitThresholds,qualifiesForFilter,prospectBadges,TRAIT_ABBREV,TRAIT_EMOJI,SCHOOL_CONFERENCE,POS_EMOJI,onShareMyGuys,copiedShare:parentCopiedShare,measurableThresholds,qualifiesForMeasurableFilter,MEASURABLE_EMOJI,MEASURABLE_SHORT,MEASURABLE_LIST,MEASURABLE_DRILLS,MEASURABLE_KEY,MEASURABLE_RAW,MEAS_GROUPS}){
+export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,onMockComplete,myGuys,myGuysUpdated,setMyGuysUpdated,mockCount,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED,rankedGroups,mockLaunchTeam,mockLaunchRounds,mockLaunchSpeed,mockLaunchCpuTrades,mockLaunchBoardMode,onRankPosition,isGuest,onRequireAuth,trackEvent,userId,isGuestUser,traitThresholds,qualifiesForFilter,prospectBadges,TRAIT_ABBREV,TRAIT_EMOJI,SCHOOL_CONFERENCE,POS_EMOJI,onShareMyGuys,copiedShare:parentCopiedShare,measurableThresholds,qualifiesForMeasurableFilter,MEASURABLE_EMOJI,MEASURABLE_SHORT,MEASURABLE_LIST,MEASURABLE_DRILLS,MEASURABLE_KEY,MEASURABLE_RAW,MEAS_GROUPS,getMeasRadarData}){
   const TRAIT_SHORT={"Contested Catches":"Contested","Man Coverage":"Man Cov","Contact Balance":"Contact Bal","Directional Control":"Directional","Decision Making":"Decision","Pocket Presence":"Pocket Pres","Pass Catching":"Pass Catch","Run Blocking":"Run Block","Pass Protection":"Pass Prot","Hand Usage":"Hand Use","Run Defense":"Run Def","Zone Coverage":"Zone Cov","Leg Strength":"Leg Str"};
   // Trait value with scouting fallback (same chain as App.jsx tv())
   const tvFn=useCallback((id,trait)=>{const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;return traits[id]?.[trait]??getScoutingTraits(p.name,p.school)?.[trait]??getStatBasedTraits(p.name,p.school)?.[trait]??50;},[traits,PROSPECTS]);
@@ -276,6 +276,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[profilePlayer,setProfilePlayer]=useState(null);
   const[compareList,setCompareList]=useState([]);
   const[showCompare,setShowCompare]=useState(false);
+  const[compareMeasMode,setCompareMeasMode]=useState(false);
+  useEffect(()=>{setCompareMeasMode(false);},[showCompare]);
   const[showDepth,setShowDepth]=useState(true);
   const[mobileDepthOpen,setMobileDepthOpen]=useState(false);
   const[depthSheetTeam,setDepthSheetTeam]=useState("");
@@ -2090,17 +2092,53 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         {/* Compare overlay */}
         {showCompare&&compareList.length>=2&&<div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.5)",zIndex:300,display:"flex",alignItems:"center",justifyContent:"center"}} onClick={()=>setShowCompare(false)}>
           <div style={{background:"#faf9f6",borderRadius:16,padding:16,width:"95%",maxHeight:"80vh",overflowY:"auto"}} onClick={e=>e.stopPropagation()}>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
+              <h2 style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717",margin:0}}>compare</h2>
+              <div style={{display:"flex",alignItems:"center",gap:8}}>
+                {getMeasRadarData&&compareList.every(p=>getMeasRadarData(p.name,p.school)!=null)&&<button title={compareMeasMode?"Switch to traits":"Switch to measurables"} onClick={()=>setCompareMeasMode(v=>!v)} style={{width:40,height:22,borderRadius:11,border:"none",background:compareMeasMode?"linear-gradient(135deg,#00ffff,#1e3a5f)":"linear-gradient(135deg,#ec4899,#a855f7)",cursor:"pointer",position:"relative",transition:"background 0.2s"}}><div style={{width:16,height:16,borderRadius:8,background:"#fff",position:"absolute",top:3,left:compareMeasMode?21:3,transition:"left 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:compareMeasMode?"#00ffff":"#a855f7",lineHeight:1}}>{compareMeasMode?"M":"T"}</span></div></button>}
+                <button onClick={()=>setShowCompare(false)} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 10px",cursor:"pointer"}}>close</button>
+              </div>
+            </div>
             <div style={{display:"grid",gridTemplateColumns:"1fr",gap:12}}>
-              {compareList.map(p=>{const c=POS_COLORS[p.pos];const g=activeGrade(p.id);
-                return<div key={p.id} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:12,display:"flex",alignItems:"center",gap:10}}>
-                  <SchoolLogo school={p.school} size={32}/>
-                  <div style={{flex:1}}><div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#171717"}}>{p.name}</div><div style={{fontFamily:mono,fontSize:9,color:c}}>{p.gpos||p.pos} · {p.school}</div></div>
-                  <div style={{fontFamily:font,fontSize:20,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626"}}>{g}</div>
-                  {isUserPick&&<button onClick={()=>{makePick(p.id);setShowCompare(false);setCompareList([]);}} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"4px 10px",background:"#22c55e",color:"#fff",border:"none",borderRadius:6,cursor:"pointer"}}>draft</button>}
+              {compareList.map(p=>{const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos];const pt=POSITION_TRAITS[p.gpos||p.pos]||POSITION_TRAITS[p.pos]||[];const g=activeGrade(p.id);
+                const md=getMeasRadarData?getMeasRadarData(p.name,p.school):null;
+                const activeLabels=compareMeasMode&&md?md.labels:pt;
+                const activeValues=compareMeasMode&&md?md.values:pt.map(t=>tvFn(p.id,t));
+                const itemMaxMin={};
+                activeLabels.forEach((label,li)=>{
+                  const vals=compareList.map(cp=>{if(compareMeasMode&&getMeasRadarData){const cpMd=getMeasRadarData(cp.name,cp.school);if(!cpMd)return null;const idx=cpMd.labels.indexOf(label);return idx>=0?cpMd.values[idx]:null;}return tvFn(cp.id,label);}).filter(v=>v!=null);
+                  itemMaxMin[label]={max:vals.length?Math.max(...vals):activeValues[li],min:vals.length?Math.min(...vals):activeValues[li]};
+                });
+                return<div key={p.id} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:12,textAlign:"center"}}>
+                  <div style={{display:"flex",alignItems:"center",gap:10,textAlign:"left"}}>
+                    <SchoolLogo school={p.school} size={32}/>
+                    <div style={{flex:1}}><div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#171717"}}>{p.name}</div><div style={{fontFamily:mono,fontSize:9,color:c}}>{p.gpos||p.pos} · {p.school}</div></div>
+                    <div style={{fontFamily:font,fontSize:20,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626"}}>{g}</div>
+                  </div>
+                  <RadarChart traits={activeLabels} values={activeValues} color={c} size={140}/>
+                  <div style={{textAlign:"left",marginTop:4,background:"#fafaf9",borderRadius:8,padding:"6px 8px"}}>
+                    {activeLabels.map((label,li)=>{
+                      const val=activeValues[li];
+                      const{max,min}=itemMaxMin[label]||{max:val,min:val};
+                      const isBest=compareList.length>1&&val===max&&max!==min;
+                      const isWorst=compareList.length>1&&val===min&&max!==min;
+                      return<div key={label} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"2px 0",borderBottom:"1px solid #f0f0ee"}}>
+                        <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{label}</span>
+                        <div style={{display:"flex",alignItems:"center",gap:4}}>
+                          <div style={{width:36,height:4,background:"#e5e5e5",borderRadius:2,overflow:"hidden"}}>
+                            <div style={{height:"100%",width:(val)+'%',background:isBest?"#22c55e":isWorst?"#ef4444":c+"88",borderRadius:2}}/>
+                          </div>
+                          <span style={{fontFamily:font,fontSize:11,fontWeight:900,color:isBest?"#16a34a":isWorst?"#dc2626":c,minWidth:18,textAlign:"right"}}>{val}</span>
+                          {isBest&&<span style={{fontSize:8}}>▲</span>}
+                          {isWorst&&<span style={{fontSize:8,color:"#dc2626"}}>▼</span>}
+                        </div>
+                      </div>;
+                    })}
+                  </div>
+                  {isUserPick&&<button onClick={()=>{makePick(p.id);setShowCompare(false);setCompareList([]);}} style={{width:"100%",marginTop:8,fontFamily:sans,fontSize:10,fontWeight:700,padding:"6px",background:"#22c55e",color:"#fff",border:"none",borderRadius:6,cursor:"pointer"}}>draft {shortName(p.name)}</button>}
                 </div>;
               })}
             </div>
-            <button onClick={()=>setShowCompare(false)} style={{width:"100%",marginTop:8,fontFamily:sans,fontSize:12,padding:"8px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>close</button>
           </div>
         </div>}
 
@@ -2400,15 +2438,21 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         <div style={{background:"#faf9f6",borderRadius:16,padding:isMobile?16:24,maxWidth:900,width:"95%",maxHeight:"80vh",overflowY:"auto"}} onClick={e=>e.stopPropagation()}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
             <h2 style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",margin:0}}>player comparison</h2>
-            <button onClick={()=>setShowCompare(false)} style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 12px",cursor:"pointer"}}>close</button>
+            <div style={{display:"flex",alignItems:"center",gap:8}}>
+              {getMeasRadarData&&compareList.every(p=>getMeasRadarData(p.name,p.school)!=null)&&<button title={compareMeasMode?"Switch to traits":"Switch to measurables"} onClick={()=>setCompareMeasMode(v=>!v)} style={{width:40,height:22,borderRadius:11,border:"none",background:compareMeasMode?"linear-gradient(135deg,#00ffff,#1e3a5f)":"linear-gradient(135deg,#ec4899,#a855f7)",cursor:"pointer",position:"relative",transition:"background 0.2s"}}><div style={{width:16,height:16,borderRadius:8,background:"#fff",position:"absolute",top:3,left:compareMeasMode?21:3,transition:"left 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:compareMeasMode?"#00ffff":"#a855f7",lineHeight:1}}>{compareMeasMode?"M":"T"}</span></div></button>}
+              <button onClick={()=>setShowCompare(false)} style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 12px",cursor:"pointer"}}>close</button>
+            </div>
           </div>
           <div style={{display:"grid",gridTemplateColumns:isMobile?"1fr":"repeat("+compareList.length+", 1fr)",gap:16}}>
             {compareList.map(p=>{const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos];const pt=POSITION_TRAITS[p.gpos||p.pos]||POSITION_TRAITS[p.pos]||[];const g=activeGrade(p.id);const rank=getConsensusRank?getConsensusRank(p.name):null;const ps=getProspectStats(p.name,p.school);const posRank=ps?.posRank;
-              // Precompute per-trait max/min for color coding
-              const traitMaxMin={};
-              pt.forEach(t=>{
-                const vals=compareList.map(cp=>tvFn(cp.id,t));
-                traitMaxMin[t]={max:Math.max(...vals),min:Math.min(...vals)};
+              const md=getMeasRadarData?getMeasRadarData(p.name,p.school):null;
+              const activeLabels=compareMeasMode&&md?md.labels:pt;
+              const activeValues=compareMeasMode&&md?md.values:pt.map(t=>tvFn(p.id,t));
+              // Precompute per-trait/meas max/min for color coding
+              const itemMaxMin={};
+              activeLabels.forEach((label,li)=>{
+                const vals=compareList.map(cp=>{if(compareMeasMode&&getMeasRadarData){const cpMd=getMeasRadarData(cp.name,cp.school);if(!cpMd)return null;const idx=cpMd.labels.indexOf(label);return idx>=0?cpMd.values[idx]:null;}return tvFn(cp.id,label);}).filter(v=>v!=null);
+                itemMaxMin[label]={max:vals.length?Math.max(...vals):activeValues[li],min:vals.length?Math.min(...vals):activeValues[li]};
               });
               return<div key={p.id} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:16,textAlign:"center"}}>
                 <SchoolLogo school={p.school} size={40}/>
@@ -2417,15 +2461,15 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
                 <span style={{fontFamily:mono,fontSize:10,color:c,background:c+"11",padding:"2px 8px",borderRadius:4,border:"1px solid "+c+"22",display:"inline-block",margin:"6px 0"}}>{p.gpos||p.pos}</span>
                 {rank&&rank<400&&<div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>consensus #{rank}{posRank&&<span> · {p.gpos||p.pos} #{posRank}</span>}</div>}
                 <div style={{fontFamily:font,fontSize:32,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626",lineHeight:1,margin:"8px 0"}}>{g}</div>
-                <RadarChart traits={pt} values={pt.map(t=>tvFn(p.id,t))} color={c} size={140}/>
+                <RadarChart traits={activeLabels} values={activeValues} color={c} size={140}/>
                 <div style={{textAlign:"left",marginTop:8,background:"#fafaf9",borderRadius:8,padding:"8px 10px"}}>
-                  {pt.map(t=>{
-                    const val=tvFn(p.id,t);
-                    const{max,min}=traitMaxMin[t]||{max:val,min:val};
+                  {activeLabels.map((label,li)=>{
+                    const val=activeValues[li];
+                    const{max,min}=itemMaxMin[label]||{max:val,min:val};
                     const isBest=compareList.length>1&&val===max&&max!==min;
                     const isWorst=compareList.length>1&&val===min&&max!==min;
-                    return<div key={t} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"3px 0",borderBottom:"1px solid #f0f0ee"}}>
-                      <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{t}</span>
+                    return<div key={label} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"3px 0",borderBottom:"1px solid #f0f0ee"}}>
+                      <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{compareMeasMode?label:label}</span>
                       <div style={{display:"flex",alignItems:"center",gap:4}}>
                         <div style={{width:40,height:4,background:"#e5e5e5",borderRadius:2,overflow:"hidden"}}>
                           <div style={{height:"100%",width:(val)+'%',background:isBest?"#22c55e":isWorst?"#ef4444":c+"88",borderRadius:2,transition:"width 0.3s"}}/>
