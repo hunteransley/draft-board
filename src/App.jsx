@@ -185,7 +185,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
               </div>
             ))}
           </div>}
-          {cd&&(()=>{const drills=[cd.forty&&{label:"40",val:cd.forty+"s"},cd.vertical&&{label:"VJ",val:cd.vertical+'"'},cd.broad&&{label:"BJ",val:cd.broad+'"'},cd.bench&&{label:"BP",val:cd.bench},cd.cone&&{label:"3C",val:cd.cone+"s"},cd.shuttle&&{label:"SH",val:cd.shuttle+"s"}].filter(Boolean);return drills.length>0&&<div style={{display:"flex",justifyContent:"center",gap:8,marginBottom:8,flexWrap:"wrap"}}>
+          {cd&&(()=>{const drills=[cd.forty&&{label:"40",val:cd.forty+"s"},cd.vertical&&{label:"VJ",val:cd.vertical+'"'},cd.broad&&{label:"BJ",val:Math.floor(cd.broad/12)+"'"+cd.broad%12+'"'},cd.bench&&{label:"BP",val:cd.bench},cd.cone&&{label:"3C",val:cd.cone+"s"},cd.shuttle&&{label:"SH",val:cd.shuttle+"s"}].filter(Boolean);return drills.length>0&&<div style={{display:"flex",justifyContent:"center",gap:8,marginBottom:8,flexWrap:"wrap"}}>
             {drills.map(({label,val})=>(
               <div key={label} style={{textAlign:"center",background:"#eff6ff",border:"1px solid #bfdbfe",borderRadius:8,padding:"6px 10px",minWidth:48}}>
                 <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#6b9bd2",textTransform:"uppercase",marginBottom:2}}>{label}</div>
