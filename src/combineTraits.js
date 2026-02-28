@@ -1,18 +1,21 @@
 import COMBINE from "./combineData.json";
 import SCOUTING from "./scoutingTraits.json";
 
-// Name normalization — matches scoutingData.js / combineData.js pattern
-function normalize(name) {
+// Name normalization — scouting keys keep apostrophes, combine keys strip them
+function normScouting(name) {
   return name.toLowerCase().replace(/\./g, "").replace(/\s+(jr|sr|ii|iii|iv|v)\s*$/i, "").replace(/\s+/g, " ").trim();
+}
+function normCombine(name) {
+  return name.toLowerCase().replace(/['.]/g, "").replace(/\s+(jr|sr|ii|iii|iv|v)\s*$/i, "").replace(/\s+/g, " ").trim();
 }
 
 function lookupCombine(name, school) {
   if (!name) return null;
   if (school) {
-    const key = normalize(name) + "|" + school.toLowerCase().replace(/\s+/g, " ").trim();
+    const key = normCombine(name) + "|" + school.toLowerCase().replace(/\s+/g, " ").trim();
     if (COMBINE[key]) return COMBINE[key];
   }
-  const n = normalize(name);
+  const n = normCombine(name);
   for (const k in COMBINE) { if (k.startsWith(n + "|")) return COMBINE[k]; }
   return null;
 }
@@ -20,10 +23,10 @@ function lookupCombine(name, school) {
 function lookupScouting(name, school) {
   if (!name) return null;
   if (school) {
-    const key = normalize(name) + "|" + school.toLowerCase().replace(/\s+/g, " ").trim();
+    const key = normScouting(name) + "|" + school.toLowerCase().replace(/\s+/g, " ").trim();
     if (SCOUTING[key]) return SCOUTING[key];
   }
-  const n = normalize(name);
+  const n = normScouting(name);
   for (const k in SCOUTING) { if (k.startsWith(n + "|")) return SCOUTING[k]; }
   return null;
 }
@@ -283,7 +286,7 @@ const _scoreCache = {};
  */
 export function getCombineAdjustedTraits(name, school) {
   if (!name) return null;
-  const cacheKey = normalize(name) + "|" + (school || "").toLowerCase().trim();
+  const cacheKey = normScouting(name) + "|" + (school || "").toLowerCase().trim();
   if (_traitCache[cacheKey] !== undefined) return _traitCache[cacheKey];
 
   const cd = lookupCombine(name, school);
@@ -435,7 +438,7 @@ export function getCombineAdjustedTraits(name, school) {
  */
 export function getCombineScores(name, school) {
   if (!name) return null;
-  const cacheKey = normalize(name) + "|" + (school || "").toLowerCase().trim();
+  const cacheKey = normScouting(name) + "|" + (school || "").toLowerCase().trim();
   if (_scoreCache[cacheKey] !== undefined) return _scoreCache[cacheKey];
 
   const cd = lookupCombine(name, school);

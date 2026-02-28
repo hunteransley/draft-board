@@ -2,7 +2,7 @@ import COMBINE from "./combineData.json";
 
 // Name normalization — matches scoutingData.js pattern
 function normalize(name) {
-  return name.toLowerCase().replace(/\./g, "").replace(/\s+(jr|sr|ii|iii|iv|v)\s*$/i, "").replace(/\s+/g, " ").trim();
+  return name.toLowerCase().replace(/['.]/g, "").replace(/\s+(jr|sr|ii|iii|iv|v)\s*$/i, "").replace(/\s+/g, " ").trim();
 }
 
 export function getCombineData(name, school) {

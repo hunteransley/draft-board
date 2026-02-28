@@ -1077,7 +1077,14 @@ async function main() {
     const spd = cj ? fmt(cj.speedScore) : 'null';
     const agi = cj ? fmt(cj.agilityScore) : 'null';
     const exp = cj ? fmt(cj.explosionScore) : 'null';
-    return `  {name:"${p.name}",pos:"${p.pos}",school:"${p.school}",rank:${p.rank},height:${h},weight:${fmt(r.weight)},forty:${fmt(r.forty)},vertical:${fmt(r.vertical)},broad:${fmt(r.broad)},bench:${fmt(r.bench)},cone:${fmt(r.cone)},shuttle:${fmt(r.shuttle)},ath:${ath},spd:${spd},agi:${agi},exp:${exp}}`;
+    // Format arms/hands/wingspan as display strings (e.g. 31.5 → '31 4/8"')
+    const fmtMeas = v => {
+      if (v == null) return 'null';
+      const whole = Math.floor(v);
+      const frac = Math.round((v - whole) * 8);
+      return frac === 0 ? `"${whole}\\""` : `"${whole} ${frac}/8\\""`;
+    };
+    return `  {name:"${p.name}",pos:"${p.pos}",school:"${p.school}",rank:${p.rank},height:${h},weight:${fmt(r.weight)},hands:${fmtMeas(r.hands)},arms:${fmtMeas(r.arms)},wingspan:${fmtMeas(r.wingspan)},forty:${fmt(r.forty)},vertical:${fmt(r.vertical)},broad:${fmt(r.broad)},bench:${fmt(r.bench)},cone:${fmt(r.cone)},shuttle:${fmt(r.shuttle)},ath:${ath},spd:${spd},agi:${agi},exp:${exp}}`;
   });
   const newDataBlock = 'const COMBINE_DATA = [\n' + dataLines.join(',\n') + '\n];';
 
