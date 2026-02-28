@@ -950,36 +950,6 @@ async function main() {
   console.log(`  ✅ Wrote percentile tables: ${posCounts}`);
   console.log(`  📁 ${PERCENTILES_JSON_PATH}`);
 
-  // ---- GENERATE OUTPUT ----
-  console.log('\n📝 Generating combine-results.html...');
-  
-  // Read existing HTML template
-  const html = fs.readFileSync(HTML_TEMPLATE_PATH, 'utf8');
-  
-  // Build new COMBINE_DATA array
-  const dataLines = BBL_PROSPECTS.map(p => {
-    const r = results[p.name];
-    const h = r.height ? '"' + r.height + '"' : 'null';
-    const fmt = v => (v !== null && v !== undefined) ? v : 'null';
-    return `  {name:"${p.name}",pos:"${p.pos}",school:"${p.school}",rank:${p.rank},height:${h},weight:${fmt(r.weight)},forty:${fmt(r.forty)},vertical:${fmt(r.vertical)},broad:${fmt(r.broad)},bench:${fmt(r.bench)},cone:${fmt(r.cone)},shuttle:${fmt(r.shuttle)}}`;
-  });
-  const newDataBlock = 'const COMBINE_DATA = [\n' + dataLines.join(',\n') + '\n];';
-  
-  // Replace the COMBINE_DATA block in HTML
-  const dataRegex = /const COMBINE_DATA = \[[\s\S]*?\];/;
-  const newHtml = html.replace(dataRegex, newDataBlock);
-
-  // Update the "last updated" timestamp
-  const now = new Date();
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const dateStr = `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
-  const updatedHtml = newHtml.replace(
-    /Last updated: <span id="lastUpdated">.*?<\/span>/,
-    `Last updated: <span id="lastUpdated">${dateStr}</span>`
-  );
-  
-  fs.writeFileSync(OUTPUT_PATH, updatedHtml);
-
   // ---- Write src/combineData.json ----
   const combineJson = {};
   BBL_PROSPECTS.forEach(p => {
@@ -1088,6 +1058,43 @@ async function main() {
   });
   fs.writeFileSync(COMBINE_JSON_PATH, JSON.stringify(combineJson, null, 2));
   console.log(`\n📊 Wrote ${Object.keys(combineJson).length} prospects to ${COMBINE_JSON_PATH}`);
+
+  // ---- GENERATE HTML OUTPUT ----
+  console.log('\n📝 Generating combine-results.html...');
+
+  // Read existing HTML template
+  const html = fs.readFileSync(HTML_TEMPLATE_PATH, 'utf8');
+
+  // Build new COMBINE_DATA array (now includes composite scores from combineJson)
+  const dataLines = BBL_PROSPECTS.map(p => {
+    const r = results[p.name];
+    const h = r.height ? '"' + r.height + '"' : 'null';
+    const fmt = v => (v !== null && v !== undefined) ? v : 'null';
+    // Look up composite scores from combineJson
+    const key = normName(p.name) + '|' + p.school.toLowerCase().trim();
+    const cj = combineJson[key];
+    const ath = cj ? fmt(cj.athleticScore) : 'null';
+    const spd = cj ? fmt(cj.speedScore) : 'null';
+    const agi = cj ? fmt(cj.agilityScore) : 'null';
+    const exp = cj ? fmt(cj.explosionScore) : 'null';
+    return `  {name:"${p.name}",pos:"${p.pos}",school:"${p.school}",rank:${p.rank},height:${h},weight:${fmt(r.weight)},forty:${fmt(r.forty)},vertical:${fmt(r.vertical)},broad:${fmt(r.broad)},bench:${fmt(r.bench)},cone:${fmt(r.cone)},shuttle:${fmt(r.shuttle)},ath:${ath},spd:${spd},agi:${agi},exp:${exp}}`;
+  });
+  const newDataBlock = 'const COMBINE_DATA = [\n' + dataLines.join(',\n') + '\n];';
+
+  // Replace the COMBINE_DATA block in HTML
+  const dataRegex = /const COMBINE_DATA = \[[\s\S]*?\];/;
+  const newHtml = html.replace(dataRegex, newDataBlock);
+
+  // Update the "last updated" timestamp
+  const now = new Date();
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const dateStr = `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
+  const updatedHtml = newHtml.replace(
+    /Last updated: <span id="lastUpdated">.*?<\/span>/,
+    `Last updated: <span id="lastUpdated">${dateStr}</span>`
+  );
+
+  fs.writeFileSync(OUTPUT_PATH, updatedHtml);
 
   // Stats
   const filled = BBL_PROSPECTS.filter(p => {
