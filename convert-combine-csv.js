@@ -64,14 +64,23 @@ function combineHands(val) {
   return null;
 }
 
-// Convert broad jump format "10'4" to inches
+// Convert broad jump — handles both "10'4" format and numeric FFII format (1003 = 10'3")
 function parseBroad(val) {
   if (!val || val === '') return null;
   const s = val.toString().trim().replace(/\s/g, '');
+  // Format 1: "10'3" with apostrophe
   const m = s.match(/(\d+)'(\d+)/);
   if (m) return parseInt(m[1]) * 12 + parseInt(m[2]);
-  const n = parseFloat(s);
-  return isNaN(n) ? null : n;
+  // Format 2: numeric FFII code (e.g., 1003 = 10'03", 910 = 9'10")
+  const n = parseInt(s);
+  if (!isNaN(n) && n >= 700 && n <= 1300) {
+    const feet = Math.floor(n / 100);
+    const inches = n % 100;
+    if (inches < 12) return feet * 12 + inches;
+  }
+  // Fallback: already in total inches
+  const f = parseFloat(s);
+  return isNaN(f) ? null : f;
 }
 
 // Height in inches to "6-2" format
