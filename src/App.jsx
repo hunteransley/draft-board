@@ -132,7 +132,7 @@ const font=`'Literata',Georgia,serif`;const mono=`'DM Mono','Courier New',monosp
 // Trait value lookup: user traits → scouting → stat-derived → 50
 function tv(userTraits,id,trait,name,school){return userTraits[id]?.[trait]??getScoutingTraits(name,school)?.[trait]??getStatBasedTraits(name,school)?.[trait]??50;}
 
-function getMeasRadarData(name,school){const cs=getCombineScores(name,school);if(!cs)return null;const axes=["40","VRT","BRD","3C","SHT","ATH","SPD","AGI","EXP"];const labels=[];const values=[];axes.forEach(m=>{const key=MEASURABLE_KEY[m];let v=null;if(MEASURABLE_DRILLS.includes(m)){v=cs.percentiles?.[key]??null;}else{v=cs[key]??null;}if(v!=null){labels.push(m);values.push(Math.round(v));}});return labels.length>0?{labels,values}:null;}
+function getMeasRadarData(name,school){const cs=getCombineScores(name,school);if(!cs)return null;const axes=["40","VRT","BRD","3C","SHT","ATH","SPD","AGI","EXP"];const labels=[];const values=[];axes.forEach(m=>{const key=MEASURABLE_KEY[m];let v=null;if(MEASURABLE_DRILLS.includes(m)){v=cs.percentiles?.[key]??null;}else{v=cs[key]??null;}if(v!=null){labels.push(m);values.push(Math.round(v));}});return labels.length>=3?{labels,values}:null;}
 
 // ============================================================
 function SchoolLogo({school,size=32}){const[err,setErr]=useState(false);const url=schoolLogo(school);if(!url||err)return<div style={{width:size,height:size,borderRadius:"50%",background:"#f0f0f0",display:"flex",alignItems:"center",justifyContent:"center",fontSize:size*0.4,fontWeight:700,color:"#a3a3a3",flexShrink:0,fontFamily:"system-ui"}}>{school.charAt(0)}</div>;return<img src={url} alt={school} width={size} height={size} onError={()=>setErr(true)} style={{objectFit:"contain",flexShrink:0}}/>;}
