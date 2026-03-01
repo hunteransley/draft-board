@@ -920,17 +920,22 @@ async function main() {
       weight: parseNum(row.wt),
     };
 
+    // Height/weight contribute at 0.25 weight; drills at 1.0
+    const SIZE_METRICS = new Set(['height', 'weight']);
+    let weightedSum = 0, totalWeight = 0;
     for (const metric of allMetrics) {
       if (vals[metric] == null || !posPerc[metric]) continue;
       const perc = INVERTED_DRILLS.has(metric)
         ? getPercentileInverted(vals[metric], posPerc[metric])
         : getPercentile(vals[metric], posPerc[metric]);
-      playerPercs.push(perc);
+      const w = SIZE_METRICS.has(metric) ? 0.25 : 1.0;
+      weightedSum += perc * w;
+      totalWeight += w;
     }
 
     // Need at least 3 metrics for a meaningful composite
-    if (playerPercs.length >= 3) {
-      const composite = playerPercs.reduce((a, b) => a + b, 0) / playerPercs.length;
+    if (totalWeight >= 3) {
+      const composite = weightedSum / totalWeight;
       if (!historicalComposites[pos]) historicalComposites[pos] = [];
       historicalComposites[pos].push(composite);
     }
@@ -1013,17 +1018,26 @@ async function main() {
     // Step 2: Rank that composite against ALL historical composites at this position
     // Uses one decimal place (like RAS) for finer granularity at the top
     const athMetrics = ['forty', 'vertical', 'broad', 'bench', 'cone', 'shuttle', 'height', 'weight'];
-    const athPercs = athMetrics.filter(m => percentiles[m] != null).map(m => percentiles[m]);
+    const SIZE_ATH = new Set(['height', 'weight']);
     let athleticScore = null;
-    if (athPercs.length >= 3 && historicalComposites[bblPos]) {
-      const rawComposite = athPercs.reduce((a, b) => a + b, 0) / athPercs.length;
-      // Rank against historical composites with one-decimal precision
-      const arr = historicalComposites[bblPos];
-      let lo = 0, hi = arr.length;
-      while (lo < hi) { const mid = (lo + hi) >> 1; if (arr[mid] < rawComposite) lo = mid + 1; else hi = mid; }
-      athleticScore = Math.round((lo / arr.length) * 1000) / 10; // e.g. 99.9, 97.3
-      // Cap at 99.9 (not 100.0)
-      if (athleticScore >= 100) athleticScore = 99.9;
+    {
+      let wSum = 0, wTotal = 0;
+      for (const m of athMetrics) {
+        if (percentiles[m] == null) continue;
+        const w = SIZE_ATH.has(m) ? 0.25 : 1.0;
+        wSum += percentiles[m] * w;
+        wTotal += w;
+      }
+      if (wTotal >= 3 && historicalComposites[bblPos]) {
+        const rawComposite = wSum / wTotal;
+        // Rank against historical composites with one-decimal precision
+        const arr = historicalComposites[bblPos];
+        let lo = 0, hi = arr.length;
+        while (lo < hi) { const mid = (lo + hi) >> 1; if (arr[mid] < rawComposite) lo = mid + 1; else hi = mid; }
+        athleticScore = Math.round((lo / arr.length) * 1000) / 10; // e.g. 99.9, 97.3
+        // Cap at 99.9 (not 100.0)
+        if (athleticScore >= 100) athleticScore = 99.9;
+      }
     }
 
     // Agility Score: average of cone + shuttle percentiles

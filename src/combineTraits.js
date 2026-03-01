@@ -51,6 +51,16 @@ const SPEED_POSITIONS = new Set(["RB", "WR", "TE", "CB", "S"]);
 // Positions where Athleticism is a trait (raw overwrite from Athletic Score)
 const ATHLETICISM_POSITIONS = new Set(["TE", "OT", "LB"]);
 
+// Universal speed scale — speed is absolute, not position-relative
+// Derived from 40-yard dash time only. No speedScore, no other drills.
+const SPEED_SCALE = [
+  [4.35, 99], [4.38, 97], [4.40, 96], [4.42, 94], [4.44, 92],
+  [4.46, 90], [4.495, 90], [4.50, 89], [4.51, 88], [4.52, 87],
+  [4.53, 86], [4.54, 85], [4.55, 85], [4.60, 82], [4.65, 78],
+  [4.70, 74], [4.75, 68], [4.80, 62], [4.85, 55], [4.90, 48],
+  [4.95, 42], [5.00, 36], [5.10, 28], [5.20, 20],
+];
+
 // Breakpoints for converting raw drill values to 0-100 scores
 const BREAKPOINTS = {
   forty: {
@@ -171,41 +181,31 @@ function getDrillTraitMap(pos, data) {
       if (weight < 210) return {
         cone: [{ trait: "Elusiveness", weight: "primary" }],
         shuttle: [{ trait: "Contact Balance", weight: "primary" }],
-        speedScore: [{ trait: "Speed", weight: "partial" }],
-        forty: [{ trait: "Speed", weight: "partial" }],
         broad: [{ trait: "Elusiveness", weight: "partial" }],
         vertical: [{ trait: "Elusiveness", weight: "partial" }],
       };
       return {
-        speedScore: [{ trait: "Speed", weight: "primary" }],
         broad: [{ trait: "Power", weight: "primary" }],
-        forty: [{ trait: "Speed", weight: "partial" }],
         cone: [{ trait: "Elusiveness", weight: "partial" }],
         shuttle: [{ trait: "Contact Balance", weight: "partial" }],
         vertical: [{ trait: "Elusiveness", weight: "partial" }],
       };
     case "WR":
       if (height < 72) return {
-        speedScore: [{ trait: "Speed", weight: "primary" }],
         shuttle: [{ trait: "Separation", weight: "primary" }],
-        forty: [{ trait: "Speed", weight: "partial" }],
         cone: [{ trait: "Route Running", weight: "partial" }],
         broad: [{ trait: "YAC Ability", weight: "partial" }],
         vertical: [{ trait: "Contested Catches", weight: "partial" }],
       };
       return {
         broad: [{ trait: "YAC Ability", weight: "primary" }, { trait: "Contested Catches", weight: "partial" }],
-        speedScore: [{ trait: "Speed", weight: "partial" }],
-        forty: [{ trait: "Speed", weight: "partial" }],
         shuttle: [{ trait: "Separation", weight: "partial" }],
         cone: [{ trait: "Route Running", weight: "partial" }],
         vertical: [{ trait: "Contested Catches", weight: "partial" }],
       };
     case "TE": return {
-      speedScore: [{ trait: "Speed", weight: "primary" }],
       cone: [{ trait: "Route Running", weight: "primary" }],
       vertical: [{ trait: "Athleticism", weight: "primary" }],
-      forty: [{ trait: "Speed", weight: "partial" }],
       broad: [{ trait: "Athleticism", weight: "partial" }],
       bench: [{ trait: "Blocking", weight: "partial" }],
     };
@@ -217,7 +217,6 @@ function getDrillTraitMap(pos, data) {
       shuttle: [{ trait: "Footwork", weight: "partial" }],
     };
     case "IOL": return {
-      speedScore: [{ trait: "Pulling", weight: "primary" }],
       shuttle: [{ trait: "Versatility", weight: "primary" }],
       forty: [{ trait: "Pulling", weight: "partial" }],
       broad: [{ trait: "Pulling", weight: "partial" }],
@@ -227,7 +226,6 @@ function getDrillTraitMap(pos, data) {
     case "EDGE": return {
       cone: [{ trait: "Bend", weight: "primary" }],
       broad: [{ trait: "First Step", weight: "primary" }],
-      speedScore: [{ trait: "First Step", weight: "primary" }],
       forty: [{ trait: "First Step", weight: "partial" }],
       shuttle: [{ trait: "Bend", weight: "partial" }],
       bench: [{ trait: "Power", weight: "partial" }],
@@ -235,20 +233,17 @@ function getDrillTraitMap(pos, data) {
     };
     case "DL":
       if (weight < 310) return {
-        speedScore: [{ trait: "First Step", weight: "primary" }],
         cone: [{ trait: "Hand Usage", weight: "primary" }],
         forty: [{ trait: "First Step", weight: "partial" }],
         broad: [{ trait: "First Step", weight: "partial" }],
         bench: [{ trait: "Strength", weight: "partial" }],
       };
       return {
-        speedScore: [{ trait: "First Step", weight: "primary" }],
         forty: [{ trait: "First Step", weight: "partial" }],
         broad: [{ trait: "First Step", weight: "partial" }],
         bench: [{ trait: "Strength", weight: "partial" }],
       };
     case "LB": return {
-      speedScore: [{ trait: "Athleticism", weight: "primary" }],
       shuttle: [{ trait: "Coverage", weight: "primary" }],
       forty: [{ trait: "Athleticism", weight: "partial" }],
       broad: [{ trait: "Range", weight: "partial" }],
@@ -256,15 +251,12 @@ function getDrillTraitMap(pos, data) {
       vertical: [{ trait: "Athleticism", weight: "partial" }],
     };
     case "CB": return {
-      forty: [{ trait: "Speed", weight: "primary" }],
       vertical: [{ trait: "Ball Skills", weight: "primary" }],
       cone: [{ trait: "Man Coverage", weight: "primary" }],
       shuttle: [{ trait: "Zone Coverage", weight: "partial" }],
     };
     case "S": return {
-      speedScore: [{ trait: "Speed", weight: "primary" }],
       vertical: [{ trait: "Range", weight: "primary" }],
-      forty: [{ trait: "Speed", weight: "partial" }],
       broad: [{ trait: "Range", weight: "partial" }],
       cone: [{ trait: "Man Coverage", weight: "partial" }],
       shuttle: [{ trait: "Nickel", weight: "partial" }],
@@ -323,8 +315,9 @@ export function getCombineAdjustedTraits(name, school) {
   const result = { ...sc };
 
   // Category 1: 40 → Speed RAW OVERWRITE (only for positions with Speed trait)
-  if (cd.forty && SPEED_POSITIONS.has(pos) && BREAKPOINTS.forty[pos]) {
-    result["Speed"] = lerp(cd.forty, BREAKPOINTS.forty[pos]);
+  // Universal scale — speed is absolute, not position-relative
+  if (cd.forty && SPEED_POSITIONS.has(pos)) {
+    result["Speed"] = lerp(cd.forty, SPEED_SCALE);
   }
 
   // Category 2: Athletic Score → Athleticism RAW OVERWRITE
@@ -390,7 +383,7 @@ export function getCombineAdjustedTraits(name, school) {
       low:     { primary: 0.15, partial: 0.10 },
     };
     const POS_TIER = {
-      WR: "extreme", CB: "extreme", EDGE: "extreme",
+      WR: "mid", CB: "extreme", EDGE: "extreme",
       S: "high", RB: "high", LB: "high", TE: "high",
       QB: "mid", OT: "mid",
       DL: "low", IOL: "low",
@@ -400,27 +393,39 @@ export function getCombineAdjustedTraits(name, school) {
     result[trait] = Math.round(current * (1 - blendFactor) + combineScore * blendFactor);
   }
 
-  // Combine-driven ceiling: ATH + explosion set a floor (or enforce capped)
+  // Combine-driven ceiling: two-track system based on base grade
   if (cd.athleticScore != null) {
     const ath = cd.athleticScore;
-    const exp = cd.explosionScore;
     const CEIL_RANK = { capped: 0, normal: 1, high: 2, elite: 3 };
-    const CEIL_NAME = ["capped", "normal", "high", "elite"];
 
-    // Derive ceiling from combine composites
+    // Compute base grade proxy (average of 6 position traits, before ceiling)
+    const posTraits = POSITION_TRAITS[pos] || [];
+    const traitVals = posTraits.map(t => result[t]).filter(v => v != null);
+    const baseGrade = traitVals.length > 0 ? traitVals.reduce((a, b) => a + b, 0) / traitVals.length : 0;
+
+    // Height/weight percentiles for below-90 track
+    const htPerc = cd.percentiles?.height ?? 0;
+    const wtPerc = cd.percentiles?.weight ?? 0;
+
+    // Derive ceiling from combine data
     let combineCeiling = "normal";
     if (ath < 40) {
+      // Capped is universal — limited physical tools are a hard cap
       combineCeiling = "capped";
-    } else if (ath >= 98 && exp != null && exp >= 95) {
-      combineCeiling = "elite";
-    } else if (ath >= 95 && exp != null && exp >= 95) {
-      combineCeiling = "high";
+    } else if (baseGrade >= 90) {
+      // Tape-first track: film already says elite, combine just confirms
+      if (ath >= 98) combineCeiling = "elite";
+      else if (ath >= 95) combineCeiling = "high";
+    } else {
+      // Below-90 track: need prototypical size + elite athleticism to override tape
+      if (ath >= 99 && htPerc >= 95 && wtPerc >= 95) combineCeiling = "elite";
+      else if (ath >= 98 && htPerc >= 90 && wtPerc >= 90) combineCeiling = "high";
     }
 
     const scoutCeiling = sc.__ceiling || "normal";
 
     if (combineCeiling === "capped") {
-      // Capped is enforced regardless — limited physical tools are a hard cap
+      // Capped is enforced regardless
       result.__ceiling = "capped";
     } else {
       // For everything else, take the higher of combine vs scouting
