@@ -1789,262 +1789,229 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
 // ============================================================
 const ADMIN_EMAILS=["hunteransley@gmail.com"];
 function AdminDashboard({user,onBack}){
-  const[stats,setStats]=useState(null);
+  const[rawData,setRawData]=useState(null);
   const[loading,setLoading]=useState(true);
-  const[users,setUsers]=useState([]);
-  const[events,setEvents]=useState([]);
   const[excludeAdmin,setExcludeAdmin]=useState(true);
-  const[allEventsRaw,setAllEventsRaw]=useState([]);
   const[showEventLog,setShowEventLog]=useState(false);
   const[expandedUser,setExpandedUser]=useState(null);
   useEffect(()=>{
     (async()=>{
       try{
-        // Fetch from all sources in parallel
         const fourteenAgo=new Date(Date.now()-14*86400000).toISOString();
-        const[boardsRes,communityRes,evtsRes,authCountRes,authUsersRes]=await Promise.all([
+        const[boardsRes,communityRes,,authCountRes,authUsersRes]=await Promise.all([
           supabase.from('boards').select('user_id,board_data,updated_at'),
           supabase.from('community_boards').select('user_id,board_data'),
-          supabase.from('events').select('*').order('created_at',{ascending:false}).limit(5000),
+          null, // events fetched via pagination below
           supabase.rpc('get_auth_user_count'),
           supabase.rpc('get_auth_users_summary'),
         ]);
-        // Paginate heatmap events — Supabase caps rows per request (often 1000)
-        let heatmapAll=[];
         const pageSize=1000;
+        let heatmapAll=[];
         for(let page=0;;page++){
           const{data}=await supabase.from('events').select('created_at,user_id,session_id').gte('created_at',fourteenAgo).order('created_at',{ascending:false}).range(page*pageSize,(page+1)*pageSize-1);
           if(!data||data.length===0)break;
           heatmapAll=heatmapAll.concat(data);
           if(data.length<pageSize)break;
         }
-        const boards=boardsRes.data||[];
-        const community=communityRes.data||[];
-        const allEventsData=evtsRes.data||[];
-        const adminId=user?.id;
-        const allEventsFiltered=adminId?allEventsData.filter(e=>e.user_id!==adminId):allEventsData;
-        // Fix historical signup inflation — only keep 1 signup per user, relabel rest as login
-        // Events are desc by created_at, so collect all signup indices per user, keep only the last (earliest)
-        const signupIndices={};
-        allEventsFiltered.forEach((e,i)=>{if(e.event==='signup'){if(!signupIndices[e.user_id])signupIndices[e.user_id]=[];signupIndices[e.user_id].push(i);}});
-        const relabelSet=new Set();
-        Object.values(signupIndices).forEach(idxs=>{idxs.slice(0,-1).forEach(i=>relabelSet.add(i));});
-        const allEvents=allEventsFiltered.map((e,i)=>relabelSet.has(i)?{...e,event:'login'}:e);
-        const totalUsers=authCountRes.data||0;
-        const authUsers=authUsersRes.data||[];
-
-        const now=new Date();
-
-        // Auth-based activity (most accurate)
-        const activeToday=authUsers.filter(u=>u.last_sign_in_at&&(now-new Date(u.last_sign_in_at))<86400000).length;
-        const activeWeek=authUsers.filter(u=>u.last_sign_in_at&&(now-new Date(u.last_sign_in_at))<604800000).length;
-
-        // Real signups from auth (created_at = account creation, not login)
-        const signupsToday=authUsers.filter(u=>(now-new Date(u.created_at))<86400000).length;
-        const signupsWeek=authUsers.filter(u=>(now-new Date(u.created_at))<604800000).length;
-
-        // Event counts by type (deduplicated where relevant)
-        const eventCounts={};
-        allEvents.forEach(e=>{eventCounts[e.event]=(eventCounts[e.event]||0)+1;});
-        // Unique users who did each event type
-        const uniqueEventUsers={};
-        allEvents.forEach(e=>{if(!uniqueEventUsers[e.event])uniqueEventUsers[e.event]=new Set();uniqueEventUsers[e.event].add(e.user_id);});
-
-        // Mock drafts — unique sessions (count events, not unique users)
-        const mockDrafts=allEvents.filter(e=>e.event==='mock_draft_started').length;
-        const mockDraftUsers=new Set(allEvents.filter(e=>e.event==='mock_draft_started').map(e=>e.user_id)).size;
-
-        // Rankings completed
-        const rankingsCompleted=allEvents.filter(e=>e.event==='ranking_completed').length;
-
-        // Position ranking stats — from saved boards (only auth users can rank)
-        const posStats={};
-        const partialCount={};
-        let hasNotes=0;
-        const boardMap=new Map(boards.map(b=>[b.user_id,b]));
-        boards.forEach(b=>{
-          const d=b.board_data||{};
-          const rg=d.rankedGroups||[];
-          const pp=d.partialProgress?Object.keys(d.partialProgress):[];
-          if(d.notes&&Object.keys(d.notes).length>0)hasNotes++;
-          rg.forEach(pos=>{posStats[pos]=(posStats[pos]||0)+1;});
-          pp.forEach(pos=>{partialCount[pos]=(partialCount[pos]||0)+1;});
-        });
-
-        // Build user list from auth (source of truth)
-        const userDetails=authUsers.map(au=>{
-          const b=boardMap.get(au.id);
-          const d=b?.board_data||{};
-          const rg=d.rankedGroups||[];
-          const pp=d.partialProgress?Object.keys(d.partialProgress):[];
-          const noteCount=d.notes?Object.keys(d.notes).length:0;
-          const userEvts=allEvents.filter(e=>e.user_id===au.id);
-          const mockCount=userEvts.filter(e=>e.event==='mock_draft_completed').length;
-          const shareCount=userEvts.filter(e=>e.event==='share_results'||e.event==='share_triggered').length;
-          const rankingsStartedU=userEvts.filter(e=>e.event==='ranking_started').length;
-          const rankingsCompletedU=userEvts.filter(e=>e.event==='ranking_completed').length;
-          const lastEvent=userEvts[0];
-          const lastActivity=new Date(Math.max(
-            au.last_sign_in_at?new Date(au.last_sign_in_at):0,
-            b?new Date(b.updated_at):0,
-            lastEvent?new Date(lastEvent.created_at):0
-          ));
-          return{
-            userId:au.id,
-            email:au.email||'',
-            createdAt:au.created_at,
-            updatedAt:lastActivity.toISOString(),
-            rankedPositions:rg.length,
-            rankedGroups:rg,
-            partialPositions:pp.length,
-            partialGroups:pp,
-            noteCount,
-            eventCount:userEvts.length,
-            mockCount,
-            shareCount,
-            rankingsStartedU,
-            rankingsCompletedU,
-            hasBoard:!!b,
-          };
-        }).sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt));
-
-        // Synthetic "Anonymous Visitors" row from guest events
-        const anonEvtsAll=allEvents.filter(e=>e.user_id===null||e.user_id===undefined||e.metadata?.guest===true);
-        if(anonEvtsAll.length>0){
-          const anonMocks=anonEvtsAll.filter(e=>e.event==='mock_draft_completed').length;
-          const anonShares=anonEvtsAll.filter(e=>e.event==='share_results'||e.event==='share_triggered').length;
-          const anonRankStarted=anonEvtsAll.filter(e=>e.event==='ranking_started').length;
-          const anonRankCompleted=anonEvtsAll.filter(e=>e.event==='ranking_completed').length;
-          const anonLast=anonEvtsAll[0];
-          const anonSessions=new Set(anonEvtsAll.map(e=>e.session_id).filter(Boolean)).size;
-          userDetails.unshift({
-            userId:'__anonymous__',
-            email:`anonymous visitors (${anonSessions} sessions)`,
-            createdAt:anonEvtsAll[anonEvtsAll.length-1]?.created_at,
-            updatedAt:anonLast?anonLast.created_at:null,
-            rankedPositions:0,rankedGroups:[],partialPositions:0,partialGroups:[],noteCount:0,
-            eventCount:anonEvtsAll.length,
-            mockCount:anonMocks,shareCount:anonShares,
-            rankingsStartedU:anonRankStarted,rankingsCompletedU:anonRankCompleted,
-            hasBoard:false,isAnon:true,
-          });
+        let allEventsData=[];
+        for(let page=0;;page++){
+          const{data}=await supabase.from('events').select('*').order('created_at',{ascending:false}).range(page*pageSize,(page+1)*pageSize-1);
+          if(!data||data.length===0)break;
+          allEventsData=allEventsData.concat(data);
+          if(data.length<pageSize)break;
         }
-
-        const rankers=userDetails.filter(u=>u.rankedPositions>0);
-        const avgPositions=rankers.length>0?(rankers.reduce((s,u)=>s+u.rankedPositions,0)/rankers.length).toFixed(1):0;
-
-        // Activity heatmap (last 14 days) — from dedicated 14-day query (ordered, up to 50k events)
-        // Use local dates (not UTC) so "today" matches the user's timezone
-        const localDateStr=(dt)=>{const x=new Date(dt);return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');};
-        const heatmapEvents=heatmapAll;
-        const dayMap={};
-        heatmapEvents.forEach(e=>{
-          const d=localDateStr(e.created_at);
-          dayMap[d]=(dayMap[d]||0)+1;
+        setRawData({
+          boards:boardsRes.data||[],
+          community:communityRes.data||[],
+          allEventsData,
+          totalUsers:authCountRes.data||0,
+          authUsers:authUsersRes.data||[],
+          heatmapAll,
         });
-        const heatmap=Array.from({length:14},(_,i)=>{
-          const d=localDateStr(new Date(now-(13-i)*86400000));
-          return{date:d,count:dayMap[d]||0};
-        });
-
-        // Signup heatmap (last 14 days) — from auth user created_at
-        const signupDayMap={};
-        const fourteenAgoLocal=localDateStr(new Date(now-14*86400000));
-        authUsers.forEach(u=>{if(u.created_at){const d=localDateStr(u.created_at);if(d>=fourteenAgoLocal)signupDayMap[d]=(signupDayMap[d]||0)+1;}});
-        const signupHeatmap=Array.from({length:14},(_,i)=>{
-          const d=localDateStr(new Date(now-(13-i)*86400000));
-          return{date:d,count:signupDayMap[d]||0};
-        });
-
-        // Anonymous sessions heatmap (last 14 days) — unique session_ids per day
-        const anonSessionDayMap={};
-        heatmapEvents.filter(e=>!e.user_id).forEach(e=>{
-          const d=localDateStr(e.created_at);
-          if(!anonSessionDayMap[d])anonSessionDayMap[d]=new Set();
-          if(e.session_id)anonSessionDayMap[d].add(e.session_id);
-        });
-        const anonSessionHeatmap=Array.from({length:14},(_,i)=>{
-          const d=localDateStr(new Date(now-(13-i)*86400000));
-          return{date:d,count:anonSessionDayMap[d]?anonSessionDayMap[d].size:0};
-        });
-
-        // Feature usage stats
-        const rankingsStarted=allEvents.filter(e=>e.event==='ranking_started').length;
-        const mocksStarted=allEvents.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').length;
-        const mocksCompleted=allEvents.filter(e=>e.event==='mock_draft_completed').length;
-        const mockCompletedEvents=allEvents.filter(e=>e.event==='mock_draft_completed');
-        const singleTeamMocks=mockCompletedEvents.filter(e=>{const t=e.metadata?.team||'';return t&&!t.includes(',');}).length;
-        const multiTeamMocks=mockCompletedEvents.filter(e=>{const t=e.metadata?.team||'';return t&&t.includes(',');}).length;
-        const allTeamMocks=mockCompletedEvents.filter(e=>{const t=e.metadata?.team||'';return t&&t.split(',').length>=32;}).length;
-        const shareEvents=allEvents.filter(e=>e.event==='share_results'||e.event==='share_triggered');
-        const totalShares=shareEvents.length;
-        const shareUsers=new Set(shareEvents.map(e=>e.user_id)).size;
-        const shareByType={};
-        shareEvents.forEach(e=>{const t=e.metadata?.type||'mock_single';shareByType[t]=(shareByType[t]||0)+1;});
-        const noteUsers=boards.filter(b=>{const d=b.board_data||{};return d.notes&&Object.keys(d.notes).length>0;}).length;
-
-        // Guest / anonymous activity (all-time + last 7 days)
-        const anonEvents=allEvents.filter(e=>e.user_id===null||e.user_id===undefined||e.metadata?.guest===true);
-        const weekAgo=new Date(now-604800000);
-        const anonWeek=anonEvents.filter(e=>new Date(e.created_at)>=weekAgo);
-        const guestMocksStarted=anonEvents.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').length;
-        const guestMocksCompleted=anonEvents.filter(e=>e.event==='mock_draft_completed').length;
-        const guestShares=anonEvents.filter(e=>e.event==='share_results').length;
-        const guestMocksWeek=anonWeek.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').length;
-        const guestTeams={};
-        anonEvents.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').forEach(e=>{
-          const t=e.metadata?.team||e.metadata?.teams;if(t){guestTeams[t]=(guestTeams[t]||0)+1;}
-        });
-        const guestTopTeams=Object.entries(guestTeams).sort((a,b)=>b[1]-a[1]).slice(0,5);
-
-        // Signup flow inference — look at each user's first event to determine entry point
-        const signupFlows={};
-        const signupEvents=allEvents.filter(e=>e.event==='signup');
-        signupEvents.forEach(se=>{
-          const source=se.metadata?.source;
-          if(source){signupFlows[source]=(signupFlows[source]||0)+1;return;}
-          // Infer from first non-signup event for this user
-          const firstEvt=allEvents.filter(e=>e.user_id===se.user_id&&e.event!=='signup'&&e.event!=='login').pop();
-          const flow=firstEvt?
-            (firstEvt.event==='mock_draft_started'||firstEvt.event==='mock_draft_sim_started'||firstEvt.event==='mock_draft_completed'?'mock draft':
-            firstEvt.event==='ranking_started'||firstEvt.event==='ranking_completed'?'pair rank':
-            firstEvt.event==='share_results'||firstEvt.event==='share_triggered'?'share':
-            'homepage'):'homepage';
-          signupFlows[flow]=(signupFlows[flow]||0)+1;
-        });
-
-        // Funnel step counts — guest activity is true top of funnel
-        const funnelVisited=guestMocksStarted+totalUsers;
-        const funnelSignedUp=totalUsers;
-        const funnelRankedPos=new Set([...allEvents.filter(e=>e.event==='ranking_completed').map(e=>e.user_id),...boards.filter(b=>(b.board_data?.rankedGroups||[]).length>0).map(b=>b.user_id)]).size;
-        const funnelRanMock=new Set(allEvents.filter(e=>e.event==='mock_draft_started'||e.event==='mock_draft_completed').filter(e=>e.user_id).map(e=>e.user_id)).size;
-        const funnelShared=new Set(allEvents.filter(e=>e.event==='share_triggered'||e.event==='share_results').filter(e=>e.user_id).map(e=>e.user_id)).size;
-
-        setStats({totalUsers,activeToday,activeWeek,posStats,partialCount,avgPositions,hasNotes,
-          communityUsers:community.length,eventCounts,uniqueEventUsers,signupsToday,signupsWeek,
-          mockDrafts,mockDraftUsers,rankingsCompleted,
-          heatmap,signupHeatmap,anonSessionHeatmap,rankingsStarted,mocksStarted,mocksCompleted,singleTeamMocks,multiTeamMocks,allTeamMocks,totalShares,shareUsers,shareByType,noteUsers,
-          guestMocksStarted,guestMocksCompleted,guestShares,guestMocksWeek,guestTopTeams,
-          signupFlows,
-          funnelVisited,funnelSignedUp,funnelRankedPos,funnelRanMock,funnelShared,
-        });
-        setUsers(userDetails);
-        setAllEventsRaw(allEventsData);
-        setEvents(allEvents.slice(0,50));
-      }catch(e){console.error('Admin fetch error:',e);setStats(null);}
+      }catch(e){console.error('Admin fetch error:',e);setRawData(null);}
       setLoading(false);
     })();
   },[]);
-  // Filter events/stats based on admin toggle (must be before early return)
+
+  // Derive ALL stats reactively from raw data + excludeAdmin toggle
   const adminId=user?.id;
-  const displayEvents=excludeAdmin?events:(allEventsRaw||[]).slice(0,50);
+  const computed=useMemo(()=>{
+    if(!rawData)return null;
+    const{boards,community,allEventsData,totalUsers,authUsers,heatmapAll}=rawData;
+    const allEventsFiltered=excludeAdmin&&adminId?allEventsData.filter(e=>e.user_id!==adminId):allEventsData;
+    // Deduplicate signups — keep only earliest signup per user, discard duplicates
+    const seenSignupUser=new Set();
+    const allEvents=[];
+    for(let i=allEventsFiltered.length-1;i>=0;i--){
+      const e=allEventsFiltered[i];
+      if(e.event==='signup'){
+        if(seenSignupUser.has(e.user_id))continue;
+        seenSignupUser.add(e.user_id);
+      }
+      allEvents.push(e);
+    }
+    allEvents.reverse();
+
+    const now=new Date();
+    const activeToday=authUsers.filter(u=>u.last_sign_in_at&&(now-new Date(u.last_sign_in_at))<86400000).length;
+    const activeWeek=authUsers.filter(u=>u.last_sign_in_at&&(now-new Date(u.last_sign_in_at))<604800000).length;
+    const signupsToday=authUsers.filter(u=>(now-new Date(u.created_at))<86400000).length;
+    const signupsWeek=authUsers.filter(u=>(now-new Date(u.created_at))<604800000).length;
+
+    const eventCounts={};
+    allEvents.forEach(e=>{eventCounts[e.event]=(eventCounts[e.event]||0)+1;});
+    const uniqueEventUsers={};
+    allEvents.forEach(e=>{if(!uniqueEventUsers[e.event])uniqueEventUsers[e.event]=new Set();uniqueEventUsers[e.event].add(e.user_id);});
+
+    const mockDrafts=allEvents.filter(e=>e.event==='mock_draft_started').length;
+    const mockDraftUsers=new Set(allEvents.filter(e=>e.event==='mock_draft_started').map(e=>e.user_id)).size;
+    const rankingsCompleted=allEvents.filter(e=>e.event==='ranking_completed').length;
+
+    const posStats={};
+    const partialCount={};
+    let hasNotes=0;
+    const boardMap=new Map(boards.map(b=>[b.user_id,b]));
+    boards.forEach(b=>{
+      const d=b.board_data||{};
+      const rg=d.rankedGroups||[];
+      const pp=d.partialProgress?Object.keys(d.partialProgress):[];
+      if(d.notes&&Object.keys(d.notes).length>0)hasNotes++;
+      rg.forEach(pos=>{posStats[pos]=(posStats[pos]||0)+1;});
+      pp.forEach(pos=>{partialCount[pos]=(partialCount[pos]||0)+1;});
+    });
+
+    const userDetails=authUsers.map(au=>{
+      const b=boardMap.get(au.id);
+      const d=b?.board_data||{};
+      const rg=d.rankedGroups||[];
+      const pp=d.partialProgress?Object.keys(d.partialProgress):[];
+      const noteCount=d.notes?Object.keys(d.notes).length:0;
+      const userEvts=allEvents.filter(e=>e.user_id===au.id);
+      const mockCount=userEvts.filter(e=>e.event==='mock_draft_completed').length;
+      const shareCount=userEvts.filter(e=>e.event==='share_results'||e.event==='share_triggered').length;
+      const rankingsStartedU=userEvts.filter(e=>e.event==='ranking_started').length;
+      const rankingsCompletedU=userEvts.filter(e=>e.event==='ranking_completed').length;
+      const lastEvent=userEvts[0];
+      const lastActivity=new Date(Math.max(
+        au.last_sign_in_at?new Date(au.last_sign_in_at):0,
+        b?new Date(b.updated_at):0,
+        lastEvent?new Date(lastEvent.created_at):0
+      ));
+      return{
+        userId:au.id,email:au.email||'',createdAt:au.created_at,
+        updatedAt:lastActivity.toISOString(),
+        rankedPositions:rg.length,rankedGroups:rg,
+        partialPositions:pp.length,partialGroups:pp,noteCount,
+        eventCount:userEvts.length,mockCount,shareCount,
+        rankingsStartedU,rankingsCompletedU,hasBoard:!!b,
+      };
+    }).sort((a,b)=>new Date(b.updatedAt)-new Date(a.updatedAt));
+
+    const anonEvtsAll=allEvents.filter(e=>e.user_id===null||e.user_id===undefined||e.metadata?.guest===true);
+    if(anonEvtsAll.length>0){
+      const anonMocks=anonEvtsAll.filter(e=>e.event==='mock_draft_completed').length;
+      const anonShares=anonEvtsAll.filter(e=>e.event==='share_results'||e.event==='share_triggered').length;
+      const anonRankStarted=anonEvtsAll.filter(e=>e.event==='ranking_started').length;
+      const anonRankCompleted=anonEvtsAll.filter(e=>e.event==='ranking_completed').length;
+      const anonLast=anonEvtsAll[0];
+      const anonSessions=new Set(anonEvtsAll.map(e=>e.session_id).filter(Boolean)).size;
+      userDetails.unshift({
+        userId:'__anonymous__',
+        email:`anonymous visitors (${anonSessions} sessions)`,
+        createdAt:anonEvtsAll[anonEvtsAll.length-1]?.created_at,
+        updatedAt:anonLast?anonLast.created_at:null,
+        rankedPositions:0,rankedGroups:[],partialPositions:0,partialGroups:[],noteCount:0,
+        eventCount:anonEvtsAll.length,
+        mockCount:anonMocks,shareCount:anonShares,
+        rankingsStartedU:anonRankStarted,rankingsCompletedU:anonRankCompleted,
+        hasBoard:false,isAnon:true,
+      });
+    }
+
+    const rankers=userDetails.filter(u=>u.rankedPositions>0);
+    const avgPositions=rankers.length>0?(rankers.reduce((s,u)=>s+u.rankedPositions,0)/rankers.length).toFixed(1):0;
+
+    const localDateStr=(dt)=>{const x=new Date(dt);return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');};
+    const dayMap={};
+    heatmapAll.forEach(e=>{const d=localDateStr(e.created_at);dayMap[d]=(dayMap[d]||0)+1;});
+    const heatmap=Array.from({length:14},(_,i)=>{const d=localDateStr(new Date(now-(13-i)*86400000));return{date:d,count:dayMap[d]||0};});
+
+    const signupDayMap={};
+    const fourteenAgoLocal=localDateStr(new Date(now-14*86400000));
+    authUsers.forEach(u=>{if(u.created_at){const d=localDateStr(u.created_at);if(d>=fourteenAgoLocal)signupDayMap[d]=(signupDayMap[d]||0)+1;}});
+    const signupHeatmap=Array.from({length:14},(_,i)=>{const d=localDateStr(new Date(now-(13-i)*86400000));return{date:d,count:signupDayMap[d]||0};});
+
+    const anonSessionDayMap={};
+    heatmapAll.filter(e=>!e.user_id).forEach(e=>{const d=localDateStr(e.created_at);if(!anonSessionDayMap[d])anonSessionDayMap[d]=new Set();if(e.session_id)anonSessionDayMap[d].add(e.session_id);});
+    const anonSessionHeatmap=Array.from({length:14},(_,i)=>{const d=localDateStr(new Date(now-(13-i)*86400000));return{date:d,count:anonSessionDayMap[d]?anonSessionDayMap[d].size:0};});
+
+    const rankingsStarted=allEvents.filter(e=>e.event==='ranking_started').length;
+    const mocksStarted=allEvents.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').length;
+    const mocksCompleted=allEvents.filter(e=>e.event==='mock_draft_completed').length;
+    const mockCompletedEvents=allEvents.filter(e=>e.event==='mock_draft_completed');
+    const singleTeamMocks=mockCompletedEvents.filter(e=>{const t=e.metadata?.team||'';return t&&!t.includes(',');}).length;
+    const multiTeamMocks=mockCompletedEvents.filter(e=>{const t=e.metadata?.team||'';return t&&t.includes(',');}).length;
+    const allTeamMocks=mockCompletedEvents.filter(e=>{const t=e.metadata?.team||'';return t&&t.split(',').length>=32;}).length;
+    const shareEvents=allEvents.filter(e=>e.event==='share_results'||e.event==='share_triggered');
+    const totalShares=shareEvents.length;
+    const shareUsers=new Set(shareEvents.map(e=>e.user_id)).size;
+    const shareByType={};
+    shareEvents.forEach(e=>{const t=e.metadata?.type||'mock_single';shareByType[t]=(shareByType[t]||0)+1;});
+    const noteUsers=boards.filter(b=>{const d=b.board_data||{};return d.notes&&Object.keys(d.notes).length>0;}).length;
+
+    const anonEvents=allEvents.filter(e=>e.user_id===null||e.user_id===undefined||e.metadata?.guest===true);
+    const weekAgo=new Date(now-604800000);
+    const anonWeek=anonEvents.filter(e=>new Date(e.created_at)>=weekAgo);
+    const guestMocksStarted=anonEvents.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').length;
+    const guestMocksCompleted=anonEvents.filter(e=>e.event==='mock_draft_completed').length;
+    const guestShares=anonEvents.filter(e=>e.event==='share_results').length;
+    const guestMocksWeek=anonWeek.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').length;
+    const guestTeams={};
+    anonEvents.filter(e=>e.event==='mock_draft_sim_started'||e.event==='mock_draft_started').forEach(e=>{
+      const t=e.metadata?.team||e.metadata?.teams;if(t){guestTeams[t]=(guestTeams[t]||0)+1;}
+    });
+    const guestTopTeams=Object.entries(guestTeams).sort((a,b)=>b[1]-a[1]).slice(0,5);
+
+    const signupFlows={};
+    const signupEventsArr=allEvents.filter(e=>e.event==='signup');
+    signupEventsArr.forEach(se=>{
+      const source=se.metadata?.source;
+      if(source){signupFlows[source]=(signupFlows[source]||0)+1;return;}
+      const firstEvt=allEvents.filter(e=>e.user_id===se.user_id&&e.event!=='signup'&&e.event!=='login').pop();
+      const flow=firstEvt?
+        (firstEvt.event==='mock_draft_started'||firstEvt.event==='mock_draft_sim_started'||firstEvt.event==='mock_draft_completed'?'mock draft':
+        firstEvt.event==='ranking_started'||firstEvt.event==='ranking_completed'?'pair rank':
+        firstEvt.event==='share_results'||firstEvt.event==='share_triggered'?'share':
+        'homepage'):'homepage';
+      signupFlows[flow]=(signupFlows[flow]||0)+1;
+    });
+
+    const funnelSignedUp=totalUsers;
+    const funnelRankedPos=new Set([...allEvents.filter(e=>e.event==='ranking_completed').map(e=>e.user_id),...boards.filter(b=>(b.board_data?.rankedGroups||[]).length>0).map(b=>b.user_id)]).size;
+    const funnelRanMock=new Set(allEvents.filter(e=>e.event==='mock_draft_started'||e.event==='mock_draft_completed').filter(e=>e.user_id).map(e=>e.user_id)).size;
+    const funnelShared=new Set(allEvents.filter(e=>e.event==='share_triggered'||e.event==='share_results').filter(e=>e.user_id).map(e=>e.user_id)).size;
+
+    return{
+      stats:{totalUsers,activeToday,activeWeek,posStats,partialCount,avgPositions,hasNotes,
+        communityUsers:community.length,eventCounts,uniqueEventUsers,signupsToday,signupsWeek,
+        mockDrafts,mockDraftUsers,rankingsCompleted,
+        heatmap,signupHeatmap,anonSessionHeatmap,rankingsStarted,mocksStarted,mocksCompleted,singleTeamMocks,multiTeamMocks,allTeamMocks,totalShares,shareUsers,shareByType,noteUsers,
+        guestMocksStarted,guestMocksCompleted,guestShares,guestMocksWeek,guestTopTeams,
+        signupFlows,
+        funnelSignedUp,funnelRankedPos,funnelRanMock,funnelShared,
+      },
+      users:userDetails,
+      displayEvents:allEvents.slice(0,50),
+      allEventsRaw:allEventsFiltered,
+    };
+  },[rawData,excludeAdmin,adminId]);
+  const stats=computed?.stats||null;
+  const users=computed?.users||[];
+  const displayEvents=computed?.displayEvents||[];
   const displayEventCounts=useMemo(()=>{
-    const raw=allEventsRaw||[];
-    const src=excludeAdmin?raw.filter(e=>e.user_id!==adminId):raw;
-    const counts={};src.forEach(e=>{counts[e.event]=(counts[e.event]||0)+1;});
-    const unique={};src.forEach(e=>{if(!unique[e.event])unique[e.event]=new Set();unique[e.event].add(e.user_id);});
-    return{counts,unique};
-  },[excludeAdmin,allEventsRaw,adminId]);
+    if(!computed)return{counts:{},unique:{}};
+    return{counts:stats.eventCounts,unique:stats.uniqueEventUsers};
+  },[computed,stats]);
 
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading admin...</p></div>;
   if(!stats)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:12}}><p style={{fontFamily:sans,fontSize:14,color:"#dc2626"}}>failed to load admin data</p><button onClick={onBack} style={{fontFamily:sans,fontSize:13,padding:"8px 20px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>← back</button></div>;
@@ -2091,10 +2058,10 @@ function AdminDashboard({user,onBack}){
         {/* SECTION 1: KPI Strip — 4 cards */}
         <div className="admin-kpi">
           {[
-            {label:"Users",value:stats.totalUsers,sub:`+${stats.signupsWeek} this week`,color:"#171717"},
+            {label:"Users (all-time)",value:stats.totalUsers,sub:`+${stats.signupsWeek} this week`,color:"#171717"},
             {label:"Active (7d)",value:stats.activeWeek,sub:`${stats.activeToday} today`,color:"#3b82f6"},
-            {label:"Mocks Run",value:stats.mocksCompleted,sub:`${stats.mockDraftUsers} users`,color:"#f59e0b"},
-            {label:"Shared",value:stats.totalShares,sub:`${stats.shareUsers} users`,color:"#22c55e"},
+            {label:"Mocks Run (all-time)",value:stats.mocksCompleted,sub:`${stats.mockDraftUsers} users`,color:"#f59e0b"},
+            {label:"Shared (all-time)",value:stats.totalShares,sub:`${stats.shareUsers} users`,color:"#22c55e"},
           ].map(c=>(
             <div key={c.label} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:10,padding:"16px 18px",textAlign:"center"}}>
               <div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c.color,lineHeight:1}}>{c.value}</div>
@@ -2107,7 +2074,6 @@ function AdminDashboard({user,onBack}){
         {/* SECTION 2: Conversion Funnel — step-over-step */}
         {(()=>{
           const steps=[
-            {label:`Visited (${stats.guestMocksStarted} guests + ${stats.funnelSignedUp} signed up)`,count:stats.funnelVisited,color:"#a3a3a3"},
             {label:"Signed Up",count:stats.funnelSignedUp,color:"#171717"},
             {label:"Ranked a Position",count:stats.funnelRankedPos,color:"#3b82f6"},
             {label:"Ran a Mock Draft",count:stats.funnelRanMock,color:"#f59e0b"},
@@ -2115,7 +2081,7 @@ function AdminDashboard({user,onBack}){
           ];
           const topCount=steps[0].count||1;
           return<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:24}}>
-            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:16}}>conversion funnel</div>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:16}}>conversion funnel (all-time)</div>
             {steps.map((step,i)=>{
               const prevCount=i>0?steps[i-1].count:step.count;
               const convPct=prevCount>0?Math.round(step.count/prevCount*100):0;
@@ -2203,7 +2169,7 @@ function AdminDashboard({user,onBack}){
         {/* Guest Activity + Signup Flows — side by side */}
         <div className="admin-2col">
           <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
-            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>guest activity</div>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>guest activity (all-time)</div>
             <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
               {[["Mocks Started",stats.guestMocksStarted,"#737373"],["Mocks Completed",stats.guestMocksCompleted,"#525252"],["Shares",stats.guestShares,"#22c55e"]].map(([l,v,c])=>(
                 <div key={l} style={{padding:"6px 12px",background:"#f9f9f7",borderRadius:6,textAlign:"center",minWidth:80}}>
@@ -2223,7 +2189,7 @@ function AdminDashboard({user,onBack}){
             </div>}
           </div>
           <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
-            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>signup flows</div>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>signup flows (all-time)</div>
             {Object.keys(stats.signupFlows||{}).length>0?<div style={{display:"flex",flexDirection:"column",gap:6}}>
               {Object.entries(stats.signupFlows).sort((a,b)=>b[1]-a[1]).map(([flow,count])=>{
                 const total=Object.values(stats.signupFlows).reduce((s,v)=>s+v,0);
@@ -2263,26 +2229,23 @@ function AdminDashboard({user,onBack}){
           </div>
           {/* Right: Feature Usage */}
           <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
-            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>feature usage</div>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>feature usage (all-time)</div>
             <div style={{display:"flex",flexDirection:"column",gap:8}}>
-              {[
-                {label:"Rankings",started:stats.rankingsStarted,completed:stats.rankingsCompleted,color:"#3b82f6"},
-                {label:"Mocks",started:stats.mocksStarted,completed:stats.mocksCompleted,color:"#f59e0b"},
-              ].map(f=>{
-                const rate=f.started>0?Math.round(f.completed/f.started*100):0;
-                return<div key={f.label} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
-                  <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>{f.label}</span>
-                  <span style={{fontFamily:mono,fontSize:11,color:f.color}}>{f.completed} <span style={{color:"#a3a3a3",fontSize:10}}>completed</span> / {f.started} <span style={{color:"#a3a3a3",fontSize:10}}>started</span> <span style={{fontWeight:700,color:f.color}}>{rate}%</span></span>
+              {(()=>{const rate=stats.rankingsStarted>0?Math.round(stats.rankingsCompleted/stats.rankingsStarted*100):0;
+                return<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
+                  <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Rankings</span>
+                  <span style={{fontFamily:mono,fontSize:11,color:"#3b82f6"}}>{stats.rankingsCompleted} <span style={{color:"#a3a3a3",fontSize:10}}>completed</span> / {stats.rankingsStarted} <span style={{color:"#a3a3a3",fontSize:10}}>started</span> <span style={{fontWeight:700,color:"#3b82f6"}}>{rate}%</span></span>
                 </div>;
-              })}
-              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
-                <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Completed Mocks</span>
-                <span style={{fontFamily:mono,fontSize:11,color:"#f59e0b"}}>{stats.singleTeamMocks} <span style={{color:"#a3a3a3",fontSize:10}}>1-team</span> · {stats.multiTeamMocks-stats.allTeamMocks} <span style={{color:"#a3a3a3",fontSize:10}}>multi</span> · {stats.allTeamMocks} <span style={{color:"#a3a3a3",fontSize:10}}>32-team</span></span>
-              </div>
-              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
-                <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Shares</span>
-                <span style={{fontFamily:mono,fontSize:11,color:"#22c55e"}}>{stats.totalShares} <span style={{color:"#a3a3a3",fontSize:10}}>total · {stats.shareUsers} users</span></span>
-              </div>
+              })()}
+              {(()=>{const rate=stats.mocksStarted>0?Math.round(stats.mocksCompleted/stats.mocksStarted*100):0;
+                return<div style={{padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
+                  <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                    <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Mocks</span>
+                    <span style={{fontFamily:mono,fontSize:11,color:"#f59e0b"}}>{stats.mocksCompleted} <span style={{color:"#a3a3a3",fontSize:10}}>completed</span> / {stats.mocksStarted} <span style={{color:"#a3a3a3",fontSize:10}}>started</span> <span style={{fontWeight:700,color:"#f59e0b"}}>{rate}%</span></span>
+                  </div>
+                  <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginTop:3,textAlign:"right"}}>{stats.singleTeamMocks} <span style={{fontSize:9}}>1-team</span> · {stats.multiTeamMocks-stats.allTeamMocks} <span style={{fontSize:9}}>multi</span> · {stats.allTeamMocks} <span style={{fontSize:9}}>32-team</span></div>
+                </div>;
+              })()}
               {stats.shareByType&&Object.keys(stats.shareByType).length>0&&<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 10px",background:"#f9f9f7",borderRadius:6}}>
                 <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Share Breakdown</span>
                 <span style={{fontFamily:mono,fontSize:11,color:"#22c55e"}}>{Object.entries(stats.shareByType).sort((a,b)=>b[1]-a[1]).map(([t,c])=><span key={t}>{c} <span style={{color:"#a3a3a3",fontSize:10}}>{t.replace(/_/g,' ')}</span></span>).reduce((a,b)=>[a,' · ',b])}</span>
@@ -2301,7 +2264,7 @@ function AdminDashboard({user,onBack}){
 
         {/* All Events — compact pills */}
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:24}}>
-          <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>all events by type</div>
+          <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>all events by type (all-time)</div>
           <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
             {Object.entries(displayEventCounts.counts||{}).sort((a,b)=>b[1]-a[1]).map(([evt,count])=>{
               const uu=displayEventCounts.unique?.[evt]?.size||0;
@@ -2332,11 +2295,11 @@ function AdminDashboard({user,onBack}){
                   <span style={{fontFamily:mono,fontSize:10,color:"#525252",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{u.email||u.userId.slice(0,12)+'…'}</span>
                   <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:tag.color,background:tag.bg,padding:"2px 6px",borderRadius:4,textAlign:"center"}}>{tag.label}</span>
                   <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:u.rankedPositions>0?"#22c55e":"#e5e5e5",textAlign:"center"}}>{u.rankedPositions}/{POSITION_GROUPS.length}</span>
-                  <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:u.eventCount>0?"#3b82f6":"#e5e5e5",textAlign:"center"}}>{u.eventCount}</span>
+                  <span style={{fontFamily:mono,fontSize:11,fontWeight:700,textAlign:"center"}}><span style={{color:u.mockCount>0?"#f59e0b":"#e5e5e5"}}>{u.mockCount}m</span> <span style={{color:u.rankedPositions>0?"#3b82f6":"#e5e5e5"}}>{u.rankedPositions}r</span>{u.eventCount>0&&<span style={{fontSize:9,color:"#d4d4d4",marginLeft:2}}>{u.eventCount}e</span>}</span>
                   <span className="admin-table-hide" style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.updatedAt?new Date(u.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric'})+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
                 </div>
                 {isExp&&(()=>{
-                  const ue={};(allEventsRaw||[]).filter(e=>u.isAnon?(e.user_id===null||e.user_id===undefined||e.metadata?.guest===true):e.user_id===u.userId).forEach(e=>{ue[e.event]=(ue[e.event]||0)+1;});
+                  const ue={};(computed?.allEventsRaw||[]).filter(e=>u.isAnon?(e.user_id===null||e.user_id===undefined||e.metadata?.guest===true):e.user_id===u.userId).forEach(e=>{ue[e.event]=(ue[e.event]||0)+1;});
                   const evtColor=ev=>ev==='signup'||ev==='login'?"#22c55e":ev.includes('mock_draft')?"#f59e0b":ev.includes('ranking')?"#3b82f6":ev.includes('share')?"#22c55e":ev==='session_return'?"#a3a3a3":"#8b5cf6";
                   return<div style={{padding:"8px 16px 12px",background:"#f9f9f7",borderBottom:i<users.length-1?"1px solid #e5e5e5":"none"}}>
                   <div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:8}}>
