@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { supabase } from "./supabase.js";
 import MockDraftSim from "./MockDraftSim.jsx";
-import { CONSENSUS_BOARD, getConsensusRank, getConsensusGrade, TEAM_NEEDS_DETAILED } from "./consensusData.js";
+import { CONSENSUS_BOARD, getConsensusRank, getConsensusGrade, getConsensusRound, TEAM_NEEDS_DETAILED } from "./consensusData.js";
 import { getProspectStats } from "./prospectStats.js";
 import { getStatBasedTraits } from "./statTraits.js";
 import { getScoutingTraits } from "./scoutingData.js";
@@ -36,7 +36,7 @@ const PROSPECTS_RAW = [
   {name:"Ryan Eckley",school:"Michigan State",pos:"K/P"},{name:"Drew Stevens",school:"Iowa",pos:"K/P"},{name:"Luke Basso",school:"Oregon",pos:"K/P"},{name:"Beau Gardner",school:"Georgia",pos:"K/P"},{name:"Will Ferrin",school:"BYU",pos:"K/P"},{name:"Trey Smack",school:"Florida",pos:"K/P"},{name:"Tommy Doman Jr.",school:"Florida",pos:"K/P"},{name:"Garrison Grimes",school:"BYU",pos:"K/P"},{name:"Tyler Duzansky",school:"Penn State",pos:"K/P"},{name:"Jack Stonehouse",school:"Syracuse",pos:"K/P"},{name:"Dominic Zvada",school:"Michigan",pos:"K/P"},{name:"Palmer Williams",school:"Baylor",pos:"K/P"},{name:"Brett Thorson",school:"Georgia",pos:"K/P"},
 ];
 const PROSPECTS = PROSPECTS_RAW.map((p,i)=>({...p,id:`p${i}`,gpos:(getProspectStats(p.name,p.school)?.gpos)||p.pos}));
-const SCHOOL_ESPN_ID={"Alabama":333,"Arizona State":9,"Arizona":12,"Arkansas":8,"Auburn":2,"BYU":252,"Baylor":239,"Boise State":68,"Boston College":103,"Buffalo":2084,"Cal":25,"California":25,"Central Michigan":2117,"Cincinnati":2132,"Clemson":228,"Dartmouth":159,"Duke":150,"Florida International":2229,"Florida State":52,"Florida":57,"Georgia State":2247,"Georgia Tech":59,"Georgia":61,"Houston":248,"Illinois":356,"Incarnate Word":2916,"Indiana":84,"Iowa State":66,"Iowa":2294,"James Madison":256,"Kansas State":2306,"Kansas":2305,"Kentucky":96,"LSU":99,"Louisiana Tech":2348,"Louisiana-Lafayette":309,"Louisville":97,"Maryland":120,"Memphis":235,"Miami":2390,"Miami (FL)":2390,"Miami (OH)":193,"Michigan State":127,"Michigan":130,"Minnesota":135,"Mississippi State":344,"Mississippi":145,"Missouri":142,"Montana":149,"N.C. State":152,"NC State":152,"Navy":2426,"Nebraska":158,"New Mexico":167,"North Carolina":153,"North Dakota State":2449,"Northwestern":77,"Notre Dame":87,"Ohio State":194,"Oklahoma":201,"Oregon":2483,"Oregon State":204,"Penn State":213,"Pittsburgh":221,"Rutgers":164,"SMU":2567,"San Diego State":21,"Slippery Rock":2596,"South Alabama":6,"South Carolina":2579,"South Carolina State":2569,"Southeastern Louisiana":2545,"Southern Miss":2572,"Stanford":24,"Stephen F. Austin":2617,"Syracuse":183,"TCU":2628,"Tennessee":2633,"Texas A&M":245,"Texas State":326,"Texas Tech":2641,"Texas":251,"Toledo":2649,"UCF":2116,"UCLA":26,"UConn":41,"USC":30,"UTSA":2636,"Utah":254,"Vanderbilt":238,"Virginia":258,"Virginia Tech":259,"Virginia Union":2762,"Wake Forest":154,"Washington":264,"Western Michigan":2711,"Wisconsin":275,"Wyoming":2751};
+const SCHOOL_ESPN_ID={"Alabama":333,"Arizona State":9,"Arizona St.":9,"Arizona":12,"Arkansas":8,"Arkansas State":2032,"Arkansas St.":2032,"Auburn":2,"BYU":252,"Baylor":239,"Boise State":68,"Boise St.":68,"Boston College":103,"Boston Col.":103,"Bowling Green":189,"Buffalo":2084,"Ball State":2050,"Cal":25,"California":25,"Central Florida":2116,"Central Michigan":2117,"Charlotte":2429,"Cincinnati":2132,"Clemson":228,"Coastal Carolina":324,"Colorado":38,"Colorado State":36,"Colorado St.":36,"Connecticut":41,"Dartmouth":159,"Duke":150,"East Carolina":151,"Eastern Washington":331,"East. Washington":331,"Florida Atlantic":2226,"Florida International":2229,"Florida State":52,"Florida St.":52,"Florida":57,"Fresno State":278,"Georgia Southern":290,"Georgia State":2247,"Georgia Tech":59,"Georgia":61,"Grambling State":2755,"Hawaii":62,"Houston":248,"Howard":47,"Idaho":70,"Illinois":356,"Illinois State":2287,"Incarnate Word":2916,"Indiana":84,"Iowa State":66,"Iowa St.":66,"Iowa":2294,"Jackson State":2296,"Jacksonville State":55,"James Madison":256,"Kansas State":2306,"Kansas St.":2306,"Kansas":2305,"Kentucky":96,"LSU":99,"Louisiana St":99,"Louisiana Tech":2348,"Louisiana-Lafayette":309,"Louisiana":309,"Louisville":97,"Liberty":2335,"Marshall":276,"Maryland":120,"Massachusetts":113,"Memphis":235,"Miami":2390,"Miami (FL)":2390,"Miami (OH)":193,"Miami (Ohio)":193,"Michigan State":127,"Michigan St.":127,"Michigan":130,"Middle Tennessee State":2393,"Minnesota":135,"Mississippi State":344,"Mississippi St.":344,"Mississippi":145,"Missouri":142,"Montana":149,"Montana State":147,"N.C. State":152,"NC State":152,"North Carolina State":152,"North Carolina St.":152,"Navy":2426,"Nebraska":158,"Nevada":2440,"New Mexico":167,"North Carolina":153,"North Carolina A&T":2448,"North Dakota State":2449,"North Texas":249,"Northern Illinois":2459,"Northwestern":77,"Notre Dame":87,"Ohio":195,"Ohio State":194,"Ohio St.":194,"Oklahoma":201,"Oklahoma State":197,"Oklahoma St.":197,"Old Dominion":295,"Oregon":2483,"Oregon State":204,"Oregon St.":204,"Penn State":213,"Penn St.":213,"Pittsburgh":221,"Purdue":2509,"Rice":242,"Rutgers":164,"SMU":2567,"San Diego State":21,"San Diego St.":21,"San Jose State":23,"San Jose St.":23,"Slippery Rock":2596,"South Alabama":6,"South Carolina":2579,"South Carolina State":2569,"South Dakota State":2571,"South Florida":58,"Southeastern Louisiana":2545,"Southern Illinois":79,"Southern Miss":2572,"Stanford":24,"Stephen F. Austin":2617,"Syracuse":183,"TCU":2628,"Temple":218,"Tennessee":2633,"Tennessee State":2634,"Texas A&M":245,"Texas State":326,"Texas Tech":2641,"Texas":251,"Texas-El Paso":2638,"Toledo":2649,"Troy":2653,"Tulane":2655,"Tulsa":202,"UCF":2116,"UCLA":26,"UConn":41,"UNLV":2439,"USC":30,"UTSA":2636,"Utah":254,"Utah State":328,"Vanderbilt":238,"Virginia":258,"Virginia Tech":259,"Virginia Union":2762,"Wake Forest":154,"Washington":264,"Washington State":265,"Washington St.":265,"West Virginia":277,"West. Michigan":2711,"Western Kentucky":98,"Western Michigan":2711,"Air Force":2005,"Akron":2006,"Appalachian State":2026,"Appalachian St.":2026,"Wisconsin":275,"Wyoming":2751,"Ala-Birmingham":5,"UAB":5,"Tenn-Chattanooga":236,"Tennessee-Chattanooga":236,"NW State (LA)":2466,"Northwestern St. (LA)":2466,"Northwestern State":2466,"La-Monroe":2433,"Louisiana-Monroe":2433,"East. Kentucky":2198,"Eastern Kentucky":2198,"East. Illinois":2197,"Eastern Illinois":2197,"East. Michigan":2199,"Eastern Michigan":2199,"Ark-Pine Bluff":2029,"University of Arkansas at Pine Bluff":2029,"Richmond":257,"Weber State":2692,"Northern Iowa":2460,"Central Arkansas":2110,"Furman":231,"Portland State":2502,"Harvard":108,"Florida A&M":50,"West Texas A&M":2704,"William & Mary":2729,"New Mexico State":166,"Southern Utah":253,"Southern Utah St.":253,"Youngstown State":2754,"Kent State":2309,"Kent St.":2309,"Northern Arizona":2464,"Cal Poly":13,"Villanova":222,"Norfolk State":2450,"Princeton":163,"Samford":2535,"Maine":311,"Abilene Christian":2000,"Citadel":2643,"Cornell":172,"South Dakota":233,"South Dakota St.":2571,"North Dakota St.":2449,"North Dakota":2448,"Elon":2210,"Army":349,"New Hampshire":160,"Idaho State":304,"Fordham":2230,"Lehigh":2329,"Rhode Island":227,"California-Davis":302,"UC Davis":302,"Northwest Missouri State":138,"Indiana (PA)":2291,"Fresno St.":278,"SE Louisiana":2545,"Texas-San Antonio":2636,"West. Carolina":2717,"West. Illinois":2710,"Western Illinois":2710,"Murray State":2413,"Morgan State":2404,"Central Oklahoma":2085,"McNeese State":2377,"Nicholls State":2447,"Nicholls St.":2447,"Sacramento State":16,"Sacramento St.":16,"Stony Brook":2617,"North Carolina Central":2428};
 function schoolLogo(s){const id=SCHOOL_ESPN_ID[s];return id?`https://a.espncdn.com/i/teamlogos/ncaa/500/${id}.png`:null;}
 const POSITION_TRAITS={QB:["Arm Strength","Accuracy","Pocket Presence","Mobility","Decision Making","Leadership"],RB:["Vision","Contact Balance","Power","Elusiveness","Pass Catching","Speed"],WR:["Route Running","Separation","Hands","YAC Ability","Speed","Contested Catches"],TE:["Receiving","Route Running","Blocking","Athleticism","Hands","Speed"],OT:["Pass Protection","Run Blocking","Footwork","Anchor","Athleticism","Strength"],IOL:["Pass Protection","Run Blocking","Pulling","Strength","Anchor","Versatility"],EDGE:["Pass Rush","Bend","First Step","Power","Motor","Run Defense"],DL:["Pass Rush","Run Defense","First Step","Hand Usage","Motor","Strength"],LB:["Tackling","Coverage","Pass Rush","Instincts","Athleticism","Range"],CB:["Man Coverage","Ball Skills","Zone Coverage","Speed","Press","Nickel"],S:["Man Coverage","Range","Ball Skills","Tackling","Speed","Nickel"],"K/P":["Leg Strength","Accuracy","Consistency","Clutch","Directional Control","Hang Time"]};
 const TRAIT_EMOJI={"Arm Strength":"💪","Accuracy":"🎯","Pocket Presence":"🧊","Mobility":"🏃","Decision Making":"🧠","Leadership":"👑","Vision":"👁️","Contact Balance":"⚖️","Power":"🦬","Elusiveness":"💨","Pass Catching":"🧤","Route Running":"🔄","Separation":"🔓","Hands":"🤲","YAC Ability":"🔥","Speed":"🏎️","Contested Catches":"🏈","Receiving":"📡","Blocking":"🧱","Athleticism":"🦅","Versatility":"🔄","Run Blocking":"🏗️","Footwork":"👟","Anchor":"⚓","Pulling":"🚂","Strength":"🏋️","Pass Rush":"🚀","Bend":"🐍","First Step":"⚡","Hand Usage":"🤚","Motor":"🔥","Run Defense":"🧱","Tackling":"💥","Coverage":"🪂","Man Coverage":"👤","Zone Coverage":"🗺️","Nickel":"🔁","Instincts":"🧠","Range":"📡","Ball Skills":"🧲","Press":"✋","Leg Strength":"🦵","Consistency":"📊","Clutch":"❄️","Directional Control":"🧭","Hang Time":"⏱️","Pass Protection":"🛡️"};
@@ -137,11 +137,140 @@ function getMeasRadarData(name,school){const cs=getCombineScores(name,school);if
 // ============================================================
 function SchoolLogo({school,size=32}){const[err,setErr]=useState(false);const url=schoolLogo(school);if(!url||err)return<div style={{width:size,height:size,borderRadius:"50%",background:"#f0f0f0",display:"flex",alignItems:"center",justifyContent:"center",fontSize:size*0.4,fontWeight:700,color:"#a3a3a3",flexShrink:0,fontFamily:"system-ui"}}>{school.charAt(0)}</div>;return<img src={url} alt={school} width={size} height={size} onError={()=>setErr(true)} style={{objectFit:"contain",flexShrink:0}}/>;}
 
-function RadarChart({traits,values,color,size=180}){const cx=size/2,cy=size/2,r=size/2-24,n=traits.length;const K=1.8;const curve=(v)=>Math.pow(v/100,K)*100;const FLOOR=curve(40);const angles=traits.map((_,i)=>(Math.PI*2*i)/n-Math.PI/2);const pv=angles.map((a,i)=>{const raw=values[i]||50;const v=Math.max(0,(curve(raw)-FLOOR)/(100-FLOOR));return[cx+r*v*Math.cos(a),cy+r*v*Math.sin(a)];});return(<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>{[50,60,70,80,90,100].map(lv=>{const frac=Math.max(0,(curve(lv)-FLOOR)/(100-FLOOR));return<polygon key={lv} points={angles.map(a=>`${cx+r*frac*Math.cos(a)},${cy+r*frac*Math.sin(a)}`).join(" ")} fill="none" stroke={lv===70?"#d4d4d4":"#e5e5e5"} strokeWidth={lv===70?"0.8":"0.5"}/>;})}{angles.map((a,i)=><line key={i} x1={cx} y1={cy} x2={cx+r*Math.cos(a)} y2={cy+r*Math.sin(a)} stroke="#e5e5e5" strokeWidth="0.5"/>)}<polygon points={pv.map(p=>p.join(",")).join(" ")} fill={`${color}18`} stroke={color} strokeWidth="2"/>{pv.map((p,i)=><circle key={i} cx={p[0]} cy={p[1]} r="3" fill={color}/>)}{traits.map((t,i)=>{const lr=r+14;return<text key={t} x={cx+lr*Math.cos(angles[i])} y={cy+lr*Math.sin(angles[i])} textAnchor="middle" dominantBaseline="middle" style={{fontSize:"8px",fill:"#737373",fontFamily:"monospace"}}>{t.split(" ").map(w=>w[0]).join("")}</text>;})}</svg>);}
+function RadarChart({traits,values,color,size=180,labelMap}){const cx=size/2,cy=size/2,pad=labelMap?32:24,r=size/2-pad,n=traits.length;const K=1.8;const curve=(v)=>Math.pow(v/100,K)*100;const FLOOR=curve(40);const angles=traits.map((_,i)=>(Math.PI*2*i)/n-Math.PI/2);const pv=angles.map((a,i)=>{const raw=values[i]||50;const v=Math.max(0,(curve(raw)-FLOOR)/(100-FLOOR));return[cx+r*v*Math.cos(a),cy+r*v*Math.sin(a)];});return(<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>{[50,60,70,80,90,100].map(lv=>{const frac=Math.max(0,(curve(lv)-FLOOR)/(100-FLOOR));return<polygon key={lv} points={angles.map(a=>`${cx+r*frac*Math.cos(a)},${cy+r*frac*Math.sin(a)}`).join(" ")} fill="none" stroke={lv===70?"#d4d4d4":"#e5e5e5"} strokeWidth={lv===70?"0.8":"0.5"}/>;})}{angles.map((a,i)=><line key={i} x1={cx} y1={cy} x2={cx+r*Math.cos(a)} y2={cy+r*Math.sin(a)} stroke="#e5e5e5" strokeWidth="0.5"/>)}<polygon points={pv.map(p=>p.join(",")).join(" ")} fill={`${color}18`} stroke={color} strokeWidth="2"/>{pv.map((p,i)=><circle key={i} cx={p[0]} cy={p[1]} r="3" fill={color}/>)}{traits.map((t,i)=>{const lr=r+(labelMap?20:14);const label=labelMap?labelMap[t]||t:t.split(" ").map(w=>w[0]).join("");return<text key={t} x={cx+lr*Math.cos(angles[i])} y={cy+lr*Math.sin(angles[i])} textAnchor="middle" dominantBaseline="middle" style={{fontSize:labelMap?"7px":"8px",fill:"#737373",fontFamily:"monospace",fontWeight:labelMap?600:400}}>{label}</text>;})}</svg>);}
 
 function MiniRadar({values,color,size=28}){const cx=size/2,cy=size/2,r=size/2-1,n=values.length;if(n<3)return null;const K=1.8;const curve=(v)=>Math.pow(v/100,K)*100;const FLOOR=curve(40);const angles=values.map((_,i)=>(Math.PI*2*i)/n-Math.PI/2);const pts=angles.map((a,i)=>{const v=Math.max(0,(curve(values[i]||50)-FLOOR)/(100-FLOOR));return`${cx+r*v*Math.cos(a)},${cy+r*v*Math.sin(a)}`;}).join(" ");return<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="mini-radar" style={{flexShrink:0}}><polygon points={angles.map(a=>`${cx+r*Math.cos(a)},${cy+r*Math.sin(a)}`).join(" ")} fill="none" stroke="#e5e5e5" strokeWidth="0.5"/><polygon points={pts} fill={`${color}20`} stroke={color} strokeWidth="1.2"/></svg>;}
 
-function getSimilarPlayers(player,allProspects,traits,count=5){
+// ============================================================
+// Beeswarm Chart — Combine Explorer
+// ============================================================
+const EXPLORER_GROUPS=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"];
+const INVERTED_MEAS=new Set(["40","3C","SHT"]);
+
+function beeswarmLayout(points,width,rowH,dotR){
+  if(!points.length||width<60)return[];
+  const sorted=[...points].sort((a,b)=>a.val-b.val);
+  const minV=sorted[0].val,maxV=sorted[sorted.length-1].val;
+  const range=maxV-minV||1;
+  const pad=dotR*4;
+  const usable=width-pad*2;
+  const placed=[];
+  for(const pt of sorted){
+    const x=pad+((pt.val-minV)/range)*usable;
+    const cy=rowH/2;
+    let y=cy;
+    let offset=0;
+    let dir=1;
+    let settled=false;
+    while(!settled){
+      settled=true;
+      for(const other of placed){
+        if(other.group!==pt.group)continue;
+        const dx=x-other.x,dy=y-other.y;
+        if(dx*dx+dy*dy<(dotR*2.2)*(dotR*2.2)){
+          settled=false;
+          offset+=dotR*1.1;
+          dir=-dir;
+          y=cy+(dir>0?1:-1)*offset;
+          break;
+        }
+      }
+    }
+    placed.push({...pt,x,y});
+  }
+  return placed;
+}
+
+function BeeswarmChart({data,width,myGuys,showMyGuys,onHover,onTap,hoveredId}){
+  const isMobile=width<600;
+  const dotR=isMobile?3.5:4.5;
+  const rowH=isMobile?56:70;
+  const labelW=isMobile?36:48;
+  const groups=data.groups;
+  const totalH=groups.length*rowH+32;
+  const chartW=width-labelW;
+  const myGuyNames=useMemo(()=>new Set((myGuys||[]).map(g=>g.name)),[myGuys]);
+
+  const laid=useMemo(()=>{
+    const byGroup={};
+    groups.forEach(g=>byGroup[g]=[]);
+    data.points.forEach(pt=>{if(byGroup[pt.group])byGroup[pt.group].push(pt);});
+    const all=[];
+    groups.forEach(g=>{
+      const pts=beeswarmLayout(byGroup[g],chartW,rowH,dotR);
+      all.push(...pts);
+    });
+    return all;
+  },[data.points,groups,chartW,rowH,dotR]);
+
+  const axisVals=useMemo(()=>{
+    const mn=data.min,mx=data.max,range=mx-mn||1;
+    const step=range<=10?1:range<=50?5:range<=100?10:range<=200?25:50;
+    const ticks=[];
+    const start=Math.ceil(mn/step)*step;
+    for(let v=start;v<=mx;v+=step)ticks.push(v);
+    if(ticks.length>8){const keep=[];for(let i=0;i<ticks.length;i+=Math.ceil(ticks.length/6))keep.push(ticks[i]);return keep;}
+    return ticks;
+  },[data.min,data.max]);
+
+  const pad=dotR*4;
+  const usable=chartW-pad*2;
+  const range=data.max-data.min||1;
+  const valToX=(v)=>pad+((v-data.min)/range)*usable;
+
+  return(<svg width={width} height={totalH} viewBox={`0 0 ${width} ${totalH}`} style={{display:"block"}}>
+    {/* Axis ticks */}
+    {axisVals.map(v=>{const x=labelW+valToX(v);return<g key={v}>
+      <line x1={x} y1={0} x2={x} y2={groups.length*rowH} stroke="#e5e5e5" strokeWidth="0.5"/>
+      <text x={x} y={groups.length*rowH+14} textAnchor="middle" style={{fontSize:"9px",fill:"#a3a3a3",fontFamily:"monospace"}}>{INVERTED_MEAS.has(data.measCode)?v.toFixed(v%1?2:0):Math.round(v*10)/10}</text>
+    </g>;})}
+    {/* Row backgrounds + labels */}
+    {groups.map((g,i)=><g key={g}>
+      {i%2===0&&<rect x={labelW} y={i*rowH} width={chartW} height={rowH} fill="#f5f5f4" rx="0"/>}
+      <text x={labelW-4} y={i*rowH+rowH/2} textAnchor="end" dominantBaseline="middle" style={{fontSize:isMobile?"9px":"11px",fill:POS_COLORS[g]||"#737373",fontFamily:"monospace",fontWeight:700}}>{g}</text>
+    </g>)}
+    {/* Dots */}
+    {laid.map(pt=>{
+      const gi=groups.indexOf(pt.group);
+      const cx=labelW+pt.x;
+      const cy=gi*rowH+pt.y;
+      const isMyGuy=showMyGuys&&myGuyNames.has(pt.name);
+      const fade=showMyGuys&&myGuyNames.size>0&&!isMyGuy;
+      const isHovered=hoveredId===pt.id;
+      const color=POS_COLORS[pt.pos]||POS_COLORS[pt.group]||"#737373";
+      return<g key={pt.id} style={{cursor:"pointer"}}>
+        {/* Invisible touch target */}
+        <circle cx={cx} cy={cy} r={12} fill="transparent"
+          onPointerEnter={(e)=>onHover({...pt,cx:e.clientX,cy:e.clientY})}
+          onPointerLeave={()=>onHover(null)}
+          onClick={()=>onTap(pt)}/>
+        {/* Visible dot */}
+        <circle cx={cx} cy={cy} r={isMyGuy?dotR+1.5:dotR}
+          fill={fade?"#d4d4d4":color}
+          opacity={fade?0.3:1}
+          stroke={isMyGuy?"#ec4899":isHovered?"#171717":"none"}
+          strokeWidth={isMyGuy?2:isHovered?1.5:0}
+          style={{transition:"cx 0.3s,cy 0.3s,opacity 0.2s",pointerEvents:"none"}}/>
+      </g>;
+    })}
+    {/* Label */}
+    <text x={labelW+chartW/2} y={groups.length*rowH+26} textAnchor="middle" style={{fontSize:"10px",fill:"#a3a3a3",fontFamily:"monospace"}}>{data.label}{data.inverted?" (lower = better →)":""}</text>
+  </svg>);
+}
+
+function BeeswarmChartWrapper({data,myGuys,showMyGuys,onHover,onTap,hoveredId}){
+  const ref=useRef(null);
+  const[w,setW]=useState(800);
+  useEffect(()=>{
+    const el=ref.current;if(!el)return;
+    setW(el.getBoundingClientRect().width);
+    const ro=new ResizeObserver(entries=>{for(const e of entries)setW(e.contentRect.width);});
+    ro.observe(el);return()=>ro.disconnect();
+  },[]);
+  return<div ref={ref}>{w>0&&<BeeswarmChart data={data} width={w} myGuys={myGuys} showMyGuys={showMyGuys} onHover={onHover} onTap={onTap} hoveredId={hoveredId}/>}</div>;
+}
+
+function getTraitBasedComps(player,allProspects,traits,count=5){
   const pos=player.gpos||player.pos;const posTraits=POSITION_TRAITS[pos]||POSITION_TRAITS[player.pos]||[];
   const myVals=posTraits.map(t=>tv(traits,player.id,t,player.name,player.school));
   const others=allProspects.filter(p=>(p.gpos||p.pos)===(player.gpos||player.pos)&&p.id!==player.id);
@@ -151,13 +280,88 @@ function getSimilarPlayers(player,allProspects,traits,count=5){
     return{player:p,distance:dist};
   });
   scored.sort((a,b)=>a.distance-b.distance);
+  return scored.slice(0,count).map(s=>({...s,type:"trait"}));
+}
+
+// Position-specific weights for historical comp matching
+// Derived from getDrillTraitMap mappings + Speed/Athleticism raw overwrites + sensitivity tiers
+// primary drill = 1.5, partial = 1.0, raw overwrite position = 1.5, unused/irrelevant = 0.3
+const COMP_WEIGHTS={
+  QB:{height:0.7,weight:0.7,forty:1.0,bench:0.3,vertical:0.3,broad:0.3,cone:0.3,shuttle:0.3,ath:1.0,agi:0.3,exp:0.3},
+  RB:{height:0.5,weight:0.8,forty:1.5,bench:0.3,vertical:1.0,broad:1.3,cone:1.5,shuttle:1.3,ath:1.0,agi:1.3,exp:1.0},
+  WR:{height:0.7,weight:0.5,forty:1.5,bench:0.3,vertical:1.0,broad:1.3,cone:1.0,shuttle:1.3,ath:1.0,agi:1.0,exp:1.0},
+  TE:{height:0.7,weight:0.7,forty:1.3,bench:1.0,vertical:1.5,broad:1.0,cone:1.5,shuttle:0.5,ath:1.5,agi:1.0,exp:1.3},
+  OT:{height:1.3,weight:1.3,forty:1.3,bench:1.3,vertical:0.5,broad:1.3,cone:1.0,shuttle:1.0,ath:1.3,agi:1.0,exp:0.8},
+  IOL:{height:1.0,weight:1.3,forty:1.0,bench:1.0,vertical:0.3,broad:1.0,cone:1.0,shuttle:1.5,ath:1.0,agi:1.3,exp:0.5},
+  EDGE:{height:0.7,weight:0.7,forty:1.0,bench:0.8,vertical:0.8,broad:1.5,cone:1.5,shuttle:1.0,ath:1.0,agi:1.3,exp:1.3},
+  DL:{height:0.8,weight:1.3,forty:1.0,bench:1.0,vertical:0.5,broad:1.0,cone:1.3,shuttle:0.5,ath:1.0,agi:0.8,exp:0.8},
+  LB:{height:0.5,weight:0.7,forty:1.0,bench:0.3,vertical:1.0,broad:1.0,cone:1.0,shuttle:1.5,ath:1.3,agi:1.3,exp:1.0},
+  CB:{height:0.5,weight:0.3,forty:1.5,bench:0.3,vertical:1.3,broad:0.7,cone:1.5,shuttle:1.0,ath:1.3,agi:1.3,exp:1.0},
+  S:{height:0.5,weight:0.5,forty:1.5,bench:0.3,vertical:1.3,broad:1.0,cone:1.0,shuttle:1.0,ath:1.0,agi:1.0,exp:1.0},
+};
+
+function getHistoricalComps(player,historicalData,count=5){
+  const pos=player.gpos||player.pos;
+  const pool=historicalData[pos];
+  if(!pool)return[];
+  const cs=getCombineScores(player.name,player.school);
+  const cd=getCombineData(player.name,player.school);
+  if(!cs&&!cd)return[];
+  const myPct={};
+  if(cs&&cs.percentiles){Object.entries(cs.percentiles).forEach(([k,v])=>{if(v!=null)myPct[k]=v;});}
+  if(cs){
+    if(cs.athleticScore!=null)myPct.ath=cs.athleticScore;
+    if(cs.agilityScore!=null)myPct.agi=cs.agilityScore;
+    if(cs.explosionScore!=null)myPct.exp=cs.explosionScore;
+  }
+  const myKeys=Object.keys(myPct);
+  if(myKeys.length<5)return[];
+  const posW=COMP_WEIGHTS[pos]||{};
+  const scored=[];
+  for(const hist of pool){
+    const shared=[];
+    for(const k of myKeys){
+      const hv=hist.pct[k]!=null?hist.pct[k]:(k==="ath"?hist.ath:k==="agi"?hist.agi:k==="exp"?hist.exp:null);
+      if(hv!=null)shared.push({k,my:myPct[k],his:hv});
+    }
+    if(shared.length<5)continue;
+    const dist=Math.sqrt(shared.reduce((sum,{k,my,his})=>{const w=posW[k]||1.0;return sum+(w*Math.pow(my-his,2));},0)/shared.reduce((s,{k})=>s+(posW[k]||1.0),0));
+    scored.push({name:hist.n,school:hist.s,year:hist.y,distance:dist,sharedFields:shared.length,type:"historical"});
+  }
+  scored.sort((a,b)=>a.distance-b.distance);
   return scored.slice(0,count);
+}
+
+function getSimilarPlayers(player,allProspects,traits,historicalData,count=5){
+  const historical=getHistoricalComps(player,historicalData,count);
+  if(historical.length>=count)return historical;
+  const remaining=count-historical.length;
+  const traitBased=getTraitBasedComps(player,allProspects,traits,remaining);
+  return[...historical,...traitBased];
+}
+
+// Shared historical comps cache — lazy loaded once across all profile drawers
+let _historicalCompsCache=null;
+let _historicalCompsLoading=false;
+let _historicalCompsListeners=[];
+function loadHistoricalComps(cb){
+  if(_historicalCompsCache){cb(_historicalCompsCache);return;}
+  _historicalCompsListeners.push(cb);
+  if(_historicalCompsLoading)return;
+  _historicalCompsLoading=true;
+  fetch(new URL('./historicalComps.json',import.meta.url)).then(r=>r.json()).then(data=>{
+    _historicalCompsCache=data;
+    _historicalCompsListeners.forEach(fn=>fn(data));
+    _historicalCompsListeners=[];
+  }).catch(()=>{_historicalCompsLoading=false;_historicalCompsListeners.forEach(fn=>fn({}));_historicalCompsListeners=[];});
 }
 
 function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getGrade,onClose,onSelectPlayer,consensus,ratings,isGuest,onRequireAuth}){
   const[isOpen,setIsOpen]=useState(false);
   const[profileMeasMode,setProfileMeasMode]=useState(false);
+  const[historicalData,setHistoricalData]=useState(_historicalCompsCache||null);
   useEffect(()=>{setTimeout(()=>setIsOpen(true),10);setProfileMeasMode(false);return()=>setIsOpen(false);},[player.id]);
+  useEffect(()=>{if(!historicalData)loadHistoricalComps(setHistoricalData);},[]);
   const handleClose=()=>{setIsOpen(false);setTimeout(onClose,300);};
   const c=POS_COLORS[player.gpos||player.pos]||POS_COLORS[player.pos];
   const posTraits=POSITION_TRAITS[player.gpos||player.pos]||POSITION_TRAITS[player.pos]||[];
@@ -165,7 +369,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
   const cd=getCombineData(player.name,player.school);
   const cs=getCombineScores(player.name,player.school);
   const grade=getGrade(player.id);
-  const similar=getSimilarPlayers(player,allProspects,traits,5);
+  const similar=getSimilarPlayers(player,allProspects,traits,historicalData||{},5);
   const gradeColor=grade>=75?"#16a34a":grade>=55?"#ca8a04":"#dc2626";
   return(
     <>
@@ -222,8 +426,8 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
         </div>}
 
         <div style={{padding:"24px",display:"flex",flexDirection:"column",alignItems:"center"}}>
-          {(()=>{const measData=getMeasRadarData(player.name,player.school);return measData&&<button title={profileMeasMode?"Switch to traits":"Switch to measurables"} onClick={()=>setProfileMeasMode(v=>!v)} style={{width:40,height:22,borderRadius:11,border:"none",background:profileMeasMode?"linear-gradient(135deg,#00ffff,#1e3a5f)":"linear-gradient(135deg,#ec4899,#a855f7)",cursor:"pointer",position:"relative",transition:"background 0.2s",marginBottom:8}}><div style={{width:16,height:16,borderRadius:8,background:"#fff",position:"absolute",top:3,left:profileMeasMode?21:3,transition:"left 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:profileMeasMode?"#00ffff":"#a855f7",lineHeight:1}}>{profileMeasMode?"M":"T"}</span></div></button>;})()}
-          {(()=>{const measData=getMeasRadarData(player.name,player.school);if(profileMeasMode&&measData)return<RadarChart traits={measData.labels} values={measData.values} color={c} size={200}/>;return<RadarChart traits={posTraits} values={posTraits.map(t=>tv(traits,player.id,t,player.name,player.school))} color={c} size={200}/>;})()}
+          {(()=>{const measData=getMeasRadarData(player.name,player.school);return measData&&<div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8}}><span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:profileMeasMode?"#a3a3a3":"#a855f7",transition:"color 0.2s"}}>Traits</span><button title={profileMeasMode?"Switch to traits":"Switch to measurables"} onClick={()=>setProfileMeasMode(v=>!v)} style={{width:40,height:22,borderRadius:11,border:"none",background:profileMeasMode?"linear-gradient(135deg,#00ffff,#1e3a5f)":"linear-gradient(135deg,#ec4899,#a855f7)",cursor:"pointer",position:"relative",transition:"background 0.2s"}}><div style={{width:16,height:16,borderRadius:8,background:"#fff",position:"absolute",top:3,left:profileMeasMode?21:3,transition:"left 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:profileMeasMode?"#00ffff":"#a855f7",lineHeight:1}}>{profileMeasMode?"M":"T"}</span></div></button><span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:profileMeasMode?"#00bcd4":"#a3a3a3",transition:"color 0.2s"}}>Measurables</span></div>;})()}
+          {(()=>{const measData=getMeasRadarData(player.name,player.school);if(profileMeasMode&&measData)return<RadarChart traits={measData.labels} values={measData.values} color={c} size={200}/>;return<RadarChart traits={posTraits} values={posTraits.map(t=>tv(traits,player.id,t,player.name,player.school))} color={c} size={200} labelMap={TRAIT_ABBREV}/>;})()}
         </div>
 
         <div style={{padding:"0 24px 16px"}}>
@@ -269,15 +473,40 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
         </div>
 
         <div style={{padding:"0 24px 16px"}}>
-          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
-            <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>scouting notes</div>
-            {notes?.[player.id]&&<div style={{fontFamily:mono,fontSize:9,color:"#22c55e",opacity:0.7}}>✓ saved</div>}
+          <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>similar profiles</div>
+          <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
+            {similar.map((comp,i)=>{
+              const isHist=comp.type==="historical";
+              if(isHist){
+                return(
+                  <div key={`${comp.name}-${comp.year}`} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 14px",borderBottom:i<similar.length-1?"1px solid #f5f5f5":"none"}}>
+                    <SchoolLogo school={comp.school} size={24}/>
+                    <div style={{flex:1,minWidth:0}}>
+                      <div style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717"}}>{comp.name}</div>
+                      <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{comp.school}</div>
+                    </div>
+                    <div style={{textAlign:"right",flexShrink:0}}>
+                      <div style={{fontFamily:mono,fontSize:12,fontWeight:700,color:"#525252"}}>{comp.year}</div>
+                    </div>
+                  </div>
+                );
+              }
+              const sp=comp.player;const sg=getGrade(sp.id);
+              return(
+                <div key={sp.id} onClick={()=>onSelectPlayer(sp)} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 14px",borderBottom:i<similar.length-1?"1px solid #f5f5f5":"none",cursor:"pointer",transition:"background 0.1s"}}
+                  onMouseEnter={e=>e.currentTarget.style.background=`${c}06`} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+                  <SchoolLogo school={sp.school} size={24}/>
+                  <div style={{flex:1,minWidth:0}}>
+                    <div style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717"}}>{sp.name}</div>
+                    <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{sp.school}</div>
+                  </div>
+                  <div style={{textAlign:"right",flexShrink:0}}>
+                    <div style={{fontFamily:font,fontSize:14,fontWeight:900,color:sg>=75?"#16a34a":sg>=55?"#ca8a04":"#dc2626"}}>{sg}</div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-          <textarea value={notes?.[player.id]||""} onChange={e=>setNotes(prev=>({...prev,[player.id]:e.target.value}))}
-            readOnly={isGuest}
-            placeholder="Add your scouting notes..."
-            style={{width:"100%",minHeight:80,fontFamily:sans,fontSize:13,padding:"10px 12px",border:"1px solid #e5e5e5",borderRadius:8,background:"#fff",color:"#171717",resize:"vertical",outline:"none",lineHeight:1.5,boxSizing:"border-box"}}
-            onFocus={e=>{if(isGuest){onRequireAuth("want to save scouting notes?");e.target.blur();return;}e.target.style.borderColor=c;}} onBlur={e=>e.target.style.borderColor="#e5e5e5"}/>
         </div>
 
         {(()=>{const cr=consensus?.find(x=>x.name===player.name);const userRank=[...allProspects].sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);if(d!==0)return d;const r=(ratings?.[b.id]||1500)-(ratings?.[a.id]||1500);return r!==0?r:getConsensusRank(a.name)-getConsensusRank(b.name);}).findIndex(p=>p.id===player.id)+1;return cr?(
@@ -292,26 +521,15 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
         ):null;})()}
 
         <div style={{padding:"0 24px 32px"}}>
-          <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>similar profiles</div>
-          <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
-            {similar.map(({player:sp,distance},i)=>{
-              const sg=getGrade(sp.id);const matchPct=Math.max(0,Math.round(100-distance/3));
-              return(
-                <div key={sp.id} onClick={()=>onSelectPlayer(sp)} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 14px",borderBottom:i<similar.length-1?"1px solid #f5f5f5":"none",cursor:"pointer",transition:"background 0.1s"}}
-                  onMouseEnter={e=>e.currentTarget.style.background=`${c}06`} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
-                  <SchoolLogo school={sp.school} size={24}/>
-                  <div style={{flex:1,minWidth:0}}>
-                    <div style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717"}}>{sp.name}</div>
-                    <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{sp.school}</div>
-                  </div>
-                  <div style={{textAlign:"right",flexShrink:0}}>
-                    <div style={{fontFamily:font,fontSize:14,fontWeight:900,color:sg>=75?"#16a34a":sg>=55?"#ca8a04":"#dc2626"}}>{sg}</div>
-                    <div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{matchPct}% match</div>
-                  </div>
-                </div>
-              );
-            })}
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
+            <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>scouting notes</div>
+            {notes?.[player.id]&&<div style={{fontFamily:mono,fontSize:9,color:"#22c55e",opacity:0.7}}>✓ saved</div>}
           </div>
+          <textarea value={notes?.[player.id]||""} onChange={e=>setNotes(prev=>({...prev,[player.id]:e.target.value}))}
+            readOnly={isGuest}
+            placeholder="Add your scouting notes..."
+            style={{width:"100%",minHeight:80,fontFamily:sans,fontSize:13,padding:"10px 12px",border:"1px solid #e5e5e5",borderRadius:8,background:"#fff",color:"#171717",resize:"vertical",outline:"none",lineHeight:1.5,boxSizing:"border-box"}}
+            onFocus={e=>{if(isGuest){onRequireAuth("want to save scouting notes?");e.target.blur();return;}e.target.style.borderColor=c;}} onBlur={e=>e.target.style.borderColor="#e5e5e5"}/>
         </div>
       </div>
     </>
@@ -727,7 +945,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const getMeasVal=useCallback((name,school,m)=>{const key=MEASURABLE_KEY[m];if(MEASURABLE_DRILLS.includes(m)){const cs=getCombineScores(name,school);return cs?.percentiles?.[key]??null;}if(MEASURABLE_RAW.includes(m)){const cd=getCombineData(name,school);return cd?.[key]??null;}const cs=getCombineScores(name,school);return cs?.[key]??null;},[]);
   const measurableThresholds=useMemo(()=>{const result={};POSITION_GROUPS.forEach(pos=>{const players=byPos[pos]||[];if(!players.length)return;result[pos]={};MEASURABLE_LIST.forEach(m=>{const values=players.map(p=>getMeasVal(p.name,p.school,m)).filter(v=>v!=null);if(values.length<3)return;values.sort((a,b)=>a-b);const n=values.length;result[pos][m]={p80:values[Math.floor(n*0.8)]||0,p90:values[Math.floor(n*0.9)]||0};});});return result;},[byPos,getMeasVal]);
   const qualifiesForMeasurableFilter=useCallback((id,pos,m)=>{const p=PROSPECTS.find(x=>x.id===id);if(!p)return false;const th=measurableThresholds[pos]?.[m];if(!th)return false;const val=getMeasVal(p.name,p.school,m);if(val==null)return false;const isRaw=MEASURABLE_RAW.includes(m);return val>=th.p80&&(isRaw||val>75);},[measurableThresholds,getMeasVal]);
-  const prospectBadges=useMemo(()=>{const badges={};PROSPECTS.forEach(p=>{const pos=p.gpos||p.pos;const pk=(pos==="K"||pos==="P"||pos==="LS")?"K/P":pos;const posTraits=POSITION_TRAITS[pk]||[];const qualifying=posTraits.filter(trait=>qualifiesForBadge(p.id,pk,trait)).map(trait=>({trait,emoji:TRAIT_EMOJI[trait]||"",score:tv(traits,p.id,trait,p.name,p.school)})).sort((a,b)=>b.score-a.score).slice(0,3);if(qualifying.length>0)badges[p.id]=qualifying;});return badges;},[traits,qualifiesForBadge]);
+  const prospectBadges=useMemo(()=>{const badges={};PROSPECTS.forEach(p=>{const pos=p.gpos||p.pos;const pk=(pos==="K"||pos==="P"||pos==="LS")?"K/P":pos;const posTraits=POSITION_TRAITS[pk]||[];const qualifying=posTraits.filter(trait=>qualifiesForBadge(p.id,pk,trait)).map(trait=>({trait,emoji:TRAIT_EMOJI[trait]||"",score:tv(traits,p.id,trait,p.name,p.school)})).sort((a,b)=>b.score-a.score).slice(0,4);if(qualifying.length>0)badges[p.id]=qualifying;});return badges;},[traits,qualifiesForBadge]);
   const posRankFn=useCallback((id)=>{const p=prospectsMap[id];if(!p)return 999;const ps=getProspectStats(p.name,p.school);return ps?.posRank||getConsensusRank(p.name)||999;},[prospectsMap]);
   const startRanking=useCallback((pos,resume=false)=>{
     setLockedPlayer(null);
@@ -847,8 +1065,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   // Build mock draft board: consensus order for all 319, user rankings override when graded
   const mockDraftBoard=useMemo(()=>{
     // Sort ALL prospects by grade (same as big board), break ties with consensus rank
-    return [...PROSPECTS].sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:getConsensusRank(a.name)-getConsensusRank(b.name);});
-  },[getGrade]);
+    return [...PROSPECTS].sort((a,b)=>getConsensusRank(a.name)-getConsensusRank(b.name));
+  },[getConsensusRank]);
 
   const finishTraits=useCallback((pos)=>{setTraitReviewedGroups(prev=>new Set([...prev,pos]));const ranked=getRanked(pos);const byGrade=[...ranked].sort((a,b)=>getGrade(b.id)-getGrade(a.id));const conflicts=ranked.map((p,i)=>{const gi=byGrade.findIndex(x=>x.id===p.id);return Math.abs(i-gi)>=3?{player:p,pairRank:i+1,gradeRank:gi+1,grade:getGrade(p.id)}:null;}).filter(Boolean);if(conflicts.length){setReconcileQueue(conflicts);setReconcileIndex(0);setPhase("reconcile");}else setPhase("pick-position");},[getRanked,getGrade]);
 
@@ -860,9 +1078,50 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const[myGuysUpdated,setMyGuysUpdated]=useState(false);
   const myGuysInitialLoad=useRef(true);
   const[showMyGuys,setShowMyGuys]=useState(false);
+  const[showExplorer,setShowExplorer]=useState(false);
+  const[explorerMeas,setExplorerMeas]=useState("ATH");
+  const[explorerMode,setExplorerMode]=useState("measurables");
+  const[explorerTrait,setExplorerTrait]=useState("Speed");
+  const[explorerMyGuys,setExplorerMyGuys]=useState(false);
+  const[explorerHover,setExplorerHover]=useState(null);
+  const explorerData=useMemo(()=>{
+    const points=[];
+    const groupSet=new Set();
+    if(explorerMode==="traits"){
+      const applicablePositions=EXPLORER_GROUPS.filter(pos=>POSITION_TRAITS[pos]?.includes(explorerTrait));
+      PROSPECTS.forEach(p=>{
+        const gpos=p.gpos||p.pos;
+        const group=(gpos==="K"||gpos==="P"||gpos==="LS")?"K/P":gpos;
+        if(!applicablePositions.includes(group))return;
+        const val=tv(traits,p.id,explorerTrait,p.name,p.school);
+        if(val==null)return;
+        points.push({id:p.id,name:p.name,school:p.school,pos:gpos,group,val});
+        groupSet.add(group);
+      });
+      const groups=EXPLORER_GROUPS.filter(g=>groupSet.has(g));
+      const vals=points.map(pt=>pt.val);
+      return{points,min:Math.min(...vals),max:Math.max(...vals),groups,label:explorerTrait,measCode:null,inverted:false};
+    }else{
+      const m=explorerMeas;
+      const inverted=INVERTED_MEAS.has(m);
+      PROSPECTS.forEach(p=>{
+        const gpos=p.gpos||p.pos;
+        const group=(gpos==="K"||gpos==="P"||gpos==="LS")?"K/P":gpos;
+        if(!EXPLORER_GROUPS.includes(group))return;
+        const val=getMeasVal(p.name,p.school,m);
+        if(val==null)return;
+        points.push({id:p.id,name:p.name,school:p.school,pos:gpos,group,val:inverted?-val:val,rawVal:val});
+        groupSet.add(group);
+      });
+      const groups=EXPLORER_GROUPS.filter(g=>groupSet.has(g));
+      const vals=points.map(pt=>pt.val);
+      const mn=Math.min(...vals),mx=Math.max(...vals);
+      return{points,min:mn,max:mx,groups,label:MEASURABLE_SHORT[m]||m,measCode:m,inverted};
+    }
+  },[explorerMode,explorerMeas,explorerTrait,traits,getMeasVal]);
   const[mockCount,setMockCount]=useState(0);
   const[copiedShare,setCopiedShare]=useState(null);
-  useEffect(()=>{window.scrollTo(0,0);},[phase,showMyGuys]);
+  useEffect(()=>{window.scrollTo(0,0);},[phase,showMyGuys,showExplorer]);
   const traitsRef=useRef(traits);traitsRef.current=traits;
   const ratingsRef=useRef(ratings);ratingsRef.current=ratings;
   const getGradeRef=useRef(getGrade);getGradeRef.current=getGrade;
@@ -979,6 +1238,13 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
       const schoolCounts={};guys.forEach(g=>{if(g.school)schoolCounts[g.school]=(schoolCounts[g.school]||0)+1;});
       const repeats=Object.entries(schoolCounts).filter(([,c])=>c>=2).sort((a,b)=>b[1]-a[1]);
       if(repeats.length>0){const[sch,cnt]=repeats[0];pills.push({emoji:"🏫",text:`${sch} pipeline`,detail:`${cnt}`,color:"#7c3aed"});}
+      const scoreAccum={ath:[],exp:[],agi:[]};const armsByPos={};const guysArms=[];
+      guys.forEach(g=>{const cs=getCombineScores(g.name,g.school);if(cs){if(cs.athleticScore!=null)scoreAccum.ath.push(cs.athleticScore);if(cs.explosionScore!=null)scoreAccum.exp.push(cs.explosionScore);if(cs.agilityScore!=null)scoreAccum.agi.push(cs.agilityScore);}const cd=getCombineData(g.name,g.school);if(cd&&cd.arms){const pos=g.gpos;if(!armsByPos[pos])armsByPos[pos]=[];armsByPos[pos].push(cd.arms);guysArms.push({pos,arms:cd.arms});}});
+      const eliteThresh=85,minDataRatio=0.6;
+      if(scoreAccum.ath.length>=3&&scoreAccum.ath.filter(s=>s>=eliteThresh).length>=Math.ceil(scoreAccum.ath.length*minDataRatio)){pills.push({emoji:"👽",text:"athletic freaks",detail:`avg ${Math.round(scoreAccum.ath.reduce((a,b)=>a+b,0)/scoreAccum.ath.length)}`,color:"#059669"});}
+      if(scoreAccum.exp.length>=3&&scoreAccum.exp.filter(s=>s>=eliteThresh).length>=Math.ceil(scoreAccum.exp.length*minDataRatio)){pills.push({emoji:"💣",text:"explosives",detail:`avg ${Math.round(scoreAccum.exp.reduce((a,b)=>a+b,0)/scoreAccum.exp.length)}`,color:"#b45309"});}
+      if(scoreAccum.agi.length>=3&&scoreAccum.agi.filter(s=>s>=eliteThresh).length>=Math.ceil(scoreAccum.agi.length*minDataRatio)){pills.push({emoji:"🐇",text:"agility bias",detail:`avg ${Math.round(scoreAccum.agi.reduce((a,b)=>a+b,0)/scoreAccum.agi.length)}`,color:"#7c3aed"});}
+      if(guysArms.length>=3){const allCD=PROSPECTS.map(p=>({pos:p.gpos||p.pos,cd:getCombineData(p.name,p.school)})).filter(x=>x.cd&&x.cd.arms);const posAvg={};allCD.forEach(({pos,cd})=>{if(!posAvg[pos])posAvg[pos]={sum:0,n:0};posAvg[pos].sum+=cd.arms;posAvg[pos].n++;});Object.keys(posAvg).forEach(k=>{posAvg[k]=posAvg[k].sum/posAvg[k].n;});const aboveAvg=guysArms.filter(g=>posAvg[g.pos]&&g.arms>posAvg[g.pos]).length;if(aboveAvg>=Math.ceil(guysArms.length*minDataRatio)){pills.push({emoji:"🦒",text:"long limbs",detail:`${aboveAvg}/${guysArms.length}`,color:"#0369a1"});}}
       return pills.slice(0,6);
     })();
     const fpH=fp.length>0?36:0;
@@ -1175,7 +1441,62 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
 
 
 
-  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA);const bRanked=rankedGroups.has(gB);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} onMockComplete={saveMockPicks} myGuys={myGuys} myGuysUpdated={myGuysUpdated} setMyGuysUpdated={setMyGuysUpdated} mockCount={mockCount} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} mockLaunchCpuTrades={mockCpuTrades} mockLaunchBoardMode={mockBoardMode} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}} isGuest={isGuest} onRequireAuth={onRequireAuth} trackEvent={trackEvent} userId={user?.id} isGuestUser={!user} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} TRAIT_ABBREV={TRAIT_ABBREV} TRAIT_EMOJI={TRAIT_EMOJI} SCHOOL_CONFERENCE={SCHOOL_CONFERENCE} POS_EMOJI={POS_EMOJI} onShareMyGuys={shareMyGuys} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter} MEASURABLE_EMOJI={MEASURABLE_EMOJI} MEASURABLE_SHORT={MEASURABLE_SHORT} MEASURABLE_LIST={MEASURABLE_LIST} MEASURABLE_DRILLS={MEASURABLE_DRILLS} MEASURABLE_KEY={MEASURABLE_KEY} MEASURABLE_RAW={MEASURABLE_RAW} MEAS_GROUPS={MEAS_GROUPS} getMeasRadarData={getMeasRadarData}/>;}
+  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA)||(traits[a.id]&&Object.keys(traits[a.id]).length>0);const bRanked=rankedGroups.has(gB)||(traits[b.id]&&Object.keys(traits[b.id]).length>0);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} onMockComplete={saveMockPicks} myGuys={myGuys} myGuysUpdated={myGuysUpdated} setMyGuysUpdated={setMyGuysUpdated} mockCount={mockCount} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} getConsensusRound={getConsensusRound} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} mockLaunchCpuTrades={mockCpuTrades} mockLaunchBoardMode={mockBoardMode} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}} isGuest={isGuest} onRequireAuth={onRequireAuth} trackEvent={trackEvent} userId={user?.id} isGuestUser={!user} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} TRAIT_ABBREV={TRAIT_ABBREV} TRAIT_EMOJI={TRAIT_EMOJI} SCHOOL_CONFERENCE={SCHOOL_CONFERENCE} POS_EMOJI={POS_EMOJI} onShareMyGuys={shareMyGuys} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter} MEASURABLE_EMOJI={MEASURABLE_EMOJI} MEASURABLE_SHORT={MEASURABLE_SHORT} MEASURABLE_LIST={MEASURABLE_LIST} MEASURABLE_DRILLS={MEASURABLE_DRILLS} MEASURABLE_KEY={MEASURABLE_KEY} MEASURABLE_RAW={MEASURABLE_RAW} MEAS_GROUPS={MEAS_GROUPS} getMeasRadarData={getMeasRadarData}/>;}
+  // === COMBINE EXPLORER ===
+  if(showExplorer){
+    const allTraits=[...new Set(Object.values(POSITION_TRAITS).flat())].sort();
+    const traitPosCounts={};
+    allTraits.forEach(t=>{traitPosCounts[t]=EXPLORER_GROUPS.filter(pos=>POSITION_TRAITS[pos]?.includes(t)).length;});
+    return(<div style={{position:"fixed",inset:0,background:"#faf9f6",zIndex:9000,overflow:"auto",WebkitOverflowScrolling:"touch"}}>
+      <div style={{maxWidth:900,margin:"0 auto",padding:"16px 16px 80px"}}>
+        {/* Header */}
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
+          <div>
+            <h2 style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",margin:0}}>combine explorer</h2>
+            <p style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"2px 0 0"}}>{explorerData.points.length} players · {explorerData.groups.length} positions</p>
+          </div>
+          <div style={{display:"flex",gap:8,alignItems:"center"}}>
+            {myGuys.length>0&&<button onClick={()=>setExplorerMyGuys(v=>!v)} style={{fontFamily:sans,fontSize:11,fontWeight:600,padding:"6px 12px",background:explorerMyGuys?"linear-gradient(135deg,#ec4899,#7c3aed)":"transparent",color:explorerMyGuys?"#fff":"#a3a3a3",border:explorerMyGuys?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>👀 my guys</button>}
+            <button onClick={()=>{setShowExplorer(false);setExplorerHover(null);}} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",padding:4}}>✕</button>
+          </div>
+        </div>
+
+        {/* Mode toggle */}
+        <div style={{display:"flex",gap:4,marginBottom:12}}>
+          <button onClick={()=>setExplorerMode("measurables")} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="measurables"?"#171717":"transparent",color:explorerMode==="measurables"?"#fff":"#737373",border:explorerMode==="measurables"?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>measurables</button>
+          <button onClick={()=>setExplorerMode("traits")} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="traits"?"#171717":"transparent",color:explorerMode==="traits"?"#fff":"#737373",border:explorerMode==="traits"?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>scouting traits</button>
+        </div>
+
+        {/* Measurable / Trait picker */}
+        {explorerMode==="measurables"?(<div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none"}}>
+          {MEAS_GROUPS.map(grp=>grp.keys.map(k=><button key={k} onClick={()=>setExplorerMeas(k)} style={{fontFamily:mono,fontSize:10,fontWeight:explorerMeas===k?700:500,padding:"5px 10px",background:explorerMeas===k?grp.border+"18":"transparent",color:explorerMeas===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerMeas===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{MEASURABLE_EMOJI[k]} {MEASURABLE_SHORT[k]}</button>))}
+        </div>):(<div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",flexWrap:"nowrap",msOverflowStyle:"none",scrollbarWidth:"none"}}>
+          {allTraits.map(t=><button key={t} onClick={()=>setExplorerTrait(t)} style={{fontFamily:sans,fontSize:10,fontWeight:explorerTrait===t?700:500,padding:"5px 10px",background:explorerTrait===t?"#6366f118":"transparent",color:explorerTrait===t?"#6366f1":"#a3a3a3",border:`1.5px solid ${explorerTrait===t?"#6366f1":"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{TRAIT_EMOJI[t]||""} {TRAIT_SHORT[t]||t} <span style={{fontSize:8,opacity:0.6}}>({traitPosCounts[t]})</span></button>)}
+        </div>)}
+
+        {/* Sparse data warning */}
+        {explorerData.points.length>0&&explorerData.points.length<20&&<div style={{fontFamily:sans,fontSize:11,color:"#92400e",background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:8,padding:"6px 12px",marginBottom:8}}>⚠️ sparse data — only {explorerData.points.length} players have this measurement</div>}
+
+        {/* Beeswarm */}
+        {explorerData.points.length===0?(<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no data available for this measurable</p></div>):(
+          <div style={{marginTop:4}}>
+            <BeeswarmChartWrapper data={explorerData} myGuys={myGuys} showMyGuys={explorerMyGuys} onHover={setExplorerHover} onTap={(pt)=>{const p=PROSPECTS.find(pr=>pr.id===pt.id);if(p)openProfile(p);}} hoveredId={explorerHover?.id||null}/>
+          </div>
+        )}
+
+        {/* Tooltip */}
+        {explorerHover&&<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-180),top:Math.max(explorerHover.cy-60,8),background:"#171717",color:"#fff",padding:"8px 12px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:200}}>
+          <div style={{fontWeight:700}}>{explorerHover.name}</div>
+          <div style={{fontSize:10,color:"#a3a3a3",marginTop:1}}>{explorerHover.school}</div>
+          <div style={{display:"flex",alignItems:"center",gap:6,marginTop:4}}>
+            <span style={{fontSize:9,fontWeight:700,padding:"2px 6px",borderRadius:4,background:POS_COLORS[explorerHover.pos]||"#525252",color:"#fff"}}>{explorerHover.group}</span>
+            <span style={{fontFamily:mono,fontSize:12,fontWeight:700}}>{explorerHover.rawVal!=null?explorerHover.rawVal:explorerHover.val}</span>
+          </div>
+        </div>}
+      </div>
+      {profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth}/>}
+    </div>);
+  }
   // === HOME ===
   // My Guys page — full screen overlay
   if(showMyGuys){
@@ -1243,6 +1564,46 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
       if(repeats.length>0){
         const[sch,cnt]=repeats[0];
         pills.push({emoji:"🏫",text:`${sch} pipeline`,detail:`${cnt}`,color:"#7c3aed"});
+      }
+
+      // 7. Combine / athletic testing pills
+      const scoreAccum={ath:[],exp:[],agi:[]};
+      const armsByPos={};const guysArms=[];
+      guys.forEach(g=>{
+        const cs=getCombineScores(g.name,g.school);
+        if(cs){
+          if(cs.athleticScore!=null)scoreAccum.ath.push(cs.athleticScore);
+          if(cs.explosionScore!=null)scoreAccum.exp.push(cs.explosionScore);
+          if(cs.agilityScore!=null)scoreAccum.agi.push(cs.agilityScore);
+        }
+        const cd=getCombineData(g.name,g.school);
+        if(cd&&cd.arms){
+          const pos=g.gpos;
+          if(!armsByPos[pos])armsByPos[pos]=[];
+          armsByPos[pos].push(cd.arms);
+          guysArms.push({pos,arms:cd.arms});
+        }
+      });
+      const eliteThresh=85,minDataRatio=0.6;
+      if(scoreAccum.ath.length>=3&&scoreAccum.ath.filter(s=>s>=eliteThresh).length>=Math.ceil(scoreAccum.ath.length*minDataRatio)){
+        pills.push({emoji:"👽",text:"athletic freaks",detail:`avg ${Math.round(scoreAccum.ath.reduce((a,b)=>a+b,0)/scoreAccum.ath.length)}`,color:"#059669"});
+      }
+      if(scoreAccum.exp.length>=3&&scoreAccum.exp.filter(s=>s>=eliteThresh).length>=Math.ceil(scoreAccum.exp.length*minDataRatio)){
+        pills.push({emoji:"💣",text:"explosives",detail:`avg ${Math.round(scoreAccum.exp.reduce((a,b)=>a+b,0)/scoreAccum.exp.length)}`,color:"#b45309"});
+      }
+      if(scoreAccum.agi.length>=3&&scoreAccum.agi.filter(s=>s>=eliteThresh).length>=Math.ceil(scoreAccum.agi.length*minDataRatio)){
+        pills.push({emoji:"🐇",text:"agility bias",detail:`avg ${Math.round(scoreAccum.agi.reduce((a,b)=>a+b,0)/scoreAccum.agi.length)}`,color:"#7c3aed"});
+      }
+      // Long limbs — compute position averages from all combine data, check if guy's arms are above avg
+      if(guysArms.length>=3){
+        const allCD=PROSPECTS.map(p=>({pos:p.gpos||p.pos,cd:getCombineData(p.name,p.school)})).filter(x=>x.cd&&x.cd.arms);
+        const posAvg={};
+        allCD.forEach(({pos,cd})=>{if(!posAvg[pos])posAvg[pos]={sum:0,n:0};posAvg[pos].sum+=cd.arms;posAvg[pos].n++;});
+        Object.keys(posAvg).forEach(k=>{posAvg[k]=posAvg[k].sum/posAvg[k].n;});
+        const aboveAvg=guysArms.filter(g=>posAvg[g.pos]&&g.arms>posAvg[g.pos]).length;
+        if(aboveAvg>=Math.ceil(guysArms.length*minDataRatio)){
+          pills.push({emoji:"🦒",text:"long limbs",detail:`${aboveAvg}/${guysArms.length}`,color:"#0369a1"});
+        }
       }
 
       return pills.slice(0,6);
@@ -1353,7 +1714,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     const dismissOnboarding=()=>{setShowOnboarding(false);try{localStorage.setItem('bbl_onboarded','1');}catch(e){}};
 
     // Consensus big board — all prospects sorted by consensus rank
-    const consensusBoard=[...PROSPECTS].sort((a,b)=>{const ga=getScoutingGrade(a.id),gb=getScoutingGrade(b.id);if(gb!==ga)return gb-ga;return getConsensusRank(a.name)-getConsensusRank(b.name);});
+    const consensusBoard=[...PROSPECTS].sort((a,b)=>getConsensusRank(a.name)-getConsensusRank(b.name));
     // User big board
     const userBoard=getBoard();
 
@@ -1383,10 +1744,13 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         <h1 style={{fontSize:"clamp(28px,6vw,40px)",fontWeight:900,color:"#171717",margin:"0 0 2px",letterSpacing:-1.5}}>big board lab</h1>
         <p style={{fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:0}}>2026 NFL Draft · April 23–25</p>
       </div>
-      <button onClick={()=>{if(isGuest){onRequireAuth("want to see and share the guys you draft more than others?");return;}setShowMyGuys(true);setMyGuysUpdated(false);}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:myGuysUpdated?"linear-gradient(135deg,#ec4899,#7c3aed)":mockCount>0?"#171717":"transparent",color:myGuysUpdated||mockCount>0?"#fff":"#a3a3a3",border:myGuysUpdated||mockCount>0?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",position:"relative",transition:"all 0.2s",whiteSpace:"nowrap"}}>
-        👀 my guys
-        {myGuysUpdated&&<span style={{position:"absolute",top:-2,right:-2,width:8,height:8,borderRadius:4,background:"#ec4899",border:"2px solid #faf9f6"}}/>}
-      </button>
+      <div style={{display:"flex",gap:8,alignItems:"center"}}>
+        <button onClick={()=>{setShowExplorer(true);trackEvent(user?.id,'explorer_opened',{guest:!user});}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",transition:"all 0.2s"}}>📊 explore</button>
+        <button onClick={()=>{if(isGuest){onRequireAuth("want to see and share the guys you draft more than others?");return;}setShowMyGuys(true);setMyGuysUpdated(false);}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:myGuysUpdated?"linear-gradient(135deg,#ec4899,#7c3aed)":mockCount>0?"#171717":"transparent",color:myGuysUpdated||mockCount>0?"#fff":"#a3a3a3",border:myGuysUpdated||mockCount>0?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",position:"relative",transition:"all 0.2s",whiteSpace:"nowrap"}}>
+          👀 my guys
+          {myGuysUpdated&&<span style={{position:"absolute",top:-2,right:-2,width:8,height:8,borderRadius:4,background:"#ec4899",border:"2px solid #faf9f6"}}/>}
+        </button>
+      </div>
     </div>
 
     {/* Stale data warning */}
@@ -1528,7 +1892,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
                 <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginLeft:6}}>{p.school}</span>
                 {(boardTraitFilter.size>0?(prospectBadges[p.id]||[]).filter(b=>boardTraitFilter.has(b.trait)):(prospectBadges[p.id]||[])).map(b=><span key={b.trait} title={b.trait+" "+b.score} className={boardTraitFilter.size>0?"":"board-badge"} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:c,background:c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{b.emoji}</span>)}
               </div>
-              {grade&&<span style={{fontFamily:font,fontSize:14,fontWeight:900,color:grade>=75?"#16a34a":grade>=55?"#ca8a04":"#dc2626",flexShrink:0}}>{grade}</span>}
+              {boardTab==="my"?grade&&<span style={{fontFamily:font,fontSize:14,fontWeight:900,color:grade>=75?"#16a34a":grade>=55?"#ca8a04":"#dc2626",flexShrink:0}}>{grade}</span>:(()=>{const rd=getConsensusRound(p.name);return<span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:rd.fg,background:rd.bg,padding:"2px 8px",borderRadius:4,flexShrink:0}}>{rd.label}</span>;})()}
             </div>;
           })}
           <div style={{padding:"12px 16px",textAlign:"center"}}><button onClick={()=>setBoardShowAll(v=>!v)} style={{fontFamily:mono,fontSize:10,color:"#525252",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>{boardShowAll?`show less`:`view all ${filteredBoard.length} prospects`}</button></div>
@@ -1686,7 +2050,7 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
   const compColors=["#2563eb","#dc2626","#16a34a","#f59e0b"];
   const[compareMeasMode,setCompareMeasMode]=useState(false);
   useEffect(()=>{setCompareMeasMode(false);},[compareList.length]);
-  const allCompHaveMeas=samePos&&compPlayers.every(p=>getMeasRadarData(p.name,p.school)!=null);
+  const allCompHaveMeas=compPlayers.length>=2&&compPlayers.every(p=>getMeasRadarData(p.name,p.school)!=null);
   const[showCompareTip,setShowCompareTip]=useState(()=>{try{return!localStorage.getItem('bbl_compare_tip_seen');}catch(e){return true;}});
   const dismissCompareTip=()=>{setShowCompareTip(false);try{localStorage.setItem('bbl_compare_tip_seen','1');}catch(e){}};
 
@@ -1763,25 +2127,24 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
           <button onClick={()=>setCompareList(prev=>prev.filter(id=>id!==p.id))} style={{fontFamily:mono,fontSize:9,color:"#d4d4d4",background:"none",border:"none",cursor:"pointer",marginTop:4}}>remove</button>
         </div>;})}
       </div>
-      {samePos&&<>
+      {compPlayers.length>=2&&<>
         {allCompHaveMeas&&<div style={{display:"flex",justifyContent:"center",marginTop:12}}><button title={compareMeasMode?"Switch to traits":"Switch to measurables"} onClick={()=>setCompareMeasMode(v=>!v)} style={{width:40,height:22,borderRadius:11,border:"none",background:compareMeasMode?"linear-gradient(135deg,#00ffff,#1e3a5f)":"linear-gradient(135deg,#ec4899,#a855f7)",cursor:"pointer",position:"relative",transition:"background 0.2s"}}><div style={{width:16,height:16,borderRadius:8,background:"#fff",position:"absolute",top:3,left:compareMeasMode?21:3,transition:"left 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:compareMeasMode?"#00ffff":"#a855f7",lineHeight:1}}>{compareMeasMode?"M":"T"}</span></div></button></div>}
         <div style={{display:"flex",justifyContent:"center",gap:8,marginTop:allCompHaveMeas?8:16,flexWrap:"wrap"}}>
-          {compPlayers.map((p,ci)=>{if(compareMeasMode){const md=getMeasRadarData(p.name,p.school);return<div key={p.id} style={{position:"relative",display:"flex",flexDirection:"column",alignItems:"center"}}><RadarChart traits={md.labels} values={md.values} color={compColors[ci]} size={160}/><div style={{fontFamily:mono,fontSize:9,color:compColors[ci],whiteSpace:"nowrap",marginTop:-4}}>{shortName(p.name)}</div></div>;}const posTraits=POSITION_TRAITS[p.pos]||[];return<div key={p.id} style={{position:"relative",display:"flex",flexDirection:"column",alignItems:"center"}}>
+          {compPlayers.map((p,ci)=>{if(compareMeasMode){const md=getMeasRadarData(p.name,p.school);return<div key={p.id} style={{position:"relative",display:"flex",flexDirection:"column",alignItems:"center"}}><RadarChart traits={md.labels} values={md.values} color={compColors[ci]} size={160}/><div style={{fontFamily:mono,fontSize:9,color:compColors[ci],whiteSpace:"nowrap",marginTop:-4}}>{shortName(p.name)}</div></div>;}const posTraits=POSITION_TRAITS[p.gpos||p.pos]||POSITION_TRAITS[p.pos]||[];return<div key={p.id} style={{position:"relative",display:"flex",flexDirection:"column",alignItems:"center"}}>
             <RadarChart traits={posTraits} values={posTraits.map(t=>tv(traits,p.id,t,p.name,p.school))} color={compColors[ci]} size={160}/>
             <div style={{fontFamily:mono,fontSize:9,color:compColors[ci],whiteSpace:"nowrap",marginTop:-4}}>{shortName(p.name)}</div>
           </div>;})}
         </div>
         <div style={{marginTop:12}}>
-          {compareMeasMode?(()=>{const allAxes=[...new Set(compPlayers.flatMap(p=>{const md=getMeasRadarData(p.name,p.school);return md?md.labels:[];}))];const axisOrder=["40","VRT","BRD","3C","SHT","ATH","SPD","AGI","EXP"];allAxes.sort((a,b)=>axisOrder.indexOf(a)-axisOrder.indexOf(b));return allAxes.map(m=><div key={m} style={{display:"grid",gridTemplateColumns:`100px repeat(${compPlayers.length},1fr)`,gap:8,padding:"4px 0",borderBottom:"1px solid #f8f8f8",alignItems:"center"}}><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{m}</span>{compPlayers.map((p,ci)=>{const md=getMeasRadarData(p.name,p.school);const idx=md?md.labels.indexOf(m):-1;const val=idx>=0?md.values[idx]:null;const vals=compPlayers.map(cp=>{const d=getMeasRadarData(cp.name,cp.school);const i=d?d.labels.indexOf(m):-1;return i>=0?d.values[i]:null;}).filter(v=>v!=null);const best=vals.length?Math.max(...vals):null;const worst=vals.length?Math.min(...vals):null;return<div key={p.id} style={{textAlign:"center"}}><span style={{fontFamily:font,fontSize:13,fontWeight:700,color:val==null?"#d4d4d4":compPlayers.length>1&&val===best&&best!==worst?compColors[ci]:compPlayers.length>1&&val===worst&&best!==worst?"#d4d4d4":"#525252"}}>{val!=null?val:"—"}</span></div>;})}</div>);})():(POSITION_TRAITS[compPlayers[0].pos]||[]).map(trait=><div key={trait} style={{display:"grid",gridTemplateColumns:`100px repeat(${compPlayers.length},1fr)`,gap:8,padding:"4px 0",borderBottom:"1px solid #f8f8f8",alignItems:"center"}}>
+          {compareMeasMode?(()=>{const allAxes=[...new Set(compPlayers.flatMap(p=>{const md=getMeasRadarData(p.name,p.school);return md?md.labels:[];}))];const axisOrder=["40","VRT","BRD","3C","SHT","ATH","SPD","AGI","EXP"];allAxes.sort((a,b)=>axisOrder.indexOf(a)-axisOrder.indexOf(b));return allAxes.map(m=><div key={m} style={{display:"grid",gridTemplateColumns:`100px repeat(${compPlayers.length},1fr)`,gap:8,padding:"4px 0",borderBottom:"1px solid #f8f8f8",alignItems:"center"}}><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{m}</span>{compPlayers.map((p,ci)=>{const md=getMeasRadarData(p.name,p.school);const idx=md?md.labels.indexOf(m):-1;const val=idx>=0?md.values[idx]:null;const vals=compPlayers.map(cp=>{const d=getMeasRadarData(cp.name,cp.school);const i=d?d.labels.indexOf(m):-1;return i>=0?d.values[i]:null;}).filter(v=>v!=null);const best=vals.length?Math.max(...vals):null;const worst=vals.length?Math.min(...vals):null;return<div key={p.id} style={{textAlign:"center"}}><span style={{fontFamily:font,fontSize:13,fontWeight:700,color:val==null?"#d4d4d4":compPlayers.length>1&&val===best&&best!==worst?compColors[ci]:compPlayers.length>1&&val===worst&&best!==worst?"#d4d4d4":"#525252"}}>{val!=null?val:"—"}</span></div>;})}</div>);})():samePos?(POSITION_TRAITS[compPlayers[0].pos]||[]).map(trait=><div key={trait} style={{display:"grid",gridTemplateColumns:`100px repeat(${compPlayers.length},1fr)`,gap:8,padding:"4px 0",borderBottom:"1px solid #f8f8f8",alignItems:"center"}}>
             <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{trait}</span>
             {compPlayers.map((p,ci)=>{const val=tv(traits,p.id,trait,p.name,p.school);const best=Math.max(...compPlayers.map(cp=>tv(traits,cp.id,trait,cp.name,cp.school)));const worst=Math.min(...compPlayers.map(cp=>tv(traits,cp.id,trait,cp.name,cp.school)));return<div key={p.id} style={{textAlign:"center"}}>
               <span style={{fontFamily:font,fontSize:13,fontWeight:700,color:compPlayers.length>1&&val===best&&best!==worst?compColors[ci]:compPlayers.length>1&&val===worst&&best!==worst?"#d4d4d4":"#525252"}}>{val}</span>
             </div>;})}
-          </div>)}
+          </div>):<div style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",textAlign:"center",fontStyle:"italic"}}>trait-by-trait comparison available for same-position players</div>}
         </div>
       </>}
-      {!samePos&&compPlayers.length>=2&&<div style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",textAlign:"center",marginTop:12,fontStyle:"italic"}}>select players at the same position for trait comparison & spider charts</div>}
-    </div>}<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>{display.map((p,i)=>{const grade=getGrade(p.id);const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos];const cIdx=compareList.indexOf(p.id);const isC=cIdx>=0;return<div key={p.id} style={{display:"flex",alignItems:"center",gap:12,padding:"10px 16px",borderBottom:i<display.length-1?"1px solid #f5f5f5":"none",cursor:"pointer",background:isC?`${compColors[cIdx]}08`:"transparent"}} onMouseEnter={e=>{if(!isC)e.currentTarget.style.background=`${c}06`;}} onMouseLeave={e=>{if(!isC)e.currentTarget.style.background="transparent";}} onClick={()=>{if(showCompareTip)dismissCompareTip();if(isC)setCompareList(prev=>prev.filter(id=>id!==p.id));else if(compareList.length<4)setCompareList(prev=>[...prev,p.id]);}} onDoubleClick={()=>{setSelectedPlayer(p);setActivePos(p.gpos||p.pos);setPhase("traits");}}>{isC&&<div style={{width:6,height:6,borderRadius:99,background:compColors[cIdx],flexShrink:0}}/>}<div style={{width:84,flexShrink:0,display:"flex",alignItems:"center",gap:8}}><span style={{fontFamily:mono,fontSize:12,color:"#d4d4d4",width:24,textAlign:"right",flexShrink:0}}>{i+1}</span><span style={{fontFamily:mono,fontSize:10,fontWeight:500,color:c,background:`${c}0d`,padding:"2px 8px",borderRadius:4}}>{p.gpos||p.pos}</span></div><SchoolLogo school={p.school} size={24}/><div style={{flex:1,minWidth:0,marginLeft:10}}><span style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717",cursor:"pointer"}} onClick={e=>{e.stopPropagation();setProfilePlayer(p);}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",marginLeft:8}}>{p.school}</span>{(traitFilter.size>0?(prospectBadges[p.id]||[]).filter(b=>traitFilter.has(b.trait)):(prospectBadges[p.id]||[])).map(b=><span key={b.trait} title={b.trait+" "+b.score} className={traitFilter.size>0?"":"board-badge"} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:c,background:c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0,marginLeft:4}}>{b.emoji}</span>)}</div>{(()=>{const pk=(p.gpos||p.pos)==="K"||(p.gpos||p.pos)==="P"||(p.gpos||p.pos)==="LS"?"K/P":(p.gpos||p.pos);const pt=POSITION_TRAITS[pk]||[];return pt.length>=3?<MiniRadar values={pt.map(t=>tv(traits,p.id,t,p.name,p.school))} color={c} size={28}/>:null;})()}<span style={{fontFamily:font,fontSize:14,fontWeight:900,color:grade>=75?"#16a34a":grade>=55?"#ca8a04":"#dc2626",width:24,textAlign:"right",flexShrink:0}}>{grade}</span></div>;})}</div><p style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",textAlign:"center",marginTop:16}}>click name for profile · click row to compare (up to 4) · double-click to edit</p><style>{`@media(max-width:600px){.board-badge{display:none!important;}.mini-radar{display:none!important;}}`}</style></div></div>);
+    </div>}<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>{display.map((p,i)=>{const grade=getGrade(p.id);const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos];const cIdx=compareList.indexOf(p.id);const isC=cIdx>=0;return<div key={p.id} style={{display:"flex",alignItems:"center",gap:12,padding:"10px 16px",borderBottom:i<display.length-1?"1px solid #f5f5f5":"none",cursor:"pointer",background:isC?`${compColors[cIdx]}08`:"transparent"}} onMouseEnter={e=>{if(!isC)e.currentTarget.style.background=`${c}06`;}} onMouseLeave={e=>{if(!isC)e.currentTarget.style.background="transparent";}} onClick={()=>{if(showCompareTip)dismissCompareTip();if(isC)setCompareList(prev=>prev.filter(id=>id!==p.id));else if(compareList.length<4)setCompareList(prev=>[...prev,p.id]);}} onDoubleClick={()=>{setSelectedPlayer(p);setActivePos(p.gpos||p.pos);setPhase("traits");}}>{isC&&<div style={{width:6,height:6,borderRadius:99,background:compColors[cIdx],flexShrink:0}}/>}<div style={{width:84,flexShrink:0,display:"flex",alignItems:"center",gap:8}}><span style={{fontFamily:mono,fontSize:12,color:"#d4d4d4",width:24,textAlign:"right",flexShrink:0}}>{i+1}</span><span style={{fontFamily:mono,fontSize:10,fontWeight:500,color:c,background:`${c}0d`,padding:"2px 8px",borderRadius:4}}>{p.gpos||p.pos}</span></div><SchoolLogo school={p.school} size={24}/><div style={{flex:1,minWidth:0,marginLeft:10,display:"flex",alignItems:"center",gap:4,overflow:"hidden"}}><span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",cursor:"pointer",whiteSpace:"nowrap"}} onClick={e=>{e.stopPropagation();setProfilePlayer(p);}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",whiteSpace:"nowrap"}}>{p.school}</span>{(traitFilter.size>0?(prospectBadges[p.id]||[]).filter(b=>traitFilter.has(b.trait)):(prospectBadges[p.id]||[])).map(b=><span key={b.trait} title={b.trait+" "+b.score} className={traitFilter.size>0?"":"board-badge"} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:c,background:c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{b.emoji}</span>)}</div>{(()=>{const pk=(p.gpos||p.pos)==="K"||(p.gpos||p.pos)==="P"||(p.gpos||p.pos)==="LS"?"K/P":(p.gpos||p.pos);const pt=POSITION_TRAITS[pk]||[];return pt.length>=3?<MiniRadar values={pt.map(t=>tv(traits,p.id,t,p.name,p.school))} color={c} size={28}/>:null;})()}<span style={{fontFamily:font,fontSize:14,fontWeight:900,color:grade>=75?"#16a34a":grade>=55?"#ca8a04":"#dc2626",width:24,textAlign:"right",flexShrink:0}}>{grade}</span></div>;})}</div><p style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",textAlign:"center",marginTop:16}}>click name for profile · click row to compare (up to 4) · double-click to edit</p><style>{`@media(max-width:600px){.board-badge{display:none!important;}.mini-radar{display:none!important;}}`}</style></div></div>);
 }
 
 // ============================================================

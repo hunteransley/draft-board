@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import NFL_ROSTERS from "./nflRosters.js";
 import { getScoutingTraits } from "./scoutingData.js";
+import { getCombineScores } from "./combineTraits.js";
 import { getStatBasedTraits } from "./statTraits.js";
 import { getProspectStats } from "./prospectStats.js";
 // Canvas-based share image (no html2canvas dependency)
@@ -168,37 +169,41 @@ const GRADE_OVERRIDES={"Jeremiyah Love":92,"Sonny Styles":89};
 const TEAM_PROFILES={
   // 3-4 teams value EDGE/OLB rushers + IDL/NT space-eaters; 4-3 teams value DT penetrators + EDGE ends
   // gposBoost: granular position preferences based on scheme (1.15× multiplier)
-  Raiders:{bpaLean:0.55,posBoost:["QB","OL","WR"],posPenalty:[],stage:"rebuild",reachTolerance:0.3,variance:2,gposBoost:["EDGE","IDL"]},
-  Jets:{bpaLean:0.5,posBoost:["QB","DL","DB"],posPenalty:["RB"],stage:"rebuild",reachTolerance:0.4,variance:3,gposBoost:["EDGE","DT"]},
-  Cardinals:{bpaLean:0.45,posBoost:["OL","DL","RB"],posPenalty:["QB"],stage:"rebuild",reachTolerance:0.3,variance:2,gposBoost:["EDGE","NT","IDL"]},
-  Titans:{bpaLean:0.75,posBoost:["DL","DB","WR"],posPenalty:[],stage:"rebuild",reachTolerance:0.15,variance:1,gposBoost:["EDGE","NT","IDL"]},
-  Giants:{bpaLean:0.6,posBoost:["OL","DL","LB","DB"],posPenalty:["QB"],stage:"rebuild",reachTolerance:0.25,variance:2,gposBoost:["EDGE","NT"]},
-  Browns:{bpaLean:0.55,posBoost:["OL","WR","QB"],posPenalty:["DL","LB"],stage:"rebuild",reachTolerance:0.35,variance:3,gposBoost:["EDGE","DT"]},
-  Commanders:{bpaLean:0.65,posBoost:["OL","WR"],posPenalty:[],stage:"contend",reachTolerance:0.3,variance:1,gposBoost:["EDGE","DT"]},
-  Saints:{bpaLean:0.35,posBoost:["WR","DB","RB"],posPenalty:[],stage:"retool",reachTolerance:0.5,variance:4,gposBoost:["EDGE","DT"]},
-  Chiefs:{bpaLean:0.5,posBoost:["WR","DB","RB"],posPenalty:["QB"],stage:"dynasty",reachTolerance:0.5,variance:3,gposBoost:["EDGE","DT","CB"]},
-  Bengals:{bpaLean:0.8,posBoost:["DL","OL","DB"],posPenalty:[],stage:"contend",reachTolerance:0.1,variance:1,gposBoost:["EDGE","DT"]},
-  Dolphins:{bpaLean:0.65,posBoost:["OL","DL","DB"],posPenalty:[],stage:"rebuild",reachTolerance:0.2,variance:2,gposBoost:["EDGE","NT","IDL"]},
-  Cowboys:{bpaLean:0.7,posBoost:["DL","DB","LB"],posPenalty:[],stage:"retool",reachTolerance:0.2,variance:2,gposBoost:["EDGE","DT"]},
-  Colts:{bpaLean:0.65,posBoost:["OL","DL","WR"],posPenalty:[],stage:"retool",reachTolerance:0.2,variance:1,gposBoost:["EDGE","DT"]},
-  Steelers:{bpaLean:0.55,posBoost:["WR","QB","OL","DL"],posPenalty:[],stage:"retool",reachTolerance:0.35,variance:2,gposBoost:["EDGE","NT","IDL"]},
-  Texans:{bpaLean:0.5,posBoost:["OL","DL","DB"],posPenalty:["QB"],stage:"contend",reachTolerance:0.4,variance:2,gposBoost:["EDGE","DT"]},
-  Jaguars:{bpaLean:0.7,posBoost:["DL","DB","OL"],posPenalty:[],stage:"rebuild",reachTolerance:0.2,variance:2,gposBoost:["EDGE","DT"]},
-  Patriots:{bpaLean:0.6,posBoost:["OL","WR","DL"],posPenalty:[],stage:"rebuild",reachTolerance:0.3,variance:2,gposBoost:["EDGE","NT","IDL"]},
-  Broncos:{bpaLean:0.55,posBoost:["WR","OL","TE"],posPenalty:["QB"],stage:"contend",reachTolerance:0.4,variance:2,gposBoost:["EDGE","NT"]},
-  Panthers:{bpaLean:0.5,posBoost:["OL","DL"],posPenalty:[],stage:"rebuild",reachTolerance:0.35,variance:3,gposBoost:["EDGE","NT","IDL"]},
-  Bears:{bpaLean:0.6,posBoost:["WR","DB","DL"],posPenalty:[],stage:"contend",reachTolerance:0.3,variance:2,gposBoost:["EDGE","DT"]},
-  Falcons:{bpaLean:0.6,posBoost:["OL","DL","DB"],posPenalty:[],stage:"retool",reachTolerance:0.25,variance:2,gposBoost:["EDGE","NT","IDL"]},
-  Eagles:{bpaLean:0.5,posBoost:["OL","DL","DB"],posPenalty:[],stage:"dynasty",reachTolerance:0.45,variance:3,gposBoost:["EDGE","NT","IDL"]},
-  Chargers:{bpaLean:0.6,posBoost:["OL","DL","TE"],posPenalty:["QB"],stage:"contend",reachTolerance:0.3,variance:1,gposBoost:["EDGE","NT","IDL"]},
-  "49ers":{bpaLean:0.55,posBoost:["WR","OL","DB","DL"],posPenalty:[],stage:"contend",reachTolerance:0.5,variance:3,gposBoost:["EDGE","DT"]},
-  Packers:{bpaLean:0.75,posBoost:["DB","WR","DL"],posPenalty:[],stage:"contend",reachTolerance:0.15,variance:1,gposBoost:["EDGE","NT"]},
-  Lions:{bpaLean:0.6,posBoost:["DL","DB","OL","WR"],posPenalty:[],stage:"dynasty",reachTolerance:0.45,variance:3,gposBoost:["EDGE","DT"]},
-  Rams:{bpaLean:0.45,posBoost:["OL","DL","QB","WR"],posPenalty:[],stage:"contend",reachTolerance:0.6,variance:4,gposBoost:["EDGE","NT","IDL"]},
-  Seahawks:{bpaLean:0.65,posBoost:["OL","DL","DB"],posPenalty:[],stage:"dynasty",reachTolerance:0.3,variance:3,gposBoost:["EDGE","NT","IDL"]},
-  Buccaneers:{bpaLean:0.55,posBoost:["OL","DL","DB"],posPenalty:[],stage:"contend",reachTolerance:0.3,variance:2,gposBoost:["EDGE","NT","IDL"]},
-  Vikings:{bpaLean:0.4,posBoost:["OL","QB","WR"],posPenalty:[],stage:"retool",reachTolerance:0.4,variance:4,gposBoost:["EDGE","NT"]},
-  Ravens:{bpaLean:0.7,posBoost:["OL","WR","DB"],posPenalty:[],stage:"contend",reachTolerance:0.35,variance:2,gposBoost:["EDGE","NT","IDL"]},
+  // athBoost: 0-0.18, bonus for high athleticScore prospects (team values athleticism)
+  // sizePremium: boolean, small boost for above-avg height/weight/arms at position
+  // ceilingChaser: 0-0.12, bonus for high/elite ceiling prospects (team values upside)
+  Raiders:{bpaLean:0.55,posBoost:["QB","OL","WR"],posPenalty:[],stage:"rebuild",reachTolerance:0.3,variance:2,gposBoost:["EDGE","IDL"],athBoost:0.08,sizePremium:false,ceilingChaser:0.08},
+  Jets:{bpaLean:0.5,posBoost:["QB","DL","DB"],posPenalty:["RB"],stage:"rebuild",reachTolerance:0.4,variance:3,gposBoost:["EDGE","DT"],athBoost:0.06,sizePremium:true,ceilingChaser:0},
+  Cardinals:{bpaLean:0.45,posBoost:["OL","DL","RB"],posPenalty:["QB"],stage:"rebuild",reachTolerance:0.3,variance:2,gposBoost:["EDGE","NT","IDL"],athBoost:0.08,sizePremium:false,ceilingChaser:0.06},
+  Titans:{bpaLean:0.75,posBoost:["DL","DB","WR"],posPenalty:[],stage:"rebuild",reachTolerance:0.15,variance:1,gposBoost:["EDGE","NT","IDL"],athBoost:0,sizePremium:false,ceilingChaser:0},
+  Giants:{bpaLean:0.6,posBoost:["OL","DL","LB","DB"],posPenalty:["QB"],stage:"rebuild",reachTolerance:0.25,variance:2,gposBoost:["EDGE","NT"],athBoost:0,sizePremium:true,ceilingChaser:0},
+  Browns:{bpaLean:0.55,posBoost:["OL","WR","QB"],posPenalty:["DL","LB"],stage:"rebuild",reachTolerance:0.35,variance:3,gposBoost:["EDGE","DT"],athBoost:0.10,sizePremium:false,ceilingChaser:0},
+  Commanders:{bpaLean:0.65,posBoost:["OL","WR"],posPenalty:[],stage:"contend",reachTolerance:0.3,variance:1,gposBoost:["EDGE","DT"],athBoost:0.08,sizePremium:false,ceilingChaser:0},
+  Saints:{bpaLean:0.35,posBoost:["WR","DB","RB"],posPenalty:[],stage:"retool",reachTolerance:0.5,variance:4,gposBoost:["EDGE","DT"],athBoost:0,sizePremium:false,ceilingChaser:0},
+  Chiefs:{bpaLean:0.5,posBoost:["WR","DB","RB"],posPenalty:["QB"],stage:"dynasty",reachTolerance:0.5,variance:3,gposBoost:["EDGE","DT","CB"],athBoost:0.12,sizePremium:false,ceilingChaser:0},
+  Bengals:{bpaLean:0.8,posBoost:["DL","OL","DB"],posPenalty:[],stage:"contend",reachTolerance:0.1,variance:1,gposBoost:["EDGE","DT"],athBoost:0,sizePremium:false,ceilingChaser:0},
+  Dolphins:{bpaLean:0.65,posBoost:["OL","DL","DB"],posPenalty:[],stage:"rebuild",reachTolerance:0.2,variance:2,gposBoost:["EDGE","NT","IDL"],athBoost:0.08,sizePremium:false,ceilingChaser:0.06},
+  Cowboys:{bpaLean:0.7,posBoost:["DL","DB","LB"],posPenalty:[],stage:"retool",reachTolerance:0.2,variance:2,gposBoost:["EDGE","DT"],athBoost:0,sizePremium:false,ceilingChaser:0},
+  Colts:{bpaLean:0.65,posBoost:["OL","DL","WR"],posPenalty:[],stage:"retool",reachTolerance:0.2,variance:1,gposBoost:["EDGE","DT"],athBoost:0.12,sizePremium:true,ceilingChaser:0},
+  Steelers:{bpaLean:0.55,posBoost:["WR","QB","OL","DL"],posPenalty:[],stage:"retool",reachTolerance:0.35,variance:2,gposBoost:["EDGE","NT","IDL"],athBoost:0,sizePremium:true,ceilingChaser:0},
+  Texans:{bpaLean:0.5,posBoost:["OL","DL","DB"],posPenalty:["QB"],stage:"contend",reachTolerance:0.4,variance:2,gposBoost:["EDGE","DT"],athBoost:0.08,sizePremium:false,ceilingChaser:0},
+  Jaguars:{bpaLean:0.7,posBoost:["DL","DB","OL"],posPenalty:[],stage:"rebuild",reachTolerance:0.2,variance:2,gposBoost:["EDGE","DT"],athBoost:0.10,sizePremium:false,ceilingChaser:0.10},
+  Patriots:{bpaLean:0.6,posBoost:["OL","WR","DL"],posPenalty:[],stage:"rebuild",reachTolerance:0.3,variance:2,gposBoost:["EDGE","NT","IDL"],athBoost:0.10,sizePremium:false,ceilingChaser:0.06},
+  Broncos:{bpaLean:0.55,posBoost:["WR","OL","TE"],posPenalty:["QB"],stage:"contend",reachTolerance:0.4,variance:2,gposBoost:["EDGE","NT"],athBoost:0.06,sizePremium:true,ceilingChaser:0},
+  Panthers:{bpaLean:0.5,posBoost:["OL","DL"],posPenalty:[],stage:"rebuild",reachTolerance:0.35,variance:3,gposBoost:["EDGE","NT","IDL"],athBoost:0,sizePremium:true,ceilingChaser:0},
+  Bears:{bpaLean:0.6,posBoost:["WR","DB","DL"],posPenalty:[],stage:"contend",reachTolerance:0.3,variance:2,gposBoost:["EDGE","DT"],athBoost:0.15,sizePremium:false,ceilingChaser:0.10},
+  Falcons:{bpaLean:0.6,posBoost:["OL","DL","DB"],posPenalty:[],stage:"retool",reachTolerance:0.25,variance:2,gposBoost:["EDGE","NT","IDL"],athBoost:0,sizePremium:true,ceilingChaser:0},
+  Eagles:{bpaLean:0.5,posBoost:["OL","DL","DB"],posPenalty:[],stage:"dynasty",reachTolerance:0.45,variance:3,gposBoost:["EDGE","NT","IDL"],athBoost:0.06,sizePremium:false,ceilingChaser:0},
+  Chargers:{bpaLean:0.6,posBoost:["OL","DL","TE"],posPenalty:["QB"],stage:"contend",reachTolerance:0.3,variance:1,gposBoost:["EDGE","NT","IDL"],athBoost:0,sizePremium:true,ceilingChaser:0},
+  "49ers":{bpaLean:0.55,posBoost:["WR","OL","DB","DL"],posPenalty:[],stage:"contend",reachTolerance:0.5,variance:3,gposBoost:["EDGE","DT"],athBoost:0.12,sizePremium:false,ceilingChaser:0.06},
+  Packers:{bpaLean:0.75,posBoost:["DB","WR","DL"],posPenalty:[],stage:"contend",reachTolerance:0.15,variance:1,gposBoost:["EDGE","NT"],athBoost:0.04,sizePremium:false,ceilingChaser:0},
+  Lions:{bpaLean:0.6,posBoost:["DL","DB","OL","WR"],posPenalty:[],stage:"dynasty",reachTolerance:0.45,variance:3,gposBoost:["EDGE","DT"],athBoost:0.08,sizePremium:false,ceilingChaser:0.10},
+  Rams:{bpaLean:0.45,posBoost:["OL","DL","QB","WR"],posPenalty:[],stage:"contend",reachTolerance:0.6,variance:4,gposBoost:["EDGE","NT","IDL"],athBoost:0.06,sizePremium:false,ceilingChaser:0},
+  Seahawks:{bpaLean:0.65,posBoost:["OL","DL","DB"],posPenalty:[],stage:"dynasty",reachTolerance:0.3,variance:3,gposBoost:["EDGE","NT","IDL"],athBoost:0.15,sizePremium:true,ceilingChaser:0.08},
+  Buccaneers:{bpaLean:0.55,posBoost:["OL","DL","DB"],posPenalty:[],stage:"contend",reachTolerance:0.3,variance:2,gposBoost:["EDGE","NT","IDL"],athBoost:0,sizePremium:false,ceilingChaser:0},
+  Vikings:{bpaLean:0.4,posBoost:["OL","QB","WR"],posPenalty:[],stage:"retool",reachTolerance:0.4,variance:4,gposBoost:["EDGE","NT"],athBoost:0,sizePremium:false,ceilingChaser:0},
+  Bills:{bpaLean:0.55,posBoost:["DL","DB","WR"],posPenalty:[],stage:"retool",reachTolerance:0.4,variance:3,gposBoost:["EDGE","DT"],athBoost:0.06,sizePremium:false,ceilingChaser:0},
+  Ravens:{bpaLean:0.7,posBoost:["OL","WR","DB"],posPenalty:[],stage:"contend",reachTolerance:0.35,variance:2,gposBoost:["EDGE","NT","IDL"],athBoost:0.04,sizePremium:false,ceilingChaser:0},
 };
 
 // Division map for RIVAL tags
@@ -249,7 +254,7 @@ function pickVerdict(pickNum,consRank,grade){
   return{text:"BIG REACH",color:"#dc2626",bg:"#fef2f2"};
 }
 
-export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,onMockComplete,myGuys,myGuysUpdated,setMyGuysUpdated,mockCount,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,TEAM_NEEDS_DETAILED,rankedGroups,mockLaunchTeam,mockLaunchRounds,mockLaunchSpeed,mockLaunchCpuTrades,mockLaunchBoardMode,onRankPosition,isGuest,onRequireAuth,trackEvent,userId,isGuestUser,traitThresholds,qualifiesForFilter,prospectBadges,TRAIT_ABBREV,TRAIT_EMOJI,SCHOOL_CONFERENCE,POS_EMOJI,onShareMyGuys,copiedShare:parentCopiedShare,measurableThresholds,qualifiesForMeasurableFilter,MEASURABLE_EMOJI,MEASURABLE_SHORT,MEASURABLE_LIST,MEASURABLE_DRILLS,MEASURABLE_KEY,MEASURABLE_RAW,MEAS_GROUPS,getMeasRadarData}){
+export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,onMockComplete,myGuys,myGuysUpdated,setMyGuysUpdated,mockCount,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,getConsensusRound,TEAM_NEEDS_DETAILED,rankedGroups,mockLaunchTeam,mockLaunchRounds,mockLaunchSpeed,mockLaunchCpuTrades,mockLaunchBoardMode,onRankPosition,isGuest,onRequireAuth,trackEvent,userId,isGuestUser,traitThresholds,qualifiesForFilter,prospectBadges,TRAIT_ABBREV,TRAIT_EMOJI,SCHOOL_CONFERENCE,POS_EMOJI,onShareMyGuys,copiedShare:parentCopiedShare,measurableThresholds,qualifiesForMeasurableFilter,MEASURABLE_EMOJI,MEASURABLE_SHORT,MEASURABLE_LIST,MEASURABLE_DRILLS,MEASURABLE_KEY,MEASURABLE_RAW,MEAS_GROUPS,getMeasRadarData}){
   const TRAIT_SHORT={"Contested Catches":"Contested","Man Coverage":"Man Cov","Contact Balance":"Contact Bal","Directional Control":"Directional","Decision Making":"Decision","Pocket Presence":"Pocket Pres","Pass Catching":"Pass Catch","Run Blocking":"Run Block","Pass Protection":"Pass Prot","Hand Usage":"Hand Use","Run Defense":"Run Def","Zone Coverage":"Zone Cov","Leg Strength":"Leg Str"};
   // Trait value with scouting fallback (same chain as App.jsx tv())
   const tvFn=useCallback((id,trait)=>{const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;return traits[id]?.[trait]??getScoutingTraits(p.name,p.school)?.[trait]??getStatBasedTraits(p.name,p.school)?.[trait]??50;},[traits,PROSPECTS]);
@@ -257,6 +262,10 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[boardMode,setBoardMode]=useState("consensus");
   const activeBoard=boardMode==="my"&&myBoard?myBoard:board;
   const activeGrade=useCallback((id)=>getGrade(id),[getGrade]);
+  // Check if a player has a user-assigned grade (ranked position group or individual trait edits)
+  const hasUserGrade=useCallback((p)=>{if(boardMode!=="my")return false;const g=(p.gpos||p.pos)==="K"||(p.gpos||p.pos)==="P"||(p.gpos||p.pos)==="LS"?"K/P":(p.gpos||p.pos);return rankedGroups.has(g)||(traits[p.id]&&Object.keys(traits[p.id]).length>0);},[boardMode,rankedGroups,traits]);
+  // Render grade or round pill depending on whether user has graded this player
+  const renderGradeOrPill=useCallback((p,fontSize=9)=>{if(hasUserGrade(p)){const g=activeGrade(p.id);return<span style={{fontFamily:mono,fontSize:fontSize+2,fontWeight:700,color:"#171717",flexShrink:0}}>{g}</span>;}const rd=getConsensusRound(p.name);return<span style={{fontFamily:mono,fontSize,fontWeight:700,color:rd.fg,background:rd.bg,padding:"2px 6px",borderRadius:4,flexShrink:0}}>{rd.label}</span>;},[hasUserGrade,activeGrade,getConsensusRound,mono]);
   // Board rank lookup: position in the active board (1-indexed)
   const boardRankMap=useMemo(()=>{const m={};activeBoard.forEach((p,i)=>{m[p.id]=i+1;});return m;},[activeBoard]);
   const[setupDone,setSetupDone]=useState(false);
@@ -309,8 +318,10 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       if(typeof mockLaunchCpuTrades==='boolean')setCpuTrades(mockLaunchCpuTrades);
       if(mockLaunchBoardMode)setBoardMode(mockLaunchBoardMode);
       // Auto-start the draft immediately — skip the setup screen
+      // Use correct board based on launch mode (activeBoard may be stale since setBoardMode hasn't re-rendered yet)
+      const launchBoard=mockLaunchBoardMode==="my"&&myBoard?myBoard:board;
       setTimeout(()=>{
-        setAvailable(activeBoard.map(p=>p.id));setPicks([]);setSetupDone(true);setShowResults(false);
+        setAvailable(launchBoard.map(p=>p.id));setPicks([]);setSetupDone(true);setShowResults(false);
         setTradeMap({});setLastVerdict(null);setTradeOffer(null);setShowTradeUp(false);setTradeValueDelta(0);setCpuTradeLog([]);
       },50);
     }
@@ -455,6 +466,19 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       const isSchemefit=(prof.gposBoost||[]).includes(gpos);
       const schemeBoost=isSchemefit?1.15:1.0;
 
+      // GM personality: athleticism, size, and ceiling preferences
+      const sc=getScoutingTraits(p.name,p.school);
+      const cs=getCombineScores(p.name,p.school);
+      const ath=cs?.athleticScore??null;
+      const ceiling=sc?.__ceiling||"normal";
+      // athBoost: tiered bonus for high athleticScore (85+/90+/95+)
+      const athMult=(prof.athBoost&&ath!=null&&ath>=85)?1+prof.athBoost*(ath>=95?1.0:ath>=90?0.6:0.3):1.0;
+      // ceilingChaser: bonus for high/elite ceiling prospects
+      const ceilingMult=(prof.ceilingChaser&&(ceiling==="elite"||ceiling==="high"))?1+prof.ceilingChaser*(ceiling==="elite"?1.0:0.6):1.0;
+      // sizePremium: small boost for above-avg measurables (height/weight percentiles)
+      let sizeMult=1.0;
+      if(prof.sizePremium&&cs?.percentiles){const hp=cs.percentiles.height??50;const wp=cs.percentiles.weight??50;if(hp>=75&&wp>=75)sizeMult=1.06;else if(hp>=60&&wp>=60)sizeMult=1.03;}
+
       // Stage modifier — meaningful impact on scoring
       let stageMod=1.0;
       if(prof.stage==="dynasty"){
@@ -474,7 +498,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         stageMod=nc>=2?1.1:1.0;
       }
 
-      const bpaComponent=base*finalBpaW*pm*rbPen*qbMod*teamPosBoost*schemeBoost;
+      const bpaComponent=base*finalBpaW*pm*rbPen*qbMod*teamPosBoost*schemeBoost*athMult*ceilingMult*sizeMult;
       const needComponent=nm*finalNeedW*12;
       const score=(bpaComponent+needComponent+slideBoost-reachPenalty)*dimReturn*stageMod*runPenalty*urgencyBoost;
       scored.push({id,score,grade,consRank});
@@ -1716,7 +1740,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
                   <NFLTeamLogo team={pk.team} size={16}/>
                   <span style={{fontFamily:mono,fontSize:10,color:c,width:32,flexShrink:0}}>{p.gpos||p.pos}</span>
                   <SchoolLogo school={p.school} size={16}/>
-                  <span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{p.name}</span>
+                  <span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap",cursor:"pointer"}} onClick={()=>setProfilePlayer(p)} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span>
                   <span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",flexShrink:0}}>{p.school}</span>
                   {pk.traded&&<span style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 4px",borderRadius:2,flexShrink:0}}>TRD</span>}
                 </div>;
@@ -1749,9 +1773,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
                     <span style={{fontFamily:mono,fontSize:10,color:"#d4d4d4",width:44}}>Rd{pk.round} #{pk.pick}</span>
                     <span style={{fontFamily:mono,fontSize:10,color:c,width:28}}>{p.gpos||p.pos}</span>
                     <SchoolLogo school={p.school} size={16}/>
-                    <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1}}>{p.name}</span>
+                    <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1,cursor:"pointer"}} onClick={()=>setProfilePlayer(p)} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span>
                     <span style={{fontFamily:mono,fontSize:7,padding:"1px 5px",background:v.bg,color:v.color,borderRadius:3}}>{v.text}</span>
-                    <span style={{fontFamily:font,fontSize:12,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626"}}>{g}</span>
+                    {renderGradeOrPill(p)}
                   </div>;
                 })}
               </div>
@@ -1886,6 +1910,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           </div>
         </div>;
         })()}
+        {profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={allProspects} getGrade={getGrade} onClose={()=>setProfilePlayer(null)} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth}/>}
       </div>
     );
   }
@@ -2015,7 +2040,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
                 <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}} onClick={()=>setProfilePlayer(p)}>{p.name}</span>
                 {isUserPick&&tags.map(t=><span key={t.tag} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:t.color,background:t.bg,padding:"2px 5px",borderRadius:3,flexShrink:0,letterSpacing:0.5}}>{t.tag}</span>)}
                 {(prospectBadges&&prospectBadges[id]||[]).map(b=><span key={b.trait} title={b.trait+" "+b.score} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:c,background:c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{b.emoji}</span>)}
-                <span style={{fontFamily:font,fontSize:13,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626",width:24,textAlign:"right"}}>{g}</span>
+                {renderGradeOrPill(p)}
                 {isUserPick&&<button onClick={()=>makePick(id)} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"4px 10px",background:"#22c55e",color:"#fff",border:"none",borderRadius:6,cursor:"pointer",flexShrink:0}}>draft</button>}
               </div>;
             })}
@@ -2421,7 +2446,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
                 <span style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#171717",flex:1,cursor:"pointer"}} onClick={()=>setProfilePlayer(p)} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span>
                 {isUserPick&&tags.map(t=><span key={t.tag} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:t.color,background:t.bg,padding:"2px 5px",borderRadius:3,flexShrink:0,letterSpacing:0.5}}>{t.tag}</span>)}
                 {(prospectBadges&&prospectBadges[id]||[]).map(b=><span key={b.trait} title={b.trait+" "+b.score} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:c,background:c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{b.emoji}</span>)}
-                <span style={{fontFamily:font,fontSize:12,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626",width:24,textAlign:"right"}}>{g}</span>
+                {renderGradeOrPill(p)}
                 <button onClick={()=>toggleCompare(p)} style={{fontFamily:mono,fontSize:7,padding:"2px 5px",background:inC?"#3b82f6":"transparent",color:inC?"#fff":"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:4,cursor:"pointer"}}>{inC?"✓":"+"}</button>
                 {isUserPick&&<button onClick={()=>makePick(id)} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"3px 10px",background:"#22c55e",color:"#fff",border:"none",borderRadius:6,cursor:"pointer"}}>draft</button>}
               </div>;
