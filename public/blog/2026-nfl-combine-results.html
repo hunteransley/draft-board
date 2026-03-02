@@ -43,6 +43,7 @@
 }
 </script>
 <style>
+  @keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}
   :root {
     --bg: #faf9f6;
     --card: #fff;
@@ -175,7 +176,7 @@
 
 <div class="top-bar">
   <a href="https://bigboardlab.com" class="logo">big board lab</a>
-  <a href="https://bigboardlab.com" class="cta-btn">rank prospects →</a>
+  <a href="/combine" class="cta-btn" style="display:inline-flex;align-items:center;gap:5px;background:transparent;color:#a3a3a3;border:1px solid #e5e5e5"><img src="/combine-logo.png" alt="" style="height:16px;width:auto"> <span style="background:linear-gradient(90deg,#7c3aed,#ec4899,#7c3aed);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3s linear infinite">play with the data</span></a>
 </div>
 
 <div class="hero">
@@ -247,6 +248,7 @@
     <a href="https://bigboardlab.com" class="big-btn">build your big board →</a>
   </div>
 </div>
+<div style="text-align:center;padding:24px;font-family:ui-monospace,monospace;font-size:10px;color:#d4d4d4;letter-spacing:0.5px">© 2026 Big Board Lab, LLC. All rights reserved.</div>
 
 <script>
 const COMBINE_DATA = [

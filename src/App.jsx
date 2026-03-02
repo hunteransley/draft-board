@@ -147,18 +147,17 @@ function MiniRadar({values,color,size=28}){const cx=size/2,cy=size/2,r=size/2-1,
 const EXPLORER_GROUPS=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"];
 const INVERTED_MEAS=new Set(["40","3C","SHT"]);
 
-function beeswarmLayout(points,width,rowH,dotR){
-  if(!points.length||width<60)return[];
+function beeswarmLayoutVertical(points,chartH,colW,dotR,globalMin,globalMax,inverted){
+  if(!points.length||chartH<60)return[];
   const sorted=[...points].sort((a,b)=>a.val-b.val);
-  const minV=sorted[0].val,maxV=sorted[sorted.length-1].val;
-  const range=maxV-minV||1;
+  const range=globalMax-globalMin||1;
   const pad=dotR*4;
-  const usable=width-pad*2;
+  const usable=chartH-pad*2;
   const placed=[];
   for(const pt of sorted){
-    const x=pad+((pt.val-minV)/range)*usable;
-    const cy=rowH/2;
-    let y=cy;
+    const y=inverted?pad+((pt.val-globalMin)/range)*usable:pad+((globalMax-pt.val)/range)*usable;
+    const cx=colW/2;
+    let x=cx;
     let offset=0;
     let dir=1;
     let settled=false;
@@ -171,7 +170,7 @@ function beeswarmLayout(points,width,rowH,dotR){
           settled=false;
           offset+=dotR*1.1;
           dir=-dir;
-          y=cy+(dir>0?1:-1)*offset;
+          x=cx+(dir>0?1:-1)*offset;
           break;
         }
       }
@@ -181,27 +180,30 @@ function beeswarmLayout(points,width,rowH,dotR){
   return placed;
 }
 
-function BeeswarmChart({data,width,myGuys,showMyGuys,onHover,onTap,hoveredId}){
+function BeeswarmChart({data,width,myGuys,showMyGuys,showLogos,onHover,onTap,hoveredId}){
   const isMobile=width<600;
   const dotR=isMobile?3.5:4.5;
-  const rowH=isMobile?56:70;
-  const labelW=isMobile?36:48;
+  const chartH=isMobile?320:400;
+  const labelH=isMobile?28:32;
+  const axisW=isMobile?32:40;
   const groups=data.groups;
-  const totalH=groups.length*rowH+32;
-  const chartW=width-labelW;
+  const colW=Math.floor((width-axisW)/groups.length);
+  const totalW=axisW+colW*groups.length;
+  const totalH=chartH+labelH;
   const myGuyNames=useMemo(()=>new Set((myGuys||[]).map(g=>g.name)),[myGuys]);
 
+  const layoutR=showLogos?(isMobile?7:9):dotR;
   const laid=useMemo(()=>{
     const byGroup={};
     groups.forEach(g=>byGroup[g]=[]);
     data.points.forEach(pt=>{if(byGroup[pt.group])byGroup[pt.group].push(pt);});
     const all=[];
     groups.forEach(g=>{
-      const pts=beeswarmLayout(byGroup[g],chartW,rowH,dotR);
+      const pts=beeswarmLayoutVertical(byGroup[g],chartH,colW,layoutR,data.min,data.max,data.inverted);
       all.push(...pts);
     });
     return all;
-  },[data.points,groups,chartW,rowH,dotR]);
+  },[data.points,groups,chartH,colW,layoutR,data.min,data.max]);
 
   const axisVals=useMemo(()=>{
     const mn=data.min,mx=data.max,range=mx-mn||1;
@@ -214,51 +216,55 @@ function BeeswarmChart({data,width,myGuys,showMyGuys,onHover,onTap,hoveredId}){
   },[data.min,data.max]);
 
   const pad=dotR*4;
-  const usable=chartW-pad*2;
+  const usable=chartH-pad*2;
   const range=data.max-data.min||1;
-  const valToX=(v)=>pad+((v-data.min)/range)*usable;
+  const valToY=(v)=>data.inverted?pad+((v-data.min)/range)*usable:pad+((data.max-v)/range)*usable;
 
-  return(<svg width={width} height={totalH} viewBox={`0 0 ${width} ${totalH}`} style={{display:"block"}}>
-    {/* Axis ticks */}
-    {axisVals.map(v=>{const x=labelW+valToX(v);return<g key={v}>
-      <line x1={x} y1={0} x2={x} y2={groups.length*rowH} stroke="#e5e5e5" strokeWidth="0.5"/>
-      <text x={x} y={groups.length*rowH+14} textAnchor="middle" style={{fontSize:"9px",fill:"#a3a3a3",fontFamily:"monospace"}}>{INVERTED_MEAS.has(data.measCode)?v.toFixed(v%1?2:0):Math.round(v*10)/10}</text>
+  return(<svg width={totalW} height={totalH} viewBox={`0 0 ${totalW} ${totalH}`} style={{display:"block"}}>
+    {/* Horizontal grid lines + Y-axis labels */}
+    {axisVals.map(v=>{const y=valToY(v);return<g key={v}>
+      <line x1={axisW} y1={y} x2={totalW} y2={y} stroke="#e5e5e5" strokeWidth="0.5"/>
+      <text x={axisW-4} y={y} textAnchor="end" dominantBaseline="middle" style={{fontSize:"9px",fill:"#a3a3a3",fontFamily:"monospace"}}>{data.inverted?v.toFixed(2):v%1?v.toFixed(1):Math.round(v)}</text>
     </g>;})}
-    {/* Row backgrounds + labels */}
+    {/* Column backgrounds + position labels at bottom */}
     {groups.map((g,i)=><g key={g}>
-      {i%2===0&&<rect x={labelW} y={i*rowH} width={chartW} height={rowH} fill="#f5f5f4" rx="0"/>}
-      <text x={labelW-4} y={i*rowH+rowH/2} textAnchor="end" dominantBaseline="middle" style={{fontSize:isMobile?"9px":"11px",fill:POS_COLORS[g]||"#737373",fontFamily:"monospace",fontWeight:700}}>{g}</text>
+      {i%2===0&&<rect x={axisW+i*colW} y={0} width={colW} height={chartH} fill="#f5f5f4" rx="0"/>}
+      <text x={axisW+i*colW+colW/2} y={chartH+labelH/2+2} textAnchor="middle" dominantBaseline="middle" style={{fontSize:isMobile?"9px":"11px",fill:POS_COLORS[g]||"#737373",fontFamily:"monospace",fontWeight:700}}>{g}</text>
     </g>)}
-    {/* Dots */}
+    {/* Dots / Logos */}
     {laid.map(pt=>{
       const gi=groups.indexOf(pt.group);
-      const cx=labelW+pt.x;
-      const cy=gi*rowH+pt.y;
+      const cx=axisW+gi*colW+pt.x;
+      const cy=pt.y;
       const isMyGuy=showMyGuys&&myGuyNames.has(pt.name);
       const fade=showMyGuys&&myGuyNames.size>0&&!isMyGuy;
       const isHovered=hoveredId===pt.id;
       const color=POS_COLORS[pt.pos]||POS_COLORS[pt.group]||"#737373";
+      const logoSize=isMobile?14:18;
       return<g key={pt.id} style={{cursor:"pointer"}}>
-        {/* Invisible touch target */}
-        <circle cx={cx} cy={cy} r={12} fill="transparent"
+        <circle cx={cx} cy={cy} r={showLogos?logoSize/2+2:12} fill="transparent" stroke="none" style={{outline:"none"}}
           onPointerEnter={(e)=>onHover({...pt,cx:e.clientX,cy:e.clientY})}
           onPointerLeave={()=>onHover(null)}
           onClick={()=>onTap(pt)}/>
-        {/* Visible dot */}
-        <circle cx={cx} cy={cy} r={isMyGuy?dotR+1.5:dotR}
+        {showLogos?<foreignObject x={cx-logoSize/2} y={cy-logoSize/2} width={logoSize} height={logoSize} style={{opacity:fade?0.25:1,transition:"opacity 0.2s",pointerEvents:"none",overflow:"visible"}}>
+          <div xmlns="http://www.w3.org/1999/xhtml" style={{width:logoSize,height:logoSize}}>
+            <SchoolLogo school={pt.school} size={logoSize}/>
+          </div>
+        </foreignObject>
+        :<circle cx={cx} cy={cy} r={isMyGuy?dotR+1.5:dotR}
           fill={fade?"#d4d4d4":color}
           opacity={fade?0.3:1}
           stroke={isMyGuy?"#ec4899":isHovered?"#171717":"none"}
           strokeWidth={isMyGuy?2:isHovered?1.5:0}
-          style={{transition:"cx 0.3s,cy 0.3s,opacity 0.2s",pointerEvents:"none"}}/>
+          style={{transition:"cx 0.3s,cy 0.3s,opacity 0.2s",pointerEvents:"none"}}/>}
       </g>;
     })}
-    {/* Label */}
-    <text x={labelW+chartW/2} y={groups.length*rowH+26} textAnchor="middle" style={{fontSize:"10px",fill:"#a3a3a3",fontFamily:"monospace"}}>{data.label}{data.inverted?" (lower = better →)":""}</text>
+    {/* Y-axis label */}
+    <text x={10} y={chartH/2} textAnchor="middle" dominantBaseline="middle" transform={`rotate(-90,10,${chartH/2})`} style={{fontSize:"10px",fill:"#a3a3a3",fontFamily:"monospace"}}>{data.label}</text>
   </svg>);
 }
 
-function BeeswarmChartWrapper({data,myGuys,showMyGuys,onHover,onTap,hoveredId}){
+function BeeswarmChartWrapper({data,myGuys,showMyGuys,showLogos,onHover,onTap,hoveredId}){
   const ref=useRef(null);
   const[w,setW]=useState(800);
   useEffect(()=>{
@@ -267,7 +273,7 @@ function BeeswarmChartWrapper({data,myGuys,showMyGuys,onHover,onTap,hoveredId}){
     const ro=new ResizeObserver(entries=>{for(const e of entries)setW(e.contentRect.width);});
     ro.observe(el);return()=>ro.disconnect();
   },[]);
-  return<div ref={ref}>{w>0&&<BeeswarmChart data={data} width={w} myGuys={myGuys} showMyGuys={showMyGuys} onHover={onHover} onTap={onTap} hoveredId={hoveredId}/>}</div>;
+  return<div ref={ref}>{w>0&&<BeeswarmChart data={data} width={w} myGuys={myGuys} showMyGuys={showMyGuys} showLogos={showLogos} onHover={onHover} onTap={onTap} hoveredId={hoveredId}/>}</div>;
 }
 
 function getTraitBasedComps(player,allProspects,traits,count=5){
@@ -542,13 +548,13 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
 function AuthModal({message,onClose}){
   const[error,setError]=useState('');
   const handleGoogle=async()=>{
-    const{error:err}=await supabase.auth.signInWithOAuth({provider:'google',options:{redirectTo:window.location.origin}});
+    const{error:err}=await supabase.auth.signInWithOAuth({provider:'google',options:{redirectTo:window.location.href}});
     if(err)setError(err.message);
   };
   return(
     <>
-      <div onClick={onClose} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.5)",zIndex:500}}/>
-      <div style={{position:"fixed",top:"50%",left:"50%",transform:"translate(-50%,-50%)",zIndex:501,background:"#faf9f6",borderRadius:16,padding:window.innerWidth<480?"24px 16px 20px":"32px 28px 28px",width:"calc(100vw - 32px)",maxWidth:400,boxShadow:"0 20px 60px rgba(0,0,0,0.25)",textAlign:"center"}}>
+      <div onClick={onClose} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.5)",zIndex:10000}}/>
+      <div style={{position:"fixed",top:"50%",left:"50%",transform:"translate(-50%,-50%)",zIndex:10001,background:"#faf9f6",borderRadius:16,padding:window.innerWidth<480?"24px 16px 20px":"32px 28px 28px",width:"calc(100vw - 32px)",maxWidth:400,boxShadow:"0 20px 60px rgba(0,0,0,0.25)",textAlign:"center"}}>
         <button onClick={onClose} style={{position:"absolute",top:12,right:12,fontFamily:sans,fontSize:16,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer"}}>✕</button>
         <img src="/logo.png" alt="Big Board Lab" style={{width:window.innerWidth<480?48:64,height:"auto",marginBottom:10}}/>
         <p style={{fontFamily:mono,fontSize:window.innerWidth<480?8:10,letterSpacing:3,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 6px"}}>2026 NFL Draft</p>
@@ -793,9 +799,10 @@ function AuthScreen({onSignIn,onSkip,onOpenGuide}){
       </div>
 
       {/* Privacy */}
-      <div style={{textAlign:"center",padding:"0 24px 60px"}}>
+      <div style={{textAlign:"center",padding:"0 24px 16px"}}>
         <a href="/privacy.html" style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",textDecoration:"none"}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>privacy policy</a>
       </div>
+      <div style={{textAlign:"center",padding:"0 24px 48px",fontFamily:mono,fontSize:10,color:"#d4d4d4",letterSpacing:0.5}}>© {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>
     </div>
   );
 }
@@ -1078,11 +1085,16 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const[myGuysUpdated,setMyGuysUpdated]=useState(false);
   const myGuysInitialLoad=useRef(true);
   const[showMyGuys,setShowMyGuys]=useState(false);
-  const[showExplorer,setShowExplorer]=useState(false);
+  const[showExplorer,setShowExplorer]=useState(()=>window.location.pathname==='/combine');
   const[explorerMeas,setExplorerMeas]=useState("ATH");
   const[explorerMode,setExplorerMode]=useState("measurables");
   const[explorerTrait,setExplorerTrait]=useState("Speed");
   const[explorerMyGuys,setExplorerMyGuys]=useState(false);
+  const[explorerAbsolute,setExplorerAbsolute]=useState(false);
+  const[explorerAvgInfo,setExplorerAvgInfo]=useState(false);
+  const[explorerLogos,setExplorerLogos]=useState(false);
+  const[explorerLeaderPos,setExplorerLeaderPos]=useState(null);
+  const[explorerLeaderInfo,setExplorerLeaderInfo]=useState(false);
   const[explorerHover,setExplorerHover]=useState(null);
   const explorerData=useMemo(()=>{
     const points=[];
@@ -1104,24 +1116,36 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     }else{
       const m=explorerMeas;
       const inverted=INVERTED_MEAS.has(m);
+      const isDrill=MEASURABLE_DRILLS.includes(m);
+      const isRaw=MEASURABLE_RAW.includes(m);
+      const rawKey=MEASURABLE_KEY[m];
+      const useAbsolute=explorerAbsolute&&isDrill;
       PROSPECTS.forEach(p=>{
         const gpos=p.gpos||p.pos;
         const group=(gpos==="K"||gpos==="P"||gpos==="LS")?"K/P":gpos;
         if(!EXPLORER_GROUPS.includes(group))return;
-        const val=getMeasVal(p.name,p.school,m);
-        if(val==null)return;
-        points.push({id:p.id,name:p.name,school:p.school,pos:gpos,group,val:inverted?-val:val,rawVal:val});
+        const pctVal=getMeasVal(p.name,p.school,m);
+        if(pctVal==null)return;
+        const cd=getCombineData(p.name,p.school);
+        const rawMeas=(isDrill||isRaw)&&cd&&cd[rawKey]!=null?cd[rawKey]:null;
+        const val=useAbsolute&&rawMeas!=null?rawMeas:pctVal;
+        const displayVal=rawMeas!=null?rawMeas:pctVal;
+        points.push({id:p.id,name:p.name,school:p.school,pos:gpos,group,val,rawVal:pctVal,displayVal,measCode:m});
         groupSet.add(group);
       });
       const groups=EXPLORER_GROUPS.filter(g=>groupSet.has(g));
       const vals=points.map(pt=>pt.val);
       const mn=Math.min(...vals),mx=Math.max(...vals);
-      return{points,min:mn,max:mx,groups,label:MEASURABLE_SHORT[m]||m,measCode:m,inverted};
+      const flipAxis=useAbsolute&&inverted;
+      return{points,min:mn,max:mx,groups,label:MEASURABLE_SHORT[m]||m,measCode:m,inverted:flipAxis};
     }
-  },[explorerMode,explorerMeas,explorerTrait,traits,getMeasVal]);
+  },[explorerMode,explorerMeas,explorerTrait,traits,getMeasVal,explorerAbsolute]);
   const[mockCount,setMockCount]=useState(0);
   const[copiedShare,setCopiedShare]=useState(null);
   useEffect(()=>{window.scrollTo(0,0);},[phase,showMyGuys,showExplorer]);
+  const openExplorer=useCallback(()=>{if(window.location.pathname!=='/combine')window.history.pushState({},'','/combine');setShowExplorer(true);},[]);
+  const closeExplorer=useCallback(()=>{if(window.location.pathname==='/combine')window.history.pushState({},'','/');setShowExplorer(false);setExplorerHover(null);},[]);
+  useEffect(()=>{const onPop=()=>{setShowExplorer(window.location.pathname==='/combine');};window.addEventListener("popstate",onPop);return()=>window.removeEventListener("popstate",onPop);},[]);
   const traitsRef=useRef(traits);traitsRef.current=traits;
   const ratingsRef=useRef(ratings);ratingsRef.current=ratings;
   const getGradeRef=useRef(getGrade);getGradeRef.current=getGrade;
@@ -1444,6 +1468,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA)||(traits[a.id]&&Object.keys(traits[a.id]).length>0);const bRanked=rankedGroups.has(gB)||(traits[b.id]&&Object.keys(traits[b.id]).length>0);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} onMockComplete={saveMockPicks} myGuys={myGuys} myGuysUpdated={myGuysUpdated} setMyGuysUpdated={setMyGuysUpdated} mockCount={mockCount} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} getConsensusRound={getConsensusRound} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} mockLaunchCpuTrades={mockCpuTrades} mockLaunchBoardMode={mockBoardMode} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}} isGuest={isGuest} onRequireAuth={onRequireAuth} trackEvent={trackEvent} userId={user?.id} isGuestUser={!user} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} TRAIT_ABBREV={TRAIT_ABBREV} TRAIT_EMOJI={TRAIT_EMOJI} SCHOOL_CONFERENCE={SCHOOL_CONFERENCE} POS_EMOJI={POS_EMOJI} onShareMyGuys={shareMyGuys} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter} MEASURABLE_EMOJI={MEASURABLE_EMOJI} MEASURABLE_SHORT={MEASURABLE_SHORT} MEASURABLE_LIST={MEASURABLE_LIST} MEASURABLE_DRILLS={MEASURABLE_DRILLS} MEASURABLE_KEY={MEASURABLE_KEY} MEASURABLE_RAW={MEASURABLE_RAW} MEAS_GROUPS={MEAS_GROUPS} getMeasRadarData={getMeasRadarData}/>;}
   // === COMBINE EXPLORER ===
   if(showExplorer){
+    const gateAuth=(fn)=>()=>{if(isGuest){onRequireAuth("want to play with the data? sign up free");return;}fn();};
     const allTraits=[...new Set(Object.values(POSITION_TRAITS).flat())].sort();
     const traitPosCounts={};
     allTraits.forEach(t=>{traitPosCounts[t]=EXPLORER_GROUPS.filter(pos=>POSITION_TRAITS[pos]?.includes(t)).length;});
@@ -1456,33 +1481,138 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
             <p style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"2px 0 0"}}>{explorerData.points.length} players · {explorerData.groups.length} positions</p>
           </div>
           <div style={{display:"flex",gap:8,alignItems:"center"}}>
-            {myGuys.length>0&&<button onClick={()=>setExplorerMyGuys(v=>!v)} style={{fontFamily:sans,fontSize:11,fontWeight:600,padding:"6px 12px",background:explorerMyGuys?"linear-gradient(135deg,#ec4899,#7c3aed)":"transparent",color:explorerMyGuys?"#fff":"#a3a3a3",border:explorerMyGuys?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>👀 my guys</button>}
-            <button onClick={()=>{setShowExplorer(false);setExplorerHover(null);}} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",padding:4}}>✕</button>
+            <button onClick={gateAuth(()=>setExplorerLogos(v=>!v))} style={{fontFamily:sans,fontSize:11,fontWeight:600,padding:"6px 12px",background:explorerLogos?"#17171710":"transparent",color:explorerLogos?"#171717":"#a3a3a3",border:explorerLogos?"1px solid #17171722":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>{explorerLogos?"● dots":"🏫 logos"}</button>
+            {myGuys.length>0&&<button onClick={gateAuth(()=>setExplorerMyGuys(v=>!v))} style={{fontFamily:sans,fontSize:11,fontWeight:600,padding:"6px 12px",background:explorerMyGuys?"linear-gradient(135deg,#ec4899,#7c3aed)":"transparent",color:explorerMyGuys?"#fff":"#a3a3a3",border:explorerMyGuys?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>👀 my guys</button>}
+            <button onClick={closeExplorer} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",padding:4}}>✕</button>
           </div>
         </div>
 
         {/* Mode toggle */}
         <div style={{display:"flex",gap:4,marginBottom:12}}>
-          <button onClick={()=>setExplorerMode("measurables")} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="measurables"?"#171717":"transparent",color:explorerMode==="measurables"?"#fff":"#737373",border:explorerMode==="measurables"?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>measurables</button>
-          <button onClick={()=>setExplorerMode("traits")} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="traits"?"#171717":"transparent",color:explorerMode==="traits"?"#fff":"#737373",border:explorerMode==="traits"?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>scouting traits</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("measurables");setExplorerLeaderPos(null);})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="measurables"?"#171717":"transparent",color:explorerMode==="measurables"?"#fff":"#737373",border:explorerMode==="measurables"?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>measurables</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("traits");setExplorerLeaderPos(null);})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="traits"?"#171717":"transparent",color:explorerMode==="traits"?"#fff":"#737373",border:explorerMode==="traits"?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>scouting traits</button>
         </div>
 
         {/* Measurable / Trait picker */}
         {explorerMode==="measurables"?(<div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none"}}>
-          {MEAS_GROUPS.map(grp=>grp.keys.map(k=><button key={k} onClick={()=>setExplorerMeas(k)} style={{fontFamily:mono,fontSize:10,fontWeight:explorerMeas===k?700:500,padding:"5px 10px",background:explorerMeas===k?grp.border+"18":"transparent",color:explorerMeas===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerMeas===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{MEASURABLE_EMOJI[k]} {MEASURABLE_SHORT[k]}</button>))}
+          {MEAS_GROUPS.map(grp=>grp.keys.map(k=><button key={k} onClick={gateAuth(()=>setExplorerMeas(k))} style={{fontFamily:mono,fontSize:10,fontWeight:explorerMeas===k?700:500,padding:"5px 10px",background:explorerMeas===k?grp.border+"18":"transparent",color:explorerMeas===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerMeas===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{MEASURABLE_EMOJI[k]} {MEASURABLE_SHORT[k]}</button>))}
         </div>):(<div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",flexWrap:"nowrap",msOverflowStyle:"none",scrollbarWidth:"none"}}>
-          {allTraits.map(t=><button key={t} onClick={()=>setExplorerTrait(t)} style={{fontFamily:sans,fontSize:10,fontWeight:explorerTrait===t?700:500,padding:"5px 10px",background:explorerTrait===t?"#6366f118":"transparent",color:explorerTrait===t?"#6366f1":"#a3a3a3",border:`1.5px solid ${explorerTrait===t?"#6366f1":"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{TRAIT_EMOJI[t]||""} {TRAIT_SHORT[t]||t} <span style={{fontSize:8,opacity:0.6}}>({traitPosCounts[t]})</span></button>)}
+          {allTraits.map(t=><button key={t} onClick={gateAuth(()=>setExplorerTrait(t))} style={{fontFamily:sans,fontSize:10,fontWeight:explorerTrait===t?700:500,padding:"5px 10px",background:explorerTrait===t?"#6366f118":"transparent",color:explorerTrait===t?"#6366f1":"#a3a3a3",border:`1.5px solid ${explorerTrait===t?"#6366f1":"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{TRAIT_EMOJI[t]||""} {TRAIT_SHORT[t]||t} <span style={{fontSize:8,opacity:0.6}}>({traitPosCounts[t]})</span></button>)}
         </div>)}
+
+        {/* Absolute/percentile toggle — drills only */}
+        {explorerMode==="measurables"&&MEASURABLE_DRILLS.includes(explorerMeas)&&<div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8}}>
+          <button title={explorerAbsolute?"Absolute — click for Position Percentile":"Position Percentile — click for Absolute"} onClick={gateAuth(()=>setExplorerAbsolute(v=>!v))} style={{width:40,height:22,borderRadius:11,border:"none",background:explorerAbsolute?"linear-gradient(135deg,#f59e0b,#dc2626)":"linear-gradient(135deg,#22c55e,#14b8a6)",cursor:"pointer",position:"relative",transition:"background 0.2s",flexShrink:0}}><div style={{width:16,height:16,borderRadius:8,background:"#fff",position:"absolute",top:3,left:explorerAbsolute?21:3,transition:"left 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:explorerAbsolute?"#dc2626":"#14b8a6",lineHeight:1}}>{explorerAbsolute?"A":"P"}</span></div></button>
+          <span style={{fontFamily:sans,fontSize:10,color:"#a3a3a3"}}>{explorerAbsolute?"absolute — compare across positions":"percentile within position"}</span>
+        </div>}
 
         {/* Sparse data warning */}
         {explorerData.points.length>0&&explorerData.points.length<20&&<div style={{fontFamily:sans,fontSize:11,color:"#92400e",background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:8,padding:"6px 12px",marginBottom:8}}>⚠️ sparse data — only {explorerData.points.length} players have this measurement</div>}
 
         {/* Beeswarm */}
         {explorerData.points.length===0?(<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no data available for this measurable</p></div>):(
-          <div style={{marginTop:4}}>
-            <BeeswarmChartWrapper data={explorerData} myGuys={myGuys} showMyGuys={explorerMyGuys} onHover={setExplorerHover} onTap={(pt)=>{const p=PROSPECTS.find(pr=>pr.id===pt.id);if(p)openProfile(p);}} hoveredId={explorerHover?.id||null}/>
+          <div style={{marginTop:4,position:"relative"}}>
+            <BeeswarmChartWrapper data={explorerData} myGuys={myGuys} showMyGuys={explorerMyGuys} showLogos={explorerLogos} onHover={setExplorerHover} onTap={(pt)=>{const p=PROSPECTS.find(pr=>pr.id===pt.id);if(p)openProfile(p);}} hoveredId={explorerHover?.id||null}/>
+            <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",display:"flex",alignItems:"center",gap:0,opacity:0.06,pointerEvents:"none"}}>
+              <img src="/logo.png" alt="" style={{height:60,width:"auto"}}/>
+              <span style={{fontFamily:font,fontSize:32,fontWeight:900,color:"#171717",letterSpacing:-1,marginLeft:-6}}>bigboardlab.com</span>
+            </div>
+            <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:5,marginTop:2,paddingRight:4}}>
+              <img src="/logo.png" alt="" style={{height:12,width:"auto"}}/>
+              <span style={{fontFamily:mono,fontSize:8,fontWeight:600,color:"#171717",letterSpacing:0.3}}>bigboardlab.com</span>
+            </div>
           </div>
         )}
+
+        {/* Leaderboard + Position Averages */}
+        {explorerData.points.length>=5&&(()=>{
+          const mc=explorerData.measCode;
+          const inv=explorerData.inverted;
+          const fmtVal=(pt)=>{const dv=pt.displayVal!=null?pt.displayVal:pt.val;if(!mc)return Math.round(dv);if(mc==="HT")return formatHeight(dv);if(mc==="WT")return dv+" lbs";if(mc==="ARM"||mc==="HND"||mc==="WING")return dv+'"';if(mc==="40"||mc==="3C"||mc==="SHT")return dv+"s";return Math.round(dv*10)/10;};
+          const filtered=explorerLeaderPos?explorerData.points.filter(p=>p.group===explorerLeaderPos):explorerData.points;
+          const sorted=[...filtered].sort((a,b)=>inv&&explorerAbsolute?a.val-b.val:b.val-a.val);
+          const top10=sorted.slice(0,10);
+          const posAvgs={};
+          explorerData.groups.forEach(g=>{const pts=explorerData.points.filter(p=>p.group===g);if(pts.length)posAvgs[g]={avg:pts.reduce((s,p)=>s+p.val,0)/pts.length,count:pts.length};});
+          const avgEntries=Object.entries(posAvgs).sort((a,b)=>inv&&explorerAbsolute?a[1].avg-b[1].avg:b[1].avg-a[1].avg);
+          const allVals=avgEntries.map(([,v])=>v.avg);
+          const barMin=Math.min(...allVals),barMax=Math.max(...allVals);
+          const barRange=barMax-barMin||1;
+          return<div style={{display:"flex",gap:16,marginTop:20,flexWrap:"wrap",alignItems:"flex-start"}}>
+            {/* Leaderboard */}
+            <div style={{flex:"1 1 320px",minWidth:280}}>
+              <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:8}}>
+                <span style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>top 10 · {explorerData.label}</span>
+                <span onClick={()=>setExplorerLeaderInfo(v=>!v)} style={{fontFamily:sans,fontSize:9,color:"#a3a3a3",background:"#f5f5f4",borderRadius:99,width:14,height:14,display:"inline-flex",alignItems:"center",justifyContent:"center",cursor:"pointer",flexShrink:0,border:"1px solid #e5e5e5"}}>?</span>
+              </div>
+              {explorerLeaderInfo&&<div style={{fontFamily:sans,fontSize:11,color:"#525252",background:"#faf9f6",border:"1px solid #e5e5e5",borderRadius:8,padding:"8px 12px",marginBottom:8,lineHeight:1.5}}>
+                {!mc?"Sorted by scouting trait score — higher is better.":explorerAbsolute&&inv?"Sorted by raw time — fastest first.":explorerAbsolute?"Sorted by raw measurement.":"Sorted by position-relative percentile — how each player compares to historical combine data at their position. Toggle to absolute to see raw measurements."}
+                <span onClick={()=>setExplorerLeaderInfo(false)} style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",cursor:"pointer",marginLeft:6}}>dismiss</span>
+              </div>}
+              <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
+                <div style={{display:"flex",alignItems:"center",gap:4,padding:"8px 12px",borderBottom:"1px solid #f5f5f5",flexWrap:"wrap"}}>
+                  <span onClick={gateAuth(()=>setExplorerLeaderPos(null))} style={{fontFamily:mono,fontSize:8,fontWeight:700,color:!explorerLeaderPos?"#fff":"#525252",background:!explorerLeaderPos?"#525252":"#f5f5f4",padding:"2px 6px",borderRadius:4,cursor:"pointer",transition:"all 0.15s"}}>ALL</span>
+                  {explorerData.groups.map(g=>{const gc=POS_COLORS[g]||"#525252";const active=explorerLeaderPos===g;return<span key={g} onClick={gateAuth(()=>setExplorerLeaderPos(active?null:g))} style={{fontFamily:mono,fontSize:8,fontWeight:700,color:active?"#fff":gc,background:active?gc:gc+"0d",padding:"2px 5px",borderRadius:4,cursor:"pointer",border:`1px solid ${active?gc:gc+"22"}`,transition:"all 0.15s"}}>{g}</span>;})}
+                </div>
+                {top10.map((pt,i)=>{const c=POS_COLORS[pt.pos]||POS_COLORS[pt.group]||"#525252";const p=PROSPECTS.find(pr=>pr.id===pt.id);
+                  return<div key={pt.id} style={{display:"flex",alignItems:"center",gap:8,padding:"7px 12px",borderBottom:i<9?"1px solid #f5f5f5":"none",cursor:"pointer"}} onClick={()=>{if(p)openProfile(p);}} onMouseEnter={e=>e.currentTarget.style.background="#faf9f6"} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+                    <span style={{fontFamily:mono,fontSize:10,color:i<3?"#171717":"#a3a3a3",fontWeight:i<3?700:400,width:18,textAlign:"right"}}>{i+1}</span>
+                    <SchoolLogo school={pt.school} size={20}/>
+                    <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{pt.name}</span>
+                    <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:c,background:c+"0d",padding:"2px 6px",borderRadius:4}}>{pt.group}</span>
+                    <span style={{fontFamily:mono,fontSize:12,fontWeight:700,color:"#171717",width:52,textAlign:"right"}}>{fmtVal(pt)}</span>
+                  </div>;
+                })}
+              </div>
+            </div>
+            {/* Position Averages */}
+            <div style={{flex:"1 1 280px",minWidth:240}}>
+              <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:8}}>
+                <span style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>{mc&&!explorerAbsolute?"vs position history":"position averages"}</span>
+                <span onClick={()=>setExplorerAvgInfo(v=>!v)} style={{fontFamily:sans,fontSize:9,color:"#a3a3a3",background:"#f5f5f4",borderRadius:99,width:14,height:14,display:"inline-flex",alignItems:"center",justifyContent:"center",cursor:"pointer",flexShrink:0,border:"1px solid #e5e5e5"}}>?</span>
+              </div>
+              {explorerAvgInfo&&<div style={{fontFamily:sans,fontSize:11,color:"#525252",background:"#faf9f6",border:"1px solid #e5e5e5",borderRadius:8,padding:"8px 12px",marginBottom:8,lineHeight:1.5}}>
+                {!mc?"Average scouting trait score for each position group.":mc&&!explorerAbsolute?"How this draft class compares to historical combine data at each position. 50 is average — bars to the right mean this class outperforms history, bars to the left mean they trail. Does not compare positions against each other.":explorerAbsolute&&inv?"Average raw time for each position group — lower is faster.":"Average measurement for each position group."}
+                <span onClick={()=>setExplorerAvgInfo(false)} style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",cursor:"pointer",marginLeft:6}}>dismiss</span>
+              </div>}
+              <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"12px 16px"}}>
+                {mc&&!explorerAbsolute&&<div style={{position:"relative",height:10,marginBottom:6}}>
+                  <span style={{position:"absolute",left:"50%",top:-1,transform:"translateX(-50%)",fontFamily:mono,fontSize:7,color:"#a3a3a3"}}>50</span>
+                </div>}
+                {avgEntries.map(([pos,{avg,count}],i)=>{const c=POS_COLORS[pos]||"#525252";
+                  const isDiverging=mc&&!explorerAbsolute;
+                  const delta=avg-50;
+                  const barPct=isDiverging?Math.min(Math.abs(delta),50)/50*50:((avg-barMin)/barRange)*100;
+                  const fmtAvg=inv?avg.toFixed(2)+"s":mc&&explorerAbsolute?(mc==="VRT"||mc==="BRD"?avg.toFixed(1)+'"':avg.toFixed(2)+"s"):null;
+                  return<div key={pos} style={{marginBottom:i<avgEntries.length-1?8:0}}>
+                    <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:3}}>
+                      <div style={{display:"flex",alignItems:"center",gap:6}}>
+                        <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:c}}>{pos}</span>
+                        <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>{count}</span>
+                      </div>
+                      {isDiverging?<span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:delta>=0?"#16a34a":"#dc2626"}}>{delta>=0?"+":""}{Math.round(delta)}</span>
+                      :<span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#171717"}}>{fmtAvg!=null?fmtAvg:Math.round(avg)}</span>}
+                    </div>
+                    {isDiverging?<div style={{height:6,background:"#f5f5f4",borderRadius:3,position:"relative"}}>
+                      <div style={{position:"absolute",left:"50%",top:0,bottom:0,width:1,background:"#d4d4d4"}}/>
+                      {delta>=0?<div style={{position:"absolute",left:"50%",top:0,height:"100%",width:`${barPct}%`,background:c,borderRadius:"0 3px 3px 0",transition:"width 0.3s"}}/>
+                      :<div style={{position:"absolute",right:"50%",top:0,height:"100%",width:`${barPct}%`,background:c,borderRadius:"3px 0 0 3px",opacity:0.5,transition:"width 0.3s"}}/>}
+                    </div>
+                    :<div style={{height:6,background:"#f5f5f4",borderRadius:3,overflow:"hidden"}}>
+                      <div style={{height:"100%",width:`${Math.max(8,barPct)}%`,background:c,borderRadius:3,transition:"width 0.3s"}}/>
+                    </div>}
+                  </div>;
+                })}
+              </div>
+            </div>
+          </div>;
+        })()}
+
+
+        {/* Blog cross-link */}
+        <div style={{textAlign:"center",marginTop:24,paddingTop:16,borderTop:"1px solid #f0f0f0"}}>
+          <a href="/blog/2026-nfl-combine-results.html" target="_blank" rel="noopener" style={{fontFamily:sans,fontSize:12,color:"#7c3aed",textDecoration:"none",fontWeight:600}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>2026 NFL Combine Results & Analysis →</a>
+        </div>
 
         {/* Tooltip */}
         {explorerHover&&<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-180),top:Math.max(explorerHover.cy-60,8),background:"#171717",color:"#fff",padding:"8px 12px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:200}}>
@@ -1490,9 +1620,10 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
           <div style={{fontSize:10,color:"#a3a3a3",marginTop:1}}>{explorerHover.school}</div>
           <div style={{display:"flex",alignItems:"center",gap:6,marginTop:4}}>
             <span style={{fontSize:9,fontWeight:700,padding:"2px 6px",borderRadius:4,background:POS_COLORS[explorerHover.pos]||"#525252",color:"#fff"}}>{explorerHover.group}</span>
-            <span style={{fontFamily:mono,fontSize:12,fontWeight:700}}>{explorerHover.rawVal!=null?explorerHover.rawVal:explorerHover.val}</span>
+            <span style={{fontFamily:mono,fontSize:12,fontWeight:700}}>{(()=>{const mc=explorerHover.measCode;const dv=explorerHover.displayVal;if(!mc)return explorerHover.val;if(mc==="HT")return formatHeight(dv);if(mc==="WT")return dv+" lbs";if(mc==="ARM"||mc==="HND"||mc==="WING")return dv+'"';if(mc==="40"||mc==="3C"||mc==="SHT")return dv+"s";return dv!=null?dv:explorerHover.val;})()}</span>
           </div>
         </div>}
+        <div style={{textAlign:"center",padding:"24px 24px 16px",fontFamily:mono,fontSize:10,color:"#d4d4d4",letterSpacing:0.5}}>© {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>
       </div>
       {profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth}/>}
     </div>);
@@ -1702,6 +1833,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         {myGuys.length>0&&<div style={{textAlign:"center",marginTop:24}}>
           <button onClick={shareMyGuys} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 24px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",position:"relative"}}><span style={{visibility:copiedShare==="my-guys"?"hidden":"visible"}}><span className="shimmer-text">share my guys</span></span>{copiedShare==="my-guys"&&<span style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#a3a3a3",fontWeight:400}}>copied</span>}</button>
         </div>}
+        <div style={{textAlign:"center",padding:"48px 24px 24px",fontFamily:mono,fontSize:10,color:"#d4d4d4",letterSpacing:0.5}}>© {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>
       </div>
       {profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth}/>}
     </div>);
@@ -1745,8 +1877,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         <p style={{fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:0}}>2026 NFL Draft · April 23–25</p>
       </div>
       <div style={{display:"flex",gap:8,alignItems:"center"}}>
-{/* Explorer button hidden until polish pass */}
-        {false&&<button onClick={()=>{setShowExplorer(true);trackEvent(user?.id,'explorer_opened',{guest:!user});}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",transition:"all 0.2s"}}>📊 explore</button>}
+        <button onClick={()=>{openExplorer();trackEvent(user?.id,'explorer_opened',{guest:!user});}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"6px 14px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",transition:"all 0.2s",display:"flex",alignItems:"center",gap:5}}><img src="/combine-logo.png" alt="" style={{height:16,width:"auto"}}/> <span className="shimmer-text">combine</span></button>
         <button onClick={()=>{if(isGuest){onRequireAuth("want to see and share the guys you draft more than others?");return;}setShowMyGuys(true);setMyGuysUpdated(false);}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:myGuysUpdated?"linear-gradient(135deg,#ec4899,#7c3aed)":mockCount>0?"#171717":"transparent",color:myGuysUpdated||mockCount>0?"#fff":"#a3a3a3",border:myGuysUpdated||mockCount>0?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",position:"relative",transition:"all 0.2s",whiteSpace:"nowrap"}}>
           👀 my guys
           {myGuysUpdated&&<span style={{position:"absolute",top:-2,right:-2,width:8,height:8,borderRadius:4,background:"#ec4899",border:"2px solid #faf9f6"}}/>}
@@ -1995,7 +2126,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   if(phase==="reconcile"&&reconcileQueue.length>0){const item=reconcileQueue[Math.min(reconcileIndex,reconcileQueue.length-1)];const c=POS_COLORS[item.player.pos];const dir=item.gradeRank<item.pairRank?"higher":"lower";return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:500,margin:"0 auto",padding:"52px 24px"}}><p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 4px"}}>reconcile · {reconcileIndex+1} of {reconcileQueue.length}</p><div style={{height:3,background:"#e5e5e5",borderRadius:2,marginBottom:28,overflow:"hidden"}}><div style={{height:"100%",width:`${((reconcileIndex+1)/reconcileQueue.length)*100}%`,background:c,borderRadius:2}}/></div><div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:32,textAlign:"center"}}><SchoolLogo school={item.player.school} size={56}/><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c,marginBottom:4,marginTop:8}}>{item.player.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3",marginBottom:24}}>{item.player.school}</div><div style={{display:"flex",justifyContent:"center",gap:32,marginBottom:24}}>{[["gut rank",`#${item.pairRank}`,"#171717"],["grade rank",`#${item.gradeRank}`,dir==="higher"?"#16a34a":"#dc2626"],["composite",`${item.grade}`,"#171717"]].map(([label,val,col])=><div key={label}><div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:4}}>{label}</div><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:col}}>{val}</div></div>)}</div><p style={{fontFamily:sans,fontSize:14,color:"#737373",lineHeight:1.5,marginBottom:24}}>your traits suggest this player should rank <strong style={{color:dir==="higher"?"#16a34a":"#dc2626"}}>{dir}</strong> than your gut. accept?</p><div style={{display:"flex",gap:10,justifyContent:"center"}}><button onClick={()=>{const pos=item.player.pos;const rk=getRanked(pos);const ti=item.gradeRank-1;const tp=rk[ti];if(tp)setRatings(prev=>({...prev,[item.player.id]:(prev[tp.id]||1500)+(dir==="higher"?1:-1)}));reconcileIndex>=reconcileQueue.length-1?setPhase("pick-position"):setReconcileIndex(reconcileIndex+1);}} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 24px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>accept</button><button onClick={()=>reconcileIndex>=reconcileQueue.length-1?setPhase("pick-position"):setReconcileIndex(reconcileIndex+1)} style={{fontFamily:sans,fontSize:13,padding:"10px 24px",background:"transparent",color:"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>keep my rank</button></div></div></div></div>);}
 
   // === BIG BOARD ===
-  if(phase==="board")return(<div><SaveBar/><div style={{paddingTop:32}}><BoardView getBoard={getBoard} getGrade={getGrade} rankedGroups={rankedGroups} setPhase={setPhase} setSelectedPlayer={setSelectedPlayer} setActivePos={setActivePos} traits={traits} compareList={compareList} setCompareList={setCompareList} setProfilePlayer={setProfilePlayer} setShowMockDraft={setShowMockDraft} communityBoard={communityBoard} setCommunityBoard={setCommunityBoard} ratings={ratings} byPos={byPos} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} sharePositionTop10={sharePositionTop10} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter}/></div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth}/>}</div>);
+  if(phase==="board")return(<div><SaveBar/><div style={{paddingTop:32}}><BoardView getBoard={getBoard} getGrade={getGrade} rankedGroups={rankedGroups} setPhase={setPhase} setSelectedPlayer={setSelectedPlayer} setActivePos={setActivePos} traits={traits} compareList={compareList} setCompareList={setCompareList} setProfilePlayer={setProfilePlayer} setShowMockDraft={setShowMockDraft} communityBoard={communityBoard} setCommunityBoard={setCommunityBoard} ratings={ratings} byPos={byPos} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} sharePositionTop10={sharePositionTop10} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter}/></div><div style={{textAlign:"center",padding:"48px 24px 24px",fontFamily:mono,fontSize:10,color:"#d4d4d4",letterSpacing:0.5}}>© {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth}/>}</div>);
 
   return(<>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth}/>}</>);
 }
@@ -3401,11 +3532,11 @@ export default function App(){
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
   if(showGuide)return<GuidePage onBack={()=>{window.history.pushState({},'','/');setShowGuide(false);}}/>;
   if(showOG)return<OGPreview/>;
-  if(!user&&!isGuest)return<AuthScreen onSkip={()=>setIsGuest(true)} onOpenGuide={navigateToGuide}/>;
+  if(!user&&!isGuest&&window.location.pathname!=='/combine')return<AuthScreen onSkip={()=>setIsGuest(true)} onOpenGuide={navigateToGuide}/>;
   if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
   return<>
     <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} onRequireAuth={(msg)=>{
-      const src=msg.includes('vote')||msg.includes('big board')?'pair rank':msg.includes('trait')||msg.includes('grade')||msg.includes('slider')?'sliders':msg.includes('mock')||msg.includes('draft')?'mock draft':msg.includes('reorder')?'pair rank':msg.includes('note')?'notes':msg.includes('guys')?'my guys':msg.includes('share')?'share':msg.includes('save')?'save':'homepage';
+      const src=msg.includes('play with the data')?'combine-explorer':msg.includes('vote')||msg.includes('big board')?'pair rank':msg.includes('trait')||msg.includes('grade')||msg.includes('slider')?'sliders':msg.includes('mock')||msg.includes('draft')?'mock draft':msg.includes('reorder')?'pair rank':msg.includes('note')?'notes':msg.includes('guys')?'my guys':msg.includes('share')?'share':msg.includes('save')?'save':'homepage';
       authSourceRef.current=src;
       setAuthPrompt(msg);
     }}/>
