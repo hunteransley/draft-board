@@ -3498,7 +3498,8 @@ export default function App(){
   const[showGuide,setShowGuide]=useState(()=>window.location.pathname==='/guide');
   const[isGuest,setIsGuest]=useState(false);
   const[authPrompt,setAuthPrompt]=useState(null);
-  const authSourceRef=useRef(()=>{try{return sessionStorage.getItem('authSource')}catch(e){return null}})();
+  const authSourceRef=useRef(null);
+  if(authSourceRef.current===null){try{const s=sessionStorage.getItem('authSource');if(s)authSourceRef.current=s;}catch(e){}}
 
   useEffect(()=>{
     const onHash=()=>{setShowAdmin(window.location.hash==="#admin");setShowOG(window.location.hash==="#og-preview");};
