@@ -1110,10 +1110,25 @@ async function main() {
   const now = new Date();
   const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   const dateStr = `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
+  const todayISO = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
   const updatedHtml = newHtml.replace(
     /Last updated: <span id="lastUpdated">.*?<\/span>/,
     `Last updated: <span id="lastUpdated">${dateStr}</span>`
+  ).replace(
+    /"dateModified":\s*"[^"]*"/,
+    `"dateModified": "${todayISO}"`
   );
+
+  // Also update sitemap lastmod for the combine article
+  const sitemapPath = path.join(__dirname, 'public', 'sitemap.xml');
+  if (fs.existsSync(sitemapPath)) {
+    const sitemap = fs.readFileSync(sitemapPath, 'utf8');
+    const updatedSitemap = sitemap.replace(
+      /(<loc>https:\/\/bigboardlab\.com\/blog\/2026-nfl-combine-results\.html<\/loc>\s*<lastmod>)[^<]*(<\/lastmod>)/,
+      `$1${todayISO}$2`
+    );
+    if (updatedSitemap !== sitemap) fs.writeFileSync(sitemapPath, updatedSitemap);
+  }
 
   fs.writeFileSync(OUTPUT_PATH, updatedHtml);
 
