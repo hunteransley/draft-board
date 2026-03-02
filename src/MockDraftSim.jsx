@@ -1515,6 +1515,52 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     </svg>);
   };
 
+  const draftFingerprint=(teamPicks)=>{
+    if(teamPicks.length<5)return[];
+    const guys=teamPicks.map(pk=>{const p=prospectsMap[pk.playerId];if(!p)return null;return{id:p.id,name:p.name,school:p.school,gpos:p.gpos||p.pos,pick:pk.pick,round:pk.round};}).filter(Boolean);
+    if(guys.length<5)return[];
+    const pills=[];
+    const posCounts={};
+    guys.forEach(g=>{const pos=g.gpos==="K"||g.gpos==="P"||g.gpos==="LS"?"K/P":g.gpos;posCounts[pos]=(posCounts[pos]||0)+1;});
+    const topPos=Object.entries(posCounts).sort((a,b)=>b[1]-a[1]);
+    if(topPos.length>0&&topPos[0][1]>=Math.ceil(guys.length*0.4)){
+      const[pos,cnt]=topPos[0];
+      pills.push({emoji:(POS_EMOJI||{})[pos]||"📋",text:`${pos} heavy`,color:POS_COLORS[pos]||"#525252"});
+    }else if(topPos.length>=4&&topPos[0][1]-topPos[topPos.length-1][1]<=1){
+      pills.push({emoji:"🔀",text:"balanced draft",color:"#525252"});
+    }
+    const traitCounts={};
+    guys.forEach(g=>{if(!g.id)return;const badges=prospectBadges[g.id]||[];badges.forEach(b=>{traitCounts[b.trait]=(traitCounts[b.trait]||0)+1;});});
+    const topTraits=Object.entries(traitCounts).filter(([,c])=>c>=2).sort((a,b)=>b[1]-a[1]).slice(0,2);
+    topTraits.forEach(([trait])=>{
+      const labels={"Pass Rush":"pass rush magnet","Speed":"speed obsessed","Man Coverage":"lockdown lean","Accuracy":"accuracy snob","Motor":"motor lovers","Ball Skills":"ball hawk bias","Tackling":"sure tacklers","Vision":"vision seekers","Hands":"reliable hands","First Step":"first step fanatic","Athleticism":"athletic bias"};
+      pills.push({emoji:(TRAIT_EMOJI||{})[trait]||"⭐",text:labels[trait]||trait.toLowerCase(),color:"#7c3aed"});
+    });
+    const ceilCounts={elite:0,high:0,normal:0,capped:0};
+    guys.forEach(g=>{const sc=getScoutingTraits(g.name,g.school);const c=sc?.__ceiling||"normal";ceilCounts[c]++;});
+    const upside=ceilCounts.elite+ceilCounts.high;
+    if(upside>=Math.ceil(guys.length*0.6)){
+      pills.push({emoji:"⭐",text:"ceiling chaser",color:"#ea580c"});
+    }else if(ceilCounts.capped>=Math.ceil(guys.length*0.3)){
+      pills.push({emoji:"🔒",text:"floor first",color:"#64748b"});
+    }
+    const avgDelta=guys.reduce((s,g)=>{const rank=getConsensusRank?getConsensusRank(g.name):g.pick;return s+(rank-g.pick);},0)/guys.length;
+    if(avgDelta>10)pills.push({emoji:"📈",text:"value hunter",color:"#16a34a"});
+    else if(avgDelta<-5)pills.push({emoji:"🎲",text:"reach drafter",color:"#dc2626"});
+    else pills.push({emoji:"⚖️",text:"consensus aligned",color:"#525252"});
+    if(SCHOOL_CONFERENCE){
+      const confCounts={};
+      guys.forEach(g=>{const conf=SCHOOL_CONFERENCE[g.school];if(conf&&conf!=="FCS"&&conf!=="D2"&&conf!=="D3"&&conf!=="Ind")confCounts[conf]=(confCounts[conf]||0)+1;});
+      const topConf=Object.entries(confCounts).sort((a,b)=>b[1]-a[1]);
+      if(topConf.length>0&&topConf[0][1]>=Math.ceil(guys.length*0.6))pills.push({emoji:"🏈",text:`${topConf[0][0]} lean`,color:"#0369a1"});
+    }
+    const schoolCounts={};
+    guys.forEach(g=>{if(g.school)schoolCounts[g.school]=(schoolCounts[g.school]||0)+1;});
+    const repeats=Object.entries(schoolCounts).filter(([,c])=>c>=2).sort((a,b)=>b[1]-a[1]);
+    if(repeats.length>0){const[sch]=repeats[0];pills.push({emoji:"🏫",text:`${sch} pipeline`,color:"#7c3aed"});}
+    return pills.slice(0,4);
+  };
+
   const DepthList=({team,dark=true})=>{
     const chart=depthChart[team]||{};
     const slotColor=dark?"#a3a3a3":"#a3a3a3";
@@ -1761,11 +1807,12 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           })():[...userTeams].map(team=>{
             const tp=userPicks.filter(pk=>pk.team===team);if(tp.length===0)return null;
             const teamGrade=gradeTeamPicks(tp,team);
+            const fpPills=draftFingerprint(tp);
             return(<div key={team} style={{marginBottom:32,textAlign:"left"}}>
-              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,justifyContent:"center"}}>
+              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,flexWrap:"wrap"}}>
                 <NFLTeamLogo team={team} size={20}/>
                 <span style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717"}}>{team}</span>
-                {teamGrade&&<span style={{fontFamily:font,fontSize:18,fontWeight:900,color:teamGrade.color,marginLeft:4}}>{teamGrade.grade}</span>}
+                {fpPills.map((pill,i)=><span key={i} className={i>=3?"fp-pill-hide":""} style={{fontFamily:sans,fontSize:9,fontWeight:600,color:pill.color,background:`${pill.color}0d`,border:`1px solid ${pill.color}22`,padding:"2px 7px",borderRadius:99,display:"inline-flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{pill.emoji}</span><span>{pill.text}</span></span>)}
               </div>
               <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",marginBottom:12}}>
                 {tp.map((pk,i)=>{const p=prospectsMap[pk.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const g=activeGrade(pk.playerId);const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;const g2=getConsensusGrade?getConsensusGrade(p.name):activeGrade(pk.playerId);const v=pickVerdict(pk.pick,rank,g2);
@@ -1790,6 +1837,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
               </div>
             </div>);
           })}
+          <style>{`@media(max-width:640px){.fp-pill-hide{display:none!important;}}`}</style>
           {/* URL footer — always visible in screenshot */}
           <div style={{marginTop:32,paddingTop:20,borderTop:"2px solid #e5e5e5",textAlign:"center",background:"#fff",borderRadius:12,padding:"16px 24px"}}>
             <div style={{fontFamily:sans,fontSize:15,fontWeight:700,color:"#171717",marginBottom:2}}>bigboardlab.com</div>
