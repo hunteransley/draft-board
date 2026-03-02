@@ -2,8 +2,10 @@ import COMBINE from "./combineData.json";
 import SCOUTING from "./scoutingTraits.json";
 
 // Name normalization — scouting keys keep apostrophes, combine keys strip them
+const NAME_ALIASES = {"jam miller":"jamarion miller","nicholas singleton":"nick singleton","kc concepcion":"kevin concepcion","j michael sturdivant":"jmichael sturdivant"};
 function normScouting(name) {
-  return name.toLowerCase().replace(/\./g, "").replace(/\s+(jr|sr|ii|iii|iv|v)\s*$/i, "").replace(/\s+/g, " ").trim();
+  const n = name.toLowerCase().replace(/\./g, "").replace(/\s+(jr|sr|ii|iii|iv|v)\s*$/i, "").replace(/\s+/g, " ").trim();
+  return NAME_ALIASES[n] || n;
 }
 function normCombine(name) {
   return name.toLowerCase().replace(/['.]/g, "").replace(/\s+(jr|sr|ii|iii|iv|v)\s*$/i, "").replace(/\s+/g, " ").trim();
