@@ -3498,7 +3498,7 @@ export default function App(){
   const[showGuide,setShowGuide]=useState(()=>window.location.pathname==='/guide');
   const[isGuest,setIsGuest]=useState(false);
   const[authPrompt,setAuthPrompt]=useState(null);
-  const authSourceRef=useRef(null);
+  const authSourceRef=useRef(()=>{try{return sessionStorage.getItem('authSource')}catch(e){return null}})();
 
   useEffect(()=>{
     const onHash=()=>{setShowAdmin(window.location.hash==="#admin");setShowOG(window.location.hash==="#og-preview");};
@@ -3522,7 +3522,7 @@ export default function App(){
     });
     const{data:{subscription}}=supabase.auth.onAuthStateChange((event,session)=>{
       setUser(session?.user||null);
-      if(session?.user&&event==='SIGNED_IN'){const created=new Date(session.user.created_at);const isNew=(Date.now()-created.getTime())<10000;trackEvent(session.user.id,isNew?'signup':'login',isNew?{source:authSourceRef.current||'homepage'}:{});}
+      if(session?.user&&event==='SIGNED_IN'){const created=new Date(session.user.created_at);const isNew=(Date.now()-created.getTime())<10000;const src=authSourceRef.current||'homepage';trackEvent(session.user.id,isNew?'signup':'login',isNew?{source:src}:{});authSourceRef.current=null;try{sessionStorage.removeItem('authSource')}catch(e){}}
     });
     return()=>subscription.unsubscribe();
   },[]);
@@ -3538,6 +3538,7 @@ export default function App(){
     <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} onRequireAuth={(msg)=>{
       const src=msg.includes('play with the data')?'combine-explorer':msg.includes('vote')||msg.includes('big board')?'pair rank':msg.includes('trait')||msg.includes('grade')||msg.includes('slider')?'sliders':msg.includes('mock')||msg.includes('draft')?'mock draft':msg.includes('reorder')?'pair rank':msg.includes('note')?'notes':msg.includes('guys')?'my guys':msg.includes('share')?'share':msg.includes('save')?'save':'homepage';
       authSourceRef.current=src;
+      try{sessionStorage.setItem('authSource',src)}catch(e){}
       setAuthPrompt(msg);
     }}/>
     {authPrompt&&<AuthModal message={authPrompt} onClose={()=>setAuthPrompt(null)}/>}
