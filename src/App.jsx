@@ -1832,7 +1832,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
             {/* Position Averages */}
             <div style={{flex:"1 1 280px",minWidth:240}}>
               <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:8}}>
-                <span style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>{mc&&!explorerAbsolute?"vs position history":"position averages"}</span>
+                <span style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>{(mc||sc)&&!explorerAbsolute?"vs position history":"position averages"}</span>
                 <span onClick={()=>setExplorerAvgInfo(v=>!v)} style={{fontFamily:sans,fontSize:9,color:"#a3a3a3",background:"#f5f5f4",borderRadius:99,width:14,height:14,display:"inline-flex",alignItems:"center",justifyContent:"center",cursor:"pointer",flexShrink:0,border:"1px solid #e5e5e5"}}>?</span>
               </div>
               {explorerAvgInfo&&<div style={{fontFamily:sans,fontSize:11,color:"#525252",background:"#faf9f6",border:"1px solid #e5e5e5",borderRadius:8,padding:"8px 12px",marginBottom:8,lineHeight:1.5}}>
@@ -1840,11 +1840,11 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
                 <span onClick={()=>setExplorerAvgInfo(false)} style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",cursor:"pointer",marginLeft:6}}>dismiss</span>
               </div>}
               <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"12px 16px"}}>
-                {mc&&!explorerAbsolute&&<div style={{position:"relative",height:10,marginBottom:6}}>
+                {(mc||sc)&&!explorerAbsolute&&<div style={{position:"relative",height:10,marginBottom:6}}>
                   <span style={{position:"absolute",left:"50%",top:-1,transform:"translateX(-50%)",fontFamily:mono,fontSize:7,color:"#a3a3a3"}}>50</span>
                 </div>}
                 {avgEntries.map(([pos,{avg,count}],i)=>{const c=POS_COLORS[pos]||"#525252";
-                  const isDiverging=mc&&!explorerAbsolute;
+                  const isDiverging=(mc||(sc&&sc!=="breakout_year"))&&!explorerAbsolute;
                   const delta=avg-50;
                   const barPct=isDiverging?Math.min(Math.abs(delta),50)/50*50:((avg-barMin)/barRange)*100;
                   const fmtAvg=sc?(sc==="breakout_year"?avg.toFixed(1):DECIMAL_STATS.has(sc)?avg.toFixed(sc.endsWith("_PCT")||sc.endsWith("_DOM")?1:2):Math.round(avg)):inv?avg.toFixed(2)+"s":mc&&explorerAbsolute?(mc==="VRT"||mc==="BRD"?avg.toFixed(1)+'"':avg.toFixed(2)+"s"):null;
