@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo, useRef } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef, Fragment } from "react";
 import { supabase } from "./supabase.js";
 import MockDraftSim from "./MockDraftSim.jsx";
 import { CONSENSUS_BOARD, getConsensusRank, getConsensusGrade, getConsensusRound, TEAM_NEEDS_DETAILED } from "./consensusData.js";
@@ -54,11 +54,11 @@ const MEAS_GROUPS=[{keys:["HT","WT","ARM","HND","WING"],border:"#a3a3a3"},{keys:
 const MEASURABLE_KEY={"HT":"height","WT":"weight","40":"forty","VRT":"vertical","BRD":"broad","3C":"cone","SHT":"shuttle","ATH":"athleticScore","SPD":"speedScore","AGI":"agilityScore","EXP":"explosionScore","ARM":"arms","HND":"hands","WING":"wingspan"};
 const STAT_CATEGORIES=[
   {label:"Passing",keys:["passing_YDS","passing_PCT","passing_TD","passing_INT","passing_TDINT","passing_YPA","passing_DOM"],border:"#1e3a5f",positions:["QB"]},
-  {label:"Rushing",keys:["rushing_CAR","rushing_YDS","rushing_YPC","rushing_TD","rushing_DOM"],border:"#5b21b6",positions:["QB","RB","WR"]},
+  {label:"Rushing",keys:["rushing_CAR","rushing_YDS","rushing_YPC","rushing_TD","rushing_DOM"],border:"#5b21b6",positions:["QB","RB"]},
   {label:"Receiving",keys:["receiving_REC","receiving_YDS","receiving_YPR","receiving_TD","receiving_DOM","breakout_year"],border:"#0d9488",positions:["RB","WR","TE"]},
   {label:"Defensive",keys:["defensive_TKL","defensive_TFL","defensive_SACKS","defensive_QBHUR","defensive_PD","defensive_INT","defensive_FF","defensive_FR","defensive_TD","defensive_DOM"],border:"#15803d",positions:["EDGE","DL","LB","CB","S"]},
 ];
-const STAT_SHORT={"passing_YDS":"Pass Yds","passing_TD":"Pass TD","passing_INT":"INT","passing_COMP":"Comp","passing_ATT":"Att","passing_PCT":"Comp%","passing_YPA":"YPA","passing_TDINT":"TD:INT","passing_DOM":"Pass Dom","rushing_CAR":"Carries","rushing_YDS":"Rush Yds","rushing_TD":"Rush TD","rushing_YPC":"YPC","rushing_DOM":"Rush Dom","receiving_REC":"Rec","receiving_YDS":"Rec Yds","receiving_TD":"Rec TD","receiving_YPR":"Y/Rec","receiving_DOM":"Rec Dom","breakout_year":"Breakout Year","defensive_TKL":"Tackles","defensive_TFL":"TFL","defensive_SACKS":"Sacks","defensive_QBHUR":"QB Hurries","defensive_PD":"PD","defensive_INT":"Def INT","defensive_FF":"FF","defensive_FR":"FR","defensive_TD":"Def TD","defensive_DOM":"Def Dom"};
+const STAT_SHORT={"passing_YDS":"Pass Yds","passing_TD":"Pass TD","passing_INT":"INT","passing_COMP":"Comp","passing_ATT":"Att","passing_PCT":"Comp%","passing_YPA":"YPA","passing_TDINT":"TD:INT","passing_DOM":"Pass Dom","rushing_CAR":"Carries","rushing_YDS":"Rush Yds","rushing_TD":"Rush TD","rushing_YPC":"YPC","rushing_DOM":"Rush Dom","receiving_REC":"Rec","receiving_YDS":"Rec Yds","receiving_TD":"Rec TD","receiving_YPR":"Y/Rec","receiving_DOM":"Rec Dom","breakout_year":"Breakout Year","defensive_TKL":"Tackles","defensive_TFL":"TFL","defensive_SACKS":"Sacks","defensive_QBHUR":"QB Hurries","defensive_PD":"PD","defensive_INT":"Def INT","defensive_FF":"FF","defensive_FR":"FR","defensive_TD":"Def TD","defensive_DOM":"Production Share"};
 const STAT_EMOJI={"passing_YDS":"🏈","passing_TD":"🎯","passing_INT":"🚨","passing_PCT":"📊","passing_YPA":"📐","passing_TDINT":"⚖️","passing_DOM":"👑","rushing_CAR":"🏃","rushing_YDS":"💨","rushing_TD":"🔥","rushing_YPC":"📏","rushing_DOM":"👑","receiving_REC":"🧤","receiving_YDS":"📡","receiving_TD":"🎯","receiving_YPR":"📐","receiving_DOM":"👑","breakout_year":"💥","defensive_TKL":"💪","defensive_TFL":"🚧","defensive_SACKS":"🌪️","defensive_QBHUR":"💥","defensive_PD":"🖐️","defensive_INT":"🧲","defensive_FF":"💣","defensive_FR":"🏈","defensive_TD":"🏈","defensive_DOM":"👑"};
 const INVERTED_STATS=new Set(["passing_INT"]);
 const DECIMAL_STATS=new Set(["passing_PCT","passing_YPA","passing_TDINT","rushing_YPC","receiving_YPR","passing_DOM","rushing_DOM","receiving_DOM","defensive_DOM","defensive_SACKS"]);
@@ -1110,6 +1110,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const[explorerMyGuys,setExplorerMyGuys]=useState(false);
   const[explorerAbsolute,setExplorerAbsolute]=useState(false);
   const[explorerStat,setExplorerStat]=useState("passing_YDS");
+  const[explorerStatOpen,setExplorerStatOpen]=useState(()=>new Set(["Passing"]));
   const[explorerAvgInfo,setExplorerAvgInfo]=useState(false);
   const[explorerLogos,setExplorerLogos]=useState(false);
   const[explorerLeaderPos,setExplorerLeaderPos]=useState(null);
@@ -1172,7 +1173,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         if(isBreakout){
           const raw=getStatVal(p.name,p.school,stat);
           if(raw==null)return;
-          const classMap={"Fr":1,"So":2,"Jr":3,"Sr":4};
+          const classMap={"Fr":4,"So":3,"Jr":2,"Sr":1};
           const val=classMap[raw]||0;
           if(!val)return;
           points.push({id:p.id,name:p.name,school:p.school,pos:gpos,group,val,displayVal:raw,statCode:stat});
@@ -1751,8 +1752,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         {/* Measurable / Trait picker */}
         {explorerMode==="measurables"?(<div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none"}}>
           {MEAS_GROUPS.map(grp=>grp.keys.map(k=><button key={k} onClick={gateAuth(()=>setExplorerMeas(k))} style={{fontFamily:mono,fontSize:10,fontWeight:explorerMeas===k?700:500,padding:"5px 10px",background:explorerMeas===k?grp.border+"18":"transparent",color:explorerMeas===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerMeas===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{MEASURABLE_EMOJI[k]} {MEASURABLE_SHORT[k]}</button>))}
-        </div>):explorerMode==="stats"?(<div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none"}}>
-          {STAT_CATEGORIES.map(grp=>grp.keys.map(k=><button key={k} onClick={gateAuth(()=>setExplorerStat(k))} style={{fontFamily:mono,fontSize:10,fontWeight:explorerStat===k?700:500,padding:"5px 10px",background:explorerStat===k?grp.border+"18":"transparent",color:explorerStat===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerStat===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{STAT_EMOJI[k]||""} {STAT_SHORT[k]||k}</button>))}
+        </div>):explorerMode==="stats"?(<div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none",alignItems:"center"}}>
+          {STAT_CATEGORIES.map(grp=>{const isOpen=explorerStatOpen.has(grp.label);const hasSelection=grp.keys.includes(explorerStat);return<Fragment key={grp.label}><button onClick={gateAuth(()=>{setExplorerStatOpen(prev=>{const next=new Set(prev);if(next.has(grp.label))next.delete(grp.label);else next.add(grp.label);return next;});})} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"5px 12px",background:hasSelection?grp.border:isOpen?grp.border+"18":"transparent",color:hasSelection?"#fff":isOpen?grp.border:"#737373",border:`1.5px solid ${hasSelection||isOpen?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{grp.label}{isOpen?" ▾":" ▸"}</button>{isOpen&&grp.keys.map(k=><button key={k} onClick={gateAuth(()=>setExplorerStat(k))} style={{fontFamily:mono,fontSize:10,fontWeight:explorerStat===k?700:500,padding:"5px 10px",background:explorerStat===k?grp.border+"18":"transparent",color:explorerStat===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerStat===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{STAT_EMOJI[k]||""} {STAT_SHORT[k]||k}</button>)}</Fragment>;})}
         </div>):(<div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",flexWrap:"nowrap",msOverflowStyle:"none",scrollbarWidth:"none"}}>
           {allTraits.map(t=><button key={t} onClick={gateAuth(()=>setExplorerTrait(t))} style={{fontFamily:sans,fontSize:10,fontWeight:explorerTrait===t?700:500,padding:"5px 10px",background:explorerTrait===t?"#6366f118":"transparent",color:explorerTrait===t?"#6366f1":"#a3a3a3",border:`1.5px solid ${explorerTrait===t?"#6366f1":"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{TRAIT_EMOJI[t]||""} {TRAIT_SHORT[t]||t} <span style={{fontSize:8,opacity:0.6}}>({traitPosCounts[t]})</span></button>)}
         </div>)}
@@ -1792,9 +1793,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
           const mc=explorerData.measCode;
           const sc=explorerData.statCode;
           const inv=explorerData.inverted;
-          const fmtVal=(pt)=>{const dv=pt.displayVal!=null?pt.displayVal:pt.val;if(sc){if(sc==="breakout_year")return dv;if(DECIMAL_STATS.has(sc))return typeof dv==="number"?dv.toFixed(sc.endsWith("_PCT")||sc.endsWith("_DOM")?1:2):dv;return typeof dv==="number"?Math.round(dv):dv;}if(!mc)return Math.round(dv);if(mc==="HT")return formatHeight(dv);if(mc==="WT")return dv+" lbs";if(mc==="ARM"||mc==="HND"||mc==="WING")return dv+'"';if(mc==="40"||mc==="3C"||mc==="SHT")return dv+"s";return Math.round(dv*10)/10;};
+          const fmtVal=(pt)=>{const dv=pt.displayVal!=null?pt.displayVal:pt.val;if(sc){if(sc==="breakout_year")return dv;const suffix=sc.endsWith("_DOM")||sc.endsWith("_PCT")?"%":"";if(DECIMAL_STATS.has(sc))return(typeof dv==="number"?dv.toFixed(sc.endsWith("_PCT")||sc.endsWith("_DOM")?1:2):dv)+suffix;return(typeof dv==="number"?Math.round(dv):dv)+suffix;}if(!mc)return Math.round(dv);if(mc==="HT")return formatHeight(dv);if(mc==="WT")return dv+" lbs";if(mc==="ARM"||mc==="HND"||mc==="WING")return dv+'"';if(mc==="40"||mc==="3C"||mc==="SHT")return dv+"s";return Math.round(dv*10)/10;};
           const filtered=explorerLeaderPos?explorerData.points.filter(p=>p.group===explorerLeaderPos):explorerData.points;
-          const sorted=[...filtered].sort((a,b)=>{if(sc==="breakout_year")return a.val-b.val;return inv&&explorerAbsolute?a.val-b.val:b.val-a.val;});
+          const sorted=[...filtered].sort((a,b)=>inv&&explorerAbsolute?a.val-b.val:b.val-a.val);
           const top10=sorted.slice(0,10);
           const posAvgs={};
           explorerData.groups.forEach(g=>{const pts=explorerData.points.filter(p=>p.group===g);if(pts.length)posAvgs[g]={avg:pts.reduce((s,p)=>s+p.val,0)/pts.length,count:pts.length};});
@@ -1810,7 +1811,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
                 <span onClick={()=>setExplorerLeaderInfo(v=>!v)} style={{fontFamily:sans,fontSize:9,color:"#a3a3a3",background:"#f5f5f4",borderRadius:99,width:14,height:14,display:"inline-flex",alignItems:"center",justifyContent:"center",cursor:"pointer",flexShrink:0,border:"1px solid #e5e5e5"}}>?</span>
               </div>
               {explorerLeaderInfo&&<div style={{fontFamily:sans,fontSize:11,color:"#525252",background:"#faf9f6",border:"1px solid #e5e5e5",borderRadius:8,padding:"8px 12px",marginBottom:8,lineHeight:1.5}}>
-                {sc?sc==="breakout_year"?"Sorted by earliest breakout year — earlier is better.":explorerAbsolute?"Sorted by raw stat value.":"Sorted by historical percentile — how each player compares to 10 years of college data at their position.":!mc?"Sorted by scouting trait score — higher is better.":explorerAbsolute&&inv?"Sorted by raw time — fastest first.":explorerAbsolute?"Sorted by raw measurement.":"Sorted by position-relative percentile — how each player compares to historical combine data at their position. Toggle to absolute to see raw measurements."}
+                {sc?sc==="breakout_year"?"Sorted by breakout year — earlier breakouts rank higher. Breakout = 20%+ dominator rating in a season.":explorerAbsolute?"Sorted by raw stat value.":"Sorted by historical percentile — how each player compares to 10 years of college data at their position.":!mc?"Sorted by scouting trait score — higher is better.":explorerAbsolute&&inv?"Sorted by raw time — fastest first.":explorerAbsolute?"Sorted by raw measurement.":"Sorted by position-relative percentile — how each player compares to historical combine data at their position. Toggle to absolute to see raw measurements."}
                 <span onClick={()=>setExplorerLeaderInfo(false)} style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",cursor:"pointer",marginLeft:6}}>dismiss</span>
               </div>}
               <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
@@ -1884,7 +1885,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
           <div style={{fontSize:10,color:"#a3a3a3",marginTop:1}}>{explorerHover.school}</div>
           <div style={{display:"flex",alignItems:"center",gap:6,marginTop:4}}>
             <span style={{fontSize:9,fontWeight:700,padding:"2px 6px",borderRadius:4,background:POS_COLORS[explorerHover.pos]||"#525252",color:"#fff"}}>{explorerHover.group}</span>
-            <span style={{fontFamily:mono,fontSize:12,fontWeight:700}}>{(()=>{const mc=explorerHover.measCode;const sc=explorerHover.statCode;const dv=explorerHover.displayVal;if(sc){if(sc==="breakout_year")return dv;if(DECIMAL_STATS.has(sc))return typeof dv==="number"?dv.toFixed(DECIMAL_STATS.has(sc)&&(sc.endsWith("_PCT")||sc.endsWith("_DOM"))?1:2):dv;return typeof dv==="number"?Math.round(dv):dv;}if(!mc)return explorerHover.val;if(mc==="HT")return formatHeight(dv);if(mc==="WT")return dv+" lbs";if(mc==="ARM"||mc==="HND"||mc==="WING")return dv+'"';if(mc==="40"||mc==="3C"||mc==="SHT")return dv+"s";return dv!=null?dv:explorerHover.val;})()}</span>
+            <span style={{fontFamily:mono,fontSize:12,fontWeight:700}}>{(()=>{const mc=explorerHover.measCode;const sc=explorerHover.statCode;const dv=explorerHover.displayVal;if(sc){if(sc==="breakout_year")return dv;const suffix=sc.endsWith("_DOM")||sc.endsWith("_PCT")?"%":"";if(DECIMAL_STATS.has(sc))return(typeof dv==="number"?dv.toFixed(sc.endsWith("_PCT")||sc.endsWith("_DOM")?1:2):dv)+suffix;return(typeof dv==="number"?Math.round(dv):dv)+suffix;}if(!mc)return explorerHover.val;if(mc==="HT")return formatHeight(dv);if(mc==="WT")return dv+" lbs";if(mc==="ARM"||mc==="HND"||mc==="WING")return dv+'"';if(mc==="40"||mc==="3C"||mc==="SHT")return dv+"s";return dv!=null?dv:explorerHover.val;})()}</span>
+            {explorerHover.statCode?.endsWith("_DOM")&&<div style={{fontSize:9,color:"#a3a3a3",marginTop:2}}>{(()=>{const sc=explorerHover.statCode;const g=explorerHover.group;if(sc==="passing_DOM")return"share of team passing yds + TDs";if(sc==="rushing_DOM")return"share of team rushing yds + TDs";if(sc==="receiving_DOM")return"share of team receiving yds + TDs";if(sc==="defensive_DOM"){if(g==="EDGE")return"pressure share (sacks + hurries)";if(g==="DL")return"TFL share of team";if(g==="LB")return"tackle impact (tkl + TFL + sacks)";if(g==="CB")return"coverage share (INT + PD)";if(g==="S")return"playmaker share (INT + PD + tkl)";}return"share of team production";})()}</div>}
           </div>
         </div>}
         <div style={{textAlign:"center",padding:"24px 24px 16px",fontFamily:mono,fontSize:10,color:"#d4d4d4",letterSpacing:0.5}}>© {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>
