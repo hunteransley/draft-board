@@ -2486,6 +2486,468 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
 }
 
 // ============================================================
+// Content Ideas — Tweet Engine Generators
+// ============================================================
+const TWEET_CATEGORIES=[
+  {key:'combine_outlier',label:'Combine Outlier',color:'#14b8a6',tier:1,weight:18},
+  {key:'size_athleticism',label:'Size/Athleticism',color:'#8b5cf6',tier:1,weight:14},
+  {key:'class_depth',label:'Class Depth',color:'#3b82f6',tier:1,weight:14},
+  {key:'draft_value_gap',label:'Draft Value Gap',color:'#f59e0b',tier:1,weight:12},
+  {key:'conference',label:'Conference',color:'#22c55e',tier:1,weight:10},
+  {key:'historical',label:'Historical',color:'#dc2626',tier:1,weight:10},
+  {key:'radar_spotlight',label:'Radar Spotlight',color:'#a855f7',tier:2,weight:9},
+  {key:'ceiling_tags',label:'Ceiling Tags',color:'#ec4899',tier:2,weight:8},
+  {key:'team_mock',label:'Team/Mock',color:'#64748b',tier:2,weight:5},
+];
+function _pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function _shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function _spice(tier,isRare,isTop50){return Math.min(5,2+(tier===1?1:0)+(isRare?1:0)+(isTop50?1:0));}
+function _fmt(p){return`${p.name} (${p.gpos||p.pos}, ${p.school})`;}
+function _tag(text){return text.length<=240?text:text.slice(0,237)+'...';}
+function _posPlayers(pos){return PROSPECTS.filter(p=>(p.gpos||p.pos)===pos);}
+function _withCombine(players){return players.map(p=>({...p,cs:getCombineScores(p.name,p.school),cd:getCombineData(p.name,p.school)})).filter(x=>x.cs);}
+
+function genCombineOutlier(){
+  const positions=_shuffle(["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"]);
+  const sub=Math.floor(Math.random()*5);
+  for(const pos of positions){
+    const guys=_withCombine(_posPlayers(pos));
+    if(!guys.length)continue;
+    if(sub===0){
+      const sorted=[...guys].filter(g=>g.cs.athleticScore!=null).sort((a,b)=>b.cs.athleticScore-a.cs.athleticScore);
+      if(sorted.length<2)continue;
+      const p=sorted[0];const score=Math.round(p.cs.athleticScore);const rank=getConsensusRank(p.name);
+      return{category:'combine_outlier',spice:_spice(1,score>=95,rank<=50),
+        tweet:_tag(`${score} Athletic Score — ${_fmt(p)} leads all ${pos}s at the combine. Elite explosion + agility.\n\n📊 bigboardlab.com`),
+        image:`Combine Explorer → ${pos} → Athletic Score`,hook:`Best pure athlete at ${pos}`,player:p.name};
+    }
+    if(sub===1){
+      const drills=[["forty","40-yard dash","40"],["vertical","Vertical","VRT"],["broad","Broad jump","BRD"],["cone","3-cone","3C"],["shuttle","Shuttle","SHT"]];
+      const[key,label,abbr]=_pick(drills);
+      const sorted=[...guys].filter(g=>g.cs.percentiles?.[key]!=null).sort((a,b)=>(b.cs.percentiles[key]||0)-(a.cs.percentiles[key]||0));
+      if(sorted.length<2)continue;
+      const p=sorted[0];const pct=Math.round(p.cs.percentiles[key]);
+      if(pct<85)continue;
+      const rank=getConsensusRank(p.name);
+      return{category:'combine_outlier',spice:_spice(1,pct>=97,rank<=50),
+        tweet:_tag(`${pct}th percentile ${label} — ${_fmt(p)} posted the best ${abbr} among all ${pos}s at the combine.\n\n📊 bigboardlab.com`),
+        image:`Combine Explorer → ${pos} → ${abbr}`,hook:`${label} leader at ${pos}`,player:p.name};
+    }
+    if(sub===2){
+      const multi=guys.filter(g=>{
+        let ct=0;
+        if((g.cs.athleticScore||0)>=90)ct++;if((g.cs.speedScore||0)>=90)ct++;
+        if((g.cs.agilityScore||0)>=90)ct++;if((g.cs.explosionScore||0)>=90)ct++;
+        return ct>=2;
+      });
+      if(!multi.length)continue;
+      const p=_pick(multi);
+      const scores=[];
+      if((p.cs.athleticScore||0)>=90)scores.push(`${Math.round(p.cs.athleticScore)} ATH`);
+      if((p.cs.speedScore||0)>=90)scores.push(`${Math.round(p.cs.speedScore)} SPD`);
+      if((p.cs.agilityScore||0)>=90)scores.push(`${Math.round(p.cs.agilityScore)} AGI`);
+      if((p.cs.explosionScore||0)>=90)scores.push(`${Math.round(p.cs.explosionScore)} EXP`);
+      const rank=getConsensusRank(p.name);
+      return{category:'combine_outlier',spice:_spice(1,scores.length>=3,rank<=50),
+        tweet:_tag(`Multi-elite combine: ${_fmt(p)} — ${scores.join(', ')}. That's ${scores.length} composite scores ≥90.\n\n📊 bigboardlab.com`),
+        image:`Combine Explorer → ${pos} → Athletic Score`,hook:`${scores.length}-category elite`,player:p.name};
+    }
+    if(sub===3){
+      const drills=["forty","vertical","broad","cone","shuttle"];
+      for(const d of _shuffle(drills)){
+        const elite=guys.filter(g=>(g.cs.percentiles?.[d]||0)>=99);
+        if(!elite.length)continue;
+        const p=_pick(elite);const rank=getConsensusRank(p.name);
+        const label={"forty":"40-yard dash","vertical":"Vertical","broad":"Broad jump","cone":"3-cone","shuttle":"Shuttle"}[d];
+        return{category:'combine_outlier',spice:_spice(1,true,rank<=50),
+          tweet:_tag(`99th percentile ${label} — ${_fmt(p)} is in the 1% club among ${pos}s.\n\n📊 bigboardlab.com`),
+          image:`Combine Explorer → ${pos} → ${{"forty":"40","vertical":"VRT","broad":"BRD","cone":"3C","shuttle":"SHT"}[d]}`,hook:`Top 1% drill performance`,player:p.name};
+      }
+    }
+    if(sub===4){
+      const metric=_pick(["speedScore","explosionScore"]);
+      const label=metric==="speedScore"?"Speed Score":"Explosion Score";
+      const sorted=[...guys].filter(g=>g.cs[metric]!=null).sort((a,b)=>(b.cs[metric]||0)-(a.cs[metric]||0));
+      if(sorted.length<3)continue;
+      const p=sorted[0];const val=Math.round(p.cs[metric]);const rank=getConsensusRank(p.name);
+      return{category:'combine_outlier',spice:_spice(1,val>=95,rank<=50),
+        tweet:_tag(`${val} ${label} — ${_fmt(p)} is the ${metric==="speedScore"?"fastest":"most explosive"} ${pos} in this class.\n\n📊 bigboardlab.com`),
+        image:`Combine Explorer → ${pos} → ${metric==="speedScore"?"SPD":"EXP"}`,hook:`Position ${label} leader`,player:p.name};
+    }
+  }
+  return null;
+}
+
+function genSizeAthleticismMismatch(){
+  const sub=Math.floor(Math.random()*5);
+  const allWithData=PROSPECTS.map(p=>({...p,cd:getCombineData(p.name,p.school),cs:getCombineScores(p.name,p.school)})).filter(x=>x.cd);
+  if(sub===0){
+    const heavy=allWithData.filter(g=>g.cd.weight&&g.cd.weight>=250&&g.cs?.speedScore).sort((a,b)=>(b.cs.speedScore||0)-(a.cs.speedScore||0));
+    if(heavy.length){const p=heavy[0];const rank=getConsensusRank(p.name);
+      return{category:'size_athleticism',spice:_spice(1,p.cs.speedScore>=85,rank<=50),
+        tweet:_tag(`${p.cd.weight} lbs with a ${Math.round(p.cs.speedScore)} Speed Score — ${_fmt(p)} is the fastest 250+ lb prospect in the class.\n\n📊 bigboardlab.com`),
+        image:`Combine Explorer → ${p.gpos||p.pos} → SPD`,hook:`Heavy + fast mismatch`,player:p.name};}
+  }
+  if(sub===1){
+    const positions=["CB","S","WR","RB"];
+    for(const pos of _shuffle(positions)){
+      const guys=allWithData.filter(g=>(g.gpos||g.pos)===pos&&g.cd.height&&g.cd.arms);
+      if(guys.length<5)continue;
+      const avgHt=guys.reduce((s,g)=>s+g.cd.height,0)/guys.length;
+      const short=guys.filter(g=>g.cd.height<avgHt-1).sort((a,b)=>(b.cd.arms||0)-(a.cd.arms||0));
+      if(!short.length)continue;
+      const p=short[0];const rank=getConsensusRank(p.name);
+      return{category:'size_athleticism',spice:_spice(1,false,rank<=50),
+        tweet:_tag(`${formatHeight(p.cd.height)} but ${p.cd.arms}" arms — ${_fmt(p)} is undersized but has elite length for a ${pos}.\n\n📊 bigboardlab.com`),
+        image:`Combine Explorer → ${pos} → ARM`,hook:`Short + long arms`,player:p.name};
+    }
+  }
+  if(sub===2){
+    const light=allWithData.filter(g=>g.cd.weight&&g.cd.weight<=200&&g.cs?.explosionScore).sort((a,b)=>(b.cs.explosionScore||0)-(a.cs.explosionScore||0));
+    if(light.length){const p=light[0];const rank=getConsensusRank(p.name);
+      return{category:'size_athleticism',spice:_spice(1,p.cs.explosionScore>=90,rank<=50),
+        tweet:_tag(`Only ${p.cd.weight} lbs but a ${Math.round(p.cs.explosionScore)} Explosion Score — ${_fmt(p)} packs a punch.\n\n📊 bigboardlab.com`),
+        image:`Combine Explorer → ${p.gpos||p.pos} → EXP`,hook:`Light + explosive`,player:p.name};}
+  }
+  if(sub===3){
+    const tall=allWithData.filter(g=>g.cd.height&&g.cd.height>=76&&g.cs?.agilityScore).sort((a,b)=>(b.cs.agilityScore||0)-(a.cs.agilityScore||0));
+    if(tall.length){const p=tall[0];const rank=getConsensusRank(p.name);
+      return{category:'size_athleticism',spice:_spice(1,p.cs.agilityScore>=85,rank<=50),
+        tweet:_tag(`${formatHeight(p.cd.height)} with a ${Math.round(p.cs.agilityScore)} Agility Score — ${_fmt(p)} moves like a much smaller player.\n\n📊 bigboardlab.com`),
+        image:`Combine Explorer → ${p.gpos||p.pos} → AGI`,hook:`Tall + agile mismatch`,player:p.name};}
+  }
+  if(sub===4){
+    const positions=["QB","WR","TE","RB"];
+    for(const pos of _shuffle(positions)){
+      const guys=allWithData.filter(g=>(g.gpos||g.pos)===pos&&g.cd.hands).sort((a,b)=>(b.cd.hands||0)-(a.cd.hands||0));
+      if(guys.length<3)continue;
+      const p=guys[0];const rank=getConsensusRank(p.name);
+      return{category:'size_athleticism',spice:_spice(1,false,rank<=50),
+        tweet:_tag(`${p.cd.hands}" hands — ${_fmt(p)} has the biggest mitts among ${pos}s in this class.\n\n📊 bigboardlab.com`),
+        image:`Combine Explorer → ${pos} → HND`,hook:`Biggest hands at ${pos}`,player:p.name};
+    }
+  }
+  return null;
+}
+
+function genClassDepth(){
+  const sub=Math.floor(Math.random()*4);
+  const allRanked=PROSPECTS.map(p=>({...p,rank:getConsensusRank(p.name)}));
+  if(sub===0){
+    const top100=allRanked.filter(p=>p.rank<=100);
+    const counts={};top100.forEach(p=>{const pos=p.gpos||p.pos;counts[pos]=(counts[pos]||0)+1;});
+    const sorted=Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+    if(sorted.length){const[pos,ct]=sorted[0];
+      return{category:'class_depth',spice:_spice(1,ct>=15,true),
+        tweet:_tag(`${ct} ${pos}s in the top 100 — this is the deepest position in the 2026 draft class. Expect Day 2 steals.\n\n📊 bigboardlab.com`),
+        image:`Rankings → filter by ${pos}`,hook:`Deepest position group`,player:null};}
+  }
+  if(sub===1){
+    const top32=allRanked.filter(p=>p.rank<=32);
+    const counts={};top32.forEach(p=>{const pos=p.gpos||p.pos;counts[pos]=(counts[pos]||0)+1;});
+    const all=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"];
+    const scarce=all.map(pos=>[pos,counts[pos]||0]).sort((a,b)=>a[1]-b[1]);
+    if(scarce.length){const[pos,ct]=scarce[0];
+      return{category:'class_depth',spice:_spice(1,ct<=1,true),
+        tweet:_tag(`Only ${ct} ${pos}${ct!==1?'s':''} projected in Round 1 — ${pos} is the scarcest position at the top of this draft.\n\n📊 bigboardlab.com`),
+        image:`Rankings → top 32`,hook:`Position scarcity in Rd 1`,player:null};}
+  }
+  if(sub===2){
+    const top20=allRanked.filter(p=>p.rank<=20);
+    const confCounts={};top20.forEach(p=>{const conf=SCHOOL_CONFERENCE[p.school];if(conf&&conf!=="Ind")confCounts[conf]=(confCounts[conf]||0)+1;});
+    const sorted=Object.entries(confCounts).sort((a,b)=>b[1]-a[1]);
+    if(sorted.length){const[conf,ct]=sorted[0];
+      return{category:'class_depth',spice:_spice(1,ct>=8,true),
+        tweet:_tag(`${ct} of the top 20 prospects are from the ${conf} — conference dominance at the top of the 2026 draft.\n\n📊 bigboardlab.com`),
+        image:`Rankings → top 20`,hook:`Conference controls the top`,player:null};}
+  }
+  if(sub===3){
+    const positions=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"];
+    const combCounts={};
+    positions.forEach(pos=>{combCounts[pos]=_withCombine(_posPlayers(pos)).length;});
+    const sorted=Object.entries(combCounts).sort((a,b)=>b[1]-a[1]);
+    if(sorted.length&&sorted[0][1]>0){const[pos,ct]=sorted[0];
+      return{category:'class_depth',spice:_spice(1,ct>=30,false),
+        tweet:_tag(`${ct} ${pos}s tested at the combine — more than any other position. Evaluators have plenty of data to work with.\n\n📊 bigboardlab.com`),
+        image:`Combine Explorer → ${pos}`,hook:`Most combine data at ${pos}`,player:null};}
+  }
+  return null;
+}
+
+function genDraftValueGap(){
+  const sub=Math.floor(Math.random()*3);
+  if(sub===0){
+    const guys=PROSPECTS.map(p=>({...p,cs:getCombineScores(p.name,p.school),rank:getConsensusRank(p.name)})).filter(g=>g.cs?.athleticScore>=90&&g.rank>=150);
+    if(guys.length){const p=_pick(guys.slice(0,5));
+      return{category:'draft_value_gap',spice:_spice(1,true,false),
+        tweet:_tag(`${Math.round(p.cs.athleticScore)} Athletic Score but ranked #${p.rank} — ${_fmt(p)} is one of the biggest combine vs. draft position gaps in this class.\n\n📊 bigboardlab.com`),
+        image:`Combine Explorer → ${p.gpos||p.pos} → ATH`,hook:`Elite athlete, late-round projection`,player:p.name};}
+  }
+  if(sub===1){
+    const guys=PROSPECTS.map(p=>({...p,cs:getCombineScores(p.name,p.school),rank:getConsensusRank(p.name)})).filter(g=>g.rank<=50&&g.cs&&g.cs.athleticScore!=null&&g.cs.athleticScore<40);
+    if(guys.length){const p=_pick(guys);
+      return{category:'draft_value_gap',spice:_spice(1,false,true),
+        tweet:_tag(`Ranked #${p.rank} overall but only a ${Math.round(p.cs.athleticScore)} Athletic Score — ${_fmt(p)} is a film-over-measurables prospect.\n\n📊 bigboardlab.com`),
+        image:`Combine Explorer → ${p.gpos||p.pos} → ATH`,hook:`High rank, low athleticism`,player:p.name};}
+  }
+  if(sub===2){
+    const positions=_shuffle(["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"]);
+    for(const pos of positions){
+      const guys=_withCombine(_posPlayers(pos)).map(g=>({...g,rank:getConsensusRank(g.name)}));
+      if(guys.length<5)continue;
+      const rankedByAthletic=[...guys].sort((a,b)=>(b.cs.athleticScore||0)-(a.cs.athleticScore||0));
+      const athRank={};rankedByAthletic.forEach((g,i)=>{athRank[g.id]=i+1;});
+      const rankedByConsensus=[...guys].sort((a,b)=>a.rank-b.rank);
+      const consRank={};rankedByConsensus.forEach((g,i)=>{consRank[g.id]=i+1;});
+      let best=null,bestGap=0;
+      guys.forEach(g=>{const gap=Math.abs((consRank[g.id]||0)-(athRank[g.id]||0));if(gap>bestGap){bestGap=gap;best=g;}});
+      if(best&&bestGap>=8){
+        const athPos=athRank[best.id];const consPos=consRank[best.id];
+        const direction=athPos<consPos?"better athlete than his draft stock suggests":"drafted higher than his combine numbers";
+        return{category:'draft_value_gap',spice:_spice(1,bestGap>=15,best.rank<=50),
+          tweet:_tag(`#${athPos} in combine scores but #${consPos} in consensus rank among ${pos}s — ${_fmt(best)} is ${direction}.\n\n📊 bigboardlab.com`),
+          image:`Combine Explorer → ${pos} → ATH`,hook:`Biggest combine-rank mismatch at ${pos}`,player:best.name};}
+    }
+  }
+  return null;
+}
+
+function genConferenceBreakdown(){
+  const sub=Math.floor(Math.random()*3);
+  const allRanked=PROSPECTS.map(p=>({...p,rank:getConsensusRank(p.name)}));
+  if(sub===0){
+    const positions=_shuffle(["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"]);
+    for(const pos of positions){
+      const guys=allRanked.filter(p=>(p.gpos||p.pos)===pos).sort((a,b)=>a.rank-b.rank).slice(0,10);
+      const confCounts={};guys.forEach(g=>{const conf=SCHOOL_CONFERENCE[g.school];if(conf&&conf!=="Ind")confCounts[conf]=(confCounts[conf]||0)+1;});
+      const sorted=Object.entries(confCounts).sort((a,b)=>b[1]-a[1]);
+      if(sorted.length&&sorted[0][1]>=5){const[conf,ct]=sorted[0];
+        return{category:'conference',spice:_spice(1,ct>=7,true),
+          tweet:_tag(`${ct} of the top 10 ${pos}s come from the ${conf} — total conference dominance at the position.\n\n📊 bigboardlab.com`),
+          image:`Rankings → filter by ${pos}`,hook:`${conf} owns ${pos}`,player:null};}
+    }
+  }
+  if(sub===1){
+    const p5=new Set(["SEC","Big Ten","Big 12","ACC"]);
+    const nonP5=allRanked.filter(p=>p.rank<=100&&!p5.has(SCHOOL_CONFERENCE[p.school]||""));
+    if(nonP5.length){const p=_pick(nonP5);const conf=SCHOOL_CONFERENCE[p.school]||"non-P4";
+      return{category:'conference',spice:_spice(1,p.rank<=50,p.rank<=50),
+        tweet:_tag(`${_fmt(p)} — ranked #${p.rank} from the ${conf}. One of ${nonP5.length} non-Power 4 prospects in the top 100.\n\n📊 bigboardlab.com`),
+        image:`Player Profile → ${p.name}`,hook:`Small-school standout`,player:p.name};}
+  }
+  if(sub===2){
+    const top32=allRanked.filter(p=>p.rank<=32);
+    const confCounts={};top32.forEach(p=>{const conf=SCHOOL_CONFERENCE[p.school];if(conf&&conf!=="Ind")confCounts[conf]=(confCounts[conf]||0)+1;});
+    const sorted=Object.entries(confCounts).sort((a,b)=>b[1]-a[1]);
+    if(sorted.length>=2){const[conf1,ct1]=sorted[0];const[conf2,ct2]=sorted[1];
+      return{category:'conference',spice:_spice(1,ct1>=12,true),
+        tweet:_tag(`${conf1}: ${ct1} first-rounders. ${conf2}: ${ct2}. The gap between conferences is ${ct1>=ct2*2?"massive":"real"} in this class.\n\n📊 bigboardlab.com`),
+        image:`Rankings → top 32`,hook:`Conference Rd 1 breakdown`,player:null};}
+  }
+  return null;
+}
+
+function genHistoricalComparison(historicalData){
+  if(!historicalData||!Object.keys(historicalData).length)return null;
+  const sub=Math.floor(Math.random()*2);
+  const positions=_shuffle(Object.keys(historicalData));
+  for(const pos of positions){
+    const pool=historicalData[pos];
+    if(!pool||pool.length<20)continue;
+    const currentGuys=_withCombine(_posPlayers(pos));
+    if(!currentGuys.length)continue;
+    if(sub===0){
+      for(const p of _shuffle(currentGuys).slice(0,10)){
+        const ath=p.cs.athleticScore;
+        if(ath==null||ath<85)continue;
+        const better=pool.filter(h=>h.ath>=ath).length;
+        const pct=((better/pool.length)*100).toFixed(1);
+        if(parseFloat(pct)>5)continue;
+        const years=2026-(pool[0]?.y||2000);
+        const rank=getConsensusRank(p.name);
+        return{category:'historical',spice:_spice(1,parseFloat(pct)<2,rank<=50),
+          tweet:_tag(`Only ${better} ${pos}s in ${years} years of combine data posted an Athletic Score ≥${Math.round(ath)}. ${_fmt(p)} is one of them.\n\n📊 bigboardlab.com`),
+          image:`Combine Explorer → ${pos} → ATH`,hook:`Historic athletic rarity`,player:p.name};
+      }
+    }
+    if(sub===1){
+      for(const p of _shuffle(currentGuys).slice(0,10)){
+        const spd=p.cs.speedScore;const agi=p.cs.agilityScore;
+        if(spd==null||agi==null||spd<80||agi<80)continue;
+        const matching=pool.filter(h=>h.spd>=spd&&h.agi>=agi).length;
+        if(matching>10||matching===0)continue;
+        const years=2026-(pool[0]?.y||2000);
+        const rank=getConsensusRank(p.name);
+        return{category:'historical',spice:_spice(1,matching<=3,rank<=50),
+          tweet:_tag(`Only ${matching} ${pos}s in ${years} years matched ${Math.round(spd)}+ Speed Score AND ${Math.round(agi)}+ Agility Score. ${p.name} just did it.\n\n📊 bigboardlab.com`),
+          image:`Combine Explorer → ${pos} → SPD`,hook:`Speed+agility rarity`,player:p.name};
+      }
+    }
+  }
+  return null;
+}
+
+function genRadarSpotlight(){
+  const sub=Math.floor(Math.random()*3);
+  const positions=_shuffle(["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"]);
+  for(const pos of positions){
+    const guys=_posPlayers(pos);
+    if(guys.length<5)continue;
+    const posTraits=POSITION_TRAITS[pos]||[];
+    if(posTraits.length<4)continue;
+    const scored=guys.map(p=>{
+      const vals=posTraits.map(t=>tv({},p.id,t,p.name,p.school));
+      const avg=vals.reduce((s,v)=>s+v,0)/vals.length;
+      const spread=Math.max(...vals)-Math.min(...vals);
+      const maxTrait=posTraits[vals.indexOf(Math.max(...vals))];
+      return{...p,vals,avg,spread,maxTrait,maxVal:Math.max(...vals)};
+    });
+    if(sub===0){
+      const balanced=[...scored].filter(s=>s.avg>=65).sort((a,b)=>a.spread-b.spread);
+      if(!balanced.length)continue;
+      const p=balanced[0];const rank=getConsensusRank(p.name);
+      return{category:'radar_spotlight',spice:_spice(2,false,rank<=50),
+        tweet:_tag(`Per scouting profiles, ${_fmt(p)} has one of the most balanced trait radars at ${pos} — no holes, all scores within ${Math.round(p.spread)} pts.\n\n📊 bigboardlab.com`),
+        image:`Player Profile → ${p.name} → Radar`,hook:`Balanced radar — no weaknesses`,player:p.name};
+    }
+    if(sub===1){
+      const spiky=[...scored].sort((a,b)=>b.spread-a.spread);
+      if(!spiky.length||spiky[0].spread<20)continue;
+      const p=spiky[0];const rank=getConsensusRank(p.name);
+      return{category:'radar_spotlight',spice:_spice(2,p.maxVal>=90,rank<=50),
+        tweet:_tag(`Per scouting profiles, ${_fmt(p)} has a massive ${p.maxTrait} spike (${Math.round(p.maxVal)}) with a ${Math.round(p.spread)}-pt gap to his floor. Specialist shape.\n\n📊 bigboardlab.com`),
+        image:`Player Profile → ${p.name} → Radar`,hook:`Specialist radar shape`,player:p.name};
+    }
+    if(sub===2){
+      if(scored.length<6)continue;
+      let bestPair=null,bestDist=Infinity;
+      for(let i=0;i<Math.min(scored.length,20);i++){
+        for(let j=i+1;j<Math.min(scored.length,20);j++){
+          const dist=scored[i].vals.reduce((s,v,k)=>s+Math.abs(v-scored[j].vals[k]),0);
+          if(dist<bestDist){bestDist=dist;bestPair=[scored[i],scored[j]];}
+        }
+      }
+      if(bestPair&&bestDist<40){
+        const[a,b]=bestPair;
+        return{category:'radar_spotlight',spice:_spice(2,false,getConsensusRank(a.name)<=50||getConsensusRank(b.name)<=50),
+          tweet:_tag(`Per scouting profiles, ${a.name} and ${b.name} have nearly identical ${pos} radar shapes — avg trait diff of just ${Math.round(bestDist/posTraits.length)} pts.\n\n📊 bigboardlab.com`),
+          image:`Compare → ${a.name} vs ${b.name}`,hook:`Twin radar profiles`,player:a.name};
+      }
+    }
+  }
+  return null;
+}
+
+function genCeilingTags(){
+  const sub=Math.floor(Math.random()*3);
+  if(sub===0){
+    const positions=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"];
+    const ceilCounts={};
+    positions.forEach(pos=>{
+      ceilCounts[pos]=_posPlayers(pos).filter(p=>{const sc=getScoutingTraits(p.name,p.school);return sc?.__ceiling==="elite";}).length;
+    });
+    const sorted=Object.entries(ceilCounts).filter(([,c])=>c>0).sort((a,b)=>b[1]-a[1]);
+    if(sorted.length){const[pos,ct]=sorted[0];
+      return{category:'ceiling_tags',spice:_spice(2,ct>=5,true),
+        tweet:_tag(`${ct} ${pos}s carry an elite ceiling tag per scouting profiles — more than any other position in this class.\n\n📊 bigboardlab.com`),
+        image:`Rankings → filter by ${pos} → sort by ceiling`,hook:`Elite ceiling concentration`,player:null};}
+  }
+  if(sub===1){
+    const guys=PROSPECTS.map(p=>({...p,sc:getScoutingTraits(p.name,p.school),cs:getCombineScores(p.name,p.school)})).filter(g=>g.sc?.__ceiling==="elite"&&g.cs?.athleticScore>=85);
+    if(guys.length){const p=_pick(guys);const rank=getConsensusRank(p.name);
+      return{category:'ceiling_tags',spice:_spice(2,true,rank<=50),
+        tweet:_tag(`Elite ceiling + ${Math.round(p.cs.athleticScore)} Athletic Score — ${_fmt(p)} has both the projection and the measurables.\n\n📊 bigboardlab.com`),
+        image:`Player Profile → ${p.name}`,hook:`Ceiling meets athleticism`,player:p.name};}
+  }
+  if(sub===2){
+    const guys=PROSPECTS.map(p=>({...p,sc:getScoutingTraits(p.name,p.school),rank:getConsensusRank(p.name)})).filter(g=>g.rank<=50&&(g.sc?.__ceiling==="capped"||g.sc?.__ceiling==="limited"));
+    if(guys.length){const p=_pick(guys);
+      return{category:'ceiling_tags',spice:_spice(2,false,true),
+        tweet:_tag(`${_fmt(p)} is ranked #${p.rank} but carries a "${p.sc.__ceiling}" ceiling tag per scouting profiles. Safe floor, lower upside.\n\n📊 bigboardlab.com`),
+        image:`Player Profile → ${p.name}`,hook:`Top-50 with capped ceiling`,player:p.name};}
+  }
+  return null;
+}
+
+function genTeamMockAlignment(){
+  if(!TEAM_NEEDS_DETAILED||!Object.keys(TEAM_NEEDS_DETAILED).length)return null;
+  const sub=Math.floor(Math.random()*2);
+  if(sub===0){
+    const top10=DRAFT_ORDER.slice(0,10);
+    const allRanked=PROSPECTS.map(p=>({...p,rank:getConsensusRank(p.name)})).sort((a,b)=>a.rank-b.rank);
+    for(const pick of _shuffle(top10)){
+      const needs=TEAM_NEEDS_DETAILED[pick.team];
+      if(!needs)continue;
+      const topNeed=Object.entries(needs).sort((a,b)=>b[1]-a[1])[0];
+      if(!topNeed)continue;
+      const needPos=topNeed[0];
+      const posMap={QB:["QB"],WR:["WR"],RB:["RB"],TE:["TE"],OL:["OT","IOL"],DL:["DL","EDGE"],DB:["CB","S"],LB:["LB"]};
+      const matchPositions=posMap[needPos]||[needPos];
+      const bestAtNeed=allRanked.filter(p=>matchPositions.includes(p.gpos||p.pos))[0];
+      if(bestAtNeed){
+        return{category:'team_mock',spice:_spice(2,false,bestAtNeed.rank<=50),
+          tweet:_tag(`The ${pick.team} pick #${pick.pick} — biggest need: ${needPos}. Best available: ${_fmt(bestAtNeed)} (ranked #${bestAtNeed.rank}).\n\n📊 bigboardlab.com`),
+          image:`Mock Draft Sim → ${pick.team}`,hook:`Need vs. BPA at pick ${pick.pick}`,player:bestAtNeed.name};
+      }
+    }
+  }
+  if(sub===1){
+    const needTotals={};
+    Object.values(TEAM_NEEDS_DETAILED).forEach(needs=>{
+      Object.entries(needs).forEach(([pos,ct])=>{needTotals[pos]=(needTotals[pos]||0)+ct;});
+    });
+    const sorted=Object.entries(needTotals).sort((a,b)=>b[1]-a[1]);
+    if(sorted.length){const[pos,ct]=sorted[0];
+      const teamCount=Object.values(TEAM_NEEDS_DETAILED).filter(n=>n[pos]).length;
+      return{category:'team_mock',spice:_spice(2,ct>=20,true),
+        tweet:_tag(`${teamCount} NFL teams need ${pos} help — that's the most in-demand position group heading into the 2026 draft.\n\n📊 bigboardlab.com`),
+        image:`Mock Draft Sim`,hook:`League-wide need`,player:null};}
+  }
+  return null;
+}
+
+function generateTweetCards(lastCategories,historicalData){
+  const generators={
+    combine_outlier:()=>genCombineOutlier(),
+    size_athleticism:()=>genSizeAthleticismMismatch(),
+    class_depth:()=>genClassDepth(),
+    draft_value_gap:()=>genDraftValueGap(),
+    conference:()=>genConferenceBreakdown(),
+    historical:()=>genHistoricalComparison(historicalData),
+    radar_spotlight:()=>genRadarSpotlight(),
+    ceiling_tags:()=>genCeilingTags(),
+    team_mock:()=>genTeamMockAlignment(),
+  };
+  const excluded=new Set(lastCategories||[]);
+  const available=TWEET_CATEGORIES.filter(c=>!excluded.has(c.key));
+  const cards=[];
+  const usedCategories=[];
+  const usedKeys=new Set();
+  let tier1Count=0;
+  const maxAttempts=30;
+  let attempts=0;
+  while(cards.length<3&&attempts<maxAttempts){
+    attempts++;
+    const pool=available.filter(c=>!usedKeys.has(c.key));
+    if(!pool.length)break;
+    const needsTier1=cards.length<2&&tier1Count<2&&(3-cards.length)<=(2-tier1Count);
+    const filtered=needsTier1?pool.filter(c=>c.tier===1):pool;
+    const pick=filtered.length?filtered:pool;
+    const totalWeight=pick.reduce((s,c)=>s+c.weight,0);
+    let r=Math.random()*totalWeight;
+    let chosen=pick[0];
+    for(const c of pick){r-=c.weight;if(r<=0){chosen=c;break;}}
+    const result=generators[chosen.key]?.();
+    if(!result){continue;}
+    cards.push({...result,catMeta:chosen});
+    usedKeys.add(chosen.key);
+    usedCategories.push(chosen.key);
+    if(chosen.tier===1)tier1Count++;
+  }
+  return{cards,newLastCategories:usedCategories};
+}
+
+// ============================================================
 // Admin Dashboard (gated by email)
 // ============================================================
 const ADMIN_EMAILS=["hunteransley@gmail.com"];
@@ -2495,6 +2957,11 @@ function AdminDashboard({user,onBack}){
   const[excludeAdmin,setExcludeAdmin]=useState(true);
   const[showEventLog,setShowEventLog]=useState(false);
   const[expandedUser,setExpandedUser]=useState(null);
+  const[tweetCards,setTweetCards]=useState([]);
+  const[lastTweetCategories,setLastTweetCategories]=useState([]);
+  const[tweetHistorical,setTweetHistorical]=useState(_historicalCompsCache||null);
+  const[tweetCopied,setTweetCopied]=useState(null);
+  useEffect(()=>{if(!tweetHistorical)loadHistoricalComps(setTweetHistorical);},[]);
   useEffect(()=>{
     (async()=>{
       try{
@@ -3050,6 +3517,36 @@ function AdminDashboard({user,onBack}){
                 <span style={{color:"#d4d4d4"}}>{new Date(e.created_at).toLocaleDateString('en-US',{month:'short',day:'numeric'})} {new Date(e.created_at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}</span>
               </div>;
             })}
+          </div>}
+        </div>
+
+        {/* SECTION 7: Content Ideas — Tweet Engine */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",marginTop:12}}>
+          <div style={{padding:"14px 16px",borderBottom:"1px solid #f0f0f0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+            <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717"}}>content ideas</span>
+            <button onClick={()=>{const{cards:c,newLastCategories:nl}=generateTweetCards(lastTweetCategories,tweetHistorical);setTweetCards(c);setLastTweetCategories(nl);setTweetCopied(null);}} disabled={!tweetHistorical} style={{fontFamily:mono,fontSize:10,color:tweetHistorical?"#fff":"#a3a3a3",background:tweetHistorical?"#171717":"#e5e5e5",border:"none",borderRadius:6,padding:"6px 14px",cursor:tweetHistorical?"pointer":"default",fontWeight:700}}>{tweetHistorical?(tweetCards.length?"regenerate":"generate"):"loading data..."}</button>
+          </div>
+          {tweetCards.length>0&&<div style={{padding:"12px 16px",display:"flex",flexDirection:"column",gap:12}}>
+            {tweetCards.map((card,i)=>{const cat=card.catMeta;return<div key={i} style={{border:"1px solid #e5e5e5",borderRadius:10,overflow:"hidden"}}>
+              <div style={{padding:"10px 14px",display:"flex",alignItems:"center",gap:8,borderBottom:"1px solid #f5f5f5",background:"#faf9f6"}}>
+                <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#fff",background:cat.color,borderRadius:99,padding:"2px 8px",textTransform:"uppercase",letterSpacing:0.5}}>{cat.label}</span>
+                <span style={{fontSize:12}} title={`Spice level ${card.spice}/5`}>{"🔥".repeat(card.spice)}</span>
+                {cat.tier===1&&<span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginLeft:"auto"}}>TIER 1</span>}
+                {cat.tier===2&&<span style={{fontFamily:mono,fontSize:8,color:"#d4d4d4",marginLeft:"auto"}}>TIER 2</span>}
+              </div>
+              <div style={{padding:"12px 14px"}}>
+                <div style={{fontFamily:sans,fontSize:13,color:"#171717",lineHeight:1.5,whiteSpace:"pre-wrap",marginBottom:8}}>{card.tweet}</div>
+                <div style={{display:"flex",gap:8,alignItems:"center",marginBottom:8}}>
+                  <button onClick={()=>{navigator.clipboard.writeText(card.tweet).then(()=>{setTweetCopied(i);setTimeout(()=>setTweetCopied(null),2000);});}} style={{fontFamily:mono,fontSize:9,color:tweetCopied===i?"#22c55e":"#525252",background:tweetCopied===i?"#f0fdf4":"#f5f5f5",border:`1px solid ${tweetCopied===i?"#bbf7d0":"#e5e5e5"}`,borderRadius:6,padding:"4px 10px",cursor:"pointer",fontWeight:600}}>{tweetCopied===i?"copied!":"copy"}</button>
+                  <span style={{fontFamily:mono,fontSize:9,color:card.tweet.length>240?"#dc2626":"#a3a3a3"}}>{card.tweet.length}/240</span>
+                </div>
+                <div style={{background:"#f8fafc",border:"1px solid #e2e8f0",borderRadius:6,padding:"8px 10px",marginBottom:6}}>
+                  <div style={{fontFamily:mono,fontSize:9,color:"#64748b",fontWeight:700,marginBottom:2,textTransform:"uppercase"}}>screenshot</div>
+                  <div style={{fontFamily:sans,fontSize:11,color:"#334155"}}>{card.image}</div>
+                </div>
+                <div style={{fontFamily:sans,fontSize:11,color:"#737373",fontStyle:"italic"}}>{card.hook}</div>
+              </div>
+            </div>;})}
           </div>}
         </div>
       </div>
