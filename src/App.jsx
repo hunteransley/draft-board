@@ -707,22 +707,21 @@ function AuthScreen({onSignIn,onSkip,onOpenGuide}){
       {/* Features */}
       <div style={{maxWidth:780,margin:"0 auto",padding:"0 24px 40px",display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))",gap:12}}>
 
-        {/* 1 — Pair ranking */}
+        {/* A1 — 32 AI GMs */}
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
           <div style={{marginBottom:12}}>
-            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>Pair-by-pair prospect ranking</div>
-            <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>Choose between two players, head-to-head, until your board builds itself.</div>
+            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>32 AI GMs with real tendencies</div>
+            <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>Each CPU team drafts differently based on real needs and front office style.</div>
           </div>
-          <div style={{display:"flex",gap:8,alignItems:"center",justifyContent:"center"}}>
-            {(()=>{const cards=demoPair.map(p=>{const c=POS_COLORS[p.gpos||p.pos];return<div key={p.id} style={{flex:"0 0 auto",background:"#faf9f6",border:`1.5px solid ${c}22`,borderRadius:10,padding:"8px 12px",textAlign:"center",minWidth:0}}>
-              <SchoolLogo school={p.school} size={24}/>
-              <div style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717",marginTop:4,lineHeight:1.1}}>{shortName(p.name)}</div>
-              <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:c,background:`${c}0d`,padding:"1px 6px",borderRadius:99,display:"inline-block",marginTop:3}}>{p.gpos||p.pos}</span>
-            </div>;});return<>{cards[0]}<span style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#d4d4d4"}}>vs</span>{cards[1]}</>;})()}
+          <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:6}}>
+            {homeTeams.map(t=><div key={t} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:4}}>
+              <NFLTeamLogo team={t} size={20}/>
+              <span style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",fontWeight:600}}>{NFL_TEAM_ABR[t]}</span>
+            </div>)}
           </div>
         </div>
 
-        {/* 2 — Trait grading */}
+        {/* B1 — Trait grading */}
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
           <div style={{marginBottom:12}}>
             <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>Spider charts & trait grading</div>
@@ -742,36 +741,7 @@ function AuthScreen({onSignIn,onSkip,onOpenGuide}){
           })()}
         </div>
 
-        {/* 3 — 32 AI GMs */}
-        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
-          <div style={{marginBottom:12}}>
-            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>32 AI GMs with real tendencies</div>
-            <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>Each CPU team drafts differently based on real needs and front office style.</div>
-          </div>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:6}}>
-            {homeTeams.map(t=><div key={t} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:4}}>
-              <NFLTeamLogo team={t} size={20}/>
-              <span style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",fontWeight:600}}>{NFL_TEAM_ABR[t]}</span>
-            </div>)}
-          </div>
-        </div>
-
-        {/* 4 — Depth charts */}
-        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
-          <div style={{marginBottom:12}}>
-            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>Live depth chart updates</div>
-            <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>Every pick lands on the roster in real time. Watch starters get displaced.</div>
-          </div>
-          <div style={{borderRadius:8,overflow:"hidden",border:"1px solid #f0f0f0"}}>
-            {[{slot:"QB1",name:"F. Mendoza",draft:true},{slot:"EDGE1",name:"K. Mack"},{slot:"CB2",name:"A. Terrell",draft:true}].map((r,i)=><div key={r.slot} style={{display:"flex",alignItems:"center",gap:6,padding:"4px 8px",borderBottom:i<2?"1px solid #f5f5f5":"none",background:r.draft?"rgba(34,197,94,0.04)":"transparent"}}>
-              <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:"#a3a3a3",width:36}}>{r.slot}</span>
-              <span style={{fontFamily:sans,fontSize:11,fontWeight:r.draft?600:400,color:r.draft?"#171717":"#737373",flex:1}}>{r.name}</span>
-              {r.draft&&<span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#22c55e",background:"rgba(34,197,94,0.1)",padding:"1px 6px",borderRadius:99}}>NEW</span>}
-            </div>)}
-          </div>
-        </div>
-
-        {/* 5 — Trait filtering */}
+        {/* A2 — Trait filtering */}
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
           <div style={{marginBottom:12}}>
             <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>Filter by elite traits</div>
@@ -791,7 +761,7 @@ function AuthScreen({onSignIn,onSkip,onOpenGuide}){
           </div>
         </div>
 
-        {/* 6 — Big board */}
+        {/* B2 — Big board */}
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
           <div style={{marginBottom:12}}>
             <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>Your board builds itself</div>
@@ -804,6 +774,81 @@ function AuthScreen({onSignIn,onSkip,onOpenGuide}){
               <SchoolLogo school={p.school} size={16}/>
               <span style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#171717",flex:1}}>{shortName(p.name)}</span>
               <MiniRadar values={vals} color={c} size={20}/>
+            </div>;})}
+          </div>
+        </div>
+
+        {/* A3 — Historical data */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
+          <div style={{marginBottom:12}}>
+            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>10 years of historical data</div>
+            <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>Combine measurables and college stats compared against a decade of FBS data. Dominator ratings and historical percentiles.</div>
+          </div>
+          <div style={{display:"flex",alignItems:"center",gap:8}}>
+            <div style={{display:"flex",flexDirection:"column",gap:4,flex:1,minWidth:0}}>
+              {[{label:"REC DOM",pct:92,val:"92nd"},{label:"SPD SCR",pct:85,val:"85th"},{label:"ATH SCR",pct:88,val:"88th"},{label:"40 YD",pct:78,val:"78th"}].map(row=><div key={row.label} style={{display:"flex",alignItems:"center",gap:4}}>
+                <span style={{fontFamily:mono,fontSize:7,fontWeight:600,color:"#a3a3a3",width:40,textAlign:"right",flexShrink:0}}>{row.label}</span>
+                <div style={{flex:1,height:4,background:"#f0f0f0",borderRadius:99,overflow:"hidden"}}><div style={{width:`${row.pct}%`,height:"100%",background:"linear-gradient(90deg,#7c3aed,#ec4899)",borderRadius:99}}/></div>
+                <span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#7c3aed",width:24,textAlign:"right"}}>{row.val}</span>
+              </div>)}
+            </div>
+            <svg width={90} height={90} viewBox="0 0 90 90" style={{flexShrink:0}}>
+              <line x1={15} y1={8} x2={15} y2={82} stroke="#f0f0f0" strokeWidth={0.5}/>
+              <line x1={45} y1={8} x2={45} y2={82} stroke="#f0f0f0" strokeWidth={0.5}/>
+              <line x1={75} y1={8} x2={75} y2={82} stroke="#f0f0f0" strokeWidth={0.5}/>
+              {[
+                [12,18,"#dc2626"],[18,30,"#dc2626"],[10,42,"#dc2626"],[16,55,"#dc2626"],[14,68,"#dc2626"],[20,22,"#dc2626"],[8,48,"#dc2626"],
+                [42,14,"#7c3aed"],[48,24,"#7c3aed"],[38,36,"#7c3aed"],[44,46,"#7c3aed"],[50,56,"#7c3aed"],[40,66,"#7c3aed"],[46,72,"#7c3aed"],[52,38,"#7c3aed"],
+                [72,20,"#2563eb"],[78,34,"#2563eb"],[70,48,"#2563eb"],[76,60,"#2563eb"],[74,72,"#2563eb"],[68,40,"#2563eb"],
+              ].map((d,i)=><circle key={i} cx={d[0]} cy={d[1]} r={3.5} fill={d[2]} opacity={0.6}/>)}
+              <text x={15} y={90} textAnchor="middle" style={{fontSize:"6px",fill:"#a3a3a3",fontFamily:"monospace"}}>RB</text>
+              <text x={45} y={90} textAnchor="middle" style={{fontSize:"6px",fill:"#a3a3a3",fontFamily:"monospace"}}>WR</text>
+              <text x={75} y={90} textAnchor="middle" style={{fontSize:"6px",fill:"#a3a3a3",fontFamily:"monospace"}}>TE</text>
+            </svg>
+          </div>
+        </div>
+
+        {/* B3 — Depth charts */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
+          <div style={{marginBottom:12}}>
+            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>Live depth chart updates</div>
+            <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>Every pick lands on the roster in real time. Watch starters get displaced.</div>
+          </div>
+          <div style={{borderRadius:8,overflow:"hidden",border:"1px solid #f0f0f0"}}>
+            {[{slot:"QB1",name:"F. Mendoza",draft:true},{slot:"EDGE1",name:"K. Mack"},{slot:"CB2",name:"A. Terrell",draft:true}].map((r,i)=><div key={r.slot} style={{display:"flex",alignItems:"center",gap:6,padding:"4px 8px",borderBottom:i<2?"1px solid #f5f5f5":"none",background:r.draft?"rgba(34,197,94,0.04)":"transparent"}}>
+              <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:"#a3a3a3",width:36}}>{r.slot}</span>
+              <span style={{fontFamily:sans,fontSize:11,fontWeight:r.draft?600:400,color:r.draft?"#171717":"#737373",flex:1}}>{r.name}</span>
+              {r.draft&&<span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#22c55e",background:"rgba(34,197,94,0.1)",padding:"1px 6px",borderRadius:99}}>NEW</span>}
+            </div>)}
+          </div>
+        </div>
+
+        {/* A4 — Pair ranking */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
+          <div style={{marginBottom:12}}>
+            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>Pair-by-pair prospect ranking</div>
+            <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>Choose between two players, head-to-head, until your board builds itself.</div>
+          </div>
+          <div style={{display:"flex",gap:8,alignItems:"center",justifyContent:"center"}}>
+            {(()=>{const cards=demoPair.map(p=>{const c=POS_COLORS[p.gpos||p.pos];return<div key={p.id} style={{flex:"0 0 auto",background:"#faf9f6",border:`1.5px solid ${c}22`,borderRadius:10,padding:"8px 12px",textAlign:"center",minWidth:0}}>
+              <SchoolLogo school={p.school} size={24}/>
+              <div style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717",marginTop:4,lineHeight:1.1}}>{shortName(p.name)}</div>
+              <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:c,background:`${c}0d`,padding:"1px 6px",borderRadius:99,display:"inline-block",marginTop:3}}>{p.gpos||p.pos}</span>
+            </div>;});return<>{cards[0]}<span style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#d4d4d4"}}>vs</span>{cards[1]}</>;})()}
+          </div>
+        </div>
+
+        {/* B4 — Community mock intelligence */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 22px"}}>
+          <div style={{marginBottom:12}}>
+            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:4}}>Community-powered draft intelligence</div>
+            <div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.45}}>See where prospects land across thousands of mock drafts. Real ADP and rising/falling trends from the community.</div>
+          </div>
+          <div style={{display:"flex",flexDirection:"column",gap:4}}>
+            {[{pos:"EDGE",name:"Bain Jr.",delta:"+2.1",up:true},{pos:"QB",name:"Nussmeier",delta:"-1.4",up:false},{pos:"S",name:"Downs",delta:"+0.8",up:true}].map(row=>{const c=POS_COLORS[row.pos];return<div key={row.name} style={{display:"flex",alignItems:"center",gap:6,padding:"4px 8px",borderRadius:8,background:"#faf9f6"}}>
+              <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:c,background:`${c}0d`,padding:"1px 6px",borderRadius:99}}>{row.pos}</span>
+              <span style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#171717",flex:1}}>{row.name}</span>
+              <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:row.up?"#16a34a":"#dc2626"}}>{row.up?"↑":"↓"}{row.delta.replace(/[+-]/,"")}</span>
             </div>;})}
           </div>
         </div>
@@ -3755,8 +3800,8 @@ function AdminDashboard({user,onBack}){
 function GuidePage({onBack}){
   useEffect(()=>{trackEvent(null,'guide_viewed');},[]);
   useEffect(()=>{
-    const guideTitle='How to Use Big Board Lab | 2026 NFL Draft Board Builder Guide';
-    const guideDesc='Learn how to rank prospects, grade traits, run AI mock drafts, compare players, and build your 2026 NFL big board with Big Board Lab.';
+    const guideTitle='How to Use Big Board Lab | 2026 NFL Draft Board Builder & Combine Explorer Guide';
+    const guideDesc='Learn how to rank prospects, grade traits, run AI mock drafts, explore combine data, compare college stats with historical percentiles, and build your 2026 NFL big board.';
     const guideUrl='https://bigboardlab.com/guide';
     // Save originals
     const origTitle=document.title;
@@ -3786,14 +3831,19 @@ function GuidePage({onBack}){
     // JSON-LD HowTo
     const ld=document.createElement('script');ld.type='application/ld+json';
     ld.textContent=JSON.stringify({"@context":"https://schema.org","@type":"HowTo","name":"How to Use Big Board Lab","description":"Build your own 2026 NFL draft big board with pair rankings, trait grading, AI mock drafts, and more.","step":[
-      {"@type":"HowToStep","name":"Rank Prospects Head-to-Head","text":"Compare two players side by side and pick a winner to build Elo rankings."},
-      {"@type":"HowToStep","name":"Grade Every Trait","text":"Slide trait scores to evaluate arm strength, speed, coverage, and more."},
-      {"@type":"HowToStep","name":"Build Your Big Board","text":"View your ranked board filtered by position with grades and radar charts."},
-      {"@type":"HowToStep","name":"Compare Players Side by Side","text":"Pin up to 4 players and compare radar charts and trait values."},
       {"@type":"HowToStep","name":"Mock Draft Against 32 AI GMs","text":"Simulate a full 7-round NFL draft with realistic team tendencies and trade logic."},
+      {"@type":"HowToStep","name":"Grade Every Trait","text":"Slide trait scores to evaluate arm strength, speed, coverage, and more."},
+      {"@type":"HowToStep","name":"Filter by Standout Traits","text":"Rank and browse by individual traits like Pass Rush, Speed, or Man Coverage."},
+      {"@type":"HowToStep","name":"Build Your Big Board","text":"View your ranked board filtered by position with grades and radar charts."},
+      {"@type":"HowToStep","name":"Explore Combine Measurables","text":"Compare 40-yard dash, speed score, athletic score and more against 26 years of combine history with beeswarm visualizations."},
+      {"@type":"HowToStep","name":"College Stats & Historical Percentiles","text":"View raw college production and compare against 10 years of FBS data with historical percentile rankings."},
+      {"@type":"HowToStep","name":"Dominator Ratings & Breakout Year","text":"See what share of team production each prospect commanded and identify their earliest breakout season."},
+      {"@type":"HowToStep","name":"Live Depth Chart Updates","text":"Every pick lands on the team's actual roster in real time with starter displacement tracking."},
+      {"@type":"HowToStep","name":"Rank Prospects Head-to-Head","text":"Compare two players side by side and pick a winner to build Elo rankings."},
+      {"@type":"HowToStep","name":"Team Specific Draft Trends","text":"Track where prospects are getting drafted across the Big Board Lab community with aggregate ADP and team-specific draft patterns."},
+      {"@type":"HowToStep","name":"Compare Players Side by Side","text":"Pin up to 4 players and compare radar charts and trait values."},
       {"@type":"HowToStep","name":"Track Your Guys","text":"See which prospects you draft most often and your scouting fingerprint."},
       {"@type":"HowToStep","name":"Share Your Board","text":"Generate a shareable image of your big board or mock draft results."},
-      {"@type":"HowToStep","name":"Community Consensus","text":"See aggregate rankings across all Big Board Lab users."},
       {"@type":"HowToStep","name":"Player Profiles","text":"Dive deep into any prospect with stats, combine data, and trait radar."},
       {"@type":"HowToStep","name":"Drag to Reorder","text":"Fine-tune your board by dragging players into your preferred order."}
     ]});
@@ -3845,17 +3895,21 @@ function GuidePage({onBack}){
   const mockTeams=["Raiders","Jets","Cardinals","Titans","Giants","Browns","Commanders","Saints"];
 
   const sections=[
-    {id:"rank",num:"01",title:"Rank Prospects Head-to-Head"},
+    {id:"mock",num:"01",title:"Mock Draft Against 32 AI GMs"},
     {id:"grade",num:"02",title:"Grade Every Trait"},
-    {id:"board",num:"03",title:"Build Your Big Board"},
-    {id:"compare",num:"04",title:"Compare Players Side by Side"},
-    {id:"mock",num:"05",title:"Mock Draft Against 32 AI GMs"},
-    {id:"traits",num:"06",title:"Filter by Standout Traits"},
-    {id:"track",num:"07",title:"Track Your Guys"},
-    {id:"share",num:"08",title:"Share Your Board"},
-    {id:"depth",num:"09",title:"Live Depth Chart Updates"},
-    {id:"profiles",num:"10",title:"Player Profiles"},
-    {id:"reorder",num:"11",title:"Drag to Reorder"},
+    {id:"traits",num:"03",title:"Filter by Standout Traits"},
+    {id:"board",num:"04",title:"Build Your Big Board"},
+    {id:"combine",num:"05",title:"Explore Combine Measurables"},
+    {id:"college-stats",num:"06",title:"College Stats & Historical Percentiles"},
+    {id:"dominator",num:"07",title:"Dominator Ratings & Breakout Year"},
+    {id:"depth",num:"08",title:"Live Depth Chart Updates"},
+    {id:"rank",num:"09",title:"Rank Prospects Head-to-Head"},
+    {id:"mock-trends",num:"10",title:"Team Specific Draft Trends"},
+    {id:"compare",num:"11",title:"Compare Players Side by Side"},
+    {id:"track",num:"12",title:"Track Your Guys"},
+    {id:"share",num:"13",title:"Share Your Board"},
+    {id:"profiles",num:"14",title:"Player Profiles"},
+    {id:"reorder",num:"15",title:"Drag to Reorder"},
   ];
 
   const card={background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:"28px 24px",maxWidth:720,margin:"0 auto 24px"};
@@ -3909,25 +3963,28 @@ function GuidePage({onBack}){
     {/* === SECTIONS === */}
     <div style={{maxWidth:720,margin:"0 auto",padding:"0 24px"}}>
 
-      {/* 01 — Rank Prospects Head-to-Head */}
-      <div id="guide-rank" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("01")}>01</div>
+      {/* 01 — Mock Draft Against 32 AI GMs */}
+      <div id="guide-mock" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
+        <div style={sectionNum("05")}>05</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
-        <h2 style={h2s}>Rank Prospects Head-to-Head</h2>
-        <p style={desc}>Pick a position, and we'll serve up two prospects at a time. Choose who you'd draft first — your picks feed an Elo algorithm that builds your rankings automatically.</p>
-        <div className="guide-pair-row" style={{display:"flex",gap:20,justifyContent:"center",alignItems:"center",margin:"16px 0"}}>
-          {(()=>{const cards=demoProspects.slice(0,2).map(p=>{const c=POS_COLORS[p.gpos||p.pos];return<div key={p.id} style={{flex:"0 0 auto",background:"#faf9f6",border:`2px solid ${c}22`,borderRadius:14,padding:"16px 20px",textAlign:"center",minWidth:140}}>
-            <SchoolLogo school={p.school} size={40}/>
-            <div style={{fontFamily:font,fontSize:16,fontWeight:800,color:"#171717",marginTop:8}}>{p.name}</div>
-            <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:c,background:`${c}0d`,padding:"3px 10px",borderRadius:99,display:"inline-block",marginTop:6}}>{p.gpos||p.pos}</span>
-          </div>;});return<>{cards[0]}<div style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#d4d4d4",flexShrink:0}}>vs</div>{cards[1]}</>;})()}
+        <h2 style={h2s}>Mock Draft Against 32 AI GMs</h2>
+        <p style={desc}>Pick your team and draft against 31 AI-controlled GMs that follow real team tendencies, positional needs, and trade logic.</p>
+        <div className="guide-team-grid" style={{display:"grid",gridTemplateColumns:"repeat(8,1fr)",gap:8,margin:"16px 0"}}>
+          {mockTeams.map(t=><div key={t} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:4,padding:6,background:"#faf9f6",borderRadius:8,border:"1px solid #f0f0f0"}}>
+            <NFLTeamLogo team={t} size={24}/>
+            <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",fontWeight:600}}>{NFL_TEAM_ABR[t]}</span>
+          </div>)}
         </div>
-        <div style={{display:"flex",gap:8,justifyContent:"center",flexWrap:"wrap"}}>
-          {[{label:"coin flip",k:16},{label:"leaning",k:24},{label:"confident",k:32},{label:"lock",k:40}].map(({label,k},i)=>(
-            <div key={label} style={{fontFamily:sans,fontSize:10,fontWeight:600,background:k>=32?"#171717":"#fff",color:k>=32?"#faf9f6":"#525252",border:`1px solid ${k>=32?"#171717":"#e5e5e5"}`,borderRadius:99,padding:"5px 12px"}}>{label}</div>
-          ))}
+        <div style={{display:"flex",gap:12,alignItems:"center",justifyContent:"center",marginBottom:12}}>
+          {[{label:"Rounds",val:"1–7"},{label:"Speed",val:"instant"}].map(({label,val})=><div key={label} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:8,padding:"6px 14px",textAlign:"center"}}>
+            <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase"}}>{label}</div>
+            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>{val}</div>
+          </div>)}
         </div>
-        <div style={tip}>💡 <strong>Focus mode:</strong> tap the 📌 icon next to any player in the live rankings sidebar to lock matchups on them. Every comparison will include that player until you unlock, so you can place them precisely on your board.</div>
+        <div style={{textAlign:"center"}}>
+          <div style={{display:"inline-block",fontFamily:sans,fontSize:13,fontWeight:700,color:"#fff",background:"linear-gradient(135deg,#ec4899,#7c3aed)",borderRadius:99,padding:"10px 28px"}}>start draft</div>
+        </div>
+        <div style={tip}>💡 Each AI GM has unique tendencies — the Ravens take BPA, the Saints reach for need, and the Eagles take the guy everyone else let fall for some reason.</div>
       </div>
 
       {/* 02 — Grade Every Trait */}
@@ -3957,82 +4014,7 @@ function GuidePage({onBack}){
         <div style={tip}>💡 <strong>Ceiling grades</strong> factor in how teachable each trait is — raw athleticism matters more than technique for upside.</div>
       </div>
 
-      {/* 03 — Build Your Big Board */}
-      <div id="guide-board" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("03")}>03</div>
-        <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
-        <h2 style={h2s}>Build Your Big Board</h2>
-        <p style={desc}>As you rank and grade, your big board assembles itself. Filter by position, toggle between your board and consensus, and see grades at a glance.</p>
-        <div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:16,justifyContent:"center"}}>
-          {POSITION_GROUPS.map(g=><span key={g} style={{fontFamily:mono,fontSize:9,fontWeight:700,color:POS_COLORS[g],background:`${POS_COLORS[g]}0d`,border:`1px solid ${POS_COLORS[g]}1a`,borderRadius:99,padding:"4px 10px"}}>{g}</span>)}
-        </div>
-        <div style={{border:"1px solid #e5e5e5",borderRadius:10,overflow:"hidden"}}>
-          {boardProspects.map((p,i)=>{const c=POS_COLORS[p.gpos||p.pos];const posTraits=POSITION_TRAITS[p.gpos||p.pos]||[];const vals=posTraits.map(t=>tv({},p.id,t,p.name,p.school));return<div key={p.id} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderBottom:i<boardProspects.length-1?"1px solid #f5f5f5":"none",background:i%2===0?"#fff":"#faf9f6"}}>
-            <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:"#a3a3a3",width:24,textAlign:"right"}}>{i+1}</span>
-            <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:c,background:`${c}0d`,padding:"2px 8px",borderRadius:99}}>{p.gpos||p.pos}</span>
-            <SchoolLogo school={p.school} size={20}/>
-            <span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",flex:1}}>{p.name}</span>
-            <MiniRadar values={vals} color={c} size={24}/>
-          </div>;})}
-        </div>
-        <div style={{display:"flex",gap:0,marginTop:12,justifyContent:"center"}}>
-          {["my board","consensus"].map((label,i)=><div key={label} style={{fontFamily:sans,fontSize:11,fontWeight:600,padding:"6px 16px",background:i===0?"#171717":"#fff",color:i===0?"#fff":"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:i===0?"99px 0 0 99px":"0 99px 99px 0",cursor:"default"}}>{label}</div>)}
-        </div>
-      </div>
-
-      {/* 04 — Compare Players Side by Side */}
-      <div id="guide-compare" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("04")}>04</div>
-        <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
-        <h2 style={h2s}>Compare Players Side by Side</h2>
-        <p style={desc}>Pin up to 4 players from the same position and compare radar charts, individual trait scores, and overall grades in one view.</p>
-        {(()=>{const pos=compProspects[0]?.gpos||compProspects[0]?.pos||"QB";const posTraits=POSITION_TRAITS[pos]||[];
-          return<div>
-            <div className="guide-compare-radars" style={{display:"flex",gap:16,justifyContent:"center",margin:"16px 0"}}>
-              {compProspects.map((p,ci)=>{const vals=posTraits.map(t=>tv({},p.id,t,p.name,p.school));return<div key={p.id} style={{textAlign:"center"}}>
-                <RadarChart traits={posTraits} values={vals} color={compColors[ci]} size={120}/>
-                <div style={{fontFamily:mono,fontSize:10,fontWeight:600,color:compColors[ci],marginTop:-2}}>{shortName(p.name)}</div>
-              </div>;})}
-            </div>
-            <div style={{border:"1px solid #e5e5e5",borderRadius:10,overflow:"hidden"}}>
-              {posTraits.slice(0,4).map((t,ti)=>{const vals=compProspects.map(p=>tv({},p.id,t,p.name,p.school));const best=Math.max(...vals);const worst=Math.min(...vals);
-                return<div key={t} style={{display:"flex",alignItems:"center",padding:"6px 12px",borderBottom:ti<3?"1px solid #f5f5f5":"none"}}>
-                  <span style={{fontFamily:sans,fontSize:11,color:"#737373",width:100,flexShrink:0}}>{TRAIT_SHORT[t]||t}</span>
-                  <div style={{flex:1,display:"flex",gap:12,justifyContent:"center"}}>
-                    {vals.map((v,vi)=><span key={vi} style={{fontFamily:font,fontSize:13,fontWeight:700,color:v===best&&best!==worst?compColors[vi]:v===worst&&best!==worst?"#d4d4d4":"#525252",width:36,textAlign:"center"}}>{v}</span>)}
-                  </div>
-                </div>;
-              })}
-            </div>
-          </div>;
-        })()}
-      </div>
-
-      {/* 05 — Mock Draft Against 32 AI GMs */}
-      <div id="guide-mock" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("05")}>05</div>
-        <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
-        <h2 style={h2s}>Mock Draft Against 32 AI GMs</h2>
-        <p style={desc}>Pick your team and draft against 31 AI-controlled GMs that follow real team tendencies, positional needs, and trade logic.</p>
-        <div className="guide-team-grid" style={{display:"grid",gridTemplateColumns:"repeat(8,1fr)",gap:8,margin:"16px 0"}}>
-          {mockTeams.map(t=><div key={t} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:4,padding:6,background:"#faf9f6",borderRadius:8,border:"1px solid #f0f0f0"}}>
-            <NFLTeamLogo team={t} size={24}/>
-            <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",fontWeight:600}}>{NFL_TEAM_ABR[t]}</span>
-          </div>)}
-        </div>
-        <div style={{display:"flex",gap:12,alignItems:"center",justifyContent:"center",marginBottom:12}}>
-          {[{label:"Rounds",val:"1–7"},{label:"Speed",val:"instant"}].map(({label,val})=><div key={label} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:8,padding:"6px 14px",textAlign:"center"}}>
-            <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase"}}>{label}</div>
-            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>{val}</div>
-          </div>)}
-        </div>
-        <div style={{textAlign:"center"}}>
-          <div style={{display:"inline-block",fontFamily:sans,fontSize:13,fontWeight:700,color:"#fff",background:"linear-gradient(135deg,#ec4899,#7c3aed)",borderRadius:99,padding:"10px 28px"}}>start draft</div>
-        </div>
-        <div style={tip}>💡 Each AI GM has unique tendencies — the Ravens take BPA, the Saints reach for need, and the Eagles take the guy everyone else let fall for some reason.</div>
-      </div>
-
-      {/* 06 — Filter by Standout Traits */}
+      {/* 03 — Filter by Standout Traits */}
       <div id="guide-traits" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
         <div style={sectionNum("06")}>06</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
@@ -4060,65 +4042,123 @@ function GuidePage({onBack}){
         <div style={tip}>💡 Trait filters work everywhere — on the big board, during pair ranking, and in mock drafts. Select "Speed" and you'll see the fastest WRs, RBs, and CBs all in one view.</div>
       </div>
 
-      {/* 07 — Track Your Guys */}
-      <div id="guide-track" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("07")}>07</div>
+      {/* 04 — Build Your Big Board */}
+      <div id="guide-board" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
+        <div style={sectionNum("03")}>03</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
-        <h2 style={h2s}>Track Your Guys</h2>
-        <p style={desc}>After running mock drafts, see which prospects you keep drafting. Your scouting fingerprint reveals the trait patterns you gravitate toward.</p>
-        <div style={{display:"flex",flexDirection:"column",gap:8,margin:"16px 0"}}>
-          {[{emoji:"🎯",text:"Prioritizes accuracy over arm strength"},{emoji:"🏎️",text:"Prefers speed at receiver"},{emoji:"🧱",text:"Values blocking tight ends"}].map((f,i)=>(
-            <div key={i} style={{display:"flex",alignItems:"center",gap:10,background:"#f5f3ff",border:"1px solid #ede9fe",borderRadius:10,padding:"8px 14px"}}>
-              <span style={{fontSize:16}}>{f.emoji}</span>
-              <span style={{fontFamily:sans,fontSize:12,color:"#525252"}}>{f.text}</span>
-            </div>
-          ))}
+        <h2 style={h2s}>Build Your Big Board</h2>
+        <p style={desc}>As you rank and grade, your big board assembles itself. Filter by position, toggle between your board and consensus, and see grades at a glance.</p>
+        <div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:16,justifyContent:"center"}}>
+          {POSITION_GROUPS.map(g=><span key={g} style={{fontFamily:mono,fontSize:9,fontWeight:700,color:POS_COLORS[g],background:`${POS_COLORS[g]}0d`,border:`1px solid ${POS_COLORS[g]}1a`,borderRadius:99,padding:"4px 10px"}}>{g}</span>)}
         </div>
         <div style={{border:"1px solid #e5e5e5",borderRadius:10,overflow:"hidden"}}>
-          <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",padding:"8px 12px",borderBottom:"1px solid #f0f0f0"}}>your top guys</div>
-          {demoProspects.slice(0,3).map((p,i)=>{const c=POS_COLORS[p.gpos||p.pos];return<div key={p.id} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderBottom:i<2?"1px solid #f5f5f5":"none"}}>
+          {boardProspects.map((p,i)=>{const c=POS_COLORS[p.gpos||p.pos];const posTraits=POSITION_TRAITS[p.gpos||p.pos]||[];const vals=posTraits.map(t=>tv({},p.id,t,p.name,p.school));return<div key={p.id} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderBottom:i<boardProspects.length-1?"1px solid #f5f5f5":"none",background:i%2===0?"#fff":"#faf9f6"}}>
+            <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:"#a3a3a3",width:24,textAlign:"right"}}>{i+1}</span>
+            <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:c,background:`${c}0d`,padding:"2px 8px",borderRadius:99}}>{p.gpos||p.pos}</span>
             <SchoolLogo school={p.school} size={20}/>
-            <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1}}>{p.name}</span>
-            <span style={{fontFamily:mono,fontSize:10,color:c,fontWeight:700}}>{p.gpos||p.pos}</span>
-            <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>3× drafted</span>
+            <span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",flex:1}}>{p.name}</span>
+            <MiniRadar values={vals} color={c} size={24}/>
           </div>;})}
+        </div>
+        <div style={{display:"flex",gap:0,marginTop:12,justifyContent:"center"}}>
+          {["my board","consensus"].map((label,i)=><div key={label} style={{fontFamily:sans,fontSize:11,fontWeight:600,padding:"6px 16px",background:i===0?"#171717":"#fff",color:i===0?"#fff":"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:i===0?"99px 0 0 99px":"0 99px 99px 0",cursor:"default"}}>{label}</div>)}
         </div>
       </div>
 
-      {/* 08 — Share Your Board */}
-      <div id="guide-share" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("08")}>08</div>
+      {/* 05 — Explore Combine Measurables */}
+      <div id="guide-combine" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
+        <div style={sectionNum("12")}>12</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
-        <h2 style={h2s}>Share Your Results</h2>
-        <p style={desc}>Share your big board, mock draft results, or your "My Guys" list — each generates a branded image card you can download and post to Twitter, Discord, or your group chat.</p>
-        <div style={{display:"flex",gap:8,justifyContent:"center",flexWrap:"wrap",margin:"16px 0"}}>
-          {["big board","mock results","my guys"].map((label,i)=>{const icons=["📋","🏈","👀"];return<div key={label} style={{display:"inline-flex",alignItems:"center",gap:6,fontFamily:sans,fontSize:11,fontWeight:600,color:i===0?"#7c3aed":"#525252",background:i===0?"#f5f3ff":"#fff",border:`1px solid ${i===0?"#ede9fe":"#e5e5e5"}`,borderRadius:99,padding:"6px 14px"}}>
-            <span style={{fontSize:12}}>{icons[i]}</span>{label}
-          </div>;})}
-        </div>
-        <div style={{display:"flex",gap:12,flexDirection:"column"}}>
-          <div style={{background:"linear-gradient(135deg,#0f172a,#1e293b)",borderRadius:12,padding:"16px 20px",position:"relative",overflow:"hidden"}}>
-            <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:"linear-gradient(90deg,#ec4899,#7c3aed)"}}/>
-            <div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#fff",marginBottom:6}}>my 2026 big board</div>
-            {[1,2,3].map(i=><div key={i} style={{height:5,background:`linear-gradient(90deg,rgba(255,255,255,${0.15-i*0.03}),transparent)`,borderRadius:99,marginBottom:4,width:`${100-i*15}%`}}/>)}
-            <div style={{fontFamily:mono,fontSize:7,color:"rgba(255,255,255,0.25)",marginTop:6}}>bigboardlab.com</div>
+        <h2 style={h2s}>Explore Combine Measurables</h2>
+        <p style={desc}>See how every prospect's 40-yard dash, speed score, athletic score, and more compare — both across this class and against 26 years of combine history.</p>
+        <div style={{background:"#faf9f6",borderRadius:14,border:"1px solid #f0f0f0",padding:"16px 20px"}}>
+          <div style={{display:"flex",gap:6,marginBottom:12,justifyContent:"center"}}>
+            {["Raw","Percentile"].map((label,i)=><span key={label} style={{fontFamily:sans,fontSize:10,fontWeight:600,color:i===0?"#fff":"#525252",background:i===0?"#171717":"#fff",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 12px"}}>{label}</span>)}
           </div>
-          <div style={{background:"linear-gradient(135deg,#0f172a,#1e293b)",borderRadius:12,padding:"16px 20px",position:"relative",overflow:"hidden"}}>
-            <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:"linear-gradient(90deg,#22c55e,#3b82f6)"}}/>
-            <div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#fff",marginBottom:6}}>mock draft results</div>
-            <div style={{display:"flex",gap:8}}>
-              {["LV","NYJ","ARI"].map((t,i)=><div key={t} style={{display:"flex",alignItems:"center",gap:4}}>
-                <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>{i+1}.</span>
-                <span style={{fontFamily:mono,fontSize:9,color:"#fff",fontWeight:600}}>{t}</span>
-              </div>)}
-              <span style={{fontFamily:mono,fontSize:8,color:"#525252"}}>…</span>
-            </div>
-            <div style={{fontFamily:mono,fontSize:7,color:"rgba(255,255,255,0.25)",marginTop:8}}>bigboardlab.com</div>
-          </div>
+          <svg width="100%" viewBox="0 0 320 150" style={{display:"block"}}>
+            {/* Grid lines */}
+            {[30,75,120].map(x=><line key={x} x1={x} y1={12} x2={x} y2={128} stroke="#e5e5e5" strokeWidth={0.5}/>)}
+            {[40,70,100].map(y=><line key={y} x1={5} y1={y} x2={145} y2={y} stroke="#f0f0f0" strokeWidth={0.5} strokeDasharray="2,2"/>)}
+            {/* QB column */}
+            {[[24,22],[36,28],[28,38],[32,48],[20,55],[30,65],[26,75],[34,82],[22,92],[38,100],[30,110]].map((d,i)=><circle key={`q${i}`} cx={d[0]} cy={d[1]} r={4.5} fill={POS_COLORS["QB"]} opacity={i===2?1:0.5}/>)}
+            {/* RB column */}
+            {[[70,18],[80,26],[72,34],[76,44],[68,52],[82,60],[74,68],[78,78],[66,86],[80,94],[72,104],[76,114]].map((d,i)=><circle key={`r${i}`} cx={d[0]} cy={d[1]} r={4.5} fill={POS_COLORS["RB"]} opacity={i===1?1:0.5}/>)}
+            {/* WR column */}
+            {[[116,20],[124,30],[118,40],[122,50],[114,58],[126,66],[120,74],[112,82],[128,90],[118,98],[124,108]].map((d,i)=><circle key={`w${i}`} cx={d[0]} cy={d[1]} r={4.5} fill={POS_COLORS["WR"]} opacity={i===0?1:0.5}/>)}
+            {/* Position labels */}
+            <text x={30} y={142} textAnchor="middle" style={{fontSize:"9px",fill:POS_COLORS["QB"],fontFamily:"monospace",fontWeight:700}}>QB</text>
+            <text x={75} y={142} textAnchor="middle" style={{fontSize:"9px",fill:POS_COLORS["RB"],fontFamily:"monospace",fontWeight:700}}>RB</text>
+            <text x={120} y={142} textAnchor="middle" style={{fontSize:"9px",fill:POS_COLORS["WR"],fontFamily:"monospace",fontWeight:700}}>WR</text>
+            {/* Right side: highlighted player card */}
+            <rect x={160} y={20} width={150} height={100} rx={10} fill="#fff" stroke="#e5e5e5" strokeWidth={1}/>
+            <rect x={160} y={20} width={150} height={3} rx={1.5} fill="url(#guideGrad)"/>
+            <defs><linearGradient id="guideGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#ec4899"/><stop offset="100%" stopColor="#7c3aed"/></linearGradient></defs>
+            <text x={172} y={42} style={{fontSize:"8px",fill:"#a3a3a3",fontFamily:"monospace",letterSpacing:"1px"}}>SPEED SCORE</text>
+            <rect x={172} y={48} width={120} height={5} rx={2.5} fill="#f0f0f0"/>
+            <rect x={172} y={48} width={102} height={5} rx={2.5} fill="#7c3aed" opacity={0.8}/>
+            <text x={296} y={53} textAnchor="end" style={{fontSize:"9px",fill:"#7c3aed",fontFamily:"monospace",fontWeight:700}}>85th</text>
+            <text x={172} y={72} style={{fontSize:"8px",fill:"#a3a3a3",fontFamily:"monospace",letterSpacing:"1px"}}>ATHLETIC SCORE</text>
+            <rect x={172} y={78} width={120} height={5} rx={2.5} fill="#f0f0f0"/>
+            <rect x={172} y={78} width={96} height={5} rx={2.5} fill="#ec4899" opacity={0.8}/>
+            <text x={296} y={83} textAnchor="end" style={{fontSize:"9px",fill:"#ec4899",fontFamily:"monospace",fontWeight:700}}>80th</text>
+            <text x={172} y={102} style={{fontSize:"8px",fill:"#a3a3a3",fontFamily:"monospace",letterSpacing:"1px"}}>40-YARD DASH</text>
+            <rect x={172} y={108} width={120} height={5} rx={2.5} fill="#f0f0f0"/>
+            <rect x={172} y={108} width={94} height={5} rx={2.5} fill="#2563eb" opacity={0.8}/>
+            <text x={296} y={113} textAnchor="end" style={{fontSize:"9px",fill:"#2563eb",fontFamily:"monospace",fontWeight:700}}>78th</text>
+          </svg>
         </div>
+        <div style={tip}>💡 Toggle between raw times and position percentiles to see who's truly elite relative to their position.</div>
       </div>
 
-      {/* 09 — Live Depth Chart Updates */}
+      {/* 06 — College Stats & Historical Percentiles */}
+      <div id="guide-college-stats" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
+        <div style={sectionNum("13")}>13</div>
+        <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
+        <h2 style={h2s}>College Stats & Historical Percentiles</h2>
+        <p style={desc}>Raw college production — passing yards, rushing yards, receptions, tackles — compared against 10 years of FBS data. See exactly where each prospect ranks historically.</p>
+        <div style={{background:"#faf9f6",borderRadius:14,border:"1px solid #f0f0f0",padding:"16px 20px"}}>
+          <div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:12,justifyContent:"center"}}>
+            {[{label:"Passing",color:"#1e3a5f",expanded:true},{label:"Rushing",color:"#5b21b6"},{label:"Receiving",color:"#0d9488"},{label:"Defensive",color:"#15803d"}].map(cat=><div key={cat.label} style={{display:"flex",flexDirection:"column",gap:4}}>
+              <span style={{fontFamily:sans,fontSize:10,fontWeight:700,color:"#fff",background:cat.color,borderRadius:99,padding:"4px 12px",cursor:"default"}}>{cat.label}</span>
+              {cat.expanded&&<div style={{display:"flex",gap:4,paddingLeft:4}}>
+                {["Pass Yds","Comp%","Pass TD"].map(sub=><span key={sub} style={{fontFamily:mono,fontSize:8,fontWeight:600,color:cat.color,background:`${cat.color}12`,border:`1px solid ${cat.color}22`,borderRadius:99,padding:"2px 8px"}}>{sub}</span>)}
+              </div>}
+            </div>)}
+          </div>
+          <div style={{border:"1px solid #e5e5e5",borderRadius:8,overflow:"hidden",background:"#fff"}}>
+            {[{stat:"Pass Yds",val:"4,238",pct:87},{stat:"Comp%",val:"68.2%",pct:76},{stat:"Pass TD",val:"34",pct:91}].map((row,i)=><div key={row.stat} style={{display:"flex",alignItems:"center",gap:10,padding:"6px 12px",borderBottom:i<2?"1px solid #f5f5f5":"none"}}>
+              <span style={{fontFamily:mono,fontSize:9,color:"#737373",width:60}}>{row.stat}</span>
+              <div style={{flex:1,height:5,background:"#f0f0f0",borderRadius:99,overflow:"hidden"}}><div style={{width:`${row.pct}%`,height:"100%",background:"linear-gradient(90deg,#1e3a5f,#1e3a5faa)",borderRadius:99}}/></div>
+              <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#1e3a5f",width:42,textAlign:"right"}}>{row.val}</span>
+              <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#7c3aed",width:32,textAlign:"right"}}>{row.pct}th</span>
+            </div>)}
+          </div>
+        </div>
+        <div style={tip}>💡 Switch between raw stats and historical percentile to see if a player's numbers are truly elite or just volume.</div>
+      </div>
+
+      {/* 07 — Dominator Ratings & Breakout Year */}
+      <div id="guide-dominator" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
+        <div style={sectionNum("14")}>14</div>
+        <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
+        <h2 style={h2s}>Dominator Ratings & Breakout Year</h2>
+        <p style={desc}>Dominator rating measures what share of their team's production a player commanded. Breakout year identifies the earliest season a player crossed that threshold — a strong predictor of NFL success.</p>
+        <div style={{border:"1px solid #e5e5e5",borderRadius:10,overflow:"hidden"}}>
+          {[
+            {name:"Tetairoa McMillan",pos:"WR",dom:"38.2% Rec Dom",breakout:"So"},
+            {name:"Rueben Bain",pos:"EDGE",dom:"14.8% Pressure",breakout:"Fr"},
+            {name:"Fernando Mendoza",pos:"QB",dom:"90.8% Pass Dom",breakout:"Jr"},
+          ].map((row,i)=>{const c=POS_COLORS[row.pos];return<div key={row.name} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderBottom:i<2?"1px solid #f5f5f5":"none"}}>
+            <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:c,background:`${c}0d`,padding:"2px 8px",borderRadius:99}}>{row.pos}</span>
+            <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1}}>{row.name}</span>
+            <span style={{fontFamily:mono,fontSize:10,color:"#525252"}}>{row.dom}</span>
+            <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#16a34a",background:"#f0fdf4",border:"1px solid #bbf7d0",borderRadius:99,padding:"2px 8px"}}>{row.breakout}</span>
+          </div>;})}
+        </div>
+        <div style={tip}>💡 Freshman breakout + elite dominator is the most predictive combination for NFL receivers. Filter by Breakout Year in the Combine Explorer to find them.</div>
+      </div>
+
+      {/* 08 — Live Depth Chart Updates */}
       <div id="guide-depth" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
         <div style={sectionNum("09")}>09</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
@@ -4143,7 +4183,136 @@ function GuidePage({onBack}){
         <div style={tip}>💡 Depth charts update after every single pick, so you always know which needs are still open and which starters just got replaced.</div>
       </div>
 
-      {/* 10 — Player Profiles */}
+      {/* 09 — Rank Prospects Head-to-Head */}
+      <div id="guide-rank" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
+        <div style={sectionNum("01")}>01</div>
+        <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
+        <h2 style={h2s}>Rank Prospects Head-to-Head</h2>
+        <p style={desc}>Pick a position, and we'll serve up two prospects at a time. Choose who you'd draft first — your picks feed an Elo algorithm that builds your rankings automatically.</p>
+        <div className="guide-pair-row" style={{display:"flex",gap:20,justifyContent:"center",alignItems:"center",margin:"16px 0"}}>
+          {(()=>{const cards=demoProspects.slice(0,2).map(p=>{const c=POS_COLORS[p.gpos||p.pos];return<div key={p.id} style={{flex:"0 0 auto",background:"#faf9f6",border:`2px solid ${c}22`,borderRadius:14,padding:"16px 20px",textAlign:"center",minWidth:140}}>
+            <SchoolLogo school={p.school} size={40}/>
+            <div style={{fontFamily:font,fontSize:16,fontWeight:800,color:"#171717",marginTop:8}}>{p.name}</div>
+            <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:c,background:`${c}0d`,padding:"3px 10px",borderRadius:99,display:"inline-block",marginTop:6}}>{p.gpos||p.pos}</span>
+          </div>;});return<>{cards[0]}<div style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#d4d4d4",flexShrink:0}}>vs</div>{cards[1]}</>;})()}
+        </div>
+        <div style={{display:"flex",gap:8,justifyContent:"center",flexWrap:"wrap"}}>
+          {[{label:"coin flip",k:16},{label:"leaning",k:24},{label:"confident",k:32},{label:"lock",k:40}].map(({label,k},i)=>(
+            <div key={label} style={{fontFamily:sans,fontSize:10,fontWeight:600,background:k>=32?"#171717":"#fff",color:k>=32?"#faf9f6":"#525252",border:`1px solid ${k>=32?"#171717":"#e5e5e5"}`,borderRadius:99,padding:"5px 12px"}}>{label}</div>
+          ))}
+        </div>
+        <div style={tip}>💡 <strong>Focus mode:</strong> tap the 📌 icon next to any player in the live rankings sidebar to lock matchups on them. Every comparison will include that player until you unlock, so you can place them precisely on your board.</div>
+      </div>
+
+      {/* 10 — Team Specific Draft Trends */}
+      <div id="guide-mock-trends" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
+        <div style={sectionNum("15")}>15</div>
+        <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
+        <h2 style={h2s}>Team Specific Draft Trends</h2>
+        <p style={desc}>See where prospects are getting drafted across the entire Big Board Lab community. ADP, positional trends, and team-level draft patterns — all aggregated in real time.</p>
+        <div style={{border:"1px solid #e5e5e5",borderRadius:10,overflow:"hidden"}}>
+          {[
+            {rank:1,name:"Rueben Bain Jr.",pos:"EDGE",adp:"1.3",team:"Raiders"},
+            {rank:2,name:"Caleb Downs",pos:"S",adp:"2.7",team:"Jets"},
+            {rank:3,name:"Garrett Nussmeier",pos:"QB",adp:"4.1",team:"Cardinals"},
+          ].map((row,i)=>{const c=POS_COLORS[row.pos];return<div key={row.name} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderBottom:i<2?"1px solid #f5f5f5":"none"}}>
+            <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:"#a3a3a3",width:20,textAlign:"right"}}>{row.rank}</span>
+            <NFLTeamLogo team={row.team} size={20}/>
+            <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:c,background:`${c}0d`,padding:"2px 8px",borderRadius:99}}>{row.pos}</span>
+            <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1}}>{row.name}</span>
+            <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#7c3aed"}}>ADP: {row.adp}</span>
+          </div>;})}
+        </div>
+        <div style={tip}>💡 Use community ADP to spot where your evaluations diverge from the crowd — that's where you find your edge.</div>
+      </div>
+
+      {/* 11 — Compare Players Side by Side */}
+      <div id="guide-compare" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
+        <div style={sectionNum("04")}>04</div>
+        <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
+        <h2 style={h2s}>Compare Players Side by Side</h2>
+        <p style={desc}>Pin up to 4 players from the same position and compare radar charts, individual trait scores, and overall grades in one view.</p>
+        {(()=>{const pos=compProspects[0]?.gpos||compProspects[0]?.pos||"QB";const posTraits=POSITION_TRAITS[pos]||[];
+          return<div>
+            <div className="guide-compare-radars" style={{display:"flex",gap:16,justifyContent:"center",margin:"16px 0"}}>
+              {compProspects.map((p,ci)=>{const vals=posTraits.map(t=>tv({},p.id,t,p.name,p.school));return<div key={p.id} style={{textAlign:"center"}}>
+                <RadarChart traits={posTraits} values={vals} color={compColors[ci]} size={120}/>
+                <div style={{fontFamily:mono,fontSize:10,fontWeight:600,color:compColors[ci],marginTop:-2}}>{shortName(p.name)}</div>
+              </div>;})}
+            </div>
+            <div style={{border:"1px solid #e5e5e5",borderRadius:10,overflow:"hidden"}}>
+              {posTraits.slice(0,4).map((t,ti)=>{const vals=compProspects.map(p=>tv({},p.id,t,p.name,p.school));const best=Math.max(...vals);const worst=Math.min(...vals);
+                return<div key={t} style={{display:"flex",alignItems:"center",padding:"6px 12px",borderBottom:ti<3?"1px solid #f5f5f5":"none"}}>
+                  <span style={{fontFamily:sans,fontSize:11,color:"#737373",width:100,flexShrink:0}}>{TRAIT_SHORT[t]||t}</span>
+                  <div style={{flex:1,display:"flex",gap:12,justifyContent:"center"}}>
+                    {vals.map((v,vi)=><span key={vi} style={{fontFamily:font,fontSize:13,fontWeight:700,color:v===best&&best!==worst?compColors[vi]:v===worst&&best!==worst?"#d4d4d4":"#525252",width:36,textAlign:"center"}}>{v}</span>)}
+                  </div>
+                </div>;
+              })}
+            </div>
+          </div>;
+        })()}
+      </div>
+
+      {/* 12 — Track Your Guys */}
+      <div id="guide-track" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
+        <div style={sectionNum("07")}>07</div>
+        <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
+        <h2 style={h2s}>Track Your Guys</h2>
+        <p style={desc}>After running mock drafts, see which prospects you keep drafting. Your scouting fingerprint reveals the trait patterns you gravitate toward.</p>
+        <div style={{display:"flex",flexDirection:"column",gap:8,margin:"16px 0"}}>
+          {[{emoji:"🎯",text:"Prioritizes accuracy over arm strength"},{emoji:"🏎️",text:"Prefers speed at receiver"},{emoji:"🧱",text:"Values blocking tight ends"}].map((f,i)=>(
+            <div key={i} style={{display:"flex",alignItems:"center",gap:10,background:"#f5f3ff",border:"1px solid #ede9fe",borderRadius:10,padding:"8px 14px"}}>
+              <span style={{fontSize:16}}>{f.emoji}</span>
+              <span style={{fontFamily:sans,fontSize:12,color:"#525252"}}>{f.text}</span>
+            </div>
+          ))}
+        </div>
+        <div style={{border:"1px solid #e5e5e5",borderRadius:10,overflow:"hidden"}}>
+          <div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",padding:"8px 12px",borderBottom:"1px solid #f0f0f0"}}>your top guys</div>
+          {demoProspects.slice(0,3).map((p,i)=>{const c=POS_COLORS[p.gpos||p.pos];return<div key={p.id} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderBottom:i<2?"1px solid #f5f5f5":"none"}}>
+            <SchoolLogo school={p.school} size={20}/>
+            <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1}}>{p.name}</span>
+            <span style={{fontFamily:mono,fontSize:10,color:c,fontWeight:700}}>{p.gpos||p.pos}</span>
+            <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>3× drafted</span>
+          </div>;})}
+        </div>
+      </div>
+
+      {/* 13 — Share Your Board */}
+      <div id="guide-share" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
+        <div style={sectionNum("08")}>08</div>
+        <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
+        <h2 style={h2s}>Share Your Results</h2>
+        <p style={desc}>Share your big board, mock draft results, or your "My Guys" list — each generates a branded image card you can download and post to Twitter, Discord, or your group chat.</p>
+        <div style={{display:"flex",gap:8,justifyContent:"center",flexWrap:"wrap",margin:"16px 0"}}>
+          {["big board","mock results","my guys"].map((label,i)=>{const icons=["📋","🏈","👀"];return<div key={label} style={{display:"inline-flex",alignItems:"center",gap:6,fontFamily:sans,fontSize:11,fontWeight:600,color:i===0?"#7c3aed":"#525252",background:i===0?"#f5f3ff":"#fff",border:`1px solid ${i===0?"#ede9fe":"#e5e5e5"}`,borderRadius:99,padding:"6px 14px"}}>
+            <span style={{fontSize:12}}>{icons[i]}</span>{label}
+          </div>;})}
+        </div>
+        <div style={{display:"flex",gap:12,flexDirection:"column"}}>
+          <div style={{background:"#fff",borderRadius:12,padding:"16px 20px",position:"relative",overflow:"hidden",border:"1px solid #e5e5e5"}}>
+            <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:"linear-gradient(90deg,#ec4899,#7c3aed)"}}/>
+            <div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#171717",marginBottom:6}}>my 2026 big board</div>
+            {[{w:100,c:"#7c3aed"},{w:85,c:"#a855f7"},{w:70,c:"#c084fc"}].map((b,i)=><div key={i} style={{height:5,background:`linear-gradient(90deg,${b.c},${b.c}44)`,borderRadius:99,marginBottom:4,width:`${b.w}%`}}/>)}
+            <div style={{fontFamily:mono,fontSize:7,color:"#d4d4d4",marginTop:6}}>bigboardlab.com</div>
+          </div>
+          <div style={{background:"#fff",borderRadius:12,padding:"16px 20px",position:"relative",overflow:"hidden",border:"1px solid #e5e5e5"}}>
+            <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:"linear-gradient(90deg,#22c55e,#3b82f6)"}}/>
+            <div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#171717",marginBottom:6}}>mock draft results</div>
+            <div style={{display:"flex",gap:8}}>
+              {["LV","NYJ","ARI"].map((t,i)=><div key={t} style={{display:"flex",alignItems:"center",gap:4}}>
+                <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>{i+1}.</span>
+                <span style={{fontFamily:mono,fontSize:9,color:"#171717",fontWeight:600}}>{t}</span>
+              </div>)}
+              <span style={{fontFamily:mono,fontSize:8,color:"#d4d4d4"}}>…</span>
+            </div>
+            <div style={{fontFamily:mono,fontSize:7,color:"#d4d4d4",marginTop:8}}>bigboardlab.com</div>
+          </div>
+        </div>
+      </div>
+
+      {/* 14 — Player Profiles */}
       <div id="guide-profiles" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
         <div style={sectionNum("10")}>10</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
@@ -4173,7 +4342,7 @@ function GuidePage({onBack}){
         })()}
       </div>
 
-      {/* 11 — Drag to Reorder */}
+      {/* 15 — Drag to Reorder */}
       <div id="guide-reorder" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
         <div style={sectionNum("11")}>11</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
@@ -4189,6 +4358,40 @@ function GuidePage({onBack}){
           </div>;})}
         </div>
         <div style={tip}>💡 Your reordering persists — drag changes are saved and reflected in your exported board.</div>
+      </div>
+
+      {/* FAQ Section */}
+      <style>{`
+        .guide-faq-item{border:none;margin:0 0 8px;}
+        .guide-faq-item[open]{margin:0 0 8px;}
+        .guide-faq-item summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:10px;background:#fff;border:1px solid #e5e5e5;transition:all 0.15s;}
+        .guide-faq-item summary:hover{border-color:#c4b5fd;background:#faf5ff;}
+        .guide-faq-item summary::-webkit-details-marker{display:none;}
+        .guide-faq-item[open] summary{border-color:#c4b5fd;background:#f5f3ff;}
+        .guide-faq-item .faq-arrow{transition:transform 0.2s;flex-shrink:0;}
+        .guide-faq-item[open] .faq-arrow{transform:rotate(90deg);}
+      `}</style>
+      <div className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s",marginTop:32}}>
+        <div style={{marginBottom:16}}>
+          <div style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",lineHeight:1.1}}>Frequently Asked Questions</div>
+        </div>
+        <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"0 0 16px"}}/>
+
+        {[
+          {q:"What is a dominator rating?",a:"It measures what share of their team's total production a player owned — yards + TDs, divided by two. The standard WR/TE eval metric. We extend it to every position: passing dominance for QBs, rushing share for RBs, pressure rate for EDGE."},
+          {q:"What is breakout year?",a:"The earliest college season a player crossed a dominator threshold. Freshman breakouts are the strongest NFL predictor — dominate early, translate at the next level. We compute it for every position, not just receivers."},
+          {q:"How does the Combine Explorer work?",a:"Every prospect's athletic measurables displayed in beeswarm charts — compare across this class or against 26 years of combine history. Toggle raw values vs position percentiles. The college stats tab compares production against 10 years of FBS data."},
+          {q:"How are historical percentiles calculated?",a:"We compare each prospect's college stats against every FBS player at their position over the last 10 seasons. 90th percentile in receiving yards = out-produced 90% of all FBS players at that position."},
+          {q:"Is Big Board Lab free?",a:"Completely. No paywall, no credit card, no signup. Rankings, trait grading, mock drafts, combine explorer, college stats, community trends — all of it, every user, zero cost."},
+        ].map((faq,i)=><details key={i} className="guide-faq-item">
+          <summary>
+            <span className="faq-arrow" style={{fontFamily:mono,fontSize:10,color:"#7c3aed",fontWeight:700}}>›</span>
+            <span style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717"}}>{faq.q}</span>
+          </summary>
+          <div style={{padding:"10px 14px 4px 34px"}}>
+            <p style={{fontFamily:sans,fontSize:13,color:"#525252",lineHeight:1.6,margin:0}}>{faq.a}</p>
+          </div>
+        </details>)}
       </div>
     </div>
 
