@@ -2561,6 +2561,7 @@ const TWEET_CATEGORIES=[
   {key:'radar_spotlight',label:'Radar Spotlight',color:'#a855f7',tier:2,weight:9},
   {key:'ceiling_tags',label:'Ceiling Tags',color:'#ec4899',tier:2,weight:8},
   {key:'team_mock',label:'Team/Mock',color:'#64748b',tier:2,weight:5},
+  {key:'college_stats',label:'College Stats',color:'#f97316',tier:1,weight:14},
 ];
 function _pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
 function _shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
@@ -2969,6 +2970,134 @@ function genTeamMockAlignment(){
   return null;
 }
 
+function genCollegeStats(){
+  const sub=Math.floor(Math.random()*5);
+  const STAT_POSITIONS={QB:["passing_DOM","passing_PCT","passing_YPA","passing_TDINT"],RB:["rushing_DOM","rushing_YPC"],WR:["receiving_DOM","receiving_YPR"],TE:["receiving_DOM","receiving_YPR"],EDGE:["defensive_DOM"],DL:["defensive_DOM"],LB:["defensive_DOM"],CB:["defensive_DOM"],S:["defensive_DOM"]};
+  const DOM_LABELS={passing_DOM:"passing dominator",rushing_DOM:"rushing dominator",receiving_DOM:"receiving dominator",defensive_DOM:"production share"};
+  const DOM_CONTEXT={passing_DOM:"share of team passing production",rushing_DOM:"share of team rushing production",receiving_DOM:"share of team receiving production",defensive_DOM:"share of team defensive production"};
+
+  // Variant 0: Individual dominator rarity
+  if(sub===0){
+    const positions=_shuffle(["QB","RB","WR","TE","EDGE","DL","LB","CB","S"]);
+    for(const pos of positions){
+      const guys=_posPlayers(pos);
+      for(const p of _shuffle(guys).slice(0,10)){
+        const stats=_statLookup(p.name,p.school);
+        if(!stats)continue;
+        const domKeys=(STAT_POSITIONS[pos]||[]).filter(k=>k.endsWith("_DOM"));
+        for(const dk of domKeys){
+          const val=stats[dk];
+          if(val==null||val<20)continue;
+          const pct=getStatPercentile(p.name,p.school,dk,pos);
+          if(pct==null||pct<90)continue;
+          const dist=HISTORICAL_STAT_DIST[pos]?.[dk];
+          if(!dist||dist.length<50)continue;
+          const above=dist.filter(v=>v>=val).length;
+          const rank=getConsensusRank(p.name);
+          return{category:'college_stats',spice:_spice(1,pct>=97,rank<=50),
+            tweet:_tag(`${p.name} posted a ${val.toFixed(1)}% ${DOM_LABELS[dk]||"dominator"} rating — ${DOM_CONTEXT[dk]}. That's ${pct>=99?"99th":Math.round(pct)+"th"} percentile historically. Only ${above} of ${dist.length} ${pos}s in the last 10 years hit that mark.\n\n📊 bigboardlab.com`),
+            image:`Combine Explorer → college stats → ${pos} → Dominator`,hook:`Elite dominator rating`,player:p.name};
+        }
+      }
+    }
+  }
+
+  // Variant 1: Breakout year highlight
+  if(sub<=1){
+    const positions=_shuffle(["WR","TE","RB","QB","EDGE","DL","LB","CB","S"]);
+    for(const pos of positions){
+      const guys=_posPlayers(pos);
+      const withBreakout=guys.filter(p=>{const s=_statLookup(p.name,p.school);return s?.breakout_year==="Fr";});
+      if(!withBreakout.length)continue;
+      const p=_pick(withBreakout);
+      const stats=_statLookup(p.name,p.school);
+      const allWithData=guys.filter(g=>_statLookup(g.name,g.school)?.breakout_year);
+      const frCount=guys.filter(g=>_statLookup(g.name,g.school)?.breakout_year==="Fr").length;
+      const rank=getConsensusRank(p.name);
+      const domKey=pos==="QB"?"passing_DOM":pos==="RB"?"rushing_DOM":["WR","TE"].includes(pos)?"receiving_DOM":"defensive_DOM";
+      const domVal=stats?.[domKey];
+      const domStr=domVal?` with a ${domVal.toFixed(1)}% ${DOM_LABELS[domKey]||"dominator"} rating`:"";
+      return{category:'college_stats',spice:_spice(1,frCount<=2,rank<=50),
+        tweet:_tag(`${p.name} broke out as a true freshman${domStr}. ${frCount===1?`The only ${pos} in this class to do it.`:`Only ${frCount} of ${allWithData.length} ${pos}s in this class broke out that early.`}\n\n📊 bigboardlab.com`),
+        image:`Combine Explorer → college stats → Breakout Year`,hook:`Freshman breakout`,player:p.name};
+    }
+  }
+
+  // Variant 2: Class-level breakout depth
+  if(sub<=2){
+    const positions=_shuffle(["WR","RB","EDGE","LB","CB","S","TE","DL","QB"]);
+    for(const pos of positions){
+      const guys=_posPlayers(pos);
+      const withBreakout=guys.filter(p=>{const s=_statLookup(p.name,p.school);return s?.breakout_year==="Fr"||s?.breakout_year==="So";});
+      const allWithData=guys.filter(g=>_statLookup(g.name,g.school)?.breakout_year);
+      if(allWithData.length<5||withBreakout.length<3)continue;
+      const pct=Math.round(withBreakout.length/allWithData.length*100);
+      if(pct<40)continue;
+      return{category:'college_stats',spice:_spice(1,pct>=70,true),
+        tweet:_tag(`${withBreakout.length} of ${allWithData.length} ${pos}s in this draft class broke out by their sophomore year (${pct}%). Early production is the best predictor of NFL success at the position.\n\n📊 bigboardlab.com`),
+        image:`Combine Explorer → college stats → Breakout Year`,hook:`Class breakout depth`,player:null};
+    }
+  }
+
+  // Variant 3: Dominator + combine combo
+  if(sub<=3){
+    const positions=_shuffle(["WR","TE","RB","QB","EDGE"]);
+    for(const pos of positions){
+      const guys=_withCombine(_posPlayers(pos));
+      for(const p of _shuffle(guys).slice(0,10)){
+        const stats=_statLookup(p.name,p.school);
+        if(!stats)continue;
+        const domKey=pos==="QB"?"passing_DOM":pos==="RB"?"rushing_DOM":["WR","TE"].includes(pos)?"receiving_DOM":"defensive_DOM";
+        const dom=stats[domKey];
+        const ath=p.cs.athleticScore;
+        if(dom==null||dom<25||ath==null||ath<80)continue;
+        const domPct=getStatPercentile(p.name,p.school,domKey,pos);
+        if(domPct==null||domPct<75)continue;
+        const athPctRaw=p.cs.athleticPct;
+        if(athPctRaw==null||athPctRaw<75)continue;
+        const rank=getConsensusRank(p.name);
+        const breakout=stats.breakout_year;
+        const breakoutStr=breakout==="Fr"||breakout==="So"?` Broke out as a ${breakout==="Fr"?"freshman":"sophomore"}.`:"";
+        return{category:'college_stats',spice:_spice(1,domPct>=90&&athPctRaw>=90,rank<=50),
+          tweet:_tag(`${p.name}: ${Math.round(domPct)}th percentile ${DOM_LABELS[domKey]||"dominator"} + ${Math.round(athPctRaw)}th percentile Athletic Score.${breakoutStr} Production AND athleticism.\n\n📊 bigboardlab.com`),
+          image:`Combine Explorer → college stats → Dominator`,hook:`Dominator + athlete combo`,player:p.name};
+      }
+    }
+  }
+
+  // Variant 4: Stat percentile outlier (non-dominator)
+  if(sub<=4){
+    const HIGHLIGHT_STATS={QB:["passing_YDS","passing_PCT","passing_TDINT"],RB:["rushing_YDS","rushing_YPC"],WR:["receiving_YDS","receiving_YPR"],TE:["receiving_YDS"]};
+    const STAT_LABELS={passing_YDS:"passing yards",passing_PCT:"completion percentage",passing_TDINT:"TD-to-INT ratio",rushing_YDS:"rushing yards",rushing_YPC:"yards per carry",receiving_YDS:"receiving yards",receiving_YPR:"yards per reception"};
+    const positions=_shuffle(Object.keys(HIGHLIGHT_STATS));
+    for(const pos of positions){
+      const guys=_posPlayers(pos);
+      for(const p of _shuffle(guys).slice(0,10)){
+        const stats=_statLookup(p.name,p.school);
+        if(!stats)continue;
+        const statKeys=HIGHLIGHT_STATS[pos];
+        for(const sk of _shuffle(statKeys)){
+          const val=stats[sk];
+          if(val==null)continue;
+          const pct=getStatPercentile(p.name,p.school,sk,pos);
+          if(pct==null||pct<95)continue;
+          const dist=HISTORICAL_STAT_DIST[pos]?.[sk];
+          if(!dist||dist.length<100)continue;
+          const above=dist.filter(v=>v>=val).length;
+          const rank=getConsensusRank(p.name);
+          const fmtVal=DECIMAL_STATS.has(sk)?val.toFixed(sk.endsWith("_PCT")?1:2):Math.round(val);
+          const unit=sk.endsWith("_PCT")?"%":"";
+          return{category:'college_stats',spice:_spice(1,pct>=99,rank<=50),
+            tweet:_tag(`${p.name} posted ${fmtVal}${unit} ${STAT_LABELS[sk]||sk} this season — ${Math.round(pct)}th percentile over the last 10 years of college football. Only ${above} of ${dist.length} qualifying ${pos}s hit that number.\n\n📊 bigboardlab.com`),
+            image:`Combine Explorer → college stats → ${STAT_SHORT[sk]||sk}`,hook:`Elite college production`,player:p.name};
+        }
+      }
+    }
+  }
+
+  return null;
+}
+
 function generateTweetCards(lastCategories,historicalData){
   const generators={
     combine_outlier:()=>genCombineOutlier(),
@@ -2980,6 +3109,7 @@ function generateTweetCards(lastCategories,historicalData){
     radar_spotlight:()=>genRadarSpotlight(),
     ceiling_tags:()=>genCeilingTags(),
     team_mock:()=>genTeamMockAlignment(),
+    college_stats:()=>genCollegeStats(),
   };
   const excluded=new Set(lastCategories||[]);
   const available=TWEET_CATEGORIES.filter(c=>!excluded.has(c.key));
