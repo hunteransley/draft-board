@@ -1163,8 +1163,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
       const stat=explorerStat;
       const isBreakout=stat==="breakout_year";
       const inverted=INVERTED_STATS.has(stat);
-      const catDef=STAT_CATEGORIES.find(c=>c.keys.includes(stat));
-      const applicablePositions=catDef?catDef.positions:[];
+      const applicablePositions=[...new Set(STAT_CATEGORIES.filter(c=>c.keys.includes(stat)).flatMap(c=>c.positions))];
       const usePercentile=!explorerAbsolute&&!isBreakout;
       PROSPECTS.forEach(p=>{
         const gpos=p.gpos||p.pos;
