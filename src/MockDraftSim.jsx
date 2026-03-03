@@ -817,10 +817,11 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   // Get a trade partner's available assets: remaining picks this draft + future year picks
   const partnerAssets=useMemo(()=>{
     if(!tradePartner)return{thisDraft:[],futurePicks:[]};
-    // Remaining picks this draft
+    // Remaining picks — full 7-round catalog, not just simulated rounds
     const thisDraft=[];
-    for(let i=picks.length;i<totalPicks;i++){
-      if(getPickTeam(i)===tradePartner)thisDraft.push({idx:i,...fullDraftOrder[i],type:"current",label:`Rd${fullDraftOrder[i].round} #${fullDraftOrder[i].pick}`,value:getPickValue(fullDraftOrder[i].pick)});
+    for(let i=picks.length;i<DRAFT_ORDER_2026.length;i++){
+      const owner=i<totalPicks?getPickTeam(i):DRAFT_ORDER_2026[i].team;
+      if(owner===tradePartner){const d=DRAFT_ORDER_2026[i];thisDraft.push({idx:i<totalPicks?i:null,...d,type:"current",label:`Rd${d.round} #${d.pick}`,value:getPickValue(d.pick)});}
     }
     // Future picks: 2027 & 2028, rounds 1-7 (estimated values)
     const futurePicks=[];
@@ -835,10 +836,13 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
   // User's tradable picks (current draft + future)
   const userAllPicks=useMemo(()=>{
-    const ut=[...userTeams][0];if(!ut)return{thisDraft:[],futurePicks:[]};
+    const ut=userTeams.size>=ALL_TEAMS.length?getPickTeam(picks.length):[...userTeams][0];
+    if(!ut)return{thisDraft:[],futurePicks:[]};
+    // Remaining picks — full 7-round catalog, not just simulated rounds
     const thisDraft=[];
-    for(let i=picks.length;i<totalPicks;i++){
-      if(getPickTeam(i)===ut)thisDraft.push({idx:i,...fullDraftOrder[i],type:"current",label:`Rd${fullDraftOrder[i].round} #${fullDraftOrder[i].pick}`,value:getPickValue(fullDraftOrder[i].pick)});
+    for(let i=picks.length;i<DRAFT_ORDER_2026.length;i++){
+      const owner=i<totalPicks?getPickTeam(i):DRAFT_ORDER_2026[i].team;
+      if(owner===ut){const d=DRAFT_ORDER_2026[i];thisDraft.push({idx:i<totalPicks?i:null,...d,type:"current",label:`Rd${d.round} #${d.pick}`,value:getPickValue(d.pick)});}
     }
     const futurePicks=[];
     for(let yr=2027;yr<=2028;yr++){
@@ -848,20 +852,20 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       }
     }
     return{thisDraft,futurePicks};
-  },[userTeams,picks,totalPicks,getPickTeam,fullDraftOrder]);
+  },[userTeams,ALL_TEAMS,picks,totalPicks,getPickTeam,fullDraftOrder]);
 
   const executeTradeUp=useCallback(()=>{
     if(tradeTarget.length===0||tradeUserPicks.length===0||!tradePartner)return;
     const tv=tradeTarget.reduce((s,p)=>s+(p.value||0),0);
     const ov=tradeUserPicks.reduce((s,p)=>s+(p.value||0),0);
     if(ov<tv*1.05)return;
-    const ut=[...userTeams][0];const nm={...tradeMap};
+    const ut=userTeams.size>=ALL_TEAMS.length?getPickTeam(picks.length):[...userTeams][0];const nm={...tradeMap};
     // Reassign their current-draft picks to user
     tradeTarget.filter(p=>p.type==="current"&&p.idx!=null).forEach(p=>{nm[p.idx]=ut;});
     // Reassign user's current-draft picks to the partner
     tradeUserPicks.filter(p=>p.type==="current"&&p.idx!=null).forEach(p=>{nm[p.idx]=tradePartner;});
     setTradeMap(nm);closeTradeUp();
-  },[tradeTarget,tradeUserPicks,tradeMap,userTeams,tradePartner]);
+  },[tradeTarget,tradeUserPicks,tradeMap,userTeams,ALL_TEAMS,getPickTeam,picks,tradePartner]);
 
   const toggleTeam=(t)=>setUserTeams(prev=>{const n=new Set(prev);n.has(t)?n.delete(t):n.add(t);return n;});
   const toggleCompare=(p)=>{setCompareList(prev=>{const e=prev.find(x=>x.id===p.id);if(e)return prev.filter(x=>x.id!==p.id);if(prev.length>=4)return prev;return[...prev,p];});};
@@ -1331,8 +1335,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       try{logoImg=new Image();logoImg.crossOrigin='anonymous';logoImg.src='/logo.png';await new Promise((r,j)=>{logoImg.onload=r;logoImg.onerror=j;setTimeout(j,2000);});}catch(e){logoImg=null;}
       const fy=H-footerH;
       ctx.fillStyle='#111';ctx.fillRect(0,fy,W,footerH);
-      const logoOffset=logoImg?36:0;
-      if(logoImg)ctx.drawImage(logoImg,pad,fy+10,32,32);
+      const logoH=32,logoW=logoImg?Math.round(logoImg.naturalWidth/logoImg.naturalHeight*logoH):0;
+      const logoOffset=logoImg?logoW+4:0;
+      if(logoImg)ctx.drawImage(logoImg,pad,fy+10,logoW,logoH);
       ctx.fillStyle='#fff';ctx.font='bold 14px -apple-system,system-ui,sans-serif';
       ctx.textBaseline='middle';
       ctx.fillText('bigboardlab.com',pad+logoOffset+8,fy+footerH/2);
@@ -1414,8 +1419,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       ctx.fillStyle='#111111';ctx.fillRect(0,H-footerH,W,footerH);
       let logo32=null;
       try{logo32=new Image();logo32.crossOrigin='anonymous';logo32.src='/logo.png';await new Promise((r,j)=>{logo32.onload=r;logo32.onerror=j;setTimeout(j,2000);});}catch(e){logo32=null;}
-      const lo32=logo32?36:0;
-      if(logo32)ctx.drawImage(logo32,pad,H-footerH+8,32,32);
+      const logoH32=32,logoW32=logo32?Math.round(logo32.naturalWidth/logo32.naturalHeight*logoH32):0;
+      const lo32=logo32?logoW32+4:0;
+      if(logo32)ctx.drawImage(logo32,pad,H-footerH+8,logoW32,logoH32);
       ctx.fillStyle='#ffffff';ctx.font='bold 13px -apple-system,system-ui,sans-serif';ctx.textBaseline='top';
       ctx.fillText('bigboardlab.com',pad+lo32+4,H-footerH+10);
       ctx.fillStyle='#737373';ctx.font='10px -apple-system,system-ui,sans-serif';
