@@ -2994,8 +2994,9 @@ function genCollegeStats(){
           if(!dist||dist.length<50)continue;
           const above=dist.filter(v=>v>=val).length;
           const rank=getConsensusRank(p.name);
+          const rarityStr=above===0?`No ${pos} in 10 years of college data has posted a ${DOM_LABELS[dk]||"dominator"} rating this high.`:`Only ${above} of ${dist.length} ${pos}s in the last 10 years hit that mark.`;
           return{category:'college_stats',spice:_spice(1,pct>=97,rank<=50),
-            tweet:_tag(`${p.name} posted a ${val.toFixed(1)}% ${DOM_LABELS[dk]||"dominator"} rating — ${DOM_CONTEXT[dk]}. That's ${pct>=99?"99th":Math.round(pct)+"th"} percentile historically. Only ${above} of ${dist.length} ${pos}s in the last 10 years hit that mark.\n\n📊 bigboardlab.com`),
+            tweet:_tag(`${p.name} posted a ${val.toFixed(1)}% ${DOM_LABELS[dk]||"dominator"} rating — ${DOM_CONTEXT[dk]}. That's ${pct>=99?"99th":Math.round(pct)+"th"} percentile historically. ${rarityStr}\n\n📊 bigboardlab.com`),
             image:`Combine Explorer → college stats → ${pos} → Dominator`,hook:`Elite dominator rating`,player:p.name};
         }
       }
@@ -3087,8 +3088,9 @@ function genCollegeStats(){
           const rank=getConsensusRank(p.name);
           const fmtVal=DECIMAL_STATS.has(sk)?val.toFixed(sk.endsWith("_PCT")?1:2):Math.round(val);
           const unit=sk.endsWith("_PCT")?"%":"";
+          const statRarity=above===0?`No qualifying ${pos} in 10 years has posted a number this high.`:`Only ${above} of ${dist.length} qualifying ${pos}s hit that number.`;
           return{category:'college_stats',spice:_spice(1,pct>=99,rank<=50),
-            tweet:_tag(`${p.name} posted ${fmtVal}${unit} ${STAT_LABELS[sk]||sk} this season — ${Math.round(pct)}th percentile over the last 10 years of college football. Only ${above} of ${dist.length} qualifying ${pos}s hit that number.\n\n📊 bigboardlab.com`),
+            tweet:_tag(`${p.name} posted ${fmtVal}${unit} ${STAT_LABELS[sk]||sk} this season — ${Math.round(pct)}th percentile over the last 10 years of college football. ${statRarity}\n\n📊 bigboardlab.com`),
             image:`Combine Explorer → college stats → ${STAT_SHORT[sk]||sk}`,hook:`Elite college production`,player:p.name};
         }
       }
