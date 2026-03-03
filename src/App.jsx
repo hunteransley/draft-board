@@ -100,6 +100,7 @@ function getNextMatchup(mups,done,ratings,compCounts,consensusRankFn,lockedId){
 const DRAFT_ORDER=[{pick:1,team:"Raiders"},{pick:2,team:"Jets"},{pick:3,team:"Cardinals"},{pick:4,team:"Titans"},{pick:5,team:"Giants"},{pick:6,team:"Browns"},{pick:7,team:"Commanders"},{pick:8,team:"Saints"},{pick:9,team:"Chiefs"},{pick:10,team:"Bengals"},{pick:11,team:"Dolphins"},{pick:12,team:"Cowboys"},{pick:13,team:"Rams"},{pick:14,team:"Ravens"},{pick:15,team:"Buccaneers"},{pick:16,team:"Jets"},{pick:17,team:"Lions"},{pick:18,team:"Vikings"},{pick:19,team:"Panthers"},{pick:20,team:"Cowboys"},{pick:21,team:"Steelers"},{pick:22,team:"Chargers"},{pick:23,team:"Eagles"},{pick:24,team:"Browns"},{pick:25,team:"Bears"},{pick:26,team:"Bills"},{pick:27,team:"49ers"},{pick:28,team:"Texans"},{pick:29,team:"Rams"},{pick:30,team:"Broncos"},{pick:31,team:"Patriots"},{pick:32,team:"Seahawks"}];
 const NFL_TEAM_ABR={"Raiders":"LV","Jets":"NYJ","Cardinals":"ARI","Titans":"TEN","Giants":"NYG","Browns":"CLE","Commanders":"WAS","Saints":"NO","Chiefs":"KC","Bengals":"CIN","Dolphins":"MIA","Cowboys":"DAL","Rams":"LA","Ravens":"BAL","Buccaneers":"TB","Lions":"DET","Vikings":"MIN","Panthers":"CAR","Steelers":"PIT","Chargers":"LAC","Eagles":"PHI","Bears":"CHI","Bills":"BUF","49ers":"SF","Texans":"HOU","Broncos":"DEN","Patriots":"NE","Seahawks":"SEA","Falcons":"ATL","Colts":"IND","Jaguars":"JAX","Packers":"GB"};
 const NFL_TEAM_ESPN={"Raiders":13,"Jets":20,"Cardinals":22,"Titans":10,"Giants":19,"Browns":5,"Commanders":28,"Saints":18,"Chiefs":12,"Bengals":4,"Dolphins":15,"Cowboys":6,"Rams":14,"Ravens":33,"Buccaneers":27,"Lions":8,"Vikings":16,"Panthers":29,"Steelers":23,"Chargers":24,"Eagles":21,"Bears":3,"Bills":2,"49ers":25,"Texans":34,"Broncos":7,"Patriots":17,"Seahawks":26,"Falcons":1,"Colts":11,"Jaguars":30,"Packers":9};
+const NFL_TEAM_COLORS={"49ers":"#AA0000",Raiders:"#A5ACAF",Jets:"#125740",Cardinals:"#97233F",Titans:"#4B92DB",Giants:"#0B2265",Browns:"#FF3C00",Commanders:"#5A1414",Saints:"#D3BC8D",Chiefs:"#E31837",Bengals:"#FB4F14",Dolphins:"#008E97",Cowboys:"#003594",Rams:"#003594",Falcons:"#A71930",Ravens:"#241773",Buccaneers:"#D50A0A",Colts:"#002C5F",Lions:"#0076B6",Vikings:"#4F2683",Panthers:"#0085CA",Packers:"#203731",Steelers:"#FFB612",Chargers:"#0080C6",Eagles:"#004C54",Bears:"#C83200",Bills:"#00338D",Texans:"#03202F",Broncos:"#FB4F14",Patriots:"#002244",Seahawks:"#69BE28",Jaguars:"#006778"};
 function nflLogo(team){const id=NFL_TEAM_ESPN[team];return id?`https://a.espncdn.com/i/teamlogos/nfl/500/${id}.png`:null;}
 function NFLTeamLogo({team,size=20}){const[err,setErr]=useState(false);const url=nflLogo(team);if(!url||err)return<span style={{fontFamily:"monospace",fontSize:size*0.5,color:"#a3a3a3"}}>{NFL_TEAM_ABR[team]||team}</span>;return<img src={url} alt={team} width={size} height={size} onError={()=>setErr(true)} style={{objectFit:"contain",flexShrink:0}}/>;}
 const MIN_COMPS=3;
@@ -1146,6 +1147,48 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const openExplorer=useCallback(()=>{if(window.location.pathname!=='/combine')window.history.pushState({},'','/combine');setShowExplorer(true);},[]);
   const closeExplorer=useCallback(()=>{if(window.location.pathname==='/combine')window.history.pushState({},'','/');setShowExplorer(false);setExplorerHover(null);},[]);
   useEffect(()=>{const onPop=()=>{setShowExplorer(window.location.pathname==='/combine');};window.addEventListener("popstate",onPop);return()=>window.removeEventListener("popstate",onPop);},[]);
+
+  // === TEAM MOCK TRENDS ===
+  const[showTrends,setShowTrends]=useState(()=>window.location.pathname==='/trends');
+  const[trendsTeam,setTrendsTeam]=useState(()=>{if(window.location.pathname==='/trends'){const p=new URLSearchParams(window.location.search);return p.get('team')||'Titans';}return'Titans';});
+  const[trendsData,setTrendsData]=useState(null);
+  const[trendsLoading,setTrendsLoading]=useState(false);
+  const trendsCacheRef=useRef({});
+  const TRENDS_TTL=5*60*1000;
+  const allTeams=["Raiders","Jets","Cardinals","Titans","Giants","Browns","Commanders","Saints","Chiefs","Bengals","Dolphins","Cowboys","Rams","Ravens","Buccaneers","Lions","Vikings","Panthers","Steelers","Chargers","Eagles","Bears","Bills","49ers","Texans","Broncos","Patriots","Seahawks","Falcons","Colts","Jaguars","Packers"];
+
+  const loadTrendsData=useCallback(async(teamName)=>{
+    const cached=trendsCacheRef.current[teamName];
+    if(cached&&Date.now()-cached.ts<TRENDS_TTL){setTrendsData(cached.data);return;}
+    setTrendsLoading(true);
+    try{
+      const{data,error}=await supabase.rpc('get_team_community_picks',{team_name:teamName});
+      if(error)throw error;
+      const totalMocks=data?.total_mocks||0;
+      const prospects=(data?.prospects||[]).map(p=>({...p,pct:totalMocks>0?Math.round((p.times_drafted/totalMocks)*100):0,isLock:totalMocks>0&&(p.times_drafted/totalMocks)>=0.6,isSleeper:totalMocks>0&&(p.times_drafted/totalMocks)<0.05}));
+      const result={...data,prospects};
+      trendsCacheRef.current[teamName]={data:result,ts:Date.now()};
+      setTrendsData(result);
+    }catch(e){console.error('Failed to load trends:',e);setTrendsData(null);}
+    finally{setTrendsLoading(false);}
+  },[]);
+
+  const openTrends=useCallback((teamName)=>{
+    const t=teamName||'Titans';
+    window.history.pushState({},'',`/trends?team=${encodeURIComponent(t)}`);
+    setTrendsTeam(t);setShowTrends(true);loadTrendsData(t);
+  },[loadTrendsData]);
+
+  const closeTrends=useCallback(()=>{
+    if(window.location.pathname==='/trends')window.history.pushState({},'','/');
+    setShowTrends(false);setTrendsData(null);
+  },[]);
+
+  useEffect(()=>{if(showTrends&&trendsTeam)loadTrendsData(trendsTeam);},[showTrends,trendsTeam,loadTrendsData]);
+
+  useEffect(()=>{const onPop=()=>{const isTrends=window.location.pathname==='/trends';setShowTrends(isTrends);if(isTrends){const p=new URLSearchParams(window.location.search);setTrendsTeam(p.get('team')||'Titans');}};window.addEventListener("popstate",onPop);return()=>window.removeEventListener("popstate",onPop);},[]);
+  useEffect(()=>{window.scrollTo(0,0);},[showTrends]);
+
   const traitsRef=useRef(traits);traitsRef.current=traits;
   const ratingsRef=useRef(ratings);ratingsRef.current=ratings;
   const getGradeRef=useRef(getGrade);getGradeRef.current=getGrade;
@@ -1211,8 +1254,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   },[user?.id,getConsensusRank]);
 
   // Save mock draft picks to Supabase for ADP tracking and My Guys
-  const saveMockPicks=useCallback(async(picks)=>{
+  const saveMockPicks=useCallback(async(picks,userTeamCount)=>{
     if(!user?.id||!picks?.length)return;
+    const draftMode=userTeamCount===1?'single':userTeamCount===32?'all32':'multi';
     try{
       const rows=picks.map(pk=>({
         user_id:user.id,
@@ -1223,7 +1267,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         pick_number:pk.pickNumber,
         round:pk.round,
         is_user_pick:pk.isUserPick,
-        grade:pk.grade
+        grade:pk.grade,
+        draft_mode:draftMode
       }));
       for(let i=0;i<rows.length;i+=50){
         await supabase.from('mock_picks').insert(rows.slice(i,i+50));
@@ -1466,6 +1511,163 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
 
 
   if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA)||(traits[a.id]&&Object.keys(traits[a.id]).length>0);const bRanked=rankedGroups.has(gB)||(traits[b.id]&&Object.keys(traits[b.id]).length>0);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} onMockComplete={saveMockPicks} myGuys={myGuys} myGuysUpdated={myGuysUpdated} setMyGuysUpdated={setMyGuysUpdated} mockCount={mockCount} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} getConsensusRound={getConsensusRound} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} mockLaunchCpuTrades={mockCpuTrades} mockLaunchBoardMode={mockBoardMode} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}} isGuest={isGuest} onRequireAuth={onRequireAuth} trackEvent={trackEvent} userId={user?.id} isGuestUser={!user} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} TRAIT_ABBREV={TRAIT_ABBREV} TRAIT_EMOJI={TRAIT_EMOJI} SCHOOL_CONFERENCE={SCHOOL_CONFERENCE} POS_EMOJI={POS_EMOJI} onShareMyGuys={shareMyGuys} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter} MEASURABLE_EMOJI={MEASURABLE_EMOJI} MEASURABLE_SHORT={MEASURABLE_SHORT} MEASURABLE_LIST={MEASURABLE_LIST} MEASURABLE_DRILLS={MEASURABLE_DRILLS} MEASURABLE_KEY={MEASURABLE_KEY} MEASURABLE_RAW={MEASURABLE_RAW} MEAS_GROUPS={MEAS_GROUPS} getMeasRadarData={getMeasRadarData}/>;}
+  // === TEAM MOCK TRENDS PAGE ===
+  if(showTrends){
+    const switchTeam=(t)=>{setTrendsTeam(t);window.history.replaceState({},'',`/trends?team=${encodeURIComponent(t)}`);loadTrendsData(t);};
+    const totalMocks=trendsData?.total_mocks||0;
+    const totalUsers=trendsData?.total_users||0;
+    const prospects=trendsData?.prospects||[];
+    const positions=trendsData?.positions||[];
+    const totalPosPicks=positions.reduce((s,p)=>s+Number(p.pos_count),0);
+    return(<div style={{position:"fixed",inset:0,background:"#faf9f6",zIndex:9000,overflow:"auto",WebkitOverflowScrolling:"touch"}}>
+      <div style={{maxWidth:720,margin:"0 auto",padding:"16px 16px 80px"}}>
+        {/* Header */}
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
+          <div style={{display:"flex",alignItems:"center",gap:12}}>
+            <button onClick={closeTrends} style={{fontFamily:sans,fontSize:12,padding:"6px 14px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>← back</button>
+            <h1 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:0}}>team mock trends</h1>
+          </div>
+        </div>
+
+        {/* Team switcher */}
+        <div className="trait-pills-scroll" style={{display:"flex",gap:6,overflowX:"auto",WebkitOverflowScrolling:"touch",paddingBottom:12,scrollbarWidth:"none",marginBottom:16}}>
+          {allTeams.sort().map(t=>{const sel=t===trendsTeam;const tc=NFL_TEAM_COLORS[t]||"#171717";return<button key={t} onClick={()=>switchTeam(t)} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:3,padding:"6px 10px",background:sel?`${tc}15`:"transparent",border:sel?`2px solid ${tc}`:"2px solid transparent",borderRadius:10,cursor:"pointer",flexShrink:0,transition:"all 0.15s"}}><NFLTeamLogo team={t} size={28}/><span style={{fontFamily:mono,fontSize:8,color:sel?tc:"#a3a3a3",fontWeight:sel?700:500}}>{NFL_TEAM_ABR[t]}</span></button>;})}
+        </div>
+
+        {/* Loading state */}
+        {trendsLoading&&<div style={{textAlign:"center",padding:"60px 24px"}}><div style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>loading trends...</div></div>}
+
+        {/* Empty state */}
+        {!trendsLoading&&totalMocks===0&&<div style={{textAlign:"center",padding:"60px 24px"}}>
+          <div style={{fontSize:48,marginBottom:16}}>📊</div>
+          <h3 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:"0 0 8px"}}>not enough data yet</h3>
+          <p style={{fontFamily:sans,fontSize:14,color:"#737373",margin:"0 0 20px",lineHeight:1.5}}>draft as the {trendsTeam} to contribute!</p>
+          <button onClick={()=>{closeTrends();setMockTeamSet(new Set([trendsTeam]));setMockTeamPicker(trendsTeam);}} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 28px",background:"linear-gradient(135deg,#ec4899,#7c3aed)",color:"#fff",border:"none",borderRadius:99,cursor:"pointer"}}>mock draft as {trendsTeam} →</button>
+        </div>}
+
+        {/* Data loaded */}
+        {!trendsLoading&&totalMocks>0&&(()=>{
+          // Community draft fingerprint — derived from aggregated picks
+          const trendsPills=(()=>{
+            if(prospects.length<3)return[];
+            const pills=[];
+            const guys=prospects.map(p=>{const pr=PROSPECTS.find(x=>x.name===p.prospect_name);return{...p,prospect:pr,gpos:pr?.gpos||p.prospect_pos,school:pr?.school||"",id:pr?.id};});
+
+            // Position concentration
+            const posCounts={};
+            guys.forEach(g=>{const pos=g.gpos==="K"||g.gpos==="P"||g.gpos==="LS"?"K/P":g.gpos;posCounts[pos]=(posCounts[pos]||0)+1;});
+            const topPos=Object.entries(posCounts).sort((a,b)=>b[1]-a[1]);
+            if(topPos.length>0&&topPos[0][1]>=Math.ceil(guys.length*0.3)){
+              const[pos,cnt]=topPos[0];
+              pills.push({emoji:POS_EMOJI[pos]||"📋",text:`${pos} heavy`,detail:`${cnt}/${guys.length}`,color:POS_COLORS[pos]||"#525252"});
+            }else if(topPos.length>=4&&topPos[0][1]-topPos[topPos.length-1][1]<=1){
+              pills.push({emoji:"🔀",text:"balanced draft",detail:"",color:"#525252"});
+            }
+
+            // Trait clusters
+            const traitCounts={};
+            guys.forEach(g=>{if(!g.id)return;const badges=prospectBadges[g.id]||[];badges.forEach(b=>{traitCounts[b.trait]=(traitCounts[b.trait]||0)+1;});});
+            const topTraits=Object.entries(traitCounts).filter(([,c])=>c>=2).sort((a,b)=>b[1]-a[1]).slice(0,2);
+            const traitLabels={"Pass Rush":"pass rush magnet","Speed":"speed obsessed","Man Coverage":"lockdown lean","Accuracy":"accuracy snob","Motor":"motor lovers","Ball Skills":"ball hawk bias","Tackling":"sure tacklers","Vision":"vision seekers","Hands":"reliable hands","First Step":"first step fanatic","Athleticism":"athletic bias"};
+            topTraits.forEach(([trait,cnt])=>{pills.push({emoji:TRAIT_EMOJI[trait]||"⭐",text:traitLabels[trait]||trait.toLowerCase(),detail:`${cnt}x`,color:"#7c3aed"});});
+
+            // Ceiling tendency
+            const ceilCounts={elite:0,high:0,normal:0,capped:0};
+            guys.forEach(g=>{const sc=getScoutingTraits(g.prospect_name||g.prospect?.name,g.school);const c=sc?.__ceiling||"normal";ceilCounts[c]++;});
+            const upside=ceilCounts.elite+ceilCounts.high;
+            if(upside>=Math.ceil(guys.length*0.5)){
+              pills.push({emoji:"⭐",text:"ceiling chaser",detail:`${upside}/${guys.length} high+`,color:"#ea580c"});
+            }else if(ceilCounts.capped>=Math.ceil(guys.length*0.3)){
+              pills.push({emoji:"🔒",text:"floor first",detail:`${ceilCounts.capped} capped`,color:"#64748b"});
+            }
+
+            // Conference lean
+            const confCounts={};
+            guys.forEach(g=>{const conf=SCHOOL_CONFERENCE[g.school];if(conf&&conf!=="FCS"&&conf!=="D2"&&conf!=="D3"&&conf!=="Ind")confCounts[conf]=(confCounts[conf]||0)+1;});
+            const topConf=Object.entries(confCounts).sort((a,b)=>b[1]-a[1]);
+            if(topConf.length>0&&topConf[0][1]>=Math.ceil(guys.length*0.4)){
+              pills.push({emoji:"🏈",text:`${topConf[0][0]} lean`,detail:`${topConf[0][1]}/${guys.length}`,color:"#0369a1"});
+            }
+
+            // Athletic testing
+            const scoreAccum={ath:[],exp:[],agi:[]};
+            guys.forEach(g=>{const cs=getCombineScores(g.prospect_name||g.prospect?.name,g.school);if(cs){if(cs.athleticScore!=null)scoreAccum.ath.push(cs.athleticScore);if(cs.explosionScore!=null)scoreAccum.exp.push(cs.explosionScore);if(cs.agilityScore!=null)scoreAccum.agi.push(cs.agilityScore);}});
+            if(scoreAccum.ath.length>=3&&scoreAccum.ath.filter(s=>s>=85).length>=Math.ceil(scoreAccum.ath.length*0.5)){
+              pills.push({emoji:"👽",text:"athletic freaks",detail:`avg ${Math.round(scoreAccum.ath.reduce((a,b)=>a+b,0)/scoreAccum.ath.length)}`,color:"#059669"});
+            }
+
+            // School repeats
+            const schoolCounts={};
+            guys.forEach(g=>{if(g.school)schoolCounts[g.school]=(schoolCounts[g.school]||0)+1;});
+            const repeats=Object.entries(schoolCounts).filter(([,c])=>c>=2).sort((a,b)=>b[1]-a[1]);
+            if(repeats.length>0){const[sch,cnt]=repeats[0];pills.push({emoji:"🏫",text:`${sch} pipeline`,detail:`${cnt}`,color:"#7c3aed"});}
+
+            return pills.slice(0,6);
+          })();
+
+          return<>
+          {/* Team header */}
+          <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:trendsPills.length>0?12:20}}>
+            <NFLTeamLogo team={trendsTeam} size={40}/>
+            <div>
+              <h2 style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717",margin:0}}>{trendsTeam}</h2>
+              <p style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",margin:0}}>community draft tendencies</p>
+            </div>
+          </div>
+
+          {/* Community draft fingerprint */}
+          {trendsPills.length>0&&<div style={{marginBottom:20}}>
+            <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
+              {trendsPills.map((pill,i)=><span key={i} style={{fontFamily:sans,fontSize:11,fontWeight:600,color:pill.color,background:`${pill.color}0d`,border:`1px solid ${pill.color}22`,padding:"4px 10px",borderRadius:99,display:"inline-flex",alignItems:"center",gap:4,whiteSpace:"nowrap"}}>
+                <span>{pill.emoji}</span>
+                <span>{pill.text}</span>
+                {pill.detail&&<span style={{fontFamily:mono,fontSize:9,opacity:0.7}}>({pill.detail})</span>}
+              </span>)}
+            </div>
+          </div>}
+
+          {/* Position tendency */}
+          {positions.length>0&&(()=>{const needs=TEAM_NEEDS_DETAILED[trendsTeam]||{};return<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:20}}>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
+              <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>position tendency</div>
+              <div style={{display:"flex",alignItems:"center",gap:8}}>
+                <span style={{display:"inline-flex",alignItems:"center",gap:3}}><span style={{width:6,height:6,borderRadius:3,background:"#dc2626",flexShrink:0}}/><span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>big need</span></span>
+                <span style={{display:"inline-flex",alignItems:"center",gap:3}}><span style={{width:6,height:6,borderRadius:3,background:"#f59e0b",flexShrink:0}}/><span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>need</span></span>
+              </div>
+            </div>
+            {positions.map(p=>{const pct=totalPosPicks>0?Math.round((Number(p.pos_count)/totalPosPicks)*100):0;const c=POS_COLORS[p.prospect_pos]||"#a3a3a3";const need=needs[p.prospect_pos]||0;return<div key={p.prospect_pos} style={{display:"flex",alignItems:"center",gap:8,marginBottom:6}}>
+              <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:c,width:32,textAlign:"right"}}>{p.prospect_pos}</span>
+              <div style={{flex:1,height:18,background:"#f5f5f5",borderRadius:4,overflow:"hidden"}}><div style={{height:"100%",width:`${pct}%`,background:c,borderRadius:4,minWidth:pct>0?2:0,transition:"width 0.3s"}}/></div>
+              <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",width:28,textAlign:"right"}}>{pct}%</span>
+              {need>=2?<span style={{width:8,height:8,borderRadius:4,background:"#dc2626",flexShrink:0}} title="Big need"/>:need===1?<span style={{width:8,height:8,borderRadius:4,background:"#f59e0b",flexShrink:0}} title="Need"/>:<span style={{width:8,height:8,flexShrink:0}}/>}
+            </div>;})}
+          </div>;})()}
+
+          {/* Top picks */}
+          <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>most drafted prospects</div>
+            {prospects.map((p,i)=>{const c=POS_COLORS[p.prospect_pos]||"#a3a3a3";const prospect=PROSPECTS.find(pr=>pr.name===p.prospect_name);const cRank=prospect?getConsensusRank(prospect.name):null;return<div key={p.prospect_name} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 0",borderBottom:i<prospects.length-1?"1px solid #f5f5f5":"none"}}>
+              <span style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#d4d4d4",width:24,textAlign:"right",flexShrink:0}}>{i+1}</span>
+              {prospect&&<SchoolLogo school={prospect.school} size={28}/>}
+              <div style={{flex:1,minWidth:0}}>
+                <div style={{display:"flex",alignItems:"center",gap:6,flexWrap:"wrap"}}>
+                  <span onClick={()=>{if(prospect)setProfilePlayer(prospect);}} style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",cursor:prospect?"pointer":"default",textDecoration:"none"}} onMouseEnter={e=>{if(prospect)e.currentTarget.style.textDecoration="underline";}} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.prospect_name}</span>
+                  <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:c,background:`${c}11`,padding:"2px 6px",borderRadius:4,border:`1px solid ${c}22`}}>{p.prospect_pos}</span>
+                  {p.isLock&&<span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:"#16a34a",background:"#f0fdf4",padding:"2px 6px",borderRadius:4,border:"1px solid #bbf7d0"}}>LOCK</span>}
+                  {p.isSleeper&&<span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:"#ca8a04",background:"#fefce8",padding:"2px 6px",borderRadius:4,border:"1px solid #fef08a"}}>SLEEPER</span>}
+                </div>
+                <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginTop:2}}>
+                  {p.pct}% of mocks · avg pick {p.avg_pick}{cRank?` · consensus #${cRank}`:""}
+                </div>
+              </div>
+            </div>;})}
+          </div>
+        </>;})()}
+      </div>
+      {profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth}/>}
+    </div>);
+  }
+
   // === COMBINE EXPLORER ===
   if(showExplorer){
     const gateAuth=(fn)=>()=>{if(isGuest){onRequireAuth("want to play with the data? sign up free");return;}fn();};
@@ -2073,6 +2275,15 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         </div>
       </div>);})}</div>
     {rankedGroups.size>0&&<div style={{textAlign:"center",marginTop:32}}><button onClick={()=>setPhase("board")} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"14px 36px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>view big board ({rankedGroups.size}/{POSITION_GROUPS.length})</button></div>}
+
+    {/* Team Mock Trends */}
+    <div style={{marginTop:32}}>
+      <h2 style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717",margin:"0 0 4px",letterSpacing:-0.5}}>team mock trends</h2>
+      <p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 14px"}}>see what the community drafts for each team</p>
+      <div style={{display:"grid",gridTemplateColumns:"repeat(8, 1fr)",gap:8}}>
+        {allTeams.sort().map(t=>{const tc=NFL_TEAM_COLORS[t]||"#171717";return<button key={t} onClick={()=>openTrends(t)} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:4,padding:"10px 4px",background:"#fff",border:"1px solid #e5e5e5",borderRadius:10,cursor:"pointer",transition:"all 0.15s"}} onMouseEnter={e=>{e.currentTarget.style.borderColor=tc;e.currentTarget.style.background=`${tc}08`;}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e5e5e5";e.currentTarget.style.background="#fff";}}><NFLTeamLogo team={t} size={24}/><span style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",fontWeight:600}}>{NFL_TEAM_ABR[t]}</span></button>;})}
+      </div>
+    </div>
 
     <div style={{textAlign:"center",padding:"48px 24px 24px",fontFamily:mono,fontSize:10,color:"#d4d4d4",letterSpacing:0.5}}>© {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>
     </div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth}/>}</div>);
@@ -3533,7 +3744,7 @@ export default function App(){
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
   if(showGuide)return<GuidePage onBack={()=>{window.history.pushState({},'','/');setShowGuide(false);}}/>;
   if(showOG)return<OGPreview/>;
-  if(!user&&!isGuest&&window.location.pathname!=='/combine')return<AuthScreen onSkip={()=>setIsGuest(true)} onOpenGuide={navigateToGuide}/>;
+  if(!user&&!isGuest&&window.location.pathname!=='/combine'&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>setIsGuest(true)} onOpenGuide={navigateToGuide}/>;
   if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
   return<>
     <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} onRequireAuth={(msg)=>{

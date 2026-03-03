@@ -634,7 +634,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           const cGrade=p?(getConsensusGrade?getConsensusGrade(p.name):50):50;
           const v=p&&cRank?pickVerdict(pk.pick,cRank,cGrade):null;
           return{mockId,prospectName:p?.name||'',prospectPos:p?.gpos||p?.pos||'',team:pk.team,pickNumber:pk.pick,round:pk.round,isUserPick:pk.isUser,grade:v?v.grade:null};
-        }));
+        }),userTeams.size);
       }
     }
   },[picks,fullDraftOrder,totalPicks,userTeams,prospectsMap,getConsensusRank,getPickTeam]);
