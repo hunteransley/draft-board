@@ -3965,7 +3965,7 @@ function GuidePage({onBack}){
 
       {/* 01 — Mock Draft Against 32 AI GMs */}
       <div id="guide-mock" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("05")}>05</div>
+        <div style={sectionNum("01")}>01</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Mock Draft Against 32 AI GMs</h2>
         <p style={desc}>Pick your team and draft against 31 AI-controlled GMs that follow real team tendencies, positional needs, and trade logic.</p>
@@ -4016,7 +4016,7 @@ function GuidePage({onBack}){
 
       {/* 03 — Filter by Standout Traits */}
       <div id="guide-traits" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("06")}>06</div>
+        <div style={sectionNum("03")}>03</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Filter by Standout Traits</h2>
         <p style={desc}>Most tools only let you filter by position. BBL lets you rank, mock draft, and browse by individual traits — want to only rank the best pass rushers? Tap the 🚀 Pass Rush pill and pair-rank just the elite rushers across EDGE and DL. Running a mock? Filter the draft board by Speed to see who your team should target.</p>
@@ -4044,7 +4044,7 @@ function GuidePage({onBack}){
 
       {/* 04 — Build Your Big Board */}
       <div id="guide-board" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("03")}>03</div>
+        <div style={sectionNum("04")}>04</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Build Your Big Board</h2>
         <p style={desc}>As you rank and grade, your big board assembles itself. Filter by position, toggle between your board and consensus, and see grades at a glance.</p>
@@ -4067,7 +4067,7 @@ function GuidePage({onBack}){
 
       {/* 05 — Explore Combine Measurables */}
       <div id="guide-combine" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("12")}>12</div>
+        <div style={sectionNum("05")}>05</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Explore Combine Measurables</h2>
         <p style={desc}>See how every prospect's 40-yard dash, speed score, athletic score, and more compare — both across this class and against 26 years of combine history.</p>
@@ -4112,7 +4112,7 @@ function GuidePage({onBack}){
 
       {/* 06 — College Stats & Historical Percentiles */}
       <div id="guide-college-stats" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("13")}>13</div>
+        <div style={sectionNum("06")}>06</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>College Stats & Historical Percentiles</h2>
         <p style={desc}>Raw college production — passing yards, rushing yards, receptions, tackles — compared against 10 years of FBS data. See exactly where each prospect ranks historically.</p>
@@ -4139,7 +4139,7 @@ function GuidePage({onBack}){
 
       {/* 07 — Dominator Ratings & Breakout Year */}
       <div id="guide-dominator" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("14")}>14</div>
+        <div style={sectionNum("07")}>07</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Dominator Ratings & Breakout Year</h2>
         <p style={desc}>Dominator rating measures what share of their team's production a player commanded. Breakout year identifies the earliest season a player crossed that threshold — a strong predictor of NFL success.</p>
@@ -4160,7 +4160,7 @@ function GuidePage({onBack}){
 
       {/* 08 — Live Depth Chart Updates */}
       <div id="guide-depth" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("09")}>09</div>
+        <div style={sectionNum("08")}>08</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Live Depth Chart Updates</h2>
         <p style={desc}>Every pick in the mock draft lands on the team's actual roster in real time. Watch starters get displaced, needs get filled, and see exactly where each rookie slots into the depth chart as the draft unfolds.</p>
@@ -4185,7 +4185,7 @@ function GuidePage({onBack}){
 
       {/* 09 — Rank Prospects Head-to-Head */}
       <div id="guide-rank" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("01")}>01</div>
+        <div style={sectionNum("09")}>09</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Rank Prospects Head-to-Head</h2>
         <p style={desc}>Pick a position, and we'll serve up two prospects at a time. Choose who you'd draft first — your picks feed an Elo algorithm that builds your rankings automatically.</p>
@@ -4206,7 +4206,7 @@ function GuidePage({onBack}){
 
       {/* 10 — Team Specific Draft Trends */}
       <div id="guide-mock-trends" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("15")}>15</div>
+        <div style={sectionNum("10")}>10</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Team Specific Draft Trends</h2>
         <p style={desc}>See where prospects are getting drafted across the entire Big Board Lab community. ADP, positional trends, and team-level draft patterns — all aggregated in real time.</p>
@@ -4228,7 +4228,7 @@ function GuidePage({onBack}){
 
       {/* 11 — Compare Players Side by Side */}
       <div id="guide-compare" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("04")}>04</div>
+        <div style={sectionNum("11")}>11</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Compare Players Side by Side</h2>
         <p style={desc}>Pin up to 4 players from the same position and compare radar charts, individual trait scores, and overall grades in one view.</p>
@@ -4256,7 +4256,7 @@ function GuidePage({onBack}){
 
       {/* 12 — Track Your Guys */}
       <div id="guide-track" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("07")}>07</div>
+        <div style={sectionNum("12")}>12</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Track Your Guys</h2>
         <p style={desc}>After running mock drafts, see which prospects you keep drafting. Your scouting fingerprint reveals the trait patterns you gravitate toward.</p>
@@ -4281,7 +4281,7 @@ function GuidePage({onBack}){
 
       {/* 13 — Share Your Board */}
       <div id="guide-share" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("08")}>08</div>
+        <div style={sectionNum("13")}>13</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Share Your Results</h2>
         <p style={desc}>Share your big board, mock draft results, or your "My Guys" list — each generates a branded image card you can download and post to Twitter, Discord, or your group chat.</p>
@@ -4314,7 +4314,7 @@ function GuidePage({onBack}){
 
       {/* 14 — Player Profiles */}
       <div id="guide-profiles" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("10")}>10</div>
+        <div style={sectionNum("14")}>14</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Player Profiles</h2>
         <p style={desc}>Tap any prospect to open a detailed profile with school logo, measurables, combine data, trait radar chart, and similar player comps.</p>
@@ -4344,7 +4344,7 @@ function GuidePage({onBack}){
 
       {/* 15 — Drag to Reorder */}
       <div id="guide-reorder" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("11")}>11</div>
+        <div style={sectionNum("15")}>15</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Drag to Reorder</h2>
         <p style={desc}>Not happy with where someone landed? Grab the drag handle and move any prospect up or down your board to fine-tune your rankings.</p>

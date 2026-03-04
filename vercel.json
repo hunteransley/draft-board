@@ -4,7 +4,7 @@
   ],
   "rewrites": [
     { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/guide", "destination": "/guide/index.html" },
+    { "source": "/guide", "destination": "/index.html" },
     { "source": "/combine", "destination": "/combine.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
