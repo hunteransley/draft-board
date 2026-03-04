@@ -732,7 +732,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
           </div>
         </div>
 
-        {(()=>{const cr=consensus?.find(x=>x.name===player.name);const userRank=[...allProspects].sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);if(d!==0)return d;const r=(ratings?.[b.id]||1500)-(ratings?.[a.id]||1500);return r!==0?r:getConsensusRank(a.name)-getConsensusRank(b.name);}).findIndex(p=>p.id===player.id)+1;return cr?(
+        {(()=>{const cr=consensus?.find(x=>x.name===player.name);const hasUserRankings=Object.keys(ratings||{}).length>0;const userRank=hasUserRankings?[...allProspects].sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);if(d!==0)return d;const r=(ratings?.[b.id]||1500)-(ratings?.[a.id]||1500);return r!==0?r:getConsensusRank(a.name)-getConsensusRank(b.name);}).findIndex(p=>p.id===player.id)+1:cr?.rank||999;return cr?(
           <div style={{padding:"0 24px 16px"}}>
             <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>vs consensus</div>
             <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:8,padding:"12px 14px",display:"flex",gap:20,justifyContent:"center"}}>
@@ -1325,11 +1325,10 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     if(sc){const grade=gradeFromTraits(sc,pos);const ceil=sc.__ceiling;if(!ceil||ceil==="normal")return grade;const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let rawW=0,rawV=0;posTraits.forEach(trait=>{const teach=TRAIT_TEACHABILITY[trait]??0.5;if(teach<0.4){const w=weights[trait]||1/posTraits.length;rawW+=w;rawV+=(sc[trait]||50)*w;}});const rawScore=rawW>0?rawV/rawW:grade;const gap=rawScore-grade;if(ceil==="high")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.5,0)+4)));if(ceil==="elite")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.7,0)+7)));if(ceil==="capped")return Math.max(1,Math.min(99,Math.round(grade-Math.max(-gap*0.3,0)-3)));return grade;}
     return 50;
   },[gradeFromTraits]);
-  // Consensus rankings for player profile drawer — matches public consensus board (grade-sorted)
+  // Consensus rankings for player profile drawer — directly from CSV-based CONSENSUS_BOARD
   const CONSENSUS=useMemo(()=>{
-    const sorted=[...PROSPECTS].sort((a,b)=>{const ga=getScoutingGrade(a.id),gb=getScoutingGrade(b.id);if(gb!==ga)return gb-ga;return getConsensusRank(a.name)-getConsensusRank(b.name);});
-    return sorted.map((p,i)=>({name:p.name,rank:i+1}));
-  },[getScoutingGrade]);
+    return PROSPECTS.map(p=>({name:p.name,rank:getConsensusRank(p.name)}));
+  },[]);
   const getBoard=useCallback(()=>PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;const hasTraitEdits=traits[p.id]&&Object.keys(traits[p.id]).length>0;return rankedGroups.has(group)||hasTraitEdits;}).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings,traits]);
 
   // Build mock draft board: consensus order for all 319, user rankings override when graded
