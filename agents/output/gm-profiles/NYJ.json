@@ -1,0 +1,654 @@
+{
+  "team": {
+    "name": "New York Jets",
+    "abbreviation": "NYJ",
+    "division": "AFC East",
+    "current_draft_position": 2
+  },
+  "front_office": {
+    "gm": {
+      "name": "Darren Mougey",
+      "title": "General Manager",
+      "hired": "2025-01-25",
+      "previous_role": "Assistant General Manager, Denver Broncos (2022-2024)",
+      "drafts_as_gm": 1,
+      "confidence": "low"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Atlanta Falcons",
+          "role": "Training Camp WR (UDFA)",
+          "years": "2009",
+          "mentor": "N/A (player)"
+        },
+        {
+          "org": "Arizona Cardinals",
+          "role": "Training Camp WR",
+          "years": "2010",
+          "mentor": "N/A (player)"
+        },
+        {
+          "org": "Chaparral High School (AZ)",
+          "role": "Offensive Assistant Coach",
+          "years": "2011",
+          "mentor": "Met Dave Ziegler here"
+        },
+        {
+          "org": "Denver Broncos",
+          "role": "Personnel Intern",
+          "years": "2012",
+          "mentor": "John Elway / Matt Russell"
+        },
+        {
+          "org": "Denver Broncos",
+          "role": "Personnel/Scouting Assistant",
+          "years": "2013",
+          "mentor": "John Elway / Matt Russell"
+        },
+        {
+          "org": "Denver Broncos",
+          "role": "College/Pro Personnel Scout",
+          "years": "2014",
+          "mentor": "John Elway"
+        },
+        {
+          "org": "Denver Broncos",
+          "role": "Southwest Area Scout",
+          "years": "2015",
+          "mentor": "John Elway"
+        },
+        {
+          "org": "Denver Broncos",
+          "role": "Western Area Scout",
+          "years": "2016",
+          "mentor": "John Elway"
+        },
+        {
+          "org": "Denver Broncos",
+          "role": "Western Regional Scout",
+          "years": "2017-2019",
+          "mentor": "John Elway"
+        },
+        {
+          "org": "Denver Broncos",
+          "role": "Assistant Director of College Scouting",
+          "years": "2020",
+          "mentor": "John Elway"
+        },
+        {
+          "org": "Denver Broncos",
+          "role": "Director of Player Personnel",
+          "years": "2021",
+          "mentor": "George Paton"
+        },
+        {
+          "org": "Denver Broncos",
+          "role": "Assistant General Manager",
+          "years": "2022-2024",
+          "mentor": "George Paton / Sean Payton"
+        }
+      ],
+      "primary_mentor": "George Paton (Broncos GM 2021-present) and John Elway (Broncos GM 2011-2020). Paton is the more recent and formative influence, as Mougey worked directly with Paton on all personnel decisions from 2021-2024 and was promoted three times under Paton. However, Elway gave Mougey his original start and the 2012-2020 formative scouting years were under Elway's regime.",
+      "philosophical_lineage": "Elway tree \u2192 Paton tree. Elway's front office has spawned multiple GMs: Adam Peters (Washington), John Spytek (Las Vegas), and now Mougey (Jets). Paton himself came from the Minnesota Vikings (Rick Spielman's front office), creating a secondary Spielman lineage. Paton's philosophy emphasizes trench play, draft-and-develop, BPA with a willingness to trade back for more picks. The Payton influence (2023-2024) added a scheme-fit orientation and willingness to target specific players via trade-up. Mougey also connected with Dave Ziegler (former Raiders GM, also from the Broncos tree) at Chaparral High School before either entered the NFL.",
+      "breakpoints": "Mougey's 2025 trade deadline fire sale (trading Gardner and Williams for picks) shows an aggressiveness in asset accumulation that exceeds Paton's style. Paton tended to be more patient; Mougey showed willingness to trade franchise cornerstones just months after extending them. This willingness to blow it up and reset is a departure from the more conservative Paton approach. However, the 2025 draft itself (taking OT Membou at 7, a 'meat-and-potatoes' pick) aligns perfectly with the Paton/Elway trench-first philosophy.",
+      "lineage_weight": 0.7,
+      "lineage_weight_notes": "Only 1 draft as GM means mentorship tree carries heavy weight. Paton/Elway lineage is the primary behavioral model. Will drop to 0.45 after 2026 draft and 0.25 after 2027 draft as own track record develops."
+    },
+    "primary_decision_maker": "Darren Mougey (GM) with significant input from Aaron Glenn (HC)",
+    "key_influencers": [
+      {
+        "name": "Aaron Glenn",
+        "title": "Head Coach",
+        "influence_level": "very_high",
+        "known_biases": "Defensive-minded, former Pro Bowl CB. Strong opinions on defensive personnel, especially secondary. Wants long, physical press corners (modeled on Detroit's defense). Will call defensive plays himself in 2026. Wants to build from the trenches out, citing the Lions model. Values character, teaching ability, and development. Compared first-round pick Membou's mentality to Penei Sewell."
+      },
+      {
+        "name": "Rick Spielman",
+        "title": "Senior Football Advisor",
+        "influence_level": "high",
+        "known_biases": "Former Vikings GM (2006-2021, de facto from 2006, official from 2012). Known for aggressive trade-ups for QBs and impact players. Helped run the Jets' GM/HC search that produced Mougey and Glenn. Serves as sounding board. Brings 30+ years of NFL experience in scouting and personnel. His Viking tenure was marked by bold moves (trading up for Percy Harvin, drafting Teddy Bridgewater, Stefon Diggs, Justin Jefferson). He stated Glenn and Mougey are the 'final decision-makers' and he's 'just there as their sounding board.'"
+      },
+      {
+        "name": "Rob Paton",
+        "title": "Co-Director of Player Personnel",
+        "influence_level": "medium",
+        "known_biases": "Nephew of George Paton (Denver GM). Worked with Mougey in Denver. Brings Broncos scouting DNA directly into the Jets' personnel department. Represents the strongest institutional carryover from the Denver system."
+      },
+      {
+        "name": "Frank Reich",
+        "title": "Offensive Coordinator (hired 2026)",
+        "influence_level": "medium",
+        "known_biases": "Veteran NFL offensive mind. Previously HC of Colts and Panthers, OC for Eagles and Chargers. Offense expected to emphasize running game, play-action, and physicality. Power/gap run scheme with play-action passing."
+      },
+      {
+        "name": "Brian Duker",
+        "title": "Defensive Coordinator",
+        "influence_level": "low_to_medium",
+        "known_biases": "Served under Glenn in Detroit for 3 years. No playcalling experience \u2014 Glenn will call plays. Duker is an executor/teacher, not a scheme designer. His familiarity with Glenn's system means no translation issues."
+      }
+    ],
+    "power_dynamics": "Both the HC and GM report individually to ownership \u2014 a dual-reporting structure confirmed by Woody Johnson. Initially, Glenn appeared to be the more prominent hire (he was hired first, Mougey was described as a 'sidekick'). However, after a 3-14 debut season, league perception has shifted toward Mougey being the more impressive of the two. They are described as collaborative with strong synergy. Glenn was 'right there with Mougey' when the deadline trades were made. Mougey also had significant input into coaching staff hiring. The Jermaine Johnson trade to Tennessee for T'Vondre Sweat (February 2026) shows Mougey's continued willingness to reshape the roster.",
+    "owner_interference": "moderate \u2014 Woody Johnson has a documented reputation for meddling. He attended organizational meetings in Palm Beach during the DC search, fueling speculation he influenced Glenn to call his own defense. Johnson publicly praised Glenn but the coaching staff overhaul after one season, coupled with the unusual DC search dynamics (Wink Martindale situation), suggests Johnson's fingerprints are on key decisions. However, on draft-day decisions specifically, there is no evidence of Johnson dictating picks."
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.65,
+    "bpa_weight_by_round": {
+      "1": 0.75,
+      "2": 0.55,
+      "3": 0.45,
+      "4_plus": 0.4
+    },
+    "stated_philosophy": "Aggressive but calculated. 'I think you've got to leave everything on the table. At the end of the day, we've got to add good players.' Mougey has emphasized being calculated with resources \u2014 'knowing your resources, your draft resources, your cap, your future cap.' Glenn has said the team will 'build from the inside out,' emphasizing trenches.",
+    "actual_philosophy": "In his one draft (2025), Mougey took the consensus best OT at pick 7 (Membou) over the flashier TE option (Tyler Warren), suggesting a BPA-with-need-overlay approach. The pick addressed a glaring need (RT) while also being viewed as a strong BPA selection. On Day 2-3, the Jets traded up twice \u2014 for safety Malachi Moore (15 spots) and EDGE Tyler Baron (traded up for a late-Day 3 pick) \u2014 both addressing clear defensive needs. This suggests Mougey shifts to need-filling on Day 2-3. The Paton/Elway tree he comes from is historically BPA-leaning in Round 1 and need-leaning in subsequent rounds.",
+    "philosophy_mismatch_notes": "With only 1 draft, data is insufficient to identify stated vs. actual mismatches. The Round 1 pick (Membou) was both BPA and need, so the true test hasn't come yet \u2014 what happens when BPA and need diverge? The Paton lineage suggests he would lean BPA in that scenario, especially at premium positions."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.55,
+    "trade_down_willingness": 0.55,
+    "trades_per_draft_average": 2.0,
+    "trade_triggers": [
+      "Defensive playmakers falling on Day 2-3 (traded up twice in 2025 draft for DB and EDGE)",
+      "Franchise-altering asset accumulation (traded Sauce Gardner and Quinnen Williams at 2025 deadline for massive draft capital haul)",
+      "Specific roster reset moves (traded Jermaine Johnson to Tennessee for DT T'Vondre Sweat in February 2026)",
+      "Quarterback: Mougey said not to expect a trade up to #1 for 2026, but has indicated he will 'exhaust every option' to find a QB. Spielman's presence suggests trade-up-for-QB DNA exists in the building."
+    ],
+    "draft_capital_philosophy": "Accumulator during rebuild phase. The 2025 trade deadline was a franchise-defining moment \u2014 Mougey dealt two All-Pro defenders for a haul of 3 first-round picks and 1 second-round pick across 2026-2027, plus throw-in players (Adonai Mitchell, Mazi Smith). Jets now hold 5 first-round picks and 3 second-round picks over 2026-2027. This mirrors the OKC Thunder asset-accumulation model that NFL Network's Rapoport compared it to. Mougey appears willing to hoard picks during the rebuild and potentially trade them for an impact QB when the right one becomes available.",
+    "notable_trades": [
+      {
+        "date": "2025-11-04",
+        "description": "Traded CB Sauce Gardner to Indianapolis Colts",
+        "received": "2026 1st-round pick (#16 overall), 2027 1st-round pick, WR Adonai Mitchell",
+        "context": "Jets were 1-7. Gardner had signed a $120.4M extension just 4 months prior. Return was massive \u2014 one of only six in-season trades for multiple 1sts in 40 years."
+      },
+      {
+        "date": "2025-11-04",
+        "description": "Traded DT Quinnen Williams to Dallas Cowboys",
+        "received": "2026 2nd-round pick, 2027 1st-round pick (better of Dallas' two), DT Mazi Smith",
+        "context": "Williams was unhappy, contract could become issue. Getting a 1st for an interior DL at the deadline is strong value extraction."
+      },
+      {
+        "date": "2026-02",
+        "description": "Traded EDGE Jermaine Johnson to Tennessee Titans",
+        "received": "DT T'Vondre Sweat",
+        "context": "Continued roster reshaping. Swapped a redundant EDGE for a young DT to pair with Quincy Briggs. Shows Mougey values positional flexibility over name value."
+      },
+      {
+        "date": "2025-04-26",
+        "description": "Traded up 15 spots in Round 4 for S Malachi Moore",
+        "sent": "5th-round pick (#145), 6th-round pick (#207)",
+        "context": "First draft-day trade as GM. Targeted a specific player \u2014 physical, tone-setting safety from Alabama. Fit Glenn's defensive vision."
+      },
+      {
+        "date": "2025-04-26",
+        "description": "Traded up for EDGE Tyler Baron in Round 5",
+        "sent": "6th-round pick (#186), 2026 5th-round pick",
+        "context": "Second Day 3 trade-up. Targeted size/length at EDGE (6-5, 258). Consistent pattern of moving up for specific defensive players."
+      }
+    ]
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "OT",
+        "EDGE",
+        "CB",
+        "QB"
+      ],
+      "tier_2_high": [
+        "DT",
+        "S",
+        "WR",
+        "TE"
+      ],
+      "tier_3_mid": [
+        "IOL",
+        "LB"
+      ],
+      "tier_4_low": [
+        "RB",
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "RB in early rounds \u2014 Mougey is willing to franchise tag Breece Hall but has shown no inclination to draft RB early. The Paton tree has been conservative on early-round RBs.",
+      "QB has been avoided in the draft thus far, with Mougey preferring FA (Justin Fields) to address it, though the 2026/2027 class availability may change this."
+    ],
+    "position_premium": [
+      "OT \u2014 First ever pick as GM was an offensive tackle at #7 overall. Glenn explicitly stated the goal is to 'build from the inside out' and compared Membou to Penei Sewell. The Paton tree in Denver prioritized OL heavily.",
+      "EDGE \u2014 Traded up on Day 3 for Tyler Baron. The Jets' biggest roster need entering 2026 is pass rush. Multiple mock drafts project EDGE at #2 overall.",
+      "CB \u2014 Took Azareye'h Thomas in Round 3 (a long, physical press corner). Glenn's defensive background as a former CB and DC who built Detroit's secondary makes CB a premium position.",
+      "DT \u2014 Traded for T'Vondre Sweat and retained Mazi Smith. The Paton tree has consistently invested in interior DL (Denver drafted DJ Jones, signed Zach Allen)."
+    ]
+  },
+  "player_archetype_preferences": {
+    "OT": {
+      "archetype_summary": "Elite athlete with mauling run-blocking ability. Mougey's first-ever pick was Armand Membou: 6-4, 332 lbs, 33.5-inch arms, 4.91 40-yard dash (97th percentile Speed Score for OL). Membou was selected over flashier skill position options because he fit the 'build from the inside out' philosophy. The archetype is a massive, freakishly athletic tackle who can road-grade in the run game and use mobility to offset potential limitations. This aligns with the Paton/Denver tree that valued athletic OL (Quinn Meinerz was a similar athletic marvel when drafted in 2021).",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5",
+        "weight_range": "310-335",
+        "arm_length_minimum": "33 inches (Membou had 33.5 \u2014 short for a tackle but acceptable given elite athleticism)",
+        "key_athletic_tests": "Explosiveness tests are paramount: vertical jump (Membou: 34 inches), broad jump (Membou: 9'7\"), and 40-yard dash relative to weight. Speed Score (weight-adjusted 40) appears to be a key metric.",
+        "speed_requirement": "Sub-5.0 40 strongly preferred for OTs"
+      },
+      "playing_style": {
+        "primary_win_condition": "Explosive, punishing run blocker who generates movement at the point of attack. Uses elite athleticism to reach second level and seal in zone concepts.",
+        "most_valued_traits": [
+          "Explosiveness/athleticism relative to size",
+          "Run-blocking power and finishing",
+          "Mobility in space",
+          "Football character/mentality"
+        ],
+        "least_important_traits": [
+          "Pure length \u2014 Membou had relatively short arms for a tackle but was still taken 7th overall, suggesting arm length isn't a hard cutoff if athletic profile is elite"
+        ],
+        "deal_breakers": "No evidence yet \u2014 only 1 pick. Paton tree suggests stiff, non-athletic OL would be avoided.",
+        "traits_that_make_them_reach": "Rare athleticism for size. Glenn compared Membou to Sewell based on 'mentality and demeanor.'"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter. Membou played 2,000+ career snaps and allowed only 3 sacks in his career.",
+        "production_trajectory": "Values consistency \u2014 Membou started 18 games across 2 years before his draft year.",
+        "context_sensitivity": "Adjusted for conference \u2014 SEC competition weighted heavily."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 1.07 \u2014 Armand Membou (Missouri): 6-4, 332, 33.5-inch arms, 4.91 40. 99th percentile Speed Score. 2,000+ career snaps at RT. 3 career sacks allowed. Road-grading run blocker with elite athletic profile."
+        ]
+      },
+      "confidence": "low \u2014 only 1 pick. Archetype strongly supported by Paton/Elway Denver tree which drafted Quinn Meinerz (athletic marvel IOL) and valued OL heavily."
+    },
+    "TE": {
+      "archetype_summary": "Receiving-first TE with NFL pedigree, route-running craft, and competitive toughness. Mason Taylor (6-5, 251, 4.65 40, 7.06 3-cone) was drafted 42nd overall \u2014 the most productive TE in LSU history (129 catches, 1,308 yards). Taylor is a move TE who wins with intelligence, reliable hands, and route-running craft rather than pure explosive separation. Compared himself to Mike Gesicki. The Paton tree in Denver has valued TEs who can operate as receiving weapons (drafted Greg Dulcich, signed Adam Trautman). Glenn's Lions used the TE position heavily in their offense.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-6",
+        "weight_range": "245-260",
+        "arm_length_minimum": "No clear cutoff \u2014 Taylor had 32.25-inch arms",
+        "key_athletic_tests": "4.65 or faster 40 preferred. 3-cone under 7.10 valued for route-running TE archetype. Bench press matters for blocking development (Taylor: 28 reps).",
+        "speed_requirement": "Sub-4.70 for receiving TEs"
+      },
+      "playing_style": {
+        "primary_win_condition": "Route-running craft and reliable hands. Wins in the intermediate areas against zone coverage, particularly from the slot.",
+        "most_valued_traits": [
+          "Hands and catch reliability",
+          "Route-running intelligence",
+          "Leadership and competitive character",
+          "Versatility in alignment (inline, slot, wing)"
+        ],
+        "least_important_traits": [
+          "Elite explosive separation \u2014 Taylor doesn't consistently win with burst against man coverage but wins with craft"
+        ],
+        "deal_breakers": "Blocking was a development area for Taylor, suggesting Mougey/Glenn are willing to accept blocking deficiencies if the receiving traits and character are strong.",
+        "traits_that_make_them_reach": "Elite ball skills and production in a strong conference. Taylor's gauntlet drill at the combine was called 'by far the most impressive' among TEs."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter with significant production. Taylor: 129 career catches, 1,308 yards, 6 TDs. Three-year starter in the SEC.",
+        "production_trajectory": "Values ascending producers. Taylor improved each year: 38 catches \u2192 36 catches (fewer targets with Nabers/Thomas) \u2192 55 catches as primary target.",
+        "context_sensitivity": "Very high \u2014 Taylor's raw numbers were suppressed by sharing the field with Jayden Daniels, Malik Nabers, and Brian Thomas Jr. Mougey/Glenn clearly valued the context."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 2.42 \u2014 Mason Taylor (LSU): 6-5, 251, 4.65 40 (pro day), 7.06 3-cone. Son of Hall of Famer Jason Taylor. Most productive TE in LSU history. 129 catches, 1,308 yards. Elite hands, route intelligence, moderate athletic profile."
+        ]
+      },
+      "confidence": "low \u2014 only 1 pick. Supported by Glenn's use of TEs in Detroit and the Paton tree's investment in the position."
+    },
+    "CB": {
+      "archetype_summary": "Long, physical press-man corner with size to disrupt at the line and compete at the catch point. Azareye'h Thomas (6-1.5, 197, 32 3/8-inch arms, 10-inch hands) was taken in Round 3. He profiles as a press-man specialist who uses length to jam receivers and disrupt timing routes. His play style was compared to Carlton Davis, who played under Glenn in Detroit. Glenn's defensive philosophy demands 'long, physical corners who can press, disrupt, and contest rather than concede space.' This is the most clearly defined archetype across the limited draft data \u2014 it's also the archetype Glenn built in Detroit (Jeff Okudah, Amik Robertson in press roles).",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "190-205",
+        "arm_length_minimum": "32+ inches strongly preferred (Thomas: 32 3/8 inches, 81st percentile). Glenn's Detroit CBs were all long.",
+        "key_athletic_tests": "Length metrics (arms, wingspan) appear to be more important than timed speed. Thomas didn't run the 40 at the combine but was still drafted in Round 3. Broad jump matters as an explosion indicator.",
+        "speed_requirement": "Not a hard cutoff based on Thomas (4.58 pro day 40 is not elite speed for a CB). Length and press ability can compensate for average speed in Glenn's scheme."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Press-man. Glenn's defenses demand 'heavy doses of man coverage first, with match principles layered in.'",
+        "most_valued_traits": [
+          "Length and disruption at the line",
+          "Press technique and physicality",
+          "Ball skills at the catch point",
+          "Competitive toughness",
+          "Run support willingness"
+        ],
+        "least_important_traits": [
+          "Pure timed speed \u2014 Thomas ran 4.58, well below the 'elite' CB speed threshold, but was valued for his physicality. Zone instincts are secondary to man coverage ability."
+        ],
+        "deal_breakers": "Zone-only corners who can't press. Glenn's scheme demands press capability.",
+        "traits_that_make_them_reach": "Elite length with press experience. Thomas had the longest arms in the CB class and excels at disrupting timing routes."
+      },
+      "college_production": {
+        "production_floor": "No clear statistical floor. Thomas had just 2 career INTs and 17 PDs across 3 years. Film and physical traits weighted more than stats.",
+        "production_trajectory": "Late developer \u2014 Thomas was a one-year full-time starter. Mougey/Glenn appear willing to bet on physical tools over extensive starting experience at CB.",
+        "context_sensitivity": "Moderate \u2014 Thomas played in a weak Florida State program, which may have depressed his overall numbers."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 3.73 \u2014 Azareye'h Thomas (Florida State): 6-1.5, 197, 32 3/8-inch arms, 10-inch hands, 4.58 40 (pro day). Press-man specialist. Compared to Carlton Davis (Glenn's Detroit CB). 52 tackles, 5 PDs, 1 INT in final season."
+        ]
+      },
+      "confidence": "medium \u2014 only 1 pick but heavily corroborated by Glenn's Detroit DC tenure and stated defensive philosophy. The 'press, pursuit, power' framework is clearly established."
+    },
+    "WR": {
+      "archetype_summary": "Speed-first playmaker who provides a vertical dimension. Arian Smith (Georgia) was taken in Round 4 \u2014 a track athlete with elite 4.36 speed who led Georgia with 817 receiving yards. The Paton/Denver tree valued speedsters (Marvin Mims, a similar speed-first WR, was drafted in the 2nd round in 2023). However, Smith came with injury concerns and drop issues, suggesting Mougey is willing to take calculated risks on speed at WR. The Adonai Mitchell trade acquisition (6-2, former 2nd-round WR from the Colts) adds a bigger-bodied complementary profile. Combined with Garrett Wilson, the Jets appear to want a diverse WR room with at least one vertical threat.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-2 (diverse \u2014 Smith is smaller/faster, Mitchell is bigger/more physical)",
+        "weight_range": "185-210",
+        "key_athletic_tests": "40-yard dash appears to be the primary separator for Day 2-3 WR picks. Smith ran 4.36.",
+        "speed_requirement": "Sub-4.40 for speed-archetype WR picks"
+      },
+      "playing_style": {
+        "most_valued_traits": [
+          "Deep speed/vertical threat ability",
+          "After-the-catch explosiveness",
+          "Ability to threaten defenses over the top"
+        ],
+        "least_important_traits": [
+          "Contested catch ability was not prioritized with the Smith pick, though Mitchell provides that dimension"
+        ],
+        "deal_breakers": "Insufficient data to determine",
+        "traits_that_make_them_reach": "Elite timed speed"
+      },
+      "college_production": {
+        "production_floor": "Smith had 48 catches for 817 yards \u2014 modest but led his team. Production floor appears lower for speed WRs.",
+        "context_sensitivity": "Georgia runs a run-heavy offense with distributed targets, so raw numbers were contextualized."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 4.110 \u2014 Arian Smith (Georgia): 4.36 40, 817 receiving yards (team-high), 48 catches. Speed-first vertical threat. Injury history (fractured wrist, torn meniscus, broken fibula, high-ankle sprain). High-risk, high-upside Day 3 bet."
+        ]
+      },
+      "confidence": "low \u2014 1 pick plus 1 trade acquisition. Denver tree (Mims) supports the speed-first thesis."
+    },
+    "S": {
+      "archetype_summary": "Physical, tone-setting safety who values instincts and toughness over elite speed. Malachi Moore (Alabama, 4th round, traded up 15 spots to get him) is a multi-year starter and 1st-team All-SEC player whose calling card is physicality and football IQ rather than blazing speed. Described as having 'great instincts, tracks the ball extremely well' but 'lack of foot speed.' Glenn and Mougey were 'looking for physicality' in this draft according to analysts. Moore was a team captain and special teams ace \u2014 character traits that clearly mattered.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-1",
+        "weight_range": "195-210",
+        "key_athletic_tests": "Instincts and football IQ valued over timed speed. Moore's testing was not elite.",
+        "speed_requirement": "No hard speed requirement \u2014 Moore doesn't have elite foot speed"
+      },
+      "playing_style": {
+        "primary_style": "Strong safety / tone-setter who can migrate from nickel to strong safety. Physical hitter who enables aggressive man coverage from the rest of the secondary.",
+        "most_valued_traits": [
+          "Physicality and tackling",
+          "Football instincts and processing",
+          "Leadership and character",
+          "Special teams ability",
+          "Versatility (played nickel and safety at Alabama)"
+        ],
+        "least_important_traits": [
+          "Elite range/speed \u2014 Moore doesn't have it and was still a trade-up target"
+        ],
+        "traits_that_make_them_reach": "Character, leadership, and scheme-fit physicality. The Jets traded up 15 spots specifically to get Moore."
+      },
+      "college_production": {
+        "production_floor": "Four-year starter at Alabama. 1st-team All-SEC in final season.",
+        "production_trajectory": "Long track record of production valued. Moore was a four-year contributor.",
+        "context_sensitivity": "SEC competition weighted heavily."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 4.130 \u2014 Malachi Moore (Alabama): 4-year starter. 1st-team All-SEC. Nickel \u2192 safety versatility. Physical tone-setter with elite instincts, limited foot speed. Traded up 15 spots to acquire."
+        ]
+      },
+      "confidence": "low-medium \u2014 1 pick but the trade-up signals strong conviction in the archetype."
+    },
+    "EDGE": {
+      "archetype_summary": "Long, powerful edge rusher with size and developmental upside. Tyler Baron (Miami/Tennessee, traded up in Round 5) was 6-5, 258 lbs \u2014 a big, long EDGE who was tied for Miami's team lead in sacks and TFLs. Baron needs development in discipline but has the size profile that Mougey/Glenn appear to value. The Jermaine Johnson trade (away) and clear intent to draft EDGE at #2 overall in 2026 suggest this is the top priority position. For the premium EDGE archetype, the Jets appear to want versatile pass rushers who can stand up or put hand in dirt in Glenn's hybrid front. Mock drafts suggest the Jets may target Arvell Reese (6-4, 241, 4.46 40 \u2014 an EDGE/LB hybrid) or David Bailey (traditional EDGE with elite production).",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5",
+        "weight_range": "245-260 for Day 3 picks; likely 240-260 for premium picks",
+        "arm_length_minimum": "Likely 31+ inches minimum. One reporter speculated Mougey would pass on Rueben Bain Jr. due to 30 7/8-inch arms (third-shortest since 1999).",
+        "key_athletic_tests": "Explosion and versatility. 40 time matters for hybrid EDGE/LB types (Reese: 4.46)."
+      },
+      "playing_style": {
+        "most_valued_traits": [
+          "Length",
+          "Versatility to play multiple defensive front alignments",
+          "Power/strength at point of attack",
+          "Motor and effort"
+        ],
+        "least_important_traits": "Insufficient data for Day 1 EDGE picks",
+        "deal_breakers": "Short arms may be a dealbreaker \u2014 speculative based on Bain Jr. reporting"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 5.176 \u2014 Tyler Baron (Miami/Tennessee): 6-5, 258. 5.5 sacks (6 in 2023). Developmental pass rusher with size. Needs discipline refinement. Traded up to acquire."
+        ]
+      },
+      "confidence": "low \u2014 1 Day 3 pick. The 2026 draft at #2 overall will be the defining EDGE pick for this regime."
+    },
+    "LB": {
+      "archetype_summary": "Physical, instinctive linebacker who can cover and set the tone. Francisco Mauigoa (Miami, Round 5) was one of the Hurricanes' top defensive players. Glenn's Lions defense valued LBs who could enable aggressive man coverage schemes. The ideal LB in Glenn's system is described as 'a centerpiece second-level defender who enables aggressive man coverage and expanded pressure packages' \u2014 violent finisher and elite processor. The 2026 draft may feature an LB prominently (Anthony Hill Jr. from Texas appears on multiple Jets mocks in the second round).",
+      "physical_profile": {
+        "height_range": "6-1 to 6-3",
+        "weight_range": "225-245",
+        "key_athletic_tests": "Insufficient data from 1 Day 3 pick"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 5.162 \u2014 Francisco Mauigoa (Miami): Top defensive player for Hurricanes. Physical LB."
+        ]
+      },
+      "confidence": "very_low \u2014 1 Day 3 pick. Glenn's Detroit tenure provides stronger archetype signals than the Jets draft."
+    },
+    "DT": {
+      "archetype_summary": "No DT drafted yet. Mougey acquired DTs via trade (Mazi Smith from Dallas in the Williams deal, T'Vondre Sweat from Tennessee for Jermaine Johnson). The Paton/Denver tree heavily prioritized DT investment \u2014 Denver signed Zach Allen, drafted D.J. Jones, and valued interior disruption. Glenn's defense needs both a penetrating 3-technique and a stout run-stopping nose. The trade for Sweat (a massive run-stuffing DT) and retention of Quincy Briggs (emerging pass-rushing DT) suggest the Jets want complementary DT archetypes rather than a single type.",
+      "evidence": {
+        "picks_analyzed": 0,
+        "trade_acquisitions": [
+          "Mazi Smith (6-3, 337, former 1st-round pick), T'Vondre Sweat (massive run-stopper)"
+        ]
+      },
+      "confidence": "very_low \u2014 no drafted DTs. 2026 draft likely to include a DT (Peter Woods from Clemson appears in mocks at #16)."
+    },
+    "IOL": {
+      "archetype_summary": "No IOL drafted by Mougey yet. The Paton/Denver tree drafted Quinn Meinerz (an athletic, powerful guard who became a 1st-team All-Pro) and Alex Forsyth (center). The Jets' existing IOL includes Alijah Vera-Tucker (Joe Douglas-era pick) and recent FA additions. The archetype from the Denver tree would suggest athletic, powerful guards who can pull and play in both gap and zone schemes.",
+      "evidence": {
+        "picks_analyzed": 0
+      },
+      "confidence": "very_low \u2014 relies entirely on mentorship tree."
+    },
+    "QB": {
+      "archetype_summary": "No QB drafted yet. Mougey signed Justin Fields in FA for 2025, which failed (Fields was benched and ended on IR). The Jets then started rookie Brady Cook (undrafted). For 2026, Mougey said he would 'exhaust every option' to find a QB. He dismissed a trade up to #1 at the combine. The front office appears undecided on the 2026 QB class. With Spielman in the building (who traded up for QBs in Minnesota) and massive draft capital, a QB trade-up in 2027 (when the Jets have 3 first-round picks) appears more likely than spending the #2 pick on a QB in a weak 2026 class. Mougey's willingness to address QB through FA/trade rather than the draft so far may reflect caution about the position rather than a philosophy of avoidance.",
+      "physical_profile": {
+        "notes": "No QB drafted \u2014 impossible to determine physical archetype. Glenn has said 'we will exhaust every option' for QB."
+      },
+      "evidence": {
+        "picks_analyzed": 0,
+        "fa_history": [
+          "Justin Fields (signed 2025, failed)",
+          "Brady Cook (UDFA 2024, started 4 games as rookie)"
+        ]
+      },
+      "confidence": "very_low \u2014 no draft data. Spielman's QB trade-up history and Mougey's 2027 draft capital stockpile are the strongest signals."
+    },
+    "RB": {
+      "archetype_summary": "No RB drafted. Mougey inherited Breece Hall and has signaled intent to retain him via franchise tag. The Paton tree has been willing to draft RBs on Day 2-3 (Denver drafted Jaleel McLaughlin, Audric Estime) but not in Round 1. Mougey appears to view RB as a position to fill through FA/tag rather than early draft capital.",
+      "evidence": {
+        "picks_analyzed": 0
+      },
+      "confidence": "very_low \u2014 relies on mentorship tree and roster management decisions."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": "Insufficient data \u2014 only 1 draft. Membou at #7 was generally viewed as a reasonable pick (some had him as high as #5, others projected him later in the top 10). Not a significant reach.",
+    "max_observed_reach": "The Day 3 trade-ups (Moore, Baron) suggest willingness to move aggressively for targeted players rather than waiting and hoping they fall.",
+    "round_1_reach_tolerance": "Appears moderate \u2014 Membou was consensus top 10 taken at #7. Not a reach.",
+    "notes": "Paton tree in Denver generally stayed close to consensus in Round 1 (Surtain at #9, Bo Nix at #12 were both consensus-range picks). Mougey likely has a moderate reach tolerance of 5-8 spots maximum in Round 1."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.65,
+    "offensive_scheme": "Under new OC Frank Reich (hired 2026): physical, run-first offense with play-action passing. Expected to feature a power/gap run scheme, emphasizing a strong ground game suited for Northeast weather. Reich's offenses historically build around the running game and play-action. Previous OC Tanner Engstrand (2025) ran a version of the Lions' offense. This scheme demands physical OL who can move people in the run game (hence Membou) and a TE who can both catch and develop as a blocker (hence Taylor).",
+    "defensive_scheme": "Aaron Glenn's defense: hybrid front that leans on even-front/one-gap principles. Glenn will call defensive plays himself in 2026. Core principles from his Detroit tenure: heavy man coverage with match principles, press-man CBs, aggressive pressure packages. Glenn's defense wants long/physical corners, versatile EDGE players who can stand up or hand-in-dirt, physical tone-setting safeties, and instinctive LBs who enable man coverage behind them. The 2025 Jets defense under Steve Wilks was historically bad (first team in NFL history to record zero interceptions in a 17-game season), so Glenn is reverting to his own system.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "MASSIVE scheme change on both sides of the ball for 2026. Offense: Frank Reich replaces Tanner Engstrand. Defense: Glenn himself replaces Steve Wilks and takes over playcalling. New DC Brian Duker comes from Glenn's Detroit system. 12 of 22 coaches from 2025 are gone. This coaching overhaul will significantly influence draft target archetypes \u2014 particularly on defense, where Glenn's specific preferences (press corners, physical safeties, hybrid EDGE) will drive selections."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.6,
+    "risk_description": "Moderately aggressive. Mougey was willing to trade two All-Pro defenders (Gardner, Williams) who were franchise cornerstones, just months after extending one of them. He took Arian Smith in Round 4 despite a lengthy injury history. He traded up twice on Day 3 for specific targets. The rebuild-mode context increases risk tolerance \u2014 when you're 3-14, aggressive asset accumulation is rational. In a more competitive context, risk tolerance may moderate. The Paton lineage is more conservative (Paton was described as 'calm and collected, and confident, and steady, and not erratic'), so Mougey's aggressiveness in the trading arena may be a deliberate breakpoint from his mentor.",
+    "recency_bias": 0.65,
+    "recency_description": "Moderate-to-high. After a historically bad defensive season (zero interceptions, near-last in most categories), the Jets are clearly going to prioritize defense in 2026. Mougey said at the combine that ball production (PBUs, interceptions, forced fumbles) is 'absolutely something we look at and it's an emphasis all the time.' The 2025 failure is directly shaping 2026 priorities. Every mock draft has the Jets going defense at #2.",
+    "sunk_cost_behavior": "Extremely willing to move on. Traded Sauce Gardner just 4 months after a $120.4M extension. Traded Quinnen Williams on the same day. Traded Jermaine Johnson. Cut ties with previous regime's scouting department. No evidence of sunk-cost attachment to prior investments.",
+    "combine_weight": 0.5,
+    "combine_description": "Balanced. Mougey said the combine is 'an opportunity for me to really meet and see some of these guys and put my eyes on them for the first time in person.' He values the interview/character evaluation component as much as the athletic testing. The Membou pick was heavily supported by elite combine numbers (4.91 40 at 332 lbs), but Thomas (CB, Round 3) didn't run the 40 at the combine and was still drafted, suggesting film can override testing. Mougey at the combine emphasized wanting to 'really dive into that college pool' and meeting prospects 'in person for the first time.'",
+    "character_weight": 0.75,
+    "character_description": "High character emphasis. Mougey quoted: 'your character is going to show up at some point.' Glenn has repeatedly emphasized 'teaching, developing, and culture.' Multiple picks were team captains or noted leaders (Moore was a team captain at Alabama, Taylor was a team captain at LSU). Glenn said at the combine: 'you really figure out the love, the passion, and how they're endeared to their teammates, which is very big for us.' The front office overhaul \u2014 removing 16-year veterans from the scouting department, hiring Spielman, bringing in fresh voices \u2014 suggests intolerance for complacency. Paton was described as valuing players who 'love the process, love football. Smart, tough, and accountable.'",
+    "quarterback_philosophy": "Currently unresolved and the biggest unknown. Mougey tried Justin Fields (FA) in 2025 and it failed. He's indicated willingness to address QB via 'every option' \u2014 draft, FA, or trade. He dampened expectations for a trade up to #1 in 2026. The 2026 QB class is viewed as weak. The most likely scenario is addressing QB via FA/trade for 2026, then potentially using the 3 first-round picks in 2027 to trade up for a franchise QB. Spielman's presence adds trade-up-for-QB DNA. This patience-until-the-right-moment approach aligns with Paton's philosophy (Paton waited until 2024, Year 4, to draft Bo Nix when the right QB became available)."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.55,
+    "production_vs_projection": "Leans slightly toward production but willing to bet on traits at secondary positions. Membou (OT): elite production (2,000+ snaps, 3 sacks allowed). Taylor (TE): most productive TE in LSU history. Thomas (CB): more projection-based \u2014 one-year starter, film over stats. Smith (WR): moderate production (48 catches) but elite speed. Moore (S): 4-year starter, 1st-team All-SEC. The pattern suggests high production required for premium positions (OT, TE) but more flexibility on projection for Day 2-3 picks at secondary positions.",
+    "production_thresholds_by_position": {
+      "OT": "Multi-year starter with minimal sacks allowed appears required",
+      "TE": "100+ career catches at a Power 4 school preferred for Day 2 picks",
+      "CB": "No clear production threshold \u2014 one-year starters with physical tools are acceptable",
+      "WR": "Production threshold appears lower for speed WRs \u2014 Smith had just 48 catches",
+      "S": "Multi-year starter preferred \u2014 Moore was a 4-year starter"
+    },
+    "breakout_age_sensitivity": 0.5,
+    "dominator_rating_sensitivity": 0.4,
+    "notes": "Context-sensitivity appears high. Taylor's production was evaluated against the backdrop of sharing an offense with 3 future first-rounders. Smith's production was evaluated in Georgia's run-heavy offense. This suggests Mougey adjusts for environment rather than relying on raw numbers."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "OT": {
+        "min_speed_score": "Very high \u2014 Membou was 97th+ percentile",
+        "min_vertical": "30+ inches",
+        "confidence": "low \u2014 1 pick"
+      },
+      "CB": {
+        "min_height": "6-0",
+        "min_arm_length": "32 inches",
+        "speed_note": "Not a hard cutoff \u2014 Thomas ran 4.58",
+        "confidence": "low \u2014 1 pick"
+      },
+      "EDGE": {
+        "min_height": "6-3",
+        "min_weight": "250",
+        "arm_note": "Likely 31+ inch minimum based on Bain Jr. reporting",
+        "confidence": "very_low \u2014 1 Day 3 pick"
+      },
+      "S": {
+        "no_clear_threshold": true,
+        "notes": "Moore was picked for instincts/physicality over athletic testing"
+      }
+    },
+    "threshold_type": "Appears to be position-dependent soft preferences rather than hard cutoffs. Film can override testing (Thomas didn't run 40, Moore doesn't have elite speed) but elite athletic testing at premium positions clearly helps (Membou's elite Speed Score).",
+    "size_preferences_by_position": {
+      "OT": "325+ lbs preferred with elite athleticism",
+      "CB": "6-0+ with 32+ inch arms \u2014 long, physical boundary corners",
+      "EDGE": "6-3+ with length \u2014 developmental size",
+      "TE": "6-4+ receiving TE archetype",
+      "S": "No clear size bias \u2014 physicality matters more than dimensions"
+    },
+    "athletic_testing_favorites": "Speed Score for OL (weight-adjusted 40). Explosion metrics (vertical, broad jump) for athletic testing positions. 3-cone for TEs and route-running WRs. Arm length for CBs and EDGE.",
+    "measurables_vs_film": "Film-first overall, but measurables serve as confirmers/eliminators at certain positions. Membou's elite testing confirmed his film. Thomas's lack of 40 time didn't prevent his selection because the film showed adequate speed. The arm length discussion around Bain Jr. suggests measurables can eliminate prospects at premium positions."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium positions, foundational players. Build from the inside out (trenches first). Will take the safe, high-floor pick over the flashy option when both are available (Membou over Tyler Warren). Strong BPA lean but addressed biggest need simultaneously. In 2026, with picks at #2 and #16, expect one defensive cornerstone (EDGE or S at #2) and one offensive playmaker or another defensive piece at #16.",
+    "round_2_3_strategy": "Shift toward scheme-fit and need-filling. Taylor (TE) at #42 addressed the need for a receiving weapon and fit the offensive system. Thomas (CB) at #73 directly targeted Glenn's defensive archetype. Day 2 appears to be where specific defensive system fits get prioritized.",
+    "day_3_strategy": "Aggressive trade-ups for specific targets. Traded up twice on Day 3 in his only draft (Moore, Baron). Targets seem to be physical, tough players with character traits and special teams value. Willing to take calculated risks (Smith's injury history). Day 3 is where developmental athletes with positional flexibility get targeted.",
+    "compensatory_pick_usage": "No data yet as GM. The Paton tree accumulated Day 3 picks and was willing to trade them to move up for specific targets."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "OT": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Membou started all 17 games as a rookie and was the team's most praised draft pick. Earned goodwill from fanbase."
+      },
+      "TE": {
+        "picks": 1,
+        "starters": 0,
+        "rate": "TBD",
+        "note": "Taylor is a rookie. Development year expected."
+      },
+      "CB": {
+        "picks": 1,
+        "starters": 0,
+        "rate": "TBD",
+        "note": "Thomas is a rookie. Development year."
+      },
+      "WR": {
+        "picks": 1,
+        "starters": 0,
+        "rate": "TBD",
+        "note": "Smith had injury concerns going in."
+      },
+      "S": {
+        "picks": 1,
+        "starters": 0,
+        "rate": "TBD",
+        "note": "Moore \u2014 potential immediate contributor."
+      },
+      "LB": {
+        "picks": 1,
+        "starters": 0,
+        "rate": "TBD"
+      },
+      "EDGE": {
+        "picks": 1,
+        "starters": 0,
+        "rate": "TBD",
+        "note": "Baron \u2014 developmental Day 3 pick."
+      }
+    },
+    "blind_spots": [
+      "Insufficient data \u2014 1 draft cycle."
+    ],
+    "strengths": [
+      "OT evaluation appears strong based on Membou's successful rookie year. Supported by Paton tree's OL drafting track record (Quinn Meinerz, Alex Forsyth)."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Active rebuilder in FA who uses cap space to fill holes while preserving draft capital for premium positions. The Jets have $90M+ in cap space for 2026. Mougey signed Justin Fields in FA for 2025 (attempting to fill QB via FA). He signed veterans like Josh Reynolds and Allen Lazard. In 2026, the Jets are expected to sign multiple veteran starters in FA while using their massive draft capital to add young foundational pieces.",
+    "fa_draft_correlation": "When FA fills a need, the draft allocation shifts. The T'Vondre Sweat trade (addressing DT) likely reduces the urgency to draft DT early, though they may still take one at #16. If a QB is signed/traded for in FA, the Jets won't be forced to draft one at #2.",
+    "roster_construction_philosophy": "Build through the draft at premium positions (EDGE, OT, CB, QB), supplement through FA at need positions. The massive draft capital stockpile (5 first-round picks in 2026-2027) suggests the Jets are building a young, draft-developed core. Mougey described the approach: 'aggressive but calculated.' Glenn emphasized building a culture of development."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 7,
+    "notable_patterns": [
+      "6 of 7 picks were on the defensive side of the ball or offensive line \u2014 no skill position player taken before Round 4",
+      "Traded up twice on Day 3 for specific defensive targets (S and EDGE)",
+      "Every pick was either a multi-year college starter or had significant college experience",
+      "Physical, tough, high-character players emphasized across the board \u2014 2 picks were team captains (Moore, Taylor), 1 had Hall of Fame family football lineage (Taylor)",
+      "First pick as GM addressed OL \u2014 aligning perfectly with the Paton/Elway Denver tree and Glenn's 'build from inside out' mantra"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2025,
+        "pick": "4.130",
+        "player": "Malachi Moore",
+        "position": "S",
+        "consensus_rank": "Late Day 3 / priority UDFA range for some outlets",
+        "reach_amount": "~15 spots (traded up 15 spots to get him)",
+        "context": "Targeted physical safety who fit Glenn's defensive vision. Four-year starter at Alabama. Character/leadership pick."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2025,
+        "pick": "1.07",
+        "player": "Armand Membou",
+        "position": "OT",
+        "consensus_rank": "5-10 range",
+        "value_amount": "Consensus-range pick, slightly above where some had him",
+        "context": "Viewed as safe, smart pick. Started all 17 games as a rookie."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_notes": "Only 1 draft as Jets GM (2025). Profile relies heavily on: (1) Paton/Elway Denver mentorship tree (weighted 0.70), (2) Glenn's Detroit defensive coordinator tenure for defensive archetypes, (3) Mougey's trade behavior and public statements. The 2026 draft (with picks #2 and #16 plus two 2nd-rounders) will be the true defining moment for this GM's profile. The T'Vondre Sweat trade, coaching overhaul, and $90M in cap space create a completely reshaped context from 2025. Profile should be heavily refreshed after 2026 draft.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

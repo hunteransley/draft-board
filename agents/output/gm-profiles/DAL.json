@@ -1,0 +1,730 @@
+{
+  "team": {
+    "name": "Dallas Cowboys",
+    "abbreviation": "DAL",
+    "division": "NFC East",
+    "current_draft_position": [
+      12,
+      20
+    ]
+  },
+  "front_office": {
+    "gm": {
+      "name": "Jerry Jones",
+      "title": "Owner / President / General Manager",
+      "hired": "1989-02-25",
+      "previous_role": "Owner (purchased team)",
+      "drafts_as_gm": 36,
+      "confidence": "high",
+      "notes": "Jerry Jones is the longest-tenured owner/GM in the NFL. While he holds the GM title, the actual draft board construction and scouting process has been led by Will McClay since 2014. Jones retains final say and is heavily involved in pick decisions, particularly in Round 1."
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Dallas Cowboys",
+          "role": "Owner/President/GM",
+          "years": "1989\u2013present",
+          "mentor": "Self-made; influenced by Jimmy Johnson partnership 1989-1993"
+        }
+      ],
+      "primary_mentor": "No traditional NFL scouting mentor. Jones learned the business initially with Jimmy Johnson running personnel (1989-93). The modern Cowboys draft philosophy is primarily shaped by Will McClay, who has overseen the process since 2014.",
+      "philosophical_lineage": "Jones' approach is eclectic. The Cowboys' scouting department under McClay is self-contained and does not descend from a traditional NFL tree. McClay came through Arena Football and the XFL before joining Dallas as a pro scout in 2002. His methodology was developed internally within the Cowboys organization, with influences from Jacksonville (brief stint 2001) and years of Dallas institutional knowledge.",
+      "breakpoints": "The single biggest breakpoint was 2014, when McClay was elevated to oversee the draft process after the Cowboys were criticized for their 2013 draft (which was the last draft without McClay's full oversight). Since 2014, Dallas has drafted 15 Pro Bowlers \u2014 the most in the NFL over that span.",
+      "lineage_weight": 0.15,
+      "lineage_weight_notes": "Scouting tree is essentially irrelevant here \u2014 12 years of McClay-era draft data with 36 years of Jones ownership is the model. The Cowboys' approach is their own."
+    },
+    "key_personnel": {
+      "will_mcclay": {
+        "name": "Will McClay",
+        "title": "Vice President of Player Personnel",
+        "hired_cowboys": "2002",
+        "draft_oversight_since": "2014",
+        "contract_status": "Signed 5-year extension January 2025",
+        "role_description": "McClay is the actual architect of the Cowboys' draft board. He oversees the entire scouting operation, constructs the big board, and manages the integration between scouting, coaching, and ownership on draft day. He is widely regarded as one of the best player evaluators in the NFL and has been courted by multiple teams for GM roles.",
+        "influence_level": "critical",
+        "known_biases": "Values size and length at premium defensive positions. Emphasizes film over testing but uses measurables as eliminators. Historically prefers drafting from Power 5 conferences. Known for finding Day 3 steals (DaRon Bland 5th round, Dak Prescott 4th round)."
+      }
+    },
+    "primary_decision_maker": "Jerry Jones holds final say, but Will McClay constructs the board and drives the process. In practice, this is a collaborative operation where McClay's board is the foundation and Jones makes the call, with Stephen Jones and the HC providing input.",
+    "key_influencers": [
+      {
+        "name": "Stephen Jones",
+        "title": "Chief Operating Officer / Co-Owner / Executive Vice President",
+        "influence_level": "high",
+        "known_biases": "More conservative/analytical than Jerry. Has publicly advocated for BPA approach and trading down. Handles much of the cap/contract side which shapes draft strategy."
+      },
+      {
+        "name": "Brian Schottenheimer",
+        "title": "Head Coach (since 2025)",
+        "influence_level": "medium-high",
+        "known_biases": "Offensive-minded. Values physicality on the offensive line. Emphasized wanting 'speed' and 'explosive' players on offense. First-year HC in 2025, entering second season. Has growing but not dominant influence on draft decisions."
+      },
+      {
+        "name": "Christian Parker",
+        "title": "Defensive Coordinator (since 2026)",
+        "influence_level": "medium",
+        "known_biases": "Vic Fangio disciple. Implementing 3-4 base scheme (first since 2012). Values versatile edge players who can stand up or put hand in dirt. Prioritizes stopping the run as foundation of defense. Brand new hire \u2014 his scheme will significantly shape 2026 defensive draft targets."
+      }
+    ],
+    "power_dynamics": "Unique NFL structure where the owner IS the GM. Jerry Jones is deeply involved in personnel decisions, sometimes to the point of overriding his staff. However, McClay's ascendancy since 2014 has professionalized the process considerably. Jones still makes emotional/instinctive moves (trading Parsons, Quinnen Williams trade) but the board itself is McClay's work. Stephen Jones serves as a moderating force between Jerry's aggressiveness and McClay's process-driven approach.",
+    "owner_interference": "very_high \u2014 Jerry Jones IS the GM. He does not interfere with the process; he IS the process. His fingerprints are on every major personnel decision. He has been known to make public statements that telegraph draft interest (e.g., praising specific prospects), to negotiate contracts personally, and to make trades based on emotion and urgency."
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.65,
+    "bpa_weight_by_round": {
+      "1": 0.7,
+      "2": 0.6,
+      "3": 0.55,
+      "4_plus": 0.4
+    },
+    "stated_philosophy": "Best player available. Stephen Jones has said 'at the end of the day you are trying to pick the best player on the board' and that you don't want to reach a round for a need player.",
+    "actual_philosophy": "Leans BPA in round 1 but with a strong gravitational pull toward need. The Cowboys have consistently claimed BPA but their picks often align with top needs. Key evidence: CeeDee Lamb at 17 in 2020 (true BPA \u2014 they expected to go pass rusher), Micah Parsons at 12 in 2021 (BPA \u2014 wanted CB but Horn/Surtain gone), Tyler Smith at 24 in 2022 (OL need-BPA overlap). However, Mazi Smith at 26 in 2023 (DT need, widely considered a reach) and Tyler Booker at 12 in 2025 (OG need after Zack Martin retirement) show clear need-driven behavior in round 1. The 2024 trade-back from 24 to 29 to take OT Tyler Guyton also addressed their biggest need (OL).",
+    "philosophy_mismatch_notes": "The mismatch is moderate. When BPA and need align (Parsons, CeeDee), they take the best player. When they diverge, they have shown willingness to address need (Mazi Smith, Tyler Booker). Jerry Jones himself said about the CeeDee pick: 'We never went into Micah's draft thinking we were going to pick Micah... The year we picked CeeDee, we were thinking pass rusher all the way, and we end up with a receiver.' This suggests genuine BPA behavior when elite talent falls. For 2026, Jerry Jones has stated explicitly: 'we got to go this year' and they are 'not looking for developmental redshirt prospects.' This signals a shift toward immediate-impact, need-driven drafting for the upcoming cycle."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.3,
+    "trade_down_willingness": 0.55,
+    "trades_per_draft_average": 2.0,
+    "trade_triggers": [
+      "Accumulating Day 2/3 picks when they lack mid-round capital (2024: traded back from 24 to 29 to gain extra 3rd-round pick)",
+      "Moving up in mid-rounds for specific targets (2025: traded up for LB Shemar James in 5th round)",
+      "Jerry Jones' emotional urgency and 'win now' mindset can trigger aggressive in-season trades (Parsons trade, Quinnen Williams midseason trade, George Pickens trade)",
+      "When a specific player falls and triggers a 'can't miss' impulse \u2014 Jones has historically been reactive to board breaks"
+    ],
+    "draft_capital_philosophy": "Complex and contradictory. Jerry Jones has historically been a 'build through the draft' conservative spender in free agency, using the draft as the primary roster construction tool. However, the 2025 offseason marked a dramatic shift \u2014 Jones traded Parsons for two future 1sts, then spent one of those future 1sts (plus a 2nd and Mazi Smith) on Quinnen Williams mid-season. For 2026, they have two 1st-round picks (12 and 20) but NO picks in rounds 2, 3, or 4. This is an unprecedented draft capital structure for the Cowboys that will force either trade-backs or extreme patience on Day 3.",
+    "notable_trades": {
+      "parsons_trade_2025": "Traded All-Pro EDGE Micah Parsons to Packers for DT Kenny Clark + 2026 1st + 2027 1st. Financially motivated (avoided $40M+ extension) but Jerry Jones framed it as competitive.",
+      "quinnen_williams_trade_2025": "Sent 2026 2nd + better of two 2027 1sts + DT Mazi Smith to Jets for DT Quinnen Williams. Aggressive mid-season move that sacrificed significant future capital.",
+      "george_pickens_trade_2025": "Traded for WR George Pickens from Pittsburgh to fill WR2 need after passing on WR in draft.",
+      "trade_down_2024": "Traded back from 24 to 29 with Detroit, gaining pick 73 (3rd round). Used both picks on OL (Tyler Guyton, Cooper Beebe). Classic McClay value play.",
+      "trade_down_2021": "Traded from 10 to 12 with Eagles, gaining extra 3rd-round pick. Took Micah Parsons at 12."
+    }
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "OL",
+        "EDGE",
+        "CB"
+      ],
+      "tier_2_high": [
+        "LB",
+        "DT",
+        "WR"
+      ],
+      "tier_3_mid": [
+        "S",
+        "TE",
+        "RB"
+      ],
+      "tier_4_low": [
+        "QB (when Dak is entrenched)",
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "QB \u2014 Will not draft a QB in early rounds while committed to Dak Prescott. Jerry Jones explicitly said 'We've got a major commitment with Dak, so you weigh that.'",
+      "TE \u2014 Have not used an early-round pick on TE since 2019 (no high TE investment under current regime)",
+      "S \u2014 Historically deprioritized in early rounds. Malik Hooker was a FA signing, not a draft investment."
+    ],
+    "position_premium": [
+      "OL \u2014 Most consistently drafted premium position. Since 2014: Zack Martin (Rd1), La'el Collins (UDFA), Connor McGovern (Rd3), Tyler Biadasz (Rd4), Tyler Smith (Rd1), Cooper Beebe (Rd3), Tyler Guyton (Rd1), Tyler Booker (Rd1). Four 1st-round OL in the last 12 years.",
+      "EDGE/DL \u2014 Heavy investment. Micah Parsons (Rd1), Taco Charlton (Rd1), DeMarcus Lawrence (Rd2), Donovan Ezeiruaku (Rd2), Marshawn Kneeland (Rd2). Consistently addressed in top 2 rounds.",
+      "CB \u2014 Regular investment but more in Rounds 2-5 than Round 1: Trevon Diggs (Rd2), Kelvin Joseph (Rd2), DaRon Bland (Rd5), Shavon Revel (Rd3), Caelen Carson (Rd5)."
+    ]
+  },
+  "player_archetype_preferences": {
+    "OT": {
+      "archetype_summary": "Massive, athletic upside tackle with premium length. The Cowboys target raw but physically gifted tackles who can be developed. They want 6'5\"+ with 34\"+ arms, long wingspan, and athletic movement skills. They've shown willingness to take developmental projects (Guyton, who only played football his senior year of HS; Tyler Smith from Tulsa).",
+      "physical_profile": {
+        "height_range": "6-5 to 6-8",
+        "weight_range": "310\u2013325",
+        "arm_length_minimum": "34 inches \u2014 historically enforced",
+        "key_athletic_tests": "Prioritize footwork and lateral agility. Guyton noted for 'fluid hips' and 'quick feet.' Tyler Smith valued for explosiveness.",
+        "speed_requirement": "Not a primary factor, but want athletic enough to reach blocks in zone scheme."
+      },
+      "playing_style": {
+        "primary_traits": "Pass protection ability is paramount \u2014 the Cowboys need to protect Dak Prescott. But they also value physicality in the run game. Booker was described as 'violent' and physical.",
+        "most_valued_traits": [
+          "Length and arm usage",
+          "Athletic movement ability",
+          "Pass protection technique/potential",
+          "Physicality in run game"
+        ],
+        "least_important_traits": [
+          "Polish \u2014 willing to take raw prospects and develop them (Guyton was a basketball player, Tyler Smith from small school)"
+        ],
+        "deal_breakers": [
+          "Short arms for tackles \u2014 34\" appears to be a hard cutoff"
+        ],
+        "traits_that_make_them_reach": "Elite length + athleticism combination, even from smaller schools"
+      },
+      "college_production": {
+        "production_floor": "Must have starting experience but doesn't need to be from a major program (Tyler Smith - Tulsa, Guyton - Oklahoma via TCU)",
+        "production_trajectory": "Willingness to take ascending players who showed improvement",
+        "context_sensitivity": "High \u2014 drafted Tyler Smith from Tulsa and Guyton who converted from basketball"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2022 Rd1 Pick 24 \u2014 Tyler Smith: 6-5, 324, Tulsa. Raw but explosive. Moved from LT to LG to LT. Became Pro Bowler.",
+          "2024 Rd1 Pick 29 \u2014 Tyler Guyton: 6-8, 322, Oklahoma. 34 1/8\" arms, 82 1/4\" wingspan. Basketball convert. Athletic and fluid.",
+          "2025 Rd6 Pick 204 \u2014 Ajani Cornelius: Oregon/Rhode Island OT. 50 career starts. Physical style. Swing lineman."
+        ]
+      },
+      "confidence": "high"
+    },
+    "IOL": {
+      "archetype_summary": "Physical, dominant interior lineman from a major program. The Cowboys want guards who can anchor in pass protection AND maul in the run game. They value consistency, low blown-block rates, and ability to play multiple interior positions. Think road-grader types from top programs (Alabama, Notre Dame, Kansas State).",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5",
+        "weight_range": "310\u2013330",
+        "key_athletic_tests": "Value functional strength and initial quickness off the snap over combine testing",
+        "speed_requirement": "Not a primary metric"
+      },
+      "playing_style": {
+        "primary_traits": "Consistency and physicality. Tyler Booker had 'only six blown blocks on 740 blocking plays' at Alabama. Cooper Beebe had 91.8 PFF pass-blocking grade, allowing just two sacks in 1,206 pass-blocking snaps.",
+        "most_valued_traits": [
+          "Consistency/low blown-block rate",
+          "Physicality and finishing in run game",
+          "Positional versatility (guard/center)",
+          "Anchor strength in pass protection"
+        ],
+        "least_important_traits": [
+          "Athletic testing numbers \u2014 value film-verified physical dominance over combine numbers"
+        ],
+        "deal_breakers": [
+          "Inconsistency in pass protection"
+        ],
+        "traits_that_make_them_reach": "Proven dominance at Power 5 program with elite pass-blocking metrics"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter at a competitive program. All picks have been established starters.",
+        "production_trajectory": "Prefer proven commodities \u2014 all recent IOL picks were established All-Conference or All-American types",
+        "context_sensitivity": "Moderate \u2014 but clearly prefer Power 5 programs for IOL"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2014 Rd1 Pick 16 \u2014 Zack Martin: 6-4, 315, Notre Dame. Consensus All-American. 9x Pro Bowler.",
+          "2024 Rd3 Pick 73 \u2014 Cooper Beebe: Kansas State. Back-to-back Big 12 OL of the Year. Elite PFF grades.",
+          "2025 Rd1 Pick 12 \u2014 Tyler Booker: 6-5, 325, Alabama. All-American. Only 6 blown blocks in 740 snaps."
+        ]
+      },
+      "confidence": "high"
+    },
+    "EDGE": {
+      "archetype_summary": "High-motor, productive pass rusher with explosiveness and good length. The Cowboys value sack production in college and elite athleticism. They want 6'2\"+ with 32\"+ arms (historically 32.1\" minimum). They've drafted both hand-in-dirt DEs and hybrid LB/EDGE types (Parsons). Elite college production matters \u2014 they want proven playmakers, not projection bets at this position.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "240\u2013265",
+        "arm_length_minimum": "32.1 inches \u2014 data collected between 2011 and 2023 shows this is the shortest armed pass rusher the Cowboys have drafted",
+        "key_athletic_tests": "3-cone drill important (Ezeiruaku: 91st percentile), 20-yard shuttle (Ezeiruaku: 92nd percentile). Value quickness/bend over raw speed. 40 time is secondary to on-field burst.",
+        "speed_requirement": "No strict 40-time cutoff but prefer 4.60 or faster. Ezeiruaku ran 4.47 at pro day."
+      },
+      "playing_style": {
+        "primary_win_condition": "Varies \u2014 they've drafted power types (DeMarcus Lawrence) and speed/finesse types (Ezeiruaku). The common thread is motor and production.",
+        "most_valued_traits": [
+          "Sack production in college",
+          "Motor/relentless effort",
+          "Explosiveness off the snap",
+          "Versatility \u2014 ability to play multiple defensive fronts"
+        ],
+        "least_important_traits": [
+          "Size \u2014 they've taken slightly undersized rushers (Ezeiruaku 6'2\" 248) if production is elite"
+        ],
+        "deal_breakers": [
+          "Low college production. With rare exceptions, their early-round EDGE picks have been highly productive in college."
+        ],
+        "traits_that_make_them_reach": "Elite college sack numbers combined with athletic testing that validates explosiveness"
+      },
+      "college_production": {
+        "production_floor": "High. Parsons was DPOY-caliber from day one. Ezeiruaku had 16.5 sacks and led FBS with 62 QB pressures. DeMarcus Lawrence had 20 sacks in final two college seasons.",
+        "production_trajectory": "Strong preference for ascending production \u2014 Ezeiruaku went from 2 sacks as freshman to 16.5 as junior",
+        "context_sensitivity": "Moderate \u2014 they took Ezeiruaku from Boston College (not a traditional powerhouse) because production was undeniable"
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2021 Rd1 Pick 12 \u2014 Micah Parsons: 6-3, 246, Penn State. Hybrid LB/EDGE. Elite athlete. 52.5 career sacks in 4 seasons.",
+          "2025 Rd2 Pick 44 \u2014 Donovan Ezeiruaku: 6-3, 248, Boston College. 34\" arms, 4.47 40. 16.5 sacks. 91st %ile 3-cone.",
+          "2024 Rd2 Pick 56 \u2014 Marshawn Kneeland: Western Michigan. Natural run defender, improved as pass rusher. 88.0 PFF run-defense grade.",
+          "2017 Rd1 Pick 28 \u2014 Taco Charlton: 6-6, 277, Michigan. Big, long DE. Major bust \u2014 may indicate overcorrection for size/length.",
+          "2014 Rd2 Pick 34 \u2014 DeMarcus Lawrence: Boise State. Traded up to get him. Smaller school, elite production."
+        ]
+      },
+      "confidence": "high",
+      "scheme_note_2026": "With the switch to a 3-4 base under Christian Parker, the Cowboys will be looking for versatile EDGE/OLB types who can stand up or put hand in dirt. This is a major shift from the 4-3 DE archetype they've drafted for the past decade. Parker specifically referenced wanting players who can set the edge in the run game AND rush the passer \u2014 a 'DeMarcus Ware knockoff' archetype."
+    },
+    "DT": {
+      "archetype_summary": "Large, powerful interior presence. The Cowboys have valued size and run-stopping ability at DT, though results have been mixed. Mazi Smith (6-3, 337, Michigan, Rd1 2023) was a major miss \u2014 he was drafted for his size and strength as a two-gap nose tackle but never produced. Their recent trade for Quinnen Williams and Kenny Clark suggests they now value proven veterans over developmental DT prospects. When they draft DTs, they want big bodies (290+) who can hold the point of attack.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4",
+        "weight_range": "280\u2013340",
+        "key_athletic_tests": "Less testing-dependent than other positions. Value functional strength and ability to hold point of attack.",
+        "speed_requirement": "Not a primary factor"
+      },
+      "playing_style": {
+        "most_valued_traits": [
+          "Run defense ability",
+          "Size and anchor strength",
+          "Interior disruption",
+          "Motor"
+        ],
+        "least_important_traits": [
+          "Pass rush moves \u2014 willing to draft run-stuffers without refined pass rush"
+        ],
+        "deal_breakers": [
+          "Being too small to hold up inside"
+        ],
+        "traits_that_make_them_reach": "Rare athletic testing for size (Mazi Smith had Dontari Poe-level combine numbers)"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2023 Rd1 Pick 26 \u2014 Mazi Smith: 6-3, 337, Michigan. 'Special athlete for a 337-pound nose tackle.' Hold-the-point type. BUST \u2014 struggled badly.",
+          "2021 Rd3 Pick 75 \u2014 Osa Odighizuwa: 6-1, 282, UCLA. Disruptive 3-tech. 27.5 TFL, 11.5 sacks in 43 games. High motor. SUCCESS \u2014 signed $80M extension.",
+          "2020 Rd3 Pick 82 \u2014 Neville Gallimore: Oklahoma. Some first-round buzz. Rare pass-rush moves for a 300-pounder.",
+          "2025 Rd7 \u2014 Jay Toia: UCLA. 325 lbs run-stuffing DT. Late-round depth.",
+          "2025 Rd7 \u2014 Tommy Akingbesote: Maryland. Depth/developmental."
+        ]
+      },
+      "confidence": "medium",
+      "blind_spot_note": "DT has been a problem position. Mazi Smith (2023 1st-round) was one of the biggest misses of the McClay era. The Cowboys essentially admitted this by trading Smith as a throw-in in the Quinnen Williams deal. This may make them more cautious about investing early-round capital in DT going forward, preferring proven veterans via trade."
+    },
+    "CB": {
+      "archetype_summary": "Long, physical, press-man capable corner with size and speed. The Cowboys consistently target CBs with length (6'0\"+), physicality at the line of scrimmage, and the ability to play man-to-man coverage. They've had elite success finding CB talent in later rounds (DaRon Bland, 5th round). They value ball skills and tackling willingness. Brian Schottenheimer stated the team wants 'length, size, ability to play press man-to-man' at corner.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-3",
+        "weight_range": "185\u2013200",
+        "arm_length_minimum": "No hard cutoff evident but preference for 31\"+ arms",
+        "key_athletic_tests": "Speed is important. 4.50 or faster preferred. Revel had 4.40 camp time. Value vertical/broad jump as explosiveness indicators.",
+        "speed_requirement": "4.50 or faster strongly preferred for early-round picks"
+      },
+      "playing_style": {
+        "primary_coverage_style": "Press-man capable with versatility. Schottenheimer explicitly said 'ability to play press man to man' is what they want.",
+        "most_valued_traits": [
+          "Length and press disruption at LOS",
+          "Speed to carry receivers deep",
+          "Ball skills/playmaking (Bland: NFL-record 5 pick-sixes)",
+          "Willingness to tackle in run support"
+        ],
+        "least_important_traits": [
+          "Slot capability \u2014 they've historically targeted boundary CBs in early rounds and found slot guys later"
+        ],
+        "deal_breakers": [
+          "Inability to play press \u2014 pure zone corners not valued as highly"
+        ],
+        "traits_that_make_them_reach": "Rare size-speed combination with press technique"
+      },
+      "college_production": {
+        "production_floor": "No strict statistical floor \u2014 they valued film and traits for Bland (5th round) who became a star",
+        "production_trajectory": "Willing to bet on ascending players, including injury cases (Revel - torn ACL)",
+        "context_sensitivity": "High \u2014 drafted DaRon Bland from 5th round despite limited pedigree. Drafted Revel from East Carolina because traits were elite."
+      },
+      "evidence": {
+        "picks_analyzed": 7,
+        "examples": [
+          "2020 Rd2 Pick 51 \u2014 Trevon Diggs: 6-2, Alabama. Ball-hawk with length. Led NFL in INTs in 2021.",
+          "2022 Rd5 Pick 167 \u2014 DaRon Bland: 5-11, Fresno State. NFL-record 5 pick-sixes in 2023. Day 3 steal.",
+          "2025 Rd3 Pick 76 \u2014 Shavon Revel Jr.: 6-3, 193, East Carolina. Fell due to torn ACL. Press-man specialist with elite length. Cowboys team surgeon performed his surgery.",
+          "2024 Rd5 Pick 174 \u2014 Caelen Carson: 5-11, 195, Wake Forest. Physical corner with run defense ability (83.4 PFF run-D grade).",
+          "2021 Rd2 Pick 44 \u2014 Kelvin Joseph: LSU. Ball skills and athleticism."
+        ]
+      },
+      "confidence": "high"
+    },
+    "WR": {
+      "archetype_summary": "Complete, versatile playmakers over pure speed merchants. The Cowboys are selective at WR \u2014 only three top-100 WR picks from 2014-2024. When they invest, they want multifaceted receivers. CeeDee Lamb (Rd1 2020) was the quintessential Cowboys WR pick: elite route runner with YAC ability, versatility to play inside and outside, and the ability to win contested catches. They've been willing to acquire WRs via trade (Amari Cooper, George Pickens) rather than draft them.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-4 \u2014 no strong size preference, but value it when combined with speed",
+        "weight_range": "185\u2013225",
+        "key_athletic_tests": "Schottenheimer emphasized 'speed offensively is a big key on the outside.' But they don't chase pure speed without complete skill sets.",
+        "speed_requirement": "No hard cutoff \u2014 drafted slow WRs and fast WRs. Value game speed over combine speed."
+      },
+      "playing_style": {
+        "most_valued_traits": [
+          "Versatility \u2014 ability to play multiple spots",
+          "Route running/separation",
+          "After-the-catch ability",
+          "Contested catch ability"
+        ],
+        "least_important_traits": [
+          "Pure straight-line speed without route running refinement \u2014 they passed on pure speedsters when available"
+        ],
+        "deal_breakers": [
+          "One-dimensional skill set"
+        ],
+        "traits_that_make_them_reach": "Rare combination of size, speed, and route-running (CeeDee Lamb profile)"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2020 Rd1 Pick 17 \u2014 CeeDee Lamb: Oklahoma. Complete receiver. 84 catches, 1,780 yards, 20 TDs in final season. BPA pick \u2014 fell to them.",
+          "2018 Rd3 Pick 81 \u2014 Michael Gallup: Colorado State. Contested-catch specialist. Strong outside receiver.",
+          "2024 Rd7 Pick 216 \u2014 Ryan Flournoy: Southeast Missouri State. 6'1\", physical WR. McClay said he stood out at combine. Big, fast, physical upside.",
+          "2025: Did NOT draft a WR despite clear need. Traded for George Pickens instead."
+        ]
+      },
+      "confidence": "medium",
+      "notes": "Cowboys have increasingly preferred to acquire WRs via trade (Cooper 2018, Pickens 2025) rather than use premium draft capital on the position. Only one first-round WR in 12 McClay-era drafts."
+    },
+    "LB": {
+      "archetype_summary": "Athletic, explosive off-ball linebackers with coverage ability and blitz capability. The Cowboys value LBs who can run sideline to sideline, cover, and contribute on special teams. They've historically been willing to take injury risks at this position (Jaylon Smith Rd2 2016 with torn ACL; DeMarvion Overshown Rd3 2023). They want athleticism and upside over safe, limited players.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "225\u2013250",
+        "key_athletic_tests": "Value speed and explosion \u2014 40 time and shuttle important. Parsons was elite athlete. Liufau had 4.64 40 with 34.25\" arms.",
+        "speed_requirement": "4.65 or faster preferred for off-ball LBs"
+      },
+      "playing_style": {
+        "most_valued_traits": [
+          "Sideline-to-sideline speed",
+          "Coverage ability (modern LB requirement)",
+          "Blitz ability",
+          "Special teams contribution (for Day 3 picks)"
+        ],
+        "least_important_traits": [
+          "Pure run-stuffing without coverage/speed"
+        ],
+        "deal_breakers": [
+          "Inability to cover \u2014 scheme demands it"
+        ],
+        "traits_that_make_them_reach": "Rare athleticism + coverage ability"
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2021 Rd1 Pick 12 \u2014 Micah Parsons: Penn State. Elite athlete, hybrid LB/EDGE. BPA pick.",
+          "2018 Rd1 Pick 19 \u2014 Leighton Vander Esch: Boise State. Rangy, athletic LB. Pro Bowler as rookie.",
+          "2023 Rd3 Pick 90 \u2014 DeMarvion Overshown: 6-3, 229, Texas. Explosive, ascending production. Torn ACL before rookie season \u2014 classic Cowboys injury gamble at LB.",
+          "2024 Rd3 Pick 87 \u2014 Marist Liufau: 6-2, 234, Notre Dame. 4.64 40, 34.25\" arms. Aggressive, thumping style. Being moved to OLB for 3-4.",
+          "2025 Rd5 Pick 152 \u2014 Shemar James: Florida. Age 20. Traded up to get him. 166 tackles, 5 sacks. Special teams contributor."
+        ]
+      },
+      "confidence": "high",
+      "scheme_note_2026": "The switch to a 3-4 fundamentally changes LB needs. They now need two inside linebackers AND two outside linebackers. Marist Liufau is being moved to OLB. This creates enormous need at ILB and potentially OLB in the 2026 draft."
+    },
+    "S": {
+      "archetype_summary": "Historically deprioritized position in the draft. The Cowboys have rarely invested premium draft capital at safety under McClay. They've preferred to address the position through free agency (Malik Hooker, Donovan Wilson). When they have drafted safeties, it's been on Day 3.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-2 preferred",
+        "weight_range": "195\u2013215",
+        "key_athletic_tests": "Range and ball skills valued",
+        "speed_requirement": "Want range safeties who can cover"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2021 Rd6 Pick 179 \u2014 Israel Mukuamu: South Carolina. 6-4 CB/S hybrid. Size-based pick.",
+          "Limited draft investment \u2014 primarily addressed through FA"
+        ]
+      },
+      "confidence": "low",
+      "notes": "Safety is the position where the Cowboys have the least draft data. They've overwhelmingly used FA to fill the position. For 2026, with Donovan Wilson heading to FA and Malik Hooker's deal expiring after 2026, they may be forced to invest draft capital here for the first time."
+    },
+    "TE": {
+      "archetype_summary": "Receiving-capable tight ends with size. Not a premium draft investment position. Jake Ferguson (4th round 2022) has become their starter and was extended to a franchise-record TE deal. Luke Schoonmaker (2nd round 2023) was a rare early investment \u2014 big, athletic, but developmental.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-6",
+        "weight_range": "245\u2013260",
+        "key_athletic_tests": "Value receiving ability and size"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2022 Rd4 Pick 129 \u2014 Jake Ferguson: Wisconsin. 6-5, 246. Receiving TE. Became starter, signed franchise-record extension.",
+          "2023 Rd2 Pick 58 \u2014 Luke Schoonmaker: Michigan. 6-5, 254. Athletic, developmental. Big body."
+        ]
+      },
+      "confidence": "low"
+    },
+    "RB": {
+      "archetype_summary": "Historically devalued in the draft since the Ezekiel Elliott era ended. The Cowboys believe in the deep RB class approach \u2014 waiting until Day 3 and finding value. They want versatile backs who can contribute in multiple phases. Jerry Jones acknowledged there's 'a bunch of nuances that go into this running back conversation.' They signed Javonte Williams in FA and found Jaydon Blue (speed) and Phil Mafah (power) on Day 3 of the 2025 draft.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-1 \u2014 varied, no strong preference",
+        "weight_range": "196\u2013234 \u2014 draft both speed and power types",
+        "key_athletic_tests": "Blue ran 4.38 40 (speed back). Mafah at 6-1, 230 (power). Value both archetypes."
+      },
+      "playing_style": {
+        "most_valued_traits": [
+          "Versatility \u2014 receiving ability for speed backs, short-yardage ability for power backs",
+          "Scheme fit \u2014 Schottenheimer likes gap scheme runners"
+        ],
+        "least_important_traits": [
+          "Not looking for a bell-cow workhorse anymore"
+        ],
+        "deal_breakers": [
+          "Poor ball security (noted as concern with Jaydon Blue)"
+        ]
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2016 Rd1 Pick 4 \u2014 Ezekiel Elliott: Ohio State. Only first-round RB since. Different era.",
+          "2025 Rd5 Pick 150 \u2014 Jaydon Blue: Texas. 4.38 40. Speed/receiving back.",
+          "2025 Rd7 Pick 231 \u2014 Phil Mafah: 6-1, 234, Clemson. Power runner. 2,800+ career yards.",
+          "2023 Rd5 \u2014 Deuce Vaughn: Kansas State. 5-5, 179. Speed/change-of-pace."
+        ]
+      },
+      "confidence": "medium",
+      "notes": "The Cowboys have clearly shifted to a 'RB by committee built through Day 3 picks and FA' approach since the Elliott era. Do not expect early-round RB investment."
+    },
+    "QB": {
+      "archetype_summary": "Not a draft priority as long as Dak Prescott is the franchise QB. Jerry Jones said 'We've got a major commitment with Dak, so you weigh that' when asked about drafting a QB. Prescott is signed long-term. The Cowboys have only drafted one QB in the McClay era above the 7th round (Dak Prescott himself, 4th round 2016). They acquired Joe Milton (developmental arm talent) via trade in 2025.",
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2016 Rd4 Pick 135 \u2014 Dak Prescott: Mississippi State. Late-round steal that became franchise QB.",
+          "2020 Rd7 \u2014 Ben DiNucci: James Madison. Emergency backup."
+        ]
+      },
+      "confidence": "low",
+      "notes": "Prescott's presence means QB is essentially a non-factor in the 2026 draft. Would only change if Prescott suffered a career-threatening injury or demanded a trade."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 7,
+    "max_observed_reach": 15,
+    "round_1_reach_tolerance": 5,
+    "notes": "The Cowboys generally stick close to their board in Round 1. CeeDee Lamb at 17 was consensus value. Parsons at 12 was consensus value. Tyler Booker at 12 was slightly above consensus but not a major reach. The biggest outlier was Mazi Smith at 26 in 2023, who was widely considered a reach of 10-15 spots. On Day 2-3, they're more willing to reach for specific targets (traded up for Shemar James). Stephen Jones has said explicitly they don't want to 'pick a player who's quite a bit down the line, a round down' when first-round graded players are available."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.5,
+    "offensive_scheme": "Brian Schottenheimer runs a play-action heavy offense with gap/power run concepts. Values physical offensive line, strong running game, and explosive playmakers. Cowboys want to be physical and run-heavy with play-action shots downfield. Tyler Booker was drafted specifically for gap scheme blocking ability.",
+    "defensive_scheme": "MAJOR SCHEME CHANGE for 2026. Christian Parker installing 3-4 base defense (first since 2012) with multiple fronts. Will also use 4-3 spacing, 4-2-5 nickel, and various front structures. Parker comes from Vic Fangio tree (Eagles). Low blitz volume, high rush efficiency philosophy. Prioritizes stopping the run first. Needs versatile EDGE/OLB types, interior linebackers, and coverage-capable defenders.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "This is a massive defensive scheme change. Parker is the 4th DC in 4 years (Dan Quinn, Mike Zimmer briefly mentioned scheme, Matt Eberflus, now Parker). The switch from 4-3 to 3-4 fundamentally changes what types of defensive players the Cowboys need to draft. McClay acknowledged this challenge, saying it's his job to 'marry a scout's eye with a different coach's vision \u2014 yet again.' Defensive draft picks should be weighted toward 3-4 versatility. Will McClay noted the key is 'size and length more than anything' and emphasized: 'if we're solely picking players to fit into a specific scheme, we're not doing our job right.'"
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.55,
+    "risk_description": "Moderately aggressive. The Cowboys have a documented pattern of taking injury risks (Jaylon Smith with torn ACL in Rd2 2016; Shavon Revel with torn ACL in Rd3 2025; DeMarvion Overshown torn ACL). They also took character risks on Day 2 (Randy Gregory Rd2 2015). However, for 2026, Jerry Jones explicitly said they can't afford to wait on developmental players \u2014 'we got to go this year' and specifically referenced not wanting to draft players with injury concerns who can't contribute immediately. This signals a temporary shift toward lower-risk, immediate-impact players.",
+    "recency_bias": 0.75,
+    "recency_description": "HIGH recency bias. After the worst defense in franchise history in 2025, Jones has been vocal about defensive urgency. He admitted letting Jourdan Lewis walk was a mistake. The defensive failures will clearly dominate 2026 draft thinking. Also, the Mazi Smith bust at DT likely creates reluctance to invest early-round capital in DT again.",
+    "sunk_cost_behavior": "Willing to move on from busts quickly. Traded Mazi Smith (2023 1st-round pick) as a throw-in in the Quinnen Williams trade after just 2.5 seasons. Waived Taco Charlton (2017 1st-round) after 2 years. Does not double down \u2014 cuts losses and moves forward.",
+    "combine_weight": 0.45,
+    "combine_description": "Balanced but slightly film-first. McClay has said 'you measure everything, height, weight, you see them run and do all that stuff and get the measurables, but how do they play the game of football? That's what you're looking for.' He recently said 'traits can get you in trouble' regarding athletic testing. However, measurables ARE used as eliminators \u2014 the 32.1\" minimum arm length for EDGE rushers is one documented threshold. McClay uses the combine to confirm film impressions, not drive them.",
+    "character_weight": 0.55,
+    "character_description": "Moderate. The Cowboys have taken character risks in the past (Randy Gregory, who had substance abuse issues; George Pickens trade despite behavior concerns). But those were calculated gambles, not reckless ones. Jerry Jones is more willing than most GMs to bet on talent when character is questionable if the price is right.",
+    "quarterback_philosophy": "Fully committed to Dak Prescott. Will not invest meaningful draft capital at QB. Focus is entirely on building around Prescott."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.6,
+    "production_vs_projection": "The Cowboys lean toward proven college producers but have made projection bets. CeeDee Lamb was a monster producer (84 catches, 1,780 yards, 20 TDs). Ezeiruaku led FBS with 62 QB pressures and 16.5 sacks. Tyler Booker was an All-American with elite blown-block rates. However, they've also bet on traits (Tyler Smith from Tulsa, Tyler Guyton who was a basketball convert). When forced to choose, production has the edge in tie-breakers, but exceptional traits at a position of need can override production gaps.",
+    "production_thresholds_by_position": {
+      "EDGE": "High production expected \u2014 Parsons and Ezeiruaku were dominant producers. DeMarcus Lawrence had 20 sacks in final two years.",
+      "OL": "Multi-year starter expected. All first-round OL picks were established starters at their college program.",
+      "CB": "No strict production floor \u2014 they valued traits over stats for DaRon Bland (small school) and Shavon Revel (limited 2024 games due to injury)",
+      "WR": "High production when they invest \u2014 CeeDee Lamb was Biletnikoff finalist with elite stats"
+    },
+    "breakout_age_sensitivity": 0.5,
+    "dominator_rating_sensitivity": 0.45,
+    "notes": "McClay has credited McCarthy-era staff for 'valuing talented players over a specific scheme.' Production is valued but not at the expense of missing a rare physical talent. The Cowboys' biggest steals (Bland, Prescott) were production-plus-traits combinations found later in the draft."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "EDGE": {
+        "min_arm_length": "32.1 inches (historical minimum from 2011-2023 data)",
+        "confidence": "high"
+      },
+      "OT": {
+        "min_arm_length": "34 inches (all recent OT picks have met this)",
+        "confidence": "high"
+      },
+      "CB": {
+        "speed_preference": "4.50 or faster strongly preferred",
+        "height_preference": "6-0+ preferred but not absolute (DaRon Bland 5-11)",
+        "confidence": "medium"
+      },
+      "DT": {
+        "size_preference": "290+ for 3-technique, 310+ for nose",
+        "confidence": "medium"
+      },
+      "IOL": {
+        "no_clear_athletic_threshold": true,
+        "notes": "Film-based evaluation. Value functional strength over testing numbers."
+      }
+    },
+    "threshold_type": "Mix of hard cutoffs (EDGE arm length, OT arm length) and soft preferences at other positions. McClay uses measurables as eliminators at premium defensive positions but is more flexible at skill positions.",
+    "size_preferences_by_position": {
+      "EDGE": "6-2+ preferred, 240+ lbs",
+      "OT": "6-5+ with 34\"+ arms \u2014 non-negotiable",
+      "CB": "6-0+ preferred but exceptions made (DaRon Bland 5-11)",
+      "DT": "290-340 depending on role",
+      "LB": "225-250, value speed"
+    },
+    "athletic_testing_favorites": "3-cone drill and short shuttle appear important for EDGE evaluation. Vertical jump and broad jump valued for CBs and WRs as explosiveness indicators.",
+    "measurables_vs_film": "Film-first overall. McClay's quote: 'you measure everything... but how do they play the game of football? That's what you're looking for.' However, measurables serve as eliminators at certain positions. A poor measurement can drop a player off their board even with strong film (the 32.1\" arm minimum for EDGE). McClay recently said 'traits can get you in trouble' when discussing athletic testing, suggesting wariness about overweighting combine numbers."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium positions, BPA-leaning with need influence. When elite talent falls (CeeDee, Parsons), they pounce. When it doesn't, they address top needs (Booker, Guyton, Mazi Smith). Willing to trade back in round 1 if value isn't there at their spot (2021: traded back from 10 to 12; 2024: traded back from 24 to 29). For 2026 specifically: With picks at 12 and 20 and massive defensive needs, expect both first-round picks to be used on defense. Jerry Jones has not promised this, but DC Christian Parker said he would 'campaign for' defensive picks.",
+    "round_2_3_strategy": "Value picks who can contribute quickly. Day 2 has been a mix of BPA and need. Strong track record here \u2014 DeMarcus Lawrence (Rd2), Trevon Diggs (Rd2), Osa Odighizuwa (Rd3), Donovan Ezeiruaku (Rd2). CRITICAL NOTE for 2026: The Cowboys have NO picks in rounds 2, 3, or 4. They traded their 2nd-rounder for Quinnen Williams and have no other Day 2 capital. This creates an unprecedented gap between their two 1st-round picks and their Day 3 selections.",
+    "day_3_strategy": "This is where McClay shines. The Cowboys have found numerous contributors and even stars on Day 3: Dak Prescott (Rd4), DaRon Bland (Rd5), Jake Ferguson (Rd4). They target specific roles: developmental athletes, special teams contributors, positional versatility. They've also used Day 3 for injury-risk players who fell (Shavon Revel, Jaylon Smith). McClay said: 'At the end of the day in the NFL, you're looking for explosive playmakers.'",
+    "compensatory_pick_usage": "The Cowboys have been allocated compensatory picks in past years (received 4 comp picks in 2025 due to losing staff members). They use comp picks for slightly higher-risk/upside players. Shemar James was taken with a traded-for comp pick-range selection.",
+    "2026_unique_structure": "Two 1st-round picks (12 and 20), then NOTHING until Round 5. No Round 2, 3, or 4 picks. They may have a few 5th-round picks and potentially some comp picks. This structure almost certainly means they will trade back from one of their first-round picks to acquire Day 2 capital, unless they find two players they absolutely love at 12 and 20."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "OL": {
+        "picks_since_2014": 8,
+        "pro_bowlers": 3,
+        "starters": 6,
+        "rate": 0.75,
+        "note": "Strongest position evaluation in the NFL. Zack Martin (HOF-track), Tyler Smith (All-Pro), Cooper Beebe (starter), Tyler Guyton (starter). Tyler Booker expected to start."
+      },
+      "EDGE": {
+        "picks_since_2014": 6,
+        "pro_bowlers": 2,
+        "starters": 3,
+        "rate": 0.5,
+        "note": "Mixed. Parsons and Lawrence were home runs. Taco Charlton was a disaster. Kneeland died tragically. Ezeiruaku promising but only one season."
+      },
+      "CB": {
+        "picks_since_2014": 7,
+        "pro_bowlers": 2,
+        "starters": 3,
+        "rate": 0.43,
+        "note": "DaRon Bland (5th round steal) and Trevon Diggs (2nd round) were elite. Kelvin Joseph, Reggie Robinson, Nahshon Wright were misses. Net positive due to magnitude of hits."
+      },
+      "LB": {
+        "picks_since_2014": 5,
+        "pro_bowlers": 2,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "Parsons was franchise-altering. Vander Esch was a hit before injuries. Others have been misses or injury-limited (Overshown, Smith)."
+      },
+      "DT": {
+        "picks_since_2014": 5,
+        "pro_bowlers": 1,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "Osa Odighizuwa was a hit. Mazi Smith was a major bust. Mixed results."
+      },
+      "WR": {
+        "picks_since_2014": 3,
+        "pro_bowlers": 1,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "CeeDee Lamb franchise WR. Michael Gallup solid Rd3 pick. Low volume, decent hit rate."
+      },
+      "RB": {
+        "picks_since_2014": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Elliott was dominant early but contract was regretted. Day 3 RBs have been depth pieces."
+      }
+    },
+    "blind_spots": [
+      "DT evaluation has been inconsistent \u2014 Mazi Smith (Rd1 2023) was one of the worst picks of the McClay era. Simulation should discount confidence at DT.",
+      "CB misses in Day 2 have been notable (Kelvin Joseph Rd2 2021 was a bust). Their CB hits have come from Day 3 (Bland, potentially Carson/Revel).",
+      "Injury gambles at LB have not always paid off (Jaylon Smith, Overshown both had significant injury setbacks)"
+    ],
+    "strengths": [
+      "Offensive line evaluation is best in the NFL. 4 first-round OL picks, 3 became Pro Bowlers. Simulation should boost confidence here.",
+      "Day 3 value picks \u2014 finding Dak Prescott (Rd4), DaRon Bland (Rd5), Jake Ferguson (Rd4) demonstrates elite late-round evaluation.",
+      "EDGE evaluation when they hit, they hit big (Parsons, Lawrence, and Ezeiruaku looks promising)"
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Historically conservative/build-through-the-draft. However, Jerry Jones has signaled a major philosophical shift for 2026: 'We got to go this year' and plans to 'borrow against the future and bust the budget' to improve the defense. The Cowboys have restructured Prescott, Lamb, and Tyler Smith contracts to create ~$66M in cap space. This is potentially the most aggressive FA approach in recent Cowboys history.",
+    "fa_draft_correlation": "When they sign a veteran starter at a position, they typically deprioritize that position in the draft. Example: After signing Javonte Williams (RB) to an extension, they used only Day 3 picks on RB. After acquiring Quinnen Williams and Kenny Clark at DT, they're unlikely to draft a DT early. This principle suggests EDGE, CB, S, and LB will be the primary draft targets in 2026 since those are the positions least addressed through trade/FA.",
+    "roster_construction_philosophy": "Traditionally built through the draft at premium positions (OL, EDGE, WR1) and supplemented through FA at non-premium spots (RB, LB, S). The 2025-2026 offseason appears to be a departure, with heavy FA/trade activity on defense combined with draft investment. The Cowboys are trying to build quickly \u2014 Jones compared their situation to the Patriots/Seahawks Super Bowl LX rosters, which combined draft success with aggressive FA spending."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 65,
+    "notable_patterns": [
+      "7 of 12 first-round picks since 2014 have been on the offensive or defensive line (OL: Martin, Smith, Guyton, Booker; DL: Mazi Smith; EDGE/LB: Parsons, Charlton, Vander Esch)",
+      "Strong preference for Power 5 conference players in early rounds, but willing to take small-school talents on Day 2-3 (Fresno State, East Carolina, Western Michigan, Boston College)",
+      "15 Pro Bowlers drafted since 2014 \u2014 most in the NFL over that span",
+      "Willing to trade down in Round 1 to accumulate mid-round picks (2021, 2024)",
+      "Consistently find Day 3 contributors at a rate above league average",
+      "Injury-risk gambles are a recurring pattern, especially at LB and CB"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2023,
+        "pick": "1.26",
+        "player": "Mazi Smith",
+        "position": "DT",
+        "consensus_rank": "38-45 range",
+        "reach_amount": 12,
+        "context": "DT need after losing interior depth. Smith was valued for rare athletic testing at 337 lbs but lacked college pass-rush production. Widely panned as a reach. Has been a bust \u2014 traded to Jets after 2.5 seasons."
+      },
+      {
+        "year": 2017,
+        "pick": "1.28",
+        "player": "Taco Charlton",
+        "position": "EDGE",
+        "consensus_rank": "35-40",
+        "reach_amount": 10,
+        "context": "EDGE need. Picked Charlton over T.J. Watt, who went 2 picks later. One of the worst picks in franchise history."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2022,
+        "pick": "5.167",
+        "player": "DaRon Bland",
+        "position": "CB",
+        "consensus_rank": "120-140",
+        "value_amount": 30,
+        "context": "Fifth-round pick who set NFL record with 5 pick-sixes in 2023. Signed $92M extension. All-time Day 3 steal."
+      },
+      {
+        "year": 2016,
+        "pick": "4.135",
+        "player": "Dak Prescott",
+        "position": "QB",
+        "consensus_rank": "100-120",
+        "value_amount": 15,
+        "context": "Fourth-round QB who won Offensive Rookie of the Year and became franchise QB. Still the starter a decade later."
+      },
+      {
+        "year": 2020,
+        "pick": "1.17",
+        "player": "CeeDee Lamb",
+        "position": "WR",
+        "consensus_rank": "8-12",
+        "value_amount": 7,
+        "context": "Top-10 talent who fell to 17. Cowboys took BPA even though WR wasn't their biggest need. Classic 'trust the board' pick."
+      },
+      {
+        "year": 2025,
+        "pick": "3.76",
+        "player": "Shavon Revel Jr.",
+        "position": "CB",
+        "consensus_rank": "25-40 (first-round talent pre-injury)",
+        "value_amount": 40,
+        "context": "Fell from potential first-round pick due to torn ACL. Cowboys' team surgeon performed the surgery, giving them insider medical information. High-upside gamble."
+      }
+    ]
+  },
+  "2026_draft_context": {
+    "current_picks": {
+      "round_1": [
+        "12th overall (own)",
+        "20th overall (from Packers via Parsons trade)"
+      ],
+      "round_2": "NONE \u2014 traded to Jets in Quinnen Williams deal",
+      "round_3": "NONE",
+      "round_4": "NONE",
+      "round_5": "Multiple picks expected (own + potential comp picks)",
+      "round_6": "NONE \u2014 traded in Jordan Phillips deal",
+      "round_7": "One pick (from Chiefs via Hendershot trade)"
+    },
+    "key_needs": [
+      "EDGE/OLB \u2014 Top priority. Lost Parsons, Marshawn Kneeland died tragically, Ezeiruaku had hip surgery. Need 3-4 OLB types for Parker's scheme.",
+      "CB \u2014 Trevon Diggs released. Shavon Revel coming off torn ACL. DaRon Bland is the only proven starter. Need at least one more starting-caliber CB.",
+      "S \u2014 Donovan Wilson heading to FA. Malik Hooker's deal expires after 2026. Major need.",
+      "LB (ILB) \u2014 3-4 scheme requires two ILBs. Cowboys LB room was among worst in NFL in 2025. Logan Wilson was waived.",
+      "EDGE depth \u2014 Even with Ezeiruaku, need more pass rushers"
+    ],
+    "expected_strategy": "With two top-20 picks and then nothing until Day 3, the Cowboys face a critical strategic decision: (1) Use both 1sts on defense as expected, or (2) Trade back from one pick to acquire Day 2 capital. Given the massive gap between Round 1 and Round 5, and the number of holes to fill, trading back from pick 20 to acquire a 2nd and 3rd seems highly likely. Jerry Jones has historically been open to this (traded back in 2021 and 2024). However, if two elite defensive prospects are available at 12 and 20, Jones' 'win now' urgency may override the desire for more picks. Jones said at the Combine: 'we got to go this year' \u2014 suggesting immediate-impact players are the priority.",
+    "jerry_jones_2026_mindset": "Jones is in full urgency mode. He acknowledged letting fans down, said he'd 'hitchhike from Indianapolis to Dallas to get another Super Bowl,' plans to 'bust the budget,' and wants players who can contribute immediately \u2014 'no time for redshirt years.' This suggests: (1) high-floor, NFL-ready players over developmental prospects, (2) defense-heavy draft, (3) potential aggressive FA spending to reduce number of draft holes, (4) willingness to trade future capital for present help."
+  },
+  "confidence": "high",
+  "confidence_notes": "12 years of McClay-era draft data (2014-2025) provides extensive behavioral evidence. Jerry Jones' 36 years as owner/GM adds further depth. The primary uncertainty is the defensive scheme change under Christian Parker, which could alter defensive player archetype preferences. The Cowboys' unprecedented pick structure (two 1sts, nothing in rounds 2-4) also creates atypical draft behavior for 2026. Profile should be refreshed after the 2026 draft.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}
