@@ -1,4 +1,4 @@
-// 2026 NFL Draft Consensus Big Board — 676 prospects
+// 2026 NFL Draft Consensus Big Board — 697 prospects (676 from CSV + 21 appended in grade order)
 // Source: consensus-big-board-2026-20260304.csv (aggregated multi-source rankings)
 // Names match PROSPECTS array in App.jsx exactly for combine invitees
 
@@ -138,7 +138,14 @@ export const CONSENSUS_BOARD = [
   "Stefon Thompson","Xavier Hill","Alex Wollschlaeger","Tyree Skipper","Sabastian Harsh",
   "Tay Yanta II","Matthew Sluka","Donavon Greene","Ja'Varrius Johnson","Cade McNamara",
   "Matthew Bedford","Ben Coleman","Zach Calzada","Isheem Young","Antonio Clary",
-  "Dequan Finn"
+  "Dequan Finn",
+  // 21 prospects in PROSPECTS but not in consensus CSV — appended in grade order
+  "Davaughn Patterson","Palmer Williams","Dalton Brooks","Elijah Pritchett",
+  "Ernest Hausmann","Isaiah Glasker","Charles Jagusah","Andrew Gentry",
+  "Michael Kilbane","Kam Robinson","Griffin Wilde","Hero Kanu",
+  "Trevor Lauck","Ben Taylor-Whitfield","Noah Josey","D.J. Hicks",
+  "Donaven McCulley","Bobby Jamison-Travis","Braelin Moore","Enrique Cruz Jr.",
+  "Sheridan Wilson"
 ];
 
 // Map: name → consensus rank (1-indexed)
