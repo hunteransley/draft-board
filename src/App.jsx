@@ -165,6 +165,50 @@ function MiniRadar({values,color,size=28}){const cx=size/2,cy=size/2,r=size/2-1,
 const EXPLORER_GROUPS=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"];
 const INVERTED_MEAS=new Set(["40","3C","SHT"]);
 
+const COMBO_DEFAULTS={EDGE:["defensive_SACKS","meas_40"],WR:["receiving_YDS","meas_SPD"],RB:["rushing_YDS","meas_SPD"],QB:["passing_YDS","passing_TDINT"],TE:["receiving_YDS","meas_ATH"],OT:["meas_ATH","meas_WT"],IOL:["meas_ATH","meas_WT"],DL:["defensive_TFL","meas_ATH"],LB:["defensive_TKL","meas_SPD"],CB:["meas_40","defensive_PD"],S:["meas_40","defensive_INT"]};
+
+const COMBO_CAT_STYLE={M:{label:"MEAS",color:"#14b8a6"},S:{label:"SCORE",color:"#6366f1"},T:{label:"TRAIT",color:"#f59e0b"},P:{label:"PROD",color:"#ef4444"}};
+function getComboMetrics(pos){
+  const out=[];
+  ["HT","WT","40","VRT","BRD","3C","SHT","ARM","HND","WING"].forEach(m=>{
+    out.push({key:"meas_"+m,label:MEASURABLE_SHORT[m]||m,inverted:INVERTED_MEAS.has(m),unit:m==="HT"?"ht":m==="WT"?"lbs":(m==="ARM"||m==="HND"||m==="WING")?"in":(m==="40"||m==="3C"||m==="SHT")?"s":"",cat:"M"});
+  });
+  ["ATH","SPD","AGI","EXP"].forEach(m=>{
+    out.push({key:"meas_"+m,label:MEASURABLE_SHORT[m]||m,inverted:false,unit:"score",cat:"S"});
+  });
+  (POSITION_TRAITS[pos]||[]).forEach(t=>{
+    out.push({key:"trait_"+t,label:t,inverted:false,unit:"trait",cat:"T"});
+  });
+  STAT_CATEGORIES.forEach(cat=>{
+    if(!cat.positions.includes(pos))return;
+    cat.keys.forEach(k=>{
+      if(k==="breakout_year")return;
+      out.push({key:k,label:STAT_SHORT[k]||k,inverted:INVERTED_STATS.has(k),unit:"stat",cat:"P"});
+    });
+  });
+  return out;
+}
+
+function getComboVal(name,school,id,metricKey,pos,userTraits){
+  if(metricKey.startsWith("meas_")){
+    const m=metricKey.slice(5);
+    const rawKey=MEASURABLE_KEY[m];
+    if(MEASURABLE_DRILLS.includes(m)||MEASURABLE_RAW.includes(m)){
+      const cd=getCombineData(name,school);
+      return cd?.[rawKey]??null;
+    }
+    // Composite scores (ATH, SPD, AGI, EXP)
+    const cs=getCombineScores(name,school);
+    return cs?.[rawKey]??null;
+  }
+  if(metricKey.startsWith("trait_")){
+    const trait=metricKey.slice(6);
+    return tv(userTraits,id,trait,name,school);
+  }
+  // Raw stat key
+  return getStatVal(name,school,metricKey);
+}
+
 function beeswarmLayoutVertical(points,chartH,colW,dotR,globalMin,globalMax,inverted){
   if(!points.length||chartH<60)return[];
   const sorted=[...points].sort((a,b)=>a.val-b.val);
@@ -292,6 +336,159 @@ function BeeswarmChartWrapper({data,myGuys,showMyGuys,showLogos,onHover,onTap,ho
     ro.observe(el);return()=>ro.disconnect();
   },[]);
   return<div ref={ref}>{w>0&&<BeeswarmChart data={data} width={w} myGuys={myGuys} showMyGuys={showMyGuys} showLogos={showLogos} onHover={onHover} onTap={onTap} hoveredId={hoveredId}/>}</div>;
+}
+
+function ScatterChart({points,width,xLabel,yLabel,xInverted,yInverted,posColor,showLogos,onHover,onTap,hoveredId,myGuys,showMyGuys}){
+  const isMobile=width<600;
+  const chartH=isMobile?300:380;
+  const padT=16,padR=20,padB=36,padL=isMobile?42:50;
+  const plotW=width-padL-padR;
+  const plotH=chartH-padT-padB;
+
+  const xs=points.map(p=>p.x),ys=points.map(p=>p.y);
+  if(!xs.length)return null;
+  const xRaw={min:Math.min(...xs),max:Math.max(...xs)};
+  const yRaw={min:Math.min(...ys),max:Math.max(...ys)};
+  const xPad=(xRaw.max-xRaw.min||1)*0.05;
+  const yPad=(yRaw.max-yRaw.min||1)*0.05;
+  const xMin=xRaw.min-xPad,xMax=xRaw.max+xPad;
+  const yMin=yRaw.min-yPad,yMax=yRaw.max+yPad;
+
+  const sx=v=>{const t=(v-xMin)/(xMax-xMin||1);return padL+(xInverted?plotW*(1-t):plotW*t);};
+  const sy=v=>{const t=(v-yMin)/(yMax-yMin||1);return padT+(yInverted?plotH*t:plotH*(1-t));};
+
+  const xMean=xs.reduce((a,b)=>a+b,0)/xs.length;
+  const yMean=ys.reduce((a,b)=>a+b,0)/ys.length;
+
+  // Least-squares regression + R²
+  const n=xs.length;
+  const sumX=xs.reduce((a,b)=>a+b,0),sumY=ys.reduce((a,b)=>a+b,0);
+  const sumXY=points.reduce((a,p)=>a+p.x*p.y,0);
+  const sumX2=xs.reduce((a,b)=>a+b*b,0),sumY2=ys.reduce((a,b)=>a+b*b,0);
+  const denom=n*sumX2-sumX*sumX;
+  const slope=denom?((n*sumXY-sumX*sumY)/denom):0;
+  const intercept=(sumY-slope*sumX)/n;
+  const ssRes=points.reduce((a,p)=>{const pred=slope*p.x+intercept;return a+(p.y-pred)**2;},0);
+  const ssTot=ys.reduce((a,v)=>a+(v-yMean)**2,0);
+  const r2=ssTot>0?1-ssRes/ssTot:0;
+
+  const fmtTick=v=>Math.abs(v)<10?v.toFixed(2):Math.abs(v)<100?v.toFixed(1):Math.round(v).toString();
+  const xTicks=[];const yTicks=[];
+  for(let i=0;i<5;i++){xTicks.push(xMin+(xMax-xMin)*((i+0.5)/5));yTicks.push(yMin+(yMax-yMin)*((i+0.5)/5));}
+
+  const logoSize=isMobile?14:18;
+  const dotR=isMobile?4:5;
+  const myGuyNames=useMemo(()=>new Set((myGuys||[]).map(g=>g.name)),[myGuys]);
+
+  return(<svg width={width} height={chartH} viewBox={`0 0 ${width} ${chartH}`} style={{display:"block"}}>
+    {/* Grid lines */}
+    {xTicks.map((v,i)=><line key={"xg"+i} x1={sx(v)} y1={padT} x2={sx(v)} y2={padT+plotH} stroke="#f0f0f0" strokeWidth="0.5"/>)}
+    {yTicks.map((v,i)=><line key={"yg"+i} x1={padL} y1={sy(v)} x2={padL+plotW} y2={sy(v)} stroke="#f0f0f0" strokeWidth="0.5"/>)}
+    {/* Mean lines */}
+    <line x1={sx(xMean)} y1={padT} x2={sx(xMean)} y2={padT+plotH} stroke="#a3a3a3" strokeDasharray="4 3" opacity={0.35}/>
+    <line x1={padL} y1={sy(yMean)} x2={padL+plotW} y2={sy(yMean)} stroke="#a3a3a3" strokeDasharray="4 3" opacity={0.35}/>
+    {/* Trend line */}
+    {n>=4&&(()=>{
+      const y1t=slope*xMin+intercept,y2t=slope*xMax+intercept;
+      const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+      const ty1=clamp(y1t,yMin,yMax),ty2=clamp(y2t,yMin,yMax);
+      const tx1=slope?(ty1-intercept)/slope:xMin,tx2=slope?(ty2-intercept)/slope:xMax;
+      return<line x1={sx(clamp(tx1,xMin,xMax))} y1={sy(ty1)} x2={sx(clamp(tx2,xMin,xMax))} y2={sy(ty2)} stroke="#6366f1" strokeWidth="1.5" strokeDasharray="6 4" opacity={0.5}/>;
+    })()}
+    {/* R² label */}
+    {n>=4&&<text x={padL+plotW-4} y={padT+plotH-6} textAnchor="end" style={{fontSize:"9px",fill:"#6366f1",fontFamily:"monospace",fontWeight:600,opacity:0.7}}>r²={r2.toFixed(2)}</text>}
+    {/* Best label */}
+    <text x={padL+plotW-4} y={padT+10} textAnchor="end" style={{fontSize:"9px",fill:"#16a34a",fontFamily:"monospace",fontWeight:700}}>★ best</text>
+    {/* Tick labels */}
+    {xTicks.map((v,i)=><text key={"xt"+i} x={sx(v)} y={padT+plotH+14} textAnchor="middle" style={{fontSize:"8px",fill:"#a3a3a3",fontFamily:"monospace"}}>{fmtTick(v)}</text>)}
+    {yTicks.map((v,i)=><text key={"yt"+i} x={padL-4} y={sy(v)} textAnchor="end" dominantBaseline="middle" style={{fontSize:"8px",fill:"#a3a3a3",fontFamily:"monospace"}}>{fmtTick(v)}</text>)}
+    {/* Axis titles */}
+    <text x={padL+plotW/2} y={chartH-2} textAnchor="middle" style={{fontSize:"10px",fill:"#737373",fontFamily:"monospace"}}>{xLabel}</text>
+    <text x={10} y={padT+plotH/2} textAnchor="middle" dominantBaseline="middle" transform={`rotate(-90,10,${padT+plotH/2})`} style={{fontSize:"10px",fill:"#737373",fontFamily:"monospace"}}>{yLabel}</text>
+    {/* Dots / Logos */}
+    {points.map(pt=>{
+      const cx=sx(pt.x),cy=sy(pt.y);
+      const isHovered=hoveredId===pt.id;
+      const color=posColor||POS_COLORS[pt.pos]||"#737373";
+      const isMyGuy=showMyGuys&&myGuyNames.has(pt.name);
+      const fade=showMyGuys&&myGuyNames.size>0&&!isMyGuy;
+      return<g key={pt.id} style={{cursor:"pointer"}}>
+        <circle cx={cx} cy={cy} r={showLogos?logoSize/2+2:12} fill="transparent" stroke="none"
+          onPointerEnter={e=>onHover({...pt,cx:e.clientX,cy:e.clientY})}
+          onPointerLeave={()=>onHover(null)}
+          onClick={()=>onTap(pt)}/>
+        {showLogos?<foreignObject x={cx-logoSize/2} y={cy-logoSize/2} width={logoSize} height={logoSize} style={{opacity:fade?0.25:1,transition:"opacity 0.2s",pointerEvents:"none",overflow:"visible"}}>
+          <div xmlns="http://www.w3.org/1999/xhtml" style={{width:logoSize,height:logoSize}}>
+            <SchoolLogo school={pt.school} size={logoSize}/>
+          </div>
+        </foreignObject>
+        :<circle cx={cx} cy={cy} r={isMyGuy?dotR+1.5:isHovered?dotR+1:dotR}
+          fill={fade?"#d4d4d4":color}
+          opacity={fade?0.3:1}
+          stroke={isMyGuy?"#ec4899":isHovered?"#171717":"none"}
+          strokeWidth={isMyGuy?2:isHovered?1.5:0}
+          style={{transition:"r 0.15s,stroke 0.15s,opacity 0.2s",pointerEvents:"none"}}/>}
+      </g>;
+    })}
+  </svg>);
+}
+
+function ScatterChartWrapper(props){
+  const ref=useRef(null);
+  const[w,setW]=useState(800);
+  useEffect(()=>{
+    const el=ref.current;if(!el)return;
+    setW(el.getBoundingClientRect().width);
+    const ro=new ResizeObserver(entries=>{for(const e of entries)setW(e.contentRect.width);});
+    ro.observe(el);return()=>ro.disconnect();
+  },[]);
+  return<div ref={ref}>{w>0&&<ScatterChart {...props} width={w}/>}</div>;
+}
+
+function ComboDropdown({value,options,onChange,openKey,onOpenChange}){
+  const open=openKey!=null;
+  const ref=useRef(null);
+  const searchRef=useRef(null);
+  const[search,setSearch]=useState("");
+  const selected=options.find(m=>m.key===value);
+  useEffect(()=>{
+    if(!open)return;
+    setSearch("");
+    const handler=e=>{if(ref.current&&!ref.current.contains(e.target))onOpenChange(null);};
+    document.addEventListener("pointerdown",handler);
+    requestAnimationFrame(()=>searchRef.current?.focus());
+    return()=>document.removeEventListener("pointerdown",handler);
+  },[open]);
+  const sc=selected?COMBO_CAT_STYLE[selected.cat]:null;
+  const groups=[{cat:"M",title:"Measurables"},{cat:"S",title:"Scores"},{cat:"P",title:"Production"},{cat:"T",title:"Traits"}];
+  const q=search.toLowerCase().trim();
+  const filtered=q?options.filter(m=>m.label.toLowerCase().includes(q)||COMBO_CAT_STYLE[m.cat]?.label.toLowerCase().includes(q)):options;
+  return<div ref={ref} style={{position:"relative",display:"inline-block"}}>
+    <button onClick={()=>onOpenChange(open?null:true)} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"6px 12px 6px 8px",borderRadius:10,border:"1px solid "+(open?"#a3a3a3":"#e5e5e5"),background:open?"#faf9f6":"#fff",color:"#171717",cursor:"pointer",display:"flex",alignItems:"center",gap:6,minWidth:140,transition:"border-color 0.15s"}}>
+      {sc&&<span style={{fontFamily:mono,fontSize:8,fontWeight:700,letterSpacing:0.5,color:sc.color,background:sc.color+"14",padding:"2px 5px",borderRadius:4,border:`1px solid ${sc.color}22`,lineHeight:1,flexShrink:0}}>{sc.label}</span>}
+      <span style={{flex:1,textAlign:"left",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{selected?.label||"Select"}</span>
+      <svg width="10" height="6" viewBox="0 0 10 6" style={{flexShrink:0,opacity:0.4,transform:open?"rotate(180deg)":"none",transition:"transform 0.15s"}}><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/></svg>
+    </button>
+    {open&&<div style={{position:"absolute",top:"calc(100% + 4px)",left:0,minWidth:220,maxHeight:360,overflowY:"auto",background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,boxShadow:"0 8px 24px rgba(0,0,0,0.12)",zIndex:100,padding:"4px 0",WebkitOverflowScrolling:"touch"}}>
+      <div style={{padding:"6px 8px",position:"sticky",top:0,background:"#fff",zIndex:1}}>
+        <input ref={searchRef} value={search} onChange={e=>setSearch(e.target.value)} placeholder="search metrics..." style={{fontFamily:sans,fontSize:11,padding:"6px 10px",borderRadius:8,border:"1px solid #e5e5e5",background:"#faf9f6",color:"#171717",width:"100%",boxSizing:"border-box",outline:"none"}} onKeyDown={e=>{if(e.key==="Escape"){onOpenChange(null);}else if(e.key==="Enter"&&filtered.length===1){onChange(filtered[0].key);onOpenChange(null);}}}/>
+      </div>
+      {groups.map(g=>{
+        const items=filtered.filter(m=>m.cat===g.cat);
+        if(!items.length)return null;
+        const cs=COMBO_CAT_STYLE[g.cat];
+        return<div key={g.cat}>
+          <div style={{fontFamily:mono,fontSize:8,fontWeight:700,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase",padding:"8px 12px 4px",display:"flex",alignItems:"center",gap:5}}>
+            <span style={{color:cs.color,background:cs.color+"14",padding:"1px 4px",borderRadius:3,border:`1px solid ${cs.color}22`}}>{cs.label}</span>
+            <span>{g.title}</span>
+          </div>
+          {items.map(m=>{const active=m.key===value;return<div key={m.key} onClick={()=>{onChange(m.key);onOpenChange(null);}} style={{fontFamily:sans,fontSize:12,fontWeight:active?700:500,padding:"7px 12px 7px 24px",color:active?"#171717":"#525252",background:active?"#f5f5f4":"transparent",cursor:"pointer",transition:"background 0.1s"}} onMouseEnter={e=>{if(!active)e.currentTarget.style.background="#faf9f6";}} onMouseLeave={e=>{if(!active)e.currentTarget.style.background="transparent";}}>
+            {m.label}
+          </div>;})}
+        </div>;
+      })}
+    </div>}
+  </div>;
 }
 
 function getTraitBasedComps(player,allProspects,traits,count=5){
@@ -1148,9 +1345,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const[myGuysUpdated,setMyGuysUpdated]=useState(false);
   const myGuysInitialLoad=useRef(true);
   const[showMyGuys,setShowMyGuys]=useState(false);
-  const[showExplorer,setShowExplorer]=useState(()=>window.location.pathname==='/combine');
+  const[showExplorer,setShowExplorer]=useState(()=>window.location.pathname==='/combine'||window.location.pathname==='/combine/combo');
   const[explorerMeas,setExplorerMeas]=useState("ATH");
-  const[explorerMode,setExplorerMode]=useState("measurables");
+  const[explorerMode,setExplorerMode]=useState(()=>window.location.pathname==='/combine/combo'?"combo":"measurables");
   const[explorerTrait,setExplorerTrait]=useState("Speed");
   const[explorerMyGuys,setExplorerMyGuys]=useState(false);
   const[explorerAbsolute,setExplorerAbsolute]=useState(false);
@@ -1161,7 +1358,12 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const[explorerLeaderPos,setExplorerLeaderPos]=useState(null);
   const[explorerLeaderInfo,setExplorerLeaderInfo]=useState(false);
   const[explorerHover,setExplorerHover]=useState(null);
+  const[comboPos,setComboPos]=useState("EDGE");
+  const[comboX,setComboX]=useState("defensive_SACKS");
+  const[comboY,setComboY]=useState("meas_40");
+  const[comboDrop,setComboDrop]=useState(null); // null | "x" | "y"
   const explorerData=useMemo(()=>{
+    if(explorerMode==="combo")return{points:[],min:0,max:0,groups:[],label:"",measCode:null,statCode:null,inverted:false};
     const points=[];
     const groupSet=new Set();
     if(explorerMode==="traits"){
@@ -1238,12 +1440,67 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
       return{points,min:mn,max:mx,groups,label:STAT_SHORT[stat]||stat,measCode:null,statCode:stat,inverted:flipAxis};
     }
   },[explorerMode,explorerMeas,explorerTrait,traits,getMeasVal,explorerAbsolute,explorerStat]);
+  const comboMetrics=useMemo(()=>getComboMetrics(comboPos),[comboPos]);
+  const comboData=useMemo(()=>{
+    if(explorerMode!=="combo")return{points:[],xMeta:null,yMeta:null};
+    const xMeta=comboMetrics.find(m=>m.key===comboX)||null;
+    const yMeta=comboMetrics.find(m=>m.key===comboY)||null;
+    if(!xMeta||!yMeta)return{points:[],xMeta,yMeta};
+    const pts=[];
+    (byPos[comboPos]||[]).forEach(p=>{
+      const xv=getComboVal(p.name,p.school,p.id,comboX,comboPos,traits);
+      const yv=getComboVal(p.name,p.school,p.id,comboY,comboPos,traits);
+      if(xv==null||yv==null)return;
+      pts.push({id:p.id,name:p.name,school:p.school,pos:p.gpos||p.pos,group:comboPos,x:xv,y:yv});
+    });
+    return{points:pts,xMeta,yMeta};
+  },[explorerMode,comboPos,comboX,comboY,comboMetrics,byPos,traits]);
+  const comboCorrelations=useMemo(()=>{
+    if(explorerMode!=="combo")return[];
+    const players=byPos[comboPos]||[];
+    if(players.length<8)return[];
+    const metrics=comboMetrics;
+    // Precompute all values per metric
+    const vals={};
+    metrics.forEach(m=>{
+      const arr=players.map(p=>({id:p.id,v:getComboVal(p.name,p.school,p.id,m.key,comboPos,traits)}));
+      vals[m.key]=arr;
+    });
+    const pairs=[];
+    for(let i=0;i<metrics.length;i++){
+      for(let j=i+1;j<metrics.length;j++){
+        const a=metrics[i],b=metrics[j];
+        // Build paired values where both non-null
+        const xs=[],ys=[];
+        for(let k=0;k<players.length;k++){
+          const xv=vals[a.key][k].v,yv=vals[b.key][k].v;
+          if(xv!=null&&yv!=null){xs.push(xv);ys.push(yv);}
+        }
+        if(xs.length<8)continue;
+        const n=xs.length;
+        const sx=xs.reduce((s,v)=>s+v,0),sy=ys.reduce((s,v)=>s+v,0);
+        const sxy=xs.reduce((s,v,k)=>s+v*ys[k],0);
+        const sx2=xs.reduce((s,v)=>s+v*v,0);
+        const ym=sy/n;
+        const den=n*sx2-sx*sx;
+        if(!den)continue;
+        const sl=(n*sxy-sx*sy)/den;
+        const ic=(sy-sl*sx)/n;
+        const ssRes=xs.reduce((s,v,k)=>{const p=sl*v+ic;return s+(ys[k]-p)**2;},0);
+        const ssTot=ys.reduce((s,v)=>s+(v-ym)**2,0);
+        const r2=ssTot>0?1-ssRes/ssTot:0;
+        if(r2>=0.35&&a.cat!==b.cat)pairs.push({a,b,r2,n:xs.length});
+      }
+    }
+    pairs.sort((a,b)=>b.r2-a.r2);
+    return pairs.slice(0,8);
+  },[explorerMode,comboPos,comboMetrics,byPos,traits]);
   const[mockCount,setMockCount]=useState(0);
   const[copiedShare,setCopiedShare]=useState(null);
   useEffect(()=>{window.scrollTo(0,0);},[phase,showMyGuys,showExplorer]);
-  const openExplorer=useCallback(()=>{if(window.location.pathname!=='/combine')window.history.pushState({},'','/combine');setShowExplorer(true);},[]);
-  const closeExplorer=useCallback(()=>{if(window.location.pathname==='/combine')window.history.pushState({},'','/');setShowExplorer(false);setExplorerHover(null);},[]);
-  useEffect(()=>{const onPop=()=>{setShowExplorer(window.location.pathname==='/combine');};window.addEventListener("popstate",onPop);return()=>window.removeEventListener("popstate",onPop);},[]);
+  const openExplorer=useCallback((mode)=>{const target=mode==="combo"?"/combine/combo":"/combine";if(window.location.pathname!==target)window.history.pushState({},'',target);setShowExplorer(true);if(mode)setExplorerMode(mode);},[]);
+  const closeExplorer=useCallback(()=>{if(window.location.pathname.startsWith('/combine'))window.history.pushState({},'','/');setShowExplorer(false);setExplorerHover(null);},[]);
+  useEffect(()=>{const onPop=()=>{const p=window.location.pathname;if(p==='/combine/combo'){setShowExplorer(true);setExplorerMode("combo");}else if(p==='/combine'){setShowExplorer(true);if(explorerMode==="combo")setExplorerMode("measurables");}else{setShowExplorer(false);}};window.addEventListener("popstate",onPop);return()=>window.removeEventListener("popstate",onPop);},[explorerMode]);
 
   // === TEAM MOCK TRENDS ===
   const[showTrends,setShowTrends]=useState(()=>window.location.pathname==='/trends');
@@ -1777,30 +2034,176 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
           <div>
             <h2 style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",margin:0}}>combine explorer</h2>
-            <p style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"2px 0 0"}}>{explorerData.points.length} players · {explorerData.groups.length} positions</p>
+            <p style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"2px 0 0"}}>{explorerMode==="combo"?`${comboData.points.length} ${comboPos} players`:`${explorerData.points.length} players · ${explorerData.groups.length} positions`}</p>
           </div>
-          <div style={{display:"flex",gap:8,alignItems:"center"}}>
-            <button onClick={gateAuth(()=>setExplorerLogos(v=>!v))} style={{fontFamily:sans,fontSize:11,fontWeight:600,padding:"6px 12px",background:explorerLogos?"#17171710":"transparent",color:explorerLogos?"#171717":"#a3a3a3",border:explorerLogos?"1px solid #17171722":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>{explorerLogos?"● dots":"🏫 logos"}</button>
-            {myGuys.length>0&&<button onClick={gateAuth(()=>setExplorerMyGuys(v=>!v))} style={{fontFamily:sans,fontSize:11,fontWeight:600,padding:"6px 12px",background:explorerMyGuys?"linear-gradient(135deg,#ec4899,#7c3aed)":"transparent",color:explorerMyGuys?"#fff":"#a3a3a3",border:explorerMyGuys?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>👀 my guys</button>}
-            <button onClick={closeExplorer} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",padding:4}}>✕</button>
-          </div>
+          <button onClick={closeExplorer} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",padding:4}}>✕</button>
         </div>
 
         {/* Mode toggle */}
         <div style={{display:"flex",gap:4,marginBottom:12}}>
-          <button onClick={gateAuth(()=>{setExplorerMode("measurables");setExplorerAbsolute(false);setExplorerLeaderPos(null);})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="measurables"?"#171717":"transparent",color:explorerMode==="measurables"?"#fff":"#737373",border:explorerMode==="measurables"?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>measurables</button>
-          <button onClick={gateAuth(()=>{setExplorerMode("traits");setExplorerLeaderPos(null);})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="traits"?"#171717":"transparent",color:explorerMode==="traits"?"#fff":"#737373",border:explorerMode==="traits"?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>scouting traits</button>
-          <button onClick={gateAuth(()=>{setExplorerMode("stats");setExplorerAbsolute(true);setExplorerLeaderPos(null);})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="stats"?"#171717":"transparent",color:explorerMode==="stats"?"#fff":"#737373",border:explorerMode==="stats"?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>college stats</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("measurables");setExplorerAbsolute(false);setExplorerLeaderPos(null);if(window.location.pathname!=='/combine')window.history.pushState({},'','/combine');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="measurables"?"#171717":"transparent",color:explorerMode==="measurables"?"#fff":"#737373",border:explorerMode==="measurables"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>measurables</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("traits");setExplorerLeaderPos(null);if(window.location.pathname!=='/combine')window.history.pushState({},'','/combine');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="traits"?"#171717":"transparent",color:explorerMode==="traits"?"#fff":"#737373",border:explorerMode==="traits"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>scouting traits</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("stats");setExplorerAbsolute(true);setExplorerLeaderPos(null);if(window.location.pathname!=='/combine')window.history.pushState({},'','/combine');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="stats"?"#171717":"transparent",color:explorerMode==="stats"?"#fff":"#737373",border:explorerMode==="stats"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>college stats</button>
+          <div style={{width:1,height:20,background:"#e5e5e5",margin:"0 4px",flexShrink:0}}/>
+          <button onClick={()=>{setExplorerMode("combo");window.history.pushState({},'','/combine/combo');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="combo"?"linear-gradient(135deg,#6366f1,#8b5cf6)":"transparent",color:explorerMode==="combo"?"#fff":"#7c3aed",border:explorerMode==="combo"?"1px solid #6366f1":"1px solid #7c3aed44",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="combo"?"0 2px 8px rgba(99,102,241,0.3)":"none"}}>⚡ combo</button>
         </div>
 
+        {/* Combo mode UI */}
+        {explorerMode==="combo"&&<>
+          {/* Position pills */}
+          <div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none"}}>
+            {EXPLORER_GROUPS.map(pos=>{const c=POS_COLORS[pos]||"#525252";const active=comboPos===pos;return<button key={pos} onClick={gateAuth(()=>{setComboPos(pos);const d=COMBO_DEFAULTS[pos]||["meas_ATH","trait_"+((POSITION_TRAITS[pos]||[])[0]||"Speed")];setComboX(d[0]);setComboY(d[1]);})} style={{fontFamily:mono,fontSize:10,fontWeight:700,padding:"5px 12px",background:active?c:"transparent",color:active?"#fff":c,border:`1.5px solid ${active?c:c+"33"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{pos}</button>;})}
+          </div>
+          {/* Axis dropdowns */}
+          <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,flexWrap:"wrap"}}>
+            <div style={{display:"flex",alignItems:"center",gap:5}}>
+              <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>X</span>
+              <ComboDropdown value={comboX} options={comboMetrics} openKey={comboDrop==="x"?"x":null} onOpenChange={v=>setComboDrop(v?"x":null)} onChange={v=>{if(isGuest){onRequireAuth("want to play with the data? sign up free");return;}setComboX(v);}}/>
+            </div>
+            <button onClick={()=>{if(isGuest){onRequireAuth("want to play with the data? sign up free");return;}setComboX(comboY);setComboY(comboX);}} title="Swap axes" style={{fontSize:14,color:"#a3a3a3",background:"#f5f5f4",border:"1px solid #e5e5e5",borderRadius:8,padding:"3px 7px",cursor:"pointer",lineHeight:1,transition:"all 0.15s"}} onMouseEnter={e=>{e.currentTarget.style.background="#e5e5e5";}} onMouseLeave={e=>{e.currentTarget.style.background="#f5f5f4";}}>🔀</button>
+            <div style={{display:"flex",alignItems:"center",gap:5}}>
+              <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Y</span>
+              <ComboDropdown value={comboY} options={comboMetrics} openKey={comboDrop==="y"?"y":null} onOpenChange={v=>setComboDrop(v?"y":null)} onChange={v=>{if(isGuest){onRequireAuth("want to play with the data? sign up free");return;}setComboY(v);}}/>
+            </div>
+          </div>
+          {/* Sparse/empty warnings + scatter chart */}
+          {comboData.points.length>0&&comboData.points.length<8&&<div style={{fontFamily:sans,fontSize:11,color:"#92400e",background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:8,padding:"6px 12px",marginBottom:8}}>⚠️ sparse data — only {comboData.points.length} {comboPos} players have both metrics</div>}
+          {comboData.points.length===0?(<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no {comboPos} players have both {comboData.xMeta?.label||"X"} and {comboData.yMeta?.label||"Y"}</p></div>):(
+            <div style={{marginTop:4,position:"relative"}}>
+              <ScatterChartWrapper points={comboData.points} xLabel={comboData.xMeta?.label||""} yLabel={comboData.yMeta?.label||""} xInverted={comboData.xMeta?.inverted||false} yInverted={comboData.yMeta?.inverted||false} posColor={POS_COLORS[comboPos]||"#737373"} showLogos={explorerLogos} onHover={setExplorerHover} onTap={(pt)=>{const p=PROSPECTS.find(pr=>pr.id===pt.id);if(p)openProfile(p);}} hoveredId={explorerHover?.id||null} myGuys={myGuys} showMyGuys={explorerMyGuys}/>
+              <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",display:"flex",alignItems:"center",gap:0,opacity:0.06,pointerEvents:"none"}}>
+                <img src="/logo.png" alt="" style={{height:60,width:"auto"}}/>
+                <span style={{fontFamily:font,fontSize:32,fontWeight:900,color:"#171717",letterSpacing:-1,marginLeft:-6}}>bigboardlab.com</span>
+              </div>
+              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:6,paddingRight:4}}>
+                <div style={{display:"flex",gap:6,alignItems:"center"}}>
+                  <button onClick={gateAuth(()=>setExplorerLogos(v=>!v))} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:explorerLogos?"#17171710":"transparent",color:explorerLogos?"#171717":"#a3a3a3",border:explorerLogos?"1px solid #17171722":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>{explorerLogos?"● dots":"🏫 logos"}</button>
+                  {myGuys.length>0&&<button onClick={gateAuth(()=>setExplorerMyGuys(v=>!v))} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:explorerMyGuys?"linear-gradient(135deg,#ec4899,#7c3aed)":"transparent",color:explorerMyGuys?"#fff":"#a3a3a3",border:explorerMyGuys?"1px solid transparent":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>👀 my guys</button>}
+                </div>
+                <div style={{display:"flex",alignItems:"center",gap:5}}>
+                  <img src="/logo.png" alt="" style={{height:12,width:"auto"}}/>
+                  <span style={{fontFamily:mono,fontSize:8,fontWeight:600,color:"#171717",letterSpacing:0.3}}>bigboardlab.com</span>
+                </div>
+              </div>
+            </div>
+          )}
+          {/* Combo leaderboard + correlation key */}
+          {comboData.points.length>=4&&(()=>{
+            const xInv=comboData.xMeta?.inverted||false;
+            const yInv=comboData.yMeta?.inverted||false;
+            const pts=comboData.points;
+            const xVals=pts.map(p=>p.x),yVals=pts.map(p=>p.y);
+            const xMn=Math.min(...xVals),xMx=Math.max(...xVals),yMn=Math.min(...yVals),yMx=Math.max(...yVals);
+            const xRange=xMx-xMn||1,yRange=yMx-yMn||1;
+            const scored=pts.map(p=>{
+              const xNorm=xInv?(xMx-p.x)/xRange:(p.x-xMn)/xRange;
+              const yNorm=yInv?(yMx-p.y)/yRange:(p.y-yMn)/yRange;
+              return{...p,combo:Math.round(((xNorm+yNorm)/2)*100)};
+            }).sort((a,b)=>b.combo-a.combo);
+            const top10=scored.slice(0,10);
+            // R² + correlation description
+            const n=pts.length;
+            const sumX=xVals.reduce((a,b)=>a+b,0),sumY=yVals.reduce((a,b)=>a+b,0);
+            const sumXY=pts.reduce((a,p)=>a+p.x*p.y,0);
+            const sumX2=xVals.reduce((a,b)=>a+b*b,0);
+            const yMean=sumY/n;
+            const denom=n*sumX2-sumX*sumX;
+            const slope=denom?((n*sumXY-sumX*sumY)/denom):0;
+            const intercept=(sumY-slope*sumX)/n;
+            const ssRes=pts.reduce((a,p)=>{const pred=slope*p.x+intercept;return a+(p.y-pred)**2;},0);
+            const ssTot=yVals.reduce((a,v)=>a+(v-yMean)**2,0);
+            const r2=ssTot>0?1-ssRes/ssTot:0;
+            const posSlope=(xInv?-slope:slope)*(yInv?-1:1);
+            const dir=posSlope>=0?"positive":"negative";
+            const strength=r2>=0.7?"strong":r2>=0.4?"moderate":r2>=0.15?"weak":"negligible";
+            const strengthColor=r2>=0.7?"#16a34a":r2>=0.4?"#6366f1":r2>=0.15?"#f59e0b":"#a3a3a3";
+            const desc=strength==="negligible"
+              ?`No meaningful correlation between ${comboData.xMeta?.label} and ${comboData.yMeta?.label} for this class — performance in one doesn't predict the other.`
+              :strength==="weak"
+              ?`Weak ${dir} trend — ${comboData.xMeta?.label} and ${comboData.yMeta?.label} are loosely related. Plenty of outliers on both sides.`
+              :strength==="moderate"
+              ?`Moderate ${dir} correlation — players who do well in ${comboData.xMeta?.label} tend to ${dir==="positive"?"also":"inversely"} perform in ${comboData.yMeta?.label}, but it's not a lock.`
+              :`Strong ${dir} correlation — ${comboData.xMeta?.label} and ${comboData.yMeta?.label} move together consistently across this class.`;
+            const fmtComboVal=(v,meta)=>{if(v==null||!meta)return"—";if(meta.unit==="s")return v.toFixed(2)+"s";if(meta.unit==="ht")return typeof formatHeight==="function"?formatHeight(v):v;if(meta.unit==="lbs")return Math.round(v)+" lbs";if(meta.unit==="in")return v+'"';if(meta.unit==="trait")return Math.round(v);return typeof v==="number"?(Math.abs(v)<10?v.toFixed(2):Math.abs(v)<100?v.toFixed(1):Math.round(v)):v;};
+            return<div style={{display:"flex",gap:16,marginTop:16,flexWrap:"wrap",alignItems:"flex-start"}}>
+              {/* Ranked list */}
+              <div style={{flex:"1 1 320px",minWidth:280}}>
+                <span style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",display:"block",marginBottom:8}}>top 10 · closest to ★ best</span>
+                <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
+                  <div style={{display:"flex",alignItems:"center",gap:8,padding:"8px 12px",borderBottom:"1px solid #e5e5e5"}}>
+                    <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",width:18,textAlign:"right"}}>#</span>
+                    <span style={{width:20}}/>
+                    <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",flex:1}}>PLAYER</span>
+                    <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>{comboData.xMeta?.label||"X"}</span>
+                    <span style={{fontFamily:mono,fontSize:8,color:"#d4d4d4"}}>·</span>
+                    <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>{comboData.yMeta?.label||"Y"}</span>
+                    <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",width:32,textAlign:"right"}}>SCR</span>
+                  </div>
+                  {top10.map((pt,i)=>{const c=POS_COLORS[pt.pos]||POS_COLORS[comboPos]||"#525252";const p=PROSPECTS.find(pr=>pr.id===pt.id);
+                    return<div key={pt.id} style={{display:"flex",alignItems:"center",gap:8,padding:"7px 12px",borderBottom:i<9?"1px solid #f5f5f5":"none",cursor:"pointer"}} onClick={()=>{if(p)openProfile(p);}} onMouseEnter={e=>e.currentTarget.style.background="#faf9f6"} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+                      <span style={{fontFamily:mono,fontSize:10,color:i<3?"#171717":"#a3a3a3",fontWeight:i<3?700:400,width:18,textAlign:"right"}}>{i+1}</span>
+                      <SchoolLogo school={pt.school} size={20}/>
+                      <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{pt.name}</span>
+                      <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{fmtComboVal(pt.x,comboData.xMeta)}</span>
+                      <span style={{fontFamily:mono,fontSize:8,color:"#d4d4d4"}}>·</span>
+                      <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{fmtComboVal(pt.y,comboData.yMeta)}</span>
+                      <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#171717",width:32,textAlign:"right"}}>{pt.combo}</span>
+                    </div>;
+                  })}
+                </div>
+              </div>
+              {/* Correlation key */}
+              <div style={{flex:"1 1 240px",minWidth:200}}>
+                <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:8}}>
+                  <span style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>correlation</span>
+                  <span onClick={()=>setExplorerAvgInfo(v=>!v)} style={{fontFamily:sans,fontSize:9,color:"#a3a3a3",background:"#f5f5f4",borderRadius:99,width:14,height:14,display:"inline-flex",alignItems:"center",justifyContent:"center",cursor:"pointer",flexShrink:0,border:"1px solid #e5e5e5"}}>?</span>
+                </div>
+                {explorerAvgInfo&&<div style={{fontFamily:sans,fontSize:11,color:"#525252",background:"#faf9f6",border:"1px solid #e5e5e5",borderRadius:8,padding:"8px 12px",marginBottom:8,lineHeight:1.5}}>
+                  R² measures how much of the variation in one metric is explained by the other. 1.0 = perfect correlation, 0.0 = no relationship. The dashed trend line on the chart shows the direction. A high R² means these two metrics tend to move together across this draft class.
+                  <span onClick={()=>setExplorerAvgInfo(false)} style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",cursor:"pointer",marginLeft:6}}>dismiss</span>
+                </div>}
+                <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
+                  <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10}}>
+                    <span style={{fontFamily:mono,fontSize:22,fontWeight:900,color:strengthColor}}>{r2.toFixed(2)}</span>
+                    <div>
+                      <div style={{fontFamily:sans,fontSize:12,fontWeight:700,color:strengthColor,textTransform:"capitalize"}}>{strength} {dir}</div>
+                      <div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>R² · {n} players</div>
+                    </div>
+                  </div>
+                  <p style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.5,margin:0}}>{desc}</p>
+                  {comboCorrelations.length>0&&<>
+                    <div style={{borderTop:"1px solid #f0f0f0",marginTop:12,paddingTop:10}}>
+                      <div style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase",marginBottom:6}}>top correlations · {comboPos}</div>
+                      {comboCorrelations.map((pair,i)=>{
+                        const active=((comboX===pair.a.key&&comboY===pair.b.key)||(comboX===pair.b.key&&comboY===pair.a.key));
+                        const pairColor=pair.r2>=0.7?"#16a34a":pair.r2>=0.4?"#6366f1":"#f59e0b";
+                        return<div key={i} onClick={gateAuth(()=>{setComboX(pair.a.key);setComboY(pair.b.key);})} style={{display:"flex",alignItems:"center",gap:6,padding:"5px 8px",margin:"0 -8px",borderRadius:6,cursor:"pointer",background:active?"#6366f108":"transparent",transition:"background 0.1s"}} onMouseEnter={e=>{if(!active)e.currentTarget.style.background="#faf9f6";}} onMouseLeave={e=>{if(!active)e.currentTarget.style.background=active?"#6366f108":"transparent";}}>
+                          <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:pairColor,width:30,flexShrink:0}}>{pair.r2.toFixed(2)}</span>
+                          <span style={{fontFamily:sans,fontSize:11,color:active?"#171717":"#525252",fontWeight:active?600:400,flex:1,lineHeight:1.3}}>
+                            <span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:COMBO_CAT_STYLE[pair.a.cat]?.color,background:COMBO_CAT_STYLE[pair.a.cat]?.color+"14",padding:"1px 3px",borderRadius:2,marginRight:3}}>{COMBO_CAT_STYLE[pair.a.cat]?.label}</span>
+                            {pair.a.label}
+                            <span style={{color:"#a3a3a3",margin:"0 3px"}}>vs</span>
+                            <span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:COMBO_CAT_STYLE[pair.b.cat]?.color,background:COMBO_CAT_STYLE[pair.b.cat]?.color+"14",padding:"1px 3px",borderRadius:2,marginRight:3}}>{COMBO_CAT_STYLE[pair.b.cat]?.label}</span>
+                            {pair.b.label}
+                          </span>
+                        </div>;
+                      })}
+                    </div>
+                  </>}
+                </div>
+              </div>
+            </div>;
+          })()}
+        </>}
+
         {/* Measurable / Trait picker */}
-        {explorerMode==="measurables"?(<div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none"}}>
+        {explorerMode!=="combo"&&(explorerMode==="measurables"?(<div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none"}}>
           {MEAS_GROUPS.map(grp=>grp.keys.map(k=><button key={k} onClick={gateAuth(()=>setExplorerMeas(k))} style={{fontFamily:mono,fontSize:10,fontWeight:explorerMeas===k?700:500,padding:"5px 10px",background:explorerMeas===k?grp.border+"18":"transparent",color:explorerMeas===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerMeas===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{MEASURABLE_EMOJI[k]} {MEASURABLE_SHORT[k]}</button>))}
         </div>):explorerMode==="stats"?(<div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none",alignItems:"center"}}>
           {STAT_CATEGORIES.map(grp=>{const isOpen=explorerStatOpen.has(grp.label);const hasSelection=grp.keys.includes(explorerStat);return<Fragment key={grp.label}><button onClick={gateAuth(()=>{setExplorerStatOpen(prev=>{const next=new Set(prev);if(next.has(grp.label))next.delete(grp.label);else next.add(grp.label);return next;});})} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"5px 12px",background:hasSelection?grp.border:isOpen?grp.border+"18":"transparent",color:hasSelection?"#fff":isOpen?grp.border:"#737373",border:`1.5px solid ${hasSelection||isOpen?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{isOpen?"− ":"+ "}{grp.label}</button>{isOpen&&grp.keys.map(k=><button key={k} onClick={gateAuth(()=>setExplorerStat(k))} style={{fontFamily:mono,fontSize:10,fontWeight:explorerStat===k?700:500,padding:"5px 10px",background:explorerStat===k?grp.border+"18":"transparent",color:explorerStat===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerStat===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{STAT_EMOJI[k]||""} {STAT_SHORT[k]||k}</button>)}</Fragment>;})}
         </div>):(<div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",flexWrap:"nowrap",msOverflowStyle:"none",scrollbarWidth:"none"}}>
           {allTraits.map(t=><button key={t} onClick={gateAuth(()=>setExplorerTrait(t))} style={{fontFamily:sans,fontSize:10,fontWeight:explorerTrait===t?700:500,padding:"5px 10px",background:explorerTrait===t?"#6366f118":"transparent",color:explorerTrait===t?"#6366f1":"#a3a3a3",border:`1.5px solid ${explorerTrait===t?"#6366f1":"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{TRAIT_EMOJI[t]||""} {TRAIT_SHORT[t]||t} <span style={{fontSize:8,opacity:0.6}}>({traitPosCounts[t]})</span></button>)}
-        </div>)}
+        </div>))}
 
         {/* Absolute/percentile toggle — drills only (measurables) */}
         {explorerMode==="measurables"&&MEASURABLE_DRILLS.includes(explorerMeas)&&<div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8}}>
@@ -1815,25 +2218,31 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         </div>}
 
         {/* Sparse data warning */}
-        {explorerData.points.length>0&&explorerData.points.length<20&&<div style={{fontFamily:sans,fontSize:11,color:"#92400e",background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:8,padding:"6px 12px",marginBottom:8}}>⚠️ sparse data — only {explorerData.points.length} players have this {explorerMode==="stats"?"stat":"measurement"}</div>}
+        {explorerMode!=="combo"&&explorerData.points.length>0&&explorerData.points.length<20&&<div style={{fontFamily:sans,fontSize:11,color:"#92400e",background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:8,padding:"6px 12px",marginBottom:8}}>⚠️ sparse data — only {explorerData.points.length} players have this {explorerMode==="stats"?"stat":"measurement"}</div>}
 
         {/* Beeswarm */}
-        {explorerData.points.length===0?(<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no data available for this {explorerMode==="stats"?"stat":"measurable"}</p></div>):(
+        {explorerMode!=="combo"&&(explorerData.points.length===0?(<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no data available for this {explorerMode==="stats"?"stat":"measurable"}</p></div>):(
           <div style={{marginTop:4,position:"relative"}}>
             <BeeswarmChartWrapper data={explorerData} myGuys={myGuys} showMyGuys={explorerMyGuys} showLogos={explorerLogos} onHover={setExplorerHover} onTap={(pt)=>{const p=PROSPECTS.find(pr=>pr.id===pt.id);if(p)openProfile(p);}} hoveredId={explorerHover?.id||null}/>
             <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",display:"flex",alignItems:"center",gap:0,opacity:0.06,pointerEvents:"none"}}>
               <img src="/logo.png" alt="" style={{height:60,width:"auto"}}/>
               <span style={{fontFamily:font,fontSize:32,fontWeight:900,color:"#171717",letterSpacing:-1,marginLeft:-6}}>bigboardlab.com</span>
             </div>
-            <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:5,marginTop:2,paddingRight:4}}>
-              <img src="/logo.png" alt="" style={{height:12,width:"auto"}}/>
-              <span style={{fontFamily:mono,fontSize:8,fontWeight:600,color:"#171717",letterSpacing:0.3}}>bigboardlab.com</span>
+            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:6,paddingRight:4}}>
+              <div style={{display:"flex",gap:6,alignItems:"center"}}>
+                <button onClick={gateAuth(()=>setExplorerLogos(v=>!v))} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:explorerLogos?"#17171710":"transparent",color:explorerLogos?"#171717":"#a3a3a3",border:explorerLogos?"1px solid #17171722":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>{explorerLogos?"● dots":"🏫 logos"}</button>
+                {myGuys.length>0&&<button onClick={gateAuth(()=>setExplorerMyGuys(v=>!v))} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:explorerMyGuys?"linear-gradient(135deg,#ec4899,#7c3aed)":"transparent",color:explorerMyGuys?"#fff":"#a3a3a3",border:explorerMyGuys?"1px solid transparent":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>👀 my guys</button>}
+              </div>
+              <div style={{display:"flex",alignItems:"center",gap:5}}>
+                <img src="/logo.png" alt="" style={{height:12,width:"auto"}}/>
+                <span style={{fontFamily:mono,fontSize:8,fontWeight:600,color:"#171717",letterSpacing:0.3}}>bigboardlab.com</span>
+              </div>
             </div>
           </div>
-        )}
+        ))}
 
         {/* Leaderboard + Position Averages */}
-        {explorerData.points.length>=5&&(()=>{
+        {explorerMode!=="combo"&&explorerData.points.length>=5&&(()=>{
           const mc=explorerData.measCode;
           const sc=explorerData.statCode;
           const inv=explorerData.inverted;
@@ -1923,14 +2332,26 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
           <a href="/blog/2026-nfl-combine-results.html" target="_blank" rel="noopener" style={{fontFamily:sans,fontSize:12,color:"#7c3aed",textDecoration:"none",fontWeight:600}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>2026 NFL Combine Results & Analysis →</a>
         </div>
 
-        {/* Tooltip */}
-        {explorerHover&&<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-180),top:Math.max(explorerHover.cy-60,8),background:"#171717",color:"#fff",padding:"8px 12px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:200}}>
+        {/* Tooltip — beeswarm modes */}
+        {explorerMode!=="combo"&&explorerHover&&<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-180),top:Math.max(explorerHover.cy-60,8),background:"#171717",color:"#fff",padding:"8px 12px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:200}}>
           <div style={{fontWeight:700}}>{explorerHover.name}</div>
           <div style={{fontSize:10,color:"#a3a3a3",marginTop:1}}>{explorerHover.school}</div>
           <div style={{display:"flex",alignItems:"center",gap:6,marginTop:4}}>
             <span style={{fontSize:9,fontWeight:700,padding:"2px 6px",borderRadius:4,background:POS_COLORS[explorerHover.pos]||"#525252",color:"#fff"}}>{explorerHover.group}</span>
             <span style={{fontFamily:mono,fontSize:12,fontWeight:700}}>{(()=>{const mc=explorerHover.measCode;const sc=explorerHover.statCode;const dv=explorerHover.displayVal;if(sc){if(sc==="breakout_year")return dv;const suffix=sc.endsWith("_DOM")||sc.endsWith("_PCT")?"%":"";if(DECIMAL_STATS.has(sc))return(typeof dv==="number"?dv.toFixed(sc.endsWith("_PCT")||sc.endsWith("_DOM")?1:2):dv)+suffix;return(typeof dv==="number"?Math.round(dv):dv)+suffix;}if(!mc)return explorerHover.val;if(mc==="HT")return formatHeight(dv);if(mc==="WT")return dv+" lbs";if(mc==="ARM"||mc==="HND"||mc==="WING")return dv+'"';if(mc==="40"||mc==="3C"||mc==="SHT")return dv+"s";return dv!=null?dv:explorerHover.val;})()}</span>
             {explorerHover.statCode?.endsWith("_DOM")&&<div style={{fontSize:9,color:"#a3a3a3",marginTop:2}}>{(()=>{const sc=explorerHover.statCode;const g=explorerHover.group;if(sc==="passing_DOM")return"share of team passing yds + TDs";if(sc==="rushing_DOM")return"share of team rushing yds + TDs";if(sc==="receiving_DOM")return"share of team receiving yds + TDs";if(sc==="defensive_DOM"){if(g==="EDGE")return"pressure share (sacks + hurries)";if(g==="DL")return"TFL share of team";if(g==="LB")return"tackle impact (tkl + TFL + sacks)";if(g==="CB")return"coverage share (INT + PD)";if(g==="S")return"playmaker share (INT + PD + tkl)";}return"share of team production";})()}</div>}
+          </div>
+        </div>}
+        {/* Tooltip — combo mode */}
+        {explorerMode==="combo"&&explorerHover&&<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-200),top:Math.max(explorerHover.cy-80,8),background:"#171717",color:"#fff",padding:"8px 12px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:220}}>
+          <div style={{fontWeight:700}}>{explorerHover.name}</div>
+          <div style={{fontSize:10,color:"#a3a3a3",marginTop:1}}>{explorerHover.school}</div>
+          <div style={{display:"flex",alignItems:"center",gap:6,marginTop:4}}>
+            <span style={{fontSize:9,fontWeight:700,padding:"2px 6px",borderRadius:4,background:POS_COLORS[explorerHover.pos]||"#525252",color:"#fff"}}>{explorerHover.group}</span>
+          </div>
+          <div style={{marginTop:6,display:"flex",flexDirection:"column",gap:2}}>
+            <div style={{display:"flex",justifyContent:"space-between",gap:8}}><span style={{fontSize:10,color:"#a3a3a3"}}>{comboData.xMeta?.label||"X"}</span><span style={{fontFamily:mono,fontSize:11,fontWeight:700}}>{(()=>{const v=explorerHover.x;return typeof v==="number"?(Math.abs(v)<10?v.toFixed(2):Math.abs(v)<100?v.toFixed(1):Math.round(v)):v;})()}</span></div>
+            <div style={{display:"flex",justifyContent:"space-between",gap:8}}><span style={{fontSize:10,color:"#a3a3a3"}}>{comboData.yMeta?.label||"Y"}</span><span style={{fontFamily:mono,fontSize:11,fontWeight:700}}>{(()=>{const v=explorerHover.y;return typeof v==="number"?(Math.abs(v)<10?v.toFixed(2):Math.abs(v)<100?v.toFixed(1):Math.round(v)):v;})()}</span></div>
           </div>
         </div>}
         <div style={{textAlign:"center",padding:"24px 24px 16px",fontFamily:mono,fontSize:10,color:"#d4d4d4",letterSpacing:0.5}}>© {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>
@@ -4639,7 +5060,7 @@ export default function App(){
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
   if(showGuide)return<GuidePage onBack={()=>{window.history.pushState({},'','/');setShowGuide(false);}}/>;
   if(showOG)return<OGPreview/>;
-  if(!user&&!isGuest&&window.location.pathname!=='/combine'&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>setIsGuest(true)} onOpenGuide={navigateToGuide}/>;
+  if(!user&&!isGuest&&!window.location.pathname.startsWith('/combine')&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>setIsGuest(true)} onOpenGuide={navigateToGuide}/>;
   if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
   return<>
     <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} onRequireAuth={(msg)=>{
