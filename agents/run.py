@@ -68,7 +68,7 @@ def load_agent_spec(agent_name):
     print(f"❌ No agent spec found for '{agent_name}'.")
     sys.exit(1)
 
-def call_agent(system_prompt, user_message, model, max_tokens=16000):
+def call_agent(system_prompt, user_message, model, max_tokens=48000):
     import anthropic
     client = anthropic.Anthropic()
     try:
@@ -218,21 +218,40 @@ def run_gm_agent(args):
     elif args.all: teams = ALL_TEAMS; print("📋 All 32 teams")
     else: print("❌ Specify --team, --division, or --all"); sys.exit(1)
 
-    to_run = [t for t in teams if not (out / f"{t}.json").exists() or args.dry_run]
-    skipped = [t for t in teams if t not in to_run]
-    for t in skipped: print(f"⏭️  {t} — already done")
-    if not to_run: print("\nAll done. Delete files to re-run."); return
+    if args.force:
+        for t in teams:
+            for ext in [f"{t}.json", f"{t}_raw.md"]:
+                p = out / ext
+                if p.exists(): p.unlink(); print(f"🗑️  Deleted {ext}")
+        to_run = teams
+    else:
+        to_run = [t for t in teams if not (out / f"{t}.json").exists() or args.dry_run]
+        skipped = [t for t in teams if t not in to_run]
+        for t in skipped: print(f"⏭️  {t} — already done")
+    if not to_run: print("\nAll done. Use --force to re-run."); return
 
     def make_msg(team):
         return (f"Research the {team} front office and produce a complete GM personality profile. "
                 f"Follow your full research methodology: scouting tree, decision-making structure, "
                 f"draft history analysis, public statements, trade history, reported intel, "
-                f"and player archetype analysis. Output the complete JSON profile as specified in your instructions.")
+                f"and player archetype analysis. Output the complete JSON profile as specified in your instructions.\n\n"
+                f"CRITICAL QUALITY REQUIREMENTS — do not skip any of these:\n"
+                f"- Scouting tree: trace the FULL career path with every role, org, years, and mentor at each stop. "
+                f"Do not compress into 1-2 entries — list every distinct role.\n"
+                f"- Player archetype preferences: ALL 11 positions (QB, EDGE, OT, IOL, DT, CB, S, LB, WR, TE, RB) "
+                f"must have COMPLETE profiles. No position may be empty or stub.\n"
+                f"- For each position's playing_style: provide 3-5 most_valued_traits, 2-3 deal_breakers, "
+                f"and 1-2 least_important_traits. Be specific and evidence-based, not generic.\n"
+                f"- physical_profile must include height_range, weight_range, arm_length_minimum, "
+                f"key_athletic_tests, and speed_requirement for every position.\n"
+                f"- Evidence must cite real drafted players with actual measurables (height, weight, 40, arms).\n"
+                f"- Output ONLY the JSON object. Do not include any preamble, research narrative, or markdown "
+                f"fencing. Start with {{ and end with }}.")
 
     if args.batch:
         if args.dry_run:
             print(f"\nDRY RUN — would batch {len(to_run)} teams: {', '.join(to_run)}"); return
-        reqs = [{"custom_id": t, "params": {"model": model, "max_tokens": 16000, "system": spec,
+        reqs = [{"custom_id": t, "params": {"model": model, "max_tokens": 48000, "system": spec,
                  "tools": [{"type": "web_search_20250305", "name": "web_search"}],
                  "messages": [{"role": "user", "content": make_msg(t)}]}} for t in to_run]
         submit_batch(reqs, "gm-personality"); return
@@ -240,7 +259,7 @@ def run_gm_agent(args):
     for i, t in enumerate(to_run, 1):
         print(f"\n🧠 [{i}/{len(to_run)}] Researching: {t}")
         if args.dry_run: print(f"   DRY RUN"); continue
-        result = call_agent(spec, make_msg(t), model, 16000)
+        result = call_agent(spec, make_msg(t), model, 48000)
         jd = extract_json(result)
         if jd: (out / f"{t}.json").write_text(json.dumps(jd, indent=2)); print(f"   ✅ Saved")
         else: (out / f"{t}_raw.md").write_text(result); print(f"   ⚠️  No JSON, raw saved")
@@ -352,6 +371,7 @@ def main():
     p.add_argument("--team", help="Single team (TEN, BAL, etc.)")
     p.add_argument("--division", help="Division name")
     p.add_argument("--all", action="store_true", help="All 32 teams")
+    p.add_argument("--force", action="store_true", help="Overwrite existing results")
     p.add_argument("--message", help="Freeform message for generic agents")
     args = p.parse_args()
 
