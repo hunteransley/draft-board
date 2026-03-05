@@ -950,10 +950,15 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           const s1=preferredSlot;
           const idx=allowedSlots.indexOf(s1);
           if(idx>=0&&chart[team][s1]){
+            // Save the player who will fall off the end
+            const lastSlot=allowedSlots[allowedSlots.length-1];
+            const bumped=chart[team][lastSlot];
             // Shift all players from preferred slot down by one
             for(let j=allowedSlots.length-1;j>idx;j--){
               if(chart[team][allowedSlots[j-1]])chart[team][allowedSlots[j]]=chart[team][allowedSlots[j-1]];
+              else delete chart[team][allowedSlots[j]];
             }
+            // Veteran bumped off the end is dropped from the depth chart
           }
           chart[team][s1]=entry;
         }else if(tier===2){
@@ -1502,20 +1507,21 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const userPickCount=useMemo(()=>picks.filter(p=>p.isUser).length,[picks]);
 
   // Sub-components
-  const FormationChart=({team,maxW=280})=>{
+  const FormationChart=({team})=>{
     const chart=depthChart[team]||{};
-    return(<svg viewBox="0 0 100 105" style={{width:"100%",maxWidth:maxW}}>
-      <rect x="0" y="0" width="100" height="105" rx="4" fill="#faf9f6" stroke="#e5e5e5" strokeWidth="0.5"/>
+    const accent=NFL_TEAM_COLORS[team]||'#6366f1';
+    return(<svg viewBox="-2 -2 104 109" style={{width:"100%"}}>
+      <rect x="-2" y="-2" width="104" height="109" rx="4" fill="none" stroke="none"/>
       {[20,40,58,75,90].map(y=><line key={y} x1="2" y1={y} x2="98" y2={y} stroke="rgba(0,0,0,0.04)" strokeWidth="0.3"/>)}
-      <line x1="2" y1="58" x2="98" y2="58" stroke="rgba(124,58,237,0.3)" strokeWidth="0.5" strokeDasharray="2,1.5"/>
+      <line x1="2" y1="58" x2="98" y2="58" stroke={accent+"44"} strokeWidth="0.5" strokeDasharray="2,1.5"/>
       {Object.entries(FORMATION_POS).map(([slot,pos])=>{
-        const entry=chart[slot];const filled=!!entry;const isDraft=entry?.isDraft;const isOff=pos.y>58;
-        const dotColor=isDraft?"#7c3aed":filled?(isOff?"#3b82f6":"#60a5fa"):"#d4d4d4";
+        const entry=chart[slot];const filled=!!entry;const isDraft=entry?.isDraft;
+        const dotColor=isDraft?"#7c3aed":filled?accent:"#d4d4d4";
         const lastName=entry?shortName(entry.name):"";
         return(<g key={slot}>
-          <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={isDraft?"#7c3aed":"#a3a3a3"} strokeWidth={isDraft?"0.5":"0.2"}/>
-          <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="#a3a3a3" fontSize="1.8" fontFamily="monospace">{slot.replace(/\d$/,'')}</text>
-          {filled&&<text x={pos.x} y={pos.y+4.5} textAnchor="middle" fill={isDraft?"#7c3aed":"#525252"} fontSize={isDraft?"2.2":"1.8"} fontWeight={isDraft?"bold":"normal"} fontFamily="sans-serif">{lastName}</text>}
+          <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={isDraft?"#7c3aed":filled?accent:"#a3a3a3"} strokeWidth={isDraft?"0.5":"0.2"}/>
+          <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="#a3a3a3" fontSize="1.8" fontFamily={mono}>{slot.replace(/\d$/,'')}</text>
+          {filled&&<text x={pos.x} y={pos.y+4.5} textAnchor="middle" fill={isDraft?"#7c3aed":"#525252"} fontSize={isDraft?"2.2":"1.8"} fontWeight={isDraft?"bold":"normal"} fontFamily={sans}>{lastName}</text>}
         </g>);
       })}
     </svg>);
@@ -1567,27 +1573,111 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     return pills.slice(0,4);
   };
 
-  const DepthList=({team,dark=true})=>{
+  const DepthList=({team})=>{
     const chart=depthChart[team]||{};
-    const slotColor=dark?"#a3a3a3":"#a3a3a3";
-    const nameColor=dark?"#525252":"#525252";
-    const draftColor=dark?"#7c3aed":"#7c3aed";
-    return(<div style={{marginTop:4}}>
-      {DEPTH_GROUPS.map(group=>{
+    return(<div style={{marginTop:2}}>
+      {DEPTH_GROUPS.map((group,gi)=>{
         const entries=group.slots.map(s=>({slot:s,entry:chart[s]})).filter(x=>x.entry);
         const extras=Object.entries(chart).filter(([k])=>group.slots.some(s=>k.startsWith(s+"_d"))).map(([k,v])=>({slot:k,entry:v}));
         if(entries.length===0&&extras.length===0)return null;
-        return(<div key={group.label} style={{marginBottom:2}}>
-          {entries.map(({slot,entry})=>(<div key={slot} style={{fontFamily:sans,fontSize:9,padding:"1px 0",display:"flex",gap:4}}>
-            <span style={{color:slotColor,width:16,fontSize:7}}>{slot}</span>
-            <span style={{fontWeight:entry.isDraft?700:400,color:entry.isDraft?draftColor:nameColor}}>{entry.name}{entry.isDraft?" ★":""}</span>
+        return(<div key={group.label} style={{marginBottom:8,...(gi>0?{paddingTop:6,borderTop:"1px solid #f5f5f5"}:{})}}>
+          {entries.map(({slot,entry})=>(<div key={slot} style={{fontFamily:sans,fontSize:11,padding:"2px 0",display:"flex",alignItems:"center",gap:6}}>
+            <span style={{fontFamily:mono,color:"#d4d4d4",width:24,fontSize:9,flexShrink:0}}>{slot}</span>
+            {entry.isDraft
+              ?<span style={{fontFamily:sans,fontWeight:700,fontSize:11,color:"#7c3aed",background:"rgba(124,58,237,0.06)",padding:"1px 6px",borderRadius:4}}>{entry.name}</span>
+              :<span style={{fontFamily:sans,fontWeight:400,fontSize:11,color:"#525252"}}>{entry.name}</span>}
           </div>))}
-          {extras.map(({slot,entry})=>(<div key={slot} style={{fontFamily:sans,fontSize:9,padding:"1px 0",display:"flex",gap:4}}>
-            <span style={{color:slotColor,width:16,fontSize:7}}>+</span>
-            <span style={{fontWeight:entry.isDraft?700:400,color:entry.isDraft?draftColor:nameColor}}>{entry.name}{entry.isDraft?" ★":""}</span>
+          {extras.map(({slot,entry})=>(<div key={slot} style={{fontFamily:sans,fontSize:11,padding:"2px 0",display:"flex",alignItems:"center",gap:6}}>
+            <span style={{fontFamily:mono,color:"#d4d4d4",width:24,fontSize:9,flexShrink:0}}>+</span>
+            {entry.isDraft
+              ?<span style={{fontFamily:sans,fontWeight:700,fontSize:11,color:"#7c3aed",background:"rgba(124,58,237,0.06)",padding:"1px 6px",borderRadius:4}}>{entry.name}</span>
+              :<span style={{fontFamily:sans,fontWeight:400,fontSize:11,color:"#525252"}}>{entry.name}</span>}
           </div>))}
         </div>);
       })}
+    </div>);
+  };
+
+  const DraftFit=({team,teamPicks,fpPills})=>{
+    const base=TEAM_NEEDS_DETAILED?.[team]||{};const remaining=liveNeeds[team]||{};
+    const prof=TEAM_PROFILES[team];
+    const needEntries=Object.entries(base).sort((a,b)=>b[1]-a[1]);
+    const totalNeeds=Object.values(base).reduce((s,v)=>s+v,0);
+    const filledCount=totalNeeds-Object.values(remaining).reduce((s,v)=>s+v,0);
+    if(teamPicks.length===0)return null;
+    // Team philosophy
+    const stageMap={rebuild:"rebuilding",retool:"retooling",contend:"contending",dynasty:"in dynasty mode"};
+    const stageLabel=stageMap[prof?.stage]||"";
+    const boosted=prof?.posBoost||[];
+    // Tendency pills
+    const tendencies=[];
+    if(stageLabel)tendencies.push({text:stageMap[prof.stage],color:"#525252"});
+    if(prof?.bpaLean>=0.7)tendencies.push({text:"BPA-first",color:"#2563eb"});
+    else if(prof?.bpaLean<=0.4)tendencies.push({text:"need-driven",color:"#ea580c"});
+    if(prof?.athBoost>=0.1)tendencies.push({text:"values athleticism",color:"#059669"});
+    if(prof?.sizePremium)tendencies.push({text:"favors size",color:"#7c3aed"});
+    if(prof?.ceilingChaser>=0.08)tendencies.push({text:"chases upside",color:"#d97706"});
+    if(prof?.reachTolerance>=0.45)tendencies.push({text:"willing to reach",color:"#dc2626"});
+    // Prose traits for sentence
+    const sentenceTraits=[];
+    if(prof?.bpaLean>=0.7)sentenceTraits.push("tend to take the best player available");
+    else if(prof?.bpaLean<=0.4)sentenceTraits.push("tend to draft for need");
+    if(prof?.athBoost>=0.1)sentenceTraits.push("value athleticism");
+    if(prof?.sizePremium)sentenceTraits.push("favor bigger prospects at the position");
+    if(prof?.ceilingChaser>=0.08)sentenceTraits.push("chase upside");
+    if(prof?.reachTolerance>=0.45)sentenceTraits.push("reach for their guy");
+    const pickedPositions=teamPicks.map(pk=>{const p=prospectsMap[pk.playerId];return p?.pos;}).filter(Boolean);
+    let philoLine="";
+    if(stageLabel){
+      philoLine=`The ${team} are ${stageLabel}${sentenceTraits.length>0?" and "+sentenceTraits[0]:""}. `;
+      if(sentenceTraits.length>1)philoLine+=`They also tend to ${sentenceTraits.slice(1).join(" and ")}. `;
+      if(boosted.length>0){
+        const nonBoosted=pickedPositions.filter(pos=>!boosted.includes(pos));
+        if(nonBoosted.length>0&&teamPicks.length===1)philoLine+=`This front office usually prioritizes ${boosted.slice(0,3).join(", ")} — not ${nonBoosted[0]}.`;
+        else philoLine+=`This front office usually prioritizes ${boosted.slice(0,3).join(", ")}.`;
+      }
+    }
+    // Picks analysis
+    const boostHits=pickedPositions.filter(pos=>boosted.includes(pos)).length;
+    const topNeed=needEntries[0]?.[0];const topFilled=topNeed?base[topNeed]-(remaining[topNeed]||0):0;
+    const lines=[];
+    if(totalNeeds>0){
+      if(filledCount===totalNeeds){lines.push({text:`You addressed every pre-draft need.`,color:"#16a34a"});}
+      else if(filledCount===0){
+        if(teamPicks.length===1)lines.push({text:`Your pick didn't fill a listed need — but value is value.`,color:"#a3a3a3"});
+        else lines.push({text:`None of your ${teamPicks.length} picks addressed a team need.`,color:"#dc2626"});
+      }else{
+        const remainingNeeds=needEntries.filter(([pos])=>(remaining[pos]||0)>0).map(([pos])=>pos);
+        if(topFilled>0)lines.push({text:`Filled their biggest need at ${topNeed}.`,color:"#16a34a"});
+        else lines.push({text:`Left the top need (${topNeed}) unaddressed.`,color:"#ea580c"});
+        if(remainingNeeds.length>0&&remainingNeeds.length<=3)lines.push({text:`Still need${remainingNeeds.length===1?"s":""}: ${remainingNeeds.join(", ")}`,color:"#a3a3a3"});
+      }
+    }
+    return(<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"12px 16px"}}>
+      <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8,display:"flex",alignItems:"center",gap:4}}><span style={{fontSize:10}}>🧠</span> draft fit</div>
+      {tendencies.length>0&&<div style={{display:"flex",flexWrap:"wrap",gap:4,marginBottom:8}}>
+        {tendencies.map((t,i)=><span key={i} style={{fontFamily:mono,fontSize:8,padding:"2px 6px",borderRadius:4,color:t.color,background:t.color+"0d",border:`1px solid ${t.color}22`}}>{t.text}</span>)}
+      </div>}
+      {philoLine&&<div style={{fontFamily:sans,fontSize:11,color:"#737373",lineHeight:1.5,marginBottom:10}}>{philoLine}</div>}
+      {needEntries.length>0&&<>
+        <div style={{borderTop:"1px solid #f5f5f5",marginBottom:8}}/>
+        <div style={{fontFamily:mono,fontSize:7,letterSpacing:1,color:"#d4d4d4",textTransform:"uppercase",marginBottom:4}}>pre-draft needs</div>
+        <div style={{display:"flex",flexWrap:"wrap",gap:4,marginBottom:lines.length>0?10:0}}>
+          {needEntries.map(([pos,count])=>{const rem=remaining[pos]||0;const filled=count-rem;
+            return Array.from({length:count}).map((_,i)=><span key={pos+i} style={{fontFamily:mono,fontSize:9,padding:"2px 6px",borderRadius:4,
+              ...(i<filled?{background:"rgba(34,197,94,0.1)",color:"#16a34a",border:"1px solid rgba(34,197,94,0.2)"}:{background:"rgba(239,68,68,0.06)",color:"#dc2626",border:"1px solid rgba(239,68,68,0.12)"})
+            }}>{pos}{i<filled?" ✓":""}</span>);
+          })}
+        </div>
+      </>}
+      {lines.length>0&&<div>{lines.map((l,i)=><div key={i} style={{fontFamily:sans,fontSize:11,color:l.color,lineHeight:1.5}}>{l.text}</div>)}</div>}
+      {fpPills&&fpPills.length>0&&<>
+        <div style={{borderTop:"1px solid #f5f5f5",marginTop:8,marginBottom:8}}/>
+        <div style={{fontFamily:mono,fontSize:7,letterSpacing:1,color:"#d4d4d4",textTransform:"uppercase",marginBottom:4}}>your strategy</div>
+        <div style={{display:"flex",flexWrap:"wrap",gap:4}}>
+          {fpPills.map((pill,i)=><span key={i} style={{fontFamily:sans,fontSize:9,fontWeight:600,color:pill.color,background:`${pill.color}0d`,border:`1px solid ${pill.color}22`,padding:"2px 7px",borderRadius:99,display:"inline-flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{pill.emoji}</span><span>{pill.text}</span></span>)}
+        </div>
+      </>}
     </div>);
   };
 
@@ -1815,10 +1905,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             const teamGrade=gradeTeamPicks(tp,team);
             const fpPills=draftFingerprint(tp);
             return(<div key={team} style={{marginBottom:32,textAlign:"left"}}>
-              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,flexWrap:"wrap"}}>
+              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8}}>
                 <NFLTeamLogo team={team} size={20}/>
                 <span style={{fontFamily:sans,fontSize:14,fontWeight:700,color:"#171717"}}>{team}</span>
-                {fpPills.map((pill,i)=><span key={i} className={i>=3?"fp-pill-hide":""} style={{fontFamily:sans,fontSize:9,fontWeight:600,color:pill.color,background:`${pill.color}0d`,border:`1px solid ${pill.color}22`,padding:"2px 7px",borderRadius:99,display:"inline-flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{pill.emoji}</span><span>{pill.text}</span></span>)}
               </div>
               <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",marginBottom:12}}>
                 {tp.map((pk,i)=>{const p=prospectsMap[pk.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const g=activeGrade(pk.playerId);const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;const g2=getConsensusGrade?getConsensusGrade(p.name):activeGrade(pk.playerId);const v=pickVerdict(pk.pick,rank,g2);
@@ -1832,13 +1921,16 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
                   </div>;
                 })}
               </div>
-              <div style={{display:"flex",gap:16,alignItems:"flex-start",flexWrap:"wrap"}}>
-                <div style={{flex:"1 1 280px",minWidth:260,background:"#fff",borderRadius:12,padding:"16px"}}>
-                  <FormationChart team={team}/>
+              <div style={{display:"flex",gap:16,alignItems:"stretch",flexWrap:"wrap"}}>
+                <div style={{flex:"1 1 280px",minWidth:260,display:"flex",flexDirection:"column",gap:12}}>
+                  <DraftFit team={team} teamPicks={tp} fpPills={fpPills}/>
+                  <div style={{background:"#fff",borderRadius:12,padding:"8px 4px"}}>
+                    <FormationChart team={team}/>
+                  </div>
                 </div>
                 <div style={{flex:"1 1 280px",minWidth:200,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"12px 16px"}}>
                   <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:6}}>depth chart</div>
-                  <DepthList team={team} dark={false}/>
+                  <DepthList team={team}/>
                 </div>
               </div>
             </div>);
@@ -2188,10 +2280,10 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             </div>
             {/* Scrollable content */}
             <div style={{flex:1,overflowY:"auto",padding:"0 12px 20px",WebkitOverflowScrolling:"touch"}}>
-              <FormationChart team={depthSheetTeam} maxW={600}/>
+              <FormationChart team={depthSheetTeam}/>
               <div style={{marginTop:12,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"10px 12px"}}>
                 <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:6}}>depth chart</div>
-                <DepthList team={depthSheetTeam} dark={false}/>
+                <DepthList team={depthSheetTeam}/>
               </div>
               <div style={{marginTop:10}}>
                 <LiveNeeds team={depthSheetTeam}/>
