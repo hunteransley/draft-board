@@ -136,7 +136,7 @@ const FORMATION_POS={
   CB1:{x:10,y:25},CB2:{x:90,y:25},SS:{x:65,y:18},FS:{x:35,y:18},K:{x:50,y:96}
 };
 
-const POS_DRAFT_VALUE={QB:1.08,OL:1.05,DL:1.06,WR:1.04,DB:1.03,TE:0.98,LB:0.97,RB:0.96,"K/P":0.7};
+const POS_DRAFT_VALUE={QB:1.08,EDGE:1.09,CB:1.05,OT:1.05,OL:1.05,DL:1.04,WR:1.04,IDL:1.03,DT:1.03,NT:1.03,IOL:1.01,DB:1.01,TE:1.01,S:0.98,LB:0.97,RB:0.96,"K/P":0.7};
 
 const TEAM_ABBR={Raiders:"LV",Jets:"NYJ",Cardinals:"ARI",Titans:"TEN",Giants:"NYG",Browns:"CLE",Commanders:"WAS",Saints:"NO",Chiefs:"KC",Bengals:"CIN",Dolphins:"MIA",Cowboys:"DAL",Rams:"LAR",Falcons:"ATL",Ravens:"BAL",Buccaneers:"TB",Colts:"IND",Lions:"DET",Vikings:"MIN",Panthers:"CAR",Packers:"GB",Steelers:"PIT",Chargers:"LAC",Eagles:"PHI",Bears:"CHI","49ers":"SF",Texans:"HOU",Jaguars:"JAX",Seahawks:"SEA",Patriots:"NE",Broncos:"DEN",Bills:"BUF"};
 
@@ -166,6 +166,13 @@ const GRADE_OVERRIDES={"Jeremiyah Love":92,"Sonny Styles":89};
 // stage: "rebuild"|"retool"|"contend"|"dynasty"
 // reachTolerance: 0-1, willingness to reach for 'their guy'
 // variance: regime scouting divergence from consensus
+
+// Central-limit-theorem gaussian approximation (sum of 6 uniforms)
+function gaussRandom(sigma){
+  let s=0;for(let i=0;i<6;i++)s+=Math.random();
+  return(s-3)*sigma;
+}
+
 const TEAM_PROFILES={
   // 3-4 teams value EDGE/OLB rushers + IDL/NT space-eaters; 4-3 teams value DT penetrators + EDGE ends
   // gposBoost: granular position preferences based on scheme (1.15× multiplier)
@@ -205,6 +212,55 @@ const TEAM_PROFILES={
   Bills:{bpaLean:0.55,posBoost:["DL","DB","WR"],posPenalty:[],stage:"retool",reachTolerance:0.4,variance:3,gposBoost:["EDGE","DT"],athBoost:0.06,sizePremium:false,ceilingChaser:0},
   Ravens:{bpaLean:0.7,posBoost:["OL","WR","DB"],posPenalty:[],stage:"contend",reachTolerance:0.35,variance:2,gposBoost:["EDGE","NT","IDL"],athBoost:0.04,sizePremium:false,ceilingChaser:0},
 };
+
+// Scheme archetype demand — how much does this team's scheme structurally create value
+// for each cross-positional archetype? Derived from agent scheme analysis.
+// Need/roster/GM personality handled separately by existing scoring machinery.
+const SCHEME_INFLECTIONS={
+  Raiders:{teRec:.8,lbRush:.8,rbDual:.4},
+  Jets:{teRec:.4,lbRush:.2,rbDual:.8},
+  Cardinals:{teRec:.8,lbRush:.8,rbDual:.4},
+  Titans:{teRec:.4,lbRush:.2,rbDual:.6},
+  Giants:{teRec:.8,lbRush:.7,rbDual:.8},
+  Browns:{teRec:.8,lbRush:.2,rbDual:.4},
+  Commanders:{teRec:.8,lbRush:.7,rbDual:.4},
+  Saints:{teRec:.15,lbRush:.7,rbDual:.15},
+  Chiefs:{teRec:.8,lbRush:.2,rbDual:.8},
+  Bengals:{teRec:.8,lbRush:.55,rbDual:.8},
+  Dolphins:{teRec:.4,lbRush:.2,rbDual:.8},
+  Cowboys:{teRec:.8,lbRush:.8,rbDual:.4},
+  Rams:{teRec:.8,lbRush:.7,rbDual:.15},
+  Ravens:{teRec:.8,lbRush:.55,rbDual:.4},
+  Buccaneers:{teRec:.4,lbRush:.8,rbDual:.4},
+  Colts:{teRec:.8,lbRush:.1,rbDual:.15},
+  Lions:{teRec:.8,lbRush:.25,rbDual:.8},
+  Vikings:{teRec:.8,lbRush:.55,rbDual:.8},
+  Panthers:{teRec:.4,lbRush:.8,rbDual:.15},
+  Steelers:{teRec:.8,lbRush:.8,rbDual:.4},
+  Chargers:{teRec:.8,lbRush:.8,rbDual:.8},
+  Eagles:{teRec:.8,lbRush:.8,rbDual:.8},
+  Bears:{teRec:.8,lbRush:.2,rbDual:.8},
+  Bills:{teRec:.8,lbRush:.8,rbDual:.8},
+  "49ers":{teRec:.8,lbRush:.55,rbDual:.8},
+  Texans:{teRec:.8,lbRush:.1,rbDual:.4},
+  Broncos:{teRec:.8,lbRush:.8,rbDual:.8},
+  Patriots:{teRec:.8,lbRush:.7,rbDual:.6},
+  Seahawks:{teRec:.8,lbRush:.4,rbDual:.8},
+  Falcons:{teRec:.8,lbRush:.7,rbDual:.8},
+  Packers:{teRec:.8,lbRush:.8,rbDual:.4},
+  Jaguars:{teRec:.4,lbRush:.2,rbDual:.4},
+};
+
+// Per-archetype coefficients: TE→WR and LB→EDGE are real positional value jumps (0.18).
+// RB dual-threat is still the same position — tiny seasoning only (0.03).
+function traitFlexScore(pos,gpos,sc,teamInflections){
+  if(!sc)return 0;
+  const t=sc;
+  if(pos==='TE'){const avg=((t.Receiving||0)+(t['Route Running']||0)+(t.Hands||0)+(t.Speed||0))/4;if(avg>=78)return((avg-78)/22)*(teamInflections.teRec||0)*0.18;}
+  if(pos==='LB'){const avg=((t['Pass Rush']||0)*0.65+(t.Athleticism||0)*0.65+(t['Block Shedding']||0)*0.35+(t.Range||0)*0.35)/2;if(avg>=78)return((avg-78)/22)*(teamInflections.lbRush||0)*0.18;}
+  if(pos==='RB'){const avg=((t['Pass Catching']||0)+(t.Speed||0))/2;if(avg>=78)return((avg-78)/22)*(teamInflections.rbDual||0)*0.03;}
+  return 0;
+}
 
 // Division map for RIVAL tags
 const DIVISION_RIVALS={
@@ -306,6 +362,24 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   const[cpuTrades,setCpuTrades]=useState(true); // CPU-to-CPU trades enabled
   const[cpuTradeLog,setCpuTradeLog]=useState([]); // [{fromTeam,toTeam,pickIdx,gave:[],got:[]}]
   const tradeDeclinedRef=useRef(0);
+  const boardNoiseRef=useRef({});
+  const wobbledProfilesRef=useRef({});
+
+  const generateBoardNoise=useCallback((boardToUse)=>{
+    const noise={};const wobbled={};
+    const teams=[...new Set(DRAFT_ORDER_2026.map(d=>d.team))];
+    teams.forEach(team=>{
+      const prof=TEAM_PROFILES[team]||{variance:2,bpaLean:0.5};
+      const sigma=prof.variance*0.9;
+      const tn={};
+      boardToUse.forEach(p=>{tn[p.id]=Math.max(-8,Math.min(8,gaussRandom(sigma)));});
+      noise[team]=tn;
+      const ws=0.03*prof.variance;
+      wobbled[team]={...prof,bpaLean:Math.max(0.2,Math.min(0.9,prof.bpaLean+gaussRandom(ws)))};
+    });
+    boardNoiseRef.current=noise;
+    wobbledProfilesRef.current=wobbled;
+  },[]);
 
   // Auto-launch when coming from home screen CTA with a team pre-selected
   const hasAutoLaunched=useRef(false);
@@ -321,6 +395,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       // Use correct board based on launch mode (activeBoard may be stale since setBoardMode hasn't re-rendered yet)
       const launchBoard=mockLaunchBoardMode==="my"&&myBoard?myBoard:board;
       setTimeout(()=>{
+        generateBoardNoise(launchBoard);
         setAvailable(launchBoard.map(p=>p.id));setPicks([]);setSetupDone(true);setShowResults(false);
         setTradeMap({});setLastVerdict(null);setTradeOffer(null);setShowTradeUp(false);setTradeValueDelta(0);setCpuTradeLog([]);
       },50);
@@ -371,15 +446,16 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   },[picks,totalPicks,getPickTeam,fullDraftOrder]);
 
   const startDraft=useCallback(()=>{
+    generateBoardNoise(activeBoard);
     setAvailable(activeBoard.map(p=>p.id));setPicks([]);setSetupDone(true);setShowResults(false);
     setTradeMap({});setLastVerdict(null);setTradeOffer(null);setShowTradeUp(false);setTradeValueDelta(0);setCpuTradeLog([]);
     if(trackEvent)trackEvent(userId,'mock_draft_sim_started',{team:[...userTeams].join(','),rounds:numRounds,speed,cpuTrades,boardMode,guest:!!isGuestUser});
-  },[activeBoard,trackEvent,userId,isGuestUser,userTeams,numRounds,speed,cpuTrades,boardMode]);
+  },[activeBoard,generateBoardNoise,trackEvent,userId,isGuestUser,userTeams,numRounds,speed,cpuTrades,boardMode]);
 
   const cpuPick=useCallback((team,avail,pickNum)=>{
     const needs=teamNeeds[team]||["QB","WR","DL"];
     const dn=TEAM_NEEDS_DETAILED?.[team]||{};
-    const prof=TEAM_PROFILES[team]||{bpaLean:0.55,posBoost:[],posPenalty:[],stage:"retool",reachTolerance:0.3,variance:2,gposBoost:[]};
+    const prof=wobbledProfilesRef.current[team]||TEAM_PROFILES[team]||{bpaLean:0.55,posBoost:[],posPenalty:[],stage:"retool",reachTolerance:0.3,variance:2,gposBoost:[]};
     if(pickNum===1){const m=avail.find(id=>{const p=prospectsMap[id];return p&&p.name==="Fernando Mendoza";});if(m)return m;}
 
     // Elite slide protection: consensus top-5 talents that the CPU must not let fall
@@ -426,14 +502,16 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     avail.forEach(id=>{
       const p=prospectsMap[id];if(!p)return;
       const pos=p.pos;
-      const baseGrade=getConsensusGrade?getConsensusGrade(p.name):(gradeMap[id]||50);
+      const rawBaseGrade=getConsensusGrade?getConsensusGrade(p.name):(gradeMap[id]||50);
+      const baseGrade=rawBaseGrade+(boardNoiseRef.current[team]?.[id]||0);
       const grade=GRADE_OVERRIDES[p.name]?Math.max(baseGrade,GRADE_OVERRIDES[p.name]):baseGrade;
       const rawRank=getConsensusRank?getConsensusRank(p.name):999;
       const consRank=RANK_OVERRIDES[p.name]||rawRank;
       const nc=dn[pos]||0;const ni=needs.indexOf(pos);
       const nm=nc>=3?18:nc>=2?12:nc===1?8:ni>=0&&ni<3?5:ni>=0?2:(round>=3?-6:0);
       // Elite-grade players (88+) bypass positional discount — their talent transcends position value
-      const rawPm=POS_DRAFT_VALUE[pos]||1.0;
+      const gpos=p.gpos||p.pos;
+      const rawPm=POS_DRAFT_VALUE[gpos]||POS_DRAFT_VALUE[pos]||1.0;
       const pm=grade>=88?Math.max(rawPm,1.0):rawPm;
       const base=Math.pow(Math.max(grade,10),1.3);
 
@@ -462,7 +540,6 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       const qbMod=pos==="QB"?(nc>=2?1.3:nc>=1?1.1:ni>=0?0.9:0.5):1.0;
 
       // Scheme-specific granular position boost (gposBoost)
-      const gpos=p.gpos||p.pos;
       const isSchemefit=(prof.gposBoost||[]).includes(gpos);
       const schemeBoost=isSchemefit?1.15:1.0;
 
@@ -478,6 +555,11 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       // sizePremium: small boost for above-avg measurables (height/weight percentiles)
       let sizeMult=1.0;
       if(prof.sizePremium&&cs?.percentiles){const hp=cs.percentiles.height??50;const wp=cs.percentiles.weight??50;if(hp>=75&&wp>=75)sizeMult=1.06;else if(hp>=60&&wp>=60)sizeMult=1.03;}
+
+      const schemeInf=SCHEME_INFLECTIONS[team]||{};
+      const flexRaw=traitFlexScore(pos,gpos,sc,schemeInf);
+      const gmFactor=Math.max(0.15,1.0-(prof.bpaLean-0.35)*1.8);
+      const traitFlexBoost=1.0+flexRaw*gmFactor;
 
       // Stage modifier — meaningful impact on scoring
       let stageMod=1.0;
@@ -498,7 +580,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         stageMod=nc>=2?1.1:1.0;
       }
 
-      const bpaComponent=base*finalBpaW*pm*rbPen*qbMod*teamPosBoost*schemeBoost*athMult*ceilingMult*sizeMult;
+      const bpaComponent=base*finalBpaW*pm*rbPen*qbMod*teamPosBoost*schemeBoost*athMult*ceilingMult*sizeMult*traitFlexBoost;
       const needComponent=nm*finalNeedW*12;
       const score=(bpaComponent+needComponent+slideBoost-reachPenalty)*dimReturn*stageMod*runPenalty*urgencyBoost;
       scored.push({id,score,grade,consRank});
@@ -517,12 +599,12 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
     // Tier window: how close must a player be to compete?
     // Round 1 is tight. Elite top player (grade 88+) narrows it further — they're the consensus pick.
-    const baseTierPct=round<=1?0.07:round<=2?0.11:round<=3?0.16:round<=5?0.22:0.30;
+    const baseTierPct=round<=1?0.09:round<=2?0.13:round<=3?0.18:round<=5?0.24:0.30;
     // If top scorer is elite grade, compress tier so they win more often
-    const tierPct=topGrade>=88?baseTierPct*0.55:baseTierPct;
+    const tierPct=topGrade>=88?baseTierPct*0.6:baseTierPct;
     const tierCandidates=scored.filter(s=>s.score>=topScore*(1-tierPct));
 
-    const maxCandidates=Math.max(1,Math.min(tierCandidates.length,Math.round(1+prof.variance/2)));
+    const maxCandidates=Math.max(1,Math.min(tierCandidates.length,Math.round(1+prof.variance)));
     const pool=tierCandidates.slice(0,maxCandidates);
 
     if(pool.length===1)return pool[0].id;
@@ -662,7 +744,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     for(let i=currentIdx+2;i<Math.min(currentIdx+13,totalPicks);i++){
       const t=getPickTeam(i);
       if(!t||userTeams.has(t)||t===currentTeam)continue;
-      const prof=TEAM_PROFILES[t]||{reachTolerance:0.3,stage:"retool",variance:2,bpaLean:0.5,posBoost:[]};
+      const prof=wobbledProfilesRef.current[t]||TEAM_PROFILES[t]||{reachTolerance:0.3,stage:"retool",variance:2,bpaLean:0.5,posBoost:[]};
       if(recentTraders.has(t))continue; // cooldown
 
       // === PATH 1: ANALYTICAL — team has a clear target they love ===
@@ -672,7 +754,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       available.forEach(id=>{
         const p=prospectsMap[id];if(!p)return;
         const pos=p.pos;
-        const baseGrade=getConsensusGrade?getConsensusGrade(p.name):(0);
+        const rawBaseGrade=getConsensusGrade?getConsensusGrade(p.name):(0);
+        const baseGrade=rawBaseGrade+(boardNoiseRef.current[t]?.[id]||0);
         const grade=GRADE_OVERRIDES[p.name]?Math.max(baseGrade,GRADE_OVERRIDES[p.name]):baseGrade;
         if(grade<70)return;
         const rawRank=getConsensusRank?getConsensusRank(p.name):999;

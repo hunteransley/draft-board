@@ -30,10 +30,31 @@ const DRAFT_ORDER_2026=[
 const JJ_VALUES={1:3000,2:2600,3:2200,4:1800,5:1700,6:1600,7:1500,8:1400,9:1350,10:1300,11:1250,12:1200,13:1150,14:1100,15:1050,16:1000,17:950,18:900,19:875,20:850,21:800,22:780,23:760,24:740,25:720,26:700,27:680,28:660,29:640,30:620,31:600,32:590,33:580,34:560,35:550,36:540,37:530,38:520,39:510,40:500,41:490,42:480,43:470,44:460,45:450,46:440,47:430,48:420,49:410,50:400,51:390,52:380,53:370,54:360,55:350,56:340,57:330,58:320,59:310,60:300,61:292,62:284,63:276,64:270,65:265,66:260,67:255,68:250,69:245,70:240,71:235,72:230,73:225,74:220,75:215,76:210,77:205,78:200,79:195,80:190,81:185,82:180,83:175,84:170,85:165,86:160,87:155,88:150,89:145,90:140,91:136,92:132,93:128,94:124,95:120,96:116,97:112,98:108,99:104,100:100};
 function getPickValue(n){return JJ_VALUES[n]||Math.max(5,Math.round(100-((n-100)*0.72)));}
 
-const POS_DRAFT_VALUE={QB:1.08,OL:1.05,DL:1.06,WR:1.04,DB:1.03,TE:0.98,LB:0.97,RB:0.96,"K/P":0.7};
+const POS_DRAFT_VALUE={QB:1.08,EDGE:1.09,CB:1.05,OT:1.05,OL:1.05,DL:1.04,WR:1.04,IDL:1.03,DT:1.03,NT:1.03,IOL:1.01,DB:1.01,TE:1.01,S:0.98,LB:0.97,RB:0.96,"K/P":0.7};
 
 const RANK_OVERRIDES={"Sonny Styles":6,"Kenyon Sadiq":18,"Jeremiyah Love":3};
 const GRADE_OVERRIDES={"Jeremiyah Love":92,"Sonny Styles":89};
+
+// Central-limit-theorem gaussian approximation (sum of 6 uniforms)
+function gaussRandom(sigma){
+  let s=0;for(let i=0;i<6;i++)s+=Math.random();
+  return(s-3)*sigma;
+}
+
+function generateSimNoise(board){
+  const noise={};const wobbled={};
+  const teams=[...new Set(DRAFT_ORDER_2026.map(d=>d.team))];
+  teams.forEach(team=>{
+    const prof=TEAM_PROFILES[team]||{variance:2,bpaLean:0.5};
+    const sigma=prof.variance*0.9;
+    const tn={};
+    board.forEach(p=>{tn[p.id]=Math.max(-8,Math.min(8,gaussRandom(sigma)));});
+    noise[team]=tn;
+    const ws=0.03*prof.variance;
+    wobbled[team]={...prof,bpaLean:Math.max(0.2,Math.min(0.9,prof.bpaLean+gaussRandom(ws)))};
+  });
+  return{noise,wobbled};
+}
 
 const TEAM_PROFILES={
 Raiders:{bpaLean:0.55,posBoost:["QB","OL","WR"],posPenalty:[],stage:"rebuild",reachTolerance:0.3,variance:2,gposBoost:["EDGE","IDL"],athBoost:0.08,sizePremium:false,ceilingChaser:0.08},
@@ -70,6 +91,55 @@ Packers:{bpaLean:0.55,posBoost:["DB","OL","DL"],posPenalty:[],stage:"contend",re
 Jaguars:{bpaLean:0.45,posBoost:["DB","LB","OL"],posPenalty:[],stage:"rebuild",reachTolerance:0.4,variance:3,gposBoost:["EDGE","CB"],athBoost:0.1,sizePremium:false,ceilingChaser:0.08},
 };
 
+// Scheme archetype demand — how much does this team's scheme structurally create value
+// for each cross-positional archetype? Derived from agent scheme analysis.
+// Need/roster/GM personality handled separately by existing scoring machinery.
+const SCHEME_INFLECTIONS={
+  Raiders:{teRec:.8,lbRush:.8,rbDual:.4},
+  Jets:{teRec:.4,lbRush:.2,rbDual:.8},
+  Cardinals:{teRec:.8,lbRush:.8,rbDual:.4},
+  Titans:{teRec:.4,lbRush:.2,rbDual:.6},
+  Giants:{teRec:.8,lbRush:.7,rbDual:.8},
+  Browns:{teRec:.8,lbRush:.2,rbDual:.4},
+  Commanders:{teRec:.8,lbRush:.7,rbDual:.4},
+  Saints:{teRec:.15,lbRush:.7,rbDual:.15},
+  Chiefs:{teRec:.8,lbRush:.2,rbDual:.8},
+  Bengals:{teRec:.8,lbRush:.55,rbDual:.8},
+  Dolphins:{teRec:.4,lbRush:.2,rbDual:.8},
+  Cowboys:{teRec:.8,lbRush:.8,rbDual:.4},
+  Rams:{teRec:.8,lbRush:.7,rbDual:.15},
+  Ravens:{teRec:.8,lbRush:.55,rbDual:.4},
+  Buccaneers:{teRec:.4,lbRush:.8,rbDual:.4},
+  Colts:{teRec:.8,lbRush:.1,rbDual:.15},
+  Lions:{teRec:.8,lbRush:.25,rbDual:.8},
+  Vikings:{teRec:.8,lbRush:.55,rbDual:.8},
+  Panthers:{teRec:.4,lbRush:.8,rbDual:.15},
+  Steelers:{teRec:.8,lbRush:.8,rbDual:.4},
+  Chargers:{teRec:.8,lbRush:.8,rbDual:.8},
+  Eagles:{teRec:.8,lbRush:.8,rbDual:.8},
+  Bears:{teRec:.8,lbRush:.2,rbDual:.8},
+  Bills:{teRec:.8,lbRush:.8,rbDual:.8},
+  "49ers":{teRec:.8,lbRush:.55,rbDual:.8},
+  Texans:{teRec:.8,lbRush:.1,rbDual:.4},
+  Broncos:{teRec:.8,lbRush:.8,rbDual:.8},
+  Patriots:{teRec:.8,lbRush:.7,rbDual:.6},
+  Seahawks:{teRec:.8,lbRush:.4,rbDual:.8},
+  Falcons:{teRec:.8,lbRush:.7,rbDual:.8},
+  Packers:{teRec:.8,lbRush:.8,rbDual:.4},
+  Jaguars:{teRec:.4,lbRush:.2,rbDual:.4},
+};
+
+// Per-archetype coefficients: TE→WR and LB→EDGE are real positional value jumps (0.18).
+// RB dual-threat is still the same position — tiny seasoning only (0.03).
+function traitFlexScore(pos,gpos,sc,teamInflections){
+  if(!sc)return 0;
+  const t=sc;
+  if(pos==='TE'){const avg=((t.Receiving||0)+(t['Route Running']||0)+(t.Hands||0)+(t.Speed||0))/4;if(avg>=78)return((avg-78)/22)*(teamInflections.teRec||0)*0.18;}
+  if(pos==='LB'){const avg=((t['Pass Rush']||0)*0.65+(t.Athleticism||0)*0.65+(t['Block Shedding']||0)*0.35+(t.Range||0)*0.35)/2;if(avg>=78)return((avg-78)/22)*(teamInflections.lbRush||0)*0.18;}
+  if(pos==='RB'){const avg=((t['Pass Catching']||0)+(t.Speed||0))/2;if(avg>=78)return((avg-78)/22)*(teamInflections.rbDual||0)*0.03;}
+  return 0;
+}
+
 const TEAM_ABBR={Raiders:"LV",Jets:"NYJ",Cardinals:"ARI",Titans:"TEN",Giants:"NYG",Browns:"CLE",Commanders:"WAS",Saints:"NO",Chiefs:"KC",Bengals:"CIN",Dolphins:"MIA",Cowboys:"DAL",Rams:"LAR",Falcons:"ATL",Ravens:"BAL",Buccaneers:"TB",Colts:"IND",Lions:"DET",Vikings:"MIN",Panthers:"CAR",Packers:"GB",Steelers:"PIT",Chargers:"LAC",Eagles:"PHI",Bears:"CHI","49ers":"SF",Texans:"HOU",Jaguars:"JAX",Seahawks:"SEA",Patriots:"NE",Broncos:"DEN",Bills:"BUF"};
 
 const NFL_TEAM_COLORS={"49ers":"#AA0000",Raiders:"#A5ACAF",Jets:"#125740",Cardinals:"#97233F",Titans:"#4B92DB",Giants:"#0B2265",Browns:"#FF3C00",Commanders:"#5A1414",Saints:"#D3BC8D",Chiefs:"#E31837",Bengals:"#FB4F14",Dolphins:"#008E97",Cowboys:"#003594",Rams:"#003594",Falcons:"#A71930",Ravens:"#241773",Buccaneers:"#D50A0A",Colts:"#002C5F",Lions:"#0076B6",Vikings:"#4F2683",Panthers:"#0085CA",Packers:"#203731",Steelers:"#FFB612",Chargers:"#0080C6",Eagles:"#004C54",Bears:"#C83200",Bills:"#00338D",Texans:"#03202F",Broncos:"#FB4F14",Patriots:"#002244",Seahawks:"#69BE28",Jaguars:"#006778"};
@@ -82,14 +152,14 @@ function drawTrunc(ctx,text,x,y,maxW){let t=text;while(ctx.measureText(t).width>
 function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
 
 // ── TEAM NEEDS (simple array form for cpuPick) ──
-const TEAM_NEEDS={"Raiders":["QB","WR","CB"],"Jets":["OL","WR","DL"],"Cardinals":["OL","DL","DB"],"Titans":["DL","WR","OL"],"Giants":["WR","OL","QB"],"Browns":["QB","WR","OL"],"Commanders":["DL","OL","DB"],"Saints":["QB","OL","DL"],"Chiefs":["WR","OL","DB"],"Bengals":["OL","DL","DB"],"Dolphins":["QB","OL","DL"],"Cowboys":["DL","DB","OL"],"Rams":["DB","DL","OL"],"Ravens":["DL","WR","OL"],"Buccaneers":["OL","WR","DL"],"Lions":["DL","DB","LB"],"Vikings":["OL","DL","DB"],"Panthers":["DB","LB","DL"],"Steelers":["QB","WR","OL"],"Chargers":["OL","DL","LB"],"Eagles":["DL","LB","DB"],"Bears":["WR","OL","DB"],"Bills":["OL","WR","DL"],"49ers":["WR","DB","DL"],"Texans":["OL","DL","DB"],"Broncos":["OL","WR","DL"],"Patriots":["OL","WR","DL"],"Seahawks":["DL","OL","LB"],"Falcons":["DL","WR","DB"],"Colts":["DL","OL","WR"],"Packers":["DB","OL","DL"],"Jaguars":["DB","LB","OL"]};
+const TEAM_NEEDS={"Raiders":["QB","WR","DB","DL","OL","LB"],"Jets":["DL","QB","DB","WR","LB"],"Cardinals":["OL","DL","QB","DB","RB"],"Titans":["DL","DB","WR","OL","RB"],"Giants":["LB","OL","WR","DB","DL"],"Browns":["OL","WR","QB","LB","DB"],"Commanders":["DL","DB","LB","WR","OL"],"Saints":["WR","OL","RB","DL","DB"],"Chiefs":["DB","WR","RB","OL","DL"],"Bengals":["DL","DB","LB","OL"],"Dolphins":["QB","DB","WR","OL","DL"],"Cowboys":["DL","DB","LB","OL","RB"],"Rams":["DB","OL","WR","QB","DL"],"Ravens":["DL","OL","WR","DB","TE"],"Buccaneers":["DL","LB","DB","TE","OL"],"Lions":["DL","OL","DB","RB","TE"],"Vikings":["DB","DL","LB","OL","RB"],"Panthers":["DL","LB","OL","TE","DB"],"Steelers":["WR","QB","DB","OL","DL"],"Chargers":["OL","DL","TE","DB"],"Eagles":["DL","TE","OL","DB","WR"],"Bears":["DB","DL","OL","LB","WR"],"Bills":["DL","LB","DB","OL","WR"],"49ers":["WR","OL","DL","DB"],"Texans":["OL","DL","DB","LB","RB"],"Broncos":["RB","TE","LB","WR","DL"],"Patriots":["DL","OL","WR","DB","TE"],"Seahawks":["DB","DL","OL","RB","WR"],"Falcons":["WR","DL","DB","OL","LB"],"Colts":["DL","LB","WR","DB","OL"],"Packers":["DB","DL","OL","LB","TE"],"Jaguars":["DL","DB","LB","OL","RB"]};
 
 // ── PURE SIMULATION FUNCTIONS ──
 
-function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap) {
+function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap, boardNoise, wobbledProfiles) {
   const needs = TEAM_NEEDS[team] || ["QB","WR","DL"];
   const dn = TEAM_NEEDS_DETAILED?.[team] || {};
-  const prof = TEAM_PROFILES[team] || {bpaLean:0.55,posBoost:[],posPenalty:[],stage:"retool",reachTolerance:0.3,variance:2,gposBoost:[],athBoost:0,sizePremium:false,ceilingChaser:0};
+  const prof = (wobbledProfiles&&wobbledProfiles[team])||TEAM_PROFILES[team]||{bpaLean:0.55,posBoost:[],posPenalty:[],stage:"retool",reachTolerance:0.3,variance:2,gposBoost:[],athBoost:0,sizePremium:false,ceilingChaser:0};
 
   if(pickNum===1){const m=avail.find(id=>{const p=prospectsMap[id];return p&&p.name==="Fernando Mendoza";});if(m)return m;}
 
@@ -123,13 +193,15 @@ function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap)
   avail.forEach(id=>{
     const p=prospectsMap[id];if(!p)return;
     const pos=p.pos;
-    const baseGrade=getConsensusGrade(p.name);
+    const rawBaseGrade=getConsensusGrade(p.name);
+    const baseGrade=rawBaseGrade+(boardNoise?.[team]?.[id]||0);
     const grade=GRADE_OVERRIDES[p.name]?Math.max(baseGrade,GRADE_OVERRIDES[p.name]):baseGrade;
     const rawRank=getConsensusRank(p.name);
     const consRank=RANK_OVERRIDES[p.name]||rawRank;
     const nc=dn[pos]||0;const ni=needs.indexOf(pos);
     const nm=nc>=3?18:nc>=2?12:nc===1?8:ni>=0&&ni<3?5:ni>=0?2:(round>=3?-6:0);
-    const rawPm=POS_DRAFT_VALUE[pos]||1.0;
+    const gpos=p.gpos||p.pos;
+    const rawPm=POS_DRAFT_VALUE[gpos]||POS_DRAFT_VALUE[pos]||1.0;
     const pm=grade>=88?Math.max(rawPm,1.0):rawPm;
     const base=Math.pow(Math.max(grade,10),1.3);
 
@@ -157,7 +229,6 @@ function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap)
     const rbPen=(pos==="RB"&&round===1&&grade<85)?0.72:1.0;
     const qbMod=pos==="QB"?(nc>=2?1.3:nc>=1?1.1:ni>=0?0.9:0.5):1.0;
 
-    const gpos=p.gpos||p.pos;
     const isSchemefit=(prof.gposBoost||[]).includes(gpos);
     const schemeBoost=isSchemefit?1.15:1.0;
 
@@ -169,6 +240,11 @@ function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap)
     const ceilingMult=(prof.ceilingChaser&&(ceiling==="elite"||ceiling==="high"))?1+prof.ceilingChaser*(ceiling==="elite"?1.0:0.6):1.0;
     let sizeMult=1.0;
     if(prof.sizePremium&&cs?.percentiles){const hp=cs.percentiles.height??50;const wp=cs.percentiles.weight??50;if(hp>=75&&wp>=75)sizeMult=1.06;else if(hp>=60&&wp>=60)sizeMult=1.03;}
+
+    const schemeInf=SCHEME_INFLECTIONS[team]||{};
+    const flexRaw=traitFlexScore(pos,gpos,sc,schemeInf);
+    const gmFactor=Math.max(0.15,1.0-(prof.bpaLean-0.35)*1.8);
+    const traitFlexBoost=1.0+flexRaw*gmFactor;
 
     let stageMod=1.0;
     if(prof.stage==="dynasty"){
@@ -183,7 +259,7 @@ function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap)
       stageMod=nc>=2?1.1:1.0;
     }
 
-    const bpaComponent=base*finalBpaW*pm*rbPen*qbMod*teamPosBoost*schemeBoost*athMult*ceilingMult*sizeMult;
+    const bpaComponent=base*finalBpaW*pm*rbPen*qbMod*teamPosBoost*schemeBoost*athMult*ceilingMult*sizeMult*traitFlexBoost;
     const needComponent=nm*finalNeedW*12;
     const score=(bpaComponent+needComponent+slideBoost-reachPenalty)*dimReturn*stageMod*runPenalty*urgencyBoost;
     scored.push({id,score,grade,consRank});
@@ -194,10 +270,10 @@ function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap)
 
   const topScore=scored[0].score;
   const topGrade=scored[0].grade||50;
-  const baseTierPct=round<=1?0.07:round<=2?0.11:round<=3?0.16:round<=5?0.22:0.30;
-  const tierPct=topGrade>=88?baseTierPct*0.55:baseTierPct;
+  const baseTierPct=round<=1?0.09:round<=2?0.13:round<=3?0.18:round<=5?0.24:0.30;
+  const tierPct=topGrade>=88?baseTierPct*0.6:baseTierPct;
   const tierCandidates=scored.filter(s=>s.score>=topScore*(1-tierPct));
-  const maxCandidates=Math.max(1,Math.min(tierCandidates.length,Math.round(1+prof.variance/2)));
+  const maxCandidates=Math.max(1,Math.min(tierCandidates.length,Math.round(1+prof.variance)));
   const pool=tierCandidates.slice(0,maxCandidates);
 
   if(pool.length===1)return pool[0].id;
@@ -213,7 +289,7 @@ function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap)
   return pool[0].id;
 }
 
-function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, prospectsMap) {
+function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, prospectsMap, boardNoise, wobbledProfiles) {
   const fullDraftOrder = DRAFT_ORDER_2026;
   const totalPicks = fullDraftOrder.length;
   const getPickTeam = (idx) => tradeMap[idx] || fullDraftOrder[idx]?.team;
@@ -227,7 +303,7 @@ function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, pro
   for(let i = currentIdx + 2; i < Math.min(currentIdx + 13, totalPicks); i++){
     const t = getPickTeam(i);
     if(!t || t === currentTeam) continue;
-    const prof = TEAM_PROFILES[t] || {reachTolerance:0.3,stage:"retool",variance:2,bpaLean:0.5,posBoost:[]};
+    const prof = (wobbledProfiles&&wobbledProfiles[t])||TEAM_PROFILES[t]||{reachTolerance:0.3,stage:"retool",variance:2,bpaLean:0.5,posBoost:[]};
     if(recentTraders.has(t)) continue;
 
     const needs = TEAM_NEEDS[t] || ["QB","WR","DL"];
@@ -237,7 +313,8 @@ function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, pro
     available.forEach(id => {
       const p = prospectsMap[id]; if(!p) return;
       const pos = p.pos;
-      const baseGrade = getConsensusGrade(p.name);
+      const rawBaseGrade = getConsensusGrade(p.name);
+      const baseGrade = rawBaseGrade+(boardNoise?.[t]?.[id]||0);
       const grade = GRADE_OVERRIDES[p.name] ? Math.max(baseGrade, GRADE_OVERRIDES[p.name]) : baseGrade;
       if(grade < 70) return;
       const rawRank = getConsensusRank(p.name);
@@ -292,6 +369,7 @@ function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, pro
 }
 
 function runSingleSim(board, prospectsMap) {
+  const{noise:boardNoise,wobbled:wobbledProfiles}=generateSimNoise(board);
   const fullDraftOrder = DRAFT_ORDER_2026;
   const available = board.map(p => p.id);
   const picks = [];
@@ -305,7 +383,7 @@ function runSingleSim(board, prospectsMap) {
     const pickNum = fullDraftOrder[idx]?.pick || (idx + 1);
 
     // Try CPU trade-up
-    const trade = pureCpuTradeUp(idx, available, picks, tradeMap, cpuTradeLog, prospectsMap);
+    const trade = pureCpuTradeUp(idx, available, picks, tradeMap, cpuTradeLog, prospectsMap, boardNoise, wobbledProfiles);
     let actualTeam = team;
     let traded = false;
     let origTeam = team;
@@ -321,7 +399,7 @@ function runSingleSim(board, prospectsMap) {
       origTeam = team;
     }
 
-    const playerId = pureCpuPick(actualTeam, available, pickNum, picks, recentPosCounts, prospectsMap);
+    const playerId = pureCpuPick(actualTeam, available, pickNum, picks, recentPosCounts, prospectsMap, boardNoise, wobbledProfiles);
     const player = prospectsMap[playerId];
     const pos = player?.pos;
 
