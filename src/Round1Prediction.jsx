@@ -532,7 +532,7 @@ export default function Round1Prediction({
     ctx.font = 'bold 18px -apple-system,system-ui,sans-serif';
     ctx.fillText('2026 NFL DRAFT \u2014 ROUND 1 PREDICTION', W / 2, 14);
     ctx.fillStyle = '#a3a3a3'; ctx.font = '11px ui-monospace,monospace';
-    ctx.fillText('100 SIMULATIONS \u00B7 TRADES ON', W / 2, 36);
+    ctx.fillText('AI-POWERED MOCK SIMULATION', W / 2, 36);
     ctx.textAlign = 'left';
 
     // Separator
@@ -618,7 +618,7 @@ export default function Round1Prediction({
     ctx.fillStyle = '#ffffff'; ctx.font = 'bold 13px -apple-system,system-ui,sans-serif'; ctx.textBaseline = 'top';
     ctx.fillText('bigboardlab.com', pad + lo + 4, H - footerH + 10);
     ctx.fillStyle = '#737373'; ctx.font = '10px -apple-system,system-ui,sans-serif';
-    ctx.fillText('AI-powered Round 1 prediction \u2014 100 simulations', pad + lo + 4, H - footerH + 26);
+    ctx.fillText('AI-powered Round 1 prediction', pad + lo + 4, H - footerH + 26);
     const bGrad = ctx.createLinearGradient(0, 0, W, 0);
     bGrad.addColorStop(0, '#ec4899'); bGrad.addColorStop(1, '#7c3aed');
     ctx.fillStyle = bGrad; ctx.fillRect(0, H - 3, W, 3);
@@ -680,7 +680,7 @@ export default function Round1Prediction({
         {/* Title */}
         <div style={{textAlign:"center",marginBottom:24}}>
           <h1 style={{fontFamily:mono,fontSize:14,letterSpacing:3,textTransform:"uppercase",color:"#171717",margin:"0 0 4px",fontWeight:700}}>Round 1 Prediction</h1>
-          <div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>100 simulations \u00B7 trades on</div>
+          <div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>ai-powered mock simulation</div>
         </div>
 
         {/* Toast */}
