@@ -1462,6 +1462,18 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     const players=byPos[comboPos]||[];
     if(players.length<8)return[];
     const metrics=comboMetrics;
+    // Static derived pairs: score ↔ measurable (always tautological)
+    const DERIVED_STATIC=[["meas_SPD","meas_40"],["meas_SPD","meas_WT"],["meas_EXP","meas_VRT"],["meas_EXP","meas_BRD"],["meas_AGI","meas_3C"],["meas_AGI","meas_SHT"]];
+    // Position-dependent trait overwrites
+    const DERIVED_TRAIT_POS={trait_Speed:{keys:["meas_40","meas_SPD"],pos:["RB","WR","TE","CB","S"]},trait_Athleticism:{keys:["meas_ATH"],pos:["TE","OT","LB"]}};
+    const isDerived=(ka,kb)=>{
+      for(const[da,db] of DERIVED_STATIC){if((ka===da&&kb===db)||(ka===db&&kb===da))return true;}
+      for(const[tk,cfg] of Object.entries(DERIVED_TRAIT_POS)){
+        if(!cfg.pos.includes(comboPos))continue;
+        for(const mk of cfg.keys){if((ka===tk&&kb===mk)||(ka===mk&&kb===tk))return true;}
+      }
+      return false;
+    };
     // Precompute all values per metric
     const vals={};
     metrics.forEach(m=>{
@@ -1472,6 +1484,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     for(let i=0;i<metrics.length;i++){
       for(let j=i+1;j<metrics.length;j++){
         const a=metrics[i],b=metrics[j];
+        if(a.cat===b.cat)continue;
+        if(isDerived(a.key,b.key))continue;
         // Build paired values where both non-null
         const xs=[],ys=[];
         for(let k=0;k<players.length;k++){
@@ -1491,7 +1505,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         const ssRes=xs.reduce((s,v,k)=>{const p=sl*v+ic;return s+(ys[k]-p)**2;},0);
         const ssTot=ys.reduce((s,v)=>s+(v-ym)**2,0);
         const r2=ssTot>0?1-ssRes/ssTot:0;
-        if(r2>=0.35&&a.cat!==b.cat)pairs.push({a,b,r2,n:xs.length});
+        if(r2<0.35)continue;
+        const dir=sl*(a.inverted?-1:1)*(b.inverted?-1:1)>=0?1:-1;
+        pairs.push({a,b,r2,n:xs.length,dir});
       }
     }
     pairs.sort((a,b)=>b.r2-a.r2);
@@ -2178,9 +2194,10 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
                       <div style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase",marginBottom:6}}>top correlations · {comboPos}</div>
                       {comboCorrelations.map((pair,i)=>{
                         const active=((comboX===pair.a.key&&comboY===pair.b.key)||(comboX===pair.b.key&&comboY===pair.a.key));
-                        const pairColor=pair.r2>=0.7?"#16a34a":pair.r2>=0.4?"#6366f1":"#f59e0b";
+                        const pairColor=pair.dir>0?"#7c3aed":"#ec4899";
+                        const pairSign=pair.dir>0?"+":"−";
                         return<div key={i} onClick={gateAuth(()=>{setComboX(pair.a.key);setComboY(pair.b.key);})} style={{display:"flex",alignItems:"center",gap:6,padding:"5px 8px",margin:"0 -8px",borderRadius:6,cursor:"pointer",background:active?"#6366f108":"transparent",transition:"background 0.1s"}} onMouseEnter={e=>{if(!active)e.currentTarget.style.background="#faf9f6";}} onMouseLeave={e=>{if(!active)e.currentTarget.style.background=active?"#6366f108":"transparent";}}>
-                          <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:pairColor,width:30,flexShrink:0}}>{pair.r2.toFixed(2)}</span>
+                          <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:pairColor,width:30,flexShrink:0}}>{pairSign}{pair.r2.toFixed(2)}</span>
                           <span style={{fontFamily:sans,fontSize:11,color:active?"#171717":"#525252",fontWeight:active?600:400,flex:1,lineHeight:1.3}}>
                             <span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:COMBO_CAT_STYLE[pair.a.cat]?.color,background:COMBO_CAT_STYLE[pair.a.cat]?.color+"14",padding:"1px 3px",borderRadius:2,marginRight:3}}>{COMBO_CAT_STYLE[pair.a.cat]?.label}</span>
                             {pair.a.label}
