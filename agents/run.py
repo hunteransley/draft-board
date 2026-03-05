@@ -72,11 +72,16 @@ def call_agent(system_prompt, user_message, model, max_tokens=48000):
     import anthropic
     client = anthropic.Anthropic()
     try:
-        response = client.messages.create(
+        text_parts = []
+        usage = None
+        with client.messages.stream(
             model=model, max_tokens=max_tokens, system=system_prompt,
             tools=[{"type": "web_search_20250305", "name": "web_search"}],
             messages=[{"role": "user", "content": user_message}],
-        )
+        ) as stream:
+            for event in stream:
+                pass
+            response = stream.get_final_message()
         text_parts = [b.text for b in response.content if hasattr(b, "text")]
         usage = response.usage
         print(f"   Tokens — in: {usage.input_tokens:,}, out: {usage.output_tokens:,}")
@@ -305,16 +310,37 @@ def run_scouting_agent(args):
         pos = args.position.upper()
         pos_out = out / pos.lower()
         pos_out.mkdir(parents=True, exist_ok=True)
-        print(f"\n🔬 Discovering {pos} prospects...")
-        disc = call_agent("Return only JSON arrays of names.",
-                          f"Identify all draftable {pos} prospects in the 2026 NFL Draft. Return ONLY a JSON array. Format: [\"Name\",...]",
-                          "claude-haiku-4-5-20251001")
-        prospects = None
-        try:
-            m = re.search(r"\[.*\]", disc, re.DOTALL)
-            if m: prospects = json.loads(m.group(0))
-        except: pass
-        if not prospects: print("❌ Couldn't get list."); sys.exit(1)
+        print(f"\n🔬 Discovering {pos} prospects from codebase...")
+        # Normalize names the same way the codebase does (combineTraits.js)
+        NAME_ALIASES = {"jam miller":"jamarion miller","nicholas singleton":"nick singleton",
+                        "kc concepcion":"kevin concepcion","j michael sturdivant":"jmichael sturdivant"}
+        def norm_name(n):
+            n = n.lower().replace(".", "").replace("'", "").strip()
+            n = re.sub(r'\s+(jr|sr|ii|iii|iv|v)\s*$', '', n)
+            n = re.sub(r'\s+', ' ', n).strip()
+            return NAME_ALIASES.get(n, n)
+
+        # Build gpos lookup from prospectStats.js (granular: EDGE, DT, CB, S, OT, IOL, etc.)
+        stats_path = PROJECT_ROOT / "src" / "prospectStats.js"
+        gpos_by_name = {}  # normalized name -> gpos
+        if stats_path.exists():
+            stats_text = stats_path.read_text()
+            for m in re.finditer(r'"([^|"]+)\|([^"]+)":\{[^}]*"gpos":"([^"]+)"', stats_text):
+                gpos_by_name[norm_name(m.group(1))] = m.group(3)
+
+        # Get ordered prospect list from consensus board (consensusData.js)
+        consensus_path = PROJECT_ROOT / "src" / "consensusData.js"
+        prospects = []
+        if consensus_path.exists():
+            consensus_text = consensus_path.read_text()
+            for m in re.finditer(r'"([^"]+)"', consensus_text):
+                name = m.group(1)
+                norm = norm_name(name)
+                gpos = gpos_by_name.get(norm)
+                if gpos == pos:
+                    prospects.append(name)
+        if not prospects:
+            print(f"❌ No {pos} prospects found in consensus board"); sys.exit(1)
         to_run = []
         for n in prospects:
             safe = n.lower().replace(" ","_").replace("'","")
@@ -325,10 +351,17 @@ def run_scouting_agent(args):
         if args.dry_run: print(f"   DRY RUN — would {'batch' if args.batch else 'scout'} {len(to_run)}"); return
 
         if args.batch:
-            reqs = [{"custom_id": safe, "params": {"model": model, "max_tokens": 8000, "system": spec,
+            reqs = []
+            seen_ids = set()
+            for name, safe in to_run:
+                cid = re.sub(r'[^a-zA-Z0-9_-]', '', safe)[:64]
+                if cid in seen_ids:
+                    print(f"   ⏭️  {name} — duplicate id, skipping")
+                    continue
+                seen_ids.add(cid)
+                reqs.append({"custom_id": cid, "params": {"model": model, "max_tokens": 8000, "system": spec,
                      "tools": [{"type": "web_search_20250305", "name": "web_search"}],
-                     "messages": [{"role": "user", "content": f"Scout {name}, position {pos}. Follow single prospect workflow. Note any paywalled sources."}]}}
-                    for name, safe in to_run]
+                     "messages": [{"role": "user", "content": f"Scout {name}, position {pos}. Follow single prospect workflow. Note any paywalled sources."}]}})
             submit_batch(reqs, "scouting"); return
 
         for i, (name, safe) in enumerate(to_run, 1):

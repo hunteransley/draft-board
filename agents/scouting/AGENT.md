@@ -97,6 +97,12 @@ Dane Brugler's full reports at The Athletic are behind a paywall. When you encou
 
 Do the same for any other paywalled source. Always tell the user which source was blocked and ask for the content.
 
+### Pre-Loaded Brugler Data
+
+A pre-captured version of Brugler's Top 100 rankings with scouting synopses is available at `agents/scouting/brugler-top100.md`. **Read this file before searching for any prospect.** If a prospect appears in this file, use the synopsis as Brugler's Tier 1 evaluation with his full trust weight (0.35). These are shorter synopses (not his full "Beast" report), so confidence on individual traits derived from them should generally be "medium" rather than "high" unless the language is explicitly trait-specific.
+
+You should still search for Brugler's full draft profile if you need more detail on a specific prospect, but the top-100 file provides baseline Brugler coverage for the top 100 prospects without needing any additional paywalled access.
+
 ---
 
 ## Narrative-to-Grade Translation
@@ -334,6 +340,7 @@ Deliver your output as a single JSON file that the BBL codebase can consume dire
 - Speed and Athleticism grades should be flagged with `"baseline_only": true` so the downstream system knows these are film-based estimates subject to overwrite by testing data.
 - Confidence levels: `"high"` (explicit scout language), `"medium"` (inferred from context), `"low"` (single source or ambiguous language).
 - If you cannot determine a grade for a trait, set it to `null` with a note explaining why, rather than guessing.
+- **Critical: Absence of evidence is not negative evidence.** If no scout mentions a trait, that does NOT mean the player is bad at it — it means it wasn't evaluated or wasn't relevant to their college role. A CB who played exclusively outside corner may have zero Nickel commentary. That's a `null` with a note like `"Not evaluated — played outside CB in college"`, NOT a low grade. The downstream system treats `null` as "unknown, needs more data" — not as a 0 or a negative signal. Only assign low grades when scouts explicitly describe a weakness.
 
 ---
 
