@@ -25,6 +25,8 @@ DEFAULT_MODELS = {
     "trade-roster": "claude-haiku-4-5-20251001",
     "seo": "claude-sonnet-4-6",
     "content": "claude-sonnet-4-6",
+    "scheme": "claude-opus-4-6",
+    "team-needs": "claude-opus-4-6",
 }
 
 NFL_DIVISIONS = {
@@ -287,6 +289,134 @@ def generate_gm_index(out):
     (out / "gm_index.json").write_text(json.dumps(index, indent=2))
     print(f"📋 GM Index: {len(index['teams'])} teams")
 
+# --- SCHEME AGENT ---
+
+def run_scheme_agent(args):
+    spec = load_agent_spec("scheme")
+    model = args.model or DEFAULT_MODELS["scheme"]
+    out = OUTPUT_DIR / "scheme-profiles"
+    out.mkdir(parents=True, exist_ok=True)
+
+    if args.team: teams = [args.team.upper()]
+    elif args.division:
+        matched = None
+        for k in NFL_DIVISIONS:
+            if args.division.lower().replace(" ","") in k.lower().replace(" ",""): matched = k; break
+        if not matched:
+            print(f"❌ Unknown division. Available: {', '.join(NFL_DIVISIONS.keys())}"); sys.exit(1)
+        teams = NFL_DIVISIONS[matched]
+        print(f"📋 {matched} — {', '.join(teams)}")
+    elif args.all: teams = ALL_TEAMS; print("📋 All 32 teams")
+    else: print("❌ Specify --team, --division, or --all"); sys.exit(1)
+
+    if args.force:
+        for t in teams:
+            for ext in [f"{t}.json", f"{t}_raw.md"]:
+                p = out / ext
+                if p.exists(): p.unlink(); print(f"🗑️  Deleted {ext}")
+        to_run = teams
+    else:
+        to_run = [t for t in teams if not (out / f"{t}.json").exists() or args.dry_run]
+        skipped = [t for t in teams if t not in to_run]
+        for t in skipped: print(f"⏭️  {t} — already done")
+    if not to_run: print("\nAll done. Use --force to re-run."); return
+
+    def make_msg(team):
+        return (f"Research the {team} coaching staff and produce a complete scheme profile. "
+                f"Follow your full research methodology: coaching staff identification, offensive scheme, "
+                f"defensive scheme (with front alignment), and positional value inflections. "
+                f"CRITICAL: Use the CURRENT 2025-2026 coaching staff. Verify any recent coaching changes. "
+                f"Output the complete JSON profile as specified in your instructions.\n\n"
+                f"QUALITY REQUIREMENTS:\n"
+                f"- Identify the current HC, OC, and DC with their scheme trees\n"
+                f"- Classify base front (3-4 vs 4-3 vs hybrid) with evidence\n"
+                f"- All four positional value inflections (TE receiving, LB pass rush, RB dual threat, S hybrid) "
+                f"must have ratings AND specific explanations\n"
+                f"- scheme_specific_draft_notes must be actionable, not generic\n"
+                f"- Output ONLY the JSON object. Start with {{ and end with }}.")
+
+    if args.batch:
+        if args.dry_run:
+            print(f"\nDRY RUN — would batch {len(to_run)} teams: {', '.join(to_run)}"); return
+        reqs = [{"custom_id": t, "params": {"model": model, "max_tokens": 16000, "system": spec,
+                 "tools": [{"type": "web_search_20250305", "name": "web_search"}],
+                 "messages": [{"role": "user", "content": make_msg(t)}]}} for t in to_run]
+        submit_batch(reqs, "scheme"); return
+
+    for i, t in enumerate(to_run, 1):
+        print(f"\n🏈 [{i}/{len(to_run)}] Researching scheme: {t}")
+        if args.dry_run: print(f"   DRY RUN"); continue
+        result = call_agent(spec, make_msg(t), model, 16000)
+        jd = extract_json(result)
+        if jd: (out / f"{t}.json").write_text(json.dumps(jd, indent=2)); print(f"   ✅ Saved")
+        else: (out / f"{t}_raw.md").write_text(result); print(f"   ⚠️  No JSON, raw saved")
+        time.sleep(DELAY_BETWEEN_CALLS_SECONDS)
+
+# --- TEAM NEEDS AGENT ---
+
+def run_team_needs_agent(args):
+    spec = load_agent_spec("team-needs")
+    model = args.model or DEFAULT_MODELS["team-needs"]
+    out = OUTPUT_DIR / "team-needs"
+    out.mkdir(parents=True, exist_ok=True)
+
+    if args.team: teams = [args.team.upper()]
+    elif args.division:
+        matched = None
+        for k in NFL_DIVISIONS:
+            if args.division.lower().replace(" ","") in k.lower().replace(" ",""): matched = k; break
+        if not matched:
+            print(f"❌ Unknown division. Available: {', '.join(NFL_DIVISIONS.keys())}"); sys.exit(1)
+        teams = NFL_DIVISIONS[matched]
+        print(f"📋 {matched} — {', '.join(teams)}")
+    elif args.all: teams = ALL_TEAMS; print("📋 All 32 teams")
+    else: print("❌ Specify --team, --division, or --all"); sys.exit(1)
+
+    if args.force:
+        for t in teams:
+            for ext in [f"{t}.json", f"{t}_raw.md"]:
+                p = out / ext
+                if p.exists(): p.unlink(); print(f"🗑️  Deleted {ext}")
+        to_run = teams
+    else:
+        to_run = [t for t in teams if not (out / f"{t}.json").exists() or args.dry_run]
+        skipped = [t for t in teams if t not in to_run]
+        for t in skipped: print(f"⏭️  {t} — already done")
+    if not to_run: print("\nAll done. Use --force to re-run."); return
+
+    def make_msg(team):
+        return (f"Research the {team} roster and produce a complete team needs assessment for the 2026 NFL Draft. "
+                f"Follow your full research methodology: current roster assessment, 2026 free agency moves, "
+                f"draft capital, and need prioritization. "
+                f"CRITICAL: This must reflect the CURRENT state as of March 2026. Research all free agency "
+                f"signings, trades, cuts, and retirements that have happened this offseason. "
+                f"Stale needs from December/January are NOT acceptable.\n\n"
+                f"QUALITY REQUIREMENTS:\n"
+                f"- Use GRANULAR positions: EDGE not DE, OT not OL, IOL not G, CB/S not DB\n"
+                f"- Every need must cite the current starter and explain WHY it's a need\n"
+                f"- Include free_agency_impact with specific moves that changed the picture\n"
+                f"- Include both simple_needs (broad groups for backwards compat) and needs_summary (granular tiers)\n"
+                f"- detailed_needs must use broad groups (QB, WR, OL, DL, DB, LB, TE, RB) with urgency scores\n"
+                f"- scheme_fit_notes should briefly note how scheme affects what types of players fit\n"
+                f"- Output ONLY the JSON object. Start with {{ and end with }}.")
+
+    if args.batch:
+        if args.dry_run:
+            print(f"\nDRY RUN — would batch {len(to_run)} teams: {', '.join(to_run)}"); return
+        reqs = [{"custom_id": t, "params": {"model": model, "max_tokens": 16000, "system": spec,
+                 "tools": [{"type": "web_search_20250305", "name": "web_search"}],
+                 "messages": [{"role": "user", "content": make_msg(t)}]}} for t in to_run]
+        submit_batch(reqs, "team-needs"); return
+
+    for i, t in enumerate(to_run, 1):
+        print(f"\n📋 [{i}/{len(to_run)}] Researching needs: {t}")
+        if args.dry_run: print(f"   DRY RUN"); continue
+        result = call_agent(spec, make_msg(t), model, 16000)
+        jd = extract_json(result)
+        if jd: (out / f"{t}.json").write_text(json.dumps(jd, indent=2)); print(f"   ✅ Saved")
+        else: (out / f"{t}_raw.md").write_text(result); print(f"   ⚠️  No JSON, raw saved")
+        time.sleep(DELAY_BETWEEN_CALLS_SECONDS)
+
 # --- SCOUTING AGENT ---
 
 def run_scouting_agent(args):
@@ -413,6 +543,8 @@ def main():
     check_setup()
     if args.agent in ("scouting","scout"): run_scouting_agent(args)
     elif args.agent in ("gm","gm-personality"): run_gm_agent(args)
+    elif args.agent == "scheme": run_scheme_agent(args)
+    elif args.agent in ("team-needs","needs"): run_team_needs_agent(args)
     else:
         if not args.message: print(f"❌ Provide --message for custom agents"); sys.exit(1)
         run_generic_agent(args)

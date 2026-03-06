@@ -206,7 +206,7 @@ function getSchemeDepthGroups(team){
   return DEPTH_GROUPS;
 }
 
-const POS_DRAFT_VALUE={QB:1.08,EDGE:1.09,CB:1.05,OT:1.05,OL:1.05,DL:1.04,WR:1.04,IDL:1.03,DT:1.03,NT:1.03,IOL:1.01,DB:1.01,TE:1.01,S:0.98,LB:0.97,RB:0.96,"K/P":0.7};
+const POS_DRAFT_VALUE={QB:1.08,EDGE:1.09,CB:1.05,OT:1.05,OL:1.05,DL:1.04,WR:1.04,IDL:1.03,DT:1.03,NT:1.03,IOL:1.01,DB:1.01,TE:1.01,S:0.99,LB:0.97,RB:1.02,"K/P":0.7};
 
 const TEAM_ABBR={Raiders:"LV",Jets:"NYJ",Cardinals:"ARI",Titans:"TEN",Giants:"NYG",Browns:"CLE",Commanders:"WAS",Saints:"NO",Chiefs:"KC",Bengals:"CIN",Dolphins:"MIA",Cowboys:"DAL",Rams:"LAR",Falcons:"ATL",Ravens:"BAL",Buccaneers:"TB",Colts:"IND",Lions:"DET",Vikings:"MIN",Panthers:"CAR",Packers:"GB",Steelers:"PIT",Chargers:"LAC",Eagles:"PHI",Bears:"CHI","49ers":"SF",Texans:"HOU",Jaguars:"JAX",Seahawks:"SEA",Patriots:"NE",Broncos:"DEN",Bills:"BUF"};
 
@@ -549,21 +549,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     const prof=wobbledProfilesRef.current[team]||TEAM_PROFILES[team]||{bpaLean:0.55,posBoost:[],posPenalty:[],stage:"retool",reachTolerance:0.3,variance:2,gposBoost:[]};
     if(pickNum===1){const m=avail.find(id=>{const p=prospectsMap[id];return p&&p.name==="Fernando Mendoza";});if(m)return m;}
 
-    // Elite slide protection: consensus top-5 talents that the CPU must not let fall
-    // Love (RB) and Styles (S) get positionally discounted by the scoring formula,
-    // but in reality teams would never pass on them this late. 85% chance to snap them up.
-    if(pickNum>=6){
-      const eliteSliders=[
-        {name:"Jeremiyah Love",floor:8},
-        {name:"Sonny Styles",floor:10},
-      ];
-      for(const es of eliteSliders){
-        if(pickNum>es.floor){
-          const match=avail.find(id=>{const p=prospectsMap[id];return p&&p.name===es.name;});
-          if(match&&Math.random()<0.85)return match;
-        }
-      }
-    }
+    // Elite slide protection removed — transcendent tier + ceiling bumps + EDGE flex handle this organically now
     const round=pickNum<=32?1:pickNum<=64?2:pickNum<=100?3:pickNum<=144?4:pickNum<=180?5:pickNum<=220?6:7;
 
     // === STAGE-BASED BPA/NEED SHIFTS ===
@@ -602,8 +588,25 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       const nm=nc>=3?18:nc>=2?12:nc===1?8:ni>=0&&ni<3?5:ni>=0?2:(round>=3?-6:0);
       // Elite-grade players (88+) bypass positional discount — their talent transcends position value
       const gpos=p.gpos||p.pos;
-      const rawPm=POS_DRAFT_VALUE[gpos]||POS_DRAFT_VALUE[pos]||1.0;
-      const pm=grade>=88?Math.max(rawPm,1.0):rawPm;
+      let rawPm=POS_DRAFT_VALUE[gpos]||POS_DRAFT_VALUE[pos]||1.0;
+      // LB/EDGE flex: if LB prospect has EDGE traits and team runs 3-4 (wants stand-up rushers), use EDGE multiplier
+      if(gpos==="LB"&&(TEAM_SCHEME[team]?.def==="34"||TEAM_SCHEME[team]?.def==="w9")){
+        const flexSc=getScoutingTraits(p.name,p.school);
+        const flexCs=getCombineScores(p.name,p.school);
+        const pr=flexSc?.["Pass Rush"]||0;
+        const ath=flexCs?.athleticScore||flexSc?.["Athleticism"]||0;
+        const ps=getProspectStats?.(p.name,p.school);
+        const wt=flexCs?.weight||ps?.weight||260;
+        if(pr>=65&&ath>=70&&wt<=260)rawPm=Math.max(rawPm,POS_DRAFT_VALUE["EDGE"]);
+      }
+      const ceilingSc=getScoutingTraits(p.name,p.school);
+      const ceilingTag=ceilingSc?.__ceiling||"normal";
+      const ceilingPmBump=ceilingTag==="elite"?0.02:ceilingTag==="high"?0.01:0;
+      // Transcendent tier: elite ceiling + (grade>=95 & ath>=98) OR (grade>=98) → floor pm at 1.05
+      const uiGrade=getGrade?getGrade(id):0;
+      const transAth=getCombineScores(p.name,p.school)?.athleticScore||0;
+      if(ceilingTag==="elite"&&((uiGrade>=95&&transAth>=98)||(uiGrade>=98)))rawPm=Math.max(rawPm,1.05);
+      const pm=(grade>=88?Math.max(rawPm,1.0):rawPm)+ceilingPmBump;
       const base=Math.pow(Math.max(grade,10),1.3);
 
       const isBoosted=prof.posBoost.includes(pos);
