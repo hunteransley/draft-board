@@ -602,10 +602,10 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       const ceilingSc=getScoutingTraits(p.name,p.school);
       const ceilingTag=ceilingSc?.__ceiling||"normal";
       const ceilingPmBump=ceilingTag==="elite"?0.02:ceilingTag==="high"?0.01:0;
-      // Transcendent tier: elite ceiling + (grade>=95 & ath>=98) OR (grade>=98) → floor pm at 1.05
+      // Transcendent tier: elite ceiling + (grade>=95 & ath>=98) OR (grade>=98) → positional floor
       const uiGrade=getGrade?getGrade(id):0;
       const transAth=getCombineScores(p.name,p.school)?.athleticScore||0;
-      if(ceilingTag==="elite"&&((uiGrade>=95&&transAth>=98)||(uiGrade>=98)))rawPm=Math.max(rawPm,1.05);
+      if(ceilingTag==="elite"&&((uiGrade>=95&&transAth>=98)||(uiGrade>=98))){const tFloor=gpos==="RB"?1.06:gpos==="S"?1.03:1.05;rawPm=Math.max(rawPm,tFloor);}
       const pm=(grade>=88?Math.max(rawPm,1.0):rawPm)+ceilingPmBump;
       const base=Math.pow(Math.max(grade,10),1.3);
 
