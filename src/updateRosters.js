@@ -6,7 +6,7 @@
  * 
  * Slot names match MockDraftSim DEPTH_GROUPS:
  *   QB1,QB2 | RB1,RB2 | WR1-WR4 | TE1,TE2
- *   LT,LG,C,RG,RT | DE1,DT1,DT2,DE2 | LB1,LB2,LB3
+ *   LT,LG,C,RG,RT | DE1,DT1,DT2,DE2 | LB1,LB2,LB3,LB4
  *   CB1,CB2,SS,FS | K
  */
 
@@ -71,7 +71,7 @@ const MAPPINGS = {
 };
 
 // Max per numbered slot prefix
-const SLOT_MAX = { QB:2, RB:2, WR:4, TE:2, DE:2, DT:2, LB:3, CB:2 };
+const SLOT_MAX = { QB:2, RB:2, WR:4, TE:2, DE:2, DT:2, LB:4, CB:2 };
 
 function parseDepthChart(data) {
   const chart = {};

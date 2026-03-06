@@ -122,23 +122,114 @@ const DEPTH_GROUPS=[
   {label:"TE",slots:["TE1","TE2"],posMatch:"TE"},
   {label:"OL",slots:["LT","LG","C","RG","RT"],posMatch:"OL"},
   {label:"DL",slots:["DE1","DT1","DT2","DE2"],posMatch:"DL"},
-  {label:"LB",slots:["LB1","LB2","LB3"],posMatch:"LB"},
-  {label:"DB",slots:["CB1","CB2","SS","FS"],posMatch:"DB"},
+  {label:"LB",slots:["LB1","LB2","LB3","LB4"],posMatch:"LB"},
+  {label:"DB",slots:["CB1","CB2","NB","SS","FS"],posMatch:"DB"},
   {label:"K",slots:["K"],posMatch:"K/P"},
 ];
 const ALL_SLOTS=DEPTH_GROUPS.flatMap(g=>g.slots);
 
-const FORMATION_POS={
-  QB1:{x:50,y:78},RB1:{x:50,y:88},WR1:{x:5,y:65},WR2:{x:95,y:65},WR3:{x:22,y:65},TE1:{x:80,y:68},
-  LT:{x:32,y:68},LG:{x:40,y:68},C:{x:50,y:68},RG:{x:60,y:68},RT:{x:68,y:68},
-  DE1:{x:28,y:48},DT1:{x:42,y:48},DT2:{x:58,y:48},DE2:{x:72,y:48},
-  LB1:{x:30,y:38},LB2:{x:50,y:38},LB3:{x:70,y:38},
-  CB1:{x:10,y:25},CB2:{x:90,y:25},SS:{x:65,y:18},FS:{x:35,y:18},K:{x:50,y:96}
-};
+function getFormationPos(team){
+  const scheme=TEAM_SCHEME[team];
+  const off=scheme?.off||"11";
+  const def=scheme?.def||"43";
+  // K/P/LS never appear on the formation SVG — depth list only
+  const pos={
+    QB1:{x:50,y:78},
+    LT:{x:32,y:68},LG:{x:40,y:68},C:{x:50,y:68},RG:{x:60,y:68},RT:{x:68,y:68},
+    CB1:{x:10,y:25},CB2:{x:90,y:25},SS:{x:65,y:18},FS:{x:35,y:18}
+  };
+  // Offense: 12 personnel = 2 WR + 2 TE inline, 11 = 3 WR + 1 TE
+  if(off==="12"){
+    Object.assign(pos,{WR1:{x:5,y:65},WR2:{x:95,y:65},TE1:{x:80,y:68},TE2:{x:22,y:68,label:"TE"},RB1:{x:50,y:88}});
+  }else{
+    Object.assign(pos,{WR1:{x:5,y:65},WR2:{x:95,y:65},WR3:{x:22,y:65},TE1:{x:80,y:68},RB1:{x:50,y:88}});
+  }
+  // Defense: 3-4, wide-9, or standard 4-3. NB is depth list only (not on field).
+  if(def==="34"){
+    Object.assign(pos,{
+      DE1:{x:30,y:48},DT1:{x:50,y:48,label:"NT"},DE2:{x:70,y:48},
+      LB1:{x:18,y:42,label:"OLB"},LB2:{x:40,y:38,label:"ILB"},LB3:{x:60,y:38,label:"ILB"},LB4:{x:82,y:42,label:"OLB",schemeOnly:true}
+    });
+  }else if(def==="w9"){
+    // Wide-9 4-2-5: DEs wide outside tackles, 2 LBs, NB on field
+    Object.assign(pos,{
+      DE1:{x:18,y:48},DT1:{x:42,y:48},DT2:{x:58,y:48},DE2:{x:82,y:48},
+      LB1:{x:38,y:38},LB2:{x:62,y:38},
+      NB:{x:50,y:30,label:"NB"}
+    });
+  }else if(def==="425"){
+    // 4-2-5 nickel: 4 DL, 2 LBs, NB on field
+    Object.assign(pos,{
+      DE1:{x:28,y:48},DT1:{x:42,y:48},DT2:{x:58,y:48},DE2:{x:72,y:48},
+      LB1:{x:38,y:38},LB2:{x:62,y:38},
+      NB:{x:50,y:30,label:"NB"}
+    });
+  }else{
+    // 4-3: 4 DL, 3 LBs
+    Object.assign(pos,{
+      DE1:{x:28,y:48},DT1:{x:42,y:48},DT2:{x:58,y:48},DE2:{x:72,y:48},
+      LB1:{x:30,y:38},LB2:{x:50,y:38},LB3:{x:70,y:38}
+    });
+  }
+  return pos;
+}
+
+function getSchemeDepthGroups(team){
+  const scheme=TEAM_SCHEME[team];
+  const def=scheme?.def;
+  if(def==="34"){
+    return[
+      {label:"QB",slots:["QB1","QB2"],posMatch:"QB"},
+      {label:"RB",slots:["RB1","RB2"],posMatch:"RB"},
+      {label:"WR",slots:["WR1","WR2","WR3","WR4"],posMatch:"WR"},
+      {label:"TE",slots:["TE1","TE2"],posMatch:"TE"},
+      {label:"OL",slots:["LT","LG","C","RG","RT"],posMatch:"OL"},
+      {label:"DL",slots:["DE1","DT1","DE2"],posMatch:"DL",slotLabels:{DE1:"DE",DT1:"NT",DE2:"DE"}},
+      {label:"LB",slots:["LB1","LB2","LB3","LB4"],posMatch:"LB",slotLabels:{LB1:"OLB",LB2:"ILB",LB3:"ILB",LB4:"OLB"}},
+      {label:"DB",slots:["CB1","CB2","NB","SS","FS"],posMatch:"DB"},
+      {label:"K",slots:["K"],posMatch:"K/P"},
+    ];
+  }
+  if(def==="425"||def==="w9"){
+    return[
+      {label:"QB",slots:["QB1","QB2"],posMatch:"QB"},
+      {label:"RB",slots:["RB1","RB2"],posMatch:"RB"},
+      {label:"WR",slots:["WR1","WR2","WR3","WR4"],posMatch:"WR"},
+      {label:"TE",slots:["TE1","TE2"],posMatch:"TE"},
+      {label:"OL",slots:["LT","LG","C","RG","RT"],posMatch:"OL"},
+      {label:"DL",slots:["DE1","DT1","DT2","DE2"],posMatch:"DL"},
+      {label:"LB",slots:["LB1","LB2"],posMatch:"LB"},
+      {label:"DB",slots:["CB1","CB2","NB","SS","FS"],posMatch:"DB"},
+      {label:"K",slots:["K"],posMatch:"K/P"},
+    ];
+  }
+  return DEPTH_GROUPS;
+}
 
 const POS_DRAFT_VALUE={QB:1.08,EDGE:1.09,CB:1.05,OT:1.05,OL:1.05,DL:1.04,WR:1.04,IDL:1.03,DT:1.03,NT:1.03,IOL:1.01,DB:1.01,TE:1.01,S:0.98,LB:0.97,RB:0.96,"K/P":0.7};
 
 const TEAM_ABBR={Raiders:"LV",Jets:"NYJ",Cardinals:"ARI",Titans:"TEN",Giants:"NYG",Browns:"CLE",Commanders:"WAS",Saints:"NO",Chiefs:"KC",Bengals:"CIN",Dolphins:"MIA",Cowboys:"DAL",Rams:"LAR",Falcons:"ATL",Ravens:"BAL",Buccaneers:"TB",Colts:"IND",Lions:"DET",Vikings:"MIN",Panthers:"CAR",Packers:"GB",Steelers:"PIT",Chargers:"LAC",Eagles:"PHI",Bears:"CHI","49ers":"SF",Texans:"HOU",Jaguars:"JAX",Seahawks:"SEA",Patriots:"NE",Broncos:"DEN",Bills:"BUF"};
+
+// Defensive front + offensive base personnel per team (roster structure from Ourlads + scheme agent intel)
+// def: "34"=3-4 odd (3DL+4LB), "43"=4-3 even (4DL+3LB), "425"=4-2-5 nickel (4DL+2LB+NB), "w9"=wide-9 4-2-5
+const TEAM_SCHEME={
+  // 3-4 defense (roster has LB4/no DT2)
+  Steelers:{def:"34",off:"11"},Patriots:{def:"34",off:"12"},Eagles:{def:"34",off:"11"},
+  Broncos:{def:"34",off:"11"},Saints:{def:"34",off:"11"},Rams:{def:"34",off:"11"},
+  Buccaneers:{def:"34",off:"11"},Cowboys:{def:"34",off:"11"},
+  Ravens:{def:"34",off:"12"},Bills:{def:"34",off:"11"},Chargers:{def:"34",off:"11"},
+  Panthers:{def:"34",off:"12"},Seahawks:{def:"34",off:"12"},Cardinals:{def:"34",off:"11"},
+  Raiders:{def:"34",off:"12"},Dolphins:{def:"34",off:"11"},Vikings:{def:"34",off:"11"},
+  Jets:{def:"34",off:"11"},Falcons:{def:"34",off:"12"},
+  // Wide-9 4-2-5 (wide DE alignment, 2 LB, nickel on field)
+  Browns:{def:"w9",off:"12"},Titans:{def:"w9",off:"11"},
+  // 4-2-5 nickel base (4 DL, 2 LB, NB on field)
+  Bengals:{def:"425",off:"11"},Bears:{def:"425",off:"11"},Packers:{def:"425",off:"11"},
+  Texans:{def:"425",off:"11"},Colts:{def:"425",off:"11"},Jaguars:{def:"425",off:"11"},
+  Giants:{def:"425",off:"11"},"49ers":{def:"425",off:"12"},Commanders:{def:"425",off:"11"},
+  // 4-3 defense (roster has 3 LB + DT2)
+  Chiefs:{def:"43",off:"11"},Lions:{def:"43",off:"11"},
+};
 
 const NFL_TEAM_COLORS={"49ers":"#AA0000",Raiders:"#A5ACAF",Jets:"#125740",Cardinals:"#97233F",Titans:"#4B92DB",Giants:"#0B2265",Browns:"#FF3C00",Commanders:"#5A1414",Saints:"#D3BC8D",Chiefs:"#E31837",Bengals:"#FB4F14",Dolphins:"#008E97",Cowboys:"#003594",Rams:"#003594",Falcons:"#A71930",Ravens:"#241773",Buccaneers:"#D50A0A",Colts:"#002C5F",Lions:"#0076B6",Vikings:"#4F2683",Panthers:"#0085CA",Packers:"#203731",Steelers:"#FFB612",Chargers:"#0080C6",Eagles:"#004C54",Bears:"#C83200",Bills:"#00338D",Texans:"#03202F",Broncos:"#FB4F14",Patriots:"#002244",Seahawks:"#69BE28",Jaguars:"#006778"};
 const NFL_TEAM_ESPN_IDS={Raiders:13,Jets:20,Cardinals:22,Titans:10,Giants:19,Browns:5,Commanders:28,Saints:18,Chiefs:12,Bengals:4,Dolphins:15,Cowboys:6,Rams:14,Ravens:33,Buccaneers:27,Lions:8,Vikings:16,Panthers:29,Steelers:23,Chargers:24,Eagles:21,Bears:3,Bills:2,"49ers":25,Texans:34,Broncos:7,Patriots:17,Seahawks:26,Falcons:1,Colts:11,Jaguars:30,Packers:9};
@@ -985,7 +1076,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       const teamPicks=picks.filter(pk=>pk.team===team);
       teamPicks.forEach(pk=>{
         const p=prospectsMap[pk.playerId];if(!p)return;
-        const group=DEPTH_GROUPS.find(g=>g.posMatch===p.pos);if(!group)return;
+        let group=DEPTH_GROUPS.find(g=>g.posMatch===p.pos);if(!group)return;
         const grade=getConsensusGrade?getConsensusGrade(p.name):(gradeMap[pk.playerId]||50);
         const entry={name:p.name,isDraft:true};
         // Determine preferred starting slot based on granular position
@@ -993,8 +1084,46 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         let preferredSlot=group.slots[0];
         // Build position-appropriate slot list for DL and DB
         let allowedSlots=group.slots;
-        if(group.posMatch==="DL"){
-          // EDGE/DE -> DE slots only, IDL/DT/NT -> DT slots only
+        const scheme=TEAM_SCHEME[team];
+        if(scheme?.def==="34"&&group.posMatch==="DL"){
+          // 3-4 scheme routing: EDGE→OLB or 3-4 DE, IDL→NT
+          const cs=getCombineScores(p.name,p.school);
+          const sc=getScoutingTraits(p.name,p.school);
+          if(gpos==="EDGE"||gpos==="DE"||gpos==="OLB"){
+            const wt=cs?.weight||null;
+            const ath=cs?.athleticScore||50;
+            const pr=sc?.["Pass Rush"]||50;
+            const rd=sc?.["Run Defense"]||50;
+            const isOLB=!wt||wt<265||(wt<=285&&pr>rd&&ath>75);
+            if(isOLB){
+              group=DEPTH_GROUPS.find(g=>g.posMatch==="LB");
+              preferredSlot="LB1";allowedSlots=["LB1","LB4"];
+            }else{
+              preferredSlot="DE1";allowedSlots=["DE1","DE2"];
+            }
+          }else{
+            // IDL/DT/NT → NT slot first, then DE slots (no DT2 in 3-4)
+            preferredSlot="DT1";allowedSlots=["DT1","DE1","DE2"];
+          }
+        }else if(scheme?.def==="34"&&group.posMatch==="LB"){
+          // 3-4 LB routing: use traits to determine OLB vs ILB fit
+          const cs=getCombineScores(p.name,p.school);
+          const sc=getScoutingTraits(p.name,p.school);
+          const wt=cs?.weight||null;
+          const ath=cs?.athleticScore||50;
+          const pr=sc?.["Pass Rush"]||50;
+          const rd=sc?.["Run Defense"]||50;
+          const isOLB=wt&&wt<240&&ath>75&&pr>rd;
+          if(isOLB){
+            preferredSlot="LB1";allowedSlots=["LB1","LB4","LB2","LB3"];
+          }else{
+            preferredSlot="LB2";allowedSlots=["LB2","LB3","LB1","LB4"];
+          }
+        }else if((scheme?.def==="425"||scheme?.def==="w9")&&group.posMatch==="LB"){
+          // 4-2-5/w9: only 2 LB slots
+          preferredSlot="LB1";allowedSlots=["LB1","LB2"];
+        }else if(group.posMatch==="DL"){
+          // 4-3/w9: EDGE/DE -> DE slots only, IDL/DT/NT -> DT slots only
           if(gpos==="IDL"||gpos==="DT"||gpos==="NT"){
             preferredSlot="DT1";
             allowedSlots=["DT1","DT2"];
@@ -1003,13 +1132,32 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
             allowedSlots=["DE1","DE2"];
           }
         }else if(group.posMatch==="DB"){
-          // S/SAF -> safety slots, CB -> CB slots
-          if(gpos==="S"||gpos==="SAF"||gpos==="FS"||gpos==="SS"){
-            preferredSlot="SS";
-            allowedSlots=["SS","FS"];
+          const isSafety=gpos==="S"||gpos==="SAF"||gpos==="FS"||gpos==="SS";
+          // Nickel routing: all teams have NB slot from Ourlads roster data
+          const cs=getCombineScores(p.name,p.school);
+          const sc=getScoutingTraits(p.name,p.school);
+          const nk=sc?.["Nickel"]||50;
+          const mc=sc?.["Man Coverage"]||50;
+          const wt=cs?.weight||null;
+          const isElite=grade>=90;
+          let toNickel=false;
+          if(!isElite){
+            if(isSafety){
+              toNickel=nk>=85&&mc>=70;
+            }else if(wt){
+              if(wt<190)toNickel=nk>=70;
+              else if(wt<=200)toNickel=nk>=80;
+              else toNickel=nk>=90;
+            }else{
+              toNickel=nk>=85;
+            }
+          }
+          if(toNickel){
+            preferredSlot="NB";allowedSlots=["NB","CB1","CB2"];
+          }else if(isSafety){
+            preferredSlot="SS";allowedSlots=["SS","FS"];
           }else{
-            preferredSlot="CB1";
-            allowedSlots=["CB1","CB2"];
+            preferredSlot="CB1";allowedSlots=["CB1","CB2"];
           }
         }else if(group.posMatch==="OL"){
           // IOL/OG/OC/G/C -> guard/center slots, OT/T -> tackle slots
@@ -1597,13 +1745,15 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
       <rect x="-2" y="-2" width="104" height="109" rx="4" fill="none" stroke="none"/>
       {[20,40,58,75,90].map(y=><line key={y} x1="2" y1={y} x2="98" y2={y} stroke="rgba(0,0,0,0.04)" strokeWidth="0.3"/>)}
       <line x1="2" y1="58" x2="98" y2="58" stroke={accent+"44"} strokeWidth="0.5" strokeDasharray="2,1.5"/>
-      {Object.entries(FORMATION_POS).map(([slot,pos])=>{
+      {Object.entries(getFormationPos(team)).map(([slot,pos])=>{
         const entry=chart[slot];const filled=!!entry;const isDraft=entry?.isDraft;
+        // Scheme-only slots (NB, LB4) only render when populated
+        if(!filled&&pos.schemeOnly)return null;
         const dotColor=isDraft?"#7c3aed":filled?accent:"#d4d4d4";
         const lastName=entry?shortName(entry.name):"";
         return(<g key={slot}>
           <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={isDraft?"#7c3aed":filled?accent:"#a3a3a3"} strokeWidth={isDraft?"0.5":"0.2"}/>
-          <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="#a3a3a3" fontSize="1.8" fontFamily={mono}>{slot.replace(/\d$/,'')}</text>
+          <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="#a3a3a3" fontSize="1.8" fontFamily={mono}>{pos.label||slot.replace(/\d$/,'')}</text>
           {filled&&<text x={pos.x} y={pos.y+4.5} textAnchor="middle" fill={isDraft?"#7c3aed":"#525252"} fontSize={isDraft?"2.2":"1.8"} fontWeight={isDraft?"bold":"normal"} fontFamily={sans}>{lastName}</text>}
         </g>);
       })}
@@ -1658,14 +1808,23 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
   const DepthList=({team})=>{
     const chart=depthChart[team]||{};
+    const groups=getSchemeDepthGroups(team);
+    // Map from base DEPTH_GROUPS posMatch → scheme group, so we can find hidden roster slots
+    const baseGroupMap={};
+    DEPTH_GROUPS.forEach(g=>{baseGroupMap[g.posMatch]=g.slots;});
     return(<div style={{marginTop:2}}>
-      {DEPTH_GROUPS.map((group,gi)=>{
+      {groups.map((group,gi)=>{
         const entries=group.slots.map(s=>({slot:s,entry:chart[s]})).filter(x=>x.entry);
+        // Overflow drafted players (e.g. DE1_d0)
         const extras=Object.entries(chart).filter(([k])=>group.slots.some(s=>k.startsWith(s+"_d"))).map(([k,v])=>({slot:k,entry:v}));
+        // Roster players in base slots not in scheme slots (e.g. DT2 on 3-4, LB3 on 4-2-5)
+        const baseSlots=baseGroupMap[group.posMatch]||[];
+        const hiddenRoster=baseSlots.filter(s=>!group.slots.includes(s)&&chart[s]).map(s=>({slot:s,entry:chart[s]}));
+        extras.push(...hiddenRoster);
         if(entries.length===0&&extras.length===0)return null;
         return(<div key={group.label} style={{marginBottom:8,...(gi>0?{paddingTop:6,borderTop:"1px solid #f5f5f5"}:{})}}>
           {entries.map(({slot,entry})=>(<div key={slot} style={{fontFamily:sans,fontSize:11,padding:"2px 0",display:"flex",alignItems:"center",gap:6}}>
-            <span style={{fontFamily:mono,color:"#d4d4d4",width:24,fontSize:9,flexShrink:0}}>{slot}</span>
+            <span style={{fontFamily:mono,color:"#d4d4d4",width:24,fontSize:9,flexShrink:0}}>{group.slotLabels?.[slot]||slot}</span>
             {entry.isDraft
               ?<span style={{fontFamily:sans,fontWeight:700,fontSize:11,color:"#7c3aed",background:"rgba(124,58,237,0.06)",padding:"1px 6px",borderRadius:4}}>{entry.name}</span>
               :<span style={{fontFamily:sans,fontWeight:400,fontSize:11,color:"#525252"}}>{entry.name}</span>}
