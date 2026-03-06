@@ -540,7 +540,7 @@ function aggregateResults(allResults, prospectsMap) {
 
 export default function Round1Prediction({
   board, PROSPECTS, POS_COLORS, NFLTeamLogo, SchoolLogo,
-  font, mono, sans, onClose, trackEvent, userId
+  font, mono, sans, onClose, onResults, trackEvent, userId
 }) {
   const [phase, setPhase] = useState("loading");
   const [progress, setProgress] = useState(0);
@@ -561,6 +561,7 @@ export default function Round1Prediction({
       if(cancelled) return;
       const agg = aggregateResults(allResults, prospectsMap);
       setSlots(agg);
+      if(onResults) onResults(agg);
       setPhase("results");
       if(trackEvent) trackEvent(userId, 'round1_prediction_complete', {});
     });

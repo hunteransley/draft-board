@@ -10,6 +10,9 @@ import { getCombineData, formatHeight } from "./combineData.js";
 import { getCombineScores } from "./combineTraits.js";
 import PROSPECT_STATS_STRUCT from "./prospectStatsStructured.json";
 import HISTORICAL_STAT_DIST from "./historicalStatDist.json";
+import TEAM_NEEDS_RICH from "./teamNeedsData.js";
+import NFL_ROSTERS from "./nflRosters.js";
+import { TEAM_ABBR, TEAM_SCHEME, getFormationPos, getSchemeDepthGroups } from "./depthChartUtils.js";
 
 // Suffix-aware short name: "Rueben Bain Jr." → "Bain Jr." not "Jr."
 const GEN_SUFFIXES=/^(Jr\.?|Sr\.?|II|III|IV|V|VI|VII|VIII)$/i;
@@ -1121,6 +1124,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const[communityBoard,setCommunityBoard]=useState(null);
   const[showMockDraft,setShowMockDraft]=useState(false);
   const[showRound1Prediction,setShowRound1Prediction]=useState(false);
+  const[r1PredictionSlots,setR1PredictionSlots]=useState(null);
+  const[showTier3Needs,setShowTier3Needs]=useState(false);
+  const[expandedNeeds,setExpandedNeeds]=useState(new Set());
   const[mockLaunchTeam,setMockLaunchTeam]=useState(null);// Set of teams or null
   const[mockTeamPicker,setMockTeamPicker]=useState("");
   const[mockTeamSet,setMockTeamSet]=useState(new Set());
@@ -1888,19 +1894,20 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
 
 
 
-  if(showRound1Prediction){return<Round1Prediction board={mockDraftBoard} PROSPECTS={PROSPECTS} POS_COLORS={POS_COLORS} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} font={font} mono={mono} sans={sans} onClose={()=>setShowRound1Prediction(false)} trackEvent={trackEvent} userId={user?.id}/>;}
+  if(showRound1Prediction){return<Round1Prediction board={mockDraftBoard} PROSPECTS={PROSPECTS} POS_COLORS={POS_COLORS} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} font={font} mono={mono} sans={sans} onClose={()=>setShowRound1Prediction(false)} onResults={setR1PredictionSlots} trackEvent={trackEvent} userId={user?.id}/>;}
 
   if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA)||(traits[a.id]&&Object.keys(traits[a.id]).length>0);const bRanked=rankedGroups.has(gB)||(traits[b.id]&&Object.keys(traits[b.id]).length>0);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} onMockComplete={saveMockPicks} myGuys={myGuys} myGuysUpdated={myGuysUpdated} setMyGuysUpdated={setMyGuysUpdated} mockCount={mockCount} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} getConsensusRound={getConsensusRound} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} mockLaunchCpuTrades={mockCpuTrades} mockLaunchBoardMode={mockBoardMode} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}} isGuest={isGuest} onRequireAuth={onRequireAuth} trackEvent={trackEvent} userId={user?.id} isGuestUser={!user} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} TRAIT_ABBREV={TRAIT_ABBREV} TRAIT_EMOJI={TRAIT_EMOJI} SCHOOL_CONFERENCE={SCHOOL_CONFERENCE} POS_EMOJI={POS_EMOJI} onShareMyGuys={shareMyGuys} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter} MEASURABLE_EMOJI={MEASURABLE_EMOJI} MEASURABLE_SHORT={MEASURABLE_SHORT} MEASURABLE_LIST={MEASURABLE_LIST} MEASURABLE_DRILLS={MEASURABLE_DRILLS} MEASURABLE_KEY={MEASURABLE_KEY} MEASURABLE_RAW={MEASURABLE_RAW} MEAS_GROUPS={MEAS_GROUPS} getMeasRadarData={getMeasRadarData}/>;}
   // === TEAM MOCK TRENDS PAGE ===
   if(showTrends){
-    const switchTeam=(t)=>{setTrendsTeam(t);window.history.replaceState({},'',`/trends?team=${encodeURIComponent(t)}`);loadTrendsData(t);};
+    const switchTeam=(t)=>{setTrendsTeam(t);setShowTier3Needs(false);setExpandedNeeds(new Set());window.history.replaceState({},'',`/trends?team=${encodeURIComponent(t)}`);loadTrendsData(t);};
     const totalMocks=trendsData?.total_mocks||0;
     const totalUsers=trendsData?.total_users||0;
     const prospects=trendsData?.prospects||[];
     const positions=trendsData?.positions||[];
     const totalPosPicks=positions.reduce((s,p)=>s+Number(p.pos_count),0);
     return(<div style={{position:"fixed",inset:0,background:"#faf9f6",zIndex:9000,overflow:"auto",WebkitOverflowScrolling:"touch"}}>
-      <div style={{maxWidth:720,margin:"0 auto",padding:"16px 16px 80px"}}>
+      <div style={{maxWidth:960,margin:"0 auto",padding:"16px 16px 80px"}}>
+        <style>{`@media(max-width:700px){.trends-grid{flex-direction:column!important;}}`}</style>
         {/* Header */}
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
           <div style={{display:"flex",alignItems:"center",gap:12}}>
@@ -2006,8 +2013,54 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
             </div>
           </div>}
 
-          {/* Position tendency */}
-          {positions.length>0&&(()=>{const needs=TEAM_NEEDS_DETAILED[trendsTeam]||{};return<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:20}}>
+          {/* Team Needs — full width */}
+          {(()=>{const richData=TEAM_NEEDS_RICH[trendsTeam];const rosterAbbr=TEAM_ABBR[trendsTeam];const roster=NFL_ROSTERS[rosterAbbr];const accent=NFL_TEAM_COLORS[trendsTeam]||"#6366f1";const hasNeeds=richData&&richData.needs;const hasRoster=!!roster;
+
+          const urgencyDot={critical:"#dc2626",important:"#f59e0b",moderate:"#a3a3a3"};
+          const renderNeed=(n,i)=>{const c=POS_COLORS[n.position]||POS_COLORS[n.position==="IDL"?"DL":n.position]||"#525252";const nk=`${trendsTeam}-${n.position}-${i}`;const isExp=expandedNeeds.has(nk);return<div key={nk} style={{padding:"7px 0",borderBottom:"1px solid #f5f5f5"}}>
+            <div style={{display:"flex",alignItems:"center",gap:8}}>
+              <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:c,background:`${c}11`,padding:"2px 6px",borderRadius:4,border:`1px solid ${c}22`}}>{n.position}</span>
+              <span style={{width:7,height:7,borderRadius:4,background:urgencyDot[n.urgency]||"#a3a3a3",flexShrink:0}} title={n.urgency}/>
+              <span onClick={()=>{const next=new Set(expandedNeeds);if(isExp)next.delete(nk);else next.add(nk);setExpandedNeeds(next);}} style={{fontFamily:sans,fontSize:12,color:"#525252",flex:1,cursor:"pointer",overflow:"hidden",textOverflow:isExp?"unset":"ellipsis",whiteSpace:isExp?"normal":"nowrap"}}>{n.explanation}</span>
+            </div>
+            {n.current_starter&&<div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginTop:3,marginLeft:52}}>{n.current_starter}</div>}
+          </div>;};
+
+          const needsCard=hasNeeds&&(()=>{const needs=richData.needs;const tier1=needs.filter(n=>n.tier===1);const tier2=needs.filter(n=>n.tier===2);const tier3=needs.filter(n=>n.tier===3);return<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:16}}>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>team needs</div>
+            {tier1.length>0&&<><div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#dc2626",textTransform:"uppercase",marginBottom:6,marginTop:4}}>tier 1 — critical</div>{tier1.map(renderNeed)}</>}
+            {tier2.length>0&&<><div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#f59e0b",textTransform:"uppercase",marginBottom:6,marginTop:12}}>tier 2 — important</div>{tier2.map(renderNeed)}</>}
+            {tier3.length>0&&<>{!showTier3Needs?<button onClick={()=>setShowTier3Needs(true)} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 12px",cursor:"pointer",marginTop:12}}>show depth needs ({tier3.length})</button>:<><div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:6,marginTop:12}}>tier 3 — depth</div>{tier3.map(renderNeed)}</>}</>}
+            {richData.roster_context&&<div style={{fontFamily:sans,fontSize:11,color:"#737373",lineHeight:1.5,marginTop:12,padding:"10px 12px",background:"#fafafa",borderRadius:8,border:"1px solid #f0f0f0"}}>{richData.roster_context}</div>}
+          </div>;})();
+
+          const depthCard=hasRoster&&(()=>{const groups=getSchemeDepthGroups(trendsTeam);const scheme=TEAM_SCHEME[trendsTeam];const schemeLabel=scheme?({34:"3-4",43:"4-3","425":"4-2-5 Nickel",w9:"Wide-9 4-2-5"}[scheme.def]||""):"";return<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
+              <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>current roster</div>
+              {schemeLabel&&<span style={{fontFamily:mono,fontSize:9,color:accent,background:`${accent}11`,padding:"2px 8px",borderRadius:4,border:`1px solid ${accent}22`}}>{schemeLabel}</span>}
+            </div>
+            {/* Formation SVG */}
+            <svg viewBox="-2 -2 104 109" style={{width:"100%",maxWidth:360,margin:"0 auto",display:"block"}}>
+              {[20,40,58,75,90].map(y=><line key={y} x1="2" y1={y} x2="98" y2={y} stroke="rgba(0,0,0,0.04)" strokeWidth="0.3"/>)}
+              <line x1="2" y1="58" x2="98" y2="58" stroke={accent+"44"} strokeWidth="0.5" strokeDasharray="2,1.5"/>
+              {Object.entries(getFormationPos(trendsTeam)).map(([slot,pos])=>{const name=roster[slot];if(!name&&pos.schemeOnly)return null;const filled=!!name;return<g key={slot}>
+                <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={filled?accent:"#d4d4d4"} stroke={filled?accent:"#a3a3a3"} strokeWidth="0.2"/>
+                <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="#a3a3a3" fontSize="1.8" fontFamily={mono}>{pos.label||slot.replace(/\d$/,'')}</text>
+                {filled&&<text x={pos.x} y={pos.y+4.5} textAnchor="middle" fill="#525252" fontSize="1.8" fontFamily={sans}>{shortName(name)}</text>}
+              </g>;})}
+            </svg>
+            {/* Depth list below formation */}
+            <div style={{marginTop:8}}>
+              {groups.map((group,gi)=>{const entries=group.slots.map(s=>({slot:s,name:roster[s]})).filter(x=>x.name);if(!entries.length)return null;return<div key={group.label} style={{marginBottom:6,...(gi>0?{paddingTop:5,borderTop:"1px solid #f5f5f5"}:{})}}>
+                {entries.map(({slot,name})=><div key={slot} style={{fontFamily:sans,fontSize:11,padding:"2px 0",display:"flex",alignItems:"center",gap:6}}>
+                  <span style={{fontFamily:mono,color:"#d4d4d4",width:28,fontSize:9,flexShrink:0,textAlign:"right"}}>{group.slotLabels?.[slot]||slot}</span>
+                  <span style={{color:"#525252"}}>{name}</span>
+                </div>)}
+              </div>;})}
+            </div>
+          </div>;})();
+
+          const positionTendencyCard=positions.length>0&&(()=>{const needs=TEAM_NEEDS_DETAILED[trendsTeam]||{};return<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
               <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>position tendency</div>
               <div style={{display:"flex",alignItems:"center",gap:8}}>
@@ -2021,10 +2074,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
               <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",width:28,textAlign:"right"}}>{pct}%</span>
               {need>=2?<span style={{width:8,height:8,borderRadius:4,background:"#dc2626",flexShrink:0}} title="Big need"/>:need===1?<span style={{width:8,height:8,borderRadius:4,background:"#f59e0b",flexShrink:0}} title="Need"/>:<span style={{width:8,height:8,flexShrink:0}}/>}
             </div>;})}
-          </div>;})()}
+          </div>;})();
 
-          {/* Top picks */}
-          <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
+          const mostDraftedCard=<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
             <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>most drafted prospects</div>
             {prospects.map((p,i)=>{const c=POS_COLORS[p.prospect_pos]||"#a3a3a3";const prospect=PROSPECTS.find(pr=>pr.name===p.prospect_name);const cRank=prospect?getConsensusRank(prospect.name):null;return<div key={p.prospect_name} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 0",borderBottom:i<prospects.length-1?"1px solid #f5f5f5":"none"}}>
               <span style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#d4d4d4",width:24,textAlign:"right",flexShrink:0}}>{i+1}</span>
@@ -2041,6 +2093,44 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
                 </div>
               </div>
             </div>;})}
+          </div>;
+
+          return<>
+          {needsCard}
+          {/* Community data + Depth Chart — side by side on desktop */}
+          <div className="trends-grid" style={{display:"flex",gap:16,alignItems:"flex-start",marginBottom:16}}>
+            <div style={{flex:"1 1 0%",minWidth:0,display:"flex",flexDirection:"column",gap:16}}>
+              {positionTendencyCard}
+              {mostDraftedCard}
+            </div>
+            {depthCard&&<div style={{flex:"1 1 0%",minWidth:0}}>{depthCard}</div>}
+          </div>
+          </>;})()}
+
+          {/* Likely Round 1 Picks — only shown when cached */}
+          {r1PredictionSlots&&(()=>{const teamPicks=r1PredictionSlots.filter(s=>s.team===trendsTeam);if(!teamPicks.length)return<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:20}}>
+              <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>likely round 1 picks</div>
+              <p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:0}}>no round 1 picks</p>
+            </div>;
+            return<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:20}}>
+              <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>likely round 1 picks</div>
+              {teamPicks.map((slot,i)=>{const player=slot.primary?.playerId?PROSPECTS.find(p=>p.id===slot.primary.playerId):null;const pos=player?.gpos||player?.pos||"";const c=POS_COLORS[pos]||"#a3a3a3";const pct=slot.primary?.pct||0;const confColor=pct>=50?"#16a34a":pct>=30?"#d97706":"#dc2626";const also=slot.alsoConsidered||[];return<div key={slot.pickNum} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 0",borderBottom:i<teamPicks.length-1?"1px solid #f5f5f5":"none"}}>
+                  <span style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#d4d4d4",width:28,textAlign:"right",flexShrink:0}}>#{slot.pickNum}</span>
+                  {player&&<SchoolLogo school={player.school} size={28}/>}
+                  <div style={{flex:1,minWidth:0}}>
+                    <div style={{display:"flex",alignItems:"center",gap:6,flexWrap:"wrap"}}>
+                      {player?<span onClick={()=>setProfilePlayer(player)} style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",cursor:"pointer"}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{player.name}</span>:<span style={{fontFamily:sans,fontSize:13,color:"#a3a3a3"}}>—</span>}
+                      {pos&&<span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:c,background:`${c}11`,padding:"2px 6px",borderRadius:4,border:`1px solid ${c}22`}}>{pos}</span>}
+                      <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:confColor}}>{pct}%</span>
+                    </div>
+                    {also.length>0&&<div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginTop:2}}>also: {also.slice(0,3).map(a=>{const ap=PROSPECTS.find(p=>p.id===a.playerId);return ap?`${shortName(ap.name)} ${a.pct}%`:null;}).filter(Boolean).join(", ")}</div>}
+                  </div>
+                </div>;})}
+            </div>;})()}
+
+          {/* Run simulation button at bottom */}
+          <div style={{textAlign:"center",padding:"20px 0 8px"}}>
+            <button onClick={()=>setShowRound1Prediction(true)} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"10px 24px",background:"linear-gradient(135deg,#ec4899,#7c3aed)",color:"#fff",border:"none",borderRadius:99,cursor:"pointer"}}>{r1PredictionSlots?"re-run simulation →":"run round 1 simulation →"}</button>
           </div>
         </>;})()}
       </div>
