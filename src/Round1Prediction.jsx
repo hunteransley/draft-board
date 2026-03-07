@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { getConsensusRank, getConsensusGrade, TEAM_NEEDS_DETAILED } from "./consensusData.js";
 import { getScoutingTraits } from "./scoutingData.js";
 import { getCombineScores } from "./combineTraits.js";
+import { getProspectStats } from "./prospectStats.js";
+import { TEAM_SCHEME } from "./depthChartUtils.js";
 
 // ── STATIC DATA (copied from MockDraftSim.jsx) ──
 
@@ -30,7 +32,7 @@ const DRAFT_ORDER_2026=[
 const JJ_VALUES={1:3000,2:2600,3:2200,4:1800,5:1700,6:1600,7:1500,8:1400,9:1350,10:1300,11:1250,12:1200,13:1150,14:1100,15:1050,16:1000,17:950,18:900,19:875,20:850,21:800,22:780,23:760,24:740,25:720,26:700,27:680,28:660,29:640,30:620,31:600,32:590,33:580,34:560,35:550,36:540,37:530,38:520,39:510,40:500,41:490,42:480,43:470,44:460,45:450,46:440,47:430,48:420,49:410,50:400,51:390,52:380,53:370,54:360,55:350,56:340,57:330,58:320,59:310,60:300,61:292,62:284,63:276,64:270,65:265,66:260,67:255,68:250,69:245,70:240,71:235,72:230,73:225,74:220,75:215,76:210,77:205,78:200,79:195,80:190,81:185,82:180,83:175,84:170,85:165,86:160,87:155,88:150,89:145,90:140,91:136,92:132,93:128,94:124,95:120,96:116,97:112,98:108,99:104,100:100};
 function getPickValue(n){return JJ_VALUES[n]||Math.max(5,Math.round(100-((n-100)*0.72)));}
 
-const POS_DRAFT_VALUE={QB:1.08,EDGE:1.09,CB:1.05,OT:1.05,OL:1.05,DL:1.04,WR:1.04,IDL:1.03,DT:1.03,NT:1.03,IOL:1.01,DB:1.01,TE:1.01,S:0.98,LB:0.97,RB:0.96,"K/P":0.7};
+const POS_DRAFT_VALUE={QB:1.08,EDGE:1.09,CB:1.05,OT:1.05,OL:1.05,DL:1.04,WR:1.04,IDL:1.03,DT:1.03,NT:1.03,IOL:1.01,DB:1.01,TE:1.01,S:0.99,LB:0.97,RB:1.02,"K/P":0.7};
 
 const RANK_OVERRIDES={"Sonny Styles":6,"Kenyon Sadiq":18,"Jeremiyah Love":3};
 const GRADE_OVERRIDES={"Jeremiyah Love":92,"Sonny Styles":89};
@@ -156,23 +158,14 @@ const TEAM_NEEDS={"Raiders":["QB","WR","DB","DL","OL","LB"],"Jets":["DL","QB","D
 
 // ── PURE SIMULATION FUNCTIONS ──
 
-function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap, boardNoise, wobbledProfiles) {
+function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap, boardNoise, wobbledProfiles, getGrade) {
   const needs = TEAM_NEEDS[team] || ["QB","WR","DL"];
   const dn = TEAM_NEEDS_DETAILED?.[team] || {};
   const prof = (wobbledProfiles&&wobbledProfiles[team])||TEAM_PROFILES[team]||{bpaLean:0.55,posBoost:[],posPenalty:[],stage:"retool",reachTolerance:0.3,variance:2,gposBoost:[],athBoost:0,sizePremium:false,ceilingChaser:0};
 
   if(pickNum===1){const m=avail.find(id=>{const p=prospectsMap[id];return p&&p.name==="Fernando Mendoza";});if(m)return m;}
 
-  if(pickNum>=6){
-    const eliteSliders=[{name:"Jeremiyah Love",floor:8},{name:"Sonny Styles",floor:10}];
-    for(const es of eliteSliders){
-      if(pickNum>es.floor){
-        const match=avail.find(id=>{const p=prospectsMap[id];return p&&p.name===es.name;});
-        if(match&&Math.random()<0.85)return match;
-      }
-    }
-  }
-
+  // Elite slide protection removed — transcendent tier + ceiling bumps + EDGE flex handle this organically now
   const round=pickNum<=32?1:pickNum<=64?2:pickNum<=100?3:pickNum<=144?4:pickNum<=180?5:pickNum<=220?6:7;
   let stageBpaShift=0, stageNeedShift=0;
   if(prof.stage==="dynasty"){stageBpaShift=0.15;stageNeedShift=-0.12;}
@@ -201,8 +194,25 @@ function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap,
     const nc=dn[pos]||0;const ni=needs.indexOf(pos);
     const nm=nc>=3?18:nc>=2?12:nc===1?8:ni>=0&&ni<3?5:ni>=0?2:(round>=3?-6:0);
     const gpos=p.gpos||p.pos;
-    const rawPm=POS_DRAFT_VALUE[gpos]||POS_DRAFT_VALUE[pos]||1.0;
-    const pm=grade>=88?Math.max(rawPm,1.0):rawPm;
+    let rawPm=POS_DRAFT_VALUE[gpos]||POS_DRAFT_VALUE[pos]||1.0;
+    // LB/EDGE flex: if LB prospect has EDGE traits and team runs 3-4 (wants stand-up rushers), use EDGE multiplier
+    if(gpos==="LB"&&(TEAM_SCHEME[team]?.def==="34"||TEAM_SCHEME[team]?.def==="w9")){
+      const flexSc=getScoutingTraits(p.name,p.school);
+      const flexCs=getCombineScores(p.name,p.school);
+      const pr=flexSc?.["Pass Rush"]||0;
+      const ath2=flexCs?.athleticScore||flexSc?.["Athleticism"]||0;
+      const ps=getProspectStats?.(p.name,p.school);
+      const wt=flexCs?.weight||ps?.weight||260;
+      if(pr>=65&&ath2>=70&&wt<=260)rawPm=Math.max(rawPm,POS_DRAFT_VALUE["EDGE"]);
+    }
+    const ceilingSc=getScoutingTraits(p.name,p.school);
+    const ceilingTag=ceilingSc?.__ceiling||"normal";
+    const ceilingPmBump=ceilingTag==="elite"?0.02:ceilingTag==="high"?0.01:0;
+    // Transcendent tier: elite ceiling + (grade>=95 & ath>=98) OR (grade>=98) → positional floor
+    const uiGrade=getGrade?getGrade(id):0;
+    const transAth=getCombineScores(p.name,p.school)?.athleticScore||0;
+    if(ceilingTag==="elite"&&((uiGrade>=95&&transAth>=98)||(uiGrade>=98))){const tFloor=gpos==="RB"?1.06:gpos==="S"?1.03:1.05;rawPm=Math.max(rawPm,tFloor);}
+    const pm=(grade>=88?Math.max(rawPm,1.0):rawPm)+ceilingPmBump;
     const base=Math.pow(Math.max(grade,10),1.3);
 
     const isBoosted=prof.posBoost.includes(pos);
@@ -368,7 +378,7 @@ function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, pro
   return candidateTeams[0];
 }
 
-function runSingleSim(board, prospectsMap) {
+function runSingleSim(board, prospectsMap, getGrade) {
   const{noise:boardNoise,wobbled:wobbledProfiles}=generateSimNoise(board);
   const fullDraftOrder = DRAFT_ORDER_2026;
   const available = board.map(p => p.id);
@@ -399,7 +409,7 @@ function runSingleSim(board, prospectsMap) {
       origTeam = team;
     }
 
-    const playerId = pureCpuPick(actualTeam, available, pickNum, picks, recentPosCounts, prospectsMap, boardNoise, wobbledProfiles);
+    const playerId = pureCpuPick(actualTeam, available, pickNum, picks, recentPosCounts, prospectsMap, boardNoise, wobbledProfiles, getGrade);
     const player = prospectsMap[playerId];
     const pos = player?.pos;
 
@@ -425,7 +435,7 @@ function runSingleSim(board, prospectsMap) {
   return picks;
 }
 
-function runBatchAsync(board, prospectsMap, numSims, onProgress) {
+function runBatchAsync(board, prospectsMap, numSims, onProgress, getGrade) {
   return new Promise(resolve => {
     const allResults = [];
     let done = 0;
@@ -434,7 +444,7 @@ function runBatchAsync(board, prospectsMap, numSims, onProgress) {
     function runChunk() {
       const end = Math.min(done + CHUNK, numSims);
       for(let i = done; i < end; i++){
-        allResults.push(runSingleSim(board, prospectsMap));
+        allResults.push(runSingleSim(board, prospectsMap, getGrade));
       }
       done = end;
       if(onProgress) onProgress(done, numSims);
@@ -540,7 +550,7 @@ function aggregateResults(allResults, prospectsMap) {
 
 export default function Round1Prediction({
   board, PROSPECTS, POS_COLORS, NFLTeamLogo, SchoolLogo,
-  font, mono, sans, onClose, onResults, trackEvent, userId
+  font, mono, sans, onClose, onResults, trackEvent, userId, getGrade
 }) {
   const [phase, setPhase] = useState("loading");
   const [progress, setProgress] = useState(0);
@@ -557,7 +567,7 @@ export default function Round1Prediction({
     let cancelled = false;
     runBatchAsync(board, prospectsMap, 100, (done, total) => {
       if(!cancelled) setProgress(Math.round(done / total * 100));
-    }).then(allResults => {
+    }, getGrade).then(allResults => {
       if(cancelled) return;
       const agg = aggregateResults(allResults, prospectsMap);
       setSlots(agg);
