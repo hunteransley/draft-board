@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useMemo, useRef, Fragment } from "rea
 import { supabase } from "./supabase.js";
 import MockDraftSim from "./MockDraftSim.jsx";
 import Round1Prediction from "./Round1Prediction.jsx";
-import { CONSENSUS_BOARD, getConsensusRank, getConsensusGrade, getConsensusRound, TEAM_NEEDS_DETAILED } from "./consensusData.js";
+import { CONSENSUS_BOARD, getConsensusRank, getConsensusGrade, getConsensusRound } from "./consensusData.js";
 import { getProspectStats } from "./prospectStats.js";
 import { getStatBasedTraits } from "./statTraits.js";
 import { getScoutingTraits } from "./scoutingData.js";
@@ -10,7 +10,7 @@ import { getCombineData, formatHeight } from "./combineData.js";
 import { getCombineScores } from "./combineTraits.js";
 import PROSPECT_STATS_STRUCT from "./prospectStatsStructured.json";
 import HISTORICAL_STAT_DIST from "./historicalStatDist.json";
-import TEAM_NEEDS_RICH from "./teamNeedsData.js";
+import TEAM_NEEDS_RICH, { TEAM_NEEDS_SIMPLE, TEAM_NEEDS_COUNTS } from "./teamNeedsData.js";
 import NFL_ROSTERS from "./nflRosters.js";
 import { TEAM_ABBR, TEAM_SCHEME, getFormationPos, getSchemeDepthGroups } from "./depthChartUtils.js";
 
@@ -1145,8 +1145,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const[lockedPlayer,setLockedPlayer]=useState(null);
   const[showOnboarding,setShowOnboarding]=useState(()=>{try{return !localStorage.getItem('bbl_onboarded');}catch(e){return true;}});
 
-  // Team needs for mock draft
-  const TEAM_NEEDS=useMemo(()=>({"Raiders":["QB","WR","CB"],"Jets":["OL","WR","DL"],"Cardinals":["OL","DL","DB"],"Titans":["DL","WR","OL"],"Giants":["WR","OL","QB"],"Browns":["QB","WR","OL"],"Commanders":["DL","OL","DB"],"Saints":["QB","OL","DL"],"Chiefs":["WR","OL","DB"],"Bengals":["OL","DL","DB"],"Dolphins":["QB","OL","DL"],"Cowboys":["DL","DB","OL"],"Rams":["DB","DL","OL"],"Ravens":["DL","WR","OL"],"Buccaneers":["OL","WR","DL"],"Lions":["DL","DB","LB"],"Vikings":["OL","DL","DB"],"Panthers":["DB","LB","DL"],"Steelers":["QB","WR","OL"],"Chargers":["OL","DL","LB"],"Eagles":["DL","LB","DB"],"Bears":["WR","OL","DB"],"Bills":["OL","WR","DL"],"49ers":["WR","DB","DL"],"Texans":["OL","DL","DB"],"Broncos":["OL","WR","DL"],"Patriots":["OL","WR","DL"],"Seahawks":["DL","OL","LB"],"Falcons":["DL","WR","DB"],"Colts":["DL","OL","WR"],"Packers":["DB","OL","DL"],"Jaguars":["DB","LB","OL"]}),[]);
+  // Team needs for mock draft — sourced from agent data via teamNeedsData.js (TEAM_NEEDS_SIMPLE)
 
   // Load board from Supabase on mount
   useEffect(()=>{
@@ -1896,7 +1895,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
 
   if(showRound1Prediction){return<Round1Prediction board={mockDraftBoard} PROSPECTS={PROSPECTS} POS_COLORS={POS_COLORS} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} font={font} mono={mono} sans={sans} onClose={()=>setShowRound1Prediction(false)} onResults={setR1PredictionSlots} trackEvent={trackEvent} userId={user?.id} getGrade={getGrade}/>;}
 
-  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA)||(traits[a.id]&&Object.keys(traits[a.id]).length>0);const bRanked=rankedGroups.has(gB)||(traits[b.id]&&Object.keys(traits[b.id]).length>0);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS} draftOrder={DRAFT_ORDER} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} onMockComplete={saveMockPicks} myGuys={myGuys} myGuysUpdated={myGuysUpdated} setMyGuysUpdated={setMyGuysUpdated} mockCount={mockCount} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} getConsensusRound={getConsensusRound} TEAM_NEEDS_DETAILED={TEAM_NEEDS_DETAILED} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} mockLaunchCpuTrades={mockCpuTrades} mockLaunchBoardMode={mockBoardMode} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}} isGuest={isGuest} onRequireAuth={onRequireAuth} trackEvent={trackEvent} userId={user?.id} isGuestUser={!user} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} TRAIT_ABBREV={TRAIT_ABBREV} TRAIT_EMOJI={TRAIT_EMOJI} SCHOOL_CONFERENCE={SCHOOL_CONFERENCE} POS_EMOJI={POS_EMOJI} onShareMyGuys={shareMyGuys} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter} MEASURABLE_EMOJI={MEASURABLE_EMOJI} MEASURABLE_SHORT={MEASURABLE_SHORT} MEASURABLE_LIST={MEASURABLE_LIST} MEASURABLE_DRILLS={MEASURABLE_DRILLS} MEASURABLE_KEY={MEASURABLE_KEY} MEASURABLE_RAW={MEASURABLE_RAW} MEAS_GROUPS={MEAS_GROUPS} getMeasRadarData={getMeasRadarData}/>;}
+  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA)||(traits[a.id]&&Object.keys(traits[a.id]).length>0);const bRanked=rankedGroups.has(gB)||(traits[b.id]&&Object.keys(traits[b.id]).length>0);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS_SIMPLE} draftOrder={DRAFT_ORDER} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} onMockComplete={saveMockPicks} myGuys={myGuys} myGuysUpdated={myGuysUpdated} setMyGuysUpdated={setMyGuysUpdated} mockCount={mockCount} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} getConsensusRound={getConsensusRound} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} mockLaunchCpuTrades={mockCpuTrades} mockLaunchBoardMode={mockBoardMode} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}} isGuest={isGuest} onRequireAuth={onRequireAuth} trackEvent={trackEvent} userId={user?.id} isGuestUser={!user} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} TRAIT_ABBREV={TRAIT_ABBREV} TRAIT_EMOJI={TRAIT_EMOJI} SCHOOL_CONFERENCE={SCHOOL_CONFERENCE} POS_EMOJI={POS_EMOJI} onShareMyGuys={shareMyGuys} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter} MEASURABLE_EMOJI={MEASURABLE_EMOJI} MEASURABLE_SHORT={MEASURABLE_SHORT} MEASURABLE_LIST={MEASURABLE_LIST} MEASURABLE_DRILLS={MEASURABLE_DRILLS} MEASURABLE_KEY={MEASURABLE_KEY} MEASURABLE_RAW={MEASURABLE_RAW} MEAS_GROUPS={MEAS_GROUPS} getMeasRadarData={getMeasRadarData}/>;}
   // === TEAM MOCK TRENDS PAGE ===
   if(showTrends){
     const switchTeam=(t)=>{setTrendsTeam(t);setShowTier3Needs(false);setExpandedNeeds(new Set());window.history.replaceState({},'',`/trends?team=${encodeURIComponent(t)}`);loadTrendsData(t);};
@@ -2060,7 +2059,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
             </div>
           </div>;})();
 
-          const positionTendencyCard=positions.length>0&&(()=>{const needs=TEAM_NEEDS_DETAILED[trendsTeam]||{};return<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
+          const positionTendencyCard=positions.length>0&&(()=>{const needs=TEAM_NEEDS_COUNTS[trendsTeam]||{};const broadMap={EDGE:"DL",DT:"DL",IDL:"DL",NT:"DL",CB:"DB",S:"DB",OT:"OL",IOL:"OL"};const getNeed=(pos)=>needs[pos]||needs[broadMap[pos]]||0;return<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
               <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>position tendency</div>
               <div style={{display:"flex",alignItems:"center",gap:8}}>
@@ -2068,11 +2067,11 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
                 <span style={{display:"inline-flex",alignItems:"center",gap:3}}><span style={{width:6,height:6,borderRadius:3,background:"#f59e0b",flexShrink:0}}/><span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>need</span></span>
               </div>
             </div>
-            {positions.map(p=>{const pct=totalPosPicks>0?Math.round((Number(p.pos_count)/totalPosPicks)*100):0;const c=POS_COLORS[p.prospect_pos]||"#a3a3a3";const need=needs[p.prospect_pos]||0;return<div key={p.prospect_pos} style={{display:"flex",alignItems:"center",gap:8,marginBottom:6}}>
+            {positions.map(p=>{const pct=totalPosPicks>0?Math.round((Number(p.pos_count)/totalPosPicks)*100):0;const c=POS_COLORS[p.prospect_pos]||"#a3a3a3";const need=getNeed(p.prospect_pos);return<div key={p.prospect_pos} style={{display:"flex",alignItems:"center",gap:8,marginBottom:6}}>
               <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:c,width:32,textAlign:"right"}}>{p.prospect_pos}</span>
               <div style={{flex:1,height:18,background:"#f5f5f5",borderRadius:4,overflow:"hidden"}}><div style={{height:"100%",width:`${pct}%`,background:c,borderRadius:4,minWidth:pct>0?2:0,transition:"width 0.3s"}}/></div>
               <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",width:28,textAlign:"right"}}>{pct}%</span>
-              {need>=2?<span style={{width:8,height:8,borderRadius:4,background:"#dc2626",flexShrink:0}} title="Big need"/>:need===1?<span style={{width:8,height:8,borderRadius:4,background:"#f59e0b",flexShrink:0}} title="Need"/>:<span style={{width:8,height:8,flexShrink:0}}/>}
+              {need>=3?<span style={{width:8,height:8,borderRadius:4,background:"#dc2626",flexShrink:0}} title="Big need"/>:need>=2?<span style={{width:8,height:8,borderRadius:4,background:"#f59e0b",flexShrink:0}} title="Need"/>:<span style={{width:8,height:8,flexShrink:0}}/>}
             </div>;})}
           </div>;})();
 
@@ -3526,13 +3525,13 @@ function genCeilingTags(){
 }
 
 function genTeamMockAlignment(){
-  if(!TEAM_NEEDS_DETAILED||!Object.keys(TEAM_NEEDS_DETAILED).length)return null;
+  if(!TEAM_NEEDS_COUNTS||!Object.keys(TEAM_NEEDS_COUNTS).length)return null;
   const sub=Math.floor(Math.random()*2);
   if(sub===0){
     const top10=DRAFT_ORDER.slice(0,10);
     const allRanked=PROSPECTS.map(p=>({...p,rank:getConsensusRank(p.name)})).sort((a,b)=>a.rank-b.rank);
     for(const pick of _shuffle(top10)){
-      const needs=TEAM_NEEDS_DETAILED[pick.team];
+      const needs=TEAM_NEEDS_COUNTS[pick.team];
       if(!needs)continue;
       const topNeed=Object.entries(needs).sort((a,b)=>b[1]-a[1])[0];
       if(!topNeed)continue;
@@ -3549,12 +3548,12 @@ function genTeamMockAlignment(){
   }
   if(sub===1){
     const needTotals={};
-    Object.values(TEAM_NEEDS_DETAILED).forEach(needs=>{
+    Object.values(TEAM_NEEDS_COUNTS).forEach(needs=>{
       Object.entries(needs).forEach(([pos,ct])=>{needTotals[pos]=(needTotals[pos]||0)+ct;});
     });
     const sorted=Object.entries(needTotals).sort((a,b)=>b[1]-a[1]);
     if(sorted.length){const[pos,ct]=sorted[0];
-      const teamCount=Object.values(TEAM_NEEDS_DETAILED).filter(n=>n[pos]).length;
+      const teamCount=Object.values(TEAM_NEEDS_COUNTS).filter(n=>n[pos]).length;
       return{category:'team_mock',spice:_spice(2,ct>=20,true),
         tweet:_tag(`${teamCount} NFL teams need ${pos} help — that's the most in-demand position group heading into the 2026 draft.\n\n📊 bigboardlab.com`),
         image:`Mock Draft Sim`,hook:`League-wide need`,player:null};}

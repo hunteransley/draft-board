@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from "react";
-import { getConsensusRank, getConsensusGrade, TEAM_NEEDS_DETAILED } from "./consensusData.js";
+import { getConsensusRank, getConsensusGrade } from "./consensusData.js";
 import { getScoutingTraits } from "./scoutingData.js";
 import { getCombineScores } from "./combineTraits.js";
 import { getProspectStats } from "./prospectStats.js";
 import { TEAM_SCHEME } from "./depthChartUtils.js";
+import { POS_DRAFT_VALUE, RANK_OVERRIDES, GRADE_OVERRIDES, TEAM_PROFILES, SCHEME_INFLECTIONS } from "./draftConfig.js";
+import { TEAM_NEEDS_COUNTS, TEAM_NEEDS_SIMPLE } from "./teamNeedsData.js";
 
-// ── STATIC DATA (copied from MockDraftSim.jsx) ──
+// ── STATIC DATA ──
 
 const GEN_SUFFIXES=/^(Jr\.?|Sr\.?|II|III|IV|V|VI|VII|VIII)$/i;
 function shortName(name){const p=name.split(" ");const last=p.pop()||"";return GEN_SUFFIXES.test(last)?(p.pop()||last)+" "+last:last;}
@@ -32,10 +34,8 @@ const DRAFT_ORDER_2026=[
 const JJ_VALUES={1:3000,2:2600,3:2200,4:1800,5:1700,6:1600,7:1500,8:1400,9:1350,10:1300,11:1250,12:1200,13:1150,14:1100,15:1050,16:1000,17:950,18:900,19:875,20:850,21:800,22:780,23:760,24:740,25:720,26:700,27:680,28:660,29:640,30:620,31:600,32:590,33:580,34:560,35:550,36:540,37:530,38:520,39:510,40:500,41:490,42:480,43:470,44:460,45:450,46:440,47:430,48:420,49:410,50:400,51:390,52:380,53:370,54:360,55:350,56:340,57:330,58:320,59:310,60:300,61:292,62:284,63:276,64:270,65:265,66:260,67:255,68:250,69:245,70:240,71:235,72:230,73:225,74:220,75:215,76:210,77:205,78:200,79:195,80:190,81:185,82:180,83:175,84:170,85:165,86:160,87:155,88:150,89:145,90:140,91:136,92:132,93:128,94:124,95:120,96:116,97:112,98:108,99:104,100:100};
 function getPickValue(n){return JJ_VALUES[n]||Math.max(5,Math.round(100-((n-100)*0.72)));}
 
-const POS_DRAFT_VALUE={QB:1.08,EDGE:1.09,CB:1.05,OT:1.05,OL:1.05,DL:1.04,WR:1.04,IDL:1.03,DT:1.03,NT:1.03,IOL:1.01,DB:1.01,TE:1.01,S:0.99,LB:0.97,RB:1.02,"K/P":0.7};
-
-const RANK_OVERRIDES={"Sonny Styles":6,"Kenyon Sadiq":18,"Jeremiyah Love":3};
-const GRADE_OVERRIDES={"Jeremiyah Love":92,"Sonny Styles":89};
+// POS_DRAFT_VALUE, RANK_OVERRIDES, GRADE_OVERRIDES, TEAM_PROFILES, SCHEME_INFLECTIONS imported from draftConfig.js
+// TEAM_NEEDS_COUNTS, TEAM_NEEDS_SIMPLE imported from teamNeedsData.js
 
 // Central-limit-theorem gaussian approximation (sum of 6 uniforms)
 function gaussRandom(sigma){
@@ -58,78 +58,6 @@ function generateSimNoise(board){
   return{noise,wobbled};
 }
 
-const TEAM_PROFILES={
-Raiders:{bpaLean:0.55,posBoost:["QB","OL","WR"],posPenalty:[],stage:"rebuild",reachTolerance:0.3,variance:2,gposBoost:["EDGE","IDL"],athBoost:0.08,sizePremium:false,ceilingChaser:0.08},
-Jets:{bpaLean:0.4,posBoost:["OL","WR","DL"],posPenalty:[],stage:"retool",reachTolerance:0.35,variance:2,gposBoost:["EDGE","DT"],athBoost:0.06,sizePremium:false,ceilingChaser:0.04},
-Cardinals:{bpaLean:0.5,posBoost:["OL","DL","DB"],posPenalty:[],stage:"rebuild",reachTolerance:0.35,variance:2,gposBoost:["EDGE","CB"],athBoost:0.1,sizePremium:false,ceilingChaser:0.06},
-Titans:{bpaLean:0.45,posBoost:["DL","WR","OL"],posPenalty:[],stage:"rebuild",reachTolerance:0.4,variance:2,gposBoost:["EDGE","IDL"],athBoost:0.08,sizePremium:true,ceilingChaser:0.04},
-Giants:{bpaLean:0.45,posBoost:["WR","OL","QB"],posPenalty:[],stage:"rebuild",reachTolerance:0.35,variance:2,gposBoost:["EDGE","CB"],athBoost:0.06,sizePremium:false,ceilingChaser:0.06},
-Browns:{bpaLean:0.5,posBoost:["QB","WR","OL"],posPenalty:[],stage:"rebuild",reachTolerance:0.4,variance:3,gposBoost:["EDGE","IDL"],athBoost:0.08,sizePremium:false,ceilingChaser:0.08},
-Commanders:{bpaLean:0.5,posBoost:["DL","OL","DB"],posPenalty:[],stage:"contend",reachTolerance:0.35,variance:2,gposBoost:["EDGE","NT","IDL"],athBoost:0.06,sizePremium:false,ceilingChaser:0.04},
-Saints:{bpaLean:0.4,posBoost:["QB","OL","DL"],posPenalty:[],stage:"rebuild",reachTolerance:0.45,variance:3,gposBoost:["EDGE","DT"],athBoost:0.06,sizePremium:false,ceilingChaser:0.04},
-Chiefs:{bpaLean:0.5,posBoost:["WR","DB","RB"],posPenalty:["QB"],stage:"dynasty",reachTolerance:0.5,variance:3,gposBoost:["EDGE","DT","CB"],athBoost:0.12,sizePremium:false,ceilingChaser:0},
-Bengals:{bpaLean:0.45,posBoost:["OL","DL","DB"],posPenalty:[],stage:"contend",reachTolerance:0.35,variance:2,gposBoost:["EDGE","DT"],athBoost:0.06,sizePremium:false,ceilingChaser:0.04},
-Dolphins:{bpaLean:0.45,posBoost:["QB","OL","DL"],posPenalty:[],stage:"retool",reachTolerance:0.35,variance:2,gposBoost:["EDGE","IDL"],athBoost:0.1,sizePremium:false,ceilingChaser:0.06},
-Cowboys:{bpaLean:0.55,posBoost:["DL","DB","OL"],posPenalty:[],stage:"retool",reachTolerance:0.4,variance:2,gposBoost:["EDGE","DT","CB"],athBoost:0.08,sizePremium:false,ceilingChaser:0.06},
-Rams:{bpaLean:0.5,posBoost:["DB","DL","OL"],posPenalty:[],stage:"contend",reachTolerance:0.45,variance:3,gposBoost:["EDGE","CB"],athBoost:0.08,sizePremium:false,ceilingChaser:0.04},
-Ravens:{bpaLean:0.55,posBoost:["DL","WR","OL"],posPenalty:[],stage:"contend",reachTolerance:0.3,variance:2,gposBoost:["EDGE","IDL","NT"],athBoost:0.1,sizePremium:true,ceilingChaser:0},
-Buccaneers:{bpaLean:0.45,posBoost:["OL","WR","DL"],posPenalty:[],stage:"contend",reachTolerance:0.35,variance:2,gposBoost:["EDGE","DT"],athBoost:0.06,sizePremium:false,ceilingChaser:0.04},
-Colts:{bpaLean:0.5,posBoost:["DL","OL","WR"],posPenalty:[],stage:"retool",reachTolerance:0.35,variance:2,gposBoost:["EDGE","IDL"],athBoost:0.08,sizePremium:true,ceilingChaser:0.04},
-Lions:{bpaLean:0.55,posBoost:["DL","DB","LB"],posPenalty:["QB"],stage:"dynasty",reachTolerance:0.4,variance:2,gposBoost:["EDGE","DT","CB"],athBoost:0.1,sizePremium:false,ceilingChaser:0.04},
-Vikings:{bpaLean:0.5,posBoost:["OL","DL","DB"],posPenalty:[],stage:"contend",reachTolerance:0.35,variance:2,gposBoost:["EDGE","IDL","CB"],athBoost:0.08,sizePremium:false,ceilingChaser:0.04},
-Panthers:{bpaLean:0.45,posBoost:["DB","LB","DL"],posPenalty:[],stage:"rebuild",reachTolerance:0.4,variance:3,gposBoost:["EDGE","CB"],athBoost:0.1,sizePremium:false,ceilingChaser:0.08},
-Steelers:{bpaLean:0.5,posBoost:["QB","WR","OL"],posPenalty:[],stage:"retool",reachTolerance:0.3,variance:2,gposBoost:["EDGE","IDL"],athBoost:0.06,sizePremium:true,ceilingChaser:0},
-Chargers:{bpaLean:0.5,posBoost:["OL","DL","LB"],posPenalty:[],stage:"contend",reachTolerance:0.35,variance:2,gposBoost:["EDGE","NT"],athBoost:0.08,sizePremium:true,ceilingChaser:0},
-Eagles:{bpaLean:0.5,posBoost:["OL","DL","DB"],posPenalty:[],stage:"dynasty",reachTolerance:0.45,variance:3,gposBoost:["EDGE","NT","IDL"],athBoost:0.06,sizePremium:false,ceilingChaser:0},
-Bears:{bpaLean:0.45,posBoost:["WR","OL","DB"],posPenalty:[],stage:"retool",reachTolerance:0.4,variance:2,gposBoost:["EDGE","CB"],athBoost:0.08,sizePremium:false,ceilingChaser:0.06},
-Bills:{bpaLean:0.5,posBoost:["OL","WR","DL"],posPenalty:["QB"],stage:"contend",reachTolerance:0.3,variance:2,gposBoost:["EDGE","DT"],athBoost:0.06,sizePremium:false,ceilingChaser:0},
-"49ers":{bpaLean:0.5,posBoost:["WR","DB","DL"],posPenalty:[],stage:"contend",reachTolerance:0.4,variance:3,gposBoost:["EDGE","DT","CB"],athBoost:0.1,sizePremium:false,ceilingChaser:0.04},
-Texans:{bpaLean:0.5,posBoost:["OL","DL","DB"],posPenalty:["QB"],stage:"contend",reachTolerance:0.35,variance:2,gposBoost:["EDGE","IDL"],athBoost:0.08,sizePremium:false,ceilingChaser:0.04},
-Broncos:{bpaLean:0.5,posBoost:["OL","WR","DL"],posPenalty:[],stage:"retool",reachTolerance:0.35,variance:2,gposBoost:["EDGE","IDL"],athBoost:0.08,sizePremium:false,ceilingChaser:0.04},
-Patriots:{bpaLean:0.45,posBoost:["OL","WR","DL"],posPenalty:[],stage:"rebuild",reachTolerance:0.35,variance:2,gposBoost:["EDGE","IDL"],athBoost:0.06,sizePremium:false,ceilingChaser:0.06},
-Seahawks:{bpaLean:0.5,posBoost:["DL","OL","LB"],posPenalty:[],stage:"retool",reachTolerance:0.4,variance:2,gposBoost:["EDGE","DT"],athBoost:0.1,sizePremium:true,ceilingChaser:0.04},
-Falcons:{bpaLean:0.5,posBoost:["DL","WR","DB"],posPenalty:[],stage:"contend",reachTolerance:0.4,variance:3,gposBoost:["EDGE","DT"],athBoost:0.08,sizePremium:false,ceilingChaser:0.04},
-Packers:{bpaLean:0.55,posBoost:["DB","OL","DL"],posPenalty:[],stage:"contend",reachTolerance:0.3,variance:2,gposBoost:["EDGE","CB","IDL"],athBoost:0.08,sizePremium:false,ceilingChaser:0.04},
-Jaguars:{bpaLean:0.45,posBoost:["DB","LB","OL"],posPenalty:[],stage:"rebuild",reachTolerance:0.4,variance:3,gposBoost:["EDGE","CB"],athBoost:0.1,sizePremium:false,ceilingChaser:0.08},
-};
-
-// Scheme archetype demand — how much does this team's scheme structurally create value
-// for each cross-positional archetype? Derived from agent scheme analysis.
-// Need/roster/GM personality handled separately by existing scoring machinery.
-const SCHEME_INFLECTIONS={
-  Raiders:{teRec:.8,lbRush:.8,rbDual:.4},
-  Jets:{teRec:.4,lbRush:.2,rbDual:.8},
-  Cardinals:{teRec:.8,lbRush:.8,rbDual:.4},
-  Titans:{teRec:.4,lbRush:.2,rbDual:.6},
-  Giants:{teRec:.8,lbRush:.7,rbDual:.8},
-  Browns:{teRec:.8,lbRush:.2,rbDual:.4},
-  Commanders:{teRec:.8,lbRush:.7,rbDual:.4},
-  Saints:{teRec:.15,lbRush:.7,rbDual:.15},
-  Chiefs:{teRec:.8,lbRush:.2,rbDual:.8},
-  Bengals:{teRec:.8,lbRush:.55,rbDual:.8},
-  Dolphins:{teRec:.4,lbRush:.2,rbDual:.8},
-  Cowboys:{teRec:.8,lbRush:.8,rbDual:.4},
-  Rams:{teRec:.8,lbRush:.7,rbDual:.15},
-  Ravens:{teRec:.8,lbRush:.55,rbDual:.4},
-  Buccaneers:{teRec:.4,lbRush:.8,rbDual:.4},
-  Colts:{teRec:.8,lbRush:.1,rbDual:.15},
-  Lions:{teRec:.8,lbRush:.25,rbDual:.8},
-  Vikings:{teRec:.8,lbRush:.55,rbDual:.8},
-  Panthers:{teRec:.4,lbRush:.8,rbDual:.15},
-  Steelers:{teRec:.8,lbRush:.8,rbDual:.4},
-  Chargers:{teRec:.8,lbRush:.8,rbDual:.8},
-  Eagles:{teRec:.8,lbRush:.8,rbDual:.8},
-  Bears:{teRec:.8,lbRush:.2,rbDual:.8},
-  Bills:{teRec:.8,lbRush:.8,rbDual:.8},
-  "49ers":{teRec:.8,lbRush:.55,rbDual:.8},
-  Texans:{teRec:.8,lbRush:.1,rbDual:.4},
-  Broncos:{teRec:.8,lbRush:.8,rbDual:.8},
-  Patriots:{teRec:.8,lbRush:.7,rbDual:.6},
-  Seahawks:{teRec:.8,lbRush:.4,rbDual:.8},
-  Falcons:{teRec:.8,lbRush:.7,rbDual:.8},
-  Packers:{teRec:.8,lbRush:.8,rbDual:.4},
-  Jaguars:{teRec:.4,lbRush:.2,rbDual:.4},
-};
 
 // Per-archetype coefficients: TE→WR and LB→EDGE are real positional value jumps (0.18).
 // RB dual-threat is still the same position — tiny seasoning only (0.03).
@@ -153,14 +81,14 @@ function loadImg(src,timeout=3000){return new Promise((res,rej)=>{const img=new 
 function drawTrunc(ctx,text,x,y,maxW){let t=text;while(ctx.measureText(t).width>maxW&&t.length>1)t=t.slice(0,-1);if(t!==text)t=t.slice(0,-1)+'...';ctx.fillText(t,x,y);}
 function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
 
-// ── TEAM NEEDS (simple array form for cpuPick) ──
-const TEAM_NEEDS={"Raiders":["QB","WR","DB","DL","OL","LB"],"Jets":["DL","QB","DB","WR","LB"],"Cardinals":["OL","DL","QB","DB","RB"],"Titans":["DL","DB","WR","OL","RB"],"Giants":["LB","OL","WR","DB","DL"],"Browns":["OL","WR","QB","LB","DB"],"Commanders":["DL","DB","LB","WR","OL"],"Saints":["WR","OL","RB","DL","DB"],"Chiefs":["DB","WR","RB","OL","DL"],"Bengals":["DL","DB","LB","OL"],"Dolphins":["QB","DB","WR","OL","DL"],"Cowboys":["DL","DB","LB","OL","RB"],"Rams":["DB","OL","WR","QB","DL"],"Ravens":["DL","OL","WR","DB","TE"],"Buccaneers":["DL","LB","DB","TE","OL"],"Lions":["DL","OL","DB","RB","TE"],"Vikings":["DB","DL","LB","OL","RB"],"Panthers":["DL","LB","OL","TE","DB"],"Steelers":["WR","QB","DB","OL","DL"],"Chargers":["OL","DL","TE","DB"],"Eagles":["DL","TE","OL","DB","WR"],"Bears":["DB","DL","OL","LB","WR"],"Bills":["DL","LB","DB","OL","WR"],"49ers":["WR","OL","DL","DB"],"Texans":["OL","DL","DB","LB","RB"],"Broncos":["RB","TE","LB","WR","DL"],"Patriots":["DL","OL","WR","DB","TE"],"Seahawks":["DB","DL","OL","RB","WR"],"Falcons":["WR","DL","DB","OL","LB"],"Colts":["DL","LB","WR","DB","OL"],"Packers":["DB","DL","OL","LB","TE"],"Jaguars":["DL","DB","LB","OL","RB"]};
+// TEAM_NEEDS → TEAM_NEEDS_SIMPLE (imported from teamNeedsData.js)
+// TEAM_NEEDS_COUNTS (imported from teamNeedsData.js) replaces old TEAM_NEEDS_DETAILED
 
 // ── PURE SIMULATION FUNCTIONS ──
 
 function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap, boardNoise, wobbledProfiles, getGrade) {
-  const needs = TEAM_NEEDS[team] || ["QB","WR","DL"];
-  const dn = TEAM_NEEDS_DETAILED?.[team] || {};
+  const needs = TEAM_NEEDS_SIMPLE[team] || ["QB","WR","DL"];
+  const dn = TEAM_NEEDS_COUNTS?.[team] || {};
   const prof = (wobbledProfiles&&wobbledProfiles[team])||TEAM_PROFILES[team]||{bpaLean:0.55,posBoost:[],posPenalty:[],stage:"retool",reachTolerance:0.3,variance:2,gposBoost:[],athBoost:0,sizePremium:false,ceilingChaser:0};
 
   if(pickNum===1){const m=avail.find(id=>{const p=prospectsMap[id];return p&&p.name==="Fernando Mendoza";});if(m)return m;}
@@ -316,8 +244,8 @@ function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, pro
     const prof = (wobbledProfiles&&wobbledProfiles[t])||TEAM_PROFILES[t]||{reachTolerance:0.3,stage:"retool",variance:2,bpaLean:0.5,posBoost:[]};
     if(recentTraders.has(t)) continue;
 
-    const needs = TEAM_NEEDS[t] || ["QB","WR","DL"];
-    const dn = TEAM_NEEDS_DETAILED?.[t] || {};
+    const needs = TEAM_NEEDS_SIMPLE[t] || ["QB","WR","DL"];
+    const dn = TEAM_NEEDS_COUNTS?.[t] || {};
     let bestPlayer = null, bestScore = 0, secondScore = 0;
 
     available.forEach(id => {
@@ -513,8 +441,8 @@ function aggregateResults(allResults, prospectsMap) {
     // Determine filled need
     const player = primary ? prospectsMap[primary.playerId] : null;
     const pos = player?.pos;
-    const dn = TEAM_NEEDS_DETAILED?.[mostCommonTeam] || {};
-    const simpleNeeds = TEAM_NEEDS[mostCommonTeam] || [];
+    const dn = TEAM_NEEDS_COUNTS?.[mostCommonTeam] || {};
+    const simpleNeeds = TEAM_NEEDS_SIMPLE[mostCommonTeam] || [];
     const filledNeed = pos && (dn[pos] >= 1 || simpleNeeds.includes(pos)) ? pos : null;
 
     // Consensus rank for context

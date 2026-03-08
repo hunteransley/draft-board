@@ -184,38 +184,4 @@ export function getConsensusGrade(name) {
   return 30;
 }
 
-// Count-based team needs
-export const TEAM_NEEDS_DETAILED = {
-  "Raiders":    {QB:1, WR:1, DB:1, DL:1, OL:2, LB:2},
-  "Jets":       {DL:1, QB:1, DB:1, WR:2, LB:2, OL:2},
-  "Cardinals":  {OL:1, DL:1, QB:1, DB:2, RB:2, WR:2, LB:2},
-  "Titans":     {DL:1, DB:1, WR:1, OL:2, RB:2, LB:2, TE:2},
-  "Giants":     {LB:1, OL:1, WR:1, DB:2, DL:2},
-  "Browns":     {OL:1, WR:1, QB:2, LB:2, DB:2, DL:2, TE:2},
-  "Commanders": {DL:1, DB:1, LB:2, WR:2, OL:2, RB:2, TE:3},
-  "Saints":     {WR:1, OL:1, RB:1, DL:2, DB:2, LB:2},
-  "Chiefs":     {DB:1, WR:1, RB:1, OL:2, DL:2, LB:2, TE:2},
-  "Bengals":    {DL:1, DB:1, LB:2, OL:2, TE:2},
-  "Dolphins":   {QB:1, DB:1, WR:1, OL:2, DL:2, LB:2, TE:2},
-  "Cowboys":    {DL:1, DB:1, LB:1, OL:2, RB:2},
-  "Rams":       {DB:1, OL:2, WR:2, QB:2, DL:2, TE:2},
-  "Ravens":     {DL:1, OL:1, WR:2, DB:2, TE:2, LB:2},
-  "Buccaneers": {DL:1, LB:1, DB:2, TE:2, OL:2, WR:2, RB:2},
-  "Lions":      {DL:1, OL:1, DB:1, RB:2, TE:2, LB:2},
-  "Vikings":    {DB:1, DL:1, LB:1, OL:2, RB:2, WR:2, TE:2},
-  "Panthers":   {DL:1, LB:1, OL:1, TE:2, DB:2, RB:2},
-  "Steelers":   {WR:1, QB:1, DB:1, OL:2, DL:2, RB:2, LB:2},
-  "Chargers":   {OL:1, DL:1, TE:2, DB:2, LB:3},
-  "Eagles":     {DL:1, TE:1, OL:1, DB:1, WR:2, LB:2},
-  "Bears":      {DB:1, DL:1, OL:1, LB:2, WR:2},
-  "Bills":      {DL:1, LB:1, DB:2, OL:2, WR:2, TE:2},
-  "49ers":      {WR:1, OL:1, DL:1, DB:2, TE:2, LB:2},
-  "Texans":     {OL:1, DL:2, DB:2, LB:2, RB:2},
-  "Broncos":    {RB:1, TE:1, LB:1, WR:2, DL:2, DB:2, OL:2},
-  "Patriots":   {DL:1, OL:1, WR:2, DB:2, TE:2, LB:2},
-  "Seahawks":   {DB:1, DL:1, OL:2, RB:2, WR:2, LB:2},
-  "Falcons":    {WR:1, DL:1, DB:1, OL:2, LB:1, RB:2},
-  "Colts":      {DL:1, LB:1, WR:2, DB:2, OL:2},
-  "Packers":    {DB:1, DL:1, OL:2, LB:2, TE:2},
-  "Jaguars":    {DL:1, DB:1, LB:1, OL:2, RB:2},
-};
+// TEAM_NEEDS_DETAILED removed — now derived from agent data in teamNeedsData.js (TEAM_NEEDS_COUNTS)
