@@ -1,0 +1,76 @@
+{
+  "team": "NO",
+  "team_full": "New Orleans Saints",
+  "coaching_staff": {
+    "head_coach": {
+      "name": "Kellen Moore",
+      "tenure_years": 1,
+      "background": "offensive",
+      "scheme_philosophy": "Diverse, adaptable offensive mind who blends West Coast timing concepts with outside zone run game, heavy pre-snap motion, tempo, and formation variety to keep defenses off-balance. Does not belong to one scheme tree; influences include Boise State's Chris Petersen and Dallas's Mike McCarthy. Emphasizes simplicity for players, complexity for defenses."
+    },
+    "offensive_coordinator": {
+      "name": "Doug Nussmeier",
+      "scheme_tree": "Kellen Moore disciple \u2014 followed Moore from Dallas to LA Chargers to Philadelphia to New Orleans. Extensive college OC background (Alabama, Michigan, Washington, Fresno State). McCarthy/Moore West Coast hybrid tree.",
+      "play_caller": false
+    },
+    "defensive_coordinator": {
+      "name": "Brandon Staley",
+      "scheme_tree": "Vic Fangio 3-4 tree. Coached under Fangio in Chicago (OLB coach) and Denver (OLB coach). Ran Fangio-style 3-4 as Rams DC (2020, #1 total defense) and Chargers HC (2021-2023). Emphasis on two-high safety shells, odd front, zone-match coverage.",
+      "play_caller": true
+    }
+  },
+  "offense": {
+    "scheme_family": "West Coast hybrid / Erhardt-Perkins influenced with McCarthy roots",
+    "base_personnel": "11",
+    "personnel_detail": "73.9% 11-personnel in Week 1 2025 (5th in NFL). Significant increase from prior Saints regimes. Will also use 12-personnel given TE room depth, but 11 is the clear base. Rarely uses 2-RB sets.",
+    "run_scheme": "Balanced \u2014 50% zone, 41% gap/man in Week 1 data. Outside zone emphasis with gap/power mixed in. Moore historically runs more outside zone than inside zone, uses pin-pull concepts. Balanced inside/outside the tackles split.",
+    "pass_concepts": "Quick, decisive progressions; heavy pre-snap motion and shifts; tempo-based attack (led NFL in tempo snap rate in 2025). Distributes ball to many targets. Vertical shots mixed in but not primary. Play action usage was low in 2025 (18.9%, 5th-lowest) partly due to rookie QB. Uses no-huddle effectively.",
+    "rpo_usage": "low-to-moderate",
+    "te_usage": "Primarily inline in 11-personnel; TE (Juwan Johnson) used as intermediate target in play-action concepts. Moore historically does not feature TEs as primary weapons but uses them situationally. Will deploy 12-personnel sets given roster depth at TE.",
+    "rb_usage": "Bell cow model with Alvin Kamara as primary runner, but Moore historically depresses RB target share. Barkley's target share dropped from 17.7% to 13.8% under Moore in PHI. Kamara's 2025 targets ranked only 4th on team through 11 games. RB used primarily as runner with moderate checkdown work, fewer screens and slot alignments than prior Saints regimes."
+  },
+  "defense": {
+    "base_front": "3-4",
+    "alignment": "Odd front (3 down linemen, 2 stand-up OLBs), morphing to 4-2 nickel or 3-3 sub-packages against spread looks. Former 4-3 DEs (Granderson, Young, Jordan, Foskey) converted to stand-up OLBs in two-point stance at ~265 lbs.",
+    "edge_rush_source": "OLB stand-up \u2014 primary edge rushers are the two OLBs (Granderson, Young, Jordan, Foskey), who align in stand-up two-point stance and rush the passer from the edge. Edge players sometimes drop into coverage as part of Fangio-tree multiplicity.",
+    "coverage_base": "Two-high safety shells (split safety / Cover 2 / Cover 4 / Cover 6) as primary look. Zone-match principles where initial zone reads convert to man-to-man based on receiver releases. Staley led NFL in two-high usage with Rams (2020). Also uses quarter-quarter-halves at high rate.",
+    "blitz_tendency": "light-to-moderate \u2014 Staley philosophy is to generate pressure with 4-man rushes through front multiplicity and stunts rather than bringing extra rushers. Disguises looks pre-snap to create confusion.",
+    "lb_role": "ILBs (Demario Davis as commander) are coverage/run-fit players. OLBs are primary pass rushers who also set the edge and occasionally drop into coverage. The scheme multiplies looks by having any of the 4 LBs potentially rush or cover.",
+    "safety_usage": "Two-high shells by default. Features a 'Star' position (nickel/slot DB \u2014 Alontae Taylor) as a featured role. Also uses 'Money' position (hybrid LB/safety in the box). Safeties must be disciplined in deep halves but are asked to come downhill to fit the run. Tyrann Mathieu could shift to box/money role.",
+    "star_position_detail": "The 'Star' (nickel) is a feature position in Staley's defense. Derwin James and Jalen Ramsey made Pro Bowls in this role under Staley. Alontae Taylor fills this role for the Saints."
+  },
+  "positional_value_inflections": {
+    "te_receiving_boost": {
+      "rating": "low",
+      "explanation": "Moore's offense lives in 11-personnel (73.9% in 2025) with three WRs and one TE. The TE is primarily used inline or as a play-action target, not as a flexed route-runner in the slot. Moore historically distributes to WRs and RBs rather than featuring TEs as receiving weapons. Dallas Goedert saw moderate usage in Philly but was not the focal point. The Saints' TE room (Juwan Johnson, Foster Moreau) serves as chain-movers, not high-volume receiving threats. A receiving TE would not get a significant scheme-driven value boost here."
+    },
+    "lb_pass_rush_boost": {
+      "rating": "high",
+      "explanation": "Staley's 3-4 Fangio-tree defense converts the primary edge rushers from traditional hands-in-dirt DEs to stand-up OLBs. The Saints literally reclassified Carl Granderson, Chase Young, Cam Jordan, and Isaiah Foskey from DEs to OLBs, having them play at ~265 lbs in two-point stance. Staley's scheme 'prioritizes athleticism off the edge' with 'slender, speedy, and agile standup pass rushers' \u2014 as seen with Khalil Mack (17 sacks in 2023 as OLB), Leonard Floyd, and Samson Ebukam. Any LB prospect with elite pass rush traits (bend, burst, speed-to-power) functions as a premium EDGE in this defense. The two OLBs are explicitly 'the tone setters for the defense' per Staley."
+    },
+    "rb_dual_threat_boost": {
+      "rating": "low",
+      "explanation": "Despite the Saints historically valuing dual-threat RBs (Kamara's receiving legacy), Kellen Moore's offense consistently depresses RB receiving production. Saquon Barkley's target share dropped from 17.7%+ to 13.8% under Moore. Ezekiel Elliott's yards per route run declined under Moore. In 2025, Kamara's targets ranked only 4th on the team through 11 games with far fewer screens and slot alignments. Moore's philosophy is run-first with the RB and distribute passing targets to WRs. A receiving-back specialist does not get a meaningful scheme boost here."
+    },
+    "s_hybrid_boost": {
+      "rating": "high",
+      "explanation": "Staley's defense features multiple hybrid safety/DB roles that dramatically increase the value of versatile safeties. The 'Star' (nickel) is a premium position \u2014 Derwin James and Jalen Ramsey made Pro Bowls there under Staley. The 'Money' role is a hybrid LB/safety box player. Staley's two-high shells require safeties who can play deep halves but also trigger downhill to fit the run. Tyrann Mathieu was identified as a potential Money/box role candidate. A safety with elite versatility \u2014 ability to play box, slot, cover, and blitz \u2014 gets a significant value boost. Staley explicitly said 'I don't look at Derwin as a safety. I look at Derwin as an impact player... he can play anywhere.'"
+    }
+  },
+  "scheme_specific_draft_notes": "The Saints' defensive scheme shift from a 4-3 to Staley's Fangio-tree 3-4 is the most impactful drafting lens. Any OLB/EDGE prospect with 240-265 lb frame, elite bend, burst, and ability to play in space should be valued higher for NO than for traditional 4-3 teams \u2014 they will be a featured stand-up edge rusher, not a backup LB. This is Khalil Mack territory. Similarly, versatile safeties who can play Star (nickel), Money (box), or deep halves get a massive boost \u2014 Staley's defense lives in two-high shells and demands Swiss-army-knife DBs. On offense, Moore's 11-personnel, tempo-heavy, WR-distributing system means: (1) WR prospects with route diversity and YAC ability are valued (the offense distributes to multiple receivers); (2) TE receiving weapons are NOT prioritized \u2014 the TE is inline; (3) RB receiving production is depressed under Moore despite the Saints' historical usage of Kamara \u2014 do not over-value receiving backs for NO. The biggest draft value mismatches: pass-rushing LBs valued as EDGE (high), versatile safeties valued as defensive centerpieces (high), receiving TEs and receiving backs both de-emphasized (low).",
+  "confidence": "high",
+  "sources": [
+    "neworleanssaints.com/team/coaches-roster (official team site, coaching bios)",
+    "nola.com \u2014 Jeff Duncan: 'The 3-4 defense is back. Brandon Staley tells us what to expect' (June 2025)",
+    "louisianasports.net \u2014 Saints personnel groupings analysis (July/Sept/Nov 2025)",
+    "louisianasports.net \u2014 Three biggest positions of need for Staley's defense (Feb 2025)",
+    "pro-football-reference.com \u2014 2025 Saints season page (Defensive Alignment: 3-4, Offensive Scheme: Air Coryell)",
+    "pff.com \u2014 'Multiple and Aggressive: How Brandon Staley will fit the Chargers personnel into his scheme' (Feb 2021)",
+    "theringer.com \u2014 'Kellen Moore and the Cowboys Are Proving You Don't Need One System to Win' (Nov 2021)",
+    "bleedinggreennation.com \u2014 Kellen Moore scheme analysis (Feb 2024)",
+    "pff.com \u2014 Alvin Kamara 2025 player profile (May 2025)",
+    "footballguys.com \u2014 'Reading the New Defense: New Orleans Saints' (2025)",
+    "chargers.com \u2014 Derwin James Star/Money role under Staley (Aug 2022)",
+    "Wikipedia \u2014 Kellen Moore, Brandon Staley, Doug Nussmeier entries"
+  ]
+}

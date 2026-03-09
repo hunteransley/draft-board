@@ -1,0 +1,72 @@
+{
+  "team": "DEN",
+  "team_full": "Denver Broncos",
+  "coaching_staff": {
+    "head_coach": {
+      "name": "Sean Payton",
+      "tenure_years": 3,
+      "background": "offensive",
+      "scheme_philosophy": "Coryell/Erhardt-Perkins hybrid passing attack; values 'joker' mismatch weapons (receiving TEs/RBs); play-action heavy; physical run game with inside zone/duo concepts; historically one of the NFL's best offensive minds with 15 years running elite Saints offenses"
+    },
+    "offensive_coordinator": {
+      "name": "Davis Webb",
+      "scheme_tree": "Sean Payton tree (Coryell/Saints offense); also exposed to Brian Daboll system in Buffalo/NYG as a player; trained under Payton, Joe Lombardi, John Morton, and Pete Carmichael",
+      "play_caller": true
+    },
+    "defensive_coordinator": {
+      "name": "Vance Joseph",
+      "scheme_tree": "Hybrid background spanning 49ers (Nolan), Texans (Wade Phillips), Bengals (Marvin Lewis), Dolphins (Gase); runs aggressive 3-4 with heavy man coverage and mugged fronts; adapted Fangio zone principles into his own system in Denver",
+      "play_caller": true
+    }
+  },
+  "offense": {
+    "scheme_family": "Coryell / Sean Payton Saints system",
+    "base_personnel": "11",
+    "run_scheme": "Inside zone / duo with pin-and-pull concepts; Zach Strief (run game coordinator) oversaw one of the NFL's best pin-and-pull blocking units in 2025",
+    "pass_concepts": "Vertical stretch concepts, play-action off inside zone/duo, quick passing game emphasis, sprint-out/bootleg concepts; Payton's system features the 'joker' \u2014 a TE or RB used as a receiving mismatch weapon in the slot or from the backfield; spread-the-wealth distribution",
+    "rpo_usage": "low-to-moderate; Payton's offense is more traditional play-action than true RPO-heavy",
+    "te_usage": "Joker/move TE (Engram played detached, in slot, outside \u2014 essentially a big slot WR) plus inline blocker (Trautman/Adkins); Payton historically values receiving TEs extremely highly (Jimmy Graham, Engram as 'Joker') but Engram only saw ~50% offensive snaps in 2025 with Trautman getting blocking-heavy snaps; two-TE sets used situationally for run-heavy packages",
+    "rb_usage": "Committee approach \u2014 Dobbins was lead back (early downs, pass protection) with RJ Harvey as change-of-pace/receiving threat; Payton historically produces elite receiving RBs (Sproles, Bush, Kamara) and explicitly seeks 'joker' RBs with rare receiving ability; Harvey had 356 receiving yards and 5 receiving TDs as a rookie; pass protection is critical for earning snaps in this system"
+  },
+  "defense": {
+    "base_front": "3-4",
+    "alignment": "Odd front with 2 stand-up OLBs (Bonitto, Cooper) as primary edge rushers; 3 down linemen (Allen, Roach, DJ Jones) anchor the interior; uses mugged fronts and creative pre-snap alignments to disguise pressure",
+    "edge_rush_source": "OLB stand-up; Nik Bonitto (All-Pro) and Jonathon Cooper are stand-up OLBs who function as pure edge rushers; Jonah Elliss and Dondrea Tillman provide depth; franchise-record 68 sacks in 2025",
+    "coverage_base": "Man-heavy (approximately 63% man coverage rate in 2025); heavy Cover 1 usage (single-high safety with man underneath); some Cover 3/4/6 mixed in; Joseph disguises coverages extensively pre-snap",
+    "blitz_tendency": "moderate (reduced from heavy in 2024; ~27-31% blitz rate in 2025 down from 36% in 2024); Joseph shifted to generating pressure with four-man rush using mugged fronts and stunts rather than manufactured blitzes, trusting elite edge talent to win 1-on-1",
+    "lb_role": "ILBs (Singleton, Greenlaw/Strnad) are primarily run/coverage players; Strnad showed blitzing ability (4.5 sacks in 2025); OLBs are pure pass rushers who also set the edge in the run game; ILBs are not primary pass rush sources",
+    "safety_usage": "Hybrid box safety role is prominent; Talanoa Hufanga spends roughly one-third of snaps near the line of scrimmage as a down safety/blitzer; Brandon Jones also plays hybrid roles; both are capable of rotating between deep and box alignments; Joseph uses targeted Hufanga blitzes and run-fits from the safety position"
+  },
+  "positional_value_inflections": {
+    "te_receiving_boost": {
+      "rating": "high",
+      "explanation": "Sean Payton's offense is historically defined by the 'joker' concept \u2014 a TE or RB with elite receiving traits who creates mismatches from the slot, detached, or inline. Payton's Saints featured Jimmy Graham (who revolutionized the move TE role), and Denver signed Evan Engram specifically as a 'Joker' to line up in the slot and outside. Payton stated that joker-type TEs 'become more difficult to defend than the blue-chip receiver' because they're closer to the QB in the formation. Despite Engram's underwhelming 2025 production (50 catches, 461 yards), the scheme DESIGN explicitly values receiving TEs at a premium. Any TE prospect with elite route running, hands, separation, and YAC ability would be valued like a WR in this system. Payton compared his ideal joker TEs to Sam LaPorta and the role Jimmy Graham filled."
+    },
+    "lb_pass_rush_boost": {
+      "rating": "high",
+      "explanation": "Denver runs a 3-4 base where OLBs are the primary edge rushers. Nik Bonitto (stand-up OLB) led the NFL in pressure rate and recorded 13.5+ sacks in consecutive seasons. Jonathon Cooper is also a stand-up OLB with 10.5+ sacks. These players are technically labeled OLB/LB but function as pure edge rushers. The Broncos set a franchise-record 68 sacks in 2025. Any LB prospect with elite pass rush traits (burst, bend, first step, power moves) would be deployed as a stand-up edge rusher in this defense, dramatically increasing their value. Additionally, ILB Justin Strnad showed that blitzing ILBs who can rush the passer (4.5 sacks) have elevated roles in Joseph's scheme."
+    },
+    "rb_dual_threat_boost": {
+      "rating": "high",
+      "explanation": "Payton's entire offensive identity since New Orleans is built on RBs who can be elite receivers. He produced Pro Bowl seasons from Darren Sproles, Reggie Bush, Mark Ingram, and Alvin Kamara (5 Pro Bowls) \u2014 all primarily as receiving threats from the backfield. Payton explicitly defined the 'joker' concept as including 'the halfback that's an elite receiver' and said 'those guys are really a quarterback's friend.' RJ Harvey served as the pass-catching/change-of-pace back (356 receiving yards, 5 receiving TDs as a rookie). J.K. Dobbins was valued in part for pass protection and third-down ability. The Broncos are actively seeking more RB talent this offseason. Any RB with elite hands, route running, and pass protection ability gets a significant value boost for Denver."
+    },
+    "s_hybrid_boost": {
+      "rating": "high",
+      "explanation": "Vance Joseph's defense explicitly deploys safeties in hybrid box/blitzer roles. Talanoa Hufanga spent approximately one-third of his snaps near the line of scrimmage as a 'down safety,' functioning as a run defender, blitzer, and coverage robber. Brandon Jones also alternates between box and deep roles. Joseph deliberately uses targeted Hufanga blitzes from the safety position, and both Jones and Hufanga are described as 'hybrid safeties who can play back as deep safeties or near the box.' This scheme creates premium value for safety prospects with tackling ability, blitz skills, man coverage chops, and positional versatility \u2014 essentially LB/S tweeners thrive here."
+    }
+  },
+  "scheme_specific_draft_notes": "Denver's 3-4 defense is a premier destination for pass-rushing LB prospects. With Bonitto entering free agency and the team needing depth behind Cooper, any LB with stand-up edge-rush traits (burst, bend, speed-to-power conversion) should be valued at EDGE prices for DEN. The 63% man coverage rate demands CBs who can handle island assignments \u2014 but also creates premium value for versatile safeties who can play in the box, blitz, and cover the slot (Hufanga's role). On offense, Webb takes over play-calling in a Payton system that is defined by the 'joker' mismatch concept. Receiving TEs who can line up detached and run routes from the slot are valued like WRs \u2014 Payton compared the ideal to Jimmy Graham and Sam LaPorta. RBs with receiving/pass-protection skills get massive value boosts given Payton's history with Kamara/Sproles/Bush. The run scheme emphasizes inside zone and duo with pin-and-pull blocking, so OL prospects with athleticism and combo-block skills fit well. The offense ran heavy 11 personnel with Engram as the 'Joker' flexed out, meaning a third WR-caliber receiver (whether technically a WR or a move TE) is always in demand. Denver picks 30th overall in 2026.",
+  "confidence": "high",
+  "sources": [
+    "denverbroncos.com official coaches roster and team pages",
+    "Pro-Football-Reference.com 2025 Denver Broncos (Offensive Scheme: Air Coryell, Defensive Alignment: 3-4)",
+    "Denver Post (Davis Webb promotion to OC, Feb 2026; Vance Joseph season review; RB market coverage)",
+    "SI.com / Mile High Huddle (Vance Joseph PFWA Assistant Coach of the Year; Broncos edge rusher analysis; Engram Joker role)",
+    "ESPN (Sean Payton Joker concept feature, Aug 2025; RB room outlook; Broncos defensive stats)",
+    "MatchQuarters.com (Broncos defensive scheme analysis: man coverage rates, blitz rates, Hufanga hybrid role, mugged fronts)",
+    "CBS Sports (Sean Payton giving up play-calling to Davis Webb, Feb 2026)",
+    "NFL.com (Vance Joseph runs attacking 3-4; Lombardi/Webb coaching changes)",
+    "Wikipedia (2025 Denver Broncos season; Joe Lombardi; Davis Webb; Vance Joseph biographical and career details)",
+    "Mile High Report (OL film review: duo/inside zone scheme; coaching staff announcements)"
+  ]
+}

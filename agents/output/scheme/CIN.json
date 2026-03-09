@@ -1,0 +1,73 @@
+{
+  "team": "CIN",
+  "team_full": "Cincinnati Bengals",
+  "coaching_staff": {
+    "head_coach": {
+      "name": "Zac Taylor",
+      "tenure_years": 7,
+      "background": "offensive",
+      "scheme_philosophy": "McVay/Shanahan tree disciple who has evolved the offense into a shotgun-heavy, spread passing attack tailored to Joe Burrow's processing speed and quick release. Originally installed McVay-style under-center zone runs but shifted dramatically toward spread concepts since 2022."
+    },
+    "offensive_coordinator": {
+      "name": "Dan Pitcher",
+      "scheme_tree": "Zac Taylor / McVay branch; long-time Bengals internal promotion from QBs coach, 2nd year as OC",
+      "play_caller": true
+    },
+    "defensive_coordinator": {
+      "name": "Al Golden",
+      "scheme_tree": "College DC background (Virginia 3-4, Notre Dame multiple); LB coaching roots; 1st year as NFL DC in 2025, entering Year 2. Mid-season 'hard reset' in 2025 shifted toward aggressive single-high man-heavy scheme with five-man fronts.",
+      "play_caller": true
+    }
+  },
+  "offense": {
+    "scheme_family": "McVay/Shanahan descendant, heavily evolved toward spread passing attack",
+    "base_personnel": "11",
+    "run_scheme": "Duo / inside zone from spread formations; moved away from traditional wide zone under-center concepts since 2022. Run game is shotgun-centric.",
+    "pass_concepts": "Quick game, vertical shots, spread isolations of LBs in space. Extremely low play-action rate (~11.2% in 2025, dead last in NFL). Shotgun on ~92% of attempts. Fast time-to-throw (2.5 sec avg). Burrow-centric spread passing with Ja'Marr Chase and Tee Higgins as primary targets. OC Pitcher has stated a desire to increase under-center and play-action usage in 2026.",
+    "rpo_usage": "low-to-moderate",
+    "te_usage": "Receiving weapon (Gesicki) used as a move TE / flex piece, not a true inline blocker. Had 65 catches for 665 yards in 2024; limited to 28 catches in 2025 due to injury. Gesicki is functionally a big slot receiver. Drew Sample handles blocking duties. TE room is a clear receiving-vs-blocking platoon.",
+    "rb_usage": "Chase Brown emerged as a true dual-threat bell cow: 1,019 rushing yards + 437 receiving yards (6th among RBs) in 2025, 1,456 scrimmage yards. Significant receiving role with route-running from backfield. Extension talks underway."
+  },
+  "defense": {
+    "base_front": "4-3 / 4-2 nickel (primary)",
+    "alignment": "Even front (4-down), primarily 4-2 nickel with a 4-3 base against heavy personnel. Mid-2025 evolved toward five-man fronts with LB Demetrius Knight used as a de facto edge rusher. Al Golden also sprinkled in occasional 3-4 odd-front looks at Notre Dame and carried some of that flexibility to CIN.",
+    "edge_rush_source": "4-3 DE hands-in-dirt (Trey Hendrickson, Shemar Stewart) as primary. Knight Jr. used as stand-up edge blitzer in sub-packages from Week 10 onward in 2025.",
+    "coverage_base": "Shifted dramatically mid-2025: single-high usage jumped to ~68% (1st in NFL, Weeks 10-18), man coverage spiked to ~43% (1st in NFL). Early 2025 was fluid/amorphous two-high zone that failed. Going forward: man-heavy Cover 1 / Cover 3 base with zone changeups off man looks, mirroring Golden's Notre Dame approach.",
+    "blitz_tendency": "light in 2025 (17.6%, 32nd/last in NFL) but Golden has explicitly stated this will increase significantly in 2026. His Notre Dame defenses were aggressive blitzers. Year 1 personnel limitations forced conservative approach.",
+    "lb_role": "Hybrid. Knight Jr. (2nd round 2025) played as off-ball LB early but was moved to de facto edge rusher/blitzer from Week 10 on. Barrett Carter (4th round) used as blitzing LB. Both rookies showed growth. Logan Wilson is the coverage/run-fit ILB. Golden wants 'force multipliers' who can line up in multiple positions.",
+    "safety_usage": "Jordan Battle and Geno Stone split deep/box roles. Safeties were forced to cover more TEs and RBs to free LBs to fit the box in Golden's simplified second-half scheme. Strong safety frequently plays near-box in man assignments. CIN actively seeking safety upgrade (Caleb Downs, etc.) in 2026 draft."
+  },
+  "positional_value_inflections": {
+    "te_receiving_boost": {
+      "rating": "high",
+      "explanation": "Cincinnati's offense is a spread, shotgun-dominant passing attack (92% shotgun) built around Burrow's quick processing. The TE is functionally a big slot receiver in this system\u2014Gesicki had 65 catches in 2024 from a move/flex alignment, not as an inline blocker. The team runs heavy 11 personnel with the TE flexed out or in the slot. An elite receiving TE (route_running, hands, separation, speed) is valued like a WR3/flex weapon in this offense, not a traditional blocking TE. Drew Sample handles the blocking; the pass-catching TE gets receiver-level usage."
+    },
+    "lb_pass_rush_boost": {
+      "rating": "medium-high",
+      "explanation": "While Cincinnati runs a 4-3 base (not a traditional 3-4 OLB edge system), Golden's mid-2025 schematic shift directly elevates LBs with pass rush traits. Demetrius Knight Jr. was explicitly moved from off-ball LB to a de facto edge rusher/blitzer from Week 10 on, playing zero slot snaps and rushing the passer from five-man fronts. Golden wants 'force multipliers'\u2014versatile LBs who can rush, blitz, and set edges. An LB prospect with elite pass_rush, burst, and first_step traits has significantly elevated value in this scheme because Golden will deploy them as supplemental edge rushers alongside the base 4-3 DEs. Not quite a full 3-4 OLB boost, but meaningfully above a standard 4-3 LB role."
+    },
+    "rb_dual_threat_boost": {
+      "rating": "high",
+      "explanation": "Chase Brown's breakout in 2025 (1,019 rush + 437 receiving yards, 6th among RBs in receiving) proves this offense heavily values receiving ability from the RB position. The spread-shotgun scheme creates natural RB receiving opportunities through checkdowns, screens, and designed routes. Burrow's quick release and the offense's tendency to play from behind (defense ranked 30th in points allowed) amplifies RB targets. Brown caught 50+ passes across multiple seasons. An RB with elite hands, route_running, and pass_protection traits gets a significant value boost here."
+    },
+    "s_hybrid_boost": {
+      "rating": "medium-high",
+      "explanation": "Golden's simplified second-half 2025 scheme required safeties to cover TEs and RBs in man coverage to free LBs to fit the box. The defense moved to heavy single-high (~68% rate, 1st in NFL) which demands one safety who can play deep center field AND a box safety who can match up in man coverage, blitz, and play in the slot. Golden is explicitly targeting 'force multiplier' defensive backs in the 2026 draft. A safety prospect with elite man_coverage, tackling, versatility, and blitz ability (think Caleb Downs archetype) has elevated value because of the hybrid roles Golden demands."
+    }
+  },
+  "scheme_specific_draft_notes": "Cincinnati's 2026 draft priorities are defense-heavy after ranking 30th in points allowed. Golden's evolving scheme creates specific value inflections: (1) EDGE/DL remains the top priority\u2014Shemar Stewart's injury-marred rookie year means more edge help is needed alongside Hendrickson; (2) LB prospects with pass-rush versatility (Knight archetype: can play off-ball AND rush from five-man fronts) are valued significantly above traditional thumper LBs; (3) Safety is a massive need\u2014Golden's man-heavy single-high scheme demands a true hybrid FS/SS who can play deep, cover TEs in man, and blitz; (4) On offense, this is an elite passing offense that values receiving skill at every position\u2014TEs who can separate and RBs who can catch are worth more here than traditional blockers/runners; (5) The offense operates at extremely low play-action rates from heavy shotgun, so traditional Shanahan-tree 'wide zone TE' blocking profiles have minimal value\u2014pure receiving ability is the differentiator at TE. OL remains a need (pass protection has been bottom-5 for four straight years) but the team invested Day 2-3 picks there in 2025.",
+  "confidence": "high",
+  "sources": [
+    "bengals.com official coaching staff page (2025)",
+    "bengals.com Al Golden introductory press conference (Jan 2025)",
+    "Pro-Football-Reference 2025 Bengals (West Coast offense, 4-3 alignment)",
+    "Match Quarters: 'Run-and-Hit: How Al Golden Burned the Playbook to Save the Bengals Defense' (Feb 2026)",
+    "SI/AllBengals: Al Golden scheme philosophy and 2026 blitz changes (Mar 2026)",
+    "Sharp Football Analysis: Joe Burrow shotgun rate (92%) and play-action rate analysis",
+    "Yahoo Sports: Shanahan coaching tree evolution and Bengals divergence (Aug 2025)",
+    "ESPN: Chase Brown 2025 stats and contract extension talks (Jan 2026)",
+    "The Ringer: McVay-Shanahan scheme tree and Bengals adaptation (2022)",
+    "FOX19: Bengals defensive changes and trust development in Al Golden defense (Dec 2025)",
+    "Bengals.com: 2025 NFL Draft picks (Stewart R1/17, Knight R2/49, Fairchild R3/81, Carter R4/119)"
+  ]
+}

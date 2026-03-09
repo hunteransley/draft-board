@@ -1,0 +1,75 @@
+{
+  "team": "CHI",
+  "team_full": "Chicago Bears",
+  "coaching_staff": {
+    "head_coach": {
+      "name": "Ben Johnson",
+      "tenure_years": 2,
+      "background": "offensive",
+      "scheme_philosophy": "Creative, multiplicity-based offense built around personnel; play-action heavy with outside zone run game foundation; adapts scheme to roster talent rather than importing a rigid system"
+    },
+    "offensive_coordinator": {
+      "name": "Press Taylor",
+      "scheme_tree": "Pederson/Reid West Coast, with Chip Kelly spread influence; previously OC in Jacksonville (2022-24), Eagles QB coach under Pederson",
+      "play_caller": false
+    },
+    "defensive_coordinator": {
+      "name": "Dennis Allen",
+      "scheme_tree": "New Orleans Saints/Sean Payton tree; 4-3 base with man-coverage lean; aggressive, attacking philosophy rooted in secondary coaching background (Atlanta Falcons, Saints DC 2015-2021, Saints HC 2022-2024)",
+      "play_caller": true
+    }
+  },
+  "offense": {
+    "scheme_family": "Ben Johnson system \u2014 multiple formation, motion-heavy, play-action based with outside zone run game",
+    "base_personnel": "11 and 12 (flexible split; Lions ran 47% 11 and 39% 12 in 2024 under Johnson; Bears in 2025 used heavy 12 personnel with Loveland/Kmet duo, shifting based on matchups)",
+    "run_scheme": "outside zone / wide zone primary, with power, duo, and ISO mixed in; Bears finished 3rd in NFL in rushing (144.5 ypg) in 2025; center Drew Dalman specifically signed as elite outside zone blocker",
+    "pass_concepts": "play action heavy (Johnson led NFL at 36% PA rate in 2024 Detroit), boot concepts, deep shots off play action, RPOs, creative misdirection and trick plays; emphasis on quarterback-centric design around Caleb Williams' improvisational ability",
+    "rpo_usage": "moderate to heavy",
+    "te_usage": "elite receiving weapon + inline blocker; Colston Loveland (1st round pick, 10th overall 2025) led team in receiving with 713 yards and 6 TDs; flexes to slot, runs full route tree; Cole Kmet used as secondary TE/blocker; team invested 1st round capital in TE specifically for Johnson's 12-personnel concepts",
+    "rb_usage": "committee approach with lead back; D'Andre Swift had career year (1,087 rushing yards, 299 receiving yards, 34 receptions); Johnson historically limits lead back carries while increasing receiving work to get RBs in space; Kyle Monangai as complementary power back"
+  },
+  "defense": {
+    "base_front": "4-3",
+    "alignment": "even front (4-down) base, but Allen frequently shows over fronts and odd fronts to disguise; uses multiple D-line alignments (7-3-1-7, G-front with two 3-techs, tight front with two 1-techs); DEs sometimes in 2-point stance",
+    "edge_rush_source": "4-3 DE hands-in-dirt primary (Montez Sweat, Austin Booker, Dayo Odeyingbo); Allen uses 9-tech alignment for speed rushers",
+    "coverage_base": "man coverage heavy with mixed zone; Allen plays more man than predecessor Eberflus (roughly 1/3 man); zone split between Cover 1, Cover 2, and Cover 3 more evenly than typical teams; heavy dime usage (66% on 3rd down) replacing LBs with extra DBs",
+    "blitz_tendency": "heavy (Allen described as aggressive and blitz-heavy; blitzes safeties and corners at similar rates; defense led NFL in takeaways with 32 forced turnovers and 21 INTs in 2025)",
+    "lb_role": "ILBs (Tremaine Edmunds, T.J. Edwards) are coverage + run stoppers; Edmunds specifically used for coverage including carrying TEs downfield; Allen pulls LBs off field frequently in sub packages (dime heavy), so LBs are NOT primary pass rushers; SAM LB barely on field for 3rd downs",
+    "safety_usage": "interchangeable/hybrid safeties; Allen wants safeties who can disguise coverages by playing multiple spots; Jaquan Brisker used as Swiss Army knife \u2014 box, slot, blitz, deep; spent 35-40% of snaps in box; Kevin Byard as deep safety/coverage; Allen blitzes safeties at high rate; C.J. Gardner-Johnson converted from safety to nickel corner mid-season"
+  },
+  "positional_value_inflections": {
+    "te_receiving_boost": {
+      "rating": "high",
+      "explanation": "Ben Johnson's offense is one of the premier TE-receiving schemes in the NFL. Chicago used a 1st-round pick (10th overall) on Colston Loveland specifically for this role. Loveland led the team in receiving yards (713) and TDs (6) as a rookie. Johnson historically runs heavy 12-personnel sets (33%+ in Detroit) with TEs flexed to slot, running full route trees, and serving as primary targets in play action. OC Declan Doyle praised Loveland's 'versatility on both base and third down.' Johnson's scheme treats elite receiving TEs as weapons equivalent to WRs, not just blockers. Any TE with route-running ability, hands, and separation gets maximum value here."
+    },
+    "lb_pass_rush_boost": {
+      "rating": "low",
+      "explanation": "Allen runs a 4-3 base where edge rush comes from hands-in-dirt DEs (Sweat, Booker, Odeyingbo), not stand-up LBs. Allen's dime-heavy approach actually removes LBs from the field on passing downs \u2014 the SAM LB was on the field for only two 3rd-down snaps across five charted games of Allen's Saints defense. ILBs Edmunds and Edwards are used for coverage and run defense, not pass rushing. LB-to-pass-rusher conversion is minimal in this scheme. Blitzes come from safeties and corners more than LBs."
+    },
+    "rb_dual_threat_boost": {
+      "rating": "high",
+      "explanation": "Johnson's offense explicitly values RB receiving ability. In Detroit, he limited D'Andre Swift's carries to ~7/game while increasing pass targets to get him in space, resulting in a career-best 5.5 YPC and 8.1 YPR. In Chicago, Swift had 34 receptions for 299 receiving yards alongside his rushing production. Johnson's play-action heavy system creates natural checkdown and screen opportunities for RBs. Swift's 55-yard catch-and-run TD vs Washington exemplifies how Johnson schemes RBs as receivers. The team's official bio calls Swift a 'dynamic dual-threat running back' who is 'a key asset in Coach Ben Johnson's offense \u2014 capable of catching passes out of the backfield and turning short gains into explosive plays.' Pass protection is also valued."
+    },
+    "s_hybrid_boost": {
+      "rating": "high",
+      "explanation": "Dennis Allen's defense is built around interchangeable, versatile safeties. Jaquan Brisker described his role as 'Swiss Army Knife' \u2014 lining up at box, slot, deep, and outside corner. He said 'I'll be close, I'll be in the back, I might be outside corner, I might be in the slot.' Allen used Tyrann Mathieu similarly in New Orleans. Allen blitzes safeties at a high rate (equal to CB blitz rate), wants interchangeable safeties to disguise coverages, and deploys dime packages (removing LBs, adding S/CB) 66% of the time on 3rd down. Brisker spent 35-40% of snaps in box. C.J. Gardner-Johnson was converted from safety to slot corner. Any safety with box/blitz/man coverage versatility gets maximum value in this scheme."
+    }
+  },
+  "scheme_specific_draft_notes": "Chicago's offense under Ben Johnson is one of the NFL's most TE-friendly schemes \u2014 they drafted Colston Loveland 10th overall and he led the team in receiving as a rookie. Any TE prospect with elite receiving traits (route running, hands, YAC, separation) should be valued like a top-tier pass catcher for CHI, not a traditional blocking TE. On the RB side, Johnson's history of limiting carries while increasing receiving work means dual-threat backs with hands, route running, and pass protection are significantly more valuable than pure grinders. On defense, Dennis Allen's 4-3 base with man-coverage lean means EDGE value comes from traditional 4-3 DEs, not converted LBs \u2014 LB pass-rush value is depressed here. However, safety value is dramatically inflated: Allen's dime-heavy, safety-blitzing scheme demands versatile, interchangeable safeties who can play box, slot, and deep. A hybrid safety prospect (tackling, blitz, man coverage) should be valued nearly like a LB for CHI. The Bears also need a left tackle entering 2026 and may target DL help at pick 25.",
+  "confidence": "high",
+  "sources": [
+    "chicagobears.com official coaches pages",
+    "chicagotribune.com \u2014 Press Taylor OC promotion (Feb 2026)",
+    "fox32chicago.com \u2014 2025 coaching staff announcement",
+    "ESPN \u2014 Dennis Allen takeaway machine analysis (Dec 2025)",
+    "ESPN \u2014 Dennis Allen defense plan (Jul 2025)",
+    "windycitygridiron.com \u2014 Ben Johnson personnel tendencies analysis",
+    "windycitygridiron.com \u2014 Dennis Allen vs Eberflus defensive comparison",
+    "footballguys.com \u2014 Reading the New Defense: Chicago Bears",
+    "SI.com \u2014 Dennis Allen scheme complexity",
+    "chicagobears.com \u2014 2025 position reviews (TE, RB, OL)",
+    "PFF \u2014 Bears built for 11 personnel success",
+    "marqueesportsnetwork.com \u2014 Brisker expanded role in Allen defense",
+    "Wikipedia \u2014 Ben Johnson, Dennis Allen, Colston Loveland entries"
+  ]
+}

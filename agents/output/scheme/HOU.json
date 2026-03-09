@@ -1,0 +1,78 @@
+{
+  "team": "HOU",
+  "team_full": "Houston Texans",
+  "coaching_staff": {
+    "head_coach": {
+      "name": "DeMeco Ryans",
+      "tenure_years": 3,
+      "background": "defensive",
+      "scheme_philosophy": "Simplicity and execution over complexity. Robert Saleh/Kyle Shanahan 49ers defensive tree. Aggressive, physical 4-3 front that generates pressure with front four, rarely blitzes. Offense inherited Shanahan-tree system, now transitioning toward McVay/Erhardt-Perkins hybrid under Caley."
+    },
+    "offensive_coordinator": {
+      "name": "Nick Caley",
+      "scheme_tree": "Belichick/McDaniels (Patriots 2015-2022) + McVay (Rams 2023-2024). Erhardt-Perkins roots with McVay West Coast overlay. TE development specialist (coached Gronkowski, Hunter Henry, Tyler Higbee).",
+      "play_caller": true
+    },
+    "defensive_coordinator": {
+      "name": "Matt Burke",
+      "scheme_tree": "Multiple NFL stops (Miami DC, Philadelphia DL/run game, Arizona DL, Jets). Aligned with Ryans' Saleh/Shanahan-tree 4-3 philosophy. Emphasis on simple structures, front-four pressure, and tight man/zone coverage.",
+      "play_caller": true
+    }
+  },
+  "offense": {
+    "scheme_family": "McVay/West Coast hybrid with Erhardt-Perkins roots. Shift from Slowik's pure Shanahan wide zone to more gap concepts and QB-driven pre-snap reads under Caley.",
+    "base_personnel": "11 (~60%) and 12 (~35%). Uses condensed formations at highest rate in NFL. Occasional fullback usage (Caley values FB/TE toughness packages from Patriots background).",
+    "run_scheme": "Gap scheme primary (power, counter) \u2014 shift from predecessor's wide zone emphasis. Caley brought Rams-style gap concepts. Also retains some outside zone from Shanahan-tree holdovers on staff.",
+    "pass_concepts": "Play action, boot concepts, high-low reads, outside vertical stretches, crossing patterns. Caley's system gives QB more pre-snap control (audibles, protection calls) compared to Slowik's answer-built-in Shanahan system. Quick game and screens used to counter blitz pressure.",
+    "rpo_usage": "low to moderate",
+    "te_usage": "Significant. Caley is a career TE coach who developed Gronkowski, Hunter Henry, and Higbee. Expects TE to be flex/move piece in passing game and inline blocker in gap run schemes. 12 personnel used ~35% of snaps. Dalton Schultz integrated as receiving TE.",
+    "rb_usage": "Bell cow tendency with Joe Mixon/Nick Chubb. Gap scheme emphasizes downhill running. Moderate receiving role, but pass protection has been a major issue (RBs responsible for highest pressure rate in NFL in 2025)."
+  },
+  "defense": {
+    "base_front": "4-3 (nickel base: 4-2-5)",
+    "alignment": "Even front (4-down linemen). Nickel personnel on field ~76-82% of snaps (among highest in NFL). Base 4-3 used only ~24% of snaps against heavy offensive personnel. One-gapping, penetrating front.",
+    "edge_rush_source": "4-3 DE hands-in-dirt. Will Anderson Jr. and Danielle Hunter are traditional 4-3 DEs who form arguably the best pass-rushing DE tandem in the NFL. Anderson (All-Pro) and Hunter (15 sacks in 2025) are the engine of the defense.",
+    "coverage_base": "Cover 3 (single high / MOFC) primary on early downs with strong safety rolled down to apex. Cover 2 man and match quarters on later downs. Split-field coverages used (press-man field side, zone boundary side). Simple coverage shells \u2014 they do not disguise or run exotic rotations. Roughly 70% zone, 26% man.",
+    "blitz_tendency": "light \u2014 32nd in blitz rate in 2025 (dead last). 32nd in simulated pressure rate. Generate pressure almost entirely through front four. Green dog blitzes only when assigned RB/TE stays in to block. True blitz rate even lower than the ~22% raw number.",
+    "lb_role": "Coverage-first, run-fitting LBs. Henry To'oTo'o and Azeez Al-Shaair are athletic and rangy \u2014 built for zone drops and run fits, not pass rushing. LBs asked to drop into coverage frequently. Al-Shaair used as QB spy against mobile QBs. LBs rarely blitz.",
+    "safety_usage": "Jalen Pitre is the x-factor \u2014 plays a hybrid nickel/star role (safety listed, plays slot DB/LB). Lines up near LOS, fits in run gaps like a LB, blitzes, and covers slot receivers. Highest-paid nickel in the NFL. Calen Bullock plays deep free safety (ball-hawk). Traditional split safety look with Pitre down and Bullock deep."
+  },
+  "positional_value_inflections": {
+    "te_receiving_boost": {
+      "rating": "high",
+      "explanation": "Nick Caley is the most TE-centric OC in the NFL \u2014 he spent his entire NFL coaching career developing elite receiving TEs (Gronkowski to All-Pro, Hunter Henry to career-high 9 TDs, Tyler Higbee to multi-year TD streaks). Houston uses 12 personnel ~35% of snaps and Caley's McVay/Erhardt-Perkins system features TEs as flex route runners in the slot and as play-action targets. A TE with elite receiving traits (route running, separation, hands) would be deployed as a true move piece in this offense, functioning like a big slot WR. This is the ideal landing spot for a receiving-first TE prospect."
+    },
+    "lb_pass_rush_boost": {
+      "rating": "none",
+      "explanation": "Houston runs a 4-3 even front where all edge pressure comes from hands-in-dirt DEs (Anderson, Hunter). The defense ranked dead last (32nd) in blitz rate and simulated pressure rate in 2025. ILBs are coverage-first players who rarely rush the passer \u2014 they drop into zones and fit runs. An LB with pass-rush traits has almost no scheme pathway to be used as a rusher in this defense. Pass-rushing LB prospects get zero value boost for Houston."
+    },
+    "rb_dual_threat_boost": {
+      "rating": "medium",
+      "explanation": "Caley's McVay/Patriots hybrid scheme does create checkdown and screen opportunities for RBs, and quick-game passing is used to counter blitz pressure. However, Houston's run scheme is gap-based and bell-cow oriented (Mixon/Chubb), prioritizing downhill power. The biggest RB concern in Houston is pass protection \u2014 RBs allowed the highest pressure rate of any backfield in the NFL in 2025. A RB who can catch AND pass protect gets a moderate boost, but pure receiving backs are not the primary need. Pass protection and physicality matter as much as hands."
+    },
+    "s_hybrid_boost": {
+      "rating": "high",
+      "explanation": "The Jalen Pitre role is the single most valuable hybrid safety position in the NFL. Ryans called Pitre 'the x-factor for our defense.' Pitre plays a star/nickel role \u2014 lined up near the LOS, he fits run gaps like a linebacker, covers slot receivers in man, and blitzes on occasion. He's listed as a safety but functions as a safety/LB/nickel hybrid. He had an 86.5 PFF overall grade (2nd among safeties) and an 88.1 coverage grade in 2025. Houston's 4-2-5 nickel defense is on the field 76-82% of snaps, making this hybrid safety/nickel role essentially a starter position. Any safety prospect with slot coverage ability, tackling physicality, run-fit instincts, and blitz capability gets a massive value boost for Houston. This is a scheme that turns a versatile safety into a top-35 player."
+    }
+  },
+  "scheme_specific_draft_notes": "Houston's draft value map is defined by two extremes: the TE-specialist OC and the hybrid safety defense. On offense, Nick Caley's entire coaching identity is built around maximizing tight ends \u2014 any TE prospect with elite receiving traits (route running, separation, YAC) should be valued significantly higher for HOU than their raw positional grade suggests, as Caley will deploy them as true move pieces in 11 and 12 personnel. On defense, the Jalen Pitre 'star' role is the NFL's premier hybrid safety position \u2014 a safety with box physicality, slot coverage skills, and blitz instincts gets an enormous boost. Conversely, pass-rushing LBs get ZERO boost here; Houston's 4-3 front generates all pressure from its DE tandem and ranked dead last in blitz rate. LBs must be coverage-first athletes who can run and drop. Edge rushers must be traditional 4-3 hands-in-dirt DEs with pass rush bend and power \u2014 stand-up OLB types are a poor fit. On the offensive side, RBs must be able to pass protect; receiving ability alone is insufficient given HOU's league-worst RB pressure rate. The gap-scheme run game favors physical, downhill runners over finesse backs.",
+  "confidence": "high",
+  "sources": [
+    "Houston Texans official coaching staff page (houstontexans.com)",
+    "Pro Football Reference 2025 Houston Texans (offensive scheme: West Coast, defensive alignment: 4-3)",
+    "MatchQuarters.com \u2014 'The Houston Texans Defensive Scheme: Winning With Simplicity' (Jan 2026)",
+    "GoLongTD.com \u2014 'We're savages: The Houston Texans defense aims for history' (Jan 2026)",
+    "SI.com \u2014 'DeMeco Ryans Highlights X-Factor of Texans Elite Defense' on Jalen Pitre (Dec 2025)",
+    "NFL.com \u2014 'Texans hiring Rams assistant Nick Caley as OC' (Feb 2025)",
+    "ESPN \u2014 'The Texans defense is soaring off belief, guidance from DeMeco Ryans' (Jan 2025)",
+    "Stormcloud Blog \u2014 'Wildcard Preview: Scouting the Houston Texans Defense' (Jan 2025)",
+    "SI.com Patriots \u2014 'Patriots Comprehensive Blueprint to Beating Texans Defense' (Jan 2026)",
+    "HoustonStressans.com \u2014 'Why the Texans Offense Is Struggling' and coaching staff analysis (2025)",
+    "HawkBlogger.com \u2014 'Texans Will Test Seahawks With Elite Defense' (Oct 2025)",
+    "BattleRedBlog.com \u2014 'Post-mortem on the 2025-26 Houston Texans' (2026)",
+    "Click2Houston \u2014 Nick Caley OC hiring and Pitre nickel role analysis (2024-2025)",
+    "CBS Sports \u2014 Pitre PFF grading and role analysis (Jan 2026)",
+    "SportsInfoSolutions \u2014 'NFL Playoff Team Offensive Schemes' condensed formation data (Jan 2025)",
+    "Wikipedia \u2014 DeMeco Ryans, Nick Caley, Matt Burke, 2025 Houston Texans season pages"
+  ]
+}

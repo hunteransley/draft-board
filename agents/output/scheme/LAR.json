@@ -1,0 +1,75 @@
+{
+  "team": "LAR",
+  "team_full": "Los Angeles Rams",
+  "coaching_staff": {
+    "head_coach": {
+      "name": "Sean McVay",
+      "tenure_years": 10,
+      "background": "offensive",
+      "scheme_philosophy": "Pass-first offense with heavy pre-snap motion and play-action; McVay is the primary play-caller and the scheme's chief architect. Historically 11-personnel based, but evolved in 2025 to incorporate heavy multi-TE packages (12/13 personnel). Emphasizes outside zone and duo run concepts paired with an aggressive passing attack."
+    },
+    "offensive_coordinator": {
+      "name": "Nate Scheelhaase",
+      "scheme_tree": "McVay tree; former Iowa State OC, pass game coordinator under McVay/LaFleur, WR developer background",
+      "play_caller": false
+    },
+    "defensive_coordinator": {
+      "name": "Chris Shula",
+      "scheme_tree": "Rams internal (Wade Phillips 3-4 \u2192 Brandon Staley Fangio influence \u2192 Raheem Morris \u2192 Shula). Grandson of Don Shula. Hybrid Fangio-Phillips zone scheme with dime-heavy sub-packages.",
+      "play_caller": true
+    }
+  },
+  "offense": {
+    "scheme_family": "McVay system (West Coast foundation with Shanahan/wide zone influence)",
+    "base_personnel": "11 historically, but 2025 saw NFL-leading 13 personnel usage (~30% of plays, 330 plays from 13 personnel). Also heavy 12 personnel early in year. Expect continued multi-TE emphasis in 2026.",
+    "run_scheme": "Outside zone and duo as primary concepts; 13 personnel creates power blocking looks with three TEs acting as extra blockers to create size mismatches",
+    "pass_concepts": "Play action heavy off run looks, boot concepts, vertical shots, pre-snap motion to reveal coverage. No. 1 scoring offense in 2025. Stafford-centric downfield passing attack with elite WR targets (Nacua, Adams).",
+    "rpo_usage": "low to moderate",
+    "te_usage": "Massive and unprecedented. TEs used as inline blockers, flexed out as receivers, and in unique 13-personnel packages. Combined for 103 receptions, 1,128 yards, and 17 TDs in 2025. TEs are asked to block in run game, catch in play action, and motion to create mismatches. Versatility is paramount \u2014 McVay demands TEs who can block AND receive.",
+    "rb_usage": "Committee approach: Kyren Williams primary (~60-65% snaps) with Blake Corum as meaningful complement (~30-35%). Drive-to-drive rotation. RBs used primarily as runners; passing game targets go through WRs and TEs, not backs. Moderate receiving role \u2014 Williams had occasional catches (2 receptions in several games) but not a featured receiving back."
+  },
+  "defense": {
+    "base_front": "3-4",
+    "alignment": "Odd front (tilted 3-4 / 5-1 front structure), two stand-up OLBs as edge rushers with three interior DL. Sub-packages heavily favor dime (6 DBs) \u2014 Rams led NFL in dime usage in both 2024 and 2025 seasons under Shula.",
+    "edge_rush_source": "OLB stand-up (Jared Verse and Byron Young are listed as OLBs, rush from standing and hand-in-dirt positions). Combined for ~19.5 sacks and 47 team sacks in 2025. Verse can rush from stand-up or hand-in-dirt.",
+    "coverage_base": "Zone heavy, primarily Cover 3 with Cover 6 (quarter-quarter-half) looks. Among lowest man coverage usage in NFL in 2025. Second-best EPA/play in zone coverage per FTN. Safety Quentin Lake plays nickel/slot role in dime packages.",
+    "blitz_tendency": "moderate (above league average rate, ranked 8th in blitz usage, but best results come rushing four \u2014 team PFF pass-rush grade with 4 rushers was 1st in NFL over mid-season stretch)",
+    "lb_role": "ILBs (Nate Landman) are run-and-coverage linebackers, not pass rushers. OLBs (Verse, Young) are the primary pass rushers. ILBs fill gaps in the tilted 3-4 front and must handle zone drops. The 3-4 OLB is essentially a full-time edge rusher role.",
+    "safety_usage": "Highly versatile. Quentin Lake operates as a hybrid nickel/slot defender (led slot coverage metrics), blitzes, and tackles. Kam Curl played 58.6% at free safety, 26.3% in box, 10.3% in slot per PFF. Rams frequently deploy 3-safety looks and led NFL in dime personnel. Jaylen McCollough used as hybrid LB/safety."
+  },
+  "positional_value_inflections": {
+    "te_receiving_boost": {
+      "rating": "high",
+      "explanation": "The Rams ran an NFL-leading 330 plays out of 13 personnel in 2025 (nearly one-third of offense), with TEs combining for 103 receptions, 1,128 yards, and 17 TDs. McVay's offense demands TEs who can block AND catch \u2014 they motion TEs from inline to flexed positions to create coverage mismatches. TE Colby Parkinson was motioned outside to draw CBs and free up Puka Nacua. The 2025 Rams proved that investing in receiving-capable TEs directly fueled the NFL's top-scoring offense. A TE with elite receiving traits would be valued like a WR3/flex weapon in this system, but must also be able to block in 13-personnel packages."
+    },
+    "lb_pass_rush_boost": {
+      "rating": "high",
+      "explanation": "The Rams run a 3-4 base where OLBs (Verse, Young) are the primary edge rushers. Verse and Young are listed as linebackers but function exclusively as edge rushers \u2014 Young led with 12 sacks, Verse had 7.5 in 2025. The team also added pass-rush coordinator Drew Wilkins (Wink Martindale disciple). Any LB prospect with elite pass rush traits (burst, bend, power) would be deployed as a stand-up edge rusher in this scheme and valued like an EDGE. Josaiah Stewart, a 6-1 249-lb 'tweener,' was drafted as an OLB specifically for this role."
+    },
+    "rb_dual_threat_boost": {
+      "rating": "low",
+      "explanation": "McVay's offense has always been run-first at RB. Williams and Corum are used primarily as runners in a committee rotation. The passing game targets flow overwhelmingly to WRs (Nacua, Adams) and TEs, not RBs. Williams averaged ~2 receptions per game in many weeks. McVay historically uses a primary runner with 14+ carries per start and doesn't feature pass-catching backs as offensive weapons. Receiving ability is a nice-to-have, not a primary value driver for LAR backs."
+    },
+    "s_hybrid_boost": {
+      "rating": "high",
+      "explanation": "Shula's defense led the NFL in dime (6 DB) usage for two straight years. Quentin Lake functions as a hybrid nickel/slot defender, blitzer, and tackler despite being a safety \u2014 he led the league in QB pressures as a DB and was elite in slot coverage. Kam Curl played across free safety (58.6%), box (26.3%), and slot (10.3%). Jaylen McCollough was used as a hybrid LB/safety. The Rams' scheme demands safeties who can cover in the slot, tackle in the box, blitz, and play deep \u2014 true versatile hybrid players. A safety with coverage + tackling + blitz traits would be extremely valuable."
+    }
+  },
+  "scheme_specific_draft_notes": "The Rams' 2026 draft needs center on CB (biggest need, pick 13), OT (Havenstein retired), and potentially TE depth to sustain their 13-personnel identity. For scheme fit: (1) TE prospects who can both block and catch are premium \u2014 the Rams' unprecedented 13-personnel usage means they need 3-4 TEs who are complete players, not just receivers or just blockers. A Kenyon Sadiq-type receiving TE gains value, but only if he can hold up inline. (2) The 3-4 OLB role is a pure edge rusher position \u2014 any LB/EDGE tweener with pass rush traits should be valued at EDGE prices for LAR. (3) Safety is a major value position: Shula's dime-heavy, zone-based scheme demands versatile safeties who function as slot defenders, box players, and deep coverage \u2014 a Sonny Styles or Caleb Downs archetype is ideal. (4) RB receiving value is minimal; LAR targets backs who can run between the tackles in outside zone/duo concepts. (5) CBs must be zone-capable; LAR is among the lowest man-coverage teams in the NFL \u2014 press-man specialists lose value, while zone/pattern-match corners gain it.",
+  "confidence": "high",
+  "sources": [
+    "therams.com (official 2026 coaching staff announcement)",
+    "NFL.com (Scheelhaase promotion, Kingsbury hiring)",
+    "Pro-Football-Reference (2025 team page: West Coast offense, 3-4 defense)",
+    "PFF (Rams pass rush analysis, Verse/Young rankings, dime personnel usage)",
+    "SI.com Rams (Scheelhaase/Ragone co-OC, Shula analysis)",
+    "ESPN (Kingsbury joining Rams staff)",
+    "Daily News/OC Register (13-personnel identity shift article)",
+    "Turf Show Times (Shula scheme breakdown, 4-man front analysis, TE need)",
+    "MatchQuarters.com (Rams defensive primer: tilted 3-4, Cover 3/Cover 6)",
+    "therams.com (Kam Curl free agent spotlight: snap alignment data)",
+    "therams.com (Quentin Lake feature: slot coverage, blitzing, hybrid role)",
+    "SportsInfoSolutions (Rams deploy 13 personnel at highest rate in NFL)",
+    "Wikipedia (Chris Shula coaching history, Mike LaFleur departure)"
+  ]
+}

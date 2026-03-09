@@ -1,0 +1,77 @@
+{
+  "team": "BAL",
+  "team_full": "Baltimore Ravens",
+  "coaching_staff": {
+    "head_coach": {
+      "name": "Jesse Minter",
+      "tenure_years": 1,
+      "background": "defensive",
+      "scheme_philosophy": "Modular, multiple defensive system rooted in the Wink Martindale/Mike Macdonald Ravens tree. Emphasizes disguise, late rotations, zone-heavy coverage, light personnel packages (nickel/dime), hybrid safety usage near the box, and four-man pressure with low blitz rates. Prioritizes pass defense and baiting opponents into the run."
+    },
+    "offensive_coordinator": {
+      "name": "Declan Doyle",
+      "scheme_tree": "Sean Payton / Ben Johnson (Shanahan offshoot)",
+      "play_caller": true
+    },
+    "defensive_coordinator": {
+      "name": "Anthony Weaver",
+      "scheme_tree": "Baltimore Ravens defensive line tradition; Rex Ryan / Romeo Crennel fronts; worked under Mike Macdonald in Baltimore 2021-2023",
+      "play_caller": false
+    }
+  },
+  "offense": {
+    "scheme_family": "Sean Payton / Ben Johnson hybrid \u2014 marries Payton's West Coast concepts and schematic multiplicity with Johnson's Shanahan-influenced run-pass marry concepts, motion, and explosive play-hunting",
+    "base_personnel": "12 (heavy 12/21/22 personnel under Monken; Doyle likely to increase 11 personnel usage given his background in Payton's spread formations, but Ravens' elite TE room \u2014 Andrews, Likely, Kolar \u2014 will keep 12 personnel prominent)",
+    "run_scheme": "Inside zone and outside zone primary, with gap/power mixed in. Ravens have been the NFL's #1 rushing offense in 2 of 3 Monken years. Doyle inherits Derrick Henry and Lamar Jackson as a devastating run tandem. RPO usage was elite under Monken (1st in NFL in RPO calls in 2023).",
+    "pass_concepts": "Play action heavy off dominant run game, RPO integration, vertical shots off play action, quick game and screens. Doyle's stated priorities: physicality, detail, and explosiveness. Expect emphasis on deception, motion, and big-play hunting consistent with Payton and Johnson influences.",
+    "rpo_usage": "high",
+    "te_usage": "Elite multi-TE usage. Ravens ran 12 personnel at 35.9% in 2025, among the highest in the NFL. Mark Andrews and Isaiah Likely are both flexed into receiving roles and used in-line. Andrews is the franchise receiving TE; Likely is a dynamic move piece who functions like a WR from slot/flexed alignments. Doyle coached TEs in Denver under Payton where TEs were heavily involved in passing, rushing, and protection.",
+    "rb_usage": "Bell cow with Derrick Henry; Justice Hill as change-of-pace/receiving back. Henry is a pure power runner who also catches passes occasionally. Hill posted 42 receptions in 2024 as a strong third-down back. Committee likely to involve Keaton Mitchell's speed."
+  },
+  "defense": {
+    "base_front": "3-4 (hybrid/multiple)",
+    "alignment": "Nominally odd front (3-4) but extremely multiple. Minter uses 4-down fronts, 3-down fronts, load fronts, and even zero-DL looks with 3 edge rushers and 6 DBs. Under Minter in LA, Chargers used base defense only ~17% of the time; primary sub-packages are nickel and dime. Minter's scheme is modular \u2014 fronts, pressures, and coverages are independent modules combined dynamically.",
+    "edge_rush_source": "Stand-up OLB/EDGE hybrid. Ravens have historically used stand-up OLBs as primary pass rushers (Oweh, Van Noy). Minter also deploys creative simulated pressures and stunts (9.5% sim pressure rate, 19.8% stunt rate with Chargers). Four-man rush is preferred \u2014 Chargers blitzed at only 21.4% under Minter, 3rd fewest in NFL.",
+    "coverage_base": "Zone heavy, highly multiple. Chargers under Minter in 2025: Cover 3 (31.1%), Cover 2 (25%), Cover 1 (13.1%), Cover 4 (11.7%). Zone coverage on 80.7% of snaps (5th highest in NFL). Split safety looks used 49.6% of time (4th most). Late pre-snap rotations and disguise are a hallmark \u2014 designed to stress QB processing.",
+    "blitz_tendency": "light (21.4% in LA, prefers four-man rush with elite pass rush efficiency; will use simulated pressures and safety blitzes as tendency-breakers)",
+    "lb_role": "ILBs (Roquan Smith) are coverage and run-stop oriented. OLBs are primary edge rushers. Minter's nickel/dime-heavy approach often reduces ILBs on the field, replacing them with safeties/DBs. ILBs must be able to cover.",
+    "safety_usage": "Extreme hybrid usage \u2014 the defining feature of this defense. Kyle Hamilton is used as a box safety, slot defender, quasi-LB, and occasional edge blitzer. Minter used Derwin James near the box on ~85% of snaps in LA. Hamilton operates similarly in Baltimore. Malaki Starks plays free safety/deep role, allowing Hamilton to roam. Three-safety packages (Hamilton, Starks, Gilman) are a foundational grouping, not a gimmick."
+  },
+  "positional_value_inflections": {
+    "te_receiving_boost": {
+      "rating": "high",
+      "explanation": "The Ravens have the NFL's best TE room (Andrews, Likely, Kolar) and have run 12 personnel at one of the highest rates in the league (35.9% in 2025). Both Andrews and Likely function as receiving weapons \u2014 Likely especially operates like a WR from flexed/slot alignments. Doyle coached TEs in Denver under Payton where TEs were heavily schemed into the passing game. Any TE with elite receiving traits is valued at near-WR levels in this offense because the scheme creates mismatches by deploying TEs against LBs and safeties in space."
+    },
+    "lb_pass_rush_boost": {
+      "rating": "medium-high",
+      "explanation": "Baltimore's base is a 3-4 where OLBs are the primary edge rushers, which nominally creates high LB-to-EDGE value. However, Minter's scheme is extremely multiple and often removes traditional LBs from the field entirely in favor of extra DBs. The OLB/EDGE position is critical, but the ILB role is more coverage-oriented than rush-oriented. An LB with pass rush traits fits as a stand-up OLB/EDGE, but the ILB room (Roquan Smith) is asked to cover, not rush. A tweener LB/EDGE with pass rush upside fits the OLB spot very well. A pure inside LB who can also rush the passer has moderate value since Minter occasionally uses simulated pressures from the ILB spot."
+    },
+    "rb_dual_threat_boost": {
+      "rating": "medium",
+      "explanation": "The Ravens' run game is built around a power bell cow (Derrick Henry) and Lamar Jackson's designed runs. The primary RB role is as a runner. However, Justice Hill's 42-reception 2024 season shows the offense does value a receiving back, especially on third downs. Doyle's Payton/Johnson influences tend to feature backs in the passing game. With Henry aging, a dual-threat back who can catch has moderate-to-rising value, but the primary RB is still valued first as a runner in this run-dominant scheme."
+    },
+    "s_hybrid_boost": {
+      "rating": "very high",
+      "explanation": "This is the single most important positional value inflection for Baltimore. Minter's entire defensive system is built around a hybrid safety who can play near the box, in the slot, as a quasi-LB, and as an occasional blitzer \u2014 while also covering deep. Kyle Hamilton is the prototype. Minter used Derwin James near the box on ~85% of snaps. The Ravens deploy three-safety packages as a base sub-grouping (Hamilton/Starks/Gilman). Any safety prospect with elite versatility \u2014 box tackling, man coverage, blitz ability, and range \u2014 gets a massive value boost for Baltimore. Minter specifically said of James: 'The closer he is to the action, the better he is.' He will deploy Hamilton the same way."
+    }
+  },
+  "scheme_specific_draft_notes": "Baltimore's defense under Minter is the NFL's premier destination for hybrid safeties. Any safety with LB-like physicality and DB-level coverage skills (think Derwin James / Kyle Hamilton mold) should be valued significantly higher for BAL than their draft board position suggests. The Ravens already have Hamilton and Starks but actively seek safety depth given their 3-safety base sub-package. On EDGE, Minter prefers versatile pass rushers who can stand up or put their hand in the dirt and also drop into coverage on simulated pressures \u2014 pure speed rushers who can bend and stunt are prized. At TE, Baltimore's 12-personnel-heavy scheme with Doyle's Payton-influenced TE usage creates near-WR value for elite receiving TEs. Mark Andrews' age (31) and Isaiah Likely's pending free agency could create draft need at TE. For ILB, Minter's dime-heavy approach reduces traditional LB snaps \u2014 only coverage-capable LBs have significant value. At RB, the bell-cow role remains run-first, but Doyle's Payton/Johnson background may increase passing game involvement for backs with receiving chops. On offense, the addition of senior offensive assistant Joe Lombardi (former Chargers/Broncos OC, Payton tree) reinforces the West Coast/Erhardt-Perkins influence that prizes route-running TEs and versatile skill players over pure size.",
+  "confidence": "high",
+  "sources": [
+    "baltimoreravens.com (official coaching staff announcements, Feb 2026)",
+    "Baltimore Banner \u2014 Jeff Zrebiec film study of Minter's Chargers defense (Jan 2026)",
+    "MatchQuarters / Cody Alexander \u2014 Chargers run defense and Minter scheme analysis (Dec 2025)",
+    "ESPN \u2014 Chargers/Minter historically stingy defense (Nov 2024)",
+    "CBS Sports \u2014 2026 NFL coordinator hiring grades (Feb 2026)",
+    "Yahoo Sports \u2014 Declan Doyle hire and career profile (Jan-Feb 2026)",
+    "Footballguys \u2014 Reading the New Defense: Dolphins/Weaver scheme analysis (2024)",
+    "SI Dolphins \u2014 Weaver Texans defensive tendencies (Feb 2024)",
+    "Baltimore Beatdown \u2014 2026 coaching staff tracker (Jan 2026)",
+    "Pro-Football-Reference \u2014 2025 Baltimore Ravens (defensive alignment: 3-4)",
+    "Yardbarker \u2014 Gilman arrival unlocks Hamilton hybrid role (Nov 2025)",
+    "CBS Sports \u2014 Monken personnel groupings and Ravens 12-personnel usage (Jan 2026)",
+    "FOX Sports \u2014 Minter profile, Greg Roman on multiplicity (Nov 2024)",
+    "Stormcloud Blog \u2014 Minter modular defense breakdown (Aug 2024)",
+    "Heavy.com \u2014 Minter/Starks/Hamilton defensive philosophy (Feb 2026)"
+  ]
+}

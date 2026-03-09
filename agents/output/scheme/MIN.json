@@ -1,0 +1,80 @@
+{
+  "team": "MIN",
+  "team_full": "Minnesota Vikings",
+  "coaching_staff": {
+    "head_coach": {
+      "name": "Kevin O'Connell",
+      "tenure_years": 4,
+      "background": "offensive",
+      "scheme_philosophy": "West Coast / McVay-Shanahan branch; elite play designer focused on intermediate-to-deep passing windows, pre-snap motion, and personnel multiplicity. 2024 AP Coach of the Year."
+    },
+    "offensive_coordinator": {
+      "name": "Wes Phillips",
+      "scheme_tree": "McVay/Shanahan West Coast via Cowboys (Wade Phillips), Washington, Rams; extensive TE coaching background",
+      "play_caller": false,
+      "notes": "O'Connell is the primary play caller. Phillips is the titled OC but does not call plays. Frank Smith (former Dolphins OC under McDaniel) was added as assistant head coach in 2026 offseason to boost the run game."
+    },
+    "defensive_coordinator": {
+      "name": "Brian Flores",
+      "scheme_tree": "Bill Belichick / New England Patriots tree with Vic Fangio and Steve Spagnuolo influences; former Dolphins HC (2019-2021)",
+      "play_caller": true,
+      "notes": "Signed contract extension in January 2026. Entering 4th year as Vikings DC. Scheme emphasizes disguise, heavy blitzing, multiple fronts, and positional versatility."
+    }
+  },
+  "offense": {
+    "scheme_family": "McVay/Shanahan West Coast",
+    "base_personnel": "11 and 12 (multiple)",
+    "personnel_notes": "O'Connell runs more 12-personnel than typical McVay trees. Vikings ranked 5th in 12-personnel PFF grade in 2024. Also explored 21 personnel (two-back sets) with Jones and Mason in 2025. Fullback C.J. Ham is regularly used in heavier groupings. O'Connell emphasizes being 'more multiple' than the Rams' 86% 11-personnel approach.",
+    "run_scheme": "primarily outside zone and duo, with inside zone mixed in; traps used as complementary concepts; added Frank Smith (Dolphins run game architect) to boost efficiency in 2026",
+    "pass_concepts": "deep crossing routes (often to Justin Jefferson), play-action bootlegs (Keeper concept), dagger routes, deep comebacks, stick-hitch, smash; emphasis on intermediate-to-deep passing windows with pre-snap motion and formation variety to create separation",
+    "rpo_usage": "moderate",
+    "te_usage": "Hockenson used as move TE / receiving weapon from multiple alignments (slot, flexed, inline); Josh Oliver serves as inline blocker (2nd-best PFF run-blocking grade among TEs since 2022). 12-personnel gives their TE grouping the feel of 11 personnel because Hockenson functions like a WR while Oliver blocks.",
+    "rb_usage": "committee approach with pass-catching back (Jones) and power runner (Mason); Jones averaged 48 receptions per season over 6 years and was top-10 among RBs in routes run, targets, receptions, and receiving yards in 2024. Mason handles early-down/short-yardage rushing. Aaron Jones expected to be released for 2026, opening RB need."
+  },
+  "defense": {
+    "base_front": "multiple / hybrid (leans 4-2-5 nickel with frequent 5-man fronts)",
+    "alignment": "multiple fronts; uses Bear/Penny 5-man fronts with wide-9 edge alignment frequently; often shows 6 or 7 defenders on the line of scrimmage pre-snap; will also drop to 3-man rush (8 in coverage) more than any other team",
+    "edge_rush_source": "stand-up OLBs (Jonathan Greenard, Andrew Van Ginkel, Dallas Turner) who also drop into coverage ~20% of the time; Van Ginkel can rush from any alignment",
+    "coverage_base": "zone-heavy (man coverage only 22% of the time in 2024, 8th-lowest in NFL); complex zone with disguised pre-snap looks (MAZE package: man alignment, zone execution); Cover 3 / quarters variations",
+    "blitz_tendency": "heavy \u2014 NFL-leading 40.6% blitz rate in 2024; led league in blitz rate on 1st down (47.5%) and 2nd down (42.6%); uses five-man fronts on early downs as pressure base",
+    "lb_role": "ILBs (Blake Cashman, Ivan Pace Jr.) are primarily run-stoppers and zone coverage defenders; OLBs are primary edge rushers but with significant coverage responsibilities (drop back ~20% of snaps); Flores asks OLBs to be versatile rush/coverage players, not pure rushers",
+    "safety_usage": "extreme hybrid usage \u2014 Josh Metellus has lined up at 12 different positions including safety, LB, slot CB, edge, and DT; in 2024 he spent ~82% of snaps in box or slot; Harrison Smith plays box/deep depending on package; Flores sees '11 spots on the field, not 11 positions'"
+  },
+  "positional_value_inflections": {
+    "te_receiving_boost": {
+      "rating": "high",
+      "explanation": "O'Connell's offense has historically featured a receiving TE as a centerpiece. Hockenson ranked 5th among all TEs in PFF receiving grade over the past two seasons (84.3). Phillips' TE coaching background (developed Tyler Higbee, Gerald Everett at LAR; coached TEs for 9 consecutive seasons with 500+ receiving yard players) ensures the TE receiving role is schematically prioritized. In 12 personnel, Hockenson functions essentially as a WR while Oliver blocks, giving the Vikings' 12-personnel 'the feel of 11 personnel.' An elite receiving TE prospect would slot into an established, high-volume role alongside Jefferson and Addison."
+    },
+    "lb_pass_rush_boost": {
+      "rating": "medium-high",
+      "explanation": "Flores' defense does not use a traditional 3-4 where OLBs are pure edge rushers, but it heavily values versatile OLBs who can both rush and drop into coverage. Van Ginkel and Turner rush from stand-up alignments but drop back ~20% of the time. Flores frequently uses 5-man fronts where an extra defender (often a safety or LB) rushes. Any LB with pass-rush traits AND coverage ability is extremely valuable \u2014 Flores won't use a one-dimensional rusher, but a hybrid LB who can rush, set edges, and cover short zones is a premium asset. The 40.6% blitz rate means LBs with blitzing ability get substantial pass-rush opportunities."
+    },
+    "rb_dual_threat_boost": {
+      "rating": "high",
+      "explanation": "O'Connell's West Coast scheme and the departure of Aaron Jones (being released for 2026) create a significant need for a pass-catching back. Jones was top-10 among RBs in routes run, targets, receptions, and receiving yards in 2024 and averaged 48 receptions per season. Mason is the power runner but lacks receiving production (15 career receptions in 46 games). The Vikings' offense is built around creating passing windows, and the RB receiving role is schematically baked into the system with Texas routes, option routes, and checkdowns. A dual-threat RB who can catch and run routes would directly fill Jones' vacated role."
+    },
+    "s_hybrid_boost": {
+      "rating": "high",
+      "explanation": "Flores' defense is the NFL's premier system for hybrid safeties. Josh Metellus has lined up at 12 different positions in a single season \u2014 safety, all 3 LB spots, all CB spots, edge, and even DT. O'Connell noted counting 7 different alignments for Metellus in a single game. Metellus earned a 3-year, $36M extension based on this versatility. With Harrison Smith aging (36) and Cam Bynum departed to Indianapolis, the Vikings need safety depth that can fill Flores' hybrid/box/slot roles. Any safety prospect with tackling, blitz ability, slot coverage skills, and positional versatility would be valued significantly higher by Minnesota than by almost any other team."
+    }
+  },
+  "scheme_specific_draft_notes": "Minnesota's 2026 draft profile is shaped by two forces: O'Connell's pass-first West Coast offense and Flores' positionless, blitz-heavy defense. On offense, the TE receiving role is elite-tier \u2014 Hockenson (returning but declining, 51 catches/438 yards in 2025) creates a succession opportunity, and Phillips' TE development pedigree means a receiving TE prospect like Kenyon Sadiq would be valued near WR prices. The RB room is in flux with Jones being released; a dual-threat RB who catches 40+ passes would fill a critical schematic void. On defense, Flores' system is the ultimate scheme for positional versatility. He does NOT want one-dimensional players at any position. Edge rushers must cover (~20% of snaps); safeties must play LB, slot, and blitz; LBs must rush and cover. This means: (1) A pass-rushing LB gets a meaningful boost but ONLY if he also has coverage traits \u2014 pure rushers are less valuable here than in a traditional 3-4. (2) Hybrid safeties are the single most valuable defensive archetype for this team. Metellus' $12M/year extension proves it. A Sonny Styles-type S/LB hybrid would be a scheme-perfect addition. (3) Versatile CBs who can play outside and in the slot (like the Isaiah Rodgers acquisition) are preferred over pure outside corners. Draft analysts have specifically noted CB, S, and RB as top 2026 draft targets for Minnesota.",
+  "confidence": "high",
+  "sources": [
+    "vikings.com official coaching staff page and press conferences",
+    "NBC Sports \u2014 Vikings announce full 2025 coaching staff (April 2025)",
+    "Daily Norseman \u2014 'The Flores Scheme and What's Next' (July 2025)",
+    "Daily Norseman \u2014 'Kevin O'Connell's Offensive Scheme and What's Next' (July 2025)",
+    "MatchQuarters \u2014 'Breaking Down the Vikings 6-1 Scheme' (August 2025)",
+    "PFF \u2014 'NFL Teams Best Built for Success by Personnel Grouping in 2025' (June 2025)",
+    "The Viking Age \u2014 'Brian Flores just gave the Vikings a massive edge for 2026' (January 2026)",
+    "Star Tribune \u2014 'Vikings add to coaching staff, hiring former Dolphins OC Frank Smith' (January 2026)",
+    "Vikings Territory \u2014 'Six Coaches Have Left the Vikings' (February 2026)",
+    "CBS Sports \u2014 'Inside Vikings 3-0 start: The crazy defensive scheme of Brian Flores' (September 2024)",
+    "Zone Coverage \u2014 'The Vikings Finally Have the Pieces to Make Flores' Scheme Work' (August 2025)",
+    "Bleacher Report / ESPN \u2014 Josh Metellus contract extension reporting (July 2025)",
+    "SI.com \u2014 'Kevin O'Connell on 2025 Vikings offense: I want to run the football' (April 2025)",
+    "Heavy.com \u2014 'Vikings RB Aaron Jones Losing Top Rushing Role to Jordan Mason' (September 2025)",
+    "Wikipedia \u2014 Kevin O'Connell, Brian Flores, Wes Phillips pages"
+  ]
+}

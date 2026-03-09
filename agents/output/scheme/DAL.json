@@ -1,0 +1,76 @@
+{
+  "team": "DAL",
+  "team_full": "Dallas Cowboys",
+  "coaching_staff": {
+    "head_coach": {
+      "name": "Brian Schottenheimer",
+      "tenure_years": 2,
+      "background": "offensive",
+      "scheme_philosophy": "Physical, run-committed offense built on tight formations, pre-snap motion, play-action, and tempo. Emphasizes marrying run and pass concepts to create deception. Son of Marty Schottenheimer; career OC stints with Jets, Rams, Seahawks, and Cowboys."
+    },
+    "offensive_coordinator": {
+      "name": "Klayton Adams",
+      "scheme_tree": "Run-game specialist; OL coach background via Boise State, Colorado, Indianapolis Colts, Arizona Cardinals. Emphasizes physicality, outside zone, and explosive run concepts.",
+      "play_caller": false
+    },
+    "defensive_coordinator": {
+      "name": "Christian Parker",
+      "scheme_tree": "Vic Fangio tree (Denver Broncos DBs coach, Philadelphia Eagles passing game coordinator under Fangio). Also influenced by Ejiro Evero and Vance Joseph. First-time NFL coordinator.",
+      "play_caller": true
+    }
+  },
+  "offense": {
+    "scheme_family": "Schottenheimer pro-style with modern wrinkles: tight formations, heavy motion/shifts, play-action, tempo elements. OC Adams brings run-game emphasis from Arizona Cardinals zone scheme.",
+    "base_personnel": "11 primary, with significant 12 personnel on early downs",
+    "run_scheme": "Outside zone / wide zone primary, with duo, power, and pulling guard concepts mixed in. Adams coached one of the NFL's most explosive run games in Arizona (top-3 rushing 2023-24). Designed to create big-play rushing opportunities.",
+    "pass_concepts": "Play-action heavy off run-game looks, boot concepts, seam routes to TE, vertical shots. Schottenheimer emphasizes marrying run/pass so they look identical pre-snap. Uses cut splits, stacked formations, and tempo to manipulate defenses. Heavy short/intermediate targeting of TE as safety valve.",
+    "rpo_usage": "moderate",
+    "te_usage": "High-volume receiving target and inline blocker. Jake Ferguson had career-high 82 receptions and 8 TDs in 2025 (Pro Bowl). Used heavily in motion, play-action, and as Dak Prescott's primary safety valve underneath. 12 personnel featured on early downs with Ferguson and Schoonmaker.",
+    "rb_usage": "Committee approach with lead back tendencies. Javonte Williams rushed for 1,201 yards and 11 TDs in 2025, earning extension. Williams valued for power, pass protection. Scheme uses RB motion to create mismatches, motioning to empty sets and shifting back for play-action deception."
+  },
+  "defense": {
+    "base_front": "3-4 (new for 2026, first time since 2012)",
+    "alignment": "Odd front with 3 down linemen and 4 LBs in base; shifts to 4-2-5 nickel and 4-3 spacing situationally. Parker stressed 'multiplicity' as the core identity. Fangio-style gap-and-a-half technique for DL, not traditional two-gap 3-4.",
+    "edge_rush_source": "OLB stand-up primarily, with hybrid versatility. Donovan Ezeiruaku (2025 2nd-round pick) as primary edge rusher. Marist Liufau being converted from ILB to OLB/edge role. Dallas is actively seeking additional edge talent via draft/free agency. OLB coach Chidera Uzo-Diribe hired specifically for this role.",
+    "coverage_base": "Cover 4 (quarters) / Cover 6 / Cover 8 match zone, heavy two-high safety shell pre-snap with post-snap rotation into Cover 3 or split-field looks. Fangio tree: coverage disguise is paramount. Zone-match principles that morph into man-match post-snap. Will use man coverage if corner talent allows. Major shift from Eberflus single-high zone emphasis.",
+    "blitz_tendency": "light (Fangio tree historically among lowest blitz rates in NFL; Parker stated 'if we can win on blitzing a running back, we'll blitz a lot' but default philosophy relies on 4-man rush efficiency and coverage disguise)",
+    "lb_role": "OLBs are primary edge rushers in base 3-4. ILBs tasked with coverage and run-stuffing. Nickel DB functions as extra LB in run support (Fangio's 'big nickel' concept). DeMarvion Overshown and Shemar James project as ILBs. Parker values high-IQ, versatile LBs who can match in coverage.",
+    "safety_usage": "Two-high shell as default pre-snap look, with heavy post-snap rotation. Safeties must be versatile \u2014 reading and reacting, leveraging from depth. Fangio tree uses safeties in coverage disguise rather than box-heavy roles. Nickel/slot defender is the true hybrid, functioning almost like an extra LB."
+  },
+  "positional_value_inflections": {
+    "te_receiving_boost": {
+      "rating": "high",
+      "explanation": "Schottenheimer's offense featured Jake Ferguson as a 82-catch, 8-TD Pro Bowl weapon in 2025, the second Cowboys TE ever to exceed 80 receptions. Ferguson functions as Prescott's primary safety valve and is used extensively in motion, play-action, and seam routes. The offense uses 12 personnel on early downs and flexes TEs into receiving alignments. An elite receiving TE fits this offense perfectly as a high-volume target in the short/intermediate game. The scheme creates TE value well above typical inline-blocking systems."
+    },
+    "lb_pass_rush_boost": {
+      "rating": "high",
+      "explanation": "Parker's switch to a 3-4 base \u2014 Dallas's first since 2012 \u2014 makes OLBs the primary edge rushers. The Cowboys are already converting ILB Marist Liufau to an OLB/edge role, explicitly because of his length and disruption ability. The team hired a dedicated OLB coach (Uzo-Diribe) and have Donovan Ezeiruaku as a stand-up edge rusher. Any LB prospect with pass rush traits, length, and burst projects as an EDGE equivalent in this defense. Dallas desperately needs edge talent after trading Micah Parsons and losing multiple OLB free agents."
+    },
+    "rb_dual_threat_boost": {
+      "rating": "medium",
+      "explanation": "Schottenheimer's offense values RB versatility \u2014 using motion to move backs to empty sets, alignment-shifting for play-action deception, and checkdown targets. However, the primary RB value in Dallas is as a runner: Adams was hired specifically to fix the run game, and Javonte Williams earned his extension on 1,201 rushing yards. Williams also has underrated pass protection value. Receiving ability in an RB is a plus trait but secondary to rushing and blocking in this scheme."
+    },
+    "s_hybrid_boost": {
+      "rating": "medium",
+      "explanation": "Parker's Fangio-tree defense uses a two-high safety shell as its foundation, requiring versatile safeties who can disguise coverage, rotate post-snap, and read from depth. The true hybrid role in this defense is the nickel/slot defender, who must fill runs and cover the middle like an extra linebacker. Safeties are not typically box-heavy in this scheme \u2014 they leverage from depth \u2014 but must be intelligent, versatile, and able to play both deep halves and rotate down. A safety with slot coverage skills and tackling ability adds value as a nickel candidate in the 4-2-5 packages."
+    }
+  },
+  "scheme_specific_draft_notes": "Dallas's 2026 defense is undergoing a seismic scheme change: from a 4-3 run for over a decade to a Fangio-tree 3-4 under first-time coordinator Christian Parker. This creates massive positional value inflections. (1) EDGE/OLB is the single highest-need position \u2014 the Cowboys traded Micah Parsons, lost multiple OLB FAs, and are converting an ILB (Liufau) to edge. Any LB prospect with pass rush traits (bend, burst, length, power moves) should be valued like a premium EDGE for Dallas. The 3-4 OLB role IS the primary pass rusher. (2) The Fangio coverage system demands extremely high-IQ secondary players who can execute zone-match concepts, disguise coverages, and rotate post-snap. CBs who thrive in pattern-match zone with press ability are ideal. The nickel/slot defender is a critical piece \u2014 effectively a hybrid S/LB who must cover and tackle. (3) On offense, Schottenheimer's high-volume TE usage (Ferguson: 82 rec, 8 TD) means elite receiving TEs get a significant boost. The offense also values WRs who can block in tight formations \u2014 Schottenheimer uses 'cut splits' and condensed sets that require WRs to participate in the run game. (4) Dallas has two first-round picks in 2026 and Parker has stated he will campaign to use both on defense. Edge rusher, CB, and ILB are the top three defensive needs. The offensive line is stable, the skill positions are loaded (Prescott, Lamb, Pickens, Ferguson, Williams), so expect Dallas to draft defense-heavy.",
+  "confidence": "high",
+  "sources": [
+    "dallascowboys.com official coaching staff page and team articles",
+    "NFL.com - Cowboys DC Christian Parker scheme quotes",
+    "ESPN - Christian Parker introductory press conference coverage",
+    "CBS Sports - Parker vs Eberflus scheme comparison",
+    "Blogging The Boys - Christian Parker defensive scheme deep dive (Fangio tree analysis)",
+    "NFL.com - Marist Liufau OLB conversion under Parker's 3-4",
+    "dallascowboys.com - Klayton Adams OC profile and offensive philosophy",
+    "NFL.com - Klayton Adams 'create violence' offensive philosophy",
+    "InsideTheStar - Cowboys 2025 offense speed, motion, and power breakdown",
+    "dallascowboys.com - Jake Ferguson Pro Bowl selection and 2025 stats",
+    "Wikipedia - Brian Schottenheimer coaching career",
+    "Wikipedia - Matt Eberflus (fired after 2025 season)",
+    "Match Quarters / Bleeding Green Nation - Fangio coverage system breakdowns",
+    "Football Guys Forums - Parker 3-4 scheme change confirmation"
+  ]
+}

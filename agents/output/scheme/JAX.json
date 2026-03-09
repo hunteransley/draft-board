@@ -1,0 +1,75 @@
+{
+  "team": "JAX",
+  "team_full": "Jacksonville Jaguars",
+  "coaching_staff": {
+    "head_coach": {
+      "name": "Liam Coen",
+      "tenure_years": 2,
+      "background": "offensive",
+      "scheme_philosophy": "McVay coaching tree disciple emphasizing motion-heavy, balanced offense with diverse run schemes (counters, traps, zone), play-action, and YAC-centric passing. Calls his own plays. Prioritizes run game and physical line play while building explosive pass concepts around QB reads at the line."
+    },
+    "offensive_coordinator": {
+      "name": "Grant Udinski",
+      "scheme_tree": "Kevin O'Connell / Minnesota Vikings, Matt Rhule (Carolina/Baylor)",
+      "play_caller": false
+    },
+    "defensive_coordinator": {
+      "name": "Anthony Campanile",
+      "scheme_tree": "Hybrid: Vic Fangio (match zone/quarters), Brian Flores (aggressive pressures), Jeff Hafley (attacking 4-3 structure)",
+      "play_caller": true
+    }
+  },
+  "offense": {
+    "scheme_family": "McVay/Shanahan evolution \u2014 motion-heavy, multiple run schemes with play-action passing",
+    "base_personnel": "11",
+    "personnel_details": "Heavy 11 personnel emphasis (3 WR sets); Coen's 2022 Rams ran 90.7% 11 personnel; in Tampa Bay and Jacksonville he maintained 11-heavy approach with 73.9% of Mayfield's TDs coming from 11 personnel over 2023-2024. Supplemented with 12 personnel packages.",
+    "run_scheme": "Diverse: counters, traps, whams (gap-based) mixed with wide zone and mid zone. In Tampa, ranked 1st in NFL in rushing yards and EPA/rush on counter plays. Not purely zone \u2014 uses pulling linemen and gap schemes aggressively.",
+    "pass_concepts": "Motion-heavy pre-snap reads, play-action off run fakes, YAC-oriented short-to-intermediate passing, creative screen game, multiple play options called in huddle. Low average depth of target (7.0 aDOT in Tampa) but high explosive play rate driven by YAC.",
+    "rpo_usage": "moderate",
+    "te_usage": "Primarily inline blocker in run-heavy sets; secondary receiving weapon in play-action and seam routes. Brenton Strange had 46 receptions for 540 yards in 12 games in 2025 (77.6 PFF grade, 9th among TEs in receiving). TE used as move piece in 12 personnel but WRs are clearly primary pass catchers in 11-personnel-heavy approach.",
+    "rb_usage": "Committee approach with bell cow tendencies for lead back. Diverse usage: counters, traps, screens. RB receiving role is moderate \u2014 backs are used in screen game and checkdowns but offense is not a heavy RB-target scheme. Physical, downhill running identity."
+  },
+  "defense": {
+    "base_front": "multiple / hybrid (4-3 lean with 3-4 spacing)",
+    "alignment": "Primarily even front (4-down) with front variation, described by Campanile as 'a 4-3 with some 3-4 spacing.' Uses both 4-man and 3-man fronts depending on personnel and situation. Jeff Hafley's attacking 4-3 structure forms the foundation.",
+    "edge_rush_source": "4-3 DE hands-in-dirt primary (Josh Hines-Allen, Travon Walker), with occasional stand-up looks from hybrid fronts",
+    "coverage_base": "Zone-heavy with match-zone principles. Predominantly zone-based in 2025 with Fangio-influenced Cover 4/Cover 6 split-field concepts. 50/50 split between open-post and closed-post coverages behind blitzes \u2014 intentionally unpredictable. One of the most zone-heavy defenses in the NFL in 2025.",
+    "blitz_tendency": "moderate (approximately 30% overall blitz rate, league average, but 5th-highest 6+ man blitz rate at ~12%). Uses simulated pressures (12th in NFL at 8.6%). Sits between Fangio's passive approach and Flores' chaos \u2014 moderate overall but willing to send extra rushers in key spots.",
+    "lb_role": "Coverage/tackling LBs in zone-heavy scheme. Devin Lloyd emerged as a ballhawk (career-best PFF grade, multiple interceptions). Foyesade Oluokun as signal-caller and volume tackler. LBs are not primary pass rushers; edge rush comes from defensive ends.",
+    "safety_usage": "Two-high shell presentations with Fangio-style disguises. Safety Antonio Johnson had elite 2025 season (87.4 PFF grade, 1st among safeties). Eric Murray signed as versatile veteran with coverage and run defense marks. Safeties play primarily in coverage-oriented roles with some box versatility for Murray."
+  },
+  "positional_value_inflections": {
+    "te_receiving_boost": {
+      "rating": "medium",
+      "explanation": "Coen's offense is 11-personnel dominant (3 WR), which inherently limits TE route-running volume compared to 12-personnel teams. However, when the TE is on the field, he functions as a real receiving weapon \u2014 Brenton Strange graded 9th among TEs in PFF receiving grade (77.6) and was on pace for top-5 TE numbers when healthy. The McVay-tree system creates play-action opportunities where the TE is a primary read. Shane Waldron (pass game coordinator hire) also has TE development roots from his time as Rams TE coach. A receiving TE has value but the 11-personnel lean means WRs dominate targets \u2014 moderate boost, not high."
+    },
+    "lb_pass_rush_boost": {
+      "rating": "low",
+      "explanation": "Campanile's defense is primarily a 4-3 base (even front) where edge rush comes from hand-in-dirt defensive ends Josh Hines-Allen and Travon Walker. LBs (Lloyd, Oluokun) are zone coverage and tackling players, not pass rushers. The scheme does use some 3-4 spacing and occasional stand-up looks, but the primary edge rush source is DEs, not OLBs. LBs with pass rush traits have limited scheme-fit value here compared to a true 3-4 team. The moderate simulated pressure usage (12th in NFL) creates occasional LB blitz opportunities, but this is not a primary path to pressures."
+    },
+    "rb_dual_threat_boost": {
+      "rating": "medium",
+      "explanation": "Coen's offense values RBs who can contribute in the screen game and as checkdown options \u2014 his Tampa offense ranked 4th in attempts behind the line of scrimmage. The diverse run scheme (counters, traps, zone) requires backs who are decisive runners first, but the creative screen game and play-action concepts do put backs in space as receivers. However, Jacksonville's identity is run-first and physical; the RB is not a primary target like in a true West Coast or spread system. A back with receiving ability gets a moderate boost because of the screen game and play-action rollouts, but pure running ability is prioritized."
+    },
+    "s_hybrid_boost": {
+      "rating": "medium",
+      "explanation": "Campanile's Fangio-influenced scheme uses two-high shells with coverage disguises, making smart, versatile safeties critical. Antonio Johnson's elite season (87.4 PFF grade) shows how the scheme elevates safeties who can read and react in zone. Eric Murray was signed specifically for his versatility in both coverage and run defense. However, this is not a heavy box-safety or safety-blitz scheme \u2014 the emphasis is on deep coverage and match-zone principles rather than safety-as-linebacker hybrid roles. A safety with elite coverage instincts and versatility gets a moderate boost; a pure box safety does not fit as well."
+    }
+  },
+  "scheme_specific_draft_notes": "Jacksonville's offense under Coen is a motion-heavy, 11-personnel-dominant McVay-tree system that prioritizes WR weapons and diverse run schemes over heavy TE or RB involvement in the passing game. WR prospects with YAC ability, route-running from the slot (Cooper Kupp archetype), and contested-catch skills fit perfectly \u2014 the offense created massive production for WRs in Tampa Bay. For edge rushers, the 4-3 even front values true hand-in-dirt DEs over stand-up OLB types; pass-rushing LBs do NOT get a scheme-fit boost here. On defense, Campanile's Fangio/Flores hybrid demands smart, instinctive coverage defenders at every level \u2014 ball-hawking LBs (Lloyd had a breakout), zone-capable CBs, and versatile safeties who can play in two-high shells. Interior DL who can generate pressure rushing four are extremely valuable since the blitz rate is only moderate. The 3rd-fewest explosive plays allowed in the NFL in 2025 shows this defense values discipline and eye control over pure aggression. Draft targets should emphasize: (1) WRs with separation and YAC, (2) 4-3 DEs with pass rush upside, (3) coverage-first safeties and CBs for zone schemes, (4) interior DL who can win one-on-one.",
+  "confidence": "high",
+  "sources": [
+    "jaguars.com official coaching roster and bios",
+    "jaguars.com \u2014 DC Anthony Campanile press conference (Feb 2025): 'a 4-3 with some 3-4 spacing, multiple'",
+    "jaguars.com \u2014 HC Liam Coen confirmed as play caller",
+    "jaguars.com \u2014 OC Grant Udinski and DC Anthony Campanile retained for 2026",
+    "matchquarters.com (Cody Alexander) \u2014 'Blending Fangio Structure with Flores Chaos' 2025 Jaguars defensive scheme analysis",
+    "PFF \u2014 'NFL's most-improved defenses by EPA per play in 2025' (Jaguars 2nd-worst to 3rd-best)",
+    "buccaneers.com \u2014 Liam Coen offensive approach (McVay tree, motion, run scheme diversity)",
+    "SI.com Jaguars \u2014 'Why 11 Personnel Could Be Critical for Jaguars in 2025' (73.9% of Mayfield TDs from 11 personnel)",
+    "pewterreport.com \u2014 'Bucs Offense Highlighted NFL Offensive Trends In 2024' (counter/trap run scheme, screen game)",
+    "Yahoo Sports \u2014 Campanile defense 'multiple' with zone-heavy coverage, historically low blitz rates under mentors",
+    "bigcatcountry.com \u2014 2025 coaching staff tracker (Udinski, Campanile, Waldron, staff details)",
+    "fantasydata.com \u2014 Brenton Strange 2025 season analysis (46 rec, 540 yds, pace for top-5 TE when healthy)"
+  ]
+}

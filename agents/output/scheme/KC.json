@@ -1,0 +1,75 @@
+{
+  "team": "KC",
+  "team_full": "Kansas City Chiefs",
+  "coaching_staff": {
+    "head_coach": {
+      "name": "Andy Reid",
+      "tenure_years": 13,
+      "background": "offensive",
+      "scheme_philosophy": "Evolved West Coast offense with Air Raid and spread elements; shotgun-heavy, pass-first philosophy built around timing, horizontal stretching, and schematic creativity. Reid is the primary playcaller."
+    },
+    "offensive_coordinator": {
+      "name": "Eric Bieniemy",
+      "scheme_tree": "Andy Reid West Coast / Bill Walsh tree",
+      "play_caller": false
+    },
+    "defensive_coordinator": {
+      "name": "Steve Spagnuolo",
+      "scheme_tree": "Jim Johnson / Philadelphia Eagles aggressive blitz tree",
+      "play_caller": true
+    }
+  },
+  "offense": {
+    "scheme_family": "Reid West Coast (Walsh/Holmgren tree with Air Raid/spread elements)",
+    "base_personnel": "11",
+    "personnel_detail": "Heavy 11 personnel (~65-70%), meaningful 12 personnel usage (~20-25%) due to Travis Kelce serving as a pass-catching TE who functions as a de facto WR from flexed alignments. Historically avoid 13 and heavy sets entirely.",
+    "run_scheme": "Inside zone / gap / power mix; historically inconsistent run game. Bieniemy tasked with rebuilding run scheme in 2026 after Chiefs ranked 25th in rushing (106 YPG) in 2025.",
+    "pass_concepts": "Short-to-intermediate timing routes (slants, curls, digs, crossers), play action off bootleg, deep shots off spread formations, flood/snag concepts, extensive pre-snap motion and formation creativity. ~80% shotgun formation rate.",
+    "rpo_usage": "moderate",
+    "te_usage": "Elite receiving weapon. Kelce (if he returns) is the prototypical move TE used as primary target from slot/flexed alignments, inline, and detached. TE is the centerpiece of the passing attack \u2014 led team in targets (108), receptions (76), and receiving yards (851) in 2025. Even with Kelce's potential retirement, the offense structurally requires a receiving TE.",
+    "rb_usage": "Historically pass-heavy scheme demands backs who can catch. Bieniemy's return signals emphasis on improving run game, but Reid's system still values RBs as receivers out of the backfield (checkdowns, swings, flats). Committee approach likely in 2026."
+  },
+  "defense": {
+    "base_front": "4-3",
+    "alignment": "Even front (4-down linemen), multiple looks with frequent dime packages (6+ DBs)",
+    "edge_rush_source": "4-3 DEs (George Karlaftis, Chris Jones as interior pass rusher at 3-tech) with extensive exotic blitz packages from all secondary positions",
+    "coverage_base": "MOFO-heavy (Cover 2, Cover 4/Quarters, split-field coverages). Chiefs finished 3rd in MOFO coverage usage in 2024 at 49.2%. Quarters/Palms is the signature coverage behind five-man pressures (Tango package). Heavy use of disguised pre-snap shells.",
+    "blitz_tendency": "heavy (35.6% blitz rate in 2024, 5th highest in NFL; remained top-3 in 2025). Signature is creative five-man pressures with corner and safety blitzes from varied positions. Simulated pressures used to confuse QBs.",
+    "lb_role": "Traditional ILB role (Nick Bolton as run/coverage MLB). LBs are NOT primary pass rushers \u2014 edge rush comes from DEs. However, LBs like Leo Chenal show versatility; Spagnuolo has used Chenal at end, tackle, and multiple alignments.",
+    "safety_usage": "Safeties are the most versatile unit. Justin Reid (before departure) played 525 snaps at FS and 302 as slot/LB hybrid. Chiefs play second-most snaps with 6+ DBs leaguewide. Safeties rotate heavily, blitz frequently, play box, slot, and deep. Hybrid/versatile safety is critical to this defense."
+  },
+  "positional_value_inflections": {
+    "te_receiving_boost": {
+      "rating": "high",
+      "explanation": "The Chiefs' offense has been built around a receiving TE for over a decade. Travis Kelce led the team in receptions, targets, and receiving yards in 2025 (76-851-5). The TE is flexed into the slot, detached, and used as the primary pass-catcher in Reid's West Coast system. Even with Kelce potentially retiring or declining, the scheme structurally demands a TE who can win as a receiver. Reid's offense historically uses 12 personnel at above-average rates specifically because the TE functions as a third receiver. Any TE prospect with elite route running, hands, and separation gets a significant value boost for KC."
+    },
+    "lb_pass_rush_boost": {
+      "rating": "low",
+      "explanation": "Spagnuolo runs a 4-3 base where edge rush comes from defensive ends (Karlaftis, Felix Anudike-Uzomah) and interior pressure from Chris Jones at 3-tech. ILBs like Nick Bolton are used primarily in run-stop and coverage roles, not as edge rushers. While LBs like Leo Chenal have occasionally lined up at end in sub packages, this is situational, not structural. The blitz-heavy scheme does send LBs on designed pressures, but the primary pass-rush architecture is DE-driven. LB pass rush traits have only marginal extra value here compared to a true 3-4 team."
+    },
+    "rb_dual_threat_boost": {
+      "rating": "high",
+      "explanation": "Reid's West Coast offense has always valued pass-catching RBs \u2014 from LeSean McCoy in Philadelphia to Jamaal Charles and subsequent backs in KC. The scheme features RB routes into flats, swings, and option routes as core elements. Reid historically runs a pass rate over expected (PROE) among the highest in the NFL. Even with Bieniemy returning to fix the run game, the pass-first philosophy means RBs must contribute as receivers. The Chiefs' RB room is being rebuilt entirely for 2026 (Pacheco and Hunt both free agents), making a dual-threat back extremely valuable."
+    },
+    "s_hybrid_boost": {
+      "rating": "high",
+      "explanation": "Spagnuolo's defense is arguably the NFL's most demanding system for safety versatility. The Chiefs play the second-most snaps with 6+ DBs leaguewide. Safeties in this defense play FS, box, slot, blitz off the edge, and even simulate LB alignments in dime packages. Justin Reid previously logged 525 FS snaps and 302 slot/LB snaps in a single season. Spagnuolo's Tango/Palms pressure packages specifically rely on safeties to rotate and disguise coverage pre-snap while also being credible blitzers. Bryan Cook and Chamarri Conner fill hybrid roles. Any safety prospect with man coverage ability, blitzing skills, tackling, and positional versatility gets a major value boost."
+    }
+  },
+  "scheme_specific_draft_notes": "KC's 2026 draft profile is shaped by three urgent needs created by scheme and roster turnover: (1) TE receiving weapon \u2014 if Kelce retires or further declines, the Chiefs MUST replace the most important non-QB position in Reid's offense. A TE with elite route running and hands (e.g., Kenyon Sadiq profile) should be valued like a top WR for KC. (2) Versatile safety \u2014 Spagnuolo's exotic blitz-heavy 4-3 Multiple defense demands safeties who can play box, slot, deep, and blitz. This is the most safety-valuable scheme in the NFL. A hybrid safety (Malaki Starks/Kyle Hamilton archetype) is worth significantly more to KC than to a traditional split-safety defense. (3) Dual-threat RB \u2014 with the backfield being completely rebuilt and Bieniemy tasked with fixing the run game, a back who can run between the tackles AND catch passes out of Reid's West Coast scheme is critical. The 4-3 base means traditional LB-to-EDGE value boosts are minimal; KC gets edge rush from DEs and exotic blitz design rather than OLB conversion. Mahomes' knee rehab also increases the value of anyone who can make the QB's job easier \u2014 receiving TEs, pass-catching RBs, and versatile offensive weapons.",
+  "confidence": "high",
+  "sources": [
+    "chiefs.com official coaching roster",
+    "Pro Football Reference 2025 KC roster page",
+    "ESPN - Nate Taylor on Bieniemy return (Jan 2026)",
+    "Wikipedia - Steve Spagnuolo, Eric Bieniemy, Matt Nagy pages",
+    "The Ringer - Spagnuolo blitz analysis (Feb 2025)",
+    "Match Quarters - Chiefs Odd Stack / Tango package analysis",
+    "CBS Sports - Spagnuolo blitz design (Feb 2025)",
+    "Arrowhead Pride - Chiefs 2025 defensive stats",
+    "Athlon Sports - Chiefs coaching changes (Feb 2026)",
+    "A to Z Sports / Yardbarker - Reid playcalling confirmation (Jan 2026)",
+    "NFL.com - Matt Nagy hired by Giants (Feb 2026)",
+    "Arrowhead Pride - Andy Reid shotgun/West Coast evolution"
+  ]
+}
