@@ -1765,7 +1765,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     canvas.toBlob(async blob=>{if(!blob)return;const fname='bigboardlab-my-guys.png';const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);if(isMobile&&navigator.share&&navigator.canShare){try{const file=new File([blob],fname,{type:'image/png'});if(navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'My Guys \u2014 Big Board Lab',text:'My 2026 NFL Draft guys! Build yours at bigboardlab.com'});return;}}catch(e){}}try{await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);setCopiedShare("my-guys");setTimeout(()=>setCopiedShare(null),1500);}catch(e){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=fname;document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(()=>URL.revokeObjectURL(url),3000);}trackEvent(user?.id,'share_triggered',{type:'my_guys',count:myGuys.length,guest:!user});},'image/png');
   },[myGuys,traits,getGrade,prospectBadges]);
 
-  // Share top 10 (overall or position-specific) as branded image
+  // Share top 10 (overall or position-specific) as branded image — matches My Guys layout
   const sharePositionTop10=useCallback(async(pos)=>{
     const board=getBoard();
     const singlePos=pos||null;
@@ -1773,8 +1773,11 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     if(top10.length===0)return;
 
     const scale=2;
-    const W=1200,padX=32,cardH=134,cardGap=12,headerH=90,footerH=52;
-    const H=headerH+top10.length*(cardH+cardGap)+footerH+16;
+    const W=1200,padX=32,cardGap=14,padTop=16,headerH=90,footerH=52;
+    const colW=(W-padX*2-cardGap)/2;const cardH=260;
+    const rows=Math.ceil(top10.length/2)||1;
+    const gridH=rows*cardH+(rows-1)*cardGap;
+    const H=headerH+padTop+gridH+padTop+footerH;
     const canvas=document.createElement('canvas');canvas.width=W*scale;canvas.height=H*scale;
     const ctx=canvas.getContext('2d');ctx.scale(scale,scale);
 
@@ -1782,128 +1785,106 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
 
     ctx.fillStyle='#faf9f6';ctx.fillRect(0,0,W,H);
 
-    const tGrad=ctx.createLinearGradient(0,0,W,0);
-    tGrad.addColorStop(0,'#ec4899');tGrad.addColorStop(1,'#7c3aed');
+    // Gradient top bar
+    const tGrad=ctx.createLinearGradient(0,0,W,0);tGrad.addColorStop(0,'#ec4899');tGrad.addColorStop(1,'#7c3aed');
     ctx.fillStyle=tGrad;ctx.fillRect(0,0,W,4);
 
+    // Title — left
     ctx.textBaseline='top';ctx.textAlign='left';
-    ctx.fillStyle='#171717';ctx.font='bold 32px -apple-system,system-ui,sans-serif';
-    const title=singlePos?`\u{1f4cb} MY TOP 10 ${singlePos}s`:'\u{1f4cb} MY BIG BOARD \u2014 TOP 10';
+    ctx.fillStyle='#171717';ctx.font=`900 32px ${font}`;
+    const title=singlePos?`\u{1f4cb} my top 10 ${singlePos.toLowerCase()}s`:'\u{1f4cb} my big board';
     ctx.fillText(title,padX,22);
-    ctx.fillStyle='#a3a3a3';ctx.font='11px ui-monospace,monospace';
-    ctx.fillText('BIGBOARDLAB.COM  \u00b7  2026 NFL DRAFT',padX,56);
 
-    const sGrad=ctx.createLinearGradient(padX,0,W-padX,0);
-    sGrad.addColorStop(0,'#ec4899');sGrad.addColorStop(1,'#7c3aed');
+    // Logo + wordmark — top-right
+    let logoImg=null;try{logoImg=new Image();logoImg.crossOrigin='anonymous';logoImg.src='/logo.png';await new Promise((res,rej)=>{logoImg.onload=res;logoImg.onerror=rej;setTimeout(rej,2000);});}catch(e){logoImg=null;}
+    const logoH=36,logoW=logoImg?Math.round(logoImg.naturalWidth/logoImg.naturalHeight*logoH):0;
+    ctx.font=`800 28px ${font}`;
+    const wmW=ctx.measureText('big board lab').width;
+    const brandTotalW=logoW+(logoW?10:0)+wmW;
+    const brandX=W-padX-brandTotalW;
+    const brandMidY=38;
+    if(logoImg)ctx.drawImage(logoImg,brandX,brandMidY-logoH/2,logoW,logoH);
+    ctx.fillStyle='#171717';ctx.font=`800 28px ${font}`;ctx.textBaseline='middle';
+    ctx.fillText('big board lab',brandX+(logoW?logoW+10:0),brandMidY);
+    ctx.textBaseline='top';
+
+    // Gradient separator
+    const sGrad=ctx.createLinearGradient(padX,0,W-padX,0);sGrad.addColorStop(0,'#ec4899');sGrad.addColorStop(1,'#7c3aed');
     ctx.fillStyle=sGrad;ctx.fillRect(padX,headerH-6,W-padX*2,2);
 
+    // Load school logos
     const logoCache={};
     const schools=[...new Set(top10.map(p=>p.school))];
-    await Promise.all(schools.map(async s=>{
-      const url=schoolLogo(s);
-      if(!url)return;
-      try{const img=new Image();img.crossOrigin='anonymous';img.src=url;await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;setTimeout(rej,2000);});logoCache[s]=img;}catch(e){}
-    }));
+    await Promise.all(schools.map(async s=>{const url=schoolLogo(s);if(!url)return;try{const img=new Image();img.crossOrigin='anonymous';img.src=url;await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;setTimeout(rej,2000);});logoCache[s]=img;}catch(e){}}));
 
-    const drawRadar=(cx,cy,r,traitNames,values,color)=>{
-      const n=traitNames.length;if(n<3)return;
-      const angles=traitNames.map((_,i)=>(Math.PI*2*i)/n-Math.PI/2);
-      const rK=1.8,rCurve=v=>Math.pow(v/100,rK)*100,rFLOOR=rCurve(40);
-      const rGrid=[50,60,70,80,90,100].map(lv=>Math.max(0,(rCurve(lv)-rFLOOR)/(100-rFLOOR)));
-      ctx.strokeStyle='#e0e0e0';ctx.lineWidth=0.5;
-      rGrid.forEach((lv,li)=>{
-        ctx.beginPath();
-        angles.forEach((a,i)=>{const x=cx+r*lv*Math.cos(a),y=cy+r*lv*Math.sin(a);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
-        ctx.closePath();if(li===2){ctx.strokeStyle='#d4d4d4';ctx.lineWidth=0.8;}else{ctx.strokeStyle='#e0e0e0';ctx.lineWidth=0.5;}ctx.stroke();
-      });
-      angles.forEach(a=>{ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+r*Math.cos(a),cy+r*Math.sin(a));ctx.strokeStyle='#e0e0e0';ctx.lineWidth=0.5;ctx.stroke();});
-      const pts=angles.map((a,i)=>{const raw=values[i]||50;const v=Math.max(0,(rCurve(raw)-rFLOOR)/(100-rFLOOR));return[cx+r*v*Math.cos(a),cy+r*v*Math.sin(a)];});
-      ctx.beginPath();pts.forEach(([x,y],i)=>i===0?ctx.moveTo(x,y):ctx.lineTo(x,y));ctx.closePath();
-      ctx.fillStyle=color+'25';ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.stroke();
-      pts.forEach(([x,y])=>{ctx.beginPath();ctx.arc(x,y,2.5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
-      ctx.fillStyle='#999';ctx.font='9px -apple-system,system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
-      traitNames.forEach((t,i)=>{
-        const lr=r+16;const x=cx+lr*Math.cos(angles[i]),y=cy+lr*Math.sin(angles[i]);
-        ctx.fillText(t,x,y);
-      });
-      ctx.textAlign='left';ctx.textBaseline='top';
-    };
+    // Radar chart helper
+    const drawCardRadar=(cx0,cy0,rad,traitNames,values,color)=>{const n=traitNames.length;if(n<3)return;const angles=traitNames.map((_,j)=>(Math.PI*2*j/n)-Math.PI/2);const pt=(a,v)=>[cx0+rad*v*Math.cos(a),cy0+rad*v*Math.sin(a)];const rK=1.8,rCurve=v=>Math.pow(v/100,rK)*100,rFLOOR=rCurve(40);const rGridLevels=[50,60,70,80,90,100].map(lv=>Math.max(0,(rCurve(lv)-rFLOOR)/(100-rFLOOR)));rGridLevels.forEach((lv,li)=>{ctx.beginPath();angles.forEach((a,j)=>{const[px,py]=pt(a,lv);j===0?ctx.moveTo(px,py):ctx.lineTo(px,py);});ctx.closePath();ctx.strokeStyle=li===2?'#d4d4d4':'#e5e5e5';ctx.lineWidth=li===rGridLevels.length-1?0.8:0.4;ctx.stroke();});ctx.fillStyle='#a3a3a3';ctx.font=`7px ${mono}`;ctx.textAlign='center';ctx.textBaseline='middle';angles.forEach((a,j)=>{const[lx,ly]=pt(a,1.22);ctx.fillText(traitNames[j].split(' ')[0],lx,ly);});ctx.beginPath();angles.forEach((a,j)=>{const v=Math.max(0.05,values[j]||0);const[px,py]=pt(a,v);j===0?ctx.moveTo(px,py):ctx.lineTo(px,py);});ctx.closePath();ctx.fillStyle=color+'20';ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=1.2;ctx.stroke();angles.forEach((a,j)=>{const v=Math.max(0.05,values[j]||0);const[px,py]=pt(a,v);ctx.beginPath();ctx.arc(px,py,2,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});ctx.textAlign='left';ctx.textBaseline='top';};
 
-    const posRanks={};
-    board.forEach((p,i)=>{
-      const pk=(p.gpos||p.pos)==='K'||(p.gpos||p.pos)==='P'||(p.gpos||p.pos)==='LS'?'K/P':(p.gpos||p.pos);
-      if(!posRanks[pk])posRanks[pk]=0;
-      posRanks[pk]++;
-      p._posRank=posRanks[pk];
-    });
-
-    top10.forEach((p,i)=>{
-      const cy=headerH+i*(cardH+cardGap);
+    // Cards — 2-column grid matching My Guys
+    for(let i=0;i<top10.length;i++){
+      const col=i%2,row=Math.floor(i/2);
+      const cx0=padX+col*(colW+cardGap);
+      const cy0=headerH+padTop+row*(cardH+cardGap);
+      const p=top10[i];
       const grade=getGrade(p.id);
       const posKey=(p.gpos||p.pos)==='K'||(p.gpos||p.pos)==='P'||(p.gpos||p.pos)==='LS'?'K/P':(p.gpos||p.pos);
       const c=POS_COLORS[posKey]||POS_COLORS[p.pos]||'#525252';
       const posTraits=POSITION_TRAITS[p.pos]||POSITION_TRAITS[posKey]||[];
-      const traitVals=posTraits.map(t=>tv(traits,p.id,t,p.name,p.school));
+      const cK=1.8,cCurve=v=>Math.pow(v/100,cK)*100,cFLOOR=cCurve(40);
+      const traitVals=posTraits.map(t=>{const raw=tv(traits,p.id,t,p.name,p.school);return Math.max(0,(cCurve(raw)-cFLOOR)/(100-cFLOOR));});
 
-      ctx.fillStyle='#ffffff';rr(padX,cy,W-padX*2,cardH,14);ctx.fill();
-      ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;rr(padX,cy,W-padX*2,cardH,14);ctx.stroke();
+      // Card bg
+      ctx.fillStyle='#ffffff';rr(cx0,cy0,colW,cardH,14);ctx.fill();
+      ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;rr(cx0,cy0,colW,cardH,14);ctx.stroke();
 
-      ctx.fillStyle=c;ctx.fillRect(padX+1,cy+8,4,cardH-16);
+      const tx=cx0+16,ty=cy0+16;
 
-      ctx.fillStyle='#d4d4d4';ctx.font='bold 28px ui-monospace,monospace';
-      ctx.textAlign='right';ctx.fillText(`${i+1}`.padStart(2,' '),padX+56,cy+cardH/2-14);ctx.textAlign='left';
+      // Rank number
+      ctx.fillStyle='#d4d4d4';ctx.font=`bold 22px ${sans}`;ctx.textAlign='left';ctx.textBaseline='top';
+      ctx.fillText(String(i+1),tx,ty);
 
-      if(logoCache[p.school])ctx.drawImage(logoCache[p.school],padX+70,cy+cardH/2-24,48,48);
+      // School logo
+      const logoX=tx+30;
+      if(p.school&&logoCache[p.school])ctx.drawImage(logoCache[p.school],logoX,ty-2,28,28);
 
-      ctx.fillStyle='#171717';ctx.font='bold 22px -apple-system,system-ui,sans-serif';
-      ctx.fillText(p.name,padX+130,cy+26);
+      // Player name
+      const nameX=logoX+34;
+      ctx.fillStyle='#171717';ctx.font=`bold 16px ${sans}`;
+      const maxNameW=colW-16-30-34-60;
+      ctx.save();ctx.beginPath();ctx.rect(nameX,ty,maxNameW,30);ctx.clip();
+      ctx.fillText(p.name,nameX,ty);ctx.restore();
 
+      // School text
+      ctx.fillStyle='#a3a3a3';ctx.font=`10px ${mono}`;
+      ctx.fillText(p.school||'',nameX,ty+20);
+
+      // Position pill
       const posText=p.gpos||p.pos;
-      ctx.font='bold 12px ui-monospace,monospace';
+      ctx.font=`bold 10px ${mono}`;
       const pw=ctx.measureText(posText).width+14;
-      ctx.fillStyle=c+'18';rr(padX+130,cy+54-4,pw,24,6);ctx.fill();
-      ctx.fillStyle=c;ctx.font='bold 12px ui-monospace,monospace';
-      ctx.fillText(posText,padX+130+7,cy+54+2);
+      const pillX=cx0+colW-16-pw;
+      ctx.fillStyle=c+'18';rr(pillX,ty+2,pw,20,4);ctx.fill();
+      ctx.fillStyle=c;ctx.fillText(posText,pillX+7,ty+7);
 
-      let afterX=padX+130+pw+10;
-      ctx.fillStyle='#a3a3a3';ctx.font='13px -apple-system,system-ui,sans-serif';
-      ctx.fillText(p.school,afterX,cy+54+2);
-      afterX+=ctx.measureText(p.school).width;
+      // Radar chart
+      drawCardRadar(cx0+colW/2,cy0+52+70,58,posTraits,traitVals,c);
 
-      if(p._posRank){
-        const prText=posText+p._posRank;
-        afterX+=12;
-        ctx.fillStyle=c;ctx.font='bold 11px ui-monospace,monospace';
-        ctx.fillText(prText,afterX,cy+54+3);
-        afterX+=ctx.measureText(prText).width;
-      }
-
+      // Bottom divider + grade + badges
+      const by=cy0+cardH-40;
+      ctx.fillStyle='#f5f5f5';ctx.fillRect(cx0+16,by-6,colW-32,1);
+      if(grade){ctx.font=`bold 24px ${sans}`;ctx.fillStyle=grade>=75?'#16a34a':grade>=55?'#ca8a04':'#dc2626';ctx.textAlign='left';ctx.textBaseline='top';ctx.fillText(String(grade),cx0+16,by);}
       const badges=prospectBadges[p.id]||[];
-      if(badges.length>0){afterX+=14;ctx.font='15px -apple-system,system-ui,sans-serif';badges.forEach(b=>{ctx.fillText(b.emoji,afterX,cy+54);afterX+=20;});}
+      if(badges.length>0){ctx.font=`14px ${sans}`;ctx.textAlign='right';ctx.textBaseline='top';ctx.fillText(badges.map(b=>b.emoji).join(' '),cx0+colW-16,by+4);}
+      ctx.textAlign='left';ctx.textBaseline='top';
+    }
 
-      const radarCx=W-padX-170,radarCy=cy+cardH/2,radarR=42;
-      if(posTraits.length>=3)drawRadar(radarCx,radarCy,radarR,posTraits,traitVals,c);
-
-      const gColor=grade>=75?'#16a34a':grade>=55?'#ca8a04':'#dc2626';
-      ctx.fillStyle=gColor;ctx.font='bold 36px -apple-system,system-ui,sans-serif';
-      ctx.textAlign='right';ctx.fillText(`${grade}`,W-padX-16,cy+34);ctx.textAlign='left';
-    });
-
-    let logoImg=null;
-    try{logoImg=new Image();logoImg.crossOrigin='anonymous';logoImg.src='/logo.png';await new Promise((res,rej)=>{logoImg.onload=res;logoImg.onerror=rej;setTimeout(rej,2000);});}catch(e){logoImg=null;}
+    // Footer — centered CTA
     const fy=H-footerH;
-    ctx.fillStyle='#111';ctx.fillRect(0,fy,W,footerH);
-    const logoOffset=logoImg?36:0;
-    if(logoImg)ctx.drawImage(logoImg,padX,fy+10,32,32);
-    ctx.fillStyle='#fff';ctx.font='bold 14px -apple-system,system-ui,sans-serif';
-    ctx.textBaseline='middle';
-    ctx.fillText('bigboardlab.com',padX+logoOffset+8,fy+footerH/2);
-    ctx.fillStyle='#888';ctx.font='11px -apple-system,system-ui,sans-serif';
-    ctx.textAlign='right';
-    ctx.fillText(`${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}  \u00b7  BUILD YOURS \u2192 BIGBOARDLAB.COM`,W-padX,fy+footerH/2);
+    ctx.fillStyle='#e5e5e5';ctx.fillRect(padX,fy,W-padX*2,1);
+    ctx.textBaseline='middle';ctx.textAlign='center';
+    ctx.fillStyle='#a3a3a3';ctx.font=`13px ${mono}`;
+    ctx.fillText('draft smarter at bigboardlab.com',W/2,fy+footerH/2);
     ctx.textAlign='left';ctx.textBaseline='top';
-    const bGrad=ctx.createLinearGradient(0,0,W,0);bGrad.addColorStop(0,'#ec4899');bGrad.addColorStop(1,'#7c3aed');
-    ctx.fillStyle=bGrad;ctx.fillRect(0,H-3,W,3);
 
     canvas.toBlob(async blob=>{
       if(!blob)return;
