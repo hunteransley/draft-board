@@ -1718,11 +1718,12 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
         <div style={{borderTop:"1px solid #f5f5f5",marginBottom:8}}/>
         <div style={{fontFamily:mono,fontSize:7,letterSpacing:1,color:"#d4d4d4",textTransform:"uppercase",marginBottom:4}}>pre-draft needs</div>
         <div style={{display:"flex",flexWrap:"wrap",gap:4,marginBottom:lines.length>0?10:0}}>
-          {needEntries.map(([pos,count])=>{const rem=remaining[pos]||0;const filled=count-rem;
-            return Array.from({length:count}).map((_,i)=><span key={pos+i} style={{fontFamily:mono,fontSize:9,padding:"2px 6px",borderRadius:4,
-              ...(i<filled?{background:"rgba(34,197,94,0.1)",color:"#16a34a",border:"1px solid rgba(34,197,94,0.2)"}:{background:"rgba(239,68,68,0.06)",color:"#dc2626",border:"1px solid rgba(239,68,68,0.12)"})
-            }}>{pos}{i<filled?" ✓":""}</span>);
-          })}
+          {(()=>{const broad=new Set(["DB","DL","OL"]);return needEntries.filter(([pos,v])=>v>=2&&!broad.has(pos)).map(([pos])=>{const rem=remaining[pos]||0;const isFilled=rem<=0;
+            return <span key={pos} style={{fontFamily:mono,fontSize:9,padding:"2px 6px",borderRadius:4,
+              ...(isFilled?{background:"rgba(34,197,94,0.1)",color:"#16a34a",border:"1px solid rgba(34,197,94,0.2)"}
+                :{background:"rgba(239,68,68,0.06)",color:"#dc2626",border:"1px solid rgba(239,68,68,0.12)"})
+            }}>{pos}{isFilled?" ✓":""}</span>;
+          });})()}
         </div>
       </>}
       {lines.length>0&&<div>{lines.map((l,i)=><div key={i} style={{fontFamily:sans,fontSize:11,color:l.color,lineHeight:1.5}}>{l.text}</div>)}</div>}
@@ -1737,12 +1738,13 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   };
 
   const LiveNeeds=({team})=>{
-    const needs=liveNeeds[team]||{};const entries=Object.entries(needs).filter(([,v])=>v>0);
-    const base=TEAM_NEEDS_COUNTS?.[team]||{};const filled=Object.entries(base).filter(([k])=>!needs[k]||needs[k]===0);
+    const needs=liveNeeds[team]||{};const base=TEAM_NEEDS_COUNTS?.[team]||{};const isUser=userTeams.has(team);const broad=new Set(["DB","DL","OL"]);
+    const entries=Object.entries(needs).filter(([pos,v])=>v>0&&(!isUser||(!broad.has(pos)&&(base[pos]||0)>=2)));
+    const filled=Object.entries(base).filter(([k])=>(!needs[k]||needs[k]===0)&&(!isUser||(!broad.has(k)&&(base[k]||0)>=2)));
     return(<div style={{marginTop:4}}>
       <div style={{fontFamily:mono,fontSize:7,letterSpacing:1.5,color:"rgba(255,255,255,0.3)",textTransform:"uppercase",marginBottom:2}}>needs</div>
       <div style={{display:"flex",flexWrap:"wrap",gap:2}}>
-        {entries.map(([pos,count])=>(<span key={pos} style={{fontFamily:mono,fontSize:7,padding:"1px 4px",background:"rgba(239,68,68,0.2)",color:"#fca5a5",border:"1px solid rgba(239,68,68,0.25)",borderRadius:3}}>{pos}{count>1?" ×"+count:""}</span>))}
+        {entries.map(([pos])=>(<span key={pos} style={{fontFamily:mono,fontSize:7,padding:"1px 4px",borderRadius:3,background:"rgba(239,68,68,0.2)",color:"#fca5a5",border:"1px solid rgba(239,68,68,0.25)"}}>{pos}</span>))}
         {filled.map(([pos])=>(<span key={pos} style={{fontFamily:mono,fontSize:7,padding:"1px 4px",background:"rgba(34,197,94,0.15)",color:"#86efac",borderRadius:3,textDecoration:"line-through",opacity:0.5}}>{pos} ✓</span>))}
       </div>
     </div>);
@@ -2200,8 +2202,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   // === MOBILE DRAFT SCREEN ===
   if(isMobile){
     const userPicks=picks.filter(pk=>pk.isUser);
-    const needs=liveNeeds[currentTeam]||{};const needEntries=Object.entries(needs).filter(([,v])=>v>0);
-    const base=TEAM_NEEDS_COUNTS?.[currentTeam]||{};const filled=Object.entries(base).filter(([k])=>!needs[k]||needs[k]===0);
+    const needs=liveNeeds[currentTeam]||{};const base=TEAM_NEEDS_COUNTS?.[currentTeam]||{};const isUserTeam=userTeams.has(currentTeam);const broad=new Set(["DB","DL","OL"]);
+    const needEntries=Object.entries(needs).filter(([pos,v])=>v>0&&(!isUserTeam||(!broad.has(pos)&&(base[pos]||0)>=2)));
+    const filled=Object.entries(base).filter(([k])=>(!needs[k]||needs[k]===0)&&(!isUserTeam||(!broad.has(k)&&(base[k]||0)>=2)));
     return(
       <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font,display:"flex",flexDirection:"column"}}>
         <style>{`.trait-pills-scroll::-webkit-scrollbar{display:none;}`}</style>
@@ -2292,7 +2295,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
           <div style={{marginBottom:userPicks.length>0?6:0}}>
             <div style={{fontFamily:mono,fontSize:7,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:3}}>needs</div>
             <div style={{display:"flex",gap:3,flexWrap:"wrap"}}>
-              {needEntries.map(([pos,count])=>(<span key={pos} style={{fontFamily:mono,fontSize:8,padding:"2px 6px",background:(POS_COLORS[pos]||"#737373")+"12",color:POS_COLORS[pos]||"#737373",borderRadius:4,border:"1px solid "+(POS_COLORS[pos]||"#737373")+"25"}}>{pos}{count>1?" ×"+count:""}</span>))}
+              {needEntries.map(([pos])=>(<span key={pos} style={{fontFamily:mono,fontSize:8,padding:"2px 6px",borderRadius:4,background:"rgba(239,68,68,0.06)",color:"#dc2626",border:"1px solid rgba(239,68,68,0.12)"}}>{pos}</span>))}
               {filled.map(([pos])=>(<span key={pos} style={{fontFamily:mono,fontSize:8,padding:"2px 6px",background:"#dcfce7",color:"#16a34a",borderRadius:4,textDecoration:"line-through",opacity:0.5}}>{pos} ✓</span>))}
             </div>
           </div>
@@ -2639,9 +2642,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
               <div>
                 <p style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",margin:0}}>You're on the clock — Rd {currentRound} Pick #{picks.length+1}</p>
                 <div style={{display:"flex",gap:3,marginTop:3}}>
-                  {Object.entries(liveNeeds[currentTeam]||{}).filter(([,v])=>v>0).map(([pos,count])=>(
-                    <span key={pos} style={{fontFamily:mono,fontSize:8,padding:"1px 5px",background:(POS_COLORS[pos]||"#737373")+"15",color:POS_COLORS[pos]||"#737373",borderRadius:3,border:"1px solid "+(POS_COLORS[pos]||"#737373")+"30"}}>{pos}{count>1?" ×"+count:""}</span>
-                  ))}
+                  {(()=>{const bn=TEAM_NEEDS_COUNTS?.[currentTeam]||{};const broad=new Set(["DB","DL","OL"]);return Object.entries(liveNeeds[currentTeam]||{}).filter(([pos,v])=>v>0&&!broad.has(pos)&&(bn[pos]||0)>=2).map(([pos])=>(
+                    <span key={pos} style={{fontFamily:mono,fontSize:8,padding:"1px 5px",borderRadius:3,background:"rgba(239,68,68,0.08)",color:"#dc2626",border:"1px solid rgba(239,68,68,0.15)"}}>{pos}</span>));})()}
                 </div>
               </div>
             </div>

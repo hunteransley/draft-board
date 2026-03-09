@@ -7,10 +7,12 @@ python agents/run.py download-batch         # download results when done
 python agents/run.py gm --team TEN          # real-time single team
 python agents/run.py scouting --prospect "Cam Ward"
 python agents/run.py scouting --position EDGE --batch
+python agents/run.py pro-day --all --batch         # batch all completed pro days
+python agents/run.py pro-day --school "Wisconsin"  # single school real-time
 """
 import os, sys, json, time, argparse, re
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, date
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 AGENTS_DIR = PROJECT_ROOT / "agents"
@@ -27,6 +29,7 @@ DEFAULT_MODELS = {
     "content": "claude-sonnet-4-6",
     "scheme": "claude-opus-4-6",
     "team-needs": "claude-opus-4-6",
+    "pro-day": "claude-opus-4-6",
 }
 
 NFL_DIVISIONS = {
@@ -506,6 +509,118 @@ def run_scouting_agent(args):
     else:
         print("❌ Specify --prospect or --position"); sys.exit(1)
 
+# --- PRO DAY AGENT ---
+
+def parse_pro_day_schedule():
+    """Parse agents/pro-day/schedule.txt → {school: latest_date_str}"""
+    sched_path = AGENTS_DIR / "pro-day" / "schedule.txt"
+    if not sched_path.exists():
+        print(f"❌ Schedule not found: {sched_path}"); sys.exit(1)
+    schedule = {}
+    current_date = None
+    for line in sched_path.read_text().splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if re.match(r'^(March|April)\s+\d+$', line):
+            current_date = line
+        elif current_date:
+            schedule[line] = current_date  # last occurrence wins for dupes
+    return schedule
+
+def parse_date_2026(date_str):
+    """Parse 'March 5' → date(2026, 3, 5)."""
+    return datetime.strptime(f"{date_str} 2026", "%B %d %Y").date()
+
+def run_pro_day_agent(args):
+    spec = load_agent_spec("pro-day")
+    model = args.model or DEFAULT_MODELS["pro-day"]
+    out = OUTPUT_DIR / "pro-day"
+    out.mkdir(parents=True, exist_ok=True)
+
+    schedule = parse_pro_day_schedule()
+
+    if args.school:
+        # Find school in schedule (case-insensitive)
+        matched = None
+        for s in schedule:
+            if s.lower() == args.school.lower():
+                matched = s; break
+        if not matched:
+            # Fuzzy: check if school name is contained in any schedule entry
+            for s in schedule:
+                if args.school.lower() in s.lower():
+                    matched = s; break
+        if not matched:
+            print(f"❌ '{args.school}' not found in schedule. Available schools:")
+            for s, d in sorted(schedule.items()):
+                print(f"   {d}: {s}")
+            sys.exit(1)
+        schools = {matched: schedule[matched]}
+    elif args.all:
+        today = date.today()
+        schools = {s: d for s, d in schedule.items() if parse_date_2026(d) <= today}
+        if not schools:
+            print("❌ No pro days have occurred yet (based on today's date).")
+            print(f"   Next pro day: {min(schedule.items(), key=lambda x: parse_date_2026(x[1]))}")
+            sys.exit(1)
+        print(f"📋 {len(schools)} pro days completed as of {today.strftime('%B %d')}:")
+        for s, d in sorted(schools.items(), key=lambda x: parse_date_2026(x[1])):
+            print(f"   {d}: {s}")
+    else:
+        print("❌ Specify --school or --all"); sys.exit(1)
+
+    # Determine which need processing
+    if args.force:
+        to_run = schools
+    else:
+        to_run = {}
+        for s, d in schools.items():
+            safe = re.sub(r'[^a-zA-Z0-9_-]', '_', s.lower().replace(' ', '_').replace('.', ''))
+            if not (out / f"{safe}.json").exists():
+                to_run[s] = d
+            else:
+                print(f"⏭️  {s} — already done")
+        if not to_run:
+            print("\nAll done. Use --force to re-run."); return
+
+    def make_msg(school, date_str):
+        return (f"Research the {school} Pro Day held on {date_str}, 2026.\n\n"
+                f"Find and record testing results for EVERY participant. Search thoroughly using "
+                f"multiple queries and sources. Record all measurements (height, weight, arms, hands, "
+                f"wingspan) and all drills (40-yard dash, vertical jump, broad jump, bench press, "
+                f"3-cone, shuttle) for every prospect who worked out.\n\n"
+                f"CRITICAL REQUIREMENTS:\n"
+                f"- Include ALL participants, not just notable prospects. Pro days typically have 10-30+ participants.\n"
+                f"- Convert all heights to total inches (6'2\" = 74.0, 6'4 3/4\" = 76.75).\n"
+                f"- Convert all fractional measurements to decimal (33 1/4\" = 33.25).\n"
+                f"- Use null for any drill/measurement not reported.\n"
+                f"- Note if times are hand-timed vs electronic.\n"
+                f"- Include visiting prospects from other schools (note their actual school in notes).\n"
+                f"- Cross-reference multiple sources for accuracy on key numbers.\n"
+                f"- Output ONLY the JSON object as specified. Start with {{ and end with }}.")
+
+    if args.batch:
+        if args.dry_run:
+            print(f"\nDRY RUN — would batch {len(to_run)} schools: {', '.join(to_run.keys())}"); return
+        reqs = []
+        for school, d in to_run.items():
+            safe = re.sub(r'[^a-zA-Z0-9_-]', '_', school.lower().replace(' ', '_').replace('.', ''))[:64]
+            reqs.append({"custom_id": safe, "params": {"model": model, "max_tokens": 16000, "system": spec,
+                         "tools": [{"type": "web_search_20250305", "name": "web_search"}],
+                         "messages": [{"role": "user", "content": make_msg(school, d)}]}})
+        submit_batch(reqs, "pro-day"); return
+
+    for i, (school, d) in enumerate(to_run.items(), 1):
+        safe = re.sub(r'[^a-zA-Z0-9_-]', '_', school.lower().replace(' ', '_').replace('.', ''))
+        print(f"\n🏟️  [{i}/{len(to_run)}] Researching: {school} ({d})")
+        if args.dry_run: print(f"   DRY RUN"); continue
+        result = call_agent(spec, make_msg(school, d), model, 16000)
+        jd = extract_json(result)
+        if jd: (out / f"{safe}.json").write_text(json.dumps(jd, indent=2)); print(f"   ✅ Saved")
+        else: (out / f"{safe}_raw.md").write_text(result); print(f"   ⚠️  No JSON, raw saved")
+        time.sleep(DELAY_BETWEEN_CALLS_SECONDS)
+
 # --- GENERIC ---
 
 def run_generic_agent(args):
@@ -524,7 +639,7 @@ def run_generic_agent(args):
 
 def main():
     p = argparse.ArgumentParser(description="BBL Agent Runner", formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="Examples:\n  python agents/run.py gm --all --batch\n  python agents/run.py check-batch\n  python agents/run.py download-batch\n  python agents/run.py gm --team TEN\n  python agents/run.py scouting --position EDGE --batch")
+        epilog="Examples:\n  python agents/run.py gm --all --batch\n  python agents/run.py check-batch\n  python agents/run.py download-batch\n  python agents/run.py gm --team TEN\n  python agents/run.py scouting --position EDGE --batch\n  python agents/run.py pro-day --all --batch\n  python agents/run.py pro-day --school Wisconsin")
     p.add_argument("agent", help="scouting, gm, check-batch, or download-batch")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--model", help="Override default model")
@@ -533,6 +648,7 @@ def main():
     p.add_argument("--position", help="Position group (EDGE, QB, etc.)")
     p.add_argument("--team", help="Single team (TEN, BAL, etc.)")
     p.add_argument("--division", help="Division name")
+    p.add_argument("--school", help="School name for pro-day agent")
     p.add_argument("--all", action="store_true", help="All 32 teams")
     p.add_argument("--force", action="store_true", help="Overwrite existing results")
     p.add_argument("--message", help="Freeform message for generic agents")
@@ -545,6 +661,7 @@ def main():
     elif args.agent in ("gm","gm-personality"): run_gm_agent(args)
     elif args.agent == "scheme": run_scheme_agent(args)
     elif args.agent in ("team-needs","needs"): run_team_needs_agent(args)
+    elif args.agent in ("pro-day","proday"): run_pro_day_agent(args)
     else:
         if not args.message: print(f"❌ Provide --message for custom agents"); sys.exit(1)
         run_generic_agent(args)
