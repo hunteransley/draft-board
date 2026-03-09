@@ -122,12 +122,110 @@ function classifyRunScheme(text) {
   return "mixed";
 }
 
+// Classify pass style: "timing" | "vertical" | "play_action" | "spread"
+function classifyPassStyle(passConcepts, schemeFamily) {
+  const t = ((passConcepts || "") + " " + (schemeFamily || "")).toLowerCase();
+  const timing = (t.match(/timing|west coast|quick game|short-to-intermediate|slant|curl|dig/gi) || []).length;
+  const vertical = (t.match(/vertical|deep shot|downfield|air raid|explosive/gi) || []).length;
+  const pa = (t.match(/play action|boot|bootleg|naked|rollout|under center/gi) || []).length;
+  const spread = (t.match(/spread|rpo|shotgun|horizontal stretch/gi) || []).length;
+  const scores = [
+    ["play_action", pa],
+    ["timing", timing],
+    ["vertical", vertical],
+    ["spread", spread],
+  ];
+  scores.sort((a, b) => b[1] - a[1]);
+  return scores[0][1] > 0 ? scores[0][0] : "timing";
+}
+
+// Classify RPO usage: "high" | "moderate" | "low"
+function classifyRpoUsage(text) {
+  if (!text) return "moderate";
+  const t = text.toLowerCase();
+  if (/\b(high|very high|heavy|elite)\b/.test(t)) {
+    if (/low-to-|moderate-to-low/.test(t)) return "low";
+    return "high";
+  }
+  if (/\b(low|minimal|not|rarely)\b/.test(t)) {
+    if (/moderate-to-high|low-to-high/.test(t)) return "high";
+    if (/low-to-moderate/.test(t)) return "low";
+    return "low";
+  }
+  if (/moderate-to-high/.test(t)) return "high";
+  if (/moderate-to-low|low-to-moderate/.test(t)) return "low";
+  return "moderate";
+}
+
+// Classify TE role: "move" | "hybrid" | "inline" | "standard"
+function classifyTeRole(text) {
+  if (!text) return "standard";
+  const t = text.toLowerCase();
+  const move = (t.match(/flex|slot|detach|move te|de facto wr|split wide|route tree/gi) || []).length;
+  const block = (t.match(/inline|in-line|block|run game|zone block/gi) || []).length;
+  const receiving = (t.match(/receiv|weapon|primary target|featured/gi) || []).length;
+  if (move >= 2 && block < 2) return "move";
+  if (move >= 1 && block >= 2) return "hybrid";
+  if (block >= 2 && receiving < 2) return "inline";
+  return "standard";
+}
+
+// Classify edge type: "standup" | "hands_dirt" | "hybrid"
+function classifyEdgeType(text) {
+  if (!text) return "hybrid";
+  const t = text.toLowerCase();
+  const standup = (t.match(/stand-up|stand up|\bolb\b|two-point/gi) || []).length;
+  const dirt = (t.match(/hand-in-dirt|hands-in-dirt|4-3 de|hands-down|4-down|hand down/gi) || []).length;
+  if (standup > dirt + 1) return "standup";
+  if (dirt > standup + 1) return "hands_dirt";
+  if (standup > 0 && dirt > 0) return "hybrid";
+  if (standup > 0) return "standup";
+  if (dirt > 0) return "hands_dirt";
+  return "hybrid";
+}
+
+// Classify safety role: "hybrid_box" | "versatile" | "deep_first" | "traditional_split"
+function classifySafetyRole(text) {
+  if (!text) return "traditional_split";
+  const t = text.toLowerCase();
+  const hybrid = (t.match(/hybrid|box|slot|\blb\b|blitz|chess piece|multiple role|449|85% box|three-safety/gi) || []).length;
+  const deep = (t.match(/deep|centerfield|single high|free safety|ballhawk/gi) || []).length;
+  if (hybrid >= 4 || /three-safety/.test(t)) return "hybrid_box";
+  if (hybrid >= 2) return "versatile";
+  if (deep >= 2 && hybrid < 2) return "deep_first";
+  return "traditional_split";
+}
+
+// Classify LB scheme role: "coverage_first" | "run_coverage" | "blitz_hybrid" | "edge_convert"
+function classifyLbSchemeRole(text, defFront) {
+  if (!text) return "run_coverage";
+  const t = text.toLowerCase();
+  const coverage = (t.match(/coverage first|coverage capable|cover|nickel|off ball|only 1 lb/gi) || []).length;
+  const rush = (t.match(/pass rush|edge|blitz|rush|stand-up/gi) || []).length;
+  const hybrid = (t.match(/hybrid|versatile|chess piece|multiple alignment/gi) || []).length;
+  if (rush >= 3 && defFront === "34") return "edge_convert";
+  if (hybrid >= 2) return "blitz_hybrid";
+  if (coverage >= 3) return "coverage_first";
+  return "run_coverage";
+}
+
+// Classify offense family: "shanahan_zone" | "west_coast" | "spread_rpo" | "power_run" | "pro_style"
+function classifyOffFamily(schemeFamily, runScheme) {
+  const t = ((schemeFamily || "") + " " + (runScheme || "")).toLowerCase();
+  if (/shanahan|wide zone|outside zone|kubiak/.test(t)) return "shanahan_zone";
+  if (/spread|air raid|rpo heavy/.test(t)) return "spread_rpo";
+  if (/power|gap primary|downhill|man block/.test(t)) return "power_run";
+  if (/west coast|walsh|reid|erhardt-perkins/.test(t)) return "west_coast";
+  return "pro_style";
+}
+
 function parseScheme(json) {
   const off = json.offense || {};
   const def = json.defense || {};
   const pvi = json.positional_value_inflections || {};
+  const defFront = classifyFront(def.base_front);
   return {
-    defFront: classifyFront(def.base_front),
+    defFront,
     coverageLean: classifyCoverage(def.coverage_base),
     blitzTendency: classifyBlitz(def.blitz_tendency),
     offPersonnel: classifyPersonnel(off.base_personnel),
@@ -136,6 +234,14 @@ function parseScheme(json) {
     lbRush: ratingToNum(pvi.lb_pass_rush_boost?.rating),
     rbDual: ratingToNum(pvi.rb_dual_threat_boost?.rating),
     sHybrid: ratingToNum(pvi.s_hybrid_boost?.rating),
+    // Enriched fields
+    passStyle: classifyPassStyle(off.pass_concepts, off.scheme_family),
+    rpoUsage: classifyRpoUsage(off.rpo_usage),
+    teRole: classifyTeRole(off.te_usage),
+    edgeType: classifyEdgeType(def.edge_rush_source),
+    safetyRole: classifySafetyRole(def.safety_usage),
+    lbSchemeRole: classifyLbSchemeRole(def.lb_role, defFront),
+    offFamily: classifyOffFamily(off.scheme_family, off.run_scheme),
   };
 }
 

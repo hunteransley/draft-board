@@ -17,7 +17,7 @@ import { NFL_TEAM_ABR, NFL_TEAM_ESPN, NFL_TEAM_COLORS } from "./teamConfig.js";
 import { PROSPECTS_RAW } from "./prospects.js";
 import NFL_ROSTERS from "./nflRosters.js";
 import { TEAM_ABBR, TEAM_SCHEME, getFormationPos, getSchemeDepthGroups } from "./depthChartUtils.js";
-import { computeAllSchemeFits, getTopTeamFits, getTeamSchemeFits } from "./schemeFit.js";
+import { computeAllSchemeFits, getTopTeamFits, getTeamSchemeFits, getSchemeTraitBreakdown, getPositionAvgFit } from "./schemeFit.js";
 
 // Suffix-aware short name: "Rueben Bain Jr." → "Bain Jr." not "Jr."
 const GEN_SUFFIXES=/^(Jr\.?|Sr\.?|II|III|IV|V|VI|VII|VIII)$/i;
@@ -564,9 +564,11 @@ function loadHistoricalComps(cb){
   }).catch(()=>{_historicalCompsLoading=false;_historicalCompsListeners.forEach(fn=>fn({}));_historicalCompsListeners=[];});
 }
 
-function ProfileTeamFits({topFits,font,mono,sans}){
+function ProfileTeamFits({topFits,player,userTraits,schemeFits,allProspects,font,mono,sans}){
   const[expanded,setExpanded]=useState(null);
   const[showInfo,setShowInfo]=useState(false);
+  const pos=player.gpos||player.pos;
+  const sortedFits=useMemo(()=>{const withDiff=topFits.map(tf=>{const avg=getPositionAvgFit(pos,tf.team,schemeFits,allProspects);return{...tf,posAvg:avg,diff:avg!=null?tf.score-avg:0};});withDiff.sort((a,b)=>b.diff-a.diff);return withDiff.slice(0,5);},[topFits,pos,schemeFits,allProspects]);
   return<div style={{padding:"0 24px 16px"}}>
     <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:8}}>
       <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>top team fits</div>
@@ -574,17 +576,43 @@ function ProfileTeamFits({topFits,font,mono,sans}){
     </div>
     {showInfo&&<div style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.5,background:"#f9f9f6",border:"1px solid #e5e5e5",borderRadius:8,padding:"10px 12px",marginBottom:10}}>Scheme fit scores rate how well this prospect's traits, archetype, and athletic profile align with each team's offensive or defensive scheme. Tap a score to see the breakdown.</div>}
     <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:8,overflow:"hidden"}}>
-      {topFits.map((tf,i)=>{const sc=tf.score;const scColor=sc>=80?"#16a34a":sc>=65?"#0d9488":sc>=50?"#d97706":"#a3a3a3";const isOpen=expanded===tf.team;const bars=[{l:"Traits",v:tf.components?.trait||0,c:"#6366f1"},{l:"Archetype",v:tf.components?.archetype||0,c:"#8b5cf6"},{l:"Scheme",v:tf.components?.positional||0,c:"#a78bfa"},{l:"Athletic",v:tf.components?.athletic||0,c:"#14b8a6"},{l:"Ceiling",v:tf.components?.ceiling||0,c:"#f59e0b"}];return<div key={tf.team} style={{borderBottom:i<topFits.length-1?"1px solid #f5f5f5":"none"}}>
+      {sortedFits.map((tf,i)=>{const sc=tf.score;const scColor=sc>=80?"#16a34a":sc>=65?"#0d9488":sc>=50?"#d97706":"#a3a3a3";const isOpen=expanded===tf.team;const bars=[{l:"Traits",v:tf.components?.trait||0,c:"#6366f1"},{l:"Archetype",v:tf.components?.archetype||0,c:"#8b5cf6"},{l:"Scheme",v:tf.components?.positional||0,c:"#a78bfa"},{l:"Athletic",v:tf.components?.athletic||0,c:"#14b8a6"},{l:"Ceiling",v:tf.components?.ceiling||0,c:"#f59e0b"}];
+      const breakdown=isOpen?getSchemeTraitBreakdown(player,tf.team,userTraits):null;
+      const {posAvg,diff}=tf;
+      const impTier=(w)=>w>=0.24?"essential":w>=0.18?"important":"contributing";
+      const impColor=(tier)=>tier==="essential"?"#6366f1":tier==="important"?"#a78bfa":"#d4d4d4";
+      const impDots=(tier)=>tier==="essential"?3:tier==="important"?2:1;
+      return<div key={tf.team} style={{borderBottom:i<sortedFits.length-1?"1px solid #f5f5f5":"none",cursor:"pointer"}} onClick={()=>setExpanded(isOpen?null:tf.team)}>
         <div style={{display:"flex",alignItems:"center",gap:10,padding:"10px 14px"}}>
           <NFLTeamLogo team={tf.team} size={24}/>
           <div style={{flex:1,minWidth:0}}>
             <span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717"}}>{tf.team}</span>
             {tf.tags.length>0&&<div style={{display:"flex",gap:4,marginTop:2,flexWrap:"wrap"}}>{tf.tags.slice(0,2).map((t,j)=><span key={j} style={{fontFamily:mono,fontSize:8,color:"#737373",background:"#f5f5f5",padding:"2px 6px",borderRadius:4,whiteSpace:"nowrap"}}>{t}</span>)}</div>}
           </div>
-          <span onClick={()=>setExpanded(isOpen?null:tf.team)} style={{fontFamily:mono,fontSize:13,fontWeight:800,color:scColor,background:`${scColor}11`,padding:"3px 10px",borderRadius:6,border:`1px solid ${scColor}22`,minWidth:32,textAlign:"center",display:"inline-block",cursor:"pointer",transition:"opacity 0.15s",opacity:isOpen?1:0.85}} onMouseEnter={e=>e.currentTarget.style.opacity="1"} onMouseLeave={e=>{if(!isOpen)e.currentTarget.style.opacity="0.85";}}>{sc}</span>
+          <div style={{display:"flex",alignItems:"center",gap:6}}>
+            {diff!=null&&<span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:diff>0?"#16a34a":diff<-5?"#dc2626":"#a3a3a3"}}>{diff>0?"+":""}{diff}</span>}
+            <span style={{fontFamily:mono,fontSize:13,fontWeight:800,color:scColor,background:`${scColor}11`,padding:"3px 10px",borderRadius:6,border:`1px solid ${scColor}22`,minWidth:32,textAlign:"center",display:"inline-block",transition:"opacity 0.15s",opacity:isOpen?1:0.85}}>{sc}</span>
+          </div>
         </div>
-        {isOpen&&<div style={{padding:"0 14px 10px 58px"}}>
-          {bars.map(b=><div key={b.l} style={{display:"flex",alignItems:"center",gap:6,marginBottom:4}}><span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",width:52,textAlign:"right",flexShrink:0}}>{b.l}</span><div style={{flex:1,height:4,background:"#f0f0f0",borderRadius:2,overflow:"hidden",maxWidth:160}}><div style={{height:"100%",width:`${b.v}%`,background:b.c,borderRadius:2}}/></div><span style={{fontFamily:mono,fontSize:8,color:"#737373",width:20,textAlign:"right"}}>{b.v}</span></div>)}
+        {isOpen&&<div style={{padding:"0 14px 10px 58px"}} onClick={e=>e.stopPropagation()}>
+          {breakdown&&<div style={{display:"flex",alignItems:"center",gap:6,marginBottom:6}}>
+            <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#6366f1",background:"#6366f111",padding:"2px 8px",borderRadius:4,border:"1px solid #6366f122"}}>{breakdown.roleLabel}</span>
+            {diff!=null&&<span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>avg {pos}: {posAvg}</span>}
+          </div>}
+          {tf.summary&&<div style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.4,marginBottom:8,fontStyle:"italic"}}>{tf.summary}</div>}
+          {breakdown&&<div style={{marginBottom:8}}>
+            <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginBottom:4,textTransform:"uppercase",letterSpacing:1}}>key traits</div>
+            {breakdown.traits.map(t=>{const vColor=t.value>=72?"#16a34a":t.value>=60?"#0d9488":t.value>=50?"#d97706":"#dc2626";const tier=impTier(t.weight);const dots=impDots(tier);const dc=impColor(tier);return<div key={t.trait} style={{display:"flex",alignItems:"center",gap:6,marginBottom:3}}>
+              <span style={{fontFamily:mono,fontSize:9,color:"#525252",width:32,textAlign:"right",flexShrink:0}}>{t.abbrev}</span>
+              <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:vColor,width:18,textAlign:"right",flexShrink:0}}>{Math.round(t.value)}</span>
+              <div style={{flex:1,height:5,background:"#f0f0f0",borderRadius:2,overflow:"hidden",maxWidth:120}}>
+                <div style={{height:"100%",width:`${t.value}%`,background:vColor,borderRadius:2,opacity:0.7}}/>
+              </div>
+              <span style={{display:"flex",gap:2,flexShrink:0,width:20,justifyContent:"flex-end"}} title={tier}>{Array.from({length:dots},(_,k)=><span key={k} style={{width:4,height:4,borderRadius:2,background:dc}}/>)}</span>
+            </div>;})}
+          </div>}
+          <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginBottom:4,textTransform:"uppercase",letterSpacing:1}}>components</div>
+          {bars.map(b=><div key={b.l} style={{display:"flex",alignItems:"center",gap:6,marginBottom:3}}><span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",width:52,textAlign:"right",flexShrink:0}}>{b.l}</span><div style={{flex:1,height:4,background:"#f0f0f0",borderRadius:2,overflow:"hidden",maxWidth:120}}><div style={{height:"100%",width:`${b.v}%`,background:b.c,borderRadius:2}}/></div><span style={{fontFamily:mono,fontSize:8,color:"#737373",width:20,textAlign:"right"}}>{b.v}</span></div>)}
         </div>}
       </div>;})}
     </div>
@@ -958,7 +986,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
           </div>
         </div>
 
-        {schemeFits&&player.pos!=="K/P"&&player.gpos!=="K/P"&&(()=>{const topFits=getTopTeamFits(player.id,schemeFits,5);if(!topFits.length)return null;return<ProfileTeamFits topFits={topFits} font={font} mono={mono} sans={sans}/>;})()}
+        {schemeFits&&player.pos!=="K/P"&&player.gpos!=="K/P"&&(()=>{const topFits=getTopTeamFits(player.id,schemeFits,10);if(!topFits.length)return null;return<ProfileTeamFits topFits={topFits} player={player} userTraits={traits} schemeFits={schemeFits} allProspects={allProspects} font={font} mono={mono} sans={sans}/>;})()}
 
         {(()=>{const cr=consensus?.find(x=>x.name===player.name);const hasUserRankings=Object.keys(ratings||{}).length>0;const userRank=hasUserRankings?[...allProspects].sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);if(d!==0)return d;const r=(ratings?.[b.id]||1500)-(ratings?.[a.id]||1500);return r!==0?r:getConsensusRank(a.name)-getConsensusRank(b.name);}).findIndex(p=>p.id===player.id)+1:cr?.rank||999;return cr?(
           <div style={{padding:"0 24px 16px"}}>
@@ -2307,22 +2335,44 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
           // Scheme fits tab content
           const schemeFitsContent=<div>
             <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:12}}>{schemeFitPills.map(p=><button key={p} onClick={()=>{setSchemeFitPos(p);setSchemeFitExpanded(false);setExpandedSchemeFitId(null);}} style={{fontFamily:mono,fontSize:9,padding:"3px 10px",borderRadius:99,border:schemeFitPos===p?"1px solid "+accent:"1px solid #e5e5e5",background:schemeFitPos===p?accent+"11":"#fff",color:schemeFitPos===p?accent:"#a3a3a3",cursor:"pointer",fontWeight:schemeFitPos===p?700:400}}>{p}</button>)}</div>
-            {sfVisible.map((sf,i)=>{const p=sf.prospect;const pos=p.gpos||p.pos;const pc=POS_COLORS[pos]||"#a3a3a3";const sc=sf.score;const scColor=sc>=80?"#16a34a":sc>=65?"#0d9488":sc>=50?"#d97706":"#a3a3a3";const isOpen=expandedSchemeFitId===p.id;const bars=[{label:"Traits",val:sf.components?.trait||0,color:"#6366f1"},{label:"Archetype",val:sf.components?.archetype||0,color:"#8b5cf6"},{label:"Scheme",val:sf.components?.positional||0,color:"#a78bfa"},{label:"Athletic",val:sf.components?.athletic||0,color:"#14b8a6"},{label:"Ceiling",val:sf.components?.ceiling||0,color:"#f59e0b"}];return<div key={p.id} style={{borderBottom:i<sfVisible.length-1?"1px solid #f5f5f5":"none"}}>
+            {sfVisible.map((sf,i)=>{const p=sf.prospect;const pos=p.gpos||p.pos;const pc=POS_COLORS[pos]||"#a3a3a3";const sc=sf.score;const scColor=sc>=80?"#16a34a":sc>=65?"#0d9488":sc>=50?"#d97706":"#a3a3a3";const isOpen=expandedSchemeFitId===p.id;const bars=[{label:"Traits",val:sf.components?.trait||0,color:"#6366f1"},{label:"Archetype",val:sf.components?.archetype||0,color:"#8b5cf6"},{label:"Scheme",val:sf.components?.positional||0,color:"#a78bfa"},{label:"Athletic",val:sf.components?.athletic||0,color:"#14b8a6"},{label:"Ceiling",val:sf.components?.ceiling||0,color:"#f59e0b"}];
+            const breakdown=isOpen?getSchemeTraitBreakdown(p,trendsTeam,traits):null;
+            const posAvg=isOpen?getPositionAvgFit(pos,trendsTeam,schemeFits,PROSPECTS):null;
+            const diff=posAvg!=null?sc-posAvg:null;
+            const impTier=(w)=>w>=0.24?"essential":w>=0.18?"important":"contributing";
+            const impColor=(tier)=>tier==="essential"?"#6366f1":tier==="important"?"#a78bfa":"#d4d4d4";
+            const impDots=(tier)=>tier==="essential"?3:tier==="important"?2:1;
+            return<div key={p.id} style={{borderBottom:i<sfVisible.length-1?"1px solid #f5f5f5":"none",cursor:"pointer"}} onClick={()=>setExpandedSchemeFitId(isOpen?null:p.id)}>
               <div style={{display:"flex",alignItems:"center",gap:8,padding:"8px 0"}}>
                 <span style={{fontFamily:font,fontSize:13,fontWeight:900,color:"#d4d4d4",width:22,textAlign:"right",flexShrink:0}}>{i+1}</span>
                 <SchoolLogo school={p.school} size={24}/>
                 <div style={{flex:1,minWidth:0}}>
                   <div style={{display:"flex",alignItems:"center",gap:6}}>
-                    <span onClick={()=>openProfile(p)} style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",cursor:"pointer",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span>
+                    <span onClick={e=>{e.stopPropagation();openProfile(p);}} style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",cursor:"pointer",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span>
                     <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:pc,background:`${pc}11`,padding:"1px 5px",borderRadius:4,border:`1px solid ${pc}22`,flexShrink:0}}>{pos}</span>
                   </div>
                   {sf.tags.length>0&&<div style={{display:"flex",gap:4,marginTop:3,flexWrap:"wrap"}}>{sf.tags.slice(0,2).map((t,j)=><span key={j} style={{fontFamily:mono,fontSize:8,color:"#737373",background:"#f5f5f5",padding:"2px 6px",borderRadius:4,whiteSpace:"nowrap"}}>{t}</span>)}</div>}
                 </div>
-                <span onClick={()=>setExpandedSchemeFitId(isOpen?null:p.id)} style={{fontFamily:mono,fontSize:12,fontWeight:800,color:scColor,background:`${scColor}11`,padding:"2px 8px",borderRadius:6,border:`1px solid ${scColor}22`,minWidth:28,textAlign:"center",cursor:"pointer",transition:"opacity 0.15s",opacity:isOpen?1:0.85}} onMouseEnter={e=>e.currentTarget.style.opacity="1"} onMouseLeave={e=>{if(!isOpen)e.currentTarget.style.opacity="0.85";}}>{sc}</span>
+                <span style={{fontFamily:mono,fontSize:12,fontWeight:800,color:scColor,background:`${scColor}11`,padding:"2px 8px",borderRadius:6,border:`1px solid ${scColor}22`,minWidth:28,textAlign:"center",transition:"opacity 0.15s",opacity:isOpen?1:0.85}}>{sc}</span>
                 {sf.limitedFit&&<span style={{fontFamily:mono,fontSize:7,color:"#d97706",marginLeft:2}}>limited</span>}
               </div>
-              {isOpen&&<div style={{padding:"0 0 10px 54px"}}>
-                {bars.map(b=><div key={b.label} style={{display:"flex",alignItems:"center",gap:6,marginBottom:4}}><span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",width:52,textAlign:"right",flexShrink:0}}>{b.label}</span><div style={{flex:1,height:4,background:"#f0f0f0",borderRadius:2,overflow:"hidden",maxWidth:160}}><div style={{height:"100%",width:`${b.val}%`,background:b.color,borderRadius:2}}/></div><span style={{fontFamily:mono,fontSize:8,color:"#737373",width:20,textAlign:"right"}}>{b.val}</span></div>)}
+              {isOpen&&<div style={{padding:"0 0 10px 54px"}} onClick={e=>e.stopPropagation()}>
+                {breakdown&&<div style={{display:"flex",alignItems:"center",gap:6,marginBottom:6}}>
+                  <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#6366f1",background:"#6366f111",padding:"2px 8px",borderRadius:4,border:"1px solid #6366f122"}}>{breakdown.roleLabel}</span>
+                  {diff!=null&&<span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>avg {pos}: {posAvg} ({diff>0?"+":""}{diff})</span>}
+                </div>}
+                {sf.summary&&<div style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.4,marginBottom:8,fontStyle:"italic"}}>{sf.summary}</div>}
+                {breakdown&&<div style={{marginBottom:8}}>
+                  <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginBottom:4,textTransform:"uppercase",letterSpacing:1}}>key traits</div>
+                  {breakdown.traits.map(t=>{const vColor=t.value>=72?"#16a34a":t.value>=60?"#0d9488":t.value>=50?"#d97706":"#dc2626";const tier=impTier(t.weight);const dots=impDots(tier);const dc=impColor(tier);return<div key={t.trait} style={{display:"flex",alignItems:"center",gap:6,marginBottom:3}}>
+                    <span style={{fontFamily:mono,fontSize:9,color:"#525252",width:32,textAlign:"right",flexShrink:0}}>{t.abbrev}</span>
+                    <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:vColor,width:18,textAlign:"right",flexShrink:0}}>{Math.round(t.value)}</span>
+                    <div style={{flex:1,height:5,background:"#f0f0f0",borderRadius:2,overflow:"hidden",maxWidth:120}}><div style={{height:"100%",width:`${t.value}%`,background:vColor,borderRadius:2,opacity:0.7}}/></div>
+                    <span style={{display:"flex",gap:2,flexShrink:0,width:20,justifyContent:"flex-end"}} title={tier}>{Array.from({length:dots},(_,k)=><span key={k} style={{width:4,height:4,borderRadius:2,background:dc}}/>)}</span>
+                  </div>;})}
+                </div>}
+                <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginBottom:4,textTransform:"uppercase",letterSpacing:1}}>components</div>
+                {bars.map(b=><div key={b.label} style={{display:"flex",alignItems:"center",gap:6,marginBottom:3}}><span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",width:52,textAlign:"right",flexShrink:0}}>{b.label}</span><div style={{flex:1,height:4,background:"#f0f0f0",borderRadius:2,overflow:"hidden",maxWidth:120}}><div style={{height:"100%",width:`${b.val}%`,background:b.color,borderRadius:2}}/></div><span style={{fontFamily:mono,fontSize:8,color:"#737373",width:20,textAlign:"right"}}>{b.val}</span></div>)}
               </div>}
             </div>;})}
             {sfList.length>12&&!schemeFitExpanded&&<button onClick={()=>setSchemeFitExpanded(true)} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 12px",cursor:"pointer",marginTop:8}}>show all ({sfList.length})</button>}
