@@ -2825,7 +2825,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
           return<>
             {/* Team Lens — scrollable pill row */}
             <div className="trait-pills-scroll" style={{display:"flex",gap:4,overflowX:"auto",WebkitOverflowScrolling:"touch",paddingBottom:4,scrollbarWidth:"none",marginBottom:8}}>
-              {allTeams.sort().map(t=>{const sel=t===scarcityTeam;const tc=NFL_TEAM_COLORS[t]||"#171717";return<button key={t} onClick={()=>{setScarcityTeam(sel?null:t);setScarcityPick(0);setScarcityExpanded(null);}} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:"4px 6px",background:sel?`${tc}15`:"transparent",border:sel?`2px solid ${tc}`:"2px solid transparent",borderRadius:8,cursor:"pointer",flexShrink:0,transition:"all 0.15s"}}><NFLTeamLogo team={t} size={22}/><span style={{fontFamily:mono,fontSize:7,color:sel?tc:"#a3a3a3",fontWeight:sel?700:500}}>{NFL_TEAM_ABR[t]}</span></button>;})}
+              {allTeams.sort().map(t=>{const sel=t===scarcityTeam;const tc=NFL_TEAM_COLORS[t]||"#171717";return<button key={t} onClick={gateAuth(()=>{setScarcityTeam(sel?null:t);setScarcityPick(0);setScarcityExpanded(null);})} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:"4px 6px",background:sel?`${tc}15`:"transparent",border:sel?`2px solid ${tc}`:"2px solid transparent",borderRadius:8,cursor:"pointer",flexShrink:0,transition:"all 0.15s"}}><NFLTeamLogo team={t} size={22}/><span style={{fontFamily:mono,fontSize:7,color:sel?tc:"#a3a3a3",fontWeight:sel?700:500}}>{NFL_TEAM_ABR[t]}</span></button>;})}
             </div>
 
             {/* SVG chart wrapper */}
@@ -2865,7 +2865,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
                   const opacity=scarcityTeam?(isNeed?1:0.15):1;
                   const ringStyle=scarcityTeam&&isNeed?{stroke:teamColor,strokeWidth:3,strokeDasharray:d.teamUrgencyLevel>=3?"none":d.teamUrgencyLevel>=2?"6,3":"2,3"}:null;
                   return<g key={d.pos}
-                    onClick={()=>setScarcityExpanded(prev=>prev===d.pos?null:d.pos)}
+                    onClick={gateAuth(()=>setScarcityExpanded(prev=>prev===d.pos?null:d.pos))}
                     onMouseEnter={e=>setExplorerHover({pos:d.pos,qualityCount:d.qualityCount,demandTeams:d.demandTeams,totalUrgency:d.totalUrgency,topTeams:d.topTeams,teamUrgencyLevel:d.teamUrgencyLevel,cx:e.clientX,cy:e.clientY})}
                     onMouseLeave={()=>setExplorerHover(null)}
                     style={{cursor:"pointer",opacity,transition:"opacity 0.2s"}}>
@@ -2924,7 +2924,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
                     <div style={{position:"absolute",left:`${handlePct}%`,top:"50%",transform:"translate(-50%,-50%)",width:22,height:22,borderRadius:"50%",background:"#fff",border:"3px solid #059669",boxShadow:"0 2px 8px rgba(0,0,0,0.18)",zIndex:3,pointerEvents:"none",transition:"left 0.15s cubic-bezier(.4,1.3,.65,1)"}}/>
                     {/* Invisible input */}
                     <input type="range" min="0" max={maxStops} step="1" value={clampedPick}
-                      onChange={e=>{setScarcityPick(parseInt(e.target.value));setScarcityExpanded(null);}}
+                      onChange={e=>{if(isGuest){onRequireAuth("want to play with the data? sign up free");return;}setScarcityPick(parseInt(e.target.value));setScarcityExpanded(null);}}
                       style={{position:"absolute",left:0,width:"100%",height:32,background:"transparent",cursor:"pointer",zIndex:5,opacity:0,margin:0}}/>
                   </div>
                   {/* Tick labels */}
@@ -2974,7 +2974,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
                   tag=ratio>=2?"High scarcity":ratio>=1?"Moderate":"Well-stocked";
                   tagColor=ratio>=2?"#dc2626":ratio>=1?"#ca8a04":"#059669";
                 }
-                return<div key={d.pos} onClick={()=>setScarcityExpanded(prev=>prev===d.pos?null:d.pos)} style={{flex:"1 0 0",minWidth:140,background:"#fff",border:isActive?`2px solid ${c}`:"1px solid #e5e5e5",borderRadius:12,padding:"14px 16px",position:"relative",overflow:"hidden",cursor:"pointer",transition:"border 0.15s"}}>
+                return<div key={d.pos} onClick={gateAuth(()=>setScarcityExpanded(prev=>prev===d.pos?null:d.pos))} style={{flex:"1 0 0",minWidth:140,background:"#fff",border:isActive?`2px solid ${c}`:"1px solid #e5e5e5",borderRadius:12,padding:"14px 16px",position:"relative",overflow:"hidden",cursor:"pointer",transition:"border 0.15s"}}>
                   <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:c}}/>
                   <div style={{fontFamily:mono,fontSize:14,fontWeight:900,color:c,marginBottom:4}}>{POS_EMOJI[d.pos]} {d.pos}</div>
                   <div style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.5}}>{d.demandTeams} teams need · {d.qualityCount} draftable</div>
