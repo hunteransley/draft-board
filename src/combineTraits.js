@@ -1,5 +1,6 @@
 import COMBINE from "./combineData.json";
 import SCOUTING from "./scoutingTraits.json";
+import { POSITION_TRAITS } from "./positions.js";
 
 // Name normalization — scouting keys keep apostrophes, combine keys strip them
 const NAME_ALIASES = {"jam miller":"jamarion miller","nicholas singleton":"nick singleton","kc concepcion":"kevin concepcion","j michael sturdivant":"jmichael sturdivant"};
@@ -34,19 +35,6 @@ function lookupScouting(name, school) {
 }
 
 // Position traits — which traits each position has (no new traits added)
-const POSITION_TRAITS = {
-  QB: ["Arm Strength", "Accuracy", "Pocket Presence", "Mobility", "Decision Making", "Leadership"],
-  RB: ["Vision", "Contact Balance", "Power", "Elusiveness", "Pass Catching", "Speed"],
-  WR: ["Route Running", "Separation", "Hands", "YAC Ability", "Speed", "Contested Catches"],
-  TE: ["Receiving", "Route Running", "Blocking", "Athleticism", "Hands", "Speed"],
-  OT: ["Pass Protection", "Run Blocking", "Footwork", "Anchor", "Athleticism", "Strength"],
-  IOL: ["Pass Protection", "Run Blocking", "Pulling", "Strength", "Anchor", "Versatility"],
-  EDGE: ["Pass Rush", "Bend", "First Step", "Power", "Motor", "Run Defense"],
-  DL: ["Pass Rush", "Run Defense", "First Step", "Hand Usage", "Motor", "Strength"],
-  LB: ["Tackling", "Coverage", "Pass Rush", "Instincts", "Athleticism", "Range"],
-  CB: ["Man Coverage", "Ball Skills", "Zone Coverage", "Speed", "Press", "Nickel"],
-  S: ["Man Coverage", "Range", "Ball Skills", "Tackling", "Speed", "Nickel"],
-};
 
 // Positions where Speed is a trait (raw overwrite from 40-yard dash)
 const SPEED_POSITIONS = new Set(["RB", "WR", "TE", "CB", "S"]);

@@ -5,7 +5,7 @@ import { getCombineScores } from "./combineTraits.js";
 import { getStatBasedTraits } from "./statTraits.js";
 import { getProspectStats } from "./prospectStats.js";
 import { DEPTH_GROUPS, ALL_SLOTS, TEAM_SCHEME, TEAM_ABBR, getFormationPos, getSchemeDepthGroups } from "./depthChartUtils.js";
-import { POS_DRAFT_VALUE, RANK_OVERRIDES, GRADE_OVERRIDES, TEAM_PROFILES, SCHEME_INFLECTIONS } from "./draftConfig.js";
+import { POS_DRAFT_VALUE, RANK_OVERRIDES, GRADE_OVERRIDES, TEAM_PROFILES, SCHEME_INFLECTIONS, DRAFT_ORDER, getPickRound } from "./draftConfig.js";
 import { TEAM_NEEDS_COUNTS } from "./teamNeedsData.js";
 // Canvas-based share image (no html2canvas dependency)
 
@@ -13,74 +13,6 @@ import { TEAM_NEEDS_COUNTS } from "./teamNeedsData.js";
 const GEN_SUFFIXES=/^(Jr\.?|Sr\.?|II|III|IV|V|VI|VII|VIII)$/i;
 function shortName(name){const p=name.split(" ");const last=p.pop()||"";return GEN_SUFFIXES.test(last)?(p.pop()||last)+" "+last:last;}
 
-const DRAFT_ORDER_2026=[
-{pick:1,round:1,team:"Raiders"},{pick:2,round:1,team:"Jets"},{pick:3,round:1,team:"Cardinals"},{pick:4,round:1,team:"Titans"},
-{pick:5,round:1,team:"Giants"},{pick:6,round:1,team:"Browns"},{pick:7,round:1,team:"Commanders"},{pick:8,round:1,team:"Saints"},
-{pick:9,round:1,team:"Chiefs"},{pick:10,round:1,team:"Bengals"},{pick:11,round:1,team:"Dolphins"},{pick:12,round:1,team:"Cowboys"},
-{pick:13,round:1,team:"Rams",from:"Falcons"},{pick:14,round:1,team:"Raiders",from:"Ravens"},{pick:15,round:1,team:"Buccaneers"},{pick:16,round:1,team:"Jets",from:"Colts"},
-{pick:17,round:1,team:"Lions"},{pick:18,round:1,team:"Vikings"},{pick:19,round:1,team:"Panthers"},{pick:20,round:1,team:"Cowboys",from:"Packers"},
-{pick:21,round:1,team:"Steelers"},{pick:22,round:1,team:"Chargers"},{pick:23,round:1,team:"Eagles"},{pick:24,round:1,team:"Browns",from:"Jaguars"},
-{pick:25,round:1,team:"Bears"},{pick:26,round:1,team:"Bills"},{pick:27,round:1,team:"49ers"},{pick:28,round:1,team:"Texans"},
-{pick:29,round:1,team:"Chiefs",from:"Rams"},{pick:30,round:1,team:"Broncos"},{pick:31,round:1,team:"Patriots"},{pick:32,round:1,team:"Seahawks"},
-{pick:33,round:2,team:"Jets"},{pick:34,round:2,team:"Cardinals"},{pick:35,round:2,team:"Titans"},{pick:36,round:2,team:"Raiders"},
-{pick:37,round:2,team:"Giants"},{pick:38,round:2,team:"Texans",from:"Commanders"},{pick:39,round:2,team:"Browns"},{pick:40,round:2,team:"Chiefs"},
-{pick:41,round:2,team:"Bengals"},{pick:42,round:2,team:"Saints"},{pick:43,round:2,team:"Dolphins"},{pick:44,round:2,team:"Jets",from:"Cowboys"},
-{pick:45,round:2,team:"Ravens"},{pick:46,round:2,team:"Buccaneers"},{pick:47,round:2,team:"Colts"},{pick:48,round:2,team:"Falcons"},
-{pick:49,round:2,team:"Vikings"},{pick:50,round:2,team:"Lions"},{pick:51,round:2,team:"Panthers"},{pick:52,round:2,team:"Packers"},
-{pick:53,round:2,team:"Steelers"},{pick:54,round:2,team:"Eagles"},{pick:55,round:2,team:"Chargers"},{pick:56,round:2,team:"Jaguars"},
-{pick:57,round:2,team:"Bears"},{pick:58,round:2,team:"49ers"},{pick:59,round:2,team:"Texans"},{pick:60,round:2,team:"Bears",from:"Bills"},
-{pick:61,round:2,team:"Rams"},{pick:62,round:2,team:"Broncos"},{pick:63,round:2,team:"Patriots"},{pick:64,round:2,team:"Seahawks"},
-{pick:65,round:3,team:"Cardinals"},{pick:66,round:3,team:"Titans"},{pick:67,round:3,team:"Raiders"},{pick:68,round:3,team:"Eagles",from:"Jets"},
-{pick:69,round:3,team:"Texans",from:"Giants"},{pick:70,round:3,team:"Browns"},{pick:71,round:3,team:"Commanders"},{pick:72,round:3,team:"Bengals"},
-{pick:73,round:3,team:"Saints"},{pick:74,round:3,team:"Chiefs"},{pick:75,round:3,team:"Dolphins"},{pick:76,round:3,team:"Steelers",from:"Cowboys"},
-{pick:77,round:3,team:"Buccaneers"},{pick:78,round:3,team:"Colts"},{pick:79,round:3,team:"Falcons"},{pick:80,round:3,team:"Ravens"},
-{pick:81,round:3,team:"Jaguars",from:"Lions"},{pick:82,round:3,team:"Vikings"},{pick:83,round:3,team:"Panthers"},{pick:84,round:3,team:"Packers"},
-{pick:85,round:3,team:"Steelers"},{pick:86,round:3,team:"Chargers"},{pick:87,round:3,team:"Dolphins",from:"Eagles"},{pick:88,round:3,team:"Jaguars"},
-{pick:89,round:3,team:"Bears"},{pick:90,round:3,team:"Dolphins",from:"Texans"},{pick:91,round:3,team:"Bills"},{pick:92,round:3,team:"49ers"},
-{pick:93,round:3,team:"Rams"},{pick:94,round:3,team:"Broncos"},{pick:95,round:3,team:"Patriots"},{pick:96,round:3,team:"Seahawks"},
-{pick:97,round:3,team:"Vikings"},{pick:98,round:3,team:"Eagles"},{pick:99,round:3,team:"Steelers"},{pick:100,round:3,team:"Jaguars",from:"Lions"},
-{pick:101,round:4,team:"Titans"},{pick:102,round:4,team:"Raiders"},{pick:103,round:4,team:"Jets"},{pick:104,round:4,team:"Cardinals"},
-{pick:105,round:4,team:"Giants"},{pick:106,round:4,team:"Texans",from:"Commanders"},{pick:107,round:4,team:"Browns"},{pick:108,round:4,team:"Broncos",from:"Saints"},
-{pick:109,round:4,team:"Chiefs"},{pick:110,round:4,team:"Bengals"},{pick:111,round:4,team:"Dolphins"},{pick:112,round:4,team:"Cowboys"},
-{pick:113,round:4,team:"Colts"},{pick:114,round:4,team:"Falcons"},{pick:115,round:4,team:"Ravens"},{pick:116,round:4,team:"Buccaneers"},
-{pick:117,round:4,team:"Raiders",from:"Vikings"},{pick:118,round:4,team:"Lions"},{pick:119,round:4,team:"Panthers"},{pick:120,round:4,team:"Packers"},
-{pick:121,round:4,team:"Steelers"},{pick:122,round:4,team:"Eagles"},{pick:123,round:4,team:"Chargers"},{pick:124,round:4,team:"Jaguars"},
-{pick:125,round:4,team:"Patriots",from:"Bears"},{pick:126,round:4,team:"Bills"},{pick:127,round:4,team:"49ers"},{pick:128,round:4,team:"Lions",from:"Texans"},
-{pick:129,round:4,team:"Bears",from:"Rams"},{pick:130,round:4,team:"Broncos"},{pick:131,round:4,team:"Patriots"},{pick:132,round:4,team:"Saints",from:"Seahawks"},
-{pick:133,round:4,team:"49ers"},{pick:134,round:4,team:"Raiders"},{pick:135,round:4,team:"Steelers"},{pick:136,round:4,team:"Saints"},
-{pick:137,round:4,team:"Eagles"},{pick:138,round:4,team:"49ers"},{pick:139,round:4,team:"Jets"},
-{pick:140,round:5,team:"Texans",from:"Raiders"},{pick:141,round:5,team:"Titans",from:"Jets"},{pick:142,round:5,team:"Cardinals"},{pick:143,round:5,team:"Titans"},
-{pick:144,round:5,team:"Giants"},{pick:145,round:5,team:"Browns"},{pick:146,round:5,team:"Commanders"},{pick:147,round:5,team:"Chiefs"},
-{pick:148,round:5,team:"Browns",from:"Bengals"},{pick:149,round:5,team:"Saints"},{pick:150,round:5,team:"Dolphins"},{pick:151,round:5,team:"Cowboys"},
-{pick:152,round:5,team:"Eagles",from:"Falcons"},{pick:153,round:5,team:"Ravens"},{pick:154,round:5,team:"Buccaneers"},{pick:155,round:5,team:"Colts"},
-{pick:156,round:5,team:"Lions"},{pick:157,round:5,team:"Panthers",from:"Vikings"},{pick:158,round:5,team:"Panthers"},{pick:159,round:5,team:"Packers"},
-{pick:160,round:5,team:"Steelers"},{pick:161,round:5,team:"Chargers",from:"Ravens"},{pick:162,round:5,team:"Eagles",from:"Vikings"},{pick:163,round:5,team:"Jaguars"},
-{pick:164,round:5,team:"Bills",from:"Bears"},{pick:165,round:5,team:"49ers",from:"Jaguars"},{pick:166,round:5,team:"Texans"},{pick:167,round:5,team:"Bills"},
-{pick:168,round:5,team:"Chiefs",from:"Rams"},{pick:169,round:5,team:"Broncos"},{pick:170,round:5,team:"Patriots"},{pick:171,round:5,team:"Saints",from:"Seahawks"},
-{pick:172,round:5,team:"49ers"},{pick:173,round:5,team:"Ravens"},{pick:174,round:5,team:"Ravens"},{pick:175,round:5,team:"Raiders"},
-{pick:176,round:5,team:"Cowboys"},{pick:177,round:5,team:"Chiefs"},{pick:178,round:5,team:"Eagles"},{pick:179,round:5,team:"Jets"},
-{pick:180,round:5,team:"Cowboys"},{pick:181,round:5,team:"Lions"},
-{pick:182,round:6,team:"Raiders",from:"Jets"},{pick:183,round:6,team:"Cardinals"},{pick:184,round:6,team:"Titans"},{pick:185,round:6,team:"Raiders"},
-{pick:186,round:6,team:"Giants"},{pick:187,round:6,team:"Commanders"},{pick:188,round:6,team:"Lions",from:"Browns"},{pick:189,round:6,team:"Bengals"},
-{pick:190,round:6,team:"Saints"},{pick:191,round:6,team:"Patriots",from:"Chiefs"},{pick:192,round:6,team:"Giants",from:"Dolphins"},{pick:193,round:6,team:"Giants",from:"Cowboys"},
-{pick:194,round:6,team:"Jets",from:"Ravens"},{pick:195,round:6,team:"Buccaneers"},{pick:196,round:6,team:"Vikings",from:"Colts"},{pick:197,round:6,team:"Falcons"},
-{pick:198,round:6,team:"Commanders",from:"Vikings"},{pick:199,round:6,team:"Bengals",from:"Lions"},{pick:200,round:6,team:"Panthers"},{pick:201,round:6,team:"Packers"},
-{pick:202,round:6,team:"Patriots",from:"Steelers"},{pick:203,round:6,team:"Jaguars",from:"Eagles"},{pick:204,round:6,team:"Chargers"},{pick:205,round:6,team:"Lions",from:"Jaguars"},
-{pick:206,round:6,team:"Browns",from:"Bears"},{pick:207,round:6,team:"Rams",from:"Texans"},{pick:208,round:6,team:"Jets",from:"Bills"},{pick:209,round:6,team:"Patriots",from:"49ers"},
-{pick:210,round:6,team:"Chiefs",from:"Rams"},{pick:211,round:6,team:"Ravens",from:"Broncos"},{pick:212,round:6,team:"Patriots"},{pick:213,round:6,team:"Seahawks"},
-{pick:214,round:6,team:"Steelers"},{pick:215,round:6,team:"Steelers"},
-{pick:216,round:7,team:"Cardinals"},{pick:217,round:7,team:"Jets",from:"Titans"},{pick:218,round:7,team:"Raiders"},{pick:219,round:7,team:"Bills",from:"Jets"},
-{pick:220,round:7,team:"Cowboys",from:"Giants"},{pick:221,round:7,team:"Lions",from:"Browns"},{pick:222,round:7,team:"Commanders"},{pick:223,round:7,team:"Steelers",from:"Saints"},
-{pick:224,round:7,team:"Cowboys",from:"Chiefs"},{pick:225,round:7,team:"Bengals"},{pick:226,round:7,team:"Dolphins"},{pick:227,round:7,team:"Bills",from:"Cowboys"},
-{pick:228,round:7,team:"Buccaneers"},{pick:229,round:7,team:"Colts"},{pick:230,round:7,team:"Falcons"},{pick:231,round:7,team:"Rams",from:"Ravens"},
-{pick:232,round:7,team:"Jaguars",from:"Lions"},{pick:233,round:7,team:"Vikings"},{pick:234,round:7,team:"Panthers"},{pick:235,round:7,team:"Packers"},
-{pick:236,round:7,team:"Steelers"},{pick:237,round:7,team:"Chargers",from:"Titans"},{pick:238,round:7,team:"Eagles",from:"Bears"},{pick:239,round:7,team:"Jaguars",from:"Vikings"},
-{pick:240,round:7,team:"Bears"},{pick:241,round:7,team:"Jets",from:"Bills"},{pick:242,round:7,team:"Texans",from:"49ers"},{pick:243,round:7,team:"Texans"},
-{pick:244,round:7,team:"Jaguars",from:"Rams"},{pick:245,round:7,team:"Broncos"},{pick:246,round:7,team:"Patriots"},{pick:247,round:7,team:"Browns",from:"Seahawks"},
-{pick:248,round:7,team:"Colts"},{pick:249,round:7,team:"Ravens"},{pick:250,round:7,team:"Rams"},{pick:251,round:7,team:"Rams"},
-{pick:252,round:7,team:"Ravens"},{pick:253,round:7,team:"Packers"},{pick:254,round:7,team:"Colts"},{pick:255,round:7,team:"Broncos"},
-{pick:256,round:7,team:"Broncos"},{pick:257,round:7,team:"Packers"},
-];
 
 const JJ_VALUES={1:3000,2:2600,3:2200,4:1800,5:1700,6:1600,7:1500,8:1400,9:1350,10:1300,11:1250,12:1200,13:1150,14:1100,15:1050,16:1000,17:950,18:900,19:875,20:850,21:800,22:780,23:760,24:740,25:720,26:700,27:680,28:660,29:640,30:620,31:600,32:590,33:580,34:560,35:550,36:540,37:530,38:520,39:510,40:500,41:490,42:480,43:470,44:460,45:450,46:440,47:430,48:420,49:410,50:400,51:390,52:380,53:370,54:360,55:350,56:340,57:330,58:320,59:310,60:300,61:292,62:284,63:276,64:270,65:265,66:260,67:255,68:250,69:245,70:240,71:235,72:230,73:225,74:220,75:215,76:210,77:205,78:200,79:195,80:190,81:185,82:180,83:175,84:170,85:165,86:160,87:155,88:150,89:145,90:140,91:136,92:132,93:128,94:124,95:120,96:116,97:112,98:108,99:104,100:100};
 function getPickValue(n){return JJ_VALUES[n]||Math.max(5,Math.round(100-((n-100)*0.72)));}
@@ -211,11 +143,11 @@ function pickVerdict(pickNum,consRank,grade){
   return{text:"BIG REACH",color:"#dc2626",bg:"#fef2f2"};
 }
 
-export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrder,onClose,onMockComplete,myGuys,myGuysUpdated,setMyGuysUpdated,mockCount,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,getConsensusRound,rankedGroups,mockLaunchTeam,mockLaunchRounds,mockLaunchSpeed,mockLaunchCpuTrades,mockLaunchBoardMode,onRankPosition,isGuest,onRequireAuth,trackEvent,userId,isGuestUser,traitThresholds,qualifiesForFilter,prospectBadges,TRAIT_ABBREV,TRAIT_EMOJI,SCHOOL_CONFERENCE,POS_EMOJI,onShareMyGuys,copiedShare:parentCopiedShare,measurableThresholds,qualifiesForMeasurableFilter,MEASURABLE_EMOJI,MEASURABLE_SHORT,MEASURABLE_LIST,MEASURABLE_DRILLS,MEASURABLE_KEY,MEASURABLE_RAW,MEAS_GROUPS,getMeasRadarData}){
+export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,onMockComplete,myGuys,myGuysUpdated,setMyGuysUpdated,mockCount,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,getConsensusRound,rankedGroups,mockLaunchTeam,mockLaunchRounds,mockLaunchSpeed,mockLaunchCpuTrades,mockLaunchBoardMode,onRankPosition,isGuest,onRequireAuth,trackEvent,userId,isGuestUser,traitThresholds,qualifiesForFilter,prospectBadges,TRAIT_ABBREV,TRAIT_EMOJI,SCHOOL_CONFERENCE,POS_EMOJI,onShareMyGuys,copiedShare:parentCopiedShare,measurableThresholds,qualifiesForMeasurableFilter,MEASURABLE_EMOJI,MEASURABLE_SHORT,MEASURABLE_LIST,MEASURABLE_DRILLS,MEASURABLE_KEY,MEASURABLE_RAW,MEAS_GROUPS,getMeasRadarData}){
   const TRAIT_SHORT={"Contested Catches":"Contested","Man Coverage":"Man Cov","Contact Balance":"Contact Bal","Directional Control":"Directional","Decision Making":"Decision","Pocket Presence":"Pocket Pres","Pass Catching":"Pass Catch","Run Blocking":"Run Block","Pass Protection":"Pass Prot","Hand Usage":"Hand Use","Run Defense":"Run Def","Zone Coverage":"Zone Cov","Leg Strength":"Leg Str"};
   // Trait value with scouting fallback (same chain as App.jsx tv())
   const tvFn=useCallback((id,trait)=>{const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;return traits[id]?.[trait]??getScoutingTraits(p.name,p.school)?.[trait]??getStatBasedTraits(p.name,p.school)?.[trait]??50;},[traits,PROSPECTS]);
-  const ALL_TEAMS=useMemo(()=>[...new Set(DRAFT_ORDER_2026.map(d=>d.team))],[]);
+  const ALL_TEAMS=useMemo(()=>[...new Set(DRAFT_ORDER.map(d=>d.team))],[]);
   const[boardMode,setBoardMode]=useState("consensus");
   const activeBoard=boardMode==="my"&&myBoard?myBoard:board;
   const activeGrade=useCallback((id)=>getGrade(id),[getGrade]);
@@ -268,7 +200,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
 
   const generateBoardNoise=useCallback((boardToUse)=>{
     const noise={};const wobbled={};
-    const teams=[...new Set(DRAFT_ORDER_2026.map(d=>d.team))];
+    const teams=[...new Set(DRAFT_ORDER.map(d=>d.team))];
     teams.forEach(team=>{
       const prof=TEAM_PROFILES[team]||{variance:2,bpaLean:0.5};
       const sigma=prof.variance*0.9;
@@ -337,7 +269,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
   };
 
   const fullDraftOrder=useMemo(()=>{
-    return DRAFT_ORDER_2026.filter(d=>d.round<=numRounds);
+    return DRAFT_ORDER.filter(d=>d.round<=numRounds);
   },[numRounds]);
   const totalPicks=fullDraftOrder.length;
   const getPickTeam=useCallback((idx)=>tradeMap[idx]||fullDraftOrder[idx]?.team,[tradeMap,fullDraftOrder]);
@@ -360,7 +292,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     if(pickNum===1){const m=avail.find(id=>{const p=prospectsMap[id];return p&&p.name==="Fernando Mendoza";});if(m)return m;}
 
     // Elite slide protection removed — transcendent tier + ceiling bumps + EDGE flex handle this organically now
-    const round=pickNum<=32?1:pickNum<=64?2:pickNum<=100?3:pickNum<=139?4:pickNum<=181?5:pickNum<=215?6:7;
+    const round=getPickRound(pickNum);
 
     // === STAGE-BASED BPA/NEED SHIFTS ===
     // Dynasty: talent-first, can afford luxury picks — heavy BPA
@@ -806,9 +738,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     if(!tradePartner)return{thisDraft:[],futurePicks:[]};
     // Remaining picks — full 7-round catalog, not just simulated rounds
     const thisDraft=[];
-    for(let i=picks.length;i<DRAFT_ORDER_2026.length;i++){
-      const owner=i<totalPicks?getPickTeam(i):DRAFT_ORDER_2026[i].team;
-      if(owner===tradePartner){const d=DRAFT_ORDER_2026[i];thisDraft.push({idx:i<totalPicks?i:null,...d,type:"current",label:`Rd${d.round} #${d.pick}`,value:getPickValue(d.pick)});}
+    for(let i=picks.length;i<DRAFT_ORDER.length;i++){
+      const owner=i<totalPicks?getPickTeam(i):DRAFT_ORDER[i].team;
+      if(owner===tradePartner){const d=DRAFT_ORDER[i];thisDraft.push({idx:i<totalPicks?i:null,...d,type:"current",label:`Rd${d.round} #${d.pick}`,value:getPickValue(d.pick)});}
     }
     // Future picks: 2027 & 2028, rounds 1-7 (estimated values)
     const futurePicks=[];
@@ -827,9 +759,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     if(!ut)return{thisDraft:[],futurePicks:[]};
     // Remaining picks — full 7-round catalog, not just simulated rounds
     const thisDraft=[];
-    for(let i=picks.length;i<DRAFT_ORDER_2026.length;i++){
-      const owner=i<totalPicks?getPickTeam(i):DRAFT_ORDER_2026[i].team;
-      if(owner===ut){const d=DRAFT_ORDER_2026[i];thisDraft.push({idx:i<totalPicks?i:null,...d,type:"current",label:`Rd${d.round} #${d.pick}`,value:getPickValue(d.pick)});}
+    for(let i=picks.length;i<DRAFT_ORDER.length;i++){
+      const owner=i<totalPicks?getPickTeam(i):DRAFT_ORDER[i].team;
+      if(owner===ut){const d=DRAFT_ORDER[i];thisDraft.push({idx:i<totalPicks?i:null,...d,type:"current",label:`Rd${d.round} #${d.pick}`,value:getPickValue(d.pick)});}
     }
     const futurePicks=[];
     for(let yr=2027;yr<=2028;yr++){

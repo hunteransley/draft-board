@@ -4,7 +4,7 @@ import { getScoutingTraits } from "./scoutingData.js";
 import { getCombineScores } from "./combineTraits.js";
 import { getProspectStats } from "./prospectStats.js";
 import { TEAM_SCHEME } from "./depthChartUtils.js";
-import { POS_DRAFT_VALUE, RANK_OVERRIDES, GRADE_OVERRIDES, TEAM_PROFILES, SCHEME_INFLECTIONS } from "./draftConfig.js";
+import { POS_DRAFT_VALUE, RANK_OVERRIDES, GRADE_OVERRIDES, TEAM_PROFILES, SCHEME_INFLECTIONS, DRAFT_ORDER, getPickRound } from "./draftConfig.js";
 import { TEAM_NEEDS_COUNTS, TEAM_NEEDS_SIMPLE } from "./teamNeedsData.js";
 
 // ── STATIC DATA ──
@@ -12,24 +12,6 @@ import { TEAM_NEEDS_COUNTS, TEAM_NEEDS_SIMPLE } from "./teamNeedsData.js";
 const GEN_SUFFIXES=/^(Jr\.?|Sr\.?|II|III|IV|V|VI|VII|VIII)$/i;
 function shortName(name){const p=name.split(" ");const last=p.pop()||"";return GEN_SUFFIXES.test(last)?(p.pop()||last)+" "+last:last;}
 
-const DRAFT_ORDER_2026=[
-{pick:1,round:1,team:"Raiders"},{pick:2,round:1,team:"Jets"},{pick:3,round:1,team:"Cardinals"},{pick:4,round:1,team:"Titans"},
-{pick:5,round:1,team:"Giants"},{pick:6,round:1,team:"Browns"},{pick:7,round:1,team:"Commanders"},{pick:8,round:1,team:"Saints"},
-{pick:9,round:1,team:"Chiefs"},{pick:10,round:1,team:"Bengals"},{pick:11,round:1,team:"Dolphins"},{pick:12,round:1,team:"Cowboys"},
-{pick:13,round:1,team:"Rams",from:"Falcons"},{pick:14,round:1,team:"Raiders",from:"Ravens"},{pick:15,round:1,team:"Buccaneers"},{pick:16,round:1,team:"Jets",from:"Colts"},
-{pick:17,round:1,team:"Lions"},{pick:18,round:1,team:"Vikings"},{pick:19,round:1,team:"Panthers"},{pick:20,round:1,team:"Cowboys",from:"Packers"},
-{pick:21,round:1,team:"Steelers"},{pick:22,round:1,team:"Chargers"},{pick:23,round:1,team:"Eagles"},{pick:24,round:1,team:"Browns",from:"Jaguars"},
-{pick:25,round:1,team:"Bears"},{pick:26,round:1,team:"Bills"},{pick:27,round:1,team:"49ers"},{pick:28,round:1,team:"Texans"},
-{pick:29,round:1,team:"Chiefs",from:"Rams"},{pick:30,round:1,team:"Broncos"},{pick:31,round:1,team:"Patriots"},{pick:32,round:1,team:"Seahawks"},
-{pick:33,round:2,team:"Jets"},{pick:34,round:2,team:"Cardinals"},{pick:35,round:2,team:"Titans"},{pick:36,round:2,team:"Raiders"},
-{pick:37,round:2,team:"Giants"},{pick:38,round:2,team:"Texans",from:"Commanders"},{pick:39,round:2,team:"Browns"},{pick:40,round:2,team:"Chiefs"},
-{pick:41,round:2,team:"Bengals"},{pick:42,round:2,team:"Saints"},{pick:43,round:2,team:"Dolphins"},{pick:44,round:2,team:"Jets",from:"Cowboys"},
-{pick:45,round:2,team:"Ravens"},{pick:46,round:2,team:"Buccaneers"},{pick:47,round:2,team:"Colts"},{pick:48,round:2,team:"Falcons"},
-{pick:49,round:2,team:"Vikings"},{pick:50,round:2,team:"Lions"},{pick:51,round:2,team:"Panthers"},{pick:52,round:2,team:"Packers"},
-{pick:53,round:2,team:"Steelers"},{pick:54,round:2,team:"Eagles"},{pick:55,round:2,team:"Chargers"},{pick:56,round:2,team:"Jaguars"},
-{pick:57,round:2,team:"Bears"},{pick:58,round:2,team:"49ers"},{pick:59,round:2,team:"Texans"},{pick:60,round:2,team:"Bills"},
-{pick:61,round:2,team:"Rams"},{pick:62,round:2,team:"Broncos"},{pick:63,round:2,team:"Patriots"},{pick:64,round:2,team:"Seahawks"},
-];
 
 const JJ_VALUES={1:3000,2:2600,3:2200,4:1800,5:1700,6:1600,7:1500,8:1400,9:1350,10:1300,11:1250,12:1200,13:1150,14:1100,15:1050,16:1000,17:950,18:900,19:875,20:850,21:800,22:780,23:760,24:740,25:720,26:700,27:680,28:660,29:640,30:620,31:600,32:590,33:580,34:560,35:550,36:540,37:530,38:520,39:510,40:500,41:490,42:480,43:470,44:460,45:450,46:440,47:430,48:420,49:410,50:400,51:390,52:380,53:370,54:360,55:350,56:340,57:330,58:320,59:310,60:300,61:292,62:284,63:276,64:270,65:265,66:260,67:255,68:250,69:245,70:240,71:235,72:230,73:225,74:220,75:215,76:210,77:205,78:200,79:195,80:190,81:185,82:180,83:175,84:170,85:165,86:160,87:155,88:150,89:145,90:140,91:136,92:132,93:128,94:124,95:120,96:116,97:112,98:108,99:104,100:100};
 function getPickValue(n){return JJ_VALUES[n]||Math.max(5,Math.round(100-((n-100)*0.72)));}
@@ -45,7 +27,7 @@ function gaussRandom(sigma){
 
 function generateSimNoise(board){
   const noise={};const wobbled={};
-  const teams=[...new Set(DRAFT_ORDER_2026.map(d=>d.team))];
+  const teams=[...new Set(DRAFT_ORDER.map(d=>d.team))];
   teams.forEach(team=>{
     const prof=TEAM_PROFILES[team]||{variance:2,bpaLean:0.5};
     const sigma=prof.variance*0.9;
@@ -94,7 +76,7 @@ function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap,
   if(pickNum===1){const m=avail.find(id=>{const p=prospectsMap[id];return p&&p.name==="Fernando Mendoza";});if(m)return m;}
 
   // Elite slide protection removed — transcendent tier + ceiling bumps + EDGE flex handle this organically now
-  const round=pickNum<=32?1:pickNum<=64?2:pickNum<=100?3:pickNum<=139?4:pickNum<=181?5:pickNum<=215?6:7;
+  const round=getPickRound(pickNum);
   let stageBpaShift=0, stageNeedShift=0;
   if(prof.stage==="dynasty"){stageBpaShift=0.15;stageNeedShift=-0.12;}
   else if(prof.stage==="contend"){stageBpaShift=-0.08;stageNeedShift=0.18;}
@@ -228,7 +210,7 @@ function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap,
 }
 
 function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, prospectsMap, boardNoise, wobbledProfiles) {
-  const fullDraftOrder = DRAFT_ORDER_2026;
+  const fullDraftOrder = DRAFT_ORDER;
   const totalPicks = fullDraftOrder.length;
   const getPickTeam = (idx) => tradeMap[idx] || fullDraftOrder[idx]?.team;
   const currentTeam = getPickTeam(currentIdx);
@@ -308,7 +290,7 @@ function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, pro
 
 function runSingleSim(board, prospectsMap, getGrade) {
   const{noise:boardNoise,wobbled:wobbledProfiles}=generateSimNoise(board);
-  const fullDraftOrder = DRAFT_ORDER_2026;
+  const fullDraftOrder = DRAFT_ORDER;
   const available = board.map(p => p.id);
   const picks = [];
   const tradeMap = {};
@@ -429,12 +411,12 @@ function aggregateResults(allResults, prospectsMap) {
 
     // Most common team
     const teamSorted = Object.entries(teamCounts).sort((a, b) => b[1] - a[1]);
-    const mostCommonTeam = teamSorted[0]?.[0] || DRAFT_ORDER_2026[slotIdx]?.team;
+    const mostCommonTeam = teamSorted[0]?.[0] || DRAFT_ORDER[slotIdx]?.team;
     const teamPct = teamSorted[0] ? Math.round(teamSorted[0][1] / numSims * 100) : 100;
 
     // Original team (when traded)
     const origTeamSorted = Object.entries(origTeamCounts).sort((a, b) => b[1] - a[1]);
-    const origTeam = DRAFT_ORDER_2026[slotIdx]?.team;
+    const origTeam = DRAFT_ORDER[slotIdx]?.team;
     const tradePct = Math.round(tradeCount / numSims * 100);
     const isTrade = false; // TODO: re-enable when aggregation logic can reliably detect trades
 
