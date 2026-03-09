@@ -8,7 +8,7 @@
 - **Dev server**: `npx vite --host` (localhost:5173)
 - **Build check**: `npx vite build`
 - **Stack**: Vite + React (single `src/App.jsx`), no TypeScript, inline styles throughout
-- **Data**: Firebase auth + Firestore, ESPN depth charts, combine/college stats in static JS/JSON files
+- **Data**: Supabase auth + database, ESPN depth charts, combine/college stats in static JS/JSON files
 
 ## Key Rules
 
@@ -30,8 +30,25 @@ Agent specs and runner live in `agents/`. Run agents via `python3 agents/run.py 
 
 ## Architecture
 
+### Shared Data Modules (single source of truth)
+
+- **`src/draftConfig.js`** — `DRAFT_ORDER` (257 picks), `DRAFT_ORDER_R1`, `ROUND_BOUNDS`, `getPickRound()`, `DRAFT_YEAR`, `POS_DRAFT_VALUE`, `RANK_OVERRIDES`, `GRADE_OVERRIDES`, `TEAM_PROFILES`, `SCHEME_INFLECTIONS`
+- **`src/positions.js`** — `POSITION_TRAITS`, `TRAIT_WEIGHTS`, `TRAIT_TEACHABILITY`, `TRAIT_EMOJI`, `TRAIT_ABBREV`, `TRAIT_SHORT`, `POSITION_GROUPS`, `POS_EMOJI`, `POS_COLORS`
+- **`src/teamConfig.js`** — `TEAMS` (canonical 32-team object), derives `NFL_TEAM_ABR`, `NFL_TEAM_ESPN`, `NFL_TEAM_COLORS`, `ABBR_TO_TEAM`
+- **`src/prospects.js`** — `PROSPECTS_RAW` (458 prospects, shared by App.jsx and update-combine.js)
+- **`src/teamNeedsData.js`** — `TEAM_NEEDS_RICH`, `TEAM_NEEDS_SIMPLE`, `TEAM_NEEDS_COUNTS` (derived from agent JSONs)
+
+### Key Files
+
+- **`src/App.jsx`** — Main app component, board UI, ranking, grading, profile views
+- **`src/MockDraftSim.jsx`** — Full 7-round mock draft simulator with CPU AI and trade logic
+- **`src/Round1Prediction.jsx`** — R1 prediction sim (Monte Carlo, 500 iterations)
+- **`src/combineTraits.js`** — Combine data → trait adjustment pipeline
+- **`update-combine.js`** — Node script to fetch/merge combine data from nflverse
+
+### Other
+
 - See `agents/` for agent specs and runner
 - Baseline traits in `src/scoutingTraits.json` (sourced from Grok/Twitter, has optimism bias)
 - Combine pipeline in `src/combineTraits.js` amplifies bias for athletic prospects
-- Position-specific trait taxonomies defined in `POSITION_TRAITS` in App.jsx
-- GM personalities currently hardcoded in App.jsx mock draft logic
+- Draft order sourced from Tankathon, updated in `src/draftConfig.js` only
