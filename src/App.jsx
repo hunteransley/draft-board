@@ -11,7 +11,7 @@ import { getCombineScores } from "./combineTraits.js";
 import PROSPECT_STATS_STRUCT from "./prospectStatsStructured.json";
 import HISTORICAL_STAT_DIST from "./historicalStatDist.json";
 import TEAM_NEEDS_RICH, { TEAM_NEEDS_SIMPLE, TEAM_NEEDS_COUNTS } from "./teamNeedsData.js";
-import { DRAFT_ORDER_R1, DRAFT_YEAR } from "./draftConfig.js";
+import { DRAFT_ORDER, DRAFT_ORDER_R1, DRAFT_YEAR, ROUND_BOUNDS } from "./draftConfig.js";
 import { POSITION_TRAITS, TRAIT_EMOJI, TRAIT_ABBREV, TRAIT_SHORT, TRAIT_WEIGHTS, TRAIT_TEACHABILITY, POSITION_GROUPS, POS_EMOJI, POS_COLORS } from "./positions.js";
 import { NFL_TEAM_ABR, NFL_TEAM_ESPN, NFL_TEAM_COLORS } from "./teamConfig.js";
 import { PROSPECTS_RAW } from "./prospects.js";
@@ -1616,9 +1616,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const[myGuysUpdated,setMyGuysUpdated]=useState(false);
   const myGuysInitialLoad=useRef(true);
   const[showMyGuys,setShowMyGuys]=useState(false);
-  const[showExplorer,setShowExplorer]=useState(()=>window.location.pathname==='/combine'||window.location.pathname==='/combine/combo');
+  const[showExplorer,setShowExplorer]=useState(()=>window.location.pathname==='/data-lab'||window.location.pathname.startsWith('/data-lab/'));
   const[explorerMeas,setExplorerMeas]=useState("ATH");
-  const[explorerMode,setExplorerMode]=useState(()=>window.location.pathname==='/combine/combo'?"combo":"measurables");
+  const[explorerMode,setExplorerMode]=useState(()=>window.location.pathname==='/data-lab/combo'?"combo":window.location.pathname==='/data-lab/scarcity'?"scarcity":"measurables");
   const[explorerTrait,setExplorerTrait]=useState("Speed");
   const[explorerMyGuys,setExplorerMyGuys]=useState(false);
   const[explorerAbsolute,setExplorerAbsolute]=useState(false);
@@ -1633,6 +1633,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const[comboX,setComboX]=useState("defensive_SACKS");
   const[comboY,setComboY]=useState("meas_40");
   const[comboDrop,setComboDrop]=useState(null); // null | "x" | "y"
+  const[scarcityPick,setScarcityPick]=useState(0);
+  const[scarcityTeam,setScarcityTeam]=useState(null);
+  const[scarcityExpanded,setScarcityExpanded]=useState(null);
   const explorerData=useMemo(()=>{
     if(explorerMode==="combo")return{points:[],min:0,max:0,groups:[],label:"",measCode:null,statCode:null,inverted:false};
     const points=[];
@@ -1785,9 +1788,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const[mockCount,setMockCount]=useState(0);
   const[copiedShare,setCopiedShare]=useState(null);
   useEffect(()=>{window.scrollTo(0,0);},[phase,showMyGuys,showExplorer]);
-  const openExplorer=useCallback((mode)=>{const target=mode==="combo"?"/combine/combo":"/combine";if(window.location.pathname!==target)window.history.pushState({},'',target);setShowExplorer(true);if(mode)setExplorerMode(mode);},[]);
-  const closeExplorer=useCallback(()=>{if(window.location.pathname.startsWith('/combine'))window.history.pushState({},'','/');setShowExplorer(false);setExplorerHover(null);},[]);
-  useEffect(()=>{const onPop=()=>{const p=window.location.pathname;if(p==='/combine/combo'){setShowExplorer(true);setExplorerMode("combo");}else if(p==='/combine'){setShowExplorer(true);if(explorerMode==="combo")setExplorerMode("measurables");}else{setShowExplorer(false);}};window.addEventListener("popstate",onPop);return()=>window.removeEventListener("popstate",onPop);},[explorerMode]);
+  const openExplorer=useCallback((mode)=>{const target=mode==="combo"?"/data-lab/combo":mode==="scarcity"?"/data-lab/scarcity":"/data-lab";if(window.location.pathname!==target)window.history.pushState({},'',target);setShowExplorer(true);if(mode)setExplorerMode(mode);},[]);
+  const closeExplorer=useCallback(()=>{if(window.location.pathname.startsWith('/data-lab'))window.history.pushState({},'','/');setShowExplorer(false);setExplorerHover(null);},[]);
+  useEffect(()=>{const onPop=()=>{const p=window.location.pathname;if(p==='/data-lab/combo'){setShowExplorer(true);setExplorerMode("combo");}else if(p==='/data-lab/scarcity'){setShowExplorer(true);setExplorerMode("scarcity");}else if(p==='/data-lab'){setShowExplorer(true);if(explorerMode==="combo"||explorerMode==="scarcity")setExplorerMode("measurables");}else{setShowExplorer(false);}};window.addEventListener("popstate",onPop);return()=>window.removeEventListener("popstate",onPop);},[explorerMode]);
 
   // === TEAM MOCK TRENDS ===
   const[showTrends,setShowTrends]=useState(()=>window.location.pathname==='/trends');
@@ -2449,19 +2452,20 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         {/* Header */}
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
           <div>
-            <h2 style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",margin:0}}>combine explorer</h2>
-            <p style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"2px 0 0"}}>{explorerMode==="combo"?`${comboData.points.length} ${comboPos} players`:`${explorerData.points.length} players · ${explorerData.groups.length} positions`}</p>
+            <h2 style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",margin:0}}>data lab</h2>
+            <p style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"2px 0 0"}}>{explorerMode==="combo"?`${comboData.points.length} ${comboPos} players`:explorerMode==="scarcity"?"supply vs demand by position":`${explorerData.points.length} players · ${explorerData.groups.length} positions`}</p>
           </div>
           <button onClick={closeExplorer} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",padding:4}}>✕</button>
         </div>
 
         {/* Mode toggle */}
         <div style={{display:"flex",gap:4,marginBottom:12}}>
-          <button onClick={gateAuth(()=>{setExplorerMode("measurables");setExplorerAbsolute(false);setExplorerLeaderPos(null);if(window.location.pathname!=='/combine')window.history.pushState({},'','/combine');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="measurables"?"#171717":"transparent",color:explorerMode==="measurables"?"#fff":"#737373",border:explorerMode==="measurables"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>measurables</button>
-          <button onClick={gateAuth(()=>{setExplorerMode("traits");setExplorerLeaderPos(null);if(window.location.pathname!=='/combine')window.history.pushState({},'','/combine');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="traits"?"#171717":"transparent",color:explorerMode==="traits"?"#fff":"#737373",border:explorerMode==="traits"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>scouting traits</button>
-          <button onClick={gateAuth(()=>{setExplorerMode("stats");setExplorerAbsolute(true);setExplorerLeaderPos(null);if(window.location.pathname!=='/combine')window.history.pushState({},'','/combine');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="stats"?"#171717":"transparent",color:explorerMode==="stats"?"#fff":"#737373",border:explorerMode==="stats"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>college stats</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("measurables");setExplorerAbsolute(false);setExplorerLeaderPos(null);if(window.location.pathname!=='/data-lab')window.history.pushState({},'','/data-lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="measurables"?"#171717":"transparent",color:explorerMode==="measurables"?"#fff":"#737373",border:explorerMode==="measurables"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>measurables</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("traits");setExplorerLeaderPos(null);if(window.location.pathname!=='/data-lab')window.history.pushState({},'','/data-lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="traits"?"#171717":"transparent",color:explorerMode==="traits"?"#fff":"#737373",border:explorerMode==="traits"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>scouting traits</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("stats");setExplorerAbsolute(true);setExplorerLeaderPos(null);if(window.location.pathname!=='/data-lab')window.history.pushState({},'','/data-lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="stats"?"#171717":"transparent",color:explorerMode==="stats"?"#fff":"#737373",border:explorerMode==="stats"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>college stats</button>
           <div style={{width:1,height:20,background:"#e5e5e5",margin:"0 4px",flexShrink:0}}/>
-          <button onClick={()=>{setExplorerMode("combo");window.history.pushState({},'','/combine/combo');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="combo"?"linear-gradient(135deg,#6366f1,#8b5cf6)":"transparent",color:explorerMode==="combo"?"#fff":"#7c3aed",border:explorerMode==="combo"?"1px solid #6366f1":"1px solid #7c3aed44",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="combo"?"0 2px 8px rgba(99,102,241,0.3)":"none"}}>⚡ combo</button>
+          <button onClick={()=>{setExplorerMode("combo");window.history.pushState({},'','/data-lab/combo');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="combo"?"linear-gradient(135deg,#6366f1,#8b5cf6)":"transparent",color:explorerMode==="combo"?"#fff":"#7c3aed",border:explorerMode==="combo"?"1px solid #6366f1":"1px solid #7c3aed44",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="combo"?"0 2px 8px rgba(99,102,241,0.3)":"none"}}>⚡ combo</button>
+          <button onClick={()=>{setExplorerMode("scarcity");window.history.pushState({},'','/data-lab/scarcity');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="scarcity"?"linear-gradient(135deg,#059669,#10b981)":"transparent",color:explorerMode==="scarcity"?"#fff":"#059669",border:explorerMode==="scarcity"?"1px solid #059669":"1px solid #05966944",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="scarcity"?"0 2px 8px rgba(5,150,105,0.3)":"none"}}>🫥 scarcity</button>
         </div>
 
         {/* Combo mode UI */}
@@ -2614,7 +2618,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         </>}
 
         {/* Measurable / Trait picker */}
-        {explorerMode!=="combo"&&(explorerMode==="measurables"?(<div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none"}}>
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&(explorerMode==="measurables"?(<div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none"}}>
           {MEAS_GROUPS.map(grp=>grp.keys.map(k=><button key={k} onClick={gateAuth(()=>setExplorerMeas(k))} style={{fontFamily:mono,fontSize:10,fontWeight:explorerMeas===k?700:500,padding:"5px 10px",background:explorerMeas===k?grp.border+"18":"transparent",color:explorerMeas===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerMeas===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{MEASURABLE_EMOJI[k]} {MEASURABLE_SHORT[k]}</button>))}
         </div>):explorerMode==="stats"?(<div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none",alignItems:"center"}}>
           {STAT_CATEGORIES.map(grp=>{const isOpen=explorerStatOpen.has(grp.label);const hasSelection=grp.keys.includes(explorerStat);return<Fragment key={grp.label}><button onClick={gateAuth(()=>{setExplorerStatOpen(prev=>{const next=new Set(prev);if(next.has(grp.label))next.delete(grp.label);else next.add(grp.label);return next;});})} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"5px 12px",background:hasSelection?grp.border:isOpen?grp.border+"18":"transparent",color:hasSelection?"#fff":isOpen?grp.border:"#737373",border:`1.5px solid ${hasSelection||isOpen?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{isOpen?"− ":"+ "}{grp.label}</button>{isOpen&&grp.keys.map(k=><button key={k} onClick={gateAuth(()=>setExplorerStat(k))} style={{fontFamily:mono,fontSize:10,fontWeight:explorerStat===k?700:500,padding:"5px 10px",background:explorerStat===k?grp.border+"18":"transparent",color:explorerStat===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerStat===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{STAT_EMOJI[k]||""} {STAT_SHORT[k]||k}</button>)}</Fragment>;})}
@@ -2635,10 +2639,10 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         </div>}
 
         {/* Sparse data warning */}
-        {explorerMode!=="combo"&&explorerData.points.length>0&&explorerData.points.length<20&&<div style={{fontFamily:sans,fontSize:11,color:"#92400e",background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:8,padding:"6px 12px",marginBottom:8}}>⚠️ sparse data — only {explorerData.points.length} players have this {explorerMode==="stats"?"stat":"measurement"}</div>}
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerData.points.length>0&&explorerData.points.length<20&&<div style={{fontFamily:sans,fontSize:11,color:"#92400e",background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:8,padding:"6px 12px",marginBottom:8}}>⚠️ sparse data — only {explorerData.points.length} players have this {explorerMode==="stats"?"stat":"measurement"}</div>}
 
         {/* Beeswarm */}
-        {explorerMode!=="combo"&&(explorerData.points.length===0?(<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no data available for this {explorerMode==="stats"?"stat":"measurable"}</p></div>):(
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&(explorerData.points.length===0?(<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no data available for this {explorerMode==="stats"?"stat":"measurable"}</p></div>):(
           <div style={{marginTop:4,position:"relative"}}>
             <BeeswarmChartWrapper data={explorerData} myGuys={myGuys} showMyGuys={explorerMyGuys} showLogos={explorerLogos} onHover={setExplorerHover} onTap={(pt)=>{const p=PROSPECTS.find(pr=>pr.id===pt.id);if(p)openProfile(p);}} hoveredId={explorerHover?.id||null}/>
             <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",display:"flex",alignItems:"center",gap:0,opacity:0.06,pointerEvents:"none"}}>
@@ -2659,7 +2663,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         ))}
 
         {/* Leaderboard + Position Averages */}
-        {explorerMode!=="combo"&&explorerData.points.length>=5&&(()=>{
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerData.points.length>=5&&(()=>{
           const mc=explorerData.measCode;
           const sc=explorerData.statCode;
           const inv=explorerData.inverted;
@@ -2744,13 +2748,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         })()}
 
 
-        {/* Blog cross-link */}
-        <div style={{textAlign:"center",marginTop:24,paddingTop:16,borderTop:"1px solid #f0f0f0"}}>
-          <a href="/blog/2026-nfl-combine-results.html" target="_blank" rel="noopener" style={{fontFamily:sans,fontSize:12,color:"#7c3aed",textDecoration:"none",fontWeight:600}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>2026 NFL Combine Results & Analysis →</a>
-        </div>
 
         {/* Tooltip — beeswarm modes */}
-        {explorerMode!=="combo"&&explorerHover&&<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-180),top:Math.max(explorerHover.cy-60,8),background:"#171717",color:"#fff",padding:"8px 12px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:200}}>
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerHover&&<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-180),top:Math.max(explorerHover.cy-60,8),background:"#171717",color:"#fff",padding:"8px 12px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:200}}>
           <div style={{fontWeight:700}}>{explorerHover.name}</div>
           <div style={{fontSize:10,color:"#a3a3a3",marginTop:1}}>{explorerHover.school}</div>
           <div style={{display:"flex",alignItems:"center",gap:6,marginTop:4}}>
@@ -2771,6 +2771,251 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
             <div style={{display:"flex",justifyContent:"space-between",gap:8}}><span style={{fontSize:10,color:"#a3a3a3"}}>{comboData.yMeta?.label||"Y"}</span><span style={{fontFamily:mono,fontSize:11,fontWeight:700}}>{(()=>{const v=explorerHover.y;return typeof v==="number"?(Math.abs(v)<10?v.toFixed(2):Math.abs(v)<100?v.toFixed(1):Math.round(v)):v;})()}</span></div>
           </div>
         </div>}
+        {/* Scarcity mode */}
+        {explorerMode==="scarcity"&&(()=>{
+          // --- Data computation with draft consumption ---
+          const roundLabels=["Pre-Draft","After R1","After R2","After R3","After R4","After R5","After R6","After R7"];
+          const teamPicks=scarcityTeam?DRAFT_ORDER.filter(d=>d.team===scarcityTeam):[];
+          const maxStops=scarcityTeam?teamPicks.length:7;
+          const clampedPick=Math.min(scarcityPick,maxStops);
+          const consumeCount=scarcityTeam?(clampedPick===0?0:teamPicks[clampedPick-1].pick-1):(ROUND_BOUNDS[clampedPick]||0);
+          const allSorted=[...PROSPECTS].sort((a,b)=>getGrade(b.id)-getGrade(a.id));
+          const consumedSet=new Set(allSorted.slice(0,consumeCount).map(p=>p.id));
+
+          const scarcityData=EXPLORER_GROUPS.map(pos=>{
+            const allAtPos=byPos[pos]||[];
+            const remaining=allAtPos.filter(p=>!consumedSet.has(p.id));
+            const qualityCount=remaining.filter(p=>getGrade(p.id)>=60).length;
+            // Demand is always league-wide (stable axes)
+            let demandTeams=0,totalUrgency=0;
+            const teamUrgencies=[];
+            Object.entries(TEAM_NEEDS_COUNTS).forEach(([team,teamMap])=>{
+              const u=teamMap[pos]||0;
+              if(u>0){demandTeams++;totalUrgency+=u;teamUrgencies.push({team,u});}
+            });
+            teamUrgencies.sort((a,b)=>b.u-a.u);
+            const teamUrgencyLevel=scarcityTeam?(TEAM_NEEDS_COUNTS[scarcityTeam]||{})[pos]||0:null;
+            return{pos,supply:remaining.length,demandTeams,totalUrgency,qualityCount,topTeams:teamUrgencies.slice(0,3),teamUrgencyLevel,allAtPos,remaining};
+          });
+
+          const maxQ=Math.max(...scarcityData.map(d=>d.qualityCount),1);
+          const maxD=Math.max(...scarcityData.map(d=>d.demandTeams),1);
+          const meanQ=scarcityData.reduce((s,d)=>s+d.qualityCount,0)/scarcityData.length;
+          const meanD=scarcityData.reduce((s,d)=>s+d.demandTeams,0)/scarcityData.length;
+          const maxUrg=Math.max(...scarcityData.map(d=>d.totalUrgency),1);
+          const W=Math.min(860,window.innerWidth-32),H=380;
+          const pad={top:30,right:30,bottom:50,left:50};
+          const cw=W-pad.left-pad.right,ch=H-pad.top-pad.bottom;
+          const sx=d=>(d.qualityCount/maxQ)*cw;
+          const sy=d=>ch-(d.demandTeams/maxD)*ch;
+          const sr=d=>8+((d.totalUrgency/maxUrg)*18);
+          const meanPxX=(meanQ/maxQ)*cw;
+          const meanPxY=ch-(meanD/maxD)*ch;
+
+          // Summary card sort
+          const sorted=scarcityTeam
+            ?[...scarcityData].filter(d=>d.teamUrgencyLevel>0).sort((a,b)=>b.teamUrgencyLevel-a.teamUrgencyLevel||(b.demandTeams/(b.qualityCount||1))-(a.demandTeams/(a.qualityCount||1)))
+            :[...scarcityData].sort((a,b)=>(b.demandTeams/(b.qualityCount||1))-(a.demandTeams/(a.qualityCount||1)));
+          const top3=sorted.slice(0,3);
+          const teamColor=scarcityTeam?NFL_TEAM_COLORS[scarcityTeam]||"#171717":null;
+
+          // Drill-down data
+          const expandedData=scarcityExpanded?scarcityData.find(d=>d.pos===scarcityExpanded):null;
+
+          return<>
+            {/* Team Lens — scrollable pill row */}
+            <div className="trait-pills-scroll" style={{display:"flex",gap:4,overflowX:"auto",WebkitOverflowScrolling:"touch",paddingBottom:4,scrollbarWidth:"none",marginBottom:8}}>
+              {allTeams.sort().map(t=>{const sel=t===scarcityTeam;const tc=NFL_TEAM_COLORS[t]||"#171717";return<button key={t} onClick={()=>{setScarcityTeam(sel?null:t);setScarcityPick(0);setScarcityExpanded(null);}} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:"4px 6px",background:sel?`${tc}15`:"transparent",border:sel?`2px solid ${tc}`:"2px solid transparent",borderRadius:8,cursor:"pointer",flexShrink:0,transition:"all 0.15s"}}><NFLTeamLogo team={t} size={22}/><span style={{fontFamily:mono,fontSize:7,color:sel?tc:"#a3a3a3",fontWeight:sel?700:500}}>{NFL_TEAM_ABR[t]}</span></button>;})}
+            </div>
+
+            {/* SVG chart wrapper */}
+            <div style={{position:"relative",marginTop:4}}>
+              <svg width={W} height={H} style={{display:"block"}}>
+                <defs>
+                  <pattern id="scarcity-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                    <line x1="0" y1="0" x2="0" y2="6" stroke="#dc262622" strokeWidth="1"/>
+                  </pattern>
+                </defs>
+                {/* Quadrant backgrounds */}
+                <rect x={pad.left} y={pad.top} width={meanPxX} height={meanPxY} fill="url(#scarcity-hatch)"/>
+                {/* Quadrant labels */}
+                <text x={pad.left+6} y={pad.top+14} style={{fontSize:9,fill:"#dc2626",fontFamily:"monospace",fontWeight:700,textTransform:"uppercase",letterSpacing:1}}>Scarce</text>
+                <text x={pad.left+meanPxX+6} y={pad.top+14} style={{fontSize:9,fill:"#737373",fontFamily:"monospace",fontWeight:700,textTransform:"uppercase",letterSpacing:1}}>Competitive</text>
+                <text x={pad.left+6} y={pad.top+meanPxY+14} style={{fontSize:9,fill:"#a3a3a3",fontFamily:"monospace",fontWeight:700,textTransform:"uppercase",letterSpacing:1}}>Niche</text>
+                <text x={pad.left+meanPxX+6} y={pad.top+meanPxY+14} style={{fontSize:9,fill:"#059669",fontFamily:"monospace",fontWeight:700,textTransform:"uppercase",letterSpacing:1}}>Deep</text>
+                {/* Mean lines */}
+                <line x1={pad.left+meanPxX} y1={pad.top} x2={pad.left+meanPxX} y2={pad.top+ch} stroke="#d4d4d4" strokeWidth={1} strokeDasharray="4,3"/>
+                <line x1={pad.left} y1={pad.top+meanPxY} x2={pad.left+cw} y2={pad.top+meanPxY} stroke="#d4d4d4" strokeWidth={1} strokeDasharray="4,3"/>
+                {/* Axes */}
+                <line x1={pad.left} y1={pad.top+ch} x2={pad.left+cw} y2={pad.top+ch} stroke="#e5e5e5" strokeWidth={1}/>
+                <line x1={pad.left} y1={pad.top} x2={pad.left} y2={pad.top+ch} stroke="#e5e5e5" strokeWidth={1}/>
+                {/* X-axis label */}
+                <text x={pad.left+cw/2} y={H-6} textAnchor="middle" style={{fontSize:10,fill:"#737373",fontFamily:"monospace"}}>Draftable Prospects</text>
+                {/* Y-axis label */}
+                <text x={12} y={pad.top+ch/2} textAnchor="middle" transform={`rotate(-90,12,${pad.top+ch/2})`} style={{fontSize:10,fill:"#737373",fontFamily:"monospace"}}>Teams With Need</text>
+                {/* X ticks */}
+                {[0,0.25,0.5,0.75,1].map(f=>{const xp=pad.left+f*cw;const v=Math.round(f*maxQ);return<g key={f}><line x1={xp} y1={pad.top+ch} x2={xp} y2={pad.top+ch+4} stroke="#d4d4d4"/><text x={xp} y={pad.top+ch+16} textAnchor="middle" style={{fontSize:9,fill:"#a3a3a3",fontFamily:"monospace"}}>{v}</text></g>;})}
+                {/* Y ticks */}
+                {[0,0.25,0.5,0.75,1].map(f=>{const yp=pad.top+ch-f*ch;const v=Math.round(f*maxD);return<g key={f}><line x1={pad.left-4} y1={yp} x2={pad.left} y2={yp} stroke="#d4d4d4"/><text x={pad.left-8} y={yp+3} textAnchor="end" style={{fontSize:9,fill:"#a3a3a3",fontFamily:"monospace"}}>{v}</text></g>;})}
+                {/* Bubbles */}
+                {scarcityData.map(d=>{
+                  const cx=pad.left+sx(d),cy=pad.top+sy(d),r=sr(d),c=POS_COLORS[d.pos]||"#525252";
+                  const isNeed=scarcityTeam?d.teamUrgencyLevel>0:true;
+                  const isExpanded=d.pos===scarcityExpanded;
+                  const opacity=scarcityTeam?(isNeed?1:0.15):1;
+                  const ringStyle=scarcityTeam&&isNeed?{stroke:teamColor,strokeWidth:3,strokeDasharray:d.teamUrgencyLevel>=3?"none":d.teamUrgencyLevel>=2?"6,3":"2,3"}:null;
+                  return<g key={d.pos}
+                    onClick={()=>setScarcityExpanded(prev=>prev===d.pos?null:d.pos)}
+                    onMouseEnter={e=>setExplorerHover({pos:d.pos,qualityCount:d.qualityCount,demandTeams:d.demandTeams,totalUrgency:d.totalUrgency,topTeams:d.topTeams,teamUrgencyLevel:d.teamUrgencyLevel,cx:e.clientX,cy:e.clientY})}
+                    onMouseLeave={()=>setExplorerHover(null)}
+                    style={{cursor:"pointer",opacity,transition:"opacity 0.2s"}}>
+                    {isExpanded&&<circle cx={cx} cy={cy} r={r+5} fill="none" stroke={c} strokeWidth={1.5} strokeDasharray="4,3"/>}
+                    {ringStyle&&<circle cx={cx} cy={cy} r={r+3} fill="none" {...ringStyle}/>}
+                    <circle cx={cx} cy={cy} r={r} fill={c+"22"} stroke={c} strokeWidth={2}/>
+                    <text x={cx} y={cy+1} textAnchor="middle" dominantBaseline="middle" style={{fontSize:Math.max(8,r*0.7),fill:c,fontFamily:"monospace",fontWeight:700,pointerEvents:"none"}}>{d.pos}</text>
+                  </g>;})}
+              </svg>
+              {/* Center watermark */}
+              <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",display:"flex",alignItems:"center",gap:0,opacity:0.06,pointerEvents:"none"}}>
+                <img src="/logo.png" alt="" style={{height:60,width:"auto"}}/>
+                <span style={{fontFamily:font,fontSize:32,fontWeight:900,color:"#171717",letterSpacing:-1,marginLeft:-6}}>bigboardlab.com</span>
+              </div>
+              {/* Bottom-right logo */}
+              <div style={{display:"flex",justifyContent:"flex-end",alignItems:"center",gap:5,marginTop:2,paddingRight:4}}>
+                <img src="/logo.png" alt="" style={{height:12,width:"auto"}}/>
+                <span style={{fontFamily:mono,fontSize:8,fontWeight:600,color:"#171717",letterSpacing:0.3}}>bigboardlab.com</span>
+              </div>
+
+              {/* Draft Progress Slider */}
+              {(()=>{
+                const handlePct=maxStops===0?0:(clampedPick/maxStops)*100;
+                // Status label
+                let statusLabel;
+                if(scarcityTeam&&clampedPick>0){
+                  const tp=teamPicks[clampedPick-1];
+                  statusLabel=`OTC Rd ${tp.round} · Pick ${tp.pick}`;
+                }else if(scarcityTeam){
+                  statusLabel="Pre-Draft";
+                }else{
+                  statusLabel=roundLabels[clampedPick]+(consumeCount>0?` · ${consumeCount} picks`:"");
+                }
+                return<div style={{margin:"16px 0 4px",padding:"12px 16px",background:"#f9fafb",border:"1px solid #e5e5e5",borderRadius:12}}>
+                  <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10}}>
+                    <div style={{display:"flex",alignItems:"center",gap:6}}>
+                      <span style={{fontSize:14}}>📋</span>
+                      <span style={{fontFamily:mono,fontSize:11,fontWeight:900,letterSpacing:1,color:"#171717",textTransform:"uppercase"}}>Draft Simulator</span>
+                    </div>
+                    <span style={{fontFamily:mono,fontSize:12,fontWeight:700,color:"#059669",background:"#05966915",padding:"3px 10px",borderRadius:99}}>{statusLabel}</span>
+                  </div>
+                  <div style={{position:"relative",height:32,display:"flex",alignItems:"center",padding:"0 10px"}}>
+                    {/* Track bg */}
+                    <div style={{position:"absolute",left:10,right:10,height:8,background:"#e5e7eb",borderRadius:4}}/>
+                    {/* Fill */}
+                    <div style={{position:"absolute",left:10,right:10,height:8,borderRadius:4,overflow:"hidden"}}><div style={{height:"100%",width:`${handlePct}%`,background:"linear-gradient(90deg, #059669, #34d399)",borderRadius:4,transition:"width 0.15s cubic-bezier(.4,1.3,.65,1)"}}/></div>
+                    {/* Team pick dots — each is a stop */}
+                    {scarcityTeam&&teamPicks.map((d,i)=>{const stopIdx=i+1;const pct=(stopIdx/maxStops)*100;const past=stopIdx<clampedPick;const current=stopIdx===clampedPick;return<div key={d.pick} style={{position:"absolute",left:`${pct}%`,top:"50%",transform:"translate(-50%,-50%)",width:current?0:past?6:10,height:current?0:past?6:10,borderRadius:"50%",background:past?"#059669":teamColor,border:past?"none":`2px solid ${teamColor}`,boxShadow:past?"none":"0 0 0 2px #fff",zIndex:2,pointerEvents:"none",transition:"all 0.15s cubic-bezier(.4,1.3,.65,1)"}} title={`Pick ${d.pick} (Rd ${d.round})${d.from?" from "+d.from:""}`}/>;
+                    })}
+                    {/* Round boundary ticks — no team mode */}
+                    {!scarcityTeam&&[0,1,2,3,4,5,6,7].map(i=>{const pct=(i/7)*100;const past=i<clampedPick;const current=i===clampedPick;return<div key={i} style={{position:"absolute",left:`${pct}%`,top:"50%",width:current?0:past?6:8,height:current?0:past?6:8,borderRadius:"50%",background:past?"#059669":"#d4d4d4",transform:"translate(-50%,-50%)",pointerEvents:"none",zIndex:2,transition:"all 0.15s cubic-bezier(.4,1.3,.65,1)"}}/>;
+                    })}
+                    {/* Pre-draft dot */}
+                    <div style={{position:"absolute",left:"0%",top:"50%",width:clampedPick===0?0:6,height:clampedPick===0?0:6,borderRadius:"50%",background:"#059669",transform:"translate(-50%,-50%)",pointerEvents:"none",zIndex:2,transition:"all 0.15s cubic-bezier(.4,1.3,.65,1)"}}/>
+                    {/* Drag handle */}
+                    <div style={{position:"absolute",left:`${handlePct}%`,top:"50%",transform:"translate(-50%,-50%)",width:22,height:22,borderRadius:"50%",background:"#fff",border:"3px solid #059669",boxShadow:"0 2px 8px rgba(0,0,0,0.18)",zIndex:3,pointerEvents:"none",transition:"left 0.15s cubic-bezier(.4,1.3,.65,1)"}}/>
+                    {/* Invisible input */}
+                    <input type="range" min="0" max={maxStops} step="1" value={clampedPick}
+                      onChange={e=>{setScarcityPick(parseInt(e.target.value));setScarcityExpanded(null);}}
+                      style={{position:"absolute",left:0,width:"100%",height:32,background:"transparent",cursor:"pointer",zIndex:5,opacity:0,margin:0}}/>
+                  </div>
+                  {/* Tick labels */}
+                  {scarcityTeam?<div style={{display:"flex",justifyContent:"space-between",marginTop:4,padding:"0 10px"}}>
+                    <span style={{fontFamily:mono,fontSize:9,color:clampedPick===0?"#059669":"#a3a3a3",fontWeight:clampedPick===0?700:400}}>Pre</span>
+                    {teamPicks.length<=12?teamPicks.map((d,i)=>{const stopIdx=i+1;return<span key={d.pick} style={{fontFamily:mono,fontSize:8,color:stopIdx<=clampedPick?"#059669":"#a3a3a3",fontWeight:stopIdx===clampedPick?700:400,textAlign:"center"}}>{d.round}.{String(d.pick).slice(-2)}</span>;}):<div style={{flex:1,display:"flex",justifyContent:"space-between",marginLeft:8}}>
+                      {[1,2,3,4,5,6,7].map(rd=>{const first=teamPicks.find(d=>d.round===rd);if(!first)return null;const stopIdx=teamPicks.indexOf(first)+1;return<span key={rd} style={{fontFamily:mono,fontSize:9,color:stopIdx<=clampedPick?"#059669":"#a3a3a3",fontWeight:400}}>R{rd}</span>;})}
+                    </div>}
+                  </div>:<div style={{display:"flex",justifyContent:"space-between",marginTop:4,padding:"0 10px"}}>
+                    {["Pre","R1","R2","R3","R4","R5","R6","R7"].map((l,i)=><span key={l} style={{fontFamily:mono,fontSize:9,color:i<=clampedPick?"#059669":"#a3a3a3",fontWeight:i===clampedPick?700:400,textAlign:"center"}}>{l}</span>)}
+                  </div>}
+                  {scarcityTeam&&clampedPick>0&&<div style={{marginTop:6,fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>
+                    {teamPicks.length-clampedPick} picks remaining{clampedPick<teamPicks.length?` · next: pick ${teamPicks[clampedPick].pick}`:""}
+                  </div>}
+                </div>;
+              })()}
+
+              {/* Tooltip */}
+              {explorerHover&&explorerHover.pos&&<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-220),top:Math.max(explorerHover.cy-90,8),background:"#171717",color:"#fff",padding:"10px 14px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:220}}>
+                <div style={{fontWeight:700,marginBottom:4}}>{POS_EMOJI[explorerHover.pos]} {explorerHover.pos}</div>
+                <div style={{fontSize:11,color:"#d4d4d4",lineHeight:1.6}}>
+                  <div>{explorerHover.qualityCount} draftable prospects{scarcityPick>0?" remaining":""}</div>
+                  <div>{explorerHover.demandTeams} teams need it</div>
+                  <div style={{fontSize:10,color:"#a3a3a3"}}>total urgency: {explorerHover.totalUrgency}</div>
+                </div>
+                {scarcityTeam&&explorerHover.teamUrgencyLevel!=null?<div style={{marginTop:6,borderTop:"1px solid #333",paddingTop:6}}>
+                  <div style={{fontSize:10,color:"#d4d4d4"}}>{scarcityTeam}: {explorerHover.teamUrgencyLevel>=3?"Critical need":explorerHover.teamUrgencyLevel>=2?"Important":"Depth need"} <span style={{color:explorerHover.teamUrgencyLevel>=3?"#f87171":explorerHover.teamUrgencyLevel>=2?"#fbbf24":"#a3a3a3"}}>{"●".repeat(explorerHover.teamUrgencyLevel)}</span></div>
+                </div>:explorerHover.topTeams.length>0&&<div style={{marginTop:6,borderTop:"1px solid #333",paddingTop:6}}>
+                  <div style={{fontSize:9,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1,marginBottom:3}}>Top Need</div>
+                  {explorerHover.topTeams.map(t=><div key={t.team} style={{fontSize:10,color:"#d4d4d4"}}>{t.team} <span style={{color:t.u>=3?"#f87171":t.u>=2?"#fbbf24":"#a3a3a3"}}>{"●".repeat(t.u)}</span></div>)}
+                </div>}
+                <div style={{fontSize:9,color:"#525252",marginTop:4}}>tap to expand</div>
+              </div>}
+            </div>
+
+            {/* Summary Cards */}
+            <div style={{display:"flex",gap:10,marginTop:16,overflowX:"auto",paddingBottom:4}}>
+              {top3.map((d,i)=>{
+                const ratio=d.demandTeams/(d.qualityCount||1);
+                const isActive=d.pos===scarcityExpanded;
+                const c=POS_COLORS[d.pos]||"#525252";
+                let tag,tagColor;
+                if(scarcityTeam){
+                  tag=d.teamUrgencyLevel>=3?"Critical need":d.teamUrgencyLevel>=2?"Important":"Depth need";
+                  tagColor=d.teamUrgencyLevel>=3?"#dc2626":d.teamUrgencyLevel>=2?"#ca8a04":"#059669";
+                }else{
+                  tag=ratio>=2?"High scarcity":ratio>=1?"Moderate":"Well-stocked";
+                  tagColor=ratio>=2?"#dc2626":ratio>=1?"#ca8a04":"#059669";
+                }
+                return<div key={d.pos} onClick={()=>setScarcityExpanded(prev=>prev===d.pos?null:d.pos)} style={{flex:"1 0 0",minWidth:140,background:"#fff",border:isActive?`2px solid ${c}`:"1px solid #e5e5e5",borderRadius:12,padding:"14px 16px",position:"relative",overflow:"hidden",cursor:"pointer",transition:"border 0.15s"}}>
+                  <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:c}}/>
+                  <div style={{fontFamily:mono,fontSize:14,fontWeight:900,color:c,marginBottom:4}}>{POS_EMOJI[d.pos]} {d.pos}</div>
+                  <div style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.5}}>{d.demandTeams} teams need · {d.qualityCount} draftable</div>
+                  <div style={{marginTop:6}}><span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:tagColor,background:tagColor+"18",border:`1px solid ${tagColor}44`,borderRadius:99,padding:"2px 8px",textTransform:"uppercase",letterSpacing:0.5}}>{tag}</span></div>
+                </div>;})}
+            </div>
+
+            {/* Drill-Down Panel */}
+            {expandedData&&(()=>{
+              const allProspects=[...expandedData.allAtPos].sort((a,b)=>getGrade(b.id)-getGrade(a.id));
+              const availableCount=expandedData.remaining.length;
+              const draftedCount=expandedData.allAtPos.length-availableCount;
+              const ec=POS_COLORS[scarcityExpanded]||"#525252";
+              return<div style={{marginTop:12,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
+                <div style={{position:"sticky",top:0,zIndex:2,background:"#fff",display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 14px",borderBottom:"1px solid #f0f0f0"}}>
+                  <div style={{display:"flex",alignItems:"center",gap:8}}>
+                    <span style={{fontSize:16}}>{POS_EMOJI[scarcityExpanded]}</span>
+                    <span style={{fontFamily:mono,fontSize:13,fontWeight:900,color:ec}}>{scarcityExpanded}</span>
+                    <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{availableCount} available{draftedCount>0?` · ${draftedCount} drafted`:""}</span>
+                  </div>
+                  <button onClick={()=>setScarcityExpanded(null)} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"2px 10px",cursor:"pointer"}}>close ✕</button>
+                </div>
+                <div style={{maxHeight:400,overflowY:"auto"}}>
+                  {allProspects.map((p,i)=>{
+                    const consumed=consumedSet.has(p.id);
+                    const cr=getConsensusRound(p.name);
+                    return<div key={p.id} style={{display:"flex",alignItems:"center",gap:8,padding:"7px 14px",borderBottom:i<allProspects.length-1?"1px solid #f5f5f5":"none",opacity:consumed?0.35:1,textDecoration:consumed?"line-through":"none",cursor:consumed?"default":"pointer"}}
+                      onClick={()=>{if(!consumed){const pr=PROSPECTS.find(x=>x.id===p.id);if(pr)openProfile(pr);}}}
+                      onMouseEnter={e=>{if(!consumed)e.currentTarget.style.background="#faf9f6";}}
+                      onMouseLeave={e=>{e.currentTarget.style.background="transparent";}}>
+                      <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",width:20,textAlign:"right",flexShrink:0}}>#{i+1}</span>
+                      <SchoolLogo school={p.school} size={20}/>
+                      <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1,minWidth:0,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{p.name}</span>
+                      <span style={{fontFamily:mono,fontSize:8,fontWeight:700,padding:"2px 6px",borderRadius:4,background:cr.bg,color:cr.fg,flexShrink:0}}>{cr.label}</span>
+                    </div>;
+                  })}
+                </div>
+              </div>;
+            })()}
+          </>;
+        })()}
         <TwitterFooter/>
         <div style={{textAlign:"center",padding:"4px 24px 16px",fontFamily:mono,fontSize:10,color:"#d4d4d4",letterSpacing:0.5}}>© {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>
       </div>
@@ -3027,7 +3272,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
         <p style={{fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:0}}>2026 NFL Draft · April 23–25</p>
       </div>
       <div style={{display:"flex",gap:8,alignItems:"center"}}>
-        <button onClick={()=>{openExplorer();trackEvent(user?.id,'explorer_opened',{guest:!user});}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"6px 14px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",transition:"all 0.2s",display:"flex",alignItems:"center",gap:5}}><img src="/combine-logo.png" alt="" style={{height:16,width:"auto"}}/> <span className="shimmer-text">combine</span></button>
+        <button onClick={()=>{openExplorer();trackEvent(user?.id,'explorer_opened',{guest:!user});}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"6px 14px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",transition:"all 0.2s",display:"flex",alignItems:"center",gap:5}}>🧪 <span className="shimmer-text">data lab</span></button>
         <button onClick={()=>{if(isGuest){onRequireAuth("want to see and share the guys you draft more than others?");return;}setShowMyGuys(true);setMyGuysUpdated(false);}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:myGuysUpdated?"linear-gradient(135deg,#ec4899,#7c3aed)":mockCount>0?"#171717":"transparent",color:myGuysUpdated||mockCount>0?"#fff":"#a3a3a3",border:myGuysUpdated||mockCount>0?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",position:"relative",transition:"all 0.2s",whiteSpace:"nowrap"}}>
           👀 my guys
           {myGuysUpdated&&<span style={{position:"absolute",top:-2,right:-2,width:8,height:8,borderRadius:4,background:"#ec4899",border:"2px solid #faf9f6"}}/>}
@@ -4647,7 +4892,7 @@ function AdminDashboard({user,onBack}){
 function GuidePage({onBack}){
   useEffect(()=>{trackEvent(null,'guide_viewed');},[]);
   useEffect(()=>{
-    const guideTitle='How to Use Big Board Lab | 2026 NFL Draft Board Builder & Combine Explorer Guide';
+    const guideTitle='How to Use Big Board Lab | 2026 NFL Draft Board Builder & Data Lab Guide';
     const guideDesc='Learn how to rank prospects, grade traits, run AI mock drafts, explore combine data, compare college stats with historical percentiles, and build your 2026 NFL big board.';
     const guideUrl='https://bigboardlab.com/guide';
     // Save originals
@@ -5002,7 +5247,7 @@ function GuidePage({onBack}){
             <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#16a34a",background:"#f0fdf4",border:"1px solid #bbf7d0",borderRadius:99,padding:"2px 8px"}}>{row.breakout}</span>
           </div>;})}
         </div>
-        <div style={tip}>💡 Freshman breakout + elite dominator is the most predictive combination for NFL receivers. Filter by Breakout Year in the Combine Explorer to find them.</div>
+        <div style={tip}>💡 Freshman breakout + elite dominator is the most predictive combination for NFL receivers. Filter by Breakout Year in the Data Lab to find them.</div>
       </div>
 
       {/* 08 — Live Depth Chart Updates */}
@@ -5227,9 +5472,9 @@ function GuidePage({onBack}){
         {[
           {q:"What is a dominator rating?",a:"It measures what share of their team's total production a player owned — yards + TDs, divided by two. The standard WR/TE eval metric. We extend it to every position: passing dominance for QBs, rushing share for RBs, pressure rate for EDGE."},
           {q:"What is breakout year?",a:"The earliest college season a player crossed a dominator threshold. Freshman breakouts are the strongest NFL predictor — dominate early, translate at the next level. We compute it for every position, not just receivers."},
-          {q:"How does the Combine Explorer work?",a:"Every prospect's athletic measurables displayed in beeswarm charts — compare across this class or against 26 years of combine history. Toggle raw values vs position percentiles. The college stats tab compares production against 10 years of FBS data."},
+          {q:"How does the Data Lab work?",a:"Every prospect's athletic measurables displayed in beeswarm charts — compare across this class or against 26 years of combine history. Toggle raw values vs position percentiles. The college stats tab compares production against 10 years of FBS data. The scarcity map shows supply vs demand for each position group."},
           {q:"How are historical percentiles calculated?",a:"We compare each prospect's college stats against every FBS player at their position over the last 10 seasons. 90th percentile in receiving yards = out-produced 90% of all FBS players at that position."},
-          {q:"Is Big Board Lab free?",a:"Completely. No paywall, no credit card, no signup. Rankings, trait grading, mock drafts, combine explorer, college stats, community trends — all of it, every user, zero cost."},
+          {q:"Is Big Board Lab free?",a:"Completely. No paywall, no credit card, no signup. Rankings, trait grading, mock drafts, data lab, college stats, community trends — all of it, every user, zero cost."},
         ].map((faq,i)=><details key={i} className="guide-faq-item">
           <summary>
             <span className="faq-arrow" style={{fontFamily:mono,fontSize:10,color:"#7c3aed",fontWeight:700}}>›</span>
@@ -5487,11 +5732,11 @@ export default function App(){
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
   if(showGuide)return<GuidePage onBack={()=>{window.history.pushState({},'','/');setShowGuide(false);}}/>;
   if(showOG)return<OGPreview/>;
-  if(!user&&!isGuest&&!window.location.pathname.startsWith('/combine')&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>setIsGuest(true)} onOpenGuide={navigateToGuide}/>;
+  if(!user&&!isGuest&&!window.location.pathname.startsWith('/data-lab')&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>setIsGuest(true)} onOpenGuide={navigateToGuide}/>;
   if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
   return<>
     <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} onRequireAuth={(msg)=>{
-      const src=msg.includes('play with the data')?'combine-explorer':msg.includes('vote')||msg.includes('big board')?'pair rank':msg.includes('trait')||msg.includes('grade')||msg.includes('slider')?'sliders':msg.includes('mock')||msg.includes('draft')?'mock draft':msg.includes('reorder')?'pair rank':msg.includes('note')?'notes':msg.includes('guys')?'my guys':msg.includes('share')?'share':msg.includes('save')?'save':'homepage';
+      const src=msg.includes('play with the data')?'data-lab':msg.includes('vote')||msg.includes('big board')?'pair rank':msg.includes('trait')||msg.includes('grade')||msg.includes('slider')?'sliders':msg.includes('mock')||msg.includes('draft')?'mock draft':msg.includes('reorder')?'pair rank':msg.includes('note')?'notes':msg.includes('guys')?'my guys':msg.includes('share')?'share':msg.includes('save')?'save':'homepage';
       authSourceRef.current=src;
       try{sessionStorage.setItem('authSource',src)}catch(e){}
       setAuthPrompt(msg);
