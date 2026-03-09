@@ -2378,7 +2378,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
                     <div style={{flex:1}}><div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#171717"}}>{p.name}</div><div style={{fontFamily:mono,fontSize:9,color:c}}>{p.gpos||p.pos} · {p.school}</div></div>
                     <div style={{fontFamily:font,fontSize:20,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626"}}>{g}</div>
                   </div>
-                  <RadarChart traits={activeLabels} values={activeValues} color={c} size={140}/>
+                  <RadarChart traits={activeLabels} values={activeValues} color={c} size={140} proDaySpokes={compareMeasMode&&md?md.proDaySpokes:undefined}/>
                   <div style={{textAlign:"left",marginTop:4,background:"#fafaf9",borderRadius:8,padding:"6px 8px"}}>
                     {activeLabels.map((label,li)=>{
                       const val=activeValues[li];
@@ -2723,7 +2723,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
                 <span style={{fontFamily:mono,fontSize:10,color:c,background:c+"11",padding:"2px 8px",borderRadius:4,border:"1px solid "+c+"22",display:"inline-block",margin:"6px 0"}}>{p.gpos||p.pos}</span>
                 {rank&&rank<400&&<div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>consensus #{rank}{posRank&&<span> · {p.gpos||p.pos} #{posRank}</span>}</div>}
                 <div style={{fontFamily:font,fontSize:32,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626",lineHeight:1,margin:"8px 0"}}>{g}</div>
-                <RadarChart traits={activeLabels} values={activeValues} color={c} size={140}/>
+                <RadarChart traits={activeLabels} values={activeValues} color={c} size={140} proDaySpokes={compareMeasMode&&md?md.proDaySpokes:undefined}/>
                 <div style={{textAlign:"left",marginTop:8,background:"#fafaf9",borderRadius:8,padding:"8px 10px"}}>
                   {activeLabels.map((label,li)=>{
                     const val=activeValues[li];

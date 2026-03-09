@@ -863,6 +863,44 @@ async function main() {
     console.log(`  ✅ Applied ${manualCount} manual overrides`);
   }
 
+  // ---- SOURCE 3: Pro Day data (gap-fills only) ----
+  const proDayDir = path.join(__dirname, 'agents', 'output', 'pro-day');
+  const proDayTracker = {}; // name -> [field, field, ...]
+  if (fs.existsSync(proDayDir)) {
+    const proDayFiles = fs.readdirSync(proDayDir).filter(f => f.endsWith('.json'));
+    if (proDayFiles.length > 0) {
+      console.log(`\n🏟️  Loading pro day data (${proDayFiles.length} schools)...`);
+      let proDayFills = 0;
+      proDayFiles.forEach(file => {
+        const data = JSON.parse(fs.readFileSync(path.join(proDayDir, file), 'utf8'));
+        const school = data.school || '';
+        (data.participants || []).forEach(p => {
+          const match = findMatch({ player_name: p.name, school }, bblMap);
+          if (!match) return;
+          const r = results[match.name];
+          const fields = [];
+          if (p.height && !r.heightInches) { r.heightInches = p.height; fields.push('height'); }
+          if (p.weight && !r.weight) { r.weight = p.weight; fields.push('weight'); }
+          if (p.forty && !r.forty) { r.forty = p.forty; fields.push('forty'); }
+          if (p.vertical && !r.vertical) { r.vertical = p.vertical; fields.push('vertical'); }
+          if (p.broad && !r.broad) { r.broad = p.broad; fields.push('broad'); }
+          if (p.bench && !r.bench) { r.bench = p.bench; fields.push('bench'); }
+          if (p.cone && !r.cone) { r.cone = p.cone; fields.push('cone'); }
+          if (p.shuttle && !r.shuttle) { r.shuttle = p.shuttle; fields.push('shuttle'); }
+          if (p.arms && !r.arms) { r.arms = p.arms; fields.push('arms'); }
+          if (p.hands && !r.hands) { r.hands = p.hands; fields.push('hands'); }
+          if (p.wingspan && !r.wingspan) { r.wingspan = p.wingspan; fields.push('wingspan'); }
+          if (fields.length > 0) {
+            proDayTracker[match.name] = fields;
+            proDayFills++;
+            console.log(`    ✅ ${p.name} (${school}) — gap-filled: ${fields.join(', ')}`);
+          }
+        });
+      });
+      console.log(`  ✅ Applied ${proDayFills} pro day gap-fills`);
+    }
+  }
+
   // ---- BUILD HISTORICAL PERCENTILE TABLES ----
   console.log('\n📊 Building historical percentile tables...');
   // Include height (ht) and weight (wt) alongside drills
@@ -1050,7 +1088,7 @@ async function main() {
       ? Math.round((percentiles.vertical + percentiles.broad) / 2)
       : (percentiles.vertical != null ? percentiles.vertical : percentiles.broad != null ? percentiles.broad : null);
 
-    combineJson[key] = {
+    const entry = {
       height: r.heightInches || null,
       weight: r.weight || null,
       forty: r.forty || null,
@@ -1069,6 +1107,8 @@ async function main() {
       agilityScore: agilityScore,
       explosionScore: explosionScore,
     };
+    if (proDayTracker[p.name]) entry.proDayFields = proDayTracker[p.name];
+    combineJson[key] = entry;
   });
   fs.writeFileSync(COMBINE_JSON_PATH, JSON.stringify(combineJson, null, 2));
   console.log(`\n📊 Wrote ${Object.keys(combineJson).length} prospects to ${COMBINE_JSON_PATH}`);

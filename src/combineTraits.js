@@ -458,6 +458,7 @@ export function getCombineScores(name, school) {
     speedScore: cd.speedScore ?? null,
     percentiles: cd.percentiles ?? null,
     scores: cd.scores ?? null,
+    proDayFields: cd.proDayFields ?? null,
   };
 
   _scoreCache[cacheKey] = result;
