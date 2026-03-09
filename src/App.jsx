@@ -1728,8 +1728,16 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     ctx.textBaseline='top';ctx.textAlign='left';
     ctx.fillStyle='#171717';ctx.font=`900 32px ${font}`;
     ctx.fillText('\ud83d\udc40 my guys',padX,22);
-    ctx.fillStyle='#a3a3a3';ctx.font=`11px ${mono}`;
-    ctx.fillText('BIGBOARDLAB.COM  \u00b7  2026 NFL DRAFT',padX,60);
+    // Logo + wordmark top-right
+    let logoImg=null;try{logoImg=new Image();logoImg.crossOrigin='anonymous';logoImg.src='/logo.png';await new Promise((res,rej)=>{logoImg.onload=res;logoImg.onerror=rej;setTimeout(rej,2000);});}catch(e){logoImg=null;}
+    const logoH=28,logoW=logoImg?Math.round(logoImg.naturalWidth/logoImg.naturalHeight*logoH):0;
+    ctx.font=`800 24px ${font}`;
+    const wmW=ctx.measureText('big board lab').width;
+    const brandTotalW=logoW+(logoW?10:0)+wmW;
+    const brandX=W-padX-brandTotalW;
+    if(logoImg)ctx.drawImage(logoImg,brandX,24,logoW,logoH);
+    ctx.fillStyle='#171717';ctx.font=`800 24px ${font}`;
+    ctx.fillText('big board lab',brandX+(logoW?logoW+10:0),24);
     const sGrad=ctx.createLinearGradient(padX,0,W-padX,0);sGrad.addColorStop(0,'#ec4899');sGrad.addColorStop(1,'#7c3aed');
     ctx.fillStyle=sGrad;ctx.fillRect(padX,headerH-6,W-padX*2,2);
     const rr=(x,y,w,h,r)=>{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();};
@@ -1745,16 +1753,11 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     const drawCardRadar=(cx0,cy0,rad,traitNames,values,color)=>{const n=traitNames.length;if(n<3)return;const angles=traitNames.map((_,j)=>(Math.PI*2*j/n)-Math.PI/2);const pt=(a,v)=>[cx0+rad*v*Math.cos(a),cy0+rad*v*Math.sin(a)];const rK=1.8,rCurve=v=>Math.pow(v/100,rK)*100,rFLOOR=rCurve(40);const rGridLevels=[50,60,70,80,90,100].map(lv=>Math.max(0,(rCurve(lv)-rFLOOR)/(100-rFLOOR)));rGridLevels.forEach((lv,li)=>{ctx.beginPath();angles.forEach((a,j)=>{const[px,py]=pt(a,lv);j===0?ctx.moveTo(px,py):ctx.lineTo(px,py);});ctx.closePath();ctx.strokeStyle=li===2?'#d4d4d4':'#e5e5e5';ctx.lineWidth=li===rGridLevels.length-1?0.8:0.4;ctx.stroke();});ctx.fillStyle='#a3a3a3';ctx.font=`7px ${mono}`;ctx.textAlign='center';ctx.textBaseline='middle';angles.forEach((a,j)=>{const[lx,ly]=pt(a,1.22);ctx.fillText(traitNames[j].split(' ')[0],lx,ly);});ctx.beginPath();angles.forEach((a,j)=>{const v=Math.max(0.05,values[j]||0);const[px,py]=pt(a,v);j===0?ctx.moveTo(px,py):ctx.lineTo(px,py);});ctx.closePath();ctx.fillStyle=color+'20';ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=1.2;ctx.stroke();angles.forEach((a,j)=>{const v=Math.max(0.05,values[j]||0);const[px,py]=pt(a,v);ctx.beginPath();ctx.arc(px,py,2,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});ctx.textAlign='left';ctx.textBaseline='top';};
     const TRAIT_MAP=POSITION_TRAITS;
     for(let i=0;i<count;i++){const col=i%2,row=Math.floor(i/2);const cx0=padX+col*(colW+cardGap);const cy0=headerH+fpH+padTop+row*(cardH+cardGap);const g=myGuys[i];const p=prospectMap[g.name];const c=POS_COLORS[g.pos]||'#525252';ctx.fillStyle='#ffffff';rr(cx0,cy0,colW,cardH,14);ctx.fill();ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;rr(cx0,cy0,colW,cardH,14);ctx.stroke();const tx=cx0+16,ty=cy0+16;ctx.fillStyle='#d4d4d4';ctx.font=`bold 22px ${sans}`;ctx.textAlign='left';ctx.textBaseline='top';ctx.fillText(String(i+1),tx,ty);const logoX=tx+30;const school=p?.school;if(school&&logoCache[school])ctx.drawImage(logoCache[school],logoX,ty-2,28,28);const nameX=logoX+34;ctx.fillStyle='#171717';ctx.font=`bold 16px ${sans}`;const maxNameW=colW-16-30-34-60;ctx.save();ctx.beginPath();ctx.rect(nameX,ty,maxNameW,30);ctx.clip();ctx.fillText(g.name,nameX,ty);ctx.restore();ctx.fillStyle='#a3a3a3';ctx.font=`10px ${mono}`;ctx.fillText(school||'',nameX,ty+20);const posText=g.pos;ctx.font=`bold 10px ${mono}`;const pw=ctx.measureText(posText).width+14;const pillX=cx0+colW-16-pw;ctx.fillStyle=c+'18';rr(pillX,ty+2,pw,20,4);ctx.fill();ctx.fillStyle=c;ctx.fillText(posText,pillX+7,ty+7);const traitPos=g.pos==='DB'?(getProspectStats(g.name)?.gpos||'CB'):g.pos==='OL'?'OT':g.pos;const traitKeys=TRAIT_MAP[traitPos]||TRAIT_MAP['QB'];const cK=1.8,cCurve=v=>Math.pow(v/100,cK)*100,cFLOOR=cCurve(40);const traitVals=traitKeys.map(t=>{const raw=tv(traits,p?.id,t,g.name,p?.school||'');return Math.max(0,(cCurve(raw)-cFLOOR)/(100-cFLOOR));});drawCardRadar(cx0+colW/2,cy0+52+70,58,traitKeys,traitVals,c);const by=cy0+cardH-40;ctx.fillStyle='#f5f5f5';ctx.fillRect(cx0+16,by-6,colW-32,1);const grade=p?getGrade(p.id):null;if(grade){ctx.font=`bold 24px ${sans}`;ctx.fillStyle=grade>=75?'#16a34a':grade>=55?'#ca8a04':'#dc2626';ctx.textAlign='left';ctx.textBaseline='top';ctx.fillText(String(grade),cx0+16,by);}const badges=p?prospectBadges[p.id]||[]:[];if(badges.length>0){ctx.font=`14px ${sans}`;ctx.textAlign='right';ctx.textBaseline='top';ctx.fillText(badges.map(b=>b.emoji).join(' '),cx0+colW-16,by+4);}ctx.textAlign='left';ctx.textBaseline='top';}
-    let logoImg=null;try{logoImg=new Image();logoImg.crossOrigin='anonymous';logoImg.src='/logo.png';await new Promise((res,rej)=>{logoImg.onload=res;logoImg.onerror=rej;setTimeout(rej,2000);});}catch(e){logoImg=null;}
     const fy=H-footerH;
     ctx.fillStyle='#e5e5e5';ctx.fillRect(padX,fy,W-padX*2,1);
-    const logoH=28,logoW=logoImg?Math.round(logoImg.naturalWidth/logoImg.naturalHeight*logoH):0;
-    if(logoImg)ctx.drawImage(logoImg,padX,fy+12,logoW,logoH);
-    const labelX=padX+(logoW?logoW+10:0);
-    ctx.textBaseline='middle';ctx.fillStyle='#171717';ctx.font=`bold 14px ${font}`;
-    ctx.fillText('big board lab',labelX,fy+footerH/2);
-    ctx.fillStyle='#a3a3a3';ctx.font=`11px ${mono}`;ctx.textAlign='right';
-    ctx.fillText('draft smarter at bigboardlab.com',W-padX,fy+footerH/2);
+    ctx.textBaseline='middle';ctx.textAlign='center';
+    ctx.fillStyle='#a3a3a3';ctx.font=`13px ${mono}`;
+    ctx.fillText('draft smarter at bigboardlab.com',W/2,fy+footerH/2);
     ctx.textAlign='left';ctx.textBaseline='top';
     canvas.toBlob(async blob=>{if(!blob)return;const fname='bigboardlab-my-guys.png';const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);if(isMobile&&navigator.share&&navigator.canShare){try{const file=new File([blob],fname,{type:'image/png'});if(navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'My Guys \u2014 Big Board Lab',text:'My 2026 NFL Draft guys! Build yours at bigboardlab.com'});return;}}catch(e){}}try{await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);setCopiedShare("my-guys");setTimeout(()=>setCopiedShare(null),1500);}catch(e){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=fname;document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(()=>URL.revokeObjectURL(url),3000);}trackEvent(user?.id,'share_triggered',{type:'my_guys',count:myGuys.length,guest:!user});},'image/png');
   },[myGuys,traits,getGrade,prospectBadges]);
