@@ -17,7 +17,7 @@ const DRAFT_ORDER_2026=[
 {pick:1,round:1,team:"Raiders"},{pick:2,round:1,team:"Jets"},{pick:3,round:1,team:"Cardinals"},{pick:4,round:1,team:"Titans"},
 {pick:5,round:1,team:"Giants"},{pick:6,round:1,team:"Browns"},{pick:7,round:1,team:"Commanders"},{pick:8,round:1,team:"Saints"},
 {pick:9,round:1,team:"Chiefs"},{pick:10,round:1,team:"Bengals"},{pick:11,round:1,team:"Dolphins"},{pick:12,round:1,team:"Cowboys"},
-{pick:13,round:1,team:"Rams",from:"Falcons"},{pick:14,round:1,team:"Ravens"},{pick:15,round:1,team:"Buccaneers"},{pick:16,round:1,team:"Jets",from:"Colts"},
+{pick:13,round:1,team:"Rams",from:"Falcons"},{pick:14,round:1,team:"Raiders",from:"Ravens"},{pick:15,round:1,team:"Buccaneers"},{pick:16,round:1,team:"Jets",from:"Colts"},
 {pick:17,round:1,team:"Lions"},{pick:18,round:1,team:"Vikings"},{pick:19,round:1,team:"Panthers"},{pick:20,round:1,team:"Cowboys",from:"Packers"},
 {pick:21,round:1,team:"Steelers"},{pick:22,round:1,team:"Chargers"},{pick:23,round:1,team:"Eagles"},{pick:24,round:1,team:"Browns",from:"Jaguars"},
 {pick:25,round:1,team:"Bears"},{pick:26,round:1,team:"Bills"},{pick:27,round:1,team:"49ers"},{pick:28,round:1,team:"Texans"},
@@ -38,7 +38,7 @@ const DRAFT_ORDER_2026=[
 {pick:85,round:3,team:"Steelers"},{pick:86,round:3,team:"Chargers"},{pick:87,round:3,team:"Dolphins",from:"Eagles"},{pick:88,round:3,team:"Jaguars"},
 {pick:89,round:3,team:"Bears"},{pick:90,round:3,team:"Dolphins",from:"Texans"},{pick:91,round:3,team:"Bills"},{pick:92,round:3,team:"49ers"},
 {pick:93,round:3,team:"Rams"},{pick:94,round:3,team:"Broncos"},{pick:95,round:3,team:"Patriots"},{pick:96,round:3,team:"Seahawks"},
-{pick:97,round:3,team:"Vikings"},{pick:98,round:3,team:"Eagles"},{pick:99,round:3,team:"Steelers"},{pick:100,round:3,team:"Jaguars",from:"Lions"},
+{pick:97,round:4,team:"Vikings"},{pick:98,round:4,team:"Eagles"},{pick:99,round:4,team:"Steelers"},{pick:100,round:4,team:"Jaguars",from:"Lions"},
 {pick:101,round:4,team:"Titans"},{pick:102,round:4,team:"Raiders"},{pick:103,round:4,team:"Jets"},{pick:104,round:4,team:"Cardinals"},
 {pick:105,round:4,team:"Giants"},{pick:106,round:4,team:"Texans",from:"Commanders"},{pick:107,round:4,team:"Browns"},{pick:108,round:4,team:"Broncos",from:"Saints"},
 {pick:109,round:4,team:"Chiefs"},{pick:110,round:4,team:"Bengals"},{pick:111,round:4,team:"Dolphins"},{pick:112,round:4,team:"Cowboys"},
@@ -54,8 +54,8 @@ const DRAFT_ORDER_2026=[
 {pick:148,round:5,team:"Browns",from:"Bengals"},{pick:149,round:5,team:"Saints"},{pick:150,round:5,team:"Dolphins"},{pick:151,round:5,team:"Cowboys"},
 {pick:152,round:5,team:"Eagles",from:"Falcons"},{pick:153,round:5,team:"Ravens"},{pick:154,round:5,team:"Buccaneers"},{pick:155,round:5,team:"Colts"},
 {pick:156,round:5,team:"Lions"},{pick:157,round:5,team:"Panthers",from:"Vikings"},{pick:158,round:5,team:"Panthers"},{pick:159,round:5,team:"Packers"},
-{pick:160,round:5,team:"Steelers"},{pick:161,round:5,team:"Ravens",from:"Chargers"},{pick:162,round:5,team:"Vikings",from:"Eagles"},{pick:163,round:5,team:"Jaguars"},
-{pick:164,round:5,team:"Bills",from:"Bears"},{pick:165,round:5,team:"Jaguars",from:"49ers"},{pick:166,round:5,team:"Texans"},{pick:167,round:5,team:"Bills"},
+{pick:160,round:5,team:"Steelers"},{pick:161,round:5,team:"Chargers",from:"Ravens"},{pick:162,round:5,team:"Eagles",from:"Vikings"},{pick:163,round:5,team:"Jaguars"},
+{pick:164,round:5,team:"Bills",from:"Bears"},{pick:165,round:5,team:"49ers",from:"Jaguars"},{pick:166,round:5,team:"Texans"},{pick:167,round:5,team:"Bills"},
 {pick:168,round:5,team:"Chiefs",from:"Rams"},{pick:169,round:5,team:"Broncos"},{pick:170,round:5,team:"Patriots"},{pick:171,round:5,team:"Saints",from:"Seahawks"},
 {pick:172,round:5,team:"49ers"},{pick:173,round:5,team:"Ravens"},{pick:174,round:5,team:"Ravens"},{pick:175,round:5,team:"Raiders"},
 {pick:176,round:5,team:"Cowboys"},{pick:177,round:5,team:"Chiefs"},{pick:178,round:5,team:"Eagles"},{pick:179,round:5,team:"Jets"},
@@ -74,7 +74,7 @@ const DRAFT_ORDER_2026=[
 {pick:224,round:7,team:"Cowboys",from:"Chiefs"},{pick:225,round:7,team:"Bengals"},{pick:226,round:7,team:"Dolphins"},{pick:227,round:7,team:"Bills",from:"Cowboys"},
 {pick:228,round:7,team:"Buccaneers"},{pick:229,round:7,team:"Colts"},{pick:230,round:7,team:"Falcons"},{pick:231,round:7,team:"Rams",from:"Ravens"},
 {pick:232,round:7,team:"Jaguars",from:"Lions"},{pick:233,round:7,team:"Vikings"},{pick:234,round:7,team:"Panthers"},{pick:235,round:7,team:"Packers"},
-{pick:236,round:7,team:"Steelers"},{pick:237,round:7,team:"Titans",from:"Chargers"},{pick:238,round:7,team:"Bears",from:"Eagles"},{pick:239,round:7,team:"Vikings",from:"Jaguars"},
+{pick:236,round:7,team:"Steelers"},{pick:237,round:7,team:"Chargers",from:"Titans"},{pick:238,round:7,team:"Eagles",from:"Bears"},{pick:239,round:7,team:"Jaguars",from:"Vikings"},
 {pick:240,round:7,team:"Bears"},{pick:241,round:7,team:"Jets",from:"Bills"},{pick:242,round:7,team:"Texans",from:"49ers"},{pick:243,round:7,team:"Texans"},
 {pick:244,round:7,team:"Jaguars",from:"Rams"},{pick:245,round:7,team:"Broncos"},{pick:246,round:7,team:"Patriots"},{pick:247,round:7,team:"Browns",from:"Seahawks"},
 {pick:248,round:7,team:"Colts"},{pick:249,round:7,team:"Ravens"},{pick:250,round:7,team:"Rams"},{pick:251,round:7,team:"Rams"},
@@ -360,7 +360,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,draftOrde
     if(pickNum===1){const m=avail.find(id=>{const p=prospectsMap[id];return p&&p.name==="Fernando Mendoza";});if(m)return m;}
 
     // Elite slide protection removed — transcendent tier + ceiling bumps + EDGE flex handle this organically now
-    const round=pickNum<=32?1:pickNum<=64?2:pickNum<=100?3:pickNum<=144?4:pickNum<=180?5:pickNum<=220?6:7;
+    const round=pickNum<=32?1:pickNum<=64?2:pickNum<=96?3:pickNum<=139?4:pickNum<=181?5:pickNum<=215?6:7;
 
     // === STAGE-BASED BPA/NEED SHIFTS ===
     // Dynasty: talent-first, can afford luxury picks — heavy BPA

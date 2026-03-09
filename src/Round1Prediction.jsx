@@ -16,7 +16,7 @@ const DRAFT_ORDER_2026=[
 {pick:1,round:1,team:"Raiders"},{pick:2,round:1,team:"Jets"},{pick:3,round:1,team:"Cardinals"},{pick:4,round:1,team:"Titans"},
 {pick:5,round:1,team:"Giants"},{pick:6,round:1,team:"Browns"},{pick:7,round:1,team:"Commanders"},{pick:8,round:1,team:"Saints"},
 {pick:9,round:1,team:"Chiefs"},{pick:10,round:1,team:"Bengals"},{pick:11,round:1,team:"Dolphins"},{pick:12,round:1,team:"Cowboys"},
-{pick:13,round:1,team:"Rams",from:"Falcons"},{pick:14,round:1,team:"Ravens"},{pick:15,round:1,team:"Buccaneers"},{pick:16,round:1,team:"Jets",from:"Colts"},
+{pick:13,round:1,team:"Rams",from:"Falcons"},{pick:14,round:1,team:"Raiders",from:"Ravens"},{pick:15,round:1,team:"Buccaneers"},{pick:16,round:1,team:"Jets",from:"Colts"},
 {pick:17,round:1,team:"Lions"},{pick:18,round:1,team:"Vikings"},{pick:19,round:1,team:"Panthers"},{pick:20,round:1,team:"Cowboys",from:"Packers"},
 {pick:21,round:1,team:"Steelers"},{pick:22,round:1,team:"Chargers"},{pick:23,round:1,team:"Eagles"},{pick:24,round:1,team:"Browns",from:"Jaguars"},
 {pick:25,round:1,team:"Bears"},{pick:26,round:1,team:"Bills"},{pick:27,round:1,team:"49ers"},{pick:28,round:1,team:"Texans"},
@@ -94,7 +94,7 @@ function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap,
   if(pickNum===1){const m=avail.find(id=>{const p=prospectsMap[id];return p&&p.name==="Fernando Mendoza";});if(m)return m;}
 
   // Elite slide protection removed — transcendent tier + ceiling bumps + EDGE flex handle this organically now
-  const round=pickNum<=32?1:pickNum<=64?2:pickNum<=100?3:pickNum<=144?4:pickNum<=180?5:pickNum<=220?6:7;
+  const round=pickNum<=32?1:pickNum<=64?2:pickNum<=96?3:pickNum<=139?4:pickNum<=181?5:pickNum<=215?6:7;
   let stageBpaShift=0, stageNeedShift=0;
   if(prof.stage==="dynasty"){stageBpaShift=0.15;stageNeedShift=-0.12;}
   else if(prof.stage==="contend"){stageBpaShift=-0.08;stageNeedShift=0.18;}
