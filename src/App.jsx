@@ -622,10 +622,12 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
     const[logoImg,schoolImg,...compImgs]=await Promise.all([loadImg('/logo.png'),loadImg(schoolLogo(player.school)),...compSchools.map(s=>loadImg(schoolLogo(s)))]);
     const compLogoMap={};compSchools.forEach((s,i)=>{if(compImgs[i])compLogoMap[s]=compImgs[i];});
 
-    // Layout calculations
+    // Layout calculations — pre-compute drill/composite arrays to skip empty modules
     const hasCombine=!!cd;
+    const drillItems=hasCombine?[cd.forty&&{l:'40',v:cd.forty+'s',p:cs?.percentiles?.forty},cd.vertical&&{l:'VJ',v:cd.vertical+'"',p:cs?.percentiles?.vertical},cd.broad&&{l:'BJ',v:Math.floor(cd.broad/12)+"'"+cd.broad%12+'"',p:cs?.percentiles?.broad},cd.bench&&{l:'BP',v:cd.bench,p:cs?.percentiles?.bench},cd.cone&&{l:'3C',v:cd.cone+'s',p:cs?.percentiles?.cone},cd.shuttle&&{l:'SH',v:cd.shuttle+'s',p:cs?.percentiles?.shuttle}].filter(Boolean):[];
+    const compItems=cs?[cs.speedScore!=null&&{l:'SPD',v:Math.round(cs.speedScore)},cs.agilityScore!=null&&{l:'AGI',v:cs.agilityScore},cs.explosionScore!=null&&{l:'EXP',v:cs.explosionScore},cs.athleticScore!=null&&{l:'ATH',v:cs.athleticScore}].filter(Boolean):[];
     const m1H=140,m2H=62;
-    const m3H=hasCombine?72:0,m4H=(hasCombine&&cs)?58:0;
+    const m3H=drillItems.length>0?72:0,m4H=compItems.length>0?58:0;
     const centerTopBot=pad+m2H+(m3H?gap+m3H:0)+(m4H?gap+m4H:0);
     const simCount=Math.min(similar.length,5);
     const m5H=Math.max(simCount*38+mp*2+22,80);
@@ -691,39 +693,32 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
       });
     }
 
-    // ====== MODULE 3: Drills ======
-    if(hasCombine){
+    // ====== MODULE 3: Drills (skip if empty) ======
+    if(drillItems.length>0){
       const m3Y=pad+m2H+gap;
       mod(centerX,m3Y,centerW,m3H);
-      const pct=cs?.percentiles||{};
-      const drills=[cd.forty&&{l:'40',v:cd.forty+'s',p:pct.forty},cd.vertical&&{l:'VJ',v:cd.vertical+'"',p:pct.vertical},cd.broad&&{l:'BJ',v:Math.floor(cd.broad/12)+"'"+cd.broad%12+'"',p:pct.broad},cd.bench&&{l:'BP',v:cd.bench,p:pct.bench},cd.cone&&{l:'3C',v:cd.cone+'s',p:pct.cone},cd.shuttle&&{l:'SH',v:cd.shuttle+'s',p:pct.shuttle}].filter(Boolean);
-      if(drills.length>0){
-        const cW=Math.floor((centerW-mp*2-(drills.length-1)*8)/drills.length);
-        drills.forEach((d,i)=>{
-          const cx=centerX+mp+i*(cW+8),cy=m3Y+8;
-          ctx.fillStyle='#f0fdf9';rr(cx,cy,cW,m3H-16,8);ctx.fill();ctx.strokeStyle='#99f6e4';ctx.lineWidth=0.5;rr(cx,cy,cW,m3H-16,8);ctx.stroke();
-          ctx.fillStyle='#6b9bd2';ctx.font=`8px ${mono}`;ctx.textAlign='center';ctx.letterSpacing='1px';ctx.fillText(d.l,cx+cW/2,cy+8);ctx.letterSpacing='0px';
-          ctx.fillStyle='#1e40af';ctx.font=`700 14px ${mono}`;ctx.fillText(String(d.v),cx+cW/2,cy+26);
-          if(d.p!=null){ctx.fillStyle=d.p>=80?'#16a34a':d.p>=50?'#ca8a04':'#dc2626';ctx.font=`600 9px ${mono}`;ctx.fillText(d.p+'th',cx+cW/2,cy+44);}
-          ctx.textAlign='left';
-        });
-      }
-      // ====== MODULE 4: Composites ======
-      if(cs){
-        const m4Y=m3Y+m3H+gap;
-        mod(centerX,m4Y,centerW,m4H);
-        const compSt={SPD:{c:'#7c3aed',bg:'#f5f3ff',bd:'#ddd6fe'},AGI:{c:'#0891b2',bg:'#ecfeff',bd:'#a5f3fc'},EXP:{c:'#0d9488',bg:'#f0fdfa',bd:'#99f6e4'},ATH:{c:'#ea580c',bg:'#fff7ed',bd:'#fed7aa'}};
-        const comps=[cs.speedScore!=null&&{l:'SPD',v:Math.round(cs.speedScore)},cs.agilityScore!=null&&{l:'AGI',v:cs.agilityScore},cs.explosionScore!=null&&{l:'EXP',v:cs.explosionScore},cs.athleticScore!=null&&{l:'ATH',v:cs.athleticScore}].filter(Boolean);
-        if(comps.length>0){
-          const cW=Math.floor((centerW-mp*2-(comps.length-1)*8)/comps.length);
-          comps.forEach((comp,i)=>{
-            const cx=centerX+mp+i*(cW+8),cy=m4Y+8;const st=compSt[comp.l]||compSt.ATH;
-            ctx.fillStyle=st.bg;rr(cx,cy,cW,m4H-16,8);ctx.fill();ctx.strokeStyle=st.bd;ctx.lineWidth=0.5;rr(cx,cy,cW,m4H-16,8);ctx.stroke();
-            ctx.fillStyle=st.c;ctx.font=`8px ${mono}`;ctx.textAlign='center';ctx.letterSpacing='1px';ctx.fillText(comp.l,cx+cW/2,cy+8);ctx.letterSpacing='0px';
-            ctx.font=`700 14px ${mono}`;ctx.fillText(String(comp.v),cx+cW/2,cy+26);ctx.textAlign='left';
-          });
-        }
-      }
+      const cW=Math.floor((centerW-mp*2-(drillItems.length-1)*8)/drillItems.length);
+      drillItems.forEach((d,i)=>{
+        const cx=centerX+mp+i*(cW+8),cy=m3Y+8;
+        ctx.fillStyle='#f0fdf9';rr(cx,cy,cW,m3H-16,8);ctx.fill();ctx.strokeStyle='#99f6e4';ctx.lineWidth=0.5;rr(cx,cy,cW,m3H-16,8);ctx.stroke();
+        ctx.fillStyle='#6b9bd2';ctx.font=`8px ${mono}`;ctx.textAlign='center';ctx.letterSpacing='1px';ctx.fillText(d.l,cx+cW/2,cy+8);ctx.letterSpacing='0px';
+        ctx.fillStyle='#1e40af';ctx.font=`700 14px ${mono}`;ctx.fillText(String(d.v),cx+cW/2,cy+26);
+        if(d.p!=null){ctx.fillStyle=d.p>=80?'#16a34a':d.p>=50?'#ca8a04':'#dc2626';ctx.font=`600 9px ${mono}`;ctx.fillText(d.p+'th',cx+cW/2,cy+44);}
+        ctx.textAlign='left';
+      });
+    }
+    // ====== MODULE 4: Composites (skip if empty) ======
+    if(compItems.length>0){
+      const m4Y=pad+m2H+(m3H?gap+m3H:0)+gap;
+      mod(centerX,m4Y,centerW,m4H);
+      const compSt={SPD:{c:'#7c3aed',bg:'#f5f3ff',bd:'#ddd6fe'},AGI:{c:'#0891b2',bg:'#ecfeff',bd:'#a5f3fc'},EXP:{c:'#0d9488',bg:'#f0fdfa',bd:'#99f6e4'},ATH:{c:'#ea580c',bg:'#fff7ed',bd:'#fed7aa'}};
+      const cW=Math.floor((centerW-mp*2-(compItems.length-1)*8)/compItems.length);
+      compItems.forEach((comp,i)=>{
+        const cx=centerX+mp+i*(cW+8),cy=m4Y+8;const st=compSt[comp.l]||compSt.ATH;
+        ctx.fillStyle=st.bg;rr(cx,cy,cW,m4H-16,8);ctx.fill();ctx.strokeStyle=st.bd;ctx.lineWidth=0.5;rr(cx,cy,cW,m4H-16,8);ctx.stroke();
+        ctx.fillStyle=st.c;ctx.font=`8px ${mono}`;ctx.textAlign='center';ctx.letterSpacing='1px';ctx.fillText(comp.l,cx+cW/2,cy+8);ctx.letterSpacing='0px';
+        ctx.font=`700 14px ${mono}`;ctx.fillText(String(comp.v),cx+cW/2,cy+26);ctx.textAlign='left';
+      });
     }
 
     // ====== MODULE 5: Similar Profiles ======
