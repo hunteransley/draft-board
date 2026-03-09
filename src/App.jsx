@@ -1728,16 +1728,19 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
     ctx.textBaseline='top';ctx.textAlign='left';
     ctx.fillStyle='#171717';ctx.font=`900 32px ${font}`;
     ctx.fillText('\ud83d\udc40 my guys',padX,22);
-    // Logo + wordmark top-right
+    // Logo + wordmark top-right, vertically centered with title
     let logoImg=null;try{logoImg=new Image();logoImg.crossOrigin='anonymous';logoImg.src='/logo.png';await new Promise((res,rej)=>{logoImg.onload=res;logoImg.onerror=rej;setTimeout(rej,2000);});}catch(e){logoImg=null;}
-    const logoH=28,logoW=logoImg?Math.round(logoImg.naturalWidth/logoImg.naturalHeight*logoH):0;
-    ctx.font=`800 24px ${font}`;
+    const logoH=36,logoW=logoImg?Math.round(logoImg.naturalWidth/logoImg.naturalHeight*logoH):0;
+    ctx.font=`800 28px ${font}`;
     const wmW=ctx.measureText('big board lab').width;
     const brandTotalW=logoW+(logoW?10:0)+wmW;
     const brandX=W-padX-brandTotalW;
-    if(logoImg)ctx.drawImage(logoImg,brandX,24,logoW,logoH);
-    ctx.fillStyle='#171717';ctx.font=`800 24px ${font}`;
-    ctx.fillText('big board lab',brandX+(logoW?logoW+10:0),24);
+    const brandMidY=38;
+    if(logoImg)ctx.drawImage(logoImg,brandX,brandMidY-logoH/2,logoW,logoH);
+    ctx.fillStyle='#171717';ctx.font=`800 28px ${font}`;
+    ctx.textBaseline='middle';
+    ctx.fillText('big board lab',brandX+(logoW?logoW+10:0),brandMidY);
+    ctx.textBaseline='top';
     const sGrad=ctx.createLinearGradient(padX,0,W-padX,0);sGrad.addColorStop(0,'#ec4899');sGrad.addColorStop(1,'#7c3aed');
     ctx.fillStyle=sGrad;ctx.fillRect(padX,headerH-6,W-padX*2,2);
     const rr=(x,y,w,h,r)=>{ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();};
