@@ -94,7 +94,7 @@ function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap,
   if(pickNum===1){const m=avail.find(id=>{const p=prospectsMap[id];return p&&p.name==="Fernando Mendoza";});if(m)return m;}
 
   // Elite slide protection removed — transcendent tier + ceiling bumps + EDGE flex handle this organically now
-  const round=pickNum<=32?1:pickNum<=64?2:pickNum<=96?3:pickNum<=139?4:pickNum<=181?5:pickNum<=215?6:7;
+  const round=pickNum<=32?1:pickNum<=64?2:pickNum<=100?3:pickNum<=139?4:pickNum<=181?5:pickNum<=215?6:7;
   let stageBpaShift=0, stageNeedShift=0;
   if(prof.stage==="dynasty"){stageBpaShift=0.15;stageNeedShift=-0.12;}
   else if(prof.stage==="contend"){stageBpaShift=-0.08;stageNeedShift=0.18;}
