@@ -1697,9 +1697,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
       if(upside>=Math.ceil(guys.length*0.6)){pills.push({emoji:"⭐",text:"ceiling chaser",detail:`${upside}/${guys.length} high+`,color:"#ea580c"});}
       else if(ceilCounts.capped>=Math.ceil(guys.length*0.3)){pills.push({emoji:"🔒",text:"floor first",detail:`${ceilCounts.capped} capped`,color:"#64748b"});}
       const avgDelta=guys.reduce((s,g)=>s+g.delta,0)/guys.length;
-      if(avgDelta>10){pills.push({emoji:"📈",text:"value hunter",detail:`+${Math.round(avgDelta)} avg`,color:"#16a34a"});}
-      else if(avgDelta<-5){pills.push({emoji:"🎲",text:"reach drafter",detail:`${Math.round(avgDelta)} avg`,color:"#dc2626"});}
-      else{pills.push({emoji:"⚖️",text:"consensus aligned",detail:`${avgDelta>0?"+":""}${Math.round(avgDelta)}`,color:"#525252"});}
+      if(avgDelta<-10){pills.push({emoji:"📈",text:"value hunter",detail:`avg ${Math.round(Math.abs(avgDelta))} picks late`,color:"#16a34a"});}
+      else if(avgDelta>5){pills.push({emoji:"🎲",text:"reach drafter",detail:`avg ${Math.round(avgDelta)} picks early`,color:"#dc2626"});}
+      else{pills.push({emoji:"⚖️",text:"consensus aligned",detail:`±${Math.round(Math.abs(avgDelta))}`,color:"#525252"});}
       const confCounts={};guys.forEach(g=>{const conf=SCHOOL_CONFERENCE[g.school];if(conf&&conf!=="FCS"&&conf!=="D2"&&conf!=="D3"&&conf!=="Ind")confCounts[conf]=(confCounts[conf]||0)+1;});
       const topConf=Object.entries(confCounts).sort((a,b)=>b[1]-a[1]);
       if(topConf.length>0&&topConf[0][1]>=Math.ceil(guys.length*0.5)){pills.push({emoji:"🏈",text:`${topConf[0][0]} lean`,detail:`${topConf[0][1]}/${guys.length}`,color:"#0369a1"});}

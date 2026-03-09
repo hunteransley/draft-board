@@ -1060,92 +1060,107 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
 
     if(isSingleTeam){
       // ================================================================
-      // SINGLE TEAM — light bg, tight layout
-      // Logo in dark footer, spider card under picks
+      // SINGLE TEAM — matching all-32 style picks, inline radar, web-matching depth chart
       // ================================================================
       const W=1200,pad=32,colGap=24;
-      const pickRowH=76;
-      const depthRowH=16,depthGroupGap=4;
+      const rowH=47; // matching all-32 row height
+      const radarSize=200;
 
-      // Depth chart data — flat, no group headers
-      const chart=depthChart[team]||{};
-      const depthGroups=DEPTH_GROUPS.map(g=>{
-        const entries=g.slots.map(s=>({slot:s,entry:chart[s]})).filter(x=>x.entry);
-        const extras=Object.entries(chart).filter(([k])=>g.slots.some(s=>k.startsWith(s+'_d'))).map(([k,v])=>({slot:k,entry:v}));
-        return{label:g.label,items:[...entries,...extras]};
-      }).filter(g=>g.items.length>0);
-      const depthRowCount=depthGroups.reduce((s,g)=>s+g.items.length,0);
-
-      // Best pick for radar
+      // Best pick for inline radar expansion
       const bestPick=teamPicks.reduce((best,pk)=>{const g=activeGrade(pk.playerId);return(!best||g>best.grade)?{pk,grade:g}:best;},null);
-      const radarSize=220;
-      const radarCardH=bestPick?radarSize+110:0;
+      const radarExpandH=bestPick?radarSize+60:0;
 
-      const depthTotalH=depthRowCount*depthRowH+depthGroups.length*depthGroupGap+20;
-      const picksTotalH=24+teamPicks.length*pickRowH;
-      const leftContentH=picksTotalH+radarCardH;
-      const bodyH=Math.max(leftContentH,depthTotalH);
-      const headerH=90;
-      const footerH=52;
+      // Strategy fingerprint pills
+      const fpPills=draftFingerprint(teamPicks);
+
+      // Depth chart data — matching web UI DepthList (scheme-aware)
+      const chart=depthChart[team]||{};
+      const schemeGroups=getSchemeDepthGroups(team);
+      const baseGroupMap={};
+      DEPTH_GROUPS.forEach(g=>{baseGroupMap[g.posMatch]=g.slots;});
+      const depthGroupsRendered=schemeGroups.map(group=>{
+        const entries=group.slots.map(s=>({slot:s,label:group.slotLabels?.[s]||s,entry:chart[s]})).filter(x=>x.entry);
+        const extras=Object.entries(chart).filter(([k])=>group.slots.some(s=>k.startsWith(s+'_d'))).map(([k,v])=>({slot:k,label:'+',entry:v}));
+        const baseSlots=baseGroupMap[group.posMatch]||[];
+        const hiddenRoster=baseSlots.filter(s=>!group.slots.includes(s)&&chart[s]).map(s=>({slot:s,label:'+',entry:chart[s]}));
+        extras.push(...hiddenRoster);
+        return{label:group.label,items:[...entries,...extras]};
+      }).filter(g=>g.items.length>0);
+      const depthRowH=18;
+      const depthGroupGap=10;
+      const depthRowCount=depthGroupsRendered.reduce((s,g)=>s+g.items.length,0);
+      const depthTotalH=depthRowCount*depthRowH+depthGroupsRendered.length*depthGroupGap+24;
+
+      // Picks container height
+      const picksTotalH=teamPicks.length*rowH+radarExpandH;
+
+      // Strategy pills row
+      const strategyH=fpPills.length>0?36:0;
+
+      const headerH=76;
+      const bodyH=Math.max(picksTotalH,depthTotalH)+strategyH;
+      const footerH=44;
       const H=headerH+bodyH+footerH+pad;
 
       canvas.width=W*scale;canvas.height=H*scale;
       ctx.scale(scale,scale);
 
       ctx.fillStyle='#faf9f6';ctx.fillRect(0,0,W,H);
-      // Pink→purple gradient top bar
-      const tGrad=ctx.createLinearGradient(0,0,W,0);
-      tGrad.addColorStop(0,'#ec4899');tGrad.addColorStop(1,'#7c3aed');
-      ctx.fillStyle=tGrad;ctx.fillRect(0,0,W,4);
-      // Thin team accent bar below
-      ctx.fillStyle=accent;ctx.fillRect(0,4,W,2);
 
-      // === HEADER — matching My Guys (no logo in header) ===
-      ctx.textBaseline='top';ctx.textAlign='left';
-      ctx.fillStyle='#171717';ctx.font='bold 32px -apple-system,system-ui,sans-serif';
-      ctx.fillText('BIG BOARD LAB',pad,22);
-      ctx.fillStyle='#a3a3a3';ctx.font='11px ui-monospace,monospace';
-      ctx.fillText('BIGBOARDLAB.COM  \u00b7  2026 NFL DRAFT',pad,60);
+      // === HEADER — team identity left (vertically centered), logo+wordmark right ===
+      const hMidY=headerH/2;
 
-      // Team identity — [logo] [team name] [grade pill] on one line, right-aligned
-      ctx.textAlign='right';
-      // Measure grade pill first so we can lay out right-to-left
-      let gradeW=0;
+      // NFL team logo
+      let tLogoImg=null;
+      try{tLogoImg=await loadImg(nflLogoUrl(team));}catch(e){}
+      const tLogoSize=44;
+      if(tLogoImg)ctx.drawImage(tLogoImg,pad,hMidY-tLogoSize/2,tLogoSize,tLogoSize);
+
+      // Team name — vertically centered with logo
+      ctx.textBaseline='middle';ctx.textAlign='left';
+      ctx.fillStyle='#171717';ctx.font=`bold 24px ${sans}`;
+      ctx.fillText(team,pad+tLogoSize+10,hMidY);
+
+      // Grade pill — vertically centered with team name
       if(draftGrade){
-        ctx.font='bold 26px -apple-system,system-ui,sans-serif';
-        gradeW=ctx.measureText(draftGrade.grade).width+20;
+        ctx.font=`bold 22px ${sans}`;
+        const gradeW=ctx.measureText(draftGrade.grade).width+18;
+        ctx.font=`bold 24px ${sans}`;
+        const teamW=ctx.measureText(team).width;
+        const gpX=pad+tLogoSize+10+teamW+12;
+        const gpH=32;
+        ctx.fillStyle=draftGrade.color+'18';rr(gpX,hMidY-gpH/2,gradeW,gpH,6);ctx.fill();
+        ctx.strokeStyle=draftGrade.color+'40';ctx.lineWidth=1;rr(gpX,hMidY-gpH/2,gradeW,gpH,6);ctx.stroke();
+        ctx.fillStyle=draftGrade.color;ctx.font=`bold 22px ${sans}`;
+        ctx.textAlign='center';ctx.fillText(draftGrade.grade,gpX+gradeW/2,hMidY);ctx.textAlign='left';
       }
-      const gradePillX=W-pad-gradeW;
-      const teamTextX=gradePillX-(draftGrade?12:0);
-      ctx.fillStyle='#171717';ctx.font='bold 24px -apple-system,system-ui,sans-serif';
-      const teamTextW=ctx.measureText(team).width;
-      const teamLogoX=teamTextX-teamTextW-56;
-      try{const tLogo=await loadImg(nflLogoUrl(team));ctx.drawImage(tLogo,teamLogoX,14,48,48);}catch(e){}
-      ctx.fillText(team,teamTextX,24);
-      // Grade in shaded pill
-      if(draftGrade){
-        ctx.fillStyle=draftGrade.color+'18';rr(gradePillX,18,gradeW,36,6);ctx.fill();
-        ctx.strokeStyle=draftGrade.color+'40';ctx.lineWidth=1;rr(gradePillX,18,gradeW,36,6);ctx.stroke();
-        ctx.fillStyle=draftGrade.color;ctx.font='bold 26px -apple-system,system-ui,sans-serif';
-        ctx.textAlign='center';ctx.fillText(draftGrade.grade,gradePillX+gradeW/2,22);
-      }
-      // Trade value delta below the line
-      ctx.textAlign='right';
-      if(tradeValueDelta!==0){ctx.fillStyle=tradeValueDelta>0?'#16a34a':'#dc2626';ctx.font='9px ui-monospace,monospace';ctx.fillText('trade: '+(tradeValueDelta>0?'+':'')+tradeValueDelta+' pts',W-pad,62);}
-      ctx.textAlign='left';
 
-      // Separator — matching My Guys
-      const sGrad=ctx.createLinearGradient(pad,0,W-pad,0);
-      sGrad.addColorStop(0,'#ec4899');sGrad.addColorStop(1,'#7c3aed');
-      ctx.fillStyle=sGrad;ctx.fillRect(pad,headerH-6,W-pad*2,2);
+      // Trade value delta — small, below center line
+      if(tradeValueDelta!==0){ctx.fillStyle=tradeValueDelta>0?'#16a34a':'#dc2626';ctx.font=`9px ${mono}`;ctx.textBaseline='top';ctx.fillText('trade: '+(tradeValueDelta>0?'+':'')+tradeValueDelta+' pts',pad+tLogoSize+10,hMidY+16);ctx.textBaseline='middle';}
+
+      // Logo + wordmark — top-right, vertically centered
+      let logoImg=null;
+      try{logoImg=new Image();logoImg.crossOrigin='anonymous';logoImg.src='/logo.png';await new Promise((r,j)=>{logoImg.onload=r;logoImg.onerror=j;setTimeout(j,2000);});}catch(e){logoImg=null;}
+      const bLogoH=36,bLogoW=logoImg?Math.round(logoImg.naturalWidth/logoImg.naturalHeight*bLogoH):0;
+      ctx.font=`800 28px ${font}`;
+      const wmW=ctx.measureText('big board lab').width;
+      const brandTotalW=bLogoW+(bLogoW?10:0)+wmW;
+      const brandX=W-pad-brandTotalW;
+      if(logoImg)ctx.drawImage(logoImg,brandX,hMidY-bLogoH/2,bLogoW,bLogoH);
+      ctx.fillStyle='#171717';
+      ctx.fillText('big board lab',brandX+(bLogoW?bLogoW+10:0),hMidY);
+      ctx.textBaseline='top';
+
+      // Separator
+      ctx.fillStyle='#e5e5e5';ctx.fillRect(pad,headerH-4,W-pad*2,1);
 
       // === TWO COLUMNS ===
-      const bodyY=headerH+16;
-      const leftW=Math.round((W-pad*2-colGap)*0.52);
+      const bodyY=headerH+8;
+      const leftW=Math.round((W-pad*2-colGap)*0.65);
       const rightX=pad+leftW+colGap;
       const rightW=W-pad-rightX;
 
-      // LEFT: PICKS — load school logos first
+      // Load school logos
       const pickSchools=[...new Set(teamPicks.map(pk=>prospectsMap[pk.playerId]?.school).filter(Boolean))];
       const schoolCache={};
       await Promise.all(pickSchools.map(async s=>{
@@ -1153,181 +1168,175 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         try{schoolCache[s]=await loadImg(url,2000);}catch(e){}
       }));
 
-      ctx.fillStyle=accent;ctx.font='bold 10px ui-monospace,monospace';
-      ctx.fillText('YOUR PICKS',pad,bodyY);
-      let py=bodyY+20;
-      for(const pk of teamPicks){
+      // LEFT: PICKS — single white container like all-32
+      ctx.fillStyle='#fff';rr(pad,bodyY,leftW,picksTotalH,12);ctx.fill();
+      ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;rr(pad,bodyY,leftW,picksTotalH,12);ctx.stroke();
+
+      let py=bodyY;
+      for(let pi=0;pi<teamPicks.length;pi++){
+        const pk=teamPicks[pi];
         const p=prospectsMap[pk.playerId];if(!p)continue;
         const g=activeGrade(pk.playerId);
         const rank=getConsensusRank?getConsensusRank(p.name):pk.pick;
         const g2=getConsensusGrade?getConsensusGrade(p.name):g;
         const v=pickVerdict(pk.pick,rank,g2);
         const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos]||'#525252';
+        const isBest=bestPick&&pk.playerId===bestPick.pk.playerId;
 
         // Detect trade
         const pickIdx=picks.findIndex(x=>x.pick===pk.pick&&x.round===pk.round&&x.playerId===pk.playerId);
         const origOwner=pickIdx>=0?fullDraftOrder[pickIdx]?.team:null;
         const wasTrade=origOwner&&origOwner!==pk.team;
 
-        // Card bg — white, 14px radius, 1px #e5e5e5 border
-        ctx.fillStyle='#ffffff';rr(pad,py,leftW,pickRowH-6,14);ctx.fill();
-        ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;rr(pad,py,leftW,pickRowH-6,14);ctx.stroke();
-        ctx.fillStyle=accent;ctx.fillRect(pad+1,py+8,4,pickRowH-22);
+        // Row separator (between rows, not first)
+        if(pi>0){ctx.fillStyle='#f5f5f5';ctx.fillRect(pad+1,py-0.5,leftW-2,1);}
 
-        // Round/pick label
-        ctx.fillStyle='#d4d4d4';ctx.font='bold 10px ui-monospace,monospace';ctx.textAlign='left';
-        ctx.fillText('R'+pk.round+' #'+pk.pick,pad+14,py+12);
+        const midY=py+rowH/2;
+        ctx.textBaseline='middle';
 
-        // Trade pill below round/pick
-        if(wasTrade){ctx.fillStyle='rgba(168,85,247,0.08)';const trdTxt='\u{1f504} via '+(TEAM_ABBR[origOwner]||origOwner);ctx.font='bold 8px ui-monospace,monospace';const trdW=ctx.measureText(trdTxt).width+10;rr(pad+14,py+26,trdW,14,4);ctx.fill();ctx.fillStyle='#a855f7';ctx.fillText(trdTxt,pad+18,py+31);}
+        // Pick # — right-aligned in left column (matching all-32)
+        ctx.fillStyle='#d4d4d4';ctx.font=`12px ${mono}`;ctx.textAlign='right';
+        ctx.fillText('R'+pk.round+' #'+pk.pick,pad+56,midY);ctx.textAlign='left';
 
         // Position pill
         const posText=p.gpos||p.pos;
-        ctx.font='bold 10px ui-monospace,monospace';
-        const posW=ctx.measureText(posText).width+14;
-        ctx.fillStyle=c+'18';rr(pad+68,py+10,posW,20,4);ctx.fill();
-        ctx.fillStyle=c;ctx.fillText(posText,pad+75,py+16);
+        ctx.font=`bold 10px ${mono}`;
+        const posW=ctx.measureText(posText).width+12;
+        ctx.fillStyle=c+'18';rr(pad+62,midY-10,posW,20,4);ctx.fill();
+        ctx.fillStyle=c;ctx.fillText(posText,pad+68,midY);
 
-        // School logo — fixed x so all rows align regardless of pill width
+        // School logo
         const sLogo=schoolCache[p.school];
-        const fixedLogoX=pad+120;
-        if(sLogo)ctx.drawImage(sLogo,fixedLogoX,py+8,24,24);
-        const nameX=fixedLogoX+(sLogo?30:0);
+        const slx=pad+62+posW+8;
+        if(sLogo)ctx.drawImage(sLogo,slx,midY-10,20,20);
 
-        // Player name — bold 16px sans, #171717
-        ctx.fillStyle='#171717';ctx.font='bold 16px -apple-system,system-ui,sans-serif';
-        drawTrunc(ctx,p.name,nameX,py+10,leftW-nameX+pad-80);
+        // Player name
+        const nameX=slx+(sLogo?26:0);
+        ctx.fillStyle='#171717';ctx.font=`bold 13px ${sans}`;
+        const nameEnd=pad+leftW-10;
+        // Reserve space for school + trade pill on right
+        ctx.font=`11px ${mono}`;
+        const schoolStr=p.school||'';
+        const schoolW=ctx.measureText(schoolStr).width;
+        let tradeW=0,tradeTxt='';
+        if(wasTrade){tradeTxt='via '+(TEAM_ABBR[origOwner]||origOwner);ctx.font=`bold 7px ${mono}`;tradeW=ctx.measureText(tradeTxt).width+8;}
+        const reservedRight=schoolW+8+(tradeW?tradeW+6:0)+(v?ctx.measureText(v.text).width+20:0);
 
-        // School text — 10px mono, #a3a3a3
-        ctx.fillStyle='#a3a3a3';ctx.font='10px ui-monospace,monospace';
-        drawTrunc(ctx,p.school||'',nameX,py+30,leftW-nameX+pad-80);
+        ctx.fillStyle='#171717';ctx.font=`bold 13px ${sans}`;
+        const nameMaxW=nameEnd-nameX-reservedRight;
+        const fullNameW=ctx.measureText(p.name).width;
+        const nameDrawW=Math.min(fullNameW,Math.max(nameMaxW,60));
+        drawTrunc(ctx,p.name,nameX,midY,nameDrawW);
 
-        // Badge emojis in colored pills — matching site UI: color+"0d" bg, 3px radius
+        // School text after name
+        const schoolX=nameX+nameDrawW+8;
+        ctx.fillStyle='#a3a3a3';ctx.font=`11px ${mono}`;
+        let afterSchoolX=schoolX;
+        if(schoolX+schoolW<=nameEnd-(tradeW?tradeW+6:0)){ctx.fillText(schoolStr,schoolX,midY);afterSchoolX=schoolX+schoolW+6;}
+        else{drawTrunc(ctx,schoolStr,schoolX,midY,nameEnd-schoolX-(tradeW?tradeW+6:0));afterSchoolX=nameEnd-(tradeW?tradeW+6:0);}
+
+        // Badge emoji pills after school
         const pBadges=prospectBadges&&prospectBadges[pk.playerId]||[];
         if(pBadges.length>0){
-          ctx.font='bold 10px ui-monospace,monospace';
-          const schoolW=ctx.measureText(p.school||'').width;
-          let bx=nameX+schoolW+6;
+          let bx=afterSchoolX;
           pBadges.forEach(b=>{
             const bc=POS_COLORS[p.gpos||p.pos]||'#525252';
-            ctx.font='10px -apple-system,system-ui,sans-serif';
+            ctx.font=`10px ${sans}`;
             const ew=ctx.measureText(b.emoji).width+8;
-            ctx.fillStyle=bc+'0d';rr(bx,py+28,ew,16,3);ctx.fill();
-            ctx.fillStyle=bc;ctx.font='bold 10px -apple-system,system-ui,sans-serif';
-            ctx.fillText(b.emoji,bx+4,py+31);
+            if(bx+ew>nameEnd-(tradeW?tradeW+6:0)-4)return;
+            ctx.fillStyle=bc+'0d';rr(bx,midY-8,ew,16,3);ctx.fill();
+            ctx.fillStyle=bc;ctx.font=`bold 10px ${sans}`;
+            ctx.fillText(b.emoji,bx+4,midY);
             bx+=ew+3;
           });
         }
 
-        // Verdict pill — right side
-        ctx.font='bold 9px ui-monospace,monospace';
-        const vw=ctx.measureText(v.text).width+14;
-        const vx=pad+leftW-vw-52;
-        ctx.fillStyle=v.bg;rr(vx,py+42,vw,18,9);ctx.fill();
-        ctx.fillStyle=v.color;
-        ctx.textAlign='center';
-        ctx.fillText(v.text,vx+vw/2,py+49);
-        ctx.textAlign='left';
+        // Trade pill at right edge
+        if(wasTrade){
+          const pillX=nameEnd-tradeW;
+          ctx.fillStyle='rgba(168,85,247,0.08)';rr(pillX,midY-7,tradeW,14,2);ctx.fill();
+          ctx.fillStyle='#a855f7';ctx.font=`bold 7px ${mono}`;ctx.fillText(tradeTxt,pillX+4,midY);
+        }
 
-        // Grade — 900 weight, proportional to row (not oversized ESPN style)
-        ctx.fillStyle=g>=75?'#16a34a':g>=55?'#ca8a04':'#dc2626';
-        ctx.font='900 18px -apple-system,system-ui,sans-serif';ctx.textAlign='right';
-        ctx.fillText(String(g),pad+leftW-14,py+18);
-        ctx.textAlign='left';
-        py+=pickRowH;
-      }
+        // Verdict pill — far right
+        if(v){
+          ctx.font=`bold 9px ${mono}`;
+          const vw=ctx.measureText(v.text).width+14;
+          const vx=pad+leftW-vw-8;
+          ctx.fillStyle=v.bg;rr(vx,midY-9,vw,18,9);ctx.fill();
+          ctx.fillStyle=v.color;ctx.textAlign='center';ctx.fillText(v.text,vx+vw/2,midY);ctx.textAlign='left';
+        }
 
-      // SCOUTING CARD — school logo, player info, grade, rank + radar
-      if(bestPick){
-        const bp=prospectsMap[bestPick.pk.playerId];
-        if(bp){
-          const cardY=py+12;
-          const cardH=radarCardH-12;
-          // Card — matching My Guys: #ffffff, 14px radius, 1px #e5e5e5
-          ctx.fillStyle='#ffffff';rr(pad,cardY,leftW,cardH,14);ctx.fill();
-          ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;rr(pad,cardY,leftW,cardH,14);ctx.stroke();
-          ctx.fillStyle=accent;ctx.fillRect(pad+1,cardY+8,4,cardH-16);
+        ctx.textBaseline='top';
+        py+=rowH;
 
-          // School logo
-          const infoY=cardY+16;
-          let schoolLoaded=false;
-          try{
-            const sUrl=schoolLogo(bp.school);
-            if(sUrl){const sImg=await loadImg(sUrl);ctx.drawImage(sImg,pad+16,infoY,36,36);schoolLoaded=true;}
-          }catch(e){}
-          const textX=schoolLoaded?pad+60:pad+16;
-
-          // Player name — matching My Guys: bold 16px
-          ctx.fillStyle='#171717';ctx.font='bold 16px -apple-system,system-ui,sans-serif';ctx.textBaseline='top';
-          ctx.fillText(bp.name,textX,infoY);
-
-          // Position pill + School — matching My Guys
-          const bpPos=bp.gpos||bp.pos;
-          const bpColor=POS_COLORS[bpPos]||POS_COLORS[bp.pos]||'#525252';
-          ctx.font='bold 10px ui-monospace,monospace';
-          const bpPosW=ctx.measureText(bpPos).width+14;
-          ctx.fillStyle=bpColor+'18';rr(textX,infoY+22,bpPosW,20,4);ctx.fill();
-          ctx.fillStyle=bpColor;ctx.fillText(bpPos,textX+7,infoY+28);
-          ctx.fillStyle='#a3a3a3';ctx.font='10px ui-monospace,monospace';
-          ctx.fillText(bp.school||'',textX+bpPosW+8,infoY+28);
-
-          // Grade — matching My Guys: bold 24px
-          const bpGrade=bestPick.grade;
-          ctx.fillStyle=bpGrade>=75?'#16a34a':bpGrade>=55?'#ca8a04':'#dc2626';
-          ctx.font='bold 24px -apple-system,system-ui,sans-serif';ctx.textAlign='right';
-          ctx.fillText(String(bpGrade),pad+leftW-14,infoY);
-
-          // Rank — below grade
-          const bpRank=getConsensusRank?getConsensusRank(bp.name):null;
-          if(bpRank&&bpRank<900){
-            ctx.fillStyle='#a3a3a3';ctx.font='10px ui-monospace,monospace';
-            ctx.fillText('CONSENSUS #'+bpRank,pad+leftW-14,infoY+26);
-          }
-          ctx.textAlign='left';
-
-          // Thin divider — matching My Guys: #f5f5f5
-          ctx.fillStyle='#f5f5f5';ctx.fillRect(pad+16,infoY+48,leftW-32,1);
-
-          // Radar centered below info
+        // Inline radar expansion for best pick
+        if(isBest&&bestPick){
+          // Thin divider
+          ctx.fillStyle='#f5f5f5';ctx.fillRect(pad+1,py-0.5,leftW-2,1);
           const radarCx=pad+leftW/2;
-          const radarCy=infoY+48+radarSize/2+8;
-          drawRadarChart(ctx,bp,radarCy,radarCx,radarSize,accent);
+          const radarCy=py+radarExpandH/2;
+          drawRadarChart(ctx,p,radarCy,radarCx,radarSize,accent);
+          py+=radarExpandH;
         }
       }
 
-      // RIGHT: DEPTH CHART (no group headers)
-      ctx.fillStyle=accent;ctx.font='bold 10px ui-monospace,monospace';
-      ctx.fillText('DEPTH CHART',rightX,bodyY);
-      let dy=bodyY+20;
-      for(const group of depthGroups){
-        for(const{slot,entry}of group.items){
+      // === STRATEGY PILLS — below picks container ===
+      if(fpPills.length>0){
+        const spY=bodyY+picksTotalH+10;
+        let fpX=pad;
+        ctx.font=`11px ${sans}`;ctx.textBaseline='middle';
+        fpPills.forEach(pill=>{
+          const label=`${pill.emoji} ${pill.text}`;
+          ctx.font=`bold 11px ${sans}`;
+          const tw=ctx.measureText(label).width+16;
+          ctx.fillStyle=pill.color+'18';rr(fpX,spY,tw,22,11);ctx.fill();
+          ctx.fillStyle=pill.color;
+          ctx.fillText(label,fpX+8,spY+11);
+          fpX+=tw+8;
+        });
+        ctx.textBaseline='top';
+      }
+
+      // RIGHT: DEPTH CHART — matching web DepthList exactly
+      ctx.fillStyle='#fff';rr(rightX,bodyY,rightW,depthTotalH,12);ctx.fill();
+      ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;rr(rightX,bodyY,rightW,depthTotalH,12);ctx.stroke();
+
+      let dy=bodyY+12;
+      for(let gi=0;gi<depthGroupsRendered.length;gi++){
+        const group=depthGroupsRendered[gi];
+        // Group separator (not first)
+        if(gi>0){ctx.fillStyle='#f5f5f5';ctx.fillRect(rightX+12,dy,rightW-24,1);dy+=depthGroupGap;}
+        for(const{slot,label,entry}of group.items){
           const isDraft=entry.isDraft;
-          ctx.fillStyle='#a3a3a3';ctx.font='10px ui-monospace,monospace';
-          ctx.fillText(slot.replace(/_d\d+$/,'+'),rightX,dy+5);
-          if(isDraft){ctx.fillStyle=accent;ctx.font='bold 12px -apple-system,system-ui,sans-serif';drawTrunc(ctx,entry.name+' ★',rightX+38,dy+5,rightW-42);}
-          else{ctx.fillStyle='#525252';ctx.font='12px -apple-system,system-ui,sans-serif';drawTrunc(ctx,entry.name,rightX+38,dy+5,rightW-42);}
+          ctx.textBaseline='middle';
+          const rmid=dy+depthRowH/2;
+          // Slot label — matching web: mono 9px #d4d4d4, fixed 28px width
+          ctx.fillStyle='#d4d4d4';ctx.font=`9px ${mono}`;
+          ctx.fillText(label,rightX+12,rmid);
+          // Player name — matching web: sans 11px, drafted = bold purple with bg, else normal #525252
+          if(isDraft){
+            ctx.font=`bold 11px ${sans}`;
+            const nw=ctx.measureText(entry.name).width+12;
+            ctx.fillStyle='rgba(124,58,237,0.06)';rr(rightX+42,rmid-8,nw,16,4);ctx.fill();
+            ctx.fillStyle='#7c3aed';
+            ctx.fillText(entry.name,rightX+48,rmid);
+          }else{
+            ctx.fillStyle='#525252';ctx.font=`11px ${sans}`;
+            drawTrunc(ctx,entry.name,rightX+42,rmid,rightW-56);
+          }
+          ctx.textBaseline='top';
           dy+=depthRowH;
         }
-        dy+=depthGroupGap;
       }
 
-      // === FOOTER — matching My Guys exactly (use /logo.png for transparency) ===
-      let logoImg=null;
-      try{logoImg=new Image();logoImg.crossOrigin='anonymous';logoImg.src='/logo.png';await new Promise((r,j)=>{logoImg.onload=r;logoImg.onerror=j;setTimeout(j,2000);});}catch(e){logoImg=null;}
+      // === FOOTER — separator + centered CTA ===
       const fy=H-footerH;
-      ctx.fillStyle='#111';ctx.fillRect(0,fy,W,footerH);
-      const logoH=32,logoW=logoImg?Math.round(logoImg.naturalWidth/logoImg.naturalHeight*logoH):0;
-      const logoOffset=logoImg?logoW+4:0;
-      if(logoImg)ctx.drawImage(logoImg,pad,fy+10,logoW,logoH);
-      ctx.fillStyle='#fff';ctx.font='bold 14px -apple-system,system-ui,sans-serif';
-      ctx.textBaseline='middle';
-      ctx.fillText('bigboardlab.com',pad+logoOffset+8,fy+footerH/2);
-      ctx.fillStyle='#888';ctx.font='11px -apple-system,system-ui,sans-serif';
-      ctx.textAlign='right';
-      ctx.fillText(`${new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()}  \u00b7  BUILD YOURS \u2192 BIGBOARDLAB.COM`,W-pad,fy+footerH/2);
+      ctx.fillStyle='#e5e5e5';ctx.fillRect(pad,fy,W-pad*2,1);
+      ctx.textBaseline='middle';ctx.textAlign='center';
+      ctx.fillStyle='#a3a3a3';ctx.font=`13px ${mono}`;
+      ctx.fillText('draft smarter at bigboardlab.com',W/2,fy+footerH/2);
       ctx.textAlign='left';ctx.textBaseline='top';
-      const bGrad=ctx.createLinearGradient(0,0,W,0);bGrad.addColorStop(0,'#ec4899');bGrad.addColorStop(1,'#7c3aed');
-      ctx.fillStyle=bGrad;ctx.fillRect(0,H-3,W,3);
 
     }else{
       // ================================================================
@@ -1546,7 +1555,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     // Dots
     angles.forEach((a,i)=>{const v=Math.max(0,(curve(vals[i]||50)-FLOOR)/(100-FLOOR));ctx.beginPath();ctx.arc(cx+r*v*Math.cos(a),cy+r*v*Math.sin(a),3.5,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
     // Labels — FULL trait names
-    ctx.fillStyle='#737373';ctx.font='bold 9px -apple-system,system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillStyle='#737373';ctx.font=`bold 9px ${sans}`;ctx.textAlign='center';ctx.textBaseline='middle';
     posTraits.forEach((t,i)=>{
       const lr=r+24;const lx=cx+lr*Math.cos(angles[i]);const ly=cy+lr*Math.sin(angles[i]);
       const a=angles[i];
@@ -1611,8 +1620,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       pills.push({emoji:"🔒",text:"floor first",color:"#64748b"});
     }
     const avgDelta=guys.reduce((s,g)=>{const rank=getConsensusRank?getConsensusRank(g.name):g.pick;return s+(rank-g.pick);},0)/guys.length;
-    if(avgDelta>10)pills.push({emoji:"📈",text:"value hunter",color:"#16a34a"});
-    else if(avgDelta<-5)pills.push({emoji:"🎲",text:"reach drafter",color:"#dc2626"});
+    if(avgDelta<-10)pills.push({emoji:"📈",text:"value hunter",color:"#16a34a"});
+    else if(avgDelta>5)pills.push({emoji:"🎲",text:"reach drafter",color:"#dc2626"});
     else pills.push({emoji:"⚖️",text:"consensus aligned",color:"#525252"});
     if(SCHOOL_CONFERENCE){
       const confCounts={};
@@ -2075,9 +2084,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
               pills.push({emoji:"🔒",text:"floor first",detail:`${ceilCounts.capped} capped`,color:"#64748b"});
             }
             const avgDelta=guys.reduce((s,g)=>s+g.delta,0)/guys.length;
-            if(avgDelta>10)pills.push({emoji:"📈",text:"value hunter",detail:`+${Math.round(avgDelta)} avg`,color:"#16a34a"});
-            else if(avgDelta<-5)pills.push({emoji:"🎲",text:"reach drafter",detail:`${Math.round(avgDelta)} avg`,color:"#dc2626"});
-            else pills.push({emoji:"⚖️",text:"consensus aligned",detail:`${avgDelta>0?"+":""}${Math.round(avgDelta)}`,color:"#525252"});
+            if(avgDelta<-10)pills.push({emoji:"📈",text:"value hunter",detail:`avg ${Math.round(Math.abs(avgDelta))} picks late`,color:"#16a34a"});
+            else if(avgDelta>5)pills.push({emoji:"🎲",text:"reach drafter",detail:`avg ${Math.round(avgDelta)} picks early`,color:"#dc2626"});
+            else pills.push({emoji:"⚖️",text:"consensus aligned",detail:`±${Math.round(Math.abs(avgDelta))}`,color:"#525252"});
             if(SCHOOL_CONFERENCE){
               const confCounts={};
               guys.forEach(g=>{const conf=SCHOOL_CONFERENCE[g.school];if(conf&&conf!=="FCS"&&conf!=="D2"&&conf!=="D3"&&conf!=="Ind")confCounts[conf]=(confCounts[conf]||0)+1;});
@@ -2446,9 +2455,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
               pills.push({emoji:"🔒",text:"floor first",detail:`${ceilCounts.capped} capped`,color:"#64748b"});
             }
             const avgDelta=guys.reduce((s,g)=>s+g.delta,0)/guys.length;
-            if(avgDelta>10)pills.push({emoji:"📈",text:"value hunter",detail:`+${Math.round(avgDelta)} avg`,color:"#16a34a"});
-            else if(avgDelta<-5)pills.push({emoji:"🎲",text:"reach drafter",detail:`${Math.round(avgDelta)} avg`,color:"#dc2626"});
-            else pills.push({emoji:"⚖️",text:"consensus aligned",detail:`${avgDelta>0?"+":""}${Math.round(avgDelta)}`,color:"#525252"});
+            if(avgDelta<-10)pills.push({emoji:"📈",text:"value hunter",detail:`avg ${Math.round(Math.abs(avgDelta))} picks late`,color:"#16a34a"});
+            else if(avgDelta>5)pills.push({emoji:"🎲",text:"reach drafter",detail:`avg ${Math.round(avgDelta)} picks early`,color:"#dc2626"});
+            else pills.push({emoji:"⚖️",text:"consensus aligned",detail:`±${Math.round(Math.abs(avgDelta))}`,color:"#525252"});
             if(SCHOOL_CONFERENCE){
               const confCounts={};
               guys.forEach(g=>{const conf=SCHOOL_CONFERENCE[g.school];if(conf&&conf!=="FCS"&&conf!=="D2"&&conf!=="D3"&&conf!=="Ind")confCounts[conf]=(confCounts[conf]||0)+1;});
