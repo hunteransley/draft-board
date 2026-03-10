@@ -1,20 +1,29 @@
 {
   "team": "CLE",
   "team_full": "Cleveland Browns",
-  "updated_through": "2026-03-05",
+  "updated_through": "2026-03-10",
   "first_round_pick": 6,
   "total_draft_picks": 9,
   "notable_pick_trades": "Acquired JAX 1st (No. 24) via 2025 draft-day trade down from No. 2 to No. 5. Traded 5th-round pick (from LV) to Houston for OT Tytus Howard. Also hold extra 5th from CIN (Flacco trade), 6th from CHI (Tryon-Shoyinka trade), 7th from SEA (Harris trade).",
   "roster_context": "The Browns went 5-12 in 2025 despite a historically dominant defense led by DPOY Myles Garrett (NFL-record 23 sacks). The offense was the league's worst, ravaged by QB instability, an OL in total collapse, and a barren WR room. New HC Todd Monken replaces Kevin Stefanski, and new DC Mike Rutenberg takes over for Jim Schwartz (resigned after not being named HC). GM Andrew Berry has signaled a 'heavy investment' on offense. The entire 2025 starting OL is departing via free agency or void years. Deshaun Watson's $80M cap hit looms but cutting him costs more. This is a full offensive rebuild around an elite defense.",
   "needs": [
     {
-      "position": "OT",
+      "position": "IOL_CENTER",
       "tier": 1,
       "urgency": "critical",
-      "explanation": "The Browns' entire 2025 starting OL is departing. LT is the most critical gap \u2014 Cam Robinson (UFA), Dawand Jones (under contract but chronic injuries, likely moving to guard), and Cornelius Lucas (released). The Tytus Howard trade fills RT but LT remains a gaping hole. The team allowed 51 sacks in 2025 and ranked 20th in PBWR and 24th in RBWR. A franchise LT is the top draft priority at No. 6 overall.",
-      "current_starter": "None under contract at LT. Tytus Howard acquired for RT.",
-      "depth": "Dawand Jones (injury-prone, likely moving to guard), KT Leveston (allowed 33 pressures in 464 snaps in 2025). Cornelius Lucas released.",
-      "draft_range_target": "Round 1 (No. 6 overall) \u2014 top OT like Spencer Fano, Francis Mauigoa, or Monroe Freeling"
+      "explanation": "Ethan Pocic (Achilles) not returning, Tyler Linderbaum signed with Raiders, and center market is thin. Luke Wypler (2023 6th-round pick) is the only internal option and is unproven as a starter. Center is arguably the single most urgent unaddressed need remaining in free agency and should be a primary draft target.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
+      "position": "QB",
+      "tier": 1,
+      "urgency": "critical",
+      "explanation": "Shedeur Sanders started 7 games as a 5th-round rookie and posted a 3-4 record with a poor 7-10 TD-INT ratio. He showed flashes but was sacked 23 times in 8 games behind a terrible OL. Watson returns from two Achilles surgeries with an $80M cap hit but hasn't played since 2023. Dillon Gabriel also on roster. HC Monken declared an open competition and hinted at adding another QB. The Browns are likely building around Sanders while keeping 2027 as the real target for a franchise QB. May add mid-round QB or veteran.",
+      "current_starter": "Shedeur Sanders (incumbent), Deshaun Watson (returning from injury), Dillon Gabriel",
+      "depth": "Three QBs under contract but none established as the long-term answer. Open competition declared.",
+      "draft_range_target": "Mid-rounds (3rd-4th) for developmental option, or veteran FA. Unlikely to use a 1st-rounder in a thin QB class."
     },
     {
       "position": "WR",
@@ -23,34 +32,43 @@
       "explanation": "The WR room is barren. Jerry Jeudy regressed badly with drops and poor play in 2025 (602 yards, took backseat to TEs). Cedric Tillman can't stay healthy. Isaiah Bond is a raw second-year player. The rest of the group (Corley, Thrash, Larvadain) combined for just 25 receptions and 269 yards. Cleveland desperately needs a true WR1 to pair with Harold Fannin Jr. The free agency WR market is thin, making the draft essential.",
       "current_starter": "Jerry Jeudy (guaranteed for 2026 at ~$7M, better as WR2), Cedric Tillman (injury-prone)",
       "depth": "Isaiah Bond (raw), Malachi Corley (ERFA tendered), Jamari Thrash (ERFA tendered), Gage Larvadain",
-      "draft_range_target": "Round 1 (No. 24) or Round 2 (No. 39) \u2014 could also pursue via trade"
+      "draft_range_target": "Round 1 (No. 24) or Round 2 (No. 39) — could also pursue via trade"
+    },
+    {
+      "position": "CB",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Outside CBs are solid with Denzel Ward (5x Pro Bowler, under contract through 2027 but turning 29, expensive $32.8M cap hit) and Tyson Campbell (signed through 2028). However, slot corner is a major question mark. Martin Emerson Jr. is a UFA after missing all of 2025 (torn Achilles). Sam Webb (RFA) showed some promise late. Ward's injury history and age make long-term CB planning prudent.",
+      "current_starter": "Denzel Ward (boundary), Tyson Campbell (field/outside)",
+      "depth": "Myles Harden (slot), Sam Webb (RFA), Jarrick Bernard-Converse. Martin Emerson (UFA, likely gone). Slot CB is the gap.",
+      "draft_range_target": "Round 3-5 for slot CB or developmental boundary CB"
     },
     {
       "position": "IOL",
-      "tier": 1,
-      "urgency": "critical",
+      "tier": 2,
+      "urgency": "important",
       "explanation": "All three interior OL starters are departing: Joel Bitonio (LG, 7x Pro Bowler, heavily considering retirement, void year creates $23.5M dead cap), Wyatt Teller (RG, 3x Pro Bowler, confirmed he won't re-sign), and Ethan Pocic (C, coming off major injury, void year). Teven Jenkins (G, void year) also departing. The only interior players under contract are Luke Wypler (C, cleared to return from knee injury), Zak Zinter (G, developmental), and Dawand Jones (may kick inside). Need at least one starting-caliber guard immediately.",
       "current_starter": "Luke Wypler (C, returning from knee injury), Zak Zinter (G, unproven), vacancies at both guard spots",
       "depth": "Dawand Jones could move inside, Kendrick Green, Jack Conley (ERFA), Kingsley Eguakun (ERFA). Very thin.",
       "draft_range_target": "Round 2-3, plus free agency signings"
     },
     {
-      "position": "QB",
+      "position": "OT",
       "tier": 2,
       "urgency": "important",
-      "explanation": "Shedeur Sanders started 7 games as a 5th-round rookie and posted a 3-4 record with a poor 7-10 TD-INT ratio. He showed flashes but was sacked 23 times in 8 games behind a terrible OL. Watson returns from two Achilles surgeries with an $80M cap hit but hasn't played since 2023. Dillon Gabriel also on roster. HC Monken declared an open competition and hinted at adding another QB. The Browns are likely building around Sanders while keeping 2027 as the real target for a franchise QB. May add mid-round QB or veteran.",
-      "current_starter": "Shedeur Sanders (incumbent), Deshaun Watson (returning from injury), Dillon Gabriel",
-      "depth": "Three QBs under contract but none established as the long-term answer. Open competition declared.",
-      "draft_range_target": "Mid-rounds (3rd-4th) for developmental option, or veteran FA. Unlikely to use a 1st-rounder in a thin QB class."
+      "explanation": "The Browns' entire 2025 starting OL is departing. LT is the most critical gap — Cam Robinson (UFA), Dawand Jones (under contract but chronic injuries, likely moving to guard), and Cornelius Lucas (released). The Tytus Howard trade fills RT but LT remains a gaping hole. The team allowed 51 sacks in 2025 and ranked 20th in PBWR and 24th in RBWR. A franchise LT is the top draft priority at No. 6 overall.",
+      "current_starter": "None under contract at LT. Tytus Howard acquired for RT.",
+      "depth": "Dawand Jones (injury-prone, likely moving to guard), KT Leveston (allowed 33 pressures in 464 snaps in 2025). Cornelius Lucas released.",
+      "draft_range_target": "Round 1 (No. 6 overall) — top OT like Spencer Fano, Francis Mauigoa, or Monroe Freeling"
     },
     {
-      "position": "LB",
+      "position": "TE",
       "tier": 2,
       "urgency": "important",
-      "explanation": "Carson Schwesinger (2025 DROY, 156 tackles) is the anchor, but his running mate Devin Bush is a UFA who needs to be re-signed. JOK (Jeremiah Owusu-Koramoah) suffered a career-threatening neck injury and is 'doubtful at best' to ever play again per Mary Kay Cabot. If Bush departs and JOK can't return, LB2 becomes a significant need. Winston Reid (ERFA tendered) missed all of 2025. Need depth even if Bush re-signs.",
-      "current_starter": "Carson Schwesinger (elite, locked in), Devin Bush (UFA \u2014 must re-sign)",
-      "depth": "JOK (career in doubt, $11M guaranteed on roster), Winston Reid (ERFA, missed 2025 with back injury). Very thin if Bush leaves.",
-      "draft_range_target": "Round 3-5 for depth, contingent on Bush re-signing"
+      "explanation": "Harold Fannin Jr. had a superb rookie year (72/731/6 TDs) and is the clear TE1 moving forward. David Njoku announced his departure via free agency after 9 years. Brenden Bates (ERFA tendered) is a blocking TE. Todd Monken historically thrives with multiple pass-catching TEs (Georgia with Bowers/Washington, Baltimore with Andrews/Likely), so adding a TE2 could be in play but is not urgent.",
+      "current_starter": "Harold Fannin Jr. (elite young TE, locked in)",
+      "depth": "Brenden Bates (ERFA tendered, blocker), Blake Whiteheart. Thin after Fannin.",
+      "draft_range_target": "Round 3-5 if Monken wants a two-TE attack, otherwise day 3"
     },
     {
       "position": "DT",
@@ -62,78 +80,81 @@
       "draft_range_target": "Round 4-5 for rotational depth"
     },
     {
-      "position": "CB",
+      "position": "EDGE",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "Outside CBs are solid with Denzel Ward (5x Pro Bowler, under contract through 2027 but turning 29, expensive $32.8M cap hit) and Tyson Campbell (signed through 2028). However, slot corner is a major question mark. Martin Emerson Jr. is a UFA after missing all of 2025 (torn Achilles). Sam Webb (RFA) showed some promise late. Ward's injury history and age make long-term CB planning prudent.",
-      "current_starter": "Denzel Ward (boundary), Tyson Campbell (field/outside)",
-      "depth": "Myles Harden (slot), Sam Webb (RFA), Jarrick Bernard-Converse. Martin Emerson (UFA, likely gone). Slot CB is the gap.",
-      "draft_range_target": "Round 3-5 for slot CB or developmental boundary CB"
+      "explanation": "Myles Garrett's 4yr/$160M extension (signed March 2025) locks in the best EDGE in football through 2030. Cameron Thomas (rotational, 2.5 sacks) left for Atlanta, creating a depth hole. Alex Wright and Isaiah McGuire remain. EDGE is not a premium need with Garrett secured, but a depth/developmental EDGE rusher in rounds 3–5 is still prudent.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
     },
     {
-      "position": "TE",
-      "tier": 4,
-      "urgency": "minor",
-      "explanation": "Harold Fannin Jr. had a superb rookie year (72/731/6 TDs) and is the clear TE1 moving forward. David Njoku announced his departure via free agency after 9 years. Brenden Bates (ERFA tendered) is a blocking TE. Todd Monken historically thrives with multiple pass-catching TEs (Georgia with Bowers/Washington, Baltimore with Andrews/Likely), so adding a TE2 could be in play but is not urgent.",
-      "current_starter": "Harold Fannin Jr. (elite young TE, locked in)",
-      "depth": "Brenden Bates (ERFA tendered, blocker), Blake Whiteheart. Thin after Fannin.",
-      "draft_range_target": "Round 3-5 if Monken wants a two-TE attack, otherwise day 3"
+      "position": "LB",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Carson Schwesinger (2025 DROY, 156 tackles) is the anchor, but his running mate Devin Bush is a UFA who needs to be re-signed. JOK (Jeremiah Owusu-Koramoah) suffered a career-threatening neck injury and is 'doubtful at best' to ever play again per Mary Kay Cabot. If Bush departs and JOK can't return, LB2 becomes a significant need. Winston Reid (ERFA tendered) missed all of 2025. Need depth even if Bush re-signs.",
+      "current_starter": "Carson Schwesinger (elite, locked in), Devin Bush (UFA — must re-sign)",
+      "depth": "JOK (career in doubt, $11M guaranteed on roster), Winston Reid (ERFA, missed 2025 with back injury). Very thin if Bush leaves.",
+      "draft_range_target": "Round 3-5 for depth, contingent on Bush re-signing"
     }
   ],
   "needs_summary": {
     "tier_1": [
-      "OT",
-      "WR",
-      "IOL"
+      "IOL_CENTER",
+      "QB",
+      "WR"
     ],
     "tier_2": [
-      "QB",
-      "LB"
+      "CB",
+      "IOL",
+      "OT",
+      "TE"
     ],
     "tier_3": [
       "DT",
-      "CB"
+      "EDGE",
+      "LB"
     ],
-    "tier_4": [
-      "TE"
-    ]
+    "tier_4": []
   },
   "simple_needs": [
-    "OL",
-    "WR",
+    "IOL_CENTER",
     "QB",
-    "LB",
-    "DB"
+    "WR",
+    "DB",
+    "OL",
+    "TE",
+    "DL",
+    "LB"
   ],
   "detailed_needs": {
-    "OL": 1,
+    "IOL_CENTER": 1,
+    "QB": 1,
     "WR": 1,
-    "QB": 2,
-    "LB": 2,
     "DB": 2,
-    "DL": 2,
-    "TE": 2
+    "OL": 2,
+    "TE": 2,
+    "DL": 3,
+    "LB": 3
   },
   "free_agency_impact": [
-    "Traded for OT Tytus Howard (from HOU, 3yr/$63M extension) \u2014 fills RT need, does NOT address LT",
-    "Released OT Cornelius Lucas and C Justin Osborne \u2014 further thins OL depth",
-    "TE David Njoku announced departure \u2014 TE2 becomes a moderate need behind Fannin Jr.",
-    "OG Joel Bitonio (void year, $23.5M dead cap) \u2014 heavily considering retirement, 12-year franchise icon likely gone",
-    "OG Wyatt Teller (void year, $21.3M dead cap) \u2014 confirmed he won't re-sign with Browns",
-    "OT Jack Conklin (void year, $12.4M dead cap) \u2014 likely cut, missed 9 games with injuries in 2025",
-    "C Ethan Pocic (void year) \u2014 coming off major injury, likely not returning",
-    "OT Cam Robinson (UFA) \u2014 departed, was midseason acquisition in 2024",
-    "OG Teven Jenkins (void year) \u2014 departing after 1 year in Cleveland",
-    "DT Shelby Harris (UFA) \u2014 likely departing, need rotational DT depth",
-    "LB Devin Bush (UFA, void year) \u2014 top re-sign candidate, had career year (125 tackles, 2 INT TDs)",
-    "CB Martin Emerson Jr. (UFA) \u2014 missed all 2025 with torn Achilles, likely gone",
-    "RB Jerome Ford (UFA) \u2014 departing, Judkins and Sampson take over backfield",
-    "LB JOK Owusu-Koramoah \u2014 'doubtful at best' to ever play again per reports, still on roster at $11M guaranteed",
-    "Tendered 6 ERFAs: TE Bates, WR Corley, LB Reid, LS Sunahara, K Szmyt, WR Thrash",
-    "HC Kevin Stefanski fired (now in Atlanta), Todd Monken hired as new HC",
-    "DC Jim Schwartz resigned (not named HC), Mike Rutenberg promoted to DC"
+    "Devin Bush (LB) → Chicago Bears",
+    "David Njoku (TE) → TBD/unsigned",
+    "Wyatt Teller (IOL) → TBD/unsigned",
+    "Joel Bitonio (IOL) → TBD/retirement pending",
+    "Ethan Pocic (IOL) → TBD/unsigned",
+    "Jack Conklin (OT) → TBD/unsigned",
+    "Cam Robinson (OT) → TBD/unsigned",
+    "Cameron Thomas (EDGE) → Atlanta Falcons",
+    "Martin Emerson Jr. (CB) → TBD/unsigned",
+    "Teven Jenkins (IOL) → TBD/unsigned",
+    "Rayshawn Jenkins (S) → TBD/unsigned",
+    "Signed Tytus Howard (OT) from Houston Texans — $21.0M AAV",
+    "Signed Zion Johnson (IOL) from Los Angeles Chargers — $16.5M AAV",
+    "Signed Quincy Williams (LB) from New York Jets — $8.5M AAV",
+    "Signed Ronnie Hickman (S) from Cleveland Browns (RFA) — $5.8M AAV"
   ],
-  "scheme_fit_notes": "Todd Monken runs an aggressive, up-tempo offense built around play-action and vertical shots \u2014 this elevates the need for a true WR1 and elite pass protection. His offenses at Georgia and Baltimore featured multiple TEs heavily. Defensively, new DC Mike Rutenberg inherits the wide-9 scheme Schwartz installed. The defense is built for man coverage (Ward, Campbell), aggressive edge rushing (Garrett), and physical LB play. CB prospects who can play press-man have elevated value. OL prospects who can handle power rushers in the AFC North (Watt, Hendrickson, Madubuike) are essential.",
+  "scheme_fit_notes": "Todd Monken runs an aggressive, up-tempo offense built around play-action and vertical shots — this elevates the need for a true WR1 and elite pass protection. His offenses at Georgia and Baltimore featured multiple TEs heavily. Defensively, new DC Mike Rutenberg inherits the wide-9 scheme Schwartz installed. The defense is built for man coverage (Ward, Campbell), aggressive edge rushing (Garrett), and physical LB play. CB prospects who can play press-man have elevated value. OL prospects who can handle power rushers in the AFC North (Watt, Hendrickson, Madubuike) are essential.",
   "confidence": "high",
   "sources": [
     "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",

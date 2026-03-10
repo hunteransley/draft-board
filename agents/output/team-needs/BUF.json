@@ -1,7 +1,7 @@
 {
   "team": "BUF",
   "team_full": "Buffalo Bills",
-  "updated_through": "2026-03-05",
+  "updated_through": "2026-03-10",
   "first_round_pick": 26,
   "total_draft_picks": 7,
   "notable_pick_trades": "Traded 2026 2nd-round pick (#60) to Chicago Bears for WR DJ Moore and a 2026 5th-round pick. Previously traded 6th-round pick to NYJ, 7th-round pick to CLE. Acquired two 7th-rounders (NYJ via Codrington, DAL via Elam trade).",
@@ -26,6 +26,24 @@
       "draft_range_target": "Round 1-2"
     },
     {
+      "position": "S",
+      "tier": 1,
+      "urgency": "critical",
+      "explanation": "Cole Bishop (2024 2nd-round pick) is the only entrenched starter. Jordan Poyer (34, UFA) is departing. Taylor Rapp is a likely cap casualty ($3M savings) after a knee injury ended his 2025 in Week 7 and he was rated 84th of 88 safeties by PFF. Damar Hamlin is a UFA. Sam Franklin was re-signed but is primarily a special teams player. The safety unit ranked 22nd in PFF overall grade in 2025. Buffalo needs a legit starter opposite Bishop, particularly one who fits Leonhard's versatile scheme.",
+      "current_starter": "Cole Bishop, Taylor Rapp (likely cut)",
+      "depth": "Sam Franklin (re-signed, 3 years, primarily ST), Jordan Hancock (2025 5th-rounder, raw). Poyer, Hamlin, Darnell Savage all UFAs departing.",
+      "draft_range_target": "Round 1-3"
+    },
+    {
+      "position": "CB",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Christian Benford (extended) is the CB1 and Maxwell Hairston (2025 1st-rounder) showed promise in 11 games before injuries. However, Tre'Davious White (UFA) and Dane Jackson are both departing or cheap depth. Taron Johnson's fit in the new 3-4 defense is uncertain (potential position change being discussed). The Bills may not deploy a traditional nickel CB under Leonhard. CB3/depth is a clear need, even if the top two are solid.",
+      "current_starter": "Christian Benford (CB1), Maxwell Hairston (CB2, 2nd year)",
+      "depth": "Taron Johnson (uncertain fit in new scheme), Cam Lewis (utility DB). White departing as UFA. Nickel CB coaching position eliminated.",
+      "draft_range_target": "Round 4-7 for depth"
+    },
+    {
       "position": "IDL",
       "tier": 2,
       "urgency": "important",
@@ -35,15 +53,6 @@
       "draft_range_target": "Round 2-4"
     },
     {
-      "position": "S",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Cole Bishop (2024 2nd-round pick) is the only entrenched starter. Jordan Poyer (34, UFA) is departing. Taylor Rapp is a likely cap casualty ($3M savings) after a knee injury ended his 2025 in Week 7 and he was rated 84th of 88 safeties by PFF. Damar Hamlin is a UFA. Sam Franklin was re-signed but is primarily a special teams player. The safety unit ranked 22nd in PFF overall grade in 2025. Buffalo needs a legit starter opposite Bishop, particularly one who fits Leonhard's versatile scheme.",
-      "current_starter": "Cole Bishop, Taylor Rapp (likely cut)",
-      "depth": "Sam Franklin (re-signed, 3 years, primarily ST), Jordan Hancock (2025 5th-rounder, raw). Poyer, Hamlin, Darnell Savage all UFAs departing.",
-      "draft_range_target": "Round 1-3"
-    },
-    {
       "position": "IOL",
       "tier": 2,
       "urgency": "important",
@@ -51,15 +60,6 @@
       "current_starter": "O'Cyrus Torrence (RG, under contract). LG and C both vacant after Edwards and McGovern depart.",
       "depth": "Alec Anderson (re-signed, depth), Sedrick Van Pran-Granger, Tylan Grable. Could pursue a veteran FA like Isaac Seumalo.",
       "draft_range_target": "Round 3-5 (or veteran FA signing)"
-    },
-    {
-      "position": "CB",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "Christian Benford (extended) is the CB1 and Maxwell Hairston (2025 1st-rounder) showed promise in 11 games before injuries. However, Tre'Davious White (UFA) and Dane Jackson are both departing or cheap depth. Taron Johnson's fit in the new 3-4 defense is uncertain (potential position change being discussed). The Bills may not deploy a traditional nickel CB under Leonhard. CB3/depth is a clear need, even if the top two are solid.",
-      "current_starter": "Christian Benford (CB1), Maxwell Hairston (CB2, 2nd year)",
-      "depth": "Taron Johnson (uncertain fit in new scheme), Cam Lewis (utility DB). White departing as UFA. Nickel CB coaching position eliminated.",
-      "draft_range_target": "Round 4-7 for depth"
     },
     {
       "position": "WR",
@@ -83,15 +83,15 @@
   "needs_summary": {
     "tier_1": [
       "EDGE",
-      "LB"
+      "LB",
+      "S"
     ],
     "tier_2": [
+      "CB",
       "IDL",
-      "S",
       "IOL"
     ],
     "tier_3": [
-      "CB",
       "WR"
     ],
     "tier_4": [
@@ -108,29 +108,34 @@
   "detailed_needs": {
     "DL": 1,
     "LB": 1,
-    "DB": 2,
+    "DB": 1,
     "OL": 2,
-    "WR": 2,
-    "TE": 2
+    "WR": 3
   },
   "free_agency_impact": [
-    "Acquired WR DJ Moore from Bears for 2nd-round pick (March 5) \u2014 WR drops from Tier 1 to Tier 3",
-    "Re-signed S Sam Franklin to 3-year deal \u2014 provides ST depth but not a starter",
-    "Re-signed OL Alec Anderson to 1-year deal \u2014 provides IOL depth/competition",
-    "Re-signed DT Phidarian Mathis to 1-year deal \u2014 DL depth",
-    "Restructured RT Spencer Brown's contract (saved $10.42M cap space) \u2014 RT not a need",
-    "Losing C Connor McGovern (UFA, does not expect to return) \u2014 creates IOL need",
-    "Losing LG David Edwards (UFA, expected to price out) \u2014 creates IOL need",
-    "Losing EDGE Joey Bosa (UFA) and AJ Epenesa (UFA) \u2014 increases EDGE need",
-    "Losing LB Matt Milano (UFA, $11M dead cap) and Shaq Thompson (UFA) \u2014 increases LB need",
-    "Losing S Jordan Poyer (UFA, age 34) and likely cutting Taylor Rapp \u2014 increases S need",
-    "Losing CB Tre'Davious White (UFA) \u2014 minor CB depth impact",
-    "Losing DT DaQuan Jones, Larry Ogunjobi, Jordan Phillips (all UFAs) \u2014 increases IDL/NT need",
-    "Curtis Samuel expected to be released ($6.1M cap savings) \u2014 minimal impact, underperformed",
-    "Dawson Knox contract talks ongoing ($17.8M cap hit) \u2014 could be cut or restructured",
-    "Fired HC Sean McDermott; promoted OC Joe Brady to HC. New DC Jim Leonhard (3-4 scheme)."
+    "Taron Johnson (CB) → Las Vegas Raiders (trade)",
+    "David Edwards (IOL) → New Orleans Saints (4yr/$61M)",
+    "Curtis Samuel (WR) → TBD/unsigned",
+    "Taylor Rapp (S) → TBD/unsigned",
+    "Dane Jackson (CB) → TBD/unsigned",
+    "Mitchell Trubisky (QB) → Tennessee Titans (2yr deal)",
+    "Reggie Gilliam (RB) → New England Patriots (3yr/up to $12M, $6M gtd)",
+    "Joey Bosa (EDGE) → TBD/unsigned",
+    "Matt Milano (LB) → TBD/unsigned",
+    "A.J. Epenesa (EDGE) → TBD/unsigned",
+    "Jordan Poyer (S) → TBD/unsigned",
+    "Brandin Cooks (WR) → TBD/unsigned",
+    "Signed DJ Moore (WR) from Chicago Bears — $24.5M AAV",
+    "Signed Connor McGovern (IOL) from Buffalo Bills (re-sign) — $13.0M AAV",
+    "Signed Dee Alford (CB) from Atlanta Falcons — $5.2M AAV",
+    "Signed Kyle Allen (QB) from Detroit Lions — $2.0M AAV",
+    "Signed Sam Franklin (S) from Buffalo Bills (re-sign) — $2.5M AAV",
+    "Signed Alec Anderson (IOL) from Buffalo Bills (re-sign) — $2.5M AAV",
+    "Signed Phidarian Mathis (IDL) from Buffalo Bills (re-sign) — $1.2M AAV",
+    "Signed Mitch Wishnowsky (P) from Buffalo Bills (re-sign) — terms TBD AAV",
+    "Signed Shane Buechele (QB) from Buffalo Bills (re-sign) — $1.1M AAV"
   ],
-  "scheme_fit_notes": "Jim Leonhard's 3-4 defense fundamentally changes Buffalo's personnel needs. The scheme requires a true nose tackle (not on roster), two 3-4 DEs (Oliver/Rousseau can fill), four LBs including two OLB edge rushers and two ILBs. This makes EDGE and LB significantly more important than in the prior 4-3. Leonhard's defense emphasizes sending 5+ rushers frequently (Denver influence under Vance Joseph), making versatile pass rushers and blitz-capable LBs premium targets. On offense, Joe Brady's scheme values route separators and YAC receivers over contested-catch big bodies, which explains the DJ Moore trade and why Keon Coleman's skill set may not be ideal. Safety versatility is critical in Leonhard's system \u2014 he praised Cole Bishop's ability to play multiple roles.",
+  "scheme_fit_notes": "Jim Leonhard's 3-4 defense fundamentally changes Buffalo's personnel needs. The scheme requires a true nose tackle (not on roster), two 3-4 DEs (Oliver/Rousseau can fill), four LBs including two OLB edge rushers and two ILBs. This makes EDGE and LB significantly more important than in the prior 4-3. Leonhard's defense emphasizes sending 5+ rushers frequently (Denver influence under Vance Joseph), making versatile pass rushers and blitz-capable LBs premium targets. On offense, Joe Brady's scheme values route separators and YAC receivers over contested-catch big bodies, which explains the DJ Moore trade and why Keon Coleman's skill set may not be ideal. Safety versatility is critical in Leonhard's system — he praised Cole Bishop's ability to play multiple roles.",
   "confidence": "high",
   "sources": [
     "https://www.espn.com/nfl/story/_/id/48111983/bills-agree-trade-acquire-bears-wr-dj-moore-sources-say",

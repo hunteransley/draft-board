@@ -1,12 +1,21 @@
 {
   "team": "TB",
   "team_full": "Tampa Bay Buccaneers",
-  "updated_through": "2026-03-05",
+  "updated_through": "2026-03-10",
   "first_round_pick": 15,
   "total_draft_picks": 7,
   "notable_pick_trades": "None",
-  "roster_context": "Collapsed from 6-2 start to finish 8-9, missing playoffs for first time since 2019. Defense deteriorated badly (19th in total D, 25th in pressure rate). Massive free agent class of 17 UFAs including franchise icons Mike Evans and Lavonte David. Pass rush has been a persistent problem since Shaq Barrett's departure. New OC Zac Robinson hired after Josh Grizzard fired. Todd Bowles retained but under pressure. Offense was ravaged by injuries \u2014 only C Graham Barton played every game on the OL. Baker Mayfield returns as starter with ~$23M cap space pre-restructures.",
+  "roster_context": "Collapsed from 6-2 start to finish 8-9, missing playoffs for first time since 2019. Defense deteriorated badly (19th in total D, 25th in pressure rate). Massive free agent class of 17 UFAs including franchise icons Mike Evans and Lavonte David. Pass rush has been a persistent problem since Shaq Barrett's departure. New OC Zac Robinson hired after Josh Grizzard fired. Todd Bowles retained but under pressure. Offense was ravaged by injuries — only C Graham Barton played every game on the OL. Baker Mayfield returns as starter with ~$23M cap space pre-restructures.",
   "needs": [
+    {
+      "position": "CB",
+      "tier": 1,
+      "urgency": "critical",
+      "explanation": "Jamel Dean is a UFA coming off a career-best 3-INT season and is unlikely to be re-signed given the cost. Zyon McCollum (extended pre-2025) missed time late with a hip injury. The Bucs invested in 2024 draftees Benjamin Morrison (2nd round) and Jacob Parrish (3rd round), but Morrison missed 7 games with hamstring issues as a rookie and is unproven. Parrish showed flashes in nickel. Bowles said both will battle for the outside CB spot vacated by Dean. There's talent here but very little proven depth or experience.",
+      "current_starter": "Zyon McCollum, Benjamin Morrison or Jacob Parrish (battling for CB2)",
+      "depth": "Jacob Parrish (nickel), Benjamin Morrison (2nd-year), J.J. Roberts (returning from knee injury)",
+      "draft_range_target": "Round 3-5 for depth/competition"
+    },
     {
       "position": "EDGE",
       "tier": 1,
@@ -14,34 +23,16 @@
       "explanation": "Tampa Bay's most glaring need for multiple years running. Haason Reddick had just 2.5 sacks and is unlikely to return. Chris Braswell (2024 2nd-rounder) has been invisible with only 2.5 career sacks and may be traded. David Walker (2025 4th-rounder) tore his ACL in camp and has never played an NFL game. Anthony Nelson is a career backup. YaYa Diaby is the only productive edge rusher (7 sacks in 2025) but even he isn't elite. Tampa Bay was 25th in pressure rate and had just 37 sacks in 2025. Licht and Bowles both acknowledged at the Combine that upgrading the front seven is the priority.",
       "current_starter": "YaYa Diaby, Anthony Nelson (pending Reddick departure)",
       "depth": "Chris Braswell (disappointing), David Walker (returning from ACL, unproven), Markees Watts",
-      "draft_range_target": "Round 1 \u2014 top priority at pick 15"
+      "draft_range_target": "Round 1 — top priority at pick 15"
     },
     {
-      "position": "LB",
+      "position": "WR",
       "tier": 1,
       "urgency": "critical",
-      "explanation": "Lavonte David is a pending UFA at age 36 who may retire or return on a cheap deal but can no longer be the full-time answer. SirVocea Dennis is the only off-ball LB under contract for 2026 and is undersized with coverage limitations. Bowles noted Dennis 'can be a starter if he cleans up his open-field play.' Behind those two, LB depth is almost non-existent. The Bucs need a long-term starter to eventually replace David and play alongside Dennis.",
-      "current_starter": "SirVocea Dennis (under contract), Lavonte David (UFA, age 36)",
-      "depth": "Nick Jackson (practice squad level), almost no viable depth",
-      "draft_range_target": "Round 1-2"
-    },
-    {
-      "position": "TE",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Cade Otton is a pending UFA and could be priced out. He had 59 catches in each of the last two seasons and is a solid all-around TE but not flashy. Ko Kieft (blocking TE/ST ace) is also a UFA after suffering a broken leg in Week 3. If both depart, the only TE under contract is Payne Durham, a blocking specialist who is not a viable full-time starter. Multiple mock drafts have the Bucs targeting a TE like Kenyon Sadiq at 15.",
-      "current_starter": "Cade Otton (UFA)",
-      "depth": "Payne Durham (blocking specialist), Devin Culp (limited)",
-      "draft_range_target": "Round 1-3 if Otton departs, Round 4-5 for depth if he re-signs"
-    },
-    {
-      "position": "CB",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Jamel Dean is a UFA coming off a career-best 3-INT season and is unlikely to be re-signed given the cost. Zyon McCollum (extended pre-2025) missed time late with a hip injury. The Bucs invested in 2024 draftees Benjamin Morrison (2nd round) and Jacob Parrish (3rd round), but Morrison missed 7 games with hamstring issues as a rookie and is unproven. Parrish showed flashes in nickel. Bowles said both will battle for the outside CB spot vacated by Dean. There's talent here but very little proven depth or experience.",
-      "current_starter": "Zyon McCollum, Benjamin Morrison or Jacob Parrish (battling for CB2)",
-      "depth": "Jacob Parrish (nickel), Benjamin Morrison (2nd-year), J.J. Roberts (returning from knee injury)",
-      "draft_range_target": "Round 3-5 for depth/competition"
+      "explanation": "Mike Evans is a UFA at age 33 — he will return to play in 2026 but is exploring free agency and could leave Tampa. Chris Godwin is under contract but battled injuries (missed 8 games in 2025). 2025 1st-rounder Emeka Egbuka emerged as the team's leading receiver (63-938-6) and is the future. Jalen McMillan missed 14 games with a neck injury but Bowles praised his ceiling. Tez Johnson and Kam Johnson provide depth. If Evans re-signs, WR is not a major need. If he leaves, the Bucs would need to find production.",
+      "current_starter": "Emeka Egbuka, Chris Godwin, Mike Evans (UFA)",
+      "depth": "Jalen McMillan (returning from neck injury), Tez Johnson, Kam Johnson, Sterling Shepard (UFA)",
+      "draft_range_target": "Round 4-6 for depth, or Round 2-3 if Evans departs"
     },
     {
       "position": "DT",
@@ -53,80 +44,98 @@
       "draft_range_target": "Round 3-5"
     },
     {
+      "position": "IDL",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Logan Hall (2022 1st-round pick, 25 years old) remains unsigned and in free agency as of March 10. If Hall departs, IDL escalates to tier 1 alongside EDGE. Vita Vea (30) is under contract but aging and expensive. Elijah Roberts is developing but unproven as a starter. Recommend monitoring Hall's situation closely — his potential departure is the x-factor for this position group.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
+      "position": "LB",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Lavonte David is a pending UFA at age 36 who may retire or return on a cheap deal but can no longer be the full-time answer. SirVocea Dennis is the only off-ball LB under contract for 2026 and is undersized with coverage limitations. Bowles noted Dennis 'can be a starter if he cleans up his open-field play.' Behind those two, LB depth is almost non-existent. The Bucs need a long-term starter to eventually replace David and play alongside Dennis.",
+      "current_starter": "SirVocea Dennis (under contract), Lavonte David (UFA, age 36)",
+      "depth": "Nick Jackson (practice squad level), almost no viable depth",
+      "draft_range_target": "Round 1-2"
+    },
+    {
       "position": "IOL",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "The ideal starting five of Wirfs-Bredeson-Barton-Mauch-Goedeke was elite in 2024 but decimated by injuries in 2025, using 9 different starting combinations. Cody Mauch tore his ACL in Week 2 and is recovering. Ben Bredeson went to IR with a knee injury in Week 14. Both are expected back but Mauch may not be 100% for Week 1. Depth behind starters is thin \u2014 Dan Feeney, Michael Jordan, and Charlie Heck are all UFAs. Graham Barton was the only lineman to play every game. Need at least one quality interior depth piece.",
+      "explanation": "The ideal starting five of Wirfs-Bredeson-Barton-Mauch-Goedeke was elite in 2024 but decimated by injuries in 2025, using 9 different starting combinations. Cody Mauch tore his ACL in Week 2 and is recovering. Ben Bredeson went to IR with a knee injury in Week 14. Both are expected back but Mauch may not be 100% for Week 1. Depth behind starters is thin — Dan Feeney, Michael Jordan, and Charlie Heck are all UFAs. Graham Barton was the only lineman to play every game. Need at least one quality interior depth piece.",
       "current_starter": "Ben Bredeson (LG, returning from IR), Cody Mauch (RG, recovering from ACL)",
       "depth": "Elijah Klein (backup G), Dan Feeney/Michael Jordan (UFAs likely gone)",
       "draft_range_target": "Round 3-5"
     },
     {
       "position": "RB",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "Bucky Irving is the lead back under contract. Rachaad White is a UFA and likely to leave. Sean Tucker (RFA) is expected back \u2014 Licht said he wants Tucker to return. Tucker has flashed in limited work (4.3 YPC career). The Bucs could use a complementary back to pair with Irving, but this isn't a premium need given Irving's talent and Tucker's potential.",
+      "tier": 4,
+      "urgency": "minor",
+      "explanation": "Bucky Irving is the lead back under contract. Rachaad White is a UFA and likely to leave. Sean Tucker (RFA) is expected back — Licht said he wants Tucker to return. Tucker has flashed in limited work (4.3 YPC career). The Bucs could use a complementary back to pair with Irving, but this isn't a premium need given Irving's talent and Tucker's potential.",
       "current_starter": "Bucky Irving",
       "depth": "Sean Tucker (RFA, expected back), Owen Wright",
       "draft_range_target": "Round 4-6"
     },
     {
-      "position": "WR",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "Mike Evans is a UFA at age 33 \u2014 he will return to play in 2026 but is exploring free agency and could leave Tampa. Chris Godwin is under contract but battled injuries (missed 8 games in 2025). 2025 1st-rounder Emeka Egbuka emerged as the team's leading receiver (63-938-6) and is the future. Jalen McMillan missed 14 games with a neck injury but Bowles praised his ceiling. Tez Johnson and Kam Johnson provide depth. If Evans re-signs, WR is not a major need. If he leaves, the Bucs would need to find production.",
-      "current_starter": "Emeka Egbuka, Chris Godwin, Mike Evans (UFA)",
-      "depth": "Jalen McMillan (returning from neck injury), Tez Johnson, Kam Johnson, Sterling Shepard (UFA)",
-      "draft_range_target": "Round 4-6 for depth, or Round 2-3 if Evans departs"
+      "position": "TE",
+      "tier": 4,
+      "urgency": "minor",
+      "explanation": "Cade Otton is a pending UFA and could be priced out. He had 59 catches in each of the last two seasons and is a solid all-around TE but not flashy. Ko Kieft (blocking TE/ST ace) is also a UFA after suffering a broken leg in Week 3. If both depart, the only TE under contract is Payne Durham, a blocking specialist who is not a viable full-time starter. Multiple mock drafts have the Bucs targeting a TE like Kenyon Sadiq at 15.",
+      "current_starter": "Cade Otton (UFA)",
+      "depth": "Payne Durham (blocking specialist), Devin Culp (limited)",
+      "draft_range_target": "Round 1-3 if Otton departs, Round 4-5 for depth if he re-signs"
     }
   ],
   "needs_summary": {
     "tier_1": [
-      "EDGE",
-      "LB"
-    ],
-    "tier_2": [
-      "TE",
       "CB",
-      "DT"
-    ],
-    "tier_3": [
-      "IOL",
-      "RB",
+      "EDGE",
       "WR"
     ],
-    "tier_4": []
+    "tier_2": [
+      "DT",
+      "IDL",
+      "LB"
+    ],
+    "tier_3": [
+      "IOL"
+    ],
+    "tier_4": [
+      "RB",
+      "TE"
+    ]
   },
   "simple_needs": [
-    "DL",
-    "LB",
     "DB",
-    "TE",
+    "DL",
+    "WR",
+    "LB",
     "OL"
   ],
   "detailed_needs": {
+    "DB": 1,
     "DL": 1,
-    "LB": 1,
-    "DB": 2,
-    "TE": 2,
-    "OL": 2,
-    "WR": 2,
-    "RB": 2
+    "WR": 1,
+    "LB": 2,
+    "OL": 3
   },
   "free_agency_impact": [
-    "Haason Reddick (UFA, 2.5 sacks) \u2014 unlikely to return, increases EDGE need to critical",
-    "Lavonte David (UFA, age 36) \u2014 may retire or return on cheap deal; either way LB needs long-term solution",
-    "Mike Evans (UFA, age 33) \u2014 will play in 2026, exploring FA; if he leaves, WR need escalates significantly",
-    "Cade Otton (UFA) \u2014 solid TE, could be priced out; if he leaves, TE becomes a top-3 need",
-    "Jamel Dean (UFA) \u2014 career-best 3 INTs in 2025; likely to depart, creates CB2 vacancy but team invested in Morrison/Parrish",
-    "Logan Hall (UFA) \u2014 started 16 games, DL depth thins considerably if he walks",
-    "Greg Gaines (UFA) \u2014 key DL rotation piece, played 33.5% of snaps",
-    "Rachaad White (UFA) \u2014 likely to leave, but Bucky Irving is established lead back",
-    "Re-signed QB Connor Bazelak (ERFA) \u2014 procedural move, backup QB secured",
-    "No franchise/transition tags used by Tampa Bay",
-    "Sean Tucker (RFA) \u2014 expected to receive tender per Licht comments"
+    "Mike Evans (WR) → San Francisco 49ers",
+    "Jamel Dean (CB) → Pittsburgh Steelers",
+    "Rachaad White (RB) → TBD/unsigned",
+    "Haason Reddick (EDGE) → TBD/unsigned",
+    "Logan Hall (IDL) → TBD/unsigned",
+    "Lavonte David (LB) → undecided/unsigned",
+    "Signed Cade Otton (TE) from Tampa Bay Buccaneers (re-sign) — $10.0M AAV",
+    "Signed Kenneth Gainwell (RB) from Pittsburgh Steelers — $7.0M AAV",
+    "Signed Alex Anzalone (LB) from Detroit Lions — $8.5M AAV",
+    "Signed Connor Bazelak (QB) from Unknown/FA — $1.0M AAV",
+    "Signed Evan Deckers (LS) from Tampa Bay Buccaneers (re-sign) — terms TBD AAV"
   ],
-  "scheme_fit_notes": "Bowles runs a 3-4 defense that relies heavily on blitzing and disguised pressures. EDGE rushers must be versatile OLBs who can rush and drop into coverage, not just pure speed rushers. ILBs need sideline-to-sideline range since Bowles asks them to cover RBs and TEs frequently \u2014 David's declining range in coverage was a notable problem. DL players who can line up at multiple gaps are valued (Bowles moves linemen around). CB prospects should be comfortable in man coverage given the blitz-heavy scheme. On offense, new OC Zac Robinson brings a play-action/RPO-heavy scheme that demands an effective run game and athletic TEs.",
+  "scheme_fit_notes": "Bowles runs a 3-4 defense that relies heavily on blitzing and disguised pressures. EDGE rushers must be versatile OLBs who can rush and drop into coverage, not just pure speed rushers. ILBs need sideline-to-sideline range since Bowles asks them to cover RBs and TEs frequently — David's declining range in coverage was a notable problem. DL players who can line up at multiple gaps are valued (Bowles moves linemen around). CB prospects should be comfortable in man coverage given the blitz-heavy scheme. On offense, new OC Zac Robinson brings a play-action/RPO-heavy scheme that demands an effective run game and athletic TEs.",
   "confidence": "high",
   "sources": [
     "buccaneers.com (official free agent profiles, depth charts, combine interviews)",

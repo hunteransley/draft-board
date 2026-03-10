@@ -1,35 +1,17 @@
 {
   "team": "CIN",
   "team_full": "Cincinnati Bengals",
-  "updated_through": "2026-03-05",
+  "updated_through": "2026-03-10",
   "first_round_pick": 10,
   "total_draft_picks": 8,
   "notable_pick_trades": "Traded 5th-round pick to CLE for QB Joe Flacco (gained extra 6th). Traded LB Logan Wilson to DAL for extra 7th. No 5th-round pick. Possible compensatory picks TBD.",
   "roster_context": "The Bengals went 6-11 in 2025, finishing 30th in points allowed (28.9/g) with a historically bad defense. Joe Burrow missed 9 games with turf toe, and Trey Hendrickson missed 10 games with a core muscle injury. The offense remains elite when healthy (Burrow, Chase, Higgins), but the defense needs a complete overhaul. Hendrickson was not franchise tagged and will leave in free agency, creating a massive void at EDGE. The team has ~$47M in cap space (per OTC) with potential to create more via restructures. The OL is set to return all five starters for the first time in Burrow's career. The focus is entirely on fixing the defense.",
   "needs": [
     {
-      "position": "S",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Geno Stone is an unrestricted free agent and was a massive disappointment after signing in 2024 \u2014 PFF graded him at just 54.3 in 2025. Jordan Battle is under contract but has been inconsistent and is not a true force multiplier at the position. The Bengals allowed opponents to gash them through the middle of the field all year, and safety was one of the weakest spots. Multiple mock drafts have the Bengals targeting Ohio State S Caleb Downs at pick 10, widely considered the best safety prospect since Kyle Hamilton.",
-      "current_starter": "Jordan Battle, Geno Stone (UFA)",
-      "depth": "PJ Jules re-signed on futures contract but is not a starter-caliber player. Russ Yeast is depth only.",
-      "draft_range_target": "Round 1 \u2014 Caleb Downs is the consensus pick at 10"
-    },
-    {
-      "position": "EDGE",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Trey Hendrickson was not franchise tagged and posted a goodbye message to Cincinnati \u2014 he is gone. The Bengals' best pass rusher since 2021 (61 sacks, four Pro Bowls) leaves a massive hole. Myles Murphy took a step forward in 2025 (5.5 sacks, 41 pressures) but is not a proven top-tier edge rusher. Shemar Stewart had a dismal rookie year (8 games, 1 sack, worst PFF grade among 2025 first-rounders at 36.9). Joseph Ossai is also a UFA and unlikely to return at his asking price. The Bengals need to either add a veteran EDGE in free agency or draft one to complement Murphy/Stewart.",
-      "current_starter": "Myles Murphy, Shemar Stewart (2nd-year)",
-      "depth": "Joseph Ossai (UFA), Cam Sample (UFA), Cedric Johnson, Isaiah Foskey (futures). Very thin if Murphy or Stewart miss time.",
-      "draft_range_target": "Round 1-2 if not addressed in free agency"
-    },
-    {
       "position": "DT",
       "tier": 1,
       "urgency": "critical",
-      "explanation": "The Bengals allowed 2,500 rushing yards in 2025 \u2014 the interior DL was a disaster. B.J. Hill and TeDarrell Slaton were brought in as veteran stopgaps but did not get the job done. Kris Jenkins Jr. was placed on IR. McKinnley Jackson showed flashes but is inconsistent. The Bengals haven't had a true disruptive interior presence since Geno Atkins. Peter Woods (Clemson) is a popular mock draft target at pick 10. The entire spine of the defense \u2014 DT through LB through S \u2014 was gashed repeatedly.",
+      "explanation": "The Bengals allowed 2,500 rushing yards in 2025 — the interior DL was a disaster. B.J. Hill and TeDarrell Slaton were brought in as veteran stopgaps but did not get the job done. Kris Jenkins Jr. was placed on IR. McKinnley Jackson showed flashes but is inconsistent. The Bengals haven't had a true disruptive interior presence since Geno Atkins. Peter Woods (Clemson) is a popular mock draft target at pick 10. The entire spine of the defense — DT through LB through S — was gashed repeatedly.",
       "current_starter": "B.J. Hill, McKinnley Jackson / Kris Jenkins Jr.",
       "depth": "TeDarrell Slaton, Howard Cross III (practice squad elevator). Jenkins went to IR in 2025.",
       "draft_range_target": "Round 1-2"
@@ -44,19 +26,55 @@
       "draft_range_target": "Round 2-3"
     },
     {
+      "position": "EDGE",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Trey Hendrickson was not franchise tagged and posted a goodbye message to Cincinnati — he is gone. The Bengals' best pass rusher since 2021 (61 sacks, four Pro Bowls) leaves a massive hole. Myles Murphy took a step forward in 2025 (5.5 sacks, 41 pressures) but is not a proven top-tier edge rusher. Shemar Stewart had a dismal rookie year (8 games, 1 sack, worst PFF grade among 2025 first-rounders at 36.9). Joseph Ossai is also a UFA and unlikely to return at his asking price. The Bengals need to either add a veteran EDGE in free agency or draft one to complement Murphy/Stewart.",
+      "current_starter": "Myles Murphy, Shemar Stewart (2nd-year)",
+      "depth": "Joseph Ossai (UFA), Cam Sample (UFA), Cedric Johnson, Isaiah Foskey (futures). Very thin if Murphy or Stewart miss time.",
+      "draft_range_target": "Round 1-2 if not addressed in free agency"
+    },
+    {
+      "position": "IDL",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "No IDL move made in free agency. The Bengals finished dead last against the run in 2025 and allowed 2,500 rushing yards. Kris Jenkins Jr. is the best internal candidate to emerge but the team cannot rely on that projection alone. IDL remains a top-3 draft need — should target an interior lineman in rounds 1-3.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
       "position": "LB",
       "tier": 2,
       "urgency": "important",
-      "explanation": "The Bengals traded veteran captain Logan Wilson midseason to Dallas and relied on two rookies \u2014 2nd-rounder Demetrius Knight and 4th-rounder Barrett Carter \u2014 who were overmatched. Their inexperience and lack of command were glaring weaknesses as opponents ran circles around them. At least one veteran LB should be brought in as insurance, and another developmental pick could help. PFF noted the Bengals require a complete defensive overhaul and could target a linebacker to build around.",
+      "explanation": "The Bengals traded veteran captain Logan Wilson midseason to Dallas and relied on two rookies — 2nd-rounder Demetrius Knight and 4th-rounder Barrett Carter — who were overmatched. Their inexperience and lack of command were glaring weaknesses as opponents ran circles around them. At least one veteran LB should be brought in as insurance, and another developmental pick could help. PFF noted the Bengals require a complete defensive overhaul and could target a linebacker to build around.",
       "current_starter": "Demetrius Knight Jr. (2nd year), Barrett Carter (2nd year)",
       "depth": "Shaka Heyward (re-signed, missed time with fibula injury), Joe Giles-Harris. Logan Wilson traded away.",
       "draft_range_target": "Round 3-4, or veteran FA signing"
     },
     {
+      "position": "QB",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Browning not tendered, Flacco in free agency seeking a starting role. Bengals have no backup QB under contract with Joe Burrow missing 9 games in 2025. Given Burrow's injury history, a competent backup is mandatory. Team needs to add a QB2 either via FA (Flacco reunion likely) or late-round draft pick.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
+      "position": "TE",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Noah Fant is a UFA and unlikely to return. Tanner Hudson was re-signed on a one-year extension and Drew Sample provides veteran depth. Cam Grandy was also re-signed on a futures deal. TE is not a premium position in the Bengals offense (Burrow spreads it to Chase/Higgins), but losing Fant means they could use a mid-to-late round pass-catching TE addition for depth.",
+      "current_starter": "Tanner Hudson (re-signed), Drew Sample",
+      "depth": "Cam Grandy (re-signed). Noah Fant (UFA, likely gone).",
+      "draft_range_target": "Round 5-7 or UDFA"
+    },
+    {
       "position": "IOL",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "The Bengals re-signed Dalton Risner (RG) and will return all five OL starters for the first time in Burrow's career. However, Ted Karras (C) is 32 and entering a contract year \u2014 long-term replacement planning is needed. Risner is on a one-year deal at age 30. Dylan Fairchild (2025 2nd-rounder) at LG is the only young piece locked in. IOL depth behind the starters is a concern \u2014 Lucas Patrick (G, UFA) and Cordell Volson (G, UFA) are both departing. Finding Karras's eventual successor at center and building IOL depth are moderate needs.",
+      "explanation": "The Bengals re-signed Dalton Risner (RG) and will return all five OL starters for the first time in Burrow's career. However, Ted Karras (C) is 32 and entering a contract year — long-term replacement planning is needed. Risner is on a one-year deal at age 30. Dylan Fairchild (2025 2nd-rounder) at LG is the only young piece locked in. IOL depth behind the starters is a concern — Lucas Patrick (G, UFA) and Cordell Volson (G, UFA) are both departing. Finding Karras's eventual successor at center and building IOL depth are moderate needs.",
       "current_starter": "Dylan Fairchild (LG), Ted Karras (C), Dalton Risner (RG)",
       "depth": "Lucas Patrick (UFA), Cordell Volson (UFA). Depth is departing. Jaxson Kirkland on practice squad.",
       "draft_range_target": "Round 3-5"
@@ -65,69 +83,86 @@
       "position": "OT",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "Orlando Brown Jr. (LT) is entering the final year of his 4-year, $64M deal and will be a free agent in 2027. He's 29 and the Bengals need to start planning for his successor. Amarius Mims (RT, 2024 3rd-rounder) is the long-term answer at RT. The Bengals need a swing tackle for depth \u2014 Jalen Rivers (2025 4th-round pick) exists but has not proven himself. Multiple outlets have identified OT depth as a need, particularly a developmental LT prospect for the future.",
+      "explanation": "Orlando Brown Jr. (LT) is entering the final year of his 4-year, $64M deal and will be a free agent in 2027. He's 29 and the Bengals need to start planning for his successor. Amarius Mims (RT, 2024 3rd-rounder) is the long-term answer at RT. The Bengals need a swing tackle for depth — Jalen Rivers (2025 4th-round pick) exists but has not proven himself. Multiple outlets have identified OT depth as a need, particularly a developmental LT prospect for the future.",
       "current_starter": "Orlando Brown Jr. (LT), Amarius Mims (RT)",
       "depth": "Jalen Rivers (2nd year), depth very thin behind starters after Volson/Patrick UFA departures",
       "draft_range_target": "Round 4-5 developmental pick"
     },
     {
-      "position": "TE",
+      "position": "S",
       "tier": 4,
       "urgency": "minor",
-      "explanation": "Noah Fant is a UFA and unlikely to return. Tanner Hudson was re-signed on a one-year extension and Drew Sample provides veteran depth. Cam Grandy was also re-signed on a futures deal. TE is not a premium position in the Bengals offense (Burrow spreads it to Chase/Higgins), but losing Fant means they could use a mid-to-late round pass-catching TE addition for depth.",
-      "current_starter": "Tanner Hudson (re-signed), Drew Sample",
-      "depth": "Cam Grandy (re-signed). Noah Fant (UFA, likely gone).",
-      "draft_range_target": "Round 5-7 or UDFA"
+      "explanation": "Geno Stone is an unrestricted free agent and was a massive disappointment after signing in 2024 — PFF graded him at just 54.3 in 2025. Jordan Battle is under contract but has been inconsistent and is not a true force multiplier at the position. The Bengals allowed opponents to gash them through the middle of the field all year, and safety was one of the weakest spots. Multiple mock drafts have the Bengals targeting Ohio State S Caleb Downs at pick 10, widely considered the best safety prospect since Kyle Hamilton.",
+      "current_starter": "Jordan Battle, Geno Stone (UFA)",
+      "depth": "PJ Jules re-signed on futures contract but is not a starter-caliber player. Russ Yeast is depth only.",
+      "draft_range_target": "Round 1 — Caleb Downs is the consensus pick at 10"
     }
   ],
   "needs_summary": {
     "tier_1": [
-      "S",
-      "EDGE",
       "DT"
     ],
     "tier_2": [
       "CB",
-      "LB"
+      "EDGE",
+      "IDL",
+      "LB",
+      "QB",
+      "TE"
     ],
     "tier_3": [
       "IOL",
       "OT"
     ],
     "tier_4": [
-      "TE"
+      "S"
     ]
   },
   "simple_needs": [
     "DL",
     "DB",
     "LB",
-    "OL",
-    "DL"
+    "QB",
+    "TE",
+    "OL"
   ],
   "detailed_needs": {
     "DL": 1,
-    "DB": 1,
+    "DB": 2,
     "LB": 2,
-    "OL": 2,
-    "TE": 2
+    "QB": 2,
+    "TE": 2,
+    "OL": 3
   },
   "free_agency_impact": [
-    "Lost DE Trey Hendrickson (UFA, not franchise tagged) \u2014 creates critical EDGE need, Bengals' top pass rusher since 2021 officially gone",
-    "S Geno Stone (UFA) departing \u2014 increases safety need, was a massive disappointment (54.3 PFF grade)",
-    "CB Cam Taylor-Britt (UFA) departing \u2014 thins CB depth behind Turner/Hill, declined rapidly in 2025",
-    "DE Joseph Ossai (UFA) likely departing \u2014 further thins EDGE depth behind Murphy/Stewart",
-    "TE Noah Fant (UFA) likely departing \u2014 moderate TE depth need",
-    "G Lucas Patrick (UFA), G Cordell Volson (UFA) departing \u2014 IOL depth concern",
-    "CB Marco Wilson (UFA) departing \u2014 CB depth further thinned",
-    "QB Joe Flacco (UFA) likely gone \u2014 looking for starting job elsewhere; QB backup need",
-    "Re-signed G Dalton Risner (1-year, $5M) \u2014 keeps starting OL intact, reduces OL urgency",
-    "Re-signed CB Jalen Davis (1-year extension) \u2014 minor CB depth addition",
-    "Re-signed HB Kendall Milton \u2014 RB depth maintained",
-    "Re-signed TE Tanner Hudson (1-year extension) \u2014 TE1 secured",
-    "Re-signed WR Kendric Pryor, futures contracts for Shaka Heyward, Joe Giles-Harris, Isaiah Foskey, PJ Jules, Cam Grandy, Mitch Tinsley \u2014 low-cost depth retention"
+    "Trey Hendrickson (EDGE) → TBD/unsigned",
+    "Joseph Ossai (EDGE) → New York Jets",
+    "Geno Stone (S) → TBD/unsigned",
+    "Noah Fant (TE) → New Orleans Saints",
+    "Cordell Volson (IOL) → Tennessee Titans",
+    "Jake Browning (QB) → TBD/unsigned",
+    "Cam Taylor-Britt (CB) → TBD/unsigned",
+    "Joe Flacco (QB) → TBD/unsigned",
+    "Cam Sample (EDGE) → TBD/unsigned",
+    "Lucas Patrick (IOL) → TBD/unsigned",
+    "Marco Wilson (CB) → TBD/unsigned",
+    "Brian Asamoah (LB) → TBD/unsigned",
+    "Tycen Anderson (S) → TBD/unsigned",
+    "Signed Boye Mafe (EDGE) from Seattle Seahawks — $20.0M AAV",
+    "Signed Bryan Cook (S) from Kansas City Chiefs — $13.4M AAV",
+    "Signed Dalton Risner (IOL) from Cincinnati Bengals (re-sign) — $5.0M AAV",
+    "Signed Jalen Davis (CB) from Cincinnati Bengals (re-sign) — $3.0M AAV",
+    "Signed Kendall Milton (RB) from Cincinnati Bengals (re-sign) — $1.5M AAV",
+    "Signed Kendric Pryor (WR) from Cincinnati Bengals (re-sign) — $1.2M AAV",
+    "Signed Tanner Hudson (TE) from Cincinnati Bengals (re-sign) — $1.1M AAV",
+    "Signed Mitch Tinsley (WR) from Cincinnati Bengals (re-sign) — $1.0M AAV",
+    "Signed PJ Jules (S) from Cincinnati Bengals (re-sign) — $0.9M AAV",
+    "Signed Shaka Heyward (LB) from Cincinnati Bengals (re-sign) — $0.9M AAV",
+    "Signed Cam Grandy (TE) from Cincinnati Bengals (re-sign) — $0.8M AAV",
+    "Signed Joe Giles-Harris (LB) from Cincinnati Bengals (re-sign) — $0.9M AAV",
+    "Signed Isaiah Foskey (EDGE) from Cincinnati Bengals (re-sign) — $0.9M AAV"
   ],
-  "scheme_fit_notes": "Al Golden runs a 4-3 defense with zone coverage principles. He values versatile defensive linemen who can align at multiple spots \u2014 Shemar Stewart has been used both on the edge and inside. Safety prospects who can play in the box, cover TEs in the slot, and also range to centerfield have elevated value (Caleb Downs is the prototype). EDGE rushers who can also set the edge against the run fit better than pure speed rushers. At CB, press-man corners with ball skills fit Turner's mold. At DT, a true 3-technique who can penetrate and disrupt is the biggest missing piece \u2014 the Bengals haven't had a dominant interior presence since Geno Atkins.",
+  "scheme_fit_notes": "Al Golden runs a 4-3 defense with zone coverage principles. He values versatile defensive linemen who can align at multiple spots — Shemar Stewart has been used both on the edge and inside. Safety prospects who can play in the box, cover TEs in the slot, and also range to centerfield have elevated value (Caleb Downs is the prototype). EDGE rushers who can also set the edge against the run fit better than pure speed rushers. At CB, press-man corners with ball skills fit Turner's mold. At DT, a true 3-technique who can penetrate and disrupt is the biggest missing piece — the Bengals haven't had a dominant interior presence since Geno Atkins.",
   "confidence": "high",
   "sources": [
     "https://www.bengals.com/news/bengals-2026-offseason-overview-draft-free-agency-cap-space",

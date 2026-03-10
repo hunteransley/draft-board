@@ -1,38 +1,29 @@
 {
   "team": "JAX",
   "team_full": "Jacksonville Jaguars",
-  "updated_through": "2026-03-05",
+  "updated_through": "2026-03-10",
   "first_round_pick": null,
   "total_draft_picks": 11,
   "notable_pick_trades": "Traded 2026 1st-round pick (No. 24 overall) to Cleveland Browns in package to move up for Travis Hunter (No. 2 overall) in 2025 draft. Acquired two extra 3rd-round picks from Detroit Lions. Lost 4th and 6th to Las Vegas for Jakobi Meyers trade.",
   "roster_context": "Jacksonville went 13-4, won the AFC South, and lost in the Wild Card round to Buffalo 27-24 in Liam Coen's first year as HC. Trevor Lawrence had a career year (38 TDs, 5th in MVP voting). The team is over the salary cap (~$15M over) and faces losing key free agents Devin Lloyd, Travis Etienne, Montaric Brown, Andrew Wingard, and Greg Newsome. Travis Hunter is expected to shift primarily to cornerback in 2026 after an injury-shortened rookie season. No first-round pick limits the team's ability to add instant-impact talent, but 11 total picks (including three 3rd-rounders) provide depth-building flexibility.",
   "needs": [
     {
-      "position": "IDL",
+      "position": "LB",
       "tier": 1,
       "urgency": "critical",
+      "explanation": "Devin Lloyd (2nd-team All-Pro, Pro Bowl, 5 INTs, 81 tackles) is a UFA who the Jaguars did not franchise tag. His projected market value is $18-20M/year, likely too expensive for Jacksonville's tight cap. If Lloyd leaves, the Jaguars lose their best defensive playmaker. Foye Oluokun turns 31 in August and is a potential cap casualty himself. Ventrell Miller showed some promise but is unproven as a full-time starter. The team's Rams-rooted front office philosophy historically undervalues the LB position.",
+      "current_starter": "Foye Oluokun (aging, cap casualty candidate), Ventrell Miller (unproven)",
+      "depth": "Jack Kiser (rookie), Ventrell Miller — very thin if Lloyd leaves AND Oluokun is cut",
+      "draft_range_target": "Round 2-3"
+    },
+    {
+      "position": "IDL",
+      "tier": 2,
+      "urgency": "important",
       "explanation": "The Jaguars ranked 27th in sacks (32) despite ranking 3rd in pressures (222), exposing a massive conversion problem on the interior. Arik Armstead (32, turning 33) started strong with 5.5 sacks through 12 weeks but faded after a hand injury, and the DT group managed just 12 pressures and zero sacks in the final 5 weeks without him. Maason Smith was a healthy scratch in the playoffs after a disappointing sophomore season (11 pressures). DaVon Hamilton is a potential cap casualty. The front office has publicly acknowledged this as a top need, and DT is the most commonly mocked position at pick 56.",
       "current_starter": "Arik Armstead (age 32, declining/injured), DaVon Hamilton (cap casualty candidate)",
       "depth": "Maason Smith (disappointing, healthy scratch in playoffs), Matt Dickerson (re-signed, limited contributor), Jordan Jefferson (depth)",
-      "draft_range_target": "Round 2 \u2014 prime target at No. 56 overall (Christen Miller, etc.)"
-    },
-    {
-      "position": "CB",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Both starting outside cornerbacks Montaric Brown and Greg Newsome are UFAs. GM Gladstone confirmed Travis Hunter will shift primarily to CB in 2026, but that still leaves the team needing at least one more quality starter and depth. Jourdan Lewis suffered a late-season Lisfranc injury and may not return to form. Christian Braswell and Jarrian Jones are unproven. The Jaguars expect to address CB in both free agency and the draft.",
-      "current_starter": "Travis Hunter (shifting to CB full-time), Jourdan Lewis (Lisfranc injury concern)",
-      "depth": "Jarrian Jones, Christian Braswell, Keith Taylor (re-signed) \u2014 all unproven or limited",
-      "draft_range_target": "Round 2-3"
-    },
-    {
-      "position": "LB",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Devin Lloyd (2nd-team All-Pro, Pro Bowl, 5 INTs, 81 tackles) is a UFA who the Jaguars did not franchise tag. His projected market value is $18-20M/year, likely too expensive for Jacksonville's tight cap. If Lloyd leaves, the Jaguars lose their best defensive playmaker. Foye Oluokun turns 31 in August and is a potential cap casualty himself. Ventrell Miller showed some promise but is unproven as a full-time starter. The team's Rams-rooted front office philosophy historically undervalues the LB position.",
-      "current_starter": "Foye Oluokun (aging, cap casualty candidate), Ventrell Miller (unproven)",
-      "depth": "Jack Kiser (rookie), Ventrell Miller \u2014 very thin if Lloyd leaves AND Oluokun is cut",
-      "draft_range_target": "Round 2-3"
+      "draft_range_target": "Round 2 — prime target at No. 56 overall (Christen Miller, etc.)"
     },
     {
       "position": "IOL",
@@ -53,22 +44,40 @@
       "draft_range_target": "Round 3-5"
     },
     {
-      "position": "S",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "Andrew Wingard is a UFA after serving as a veteran starter/depth piece. Eric Murray (10th NFL season) and Antonio Johnson are the projected starters, with Johnson having impressed in 2025. But both Murray and Wingard are aging veterans, and the position lacks long-term depth behind Johnson. Caleb Ransaw is a developmental player. Bleacher Report noted the Jaguars 'are getting by at safety with Wingard and Murray. Both are veterans who will need to be replaced in the next year or two.' Safety has been a commonly mocked position for JAX at pick 56.",
-      "current_starter": "Eric Murray (age 30+), Antonio Johnson (promising 3rd-year player)",
-      "depth": "Darnell Savage (UFA), Rayuan Lane III, Caleb Ransaw \u2014 thin long-term",
-      "draft_range_target": "Round 2-4"
-    },
-    {
       "position": "EDGE",
       "tier": 3,
       "urgency": "moderate",
       "explanation": "Josh Hines-Allen (8 sacks) and Travon Walker are a quality starting duo, but there is almost no depth behind them. Dennis Gardeck (UFA), Emmanuel Ogbah (UFA), and Dawuane Smoot (UFA) are all departing free agents. SI noted 'the Jaguars need depth on the edge, badly. Josh Hines-Allen and Travon Walker need a quality rotation behind them to remain fresh.' Yasir Abdullah showed flashes but is unproven as a primary rotational piece.",
       "current_starter": "Josh Hines-Allen, Travon Walker",
-      "depth": "Yasir Abdullah, B.J. Green II, Ethan Downs \u2014 significant depth concern with Gardeck/Ogbah/Smoot all UFAs",
+      "depth": "Yasir Abdullah, B.J. Green II, Ethan Downs — significant depth concern with Gardeck/Ogbah/Smoot all UFAs",
       "draft_range_target": "Round 3-5"
+    },
+    {
+      "position": "S",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Andrew Wingard is a UFA after serving as a veteran starter/depth piece. Eric Murray (10th NFL season) and Antonio Johnson are the projected starters, with Johnson having impressed in 2025. But both Murray and Wingard are aging veterans, and the position lacks long-term depth behind Johnson. Caleb Ransaw is a developmental player. Bleacher Report noted the Jaguars 'are getting by at safety with Wingard and Murray. Both are veterans who will need to be replaced in the next year or two.' Safety has been a commonly mocked position for JAX at pick 56.",
+      "current_starter": "Eric Murray (age 30+), Antonio Johnson (promising 3rd-year player)",
+      "depth": "Darnell Savage (UFA), Rayuan Lane III, Caleb Ransaw — thin long-term",
+      "draft_range_target": "Round 2-4"
+    },
+    {
+      "position": "TE",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Morris's 1-year re-signing provides continuity but no upgrade. Brenton Strange remains the starter but has missed time with injuries. The TE room is thin enough that a mid-round draft pick (rounds 3-5) remains viable. Need is unchanged at Tier 3.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
+      "position": "CB",
+      "tier": 4,
+      "urgency": "minor",
+      "explanation": "Both starting outside cornerbacks Montaric Brown and Greg Newsome are UFAs. GM Gladstone confirmed Travis Hunter will shift primarily to CB in 2026, but that still leaves the team needing at least one more quality starter and depth. Jourdan Lewis suffered a late-season Lisfranc injury and may not return to form. Christian Braswell and Jarrian Jones are unproven. The Jaguars expect to address CB in both free agency and the draft.",
+      "current_starter": "Travis Hunter (shifting to CB full-time), Jourdan Lewis (Lisfranc injury concern)",
+      "depth": "Jarrian Jones, Christian Braswell, Keith Taylor (re-signed) — all unproven or limited",
+      "draft_range_target": "Round 2-3"
     },
     {
       "position": "OT",
@@ -76,55 +85,62 @@
       "urgency": "minor",
       "explanation": "Anton Harrison had a breakout year at RT (6th in PFF pass-blocking among qualified RTs, zero sacks allowed). Walker Little remains the starting LT but was inconsistent (9 sacks, 29 pressures allowed before being replaced by Cole Van Lanen late in the season). Van Lanen outperformed Little at LT and was re-signed. Little has a $12M cap hit in 2026 and is a potential trade candidate. The OT position is not urgent given Harrison's development and Van Lanen's emergence, but Little's inconsistency at LT keeps this as a background need.",
       "current_starter": "Walker Little (LT, inconsistent/trade candidate), Anton Harrison (RT, ascending)",
-      "depth": "Cole Van Lanen (re-signed, played well at LT), Chuma Edoga \u2014 LT is the question mark",
+      "depth": "Cole Van Lanen (re-signed, played well at LT), Chuma Edoga — LT is the question mark",
       "draft_range_target": "Round 4-7 or addressed via trade"
     }
   ],
   "needs_summary": {
     "tier_1": [
-      "IDL",
-      "CB"
+      "LB"
     ],
     "tier_2": [
-      "LB",
+      "IDL",
       "IOL",
       "RB"
     ],
     "tier_3": [
+      "EDGE",
       "S",
-      "EDGE"
+      "TE"
     ],
     "tier_4": [
+      "CB",
       "OT"
     ]
   },
   "simple_needs": [
-    "DL",
-    "DB",
     "LB",
+    "DL",
     "OL",
-    "RB"
+    "RB",
+    "DB",
+    "TE"
   ],
   "detailed_needs": {
-    "DL": 1,
-    "DB": 1,
     "LB": 1,
+    "DL": 2,
     "OL": 2,
-    "RB": 2
+    "RB": 2,
+    "DB": 3,
+    "TE": 3
   },
   "free_agency_impact": [
-    "Devin Lloyd (LB, UFA) \u2014 not franchise tagged, expected to sign elsewhere for $18-20M/yr. Massive LB need created.",
-    "Travis Etienne (RB, UFA) \u2014 not franchise tagged, strong market interest from Texans/Chiefs/Bears. Creates RB need; Tuten as replacement.",
-    "Montaric Brown (CB, UFA) \u2014 led team with 12 passes defensed, 2 INTs. Key CB loss if he departs.",
-    "Greg Newsome (CB, UFA) \u2014 midseason trade acquisition, struggled to adjust. Likely signs elsewhere.",
-    "Andrew Wingard (S, UFA) \u2014 veteran safety, creates depth concern at safety.",
-    "Dennis Gardeck (LB/EDGE, UFA) \u2014 rotational versatile piece, loss hurts edge depth.",
-    "Emmanuel Ogbah (EDGE, UFA) \u2014 diminished role, expected to leave.",
-    "Dawuane Smoot (EDGE, UFA) \u2014 veteran depth DE, expected to depart.",
-    "Dyami Brown (WR, UFA) \u2014 WR3/4, 20 receptions; loss mitigated by Meyers extension and Hunter's return.",
-    "Jakobi Meyers \u2014 EXTENDED (3yr/$60M, $40M guaranteed) during 2025 season. Secures WR2 role, reduces WR need.",
-    "Re-signed DeeJay Dallas (RB), Matt Dickerson (DL), Keith Taylor (CB), Joe Morris (TE), Cole Van Lanen (OL) \u2014 depth retention moves.",
-    "Travis Hunter shifting to primarily CB role in 2026 \u2014 helps address CB need but doesn't fully solve it."
+    "Travis Etienne Jr. (RB) → New Orleans Saints",
+    "Devin Lloyd (LB) → Carolina Panthers",
+    "Dawuane Smoot (EDGE) → TBD/unsigned",
+    "Emmanuel Ogbah (EDGE) → TBD/unsigned",
+    "Greg Newsome II (CB) → TBD/unsigned",
+    "Tim Patrick (WR) → TBD/unsigned",
+    "Dyami Brown (WR) → TBD/unsigned",
+    "Austin Johnson (IDL) → TBD/unsigned",
+    "Andrew Wingard (S) → TBD/unsigned",
+    "Signed Montaric Brown (CB) from Jacksonville Jaguars (re-sign) — $11.0M AAV",
+    "Signed Dennis Gardeck (EDGE) from Jacksonville Jaguars (re-sign) — $6.0M AAV",
+    "Signed Quintin Morris (TE) from Jacksonville Jaguars (re-sign) — $3.0M AAV",
+    "Signed DeeJay Dallas (RB) from Jacksonville Jaguars (re-sign) — $1.2M AAV",
+    "Signed Matt Dickerson (IDL) from Jacksonville Jaguars (re-sign) — $1.4M AAV",
+    "Signed Christian Braswell (CB) from Jacksonville Jaguars (ERFA tender) — $0.8M AAV",
+    "Signed Keith Taylor (CB) from Jacksonville Jaguars (RFA tender) — $2.0M AAV"
   ],
   "scheme_fit_notes": "Under DC Anthony Campanile, the Jaguars run an attacking 4-3 defense that emphasizes pressure generation and versatile LB play. Campanile's scheme allowed Devin Lloyd to thrive as a blitzer/coverage LB hybrid, so his replacement needs similar versatility. IDL prospects who can generate interior pressure and convert pressures to sacks are the highest-value targets given the team's league-worst pressure-to-sack conversion rate. On offense, Liam Coen runs a creative, run-heavy scheme with play-action and motion. IOL prospects who are strong run-blockers and can handle zone-blocking concepts fit best. The offense's identity runs through the interior OL and RB position.",
   "confidence": "high",
