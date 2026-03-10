@@ -13,9 +13,10 @@ import PROSPECT_STATS_STRUCT from "./prospectStatsStructured.json";
 import HISTORICAL_STAT_DIST from "./historicalStatDist.json";
 import TEAM_NEEDS_RICH, { TEAM_NEEDS_SIMPLE, TEAM_NEEDS_COUNTS } from "./teamNeedsData.js";
 import TEAM_FREE_AGENCY from "./teamFreeAgencyData.js";
+import { FA_CONTRACTS } from "./faContractData.js";
 import { DRAFT_ORDER, DRAFT_ORDER_R1, DRAFT_YEAR, ROUND_BOUNDS } from "./draftConfig.js";
 import { POSITION_TRAITS, TRAIT_EMOJI, TRAIT_ABBREV, TRAIT_SHORT, TRAIT_WEIGHTS, TRAIT_TEACHABILITY, POSITION_GROUPS, POS_EMOJI, POS_COLORS } from "./positions.js";
-import { NFL_TEAM_ABR, NFL_TEAM_ESPN, NFL_TEAM_COLORS } from "./teamConfig.js";
+import { NFL_TEAM_ABR, NFL_TEAM_ESPN, NFL_TEAM_COLORS, ABBR_TO_TEAM } from "./teamConfig.js";
 import { PROSPECTS_RAW } from "./prospects.js";
 import NFL_ROSTERS from "./nflRosters.js";
 import FA_FLAGS from "./freeAgencyFlags.js";
@@ -1621,9 +1622,11 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[myGuysUpdated,setMyGuysUpdated]=useState(false);
   const myGuysInitialLoad=useRef(true);
   const[showMyGuys,setShowMyGuys]=useState(false);
-  const[showExplorer,setShowExplorer]=useState(()=>window.location.pathname==='/data-lab'||window.location.pathname.startsWith('/data-lab/'));
+  const isLabPath=p=>p==='/lab'||p==='/data-lab'||p.startsWith('/lab/')||p.startsWith('/data-lab/');
+  const labSuffix=p=>{const m=p.match(/^\/(?:data-lab|lab)\/(.+)/);return m?m[1]:null;};
+  const[showExplorer,setShowExplorer]=useState(()=>isLabPath(window.location.pathname));
   const[explorerMeas,setExplorerMeas]=useState("ATH");
-  const[explorerMode,setExplorerMode]=useState(()=>window.location.pathname==='/data-lab/combo'?"combo":window.location.pathname==='/data-lab/scarcity'?"scarcity":"measurables");
+  const[explorerMode,setExplorerMode]=useState(()=>{const s=labSuffix(window.location.pathname);return s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":"measurables";});
   const[explorerTrait,setExplorerTrait]=useState("Speed");
   const[explorerMyGuys,setExplorerMyGuys]=useState(false);
   const[explorerAbsolute,setExplorerAbsolute]=useState(false);
@@ -1641,6 +1644,12 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[scarcityPick,setScarcityPick]=useState(0);
   const[scarcityTeam,setScarcityTeam]=useState(null);
   const[scarcityExpanded,setScarcityExpanded]=useState(null);
+  const[faView,setFaView]=useState("position");
+  const[faXAxis,setFaXAxis]=useState("count");
+  const[faYAxis,setFaYAxis]=useState("aav");
+  const[faPosFilter,setFaPosFilter]=useState(null);
+  const[faTeamFilter,setFaTeamFilter]=useState(null);
+  const[faDrop,setFaDrop]=useState(null);
   const explorerData=useMemo(()=>{
     if(explorerMode==="combo")return{points:[],min:0,max:0,groups:[],label:"",measCode:null,statCode:null,inverted:false};
     const points=[];
@@ -1793,9 +1802,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[mockCount,setMockCount]=useState(0);
   const[copiedShare,setCopiedShare]=useState(null);
   useEffect(()=>{window.scrollTo(0,0);},[phase,showMyGuys,showExplorer]);
-  const openExplorer=useCallback((mode)=>{const target=mode==="combo"?"/data-lab/combo":mode==="scarcity"?"/data-lab/scarcity":"/data-lab";if(window.location.pathname!==target)window.history.pushState({},'',target);setShowExplorer(true);if(mode)setExplorerMode(mode);},[]);
-  const closeExplorer=useCallback(()=>{if(window.location.pathname.startsWith('/data-lab'))window.history.pushState({},'','/');setShowExplorer(false);setExplorerHover(null);},[]);
-  useEffect(()=>{const onPop=()=>{const p=window.location.pathname;if(p==='/data-lab/combo'){setShowExplorer(true);setExplorerMode("combo");}else if(p==='/data-lab/scarcity'){setShowExplorer(true);setExplorerMode("scarcity");}else if(p==='/data-lab'){setShowExplorer(true);if(explorerMode==="combo"||explorerMode==="scarcity")setExplorerMode("measurables");}else{setShowExplorer(false);}};window.addEventListener("popstate",onPop);return()=>window.removeEventListener("popstate",onPop);},[explorerMode]);
+  const openExplorer=useCallback((mode)=>{const target=mode==="combo"?"/lab/combo":mode==="scarcity"?"/lab/scarcity":mode==="free-agency"?"/lab/free-agency":"/lab";if(window.location.pathname!==target)window.history.pushState({},'',target);setShowExplorer(true);if(mode)setExplorerMode(mode);},[]);
+  const closeExplorer=useCallback(()=>{if(isLabPath(window.location.pathname))window.history.pushState({},'','/');setShowExplorer(false);setExplorerHover(null);},[]);
+  useEffect(()=>{const onPop=()=>{const p=window.location.pathname;const s=labSuffix(p);if(s==="combo"){setShowExplorer(true);setExplorerMode("combo");}else if(s==="scarcity"){setShowExplorer(true);setExplorerMode("scarcity");}else if(s==="free-agency"){setShowExplorer(true);setExplorerMode("free-agency");}else if(isLabPath(p)){setShowExplorer(true);if(explorerMode==="combo"||explorerMode==="scarcity"||explorerMode==="free-agency")setExplorerMode("measurables");}else{setShowExplorer(false);}};window.addEventListener("popstate",onPop);return()=>window.removeEventListener("popstate",onPop);},[explorerMode]);
 
   // === TEAM MOCK TRENDS ===
   const[showTrends,setShowTrends]=useState(()=>window.location.pathname==='/trends');
@@ -2477,19 +2486,20 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
           <div>
             <h2 style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",margin:0}}>data lab</h2>
-            <p style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"2px 0 0"}}>{explorerMode==="combo"?`${comboData.points.length} ${comboPos} players`:explorerMode==="scarcity"?"supply vs demand by position":`${explorerData.points.length} players · ${explorerData.groups.length} positions`}</p>
+            <p style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"2px 0 0"}}>{explorerMode==="combo"?`${comboData.points.length} ${comboPos} players`:explorerMode==="scarcity"?"supply vs demand by position":explorerMode==="free-agency"?"2026 free agency contracts":`${explorerData.points.length} players · ${explorerData.groups.length} positions`}</p>
           </div>
           <button onClick={closeExplorer} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",padding:4}}>✕</button>
         </div>
 
         {/* Mode toggle */}
-        <div style={{display:"flex",gap:4,marginBottom:12}}>
-          <button onClick={gateAuth(()=>{setExplorerMode("measurables");setExplorerAbsolute(false);setExplorerLeaderPos(null);if(window.location.pathname!=='/data-lab')window.history.pushState({},'','/data-lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="measurables"?"#171717":"transparent",color:explorerMode==="measurables"?"#fff":"#737373",border:explorerMode==="measurables"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>measurables</button>
-          <button onClick={gateAuth(()=>{setExplorerMode("traits");setExplorerLeaderPos(null);if(window.location.pathname!=='/data-lab')window.history.pushState({},'','/data-lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="traits"?"#171717":"transparent",color:explorerMode==="traits"?"#fff":"#737373",border:explorerMode==="traits"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>scouting traits</button>
-          <button onClick={gateAuth(()=>{setExplorerMode("stats");setExplorerAbsolute(true);setExplorerLeaderPos(null);if(window.location.pathname!=='/data-lab')window.history.pushState({},'','/data-lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="stats"?"#171717":"transparent",color:explorerMode==="stats"?"#fff":"#737373",border:explorerMode==="stats"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>college stats</button>
+        <div style={{display:"flex",gap:6,marginBottom:12,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",paddingBottom:2}}>
+          <button onClick={gateAuth(()=>{setExplorerMode("measurables");setExplorerAbsolute(false);setExplorerLeaderPos(null);if(window.location.pathname!=='/lab'&&window.location.pathname!=='/data-lab')window.history.pushState({},'','/lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="measurables"?"#171717":"transparent",color:explorerMode==="measurables"?"#fff":"#737373",border:explorerMode==="measurables"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>measurables</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("traits");setExplorerLeaderPos(null);if(window.location.pathname!=='/lab'&&window.location.pathname!=='/data-lab')window.history.pushState({},'','/lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="traits"?"#171717":"transparent",color:explorerMode==="traits"?"#fff":"#737373",border:explorerMode==="traits"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>scouting traits</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("stats");setExplorerAbsolute(true);setExplorerLeaderPos(null);if(window.location.pathname!=='/lab'&&window.location.pathname!=='/data-lab')window.history.pushState({},'','/lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="stats"?"#171717":"transparent",color:explorerMode==="stats"?"#fff":"#737373",border:explorerMode==="stats"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>college stats</button>
           <div style={{width:1,height:20,background:"#e5e5e5",margin:"0 4px",flexShrink:0}}/>
-          <button onClick={()=>{setExplorerMode("combo");window.history.pushState({},'','/data-lab/combo');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="combo"?"linear-gradient(135deg,#6366f1,#8b5cf6)":"transparent",color:explorerMode==="combo"?"#fff":"#7c3aed",border:explorerMode==="combo"?"1px solid #6366f1":"1px solid #7c3aed44",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="combo"?"0 2px 8px rgba(99,102,241,0.3)":"none"}}>⚡ combo</button>
-          <button onClick={()=>{setExplorerMode("scarcity");window.history.pushState({},'','/data-lab/scarcity');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="scarcity"?"linear-gradient(135deg,#059669,#10b981)":"transparent",color:explorerMode==="scarcity"?"#fff":"#059669",border:explorerMode==="scarcity"?"1px solid #059669":"1px solid #05966944",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="scarcity"?"0 2px 8px rgba(5,150,105,0.3)":"none"}}>🫥 scarcity</button>
+          <button onClick={()=>{setExplorerMode("combo");window.history.pushState({},'','/lab/combo');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="combo"?"linear-gradient(135deg,#6366f1,#8b5cf6)":"transparent",color:explorerMode==="combo"?"#fff":"#7c3aed",border:explorerMode==="combo"?"1px solid #6366f1":"1px solid #7c3aed44",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="combo"?"0 2px 8px rgba(99,102,241,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>⚡ combo</button>
+          <button onClick={()=>{setExplorerMode("free-agency");setFaView("position");setFaPosFilter(null);setFaTeamFilter(null);window.history.pushState({},'','/lab/free-agency');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="free-agency"?"linear-gradient(135deg,#d97706,#f59e0b)":"transparent",color:explorerMode==="free-agency"?"#fff":"#d97706",border:explorerMode==="free-agency"?"1px solid #d97706":"1px solid #d9770644",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="free-agency"?"0 2px 8px rgba(217,119,6,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>💰 free agency</button>
+          <button onClick={()=>{setExplorerMode("scarcity");window.history.pushState({},'','/lab/scarcity');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="scarcity"?"linear-gradient(135deg,#059669,#10b981)":"transparent",color:explorerMode==="scarcity"?"#fff":"#059669",border:explorerMode==="scarcity"?"1px solid #059669":"1px solid #05966944",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="scarcity"?"0 2px 8px rgba(5,150,105,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>🫥 scarcity</button>
         </div>
 
         {/* Combo mode UI */}
@@ -2642,7 +2652,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         </>}
 
         {/* Measurable / Trait picker */}
-        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&(explorerMode==="measurables"?(<div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none"}}>
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&(explorerMode==="measurables"?(<div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none"}}>
           {MEAS_GROUPS.map(grp=>grp.keys.map(k=><button key={k} onClick={gateAuth(()=>setExplorerMeas(k))} style={{fontFamily:mono,fontSize:10,fontWeight:explorerMeas===k?700:500,padding:"5px 10px",background:explorerMeas===k?grp.border+"18":"transparent",color:explorerMeas===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerMeas===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{MEASURABLE_EMOJI[k]} {MEASURABLE_SHORT[k]}</button>))}
         </div>):explorerMode==="stats"?(<div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none",alignItems:"center"}}>
           {STAT_CATEGORIES.map(grp=>{const isOpen=explorerStatOpen.has(grp.label);const hasSelection=grp.keys.includes(explorerStat);return<Fragment key={grp.label}><button onClick={gateAuth(()=>{setExplorerStatOpen(prev=>{const next=new Set(prev);if(next.has(grp.label))next.delete(grp.label);else next.add(grp.label);return next;});})} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"5px 12px",background:hasSelection?grp.border:isOpen?grp.border+"18":"transparent",color:hasSelection?"#fff":isOpen?grp.border:"#737373",border:`1.5px solid ${hasSelection||isOpen?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{isOpen?"− ":"+ "}{grp.label}</button>{isOpen&&grp.keys.map(k=><button key={k} onClick={gateAuth(()=>setExplorerStat(k))} style={{fontFamily:mono,fontSize:10,fontWeight:explorerStat===k?700:500,padding:"5px 10px",background:explorerStat===k?grp.border+"18":"transparent",color:explorerStat===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerStat===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{STAT_EMOJI[k]||""} {STAT_SHORT[k]||k}</button>)}</Fragment>;})}
@@ -2663,10 +2673,10 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         </div>}
 
         {/* Sparse data warning */}
-        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerData.points.length>0&&explorerData.points.length<20&&<div style={{fontFamily:sans,fontSize:11,color:"#92400e",background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:8,padding:"6px 12px",marginBottom:8}}>⚠️ sparse data — only {explorerData.points.length} players have this {explorerMode==="stats"?"stat":"measurement"}</div>}
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerData.points.length>0&&explorerData.points.length<20&&<div style={{fontFamily:sans,fontSize:11,color:"#92400e",background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:8,padding:"6px 12px",marginBottom:8}}>⚠️ sparse data — only {explorerData.points.length} players have this {explorerMode==="stats"?"stat":"measurement"}</div>}
 
         {/* Beeswarm */}
-        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&(explorerData.points.length===0?(<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no data available for this {explorerMode==="stats"?"stat":"measurable"}</p></div>):(
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&(explorerData.points.length===0?(<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no data available for this {explorerMode==="stats"?"stat":"measurable"}</p></div>):(
           <div style={{marginTop:4,position:"relative"}}>
             <BeeswarmChartWrapper data={explorerData} myGuys={myGuys} showMyGuys={explorerMyGuys} showLogos={explorerLogos} onHover={setExplorerHover} onTap={(pt)=>{const p=PROSPECTS.find(pr=>pr.id===pt.id);if(p)openProfile(p);}} hoveredId={explorerHover?.id||null}/>
             <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",display:"flex",alignItems:"center",gap:0,opacity:0.06,pointerEvents:"none"}}>
@@ -2687,7 +2697,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         ))}
 
         {/* Leaderboard + Position Averages */}
-        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerData.points.length>=5&&(()=>{
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerData.points.length>=5&&(()=>{
           const mc=explorerData.measCode;
           const sc=explorerData.statCode;
           const inv=explorerData.inverted;
@@ -2774,7 +2784,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
 
 
         {/* Tooltip — beeswarm modes */}
-        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerHover&&<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-180),top:Math.max(explorerHover.cy-60,8),background:"#171717",color:"#fff",padding:"8px 12px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:200}}>
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerHover&&<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-180),top:Math.max(explorerHover.cy-60,8),background:"#171717",color:"#fff",padding:"8px 12px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:200}}>
           <div style={{fontWeight:700}}>{explorerHover.name}</div>
           <div style={{fontSize:10,color:"#a3a3a3",marginTop:1}}>{explorerHover.school}</div>
           <div style={{display:"flex",alignItems:"center",gap:6,marginTop:4}}>
@@ -3038,6 +3048,299 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                 </div>
               </div>;
             })()}
+          </>;
+        })()}
+        {explorerMode==="free-agency"&&(()=>{
+          const FA_POS_GROUPS=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S","K/P"];
+          const FA_AXIS_OPTIONS=[
+            {key:"aav",label:"AAV"},
+            {key:"totalValue",label:"Total Value"},
+            {key:"guaranteed",label:"Guaranteed"},
+            {key:"guaranteedPct",label:"Gtd %"},
+            {key:"years",label:"Years"},
+            {key:"age",label:"Age"},
+          ];
+          const FA_POS_AXIS_OPTIONS=[
+            {key:"count",label:"# Signings"},
+            ...FA_AXIS_OPTIONS,
+          ];
+          const fmtDollars=v=>{if(v>=1e6)return`$${(v/1e6).toFixed(1)}M`;if(v>=1e3)return`$${(v/1e3).toFixed(0)}K`;return`$${v}`;};
+          const fmtAxis=(key,v)=>key==="guaranteedPct"?`${(v*100).toFixed(0)}%`:key==="years"||key==="age"||key==="count"?String(Math.round(v)):fmtDollars(v);
+          const axisLabel=key=>FA_AXIS_OPTIONS.find(o=>o.key===key)?.label||key;
+
+          const FaDrop=({value,options,dropKey,onChange})=>{const open=faDrop===dropKey;const sel=options.find(o=>o.key===value);const ref=useRef(null);useEffect(()=>{if(!open)return;const h=e=>{if(ref.current&&!ref.current.contains(e.target))setFaDrop(null);};document.addEventListener("pointerdown",h);return()=>document.removeEventListener("pointerdown",h);},[open]);return<div ref={ref} style={{position:"relative",display:"inline-block"}}>
+            <button onClick={()=>setFaDrop(open?null:dropKey)} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"6px 12px 6px 10px",borderRadius:10,border:"1px solid "+(open?"#a3a3a3":"#e5e5e5"),background:open?"#faf9f6":"#fff",color:"#171717",cursor:"pointer",display:"flex",alignItems:"center",gap:6,minWidth:120,transition:"border-color 0.15s"}}>
+              <span style={{flex:1,textAlign:"left",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{sel?.label||"Select"}</span>
+              <svg width="10" height="6" viewBox="0 0 10 6" style={{flexShrink:0,opacity:0.4,transform:open?"rotate(180deg)":"none",transition:"transform 0.15s"}}><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/></svg>
+            </button>
+            {open&&<div style={{position:"absolute",top:"calc(100% + 4px)",left:0,minWidth:160,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,boxShadow:"0 8px 24px rgba(0,0,0,0.12)",zIndex:100,padding:"4px 0"}}>
+              {options.map(o=>{const active=o.key===value;return<div key={o.key} onClick={()=>{onChange(o.key);setFaDrop(null);}} style={{fontFamily:sans,fontSize:12,fontWeight:active?700:500,padding:"7px 12px 7px 16px",color:active?"#171717":"#525252",background:active?"#f5f5f4":"transparent",cursor:"pointer",transition:"background 0.1s"}} onMouseEnter={e=>{if(!active)e.currentTarget.style.background="#faf9f6";}} onMouseLeave={e=>{if(!active)e.currentTarget.style.background="transparent";}}>{o.label}</div>;})}
+            </div>}
+          </div>;};
+
+          // Sub-view toggle
+          const viewToggle=<div style={{display:"flex",gap:4,marginBottom:10}}>
+            <button onClick={()=>{setFaView("position");setFaPosFilter(null);setFaTeamFilter(null);setExplorerHover(null);}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:faView==="position"?"#171717":"transparent",color:faView==="position"?"#fff":"#737373",border:faView==="position"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>by position</button>
+            <button onClick={()=>{setFaView("contracts");setExplorerHover(null);}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:faView==="contracts"?"#171717":"transparent",color:faView==="contracts"?"#fff":"#737373",border:faView==="contracts"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>by player</button>
+          </div>;
+
+          if(faView==="position"){
+            // === Position Aggregate Bubble Chart ===
+            const agg=FA_POS_GROUPS.map(pg=>{
+              const contracts=FA_CONTRACTS.filter(c=>c.posGroup===pg);
+              if(contracts.length===0)return null;
+              const n=contracts.length;
+              const totalSpend=contracts.reduce((s,c)=>s+c.aav,0);
+              return{pos:pg,count:n,totalValue:totalSpend,aav:totalSpend/n,guaranteed:contracts.reduce((s,c)=>s+c.guaranteed,0)/n,guaranteedPct:contracts.reduce((s,c)=>s+c.guaranteedPct,0)/n,years:contracts.reduce((s,c)=>s+c.years,0)/n,age:contracts.reduce((s,c)=>s+c.age,0)/n,maxAAV:Math.max(...contracts.map(c=>c.aav))};
+            }).filter(Boolean);
+
+            const posVal=(d,key)=>d[key]||0;
+            const posAxisLabel=key=>{const o=FA_POS_AXIS_OPTIONS.find(a=>a.key===key);if(!o)return key;return key==="count"||key==="totalValue"?o.label:"Avg "+o.label;};
+            const xValsP=agg.map(d=>posVal(d,faXAxis));
+            const yValsP=agg.map(d=>posVal(d,faYAxis));
+            const xMinP=Math.min(...xValsP),xMaxP=Math.max(...xValsP,1);
+            const yMinP=Math.min(...yValsP),yMaxP=Math.max(...yValsP,1);
+            const xRangeP=xMaxP-xMinP||1,yRangeP=yMaxP-yMinP||1;
+            const meanXP=xValsP.reduce((s,v)=>s+v,0)/agg.length;
+            const meanYP=yValsP.reduce((s,v)=>s+v,0)/agg.length;
+            // Bubble size by whichever axis is NOT used (prefer totalValue)
+            const sizeKey=faXAxis!=="totalValue"&&faYAxis!=="totalValue"?"totalValue":faXAxis!=="aav"&&faYAxis!=="aav"?"aav":"count";
+            const sizeVals=agg.map(d=>posVal(d,sizeKey));
+            const sizeMax=Math.max(...sizeVals,1);
+            const W=Math.min(860,window.innerWidth-32),H=380;
+            const pad={top:30,right:30,bottom:50,left:60};
+            const cw=W-pad.left-pad.right,ch=H-pad.top-pad.bottom;
+            const sx=d=>((posVal(d,faXAxis)-xMinP)/xRangeP)*cw;
+            const sy=d=>ch-((posVal(d,faYAxis)-yMinP)/yRangeP)*ch;
+            const sr=d=>8+((posVal(d,sizeKey)/sizeMax)*16);
+            const meanPxX=((meanXP-xMinP)/xRangeP)*cw;
+            const meanPxY=ch-((meanYP-yMinP)/yRangeP)*ch;
+            const top3=[...agg].sort((a,b)=>posVal(b,faYAxis)-posVal(a,faYAxis)).slice(0,3);
+
+            return<>
+              {viewToggle}
+              {/* Axis dropdowns */}
+              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,flexWrap:"wrap"}}>
+                <div style={{display:"flex",alignItems:"center",gap:5}}>
+                  <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>X</span>
+                  <FaDrop value={faXAxis} options={FA_POS_AXIS_OPTIONS} dropKey="px" onChange={v=>{if(isGuest){onRequireAuth("want to play with the data? sign up free");return;}setFaXAxis(v);}}/>
+                </div>
+                <button onClick={()=>{if(isGuest){onRequireAuth("want to play with the data? sign up free");return;}const tmp=faXAxis;setFaXAxis(faYAxis);setFaYAxis(tmp);}} title="Swap axes" style={{fontSize:14,color:"#a3a3a3",background:"#f5f5f4",border:"1px solid #e5e5e5",borderRadius:8,padding:"3px 7px",cursor:"pointer",lineHeight:1,transition:"all 0.15s"}} onMouseEnter={e=>{e.currentTarget.style.background="#e5e5e5";}} onMouseLeave={e=>{e.currentTarget.style.background="#f5f5f4";}}>🔀</button>
+                <div style={{display:"flex",alignItems:"center",gap:5}}>
+                  <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Y</span>
+                  <FaDrop value={faYAxis} options={FA_POS_AXIS_OPTIONS} dropKey="py" onChange={v=>{if(isGuest){onRequireAuth("want to play with the data? sign up free");return;}setFaYAxis(v);}}/>
+                </div>
+              </div>
+              <div style={{position:"relative",marginTop:4}}>
+                <svg width={W} height={H} style={{display:"block"}}>
+                  <defs>
+                    <pattern id="fa-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                      <line x1="0" y1="0" x2="0" y2="6" stroke="#d9770622" strokeWidth="1"/>
+                    </pattern>
+                  </defs>
+                  {/* Quadrant backgrounds */}
+                  <rect x={pad.left} y={pad.top} width={meanPxX} height={meanPxY} fill="url(#fa-hatch)"/>
+                  {/* Mean crosshairs */}
+                  <line x1={pad.left+meanPxX} y1={pad.top} x2={pad.left+meanPxX} y2={pad.top+ch} stroke="#d4d4d4" strokeWidth={1} strokeDasharray="4,3"/>
+                  <line x1={pad.left} y1={pad.top+meanPxY} x2={pad.left+cw} y2={pad.top+meanPxY} stroke="#d4d4d4" strokeWidth={1} strokeDasharray="4,3"/>
+                  {/* Axes */}
+                  <line x1={pad.left} y1={pad.top+ch} x2={pad.left+cw} y2={pad.top+ch} stroke="#e5e5e5" strokeWidth={1}/>
+                  <line x1={pad.left} y1={pad.top} x2={pad.left} y2={pad.top+ch} stroke="#e5e5e5" strokeWidth={1}/>
+                  {/* X-axis label */}
+                  <text x={pad.left+cw/2} y={H-6} textAnchor="middle" style={{fontSize:10,fill:"#737373",fontFamily:"monospace"}}>{posAxisLabel(faXAxis)}</text>
+                  {/* Y-axis label */}
+                  <text x={14} y={pad.top+ch/2} textAnchor="middle" transform={`rotate(-90,14,${pad.top+ch/2})`} style={{fontSize:10,fill:"#737373",fontFamily:"monospace"}}>{posAxisLabel(faYAxis)}</text>
+                  {/* X ticks */}
+                  {[0,0.25,0.5,0.75,1].map(f=>{const xp=pad.left+f*cw;const v=xMinP+f*xRangeP;return<g key={f}><line x1={xp} y1={pad.top+ch} x2={xp} y2={pad.top+ch+4} stroke="#d4d4d4"/><text x={xp} y={pad.top+ch+16} textAnchor="middle" style={{fontSize:9,fill:"#a3a3a3",fontFamily:"monospace"}}>{fmtAxis(faXAxis,v)}</text></g>;})}
+                  {/* Y ticks */}
+                  {[0,0.25,0.5,0.75,1].map(f=>{const yp=pad.top+ch-f*ch;const v=yMinP+f*yRangeP;return<g key={f}><line x1={pad.left-4} y1={yp} x2={pad.left} y2={yp} stroke="#d4d4d4"/><text x={pad.left-8} y={yp+3} textAnchor="end" style={{fontSize:9,fill:"#a3a3a3",fontFamily:"monospace"}}>{fmtAxis(faYAxis,v)}</text></g>;})}
+                  {/* Bubbles */}
+                  {agg.map(d=>{
+                    const cx=pad.left+sx(d),cy=pad.top+sy(d),r=sr(d),c=POS_COLORS[d.pos]||"#525252";
+                    return<g key={d.pos}
+                      onClick={gateAuth(()=>{setFaView("contracts");setFaPosFilter(d.pos);})}
+                      onMouseEnter={e=>setExplorerHover({faPos:d.pos,totalSpend:d.totalSpend,avgAAV:d.avgAAV,maxAAV:d.maxAAV,count:d.count,cx:e.clientX,cy:e.clientY})}
+                      onMouseLeave={()=>setExplorerHover(null)}
+                      style={{cursor:"pointer"}}>
+                      <circle cx={cx} cy={cy} r={r} fill={c+"22"} stroke={c} strokeWidth={2}/>
+                      <text x={cx} y={cy+1} textAnchor="middle" dominantBaseline="middle" style={{fontSize:Math.max(8,r*0.7),fill:c,fontFamily:"monospace",fontWeight:700,pointerEvents:"none"}}>{d.pos}</text>
+                    </g>;})}
+                </svg>
+                {/* Center watermark */}
+                <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",display:"flex",alignItems:"center",gap:0,opacity:0.06,pointerEvents:"none"}}>
+                  <img src="/logo.png" alt="" style={{height:60,width:"auto"}}/>
+                  <span style={{fontFamily:font,fontSize:32,fontWeight:900,color:"#171717",letterSpacing:-1,marginLeft:-6}}>bigboardlab.com</span>
+                </div>
+                {/* Bottom-right logo */}
+                <div style={{display:"flex",justifyContent:"flex-end",alignItems:"center",gap:5,marginTop:2,paddingRight:4}}>
+                  <img src="/logo.png" alt="" style={{height:12,width:"auto"}}/>
+                  <span style={{fontFamily:mono,fontSize:8,fontWeight:600,color:"#171717",letterSpacing:0.3}}>bigboardlab.com</span>
+                </div>
+
+                {/* Position aggregate tooltip */}
+                {explorerHover&&explorerHover.faPos&&<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-240),top:Math.max(explorerHover.cy-100,8),background:"#171717",color:"#fff",padding:"10px 14px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:240}}>
+                  <div style={{fontWeight:700,marginBottom:4}}>{POS_EMOJI[explorerHover.faPos]||""} {explorerHover.faPos}</div>
+                  <div style={{fontSize:11,color:"#d4d4d4",lineHeight:1.6}}>
+                    <div>Total spend: {fmtDollars(explorerHover.totalSpend)}</div>
+                    <div>Avg AAV: {fmtDollars(explorerHover.avgAAV)}</div>
+                    <div>Max contract: {fmtDollars(explorerHover.maxAAV)}</div>
+                    <div>{explorerHover.count} signings</div>
+                  </div>
+                  <div style={{fontSize:9,color:"#525252",marginTop:4}}>tap to view contracts</div>
+                </div>}
+              </div>
+
+              {/* Summary Cards — Top 3 by Y-axis */}
+              <div style={{display:"flex",gap:10,marginTop:16,overflowX:"auto",paddingBottom:4}}>
+                {top3.map((d,i)=>{
+                  const c=POS_COLORS[d.pos]||"#525252";
+                  return<div key={d.pos} onClick={gateAuth(()=>{setFaView("contracts");setFaPosFilter(d.pos);})} style={{flex:"1 0 0",minWidth:140,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"14px 16px",position:"relative",overflow:"hidden",cursor:"pointer",transition:"border 0.15s"}}>
+                    <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:c}}/>
+                    <div style={{fontFamily:mono,fontSize:14,fontWeight:900,color:c,marginBottom:4}}>{POS_EMOJI[d.pos]||""} {d.pos}</div>
+                    <div style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.5}}>{d.count} signings · avg {fmtDollars(d.aav)}</div>
+                    <div style={{marginTop:6}}><span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#d97706",background:"#d9770618",border:"1px solid #d9770644",borderRadius:99,padding:"2px 8px",textTransform:"uppercase",letterSpacing:0.5}}>{posAxisLabel(faYAxis)}: {fmtAxis(faYAxis,posVal(d,faYAxis))}</span></div>
+                  </div>;})}
+              </div>
+            </>;
+          }
+
+          // === Individual Contracts Scatter View ===
+          const cXAxis=faXAxis==="count"?"aav":faXAxis;
+          const cYAxis=faYAxis==="count"?"aav":faYAxis;
+          const filtered=FA_CONTRACTS.filter(c=>{
+            if(faPosFilter&&c.posGroup!==faPosFilter)return false;
+            if(faTeamFilter&&c.team!==faTeamFilter)return false;
+            return true;
+          });
+          const getVal=(c,key)=>c[key]||0;
+          const xVals=filtered.map(c=>getVal(c,cXAxis));
+          const yVals=filtered.map(c=>getVal(c,cYAxis));
+          const dataMin=k=>k==="age"||k==="years"?Math.min(...(k===cXAxis?xVals:yVals))-1:0;
+          const xMin=dataMin(cXAxis),xMax=Math.max(...xVals,xMin+1);
+          const yMin=dataMin(cYAxis),yMax=Math.max(...yVals,yMin+1);
+          const maxAAVAll=Math.max(...filtered.map(c=>c.aav),1);
+          const W=Math.min(860,window.innerWidth-32),H=380;
+          const pad={top:20,right:20,bottom:50,left:60};
+          const cw=W-pad.left-pad.right,ch=H-pad.top-pad.bottom;
+          const xRange=xMax-xMin||1,yRange=yMax-yMin||1;
+          const dotX=c=>pad.left+((getVal(c,cXAxis)-xMin)/xRange)*cw;
+          const dotY=c=>pad.top+ch-((getVal(c,cYAxis)-yMin)/yRange)*ch;
+          const dotR=c=>4+((c.aav/maxAAVAll)*10);
+          const useTeamColor=faTeamFilter&&faPosFilter;
+
+          // Top-10 leaderboard by current Y axis
+          const top10=[...filtered].sort((a,b)=>getVal(b,cYAxis)-getVal(a,cYAxis)).slice(0,10);
+
+          return<>
+            {viewToggle}
+
+            {/* Active filters */}
+            <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:4}}>
+              {faPosFilter&&<span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:POS_COLORS[faPosFilter]||"#525252"}}>{POS_EMOJI[faPosFilter]||""} {faPosFilter}</span>}
+              {faTeamFilter&&<span style={{display:"flex",alignItems:"center",gap:4}}><NFLTeamLogo team={ABBR_TO_TEAM[faTeamFilter]||faTeamFilter} size={16}/><span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:NFL_TEAM_COLORS[ABBR_TO_TEAM[faTeamFilter]]||"#171717"}}>{faTeamFilter}</span></span>}
+            </div>
+
+            {/* Position pills */}
+            <div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:6,WebkitOverflowScrolling:"touch",scrollbarWidth:"none",marginBottom:4}}>
+              <button onClick={gateAuth(()=>setFaPosFilter(null))} style={{fontFamily:mono,fontSize:10,fontWeight:700,padding:"5px 12px",background:!faPosFilter?"#171717":"transparent",color:!faPosFilter?"#fff":"#737373",border:!faPosFilter?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>ALL</button>
+              {FA_POS_GROUPS.map(pg=>{const c=POS_COLORS[pg]||"#525252";const active=faPosFilter===pg;return<button key={pg} onClick={gateAuth(()=>setFaPosFilter(prev=>prev===pg?null:pg))} style={{fontFamily:mono,fontSize:10,fontWeight:700,padding:"5px 12px",background:active?c:"transparent",color:active?"#fff":c,border:`1.5px solid ${active?c:c+"33"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>{pg}</button>;})}
+            </div>
+
+            {/* Team logo row */}
+            <div className="trait-pills-scroll" style={{display:"flex",gap:4,overflowX:"auto",WebkitOverflowScrolling:"touch",paddingBottom:4,scrollbarWidth:"none",marginBottom:8}}>
+              <button onClick={gateAuth(()=>setFaTeamFilter(null))} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:"4px 6px",background:!faTeamFilter?"#17171710":"transparent",border:!faTeamFilter?"2px solid #171717":"2px solid transparent",borderRadius:8,cursor:"pointer",flexShrink:0}}><img src="/nfl.png" alt="NFL" width={22} height={22} style={{objectFit:"contain"}}/><span style={{fontFamily:mono,fontSize:7,color:!faTeamFilter?"#171717":"#a3a3a3",fontWeight:!faTeamFilter?700:500}}>ALL</span></button>
+              {allTeams.sort().map(t=>{const abbr=NFL_TEAM_ABR[t];const sel=abbr===faTeamFilter;const tc=NFL_TEAM_COLORS[t]||"#171717";return<button key={t} onClick={gateAuth(()=>{setFaTeamFilter(sel?null:abbr);})} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:"4px 6px",background:sel?`${tc}15`:"transparent",border:sel?`2px solid ${tc}`:"2px solid transparent",borderRadius:8,cursor:"pointer",flexShrink:0}}><NFLTeamLogo team={t} size={22}/><span style={{fontFamily:mono,fontSize:7,color:sel?tc:"#a3a3a3",fontWeight:sel?700:500}}>{abbr}</span></button>;})}
+            </div>
+
+            {/* Axis dropdowns */}
+            <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8,flexWrap:"wrap"}}>
+              <div style={{display:"flex",alignItems:"center",gap:5}}>
+                <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>X</span>
+                <FaDrop value={cXAxis} options={FA_AXIS_OPTIONS} dropKey="cx" onChange={v=>{if(isGuest){onRequireAuth("want to play with the data? sign up free");return;}setFaXAxis(v);}}/>
+              </div>
+              <button onClick={()=>{if(isGuest){onRequireAuth("want to play with the data? sign up free");return;}const tmp=cXAxis;setFaXAxis(cYAxis);setFaYAxis(tmp);}} title="Swap axes" style={{fontSize:14,color:"#a3a3a3",background:"#f5f5f4",border:"1px solid #e5e5e5",borderRadius:8,padding:"3px 7px",cursor:"pointer",lineHeight:1,transition:"all 0.15s"}} onMouseEnter={e=>{e.currentTarget.style.background="#e5e5e5";}} onMouseLeave={e=>{e.currentTarget.style.background="#f5f5f4";}}>🔀</button>
+              <div style={{display:"flex",alignItems:"center",gap:5}}>
+                <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>Y</span>
+                <FaDrop value={cYAxis} options={FA_AXIS_OPTIONS} dropKey="cy" onChange={v=>{if(isGuest){onRequireAuth("want to play with the data? sign up free");return;}setFaYAxis(v);}}/>
+              </div>
+              <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{filtered.length} contracts</span>
+            </div>
+
+            {filtered.length===0?<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no contracts match filters</p></div>:(
+              <div style={{position:"relative",marginTop:4}}>
+                <svg width={W} height={H} style={{display:"block"}}>
+                  {/* Axes */}
+                  <line x1={pad.left} y1={pad.top+ch} x2={pad.left+cw} y2={pad.top+ch} stroke="#e5e5e5" strokeWidth={1}/>
+                  <line x1={pad.left} y1={pad.top} x2={pad.left} y2={pad.top+ch} stroke="#e5e5e5" strokeWidth={1}/>
+                  {/* X-axis label */}
+                  <text x={pad.left+cw/2} y={H-6} textAnchor="middle" style={{fontSize:10,fill:"#737373",fontFamily:"monospace"}}>{axisLabel(cXAxis)}</text>
+                  {/* Y-axis label */}
+                  <text x={14} y={pad.top+ch/2} textAnchor="middle" transform={`rotate(-90,14,${pad.top+ch/2})`} style={{fontSize:10,fill:"#737373",fontFamily:"monospace"}}>{axisLabel(cYAxis)}</text>
+                  {/* X ticks */}
+                  {[0,0.25,0.5,0.75,1].map(f=>{const xp=pad.left+f*cw;const v=xMin+f*xRange;return<g key={f}><line x1={xp} y1={pad.top+ch} x2={xp} y2={pad.top+ch+4} stroke="#d4d4d4"/><text x={xp} y={pad.top+ch+16} textAnchor="middle" style={{fontSize:9,fill:"#a3a3a3",fontFamily:"monospace"}}>{fmtAxis(cXAxis,v)}</text></g>;})}
+                  {/* Y ticks */}
+                  {[0,0.25,0.5,0.75,1].map(f=>{const yp=pad.top+ch-f*ch;const v=yMin+f*yRange;return<g key={f}><line x1={pad.left-4} y1={yp} x2={pad.left} y2={yp} stroke="#d4d4d4"/><text x={pad.left-8} y={yp+3} textAnchor="end" style={{fontSize:9,fill:"#a3a3a3",fontFamily:"monospace"}}>{fmtAxis(cYAxis,v)}</text></g>;})}
+                  {/* Dots */}
+                  {filtered.map((c,i)=>{
+                    const cx=dotX(c),cy=dotY(c),r=dotR(c);
+                    const color=useTeamColor?(NFL_TEAM_COLORS[c.teamName]||"#737373"):(POS_COLORS[c.posGroup]||"#737373");
+                    return<circle key={i} cx={cx} cy={cy} r={r} fill={color+"44"} stroke={color} strokeWidth={1.5}
+                      onMouseEnter={e=>setExplorerHover({faContract:c,cx:e.clientX,cy:e.clientY})}
+                      onMouseLeave={()=>setExplorerHover(null)}
+                      style={{cursor:"pointer",transition:"r 0.15s"}}/>;
+                  })}
+                </svg>
+                {/* Center watermark */}
+                <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",display:"flex",alignItems:"center",gap:0,opacity:0.06,pointerEvents:"none"}}>
+                  <img src="/logo.png" alt="" style={{height:60,width:"auto"}}/>
+                  <span style={{fontFamily:font,fontSize:32,fontWeight:900,color:"#171717",letterSpacing:-1,marginLeft:-6}}>bigboardlab.com</span>
+                </div>
+                {/* Bottom-right logo */}
+                <div style={{display:"flex",justifyContent:"flex-end",alignItems:"center",gap:5,marginTop:2,paddingRight:4}}>
+                  <img src="/logo.png" alt="" style={{height:12,width:"auto"}}/>
+                  <span style={{fontFamily:mono,fontSize:8,fontWeight:600,color:"#171717",letterSpacing:0.3}}>bigboardlab.com</span>
+                </div>
+
+                {/* Contract tooltip */}
+                {explorerHover&&explorerHover.faContract&&(()=>{
+                  const c=explorerHover.faContract;
+                  return<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-260),top:Math.max(explorerHover.cy-130,8),background:"#171717",color:"#fff",padding:"10px 14px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:260}}>
+                    <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:4}}>
+                      <NFLTeamLogo team={c.teamName} size={18}/>
+                      <span style={{fontWeight:700}}>{c.player}</span>
+                      <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:POS_COLORS[c.posGroup]||"#a3a3a3",background:(POS_COLORS[c.posGroup]||"#a3a3a3")+"22",padding:"1px 6px",borderRadius:4}}>{c.position}</span>
+                    </div>
+                    <div style={{fontSize:11,color:"#d4d4d4",lineHeight:1.6}}>
+                      <div>AAV: {fmtDollars(c.aav)}</div>
+                      <div>Total: {fmtDollars(c.totalValue)} · {c.years}yr</div>
+                      <div>Guaranteed: {fmtDollars(c.guaranteed)} ({(c.guaranteedPct*100).toFixed(0)}%)</div>
+                      <div>Age: {c.age} · {c.marketTier}</div>
+                    </div>
+                  </div>;
+                })()}
+              </div>
+            )}
+
+            {/* Top-10 Leaderboard */}
+            {top10.length>0&&<div style={{marginTop:16,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
+              <div style={{padding:"10px 14px",borderBottom:"1px solid #f0f0f0",display:"flex",alignItems:"center",gap:6}}>
+                <span style={{fontSize:14}}>🏆</span>
+                <span style={{fontFamily:mono,fontSize:11,fontWeight:900,letterSpacing:1,color:"#171717",textTransform:"uppercase"}}>Top 10 by {axisLabel(cYAxis)}</span>
+              </div>
+              {top10.map((c,i)=>{
+                const pc=POS_COLORS[c.posGroup]||"#525252";
+                return<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"7px 14px",borderBottom:i<top10.length-1?"1px solid #f5f5f5":"none"}}
+                  onMouseEnter={e=>{e.currentTarget.style.background="#faf9f6";}}
+                  onMouseLeave={e=>{e.currentTarget.style.background="transparent";}}>
+                  <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",width:20,textAlign:"right",flexShrink:0}}>#{i+1}</span>
+                  <NFLTeamLogo team={c.teamName} size={20}/>
+                  <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1,minWidth:0,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{c.player}</span>
+                  <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:pc,background:pc+"18",border:`1px solid ${pc}44`,borderRadius:99,padding:"2px 8px",flexShrink:0}}>{c.position}</span>
+                  <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:"#171717",flexShrink:0,minWidth:60,textAlign:"right"}}>{fmtAxis(cYAxis,getVal(c,cYAxis))}</span>
+                  <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",flexShrink:0,minWidth:50,textAlign:"right"}}>{fmtDollars(c.aav)}/yr</span>
+                </div>;
+              })}
+            </div>}
           </>;
         })()}
         <TwitterFooter/>
@@ -5759,7 +6062,7 @@ export default function App(){
   if(showGuide)return<GuidePage onBack={()=>{window.history.pushState({},'','/');setShowGuide(false);}}/>;
   if(showOG)return<OGPreview/>;
   if(showGmQuiz)return<GmQuiz user={user} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} trackEvent={trackEvent} userId={user?.id} onLaunchMock={(team)=>{setGmQuizMockLaunch(team);setShowGmQuiz(false);window.history.pushState({},'','/');}}/>;
-  if(!user&&!isGuest&&!window.location.pathname.startsWith('/data-lab')&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>setIsGuest(true)} onOpenGuide={navigateToGuide}/>;
+  if(!user&&!isGuest&&!isLabPath(window.location.pathname)&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>setIsGuest(true)} onOpenGuide={navigateToGuide}/>;
   if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
   return<>
     <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} gmQuizMockLaunch={gmQuizMockLaunch} onClearGmQuizMock={()=>setGmQuizMockLaunch(null)} onRequireAuth={(msg)=>{
