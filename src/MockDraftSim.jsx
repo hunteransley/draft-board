@@ -996,7 +996,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     const needs={};
     [...userTeams].forEach(team=>{
       const base=TEAM_NEEDS_COUNTS?.[team]||{};const rem={...base};
-      picks.filter(pk=>pk.team===team).forEach(pk=>{const p=prospectsMap[pk.playerId];if(!p)return;if(rem[p.pos]>0)rem[p.pos]--;});
+      picks.filter(pk=>pk.team===team).forEach(pk=>{const p=prospectsMap[pk.playerId];if(!p)return;[p.pos,p.gpos].filter(Boolean).forEach(pos=>{if(rem[pos]>0)rem[pos]=0;});});
       needs[team]=rem;
     });
     return needs;
@@ -2676,8 +2676,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
               <div>
                 <p style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",margin:0}}>You're on the clock — Rd {currentRound} Pick #{picks.length+1}</p>
                 <div style={{display:"flex",gap:3,marginTop:3}}>
-                  {(()=>{const bn=TEAM_NEEDS_COUNTS?.[currentTeam]||{};const broad=new Set(["DB","DL","OL"]);return Object.entries(liveNeeds[currentTeam]||{}).filter(([pos,v])=>v>0&&!broad.has(pos)&&(bn[pos]||0)>=2).map(([pos])=>(
-                    <span key={pos} style={{fontFamily:mono,fontSize:8,padding:"1px 5px",borderRadius:3,background:"rgba(239,68,68,0.08)",color:"#dc2626",border:"1px solid rgba(239,68,68,0.15)"}}>{pos}</span>));})()}
+                  {(()=>{const bn=TEAM_NEEDS_COUNTS?.[currentTeam]||{};const ln=liveNeeds[currentTeam]||{};const broad=new Set(["DB","DL","OL"]);const remaining=Object.entries(ln).filter(([pos,v])=>v>0&&!broad.has(pos)&&(bn[pos]||0)>=2);const filled=Object.entries(bn).filter(([pos,v])=>v>=2&&!broad.has(pos)&&(!ln[pos]||ln[pos]<=0));return[...remaining.map(([pos])=>(
+                    <span key={pos} style={{fontFamily:mono,fontSize:8,padding:"1px 5px",borderRadius:3,background:"rgba(239,68,68,0.08)",color:"#dc2626",border:"1px solid rgba(239,68,68,0.15)"}}>{pos}</span>)),...filled.map(([pos])=>(
+                    <span key={pos} style={{fontFamily:mono,fontSize:8,padding:"1px 5px",borderRadius:3,background:"rgba(34,197,94,0.08)",color:"#16a34a",border:"1px solid rgba(34,197,94,0.15)"}}>{pos} ✓</span>))];})()}
                 </div>
               </div>
             </div>
