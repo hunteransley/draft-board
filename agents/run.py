@@ -30,6 +30,7 @@ DEFAULT_MODELS = {
     "scheme": "claude-opus-4-6",
     "team-needs": "claude-opus-4-6",
     "pro-day": "claude-opus-4-6",
+    "free-agency": "claude-sonnet-4-6",
 }
 
 NFL_DIVISIONS = {
@@ -621,6 +622,72 @@ def run_pro_day_agent(args):
         else: (out / f"{safe}_raw.md").write_text(result); print(f"   ⚠️  No JSON, raw saved")
         time.sleep(DELAY_BETWEEN_CALLS_SECONDS)
 
+# --- FREE AGENCY AGENT ---
+
+def run_free_agency_agent(args):
+    spec = load_agent_spec("free-agency")
+    model = args.model or DEFAULT_MODELS["free-agency"]
+    out = OUTPUT_DIR / "free-agency"
+    out.mkdir(parents=True, exist_ok=True)
+
+    if args.team: teams = [args.team.upper()]
+    elif args.division:
+        matched = None
+        for k in NFL_DIVISIONS:
+            if args.division.lower().replace(" ","") in k.lower().replace(" ",""): matched = k; break
+        if not matched:
+            print(f"❌ Unknown division. Available: {', '.join(NFL_DIVISIONS.keys())}"); sys.exit(1)
+        teams = NFL_DIVISIONS[matched]
+        print(f"📋 {matched} — {', '.join(teams)}")
+    elif args.all: teams = ALL_TEAMS; print("📋 All 32 teams")
+    else: print("❌ Specify --team, --division, or --all"); sys.exit(1)
+
+    if args.force:
+        for t in teams:
+            for ext in [f"{t}.json", f"{t}_raw.md"]:
+                p = out / ext
+                if p.exists(): p.unlink(); print(f"🗑️  Deleted {ext}")
+        to_run = teams
+    else:
+        to_run = [t for t in teams if not (out / f"{t}.json").exists() or args.dry_run]
+        skipped = [t for t in teams if t not in to_run]
+        for t in skipped: print(f"⏭️  {t} — already done")
+    if not to_run: print("\nAll done. Use --force to re-run."); return
+
+    def make_msg(team):
+        return (f"Research the {team} free agency activity for the 2026 NFL offseason. "
+                f"Follow your full research methodology: key departures (players lost), "
+                f"all free agent signings and trades (players added), and needs impact assessment.\n\n"
+                f"CRITICAL: This must reflect ACTUAL transactions that have happened as of today. "
+                f"Do not include rumors or predicted signings — only confirmed deals.\n\n"
+                f"QUALITY REQUIREMENTS:\n"
+                f"- Include ALL signings, not just marquee names. Depth moves provide context.\n"
+                f"- Include ALL key departures (UFAs who left, cuts, trades away).\n"
+                f"- Contract data must be sourced from OverTheCap, Spotrac, or official announcements.\n"
+                f"- All monetary values as raw numbers (92000000 not '92M').\n"
+                f"- Assess each signing's impact on team needs using contract structure as the primary signal.\n"
+                f"- The recommended_need_adjustments array is the most critical output — be precise.\n"
+                f"- Re-signings (team keeping their own FA) count — they resolve needs too.\n"
+                f"- team_page_additions must include compact, display-ready data for both additions and losses.\n"
+                f"- Output ONLY the JSON object. Start with {{ and end with }}.")
+
+    if args.batch:
+        if args.dry_run:
+            print(f"\nDRY RUN — would batch {len(to_run)} teams: {', '.join(to_run)}"); return
+        reqs = [{"custom_id": t, "params": {"model": model, "max_tokens": 16000, "system": spec,
+                 "tools": [{"type": "web_search_20250305", "name": "web_search"}],
+                 "messages": [{"role": "user", "content": make_msg(t)}]}} for t in to_run]
+        submit_batch(reqs, "free-agency"); return
+
+    for i, t in enumerate(to_run, 1):
+        print(f"\n💰 [{i}/{len(to_run)}] Researching FA moves: {t}")
+        if args.dry_run: print(f"   DRY RUN"); continue
+        result = call_agent(spec, make_msg(t), model, 16000)
+        jd = extract_json(result)
+        if jd: (out / f"{t}.json").write_text(json.dumps(jd, indent=2)); print(f"   ✅ Saved")
+        else: (out / f"{t}_raw.md").write_text(result); print(f"   ⚠️  No JSON, raw saved")
+        time.sleep(DELAY_BETWEEN_CALLS_SECONDS)
+
 # --- GENERIC ---
 
 def run_generic_agent(args):
@@ -662,6 +729,7 @@ def main():
     elif args.agent == "scheme": run_scheme_agent(args)
     elif args.agent in ("team-needs","needs"): run_team_needs_agent(args)
     elif args.agent in ("pro-day","proday"): run_pro_day_agent(args)
+    elif args.agent in ("free-agency","fa"): run_free_agency_agent(args)
     else:
         if not args.message: print(f"❌ Provide --message for custom agents"); sys.exit(1)
         run_generic_agent(args)

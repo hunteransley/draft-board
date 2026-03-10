@@ -26,6 +26,8 @@ Agent specs and runner live in `agents/`. Run agents via `python3 agents/run.py 
 
 - **`agents/gm-personality/AGENT.md`** — GM personality research agent. Researches all 32 NFL GMs to produce behavioral profiles driving AI GM behavior in mock draft simulations. Covers BPA/need weighting, trade behavior, positional value hierarchies, reach tolerance, scheme fit, psychological tendencies, college production preferences, measurable thresholds, and round-by-round strategy. Outputs per-team JSON with `mock_draft_behavior_parameters` that the simulator reads directly.
 
+- **`agents/free-agency/AGENT.md`** — Free agency tracker agent. Gathers every FA signing/departure for each team, assesses needs impact using contract structure (AAV, guarantees, duration) as the primary signal. Outputs per-team JSON with signings, departures, needs impact summary, recommended tier adjustments, and pre-formatted key additions/losses for team pages. Run with `python3 agents/run.py fa --all --batch`. Designed to run multiple times during FA period.
+
 - **`agents/run.py`** — Python runner that executes agent specs against the Anthropic API. Requires `ANTHROPIC_API_KEY` env var and the `anthropic` pip package.
 
 ## Architecture
