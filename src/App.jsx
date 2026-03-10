@@ -5719,7 +5719,7 @@ export default function App(){
   const[showAdmin,setShowAdmin]=useState(()=>window.location.hash==="#admin");
   const[showOG,setShowOG]=useState(()=>window.location.hash==="#og-preview");
   const[showGuide,setShowGuide]=useState(()=>window.location.pathname==='/guide');
-  const[showGmQuiz,setShowGmQuiz]=useState(()=>window.location.pathname==='/which-gm-are-you');
+  const[showGmQuiz,setShowGmQuiz]=useState(()=>window.location.pathname==='/gm'||window.location.pathname==='/which-gm-are-you');
   const[gmQuizMockLaunch,setGmQuizMockLaunch]=useState(null);// {team} from quiz CTA
   const[isGuest,setIsGuest]=useState(false);
   const[authPrompt,setAuthPrompt]=useState(null);
@@ -5733,7 +5733,7 @@ export default function App(){
   },[]);
 
   useEffect(()=>{
-    const onPop=()=>{setShowGuide(window.location.pathname==='/guide');setShowGmQuiz(window.location.pathname==='/which-gm-are-you');};
+    const onPop=()=>{setShowGuide(window.location.pathname==='/guide');setShowGmQuiz(window.location.pathname==='/gm'||window.location.pathname==='/which-gm-are-you');};
     window.addEventListener("popstate",onPop);
     return()=>window.removeEventListener("popstate",onPop);
   },[]);

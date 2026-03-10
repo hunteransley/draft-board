@@ -3,7 +3,7 @@ import { supabase } from "./supabase.js";
 import { QUIZ_QUESTIONS, scoreQuiz, GM_DATA } from "./gmQuizData.js";
 import { TEAM_PROFILES } from "./draftConfig.js";
 import { CONSENSUS_BOARD, getConsensusRank } from "./consensusData.js";
-import { NFL_TEAM_COLORS, NFL_TEAM_ABR } from "./teamConfig.js";
+import { NFL_TEAM_COLORS, NFL_TEAM_ABR, NFL_TEAM_ESPN } from "./teamConfig.js";
 import { POS_COLORS, TRAIT_EMOJI } from "./positions.js";
 import { PROSPECTS_RAW } from "./prospects.js";
 import { TEAM_NEEDS_SIMPLE } from "./teamNeedsData.js";
@@ -13,6 +13,22 @@ const mono = `'DM Mono','Courier New',monospace`;
 const sans = `'DM Sans','Helvetica Neue',sans-serif`;
 
 const STORAGE_KEY = "bbl_gm_quiz_answers";
+
+function loadImg(src, timeout = 3000) {
+  return new Promise((res, rej) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => res(img);
+    img.onerror = () => rej();
+    setTimeout(rej, timeout);
+    img.src = src;
+  });
+}
+
+function nflLogoUrl(team) {
+  const id = NFL_TEAM_ESPN[team];
+  return id ? `https://a.espncdn.com/i/teamlogos/nfl/500/${id}.png` : null;
+}
 
 // ============================================================
 // Sub-components
@@ -107,7 +123,7 @@ function QuizAuthGate({ NFLTeamLogo }) {
     try { sessionStorage.setItem("authSource", "gm-quiz"); } catch (e) {}
     const { error: err } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: window.location.origin + "/which-gm-are-you" }
+      options: { redirectTo: window.location.origin + "/gm" }
     });
     if (err) setError(err.message);
   };
@@ -345,7 +361,7 @@ function getGmTargets(team, count = 3) {
 }
 
 // ============================================================
-// Share Canvas — 1200×630 two-column layout
+// Share Canvas — portrait layout matching mockup
 // ============================================================
 function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
   if (!text) return y;
@@ -366,150 +382,166 @@ function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
   return currentY;
 }
 
-function renderShareCanvas(result) {
-  const W = 1200, H = 630;
+function drawRoundedRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+async function renderShareCanvas(result) {
+  const W = 900, H = 1100;
   const canvas = document.createElement("canvas");
   canvas.width = W * 2; canvas.height = H * 2;
   const ctx = canvas.getContext("2d");
   ctx.scale(2, 2);
 
-  const teamColor = NFL_TEAM_COLORS[result.team] || "#171717";
   const allResults = result.allResults || [];
+  const pad = 80;
 
   // Background
   ctx.fillStyle = "#faf9f6";
   ctx.fillRect(0, 0, W, H);
 
-  // Top gradient bar (pink → purple)
-  const topGrad = ctx.createLinearGradient(0, 0, W, 0);
-  topGrad.addColorStop(0, "#ec4899");
-  topGrad.addColorStop(1, "#7c3aed");
-  ctx.fillStyle = topGrad;
-  ctx.fillRect(0, 0, W, 8);
-
-  // --- LEFT SIDE (60–640) ---
-
-  // BBL wordmark
+  // "My GM Style Match is..."
   ctx.fillStyle = "#171717";
-  ctx.font = `900 22px 'Literata', Georgia, serif`;
-  ctx.textAlign = "left";
+  ctx.font = `800 26px 'Literata', Georgia, serif`;
+  ctx.textAlign = "center";
   ctx.textBaseline = "alphabetic";
-  ctx.fillText("big board lab", 60, 55);
+  ctx.fillText("My GM Style Match is...", W / 2, 60);
 
-  // Thin decorative line
-  ctx.strokeStyle = "#e5e5e5";
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.moveTo(60, 68);
-  ctx.lineTo(240, 68);
-  ctx.stroke();
-
-  // "You draft like"
-  ctx.fillStyle = "#737373";
-  ctx.font = `500 16px 'DM Sans', sans-serif`;
-  ctx.fillText("You draft like", 60, 120);
+  // Team logo (loaded from ESPN CDN)
+  const logoSize = 180;
+  let logoImg = null;
+  try { logoImg = await loadImg(nflLogoUrl(result.team)); } catch (e) {}
+  if (logoImg) {
+    ctx.drawImage(logoImg, (W - logoSize) / 2, 90, logoSize, logoSize);
+  } else {
+    const tc = NFL_TEAM_COLORS[result.team] || "#171717";
+    ctx.fillStyle = tc;
+    ctx.font = `bold 80px 'DM Sans', sans-serif`;
+    ctx.fillText(NFL_TEAM_ABR[result.team] || "???", W / 2, 200);
+  }
 
   // GM Name
   ctx.fillStyle = "#171717";
-  ctx.font = `900 40px 'Literata', Georgia, serif`;
-  ctx.fillText(result.gm, 60, 168);
+  ctx.font = `900 52px 'Literata', Georgia, serif`;
+  ctx.textAlign = "center";
+  ctx.fillText(result.gm, W / 2, 330);
 
-  // Team name
-  ctx.fillStyle = teamColor;
-  ctx.font = `700 17px 'DM Sans', sans-serif`;
-  ctx.fillText(result.team, 60, 198);
-
-  // Archetype badge
-  ctx.fillStyle = "#7c3aed";
-  ctx.font = `700 11px 'DM Mono', monospace`;
-  ctx.fillText(result.archetype.toUpperCase(), 60, 233);
-
-  // Match percentage — large
-  ctx.fillStyle = "#171717";
-  ctx.font = `900 80px 'DM Mono', monospace`;
-  ctx.fillText(`${result.matchPct}%`, 56, 338);
-  ctx.fillStyle = "#a3a3a3";
-  ctx.font = `500 15px 'DM Sans', sans-serif`;
-  ctx.fillText("match", 60, 362);
-
-  // Blurb (wrapped, max ~560px wide)
-  ctx.fillStyle = "#525252";
-  ctx.font = `400 13px 'DM Sans', sans-serif`;
-  wrapCanvasText(ctx, result.blurb, 60, 400, 560, 20);
-
-  // --- RIGHT SIDE (700–1140) ---
-
-  // Large team circle with abbreviation
-  const cx = 920, cy = 170;
-  ctx.beginPath();
-  ctx.arc(cx, cy, 75, 0, Math.PI * 2);
-  ctx.fillStyle = teamColor + "18";
+  // Archetype badge pill
+  const archText = result.archetype.toUpperCase();
+  ctx.font = `700 14px 'DM Sans', sans-serif`;
+  const archWidth = ctx.measureText(archText).width + 48;
+  drawRoundedRect(ctx, (W - archWidth) / 2, 348, archWidth, 32, 16);
+  ctx.fillStyle = "#ede9fe";
   ctx.fill();
-  ctx.strokeStyle = teamColor;
-  ctx.lineWidth = 3;
-  ctx.stroke();
-
-  ctx.fillStyle = teamColor;
-  ctx.font = `bold 34px 'DM Sans', sans-serif`;
+  ctx.fillStyle = "#7c3aed";
+  ctx.font = `700 13px 'DM Sans', sans-serif`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.fillText(NFL_TEAM_ABR[result.team] || result.team.slice(0, 3).toUpperCase(), cx, cy + 2);
+  ctx.fillText(archText, W / 2, 364);
 
-  // "Also matched with:"
-  ctx.textAlign = "left";
+  // Match % (left) + Description box (right)
   ctx.textBaseline = "alphabetic";
+  ctx.textAlign = "left";
+  const rowY = 420;
+
+  // Left: percentage
+  ctx.fillStyle = "#171717";
+  ctx.font = `900 80px 'DM Mono', monospace`;
+  ctx.fillText(`${result.matchPct}%`, pad, rowY + 60);
   ctx.fillStyle = "#a3a3a3";
-  ctx.font = `600 12px 'DM Sans', sans-serif`;
-  ctx.fillText("Also matched with:", 790, 300);
+  ctx.font = `500 16px 'DM Sans', sans-serif`;
+  ctx.fillText("match", pad, rowY + 85);
 
-  // Secondary matches (#2–#5)
+  // Right: blurb in rounded gray box
+  const boxX = 340, boxW = W - 340 - pad, boxH = 110;
+  drawRoundedRect(ctx, boxX, rowY, boxW, boxH, 12);
+  ctx.fillStyle = "#f0eeeb";
+  ctx.fill();
+  ctx.fillStyle = "#525252";
+  ctx.font = `500 15px 'DM Sans', sans-serif`;
+  ctx.textAlign = "left";
+  wrapCanvasText(ctx, result.blurb, boxX + 20, rowY + 30, boxW - 40, 22);
+
+  // Horizontal rule
+  const ruleY = 560;
+  ctx.strokeStyle = "#d4d4d4";
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(pad, ruleY);
+  ctx.lineTo(W - pad, ruleY);
+  ctx.stroke();
+
+  // Secondary GM matches
   allResults.slice(1, 5).forEach((r, i) => {
-    const y = 332 + i * 38;
-    const tc = NFL_TEAM_COLORS[r.team] || "#737373";
+    const y = 600 + i * 48;
 
-    // Small team color circle
-    ctx.beginPath();
-    ctx.arc(806, y - 4, 8, 0, Math.PI * 2);
-    ctx.fillStyle = tc + "25";
-    ctx.fill();
-    ctx.strokeStyle = tc;
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-
-    // Team ABR inside circle
-    ctx.fillStyle = tc;
-    ctx.font = `bold 7px 'DM Mono', monospace`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText(NFL_TEAM_ABR[r.team] || "???", 806, y - 3);
-
-    // GM name
+    ctx.fillStyle = "#171717";
+    ctx.font = `500 18px 'DM Sans', sans-serif`;
     ctx.textAlign = "left";
-    ctx.textBaseline = "alphabetic";
+    ctx.fillText(`${r.gm}, ${r.team}`, pad, y);
+
     ctx.fillStyle = "#525252";
-    ctx.font = `500 14px 'DM Sans', sans-serif`;
-    ctx.fillText(r.gm, 824, y);
-
-    // Match %
-    ctx.fillStyle = "#a3a3a3";
-    ctx.font = `700 13px 'DM Mono', monospace`;
+    ctx.font = `700 18px 'DM Mono', monospace`;
     ctx.textAlign = "right";
-    ctx.fillText(`${r.matchPct}%`, 1130, y);
-    ctx.textAlign = "left";
+    ctx.fillText(`${r.matchPct}%`, W - pad, y);
+
+    // Thin separator
+    ctx.strokeStyle = "#e5e5e5";
+    ctx.lineWidth = 0.5;
+    ctx.beginPath();
+    ctx.moveTo(pad, y + 18);
+    ctx.lineTo(W - pad, y + 18);
+    ctx.stroke();
   });
 
-  // --- FOOTER ---
-  const footGrad = ctx.createLinearGradient(0, H - 46, W, H - 46);
-  footGrad.addColorStop(0, "#ec4899");
-  footGrad.addColorStop(1, "#7c3aed");
-  ctx.fillStyle = footGrad;
-  ctx.fillRect(0, H - 46, W, 6);
+  // Bottom horizontal rule
+  const bottomRuleY = 800;
+  ctx.strokeStyle = "#d4d4d4";
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(pad, bottomRuleY);
+  ctx.lineTo(W - pad, bottomRuleY);
+  ctx.stroke();
 
-  ctx.fillStyle = "#737373";
-  ctx.font = `600 14px 'DM Sans', sans-serif`;
+  // "Take the Quiz at bigboardlab.com"
+  ctx.fillStyle = "#525252";
+  ctx.font = `400 17px 'DM Mono', monospace`;
   ctx.textAlign = "center";
   ctx.textBaseline = "alphabetic";
-  ctx.fillText("bigboardlab.com/which-gm-are-you", W / 2, H - 16);
+  ctx.fillText("Take the Quiz at bigboardlab.com", W / 2, 850);
+
+  // BBL logo + wordmark (load logo, fallback to text)
+  let bblLogo = null;
+  try { bblLogo = await loadImg(window.location.origin + "/logo.png"); } catch (e) {}
+  if (bblLogo) {
+    const logoH = 32;
+    const logoW = logoH * (bblLogo.width / bblLogo.height);
+    const wordWidth = 140;
+    const totalW = logoW + 10 + wordWidth;
+    const startX = (W - totalW) / 2;
+    ctx.drawImage(bblLogo, startX, 878, logoW, logoH);
+    ctx.fillStyle = "#171717";
+    ctx.font = `900 22px 'Literata', Georgia, serif`;
+    ctx.textAlign = "left";
+    ctx.textBaseline = "middle";
+    ctx.fillText("big board lab", startX + logoW + 10, 894);
+  } else {
+    ctx.fillStyle = "#171717";
+    ctx.font = `900 22px 'Literata', Georgia, serif`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "alphabetic";
+    ctx.fillText("big board lab", W / 2, 895);
+  }
 
   return canvas;
 }
@@ -538,9 +570,10 @@ function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, onLaunchM
     touchStartX.current = null;
   };
 
-  const handleShare = useCallback(() => {
+  const handleShare = useCallback(async () => {
     const shareTarget = allResults[activeIdx] || result;
-    const canvas = renderShareCanvas({
+    const shareText = `My GM match is ${shareTarget.gm} from the ${shareTarget.team}. Find yours at bigboardlab.com/gm`;
+    const canvas = await renderShareCanvas({
       team: shareTarget.team,
       gm: shareTarget.gm,
       archetype: shareTarget.archetype,
@@ -560,7 +593,7 @@ function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, onLaunchM
             await navigator.share({
               files: [file],
               title: `I draft like ${shareTarget.gm} \u2014 Big Board Lab`,
-              text: `I'm a ${shareTarget.matchPct}% match with ${shareTarget.gm}! Take the quiz: bigboardlab.com/which-gm-are-you`
+              text: shareText,
             });
             return;
           }
@@ -756,7 +789,7 @@ function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, onLaunchM
         </button>
         <button onClick={() => {
           const a = allResults[activeIdx] || result;
-          const text = `I draft like ${a.gm} (${a.matchPct}% match)! Take the quiz: bigboardlab.com/which-gm-are-you`;
+          const text = `My GM match is ${a.gm} from the ${a.team}. Find yours at bigboardlab.com/gm`;
           navigator.clipboard.writeText(text).then(() => { setCopied(true); setTimeout(() => setCopied(false), 1500); }).catch(() => {});
         }}
           style={{ fontFamily: sans, fontSize: 13, fontWeight: 600, padding: "12px 20px", background: "#fff", color: "#171717", border: "1px solid #e5e5e5", borderRadius: 99, cursor: "pointer" }}>
