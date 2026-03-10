@@ -317,30 +317,35 @@ function getGmTargets(team, count = 3) {
   if (!profile) return [];
 
   const needs = TEAM_NEEDS_SIMPLE[team] || [];
+  const posBoostArr = [...(profile.posBoost || []), ...(profile.gposBoost || [])];
+  // Build ordered priority: needs first, then posBoost positions not already in needs
   const needSet = new Set(needs.slice(0, 8));
-  const posBoostSet = new Set([...(profile.posBoost || []), ...(profile.gposBoost || [])]);
+  const posBoostSet = new Set(posBoostArr);
 
   const scored = PROSPECTS_RAW.map(p => {
     const cr = getConsensusRank(p.name) || 999;
     if (cr > 200) return null;
 
     const pos = p.gpos || p.pos;
+    const isNeed = needSet.has(p.pos) || needSet.has(pos);
+    const isBoost = posBoostSet.has(p.pos) || posBoostSet.has(pos);
+
+    // Need rank — which need slot does this fill? (lower = more urgent)
+    const needIdx = isNeed ? needs.findIndex(n => n === p.pos || n === pos) : -1;
+
     let score = 0;
 
-    // Base rank value — BPA-weighted (higher bpaLean = more weight on rank)
-    const rankPct = 1 - cr / 200;
-    score += rankPct * profile.bpaLean * 2.0;
+    // Primary signal: team needs (urgency-weighted)
+    if (isNeed) score += 5.0 - (needIdx >= 0 ? needIdx * 0.4 : 0);
 
-    // Need match — strong signal for need-driven teams
-    if (needSet.has(p.pos) || needSet.has(pos)) score += (1 - profile.bpaLean) * 2.5;
+    // Secondary: posBoost/gposBoost
+    if (isBoost) score += 2.0;
 
-    // posBoost/gposBoost — team-specific positional preferences from TEAM_PROFILES
-    if (posBoostSet.has(p.pos) || posBoostSet.has(pos)) score += 1.2;
+    // Tertiary: consensus rank as tiebreaker only
+    score += (1 - cr / 200) * 1.0;
 
-    // Penalize heavily if prospect matches NO team signal at all
-    if (!needSet.has(p.pos) && !needSet.has(pos) && !posBoostSet.has(p.pos) && !posBoostSet.has(pos)) {
-      score *= 0.3;
-    }
+    // Kill prospects that match nothing team-specific
+    if (!isNeed && !isBoost) return null;
 
     return { ...p, cr, score, pos };
   }).filter(Boolean);
@@ -397,7 +402,7 @@ function drawRoundedRect(ctx, x, y, w, h, r) {
 }
 
 async function renderShareCanvas(result) {
-  const W = 900, H = 1100;
+  const W = 900, H = 880;
   const canvas = document.createElement("canvas");
   canvas.width = W * 2; canvas.height = H * 2;
   const ctx = canvas.getContext("2d");
@@ -412,68 +417,75 @@ async function renderShareCanvas(result) {
 
   // "My GM Style Match is..."
   ctx.fillStyle = "#171717";
-  ctx.font = `800 26px 'Literata', Georgia, serif`;
+  ctx.font = `800 24px 'Literata', Georgia, serif`;
   ctx.textAlign = "center";
   ctx.textBaseline = "alphabetic";
-  ctx.fillText("My GM Style Match is...", W / 2, 60);
+  ctx.fillText("My GM Style Match is...", W / 2, 44);
 
   // Team logo (loaded from ESPN CDN)
-  const logoSize = 180;
+  const logoSize = 150;
   let logoImg = null;
   try { logoImg = await loadImg(nflLogoUrl(result.team)); } catch (e) {}
   if (logoImg) {
-    ctx.drawImage(logoImg, (W - logoSize) / 2, 90, logoSize, logoSize);
+    ctx.drawImage(logoImg, (W - logoSize) / 2, 60, logoSize, logoSize);
   } else {
     const tc = NFL_TEAM_COLORS[result.team] || "#171717";
     ctx.fillStyle = tc;
-    ctx.font = `bold 80px 'DM Sans', sans-serif`;
-    ctx.fillText(NFL_TEAM_ABR[result.team] || "???", W / 2, 200);
+    ctx.font = `bold 72px 'DM Sans', sans-serif`;
+    ctx.fillText(NFL_TEAM_ABR[result.team] || "???", W / 2, 155);
   }
 
   // GM Name
   ctx.fillStyle = "#171717";
-  ctx.font = `900 52px 'Literata', Georgia, serif`;
+  ctx.font = `900 48px 'Literata', Georgia, serif`;
   ctx.textAlign = "center";
-  ctx.fillText(result.gm, W / 2, 330);
+  ctx.fillText(result.gm, W / 2, 260);
 
-  // Archetype badge pill
+  // Archetype badge pill — DM Mono
   const archText = result.archetype.toUpperCase();
-  ctx.font = `700 14px 'DM Sans', sans-serif`;
-  const archWidth = ctx.measureText(archText).width + 48;
-  drawRoundedRect(ctx, (W - archWidth) / 2, 348, archWidth, 32, 16);
+  ctx.font = `700 13px 'DM Mono', monospace`;
+  const archWidth = ctx.measureText(archText).width + 40;
+  drawRoundedRect(ctx, (W - archWidth) / 2, 275, archWidth, 28, 14);
   ctx.fillStyle = "#ede9fe";
   ctx.fill();
   ctx.fillStyle = "#7c3aed";
-  ctx.font = `700 13px 'DM Sans', sans-serif`;
+  ctx.font = `700 12px 'DM Mono', monospace`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.fillText(archText, W / 2, 364);
+  ctx.fillText(archText, W / 2, 289);
 
-  // Match % (left) + Description box (right)
+  // Match % (left) + Description box (right) — vertically centered
   ctx.textBaseline = "alphabetic";
   ctx.textAlign = "left";
-  const rowY = 420;
+  const rowY = 325;
+  const boxH = 100;
 
-  // Left: percentage
+  // Left: percentage — vertically centered with box
   ctx.fillStyle = "#171717";
-  ctx.font = `900 80px 'DM Mono', monospace`;
-  ctx.fillText(`${result.matchPct}%`, pad, rowY + 60);
+  ctx.font = `900 72px 'DM Mono', monospace`;
+  ctx.textBaseline = "middle";
+  ctx.fillText(`${result.matchPct}%`, pad, rowY + boxH / 2 - 6);
   ctx.fillStyle = "#a3a3a3";
-  ctx.font = `500 16px 'DM Sans', sans-serif`;
-  ctx.fillText("match", pad, rowY + 85);
+  ctx.font = `500 14px 'DM Sans', sans-serif`;
+  ctx.textBaseline = "alphabetic";
+  ctx.fillText("match", pad, rowY + boxH / 2 + 32);
 
-  // Right: blurb in rounded gray box
-  const boxX = 340, boxW = W - 340 - pad, boxH = 110;
+  // Right: blurb in white module box (border + shadow like web app)
+  const boxX = 330, boxW = W - 330 - pad;
   drawRoundedRect(ctx, boxX, rowY, boxW, boxH, 12);
-  ctx.fillStyle = "#f0eeeb";
+  ctx.fillStyle = "#ffffff";
   ctx.fill();
+  ctx.strokeStyle = "#e5e5e5";
+  ctx.lineWidth = 1;
+  ctx.stroke();
   ctx.fillStyle = "#525252";
-  ctx.font = `500 15px 'DM Sans', sans-serif`;
+  ctx.font = `500 14px 'DM Sans', sans-serif`;
   ctx.textAlign = "left";
-  wrapCanvasText(ctx, result.blurb, boxX + 20, rowY + 30, boxW - 40, 22);
+  ctx.textBaseline = "alphabetic";
+  wrapCanvasText(ctx, result.blurb, boxX + 18, rowY + 26, boxW - 36, 20);
 
   // Horizontal rule
-  const ruleY = 560;
+  const ruleY = 450;
   ctx.strokeStyle = "#d4d4d4";
   ctx.lineWidth = 1;
   ctx.beginPath();
@@ -483,15 +495,15 @@ async function renderShareCanvas(result) {
 
   // Secondary GM matches
   allResults.slice(1, 5).forEach((r, i) => {
-    const y = 600 + i * 48;
+    const y = 485 + i * 42;
 
     ctx.fillStyle = "#171717";
-    ctx.font = `500 18px 'DM Sans', sans-serif`;
+    ctx.font = `500 17px 'DM Sans', sans-serif`;
     ctx.textAlign = "left";
     ctx.fillText(`${r.gm}, ${r.team}`, pad, y);
 
     ctx.fillStyle = "#525252";
-    ctx.font = `700 18px 'DM Mono', monospace`;
+    ctx.font = `700 17px 'DM Mono', monospace`;
     ctx.textAlign = "right";
     ctx.fillText(`${r.matchPct}%`, W - pad, y);
 
@@ -499,48 +511,45 @@ async function renderShareCanvas(result) {
     ctx.strokeStyle = "#e5e5e5";
     ctx.lineWidth = 0.5;
     ctx.beginPath();
-    ctx.moveTo(pad, y + 18);
-    ctx.lineTo(W - pad, y + 18);
+    ctx.moveTo(pad, y + 16);
+    ctx.lineTo(W - pad, y + 16);
     ctx.stroke();
   });
 
   // Bottom horizontal rule
-  const bottomRuleY = 800;
   ctx.strokeStyle = "#d4d4d4";
   ctx.lineWidth = 1;
   ctx.beginPath();
-  ctx.moveTo(pad, bottomRuleY);
-  ctx.lineTo(W - pad, bottomRuleY);
+  ctx.moveTo(pad, 660);
+  ctx.lineTo(W - pad, 660);
   ctx.stroke();
 
   // "Take the Quiz at bigboardlab.com"
   ctx.fillStyle = "#525252";
-  ctx.font = `400 17px 'DM Mono', monospace`;
+  ctx.font = `400 16px 'DM Mono', monospace`;
   ctx.textAlign = "center";
   ctx.textBaseline = "alphabetic";
-  ctx.fillText("Take the Quiz at bigboardlab.com", W / 2, 850);
+  ctx.fillText("Take the Quiz at bigboardlab.com", W / 2, 700);
 
-  // BBL logo + wordmark (load logo, fallback to text)
+  // BBL logo + wordmark
   let bblLogo = null;
   try { bblLogo = await loadImg(window.location.origin + "/logo.png"); } catch (e) {}
   if (bblLogo) {
-    const logoH = 32;
-    const logoW = logoH * (bblLogo.width / bblLogo.height);
-    const wordWidth = 140;
-    const totalW = logoW + 10 + wordWidth;
-    const startX = (W - totalW) / 2;
-    ctx.drawImage(bblLogo, startX, 878, logoW, logoH);
+    const lH = 28;
+    const lW = lH * (bblLogo.width / bblLogo.height);
+    const wordW = 130;
+    const startX = (W - lW - 10 - wordW) / 2;
+    ctx.drawImage(bblLogo, startX, 725, lW, lH);
     ctx.fillStyle = "#171717";
-    ctx.font = `900 22px 'Literata', Georgia, serif`;
+    ctx.font = `900 20px 'Literata', Georgia, serif`;
     ctx.textAlign = "left";
     ctx.textBaseline = "middle";
-    ctx.fillText("big board lab", startX + logoW + 10, 894);
+    ctx.fillText("big board lab", startX + lW + 10, 739);
   } else {
     ctx.fillStyle = "#171717";
-    ctx.font = `900 22px 'Literata', Georgia, serif`;
+    ctx.font = `900 20px 'Literata', Georgia, serif`;
     ctx.textAlign = "center";
-    ctx.textBaseline = "alphabetic";
-    ctx.fillText("big board lab", W / 2, 895);
+    ctx.fillText("big board lab", W / 2, 740);
   }
 
   return canvas;
@@ -601,7 +610,10 @@ function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, onLaunchM
       }
 
       try {
-        await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
+        await navigator.clipboard.write([new ClipboardItem({
+          "image/png": blob,
+          "text/plain": new Blob([shareText], { type: "text/plain" }),
+        })]);
         setCopied(true);
         setTimeout(() => setCopied(false), 1500);
       } catch (e) {
@@ -753,6 +765,17 @@ function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, onLaunchM
         </p>
       </div>
 
+      {/* Share — single button, copies image + text */}
+      <div style={{ maxWidth: 520, margin: "0 auto", padding: "20px 24px 0", textAlign: "center" }}>
+        <button onClick={handleShare}
+          style={{ fontFamily: sans, fontSize: 14, fontWeight: 700, padding: "12px 36px", background: "#171717", color: "#fff", border: "none", borderRadius: 99, cursor: "pointer", transition: "transform 0.1s" }}
+          onMouseDown={e => e.currentTarget.style.transform = "scale(0.97)"}
+          onMouseUp={e => e.currentTarget.style.transform = "scale(1)"}
+          onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
+          {copied ? "\u2705 Copied!" : "\ud83d\udcf8 Share Result"}
+        </button>
+      </div>
+
       {/* GM's 2026 Targets */}
       {targets.length > 0 && (
         <div style={{ maxWidth: 520, margin: "0 auto", padding: "24px 24px 0" }}>
@@ -777,25 +800,6 @@ function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, onLaunchM
           </div>
         </div>
       )}
-
-      {/* Share */}
-      <div style={{ maxWidth: 520, margin: "0 auto", padding: "24px 24px 0", display: "flex", gap: 10 }}>
-        <button onClick={handleShare}
-          style={{ flex: 1, fontFamily: sans, fontSize: 13, fontWeight: 700, padding: "12px 20px", background: "#171717", color: "#fff", border: "none", borderRadius: 99, cursor: "pointer", transition: "transform 0.1s" }}
-          onMouseDown={e => e.currentTarget.style.transform = "scale(0.97)"}
-          onMouseUp={e => e.currentTarget.style.transform = "scale(1)"}
-          onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
-          {copied ? "\u2705 Copied!" : "\ud83d\udcf8 Share Result"}
-        </button>
-        <button onClick={() => {
-          const a = allResults[activeIdx] || result;
-          const text = `My GM match is ${a.gm} from the ${a.team}. Find yours at bigboardlab.com/gm`;
-          navigator.clipboard.writeText(text).then(() => { setCopied(true); setTimeout(() => setCopied(false), 1500); }).catch(() => {});
-        }}
-          style={{ fontFamily: sans, fontSize: 13, fontWeight: 600, padding: "12px 20px", background: "#fff", color: "#171717", border: "1px solid #e5e5e5", borderRadius: 99, cursor: "pointer" }}>
-          {"\ud83d\udd17"} Copy Link
-        </button>
-      </div>
 
       {/* Feature Showcase */}
       <div style={{ maxWidth: 520, margin: "0 auto", padding: "40px 24px 0" }}>
