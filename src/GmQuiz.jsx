@@ -167,7 +167,7 @@ function QuizAuthGate({ NFLTeamLogo }) {
           Sign in to see which GM you draft like — and which 2026 prospects your front office would target.
         </p>
         <p style={{ fontFamily: sans, fontSize: 13, color: "#737373", lineHeight: 1.5, margin: "0 0 28px", maxWidth: 400 }}>
-          Your account also unlocks the full draft toolkit: mock drafts with 32 AI GMs, trait grading, prospect rankings, and more.
+          Your free account also unlocks the full draft toolkit: mock drafts with 32 AI GMs, trait grading, prospect rankings, and more.
         </p>
       </div>
 
