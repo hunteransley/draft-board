@@ -703,16 +703,18 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     for(let i=idx+3;i<Math.min(idx+16,totalPicks);i++){const t=getPickTeam(i);if(t&&!userTeams.has(t)&&fullDraftOrder[i]?.round<=3)cands.push({idx:i,team:t,...fullDraftOrder[i]});}
     if(cands.length>0&&Math.random()<0.30){
       const tr=cands[Math.floor(Math.random()*cands.length)];
-      const tv=getPickValue(tr.pick);const fp=Math.min(tr.pick+64,totalPicks);const fr=Math.min(tr.round+2,7);
-      const ov=tv+getPickValue(fp);
-      if(ov>=uv*0.92)setTradeOffer({fromTeam:tr.team,traderIdx:tr.idx,theirPick:tr.pick,theirRound:tr.round,futurePick:fp,futureRound:fr,userPickIdx:idx,userPick:fullDraftOrder[idx].pick,userVal:uv,offerVal:Math.round(ov)});
+      const tv=getPickValue(tr.pick);
+      let futureIdx=null,futureVal=0;
+      for(let j=tr.idx+1;j<totalPicks;j++){if(getPickTeam(j)===tr.team){futureIdx=j;futureVal=getPickValue(fullDraftOrder[j]?.pick||999);break;}}
+      if(futureIdx!==null){const ov=tv+futureVal;
+      if(ov>=uv*0.92)setTradeOffer({fromTeam:tr.team,traderIdx:tr.idx,theirPick:tr.pick,theirRound:tr.round,futureIdx,futurePick:fullDraftOrder[futureIdx].pick,futureRound:fullDraftOrder[futureIdx].round,userPickIdx:idx,userPick:fullDraftOrder[idx].pick,userVal:uv,offerVal:Math.round(ov)});}
     }
   },[isUserPick,picks,tradeOffer,showTradeUp,totalPicks,fullDraftOrder,userTeams,getPickTeam]);
 
   const acceptTrade=useCallback(()=>{
     if(!tradeOffer)return;
-    const ct=tradeOffer.fromTeam;const ui=tradeOffer.userPickIdx;const ci=tradeOffer.traderIdx;const ut=getPickTeam(ui);
-    setTradeMap(prev=>({...prev,[ui]:ct,[ci]:ut}));
+    const ct=tradeOffer.fromTeam;const ui=tradeOffer.userPickIdx;const ci=tradeOffer.traderIdx;const fi=tradeOffer.futureIdx;const ut=getPickTeam(ui);
+    setTradeMap(prev=>{const nm={...prev,[ui]:ct,[ci]:ut};if(fi!=null)nm[fi]=ut;return nm;});
     // Track JJP value delta: they give offerVal, we give userVal
     setTradeValueDelta(prev=>prev+(tradeOffer.offerVal-tradeOffer.userVal));
     const pid=cpuPick(ct,available,fullDraftOrder[ui].pick);
