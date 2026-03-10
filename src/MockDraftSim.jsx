@@ -274,6 +274,12 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
   },[numRounds]);
   const totalPicks=fullDraftOrder.length;
   const getPickTeam=useCallback((idx)=>tradeMap[idx]||fullDraftOrder[idx]?.team,[tradeMap,fullDraftOrder]);
+  const getPickOwner=useCallback((idx)=>{
+    if(tradeMap[idx])return tradeMap[idx];
+    if(idx<totalPicks)return fullDraftOrder[idx]?.team;
+    return DRAFT_ORDER[idx]?.team;
+  },[tradeMap,totalPicks,fullDraftOrder]);
+  const getPickInfo=useCallback((idx)=>idx<totalPicks?fullDraftOrder[idx]:DRAFT_ORDER[idx],[totalPicks,fullDraftOrder]);
 
   const getTeamFuturePicks=useCallback((team)=>{
     const r=[];for(let i=picks.length;i<totalPicks;i++){if(getPickTeam(i)===team)r.push({idx:i,...fullDraftOrder[i]});}return r;
@@ -617,8 +623,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       const currentVal=getPickValue(currentPick);
       const theirVal=getPickValue(theirPickNum);
       let sweetenerIdx=null,sweetenerVal=0;
-      for(let j=theirPickIdx+1;j<totalPicks;j++){
-        if(getPickTeam(j)===t){sweetenerIdx=j;sweetenerVal=getPickValue(fullDraftOrder[j]?.pick||999);break;}
+      for(let j=theirPickIdx+1;j<DRAFT_ORDER.length;j++){
+        if(getPickOwner(j)===t){sweetenerIdx=j;sweetenerVal=getPickValue(getPickInfo(j)?.pick||999);break;}
       }
       const totalOffer=theirVal+sweetenerVal;
       if(totalOffer<currentVal*0.78)continue; // teams frequently overpay
@@ -641,8 +647,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
 
       candidateTeams.push({
         team:t,theirPickIdx,theirPickNum,sweetenerIdx,
-        sweetenerPick:sweetenerIdx!==null?fullDraftOrder[sweetenerIdx]?.pick:null,
-        sweetenerRound:sweetenerIdx!==null?fullDraftOrder[sweetenerIdx]?.round:null,
+        sweetenerPick:sweetenerIdx!==null?getPickInfo(sweetenerIdx)?.pick:null,
+        sweetenerRound:sweetenerIdx!==null?getPickInfo(sweetenerIdx)?.round:null,
         targetPlayer:bestPlayer,separation,totalOffer,currentVal
       });
     }
@@ -653,7 +659,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     let r=Math.random()*totalW;
     for(let ci=0;ci<candidateTeams.length;ci++){r-=weights[ci];if(r<=0)return candidateTeams[ci];}
     return candidateTeams[0];
-  },[cpuTrades,cpuTradeLog,getPickTeam,fullDraftOrder,totalPicks,userTeams,teamNeeds,available,prospectsMap,getConsensusGrade,getConsensusRank,TEAM_NEEDS_COUNTS]);
+  },[cpuTrades,cpuTradeLog,getPickTeam,getPickOwner,getPickInfo,fullDraftOrder,totalPicks,userTeams,teamNeeds,available,prospectsMap,getConsensusGrade,getConsensusRank,TEAM_NEEDS_COUNTS]);
 
   // CPU auto-pick — pauses when trade offer or trade panel is open
   useEffect(()=>{
@@ -705,11 +711,11 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       const tr=cands[Math.floor(Math.random()*cands.length)];
       const tv=getPickValue(tr.pick);
       let futureIdx=null,futureVal=0;
-      for(let j=tr.idx+1;j<totalPicks;j++){if(getPickTeam(j)===tr.team){futureIdx=j;futureVal=getPickValue(fullDraftOrder[j]?.pick||999);break;}}
+      for(let j=tr.idx+1;j<DRAFT_ORDER.length;j++){if(getPickOwner(j)===tr.team){futureIdx=j;futureVal=getPickValue(getPickInfo(j)?.pick||999);break;}}
       if(futureIdx!==null){const ov=tv+futureVal;
-      if(ov>=uv*0.92)setTradeOffer({fromTeam:tr.team,traderIdx:tr.idx,theirPick:tr.pick,theirRound:tr.round,futureIdx,futurePick:fullDraftOrder[futureIdx].pick,futureRound:fullDraftOrder[futureIdx].round,userPickIdx:idx,userPick:fullDraftOrder[idx].pick,userVal:uv,offerVal:Math.round(ov)});}
+      if(ov>=uv*0.92)setTradeOffer({fromTeam:tr.team,traderIdx:tr.idx,theirPick:tr.pick,theirRound:tr.round,futureIdx,futurePick:getPickInfo(futureIdx).pick,futureRound:getPickInfo(futureIdx).round,userPickIdx:idx,userPick:fullDraftOrder[idx].pick,userVal:uv,offerVal:Math.round(ov)});}
     }
-  },[isUserPick,picks,tradeOffer,showTradeUp,totalPicks,fullDraftOrder,userTeams,getPickTeam]);
+  },[isUserPick,picks,tradeOffer,showTradeUp,totalPicks,fullDraftOrder,userTeams,getPickTeam,getPickOwner,getPickInfo]);
 
   const acceptTrade=useCallback(()=>{
     if(!tradeOffer)return;
@@ -742,8 +748,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     // Remaining picks — full 7-round catalog, not just simulated rounds
     const thisDraft=[];
     for(let i=picks.length;i<DRAFT_ORDER.length;i++){
-      const owner=i<totalPicks?getPickTeam(i):DRAFT_ORDER[i].team;
-      if(owner===tradePartner){const d=DRAFT_ORDER[i];thisDraft.push({idx:i<totalPicks?i:null,...d,type:"current",label:`Rd${d.round} #${d.pick}`,value:getPickValue(d.pick)});}
+      const owner=getPickOwner(i);
+      if(owner===tradePartner){const d=DRAFT_ORDER[i];thisDraft.push({idx:i,...d,type:"current",label:`Rd${d.round} #${d.pick}`,value:getPickValue(d.pick)});}
     }
     // Future picks: 2027 & 2028, rounds 1-7 (estimated values)
     const futurePicks=[];
@@ -754,7 +760,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       }
     }
     return{thisDraft,futurePicks};
-  },[tradePartner,picks,totalPicks,getPickTeam,fullDraftOrder]);
+  },[tradePartner,picks,totalPicks,getPickOwner,fullDraftOrder]);
 
   // User's tradable picks (current draft + future)
   const userAllPicks=useMemo(()=>{
@@ -763,8 +769,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     // Remaining picks — full 7-round catalog, not just simulated rounds
     const thisDraft=[];
     for(let i=picks.length;i<DRAFT_ORDER.length;i++){
-      const owner=i<totalPicks?getPickTeam(i):DRAFT_ORDER[i].team;
-      if(owner===ut){const d=DRAFT_ORDER[i];thisDraft.push({idx:i<totalPicks?i:null,...d,type:"current",label:`Rd${d.round} #${d.pick}`,value:getPickValue(d.pick)});}
+      const owner=getPickOwner(i);
+      if(owner===ut){const d=DRAFT_ORDER[i];thisDraft.push({idx:i,...d,type:"current",label:`Rd${d.round} #${d.pick}`,value:getPickValue(d.pick)});}
     }
     const futurePicks=[];
     for(let yr=2027;yr<=2028;yr++){
@@ -774,7 +780,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       }
     }
     return{thisDraft,futurePicks};
-  },[userTeams,ALL_TEAMS,picks,totalPicks,getPickTeam,fullDraftOrder]);
+  },[userTeams,ALL_TEAMS,picks,totalPicks,getPickOwner,fullDraftOrder]);
 
   const executeTradeUp=useCallback(()=>{
     if(tradeTarget.length===0||tradeUserPicks.length===0||!tradePartner)return;
