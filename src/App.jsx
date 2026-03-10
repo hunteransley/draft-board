@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useMemo, useRef, Fragment } from "rea
 import { supabase } from "./supabase.js";
 import MockDraftSim from "./MockDraftSim.jsx";
 import Round1Prediction from "./Round1Prediction.jsx";
+import GmQuiz from "./GmQuiz.jsx";
 import { CONSENSUS_BOARD, getConsensusRank, getConsensusGrade, getConsensusRound } from "./consensusData.js";
 import { getProspectStats } from "./prospectStats.js";
 import { getStatBasedTraits } from "./statTraits.js";
@@ -5716,6 +5717,7 @@ export default function App(){
   const[showAdmin,setShowAdmin]=useState(()=>window.location.hash==="#admin");
   const[showOG,setShowOG]=useState(()=>window.location.hash==="#og-preview");
   const[showGuide,setShowGuide]=useState(()=>window.location.pathname==='/guide');
+  const[showGmQuiz,setShowGmQuiz]=useState(()=>window.location.pathname==='/which-gm-are-you');
   const[isGuest,setIsGuest]=useState(false);
   const[authPrompt,setAuthPrompt]=useState(null);
   const authSourceRef=useRef(null);
@@ -5728,7 +5730,7 @@ export default function App(){
   },[]);
 
   useEffect(()=>{
-    const onPop=()=>{setShowGuide(window.location.pathname==='/guide');};
+    const onPop=()=>{setShowGuide(window.location.pathname==='/guide');setShowGmQuiz(window.location.pathname==='/which-gm-are-you');};
     window.addEventListener("popstate",onPop);
     return()=>window.removeEventListener("popstate",onPop);
   },[]);
@@ -5753,6 +5755,7 @@ export default function App(){
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
   if(showGuide)return<GuidePage onBack={()=>{window.history.pushState({},'','/');setShowGuide(false);}}/>;
   if(showOG)return<OGPreview/>;
+  if(showGmQuiz)return<GmQuiz user={user} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} trackEvent={trackEvent} userId={user?.id}/>;
   if(!user&&!isGuest&&!window.location.pathname.startsWith('/data-lab')&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>setIsGuest(true)} onOpenGuide={navigateToGuide}/>;
   if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
   return<>
