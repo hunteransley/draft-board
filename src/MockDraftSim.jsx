@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import NFL_ROSTERS from "./nflRosters.js";
+import FA_FLAGS from "./freeAgencyFlags.js";
 import { getScoutingTraits } from "./scoutingData.js";
 import { getCombineScores } from "./combineTraits.js";
 import { getStatBasedTraits } from "./statTraits.js";
@@ -1571,6 +1572,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
   const FormationChart=({team})=>{
     const chart=depthChart[team]||{};
     const accent=NFL_TEAM_COLORS[team]||'#6366f1';
+    const faAbbr=TEAM_ABBR[team]||team;
+    const faList=FA_FLAGS[faAbbr]||[];
     return(<svg viewBox="-2 -2 104 109" style={{width:"100%"}}>
       <rect x="-2" y="-2" width="104" height="109" rx="4" fill="none" stroke="none"/>
       {[20,40,58,75,90].map(y=><line key={y} x1="2" y1={y} x2="98" y2={y} stroke="rgba(0,0,0,0.04)" strokeWidth="0.3"/>)}
@@ -1581,7 +1584,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         if(!filled&&pos.schemeOnly)return null;
         const dotColor=isDraft?"#7c3aed":filled?accent:"#d4d4d4";
         const lastName=entry?shortName(entry.name):"";
+        const isFa=filled&&!isDraft&&faList.includes(entry.name);
         return(<g key={slot}>
+          {isFa&&<circle cx={pos.x} cy={pos.y} r={3.2} fill="none" stroke="#f97316" strokeWidth="0.4"/>}
           <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={isDraft?"#7c3aed":filled?accent:"#a3a3a3"} strokeWidth={isDraft?"0.5":"0.2"}/>
           <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="#a3a3a3" fontSize="1.8" fontFamily={mono}>{pos.label||slot.replace(/\d$/,'')}</text>
           {filled&&<text x={pos.x} y={pos.y+4.5} textAnchor="middle" fill={isDraft?"#7c3aed":"#525252"} fontSize={isDraft?"2.2":"1.8"} fontWeight={isDraft?"bold":"normal"} fontFamily={sans}>{lastName}</text>}
@@ -1639,9 +1644,12 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
   const DepthList=({team})=>{
     const chart=depthChart[team]||{};
     const groups=getSchemeDepthGroups(team);
+    const faAbbr=TEAM_ABBR[team]||team;
+    const faList=FA_FLAGS[faAbbr]||[];
     // Map from base DEPTH_GROUPS posMatch → scheme group, so we can find hidden roster slots
     const baseGroupMap={};
     DEPTH_GROUPS.forEach(g=>{baseGroupMap[g.posMatch]=g.slots;});
+    const faPill=(name)=>faList.includes(name)&&<span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:"#f97316",background:"rgba(249,115,22,0.08)",padding:"2px 6px",borderRadius:99}}>FA</span>;
     return(<div style={{marginTop:2}}>
       {groups.map((group,gi)=>{
         const entries=group.slots.map(s=>({slot:s,entry:chart[s]})).filter(x=>x.entry);
@@ -1657,13 +1665,13 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
             <span style={{fontFamily:mono,color:"#d4d4d4",width:24,fontSize:9,flexShrink:0}}>{group.slotLabels?.[slot]||slot}</span>
             {entry.isDraft
               ?<span style={{fontFamily:sans,fontWeight:700,fontSize:11,color:"#7c3aed",background:"rgba(124,58,237,0.06)",padding:"1px 6px",borderRadius:4}}>{entry.name}</span>
-              :<span style={{fontFamily:sans,fontWeight:400,fontSize:11,color:"#525252"}}>{entry.name}</span>}
+              :<><span style={{fontFamily:sans,fontWeight:400,fontSize:11,color:"#525252"}}>{entry.name}</span>{faPill(entry.name)}</>}
           </div>))}
           {extras.map(({slot,entry})=>(<div key={slot} style={{fontFamily:sans,fontSize:11,padding:"2px 0",display:"flex",alignItems:"center",gap:6}}>
             <span style={{fontFamily:mono,color:"#d4d4d4",width:24,fontSize:9,flexShrink:0}}>+</span>
             {entry.isDraft
               ?<span style={{fontFamily:sans,fontWeight:700,fontSize:11,color:"#7c3aed",background:"rgba(124,58,237,0.06)",padding:"1px 6px",borderRadius:4}}>{entry.name}</span>
-              :<span style={{fontFamily:sans,fontWeight:400,fontSize:11,color:"#525252"}}>{entry.name}</span>}
+              :<><span style={{fontFamily:sans,fontWeight:400,fontSize:11,color:"#525252"}}>{entry.name}</span>{faPill(entry.name)}</>}
           </div>))}
         </div>);
       })}
