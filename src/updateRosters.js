@@ -1,21 +1,25 @@
 #!/usr/bin/env node
 /**
  * updateRosters.js — Pull ESPN depth charts for all 32 NFL teams
- * Run: node updateRosters.js
- * Output: overwrites nflRosters.js in the same directory
- * 
- * Slot names match MockDraftSim DEPTH_GROUPS:
- *   QB1,QB2 | RB1,RB2 | WR1-WR4 | TE1,TE2
- *   LT,LG,C,RG,RT | DE1,DT1,DT2,DE2 | LB1,LB2,LB3,LB4
- *   CB1,CB2,SS,FS | K
+ * Run: node src/updateRosters.js
+ * Output: overwrites src/nflRosters.js
+ *
+ * Uses TEAM_SCHEME from depthChartUtils.js to drive scheme-aware
+ * defensive slot mapping (3-4, 4-3, 4-2-5/w9).
  */
 
 import { writeFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
+import { TEAM_SCHEME, TEAM_ABBR } from "./depthChartUtils.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+// Reverse lookup: abbreviation → team name (for TEAM_SCHEME lookup)
+const ABBR_TO_NAME = Object.fromEntries(
+  Object.entries(TEAM_ABBR).map(([name, abbr]) => [abbr, name])
+);
 
 const TEAMS = [
   {id:22,abbr:"ARI"},{id:1,abbr:"ATL"},{id:33,abbr:"BAL"},{id:2,abbr:"BUF"},
@@ -28,102 +32,133 @@ const TEAMS = [
   {id:26,abbr:"SEA"},{id:27,abbr:"TB"},{id:10,abbr:"TEN"},{id:28,abbr:"WAS"}
 ];
 
-// ESPN depthchart position key → what slot(s) to fill
-// Each entry: { slot, numbered } where numbered=true means append counter (DE1,DE2)
-// and numbered=false means use slot name as-is (LT, SS, K)
-const MAPPINGS = {
-  // Offense
-  qb:  { slot:"QB",  numbered:true,  max:2 },
-  rb:  { slot:"RB",  numbered:true,  max:2 },
-  wr1: { slot:"WR",  numbered:true,  max:1 },
-  wr2: { slot:"WR",  numbered:true,  max:1 },
-  wr3: { slot:"WR",  numbered:true,  max:1 },
-  te:  { slot:"TE",  numbered:true,  max:2 },
-  lt:  { slot:"LT",  numbered:false, max:1 },
-  lg:  { slot:"LG",  numbered:false, max:1 },
-  c:   { slot:"C",   numbered:false, max:1 },
-  rg:  { slot:"RG",  numbered:false, max:1 },
-  rt:  { slot:"RT",  numbered:false, max:1 },
-  // Defense — DE maps to DE1/DE2, DT maps to DT1/DT2
-  lde: { slot:"DE",  numbered:true,  max:1 },
-  rde: { slot:"DE",  numbered:true,  max:1 },
-  nt:  { slot:"DT",  numbered:true,  max:1 },
-  ldt: { slot:"DT",  numbered:true,  max:1 },
-  rdt: { slot:"DT",  numbered:true,  max:1 },
-  dt:  { slot:"DT",  numbered:true,  max:1 },
-  // LB numbered: LB1,LB2,LB3
-  wlb: { slot:"LB",  numbered:true,  max:1 },
-  slb: { slot:"LB",  numbered:true,  max:1 },
-  lilb:{ slot:"LB",  numbered:true,  max:1 },
-  rilb:{ slot:"LB",  numbered:true,  max:1 },
-  mlb: { slot:"LB",  numbered:true,  max:1 },
-  sam: { slot:"LB",  numbered:true,  max:1 },
-  will:{ slot:"LB",  numbered:true,  max:1 },
-  mike:{ slot:"LB",  numbered:true,  max:1 },
-  // CB numbered: CB1,CB2
-  lcb: { slot:"CB",  numbered:true,  max:1 },
-  rcb: { slot:"CB",  numbered:true,  max:1 },
-  // Safeties: bare slot names SS, FS (no number)
-  ss:  { slot:"SS",  numbered:false, max:1 },
-  fs:  { slot:"FS",  numbered:false, max:1 },
-  // Kicker: bare K
-  pk:  { slot:"K",   numbered:false, max:1 },
-};
+/* ── Scheme-aware defensive slot priority tables ──
+   For each BBL slot, try ESPN position keys in order;
+   take first athlete from first hit. */
 
-// Max per numbered slot prefix
-const SLOT_MAX = { QB:2, RB:2, WR:4, TE:2, DE:2, DT:2, LB:4, CB:2 };
+const DEF_34 = [
+  ["DE1", ["lde"]],
+  ["DT1", ["nt", "ldt"]],
+  ["DE2", ["rde"]],
+  ["LB1", ["wlb"]],
+  ["LB2", ["lilb", "mlb"]],
+  ["LB3", ["rilb"]],
+  ["LB4", ["slb"]],
+];
 
-function parseDepthChart(data) {
-  const chart = {};
-  const counters = {};
+const DEF_43 = [
+  ["DE1", ["lde"]],
+  ["DT1", ["ldt", "nt"]],
+  ["DT2", ["rdt"]],
+  ["DE2", ["rde"]],
+  ["LB1", ["wlb"]],
+  ["LB2", ["mlb", "lilb"]],
+  ["LB3", ["slb", "rilb"]],
+];
 
-  const groups = data?.depthchart || [];
-  for (const group of groups) {
-    const positions = group?.positions || {};
-    for (const [key, posData] of Object.entries(positions)) {
-      const m = MAPPINGS[key];
-      if (!m) continue;
+const DEF_425 = [
+  ["DE1", ["lde"]],
+  ["DT1", ["ldt", "nt"]],
+  ["DT2", ["rdt"]],
+  ["DE2", ["rde"]],
+  ["LB1", ["lilb", "wlb", "mlb"]],
+  ["LB2", ["rilb", "slb"]],
+];
 
-      const athletes = posData?.athletes || [];
-      const toTake = Math.min(athletes.length, m.max);
+const DEF_TABLES = { "34": DEF_34, "43": DEF_43, "425": DEF_425, "w9": DEF_425 };
 
-      for (let i = 0; i < toTake; i++) {
-        const name = athletes[i]?.displayName;
-        if (!name) continue;
+/* ── Flatten ESPN response into { posKey: athletes[] } ── */
 
-        if (m.numbered) {
-          const count = (counters[m.slot] || 0) + 1;
-          const max = SLOT_MAX[m.slot] || 2;
-          if (count > max) break;
-          counters[m.slot] = count;
-          chart[`${m.slot}${count}`] = name;
-        } else {
-          // Single slot — use bare name (LT, SS, K, etc.)
-          if (chart[m.slot]) continue; // already filled
-          chart[m.slot] = name;
-        }
-      }
+function flattenPositions(data) {
+  const positions = {};
+  for (const group of data?.depthchart || []) {
+    for (const [key, posData] of Object.entries(group?.positions || {})) {
+      if (!positions[key]) positions[key] = posData?.athletes || [];
     }
   }
+  return positions;
+}
+
+/* ── Build roster for one team ── */
+
+function buildRoster(positions, defScheme) {
+  const chart = {};
+  const name = (key, idx = 0) => positions[key]?.[idx]?.displayName || null;
+  const set = (slot, val) => { if (val) chart[slot] = val; };
+  const tryFirst = (keys) => {
+    for (const k of keys) { const n = name(k); if (n) return n; }
+    return null;
+  };
+
+  // ── Offense (identical for all teams) ──
+  set("QB1", name("qb", 0));
+  set("QB2", name("qb", 1));
+  set("RB1", name("rb", 0));
+  set("RB2", name("rb", 1));
+  set("WR1", name("wr1"));
+  set("WR2", name("wr2"));
+  set("WR3", name("wr3"));
+  set("TE1", name("te", 0));
+  set("TE2", name("te", 1));
+  set("LT", name("lt"));
+  set("LG", name("lg"));
+  set("C",  name("c"));
+  set("RG", name("rg"));
+  set("RT", name("rt"));
+
+  // ── Defense (scheme-aware) ──
+  const defTable = DEF_TABLES[defScheme] || DEF_43;
+  for (const [slot, keys] of defTable) {
+    set(slot, tryFirst(keys));
+  }
+
+  // ── Secondary + Specialists (all schemes) ──
+  set("CB1", name("lcb"));
+  set("CB2", name("rcb"));
+  set("NB",  name("nb"));
+  set("SS",  name("ss"));
+  set("FS",  name("fs"));
+  set("K",   name("pk"));
 
   return chart;
 }
+
+/* ── Validation ── */
+
+const CRITICAL = ["QB1", "DE1", "CB1", "SS", "FS"];
+
+function validate(abbr, chart) {
+  const count = Object.keys(chart).length;
+  if (count < 20) {
+    console.warn(`  ⚠ ${abbr}: only ${count} slots filled (expected ≥20)`);
+  }
+  for (const slot of CRITICAL) {
+    if (!chart[slot]) console.warn(`  ⚠ ${abbr}: missing critical slot ${slot}`);
+  }
+}
+
+/* ── Main ── */
 
 async function main() {
   const rosters = {};
 
   for (const team of TEAMS) {
-    process.stdout.write(`Fetching ${team.abbr}...`);
+    const teamName = ABBR_TO_NAME[team.abbr];
+    const defScheme = TEAM_SCHEME[teamName]?.def || "43";
+    process.stdout.write(`${team.abbr} (${defScheme})...`);
 
     try {
       const url = `https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${team.id}/depthcharts`;
       const res = await fetch(url);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
-      const chart = parseDepthChart(data);
+      const positions = flattenPositions(data);
+      const chart = buildRoster(positions, defScheme);
       rosters[team.abbr] = chart;
+
       const count = Object.keys(chart).length;
-      console.log(count >= 15 ? ` ✅ ${count} slots` : ` ⚠ ${count} slots`);
+      console.log(` ✅ ${count} slots`);
+      validate(team.abbr, chart);
     } catch (e) {
       console.log(` ❌ ${e.message}`);
       rosters[team.abbr] = {};
@@ -135,7 +170,7 @@ async function main() {
   // Write output
   const now = new Date().toISOString().split("T")[0];
   let output = `// NFL Rosters — auto-generated from ESPN depth charts on ${now}\n`;
-  output += `// Run: node updateRosters.js to refresh\n\n`;
+  output += `// Run: node src/updateRosters.js to refresh\n\n`;
   output += `const NFL_ROSTERS = ${JSON.stringify(rosters, null, 2)};\n\n`;
   output += `export default NFL_ROSTERS;\n`;
 
@@ -144,9 +179,6 @@ async function main() {
   console.log(`\n✅ Wrote ${outPath}`);
   console.log(`   ${Object.keys(rosters).length} teams`);
   console.log(`   ${Object.values(rosters).reduce((s, r) => s + Object.keys(r).length, 0)} total slots`);
-
-  console.log(`\nSample — NO (Saints):`);
-  console.log(JSON.stringify(rosters["NO"], null, 2));
 }
 
 main().catch(e => { console.error("Fatal:", e); process.exit(1); });
