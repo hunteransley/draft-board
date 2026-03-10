@@ -865,6 +865,11 @@ export default function GmQuiz({ user, NFLTeamLogo, SchoolLogo, trackEvent, user
     return null;
   });
 
+  // Clear sessionStorage once results are showing — only needed for OAuth redirect survival
+  useEffect(() => {
+    if (phase === "results") { try { sessionStorage.removeItem(STORAGE_KEY); } catch (e) {} }
+  }, [phase]);
+
   // When user auth state changes (after OAuth redirect), advance from auth-gate to results
   useEffect(() => {
     if (user && phase === "auth-gate" && answers.length === QUIZ_QUESTIONS.length) {
