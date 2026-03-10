@@ -539,8 +539,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
   const makePick=useCallback((playerId,opts={})=>{
     const n=picks.length;if(n>=totalPicks)return;
     const team=getPickTeam(n);const{round,pick}=fullDraftOrder[n];
-    const isUser=userTeams.has(team)&&!opts.traded;
-    const np=[...picks,{pick,round,team,playerId,traded:opts.traded||false,isUser}];
+    const traded=opts.traded||team!==fullDraftOrder[n].team;
+    const isUser=userTeams.has(team)&&!traded;
+    const np=[...picks,{pick,round,team,playerId,traded,isUser}];
     setPicks(np);setAvailable(prev=>prev.filter(id=>id!==playerId));
     // Making a pick dismisses any pending trade offer or trade panel
     if(isUser){setTradeOffer(null);setShowTradeUp(false);}
@@ -2196,7 +2197,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
           <NFLTeamLogo team={pick.team} size={13}/>
           <span style={{fontFamily:mono,fontSize:8,color:c}}>{p.gpos||p.pos}</span>
           <span style={{fontFamily:sans,fontSize:10,fontWeight:isU?600:400,color:isU?"#171717":"#737373",flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{p.name}</span>
-          {pick.traded&&(()=>{const ct=cpuTradeLog.find(t=>t.pickIdx===i);return ct?<span title={`${ct.fromTeam} traded ${ct.gave.join(" + ")} to ${ct.toTeam} for ${ct.got.join(" + ")}`} style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 4px",borderRadius:2,cursor:"help"}}>🔄 TRD</span>:<span style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.03)",padding:"1px 4px",borderRadius:2}}>TRD</span>;})()}
+          {pick.traded&&(()=>{const ct=cpuTradeLog.find(t=>t.pickIdx===i||t.fromTeam===pick.team||t.toTeam===pick.team);const tip=ct?`${ct.fromTeam} traded ${ct.gave.join(" + ")} to ${ct.toTeam} for ${ct.got.join(" + ")}`:`Trade: ${pick.team} acquired pick #${pick.pick}`;return<span title={tip} style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 4px",borderRadius:2,cursor:"help"}}>🔄 TRD</span>;})()}
         </div></div>;
       })}
       {picks.length<totalPicks&&<div style={{padding:"8px 10px",display:"flex",alignItems:"center",gap:5}}>
