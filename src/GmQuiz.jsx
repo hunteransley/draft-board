@@ -402,7 +402,7 @@ function drawRoundedRect(ctx, x, y, w, h, r) {
 }
 
 async function renderShareCanvas(result) {
-  const W = 900, H = 880;
+  const W = 900, H = 870;
   const canvas = document.createElement("canvas");
   canvas.width = W * 2; canvas.height = H * 2;
   const ctx = canvas.getContext("2d");
@@ -454,25 +454,19 @@ async function renderShareCanvas(result) {
   ctx.textBaseline = "middle";
   ctx.fillText(archText, W / 2, 289);
 
-  // Match % (left) + Description box (right) — vertically centered
-  ctx.textBaseline = "alphabetic";
-  ctx.textAlign = "left";
-  const rowY = 325;
-  const boxH = 100;
-
-  // Left: percentage — vertically centered with box
+  // Match % — centered, stacked above description
   ctx.fillStyle = "#171717";
   ctx.font = `900 72px 'DM Mono', monospace`;
-  ctx.textBaseline = "middle";
-  ctx.fillText(`${result.matchPct}%`, pad, rowY + boxH / 2 - 6);
+  ctx.textAlign = "center";
+  ctx.textBaseline = "alphabetic";
+  ctx.fillText(`${result.matchPct}%`, W / 2, 370);
   ctx.fillStyle = "#a3a3a3";
   ctx.font = `500 14px 'DM Sans', sans-serif`;
-  ctx.textBaseline = "alphabetic";
-  ctx.fillText("match", pad, rowY + boxH / 2 + 32);
+  ctx.fillText("match", W / 2, 390);
 
-  // Right: blurb in white module box (border + shadow like web app)
-  const boxX = 330, boxW = W - 330 - pad;
-  drawRoundedRect(ctx, boxX, rowY, boxW, boxH, 12);
+  // Description module — full-width white box
+  const boxY = 410, boxH = 100;
+  drawRoundedRect(ctx, pad, boxY, W - pad * 2, boxH, 12);
   ctx.fillStyle = "#ffffff";
   ctx.fill();
   ctx.strokeStyle = "#e5e5e5";
@@ -480,27 +474,41 @@ async function renderShareCanvas(result) {
   ctx.stroke();
   ctx.fillStyle = "#525252";
   ctx.font = `500 14px 'DM Sans', sans-serif`;
-  ctx.textAlign = "left";
+  ctx.textAlign = "center";
   ctx.textBaseline = "alphabetic";
-  wrapCanvasText(ctx, result.blurb, boxX + 18, rowY + 26, boxW - 36, 20);
+  wrapCanvasText(ctx, result.blurb, W / 2, boxY + 28, W - pad * 2 - 40, 20);
 
   // Horizontal rule
-  const ruleY = 450;
   ctx.strokeStyle = "#d4d4d4";
   ctx.lineWidth = 1;
   ctx.beginPath();
-  ctx.moveTo(pad, ruleY);
-  ctx.lineTo(W - pad, ruleY);
+  ctx.moveTo(pad, 535);
+  ctx.lineTo(W - pad, 535);
   ctx.stroke();
 
-  // Secondary GM matches
+  // Pre-load secondary team logos in parallel
+  const secLogos = await Promise.all(
+    allResults.slice(1, 5).map(r =>
+      loadImg(nflLogoUrl(r.team)).catch(() => null)
+    )
+  );
+
+  // Secondary GM matches with team logos
   allResults.slice(1, 5).forEach((r, i) => {
-    const y = 485 + i * 42;
+    const y = 570 + i * 44;
+    const logoSz = 24;
+
+    // Team logo
+    if (secLogos[i]) {
+      ctx.drawImage(secLogos[i], pad, y - logoSz / 2 - 4, logoSz, logoSz);
+    }
+    const textX = pad + logoSz + 10;
 
     ctx.fillStyle = "#171717";
     ctx.font = `500 17px 'DM Sans', sans-serif`;
     ctx.textAlign = "left";
-    ctx.fillText(`${r.gm}, ${r.team}`, pad, y);
+    ctx.textBaseline = "alphabetic";
+    ctx.fillText(`${r.gm}, ${r.team}`, textX, y);
 
     ctx.fillStyle = "#525252";
     ctx.font = `700 17px 'DM Mono', monospace`;
@@ -520,8 +528,8 @@ async function renderShareCanvas(result) {
   ctx.strokeStyle = "#d4d4d4";
   ctx.lineWidth = 1;
   ctx.beginPath();
-  ctx.moveTo(pad, 660);
-  ctx.lineTo(W - pad, 660);
+  ctx.moveTo(pad, 750);
+  ctx.lineTo(W - pad, 750);
   ctx.stroke();
 
   // "Take the Quiz at bigboardlab.com"
@@ -529,7 +537,7 @@ async function renderShareCanvas(result) {
   ctx.font = `400 16px 'DM Mono', monospace`;
   ctx.textAlign = "center";
   ctx.textBaseline = "alphabetic";
-  ctx.fillText("Take the Quiz at bigboardlab.com", W / 2, 700);
+  ctx.fillText("Take the Quiz at bigboardlab.com", W / 2, 790);
 
   // BBL logo + wordmark
   let bblLogo = null;
@@ -539,17 +547,17 @@ async function renderShareCanvas(result) {
     const lW = lH * (bblLogo.width / bblLogo.height);
     const wordW = 130;
     const startX = (W - lW - 10 - wordW) / 2;
-    ctx.drawImage(bblLogo, startX, 725, lW, lH);
+    ctx.drawImage(bblLogo, startX, 815, lW, lH);
     ctx.fillStyle = "#171717";
     ctx.font = `900 20px 'Literata', Georgia, serif`;
     ctx.textAlign = "left";
     ctx.textBaseline = "middle";
-    ctx.fillText("big board lab", startX + lW + 10, 739);
+    ctx.fillText("big board lab", startX + lW + 10, 829);
   } else {
     ctx.fillStyle = "#171717";
     ctx.font = `900 20px 'Literata', Georgia, serif`;
     ctx.textAlign = "center";
-    ctx.fillText("big board lab", W / 2, 740);
+    ctx.fillText("big board lab", W / 2, 830);
   }
 
   return canvas;
