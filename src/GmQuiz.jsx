@@ -21,8 +21,9 @@ const STORAGE_KEY = "bbl_gm_quiz_answers";
 function QuizIntro({ onStart }) {
   return (
     <div style={{ minHeight: "100vh", background: "#faf9f6", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "40px 24px", textAlign: "center" }}>
-      <img src="/logo.png" alt="Big Board Lab" style={{ width: 80, height: "auto", marginBottom: 12 }} />
-      <p style={{ fontFamily: mono, fontSize: 10, letterSpacing: 2, color: "#a3a3a3", textTransform: "uppercase", margin: "0 0 24px" }}>big board lab</p>
+      <img src="/logo.png" alt="Big Board Lab" style={{ width: 80, height: "auto", marginBottom: 8 }} />
+      <h2 style={{ fontFamily: font, fontSize: 20, fontWeight: 900, letterSpacing: -1, color: "#171717", margin: "0 0 4px" }}>big board lab</h2>
+      <p style={{ fontFamily: mono, fontSize: 9, letterSpacing: 1.5, color: "#a3a3a3", textTransform: "uppercase", margin: "0 0 28px" }}>2026 NFL Draft</p>
       <h1 style={{ fontFamily: font, fontSize: 44, fontWeight: 900, lineHeight: 0.95, color: "#171717", margin: "0 0 16px", letterSpacing: -2, maxWidth: 480 }}>Which NFL GM<br/>Are You?</h1>
       <p style={{ fontFamily: sans, fontSize: 16, color: "#525252", lineHeight: 1.5, maxWidth: 420, margin: "0 auto 36px" }}>
         10 draft scenarios. 4 choices each. We'll match you to one of 32 real NFL front offices.
@@ -31,7 +32,7 @@ function QuizIntro({ onStart }) {
         onMouseDown={e => e.currentTarget.style.transform = "scale(0.97)"}
         onMouseUp={e => e.currentTarget.style.transform = "scale(1)"}
         onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
-        Start Quiz
+        {"\ud83c\udfc8"} Start Quiz
       </button>
       <p style={{ fontFamily: sans, fontSize: 12, color: "#a3a3a3", marginTop: 16 }}>Free &middot; takes 2 minutes</p>
     </div>
@@ -51,7 +52,8 @@ function QuizQuestion({ question, index, total, onAnswer }) {
       {/* BBL header */}
       <div style={{ width: "100%", maxWidth: 520, display: "flex", alignItems: "center", gap: 8, marginBottom: 20 }}>
         <img src="/logo.png" alt="Big Board Lab" style={{ width: 28, height: "auto" }} />
-        <span style={{ fontFamily: mono, fontSize: 9, letterSpacing: 1.5, color: "#a3a3a3", textTransform: "uppercase" }}>GM Quiz</span>
+        <span style={{ fontFamily: font, fontSize: 14, fontWeight: 900, letterSpacing: -0.5, color: "#171717" }}>big board lab</span>
+        <span style={{ fontFamily: mono, fontSize: 9, letterSpacing: 1, color: "#a3a3a3", textTransform: "uppercase", marginLeft: 4 }}>GM Quiz</span>
       </div>
       {/* Progress */}
       <div style={{ width: "100%", maxWidth: 520, marginBottom: 32 }}>
@@ -59,7 +61,7 @@ function QuizQuestion({ question, index, total, onAnswer }) {
           <span style={{ fontFamily: mono, fontSize: 11, color: "#a3a3a3", letterSpacing: 1 }}>QUESTION {index + 1} / {total}</span>
         </div>
         <div style={{ width: "100%", height: 3, background: "#e5e5e5", borderRadius: 99 }}>
-          <div style={{ width: `${((index + 1) / total) * 100}%`, height: "100%", background: "#171717", borderRadius: 99, transition: "width 0.3s ease" }} />
+          <div style={{ width: `${((index + 1) / total) * 100}%`, height: "100%", background: "linear-gradient(90deg, #ec4899, #7c3aed)", borderRadius: 99, transition: "width 0.3s ease" }} />
         </div>
       </div>
 
@@ -114,8 +116,9 @@ function QuizAuthGate({ NFLTeamLogo }) {
     <div style={{ minHeight: "100vh", background: "#faf9f6" }}>
       {/* Hero — visual matching illustration */}
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "60px 24px 0", textAlign: "center" }}>
-        <img src="/logo.png" alt="Big Board Lab" style={{ width: 56, height: "auto", marginBottom: 12 }} />
-        <p style={{ fontFamily: mono, fontSize: 9, letterSpacing: 2, color: "#a3a3a3", textTransform: "uppercase", margin: "0 0 20px" }}>big board lab</p>
+        <img src="/logo.png" alt="Big Board Lab" style={{ width: 56, height: "auto", marginBottom: 6 }} />
+        <h2 style={{ fontFamily: font, fontSize: 18, fontWeight: 900, letterSpacing: -1, color: "#171717", margin: "0 0 4px" }}>big board lab</h2>
+        <p style={{ fontFamily: mono, fontSize: 9, letterSpacing: 1.5, color: "#a3a3a3", textTransform: "uppercase", margin: "0 0 20px" }}>2026 NFL Draft</p>
 
         {/* Matching illustration — user profile → team logos */}
         <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 24 }}>
@@ -291,34 +294,49 @@ function QuizAuthGate({ NFLTeamLogo }) {
 }
 
 // ============================================================
-// Prospect Recommendations
+// Prospect Recommendations — team-specific targeting
 // ============================================================
 function getGmTargets(team, count = 3) {
   const profile = TEAM_PROFILES[team];
   if (!profile) return [];
 
   const needs = TEAM_NEEDS_SIMPLE[team] || [];
-  const needSet = new Set(needs.slice(0, 6));
+  const needSet = new Set(needs.slice(0, 8));
+  const posBoostSet = new Set([...(profile.posBoost || []), ...(profile.gposBoost || [])]);
 
-  // Score each prospect
-  const scored = PROSPECTS_RAW.map((p, i) => {
+  const scored = PROSPECTS_RAW.map(p => {
     const cr = getConsensusRank(p.name) || 999;
-    if (cr > 120) return null; // only top ~120 prospects
-    const posMatch = needSet.has(p.pos) || needSet.has(p.gpos || p.pos);
-    const bpaScore = (1 - cr / 120) * profile.bpaLean;
-    const needScore = posMatch ? (1 - profile.bpaLean) * 0.8 : 0;
-    return { ...p, idx: i, cr, score: bpaScore + needScore, posMatch };
+    if (cr > 200) return null;
+
+    const pos = p.gpos || p.pos;
+    let score = 0;
+
+    // Base rank value — BPA-weighted (higher bpaLean = more weight on rank)
+    const rankPct = 1 - cr / 200;
+    score += rankPct * profile.bpaLean * 2.0;
+
+    // Need match — strong signal for need-driven teams
+    if (needSet.has(p.pos) || needSet.has(pos)) score += (1 - profile.bpaLean) * 2.5;
+
+    // posBoost/gposBoost — team-specific positional preferences from TEAM_PROFILES
+    if (posBoostSet.has(p.pos) || posBoostSet.has(pos)) score += 1.2;
+
+    // Penalize heavily if prospect matches NO team signal at all
+    if (!needSet.has(p.pos) && !needSet.has(pos) && !posBoostSet.has(p.pos) && !posBoostSet.has(pos)) {
+      score *= 0.3;
+    }
+
+    return { ...p, cr, score, pos };
   }).filter(Boolean);
 
   scored.sort((a, b) => b.score - a.score);
 
-  // Enforce positional variety — no two same position
+  // Enforce positional variety — no two same position group
   const result = [];
   const usedPos = new Set();
   for (const p of scored) {
-    const pos = p.gpos || p.pos;
-    if (usedPos.has(pos)) continue;
-    usedPos.add(pos);
+    if (usedPos.has(p.pos)) continue;
+    usedPos.add(p.pos);
     result.push(p);
     if (result.length >= count) break;
   }
@@ -327,91 +345,211 @@ function getGmTargets(team, count = 3) {
 }
 
 // ============================================================
-// Share Canvas
+// Share Canvas — 1200×630 two-column layout
 // ============================================================
-function renderShareCanvas(team, gm, archetype, matchPct) {
+function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
+  if (!text) return y;
+  const words = text.split(" ");
+  let line = "";
+  let currentY = y;
+  for (const word of words) {
+    const testLine = line + (line ? " " : "") + word;
+    if (ctx.measureText(testLine).width > maxWidth && line) {
+      ctx.fillText(line, x, currentY);
+      line = word;
+      currentY += lineHeight;
+    } else {
+      line = testLine;
+    }
+  }
+  if (line) ctx.fillText(line, x, currentY);
+  return currentY;
+}
+
+function renderShareCanvas(result) {
   const W = 1200, H = 630;
   const canvas = document.createElement("canvas");
   canvas.width = W * 2; canvas.height = H * 2;
   const ctx = canvas.getContext("2d");
   ctx.scale(2, 2);
 
-  const teamColor = NFL_TEAM_COLORS[team] || "#171717";
+  const teamColor = NFL_TEAM_COLORS[result.team] || "#171717";
+  const allResults = result.allResults || [];
 
   // Background
   ctx.fillStyle = "#faf9f6";
   ctx.fillRect(0, 0, W, H);
 
-  // Team color accent bar
-  ctx.fillStyle = teamColor;
-  ctx.fillRect(0, 0, W, 6);
+  // Top gradient bar (pink → purple)
+  const topGrad = ctx.createLinearGradient(0, 0, W, 0);
+  topGrad.addColorStop(0, "#ec4899");
+  topGrad.addColorStop(1, "#7c3aed");
+  ctx.fillStyle = topGrad;
+  ctx.fillRect(0, 0, W, 8);
 
-  // Logo area — circle with team color
+  // --- LEFT SIDE (60–640) ---
+
+  // BBL wordmark
+  ctx.fillStyle = "#171717";
+  ctx.font = `900 22px 'Literata', Georgia, serif`;
+  ctx.textAlign = "left";
+  ctx.textBaseline = "alphabetic";
+  ctx.fillText("big board lab", 60, 55);
+
+  // Thin decorative line
+  ctx.strokeStyle = "#e5e5e5";
+  ctx.lineWidth = 1;
   ctx.beginPath();
-  ctx.arc(W / 2, 180, 60, 0, Math.PI * 2);
-  ctx.fillStyle = teamColor + "15";
+  ctx.moveTo(60, 68);
+  ctx.lineTo(240, 68);
+  ctx.stroke();
+
+  // "You draft like"
+  ctx.fillStyle = "#737373";
+  ctx.font = `500 16px 'DM Sans', sans-serif`;
+  ctx.fillText("You draft like", 60, 120);
+
+  // GM Name
+  ctx.fillStyle = "#171717";
+  ctx.font = `900 40px 'Literata', Georgia, serif`;
+  ctx.fillText(result.gm, 60, 168);
+
+  // Team name
+  ctx.fillStyle = teamColor;
+  ctx.font = `700 17px 'DM Sans', sans-serif`;
+  ctx.fillText(result.team, 60, 198);
+
+  // Archetype badge
+  ctx.fillStyle = "#7c3aed";
+  ctx.font = `700 11px 'DM Mono', monospace`;
+  ctx.fillText(result.archetype.toUpperCase(), 60, 233);
+
+  // Match percentage — large
+  ctx.fillStyle = "#171717";
+  ctx.font = `900 80px 'DM Mono', monospace`;
+  ctx.fillText(`${result.matchPct}%`, 56, 338);
+  ctx.fillStyle = "#a3a3a3";
+  ctx.font = `500 15px 'DM Sans', sans-serif`;
+  ctx.fillText("match", 60, 362);
+
+  // Blurb (wrapped, max ~560px wide)
+  ctx.fillStyle = "#525252";
+  ctx.font = `400 13px 'DM Sans', sans-serif`;
+  wrapCanvasText(ctx, result.blurb, 60, 400, 560, 20);
+
+  // --- RIGHT SIDE (700–1140) ---
+
+  // Large team circle with abbreviation
+  const cx = 920, cy = 170;
+  ctx.beginPath();
+  ctx.arc(cx, cy, 75, 0, Math.PI * 2);
+  ctx.fillStyle = teamColor + "18";
   ctx.fill();
   ctx.strokeStyle = teamColor;
   ctx.lineWidth = 3;
   ctx.stroke();
 
-  // Team abbreviation in circle
   ctx.fillStyle = teamColor;
-  ctx.font = `bold 28px 'DM Sans', sans-serif`;
+  ctx.font = `bold 34px 'DM Sans', sans-serif`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.fillText(NFL_TEAM_ABR[team] || team.slice(0, 3).toUpperCase(), W / 2, 182);
+  ctx.fillText(NFL_TEAM_ABR[result.team] || result.team.slice(0, 3).toUpperCase(), cx, cy + 2);
 
-  // "You draft like"
-  ctx.fillStyle = "#737373";
-  ctx.font = `500 18px 'DM Sans', sans-serif`;
-  ctx.fillText("You draft like", W / 2, 270);
-
-  // GM Name
-  ctx.fillStyle = "#171717";
-  ctx.font = `900 36px 'Literata', Georgia, serif`;
-  ctx.fillText(gm, W / 2, 315);
-
-  // Team name
-  ctx.fillStyle = teamColor;
-  ctx.font = `700 16px 'DM Sans', sans-serif`;
-  ctx.fillText(team, W / 2, 348);
-
-  // Archetype badge
-  ctx.fillStyle = "#7c3aed";
-  ctx.font = `700 14px 'DM Mono', monospace`;
-  ctx.fillText(archetype.toUpperCase(), W / 2, 385);
-
-  // Match percentage
-  ctx.fillStyle = "#171717";
-  ctx.font = `900 72px 'DM Mono', monospace`;
-  ctx.fillText(`${matchPct}%`, W / 2, 460);
+  // "Also matched with:"
+  ctx.textAlign = "left";
+  ctx.textBaseline = "alphabetic";
   ctx.fillStyle = "#a3a3a3";
-  ctx.font = `500 14px 'DM Sans', sans-serif`;
-  ctx.fillText("match", W / 2, 490);
+  ctx.font = `600 12px 'DM Sans', sans-serif`;
+  ctx.fillText("Also matched with:", 790, 300);
 
-  // Footer
-  ctx.fillStyle = "#e5e5e5";
-  ctx.fillRect(0, H - 52, W, 52);
+  // Secondary matches (#2–#5)
+  allResults.slice(1, 5).forEach((r, i) => {
+    const y = 332 + i * 38;
+    const tc = NFL_TEAM_COLORS[r.team] || "#737373";
+
+    // Small team color circle
+    ctx.beginPath();
+    ctx.arc(806, y - 4, 8, 0, Math.PI * 2);
+    ctx.fillStyle = tc + "25";
+    ctx.fill();
+    ctx.strokeStyle = tc;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // Team ABR inside circle
+    ctx.fillStyle = tc;
+    ctx.font = `bold 7px 'DM Mono', monospace`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(NFL_TEAM_ABR[r.team] || "???", 806, y - 3);
+
+    // GM name
+    ctx.textAlign = "left";
+    ctx.textBaseline = "alphabetic";
+    ctx.fillStyle = "#525252";
+    ctx.font = `500 14px 'DM Sans', sans-serif`;
+    ctx.fillText(r.gm, 824, y);
+
+    // Match %
+    ctx.fillStyle = "#a3a3a3";
+    ctx.font = `700 13px 'DM Mono', monospace`;
+    ctx.textAlign = "right";
+    ctx.fillText(`${r.matchPct}%`, 1130, y);
+    ctx.textAlign = "left";
+  });
+
+  // --- FOOTER ---
+  const footGrad = ctx.createLinearGradient(0, H - 46, W, H - 46);
+  footGrad.addColorStop(0, "#ec4899");
+  footGrad.addColorStop(1, "#7c3aed");
+  ctx.fillStyle = footGrad;
+  ctx.fillRect(0, H - 46, W, 6);
+
   ctx.fillStyle = "#737373";
-  ctx.font = `600 13px 'DM Sans', sans-serif`;
-  ctx.fillText("bigboardlab.com/which-gm-are-you", W / 2, H - 26);
+  ctx.font = `600 14px 'DM Sans', sans-serif`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "alphabetic";
+  ctx.fillText("bigboardlab.com/which-gm-are-you", W / 2, H - 16);
 
   return canvas;
 }
 
 // ============================================================
-// Results
+// Results — Cover Flow carousel + prospects + share
 // ============================================================
-function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, trackEvent, userId }) {
+function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, onLaunchMock, trackEvent, userId }) {
   const [copied, setCopied] = useState(false);
-  const teamColor = NFL_TEAM_COLORS[result.team] || "#171717";
-  const targets = getGmTargets(result.team);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const touchStartX = useRef(null);
+
+  const allResults = result.allResults || [];
+  const active = allResults[activeIdx] || result;
+  const teamColor = NFL_TEAM_COLORS[active.team] || "#171717";
+  const targets = getGmTargets(active.team);
+
+  const handleTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0 && activeIdx < allResults.length - 1) setActiveIdx(activeIdx + 1);
+      if (dx > 0 && activeIdx > 0) setActiveIdx(activeIdx - 1);
+    }
+    touchStartX.current = null;
+  };
 
   const handleShare = useCallback(() => {
-    const canvas = renderShareCanvas(result.team, result.gm, result.archetype, result.matchPct);
+    const shareTarget = allResults[activeIdx] || result;
+    const canvas = renderShareCanvas({
+      team: shareTarget.team,
+      gm: shareTarget.gm,
+      archetype: shareTarget.archetype,
+      matchPct: shareTarget.matchPct,
+      blurb: shareTarget.blurb,
+      allResults,
+    });
     canvas.toBlob(async blob => {
-      if (trackEvent) trackEvent(userId, "share_triggered", { type: "gm_quiz", team: result.team, matchPct: result.matchPct });
+      if (trackEvent) trackEvent(userId, "share_triggered", { type: "gm_quiz", team: shareTarget.team, matchPct: shareTarget.matchPct });
       if (!blob) return;
 
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -421,8 +559,8 @@ function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, trackEven
           if (navigator.canShare({ files: [file] })) {
             await navigator.share({
               files: [file],
-              title: `I draft like ${result.gm} — Big Board Lab`,
-              text: `I'm ${result.matchPct}% match with ${result.gm}! Take the quiz: bigboardlab.com/which-gm-are-you`
+              title: `I draft like ${shareTarget.gm} \u2014 Big Board Lab`,
+              text: `I'm a ${shareTarget.matchPct}% match with ${shareTarget.gm}! Take the quiz: bigboardlab.com/which-gm-are-you`
             });
             return;
           }
@@ -441,7 +579,7 @@ function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, trackEven
         setTimeout(() => URL.revokeObjectURL(url), 3000);
       }
     }, "image/png");
-  }, [result, trackEvent, userId]);
+  }, [activeIdx, allResults, result, trackEvent, userId]);
 
   const featureCards = [
     { title: "32 AI GMs with real tendencies", desc: "Each CPU team drafts differently based on real needs and front office style." },
@@ -455,49 +593,139 @@ function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, trackEven
     <div style={{ minHeight: "100vh", background: "#faf9f6", fontFamily: font }}>
       {/* Header bar */}
       <div style={{ padding: "16px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <img src="/logo.png" alt="Big Board Lab" style={{ width: 40, height: "auto" }} />
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <img src="/logo.png" alt="Big Board Lab" style={{ width: 32, height: "auto" }} />
+          <span style={{ fontFamily: font, fontSize: 14, fontWeight: 900, letterSpacing: -0.5, color: "#171717" }}>big board lab</span>
+        </div>
         <button onClick={onClose} style={{ fontFamily: sans, fontSize: 12, fontWeight: 600, color: "#737373", background: "none", border: "1px solid #e5e5e5", borderRadius: 99, padding: "6px 16px", cursor: "pointer" }}>
-          Go to Big Board Lab
+          {"\u2192"} Big Board Lab
         </button>
       </div>
 
-      {/* Result Card */}
-      <div style={{ maxWidth: 520, margin: "0 auto", padding: "20px 24px 0" }}>
-        <div style={{ background: "#fff", border: `2px solid ${teamColor}30`, borderRadius: 20, padding: "36px 28px", textAlign: "center", position: "relative", overflow: "hidden" }}>
-          {/* Team color gradient top */}
-          <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 4, background: `linear-gradient(90deg, ${teamColor}, ${teamColor}80)` }} />
+      {/* Cover Flow Carousel */}
+      <div
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        style={{
+          maxWidth: 600, margin: "0 auto", padding: "8px 0 0",
+          position: "relative", height: 350, overflow: "hidden",
+          display: "flex", alignItems: "center", justifyContent: "center",
+        }}
+      >
+        {allResults.map((r, i) => {
+          const offset = i - activeIdx;
+          const absOff = Math.abs(offset);
+          if (absOff > 2) return null;
 
-          {/* Team logo */}
-          <div style={{ marginBottom: 16 }}>
-            <NFLTeamLogo team={result.team} size={72} />
-          </div>
+          const tc = NFL_TEAM_COLORS[r.team] || "#171717";
+          const isCenter = offset === 0;
+          const scale = isCenter ? 1 : absOff === 1 ? 0.78 : 0.62;
+          const opacity = isCenter ? 1 : absOff === 1 ? 0.65 : 0.4;
+          const tx = isCenter ? 0 : (offset > 0 ? 1 : -1) * (absOff === 1 ? 170 : 290);
 
-          <p style={{ fontFamily: sans, fontSize: 13, color: "#737373", margin: "0 0 4px" }}>You draft like</p>
-          <h2 style={{ fontFamily: font, fontSize: 30, fontWeight: 900, color: "#171717", margin: "0 0 4px", letterSpacing: -1 }}>{result.gm}</h2>
-          <p style={{ fontFamily: sans, fontSize: 14, fontWeight: 600, color: teamColor, margin: "0 0 12px" }}>{result.team}</p>
+          return (
+            <div key={r.team}
+              onClick={() => !isCenter && setActiveIdx(i)}
+              style={{
+                position: "absolute",
+                width: 260,
+                background: "#fff",
+                border: isCenter ? `2px solid ${tc}40` : "1px solid #e5e5e5",
+                borderRadius: 20,
+                padding: isCenter ? "28px 20px" : "20px 16px",
+                textAlign: "center",
+                transform: `translateX(${tx}px) scale(${scale})`,
+                opacity,
+                zIndex: 5 - absOff,
+                transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                cursor: isCenter ? "default" : "pointer",
+                boxShadow: isCenter ? "0 8px 32px rgba(0,0,0,0.08)" : "0 2px 8px rgba(0,0,0,0.04)",
+                overflow: "hidden",
+              }}>
+              {/* Team color top accent */}
+              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 4, background: `linear-gradient(90deg, ${tc}, ${tc}80)` }} />
 
-          {/* Archetype badge */}
-          <span style={{ fontFamily: mono, fontSize: 10, fontWeight: 700, color: "#7c3aed", background: "#f5f3ff", border: "1px solid #ede9fe", borderRadius: 99, padding: "4px 14px", display: "inline-block", letterSpacing: 0.5 }}>
-            {result.archetype.toUpperCase()}
-          </span>
+              <div style={{ marginBottom: 10 }}>
+                <NFLTeamLogo team={r.team} size={isCenter ? 60 : 40} />
+              </div>
 
-          {/* Match % */}
-          <div style={{ margin: "20px 0 16px" }}>
-            <span style={{ fontFamily: mono, fontSize: 56, fontWeight: 900, color: "#171717", letterSpacing: -2 }}>{result.matchPct}%</span>
-            <p style={{ fontFamily: sans, fontSize: 12, color: "#a3a3a3", margin: "2px 0 0" }}>match</p>
-          </div>
+              <div style={{ fontFamily: mono, fontSize: isCenter ? 44 : 28, fontWeight: 900, color: "#171717", letterSpacing: -2, lineHeight: 1 }}>
+                {r.matchPct}%
+              </div>
+              <div style={{ fontFamily: sans, fontSize: 10, color: "#a3a3a3", marginBottom: isCenter ? 10 : 6 }}>match</div>
 
-          {/* Blurb */}
-          <p style={{ fontFamily: sans, fontSize: 13, color: "#525252", lineHeight: 1.55, maxWidth: 380, margin: "0 auto" }}>
-            {result.blurb}
-          </p>
-        </div>
+              {isCenter && <p style={{ fontFamily: sans, fontSize: 11, color: "#737373", margin: "0 0 4px" }}>You draft like</p>}
+              <div style={{ fontFamily: font, fontSize: isCenter ? 20 : 13, fontWeight: 800, color: "#171717", letterSpacing: -0.5 }}>
+                {r.gm}
+              </div>
+              <div style={{ fontFamily: sans, fontSize: isCenter ? 13 : 10, fontWeight: 600, color: tc, marginBottom: isCenter ? 8 : 4 }}>
+                {r.team}
+              </div>
+
+              <span style={{
+                fontFamily: mono, fontSize: isCenter ? 9 : 7, fontWeight: 700,
+                color: "#7c3aed", background: "#f5f3ff", border: "1px solid #ede9fe",
+                borderRadius: 99, padding: isCenter ? "3px 12px" : "2px 8px",
+                display: "inline-block", letterSpacing: 0.5
+              }}>
+                {r.archetype.toUpperCase()}
+              </span>
+            </div>
+          );
+        })}
+
+        {/* Arrow buttons */}
+        {activeIdx > 0 && (
+          <button onClick={() => setActiveIdx(activeIdx - 1)} style={{
+            position: "absolute", left: 8, top: "50%", transform: "translateY(-50%)", zIndex: 10,
+            width: 32, height: 32, borderRadius: "50%", background: "#fff", border: "1px solid #e5e5e5",
+            cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+            fontFamily: sans, fontSize: 18, color: "#737373", boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+            padding: 0, lineHeight: 1,
+          }}>
+            {"\u2039"}
+          </button>
+        )}
+        {activeIdx < allResults.length - 1 && (
+          <button onClick={() => setActiveIdx(activeIdx + 1)} style={{
+            position: "absolute", right: 8, top: "50%", transform: "translateY(-50%)", zIndex: 10,
+            width: 32, height: 32, borderRadius: "50%", background: "#fff", border: "1px solid #e5e5e5",
+            cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
+            fontFamily: sans, fontSize: 18, color: "#737373", boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+            padding: 0, lineHeight: 1,
+          }}>
+            {"\u203a"}
+          </button>
+        )}
+      </div>
+
+      {/* Navigation dots */}
+      <div style={{ display: "flex", justifyContent: "center", gap: 8, padding: "12px 0 0" }}>
+        {allResults.map((_, i) => (
+          <button key={i} onClick={() => setActiveIdx(i)}
+            style={{
+              width: i === activeIdx ? 24 : 8, height: 8,
+              borderRadius: 99, border: "none", padding: 0,
+              background: i === activeIdx ? "linear-gradient(90deg, #ec4899, #7c3aed)" : "#d4d4d4",
+              cursor: "pointer", transition: "all 0.3s",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Blurb */}
+      <div style={{ maxWidth: 520, margin: "0 auto", padding: "16px 24px 0", textAlign: "center" }}>
+        <p style={{ fontFamily: sans, fontSize: 13, color: "#525252", lineHeight: 1.55, maxWidth: 400, margin: "0 auto" }}>
+          {active.blurb}
+        </p>
       </div>
 
       {/* GM's 2026 Targets */}
       {targets.length > 0 && (
         <div style={{ maxWidth: 520, margin: "0 auto", padding: "24px 24px 0" }}>
-          <h3 style={{ fontFamily: sans, fontSize: 14, fontWeight: 700, color: "#171717", margin: "0 0 12px" }}>Your GM's 2026 Targets</h3>
+          <h3 style={{ fontFamily: sans, fontSize: 14, fontWeight: 700, color: "#171717", margin: "0 0 12px" }}>
+            {activeIdx === 0 ? "Your" : `${active.gm}'s`} 2026 Targets
+          </h3>
           <div style={{ background: "#fff", border: "1px solid #e5e5e5", borderRadius: 12, overflow: "hidden" }}>
             {targets.map((p, i) => {
               const pos = p.gpos || p.pos;
@@ -524,14 +752,15 @@ function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, trackEven
           onMouseDown={e => e.currentTarget.style.transform = "scale(0.97)"}
           onMouseUp={e => e.currentTarget.style.transform = "scale(1)"}
           onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
-          {copied ? "Copied!" : "Share Result"}
+          {copied ? "\u2705 Copied!" : "\ud83d\udcf8 Share Result"}
         </button>
         <button onClick={() => {
-          const text = `I draft like ${result.gm} (${result.matchPct}% match)! Take the quiz: bigboardlab.com/which-gm-are-you`;
+          const a = allResults[activeIdx] || result;
+          const text = `I draft like ${a.gm} (${a.matchPct}% match)! Take the quiz: bigboardlab.com/which-gm-are-you`;
           navigator.clipboard.writeText(text).then(() => { setCopied(true); setTimeout(() => setCopied(false), 1500); }).catch(() => {});
         }}
           style={{ fontFamily: sans, fontSize: 13, fontWeight: 600, padding: "12px 20px", background: "#fff", color: "#171717", border: "1px solid #e5e5e5", borderRadius: 99, cursor: "pointer" }}>
-          Copy Link
+          {"\ud83d\udd17"} Copy Link
         </button>
       </div>
 
@@ -551,12 +780,12 @@ function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, trackEven
 
       {/* CTA */}
       <div style={{ maxWidth: 520, margin: "0 auto", padding: "28px 24px 60px", textAlign: "center" }}>
-        <button onClick={onClose}
+        <button onClick={() => { try { sessionStorage.removeItem(STORAGE_KEY); } catch(e) {} if (onLaunchMock) onLaunchMock(active.team); else onClose(); }}
           style={{ fontFamily: sans, fontSize: 15, fontWeight: 700, padding: "14px 40px", background: teamColor, color: "#fff", border: "none", borderRadius: 99, cursor: "pointer", transition: "transform 0.1s" }}
           onMouseDown={e => e.currentTarget.style.transform = "scale(0.97)"}
           onMouseUp={e => e.currentTarget.style.transform = "scale(1)"}
           onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
-          Start a Mock Draft as {result.team}
+          {"\ud83c\udfdf\ufe0f"} Start a Mock Draft as {active.team}
         </button>
       </div>
     </div>
@@ -566,7 +795,7 @@ function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, trackEven
 // ============================================================
 // Main GmQuiz Component
 // ============================================================
-export default function GmQuiz({ user, NFLTeamLogo, SchoolLogo, trackEvent, userId }) {
+export default function GmQuiz({ user, NFLTeamLogo, SchoolLogo, trackEvent, userId, onLaunchMock }) {
   // Check sessionStorage for saved answers (survives OAuth redirect)
   const [phase, setPhase] = useState(() => {
     try {
@@ -661,6 +890,7 @@ export default function GmQuiz({ user, NFLTeamLogo, SchoolLogo, trackEvent, user
       NFLTeamLogo={NFLTeamLogo}
       SchoolLogo={SchoolLogo}
       onClose={handleClose}
+      onLaunchMock={onLaunchMock}
       trackEvent={trackEvent}
       userId={userId}
     />;

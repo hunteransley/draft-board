@@ -1332,7 +1332,7 @@ function AuthScreen({onSignIn,onSkip,onOpenGuide}){
 // ============================================================
 // Main Board App (post-auth)
 // ============================================================
-function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
+function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMockLaunch,onClearGmQuizMock}){
   const[phase,setPhase]=useState("loading");
   const[activePos,setActivePos]=useState(null);
   const[ratings,setRatings]=useState({});
@@ -1395,6 +1395,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
   const[mockCpuTrades,setMockCpuTrades]=useState(true);
   const[mockBoardMode,setMockBoardMode]=useState("consensus");
   useEffect(()=>{if(showMockDraft)trackEvent(user?.id,'mock_draft_started',{guest:!user});},[showMockDraft]);
+  // Auto-launch mock from GM Quiz CTA
+  useEffect(()=>{if(gmQuizMockLaunch){setMockLaunchTeam(new Set([gmQuizMockLaunch]));setMockRounds(7);setMockSpeed(50);setMockCpuTrades(true);setMockBoardMode("consensus");setShowMockDraft(true);if(onClearGmQuizMock)onClearGmQuizMock();}},[gmQuizMockLaunch]);
   const[boardTab,setBoardTab]=useState("consensus");
   const[boardFilter,setBoardFilter]=useState(new Set());
   const[boardShowAll,setBoardShowAll]=useState(false);
@@ -5718,6 +5720,7 @@ export default function App(){
   const[showOG,setShowOG]=useState(()=>window.location.hash==="#og-preview");
   const[showGuide,setShowGuide]=useState(()=>window.location.pathname==='/guide');
   const[showGmQuiz,setShowGmQuiz]=useState(()=>window.location.pathname==='/which-gm-are-you');
+  const[gmQuizMockLaunch,setGmQuizMockLaunch]=useState(null);// {team} from quiz CTA
   const[isGuest,setIsGuest]=useState(false);
   const[authPrompt,setAuthPrompt]=useState(null);
   const authSourceRef=useRef(null);
@@ -5755,11 +5758,11 @@ export default function App(){
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
   if(showGuide)return<GuidePage onBack={()=>{window.history.pushState({},'','/');setShowGuide(false);}}/>;
   if(showOG)return<OGPreview/>;
-  if(showGmQuiz)return<GmQuiz user={user} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} trackEvent={trackEvent} userId={user?.id}/>;
+  if(showGmQuiz)return<GmQuiz user={user} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} trackEvent={trackEvent} userId={user?.id} onLaunchMock={(team)=>{setGmQuizMockLaunch(team);setShowGmQuiz(false);window.history.pushState({},'','/');}}/>;
   if(!user&&!isGuest&&!window.location.pathname.startsWith('/data-lab')&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>setIsGuest(true)} onOpenGuide={navigateToGuide}/>;
   if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
   return<>
-    <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} onRequireAuth={(msg)=>{
+    <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} gmQuizMockLaunch={gmQuizMockLaunch} onClearGmQuizMock={()=>setGmQuizMockLaunch(null)} onRequireAuth={(msg)=>{
       const src=msg.includes('play with the data')?'data-lab':msg.includes('vote')||msg.includes('big board')?'pair rank':msg.includes('trait')||msg.includes('grade')||msg.includes('slider')?'sliders':msg.includes('mock')||msg.includes('draft')?'mock draft':msg.includes('reorder')?'pair rank':msg.includes('note')?'notes':msg.includes('guys')?'my guys':msg.includes('share')?'share':msg.includes('save')?'save':'homepage';
       authSourceRef.current=src;
       try{sessionStorage.setItem('authSource',src)}catch(e){}

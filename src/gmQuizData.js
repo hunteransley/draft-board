@@ -103,10 +103,10 @@ export const QUIZ_QUESTIONS = [
     question: "You're picking 6th overall. The best player on your board is a QB — but you just signed one in free agency. Your next 5 biggest needs are all in the top 40.",
     theme: "BPA QB vs filling 5 holes",
     options: [
-      { text: "Take the QB anyway. Best player, period.", deltas: { bpaLean: 3.0 } },
-      { text: "Trade back, collect picks, fill multiple holes.", deltas: { bpaLean: -1.0, variance: 1.0 } },
+      { text: "Take the QB anyway. Best player, period.", deltas: { bpaLean: 3.0, stage: -1.0 } },
+      { text: "Trade back, collect picks, fill multiple holes.", deltas: { bpaLean: -1.5, variance: 1.5, stage: -1.5 } },
       { text: "Take the best non-QB on the board.", deltas: { bpaLean: 1.5 } },
-      { text: "Draft my biggest need — we can't waste another year.", deltas: { bpaLean: -2.0 } },
+      { text: "Draft my biggest need — we can't waste another year.", deltas: { bpaLean: -2.5, variance: -1.0, stage: 1.5 } },
     ]
   },
   // Q2: athBoost + ceilingChaser
@@ -115,7 +115,7 @@ export const QUIZ_QUESTIONS = [
     theme: "Raw freak vs polished DB",
     options: [
       { text: "The 4.28 freak. You can't teach speed.", deltas: { athBoost: 2.5, ceilingChaser: 1.5 } },
-      { text: "The technician. Give me the sure thing.", deltas: { athBoost: -1.5, ceilingChaser: -1.5 } },
+      { text: "The technician. Give me the sure thing.", deltas: { athBoost: -1.5, ceilingChaser: -1.5, bpaLean: 0.5 } },
       { text: "The freak — but only if we have a great DB coach.", deltas: { athBoost: 1.5, ceilingChaser: 0.5 } },
       { text: "Whoever my scouts have ranked higher overall.", deltas: { bpaLean: 1.5 } },
     ]
@@ -136,10 +136,10 @@ export const QUIZ_QUESTIONS = [
     question: "Two edge rushers. One is 6'5\" 270 with long arms and a power-first game. The other is 6'2\" 240 but has the best first step and bend in the class.",
     theme: "Power vs finesse edge",
     options: [
-      { text: "The 6'5\" 270 mauler. Size wins in the NFL.", deltas: { sizePremium: 2.5, athBoost: -0.5 } },
-      { text: "The bendy edge. Get-off and bend create sacks.", deltas: { sizePremium: -1.5, athBoost: 2.0 } },
-      { text: "Whoever grades higher on my board, regardless of build.", deltas: { bpaLean: 1.5 } },
-      { text: "The big guy — he can learn to bend, but you can't teach 6'5\".", deltas: { sizePremium: 1.5, ceilingChaser: 0.5 } },
+      { text: "The 6'5\" 270 mauler. Size wins in the NFL.", deltas: { sizePremium: 3.0 } },
+      { text: "The bendy edge. Get-off and bend create sacks.", deltas: { sizePremium: -2.0, athBoost: 2.0 } },
+      { text: "Whoever grades higher on my board, regardless of build.", deltas: { bpaLean: 1.5, sizePremium: -0.5 } },
+      { text: "The big guy — he can learn to bend, but you can't teach 6'5\".", deltas: { sizePremium: 2.0, ceilingChaser: 0.5 } },
     ]
   },
   // Q5: ceilingChaser + variance
@@ -147,10 +147,10 @@ export const QUIZ_QUESTIONS = [
     question: "There's a WR prospect who totaled 100 yards across his three best opponents, then exploded for a 1,600-yard season. Elite tools, inconsistent production. Your scouts are split 50/50.",
     theme: "Boom or bust prospect",
     options: [
-      { text: "Smash pick. That ceiling is worth the risk.", deltas: { ceilingChaser: 2.5, variance: 2.0 } },
-      { text: "Pass. Inconsistency is a red flag I can't ignore.", deltas: { ceilingChaser: -2.0, variance: -1.5 } },
+      { text: "Smash pick. That ceiling is worth the risk.", deltas: { ceilingChaser: 2.5, variance: 2.0, stage: -1.0 } },
+      { text: "Pass. Inconsistency is a red flag I can't ignore.", deltas: { ceilingChaser: -2.0, variance: -1.5, stage: 1.0 } },
       { text: "Take him, but only in Round 2 or later.", deltas: { ceilingChaser: 1.0, variance: 0.5 } },
-      { text: "Bring him in for a private workout first. Need more data.", deltas: { ceilingChaser: 0.5, variance: -0.5 } },
+      { text: "Bring him in for a private workout first. Need more data.", deltas: { ceilingChaser: 0.5, variance: -0.5, stage: 0.5 } },
     ]
   },
   // Q6: bpaLean + variance
@@ -161,7 +161,7 @@ export const QUIZ_QUESTIONS = [
       { text: "Take the RB. I draft players, not positions.", deltas: { bpaLean: 2.5, variance: 1.0 } },
       { text: "No chance. RBs don't justify high picks anymore.", deltas: { bpaLean: -2.0, variance: -1.0 } },
       { text: "Trade back. If he's there 8 picks later, I'll take him.", deltas: { bpaLean: 0.5, variance: 0.5, reachTolerance: -0.5 } },
-      { text: "Take the next best player at a premium position.", deltas: { bpaLean: -0.5 } },
+      { text: "Take the next best player at a premium position.", deltas: { bpaLean: -0.5, sizePremium: 0.5 } },
     ]
   },
   // Q7: athBoost + reachTolerance
@@ -170,7 +170,7 @@ export const QUIZ_QUESTIONS = [
     theme: "Combine riser WR",
     options: [
       { text: "I'm taking him. That speed changes everything.", deltas: { athBoost: 2.0, reachTolerance: 2.0 } },
-      { text: "Interesting, but I don't chase combine hype.", deltas: { athBoost: -1.5, reachTolerance: -1.0 } },
+      { text: "Interesting, but I don't chase combine hype.", deltas: { athBoost: -1.5, reachTolerance: -1.0, bpaLean: 0.5 } },
       { text: "He's on my radar now, but film still matters most.", deltas: { athBoost: 0.5, reachTolerance: -0.5 } },
       { text: "Love the speed. I'll take him if he falls to me, no reach.", deltas: { athBoost: 1.5, reachTolerance: -1.5 } },
     ]
@@ -180,10 +180,10 @@ export const QUIZ_QUESTIONS = [
     question: "You have two first-round picks. Do you play it safe with two reliable starters, or gamble one pick on a potential All-Pro who could also bust?",
     theme: "Two 1sts strategy",
     options: [
-      { text: "Gamble one. The All-Pro upside is worth one miss.", deltas: { variance: 2.5, ceilingChaser: 2.0 } },
-      { text: "Two safe starters. Build a foundation, not a lottery ticket.", deltas: { variance: -2.0, ceilingChaser: -1.5 } },
-      { text: "Take the higher-graded prospect regardless of risk profile.", deltas: { bpaLean: 1.5, variance: 0.5 } },
-      { text: "Trade one pick for future capital. Spread the risk.", deltas: { variance: 1.0, reachTolerance: 0.5 } },
+      { text: "Gamble one. The All-Pro upside is worth one miss.", deltas: { variance: 3.0, ceilingChaser: 2.0 } },
+      { text: "Two safe starters. Build a foundation, not a lottery ticket.", deltas: { variance: -2.5, ceilingChaser: -1.5, stage: -1.0 } },
+      { text: "Take the higher-graded prospect regardless of risk profile.", deltas: { bpaLean: 1.5, variance: 0.5, stage: 0.5 } },
+      { text: "Trade one pick for future capital. Spread the risk.", deltas: { variance: 1.0, reachTolerance: 0.5, stage: -0.5 } },
     ]
   },
   // Q9: reachTolerance + bpaLean
@@ -202,10 +202,10 @@ export const QUIZ_QUESTIONS = [
     question: "Draft night, Round 1. Your phone is ringing — a team wants your pick. You don't have any must-have targets left on the board.",
     theme: "Trade back or stay?",
     options: [
-      { text: "Trade back. Stockpile picks when there's no clear target.", deltas: { variance: 2.0, reachTolerance: -1.5 } },
-      { text: "Stay put. Take the best player available, trust the board.", deltas: { variance: -1.0, bpaLean: 2.0 } },
+      { text: "Trade back. Stockpile picks when there's no clear target.", deltas: { variance: 2.0, reachTolerance: -1.5, stage: -1.5 } },
+      { text: "Stay put. Take the best player available, trust the board.", deltas: { variance: -1.0, bpaLean: 2.0, stage: 0.5 } },
       { text: "Depends on the offer. I need at least a future first.", deltas: { variance: 1.0, reachTolerance: 0.5 } },
-      { text: "Trade UP. Find a target higher and go get him.", deltas: { variance: 2.5, reachTolerance: 2.5 } },
+      { text: "Trade UP. Find a target higher and go get him.", deltas: { variance: 2.5, reachTolerance: 2.5, stage: 1.0 } },
     ]
   },
 ];
@@ -214,8 +214,9 @@ export const QUIZ_QUESTIONS = [
 // Scoring Engine
 // ============================================================
 
-const DIMS = ["bpaLean", "reachTolerance", "athBoost", "sizePremium", "ceilingChaser", "variance"];
-const DIM_WEIGHTS = { bpaLean: 2.0, reachTolerance: 1.5, variance: 1.5, athBoost: 1.2, ceilingChaser: 1.0, sizePremium: 0.8 };
+const DIMS = ["bpaLean", "reachTolerance", "athBoost", "sizePremium", "ceilingChaser", "variance", "stage"];
+const DIM_WEIGHTS = { bpaLean: 2.0, reachTolerance: 1.5, variance: 1.5, athBoost: 1.2, ceilingChaser: 1.0, sizePremium: 0.8, stage: 0.6 };
+const STAGE_MAP = { rebuild: 0, retool: 0.33, contend: 0.67, dynasty: 1 };
 
 // Compute observed min/max across all 32 TEAM_PROFILES
 function getProfileBounds() {
@@ -223,7 +224,7 @@ function getProfileBounds() {
   DIMS.forEach(d => { mins[d] = Infinity; maxs[d] = -Infinity; });
   Object.values(TEAM_PROFILES).forEach(p => {
     DIMS.forEach(d => {
-      const v = d === "sizePremium" ? (p[d] ? 1 : 0) : (p[d] || 0);
+      const v = d === "sizePremium" ? (p[d] ? 1 : 0) : d === "stage" ? (STAGE_MAP[p[d]] ?? 0.5) : (p[d] || 0);
       if (v < mins[d]) mins[d] = v;
       if (v > maxs[d]) maxs[d] = v;
     });
@@ -245,22 +246,41 @@ function normalizeProfile(raw) {
   return out;
 }
 
-// Weighted cosine similarity
-function cosineSimilarity(a, b) {
-  let dot = 0, magA = 0, magB = 0;
-  DIMS.forEach(d => {
-    const w = DIM_WEIGHTS[d] || 1;
-    const va = (a[d] || 0) * w;
-    const vb = (b[d] || 0) * w;
-    dot += va * vb;
-    magA += va * va;
-    magB += vb * vb;
+// Compute per-dimension min/max achievable from quiz answers
+// For each question, find the min and max delta per dimension, then sum across questions
+function getQuizBounds() {
+  const qMin = {}, qMax = {};
+  DIMS.forEach(d => { qMin[d] = 0; qMax[d] = 0; });
+  QUIZ_QUESTIONS.forEach(q => {
+    const dimMin = {}, dimMax = {};
+    DIMS.forEach(d => { dimMin[d] = 0; dimMax[d] = 0; });
+    q.options.forEach(opt => {
+      Object.entries(opt.deltas).forEach(([dim, val]) => {
+        if (dim in dimMin) {
+          if (val < dimMin[dim]) dimMin[dim] = val;
+          if (val > dimMax[dim]) dimMax[dim] = val;
+        }
+      });
+    });
+    DIMS.forEach(d => { qMin[d] += dimMin[d]; qMax[d] += dimMax[d]; });
   });
-  if (magA === 0 || magB === 0) return 0;
-  return dot / (Math.sqrt(magA) * Math.sqrt(magB));
+  return { qMin, qMax };
 }
 
-// Main scoring: accumulate answer deltas → normalize → match
+const QUIZ_BOUNDS = getQuizBounds();
+
+// Weighted Euclidean distance (lower = better match)
+function weightedDistance(a, b) {
+  let sum = 0;
+  DIMS.forEach(d => {
+    const w = DIM_WEIGHTS[d] || 1;
+    const diff = ((a[d] || 0) - (b[d] || 0)) * w;
+    sum += diff * diff;
+  });
+  return Math.sqrt(sum);
+}
+
+// Main scoring: accumulate answer deltas → normalize to [0,1] → distance match
 export function scoreQuiz(answers) {
   // answers: array of 10 delta objects (one per question)
   const raw = {};
@@ -271,59 +291,52 @@ export function scoreQuiz(answers) {
     });
   });
 
-  // Normalize user vector to [0,1] per dimension using observed range of deltas
-  // First compute the possible min/max from quiz answers
-  const userMins = {}, userMaxs = {};
-  DIMS.forEach(d => { userMins[d] = 0; userMaxs[d] = 0; });
-  QUIZ_QUESTIONS.forEach(q => {
-    q.options.forEach(opt => {
-      Object.entries(opt.deltas).forEach(([dim, val]) => {
-        if (dim in userMins) {
-          userMins[dim] = Math.min(userMins[dim], userMins[dim] + val);
-          userMaxs[dim] = Math.max(userMaxs[dim], userMaxs[dim] + val);
-        }
-      });
-    });
-  });
-  // Simpler approach: normalize to [0,1] using the actual accumulated range
+  // Normalize user vector to [0,1] using actual quiz min/max range
   const userNorm = {};
   DIMS.forEach(d => {
-    // Map user's accumulated value into [0,1] using team profile bounds
-    const allTeamVals = Object.values(TEAM_PROFILES).map(p =>
-      d === "sizePremium" ? (p[d] ? 1 : 0) : (p[d] || 0)
-    );
-    const minT = Math.min(...allTeamVals);
-    const maxT = Math.max(...allTeamVals);
-    // Scale raw score: negative → low end, positive → high end, 0 → middle
-    const mid = (minT + maxT) / 2;
-    const range = (maxT - minT) / 2;
+    const lo = QUIZ_BOUNDS.qMin[d];
+    const hi = QUIZ_BOUNDS.qMax[d];
+    const range = hi - lo;
     if (range === 0) { userNorm[d] = 0.5; return; }
-    userNorm[d] = Math.max(0, Math.min(1, (mid + raw[d] * range / 5 - minT) / (maxT - minT)));
+    userNorm[d] = Math.max(0, Math.min(1, (raw[d] - lo) / range));
   });
 
-  // Score against all 32 teams
+  // Score against all 32 teams using weighted Euclidean distance
   const results = [];
   Object.entries(TEAM_PROFILES).forEach(([team, profile]) => {
     const teamNorm = {};
     DIMS.forEach(d => {
-      teamNorm[d] = normalize(d === "sizePremium" ? (profile[d] ? 1 : 0) : (profile[d] || 0), d);
+      teamNorm[d] = normalize(d === "sizePremium" ? (profile[d] ? 1 : 0) : d === "stage" ? (STAGE_MAP[profile[d]] ?? 0.5) : (profile[d] || 0), d);
     });
-    const sim = cosineSimilarity(userNorm, teamNorm);
-    results.push({ team, similarity: sim });
+    const dist = weightedDistance(userNorm, teamNorm);
+    results.push({ team, distance: dist });
   });
 
-  results.sort((a, b) => b.similarity - a.similarity);
-  const best = results[0];
-  const gmInfo = GM_DATA[best.team] || {};
+  results.sort((a, b) => a.distance - b.distance);
+
+  // Convert distance to match percentage and enrich top 5
+  const maxDist = Math.sqrt(DIMS.reduce((s, d) => s + (DIM_WEIGHTS[d] || 1) ** 2, 0));
+  const top5 = results.slice(0, 5).map(r => {
+    const gmInfo = GM_DATA[r.team] || {};
+    return {
+      ...r,
+      matchPct: Math.max(0, Math.min(99, Math.round((1 - r.distance / maxDist) * 100))),
+      gm: gmInfo.gm || "Unknown GM",
+      archetype: gmInfo.archetype || "The Balanced GM",
+      blurb: generateBlurb(r.team, userNorm),
+    };
+  });
+
+  const best = top5[0];
 
   return {
     team: best.team,
-    gm: gmInfo.gm || "Unknown GM",
-    archetype: gmInfo.archetype || "The Balanced GM",
-    matchPct: Math.round(best.similarity * 100),
-    blurb: generateBlurb(best.team, userNorm),
+    gm: best.gm,
+    archetype: best.archetype,
+    matchPct: best.matchPct,
+    blurb: best.blurb,
     userProfile: userNorm,
-    allResults: results.slice(0, 5),
+    allResults: top5,
   };
 }
 
