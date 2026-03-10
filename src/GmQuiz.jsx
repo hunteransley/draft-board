@@ -537,7 +537,7 @@ async function renderShareCanvas(result) {
   ctx.font = `400 16px 'DM Mono', monospace`;
   ctx.textAlign = "center";
   ctx.textBaseline = "alphabetic";
-  ctx.fillText("Take the Quiz at bigboardlab.com", W / 2, 790);
+  ctx.fillText("Take the Quiz at bigboardlab.com/gm", W / 2, 790);
 
   // BBL logo + wordmark
   let bblLogo = null;
