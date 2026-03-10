@@ -1,0 +1,421 @@
+{
+  "team": "GB",
+  "team_full": "Green Bay Packers",
+  "updated_through": "2026-03-10",
+  "cap_space_pre_fa": "-5000000",
+  "cap_space_post_fa": "9000000",
+  "key_departures": [
+    {
+      "player": "Malik Willis",
+      "position": "QB",
+      "age": 26,
+      "role": "backup/emergency starter",
+      "new_team": "Miami Dolphins",
+      "contract_signed": "3yr/$67,500,000 ($45,000,000 guaranteed)",
+      "impact": "Willis was Jordan Love's backup but proved capable as an emergency starter multiple times. His departure leaves Green Bay without a proven backup QB. The Packers could net a 3rd-round compensatory pick in 2027 for losing him to a $22.5M AAV deal.",
+      "need_impact": "creates",
+      "need_position": "QB"
+    },
+    {
+      "player": "Rasheed Walker",
+      "position": "OT",
+      "age": 26,
+      "role": "starter",
+      "new_team": "TBD/unsigned (unsigned as of 3/10)",
+      "contract_signed": "TBD",
+      "impact": "Walker started all 17 games at LT and ranked 11th in pass block win rate among all qualified OTs in 2025. His departure is partially mitigated by 2024 first-round pick Jordan Morgan, who is expected to step into the starting LT role. Still, losing an established, durable starter at a premium position creates a need.",
+      "need_impact": "creates",
+      "need_position": "OT"
+    },
+    {
+      "player": "Romeo Doubs",
+      "position": "WR",
+      "age": 26,
+      "role": "starter/WR1",
+      "new_team": "TBD/unsigned (unsigned as of 3/10)",
+      "contract_signed": "TBD",
+      "impact": "Doubs led the Packers in receiving in 2025 (55 catches, 724 yards, 6 TDs) and was Jordan Love's most trusted target. Green Bay prepared for this moment by drafting Matthew Golden and extending Christian Watson, but Doubs' departure still meaningfully reduces the depth and production of the WR room.",
+      "need_impact": "escalates",
+      "need_position": "WR"
+    },
+    {
+      "player": "Quay Walker",
+      "position": "LB",
+      "age": 25,
+      "role": "starter",
+      "new_team": "Las Vegas Raiders",
+      "contract_signed": "3yr/$40,500,000 ($28,000,000 guaranteed)",
+      "impact": "Walker was Green Bay's starting Mike LB. The Packers declined his $14.7M fifth-year option and attempted multiple re-signing runs before trading for Zaire Franklin as a replacement. His exit was expected and partially preemptively addressed.",
+      "need_impact": "escalates",
+      "need_position": "LB"
+    },
+    {
+      "player": "Kingsley Enagbare",
+      "position": "EDGE",
+      "age": 26,
+      "role": "starter/rotational",
+      "new_team": "New York Jets",
+      "contract_signed": "1yr/$10,000,000",
+      "impact": "Enagbare outperformed Rashan Gary for much of 2025 and was a strong run defender. His departure, combined with Gary's trade to Dallas, significantly thins the EDGE room. The Packers now rely on Micah Parsons, Lukas Van Ness, and Barryn Sorrell as their top three. Adding an edge rusher becomes a priority.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Rashan Gary",
+      "position": "EDGE",
+      "age": 28,
+      "role": "rotational",
+      "new_team": "Dallas Cowboys (trade)",
+      "contract_signed": "N/A (traded for 2027 4th-round pick)",
+      "impact": "Gary recorded zero sacks or tackles for loss in the final nine games of 2025 and was widely viewed as a cut candidate. The Packers wisely recouped a 2027 4th-round pick and saved ~$11M in cap space. However, losing both Gary and Enagbare in the same offseason creates a significant EDGE depth issue behind Parsons and Van Ness.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Elgton Jenkins",
+      "position": "IOL",
+      "age": 30,
+      "role": "starter",
+      "new_team": "Released",
+      "contract_signed": "N/A",
+      "impact": "Jenkins suffered a season-ending ankle injury in 2025 and was carrying a $24.3M cap charge. His release was made inevitable after Green Bay re-signed Sean Rhyan at center and restructured Aaron Banks at LG. The move created $19.53M in cap space. The need at center was already addressed by Rhyan's re-signing.",
+      "need_impact": "none",
+      "need_position": "IOL"
+    },
+    {
+      "player": "Colby Wooden",
+      "position": "IDL",
+      "age": 25,
+      "role": "starter",
+      "new_team": "Indianapolis Colts (trade)",
+      "contract_signed": "N/A (traded for Zaire Franklin)",
+      "impact": "Wooden made 16 starts in 2025 following Kenny Clark's trade to Dallas. While inconsistent, he was the team's primary run-stuffer in the trenches. Trading him for a linebacker leaves a significant void at IDL/nose tackle alongside Devonte Wyatt. Defensive tackle is now Green Bay's most pressing need.",
+      "need_impact": "creates",
+      "need_position": "IDL"
+    },
+    {
+      "player": "Kristian Welch",
+      "position": "LB",
+      "age": 28,
+      "role": "depth/special teams",
+      "new_team": "TBD/unsigned",
+      "contract_signed": "TBD",
+      "impact": "Depth/special teams LB. Minimal hole given the re-signing of Niemann and acquisition of Franklin.",
+      "need_impact": "none",
+      "need_position": "LB"
+    },
+    {
+      "player": "John FitzPatrick",
+      "position": "TE",
+      "age": 26,
+      "role": "depth/blocking TE",
+      "new_team": "TBD/unsigned",
+      "contract_signed": "TBD",
+      "impact": "Depth/blocking TE. Tucker Kraft and Luke Musgrave remain under contract. Minimal hole at starting TE.",
+      "need_impact": "none",
+      "need_position": "TE"
+    }
+  ],
+  "signings": [
+    {
+      "player": "Zaire Franklin",
+      "position": "LB",
+      "age": 29,
+      "previous_team": "Indianapolis Colts",
+      "acquisition_type": "trade",
+      "trade_details": "Green Bay sent DT Colby Wooden to Indianapolis in exchange for Franklin. No draft picks exchanged.",
+      "contract": {
+        "years": 2,
+        "total_value": 16245000,
+        "guaranteed": 0,
+        "aav": 7005000,
+        "notes": "Two years remaining on existing 3yr/$31.26M deal signed with Colts. No guaranteed money remaining. Base salary $6.24M + up to $765K per-game roster bonuses in 2026; $8.24M base in 2027."
+      },
+      "expected_role": "starter",
+      "market_tier": "depth",
+      "need_impact": "partially_addressed",
+      "need_position": "LB",
+      "analysis": "Franklin is a natural Walker replacement \u2014 a downhill run defender who led the NFL in tackles in 2024 (Pro Bowl, 2nd-team All-Pro). However, he is coming off a disappointing 2025 season (PFF's 2nd-worst graded LB) and his pass coverage is a significant liability. The contract has zero guaranteed money remaining and the Packers can move on after 2026 if needed. This addresses the starter need at LB in the short-term, but it is not a long-term solution \u2014 the team will likely want a LB in the draft."
+    },
+    {
+      "player": "Sean Rhyan",
+      "position": "IOL",
+      "age": 25,
+      "previous_team": "Green Bay Packers (re-signing)",
+      "acquisition_type": "re-signing",
+      "contract": {
+        "years": 3,
+        "total_value": 33000000,
+        "guaranteed": 11000000,
+        "aav": 11000000,
+        "max_value": 39000000,
+        "notes": "Signing bonus of $11M. Functionally a 1-year, $14M deal with team options; Packers can exit after 2026 by paying only $7.33M dead cap. Cap hit of just $6.7M in 2026."
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "fully_addressed",
+      "need_position": "IOL",
+      "analysis": "Rhyan stepped into the starting center role after Elgton Jenkins' season-ending injury and made it his own. At 25 years old with a 3-year commitment and an $11M AAV that ranks him among the top 10 centers in the league, this is a real investment. Rhyan's re-signing locks up the center position, directly triggered Jenkins' release, and removes IOL from the critical need tier. The deal is structured with team-friendly out clauses, but the signing bonus signals genuine commitment."
+    },
+    {
+      "player": "Nick Niemann",
+      "position": "LB",
+      "age": 27,
+      "previous_team": "Green Bay Packers (re-signing)",
+      "acquisition_type": "re-signing",
+      "contract": {
+        "years": 1,
+        "total_value": 2500000,
+        "guaranteed": 0,
+        "aav": 2500000,
+        "notes": "One-year deal. Contract worth approximately $2.5M per multiple reports."
+      },
+      "expected_role": "depth/special teams",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "LB",
+      "analysis": "Niemann is a special teams ace who was re-signed to provide depth at LB. He suffered a pectoral injury and only played 7 games in 2025. The one-year deal is purely a depth/ST retention \u2014 does not move the needle on any positional need."
+    },
+    {
+      "player": "Chris Brooks",
+      "position": "RB",
+      "age": 27,
+      "previous_team": "Green Bay Packers (re-signing from RFA)",
+      "acquisition_type": "re-signing",
+      "contract": {
+        "years": 2,
+        "total_value": 4800000,
+        "guaranteed": 0,
+        "aav": 2400000,
+        "notes": "Deal signed before RFA tender deadline; worth $4.8M over two years per reports."
+      },
+      "expected_role": "rotational/backup",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "RB",
+      "analysis": "Brooks is a versatile pass-blocking RB and special teams contributor. His retention as a backup behind Josh Jacobs is a simple depth move. RB was not a need and this doesn't change that."
+    },
+    {
+      "player": "Darian Kinnard",
+      "position": "OT",
+      "age": 27,
+      "previous_team": "Green Bay Packers (re-signing from RFA)",
+      "acquisition_type": "re-signing",
+      "contract": {
+        "years": 1,
+        "total_value": 3750000,
+        "guaranteed": 0,
+        "aav": 3750000,
+        "notes": "One-year deal worth up to $3.75M with incentives; base likely below $3.5M RFA tender threshold."
+      },
+      "expected_role": "depth/swing tackle",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "OT",
+      "analysis": "Kinnard played 285 snaps as a swing tackle and emergency starter in 2025. His one-year retention provides insurance behind Jordan Morgan (LT) and Zach Tom (RT) but does not address the loss of Rasheed Walker at starter level. OT depth is improved, but a legitimate starter-quality LT is still needed. Need unchanged at starter tier."
+    }
+  ],
+  "needs_impact_summary": {
+    "fully_addressed": [
+      "IOL"
+    ],
+    "partially_addressed": [
+      "LB"
+    ],
+    "minimally_addressed": [
+      "OT",
+      "RB"
+    ],
+    "unchanged": [
+      "CB",
+      "S",
+      "TE",
+      "WR"
+    ],
+    "escalated": [
+      "EDGE",
+      "IDL"
+    ],
+    "created": [
+      "QB"
+    ]
+  },
+  "recommended_need_adjustments": [
+    {
+      "position": "IDL",
+      "previous_tier": 2,
+      "recommended_tier": 1,
+      "reasoning": "Trading away Colby Wooden \u2014 who had made 16 starts at NT in 2025 \u2014 without adding a replacement leaves Devonte Wyatt as the only proven IDL on the roster. With Kenny Clark also long gone (traded in the Parsons deal), the interior DL is severely depleted. This is the Packers' most urgent need heading into the draft per multiple analysts. Must address in rounds 1-3 of the draft and/or remaining free agency."
+    },
+    {
+      "position": "EDGE",
+      "previous_tier": 2,
+      "recommended_tier": 1,
+      "reasoning": "Green Bay lost both Kingsley Enagbare (Jets, 1yr/$10M) and Rashan Gary (traded to Cowboys) in the span of days before free agency even opened. The EDGE room is now Micah Parsons (returning from injury), Lukas Van Ness, and Barryn Sorrell. That is dangerously thin, especially with Parsons coming off a mid-season injury. Adding a starting-caliber EDGE is critical via draft or remaining free agency."
+    },
+    {
+      "position": "IOL",
+      "previous_tier": 2,
+      "recommended_tier": 4,
+      "reasoning": "Sean Rhyan re-signed on a 3yr/$33M deal as the starting center. Aaron Banks is locked in at LG after his restructure. Anthony Belton is the starting RG. The interior OL is now fully settled with Jordan Morgan, Banks, Rhyan, Belton, and Zach Tom penciled in. Elgton Jenkins' release was the final domino. IOL drops from a need to a non-issue."
+    },
+    {
+      "position": "LB",
+      "previous_tier": 2,
+      "recommended_tier": 3,
+      "reasoning": "The trade for Zaire Franklin directly replaced Quay Walker, who signed with the Raiders. Green Bay now has Franklin, Edgerrin Cooper, Isaiah McDuffie, Ty'Ron Hopper, and Nick Niemann. The starter hole is filled short-term. However, Franklin's poor 2025 season (PFF's 2nd-worst LB grade) and his lack of guaranteed money mean the Packers should still target LB depth or a developmental prospect in mid rounds of the draft. Need reduced, not eliminated."
+    },
+    {
+      "position": "QB",
+      "previous_tier": 4,
+      "recommended_tier": 2,
+      "reasoning": "Malik Willis departing for Miami on a $22.5M AAV deal leaves Jordan Love with no proven backup. This is a newly created need. Green Bay must add a capable backup QB \u2014 whether a veteran bridge or a developmental arm \u2014 before the season. Worth addressing in the mid-rounds of the draft or via a veteran free agent signing."
+    },
+    {
+      "position": "OT",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Rasheed Walker (unsigned as of 3/10) departing creates a starting LT need, but it is partially offset by Jordan Morgan stepping into the role full-time. Morgan showed improvement in 2025 at RT, and Zach Tom is the starting RT. Kinnard provides depth. The need is real but not catastrophic given Morgan's development. Should target OT depth in the mid-to-late rounds of the draft. Tier stays at 2 pending Morgan's readiness."
+    },
+    {
+      "position": "CB",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "No CB was added or lost in this FA window. The trio of Keisean Nixon, Carrington Valentine, and Nate Hobbs struggled for consistency in 2025, particularly once they lacked a dominant pass rusher. The need is unchanged and remains a priority, likely in the draft."
+    },
+    {
+      "position": "WR",
+      "previous_tier": 3,
+      "recommended_tier": 2,
+      "reasoning": "Romeo Doubs' departure is a real loss \u2014 he led the team in receiving and was Love's most trusted target. While Matthew Golden (2025 1st-round pick) and Christian Watson (re-signed on extension) provide depth and upside, the team lost its most reliable, experienced option. WR depth is thinner than before and a mid-round addition would be valuable."
+    }
+  ],
+  "team_page_additions": {
+    "key_additions": [
+      {
+        "player": "Zaire Franklin",
+        "position": "LB",
+        "contract_summary": "2yr remaining on existing deal (~$7M cap in 2026, no guaranteed money)",
+        "previous_team": "Indianapolis Colts",
+        "acquisition_type": "trade (for DT Colby Wooden)",
+        "headline": "2024 Pro Bowl run-stopper replaces departing Quay Walker as Green Bay's starting Mike LB"
+      },
+      {
+        "player": "Sean Rhyan",
+        "position": "IOL",
+        "contract_summary": "3yr/$33M ($11M guaranteed, max $39M)",
+        "previous_team": "Green Bay Packers (re-signing)",
+        "acquisition_type": "re-signing",
+        "headline": "25-year-old center locks up the pivot spot long-term, triggering Elgton Jenkins' release and stabilizing the IOL"
+      },
+      {
+        "player": "Darian Kinnard",
+        "position": "OT",
+        "contract_summary": "1yr/up to $3.75M",
+        "previous_team": "Green Bay Packers (re-signing from RFA)",
+        "acquisition_type": "re-signing",
+        "headline": "Versatile swing tackle returns as OL depth insurance behind Morgan and Tom"
+      },
+      {
+        "player": "Chris Brooks",
+        "position": "RB",
+        "contract_summary": "2yr/$4.8M",
+        "previous_team": "Green Bay Packers (re-signing from RFA)",
+        "acquisition_type": "re-signing",
+        "headline": "Pass-blocking RB and special teams ace retained as Jacobs' primary backup"
+      },
+      {
+        "player": "Nick Niemann",
+        "position": "LB",
+        "contract_summary": "1yr/$2.5M",
+        "previous_team": "Green Bay Packers (re-signing)",
+        "acquisition_type": "re-signing",
+        "headline": "Special teams captain brought back for depth and ST value after pectoral injury cut 2025 short"
+      }
+    ],
+    "key_losses": [
+      {
+        "player": "Malik Willis",
+        "position": "QB",
+        "contract_summary": "3yr/$67.5M ($45M gtd) with Miami",
+        "new_team": "Miami Dolphins",
+        "headline": "Emergency starter QB departs for starting job in Miami; Packers lose proven backup and are projected to net a 2027 3rd-round compensatory pick"
+      },
+      {
+        "player": "Rasheed Walker",
+        "position": "OT",
+        "contract_summary": "TBD (still unsigned as of 3/10)",
+        "new_team": "TBD",
+        "headline": "Starting LT departs after 3 years; Jordan Morgan expected to step into the role full-time"
+      },
+      {
+        "player": "Romeo Doubs",
+        "position": "WR",
+        "contract_summary": "TBD (unsigned as of 3/10)",
+        "new_team": "TBD",
+        "headline": "Team-leading receiver (55 rec, 724 yds, 6 TD in 2025) departs after talks broke down; Matthew Golden and Watson inherit roles"
+      },
+      {
+        "player": "Quay Walker",
+        "position": "LB",
+        "contract_summary": "3yr/$40.5M ($28M gtd) with Las Vegas",
+        "new_team": "Las Vegas Raiders",
+        "headline": "First-round LB cashes in with Raiders; Zaire Franklin trade was Packers' preemptive replacement"
+      },
+      {
+        "player": "Kingsley Enagbare",
+        "position": "EDGE",
+        "contract_summary": "1yr/$10M with NY Jets",
+        "new_team": "New York Jets",
+        "headline": "Starting-caliber EDGE rusher departs, leaving Parsons and Van Ness as only proven options on the edge"
+      },
+      {
+        "player": "Rashan Gary",
+        "position": "EDGE",
+        "contract_summary": "Traded to Dallas Cowboys for 2027 4th-round pick",
+        "new_team": "Dallas Cowboys",
+        "headline": "Declined pass rusher dealt for draft capital, saving ~$11M; reunites with former Packer Kenny Clark in Dallas"
+      },
+      {
+        "player": "Elgton Jenkins",
+        "position": "IOL",
+        "contract_summary": "Released (2x Pro Bowl C/G, $19.53M cap savings)",
+        "new_team": "Released/Free Agent",
+        "headline": "2x Pro Bowl lineman released after Rhyan re-signing locked up center; saves $19.53M in cap space"
+      },
+      {
+        "player": "Colby Wooden",
+        "position": "IDL",
+        "contract_summary": "Traded to Indianapolis Colts for LB Zaire Franklin",
+        "new_team": "Indianapolis Colts",
+        "headline": "Starting NT traded to Colts in player swap, creating the Packers' most urgent defensive need heading into the draft"
+      }
+    ]
+  },
+  "confidence": "high",
+  "notes": [
+    "Rasheed Walker and Romeo Doubs remain unsigned as of 2026-03-10 (Day 2 of legal tampering). Their new team and contracts are not yet confirmed.",
+    "The new league year officially opens March 11, 2026. Most deals reported here are agreed-to during the legal tampering period and will become official March 11.",
+    "Zaire Franklin's contract has zero guaranteed money remaining; the Packers can exit after 2026 with minimal dead cap.",
+    "Sean Rhyan's deal is functionally a 1-year commitment from the team's perspective, with team-friendly outs in years 2 and 3 per Acme Packing Company's detailed analysis.",
+    "Dead money note: Rashan Gary leaves $17.942M in dead money for 2026 after the trade to Dallas.",
+    "Green Bay does NOT have a first-round pick in the 2026 draft (traded to Dallas in the Micah Parsons deal).",
+    "2026 salary cap is $301.2M. Post-FA cap space estimate of ~$9M is per SI/OTC reports from March 9; includes Kinnard re-signing."
+  ],
+  "sources": [
+    "https://www.acmepackingcompany.com/green-bay-packers-free-agency/80277/packers-2026-free-agency-tracker-signings-news-rumors-more",
+    "https://lombardiave.com/green-bay-packers-free-agency-tracker-hub",
+    "https://www.spotrac.com/nfl/player/_/id/76968/sean-rhyan",
+    "https://www.espn.com/nfl/story/_/id/48135029/sources-packers-acquire-colts-veteran-lb-zaire-franklin",
+    "https://www.ironmountaindailynews.com/sports/local-sports/2026/03/packers-extend-rhyans-contract-and-trade-for-lb/",
+    "https://www.espn.com/nfl/story/_/id/48089099/green-bay-packers-2026-free-agency-tracker-offseason-moves-signings-contract",
+    "https://sports.yahoo.com/articles/green-bay-packers-2026-free-143652504.html",
+    "https://www.cbssports.com/nfl/news/nfl-free-agency-live-updates-march-9-2026/live/",
+    "https://www.si.com/nfl/packers/onsi/packers-take-machete-to-salary-cap-at-start-of-free-agency",
+    "https://www.packersnews.com/story/sports/nfl/packers/2026/03/07/packers-trade-colby-wooden-for-linebacker-zaire-franklin/89040618007/",
+    "https://www.acmepackingcompany.com/green-bay-packers-news/80363/packers-bring-back-top-restricted-free-agent-for-2026",
+    "https://atozsports.com/nfl/green-bay-packers-news/packers-free-agency-tracker-follow-every-green-bay-move/",
+    "https://www.acmepackingcompany.com/green-bay-packers-free-agency/80305/packers-free-agency-sean-rhyans-contract-extension-details",
+    "https://eu.packersnews.com/story/sports/nfl/packers/2026/03/04/packers-can-create-salary-cap-space-to-sign-free-agents-but-will-they/88966562007/"
+  ]
+}

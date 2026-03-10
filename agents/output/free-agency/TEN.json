@@ -1,0 +1,484 @@
+{
+  "team": "TEN",
+  "team_full": "Tennessee Titans",
+  "updated_through": "2026-03-10",
+  "cap_space_pre_fa": "$92000000",
+  "cap_space_post_fa": "$22000000",
+  "key_departures": [
+    {
+      "player": "Lloyd Cushenberry",
+      "position": "IOL",
+      "age": 28,
+      "role": "starter",
+      "new_team": "unsigned/TBD",
+      "impact": "Released with failed physical designation in late February. Was the starting center on a 4yr/$50M deal signed in 2024. Left a critical void at center heading into free agency.",
+      "need_impact": "escalates",
+      "need_position": "IOL"
+    },
+    {
+      "player": "Xavier Woods",
+      "position": "S",
+      "age": 30,
+      "role": "starter",
+      "new_team": "unsigned/TBD",
+      "impact": "Released in late February alongside Cushenberry. Started 10 of 11 games in 2025 before going to IR with a hamstring injury. Created a hole at starting safety.",
+      "need_impact": "escalates",
+      "need_position": "S"
+    },
+    {
+      "player": "T'Vondre Sweat",
+      "position": "IDL",
+      "age": 24,
+      "role": "rotational",
+      "new_team": "New York Jets",
+      "impact": "Traded to Jets in exchange for EDGE Jermaine Johnson (player-for-player swap). Sweat was a 2024 second-round pick and PFF's fifth-rated IDL in 2025 (83.4 grade). The Titans traded away two years of cost-controlled interior DL for one year of pass rush at EDGE.",
+      "need_impact": "escalates",
+      "need_position": "IDL"
+    },
+    {
+      "player": "Arden Key",
+      "position": "EDGE",
+      "age": 29,
+      "role": "starter",
+      "new_team": "Indianapolis Colts",
+      "impact": "Signed a 2yr/$20M deal with division-rival Colts. Was the team's primary edge rusher in 2025 with 4 sacks. His departure further deepened the pre-existing critical EDGE need.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Chig Okonkwo",
+      "position": "TE",
+      "age": 25,
+      "role": "starter",
+      "new_team": "unsigned/TBD",
+      "impact": "UFA who departed as Titans pivoted to signing Daniel Bellinger. Okonkwo was the primary pass-catching TE and the team's most explosive tight end. Loss is partially offset by Bellinger signing but Bellinger is a lesser receiver.",
+      "need_impact": "creates",
+      "need_position": "TE"
+    },
+    {
+      "player": "L'Jarius Sneed",
+      "position": "CB",
+      "age": 29,
+      "role": "starter",
+      "new_team": "unsigned/TBD",
+      "impact": "Imminent release as of March 10 \u2014 not yet formally confirmed. Has played only 12 games in two Titans seasons due to quad and knee injuries. Release saves ~$13.4M in cap space. Was previously the nominal CB1 but was ineffective and injury-prone. The mass CB signings (Taylor, Flott, J. Williams) are partly in anticipation of this cut.",
+      "need_impact": "none",
+      "need_position": "CB"
+    },
+    {
+      "player": "Kevin Zeitler",
+      "position": "IOL",
+      "age": 36,
+      "role": "starter",
+      "new_team": "unsigned/TBD",
+      "impact": "UFA veteran guard who started in 2025. Departure further opens the interior OL need alongside the Cushenberry cut.",
+      "need_impact": "escalates",
+      "need_position": "IOL"
+    },
+    {
+      "player": "Dre'Mont Jones",
+      "position": "IDL",
+      "age": 28,
+      "role": "rotational",
+      "new_team": "New England Patriots",
+      "impact": "Was traded mid-season 2025; signed a 3yr/$39M deal with Patriots in free agency. Rotational IDL loss compounds the void left by Sweat trade.",
+      "need_impact": "escalates",
+      "need_position": "IDL"
+    }
+  ],
+  "signings": [
+    {
+      "player": "Jermaine Johnson",
+      "position": "EDGE",
+      "age": 27,
+      "previous_team": "New York Jets (trade)",
+      "contract": {
+        "years": 1,
+        "total_value": 13410000,
+        "guaranteed": 13410000,
+        "aav": 13410000
+      },
+      "expected_role": "starter",
+      "market_tier": "depth",
+      "need_impact": "partially_addressed",
+      "need_position": "EDGE",
+      "analysis": "Acquired via player-for-player trade (Sweat for Johnson). Johnson reunites with HC Robert Saleh who originally drafted him 26th overall in 2022. He earned a Pro Bowl in 2023 (7.5 sacks) but tore his Achilles in 2024 and managed only 3 sacks in 14 games in 2025. Playing on his fully guaranteed fifth-year option ($13.41M), this is a one-year prove-it situation. His upside is real if the Achilles is fully healed under Saleh, but his production numbers are depressed enough and the contract length short enough that EDGE remains a significant need. A developmental reclamation project \u2014 partially addresses EDGE but does not resolve it."
+    },
+    {
+      "player": "John Franklin-Myers",
+      "position": "IDL",
+      "age": 29,
+      "previous_team": "Denver Broncos",
+      "contract": {
+        "years": 3,
+        "total_value": 63000000,
+        "guaranteed": 42000000,
+        "aav": 21000000
+      },
+      "expected_role": "starter",
+      "market_tier": "elite",
+      "need_impact": "fully_addressed",
+      "need_position": "IDL",
+      "analysis": "Top-of-market signing at IDL (21M AAV) with 3 years and $42M guaranteed \u2014 a genuine long-term investment. Franklin-Myers had 7.5 sacks in 2025 and 7 in 2024, helping the Broncos set franchise sack records in consecutive seasons. He reunites with Saleh and Titans DL coach Aaron Whitecotton from their Jets days. Pairs with All-Pro Jeffery Simmons to form a potentially elite interior tandem. The Sweat departure created an IDL void that is now more than filled at a higher production ceiling. IDL need is fully addressed \u2014 Simmons + Franklin-Myers is a top-5 interior duo."
+    },
+    {
+      "player": "Wan'Dale Robinson",
+      "position": "WR",
+      "age": 25,
+      "previous_team": "New York Giants",
+      "contract": {
+        "years": 4,
+        "total_value": 78000000,
+        "guaranteed": 38000000,
+        "aav": 19500000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "partially_addressed",
+      "need_position": "WR",
+      "analysis": "4-year deal with $38M guaranteed at age 25 \u2014 a real long-term commitment to the slot WR1 role. Robinson posted 92 catches for 1,014 yards in 2025 in a contract year with the Giants, leading all WRs with 622 slot yards. He reunites with OC Brian Daboll whose system he thrived in. At $19.5M AAV, this is at the lower end of starter-tier WR money, which is appropriate for a 5-8 slot specialist. The 4-year commitment signals genuine investment, not a bridge signing. However, the team still has Calvin Ridley (contract status TBD, coming off broken leg) on the books and lacks a true WR2 on an outside alignment. WR is partially addressed \u2014 Robinson solidifies the slot but the team still needs a boundary WR opposite Ridley."
+    },
+    {
+      "player": "Alontae Taylor",
+      "position": "CB",
+      "age": 26,
+      "previous_team": "New Orleans Saints",
+      "contract": {
+        "years": 3,
+        "total_value": 60000000,
+        "guaranteed": 42000000,
+        "aav": 20000000
+      },
+      "expected_role": "starter",
+      "market_tier": "elite",
+      "need_impact": "fully_addressed",
+      "need_position": "CB",
+      "analysis": "Top-of-market CB deal at $20M AAV with $42M guaranteed over 3 years. Taylor is a Tennessee native who played at UT, adding a homecoming narrative. He started 53 games for the Saints with 4 INTs and fits Saleh's aggressive press-man scheme perfectly. At 26 on a 3-year deal, this is a legitimate CB1 investment. Combined with Flott at CB2, the Titans have dramatically rebuilt their cornerback room from a critical pre-FA need to a position of relative strength. CB is fully addressed as a starting need."
+    },
+    {
+      "player": "Cor'Dale Flott",
+      "position": "CB",
+      "age": 24,
+      "previous_team": "New York Giants",
+      "contract": {
+        "years": 3,
+        "total_value": 45000000,
+        "guaranteed": 32000000,
+        "aav": 15000000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "fully_addressed",
+      "need_position": "CB",
+      "analysis": "Starter-tier deal at $15M AAV with $32M fully guaranteed. Flott started 14 games for the Giants in 2025 with a career-high 11 pass deflections and 1 INT. At 24 years old on a 3-year deal, this is a long-term solution at CB2. He excels outside but can also play the slot, giving Saleh's defense flexibility. Flott was reportedly set to re-sign with the Giants before Saleh personally called him to flip his decision. Along with Taylor, this locks in two legitimate starting cornerbacks on multi-year deals. CB need is fully addressed."
+    },
+    {
+      "player": "Joshua Williams",
+      "position": "CB",
+      "age": 24,
+      "previous_team": "Kansas City Chiefs",
+      "contract": {
+        "years": 2,
+        "total_value": 8000000,
+        "guaranteed": 4000000,
+        "aav": 4000000
+      },
+      "expected_role": "depth",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "CB",
+      "analysis": "Depth/rotational CB addition on a modest 2-year deal. Williams was primarily a special teamer for the Chiefs in 2025 (15 appearances, 6 tackles). His 51.6% completion rate allowed since 2023 is an encouraging coverage metric despite limited sample. GM Mike Borgonzi drafted Williams in Kansas City, adding familiarity. A depth signing that rounds out the revamped CB room but doesn't move the needle on a need. CB need already addressed by Taylor and Flott."
+    },
+    {
+      "player": "Daniel Bellinger",
+      "position": "TE",
+      "age": 25,
+      "previous_team": "New York Giants",
+      "contract": {
+        "years": 3,
+        "total_value": 24000000,
+        "guaranteed": 14010000,
+        "aav": 8000000
+      },
+      "expected_role": "rotational",
+      "market_tier": "starter",
+      "need_impact": "partially_addressed",
+      "need_position": "TE",
+      "analysis": "Three-year, $24M deal at $8M AAV \u2014 on the high side for a blocking TE with limited receiving production (never exceeded 286 yards in a season). Reunites with OC Daboll who drafted him in the 4th round in 2022. Bellinger is a significantly better blocker and pass protector than departed Chig Okonkwo, which matters for protecting Cam Ward. He slots in as TE2 behind Gunnar Helm, who is expected to handle the primary receiving role. The signing replaces Okonkwo's blocking void but not his receiving production. The 3-year commitment signals genuine investment in the role. TE partially addressed \u2014 blocking TE need resolved, but the position could still use receiving depth behind Helm, who is unproven as a full-time starter."
+    },
+    {
+      "player": "Mitchell Trubisky",
+      "position": "QB",
+      "age": 31,
+      "previous_team": "Buffalo Bills",
+      "contract": {
+        "years": 2,
+        "total_value": 8000000,
+        "guaranteed": 4000000,
+        "aav": 4000000
+      },
+      "expected_role": "depth",
+      "market_tier": "depth",
+      "need_impact": "fully_addressed",
+      "need_position": "QB",
+      "analysis": "Veteran backup QB signed on a 2-year deal to mentor Cam Ward. Trubisky reunites with OC Brian Daboll, who was his OC in Buffalo in 2021. Coming off two seasons as Josh Allen's backup in Buffalo (72.1% completion rate in spot duty), he provides an experienced, system-familiar option behind Ward. The 2-year deal provides continuity. This effectively ends Will Levis's time as the Titans' backup. The Titans' QB need was purely for a backup/mentor \u2014 that need is fully addressed."
+    },
+    {
+      "player": "Austin Schlottman",
+      "position": "IOL",
+      "age": 30,
+      "previous_team": "New York Giants",
+      "contract": {
+        "years": 1,
+        "total_value": 3500000,
+        "guaranteed": 2000000,
+        "aav": 3500000
+      },
+      "expected_role": "starter",
+      "market_tier": "depth",
+      "need_impact": "partially_addressed",
+      "need_position": "IOL",
+      "analysis": "One-year deal for a veteran center Daboll knows from the Giants. Schlottman was PFF's 10th-ranked center out of 40 qualifiers in 2025 despite only four starts, allowing just 3 pressures and zero sacks. He projects as the 2026 starting center but faces competition from second-year Jackson Slater. The one-year structure is the critical signal here \u2014 this is a bridge signing, not a long-term solution at center. IOL need is partially addressed: starting center spot is filled for 2026, but the absence of a long-term commitment means this position remains a legitimate draft target, especially given the team's pre-FA IOL depth concerns. Guard is still largely unaddressed on the left side."
+    },
+    {
+      "player": "Cordell Volson",
+      "position": "IOL",
+      "age": 27,
+      "previous_team": "Cincinnati Bengals",
+      "contract": {
+        "years": 1,
+        "total_value": 4215000,
+        "guaranteed": 2500000,
+        "aav": 4215000
+      },
+      "expected_role": "starter",
+      "market_tier": "depth",
+      "need_impact": "partially_addressed",
+      "need_position": "IOL",
+      "analysis": "One-year, up-to-$4.215M deal for a guard who missed the entire 2025 season with right shoulder surgery. Volson started 15 games for the Bengals in 2024 and projects as a potential starter at right guard if healthy. However, the 1-year structure and injury history make this a low-confidence solution. Volson and Schlottman together address IOL with bridge options, but neither deal signals long-term commitment at any interior line spot. IOL remains a legitimate need for the draft."
+    },
+    {
+      "player": "Morgan Cox",
+      "position": "LS",
+      "age": 39,
+      "previous_team": "Tennessee Titans (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 1500000,
+        "guaranteed": 1000000,
+        "aav": 1500000
+      },
+      "expected_role": "starter",
+      "market_tier": "depth",
+      "need_impact": "fully_addressed",
+      "need_position": "LS",
+      "analysis": "Re-signed veteran long snapper and five-time Pro Bowler. One of the best at his position over a 16-year career. Continuity at LS is maintained. Specialist need resolved."
+    }
+  ],
+  "needs_impact_summary": {
+    "fully_addressed": [
+      "CB",
+      "IDL",
+      "QB"
+    ],
+    "partially_addressed": [
+      "EDGE",
+      "WR",
+      "TE",
+      "IOL"
+    ],
+    "minimally_addressed": [],
+    "unchanged": [
+      "OT",
+      "LB",
+      "RB"
+    ],
+    "escalated": [
+      "S"
+    ]
+  },
+  "recommended_need_adjustments": [
+    {
+      "position": "CB",
+      "previous_tier": 1,
+      "recommended_tier": 4,
+      "reasoning": "Titans signed three cornerbacks on Day 1: Alontae Taylor (3yr/$60M, $42M gtd \u2014 CB1), Cor'Dale Flott (3yr/$45M, $32M fully gtd \u2014 CB2), and Joshua Williams (2yr depth). Taylor and Flott are both on multi-year deals with significant guarantees at ages 26 and 24 respectively. The CB room went from catastrophically thin to one of the more invested rooms in the AFC. CB is no longer a draft-day need \u2014 draft only if exceptional value falls to picks 4+ or later."
+    },
+    {
+      "position": "IDL",
+      "previous_tier": 2,
+      "recommended_tier": 4,
+      "reasoning": "John Franklin-Myers signing (3yr/$63M, $42M gtd, $21M AAV) fully addresses the IDL void created by trading Sweat and losing Dre'Mont Jones. Simmons + Franklin-Myers is a top-tier interior tandem. IDL drops from a need to a luxury pick. Team can add developmental depth late in the draft but should not spend premium capital here."
+    },
+    {
+      "position": "EDGE",
+      "previous_tier": 1,
+      "recommended_tier": 2,
+      "reasoning": "Jermaine Johnson acquisition (trade) partially addresses EDGE, but his 1-year contract, post-Achilles injury concerns, and only 3 sacks in 2025 make this a bridge not a solution. Arden Key departing to the Colts left a real hole. Johnson's ceiling is real if he rebounds, but the team cannot rely on one prove-it player at EDGE. Should remain a high-priority target at No. 4 overall or via trade \u2014 this is still a Tier 2 need heading into the draft."
+    },
+    {
+      "position": "WR",
+      "previous_tier": 1,
+      "recommended_tier": 2,
+      "reasoning": "Wan'Dale Robinson (4yr/$78M, $38M gtd) is a genuine long-term slot WR1 investment. He fills a critical role and his contract signals the team views him as a foundational piece. However, the Titans still lack a proven outside/boundary WR2 opposite the slot \u2014 Calvin Ridley's 2026 status is uncertain (broken leg, high cap number). The team addressed the slot but not the boundary WR need. WR drops one tier but remains a real draft or future-FA priority."
+    },
+    {
+      "position": "IOL",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Two 1-year bridge signings (Schlottman at C, Volson at G) address the 2026 roster minimally but signal no long-term investment. Schlottman figures to start at center on a one-year deal after Cushenberry's failed-physical release; Volson is coming off a missed 2025 season with shoulder surgery. Neither signing resolves the long-term IOL picture. IOL remains a Tier 2 draft need \u2014 the team should target a center or guard in rounds 2-4 to build a legitimate long-term interior unit around Cam Ward."
+    },
+    {
+      "position": "S",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "The release of Xavier Woods and the imminent release of L'Jarius Sneed (who occasionally played nickel/hybrid) leaves safety thin. The Titans did not add a meaningful safety in free agency. Kevin Winston Jr. is the projected starter but is unproven in a full-time role. Safety escalates to a real need \u2014 should target a starter-quality safety in mid-rounds or via free agency."
+    },
+    {
+      "position": "TE",
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "Chig Okonkwo's departure to free agency and Daniel Bellinger's arrival represents a lateral move at best \u2014 Bellinger is a better blocker but a lesser receiver. Gunnar Helm must step up as TE1. Bellinger's 3-year deal at $8M AAV adds some contractual stability but not receiving upside. TE stays at Tier 3 \u2014 needs a receiving complement to Helm in the mid-rounds of the draft."
+    },
+    {
+      "position": "QB",
+      "previous_tier": 3,
+      "recommended_tier": 5,
+      "reasoning": "Mitchell Trubisky (2yr) provides an experienced, system-familiar backup behind Cam Ward. QB depth need is resolved. No draft capital needed at QB."
+    }
+  ],
+  "team_page_additions": {
+    "key_additions": [
+      {
+        "player": "Alontae Taylor",
+        "position": "CB",
+        "contract_summary": "3yr/$60M ($42M gtd)",
+        "previous_team": "New Orleans Saints",
+        "headline": "Tennessee native returns home as new CB1 on a top-of-market deal, anchoring Saleh's press-man secondary"
+      },
+      {
+        "player": "John Franklin-Myers",
+        "position": "IDL",
+        "contract_summary": "3yr/$63M ($42M gtd)",
+        "previous_team": "Denver Broncos",
+        "headline": "Elite interior pass rusher (7.5 sacks in 2025) pairs with Jeffery Simmons to form a potential top-5 DL tandem"
+      },
+      {
+        "player": "Wan'Dale Robinson",
+        "position": "WR",
+        "contract_summary": "4yr/$78M ($38M gtd)",
+        "previous_team": "New York Giants",
+        "headline": "1,000-yard slot receiver reunites with OC Daboll to become Cam Ward's primary offensive weapon"
+      },
+      {
+        "player": "Cor'Dale Flott",
+        "position": "CB",
+        "contract_summary": "3yr/$45M ($32M fully gtd)",
+        "previous_team": "New York Giants",
+        "headline": "25-year-old CB2 locks in on a long-term deal after Saleh personally recruited him away from the Giants"
+      },
+      {
+        "player": "Jermaine Johnson",
+        "position": "EDGE",
+        "contract_summary": "1yr/$13.41M (fully gtd, 5th-year option) \u2014 via trade",
+        "previous_team": "New York Jets",
+        "headline": "Saleh's hand-picked edge rusher acquired in Sweat trade as a reclamation project in a contract year"
+      },
+      {
+        "player": "Daniel Bellinger",
+        "position": "TE",
+        "contract_summary": "3yr/$24M ($14.01M gtd)",
+        "previous_team": "New York Giants",
+        "headline": "Blocking-specialist TE reunites with OC Daboll to upgrade Cam Ward's protection and 12-personnel packages"
+      },
+      {
+        "player": "Mitchell Trubisky",
+        "position": "QB",
+        "contract_summary": "2yr (terms undisclosed)",
+        "previous_team": "Buffalo Bills",
+        "headline": "Experienced system-familiar backup reunites with Daboll to mentor Cam Ward behind center"
+      },
+      {
+        "player": "Austin Schlottman",
+        "position": "IOL",
+        "contract_summary": "1yr (terms undisclosed)",
+        "previous_team": "New York Giants",
+        "headline": "PFF's 10th-rated center in 2025 fills void left by Cushenberry's failed physical release on a bridge deal"
+      },
+      {
+        "player": "Cordell Volson",
+        "position": "IOL",
+        "contract_summary": "1yr/$4.215M ($2.5M gtd)",
+        "previous_team": "Cincinnati Bengals",
+        "headline": "Returning guard coming off missed 2025 season competes for starting RG role in low-risk, prove-it deal"
+      },
+      {
+        "player": "Joshua Williams",
+        "position": "CB",
+        "contract_summary": "2yr (terms undisclosed)",
+        "previous_team": "Kansas City Chiefs",
+        "headline": "GM Borgonzi's former Kansas City draft pick adds CB depth and Super Bowl experience to revamped secondary"
+      }
+    ],
+    "key_losses": [
+      {
+        "player": "T'Vondre Sweat",
+        "position": "IDL",
+        "contract_summary": "Traded to Jets (2 years remaining on rookie deal)",
+        "new_team": "New York Jets",
+        "headline": "PFF's 5th-ranked IDL traded for EDGE Jermaine Johnson in a player-for-player swap that prioritized pass rush over run defense"
+      },
+      {
+        "player": "Lloyd Cushenberry",
+        "position": "IOL",
+        "contract_summary": "Released (failed physical); 2 years remaining on 4yr/$50M deal",
+        "new_team": "TBD/unsigned",
+        "headline": "Starting center released with failed physical designation, forcing the Titans to scramble for a 2026 solution"
+      },
+      {
+        "player": "Arden Key",
+        "position": "EDGE",
+        "contract_summary": "2yr/$20M with Colts",
+        "new_team": "Indianapolis Colts",
+        "headline": "Team's primary pass rusher in 2025 signed with division-rival Colts, deepening an already critical EDGE need"
+      },
+      {
+        "player": "Chig Okonkwo",
+        "position": "TE",
+        "contract_summary": "UFA; Bellinger signing signals non-return",
+        "new_team": "TBD/unsigned",
+        "headline": "Most explosive pass-catching TE in team history departs as Titans pivot to blocking-first Bellinger"
+      },
+      {
+        "player": "Xavier Woods",
+        "position": "S",
+        "contract_summary": "Released; $4M saved",
+        "new_team": "TBD/unsigned",
+        "headline": "Starting safety cut in February housekeeping move, leaving Kevin Winston Jr. as the projected 2026 starter"
+      },
+      {
+        "player": "L'Jarius Sneed",
+        "position": "CB",
+        "contract_summary": "Imminent release; saves ~$13.4M cap; $8.1M dead money",
+        "new_team": "TBD/unsigned",
+        "headline": "Two-year bust ($76.4M deal) set for release after playing just 12 games across two injury-plagued seasons"
+      }
+    ]
+  },
+  "confidence": "high",
+  "sources": [
+    "https://www.espn.com/nfl/story/_/id/47978373/tennessee-titans-2026-free-agency-tracker-offseason-moves-signings",
+    "https://www.nfl.com/news/titans-signing-ex-giants-wr-wan-dale-robinson-to-four-year-78-million-deal",
+    "https://overthecap.com/player/daniel-bellinger/10157",
+    "https://www.cbssports.com/nfl/news/nfl-free-agency-live-updates-march-9-2026/live/",
+    "https://www.musiccitymiracles.com/tennessee-titans-free-agency/64538/titans-free-agency-news-and-rumors-tracker",
+    "https://www.profootballrumors.com/2026/03/titans-to-sign-cb-joshua-williams-re-sign-ls-morgan-cox",
+    "https://www.espn.com/nfl/story/_/id/48043185/sources-jets-trade-jermaine-johnson-titans-tvondre-sweat",
+    "https://sports.yahoo.com/articles/titans-release-lloyd-cushenberry-xavier-224634045.html",
+    "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/mitchell-trubisky-agrees-to-two-year-deal-with-titans",
+    "https://www.foxsports.com/articles/nfl/titans-unleash-big-free-agency-spending-spree-to-fuel-new-coach-robert-salehs-rebuild",
+    "https://overthecap.com/salary-cap/tennessee-titans",
+    "https://www.paulkuharsky.com/news/news-titans-roster-sneed-ridley-decisions",
+    "https://atozsports.com/nfl/tennessee-titans-news/grading-signings-evaluating-contracts-titans-free-agency-wandale-robinson-john-franklin-myers/"
+  ]
+}

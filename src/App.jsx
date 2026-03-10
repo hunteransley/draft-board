@@ -11,6 +11,7 @@ import { getCombineScores } from "./combineTraits.js";
 import PROSPECT_STATS_STRUCT from "./prospectStatsStructured.json";
 import HISTORICAL_STAT_DIST from "./historicalStatDist.json";
 import TEAM_NEEDS_RICH, { TEAM_NEEDS_SIMPLE, TEAM_NEEDS_COUNTS } from "./teamNeedsData.js";
+import TEAM_FREE_AGENCY from "./teamFreeAgencyData.js";
 import { DRAFT_ORDER, DRAFT_ORDER_R1, DRAFT_YEAR, ROUND_BOUNDS } from "./draftConfig.js";
 import { POSITION_TRAITS, TRAIT_EMOJI, TRAIT_ABBREV, TRAIT_SHORT, TRAIT_WEIGHTS, TRAIT_TEACHABILITY, POSITION_GROUPS, POS_EMOJI, POS_COLORS } from "./positions.js";
 import { NFL_TEAM_ABR, NFL_TEAM_ESPN, NFL_TEAM_COLORS } from "./teamConfig.js";
@@ -2290,6 +2291,22 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
             {richData.roster_context&&<div style={{fontFamily:sans,fontSize:11,color:"#737373",lineHeight:1.5,marginTop:12,padding:"10px 12px",background:"#fafafa",borderRadius:8,border:"1px solid #f0f0f0"}}>{richData.roster_context}</div>}
           </div>;})();
 
+          const faData=TEAM_FREE_AGENCY[trendsTeam];const faAdditions=faData?.key_additions||[];const faLosses=faData?.key_losses||[];const hasFa=faAdditions.length>0||faLosses.length>0;
+          const renderFaEntry=(entry,i,prefix)=>{const c=POS_COLORS[entry.position]||POS_COLORS[entry.position==="IDL"?"DL":entry.position]||"#525252";const fk=`fa-${prefix}-${trendsTeam}-${i}`;const isExp=expandedNeeds.has(fk);return<div key={fk} style={{padding:"7px 0",borderBottom:"1px solid #f5f5f5"}}>
+            <div style={{display:"flex",alignItems:"center",gap:8}}>
+              <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:c,background:`${c}11`,padding:"2px 6px",borderRadius:4,border:`1px solid ${c}22`}}>{entry.position}</span>
+              <span style={{fontFamily:sans,fontSize:12,fontWeight:700,color:"#171717"}}>{entry.player}</span>
+              <span style={{fontFamily:mono,fontSize:10,color:"#737373",marginLeft:"auto",flexShrink:0}}>{entry.contract_summary}</span>
+            </div>
+            <div style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",marginTop:2,marginLeft:52}}>{entry.previous_team||entry.new_team}</div>
+            {entry.headline&&<div onClick={()=>{const next=new Set(expandedNeeds);if(isExp)next.delete(fk);else next.add(fk);setExpandedNeeds(next);}} style={{fontFamily:sans,fontSize:11,color:"#525252",marginTop:3,marginLeft:52,cursor:"pointer",overflow:"hidden",textOverflow:isExp?"unset":"ellipsis",whiteSpace:isExp?"normal":"nowrap"}}>{entry.headline}</div>}
+          </div>;};
+          const faCard=hasFa&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:16}}>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>free agency</div>
+            {faAdditions.length>0&&<><div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#16a34a",textTransform:"uppercase",marginBottom:6,marginTop:4}}>key additions</div>{faAdditions.map((e,i)=>renderFaEntry(e,i,"add"))}</>}
+            {faLosses.length>0&&<><div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#dc2626",textTransform:"uppercase",marginBottom:6,marginTop:faAdditions.length>0?12:4}}>key departures</div>{faLosses.map((e,i)=>renderFaEntry(e,i,"loss"))}</>}
+          </div>;
+
           const depthCard=hasRoster&&(()=>{const groups=getSchemeDepthGroups(trendsTeam);const scheme=TEAM_SCHEME[trendsTeam];const schemeLabel=scheme?({34:"3-4",43:"4-3","425":"4-2-5 Nickel",w9:"Wide-9 4-2-5"}[scheme.def]||""):"";return<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px"}}>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
               <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>current roster</div>
@@ -2431,6 +2448,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide}){
 
           return<>
           {needsCard}
+          {faCard}
           {prospectMatchesCard}
           {/* Position Tendency + Depth Chart — side by side on desktop */}
           <div className="trends-grid" style={{display:"flex",gap:16,alignItems:"flex-start",marginBottom:16}}>

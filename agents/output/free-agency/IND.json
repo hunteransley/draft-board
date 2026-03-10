@@ -1,0 +1,390 @@
+{
+  "team": "IND",
+  "team_full": "Indianapolis Colts",
+  "updated_through": "2026-03-10",
+  "cap_space_pre_fa": "$33400000",
+  "cap_space_post_fa": "approximately_negative_tbd",
+  "notes": "Cap space pre-FA based on OTC projection of ~$33.4M before Jones/Pierce extensions. Colts were reportedly ~$4.72M over cap after applying transition tag on Jones. Pittman trade (+$24M relief) and Franklin trade (+$5.75M relief) created room to execute Pierce re-signing ($28.5M AAV cap impact) and Key signing ($10M AAV). Post-FA cap is extremely tight pending Jones final contract structure; figures TBD as league year not officially open until March 11.",
+  "key_departures": [
+    {
+      "player": "Michael Pittman Jr.",
+      "position": "WR",
+      "age": 28,
+      "role": "starter",
+      "new_team": "Pittsburgh Steelers",
+      "contract_with_new_team": "3yr/$59M",
+      "departure_type": "trade",
+      "trade_compensation": "Late-round pick swap (Colts received late pick)",
+      "impact": "Was the nominal WR1 entering 2025 but was surpassed by Pierce during the season. Carried a $29M cap hit in 2026. Trade freed $24M in cap space, which was essential to fund the Pierce re-signing. Alec Pierce now steps into the full-time WR1 role.",
+      "need_impact": "escalates",
+      "need_position": "WR"
+    },
+    {
+      "player": "Zaire Franklin",
+      "position": "LB",
+      "age": 29,
+      "role": "starter",
+      "new_team": "Green Bay Packers",
+      "departure_type": "trade",
+      "trade_compensation": "Received DT Colby Wooden (player-for-player swap, no picks)",
+      "impact": "Former Pro Bowl LB (led NFL with 173 tackles in 2024) who struggled in 2025 under new DC Lou Anarumo (PFF grade 38.4). Cleared ~$5.75M in cap space. Departure leaves a hole at off-ball LB, though the Colts deliberately moved on to get younger/faster. The return of Wooden provides interior DL depth but does not replace Franklin's role.",
+      "need_impact": "creates",
+      "need_position": "LB"
+    },
+    {
+      "player": "Kwity Paye",
+      "position": "EDGE",
+      "age": 27,
+      "role": "starter",
+      "new_team": "Las Vegas Raiders",
+      "contract_with_new_team": "3yr/$48M ($32M guaranteed)",
+      "departure_type": "UFA",
+      "impact": "First-round pick (21st overall, 2021) who never fully developed into the pass rusher the Colts envisioned. Posted only 4 sacks in 2025, tying a career low. Had 30.5 career sacks across 5 seasons. Departure is expected and accelerates the Colts' front-seven rebuild, but leaves a starter-sized hole at EDGE opposite Laiatu Latu.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Neville Gallimore",
+      "position": "IDL",
+      "age": 29,
+      "role": "rotational_starter",
+      "new_team": "Chicago Bears",
+      "departure_type": "UFA",
+      "impact": "Signed by Colts as a one-year FA in 2025. Posted a career-high 3.5 sacks in 17 games (8 starts). Solid rotational piece lost; depth but not a primary starter.",
+      "need_impact": "escalates",
+      "need_position": "IDL"
+    },
+    {
+      "player": "Nick Cross",
+      "position": "S",
+      "age": 24,
+      "role": "starter",
+      "new_team": "TBD/unsigned_as_of_2026-03-10",
+      "departure_type": "UFA",
+      "impact": "Still unsigned as of March 10 (Day 1 of legal tampering). CBS Sports Top 100 lists him at No. 6 still available. Colts GM Ballard acknowledged he may not be able to meet Cross's financial demands. His departure would leave a hole at safety next to Cam Bynum. Spotrac projects a 4yr/$24.26M deal for Cross. Given cap constraints post-Pierce signing, the Colts are widely expected to lose him.",
+      "need_impact": "escalates",
+      "need_position": "S"
+    },
+    {
+      "player": "Braden Smith",
+      "position": "OT",
+      "age": 29,
+      "role": "starter",
+      "new_team": "TBD/unsigned_as_of_2026-03-10",
+      "departure_type": "UFA",
+      "impact": "Eight-year Colts RT who played on a restructured 1yr/$8M deal in 2025. Missed 16 games over the last 3 seasons including final 5 games of 2025 (neck injury/concussion). 2025 was the end of his contract. Market unclear; Colts have 4th-round pick Jalen Travis as internal RT option. Departure would create OT need.",
+      "need_impact": "creates",
+      "need_position": "OT"
+    },
+    {
+      "player": "Samson Ebukam",
+      "position": "EDGE",
+      "age": 30,
+      "role": "rotational",
+      "new_team": "TBD/unsigned_as_of_2026-03-10",
+      "departure_type": "UFA",
+      "impact": "Veteran edge rusher who got hurt in 2025. PFF ranked 100th among FAs; Spotrac values at ~$2.9M AAV. Depth loss, not a featured starter.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Tyquan Lewis",
+      "position": "EDGE",
+      "age": 28,
+      "role": "rotational",
+      "new_team": "TBD/unsigned_as_of_2026-03-10",
+      "departure_type": "UFA",
+      "impact": "Veteran depth edge rusher on expiring 2yr deal. PFF ranked 241st among FAs; Spotrac values at ~$2.8M AAV. Depth loss.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    }
+  ],
+  "signings": [
+    {
+      "player": "Alec Pierce",
+      "position": "WR",
+      "age": 25,
+      "previous_team": "Indianapolis Colts (re-sign)",
+      "contract": {
+        "years": 4,
+        "total_value": 116000000,
+        "guaranteed": 84000000,
+        "fully_guaranteed_at_signing": 60000000,
+        "aav": 29000000
+      },
+      "contract_confidence": "high",
+      "source": "NFL.com (Ian Rapoport/Tom Pelissero), Colts.com official tracker",
+      "expected_role": "WR1/starter",
+      "market_tier": "elite",
+      "need_impact": "fully_addressed",
+      "need_position": "WR",
+      "analysis": "Historic deal \u2014 largest WR contract in Colts franchise history. Pierce led the NFL in yards-per-catch (21.3) for the second consecutive year and surpassed 1,000 receiving yards for the first time in 2025. The $60M fully guaranteed at signing signals true WR1 investment. With Pittman traded away, Pierce becomes the unquestioned WR1 stepping into an expanded role. WR need is fully addressed at the top of the market. However, the Pittman departure means WR2/WR3 depth is now thinner \u2014 Josh Downs (slot) remains, but an external WR2 in the mold of a complementary outside receiver could still be a mid-round draft target."
+    },
+    {
+      "player": "Daniel Jones",
+      "position": "QB",
+      "age": 28,
+      "previous_team": "Indianapolis Colts (transition tag)",
+      "contract": {
+        "years": 1,
+        "total_value": 37800000,
+        "guaranteed": 37800000,
+        "aav": 37800000
+      },
+      "contract_confidence": "high",
+      "source": "NFL.com, Heavy.com, CBS Sports \u2014 transition tag confirmed",
+      "contract_notes": "Transition tag only. Jones rejected the Colts' initial multi-year offer (~3yr/$100.5M comparable to Sam Darnold deal). Jones is seeking ~$50M/yr. Sides remain $15M/yr apart as of March 10. Jones cannot negotiate with other teams until the league year opens March 11. Multi-year deal not yet signed.",
+      "expected_role": "starter_if_retained",
+      "market_tier": "starter",
+      "need_impact": "partially_addressed",
+      "need_position": "QB",
+      "analysis": "The transition tag secures Jones for 2026 at $37.8M fully guaranteed, preserving the Colts' right to match any offer he receives from another team. Jones was excellent in the first half of 2025 (7-2 record, 19 TDs, 8 INTs, 3,000+ passing yards) before suffering a season-ending torn Achilles/fractured fibula in December. The gap in long-term negotiations is significant. This is a bridge/holding move, not a resolution. QB remains a tier-1 need for long-term planning \u2014 if Jones signs long-term, need drops considerably; if he leaves or the tag becomes a one-year situation, need escalates back to critical. Anthony Richardson has been given permission to seek a trade. QB situation is unresolved beyond 2026."
+    },
+    {
+      "player": "Arden Key",
+      "position": "EDGE",
+      "age": 29,
+      "previous_team": "Tennessee Titans",
+      "contract": {
+        "years": 2,
+        "total_value": 20000000,
+        "guaranteed": 11000000,
+        "aav": 10000000,
+        "max_value": 20000000,
+        "guaranteed_base": 11000000
+      },
+      "contract_notes": "Up to $20M includes incentives; base guaranteed is $11M. Effective AAV on guaranteed money is ~$5.5M/yr.",
+      "contract_confidence": "high",
+      "source": "Ian Rapoport/Jordan Schultz, confirmed by Yardbarker, Stampede Blue, Pro Football Rumors",
+      "expected_role": "rotational",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "EDGE",
+      "analysis": "Key is the Colts' first external free agent signing of the cycle. He's a veteran with 30.5 career sacks (16.5 over 3 years in Tennessee) and a solid run defender (PFF run defense grade 71.1 in 2025). However, this is explicitly NOT a starter acquisition \u2014 ESPN, SI, and Yardbarker all characterize him as a rotational piece. His PFF overall grade in 2025 was 63.7 (70th among 115 qualifying edge defenders). With Paye, Ebukam, and Lewis all likely gone, Key alone does not fill the void. He pairs with 2024 first-rounder Laiatu Latu (8.5 sacks in 2025) and 2025 second-rounder JT Tuimoloau. EDGE remains a top-2 need for the draft despite Key's signing."
+    },
+    {
+      "player": "Colby Wooden",
+      "position": "IDL",
+      "age": 25,
+      "previous_team": "Green Bay Packers",
+      "contract": {
+        "years": 1,
+        "total_value": 1145000,
+        "guaranteed": 1145000,
+        "aav": 1145000
+      },
+      "contract_notes": "Wooden is in the final year of his rookie contract. Base salary $1.145M plus per-game active roster bonus up to $765K for ~$1.91M total. Contract acquired via trade; Colts absorbed remaining year.",
+      "contract_confidence": "high",
+      "source": "Pro Football Rumors, ESPN, NFL.com (Ian Rapoport/Tom Pelissero)",
+      "trade_details": "Acquired from Green Bay Packers for LB Zaire Franklin (player-for-player swap, no picks)",
+      "expected_role": "rotational_starter",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "IDL",
+      "analysis": "Wooden, 25, started 16 games for the Packers in 2025 and had a career year (50 tackles, 6 TFLs). He's a younger, cheaper IDL piece who fits the Colts' stated goal of getting 'younger and faster' on defense. However, he had only 0.5 career sacks in 3 NFL seasons \u2014 he is a run defender, not a pass rusher. With Gallimore (3.5 sacks in 2025) departing to Chicago and Chris Wormley also a FA, Wooden slots as a rotational IDL starter at a near-minimum cost. IDL depth needs remain, especially in terms of pass rush interior production. The Colts still have DeForest Buckner as the anchor."
+    },
+    {
+      "player": "Blake Grupe",
+      "position": "K",
+      "age": 26,
+      "previous_team": "Indianapolis Colts (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 1400000,
+        "guaranteed": 1400000,
+        "aav": 1400000
+      },
+      "contract_confidence": "high",
+      "source": "Colts.com official tracker, Fox59",
+      "expected_role": "depth/competition",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "K",
+      "analysis": "Grupe went 11-for-11 on FGs and 10-for-10 on PATs in his 5 games with the Colts in 2025, including a franchise-record 60-yard FG. Re-signed on a 1yr/$1.4M deal. However, original starter Spencer Shrader (who suffered a season-ending ACL/MCL injury in Week 5 of 2025) is also on the roster. A kicker competition between Grupe and Shrader is expected in camp. No meaningful impact on team needs."
+    },
+    {
+      "player": "Austin Ajiake",
+      "position": "LB",
+      "age": 25,
+      "previous_team": "Indianapolis Colts (ERFA tender)",
+      "contract": {
+        "years": 1,
+        "total_value": 1005000,
+        "guaranteed": 1005000,
+        "aav": 1005000
+      },
+      "contract_confidence": "high",
+      "source": "SI Colts tracker, colts.com",
+      "contract_notes": "Exclusive Rights Free Agent \u2014 signed January 5, 2026 before FA period opened",
+      "expected_role": "depth/special_teams",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "LB",
+      "analysis": "ERFA locked in for 2026 on a minimum deal. 32 tackles, 2 QB hits in 16 games in 2025 \u2014 primarily a special teams contributor. Does not address the starting LB void left by Zaire Franklin."
+    }
+  ],
+  "needs_impact_summary": {
+    "fully_addressed": [
+      "WR"
+    ],
+    "partially_addressed": [
+      "QB",
+      "IDL"
+    ],
+    "minimally_addressed": [
+      "EDGE"
+    ],
+    "unchanged": [
+      "CB",
+      "RB",
+      "TE",
+      "IOL"
+    ],
+    "escalated": [
+      "LB",
+      "S",
+      "OT"
+    ]
+  },
+  "recommended_need_adjustments": [
+    {
+      "position": "WR",
+      "previous_tier": 2,
+      "recommended_tier": 4,
+      "reasoning": "Alec Pierce re-signed on a 4yr/$116M deal ($60M fully guaranteed at signing) \u2014 elite-tier, true WR1 investment. Josh Downs provides quality slot depth. With Pittman traded, depth thins at WR2/3, but the primary need (securing a WR1) is fully resolved. WR is now a day-3 depth consideration, not a premium need."
+    },
+    {
+      "position": "QB",
+      "previous_tier": 1,
+      "recommended_tier": 2,
+      "reasoning": "The transition tag ($37.8M, fully guaranteed) secures Jones for 2026 and gives the Colts matching rights on any offer. Jones was excellent before his torn Achilles. However, no long-term deal is signed \u2014 sides are ~$15M/yr apart as of March 10. QB remains a tier-2 need for draft capital and long-term succession planning. Anthony Richardson has been given permission to seek a trade, further elevating long-term QB importance. The Colts cannot treat QB as solved until a multi-year deal is signed."
+    },
+    {
+      "position": "EDGE",
+      "previous_tier": 1,
+      "recommended_tier": 1,
+      "reasoning": "Arden Key signing is a rotational/depth move only \u2014 confirmed by multiple sources. With Paye (starter), Ebukam (rotational), and Lewis (depth) all departing, the room consists of Laiatu Latu (8.5 sacks, developing), JT Tuimoloau (sophomore), and Key (depth). The Colts are 'essentially rebuilding their entire edge rusher room from scratch' (Yardbarker). EDGE remains a tier-1 premium need for the draft. The Colts need a starter-quality pass rusher opposite Latu urgently."
+    },
+    {
+      "position": "IDL",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Colby Wooden (trade) provides a young rotational piece but carries just $1.1M in base salary and zero career sacks. Gallimore (3.5 sacks) departed to Chicago. DeForest Buckner remains the anchor at $26M AAV. Interior pass rush depth is still a real need. IDL stays at tier 2 \u2014 need is not escalated but not addressed either."
+    },
+    {
+      "position": "LB",
+      "previous_tier": 3,
+      "recommended_tier": 2,
+      "reasoning": "Zaire Franklin (Pro Bowl 2024, 173 tackles) traded to Green Bay. Only Austin Ajiake (ERFA, depth/ST role) retained. The Colts deliberately reset the LB room but haven't added a replacement starter. Off-ball LB is now a genuine need. Escalated from tier 3 to tier 2."
+    },
+    {
+      "position": "S",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Nick Cross (starter, 24 years old) is expected to depart as a UFA \u2014 still unsigned March 10, listed No. 6 on CBS Top 100 available. Colts GM Ballard acknowledged he may not meet Cross's price demands. Cam Bynum (signed in 2025, big deal) anchors one safety spot. Hunter Wohler is the only internal candidate for the second safety role. If Cross signs elsewhere, S escalates to tier 2 urgently. Currently tracking as tier 2 with expectation of Cross departure."
+    },
+    {
+      "position": "OT",
+      "previous_tier": 3,
+      "recommended_tier": 2,
+      "reasoning": "Braden Smith (8-year starting RT) is a UFA \u2014 still unsigned March 10. Colts have 2025 4th-round pick Jalen Travis as an internal candidate who filled in late in 2025. But Smith's departure (if confirmed) would leave a genuine hole at RT. Bernhard Raimann locks down LT at $17.5M AAV. OT escalates from tier 3 to tier 2 if Smith doesn't return."
+    },
+    {
+      "position": "IOL",
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "Quenton Nelson ($24.2M AAV) anchors the interior. Danny Pinter (C) is a UFA \u2014 no reports of signing yet. If Pinter departs, C becomes a need. Otherwise IOL is stable. Keeping as tier 3 pending Pinter resolution."
+    }
+  ],
+  "team_page_additions": {
+    "key_additions": [
+      {
+        "player": "Alec Pierce",
+        "position": "WR",
+        "contract_summary": "4yr/$116M ($60M fully gtd at signing)",
+        "previous_team": "Re-sign",
+        "headline": "Two-time NFL yards-per-catch leader re-signs as franchise WR1 on historic deal"
+      },
+      {
+        "player": "Daniel Jones",
+        "position": "QB",
+        "contract_summary": "1yr/$37.8M transition tag (multi-year TBD)",
+        "previous_team": "Re-sign (tagged)",
+        "headline": "Transition-tagged QB secured for 2026; long-term extension negotiations ongoing with $15M/yr gap"
+      },
+      {
+        "player": "Arden Key",
+        "position": "EDGE",
+        "contract_summary": "2yr/up to $20M ($11M gtd)",
+        "previous_team": "Tennessee Titans",
+        "headline": "Veteran rotational edge rusher (16.5 sacks over 3 Titans seasons) signed as depth amid full EDGE rebuild"
+      },
+      {
+        "player": "Colby Wooden",
+        "position": "IDL",
+        "contract_summary": "Acquired via trade (1yr/$1.1M remaining rookie deal)",
+        "previous_team": "Green Bay Packers (via trade for LB Zaire Franklin)",
+        "headline": "25-year-old IDL starter (16 starts, 50 tackles in 2025) acquired in Franklin swap to anchor revamped D-line"
+      }
+    ],
+    "key_losses": [
+      {
+        "player": "Michael Pittman Jr.",
+        "position": "WR",
+        "contract_summary": "3yr/$59M with Steelers",
+        "new_team": "Pittsburgh Steelers",
+        "headline": "Cap casualty trade frees $24M; 6-year Colt WR1 dealt for late-pick swap enabling Pierce re-signing"
+      },
+      {
+        "player": "Zaire Franklin",
+        "position": "LB",
+        "contract_summary": "Remaining 2yr/$16M deal absorbed by Packers",
+        "new_team": "Green Bay Packers",
+        "headline": "Pro Bowl LB (led NFL in tackles in 2024) traded away in front-7 reset, creating starting LB void"
+      },
+      {
+        "player": "Kwity Paye",
+        "position": "EDGE",
+        "contract_summary": "3yr/$48M ($32M gtd) with Raiders",
+        "new_team": "Las Vegas Raiders",
+        "headline": "2021 first-round pick departs after never fully developing into elite pass rusher (4 sacks in 2025)"
+      },
+      {
+        "player": "Neville Gallimore",
+        "position": "IDL",
+        "contract_summary": "Terms unknown with Bears",
+        "new_team": "Chicago Bears",
+        "headline": "Career-high 3.5-sack IDL rotational piece departs, deepening interior D-line overhaul"
+      },
+      {
+        "player": "Nick Cross",
+        "position": "S",
+        "contract_summary": "Still unsigned as of 2026-03-10",
+        "new_team": "TBD",
+        "headline": "24-year-old starting safety expected to price out of Indy after cap consumed by Pierce/Jones; departure pending"
+      },
+      {
+        "player": "Braden Smith",
+        "position": "OT",
+        "contract_summary": "Still unsigned as of 2026-03-10",
+        "new_team": "TBD",
+        "headline": "8-year starting RT (missed 16 games over 3 seasons) hitting free market; Jalen Travis poised as internal successor"
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_notes": "All confirmed signings/trades sourced from NFL.com (Rapoport/Pelissero), ESPN, Spotrac, SI Colts tracker, and official Colts.com tracker. Contract figures for Pierce, Key, Grupe, and Wooden are confirmed by multiple credible insiders. Jones transition tag value ($37.8M) is official. Nick Cross and Braden Smith departures are expected but not yet confirmed as of March 10 \u2014 both remain unsigned. Samson Ebukam and Tyquan Lewis are expected to sign elsewhere but no confirmed destinations yet. Cap space figures are estimates; OTC live data shows team in tight position post-Pierce signing.",
+  "sources": [
+    "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
+    "https://www.espn.com/nfl/story/_/id/48054795/indianapolis-colts-2026-free-agency-tracker-offseason-moves-signings-trades",
+    "https://www.colts.com/news/2026-nfl-free-agency-tracker-daniel-jones-alec-pierce",
+    "https://overthecap.com/salary-cap/indianapolis-colts",
+    "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/ind",
+    "https://www.si.com/nfl/colts/onsi/news/colts-2026-free-agency-tracker-signings-losses-news-rumors",
+    "https://www.profootballrumors.com/2026/03/colts-de-arden-key-agree-to-deal",
+    "https://www.profootballrumors.com/2026/03/packers-trade-dt-colby-wooden-for-colts-lb-zaire-franklin",
+    "https://sports.yahoo.com/articles/starting-colts-kwity-paye-leaves-212352378.html",
+    "https://www.stampedeblue.com/indianapolis-colts-free-agency/122260/report-colts-signing-titans-edge-arden-key-to-2-year-up-to-20m-deal",
+    "https://www.cbssports.com/nfl/news/nfl-free-agency-live-updates-march-9-2026/live/"
+  ]
+}
