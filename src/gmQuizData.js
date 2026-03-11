@@ -6,7 +6,7 @@ import { TEAM_PROFILES } from "./draftConfig.js";
 
 // Current NFL GMs (2026)
 const GM_DATA = {
-  Raiders:      { gm: "Tom Telesco",         archetype: null },
+  Raiders:      { gm: "John Spytek",          archetype: null },
   Jets:         { gm: "Darren Mougey",       archetype: null },
   Cardinals:    { gm: "Monti Ossenfort",      archetype: null },
   Titans:       { gm: "Mike Borgonzi",        archetype: null },
@@ -16,7 +16,7 @@ const GM_DATA = {
   Saints:       { gm: "Mickey Loomis",        archetype: null },
   Chiefs:       { gm: "Brett Veach",          archetype: null },
   Bengals:      { gm: "Duke Tobin",           archetype: null },
-  Dolphins:     { gm: "Chris Grier",          archetype: null },
+  Dolphins:     { gm: "Jon-Eric Sullivan",    archetype: null },
   Cowboys:      { gm: "Jerry Jones",          archetype: null },
   Rams:         { gm: "Les Snead",            archetype: null },
   Ravens:       { gm: "Eric DeCosta",         archetype: null },
@@ -34,9 +34,9 @@ const GM_DATA = {
   Broncos:      { gm: "George Paton",          archetype: null },
   Patriots:     { gm: "Eliot Wolf",            archetype: null },
   Seahawks:     { gm: "John Schneider",        archetype: null },
-  Falcons:      { gm: "Terry Fontenot",        archetype: null },
+  Falcons:      { gm: "Ian Cunningham",        archetype: null },
   Colts:        { gm: "Chris Ballard",         archetype: null },
-  Jaguars:      { gm: "Trent Baalke",          archetype: null },
+  Jaguars:      { gm: "James Gladstone",       archetype: null },
   Packers:      { gm: "Brian Gutekunst",       archetype: null },
 };
 
