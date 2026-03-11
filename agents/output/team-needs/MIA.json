@@ -1,7 +1,7 @@
 {
   "team": "MIA",
   "team_full": "Miami Dolphins",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": 11,
   "total_draft_picks": 8,
   "notable_pick_trades": "Acquired 3rd-round pick from Eagles (Jaelan Phillips trade), acquired 3rd-round pick from Texans (2025 draft trade). Have five top-100 selections. Missing 6th-round pick (Darren Waller trade).",
@@ -53,13 +53,13 @@
       "draft_range_target": "Round 1-2"
     },
     {
-      "position": "QB",
+      "position": "TE",
       "tier": 2,
       "urgency": "important",
-      "explanation": "Tua Tagovailoa is expected to be released (post-June 1) after being benched in Week 16 for Quinn Ewers. The only QB under contract is 7th-round rookie Ewers, who showed limited upside. Miami is pursuing Malik Willis in free agency but may be priced out due to massive dead cap. Sullivan has stated they will 'invest in QB every year.' This draft class is widely considered weak at QB, so Miami may take a developmental QB on Day 3 while targeting the loaded 2027 class (Arch Manning, etc.).",
-      "current_starter": "Quinn Ewers (7th-round pick, under contract through 2028)",
-      "depth": "Essentially none. Zach Wilson is a UFA. Signed Shane Buechele to a 1-year deal. Terrace Marshall Jr. on futures contract only.",
-      "draft_range_target": "Day 3 developmental pick likely; franchise QB more likely targeted in 2027 draft"
+      "explanation": "Jonnu Smith was traded away in 2025. Darren Waller was placed on IR during the season and is an unrestricted free agent — unlikely to return. Greg Dulcich (UFA) had a decent late-season run (26 catches, 335 yards) and Miami may re-sign him cheaply, but he's not a long-term answer. Julian Hill is an RFA. The team signed Zack Kuntz to a futures contract. In Slowik's Shanahan-style offense, a quality TE is important for play-action and 12-personnel sets.",
+      "current_starter": "No proven starter under contract",
+      "depth": "Julian Hill (RFA), Zack Kuntz (futures), possibly Greg Dulcich if re-signed",
+      "draft_range_target": "Round 2-4"
     },
     {
       "position": "K",
@@ -98,13 +98,13 @@
       "draft_range_target": ""
     },
     {
-      "position": "TE",
+      "position": "QB",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "Jonnu Smith was traded away in 2025. Darren Waller was placed on IR during the season and is an unrestricted free agent — unlikely to return. Greg Dulcich (UFA) had a decent late-season run (26 catches, 335 yards) and Miami may re-sign him cheaply, but he's not a long-term answer. Julian Hill is an RFA. The team signed Zack Kuntz to a futures contract. In Slowik's Shanahan-style offense, a quality TE is important for play-action and 12-personnel sets.",
-      "current_starter": "No proven starter under contract",
-      "depth": "Julian Hill (RFA), Zack Kuntz (futures), possibly Greg Dulcich if re-signed",
-      "draft_range_target": "Round 2-4"
+      "explanation": "Tua Tagovailoa is expected to be released (post-June 1) after being benched in Week 16 for Quinn Ewers. The only QB under contract is 7th-round rookie Ewers, who showed limited upside. Miami is pursuing Malik Willis in free agency but may be priced out due to massive dead cap. Sullivan has stated they will 'invest in QB every year.' This draft class is widely considered weak at QB, so Miami may take a developmental QB on Day 3 while targeting the loaded 2027 class (Arch Manning, etc.).",
+      "current_starter": "Quinn Ewers (7th-round pick, under contract through 2028)",
+      "depth": "Essentially none. Zach Wilson is a UFA. Signed Shane Buechele to a 1-year deal. Terrace Marshall Jr. on futures contract only.",
+      "draft_range_target": "Day 3 developmental pick likely; franchise QB more likely targeted in 2027 draft"
     },
     {
       "position": "IDL",
@@ -125,14 +125,14 @@
       "WR"
     ],
     "tier_2": [
-      "QB"
+      "TE"
     ],
     "tier_3": [
       "K",
       "LB",
       "OT",
       "P",
-      "TE"
+      "QB"
     ],
     "tier_4": [
       "IDL"
@@ -143,42 +143,41 @@
     "DL",
     "OL",
     "WR",
-    "QB",
+    "TE",
     "K",
     "LB",
     "P",
-    "TE"
+    "QB"
   ],
   "detailed_needs": {
     "DB": 1,
     "DL": 1,
     "OL": 1,
     "WR": 1,
-    "QB": 2,
+    "TE": 2,
     "K": 3,
     "LB": 3,
     "P": 3,
-    "TE": 3
+    "QB": 3
   },
   "free_agency_impact": [
-    "Tua Tagovailoa (QB) → Atlanta Falcons (veteran minimum, 1yr/$1.3M)",
-    "Tyreek Hill (WR) → TBD/unsigned (recovering from dislocated knee and torn ACL)",
-    "Bradley Chubb (EDGE) → TBD/unsigned (post-June 1 designated release)",
-    "Jaelan Phillips (EDGE) → Carolina Panthers (4yr/$120M, $80M gtd — signed in FA after leaving PHI)",
-    "Minkah Fitzpatrick (S) → New York Jets (trade: MIA receives 2026 7th-round pick; FitzPatrick signs 3yr/$40M extension with NYJ)",
-    "James Daniels (IOL) → TBD/unsigned",
+    "Tua Tagovailoa (QB) → Atlanta Falcons (veteran minimum)",
+    "Tyreek Hill (WR) → UFA/unsigned",
+    "Minkah Fitzpatrick (S) → New York Jets (trade)",
+    "Jaelan Phillips (EDGE) → Carolina Panthers (via Eagles trade at 2025 deadline)",
+    "Bradley Chubb (EDGE) → Released/UFA",
+    "James Daniels (IOL) → Released/UFA",
     "Cole Strange (IOL) → Los Angeles Chargers (2yr/$13M)",
-    "Liam Eichenberg (IOL) → Released (failed physical)",
-    "Larry Borom (OT) → Detroit Lions",
-    "Nick Westbrook-Ikhine (WR) → TBD/unsigned",
-    "Jake Bailey (P) → Atlanta Falcons (3yr/$9M, $5M gtd)",
-    "Alec Ingold (FB) → Los Angeles Chargers (2yr/$7.5M)",
-    "Jason Sanders (K) → Released",
-    "Darren Waller (TE) → TBD/unsigned",
+    "Alec Ingold (RB) → Los Angeles Chargers (2yr/$7.5M)",
+    "Nick Westbrook-Ikhine (WR) → Released/UFA",
+    "Jason Sanders (K) → Released/UFA",
+    "Rasul Douglas (CB) → UFA/unsigned",
+    "Kader Kohou (CB) → UFA/unsigned",
+    "Jack Jones (CB) → UFA/unsigned",
     "Signed Malik Willis (QB) from Green Bay Packers — $22.5M AAV",
-    "Signed Greg Dulcich (TE) from Miami Dolphins (re-sign) — $3.2M AAV",
-    "Signed Cameron Goode (EDGE) from Miami Dolphins (re-sign) — terms TBD AAV",
-    "Signed Ethan Bonner (CB) from Miami Dolphins (ERFA tender) — terms TBD AAV"
+    "Signed Greg Dulcich (TE) from Miami Dolphins (re-sign) — $4.0M AAV",
+    "Signed Zane Gonzalez (K) from Atlanta Falcons — $3.0M AAV",
+    "Signed Cameron Goode (EDGE) from Miami Dolphins (re-sign) — $1.2M AAV"
   ],
   "scheme_fit_notes": "Under Hafley (defensive-minded HC) and DC Sean Duggan, Miami will install a Green Bay-style defense emphasizing versatile safeties who can play in the slot/nickel, physical press-man corners, and multiple fronts. OC Bobby Slowik runs a Shanahan-style zone offense requiring athletic OL who can pull and reach, play-action-friendly TEs, and speed at WR. The scheme prioritizes zone-run blocking from OL, making athletic/movement linemen more valuable than pure power players. Sullivan specifically stated they want players who are 'wired the right way' with grit and toughness — expect a premium on physical, high-character players at every position.",
   "confidence": "high",

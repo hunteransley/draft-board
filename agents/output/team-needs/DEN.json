@@ -1,7 +1,7 @@
 {
   "team": "DEN",
   "team_full": "Denver Broncos",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": 30,
   "total_draft_picks": 9,
   "notable_pick_trades": "Acquired 4th-round pick from Saints in Devaughn Vele trade. No 6th-round pick (sent to Jets in John Franklin-Myers trade). Two projected compensatory picks (7th rounders).",
@@ -9,8 +9,8 @@
   "needs": [
     {
       "position": "IDL",
-      "tier": 1,
-      "urgency": "critical",
+      "tier": 2,
+      "urgency": "important",
       "explanation": "John Franklin-Myers (UFA) is expected to sign elsewhere at ~$20M/year, a price Denver won't match after already extending Zach Allen, Nik Bonitto, Jonathon Cooper, D.J. Jones, and Malcolm Roach. JFM had 14.5 sacks in two seasons and was a critical interior pass rusher. Roach and Eyioma Uwazurike can absorb some of JFM's role, but losing a starter of that caliber demands reinforcement. Draft or mid-tier FA addition needed.",
       "current_starter": "Zach Allen (Pro Bowler, locked up), D.J. Jones (under contract)",
       "depth": "Malcolm Roach (extended, 41 tackles/4 sacks), Eyioma Uwazurike (breakout year), Sai'Vion Jones (Year 2). Adequate but lost top free agent.",
@@ -90,10 +90,9 @@
     }
   ],
   "needs_summary": {
-    "tier_1": [
-      "IDL"
-    ],
+    "tier_1": [],
     "tier_2": [
+      "IDL",
       "S",
       "TE",
       "WR"
@@ -118,7 +117,7 @@
     "RB"
   ],
   "detailed_needs": {
-    "DL": 1,
+    "DL": 2,
     "DB": 2,
     "TE": 2,
     "WR": 2,
@@ -128,21 +127,22 @@
   },
   "free_agency_impact": [
     "John Franklin-Myers (IDL) → Tennessee Titans",
+    "P.J. Locke (S) → Dallas Cowboys",
     "Dre Greenlaw (LB) → TBD/unsigned",
     "Jaleel McLaughlin (RB) → TBD/unsigned",
-    "P.J. Locke (S) → TBD/unsigned",
-    "Signed J.K. Dobbins (RB) from Denver Broncos (re-sign) — $8.0M AAV",
+    "Signed J.K. Dobbins (RB) from Denver Broncos (re-sign) — $10.0M AAV",
     "Signed Alex Singleton (LB) from Denver Broncos (re-sign) — $7.8M AAV",
-    "Signed Justin Strnad (LB) from Denver Broncos (re-sign) — $6.0M AAV",
+    "Signed Justin Strnad (LB) from Denver Broncos (re-sign) — $6.5M AAV",
     "Signed Adam Trautman (TE) from Denver Broncos (re-sign) — $5.7M AAV",
-    "Signed Nate Adkins (TE) from Denver Broncos (re-sign) — $1.5M AAV",
+    "Signed Nate Adkins (TE) from Denver Broncos (re-sign) — $1.1M AAV",
     "Signed Alex Palczewski (IOL) from Denver Broncos (re-sign) — $4.8M AAV",
     "Signed Sam Ehlinger (QB) from Denver Broncos (re-sign) — $2.0M AAV",
+    "Signed Morgan Cox (LS) from Denver Broncos (re-sign) — terms TBD AAV",
     "Signed Tyler Badie (RB) from Denver Broncos (ERFA tender) — $1.1M AAV",
     "Signed Devon Key (S) from Denver Broncos (ERFA tender) — $1.1M AAV",
     "Signed Dondrea Tillman (EDGE) from Denver Broncos (ERFA tender) — $1.1M AAV",
     "Signed Jordan Jackson (IDL) from Denver Broncos (ERFA tender) — $1.1M AAV",
-    "Signed Ja'Quan McMillian (CB) from Denver Broncos (2nd-round RFA tender) — $5.8M AAV"
+    "Signed Ja'Quan McMillian (CB) from Denver Broncos (RFA tender) — $5.8M AAV"
   ],
   "scheme_fit_notes": "Vance Joseph's 3-4 defense values versatile IDL who can play both 5-tech and 3-tech (JFM's role). LB prospects need to be three-down players — coverage ability is paramount in this scheme, not just stack-and-shed types. EDGE is locked up with Bonitto and Cooper. On offense, Payton's system demands a blocking TE who can also threaten vertically and a complete RB who can pass protect and catch out of the backfield. WR prospects who beat man coverage and create separation are prioritized over pure speed. The OL scheme is power-based with athletic linemen who can pull and get to the second level.",
   "confidence": "high",

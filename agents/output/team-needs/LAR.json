@@ -1,7 +1,7 @@
 {
   "team": "LAR",
   "team_full": "Los Angeles Rams",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": 13,
   "total_draft_picks": 7,
   "notable_pick_trades": "Traded 1st-round pick (No. 29), 5th-round pick, 6th-round pick in 2026 and 2027 3rd-round pick to KC for CB Trent McDuffie. Own No. 13 overall via 2025 draft-day trade with Atlanta.",
@@ -14,15 +14,6 @@
       "explanation": "Rob Havenstein retired after 11 seasons, leaving a hole at RT. Warren McClendon Jr. stepped in for 13 starts in 2025 and graded well (8th among tackles per PFF), and the Rams are looking to extend him. However, McClendon is on the final year of his rookie deal and RT still needs insurance/competition. Protecting 38-year-old MVP Stafford is paramount.",
       "current_starter": "Alaric Jackson (LT), Warren McClendon Jr. (RT)",
       "depth": "D.J. Humphries and David Quessenberry are UFAs. McClendon moving to starter leaves no swing tackle depth.",
-      "draft_range_target": "Round 2-3"
-    },
-    {
-      "position": "WR",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Puka Nacua (WR1 in 2025) and Davante Adams (age 33, entering final contract year) are elite, but no true WR3 emerged in 2025. Tutu Atwell is a departing UFA after barely playing. Jordan Whittington and rookie Konata Mumpfield showed flashes but aren't proven. Adams' age makes finding a long-term WR2/successor important for sustainability.",
-      "current_starter": "Puka Nacua, Davante Adams",
-      "depth": "Jordan Whittington, Konata Mumpfield — unproven. Tutu Atwell departing.",
       "draft_range_target": "Round 2-3"
     },
     {
@@ -62,13 +53,13 @@
       "draft_range_target": "Round 1-2 if a QB the staff loves falls, otherwise Round 3+"
     },
     {
-      "position": "TE",
+      "position": "WR",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "The Rams' 13-personnel package was a huge part of their 2025 success with Colby Parkinson (career highs in receptions, yards, TDs), Terrance Ferguson, and Davis Allen. However, Tyler Higbee is a UFA and all three current TEs hit free agency after 2026. Drafting a TE now shores up the position long-term.",
-      "current_starter": "Colby Parkinson, Terrance Ferguson, Davis Allen",
-      "depth": "Adequate for 2026 but all three TEs are 2027 free agents. Tyler Higbee (UFA) likely not returning.",
-      "draft_range_target": "Round 1-3 (if Kenyon Sadiq is available at 13, strong consideration)"
+      "explanation": "Puka Nacua (WR1 in 2025) and Davante Adams (age 33, entering final contract year) are elite, but no true WR3 emerged in 2025. Tutu Atwell is a departing UFA after barely playing. Jordan Whittington and rookie Konata Mumpfield showed flashes but aren't proven. Adams' age makes finding a long-term WR2/successor important for sustainability.",
+      "current_starter": "Puka Nacua, Davante Adams",
+      "depth": "Jordan Whittington, Konata Mumpfield — unproven. Tutu Atwell departing.",
+      "draft_range_target": "Round 2-3"
     },
     {
       "position": "CB",
@@ -80,65 +71,73 @@
       "draft_range_target": "Round 1-2"
     },
     {
-      "position": "S",
+      "position": "LB",
       "tier": 4,
       "urgency": "minor",
-      "explanation": "Safety Kamren Curl is a UFA after a breakout 2025 (122 tackles, 2 INTs, 17 starts). The Rams re-signed Quentin Lake to a 3-year, $42M extension, but Lake plays a hybrid safety/nickel role. If Curl leaves in free agency, the Rams need a traditional strong safety to pair with Lake. The Rams historically don't pay safeties big money.",
-      "current_starter": "Quentin Lake (extended), Kamren Curl (UFA)",
-      "depth": "Very thin if Curl departs. Lake is versatile but can't play every secondary role.",
-      "draft_range_target": "Round 2-4"
+      "explanation": "Nate Landman (re-signed mid-2025 season) is under contract. Troy Reeder was a UFA but was a depth player. No moves here. LB is not a significant need — Landman is a solid starter and the Rams have other, more pressing concerns.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
+      "position": "TE",
+      "tier": 4,
+      "urgency": "minor",
+      "explanation": "The Rams' 13-personnel package was a huge part of their 2025 success with Colby Parkinson (career highs in receptions, yards, TDs), Terrance Ferguson, and Davis Allen. However, Tyler Higbee is a UFA and all three current TEs hit free agency after 2026. Drafting a TE now shores up the position long-term.",
+      "current_starter": "Colby Parkinson, Terrance Ferguson, Davis Allen",
+      "depth": "Adequate for 2026 but all three TEs are 2027 free agents. Tyler Higbee (UFA) likely not returning.",
+      "draft_range_target": "Round 1-3 (if Kenyon Sadiq is available at 13, strong consideration)"
     }
   ],
   "needs_summary": {
     "tier_1": [],
     "tier_2": [
-      "OT",
-      "WR"
+      "OT"
     ],
     "tier_3": [
       "EDGE",
       "IDL",
       "IOL",
       "QB",
-      "TE"
+      "WR"
     ],
     "tier_4": [
       "CB",
-      "S"
+      "LB",
+      "TE"
     ]
   },
   "simple_needs": [
     "OL",
-    "WR",
     "DL",
     "QB",
-    "TE"
+    "WR"
   ],
   "detailed_needs": {
     "OL": 2,
-    "WR": 2,
     "DL": 3,
     "QB": 3,
-    "TE": 3
+    "WR": 3
   },
   "free_agency_impact": [
-    "Rob Havenstein (OT) → Retired",
     "Darious Williams (CB) → Retired",
+    "Rob Havenstein (OT) → Retired",
     "Cobie Durant (CB) → TBD/unsigned",
     "Ahkello Witherspoon (CB) → TBD/unsigned",
     "Roger McCreary (CB) → TBD/unsigned",
     "Tutu Atwell (WR) → TBD/unsigned",
-    "Jimmy Garoppolo (QB) → TBD/unsigned",
-    "D.J. Humphries (OT) → TBD/unsigned",
+    "Jimmy Garoppolo (QB) → TBD — reported Cardinals interest",
+    "Derion Kendrick (CB) → TBD/unsigned",
+    "Jake McQuaide (LS) → TBD/unsigned",
     "Signed Trent McDuffie (CB) from Kansas City Chiefs — $31.0M AAV",
     "Signed Jaylen Watson (CB) from Kansas City Chiefs — $17.0M AAV",
     "Signed Kamren Curl (S) from Los Angeles Rams (re-sign) — $12.0M AAV",
     "Signed Tyler Higbee (TE) from Los Angeles Rams (re-sign) — $4.0M AAV",
-    "Signed Joe Cardona (LS) from Miami Dolphins — $1.7M AAV",
+    "Signed Joe Cardona (LS) from New England Patriots — terms TBD AAV",
     "Signed David Quessenberry (OT) from Los Angeles Rams (re-sign) — $1.5M AAV",
-    "Signed Justin Dedich (IOL) from Los Angeles Rams (ERFA tender) — $0.8M AAV",
-    "Signed Harrison Mevis (K) from Los Angeles Rams (ERFA tender) — $0.8M AAV",
-    "Signed Xavier Smith (WR) from Los Angeles Rams (ERFA tender) — $0.8M AAV"
+    "Signed Harrison Mevis (K) from Los Angeles Rams (ERFA tender) — terms TBD AAV",
+    "Signed Justin Dedich (IOL) from Los Angeles Rams (ERFA tender) — terms TBD AAV",
+    "Signed Xavier Smith (WR) from Los Angeles Rams (ERFA tender) — terms TBD AAV"
   ],
   "scheme_fit_notes": "Sean McVay's offense is built on play-action, outside zone runs, and 11/12/13 personnel packages. The Rams' innovative use of 13-personnel (3 TE sets) was a 2025 breakout — TE prospects with receiving/blocking versatility have elevated value. On defense under Chris Shula, the scheme is front-four driven with Jared Verse and Byron Young as premium EDGE rushers. The secondary needs press-man corners who can play outside and in the slot. Versatile DBs who can match up in both man and zone coverage fit best. IDL prospects who can penetrate as 3-techs complement the edge rush philosophy.",
   "confidence": "high",

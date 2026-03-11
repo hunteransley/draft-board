@@ -1,7 +1,7 @@
 {
   "team": "PIT",
   "team_full": "Pittsburgh Steelers",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": 21,
   "total_draft_picks": 12,
   "notable_pick_trades": "Acquired 3rd-round pick from DAL in George Pickens trade. Multiple projected compensatory picks (3rd, 4th, 5th, 6th) for 2025 FA losses. Gave 2nd-round pick to SEA for DK Metcalf in 2025. Gave 4th-round pick to NE for Kyle Dugger in 2025.",
@@ -17,15 +17,6 @@
       "draft_range_target": "Round 3 — PFF recommends IOL in the third round"
     },
     {
-      "position": "OT",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Broderick Jones' neck fusion surgery creates serious uncertainty at LT — GM Omar Khan would not confirm Jones would be healthy for training camp. This was already a concern pre-free-agency and no OT was added. Combined with Seumalo's IOL departure, the entire left side of the offensive line is now critical. Escalate OT to tier 1.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
-    },
-    {
       "position": "QB",
       "tier": 1,
       "urgency": "critical",
@@ -33,6 +24,15 @@
       "current_starter": "Aaron Rodgers (UFA, may return) / Will Howard",
       "depth": "Mason Rudolph (under contract). Rodgers' status unknown until free agency opens March 9.",
       "draft_range_target": "Round 2-3 developmental QB if top value not available at 21. Could also address via FA or trade."
+    },
+    {
+      "position": "OT",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Broderick Jones' neck fusion surgery creates serious uncertainty at LT — GM Omar Khan would not confirm Jones would be healthy for training camp. This was already a concern pre-free-agency and no OT was added. Combined with Seumalo's IOL departure, the entire left side of the offensive line is now critical. Escalate OT to tier 1.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
     },
     {
       "position": "S",
@@ -44,22 +44,13 @@
       "draft_range_target": "Round 2-4, also likely to sign a FA safety"
     },
     {
-      "position": "CB",
+      "position": "RB",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "Joey Porter Jr. is the CB1, but there is no reliable CB2. Darius Slay departed as a UFA after the 2025 season. Asante Samuel Jr. (UFA) is unlikely to return. Jalen Ramsey is under contract but is 31 and better suited as a nickel/safety hybrid — there are trade rumors involving him as well. Cory Trice Jr. and Donte Kent both spent 2025 on IR. Brandin Echols provides depth but is not a starter. The Steelers conducted heavy CB interviews at the Combine.",
-      "current_starter": "Joey Porter Jr. (CB1), Jalen Ramsey (nickel), vacant CB2",
-      "depth": "Brandin Echols, James Pierre (UFA — career year in 2025, could re-sign cheap), Cory Trice Jr. (injury prone), Donte Kent (IR in 2025)",
-      "draft_range_target": "Round 2 — strong CB class makes this viable"
-    },
-    {
-      "position": "IDL",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "Cam Heyward is under contract at $19.2M but turns 37 in May. He could be a cap casualty ($14.3M savings) or may play one final season. Keeanu Benton and Yahya Black haven't fully established themselves as long-term starters. Derrick Harmon (2025 1st-round pick) showed promise as a rookie. Dean Lowry, Isaiahh Loudermilk, and Daniel Ekuale are all UFAs, gutting the DL depth. Even if Heyward stays, succession planning is critical.",
-      "current_starter": "Cam Heyward (aging, possible cut/retirement), Keeanu Benton (NT), Derrick Harmon",
-      "depth": "Yahya Black (developmental), Esezi Otomewo (RFA). Lowry/Loudermilk/Ekuale all UFAs.",
-      "draft_range_target": "Round 3-5 — depth and long-term planning"
+      "explanation": "Jaylen Warren is a UFA and the top back. Kenneth Gainwell, the 2025 team MVP with 1,023 all-purpose yards, is also a UFA and may find a better deal elsewhere. Kaleb Johnson (2025 draft pick) is the only RB under contract and showed some promise. The Steelers may need to add a complementary back, but this is not a premium need given Johnson's presence and the depth of the RB market.",
+      "current_starter": "Jaylen Warren (UFA) / Kaleb Johnson",
+      "depth": "Just Kaleb Johnson under contract if Warren and Gainwell leave",
+      "draft_range_target": "Round 4-6 or free agency"
     },
     {
       "position": "TE",
@@ -80,6 +71,24 @@
       "draft_range_target": "Round 1 (pick 21) — likely top priority for first pick"
     },
     {
+      "position": "CB",
+      "tier": 4,
+      "urgency": "minor",
+      "explanation": "Joey Porter Jr. is the CB1, but there is no reliable CB2. Darius Slay departed as a UFA after the 2025 season. Asante Samuel Jr. (UFA) is unlikely to return. Jalen Ramsey is under contract but is 31 and better suited as a nickel/safety hybrid — there are trade rumors involving him as well. Cory Trice Jr. and Donte Kent both spent 2025 on IR. Brandin Echols provides depth but is not a starter. The Steelers conducted heavy CB interviews at the Combine.",
+      "current_starter": "Joey Porter Jr. (CB1), Jalen Ramsey (nickel), vacant CB2",
+      "depth": "Brandin Echols, James Pierre (UFA — career year in 2025, could re-sign cheap), Cory Trice Jr. (injury prone), Donte Kent (IR in 2025)",
+      "draft_range_target": "Round 2 — strong CB class makes this viable"
+    },
+    {
+      "position": "IDL",
+      "tier": 4,
+      "urgency": "minor",
+      "explanation": "Cam Heyward is under contract at $19.2M but turns 37 in May. He could be a cap casualty ($14.3M savings) or may play one final season. Keeanu Benton and Yahya Black haven't fully established themselves as long-term starters. Derrick Harmon (2025 1st-round pick) showed promise as a rookie. Dean Lowry, Isaiahh Loudermilk, and Daniel Ekuale are all UFAs, gutting the DL depth. Even if Heyward stays, succession planning is critical.",
+      "current_starter": "Cam Heyward (aging, possible cut/retirement), Keeanu Benton (NT), Derrick Harmon",
+      "depth": "Yahya Black (developmental), Esezi Otomewo (RFA). Lowry/Loudermilk/Ekuale all UFAs.",
+      "draft_range_target": "Round 3-5 — depth and long-term planning"
+    },
+    {
       "position": "LB",
       "tier": 4,
       "urgency": "minor",
@@ -87,42 +96,33 @@
       "current_starter": "Patrick Queen (ILB), Payton Wilson (ILB)",
       "depth": "Carson Bruener, Malik Harrison (possible cut). Holcomb (UFA).",
       "draft_range_target": "Round 4-5 for depth"
-    },
-    {
-      "position": "RB",
-      "tier": 4,
-      "urgency": "minor",
-      "explanation": "Jaylen Warren is a UFA and the top back. Kenneth Gainwell, the 2025 team MVP with 1,023 all-purpose yards, is also a UFA and may find a better deal elsewhere. Kaleb Johnson (2025 draft pick) is the only RB under contract and showed some promise. The Steelers may need to add a complementary back, but this is not a premium need given Johnson's presence and the depth of the RB market.",
-      "current_starter": "Jaylen Warren (UFA) / Kaleb Johnson",
-      "depth": "Just Kaleb Johnson under contract if Warren and Gainwell leave",
-      "draft_range_target": "Round 4-6 or free agency"
     }
   ],
   "needs_summary": {
     "tier_1": [
       "IOL",
-      "OT",
       "QB"
     ],
     "tier_2": [
+      "OT",
       "S"
     ],
     "tier_3": [
-      "CB",
-      "IDL",
+      "RB",
       "TE",
       "WR"
     ],
     "tier_4": [
-      "LB",
-      "RB"
+      "CB",
+      "IDL",
+      "LB"
     ]
   },
   "simple_needs": [
     "OL",
     "QB",
     "DB",
-    "DL",
+    "RB",
     "TE",
     "WR"
   ],
@@ -130,23 +130,24 @@
     "OL": 1,
     "QB": 1,
     "DB": 2,
-    "DL": 3,
+    "RB": 3,
     "TE": 3,
     "WR": 3
   },
   "free_agency_impact": [
-    "Aaron Rodgers (QB) → TBD/unsigned",
     "Isaac Seumalo (IOL) → Arizona Cardinals",
     "Kenneth Gainwell (RB) → Tampa Bay Buccaneers",
     "James Pierre (CB) → Minnesota Vikings",
-    "Jonnu Smith (TE) → Released/unsigned",
-    "Calvin Austin III (WR) → TBD/unsigned",
-    "Signed Michael Pittman Jr. (WR) from Indianapolis Colts (via trade) — $19.7M AAV",
+    "Jonnu Smith (TE) → released/unsigned",
+    "Aaron Rodgers (QB) → TBD/unsigned",
+    "Signed Michael Pittman Jr. (WR) from Indianapolis Colts — $19.7M AAV",
     "Signed Jamel Dean (CB) from Tampa Bay Buccaneers — $12.2M AAV",
     "Signed Rico Dowdle (RB) from Carolina Panthers — $6.1M AAV",
-    "Signed Asante Samuel Jr. (CB) from Pittsburgh Steelers (re-sign) — $4.0M AAV",
-    "Signed Cole Holcomb (LB) from Pittsburgh Steelers (re-sign) — $2.5M AAV",
-    "Signed Esezi Otomewo (IDL) from Pittsburgh Steelers (re-sign) — $1.0M AAV"
+    "Signed Cameron Heyward (IDL) from Pittsburgh Steelers — $16.1M AAV",
+    "Signed Asante Samuel Jr. (CB) from Pittsburgh Steelers — $4.0M AAV",
+    "Signed Cole Holcomb (LB) from Pittsburgh Steelers — $2.5M AAV",
+    "Signed Esezi Otomewo (IDL) from Pittsburgh Steelers — terms TBD AAV",
+    "Signed Cameron Johnston (P) from New York Giants — terms TBD AAV"
   ],
   "scheme_fit_notes": "Under new DC Patrick Graham, Pittsburgh is expected to shift from Teryl Austin's base 3-4 to a more multiple, hybrid defensive scheme. Graham ran multiple fronts in Las Vegas and New York. This means EDGE prospects with versatility (can rush and drop) have elevated value. CB prospects who can play press or zone are important as Graham uses both. On offense, Mike McCarthy will call plays himself — his offenses historically favor vertical passing, play-action, and need a true WR2 opposite a WR1. IOL prospects who can pass protect are essential for McCarthy's dropback-heavy scheme. The weak 2026 QB class may push the Steelers toward a developmental mid-round QB pick (Round 3) rather than reaching in Round 1.",
   "confidence": "high",

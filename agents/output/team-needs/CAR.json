@@ -1,21 +1,12 @@
 {
   "team": "CAR",
   "team_full": "Carolina Panthers",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": 19,
   "total_draft_picks": 7,
   "notable_pick_trades": "Traded Adam Thielen to MIN for 2026 5th-round pick and 2027 4th-round pick. No 7th-round pick (sent conditional 7th to MIN in same deal).",
   "roster_context": "Surprising NFC South champions at 8-9, lost to Rams in Wild Card. Bryce Young took a step forward (3,011 yards, 23 TD) and is the franchise QB. Team made playoffs for the first time since 2017 but has significant roster holes, especially on defense (dead-last pass rush) and now at OT after Ikem Ekwonu's ruptured patellar tendon. Very tight cap space (~$9.5M effective) but can free up significant room via restructures and the expected A'Shawn Robinson trade/release ($10.5M savings). Dave Canales and GM Dan Morgan looking to build on playoff momentum.",
   "needs": [
-    {
-      "position": "IOL",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Starting center Cade Mays and guard Austin Corbett are both UFAs. Robert Hunt (RG, Pro Bowl 2024) is under contract but missed 15 regular-season games with a torn biceps and suffered a pectoral injury in the playoffs — his health is a concern. LG Damien Lewis is locked up. The Panthers had 10 different OL combinations in 2025 due to injuries. They need to re-sign at least one IOL free agent or add via draft for center and guard depth.",
-      "current_starter": "Damien Lewis (LG, under contract), Robert Hunt (RG, under contract but injury concerns), Cade Mays (C, UFA)",
-      "depth": "Austin Corbett (UFA), Chandler Zavala (under contract), Saahdiq Charles / Ja'Tyre Carter (futures deals). Center is a clear hole if Mays departs.",
-      "draft_range_target": "Round 2-4"
-    },
     {
       "position": "OT",
       "tier": 1,
@@ -24,6 +15,15 @@
       "current_starter": "Ikem Ekwonu (LT, injured - may miss 2026), Taylor Moton (RT, under contract)",
       "depth": "Yosh Nijman (UFA), Brady Christensen (UFA), Jake Curhan (UFA). Virtually no tackle depth under contract.",
       "draft_range_target": "Round 1-3"
+    },
+    {
+      "position": "IOL",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Starting center Cade Mays and guard Austin Corbett are both UFAs. Robert Hunt (RG, Pro Bowl 2024) is under contract but missed 15 regular-season games with a torn biceps and suffered a pectoral injury in the playoffs — his health is a concern. LG Damien Lewis is locked up. The Panthers had 10 different OL combinations in 2025 due to injuries. They need to re-sign at least one IOL free agent or add via draft for center and guard depth.",
+      "current_starter": "Damien Lewis (LG, under contract), Robert Hunt (RG, under contract but injury concerns), Cade Mays (C, UFA)",
+      "depth": "Austin Corbett (UFA), Chandler Zavala (under contract), Saahdiq Charles / Ja'Tyre Carter (futures deals). Center is a clear hole if Mays departs.",
+      "draft_range_target": "Round 2-4"
     },
     {
       "position": "RB",
@@ -44,15 +44,6 @@
       "draft_range_target": "Round 2-4"
     },
     {
-      "position": "TE",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Ja'Tavion Sanders and Tommy Tremble combined for just 3 touchdowns in 2025. Carolina's offense ranked 24th in red-zone success. Multiple mock drafts project the Panthers taking Oregon TE Kenyon Sadiq at #19 overall. The position lacks a dynamic pass-catching weapon to complement Tetairoa McMillan and help Bryce Young. A true difference-maker at TE would elevate the entire offense.",
-      "current_starter": "Ja'Tavion Sanders, Tommy Tremble",
-      "depth": "James Mitchell (RFA), Bryce Pierre (futures deal). Neither current starter is a high-end playmaker.",
-      "draft_range_target": "Round 1-2"
-    },
-    {
       "position": "CB",
       "tier": 3,
       "urgency": "moderate",
@@ -71,13 +62,22 @@
       "draft_range_target": "Round 3-5"
     },
     {
-      "position": "LB",
+      "position": "QB",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "Starting MLB Christian Rozeboom (team-high 122 tackles) is an unrestricted free agent. The other starter Trevin Wallace missed 5 games and the playoff game, earned poor PFF run defense grades. Krys Barnes and Claudin Cherelus are also UFAs. The position is extremely thin, and the Panthers need a true three-down middle linebacker. Morgan has spoken about this being a priority, and multiple mock drafts project LB in the first two rounds.",
-      "current_starter": "Trevin Wallace (under contract), Christian Rozeboom (UFA)",
-      "depth": "Krys Barnes (UFA), Claudin Cherelus (RFA), Jacoby Windmon (futures deal). Extremely thin after Rozeboom's departure.",
-      "draft_range_target": "Round 1-3"
+      "explanation": "Kenny Pickett (1yr/$7.5M) provides credible backup depth behind Bryce Young. One-year deal is a bridge, not a long-term answer — but the immediate depth need is satisfied. QB is no longer a pressing draft need in 2026.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
+      "position": "TE",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Ja'Tavion Sanders and Tommy Tremble combined for just 3 touchdowns in 2025. Carolina's offense ranked 24th in red-zone success. Multiple mock drafts project the Panthers taking Oregon TE Kenyon Sadiq at #19 overall. The position lacks a dynamic pass-catching weapon to complement Tetairoa McMillan and help Bryce Young. A true difference-maker at TE would elevate the entire offense.",
+      "current_starter": "Ja'Tavion Sanders, Tommy Tremble",
+      "depth": "James Mitchell (RFA), Bryce Pierre (futures deal). Neither current starter is a high-end playmaker.",
+      "draft_range_target": "Round 1-2"
     },
     {
       "position": "EDGE",
@@ -89,66 +89,75 @@
       "draft_range_target": "Round 1-2"
     },
     {
-      "position": "QB",
+      "position": "LB",
       "tier": 4,
       "urgency": "minor",
-      "explanation": "Kenny Pickett (1yr/$7.5M) provides credible backup depth behind Bryce Young. One-year deal is a bridge, not a long-term answer — but the immediate depth need is satisfied. QB is no longer a pressing draft need in 2026.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
+      "explanation": "Starting MLB Christian Rozeboom (team-high 122 tackles) is an unrestricted free agent. The other starter Trevin Wallace missed 5 games and the playoff game, earned poor PFF run defense grades. Krys Barnes and Claudin Cherelus are also UFAs. The position is extremely thin, and the Panthers need a true three-down middle linebacker. Morgan has spoken about this being a priority, and multiple mock drafts project LB in the first two rounds.",
+      "current_starter": "Trevin Wallace (under contract), Christian Rozeboom (UFA)",
+      "depth": "Krys Barnes (UFA), Claudin Cherelus (RFA), Jacoby Windmon (futures deal). Extremely thin after Rozeboom's departure.",
+      "draft_range_target": "Round 1-3"
     }
   ],
   "needs_summary": {
     "tier_1": [
-      "IOL",
       "OT"
     ],
     "tier_2": [
+      "IOL",
       "RB",
-      "S",
-      "TE"
+      "S"
     ],
     "tier_3": [
       "CB",
       "IDL",
-      "LB"
+      "QB",
+      "TE"
     ],
     "tier_4": [
       "EDGE",
-      "QB"
+      "LB"
     ]
   },
   "simple_needs": [
     "OL",
     "RB",
     "DB",
-    "TE",
     "DL",
-    "LB"
+    "QB",
+    "TE"
   ],
   "detailed_needs": {
     "OL": 1,
     "RB": 2,
     "DB": 2,
-    "TE": 2,
     "DL": 3,
-    "LB": 3
+    "QB": 3,
+    "TE": 3
   },
   "free_agency_impact": [
     "Cade Mays (IOL) → Detroit Lions",
     "Rico Dowdle (RB) → Pittsburgh Steelers",
-    "Ikem Ekwonu (OT) → N/A (on roster but injured)",
-    "Andy Dalton (QB) → TBD/release expected",
-    "Christian Rozeboom (LB) → TBD/unsigned",
     "DJ Wonnum (EDGE) → TBD/unsigned",
+    "Trevis Gipson (EDGE) → TBD/unsigned",
+    "Christian Rozeboom (LB) → TBD/unsigned",
     "Nick Scott (S) → TBD/unsigned",
+    "Austin Corbett (IOL) → TBD/unsigned",
+    "Yosh Nijman (OT) → TBD/unsigned",
+    "Brady Christensen (IOL) → TBD/unsigned",
+    "Krys Barnes (LB) → TBD/unsigned",
+    "Damarri Mathis (CB) → TBD/unsigned",
     "Signed Jaelan Phillips (EDGE) from Philadelphia Eagles — $30.0M AAV",
     "Signed Devin Lloyd (LB) from Jacksonville Jaguars — $15.0M AAV",
     "Signed Kenny Pickett (QB) from Las Vegas Raiders — $7.5M AAV",
-    "Signed Akayleb Evans (CB) from Carolina Panthers (re-sign) — $3.0M AAV",
-    "Signed JJ Jansen (LS) from Carolina Panthers (re-sign) — $1.5M AAV",
-    "Signed Jalen Coker (WR) from Carolina Panthers (ERFA tender) — $0.9M AAV",
-    "Signed Brycen Tremayne (WR) from Carolina Panthers (ERFA tender) — $0.9M AAV"
+    "Signed Luke Fortner (IOL) from New Orleans Saints — $4.8M AAV",
+    "Signed Stone Forsythe (OT) from Las Vegas Raiders — terms TBD AAV",
+    "Signed LaBryan Ray (EDGE) from Carolina Panthers (re-sign) — terms TBD AAV",
+    "Signed Robert Rochell (CB) from Carolina Panthers (re-sign) — terms TBD AAV",
+    "Signed Akayleb Evans (CB) from Carolina Panthers (re-sign) — terms TBD AAV",
+    "Signed Isaiah Simmons (S) from Carolina Panthers (re-sign) — terms TBD AAV",
+    "Signed David Moore (WR) from Carolina Panthers (re-sign) — terms TBD AAV",
+    "Signed Thomas Incoom (EDGE) from Carolina Panthers (re-sign) — terms TBD AAV",
+    "Signed JJ Jansen (LS) from Carolina Panthers (re-sign) — terms TBD AAV"
   ],
   "scheme_fit_notes": "Ejiro Evero runs a 3-4 defense with three down linemen and four linebackers. EDGE prospects must be able to play as stand-up OLB pass rushers. The scheme creates extra snaps for LBs, making a true three-down MLB especially valuable. Interior DL must be able to two-gap in the base and push the pocket. On offense, Canales/Idzik run a West Coast-influenced scheme that relies on timing, play-action, and a strong ground game — protecting Bryce Young with a solid OL is paramount. A pass-catching TE who can create mismatches in the seam would be ideal for their red-zone issues.",
   "confidence": "high",

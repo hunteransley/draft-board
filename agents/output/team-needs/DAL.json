@@ -1,21 +1,12 @@
 {
   "team": "DAL",
   "team_full": "Dallas Cowboys",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": 12,
   "total_draft_picks": 8,
   "notable_pick_trades": "Acquired GB 2026 1st (No. 20) and 2027 1st in Micah Parsons trade. Sent 2026 2nd, 2027 1st (better of two), and Mazi Smith to NYJ for Quinnen Williams. No 2nd or 3rd round picks in 2026.",
   "roster_context": "Coming off a historically bad defensive season (30.1 PPG allowed, worst in NFL) and a 7-9-1 record despite a top-5 offense. Traded Micah Parsons to GB pre-season for two 1sts and Kenny Clark, then traded for Quinnen Williams at midseason. New DC Christian Parker installing a 3-4 base scheme. Lost DE Marshawn Kneeland to tragedy in November. Offense is set with Dak Prescott, CeeDee Lamb, franchise-tagged George Pickens, and re-signed Javonte Williams. Restructured Prescott, Lamb, and Tyler Smith contracts to create ~$66M in cap space. Jerry Jones has pledged aggressive free agency spending. Two first-round picks (12 and 20) but no picks in Rounds 2-3, creating a top-heavy draft.",
   "needs": [
-    {
-      "position": "EDGE",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "The most glaring need on the roster. After trading Micah Parsons, the Cowboys had the worst pass defense in the NFL. Jadeveon Clowney (team-leading 8.5 sacks), Dante Fowler Jr., Sam Williams, and Payton Turner are ALL unrestricted free agents. Only Donovan Ezeiruaku and James Houston are under contract, and Ezeiruaku just had hip labrum surgery that will sideline him until training camp. The team is transitioning to a 3-4 with stand-up OLBs, and Marist Liufau is being converted to OLB as a project. Dallas needs at least one premium edge rusher via FA and one via the draft.",
-      "current_starter": "Donovan Ezeiruaku (recovering from hip surgery), James Houston",
-      "depth": "Alarmingly thin. Only two edge defenders under contract. Ezeiruaku recovering. Liufau converting from ILB — unproven.",
-      "draft_range_target": "Round 1 (Pick 12 or 20)"
-    },
     {
       "position": "LB",
       "tier": 1,
@@ -35,6 +26,15 @@
       "draft_range_target": "Round 1 (Pick 12 or 20)"
     },
     {
+      "position": "EDGE",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "The most glaring need on the roster. After trading Micah Parsons, the Cowboys had the worst pass defense in the NFL. Jadeveon Clowney (team-leading 8.5 sacks), Dante Fowler Jr., Sam Williams, and Payton Turner are ALL unrestricted free agents. Only Donovan Ezeiruaku and James Houston are under contract, and Ezeiruaku just had hip labrum surgery that will sideline him until training camp. The team is transitioning to a 3-4 with stand-up OLBs, and Marist Liufau is being converted to OLB as a project. Dallas needs at least one premium edge rusher via FA and one via the draft.",
+      "current_starter": "Donovan Ezeiruaku (recovering from hip surgery), James Houston",
+      "depth": "Alarmingly thin. Only two edge defenders under contract. Ezeiruaku recovering. Liufau converting from ILB — unproven.",
+      "draft_range_target": "Round 1 (Pick 12 or 20)"
+    },
+    {
       "position": "IOL",
       "tier": 2,
       "urgency": "important",
@@ -44,15 +44,6 @@
       "draft_range_target": "Round 4-5 or low-cost FA"
     },
     {
-      "position": "IDL",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "Quinnen Williams, Kenny Clark, and Osa Odighizuwa remain on roster — three solid IDL starters. Clark's $21.5M cap hit with no guarantees is a potential cap casualty. If Clark is moved, IDL escalates. For now, tier holds at 3 — depth and contingency planning only.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
-    },
-    {
       "position": "OT",
       "tier": 3,
       "urgency": "moderate",
@@ -60,6 +51,15 @@
       "current_starter": "Tyler Guyton (LT) or Tyler Smith (LT), Terence Steele (RT — potential cut)",
       "depth": "Nathan Thomas (swing), Hakeem Adeniji (FA). If Smith moves to LT, guard becomes a need.",
       "draft_range_target": "Day 3 (Round 4-5) — defensive picks will dominate Rounds 1"
+    },
+    {
+      "position": "IDL",
+      "tier": 4,
+      "urgency": "minor",
+      "explanation": "Quinnen Williams, Kenny Clark, and Osa Odighizuwa remain on roster — three solid IDL starters. Clark's $21.5M cap hit with no guarantees is a potential cap casualty. If Clark is moved, IDL escalates. For now, tier holds at 3 — depth and contingency planning only.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
     },
     {
       "position": "S",
@@ -73,48 +73,53 @@
   ],
   "needs_summary": {
     "tier_1": [
-      "EDGE",
       "LB"
     ],
     "tier_2": [
       "CB",
+      "EDGE",
       "IOL"
     ],
     "tier_3": [
-      "IDL",
       "OT"
     ],
     "tier_4": [
+      "IDL",
       "S"
     ]
   },
   "simple_needs": [
-    "DL",
     "LB",
     "DB",
+    "DL",
     "OL"
   ],
   "detailed_needs": {
-    "DL": 1,
     "LB": 1,
     "DB": 2,
+    "DL": 2,
     "OL": 2
   },
   "free_agency_impact": [
     "Jadeveon Clowney (EDGE) → TBD/unsigned",
-    "Dante Fowler Jr. (EDGE) → TBD/unsigned",
     "Donovan Wilson (S) → TBD/unsigned",
-    "Logan Wilson (LB) → TBD/unsigned",
-    "C.J. Goodwin (CB) → TBD/unsigned",
+    "DeMarcus Lawrence (EDGE) → Seattle Seahawks",
+    "Dante Fowler Jr. (EDGE) → TBD/unsigned",
+    "Jourdan Lewis (CB) → Jacksonville Jaguars",
+    "Logan Wilson (LB) → released/cut",
+    "Kenneth Murray (LB) → TBD/unsigned",
+    "Payton Turner (EDGE) → TBD/unsigned",
+    "Brock Hoffman (IOL) → Pittsburgh Steelers (reported)",
     "Signed Rashan Gary (EDGE) from Green Bay Packers — $19.5M AAV",
     "Signed Jalen Thompson (S) from Arizona Cardinals — $11.0M AAV",
-    "Signed Javonte Williams (RB) from Dallas Cowboys (re-sign) — $8.0M AAV",
+    "Signed P.J. Locke (S) from Denver Broncos — $5.0M AAV",
     "Signed Sam Williams (EDGE) from Dallas Cowboys (re-sign) — $3.0M AAV",
+    "Signed Otito Ogbonnia (IDL) from Los Angeles Chargers — $3.0M AAV",
+    "Signed Javonte Williams (RB) from Dallas Cowboys (re-sign) — $8.0M AAV",
     "Signed George Pickens (WR) from Dallas Cowboys (franchise tag) — $27.3M AAV",
-    "Signed Brandon Aubrey (K) from Dallas Cowboys (RFA tender) — $5.8M AAV",
-    "Signed T.J. Bass (IOL) from Dallas Cowboys (RFA tender) — $5.8M AAV",
-    "Signed Josh Butler (CB) from Dallas Cowboys (ERFA) — $1.1M AAV",
-    "Signed Reddy Steward (CB) from Dallas Cowboys (ERFA) — $1.0M AAV"
+    "Signed Malik Hooker (S) from Dallas Cowboys (restructure retained) — $5.0M AAV",
+    "Signed Brandon Aubrey (K) from Dallas Cowboys (RFA tendered) — $5.8M AAV",
+    "Signed T.J. Bass (IOL) from Dallas Cowboys (RFA tendered) — $5.8M AAV"
   ],
   "scheme_fit_notes": "New DC Christian Parker is installing a 3-4 base defense (first since 2012) that will be multiple with 4-3, 4-2-5 nickel, and 5-man front looks. This scheme change elevates the need for stand-up OLB/EDGE rushers who can drop into coverage, versatile inside linebackers, and coverage-capable safeties. Parker's Philly roots (Vic Fangio tree) emphasize two-high safety shells, pre-snap disguises, and scheme versatility. The DT room (Williams/Clark/Odighizuwa) is the one defensive strength and will anchor the front. Edge prospects who can play with their hand up in a 3-4 OLB role (not just 4-3 DEs) are ideal fits. CBs who can play man or zone from multiple alignments fit Parker's multiple coverage philosophy.",
   "confidence": "high",

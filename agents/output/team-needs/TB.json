@@ -1,21 +1,12 @@
 {
   "team": "TB",
   "team_full": "Tampa Bay Buccaneers",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": 15,
   "total_draft_picks": 7,
   "notable_pick_trades": "None",
   "roster_context": "Collapsed from 6-2 start to finish 8-9, missing playoffs for first time since 2019. Defense deteriorated badly (19th in total D, 25th in pressure rate). Massive free agent class of 17 UFAs including franchise icons Mike Evans and Lavonte David. Pass rush has been a persistent problem since Shaq Barrett's departure. New OC Zac Robinson hired after Josh Grizzard fired. Todd Bowles retained but under pressure. Offense was ravaged by injuries — only C Graham Barton played every game on the OL. Baker Mayfield returns as starter with ~$23M cap space pre-restructures.",
   "needs": [
-    {
-      "position": "CB",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Jamel Dean is a UFA coming off a career-best 3-INT season and is unlikely to be re-signed given the cost. Zyon McCollum (extended pre-2025) missed time late with a hip injury. The Bucs invested in 2024 draftees Benjamin Morrison (2nd round) and Jacob Parrish (3rd round), but Morrison missed 7 games with hamstring issues as a rookie and is unproven. Parrish showed flashes in nickel. Bowles said both will battle for the outside CB spot vacated by Dean. There's talent here but very little proven depth or experience.",
-      "current_starter": "Zyon McCollum, Benjamin Morrison or Jacob Parrish (battling for CB2)",
-      "depth": "Jacob Parrish (nickel), Benjamin Morrison (2nd-year), J.J. Roberts (returning from knee injury)",
-      "draft_range_target": "Round 3-5 for depth/competition"
-    },
     {
       "position": "EDGE",
       "tier": 1,
@@ -33,6 +24,15 @@
       "current_starter": "Emeka Egbuka, Chris Godwin, Mike Evans (UFA)",
       "depth": "Jalen McMillan (returning from neck injury), Tez Johnson, Kam Johnson, Sterling Shepard (UFA)",
       "draft_range_target": "Round 4-6 for depth, or Round 2-3 if Evans departs"
+    },
+    {
+      "position": "CB",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Jamel Dean is a UFA coming off a career-best 3-INT season and is unlikely to be re-signed given the cost. Zyon McCollum (extended pre-2025) missed time late with a hip injury. The Bucs invested in 2024 draftees Benjamin Morrison (2nd round) and Jacob Parrish (3rd round), but Morrison missed 7 games with hamstring issues as a rookie and is unproven. Parrish showed flashes in nickel. Bowles said both will battle for the outside CB spot vacated by Dean. There's talent here but very little proven depth or experience.",
+      "current_starter": "Zyon McCollum, Benjamin Morrison or Jacob Parrish (battling for CB2)",
+      "depth": "Jacob Parrish (nickel), Benjamin Morrison (2nd-year), J.J. Roberts (returning from knee injury)",
+      "draft_range_target": "Round 3-5 for depth/competition"
     },
     {
       "position": "DT",
@@ -53,6 +53,15 @@
       "draft_range_target": ""
     },
     {
+      "position": "IOL",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "The ideal starting five of Wirfs-Bredeson-Barton-Mauch-Goedeke was elite in 2024 but decimated by injuries in 2025, using 9 different starting combinations. Cody Mauch tore his ACL in Week 2 and is recovering. Ben Bredeson went to IR with a knee injury in Week 14. Both are expected back but Mauch may not be 100% for Week 1. Depth behind starters is thin — Dan Feeney, Michael Jordan, and Charlie Heck are all UFAs. Graham Barton was the only lineman to play every game. Need at least one quality interior depth piece.",
+      "current_starter": "Ben Bredeson (LG, returning from IR), Cody Mauch (RG, recovering from ACL)",
+      "depth": "Elijah Klein (backup G), Dan Feeney/Michael Jordan (UFAs likely gone)",
+      "draft_range_target": "Round 3-5"
+    },
+    {
       "position": "LB",
       "tier": 2,
       "urgency": "important",
@@ -60,15 +69,6 @@
       "current_starter": "SirVocea Dennis (under contract), Lavonte David (UFA, age 36)",
       "depth": "Nick Jackson (practice squad level), almost no viable depth",
       "draft_range_target": "Round 1-2"
-    },
-    {
-      "position": "IOL",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "The ideal starting five of Wirfs-Bredeson-Barton-Mauch-Goedeke was elite in 2024 but decimated by injuries in 2025, using 9 different starting combinations. Cody Mauch tore his ACL in Week 2 and is recovering. Ben Bredeson went to IR with a knee injury in Week 14. Both are expected back but Mauch may not be 100% for Week 1. Depth behind starters is thin — Dan Feeney, Michael Jordan, and Charlie Heck are all UFAs. Graham Barton was the only lineman to play every game. Need at least one quality interior depth piece.",
-      "current_starter": "Ben Bredeson (LG, returning from IR), Cody Mauch (RG, recovering from ACL)",
-      "depth": "Elijah Klein (backup G), Dan Feeney/Michael Jordan (UFAs likely gone)",
-      "draft_range_target": "Round 3-5"
     },
     {
       "position": "RB",
@@ -91,49 +91,48 @@
   ],
   "needs_summary": {
     "tier_1": [
-      "CB",
       "EDGE",
       "WR"
     ],
     "tier_2": [
+      "CB",
       "DT",
       "IDL",
+      "IOL",
       "LB"
     ],
-    "tier_3": [
-      "IOL"
-    ],
+    "tier_3": [],
     "tier_4": [
       "RB",
       "TE"
     ]
   },
   "simple_needs": [
-    "DB",
     "DL",
     "WR",
-    "LB",
-    "OL"
+    "DB",
+    "OL",
+    "LB"
   ],
   "detailed_needs": {
-    "DB": 1,
     "DL": 1,
     "WR": 1,
-    "LB": 2,
-    "OL": 3
+    "DB": 2,
+    "OL": 2,
+    "LB": 2
   },
   "free_agency_impact": [
     "Mike Evans (WR) → San Francisco 49ers",
     "Jamel Dean (CB) → Pittsburgh Steelers",
     "Rachaad White (RB) → TBD/unsigned",
     "Haason Reddick (EDGE) → TBD/unsigned",
+    "Lavonte David (LB) → TBD/retirement_decision_pending",
     "Logan Hall (IDL) → TBD/unsigned",
-    "Lavonte David (LB) → undecided/unsigned",
     "Signed Cade Otton (TE) from Tampa Bay Buccaneers (re-sign) — $10.0M AAV",
-    "Signed Kenneth Gainwell (RB) from Pittsburgh Steelers — $7.0M AAV",
     "Signed Alex Anzalone (LB) from Detroit Lions — $8.5M AAV",
-    "Signed Connor Bazelak (QB) from Unknown/FA — $1.0M AAV",
-    "Signed Evan Deckers (LS) from Tampa Bay Buccaneers (re-sign) — terms TBD AAV"
+    "Signed Kenneth Gainwell (RB) from Pittsburgh Steelers — $7.0M AAV",
+    "Signed Connor Bazelak (QB) from Tampa Bay Buccaneers (re-sign) — $1.0M AAV",
+    "Signed Evan Deckers (LS) from Tampa Bay Buccaneers (re-sign) — $1.1M AAV"
   ],
   "scheme_fit_notes": "Bowles runs a 3-4 defense that relies heavily on blitzing and disguised pressures. EDGE rushers must be versatile OLBs who can rush and drop into coverage, not just pure speed rushers. ILBs need sideline-to-sideline range since Bowles asks them to cover RBs and TEs frequently — David's declining range in coverage was a notable problem. DL players who can line up at multiple gaps are valued (Bowles moves linemen around). CB prospects should be comfortable in man coverage given the blitz-heavy scheme. On offense, new OC Zac Robinson brings a play-action/RPO-heavy scheme that demands an effective run game and athletic TEs.",
   "confidence": "high",

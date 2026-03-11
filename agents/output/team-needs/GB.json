@@ -1,7 +1,7 @@
 {
   "team": "GB",
   "team_full": "Green Bay Packers",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": null,
   "total_draft_picks": 8,
   "notable_pick_trades": "Traded 2026 1st-round pick (#20 overall) and 2027 1st-round pick to Dallas Cowboys for EDGE Micah Parsons and DT Kenny Clark (outgoing). Projected compensatory picks in rounds 5-7 for losses of OL Josh Myers and LB Eric Wilson.",
@@ -53,24 +53,6 @@
       "draft_range_target": "Round 4-5 for swing tackle depth."
     },
     {
-      "position": "QB",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Malik Willis departing for Miami on a $22.5M AAV deal leaves Jordan Love with no proven backup. This is a newly created need. Green Bay must add a capable backup QB — whether a veteran bridge or a developmental arm — before the season. Worth addressing in the mid-rounds of the draft or via a veteran free agent signing.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
-    },
-    {
-      "position": "WR",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Romeo Doubs (UFA) may depart, but the Packers have invested heavily here: Jayden Reed (2023 2nd-round), Matthew Golden (2025 1st-round), Christian Watson (extended through 2026), Dontayvion Wicks. If Doubs leaves, the room is still deep with young talent. Not a priority unless multiple departures happen.",
-      "current_starter": "Jayden Reed, Christian Watson, Matthew Golden",
-      "depth": "Dontayvion Wicks, Bo Melton. Romeo Doubs (UFA, likely departing — team invested in position via draft).",
-      "draft_range_target": "Not a draft priority. May add veteran depth if Doubs leaves."
-    },
-    {
       "position": "LB",
       "tier": 3,
       "urgency": "moderate",
@@ -78,6 +60,15 @@
       "current_starter": "Edgerrin Cooper (WILL), Quay Walker (MIKE, UFA)",
       "depth": "Isaiah McDuffie, Ty'Ron Hopper, Jamon Johnson. Depth is thin if Walker leaves.",
       "draft_range_target": "Round 4-5 if Walker departs. Lower priority if re-signed."
+    },
+    {
+      "position": "QB",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Malik Willis departing for Miami on a $22.5M AAV deal leaves Jordan Love with no proven backup. This is a newly created need. Green Bay must add a capable backup QB — whether a veteran bridge or a developmental arm — before the season. Worth addressing in the mid-rounds of the draft or via a veteran free agent signing.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
     },
     {
       "position": "TE",
@@ -89,13 +80,13 @@
       "draft_range_target": "Round 4-6."
     },
     {
-      "position": "IOL",
-      "tier": 4,
-      "urgency": "minor",
-      "explanation": "Elgton Jenkins is all but certain to be released, saving ~$19.5M in cap space. He was moved to center in 2025 and graded poorly (PFF 62.0, 25th of 40 centers). Backup Sean Rhyan is a UFA who also graded out as one of the worst centers in the league. Jacob Monk saw only 57 snaps. Center is an immediate hole with no clear replacement. Tyler Biadasz has been linked as a FA target. Guard Aaron Banks ($77M deal) was a disappointment in Year 1 but is likely kept due to dead cap. The OL was one of the worst units in recent Packers memory in 2025.",
-      "current_starter": "Aaron Banks (LG), VACANT at center (Jenkins expected cut), Darian Kinnard/Zach Tom (RG)",
-      "depth": "Jacob Monk (limited snaps), Lecitus Smith, John Williams. Anthony Belton could compete at RG.",
-      "draft_range_target": "Round 3-4 for center prospect. Tyler Biadasz or Lloyd Cushenberry III targeted in FA."
+      "position": "WR",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Romeo Doubs (UFA) may depart, but the Packers have invested heavily here: Jayden Reed (2023 2nd-round), Matthew Golden (2025 1st-round), Christian Watson (extended through 2026), Dontayvion Wicks. If Doubs leaves, the room is still deep with young talent. Not a priority unless multiple departures happen.",
+      "current_starter": "Jayden Reed, Christian Watson, Matthew Golden",
+      "depth": "Dontayvion Wicks, Bo Melton. Romeo Doubs (UFA, likely departing — team invested in position via draft).",
+      "draft_range_target": "Not a draft priority. May add veteran depth if Doubs leaves."
     }
   ],
   "needs_summary": {
@@ -106,52 +97,52 @@
     ],
     "tier_2": [
       "CB",
-      "OT",
-      "QB",
-      "WR"
+      "OT"
     ],
     "tier_3": [
       "LB",
-      "TE"
+      "QB",
+      "TE",
+      "WR"
     ],
-    "tier_4": [
-      "IOL"
-    ]
+    "tier_4": []
   },
   "simple_needs": [
     "DL",
     "DB",
     "OL",
-    "QB",
-    "WR",
     "LB",
-    "TE"
+    "QB",
+    "TE",
+    "WR"
   ],
   "detailed_needs": {
     "DL": 1,
     "DB": 2,
     "OL": 2,
-    "QB": 2,
-    "WR": 2,
     "LB": 3,
-    "TE": 3
+    "QB": 3,
+    "TE": 3,
+    "WR": 3
   },
   "free_agency_impact": [
     "Malik Willis (QB) → Miami Dolphins",
-    "Rasheed Walker (OT) → TBD/unsigned (unsigned as of 3/10)",
-    "Romeo Doubs (WR) → TBD/unsigned (unsigned as of 3/10)",
+    "Romeo Doubs (WR) → New England Patriots",
     "Quay Walker (LB) → Las Vegas Raiders",
     "Kingsley Enagbare (EDGE) → New York Jets",
-    "Rashan Gary (EDGE) → Dallas Cowboys (trade)",
-    "Elgton Jenkins (IOL) → Released",
-    "Colby Wooden (IDL) → Indianapolis Colts (trade)",
-    "Kristian Welch (LB) → TBD/unsigned",
-    "John FitzPatrick (TE) → TBD/unsigned",
-    "Signed Zaire Franklin (LB) from Indianapolis Colts — $7.0M AAV",
-    "Signed Sean Rhyan (IOL) from Green Bay Packers (re-signing) — $11.0M AAV",
-    "Signed Nick Niemann (LB) from Green Bay Packers (re-signing) — $2.5M AAV",
-    "Signed Chris Brooks (RB) from Green Bay Packers (re-signing from RFA) — $2.4M AAV",
-    "Signed Darian Kinnard (OT) from Green Bay Packers (re-signing from RFA) — $3.8M AAV"
+    "Rasheed Walker (OT) → TBD/unsigned",
+    "Rashan Gary (EDGE) → Dallas Cowboys",
+    "Elgton Jenkins (IOL) → Cleveland Browns",
+    "Nate Hobbs (CB) → TBD/unsigned",
+    "Colby Wooden (IDL) → Indianapolis Colts",
+    "Signed Zaire Franklin (LB) from Indianapolis Colts — $7.6M AAV",
+    "Signed Sean Rhyan (IOL) from Green Bay Packers (re-sign) — $11.0M AAV",
+    "Signed Benjamin St-Juste (CB) from Los Angeles Chargers — $5.0M AAV",
+    "Signed Chris Brooks (RB) from Green Bay Packers (re-sign/RFA) — $2.4M AAV",
+    "Signed Nick Niemann (LB) from Green Bay Packers (re-sign) — $2.5M AAV",
+    "Signed Darian Kinnard (IOL) from Green Bay Packers (re-sign) — $3.8M AAV",
+    "Signed Kristian Welch (LB) from Green Bay Packers (re-sign) — terms TBD AAV",
+    "Signed Skyy Moore (WR) from San Francisco 49ers — terms TBD AAV"
   ],
   "scheme_fit_notes": "New DC Jonathan Gannon runs a quarters-based coverage scheme (highest rate in NFL in Arizona at 23%). This demands long, fast, physical outside cornerbacks who can play in space — a very different profile than what the Packers currently have. Gannon's scheme also emphasizes interior DL disruption to fuel the pass rush, which pairs well with Parsons on the edge. The Packers historically favor CBs at least 5'10.25\" and ~195 lbs. Edge rushers in Gannon's system benefit from versatile alignments. On offense, LaFleur runs a West Coast/outside zone scheme that values athletic, mobile OL who can pull and reach block. Center must be smart and mobile in this system.",
   "confidence": "high",

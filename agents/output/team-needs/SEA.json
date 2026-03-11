@@ -1,7 +1,7 @@
 {
   "team": "SEA",
   "team_full": "Seattle Seahawks",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": 32,
   "total_draft_picks": 4,
   "notable_pick_trades": "Traded 4th and 5th rounders to Saints for Rashid Shaheed at 2025 deadline. Original 6th went to JAX in 2024. Only have picks 32, 64, 96, and CLE's 6th-rounder.",
@@ -15,6 +15,15 @@
       "current_starter": "Kenneth Walker III (UFA, likely departing)",
       "depth": "Zach Charbonnet (ACL recovery, may miss early 2026), George Holani (ERFA), Kenny McIntosh (ACL recovery), Velus Jones Jr.",
       "draft_range_target": "Round 2-3, or address via FA"
+    },
+    {
+      "position": "CB",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Both starting outside corners Riq Woolen and Josh Jobe are UFAs. Woolen reportedly was not viewed as a fit for Macdonald's defense and is projected at $19M/yr — likely too expensive. Jobe is the most likely to return at ~$9-10M/yr but still might leave. Behind Devon Witherspoon (elite CB1), the cupboard is essentially bare. Nick Emmanwori can play nickel/slot but is primarily a safety. Nehemiah Pritchett is the only other CB under contract and was a rotational piece. Losing both starters would be catastrophic for the defense.",
+      "current_starter": "Devon Witherspoon (CB1, under contract), Riq Woolen (UFA), Josh Jobe (UFA)",
+      "depth": "Nehemiah Pritchett, Nick Emmanwori (slot capable). Extremely thin if Woolen and Jobe both depart.",
+      "draft_range_target": "Round 1-2"
     },
     {
       "position": "IOL",
@@ -33,15 +42,6 @@
       "current_starter": "Julian Love (under contract), Coby Bryant (UFA)",
       "depth": "Nick Emmanwori (hybrid S/nickel, under contract), Ty Okada (ERFA tendered), D'Anthony Bell (signed 2025)",
       "draft_range_target": "Round 2-4"
-    },
-    {
-      "position": "CB",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "Both starting outside corners Riq Woolen and Josh Jobe are UFAs. Woolen reportedly was not viewed as a fit for Macdonald's defense and is projected at $19M/yr — likely too expensive. Jobe is the most likely to return at ~$9-10M/yr but still might leave. Behind Devon Witherspoon (elite CB1), the cupboard is essentially bare. Nick Emmanwori can play nickel/slot but is primarily a safety. Nehemiah Pritchett is the only other CB under contract and was a rotational piece. Losing both starters would be catastrophic for the defense.",
-      "current_starter": "Devon Witherspoon (CB1, under contract), Riq Woolen (UFA), Josh Jobe (UFA)",
-      "depth": "Nehemiah Pritchett, Nick Emmanwori (slot capable). Extremely thin if Woolen and Jobe both depart.",
-      "draft_range_target": "Round 1-2"
     },
     {
       "position": "DT",
@@ -71,6 +71,24 @@
       "draft_range_target": ""
     },
     {
+      "position": "LB",
+      "tier": 4,
+      "urgency": "minor",
+      "explanation": "Both starting LBs retained: Drake Thomas (2yr/$8M extension) and Ernest Jones IV (already under contract). Thomas had 96 tackles and 3.5 sacks as a first-year starter in 2025. LB is fully addressed. Tier 4 — no meaningful draft investment needed here.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
+      "position": "QB",
+      "tier": 4,
+      "urgency": "minor",
+      "explanation": "Sam Darnold is the unquestioned starter under a multi-year deal. Drew Lock returns as the backup on a 2yr/$5M deal. QB room is stable. No change needed.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
       "position": "WR",
       "tier": 4,
       "urgency": "minor",
@@ -85,51 +103,54 @@
       "RB"
     ],
     "tier_2": [
+      "CB",
       "IOL",
       "S"
     ],
     "tier_3": [
-      "CB",
       "DT",
       "EDGE",
       "OT"
     ],
     "tier_4": [
+      "LB",
+      "QB",
       "WR"
     ]
   },
   "simple_needs": [
     "RB",
-    "OL",
     "DB",
+    "OL",
     "DL"
   ],
   "detailed_needs": {
     "RB": 1,
-    "OL": 2,
     "DB": 2,
+    "OL": 2,
     "DL": 3
   },
   "free_agency_impact": [
     "Kenneth Walker III (RB) → Kansas City Chiefs",
     "Coby Bryant (S) → Chicago Bears",
     "Boye Mafe (EDGE) → Cincinnati Bengals",
-    "Riq Woolen (CB) → TBD/unsigned",
-    "Jake Bobo (WR) → TBD/unsigned",
-    "Josh Jones (OT) → TBD/unsigned",
+    "Riq Woolen (CB) → Philadelphia Eagles",
+    "Rashid Shaheed (WR) → RE-SIGNED",
+    "Josh Jobe (CB) → RE-SIGNED",
     "Chazz Surratt (LB) → TBD/unsigned",
     "Dareke Young (WR) → TBD/unsigned",
+    "Jake Bobo (WR) → TBD/UFA",
     "Signed Rashid Shaheed (WR) from Seattle Seahawks (re-sign) — $17.0M AAV",
     "Signed Josh Jobe (CB) from Seattle Seahawks (re-sign) — $8.0M AAV",
-    "Signed Drake Thomas (LB) from Seattle Seahawks (extension) — $4.0M AAV",
-    "Signed George Holani (RB) from Seattle Seahawks (ERFA tender) — terms TBD AAV",
-    "Signed Ty Okada (S) from Seattle Seahawks (ERFA tender) — terms TBD AAV",
-    "Signed D'Anthony Bell (S) from Cleveland Browns (via SEA 2025 FA) — $1.1M AAV",
-    "Signed Drew Lock (QB) from New York Giants — terms TBD AAV",
-    "Signed Eric Saubert (TE) from San Francisco 49ers — terms TBD AAV",
-    "Signed Steven Sims (WR) from Baltimore Ravens — terms TBD AAV",
+    "Signed Drake Thomas (LB) from Seattle Seahawks (extension — was RFA) — $4.0M AAV",
+    "Signed Drew Lock (QB) from New York Giants — $2.5M AAV",
+    "Signed D'Anthony Bell (S) from Cleveland Browns — $1.4M AAV",
+    "Signed Eric Saubert (TE) from San Francisco 49ers (re-sign — extended Dec. 2025) — terms TBD AAV",
+    "Signed Josh Ross (LB) from Seattle Seahawks (re-sign — was waiver claim from Baltimore) — terms TBD AAV",
     "Signed River Cracraft (WR) from Miami Dolphins — terms TBD AAV",
-    "Signed Josh Ross (LB) from Seattle Seahawks (re-sign) — terms TBD AAV"
+    "Signed Steven Sims (WR) from Baltimore Ravens — terms TBD AAV",
+    "Signed George Holani (RB) from Seattle Seahawks (ERFA tender) — terms TBD AAV",
+    "Signed Ty Okada (S) from Seattle Seahawks (ERFA tender) — terms TBD AAV"
   ],
   "scheme_fit_notes": "Mike Macdonald runs an aggressive, multiple-front defense that relies on a deep rotation of EDGE rushers and versatile defensive backs who can disguise coverages. The defense frequently deploys 5+ DBs with Emmanwori as a hybrid safety/nickel. CBs must be physical and comfortable in man coverage. EDGE prospects with pass-rush versatility and a motor are valued over pure speed rushers. On offense, the Seahawks run a wide-zone blocking scheme under new OC Brian Fleury (similar to Kubiak's system). IOL prospects who excel in zone blocking with lateral agility are ideal fits. The offense is run-first, making the RB vacancy especially impactful.",
   "confidence": "high",

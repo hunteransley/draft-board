@@ -1,7 +1,7 @@
 {
   "team": "JAX",
   "team_full": "Jacksonville Jaguars",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": null,
   "total_draft_picks": 11,
   "notable_pick_trades": "Traded 2026 1st-round pick (No. 24 overall) to Cleveland Browns in package to move up for Travis Hunter (No. 2 overall) in 2025 draft. Acquired two extra 3rd-round picks from Detroit Lions. Lost 4th and 6th to Las Vegas for Jakobi Meyers trade.",
@@ -15,6 +15,15 @@
       "current_starter": "Foye Oluokun (aging, cap casualty candidate), Ventrell Miller (unproven)",
       "depth": "Jack Kiser (rookie), Ventrell Miller — very thin if Lloyd leaves AND Oluokun is cut",
       "draft_range_target": "Round 2-3"
+    },
+    {
+      "position": "RB",
+      "tier": 1,
+      "urgency": "critical",
+      "explanation": "Travis Etienne (1,107 rush yards, 7 rush TDs, 36 rec, 6 rec TDs) is a UFA who was not franchise tagged. The Jaguars are reportedly unlikely to re-sign him due to cap constraints, and multiple teams (Texans, Chiefs, Bears) are interested. Bhayshul Tuten (2025 4th-round pick) showed promise as a rookie and showed starting potential in the playoffs, but the team still needs a complementary back. DeeJay Dallas was re-signed but is a depth piece.",
+      "current_starter": "Bhayshul Tuten (projected starter if Etienne leaves)",
+      "depth": "DeeJay Dallas (re-signed), no proven backup behind Tuten",
+      "draft_range_target": "Round 3-5"
     },
     {
       "position": "IDL",
@@ -35,13 +44,13 @@
       "draft_range_target": "Round 2-4"
     },
     {
-      "position": "RB",
+      "position": "OT",
       "tier": 2,
       "urgency": "important",
-      "explanation": "Travis Etienne (1,107 rush yards, 7 rush TDs, 36 rec, 6 rec TDs) is a UFA who was not franchise tagged. The Jaguars are reportedly unlikely to re-sign him due to cap constraints, and multiple teams (Texans, Chiefs, Bears) are interested. Bhayshul Tuten (2025 4th-round pick) showed promise as a rookie and showed starting potential in the playoffs, but the team still needs a complementary back. DeeJay Dallas was re-signed but is a depth piece.",
-      "current_starter": "Bhayshul Tuten (projected starter if Etienne leaves)",
-      "depth": "DeeJay Dallas (re-signed), no proven backup behind Tuten",
-      "draft_range_target": "Round 3-5"
+      "explanation": "Anton Harrison had a breakout year at RT (6th in PFF pass-blocking among qualified RTs, zero sacks allowed). Walker Little remains the starting LT but was inconsistent (9 sacks, 29 pressures allowed before being replaced by Cole Van Lanen late in the season). Van Lanen outperformed Little at LT and was re-signed. Little has a $12M cap hit in 2026 and is a potential trade candidate. The OT position is not urgent given Harrison's development and Van Lanen's emergence, but Little's inconsistency at LT keeps this as a background need.",
+      "current_starter": "Walker Little (LT, inconsistent/trade candidate), Anton Harrison (RT, ascending)",
+      "depth": "Cole Van Lanen (re-signed, played well at LT), Chuma Edoga — LT is the question mark",
+      "draft_range_target": "Round 4-7 or addressed via trade"
     },
     {
       "position": "EDGE",
@@ -80,23 +89,24 @@
       "draft_range_target": "Round 2-3"
     },
     {
-      "position": "OT",
+      "position": "WR",
       "tier": 4,
       "urgency": "minor",
-      "explanation": "Anton Harrison had a breakout year at RT (6th in PFF pass-blocking among qualified RTs, zero sacks allowed). Walker Little remains the starting LT but was inconsistent (9 sacks, 29 pressures allowed before being replaced by Cole Van Lanen late in the season). Van Lanen outperformed Little at LT and was re-signed. Little has a $12M cap hit in 2026 and is a potential trade candidate. The OT position is not urgent given Harrison's development and Van Lanen's emergence, but Little's inconsistency at LT keeps this as a background need.",
-      "current_starter": "Walker Little (LT, inconsistent/trade candidate), Anton Harrison (RT, ascending)",
-      "depth": "Cole Van Lanen (re-signed, played well at LT), Chuma Edoga — LT is the question mark",
-      "draft_range_target": "Round 4-7 or addressed via trade"
+      "explanation": "Jakobi Meyers locked up on 3yr/$60M ($40M gtd) extension in December — a true WR2 investment that resolved the mid-season acquisition into a long-term roster piece. Brian Thomas Jr. (2024 1st-rounder) remains, plus Travis Hunter (2025 #2 overall) will contribute at WR on a part-time basis. WR depth drops are manageable given the quality at the top. No pressing WR need for early draft capital.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
     }
   ],
   "needs_summary": {
     "tier_1": [
-      "LB"
+      "LB",
+      "RB"
     ],
     "tier_2": [
       "IDL",
       "IOL",
-      "RB"
+      "OT"
     ],
     "tier_3": [
       "EDGE",
@@ -105,42 +115,44 @@
     ],
     "tier_4": [
       "CB",
-      "OT"
+      "WR"
     ]
   },
   "simple_needs": [
     "LB",
+    "RB",
     "DL",
     "OL",
-    "RB",
     "DB",
     "TE"
   ],
   "detailed_needs": {
     "LB": 1,
+    "RB": 1,
     "DL": 2,
     "OL": 2,
-    "RB": 2,
     "DB": 3,
     "TE": 3
   },
   "free_agency_impact": [
     "Travis Etienne Jr. (RB) → New Orleans Saints",
     "Devin Lloyd (LB) → Carolina Panthers",
-    "Dawuane Smoot (EDGE) → TBD/unsigned",
+    "Greg Newsome II (CB) → New York Giants",
+    "Johnny Mundt (TE) → Released",
     "Emmanuel Ogbah (EDGE) → TBD/unsigned",
-    "Greg Newsome II (CB) → TBD/unsigned",
+    "Dawuane Smoot (EDGE) → TBD/unsigned",
+    "Andrew Wingard (S) → TBD/unsigned",
+    "Austin Johnson (IDL) → TBD/unsigned",
     "Tim Patrick (WR) → TBD/unsigned",
     "Dyami Brown (WR) → TBD/unsigned",
-    "Austin Johnson (IDL) → TBD/unsigned",
-    "Andrew Wingard (S) → TBD/unsigned",
+    "Signed Jakobi Meyers (WR) from Las Vegas Raiders (trade, Nov 2025) — $20.0M AAV",
     "Signed Montaric Brown (CB) from Jacksonville Jaguars (re-sign) — $11.0M AAV",
-    "Signed Dennis Gardeck (EDGE) from Jacksonville Jaguars (re-sign) — $6.0M AAV",
+    "Signed Dennis Gardeck (LB) from Jacksonville Jaguars (re-sign) — $6.0M AAV",
     "Signed Quintin Morris (TE) from Jacksonville Jaguars (re-sign) — $3.0M AAV",
-    "Signed DeeJay Dallas (RB) from Jacksonville Jaguars (re-sign) — $1.2M AAV",
-    "Signed Matt Dickerson (IDL) from Jacksonville Jaguars (re-sign) — $1.4M AAV",
-    "Signed Christian Braswell (CB) from Jacksonville Jaguars (ERFA tender) — $0.8M AAV",
-    "Signed Keith Taylor (CB) from Jacksonville Jaguars (RFA tender) — $2.0M AAV"
+    "Signed DeeJay Dallas (RB) from Jacksonville Jaguars (re-sign) — terms TBD AAV",
+    "Signed Matt Dickerson (IDL) from Jacksonville Jaguars (re-sign) — terms TBD AAV",
+    "Signed Christian Braswell (CB) from Jacksonville Jaguars (ERFA re-sign) — terms TBD AAV",
+    "Signed Keith Taylor (CB) from Jacksonville Jaguars (RFA re-sign) — terms TBD AAV"
   ],
   "scheme_fit_notes": "Under DC Anthony Campanile, the Jaguars run an attacking 4-3 defense that emphasizes pressure generation and versatile LB play. Campanile's scheme allowed Devin Lloyd to thrive as a blitzer/coverage LB hybrid, so his replacement needs similar versatility. IDL prospects who can generate interior pressure and convert pressures to sacks are the highest-value targets given the team's league-worst pressure-to-sack conversion rate. On offense, Liam Coen runs a creative, run-heavy scheme with play-action and motion. IOL prospects who are strong run-blockers and can handle zone-blocking concepts fit best. The offense's identity runs through the interior OL and RB position.",
   "confidence": "high",

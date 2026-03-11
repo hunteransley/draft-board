@@ -1,7 +1,7 @@
 {
   "team": "IND",
   "team_full": "Indianapolis Colts",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": null,
   "total_draft_picks": 7,
   "notable_pick_trades": "Traded 2026 1st-round pick (#16 overall) and 2027 1st-round pick to NYJ in midseason Sauce Gardner trade. Projected to receive 2 compensatory picks.",
@@ -15,6 +15,15 @@
       "current_starter": "Laiatu Latu, Kwity Paye (UFA)",
       "depth": "JT Tuimoloau only other edge under contract. Paye, Ebukam, Lewis all departing.",
       "draft_range_target": "Round 2 (#47 overall) — top priority for first pick"
+    },
+    {
+      "position": "LB",
+      "tier": 1,
+      "urgency": "critical",
+      "explanation": "Germaine Pratt is a UFA unlikely to return at age 30. Zaire Franklin is a strong cut candidate ($9M savings) despite leading the team in tackles — Ballard was non-committal about his return, saying only 'we'll see.' Franklin's 13.9% missed tackle rate and poor coverage grades don't fit the 'younger, faster' mandate. Behind them, the unit is extremely thin with only unproven players like Austin Ajiake and Jaylon Carlies under contract.",
+      "current_starter": "Zaire Franklin (potential cut), Germaine Pratt (UFA)",
+      "depth": "Austin Ajiake, John Bullock, Jaylon Carlies, Devin Versuk — all very inexperienced",
+      "draft_range_target": "Round 2 (#47) or Round 3 (#78)"
     },
     {
       "position": "DT",
@@ -33,15 +42,6 @@
       "current_starter": "",
       "depth": "",
       "draft_range_target": ""
-    },
-    {
-      "position": "LB",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Germaine Pratt is a UFA unlikely to return at age 30. Zaire Franklin is a strong cut candidate ($9M savings) despite leading the team in tackles — Ballard was non-committal about his return, saying only 'we'll see.' Franklin's 13.9% missed tackle rate and poor coverage grades don't fit the 'younger, faster' mandate. Behind them, the unit is extremely thin with only unproven players like Austin Ajiake and Jaylon Carlies under contract.",
-      "current_starter": "Zaire Franklin (potential cut), Germaine Pratt (UFA)",
-      "depth": "Austin Ajiake, John Bullock, Jaylon Carlies, Devin Versuk — all very inexperienced",
-      "draft_range_target": "Round 2 (#47) or Round 3 (#78)"
     },
     {
       "position": "OT",
@@ -100,12 +100,12 @@
   ],
   "needs_summary": {
     "tier_1": [
-      "EDGE"
+      "EDGE",
+      "LB"
     ],
     "tier_2": [
       "DT",
       "IDL",
-      "LB",
       "OT",
       "QB",
       "S"
@@ -127,26 +127,31 @@
   ],
   "detailed_needs": {
     "DL": 1,
-    "LB": 2,
+    "LB": 1,
     "OL": 2,
     "QB": 2,
     "DB": 2
   },
   "free_agency_impact": [
-    "Michael Pittman Jr. (WR) → Pittsburgh Steelers",
-    "Zaire Franklin (LB) → Green Bay Packers",
     "Kwity Paye (EDGE) → Las Vegas Raiders",
     "Neville Gallimore (IDL) → Chicago Bears",
-    "Nick Cross (S) → TBD/unsigned_as_of_2026-03-10",
-    "Braden Smith (OT) → TBD/unsigned_as_of_2026-03-10",
-    "Samson Ebukam (EDGE) → TBD/unsigned_as_of_2026-03-10",
-    "Tyquan Lewis (EDGE) → TBD/unsigned_as_of_2026-03-10",
-    "Signed Alec Pierce (WR) from Indianapolis Colts (re-sign) — $29.0M AAV",
+    "Zaire Franklin (LB) → Green Bay Packers (trade)",
+    "Michael Pittman Jr. (WR) → Pittsburgh Steelers (trade)",
+    "Braden Smith (OT) → Houston Texans",
+    "Nick Cross (S) → TBD/unsigned as of 2026-03-11",
+    "Germaine Pratt (LB) → TBD/unsigned as of 2026-03-11",
+    "Samson Ebukam (EDGE) → TBD/unsigned as of 2026-03-11",
+    "Tyquan Lewis (EDGE) → TBD/unsigned as of 2026-03-11",
+    "Signed Alec Pierce (WR) from Indianapolis Colts (re-sign) — $28.5M AAV",
     "Signed Daniel Jones (QB) from Indianapolis Colts (transition tag) — $37.8M AAV",
     "Signed Arden Key (EDGE) from Tennessee Titans — $10.0M AAV",
-    "Signed Colby Wooden (IDL) from Green Bay Packers — $1.1M AAV",
-    "Signed Blake Grupe (K) from Indianapolis Colts (re-sign) — $1.4M AAV",
-    "Signed Austin Ajiake (LB) from Indianapolis Colts (ERFA tender) — $1.0M AAV"
+    "Signed Colby Wooden (IDL) from Green Bay Packers (trade for Zaire Franklin) — terms TBD AAV",
+    "Signed Blake Grupe (K) from Indianapolis Colts (re-sign/ERFA) — $1.4M AAV",
+    "Signed Austin Ajiake (LB) from Indianapolis Colts (ERFA) — $1.0M AAV",
+    "Signed Ashton Dulin (WR) from Indianapolis Colts (re-sign) — terms TBD AAV",
+    "Signed Danny Pinter (IOL) from Indianapolis Colts (re-sign) — terms TBD AAV",
+    "Signed Wesley French (IOL) from Indianapolis Colts (re-sign) — terms TBD AAV",
+    "Signed Corey Ballentine (CB) from External free agent (previous team undisclosed in available sources) — terms TBD AAV"
   ],
   "scheme_fit_notes": "Shane Steichen's offense runs a West Coast scheme with explosive deep shots (Pierce led NFL in yards per reception two consecutive years). Lou Anarumo's 4-3 defense emphasizes press-man coverage leveraging Gardner/Ward. Ballard has explicitly mandated getting 'younger and faster' in the front seven. EDGE prospects who can both rush the passer and set the edge against the run fit well — Latu needs a complementary rusher opposite him. LB prospects with coverage ability and sideline-to-sideline speed are at a premium given Franklin's coverage limitations. The strong CB room allows Anarumo to blitz more, increasing the value of edge rushers who can win quickly.",
   "confidence": "high",

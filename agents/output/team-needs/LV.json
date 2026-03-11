@@ -1,29 +1,20 @@
 {
   "team": "LV",
   "team_full": "Las Vegas Raiders",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": 1,
   "total_draft_picks": 10,
   "notable_pick_trades": "Traded original 5th-round pick to CLE for QB Kenny Pickett. Acquired 4th-round pick from MIN, 6th-round pick from NYJ. Projected 4th-round and 5th-round compensatory picks. Received 4th and 6th-round picks from JAX in Jakobi Meyers trade.",
   "roster_context": "The Raiders went 3-14 in 2025, earning the No. 1 overall pick. New HC Klint Kubiak (replacing fired Pete Carroll) and DC Rob Leonard are installing a 3-4 defense. GM John Spytek is entering year two with ~$88M in cap space and 10 draft picks. The franchise is in full rebuild mode around young core pieces Ashton Jeanty (RB), Brock Bowers (TE), and the expected No. 1 pick QB Fernando Mendoza. Geno Smith is expected to be released or traded before March 11 to avoid $8M additional guarantee. Maxx Crosby trade rumors are swirling — FOX Sports Jay Glazer reported Crosby wants out, and a trade could happen this week. Raiders are asking for two first-round picks and a player. Christian Wilkins was released in July 2025. The OL was decimated by injuries (Kolton Miller and Jackson Powers-Johnson both went to IR). The 2025 offense was historically bad.",
   "needs": [
     {
-      "position": "QB",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Geno Smith threw a league-high 17 interceptions in 2025 and is expected to be released/traded before the league year opens March 11 to avoid an additional $8M guarantee trigger. Kenny Pickett (FA) is not the answer either. The Raiders hold the No. 1 overall pick and Indiana QB Fernando Mendoza is the consensus selection — every major mock has him going to Las Vegas. This is the franchise's most critical need.",
-      "current_starter": "Geno Smith (likely to be released/traded), Kenny Pickett (UFA)",
-      "depth": "No viable QB on roster after Smith/Pickett departures",
-      "draft_range_target": "Round 1, Pick 1 — Fernando Mendoza"
-    },
-    {
-      "position": "CB",
+      "position": "DT",
       "tier": 2,
       "urgency": "important",
-      "explanation": "The secondary was a major weakness in 2025. CB1 Eric Stokes is a UFA and could leave for a contender. Even if re-signed, the other two starting CB spots are question marks. Darien Porter (2025 3rd-rounder) started 10 games but is still developing. Darnay Holmes is a below-average starter. Kyu Blu Kelly is an ERFA with flashes but unproven. The Raiders were exploited through the air all season. Switching to a 3-4 adds complexity. The Raiders met with multiple DBs at the Combine.",
-      "current_starter": "Eric Stokes (UFA), Darien Porter, Darnay Holmes",
-      "depth": "Kyu Blu Kelly (ERFA), Sam Webb — very thin",
-      "draft_range_target": "Round 2-3, plus at least one FA signing"
+      "explanation": "No meaningful IDL additions in free agency. The interior defensive line remains a need heading into the draft. Thomas Booker IV was tendered as an RFA, providing modest depth continuity, but no starter-level IDL was signed. Need unchanged.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
     },
     {
       "position": "EDGE",
@@ -71,9 +62,27 @@
       "draft_range_target": "Round 2 or free agency/trade. This is a historically deep WR draft class."
     },
     {
-      "position": "IOL",
+      "position": "CB",
       "tier": 3,
       "urgency": "moderate",
+      "explanation": "The secondary was a major weakness in 2025. CB1 Eric Stokes is a UFA and could leave for a contender. Even if re-signed, the other two starting CB spots are question marks. Darien Porter (2025 3rd-rounder) started 10 games but is still developing. Darnay Holmes is a below-average starter. Kyu Blu Kelly is an ERFA with flashes but unproven. The Raiders were exploited through the air all season. Switching to a 3-4 adds complexity. The Raiders met with multiple DBs at the Combine.",
+      "current_starter": "Eric Stokes (UFA), Darien Porter, Darnay Holmes",
+      "depth": "Kyu Blu Kelly (ERFA), Sam Webb — very thin",
+      "draft_range_target": "Round 2-3, plus at least one FA signing"
+    },
+    {
+      "position": "QB",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Geno Smith threw a league-high 17 interceptions in 2025 and is expected to be released/traded before the league year opens March 11 to avoid an additional $8M guarantee trigger. Kenny Pickett (FA) is not the answer either. The Raiders hold the No. 1 overall pick and Indiana QB Fernando Mendoza is the consensus selection — every major mock has him going to Las Vegas. This is the franchise's most critical need.",
+      "current_starter": "Geno Smith (likely to be released/traded), Kenny Pickett (UFA)",
+      "depth": "No viable QB on roster after Smith/Pickett departures",
+      "draft_range_target": "Round 1, Pick 1 — Fernando Mendoza"
+    },
+    {
+      "position": "IOL",
+      "tier": 4,
+      "urgency": "minor",
       "explanation": "C/G Jackson Powers-Johnson was placed on IR with an ankle injury in Week 10 and missed the rest of 2025. He's under contract and expected to be the starting center, but health is a concern entering year three. LG Dylan Parham is a UFA. RG Jordan Meredith is a RFA. The Raiders invested 2025 3rd-round pick Caleb Rogers at guard but he was barely active. Alex Cappa was poor in 2025. If Parham and Meredith leave, there's a real gap at guard, but the draft picks from 2025 could step up.",
       "current_starter": "Jackson Powers-Johnson (C), Dylan Parham (UFA, LG), Jordan Meredith (RFA, C/G)",
       "depth": "Caleb Rogers, Will Putnam (ERFA), Alex Cappa — below average",
@@ -90,11 +99,9 @@
     }
   ],
   "needs_summary": {
-    "tier_1": [
-      "QB"
-    ],
+    "tier_1": [],
     "tier_2": [
-      "CB",
+      "DT",
       "EDGE",
       "IDL",
       "OT",
@@ -102,43 +109,48 @@
       "WR"
     ],
     "tier_3": [
-      "IOL"
+      "CB",
+      "QB"
     ],
     "tier_4": [
+      "IOL",
       "LB"
     ]
   },
   "simple_needs": [
-    "QB",
-    "DB",
     "DL",
     "OL",
-    "WR"
+    "DB",
+    "WR",
+    "QB"
   ],
   "detailed_needs": {
-    "QB": 1,
-    "DB": 2,
     "DL": 2,
     "OL": 2,
-    "WR": 2
+    "DB": 2,
+    "WR": 2,
+    "QB": 3
   },
   "free_agency_impact": [
-    "Maxx Crosby (EDGE) → Baltimore Ravens",
-    "Geno Smith (QB) → Released",
+    "Maxx Crosby (EDGE) → TBD (Ravens trade fell through — failed physical; Crosby remains on Raiders roster)",
+    "Devin White (LB) → TBD/unsigned",
+    "Elandon Roberts (LB) → TBD/unsigned",
+    "Jamal Adams (LB) → New York Jets",
+    "Geno Smith (QB) → New York Jets (trade)",
     "Alex Cappa (IOL) → Released",
     "Daniel Carlson (K) → TBD/unsigned",
     "Kenny Pickett (QB) → Carolina Panthers",
-    "Jamal Adams (LB) → New York Jets",
     "Signed Tyler Linderbaum (IOL) from Baltimore Ravens — $27.0M AAV",
+    "Signed Taron Johnson (CB) from Buffalo Bills (trade) — $8.7M AAV",
+    "Signed Eric Stokes (CB) from Las Vegas Raiders (re-sign) — $10.0M AAV",
     "Signed Kwity Paye (EDGE) from Indianapolis Colts — $16.0M AAV",
     "Signed Malcolm Koonce (EDGE) from Las Vegas Raiders (re-sign) — $11.0M AAV",
-    "Signed Taron Johnson (CB) from Buffalo Bills — $8.1M AAV",
-    "Signed Eric Stokes (CB) from Las Vegas Raiders (re-sign) — $10.0M AAV",
     "Signed Nakobe Dean (LB) from Philadelphia Eagles — $12.0M AAV",
     "Signed Quay Walker (LB) from Green Bay Packers — $13.5M AAV",
     "Signed Jalen Nailor (WR) from Minnesota Vikings — $11.7M AAV",
-    "Signed Matt Gay (K) from San Francisco 49ers / Washington Commanders — $3.5M AAV",
-    "Signed Charles Snowden (EDGE) from Las Vegas Raiders (re-sign) — $0.9M AAV"
+    "Signed Matt Gay (K) from San Francisco 49ers — terms TBD AAV",
+    "Signed Charles Snowden (EDGE) from Las Vegas Raiders (ERFA tender) — $0.8M AAV",
+    "Signed Tristin McCollum (S) from Las Vegas Raiders (ERFA tender) — $0.8M AAV"
   ],
   "scheme_fit_notes": "New HC Klint Kubiak runs a wide zone offense (Shanahan/Kubiak tree) that prioritizes OL athleticism and movement skills — LT Kolton Miller and C Jackson Powers-Johnson fit, but RT DJ Glaze may not. New DC Rob Leonard is installing a 3-4 defense, which shifts Crosby to standup OLB, Wilson to 4i-technique inside, and demands athletic off-ball LBs who can cover. The 3-4 also requires a true nose tackle the Raiders currently lack. CB prospects with length and physicality are valued. Zone-blocking OL and coverage-capable LBs should be prioritized in the draft.",
   "confidence": "high",

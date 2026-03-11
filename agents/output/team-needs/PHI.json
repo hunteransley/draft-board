@@ -1,7 +1,7 @@
 {
   "team": "PHI",
   "team_full": "Philadelphia Eagles",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": 23,
   "total_draft_picks": 8,
   "notable_pick_trades": "Traded own 3rd-round pick to MIA for EDGE Jaelan Phillips. Acquired 3rd-round pick from NYJ (Haason Reddick trade). Projected 3 compensatory picks (3rd, 4th, 5th) for losing Milton Williams, Josh Sweat, Mekhi Becton in 2025 FA.",
@@ -17,6 +17,15 @@
       "draft_range_target": "Round 1 if top EDGE available (TJ Parker, etc.), otherwise Round 2-3"
     },
     {
+      "position": "S",
+      "tier": 1,
+      "urgency": "critical",
+      "explanation": "Reed Blankenship (50 starts, 9 INTs over 4 years) is a UFA and the Eagles may not re-sign him. Marcus Epps is also a UFA. Drew Mukuba (2025 4th-round pick) fractured his ankle early in 2025 season. Eagles are reportedly excited about Mukuba's future, but safety is thin. Could address via free agency (Kam Curl, Kevin Byard mentioned) or mid-round draft pick.",
+      "current_starter": "Andrew 'Drew' Mukuba (under contract, returning from ankle fracture). Blankenship (UFA, may depart).",
+      "depth": "Brandon Johnson (futures deal, started Week 18). Very thin if Blankenship leaves.",
+      "draft_range_target": "Round 3-5 (Bishop Fitzgerald, Dillon Thieneman mentioned)"
+    },
+    {
       "position": "TE",
       "tier": 1,
       "urgency": "critical",
@@ -24,6 +33,15 @@
       "current_starter": "None under contract — Dallas Goedert (UFA, expected to depart), Grant Calcaterra (UFA), Kylen Granson (UFA)",
       "depth": "E.J. Jenkins (futures contract, 10 career games). Barren room.",
       "draft_range_target": "Round 1-2 (Sadiq, Delp, Klare, Endries all mentioned)"
+    },
+    {
+      "position": "LB",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Zack Baun (top-5 LB per PFF) and Jihaad Campbell (2025 1st-round pick, started 8 games) are locked in as starters. Nakobe Dean (UFA) is expected to leave but Campbell has already taken over. Jeremiah Trotter Jr. and Smael Mondon provide solid depth. Not a pressing need.",
+      "current_starter": "Zack Baun (elite), Jihaad Campbell",
+      "depth": "Jeremiah Trotter Jr., Smael Mondon, Chance Campbell (practice squad). Solid.",
+      "draft_range_target": "Day 3 if at all"
     },
     {
       "position": "OT",
@@ -35,15 +53,6 @@
       "draft_range_target": "Round 1-2 (Kadlyn Proctor, Max Iheanachor mentioned frequently)"
     },
     {
-      "position": "S",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Reed Blankenship (50 starts, 9 INTs over 4 years) is a UFA and the Eagles may not re-sign him. Marcus Epps is also a UFA. Drew Mukuba (2025 4th-round pick) fractured his ankle early in 2025 season. Eagles are reportedly excited about Mukuba's future, but safety is thin. Could address via free agency (Kam Curl, Kevin Byard mentioned) or mid-round draft pick.",
-      "current_starter": "Andrew 'Drew' Mukuba (under contract, returning from ankle fracture). Blankenship (UFA, may depart).",
-      "depth": "Brandon Johnson (futures deal, started Week 18). Very thin if Blankenship leaves.",
-      "draft_range_target": "Round 3-5 (Bishop Fitzgerald, Dillon Thieneman mentioned)"
-    },
-    {
       "position": "WR",
       "tier": 2,
       "urgency": "important",
@@ -53,6 +62,15 @@
       "draft_range_target": "Round 2-4 depending on Brown resolution (Jordyn Tyson if Round 1 value)"
     },
     {
+      "position": "CB",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Quinyon Mitchell (All-Pro CB1) and Cooper DeJean (elite slot) are locked in, but the CB2 outside spot is a clear hole. Adoree' Jackson (UFA, 30 years old) started there in 2025 but was up-and-down. DeJean was susceptible to deep balls when playing outside. Kelee Ringo and Mac McWilliams are unproven internal options. Eagles are reportedly targeting the CB2 spot aggressively in free agency (Riq Woolen) and/or the draft.",
+      "current_starter": "Quinyon Mitchell (CB1, elite), Cooper DeJean (slot, elite). CB2 outside: vacant (Jackson UFA)",
+      "depth": "Kelee Ringo, Mac McWilliams, Jaire Alexander (traded for in 2025). Need proven outside CB2.",
+      "draft_range_target": "Round 2-3 (Chris Johnson, Keith Abney II mentioned)"
+    },
+    {
       "position": "IOL",
       "tier": 3,
       "urgency": "moderate",
@@ -60,86 +78,55 @@
       "current_starter": "Landon Dickerson (LG), Cam Jurgens (C), Tyler Steen (RG)",
       "depth": "Trevor Keegan (5th-round 2024, backup C), Jake Majors (futures). Roseman has said Steen is the RG starter. But depth is needed.",
       "draft_range_target": "Round 3-5"
-    },
-    {
-      "position": "LB",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "Zack Baun (top-5 LB per PFF) and Jihaad Campbell (2025 1st-round pick, started 8 games) are locked in as starters. Nakobe Dean (UFA) is expected to leave but Campbell has already taken over. Jeremiah Trotter Jr. and Smael Mondon provide solid depth. Not a pressing need.",
-      "current_starter": "Zack Baun (elite), Jihaad Campbell",
-      "depth": "Jeremiah Trotter Jr., Smael Mondon, Chance Campbell (practice squad). Solid.",
-      "draft_range_target": "Day 3 if at all"
-    },
-    {
-      "position": "CB",
-      "tier": 4,
-      "urgency": "minor",
-      "explanation": "Quinyon Mitchell (All-Pro CB1) and Cooper DeJean (elite slot) are locked in, but the CB2 outside spot is a clear hole. Adoree' Jackson (UFA, 30 years old) started there in 2025 but was up-and-down. DeJean was susceptible to deep balls when playing outside. Kelee Ringo and Mac McWilliams are unproven internal options. Eagles are reportedly targeting the CB2 spot aggressively in free agency (Riq Woolen) and/or the draft.",
-      "current_starter": "Quinyon Mitchell (CB1, elite), Cooper DeJean (slot, elite). CB2 outside: vacant (Jackson UFA)",
-      "depth": "Kelee Ringo, Mac McWilliams, Jaire Alexander (traded for in 2025). Need proven outside CB2.",
-      "draft_range_target": "Round 2-3 (Chris Johnson, Keith Abney II mentioned)"
-    },
-    {
-      "position": "IDL",
-      "tier": 4,
-      "urgency": "minor",
-      "explanation": "Jordan Davis's 3yr/$78M extension ($65M gtd) locks him in as one of the best interior DL in football through 2029. Jalen Carter (pending fifth-year option and/or extension/trade) remains elite when healthy. Moro Ojomo provides rotational depth. IDL drops from a need to a luxury — only a developmental/comp pick is warranted. The one caveat: if Carter is traded, IDL becomes a tier 2 need immediately.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
     }
   ],
   "needs_summary": {
     "tier_1": [
       "EDGE",
+      "S",
       "TE"
     ],
     "tier_2": [
+      "LB",
       "OT",
-      "S",
       "WR"
     ],
     "tier_3": [
-      "IOL",
-      "LB"
-    ],
-    "tier_4": [
       "CB",
-      "IDL"
-    ]
+      "IOL"
+    ],
+    "tier_4": []
   },
   "simple_needs": [
     "DL",
-    "TE",
-    "OL",
     "DB",
-    "WR",
-    "LB"
+    "TE",
+    "LB",
+    "OL",
+    "WR"
   ],
   "detailed_needs": {
     "DL": 1,
+    "DB": 1,
     "TE": 1,
+    "LB": 2,
     "OL": 2,
-    "DB": 2,
-    "WR": 2,
-    "LB": 3
+    "WR": 2
   },
   "free_agency_impact": [
     "Jaelan Phillips (EDGE) → Carolina Panthers",
     "Nakobe Dean (LB) → Las Vegas Raiders",
     "Reed Blankenship (S) → Houston Texans",
-    "Dallas Goedert (TE) → TBD/unsigned",
     "Jahan Dotson (WR) → Atlanta Falcons",
-    "Grant Calcaterra (TE) → TBD/unsigned",
-    "Kylen Granson (TE) → TBD/unsigned",
-    "Marcus Epps (S) → TBD/unsigned",
-    "Joshua Uche (EDGE) → TBD/unsigned",
-    "Brandon Graham (EDGE) → TBD/retirement likely",
-    "Adoree' Jackson (CB) → re-signed (1yr deal)",
+    "Adoree' Jackson (CB) → TBD/unsigned",
+    "Dallas Goedert (TE) → TBD/unsigned",
+    "Matt Pryor (IOL) → Arizona Cardinals",
+    "Brandon Graham (EDGE) → TBD/unsigned",
     "Signed Jordan Davis (IDL) from Philadelphia Eagles (re-sign/extension) — $26.0M AAV",
-    "Signed Adoree' Jackson (CB) from New York Giants — $1.8M AAV",
-    "Signed Michael Carter II (CB) from Philadelphia Eagles (renegotiation/retained) — terms TBD AAV",
-    "Signed Ta'Quon Graham (IDL) from Philadelphia Eagles (practice squad re-sign) — $0.9M AAV"
+    "Signed Riq Woolen (CB) from Seattle Seahawks — $15.0M AAV",
+    "Signed Johnny Mundt (TE) from Jacksonville Jaguars — terms TBD AAV",
+    "Signed Grant Calcaterra (TE) from Philadelphia Eagles (re-sign) — terms TBD AAV",
+    "Signed Michael Carter II (S) from Philadelphia Eagles (renegotiated/retained) — terms TBD AAV"
   ],
   "scheme_fit_notes": "Vic Fangio's 3-4 defense demands versatile EDGE rushers who can stand up or put hand in dirt. Phillips' size (6'5, 266) was valued over smaller speed rushers. Fangio wants two-gapping DL and coverage-capable LBs (Baun excels here). On offense, new OC Sean Mannion is expected to emphasize play-action, requiring a quality blocking TE (not just a pass-catcher) and physical OL. The run-heavy identity remains — Saquon Barkley is the engine — so OL and TE blocking ability are paramount. Roseman historically drafts linemen in Round 1 (10 of 15 1st-round picks under Roseman have been OL/DL).",
   "confidence": "high",

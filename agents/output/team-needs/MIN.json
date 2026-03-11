@@ -1,7 +1,7 @@
 {
   "team": "MIN",
   "team_full": "Minnesota Vikings",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": 18,
   "total_draft_picks": 10,
   "notable_pick_trades": "No original 6th-round picks (traded for Jordan Mason and Sam Howell). Expecting 3 compensatory picks: 3rd (Sam Darnold), 4th (Daniel Jones), 5th (Cam Robinson). Acquired 5th from PHI (Sam Howell trade), 7th from HOU (Ed Ingram trade). Greenard trade could add a Day 2 pick.",
@@ -33,15 +33,6 @@
       "current_starter": "Donovan Jackson (LG), Ryan Kelly (C — likely gone), Will Fries (RG)",
       "depth": "Blake Brandel (UFA, swing player MVP in 2025), Michael Jurgens (backup C). Jackson and Fries are locked in at guard.",
       "draft_range_target": "Round 2-4 — Connor Lew, Jake Slaughter. May also target a center in free agency (Tyler Biadasz, Cade Mays)."
-    },
-    {
-      "position": "QB",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "No QB has been signed as of March 10. Vikings are heavy favorites to sign Kyler Murray (expected minimum deal once officially released by ARI on March 11) but it is NOT confirmed. J.J. McCarthy (injury-prone, 10 starts in 2 seasons) remains the only QB under contract. QB is still a Tier 1 critical need until a veteran is officially signed.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
     },
     {
       "position": "S",
@@ -80,6 +71,15 @@
       "draft_range_target": ""
     },
     {
+      "position": "QB",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "No QB has been signed as of March 10. Vikings are heavy favorites to sign Kyler Murray (expected minimum deal once officially released by ARI on March 11) but it is NOT confirmed. J.J. McCarthy (injury-prone, 10 starts in 2 seasons) remains the only QB under contract. QB is still a Tier 1 critical need until a veteran is officially signed.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
       "position": "RB",
       "tier": 2,
       "urgency": "important",
@@ -98,15 +98,6 @@
       "draft_range_target": "Round 3-5 — KC Concepcion (Texas A&M), Ted Hurst (Georgia State, size), Jordyn Tyson (Arizona State) if available"
     },
     {
-      "position": "LB",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "Eric Wilson (UFA) had a breakout 2025 (115 tackles, 6.5 sacks, 4 forced fumbles) but is 31 and a free agent with interest from other teams. Ivan Pace Jr. (RFA) saw his role diminish drastically as his PFF grade cratered to 42.3 and is not expected back. Blake Cashman is the only LB under contract for 2026 and is on the final year of his deal (turns 30). If Wilson leaves, the Vikings have essentially one playable linebacker. Even if Wilson re-signs, they need youth — both starters would be 30+.",
-      "current_starter": "Blake Cashman (under contract, final year)",
-      "depth": "Eric Wilson (UFA — likely re-sign but not guaranteed), Ivan Pace Jr. (RFA — likely gone). Released Kobe King midseason.",
-      "draft_range_target": "Round 2-4 — CJ Allen (Georgia), Anthony Hill Jr. (Texas), Sonny Styles (Ohio State, LB/S hybrid)"
-    },
-    {
       "position": "OT",
       "tier": 3,
       "urgency": "moderate",
@@ -114,6 +105,15 @@
       "current_starter": "Christian Darrisaw (LT, under contract), Brian O'Neill (RT, final year)",
       "depth": "Justin Skule (UFA), Walter Rouse, Blake Brandel (UFA, versatile). Thin if Darrisaw misses time again.",
       "draft_range_target": "Round 3-5 — developmental swing tackle for depth/insurance"
+    },
+    {
+      "position": "LB",
+      "tier": 4,
+      "urgency": "minor",
+      "explanation": "Eric Wilson (UFA) had a breakout 2025 (115 tackles, 6.5 sacks, 4 forced fumbles) but is 31 and a free agent with interest from other teams. Ivan Pace Jr. (RFA) saw his role diminish drastically as his PFF grade cratered to 42.3 and is not expected back. Blake Cashman is the only LB under contract for 2026 and is on the final year of his deal (turns 30). If Wilson leaves, the Vikings have essentially one playable linebacker. Even if Wilson re-signs, they need youth — both starters would be 30+.",
+      "current_starter": "Blake Cashman (under contract, final year)",
+      "depth": "Eric Wilson (UFA — likely re-sign but not guaranteed), Ivan Pace Jr. (RFA — likely gone). Released Kobe King midseason.",
+      "draft_range_target": "Round 2-4 — CJ Allen (Georgia), Anthony Hill Jr. (Texas), Sonny Styles (Ohio State, LB/S hybrid)"
     },
     {
       "position": "TE",
@@ -130,59 +130,58 @@
       "DT",
       "IDL",
       "IOL",
-      "QB",
       "S"
     ],
     "tier_2": [
       "CB",
       "EDGE",
       "P",
+      "QB",
       "RB",
       "WR"
     ],
     "tier_3": [
-      "LB",
       "OT"
     ],
     "tier_4": [
+      "LB",
       "TE"
     ]
   },
   "simple_needs": [
     "DL",
     "OL",
-    "QB",
     "DB",
     "P",
+    "QB",
     "RB",
-    "WR",
-    "LB"
+    "WR"
   ],
   "detailed_needs": {
     "DL": 1,
     "OL": 1,
-    "QB": 1,
     "DB": 1,
     "P": 2,
+    "QB": 2,
     "RB": 2,
-    "WR": 2,
-    "LB": 3
+    "WR": 2
   },
   "free_agency_impact": [
-    "Aaron Jones (RB) → TBD/unsigned",
-    "Javon Hargrave (IDL) → TBD/unsigned",
-    "Jonathan Allen (IDL) → TBD/unsigned",
+    "Aaron Jones (RB) → TBD/released",
+    "Javon Hargrave (IDL) → TBD/released",
+    "Jonathan Allen (IDL) → TBD/released",
     "Ryan Kelly (IOL) → retired",
     "Jalen Nailor (WR) → Las Vegas Raiders",
     "Ryan Wright (P) → New Orleans Saints",
-    "Harrison Smith (S) → retired (expected — no official announcement)",
     "C.J. Ham (RB) → retired",
+    "Harrison Smith (S) → TBD/expected retirement",
     "Signed Eric Wilson (LB) from Minnesota Vikings (re-sign) — $7.5M AAV",
     "Signed James Pierre (CB) from Pittsburgh Steelers — $4.2M AAV",
+    "Signed Andrew DePaola (LS) from Minnesota Vikings (re-sign) — $1.7M AAV",
     "Signed Jalen Redmond (IDL) from Minnesota Vikings (ERFA tender) — $1.1M AAV",
-    "Signed Ivan Pace Jr. (LB) from Minnesota Vikings (RFA tender) — $1.2M AAV",
-    "Signed Bo Richter (EDGE) from Minnesota Vikings (ERFA tender) — $0.9M AAV",
-    "Signed Zavier Scott (RB) from Minnesota Vikings (ERFA tender) — $0.9M AAV"
+    "Signed Ivan Pace Jr. (LB) from Minnesota Vikings (RFA tender) — $3.5M AAV",
+    "Signed Bo Richter (EDGE) from Minnesota Vikings (ERFA tender) — $1.1M AAV",
+    "Signed Zavier Scott (RB) from Minnesota Vikings (ERFA tender) — $1.1M AAV"
   ],
   "scheme_fit_notes": "Brian Flores' defense is blitz-heavy and man-coverage intensive — the 4th-highest blitz rate in the NFL in 2025. This means CB prospects must be able to play press-man, not just zone. Safety prospects need range and tackling ability to work as single-high or in Flores' versatile packages. LB prospects with blitz ability and sideline-to-sideline range are ideal (Wilson's profile). DT prospects should be interior disruptors who collapse pockets quickly — Flores creates pressure through chaos, not just edge speed. Kevin O'Connell's offense is pass-first and scheme-dependent; protecting McCarthy behind a revamped OL is paramount. The draft class is deep at WR, DT, LB, S, and CB — positions where the Vikings have needs — which gives them flexibility at 18.",
   "confidence": "high",

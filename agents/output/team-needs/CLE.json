@@ -1,7 +1,7 @@
 {
   "team": "CLE",
   "team_full": "Cleveland Browns",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": 6,
   "total_draft_picks": 9,
   "notable_pick_trades": "Acquired JAX 1st (No. 24) via 2025 draft-day trade down from No. 2 to No. 5. Traded 5th-round pick (from LV) to Houston for OT Tytus Howard. Also hold extra 5th from CIN (Flacco trade), 6th from CHI (Tryon-Shoyinka trade), 7th from SEA (Harris trade).",
@@ -35,15 +35,6 @@
       "draft_range_target": "Round 1 (No. 24) or Round 2 (No. 39) — could also pursue via trade"
     },
     {
-      "position": "CB",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Outside CBs are solid with Denzel Ward (5x Pro Bowler, under contract through 2027 but turning 29, expensive $32.8M cap hit) and Tyson Campbell (signed through 2028). However, slot corner is a major question mark. Martin Emerson Jr. is a UFA after missing all of 2025 (torn Achilles). Sam Webb (RFA) showed some promise late. Ward's injury history and age make long-term CB planning prudent.",
-      "current_starter": "Denzel Ward (boundary), Tyson Campbell (field/outside)",
-      "depth": "Myles Harden (slot), Sam Webb (RFA), Jarrick Bernard-Converse. Martin Emerson (UFA, likely gone). Slot CB is the gap.",
-      "draft_range_target": "Round 3-5 for slot CB or developmental boundary CB"
-    },
-    {
       "position": "IOL",
       "tier": 2,
       "urgency": "important",
@@ -69,6 +60,15 @@
       "current_starter": "Harold Fannin Jr. (elite young TE, locked in)",
       "depth": "Brenden Bates (ERFA tendered, blocker), Blake Whiteheart. Thin after Fannin.",
       "draft_range_target": "Round 3-5 if Monken wants a two-TE attack, otherwise day 3"
+    },
+    {
+      "position": "CB",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Outside CBs are solid with Denzel Ward (5x Pro Bowler, under contract through 2027 but turning 29, expensive $32.8M cap hit) and Tyson Campbell (signed through 2028). However, slot corner is a major question mark. Martin Emerson Jr. is a UFA after missing all of 2025 (torn Achilles). Sam Webb (RFA) showed some promise late. Ward's injury history and age make long-term CB planning prudent.",
+      "current_starter": "Denzel Ward (boundary), Tyson Campbell (field/outside)",
+      "depth": "Myles Harden (slot), Sam Webb (RFA), Jarrick Bernard-Converse. Martin Emerson (UFA, likely gone). Slot CB is the gap.",
+      "draft_range_target": "Round 3-5 for slot CB or developmental boundary CB"
     },
     {
       "position": "DT",
@@ -105,12 +105,12 @@
       "WR"
     ],
     "tier_2": [
-      "CB",
       "IOL",
       "OT",
       "TE"
     ],
     "tier_3": [
+      "CB",
       "DT",
       "EDGE",
       "LB"
@@ -121,9 +121,9 @@
     "IOL_CENTER",
     "QB",
     "WR",
-    "DB",
     "OL",
     "TE",
+    "DB",
     "DL",
     "LB"
   ],
@@ -131,28 +131,27 @@
     "IOL_CENTER": 1,
     "QB": 1,
     "WR": 1,
-    "DB": 2,
     "OL": 2,
     "TE": 2,
+    "DB": 3,
     "DL": 3,
     "LB": 3
   },
   "free_agency_impact": [
     "Devin Bush (LB) → Chicago Bears",
     "David Njoku (TE) → TBD/unsigned",
-    "Wyatt Teller (IOL) → TBD/unsigned",
-    "Joel Bitonio (IOL) → TBD/retirement pending",
-    "Ethan Pocic (IOL) → TBD/unsigned",
+    "Wyatt Teller (IOL) → Houston Texans (reported destination)",
     "Jack Conklin (OT) → TBD/unsigned",
     "Cam Robinson (OT) → TBD/unsigned",
+    "Ethan Pocic (IOL) → TBD/unsigned",
+    "Joel Bitonio (IOL) → Expected retirement/unsigned",
     "Cameron Thomas (EDGE) → Atlanta Falcons",
     "Martin Emerson Jr. (CB) → TBD/unsigned",
-    "Teven Jenkins (IOL) → TBD/unsigned",
-    "Rayshawn Jenkins (S) → TBD/unsigned",
-    "Signed Tytus Howard (OT) from Houston Texans — $21.0M AAV",
+    "Signed Tytus Howard (OT) from Houston Texans (via trade) — $21.0M AAV",
     "Signed Zion Johnson (IOL) from Los Angeles Chargers — $16.5M AAV",
-    "Signed Quincy Williams (LB) from New York Jets — $8.5M AAV",
-    "Signed Ronnie Hickman (S) from Cleveland Browns (RFA) — $5.8M AAV"
+    "Signed Elgton Jenkins (IOL) from Green Bay Packers — $12.0M AAV",
+    "Signed Teven Jenkins (IOL) from Cleveland Browns (re-sign) — $3.0M AAV",
+    "Signed Quincy Williams (LB) from New York Jets — $8.5M AAV"
   ],
   "scheme_fit_notes": "Todd Monken runs an aggressive, up-tempo offense built around play-action and vertical shots — this elevates the need for a true WR1 and elite pass protection. His offenses at Georgia and Baltimore featured multiple TEs heavily. Defensively, new DC Mike Rutenberg inherits the wide-9 scheme Schwartz installed. The defense is built for man coverage (Ward, Campbell), aggressive edge rushing (Garrett), and physical LB play. CB prospects who can play press-man have elevated value. OL prospects who can handle power rushers in the AFC North (Watt, Hendrickson, Madubuike) are essential.",
   "confidence": "high",

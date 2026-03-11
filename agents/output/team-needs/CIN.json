@@ -1,7 +1,7 @@
 {
   "team": "CIN",
   "team_full": "Cincinnati Bengals",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": 10,
   "total_draft_picks": 8,
   "notable_pick_trades": "Traded 5th-round pick to CLE for QB Joe Flacco (gained extra 6th). Traded LB Logan Wilson to DAL for extra 7th. No 5th-round pick. Possible compensatory picks TBD.",
@@ -9,21 +9,12 @@
   "needs": [
     {
       "position": "DT",
-      "tier": 1,
-      "urgency": "critical",
+      "tier": 2,
+      "urgency": "important",
       "explanation": "The Bengals allowed 2,500 rushing yards in 2025 — the interior DL was a disaster. B.J. Hill and TeDarrell Slaton were brought in as veteran stopgaps but did not get the job done. Kris Jenkins Jr. was placed on IR. McKinnley Jackson showed flashes but is inconsistent. The Bengals haven't had a true disruptive interior presence since Geno Atkins. Peter Woods (Clemson) is a popular mock draft target at pick 10. The entire spine of the defense — DT through LB through S — was gashed repeatedly.",
       "current_starter": "B.J. Hill, McKinnley Jackson / Kris Jenkins Jr.",
       "depth": "TeDarrell Slaton, Howard Cross III (practice squad elevator). Jenkins went to IR in 2025.",
       "draft_range_target": "Round 1-2"
-    },
-    {
-      "position": "CB",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "DJ Turner II had a breakout 2025 season (18 passes defensed, 2 INTs, Pro Bowl alternate) and the Bengals are seeking to extend him. Dax Hill moved to CB and had 88 tackles with a solid year (also seeking extension). However, Cam Taylor-Britt is a UFA and will not be re-signed after declining play and off-field issues. Marco Wilson is also a UFA. Beyond Turner and Hill, CB depth is extremely thin. Jalen Davis was re-signed but is a depth/special teams piece. The Bengals could still use another quality CB, especially if Hill or Turner's extension talks stall.",
-      "current_starter": "DJ Turner II (CB1), Dax Hill (CB2)",
-      "depth": "Jalen Davis (re-signed), Josh Newton (nickel). Taylor-Britt (UFA, not returning), Marco Wilson (UFA). Very thin depth after top 3.",
-      "draft_range_target": "Round 2-3"
     },
     {
       "position": "EDGE",
@@ -53,15 +44,6 @@
       "draft_range_target": "Round 3-4, or veteran FA signing"
     },
     {
-      "position": "QB",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Browning not tendered, Flacco in free agency seeking a starting role. Bengals have no backup QB under contract with Joe Burrow missing 9 games in 2025. Given Burrow's injury history, a competent backup is mandatory. Team needs to add a QB2 either via FA (Flacco reunion likely) or late-round draft pick.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
-    },
-    {
       "position": "TE",
       "tier": 2,
       "urgency": "important",
@@ -69,6 +51,15 @@
       "current_starter": "Tanner Hudson (re-signed), Drew Sample",
       "depth": "Cam Grandy (re-signed). Noah Fant (UFA, likely gone).",
       "draft_range_target": "Round 5-7 or UDFA"
+    },
+    {
+      "position": "CB",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "DJ Turner II had a breakout 2025 season (18 passes defensed, 2 INTs, Pro Bowl alternate) and the Bengals are seeking to extend him. Dax Hill moved to CB and had 88 tackles with a solid year (also seeking extension). However, Cam Taylor-Britt is a UFA and will not be re-signed after declining play and off-field issues. Marco Wilson is also a UFA. Beyond Turner and Hill, CB depth is extremely thin. Jalen Davis was re-signed but is a depth/special teams piece. The Bengals could still use another quality CB, especially if Hill or Turner's extension talks stall.",
+      "current_starter": "DJ Turner II (CB1), Dax Hill (CB2)",
+      "depth": "Jalen Davis (re-signed), Josh Newton (nickel). Taylor-Britt (UFA, not returning), Marco Wilson (UFA). Very thin depth after top 3.",
+      "draft_range_target": "Round 2-3"
     },
     {
       "position": "IOL",
@@ -89,6 +80,15 @@
       "draft_range_target": "Round 4-5 developmental pick"
     },
     {
+      "position": "QB",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Browning not tendered, Flacco in free agency seeking a starting role. Bengals have no backup QB under contract with Joe Burrow missing 9 games in 2025. Given Burrow's injury history, a competent backup is mandatory. Team needs to add a QB2 either via FA (Flacco reunion likely) or late-round draft pick.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
       "position": "S",
       "tier": 4,
       "urgency": "minor",
@@ -99,20 +99,19 @@
     }
   ],
   "needs_summary": {
-    "tier_1": [
-      "DT"
-    ],
+    "tier_1": [],
     "tier_2": [
-      "CB",
+      "DT",
       "EDGE",
       "IDL",
       "LB",
-      "QB",
       "TE"
     ],
     "tier_3": [
+      "CB",
       "IOL",
-      "OT"
+      "OT",
+      "QB"
     ],
     "tier_4": [
       "S"
@@ -120,47 +119,40 @@
   },
   "simple_needs": [
     "DL",
-    "DB",
     "LB",
-    "QB",
     "TE",
-    "OL"
+    "DB",
+    "OL",
+    "QB"
   ],
   "detailed_needs": {
-    "DL": 1,
-    "DB": 2,
+    "DL": 2,
     "LB": 2,
-    "QB": 2,
     "TE": 2,
-    "OL": 3
+    "DB": 3,
+    "OL": 3,
+    "QB": 3
   },
   "free_agency_impact": [
-    "Trey Hendrickson (EDGE) → TBD/unsigned",
+    "Trey Hendrickson (EDGE) → unsigned_as_of_2026-03-11",
     "Joseph Ossai (EDGE) → New York Jets",
-    "Geno Stone (S) → TBD/unsigned",
+    "Cameron Sample (EDGE) → TBD/unsigned",
     "Noah Fant (TE) → New Orleans Saints",
     "Cordell Volson (IOL) → Tennessee Titans",
-    "Jake Browning (QB) → TBD/unsigned",
+    "Geno Stone (S) → TBD/unsigned",
     "Cam Taylor-Britt (CB) → TBD/unsigned",
-    "Joe Flacco (QB) → TBD/unsigned",
-    "Cam Sample (EDGE) → TBD/unsigned",
     "Lucas Patrick (IOL) → TBD/unsigned",
-    "Marco Wilson (CB) → TBD/unsigned",
+    "Joe Flacco (QB) → TBD/unsigned",
     "Brian Asamoah (LB) → TBD/unsigned",
+    "Marco Wilson (CB) → TBD/unsigned",
     "Tycen Anderson (S) → TBD/unsigned",
     "Signed Boye Mafe (EDGE) from Seattle Seahawks — $20.0M AAV",
     "Signed Bryan Cook (S) from Kansas City Chiefs — $13.4M AAV",
-    "Signed Dalton Risner (IOL) from Cincinnati Bengals (re-sign) — $5.0M AAV",
-    "Signed Jalen Davis (CB) from Cincinnati Bengals (re-sign) — $3.0M AAV",
-    "Signed Kendall Milton (RB) from Cincinnati Bengals (re-sign) — $1.5M AAV",
-    "Signed Kendric Pryor (WR) from Cincinnati Bengals (re-sign) — $1.2M AAV",
-    "Signed Tanner Hudson (TE) from Cincinnati Bengals (re-sign) — $1.1M AAV",
-    "Signed Mitch Tinsley (WR) from Cincinnati Bengals (re-sign) — $1.0M AAV",
-    "Signed PJ Jules (S) from Cincinnati Bengals (re-sign) — $0.9M AAV",
-    "Signed Shaka Heyward (LB) from Cincinnati Bengals (re-sign) — $0.9M AAV",
-    "Signed Cam Grandy (TE) from Cincinnati Bengals (re-sign) — $0.8M AAV",
-    "Signed Joe Giles-Harris (LB) from Cincinnati Bengals (re-sign) — $0.9M AAV",
-    "Signed Isaiah Foskey (EDGE) from Cincinnati Bengals (re-sign) — $0.9M AAV"
+    "Signed Dalton Risner (IOL) from Cincinnati Bengals (re-sign) — $3.2M AAV",
+    "Signed Jalen Davis (CB) from Cincinnati Bengals (re-sign) — $1.4M AAV",
+    "Signed Kendall Milton (RB) from Cincinnati Bengals (re-sign) — $0.8M AAV",
+    "Signed Kendric Pryor (WR) from Cincinnati Bengals (re-sign) — $0.8M AAV",
+    "Signed Tanner Hudson (TE) from Cincinnati Bengals (extension) — $0.8M AAV"
   ],
   "scheme_fit_notes": "Al Golden runs a 4-3 defense with zone coverage principles. He values versatile defensive linemen who can align at multiple spots — Shemar Stewart has been used both on the edge and inside. Safety prospects who can play in the box, cover TEs in the slot, and also range to centerfield have elevated value (Caleb Downs is the prototype). EDGE rushers who can also set the edge against the run fit better than pure speed rushers. At CB, press-man corners with ball skills fit Turner's mold. At DT, a true 3-technique who can penetrate and disrupt is the biggest missing piece — the Bengals haven't had a dominant interior presence since Geno Atkins.",
   "confidence": "high",

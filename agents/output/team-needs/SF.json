@@ -1,7 +1,7 @@
 {
   "team": "SF",
   "team_full": "San Francisco 49ers",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "first_round_pick": 27,
   "total_draft_picks": 7,
   "notable_pick_trades": "Traded 6th-rounders for Keion White (from NE) and Brian Robinson Jr. (from WAS); traded 7th to HOU for DT Khalil Davis; conditional 5th to PHI for Bryce Huff. Expected 3 compensatory picks (two 4ths, one 5th) for losses of Aaron Banks, Charvarius Ward, and Talanoa Hufanga.",
@@ -44,6 +44,15 @@
       "draft_range_target": "Round 2-3 (higher if Green is traded)"
     },
     {
+      "position": "IDL",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Jordan Elliott (rotational) and Kevin Givens (depth) both departed. No IDL signings confirmed. The 49ers showed interest in John Franklin-Myers (3yr/$63M, went to Titans). Arik Armstead (restricted to reserve/retired list) and Javon Kinlaw are the primary options. DL depth is thin. Need persists at tier 2 for a pass-rushing IDL complement to Bosa.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
       "position": "IOL",
       "tier": 2,
       "urgency": "important",
@@ -53,6 +62,15 @@
       "draft_range_target": "Round 2-4"
     },
     {
+      "position": "LB",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Eric Kendricks departed. Fred Warner is the elite anchor but depth is thin. Dee Winters, Tatum Bethune, Nick Martin are internal options of varying quality. No LB additions confirmed. Need persists at tier 2 for a quality WILL/depth piece.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
       "position": "OT",
       "tier": 2,
       "urgency": "important",
@@ -60,6 +78,15 @@
       "current_starter": "Trent Williams (LT, contract standoff) / Colton McKivitz (RT, age 30)",
       "depth": "Dire at LT. Austen Pleasants (one career start) is the only backup. McKivitz is adequate at RT but aging. No developmental tackles on roster.",
       "draft_range_target": "Round 1 if Williams is released; Round 2-3 even if he stays to develop successor"
+    },
+    {
+      "position": "RB",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Brian Robinson Jr. (top CMC backup, 400 yds/2 TD in 2025) departed as a UFA. SF has Jordan James and Isaac Guerendo internally, but no proven veteran backup. The 49ers have interest in re-signing Robinson per The Athletic. Until a deal is confirmed, RB backup need has escalated from tier 3 to tier 2, as McCaffrey's durability history (multiple injury years) makes a proven backup critical.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
     },
     {
       "position": "S",
@@ -88,8 +115,11 @@
     ],
     "tier_2": [
       "CB",
+      "IDL",
       "IOL",
+      "LB",
       "OT",
+      "RB",
       "S"
     ],
     "tier_3": [
@@ -102,6 +132,8 @@
     "WR",
     "DB",
     "OL",
+    "LB",
+    "RB",
     "TE"
   ],
   "detailed_needs": {
@@ -109,18 +141,26 @@
     "WR": 1,
     "DB": 2,
     "OL": 2,
+    "LB": 2,
+    "RB": 2,
     "TE": 3
   },
   "free_agency_impact": [
     "Brandon Aiyuk (WR) → TBD/unsigned",
     "Jauan Jennings (WR) → TBD/unsigned",
     "Kendrick Bourne (WR) → Arizona Cardinals",
-    "Skyy Moore (WR) → TBD/unsigned",
     "Yetur Gross-Matos (EDGE) → TBD/unsigned",
+    "Clelin Ferrell (EDGE) → TBD/unsigned",
+    "Spencer Burford (IOL) → TBD/unsigned",
+    "Matt Hennessy (IOL) → TBD/unsigned",
     "Brian Robinson Jr. (RB) → TBD/unsigned",
+    "Jordan Elliott (IDL) → TBD/unsigned",
+    "Kevin Givens (IDL) → TBD/unsigned",
+    "Eric Kendricks (LB) → TBD/unsigned",
+    "Thomas Morstead (P) → TBD/unsigned",
     "Signed Mike Evans (WR) from Tampa Bay Buccaneers — $14.1M AAV",
-    "Signed Eddy Pineiro (K) from San Francisco 49ers (re-sign) — $4.2M AAV",
     "Signed Vederian Lowe (OT) from New England Patriots — $6.0M AAV",
+    "Signed Eddy Pineiro (K) from San Francisco 49ers (re-sign) — $4.2M AAV",
     "Signed Jon Weeks (LS) from San Francisco 49ers (re-sign) — $1.2M AAV"
   ],
   "scheme_fit_notes": "Kyle Shanahan's offense is built around the wide-zone run game, play-action, and YAC-centric passing. WRs must be able to create after the catch and play in the slot (Shanahan values versatile receivers). OL must be athletic, mobile blockers who can pull and reach-block. The 49ers under new DC Raheem Morris are expected to shift from Robert Saleh's Cover-3 base to a more diverse scheme. Morris's Falcons ran a 3-4 base with varied fronts. Interior DL pass rushers have elevated value as the 49ers desperately need someone who can collapse the pocket from inside to complement Bosa. EDGE prospects who can rush from multiple alignments (inside/outside) are especially valued. CB prospects should be able to play in both press-man and zone coverages given Morris's scheme diversity.",
