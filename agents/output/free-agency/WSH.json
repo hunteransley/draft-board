@@ -1,8 +1,8 @@
 {
   "team": "WSH",
   "team_full": "Washington Commanders",
-  "updated_through": "2026-03-10",
-  "cap_space_pre_fa": "$82000000",
+  "updated_through": "2026-03-11",
+  "cap_space_pre_fa": "$87000000",
   "cap_space_post_fa": "$15000000",
   "key_departures": [
     {
@@ -11,7 +11,7 @@
       "age": 28,
       "role": "starter",
       "new_team": "Los Angeles Chargers",
-      "impact": "Released by Washington, signed a 3-year, $30M deal with the Chargers. Was the starting center in 2025 until a leg injury in Week 17. Departure creates a clear void at the C position with only Nick Allegretti (versatile G/C) as the internal option.",
+      "impact": "Released by the Commanders before free agency and promptly signed a 3-year, $30M deal with the Chargers. Biadasz started all 16 games in 2025 and was the anchor of a top-tier offensive line. His release creates a direct need at center \u2014 Washington has no proven starter at the position. Nick Allegretti is the internal candidate to compete for the role.",
       "need_impact": "creates",
       "need_position": "IOL"
     },
@@ -19,61 +19,21 @@
       "player": "Marshon Lattimore",
       "position": "CB",
       "age": 29,
-      "role": "depth/injured",
+      "role": "intended starter",
       "new_team": "TBD/unsigned",
-      "impact": "Cut by Washington, clearing $18.5M in cap space with no dead money. Lattimore only played 5 games in 2024 and 6 in 2025 due to injuries. While a cap move, the Commanders entered FA thin at CB (only Trey Amos and Mike Sainristil as guaranteed roster players), so the cut escalates an existing need.",
+      "impact": "Released by Washington, saving $18.5M in cap space. Lattimore never delivered on his promise after being acquired via trade in 2024 \u2014 he played just 2 games in 2024 (hamstring) and 9 in 2025 (torn ACL in November). His exit escalates an already critical CB need. Washington is left with only Trey Amos (broken leg, 2025 rookie) and Mike Sainristil as guaranteed roster CBs heading into free agency.",
       "need_impact": "escalates",
       "need_position": "CB"
-    },
-    {
-      "player": "Von Miller",
-      "position": "EDGE",
-      "age": 37,
-      "role": "starter",
-      "new_team": "TBD/unsigned",
-      "impact": "Led the Commanders with 9 sacks and 15 QB hits in 2025 despite being a rotational/veteran presence. Departure (pending \u2014 not confirmed re-signed) removes the team's top pass rusher from 2025. Entering FA alongside Jacob Martin and Preston Smith leaving the EDGE room barren before the Oweh signing.",
-      "need_impact": "escalates",
-      "need_position": "EDGE"
-    },
-    {
-      "player": "Jacob Martin",
-      "position": "EDGE",
-      "age": 29,
-      "role": "rotational",
-      "new_team": "TBD/unsigned",
-      "impact": "Rotational pass rusher entering free agency. Not re-signed. Adds to the EDGE depth hole alongside Miller's departure.",
-      "need_impact": "escalates",
-      "need_position": "EDGE"
-    },
-    {
-      "player": "Bobby Wagner",
-      "position": "LB",
-      "age": 36,
-      "role": "starter",
-      "new_team": "TBD/unsigned",
-      "impact": "Future Hall of Famer and team leader entering free agency. GM Adam Peters has publicly stated a desire for a 'younger and faster' defense. Wagner's departure \u2014 if confirmed \u2014 removes the team's starting LB and locker room anchor. Need at LB escalates significantly.",
-      "need_impact": "escalates",
-      "need_position": "LB"
     },
     {
       "player": "Deebo Samuel",
       "position": "WR",
       "age": 30,
-      "role": "starter",
+      "role": "starter/WR1",
       "new_team": "TBD/unsigned",
-      "impact": "Acquired via trade (5th-round pick) in 2025, contract voided after the season triggering $12.4M dead cap. In 2025 recorded 72 catches for 727 yards and 5 TDs \u2014 was WR1 with Terry McLaurin injured. Departure removes the WR2 and leaves Washington thin at receiver opposite McLaurin.",
-      "need_impact": "creates",
-      "need_position": "WR"
-    },
-    {
-      "player": "Chris Paul",
-      "position": "IOL",
-      "age": 27,
-      "role": "starter",
-      "new_team": "TBD/unsigned",
-      "impact": "Starting left guard is a free agent and expected to test the market. Departure would leave the interior OL with questions at LG in addition to the C void from Biadasz.",
+      "impact": "Samuel's contract voided at the start of the new league year, triggering a $12.4M dead cap hit. He led the team with 727+ receiving yards in 2025 despite the team's 5-12 collapse. His departure creates a significant void at the WR2/slot role opposite Terry McLaurin. Washington has not yet replaced him with a comparable signing, leaving WR a critical unaddressed need.",
       "need_impact": "escalates",
-      "need_position": "IOL"
+      "need_position": "WR"
     },
     {
       "player": "Zach Ertz",
@@ -81,19 +41,39 @@
       "age": 36,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "Veteran TE entering free agency, with injury concerns late in 2025. Departure \u2014 if confirmed \u2014 leaves Ben Sinnott as the lead TE. Creates a need at TE if not re-signed.",
-      "need_impact": "creates",
+      "impact": "Ertz is a UFA after posting 504 receiving yards (third on team) in 2025 before suffering a late-season knee injury. He is not expected to return at 36, and his exit leaves Washington with Ben Sinnott as the lone returning TE option of note. Creates or escalates a TE need.",
+      "need_impact": "escalates",
       "need_position": "TE"
     },
     {
-      "player": "Austin Ekeler",
-      "position": "RB",
-      "age": 31,
-      "role": "depth",
+      "player": "Bobby Wagner",
+      "position": "LB",
+      "age": 36,
+      "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "Veteran RB reportedly ended career due to injury. Washington entered FA with only Jacory Croskey-Merritt as the lone signed RB.",
+      "impact": "Wagner was not re-signed after two productive seasons in Washington. His departure opens a massive hole at LB2 alongside Frankie Luvu (also in a contract year). While the Commanders moved quickly to sign Leo Chenal to fill this void, Wagner's exit was the catalyst for that action.",
+      "need_impact": "creates",
+      "need_position": "LB"
+    },
+    {
+      "player": "Von Miller",
+      "position": "EDGE",
+      "age": 37,
+      "role": "starter",
+      "new_team": "TBD/unsigned",
+      "impact": "Miller led the Commanders with 9 sacks in 2025 on a one-year deal at age 36 \u2014 a remarkable performance, but clearly a non-recurring situation. His departure leaves a major gap at EDGE that the Oweh signing directly addresses. Washington also has Dorance Armstrong recovering from a torn ACL.",
       "need_impact": "escalates",
-      "need_position": "RB"
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Chris Paul",
+      "position": "IOL",
+      "age": 27,
+      "role": "starter",
+      "new_team": "TBD/unsigned",
+      "impact": "Starting left guard Paul departed as a UFA. He was a quality starter on Washington's offensive line and his exit compounds the IOL need created by Biadasz's release \u2014 now Washington potentially needs both a center and a left guard.",
+      "need_impact": "escalates",
+      "need_position": "IOL"
     }
   ],
   "signings": [
@@ -101,7 +81,7 @@
       "player": "Laremy Tunsil",
       "position": "OT",
       "age": 31,
-      "previous_team": "Washington Commanders (extension/re-sign)",
+      "previous_team": "Washington Commanders (extension)",
       "contract": {
         "years": 2,
         "total_value": 60200000,
@@ -112,7 +92,7 @@
       "market_tier": "elite",
       "need_impact": "fully_addressed",
       "need_position": "OT",
-      "analysis": "Market-setting extension \u2014 first OL ever at $30M/year with $61.5M in guarantees, including a record $32.5M signing bonus for an OL. Tunsil is locked through 2028, eliminating any LT concern for the foreseeable future. The Commanders' LT position is fully resolved. Five-time Pro Bowler ranked 2nd in pass blocking by PFF in 2025. This is Washington's most important signing of the offseason \u2014 it removes the franchise QB's blindside from the board entirely."
+      "analysis": "Historic extension \u2014 Tunsil becomes the first offensive lineman at $30M/year, with $61.5M in guarantees including a record $32.5M signing bonus for an OT. This is the most fully guaranteed deal Washington could have given. Tunsil is a 5x Pro Bowler protecting Jayden Daniels through 2028. LT is off the board entirely. No draft capital needed here."
     },
     {
       "player": "Odafe Oweh",
@@ -129,24 +109,7 @@
       "market_tier": "elite",
       "need_impact": "fully_addressed",
       "need_position": "EDGE",
-      "analysis": "Top-of-market deal, $68M guaranteed on a 4-year pact. Oweh, 27, logged 7.5 sacks in 12 games with the Chargers in 2025 after being traded from Baltimore, and 17.5 total sacks over the past two seasons. The 2021 first-round pick is the Commanders' legitimate EDGE1 for years to come. Washington also retains Dorance Armstrong (returning from torn ACL), Deatrich Wise Jr. (re-signed, 1yr), and Drake Jackson (re-signed). EDGE goes from a critical tier-1 need to a resolved position. Washington may still seek a developmental EDGE in the mid-rounds of the draft, but the starter problem is solved."
-    },
-    {
-      "player": "Tim Settle",
-      "position": "IDL",
-      "age": 28,
-      "previous_team": "Houston Texans",
-      "contract": {
-        "years": 3,
-        "total_value": 24000000,
-        "guaranteed": null,
-        "aav": 8000000
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "partially_addressed",
-      "need_position": "IDL",
-      "analysis": "A homecoming deal for a Washington original (drafted 2018, 5th round). Settle, 28, is the nose tackle archetype the Commanders lacked \u2014 a run-stuffer with penetration ability. The 3-year deal signals genuine investment, not a bridge. Contract worth up to $25.5M with incentives. However, the Commanders' IDL room still includes Daron Payne (final contract year, trade bait potential), Javon Kinlaw (under contract), and Johnny Newton. Settle partially addresses IDL depth and starter concerns, but Washington's interior pass rush was 8 sacks/20 QB hits from their top 3 tackles in 2025 \u2014 more is needed. IDL is partially addressed, not fully."
+      "analysis": "Washington's marquee splash of the offseason. Oweh (27) is a 2021 first-round pick who tallied 17.5 sacks over the past two combined seasons and had a monster playoff game (3 sacks, 2 forced fumbles) with the Chargers. The 4-year/$100M deal with $68M guaranteed is a massive bet on an ascending player. With Dorance Armstrong returning from ACL (depth/rotational) and Deatrich Wise/Drake Jackson re-signed as depth, EDGE goes from a Tier 1 need to essentially addressed. Washington may still want a complementary rusher via the draft, but the starter need is done."
     },
     {
       "player": "Amik Robertson",
@@ -159,189 +122,249 @@
         "guaranteed": 9300000,
         "aav": 8000000
       },
-      "expected_role": "rotational/starter",
+      "expected_role": "starter",
       "market_tier": "depth",
       "need_impact": "partially_addressed",
       "need_position": "CB",
-      "analysis": "Robertson (2020 4th-round pick) can play slot or outside \u2014 adds a third credible CB to a room that was just Trey Amos and Mike Sainristil. The 2-year/$16M deal at $8M AAV is depth-tier money for CB (starter tier is $12-20M AAV). His best role is slot CB, not a true CB1 or CB2 outside starter. ESPN notes Washington still needs more bodies at the position even after this signing. CB remains an elevated need going into the draft \u2014 Robertson provides versatility but doesn't solve the CB2 problem."
+      "analysis": "Robertson (2-year/$16M, $9.3M gtd) adds a versatile CB who can play slot or outside, giving new DC Daronte Jones a chess piece for his coverage disguises. He had 10 starts with Detroit in 2025. At $8M/year, this is below starter money on the positional market \u2014 a solid addition, not a needle-mover. Washington entered FA with only Trey Amos and Mike Sainristil as guaranteed CB roster players. Robertson is CB3/flex at best. CB remains a real need \u2014 the team explicitly noted they need to keep adding at this position."
+    },
+    {
+      "player": "Tim Settle",
+      "position": "IDL",
+      "age": 28,
+      "previous_team": "Houston Texans",
+      "contract": {
+        "years": 3,
+        "total_value": 24000000,
+        "guaranteed": 0,
+        "aav": 8000000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "partially_addressed",
+      "need_position": "IDL",
+      "analysis": "A homecoming for the former Washington 5th-round pick (2018), Settle returns on a 3-year/$24M deal (up to $25.5M with incentives). He was a full-time starter for Houston in 2025 and graded as the 10th-best pass-rushing DT. He slots in alongside Daron Payne and Javon Kinlaw to give Washington a legitimate three-deep at IDL. However, Washington's interior still generated just 8 sacks and 20 QB hits from the DT group in 2025 \u2014 Settle's one sack/one QB hit in 2025 (foot injury) doesn't fully solve interior pass rush. IDL is partially addressed; a developmental piece in the draft could still help. Guarantees TBD per public reporting \u2014 estimated ~$10M based on AAV structure."
+    },
+    {
+      "player": "Leo Chenal",
+      "position": "LB",
+      "age": 25,
+      "previous_team": "Kansas City Chiefs",
+      "contract": {
+        "years": 3,
+        "total_value": 24750000,
+        "guaranteed": 0,
+        "aav": 8250000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "fully_addressed",
+      "need_position": "LB",
+      "analysis": "Washington went well above Chenal's projected market (~2yr/$11M) to land the 25-year-old 2x Super Bowl champion on a 3-year/$24.75M deal. Chenal started 44 games over four seasons with Kansas City, posted a 9.99 Relative Athletic Score, and recorded 193 tackles, 7 sacks and 28 pressures in his career. He gives new DC Daronte Jones a flexible piece who can play off-ball, rush the passer, or even line up as a stand-up DT. With Frankie Luvu also retained, LB goes from a critical need (post-Wagner) to a legitimate strength. Guarantees TBD \u2014 estimated ~$13M based on AAV and 3-year commitment."
     },
     {
       "player": "Marcus Mariota",
       "position": "QB",
       "age": 32,
-      "previous_team": "Washington Commanders (re-sign)",
+      "previous_team": "Washington Commanders (re-signed)",
       "contract": {
         "years": 1,
         "total_value": 7000000,
-        "guaranteed": null,
+        "guaranteed": 6390000,
         "aav": 7000000
       },
       "expected_role": "backup",
-      "market_tier": "depth",
+      "market_tier": "starter",
       "need_impact": "none",
       "need_position": "QB",
-      "analysis": "One-year deal worth $7M base, up to $11M with incentives. Re-signs as Jayden Daniels' backup and mentor. Mariota started 8 games in 2025 going 2-6, but is valued for his mentorship role and familiarity with the system. Does not create or address a starter-level need \u2014 Daniels is the unquestioned starter. Routine backup retention."
+      "analysis": "Third consecutive one-year deal (1yr/$7M, up to $11M with incentives) for Mariota as Jayden Daniels' backup. Mariota started 8 of 11 games in 2025 due to Daniels' injuries, throwing for 1,695 yards, 10 TDs and 7 INTs. This is an important depth retention \u2014 given Daniels' injury history, this is far more than a routine backup signing. But it doesn't affect QB need tiers since Daniels is the unquestioned starter."
     },
     {
       "player": "Deatrich Wise Jr.",
       "position": "EDGE",
       "age": 30,
-      "previous_team": "Washington Commanders (re-sign)",
+      "previous_team": "Washington Commanders (re-signed)",
       "contract": {
         "years": 1,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
       },
       "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "EDGE",
-      "analysis": "Re-signed on a 1-year deal before legal tampering (March 4). Wise was signed in 2025 but suffered a season-ending injury in Week 2 vs. Green Bay and only played 2 games. Brings veteran depth and familiarity with the system. With Oweh now signed as the starter and Armstrong returning, Wise is a depth/rotational piece. One-year deal signals a prove-it role. Full terms not disclosed."
+      "analysis": "Wise re-signed on a 1-year deal (terms undisclosed \u2014 believed to be near veteran minimum) before the legal tampering window. He played only 2 games in 2025 due to injury but provides veteran leadership and rotational value behind Oweh and Armstrong. Low-impact retention; no change to need tier for EDGE."
+    },
+    {
+      "player": "Drake Jackson",
+      "position": "EDGE",
+      "age": 25,
+      "previous_team": "Washington Commanders (re-signed)",
+      "contract": {
+        "years": 1,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
+      },
+      "expected_role": "depth",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "EDGE",
+      "analysis": "Jackson (25) is a high-upside pass rusher who played only 3 games in 2025 in his return from a torn ACL. Re-signed on a 1-year deal (terms undisclosed) to provide developmental depth. He has starter upside long-term but this is purely a depth signing for 2026. Does not affect need tiers."
     },
     {
       "player": "Shy Tuttle",
       "position": "IDL",
       "age": 29,
-      "previous_team": "Washington Commanders (re-sign, claimed off waivers from TEN)",
+      "previous_team": "Washington Commanders (re-signed)",
       "contract": {
         "years": 1,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
       },
       "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "IDL",
-      "analysis": "Re-signed on 1-year deal (March 4) after being claimed off waivers from the Titans in December 2025. Played only 2 games with Washington in 2025. Provides depth alongside Tim Settle's more significant signing. One-year deal, role player. Minimal impact on need assessment \u2014 depth only."
+      "analysis": "Tuttle re-signed on a 1-year deal (terms undisclosed). He is an 8-year veteran with 107 career games and 66 starts. Provides run-stopping depth alongside Payne, Kinlaw, and Settle. Low-impact depth retention."
     },
     {
       "player": "Andrew Wylie",
       "position": "IOL",
-      "age": 30,
-      "previous_team": "Washington Commanders (re-sign)",
+      "age": 32,
+      "previous_team": "Washington Commanders (re-signed)",
       "contract": {
         "years": 2,
         "total_value": 7500000,
-        "guaranteed": null,
+        "guaranteed": 0,
         "aav": 3750000
       },
       "expected_role": "rotational/swing",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "IOL",
-      "analysis": "Re-signed on a 2-year, $7.5M deal. Wylie is an 8-year veteran who can play OT or guard (versatile swing lineman). Has 93 career starts including 33 with Washington over 3 seasons. Signed through 2027. Depth AAV \u2014 not a starter-caliber investment at the position. Provides interior OL flexibility but does not address the starting center void left by Biadasz, nor the starting LG need left by Chris Paul's expected departure."
+      "analysis": "Wylie re-signed on a 2-year/$7.5M deal as interior line depth and veteran insurance. He has played OT and G and has familiarity at C. At $3.75M/year, this is pure depth money. With Biadasz and Chris Paul gone, Wylie is an internal option at center in a pinch, but he is not a starter-caliber solution. IOL remains a critical need."
     },
     {
       "player": "Nick Allegretti",
       "position": "IOL",
-      "age": 29,
+      "age": 30,
       "previous_team": "Washington Commanders (extension)",
       "contract": {
         "years": 2,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
       },
-      "expected_role": "starter/C-G",
+      "expected_role": "rotational/C competition",
       "market_tier": "depth",
-      "need_impact": "partially_addressed",
+      "need_impact": "minimal",
       "need_position": "IOL",
-      "analysis": "Reworked 2-year deal through 2027 (full terms not disclosed). Allegretti is a 3-time Super Bowl champion with KC who started the final 2 games of 2025 at center when Biadasz was injured. He is actively competing for the starting C role in 2026. His versatility (C, LG, RG) is valuable given the IOL uncertainty. However, this is not a market-rate investment at IOL \u2014 it's a restructure of an existing deal at below-starter money. IOL remains a meaningful need: no starting center signed, LG (Chris Paul) still a free agent. Only partially addressed."
+      "analysis": "Allegretti's existing contract was restructured into a new 2-year extension (exact terms undisclosed; structured to lower his 2026 cap hit per reporting). He is the primary internal candidate to compete for the starting center job vacated by Biadasz. He has experience at center but is not a proven starter at the position. IOL remains a significant need regardless \u2014 Washington still needs to add a genuine starting center via FA or the draft."
     },
     {
-      "player": "Tress Way",
-      "position": "P",
-      "age": 34,
-      "previous_team": "Washington Commanders (extension)",
+      "player": "Treylon Burks",
+      "position": "WR",
+      "age": 25,
+      "previous_team": "Washington Commanders (re-signed)",
       "contract": {
-        "years": null,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "years": 1,
+        "total_value": 4000000,
+        "guaranteed": 0,
+        "aav": 4000000
       },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "none",
-      "need_position": "P",
-      "analysis": "3-time Pro Bowl punter extended. Led NFL in punts inside the 20 (52.8%) and opponent average starting field position (17.9 yards) in 2025. Extension keeps a franchise-level specialist. Not a positional need item \u2014 routine extension. Full terms undisclosed."
+      "expected_role": "depth",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "WR",
+      "analysis": "Burks re-signed on a 1-year/$4M deal as WR depth. He caught 10 passes for 130 yards on 22 targets in 2025 \u2014 not enough to be relied upon as a meaningful contributor. This is a low-cost depth retention; WR remains a critical need opposite Terry McLaurin."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
       "EDGE",
-      "OT"
-    ],
-    "partially_addressed": [
-      "IDL",
-      "CB",
-      "IOL"
-    ],
-    "minimally_addressed": [],
-    "unchanged": [
-      "TE",
+      "OT",
       "LB"
     ],
+    "partially_addressed": [
+      "CB",
+      "IDL"
+    ],
+    "minimally_addressed": [
+      "QB"
+    ],
+    "unchanged": [
+      "RB",
+      "S",
+      "TE"
+    ],
     "escalated": [
-      "WR",
-      "RB"
+      "IOL",
+      "WR"
     ]
   },
   "recommended_need_adjustments": [
     {
       "position": "EDGE",
       "previous_tier": 1,
-      "recommended_tier": 4,
-      "reasoning": "Odafe Oweh signed to a 4-year, $100M deal ($68M guaranteed) at age 27 \u2014 elite market contract with true starter investment. Also retains Dorance Armstrong (returning from ACL), Deatrich Wise (1yr depth), and Drake Jackson (re-signed). EDGE goes from the team's most critical need to a fully resolved position group. May draft a developmental EDGE in rounds 4-7 but it is no longer a premium need."
+      "recommended_tier": 3,
+      "reasoning": "Oweh signing (4yr/$100M, $68M gtd) at age 27 is a franchise-caliber investment that fully addresses the starter need. Armstrong returns from ACL as a complementary piece; Wise and Jackson provide rotation depth. Washington may still draft a developmental EDGE on Day 2/3, but it is no longer a premium draft need. Drop from Tier 1 critical to Tier 3 luxury/depth."
     },
     {
       "position": "OT",
-      "previous_tier": 2,
-      "recommended_tier": 5,
-      "reasoning": "Laremy Tunsil's 2-year, $60.2M extension ($61.5M guaranteed) locked in the best LT in the league through 2028 at record money. 2025 first-round pick Josh Conerly Jr. profiles as the RT. Washington's OT situation is elite at LT and developing at RT. This need is completely off the board."
-    },
-    {
-      "position": "IDL",
-      "previous_tier": 2,
-      "recommended_tier": 3,
-      "reasoning": "Tim Settle signed on a 3-year, $24M deal \u2014 legitimate multi-year starter investment at nose tackle. Still have Daron Payne (final year, trade candidate), Javon Kinlaw, Johnny Newton, and Shy Tuttle (1yr depth). The IDL unit is deeper but interior pass rush (8 combined sacks from top 3 DTs in 2025) was poor. A mid-round IDL pick or additional FA add is still warranted \u2014 reduced from urgent to moderate need."
-    },
-    {
-      "position": "CB",
       "previous_tier": 1,
-      "recommended_tier": 2,
-      "reasoning": "Amik Robertson signed (2yr/$16M, $9.3M gtd) gives Washington a third CB behind Trey Amos and Mike Sainristil. Robertson's $8M AAV is depth-tier money; his best role is slot. ESPN and team sources explicitly note the Commanders still need to add more at CB. Marshon Lattimore was cut, making this pre-FA hole deeper. Still a tier-2 need going into the draft \u2014 the team needs a legitimate CB2 starter on the outside."
+      "recommended_tier": 5,
+      "reasoning": "Tunsil extension (2yr/$60.2M, $61.5M gtd, $30.1M AAV) locks up the best LT in the franchise's recent history through 2028. Josh Conerly Jr. holds the RT spot. OT is fully settled \u2014 no draft need at this position whatsoever."
+    },
+    {
+      "position": "LB",
+      "previous_tier": 1,
+      "recommended_tier": 3,
+      "reasoning": "Chenal signing (3yr/$24.75M) fills the Bobby Wagner void with a 25-year-old ascending starter who has Championship-game pedigree and elite athleticism. Frankie Luvu provides a solid complement. Washington went significantly over market to land Chenal. LB drops from a top need to a depth/developmental consideration \u2014 a Day 3 pick to groom behind Chenal and Luvu would be ideal but not urgent."
     },
     {
       "position": "IOL",
       "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Tyler Biadasz departed (Chargers, 3yr/$30M). Starting LG Chris Paul still a free agent. Nick Allegretti reworked (2yr, depth AAV, full terms TBD) and is competing for C \u2014 he can fill the role but is not a locked-in solution. Andrew Wylie re-signed as a swing option. The IOL group is in limbo: no proven starting center signed externally, no LG secured. This remains an urgent need \u2014 the Commanders still need a starting-caliber C and LG to protect Jayden Daniels."
+      "recommended_tier": 1,
+      "reasoning": "The combination of Biadasz's release (signed with Chargers 3yr/$30M) and Chris Paul's departure to free agency leaves Washington without a proven starter at center OR left guard. Allegretti and Wylie provide internal competition but neither is a reliable Tier 1 option at center. This is now the most critical unaddressed need on offense. Should be a top draft or mid-FA target (Tyler Linderbaum still being pursued). Escalate to Tier 1."
     },
     {
       "position": "WR",
       "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Deebo Samuel's contract voided (triggering $12.4M dead cap), leaving Terry McLaurin as the only proven receiver. Washington now has McLaurin, Luke McCaffrey, Jaylin Lane, and a re-signing of Treylon Burks (reported). No external WR signed in FA yet. This is now arguably the most urgent remaining need on the offense \u2014 WR2 opposite McLaurin is a genuine starter-level hole. Escalated to tier 1."
+      "reasoning": "Deebo Samuel (led team with 727+ receiving yards) departed via contract void. Washington missed on Romeo Doubs (chose Patriots). Terry McLaurin remains but is in the final year of his deal and his future is uncertain beyond 2026. Burks re-signing is pure depth. Washington has no legitimate WR2 on the roster. This is now tied for the most urgent offensive need alongside IOL/C. Escalate to Tier 1."
+    },
+    {
+      "position": "CB",
+      "previous_tier": 1,
+      "recommended_tier": 2,
+      "reasoning": "Robertson signing (2yr/$16M, $9.3M gtd) adds a useful flex CB who can play inside or outside, reducing but not eliminating the CB need. Washington still has only Robertson, Sainristil, and Amos as genuine CBs. CB is explicitly still a need by team's own admission. Remains a high-priority draft or FA target \u2014 drop from Tier 1 to Tier 2."
+    },
+    {
+      "position": "IDL",
+      "previous_tier": 2,
+      "recommended_tier": 3,
+      "reasoning": "Settle signing (3yr/$24M) alongside Payne, Kinlaw, and Tuttle gives Washington legitimate depth at IDL for the first time in years. However, interior pass rush was abysmal in 2025 (8 sacks, 20 QB hits from the DT group) and Settle himself had just 1 sack last season. This group is better but not fixed \u2014 drafting an IDL in Day 2/3 still makes sense. Drop from Tier 2 to Tier 3."
+    },
+    {
+      "position": "TE",
+      "previous_tier": 2,
+      "recommended_tier": 1,
+      "reasoning": "Zach Ertz (504 receiving yards in 2025, third on team) departed and is not expected to return at age 36 following a knee injury. Ben Sinnott is the only returning TE and has been 'largely invisible in the passing game' per team observers. Washington has not made any TE signing. This is an unaddressed gap that directly impacts Jayden Daniels' receiving options. Escalate to Tier 1."
     },
     {
       "position": "RB",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Austin Ekeler effectively retired due to injury. Only Jacory Croskey-Merritt is under contract. Washington has been actively targeting multiple RBs (Kenneth Walker III reported interest, multiple other names). No RB signed yet as of March 10. Remains a clear tier-2 need \u2014 Washington must add at least one starting-caliber back in FA or the draft."
+      "reasoning": "Washington has only Jacory Croskey-Merritt under contract (with RFA Chris Rodriguez Jr. eligible for a tender). No RB signing has been made in free agency despite this being a stated team need. Kenneth Walker III and other RB targets remain on the market. RB stays at Tier 2 \u2014 the team still needs a true RB1."
     },
     {
-      "position": "LB",
+      "position": "S",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Bobby Wagner (age 36) not re-signed; team publicly stated desire for 'younger and faster' defense. Washington has Jordan Magee, Frankie Luvu, Kain Medrano, and Ale Kaho as young options but no established starter. No LB signed in FA yet. Need is unchanged \u2014 remains a meaningful mid-round draft target or FA addition."
-    },
-    {
-      "position": "TE",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Zach Ertz not re-signed (injury/age concerns, expected to seek starter role elsewhere). Ben Sinnott is the primary option \u2014 showed little in the passing game in 2025 (largely invisible per beat reports). Washington has been linked to TE targets in FA. Ertz's departure keeps TE as a real need \u2014 a receiving TE to help Jayden Daniels is a notable gap."
+      "reasoning": "No safety signings confirmed. Washington has Jeremy Reaves and Will Harris but lacks a coverage-capable starting safety for Daronte Jones's new scheme. Safety need is unchanged \u2014 still a Tier 2 priority."
     }
   ],
   "team_page_additions": {
@@ -351,63 +374,42 @@
         "position": "EDGE",
         "contract_summary": "4yr/$100M ($68M gtd)",
         "previous_team": "Los Angeles Chargers",
-        "headline": "Elite pass rusher (7.5 sacks in 12 games in 2025) fills the Commanders' biggest defensive need on a franchise-defining contract"
+        "headline": "27-year-old ascending pass rusher (17.5 sacks last 2 seasons) becomes Washington's new defensive cornerstone and highest-paid player"
       },
       {
         "player": "Laremy Tunsil",
         "position": "OT",
         "contract_summary": "2yr/$60.2M ($61.5M gtd) extension",
-        "previous_team": "Washington Commanders (extension)",
-        "headline": "Record-setting OL extension ($30M/yr) locks in Jayden Daniels' blindside through 2028"
+        "previous_team": "Washington Commanders (re-signed)",
+        "headline": "Record-breaking OT extension ($30.1M AAV) locks up Jayden Daniels' blindside protector through 2028"
+      },
+      {
+        "player": "Leo Chenal",
+        "position": "LB",
+        "contract_summary": "3yr/$24.75M",
+        "previous_team": "Kansas City Chiefs",
+        "headline": "25-year-old 2x Super Bowl champion fills Bobby Wagner's vacancy with elite athleticism (9.99 RAS) and 44 career starts"
       },
       {
         "player": "Tim Settle",
         "position": "IDL",
         "contract_summary": "3yr/$24M (up to $25.5M)",
         "previous_team": "Houston Texans",
-        "headline": "Washington original returns home as the nose tackle anchor the defense desperately needed"
+        "headline": "Former Washington 5th-round pick returns home to bolster interior D-line with pass-rush upside alongside Daron Payne"
       },
       {
         "player": "Amik Robertson",
         "position": "CB",
         "contract_summary": "2yr/$16M ($9.3M gtd)",
         "previous_team": "Detroit Lions",
-        "headline": "Versatile slot/outside CB adds a third credible option to a thin cornerback room"
+        "headline": "Versatile slot/outside CB adds a third rostered cornerback to a depleted secondary in need of bodies"
       },
       {
         "player": "Marcus Mariota",
         "position": "QB",
         "contract_summary": "1yr/$7M (up to $11M)",
-        "previous_team": "Washington Commanders (re-sign)",
-        "headline": "Veteran backup and Daniels mentor returns on a bridge deal"
-      },
-      {
-        "player": "Andrew Wylie",
-        "position": "IOL",
-        "contract_summary": "2yr/$7.5M",
-        "previous_team": "Washington Commanders (re-sign)",
-        "headline": "Veteran swing lineman retained to provide interior OL depth and versatility"
-      },
-      {
-        "player": "Nick Allegretti",
-        "position": "IOL",
-        "contract_summary": "2yr/terms TBD (reworked deal)",
-        "previous_team": "Washington Commanders (extension)",
-        "headline": "Three-time Super Bowl champion extended through 2027, now competing for the starting center role"
-      },
-      {
-        "player": "Deatrich Wise Jr.",
-        "position": "EDGE",
-        "contract_summary": "1yr/terms TBD",
-        "previous_team": "Washington Commanders (re-sign)",
-        "headline": "Veteran DE retained as rotational depth after season-ending injury in 2025"
-      },
-      {
-        "player": "Shy Tuttle",
-        "position": "IDL",
-        "contract_summary": "1yr/terms TBD",
-        "previous_team": "Washington Commanders (re-sign)",
-        "headline": "Veteran DT retained on a 1-year deal to provide interior line depth"
+        "previous_team": "Washington Commanders (re-signed)",
+        "headline": "Veteran backup returns for a third season as Jayden Daniels' insurance policy after starting 8 games in 2025"
       }
     ],
     "key_losses": [
@@ -416,67 +418,68 @@
         "position": "IOL",
         "contract_summary": "3yr/$30M with Chargers",
         "new_team": "Los Angeles Chargers",
-        "headline": "Starting center released and signs in LA, leaving Washington without a proven starter at the position"
+        "headline": "Released starting center departs for LA, leaving Washington without a proven starter at the position and creating a critical IOL need"
       },
       {
         "player": "Marshon Lattimore",
         "position": "CB",
-        "contract_summary": "Released (saved $18.5M)",
+        "contract_summary": "Released ($18.5M cap savings)",
         "new_team": "TBD/unsigned",
-        "headline": "Injury-riddled trade acquisition cut loose, further thinning an already depleted CB room"
-      },
-      {
-        "player": "Von Miller",
-        "position": "EDGE",
-        "contract_summary": "UFA/TBD",
-        "new_team": "TBD/unsigned",
-        "headline": "Team's leading pass rusher (9 sacks, 2025) enters free agency, creating the EDGE hole Oweh was signed to fill"
-      },
-      {
-        "player": "Bobby Wagner",
-        "position": "LB",
-        "contract_summary": "UFA/TBD",
-        "new_team": "TBD/unsigned",
-        "headline": "Future Hall of Famer departs as Washington pivots to a 'younger and faster' defense"
+        "headline": "Ill-fated trade acquisition (cost 3rd/4th/6th round picks) cut loose after ACL tear; departure escalates already thin CB room"
       },
       {
         "player": "Deebo Samuel",
         "position": "WR",
         "contract_summary": "Contract voided ($12.4M dead cap)",
         "new_team": "TBD/unsigned",
-        "headline": "1-year WR1 rental departs with 72/727/5 line, leaving McLaurin without a proven WR2"
+        "headline": "Rental WR1 who led team in 2025 receiving yards departs via contract void, leaving Washington with no proven WR2 opposite McLaurin"
       },
       {
         "player": "Zach Ertz",
         "position": "TE",
-        "contract_summary": "UFA/TBD",
+        "contract_summary": "UFA \u2014 not expected to return",
         "new_team": "TBD/unsigned",
-        "headline": "Veteran TE enters FA amid injury questions, leaving Ben Sinnott as Washington's lone TE option"
+        "headline": "Veteran TE (504 yards in 2025) unlikely to return at 36 after knee injury, leaving Ben Sinnott as lone TE option"
+      },
+      {
+        "player": "Bobby Wagner",
+        "position": "LB",
+        "contract_summary": "Not re-signed",
+        "new_team": "TBD/unsigned",
+        "headline": "Future Hall of Famer not retained after two productive seasons; exit triggered the Chenal signing to fill the void"
+      },
+      {
+        "player": "Von Miller",
+        "position": "EDGE",
+        "contract_summary": "1yr deal expired",
+        "new_team": "TBD/unsigned",
+        "headline": "37-year-old led team with 9 sacks in 2025 but was always a one-year stopgap; Oweh signing is his long-term replacement"
       },
       {
         "player": "Chris Paul",
         "position": "IOL",
-        "contract_summary": "UFA/expected to test market",
+        "contract_summary": "UFA \u2014 departed",
         "new_team": "TBD/unsigned",
-        "headline": "Starting left guard expected to depart, compounding the interior OL uncertainty"
+        "headline": "Starting LG departed in free agency, compounding the Biadasz loss and leaving Washington short at multiple IOL spots"
       }
     ]
   },
   "confidence": "high",
-  "notes": "Legal tampering period opened March 9, 2026. New league year begins March 11, 2026. All agreements reported during the legal tampering window (Oweh, Settle, Robertson, Mariota) are not official until March 11. Tunsil extension, Wylie/Allegretti re-signs, Wise/Tuttle re-signs, and Tress Way extension were signed prior to legal tampering. Tim Settle contract figures vary slightly across sources (AP reported $23M, NFL Network reported $24M base/$25.5M with incentives \u2014 using $24M base figure from majority of credible sources). Mariota contract reported by Washington Times at $7M base/$11M max. Allegretti and Wylie exact guarantees not publicly disclosed. Von Miller, Bobby Wagner, Zach Ertz, Deebo Samuel, and Chris Paul departure status reflects UFA/not re-signed as of March 10 \u2014 none have confirmed new teams yet.",
   "sources": [
     "https://www.espn.com/nfl/story/_/id/48092511/commanders-2026-free-agency-tracker-offseason-moves-signings-contract",
     "https://www.nfl.com/news/odafe-oweh-commanders-sign-pass-rusher-four-year-100-million-contract",
-    "https://www.washingtontimes.com/news/2026/mar/9/washington-commanders-sign-odafe-oweh-100m-extend-larmey-tunsil-60m/",
-    "https://www.washingtontimes.com/news/2026/mar/9/laremy-tunsil-offensive-left-tackle-signs-2-year-602m-extension/",
-    "https://www.profootballrumors.com/2026/03/commanders-to-give-lt-laremy-tunsil-record-setting-extension",
-    "https://www.hogshaven.com/washington-commanders-free-agency/404814/washington-commanders-2026-free-agency-rumors-tracker-legal-tampering-continues",
-    "https://wtop.com/washington-commanders/2026/03/commanders-are-adding-odafe-oweh-and-re-signing-laremy-tunsil-ap-sources-say/",
-    "https://heavy.com/sports/nfl/washington-commanders/tim-settle-nfl-free-agency-contract-news/",
+    "https://www.nfl.com/news/commanders-signing-lt-laremy-tunsil-extension",
+    "https://www.spotrac.com/nfl/player/_/id/25264/tim-settle",
+    "https://www.spotrac.com/nfl/player/_/id/16726/marcus-mariota",
+    "https://www.profootballrumors.com/2026/03/commanders-to-sign-dt-tim-settle",
+    "https://www.profootballrumors.com/2026/03/commanders-to-add-lb-leo-chenal",
     "https://www.commanders.com/news/commanders-2026-free-agency-tracker",
-    "https://www.profootballrumors.com/2026/03/commanders-re-sign-de-deatrich-wise-dt-shy-tuttle",
-    "https://www.espn.com/nfl/story/_/id/48154001/commanders-re-sign-tunsil-new-deal-avoiding-potential-showdown",
-    "https://www.si.com/nfl/commanders/onsi/news/commanders-plan-to-cut-former-4-time-pro-bowler",
-    "https://atozsports.com/nfl/washington-commanders-news/commanders-2026-nfl-free-agency-tracker-every-new-signing-in-house-return-contract-extension-made/"
+    "https://www.commanders.com/news/commanders-pending-free-agent-in-2026",
+    "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/commanders-officially-release-cb-marshon-lattimore",
+    "https://www.hogshaven.com/washington-commanders-free-agency/405040/washington-commanders-2026-free-agency-rumors-tracker-adding-more-defensive-players-on-day-2",
+    "https://sports.yahoo.com/articles/washington-commanders-2026-free-agency-231753115.html",
+    "https://overthecap.com/salary-cap/washington-commanders",
+    "https://heavy.com/sports/nfl/washington-commanders/sign-super-bowl-champion-leo-chenal/",
+    "https://www.wusa9.com/article/sports/nfl/washington-commanders/washington-commanders-laremy-tunsil-contract-extension-2026"
   ]
 }

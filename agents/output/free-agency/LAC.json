@@ -1,18 +1,38 @@
 {
   "team": "LAC",
   "team_full": "Los Angeles Chargers",
-  "updated_through": "2026-03-10",
-  "cap_space_pre_fa": "99000000",
-  "cap_space_post_fa": "estimated_50000000",
+  "updated_through": "2026-03-11",
+  "cap_space_pre_fa": "$99000000",
+  "cap_space_post_fa": "$67000000",
   "key_departures": [
+    {
+      "player": "Odafe Oweh",
+      "position": "EDGE",
+      "age": 27,
+      "role": "starter",
+      "new_team": "Washington Commanders",
+      "impact": "Oweh was a midseason trade acquisition who exploded for 7.5 sacks in 12 regular-season games with the Chargers, forming a menacing trio with Mack and Tuipulotu. He added 3.0 sacks and two forced fumbles in the Wild Card playoff loss. Signed a 4-year, $100M deal ($68M guaranteed) with Washington. A massive loss \u2014 he was arguably the Chargers' best pass rusher by season's end and leaves a significant gap in the rotation.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Zion Johnson",
+      "position": "IOL",
+      "age": 25,
+      "role": "starter",
+      "new_team": "Cleveland Browns",
+      "impact": "Johnson was the starting left guard for four seasons after being the Chargers' 2022 first-round pick. While a pass-blocking liability \u2014 leading all guards with 19 quick pressures in 2025 \u2014 he was a solid run blocker and the only reliable IOL through a catastrophic injury-riddled season. Signed 3yr/$49.5M ($32.4M gtd) with Cleveland. Combined with Bozeman's retirement and Becton's release, the Chargers now have zero returning interior starters from 2025.",
+      "need_impact": "escalates",
+      "need_position": "IOL"
+    },
     {
       "player": "Bradley Bozeman",
       "position": "IOL",
       "age": 31,
       "role": "starter",
-      "new_team": "RETIRED",
-      "impact": "Starting center for two seasons retired in February. Left a void at C with no players under contract at the position. Chargers were sacked a career-high 54 times in 2025 \u2014 O-line stability is critical.",
-      "need_impact": "creates",
+      "new_team": "retired",
+      "impact": "Starting center for the past two seasons retired in February. Ranked 30th among centers in pass-block win rate \u2014 well below replacement level. His departure opened the center need the Chargers addressed by signing Biadasz, but it was a catalyst for the full interior line rebuild.",
+      "need_impact": "escalates",
       "need_position": "IOL"
     },
     {
@@ -20,105 +40,58 @@
       "position": "IOL",
       "age": 26,
       "role": "starter",
-      "new_team": "TBD/unsigned",
-      "impact": "Released March 4 saving ~$9.7M. Sole season in LA plagued by injuries and inconsistent play. Was the starting RG but never recaptured his Eagles form. Departure compounds interior OL need alongside Bozeman retirement.",
+      "new_team": "released/unsigned",
+      "impact": "Released March 4, saving just under $10M in cap space. Becton's lone season in Los Angeles was a disappointment \u2014 injuries and inconsistent play plagued him throughout. The release left the Chargers without a single returning interior starter besides the now-retired Bozeman and the departing Johnson.",
       "need_impact": "creates",
       "need_position": "IOL"
-    },
-    {
-      "player": "Zion Johnson",
-      "position": "IOL",
-      "age": 26,
-      "role": "starter",
-      "new_team": "Cleveland Browns",
-      "impact": "2022 first-round pick signed 3yr/$49.5M ($32.4M gtd) with Cleveland. Played best football in 2025 \u2014 was the lone reliable OL during injury-riddled season. Departure means both starting guard spots are now vacant alongside the center spot.",
-      "need_impact": "escalates",
-      "need_position": "IOL"
-    },
-    {
-      "player": "Odafe Oweh",
-      "position": "EDGE",
-      "age": 27,
-      "role": "starter",
-      "new_team": "Washington Commanders",
-      "impact": "Signed 4yr/$100M ($68M gtd) with Washington. After trade from Baltimore mid-2025, registered 7.5 sacks and a 17.3% pressure rate in 12 games with LAC \u2014 career-best form. Had 3 sacks in playoff game vs. NE. Chargers chose not to match the market. Major loss for the pass rush.",
-      "need_impact": "creates",
-      "need_position": "EDGE"
-    },
-    {
-      "player": "Will Dissly",
-      "position": "TE",
-      "age": 30,
-      "role": "depth",
-      "new_team": "TBD/unsigned",
-      "impact": "Released March 4 saving $4M. His role diminished throughout 2025 as Oronde Gadsden II emerged. Departure left Gadsden as the only TE on roster heading into FA.",
-      "need_impact": "escalates",
-      "need_position": "TE"
     },
     {
       "player": "Benjamin St-Juste",
       "position": "CB",
-      "age": 27,
+      "age": 28,
       "role": "rotational",
-      "new_team": "TBD/unsigned",
-      "impact": "Breakout 2025 season (1 INT, 7 PD). Had been a 1-year prove-it deal player who outperformed expectations. Status as of March 10 is unsigned. If he departs, creates a CB depth need.",
+      "new_team": "Green Bay Packers",
+      "impact": "St-Juste was a revelation after signing on a cheap 1yr/$2.5M deal in 2025. He posted the 11th-best overall coverage grade among 114 qualified CBs per PFF, allowing a 60.9 passer rating when targeted, with 7 pass deflections and an INT. Signed a 2yr/$10M deal with the Packers. While not a starter, his departure removes the Chargers' best quality depth CB and creates a pressing need for secondary depth.",
       "need_impact": "escalates",
       "need_position": "CB"
     },
     {
-      "player": "Denzel Perryman",
-      "position": "LB",
-      "age": 33,
+      "player": "Otito Ogbonnia",
+      "position": "IDL",
+      "age": 25,
       "role": "rotational",
-      "new_team": "TBD/unsigned",
-      "impact": "Veteran leader and physical presence. Missed time in each of the past two seasons. Departure is a depth loss but does not meaningfully escalate a need given his age and role.",
-      "need_impact": "none",
-      "need_position": "LB"
+      "new_team": "Dallas Cowboys",
+      "impact": "Rotational DT who started 20 of 41 games over four seasons with the Chargers. Suffered an elbow injury in Week 7, limiting him to only 9 games in 2025. Signed a 1yr/$3M deal with Dallas. His departure thins the IDL depth behind Teair Tart.",
+      "need_impact": "escalates",
+      "need_position": "IDL"
     },
     {
-      "player": "Najee Harris",
-      "position": "RB",
-      "age": 28,
+      "player": "Will Dissly",
+      "position": "TE",
+      "age": 29,
       "role": "depth",
-      "new_team": "TBD/unsigned",
-      "impact": "Missed most of 2025 with an Achilles injury. Was a depth/backup piece only. Omarion Hampton and Kimani Vidal (tendered) form the core of the backfield. Departure is inconsequential.",
+      "new_team": "released/unsigned",
+      "impact": "Veteran TE released in early offseason, saving ~$4M in cap. His role had diminished throughout 2025. Not a starter \u2014 the release was part of the TE room overhaul under new OC Mike McDaniel. Limited impact on draft needs given his non-starter role.",
       "need_impact": "none",
-      "need_position": "RB"
+      "need_position": "TE"
     },
     {
-      "player": "Keenan Allen",
-      "position": "WR",
-      "age": 34,
-      "role": "rotational",
-      "new_team": "TBD/unsigned",
-      "impact": "UFA as of March 11. Perception is he wants to return to LA. Status remains unsigned as of March 10. If he departs, creates modest WR depth need behind Ladd McConkey, but team is not reliant on Allen as a true WR1.",
+      "player": "Alohi Gilman",
+      "position": "S",
+      "age": 28,
+      "role": "depth/starter",
+      "new_team": "Kansas City Chiefs",
+      "impact": "Gilman spent 2025 split between the Chargers and Ravens after the Oweh trade. He finished with a career-high 90 tackles. Signed a 3yr/$24.75M deal with the Chiefs. His departure is a secondary concern given the Chargers' depth at safety with Derwin James and others.",
       "need_impact": "none",
-      "need_position": "WR"
+      "need_position": "S"
     }
   ],
   "signings": [
     {
-      "player": "Teair Tart",
-      "position": "IDL",
-      "age": 29,
-      "previous_team": "Los Angeles Chargers (re-sign/extension)",
-      "contract": {
-        "years": 3,
-        "total_value": 30000000,
-        "guaranteed": 20000000,
-        "aav": 10000000
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "fully_addressed",
-      "need_position": "IDL",
-      "analysis": "Signed January 26 \u2014 well before FA opened. Three-year extension (up to $37.5M with incentives, $20M guaranteed) locks up the Chargers' best interior defender. Tart was a run-stuffing force with 12 run stops (7th in NFL) in 2025, played all 17 games. $10M AAV is fair mid-market value for a starting NT. Keeps IDL stable alongside young Jamaree Caldwell. Need fully addressed \u2014 IDL drops from concern to non-need."
-    },
-    {
       "player": "Khalil Mack",
       "position": "EDGE",
       "age": 35,
-      "previous_team": "Los Angeles Chargers (re-sign)",
+      "previous_team": "Los Angeles Chargers (re-signed)",
       "contract": {
         "years": 1,
         "total_value": 18000000,
@@ -129,7 +102,24 @@
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "EDGE",
-      "analysis": "One-year, $18M fully guaranteed deal \u2014 same structure as 2025. Mack is a future Hall of Famer who remains productive (5.5 sacks in 12 games in 2025) and an elite run defender. However, the 1-year structure is a bridge, not a long-term solution. At 35, he is not the future of the position. With Oweh departing to Washington on a 4yr/$100M deal, EDGE remains a critical need for 2027+. Tuli Tuipulotu (13.5 sacks, final year of deal) plus Mack gives them a pass rush for 2026, but the position is not resolved long-term. Need partially addressed for 2026 only."
+      "analysis": "Mack is back on a 1yr/$18M fully guaranteed deal \u2014 identical structure to 2025. He remains productive but missed four games with an elbow injury in 2025 and his counting stats declined. The 1-year structure signals this is a bridge, not a long-term solution at EDGE. With Oweh gone to Washington, the Chargers now have Mack (age 35, bridge) and Tuli Tuipulotu (13.5 sacks in 2025, extension-eligible) as their top two EDGEs. They still need a third controlled edge rusher. EDGE is partially addressed at best \u2014 Mack stabilizes the room but the long-term depth concern remains real."
+    },
+    {
+      "player": "Teair Tart",
+      "position": "IDL",
+      "age": 28,
+      "previous_team": "Los Angeles Chargers (re-signed/extended)",
+      "contract": {
+        "years": 3,
+        "total_value": 30000000,
+        "guaranteed": 20000000,
+        "aav": 10000000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "partially_addressed",
+      "need_position": "IDL",
+      "analysis": "Extended January 26 before the market opened \u2014 the earliest and clearest priority move by GM Joe Hortiz. Tart was the Chargers' most impactful IDL, playing all 17 games and recording 12 run stops (7th in NFL). Three-year deal with $20M guaranteed is a real investment. He anchors the interior but Ogbonnia's departure leaves the IDL thin behind him. They likely need one more rotational DT via draft or budget free agent \u2014 this is a partial fix, not a full solution."
     },
     {
       "player": "Tyler Biadasz",
@@ -146,7 +136,41 @@
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "IOL",
-      "analysis": "Signed March 6, before free agency opened. Three-year, $30M deal fills the center vacancy created by Bradley Bozeman's retirement. Biadasz (2022 Pro Bowler) graded 15th in pass block win rate vs. Bozeman's 30th \u2014 a clear upgrade. However, both guard spots remain empty after Becton's release and Johnson's departure to Cleveland. IOL need is partially addressed at C but critical at G(x2). Still a high-priority draft/FA position."
+      "analysis": "Signed March 6 before the legal tampering window even opened, filling the urgent center need after Bozeman's retirement. Three-year deal at $10M AAV is mid-market for a center and represents a clear upgrade \u2014 Biadasz ranked 15th in pass-block win rate vs. Bozeman's 30th. He graded 7th among centers with at least 3,500 snaps since 2021 per PFF. However, the Chargers still have zero returning starters at guard (both Johnson gone and Becton cut), so while C is addressed, the overall IOL situation remains dire. IOL need is still critical at the guard spots \u2014 this signing only partially resolves the position group."
+    },
+    {
+      "player": "Cole Strange",
+      "position": "IOL",
+      "age": 27,
+      "previous_team": "Miami Dolphins",
+      "contract": {
+        "years": 2,
+        "total_value": 13000000,
+        "guaranteed": 9000000,
+        "aav": 6500000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "partially_addressed",
+      "need_position": "IOL",
+      "analysis": "Signed March 10 with 2yr/$13M deal. Strange started 43 of 44 career games, including 14 at right guard for Miami in 2025 under OC Mike McDaniel \u2014 giving him immediate familiarity with the new scheme. He could compete for the starting RG spot vacated by Becton. However, his pass-blocking has been a documented concern, and analysis notes he would be a liability if starting for a team that needs to protect Herbert. This is a genuine addition to the guard room but not a true starter-quality solution. With the top free agent guards now off the board, Strange and Penning are the two best options the Chargers have at guard \u2014 the need is partially addressed but remains a priority for the draft."
+    },
+    {
+      "player": "Trevor Penning",
+      "position": "IOL",
+      "age": 25,
+      "previous_team": "Los Angeles Chargers (re-signed)",
+      "contract": {
+        "years": 1,
+        "total_value": 4500000,
+        "guaranteed": 3500000,
+        "aav": 4500000
+      },
+      "expected_role": "depth/rotational",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "IOL",
+      "analysis": "Re-signed on a 1yr/$4.5M deal. The Chargers traded for Penning midseason from the Saints and started him at left tackle, where he struggled mightily \u2014 allowing a team-high 8 pressures and 1 sack in one game. Analysis suggests his best role is guard, not tackle. Provides experienced line depth and can compete for a guard spot in camp. One-year deal with minimal guarantees signals depth/competition body, not a defined starter. Minimal impact on the IOL need."
     },
     {
       "player": "Charlie Kolar",
@@ -161,9 +185,9 @@
       },
       "expected_role": "starter",
       "market_tier": "starter",
-      "need_impact": "partially_addressed",
+      "need_impact": "fully_addressed",
       "need_position": "TE",
-      "analysis": "Signed March 9 (legal tampering). Three-year, $24.3M ($17M guaranteed) \u2014 makes him the highest-paid blocking TE in the NFL. Kolar pairs with pass-catching Oronde Gadsden II to give the Chargers a two-TE system. He had 10 catches/142 yds/2 TDs in 2025 but is primarily a blocker \u2014 important for Mike McDaniel's run-heavy scheme and Omarion Hampton. GM Hortiz drafted Kolar in Baltimore; strong familiarity. TE need is substantially reduced but not fully gone \u2014 Gadsden is unproven as WR1-level pass catcher, and receiving TE depth remains thin."
+      "analysis": "Signed March 9 on 3yr/$24.3M ($17M gtd) \u2014 makes him the NFL's highest-paid blocking tight end. After releasing Dissly and having only rookie Oronde Gadsden II on the roster, the Chargers desperately needed a TE. Kolar is a premier run-blocking TE (ranked 6th with a 71.5 run-block grade per PFF) who fits McDaniel's zone-run heavy scheme and will help pave the way for Omarion Hampton. He showed pass-catching upside with 10 catches/142 yards/2 TDs in 2025 despite being depth in Baltimore. Three-year deal with real money signals genuine investment. Gadsden II handles receiving duties; Kolar handles blocking. TE is fully addressed as a starting tandem need."
     },
     {
       "player": "Alec Ingold",
@@ -173,48 +197,31 @@
       "contract": {
         "years": 2,
         "total_value": 7500000,
-        "guaranteed": 4000000,
+        "guaranteed": 3560000,
         "aav": 3750000
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "none",
       "need_position": "RB",
-      "analysis": "Signed March 8. Two-year deal up to $7.5M. Fullback reuniting with OC Mike McDaniel after 4 seasons together in Miami. Fullback is a unique role \u2014 not a traditional RB need. Ingold is primarily a lead blocker and receiving option as a FB. This signing is scheme-driven for McDaniel's offense; it does not meaningfully affect the RB depth chart. Low positional need impact but high schematic importance."
+      "analysis": "Signed March 8 on 2yr/$7.5M deal (co-highest paid FB in NFL per AAV). A direct reunion with new OC Mike McDaniel, who used Ingold in 37% of offensive snaps during their time together in Miami. Pro Bowl fullback in 2023. McDaniel's offense features the FB heavily in zone-run blocking and as a pass-catcher out of the backfield. This signing is about scheme fit and the run game infrastructure around Hampton, not addressing a stated positional need. Fills a specific system role that didn't previously exist on this roster."
     },
     {
-      "player": "Cole Strange",
-      "position": "IOL",
-      "age": 27,
-      "previous_team": "Miami Dolphins",
-      "contract": {
-        "years": 2,
-        "total_value": 13000000,
-        "guaranteed": 9000000,
-        "aav": 6500000
-      },
-      "expected_role": "starter",
-      "market_tier": "depth",
-      "need_impact": "minimally_addressed",
-      "need_position": "IOL",
-      "analysis": "Signed March 9 (legal tampering). Two-year, $13M ($9M gtd) deal. Former Patriots 2022 first-round pick reunites with OC Mike McDaniel; started all 14 games at RG for Miami in 2025. PFF grade was sub-60.0 in both pass and run blocking \u2014 below average. At $6.5M AAV, this is a depth-tier deal by market standards. Likely penciled in as starting RG but this is not a long-term starter solution. With Zion Johnson gone to Cleveland, the Chargers still desperately need a starting LG. IOL remains a critical need (1 of 2 guard spots filled marginally; the other still open)."
-    },
-    {
-      "player": "Trevor Penning",
-      "position": "IOL",
-      "age": 26,
-      "previous_team": "Los Angeles Chargers (re-sign)",
+      "player": "Keenan Allen",
+      "position": "WR",
+      "age": 34,
+      "previous_team": "Los Angeles Chargers (re-signed)",
       "contract": {
         "years": 1,
-        "total_value": 4500000,
-        "guaranteed": 2000000,
-        "aav": 4500000
+        "total_value": 8520000,
+        "guaranteed": 2255000,
+        "aav": 8520000
       },
-      "expected_role": "depth",
-      "market_tier": "depth",
-      "need_impact": "minimal",
-      "need_position": "IOL",
-      "analysis": "Re-signed March 9 on a 1-year, $4.5M deal. Versatile swing lineman (can play G or T). Provides OL depth insurance behind Slater/Alt at tackle and could compete for a guard role. However, at 193 offensive snaps in 2025 and a mixed track record, this is a depth move, not a starter solution. Does not address the LG vacancy in any meaningful way."
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "partially_addressed",
+      "need_position": "WR",
+      "analysis": "Re-signed March 10 on 1yr/$8.52M deal. Allen recorded 81 catches/777 yards/4 TDs in 2025 and became the franchise's all-time reception leader. His rapport with Herbert is exceptional and he serves as the WR2 behind Ladd McConkey. However, the 1-year deal with only $2.255M guaranteed is a clear bridge/aging-vet structure \u2014 no long-term commitment. At 34, this keeps the WR room functional but does not solve the long-term WR depth question. The Chargers still have McConkey, Johnston (5th-year option decision pending), Tre Harris (Year 2), and KeAndre Lambert-Smith behind Allen. WR is partially addressed for 2026 but remains a long-term need given Allen's age."
     },
     {
       "player": "Kimani Vidal",
@@ -223,54 +230,70 @@
       "previous_team": "Los Angeles Chargers (ERFA tender)",
       "contract": {
         "years": 1,
-        "total_value": 900000,
-        "guaranteed": 900000,
-        "aav": 900000
+        "total_value": 1000000,
+        "guaranteed": 1000000,
+        "aav": 1000000
       },
-      "expected_role": "depth",
+      "expected_role": "rotational",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "RB",
-      "analysis": "Exclusive rights free agent tendered March 6 at league minimum. Vidal had a career year in 2025 with 643 rushing yards and 3 TDs. Pairs with Omarion Hampton in backfield. This was a formality \u2014 team controls his rights. Backfield depth is solid. No meaningful need impact."
+      "analysis": "Tendered as an exclusive rights free agent March 6 at the minimum. Vidal had a career year in 2025 with 643 rushing yards and three scores. His return pairs him with Omarion Hampton (2025 1st round pick) to form a solid RB tandem. ERFA tender is procedural retention \u2014 not a free market signing. No impact on positional need since Hampton is the featured back."
     },
     {
       "player": "Jaret Patterson",
       "position": "RB",
-      "age": 25,
-      "previous_team": "Los Angeles Chargers (ERFA tender)",
+      "age": 26,
+      "previous_team": "Los Angeles Chargers (ERFA extension)",
       "contract": {
         "years": 1,
-        "total_value": 900000,
-        "guaranteed": 900000,
-        "aav": 900000
+        "total_value": 1000000,
+        "guaranteed": 1000000,
+        "aav": 1000000
       },
       "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "RB",
-      "analysis": "Exclusive rights free agent extended March 6. RB3/practice squad level depth. No meaningful need impact."
+      "analysis": "Extended as ERFA March 6. Patterson appeared in 6 games with 159 rushing yards and a touchdown. Pure depth addition \u2014 no impact on positional need."
+    },
+    {
+      "player": "Kendall Williamson",
+      "position": "S",
+      "age": 26,
+      "previous_team": "Los Angeles Chargers (ERFA extension)",
+      "contract": {
+        "years": 1,
+        "total_value": 1000000,
+        "guaranteed": 1000000,
+        "aav": 1000000
+      },
+      "expected_role": "depth/special teams",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "S",
+      "analysis": "Extended as ERFA March 6. A reliable special teams contributor over two seasons. Minimum-level retention \u2014 no impact on positional need."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
-      "IDL"
+      "TE"
     ],
     "partially_addressed": [
+      "EDGE",
+      "IDL",
       "IOL",
-      "TE",
-      "EDGE"
+      "WR"
     ],
     "minimally_addressed": [],
     "unchanged": [
       "CB",
-      "WR",
-      "LB",
-      "S"
+      "QB",
+      "LB"
     ],
     "escalated": [
-      "IOL"
-    ],
-    "new_needs_created": [
+      "IOL",
+      "CB",
       "EDGE"
     ]
   },
@@ -279,158 +302,152 @@
       "position": "IOL",
       "previous_tier": 1,
       "recommended_tier": 1,
-      "reasoning": "Despite signing Biadasz (C, 3yr/$30M) and Strange (G, 2yr/$13M), IOL remains a tier-1 critical need. The center spot is adequately filled. But both guard spots were vacated \u2014 Becton was released, Johnson signed with Cleveland (3yr/$49.5M). Strange at RG is a depth-tier signing by market value (sub-60 PFF grades) and not a true solution. LG remains completely unaddressed. With Justin Herbert sacked 54 times in 2025, IOL is still the team's biggest structural priority for the draft. Penning (1yr/$4.5M) adds depth only. Team needs at least one starting-caliber guard \u2014 likely a high draft pick."
+      "reasoning": "Despite signing Biadasz (C, 3yr/$30M) and Strange (G, 2yr/$13M), IOL remains a Tier 1 need. The Chargers lost all three 2025 interior starters \u2014 Bozeman (retired), Johnson (Browns), Becton (cut). Biadasz addresses center. Strange is a shaky guard option with pass-protection concerns. One guard spot remains genuinely unresolved. They have no quality depth. The IOL need has been partially addressed at center but a starting-caliber left guard and overall depth remain critical draft/FA priorities. Still the team's biggest positional need."
     },
     {
       "position": "EDGE",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Khalil Mack re-signed (1yr/$18M fully guaranteed) provides continuity, and Tuli Tuipulotu (13.5 sacks, entering final year of deal) anchors the group. However, Odafe Oweh's departure to Washington (4yr/$100M) removes the team's best young pass rusher. Mack is 35 on a 1-year bridge deal \u2014 not the future. EDGE need does not drop; the 2026 season is covered but the position remains a legitimate draft target for long-term depth/succession planning. Tuipulotu extension looming adds urgency \u2014 if he walks after 2026, this becomes tier 1."
+      "reasoning": "Mack re-signed (1yr/$18M) stabilizes the room short-term, but Oweh departed on a 4yr/$100M deal to Washington \u2014 the Chargers' best pass rusher. Mack is 35 on a bridge deal; Tuipulotu (13.5 sacks) is the true top option but is extension-eligible and unresolved. The Chargers need a third, controlled edge rusher. EDGE need stays at Tier 2 \u2014 the 2026 starters are accounted for but the depth behind two aging/contract-year players is thin and the long-term picture is unclear."
+    },
+    {
+      "position": "CB",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "St-Juste departed to Green Bay (2yr/$10M), removing the team's highest-graded depth CB. The Chargers retain Tarheeb Still and Cam Hart as their projected starters, but the depth behind them is now minimal. No CB signing was made in free agency. CB remains a Tier 2 need \u2014 the starters are serviceable but quality depth is gone, and this position should be targeted in the draft."
     },
     {
       "position": "TE",
       "previous_tier": 2,
-      "recommended_tier": 3,
-      "reasoning": "Kolar signing (3yr/$24.3M, $17M gtd) substantially reduces TE need. He pairs with Gadsden II (breakout pass-catcher) to give LAC a functional two-TE unit. McDaniel's offense uses a run-game-focused TE well, and Kolar's blocking is among the best in the league. Need drops to tier 3 \u2014 they could still add depth/development TE in mid-rounds but no longer need a starter-level TE addition."
+      "recommended_tier": 4,
+      "reasoning": "Kolar signing (3yr/$24.3M, $17M gtd) fully addresses the TE need. Kolar is the NFL's top-paid blocking TE and pairs with rookie Oronde Gadsden II (664 yards in 2025) to form a legitimate starting tandem. Will Dissly's departure and Tyler Conklin's exit are fully offset. TE drops from a pressing need to low/no priority \u2014 drafting a TE would be luxury."
     },
     {
       "position": "IDL",
       "previous_tier": 2,
-      "recommended_tier": 4,
-      "reasoning": "Tart's extension (3yr/$30M, $20M gtd) secures the best interior defender on a team-friendly deal. He is the Chargers' run-stuffing anchor. Jamaree Caldwell (3rd-round 2025 pick) provides developmental depth. IDL drops to a luxury pick at best \u2014 only depth competition needed."
-    },
-    {
-      "position": "CB",
-      "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "Benjamin St-Juste (breakout 2025 season) remains unsigned as of March 10. If he re-signs, CB stays at tier 3 or lower. If he walks, CB escalates to tier 2. Derion Kendrick and other depth remain, but the absence of a confirmed CB2 starter keeps this need alive. Monitor St-Juste negotiations closely \u2014 his fate determines whether CB moves up in the draft."
+      "recommended_tier": 2,
+      "reasoning": "Tart extension (3yr/$30M, $20M gtd) secures the starter, but Ogbonnia's departure to Dallas thins the rotation significantly. The Chargers have Tart and likely need at least one more rotational IDL. IDL remains a Tier 2 need \u2014 specifically for rotational depth behind Tart. A Day 2/3 draft pick or low-cost veteran signing is warranted."
     },
     {
       "position": "WR",
       "previous_tier": 3,
       "recommended_tier": 3,
-      "reasoning": "Ladd McConkey is the clear WR1. Keenan Allen (34) is unsigned but expected to return on a low-cost deal. WR depth is adequate for 2026 but lacks a true WR2 behind McConkey at the starter level. Not a top-tier draft need \u2014 more of a value addition in rounds 3-5 if the right prospect is available."
+      "reasoning": "Allen re-signs (1yr/$8.52M) but on a bridge deal with minimal guarantees. He is 34 and a clear WR2 option for one more season alongside McConkey. Long-term WR depth beyond McConkey is still unresolved \u2014 Johnston's 5th-year option is a pending decision, and Harris/Lambert-Smith are unproven. WR stays at Tier 3 \u2014 Allen patches the 2026 need but the medium-term outlook still warrants draft attention."
     },
     {
-      "position": "EDGE",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "See above. Net: Mack retained but aging and 1-year only; Oweh lost to Washington. No change in tier for now, but this is a prime candidate to escalate post-draft if Tuipulotu extension stalls."
+      "position": "LB",
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "No LB activity in free agency \u2014 no signings, no notable departures of starters. Daiyan Henley is the projected starter after a disappointing 2025. All top LB free agents (Devin Lloyd, Bobby Okereke, Quay Walker, Nakobe Dean) found homes elsewhere. LB need unchanged \u2014 remains a mid-tier draft concern."
+    },
+    {
+      "position": "QB",
+      "previous_tier": 4,
+      "recommended_tier": 3,
+      "reasoning": "Herbert is locked in as the starter, but Trey Lance (backup) is still unsigned and there is active concern about having no experienced backup QB on the roster. Only DJ Uiagalelei (futures contract) is behind Herbert. The Chargers should address this \u2014 either re-signing Lance or finding a veteran backup \u2014 before it becomes a crisis. The QB backup need escalates slightly given the roster void."
     }
   ],
   "team_page_additions": {
     "key_additions": [
       {
-        "player": "Teair Tart",
-        "position": "IDL",
-        "contract_summary": "3yr/$30M ($20M gtd)",
-        "previous_team": "LAC (re-sign/extension)",
-        "headline": "Run-stuffing DT anchor locked up early \u2014 keeps LAC's elite interior D intact heading into 2026"
-      },
-      {
-        "player": "Khalil Mack",
-        "position": "EDGE",
-        "contract_summary": "1yr/$18M (fully gtd)",
-        "previous_team": "LAC (re-sign)",
-        "headline": "Future Hall of Famer returns for his 5th Chargers season; 1-year bridge while Tuipulotu extension looms"
-      },
-      {
         "player": "Tyler Biadasz",
         "position": "IOL",
-        "contract_summary": "3yr/$30M",
+        "contract_summary": "3yr/$30M (~$20.7M gtd est.)",
         "previous_team": "Washington Commanders",
-        "headline": "Pro Bowl center fills Bozeman's vacancy; graded 15th in pass-block win rate \u2014 a genuine upgrade at the position"
+        "headline": "Pro Bowl center brings immediate upgrade to Chargers' rebuilt interior OL, ranked 15th in pass-block win rate vs. Bozeman's 30th"
       },
       {
         "player": "Charlie Kolar",
         "position": "TE",
         "contract_summary": "3yr/$24.3M ($17M gtd)",
         "previous_team": "Baltimore Ravens",
-        "headline": "NFL's highest-paid blocking TE pairs with Oronde Gadsden II to reboot LAC's tight end room under McDaniel"
+        "headline": "NFL's highest-paid blocking TE fills glaring need, pairing with Gadsden II to form a run-game-first two-TE set under Mike McDaniel"
+      },
+      {
+        "player": "Khalil Mack",
+        "position": "EDGE",
+        "contract_summary": "1yr/$18M ($18M gtd)",
+        "previous_team": "Los Angeles Chargers (re-signed)",
+        "headline": "Mack returns on another fully guaranteed 1-year deal to anchor the pass rush alongside Tuli Tuipulotu after Oweh's departure"
+      },
+      {
+        "player": "Teair Tart",
+        "position": "IDL",
+        "contract_summary": "3yr/$30M ($20M gtd, up to $37.5M w/ incentives)",
+        "previous_team": "Los Angeles Chargers (extended)",
+        "headline": "Chargers lock up their best run-stopper early, preventing a second straight loss of a key IDL to free agency"
       },
       {
         "player": "Cole Strange",
         "position": "IOL",
         "contract_summary": "2yr/$13M ($9M gtd)",
         "previous_team": "Miami Dolphins",
-        "headline": "McDaniel system reunion; penciled in at RG but sub-starter quality \u2014 guard need persists at LG"
+        "headline": "McDaniel's former Dolphins guard joins LA to compete for starting RG job, bringing 43 career starts and scheme familiarity"
       },
       {
         "player": "Alec Ingold",
         "position": "RB",
-        "contract_summary": "2yr/up to $7.5M",
+        "contract_summary": "2yr/$7.5M ($3.56M gtd)",
         "previous_team": "Miami Dolphins",
-        "headline": "Fullback reunites with OC Mike McDaniel; critical scheme piece for Herbert's new run-heavy West Coast offense"
+        "headline": "Pro Bowl FB reunites with OC Mike McDaniel, bringing the zone-run blocking infrastructure critical to McDaniel's scheme"
       },
       {
-        "player": "Trevor Penning",
-        "position": "IOL",
-        "contract_summary": "1yr/$4.5M",
-        "previous_team": "LAC (re-sign)",
-        "headline": "Versatile swing lineman retained as OL insurance; competes for guard starts with both spots vacant"
+        "player": "Keenan Allen",
+        "position": "WR",
+        "contract_summary": "1yr/$8.52M ($2.26M gtd)",
+        "previous_team": "Los Angeles Chargers (re-signed)",
+        "headline": "Franchise all-time receptions leader returns for another season as Herbert's security blanket alongside Ladd McConkey"
       }
     ],
     "key_losses": [
       {
         "player": "Odafe Oweh",
         "position": "EDGE",
-        "contract_summary": "4yr/$100M ($68M gtd) \u2014 Washington",
+        "contract_summary": "4yr/$100M ($68M gtd) with Commanders",
         "new_team": "Washington Commanders",
-        "headline": "Breakout pass rusher (7.5 sacks in 12 games, 3 sacks in playoff game) lost to massive Washington deal \u2014 biggest departure of the offseason"
+        "headline": "Chargers' best pass rusher departs after posting 7.5 sacks in 12 games post-trade; Chargers declined to match 9-figure market"
       },
       {
         "player": "Zion Johnson",
         "position": "IOL",
-        "contract_summary": "3yr/$49.5M ($32.4M gtd) \u2014 Cleveland",
+        "contract_summary": "3yr/$49.5M ($32.4M gtd) with Browns",
         "new_team": "Cleveland Browns",
-        "headline": "2022 first-round pick departs; his exit leaves the LG spot completely bare alongside pre-existing RG vacancy"
-      },
-      {
-        "player": "Bradley Bozeman",
-        "position": "IOL",
-        "contract_summary": "RETIRED",
-        "new_team": "RETIRED",
-        "headline": "Starting C retired in February, triggering the interior OL overhaul that defines this entire offseason for LAC"
+        "headline": "Four-year starting LG walks to Cleveland, leaving Chargers without a single returning 2025 interior starter"
       },
       {
         "player": "Mekhi Becton",
         "position": "IOL",
-        "contract_summary": "Released \u2014 saved $9.7M",
-        "new_team": "TBD",
-        "headline": "Cut after injury-plagued, inconsistent lone season in LA; scheme change under McDaniel made him a poor fit"
-      },
-      {
-        "player": "Will Dissly",
-        "position": "TE",
-        "contract_summary": "Released \u2014 saved $4M",
-        "new_team": "TBD",
-        "headline": "Veteran TE released as LAC remakes the position room under new OC Mike McDaniel; Gadsden II is the new anchor"
+        "contract_summary": "Released (saved ~$9.7M cap)",
+        "new_team": "released/unsigned",
+        "headline": "Cap casualty after injury-plagued, inconsistent lone season in LA completes the full interior offensive line teardown"
       },
       {
         "player": "Benjamin St-Juste",
         "position": "CB",
-        "contract_summary": "UFA \u2014 unsigned as of 2026-03-10",
-        "new_team": "TBD",
-        "headline": "Breakout 2025 CB who outplayed his contract is testing the market; LAC secondary depth hinges on his status"
+        "contract_summary": "2yr/$10M with Packers",
+        "new_team": "Green Bay Packers",
+        "headline": "Breakout CB (11th-best coverage grade in NFL per PFF) cashes in on elite season, leaving a hole in LA's secondary depth"
+      },
+      {
+        "player": "Bradley Bozeman",
+        "position": "IOL",
+        "contract_summary": "Retired",
+        "new_team": "retired",
+        "headline": "Two-year starting center retires, triggering the Chargers' full interior OL overhaul heading into 2026"
       }
     ]
   },
   "confidence": "high",
-  "notes": "Keenan Allen (WR, age 34) and Benjamin St-Juste (CB) remain unsigned UFAs as of March 10, 2026. Both are expected to have decisions soon. Tart extension contract base is $30M (confirmed by OTC/Spotrac); $37.5M figure includes incentives. Biadasz guaranteed money (est. ~$20.7M) based on prior Commanders deal structure; official LAC guarantee not yet disclosed \u2014 flagged as estimate. Strange $9M guaranteed per Yahoo Sports/ESPN reporting.",
   "sources": [
     "https://www.chargers.com/news/free-agency-tracker-2026",
     "https://www.espn.com/nfl/story/_/id/48022804/chargers-2026-free-agency-tracker-offseason-moves-signings",
-    "https://www.spotrac.com/nfl/player/_/id/47741/tyler-biadasz",
-    "https://www.spotrac.com/nfl/player/_/id/76883/cole-strange",
+    "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/lac",
+    "https://overthecap.com/player/teair-tart/9303",
     "https://boltbeat.com/chargers-free-agency-tracker",
     "https://www.nfl.com/news/chargers-agree-to-terms-with-c-tyler-biadasz-on-3-year-30-million-contract",
-    "https://www.si.com/nfl/chargers/onsi/zion-johnson-departs-loss-chargers-nfl-free-agency-browns",
-    "https://www.profootballrumors.com/2026/03/commanders-odafe-oweh-agree-to-deal",
-    "https://www.nfl.com/news/odafe-oweh-commanders-sign-pass-rusher-four-year-100-million-contract",
-    "https://www.profootballrumors.com/2026/03/chargers-to-sign-g-cole-strange",
-    "https://www.boltsfromtheblue.com/los-angeles-chargers-news/63331/chargers-re-sign-ol-trevor-penning-to-1-year-deal",
-    "https://www.espn.com/nfl/story/_/id/47735842/source-chargers-teair-tart-agree-3-year-extension",
-    "https://www.thesportingtribune.com/2026/03/09/chargers-free-agency-grades-kolar-strange-added-while-johnson-and-oweh-depart",
-    "https://overthecap.com/free-agency/los-angeles-chargers"
+    "https://www.nfl.com/news/wr-keenan-allen-returning-to-chargers-on-one-year-8-5-million-contract",
+    "https://www.profootballrumors.com/2026/03/chargers-to-sign-te-charlie-kolar",
+    "https://www.cbssports.com/nfl/news/nfl-free-agency-tracker-2026-full-list-signings-trades-moves/",
+    "https://www.si.com/nfl/chargers/onsi/chargers-nfl-free-agency-tracker-latest-signings-losses-news-rumors"
   ]
 }

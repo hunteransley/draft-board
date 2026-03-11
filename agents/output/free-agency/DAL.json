@@ -1,8 +1,8 @@
 {
   "team": "DAL",
   "team_full": "Dallas Cowboys",
-  "updated_through": "2026-03-10",
-  "cap_space_pre_fa": "$222896",
+  "updated_through": "2026-03-11",
+  "cap_space_pre_fa": "$9000000",
   "cap_space_post_fa": "-$11488673",
   "key_departures": [
     {
@@ -11,17 +11,7 @@
       "age": 33,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "Led the Cowboys in sacks in 2025 with 8.5 sacks and 40 pressures on a one-year deal signed mid-September. New DC Christian Parker's scheme shift appears to be steering Dallas toward other options. Massive void at the top of the EDGE depth chart.",
-      "need_impact": "escalates",
-      "need_position": "EDGE"
-    },
-    {
-      "player": "Dante Fowler Jr.",
-      "position": "EDGE",
-      "age": 32,
-      "role": "rotational",
-      "new_team": "TBD/unsigned",
-      "impact": "Rotational edge rusher who had 3.0 sacks and 30 pressures in 2025 after a 10.5-sack season in Washington. Cowboys not expected to bring him back. Loss of rotational depth compounds the EDGE need.",
+      "impact": "Led the Cowboys in sacks (8.5) and pressures (40) with 12 TFL after joining mid-season on a 1-year deal. Cowboys' tone changed after hiring DC Christian Parker, who favors a different EDGE profile. Departure leaves a significant pass-rush void.",
       "need_impact": "escalates",
       "need_position": "EDGE"
     },
@@ -31,29 +21,79 @@
       "age": 30,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "Seven-year Cowboys veteran and 75-game starter released February 2 to free up $6.5M in cap space. New DC Christian Parker moving toward more athletic safeties. Created a starting safety hole that the team addressed via free agency.",
+      "impact": "7-year Cowboy and long-tenured starter was slowed by injuries in 2025 and deemed unlikely to return under Parker's new scheme. Departure created a starting safety vacancy that the team quickly moved to fill.",
       "need_impact": "creates",
       "need_position": "S"
     },
     {
-      "player": "Logan Wilson",
-      "position": "LB",
-      "age": 30,
+      "player": "DeMarcus Lawrence",
+      "position": "EDGE",
+      "age": 33,
+      "role": "rotational",
+      "new_team": "Seattle Seahawks",
+      "impact": "Departed in 2025 free agency (prior cycle) to Seattle, where he won Super Bowl LX. Generated two compensatory fifth-round picks for Dallas in the 2026 draft. Already gone from the roster but officially recognized for compensatory purposes this cycle.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Dante Fowler Jr.",
+      "position": "EDGE",
+      "age": 31,
       "role": "rotational",
       "new_team": "TBD/unsigned",
-      "impact": "Waived February 2026 after being acquired at the trade deadline from the Bengals for a 7th-round pick. Saved the Cowboys $6.5M. Struggled in Dallas with just one start in seven games. Departure deepens an already thin LB room.",
+      "impact": "Had only 3 sacks and 40 pressures after posting 10.5 sacks with Washington in 2024. Door closed on return. Further thins an already depleted EDGE room.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Jourdan Lewis",
+      "position": "CB",
+      "age": 30,
+      "role": "starter",
+      "new_team": "Jacksonville Jaguars",
+      "impact": "Departed in 2025 free agency (prior cycle) to Jacksonville. Was the team's primary nickel CB. Departure recognized for compensatory pick purposes this cycle.",
+      "need_impact": "escalates",
+      "need_position": "CB"
+    },
+    {
+      "player": "Logan Wilson",
+      "position": "LB",
+      "age": 29,
+      "role": "rotational",
+      "new_team": "released/cut",
+      "impact": "Acquired at 2025 trade deadline from Bengals. Posted a 52.4 PFF grade in 7 appearances; did not provide expected spark. Released February 2, 2026, freeing $6.5M cap space. Worsened an already thin LB room \u2014 DeMarvion Overshown now the only returning starter.",
       "need_impact": "escalates",
       "need_position": "LB"
     },
     {
-      "player": "C.J. Goodwin",
-      "position": "CB",
-      "age": 33,
-      "role": "depth/special teams",
+      "player": "Kenneth Murray",
+      "position": "LB",
+      "age": 26,
+      "role": "rotational",
       "new_team": "TBD/unsigned",
-      "impact": "Veteran special teamer and depth CB. Departure is minimal impact on the starting roster but thins special teams depth.",
+      "impact": "Was a liability in 2025; Cowboys moved on. Departure further deepens the LB need.",
+      "need_impact": "escalates",
+      "need_position": "LB"
+    },
+    {
+      "player": "Payton Turner",
+      "position": "EDGE",
+      "age": 26,
+      "role": "depth",
+      "new_team": "TBD/unsigned",
+      "impact": "Suffered a rib injury in preseason, stashed on IR, did not play in 2025. UFA departure is roster cleanup.",
       "need_impact": "none",
-      "need_position": "CB"
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Brock Hoffman",
+      "position": "IOL",
+      "age": 26,
+      "role": "depth",
+      "new_team": "Pittsburgh Steelers (reported)",
+      "impact": "RFA not tendered. Interior OL depth loss. Cowboys retain TJ Bass on 2nd-round tender as primary IOL backup.",
+      "need_impact": "none",
+      "need_position": "IOL"
     }
   ],
   "signings": [
@@ -62,273 +102,256 @@
       "position": "EDGE",
       "age": 28,
       "previous_team": "Green Bay Packers",
-      "acquisition_type": "trade",
-      "trade_compensation": "Cowboys sent 2027 4th-round pick to Green Bay",
       "contract": {
         "years": 2,
-        "total_value": 40500000,
+        "total_value": 42000000,
         "guaranteed": 0,
         "aav": 19500000,
-        "notes": "Inherited contract: $19.5M base salary in 2026, $21M base salary in 2027 \u2014 ZERO guaranteed money remaining per OverTheCap. Cowboys expected to attempt restructure. Cap hit for 2026: ~$19.5M."
+        "notes": "Existing Packers contract (4yr/$96M signed 2023) inherited via trade. $18M base salary in 2026, $21M in 2027. No guaranteed money remaining. Cowboys paid a 2027 4th-round pick to acquire. Restructure expected to lower 2026 cap number. AAV reflects 2026 cap charge per OTC."
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "EDGE",
-      "analysis": "Pro Bowl pass rusher in 2024 with 7.5 sacks in both 2024 and 2025, 46.5 career sacks. Acquired for only a 2027 4th-round pick \u2014 a bargain in draft capital terms. However, Gary has zero guaranteed money left and was considered a Packers cut candidate. His 2025 production declined in the second half of the season, and new DC Parker's scheme may or may not maximize him. The $19.5M cap hit in 2026 is significant for a team already over the cap. Starter-caliber addition, but the Cowboys explicitly need more EDGE help beyond Gary \u2014 Donovan Ezeiruaku (hip surgery) will miss OTAs/minicamp and Clowney is gone. EDGE is partially addressed, not resolved."
+      "analysis": "Pro Bowl EDGE in 2024 with 46.5 career sacks. Posted 7.5 sacks in 2025 but production fell off sharply in the second half. Acquired for a 2027 4th-round pick \u2014 low trade cost for a proven pass rusher with DC familiarity. However, zero guaranteed money remaining signals a bridge arrangement, not a long-term cornerstone. Upgrades the room meaningfully as a primary starter opposite Donovan Ezeiruaku (who is injured through OTAs). EDGE remains a need \u2014 Dallas still lacks depth and continuity at the position, and the draft remains the likely path to a long-term solution.",
+      "draft_pick_cost": "2027 4th-round pick to Green Bay"
     },
     {
       "player": "Jalen Thompson",
       "position": "S",
       "age": 27,
       "previous_team": "Arizona Cardinals",
-      "acquisition_type": "free_agent_signing",
       "contract": {
         "years": 3,
         "total_value": 33000000,
-        "guaranteed": 0,
+        "guaranteed": 22000000,
         "aav": 11000000,
-        "notes": "Base deal is 3yr/$33M per ESPN/NFL Network; max value is $36M per Ian Rapoport/Jane Slater. Guarantee details not yet fully disclosed; max value implies incentive-based upside. Spotrac lists AAV at $12M on $36M structure."
+        "notes": "3yr/$33M base with max value up to $36M with incentives. $9.7M signing bonus. $22M guaranteed per Spotrac. Per ESPN, contract includes cap-friendly structure in 2026."
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "S",
-      "analysis": "Thompson, 27, started 87 career games over seven seasons in Arizona and has 9 INTs, 37 PBUs and 578 career tackles. He reunites with Cowboys secondary coach Ryan Smith, who coached him in Arizona. He pairs with re-structured Malik Hooker to give Dallas a legitimate starting safety tandem. The 3-year deal at $11-12M AAV is mid-tier starter money for S \u2014 appropriate for his profile. Three-year commitment with clear starter intent. Safety need is fully addressed; DAL may still add depth/developmental S in late rounds but it is no longer a premium need."
+      "analysis": "Five-year starter with 87 career starts for Arizona, 9 INTs and 578 career tackles. Played alongside Budda Baker. Reunites with new Cowboys secondary coach Ryan Smith from Arizona. Three-year deal with $22M guaranteed signals legitimate starter investment, not a bridge move. Pairs with restructured Malik Hooker (retained) to give Dallas two capable starting safeties plus P.J. Locke as third option. S need goes from critical to largely resolved. A safety may still be targeted in mid-rounds of the draft for depth/developmental purposes, but no longer a premium priority.",
+      "draft_pick_cost": "none"
     },
     {
-      "player": "Javonte Williams",
-      "position": "RB",
-      "age": 26,
-      "previous_team": "Dallas Cowboys (re-sign)",
-      "acquisition_type": "re_signing",
+      "player": "P.J. Locke",
+      "position": "S",
+      "age": 29,
+      "previous_team": "Denver Broncos",
       "contract": {
-        "years": 3,
-        "total_value": 24000000,
-        "guaranteed": 16000000,
-        "aav": 8000000,
-        "notes": "2 void years included for cap purposes. 2026 cap hit: $3.95M. $6M signing bonus. 2026 and 2027 base salaries ($1.75M and $6.25M respectively) are fully guaranteed. Easy out in 2028."
+        "years": 1,
+        "total_value": 5000000,
+        "guaranteed": 2500000,
+        "aav": 5000000,
+        "notes": "1yr/$5M per Ian Rapoport/NFL Network. Spotrac lists $2.5M guaranteed. Reunites with DC Christian Parker who coached him in Denver."
       },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "fully_addressed",
-      "need_position": "RB",
-      "analysis": "Williams was the Cowboys' pending free agent RB coming off a career year: 1,201 rushing yards, 11 TDs, 35 catches. Dallas locked him up pre-free agency on Feb. 22 for $24M/3yr with $16M guaranteed \u2014 well below the market ceiling (Kenneth Walker III got $43M/3yr). With 2 years of real guaranteed money and a clear starting role, RB is fully addressed. The team-friendly structure gives Dallas an out in 2028. No RB need at any tier."
+      "expected_role": "rotational",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "S",
+      "analysis": "One-year prove-it deal at depth money. Was the third safety in Denver in 2025 after spine surgery, made three regular season starts but started both playoff games when Brandon Jones went on IR. Strong run defender and box safety candidate for Parker's scheme. Gives Dallas three starting-caliber safeties and schematic flexibility to move Thompson into nickel/rover roles. Adds legitimate depth at a position the Cowboys just filled with Thompson. Low-risk, scheme-specific add.",
+      "draft_pick_cost": "none"
     },
     {
       "player": "Sam Williams",
       "position": "EDGE",
       "age": 27,
       "previous_team": "Dallas Cowboys (re-sign)",
-      "acquisition_type": "re_signing",
       "contract": {
         "years": 1,
         "total_value": 3000000,
-        "guaranteed": 0,
+        "guaranteed": 1750000,
         "aav": 3000000,
-        "notes": "Guarantee details not disclosed; one-year deal at $3M total per NFL Network/CBS Sports."
+        "notes": "1yr max $3M per ESPN's Todd Archer. Cap hit $3.95M per Archer. Guaranteed portion includes base salary guarantees. ERFA-level cost structure."
       },
       "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "EDGE",
-      "analysis": "Former 2nd-round pick (56th overall, 2022) returning from torn ACL/MCL that cost him the entire 2024 season. In 2025 he played 17 games (5 starts) but tallied only 1.0 sack and posted a dismal 8.7% pass-rush win rate. One-year prove-it deal at depth-tier money. Does not solve the EDGE starter need \u2014 merely adds rotational depth. EDGE remains a critical team need. With Clowney and Fowler gone and Ezeiruaku injured, the Cowboys still need a legitimate starter-quality EDGE via free agency or the draft."
+      "analysis": "Former 2nd-round pick returning on a 1-year, low-cost deal. Coming off torn ACL \u2014 posted 1 sack, 25 pressures and 7 TFL in 17 games (5 starts) in 2025. Had 8.5 sacks in first two years before injury; Parker's 3-4 OLB scheme could unlock more production. However, 1-year structure and below-starter money clearly signal depth/rotational role, not a solution. Minimally addresses EDGE depth \u2014 need remains. Cowboys still expect to address EDGE in the draft.",
+      "draft_pick_cost": "none"
+    },
+    {
+      "player": "Otito Ogbonnia",
+      "position": "IDL",
+      "age": 25,
+      "previous_team": "Los Angeles Chargers",
+      "contract": {
+        "years": 1,
+        "total_value": 3000000,
+        "guaranteed": 1000000,
+        "aav": 3000000,
+        "notes": "1yr/$3M per Mike Garafolo/NFL Network. Guarantees estimated based on market for 1-year depth deals."
+      },
+      "expected_role": "rotational",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "IDL",
+      "analysis": "True nose tackle (6'4, 320 lbs) at age 25, finishing his rookie contract with LAC. 20 starts in 4 years; played 25% snap share in 2025 after elbow injury. Slots into a very crowded IDL rotation (Quinnen Williams, Kenny Clark, Osa Odighizuwa, Solomon Thomas, Jay Toia). Comes from Jim Harbaugh's 3-4 system, directly analogous to Parker's new scheme. Depth/rotational add at a position of no significant need. Adds nose tackle mass and special teams value. IDL was not a pre-FA need; this signing does not move the needle there.",
+      "draft_pick_cost": "none"
+    },
+    {
+      "player": "Javonte Williams",
+      "position": "RB",
+      "age": 25,
+      "previous_team": "Dallas Cowboys (re-sign)",
+      "contract": {
+        "years": 3,
+        "total_value": 24000000,
+        "guaranteed": 16000000,
+        "aav": 8000000,
+        "notes": "3yr/$24M, $16M fully guaranteed per OTC/Spotrac. Includes $6M signing bonus plus guaranteed roster bonuses and salary in 2026 and 2027. Cap hit just $3.95M in 2026 due to void years. Easy out in 2028."
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "none",
+      "need_position": "RB",
+      "analysis": "Re-signed before free agency opened (deal agreed ~March 1). Williams had a career-best 2025: 1,201 rushing yards, 11 TDs on 252 carries, ranked 4th in YAC/carry. Deal is richly structured but cap-friendly in 2026 ($3.95M hit). Tied for 16th among RBs in AAV ($8M) \u2014 fair value for a 1,200-yard back. RB was not a pre-FA need and retaining Williams locks it down through at least 2027. No change to RB need tier.",
+      "draft_pick_cost": "none"
     },
     {
       "player": "George Pickens",
       "position": "WR",
-      "age": 23,
+      "age": 24,
       "previous_team": "Dallas Cowboys (franchise tag)",
-      "acquisition_type": "franchise_tag",
       "contract": {
         "years": 1,
-        "total_value": 27300000,
-        "guaranteed": 27300000,
-        "aav": 27300000,
-        "notes": "Non-exclusive franchise tag at $27.3M fully guaranteed for 2026. Other teams may negotiate with Pickens; Cowboys have 5 days to match any offer sheet. If Cowboys decline to match, they receive two 1st-round picks."
+        "total_value": 27298000,
+        "guaranteed": 27298000,
+        "aav": 27298000,
+        "notes": "Non-exclusive franchise tag. Tag value $27,298,000 per NFL/Spotrac. Sides have until July 15 to negotiate long-term extension. Long-term deal likely deferred to post-2026 season per reporting. Tag is fully guaranteed."
       },
       "expected_role": "starter",
       "market_tier": "elite",
       "need_impact": "none",
       "need_position": "WR",
-      "analysis": "Pickens was a Pro Bowl selection in 2025. The non-exclusive tag buys time to negotiate a long-term deal while retaining rights. WR is not a need so long as Pickens remains tagged \u2014 Dallas has CeeDee Lamb ($34M AAV) and Pickens locked in at WR1/WR2. The tag does NOT resolve the long-term WR2 question (will need a multi-year deal) but eliminates it as a 2026 draft-day need."
+      "analysis": "Tag secures Pickens through 2026. Career-best 2025: 93 catches, 1,429 yards, 9 TDs alongside CeeDee Lamb. Non-exclusive tag means other teams can negotiate \u2014 Cowboys have 5-day right-of-first-refusal or 2 first-round picks as compensation. Long-term extension talks likely to continue through summer, but WR is not a draft need with both Pickens and Lamb locked in for 2026. No WR draft need created.",
+      "draft_pick_cost": "none"
+    },
+    {
+      "player": "Malik Hooker",
+      "position": "S",
+      "age": 29,
+      "previous_team": "Dallas Cowboys (restructure retained)",
+      "contract": {
+        "years": 1,
+        "total_value": 5000000,
+        "guaranteed": 2000000,
+        "aav": 5000000,
+        "notes": "Existing deal restructured on March 9 per Todd Archer, converting $11M roster bonus to spread the cap hit, freeing ~$2M. Now effectively 1yr/$5M structure. Retained, not a free agent signing."
+      },
+      "expected_role": "starter",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "S",
+      "analysis": "Cowboys restructured Hooker's deal to retain him and create cap room. In five seasons: 289 tackles, 14 PDs, 7 INTs. Cap-friendly restructure. Contributes to filling the S need alongside Thompson and Locke. Counted here as a retained/restructured player; the need at S is addressed primarily by the Thompson signing.",
+      "draft_pick_cost": "none"
     },
     {
       "player": "Brandon Aubrey",
       "position": "K",
       "age": 29,
-      "previous_team": "Dallas Cowboys (RFA tender)",
-      "acquisition_type": "rfa_tender",
+      "previous_team": "Dallas Cowboys (RFA tendered)",
       "contract": {
         "years": 1,
         "total_value": 5760000,
         "guaranteed": 5760000,
         "aav": 5760000,
-        "notes": "Second-round RFA tender. Cowboys and Aubrey working toward a long-term extension expected to make him highest-paid kicker in NFL history."
+        "notes": "2nd-round restricted free agent tender at $5.76M. Fully guaranteed for 2026. Long-term extension talks expected to continue."
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "none",
       "need_position": "K",
-      "analysis": "Retained via 2nd-round tender. No impact on positional needs \u2014 K was never a need. Long-term extension discussions ongoing."
+      "analysis": "All-Pro kicker retained on RFA tender while long-term deal is negotiated. Cowboys held right of first refusal. K was not a need; tender simply maintains the status quo.",
+      "draft_pick_cost": "none"
     },
     {
       "player": "T.J. Bass",
       "position": "IOL",
       "age": 26,
-      "previous_team": "Dallas Cowboys (RFA tender)",
-      "acquisition_type": "rfa_tender",
+      "previous_team": "Dallas Cowboys (RFA tendered)",
       "contract": {
         "years": 1,
         "total_value": 5760000,
         "guaranteed": 5760000,
         "aav": 5760000,
-        "notes": "Second-round RFA tender protects Cowboys' interior line depth."
+        "notes": "2nd-round restricted free agent tender at $5.76M per team announcement."
       },
-      "expected_role": "rotational/starter",
+      "expected_role": "rotational",
       "market_tier": "depth",
-      "need_impact": "minimal",
+      "need_impact": "none",
       "need_position": "IOL",
-      "analysis": "RFA tender keeps an interior lineman in the fold. One-year tender is not a long-term IOL solution. The Cowboys still have Brock Hoffman questions outstanding. IOL need is not meaningfully addressed by a tender alone."
-    },
-    {
-      "player": "Josh Butler",
-      "position": "CB",
-      "age": 24,
-      "previous_team": "Dallas Cowboys (ERFA)",
-      "acquisition_type": "erfa_signing",
-      "contract": {
-        "years": 1,
-        "total_value": 1070000,
-        "guaranteed": 1070000,
-        "aav": 1070000,
-        "notes": "Separate deal equal to ERFA number ($1.07M) with injury split added for team protection per ESPN's Todd Archer."
-      },
-      "expected_role": "depth",
-      "market_tier": "minimum",
-      "need_impact": "none",
-      "need_position": "CB",
-      "analysis": "ERFA-level deal to retain a young depth CB. No impact on positional needs."
-    },
-    {
-      "player": "Reddy Steward",
-      "position": "CB",
-      "age": 24,
-      "previous_team": "Dallas Cowboys (ERFA)",
-      "acquisition_type": "erfa_signing",
-      "contract": {
-        "years": 1,
-        "total_value": 1000000,
-        "guaranteed": 1000000,
-        "aav": 1000000,
-        "notes": "ERFA tender at ~$1M."
-      },
-      "expected_role": "depth",
-      "market_tier": "minimum",
-      "need_impact": "none",
-      "need_position": "CB",
-      "analysis": "Depth CB retained at minimum-level money. No impact on starting CB needs."
-    }
-  ],
-  "contract_restructures_and_cap_moves": [
-    {
-      "player": "Terence Steele",
-      "position": "OT",
-      "move_type": "restructure",
-      "details": "Restructured contract now includes $22M in fully guaranteed money, creating approximately $13M in 2026 cap space.",
-      "impact": "Retains starting RT; effectively resolves OT as a near-term need on the right side. Cowboys still face LT uncertainty long-term."
-    },
-    {
-      "player": "Malik Hooker",
-      "position": "S",
-      "move_type": "restructure",
-      "details": "Contract restructured, freeing approximately $2M in 2026 cap space. Hooker retained as starting safety alongside new addition Jalen Thompson.",
-      "impact": "Confirms Hooker is in the 2026 plan. Pairs with Thompson to form the starting safety tandem."
-    },
-    {
-      "player": "Perrion Winfrey",
-      "position": "IDL",
-      "move_type": "waived",
-      "details": "Cowboys waived DT Winfrey in early March. Appeared in only one game in 2025.",
-      "impact": "Negligible \u2014 was a fringe roster player."
+      "analysis": "Versatile IOL backup retained on RFA tender \u2014 appeared in 31 games with 8 starts across multiple OL positions in 2025. With Brock Hoffman not tendered and departing, Bass is now the primary IOL backup. IOL is a moderate need but Bass retention plus existing starters (Tyler Smith, Zack Martin era over, current starters in place) prevents escalation.",
+      "draft_pick_cost": "none"
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
-      "RB",
       "S"
     ],
     "partially_addressed": [
       "EDGE",
+      "RB",
       "WR"
     ],
-    "minimally_addressed": [
-      "IOL"
-    ],
+    "minimally_addressed": [],
     "unchanged": [
-      "CB",
-      "LB",
-      "OT"
+      "IDL",
+      "IOL",
+      "OT",
+      "QB",
+      "TE"
     ],
     "escalated": [
-      "EDGE",
-      "LB"
+      "LB",
+      "CB"
     ]
   },
   "recommended_need_adjustments": [
     {
-      "position": "EDGE",
-      "previous_tier": 1,
-      "recommended_tier": 1,
-      "reasoning": "Rashan Gary (trade, starter-caliber) and Sam Williams (re-sign, depth) added, but Clowney (8.5 sacks) and Fowler (3.0 sacks) both departed. Ezeiruaku missing all OTAs/minicamp with hip surgery. Gary has zero guaranteed money and declining production second-half of 2025. The net EDGE room is still critically thin \u2014 Gary + a recovering Ezeiruaku + a 1-sack Williams is not enough. EDGE remains the #1 draft priority and should still be targeted in early rounds, potentially with one of Dallas's two top-12 picks."
-    },
-    {
       "position": "S",
       "previous_tier": 2,
       "recommended_tier": 4,
-      "reasoning": "Jalen Thompson signing (3yr/$33-36M, clear starter) paired with restructured Malik Hooker gives Dallas a legitimate starting tandem. Thompson has started 87 career games and reunites with Cowboys secondary coach Ryan Smith. Safety is no longer a premium need. Drop to tier 4 \u2014 late-round developmental depth only."
+      "reasoning": "Thompson (3yr/$33M, $22M gtd) is a legitimate starter investment paired with retained Malik Hooker and depth signing P.J. Locke. Dallas now has three starting-caliber safeties. Safety drops from a real need to a luxury/late-round consideration. No premium draft pick warranted here."
     },
     {
-      "position": "RB",
-      "previous_tier": 2,
-      "recommended_tier": 5,
-      "reasoning": "Javonte Williams re-signed on 3yr/$24M with $16M guaranteed off a career year (1,201 yards, 11 TDs). Team-friendly deal with easy 2028 out. RB is fully addressed \u2014 remove from all need tiers."
-    },
-    {
-      "position": "WR",
-      "previous_tier": 3,
-      "recommended_tier": 5,
-      "reasoning": "George Pickens retained via franchise tag ($27.3M guaranteed for 2026). Combined with CeeDee Lamb, Dallas has a legitimate WR1/WR2 pairing. WR is not a draft need in 2026. Long-term extension talks will be the key offseason storyline but do not affect 2026 draft needs."
+      "position": "EDGE",
+      "previous_tier": 1,
+      "recommended_tier": 2,
+      "reasoning": "Gary (trade, existing contract, no guarantees remaining) is a starting-caliber addition but structured as a bridge. Sam Williams is a depth/rotational re-sign on a 1-year deal. Ezeiruaku (2025 2nd-rounder) is out through OTAs with hip surgery. James Houston and Marist Liufau (LB-to-OLB convert) round out a thin room. EDGE remains a high priority for the draft \u2014 likely one of Dallas's two first-round picks (12th or 20th overall) goes here. Drops from tier 1 critical to tier 2 high priority because a starter is now in place, but not a long-term answer."
     },
     {
       "position": "LB",
       "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Logan Wilson waived (Feb. 2026), no LB added in free agency. Cowboys are left with DeMarvion Overshown (injury-prone), Shemar James (raw rookie), and Marist Liufau (transitioning to OLB in new 3-4 scheme). The LB room is one of the thinnest in the league entering the draft. Escalate to tier 1 co-equal with EDGE. Dallas needs a starter-quality off-ball linebacker urgently."
-    },
-    {
-      "position": "OT",
-      "previous_tier": 2,
-      "recommended_tier": 3,
-      "reasoning": "Terence Steele restructured ($22M guaranteed) and retained at RT. Right tackle is stable. Left tackle remains a concern \u2014 Cowboys acknowledge LT is a long-term question with limited 2026 FA options. Drop to tier 3: not an emergency, but still worth addressing with a mid-round pick or developmental target."
-    },
-    {
-      "position": "IOL",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "T.J. Bass retained on 2nd-round RFA tender, but only for 2026. Brock Hoffman's future is uncertain. The Cowboys' IOL depth beyond Tyler Smith (LG) is thin. Tier stays at 2 \u2014 interior line is a genuine mid-round draft priority."
+      "reasoning": "Logan Wilson released, Kenneth Murray departed, Nakobe Dean and Quay Walker both signed with the Raiders (Cowboys missed out on both). DeMarvion Overshown is the only returning starting LB. Shemar James (rookie) played on necessity. Marist Liufau converting to OLB further depletes the room. LB is now the most critical unaddressed need \u2014 escalated to tier 1. Must be addressed in the draft and/or remaining free agency."
     },
     {
       "position": "CB",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "No notable CB additions or losses that meaningfully change the need picture. Trevon Diggs (declining/injury-prone) remains a potential cut candidate. DaRon Bland returning from injury. CB need unchanged \u2014 Dallas still needs a capable starter opposite Bland if Diggs is released. Tier holds at 2."
+      "reasoning": "No CB was signed in the first wave of free agency. Jourdan Lewis (nickel) is gone. Reddy Steward (ERFA tenderd, consistent in 2025) and Josh Butler (ERFA tendered) are retained minimums. DaRon Bland is under contract but coming off injury. CB remains a tier 2 need; the nickel position is a particular concern under Parker's scheme. Draft or later free agency spending required."
+    },
+    {
+      "position": "RB",
+      "previous_tier": 3,
+      "recommended_tier": 5,
+      "reasoning": "Javonte Williams (3yr/$24M, $16M gtd) re-signed before free agency on a strong multi-year deal after a 1,201-yard, 11-TD season. RB need eliminated. No draft capital needed at this position."
+    },
+    {
+      "position": "WR",
+      "previous_tier": 3,
+      "recommended_tier": 5,
+      "reasoning": "George Pickens retained on franchise tag ($27.3M, fully guaranteed for 2026) after 93/1,429/9 TDs season. CeeDee Lamb under long-term deal. WR is a strength, not a need. Long-term Pickens extension talks ongoing but his presence in 2026 is secured."
     },
     {
       "position": "IDL",
       "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "Quinnen Williams, Kenny Clark, and Osa Odighizuwa remain on roster \u2014 three solid IDL starters. Clark's $21.5M cap hit with no guarantees is a potential cap casualty. If Clark is moved, IDL escalates. For now, tier holds at 3 \u2014 depth and contingency planning only."
+      "recommended_tier": 4,
+      "reasoning": "Cowboys already had Quinnen Williams, Kenny Clark, Osa Odighizuwa, and Solomon Thomas. Addition of Otito Ogbonnia as a nose tackle adds depth. IDL is now one of the deepest units on the roster. A pass-rushing IDL/DT could still be an attractive pick in day 2-3 of the draft, but no longer a need."
     }
   ],
   "team_page_additions": {
@@ -336,100 +359,112 @@
       {
         "player": "Rashan Gary",
         "position": "EDGE",
-        "contract_summary": "Trade (2027 4th-round pick); 2yr remaining/$40.5M (no guaranteed money)",
+        "contract_summary": "Trade (existing 2yr/$42M, $0 gtd remaining); 2027 4th-round pick to GB",
         "previous_team": "Green Bay Packers",
-        "headline": "Pro Bowl pass rusher (7.5 sacks in each of the past two seasons, 46.5 career) acquired for only a 4th-round pick to anchor a rebuild of Dallas's depleted EDGE room"
+        "headline": "Pro Bowl pass rusher (46.5 career sacks) acquired via trade to anchor depleted EDGE room under DC Christian Parker, his former Packers coach"
       },
       {
         "player": "Jalen Thompson",
         "position": "S",
-        "contract_summary": "3yr/$33M (max $36M)",
+        "contract_summary": "3yr/$33M ($22M gtd, max $36M)",
         "previous_team": "Arizona Cardinals",
-        "headline": "87-career-start safety reunites with Cowboys secondary coach Ryan Smith to form a legitimate starting tandem with Malik Hooker"
+        "headline": "Five-year Cardinals starter (87 starts) fills critical safety void left by Donovan Wilson departure on a genuine multi-year investment"
       },
       {
         "player": "Javonte Williams",
         "position": "RB",
         "contract_summary": "3yr/$24M ($16M gtd)",
         "previous_team": "Dallas Cowboys (re-sign)",
-        "headline": "Cowboys lock up their 1,201-yard, 11-TD breakout back before free agency on a team-friendly deal well below market rate"
+        "headline": "Cowboys lock up 1,201-yard, 11-TD breakout back before free agency market, keeping offensive engine in place at fair value"
       },
       {
         "player": "George Pickens",
         "position": "WR",
-        "contract_summary": "Franchise tag \u2014 1yr/$27.3M (fully gtd)",
+        "contract_summary": "1yr/$27.3M (non-exclusive franchise tag)",
         "previous_team": "Dallas Cowboys (tag)",
-        "headline": "Pro Bowl wideout retained on non-exclusive franchise tag while Cowboys pursue long-term extension with their electric WR2 alongside CeeDee Lamb"
+        "headline": "Star WR (93/1,429/9 TDs in 2025) retained on franchise tag while Cowboys pursue long-term extension; forms elite WR tandem with CeeDee Lamb"
+      },
+      {
+        "player": "P.J. Locke",
+        "position": "S",
+        "contract_summary": "1yr/$5M",
+        "previous_team": "Denver Broncos",
+        "headline": "DC Parker reunites with former Broncos safety for depth/nickel versatility, giving Dallas three starting-caliber safeties entering 2026"
       },
       {
         "player": "Sam Williams",
         "position": "EDGE",
-        "contract_summary": "1yr/$3M",
+        "contract_summary": "1yr/$3M (max)",
         "previous_team": "Dallas Cowboys (re-sign)",
-        "headline": "Former 2nd-round pick gets one more shot to prove himself as rotational EDGE depth after returning from torn ACL with limited production in 2025"
+        "headline": "Former 2nd-round pick retained on low-cost deal as rotational EDGE in Parker's 3-4 OLB scheme, reuniting with the system that could revive his career"
+      },
+      {
+        "player": "Otito Ogbonnia",
+        "position": "IDL",
+        "contract_summary": "1yr/$3M",
+        "previous_team": "Los Angeles Chargers",
+        "headline": "25-year-old nose tackle (6'4/320) adds run-stuffing bulk to an already-deep IDL rotation from a familiar Harbaugh 3-4 system"
       }
     ],
     "key_losses": [
       {
         "player": "Jadeveon Clowney",
         "position": "EDGE",
-        "contract_summary": "1yr/$3.45M (expired)",
+        "contract_summary": "1yr deal (UFA)",
         "new_team": "TBD/unsigned",
-        "headline": "Cowboys' best defender in 2025 (8.5 sacks, 40 pressures) hits UFA market as scheme shift under new DC Christian Parker makes his return unlikely"
+        "headline": "Team's sack leader (8.5 sacks, 40 pressures in 2025) departs as UFA after scheme change under new DC Parker, leaving the biggest hole on the roster"
       },
       {
         "player": "Donovan Wilson",
         "position": "S",
-        "contract_summary": "Released Feb. 2026 ($6.5M cap savings)",
-        "new_team": "UFA",
-        "headline": "Seven-year Cowboys starter released as new DC Parker moves toward more athletic secondary pieces \u2014 creating the hole Jalen Thompson was signed to fill"
+        "contract_summary": "UFA \u2014 released Feb 2 ($6.5M cap savings)",
+        "new_team": "TBD/unsigned",
+        "headline": "7-year Cowboy and 75-start safety let go as Parker revamps secondary; departure directly triggered the Thompson and Locke signings"
       },
       {
         "player": "Logan Wilson",
         "position": "LB",
-        "contract_summary": "Waived Feb. 2026 ($6.5M cap savings)",
-        "new_team": "UFA",
-        "headline": "Deadline trade acquisition waived just months after arriving, deepening Dallas's already thin linebacker room under new 3-4 scheme"
+        "contract_summary": "Released Feb 2 ($6.5M savings)",
+        "new_team": "Released/cut",
+        "headline": "Trade-deadline acquisition posted a 52.4 PFF grade and was released, leaving the Cowboys with only one returning starting LB and a massive void at the position"
       },
       {
         "player": "Dante Fowler Jr.",
         "position": "EDGE",
-        "contract_summary": "1yr (expired)",
+        "contract_summary": "1yr deal (UFA)",
         "new_team": "TBD/unsigned",
-        "headline": "Rotational pass rusher (3.0 sacks, 30 pressures in 2025) expected to depart, compounding the EDGE need alongside Clowney's exit"
+        "headline": "Former 10.5-sack rusher failed to replicate Washington production in Dallas (3 sacks), further thinning a depleted EDGE room"
+      },
+      {
+        "player": "Brock Hoffman",
+        "position": "IOL",
+        "contract_summary": "RFA \u2014 not tendered",
+        "new_team": "Pittsburgh Steelers (reported)",
+        "headline": "Backup center/guard depth departs as Cowboys prioritize other positions; T.J. Bass (tendered) remains as primary IOL reserve"
       }
     ]
   },
-  "draft_capital_notes": {
-    "picks_owned_2026": [
-      "12th overall (from Packers via Parsons trade)",
-      "20th overall (own pick)",
-      "112th (4th round)",
-      "150th (5th round)",
-      "177th (comp 5th round)",
-      "180th (comp 5th round)",
-      "two 7th-round picks"
-    ],
-    "picks_traded_away": [
-      "2027 4th-round pick to Green Bay for Rashan Gary"
-    ],
-    "notes": "Cowboys own two 1st-round picks in 2026 thanks to the Micah Parsons trade. With EDGE and LB both at tier 1 need and two premium selections in hand, expect both early picks to address defensive premium positions. The comp 5th-round picks were awarded for compensatory free agents lost (DeMarcus Lawrence, Jourdan Lewis, Rico Dowdle, Chauncey Golston, Chuma Edoga, Brandin Cooks)."
-  },
   "confidence": "high",
-  "confidence_notes": "All signings confirmed by NFL Network, ESPN, CBS Sports, Pro Football Rumors, and/or official team announcements. Contract figures sourced from OverTheCap.com and Spotrac.com. Gary's contract figures (2yr/$40.5M remaining, zero guaranteed) confirmed by OverTheCap/CBS Sports. Thompson deal reported as 3yr/$33M base by ESPN's Todd Archer and 3yr/$36M max by Ian Rapoport \u2014 using $33M confirmed base with $36M max noted. Guarantee details on Thompson TBD in final contract language.",
   "sources": [
+    "https://www.dallascowboys.com/news/day-2-fa-roundup-cowboys-news-notes-in-free-agency",
     "https://www.espn.com/nfl/story/_/id/48089116/dallas-cowboys-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
-    "https://www.espn.com/nfl/story/_/id/48155915/sources-cowboys-reach-deal-safety-jalen-thompson",
-    "https://www.dallascowboys.com/news/2026-nfl-free-agency-jalen-thompson-cowboys-agree-to-terms",
-    "https://www.dallascowboys.com/news/cowboys-finalizing-trade-for-packers-edge-rusher-rashan-gary",
-    "https://www.dallascowboys.com/news/cowboys-sam-williams-agree-to-terms-on-one-year-deal",
-    "https://overthecap.com/player/javonte-williams/9499",
-    "https://www.spotrac.com/nfl/player/_/id/72415/javonte-williams",
     "https://www.spotrac.com/nfl/player/_/id/32283/jalen-thompson",
-    "https://www.cbssports.com/nfl/news/rashan-gary-trade-cowboys-packers/",
-    "https://www.profootballrumors.com/2026/03/cowboys-to-re-sign-de-sam-williams",
-    "https://thelandryhat.com/dallas-cowboys-free-agency-tracker",
+    "https://www.spotrac.com/nfl/player/_/id/72415/javonte-williams",
+    "https://overthecap.com/player/javonte-williams/9499",
     "https://overthecap.com/salary-cap/dallas-cowboys",
-    "https://sports.yahoo.com/nfl/breaking-news/article/nfl-free-agency-tracker-each-teams-notable-departing-free-agents-signings-trades-as-legal-tampering-period-kicks-off-124543270.html"
+    "https://www.profootballrumors.com/2026/03/packers-to-trade-rashan-gary-to-cowboys",
+    "https://www.espn.com/nfl/story/_/id/48155915/sources-cowboys-reach-deal-safety-jalen-thompson",
+    "https://www.nfl.com/news/rashan-gary-trade-cowboys-packers",
+    "https://www.cbssports.com/nfl/news/rashan-gary-trade-cowboys-packers/",
+    "https://heavy.com/sports/nfl/dallas-cowboys/otito-ogbonnia-cowboys-free-agent-signing/",
+    "https://www.dallascowboys.com/news/cowboys-otito-ogbonnia-agree-to-terms-on-one-year-deal",
+    "https://www.dallascowboys.com/news/2026-nfl-free-agency-p-j-locke-cowboys-agree-to-terms",
+    "https://www.cbssports.com/nfl/news/george-pickens-contract-cowboys-franchise-tag/",
+    "https://www.nfl.com/news/cowboys-place-franchise-tag-on-wr-george-pickens",
+    "https://www.dallascowboys.com/news/cowboys-receive-two-compensatory-fifth-round-picks-in-2026-nfl-draft",
+    "https://thelandryhat.com/dallas-cowboys-free-agency-tracker",
+    "https://sports.yahoo.com/articles/cowboys-2026-nfl-free-agency-004435179.html",
+    "https://www.si.com/nfl/cowboys/onsi/news/dallas-cowboys-2026-free-agency-tracker-latest-signings-losses-news-rumors",
+    "https://www.si.com/nfl/cowboys/onsi/news/updated-dallas-cowboys-salary-cap-space-entering-day-2-nfl-free-agency"
   ]
 }

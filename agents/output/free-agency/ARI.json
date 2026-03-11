@@ -1,9 +1,9 @@
 {
   "team": "ARI",
   "team_full": "Arizona Cardinals",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "cap_space_pre_fa": "$48000000",
-  "cap_space_post_fa": "~$10000000",
+  "cap_space_post_fa": "$15000000",
   "key_departures": [
     {
       "player": "Kyler Murray",
@@ -11,7 +11,7 @@
       "age": 28,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "The Cardinals released Murray at the start of the new league year, ending a 7-year era. Murray struggled in 2025 with injuries and inconsistent play, ultimately being replaced by Jacoby Brissett. Arizona absorbs a massive $54.7M dead cap hit. Brissett remains under contract as the presumed starter.",
+      "impact": "Released by the Cardinals at the start of the new league year after playing just 5 games in 2025 due to injury. Was the franchise QB since 2019 (No. 1 overall pick). Arizona carries significant dead cap (~$54.7M pre-June 1, or spread over two years post-June 1). The QB room is now Brissett + Minshew \u2014 a clear bridge setup with no franchise-caliber replacement in hand.",
       "need_impact": "creates",
       "need_position": "QB"
     },
@@ -21,39 +21,9 @@
       "age": 27,
       "role": "starter",
       "new_team": "Dallas Cowboys",
-      "impact": "Thompson signed a 3-year, $36M max deal with the Cowboys. He had 95 tackles, 6 PDs and 15 starts in 2025. Was a key starter in Arizona's secondary for 7 seasons. Dadrion Taylor-Demerson is expected to step into a starting role alongside Budda Baker, but the loss is significant.",
+      "impact": "Signed a 3yr/$33M deal (max $36M) with Dallas. Thompson was one of Arizona's defensive cornerstones, starting 87 of 99 games since 2021 alongside Budda Baker. His departure breaks up the Baker-Thompson safety tandem. Dadrion Taylor-Demerson projects as the replacement, but is unproven as a full-time starter.",
       "need_impact": "creates",
       "need_position": "S"
-    },
-    {
-      "player": "Calais Campbell",
-      "position": "IDL",
-      "age": 40,
-      "role": "rotational",
-      "new_team": "TBD/unsigned",
-      "impact": "Campbell (PFF 72.2 grade in 2025) is a UFA and has not re-signed. A franchise legend who still contributed as a pass rusher. His departure creates a gap in the IDL rotation, though Arizona has Darius Robinson, Walter Nolen, and Dante Stills under contract.",
-      "need_impact": "escalates",
-      "need_position": "IDL"
-    },
-    {
-      "player": "Jonah Williams",
-      "position": "OT",
-      "age": 28,
-      "role": "starter",
-      "new_team": "TBD/unsigned",
-      "impact": "Williams appeared in only 15 of 34 possible games across two seasons due to injuries and enters free agency. With Kelvin Beachum also a free agent, Arizona has a clear hole at right tackle with only Paris Johnson Jr. locked in on the left side.",
-      "need_impact": "escalates",
-      "need_position": "OT"
-    },
-    {
-      "player": "Kelvin Beachum",
-      "position": "OT",
-      "age": 37,
-      "role": "backup/swing",
-      "new_team": "TBD/unsigned",
-      "impact": "Beachum is a free agent. As a veteran depth/swing tackle he provided value but was not a starting solution at right tackle. His departure is lower-impact given his backup role, but leaves the team thinner behind Paris Johnson Jr.",
-      "need_impact": "none",
-      "need_position": "OT"
     },
     {
       "player": "Dalvin Tomlinson",
@@ -61,18 +31,18 @@
       "age": 31,
       "role": "starter",
       "new_team": "released",
-      "impact": "Cardinals released Tomlinson on March 6, saving ~$9.4M in cap space. He accounted for 555 defensive snaps in 2025. A meaningful IDL body is gone, which the team has attempted to address by signing Roy Lopez and re-signing LJ Collier.",
+      "impact": "Cut for ~$9.4M in cap savings. Tomlinson accounted for 555 snaps in 2025. His release leaves a meaningful hole in the interior defensive line that Arizona has addressed partially via free agency.",
       "need_impact": "escalates",
       "need_position": "IDL"
     },
     {
       "player": "Bilal Nichols",
       "position": "IDL",
-      "age": 28,
+      "age": 29,
       "role": "rotational",
       "new_team": "released",
-      "impact": "Released March 5 alongside Akeem Davis-Gaither, saving $10M+ in cap space. Nichols (PFF 35.5 grade) was a below-average rotational IDL piece. Low-impact loss.",
-      "need_impact": "none",
+      "impact": "Released alongside Davis-Gaither for combined cap savings of ~$10M+. Rotational IDL depth lost.",
+      "need_impact": "escalates",
       "need_position": "IDL"
     },
     {
@@ -81,27 +51,57 @@
       "age": 27,
       "role": "rotational",
       "new_team": "released",
-      "impact": "Released March 5. A below-average linebacker (PFF 49.9) who was part of a thin LB room. His release modestly opens up depth opportunities for younger players but LB was already a need.",
+      "impact": "Cut for cap savings. Rotational linebacker depth reduced, though the Cardinals retain Cody Simon and Mack Wilson as their projected starting duo.",
       "need_impact": "none",
       "need_position": "LB"
     },
     {
-      "player": "Greg Dortch",
-      "position": "WR",
+      "player": "Jonah Williams",
+      "position": "OT",
       "age": 27,
-      "role": "slot/depth",
+      "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "UFA. Was Arizona's slot receiver and special teams contributor. The Cardinals did not re-sign him. Their slot receiver depth is thin after also losing Zay Jones.",
+      "impact": "Hit free agency as a UFA after a disappointing 2-year, $30M deal that saw him miss significant time due to injuries and underperform when healthy. Right tackle is now an acute need.",
       "need_impact": "escalates",
-      "need_position": "WR"
+      "need_position": "OT"
+    },
+    {
+      "player": "Kelvin Beachum",
+      "position": "OT",
+      "age": 36,
+      "role": "swing/depth",
+      "new_team": "TBD/unsigned",
+      "impact": "Veteran swing tackle departed as a UFA. Beachum provided depth and experienced spot-starting. Loss compounds the right tackle need.",
+      "need_impact": "escalates",
+      "need_position": "OT"
+    },
+    {
+      "player": "Calais Campbell",
+      "position": "IDL",
+      "age": 40,
+      "role": "rotational/veteran leader",
+      "new_team": "TBD/unsigned",
+      "impact": "Veteran pass rusher hit free agency ahead of his age-40 season. Provided leadership and depth at IDL/EDGE. Expected departure given age; some snap contribution will need to be replaced.",
+      "need_impact": "escalates",
+      "need_position": "IDL"
     },
     {
       "player": "Zay Jones",
       "position": "WR",
       "age": 30,
-      "role": "depth",
+      "role": "depth/slot",
       "new_team": "TBD/unsigned",
-      "impact": "UFA. Jones had limited production and was not expected to return. His departure is mostly a slot/depth loss, now partially addressed with Bourne's signing.",
+      "impact": "Slot receiver experiment did not pan out. His departure creates a vacancy in the WR room that Arizona addressed with the Bourne signing.",
+      "need_impact": "none",
+      "need_position": "WR"
+    },
+    {
+      "player": "Greg Dortch",
+      "position": "WR",
+      "age": 27,
+      "role": "depth/slot/ST",
+      "new_team": "TBD/unsigned",
+      "impact": "Versatile slot/ST option departed. Cardinals lost WR slot depth but partially addressed with Bourne signing.",
       "need_impact": "none",
       "need_position": "WR"
     }
@@ -120,10 +120,60 @@
       },
       "expected_role": "starter",
       "market_tier": "starter",
-      "need_impact": "fully_addressed",
+      "need_impact": "partially_addressed",
       "need_position": "IOL",
-      "analysis": "Pro Bowl guard (2024) who started 44 consecutive games for the Steelers with a 73.3 PFF grade in 2025. Three-year deal at $10.5M AAV is comfortably within the starter tier for IOL. He slides into the RG spot and addresses one of Arizona's two IOL starting vacancies. Evan Brown holds LG, so Seumalo completes the starting guard pair. IOL need is partially resolved \u2014 still may want a center upgrade via draft, but the guard need is done.",
-      "contract_confidence": "high"
+      "analysis": "The top-ranked guard in free agency per The Athletic's top-150 list, Seumalo is a Pro Bowl veteran (2024) who brings immediate starting-caliber play to a Cardinals IOL room that ranked among the worst in the NFL. His 3yr/$31.5M deal is starter-tier at guard (AAV $10.5M sits squarely in the $10-16M starter band). He projects to start immediately. However, Seumalo is 32 and dealt with two injuries in 2025, limiting him to 14 games. The team still needs a right guard or left guard partner, and center (Froholdt) remains a depth-level player. This partially addresses IOL \u2014 the acute guard need is reduced but line depth and OT remain critical. Need drops from tier 1 to tier 2."
+    },
+    {
+      "player": "Matt Pryor",
+      "position": "OT",
+      "age": 31,
+      "previous_team": "Philadelphia Eagles",
+      "contract": {
+        "years": 1,
+        "total_value": 3500000,
+        "guaranteed": 1000000,
+        "aav": 3500000
+      },
+      "expected_role": "depth/swing",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "OT",
+      "analysis": "One-year deal at minimum-adjacent money for a versatile lineman who has played all five OL spots except center. Pryor started just 40 of 109 career games and played only 12% of offensive snaps for the Eagles in 2025. He is a band-aid on a gaping OT wound \u2014 with both Jonah Williams and Kelvin Beachum gone, Arizona has no legitimate starting right tackle. The team officially acknowledges they're still searching. OT remains a tier-1 draft priority despite Pryor's addition. His value is depth and versatility, not a solution."
+    },
+    {
+      "player": "Tyler Allgeier",
+      "position": "RB",
+      "age": 25,
+      "previous_team": "Atlanta Falcons",
+      "contract": {
+        "years": 2,
+        "total_value": 12250000,
+        "guaranteed": 0,
+        "aav": 6125000
+      },
+      "expected_role": "rotational/co-starter",
+      "market_tier": "starter",
+      "need_impact": "none",
+      "need_position": "RB",
+      "analysis": "Solid depth signing at mid-tier RB money ($6.1M AAV). Allgeier never fumbled in four NFL seasons and brings red-zone and short-yardage physicality. He joins a room with James Conner (restructured) and Trey Benson. RB was not a critical pre-FA need; this adds quality and addresses roster depth behind an aging Conner. Arizona's backfield is now actually loaded (Conner + Allgeier + Benson). RB is no longer any kind of need. No-need position signing."
+    },
+    {
+      "player": "Kendrick Bourne",
+      "position": "WR",
+      "age": 30,
+      "previous_team": "San Francisco 49ers",
+      "contract": {
+        "years": 2,
+        "total_value": 10000000,
+        "guaranteed": 7500000,
+        "aav": 5000000
+      },
+      "expected_role": "starter (WR3/slot)",
+      "market_tier": "depth",
+      "need_impact": "partially_addressed",
+      "need_position": "WR",
+      "analysis": "Two-year deal at $5M AAV ($10M base, max $12M with incentives, $7.5M guaranteed per OTC). Bourne fills the slot/WR3 vacancy left by Zay Jones and Greg Dortch. He had 37 catches for 551 yards in 2025 with the 49ers and brings familiarity with HC Mike LaFleur's scheme from their shared time in San Francisco. The guaranteed structure ($7.5M over 2 years) signals a real investment, not a camp body. However, WR behind Marvin Harrison Jr. and Michael Wilson remains thin \u2014 this addresses the immediate slot need but Arizona could still target a WR in the mid-rounds of the draft for long-term depth. WR need moves from tier 2 to tier 3."
     },
     {
       "player": "Gardner Minshew",
@@ -132,34 +182,15 @@
       "previous_team": "Kansas City Chiefs",
       "contract": {
         "years": 1,
-        "total_value": 8250000,
+        "total_value": 5750000,
         "guaranteed": 0,
-        "aav": 8250000
+        "aav": 5750000
       },
       "expected_role": "backup",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "QB",
-      "analysis": "One-year deal signals a bridge/backup at best. Minshew is expected to back up Jacoby Brissett, who is Arizona's presumed starter after Murray's release. The Cardinals missed out on Malik Willis (went to Dolphins on 3yr/$67.5M) and are now operating with Brissett and Minshew as their QB room \u2014 neither is a long-term answer. This is a depth move, not a solution. QB remains a top draft priority.",
-      "contract_confidence": "high"
-    },
-    {
-      "player": "Tyler Allgeier",
-      "position": "RB",
-      "age": 24,
-      "previous_team": "Atlanta Falcons",
-      "contract": {
-        "years": 2,
-        "total_value": 12000000,
-        "guaranteed": 0,
-        "aav": 6000000
-      },
-      "expected_role": "rotational",
-      "market_tier": "starter",
-      "need_impact": "partially_addressed",
-      "need_position": "RB",
-      "analysis": "Allgeier gives Arizona a physical short-yardage back to complement James Conner (restructured) and Trey Benson. Arizona finished 31st in rushing in 2025 due to injuries to both Conner and Benson. At $6M AAV on 2 years, this is solidly mid-tier RB money. Allgeier is a complementary piece, not a bell cow, but the RB room now has legitimate depth. RB need is partially addressed \u2014 depth is solid but a true lead back is still needed if Conner or Benson can't stay healthy.",
-      "contract_confidence": "high"
+      "analysis": "One-year deal worth $5.75M base (up to $8M with incentives). Minshew is on his sixth team in seven years and joins Jacoby Brissett (retained under contract) as the QB room post-Kyler Murray. This is explicitly a bridge/depth signing, not a franchise QB solution. The Cardinals missed out on Malik Willis (signed with Miami on 3yr/$67.5M) and have not addressed the starter problem. Brissett is the de facto QB1 for 2026 but could be traded. QB remains the single most pressing need heading into the 2026 draft \u2014 Arizona holds the No. 3 overall pick. This signing does not resolve the need in any meaningful way."
     },
     {
       "player": "Roy Lopez",
@@ -172,72 +203,34 @@
         "guaranteed": 7000000,
         "aav": 5750000
       },
-      "expected_role": "starter",
-      "market_tier": "starter",
+      "expected_role": "rotational starter",
+      "market_tier": "depth",
       "need_impact": "partially_addressed",
       "need_position": "IDL",
-      "analysis": "Lopez returns to Arizona (he played there in 2023-24 before one year in Detroit) on a 2yr/$11.5M deal with $7M guaranteed \u2014 meaningful money for an IDL piece. He played 425 snaps for the Lions, recorded 2 sacks, and graded 33rd among 127 IDL on PFF. He fills the void left by Tomlinson's release and should start alongside Darius Robinson. IDL need is partially addressed \u2014 the Tomlinson/Nichols holes are patched, but adding a true disruptive pass rusher in the interior would still help.",
-      "contract_confidence": "high"
+      "analysis": "Two-year, $11.5M deal with $7M guaranteed \u2014 a meaningful commitment that signals Lopez as a real roster piece, not a camp signing. Lopez (6-2, 312 lbs) played all 17 games for Detroit in 2025, recording 30 tackles and 2 sacks on 425 snaps (39% of defensive snaps). He returns to Arizona having previously played here in 2023-24 under DC Nick Rallis, providing scheme continuity. He replaces Dalvin Tomlinson's snap volume and profiles as a rotational nose tackle. Combined with the re-signing of LJ Collier, the IDL depth is patched \u2014 but no elite pass rusher or true three-down DT was acquired. IDL need moves from tier 1 (post-Tomlinson/Nichols cuts) to tier 2."
     },
     {
-      "player": "Kendrick Bourne",
-      "position": "WR",
-      "age": 30,
-      "previous_team": "San Francisco 49ers",
-      "contract": {
-        "years": 2,
-        "total_value": 10000000,
-        "guaranteed": 0,
-        "aav": 5000000
-      },
-      "expected_role": "rotational",
-      "market_tier": "depth",
-      "need_impact": "minimal",
-      "need_position": "WR",
-      "analysis": "Bourne (37 receptions, 551 yards for SF in 2025) joins Marvin Harrison Jr. and Michael Wilson. Two-year deal at $5M AAV with a max of $12M is depth/rotational money for WR. He had a prior relationship with new HC Mike LaFleur from their SF days together. The Cardinals' slot depth issue (post-Dortch/Jones) is marginally addressed, but Bourne has never topped 37 catches in his last four seasons. WR depth is slightly improved but the room isn't meaningfully upgraded for 2026 \u2014 Harrison and Wilson remain the core.",
-      "contract_confidence": "high"
-    },
-    {
-      "player": "L.J. Collier",
+      "player": "LJ Collier",
       "position": "IDL",
-      "age": 28,
+      "age": 29,
       "previous_team": "Arizona Cardinals (re-sign)",
       "contract": {
         "years": 1,
         "total_value": 2500000,
-        "guaranteed": 0,
+        "guaranteed": 1000000,
         "aav": 2500000
       },
-      "expected_role": "rotational",
-      "market_tier": "depth",
+      "expected_role": "depth/rotational",
+      "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "IDL",
-      "analysis": "Fourth consecutive one-year deal with Arizona. Collier had a knee injury in Week 2 of 2025 and played only 4 games. When healthy in 2024, he was productive (3.5 sacks in 17 games). This is a depth/rotational re-sign with continuity value. One-year minimum-adjacent deal signals low commitment. IDL need unchanged.",
-      "contract_confidence": "high"
+      "analysis": "Fourth consecutive one-year deal with Arizona. Collier is a health risk \u2014 two of his three seasons in Arizona have been injury-shortened, including a knee injury that limited him to 4 games in 2025. When healthy (2024), he contributed 3.5 sacks and 29 tackles across 15 games. Low-cost depth re-sign that adds experience but carries health uncertainty. Does not move the needle on IDL need."
     },
     {
       "player": "James Conner",
       "position": "RB",
-      "age": 31,
-      "previous_team": "Arizona Cardinals (restructure)",
-      "contract": {
-        "years": 1,
-        "total_value": 9830000,
-        "guaranteed": 0,
-        "aav": 9830000
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "partially_addressed",
-      "need_position": "RB",
-      "analysis": "Conner restructured his existing deal to remain in Arizona. He's 31 and suffered a gruesome foot injury in Week 3 of 2025. On restructured terms at ~$9.8M cap hit, he's retained as the nominal lead back but is a major injury risk at his age. Combined with Allgeier and Benson, the room has depth but volatility at the top. RB need partially addressed.",
-      "contract_confidence": "medium"
-    },
-    {
-      "player": "Sean Murphy-Bunting",
-      "position": "CB",
-      "age": 28,
-      "previous_team": "Arizona Cardinals (restructure)",
+      "age": 30,
+      "previous_team": "Arizona Cardinals (restructure/re-sign)",
       "contract": {
         "years": 1,
         "total_value": 0,
@@ -245,11 +238,27 @@
         "aav": 0
       },
       "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "none",
+      "need_position": "RB",
+      "analysis": "Conner's contract was restructured (not released as many expected) to keep him at a reduced cap number. He returns as the RB1 when healthy, though injuries (season-ending ankle in Week 3, 2025) remain a concern entering his age-30 season. The restructure, combined with Allgeier signing, gives Arizona a solid 1-2 RB punch. Re-signing keeps a position of relative strength intact."
+    },
+    {
+      "player": "Sean Murphy-Bunting",
+      "position": "CB",
+      "age": 27,
+      "previous_team": "Arizona Cardinals (restructure/re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
+      },
+      "expected_role": "depth/rotational",
       "market_tier": "depth",
-      "need_impact": "minimal",
+      "need_impact": "none",
       "need_position": "CB",
-      "analysis": "Murphy-Bunting agreed to a revised deal to stay with Arizona. Contract terms not yet disclosed. He was an expected cap casualty but restructured to remain. Arizona has Will Johnson, Garrett Williams, Denzel Burke, and Max Melton in the CB room. Murphy-Bunting's return adds veteran depth but with a revised (lower) deal, this is a depth/rotational role. CB room has young talent and this keeps a veteran in the mix.",
-      "contract_confidence": "low"
+      "analysis": "Contract restructured to save ~$7.2M. Arizona opted to retain his experience in a young CB room rather than release him. He provides veteran depth alongside Will Johnson and Denzel Burke. CB was not a critical pre-FA need given the young depth on the roster, and this move maintains that status quo. No meaningful need shift."
     },
     {
       "player": "Chad Ryland",
@@ -263,11 +272,10 @@
         "aav": 0
       },
       "expected_role": "starter",
-      "market_tier": "starter",
+      "market_tier": "depth",
       "need_impact": "none",
       "need_position": "K",
-      "analysis": "One-year deal to bring back the kicker. Was not a pressing need. Special teams continuity maintained.",
-      "contract_confidence": "low"
+      "analysis": "Re-signed on a one-year deal. Ryland was not tendered as a restricted free agent after hitting 75.8% of FGs (25/33) in 2025, a dip from 87.5% in 2024. He returns but will compete with Joshua Karty. Kicker position stable."
     },
     {
       "player": "Blake Gillikin",
@@ -281,33 +289,34 @@
         "aav": 0
       },
       "expected_role": "starter",
-      "market_tier": "starter",
+      "market_tier": "depth",
       "need_impact": "none",
       "need_position": "P",
-      "analysis": "One-year deal to bring back the punter. Missed most of 2025 with a back injury but is now healthy. Special teams continuity maintained.",
-      "contract_confidence": "low"
+      "analysis": "Re-signed on a one-year deal. When healthy, Gillikin averaged a career-high 51.7 yards per punt in 2025 (5 games). Injury history is a concern (missed 12 games in 2025). Quality punter retained at low cost."
     }
   ],
   "needs_impact_summary": {
-    "fully_addressed": [
-      "IOL"
-    ],
+    "fully_addressed": [],
     "partially_addressed": [
-      "RB",
-      "IDL"
+      "IOL",
+      "IDL",
+      "WR"
     ],
     "minimally_addressed": [
-      "QB",
-      "WR",
-      "CB"
+      "QB"
     ],
     "unchanged": [
-      "EDGE",
       "LB",
-      "S"
+      "CB",
+      "EDGE"
     ],
     "escalated": [
-      "OT"
+      "OT",
+      "S"
+    ],
+    "new_needs_created": [
+      "QB",
+      "S"
     ]
   },
   "recommended_need_adjustments": [
@@ -315,55 +324,49 @@
       "position": "QB",
       "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Murray's release is now official, and the Cardinals missed on Malik Willis (signed with Dolphins). The room is Jacoby Brissett + Gardner Minshew (1yr/$8.25M backup deal). Neither is a long-term answer. QB is now the most critical need heading into the draft \u2014 Arizona holds the #3 overall pick. This need escalated dramatically."
+      "reasoning": "Kyler Murray officially released. Malik Willis lost to Miami (3yr/$67.5M). Room is now Brissett (bridge) + Minshew (1yr/$5.75M backup). Both are stopgap options \u2014 neither is a franchise QB. Arizona holds the No. 3 overall pick and this is the defining question of their entire offseason. QB is a tier-1 draft need, potentially the top pick used here."
     },
     {
       "position": "OT",
       "previous_tier": 1,
       "recommended_tier": 1,
-      "reasoning": "Both Jonah Williams (injury-plagued, 15 starts in 34 games) and Kelvin Beachum (37, UFA) have departed. Paris Johnson Jr. is locked in at LT but right tackle is completely unaddressed in free agency. No OT signing has been made. OT remains a top-tier need, possibly top-2 with QB."
+      "reasoning": "Both Jonah Williams and Kelvin Beachum departed in free agency, leaving zero proven starting right tackles on roster. Matt Pryor (1yr, depth) is explicitly not the answer \u2014 the team and beat reporters acknowledge they're still looking. Paris Johnson Jr. holds LT; right tackle is vacant. Remains a tier-1 need \u2014 likely top-3 draft priority if not QB. Could target in rounds 1-3."
     },
     {
       "position": "IOL",
-      "previous_tier": 2,
-      "recommended_tier": 3,
-      "reasoning": "Isaac Seumalo's 3yr/$31.5M deal fills the RG vacancy with a Pro Bowl starter. Evan Brown holds LG. The guard spots are now settled. Center may still be worth addressing in mid-rounds of the draft, but the most urgent IOL need is resolved. Drops from priority need to moderate depth consideration."
-    },
-    {
-      "position": "S",
-      "previous_tier": 3,
+      "previous_tier": 1,
       "recommended_tier": 2,
-      "reasoning": "Jalen Thompson departed to Dallas (3yr/$36M). Dadrion Taylor-Demerson is expected to step into a starting role alongside Budda Baker, and Kitan Crawford impressed in 2025. The position is not a crisis, but losing a proven 7-year starter creates a genuine upgrade need. Bump one tier \u2014 draft or late FA target warranted."
+      "reasoning": "Isaac Seumalo signing (3yr/$31.5M, Pro Bowl guard) directly addresses the interior OL need at guard. He is a legitimate starter who will upgrade the unit immediately. However, the rest of the interior remains in flux \u2014 Evan Brown and Isaiah Adams compete at the other guard spot, and center (Froholdt) is unproven. IOL drops from critical to moderate \u2014 still draft-worthy in rounds 3-5."
     },
     {
       "position": "IDL",
+      "previous_tier": 1,
+      "recommended_tier": 2,
+      "reasoning": "Lost Tomlinson (cut), Nichols (cut), and Calais Campbell (UFA). Signed Roy Lopez (2yr/$11.5M, $7M gtd) and re-signed LJ Collier (1yr/$2.5M). Lopez is a solid rotational nose tackle who brings familiar scheme experience under DC Nick Rallis. Collier provides injury-dependent depth. The IDL unit has bodies but no elite pass rusher or three-down anchor. Remains a round 3-5 draft target."
+    },
+    {
+      "position": "S",
       "previous_tier": 2,
-      "recommended_tier": 3,
-      "reasoning": "Arizona lost Tomlinson (released) and Nichols (released) and did not re-sign Campbell. However, they signed Roy Lopez (2yr/$11.5M, $7M gtd) back and re-signed LJ Collier ($2.5M). Lopez is a legitimate starter who filled a starting role in Detroit. Combined with Darius Robinson, Walter Nolen, and Dante Stills under contract, the IDL room has bodies. Still could use a premium pass rusher inside, but the depth hole is patched. Drops one tier."
+      "recommended_tier": 1,
+      "reasoning": "Jalen Thompson departed for the Cowboys on 3yr/$33M \u2014 a significant loss after seven seasons as a Cardinals starter. Dadrion Taylor-Demerson is the presumed replacement alongside Budda Baker, but is unproven as a full-time starter. No S was signed in free agency to address this. Safety escalates to a tier-1 need \u2014 likely rounds 2-3 in the draft."
     },
     {
       "position": "WR",
-      "previous_tier": 3,
+      "previous_tier": 2,
       "recommended_tier": 3,
-      "reasoning": "Dortch and Jones departed; Kendrick Bourne signed (2yr/$10M base). Bourne is a depth piece, not a starter upgrade. The top of the room (Harrison Jr. + Wilson) is solid. Bourne addresses slot depth at low AAV. Need is technically the same tier \u2014 depth is okay but Arizona still wouldn't turn down a WR with upside in rounds 3-5."
+      "reasoning": "Cardinals lost Zay Jones and Greg Dortch (UFAs). Signed Kendrick Bourne (2yr/$10M, $7.5M gtd) as a WR3/slot complement to Marvin Harrison Jr. and Michael Wilson. Bourne is a familiar fit in LaFleur's scheme and addresses the slot vacancy. However, WR depth beyond the top three is still thin. Need drops to tier 3 \u2014 a mid-round WR for development/depth is still desirable but not urgent."
     },
     {
       "position": "EDGE",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "No EDGE signing was made. Josh Sweat (12 sacks in 2025) is the only proven pass rusher on the roster. Arizona produced just 30 total sacks in 2025, third-fewest in the NFL. Sweat needs a running mate badly. No free agent EDGE was added. This is still a clear draft priority."
+      "reasoning": "No EDGE additions in free agency. Josh Sweat had a career year in sacks in 2025 but Arizona still needs a suitable running mate per the team's own admission. No move was made here. EDGE unchanged at tier 2 \u2014 a rounds 2-4 draft target."
     },
     {
       "position": "LB",
       "previous_tier": 3,
       "recommended_tier": 3,
-      "reasoning": "Davis-Gaither was released but was below-average anyway (PFF 49.9). Cody Simon and Mack Wilson project as the starting LB duo. No LB free agent signed. Need unchanged \u2014 depth behind the starters remains thin but it's not a top-tier hole."
-    },
-    {
-      "position": "RB",
-      "previous_tier": 3,
-      "recommended_tier": 4,
-      "reasoning": "James Conner restructured to stay, Tyler Allgeier signed (2yr/$12M), and Trey Benson remains under contract. The backfield now has three bodies with different skill profiles. Depth and redundancy are addressed. RB is no longer a meaningful draft need \u2014 a luxury pick at most."
+      "reasoning": "Akeem Davis-Gaither released (rotational). Cody Simon and Mack Wilson projected as starters. No LB signing in FA. Depth remains thin but starting duo is intact. LB unchanged at tier 3 \u2014 depth add in rounds 4-7 is fine."
     }
   ],
   "team_page_additions": {
@@ -371,94 +374,98 @@
       {
         "player": "Isaac Seumalo",
         "position": "IOL",
-        "contract_summary": "3yr/$31.5M (guarantees TBD)",
+        "contract_summary": "3yr/$31.5M (gtd TBD)",
         "previous_team": "Pittsburgh Steelers",
-        "headline": "Pro Bowl guard fills urgent RG vacancy, anchors rebuilt interior OL alongside Evan Brown"
+        "headline": "Top-ranked free agent guard (Pro Bowl 2024) immediately upgrades a historically weak Cardinals interior OL"
       },
       {
         "player": "Roy Lopez",
         "position": "IDL",
         "contract_summary": "2yr/$11.5M ($7M gtd)",
         "previous_team": "Detroit Lions",
-        "headline": "Familiar face returns to replace Tomlinson; projects as starting DT with $7M guaranteed signaling real investment"
-      },
-      {
-        "player": "Tyler Allgeier",
-        "position": "RB",
-        "contract_summary": "2yr/$12M (guarantees TBD)",
-        "previous_team": "Atlanta Falcons",
-        "headline": "Physical short-yardage back adds depth to injury-depleted backfield that ranked 31st in rushing in 2025"
-      },
-      {
-        "player": "Gardner Minshew",
-        "position": "QB",
-        "contract_summary": "1yr/$8.25M",
-        "previous_team": "Kansas City Chiefs",
-        "headline": "Bridge backup joins Brissett after Cardinals miss on Malik Willis; QB room needs major draft upgrade"
+        "headline": "Familiar scheme fit returns to Arizona to replace Tomlinson's snaps after posting 2 sacks and 30 tackles for Detroit in 2025"
       },
       {
         "player": "Kendrick Bourne",
         "position": "WR",
-        "contract_summary": "2yr/$10M (max $12M)",
+        "contract_summary": "2yr/$10M ($7.5M gtd, max $12M)",
         "previous_team": "San Francisco 49ers",
-        "headline": "NFC West departure reunites Bourne with HC Mike LaFleur; depth piece for a receiver room led by Harrison Jr. and Wilson"
+        "headline": "LaFleur coaching reunion fills slot/WR3 vacancy left by Jones and Dortch departures"
+      },
+      {
+        "player": "Tyler Allgeier",
+        "position": "RB",
+        "contract_summary": "2yr/$12.25M (gtd TBD)",
+        "previous_team": "Atlanta Falcons",
+        "headline": "Physical, never-fumbled goal-line back adds insurance and depth behind the injury-prone James Conner"
+      },
+      {
+        "player": "Gardner Minshew",
+        "position": "QB",
+        "contract_summary": "1yr/$5.75M (up to $8M)",
+        "previous_team": "Kansas City Chiefs",
+        "headline": "Bridge backup added alongside Brissett as Cardinals punt on 2026 QB market ahead of No. 3 overall pick"
+      },
+      {
+        "player": "Matt Pryor",
+        "position": "OT",
+        "contract_summary": "1yr (terms TBD)",
+        "previous_team": "Philadelphia Eagles",
+        "headline": "Veteran swing tackle provides stop-gap depth at right tackle while Cardinals seek a real starter via the draft"
       }
     ],
     "key_losses": [
       {
         "player": "Kyler Murray",
         "position": "QB",
-        "contract_summary": "Released; $54.7M dead cap",
-        "new_team": "UFA",
-        "headline": "Seven-year era ends \u2014 Murray released with massive dead cap hit, leaving Cardinals without a franchise QB heading into the draft"
+        "contract_summary": "Released (7-year Cardinal; $54.7M dead cap)",
+        "new_team": "TBD/unsigned",
+        "headline": "Franchise QB era ends after injury-plagued 2025 (5 games played); Cardinals absorbed massive dead cap to move on"
       },
       {
         "player": "Jalen Thompson",
         "position": "S",
-        "contract_summary": "3yr/$36M (max) with Cowboys",
+        "contract_summary": "3yr/$33M (max $36M) with Cowboys",
         "new_team": "Dallas Cowboys",
-        "headline": "7-year Cardinals starter (95 tackles, 15 starts in 2025) departs, opening a hole next to Budda Baker"
+        "headline": "7-year Cardinals starter and Budda Baker's long-time partner in the secondary departs for Dallas, creating a genuine S need"
       },
       {
         "player": "Dalvin Tomlinson",
         "position": "IDL",
-        "contract_summary": "Released; $9.4M in savings",
-        "new_team": "Released",
-        "headline": "555-snap interior lineman cut in cap purge, creating DT void now patched by Lopez and Collier"
+        "contract_summary": "Released ($9.4M in savings)",
+        "new_team": "released",
+        "headline": "Starting DT (555 snaps in 2025) cut for cap relief, accelerating Arizona's need to restock the interior defensive line"
       },
       {
         "player": "Jonah Williams",
         "position": "OT",
-        "contract_summary": "UFA (void year expired)",
+        "contract_summary": "UFA (2yr/$30M deal expired)",
         "new_team": "TBD/unsigned",
-        "headline": "Injury-plagued RT (15 starts in 34 games over 2 years) departs, leaving right tackle an unaddressed need entering the draft"
+        "headline": "Injury-plagued right tackle departs, leaving Arizona without a proven starter at the position heading into the draft"
       },
       {
         "player": "Calais Campbell",
         "position": "IDL",
-        "contract_summary": "UFA (unrestricted)",
+        "contract_summary": "UFA (age-40 season)",
         "new_team": "TBD/unsigned",
-        "headline": "Franchise legend (PFF 72.2 in 2025 at age 39) hits free agency without a reported deal; IDL pass-rush presence lost"
+        "headline": "Veteran pass rusher and locker room leader departs as a UFA, further thinning the Cardinals' defensive front"
       }
     ]
   },
   "confidence": "high",
   "sources": [
     "https://www.espn.com/nfl/story/_/id/48054811/arizona-cardinals-2026-free-agency-tracker-offseason-moves-signings",
+    "https://www.spotrac.com/nfl/player/_/id/19033/isaac-seumalo",
+    "https://www.spotrac.com/nfl/player/_/id/29226/gardner-minshew",
+    "https://overthecap.com/player/kendrick-bourne/5995",
+    "https://www.profootballrumors.com/2026/03/cardinals-to-sign-dt-roy-lopez-2",
+    "https://www.azcardinals.com/news/tackle-incoming-with-addition-of-free-agent-matt-pryor",
+    "https://nfltraderumors.co/2026-nfl-free-agency-tracker-every-move-so-far/",
     "https://www.si.com/nfl/cardinals/onsi/news/arizona-cardinals-2026-free-agency-tracker-latest-signings-losses-news-rumors",
     "https://sports.yahoo.com/articles/arizona-cardinals-nfl-free-agency-174406469.html",
-    "https://www.cbssports.com/nfl/news/nfl-free-agency-live-updates-march-9-2026/live/",
-    "https://www.spotrac.com/nfl/player/_/id/19033/isaac-seumalo",
-    "https://www.profootballrumors.com/2026/03/cardinals-to-sign-g-isaac-seumalo",
-    "https://www.profootballrumors.com/2026/03/cardinals-to-sign-dt-roy-lopez-2",
-    "https://www.profootballrumors.com/2026/03/cardinals-to-sign-wr-kendrick-bourne",
-    "https://www.profootballrumors.com/2026/03/cardinals-to-re-sign-dl-l-j-collier",
+    "https://bleacherreport.com/articles/25404777-gardner-minshew-cardinals-reportedly-agree-nfl-free-agent-contract-after-kyler-murray-release",
+    "https://bleacherreport.com/articles/25404759-jalen-thompson-cowboys-agree-contract-updated-salary-cap-amid-2026-nfl-free-agency",
     "https://www.nfl.com/news/cardinals-inform-qb-kyler-murray-they-will-release-him-at-start-of-new-league-year",
-    "https://www.si.com/nfl/cardinals/onsi/news/arizona-cardinals-lose-starting-safety-dallas-cowboys-jalen-thompson",
-    "https://www.dallascowboys.com/news/2026-nfl-free-agency-jalen-thompson-cowboys-agree-to-terms",
-    "https://arizonasports.com/nfl/arizona-cardinals/l-j-collier-lopez/3614023/",
-    "https://sports.yahoo.com/nfl/breaking-news/article/nfl-free-agency-tracker-each-teams-notable-departing-free-agents-signings-trades-as-legal-tampering-period-kicks-off-124543270.html",
-    "https://www.azcardinals.com/news/cardinals-bring-back-l-j-collier-chad-ryland-blake-gillikin",
-    "https://nfltraderumors.co/cardinals-2026-offseason-team-needs-pending-fas-draft-picks-more/"
+    "https://www.cbssports.com/nfl/news/nfl-free-agency-2026-winners-losers-day-1/"
   ]
 }

@@ -1,9 +1,9 @@
 {
   "team": "SF",
   "team_full": "San Francisco 49ers",
-  "updated_through": "2026-03-10",
+  "updated_through": "2026-03-11",
   "cap_space_pre_fa": "$38700000",
-  "cap_space_post_fa": "~$10000000",
+  "cap_space_post_fa": "$20000000",
   "key_departures": [
     {
       "player": "Brandon Aiyuk",
@@ -11,59 +11,119 @@
       "age": 27,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "49ers confirmed Aiyuk will not return. His 2026 guarantees (~$27M) were voided in July 2025 after he went AWOL during the season following a torn ACL/MCL in 2024. Release (likely post-June 1 designation) carries ~$13.3M dead money in 2026 and ~$21.2M in 2027. Was the WR1 on the roster in contract but a non-participant in 2025. The hole is real but the situation was already baked in.",
+      "impact": "GM John Lynch confirmed Aiyuk played his last snap with the 49ers. The team voided his 2026 guarantees in July 2025 after he stopped communicating with the organization and failed to meet rehab obligations following a torn ACL, MCL, and meniscus. Expected to be released as a post-June 1 designation to spread $29.585M dead cap over two years. Coming off a season in which he played zero snaps.",
       "need_impact": "escalates",
       "need_position": "WR"
     },
     {
       "player": "Jauan Jennings",
       "position": "WR",
-      "age": 28,
+      "age": 29,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "Adam Schefter confirmed Jennings has played his last game with the 49ers. The 49ers signed Mike Evans as his de facto replacement, but Jennings was the team's most reliable receiver in 2025 (55 rec, 643 yds, career-high 9 TDs). His market value (~$22.6M/yr per Spotrac) exceeded SF's comfort range. Loss of a proven third-down weapon and red-zone target.",
+      "impact": "Led team with 9 TDs in 2025 (55 catches, 643 yards). Had been the 49ers' most reliable receiver over the past two seasons. Spotrac estimated market value ~$22.6M/yr \u2014 far beyond SF's comfort zone. Confirmed departing as a UFA. Mike Evans signing effectively replaces him but does not fully compensate for depth lost.",
       "need_impact": "escalates",
       "need_position": "WR"
     },
     {
       "player": "Kendrick Bourne",
       "position": "WR",
-      "age": 30,
+      "age": 31,
       "role": "rotational",
       "new_team": "Arizona Cardinals",
-      "impact": "Bourne signed a 2yr/$10M deal with the Cardinals. He was a versatile veteran depth piece who contributed 37 receptions in 2025 including a 142-yard playoff opener vs the Rams. Depth loss, but not a starter-caliber departure.",
-      "need_impact": "creates",
-      "need_position": "WR"
-    },
-    {
-      "player": "Skyy Moore",
-      "position": "WR",
-      "age": 24,
-      "role": "depth",
-      "new_team": "TBD/unsigned",
-      "impact": "Moore is among the 49ers' unrestricted free agents. He was a fringe contributor and his departure is a minor depth loss at an already thin position.",
-      "need_impact": "none",
+      "impact": "Signed Arizona Cardinals to a 2yr/$10M deal. Had 37 receptions for 551 yards in 2025. Was the team's WR3 and a reliable depth piece in Shanahan's offense. Loss reduces WR depth further; however, not a starter-level departure.",
+      "need_impact": "escalates",
       "need_position": "WR"
     },
     {
       "player": "Yetur Gross-Matos",
       "position": "EDGE",
-      "age": 27,
+      "age": 28,
       "role": "rotational",
       "new_team": "TBD/unsigned",
-      "impact": "Gross-Matos was a key rotational edge rusher for a defense that posted a league-low 20 sacks and 24.9% pressure rate in 2025. His departure further thins an already depleted pass rush corps behind Nick Bosa.",
+      "impact": "Unrestricted free agent. Was a rotational pass rusher on a team that recorded a league-low 20 sacks in 2025. His departure further depletes an already paper-thin EDGE group.",
       "need_impact": "escalates",
       "need_position": "EDGE"
     },
     {
-      "player": "Brian Robinson Jr.",
-      "position": "RB",
-      "age": 26,
+      "player": "Clelin Ferrell",
+      "position": "EDGE",
+      "age": 29,
       "role": "rotational",
       "new_team": "TBD/unsigned",
-      "impact": "Robinson was among the 49ers' pending free agents. He was a depth/rotational piece behind Christian McCaffrey. Minor loss.",
+      "impact": "Unrestricted free agent. Was a depth EDGE rusher. Another pass rush body departing from a unit that desperately needs upgrades.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Spencer Burford",
+      "position": "IOL",
+      "age": 26,
+      "role": "starter",
+      "new_team": "TBD/unsigned",
+      "impact": "Starting left guard was a UFA. 49ers already had an interior line need; losing their LG starter widens the hole at the position. Still on the market as of tampering period.",
+      "need_impact": "escalates",
+      "need_position": "IOL"
+    },
+    {
+      "player": "Matt Hennessy",
+      "position": "IOL",
+      "age": 29,
+      "role": "depth",
+      "new_team": "TBD/unsigned",
+      "impact": "Backup center/IOL depth departed as a UFA. Relatively minor loss but further thins an IOL room that already needs a starter at LG.",
       "need_impact": "none",
+      "need_position": "IOL"
+    },
+    {
+      "player": "Brian Robinson Jr.",
+      "position": "RB",
+      "age": 27,
+      "role": "rotational",
+      "new_team": "TBD/unsigned",
+      "impact": "Served as Christian McCaffrey's primary backup in 2025. Rushed for 400 yards and 2 TDs. SF has interest in re-signing him per The Athletic, but remains on the market. 49ers have Jordan James and Isaac Guerendo as internal options.",
+      "need_impact": "creates",
       "need_position": "RB"
+    },
+    {
+      "player": "Jordan Elliott",
+      "position": "IDL",
+      "age": 29,
+      "role": "rotational",
+      "new_team": "TBD/unsigned",
+      "impact": "Rotational IDL departed. One of several interior linemen leaving, further hollowing out the DL depth.",
+      "need_impact": "escalates",
+      "need_position": "IDL"
+    },
+    {
+      "player": "Kevin Givens",
+      "position": "IDL",
+      "age": 29,
+      "role": "depth",
+      "new_team": "TBD/unsigned",
+      "impact": "Depth IDL departed as a UFA. Minor loss.",
+      "need_impact": "none",
+      "need_position": "IDL"
+    },
+    {
+      "player": "Eric Kendricks",
+      "position": "LB",
+      "age": 34,
+      "role": "rotational",
+      "new_team": "TBD/unsigned",
+      "impact": "Veteran linebacker who was essential when multiple players went down in 2025. His departure thins LB depth behind Fred Warner.",
+      "need_impact": "escalates",
+      "need_position": "LB"
+    },
+    {
+      "player": "Thomas Morstead",
+      "position": "P",
+      "age": 40,
+      "role": "starter",
+      "new_team": "TBD/unsigned",
+      "impact": "Veteran punter became UFA. The 49ers re-signed Jon Weeks (LS) and Eddy Pineiro (K) but Morstead remains unsigned. Lynch indicated SF was working to re-sign him.",
+      "need_impact": "creates",
+      "need_position": "P"
     }
   ],
   "signings": [
@@ -76,31 +136,14 @@
         "years": 3,
         "total_value": 42400000,
         "guaranteed": 16300000,
-        "aav": 14133333
+        "aav": 14133333,
+        "notes": "Base contract $42.4M with incentives that could push total value up to $60.4M per Adam Schefter. Structure is team-friendly \u2014 per Adam Schefter on Pat McAfee Show, effectively a shorter-term deal structured as 3 years for cap purposes. Only $16.3M guaranteed signals limited real commitment beyond Year 1."
       },
-      "contract_notes": "Initially reported as up to $60.4M with incentives (per Schefter/ESPN). Base contract confirmed at 3yr/$42.4M with $16.3M guaranteed per Ari Meirov. Incentives could push total to $60.4M. Effectively a 1-2 year commitment given low guarantee structure; $16.3M in guarantees is modest for a WR1-caliber player. Per Schefter, it is 'really a shorter-term deal than that, but going to be called a 3-year deal for cap purposes.'",
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "WR",
-      "analysis": "Future Hall of Famer with 11 consecutive 1,000-yard seasons (before 2025 injury). Directly replaces Jennings/Aiyuk as WR1 alongside Ricky Pearsall. However, the contract structure \u2014 only $16.3M guaranteed on a 3yr deal \u2014 signals the 49ers view this as a 1-2 year bridge, not a true long-term WR1 solution. Evans is 32 and coming off a broken collarbone and hamstring issues in 2025 (played just 8 games). He is a legitimate, high-quality starter but does NOT fully solve WR depth: Brandon Aiyuk is gone, Jennings is gone, and Bourne departed. The room behind Evans and Pearsall is thin (Robinson, Cowing, Watkins). WR remains a premium draft need for WR2/WR3 depth and long-term youth infusion."
-    },
-    {
-      "player": "Eddy Pineiro",
-      "position": "K",
-      "age": 30,
-      "previous_team": "San Francisco 49ers (re-sign)",
-      "contract": {
-        "years": 4,
-        "total_value": 17000000,
-        "guaranteed": 10000000,
-        "aav": 4250000
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "fully_addressed",
-      "need_position": "K",
-      "analysis": "Pineiro re-signed to a 4yr/$17M deal with $10M guaranteed before hitting free agency. He went 28-for-29 on field goals in 2025, including six from 50-plus yards, after replacing Jake Moody in Week 2. This locks in the most reliable kicker the 49ers have had since Robbie Gould. Kicker is a non-issue for the foreseeable future. Contract is the 8th-highest among kickers per OverTheCap."
+      "analysis": "Evans is one of the most decorated WRs in NFL history (11 consecutive 1,000-yard seasons, 108 career TDs), and the 3-year deal gives SF a legitimate WR1 and red-zone weapon to pair with Ricky Pearsall. However, the low guarantees ($16.3M) and age (32, coming off broken collarbone) mean this is effectively a 1-2 year investment, not a long-term solution. The 49ers are still replacing two starters (Aiyuk, Jennings) with one mid-tier signing. WR remains a critical draft and continued FA priority. Need partially addressed at best \u2014 Evans fills Jennings' role in the WR2/red-zone bucket but the room as a whole is still thin."
     },
     {
       "player": "Vederian Lowe",
@@ -117,30 +160,47 @@
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "OT",
-      "analysis": "Lowe projects as a swing tackle/backup in San Francisco. He spent 3 seasons with New England primarily as a swing tackle, with 25 career starts over 4 seasons and 4 LT starts in 2025. He is NOT a Trent Williams replacement \u2014 he works behind Williams at LT or behind Colton McKivitz at RT. This signing adds necessary line depth amid the Williams contract uncertainty but does not address the critical OT need if Williams departs or misses time. The 2yr/$12M max deal with only $5.75M guaranteed is depth/swing pricing, not starter pricing. OT remains a legitimate need."
+      "analysis": "Lowe is being paid like a backup ($6M AAV, $5.75M guaranteed on a 2-year max deal). He started 25 games over 3 seasons in New England and projects as a swing tackle behind Trent Williams (LT) and Colton McKivitz (RT). The 49ers still have an unresolved contract situation with Williams ($38.84M cap hit in 2026), and Lowe does not solve the OT need \u2014 he provides insurance. If Williams is eventually traded or the contract impasse continues, Lowe would be a short-term bridge at LT while a long-term solution is identified. OT need remains, particularly for the future."
+    },
+    {
+      "player": "Eddy Pineiro",
+      "position": "K",
+      "age": 30,
+      "previous_team": "San Francisco 49ers (re-sign)",
+      "contract": {
+        "years": 4,
+        "total_value": 17000000,
+        "guaranteed": 10000000,
+        "aav": 4250000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "fully_addressed",
+      "need_position": "K",
+      "analysis": "Pineiro was outstanding in his first season with SF (28/29 FG, 96.6%), ranking in the top three in field goal percentage since 2000. The 4-year/$17M deal with $10M guaranteed locks him up long-term before he could reach the open market. The 49ers had major kicker instability since Robbie Gould departed after 2022. This fully resolves the K position for the foreseeable future. The deal is signed and prevents any bidding war for a top kicker."
     },
     {
       "player": "Jon Weeks",
       "position": "LS",
-      "age": 38,
+      "age": 40,
       "previous_team": "San Francisco 49ers (re-sign)",
       "contract": {
         "years": 1,
         "total_value": 1200000,
-        "guaranteed": 1200000,
+        "guaranteed": 1000000,
         "aav": 1200000
       },
-      "contract_notes": "Exact financials estimated at veteran long snapper market rate; official terms not publicly disclosed beyond ESPN/49ers.com confirming a 1-year extension.",
       "expected_role": "starter",
       "market_tier": "starter",
-      "need_impact": "none",
+      "need_impact": "fully_addressed",
       "need_position": "LS",
-      "analysis": "Pro Bowl long snapper re-signed on a 1-year extension. Maintains continuity at a specialty position. No positional need impact."
+      "analysis": "Pro Bowl long snapper re-signed on a 1-year extension. Maintains special teams continuity alongside Pineiro. Low-cost retention of an established starter. Fully resolves LS need."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
-      "K"
+      "K",
+      "LS"
     ],
     "partially_addressed": [
       "WR"
@@ -153,13 +213,13 @@
       "IDL",
       "CB",
       "S",
-      "IOL",
-      "LB",
-      "TE"
+      "LB"
     ],
     "escalated": [
       "WR",
-      "EDGE"
+      "IOL",
+      "EDGE",
+      "RB"
     ]
   },
   "recommended_need_adjustments": [
@@ -167,49 +227,67 @@
       "position": "WR",
       "previous_tier": 1,
       "recommended_tier": 1,
-      "reasoning": "Evans partially addresses WR1, but the room is still dangerously thin. Aiyuk (cut), Jennings (departed), and Bourne (Cardinals) are all gone. Evans is 32 and injury-prone on a bridge deal; the contract structure confirms the 49ers see this as a 1-2 year bridge, not a long-term fix. Ricky Pearsall is the only other receiver with starter upside, and he missed significant time in 2025 with injuries. The team still desperately needs a WR2 and a developmental WR in the draft. WR remains a Tier 1 priority \u2014 potentially the #1 pick need \u2014 with emphasis on a young, speedy playmaker to complement Evans and Pearsall."
+      "reasoning": "WR remains the single biggest need despite signing Mike Evans. Evans partially fills Jennings' role at WR2/red zone, but the 49ers lost Aiyuk (starter, released), Jennings (starter, UFA departed), and Bourne (rotational, to Cardinals). Ricky Pearsall (injury-limited in 2025) and Demarcus Robinson are the only other under-contract options. Evans' structure ($16.3M guaranteed, age 32) signals a bridge solution, not a rebuild. Need is elevated. Must draft a WR in Rounds 1-2 and likely add more in FA."
     },
     {
       "position": "EDGE",
       "previous_tier": 1,
       "recommended_tier": 1,
-      "reasoning": "The 49ers posted a league-low 20 sacks and 24.9% pressure rate in 2025. Nick Bosa is the only proven pass rusher under contract. Yetur Gross-Matos (rotational rusher) is a free agent. No EDGE additions made in free agency as of March 10. Trey Hendrickson was linked to the 49ers but remained unsigned as of Day 1. EDGE remains a critical Tier 1 need \u2014 the 49ers must address this through the draft and/or a late-addition FA signing."
-    },
-    {
-      "position": "OT",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Trent Williams' contract situation is unresolved and the 49ers are reportedly open to trading him if a deal cannot be reached. Williams turns 38 in July and carries a ~$39M cap hit. Vederian Lowe (signed) is a depth/swing option, not a Williams replacement. Left guard also remains a need with Aaron Banks long gone and no reliable starter in place. OT stays Tier 2, potentially escalating to Tier 1 if Williams is traded."
+      "reasoning": "The 49ers posted a league-low 20 sacks in 2025 and a 24.9% pressure rate. Nick Bosa is the only proven pass rusher under contract. They lost Gross-Matos and Ferrell from the rotation without adding a single EDGE. They engaged in bidding for John Franklin-Myers (IDL/EDGE hybrid) but lost him to the Titans at 3yr/$63M. Pass rush remains the most critical defensive need heading into the draft."
     },
     {
       "position": "IOL",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Left guard is a confirmed need per ESPN \u2014 no starter currently in place. Jake Brendel is returning at center on his existing deal ($3.6M), providing stability there, but the LG spot has no clear answer. Spencer Burford/Jon Feliciano-type additions have not been made. IOL remains a Tier 2 draft/FA need, specifically at LG."
+      "reasoning": "Spencer Burford (starting LG) and Matt Hennessy (backup C) both departed as UFAs. No IOL additions confirmed. The interior line already had concerns pre-FA; it has only worsened. LG is now an open starting job. With Trent Williams' contract situation unresolved, even LT depth is fragile. IOL remains a tier-2 need, likely addressed in Rounds 2-4 of the draft."
+    },
+    {
+      "position": "OT",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Vederian Lowe signing ($6M AAV) only minimally addresses the need \u2014 he's a swing tackle/backup-caliber signing, not a starter upgrade. Trent Williams' contract impasse ($38.84M cap hit) and age (38 in July) create real uncertainty. If Williams is traded or held out, the starting LT spot is a gaping hole. Need unchanged at tier 2. May need to address early in draft if Williams situation deteriorates."
+    },
+    {
+      "position": "IDL",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Jordan Elliott (rotational) and Kevin Givens (depth) both departed. No IDL signings confirmed. The 49ers showed interest in John Franklin-Myers (3yr/$63M, went to Titans). Arik Armstead (restricted to reserve/retired list) and Javon Kinlaw are the primary options. DL depth is thin. Need persists at tier 2 for a pass-rushing IDL complement to Bosa."
     },
     {
       "position": "CB",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "The 49ers ranked 25th in passing yards allowed (3,951) and 21st in passing TDs allowed (29) in 2025. Renardo Green is the CB1 but was a potential trade candidate per ESPN. Charvarius Ward and Talanoa Hufanga both departed in 2025 free agency. No CB additions made in 2026 FA yet. Secondary remains a significant need."
+      "reasoning": "No CB additions confirmed. Deommodore Lenoir is locked in long-term but Renardo Green (trade rumors surfaced at Combine) and a thin CB2/CB3 room remain areas of concern. CB need is unchanged from pre-FA."
     },
     {
       "position": "S",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Talanoa Hufanga departed to Denver in 2025 FA on a 3yr/$39M deal. The 49ers have not yet added a replacement starter at safety. S remains a draft/FA target."
+      "reasoning": "No safety additions confirmed. Talanoa Hufanga departed to Denver last offseason (2025). The safety group remains thin. Need persists at tier 2."
     },
     {
-      "position": "EDGE",
-      "previous_tier": 1,
-      "recommended_tier": 1,
-      "reasoning": "Cross-referenced: No EDGE signed in FA. Trey Hendrickson (17.5 sacks, linked to SF) did not sign with the 49ers on Day 1. League-low 20 sacks in 2025 makes EDGE the most critical positional need alongside WR. Must be addressed in rounds 1-3 of the draft."
+      "position": "LB",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Eric Kendricks departed. Fred Warner is the elite anchor but depth is thin. Dee Winters, Tatum Bethune, Nick Martin are internal options of varying quality. No LB additions confirmed. Need persists at tier 2 for a quality WILL/depth piece."
     },
     {
-      "position": "TE",
+      "position": "RB",
       "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "George Kittle tore his Achilles in January 2026 and may miss significant time in 2026. Jake Tonges is the backup. Luke Farrell (signed in 2025) provides a veteran option. Kittle's injury keeps TE in the draft conversation for rounds 3-5 as insurance."
+      "recommended_tier": 2,
+      "reasoning": "Brian Robinson Jr. (top CMC backup, 400 yds/2 TD in 2025) departed as a UFA. SF has Jordan James and Isaac Guerendo internally, but no proven veteran backup. The 49ers have interest in re-signing Robinson per The Athletic. Until a deal is confirmed, RB backup need has escalated from tier 3 to tier 2, as McCaffrey's durability history (multiple injury years) makes a proven backup critical."
+    },
+    {
+      "position": "K",
+      "previous_tier": 2,
+      "recommended_tier": 5,
+      "reasoning": "Eddy Pineiro re-signed on a 4yr/$17M deal ($10M gtd). Top-3 career FG% since 2000. Fully resolves the K position. Do not draft."
+    },
+    {
+      "position": "LS",
+      "previous_tier": 3,
+      "recommended_tier": 5,
+      "reasoning": "Jon Weeks re-signed on a 1-year extension. Pro Bowl LS retained. Fully resolves need."
     }
   ],
   "team_page_additions": {
@@ -217,89 +295,91 @@
       {
         "player": "Mike Evans",
         "position": "WR",
-        "contract_summary": "3yr/$42.4M ($16.3M gtd, up to $60.4M w/ incentives)",
+        "contract_summary": "3yr/$42.4M ($16.3M gtd), up to $60.4M w/ incentives",
         "previous_team": "Tampa Bay Buccaneers",
-        "headline": "Future Hall of Famer and 6x Pro Bowler replaces Aiyuk/Jennings as WR1 on a team-friendly bridge deal"
+        "headline": "Future Hall of Famer (108 career TDs, 13,052 yds) arrives as WR1/red-zone anchor, replacing Jennings in a team-friendly incentive-laden deal"
+      },
+      {
+        "player": "Vederian Lowe",
+        "position": "OT",
+        "contract_summary": "2yr/$12M max ($5.75M gtd)",
+        "previous_team": "New England Patriots",
+        "headline": "26-year-old swing tackle provides insurance behind Williams and RT McKivitz amid ongoing LT contract uncertainty"
       },
       {
         "player": "Eddy Pineiro",
         "position": "K",
         "contract_summary": "4yr/$17M ($10M gtd)",
         "previous_team": "San Francisco 49ers (re-sign)",
-        "headline": "Re-signed before free agency opened; went 28-of-29 on FGs in 2025, ending years of kicker instability"
-      },
-      {
-        "player": "Vederian Lowe",
-        "position": "OT",
-        "contract_summary": "2yr/$12M ($5.75M gtd)",
-        "previous_team": "New England Patriots",
-        "headline": "Depth swing tackle adds OL insurance amid unresolved Trent Williams contract standoff"
+        "headline": "League's top kicker in 2025 (28/29 FG, 96.6%) locked up long-term, ending years of kicker instability in SF"
       },
       {
         "player": "Jon Weeks",
         "position": "LS",
-        "contract_summary": "1yr/~$1.2M",
+        "contract_summary": "1yr/$1.2M",
         "previous_team": "San Francisco 49ers (re-sign)",
-        "headline": "Pro Bowl long snapper returns on a one-year extension to maintain special teams continuity"
+        "headline": "Pro Bowl long snapper retained, preserving special teams continuity alongside Pineiro"
       }
     ],
     "key_losses": [
       {
         "player": "Brandon Aiyuk",
         "position": "WR",
-        "contract_summary": "Cut (post-June 1 designation expected); ~$13.3M dead cap in 2026",
-        "new_team": "TBD/unsigned",
-        "headline": "Former All-Pro WR officially done in SF after going AWOL in 2025; guarantees voided, leaving massive dead cap and WR hole"
+        "contract_summary": "Released (post-June 1 expected); ~$13.3M dead cap in 2026, ~$21.2M in 2027",
+        "new_team": "TBD",
+        "headline": "Former All-Pro WR never played a snap in 2025 after torn ACL and team communication breakdown; $29.6M dead money hit ends tumultuous tenure"
       },
       {
         "player": "Jauan Jennings",
         "position": "WR",
-        "contract_summary": "UFA; market value ~$22.6M/yr",
-        "new_team": "TBD/unsigned",
-        "headline": "49ers' most reliable 2025 receiver (9 TDs, clutch third-down specialist) expected to cash out on open market"
+        "contract_summary": "UFA, unsigned (~$22.6M market value est.)",
+        "new_team": "TBD",
+        "headline": "Team's most reliable receiver in 2025 (9 TDs, 55 catches) walks as a UFA after sides couldn't agree on long-term extension; Mike Evans signing effectively confirms his departure"
       },
       {
         "player": "Kendrick Bourne",
         "position": "WR",
         "contract_summary": "2yr/$10M with Arizona Cardinals",
         "new_team": "Arizona Cardinals",
-        "headline": "Versatile veteran slot/perimeter option departs to division rival Cardinals, further thinning SF's WR depth"
+        "headline": "Veteran WR3 and locker room presence signs with division rival Cardinals, further depleting an already thin SF receiver room"
       },
       {
         "player": "Yetur Gross-Matos",
         "position": "EDGE",
-        "contract_summary": "UFA",
-        "new_team": "TBD/unsigned",
-        "headline": "Key rotational pass rusher departs, deepening SF's EDGE crisis after league-low 20-sack 2025 season"
+        "contract_summary": "UFA, unsigned",
+        "new_team": "TBD",
+        "headline": "Rotational pass rusher departs from a unit that posted a league-low 20 sacks in 2025, deepening the EDGE crisis"
+      },
+      {
+        "player": "Spencer Burford",
+        "position": "IOL",
+        "contract_summary": "UFA, unsigned",
+        "new_team": "TBD",
+        "headline": "Starting left guard departs without a replacement signed, leaving a vacancy at one of SF's most pressing positional needs"
+      },
+      {
+        "player": "Brian Robinson Jr.",
+        "position": "RB",
+        "contract_summary": "UFA, SF has interest in re-signing per The Athletic",
+        "new_team": "TBD",
+        "headline": "CMC's primary backup (400 yds, 2 TDs in 2025) hits the market; 49ers interested in reunion but no deal confirmed"
       }
     ]
   },
-  "situational_flags": {
-    "trent_williams_status": "UNRESOLVED \u2014 As of March 10, the 49ers and Williams have not reached a contract agreement. The 49ers are reportedly open to a trade. Williams carries a ~$39M cap hit with a $10M option bonus due March 20. If Williams is traded or released, OT escalates to Tier 1 critical and becomes the top positional need in the draft.",
-    "george_kittle_health": "Kittle tore his Achilles in January 2026 and may miss significant time in 2026. TE depth (Jake Tonges, Luke Farrell) is concerning. Kittle's availability will shape draft strategy at TE.",
-    "nick_bosa_contract": "Bosa has 3 years remaining with a $41.62M cap hit in 2026. A restructure could free up to $17M additional cap space. Status: Not yet restructured as of March 10.",
-    "brandon_aiyuk_release_timing": "Official release not yet executed as of March 10 (league year opens March 11). Post-June 1 designation expected to split dead cap: ~$13.3M in 2026 / ~$21.2M in 2027.",
-    "pass_rush_urgency": "SF posted a league-low 20 sacks in 2025. Trey Hendrickson was available on Day 1 of FA but did not sign with SF. EDGE is co-equal with WR as the team's biggest positional need heading into the draft."
-  },
   "confidence": "high",
-  "notes": "Free agency officially opens March 11, 2026 at 4pm ET. All signings above were agreed to during the legal tampering window (March 9-10) and are confirmed by ESPN, NFL Network, and Spotrac. Mike Evans contract base figures confirmed by Ari Meirov / The 33rd Team ($42.4M base, $16.3M gtd) vs. initial Schefter report of up to $60.4M with incentives \u2014 both figures used in analysis. Jennings and Aiyuk departures are confirmed in intent but not yet official transactions as of March 10. Trent Williams situation is fluid and unresolved.",
+  "notes": "Free agency officially opened March 11, 2026. All signings (Evans, Lowe, Pineiro, Weeks) were agreed to during the legal tampering window (March 9-11) and are considered confirmed per multiple Tier-1 sources (ESPN/Schefter, NFL Network/Rapoport, Spotrac, OverTheCap). Evans contract base value of $42.4M/$16.3M guaranteed sourced from Ari Meirov/The 33rd Team and confirmed by Spotrac; ESPN initially reported up-to $60.4M including incentives \u2014 both figures cited. Brandon Aiyuk release not yet officially processed as of March 11 (Lynch stated it would happen at the start of the new league year with post-June 1 designation likely). Jauan Jennings, Brian Robinson Jr., Spencer Burford remain unsigned and on the market. Trent Williams contract situation (stalled negotiations, trade rumors per Ian Rapoport) unresolved \u2014 not reflected in departures as no official transaction has occurred. Cap space estimates based on OverTheCap pre-FA figure of ~$38.7M with adjustments for confirmed signings.",
   "sources": [
     "https://www.espn.com/nfl/story/_/id/48083531/san-francisco-49ers-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
-    "https://www.espn.com/nfl/story/_/id/48100965/san-francisco-49ers-nfl-free-agency-check-list-salary-cap-jauan-jennings-brandon-aiyuk",
-    "https://www.espn.com/nfl/story/_/id/48155046/star-wr-mike-evans-leaving-buccaneers-sign-49ers",
     "https://www.spotrac.com/nfl/player/_/id/14416/mike-evans",
-    "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/sf",
+    "https://www.spotrac.com/nfl/player/_/id/25687/eddy-pineiro",
+    "https://overthecap.com/salary-cap/san-francisco-49ers",
+    "https://www.nfl.com/news/2026-nfl-free-agency-free-agents-notable-departures-for-all-32-teams",
     "https://www.49ers.com/news/free-agency-tracker",
-    "https://www.nbcsportsbayarea.com/nfl/san-francisco-49ers/live-updates-free-agency-2026/1921546/",
-    "https://www.thereporter.com/2026/03/09/49ers-free-agency-tracker-trade-possible-for-left-tackle-trent-williams/",
-    "https://ninernoise.com/49ers-free-agency-tracker-signings-departures-cap-space-analysis",
-    "https://www.49erswebzone.com/articles/199590-potential-bargain-contract-details-emerge/",
-    "https://www.ninersnation.com/san-francisco-free-agency/156912/updated-contract-details-for-49ers-wr-mike-evans-the-guarantees-are-in",
-    "https://clutchpoints.com/nfl/san-francisco-49ers/49ers-news-san-francisco-kicker-17-million-eddy-pinerio-contract-extension",
     "https://www.profootballrumors.com/2026/03/49ers-to-sign-wr-mike-evans",
-    "https://nationaltoday.com/us/ca/san-francisco/news/2026/03/09/49ers-to-sign-offensive-tackle-vederian-lowe/",
-    "https://www.ninersnation.com/san-francisco-49ers-news/156908/san-francisco-49ers-news-kendrick-bourne-signs-arizona-cardinals-mike-lafleur-free-agency",
-    "https://sfstandard.com/2026/03/09/trent-williams-49ers-trade-contract-negotiations/",
-    "https://www.nbcsportsbayarea.com/nfl/san-francisco-49ers/mike-evans-contract-jauan-jennings-analysis/1922409/"
+    "https://www.49erswebzone.com/articles/199548-agency-tracker-signings-interests-departures/",
+    "https://www.nbcsportsbayarea.com/nfl/san-francisco-49ers/live-updates-free-agency-news-2026/1922597/",
+    "https://www.nfl.com/news/niners-kicker-eddy-pineiro-agree-to-terms-on-a-four-year-17-million-contract",
+    "https://sfstandard.com/2026/03/10/dre-greenlaw-49ers-free-agency/",
+    "https://www.49erswebzone.com/articles/199590-potential-bargain-contract-details-emerge/"
   ]
 }

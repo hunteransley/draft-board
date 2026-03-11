@@ -1,9 +1,9 @@
 {
   "team": "KC",
   "team_full": "Kansas City Chiefs",
-  "updated_through": "2026-03-10",
-  "cap_space_pre_fa": "24000000",
-  "cap_space_post_fa": "~3000000",
+  "updated_through": "2026-03-11",
+  "cap_space_pre_fa": "~$14000000",
+  "cap_space_post_fa": "~$19800000",
   "key_departures": [
     {
       "player": "Trent McDuffie",
@@ -11,7 +11,7 @@
       "age": 25,
       "role": "starter",
       "new_team": "Los Angeles Rams (trade)",
-      "impact": "Two-time All-Pro, top-5 CB in the NFL, primary nickel/outside corner. Traded for 2026 1st (No. 29), 2026 5th, 2026 6th, 2027 3rd. Massive hole at CB1. Rams then signed him to a 4yr/$124M extension making him the highest-paid CB in NFL history.",
+      "impact": "All-Pro caliber CB1 traded to Rams for 2026 first-round pick (No. 29), 2026 fifth-round pick, 2026 sixth-round pick, and a 2027 third-round pick. McDuffie immediately signed a 4-year, $124M extension with the Rams. Chiefs' best corner is gone.",
       "need_impact": "escalates",
       "need_position": "CB"
     },
@@ -21,7 +21,7 @@
       "age": 25,
       "role": "starter",
       "new_team": "Los Angeles Rams",
-      "impact": "Started 15 games in 2025. Career-high 64 tackles, 2 INTs, 6 PDs. Signed a 3yr/$51M deal with the Rams with $34M guaranteed. In a single offseason the Chiefs lost both starting CBs from their 2022 draft class.",
+      "impact": "Starting CB2 signed a 3-year, $51M deal with the Rams in free agency. Combined with the McDuffie trade, the Chiefs lost both starting cornerbacks from their 2022 draft class in the same week.",
       "need_impact": "escalates",
       "need_position": "CB"
     },
@@ -31,17 +31,27 @@
       "age": 25,
       "role": "starter",
       "new_team": "Cincinnati Bengals",
-      "impact": "83.5 PFF grade in 2025. Three-year starter, versatile box/deep safety. Signed 3yr/$40.25M with the Bengals. Combined with McDuffie/Watson departures, Chiefs lost 8,364 defensive snaps of the 2022 draft class secondary in one offseason.",
-      "need_impact": "creates",
+      "impact": "Starting safety signed a 3-year, $40.25M deal with the Bengals. Cook had 47 starts in 4 seasons and was the Chiefs' best safety in 2025. His departure leaves a major hole at S alongside unproven Chamarri Conner and Jaden Hicks.",
+      "need_impact": "escalates",
       "need_position": "S"
+    },
+    {
+      "player": "Leo Chenal",
+      "position": "LB",
+      "age": 25,
+      "role": "starter",
+      "new_team": "Washington Commanders",
+      "impact": "Signed a 3-year, $24.75M deal with Washington. Chenal was a versatile LB starter (44 games in 4 seasons) and the eighth player from the Chiefs' 2022 draft class to depart. Leaves a depth/rotational hole at LB, though Nick Bolton and Drue Tranquill remain.",
+      "need_impact": "escalates",
+      "need_position": "LB"
     },
     {
       "player": "Joshua Williams",
       "position": "CB",
-      "age": 25,
-      "role": "depth/special teams",
+      "age": 24,
+      "role": "depth/rotational",
       "new_team": "Tennessee Titans",
-      "impact": "Fourth CB from 2022 class to depart. Primarily depth/ST but had high-leverage postseason moments. Signed 2-year deal with Titans. Secondary depth now critically thin.",
+      "impact": "Signed a 2-year deal with the Titans. Was a depth/special teams CB who had fallen down the depth chart in recent seasons. The third CB from the 2022 draft class to leave, further thinning the cornerback room.",
       "need_impact": "escalates",
       "need_position": "CB"
     },
@@ -49,19 +59,29 @@
       "player": "Gardner Minshew",
       "position": "QB",
       "age": 30,
-      "role": "backup/bridge starter",
+      "role": "backup",
       "new_team": "Arizona Cardinals",
-      "impact": "Stepped in when Mahomes tore his ACL in Week 14, then suffered his own season-ending knee injury. Signed 1yr/$8.25M with Arizona. Mahomes' return timeline from ACL/LCL is uncertain, leaving KC without a proven backup.",
+      "impact": "Signed a 1-year, $8.25M deal (with incentives) with Arizona. Backup QB who started one game after Mahomes' season-ending ACL tear in 2025. Departure creates a thin backup QB situation with Mahomes' recovery timeline uncertain.",
       "need_impact": "creates",
       "need_position": "QB"
+    },
+    {
+      "player": "Isiah Pacheco",
+      "position": "RB",
+      "age": 26,
+      "role": "starter",
+      "new_team": "Detroit Lions",
+      "impact": "Signed a 2-year deal with Detroit. Effectively rendered moot by the Kenneth Walker III signing. Was the lead RB in 2025 but no running back averaged more than 4 yards per carry. Departure is a net positive given Walker's arrival.",
+      "need_impact": "none",
+      "need_position": "RB"
     },
     {
       "player": "Jawaan Taylor",
       "position": "OT",
       "age": 28,
       "role": "starter",
-      "new_team": "Released/UFA",
-      "impact": "Released March 4, clearing $20M in cap space with $7.39M dead money. 53.3 PFF grade in 2025. Chronic penalty issues. Right tackle is now an open need.",
+      "new_team": "TBD/unsigned",
+      "impact": "Released on March 4, saving $20M in cap space. Had one year remaining on a 4-year, $80M deal. Blocking had declined in 2025 and persistent penalty issues made the decision easier. Chiefs plan to start Jaylon Moore at RT. Creates a significant need at OT.",
       "need_impact": "creates",
       "need_position": "OT"
     },
@@ -70,60 +90,20 @@
       "position": "EDGE",
       "age": 28,
       "role": "rotational",
-      "new_team": "Released/UFA",
-      "impact": "Released Feb. 23, clearing ~$9M in cap space. Had been surpassed by rookie Ashton Gillotte in the rotation. Depth loss at EDGE, not a starter-level hole.",
+      "new_team": "TBD/unsigned",
+      "impact": "Released Feb. 23, clearing nearly $9M in cap space. Down year in 2025. Rotational EDGE loss deepens the pass rush need behind George Karlaftis and Chris Jones.",
       "need_impact": "escalates",
       "need_position": "EDGE"
     },
     {
-      "player": "Isiah Pacheco",
-      "position": "RB",
+      "player": "Mike Caliendo",
+      "position": "IOL",
       "age": 26,
-      "role": "starter (declining)",
-      "new_team": "UFA",
-      "impact": "Zero 20+ yard runs in 2025. Chiefs ranked 25th in rushing yards per game (106.6). Starter-level departure but team had already identified RB as critical need. Walker signing directly replaces him.",
+      "role": "depth",
+      "new_team": "TBD/unsigned",
+      "impact": "Chiefs declined to tender the restricted free agent at $3.52M. Fourth-string IOL; Hunter Nourzad and C.J. Hanson remain as interior depth. Minimal roster impact.",
       "need_impact": "none",
-      "need_position": "RB"
-    },
-    {
-      "player": "Kareem Hunt",
-      "position": "RB",
-      "age": 31,
-      "role": "starter/co-starter",
-      "new_team": "UFA",
-      "impact": "Led team with 611 rushing yards on 163 carries (3.7 ypc). Departure is absorbed by Walker signing. At 31, was a bridge option only.",
-      "need_impact": "none",
-      "need_position": "RB"
-    },
-    {
-      "player": "JuJu Smith-Schuster",
-      "position": "WR",
-      "age": 29,
-      "role": "rotational/depth",
-      "new_team": "UFA",
-      "impact": "56.7 PFF grade. Slot receiver depth loss. WR corps already thin with Rice's legal situation murky and Worthy coming off shoulder surgery.",
-      "need_impact": "escalates",
-      "need_position": "WR"
-    },
-    {
-      "player": "Marquise Brown",
-      "position": "WR",
-      "age": 29,
-      "role": "rotational",
-      "new_team": "UFA",
-      "impact": "69.8 PFF grade. Another WR depth departure on a corps that was already thin. Chiefs now have Worthy, Rice (uncertain), Thornton, and Royals as primary options.",
-      "need_impact": "escalates",
-      "need_position": "WR"
-    },
-    {
-      "player": "Leo Chenal",
-      "position": "LB",
-      "age": 25,
-      "role": "starter",
-      "new_team": "UFA",
-      "impact": "75.1 PFF grade in 2025. Part of 2022 draft class. UFA \u2014 departure status confirmed. Drue Tranquill (possible release candidate) and Cole Christiansen (re-signed) remain.",
-      "need_impact": "escalates",
-      "need_position": "LB"
+      "need_position": "IOL"
     }
   ],
   "signings": [
@@ -134,7 +114,7 @@
       "previous_team": "Seattle Seahawks",
       "contract": {
         "years": 3,
-        "total_value": 45000000,
+        "total_value": 43050000,
         "guaranteed": 28700000,
         "aav": 14350000
       },
@@ -142,7 +122,7 @@
       "market_tier": "elite",
       "need_impact": "fully_addressed",
       "need_position": "RB",
-      "analysis": "Super Bowl LX MVP, highest-paid free-agent RB in NFL history. 3yr/$45M with $28.7M fully guaranteed \u2014 the richest RB free agent deal ever. Walker forced 61 missed tackles and had 10 rushes of 20+ yards in 2025. At 25, this is a true investment: $28.7M fully guaranteed on a 3-year deal signals the starter for the foreseeable future. RB drops from tier 1 critical to tier 4 \u2014 depth/late round luxury at best. The Walker signing directly addresses the Chiefs' most visible offensive failing: ranked 25th in rushing (106.6 ypg) in 2025."
+      "analysis": "Super Bowl LX MVP lands the largest guaranteed money ever for a running back in free agency. Three-year, $43.05M deal ($28.7M fully guaranteed) is elite-tier at RB. Walker forced 61 missed tackles in 2025 and had 10 rushes of 20+ yards \u2014 exactly the explosive threat the Chiefs desperately lacked. No KC RB averaged more than 4 yards per carry in 2025. This is a legitimate 3-year starter investment that fully addresses the RB need. Draft capital at RB is now unnecessary in early rounds."
     },
     {
       "player": "Travis Kelce",
@@ -159,12 +139,12 @@
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "TE",
-      "analysis": "Re-signed on a 1yr/$12M deal (max $15M with incentives). Kelce led the team in 2025 with 76 catches, 851 yards, 5 TDs. The one-year structure is the tell: this is his age-36 season and the Chiefs are not making a long-term TE commitment. TE remains a draft need for the future \u2014 Kelce is a bridge. Partially addresses the need for 2026, but the Chiefs should still target a TE heir in rounds 2\u20134 of the draft."
+      "analysis": "Re-signing Kelce on a 1-year, $12M deal (max $15M with incentives) keeps the offense's best weapon and Mahomes' favorite target \u2014 Kelce led the team in targets (108), receptions (76), yards (851), and TDs (5) in 2025. However, a 1-year deal at age 36 is a bridge, not a solution. TE remains a future need given Kelce's age and the single-year commitment. The Chiefs will almost certainly want a developmental TE in this draft."
     },
     {
       "player": "Alohi Gilman",
       "position": "S",
-      "age": 29,
+      "age": 28,
       "previous_team": "Baltimore Ravens",
       "contract": {
         "years": 3,
@@ -176,7 +156,7 @@
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "S",
-      "analysis": "3yr/$24.75M with $15M guaranteed \u2014 solid mid-market starter deal. Replaces Bryan Cook (who just got $40.25M from the Bengals). Gilman was ranked 24th-best safety out of 98 qualifiers by PFF in 2025, posting 68 combined tackles, 6 PBUs, and a forced fumble. The 3-year structure with $15M guaranteed signals a real starter investment, not a bridge. However, Gilman is not a Cook-level playmaker \u2014 he partially addresses the S need. One safety spot is stabilized; a developmental or complementary S in the draft remains advisable."
+      "analysis": "Three-year, $24.75M deal ($15M guaranteed) at mid-starter money brings a reliable veteran presence following the loss of Bryan Cook. Gilman, a former sixth-round pick, started 12 games for Baltimore after a midseason trade and helped stabilize their secondary. He'll be the lead safety alongside Chamarri Conner and Jaden Hicks. The deal is structured as a legitimate 2-year investment (only $15M guaranteed on a $24.75M deal signals team retains some outs). Partially addresses the S need \u2014 veterans Conner and Hicks are unproven, so the draft should still target S depth. Does not fully close the hole left by Cook's $40M deal."
     },
     {
       "player": "Khyiris Tonga",
@@ -193,7 +173,7 @@
       "market_tier": "depth",
       "need_impact": "partially_addressed",
       "need_position": "IDL",
-      "analysis": "3yr/$21M with $14M guaranteed. Tonga is a rare two-way interior lineman described as having traits the Chiefs haven't had since Dontari Poe \u2014 a true nose tackle who can play as an H-back/FB in short-yardage sets. Only 1.5 career sacks but an 11.4% pass-rush win rate in 2025. AAV of $7M is below the starter tier for IDL but the 3-year guaranteed structure signals the Chiefs view him as a starter. Partially addresses the IDL need \u2014 improves the run-stuffing floor, but elite pass-rush up the middle remains unresolved. Chris Jones remains the anchor."
+      "analysis": "Three-year, $21M deal ($14M guaranteed) adds run-stuffing depth alongside Chris Jones. Prior to this signing, the only notable IDL behind Jones was 2025 second-rounder Omarr Norman-Lott, who tore his ACL in October. Tonga had a career year with New England (24 tackles, 2 TFLs, 2 QB hits in 14 games) and also offers rare dual-use as a blocking fullback \u2014 a trait the Chiefs haven't had since Dontari Poe. At $7M AAV this is at the low end of starter-tier money for IDL; the deal addresses depth but the Chiefs will still want premium interior pass rush help via the draft or further free agency moves."
     },
     {
       "player": "Tyquan Thornton",
@@ -203,48 +183,31 @@
       "contract": {
         "years": 2,
         "total_value": 11000000,
-        "guaranteed": 5500000,
+        "guaranteed": 7000000,
         "aav": 5500000
       },
-      "expected_role": "starter/depth",
+      "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "WR",
-      "analysis": "Re-signed on 2yr/$11M (max $14M with incentives). Career highs in 2025: 438 yards (23.1 ypc avg), 3 TDs on 19 catches, plus 475 kick-return yards. Deep threat/returner with proven Mahomes chemistry. However, at $5.5M AAV this is depth-tier WR money. With Hollywood Brown and JuJu both gone, Thornton moves up the depth chart \u2014 but the Chiefs still have only Worthy, Rice (uncertain), Thornton, and Royals as WR options. WR remains a significant need. The 2-year structure does offer some commitment, but Thornton's role is still WR3/specialist, not a true WR1 or WR2 solution."
-    },
-    {
-      "player": "Cole Christiansen",
-      "position": "LB",
-      "age": 27,
-      "previous_team": "Kansas City Chiefs (re-sign)",
-      "contract": {
-        "years": 1,
-        "total_value": 2000000,
-        "guaranteed": 1000000,
-        "aav": 2000000
-      },
-      "expected_role": "depth/special teams",
-      "market_tier": "minimum",
-      "need_impact": "none",
-      "need_position": "LB",
-      "analysis": "Veteran minimum re-sign. Special teams ace and LB depth. Does not address the starter-level LB need created by Chenal's departure. Need unchanged at LB."
+      "analysis": "Re-signed on a 2-year, $11M deal (max $14M). Thornton was one of the Chiefs' best receivers in 2025 \u2014 a career-high 438 receiving yards on 19 receptions with 3 TDs in 14 games \u2014 particularly when Worthy and Rice were unavailable. At $5.5M AAV this is depth-tier money at WR. Retaining Thornton as a deep threat provides continuity with Mahomes but does not solve the WR room's overall lack of proven starters. WR remains a real draft need with Xavier Worthy coming off shoulder surgery and Rashee Rice's status uncertain."
     },
     {
       "player": "James Winchester",
       "position": "LS",
-      "age": 35,
+      "age": 34,
       "previous_team": "Kansas City Chiefs (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 1500000,
-        "guaranteed": 1000000,
-        "aav": 1500000
+        "total_value": 1700000,
+        "guaranteed": 1700000,
+        "aav": 1700000
       },
-      "expected_role": "starter (long snapper)",
-      "market_tier": "starter",
+      "expected_role": "starter",
+      "market_tier": "depth",
       "need_impact": "none",
       "need_position": "LS",
-      "analysis": "Re-signed for a 12th season. Maintains the Butker-Winchester-Araiza special teams chemistry. Long snapper continuity secured \u2014 no impact on positional need picture."
+      "analysis": "Long snapper re-signed for his 12th season in Kansas City. Maintains special teams chemistry with Harrison Butker and Matt Araiza. Routine re-signing with no draft-need implications."
     }
   ],
   "needs_impact_summary": {
@@ -261,12 +224,12 @@
     ],
     "unchanged": [
       "EDGE",
-      "LB"
+      "QB"
     ],
     "escalated": [
       "CB",
       "OT",
-      "QB"
+      "LB"
     ]
   },
   "recommended_need_adjustments": [
@@ -274,61 +237,61 @@
       "position": "RB",
       "previous_tier": 1,
       "recommended_tier": 4,
-      "reasoning": "Kenneth Walker III signing (3yr/$45M, $28.7M fully guaranteed) is the highest-paid free-agent RB in NFL history. He is the clear bell-cow starter through at least 2028. RB is no longer a need. A late-round complementary back (pass-catching specialist) is possible but not a priority."
+      "reasoning": "Kenneth Walker III (3yr/$43.05M, $28.7M gtd) is the largest guaranteed RB contract in free agency history and fully addresses this need. Walker is 25, the Super Bowl LX MVP, and the most explosive runner available. No early-round draft capital needed here."
     },
     {
       "position": "CB",
       "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Chiefs lost three CBs in this window: McDuffie (traded, All-Pro), Watson (Rams, 3yr/$51M), and Joshua Williams (Titans). Nohl Williams (rookie who started in 2025) and Kristian Fulton are the primary options left. With the No. 9 overall pick and a desperate secondary, CB is now the team's top draft priority. Critical tier 1 need."
+      "reasoning": "The Chiefs lost ALL THREE starting-caliber CBs from their 2022 class in one week: Trent McDuffie (traded to Rams), Jaylen Watson (3yr/$51M to Rams), Joshua Williams (2yr deal to Titans). Zero notable CB signings made. Nohl Williams and Kristian Fulton remain but the depth chart is gutted. This is now the Chiefs' single most critical draft need. Top priority in rounds 1\u20132."
+    },
+    {
+      "position": "S",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Bryan Cook departed (3yr/$40.25M to Bengals), leaving a large void. Alohi Gilman signed (3yr/$24.75M, $15M gtd) partially fills it \u2014 he's a legitimate starter and veteran leader. But Gilman's guarantee structure ($15M on $24.75M) signals modest investment, and the remaining depth (Conner, Hicks) is unproven. Safety remains a Tier 2 need \u2014 target mid-rounds in the draft."
     },
     {
       "position": "OT",
       "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Jawaan Taylor was released March 4, clearing $20M but leaving the right tackle spot completely open. No replacement has been signed. With Mahomes recovering from ACL surgery and expected to return in 2026, protecting him is paramount. OT is a tier 1 need \u2014 must be addressed in the draft or remaining free agency."
-    },
-    {
-      "position": "QB",
-      "previous_tier": 3,
-      "recommended_tier": 2,
-      "reasoning": "Gardner Minshew departed for Arizona (1yr/$8.25M). Mahomes' ACL/LCL recovery timeline is uncertain. Chris Oladokun is the only QB on roster. The backup QB market has thinned significantly (Mariota, Huntley, Minshew all gone). KC needs a credible bridge/backup \u2014 Geno Smith and Kirk Cousins are the reported targets. Until a proven backup is signed, QB is a tier 2 need."
-    },
-    {
-      "position": "WR",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Thornton re-signing (2yr/$11M) provides minimal relief. Hollywood Brown and JuJu Smith-Schuster are both gone. Rashee Rice's situation is uncertain (legal issues, contract year). The corps is: Worthy (signed through 2027, injury concerns), Rice (uncertain), Thornton (depth-tier), Royals (raw rookie). WR remains a significant need \u2014 should target in rounds 1\u20133 of the draft or remaining free agency."
-    },
-    {
-      "position": "S",
-      "previous_tier": 1,
-      "recommended_tier": 3,
-      "reasoning": "Bryan Cook's departure (3yr/$40.25M to Bengals) created a new starter-level need. Alohi Gilman's signing (3yr/$24.75M, $15M guaranteed) partially fills the hole with a legitimate starter. However, Gilman is not a Cook-level playmaker. Safety drops from tier 1 emergency to tier 3 \u2014 a developmental or complementary safety in rounds 3\u20135 of the draft makes sense."
-    },
-    {
-      "position": "IDL",
-      "previous_tier": 2,
-      "recommended_tier": 3,
-      "reasoning": "Khyiris Tonga (3yr/$21M, $14M guaranteed) improves the run-stuffing floor alongside Chris Jones. Tonga brings rare two-way capability at nose tackle. However, Jones is still the anchor and aging \u2014 IDL depth/pass-rush from the interior remains a draft consideration in rounds 2\u20134."
-    },
-    {
-      "position": "TE",
-      "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "Kelce re-signed (1yr/$12M) stabilizes 2026, but the one-year bridge structure means the heir-apparent search continues. Robert Tonyan Jr. is also a free agent. Chiefs should still look for a TE of the future in rounds 2\u20134 of the draft. Need level unchanged \u2014 still a genuine draft target."
+      "reasoning": "Jawaan Taylor was released (saved $20M) and left tackle Josh Simmons was limited to 8 games as a rookie in 2025. Jaylon Moore is the plan at RT but has only 18 career starts. The offensive line protecting a recovering Mahomes (torn ACL/LCL) is a critical vulnerability. No FA OT signings made. Escalates to Tier 1 co-need alongside CB."
     },
     {
       "position": "EDGE",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Mike Danna was released (rotational loss, not a starter-level departure). George Karlaftis and Ashton Gillotte remain. No EDGE was added in free agency. EDGE remains a tier 2 need \u2014 should target a starter-caliber rusher in the draft or late free agency."
+      "reasoning": "Mike Danna was cut, top free agent EDGE options (Boye Mafe, Odafe Oweh) signed elsewhere. George Karlaftis remains on his extension and Chris Jones can still generate interior pressure. No EDGE additions in FA. Still a meaningful need, unchanged at Tier 2 \u2014 should target EDGE in the draft."
+    },
+    {
+      "position": "TE",
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "Travis Kelce re-signed on a 1-year deal ($12M). This keeps the offense functional but it's a one-year bridge for a 36-year-old. The team has no proven TE depth behind Kelce. Need stays at Tier 3 \u2014 value pick in rounds 3\u20134 for a developmental option."
+    },
+    {
+      "position": "IDL",
+      "previous_tier": 2,
+      "recommended_tier": 3,
+      "reasoning": "Khyiris Tonga (3yr/$21M, $14M gtd) meaningfully upgrades the rotation behind Chris Jones. Prior to this signing, the only depth was an ACL-recovery player (Norman-Lott). Tonga provides legitimate run-stopping presence and a dual-use fullback wrinkle. Drops one tier \u2014 still could use a pass-rushing IDL complement via draft Day 2."
+    },
+    {
+      "position": "WR",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Tyquan Thornton re-signed (2yr/$11M, depth money), but Xavier Worthy is recovering from shoulder surgery and Rashee Rice's status is uncertain. The core WR room \u2014 Worthy, Rice, Thornton, Royals \u2014 is talented but fragile and unproven at full strength. No significant WR addition was made. Remains Tier 2; likely a mid-round draft target."
+    },
+    {
+      "position": "QB",
+      "previous_tier": 3,
+      "recommended_tier": 2,
+      "reasoning": "Gardner Minshew departed (1yr/$8.25M to Cardinals). With Patrick Mahomes recovering from a torn ACL/LCL suffered in Week 15 of 2025, the Chiefs have no proven backup option. The backup QB market is essentially dry (Mariota, Huntley, Minshew all off the board). This is a real short-term risk until Mahomes' return timeline is clearer. Escalates to Tier 2 urgency \u2014 will need a veteran backup in FA Wave 2 or draft Day 3."
     },
     {
       "position": "LB",
       "previous_tier": 3,
-      "recommended_tier": 2,
-      "reasoning": "Leo Chenal (75.1 PFF) departed as a UFA. Cole Christiansen was re-signed at a minimum deal. Drue Tranquill is a possible release candidate. LB depth is eroding \u2014 escalates to tier 2. The draft should address this in rounds 2\u20134."
+      "recommended_tier": 3,
+      "reasoning": "Leo Chenal signed with Washington (3yr/$24.75M), but Nick Bolton and Drue Tranquill remain on the roster as the top two LBs. Chenal was the third linebacker in a rotation \u2014 his departure hurts depth more than the starting lineup. LB stays at Tier 3, with a Day 3 pick for depth being logical."
     }
   ],
   "team_page_additions": {
@@ -336,91 +299,100 @@
       {
         "player": "Kenneth Walker III",
         "position": "RB",
-        "contract_summary": "3yr/$45M ($28.7M gtd)",
+        "contract_summary": "3yr/$43.05M ($28.7M gtd)",
         "previous_team": "Seattle Seahawks",
-        "headline": "Super Bowl LX MVP and highest-paid free-agent RB ever ends KC's backfield misery; directly replaces Pacheco/Hunt with an elite explosive threat"
+        "headline": "Super Bowl LX MVP brings elite explosiveness to a run game that ranked 25th in the NFL in 2025"
       },
       {
         "player": "Alohi Gilman",
         "position": "S",
         "contract_summary": "3yr/$24.75M ($15M gtd)",
         "previous_team": "Baltimore Ravens",
-        "headline": "Three-year starter replaces departed Bryan Cook; PFF top-25 safety brings range and tackling reliability to a gutted KC secondary"
+        "headline": "Veteran safety signed to stabilize a decimated secondary after the losses of Cook, McDuffie, and Watson"
       },
       {
         "player": "Khyiris Tonga",
         "position": "IDL",
         "contract_summary": "3yr/$21M ($14M gtd)",
         "previous_team": "New England Patriots",
-        "headline": "Rare two-way nose tackle raises IDL floor alongside Chris Jones; first Dontari Poe-type interior weapon Andy Reid has had in years"
+        "headline": "Two-way run-stopper and part-time fullback upgrades IDL depth alongside Chris Jones"
       },
       {
         "player": "Travis Kelce",
         "position": "TE",
-        "contract_summary": "1yr/$12M (up to $15M)",
+        "contract_summary": "1yr/$12M (max $15M)",
         "previous_team": "Kansas City Chiefs (re-sign)",
-        "headline": "Legend returns for 14th season on bridge deal; led team with 76 catches and 851 yards in 2025, stabilizes Mahomes' top target through the ACL recovery window"
+        "headline": "Kelce returns for a 14th season; led the team in targets, receptions, yards, and TDs in 2025"
       },
       {
         "player": "Tyquan Thornton",
         "position": "WR",
-        "contract_summary": "2yr/$11M (up to $14M)",
+        "contract_summary": "2yr/$11M (max $14M)",
         "previous_team": "Kansas City Chiefs (re-sign)",
-        "headline": "Deep threat/returner re-signs after 23.1 ypc average in 2025; retains key Mahomes connection as WR corps rebuild begins"
+        "headline": "Deep threat re-signed after career year (438 yards, 3 TDs) to provide WR stability behind Worthy and Rice"
       }
     ],
     "key_losses": [
       {
         "player": "Trent McDuffie",
         "position": "CB",
-        "contract_summary": "Traded for 2026 1st (No. 29), 2026 5th, 2026 6th, 2027 3rd; signed 4yr/$124M with LAR",
+        "contract_summary": "Traded to LAR; received picks No. 29 (2026), R5, R6 (2026), R3 (2027)",
         "new_team": "Los Angeles Rams",
-        "headline": "Two-time All-Pro and highest-paid CB in NFL history departs via blockbuster trade; KC gets two first-round picks in 2026 but loses their defensive cornerstone"
+        "headline": "All-Pro CB1 dealt for draft capital; now the highest-paid cornerback in NFL history at $31M/yr"
       },
       {
         "player": "Jaylen Watson",
         "position": "CB",
-        "contract_summary": "3yr/$51M ($34M gtd) with LAR",
+        "contract_summary": "3yr/$51M (Rams)",
         "new_team": "Los Angeles Rams",
-        "headline": "Chiefs lose both starting CBs from the 2022 draft class in one offseason, creating a critical secondary crisis heading into the draft"
+        "headline": "Starting CB2 follows McDuffie to LA; both starting cornerbacks now play for the Rams"
       },
       {
         "player": "Bryan Cook",
         "position": "S",
-        "contract_summary": "3yr/$40.25M with CIN",
+        "contract_summary": "3yr/$40.25M (Bengals)",
         "new_team": "Cincinnati Bengals",
-        "headline": "Versatile 83.5-PFF-grade safety departs for Cincinnati; combined with McDuffie and Watson losses, the Chiefs' 2022 secondary class is almost entirely gone"
+        "headline": "47-start safety departs for a homecoming in Cincinnati, leaving a major hole in the secondary"
+      },
+      {
+        "player": "Leo Chenal",
+        "position": "LB",
+        "contract_summary": "3yr/$24.75M (Commanders)",
+        "new_team": "Washington Commanders",
+        "headline": "Versatile LB starter and eighth member of the 2022 draft class to leave Kansas City"
       },
       {
         "player": "Jawaan Taylor",
         "position": "OT",
-        "contract_summary": "Released; $20M cap savings, $7.39M dead money",
-        "new_team": "UFA",
-        "headline": "Right tackle released for cap relief, opening a critical OT need with Mahomes returning from ACL surgery"
+        "contract_summary": "Released (saved $20M cap)",
+        "new_team": "TBD/unsigned",
+        "headline": "Starting RT cut after blocking decline and persistent penalty issues; Jaylon Moore inherits the job"
       },
       {
         "player": "Gardner Minshew",
         "position": "QB",
-        "contract_summary": "1yr/$8.25M with ARI",
+        "contract_summary": "1yr/$8.25M (Cardinals)",
         "new_team": "Arizona Cardinals",
-        "headline": "Backup QB who started after Mahomes' ACL tear departs for a starting opportunity in Arizona, leaving KC without a proven backup behind a recovering Mahomes"
+        "headline": "Backup QB departs, leaving the depth chart dangerously thin behind recovering Mahomes (torn ACL)"
       }
     ]
   },
   "confidence": "high",
   "sources": [
-    "https://www.espn.com/nfl/story/_/id/48092499/chiefs-2026-free-agency-tracker-offseason-moves-signings-contract",
-    "https://www.nfl.com/news/chiefs-signing-ex-seahawks-rb-kenneth-walker-iii-mvp-of-super-bowl-lx",
+    "https://www.espn.com/nfl/story/_/id/48092499/chiefs-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
+    "https://www.espn.com/nfl/story/_/id/48153654/source-super-bowl-mvp-kenneth-walker-agrees-sign-chiefs",
+    "https://www.espn.com/nfl/story/_/id/48159274/source-free-agent-alohi-gilman-reaches-deal-chiefs",
     "https://www.spotrac.com/nfl/player/_/id/76917/kenneth-walker-iii",
-    "https://overthecap.com/salary-cap/kansas-city-chiefs",
-    "https://www.profootballrumors.com/2026/03/chiefs-to-sign-s-alohi-gilman",
+    "https://www.nfl.com/news/chiefs-signing-ex-seahawks-rb-kenneth-walker-iii-mvp-of-super-bowl-lx",
+    "https://www.nfl.com/news/chiefs-expected-to-trade-cb-trent-mcduffie-to-rams-for-multiple-draft-picks",
+    "https://www.nfl.com/news/trent-mcduffie-rams-agree-to-four-year-124-million-extension",
+    "https://www.nfl.com/news/chiefs-releasing-ot-jawaan-taylor-clearing-20-million-in-cap-space",
     "https://www.arrowheadpride.com/nfl-free-agency/196012/nfl-2026-free-agency-tracker-chiefs-news-trades-updates-reports-signings",
     "https://arrowheadaddict.com/kansas-city-chiefs-free-agency-tracker-hub-signings",
     "https://atozsports.com/nfl/kansas-city-chiefs-news/chiefs-2026-nfl-free-agency-tracker-latest-roster-moves-trades-cuts-signings/",
-    "https://www.cbssports.com/nfl/news/nfl-free-agency-tracker-2026-full-list-signings-trades-moves/",
-    "https://www.nfl.com/news/chiefs-expected-to-trade-cb-trent-mcduffie-to-rams-for-multiple-draft-picks",
     "https://www.si.com/nfl/chiefs/onsi/kansas-city-2026-free-agency-roster-tracker-latest-updates-signings",
-    "https://chiefsdigest.com/chiefs-2026-free-agency-tracker-whos-coming-going-and-staying/",
-    "https://fox4kc.com/news/nfl-free-agency-tracker-who-is-joining-and-leaving-the-kansas-city-chiefs/"
+    "https://www.profootballrumors.com/2026/03/commanders-to-add-lb-leo-chenal",
+    "https://www.profootballrumors.com/2026/03/titans-to-sign-cb-joshua-williams-re-sign-ls-morgan-cox",
+    "https://overthecap.com/salary-cap/kansas-city-chiefs"
   ]
 }

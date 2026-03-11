@@ -1,10 +1,9 @@
 {
   "team": "BAL",
   "team_full": "Baltimore Ravens",
-  "updated_through": "2026-03-10",
-  "cap_space_pre_fa": "$18600000",
-  "cap_space_post_fa": "-$12132813",
-  "notes": "Cap space figures are fluid pending Lamar Jackson contract restructure/extension, which is widely expected to create ~$30M+ in additional room. OTC shows Ravens currently ~$12.1M over cap before restructures/cuts. Cap space post-FA will improve significantly once Jackson deal is resolved.",
+  "updated_through": "2026-03-11",
+  "cap_space_pre_fa": "~$22000000",
+  "cap_space_post_fa": "-$10300000",
   "key_departures": [
     {
       "player": "Tyler Linderbaum",
@@ -12,21 +11,10 @@
       "age": 25,
       "role": "starter",
       "new_team": "Las Vegas Raiders",
-      "contract_signed_elsewhere": "3yr/$81M ($60M guaranteed, $27M AAV)",
-      "impact": "Three-time Pro Bowler and arguably the best center in the NFL departs for a record-setting $81M deal the Ravens could not match. Linderbaum was the anchor of the offensive line and an elite run-blocker. His exit leaves a massive void at center that reserve Corey Bullock is not equipped to fill. Ravens are in line for a compensatory third-round pick in 2027.",
+      "contract_signed_elsewhere": "3yr/$81M ($60M gtd) \u2014 record-setting for a center",
+      "impact": "Three-time Pro Bowler and arguably the best center in the NFL. Ravens failed to retain him after not exercising his 5th-year option and not using the franchise tag. The loss creates a gaping hole at the most important interior line position. Corey Bullock (UDFA backup) is currently the in-house candidate, representing a massive step down in quality.",
       "need_impact": "creates",
       "need_position": "IOL"
-    },
-    {
-      "player": "Dre'Mont Jones",
-      "position": "EDGE",
-      "age": 29,
-      "role": "starter",
-      "new_team": "New England Patriots",
-      "contract_signed_elsewhere": "3yr/$39.5M ($14.5M in Year 1)",
-      "impact": "Trade-deadline acquisition who posted career-high 7 sacks in 2025 (2.5 in Baltimore across 9 games). His departure was expected once the Ravens traded for Crosby \u2014 Mike Green moves into a starting role alongside Crosby. Rotational/depth loss at EDGE but position is now covered at the top.",
-      "need_impact": "none",
-      "need_position": "EDGE"
     },
     {
       "player": "Isaiah Likely",
@@ -34,8 +22,8 @@
       "age": 25,
       "role": "starter",
       "new_team": "New York Giants",
-      "contract_signed_elsewhere": "3yr/$40M (max $47.5M with incentives, ~$13.3M AAV)",
-      "impact": "Four-year Raven who totaled 15 touchdown catches and followed John Harbaugh to New York. Was the team's primary receiving tight end. With Kolar also gone, only Mark Andrews (on a recent extension) remains at the position. Significant depth and pass-catching void at TE.",
+      "contract_signed_elsewhere": "3yr/$40M (up to $47.5M) \u2014 3rd highest-paid TE in NFL",
+      "impact": "Baltimore's most versatile pass-catching TE. Followed new Giants HC John Harbaugh to New York. With Kolar also gone, only Mark Andrews (re-signed last fall) remains at TE. From a two-TE system to a one-TE depth chart overnight.",
       "need_impact": "escalates",
       "need_position": "TE"
     },
@@ -43,240 +31,225 @@
       "player": "Charlie Kolar",
       "position": "TE",
       "age": 26,
-      "role": "rotational",
+      "role": "starter",
       "new_team": "Los Angeles Chargers",
-      "contract_signed_elsewhere": "3yr/$24.3M ($17M guaranteed, $8.1M AAV)",
-      "impact": "Elite blocking tight end who played 400+ offensive snaps in 2025 and had the lowest blown-block rate among all NFL TEs with 200+ blocking snaps. His departure alongside Likely leaves Mark Andrews as the only tight end on the roster. Critical loss for Baltimore's run game identity.",
+      "contract_signed_elsewhere": "3yr/$24.3M \u2014 highest-paid blocking TE in NFL",
+      "impact": "Premium blocking TE who complemented Andrews and Likely. His departure, combined with Likely's exit, strips Baltimore of their entire 2025 TE complement alongside Andrews. Need for TE depth and a complementary receiving TE now critical.",
       "need_impact": "escalates",
       "need_position": "TE"
     },
     {
-      "player": "Kyle Van Noy",
+      "player": "Dre'Mont Jones",
       "position": "EDGE",
-      "age": 34,
-      "role": "rotational",
-      "new_team": "TBD/unsigned",
-      "contract_signed_elsewhere": null,
-      "impact": "Age-34 veteran had career-high 12.5 sacks in 2024 but declined in 2025. Departure is effectively a depth loss at EDGE, mitigated entirely by the Crosby acquisition. Low impact on team needs.",
-      "need_impact": "none",
-      "need_position": "EDGE"
-    },
-    {
-      "player": "David Ojabo",
-      "position": "EDGE",
-      "age": 25,
-      "role": "depth",
-      "new_team": "TBD/unsigned",
-      "contract_signed_elsewhere": null,
-      "impact": "2022 second-round pick who never developed due to persistent injuries. Depth loss only.",
-      "need_impact": "none",
-      "need_position": "EDGE"
-    },
-    {
-      "player": "Daniel Faalele",
-      "position": "IOL",
-      "age": 26,
+      "age": 29,
       "role": "starter",
-      "new_team": "TBD/unsigned",
-      "contract_signed_elsewhere": null,
-      "impact": "Underwhelming right guard who was a starter but graded poorly by PFF. His departure is not a loss \u2014 it opens a competition at RG that the Simpson signing partially addresses.",
-      "need_impact": "none",
-      "need_position": "IOL"
-    },
-    {
-      "player": "Chidobe Awuzie",
-      "position": "CB",
-      "age": 30,
-      "role": "starter",
-      "new_team": "TBD/unsigned",
-      "contract_signed_elsewhere": null,
-      "impact": "Played starting-caliber ball in 2025. His departure opens a potential hole at CB2/3 alongside Nate Wiggins (Year 3) and Marlon Humphrey. Escalates an already existing CB depth need.",
+      "new_team": "New England Patriots",
+      "contract_signed_elsewhere": "3yr/$36.5M\u2013$39.5M ($23.1M gtd)",
+      "impact": "Trade-deadline acquisition who was productive (2.5 sacks, 17 tackles, 15 QB hits in 9 games). Departure was expected given the Ravens' pursuit of Maxx Crosby, with Mike Green expected to step into a starting role. However, Crosby's trade now fell through, leaving EDGE as a critical unaddressed need.",
       "need_impact": "escalates",
-      "need_position": "CB"
+      "need_position": "EDGE"
     },
     {
-      "player": "Odafe Oweh",
-      "position": "EDGE",
-      "age": 26,
+      "player": "Alohi Gilman",
+      "position": "S",
+      "age": 28,
       "role": "starter",
-      "new_team": "Washington Commanders",
-      "contract_signed_elsewhere": "4yr/$100M ($68M guaranteed)",
-      "impact": "Oweh was already traded from Baltimore in 2025 (to Chargers for a 5th), so this departure is from the Chargers, not directly from the Ravens' 2026 roster. Listed by Baltimore Beatdown as 'Ex-Ravens EDGE' context. No direct 2026 roster impact for BAL.",
+      "new_team": "Kansas City Chiefs",
+      "contract_signed_elsewhere": "3yr/$24.75M ($15M gtd)",
+      "impact": "Starting safety who had been a consistent contributor. His departure, combined with Ar'Darius Washington leaving, strips Baltimore of both of their backup/depth safeties behind Kyle Hamilton and Malaki Starks. Team now lacks a viable #3 safety.",
+      "need_impact": "creates",
+      "need_position": "S"
+    },
+    {
+      "player": "Ar'Darius Washington",
+      "position": "S",
+      "age": 25,
+      "role": "rotational",
+      "new_team": "New York Giants",
+      "contract_signed_elsewhere": "1yr (terms TBD) \u2014 reunites with HC Harbaugh",
+      "impact": "Returning from torn Achilles (played only 4 games in 2025). Depth/rotational safety. His departure contributes to a thin safety room behind Hamilton and Starks \u2014 Baltimore now needs a No. 3 safety.",
+      "need_impact": "escalates",
+      "need_position": "S"
+    },
+    {
+      "player": "Jordan Stout",
+      "position": "ST",
+      "age": 27,
+      "role": "starter",
+      "new_team": "New York Giants",
+      "contract_signed_elsewhere": "3yr/$12.3M \u2014 highest-paid punter in NFL history",
+      "impact": "First-team All-Pro punter in 2025, led NFL with 44.9 net yards per punt average. A genuine special teams asset lost. Need to find a replacement punter.",
+      "need_impact": "creates",
+      "need_position": "ST"
+    },
+    {
+      "player": "Patrick Ricard",
+      "position": "FB",
+      "age": 31,
+      "role": "starter",
+      "new_team": "New York Giants",
+      "contract_signed_elsewhere": "2yr/$7.63M (max $8.5M) \u2014 highest-paid FB in NFL",
+      "impact": "6x Pro Bowl fullback and 3x All-Pro who was the engine of Baltimore's ground game since 2017. Followed HC Harbaugh to New York. Moderate role loss \u2014 team ran full back-heavy schemes, but Harbaugh is gone anyway and new HC Minter may not deploy the position as heavily.",
       "need_impact": "none",
-      "need_position": "EDGE"
+      "need_position": "FB"
+    },
+    {
+      "player": "Jake Hummel",
+      "position": "LB",
+      "age": 27,
+      "role": "depth",
+      "new_team": "Las Vegas Raiders",
+      "contract_signed_elsewhere": "2yr (terms TBD)",
+      "impact": "Special teams contributor with 18 tackles in limited role. Minimal roster impact.",
+      "need_impact": "none",
+      "need_position": "LB"
     },
     {
       "player": "Keaton Mitchell",
       "position": "RB",
-      "age": 23,
+      "age": 24,
       "role": "depth",
       "new_team": "TBD/unsigned",
-      "contract_signed_elsewhere": null,
-      "impact": "Ravens declined to tender the RFA running back. Mitchell was a depth/committee back. Ravens retain Derrick Henry, Justice Hill, and Rasheen Ali, making RB depth acceptable. Minimal impact.",
+      "contract_signed_elsewhere": "Non-tendered as RFA \u2014 now UFA",
+      "impact": "Explosive RB with injury history. Ravens chose not to tender him with Justice Hill and Rasheen Ali as backups behind Derrick Henry. Minimal depth loss.",
       "need_impact": "none",
       "need_position": "RB"
-    },
-    {
-      "player": "Jordan Stout",
-      "position": "P",
-      "age": 26,
-      "role": "starter",
-      "new_team": "New York Giants",
-      "contract_signed_elsewhere": "3yr/$12.3M",
-      "impact": "First-team All-Pro punter and Pro Bowler in 2025, averaged 44.9 net yards per punt. Significant special teams loss but punter is a replaceable position in the grand scheme of team needs.",
-      "need_impact": "creates",
-      "need_position": "P"
     }
   ],
+  "notable_failed_transaction": {
+    "description": "Maxx Crosby trade \u2014 VOIDED",
+    "details": "Ravens agreed on March 6 to send their 2026 (#14 overall) and 2027 first-round picks to Las Vegas Raiders for All-Pro EDGE Maxx Crosby. On March 11, the Raiders announced Baltimore backed out. Per The Athletic's Dianna Russini, Crosby failed his physical. Baltimore's medical staff had concerns about Crosby's knee surgery (full meniscus repair). Ravens retain both first-round picks. This dramatically alters Baltimore's draft and EDGE outlook \u2014 they now have two first-rounders back but no Crosby.",
+    "picks_retained": [
+      "2026 1st-round pick (#14 overall)",
+      "2027 1st-round pick"
+    ],
+    "impact_on_needs": "EDGE remains a Tier 1 critical need \u2014 arguably the most pressing need on the roster entering the 2026 draft. The failed trade also means the cap implications of Crosby's $30M cap hit no longer apply."
+  },
   "signings": [
     {
-      "player": "Maxx Crosby",
-      "position": "EDGE",
+      "player": "Tyler Huntley",
+      "position": "QB",
       "age": 28,
-      "previous_team": "Las Vegas Raiders",
-      "acquisition_type": "trade",
-      "trade_compensation_sent": "2026 1st round pick (No. 14 overall) + 2027 1st round pick",
+      "previous_team": "Baltimore Ravens (re-sign)",
       "contract": {
-        "years": 4,
-        "total_value": 116000000,
-        "guaranteed": 91500000,
-        "aav": 35500000,
-        "notes": "Existing contract signed with Raiders in March 2025. 2026 cap hit ~$30.782M; 2027 fully guaranteed at ~$29.782M. Contract runs through 2029. Restructure anticipated to lower 2026 cap number. Per OTC, four-year cost to Baltimore averages $29.126M AAV after restructure."
+        "years": 2,
+        "total_value": 5000000,
+        "guaranteed": 5000000,
+        "aav": 2500000,
+        "incentives_max": 11000000
       },
-      "expected_role": "starter",
-      "market_tier": "elite",
-      "need_impact": "fully_addressed",
-      "need_position": "EDGE",
-      "analysis": "Transformational acquisition \u2014 the biggest trade in Ravens franchise history. Crosby is a five-time Pro Bowler with 69.5 career sacks, 10+ sack seasons in three of the last four years, and was the highest-paid non-QB in NFL history when he signed his extension. He arrives on a fully committed 4-year, $116M contract at $35.5M AAV \u2014 elite market tier. Baltimore's pass rush totaled only 30 sacks in 2025 (fewest in 15 years); Crosby immediately upgrades this to a top-5 unit alongside Mike Green. EDGE goes from a tier-1 critical need to a non-need overnight. The cost is steep (two 1sts, no first-round picks until 2028), creating draft capital implications that shift other positional strategies."
+      "expected_role": "backup",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "QB",
+      "analysis": "Huntley re-signed as Lamar Jackson's backup on a 2yr/$5M base deal (up to $11M with incentives). His dual-threat ability mirrors Jackson's style and he went 2-0 as a starter in 2025. This was a value re-sign that locks in the backup QB position \u2014 QB is not a need. Effectively replaces Cooper Rush, who was a poor fit. Contract structure (depth-level AAV) correctly reflects his backup role."
     },
     {
       "player": "John Simpson",
       "position": "IOL",
       "age": 28,
       "previous_team": "New York Jets",
-      "acquisition_type": "free_agent_signing",
       "contract": {
         "years": 3,
         "total_value": 30000000,
-        "guaranteed": null,
+        "guaranteed": 0,
         "aav": 10000000,
-        "notes": "Guarantees not yet reported. $10M AAV reported by Ian Rapoport. Estimated ~$15-18M guaranteed based on market context for guard position at this AAV."
+        "notes": "Guaranteed money TBD at signing; $10M AAV ranks 11th among LGs per OTC. Guarantee structure not yet fully reported."
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "IOL",
-      "analysis": "Simpson is a reunion signing \u2014 he started all 17 games for the Ravens in 2023 before joining the Jets, where he started 34 straight games. At $10M AAV, this is mid-tier starter money at guard. He addresses the guard vacancy (where Faalele and Vorhees were both poor in 2025), though his PFF grade (56.9) was only marginally better than those he's replacing. Critically, this does NOT address the center void left by Linderbaum \u2014 the Ravens still need a starting C. IOL is partially addressed (one guard spot upgraded) but center remains an unsolved, critical need. The team will need to draft or sign a center to pair with Simpson."
-    },
-    {
-      "player": "Tyler Huntley",
-      "position": "QB",
-      "age": 27,
-      "previous_team": "Baltimore Ravens",
-      "acquisition_type": "re_signing",
-      "contract": {
-        "years": 2,
-        "total_value": 5000000,
-        "guaranteed": null,
-        "aav": 2500000,
-        "notes": "Two-year, $5M re-signing per ESPN. Guarantees TBD but expected to be largely guaranteed given the structure."
-      },
-      "expected_role": "backup",
-      "market_tier": "depth",
-      "need_impact": "fully_addressed",
-      "need_position": "QB",
-      "analysis": "Huntley re-signs as the backup quarterback on a below-market deal. He led the Ravens to wins over playoff teams (Bears, Packers) in 2025 while filling in for Lamar Jackson. The Ravens tried to upgrade at backup QB last year with Cooper Rush and it failed badly \u2014 Huntley is the right fit. With Jackson missing 4+ games in multiple recent seasons, this re-signing matters. At $2.5M AAV, it's a bargain backup deal. QB depth concern is resolved for now."
+      "analysis": "Simpson returns to Baltimore (previously 2023 starter) on a 3yr/$30M deal, addressing the guard position with a known commodity. He started all 34 possible games over his last two seasons with the Jets. However, this signing only partially addresses IOL needs: (1) Simpson fills one guard spot (likely LG), but RG remains unsettled between Emery Jones Jr. and Andrew Vorhees. (2) CENTER is completely unaddressed \u2014 Linderbaum's departure creates a critical hole that Simpson does not solve. IOL remains a multi-faceted need at center specifically. PFF grades on Simpson were inconsistent in 2025 (54th out of 81 guards), and he is known for drawing penalties. Mid-tier starter deal \u2014 commits to him as the LG, but this is not a full IOL solution."
     }
   ],
   "needs_impact_summary": {
-    "fully_addressed": [
-      "EDGE",
-      "QB"
-    ],
+    "fully_addressed": [],
     "partially_addressed": [
       "IOL"
     ],
-    "minimally_addressed": [],
+    "minimally_addressed": [
+      "QB"
+    ],
     "unchanged": [
       "WR",
-      "S",
-      "DT"
+      "CB",
+      "IDL"
     ],
     "escalated": [
+      "EDGE",
       "TE",
-      "CB"
+      "S"
     ],
     "newly_created": [
-      "IOL_CENTER"
+      "IOL_C"
     ]
   },
   "recommended_need_adjustments": [
     {
       "position": "EDGE",
       "previous_tier": 1,
-      "recommended_tier": 5,
-      "reasoning": "Maxx Crosby trade (4yr/$116M, $91.5M guaranteed, elite-tier) completely eliminates EDGE as a draft need. Crosby is a top-3 pass rusher in the NFL. Mike Green returns as the complementary starter. Tavius Robinson provides depth. No draft capital needed at EDGE in 2026 \u2014 would be wasted."
+      "recommended_tier": 1,
+      "reasoning": "Dre'Mont Jones departed to New England. The Maxx Crosby trade \u2014 agreed to on March 6 and expected to solve this position \u2014 fell through after a failed physical on March 11. Baltimore now retains their 2026 and 2027 first-round picks but has NO EDGE acquisition to show for it. Only Mike Green and Tavius Robinson remain as in-house options. Baltimore ranked 30th in the NFL in sacks in 2025 (the first year since 1996 without an EDGE recording 4.5+ sacks). EDGE remains an absolute Tier 1 critical need \u2014 possibly the highest priority on the board entering the draft."
     },
     {
       "position": "IOL",
       "previous_tier": 1,
-      "recommended_tier": 2,
-      "reasoning": "John Simpson signing (3yr/$30M) addresses the guard vacancy at a starter level, though he is not an elite player. CRITICAL: The center position is now a wide-open void after Linderbaum's departure to Las Vegas for $81M. Reserve Corey Bullock is not a viable starter. The Ravens must address center in the draft (rounds 2-3) or via additional free agency. IOL remains a high-priority need \u2014 the guard is partially solved but center is a brand-new tier-1 crisis need."
+      "recommended_tier": 1,
+      "reasoning": "John Simpson partially addresses the guard need (LG). However, Tyler Linderbaum's departure to Las Vegas on a record $81M deal creates a gaping hole at CENTER that has not been addressed. Baltimore's current in-house option is Corey Bullock, a UDFA backup who has never started a regular-season game. IOL remains a Tier 1 need, now split across two sub-positions: (1) C \u2014 critical need, no viable starter in house; (2) RG \u2014 still unsettled competition between Emery Jones Jr. and Andrew Vorhees. The Simpson signing reduces the urgency at LG from critical to moderate, but the center hole keeps IOL as a top-tier draft need."
     },
     {
       "position": "TE",
-      "previous_tier": 3,
+      "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Double departure of Isaiah Likely (Giants, 3yr/$40M) and Charlie Kolar (Chargers, 3yr/$24.3M) leaves Mark Andrews as the ONLY tight end on the roster. Andrews recently extended but is 30 years old. This position went from a depth concern to an urgent need in a single day. The Ravens lost their primary receiving TE (Likely) and their best blocking TE (Kolar) simultaneously. Baltimore must address TE in rounds 2-4 and likely via free agency as well. Top priority for the draft."
+      "reasoning": "Both Isaiah Likely (3yr/$40M, NYG) and Charlie Kolar (3yr/$24.3M, LAC) departed in free agency. Mark Andrews remains (re-signed in December on 3yr/$39.2M), but Baltimore went from a 3-TE system to a 1-TE depth chart overnight. No TE has been signed to replace Likely or Kolar. Andrews is 30 and primarily a pass-catcher \u2014 the blocking TE role Kolar held is completely vacated. TE should escalate from Tier 2 to Tier 1 \u2014 this is a two-player void at a position-group level, not just a backup loss."
+    },
+    {
+      "position": "S",
+      "previous_tier": 3,
+      "recommended_tier": 2,
+      "reasoning": "Baltimore lost both Alohi Gilman (3yr/$24.75M, KC) and Ar'Darius Washington (1yr, NYG) in free agency. Kyle Hamilton and Malaki Starks are locked in as the top two safeties and are excellent, but the depth behind them is now nearly nonexistent. Baltimore's new HC Jesse Minter favors nickel/sub-package defense requiring a third safety, and the team currently cannot run that scheme at full strength. Safety need escalates from Tier 3 to Tier 2 \u2014 a reliable No. 3 safety / nickel-versatile DB must be added either in free agency or the draft."
     },
     {
       "position": "CB",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Chidobe Awuzie's departure (starter-level player) slightly escalates the CB need. The Ravens have Nate Wiggins (Year 3, emerging), Marlon Humphrey (30, declining), and developmental pieces T.J. Tampa and Keyon Martin. CB2/CB3 depth remains a concern but Wiggins projects as a legitimate CB1. CB stays at tier 2 \u2014 address in rounds 2-4, not a pressing free agency need."
+      "reasoning": "No movement at CB in free agency. Nate Wiggins is the emerging starter. Chidobe Awuzie is an unrestricted free agent still unsigned. Marlon Humphrey (aging, near 30) and a young/unproven room beyond Wiggins. CB need is unchanged \u2014 remains Tier 2 entering draft."
+    },
+    {
+      "position": "IDL",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "No additions or departures to IDL in confirmed free agency moves. Nnamdi Madubuike's status (potential return from injury) is a key swing factor \u2014 if he returns healthy, IDL improves substantially. However, no signed additions yet. IDL remains a Tier 2 need, unchanged."
     },
     {
       "position": "WR",
-      "previous_tier": 1,
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "No WR additions or losses confirmed. Wide receiver was a pre-FA need and no movement has occurred. Remains Tier 2."
+    },
+    {
+      "position": "IOL_C",
+      "previous_tier": 0,
       "recommended_tier": 1,
-      "reasoning": "No meaningful WR additions in free agency (DeAndre Hopkins also departed via voided contract). WR remains a top-tier need. The Ravens have Zay Flowers as their clear WR1 but lack a legitimate WR2 or deep-threat option. Must address in the draft (rounds 1-3 via trade-up or day 2) and possibly via remaining free agency market. Cap constraints will limit pursuit of elite WRs."
-    },
-    {
-      "position": "DT",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "No DT signings or departures of note in free agency so far. Nnamdi Madubuike (health uncertain after neck injury) and Travis Jones anchor the interior. Brent Urban and Taven Bryan both departed as depth pieces. Taven Bryan left but was rotational. IDL depth remains a need, particularly given Madubuike's injury concerns."
-    },
-    {
-      "position": "S",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Alohi Gilman and Ar'Darius Washington both departed as UFAs. The Ravens have Kyle Hamilton and Malaki Starks (the two starters) firmly in place, but depth at S3 is now depleted. This is a depth need \u2014 address in rounds 4-7."
+      "reasoning": "NEW NEED CREATED. Tyler Linderbaum departed on a record 3yr/$81M deal to the Raiders. This is the most specific sub-position need created in this free agency window. Center was not a need before FA \u2014 it is now a critical Tier 1 need. Corey Bullock is the only in-house option and is not a reliable starter. Draft (Auburn's Connor Lew, Kansas State's Sam Hecht, Iowa's Logan Jones) or late free agency are the primary paths to a solution."
     }
   ],
   "team_page_additions": {
     "key_additions": [
       {
-        "player": "Maxx Crosby",
-        "position": "EDGE",
-        "contract_summary": "4yr/$116M ($91.5M gtd) \u2014 via trade",
-        "previous_team": "Las Vegas Raiders",
-        "trade_cost": "2026 1st (No. 14) + 2027 1st",
-        "headline": "Five-time Pro Bowler and franchise-altering pass rusher (69.5 career sacks) acquired in biggest trade in Ravens history \u2014 instantly transforms Baltimore's pass rush from a liability to an elite unit"
-      },
-      {
         "player": "John Simpson",
         "position": "IOL",
         "contract_summary": "3yr/$30M",
         "previous_team": "New York Jets",
-        "headline": "Familiar face returns to Baltimore to address guard vacancy after Faalele/Vorhees disappointments \u2014 started 51 straight games over his last three seasons"
+        "headline": "Veteran guard returns to Baltimore on 3-year deal, partially addressing offensive line need at LG"
       },
       {
         "player": "Tyler Huntley",
         "position": "QB",
-        "contract_summary": "2yr/$5M (re-sign)",
-        "previous_team": "Baltimore Ravens",
-        "headline": "Fan-favorite backup retained on a bargain deal after proving he is the ideal safety net for Lamar Jackson \u2014 won two starts against playoff teams in 2025"
+        "contract_summary": "2yr/$5M base (up to $11M)",
+        "previous_team": "Baltimore Ravens (re-sign)",
+        "headline": "Dual-threat backup re-signed on value deal; went 2-0 as starter in 2025, locks in Jackson's insurance policy"
       }
     ],
     "key_losses": [
@@ -285,80 +258,82 @@
         "position": "IOL",
         "contract_summary": "3yr/$81M ($60M gtd) with Raiders",
         "new_team": "Las Vegas Raiders",
-        "headline": "Three-time Pro Bowl center and record-breaking offensive line anchor departs for market-obliterating $27M/year deal \u2014 leaves a critical void at the pivot that the Simpson signing does not fill"
+        "headline": "3x Pro Bowl center departs on record-setting deal, creating critical hole at Baltimore's most important interior line spot"
       },
       {
         "player": "Isaiah Likely",
         "position": "TE",
-        "contract_summary": "3yr/$40M (max $47.5M) with Giants",
+        "contract_summary": "3yr/$40M (up to $47.5M) with Giants",
         "new_team": "New York Giants",
-        "headline": "Primary receiving tight end follows John Harbaugh to New York, stripping Baltimore of a key weapon in the passing game \u2014 15 TDs in four Ravens seasons"
+        "headline": "25-year-old pass-catching TE follows HC Harbaugh to New York, leaving Andrews as Baltimore's only TE under contract"
       },
       {
         "player": "Charlie Kolar",
         "position": "TE",
-        "contract_summary": "3yr/$24.3M ($17M gtd) with Chargers",
+        "contract_summary": "3yr/$24.3M with Chargers",
         "new_team": "Los Angeles Chargers",
-        "headline": "Best blocking tight end in football by blown-block rate departs alongside Likely \u2014 leaving Mark Andrews as Baltimore's only tight end and gutting the run-blocking identity"
+        "headline": "Highest-paid blocking TE in NFL departs; combined with Likely's exit, Baltimore loses its entire complementary TE room"
       },
       {
         "player": "Dre'Mont Jones",
         "position": "EDGE",
-        "contract_summary": "3yr/$39.5M with Patriots",
+        "contract_summary": "3yr/$36.5M ($23.1M gtd) with Patriots",
         "new_team": "New England Patriots",
-        "headline": "Career-year trade-deadline acquisition (career-high 7 sacks in 2025) departs for New England \u2014 expected after Crosby arrival; Mike Green steps into the starting rotation"
+        "headline": "Trade-deadline acquisition leaves via free agency; combined with failed Maxx Crosby trade, EDGE remains Baltimore's biggest unaddressed need"
       },
       {
-        "player": "Chidobe Awuzie",
-        "position": "CB",
-        "contract_summary": "TBD/unsigned",
-        "new_team": "TBD",
-        "headline": "Starting-caliber cornerback departs in free agency, adding to the secondary depth concerns behind Nate Wiggins and aging Marlon Humphrey"
+        "player": "Alohi Gilman",
+        "position": "S",
+        "contract_summary": "3yr/$24.75M ($15M gtd) with Chiefs",
+        "new_team": "Kansas City Chiefs",
+        "headline": "Starting safety departs to AFC rival; combined with Washington's departure, leaves thin depth behind Hamilton and Starks"
+      },
+      {
+        "player": "Patrick Ricard",
+        "position": "FB",
+        "contract_summary": "2yr/$7.63M (max $8.5M) with Giants",
+        "new_team": "New York Giants",
+        "headline": "6x Pro Bowl fullback and cornerstone of Baltimore's run game for 9 seasons follows HC Harbaugh to New York"
       },
       {
         "player": "Jordan Stout",
         "position": "P",
-        "contract_summary": "3yr/$12.3M with Giants",
+        "contract_summary": "3yr/$12.3M with Giants (highest-paid punter ever)",
         "new_team": "New York Giants",
-        "headline": "First-team All-Pro punter (44.9 net yards/punt in 2025) follows John Harbaugh to New York \u2014 leaves Baltimore needing a punter replacement"
+        "headline": "2025 first-team All-Pro punter (50.1 yds avg, 44.9 net) follows Harbaugh to New York, leaves Ravens with unresolved punter vacancy"
+      },
+      {
+        "player": "Ar'Darius Washington",
+        "position": "S",
+        "contract_summary": "1yr (terms TBD) with Giants",
+        "new_team": "New York Giants",
+        "headline": "Versatile depth safety follows Harbaugh to New York, further depleting Baltimore's safety depth"
       }
-    ]
+    ],
+    "notable_failed_transaction": {
+      "player": "Maxx Crosby",
+      "position": "EDGE",
+      "type": "trade_voided",
+      "headline": "Blockbuster Crosby trade agreed March 6 (2 first-round picks), voided March 11 after failed physical \u2014 Ravens retain 2026 and 2027 first-round picks, EDGE still a critical need"
+    }
   },
-  "draft_capital_notes": {
-    "picks_traded_away": [
-      "2026 1st round (No. 14 overall) \u2014 to Raiders for Crosby",
-      "2027 1st round \u2014 to Raiders for Crosby"
-    ],
-    "picks_retained": [
-      "2026 2nd round (No. 45)",
-      "2026 3rd round (No. 80)",
-      "2026 4th round (No. 115)",
-      "2026 5th round (No. 152)",
-      "2026 5th round (No. 160)",
-      "2026 6th round (from Broncos via Eagles)",
-      "2026 7th round",
-      "2026 7th round"
-    ],
-    "compensatory_picks_projected": [
-      "2027 3rd round (for Linderbaum departure)",
-      "2027 5th round (for Jones departure)"
-    ],
-    "impact": "Ravens have no first-round picks in 2026 or 2027. Must address multiple pressing needs (center, TE, WR, CB) through rounds 2-7. Draft strategy is heavily constrained \u2014 day 2 picks at No. 45 and No. 80 carry enormous weight. Trade-up to first round on draft day is theoretically possible but would cost another premium pick."
-  },
+  "draft_capital_notes": "Ravens retain their 2026 first-round pick (#14 overall) and their 2027 first-round pick after the Maxx Crosby trade was voided. With no first-round pick previously spent, Baltimore enters the draft with strong capital and the #14 pick to potentially address EDGE, IOL (C), or TE at the top of the board.",
   "confidence": "high",
   "sources": [
-    "https://www.espn.com/nfl/story/_/id/48015558/ravens-2026-free-agency-tracker-offseason-moves-signings-trades",
-    "https://www.baltimorebeatdown.com/baltimore-ravens-free-agency/80862/ravens-free-agency-tracker-rumors-reports-and-signings",
-    "https://www.si.com/nfl/ravens/onsi/news/baltimore-ravens-2026-free-agency-tracker-signings-trades-former-players",
-    "https://overthecap.com/raiders-trade-edge-maxx-crosby-to-the-ravens",
-    "https://www.spotrac.com/nfl/player/_/id/29154/maxx-crosby",
     "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
-    "https://www.profootballrumors.com/2026/03/raiders-c-tyler-linderbaum-finalizing-deal",
-    "https://www.baltimoreravens.com/news/john-simpson-ravens-guard-free-agency-signing-offensive-line",
-    "https://www.thebanner.com/sports/ravens-nfl/ravens-free-agency-tracker-eric-decosta-ILYRMZTU7RBLNOCGJRRM63SNAQ/",
-    "https://www.baltimoreravens.com/news/charlie-kolar-chargers-free-agency-ravens-tight-end-big-deal",
-    "https://www.baltimoreravens.com/news/dremont-jones-signing-patriots-new-england-free-agency-2026",
+    "https://www.espn.com/nfl/story/_/id/48015558/ravens-2026-free-agency-tracker-offseason-moves-signings-trades",
+    "https://www.spotrac.com/nfl/player/_/id/47906/tyler-huntley",
     "https://overthecap.com/salary-cap/baltimore-ravens",
-    "https://sports.yahoo.com/articles/ravens-updated-cap-space-list-123826426.html"
+    "https://www.si.com/nfl/ravens/onsi/news/baltimore-ravens-2026-free-agency-tracker-signings-trades-former-players",
+    "https://www.baltimorebeatdown.com/baltimore-ravens-free-agency/80862/ravens-free-agency-tracker-rumors-reports-and-signings",
+    "https://www.baltimoreravens.com/news/free-agency-tracker/",
+    "https://www.profootballrumors.com/2026/03/ravens-nix-trade-for-raiders-maxx-crosby",
+    "https://www.on3.com/pro/news/maxx-crosby-trade-baltimore-ravens-back-out-agreement-las-vegas-raiders/",
+    "https://sports.yahoo.com/articles/ravens-lose-7-free-agents-182403549.html",
+    "https://heavy.com/sports/nfl/baltimore-ravens/fullback-patrick-ricard-leaves-free-agency/",
+    "https://www.baltimoreravens.com/news/john-simpson-ravens-guard-free-agency-signing-offensive-line",
+    "https://www.baltimoreravens.com/news/tyler-huntley-ravens-bringing-back-snoop-two-year-deal-free-agency",
+    "https://www.nfl.com/news/raiders-center-tyler-linderbaum-three-year-81-million-contract",
+    "https://www.profootballrumors.com/2026/03/ravens-g-john-simpson-agree-to-deal"
   ]
 }

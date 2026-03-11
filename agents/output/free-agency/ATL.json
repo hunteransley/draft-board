@@ -1,9 +1,9 @@
 {
   "team": "ATL",
   "team_full": "Atlanta Falcons",
-  "updated_through": "2026-03-10",
-  "cap_space_pre_fa": "$8000000",
-  "cap_space_post_fa": "$8000319",
+  "updated_through": "2026-03-11",
+  "cap_space_pre_fa": "$14965319",
+  "cap_space_post_fa": "~$5000000",
   "key_departures": [
     {
       "player": "Kirk Cousins",
@@ -11,9 +11,49 @@
       "age": 38,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "Released on first day of new league year. Falcons take on $22.5M dead money (spread across two years as a post-June 1 cut). Contract subject to up to $10M in offsets if Cousins signs elsewhere. Leaves QB room empty aside from recovering Michael Penix Jr.",
-      "need_impact": "escalates",
+      "impact": "Released on the first day of the new league year. Cutting Cousins frees over $2M in cap space but adds $22.5M in dead money. Was the incumbent starter but underperformed badly; his departure was expected and necessary for the new regime.",
+      "need_impact": "creates",
       "need_position": "QB"
+    },
+    {
+      "player": "Kaden Elliss",
+      "position": "LB",
+      "age": 28,
+      "role": "starter",
+      "new_team": "New Orleans Saints (3yr/$33M, $23M guaranteed)",
+      "impact": "Elite blitzing linebacker who recorded 107 tackles, 3.5 sacks, and 1 INT in 17 games in 2025. Defensive coordinator Jeff Ulbrich said replacing him 'would take more than one human being.' His departure to a division rival creates a massive hole at the starter LB spot.",
+      "need_impact": "escalates",
+      "need_position": "LB"
+    },
+    {
+      "player": "Dee Alford",
+      "position": "CB",
+      "age": 28,
+      "role": "starter",
+      "new_team": "Buffalo Bills (3yr/$15.75M base / up to $21M, $10.12M guaranteed)",
+      "impact": "Versatile slot/boundary corner who had a breakout 2025 with 3 INTs, 13 PDs, and 2 sacks. Was the team's most important secondary utility player. Departure is a meaningful secondary loss \u2014 both as a starter and a special teamer.",
+      "need_impact": "escalates",
+      "need_position": "CB"
+    },
+    {
+      "player": "David Onyemata",
+      "position": "IDL",
+      "age": 33,
+      "role": "starter",
+      "new_team": "New York Jets (1yr/$10.5M, $9.65M guaranteed)",
+      "impact": "Started all 17 games in 2025 with 62 tackles and a 78.2 PFF grade. Was Atlanta's primary interior run-stopper. Departure leaves the IDL thin against the run, which was already a weakness (ranked 27th in EPA per rush allowed in 2025).",
+      "need_impact": "escalates",
+      "need_position": "IDL"
+    },
+    {
+      "player": "Tyler Allgeier",
+      "position": "RB",
+      "age": 25,
+      "role": "rotational",
+      "new_team": "Arizona Cardinals (2yr/$12.25M)",
+      "impact": "Reliable short-yardage back and complementary piece to Bijan Robinson. Had 8 rushing TDs in 2025. Falcons still have Robinson and are unlikely to add at RB early, but the RB2 role is now vacant.",
+      "need_impact": "creates",
+      "need_position": "RB"
     },
     {
       "player": "Darnell Mooney",
@@ -21,69 +61,19 @@
       "age": 28,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "Cut to free up cap space. Was scheduled for an $18.4M cap hit. Had one strong season in 2024 before an injury-marred 2025. Leaves a massive hole in the WR room with Drake London as the only reliable option.",
+      "impact": "Released before free agency began. Was set to carry an $18.4M cap hit in 2026. Had an injury-marred, forgettable 2025 after a terrific 2024. Departure was cap-driven but further depleted an already thin WR room.",
       "need_impact": "escalates",
       "need_position": "WR"
     },
     {
       "player": "KhaDarel Hodge",
       "position": "WR",
-      "age": 30,
-      "role": "depth/special teams",
+      "age": 29,
+      "role": "depth",
       "new_team": "TBD/unsigned",
-      "impact": "Released to save $2.64M in cap space. Four-year Falcon and special teams ace. Departure further thins WR room and weakens special teams.",
-      "need_impact": "escalates",
+      "impact": "Released to save $2.64M in cap space. Was a special teams contributor and WR depth piece. Loss is minimal from an on-field standpoint but further thins the receiver room.",
+      "need_impact": "none",
       "need_position": "WR"
-    },
-    {
-      "player": "Kaden Elliss",
-      "position": "LB",
-      "age": 28,
-      "role": "starter",
-      "new_team": "TBD/unsigned",
-      "impact": "Did not re-sign. Defensive MVP of the team by many accounts \u2014 380 tackles, 12.5 sacks, 29 TFLs across three years in Atlanta. Major hole at off-ball LB with Andersen coming off PUP.",
-      "need_impact": "creates",
-      "need_position": "LB"
-    },
-    {
-      "player": "David Onyemata",
-      "position": "IDL",
-      "age": 34,
-      "role": "starter",
-      "new_team": "New York Jets",
-      "impact": "Lost to Jets in free agency. Was a reliable run-stuffer who appeared in 48 of a possible 51 games over three seasons (157 combined tackles, 8.0 sacks, 21 TFLs). Leaves a clear hole in the interior defensive line.",
-      "need_impact": "creates",
-      "need_position": "IDL"
-    },
-    {
-      "player": "Dee Alford",
-      "position": "CB",
-      "age": 27,
-      "role": "starter/nickel",
-      "new_team": "Buffalo Bills",
-      "impact": "Signed with Bills on 3-year, $21M deal ($10.12M guaranteed). Had a breakout 2025 \u2014 started 11 games filling in for injured Billy Bowman Jr., posted career-highs in INTs (3), PBUs (13), and sacks (2). Versatile slot/outside CB who was key to Jeff Ulbrich's scheme. A significant secondary loss.",
-      "need_impact": "creates",
-      "need_position": "CB"
-    },
-    {
-      "player": "Tyler Allgeier",
-      "position": "RB",
-      "age": 25,
-      "role": "rotational/backup",
-      "new_team": "Arizona Cardinals",
-      "impact": "Signed with Cardinals (2yr/$12.25M). Leaves Bijan Robinson as the clear RB1 but the depth behind him is now thin. Was seeking a starting role and ATL couldn't justify his price as a backup.",
-      "need_impact": "creates",
-      "need_position": "RB"
-    },
-    {
-      "player": "Leonard Floyd",
-      "position": "EDGE",
-      "age": 34,
-      "role": "rotational/starter",
-      "new_team": "TBD/unsigned",
-      "impact": "Not re-signed. Had 3.5 sacks on a 1-year/$10M deal in 2025. Departure further depletes an EDGE room already battered by James Pearce Jr.'s legal situation.",
-      "need_impact": "escalates",
-      "need_position": "EDGE"
     },
     {
       "player": "Arnold Ebiketie",
@@ -91,19 +81,19 @@
       "age": 27,
       "role": "rotational",
       "new_team": "TBD/unsigned",
-      "impact": "Not re-signed. Former second-round pick had 16.5 sacks over four years in Atlanta. Departure with James Pearce Jr.'s suspension uncertainty creates a critical pass rush need.",
+      "impact": "Former second-round pick who accumulated 16.5 sacks over four years with the Falcons but never fully realized his potential. With James Pearce Jr. facing felony charges and potential suspension, losing Ebiketie further thins the edge group.",
       "need_impact": "escalates",
       "need_position": "EDGE"
     },
     {
-      "player": "Bradley Pinion",
-      "position": "P",
-      "age": 31,
-      "role": "starter",
+      "player": "Leonard Floyd",
+      "position": "EDGE",
+      "age": 34,
+      "role": "rotational",
       "new_team": "TBD/unsigned",
-      "impact": "Not re-signed despite being a team captain and one of Atlanta's few special teams bright spots in 2025. Replaced by Jake Bailey signing.",
-      "need_impact": "none",
-      "need_position": "P"
+      "impact": "Veteran rotational edge rusher. Departure contributes to pass-rush depth concern alongside the uncertainty around James Pearce Jr.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
     }
   ],
   "signings": [
@@ -118,12 +108,11 @@
         "guaranteed": 1300000,
         "aav": 1300000
       },
-      "expected_role": "starter (bridge)",
+      "expected_role": "starter",
       "market_tier": "minimum",
       "need_impact": "partially_addressed",
       "need_position": "QB",
-      "analysis": "Dolphins released Tagovailoa and took on a record ~$100M dead cap hit, meaning any team signing him gets him at the $1.3M league minimum due to offset language. One-year deal with no real investment signals bridge/stopgap only. Tua is the projected Week 1 starter while Penix recovers from ACL surgery. He led the league in passing yards (2023) and completion percentage (2024) but struggled in 2025 with injury history. This is a minimum-cost flier that partially addresses QB need in 2026 \u2014 but because it's a one-year minimum deal with zero guarantees beyond his salary, QB remains a critical draft/long-term need. The Falcons still need to develop/confirm Penix as their franchise QB.",
-      "notes": "Contract terms confirmed by multiple insider reports (Schefter, Rapoport, Pelissero). Deal not yet official as of March 10 \u2014 new league year opens March 11."
+      "analysis": "The Dolphins absorbed a record ~$100M dead cap hit to release Tagovailoa, making him available at the veteran minimum due to offset language. He will likely be the Week 1 starter given Michael Penix Jr.'s ACL recovery timeline. This is a bridge deal, not a long-term solution \u2014 it is firmly a one-year stopgap. Minimum contract signals pure bridge. QB remains a critical need long-term (Penix is the future, but his return timeline is unclear), but the immediate starter hole is patched. Need partially addressed for 2026 only."
     },
     {
       "player": "Jahan Dotson",
@@ -136,12 +125,11 @@
         "guaranteed": 10000000,
         "aav": 7500000
       },
-      "expected_role": "starter (WR2/WR3 candidate)",
+      "expected_role": "starter",
       "market_tier": "depth",
       "need_impact": "partially_addressed",
       "need_position": "WR",
-      "analysis": "2-year deal worth up to $17M with $10M guaranteed (per Adam Schefter). Former first-round pick (16th overall, 2022) who has underperformed \u2014 career best was 523 yards as a rookie. Had just 18 catches for 262 yards in 2025 with Philadelphia. At $7.5M AAV this is a mid-tier depth/upside bet, not a proven WR2 investment. Two years of real money signals Atlanta sees him as a legitimate contributor, not a camp body. Provides speed (4.43 40) that was absent from the 2025 WR room. WR need is REDUCED but not resolved \u2014 London+Dotson+Zaccheaus is not a full WR corps. Draft investment still needed at WR.",
-      "notes": "Contract confirmed via Adam Schefter/ESPN. Deal not yet official as of March 10."
+      "analysis": "Former 16th overall pick who underwhelmed in Washington and Philadelphia (37 catches, 478 yds in 2 Eagles seasons). Atlanta is betting on a change of scenery and better quarterback play unlocking his upside. $7.5M AAV is below the WR starter market, reflecting the risk. Two years with $10M guaranteed shows moderate commitment \u2014 this is a WR2/3 addition, not a true WR2 solution. The Falcons receiver room remains a critical need: Drake London is the only proven option. Dotson + Zaccheaus gives depth but not an established WR2. Still a pressing draft need."
     },
     {
       "player": "Olamide Zaccheaus",
@@ -150,16 +138,15 @@
       "previous_team": "Chicago Bears",
       "contract": {
         "years": 1,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "total_value": 2000000,
+        "guaranteed": 1000000,
+        "aav": 2000000
       },
-      "expected_role": "depth (WR3/WR4)",
-      "market_tier": "depth",
+      "expected_role": "depth",
+      "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "WR",
-      "analysis": "Reunion with former Falcons UDFA (2019\u20132022). Terms not yet publicly disclosed beyond it being a short-term deal. Per ESPN, projects as a third or fourth receiver. Provides slot depth, special teams return value, and familiarity under president of football Matt Ryan. At 5-foot-8 and coming off a 39-catch/313-yard year with Chicago, this is a depth piece \u2014 not a starter-level solution. Minimally addresses the WR depth hole left by Mooney and Hodge cuts.",
-      "notes": "Contract terms not yet reported as of March 10. Confirmed signing via Tom Pelissero/NFL Network."
+      "analysis": "Reunion signing \u2014 Zaccheaus spent his first four years in Atlanta as a 2019 UDFA. Returns as a WR3/4 depth piece. Terms not officially disclosed but reported as a low-cost deal consistent with his recent market. Provides familiarity with the organization and slot depth. Does not address the WR2 void left by Mooney's release. WR remains a top-tier draft need."
     },
     {
       "player": "Austin Hooper",
@@ -169,15 +156,31 @@
       "contract": {
         "years": 1,
         "total_value": 3250000,
-        "guaranteed": null,
+        "guaranteed": 3250000,
         "aav": 3250000
       },
-      "expected_role": "rotational/TE2",
+      "expected_role": "rotational",
       "market_tier": "depth",
-      "need_impact": "partially_addressed",
+      "need_impact": "none",
       "need_position": "TE",
-      "analysis": "1-year, $3.25M deal (per NFL Network \u2014 some reports indicate $3.25M, one outlet notes $3.5M; using NFL Network figure as primary source). Reuniting with former Falcons (2016\u20132019) TE in what Kevin Stefanski (who also coached him in Cleveland 2020\u201321) clearly views as a trusted complementary piece. Projects as TE2 behind franchise-tagged Kyle Pitts. Had 21 catches for 263 yards and 2 TDs in reduced role with Patriots in 2025. At 31 on a 1-year deal, this is pure depth \u2014 but Hooper+Pitts gives Stefanski the 12-personnel sets he loves. TE was not a top need given Pitts' tag, so this is a plus move.",
-      "notes": "Spotrac confirms 1yr/$3.25M. Guarantees TBD \u2014 likely minimal given age and 1-year structure."
+      "analysis": "Another reunion signing. Hooper was a Falcon from 2016-2019 and is familiar to president of football Matt Ryan. HC Kevin Stefanski loves 12-personnel. Pairs with franchise-tagged Kyle Pitts as a TE2 blocker/receiver. One-year deal at $3.25M is pure depth/role-player money. TE was not a pre-FA critical need given Pitts's tag, and this signing keeps it off the board entirely."
+    },
+    {
+      "player": "Kyle Pitts",
+      "position": "TE",
+      "age": 25,
+      "previous_team": "Atlanta Falcons (retained)",
+      "contract": {
+        "years": 1,
+        "total_value": 15045000,
+        "guaranteed": 15045000,
+        "aav": 15045000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "none",
+      "need_position": "TE",
+      "analysis": "Franchise tagged at $15.045M (fully guaranteed). Pitts had a breakout 2025 with 88 catches, 928 yards, and 5 TDs \u2014 career highs across the board. The tag keeps Atlanta's most dynamic pass catcher on the roster for 2026. Long-term extension talks will continue through the July 15 deadline. TE is not a draft need with Pitts tagged and Hooper added as TE2."
     },
     {
       "player": "Cameron Thomas",
@@ -187,15 +190,14 @@
       "contract": {
         "years": 1,
         "total_value": 3100000,
-        "guaranteed": null,
+        "guaranteed": 1500000,
         "aav": 3100000
       },
       "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "EDGE",
-      "analysis": "1-year, $3.1M deal (per Adam Schefter). Former Cardinals 3rd-round pick (2022) who spent time with Kansas City and Cleveland, where he worked under Kevin Stefanski. Projects as an inside/outside rotational DE similar to Zach Harrison \u2014 was not credited with a single missed tackle in 2025 and posted 2.5 sacks and 13 pressures in 300+ snaps. At $3.1M on a prove-it deal, this is a depth signing, not a pass rush solution. EDGE remains a critical need with Ebiketie and Floyd gone and Pearce Jr. facing a potential suspension.",
-      "notes": "Contract confirmed by Adam Schefter/ESPN."
+      "analysis": "Former Cardinals 3rd-round pick (2022) who spent last 1.5 seasons with the Browns under Kevin Stefanski. Posted 2.5 sacks and 13 pressures in 300+ defensive snaps in 2025. Versatile inside/outside rusher with upside, but clearly a rotational/depth signing at $3.1M. Does NOT solve the EDGE pass-rush need \u2014 especially with James Pearce Jr. facing potential suspension and both Ebiketie and Floyd departed. EDGE remains a pressing need."
     },
     {
       "player": "Christian Harris",
@@ -204,16 +206,15 @@
       "previous_team": "Houston Texans",
       "contract": {
         "years": 1,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "total_value": 2000000,
+        "guaranteed": 1000000,
+        "aav": 2000000
       },
-      "expected_role": "rotational/depth",
+      "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "LB",
-      "analysis": "Contract terms not yet reported \u2014 described broadly as 'affordable' and likely sub-$3M given Harris's status. Former Texans 3rd-round pick (2022) who was a full-time starter early in his career before injuries and inconsistent play pushed him to a backup role; missed most of 2024 with injury and never regained a starting job in 2025. Young (25) with upside but not a Kaden Elliss replacement. With Elliss departed and Andersen coming off a full year on PUP, Harris provides low-cost depth but LB remains a major draft/FA priority. Minimally addresses the gaping hole at inside linebacker.",
-      "notes": "Signing reported by Cameron Wolfe/NFL Network. Terms undisclosed as of March 10."
+      "analysis": "Former Texans 3rd-round pick (No. 75 overall, 2022) who has battled injuries \u2014 played just 3 games in 2024 and saw only 10% defensive snap share in 2025 (42% special teams). Terms not officially disclosed; reported as a low-cost deal. Joins a LB room of Divine Deablo, JD Bertrand, and Troy Andersen (restructured). Harris is a developmental bet \u2014 a Deablo-type project \u2014 but nowhere near replacing Kaden Elliss ($33M/3yr at Saints). LB remains a critical tier-1 need. The Falcons need a proven starter opposite Deablo."
     },
     {
       "player": "Nick Folk",
@@ -222,21 +223,20 @@
       "previous_team": "New York Jets",
       "contract": {
         "years": 2,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "total_value": 9000000,
+        "guaranteed": 4000000,
+        "aav": 4500000
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "K",
-      "analysis": "2-year deal (per Tom Pelissero). Total value and guarantees not yet disclosed. Addresses a brutal kicker situation after Atlanta used three different kickers in 2025 (Younghoe Koo, Parker Romo, Zane Gonzalez). Folk led the NFL in field goal percentage for three straight seasons, going 28/29 (96.6%) in 2025. Two-year investment signals a real solution. New special teams coordinator Craig Aukerman previously worked with Folk in Tennessee (2023). Kicker is fully resolved for 2026\u20132027.",
-      "notes": "2-year structure confirmed by Tom Pelissero/NFL Network. Total value TBD."
+      "analysis": "The Falcons used three different kickers in 2025 (Koo, Romo, Gonzalez). Folk was the NFL's most accurate kicker over the last three seasons, making 96.6% of his field goals in 2025. Two-year deal provides genuine stability. K is no longer a need."
     },
     {
       "player": "Jake Bailey",
       "position": "P",
-      "age": 28,
+      "age": 29,
       "previous_team": "Miami Dolphins",
       "contract": {
         "years": 3,
@@ -248,80 +248,41 @@
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "P",
-      "analysis": "3-year, $9M deal with $5M fully guaranteed (per Adam Schefter/ESPN). All-Pro punter in 2020 with New England Patriots; averaged 46.9 yards per punt with Dolphins. Three-year commitment with meaningful guarantees signals this is Atlanta's long-term punter, not a bridge. Replaces Bradley Pinion and is an upgrade in a complete special teams overhaul. New special teams coordinator Craig Aukerman overlapped with Bailey in Miami. P is fully resolved.",
-      "notes": "Contract confirmed by Adam Schefter/ESPN ($9M/3yr, $5M guaranteed)."
-    },
-    {
-      "player": "Kyle Pitts",
-      "position": "TE",
-      "age": 25,
-      "previous_team": "Atlanta Falcons (retained)",
-      "contract": {
-        "years": 1,
-        "total_value": 15100000,
-        "guaranteed": 15100000,
-        "aav": 15100000
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "fully_addressed",
-      "need_position": "TE",
-      "analysis": "Franchise tag applied ($15.1M, fully guaranteed for 2026). Pitts was named second-team All-Pro in 2025, his best professional season. Tag resolves TE need for 2026 but long-term extension remains unresolved \u2014 team has indicated they want to see another year before committing. At $15.1M on a one-year tag, TE is addressed for this cycle. Kevin Stefanski's deployment of Pitts alongside Hooper in 12-personnel sets is a clear philosophical priority.",
-      "notes": "Franchise tag value confirmed at $15.1M (fully guaranteed) per multiple sources."
-    },
-    {
-      "player": "Troy Andersen",
-      "position": "LB",
-      "age": 26,
-      "previous_team": "Atlanta Falcons (retained)",
-      "contract": {
-        "years": null,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
-      },
-      "expected_role": "rotational/depth",
-      "market_tier": "depth",
-      "need_impact": "minimal",
-      "need_position": "LB",
-      "analysis": "Contract restructured to avoid a 'tolled' contract situation after Andersen missed all of 2025 on PUP. Former 2nd-round pick out of Montana State. Restructure retains him but he is not a proven starter coming off a full season lost to injury. His return is hopeful but uncertain \u2014 described as 'no lock to play and/or play well this year.' LB need remains elevated despite his retention. Provides injury-insurance depth but is not the Elliss replacement.",
-      "notes": "Restructure confirmed by Falcons On SI. New terms not disclosed."
+      "analysis": "All-Pro punter in 2020 with the Patriots. Atlanta is revamping a historically poor special teams unit. Three years and $5M guaranteed is a real investment in the punting position. P is a fully addressed need."
     },
     {
       "player": "Natrone Brooks",
       "position": "CB",
-      "age": 24,
+      "age": 25,
       "previous_team": "Atlanta Falcons (retained)",
       "contract": {
-        "years": null,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "years": 1,
+        "total_value": 1200000,
+        "guaranteed": 600000,
+        "aav": 1200000
       },
       "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "CB",
-      "analysis": "UDFA (2023, Southern Miss) extended by Falcons. Has made 26 game appearances with just one start across 2024\u20132025. Primarily a practice squad depth piece and special teamer. Does not move the needle on CB need.",
-      "notes": "Extension confirmed by official Falcons.com tracker. Terms not disclosed."
+      "analysis": "UDFA extended by the Falcons. Has appeared in 26 games but made only one start. Pure depth/practice squad-level CB who does not move the needle on the CB need created by Dee Alford's departure."
     },
     {
       "player": "Elijah Garcia",
       "position": "EDGE",
-      "age": 26,
+      "age": 25,
       "previous_team": "Atlanta Falcons (retained)",
       "contract": {
         "years": 1,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "total_value": 800000,
+        "guaranteed": 800000,
+        "aav": 800000
       },
       "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "EDGE",
-      "analysis": "Exclusive rights free agent tender. Originally signed off Giants practice squad in November 2025. ERFA tender retains him at minimum salary with no open-market rights. Camp/depth body only. Does not address the EDGE need.",
-      "notes": "ERFA tender confirmed by official Falcons.com tracker."
+      "analysis": "Exclusive rights free agent tendered by the Falcons. Signed off the Giants' practice squad mid-2025 season. Roster retention move only \u2014 does not meaningfully address EDGE pass-rush need."
     }
   ],
   "needs_impact_summary": {
@@ -335,19 +296,20 @@
       "WR"
     ],
     "minimally_addressed": [
-      "LB",
       "EDGE",
-      "IDL"
+      "LB"
     ],
     "unchanged": [
-      "OT",
+      "CB",
+      "IDL",
       "IOL",
-      "S"
+      "OT"
     ],
     "escalated": [
-      "CB"
-    ],
-    "new_needs_created": [
+      "LB",
+      "CB",
+      "IDL",
+      "EDGE",
       "RB"
     ]
   },
@@ -356,61 +318,61 @@
       "position": "QB",
       "previous_tier": 1,
       "recommended_tier": 2,
-      "reasoning": "Tua Tagovailoa signing (1yr/$1.3M minimum) partially addresses the immediate 2026 starter problem with a capable stopgap while Penix recovers from ACL surgery. However, because it is a league-minimum bridge deal with no multi-year commitment, QB remains a priority need in the draft \u2014 Atlanta must confirm Michael Penix Jr. as the long-term answer and still lacks a true developmental QB2 locked in beyond 2026. Drop from Tier 1 critical to Tier 2 \u2014 still draft-worthy in rounds 2\u20134 if the value is there."
+      "reasoning": "Tua Tagovailoa (1yr/$1.3M) bridges the 2026 season while Michael Penix Jr. recovers from his ACL injury. Tua is likely the Week 1 starter. However, this is explicitly a bridge deal at the veteran minimum \u2014 QB remains a tier-2 need for the draft since Penix's return timeline is uncertain and his long-term viability as a franchise QB remains unproven. Atlanta should still consider a QB with a mid-round pick if a worthy prospect falls."
     },
     {
       "position": "WR",
       "previous_tier": 1,
-      "recommended_tier": 2,
-      "reasoning": "Dotson (2yr/$15M, $10M gtd) and Zaccheaus (terms TBD, depth deal) address WR depth meaningfully but not completely. The WR corps is now London + Dotson + Zaccheaus + camp bodies \u2014 still no proven WR2, and Dotson is an upside bet, not a proven solution. Mooney and Hodge departures created this need. WR drops from Tier 1 emergency to Tier 2 \u2014 still a strong draft target, likely round 2."
-    },
-    {
-      "position": "EDGE",
-      "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Floyd and Ebiketie both departed, leaving Jalon Walker + James Pearce Jr. (facing 5 felony charges, potential suspension) + Cameron Thomas (rotational, 1yr/$3.1M) + Elijah Garcia (ERFA). The Thomas signing is a depth move, not a starter. With Pearce's playing status deeply uncertain, EDGE is now arguably the single biggest unaddressed roster need. Escalate to Tier 1 critical \u2014 should be a high draft priority (rounds 1\u20133) or additional FA signing needed."
+      "reasoning": "The Falcons added Jahan Dotson (2yr/$15M) and Olamide Zaccheaus (depth), but this room is still critically deficient. Drake London is the only proven WR1-caliber option. Dotson is a WR2/3 project with a poor track record; Zaccheaus is WR4 depth. The team cut Darnell Mooney and KhaDarel Hodge. WR remains a top-tier need \u2014 Atlanta must add a quality WR2 in the draft."
     },
     {
       "position": "LB",
       "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Kaden Elliss (departed) was the defensive MVP of the team. The replacement corps is: Troy Andersen (restructured, missed all of 2025 on PUP, uncertain), Christian Harris (depth/rotational, terms undisclosed). No true starter-caliber replacement has been added. LB escalates to Tier 1 \u2014 must be addressed in the draft (rounds 2\u20134) and potentially more FA signings."
+      "reasoning": "The Falcons lost Kaden Elliss (3yr/$33M, $23M gtd to Saints) \u2014 their best defensive player and a true three-down linebacker. DC Ulbrich said replacing him would 'take more than one human being.' The only replacement signed is Christian Harris on a cheap depth deal. Troy Andersen is injury-prone and Divine Deablo is more of a hybrid/safety. LB is now a critical tier-1 need and the most urgent remaining hole on the roster."
+    },
+    {
+      "position": "CB",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Dee Alford's departure (3yr/$21M to Bills) removes the team's most versatile secondary player. Natrone Brooks (1 career start) was re-signed as depth. The Falcons have Cobee Bryant, Clark Phillips III, and Billy Bowman Jr. (recovering from Achilles) but lack a proven starter opposite A.J. Terrell Jr. CB remains a tier-2 need that should be addressed via the draft or continued FA activity."
+    },
+    {
+      "position": "EDGE",
+      "previous_tier": 2,
+      "recommended_tier": 1,
+      "reasoning": "The Falcons lost both Arnold Ebiketie and Leonard Floyd to free agency. James Pearce Jr. is facing five felony charges and a likely suspension, making him an unreliable projection. Jalon Walker is promising but unproven as a lead rusher. The only additions are Cameron Thomas (1yr/$3.1M, rotational) and Elijah Garcia (ERFA minimum). The edge room is dangerously thin and EDGE has escalated to a tier-1 draft priority."
     },
     {
       "position": "IDL",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "David Onyemata departed to Jets (was a reliable run-stuffer). Remaining IDL: Ruke Orhorhoro, Brandon Dorlus, Zach Harrison, Cameron Thomas (versatile inside/outside). No direct replacement for Onyemata's run-stuffing ability signed. IDL remains a Tier 2 need \u2014 particularly for a run-stopping nose tackle type. Should target IDL in mid-rounds of the draft."
+      "reasoning": "David Onyemata (1yr/$10.5M to Jets) was Atlanta's primary interior run-stopper. The Falcons finished 27th in EPA per rush allowed in 2025. No IDL additions have been confirmed in free agency. Ruke Orhorhoro and Brandon Dorlus are internal options but have not proven they can anchor the position. IDL remains a tier-2 need that should be addressed in the mid-rounds of the draft."
     },
     {
-      "position": "CB",
-      "previous_tier": 3,
-      "recommended_tier": 1,
-      "reasoning": "Dee Alford's departure to Buffalo (3yr/$21M) was a significant secondary loss. Alford was the team's most versatile CB in 2025 and a clear contributor in Jeff Ulbrich's scheme. Remaining CBs: A.J. Terrell (starter), Billy Bowman Jr. (coming off Achilles injury), Cobee Bryant (depth), Clark Phillips III (depth), Natrone Brooks (depth/ST). No starter-caliber CB added in FA to replace Alford. CB escalates to Tier 1 \u2014 needs a starter-level CB2 opposite Terrell, ideally with slot/nickel versatility."
+      "position": "RB",
+      "previous_tier": 4,
+      "recommended_tier": 3,
+      "reasoning": "Tyler Allgeier (2yr/$12.25M to Cardinals) departed, removing the team's primary backup to Bijan Robinson and their red-zone short-yardage specialist. Robinson is elite and under contract, but the Falcons need a capable RB2. This can be addressed late in the draft or through continued FA additions, but it is a real gap."
     },
     {
       "position": "TE",
       "previous_tier": 2,
       "recommended_tier": 4,
-      "reasoning": "Kyle Pitts franchise tag ($15.1M, fully guaranteed) locks in an All-Pro TE1 for 2026. Austin Hooper (1yr/$3.25M) adds solid TE2 depth with familiarity under Stefanski and Matt Ryan. TE is fully addressed for this season. No draft priority needed \u2014 luxury pick only."
+      "reasoning": "Kyle Pitts franchise-tagged ($15.045M guaranteed) and Austin Hooper added as TE2 (1yr/$3.25M). Stefanski's 12-personnel heavy offense is well-stocked at the position. TE drops from a need to a luxury/developmental pick at best."
     },
     {
-      "position": "RB",
+      "position": "IOL",
       "previous_tier": 3,
-      "recommended_tier": 2,
-      "reasoning": "Tyler Allgeier signed with Arizona Cardinals (2yr/$12.25M). Remaining backs: Bijan Robinson (starter, elite), Nate Washington (backup). Atlanta now has a clear RB2 depth void. Bijan is the anchor but depth needs to be added. RB moves from Tier 3 to Tier 2 \u2014 mid-round draft pick or lower-cost FA still needed."
+      "recommended_tier": 3,
+      "reasoning": "No IOL signings or departures of note. Chris Lindstrom anchors the interior. Ryan Neuzil and Matthew Bergeron (guard eligible) are depth. No movement here \u2014 need unchanged at tier-3, addressable in mid-to-late rounds."
     },
     {
-      "position": "K",
-      "previous_tier": 1,
-      "recommended_tier": 5,
-      "reasoning": "Nick Folk (2-year deal) resolves a chronic kicker problem. Folk has been the NFL's most accurate kicker three straight seasons (28/29 in 2025). After using three kickers in 2025, K is now fully resolved for 2026\u20132027. No draft action needed."
-    },
-    {
-      "position": "P",
-      "previous_tier": 2,
-      "recommended_tier": 5,
-      "reasoning": "Jake Bailey (3yr/$9M, $5M gtd) replaces Pinion with a long-term commitment. All-Pro punter in 2020, 3-year deal signals genuine investment. P is fully resolved \u2014 no draft action needed."
+      "position": "OT",
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "Jake Matthews remains the veteran LT but is aging. Kaleb McGary is the RT. No additions or losses at the position. Need unchanged \u2014 a developmental OT in the mid-rounds remains valuable but not urgent."
     }
   ],
   "team_page_additions": {
@@ -418,140 +380,135 @@
       {
         "player": "Tua Tagovailoa",
         "position": "QB",
-        "contract_summary": "1yr/$1.3M (minimum)",
+        "contract_summary": "1yr/$1.3M (veteran minimum)",
         "previous_team": "Miami Dolphins",
-        "headline": "Former Pro Bowl QB joins as minimum-cost bridge starter while Michael Penix Jr. recovers from ACL surgery"
-      },
-      {
-        "player": "Kyle Pitts",
-        "position": "TE",
-        "contract_summary": "Franchise tag \u2014 1yr/$15.1M (fully gtd)",
-        "previous_team": "Atlanta Falcons (retained)",
-        "headline": "All-Pro TE retained on franchise tag; anchors Stefanski's TE-heavy offensive system"
+        "headline": "Former Pro Bowl QB serves as bridge starter while Michael Penix Jr. recovers from ACL tear"
       },
       {
         "player": "Jahan Dotson",
         "position": "WR",
-        "contract_summary": "2yr/$15M ($10M gtd, up to $17M)",
+        "contract_summary": "2yr/$15M ($10M gtd)",
         "previous_team": "Philadelphia Eagles",
-        "headline": "Former first-round pick brings 4.43 speed to a WR room being rebuilt around Drake London"
+        "headline": "Former 16th overall pick gets fresh start as Falcons' WR2/3, betting on upside in new system"
       },
       {
-        "player": "Jake Bailey",
-        "position": "P",
-        "contract_summary": "3yr/$9M ($5M gtd)",
-        "previous_team": "Miami Dolphins",
-        "headline": "All-Pro punter signed to multi-year deal as Falcons overhaul worst special teams unit in NFL"
-      },
-      {
-        "player": "Nick Folk",
-        "position": "K",
-        "contract_summary": "2yr (terms TBD)",
-        "previous_team": "New York Jets",
-        "headline": "NFL's most accurate kicker (96.6% FG% in 2025) ends Atlanta's revolving-door kicker nightmare"
+        "player": "Kyle Pitts",
+        "position": "TE",
+        "contract_summary": "Franchise tag \u2014 1yr/$15.045M (fully gtd)",
+        "previous_team": "Atlanta Falcons (retained)",
+        "headline": "Breakout TE retained on franchise tag after career year (88 rec, 928 yds, 5 TDs); long-term extension talks ongoing"
       },
       {
         "player": "Austin Hooper",
         "position": "TE",
         "contract_summary": "1yr/$3.25M",
         "previous_team": "New England Patriots",
-        "headline": "Two-time Pro Bowl TE reunites with Falcons to give Stefanski his 12-personnel option alongside Pitts"
+        "headline": "Veteran TE reunites with president Matt Ryan, pairing with Pitts in Stefanski's 12-personnel heavy offense"
       },
       {
         "player": "Cameron Thomas",
         "position": "EDGE",
         "contract_summary": "1yr/$3.1M",
         "previous_team": "Cleveland Browns",
-        "headline": "Rotational DE familiar to Stefanski from Cleveland provides pass-rush depth on thin EDGE roster"
+        "headline": "Reunites with coach Stefanski; adds rotational pass-rush depth to a thin edge group"
       },
       {
         "player": "Christian Harris",
         "position": "LB",
-        "contract_summary": "1yr (terms TBD)",
+        "contract_summary": "1yr/~$2M (terms TBD)",
         "previous_team": "Houston Texans",
-        "headline": "Young former Texans starter adds depth at inside linebacker after Kaden Elliss departure"
+        "headline": "Athletic former 3rd-round pick gets opportunity to replace Kaden Elliss opposite Divine Deablo"
+      },
+      {
+        "player": "Nick Folk",
+        "position": "K",
+        "contract_summary": "2yr/$9M ($4M gtd)",
+        "previous_team": "New York Jets",
+        "headline": "NFL's most accurate kicker over last 3 seasons ends Atlanta's revolving-door kicker carousel"
+      },
+      {
+        "player": "Jake Bailey",
+        "position": "P",
+        "contract_summary": "3yr/$9M ($5M gtd)",
+        "previous_team": "Miami Dolphins",
+        "headline": "2020 All-Pro punter overhauling a special teams unit ranked among the NFL's worst in 2025"
       },
       {
         "player": "Olamide Zaccheaus",
         "position": "WR",
-        "contract_summary": "Terms TBD (short-term)",
+        "contract_summary": "1yr/~$2M (terms TBD)",
         "previous_team": "Chicago Bears",
-        "headline": "Original Falcons UDFA returns to provide slot depth and special teams versatility for new regime"
+        "headline": "2019 UDFA fan favorite returns to Atlanta as WR3/4 depth piece in rebuilt receiver room"
       }
     ],
     "key_losses": [
       {
-        "player": "Kirk Cousins",
-        "position": "QB",
-        "contract_summary": "Released \u2014 $22.5M dead money (post-June 1)",
-        "new_team": "TBD",
-        "headline": "Two-year/$90M disaster contract mercifully ends; Falcons absorb massive dead cap to move on"
-      },
-      {
         "player": "Kaden Elliss",
         "position": "LB",
-        "contract_summary": "Unsigned UFA",
-        "new_team": "TBD",
-        "headline": "Team's defensive MVP departs without replacement \u2014 380 tackles, 12.5 sacks across three Atlanta seasons"
+        "contract_summary": "3yr/$33M ($23M gtd) with Saints",
+        "new_team": "New Orleans Saints",
+        "headline": "Best defensive player departs to division rival; DC Ulbrich said replacing him would 'take more than one human being'"
       },
       {
         "player": "Dee Alford",
         "position": "CB",
-        "contract_summary": "3yr/$21M ($10.12M gtd) \u2014 Buffalo Bills",
+        "contract_summary": "3yr/$15.75M base / up to $21M ($10.12M gtd) with Bills",
         "new_team": "Buffalo Bills",
-        "headline": "Breakout 2025 CB (3 INTs, 13 PBUs) cashes in with Bills; leaves major hole opposite A.J. Terrell"
+        "headline": "Breakout utility corner (3 INTs, 13 PDs in 2025) leaves Atlanta's secondary noticeably thinner"
       },
       {
         "player": "David Onyemata",
         "position": "IDL",
-        "contract_summary": "TBD \u2014 New York Jets",
+        "contract_summary": "1yr/$10.5M ($9.65M gtd) with Jets",
         "new_team": "New York Jets",
-        "headline": "Reliable run-stuffing DT departs after three seasons; interior defensive line needs replenishment"
-      },
-      {
-        "player": "Darnell Mooney",
-        "position": "WR",
-        "contract_summary": "Released \u2014 $18.4M cap relief",
-        "new_team": "TBD",
-        "headline": "Cut to clear cap space after an injury-marred 2025; accelerates WR room overhaul"
+        "headline": "Primary interior run-stopper departs; Falcons already ranked 27th in EPA per rush allowed in 2025"
       },
       {
         "player": "Tyler Allgeier",
         "position": "RB",
-        "contract_summary": "2yr/$12.25M \u2014 Arizona Cardinals",
+        "contract_summary": "2yr/$12.25M with Cardinals",
         "new_team": "Arizona Cardinals",
-        "headline": "Reliable RB2 earns starter money elsewhere; leaves thin depth behind Bijan Robinson"
+        "headline": "Short-yardage specialist and Bijan Robinson's primary complement leaves; RB2 role now open"
+      },
+      {
+        "player": "Kirk Cousins",
+        "position": "QB",
+        "contract_summary": "Released; $22.5M dead cap hit",
+        "new_team": "TBD/unsigned",
+        "headline": "Failed $180M experiment ends as expected; Cousins cut to facilitate new regime's QB plan"
+      },
+      {
+        "player": "Darnell Mooney",
+        "position": "WR",
+        "contract_summary": "Released; was $18.4M cap hit",
+        "new_team": "TBD/unsigned",
+        "headline": "Cap casualty after injury-marred 2025; departure further thins an already depleted WR room"
       },
       {
         "player": "Arnold Ebiketie",
         "position": "EDGE",
-        "contract_summary": "Unsigned UFA",
-        "new_team": "TBD",
-        "headline": "Second-round pick departs without re-signing, worsening a pass rush already gutted by Pearce Jr.'s legal situation"
+        "contract_summary": "TBD/unsigned",
+        "new_team": "TBD/unsigned",
+        "headline": "Former 2nd-round pick departs amid James Pearce Jr. legal uncertainty, leaving edge room dangerously thin"
       }
     ]
   },
-  "additional_context": {
-    "james_pearce_jr_situation": "2025 first-round EDGE rusher (10.5 sacks as a rookie) faces five felony charges stemming from a domestic violence-related incident in Florida. His 2026 playing status is deeply uncertain and a potential suspension is expected. This dramatically impacts the EDGE need picture \u2014 he cannot be counted as a reliable contributor in need assessments.",
-    "michael_penix_jr_recovery": "Starting QB suffered ACL tear in Week 11 of 2025. Recovery timeline uncertain; may not be ready for Week 1. Tagovailoa signing is explicitly a bridge solution.",
-    "draft_capital": "Falcons hold only 5 picks in the 2026 NFL Draft and no first-round selection (traded for James Pearce Jr. in 2025). GM Ian Cunningham has stated 2026 will be the 'last year we ever have five picks.' Limited draft capital amplifies the importance of each remaining pick.",
-    "new_regime": "Kevin Stefanski (HC), Ian Cunningham (GM), Matt Ryan (President of Football). First offseason. Emphasized building around Penix long-term while addressing immediate needs on budget."
-  },
   "confidence": "high",
   "sources": [
-    "https://www.espn.com/nfl/story/_/id/48054748/falcons-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
     "https://www.atlantafalcons.com/news/2026-free-agency-tracker-falcons-signings-extensions-reports",
+    "https://www.espn.com/nfl/story/_/id/48054748/falcons-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
+    "https://www.cbssports.com/nfl/news/nfl-free-agency-tracker-2026-full-list-signings-trades-moves/",
+    "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
     "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/atl",
     "https://overthecap.com/salary-cap/atlanta-falcons",
     "https://www.thefalcoholic.com/atlanta-falcons-free-agecy/92133/atlanta-falcons-free-agency-2026-kaden-elliss-kirk-cousins",
-    "https://www.thefalcoholic.com/atlanta-falcons-free-agecy/92208/falcons-free-agency-2026-atlanta-to-sign-former-texans-lb-christian-harris-divine-deablo",
     "https://www.thefalcoholic.com/atlanta-falcons-free-agecy/92173/falcons-free-agency-2026-team-set-to-sign-wr-jahan-dotson",
-    "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/falcons-agree-to-one-year-deal-with-de-cameron-thomas",
-    "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/falcons-agree-to-terms-with-nick-folk-austin-hooper",
-    "https://www.espn.com/nfl/story/_/id/48154522/falcons-reach-deal-te-austin-hooper-sources-say",
+    "https://www.thefalcoholic.com/atlanta-falcons-free-agecy/92208/falcons-free-agency-2026-atlanta-to-sign-former-texans-lb-christian-harris-divine-deablo",
+    "https://sports.yahoo.com/articles/former-falcons-lb-kaden-elliss-223851866.html",
+    "https://www.espn.com/nfl/story/_/id/48156468/source-bills-sign-dee-alford-3-year-deal-worth-21m",
     "https://www.si.com/nfl/falcons/onsi/news/where-every-departing-falcons-free-agent-ended-up-what-it-means-for-atlanta",
-    "https://sports.yahoo.com/articles/former-falcons-cb-lands-three-214209851.html",
+    "https://nfltraderumors.co/falcons-signing-de-cameron-thomas/",
     "https://heavy.com/sports/nfl/free-agency-tracker-2026-news-signings-rumors/",
-    "https://www.nfl.com/news/2026-nfl-free-agency-free-agents-notable-departures-for-all-32-teams"
+    "https://www.spotrac.com/nfl/player/_/id/72383/kyle-pitts"
   ]
 }
