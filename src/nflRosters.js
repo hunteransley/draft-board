@@ -71,6 +71,7 @@ const NFL_ROSTERS = {
     "LT": "Ronnie Stanley",
     "LG": "John Simpson",
     "C": "Corey Bullock",
+    "RG": "Andrew Vorhees",
     "RT": "Roger Rosengarten",
     "DE1": "Travis Jones",
     "DT1": "John Jenkins",
@@ -565,6 +566,7 @@ const NFL_ROSTERS = {
     "CB2": "Jason Marshall Jr.",
     "NB": "Isaiah Johnson",
     "SS": "Dante Trader Jr.",
+    "FS": "Ashtyn Davis",
     "K": "Zane Gonzalez"
   },
   "MIN": {
@@ -784,6 +786,7 @@ const NFL_ROSTERS = {
     "RT": "Colton McKivitz",
     "DE1": "Sebastian Valdez",
     "DT1": "Alfred Collins",
+    "DE2": "Nick Bosa",
     "LB1": "Dee Winters",
     "LB2": "Fred Warner",
     "CB1": "Renardo Green",
@@ -876,7 +879,8 @@ const NFL_ROSTERS = {
     "CB2": "Alontae Taylor",
     "NB": "Kevin Winston Jr.",
     "SS": "Amani Hooker",
-    "FS": "Kendell Brooks"
+    "FS": "Kendell Brooks",
+    "K": "Joey Slye"
   },
   "WAS": {
     "QB1": "Jayden Daniels",
@@ -889,6 +893,7 @@ const NFL_ROSTERS = {
     "TE1": "Ben Sinnott",
     "TE2": "John Bates",
     "LT": "Laremy Tunsil",
+    "LG": "Chris Paul",
     "C": "Nick Allegretti",
     "RG": "Sam Cosmi",
     "RT": "Josh Conerly Jr.",
