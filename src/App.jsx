@@ -1441,9 +1441,10 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
           }
           setLastSaved(data.updated_at);
           const path=window.location.pathname;
-          if(path==='/board'){
+          if(path==='/board'||path.startsWith('/board/')){
+            const posSlug=path.startsWith('/board/')?path.split('/')[2]:'';
             const search=new URLSearchParams(window.location.search);
-            const raw=(search.get('pos')||'').toUpperCase();
+            const raw=(posSlug||search.get('pos')||'').toUpperCase();
             const posNorm=raw==='K-P'?'K/P':raw;
             // Smart redirect: unranked pos → mark for /rank redirect
             if(posNorm&&POSITION_GROUPS.includes(posNorm)&&!new Set(rg).has(posNorm)){
@@ -1848,7 +1849,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   // === URL NAVIGATION ===
   const navigateRef=useRef(null);
   const applyRoute=useCallback((fullPath)=>{
-    const p=fullPath.split('?')[0];
+    const raw=fullPath.split('?')[0];
+    const p=raw.length>1?raw.replace(/\/+$/,''):raw;
     const search=new URLSearchParams(fullPath.includes('?')?fullPath.split('?')[1]:'');
     // Reset all DraftBoard-level overlays
     setShowExplorer(false);setShowTrends(false);setShowRound1Prediction(false);setShowMyGuys(false);setShowMockDraft(false);setMockLaunchTeam(null);
@@ -1863,8 +1865,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
       setShowRound1Prediction(true);
     }else if(p==='/my-guys'){
       setShowMyGuys(true);
-    }else if(p==='/board'){
-      const posParam=posFromSlug(search.get('pos')||'');
+    }else if(p==='/board'||p.startsWith('/board/')){
+      const posParam=posFromSlug(p.startsWith('/board/')?p.split('/')[2]:(search.get('pos')||''));
       if(posParam&&POSITION_GROUPS.includes(posParam)&&!rankedGroups.has(posParam)){
         navigateRef.current('/rank/'+posToSlug(posParam),{replace:true});return;
       }
@@ -6104,6 +6106,8 @@ function OGPreview(){
 // Root App: handles auth state
 // ============================================================
 export default function App(){
+  // Strip trailing slashes from URL so all path checks work (e.g. /board/ → /board)
+  if(window.location.pathname.length>1&&window.location.pathname.endsWith('/'))window.history.replaceState({},'',window.location.pathname.replace(/\/+$/,'')+window.location.search+window.location.hash);
   const[user,setUser]=useState(null);
   const[loading,setLoading]=useState(true);
   const[showAdmin,setShowAdmin]=useState(()=>window.location.hash==="#admin");
