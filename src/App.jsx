@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo, useRef, Fragment } from "react";
+import { useState, useEffect, useLayoutEffect, useCallback, useMemo, useRef, Fragment } from "react";
 import { supabase } from "./supabase.js";
 import MockDraftSim from "./MockDraftSim.jsx";
 import Round1Prediction from "./Round1Prediction.jsx";
@@ -1379,7 +1379,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[partialProgress,setPartialProgress]=useState({}); // {pos: {matchups:[], completed:Set, ratings:{}}}
   const[communityBoard,setCommunityBoard]=useState(null);
   const[showMockDraft,setShowMockDraft]=useState(false);
-  const[showRound1Prediction,setShowRound1Prediction]=useState(false);
+  const[showRound1Prediction,setShowRound1Prediction]=useState(()=>window.location.pathname==='/r1');
   const[r1PredictionSlots,setR1PredictionSlots]=useState(null);
   const[showTier3Needs,setShowTier3Needs]=useState(false);
   const[expandedNeeds,setExpandedNeeds]=useState(new Set());
@@ -1440,7 +1440,25 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
             setPartialProgress(pp);
           }
           setLastSaved(data.updated_at);
-          setPhase(rg.length>0?"pick-position":"home");
+          const path=window.location.pathname;
+          if(path==='/board'){
+            const search=new URLSearchParams(window.location.search);
+            const raw=(search.get('pos')||'').toUpperCase();
+            const posNorm=raw==='K-P'?'K/P':raw;
+            // Smart redirect: unranked pos → mark for /rank redirect
+            if(posNorm&&POSITION_GROUPS.includes(posNorm)&&!new Set(rg).has(posNorm)){
+              pendingRankRef.current='/rank/'+posToSlug(posNorm);
+              setPhase(rg.length>0?"pick-position":"home");
+            }else{
+              if(posNorm&&POSITION_GROUPS.includes(posNorm))setBoardInitPos(posNorm);
+              setPhase('board');
+            }
+          }else if(path.startsWith('/rank/')){
+            pendingRankRef.current=path;
+            setPhase(rg.length>0?"pick-position":"home");
+          }else{
+            setPhase(rg.length>0?"pick-position":"home");
+          }
         }else{setPhase("home");}
       }catch(e){console.error('Board load error:',e);setPhase("home");}
     })();
@@ -1476,6 +1494,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     },2000);
     return()=>{if(saveTimer.current)clearTimeout(saveTimer.current);};
   },[ratings,traits,rankedGroups,traitReviewedGroups,compCount,notes,partialProgress,user?.id,phase]);
+
+  // Pending rank route — set in data load callback, consumed by useLayoutEffect before paint
+  const pendingRankRef=useRef(null);
 
   const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[]);
   const byPos=useMemo(()=>{const m={};const seen=new Set();PROSPECTS.forEach(p=>{if(seen.has(p.id))return;seen.add(p.id);const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;if(!m[group])m[group]=[];m[group].push(p);});return m;},[]);
@@ -1516,6 +1537,26 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     setCurrentMatchup(next);
     setActivePos(pos);setPhase("ranking");
   },[ratings,compCount,byPos,partialProgress,prospectsMap,posRankFn]);
+  // Route /rank/* before browser paints — eliminates flash between loading pulse and ranking view
+  useLayoutEffect(()=>{
+    if(!pendingRankRef.current)return;
+    const path=pendingRankRef.current;
+    pendingRankRef.current=null;
+    const posParam=posFromSlug(path.split('/')[2]);
+    if(posParam&&POSITION_GROUPS.includes(posParam)){
+      if(rankedGroups.has(posParam)){
+        setBoardInitPos(posParam);setPhase('board');
+        window.history.replaceState({},'','/board?pos='+posToSlug(posParam));
+      }else{
+        window.history.replaceState({},'','/rank/'+posToSlug(posParam));
+        startRanking(posParam,!!partialProgress[posParam]);
+      }
+    }else{
+      const first=POSITION_GROUPS.find(g=>!rankedGroups.has(g))||'QB';
+      window.history.replaceState({},'','/rank/'+posToSlug(first));
+      startRanking(first,!!partialProgress[first]);
+    }
+  });
   const handlePick=useCallback((winnerId,confidence=0.5)=>{if(!currentMatchup||!activePos)return;const[a,b]=currentMatchup;const aWon=winnerId===a;const k=24+(confidence*24);const{newA,newB}=eloUpdate(ratings[a]||1500,ratings[b]||1500,aWon,k);const ur={...ratings,[a]:newA,[b]:newB};setRatings(ur);const uc={...compCount,[a]:(compCount[a]||0)+1,[b]:(compCount[b]||0)+1};setCompCount(uc);setWinCount(prev=>({...prev,[winnerId]:(prev[winnerId]||0)+1}));const ns=new Set(completed[activePos]);ns.add(`${a}-${b}`);setCompleted(prev=>({...prev,[activePos]:ns}));
     // Save partial progress for resume
     setPartialProgress(prev=>({...prev,[activePos]:{matchups:matchups[activePos]||[],completed:ns,ratings:ur}}));
@@ -1598,7 +1639,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     const ranked=getRanked(pos);const byGrade=[...ranked].sort((a,b)=>getGrade(b.id)-getGrade(a.id));
     const conflicts=ranked.map((p,i)=>{const gi=byGrade.findIndex(x=>x.id===p.id);return Math.abs(i-gi)>=3?{player:p,pairRank:i+1,gradeRank:gi+1,grade:getGrade(p.id)}:null;}).filter(Boolean);
     if(conflicts.length){setReconcileQueue(conflicts);setReconcileIndex(0);setPhase("reconcile");}
-    else{setBoardInitPos(pos);setPhase("board");}
+    else{setBoardInitPos(pos);setPhase("board");window.history.replaceState({},'','/board');}
   },[user?.id,getRanked,getGrade]);
   // Consensus rankings for player profile drawer — directly from CSV-based CONSENSUS_BOARD
   const CONSENSUS=useMemo(()=>{
@@ -1614,16 +1655,18 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   },[getConsensusRank]);
 
 
-  const SaveBar=()=>(<div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}><div style={{display:"flex",alignItems:"center",gap:12}}><img src="/logo.png" alt="BBL" style={{height:24,cursor:"pointer"}} onClick={()=>setPhase(rankedGroups.size>0?"pick-position":"home")}/><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{isGuest?"guest":user?.email}</span></div><div style={{display:"flex",alignItems:"center",gap:8}}>{!showOnboarding&&<button onClick={()=>setShowOnboarding(true)} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 8px",cursor:"pointer"}} title="How it works">?</button>}{!isGuest&&<span style={{fontFamily:mono,fontSize:10,color:saving?"#ca8a04":"#d4d4d4"}}>{saving?"saving...":lastSaved?`saved ${new Date(lastSaved).toLocaleTimeString()}`:""}</span>}<button onClick={isGuest?()=>onRequireAuth("sign in to save your progress"):onSignOut} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>{isGuest?"sign in":"sign out"}</button></div></div>);
+  const SaveBar=()=>(<div style={{position:"fixed",top:0,left:0,right:0,zIndex:9999,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}><div style={{display:"flex",alignItems:"center",gap:12}}><img src="/logo.png" alt="BBL" style={{height:24,cursor:"pointer"}} onClick={()=>navigate('/')}/><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{isGuest?"guest":user?.email}</span></div><div style={{display:"flex",alignItems:"center",gap:8}}>{!showOnboarding&&<button onClick={()=>setShowOnboarding(true)} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 8px",cursor:"pointer"}} title="How it works">?</button>}{!isGuest&&<span style={{fontFamily:mono,fontSize:10,color:saving?"#ca8a04":"#d4d4d4"}}>{saving?"saving...":lastSaved?`saved ${new Date(lastSaved).toLocaleTimeString()}`:""}</span>}<button onClick={isGuest?()=>onRequireAuth("sign in to save your progress"):onSignOut} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>{isGuest?"sign in":"sign out"}</button></div></div>);
 
   // === MOCK DRAFT (check before phase returns to fix click bug) ===
   // My Guys state
   const[myGuys,setMyGuys]=useState([]);
   const[myGuysUpdated,setMyGuysUpdated]=useState(false);
   const myGuysInitialLoad=useRef(true);
-  const[showMyGuys,setShowMyGuys]=useState(false);
+  const[showMyGuys,setShowMyGuys]=useState(()=>window.location.pathname==='/my-guys');
   const isLabPath=p=>p==='/lab'||p==='/data-lab'||p.startsWith('/lab/')||p.startsWith('/data-lab/');
   const labSuffix=p=>{const m=p.match(/^\/(?:data-lab|lab)\/(.+)/);return m?m[1]:null;};
+  const posFromSlug=(slug)=>{const upper=slug?.toUpperCase();return upper==='K-P'?'K/P':upper;};
+  const posToSlug=(pos)=>pos==='K/P'?'k-p':pos.toLowerCase();
   const[showExplorer,setShowExplorer]=useState(()=>isLabPath(window.location.pathname));
   const[explorerMeas,setExplorerMeas]=useState("ATH");
   const[explorerMode,setExplorerMode]=useState(()=>{const s=labSuffix(window.location.pathname);return s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":"measurables";});
@@ -1801,13 +1844,69 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   },[explorerMode,comboPos,comboMetrics,byPos,traits]);
   const[mockCount,setMockCount]=useState(0);
   const[copiedShare,setCopiedShare]=useState(null);
-  useEffect(()=>{window.scrollTo(0,0);},[phase,showMyGuys,showExplorer]);
-  const openExplorer=useCallback((mode)=>{const target=mode==="combo"?"/lab/combo":mode==="scarcity"?"/lab/scarcity":mode==="free-agency"?"/lab/free-agency":"/lab";if(window.location.pathname!==target)window.history.pushState({},'',target);setShowExplorer(true);if(mode)setExplorerMode(mode);},[]);
-  const closeExplorer=useCallback(()=>{if(isLabPath(window.location.pathname))window.history.pushState({},'','/');setShowExplorer(false);setExplorerHover(null);},[]);
-  useEffect(()=>{const onPop=()=>{const p=window.location.pathname;const s=labSuffix(p);if(s==="combo"){setShowExplorer(true);setExplorerMode("combo");}else if(s==="scarcity"){setShowExplorer(true);setExplorerMode("scarcity");}else if(s==="free-agency"){setShowExplorer(true);setExplorerMode("free-agency");}else if(isLabPath(p)){setShowExplorer(true);if(explorerMode==="combo"||explorerMode==="scarcity"||explorerMode==="free-agency")setExplorerMode("measurables");}else{setShowExplorer(false);}};window.addEventListener("popstate",onPop);return()=>window.removeEventListener("popstate",onPop);},[explorerMode]);
+
+  // === URL NAVIGATION ===
+  const navigateRef=useRef(null);
+  const applyRoute=useCallback((fullPath)=>{
+    const p=fullPath.split('?')[0];
+    const search=new URLSearchParams(fullPath.includes('?')?fullPath.split('?')[1]:'');
+    // Reset all DraftBoard-level overlays
+    setShowExplorer(false);setShowTrends(false);setShowRound1Prediction(false);setShowMyGuys(false);setShowMockDraft(false);setMockLaunchTeam(null);
+    if(isLabPath(p)){
+      setShowExplorer(true);
+      const s=labSuffix(p);
+      setExplorerMode(s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":"measurables");
+    }else if(p==='/trends'){
+      setShowTrends(true);
+      setTrendsTeam(search.get('team')||'Titans');
+    }else if(p==='/r1'){
+      setShowRound1Prediction(true);
+    }else if(p==='/my-guys'){
+      setShowMyGuys(true);
+    }else if(p==='/board'){
+      const posParam=posFromSlug(search.get('pos')||'');
+      if(posParam&&POSITION_GROUPS.includes(posParam)&&!rankedGroups.has(posParam)){
+        navigateRef.current('/rank/'+posToSlug(posParam),{replace:true});return;
+      }
+      setPhase('board');
+      if(posParam&&POSITION_GROUPS.includes(posParam))setBoardInitPos(posParam);
+    }else if(p.startsWith('/rank')){
+      const posParam=posFromSlug(p.split('/')[2]);
+      if(posParam&&POSITION_GROUPS.includes(posParam)){
+        if(rankedGroups.has(posParam)){navigateRef.current('/board?pos='+posToSlug(posParam),{replace:true});return;}
+        startRanking(posParam,!!partialProgress[posParam]);
+      }else{
+        const firstUnranked=POSITION_GROUPS.find(g=>!rankedGroups.has(g));
+        navigateRef.current('/rank/'+posToSlug(firstUnranked||'QB'),{replace:true});
+      }
+    }else if(p==='/'){
+      // Returning home — restore natural phase
+      setPhase(rankedGroups.size>0?'pick-position':'home');
+    }
+  },[rankedGroups,partialProgress,startRanking]);
+
+  const navigate=useCallback((path,opts)=>{
+    const current=window.location.pathname+window.location.search;
+    if(current===path)return;
+    if(opts?.replace)window.history.replaceState({},'',path);
+    else window.history.pushState({},'',path);
+    applyRoute(path);
+  },[applyRoute]);
+  navigateRef.current=navigate;
+
+  const openExplorer=useCallback((mode)=>{const target=mode==="combo"?"/lab/combo":mode==="scarcity"?"/lab/scarcity":mode==="free-agency"?"/lab/free-agency":"/lab";navigate(target);setShowExplorer(true);if(mode)setExplorerMode(mode);},[navigate]);
+  const closeExplorer=useCallback(()=>{if(isLabPath(window.location.pathname))navigate('/');setShowExplorer(false);setExplorerHover(null);},[navigate]);
+
+  // Consolidated popstate listener for all DraftBoard-level routes
+  useEffect(()=>{
+    const onPop=()=>applyRoute(window.location.pathname+window.location.search);
+    window.addEventListener("popstate",onPop);
+    return()=>window.removeEventListener("popstate",onPop);
+  },[applyRoute]);
 
   // === TEAM MOCK TRENDS ===
   const[showTrends,setShowTrends]=useState(()=>window.location.pathname==='/trends');
+  useEffect(()=>{window.scrollTo(0,0);},[phase,showMyGuys,showExplorer,showRound1Prediction,showTrends]);
   const[trendsTeam,setTrendsTeam]=useState(()=>{if(window.location.pathname==='/trends'){const p=new URLSearchParams(window.location.search);return p.get('team')||'Titans';}return'Titans';});
   const[trendsData,setTrendsData]=useState(null);
   const[trendsLoading,setTrendsLoading]=useState(false);
@@ -1833,19 +1932,16 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
 
   const openTrends=useCallback((teamName)=>{
     const t=teamName||'Titans';
-    window.history.pushState({},'',`/trends?team=${encodeURIComponent(t)}`);
+    navigate(`/trends?team=${encodeURIComponent(t)}`);
     setTrendsTeam(t);setShowTrends(true);loadTrendsData(t);
-  },[loadTrendsData]);
+  },[navigate,loadTrendsData]);
 
   const closeTrends=useCallback(()=>{
-    if(window.location.pathname==='/trends')window.history.pushState({},'','/');
+    if(window.location.pathname==='/trends')navigate('/');
     setShowTrends(false);setTrendsData(null);
-  },[]);
+  },[navigate]);
 
   useEffect(()=>{if(showTrends&&trendsTeam)loadTrendsData(trendsTeam);},[showTrends,trendsTeam,loadTrendsData]);
-
-  useEffect(()=>{const onPop=()=>{const isTrends=window.location.pathname==='/trends';setShowTrends(isTrends);if(isTrends){const p=new URLSearchParams(window.location.search);setTrendsTeam(p.get('team')||'Titans');}};window.addEventListener("popstate",onPop);return()=>window.removeEventListener("popstate",onPop);},[]);
-  useEffect(()=>{window.scrollTo(0,0);},[showTrends]);
 
   const traitsRef=useRef(traits);traitsRef.current=traits;
   const ratingsRef=useRef(ratings);ratingsRef.current=ratings;
@@ -2163,9 +2259,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
 
 
 
-  if(showRound1Prediction){return<Round1Prediction board={mockDraftBoard} PROSPECTS={PROSPECTS} POS_COLORS={POS_COLORS} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} font={font} mono={mono} sans={sans} onClose={()=>setShowRound1Prediction(false)} onResults={setR1PredictionSlots} trackEvent={trackEvent} userId={user?.id} getGrade={getGrade}/>;}
+  if(showRound1Prediction){return<><SaveBar/><Round1Prediction board={mockDraftBoard} PROSPECTS={PROSPECTS} POS_COLORS={POS_COLORS} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} font={font} mono={mono} sans={sans} onClose={()=>{navigate('/');}} onResults={setR1PredictionSlots} trackEvent={trackEvent} userId={user?.id} getGrade={getGrade}/></>;}
 
-  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA)||(traits[a.id]&&Object.keys(traits[a.id]).length>0);const bRanked=rankedGroups.has(gB)||(traits[b.id]&&Object.keys(traits[b.id]).length>0);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS_SIMPLE} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} onMockComplete={saveMockPicks} myGuys={myGuys} myGuysUpdated={myGuysUpdated} setMyGuysUpdated={setMyGuysUpdated} mockCount={mockCount} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} getConsensusRound={getConsensusRound} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} mockLaunchCpuTrades={mockCpuTrades} mockLaunchBoardMode={mockBoardMode} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);startRanking(pos);}} isGuest={isGuest} onRequireAuth={onRequireAuth} trackEvent={trackEvent} userId={user?.id} isGuestUser={!user} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} TRAIT_ABBREV={TRAIT_ABBREV} TRAIT_EMOJI={TRAIT_EMOJI} SCHOOL_CONFERENCE={SCHOOL_CONFERENCE} POS_EMOJI={POS_EMOJI} onShareMyGuys={shareMyGuys} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter} MEASURABLE_EMOJI={MEASURABLE_EMOJI} MEASURABLE_SHORT={MEASURABLE_SHORT} MEASURABLE_LIST={MEASURABLE_LIST} MEASURABLE_DRILLS={MEASURABLE_DRILLS} MEASURABLE_KEY={MEASURABLE_KEY} MEASURABLE_RAW={MEASURABLE_RAW} MEAS_GROUPS={MEAS_GROUPS} getMeasRadarData={getMeasRadarData}/>;}
+  if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA)||(traits[a.id]&&Object.keys(traits[a.id]).length>0);const bRanked=rankedGroups.has(gB)||(traits[b.id]&&Object.keys(traits[b.id]).length>0);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS_SIMPLE} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} onMockComplete={saveMockPicks} myGuys={myGuys} myGuysUpdated={myGuysUpdated} setMyGuysUpdated={setMyGuysUpdated} mockCount={mockCount} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} getConsensusRound={getConsensusRound} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} mockLaunchCpuTrades={mockCpuTrades} mockLaunchBoardMode={mockBoardMode} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);navigate('/rank/'+posToSlug(pos));}} isGuest={isGuest} onRequireAuth={onRequireAuth} trackEvent={trackEvent} userId={user?.id} isGuestUser={!user} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} TRAIT_ABBREV={TRAIT_ABBREV} TRAIT_EMOJI={TRAIT_EMOJI} SCHOOL_CONFERENCE={SCHOOL_CONFERENCE} POS_EMOJI={POS_EMOJI} onShareMyGuys={shareMyGuys} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter} MEASURABLE_EMOJI={MEASURABLE_EMOJI} MEASURABLE_SHORT={MEASURABLE_SHORT} MEASURABLE_LIST={MEASURABLE_LIST} MEASURABLE_DRILLS={MEASURABLE_DRILLS} MEASURABLE_KEY={MEASURABLE_KEY} MEASURABLE_RAW={MEASURABLE_RAW} MEAS_GROUPS={MEAS_GROUPS} getMeasRadarData={getMeasRadarData}/>;}
   // === TEAM MOCK TRENDS PAGE ===
   if(showTrends){
     const switchTeam=(t)=>{setTrendsTeam(t);setShowTier3Needs(false);setExpandedNeeds(new Set());setSchemeFitPos("ALL");setSchemeFitExpanded(false);setTrendsProspectTab("scheme");setExpandedSchemeFitId(null);setSchemeFitInfo(false);window.history.replaceState({},'',`/trends?team=${encodeURIComponent(t)}`);loadTrendsData(t);};
@@ -2175,14 +2271,12 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     const positions=trendsData?.positions||[];
     const totalPosPicks=positions.reduce((s,p)=>s+Number(p.pos_count),0);
     return(<div style={{position:"fixed",inset:0,background:"#faf9f6",zIndex:9000,overflow:"auto",WebkitOverflowScrolling:"touch"}}>
-      <div style={{maxWidth:960,margin:"0 auto",padding:"16px 16px 80px"}}>
+      <SaveBar/>
+      <div style={{maxWidth:960,margin:"0 auto",padding:"52px 16px 80px"}}>
         <style>{`@media(max-width:700px){.trends-grid{flex-direction:column!important;}}`}</style>
         {/* Header */}
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
-          <div style={{display:"flex",alignItems:"center",gap:12}}>
-            <button onClick={closeTrends} style={{fontFamily:sans,fontSize:12,padding:"6px 14px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3"}}>← back</button>
-            <h1 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:0}}>team mock trends</h1>
-          </div>
+          <h1 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:0}}>team mock trends</h1>
         </div>
 
         {/* Team switcher */}
@@ -2481,25 +2575,23 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     const traitPosCounts={};
     allTraits.forEach(t=>{traitPosCounts[t]=EXPLORER_GROUPS.filter(pos=>POSITION_TRAITS[pos]?.includes(t)).length;});
     return(<div style={{position:"fixed",inset:0,background:"#faf9f6",zIndex:9000,overflow:"auto",WebkitOverflowScrolling:"touch"}}>
-      <div style={{maxWidth:900,margin:"0 auto",padding:"16px 16px 80px"}}>
+      <SaveBar/>
+      <div style={{maxWidth:900,margin:"0 auto",padding:"52px 16px 80px"}}>
         {/* Header */}
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
-          <div>
-            <h2 style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",margin:0}}>data lab</h2>
-            <p style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"2px 0 0"}}>{explorerMode==="combo"?`${comboData.points.length} ${comboPos} players`:explorerMode==="scarcity"?"supply vs demand by position":explorerMode==="free-agency"?"2026 free agency contracts":`${explorerData.points.length} players · ${explorerData.groups.length} positions`}</p>
-          </div>
-          <button onClick={closeExplorer} style={{fontFamily:sans,fontSize:14,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",padding:4}}>✕</button>
+        <div style={{marginBottom:12}}>
+          <h2 style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",margin:0}}>data lab</h2>
+          <p style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"2px 0 0"}}>{explorerMode==="combo"?`${comboData.points.length} ${comboPos} players`:explorerMode==="scarcity"?"supply vs demand by position":explorerMode==="free-agency"?"2026 free agency contracts":`${explorerData.points.length} players · ${explorerData.groups.length} positions`}</p>
         </div>
 
         {/* Mode toggle */}
         <div style={{display:"flex",gap:6,marginBottom:12,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",paddingBottom:2}}>
-          <button onClick={gateAuth(()=>{setExplorerMode("measurables");setExplorerAbsolute(false);setExplorerLeaderPos(null);if(window.location.pathname!=='/lab'&&window.location.pathname!=='/data-lab')window.history.pushState({},'','/lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="measurables"?"#171717":"transparent",color:explorerMode==="measurables"?"#fff":"#737373",border:explorerMode==="measurables"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>measurables</button>
-          <button onClick={gateAuth(()=>{setExplorerMode("traits");setExplorerLeaderPos(null);if(window.location.pathname!=='/lab'&&window.location.pathname!=='/data-lab')window.history.pushState({},'','/lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="traits"?"#171717":"transparent",color:explorerMode==="traits"?"#fff":"#737373",border:explorerMode==="traits"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>scouting traits</button>
-          <button onClick={gateAuth(()=>{setExplorerMode("stats");setExplorerAbsolute(true);setExplorerLeaderPos(null);if(window.location.pathname!=='/lab'&&window.location.pathname!=='/data-lab')window.history.pushState({},'','/lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="stats"?"#171717":"transparent",color:explorerMode==="stats"?"#fff":"#737373",border:explorerMode==="stats"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>college stats</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("measurables");setExplorerAbsolute(false);setExplorerLeaderPos(null);navigate('/lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="measurables"?"#171717":"transparent",color:explorerMode==="measurables"?"#fff":"#737373",border:explorerMode==="measurables"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>measurables</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("traits");setExplorerLeaderPos(null);navigate('/lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="traits"?"#171717":"transparent",color:explorerMode==="traits"?"#fff":"#737373",border:explorerMode==="traits"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>scouting traits</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("stats");setExplorerAbsolute(true);setExplorerLeaderPos(null);navigate('/lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="stats"?"#171717":"transparent",color:explorerMode==="stats"?"#fff":"#737373",border:explorerMode==="stats"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>college stats</button>
           <div style={{width:1,height:20,background:"#e5e5e5",margin:"0 4px",flexShrink:0}}/>
-          <button onClick={()=>{setExplorerMode("combo");window.history.pushState({},'','/lab/combo');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="combo"?"linear-gradient(135deg,#6366f1,#8b5cf6)":"transparent",color:explorerMode==="combo"?"#fff":"#7c3aed",border:explorerMode==="combo"?"1px solid #6366f1":"1px solid #7c3aed44",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="combo"?"0 2px 8px rgba(99,102,241,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>⚡ combo</button>
-          <button onClick={()=>{setExplorerMode("free-agency");setFaView("position");setFaPosFilter(null);setFaTeamFilter(null);window.history.pushState({},'','/lab/free-agency');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="free-agency"?"linear-gradient(135deg,#d97706,#f59e0b)":"transparent",color:explorerMode==="free-agency"?"#fff":"#d97706",border:explorerMode==="free-agency"?"1px solid #d97706":"1px solid #d9770644",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="free-agency"?"0 2px 8px rgba(217,119,6,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>💰 free agency</button>
-          <button onClick={()=>{setExplorerMode("scarcity");window.history.pushState({},'','/lab/scarcity');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="scarcity"?"linear-gradient(135deg,#059669,#10b981)":"transparent",color:explorerMode==="scarcity"?"#fff":"#059669",border:explorerMode==="scarcity"?"1px solid #059669":"1px solid #05966944",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="scarcity"?"0 2px 8px rgba(5,150,105,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>🫥 scarcity</button>
+          <button onClick={()=>{setExplorerMode("combo");navigate('/lab/combo');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="combo"?"linear-gradient(135deg,#6366f1,#8b5cf6)":"transparent",color:explorerMode==="combo"?"#fff":"#7c3aed",border:explorerMode==="combo"?"1px solid #6366f1":"1px solid #7c3aed44",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="combo"?"0 2px 8px rgba(99,102,241,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>⚡ combo</button>
+          <button onClick={()=>{setExplorerMode("free-agency");setFaView("position");setFaPosFilter(null);setFaTeamFilter(null);navigate('/lab/free-agency');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="free-agency"?"linear-gradient(135deg,#d97706,#f59e0b)":"transparent",color:explorerMode==="free-agency"?"#fff":"#d97706",border:explorerMode==="free-agency"?"1px solid #d97706":"1px solid #d9770644",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="free-agency"?"0 2px 8px rgba(217,119,6,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>💰 free agency</button>
+          <button onClick={()=>{setExplorerMode("scarcity");navigate('/lab/scarcity');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="scarcity"?"linear-gradient(135deg,#059669,#10b981)":"transparent",color:explorerMode==="scarcity"?"#fff":"#059669",border:explorerMode==="scarcity"?"1px solid #059669":"1px solid #05966944",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="scarcity"?"0 2px 8px rgba(5,150,105,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>🫥 scarcity</button>
         </div>
 
         {/* Combo mode UI */}
@@ -3464,15 +3556,12 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
       <SaveBar/>
       <div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 60px"}}>
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:16,marginBottom:8}}>
-          <div>
-            <div style={{display:"flex",alignItems:"center",gap:12}}>
-              <h1 style={{fontSize:32,fontWeight:900,color:"#171717",margin:0,letterSpacing:-1}}>my guys</h1>
-              {myGuys.length>0&&<button onClick={shareMyGuys} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"6px 14px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",flexShrink:0,position:"relative"}}><span style={{visibility:copiedShare==="my-guys"?"hidden":"visible"}}><span className="shimmer-text">share my guys</span></span>{copiedShare==="my-guys"&&<span style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#a3a3a3",fontWeight:400}}>copied</span>}</button>}
-            </div>
-            <p style={{fontFamily:sans,fontSize:13,color:"#737373",margin:"4px 0 0",lineHeight:1.5}}>the prospects you bang the table for every time you mock</p>
+        <div style={{marginBottom:8}}>
+          <div style={{display:"flex",alignItems:"center",gap:12}}>
+            <h1 style={{fontSize:32,fontWeight:900,color:"#171717",margin:0,letterSpacing:-1}}>my guys</h1>
+            {myGuys.length>0&&<button onClick={shareMyGuys} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"6px 14px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",flexShrink:0,position:"relative"}}><span style={{visibility:copiedShare==="my-guys"?"hidden":"visible"}}><span className="shimmer-text">share my guys</span></span>{copiedShare==="my-guys"&&<span style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#a3a3a3",fontWeight:400}}>copied</span>}</button>}
           </div>
-          <button onClick={()=>setShowMyGuys(false)} style={{fontFamily:sans,fontSize:12,padding:"8px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3",whiteSpace:"nowrap",flexShrink:0}}>← back</button>
+          <p style={{fontFamily:sans,fontSize:13,color:"#737373",margin:"4px 0 0",lineHeight:1.5}}>the prospects you bang the table for every time you mock</p>
         </div>
         <p style={{fontFamily:mono,fontSize:10,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 12px"}}>{mockCount} mock{mockCount!==1?"s":""} completed · {myGuys.length}/10 guys identified</p>
 
@@ -3600,7 +3689,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
       </div>
       <div style={{display:"flex",gap:8,alignItems:"center"}}>
         <button onClick={()=>{openExplorer();trackEvent(user?.id,'explorer_opened',{guest:!user});}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"6px 14px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",transition:"all 0.2s",display:"flex",alignItems:"center",gap:5}}>🧪 <span className="shimmer-text">data lab</span></button>
-        <button onClick={()=>{if(isGuest){onRequireAuth("want to see and share the guys you draft more than others?");return;}setShowMyGuys(true);setMyGuysUpdated(false);}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:myGuysUpdated?"linear-gradient(135deg,#ec4899,#7c3aed)":mockCount>0?"#171717":"transparent",color:myGuysUpdated||mockCount>0?"#fff":"#a3a3a3",border:myGuysUpdated||mockCount>0?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",position:"relative",transition:"all 0.2s",whiteSpace:"nowrap"}}>
+        <button onClick={()=>{if(isGuest){onRequireAuth("want to see and share the guys you draft more than others?");return;}navigate('/my-guys');setMyGuysUpdated(false);}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:myGuysUpdated?"linear-gradient(135deg,#ec4899,#7c3aed)":mockCount>0?"#171717":"transparent",color:myGuysUpdated||mockCount>0?"#fff":"#a3a3a3",border:myGuysUpdated||mockCount>0?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",position:"relative",transition:"all 0.2s",whiteSpace:"nowrap"}}>
           👀 my guys
           {myGuysUpdated&&<span style={{position:"absolute",top:-2,right:-2,width:8,height:8,borderRadius:4,background:"#ec4899",border:"2px solid #faf9f6"}}/>}
         </button>
@@ -3717,7 +3806,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
             pick A or B in head-to-head matchups to rank prospects your way. start with {targetPos}s — it only takes a few minutes.
           </p>
           {rankedGroups.size>0&&<p style={{fontFamily:mono,fontSize:11,color:"#22c55e",margin:"0 0 16px"}}>{rankedGroups.size} position{rankedGroups.size!==1?"s":""} ranked so far</p>}
-          <button onClick={()=>{startRanking(targetPos);}} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 28px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>rank {targetPos}s →</button>
+          <button onClick={()=>navigate('/rank/'+posToSlug(targetPos))} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 28px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>rank {targetPos}s →</button>
           <p style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",margin:"12px 0 0"}}>or pick any position below</p>
           </>;})()}
         </div>
@@ -3758,11 +3847,11 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
           <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{rankedGroups.size}/{POSITION_GROUPS.length} positions · {userBoard.length} prospects</span>
           <div style={{display:"flex",gap:8}}>
             {rankedGroups.size>=POSITION_GROUPS.length?
-              <button onClick={()=>setPhase("board")} style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>full board view →</button>
+              <button onClick={()=>navigate('/board')} style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>full board view →</button>
             :contPos?
-              <button onClick={()=>{startRanking(contPos,true);}} style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#faf9f6",background:"#171717",border:"none",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>continue {contPos}s →</button>
+              <button onClick={()=>navigate('/rank/'+posToSlug(contPos))} style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#faf9f6",background:"#171717",border:"none",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>continue {contPos}s →</button>
             :nextPos?
-              <button onClick={()=>{startRanking(nextPos);}} style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#faf9f6",background:"#171717",border:"none",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>rank {nextPos}s →</button>
+              <button onClick={()=>navigate('/rank/'+posToSlug(nextPos))} style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#faf9f6",background:"#171717",border:"none",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>rank {nextPos}s →</button>
             :null}
           </div>
         </div>;
@@ -3784,17 +3873,17 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         <div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c,marginBottom:2}}>{pos}</div>
         <div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",marginBottom:14}}>{ct} prospects</div>
         <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
-          {!done&&!partial&&<button onClick={()=>{startRanking(pos);}} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"7px 18px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>{POS_EMOJI[pos]||""} rank</button>}
+          {!done&&!partial&&<button onClick={()=>navigate('/rank/'+posToSlug(pos))} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"7px 18px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>{POS_EMOJI[pos]||""} rank</button>}
           {partial&&!done&&<>
-            <button onClick={()=>{setBoardInitPos(pos);setPhase("board");}} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"7px 18px",background:`${c}11`,color:c,border:`1px solid ${c}33`,borderRadius:99,cursor:"pointer"}}>✓ rankings</button>
-            <button onClick={()=>{startRanking(pos,true);}} style={{fontFamily:sans,fontSize:11,padding:"7px 14px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>continue</button>
+            <button onClick={()=>{setBoardInitPos(pos);navigate('/board');}} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"7px 18px",background:`${c}11`,color:c,border:`1px solid ${c}33`,borderRadius:99,cursor:"pointer"}}>✓ rankings</button>
+            <button onClick={()=>navigate('/rank/'+posToSlug(pos))} style={{fontFamily:sans,fontSize:11,padding:"7px 14px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>continue</button>
           </>}
           {done&&<>
-            <button onClick={()=>{setBoardInitPos(pos);setPhase("board");}} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"7px 18px",background:reviewed?`${c}11`:"#171717",color:reviewed?c:"#faf9f6",border:reviewed?`1px solid ${c}33`:"none",borderRadius:99,cursor:"pointer"}}>{reviewed?"✓ rankings":"rankings"}</button>
+            <button onClick={()=>{setBoardInitPos(pos);navigate('/board');}} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"7px 18px",background:reviewed?`${c}11`:"#171717",color:reviewed?c:"#faf9f6",border:reviewed?`1px solid ${c}33`:"none",borderRadius:99,cursor:"pointer"}}>{reviewed?"✓ rankings":"rankings"}</button>
           </>}
         </div>
       </div>);})}</div>
-    {rankedGroups.size>0&&<div style={{textAlign:"center",marginTop:32}}><button onClick={()=>setPhase("board")} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"14px 36px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>view big board ({rankedGroups.size}/{POSITION_GROUPS.length})</button></div>}
+    {rankedGroups.size>0&&<div style={{textAlign:"center",marginTop:32}}><button onClick={()=>navigate('/board')} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"14px 36px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>view big board ({rankedGroups.size}/{POSITION_GROUPS.length})</button></div>}
 
     {/* Team Mock Trends */}
     <div style={{marginTop:32}}>
@@ -3806,7 +3895,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     </div>
 
     {/* Round 1 Prediction CTA */}
-    <button onClick={()=>{setShowRound1Prediction(true);trackEvent(user?.id,'round1_prediction_cta_click',{guest:!user});}} style={{width:"100%",padding:"14px 20px",marginTop:32,background:"linear-gradient(135deg,#1e293b,#0f172a)",color:"#94a3b8",border:"1px solid rgba(255,255,255,0.1)",borderRadius:12,cursor:"pointer",marginBottom:24,display:"flex",alignItems:"center",justifyContent:"center",gap:8,fontFamily:sans,fontSize:14,fontWeight:600}}>
+    <button onClick={()=>{navigate('/r1');trackEvent(user?.id,'round1_prediction_cta_click',{guest:!user});}} style={{width:"100%",padding:"14px 20px",marginTop:32,background:"linear-gradient(135deg,#1e293b,#0f172a)",color:"#94a3b8",border:"1px solid rgba(255,255,255,0.1)",borderRadius:12,cursor:"pointer",marginBottom:24,display:"flex",alignItems:"center",justifyContent:"center",gap:8,fontFamily:sans,fontSize:14,fontWeight:600}}>
       🔮 simulate round 1
     </button>
 
@@ -3819,7 +3908,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   if(phase==="ranking"&&currentMatchup&&activePos){const[aId,bId]=currentMatchup;const pA=prospectsMap[aId],pB=prospectsMap[bId];const c=POS_COLORS[activePos];const totalM=(matchups[activePos]||[]).length;const doneM=(completed[activePos]||new Set()).size;const ranked=getRanked(activePos);return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 40px"}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}><h1 style={{fontSize:28,fontWeight:900,color:c,margin:0}}>rank {activePos}s</h1><div style={{display:"flex",gap:6}}>
     {canFinish&&<button onClick={()=>finishRanking(activePos,ratings)} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"8px 20px",background:"#22c55e",color:"#fff",border:"none",borderRadius:99,cursor:"pointer"}}>✓ done</button>}
     {canSim&&<button onClick={()=>simAndFinish(activePos)} style={{fontFamily:sans,fontSize:11,padding:"8px 16px",background:"linear-gradient(135deg,#ec4899,#7c3aed)",color:"#fff",border:"none",borderRadius:99,cursor:"pointer"}}>sim rest ⚡</button>}
-    <button onClick={()=>{setLockedPlayer(null);const done=completed[activePos]||new Set();if(done.size>0){setPartialProgress(prev=>({...prev,[activePos]:{matchups:matchups[activePos]||[],completed:done,ratings}}));}setPhase("pick-position");}} style={{fontFamily:sans,fontSize:11,padding:"8px 14px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>save & exit</button>
+    <button onClick={()=>{setLockedPlayer(null);const done=completed[activePos]||new Set();if(done.size>0){setPartialProgress(prev=>({...prev,[activePos]:{matchups:matchups[activePos]||[],completed:done,ratings}}));}navigate('/');}} style={{fontFamily:sans,fontSize:11,padding:"8px 14px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>save & exit</button>
   </div></div><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 8px"}}>who's the better prospect?</p>{(()=>{
   const simThreshold=20;
   const simPct=30; // sim marker sits at 30% of bar visually
@@ -3841,13 +3930,13 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
       <span style={{fontFamily:mono,fontSize:9,color:"#d4d4d4"}}>{doneM}/{totalM}</span>
     </div>
   </div>;
-})()}<div style={{display:"flex",gap:12,marginBottom:24,alignItems:"stretch",position:"relative"}}><div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",zIndex:2,fontFamily:font,fontSize:16,fontWeight:900,color:"#d4d4d4",background:"#faf9f6",padding:"4px 10px",borderRadius:99,border:"1px solid #e5e5e5"}}>vs</div>{[{p:pA,id:aId},{p:pB,id:bId}].map(({p,id})=>{const ps=getProspectStats(p.name,p.school);return<button key={id} onClick={()=>{if(showConfidence)return;if(isGuest){onRequireAuth("sign in to vote and build your big board");return;}setPendingWinner(id);setShowConfidence(true);}} style={{flex:1,padding:"24px 16px 20px",background:pendingWinner===id?`${c}08`:"#fff",border:pendingWinner===id?`2px solid ${c}`:"1px solid #e5e5e5",borderRadius:16,cursor:showConfidence?"default":"pointer",textAlign:"center",transition:"all 0.15s",display:"flex",flexDirection:"column",alignItems:"center",gap:4}} onMouseEnter={e=>{if(!showConfidence)e.currentTarget.style.borderColor=c;}} onMouseLeave={e=>{if(!showConfidence&&pendingWinner!==id)e.currentTarget.style.borderColor="#e5e5e5";}}><SchoolLogo school={p.school} size={44}/><div style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",lineHeight:1.1,marginTop:2}}>{p.name}</div><div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{p.school}</div><div style={{display:"flex",gap:6,alignItems:"center",marginTop:2}}><span style={{fontFamily:mono,fontSize:10,fontWeight:500,color:c,background:`${c}0d`,padding:"3px 10px",borderRadius:4,border:`1px solid ${c}1a`}}>{p.gpos||p.pos}</span>{ps&&<span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{ps.rank?"#"+ps.rank+" ovr":"NR"}{ps.posRank?" · "+(p.gpos||p.pos)+ps.posRank:""}</span>}</div>{ps&&(ps.height||ps.weight)&&<div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginTop:2}}>{[ps.height,ps.weight?ps.weight+"lbs":"",ps.cls?("yr "+ps.cls):""].filter(Boolean).join(" · ")}</div>}{ps&&ps.statLine&&<div style={{fontFamily:mono,fontSize:10,color:"#525252",marginTop:4,lineHeight:1.3,background:"#f9f9f6",padding:"4px 8px",borderRadius:6,border:"1px solid #f0f0f0",maxWidth:"100%"}}>{ps.statLine}{ps.statExtra&&<><br/><span style={{color:"#a3a3a3"}}>{ps.statExtra}</span></>}</div>}{(compCount[id]||0)>=2&&<div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",marginTop:4}}>{Math.round(((winCount[id]||0)/(compCount[id]))*100)}% pick rate</div>}</button>})}</div>{showConfidence&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:24,textAlign:"center"}}><p style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",margin:"0 0 4px"}}>how confident?</p><p style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",margin:"0 0 16px"}}>higher = bigger rating swing</p><div style={{display:"flex",gap:8,justifyContent:"center",flexWrap:"wrap"}}>{[["coin flip",.2],["leaning",.5],["confident",.75],["lock",1]].map(([label,val])=><button key={label} onClick={()=>handlePick(pendingWinner,val)} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:val>=.75?"#171717":"transparent",color:val>=.75?"#faf9f6":"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}} onMouseEnter={e=>{e.currentTarget.style.background="#171717";e.currentTarget.style.color="#faf9f6";}} onMouseLeave={e=>{if(val<.75){e.currentTarget.style.background="transparent";e.currentTarget.style.color="#525252";}}}>{label}</button>)}</div><button onClick={()=>{setShowConfidence(false);setPendingWinner(null);}} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",marginTop:10}}>← pick again</button></div>}<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:16}}>{lockedPlayer&&(()=>{const lp=prospectsMap[lockedPlayer];const remLocked=(matchups[activePos]||[]).filter(m=>!((completed[activePos]||new Set()).has(`${m[0]}-${m[1]}`))&&(m[0]===lockedPlayer||m[1]===lockedPlayer));return<div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"8px 12px",marginBottom:12,background:"linear-gradient(135deg,#fef3c7,#fef9c3)",border:"1px solid #fbbf24",borderRadius:8}}><div style={{display:"flex",alignItems:"center",gap:8}}><span style={{fontSize:14}}>🎯</span><span style={{fontFamily:sans,fontSize:12,fontWeight:700,color:"#92400e"}}>{lp?.name} focus mode</span><span style={{fontFamily:mono,fontSize:10,color:"#b45309"}}>{remLocked.length} left</span></div><button onClick={()=>{setLockedPlayer(null);const ns=completed[activePos]||new Set();const next=getNextMatchup(matchups[activePos],ns,ratings,compCount,posRankFn,null);if(next)setCurrentMatchup(next);}} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"4px 10px",background:"#fff",color:"#92400e",border:"1px solid #fbbf24",borderRadius:99,cursor:"pointer"}}>unlock</button></div>;})()}<p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 10px"}}>live rankings</p><div style={{maxHeight:400,overflowY:"auto"}}>{ranked.map((p,i)=>{const isLocked=lockedPlayer===p.id;return<div key={p.id} className="rank-row" style={{display:"flex",alignItems:"center",gap:10,padding:"5px 0",borderBottom:i<ranked.length-1?"1px solid #f5f5f5":"none",background:isLocked?"#fef9c3":"transparent",borderRadius:isLocked?4:0,margin:isLocked?"0 -4px":"0",padding:isLocked?"5px 4px":"5px 0"}}><span style={{fontFamily:mono,fontSize:11,color:"#d4d4d4",width:20,textAlign:"right"}}>{i+1}</span><SchoolLogo school={p.school} size={20}/><span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",flex:1,cursor:"pointer",textDecoration:"none"}} onClick={e=>{e.stopPropagation();setProfilePlayer(p);}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{Math.round(ratings[p.id]||1500)}</span><button onClick={e=>{e.stopPropagation();if(isLocked){setLockedPlayer(null);const ns=completed[activePos]||new Set();const next=getNextMatchup(matchups[activePos],ns,ratings,compCount,posRankFn,null);if(next)setCurrentMatchup(next);}else{setLockedPlayer(p.id);const ns=completed[activePos]||new Set();const next=getNextMatchup(matchups[activePos],ns,ratings,compCount,posRankFn,p.id);if(next)setCurrentMatchup(next);else setLockedPlayer(null);}}} title={isLocked?"Unlock":"Focus matchups on this player"} style={{fontSize:12,background:"none",border:"none",cursor:"pointer",padding:"2px 4px",opacity:isLocked?1:0,transition:"opacity 0.15s",flexShrink:0}} className="lock-btn">{isLocked?"🎯":"📌"}</button></div>;})}</div><style>{`.rank-row:hover .lock-btn{opacity:1!important;}@media(max-width:768px){.lock-btn{display:none!important;}.reorder-hint-desktop{display:none!important;}.reorder-hint-mobile{display:inline!important;}}`}</style></div><button onClick={()=>{setLockedPlayer(null);const done=completed[activePos]||new Set();if(done.size>0){setPartialProgress(prev=>({...prev,[activePos]:{matchups:matchups[activePos]||[],completed:done,ratings}}));}setPhase("pick-position");}} style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"8px 20px",cursor:"pointer"}}>← save & exit</button></div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth} schemeFits={schemeFits}/>}</div>);}
+})()}<div style={{display:"flex",gap:12,marginBottom:24,alignItems:"stretch",position:"relative"}}><div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",zIndex:2,fontFamily:font,fontSize:16,fontWeight:900,color:"#d4d4d4",background:"#faf9f6",padding:"4px 10px",borderRadius:99,border:"1px solid #e5e5e5"}}>vs</div>{[{p:pA,id:aId},{p:pB,id:bId}].map(({p,id})=>{const ps=getProspectStats(p.name,p.school);return<button key={id} onClick={()=>{if(showConfidence)return;if(isGuest){onRequireAuth("sign in to vote and build your big board");return;}setPendingWinner(id);setShowConfidence(true);}} style={{flex:1,padding:"24px 16px 20px",background:pendingWinner===id?`${c}08`:"#fff",border:pendingWinner===id?`2px solid ${c}`:"1px solid #e5e5e5",borderRadius:16,cursor:showConfidence?"default":"pointer",textAlign:"center",transition:"all 0.15s",display:"flex",flexDirection:"column",alignItems:"center",gap:4}} onMouseEnter={e=>{if(!showConfidence)e.currentTarget.style.borderColor=c;}} onMouseLeave={e=>{if(!showConfidence&&pendingWinner!==id)e.currentTarget.style.borderColor="#e5e5e5";}}><SchoolLogo school={p.school} size={44}/><div style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",lineHeight:1.1,marginTop:2}}>{p.name}</div><div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{p.school}</div><div style={{display:"flex",gap:6,alignItems:"center",marginTop:2}}><span style={{fontFamily:mono,fontSize:10,fontWeight:500,color:c,background:`${c}0d`,padding:"3px 10px",borderRadius:4,border:`1px solid ${c}1a`}}>{p.gpos||p.pos}</span>{ps&&<span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{ps.rank?"#"+ps.rank+" ovr":"NR"}{ps.posRank?" · "+(p.gpos||p.pos)+ps.posRank:""}</span>}</div>{ps&&(ps.height||ps.weight)&&<div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginTop:2}}>{[ps.height,ps.weight?ps.weight+"lbs":"",ps.cls?("yr "+ps.cls):""].filter(Boolean).join(" · ")}</div>}{ps&&ps.statLine&&<div style={{fontFamily:mono,fontSize:10,color:"#525252",marginTop:4,lineHeight:1.3,background:"#f9f9f6",padding:"4px 8px",borderRadius:6,border:"1px solid #f0f0f0",maxWidth:"100%"}}>{ps.statLine}{ps.statExtra&&<><br/><span style={{color:"#a3a3a3"}}>{ps.statExtra}</span></>}</div>}{(compCount[id]||0)>=2&&<div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",marginTop:4}}>{Math.round(((winCount[id]||0)/(compCount[id]))*100)}% pick rate</div>}</button>})}</div>{showConfidence&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:24,textAlign:"center"}}><p style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",margin:"0 0 4px"}}>how confident?</p><p style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",margin:"0 0 16px"}}>higher = bigger rating swing</p><div style={{display:"flex",gap:8,justifyContent:"center",flexWrap:"wrap"}}>{[["coin flip",.2],["leaning",.5],["confident",.75],["lock",1]].map(([label,val])=><button key={label} onClick={()=>handlePick(pendingWinner,val)} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:val>=.75?"#171717":"transparent",color:val>=.75?"#faf9f6":"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}} onMouseEnter={e=>{e.currentTarget.style.background="#171717";e.currentTarget.style.color="#faf9f6";}} onMouseLeave={e=>{if(val<.75){e.currentTarget.style.background="transparent";e.currentTarget.style.color="#525252";}}}>{label}</button>)}</div><button onClick={()=>{setShowConfidence(false);setPendingWinner(null);}} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",marginTop:10}}>← pick again</button></div>}<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:16}}>{lockedPlayer&&(()=>{const lp=prospectsMap[lockedPlayer];const remLocked=(matchups[activePos]||[]).filter(m=>!((completed[activePos]||new Set()).has(`${m[0]}-${m[1]}`))&&(m[0]===lockedPlayer||m[1]===lockedPlayer));return<div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"8px 12px",marginBottom:12,background:"linear-gradient(135deg,#fef3c7,#fef9c3)",border:"1px solid #fbbf24",borderRadius:8}}><div style={{display:"flex",alignItems:"center",gap:8}}><span style={{fontSize:14}}>🎯</span><span style={{fontFamily:sans,fontSize:12,fontWeight:700,color:"#92400e"}}>{lp?.name} focus mode</span><span style={{fontFamily:mono,fontSize:10,color:"#b45309"}}>{remLocked.length} left</span></div><button onClick={()=>{setLockedPlayer(null);const ns=completed[activePos]||new Set();const next=getNextMatchup(matchups[activePos],ns,ratings,compCount,posRankFn,null);if(next)setCurrentMatchup(next);}} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"4px 10px",background:"#fff",color:"#92400e",border:"1px solid #fbbf24",borderRadius:99,cursor:"pointer"}}>unlock</button></div>;})()}<p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 10px"}}>live rankings</p><div style={{maxHeight:400,overflowY:"auto"}}>{ranked.map((p,i)=>{const isLocked=lockedPlayer===p.id;return<div key={p.id} className="rank-row" style={{display:"flex",alignItems:"center",gap:10,padding:"5px 0",borderBottom:i<ranked.length-1?"1px solid #f5f5f5":"none",background:isLocked?"#fef9c3":"transparent",borderRadius:isLocked?4:0,margin:isLocked?"0 -4px":"0",padding:isLocked?"5px 4px":"5px 0"}}><span style={{fontFamily:mono,fontSize:11,color:"#d4d4d4",width:20,textAlign:"right"}}>{i+1}</span><SchoolLogo school={p.school} size={20}/><span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",flex:1,cursor:"pointer",textDecoration:"none"}} onClick={e=>{e.stopPropagation();setProfilePlayer(p);}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{Math.round(ratings[p.id]||1500)}</span><button onClick={e=>{e.stopPropagation();if(isLocked){setLockedPlayer(null);const ns=completed[activePos]||new Set();const next=getNextMatchup(matchups[activePos],ns,ratings,compCount,posRankFn,null);if(next)setCurrentMatchup(next);}else{setLockedPlayer(p.id);const ns=completed[activePos]||new Set();const next=getNextMatchup(matchups[activePos],ns,ratings,compCount,posRankFn,p.id);if(next)setCurrentMatchup(next);else setLockedPlayer(null);}}} title={isLocked?"Unlock":"Focus matchups on this player"} style={{fontSize:12,background:"none",border:"none",cursor:"pointer",padding:"2px 4px",opacity:isLocked?1:0,transition:"opacity 0.15s",flexShrink:0}} className="lock-btn">{isLocked?"🎯":"📌"}</button></div>;})}</div><style>{`.rank-row:hover .lock-btn{opacity:1!important;}@media(max-width:768px){.lock-btn{display:none!important;}.reorder-hint-desktop{display:none!important;}.reorder-hint-mobile{display:inline!important;}}`}</style></div><button onClick={()=>{setLockedPlayer(null);const done=completed[activePos]||new Set();if(done.size>0){setPartialProgress(prev=>({...prev,[activePos]:{matchups:matchups[activePos]||[],completed:done,ratings}}));}navigate('/');}} style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"8px 20px",cursor:"pointer"}}>← save & exit</button></div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth} schemeFits={schemeFits}/>}</div>);}
 
   // === RECONCILE ===
-  if(phase==="reconcile"&&reconcileQueue.length>0){const item=reconcileQueue[Math.min(reconcileIndex,reconcileQueue.length-1)];const c=POS_COLORS[item.player.pos];const dir=item.gradeRank<item.pairRank?"higher":"lower";return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:500,margin:"0 auto",padding:"52px 24px"}}><p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 4px"}}>reconcile · {reconcileIndex+1} of {reconcileQueue.length}</p><div style={{height:3,background:"#e5e5e5",borderRadius:2,marginBottom:28,overflow:"hidden"}}><div style={{height:"100%",width:`${((reconcileIndex+1)/reconcileQueue.length)*100}%`,background:c,borderRadius:2}}/></div><div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:32,textAlign:"center"}}><SchoolLogo school={item.player.school} size={56}/><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c,marginBottom:4,marginTop:8}}>{item.player.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3",marginBottom:24}}>{item.player.school}</div><div style={{display:"flex",justifyContent:"center",gap:32,marginBottom:24}}>{[["gut rank",`#${item.pairRank}`,"#171717"],["grade rank",`#${item.gradeRank}`,dir==="higher"?"#16a34a":"#dc2626"],["composite",`${item.grade}`,"#171717"]].map(([label,val,col])=><div key={label}><div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:4}}>{label}</div><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:col}}>{val}</div></div>)}</div><p style={{fontFamily:sans,fontSize:14,color:"#737373",lineHeight:1.5,marginBottom:24}}>your traits suggest this player should rank <strong style={{color:dir==="higher"?"#16a34a":"#dc2626"}}>{dir}</strong> than your gut. accept?</p><div style={{display:"flex",gap:10,justifyContent:"center"}}><button onClick={()=>{const pos=item.player.pos;const rk=getRanked(pos);const ti=item.gradeRank-1;const tp=rk[ti];if(tp)setRatings(prev=>({...prev,[item.player.id]:(prev[tp.id]||1500)+(dir==="higher"?1:-1)}));reconcileIndex>=reconcileQueue.length-1?(setBoardInitPos(activePos),setPhase("board")):setReconcileIndex(reconcileIndex+1);}} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 24px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>accept</button><button onClick={()=>reconcileIndex>=reconcileQueue.length-1?(setBoardInitPos(activePos),setPhase("board")):setReconcileIndex(reconcileIndex+1)} style={{fontFamily:sans,fontSize:13,padding:"10px 24px",background:"transparent",color:"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>keep my rank</button></div></div></div></div>);}
+  if(phase==="reconcile"&&reconcileQueue.length>0){const item=reconcileQueue[Math.min(reconcileIndex,reconcileQueue.length-1)];const c=POS_COLORS[item.player.pos];const dir=item.gradeRank<item.pairRank?"higher":"lower";return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:500,margin:"0 auto",padding:"52px 24px"}}><p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 4px"}}>reconcile · {reconcileIndex+1} of {reconcileQueue.length}</p><div style={{height:3,background:"#e5e5e5",borderRadius:2,marginBottom:28,overflow:"hidden"}}><div style={{height:"100%",width:`${((reconcileIndex+1)/reconcileQueue.length)*100}%`,background:c,borderRadius:2}}/></div><div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:32,textAlign:"center"}}><SchoolLogo school={item.player.school} size={56}/><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c,marginBottom:4,marginTop:8}}>{item.player.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3",marginBottom:24}}>{item.player.school}</div><div style={{display:"flex",justifyContent:"center",gap:32,marginBottom:24}}>{[["gut rank",`#${item.pairRank}`,"#171717"],["grade rank",`#${item.gradeRank}`,dir==="higher"?"#16a34a":"#dc2626"],["composite",`${item.grade}`,"#171717"]].map(([label,val,col])=><div key={label}><div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:4}}>{label}</div><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:col}}>{val}</div></div>)}</div><p style={{fontFamily:sans,fontSize:14,color:"#737373",lineHeight:1.5,marginBottom:24}}>your traits suggest this player should rank <strong style={{color:dir==="higher"?"#16a34a":"#dc2626"}}>{dir}</strong> than your gut. accept?</p><div style={{display:"flex",gap:10,justifyContent:"center"}}><button onClick={()=>{const pos=item.player.pos;const rk=getRanked(pos);const ti=item.gradeRank-1;const tp=rk[ti];if(tp)setRatings(prev=>({...prev,[item.player.id]:(prev[tp.id]||1500)+(dir==="higher"?1:-1)}));reconcileIndex>=reconcileQueue.length-1?(setBoardInitPos(activePos),setPhase("board"),window.history.replaceState({},'','/board')):setReconcileIndex(reconcileIndex+1);}} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 24px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>accept</button><button onClick={()=>reconcileIndex>=reconcileQueue.length-1?(setBoardInitPos(activePos),setPhase("board"),window.history.replaceState({},'','/board')):setReconcileIndex(reconcileIndex+1)} style={{fontFamily:sans,fontSize:13,padding:"10px 24px",background:"transparent",color:"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>keep my rank</button></div></div></div></div>);}
 
   // === BIG BOARD ===
-  if(phase==="board")return(<div><SaveBar/><div style={{paddingTop:32}}><BoardView getBoard={getBoard} getGrade={getGrade} rankedGroups={rankedGroups} setPhase={setPhase} setSelectedPlayer={setSelectedPlayer} setActivePos={setActivePos} traits={traits} compareList={compareList} setCompareList={setCompareList} setProfilePlayer={setProfilePlayer} setShowMockDraft={setShowMockDraft} communityBoard={communityBoard} setCommunityBoard={setCommunityBoard} ratings={ratings} byPos={byPos} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} sharePositionTop10={sharePositionTop10} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter} initialPos={boardInitPos} onClearInitPos={()=>setBoardInitPos(null)} movePlayer={movePlayer} getRanked={getRanked} isGuest={isGuest} onRequireAuth={onRequireAuth} setRankedGroups={setRankedGroups} setTraitReviewedGroups={setTraitReviewedGroups} setRatings={setRatings} setTraits={setTraits} setCompCount={setCompCount} setPartialProgress={setPartialProgress}/></div><TwitterFooter/><div style={{textAlign:"center",padding:"4px 24px 24px",fontFamily:mono,fontSize:10,color:"#d4d4d4",letterSpacing:0.5}}>© {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth} schemeFits={schemeFits}/>}</div>);
+  if(phase==="board")return(<div><SaveBar/><div style={{paddingTop:32}}><BoardView getBoard={getBoard} getGrade={getGrade} rankedGroups={rankedGroups} setPhase={setPhase} navigate={navigate} setSelectedPlayer={setSelectedPlayer} setActivePos={setActivePos} traits={traits} compareList={compareList} setCompareList={setCompareList} setProfilePlayer={setProfilePlayer} setShowMockDraft={setShowMockDraft} communityBoard={communityBoard} setCommunityBoard={setCommunityBoard} ratings={ratings} byPos={byPos} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} sharePositionTop10={sharePositionTop10} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter} initialPos={boardInitPos} onClearInitPos={()=>setBoardInitPos(null)} movePlayer={movePlayer} getRanked={getRanked} isGuest={isGuest} onRequireAuth={onRequireAuth} setRankedGroups={setRankedGroups} setTraitReviewedGroups={setTraitReviewedGroups} setRatings={setRatings} setTraits={setTraits} setCompCount={setCompCount} setPartialProgress={setPartialProgress}/></div><TwitterFooter/><div style={{textAlign:"center",padding:"4px 24px 24px",fontFamily:mono,fontSize:10,color:"#d4d4d4",letterSpacing:0.5}}>© {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth} schemeFits={schemeFits}/>}</div>);
 
   return(<>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth} schemeFits={schemeFits}/>}</>);
 }
@@ -3891,7 +3980,7 @@ function DraggableRankList({ranked,activePos,cur,c,getGrade,setSelectedPlayer,mo
   );
 }
 
-function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,setActivePos,traits,compareList,setCompareList,setProfilePlayer,setShowMockDraft,communityBoard,setCommunityBoard,ratings,byPos,traitThresholds,qualifiesForFilter,prospectBadges,sharePositionTop10,copiedShare,measurableThresholds,qualifiesForMeasurableFilter,initialPos,onClearInitPos,movePlayer,getRanked,isGuest,onRequireAuth,setRankedGroups,setTraitReviewedGroups,setRatings,setTraits,setCompCount,setPartialProgress}){
+function BoardView({getBoard,getGrade,rankedGroups,setPhase,navigate,setSelectedPlayer,setActivePos,traits,compareList,setCompareList,setProfilePlayer,setShowMockDraft,communityBoard,setCommunityBoard,ratings,byPos,traitThresholds,qualifiesForFilter,prospectBadges,sharePositionTop10,copiedShare,measurableThresholds,qualifiesForMeasurableFilter,initialPos,onClearInitPos,movePlayer,getRanked,isGuest,onRequireAuth,setRankedGroups,setTraitReviewedGroups,setRatings,setTraits,setCompCount,setPartialProgress}){
   const[filterPos,setFilterPos]=useState(new Set());const[traitFilter,setTraitFilter]=useState(new Set());const[measMode,setMeasMode]=useState(false);useEffect(()=>{setTraitFilter(new Set());setMeasMode(false);},[filterPos]);const[showCommunity,setShowCommunity]=useState(false);
   // 6a: consume initialPos on mount
   useEffect(()=>{if(initialPos){setFilterPos(new Set([initialPos]));onClearInitPos();}},[initialPos]);
@@ -3934,7 +4023,7 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,setSelectedPlayer,se
   },[]);
 
   const activeSinglePos=filterPos.size===1?[...filterPos][0]:null;
-  return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><div style={{maxWidth:800,margin:"0 auto",padding:"40px 24px"}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}><div style={{display:"flex",alignItems:"center",gap:12,minWidth:0}}><h1 style={{fontSize:36,fontWeight:900,color:activeSinglePos?(POS_COLORS[activeSinglePos]||"#171717"):"#171717",margin:0,letterSpacing:-1,whiteSpace:"nowrap"}}>{activeSinglePos?<><span>{activeSinglePos}</span><span className="hide-mobile"> rankings</span></>:"big board"}</h1>{filterPos.size<=1&&display.length>0&&<button onClick={()=>sharePositionTop10(activeSinglePos)} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"6px 14px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",flexShrink:0,position:"relative"}}><span style={{visibility:copiedShare==="top10"?"hidden":"visible"}}><span className="shimmer-text">share top 10</span></span>{copiedShare==="top10"&&<span style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#a3a3a3",fontWeight:400}}>copied</span>}</button>}</div><button onClick={()=>setPhase("pick-position")} style={{fontFamily:sans,fontSize:12,padding:"8px 16px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",color:"#a3a3a3",whiteSpace:"nowrap",flexShrink:0}}>← back</button></div><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 12px"}}>{display.length} prospects ranked by you</p>
+  return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><div style={{maxWidth:800,margin:"0 auto",padding:"40px 24px"}}><div style={{display:"flex",alignItems:"center",gap:12,marginBottom:6,minWidth:0}}><h1 style={{fontSize:36,fontWeight:900,color:activeSinglePos?(POS_COLORS[activeSinglePos]||"#171717"):"#171717",margin:0,letterSpacing:-1,whiteSpace:"nowrap"}}>{activeSinglePos?<><span>{activeSinglePos}</span><span className="hide-mobile"> rankings</span></>:"big board"}</h1>{filterPos.size<=1&&display.length>0&&<button onClick={()=>sharePositionTop10(activeSinglePos)} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"6px 14px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",flexShrink:0,position:"relative"}}><span style={{visibility:copiedShare==="top10"?"hidden":"visible"}}><span className="shimmer-text">share top 10</span></span>{copiedShare==="top10"&&<span style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#a3a3a3",fontWeight:400}}>copied</span>}</button>}</div><p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 12px"}}>{display.length} prospects ranked by you</p>
 
     {showCommunity&&communityBoard&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:16}}>
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
@@ -5350,14 +5439,12 @@ function GuidePage({onBack}){
     `}</style>
 
     {/* Nav */}
-    <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(250,249,246,0.92)",backdropFilter:"blur(12px)",borderBottom:"1px solid #e5e5e5"}}>
-      <div style={{maxWidth:720,margin:"0 auto",padding:"10px 24px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-        <div style={{display:"flex",alignItems:"center",gap:10}}>
-          <img src="/logo.png" alt="Big Board Lab" style={{width:28,height:"auto"}}/>
-          <span style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>guide</span>
-        </div>
-        <button onClick={onBack} style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#7c3aed",background:"none",border:"1px solid #ede9fe",borderRadius:99,padding:"6px 16px",cursor:"pointer"}}>← back to app</button>
+    <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}>
+      <div style={{display:"flex",alignItems:"center",gap:12}}>
+        <img src="/logo.png" alt="Big Board Lab" style={{height:24,cursor:"pointer"}} onClick={onBack}/>
+        <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>guide</span>
       </div>
+      <button onClick={onBack} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>← back to app</button>
     </div>
 
     {/* Hero */}
@@ -6059,10 +6146,10 @@ export default function App(){
   const signOut=async()=>{try{await supabase.auth.signOut();}catch(e){}setUser(null);};
 
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
-  if(showGuide)return<GuidePage onBack={()=>{window.history.pushState({},'','/');setShowGuide(false);}}/>;
+  if(showGuide)return<GuidePage onBack={()=>{window.history.back();}}/>;
   if(showOG)return<OGPreview/>;
-  if(showGmQuiz)return<GmQuiz user={user} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} trackEvent={trackEvent} userId={user?.id} onLaunchMock={(team)=>{setGmQuizMockLaunch(team);setShowGmQuiz(false);window.history.pushState({},'','/');}}/>;
-  if(!user&&!isGuest&&!(window.location.pathname==='/lab'||window.location.pathname==='/data-lab'||window.location.pathname.startsWith('/lab/')||window.location.pathname.startsWith('/data-lab/'))&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>setIsGuest(true)} onOpenGuide={navigateToGuide}/>;
+  if(showGmQuiz)return<GmQuiz user={user} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} trackEvent={trackEvent} userId={user?.id} onLaunchMock={(team)=>{setGmQuizMockLaunch(team);setShowGmQuiz(false);window.history.pushState({},'','/');}} onHome={()=>{setShowGmQuiz(false);window.history.pushState({},'','/');window.dispatchEvent(new PopStateEvent("popstate"));}}/>;
+  if(!user&&!isGuest&&!(window.location.pathname==='/lab'||window.location.pathname==='/data-lab'||window.location.pathname.startsWith('/lab/')||window.location.pathname.startsWith('/data-lab/'))&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>{const p=window.location.pathname;if(p==='/board'||p.startsWith('/rank')||p==='/r1'||p==='/my-guys')window.history.replaceState({},'','/');setIsGuest(true);}} onOpenGuide={navigateToGuide}/>;
   if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
   return<>
     <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} gmQuizMockLaunch={gmQuizMockLaunch} onClearGmQuizMock={()=>setGmQuizMockLaunch(null)} onRequireAuth={(msg)=>{

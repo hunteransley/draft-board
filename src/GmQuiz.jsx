@@ -64,13 +64,7 @@ function QuizQuestion({ question, index, total, onAnswer }) {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#faf9f6", display: "flex", flexDirection: "column", alignItems: "center", padding: "24px 24px 60px" }}>
-      {/* BBL header */}
-      <div style={{ width: "100%", maxWidth: 520, display: "flex", alignItems: "center", gap: 8, marginBottom: 20 }}>
-        <img src="/logo.png" alt="Big Board Lab" style={{ width: 28, height: "auto" }} />
-        <span style={{ fontFamily: font, fontSize: 14, fontWeight: 900, letterSpacing: -0.5, color: "#171717" }}>big board lab</span>
-        <span style={{ fontFamily: mono, fontSize: 9, letterSpacing: 1, color: "#a3a3a3", textTransform: "uppercase", marginLeft: 4 }}>GM Quiz</span>
-      </div>
+    <div style={{ minHeight: "100vh", background: "#faf9f6", display: "flex", flexDirection: "column", alignItems: "center", padding: "52px 24px 60px" }}>
       {/* Progress */}
       <div style={{ width: "100%", maxWidth: 520, marginBottom: 32 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
@@ -131,7 +125,7 @@ function QuizAuthGate({ NFLTeamLogo }) {
   return (
     <div style={{ minHeight: "100vh", background: "#faf9f6" }}>
       {/* Hero — visual matching illustration */}
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "60px 24px 0", textAlign: "center" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "80px 24px 0", textAlign: "center" }}>
         <img src="/logo.png" alt="Big Board Lab" style={{ width: 56, height: "auto", marginBottom: 6 }} />
         <h2 style={{ fontFamily: font, fontSize: 18, fontWeight: 900, letterSpacing: -1, color: "#171717", margin: "0 0 4px" }}>big board lab</h2>
         <p style={{ fontFamily: mono, fontSize: 9, letterSpacing: 1.5, color: "#a3a3a3", textTransform: "uppercase", margin: "0 0 20px" }}>2026 NFL Draft</p>
@@ -645,7 +639,7 @@ function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, onLaunchM
   return (
     <div style={{ minHeight: "100vh", background: "#faf9f6", fontFamily: font }}>
       {/* Header bar */}
-      <div style={{ padding: "16px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div style={{ padding: "48px 24px 16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <img src="/logo.png" alt="Big Board Lab" style={{ width: 32, height: "auto" }} />
           <span style={{ fontFamily: font, fontSize: 14, fontWeight: 900, letterSpacing: -0.5, color: "#171717" }}>big board lab</span>
@@ -840,7 +834,7 @@ function QuizResults({ result, user, NFLTeamLogo, SchoolLogo, onClose, onLaunchM
 // ============================================================
 // Main GmQuiz Component
 // ============================================================
-export default function GmQuiz({ user, NFLTeamLogo, SchoolLogo, trackEvent, userId, onLaunchMock }) {
+export default function GmQuiz({ user, NFLTeamLogo, SchoolLogo, trackEvent, userId, onLaunchMock, onHome }) {
   // Check sessionStorage for saved answers (survives OAuth redirect)
   const [phase, setPhase] = useState(() => {
     try {
@@ -922,19 +916,28 @@ export default function GmQuiz({ user, NFLTeamLogo, SchoolLogo, trackEvent, user
     window.dispatchEvent(new PopStateEvent("popstate"));
   };
 
-  if (phase === "intro") return <QuizIntro onStart={handleStart} />;
+  const topBar = onHome ? (
+    <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}>
+      <div style={{display:"flex",alignItems:"center",gap:12}}>
+        <img src="/logo.png" alt="BBL" style={{height:24,cursor:"pointer"}} onClick={onHome}/>
+        <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>gm quiz</span>
+      </div>
+    </div>
+  ) : null;
+
+  if (phase === "intro") return <>{topBar}<QuizIntro onStart={handleStart} /></>;
   if (phase === "quiz") {
-    return <QuizQuestion
+    return <>{topBar}<QuizQuestion
       key={questionIndex}
       question={QUIZ_QUESTIONS[questionIndex]}
       index={questionIndex}
       total={QUIZ_QUESTIONS.length}
       onAnswer={handleAnswer}
-    />;
+    /></>;
   }
-  if (phase === "auth-gate") return <QuizAuthGate NFLTeamLogo={NFLTeamLogo} />;
+  if (phase === "auth-gate") return <>{topBar}<QuizAuthGate NFLTeamLogo={NFLTeamLogo} /></>;
   if (phase === "results" && matchResult) {
-    return <QuizResults
+    return <>{topBar}<QuizResults
       result={matchResult}
       user={user}
       NFLTeamLogo={NFLTeamLogo}
@@ -943,7 +946,7 @@ export default function GmQuiz({ user, NFLTeamLogo, SchoolLogo, trackEvent, user
       onLaunchMock={onLaunchMock}
       trackEvent={trackEvent}
       userId={userId}
-    />;
+    /></>;
   }
 
   return null;

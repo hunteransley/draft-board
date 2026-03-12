@@ -660,7 +660,7 @@ export default function Round1Prediction({
   // ── RESULTS UI ──
   return (
     <div style={{position:"fixed",inset:0,background:"#faf9f6",zIndex:9000,overflow:"auto",WebkitOverflowScrolling:"touch"}}>
-      <div style={{maxWidth:900,margin:"0 auto",padding:"16px 16px 80px"}}>
+      <div style={{maxWidth:900,margin:"0 auto",padding:"52px 16px 80px"}}>
         {/* Header */}
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:16}}>
           <button onClick={onClose} style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>{"\u2715 close"}</button>
