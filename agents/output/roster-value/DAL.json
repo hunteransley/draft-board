@@ -1,0 +1,740 @@
+{
+  "team": "DAL",
+  "team_full": "Dallas Cowboys",
+  "team_context": {
+    "competitive_window": "competing \u2014 retooling after back-to-back playoff misses, Jerry Jones promising to 'bust the budget' on defense",
+    "cap_situation": "extremely tight \u2014 entered 2026 over the cap, created space via restructures of Prescott, Lamb, Smith, Steele, Clark, Hooker. Traded Osa Odighizuwa to 49ers for 3rd-round pick on 3/11/26 to clear $4.75M. Still among tightest cap situations in NFL.",
+    "trade_posture": "Buyers on defense (especially LB, CB depth), willing to move redundant DL pieces for picks. Aggressive in acquiring pass rush (traded for Rashan Gary, traded for Quinnen Williams midseason). Two 1st-round picks in 2026 draft. Pickens franchise tag situation creates trade leverage/uncertainty."
+  },
+  "players": [
+    {
+      "name": "Dak Prescott",
+      "slot": "QB1",
+      "position": "QB",
+      "age": 33,
+      "draft_pedigree": "2016 4.135",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 60000000,
+        "guaranteed_remaining": 102000000,
+        "cap_hit_2026": 43508430,
+        "dead_cap_if_traded": 129989996,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Completed 67.3% of passes for 4,552 yards, 30 TD and 10 INT in 2025. Cowboys offense ranked 2nd in total yards (391.9 YPG) and 7th in scoring (27.7 PPG). 3x Pro Bowler, Cowboys all-time passing leader. Top-10 QB when healthy.",
+      "trade_value": {
+        "pick_equivalent": 999,
+        "pick_value_points": 0,
+        "reasoning": "Effectively untradeable due to full no-trade clause, $130M dead cap if traded, and $102M+ in remaining guarantees. The contract makes a trade mathematically impossible for both sides."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Full no-trade clause in contract per Spotrac/OTC. $130M dead cap makes trade impossible. Face of the franchise, Cowboys all-time passing leader. Jerry Jones has publicly committed to building around him.",
+      "injury_notes": "Missed most of 2024 with hamstring injury. Played all 17 games healthy in 2025.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Joe Milton III",
+      "slot": "QB2",
+      "position": "QB",
+      "age": 24,
+      "draft_pedigree": "2025 4.112",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1100000,
+        "guaranteed_remaining": 500000,
+        "cap_hit_2026": 1050000,
+        "dead_cap_if_traded": 400000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "4th-round rookie in 2025 out of Tennessee. Did not see meaningful game action in 2025. Cannon arm, developmental project behind Prescott.",
+      "trade_value": {
+        "pick_equivalent": 220,
+        "pick_value_points": 15,
+        "reasoning": "Developmental backup QB on a cheap rookie deal. Minimal trade value \u2014 a late-round pick swap at best. Has upside but unproven."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Cowboys need a backup QB behind Prescott and Milton is their investment. Unlikely to move him unless overpaid, but he's not a critical piece.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Javonte Williams",
+      "slot": "RB1",
+      "position": "RB",
+      "age": 26,
+      "draft_pedigree": "2021 2.35",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 8000000,
+        "guaranteed_remaining": 16000000,
+        "cap_hit_2026": 3950000,
+        "dead_cap_if_traded": 8000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Career-best 2025: 1,201 rushing yards, 11 rushing TDs, 4.8 YPC. Added 35 catches for 137 yards and 2 receiving TDs (1,338 total yards, 13 total TDs). Signed 3-year, $24M extension in Feb 2026.",
+      "trade_value": {
+        "pick_equivalent": 90,
+        "pick_value_points": 120,
+        "reasoning": "Quality starting RB on a very team-friendly deal ($8M AAV, $3.95M cap hit in 2026). But RB position is devalued in trades. Worth a late 3rd/early 4th given the contract and production, though RB trade market is typically soft."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just signed a 3-year extension in February 2026. Cowboys publicly committed to him as a cornerstone. Stephen Jones called him 'at the top of our list.' Not being shopped but has a price if someone overpays.",
+      "injury_notes": "Tore ACL in 2022 with Broncos, missed most of that season. Has been healthy since arriving in Dallas.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Malik Davis",
+      "slot": "RB2",
+      "position": "RB",
+      "age": 25,
+      "draft_pedigree": "UDFA 2022",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1100000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1100000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "Career backup/special teams contributor. Limited offensive role behind Williams in 2025. Minimal statistical production.",
+      "trade_value": {
+        "pick_equivalent": 250,
+        "pick_value_points": 2,
+        "reasoning": "Depth RB with minimal trade value. Would not command anything more than a conditional late-round pick."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Replaceable depth piece on an expiring deal. Cowboys would move him for any draft compensation.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "CeeDee Lamb",
+      "slot": "WR1",
+      "position": "WR",
+      "age": 27,
+      "draft_pedigree": "2020 1.17",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 34000000,
+        "guaranteed_remaining": 50000000,
+        "cap_hit_2026": 19823529,
+        "dead_cap_if_traded": 68800000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "elite",
+      "performance_evidence": "One of the NFL's best WRs. Career-best 2023: 135 catches, 1,749 yards, 12 TDs. Continued elite production in 2025 as Cowboys' offensive centerpiece. 2nd-highest paid WR in NFL ($34M AAV). Multiple Pro Bowl selections.",
+      "trade_value": {
+        "pick_equivalent": 5,
+        "pick_value_points": 2600,
+        "reasoning": "Elite WR1 at 27, entering prime, under contract through 2028. But $68.8M dead cap makes trade virtually impossible. Worth multiple 1sts in a vacuum but can't be moved."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Massive dead cap ($68.8M) makes any trade financially devastating. Cowboys restructured his contract specifically to keep him. Dak Prescott's top weapon. Zero chance of trade.",
+      "injury_notes": "Suffered concussion in Week 14 vs Lions in 2025, missed some time.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "George Pickens",
+      "slot": "WR2",
+      "position": "WR",
+      "age": 25,
+      "draft_pedigree": "2022 2.52",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 27298000,
+        "guaranteed_remaining": 27298000,
+        "cap_hit_2026": 27298000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Career-best 2025 with Cowboys: 93 catches, 1,429 receiving yards (3rd in NFL), 9 TDs. Named to Pro Bowl, earned 2nd-team All-Pro. 2.2 yards per route run in 2023-24 with Steelers. Elite deep threat averaging 16.7 YPR over last two seasons.",
+      "trade_value": {
+        "pick_equivalent": 20,
+        "pick_value_points": 850,
+        "reasoning": "Pro Bowl WR on franchise tag ($27.3M). Young (25), elite production. But 1-year deal and $27.3M tag salary limit value. Acquiring team gets one year at a massive cap hit before he hits free agency. Worth a late 1st to a contender willing to extend him."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Cowboys franchised him with nonexclusive tag. Trade rumors have swirled since the Combine. Per Tony Pauline and multiple reports, Cowboys could be open to trading him. However, both sides say they want a long-term deal. Agent David Mulugheta's history with Cowboys (Parsons situation) adds uncertainty. If a team offers two 1sts, Cowboys would have to consider it.",
+      "injury_notes": "Missed 3 games with hamstring injury in 2024 with Steelers. Healthy throughout 2025 with Cowboys.",
+      "character_notes": "Well-documented maturity concerns in Pittsburgh \u2014 multiple fines for unsportsmanlike conduct, taunting, late to games. Steelers coach Tomlin said 'he's got to grow up.' Issues were reportedly less problematic in Dallas but haven't fully disappeared.",
+      "trade_buzz": "Per Tony Pauline from NFL Combine: trade rumors continue to swirl. Cowboys placed nonexclusive franchise tag, allowing him to negotiate with other teams. If another team signs him to an offer sheet, Cowboys get two 1sts as compensation. No specific teams linked yet."
+    },
+    {
+      "name": "Ryan Flournoy",
+      "slot": "WR3",
+      "position": "WR",
+      "age": 25,
+      "draft_pedigree": "2024 6.178",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 900000,
+        "guaranteed_remaining": 100000,
+        "cap_hit_2026": 985000,
+        "dead_cap_if_traded": 100000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "6th-round pick in 2024 out of SE Missouri State. Earned WR3 role through speed and special teams contributions. Limited receiving production but brings deep speed to the offense.",
+      "trade_value": {
+        "pick_equivalent": 210,
+        "pick_value_points": 10,
+        "reasoning": "Depth WR on a minimum-level rookie deal. Minimal independent trade value \u2014 a conditional late-round pick at best."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth receiver who could be moved if Cowboys add WR talent in draft. Not a core piece but on a cheap contract.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Jake Ferguson",
+      "slot": "TE1",
+      "position": "TE",
+      "age": 26,
+      "draft_pedigree": "2022 4.129",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 12500000,
+        "guaranteed_remaining": 22000000,
+        "cap_hit_2026": 7250000,
+        "dead_cap_if_traded": 18000000,
+        "free_agent_year": 2030
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "2023 Pro Bowl season: 71 catches, 761 yards, 5 TDs. 2024 was down year (59 catches, 494 yards, 0 TDs) with knee and concussion issues. Signed 4-year, $52M extension ($30M guaranteed) in July 2025. 7th-highest paid TE in NFL.",
+      "trade_value": {
+        "pick_equivalent": 60,
+        "pick_value_points": 310,
+        "reasoning": "Young TE on a long-term deal with 4 years of control. Cap-friendly 2026 hit ($7.25M). Production needs to rebound from 2024 but extension signals Cowboys' belief. Worth a mid-to-late 2nd."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just signed a 4-year extension last July. Cowboys view him as a core offensive piece. Dead cap ($18M) makes a trade unlikely unless a team grossly overpays. Not being shopped.",
+      "injury_notes": "Concussion and knee injury issues in 2024. 3 documented concussions in college/NFL career.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Brevyn Spann-Ford",
+      "slot": "TE2",
+      "position": "TE",
+      "age": 26,
+      "draft_pedigree": "UDFA 2023",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1000000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1000000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "Primarily a blocking tight end who has carved out a roster spot. Very limited receiving production. Valued for run-blocking and special teams.",
+      "trade_value": {
+        "pick_equivalent": 250,
+        "pick_value_points": 2,
+        "reasoning": "Depth TE with essentially no independent trade value."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Replaceable depth piece on a cheap expiring deal. Would be moved for any draft capital.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Tyler Smith",
+      "slot": "LT",
+      "position": "IOL",
+      "age": 24,
+      "draft_pedigree": "2022 1.24",
+      "contract": {
+        "years_remaining": 5,
+        "aav": 24000000,
+        "guaranteed_remaining": 70000000,
+        "cap_hit_2026": 8500000,
+        "dead_cap_if_traded": 65000000,
+        "free_agent_year": 2031
+      },
+      "performance_tier": "elite",
+      "performance_evidence": "2x Pro Bowler, All-Pro guard. Allowed just 10 pressures (3.5% pressure rate) in 2024 \u2014 2nd-lowest among LGs over past 7 seasons. Signed record-setting 4-year, $96M extension ($81.2M guaranteed) in Sept 2025, making him highest-paid guard in NFL at $24M/year. Started 16 of 17 games in 2025.",
+      "trade_value": {
+        "pick_equivalent": 3,
+        "pick_value_points": 2800,
+        "reasoning": "Young All-Pro guard on a long-term deal with 5 years of control and a cap-friendly 2026 number ($8.5M after restructure). In a vacuum worth multiple 1sts, but $65M dead cap makes trade impossible."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "24-year-old All-Pro on a 5-year deal just signed. $65M+ dead cap makes trade financially impossible. Cowboys view him as the cornerstone of the OL for the next decade. Schottenheimer has discussed keeping him at LG but flexibility to play LT exists.",
+      "injury_notes": "Had minor knee cleanup surgery after 2025 season per Brian Schottenheimer. Dealt with knee issues throughout 2025 but played 16 of 17 games.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "T.J. Bass",
+      "slot": "LG",
+      "position": "IOL",
+      "age": 25,
+      "draft_pedigree": "UDFA 2023",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 5760000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 5760000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "UDFA who worked his way into the starting lineup. Cowboys placed 2nd-round RFA tender on him ($5.76M) for 2026. Serviceable starter who filled in at guard. Limited ceiling but dependable.",
+      "trade_value": {
+        "pick_equivalent": 130,
+        "pick_value_points": 50,
+        "reasoning": "Starter-caliber IOL on a 1-year RFA tender. Worth a mid-to-late round pick. His value is capped by the one-year commitment and average play level."
+      },
+      "availability": "available",
+      "availability_reasoning": "On a 2nd-round RFA tender, meaning any team can sign him to an offer sheet and Cowboys would get a 2nd-round pick as compensation. Cowboys may be willing to trade if Tyler Smith stays at LG and Booker at RG.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Cooper Beebe",
+      "slot": "C",
+      "position": "IOL",
+      "age": 25,
+      "draft_pedigree": "2024 3.73",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 1485000,
+        "guaranteed_remaining": 285000,
+        "cap_hit_2026": 1619923,
+        "dead_cap_if_traded": 569898,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Started 16 games as rookie C in 2024, PFF grade of 65.4 (13th among centers). Suffered high ankle sprain in Week 2 of 2025, missed 6 games on IR, returned and started remaining games. Former unanimous All-American at Kansas State (2023). Strong run blocker, improving pass protector.",
+      "trade_value": {
+        "pick_equivalent": 75,
+        "pick_value_points": 200,
+        "reasoning": "Young starting center on a cheap rookie deal with 2 years of control. High-upside player coming off an injury-shortened 2025. Worth a mid-3rd \u2014 cheap contract and 2 years of control add significant value."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Cowboys drafted him to be their long-term center and he's on a dirt-cheap deal. No reason to trade unless blown away by an offer. Franchise building block on the OL.",
+      "injury_notes": "High ankle sprain Week 2 of 2025, missed 6 games. Returned to start remaining games.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Tyler Booker",
+      "slot": "RG",
+      "position": "IOL",
+      "age": 22,
+      "draft_pedigree": "2025 1.12",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 5500000,
+        "guaranteed_remaining": 15000000,
+        "cap_hit_2026": 4200000,
+        "dead_cap_if_traded": 12000000,
+        "free_agent_year": 2030
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "2025 1st-round pick (12th overall, via Packers pick from Parsons trade) out of Alabama. Started at RG as a rookie, helped Cowboys to 9th-best rushing offense (125.6 YPG). Paved the way alongside Steele for Javonte Williams' breakout.",
+      "trade_value": {
+        "pick_equivalent": 30,
+        "pick_value_points": 620,
+        "reasoning": "1st-round rookie OG who started immediately and showed promise. 4 years of cheap team control. Young linemen on rookie deals are extremely valuable. Worth a late 1st-round pick."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just drafted 12th overall in 2025. Cowboys used premium draft capital on him and he's their long-term RG solution. Would not entertain trade offers.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Terence Steele",
+      "slot": "RT",
+      "position": "OT",
+      "age": 28,
+      "draft_pedigree": "UDFA 2020",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 11000000,
+        "guaranteed_remaining": 22000000,
+        "cap_hit_2026": 18125000,
+        "dead_cap_if_traded": 25000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Started all 17 games in 2025 and has started 91 of 96 career regular season games. PFF graded him 51st of 84 qualifying tackles in 2025 \u2014 below average but durable. Contract reworked in March 2026 to $33M base value ($22M guaranteed), creating $13M cap space.",
+      "trade_value": {
+        "pick_equivalent": 110,
+        "pick_value_points": 65,
+        "reasoning": "Average starting RT, 28 years old, on a recently reworked deal. $25M dead cap limits trade flexibility. Below-average PFF grade but extreme durability. Worth a 4th-round pick at best, but dead cap makes a trade unlikely."
+      },
+      "availability": "available",
+      "availability_reasoning": "Cowboys just reworked his deal to keep him, but he's the weakest link on the OL. If Tyler Guyton (2024 1st-round pick) is ready, Steele could become expendable. However, the $22M in new guarantees and $25M dead cap make moving him very difficult in 2026.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "Was a rumored cap casualty candidate before the Cowboys reworked his deal in March 2026. That rework signals commitment but doesn't eliminate the possibility of a future move."
+    },
+    {
+      "name": "Quinnen Williams",
+      "slot": "DE1",
+      "position": "DL",
+      "age": 28,
+      "draft_pedigree": "2019 1.3",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 24000000,
+        "guaranteed_remaining": 5000000,
+        "cap_hit_2026": 21750000,
+        "dead_cap_if_traded": 5000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "3x Pro Bowler (2021-23). Career 40 sacks, 281 QB pressures (7th among DTs since 2019). 2023 PFF grade 90.6 with 90.4 run defense grade. Had down 2024 (68.6 PFF), bounced back in limited 2025 action. Career-best 12 sacks in 2022. Cowboys paid a 2026 2nd + 2027 1st + Mazi Smith to acquire him at 2025 trade deadline.",
+      "trade_value": {
+        "pick_equivalent": 35,
+        "pick_value_points": 540,
+        "reasoning": "Elite DT talent with 2 years remaining and only $5M in dead cap. Extension candidate to lower cap hit. 28 years old and still productive. Worth a late 1st to a team that can absorb the $21.75M cap hit. Low dead cap makes him movable."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Cowboys invested massive draft capital to acquire him. Jerry Jones hinted at extensions for Williams and Clark. However, $21.75M cap hit is steep and Cowboys have DL depth. Only $5M dead cap means he's technically movable if a team overpays. Cowboys would need to recoup significant draft capital given what they gave up to get him.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Kenny Clark",
+      "slot": "DT1",
+      "position": "DL",
+      "age": 30,
+      "draft_pedigree": "2016 1.27",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 17500000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 12700000,
+        "dead_cap_if_traded": 15000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "3x Pro Bowler. Had 3.0 sacks in 2025 with Cowboys and provided crucial run support. Acquired from Packers in Parsons trade. Contract restructured in March 2026 ($11M roster bonus converted to signing bonus, saving $8.8M in cap). Entering age-31 season, production declining from elite peak.",
+      "trade_value": {
+        "pick_equivalent": 80,
+        "pick_value_points": 150,
+        "reasoning": "Aging DT (turning 31) with no remaining guarantees but significant dead cap ($15M) from restructure. Still a quality run defender. Worth a 3rd-round pick on talent but dead cap and age limit value significantly."
+      },
+      "availability": "available",
+      "availability_reasoning": "Cowboys have Williams as their premier DT and just traded for Gary at edge. Clark is the most expendable of the expensive DL pieces but the recent restructure created $15M+ in dead cap, making a 2026 trade counterproductive. More likely trade candidate in 2027. Extension is also possible per Jerry Jones.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "Some outlets suggested Cowboys should have traded Clark instead of Odighizuwa. Spotrac's offseason financial outlook noted Clark's $21.5M cap hit could be freed with a trade or release, but the restructure has changed that calculus."
+    },
+    {
+      "name": "Osa Odighizuwa",
+      "slot": "DE2",
+      "position": "DL",
+      "age": 27,
+      "draft_pedigree": "2021 3.75",
+      "contract": {
+        "years_remaining": 0,
+        "aav": 0,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 16000000,
+        "dead_cap_if_traded": 16000000,
+        "free_agent_year": 0
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "TRADED TO 49ERS ON 3/11/2026 for 2026 3rd-round pick (No. 92). In 2025: 3.5 sacks, ranked 1st among DTs in QB hits (23), 5th in pass rush win rate (10%). Signed 4-year, $80M deal with Cowboys in March 2025. Over past 5 seasons ranked 4th in QB hits (81) among DTs.",
+      "trade_value": {
+        "pick_equivalent": 0,
+        "pick_value_points": 0,
+        "reasoning": "ALREADY TRADED. Cowboys traded Odighizuwa to 49ers on 3/11/2026 for pick No. 92 (2026 3rd round). Dallas absorbs $16M dead cap but saves $4.75M in actual cap space. This slot on the depth chart needs to be updated."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "ALREADY TRADED on March 11, 2026 to San Francisco 49ers. Depth chart has not yet been updated. Cowboys will carry $16M dead cap from this trade.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "Trade completed 3/11/2026. Cowboys also discussed including Odighizuwa in a Maxx Crosby trade package with the Raiders before that deal fell through."
+    },
+    {
+      "name": "Rashan Gary",
+      "slot": "LB1",
+      "position": "EDGE",
+      "age": 28,
+      "draft_pedigree": "2019 1.12",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 24000000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 19500000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "2024 Pro Bowler with Packers. 46.5 career sacks. Had 7.5 sacks in 2025 but many were cleanup sacks per analysis \u2014 snap count decreased significantly in 2nd half. Signed 4-year, $96M extension in 2023 but no guarantees remain. Cowboys acquired him for a 2027 4th-round pick on 3/9/26.",
+      "trade_value": {
+        "pick_equivalent": 100,
+        "pick_value_points": 100,
+        "reasoning": "Former Pro Bowl EDGE but declining production \u2014 Packers were ready to release him. $19.5M cap hit with zero guarantees. Cowboys plan to restructure. Worth a 4th-round pick based on the trade price they just paid, which is also a fair valuation given age and recent trajectory."
+      },
+      "availability": "available",
+      "availability_reasoning": "Just acquired for a 4th-round pick. Zero guarantees remaining, so could be cut or traded at minimal cost. Cowboys are expected to restructure his deal. If he doesn't produce, easily movable. But Dallas acquired him specifically to fill their pass-rush hole, so they'll give him a chance.",
+      "injury_notes": "Tore ACL in November 2022 with Packers. Made full recovery and earned Pro Bowl in 2024, but production has been inconsistent since.",
+      "character_notes": null,
+      "trade_buzz": "Packers were expected to release him before Cowboys traded a 4th for him. Multiple reports suggest Cowboys will restructure his contract."
+    },
+    {
+      "name": "DeMarvion Overshown",
+      "slot": "LB2",
+      "position": "LB",
+      "age": 26,
+      "draft_pedigree": "2023 3.90",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1715000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1715000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Showed elite upside in 2024: 90 tackles, 5 sacks, 8 TFL, 1 INT in 13 games. But devastating injury history \u2014 torn ACL in 2023 (missed entire rookie year), torn ACL/MCL/PCL in Week 14 of 2024, returned Week 11 of 2025 but tore all three ligaments again in Week 16. Only 19 career games (17 starts) in 3 seasons. 118 total tackles, 5 sacks when healthy.",
+      "trade_value": {
+        "pick_equivalent": 160,
+        "pick_value_points": 30,
+        "reasoning": "Immense talent when healthy but has now suffered 3 major knee injuries in 3 seasons. On final year of rookie deal at cheap $1.7M. Cowboys EVP Stephen Jones said 'he needs to put together a full season.' Trade value is severely depressed by injury history \u2014 a late-round pick at best."
+      },
+      "availability": "available",
+      "availability_reasoning": "Final year of rookie deal. Cowboys have not extended him and publicly said availability is the major question mark. On a cheap contract, so low risk to keep, but also easy to move if a team sees upside. More likely to play out the year as a prove-it.",
+      "injury_notes": "Three major knee injuries in three years: torn ACL (2023 preseason), torn ACL/MCL/PCL (2024 Week 14), torn ACL/MCL/PCL again (2025 Week 16). Only played 19 games in 3 NFL seasons. Extreme durability concern.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Shemar James",
+      "slot": "LB3",
+      "position": "LB",
+      "age": 22,
+      "draft_pedigree": "2025 4.115",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1050000,
+        "guaranteed_remaining": 400000,
+        "cap_hit_2026": 1000000,
+        "dead_cap_if_traded": 300000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "2025 4th-round pick out of Florida. Named team captain for his 2024 college season. Played in all 13 games as freshman earning SEC All-Freshman Team honors (47 tackles, 2 sacks). Had notable Senior Bowl performance. Contributed as rotational LB and special teamer in rookie year.",
+      "trade_value": {
+        "pick_equivalent": 170,
+        "pick_value_points": 25,
+        "reasoning": "Developmental rookie LB on a cheap deal. Too early to assess NFL value accurately. Worth a late-round pick at most."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Young draft pick on a cheap deal with developmental upside. Cowboys wouldn't move him cheaply given their LB depth issues.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Donovan Ezeiruaku",
+      "slot": "LB4",
+      "position": "EDGE",
+      "age": 22,
+      "draft_pedigree": "2025 2.44",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 2600000,
+        "guaranteed_remaining": 4500000,
+        "cap_hit_2026": 2200000,
+        "dead_cap_if_traded": 3500000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Outstanding rookie in 2025: 40 tackles, 2 sacks, 9 TFL, 1 FF, 26 pressures in all 17 games on 600+ snaps. Was tied for 1st among rookies in sacks midseason. Won Ted Hendricks Award in college (nation's top DE). PFF and film analysts praised his effort, run defense, and pass-rush potential despite sack total not matching pressure generated.",
+      "trade_value": {
+        "pick_equivalent": 45,
+        "pick_value_points": 450,
+        "reasoning": "22-year-old ascending EDGE rusher on a cheap rookie deal with 3 years of team control. Showed legitimate NFL starter ability as a rookie. At the EDGE position with a 1.3x multiplier, on a team-friendly deal \u2014 he's worth a mid-to-late 2nd, potentially more if his sophomore season delivers double-digit sacks."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Cowboys' future at EDGE. 2nd-round pick who was one of the best defensive rookies in the league. On a dirt-cheap deal with 3 years of control. Cowboys desperately need pass rush and he's their homegrown answer. Zero chance they trade him.",
+      "injury_notes": "Underwent hip labrum surgery after 2025 season. Will not be available for start of offseason program but expected back for training camp.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Shavon Revel Jr.",
+      "slot": "CB1",
+      "position": "CB",
+      "age": 25,
+      "draft_pedigree": "2025 3.76",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1200000,
+        "guaranteed_remaining": 400000,
+        "cap_hit_2026": 1100000,
+        "dead_cap_if_traded": 500000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "3rd-round pick in 2025 out of East Carolina. Missed first 10 games rehabbing torn ACL from final college season. Debuted Week 11 and played 7 games (334 snaps): 35 tackles, 3 PBU, but struggled \u2014 67% completion rate allowed, 119.7 passer rating against, 2 TDs allowed. PFF overall grade of 35.2, ranked last among qualifying CBs (114th/114).",
+      "trade_value": {
+        "pick_equivalent": 140,
+        "pick_value_points": 40,
+        "reasoning": "Rookie CB on a cheap deal with elite physical tools (6'1, first-round talent pre-injury) but terrible 2025 production. Too early to give up on him given the ACL context. Worth a 5th-round pick \u2014 physical tools and cheap contract provide upside, but the on-field results were dire."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Cowboys invested a Day 2 pick and view him as a long-term outside CB. The terrible rookie stats are somewhat explained by the ACL recovery timeline \u2014 he was thrust into action before he was ready. Dallas will give him a full offseason and training camp before making judgments.",
+      "injury_notes": "Tore ACL in September 2024 at East Carolina. Missed first 10 weeks of 2025 season rehabbing. Suffered concussion late in 2025 season.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "DaRon Bland",
+      "slot": "CB2",
+      "position": "CB",
+      "age": 26,
+      "draft_pedigree": "2022 5.167",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 23000000,
+        "guaranteed_remaining": 40000000,
+        "cap_hit_2026": 12000000,
+        "dead_cap_if_traded": 35000000,
+        "free_agent_year": 2030
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "2023 1st-team All-Pro: NFL-record 5 pick-sixes, league-best 9 INT, 69 tackles, 15 PD. Missed first 10 games of 2024 with foot fracture, had 0 INT in 7 games upon return. Signed 4-year, $92M extension ($50M guaranteed) in Aug 2025. 14 career INT in 41 games. Had solid 2025 when healthy.",
+      "trade_value": {
+        "pick_equivalent": 22,
+        "pick_value_points": 780,
+        "reasoning": "26-year-old former All-Pro CB on a long-term deal. Elite ballhawk when healthy (14 career INT). $35M dead cap makes trade essentially impossible in 2026. Worth a late 1st in a vacuum but can't be moved."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just signed a 4-year, $92M extension. $35M dead cap makes any trade financially devastating. Cowboys locked him up as their franchise cornerback for the long term. 6th-highest paid CB in NFL.",
+      "injury_notes": "Fractured foot in 2024 training camp, missed first 10 games. Played full 2025 season but 2024 injury remains a concern for durability.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Reddy Steward",
+      "slot": "NB",
+      "position": "CB",
+      "age": 23,
+      "draft_pedigree": "2025 5.150",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 900000,
+        "guaranteed_remaining": 200000,
+        "cap_hit_2026": 900000,
+        "dead_cap_if_traded": 200000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "5th-round rookie in 2025. Earned nickel CB role as Dallas' secondary dealt with injuries and departures (Trevon Diggs waived). Young developmental piece in the slot.",
+      "trade_value": {
+        "pick_equivalent": 190,
+        "pick_value_points": 18,
+        "reasoning": "Developmental nickel CB on a minimum-level rookie deal. Very limited trade value \u2014 a conditional late-round pick at most."
+      },
+      "availability": "available",
+      "availability_reasoning": "Young depth piece. Cowboys have CB needs and just signed Jalen Thompson who could play nickel, potentially making Steward redundant. Available for the right price but not being actively shopped.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Jalen Thompson",
+      "slot": "SS",
+      "position": "S",
+      "age": 27,
+      "draft_pedigree": "2019 5.SUPP",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 11000000,
+        "guaranteed_remaining": 22000000,
+        "cap_hit_2026": 8500000,
+        "dead_cap_if_traded": 15000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Full-time starter for Cardinals for 5 seasons. Reunites with Cowboys secondary coach Ryan Smith, who coached him in Arizona. Signed 3-year, $33M deal in 2026 free agency. Solid all-around safety who can play in the box and in coverage.",
+      "trade_value": {
+        "pick_equivalent": 85,
+        "pick_value_points": 140,
+        "reasoning": "Quality starting safety on a reasonable deal, just signed in free agency. Dead cap ($15M) makes trade unlikely in year 1. Worth a late 3rd on talent/contract but can't be moved immediately."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just signed a 3-year free agent deal. Cowboys specifically targeted him to fix their safety room. Not being moved in year 1. Dead cap makes it prohibitive anyway.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Malik Hooker",
+      "slot": "FS",
+      "position": "S",
+      "age": 29,
+      "draft_pedigree": "2017 1.15",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 5000000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 5000000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "declining",
+      "performance_evidence": "Former 1st-round pick. Was solid in 2022-23 (PFF ranked 13th and 14th among safeties). Plummeted in 2025: PFF 64th of 91 safeties, allowed 131.7 passer rating (was 80.9 in first 4 years). Only played 12 games due to toe injury/IR. Contract restructured in March 2026 to save $2M \u2014 base salary reduced with incentives added.",
+      "trade_value": {
+        "pick_equivalent": 200,
+        "pick_value_points": 8,
+        "reasoning": "Declining 29-year-old safety on a 1-year deal with $0 dead cap. Was nearly cut this offseason. Minimal trade value \u2014 a conditional 7th at best. Cowboys kept him via restructure but signed Jalen Thompson to be the upgrade."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Was identified as a cap casualty candidate by PFF, ESPN's Barnwell, and others. Cowboys restructured rather than cut him, but he's clearly the weakest link in the secondary. If any team offers a late-round pick, Dallas moves him. Cowboys signed Thompson and PJ Locke as upgrades/depth.",
+      "injury_notes": "Toe injury in 2025, placed on IR, played only 12 games. History of significant injuries including torn ACL with Colts early in career.",
+      "character_notes": null,
+      "trade_buzz": "Multiple national analysts (PFF, ESPN) identified Hooker as Cowboys' top cut candidate this offseason before the restructure. Now competing for snaps with Thompson and Locke."
+    },
+    {
+      "name": "Brandon Aubrey",
+      "slot": "K",
+      "position": "K",
+      "age": 29,
+      "draft_pedigree": "UDFA 2023",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 5760000,
+        "guaranteed_remaining": 5760000,
+        "cap_hit_2026": 5760000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "elite",
+      "performance_evidence": "1st-team All-Pro kicker. Made a 64-yard FG in 2025. League's most productive kicker. Cowboys placed 2nd-round RFA tender ($5.76M). Currently in a 'waiting pattern' on long-term deal per Aubrey himself. Would likely become highest-paid kicker in NFL with extension.",
+      "trade_value": {
+        "pick_equivalent": 65,
+        "pick_value_points": 290,
+        "reasoning": "Best kicker in the NFL on a 1-year RFA tender. Kickers rarely get traded, but Aubrey's elite production is worth noting. If a team signed him to an offer sheet, Cowboys would get a 2nd-round pick as compensation. Actual trade value is probably a 3rd-round pick equivalent."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "On a 2nd-round RFA tender. Cowboys want to extend him long-term \u2014 he's said 'Dallas is my home.' But if extension talks stall and a team offers him an offer sheet, Cowboys could match or take the 2nd-round pick. Very unlikely to be traded but technically has a price.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "Aubrey said at Combine that negotiations are in a 'waiting pattern.' Cowboys are expected to eventually make him highest-paid kicker in NFL."
+    }
+  ]
+}

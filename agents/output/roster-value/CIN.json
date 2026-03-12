@@ -1,0 +1,713 @@
+{
+  "team": "CIN",
+  "team_full": "Cincinnati Bengals",
+  "team_context": {
+    "competitive_window": "competing \u2014 elite QB in Joe Burrow, invested heavily in offensive weapons (Chase, Higgins), but missed playoffs 3 straight years (6-11 in 2025 due to Burrow injury). Aggressively spending in 2026 FA to fix defense.",
+    "cap_situation": "moderate \u2014 ~$24M remaining cap space after Mafe/Cook/Brown Jr. signings. Started with ~$52M. Can create more via Burrow restructure. Top-51 cap at ~$259M against $301.2M cap.",
+    "trade_posture": "Buyers on defense. Offense is locked in with Burrow/Chase/Higgins/Brown. Would trade from defensive depth or draft picks to fill remaining holes at LB, DT, CB depth. Unlikely to trade offensive core pieces."
+  },
+  "players": [
+    {
+      "name": "Joe Burrow",
+      "slot": "QB1",
+      "position": "QB",
+      "age": 29,
+      "draft_pedigree": "2020 1.1",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 55000000,
+        "guaranteed_remaining": 107750000,
+        "cap_hit_2026": 47999784,
+        "dead_cap_if_traded": 56250000,
+        "free_agent_year": 2030
+      },
+      "performance_tier": "elite",
+      "performance_evidence": "Franchise QB, led NFL in passing yards in 2024. Led Bengals to Super Bowl LVI. Missed majority of 2025 with turf toe (Bengals went 1-8 without him). When healthy, top 3-5 QB in the NFL. Triple Crown WR achievement by Chase only possible due to Burrow's elite play in 2024.",
+      "trade_value": {
+        "pick_equivalent": 1,
+        "pick_value_points": 3000,
+        "reasoning": "Franchise quarterback on a long-term deal with 4 years remaining. Dead cap of $56.25M makes a trade functionally impossible. Even if tradeable, would command multiple 1st-round picks. Essentially priceless."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Face of the franchise, $56.25M dead cap makes trade impossible. Bengals have built entire roster around Burrow. Zero chance of trade under any circumstance.",
+      "injury_notes": "Significant injury history: torn ACL (2020), wrist injury (2023 season), turf toe (2025 \u2014 missed 10 games). Has completed full 17-game seasons only twice in 6 years. Health is the primary risk factor.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Sean Clifford",
+      "slot": "QB2",
+      "position": "QB",
+      "age": 28,
+      "draft_pedigree": "2023 5.149",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1200000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1200000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "Career backup QB who has seen limited action. Served as emergency option behind Flacco in 2025 when Burrow was injured. Minimal NFL passing stats.",
+      "trade_value": {
+        "pick_equivalent": 230,
+        "pick_value_points": 10,
+        "reasoning": "Backup QB with minimal trade value. Expiring deal, no demonstrated starting ability. Essentially no market."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth piece only. Team would move him for anything of value but there's no market for a career backup QB on a minimum deal.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Chase Brown",
+      "slot": "RB1",
+      "position": "RB",
+      "age": 25,
+      "draft_pedigree": "2023 5.163",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1031539,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 3783539,
+        "dead_cap_if_traded": 71539,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Back-to-back strong seasons as Bengals' lead back. Effective in both rushing and receiving. Spotrac projects him toward a 4-year, $40M extension. Extension talks have already begun. Established himself as clear #1 weapon out of backfield.",
+      "trade_value": {
+        "pick_equivalent": 75,
+        "pick_value_points": 210,
+        "reasoning": "Quality starting RB on a dirt-cheap final year of his rookie deal. Good value for an acquiring team but RB position depresses trade value. Worth a late 3rd/early 4th. Bengals want to extend him."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Bengals are actively trying to extend Brown. He's expressed desire to stay. Would only trade for a significant overpay since he's a core piece of the offense and on a cheap contract year.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "Extension talks have begun per multiple reports. His camp may look at James Cook (4yr/$48M) and Kyren Williams (3yr/$33M) as comps."
+    },
+    {
+      "name": "Samaje Perine",
+      "slot": "RB2",
+      "position": "RB",
+      "age": 30,
+      "draft_pedigree": "2017 4.116",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 2500000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 2500000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "Veteran backup RB. Solid pass blocker and reliable short-yardage option. 30 years old, entering his 10th NFL season. Third stint with Bengals. Regression likely given age.",
+      "trade_value": {
+        "pick_equivalent": 220,
+        "pick_value_points": 15,
+        "reasoning": "Aging backup RB on a cheap expiring deal. Minimal trade value. Worth a late-round pick swap at best."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "30-year-old backup RB that beat writers have suggested the Bengals should move on from. Team could replace him with a younger, cheaper option in the draft. Cap casualty candidate.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Ja'Marr Chase",
+      "slot": "WR1",
+      "position": "WR",
+      "age": 26,
+      "draft_pedigree": "2021 1.5",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 40250000,
+        "guaranteed_remaining": 112000000,
+        "cap_hit_2026": 26171667,
+        "dead_cap_if_traded": 50330000,
+        "free_agent_year": 2030
+      },
+      "performance_tier": "elite",
+      "performance_evidence": "WR Triple Crown winner in 2024 (led NFL in receptions, receiving yards, touchdowns). AP OPOY finalist. All-Pro. Highest-paid non-QB in NFL at time of signing ($161M/4yr extension, March 2025). Best WR in football.",
+      "trade_value": {
+        "pick_equivalent": 1,
+        "pick_value_points": 3000,
+        "reasoning": "Young elite WR on a long-term deal in his prime. $50.3M dead cap makes trade impossible. Even theoretically, worth multiple 1sts. The best non-QB trade asset in the NFL if he were available."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just signed a market-resetting 4-year extension. $50.3M dead cap. Burrow's top weapon and the centerpiece of the offense alongside the QB. Absolute zero chance of trade.",
+      "injury_notes": "Served a 1-game suspension in 2025 for unsportsmanlike conduct (spitting). Generally durable throughout career.",
+      "character_notes": "One-game suspension in 2025 for spitting incident. Multiple fines for taunting/unsportsmanlike conduct. Not a major concern but worth noting.",
+      "trade_buzz": null
+    },
+    {
+      "name": "Tee Higgins",
+      "slot": "WR2",
+      "position": "WR",
+      "age": 27,
+      "draft_pedigree": "2020 2.33",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 28750000,
+        "guaranteed_remaining": 40900000,
+        "cap_hit_2026": 26514706,
+        "dead_cap_if_traded": 21250000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "900+ receiving yards in 4 of 5 NFL seasons. 1,000+ yards twice. Hit double-digit TDs (10) in 2024 for first time. 4-year, $115M extension signed March 2025. Elite WR2 who makes Chase even more dangerous.",
+      "trade_value": {
+        "pick_equivalent": 28,
+        "pick_value_points": 660,
+        "reasoning": "Pro Bowl-caliber WR2 on a 3-year deal with significant guaranteed money. 27 years old and entering prime. $21.25M dead cap limits near-term trade feasibility. Worth a late 1st to a WR-needy contender, but dead cap makes it very unlikely."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just re-signed on a 4-year extension after a franchise tag saga. Bengals committed to keeping Burrow's weapons together. $21.25M dead cap makes trade very expensive. Only available at a massive overpay, and even then unlikely in 2026.",
+      "injury_notes": "Has missed 10 games since start of 2023 season. Concussion history. Collarbone injury ended 2024 early. Durability is a genuine concern and is reflected in per-game bonus structure of contract.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Andrei Iosivas",
+      "slot": "WR3",
+      "position": "WR",
+      "age": 25,
+      "draft_pedigree": "2023 6.206",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 985000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1100000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "WR3/WR4 who saw expanded role when Chase was suspended in 2025. 27 catches for 350 yards in 2024. Stepped up as leading route-runner during Chase's absence. 6th-round pick developing into a useful role player.",
+      "trade_value": {
+        "pick_equivalent": 200,
+        "pick_value_points": 22,
+        "reasoning": "Depth WR on a cheap final-year rookie deal. Minimal standalone trade value. Worth a 7th-round pick at best to a WR-needy team looking for depth."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth piece behind Chase and Higgins. On the final year of a minimum-level deal. Bengals would listen to offers but he's also cheap enough to keep as WR3/WR4.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Mike Gesicki",
+      "slot": "TE1",
+      "position": "TE",
+      "age": 30,
+      "draft_pedigree": "2018 2.42",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 8500000,
+        "guaranteed_remaining": 2000000,
+        "cap_hit_2026": 7666666,
+        "dead_cap_if_traded": 4333333,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "65 catches for 665 yards and 2 TDs in 2024 on a prove-it deal. Reliable intermediate target. Not an elite TE but a productive pass-catching option. Re-signed on a 3yr/$25.5M deal in March 2025. Career: 333 receptions, 3,587 yards, 22 TDs.",
+      "trade_value": {
+        "pick_equivalent": 110,
+        "pick_value_points": 82,
+        "reasoning": "30-year-old quality starter TE on a fair 2-year deal. Modest trade value given age and position. Worth a 4th-round pick to a TE-needy team."
+      },
+      "availability": "available",
+      "availability_reasoning": "Signed just last year, but only $4.3M dead cap and the deal is structured for flexibility. If Erick All Jr. develops, Gesicki becomes expendable. Bengals would listen to fair offers.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Erick All Jr.",
+      "slot": "TE2",
+      "position": "TE",
+      "age": 24,
+      "draft_pedigree": "2024 4.115",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1100000,
+        "guaranteed_remaining": 200000,
+        "cap_hit_2026": 1200000,
+        "dead_cap_if_traded": 350000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "2024 4th-round pick out of Iowa. Developmental TE who saw limited action as a rookie. Bengals see upside. Beat reporters have mentioned injury concerns from college that may have affected early development.",
+      "trade_value": {
+        "pick_equivalent": 180,
+        "pick_value_points": 30,
+        "reasoning": "Young developmental TE on a cheap rookie deal. Minimal proven production but upside on a cost-controlled contract. Worth a late-round pick."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Cheap young developmental piece the Bengals want to develop. They wouldn't give him away but also haven't invested major draft capital in him.",
+      "injury_notes": "Injury concerns flagged during pre-draft process and early career.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Orlando Brown Jr.",
+      "slot": "LT",
+      "position": "OT",
+      "age": 30,
+      "draft_pedigree": "2018 3.83",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 16000000,
+        "guaranteed_remaining": 23000000,
+        "cap_hit_2026": 15000000,
+        "dead_cap_if_traded": 10000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "4x Pro Bowler but performance has declined in Cincinnati. PFF grades of 66.1 (2023), 58.1 (2024), 60.6 (2025). Ranked 60th-66th among qualified tackles in PFF. Allowed 8 sacks, 10 hits, 24 hurries in 2025. Valued as a leader and captain. Just signed 2-year extension today (March 12, 2026) worth $32M.",
+      "trade_value": {
+        "pick_equivalent": 90,
+        "pick_value_points": 110,
+        "reasoning": "Below-average starting LT who just signed a 3-year extension. $10M dead cap limits trade feasibility. Valuable as a team leader and Burrow's blindside protector, but below-average on-field play caps value. Worth a mid-3rd at best."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just signed a 2-year extension TODAY. Bengals clearly committed to him as the LT for the foreseeable future. Locker room leader and team captain. Not going anywhere unless the team receives a significant overpay.",
+      "injury_notes": "Broke leg late in 2024 season, played through it. Has started 45 games in 3 Bengals seasons. Generally available.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Dylan Fairchild",
+      "slot": "LG",
+      "position": "IOL",
+      "age": 23,
+      "draft_pedigree": "2025 3.80",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1400000,
+        "guaranteed_remaining": 1200000,
+        "cap_hit_2026": 1400000,
+        "dead_cap_if_traded": 800000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "2025 3rd-round pick who earned a starting role by season's end. Part of the first Bengals OL group in the Burrow era to return all 5 starters. Promising young guard on a cheap rookie deal.",
+      "trade_value": {
+        "pick_equivalent": 120,
+        "pick_value_points": 72,
+        "reasoning": "Young starting guard on a cheap rookie deal with 3 years of control. Modest trade value given IOL position value, but cost-controlled youth has appeal. Worth a 4th-round pick."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Bengals are returning all 5 OL starters for the first time in the Burrow era. They value this continuity. Fairchild is a cheap young starter they want to develop.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Ted Karras",
+      "slot": "C",
+      "position": "IOL",
+      "age": 33,
+      "draft_pedigree": "2016 6.221",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 5000000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 4500000,
+        "dead_cap_if_traded": 500000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Veteran center who has been a reliable starter and leader on the Bengals OL since 2022. Team captain alongside Orlando Brown Jr. Multiple contract extensions in Cincinnati. Solid, dependable center \u2014 not elite but consistently adequate.",
+      "trade_value": {
+        "pick_equivalent": 150,
+        "pick_value_points": 40,
+        "reasoning": "33-year-old center on an expiring deal. Minimal dead cap ($500K). Reliable starter but age and contract situation limit value. Worth a 5th-round pick to a center-needy team."
+      },
+      "availability": "available",
+      "availability_reasoning": "Aging veteran on an expiring deal with virtually no dead cap. Bengals value his leadership but at 33, he could be moved if they draft a replacement. More likely to play out 2026 and leave in FA.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Dalton Risner",
+      "slot": "RG",
+      "position": "IOL",
+      "age": 28,
+      "draft_pedigree": "2019 2.41",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 3250000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 3250000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Re-signed on a 1-year deal for 2026. Has had multiple stints with Bengals. Solid veteran guard who helps maintain OL continuity. Not a standout performer but dependable.",
+      "trade_value": {
+        "pick_equivalent": 170,
+        "pick_value_points": 32,
+        "reasoning": "Journeyman guard on a 1-year deal. Minimal trade value. Worth a late-round pick at best."
+      },
+      "availability": "available",
+      "availability_reasoning": "1-year deal, no dead cap. If a young guard emerges in camp or draft, Risner is expendable. Bengals brought him back for depth and continuity, not as a long-term piece.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Amarius Mims",
+      "slot": "RT",
+      "position": "OT",
+      "age": 23,
+      "draft_pedigree": "2024 1.18",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 3842889,
+        "guaranteed_remaining": 4000000,
+        "cap_hit_2026": 4200000,
+        "dead_cap_if_traded": 5500000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "2024 1st-round pick (18th overall) out of Georgia. At 6'8, 335 lbs, elite physical tools. Logged 835 snaps as a rookie \u2014 more than his entire college career. Bengals see him as a potential elite OT. Flashed great movement skills and power. Entering year 2 as the starting RT with high expectations.",
+      "trade_value": {
+        "pick_equivalent": 40,
+        "pick_value_points": 470,
+        "reasoning": "Young 1st-round OT with elite physical traits on a cheap rookie deal with 3 years of control plus 5th-year option. High upside. Worth a high 2nd-round pick. The positional value of OT and cost-controlled youth drive the premium."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Bengals view Mims as a potential cornerstone OT. Beat writers have called him the team's next best chance at an elite player. Would only trade for a massive return \u2014 think 1st-round pick.",
+      "injury_notes": "Ankle injury at Georgia limited his 2023 college season to limited starts.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Shemar Stewart",
+      "slot": "DE1",
+      "position": "EDGE",
+      "age": 22,
+      "draft_pedigree": "2025 1.17",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 4742319,
+        "guaranteed_remaining": 10000000,
+        "cap_hit_2026": 5200000,
+        "dead_cap_if_traded": 8500000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "2025 1st-round pick (17th overall). Elite physical tools but limited college production (4.5 sacks in 3 years at Texas A&M). Missed OTAs/minicamp due to contract holdout. Placed on IR in Week 9 with a knee injury, ending rookie season. Very raw \u2014 traits-over-production pick. Bengals DC Al Golden remains excited about his potential.",
+      "trade_value": {
+        "pick_equivalent": 50,
+        "pick_value_points": 400,
+        "reasoning": "Young 1st-round EDGE with elite physical traits on a cheap rookie deal with 3 years remaining. Despite limited production and injury-shortened rookie year, the pedigree, age (22), and positional value of EDGE keep his trade value high. Worth a late 1st/early 2nd."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Bengals invested a 1st-round pick and went through an ugly holdout to get him signed. They're committed to developing him. Would need an overpay to move him, but the rocky start and IR stint make it not impossible if a blockbuster offer came in.",
+      "injury_notes": "Placed on IR in November 2025 (Week 9) with a knee injury. Missed remainder of rookie season. Recovery status heading into 2026 unclear.",
+      "character_notes": "Contentious contract holdout as a rookie \u2014 missed OTAs, minicamp, and first week of training camp. Publicly criticized team over negotiations. Both sides said there's 'no bad blood' after signing.",
+      "trade_buzz": null
+    },
+    {
+      "name": "T.J. Slaton Jr.",
+      "slot": "DT1",
+      "position": "DL",
+      "age": 26,
+      "draft_pedigree": "2021 5.173",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 7000000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 6100000,
+        "dead_cap_if_traded": 2500000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Signed a 2yr/$14M free agent deal in 2025 but returns haven't been great per Spotrac. Starting DT but performance hasn't matched contract. None of his $6.1M due for 2026 is guaranteed \u2014 Bengals could release him to save that amount.",
+      "trade_value": {
+        "pick_equivalent": 140,
+        "pick_value_points": 50,
+        "reasoning": "Below-average starting DT on a non-guaranteed 1-year remaining deal. Overpaid for his production. Worth a 5th-round pick at most. Could be a cap casualty."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Spotrac has flagged him as a potential cap casualty \u2014 no guaranteed money in 2026 and the Bengals can free up $6.1M by cutting him. Bengals are still looking for defensive tackles in free agency (DJ Reader mentioned). Very cuttable/tradeable.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "Bengals are actively shopping for DT upgrades in free agency (DJ Reader, others). Slaton's roster spot is not secure."
+    },
+    {
+      "name": "B.J. Hill",
+      "slot": "DT2",
+      "position": "DL",
+      "age": 30,
+      "draft_pedigree": "2018 3.69",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 8000000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 7300000,
+        "dead_cap_if_traded": 7300000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Veteran DT. 66 tackles, 4 sacks in 2025 per CBS. Has been a durable starter for Bengals. 30 years old entering possible decline phase. $8.67M cap hit in 2025 was 6th-highest on team.",
+      "trade_value": {
+        "pick_equivalent": 150,
+        "pick_value_points": 40,
+        "reasoning": "30-year-old starting DT on the final year of his deal. Dead cap equals cap hit, meaning no cap savings from a trade. Essentially untradeable from a cap perspective this year. Worth a 5th at most if cap worked out."
+      },
+      "availability": "available",
+      "availability_reasoning": "Dead cap equals full cap hit ($7.3M), so there's no cap incentive to trade him mid-season. More likely to play out 2026 and leave in free agency. Team has a potential 'out' for $7.3M dead cap if needed.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Myles Murphy",
+      "slot": "DE2",
+      "position": "EDGE",
+      "age": 24,
+      "draft_pedigree": "2023 1.28",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 3146816,
+        "guaranteed_remaining": 2466445,
+        "cap_hit_2026": 4005038,
+        "dead_cap_if_traded": 4005038,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Had his best season in 2025: 52 tackles, 5.5 sacks, 6 TFLs, 10 QB hits, 41 QB pressures (double his previous high). Career-best 64.2 PFF grade. 682 snaps \u2014 career high. Still developing but trending upward. 5th-year option decision coming this May (projected ~$13.6M).",
+      "trade_value": {
+        "pick_equivalent": 60,
+        "pick_value_points": 300,
+        "reasoning": "Young EDGE on a cheap rookie deal with 2 years left plus potential 5th-year option. Breakout trajectory in 2025 with 5.5 sacks and 41 pressures. EDGE positional premium at age 24 makes him a valuable piece. Worth a 2nd-round pick."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Bengals are counting on Murphy as a key piece of their pass rush going forward alongside new signing Boye Mafe. 5th-year option decision coming. Would need a significant offer (2nd-rounder+) to consider moving him.",
+      "injury_notes": "Started 2024 season on IR due to knee injury in training camp. Returned in October. Played full 2025 season.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Demetrius Knight Jr.",
+      "slot": "LB1",
+      "position": "LB",
+      "age": 23,
+      "draft_pedigree": "2025 2.48",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 2500000,
+        "guaranteed_remaining": 3000000,
+        "cap_hit_2026": 2800000,
+        "dead_cap_if_traded": 3500000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "2025 2nd-round pick who started 14 of 17 games as a rookie. 106 tackles, 3 sacks, 2 INTs, 7 PDs. Called one of the few bright spots on Cincinnati's defense. Promising mix of run-stopping and coverage ability.",
+      "trade_value": {
+        "pick_equivalent": 58,
+        "pick_value_points": 320,
+        "reasoning": "Young LB who produced immediately as a rookie on a cheap deal with 3 years remaining. 106 tackles and 2 INTs in year one is excellent. Worth a 2nd-round pick given age, production, and cost control."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Bengals need defensive playmakers and Knight was one of the few they found in 2025. He's projected as the starting weak-side LB going forward. Would need a significant overpay to pry him loose.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Oren Burks",
+      "slot": "LB2",
+      "position": "LB",
+      "age": 30,
+      "draft_pedigree": "2018 3.88",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 2500000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 2500000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "Veteran LB/special teams contributor. 30 years old. Depth piece. A salary cap expert projected the Bengals would cut Burks to save $1.3M in cap and cash savings.",
+      "trade_value": {
+        "pick_equivalent": 230,
+        "pick_value_points": 10,
+        "reasoning": "Aging depth LB on a cheap deal. Essentially no trade value. Cap casualty candidate per multiple reports."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Cap casualty candidate. Multiple reports suggest Bengals could cut him to save $1.3M. Zero dead cap. If someone offered a late-round pick, Bengals would take it immediately.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "Salary cap experts have projected the Bengals will cut Burks as part of their roster clearing."
+    },
+    {
+      "name": "Dax Hill",
+      "slot": "CB1",
+      "position": "CB",
+      "age": 25,
+      "draft_pedigree": "2022 1.31",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 12682000,
+        "guaranteed_remaining": 12682000,
+        "cap_hit_2026": 12682000,
+        "dead_cap_if_traded": 12682000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Moved from safety to outside CB in 2025 and had his best season: 88 tackles, 1 INT, 11 PDs. PFF's 49th-ranked CB. Former 1st-round pick who took time to find his position. 5th-year option exercised at $12.68M (fully guaranteed). Bengals are targeting a long-term extension this offseason.",
+      "trade_value": {
+        "pick_equivalent": 65,
+        "pick_value_points": 270,
+        "reasoning": "25-year-old former 1st-round pick on a fully guaranteed $12.68M 5th-year option. Showed improvement at CB in 2025. Extension candidate. Worth a 2nd-round pick, but the fully guaranteed salary and dead cap equal the cap hit, making mid-season trade impossible without absorbing the full amount."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Bengals are actively working on an extension per beat reporters. Hill and Turner are the only starting outside corners on the team. Dead cap equals full cap hit in 2026. Team views him as a building block.",
+      "injury_notes": "Torn ACL in 2024 (missed significant time). Returned healthy for full 2025 season. ACL recovery is a watch item.",
+      "character_notes": null,
+      "trade_buzz": "Per Geoff Hobson of Bengals.com, the Bengals are aiming to complete extension with Hill this offseason."
+    },
+    {
+      "name": "DJ Turner II",
+      "slot": "CB2",
+      "position": "CB",
+      "age": 25,
+      "draft_pedigree": "2023 2.60",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1540010,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1910000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Breakout 2025 season: 40 tackles, 2 INTs, 18 PDs. 73.3 PFF overall grade (highest on defense), 78.1 PFF coverage grade (top 5 among qualifying CBs). Limited QBs to 46.8% completion rate (5th-lowest in NFL). Named a PFF 'secret superstar'. Fastest 40 time at 2023 Combine (4.26). Bengals' top defensive building block.",
+      "trade_value": {
+        "pick_equivalent": 35,
+        "pick_value_points": 530,
+        "reasoning": "25-year-old ascending CB1 on the final year of a dirt-cheap rookie deal (~$1.9M cap hit). Top-5 PFF coverage grade in 2025. Spotrac projects a 3yr/$41M extension. Expiring deal normally caps value, but his age, production, and extension eligibility make him extremely valuable. Worth a 1st-round pick to a CB-needy team."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Bengals' top extension priority on defense alongside Hill. Beat reporters say team is working to lock him up long-term. He's their #1 CB and top defensive building block. Would only trade for a massive haul, and they'd much rather extend.",
+      "injury_notes": "Collarbone injury ended 2024 season early (missed 6 games). Played full 17-game season in 2025.",
+      "character_notes": null,
+      "trade_buzz": "Spotrac projects 3yr/$41M extension. Bengals actively working on deal per Hobson/Bengals.com."
+    },
+    {
+      "name": "Jalen Davis",
+      "slot": "NB",
+      "position": "CB",
+      "age": 27,
+      "draft_pedigree": "UDFA 2021",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1500000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1500000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "UDFA who has carved out a role as the nickel corner. Just signed a 1-year contract extension for 2026. Versatile depth piece in the secondary. Has filled in at multiple CB spots when injuries hit.",
+      "trade_value": {
+        "pick_equivalent": 200,
+        "pick_value_points": 22,
+        "reasoning": "Replacement-level nickel CB on a cheap 1-year deal. No dead cap. Minimal trade value \u2014 worth a 7th-round pick at best."
+      },
+      "availability": "available",
+      "availability_reasoning": "Cheap depth piece on a 1-year deal. If the Bengals draft a nickel CB or sign one, Davis becomes expendable. No dead cap to worry about.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Jordan Battle",
+      "slot": "SS",
+      "position": "S",
+      "age": 24,
+      "draft_pedigree": "2023 3.95",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1331254,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 3892000,
+        "dead_cap_if_traded": 218000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Starting safety entering contract year. Has been a solid contributor. The Bengals specifically signed Bryan Cook to pair with Battle, suggesting they value him. Mentioned frequently by Bengals beat reporters at Combine as a player they want to keep.",
+      "trade_value": {
+        "pick_equivalent": 100,
+        "pick_value_points": 100,
+        "reasoning": "24-year-old starting safety on a cheap final-year rookie deal. Adequate starter \u2014 not elite but young and cost-effective. Worth a 4th-round pick given age and positional need around the league."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Bengals just signed Bryan Cook specifically as a running mate for Battle, indicating they see him as part of their defensive rebuild. Entering contract year \u2014 team may try to extend or could let him play out the year.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "Bengals officials mentioned Battle frequently at the Combine as a player they want to build around."
+    },
+    {
+      "name": "Bryan Cook",
+      "slot": "FS",
+      "position": "S",
+      "age": 27,
+      "draft_pedigree": "2022 2.62",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 13416667,
+        "guaranteed_remaining": 14000000,
+        "cap_hit_2026": 8066666,
+        "dead_cap_if_traded": 14000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Ranked 5th-best safety by PFF in 2025. Started all 17 games for Chiefs: 85 tackles, 6 PDs, 1 TFL. Allowed just 8.7 yards per reception when targeted. Two-time Super Bowl champion. 62 career games, 47 starts. 228 career tackles, 15 PDs, 3 INTs. Just signed 3yr/$40.25M with Bengals.",
+      "trade_value": {
+        "pick_equivalent": 48,
+        "pick_value_points": 420,
+        "reasoning": "27-year-old top-5 safety entering his prime on a 3-year deal. $14M dead cap in 2026 makes trade impossible this year. When the dead cap drops, worth a late 1st/early 2nd given elite production and age. Cap-structured deal with heavy year-1 cash limits near-term tradeability."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just signed a 3yr/$40.25M deal days ago. $14M dead cap equals guaranteed money. Bengals' marquee defensive free agency signing. Cincinnati native returning home. Zero chance of trade in 2026.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Evan McPherson",
+      "slot": "K",
+      "position": "K",
+      "age": 26,
+      "draft_pedigree": "2021 5.149",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 4583333,
+        "guaranteed_remaining": 3000000,
+        "cap_hit_2026": 7066666,
+        "dead_cap_if_traded": 5400000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Money Mac. Clutch playoff kicker who hit 6 FGs in one game (2025 Thanksgiving). 25/28 on FGs in 2025 (89.3%). Career postseason hero from the 2021-22 Super Bowl run. One of the better kickers in the NFL.",
+      "trade_value": {
+        "pick_equivalent": 130,
+        "pick_value_points": 60,
+        "reasoning": "Kickers rarely have trade value but McPherson is one of the NFL's better kickers on a reasonable deal. Dead cap limits value. Skip for trade purposes."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Good kickers are hard to find and McPherson is one of the best. Bengals have no reason to move him. $5.4M dead cap. Would need a significant overpay.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    }
+  ]
+}

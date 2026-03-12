@@ -1,0 +1,713 @@
+{
+  "team": "LAR",
+  "team_full": "Los Angeles Rams",
+  "team_context": {
+    "competitive_window": "competing \u2014 aggressive Super Bowl contender with Stafford's final window",
+    "cap_situation": "moderate \u2014 ~$20M in effective cap space after McDuffie trade/extension, Curl and Watson signings, but can create ~$50M via restructures of Stafford, Adams, Jackson. Multiple extension candidates (Nacua, Turner, Young, Avila) looming.",
+    "trade_posture": "All-in buyers for 2026. Traded 1st-round pick (#29) for McDuffie. Willing to spend aggressively to maximize Stafford's final years. Would move depth pieces or future picks for upgrades at LB, WR3, or OL depth. Unlikely to sell any core starters."
+  },
+  "players": [
+    {
+      "name": "Matthew Stafford",
+      "slot": "QB1",
+      "position": "QB",
+      "age": 38,
+      "draft_pedigree": "2009 1.1",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 42000000,
+        "guaranteed_remaining": 40000000,
+        "cap_hit_2026": 48266668,
+        "dead_cap_if_traded": 41900000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "elite",
+      "performance_evidence": "2025 NFL MVP. Led league with 4,707 passing yards and 46 TDs. Career-best 109.2 passer rating (2nd in NFL). Led Rams to NFC Championship Game. First-team All-Pro. At 38, still playing at the absolute peak of the position.",
+      "trade_value": {
+        "pick_equivalent": 12,
+        "pick_value_points": 1200,
+        "reasoning": "Reigning MVP QB with elite production, but age (38) and massive cap hit ($48.3M) limit trade market. Dead cap of $41.9M makes him essentially untradeable. A contender would pay a 1st for one year of this production, but the contract mechanics make it impossible."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Franchise QB coming off MVP season. $41.9M dead cap makes trade financially impossible. Team is built entirely around maximizing his final window. Just announced he'll return for 2026.",
+      "injury_notes": "Sore back at start of 2025 camp but played full season. Remarkably durable at 38.",
+      "character_notes": null,
+      "trade_buzz": "Agent explored trade possibilities in 2025 offseason before re-signing. No current trade buzz \u2014 both sides expect him back."
+    },
+    {
+      "name": "Stetson Bennett IV",
+      "slot": "QB2",
+      "position": "QB",
+      "age": 28,
+      "draft_pedigree": "2023 4.128",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1200000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1452000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "Has not seen meaningful regular season action. 4th-round pick in 2023 who missed his entire rookie year. Rams' only drafted QB since Jared Goff. Limited NFL tape makes evaluation difficult.",
+      "trade_value": {
+        "pick_equivalent": 230,
+        "pick_value_points": 15,
+        "reasoning": "Backup QB with no meaningful NFL production. Minimal trade value \u2014 essentially a roster body. A team might offer a conditional 7th at best."
+      },
+      "availability": "available",
+      "availability_reasoning": "Rams have limited investment in Bennett. With Stafford returning, Bennett's development has been limited by lack of reps in a contending environment. Could be moved if a team sees upside.",
+      "injury_notes": null,
+      "character_notes": "Missed entire 2023 rookie season for personal reasons.",
+      "trade_buzz": null
+    },
+    {
+      "name": "Kyren Williams",
+      "slot": "RB1",
+      "position": "RB",
+      "age": 26,
+      "draft_pedigree": "2022 5.164",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 11000000,
+        "guaranteed_remaining": 18000000,
+        "cap_hit_2026": 12930000,
+        "dead_cap_if_traded": 10750000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Third consecutive 1,000+ yard season in 2025 (1,252 yards, 10 TDs, 4.83 YPC). Pro Bowler in 2024. Efficient runner with 4.8 YPC in 2025. Split carries with Corum but remained the clear lead back. Workhorse role in top-ranked offense.",
+      "trade_value": {
+        "pick_equivalent": 65,
+        "pick_value_points": 260,
+        "reasoning": "Quality starting RB on a fair 3-year deal ($11M AAV). Age 26 with good production, but RB positional value is depressed. Worth an early 3rd based on contract control and production. Dead cap ($10.75M) limits trade feasibility in 2026."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Core offensive piece, but Rams have Blake Corum as a capable backup on a cheap rookie deal. If a team offered a 2nd-round pick, Rams would have to consider given RB fungibility. Not being shopped but dead cap makes 2026 trade unlikely.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Blake Corum",
+      "slot": "RB2",
+      "position": "RB",
+      "age": 25,
+      "draft_pedigree": "2024 3.83",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1200000,
+        "guaranteed_remaining": 1000000,
+        "cap_hit_2026": 1350000,
+        "dead_cap_if_traded": 1100000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Usage and production skyrocketed in second NFL season per TheRams.com. Served as effective complement to Williams in a split backfield. Reliable short-yardage and goal-line back. Scored on a 1-yard run vs. Seahawks. Cheap rookie deal makes him excellent value.",
+      "trade_value": {
+        "pick_equivalent": 130,
+        "pick_value_points": 70,
+        "reasoning": "Rotational RB on a cheap 3rd-round rookie deal with 2 years of control remaining. Minimal standalone trade value but useful piece. Worth a 5th-round pick at best."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Williams' backup and insurance policy on a very cheap deal. Rams value the RB depth for their Super Bowl push. Would need an overpay (4th+ round pick) to consider moving him.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Puka Nacua",
+      "slot": "WR1",
+      "position": "WR",
+      "age": 25,
+      "draft_pedigree": "2023 5.177",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1021244,
+        "guaranteed_remaining": 61244,
+        "cap_hit_2026": 5828244,
+        "dead_cap_if_traded": 61244,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "elite",
+      "performance_evidence": "2025: Led NFL with 129 receptions. 1,715 yards (2nd in NFL), 10 TDs. Unanimous first-team All-Pro. 95.3 career yards per game (most in NFL history). Second-most receiving yards by a player in their first 3 seasons ever (behind only Justin Jefferson). Pro Bowl starter. Added 9-165-1 line in NFC Championship. The best young WR in football.",
+      "trade_value": {
+        "pick_equivalent": 1,
+        "pick_value_points": 3000,
+        "reasoning": "25-year-old All-Pro WR on a $5.8M cap hit. Even on an expiring deal, he's the single most valuable trade asset in the NFL outside of franchise QBs. Extension-eligible and projecting toward $38-45M AAV. The combination of elite production, youth, and bargain cost is unmatched."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Centerpiece of the franchise's future. Extension-eligible this offseason and projected for a franchise-record deal ($154-180M per Spotrac). Zero chance the Rams trade their 25-year-old All-Pro WR. They're building around him for the next decade.",
+      "injury_notes": "Knee injury limited him to 6 games in 2024. Sprained ankle in Week 6 of 2025 but returned quickly. Some durability questions but played 16 of 17 games in 2025.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Davante Adams",
+      "slot": "WR2",
+      "position": "WR",
+      "age": 33,
+      "draft_pedigree": "2014 2.53",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 22000000,
+        "guaranteed_remaining": 6000000,
+        "cap_hit_2026": 28000000,
+        "dead_cap_if_traded": 10000000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "2025: Led NFL in receiving TDs (14). 1,017+ career catches (17th player in NFL history). Six-time Pro Bowler. Missed end of season with hamstring injury but was dominant when healthy. Red zone cheat code with Stafford. Still producing at a high level despite turning 33 in December.",
+      "trade_value": {
+        "pick_equivalent": 70,
+        "pick_value_points": 240,
+        "reasoning": "Still producing at a Pro Bowl level but age (33), injury concerns (hamstring), and $28M cap hit limit value. On an expiring deal \u2014 acquiring team gets 1 year. Worth a 3rd-round pick to a contender who needs a WR upgrade, but cap hit would likely need to be partially absorbed."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "McVay says he 'absolutely' expects Adams back, but no extension talks have occurred. $28M cap hit is 8th-highest among WRs for 2026. Rams will likely restructure to lower cap hit. If they can't restructure, a trade becomes possible but $10M dead cap is manageable. Adams has tied his future to Stafford/McVay.",
+      "injury_notes": "Missed end of 2025 season with hamstring injury. Turns 34 in December 2026. Age-related decline is a concern.",
+      "character_notes": null,
+      "trade_buzz": "No active trade buzz, but his $28M cap hit and contract-year status make him a name to monitor. Rams exploring restructure options per Spotrac."
+    },
+    {
+      "name": "Konata Mumpfield",
+      "slot": "WR3",
+      "position": "WR",
+      "age": 23,
+      "draft_pedigree": "2025 7.242",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 850000,
+        "guaranteed_remaining": 100000,
+        "cap_hit_2026": 915000,
+        "dead_cap_if_traded": 50000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "7th-round pick from Pittsburgh in 2025. Limited production as a rookie behind Nacua and Adams. The Rams need to upgrade at WR3 per beat reporters. Developmental player who earned a roster spot.",
+      "trade_value": {
+        "pick_equivalent": 220,
+        "pick_value_points": 18,
+        "reasoning": "Late-round rookie WR with minimal NFL production. Essentially no trade value. Would be included as a throw-in piece in a larger deal at best."
+      },
+      "availability": "available",
+      "availability_reasoning": "Rams have acknowledged they need to upgrade at WR3. Mumpfield is a depth piece on a minimum deal. Would be moved for essentially any draft pick offered.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Colby Parkinson",
+      "slot": "TE1",
+      "position": "TE",
+      "age": 26,
+      "draft_pedigree": "2020 4.133",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 7500000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 9083334,
+        "dead_cap_if_traded": 2083334,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Set career highs in receptions, yards (408), and touchdowns (8) in 2025. Scored game-winning TD vs. Panthers in Wild Card. Strong red-zone target at 6'7\". Key piece of McVay's 13-personnel evolution.",
+      "trade_value": {
+        "pick_equivalent": 90,
+        "pick_value_points": 115,
+        "reasoning": "Quality starting TE on an expiring deal. Production spiked in 2025 but one year of control limits value. Worth a 4th-round pick. Low dead cap ($2M) makes him tradeable but Rams need him for their 13-personnel offense."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Core piece of McVay's 13-personnel offense that defined the 2025 season. On an expiring contract with low dead cap. Rams would trade for a 3rd but won't shop him during a Super Bowl push.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Tyler Higbee",
+      "slot": "TE2",
+      "position": "TE",
+      "age": 33,
+      "draft_pedigree": "2016 4.110",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 4000000,
+        "guaranteed_remaining": 3000000,
+        "cap_hit_2026": 2101286,
+        "dead_cap_if_traded": 2000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "declining",
+      "performance_evidence": "25 catches for 281 yards and 3 TDs in just 10 games in 2025. 10-year veteran and locker room leader. Battled injuries (ACL in 2024). Production has diminished significantly. Valued for leadership, blocking, and McVay chemistry.",
+      "trade_value": {
+        "pick_equivalent": 200,
+        "pick_value_points": 25,
+        "reasoning": "Aging TE2 with declining production and injury history. Minimal trade value \u2014 a team might offer a conditional 7th for his veteran presence. More valuable to the Rams as a culture piece than as a trade asset."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Just re-signed on a cheap 2-year, $8M deal, but at 33 with injury history, this was a culture/locker room signing. If a team offered a 6th-round pick, Rams would consider it. Beat reporters note Parkinson and Ferguson are the future at TE.",
+      "injury_notes": "Torn ACL in 2024, limited to 13 total regular season games over past two years. At 33, durability is a major concern.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Alaric Jackson",
+      "slot": "LT",
+      "position": "OT",
+      "age": 28,
+      "draft_pedigree": "UDFA 2021",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 18766667,
+        "guaranteed_remaining": 20000000,
+        "cap_hit_2026": 25300000,
+        "dead_cap_if_traded": 15000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Key part of an OL unit that allowed a league-low 23 sacks in 2025. Provides stability at LT. May not be a top-5 LT but is consistently solid per beat reporters. UDFA success story who earned a $56.3M extension.",
+      "trade_value": {
+        "pick_equivalent": 55,
+        "pick_value_points": 340,
+        "reasoning": "Solid starting LT on 2 years of control. OT position premium elevates value. However, $25.3M cap hit and $15M dead cap make a trade financially painful. Worth a mid-2nd if cap wasn't a factor, but dead cap essentially locks him in."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Rams value LT stability for protecting 38-year-old Stafford. $15M dead cap makes 2026 trade very expensive. Contract has a clean out after 2026 (save $19M if cut in 2027). Restructure candidate \u2014 Rams can drop cap hit to $11.2M via conversion.",
+      "injury_notes": "Blood clot issue entering 2025 season. Missed a game late in the year. Health is a concern going forward.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Steve Avila",
+      "slot": "LG",
+      "position": "IOL",
+      "age": 25,
+      "draft_pedigree": "2023 2.36",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1800000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 3700000,
+        "dead_cap_if_traded": 500000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Clearcut starter at LG when healthy. 2nd-round pick from TCU. Has dealt with injuries limiting back-to-back seasons per Spotrac. Extension-eligible this offseason with Spotrac projecting 4-year, $70M deal. At 25, still ascending.",
+      "trade_value": {
+        "pick_equivalent": 55,
+        "pick_value_points": 340,
+        "reasoning": "25-year-old starting guard on an expiring rookie deal at just $3.7M cap hit. Elite value relative to cost. Extension-eligible and projecting toward $17.5M AAV. Acquiring team gets one cheap year with option to extend. Worth a mid-2nd."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Core offensive lineman entering his prime on a bargain deal. Extension candidate this offseason. Rams would never trade a 25-year-old starting guard during a championship window. Only question is whether they can afford to extend both Avila and other pending extensions.",
+      "injury_notes": "Has dealt with injuries in back-to-back seasons, limiting his availability. Durability is a question mark.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Coleman Shelton",
+      "slot": "C",
+      "position": "IOL",
+      "age": 29,
+      "draft_pedigree": "UDFA 2019",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 4500000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 5500000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Has appeared in 92 career games (51 starts). Started all 17 games with the Bears in 2024 before joining Rams. Reliable center who provides stability. Part of OL unit that allowed league-low 23 sacks. Solid but unspectacular.",
+      "trade_value": {
+        "pick_equivalent": 120,
+        "pick_value_points": 80,
+        "reasoning": "Average starting center on an expiring deal at a modest cap hit. Worth a 5th-round pick. IOL position value is low and he's 29 on an expiring contract."
+      },
+      "availability": "available",
+      "availability_reasoning": "Veteran center on an expiring deal. Rams have Beaux Limmer as a potential replacement. If a team offered a 4th or 5th, Rams would listen, especially if they're confident in Limmer. Not being actively shopped but has a price.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Kevin Dotson",
+      "slot": "RG",
+      "position": "IOL",
+      "age": 28,
+      "draft_pedigree": "2020 4.135",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 16000000,
+        "guaranteed_remaining": 16000000,
+        "cap_hit_2026": 17416668,
+        "dead_cap_if_traded": 1416668,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "89.3 PFF run-blocking grade (3rd in NFL) in 2025. Dominant in the run game, strong pass protector. Allowed league-low sacks as part of the OL unit. Pro Bowl-caliber season that went unrecognized. Entering final year of his deal.",
+      "trade_value": {
+        "pick_equivalent": 60,
+        "pick_value_points": 280,
+        "reasoning": "Pro Bowl-caliber guard on an expiring deal with $16M guaranteed. Low dead cap ($1.4M) makes trade mechanically easy. Worth a late 2nd/early 3rd to a team that extends him. But $17.4M cap hit is expensive for a rental."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Entering final year with $16M fully guaranteed. Both Avila and Dotson are in final years \u2014 Rams may not be able to extend both. If Rams prioritize Avila, Dotson could be moved at the draft for a 2nd-round pick. Low dead cap ($1.4M) makes trade clean.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "Beat reporters note Rams may not be able to bring back both Avila and Dotson. Extension talks likely in 2026 but not guaranteed."
+    },
+    {
+      "name": "Warren McClendon Jr.",
+      "slot": "RT",
+      "position": "OT",
+      "age": 24,
+      "draft_pedigree": "2023 3.77",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 1200000,
+        "guaranteed_remaining": 1500000,
+        "cap_hit_2026": 1600000,
+        "dead_cap_if_traded": 800000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Poised to step into full-time starting RT role after Rob Havenstein's retirement. 3rd-round pick entering Year 4. Extension-eligible this offseason. Part of the Rams' excellent 2023 draft class. Developing player with upside.",
+      "trade_value": {
+        "pick_equivalent": 80,
+        "pick_value_points": 155,
+        "reasoning": "Young starting RT on a cheap rookie deal with extension eligibility. OT position premium and age (24) boost value. Worth a mid-3rd to a tackle-needy team. Bargain cap hit ($1.6M) adds value."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Young, cheap starting OT on a contending roster. Rams need him to protect Stafford after Havenstein's retirement. Extension candidate. Would need a significant overpay (2nd+ round pick) to move.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Braden Fiske",
+      "slot": "DE1",
+      "position": "DL",
+      "age": 25,
+      "draft_pedigree": "2024 2.39",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 2350000,
+        "guaranteed_remaining": 3000000,
+        "cap_hit_2026": 2700000,
+        "dead_cap_if_traded": 2400000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "3 sacks and 4 TFL in 2025 \u2014 sophomore dip from promising rookie year. Snap count dropped from 70% in 2024 to 40% in 2025 per Spotrac. Has potential to be great but wasn't as productive as Year 1. Elite combine tester with high ceiling. Rams traded up significantly to draft him.",
+      "trade_value": {
+        "pick_equivalent": 80,
+        "pick_value_points": 155,
+        "reasoning": "Young DL with 3 years of cheap control on a 2nd-round rookie deal. Potential is high but 2025 production was underwhelming. Worth a 3rd-round pick based on age, contract, and ceiling. Rams invested heavily to draft him and won't sell low."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Rams gave up significant draft capital to trade up for Fiske and view him as a long-term piece alongside Turner. Would need at least a 2nd-round pick to consider. Not being shopped.",
+      "injury_notes": "Some health concerns noted by beat reporters heading into 2026.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Poona Ford",
+      "slot": "DT1",
+      "position": "DL",
+      "age": 30,
+      "draft_pedigree": "UDFA 2018",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 9200000,
+        "guaranteed_remaining": 8000000,
+        "cap_hit_2026": 10500000,
+        "dead_cap_if_traded": 5500000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Second-highest graded DL against the run in the NFL per PFF in 2025. 2 sacks but does the dirty work in the trenches. Consistently underappreciated run-stuffer who anchors the interior. Part of an elite defensive front.",
+      "trade_value": {
+        "pick_equivalent": 85,
+        "pick_value_points": 135,
+        "reasoning": "Solid run-stuffing DT on a fair deal with 2 years remaining. Age 30 limits upside. Worth a 4th-round pick. Not a sexy trade target but consistently productive."
+      },
+      "availability": "available",
+      "availability_reasoning": "Veteran DT who does the dirty work. Rams save $9.25M if cut in 2027. Tradeable at fair value if a team offers a 3rd or 4th. Not a core piece the team would fight to keep if the price is right.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Kobie Turner",
+      "slot": "DE2",
+      "position": "DL",
+      "age": 27,
+      "draft_pedigree": "2023 3.89",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1100000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 4000000,
+        "dead_cap_if_traded": 500000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "24 career sacks across 3 seasons including 7.0 in 2025. 69 pressures in 2025 (3rd on team). One of the better overall interior defensive linemen in the game per Spotrac. Extension-eligible, projecting toward 4-year, $100M deal ($25M+ AAV).",
+      "trade_value": {
+        "pick_equivalent": 25,
+        "pick_value_points": 720,
+        "reasoning": "26-year-old ascending interior DL on a bargain $4M cap hit with one year of control. Extension-eligible and projecting toward $25M+ AAV. Worth a late 1st to a team willing to extend him. Extraordinary value relative to cost."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Extension candidate this offseason. Rams would strongly prefer to extend him. However, with Nacua, Young, Avila, and Verse all needing new deals, cap pressure is real. If someone offered a 1st-round pick, the Rams would face a difficult decision. Not being shopped.",
+      "injury_notes": "Back issue during 2025 training camp but played 17 games.",
+      "character_notes": null,
+      "trade_buzz": "Spotrac projects 4-year, $100M extension. Cap expert Mike Ginnitti believes he could eclipse $30M AAV. Extension priority this offseason alongside Nacua."
+    },
+    {
+      "name": "Byron Young",
+      "slot": "LB1",
+      "position": "EDGE",
+      "age": 28,
+      "draft_pedigree": "2023 3.86",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1500000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 5500000,
+        "dead_cap_if_traded": 500000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Breakout 2025: Team-high 12 sacks, 82 tackles, 12 TFL, 29 QB hits, 74 pressures. First Pro Bowl selection. Never below 7.5 sacks or 61 tackles in any season. Has 27.5 career sacks. Projects toward $35-36M AAV extension per Spotrac/ESPN.",
+      "trade_value": {
+        "pick_equivalent": 18,
+        "pick_value_points": 900,
+        "reasoning": "Pro Bowl EDGE coming off 12-sack season on a bargain $5.5M cap hit. One year of control limits value, but EDGE position premium and production make him worth a mid-to-late 1st. Low dead cap ($500K) makes trade mechanically easy."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "This is the Rams' most interesting trade candidate. Entering final year of rookie deal, will be a 29-year-old first-time free agent in 2027. Beat reporters note he's 3rd or 4th in extension priority behind Nacua, Turner, and Avila. Agent has no incentive to sign below-market extension \u2014 testing FA makes more sense. Rams could trade him for a 1st rather than lose him for nothing in 2027.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "Turf Show Times has explored trade scenarios including Young-for-Crosby/Greenard swaps. Significant debate among beat writers about whether Rams can afford to extend all their young stars. Young is most likely to be the odd man out cap-wise."
+    },
+    {
+      "name": "Nate Landman",
+      "slot": "LB2",
+      "position": "LB",
+      "age": 27,
+      "draft_pedigree": "UDFA 2022",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 7500000,
+        "guaranteed_remaining": 12000000,
+        "cap_hit_2026": 7225000,
+        "dead_cap_if_traded": 10125000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Led team with 4 forced fumbles in 2025. Earned in-season extension. Good run defender but exploited in pass coverage per beat reporters. Led league in missed tackles late in season. Solid but limited ILB.",
+      "trade_value": {
+        "pick_equivalent": 100,
+        "pick_value_points": 100,
+        "reasoning": "Starting ILB on a 3-year deal but with significant dead cap ($10.1M) that makes 2026 trade essentially impossible. Worth a 4th on talent/contract alone, but dead cap locks him in."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Dead cap of $10.1M in 2026 makes trade financially painful. Rams save $5.5M if cut in 2027 \u2014 more likely an exit point. Core starter but not untouchable. Pass coverage limitations are a concern.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "Turf Show Times noted his missed tackles late in season raised questions about his long-term fit. $2.35M of 2027 salary becomes guaranteed on 5th day of 2026 league year."
+    },
+    {
+      "name": "Omar Speights",
+      "slot": "LB3",
+      "position": "LB",
+      "age": 24,
+      "draft_pedigree": "UDFA 2024",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 950000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1050000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "UDFA who earned a roster spot and starting role. Solid against the run but like Landman, exploited in pass coverage. Beat reporters note Rams need to upgrade LB coverage skills. Cheap depth piece.",
+      "trade_value": {
+        "pick_equivalent": 200,
+        "pick_value_points": 25,
+        "reasoning": "UDFA depth LB with minimal trade value. Would need to be essentially given away. Worth a conditional 7th at most."
+      },
+      "availability": "available",
+      "availability_reasoning": "Rotational LB on a minimum deal. Rams are actively looking to upgrade the LB room with better coverage players. Would be included in any trade package as a throw-in or moved for any late-round pick.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Jared Verse",
+      "slot": "LB4",
+      "position": "EDGE",
+      "age": 24,
+      "draft_pedigree": "2024 1.19",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 3783587,
+        "guaranteed_remaining": 5000000,
+        "cap_hit_2026": 4500000,
+        "dead_cap_if_traded": 5200000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "2024 Defensive Rookie of the Year. Back-to-back Pro Bowler. Led team with 100 total pressures in 2025. 59 QB pressures through Week 16 (5th in NFL). 6.5 sacks in 2025 \u2014 modest sack total but elite pressure rate. Power-based pass rusher with enormous upside. 5th-year option available in 2028.",
+      "trade_value": {
+        "pick_equivalent": 5,
+        "pick_value_points": 2600,
+        "reasoning": "24-year-old Pro Bowl EDGE on a cheap rookie deal with 3 years of control plus a 5th-year option. Among the most valuable non-QB trade assets in the NFL. Elite pressure rate, DROY pedigree, and cost control make him worth multiple 1sts in practice."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Franchise cornerstone on defense. 24-year-old DROY winner on a 1st-round rookie deal with 3 years plus a 5th-year option. The Rams would not trade Verse under any realistic scenario \u2014 he's the future of their defense alongside the rest of the 2023-24 draft class.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Trent McDuffie",
+      "slot": "CB1",
+      "position": "CB",
+      "age": 25,
+      "draft_pedigree": "2022 1.21",
+      "contract": {
+        "years_remaining": 5,
+        "aav": 27500000,
+        "guaranteed_remaining": 100000000,
+        "cap_hit_2026": 13632000,
+        "dead_cap_if_traded": 30000000,
+        "free_agent_year": 2031
+      },
+      "performance_tier": "elite",
+      "performance_evidence": "Two-time All-Pro (1st team 2023, 2nd team 2024). Two-time Super Bowl champion with Chiefs. 246 career tackles, 34 passes defensed, 8 forced fumbles, 5.5 sacks. NFL's highest-paid CB at $31M AAV. Elite in coverage and as a blitzer. Just 25 years old.",
+      "trade_value": {
+        "pick_equivalent": 5,
+        "pick_value_points": 2600,
+        "reasoning": "25-year-old All-Pro CB on a brand new 5-year extension through 2030. Among the most valuable non-QB defensive assets in the NFL. $100M guaranteed makes him essentially untradeable \u2014 dead cap would be catastrophic."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just traded a 1st-round pick and 3 other picks to acquire him, then signed a 4-year, $124M extension with $100M guaranteed. $30M+ dead cap makes trade financially impossible. He IS the secondary rebuild.",
+      "injury_notes": "Knee injury ended 2025 season early (missed final 2 games with Chiefs). Groin injury lingered but expected to be healthy for OTAs.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Jaylen Watson",
+      "slot": "CB2",
+      "position": "CB",
+      "age": 27,
+      "draft_pedigree": "2022 7.243",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 17000000,
+        "guaranteed_remaining": 34000000,
+        "cap_hit_2026": 12000000,
+        "dead_cap_if_traded": 20000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Best season of career in 2025: career highs in snaps (96%), interceptions (2), tackles (64), with 6 pass breakups and 2 sacks. Two-time Super Bowl champion. Started 15 of 15 games played for Chiefs. 6'2\" physical corner with size the Rams lacked.",
+      "trade_value": {
+        "pick_equivalent": 60,
+        "pick_value_points": 280,
+        "reasoning": "Quality starting CB on a new 3-year, $51M deal. Good production but not elite. 27 years old with $34M guaranteed \u2014 significant dead cap makes early trade unlikely. Worth a late 2nd on talent/contract but dead cap locks him in."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just signed a 3-year, $51M deal with $34M guaranteed. Massive dead cap in Year 1 makes trade impossible. Centerpiece of the Rams' secondary rebuild alongside McDuffie.",
+      "injury_notes": "Groin injury ended 2025 season (missed final 2 games). Expected to be healthy for OTAs.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Quentin Lake",
+      "slot": "NB",
+      "position": "CB",
+      "age": 27,
+      "draft_pedigree": "2022 6.211",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 14000000,
+        "guaranteed_remaining": 20000000,
+        "cap_hit_2026": 12000000,
+        "dead_cap_if_traded": 8250000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "PFF's 12th-highest graded safety in 2025. Plays 2/3 of snaps as slot CB. Team captain. 61 tackles, 10 passes defended, 1 INT, 1 FF in just 10 games. Rams allow 5.0 YPP with him on field vs. 5.4 off. Versatile defender who fills the 'star' role.",
+      "trade_value": {
+        "pick_equivalent": 65,
+        "pick_value_points": 260,
+        "reasoning": "Versatile slot CB/safety hybrid on a 3-year, $42M extension. Team captain and schematic lynchpin. Worth an early 3rd based on contract and production. Dead cap ($8.25M) is significant but not prohibitive."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just signed a 3-year extension in January. Team captain and defensive keystone. Rams would need a significant overpay to consider. Not being shopped, and the dead cap ($8.25M) makes 2026 trade expensive.",
+      "injury_notes": "Dislocated elbow in Week 11 of 2025, missed final 6 regular season games. Surgery required. Beat reporters noted defense collapsed without him. Returned for playoffs but didn't look as sharp.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Kam Curl",
+      "slot": "SS",
+      "position": "S",
+      "age": 27,
+      "draft_pedigree": "2020 7.216",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 12000000,
+        "guaranteed_remaining": 18750000,
+        "cap_hit_2026": 8600000,
+        "dead_cap_if_traded": 7167000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Career year in 2025: Set franchise record for most tackles by a safety (122). 2 sacks, 2 INTs (first since rookie year), 14 passes defensed, 3 forced fumbles. Clutch OT interception vs. Bears. Team's second-leading tackler.",
+      "trade_value": {
+        "pick_equivalent": 55,
+        "pick_value_points": 340,
+        "reasoning": "Pro Bowl-caliber safety on a new 3-year, $36M deal with $18.75M guaranteed. Fair AAV ($12M) for his production level. 27 years old with 3 years of control. Worth a mid-2nd but dead cap ($7.2M) limits Year 1 trade value."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just re-signed on a new 3-year deal. Integral to the secondary alongside Lake and McDuffie. Dead cap of $7.2M makes 2026 trade costly. Would need a 2nd+ to consider. Not being shopped.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Kamren Kinchens",
+      "slot": "FS",
+      "position": "S",
+      "age": 23,
+      "draft_pedigree": "2024 3.99",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1100000,
+        "guaranteed_remaining": 1200000,
+        "cap_hit_2026": 1300000,
+        "dead_cap_if_traded": 900000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "First rookie DB ever to win multiple Defensive Player of the Week Awards (2024). 77 career tackles, 4 INTs including one 103-yard pick-six. High ceiling with playmaking ability. Started 6 games. The Rams' long-term answer at FS.",
+      "trade_value": {
+        "pick_equivalent": 75,
+        "pick_value_points": 195,
+        "reasoning": "23-year-old ascending safety with playmaking ability on a cheap 3rd-round rookie deal with 3 years of control. Excellent value. Worth a mid-3rd based on age, contract, and upside."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Young, cheap, and ascending. Rams view him as their future at FS alongside Lake and Curl. Would need a 2nd-round pick or better to even consider. The defense needs his playmaking ability.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    }
+  ]
+}

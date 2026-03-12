@@ -1,0 +1,713 @@
+{
+  "team": "BUF",
+  "team_full": "Buffalo Bills",
+  "team_context": {
+    "competitive_window": "competing",
+    "cap_situation": "tight \u2014 Bills entered 2026 ~$9M over the cap, created ~$50M via restructures (Allen, Oliver, Brown), releases (Samuel, Rapp, Jackson), and pay cuts (Knox, Bass). After signing DJ Moore trade, Connor McGovern ($52M/4yr), Bradley Chubb ($43.5M/3yr), and Dee Alford ($21M/3yr), estimated ~$20-25M remaining. Heavy future dead money obligations from restructures.",
+    "trade_posture": "Win-now buyers. Josh Allen's window is open. New HC Joe Brady, new DC Jim Leonhard (switching to 3-4). Bills traded a 2nd-round pick for DJ Moore and signed Chubb. Still need help at LB, S, and depth everywhere. Would move expendable pieces for picks to restock, but core is untouchable."
+  },
+  "players": [
+    {
+      "name": "Josh Allen",
+      "slot": "QB1",
+      "position": "QB",
+      "age": 30,
+      "draft_pedigree": "2018 1.7",
+      "contract": {
+        "years_remaining": 5,
+        "aav": 55000000,
+        "guaranteed_remaining": 220000000,
+        "cap_hit_2026": 49300000,
+        "dead_cap_if_traded": 200000000,
+        "free_agent_year": 2031
+      },
+      "performance_tier": "elite",
+      "performance_evidence": "2024 NFL MVP (27 of 50 first-place votes). 2025: 4,247 total yards, 39 total TDs, fewest turnovers of career. PFF 87.4 overall grade (6th among QBs), 91.3 rushing grade (1st). Only player in NFL with 3,000+ passing yards and 500+ rushing yards in 2025. Led Bills to 12-5, divisional round.",
+      "trade_value": {
+        "pick_equivalent": 1,
+        "pick_value_points": 3000,
+        "reasoning": "Franchise QB in his prime, reigning MVP, under contract through 2030 with $250M in guarantees. Essentially untradeable \u2014 the dead cap alone ($200M+) makes it impossible, and he is the franchise."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Face of the franchise, reigning MVP, just signed a 6-year/$330M extension with $250M guaranteed. Bills literally cannot trade him \u2014 the dead cap would destroy their cap for years. Zero chance under any circumstance.",
+      "injury_notes": "Underwent surgery for broken fifth metatarsal in right foot after 2025 season. Expected fully healthy for 2026 OTAs.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Kyle Allen",
+      "slot": "QB2",
+      "position": "QB",
+      "age": 30,
+      "draft_pedigree": "UDFA 2018",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 2050000,
+        "guaranteed_remaining": 2000000,
+        "cap_hit_2026": 2050000,
+        "dead_cap_if_traded": 1000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "Career journeyman backup. Went 0-for-2 passing in 3 games with Detroit in 2025. Reuniting with Josh Allen in Buffalo as QB2. Previous stops include Carolina, Washington, Houston, Detroit.",
+      "trade_value": {
+        "pick_equivalent": 230,
+        "pick_value_points": 10,
+        "reasoning": "Backup QB with minimal trade value. Signed a 2-year, $4.1M deal. Only value is as emergency depth."
+      },
+      "availability": "available",
+      "availability_reasoning": "Replacement-level backup QB. Bills would trade him if they found a better option, but there's essentially no market for him.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "James Cook III",
+      "slot": "RB1",
+      "position": "RB",
+      "age": 25,
+      "draft_pedigree": "2022 2.63",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 11500000,
+        "guaranteed_remaining": 22000000,
+        "cap_hit_2026": 5880000,
+        "dead_cap_if_traded": 16610000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "2024: 1,009 rushing yards, 16 rushing TDs (tied for NFL lead), 1,300 yards from scrimmage. 2025: On pace for career year through 10 games (968 rush yards, 5.3 YPC), ranked 2nd among RBs in PFSN's RB Impact metric. Three-down back who catches passes. Tied OJ Simpson's franchise record for rushing TDs.",
+      "trade_value": {
+        "pick_equivalent": 55,
+        "pick_value_points": 340,
+        "reasoning": "Young Pro Bowl RB on a team-friendly deal with 4 years of control and a very low 2026 cap hit ($5.9M). However, RB positional value caps upside. Worth a late 2nd to a contending team that needs a featured back."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Core piece of the offense, but his $16.6M dead cap makes a trade financially painful for Buffalo. Bills just extended him and view him as integral to Joe Brady's offense. Would need a significant overpay.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Ty Johnson",
+      "slot": "RB2",
+      "position": "RB",
+      "age": 28,
+      "draft_pedigree": "UDFA 2019",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 2000000,
+        "guaranteed_remaining": 500000,
+        "cap_hit_2026": 2000000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Change-of-pace back, scored TD vs Chiefs in 2025. Career journeyman with stints in Detroit, NYJ, and Buffalo. Reliable depth piece but not a featured runner.",
+      "trade_value": {
+        "pick_equivalent": 220,
+        "pick_value_points": 15,
+        "reasoning": "Low-cost rotational RB on an expiring deal. Minimal trade value \u2014 essentially a replacement-level player."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth piece on a cheap deal. Bills would move him if offered even a late-round pick, but there's minimal market.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "DJ Moore",
+      "slot": "WR1",
+      "position": "WR",
+      "age": 29,
+      "draft_pedigree": "2018 1.24",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 24500000,
+        "guaranteed_remaining": 62500000,
+        "cap_hit_2026": 24500000,
+        "dead_cap_if_traded": 24500000,
+        "free_agent_year": 2030
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "2025: Career-low 50 catches, 682 yards, 6 TDs in Chicago (reduced role behind Odunze/Burden). But had four 1,000-yard seasons previously, including 1,150+ in both years under Joe Brady in Carolina (2020-21). 608 career receptions, 8,213 yards, 41 TDs. Extremely durable \u2014 played all 17 games each of last 5 seasons.",
+      "trade_value": {
+        "pick_equivalent": 75,
+        "pick_value_points": 175,
+        "reasoning": "Just traded for a 2nd-round pick (Bills sent pick 60, got Moore + pick 165). Contract is expensive ($24.5M/yr) with heavy guarantees through 2028. Age 29, entering decline window. Value is a 3rd-round pick equivalent factoring in the contract burden, but Brady connection and durability add some upside."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Bills literally just traded a 2nd-round pick for him and guaranteed additional money. They aren't flipping him immediately. However, the contract is heavy and if he disappoints early, he could become available after 2026.",
+      "injury_notes": "Extremely durable \u2014 has played all 17 games each of the last 5 seasons.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Khalil Shakir",
+      "slot": "WR2",
+      "position": "WR",
+      "age": 26,
+      "draft_pedigree": "2022 5.148",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 13264500,
+        "guaranteed_remaining": 25000000,
+        "cap_hit_2026": 6792000,
+        "dead_cap_if_traded": 15000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "2025: Led Bills in catches, yards and targets. 2024: Career-best 76 catches, 821 yards, 4 TDs on 100 targets. Allen completed 81% of passes to Shakir over last 2 seasons \u2014 highest among 60 QB-WR combos with 100+ targets. 3rd among WRs in YAC per reception. Reliable slot receiver, now WR2 behind Moore.",
+      "trade_value": {
+        "pick_equivalent": 50,
+        "pick_value_points": 400,
+        "reasoning": "Young, reliable WR on a very team-friendly extension ($13.3M AAV vs $19M+ market value). Four years of control with a low 2026 cap hit ($6.8M). Exceptional chemistry with Allen. Worth a mid-to-late 2nd-round pick."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just extended through 2029 at a below-market deal. Bills view him as a core piece alongside Moore. High dead cap ($15M) makes a trade impractical. Only moves if someone offers a massive overpay.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Joshua Palmer",
+      "slot": "WR3",
+      "position": "WR",
+      "age": 26,
+      "draft_pedigree": "2021 3.77",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 3000000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 3000000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Former Chargers WR, dealt with injuries in Buffalo. Limited production in 2025 but flashed in spot starts. Career: 121 catches, 1,460 yards over 4 seasons with LAC. Reliable hands but not a difference-maker.",
+      "trade_value": {
+        "pick_equivalent": 180,
+        "pick_value_points": 30,
+        "reasoning": "Expiring contract, rotational WR3. Minimal trade value \u2014 a 6th-round pick at best. Could be surpassed by draft picks or Keon Coleman."
+      },
+      "availability": "available",
+      "availability_reasoning": "Expiring deal, rotational role. With DJ Moore arriving and the draft upcoming, Palmer is expendable. Bills would move him for anything of value.",
+      "injury_notes": "Has dealt with various injuries throughout career limiting availability.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Dalton Kincaid",
+      "slot": "TE1",
+      "position": "TE",
+      "age": 26,
+      "draft_pedigree": "2023 1.25",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 3356756,
+        "guaranteed_remaining": 8750000,
+        "cap_hit_2026": 4272000,
+        "dead_cap_if_traded": 3400000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "2025: 39 catches, 571 yards, 5 TDs in only 12 games (torn PCL, hamstring). Receiving EPA of +38.5 (14th in NFL). Bills averaged 30.5 PPG with Kincaid vs 23.0 without. 14.6 yards per reception (led Bills among 15+ catch players). 2023 rookie: 73 catches, 673 yards. 5th-year option to be exercised (~$8.75M for 2027).",
+      "trade_value": {
+        "pick_equivalent": 45,
+        "pick_value_points": 450,
+        "reasoning": "Young former 1st-rounder on a cheap rookie deal with 5th-year option about to be exercised. When healthy, he's a dynamic mismatch. The low cap hit and 2 years of control on a rookie deal make him very attractive. Knee concerns are the only drag \u2014 worth a mid-2nd."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Bills are exercising his 5th-year option and Beane has publicly committed to him. The offense is 7.1 PPG better with him on the field. Only available if a team offers an irresistible package.",
+      "injury_notes": "Torn PCL played through in both 2024 and 2025, limiting him to 13 and 12 games respectively. Does not require surgery per Kincaid, but durability is a legitimate concern for any acquiring team.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Dawson Knox",
+      "slot": "TE2",
+      "position": "TE",
+      "age": 29,
+      "draft_pedigree": "2019 3.96",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 8000000,
+        "guaranteed_remaining": 6000000,
+        "cap_hit_2026": 11000000,
+        "dead_cap_if_traded": 8000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "2025: 36 catches, 417 yards, 4 TDs on 49 targets. Best season since 2022. 7th-most TD receptions by a TE since entering the league in 2019 (27 career TDs). Valuable blocker in the run game. Recently signed restructured deal to lower 2026 cap hit.",
+      "trade_value": {
+        "pick_equivalent": 120,
+        "pick_value_points": 60,
+        "reasoning": "Solid but unspectacular TE2 who just took a pay cut to stay. Entering age-29 season, redundant with Kincaid/Hawes. The restructured deal and remaining dead cap limit trade appeal. Worth a 5th-round pick at best."
+      },
+      "availability": "available",
+      "availability_reasoning": "Just restructured his contract to stay, but the Bills have Kincaid and Hawes. If a TE-needy team calls with a day-3 pick, Buffalo would listen. Beat reporters have noted his bloated cap hit was a concern before the restructure.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "Was widely discussed as a cut candidate before agreeing to a restructured deal."
+    },
+    {
+      "name": "Dion Dawkins",
+      "slot": "LT",
+      "position": "OT",
+      "age": 32,
+      "draft_pedigree": "2017 2.63",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 20020000,
+        "guaranteed_remaining": 20000000,
+        "cap_hit_2026": 24837833,
+        "dead_cap_if_traded": 21946833,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Bills' longest-tenured player and locker room leader. 2021 Pro Bowler. Consistently graded among the league's better OTs. PFF grades him good-not-elite. Started every game when healthy for multiple seasons. Walter Payton Man of the Year nominee.",
+      "trade_value": {
+        "pick_equivalent": 80,
+        "pick_value_points": 140,
+        "reasoning": "Still a quality LT but age (32) and massive cap hit ($24.8M) severely limit trade value. Dead cap of $21.9M makes a trade almost impossible for Buffalo. Would need to be a post-June-1 designation. Worth a 3rd-round pick to an OT-needy team if cap could be navigated."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Trade rumors have circulated this offseason due to his large cap hit and age. Bills could save money by dealing him and starting Spencer Brown at LT. However, $22M dead cap makes it extremely difficult pre-June-1. Beane views him as a culture piece.",
+      "injury_notes": "Missed a game in 2025 with a concussion. Generally durable throughout career.",
+      "character_notes": null,
+      "trade_buzz": "Some offseason chatter about a possible trade to create cap space. Buffalo Rumblings noted trade speculation, though the dead cap structure makes it very difficult."
+    },
+    {
+      "name": "Alec Anderson",
+      "slot": "LG",
+      "position": "IOL",
+      "age": 27,
+      "draft_pedigree": "UDFA 2021",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1500000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1500000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Versatile interior lineman re-signed on a cheap 1-year deal. Stepped in as swing OL throughout Bills tenure. Now projected as starting LG after David Edwards left for New Orleans. Limited starting experience but trusted by coaching staff.",
+      "trade_value": {
+        "pick_equivalent": 200,
+        "pick_value_points": 15,
+        "reasoning": "Replacement-level IOL on a minimum deal. Essentially no trade value. Bills need him as a starter given their lack of depth at LG."
+      },
+      "availability": "available",
+      "availability_reasoning": "Cheap expiring deal, but Bills actually need him to start at LG. Wouldn't trade him unless they draft or sign a replacement.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Connor McGovern",
+      "slot": "C",
+      "position": "IOL",
+      "age": 28,
+      "draft_pedigree": "2019 3.66",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 13000000,
+        "guaranteed_remaining": 30000000,
+        "cap_hit_2026": 6500000,
+        "dead_cap_if_traded": 18000000,
+        "free_agent_year": 2030
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Started all 49 games in 3 Bills seasons plus every playoff game. Ranked as the 2nd-best center in free agency by The Athletic. Zero sacks allowed in first year at LG. Seamless transition to center in 2024. Averaged 96.67% of offensive snaps.",
+      "trade_value": {
+        "pick_equivalent": 60,
+        "pick_value_points": 290,
+        "reasoning": "Quality starting center on a new 4-year deal with a very low 2026 cap hit ($6.5M). Centers rarely get traded, but the combination of age (28), contract length, and consistent production makes him worth a late 2nd/early 3rd."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just signed a 4-year, $52M extension to stay in Buffalo. Massive dead cap ($18M) from fresh signing. Bills prioritized him over all other interior OL free agents. Zero chance he's traded.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "O'Cyrus Torrence",
+      "slot": "RG",
+      "position": "IOL",
+      "age": 24,
+      "draft_pedigree": "2023 2.59",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1300000,
+        "guaranteed_remaining": 1300000,
+        "cap_hit_2026": 4300000,
+        "dead_cap_if_traded": 800000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Day-1 starter since being drafted. Anchors the right side of the OL alongside Spencer Brown. Solid run blocker and improving in pass protection. Beat reporters have suggested Bills should extend him early before his market explodes.",
+      "trade_value": {
+        "pick_equivalent": 48,
+        "pick_value_points": 420,
+        "reasoning": "Young, quality starting guard on the final year of a very cheap rookie deal. Extension-eligible. If Buffalo doesn't extend him, he becomes a 2027 free agent and a prime trade candidate. On a rookie deal, he's worth a mid-2nd."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Bills view him as a core piece and Buffalo Rumblings suggested an early extension would be smart. But he's in the last year of his rookie deal with a very low dead cap ($800K), making him the most 'tradeable' lineman on the roster from a cap standpoint. Only moves for a significant return.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Spencer Brown",
+      "slot": "RT",
+      "position": "OT",
+      "age": 27,
+      "draft_pedigree": "2021 3.93",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 18000000,
+        "guaranteed_remaining": 25000000,
+        "cap_hit_2026": 8970000,
+        "dead_cap_if_traded": 30915000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "One of the better RTs in the NFL. 2025: 13 starts, 76.2 PFF grade (21st among tackles). Battled some injuries but consistent when on the field. Cross-trained at LT. Recently restructured contract saved $10.4M in 2026 cap space.",
+      "trade_value": {
+        "pick_equivalent": 55,
+        "pick_value_points": 340,
+        "reasoning": "Young, quality starting RT under contract through 2028 at a reasonable AAV. However, the restructure inflated his dead cap to $30.9M, making a trade virtually impossible for the Bills. Theoretical value is a late 2nd, but he's locked in."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Restructure pushed dead cap to $30.9M \u2014 Bills literally cannot trade him without catastrophic cap consequences. He's the RT for the foreseeable future.",
+      "injury_notes": "Battled some injuries in 2025, missed a few games. Has had minor injury history throughout career but generally available.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Ed Oliver",
+      "slot": "DE1",
+      "position": "DL",
+      "age": 28,
+      "draft_pedigree": "2019 1.9",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 17000000,
+        "guaranteed_remaining": 5000000,
+        "cap_hit_2026": 13660000,
+        "dead_cap_if_traded": 34000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "2025: Limited to only 3 games due to biceps tear, ankle injury, and knee injury. Recorded a sack in all 3 appearances before going to IR. Returned for divisional round (16 snaps). 2024: Pro Bowl-caliber production. Career: 95 appearances, 86 starts, former top-10 pick. Disruptive interior presence when healthy.",
+      "trade_value": {
+        "pick_equivalent": 65,
+        "pick_value_points": 250,
+        "reasoning": "When healthy, Oliver is a quality starting DT. But the restructure inflated his dead cap to ~$34M, making a trade impossible. The injury-riddled 2025 and scheme change to 3-4 under Leonhard add uncertainty. Theoretical value is a 3rd if cap were clean."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Restructure pushed dead cap to approximately $34M. Buffalo Rumblings noted this 'effectively closes the door on any trade speculation.' He stays regardless of scheme fit concerns.",
+      "injury_notes": "2025 was a lost season \u2014 biceps tear, ankle, and knee injuries limited him to 3 regular season games. Durability is a real concern entering 2026.",
+      "character_notes": "Multiple unsportsmanlike conduct fines in recent seasons.",
+      "trade_buzz": "Pre-restructure there was trade chatter, but the restructure killed any realistic trade scenario."
+    },
+    {
+      "name": "Deone Walker",
+      "slot": "DT1",
+      "position": "DL",
+      "age": 22,
+      "draft_pedigree": "2025 4.109",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1311763,
+        "guaranteed_remaining": 800000,
+        "cap_hit_2026": 1200000,
+        "dead_cap_if_traded": 500000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Named to ESPN's 2025 All-Rookie team. 6'7, 331 lbs, earned a starting job as a rookie. Had an interception in the divisional round vs Denver. Bills traded up to draft him. Would have been a potential 1st-round pick had he entered the 2024 draft (12.5 TFL, 7.5 sacks as a sophomore at Kentucky). Back injury caused slide to day 3 in 2025.",
+      "trade_value": {
+        "pick_equivalent": 50,
+        "pick_value_points": 400,
+        "reasoning": "Ascending 22-year-old DT on a dirt-cheap rookie deal with 3 years of control. All-Rookie selection with elite physical traits (6'7, 331). If he continues to develop, could be a cornerstone. Worth a mid-2nd given age, contract, and upside."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just earned a starting job as a rookie and is a building block for the defense. Bills traded up to get him. Only moves for a massive overpay \u2014 think a 1st-round pick.",
+      "injury_notes": "Back injury in final college season caused draft slide. Appeared healthy throughout 2025 NFL season.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "T.J. Sanders",
+      "slot": "DE2",
+      "position": "DL",
+      "age": 23,
+      "draft_pedigree": "2025 2.56",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 2800000,
+        "guaranteed_remaining": 4000000,
+        "cap_hit_2026": 2200000,
+        "dead_cap_if_traded": 3500000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "2025 2nd-round pick. Rotational DT in his rookie season. Was the last member of Bills' 2025 draft class to sign. Part of Buffalo's deep DT rotation alongside Oliver, Walker, and Carter. Limited production data available from rookie year.",
+      "trade_value": {
+        "pick_equivalent": 90,
+        "pick_value_points": 120,
+        "reasoning": "Young 2nd-round pick on a cheap rookie deal with 3 years of control. Limited production so far limits value. Worth a 3rd/4th-round pick based on draft pedigree and remaining contract."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Recent 2nd-round investment. Bills won't give up on him after one season. Only moves for above-slot return.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Michael Hoecht",
+      "slot": "LB1",
+      "position": "EDGE",
+      "age": 29,
+      "draft_pedigree": "UDFA 2020",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 7000000,
+        "guaranteed_remaining": 5000000,
+        "cap_hit_2026": 7000000,
+        "dead_cap_if_traded": 5000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "2025: Missed first 6 games (PED suspension), then 1.5 sacks and 0.5 sack in only 2 games played before tearing Achilles in Week 9 vs Chiefs. 2023 with Rams: 6 sacks, 81 tackles, 11 QB hits as a starter. Has Super Bowl ring from Rams' 2021 season. Showed immediate impact with Bills before injury.",
+      "trade_value": {
+        "pick_equivalent": 140,
+        "pick_value_points": 48,
+        "reasoning": "Coming off a torn Achilles at age 29. Prior PED suspension. Only showed 2 games of production in Buffalo. The Achilles recovery and checkered availability make him a 5th-round pick equivalent at best."
+      },
+      "availability": "available",
+      "availability_reasoning": "Coming off Achilles tear and PED suspension. Bills signed Bradley Chubb to bolster the edge. If Hoecht recovers well, he's a useful piece, but he's expendable if a team offers a pick. Low dead cap relative to cap hit.",
+      "injury_notes": "Torn Achilles in Week 9 of 2025, season-ending. Says he expects to be ready for Week 1 of 2026 with a July return to full activity. Also served 6-game PED suspension to start 2025.",
+      "character_notes": "Suspended 6 games for PED violation in 2025. Took full accountability.",
+      "trade_buzz": null
+    },
+    {
+      "name": "Joe Andreessen",
+      "slot": "LB2",
+      "position": "LB",
+      "age": 25,
+      "draft_pedigree": "UDFA 2024",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1000000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1000000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Fan-favorite 'Buffalo Joe' \u2014 local kid who played at UB. Filled in when Bernard was injured in 2025 but is a significant downgrade from the starter. Limited coverage ability. Solid on special teams.",
+      "trade_value": {
+        "pick_equivalent": 220,
+        "pick_value_points": 15,
+        "reasoning": "UDFA depth LB with minimal trade value. Special teams contributor at best. Essentially replacement level."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth piece with no dead cap. Bills would move him for any pick, but there's no market for backup LBs.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Terrel Bernard",
+      "slot": "LB3",
+      "position": "LB",
+      "age": 26,
+      "draft_pedigree": "2022 3.89",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 10535750,
+        "guaranteed_remaining": 20000000,
+        "cap_hit_2026": 5500000,
+        "dead_cap_if_traded": 14000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Team captain. 2023: 143 tackles, 6.5 sacks, 3 INTs, 3 fumble recoveries \u2014 joined elite company (Richard Dent, Seth Joyner) as only players since 1982 with 6+ sacks, 3+ INTs, 3+ FRs in one season. 2024: 104 tackles, 2 INTs, game-sealing INT vs Chiefs, forced fumble vs Ravens in playoffs. 5th-highest paid ILB at $12.5M AAV. Excellent in pass coverage.",
+      "trade_value": {
+        "pick_equivalent": 40,
+        "pick_value_points": 480,
+        "reasoning": "Young team captain on a team-friendly deal ($10.5M AAV, 5th at position) with 4 years of control and a low 2026 cap hit ($5.5M). Excellent production, ascending player. Worth a late 1st/early 2nd to a LB-needy team."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Defensive captain and leader. Just extended through 2029. $14M dead cap discourages trades. Bills view him as the defensive quarterback. Only moves for a 1st-round pick.",
+      "injury_notes": "Dealt with injuries in 2025 that caused him to miss some games, but was back for playoffs where he made impact plays.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Greg Rousseau",
+      "slot": "LB4",
+      "position": "EDGE",
+      "age": 26,
+      "draft_pedigree": "2021 1.30",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 20000000,
+        "guaranteed_remaining": 40000000,
+        "cap_hit_2026": 11800000,
+        "dead_cap_if_traded": 35000000,
+        "free_agent_year": 2030
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "2024 playoffs: 10 tackles, 3 TFL, 2 sacks, 2 QB hits in 3 games. 2022: 8 sacks. Career: 25+ sacks, 62 starts in 62 games played. 6'6, 266 lb edge with run-stopping ability and pass-rush versatility. AFC Defensive Player of Week in 2025 Week 1 (6 tackles, 3 sacks, FF vs Cardinals). $54M guaranteed, 6th highest among DEs.",
+      "trade_value": {
+        "pick_equivalent": 20,
+        "pick_value_points": 850,
+        "reasoning": "26-year-old ascending EDGE on a 4-year extension with a team-friendly 2026 cap hit ($11.8M). $54M guaranteed shows the commitment. When healthy and engaged, he's a game-wrecker. Dead cap of $35M makes trade impossible. Theoretical value is a mid-to-late 1st."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just signed a 4-year, $80M extension with $54M guaranteed. Dead cap of $35M makes any trade financially impossible. He's the Bills' top edge rusher and defensive cornerstone for years to come.",
+      "injury_notes": "Dealt with some injuries late in 2025 season but generally very durable \u2014 started all 62 games he's played in his career.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Dorian Strong",
+      "slot": "CB1",
+      "position": "CB",
+      "age": 24,
+      "draft_pedigree": "UDFA 2023",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1100000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1100000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Undrafted out of Virginia Tech. Emerged as a starter in 2025 after Rasul Douglas departed and Kaiir Elam was traded. Physical corner who has earned trust in Buffalo's system. Starting opposite Benford by default after losses at the position this offseason.",
+      "trade_value": {
+        "pick_equivalent": 150,
+        "pick_value_points": 40,
+        "reasoning": "Young UDFA CB who has earned a starting role. On a cheap deal with no dead cap. But limited proven production caps his value at a 5th/6th-round pick."
+      },
+      "availability": "available",
+      "availability_reasoning": "Bills are thin at CB and need him to start. But if they draft a CB early (as expected), Strong could become redundant and available for a day-3 pick.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Christian Benford",
+      "slot": "CB2",
+      "position": "CB",
+      "age": 25,
+      "draft_pedigree": "2022 6.185",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 19000000,
+        "guaranteed_remaining": 32000000,
+        "cap_hit_2026": 7456000,
+        "dead_cap_if_traded": 16250000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "2024: 15 starts, 64 tackles, 1 sack, 10 pass deflections, 2 INTs. 2023: Similar production. Career: 5 INTs, 25 passes defensed, 4 forced fumbles, 4 fumble recoveries in 39 games (34 starts). Physical style, ascending trajectory. Spotrac projected his market value at $22.25M AAV \u2014 Bills got him at $19M, a potential steal.",
+      "trade_value": {
+        "pick_equivalent": 25,
+        "pick_value_points": 720,
+        "reasoning": "25-year-old ascending CB1 on a below-market extension ($19M AAV vs $22M+ market) with 4 years of control and a very low 2026 cap hit ($7.5M). Former 6th-round pick who has outperformed his draft slot dramatically. Worth a 1st-round pick."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just signed a 4-year, $76M extension. CB1 for the foreseeable future. Bills have massive dead cap ($16.25M) if they trade him. Zero chance \u2014 he's their best defensive back and still ascending.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Dee Alford",
+      "slot": "NB",
+      "position": "CB",
+      "age": 28,
+      "draft_pedigree": "UDFA 2021",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 5250000,
+        "guaranteed_remaining": 7875000,
+        "cap_hit_2026": 3250000,
+        "dead_cap_if_traded": 5000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Former Falcons nickel corner signed in 2026 free agency. Replaces longtime Bills nickel Taron Johnson. Solid nickel specialist \u2014 team-friendly deal at $5.25M AAV with only $7.9M guaranteed. Bills identified him as their top target for the slot role.",
+      "trade_value": {
+        "pick_equivalent": 110,
+        "pick_value_points": 80,
+        "reasoning": "Nickel corners have limited trade value. Just signed a 3-year deal specifically to fill a need. Low cap hit makes him valuable to Buffalo but not particularly attractive on the trade market. Worth a 4th-round pick."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Literally just signed as the Taron Johnson replacement. Bills aren't trading him before he plays a snap. Low dead cap relative to guarantees but no reason to move him.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Jordan Hancock",
+      "slot": "SS",
+      "position": "S",
+      "age": 23,
+      "draft_pedigree": "2024 4.130",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 1100000,
+        "guaranteed_remaining": 500000,
+        "cap_hit_2026": 1200000,
+        "dead_cap_if_traded": 400000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "2024 4th-round pick from Ohio State who got significant reps in 2025. Playing alongside Cole Bishop as the safety tandem going forward. Still developing. Bills released Taylor Rapp, leaving Hancock as the presumed SS starter.",
+      "trade_value": {
+        "pick_equivalent": 130,
+        "pick_value_points": 55,
+        "reasoning": "Young, cheap safety on a rookie deal with 2 years of control. Limited proven production but fills a need. Worth a 4th/5th-round pick based on age and contract."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Bills are thin at safety after releasing Rapp. They need Hancock to start. Only moves if Bills find a veteran safety and get above-value return for Hancock.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Cole Bishop",
+      "slot": "FS",
+      "position": "S",
+      "age": 23,
+      "draft_pedigree": "2024 3.92",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 1400000,
+        "guaranteed_remaining": 800000,
+        "cap_hit_2026": 1500000,
+        "dead_cap_if_traded": 600000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "2024 3rd-round pick from Utah. Developed into a trusted starter at FS in his rookie year. Had an interception in the Wild Card win over Jacksonville. Beat reporters describe him as the one safety the Bills trust. Leaders mentioned him as a growing presence in the secondary.",
+      "trade_value": {
+        "pick_equivalent": 85,
+        "pick_value_points": 130,
+        "reasoning": "Young starting FS on a cheap rookie deal with 2 years of control. Showed enough as a rookie to earn trust. Worth a 3rd-round pick given age, contract, and starting role."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "The one safety the Bills trust. With Rapp and Hamlin situations in flux, Bishop is the anchor of the safety group. Bills would need a significant overpay (2nd-round pick) to consider moving him.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    }
+  ]
+}

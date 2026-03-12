@@ -1,0 +1,713 @@
+{
+  "team": "PIT",
+  "team_full": "Pittsburgh Steelers",
+  "team_context": {
+    "competitive_window": "transitioning \u2014 new HC Mike McCarthy, competitive but not true contenders. QB situation unsettled (Rudolph/Howard as placeholders, Rodgers retirement likely). Young defensive core but aging stars at EDGE and DL.",
+    "cap_situation": "healthy \u2014 ~$14-20M effective cap space after initial free agency wave (Jamel Dean, Rico Dowdle, Michael Pittman Jr., Cam Heyward extension). Started offseason with ~$50M. Still have restructure levers on Watt, Metcalf, Highsmith, Ramsey.",
+    "trade_posture": "Sellers at positions of redundancy (Patrick Queen actively being shopped), willing to accumulate 2027 draft capital for future QB. Buyers at QB, WR3, LG, S. New coaching staff means fewer ties to existing veterans."
+  },
+  "players": [
+    {
+      "name": "Mason Rudolph",
+      "slot": "QB1",
+      "position": "QB",
+      "age": 30,
+      "draft_pedigree": "2018 3.76",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 3750000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 3750000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "Career 9-8-1 as starter. In 2025 spot starts, turned ball over 3 times and took bad sacks. Serviceable but limited arm talent. 75% completion on limited snaps in Week 4 Dublin game (127 yds, 1 TD) but poor showing vs Bears in Week 12.",
+      "trade_value": {
+        "pick_equivalent": 220,
+        "pick_value_points": 10,
+        "reasoning": "Veteran backup QB on a cheap deal. Minimal trade value \u2014 worth a 7th-round pick at best. More valuable to Pittsburgh as a bridge option than to any trade partner."
+      },
+      "availability": "available",
+      "availability_reasoning": "If Steelers sign or draft a QB, Rudolph becomes expendable. Cheap contract makes him easy to move. Team currently has him as QB1 by default, but that could change any day if Rodgers returns or they draft someone.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Will Howard",
+      "slot": "QB2",
+      "position": "QB",
+      "age": 24,
+      "draft_pedigree": "2025 6.185",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 850000,
+        "guaranteed_remaining": 200000,
+        "cap_hit_2026": 915000,
+        "dead_cap_if_traded": 200000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "6th-round pick from 2025 draft out of Ohio State/Kansas State. Did not see meaningful regular season action in 2025. Developmental prospect with 3 years of cheap control remaining.",
+      "trade_value": {
+        "pick_equivalent": 240,
+        "pick_value_points": 5,
+        "reasoning": "Developmental late-round QB with virtually no proven NFL production. Worth essentially nothing in trade \u2014 more valuable as a cheap developmental asset to keep."
+      },
+      "availability": "available",
+      "availability_reasoning": "Low-cost developmental QB. Steelers have no reason to move him unless roster crunch forces it. Minimal trade interest expected.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Jaylen Warren",
+      "slot": "RB1",
+      "position": "RB",
+      "age": 26,
+      "draft_pedigree": "UDFA 2022",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 5952000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 6500000,
+        "dead_cap_if_traded": 1700000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Over 1,200 scrimmage yards and 8 TDs in 2025. One of the better receiving backs in the league. Team voted him as a contributor alongside Gainwell. UDFA success story who earned a 2-year, $11.9M extension.",
+      "trade_value": {
+        "pick_equivalent": 110,
+        "pick_value_points": 80,
+        "reasoning": "Quality starting RB but position devaluation and 1-year remaining on deal cap his value. With Rico Dowdle signed, Warren's role shifts to passing-down back. Worth a 4th-round pick but RB market is thin."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Steelers just signed Rico Dowdle to be their early-down back, pushing Warren into a complementary role. On final year of deal. If a team offers a 4th, Pittsburgh would listen. But they still value the 1-2 punch.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Rico Dowdle",
+      "slot": "RB2",
+      "position": "RB",
+      "age": 27,
+      "draft_pedigree": "UDFA 2020",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 6125000,
+        "guaranteed_remaining": 6000000,
+        "cap_hit_2026": 5500000,
+        "dead_cap_if_traded": 4000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Back-to-back 1,000-yard rushing seasons (1,079 in 2024 with DAL, 1,076 in 2025 with CAR). 4.6 YPC both years. Two 200-yard games in 2025. Power runner who reunites with HC Mike McCarthy.",
+      "trade_value": {
+        "pick_equivalent": 115,
+        "pick_value_points": 72,
+        "reasoning": "Proven 1,000-yard rusher on a team-friendly 2-year deal. RB position devaluation limits value, but 2 years of control at $6M/yr for a productive back is solid. Worth a mid-4th."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just signed in free agency specifically to be McCarthy's RB1. Steelers would need a strong offer to move him this quickly. Not being shopped.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "DK Metcalf",
+      "slot": "WR1",
+      "position": "WR",
+      "age": 28,
+      "draft_pedigree": "2019 2.64",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 33000000,
+        "guaranteed_remaining": 25000000,
+        "cap_hit_2026": 31000000,
+        "dead_cap_if_traded": 24000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "59 receptions, 850 yards, 6 TDs in 15 games in 2025 \u2014 below his career norm of 900+ yards annually. 2x Pro Bowler. Physical freak (6'4, 229 lbs, 4.33 40). First year in Pittsburgh was adjustment period with aging Rodgers.",
+      "trade_value": {
+        "pick_equivalent": 30,
+        "pick_value_points": 600,
+        "reasoning": "Elite physical talent at WR entering age-28 season with 3+ years of control. But massive cap hit ($31M in 2026) and $24M dead cap make him effectively untradeable. 2025 suspension adds character concern. Worth a late 1st in a vacuum but the contract makes a trade nearly impossible."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Steelers chose not to void his guarantees after suspension \u2014 clear signal of long-term commitment. $24M dead cap makes pre-June 1 trade create only ~$7M savings. Team just signed Pittman Jr. to complement him. Face of the offense.",
+      "injury_notes": null,
+      "character_notes": "Suspended 2 games in 2025 for altercation with a Lions fan (conduct detrimental). Steelers chose not to void remaining guarantees. Some maturity concerns but team committed.",
+      "trade_buzz": "Bleacher Report named him a surprise trade candidate with 7 potential suitors, but beat reporters say team is not shopping him."
+    },
+    {
+      "name": "Michael Pittman Jr.",
+      "slot": "WR2",
+      "position": "WR",
+      "age": 28,
+      "draft_pedigree": "2020 2.34",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 19666667,
+        "guaranteed_remaining": 20000000,
+        "cap_hit_2026": 24000000,
+        "dead_cap_if_traded": 18000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "80 catches, 784 yards, 7 TDs in 2025 with IND. 2x 1,000-yard receiver (2022, 2023). 485 career receptions. PFF receiving grade above 70.0 in 5 of 6 seasons. Top-20 in first-down receptions over past 3 years. Reliable possession receiver.",
+      "trade_value": {
+        "pick_equivalent": 65,
+        "pick_value_points": 260,
+        "reasoning": "Solid WR2 on a new 3-year deal. Good route runner and chain-mover but not explosive. $24M cap hit in Year 1 is steep, though team just acquired him specifically. Worth a late 2nd/early 3rd based on production and control, but high 2026 cap hit limits value."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just traded for and extended. Steelers are not shopping him. But if a team offered a 2nd-round pick, the economics could work given they acquired him for a late-round swap. Still very new acquisition \u2014 effectively untouchable this season.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Ben Skowronek",
+      "slot": "WR3",
+      "position": "WR",
+      "age": 28,
+      "draft_pedigree": "2021 7.249",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 2765000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 2765000,
+        "dead_cap_if_traded": 540000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Primarily a special teams ace \u2014 AFC Pro Bowl selection for special teams in 2025. Only 4 receptions on 6 targets for 69 yards as a receiver. 21 tackles and a fumble recovery on special teams. Not a viable WR3 in the passing game.",
+      "trade_value": {
+        "pick_equivalent": 230,
+        "pick_value_points": 5,
+        "reasoning": "Special teams ace with minimal offensive value. Worth virtually nothing in a trade \u2014 his value is entirely in the building as a ST contributor."
+      },
+      "availability": "available",
+      "availability_reasoning": "Cheap final-year deal. Valued for special teams but not a meaningful trade piece. Team would let him go for any draft capital offered.",
+      "injury_notes": "Dealt with shoulder and hand injuries in 2025 but played through them.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Pat Freiermuth",
+      "slot": "TE1",
+      "position": "TE",
+      "age": 27,
+      "draft_pedigree": "2021 2.55",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 12100000,
+        "guaranteed_remaining": 5000000,
+        "cap_hit_2026": 11200000,
+        "dead_cap_if_traded": 6300000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "41 receptions, 486 yards, 4 TDs in 2025 \u2014 significant underperformance driven by scheme/usage issues (Arthur Smith's offense, Jonnu Smith competing for targets). 65 catches, 653 yards in 2024. PFF 67.5 in 2025. 11.9 Y/R shows talent when targeted. GM Khan says he'll be 'big part of offense' in 2026.",
+      "trade_value": {
+        "pick_equivalent": 58,
+        "pick_value_points": 330,
+        "reasoning": "Quality starting TE on a fair deal with 3 years control. Underperformed in 2025 but scheme/coaching was the issue, not talent. With Jonnu Smith cut, should see increased role. Worth a late 2nd/early 3rd to a TE-needy team."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Steelers have received heavy trade interest this offseason per reports, but Pittsburgh is not trying to move him. Khan publicly committed to him. Would take an overpay (2nd-round pick) to pry him away.",
+      "injury_notes": "Concussion history in college/early career. Has played full seasons recently.",
+      "character_notes": null,
+      "trade_buzz": "SportsNet Pittsburgh reported the Steelers have received 'heavy trade interest' for Freiermuth this offseason. Team not looking to move him."
+    },
+    {
+      "name": "Darnell Washington",
+      "slot": "TE2",
+      "position": "TE",
+      "age": 23,
+      "draft_pedigree": "2023 3.93",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 3828438,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 3828438,
+        "dead_cap_if_traded": 223438,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "31 receptions, 364 yards, 1 TD in 2025. PFF 71.0 (19th of 75 TEs). Elite blocker at 6'7, 265 lbs. Only 2 career TDs despite red zone usage. Extension candidate this offseason \u2014 GM described him as 'in many ways, their top tight end.'",
+      "trade_value": {
+        "pick_equivalent": 75,
+        "pick_value_points": 210,
+        "reasoning": "Young (23) elite-blocking TE with receiving upside on final year of cheap rookie deal. Extension candidate. His value is higher than his stats suggest because of his blocking and age. Worth a 3rd-round pick."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Extension candidate this offseason. Steelers view him as a core piece. On a cheap final-year deal which makes the value proposition excellent for Pittsburgh. Would need a strong offer to move him.",
+      "injury_notes": "Concussion in Week 15 of 2025.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Broderick Jones",
+      "slot": "LT",
+      "position": "OT",
+      "age": 23,
+      "draft_pedigree": "2023 1.14",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 5500000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 5500000,
+        "dead_cap_if_traded": 2500000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Former 1st-round pick who has been inconsistent through 3 seasons. Started 11 games at LT in 2025 before season-ending neck injury in Week 12. Showed improvement but technique still inconsistent. Dylan Cook outplayed him as replacement (77.4 PFF). 5th-year option ($19.07M) will almost certainly be declined.",
+      "trade_value": {
+        "pick_equivalent": 90,
+        "pick_value_points": 130,
+        "reasoning": "Former top-15 pick with high physical upside but serious neck injury (fusion surgery) clouds outlook. On final year of rookie deal with 5th-year option likely declined. Still only 23 \u2014 upside is real. Worth a 3rd-round pick to a team willing to bet on the medical and talent."
+      },
+      "availability": "available",
+      "availability_reasoning": "Neck fusion surgery, uncertain return timeline, 5th-year option likely declined, and Dylan Cook emerging as viable replacement. New coaching staff has fewer ties to him. If a team offers a 3rd-round pick, Steelers would seriously consider it.",
+      "injury_notes": "Season-ending neck injury (Week 12, 2025) requiring fusion surgery. Return timeline uncertain \u2014 may or may not be ready for training camp. Former Steelers players with similar injuries have retired.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Spencer Anderson",
+      "slot": "LG",
+      "position": "IOL",
+      "age": 25,
+      "draft_pedigree": "2023 7.241",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1100000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1100000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "7th-round pick who has developed into a depth piece. Stepping into starting LG role after Isaac Seumalo's departure in free agency. Limited NFL starting experience. Adequate but not a difference-maker.",
+      "trade_value": {
+        "pick_equivalent": 200,
+        "pick_value_points": 15,
+        "reasoning": "Unproven 7th-round pick being thrust into a starting role by necessity. On a minimum-level deal. Worth essentially nothing in trade \u2014 a 6th at best. More valuable as cheap depth."
+      },
+      "availability": "available",
+      "availability_reasoning": "Low-cost depth piece. Steelers still need to upgrade LG. If they sign/draft a starter, Anderson returns to a depth role. No real trade market.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Zach Frazier",
+      "slot": "C",
+      "position": "IOL",
+      "age": 23,
+      "draft_pedigree": "2024 2.51",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1800000,
+        "guaranteed_remaining": 2000000,
+        "cap_hit_2026": 1900000,
+        "dead_cap_if_traded": 2800000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Started all 17 games at center as a rookie in 2024. Continued as full-time starter in 2025. Young, ascending center who is part of the team's OL core. Extension candidate down the road.",
+      "trade_value": {
+        "pick_equivalent": 55,
+        "pick_value_points": 350,
+        "reasoning": "23-year-old starting center on a cheap rookie deal with 3 years of control. Centers are undervalued in trade but the age, contract, and performance profile make him worth a late 2nd. Steelers would never move him."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Young, cheap, starting center who is a foundational piece of the OL rebuild. No chance Steelers trade him.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Mason McCormick",
+      "slot": "RG",
+      "position": "IOL",
+      "age": 25,
+      "draft_pedigree": "2024 4.120",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1100000,
+        "guaranteed_remaining": 500000,
+        "cap_hit_2026": 1200000,
+        "dead_cap_if_traded": 800000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "4th-round pick in 2024 who earned starting RG role. Part of young OL core alongside Frazier and Fautanu. Solid but unspectacular Year 1-2 starter. Still developing.",
+      "trade_value": {
+        "pick_equivalent": 100,
+        "pick_value_points": 100,
+        "reasoning": "Young starting guard on a very cheap deal with 3 years of control. Still developing but cost-controlled IOL starters have value. Worth a 4th-round pick."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Core piece of young OL. Steelers wouldn't move him unless blown away. Not being shopped.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Troy Fautanu",
+      "slot": "RT",
+      "position": "OT",
+      "age": 24,
+      "draft_pedigree": "2024 1.20",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 3763824,
+        "guaranteed_remaining": 8000000,
+        "cap_hit_2026": 4200000,
+        "dead_cap_if_traded": 7500000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "2024 1st-round pick who started at RT. Still on rookie deal with years of development ahead. Part of the young OL core the Steelers are building around.",
+      "trade_value": {
+        "pick_equivalent": 40,
+        "pick_value_points": 480,
+        "reasoning": "24-year-old 1st-round OT on a cheap rookie deal with 3 years of control. Position value at OT is high. Even if he's only an average starter now, the upside and contract make him worth a late 1st/early 2nd."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Young 1st-round OT on a rookie deal. Core piece of OL rebuild. Pittsburgh would never trade him.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Cameron Heyward",
+      "slot": "DE1",
+      "position": "DL",
+      "age": 37,
+      "draft_pedigree": "2011 1.31",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 16125000,
+        "guaranteed_remaining": 16250000,
+        "cap_hit_2026": 13650000,
+        "dead_cap_if_traded": 12000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "2nd-team All-Pro in 2025. 78 tackles, 9 TFL, 3.5 sacks, 9 QB hits, 6 PDs. 7x Pro Bowler, 4x 1st-team All-Pro, 2x 2nd-team All-Pro. Played the most snaps of any DL in the NFL in 2025. 2023 Walter Payton Man of the Year. Just signed 1-year extension ($32.25M total over 2 years, $16.25M guaranteed).",
+      "trade_value": {
+        "pick_equivalent": 80,
+        "pick_value_points": 160,
+        "reasoning": "Still productive at 36 (2nd-team All-Pro) but will be 37 in May. Massive dead cap ($12M) from new extension makes trade nearly impossible. Age drastically limits value despite elite production. Worth a 3rd in a vacuum but practically untradeable due to dead cap and franchise icon status."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just signed a new extension 2 days ago. Franchise icon, team captain, 15-year Steeler. $12M dead cap makes trade financially punitive. Will retire as a Steeler.",
+      "injury_notes": "Groin injury cost most of 2023 season. Knee management in 2025 but played all 17 games. Durability concerns at age 37.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Keeanu Benton",
+      "slot": "DT1",
+      "position": "DL",
+      "age": 24,
+      "draft_pedigree": "2023 2.49",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1800000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 3200000,
+        "dead_cap_if_traded": 400000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Full-time starter on DL in 3rd season. Fun pass rusher but inconsistent against the run per multiple analyst evaluations. Extension candidate this offseason. Still developing but some question whether he warrants a big 2nd contract.",
+      "trade_value": {
+        "pick_equivalent": 70,
+        "pick_value_points": 225,
+        "reasoning": "Young (24) starting DT on final year of cheap rookie deal. Pass rushing upside is real but run defense questions limit ceiling. Extension candidate \u2014 acquiring team could lock him up. Worth a 3rd-round pick."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Extension candidate but Steelers may not want to pay him a big 2nd contract given run defense concerns. If a team offers a 2nd, Pittsburgh would seriously consider it. Contract year adds urgency.",
+      "injury_notes": "Ankle issue in 2025 but played through it.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Derrick Harmon",
+      "slot": "DE2",
+      "position": "DL",
+      "age": 24,
+      "draft_pedigree": "2025 1.21",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 4500000,
+        "guaranteed_remaining": 12000000,
+        "cap_hit_2026": 3800000,
+        "dead_cap_if_traded": 10000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "2025 1st-round pick. Started as a rookie alongside Heyward and Benton. Looks like a long-term piece on the DL per team evaluations. Dealt with knee issue late in season.",
+      "trade_value": {
+        "pick_equivalent": 35,
+        "pick_value_points": 520,
+        "reasoning": "Young 1st-round DL on a 4-year rookie deal. Even with limited Year 1 data, the draft pedigree, age (24), and 4 years of cheap control make him extremely valuable. Worth a late 1st."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "2025 1st-round pick entering Year 2. Part of the team's defensive future. $10M dead cap. Not going anywhere.",
+      "injury_notes": "Knee injury caused him to be listed as questionable late in 2025 season.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "T.J. Watt",
+      "slot": "LB1",
+      "position": "EDGE",
+      "age": 31,
+      "draft_pedigree": "2017 1.30",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 41000000,
+        "guaranteed_remaining": 74000000,
+        "cap_hit_2026": 42000000,
+        "dead_cap_if_traded": 94000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "elite",
+      "performance_evidence": "1x DPOY (2021), 4x 1st-team All-Pro, 7x Pro Bowler. 115 career sacks \u2014 franchise record. 7 sacks in 14 games in 2025 (missed 3 games including lung issue). PFF 74.2 overall grade in 2025 \u2014 down from peak but still impactful. Production dip at age 31 but still draws double teams that free up Herbig/Highsmith. Signed record $123M/3yr extension in July 2025.",
+      "trade_value": {
+        "pick_equivalent": 20,
+        "pick_value_points": 1200,
+        "reasoning": "Still an elite EDGE rusher but $94M dead cap makes any trade utterly impossible. Even if you could trade him, the combination of age (31), declining sack numbers, and $42M annual cap hit limits value to a contending team. The dead cap makes this a non-starter."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "$94M dead cap if traded. $74M in remaining guarantees through 2027. Franchise icon with a brand-new mega extension. There is no scenario where T.J. Watt is traded. Zero.",
+      "injury_notes": "Hospitalized for lung issue in December 2025 (missed Week 15). Missed 3 games in 2025. Groin injury limited him in 2022 (10 games). Pectoral tear in 2022. Age-related decline becoming factor.",
+      "character_notes": null,
+      "trade_buzz": "Trade rumors circulated before July 2025 extension, but those are ancient history now."
+    },
+    {
+      "name": "Patrick Queen",
+      "slot": "LB2",
+      "position": "LB",
+      "age": 26,
+      "draft_pedigree": "2020 1.28",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 13666667,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 17190000,
+        "dead_cap_if_traded": 3860000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Tackling machine but with concerning missed tackle rate (20.4%) and coverage liability (829 yards, 4 TDs allowed in coverage per PFF in 2025). 2x Pro Bowler but hasn't fully lived up to $41M contract in Pittsburgh. Serviceable but not the game-changer they hoped for.",
+      "trade_value": {
+        "pick_equivalent": 130,
+        "pick_value_points": 55,
+        "reasoning": "Final year of deal with $17.2M cap hit that acquiring team would need to absorb or restructure. Production has been fine but not commensurate with his price. Realistic return is a 4th-5th round pick. Cowboys reportedly interested."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Adam Schefter reported contract/money issues between Queen and Steelers. Cowboys, Eagles, and at least one other team have called. $2.5M roster bonus due March 15 creates hard deadline. Steelers hunting for a mid-round pick per reports. New coaching staff has fewer ties to him. Cole Holcomb re-signed as depth insurance.",
+      "injury_notes": "Hip issue in 2025 but played all 17 games.",
+      "character_notes": null,
+      "trade_buzz": "Very active trade buzz. Adam Schefter, Nick Harris (Fort Worth Star-Telegram), and multiple beat reporters confirm multiple teams calling. Cowboys a leading candidate. Steelers 'hunting a mid-round pick.' Trade talks reportedly hit a snag but deadline pressure from March 15 roster bonus could force action."
+    },
+    {
+      "name": "Malik Harrison",
+      "slot": "LB3",
+      "position": "LB",
+      "age": 27,
+      "draft_pedigree": "2020 3.98",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 6800000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 6800000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Depth ILB who played behind Queen and Payton Wilson. Dealt with concussion protocol in 2025. Not a starting-caliber player at his price point. Cap casualty candidate per multiple analysts.",
+      "trade_value": {
+        "pick_equivalent": 200,
+        "pick_value_points": 15,
+        "reasoning": "Overpaid rotational LB on an expiring deal. $6.8M cap hit for a backup is poor value. A cut candidate, not a trade asset. Worth a 7th at best \u2014 most teams would prefer to wait for the cut."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Cap casualty candidate. Multiple mock offseasons have him as a cut. Contract isn't worth his production. If not traded, likely released before regular season. Any draft pick return would be a bonus.",
+      "injury_notes": "Concussion in 2025.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Alex Highsmith",
+      "slot": "LB4",
+      "position": "EDGE",
+      "age": 28,
+      "draft_pedigree": "2020 3.102",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 17000000,
+        "guaranteed_remaining": 5000000,
+        "cap_hit_2026": 20100000,
+        "dead_cap_if_traded": 8500000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "14.5 sacks in 2022 (career year). 5.5 sacks in 2025 as the complementary edge to Watt. Solid run defender. 4-year, $68M extension signed in 2023. Good starter but not elite. Nick Herbig emerging as potential long-term replacement.",
+      "trade_value": {
+        "pick_equivalent": 55,
+        "pick_value_points": 340,
+        "reasoning": "Quality starting EDGE on 2 years of a reasonable $17M/yr deal. 28 years old in prime. Position value at EDGE is high. Worth a late 2nd, but $20.1M cap hit and Nick Herbig's emergence could make Steelers willing sellers at the right price."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Still a quality starter but Nick Herbig (37% pass rush win rate in 2025, extension candidate) is ready for a bigger role. Highsmith's $20M cap hit in 2026 is significant. If a contender offered a 2nd-round pick, Steelers would have to consider it seriously. Not being actively shopped but has a realistic price.",
+      "injury_notes": "Missed time in 2025 early in season. Generally durable throughout career.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Jamel Dean",
+      "slot": "CB1",
+      "position": "CB",
+      "age": 30,
+      "draft_pedigree": "2019 3.94",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 12250000,
+        "guaranteed_remaining": 12000000,
+        "cap_hit_2026": 5500000,
+        "dead_cap_if_traded": 12000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Career-best 3 INTs in 2025 with Tampa Bay. 2 forced fumbles, 1 sack, 9 PDs. Super Bowl champion (LV). 4.30 40-yard dash \u2014 elite speed. 96 career games, 77 starts over 7 seasons. 11 career INTs.",
+      "trade_value": {
+        "pick_equivalent": 75,
+        "pick_value_points": 210,
+        "reasoning": "Solid CB2 on a team-friendly Year 1 cap hit ($5.5M). 3-year deal gives control but only $12M guaranteed (all signing bonus). Turning 30 and injury history (missed 21 career games) caps value. Worth a 3rd-round pick."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just signed in free agency. Not being shopped. However, the contract is structured to be easy to move \u2014 $12M dead cap equals the guarantee, so a trade would be cap-neutral. If a team offered a 2nd, Steelers could consider it.",
+      "injury_notes": "Missed 21 games over 7 NFL seasons. Hip and shoulder injuries in 2025 caused him to miss 3 games.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Joey Porter Jr.",
+      "slot": "CB2",
+      "position": "CB",
+      "age": 24,
+      "draft_pedigree": "2023 2.32",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 4768790,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 4768790,
+        "dead_cap_if_traded": 2441906,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Career-high 14 passes defensed in 2025 (missed 3 games due to injury). 52 tackles, 1 sack, 1 INT. PFF 70.2. Ascending young corner entering contract year. GM Khan called him the top extension candidate from the 2023 class. Penalty issues have been somewhat overstated per recent analysis.",
+      "trade_value": {
+        "pick_equivalent": 18,
+        "pick_value_points": 1150,
+        "reasoning": "24-year-old ascending CB1 on final year of cheap rookie deal. Position value at CB is high. If extended, he becomes a cornerstone. On a rookie deal, he's worth a mid-1st. Comparable to a young CB entering a prove-it year with clear extension path."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Top extension candidate this offseason. GM Khan publicly stated excitement about getting a deal done. Ascending young corner who is the future of the secondary. Steelers would never trade him \u2014 they're trying to lock him up long-term.",
+      "injury_notes": "Missed 3 games in 2025 due to injury.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Jalen Ramsey",
+      "slot": "NB",
+      "position": "CB",
+      "age": 31,
+      "draft_pedigree": "2016 1.5",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 21175000,
+        "guaranteed_remaining": 3500000,
+        "cap_hit_2026": 17229000,
+        "dead_cap_if_traded": 14596000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "declining",
+      "performance_evidence": "3x 1st-team All-Pro, 7x Pro Bowler \u2014 historic career. But production dipped significantly when asked to play safety in 2025. Was 'very good' at slot/nickel per beat reporter Kaboly but struggled when moved to safety. Turned 31. Fined twice for conduct violations in 2025. Punched Ja'Marr Chase during a game.",
+      "trade_value": {
+        "pick_equivalent": 100,
+        "pick_value_points": 100,
+        "reasoning": "Former elite corner now 31 with a complicated, expensive contract. $14.6M dead cap severely limits trade value. Versatility (outside, slot, safety) still has value to a contender. Cap structure confusion makes evaluation harder. Worth a 4th-round pick and cap relief to a contender needing secondary help."
+      },
+      "availability": "available",
+      "availability_reasoning": "One mock offseason had him traded to the Rams. Beat reporters say 2026 is likely his last year with the team. Jamel Dean signing as CB1 signals reduced role for Ramsey. Contract has option bonuses the team can decline. If a contender calls offering a 3rd/4th, Steelers would engage.",
+      "injury_notes": null,
+      "character_notes": "Punched Ja'Marr Chase during Week 11 game vs Bengals and was ejected. Fined twice for conduct violations in 2025. History of fiery personality throughout career.",
+      "trade_buzz": "Behind the Steel Curtain mock offseason traded Ramsey to the Rams. Beat reporters Kaboly and Dulac both predicted he'd stay for 2026, but the Jamel Dean signing complicates that. Steelers likely keep him as nickel/versatile piece but would listen to offers."
+    },
+    {
+      "name": "Sebastian Castro",
+      "slot": "SS",
+      "position": "S",
+      "age": 24,
+      "draft_pedigree": "UDFA 2024",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1000000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1000000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "UDFA who emerged as a contributor in 2025 when DeShon Elliott went down. Stepped into a starting role out of necessity. Young and cheap but largely unproven as a full-time starter.",
+      "trade_value": {
+        "pick_equivalent": 190,
+        "pick_value_points": 18,
+        "reasoning": "Young UDFA safety on a minimum deal with limited proven production. Essentially no trade value \u2014 a 7th at best. More valuable as cheap internal depth."
+      },
+      "availability": "available",
+      "availability_reasoning": "Cheap depth piece. Steelers are looking to upgrade at safety this offseason. If they add a starter, Castro returns to a backup role. No real trade market exists.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "DeShon Elliott",
+      "slot": "FS",
+      "position": "S",
+      "age": 28,
+      "draft_pedigree": "2018 6.190",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 6250000,
+        "guaranteed_remaining": 2000000,
+        "cap_hit_2026": 6080000,
+        "dead_cap_if_traded": 4000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Only played 5 games in 2025 before season-ending injury. In limited action: 38 tackles, 1 sack, 3 QB hits, 1 INT, 1 FF, 2 PDs. Was supposed to be the starter after Fitzpatrick was traded. When healthy, a solid starter. 7-year veteran.",
+      "trade_value": {
+        "pick_equivalent": 120,
+        "pick_value_points": 65,
+        "reasoning": "Solid starting safety when healthy, but major durability concerns after 5-game 2025 season. $6M/yr is fair but $4M dead cap and injury history limit value. Worth a 4th-5th round pick."
+      },
+      "availability": "available",
+      "availability_reasoning": "Injury-plagued 2025 season. Team traded for Kyle Dugger as a replacement and just signed Darnell Savage. If Elliott is healthy, he starts, but the team has hedged. A trade for a mid-round pick would be considered.",
+      "injury_notes": "Season-ending injury after just 5 games in 2025. Forced the team to trade for Kyle Dugger and move Ramsey to safety.",
+      "character_notes": null,
+      "trade_buzz": null
+    }
+  ]
+}

@@ -1,0 +1,686 @@
+{
+  "team": "BAL",
+  "team_full": "Baltimore Ravens",
+  "team_context": {
+    "competitive_window": "competing",
+    "cap_situation": "moderate \u2014 restructured Lamar Jackson's deal to create ~$40M in space, signed Trey Hendrickson to 4yr/$112M, lost Tyler Linderbaum, Isaiah Likely, Dre'Mont Jones and others in free agency. Roughly $20-25M in effective cap space remaining after Hendrickson signing.",
+    "trade_posture": "Aggressive buyers after disappointing 8-9 season. New HC Jesse Minter, retooling defense. Have pick #14 and 10+ draft picks. Need OL help badly after losing Linderbaum. Nnamdi Madubuike's neck injury creates uncertainty on D-line. Would move declining veterans or redundant pieces for picks/players to fill roster holes."
+  },
+  "players": [
+    {
+      "name": "Lamar Jackson",
+      "slot": "QB1",
+      "position": "QB",
+      "age": 29,
+      "draft_pedigree": "2018 1.32",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 52000000,
+        "guaranteed_remaining": 29000000,
+        "cap_hit_2026": 34540000,
+        "dead_cap_if_traded": 108750000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "elite",
+      "performance_evidence": "2x NFL MVP (2019, 2023). Struggled with injuries in 2025 (13 starts, 2549 pass yds, 21 TD/7 INT, career-low 349 rush yds, 59.9% comp after Week 4 hamstring). But 2024 was elite: 4172 pass yds, 41 TD. Still a franchise-defining talent when healthy.",
+      "trade_value": {
+        "pick_equivalent": 1,
+        "pick_value_points": 3000,
+        "reasoning": "Two-time MVP franchise QB under 30 with 2 years remaining. Dead cap of $108.75M makes a trade functionally impossible. Also holds a full no-trade clause and cannot be franchise tagged. Effectively untradeable."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "No-trade clause, $108.75M dead cap, franchise icon. Owner Steve Bisciotti has publicly committed to extending Jackson. Ravens restructured his deal to create cap space, signaling long-term commitment. Zero chance of a trade.",
+      "injury_notes": "Hamstring injury cost him 4 starts in 2025. Also dealt with back issues late in the season. Career-low rushing production raises durability questions, but likely an outlier year.",
+      "character_notes": null,
+      "trade_buzz": "Spotrac noted trade possibility was theoretically on the table before restructure, but it was always a long shot. Extension negotiations ongoing \u2014 expected to sign ~$60M/yr deal."
+    },
+    {
+      "name": "Tyler Huntley",
+      "slot": "QB2",
+      "position": "QB",
+      "age": 27,
+      "draft_pedigree": "UDFA 2020",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 2500000,
+        "guaranteed_remaining": 1000000,
+        "cap_hit_2026": 2500000,
+        "dead_cap_if_traded": 500000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "Career backup with a winning record behind Jackson. Re-signed for 2026 after Cooper Rush was released. Limited starter in 2025 (filled in during Jackson's absence). Adequate game manager but not a viable long-term starter.",
+      "trade_value": {
+        "pick_equivalent": 190,
+        "pick_value_points": 20,
+        "reasoning": "Experienced backup QB on a cheap deal. Some value as a proven fill-in, but not enough to command significant trade capital. Worth a late-round pick swap at best."
+      },
+      "availability": "available",
+      "availability_reasoning": "Ravens re-signed him as insurance behind Jackson. If a team offers a 6th or 7th round pick, Baltimore might consider it, but they need a competent backup.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Derrick Henry",
+      "slot": "RB1",
+      "position": "RB",
+      "age": 32,
+      "draft_pedigree": "2016 2.45",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 15000000,
+        "guaranteed_remaining": 20000000,
+        "cap_hit_2026": 5589000,
+        "dead_cap_if_traded": 20396000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "1,921 rush yds in 2024 (5.9 YPC, career best). PFF's #1 rushing grade (93.5). Led NFL in missed tackles forced and yards after contact. 2025 was solid but team struggled \u2014 had 216-yard game in Week 17. 5x Pro Bowler. Active career rushing leader.",
+      "trade_value": {
+        "pick_equivalent": 85,
+        "pick_value_points": 130,
+        "reasoning": "Elite RB production but age 32 and $20.4M dead cap make a trade impractical. The dead cap exceeds his cap hit, meaning a trade would COST the Ravens cap space. Functionally untradeable due to contract structure."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just signed a 2-year, $30M extension in May 2025. $20.4M dead cap exceeds cap hit \u2014 trading him creates negative cap savings. Ravens committed to him through 2027. Wants to retire a Raven.",
+      "injury_notes": "Remarkably durable for his age. No significant injuries in recent seasons despite heavy workload.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Justice Hill",
+      "slot": "RB2",
+      "position": "RB",
+      "age": 27,
+      "draft_pedigree": "2019 4.113",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 3500000,
+        "guaranteed_remaining": 500000,
+        "cap_hit_2026": 3800000,
+        "dead_cap_if_traded": 500000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Elite receiving back \u2014 89.0 PFF receiving grade in 2024, 0 drops on 52 targets. Valuable complement to Henry on passing downs. Missed time in 2025 with neck disc issue.",
+      "trade_value": {
+        "pick_equivalent": 160,
+        "pick_value_points": 30,
+        "reasoning": "Quality third-down back on an expiring deal. Useful role player but the RB market limits value. Worth a late-round pick at most."
+      },
+      "availability": "available",
+      "availability_reasoning": "Entering final year of contract. Ravens may keep him for his receiving role, but he's not a core piece. If someone offers a 5th-round pick, Baltimore would listen.",
+      "injury_notes": "Missed several weeks in 2025 with a neck disc issue.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Zay Flowers",
+      "slot": "WR1",
+      "position": "WR",
+      "age": 25,
+      "draft_pedigree": "2023 1.22",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 3510000,
+        "guaranteed_remaining": 2660000,
+        "cap_hit_2026": 4410000,
+        "dead_cap_if_traded": 1800000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Back-to-back 1,000+ yard seasons. 2025: 86 rec, 1,211 yds, 6 TD \u2014 all career highs. 2x Pro Bowler (first Ravens WR ever selected). 2024: 82 rec, 1,050 yds, 8 TD. Dynamic YAC threat at 5'9, plays bigger than his size.",
+      "trade_value": {
+        "pick_equivalent": 12,
+        "pick_value_points": 1200,
+        "reasoning": "25-year-old Pro Bowl WR on final year of a $4.4M rookie deal. Incredible surplus value in 2026. The acquiring team gets one year of a WR1 at a fraction of market rate, with the chance to extend. Young age, ascending production, plus position scarcity make him extremely valuable."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Ravens face a tough decision: 5th-year option projects to $27.3M, and an extension could exceed what Baltimore can afford given Lamar/Hamilton/Roquan commitments. Speculation exists this could be his final year as a Raven. But he's their WR1 and they won't give him away \u2014 it would take a 1st-round pick or more.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "Multiple reports suggest 2026 could be Flowers' final year in Baltimore due to expected cost of extension. 5th-year option decision due May 1."
+    },
+    {
+      "name": "Rashod Bateman",
+      "slot": "WR2",
+      "position": "WR",
+      "age": 26,
+      "draft_pedigree": "2021 1.27",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 3500000,
+        "guaranteed_remaining": 1000000,
+        "cap_hit_2026": 3500000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Career-low 224 receiving yards in 2025. Has been inconsistent since being drafted \u2014 injuries and scheme changes have limited development. Former 1st-round pick who hasn't lived up to pedigree.",
+      "trade_value": {
+        "pick_equivalent": 175,
+        "pick_value_points": 25,
+        "reasoning": "Former 1st-round pick on an expiring deal but has been a massive disappointment in production. Cheap salary makes him a low-risk flier, but minimal trade value based on recent output."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Career-low production in 2025. Expiring contract. Ravens may look to upgrade at WR2 this offseason. Would trade for almost any draft pick returned.",
+      "injury_notes": "Missed significant time in 2023 with a foot injury. CBA accrual issue complicated his contract status.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Devontez Walker",
+      "slot": "WR3",
+      "position": "WR",
+      "age": 24,
+      "draft_pedigree": "2024 4.113",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1050000,
+        "guaranteed_remaining": 500000,
+        "cap_hit_2026": 1150000,
+        "dead_cap_if_traded": 300000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Day 3 pick who showed flashes in 2025 \u2014 scored a TD. Still developing, but under contract on a cheap deal. Physical tools are intriguing but hasn't established a consistent role.",
+      "trade_value": {
+        "pick_equivalent": 200,
+        "pick_value_points": 15,
+        "reasoning": "Developmental WR on a cheap rookie deal. Minimal current value but 3 years of control. Not worth trading unless someone overpays."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth piece with 3 years of control. Ravens aren't shopping him, but he's not an essential piece. Could be included as a sweetener in a larger deal.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Mark Andrews",
+      "slot": "TE1",
+      "position": "TE",
+      "age": 30,
+      "draft_pedigree": "2018 3.86",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 13100000,
+        "guaranteed_remaining": 20000000,
+        "cap_hit_2026": 14500000,
+        "dead_cap_if_traded": 18000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "3x Pro Bowler, 1x All-Pro (2021). Ravens all-time leader in receptions (473), receiving yards (5,862), and TD catches (56). 2025: 37 rec, 332 yds, 5 TD in 12 games. Still efficient and productive in red zone. Career-best 11 TD catches in 2024.",
+      "trade_value": {
+        "pick_equivalent": 80,
+        "pick_value_points": 135,
+        "reasoning": "Productive TE with 3 years of team-friendly control at $13.1M AAV. But dead cap ($18M) exceeds cap hit \u2014 trading him costs the Ravens cap space in 2026. Age 30 limits long-term upside. Functionally hard to trade due to dead cap."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just signed 3-year, $39.3M extension in Dec 2025. $18M dead cap makes a trade cap-negative. Lamar Jackson's favorite target, franchise record holder. Wants to retire a Raven.",
+      "injury_notes": "Missed 7 games in 2023. Generally available since. Type 1 diabetes \u2014 managed without issue.",
+      "character_notes": "Devastating playoff fumble/drop vs. Bills in Jan 2025 drew harsh fan backlash, but he overcame it with a strong 2025 season.",
+      "trade_buzz": "Was trade subject in spring 2025, but no one offered enough. Extension settled the question."
+    },
+    {
+      "name": "Ronnie Stanley",
+      "slot": "LT",
+      "position": "OT",
+      "age": 32,
+      "draft_pedigree": "2016 1.6",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 8000000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 8000000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "declining",
+      "performance_evidence": "Former All-Pro (2019) who has been ravaged by ankle injuries since 2020. Missed games in 2025 with injuries. Took a pay cut before 2024 season. Still starts but is a shell of his former self. Below-average pass protection when healthy.",
+      "trade_value": {
+        "pick_equivalent": 180,
+        "pick_value_points": 22,
+        "reasoning": "Declining former All-Pro on an expiring deal. Name value exceeds current production. A team desperate at LT might give a late-round pick, but injury concerns are significant."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Expiring contract, declining play, and the Ravens need to upgrade their offensive line. If a trade partner emerged, Baltimore would move on. Zero dead cap makes it clean.",
+      "injury_notes": "Has missed significant time every year since 2020 ankle surgery. Chronic ankle issues. Injured again in 2025.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "John Simpson",
+      "slot": "LG",
+      "position": "IOL",
+      "age": 28,
+      "draft_pedigree": "2020 4.109",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 5000000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 5000000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Journeyman guard who has started in Baltimore. Adequate but unspectacular. Both guard spots 'could be open for competition' per Ravens reporting.",
+      "trade_value": {
+        "pick_equivalent": 190,
+        "pick_value_points": 20,
+        "reasoning": "Below-average starting guard on an expiring deal. Minimal trade value \u2014 essentially replacement level."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Ravens reporting indicates both guard spots are open for competition. Expiring deal with no dead cap.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Corey Bullock",
+      "slot": "C",
+      "position": "IOL",
+      "age": 24,
+      "draft_pedigree": "UDFA 2025",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 950000,
+        "guaranteed_remaining": 100000,
+        "cap_hit_2026": 950000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Pressed into starting duty after Tyler Linderbaum left in free agency. Unproven \u2014 this is essentially a placeholder until Ravens draft or sign a center. Ravens lost Linderbaum to Raiders on a 3yr/$81M deal.",
+      "trade_value": {
+        "pick_equivalent": 225,
+        "pick_value_points": 5,
+        "reasoning": "Unproven UDFA center on a minimum deal. No trade value \u2014 he's a stopgap until Baltimore finds a real replacement for Linderbaum."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth piece who was thrust into starting role by necessity. Will likely be replaced via draft or free agency.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Andrew Vorhees",
+      "slot": "RG",
+      "position": "IOL",
+      "age": 26,
+      "draft_pedigree": "2023 7.228",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1000000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1050000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "7th-round pick who has worked into the starting lineup. Adequate but unspectacular. Ravens need to upgrade their interior OL significantly.",
+      "trade_value": {
+        "pick_equivalent": 210,
+        "pick_value_points": 10,
+        "reasoning": "Late-round developmental guard on a cheap deal. Minimal trade value."
+      },
+      "availability": "available",
+      "availability_reasoning": "Guard spots are open for competition. Could lose his job to a draft pick. Not being shopped but not entrenched either.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Roger Rosengarten",
+      "slot": "RT",
+      "position": "OT",
+      "age": 24,
+      "draft_pedigree": "2024 2.39",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 2800000,
+        "guaranteed_remaining": 5000000,
+        "cap_hit_2026": 2300000,
+        "dead_cap_if_traded": 3500000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "2024 2nd-round pick who stepped into the starting RT job immediately. Solid rookie season and was one of the brighter spots on the OL. Young, ascending player on a cheap rookie deal.",
+      "trade_value": {
+        "pick_equivalent": 55,
+        "pick_value_points": 350,
+        "reasoning": "Young starting RT on a cheap rookie deal with 3 years of control. Ascending player at a premium position. Would take a solid 2nd-round pick to pry him away."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Core young OL piece on a cheap deal. Ravens wouldn't trade him unless blown away \u2014 they need OL help, not to lose it. But every player has a price.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Travis Jones",
+      "slot": "DE1",
+      "position": "DL",
+      "age": 26,
+      "draft_pedigree": "2022 3.76",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 13500000,
+        "guaranteed_remaining": 25000000,
+        "cap_hit_2026": 10000000,
+        "dead_cap_if_traded": 15000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Breakout 2025 season: 47 pressures (team-leading), 5 sacks, 79.2 PFF overall grade (2nd on defense). Leads team in pressures, sacks, and PFF run-defense grade (81.1). Plays 67% of defensive snaps \u2014 rare workload for a NT. Just signed 3yr/$40.5M extension in Dec 2025.",
+      "trade_value": {
+        "pick_equivalent": 48,
+        "pick_value_points": 420,
+        "reasoning": "Ascending 26-year-old DT on a team-friendly 3-year deal ($13.5M AAV is 26th among DTs). Versatile run-stopper who also rushes the passer. High dead cap limits near-term trade feasibility."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just signed extension, Ravens view him as a core defensive piece especially with Madubuike's uncertain future. Dead cap is significant. Would take a massive overpay.",
+      "injury_notes": "Played through ankle and knee injuries each of the past two seasons. Tough and durable.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "John Jenkins",
+      "slot": "DT1",
+      "position": "DL",
+      "age": 34,
+      "draft_pedigree": "2013 3.68",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 3000000,
+        "guaranteed_remaining": 500000,
+        "cap_hit_2026": 3000000,
+        "dead_cap_if_traded": 500000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Veteran run-stuffing NT. Signed extension during 2025 season. Reliable space-eater but limited pass rush value. Age 34 limits long-term outlook.",
+      "trade_value": {
+        "pick_equivalent": 220,
+        "pick_value_points": 8,
+        "reasoning": "Aging run-stuffing NT on a cheap deal. Minimal trade value \u2014 essentially a warm body at DT."
+      },
+      "availability": "available",
+      "availability_reasoning": "Veteran depth piece on a cheap expiring deal. Could be moved if Ravens get younger at DT via draft.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Nnamdi Madubuike",
+      "slot": "DE2",
+      "position": "DL",
+      "age": 29,
+      "draft_pedigree": "2020 3.71",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 24500000,
+        "guaranteed_remaining": 22000000,
+        "cap_hit_2026": 30975000,
+        "dead_cap_if_traded": 29925000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "elite",
+      "performance_evidence": "2x Pro Bowler, 1x All-Pro (2023). 21.5 sacks since 2023 start \u2014 most by any NFL DT. 13 sacks in 2023 breakout, 6.5 sacks + 56 pressures (3rd among DTs) in 2024. One of the most disruptive interior defenders in football when healthy.",
+      "trade_value": {
+        "pick_equivalent": 200,
+        "pick_value_points": 15,
+        "reasoning": "Elite talent but a potentially career-threatening neck injury makes him virtually untradeable. $22M guaranteed salary in 2026, $30M+ dead cap. No team would take on the injury risk and the guaranteed money. If he returns healthy, he's a top-3 DT \u2014 but the uncertainty is total."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Not because he's too valuable to trade, but because no team would trade for a player with a potentially career-ending neck injury and $22M guaranteed. The Ravens will either have him play or absorb the dead cap. Recent report suggests retirement 'not in the cards' and there's a 'realistic expectation he will be back.'",
+      "injury_notes": "CRITICAL: Suffered a serious neck injury in Week 2 of 2025, missed the final 15 games. Career may be in jeopardy. Ravens and doctors still evaluating. Has not spoken to media since September 2025. Recent positive signals ('good news' social media post) but extreme uncertainty remains.",
+      "character_notes": null,
+      "trade_buzz": "Spotrac flagged Madubuike's uncertain future as a key 2026 question. DeCosta said at the Combine he has no timeline on a decision."
+    },
+    {
+      "name": "Mike Green",
+      "slot": "LB1",
+      "position": "EDGE",
+      "age": 23,
+      "draft_pedigree": "2025 2.59",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 2200000,
+        "guaranteed_remaining": 5500000,
+        "cap_hit_2026": 1800000,
+        "dead_cap_if_traded": 3000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Rookie 2nd-round pick who led FBS in sacks at Marshall (17). 2025 NFL stats: 4 sacks, 34 pressures (6th among rookie defenders), 21 stops (5th). PFF grade of 46.3 overall but pass-rush ability is clear. Expected to pair with Trey Hendrickson as long-term edge duo.",
+      "trade_value": {
+        "pick_equivalent": 50,
+        "pick_value_points": 400,
+        "reasoning": "23-year-old EDGE on a cheap rookie deal with 3 years of control. Showed real pass-rush ability as a rookie despite raw overall play. The Ravens just signed Hendrickson to pair with him \u2014 he's a cornerstone of their defensive rebuild. High ceiling, low cost."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Ravens specifically signed Hendrickson to pair with Green as their long-term edge duo. On a cheap rookie deal. Would take a significant offer (early 2nd+) to move him.",
+      "injury_notes": null,
+      "character_notes": "Two sexual assault allegations surfaced pre-draft (both denied, never charged). Caused him to slip from Round 1 to Round 2. Ravens investigated thoroughly and were comfortable drafting him.",
+      "trade_buzz": null
+    },
+    {
+      "name": "Roquan Smith",
+      "slot": "LB2",
+      "position": "LB",
+      "age": 29,
+      "draft_pedigree": "2018 1.8",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 20000000,
+        "guaranteed_remaining": 8000000,
+        "cap_hit_2026": 32700000,
+        "dead_cap_if_traded": 18000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "3x First-Team All-Pro (2022-2024). 408 total tackles, 5 sacks, 3 INT in 42 games as a Raven. Slight step back in 2025 \u2014 still played well overall but pass coverage dipped. $32.7M cap hit is well above his current production level and needs restructuring.",
+      "trade_value": {
+        "pick_equivalent": 40,
+        "pick_value_points": 480,
+        "reasoning": "All-Pro caliber LB entering his age-29 season with 2 years left. The talent is still there but the $32.7M cap hit is bloated and his 2025 was a step down. Dead cap of $18M limits savings from a trade. Worth a late 1st/early 2nd to a contender willing to restructure, but cap dynamics make this complex."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Cap hit needs to be restructured regardless. Ravens are committed to him but if a team offered a 1st-round pick, Baltimore would seriously consider it given the cap relief and the ability to invest elsewhere. Beat reporters note he didn't play at an All-Pro level in 2025.",
+      "injury_notes": "Dealt with injuries in 2025 that may have contributed to decline.",
+      "character_notes": null,
+      "trade_buzz": "Spotrac mentioned a possible tack-on extension to reduce cap hits. His $32.7M cap number is a key offseason discussion point."
+    },
+    {
+      "name": "Teddye Buchanan",
+      "slot": "LB3",
+      "position": "LB",
+      "age": 24,
+      "draft_pedigree": "2024 6.192",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 900000,
+        "guaranteed_remaining": 100000,
+        "cap_hit_2026": 950000,
+        "dead_cap_if_traded": 100000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Day 3 pick filling a rotational ILB role alongside Roquan Smith. Young and developing. Limited statistical production.",
+      "trade_value": {
+        "pick_equivalent": 220,
+        "pick_value_points": 8,
+        "reasoning": "Depth LB on a minimum deal. Essentially no trade value \u2014 a warm body in the rotation."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth piece. Would be included in deals as a throw-in if needed.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Tavius Robinson",
+      "slot": "LB4",
+      "position": "EDGE",
+      "age": 27,
+      "draft_pedigree": "2023 7.249",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1200000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1200000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Rotational edge rusher who missed 7 games in 2025 with a broken foot. Returned late in the season. Limited production but provides depth.",
+      "trade_value": {
+        "pick_equivalent": 220,
+        "pick_value_points": 8,
+        "reasoning": "Depth EDGE on a minimum expiring deal. Minimal trade value."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth piece on a cheap deal. The signing of Hendrickson pushes Robinson further down the depth chart.",
+      "injury_notes": "Broke his foot in Week 6 of 2025, missed 7 games.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Nate Wiggins",
+      "slot": "CB1",
+      "position": "CB",
+      "age": 22,
+      "draft_pedigree": "2024 1.30",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 3200000,
+        "guaranteed_remaining": 7000000,
+        "cap_hit_2026": 3000000,
+        "dead_cap_if_traded": 5500000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Breakout sophomore season in 2025: 76 tackles, 14 passes defensed (led team, T-12th in NFL), 3 INTs. Played 1,024 defensive snaps \u2014 heavy workload. PFF coverage grade of 70.9 as a rookie. Considered one of the NFL's top emerging corners at age 22.",
+      "trade_value": {
+        "pick_equivalent": 20,
+        "pick_value_points": 850,
+        "reasoning": "22-year-old ascending CB1 on a cheap rookie deal with 3 years of control. Already producing at a quality starter level with elite ceiling. Young 1st-round CBs on rookie deals are among the most valuable assets in football. Worth a mid-to-late 1st."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "22-year-old 1st-round CB who is the Ravens' future at the position. Marlon Humphrey is aging and in the final year of his deal \u2014 Wiggins IS the succession plan. Ravens would not trade him under any circumstances.",
+      "injury_notes": "Foot injury in Week 13 of 2025, but didn't miss game time. Underwent offseason surgery (nature unclear).",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "T.J. Tampa",
+      "slot": "CB2",
+      "position": "CB",
+      "age": 24,
+      "draft_pedigree": "2024 4.109",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1050000,
+        "guaranteed_remaining": 400000,
+        "cap_hit_2026": 1100000,
+        "dead_cap_if_traded": 300000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "2024 4th-round pick who dealt with a core muscle injury as a rookie. Moved to IR in November 2025. Showed potential when healthy but limited sample size. Expected to compete for a starting role in 2026.",
+      "trade_value": {
+        "pick_equivalent": 170,
+        "pick_value_points": 28,
+        "reasoning": "Young developmental CB on a cheap deal. Has 3 years of control but hasn't proven much yet. Worth a late-round pick at most."
+      },
+      "availability": "available",
+      "availability_reasoning": "Developmental Day 3 pick. Not a core piece yet. Could be moved in a package deal but Ravens prefer to develop him.",
+      "injury_notes": "Core muscle injury hampered start of rookie year. Moved to IR in November 2025.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Marlon Humphrey",
+      "slot": "NB",
+      "position": "CB",
+      "age": 30,
+      "draft_pedigree": "2017 1.16",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 19500000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 26276000,
+        "dead_cap_if_traded": 18957000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "4x Pro Bowler, 2x All-Pro. 2025: 68 tackles, 13 PBUs, 4 INTs (led team for 2nd straight year) in 15 starts. Moved primarily to slot/nickel role. Had a subpar overall season per beat reporters \u2014 opposing QBs targeted him more. Still productive but declined from All-Pro level.",
+      "trade_value": {
+        "pick_equivalent": 65,
+        "pick_value_points": 280,
+        "reasoning": "Veteran CB on an expiring deal with a $26.3M cap hit. Trading him only saves $7.3M due to $19M dead cap. A contender might give a 3rd-round pick for a rental year of a proven nickel CB, but the dead cap math makes this tough for Baltimore. More likely to be restructured and kept."
+      },
+      "availability": "available",
+      "availability_reasoning": "Expiring contract, $26.3M cap hit, declining production. DeCosta said at the Combine he expects Humphrey back and 'loves Marlon,' but also said a restructure isn't necessarily required. Beat reporters have speculated about a trade. Humphrey himself expressed uncertainty about his future. The dead cap ($19M) makes a trade cap-unfriendly for Baltimore.",
+      "injury_notes": "Knee injury in 2025 caused him to miss some time. Tore ACL in 2021 but has been mostly healthy since returning.",
+      "character_notes": null,
+      "trade_buzz": "Yahoo Sports and multiple outlets speculated he could be on the trade block. DeCosta pushed back at the Combine, saying he expects Humphrey on the team."
+    },
+    {
+      "name": "Kyle Hamilton",
+      "slot": "SS",
+      "position": "S",
+      "age": 25,
+      "draft_pedigree": "2022 1.14",
+      "contract": {
+        "years_remaining": 5,
+        "aav": 25100000,
+        "guaranteed_remaining": 65000000,
+        "cap_hit_2026": 25922000,
+        "dead_cap_if_traded": 70000000,
+        "free_agent_year": 2031
+      },
+      "performance_tier": "elite",
+      "performance_evidence": "2x All-Pro (2023, 2024), 3x Pro Bowler. Highest-paid safety in NFL history ($100.4M extension). 2nd-highest PFF grade among safeties in 2024. NFL's top safety in defensive yards per completion allowed. Can play FS, SS, slot, and LB. A true unicorn \u2014 the most versatile defensive player in football.",
+      "trade_value": {
+        "pick_equivalent": 1,
+        "pick_value_points": 3000,
+        "reasoning": "25-year-old 2x All-Pro safety on a 5-year deal. $70M+ dead cap makes a trade impossible. Even if it were possible, he'd be worth multiple 1st-round picks. He's the most valuable non-QB defender in football."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just signed record-setting $100.4M extension in Aug 2025. $70M dead cap. Franchise cornerstone, 25 years old, 5 years remaining. The definition of untouchable.",
+      "injury_notes": "Groin injury caused him to miss time in 2025 but generally very durable.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Malaki Starks",
+      "slot": "FS",
+      "position": "S",
+      "age": 22,
+      "draft_pedigree": "2025 1.27",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 4500000,
+        "guaranteed_remaining": 15000000,
+        "cap_hit_2026": 4200000,
+        "dead_cap_if_traded": 10000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "2025 1st-round pick from Georgia (2x All-American). Started 15 of 17 games as a rookie. 84 tackles, 2 INTs. PFF grade was mid-range (ranked 28th among qualifying safeties early) but showed upside. Meshed well with Hamilton. Expected to follow a Hamilton-like trajectory.",
+      "trade_value": {
+        "pick_equivalent": 25,
+        "pick_value_points": 720,
+        "reasoning": "22-year-old 1st-round safety on a rookie deal with 4 years of control. Paired with Hamilton to form potentially the best safety duo in the NFL. Showed promise as a rookie \u2014 the upside is enormous. Worth a late 1st-round pick."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "The Ravens traded up to draft Starks to pair with Hamilton for years to come. He's 22 with 4 years of control on a cheap deal. Absolutely no chance Baltimore moves him.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    }
+  ]
+}

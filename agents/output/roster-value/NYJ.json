@@ -1,0 +1,686 @@
+{
+  "team": "NYJ",
+  "team_full": "New York Jets",
+  "team_context": {
+    "competitive_window": "rebuilding",
+    "cap_situation": "strong \u2014 ~$37M cap space after heavy free agency spending, started with $74M+. NFL-high $91M in dead cap from previous regime's contracts.",
+    "trade_posture": "Rebuilding team with new GM Darren Mougey and HC Aaron Glenn entering year 2. Went 3-14 in 2025, traded Sauce Gardner and Quinnen Williams at deadline for draft capital. Hold #2 overall pick and extra 1sts/2nds. Focused on accumulating young talent and draft picks. Veterans on expiring deals are available. Core young players (Fashanu, Membou, Tippmann, Wilson) are building blocks. Team needs to show improvement in 2026 to save coaching staff jobs."
+  },
+  "players": [
+    {
+      "name": "Geno Smith",
+      "slot": "QB1",
+      "position": "QB",
+      "age": 35,
+      "draft_pedigree": "2013 2.39",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 3300000,
+        "guaranteed_remaining": 3300000,
+        "cap_hit_2026": 3300000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Completed 67.4% of passes for 3,025 yards, 19 TD, 17 INT in 2025 with Raiders. Led NFL in interceptions and sacks taken. Was a Pro Bowler in 2022 and 2023 with Seattle but has declined. Acquired for a 6th-round pick swap with Raiders paying $16.2M of his salary.",
+      "trade_value": {
+        "pick_equivalent": 225,
+        "pick_value_points": 15,
+        "reasoning": "Placeholder bridge QB on a near-minimum deal. Zero trade value \u2014 he's 35, coming off a terrible season, and was acquired for essentially nothing. The Jets are paying him $3.3M as a stopgap."
+      },
+      "availability": "available",
+      "availability_reasoning": "Bridge QB expected to hold the seat until Jets draft a franchise QB. If the Jets draft a QB at #2, Smith becomes a high-quality backup with minimal cap cost. Could be moved midseason if a contender needs a QB.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "Just acquired via trade from Raiders on March 10, 2026. Jets expected to draft a QB with #2 pick."
+    },
+    {
+      "name": "Justin Fields",
+      "slot": "QB2",
+      "position": "QB",
+      "age": 27,
+      "draft_pedigree": "2021 1.11",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 23000000,
+        "guaranteed_remaining": 22000000,
+        "cap_hit_2026": 23000000,
+        "dead_cap_if_traded": 22000000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "declining",
+      "performance_evidence": "Started 9 games in 2025, was benched. Completed 56.9% of passes, 6 TD, 8 INT. Denver held Jets to -10 net passing yards in one game. Added rushing ability (383 yards) but was the worst starting QB in the NFL by most metrics.",
+      "trade_value": {
+        "pick_equivalent": 250,
+        "pick_value_points": 2,
+        "reasoning": "Essentially untradeable due to $22M dead cap if traded. Jets will release him post-June 1 to save $10M in cap space. No team is trading for this contract given his 2025 performance."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Jets will release Fields post-June 1 to save $10M in cap space. Beat reporters have confirmed he is not expected to be back. Dead cap makes a trade nearly impossible \u2014 a release is the clear path.",
+      "injury_notes": "Knee injury ended 2025 season early.",
+      "character_notes": null,
+      "trade_buzz": "Expected to be released post-June 1. No trade market due to dead cap structure."
+    },
+    {
+      "name": "Breece Hall",
+      "slot": "RB1",
+      "position": "RB",
+      "age": 24,
+      "draft_pedigree": "2022 2.36",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 14293000,
+        "guaranteed_remaining": 14293000,
+        "cap_hit_2026": 14293000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Career-high 1,065 rushing yards in 2025, first Jets 1,000-yard rusher since 2015. 3,398 career rushing yards, 18 rushing TDs, 188 career receptions. One of only 3 RBs with 6 explosive plays in a single game alongside Derrick Henry and Christian McCaffrey. Dual-threat capabilities.",
+      "trade_value": {
+        "pick_equivalent": 55,
+        "pick_value_points": 340,
+        "reasoning": "Pro Bowl-caliber RB on a franchise tag at $14.3M \u2014 expensive for an RB but he's only 24 and highly productive. Trade value is capped by the tag cost and RB position value. A contender might give a mid-2nd for this level of production if they could extend him. The non-exclusive tag means two 1sts as compensation if he signs elsewhere and Jets don't match."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Jets franchise-tagged Hall and want to sign him long-term. GM Mougey said they want to keep him. But Hall has been publicly frustrated about the team spending on defense while he's on a tag. If contract talks stall, Jets could listen to offers. July 15 deadline for long-term deal.",
+      "injury_notes": "Missed final game of 2025 with knee ailment. Tore ACL in 2022 rookie season but has been healthy since.",
+      "character_notes": "Publicly commented on Jets' free agency spending, suggesting frustration with franchise tag situation.",
+      "trade_buzz": "Tagged with non-exclusive franchise tag. Negotiations ongoing. Hall has expressed desire to be paid."
+    },
+    {
+      "name": "Braelon Allen",
+      "slot": "RB2",
+      "position": "RB",
+      "age": 22,
+      "draft_pedigree": "2024 4.134",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 1137177,
+        "guaranteed_remaining": 250000,
+        "cap_hit_2026": 1207177,
+        "dead_cap_if_traded": 132177,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Only played 4 games in 2025 before MCL sprain ended season (76 rush yards, 1 TD). Rookie year had 334 rush yards, 148 rec yards, 3 TDs in 17 games. PFF 82.0 rushing grade as rookie. Very young (won't turn 23 until January 2027) but slow speed limits ceiling.",
+      "trade_value": {
+        "pick_equivalent": 175,
+        "pick_value_points": 30,
+        "reasoning": "Young backup RB on a cheap rookie deal with 2 years of control. Has flashed but limited sample size and knee injury is a concern. Worth a late-round pick at best given RB position value."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth piece behind Breece Hall. If Jets sign Hall long-term, Allen is a cheap backup complement. Could be included as a sweetener in a larger deal. Not a priority to move but not a core piece either.",
+      "injury_notes": "MCL sprain in 2025 Week 4 ended his season. Expected full recovery.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Garrett Wilson",
+      "slot": "WR1",
+      "position": "WR",
+      "age": 26,
+      "draft_pedigree": "2022 1.10",
+      "contract": {
+        "years_remaining": 5,
+        "aav": 32500000,
+        "guaranteed_remaining": 75000000,
+        "cap_hit_2026": 36250000,
+        "dead_cap_if_traded": 57000000,
+        "free_agent_year": 2031
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "2022 Offensive Rookie of the Year. Three consecutive 1,000-yard seasons (2022-24) despite historically bad QB play. Limited to 7 games in 2025 (knee injury) but had 36 rec, 395 yards, 4 TDs \u2014 on pace for elite numbers. PFF 72.5 overall grade in limited 2025 action. Colts' Sauce Gardner called him hardest player to cover.",
+      "trade_value": {
+        "pick_equivalent": 10,
+        "pick_value_points": 1300,
+        "reasoning": "26-year-old WR1 who has produced 1,000+ yards three straight years with terrible QB play. Just signed 4-year, $130M extension. The massive guaranteed money ($75M+ remaining) and dead cap ($57M) make him essentially immovable. If theoretically traded, he'd command multiple 1sts, but no team can absorb that dead cap hit."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just signed a 4-year, $130M extension in July 2025 with $90M guaranteed. $57M dead cap if traded makes this impossible. He's the face of the franchise and the Jets' only proven offensive playmaker. Wilson and Hall are the two building blocks on offense.",
+      "injury_notes": "Knee injury limited him to 7 games in 2025. Placed on IR Week 10. Expected full recovery for 2026 offseason programs per HC Glenn.",
+      "character_notes": null,
+      "trade_buzz": "Not available. Jets recently confirmed Wilson is not being traded despite some offseason speculation."
+    },
+    {
+      "name": "Adonai Mitchell",
+      "slot": "WR2",
+      "position": "WR",
+      "age": 23,
+      "draft_pedigree": "2024 2.52",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 1846522,
+        "guaranteed_remaining": 1500000,
+        "cap_hit_2026": 1500000,
+        "dead_cap_if_traded": 548000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Acquired in Sauce Gardner trade from Colts. 32 career receptions for 464 yards across 25 games. Has drops issue and fell out of favor in Indy. At 6-2 with 4.34 speed, has elite physical traits and separation ability. Jets view him as ideal X receiver. Still very raw.",
+      "trade_value": {
+        "pick_equivalent": 145,
+        "pick_value_points": 50,
+        "reasoning": "High-upside 23-year-old WR on a cheap rookie deal with 2 years of control. Physical tools are elite (6-2, 4.34) but production has been disappointing. Worth a 5th-round pick to a team willing to bet on development. Drop issues are a real concern."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Jets acquired him specifically in the Gardner trade and view him as a development piece. On a very cheap deal with upside. They'd need a solid return to part with a potential WR2 on a roster starved for receivers. But he's not untouchable.",
+      "injury_notes": null,
+      "character_notes": "Had a costly premature ball-release near the goal line with Colts that led to his benching.",
+      "trade_buzz": "Browns were also trying to trade for Mitchell before Jets insisted he be included in Gardner deal."
+    },
+    {
+      "name": "Isaiah Williams",
+      "slot": "WR3",
+      "position": "WR",
+      "age": 24,
+      "draft_pedigree": "UDFA 2024",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1000000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1000000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "UDFA who emerged as a valuable special teams contributor. Had a 74-yard punt return TD vs Browns in 2025. Filled in at WR after Wilson's injury. Limited as a receiver but has value as a returner.",
+      "trade_value": {
+        "pick_equivalent": 230,
+        "pick_value_points": 5,
+        "reasoning": "UDFA on a minimum deal with value primarily as a return specialist. Minimal trade value \u2014 worth a conditional 7th at best."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth WR/return specialist on a minimum deal. If someone offered a late pick, Jets would move him. Not a core piece of the rebuild.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Mason Taylor",
+      "slot": "TE1",
+      "position": "TE",
+      "age": 21,
+      "draft_pedigree": "2025 2.42",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 2615000,
+        "guaranteed_remaining": 7000000,
+        "cap_hit_2026": 2300000,
+        "dead_cap_if_traded": 4500000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "2025 2nd-round pick from LSU. Son of HOFer Jason Taylor. Caught game-winning TD from Breece Hall vs Bengals. Placed on IR late in season. Most productive TE in LSU history (129 career catches, 1,308 yards). Coaches praised his blocking and catching ability. Still developing.",
+      "trade_value": {
+        "pick_equivalent": 85,
+        "pick_value_points": 140,
+        "reasoning": "Young 2nd-round TE still on his cheap rookie deal with 3 years of control. Showed flashes as a rookie. Comparable to where many young TEs are after year 1. Worth a 3rd-round pick given age, pedigree, and contract."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Core young piece that the Jets drafted to be their TE1 for years. Would need an overpay (2nd-round pick) to pry away from a rebuilding team that needs all the young talent it can get.",
+      "injury_notes": "Placed on IR late in 2025 season.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Jeremy Ruckert",
+      "slot": "TE2",
+      "position": "TE",
+      "age": 25,
+      "draft_pedigree": "2022 3.101",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 3000000,
+        "guaranteed_remaining": 3000000,
+        "cap_hit_2026": 2800000,
+        "dead_cap_if_traded": 1500000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "Former 3rd-round pick who hasn't broken out as a receiver. Signed a midseason extension in 2025. Primarily a blocking TE. Limited production in the passing game across 3 seasons.",
+      "trade_value": {
+        "pick_equivalent": 210,
+        "pick_value_points": 10,
+        "reasoning": "Blocking TE on a modest extension. Minimal trade value \u2014 a 7th-round pick at most. More valuable to Jets as depth than as a trade chip."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth TE behind Mason Taylor. Just signed an extension so Jets have him locked up cheaply, but he's not a priority piece. Available for the right offer.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Olu Fashanu",
+      "slot": "LT",
+      "position": "OT",
+      "age": 23,
+      "draft_pedigree": "2024 1.11",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 5138502,
+        "guaranteed_remaining": 3600000,
+        "cap_hit_2026": 5600000,
+        "dead_cap_if_traded": 5900000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "2024 1st-round pick (11th overall) from Penn State. Consensus All-American. Zero sacks allowed in 382 college pass-blocking snaps. Named starting LT in Week 11 of rookie year after Tyron Smith injury. Started 5 games in 2024, full-time starter in 2025. Part of Jets' young OL core with 5th-year option available for 2028.",
+      "trade_value": {
+        "pick_equivalent": 28,
+        "pick_value_points": 640,
+        "reasoning": "23-year-old LT on a cheap rookie deal with 5th-year option available. Elite draft pedigree and ascending play. Young franchise tackles on rookie deals are among the most valuable assets in the NFL. Worth a late 1st-round pick."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Cornerstone of the Jets' rebuild. Young franchise LT on a cheap rookie deal is exactly the type of player you build around. HC Glenn has emphasized building from the trenches. Jets drafted OTs in the 1st round in back-to-back years (Fashanu 2024, Membou 2025).",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Xavier Newman",
+      "slot": "LG",
+      "position": "IOL",
+      "age": 25,
+      "draft_pedigree": "UDFA 2022",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1200000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1200000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "UDFA who was placed on IR in Week 18 of 2025. Depth interior lineman. Jets signed Dylan Parham to a 2-year, $16M deal to start at LG in 2026, making Newman a backup. Note: Depth chart may reflect Parham as starter by camp.",
+      "trade_value": {
+        "pick_equivalent": 240,
+        "pick_value_points": 3,
+        "reasoning": "Depth interior OL on a minimum deal. Essentially no trade value. Practice squad-level player."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Jets signed Dylan Parham to start at LG. Newman is a depth piece on a minimum deal with no guaranteed money. Would be released before traded.",
+      "injury_notes": "Placed on IR in Week 18 of 2025.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Josh Myers",
+      "slot": "C",
+      "position": "IOL",
+      "age": 27,
+      "draft_pedigree": "2021 2.62",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 5000000,
+        "guaranteed_remaining": 5000000,
+        "cap_hit_2026": 5000000,
+        "dead_cap_if_traded": 3000000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Signed midseason extension in 2025. Rated as the league's second-worst center among 34 qualifiers per PFF in 2025. Provides stability but is a below-average starter. Part of the OL unit that paved the way for 10th-best rushing attack (123.3 yards/game).",
+      "trade_value": {
+        "pick_equivalent": 160,
+        "pick_value_points": 35,
+        "reasoning": "Below-average starting center on a reasonable 1-year deal. Centers have limited trade value. Worth a late-round pick to a center-needy team but the Jets might prefer to keep him as a bridge until they find an upgrade."
+      },
+      "availability": "available",
+      "availability_reasoning": "Just extended but PFF graded him poorly. Jets were rumored to target Tyler Linderbaum in free agency, suggesting they're open to upgrading. On a reasonable deal so he's keepable, but not a core piece.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Joe Tippmann",
+      "slot": "RG",
+      "position": "IOL",
+      "age": 25,
+      "draft_pedigree": "2023 2.43",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 2089900,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 4731927,
+        "dead_cap_if_traded": 769927,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Former 2nd-round pick entering final year of rookie deal. Has missed only 2 games in 3 seasons. Versatile \u2014 has played both center and guard. Part of Jets' young OL core. ESPN's Rich Cimini identified him as the next extension candidate. Interior anchor of a top-10 rushing attack.",
+      "trade_value": {
+        "pick_equivalent": 65,
+        "pick_value_points": 260,
+        "reasoning": "25-year-old quality starting guard on the final year of a very cheap rookie deal. Extension candidate projected for $12M+/year. Young, versatile IOL on expiring deals are valuable, but the expiring contract caps trade value. Worth a late 2nd/early 3rd."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Extension candidate that Jets want to keep long-term. Part of the young OL core with Fashanu and Membou. Would only trade for a significant overpay, but the expiring deal creates some urgency to extend or risk losing him for nothing.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "ESPN's Cimini singled him out as the Jets' next extension candidate."
+    },
+    {
+      "name": "Armand Membou",
+      "slot": "RT",
+      "position": "OT",
+      "age": 22,
+      "draft_pedigree": "2025 1.7",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 7978276,
+        "guaranteed_remaining": 24000000,
+        "cap_hit_2026": 7500000,
+        "dead_cap_if_traded": 18000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "2025 1st-round pick (7th overall) from Missouri. Immediate starter at RT. Elite combine athlete \u2014 4.91 40-yard dash at 315+ lbs, 34-inch vertical. Did not allow a sack to TJ Watt in Week 1. Paved way for Breece Hall's 1,000-yard season. Considered the best rookie OT in the 2025 class, outperforming Will Campbell.",
+      "trade_value": {
+        "pick_equivalent": 12,
+        "pick_value_points": 1200,
+        "reasoning": "22-year-old franchise RT on a cheap rookie deal with 5th-year option. Already proved he's a quality starter as a rookie. Young, elite-athlete tackles on rookie deals are premium assets. Worth a top-15 pick equivalent."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Cornerstone of the rebuild alongside Fashanu. Jets drafted him 7th overall specifically to build the OL core. 22 years old with 3 years of cheap control plus a 5th-year option. Absolutely not available.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Will McDonald IV",
+      "slot": "DE1",
+      "position": "EDGE",
+      "age": 27,
+      "draft_pedigree": "2023 1.15",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 4080416,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 5193257,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Led Jets with 8 sacks in 2025 (21.5 career sacks in 3 seasons). PFF 59.1 overall grade but 71.0 pass-rush grade in 2025. Consistency concerns \u2014 4 of 7 sacks in one game vs Browns. 41.4 PFF run defense grade (112th/115 EDs). Has a $14.94M 5th-year option decision due in May 2026.",
+      "trade_value": {
+        "pick_equivalent": 45,
+        "pick_value_points": 430,
+        "reasoning": "27-year-old EDGE with 21.5 career sacks on the final year of his rookie deal. Inconsistent but has clear pass-rush upside. 5th-year option at $14.94M must be exercised by May. Value is complicated \u2014 declining the option makes him a rental, exercising it locks in a big cap hit. Worth a 2nd-round pick to a contender betting on his upside."
+      },
+      "availability": "available",
+      "availability_reasoning": "Jets received significant trade interest at the 2025 deadline but rejected offers. However, the 5th-year option decision and inconsistent play have clouded his future. ESPN's Cimini reported the decision 'requires careful thought.' Jets may trade him before May if the return is right, especially with Ossai and Enagbare now signed.",
+      "injury_notes": "Placed on IR in December 2025 with knee injury. Expected to recover for 2026.",
+      "character_notes": null,
+      "trade_buzz": "Received significant trade interest at 2025 deadline. Teams could come calling again this offseason per Heavy.com reporting."
+    },
+    {
+      "name": "Harrison Phillips",
+      "slot": "DT1",
+      "position": "DL",
+      "age": 30,
+      "draft_pedigree": "2018 3.96",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 7500000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 7500000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Led NFL DTs with 33 run stops per Next Gen Stats in 2025. PFF 72.5 grade. Solid run-stuffer but limited pass-rush impact. Established as a leader but publicly criticized Jets' culture. 30 years old, entering final year of deal with zero dead cap.",
+      "trade_value": {
+        "pick_equivalent": 130,
+        "pick_value_points": 70,
+        "reasoning": "30-year-old run-stuffing DT on a non-guaranteed $7.5M deal. Zero dead cap makes him easy to move. Worth a late 4th/early 5th to a contender needing interior DL depth. Jets could also release him for cap savings."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Top trade chip per beat reporters. Zero dead cap, non-guaranteed salary, could be released to save $7.5M. Jets acquired T'Vondre Sweat and David Onyemata, creating roster redundancy. Phillips publicly criticized team culture. Clear cut candidate.",
+      "injury_notes": null,
+      "character_notes": "Publicly criticized Jets' culture after being traded from Vikings, calling the atmosphere markedly different from Minnesota and Buffalo.",
+      "trade_buzz": "Heavy.com identified him as Jets' top trade chip heading into 2026 offseason."
+    },
+    {
+      "name": "Joseph Ossai",
+      "slot": "DE2",
+      "position": "EDGE",
+      "age": 26,
+      "draft_pedigree": "2021 3.69",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 12000000,
+        "guaranteed_remaining": 22500000,
+        "cap_hit_2026": 8000000,
+        "dead_cap_if_traded": 15000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "5 sacks in each of last 2 seasons with Bengals. 14.5 career sacks, 116 tackles, 4 forced fumbles. Career-high 616 defensive snaps in 2025. Just signed 3-year, $36M deal ($22.5M guaranteed). Still ascending at 26. Penalty-prone (7 in 2025).",
+      "trade_value": {
+        "pick_equivalent": 80,
+        "pick_value_points": 150,
+        "reasoning": "26-year-old EDGE on a new 3-year deal with $22.5M guaranteed. Moderate production (5 sacks/year) but still ascending. The heavy guarantees make him hard to move. Worth a 3rd-round pick but dead cap makes a trade impractical for at least a year."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just signed as a marquee free agent addition. Jets need him as their DE2 opposite McDonald. High dead cap prevents a trade in year 1. Would need an extraordinary offer.",
+      "injury_notes": "Missed entire 2021 rookie season with meniscus injury. Has been healthy since.",
+      "character_notes": "Made national headlines for unnecessary roughness penalty in 2022 AFC Championship that likely cost Bengals a Super Bowl trip.",
+      "trade_buzz": null
+    },
+    {
+      "name": "Kingsley Enagbare",
+      "slot": "LB1",
+      "position": "EDGE",
+      "age": 26,
+      "draft_pedigree": "2022 5.179",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 10000000,
+        "guaranteed_remaining": 8000000,
+        "cap_hit_2026": 10000000,
+        "dead_cap_if_traded": 5000000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "11.5 career sacks over 4 years with Packers. 39 tackles, 2 sacks, 9 QB hits in 2025. Played all 68 games in 4-year Packers career (21 starts). Run-stopping edge setter. PFF considers him 'average.' Low ceiling but high floor and excellent durability.",
+      "trade_value": {
+        "pick_equivalent": 155,
+        "pick_value_points": 35,
+        "reasoning": "Rotational EDGE on a 1-year, $10M deal. Overpaid relative to production. Limited trade value \u2014 a team would need to absorb the full salary. Worth a conditional 6th at most."
+      },
+      "availability": "available",
+      "availability_reasoning": "One-year deal signed to provide depth. If a better option emerges via the draft (Jets expected to draft EDGE at #2), Enagbare becomes expendable. Low dead cap concern given 1-year structure.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Demario Davis",
+      "slot": "LB2",
+      "position": "LB",
+      "age": 37,
+      "draft_pedigree": "2012 3.77",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 11000000,
+        "guaranteed_remaining": 15000000,
+        "cap_hit_2026": 9000000,
+        "dead_cap_if_traded": 10000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "143 total tackles in 2025 (career high for 2nd straight year). Two Pro Bowls, First-Team All-Pro in 2019, four Second-Team All-Pro honors. PFF 81.4 overall grade, 88.9 run defense grade in 2025. 2nd among off-ball LBs in run tackles for loss and no gain. 14-year veteran, 227 career games.",
+      "trade_value": {
+        "pick_equivalent": 100,
+        "pick_value_points": 100,
+        "reasoning": "37-year-old LB still producing at a high level but age severely limits trade value. New 2-year deal with $15M guaranteed. Worth a 4th-round pick to a contender but dead cap and age make a trade unlikely for at least one year."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just signed as a centerpiece of the defensive rebuild and Glenn's hand-picked leader. 3rd stint with Jets. Expected to wear the green dot. Would only be moved in an extraordinary scenario. $10M dead cap also limits trade viability.",
+      "injury_notes": null,
+      "character_notes": "Universally praised as one of the best leaders in the NFL. Glenn called him 'one of the best leaders I've ever been around.'",
+      "trade_buzz": null
+    },
+    {
+      "name": "Kobe King",
+      "slot": "LB4",
+      "position": "LB",
+      "age": 26,
+      "draft_pedigree": "UDFA 2023",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1100000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1100000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "UDFA depth linebacker. Special teams contributor. Limited defensive role.",
+      "trade_value": {
+        "pick_equivalent": 245,
+        "pick_value_points": 2,
+        "reasoning": "Depth LB on a minimum deal. No meaningful trade value."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth piece. Would be released rather than traded.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Azareye'h Thomas",
+      "slot": "CB1",
+      "position": "CB",
+      "age": 22,
+      "draft_pedigree": "2025 3.73",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1600000,
+        "guaranteed_remaining": 3500000,
+        "cap_hit_2026": 1400000,
+        "dead_cap_if_traded": 2500000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "2025 3rd-round pick from Florida State. Made 12 appearances (5 starts) as a rookie, recording 7 pass deflections and 22 tackles. Big corner (6-2, 197) with press-man skills. Shut down for season with shoulder injury in Week 14. Dane Brugler compared his style to Carlton Davis. Still very raw but has high upside.",
+      "trade_value": {
+        "pick_equivalent": 110,
+        "pick_value_points": 85,
+        "reasoning": "22-year-old CB with ideal size on a cheap 3-year rookie deal. Showed promise as a rookie starter. Young CBs with length and press ability are highly valued. Worth a 4th-round pick but Jets are investing in his development."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Development piece that the Jets drafted to be a future starter. On a cheap deal with 3 years of control. Only 22. Beat writers expect him to compete for a starting job in 2026. Would need an overpay to move.",
+      "injury_notes": "Season-ending shoulder injury in Week 14 of 2025. Expected fully healthy for training camp.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Brandon Stephens",
+      "slot": "CB2",
+      "position": "CB",
+      "age": 28,
+      "draft_pedigree": "2021 3.104",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 12000000,
+        "guaranteed_remaining": 12000000,
+        "cap_hit_2026": 14000000,
+        "dead_cap_if_traded": 19490000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Started 16 games in 2025, led team in defensive snaps (1,048). 73 total tackles, 9 PDs, 1 forced fumble. PFF 74.7 overall grade (8th among 84 qualified CBs). Physical tackler \u2014 16 run stops since Week 4, most among CBs. Zero interceptions though, contributing to Jets' NFL-worst takeaway numbers.",
+      "trade_value": {
+        "pick_equivalent": 90,
+        "pick_value_points": 125,
+        "reasoning": "28-year-old quality starting CB on a 2-year deal at $14M/year. Massive dead cap ($19.5M) if traded in 2026 makes this essentially impossible. Locked into the roster for 2026. A move is only realistic in 2027."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Essentially locked in for 2026 due to $19.5M dead cap if released/traded. Playing well enough to justify the deal. Jets can restructure his contract to create $8.7M in cap space. Won't be moved this year.",
+      "injury_notes": "Neck injury caused him to miss Week 18 of 2025.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Jarvis Brownlee Jr.",
+      "slot": "NB",
+      "position": "CB",
+      "age": 24,
+      "draft_pedigree": "2023 4.124",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 1100000,
+        "guaranteed_remaining": 500000,
+        "cap_hit_2026": 1100000,
+        "dead_cap_if_traded": 200000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Acquired from Titans in September 2025 pick swap. Physical nickel corner described as a 'baby linebacker.' Emerged as starting slot CB after Michael Carter II trade. Only forced the Jets' sole takeaway (forced fumble) in 2025. Penalty-prone (team-high 8 penalties).",
+      "trade_value": {
+        "pick_equivalent": 130,
+        "pick_value_points": 70,
+        "reasoning": "24-year-old starting nickel CB on a dirt-cheap deal with 2 years of control. Physical but undisciplined. Worth a 5th-round pick given his age, cheap contract, and starting experience."
+      },
+      "availability": "available",
+      "availability_reasoning": "Cheap young player under team control. Could be part of the secondary going forward or expendable if Jets add a better nickel option. Available for a fair return but not being actively shopped.",
+      "injury_notes": "Hip injury caused missed time late in 2025.",
+      "character_notes": "High penalty rate was an issue with both the Titans and Jets.",
+      "trade_buzz": null
+    },
+    {
+      "name": "Malachi Moore",
+      "slot": "SS",
+      "position": "S",
+      "age": 24,
+      "draft_pedigree": "2025 4.130",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1100000,
+        "guaranteed_remaining": 300000,
+        "cap_hit_2026": 1050000,
+        "dead_cap_if_traded": 300000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Led all rookie defensive backs with 101 total tackles in 2025. First Jets rookie DB with 90+ tackles in 20 years. Started 14 games. Versatile \u2014 played box safety, free safety, slot corner. Two-time Alabama team captain. PFF loved his preseason (84.2 grade). Took on leadership role in depleted secondary.",
+      "trade_value": {
+        "pick_equivalent": 100,
+        "pick_value_points": 100,
+        "reasoning": "24-year-old safety on a 3-year cheap rookie deal who immediately became a starter and produced 101 tackles as a rookie. Excellent value on his contract. Worth a 4th-round pick but Jets view him as a core piece of the secondary going forward."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Core young piece that exceeded expectations as a rookie. On a dirt-cheap deal with 3 years of control. Pairs with Minkah Fitzpatrick as the projected safety duo for 2026. Would need an overpay to move.",
+      "injury_notes": "Oblique injury in preseason, fully recovered.",
+      "character_notes": "Two-time Alabama team captain. Some concern about discipline \u2014 personal fouls and an incident at Alabama \u2014 but praised for leadership and accountability.",
+      "trade_buzz": null
+    },
+    {
+      "name": "Minkah Fitzpatrick",
+      "slot": "FS",
+      "position": "S",
+      "age": 29,
+      "draft_pedigree": "2018 1.11",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 13333333,
+        "guaranteed_remaining": 25000000,
+        "cap_hit_2026": 15600000,
+        "dead_cap_if_traded": 18000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Five-time Pro Bowler, three-time All-Pro. 21 career interceptions, 690 career tackles. In 2025 with Dolphins: 82 tackles, 1 INT, 6 PDs in 14 games. Versatile \u2014 lined up at 345 slot snaps, 251 as deep safety, 191 as box safety per PFF. Still under 30. Turns 30 in November 2026.",
+      "trade_value": {
+        "pick_equivalent": 55,
+        "pick_value_points": 340,
+        "reasoning": "Five-time Pro Bowl safety on a fair 3-year, $40M deal ($13.3M AAV ranks 13th among safeties). Elite pedigree but turning 30. Dead cap of $18M makes a year-1 trade impractical. A contender might give a 2nd for this caliber of safety, but he was just acquired."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just traded for and signed to a 3-year extension. Centerpiece of the secondary rebuild for a team that went an entire season without an INT. $18M dead cap prevents any 2026 trade. Available only at a massive premium.",
+      "injury_notes": "Has been durable throughout career. Missed 3 games in 2025.",
+      "character_notes": "Known as an elite leader and mentor. Embraced being traded to a struggling Dolphins team in 2025 and mentored young players.",
+      "trade_buzz": "Just acquired from Dolphins for a 7th-round pick on March 9, 2026. Signed 3-year, $40M extension."
+    }
+  ]
+}

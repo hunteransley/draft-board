@@ -1,0 +1,713 @@
+{
+  "team": "TB",
+  "team_full": "Tampa Bay Buccaneers",
+  "team_context": {
+    "competitive_window": "uncertain \u2014 missed playoffs at 8-9 in 2025 after 6-2 start collapsed; roster has high-end talent but major defensive holes and aging core",
+    "cap_situation": "tight \u2014 ~$11-20M in space depending on source, 6 players with $20M+ cap hits including Mayfield at $51.9M; restructures of Wirfs, Winfield, Goedeke expected to free ~$40-50M",
+    "trade_posture": "Could go either way. Likely buyers at EDGE (massive need) and LB, but aging expensive veterans like Vita Vea and Chris Godwin could be available if team pivots toward youth. Baker Mayfield in a contract year adds urgency. Lost Mike Evans and Lavonte David in free agency. Signed Alex Anzalone (LB), Kenneth Gainwell (RB), re-signed Cade Otton (TE)."
+  },
+  "players": [
+    {
+      "name": "Baker Mayfield",
+      "slot": "QB1",
+      "position": "QB",
+      "age": 31,
+      "draft_pedigree": "2018 1.1",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 33333333,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 51900000,
+        "dead_cap_if_traded": 11925000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Pro Bowl in 2023 (4,044 yds, 28 TD) and 2024. 2025 was a significant regression \u2014 battled injury and inconsistent play in the second half, team went 2-7 after 6-2 start. Spotrac projects extension value at 4yr/$215M ($53.5M APY), suggesting he's viewed between Goff and Prescott tier. Still a franchise QB but no longer on the upswing.",
+      "trade_value": {
+        "pick_equivalent": 25,
+        "pick_value_points": 720,
+        "reasoning": "Franchise QB in a contract year with a bloated $51.9M cap hit limits trade value. Acquiring team gets 1 year of a solid starter before needing a $50M+ AAV extension. The 2025 regression raises questions. Worth a late 1st to a QB-desperate team, but the cap hit is brutal."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Bucs are expected to extend Mayfield, but the 2025 collapse and contract year dynamics create an unusual situation. If Tampa drafts a QB or loses faith, Mayfield becomes available. Beat reporters note the Bucs 'lost a little confidence' in Mayfield as a multi-year franchise QB. Not being shopped, but has a realistic price.",
+      "injury_notes": "Battled undisclosed injuries through second half of 2025 that may have contributed to decline.",
+      "character_notes": null,
+      "trade_buzz": "No active trade buzz, but extension talks have not materialized yet despite being projected as a 'lock' entering 2025."
+    },
+    {
+      "name": "Connor Bazelak",
+      "slot": "QB2",
+      "position": "QB",
+      "age": 25,
+      "draft_pedigree": "UDFA 2023",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1100000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1100000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "Exclusive rights free agent re-signed for 2026. Minimal NFL playing time. Teddy Bridgewater departed for Detroit, leaving Bazelak as the backup. Team likely to add another veteran or draft a QB.",
+      "trade_value": {
+        "pick_equivalent": 250,
+        "pick_value_points": 10,
+        "reasoning": "Backup QB with no meaningful NFL tape. Essentially no trade value."
+      },
+      "availability": "available",
+      "availability_reasoning": "Placeholder backup on a minimum deal. No team would trade for him, and Tampa would let him go for any draft capital.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Bucky Irving",
+      "slot": "RB1",
+      "position": "RB",
+      "age": 24,
+      "draft_pedigree": "2024 4.125",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 1187500,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1200000,
+        "dead_cap_if_traded": 400000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Explosive rookie in 2024: 1,122 rushing yards, 8 TD, 47 receptions, 392 receiving yards. NFC Offensive Player of the Week. 2025 was a step back \u2014 only 588 yards in 10 games (3.4 avg), dealt with injuries. PFF grade of 67.8 in 2025. Still the RB1 but Gainwell signing ($14M/2yr) signals reduced role.",
+      "trade_value": {
+        "pick_equivalent": 85,
+        "pick_value_points": 130,
+        "reasoning": "Young RB on a cheap rookie deal with 2 years of control and strong 2024 tape, but 2025 regression and Gainwell signing lower value. Worth a mid-3rd given his age and contract, but RB market is depressed."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Gainwell's $7M/yr signing raises questions about Irving's long-term role. Tampa invested in the position, suggesting they may be open to offers if the price is right. Still their RB1, but the investment pattern says they're hedging.",
+      "injury_notes": "Missed 7 games in 2025 with various injuries including shoulder. Durability at 195 lbs is a concern.",
+      "character_notes": null,
+      "trade_buzz": "Yardbarker reported that Gainwell's contract 'raises a serious question about Bucky Irving's future' with the Buccaneers."
+    },
+    {
+      "name": "Kenneth Gainwell",
+      "slot": "RB2",
+      "position": "RB",
+      "age": 26,
+      "draft_pedigree": "2021 5.150",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 7000000,
+        "guaranteed_remaining": 10000000,
+        "cap_hit_2026": 7000000,
+        "dead_cap_if_traded": 10000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Rushed for 1,000+ yards in a committee in Pittsburgh in 2025. NFL's leading receiving back with 73 catches for 487 yards. Versatile dual-threat back at 5-9, 200 lbs.",
+      "trade_value": {
+        "pick_equivalent": 110,
+        "pick_value_points": 80,
+        "reasoning": "Just signed so high dead cap makes a trade nearly impossible. Quality receiving back but overpaid for RB market. Worth a late 4th in a vacuum but untradeable due to dead cap."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just signed in 2026 free agency. $10M dead cap on a $14M deal makes trading him financially absurd. He's here for 2 years.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Chris Godwin Jr.",
+      "slot": "WR1",
+      "position": "WR",
+      "age": 30,
+      "draft_pedigree": "2017 3.84",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 22000000,
+        "guaranteed_remaining": 22000000,
+        "cap_hit_2026": 33683000,
+        "dead_cap_if_traded": 49914000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "declining",
+      "performance_evidence": "Was on pace for All-Pro campaign in 2024 before dislocated ankle in Week 7 (50 rec, 576 yds, 5 TD in 7 games). Only played 9 games in 2025 with 33 catches for 360 yards and 2 TD \u2014 massive dropoff. Two consecutive injury-shortened seasons. Now 30, his $33.7M cap hit is enormous. 2027 is a club option ($20.5M base + $1.5M roster bonus).",
+      "trade_value": {
+        "pick_equivalent": 130,
+        "pick_value_points": 50,
+        "reasoning": "Dead cap of $49.9M makes Godwin essentially untradeable in 2026. His 2026 salary is fully guaranteed. Even if a team wanted him, Tampa eats nearly $50M in dead money. Value is near-zero from a trade perspective despite his talent."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Dead cap of $49.9M \u2014 nearly $50M \u2014 makes any trade financially catastrophic for Tampa Bay. The only move is to keep him and hope he returns to form, or release him post-June 1 to spread the cap hit. Not tradeable in any realistic scenario.",
+      "injury_notes": "Dislocated ankle (Oct 2024) \u2014 career-altering injury. Only 9 games in 2025. Consecutive injury-shortened seasons. Durability is a major concern at age 30.",
+      "character_notes": null,
+      "trade_buzz": "There was speculation about shipping Godwin to the Raiders, but beat reporters dismissed it due to the dead cap being prohibitive."
+    },
+    {
+      "name": "Emeka Egbuka",
+      "slot": "WR2",
+      "position": "WR",
+      "age": 23,
+      "draft_pedigree": "2025 1.19",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 4542500,
+        "guaranteed_remaining": 14000000,
+        "cap_hit_2026": 3800000,
+        "dead_cap_if_traded": 12000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Sensational rookie: 63 receptions for 938 yards and 6 TDs. Offensive Rookie of the Month (September). Finished 2nd among rookies in receiving yards. OROY finalist. Historic start \u2014 only 3rd player since 1970 with 425+ receiving yards and 5+ receiving TDs through 5 career games (with Randy Moss and Ja'Marr Chase). Faded in 2nd half with 6 drops since Week 6 and no TD in final 8 games.",
+      "trade_value": {
+        "pick_equivalent": 8,
+        "pick_value_points": 1400,
+        "reasoning": "23-year-old WR on a rookie deal with 4 years of control and elite upside. His historic rookie start combined with youth and team-friendly contract makes him one of the most valuable trade assets in the NFL. Worth multiple 1sts but expressed as a top-10 pick equivalent."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Franchise cornerstone. Just drafted 19th overall in 2025. Ohio State's all-time receptions leader. Rookie of the Year finalist. With Mike Evans gone, Egbuka IS the Bucs' WR1 of the future. Zero chance Tampa trades him.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Jalen McMillan",
+      "slot": "WR3",
+      "position": "WR",
+      "age": 24,
+      "draft_pedigree": "2024 3.92",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 1415000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1500000,
+        "dead_cap_if_traded": 600000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Showed flashes as a rookie in 2024: 37 catches, 461 yards, 8 TDs in 13 games with 7 TDs in last 5 games. But 2025 was nearly a total loss \u2014 severe neck injury (3 fractures + ligament damage) in preseason limited him to 4 games, 12 catches, 178 yards. Did flash with 7/114 line vs Miami in Week 17.",
+      "trade_value": {
+        "pick_equivalent": 120,
+        "pick_value_points": 60,
+        "reasoning": "Cheap young WR with tantalizing late-2024 breakout, but the severe neck injury in 2025 is a massive red flag. Only 4 games in 2025. Worth a 4th at most given the injury risk, but the cheap contract and age provide some upside."
+      },
+      "availability": "available",
+      "availability_reasoning": "With Evans gone and Egbuka entrenched as WR1, Godwin is the WR2, and McMillan should slide into WR3. But if a team offered a mid-round pick, Tampa would listen. His neck injury concerns could make Tampa more willing to move him than expected.",
+      "injury_notes": "Three cervical fractures and ligament damage (August 2025). Wore a neck brace for extended period. Cleared to play Week 15 but only managed 4 games. Long-term neck health is a major concern.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Cade Otton",
+      "slot": "TE1",
+      "position": "TE",
+      "age": 27,
+      "draft_pedigree": "2022 4.106",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 10000000,
+        "guaranteed_remaining": 20000000,
+        "cap_hit_2026": 10000000,
+        "dead_cap_if_traded": 20000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Back-to-back 59-catch seasons (2024: 59 catches, 600 yds, 4 TD; 2025: 59 catches, 572 yds, 1 TD). Started 58 of 63 career games. Reliable intermediate target, average blocker. Not elite but consistently productive. 71.3 PFF pass-blocking grade in 2025.",
+      "trade_value": {
+        "pick_equivalent": 75,
+        "pick_value_points": 160,
+        "reasoning": "Just re-signed to 3yr/$30M with $20M guaranteed \u2014 the dead cap makes him untradeable in Year 1. Fair contract for a solid TE1. Worth a 3rd in a vacuum but dead cap is prohibitive."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just signed 3 days ago. $20M dead cap on a $30M deal. Financially impossible to trade in 2026.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Payne Durham",
+      "slot": "TE2",
+      "position": "TE",
+      "age": 26,
+      "draft_pedigree": "2023 5.153",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1100000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1100000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Blocking-focused TE2. Limited receiving production. Depth piece primarily valued for inline blocking and special teams.",
+      "trade_value": {
+        "pick_equivalent": 220,
+        "pick_value_points": 5,
+        "reasoning": "TE2 on a minimum deal with minimal receiving production. Essentially no trade value."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth piece on an expiring deal. Would be released before being traded.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Tristan Wirfs",
+      "slot": "LT",
+      "position": "OT",
+      "age": 27,
+      "draft_pedigree": "2020 1.13",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 28120000,
+        "guaranteed_remaining": 55000000,
+        "cap_hit_2026": 36328582,
+        "dead_cap_if_traded": 61657164,
+        "free_agent_year": 2030
+      },
+      "performance_tier": "elite",
+      "performance_evidence": "Highest-paid OL in NFL history at signing ($140.6M). 1st-Team All-Pro (2021), 2nd-Team All-Pro (2022), 4x Pro Bowl. Successfully transitioned from RT to LT. Super Bowl champion. Has started all 71 games he's played in. Missed some time in 2025 (Wirfs and Goedeke missed combined 11 games).",
+      "trade_value": {
+        "pick_equivalent": 3,
+        "pick_value_points": 2200,
+        "reasoning": "Elite LT in his prime on a long-term deal \u2014 one of the most valuable non-QB assets in football. But $61.7M dead cap makes a trade literally impossible. In a hypothetical vacuum, he'd be worth 2+ 1sts."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Franchise cornerstone, face of the OL, $61.7M dead cap. The Bucs literally cannot trade him \u2014 the dead cap exceeds most teams' total cap space. He's a Buccaneer for the foreseeable future.",
+      "injury_notes": "Missed games in 2025. Had knee surgery ahead of 2025 season.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Ben Bredeson",
+      "slot": "LG",
+      "position": "IOL",
+      "age": 28,
+      "draft_pedigree": "2020 4.143",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 7333333,
+        "guaranteed_remaining": 8000000,
+        "cap_hit_2026": 7333333,
+        "dead_cap_if_traded": 10000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Started all 17 games in 2024, helped Bucs to NFL's lowest pressure rate (24.4%). Signed 3yr/$22M with $12.5M guaranteed. Started 11 games in 2025 before knee injury landed him on IR in Week 14. Solid 70.5% run-block win rate (19th among guards).",
+      "trade_value": {
+        "pick_equivalent": 100,
+        "pick_value_points": 100,
+        "reasoning": "Solid starting guard on a fair deal, but dead cap is high relative to contract size and he's coming off a knee injury. Worth a late 3rd/early 4th in a vacuum but dead cap limits practical value."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Reliable starter they just re-signed, but with Graham Barton's versatility (played LT in 2025 Week 1) and depth, Bredeson could be moved if the right offer came. Not being shopped, but the team is cap-constrained.",
+      "injury_notes": "Knee injury in Week 14 of 2025, placed on IR. Recovery timeline unknown but expected to be ready for 2026.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Graham Barton",
+      "slot": "C",
+      "position": "IOL",
+      "age": 24,
+      "draft_pedigree": "2024 1.26",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 3505000,
+        "guaranteed_remaining": 7000000,
+        "cap_hit_2026": 3000000,
+        "dead_cap_if_traded": 7500000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Started all 17 games at center as a rookie in 2024. Showed enough versatility to start at LT in Week 1 of 2025 when Wirfs was out. First-team All-ACC at Duke in 2022 and 2023. 5th-year option available. Part of one of the NFL's best OL units in 2024.",
+      "trade_value": {
+        "pick_equivalent": 40,
+        "pick_value_points": 480,
+        "reasoning": "Young 1st-round center on a team-friendly rookie deal with 3 years of control and a 5th-year option. Positional versatility (can play tackle) adds value. Worth a late 1st/early 2nd."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Homegrown 1st-round pick, only 24, locked in as the center for years. The Bucs invested heavily in building their OL through the draft \u2014 Barton is a centerpiece of that strategy.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Cody Mauch",
+      "slot": "RG",
+      "position": "IOL",
+      "age": 27,
+      "draft_pedigree": "2023 2.48",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1871364,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 2800000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Started at RG since rookie year after transitioning from OT at North Dakota State (FCS OL of the Year 2022). Developing well in zone-blocking scheme. Suffered knee injury in 2025 requiring surgery. In a contract year \u2014 could fetch $15-18M AAV extension.",
+      "trade_value": {
+        "pick_equivalent": 80,
+        "pick_value_points": 140,
+        "reasoning": "Quality starting guard on an expiring cheap deal. Worth a 3rd-round pick, but the knee surgery and contract year dynamics cut both ways \u2014 Tampa may want to trade him rather than lose him for nothing, or extend him."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Contract year player coming off knee surgery. If Tampa doesn't plan to extend him, he becomes a trade candidate mid-season. Beat reporters note he could be in line for a $15-18M AAV deal \u2014 expensive for a guard.",
+      "injury_notes": "Knee surgery following 2025 season. Recovery timeline for 2026 unclear.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Luke Goedeke",
+      "slot": "RT",
+      "position": "OT",
+      "age": 27,
+      "draft_pedigree": "2022 2.57",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 22500000,
+        "guaranteed_remaining": 42000000,
+        "cap_hit_2026": 22681200,
+        "dead_cap_if_traded": 45000000,
+        "free_agent_year": 2030
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Signed 4yr/$90M extension in 2025 with $50M guaranteed. PFF grade of 74.2 in 2024 (27th among OTs). Best pressure rate of his career at 3.2% in 2024. Ranked 29th among OTs by PFF. Solid but not elite \u2014 a good starting RT who developed well after a rough rookie year.",
+      "trade_value": {
+        "pick_equivalent": 55,
+        "pick_value_points": 340,
+        "reasoning": "Quality starting RT on a long-term deal, but $45M dead cap makes a trade essentially impossible. In a vacuum worth a 2nd-round pick, but financially untradeable. Likely restructure candidate to create cap space."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "$45M dead cap makes any trade impossible. Pewter Report specifically notes 'there's no way Licht would trade away a starting offensive tackle coming off a season in which the offensive line was ravaged with injuries.' Will be restructured for cap relief instead.",
+      "injury_notes": "Missed games in 2025. Wirfs and Goedeke missed a combined 11 games.",
+      "character_notes": null,
+      "trade_buzz": "Speculation about a trade to the Raiders was dismissed by beat writers due to dead cap and OL injury concerns."
+    },
+    {
+      "name": "Elijah Roberts",
+      "slot": "DE1",
+      "position": "DL",
+      "age": 24,
+      "draft_pedigree": "2025 6.191",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 850000,
+        "guaranteed_remaining": 200000,
+        "cap_hit_2026": 850000,
+        "dead_cap_if_traded": 150000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "6th-round pick in 2025 draft. Played a rotational role on the DL as a rookie. Limited stats but showed enough to earn a depth chart spot. Listed as DE1 primarily due to the departure of Logan Hall and Haason Reddick in free agency.",
+      "trade_value": {
+        "pick_equivalent": 200,
+        "pick_value_points": 12,
+        "reasoning": "Late-round rookie with minimal NFL tape. Worth a conditional 7th at most. Essentially a depth piece with no established trade value."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth player on a cheap deal. Would be available for any meaningful draft capital.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Vita Vea",
+      "slot": "DT1",
+      "position": "DL",
+      "age": 31,
+      "draft_pedigree": "2018 1.12",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 17750000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 22194460,
+        "dead_cap_if_traded": 6478460,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "2x Pro Bowl (2023, 2024). Anchor of the run defense for years. Averaged 44 tackles, 10 QB hits, 4 sacks per 16 games over career. Saw productivity drop in age-30 season (2025). Still a dominant run stuffer but pass-rush impact is declining. Team captain.",
+      "trade_value": {
+        "pick_equivalent": 65,
+        "pick_value_points": 230,
+        "reasoning": "Still a very good DT but age (31), expiring contract, and $22.2M cap hit significantly limit value. An acquiring team gets 1 year before free agency. Worth a late 2nd/early 3rd to a contender needing interior DL help. Dead cap is manageable at $6.5M."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Bleacher Report predicted Tampa could make a 'shocking' move by releasing Vea for cap space. His productivity dropped in 2025, he's 31, entering a contract year with a $22.2M cap hit. Spotrac identifies his extension as a key cap decision. Tampa could save ~$15.7M by trading him. With Calijah Kancey developing, Vea is the most likely high-profile Buc to be traded.",
+      "injury_notes": "Dealt with foot issue entering 2025. Has been generally durable since missing most of 2020 regular season.",
+      "character_notes": null,
+      "trade_buzz": "Bleacher Report predicted a possible release. Spotrac specifically flagged his contract extension as a major cap decision for 2026. Multiple outlets have discussed him as a potential cap casualty."
+    },
+    {
+      "name": "Nash Hutmacher",
+      "slot": "DE2",
+      "position": "DL",
+      "age": 24,
+      "draft_pedigree": "2024 5.161",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 950000,
+        "guaranteed_remaining": 200000,
+        "cap_hit_2026": 1000000,
+        "dead_cap_if_traded": 200000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "5th-round pick from South Dakota State in 2024. Rotational interior DL. Limited production but fills a role in the 3-4 base defense. Young and developing.",
+      "trade_value": {
+        "pick_equivalent": 190,
+        "pick_value_points": 15,
+        "reasoning": "Young depth DL on a cheap deal. Minimal established value. Worth a conditional late-round pick at most."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth piece. Available for any meaningful draft capital.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Alex Anzalone",
+      "slot": "LB1",
+      "position": "LB",
+      "age": 32,
+      "draft_pedigree": "2017 3.76",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 8500000,
+        "guaranteed_remaining": 12000000,
+        "cap_hit_2026": 8500000,
+        "dead_cap_if_traded": 12000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "4x Lions team captain. 95 tackles, 9 PD, 2.5 sacks, 1 INT in 2025. Had back-to-back 125+ tackle seasons in 2022-23. Smart, assignment-sound LB. Best as a chase-and-tackle weakside backer. Elite coverage skills for the position. Brings veteran leadership Tampa badly needed.",
+      "trade_value": {
+        "pick_equivalent": 95,
+        "pick_value_points": 110,
+        "reasoning": "Just signed so high dead cap relative to contract makes trade unrealistic. Quality veteran LB worth a 3rd in a vacuum, but 32 years old and just acquired."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Just signed 2yr/$17M deal. Brought in specifically to fix the LB unit. $12M dead cap. Zero chance he's traded after being acquired days ago.",
+      "injury_notes": "History of shoulder injuries including torn labrum in college. Has been durable since 2020, only missing 11 games in last 5 seasons.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "SirVocea Dennis",
+      "slot": "LB2",
+      "position": "LB",
+      "age": 26,
+      "draft_pedigree": "2023 5.158",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1000000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1100000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Earned starting nod for first time in 2025. Adequate but unspectacular \u2014 multiple sources say he 'wasn't the answer' at ILB. ESPN's Jenna Laine specifically noted Dennis wasn't the answer last season. Depth/rotational caliber who started out of necessity.",
+      "trade_value": {
+        "pick_equivalent": 180,
+        "pick_value_points": 18,
+        "reasoning": "Below-average starter on a minimum deal. Minimal trade value \u2014 worth a 6th at most. Teams wouldn't give up meaningful capital for a player his own team is trying to replace."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "The Anzalone signing explicitly signals Tampa views Dennis as a backup. Beat reporters called him 'not the answer.' On a cheap expiring deal. Would be moved for any draft pick.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Nick Jackson",
+      "slot": "LB3",
+      "position": "LB",
+      "age": 24,
+      "draft_pedigree": "UDFA 2025",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 900000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 900000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Promoted from practice squad to active roster in December 2025. One of only two LBs under contract heading into 2026 free agency (along with Dennis). Depth/special teams contributor.",
+      "trade_value": {
+        "pick_equivalent": 230,
+        "pick_value_points": 5,
+        "reasoning": "Practice squad-level LB. No meaningful trade value."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth LB on a minimum deal. Would be available for any draft capital.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Anthony Nelson",
+      "slot": "LB4",
+      "position": "EDGE",
+      "age": 28,
+      "draft_pedigree": "2019 4.107",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 4500000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 4500000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Versatile OLB in Bowles' 3-4 scheme. Had a career-best game vs Saints in 2025 when injuries depleted the edge position. Re-signed as a veteran presence. Not an elite pass rusher but reliable run defender and scheme-versatile edge setter. Stepped up with Reddick's departure and Diaby's role.",
+      "trade_value": {
+        "pick_equivalent": 140,
+        "pick_value_points": 40,
+        "reasoning": "Veteran EDGE on a cheap 1-year deal. Solid role player but not a difference-maker. Worth a 5th to a team needing edge depth."
+      },
+      "availability": "available",
+      "availability_reasoning": "Veteran on an expiring deal. Tampa's biggest need is EDGE \u2014 if they draft or sign someone better, Nelson becomes expendable. Available for fair value.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Josh Hayes",
+      "slot": "CB1",
+      "position": "CB",
+      "age": 27,
+      "draft_pedigree": "2023 6.188",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1100000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1100000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "6th-round pick who has worked his way up the depth chart. Listed as CB1 largely due to Jamel Dean's departure to Pittsburgh in free agency. Adequate depth corner who will compete with Benjamin Morrison for the outside CB spot opposite McCollum.",
+      "trade_value": {
+        "pick_equivalent": 170,
+        "pick_value_points": 22,
+        "reasoning": "Depth CB on a minimum expiring deal starting due to roster turnover. Worth a late 6th at most."
+      },
+      "availability": "available",
+      "availability_reasoning": "Placeholder starter. If Morrison or another young CB emerges, Hayes becomes expendable. Available for any draft capital.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Zyon McCollum",
+      "slot": "CB2",
+      "position": "CB",
+      "age": 27,
+      "draft_pedigree": "2022 5.157",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 16000000,
+        "guaranteed_remaining": 28000000,
+        "cap_hit_2026": 14000000,
+        "dead_cap_if_traded": 35000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Signed 3yr/$48M extension ($35.4M guaranteed) in September 2025. Made 13 starts in 2025 with 1 INT, 6 PD, 65 tackles before season-ending hip injury. Todd Bowles praised his athleticism but noted McCollum gets 'bored' and takes technique shortcuts. Inconsistent \u2014 stretches of great play followed by lapses. One of NFL's best athletes at the position but hasn't put it all together.",
+      "trade_value": {
+        "pick_equivalent": 80,
+        "pick_value_points": 140,
+        "reasoning": "Immense physical talent and 3 years of control, but $35M dead cap makes him untradeable. Inconsistency and recent hip injury further complicate things. In a vacuum worth a 3rd given his upside, but financially locked in."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "$35M dead cap on a contract signed just 6 months ago. The Bucs are banking on McCollum reaching his potential. Financially impossible to trade.",
+      "injury_notes": "Season-ending hip injury in December 2025. Expected to be healthy for 2026.",
+      "character_notes": "Bowles has publicly noted McCollum's tendency to get 'bored' and lose focus, which has been a recurring issue.",
+      "trade_buzz": "There was speculation about shipping McCollum to the Raiders, but dead cap makes it impossible."
+    },
+    {
+      "name": "Jacob Parrish",
+      "slot": "NB",
+      "position": "CB",
+      "age": 23,
+      "draft_pedigree": "2025 3.84",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1400000,
+        "guaranteed_remaining": 2500000,
+        "cap_hit_2026": 1200000,
+        "dead_cap_if_traded": 1800000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Impressive rookie: seized starting nickel role immediately. Led all NFL rookie CBs in coverage snaps (474). 2 INTs, 7 PD, 2 sacks, 76 tackles, 7 TFL. PFF overall grade of 69.3 (top-25 among all CBs). Only 9.5% missed tackle rate. Will compete for outside CB role in 2026 per Bowles.",
+      "trade_value": {
+        "pick_equivalent": 60,
+        "pick_value_points": 260,
+        "reasoning": "23-year-old slot CB who excelled as a rookie on a cheap 3-year deal. Growing into potential outside CB role. Worth a solid 2nd-round pick given his age, production trajectory, and team-friendly deal."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Key young building block in a secondary that desperately needs development. Tampa invested two 2025 picks (Morrison + Parrish) specifically to rebuild the CB room. Parrish delivered immediately. No chance he's moved.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Antoine Winfield Jr.",
+      "slot": "SS",
+      "position": "S",
+      "age": 27,
+      "draft_pedigree": "2020 2.45",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 21025000,
+        "guaranteed_remaining": 20000000,
+        "cap_hit_2026": 27466000,
+        "dead_cap_if_traded": 35000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "elite",
+      "performance_evidence": "1st-Team All-Pro (2023), Pro Bowl, DPOY votes. Highest-paid defensive back in NFL history at signing ($84.1M/4yr). Super Bowl champion. Dominant playmaker \u2014 forces fumbles, sacks, interceptions. In 2025, played full season and remained productive with strip sacks and turnovers. Only 9 games in 2024 due to injuries, but 2025 bounce-back was strong.",
+      "trade_value": {
+        "pick_equivalent": 15,
+        "pick_value_points": 1050,
+        "reasoning": "All-Pro safety in his prime with 2 years of control. One of the most versatile and impactful defenders in the NFL. But $35M dead cap makes any trade impossible. In a vacuum, he's worth a mid-to-late 1st round pick."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Franchise cornerstone on defense, $35M dead cap. Restructured his contract to help the team create cap space. The most important player on the Bucs' defense. Zero chance.",
+      "injury_notes": "Only 9 games in 2024 (foot injury). Bounced back for full 2025 season. Knee sprain in late 2025 but played through it.",
+      "character_notes": null,
+      "trade_buzz": "There was speculation about a trade to the Raiders, but beat reporters dismissed it as financially impossible."
+    },
+    {
+      "name": "Tykee Smith",
+      "slot": "FS",
+      "position": "S",
+      "age": 25,
+      "draft_pedigree": "2024 3.90",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 1200000,
+        "guaranteed_remaining": 500000,
+        "cap_hit_2026": 1300000,
+        "dead_cap_if_traded": 500000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Transitioned from nickelback to strong safety in 2025 and thrived. Todd Bowles at the Combine called him the team's 'best tackler and tone-setter.' Low 10.1% missed tackle rate (comparable to Winfield's All-Pro season). Physically imposing at 5-11, 202 lbs. High football IQ. Georgia product selected in 3rd round of 2024 draft.",
+      "trade_value": {
+        "pick_equivalent": 70,
+        "pick_value_points": 180,
+        "reasoning": "Young, ascending safety on a cheap rookie deal with 2 years of control. Coach praised him as the team's best tackler. Worth a late 2nd/early 3rd given his age, trajectory, and contract."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Developing starter with high upside, but not yet a proven Pro Bowl-caliber player. Tampa values him highly but for a strong 2nd-round offer, they'd have to consider it. More likely they keep him as a long-term safety tandem with Winfield.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    }
+  ]
+}

@@ -1,0 +1,713 @@
+{
+  "team": "NO",
+  "team_full": "New Orleans Saints",
+  "team_context": {
+    "competitive_window": "rebuilding_ascending",
+    "cap_situation": "tight \u2014 ~$11M under cap after restructures, $66M+ in dead money on books for 2026, but improving trajectory with $130M projected effective cap space in 2027",
+    "trade_posture": "Building around franchise QB Tyler Shough on a rookie deal. Willing to move expensive veterans (Kamara, potentially Ruiz, Werner) for picks or younger talent. Invested heavily in 2026 FA (Etienne, Edwards, Elliss, Fant). Team went 6-11 in 2025 but finished 5-4 under Shough with 4-game win streak. Front office views this as an ascending roster."
+  },
+  "players": [
+    {
+      "name": "Tyler Shough",
+      "slot": "QB1",
+      "position": "QB",
+      "age": 27,
+      "draft_pedigree": "2025 2.40",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 2701180,
+        "guaranteed_remaining": 8349103,
+        "cap_hit_2026": 2455618,
+        "dead_cap_if_traded": 8840226,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Won Pepsi NFL Rookie of the Year. In 11 games (9 starts), completed 67.6% of passes for 2,384 yards, 10 TD, 6 INT (91.3 passer rating). Led Saints to 5-4 record as starter including 4-game win streak. Set Saints rookie records for passing yards, TDs, and completion percentage. Named OROY finalist.",
+      "trade_value": {
+        "pick_equivalent": 5,
+        "pick_value_points": 1700,
+        "reasoning": "Young franchise QB on 3 years of a cheap rookie deal ($2.7M AAV) is the most valuable asset in the NFL. After a Rookie of the Year-caliber season, Shough's combination of upside, contract value, and age (27, older for a 2nd-year QB but still in ascending trajectory) makes him worth multiple firsts in practice. Expressed as a single pick equivalent, he's worth a top-5 pick."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Face of the franchise. HC Kellen Moore said 'We feel great with Tyler' and 'he's starting, we're not looking back.' Saints have been rebuilding specifically to build around Shough. Zero chance of a trade.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Spencer Rattler",
+      "slot": "QB2",
+      "position": "QB",
+      "age": 25,
+      "draft_pedigree": "2024 5.150",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 1050000,
+        "guaranteed_remaining": 200000,
+        "cap_hit_2026": 1120000,
+        "dead_cap_if_traded": 280000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "Started first 8 games of 2025 season, went 1-7 before being replaced by Shough. Showed some arm talent but inconsistent decision-making. Lost the job and never got it back.",
+      "trade_value": {
+        "pick_equivalent": 200,
+        "pick_value_points": 28,
+        "reasoning": "Backup QB on a cheap deal with some starting experience, but was benched mid-season and replaced by a rookie. Limited trade value \u2014 maybe a conditional 7th-round pick to a QB-needy team."
+      },
+      "availability": "available",
+      "availability_reasoning": "Clearly the backup behind Shough. Saints wouldn't block a trade if someone offered even a late-round pick, but there's also value in having a capable backup.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Travis Etienne Jr.",
+      "slot": "RB1",
+      "position": "RB",
+      "age": 27,
+      "draft_pedigree": "2021 1.25",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 13000000,
+        "guaranteed_remaining": 23000000,
+        "cap_hit_2026": 10000000,
+        "dead_cap_if_traded": 18000000,
+        "free_agent_year": 2030
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Rushed for 1,107 yards and 7 TDs with 36 receptions for 292 yards and 6 TDs in 2025 with Jacksonville. Three 1,000-yard rushing seasons in career. 5,136 career yards from scrimmage and 32 total TDs in 4 active seasons.",
+      "trade_value": {
+        "pick_equivalent": 55,
+        "pick_value_points": 340,
+        "reasoning": "Above-average starting RB on a fresh 4-year deal, but RB is the least valued position and $13M AAV is top-7 at the position. High dead cap ($18M) makes a trade impractical in year one. Worth a late 2nd/early 3rd in a vacuum but dead cap makes him essentially untradeable for now."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just signed to be the RB1 of the future. Saints aren't moving him unless someone massively overpays. High dead cap in year one makes a trade financially painful.",
+      "injury_notes": "Missed entire 2021 rookie season with Lisfranc injury. Has been healthy since.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Alvin Kamara",
+      "slot": "RB2",
+      "position": "RB",
+      "age": 31,
+      "draft_pedigree": "2017 3.67",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 12250000,
+        "guaranteed_remaining": 3000000,
+        "cap_hit_2026": 10100000,
+        "dead_cap_if_traded": 8500000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "declining",
+      "performance_evidence": "Career lows in 2025: 471 rushing yards and 186 receiving yards in just 11 games. No longer able to handle the workload that defined his career. Was elite as recently as 2024 but age and injury caught up rapidly.",
+      "trade_value": {
+        "pick_equivalent": 175,
+        "pick_value_points": 35,
+        "reasoning": "Declining 31-year-old RB on a bloated expiring deal ($10.1M cap hit). The Etienne signing signals the Saints are moving on. Might return a conditional 6th or 7th at best given age, salary, and 2025 decline."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Saints signed Etienne to a 4-year, $52M deal \u2014 clear succession plan. Kamara's contract was restructured using a rare CBA clause, raising questions about his future. ESPN's Schefter reported teams are asking about Kamara's availability. Release would save $1.6M vs. dead cap.",
+      "injury_notes": "Finished each of last two seasons injured. Played only 11 games in 2025.",
+      "character_notes": null,
+      "trade_buzz": "Etienne's arrival has led to questions around the league about whether Kamara will be moving on and whether the Saints would trade him, per Adam Schefter."
+    },
+    {
+      "name": "Chris Olave",
+      "slot": "WR1",
+      "position": "WR",
+      "age": 26,
+      "draft_pedigree": "2022 1.11",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 4817969,
+        "guaranteed_remaining": 15493000,
+        "cap_hit_2026": 15493000,
+        "dead_cap_if_traded": 15493000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Breakout 2025 season: 100 receptions for 1,163 yards and 9 TDs \u2014 best of his career. Has topped 1,000 yards in 3 of 4 NFL seasons. 67.6% completion percentage among rookies was best ever (for Shough). Spotrac projects his next deal at 4-year, $131M.",
+      "trade_value": {
+        "pick_equivalent": 20,
+        "pick_value_points": 850,
+        "reasoning": "Elite WR production at 26 years old. On 5th-year option ($15.5M fully guaranteed) so acquiring team gets 1 year of control before he's a free agent. Enormous extension incoming ($32M+ AAV). Worth a mid-to-late 1st to a contender willing to pay up, but the expiring nature caps value. Saints more likely to extend than trade."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Saints kept him through 2025 trade deadline despite interest. Extension negotiations ongoing \u2014 Spotrac and beat reporters say Saints are negotiating a new deal. If talks stall, he becomes a trade candidate given his $15.5M expiring deal. But Saints view him as Shough's #1 weapon and want to keep him.",
+      "injury_notes": "Concussion history in 2024 limited him to 9 games that year. Back problems in late 2025 but played through them.",
+      "character_notes": null,
+      "trade_buzz": "ESPN floated an A.J. Brown-for-Olave swap. Multiple teams called about him at 2025 deadline. Saints elected to keep him but extension not done yet."
+    },
+    {
+      "name": "Devaughn Vele",
+      "slot": "WR2",
+      "position": "WR",
+      "age": 28,
+      "draft_pedigree": "2024 7.235",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 950000,
+        "guaranteed_remaining": 400000,
+        "cap_hit_2026": 1100000,
+        "dead_cap_if_traded": 500000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Acquired from Denver for a 4th-round pick in August 2025. In 13 games with Saints, recorded 25 receptions for 293 yards and 2 TDs. Showed improved chemistry with Shough late in season (averaged 59.8 receiving yards over last 4 games). Season ended on IR with shoulder injury.",
+      "trade_value": {
+        "pick_equivalent": 195,
+        "pick_value_points": 30,
+        "reasoning": "Depth WR on a cheap deal. 28 years old with limited ceiling. Contributed modestly as WR2 after Shaheed trade. Worth a conditional 7th at best."
+      },
+      "availability": "available",
+      "availability_reasoning": "Depth piece the Saints acquired cheaply. If they draft or sign a WR2, Vele becomes expendable. Shoulder injury is a concern entering 2026.",
+      "injury_notes": "Placed on IR in December 2025 with shoulder injury sustained vs. Panthers in Week 15.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Mason Tipton",
+      "slot": "WR3",
+      "position": "WR",
+      "age": 25,
+      "draft_pedigree": "UDFA 2024",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 915000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1000000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "backup",
+      "performance_evidence": "UDFA from Yale who made the roster two straight years. 14 catches for 99 yards as a rookie in 2024. Stepped up when injuries hit WR room in 2025 but remains a depth piece.",
+      "trade_value": {
+        "pick_equivalent": 250,
+        "pick_value_points": 5,
+        "reasoning": "UDFA depth WR with minimal production. Essentially no trade value \u2014 would be a waiver claim, not a trade target."
+      },
+      "availability": "available",
+      "availability_reasoning": "Roster bubble player. Saints would move him for anything of value but unlikely anyone is calling.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Juwan Johnson",
+      "slot": "TE1",
+      "position": "TE",
+      "age": 30,
+      "draft_pedigree": "UDFA 2020",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 10250000,
+        "guaranteed_remaining": 9000000,
+        "cap_hit_2026": 12500000,
+        "dead_cap_if_traded": 14000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Career-best 2025: 77 catches, 889 yards, 3 TDs on 100+ targets. Reliable intermediate target for Shough. Maxed out all $750K in incentives. Poor run blocker (former WR) but excellent receiving TE.",
+      "trade_value": {
+        "pick_equivalent": 80,
+        "pick_value_points": 160,
+        "reasoning": "Quality receiving TE but turning 30, and dead cap ($14M) exceeds cap hit ($12.5M), making a trade create negative cap savings. Worth a mid-3rd in a vacuum but contract structure makes trade impractical in 2026."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Fully guaranteed 2026 salary ($9M) and dead cap exceeding cap hit make him very difficult to move. Saints restructured his deal for cap space, further entrenching him. Would need a significant offer to consider a trade.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Noah Fant",
+      "slot": "TE2",
+      "position": "TE",
+      "age": 28,
+      "draft_pedigree": "2019 1.20",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 4500000,
+        "guaranteed_remaining": 3000000,
+        "cap_hit_2026": 4000000,
+        "dead_cap_if_traded": 2500000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "34 catches for 288 yards and 3 TDs with Bengals in 2025. PFF grade of 56.4. Former 1st-round pick whose career has been solid but unspectacular since being traded from Denver. Valued more for blocking (82.3% run-block win rate per TruMedia) than receiving.",
+      "trade_value": {
+        "pick_equivalent": 150,
+        "pick_value_points": 50,
+        "reasoning": "Veteran TE2 on a reasonable 2-year deal. Provides blocking and depth. Worth a late-round pick at best given modest production and age."
+      },
+      "availability": "available",
+      "availability_reasoning": "Just signed in free agency as a complementary piece. Saints wouldn't block a fair offer but also not actively shopping him.",
+      "injury_notes": "Three fumbles lost in critical moments with Bengals in 2025 is a concern.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Kelvin Banks Jr.",
+      "slot": "LT",
+      "position": "OT",
+      "age": 22,
+      "draft_pedigree": "2025 1.9",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 6922029,
+        "guaranteed_remaining": 27688114,
+        "cap_hit_2026": 5800000,
+        "dead_cap_if_traded": 22500000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Named to PFWA All-Rookie team in 2025. Both tackles (Banks and Fuaga) had 'great years' per beat writers. Won Lombardi and Outland trophies in college at Texas, where he started all 42 games and allowed only 4 sacks in 1,477 pass-blocking snaps. Elite college pedigree translating to NFL.",
+      "trade_value": {
+        "pick_equivalent": 8,
+        "pick_value_points": 1400,
+        "reasoning": "22-year-old All-Rookie LT on a fully guaranteed rookie deal with 4 years of control plus a 5th-year option. Elite draft pedigree (9th overall), top college accolades, and immediate NFL production. Young franchise OTs on rookie deals are nearly untradeable \u2014 worth multiple 1sts."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Cornerstone of the rebuild. 22-year-old franchise LT on a 4-year rookie deal protecting the franchise QB. Zero chance the Saints move him.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "David Edwards",
+      "slot": "LG",
+      "position": "IOL",
+      "age": 29,
+      "draft_pedigree": "2019 5.169",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 15250000,
+        "guaranteed_remaining": 30000000,
+        "cap_hit_2026": 12000000,
+        "dead_cap_if_traded": 20000000,
+        "free_agent_year": 2030
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Top guard on the free agent market in 2026. Won 95% of pass blocks in 2025 per TruMedia. Super Bowl champion with Rams. Started last 2 seasons at LG for Bills. Consistent, reliable starter.",
+      "trade_value": {
+        "pick_equivalent": 55,
+        "pick_value_points": 340,
+        "reasoning": "Above-average starting guard on a fresh 4-year deal. High dead cap makes trade impractical in year one. Worth a late 2nd/early 3rd in a vacuum but just signed \u2014 Saints aren't moving him."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just signed a 4-year, $61M deal specifically to protect Shough. Not going anywhere. High dead cap prevents trade.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Erik McCoy",
+      "slot": "C",
+      "position": "IOL",
+      "age": 28,
+      "draft_pedigree": "2019 2.48",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 11500000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 17680000,
+        "dead_cap_if_traded": 7640000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "When healthy, a solid starting center. However, has played a full season only once in the past five years. Missed most of 2025 with injury. Restructured contract has ballooned his cap hit to $17.7M. No guaranteed money remaining.",
+      "trade_value": {
+        "pick_equivalent": 100,
+        "pick_value_points": 100,
+        "reasoning": "When healthy, he's a quality starter, but durability concerns are severe. No guaranteed money means he could be cut, saving $10M. Bloated cap hit ($17.7M) makes him hard to trade. Worth a mid-4th to a team that would restructure his deal."
+      },
+      "availability": "available",
+      "availability_reasoning": "No guaranteed money remaining. $17.7M cap hit is well above his production level given injuries. Saints have discussed restructure candidates and McCoy is one of them. Could be cut or traded. Beat reporters note his injury history could prompt both sides to reconsider.",
+      "injury_notes": "Has played a full season only once in the past five years. Missed most of 2025. Will turn 29 next season.",
+      "character_notes": null,
+      "trade_buzz": "Identified as a restructure or potential cut candidate by both Spotrac and NFLTradeRumors."
+    },
+    {
+      "name": "Cesar Ruiz",
+      "slot": "RG",
+      "position": "IOL",
+      "age": 26,
+      "draft_pedigree": "2020 1.24",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 11000000,
+        "guaranteed_remaining": 2600000,
+        "cap_hit_2026": 14190000,
+        "dead_cap_if_traded": 9500000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "PFF grade of 55.1 in 2025 \u2014 second-lowest among Saints starting OL. Versatile (can play C or G) but arguably the least efficient OL starter. Former 1st-round pick who hasn't lived up to his pedigree. Spotrac noted he hasn't played to the level his contract requires.",
+      "trade_value": {
+        "pick_equivalent": 110,
+        "pick_value_points": 85,
+        "reasoning": "Below-average starting guard overpaid at $14.2M cap hit. Only $2.6M guaranteed remaining, so a trade is financially feasible (saves $4.7M vs. dead cap). Young enough (26) that a team could view him as a reclamation project. Worth a 4th-round pick."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Mentioned in trade rumors before the 2025 deadline. Spotrac explicitly said 'turning players like Ruiz into viable draft assets seems like the right move for the Saints.' No guaranteed money on his $9.5M 2026 salary. Contract is a liability relative to performance.",
+      "injury_notes": "2022 Lisfranc injury required IR stint.",
+      "character_notes": null,
+      "trade_buzz": "Multiple outlets mentioned Ruiz in trade rumors at the 2025 deadline. Spotrac identified him as a trade candidate."
+    },
+    {
+      "name": "Taliese Fuaga",
+      "slot": "RT",
+      "position": "OT",
+      "age": 24,
+      "draft_pedigree": "2024 1.14",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 5300000,
+        "guaranteed_remaining": 8500000,
+        "cap_hit_2026": 5500000,
+        "dead_cap_if_traded": 10000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Beat writers noted both tackles had 'great years' in 2025. Consensus first-team All-American at Oregon State. Did not allow a sack in 25 starts in college. Started all 17 games in each of his first two NFL seasons.",
+      "trade_value": {
+        "pick_equivalent": 18,
+        "pick_value_points": 900,
+        "reasoning": "24-year-old starting RT on a cheap rookie deal with 5th-year option available. Young OTs on rookie contracts with starter-level production are extremely valuable. Worth a 1st-round pick to a tackle-needy team."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Core building block alongside Banks. Saints have both tackle spots locked down for the foreseeable future with two young, cheap, productive players. No incentive to move either.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Vernon Broughton",
+      "slot": "DE1",
+      "position": "DL",
+      "age": 23,
+      "draft_pedigree": "2025 3.71",
+      "contract": {
+        "years_remaining": 4,
+        "aav": 1700000,
+        "guaranteed_remaining": 3800000,
+        "cap_hit_2026": 1500000,
+        "dead_cap_if_traded": 3000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "2025 3rd-round pick from Texas (71st overall). In college, recorded 39 tackles, 4.5 TFL, 4.0 sacks in 2024. DL coach Bo Davis worked with him at Texas. Started as a rotational piece as a rookie in the Saints' 3-4 scheme.",
+      "trade_value": {
+        "pick_equivalent": 130,
+        "pick_value_points": 70,
+        "reasoning": "Young developmental DT on a cheap 4-year rookie deal. Limited NFL production so far but has upside as a 3rd-round pick in year 2. Worth a mid-to-late 4th."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Young player the Saints invested a Day 2 pick in. They're developing him. Would need an overpay to move him.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Davon Godchaux",
+      "slot": "DT1",
+      "position": "DL",
+      "age": 31,
+      "draft_pedigree": "2017 5.178",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 5500000,
+        "guaranteed_remaining": 5500000,
+        "cap_hit_2026": 7500000,
+        "dead_cap_if_traded": 2000000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Durable run-stuffing nose tackle. Started 109 of 120 regular-season games across career with Dolphins and Patriots. 67 tackles in 2024 starting all 17 games. Acquired from Patriots for a 7th-round pick in March 2025.",
+      "trade_value": {
+        "pick_equivalent": 140,
+        "pick_value_points": 55,
+        "reasoning": "Solid run-stuffing DT on a reasonable expiring deal ($7.5M cap hit, only $2M dead cap if traded). Turning 31 with limited pass-rush upside. Worth a 5th-round pick to a contender needing interior run defense."
+      },
+      "availability": "available",
+      "availability_reasoning": "Expiring contract, 31 years old, acquired cheaply. Saints could flip him for a pick if a contender comes calling. Low dead cap makes trade easy.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Bryan Bresee",
+      "slot": "DE2",
+      "position": "DL",
+      "age": 24,
+      "draft_pedigree": "2023 1.29",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 4200000,
+        "guaranteed_remaining": 4500000,
+        "cap_hit_2026": 4600000,
+        "dead_cap_if_traded": 5800000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "12 sacks, 32 pressures, 14 TFL, and 9 tipped passes over first two NFL seasons. Led Saints in sacks with 7.5 in 2024. PFF overall grade dropped to 52.9 in 2025 (88th/134 DIs) in new 3-4 scheme with 2.5 sacks. Still only 24 with upside. 5th-year option decision pending.",
+      "trade_value": {
+        "pick_equivalent": 45,
+        "pick_value_points": 430,
+        "reasoning": "24-year-old former 1st-round DT on a cheap deal with 5th-year option available. Showed elite pass-rush ability in 2024 (7.5 sacks from DT). 2025 was a down year in a new scheme but talent is clear. Worth a late 1st/early 2nd to a team that believes in his 2024 ceiling."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Saints view him as a building block and will likely pick up his 5th-year option. Would only trade for significant return. Not being shopped.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Carl Granderson",
+      "slot": "LB1",
+      "position": "EDGE",
+      "age": 30,
+      "draft_pedigree": "UDFA 2019",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 13000000,
+        "guaranteed_remaining": 10750000,
+        "cap_hit_2026": 18062000,
+        "dead_cap_if_traded": 18488000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "Combined 16 sacks with Chase Young in 2025. Career-high 8.5 sacks in 2023. Has not missed a game since 2022. Plays OLB/EDGE in Staley's 3-4. PFF had him 9th in total pressures during 2025.",
+      "trade_value": {
+        "pick_equivalent": 70,
+        "pick_value_points": 210,
+        "reasoning": "Productive EDGE on a big deal ($18M cap hit) but dead cap ($18.5M) exceeds cap hit, making trade create NEGATIVE cap savings. Worth a mid-2nd based on production but contract structure makes him essentially untradeable in 2026."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Dead cap exceeds cap hit, so Saints cannot trade him without eating more dead money than they save. Key piece of Staley's defense. Contract was restructured, further entrenching him.",
+      "injury_notes": "No games missed since 2022.",
+      "character_notes": null,
+      "trade_buzz": "Seahawks were linked to him in October 2025 trade speculation."
+    },
+    {
+      "name": "Kaden Elliss",
+      "slot": "LB2",
+      "position": "LB",
+      "age": 31,
+      "draft_pedigree": "2019 7.244",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 11000000,
+        "guaranteed_remaining": 23000000,
+        "cap_hit_2026": 9000000,
+        "dead_cap_if_traded": 15000000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "pro_bowl",
+      "performance_evidence": "Led Falcons in tackles in 2025 with 107, plus 3.5 sacks, 10 TFL, 1 INT, and 6 passes defended. Started every game for 3 straight seasons in Atlanta. 380 tackles, 12.5 sacks, 2 INTs over last 3 years. Versatile \u2014 can rush, cover, and tackle.",
+      "trade_value": {
+        "pick_equivalent": 60,
+        "pick_value_points": 280,
+        "reasoning": "Above-average LB on a fresh 3-year deal. High guaranteed money ($23M) means significant dead cap makes a trade impractical. Worth a mid-2nd in a vacuum but just signed \u2014 not going anywhere."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Just signed a 3-year, $33M deal to replace Demario Davis. Centerpiece of the defensive rebuild. High guarantees make trade financially impossible for now.",
+      "injury_notes": null,
+      "character_notes": "Team captain with Falcons. Known as a locker room leader.",
+      "trade_buzz": null
+    },
+    {
+      "name": "Pete Werner",
+      "slot": "LB3",
+      "position": "LB",
+      "age": 27,
+      "draft_pedigree": "2021 2.60",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 7000000,
+        "guaranteed_remaining": 6250000,
+        "cap_hit_2026": 7970000,
+        "dead_cap_if_traded": 7200000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Starting role/snap count dropped in 2025, losing time to younger players. Extension signed in 2024 but his role has diminished. PFF and Spotrac both noted decline in his value relative to contract.",
+      "trade_value": {
+        "pick_equivalent": 120,
+        "pick_value_points": 78,
+        "reasoning": "Below-average starting LB whose role is shrinking. Fully guaranteed $6.25M salary makes him hard to cut. Dead cap ($7.2M) is close to cap hit ($7.97M), so trade provides minimal cap relief. Worth a 4th-5th to a team willing to absorb the salary."
+      },
+      "availability": "actively_shopable",
+      "availability_reasoning": "Beat reporters noted Werner was losing snaps in 2025 and 'the team wasn't opposed to shedding his contract for the right trade offer.' Spotrac said Saints may 'retain some of that salary to facilitate a trade.' With Elliss signed, Werner is redundant.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": "Cropped up in trade rumors ahead of 2025 trade deadline per NFLTradeRumors. Spotrac identified him as a trade candidate."
+    },
+    {
+      "name": "Chase Young",
+      "slot": "LB4",
+      "position": "EDGE",
+      "age": 27,
+      "draft_pedigree": "2020 1.2",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 17000000,
+        "guaranteed_remaining": 14830000,
+        "cap_hit_2026": 9610000,
+        "dead_cap_if_traded": 22000000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "10 sacks, 38 tackles, 2 forced fumbles, 3 fumble recoveries, 1 defensive TD in 2025 (12 games). Part of combined 16-sack tandem with Granderson. 2020 Defensive ROY. Top 10 in pressure percentage at 17%. PFF had him 9th in total pressures.",
+      "trade_value": {
+        "pick_equivalent": 40,
+        "pick_value_points": 480,
+        "reasoning": "Productive EDGE rusher (10 sacks in 2025) entering prime at 27. However, dead cap of $22M massively exceeds his $9.6M restructured cap hit, making a trade financially devastating. In a vacuum his talent warrants a 2nd-round pick, but the contract structure makes him untradeable."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Dead cap ($22M) is more than double his cap hit ($9.6M) after restructure. Saints literally cannot trade him without eating enormous dead money. He's locked in as a starter for 2026. Key piece alongside Granderson in Staley's defense.",
+      "injury_notes": "Torn ACL in 2021 cost him most of 2022 season. Has been healthy since joining Saints, missing only 5 games in 2 seasons.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Kool-Aid McKinstry",
+      "slot": "CB1",
+      "position": "CB",
+      "age": 23,
+      "draft_pedigree": "2024 2.41",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 2289277,
+        "guaranteed_remaining": 3500000,
+        "cap_hit_2026": 2400000,
+        "dead_cap_if_traded": 3800000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "quality_starter",
+      "performance_evidence": "In 2025, recorded 76 tackles (59 solo), 17 passes defended (T-6th in NFL), and 3 INTs across all 17 games as CB1. Won NFC Defensive Player of the Week in Week 5 (2 INTs vs. Giants). PFF overall grade of 69.5 (25th/114 CBs). Major improvement from rookie year (42 tackles, 6 PBUs, 0 INTs).",
+      "trade_value": {
+        "pick_equivalent": 30,
+        "pick_value_points": 620,
+        "reasoning": "23-year-old ascending CB1 on a cheap rookie deal with 2 years remaining. T-6th in passes defended in first full season as starter. The combination of youth, position value, cheap contract, and upward trajectory makes him extremely valuable. Worth a late 1st to a CB-needy team."
+      },
+      "availability": "untouchable",
+      "availability_reasoning": "Young, ascending CB1 on a cheap rookie deal. Saints invested a 2nd-round pick and he's emerged as their top corner after Lattimore trade. Building block of the defense. No scenario where they trade him.",
+      "injury_notes": "Jones fracture in foot discovered at 2024 Combine, but has been healthy since.",
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Quincy Riley",
+      "slot": "CB2",
+      "position": "CB",
+      "age": 25,
+      "draft_pedigree": "2025 4.131",
+      "contract": {
+        "years_remaining": 3,
+        "aav": 1250000,
+        "guaranteed_remaining": 2000000,
+        "cap_hit_2026": 1100000,
+        "dead_cap_if_traded": 1500000,
+        "free_agent_year": 2029
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "2025 4th-round pick from Louisville. Named to Benjamin Solak's All-Rookie team. 8 INTs over last 3 college years, 25 PBUs in last 2. Stepped into a starting role as a rookie after Lattimore and Adebo departures.",
+      "trade_value": {
+        "pick_equivalent": 130,
+        "pick_value_points": 70,
+        "reasoning": "Rookie CB on a cheap deal who showed promise. Worth a mid-4th. Saints invested a Day 2 pick and view him as a long-term starter alongside McKinstry."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Young developmental CB the Saints drafted to start long-term. Would only trade for significant overpay.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Jordan Howden",
+      "slot": "NB",
+      "position": "S",
+      "age": 26,
+      "draft_pedigree": "2023 6.195",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1100000,
+        "guaranteed_remaining": 0,
+        "cap_hit_2026": 1200000,
+        "dead_cap_if_traded": 0,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "rotational",
+      "performance_evidence": "Versatile safety/nickel who can play multiple secondary spots. 50 tackles and 2 INTs in 2024, stepped up when injuries hit. Solid depth piece entering a contract year. Recovered a fumble 86 yards for a TD in 2025.",
+      "trade_value": {
+        "pick_equivalent": 180,
+        "pick_value_points": 32,
+        "reasoning": "Depth safety on an expiring deal. Minimal contract obligation. Worth a conditional 6th-7th at best."
+      },
+      "availability": "available",
+      "availability_reasoning": "Entering a contract year with no guaranteed money. Saints have Reid, Blackmon, and Sanker ahead of him at safety. Expendable if someone offers a late-round pick.",
+      "injury_notes": null,
+      "character_notes": null,
+      "trade_buzz": null
+    },
+    {
+      "name": "Justin Reid",
+      "slot": "SS",
+      "position": "S",
+      "age": 29,
+      "draft_pedigree": "2018 3.68",
+      "contract": {
+        "years_remaining": 2,
+        "aav": 10500000,
+        "guaranteed_remaining": 9250000,
+        "cap_hit_2026": 5190000,
+        "dead_cap_if_traded": 18450000,
+        "free_agent_year": 2028
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Disappointing 2025: 72 tackles, 0.5 sack, 1 INT, 6 PBUs in 15 games. Gave up 73% completion rate and 102.6 passer rating in coverage. 11 missed tackles (13% rate). Two-time Super Bowl champion with Chiefs but performance in NO was below expectations.",
+      "trade_value": {
+        "pick_equivalent": 130,
+        "pick_value_points": 70,
+        "reasoning": "Dead cap ($18.45M) is more than triple his restructured cap hit ($5.19M). Trading him would be catastrophic for the cap. In a vacuum, a below-average starting safety on a $10.5M AAV deal turning 29 is worth a mid-4th. But he is completely untradeable due to contract structure."
+      },
+      "availability": "available_at_premium",
+      "availability_reasoning": "Dead cap ($18.45M) is the single biggest barrier. A release or trade would destroy the Saints' cap. They restructured him for a reason \u2014 he's staying for at least 2026. Was viewed as a potential cap casualty before the restructure locked him in.",
+      "injury_notes": null,
+      "character_notes": "Two-time Super Bowl champion. Veteran leadership.",
+      "trade_buzz": "Was widely viewed as a potential cap casualty before restructure locked him in."
+    },
+    {
+      "name": "Julian Blackmon",
+      "slot": "FS",
+      "position": "S",
+      "age": 28,
+      "draft_pedigree": "2020 3.85",
+      "contract": {
+        "years_remaining": 1,
+        "aav": 1515000,
+        "guaranteed_remaining": 1000000,
+        "cap_hit_2026": 1515000,
+        "dead_cap_if_traded": 300000,
+        "free_agent_year": 2027
+      },
+      "performance_tier": "starter",
+      "performance_evidence": "Played only 1 game in 2025 before season-ending shoulder injury. Career: 10 INTs, 22 PBUs in 67 games. Had 7 INTs and 12 PBUs in last 2 seasons with Colts (2023-24). Proven playmaker when healthy.",
+      "trade_value": {
+        "pick_equivalent": 150,
+        "pick_value_points": 50,
+        "reasoning": "Cheap 1-year deal ($1.5M) with minimal dead cap. When healthy, a quality starting safety. But coming off a season-ending shoulder injury and already 28. Worth a 5th-6th to a safety-needy team."
+      },
+      "availability": "available",
+      "availability_reasoning": "On a cheap 1-year deal. Saints have depth at safety (Reid, Sanker, Howden). If healthy, he starts, but if someone offers a mid-round pick the Saints would listen.",
+      "injury_notes": "Season-ending shoulder injury in Week 1 of 2025. Torn Achilles in 2021. History of significant injuries.",
+      "character_notes": null,
+      "trade_buzz": null
+    }
+  ]
+}
