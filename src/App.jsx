@@ -23,6 +23,7 @@ import FA_FLAGS from "./freeAgencyFlags.js";
 import { TEAM_ABBR, TEAM_SCHEME, getFormationPos, getSchemeDepthGroups } from "./depthChartUtils.js";
 import { ROSTER_BY_SLOT, ROSTER_BY_NAME, formatContract, formatTradeValue, TIER_COLORS, AVAILABILITY_DISPLAY } from "./rosterValueData.js";
 import { computeAllSchemeFits, getTopTeamFits, getTeamSchemeFits, getSchemeTraitBreakdown, getPositionAvgFit, generateScoutReasoning, computeTeamScoutVision } from "./schemeFit.js";
+import SCOUTING_NARRATIVES from "./scoutingNarratives.json";
 
 // Suffix-aware short name: "Rueben Bain Jr." → "Bain Jr." not "Jr."
 const GEN_SUFFIXES=/^(Jr\.?|Sr\.?|II|III|IV|V|VI|VII|VIII)$/i;
@@ -1003,6 +1004,28 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
             </div>
           </div>
         ):null;})()}
+
+        {(()=>{const nKey=`${player.name?.toLowerCase()}|${player.school?.toLowerCase()}`;const sn=SCOUTING_NARRATIVES[nKey];if(!sn||(!sn.scouting_blurb&&!sn.strengths?.length&&!sn.weaknesses?.length))return null;const strip=t=>t?.replace(/\b(Zierlein|Jeremiah|Brugler|Kiper|McShay|Schrager|Miller|Rang|Emory|Cosell|NFL\.com|CBS Sports|ESPN|PFF)(?:'s?)?\b/gi,"").replace(/\s{2,}/g," ").trim();return<div style={{padding:"0 24px 20px"}}>
+          <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>scouting report</div>
+          {sn.scouting_blurb&&<div style={{fontFamily:sans,fontSize:12,color:"#404040",lineHeight:1.6,marginBottom:12}}>{strip(sn.scouting_blurb)}</div>}
+          {sn.strengths?.length>0&&<div style={{marginBottom:10}}>
+            <div style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#16a34a",textTransform:"uppercase",letterSpacing:1,marginBottom:4}}>strengths</div>
+            {sn.strengths.map((s,i)=><div key={i} style={{display:"flex",gap:6,marginBottom:4,alignItems:"flex-start"}}><span style={{color:"#16a34a",fontSize:10,lineHeight:1.7,flexShrink:0}}>+</span><span style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.5}}>{strip(s)}</span></div>)}
+          </div>}
+          {sn.weaknesses?.length>0&&<div style={{marginBottom:10}}>
+            <div style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#dc2626",textTransform:"uppercase",letterSpacing:1,marginBottom:4}}>weaknesses</div>
+            {sn.weaknesses.map((w,i)=><div key={i} style={{display:"flex",gap:6,marginBottom:4,alignItems:"flex-start"}}><span style={{color:"#dc2626",fontSize:10,lineHeight:1.7,flexShrink:0}}>−</span><span style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.5}}>{strip(w)}</span></div>)}
+          </div>}
+          {sn.pro_comparison&&<div style={{display:"flex",alignItems:"center",gap:6,marginBottom:6}}>
+            <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>pro comp</span>
+            <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>{sn.pro_comparison}</span>
+          </div>}
+          {sn.pro_comparison_reasoning&&<div style={{fontFamily:sans,fontSize:11,color:"#737373",lineHeight:1.5,marginBottom:8,fontStyle:"italic"}}>{strip(sn.pro_comparison_reasoning)}</div>}
+          {sn.boom_bust_variance?.level&&sn.boom_bust_variance.level!=="low"&&<div style={{display:"flex",alignItems:"center",gap:6,padding:"6px 10px",background:sn.boom_bust_variance.level==="high"?"#fef2f2":"#fefce8",border:`1px solid ${sn.boom_bust_variance.level==="high"?"#fecaca":"#fef08a"}`,borderRadius:6}}>
+            <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:sn.boom_bust_variance.level==="high"?"#dc2626":"#ca8a04",textTransform:"uppercase"}}>{sn.boom_bust_variance.level} variance</span>
+            {sn.boom_bust_variance.explanation&&<span style={{fontFamily:sans,fontSize:10,color:"#737373",lineHeight:1.4}}>{strip(sn.boom_bust_variance.explanation)}</span>}
+          </div>}
+        </div>;})()}
 
         <div style={{padding:"0 24px 32px"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
