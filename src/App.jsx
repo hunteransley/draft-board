@@ -21,7 +21,7 @@ import { PROSPECTS_RAW } from "./prospects.js";
 import NFL_ROSTERS from "./nflRosters.js";
 import FA_FLAGS from "./freeAgencyFlags.js";
 import { TEAM_ABBR, TEAM_SCHEME, getFormationPos, getSchemeDepthGroups } from "./depthChartUtils.js";
-import { ROSTER_BY_SLOT, formatContract, formatTradeValue, TIER_COLORS, AVAILABILITY_DISPLAY } from "./rosterValueData.js";
+import { ROSTER_BY_SLOT, ROSTER_BY_NAME, formatContract, formatTradeValue, TIER_COLORS, AVAILABILITY_DISPLAY } from "./rosterValueData.js";
 import { computeAllSchemeFits, getTopTeamFits, getTeamSchemeFits, getSchemeTraitBreakdown, getPositionAvgFit, generateScoutReasoning, computeTeamScoutVision } from "./schemeFit.js";
 
 // Suffix-aware short name: "Rueben Bain Jr." → "Bain Jr." not "Jr."
@@ -2432,7 +2432,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
             <svg viewBox="-2 -2 104 109" style={{width:"100%",maxWidth:360,margin:"0 auto",display:"block"}}>
               {[20,40,58,75,90].map(y=><line key={y} x1="2" y1={y} x2="98" y2={y} stroke="rgba(0,0,0,0.04)" strokeWidth="0.3"/>)}
               <line x1="2" y1="58" x2="98" y2="58" stroke={accent+"44"} strokeWidth="0.5" strokeDasharray="2,1.5"/>
-              {Object.entries(getFormationPos(trendsTeam)).map(([slot,pos])=>{const name=roster[slot];if(!name&&pos.schemeOnly)return null;if(pos.altFor&&roster[pos.altFor])return null;const filled=!!name;const isFa=filled&&(FA_FLAGS[rosterAbbr]||[]).includes(name);const rv=filled&&ROSTER_BY_SLOT[trendsTeam]?.[slot];const dotColor=rv?TIER_COLORS[rv.performanceTier]||"#a8a29e":filled?"#a8a29e":"#d4d4d4";return<g key={slot}>
+              {Object.entries(getFormationPos(trendsTeam)).map(([slot,pos])=>{const name=roster[slot];if(!name&&pos.schemeOnly)return null;if(pos.altFor&&roster[pos.altFor])return null;const filled=!!name;const isFa=filled&&(FA_FLAGS[rosterAbbr]||[]).includes(name);const rvBySlot=ROSTER_BY_SLOT[trendsTeam]?.[slot];const rvByName=filled&&!rvBySlot?Object.values(ROSTER_BY_SLOT[trendsTeam]||{}).find(r=>r.name===name):null;const rv=rvBySlot||rvByName;const dotColor=rv?TIER_COLORS[rv.performanceTier]||"#a8a29e":filled?"#a8a29e":"#d4d4d4";return<g key={slot}>
                 {isFa&&<circle cx={pos.x} cy={pos.y} r={3.2} fill="none" stroke="#f97316" strokeWidth="0.4"/>}
                 <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={filled?dotColor:"#a3a3a3"} strokeWidth="0.2"/>
                 <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="#a3a3a3" fontSize="1.8" fontFamily={mono}>{pos.label||slot.replace(/\d$/,'')}</text>
@@ -2442,7 +2442,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
             {/* Depth list below formation */}
             <div style={{marginTop:8}}>
               {groups.map((group,gi)=>{const entries=group.slots.map(s=>({slot:s,name:roster[s]})).filter(x=>x.name);if(!entries.length)return null;return<div key={group.label} style={{marginBottom:6,...(gi>0?{paddingTop:5,borderTop:"1px solid #f5f5f5"}:{})}}>
-                {entries.map(({slot,name})=>{const rv=ROSTER_BY_SLOT[trendsTeam]?.[slot];const dk=`depth-${trendsTeam}-${slot}`;const isExp=expandedNeeds.has(dk);const tc=rv?TIER_COLORS[rv.performanceTier]:null;return<div key={slot}>
+                {entries.map(({slot,name})=>{const rv=ROSTER_BY_NAME[name]||ROSTER_BY_SLOT[trendsTeam]?.[slot];const dk=`depth-${trendsTeam}-${slot}`;const isExp=expandedNeeds.has(dk);const tc=rv?TIER_COLORS[rv.performanceTier]:null;return<div key={slot}>
                   <div onClick={rv?()=>{const next=new Set(expandedNeeds);if(isExp)next.delete(dk);else next.add(dk);setExpandedNeeds(next);}:undefined} style={{fontFamily:sans,fontSize:11,padding:"2px 0",display:"flex",alignItems:"center",gap:6,cursor:rv?"pointer":"default"}}>
                     <span style={{fontFamily:mono,color:"#d4d4d4",width:28,fontSize:9,flexShrink:0,textAlign:"right"}}>{group.slotLabels?.[slot]||slot}</span>
                     <span style={{color:"#525252"}}>{name}</span>

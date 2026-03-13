@@ -1715,7 +1715,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         const entry=chart[slot];const filled=!!entry;const isDraft=entry?.isDraft;
         if(!filled&&pos.schemeOnly)return null;
         if(pos.altFor&&chart[pos.altFor])return null;
-        const rv=filled&&!isDraft&&ROSTER_BY_SLOT[team]?.[slot];
+        const rvSlot=ROSTER_BY_SLOT[team]?.[slot];const rv=filled&&!isDraft&&(rvSlot||Object.values(ROSTER_BY_SLOT[team]||{}).find(r=>r.name===entry.name));
         const tierColor=rv?TIER_COLORS[rv.performanceTier]:null;
         const dotColor=isDraft?"#7c3aed":tierColor||(filled?"#a8a29e":"#d4d4d4");
         const lastName=entry?shortName(entry.name):"";
