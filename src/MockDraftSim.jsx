@@ -2984,6 +2984,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
                 {rank&&rank<400&&<div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>consensus #{rank}{posRank&&<span> · {p.gpos||p.pos} #{posRank}</span>}</div>}
                 <div style={{fontFamily:font,fontSize:32,fontWeight:900,color:g>=75?"#16a34a":g>=55?"#ca8a04":"#dc2626",lineHeight:1,margin:"8px 0"}}>{g}</div>
                 <RadarChart traits={activeLabels} values={activeValues} color={c} size={140} proDaySpokes={compareMeasMode&&md?md.proDaySpokes:undefined}/>
+                {(()=>{const fitScore=currentTeam&&schemeFits?.[currentTeam]?.[p.id]?.score;if(fitScore==null)return null;return<div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:5,marginTop:6}}><NFLTeamLogo team={currentTeam} size={14}/><span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#fff",background:"linear-gradient(135deg,#6366f1,#a855f7)",padding:"3px 10px",borderRadius:6,display:"inline-block"}}>fit {fitScore}</span></div>;})()}
                 <div style={{textAlign:"left",marginTop:8,background:"#fafaf9",borderRadius:8,padding:"8px 10px"}}>
                   {activeLabels.map((label,li)=>{
                     const val=activeValues[li];
