@@ -5,73 +5,767 @@
     "head_coach": {
       "name": "John Harbaugh",
       "tenure_years": 1,
-      "background": "defensive / special teams",
-      "scheme_philosophy": "Physical, disciplined football rooted in Andy Reid Philadelphia coaching tree. Defensive-minded HC who presided over historically elite defenses in Baltimore. Values running the football, aggressive defense, and top-tier special teams. Adaptable \u2014 oversaw both run-heavy (Lamar Jackson era) and pass-first offenses in Baltimore."
+      "background": "special_teams_and_defensive_backs",
+      "coaching_tree": "Andy Reid tree (Eagles ST/DB) \u2192 Baltimore Ravens HC for 18 seasons. Not a traditional offensive or defensive coordinator \u2014 a meta-schemer who empowers coordinators while driving schematic innovation from the top. Pushed Wink Martindale to evolve Baltimore's defense into a morphing pre-snap disguise system. Later hired Greg Roman to maximize Lamar Jackson as a runner, then Todd Monken to push the passing game. Harbaugh's genius is identifying what the next evolution should be and finding the right coordinator to execute it.",
+      "scheme_philosophy": "Harbaugh's overarching philosophy is 'play defense like an offense' \u2014 multiple formations, pre-snap movement and disguise, with the ability to run the same pressure or coverage out of any personnel grouping. On offense, he believes in running the ball to control tempo and protect the defense, and has consistently invested in the ground game. Under his watch, Baltimore's defense allowed the fewest touchdowns, points, rushing yards, and third-down conversions over his 18-year tenure. He is a culture-first coach who demands accountability, physicality, and special teams excellence."
     },
     "offensive_coordinator": {
       "name": "Matt Nagy",
-      "scheme_tree": "Andy Reid / West Coast offense",
-      "play_caller": true
+      "coaching_tree": "Andy Reid tree. Spent 14 combined seasons under Reid between Philadelphia (2008-2012) and Kansas City (2013-2017, 2022-2025). Bears HC (2018-2021). Reid prot\u00e9g\u00e9 who carries the West Coast/RPO hybrid philosophy. Expected to be the play-caller in New York.",
+      "scheme_evolution": "In Kansas City as OC (2017), coached Alex Smith to his best season (104.7 passer rating). As Bears HC, transformed Chicago's RPO usage from 26th (2.7%) to 2nd (19.2%) in the league. His Chicago tenure showed both his ceiling (2018 NFC North title, 12-4) and floor (struggled with Trubisky's limitations). Returned to KC (2022-2025) where he served as QBs coach then OC during three consecutive Super Bowl appearances. Was not the play-caller under Reid. In New York, he will call plays for the first time since 2021, and he explicitly sought a role with play-calling authority. His offense features heavy RPO usage, extensive pre-snap motion to diagnose coverage, Andy Reid-style screen game, and pass-catching backs as legitimate weapons.",
+      "development_track_record": "Coached Mahomes during 2022 MVP season as QBs coach. Coached Alex Smith to career year. Failed to develop Trubisky beyond initial Pro Bowl season \u2014 raises questions about QB development with limited talent. Strong at scheming players into production (Tarik Cohen's 71-catch season, David Montgomery as pass-catcher). Now tasked with developing Jaxson Dart."
     },
     "defensive_coordinator": {
       "name": "Dennard Wilson",
-      "scheme_tree": "Todd Bowles / Gregg Williams aggressive blitz lineage, refined under Mike Macdonald (Baltimore Ravens 2023) and Vic Fangio-adjacent Eagles 2022. DB coaching roots.",
-      "play_caller": true
+      "coaching_tree": "Multi-branch: Rams (Jeff Fisher/Gregg Williams, 2012-2016) \u2192 Jets (Todd Bowles, 2017-2020) \u2192 Eagles (Jonathan Gannon/Vic Fangio influence, 2021-2022) \u2192 Ravens (Mike Macdonald/Harbaugh, 2023) \u2192 Titans DC (2024-2025) \u2192 Giants DC. A former player and scout who brings scouting evaluation mindset to scheme design. His scheme DNA borrows from Macdonald's disguise concepts, Gannon/Fangio's coverage shells, and Bowles' aggressive blitz philosophy.",
+      "scheme_evolution": "With Eagles (2021-22), helped build the NFL's No. 1 pass defense and reach Super Bowl LVII by emphasizing press coverage from his corners while providing safety help over the top. With Ravens (2023), was instrumental in Kyle Hamilton's All-Pro development and Baltimore's triple-crown defensive season (1st in points, sacks, takeaways). As Titans DC (2024), delivered 2nd-ranked total defense despite limited talent. In 2025, adapted to injuries by pivoting to 'Two-Man' fronts and leveraging interior DL. His signature is press-everything coverage with zone shells (Cover 4 heavy), simulated pressures, and disguised coverage rotations. He ran zone coverage 75% of the time in Tennessee, with Cover 4 as his most frequent call (21-27% of coverages). Man coverage only 18-25% of snaps. Blitz rate moderate at ~20-21% but supplemented by heavy simulated pressure packages.",
+      "development_track_record": "Elite secondary developer: Kyle Hamilton (All-Pro under Wilson in Baltimore), James Bradberry (All-Pro 2nd team in Philadelphia), Darius Slay (two Pro Bowls), C.J. Gardner-Johnson (career year), Reed Blankenship (UDFA to starter), Marcus Epps (developed into full-time starter), Avonte Maddox (career renaissance). Jeffery Simmons earned All-Pro under Wilson in Tennessee. Track record suggests he can revitalize underperforming DBs and maximize versatile safeties."
+    },
+    "additional_staff": {
+      "senior_offensive_assistant": {
+        "name": "Greg Roman",
+        "role": "Senior Offensive Assistant / Run Game Coordinator (unofficial)",
+        "background": "Former OC for 49ers (2011-2014 under Jim Harbaugh), Bills (2015-2016), Ravens (2019-2022 under John Harbaugh), Chargers (2024-2025 under Jim Harbaugh). Designed the offense for Lamar Jackson's 2019 MVP season. Run-game guru who specializes in heavy personnel, creative blocking schemes, and dual-threat QB concepts. His presence ensures the Giants will have a robust ground game to complement Nagy's passing concepts. Nagy's historical weakness has been the run game; Roman directly mitigates this."
+      },
+      "offensive_line_coach": {
+        "name": "Mike Bloomgren",
+        "role": "Offensive Line Coach",
+        "background": "Bill Callahan disciple. Stanford OL coach/OC (2011-2017) who developed first-round OL picks David DeCastro, Andrus Peat, Joshua Garnett. Also coached Christian McCaffrey at Stanford. Head coach at Rice (2018-2024). Browns OL coach in 2025. Known as a technical teacher who rebuilds technique from the ground up."
+      },
+      "quarterbacks_coach": {
+        "name": "Brian Callahan",
+        "role": "Quarterbacks Coach / Passing Game Coordinator",
+        "background": "Former Titans HC (fired 2025 at 1-5). Son of legendary OL coach Bill Callahan. Previously OC for Bengals under Zac Taylor. Coached Joe Burrow. Brings passing game expertise and QB development pedigree to complement Nagy."
+      }
     }
   },
   "offense": {
-    "scheme_family": "Reid West Coast (modernized with spread/RPO elements)",
-    "base_personnel": "11 (with significant 12 personnel usage; 2025 Giants ran 12 personnel at season-high 40% in some games)",
-    "run_scheme": "Mixed: Greg Roman (senior offensive assistant / de facto run game coordinator) brings power, gap, and duo schemes. Roman's offenses historically top-4 in rushing yards 9 of 12 years as OC. Expect inside zone, power, counter, and QB-designed runs for Jaxson Dart. Reid-tree RPO concepts layered on top.",
-    "pass_concepts": "Short-to-intermediate timing routes (slants, curls, digs, spacing, flood, sail) with play-action shots off run game. Heavy use of motion and pre-snap shifts. RPOs integrated throughout. Vertical passing game built off play-action and bootlegs rather than pure dropback. Shotgun-heavy (~75%+).",
-    "rpo_usage": "high \u2014 Reid-tree offenses have heavily incorporated RPOs since 2016; Nagy referenced maintaining 'the RPO world' as central to KC's scheme",
-    "te_usage": "Significant receiving weapon. Kansas City historically had the NFL's second-highest TE target rate. Theo Johnson had 45 catches, 528 yards, team-high 5 TDs in 2025 and was a key red zone target (22% RZ target share). Expect TE flexed into slot, used on seam routes, crossing patterns, and in 12 personnel sets. Danny Breyer (former Ravens TE guru) hired as pass game coordinator, further emphasizing TE receiving role.",
-    "rb_usage": "Dual-threat emphasis. Reid-tree WCO historically targets RBs heavily in passing game (McCoy, Westbrook, Charles all 4-5+ targets/game). Cam Skattebo's receiving skills were explicitly noted as a weapon. Tyrone Tracy also involved. Greg Roman's influence adds a physical, power-run dimension. Committee approach likely."
+    "scheme_family": "Andy Reid-tree West Coast / RPO Hybrid with Greg Roman run-game overlay",
+    "scheme_detail": "Nagy's offense is rooted in Andy Reid's West Coast system but diverges significantly through its heavy RPO integration, which was the second-highest usage rate in the NFL during Nagy's first Bears season (19.2%). The system demands extensive pre-snap motion to diagnose coverage, features a prolific screen game inherited from Reid, and asks RBs to be legitimate pass-catching weapons. Greg Roman's presence as run game coordinator adds a physical, heavy-personnel dimension (gap/power schemes, heavy formations, designed QB runs) that Nagy's offenses historically lacked. Brian Callahan adds passing game coordinator experience from the Bengals' attack. The result is a three-headed offensive brain trust: Nagy calls plays with an air-raid/RPO emphasis, Roman coordinates the ground game with power/gap concepts, and Callahan fine-tunes the passing game and QB development.",
+    "run_scheme": "Hybrid: Outside zone as the primary run scheme (paired with RPOs), with Greg Roman's gap/power concepts mixed in for short-yardage and heavy personnel situations. Roman's history features designed QB runs, read-option elements, and heavy personnel packages (fullback Patrick Ricard was signed). The signing of FB Patrick Ricard signals 21/22 personnel usage in run-heavy situations. Zone blocking requires lateral movement from OL; gap schemes require road-grading power. The OL must be versatile enough to execute both.",
+    "pass_architecture": "RPO-heavy foundation with Reid-tree concepts: quick game (slants, screens, hitches) off RPO action, intermediate crossers and digs, play-action boots off zone runs, and vertical shots off 3x1 formations. Nagy's system uses pre-snap motion extensively to identify man vs zone. Screen game is a major weapon \u2014 backs, TEs, and WRs all get screens. The signing of Isaiah Likely and retention of Theo Johnson signals heavy 12-personnel usage with TEs flexed into receiving roles. Callahan's Bengals background could add more vertical/downfield concepts to stretch the field for Malik Nabers.",
+    "personnel_tendencies": "Expect significant 12 personnel (2 TE) usage \u2014 the Likely/Johnson pairing mirrors Baltimore's approach under Harbaugh. 11 personnel as base spread set. 21 personnel with FB Patrick Ricard for heavy run situations. Nagy historically used pass-catching RBs heavily (Cohen 71 catches in 2018, Montgomery consistently top-3 in team receptions). Wan'Dale Robinson's departure and Nagy's stated preference for bigger slot receivers suggests a shift in how the slot position is deployed.",
+    "motion_tempo": "Heavy pre-snap motion \u2014 a Reid-tree signature. Both the Chiefs under Reid and the Bears under Nagy used motion frequently to diagnose coverage pre-snap. Standard tempo overall (not hurry-up), but Nagy uses tempo changes situationally. The offense will run motion on a very high percentage of plays to help Jaxson Dart identify coverage pre-snap."
   },
   "defense": {
-    "base_front": "3-4 hybrid",
-    "alignment": "Odd front (3-down linemen with stand-up OLBs), frequently shifts to 2-4-5 Nickel (~70% of snaps in Tennessee). Wilson ran a 'Ravens-Lite' hybrid 3-4 that functioned as a 2-4-5 on passing downs.",
-    "edge_rush_source": "Hybrid \u2014 DEs (Brian Burns, Abdul Carter) are primary edge rushers who can play with hand in dirt or standing up. Burns plays as a traditional 4-3 DE type. Carter (2025 3rd overall pick, Penn State LB/EDGE hybrid) is a stand-up rusher. Wilson's scheme uses simulated pressures with 6-man blitz looks that drop 2 into coverage. Giants also have Dexter Lawrence as an elite interior pass rusher from the nose.",
-    "coverage_base": "Cover 4 (quarters) primary \u2014 Wilson's Titans ran Cover 4 on 21% of coverages, with heavy zone emphasis (75% zone, 18% man in 2025). Also uses Cover 3 to close off middle of field. Split-safety (two-high) shells protect pressing corners. Simulated pressures are a hallmark \u2014 showing blitz with 6 but only rushing 4.",
-    "blitz_tendency": "moderate-low (Wilson's Titans blitzed ~20.5-20.9% in 2024-2025, ranked 23rd). Wilson prefers simulated pressures over true blitzes. He stated blitzing will happen 'at the right times' rather than constantly.",
-    "lb_role": "ILBs (Bobby Okereke) are coverage/run hybrid players in this scheme. OLBs (Abdul Carter, potentially Kayvon Thibodeaux) are primarily pass rushers who function as edge defenders. Wilson's 3-4 creates situations where stand-up OLBs ARE the primary edge rush.",
-    "safety_usage": "Wilson's background as a DB coach means safeties are used in multiple roles. He developed Kyle Hamilton into an All-Pro hybrid safety in Baltimore (2023). Wilson uses split-safety shells heavily but values a strong safety who can play near the box in run support and cover TEs/slot receivers. Expect at least one safety used in a versatile, hybrid role."
+    "scheme_family": "Multiple 3-4 base / Nickel 2-4-5 (Macdonald/Gannon/Bowles hybrid)",
+    "scheme_detail": "Wilson's defense is a hybrid that draws from multiple coaching trees. The base is a 3-4 front that frequently operates as a 2-4-5 nickel on ~70% of snaps (five DBs). Wilson demands aggressive press coverage at the line of scrimmage from his corners while providing zone shells (primarily Cover 4 and Cover 3) with safety help over the top. The system uses heavy pre-snap disguise and simulated pressures (showing blitz with 6 but rushing only 4) to confuse QBs. Actual blitz rate is moderate (~20-21%) but supplemented by creative twists, stunts, and delayed rushes. Wilson's stated philosophy is 'press everything, period' \u2014 his corners must be physical and disruptive at the LOS. The signing of Greg Newsome and retention of Adebo/Banks suggests commitment to press corners. Harbaugh's influence pushes the defense to morph and disguise right up to the snap, making it harder for offenses to diagnose what they're seeing.",
+    "front_structure": "3-4 base with Dexter Lawrence as the nose/3-tech anchor. Brian Burns and Abdul Carter as primary OLB edge rushers. Kayvon Thibodeaux as a rotational edge/situational rusher. Darius Alexander as an interior complement. Wilson ran a 'Ravens-lite' hybrid in Tennessee. In sub-packages, transitions to a 2-4-5 nickel with one fewer DL. The front must generate pressure without heavy blitzing \u2014 Wilson's Titans ranked 23rd in blitz rate both years. Interior penetration from Lawrence is critical to making the scheme work.",
+    "coverage_philosophy": "Zone-dominant with press corners. Wilson ran zone 75% of the time in Tennessee, with Cover 4 (split-safety/quarters) as his most frequent call at 21-27% of coverages. Cover 3 as secondary coverage. Cover 1 man used selectively (15% in Tennessee vs 31% under previous Giants regime). Cover 0 used aggressively in spots (9% in early 2024, 2nd-most in NFL). The key innovation: press corners playing physical at the line while zone shells provide safety help over the top. This allows corners to be aggressive without being exposed deep. One safety often drops into a 'robber' role to bait QBs. Wilson has stated he wants more press-man if personnel allows it \u2014 the Giants' DB upgrades may let him increase man coverage usage beyond Tennessee levels.",
+    "pressure_philosophy": "Simulated pressure is the primary tool. Wilson shows blitz frequently but only sends extra rushers selectively (20-21% blitz rate in Tennessee). The defense uses DL twists, stunts, delayed LB rushes, and safety walk-ups to create confusion about who's rushing. The goal is to generate pressure with four while dropping seven into coverage. With Burns (16.5 sacks in 2025) and Carter as primary edge rushers, plus Lawrence's interior dominance, the Giants have the front-four talent to execute this approach.",
+    "sub_packages": "2-4-5 nickel is the primary sub-package (~70% of snaps). Wilson prioritizes five DBs on the field. In Tennessee, this meant a sizable burden on the DL to stop the run with fewer bodies. The Giants' DL talent (Lawrence, Alexander, Burns, Carter) is better suited to handle this. The nickel defender profile can be either a slot corner (Dru Phillips) or a safety-type, depending on the offensive personnel. Dime (6 DBs) used situationally on obvious passing downs."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "The Reid/Nagy offensive tree is the single most TE-friendly scheme family in the NFL. Travis Kelce's entire career was built in this system, where the TE functions as a de facto WR1 from flexed/slot alignments. Kansas City historically had the NFL's second-highest TE target rate. Theo Johnson already emerged as a red zone weapon (5 TDs, 22% RZ target share in 2025) and Danny Breyer was specifically hired as pass game coordinator to maximize TE receiving production. Any TE with elite route running, hands, and separation will be schemed into high-value receiving roles, functioning closer to a WR than a traditional inline blocker."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB in Nagy's system must process pre-snap information quickly, execute RPOs by reading the EMOL (end man on the line of scrimmage) and making immediate pass/run decisions, deliver accurate short-to-intermediate throws on timing routes, and use pre-snap motion reads to identify coverage. Mobility is a genuine asset in this scheme \u2014 both for RPO scramble opportunities and boot/rollout concepts. Greg Roman's run-game influence adds designed QB run elements. The system demands high football IQ and quick processing more than arm talent.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Reid-tree offenses feature quick-game and intermediate concepts where arm strength is less critical than timing. The RPO passing game is largely short throws (slants, hitches, bubbles). Vertical shots exist but are not the foundation."
+        },
+        "Accuracy": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The RPO passing game demands precise delivery on short routes where windows are tight and timing is everything. Screen accuracy, touch on intermediate crossers, and placement on timing routes are the lifeblood of this system."
+        },
+        "Pocket Presence": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "RPO protection is inherently shaky \u2014 OL are zone blocking while the QB decides pass or run. The QB must feel pressure coming and deliver quickly. However, this is less about pure pocket manipulation and more about quick decisiveness."
+        },
+        "Mobility": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Roman's run-game overlay adds designed QB runs and read-option elements (Jaxson Dart had 9 rushing TDs as a rookie, a franchise record). Boot/rollout concepts from Nagy's scheme demand a QB who can threaten outside the pocket. This is not a statue-QB system."
+        },
+        "Decision Making": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "RPO execution demands rapid binary decisions \u2014 hand off or pull and throw based on the EMOL read. Pre-snap motion reads require identifying man vs zone in seconds. The system is designed to simplify reads, but the QB must make correct decisions at speed."
+        },
+        "Leadership": {
+          "weight": 0.05,
+          "importance": "low",
+          "reasoning": "Harbaugh's culture demands team-first mentality, but this is not a position-specific trait that differentiates prospects in this scheme."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The motion-heavy offense is designed to help the QB diagnose coverage, but the QB must still read and react to what motion reveals. Important but the system provides built-in diagnostic tools."
+        }
+      },
+      "ideal_archetype": "A mobile, accurate quarterback who processes quickly and can execute RPOs at NFL speed while also being a legitimate run threat on designed runs and scrambles. Not a pure pocket passer \u2014 the system needs a QB who can roll out, extend plays, and pick up yards with his legs when the read dictates. Think a less-athletic version of Lamar Jackson or a more mobile version of Alex Smith in 2017 \u2014 a QB who makes correct pre-snap reads, delivers accurately on timing routes, and adds a dimension with his legs.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-11",
+          "reasoning": "RPO QBs don't need to be tall \u2014 they operate from shotgun/pistol and read the EMOL, not see over the line. Dart is 6-1 and fits well."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.65",
+          "floor": "sub-4.75",
+          "reasoning": "Designed QB runs and boot concepts require genuine run ability. Roman's offenses historically featured athletic QBs (Kaepernick, Lamar Jackson, even Justin Herbert running more)."
+        },
+        "weight": {
+          "ideal": "210-230",
+          "floor": "200",
+          "reasoning": "Must be durable enough to absorb hits on designed runs and RPO scrambles."
+        }
+      },
+      "development_context": "Nagy coached Mahomes as QBs coach during his MVP season but struggled to develop Trubisky beyond Year 1. Callahan coached Burrow successfully. The Giants' staff has the tools to develop a young QB if the talent is there, but the Trubisky experience is a cautionary tale \u2014 the system can expose a QB who lacks processing speed. Dart's rookie season (24 TDs, franchise-record 9 rushing TDs) suggests he has the traits to thrive.",
+      "scheme_fit_narrative": "This offense wants a quarterback who can make the easy throw look easy and add a dimension with his legs that defenses have to account for. The RPO system simplifies reads, so we don't need a QB who can diagnose Cover 6 vs Cover 4 \u2014 we need one who can read one defender and make the right decision in a heartbeat. If he can also run for 400+ yards and create out of structure, that's the cherry on top.",
+      "archetype_examples": [
+        "Jalen Hurts",
+        "Josh Allen (decision-making version)",
+        "Alex Smith (2017 under Nagy)"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "high",
-      "explanation": "Wilson's 3-4 hybrid base creates direct LB-to-EDGE value conversion. The OLB position in this defense IS the primary edge rusher \u2014 Abdul Carter was drafted 3rd overall as a Penn State LB and is being deployed as a stand-up edge rusher. Wilson's scheme frequently uses 2-4-5 Nickel where stand-up OLBs rush off the edge. Any LB prospect with elite pass rush traits (burst, bend, first step) fits this defense as a premium pass rusher, not a traditional off-ball LB. Wilson also uses simulated pressures that create additional pass rush lanes for athletic LBs who can rush on designed blitzes."
+    "RB": {
+      "scheme_role": "The RB in Nagy's system is a dual-threat weapon who must be a legitimate pass-catching option in addition to running between the tackles. In Chicago, Nagy's RBs were consistently top-3 on the team in receptions (Cohen 71 catches in 2018, Montgomery 3rd in 2020-21). Roman's gap/power run concepts demand a back who can also run with power between the tackles. The ideal scenario is a committee: a featured back who does everything, plus a change-of-pace/receiving specialist.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Zone runs require the RB to read blocks laterally and find cutback lanes. RPO action adds pre-snap reads the back must process. Vision is critical in a zone/gap hybrid scheme."
+        },
+        "Contact Balance": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Roman's gap schemes create collisions at the LOS. The back must stay on his feet through contact to convert short-yardage opportunities. Cam Skattebo's 4.1 yards after contact fits this."
+        },
+        "Power": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Roman's heavy personnel packages (21/22 personnel with FB Ricard) demand a back who can finish runs between the tackles. Not the primary trait but necessary for the ground-and-pound dimension."
+        },
+        "Elusiveness": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Zone runs create one-on-one situations in space where elusiveness turns 4-yard gains into 10-yard gains. Important but secondary to vision and pass-catching."
+        },
+        "Speed": {
+          "weight": 0.08,
+          "importance": "low",
+          "reasoning": "The scheme does not require a home-run hitter. Zone runs create cutback lanes that reward vision more than breakaway speed. Speed is a bonus, not a requirement."
+        },
+        "Pass Catching": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "This is the defining trait for a Nagy-system RB. His RBs have historically been top receiving options (Cohen 71 catches, Montgomery top-3 on team, Tarik Cohen led Bears in receptions in 2018). The RPO passing game features RBs as check-down and screen targets on nearly every play. Tyrone Tracy's WR background makes him ideal."
+        },
+        "Pass Protection": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "RPO protection is already shaky. The RB must be able to pick up delayed rushers and blitzers to keep the QB clean. Every-down backs in this system must pass protect to stay on the field."
+        }
+      },
+      "ideal_archetype": "A versatile, pass-catching back who can line up in the slot, run routes out of the backfield, and also handle 15+ carries between the tackles with power and vision. Think Tarik Cohen's receiving ability combined with David Montgomery's between-the-tackles toughness \u2014 or better yet, a back like Austin Ekeler who could do everything. The system doesn't need a 4.3 burner; it needs a football player who can be trusted in every phase.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "210-225",
+          "floor": "195",
+          "reasoning": "Must be sturdy enough for Roman's gap runs but agile enough for Nagy's passing concepts. Skattebo at 220 is ideal for the power dimension; Tracy's former-WR agility handles the receiving."
+        },
+        "40_yard_dash": {
+          "ideal": "4.45-4.55",
+          "floor": "none",
+          "reasoning": "Speed is not a scheme-critical measurable. Vision and hands matter more."
+        }
+      },
+      "development_context": "Nagy has a track record of scheming RBs into production as pass-catchers. He can develop receiving skills in backs who show willingness and route-running aptitude. Roman has historically maximized power backs in gap schemes (Carlos Hyde's only 1,000-yard season). The staff can develop both receiving and power dimensions.",
+      "scheme_fit_narrative": "We need a back who can catch 50+ balls out of the backfield and not be a liability in pass protection. If he can also grind out 3.5 yards on a counter play behind Ricard, that's the total package. The worst-case scenario is a one-dimensional runner who has to come off the field on third down \u2014 that kills the RPO game because the defense knows what's coming based on personnel.",
+      "archetype_examples": [
+        "Austin Ekeler",
+        "Tarik Cohen (2018)",
+        "Christian McCaffrey (receiving dimension)"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "high",
-      "explanation": "Reid-tree West Coast offense historically demands pass-catching backs. Brian Westbrook caught 90 passes in this system; LeSean McCoy averaged nearly 5 targets per game under Reid. Cam Skattebo was specifically lauded for his 'excellent receiving skills' as a weapon on passing downs. The addition of Greg Roman adds a power run element, but the passing game will still heavily feature the RB on screens, swing routes, flat routes, and option routes out of the backfield. A back with elite hands, route running, and pass protection fits this offense at a premium."
+    "WR": {
+      "scheme_role": "The WR1 (Malik Nabers) is the primary outside threat who stretches the field and wins contested catches. The WR2/WR3 operate in an RPO-heavy system where they run quick routes (slants, hitches, bubbles, quick outs) that the QB delivers to based on EMOL reads. Pre-snap motion is constant \u2014 WRs must be comfortable going in motion to help diagnose coverage. The slot role is particularly important in this system, and Nagy has historically preferred bigger slot receivers. Screen game usage is high \u2014 WRs must be willing blockers and effective after the catch.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Reid-tree timing routes demand precise breaks and consistent route depths. The QB's footwork is tied to the receiver's break \u2014 if the route is off, the throw is off."
+        },
+        "Separation": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "RPO throws must hit before the defense reacts. Receivers who can create separation at the break give the QB a larger window to deliver on the RPO pull."
+        },
+        "Hands": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Quick-game and screen targets arrive with defenders nearby. Concentration catches in traffic are a staple of the intermediate crossing game. Drops kill drives in a timing-based offense."
+        },
+        "YAC Ability": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "This is what differentiates this system. RPO throws, screens, and quick-game concepts deliver the ball short \u2014 the receiver must create yardage after the catch. Cohen's value in Chicago was entirely YAC-based. The system is designed to get playmakers the ball in space."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Important for the Z/X receiver to threaten deep and keep safeties honest, but not the primary trait. The system generates big plays through scheme (screens, RPOs) rather than pure vertical speed."
+        },
+        "Contested Catches": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The X receiver (Nabers) must win contested catches on vertical shots and red-zone targets. Less important for the slot and WR3 roles."
+        },
+        "Release Package": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Against Wilson's own press-everything philosophy (shared by NFC East rivals), receivers must be able to defeat press coverage. This is elevated by the division competition."
+        }
+      },
+      "ideal_archetype": "The slot/WR2 ideal is a bigger, physical receiver who can handle screens, run precise short-to-intermediate routes, and create after the catch. Think Keenan Allen in his prime \u2014 not a burner, but a technician who wins with route running and YAC. For the X, think an alpha contested-catch winner like Nabers. The system can accommodate both. Nagy's preference for bigger slot receivers (he was 'never serious about keeping Wan'Dale Robinson') means size matters more at the slot than typical.",
+      "measurable_preferences": {
+        "height_slot": {
+          "ideal": "6-0 to 6-2",
+          "floor": "5-11",
+          "reasoning": "Nagy prefers bigger slot receivers than the typical 5-9 slot archetype. Robinson's departure confirms this preference."
+        },
+        "height_outside": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Outside receivers need length for contested catches and the ability to stack DBs vertically."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.25",
+          "floor": "none",
+          "reasoning": "Quick-twitch agility for route breaks and YAC creation. The system asks receivers to make people miss in short areas."
+        }
+      },
+      "development_context": "The Giants hired Chad Hall as WR coach \u2014 he was previously the assistant QBs coach, making this a promotion. Less track record specifically in WR development. Nagy's system has historically schemed WRs into production (Allen Robinson's two 1,000-yard seasons in Chicago, Darnell Mooney's breakout). The scheme creates easy catches; the receiver must maximize them.",
+      "scheme_fit_narrative": "We want receivers who catch everything thrown their way and make the most of it after the catch. In an RPO system, the difference between a 5-yard gain and a 15-yard gain is entirely the receiver's ability to create after the catch. Speed is nice, but we'd rather have a 4.50 guy who catches 70 balls and averages 5 YAC than a 4.35 burner who drops quick throws.",
+      "archetype_examples": [
+        "Keenan Allen (slot/route runner)",
+        "Tyreek Hill (YAC dimension)",
+        "Allen Robinson (X receiver in Nagy's Bears)"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "Wilson is a DB coach by trade who developed Kyle Hamilton into an All-Pro in Baltimore (2023), where Hamilton played as a true hybrid \u2014 box safety, slot defender, occasional blitzer, and deep coverage player. Wilson's scheme demands versatile safeties who can handle multiple roles within his split-safety shells and simulated pressure packages. A safety who can play in the box, cover slot receivers, and contribute to the blitz package has significantly elevated value in this defense. Wilson's Cover 4 base also requires safeties who can play aggressive run support from two-high looks."
+    "TE": {
+      "scheme_role": "This is a TE-heavy offense. The signing of Isaiah Likely alongside Theo Johnson confirms heavy 12-personnel usage, mirroring Baltimore's approach under Harbaugh. TEs will be asked to flex into the slot and the boundary, run full route trees, and serve as primary targets in the passing game. However, they must also inline block in Roman's gap/power run concepts. The TE1 (Likely) profiles as a mismatch receiver; the TE2 (Johnson) profiles as a more complete blocker/receiver. The system demands athletic TEs who can win as receivers while also being functional blockers.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "In 12 personnel, TEs ARE the passing game. Likely was signed specifically as a mismatch weapon in the passing game. The system uses TEs as flexed receivers who exploit LB/S matchups."
+        },
+        "Route Running": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "TEs in this system run the full route tree from flexed alignments. They must run precise intermediate routes (crossers, digs, seam routes) and create separation against LBs and safeties."
+        },
+        "Blocking": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Roman's gap/power run game requires inline blocking from TEs. The FB (Ricard) helps, but TEs must be able to set edges and combo-block in the run game. This is what separates a TE who can play every down from one who comes off on run downs."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The mismatch dimension of the TE position requires athletic freaks who can outrun LBs and out-physical DBs. Likely's athletic profile is the template."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "TEs are high-traffic targets on crossing routes and seam shots. Reliable hands matter but the system creates good windows."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Seam speed creates vertical threats that pull safeties and open running lanes. Important but the TE doesn't need to be a true speedster."
+        }
+      },
+      "ideal_archetype": "An athletic, receiving-first TE who can also hold up as an inline blocker \u2014 think Mark Andrews or George Kittle rather than a pure blocker or a converted WR. The ideal TE1 is a mismatch nightmare who wins as a receiver while being functional (not dominant) as a blocker. The TE2 should be more of a Y-TE who can block effectively and make plays when targeted. The system needs both profiles.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-2",
+          "reasoning": "Size creates the mismatch that the scheme exploits. TEs need length to win contested catches over LBs and box out safeties."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.60",
+          "floor": "sub-4.70",
+          "reasoning": "Seam speed is what creates the LB mismatch. If a TE can run a 4.55, he's uncoverable on seam routes."
+        },
+        "weight": {
+          "ideal": "240-255",
+          "floor": "230",
+          "reasoning": "Must be heavy enough to sustain inline blocks in Roman's run game while athletic enough to flex out as a receiver."
+        }
+      },
+      "development_context": "Tim Kelly is the TE coach \u2014 he developed Theo Johnson into a productive pass-catcher (45 catches, 528 yards, 5 TDs in 2025). Kelly's Houston background featured TEs in diverse roles. The staff can develop both receiving and blocking technique. The system's heavy TE usage means draft picks at TE will get immediate opportunities.",
+      "scheme_fit_narrative": "We're going to be in 12 personnel a LOT. We need TEs who can line up everywhere \u2014 inline, slot, boundary, even the backfield. The ideal prospect wins as a receiver but doesn't embarrass himself as a blocker. We'd rather develop his blocking than try to teach a blocker how to run routes at the NFL level.",
+      "archetype_examples": [
+        "Mark Andrews",
+        "George Kittle",
+        "Isaiah Likely"
+      ]
+    },
+    "OT": {
+      "scheme_role": "The OT in this scheme must be versatile enough to execute both zone blocking concepts (Nagy's RPO foundation) and gap/power concepts (Roman's run-game overlay). Zone requires lateral agility and the ability to reach-block and climb to the second level. Gap/power requires drive-blocking strength and the ability to sustain combo blocks. In pass protection, RPOs create shorter pass-pro windows (quick throws), but traditional dropback protection must also be solid. Bloomgren's Stanford background emphasizes technical proficiency and fundamentals above all.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "RPO protection is inherently risky (OL are in run-block mode when the QB pulls to throw). The tackles must be able to handle edge rushers in traditional protection and survive the awkward pass-pro situations RPOs create."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Equally weighted because this is a dual-scheme offense. Zone runs demand reach-blocking; Roman's gap runs demand drive-blocking. The OT must do both at a high level."
+        },
+        "Footwork": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Zone blocking requires explosive first steps and lateral movement to reach defenders. Bloomgren's Stanford pedigree emphasizes footwork as the foundation of OL play."
+        },
+        "Anchor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "NFC East pass rushers (Burns, Carter, Thibodeaux were on this team; Dallas/Philly have elite rushers) demand tackles who can anchor against power moves. Roman's gap scheme also requires sustaining blocks at the point of attack."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Zone runs require OTs to move laterally and get to the second level. Roman's boot/rollout concepts sometimes ask OTs to pull or lead. Athletic OTs who can move in space are premium in this hybrid scheme."
+        },
+        "Strength": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Important for sustaining blocks but Bloomgren prioritizes technique over raw power. Technique can compensate for average strength."
+        }
+      },
+      "ideal_archetype": "An athletic, technically sound tackle who can zone-block laterally and anchor in pass protection \u2014 think Andrew Thomas when healthy (the Giants' own LT). The ideal OT has the foot speed to execute zone reaches and the anchor to handle power rushers in the NFC East. Bloomgren's developmental background means a technically raw but physically gifted prospect could work if the athletic tools are there.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Length helps in both pass protection (keeping rushers at arm's length) and zone blocking (ability to reach wider defenders)."
+        },
+        "arm_length": {
+          "ideal": "34+",
+          "floor": "33",
+          "reasoning": "Arm length creates leverage advantage in both pass and run blocking. Bloomgren emphasizes hand placement which requires length."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.60",
+          "floor": "sub-4.75",
+          "reasoning": "Zone blocking demands lateral agility. The shuttle measures the quick-change-of-direction ability needed for zone reach blocks."
+        }
+      },
+      "development_context": "Bloomgren developed multiple first-round OL at Stanford (DeCastro, Peat, Garnett). He is known as a teacher who can develop raw athletes into technically sound linemen. This is a reconstruction hire \u2014 the staff will rebuild OL technique from scratch. Young OTs with athletic profiles but inconsistent technique are viable because this staff will develop the technique.",
+      "scheme_fit_narrative": "We need tackles who can move. Zone blocking is the foundation, and if a tackle can't get lateral displacement on his first step, the run game dies. But he also needs to anchor because we're in the NFC East and we face elite pass rushers twice a year. Give me the athletic tackle with sound feet and I'll trust Bloomgren to teach the rest.",
+      "archetype_examples": [
+        "Andrew Thomas",
+        "Penei Sewell",
+        "Andrus Peat (Stanford product under Bloomgren)"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior OL must handle the dual demands of zone and gap blocking. In zone, guards and the center must execute lateral combos and climb to LBs. In gap/power, guards must be able to pull and trap. Roman's schemes historically feature pulling guards as lead blockers. The center must handle complex snap-and-block mechanics in the RPO game (snapping while immediately engaging in a zone step). Bloomgren's Bill Callahan influence emphasizes versatility \u2014 OL who can play multiple positions are valued.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Interior pressure disrupts RPOs more than edge pressure because the QB's RPO reads are based on the EMOL, not interior defenders. The IOL must keep the pocket clean inside."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The ground game is this offense's identity. Roman's gap schemes and Nagy's zone concepts both demand dominant run blocking from the interior. This is the primary job."
+        },
+        "Pulling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Roman's gap/power/counter concepts feature guards pulling as lead blockers. The FB (Ricard) doesn't eliminate the need for guards to pull \u2014 it adds another dimension. Guards who can pull are essential for Roman's run game."
+        },
+        "Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Interior DL matchups (Lawrence-caliber nose tackles in the NFC East) demand strength to sustain blocks. Gap schemes require moving defenders off the ball."
+        },
+        "Anchor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Interior pass protection against bull-rushing DTs. Important but the quick-game/RPO nature of the passing attack means shorter pass-pro windows."
+        },
+        "Versatility": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Bloomgren's developmental philosophy and Harbaugh's team-building approach values OL who can play multiple positions. The ability to slide between guard and center is highly valued."
+        }
+      },
+      "ideal_archetype": "A powerful, athletic guard who can pull on gap concepts and sustain zone combos. Think Kevin Zeitler or Joel Bitonio \u2014 technically sound, powerful interior linemen who can move laterally and pull. The center must be a reliable snapper with quick processing (RPO snap mechanics) and the ability to combo-block at the point of attack. The ideal IOL prospect has the athleticism to pull and the power to anchor.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "305-325",
+          "floor": "295",
+          "reasoning": "Interior OL need mass to sustain blocks against NFL DTs. Roman's power concepts require moving people."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.60",
+          "floor": "sub-4.75",
+          "reasoning": "Pulling ability requires lateral agility. Guards who can pull are the difference between Roman's scheme working and failing."
+        },
+        "bench_press": {
+          "ideal": "28+ reps",
+          "floor": "24",
+          "reasoning": "Upper body strength correlates with sustaining blocks and hand fighting at the point of attack."
+        }
+      },
+      "development_context": "Bloomgren developed Joshua Garnett (Outland Trophy winner) and David DeCastro at Stanford. He can develop technique in young IOL. The current interior (Runyan, Schmitz) provides a foundation, but right guard is a need. The staff will look for athletic, powerful IOL who can be developed technically.",
+      "scheme_fit_narrative": "Can he pull? That's the first question. Roman's run game features pulling guards prominently, and if a guard can't get out in space and lead-block, he limits what we can do schematically. After that, can he anchor against an interior bull rush and sustain zone combos? If he can do both, he fits.",
+      "archetype_examples": [
+        "Joel Bitonio",
+        "Kevin Zeitler",
+        "Joshua Garnett (Stanford under Bloomgren)"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "The EDGE rusher in Wilson's defense is the primary pressure-generating position. With a moderate blitz rate (~20%), the defense relies heavily on the front four \u2014 and especially the edges \u2014 to generate pressure. Wilson's scheme uses twists, stunts, and simulated pressures to create favorable 1-on-1 matchups for the edges. Burns (16.5 sacks in 2025) and Carter are the primary rushers. The EDGE must be able to rush from both a two-point and three-point stance, and must be able to set the edge in the run game since the defense often plays with a light box (five DBs).",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "With a low blitz rate and zone-heavy coverage behind them, the edges MUST win their individual matchups to generate pressure. This is a four-man-rush defense that lives and dies by its edges."
+        },
+        "Bend": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Wilson's scheme sets up favorable 1-on-1s through twists and stunts. The EDGE must be able to corner at speed and convert those opportunities. Burns and Carter both win with bend and speed."
+        },
+        "First Step": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Simulated pressures sometimes delay the rush or show walk-up blitz before dropping. The EDGE must have an explosive first step to compensate for these timing disruptions and win quickly when actually rushing."
+        },
+        "Power": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "A secondary pass-rush tool. Wilson's edges primarily win with speed and bend, but power moves are necessary against bigger OTs and in bull-rush situations."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Wilson's simulated pressures mean edges don't always rush on every snap \u2014 sometimes they drop into coverage. The motor to play hard on every snap, whether rushing or dropping, is important for the defense's effort-based identity."
+        },
+        "Run Defense": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "With five DBs on the field 70% of the time, the EDGE must be a reliable run defender. Wilson's nickel-heavy approach puts extra run-defense burden on the front four. The EDGE must set the edge and not get washed in the run game."
+        }
+      },
+      "ideal_archetype": "An explosive, bend-and-speed edge rusher who can win 1-on-1 pass-rush matchups while also setting the edge reliably in run defense. The system does NOT need a pure bull-rush specialist \u2014 it needs a rusher who can convert scheme-created advantages into pressures. Think Burns or Carter \u2014 athletic, high-motor rushers with bend who can also drop into coverage occasionally on simulated pressures. Not a pure specialist; a complete defensive end.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Length helps win the edge in run defense and creates leverage in pass rush. Carter and Burns are both in this range."
+        },
+        "weight": {
+          "ideal": "240-265",
+          "floor": "230",
+          "reasoning": "Must be heavy enough to set the edge against NFL tackles but light enough to win with speed and bend."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.55",
+          "floor": "sub-4.65",
+          "reasoning": "Speed-to-power conversion and the ability to corner at speed are the primary pass-rush traits in this scheme. The system creates opportunities \u2014 the rusher must be fast enough to convert them."
+        },
+        "3_cone": {
+          "ideal": "sub-7.00",
+          "floor": "sub-7.20",
+          "reasoning": "Bend and change-of-direction ability are what separate good pass rushers from elite ones in a four-man-rush scheme."
+        }
+      },
+      "development_context": "Charlie Bullen is the OLB coach \u2014 he oversaw Burns' 16.5-sack breakout and Carter's impressive rookie season. The staff has demonstrated ability to develop edge talent. Wilson's simulated-pressure scheme can maximize a rusher who wins with effort and athleticism even if his pass-rush moves are limited.",
+      "scheme_fit_narrative": "We need edges who can win when the scheme creates 1-on-1s. We're not going to send seven to help you \u2014 we're rushing four and playing zone behind it. So when you get your chance, you better convert. Bend and explosion off the edge are the money traits. If you can also set the edge and not get kicked in the run game, you're an every-down player for us.",
+      "archetype_examples": [
+        "Brian Burns",
+        "Abdul Carter",
+        "Myles Garrett (speed/power blend)"
+      ]
+    },
+    "DL": {
+      "scheme_role": "The interior DL in Wilson's defense is the anchor of the front. With only 2-3 interior linemen on the field in nickel (the primary package), each DL must command double teams, control gaps, and generate interior pressure. Dexter Lawrence is the prototype \u2014 a dominant nose/3-tech who demands doubles and frees up the edges. The scheme asks DL to one-gap penetrate rather than two-gap and hold ground. Interior penetration creates pressure that complements the edge rush and disrupts run lanes.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Interior pressure is critical in a low-blitz scheme. Lawrence's ability to push the pocket from the inside allows the edges to convert. Wilson's scheme uses interior twists to create DL pass-rush opportunities."
+        },
+        "Run Defense": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "With five DBs on the field, the DL must handle the run with fewer bodies. This was a problem in Tennessee \u2014 Wilson's nickel-heavy approach struggled against the run. The DL MUST be able to hold the point of attack and control gaps."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Wilson's scheme features twists and stunts that require a quick first step to execute. Penetrating DL who can disrupt timing are more valuable than space-eating anchors in this system."
+        },
+        "Hand Usage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Sustaining blocks, shedding them, and winning at the point of attack all require refined hand technique. Lawrence's hand usage is what makes him dominant despite not being the quickest."
+        },
+        "Motor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Playing with energy on every snap is a Harbaugh cultural requirement. DL who take plays off are antithetical to the team's identity."
+        },
+        "Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must hold ground against double teams and control interior gaps. Strength is what allows a DL to command doubles, freeing up edges and LBs."
+        }
+      },
+      "ideal_archetype": "A dominant interior player who can command double teams in the run game while generating interior pressure as a pass rusher. Think Dexter Lawrence \u2014 massive, powerful, with surprising quickness and refined hand technique. The system doesn't need a pure nose tackle who just eats blocks; it needs a DL who can penetrate and disrupt while also being stout enough to hold up against the run with fewer defenders in the box.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "290-320",
+          "floor": "280",
+          "reasoning": "Must be heavy enough to hold the point of attack against double teams with fewer run defenders in the box."
+        },
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Length creates leverage advantage and the ability to stack-and-shed blocks."
+        },
+        "bench_press": {
+          "ideal": "28+ reps",
+          "floor": "24",
+          "reasoning": "Upper body strength for hand fighting and sustaining blocks at the point of attack."
+        }
+      },
+      "development_context": "The Giants have significant DL talent (Lawrence, Alexander, Davidson). Wilson maximized Jeffery Simmons in Tennessee (All-Pro both years). The staff can develop DL, especially through Wilson's emphasis on interior disruption. Draft picks who have penetration ability can be schemed into production through twists and stunts.",
+      "scheme_fit_narrative": "Our DL has to do more with less because we're playing five DBs. We need interior players who command attention \u2014 the kind of guy where the offense has to account for him with two blockers every play. If they single-block him, he needs to win. If they double him, that means a linebacker or edge is free. Dexter Lawrence is the gold standard.",
+      "archetype_examples": [
+        "Dexter Lawrence",
+        "Jeffery Simmons",
+        "Chris Jones"
+      ]
+    },
+    "LB": {
+      "scheme_role": "In Wilson's nickel-heavy scheme (2-4-5), the LBs are the most affected position. With only 1-2 LBs on the field on most snaps, each must be a complete player who can handle run fits, zone drops, and occasional man coverage on RBs/TEs. Bobby Okereke (re-signed) is the prototype \u2014 a 140+ tackle LB who plays every snap. The LB must be the defensive quarterback who processes coverages and communicates adjustments. Wilson's zone-heavy approach (75% zone) means LBs are reading and reacting in their zones, not man-covering.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "With fewer LBs on the field, each must be a sure tackler. Zone coverages funnel ball carriers to LBs \u2014 they must finish. Okereke's 143 tackles in 2025 demonstrate the volume."
+        },
+        "Coverage": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "This is what separates this scheme from a traditional 3-4. With zone coverage on 75% of snaps, the LB is dropping into zones on most plays. They must be able to carry RBs and TEs in zone drops and occasionally match up man-to-man. Coverage ability determines whether a LB can stay on the field in nickel."
+        },
+        "Pass Rush": {
+          "weight": 0.05,
+          "importance": "minimal",
+          "reasoning": "Wilson's low blitz rate and use of edges/simulated pressures means LBs rarely rush. This is not a blitzing LB scheme."
+        },
+        "Instincts": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Zone coverage demands reading route combinations and sitting in windows. Run defense with fewer bodies requires quick diagnosis and filling gaps correctly. The LB must process fast."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must have the range to cover sideline-to-sideline with only 1-2 LBs on the field. Also must be athletic enough to hang with TEs and RBs in space."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "With fewer LBs, range matters to cover ground. But Wilson's zone shells mean LBs have defined areas rather than needing to chase plays across the field."
+        },
+        "Block Shedding": {
+          "weight": 0.07,
+          "importance": "low",
+          "reasoning": "Important but the DL is expected to absorb blocks and keep the LB clean. If the DL is doing its job, the LB shouldn't face unblocked OL often."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "The LB may need to make some coverage calls and adjustments. Important for communication but Wilson's disguise concepts mean the safeties/corners handle more of the pre-snap adjustments."
+        }
+      },
+      "ideal_archetype": "A rangy, coverage-capable linebacker who can play every snap and tackle reliably in zone. Think Bobby Okereke or Roquan Smith \u2014 not a thumper, but an athlete who processes quickly, drops into zones smoothly, and makes 130+ tackles per year. The system needs a LB who can stay on the field when the defense goes to nickel, which means he must be trusted in coverage against TEs and RBs.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "225-240",
+          "floor": "215",
+          "reasoning": "Must be light enough to cover TEs in space but heavy enough to handle interior run fits."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.55",
+          "floor": "sub-4.65",
+          "reasoning": "Range and coverage ability require speed. A 4.6+ LB will struggle to keep up with modern TE/RB combinations."
+        },
+        "3_cone": {
+          "ideal": "sub-7.00",
+          "floor": "sub-7.10",
+          "reasoning": "Zone drops and man-coverage reps against TEs require change-of-direction ability."
+        }
+      },
+      "development_context": "Frank Bush is the LB coach \u2014 a veteran NFL coach since 1987. Okereke's consistent production provides a template. The staff needs LBs who arrive with coverage instincts \u2014 this is hard to teach at the NFL level. Run-and-hit ability can be developed, but coverage feel is more innate.",
+      "scheme_fit_narrative": "With only one or two linebackers on the field, every snap is magnified. We can't hide a coverage liability because there's no one else to rotate him out for. He has to be on the field for every personnel grouping, which means he has to be able to cover. If he can't run with a TE down the seam or match a RB in the flat, he's a liability in this defense.",
+      "archetype_examples": [
+        "Bobby Okereke",
+        "Roquan Smith",
+        "Fred Warner"
+      ]
+    },
+    "CB": {
+      "scheme_role": "This is the signature position in Wilson's defense. His stated philosophy is 'From Day 1, it's you press everything, period.' Corners must be physical at the line of scrimmage, disrupting releases and eliminating free-access throws. However, they play press within zone-heavy shells (Cover 4/Cover 3) with safety help over the top \u2014 they're not isolated on islands in pure man. The scheme demands corners who are physical enough to press but disciplined enough to play their zone assignment after jamming. Wilson's Titans ran man coverage only 18-25% of the time; the corners press in zone. Ball production is valued but secondary to coverage disruption.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Only 18-25% man coverage in Tennessee, though Wilson has stated he wants more press-man with upgraded personnel. Man reps are important but zone is the foundation."
+        },
+        "Ball Skills": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Wilson's defense in Tennessee struggled to generate takeaways. Corners with ball skills would address this weakness. However, the scheme prioritizes disruption over turnovers \u2014 the press is designed to prevent completions, not create interceptions."
+        },
+        "Zone Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "75% zone usage means zone coverage is the primary skill. Corners must execute zone drops after pressing at the line. Cover 4 quarters technique, Cover 3 thirds technique, and pattern-matching in zones are all required."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Press corners who get beaten need recovery speed. Cover 4 demands corners who can run with vertical routes. Speed is the safety net when press technique fails."
+        },
+        "Press": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "THE defining trait. Wilson's 'press everything, period' philosophy demands corners who can jam receivers at the line and disrupt route timing. This is non-negotiable. Deonte Banks was drafted for this; Adebo and Phillips thrive in it. Press ability is what separates a Wilson-scheme corner from a generic zone corner."
+        },
+        "Nickel": {
+          "weight": 0.11,
+          "importance": "moderate",
+          "reasoning": "With 70% nickel usage, the slot corner (Phillips) is critical. But outside corners are the priority for the press scheme. Nickel ability is important for depth and versatility."
+        }
+      },
+      "ideal_archetype": "A physical, press-capable corner with plus size who can jam receivers at the line and then transition into zone drops. Think Darius Slay or James Bradberry in their prime \u2014 corners who are physical at the line, don't give up free releases, and are disciplined enough in their zone to not get beaten over the top. NOT a pure man-cover corner who freelances; a disciplined presser who trusts the safety help behind him. The key: big enough to press, fast enough to recover, smart enough to play zone.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-2",
+          "floor": "5-11",
+          "reasoning": "Size is critical for press coverage. Wilson specifically sought corners with 'plus size and the demonstrated ability to play press-man coverage' when he was in Tennessee (signed L'Jarius Sneed, Chidobe Awuzie)."
+        },
+        "weight": {
+          "ideal": "190-210",
+          "floor": "185",
+          "reasoning": "Must be heavy enough to sustain press contact against physical WRs."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.45",
+          "floor": "sub-4.50",
+          "reasoning": "Recovery speed is the safety net. Press corners get beaten occasionally \u2014 they need the speed to close. Cover 4 demands vertical speed."
+        },
+        "arm_length": {
+          "ideal": "32+",
+          "floor": "31",
+          "reasoning": "Longer arms create more disruption in press and more range in zones. Wilson values length at corner."
+        }
+      },
+      "development_context": "Wilson is an elite secondary developer: Bradberry (All-Pro), Slay (two Pro Bowls), Hamilton (All-Pro), Blankenship (UDFA to starter). He can revitalize underperforming corners \u2014 his track record suggests Deonte Banks and Paulson Adebo could bounce back. Wilson can teach press technique but the physical tools (size, speed, length) must be present. You can't teach a 5-9, 175-pound corner to press consistently.",
+      "scheme_fit_narrative": "We need corners who aren't afraid to get their hands dirty. Press coverage is Day 1 \u2014 there's no easing into it. If you can't jam a receiver at the line and disrupt his route, you're not playing in this defense. But you also have to be smart enough to play zone once you've pressed \u2014 we're not asking you to follow your man across the field every play. Press, disrupt, get to your zone, and trust the safeties.",
+      "archetype_examples": [
+        "Darius Slay (2022 under Wilson)",
+        "James Bradberry (2022 under Wilson)",
+        "Deonte Banks (ideal profile for scheme)"
+      ]
+    },
+    "S": {
+      "scheme_role": "Safeties in Wilson's defense are the coverage backbone. Cover 4 and Cover 3 shells demand safeties who can play deep halves/thirds and provide over-the-top help for pressing corners. One safety often drops into a 'robber' role to bait QBs into interceptions. The scheme also uses safety walk-ups in simulated pressures (showing as blitzers before dropping back). Wilson's Ravens background featured Kyle Hamilton as a versatile S/LB hybrid chess piece. Jevon Holland and Tyler Nubin are the current starters. The system needs one rangy deep safety and one versatile box/robber safety.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Selectively used in man coverage on TEs and RBs. Not the primary coverage responsibility but must be able to handle it when Wilson dials up man."
+        },
+        "Range": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Cover 4 and Cover 3 demand safeties who can cover deep halves/thirds and provide help for pressing corners. Range is what allows the press coverage to work \u2014 the corners press because they know the safety is there."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Wilson's defense has historically struggled to generate takeaways (Titans were bottom-third in both seasons). Safeties with ball skills would directly address this weakness. The robber role is designed to create interception opportunities."
+        },
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Safeties are the last line of defense. With press corners occasionally beaten, the safety must be a reliable tackler to prevent big plays from becoming touchdowns. Also must tackle well in run support from the deep half."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Deep coverage demands speed to cover ground. Cover 4 safeties must be able to match vertical routes from their deep alignment. Recovery speed when providing help is critical."
+        },
+        "Nickel": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Wilson used Kyle Hamilton in the slot and as a box safety in Baltimore. The versatile safety who can play nickel, box, and deep is the most valuable piece. Holland's range allows Wilson to disguise two-high looks before dropping him into different roles at the snap."
+        }
+      },
+      "ideal_archetype": "A rangy, ball-hawking safety who can play deep halves in Cover 4, drop into robber roles to bait QBs, and still come downhill to tackle in run support. Think Kyle Hamilton \u2014 a versatile chess piece who can line up at deep safety, in the slot, in the box, or as a simulated blitzer. The scheme values range above all because that's what makes the press coverage sustainable. One safety should be the center-field type (Nubin); the other should be the versatile Hamilton-type (Holland).",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Size helps in the robber role (matching TEs) and in run support. Hamilton's 6-4 frame was a scheme weapon in Baltimore."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.50",
+          "floor": "sub-4.55",
+          "reasoning": "Deep coverage speed is non-negotiable. Cover 4 safeties must be able to cover deep halves. Range = speed."
+        },
+        "weight": {
+          "ideal": "200-215",
+          "floor": "195",
+          "reasoning": "Must be sturdy enough to tackle in run support and physical enough to match TEs in the slot."
+        }
+      },
+      "development_context": "Wilson developed Kyle Hamilton into an All-Pro safety. He transformed C.J. Gardner-Johnson, Reed Blankenship, and Marcus Epps into high-level starters. Wilson's scouting background means he evaluates secondary talent at an elite level. He can develop versatile safeties from raw athletes if the range and ball skills are present. Harbaugh's Baltimore defense always prioritized safety talent \u2014 Hamilton, Ed Reed, Eric Weddle all thrived.",
+      "scheme_fit_narrative": "Our safeties make the whole thing work. The corners press because they trust the safety help. If our safeties can't cover the deep half reliably, the corners can't press, and the entire defensive identity falls apart. Give me a rangy safety who can cover ground, make the robber interception when it's there, and come downhill to support the run. If he can also disguise his alignment pre-snap, he's a weapon.",
+      "archetype_examples": [
+        "Kyle Hamilton",
+        "Jevon Holland",
+        "Ed Reed (ball skills dimension)"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "The 2026 Giants are a rare team where ALL FOUR positional value inflections rate high, creating maximum scheme-driven value for versatile prospects. On offense, the Nagy/Reid West Coast tree + Greg Roman run game creates a TE-as-WR system (Kelce prototype) and RB-as-receiver system (Westbrook/McCoy prototype). A receiving TE like Kenyon Sadiq should be valued near WR levels for NYG. On defense, Wilson's 3-4 hybrid with 2-4-5 Nickel tendencies means any LB with pass rush traits (Arvell Reese, Sonny Styles type) is valued as an EDGE rusher \u2014 Abdul Carter's own LB-to-EDGE conversion is the template. The defensive front already features Burns, Carter, and Dexter Lawrence, with Thibodeaux potentially being traded, so additional versatile front-seven athletes are coveted. Wilson's DB-coach pedigree and Kyle Hamilton development track record means hybrid safeties who can play slot/box/deep have premium value. NYG's 5th overall pick in 2026 is most likely to target a defensive front player (DL/EDGE) or a dynamic safety/versatile defender \u2014 Harbaugh explicitly wants a 'gold jacket player' at that pick.",
+  "scheme_draft_intelligence": "The 2026 Giants under John Harbaugh represent a dramatic philosophical overhaul from the Daboll era. The coaching staff is perhaps the most experienced in the NFL \u2014 Harbaugh (18 years as HC), Nagy (former HC, 14 years under Reid), Roman (former OC at four stops), Callahan (former HC), Bloomgren (former HC), Wilson (two years as DC) \u2014 and this experience will shape their draft approach. They will prioritize scheme-versatile players who can execute multiple concepts, reflecting the hybrid nature of both the offense (zone/gap) and defense (press-zone/man).\n\nOn offense, the biggest value differential this team creates is at running back and tight end. Nagy's system demands pass-catching RBs (historically top-3 on the team in receptions), which means a dual-threat RB who other teams might undervalue as a pure runner could be a scheme-perfect fit. The 12-personnel emphasis (Likely + Johnson) means TE-heavy prospects who can flex and receive are more valuable to the Giants than to typical teams. At WR, Nagy's preference for bigger slot receivers creates a specific niche \u2014 the 6-0+ slot who can handle screens and create YAC is more valuable here than a small, quick slot type.\n\nDefensively, the biggest value differential is at cornerback. Wilson's 'press everything' philosophy demands a very specific CB profile \u2014 size (6-0+), physicality, and the ability to play press within zone concepts. This eliminates many smaller, quick-twitch man-cover specialists and elevates bigger, more physical zone corners that other teams might pass on. The Giants should aggressively target big press corners in the draft who fit Wilson's profile. Similarly, versatile safeties who can play deep, slot, and box are premium \u2014 Wilson's Hamilton-development track record means a raw but athletic safety prospect could be a goldmine.\n\nThe interior offensive line is likely the most pressing draft need. Right guard is open, and the hybrid zone/gap scheme demands guards who can pull (Roman) AND execute zone combos (Nagy). Guards with plus athleticism and the ability to move in space will be targeted. Bloomgren's Stanford pedigree \u2014 developing first-round interior linemen \u2014 suggests the staff will value athletic, teachable IOL prospects even if they're raw technically.\n\nHistorically, Harbaugh's Ravens consistently invested premium draft capital on the defensive line and secondary \u2014 positions that form the backbone of a Harbaugh-coached team. Expect the Giants to follow this pattern, particularly at DL (an interior complement to Lawrence) and CB (a Wilson-profile press corner). The signing of FB Patrick Ricard signals Harbaugh's commitment to bringing Baltimore's physical, multi-personnel offensive identity to New York, which could mean less draft capital spent on traditional skill positions and more on trenches and secondary.",
   "confidence": "high",
   "sources": [
-    "giants.com \u2014 John Harbaugh announces 2026 coaching staff (coordinators: Matt Nagy, Dennard Wilson, Chris Horton)",
-    "nfl.com \u2014 Giants hiring Matt Nagy as offensive coordinator",
-    "ESPN \u2014 Sources: Giants hire Dennard Wilson as John Harbaugh's DC",
-    "empiresportsmedia.com \u2014 Giants reportedly hiring elite run-game guru Greg Roman",
-    "matchquarters.com \u2014 Dennard Wilson's Schematic Evolution: 2025 Titans Defensive Post-Mortem (Ravens-Lite hybrid 3-4, 2-4-5 Nickel ~70%)",
-    "empiresportsmedia.com \u2014 What will the Giants' defensive scheme look like under new DC Dennard Wilson (Cover 4 primary, 75% zone, simulated pressures)",
-    "Titans Radio \u2014 Titans 3-4 defense needs pass rusher for Wilson's scheme",
-    "Wikipedia \u2014 Matt Nagy coaching history (Andy Reid tree, 14 combined seasons under Reid)",
-    "Wikipedia \u2014 Dennard Wilson (Todd Bowles / Gregg Williams influences, DB coaching background)",
-    "bigblueview.com \u2014 NY Giants DC Wilson aggressive play-calling style analysis",
-    "heavy.com \u2014 Giants Kayvon Thibodeaux trade update; Burns/Carter/Lawrence core",
-    "clutchpoints.com \u2014 Theo Johnson 2025 usage (35 targets, 23 receptions, 4 TDs in 8 games, 22% RZ target share)",
-    "giants.com \u2014 Theo Johnson 2025 stats (45 receptions, 528 yards, team-high 5 TDs)",
-    "Yahoo Sports \u2014 Greg Roman to coordinate run game; 9 of 12 OC years top-4 rushing",
-    "arrowheadpride.com \u2014 Reid's West Coast Gun offense: short-to-intermediate, pass-first, shotgun-based"
+    "giants.com official coaching staff bios and announcements",
+    "ESPN \u2014 Jordan Raanan reporting on Giants coaching hires and Dennard Wilson hire",
+    "NFL.com \u2014 Matt Nagy hire analysis and scheme profile",
+    "Big Blue View \u2014 Dennard Wilson scheme analysis with Titans coverage data",
+    "Empire Sports Media \u2014 Wilson defensive scheme breakdown, Greg Roman hiring analysis",
+    "SI.com/Giants \u2014 Matt Nagy offensive staples analysis, Greg Roman role description",
+    "Heavy.com \u2014 Wilson defensive transformation analysis with coverage percentages",
+    "PFF \u2014 RPO usage data for Reid coaching tree",
+    "Wikipedia \u2014 Matt Nagy, Dennard Wilson, Greg Roman, John Harbaugh career histories",
+    "Pro Football Rumors \u2014 Mike Bloomgren hiring and background",
+    "Yahoo Sports \u2014 Greg Roman run game coordinator role",
+    "Match Quarters \u2014 Dennard Wilson 2025 Titans schematic adaptation analysis",
+    "Baltimore Ravens official site \u2014 Wilson/Harbaugh connection, Harbaugh defensive philosophy",
+    "Titans official site \u2014 Wilson introductory press conference quotes",
+    "Chargers.com \u2014 Wilson background profile",
+    "TitanSized \u2014 Wilson coverage data, Cover 4/Cover 1/Cover 0 usage rates",
+    "A to Z Sports \u2014 Nagy Giants OC hiring analysis"
   ]
 }

@@ -21,7 +21,7 @@ BATCH_DIR = PROJECT_ROOT / "agents" / "batches"
 DELAY_BETWEEN_CALLS_SECONDS = 90
 
 DEFAULT_MODELS = {
-    "scouting": "claude-sonnet-4-6",
+    "scouting": "claude-opus-4-6",
     "gm-personality": "claude-opus-4-6",
     "combine": "claude-haiku-4-5-20251001",
     "trade-roster": "claude-haiku-4-5-20251001",
@@ -31,6 +31,7 @@ DEFAULT_MODELS = {
     "team-needs": "claude-opus-4-6",
     "pro-day": "claude-opus-4-6",
     "free-agency": "claude-sonnet-4-6",
+    "roster-value": "claude-opus-4-6",
 }
 
 NFL_DIVISIONS = {
@@ -136,7 +137,7 @@ def submit_batch(requests_list, agent_name):
     print(f"\n   Check status:   python3 agents/run.py check-batch")
     print(f"   Download:       python3 agents/run.py download-batch")
 
-def check_batch_status():
+def check_batch_status(agent_filter=None):
     import anthropic
     client = anthropic.Anthropic()
     BATCH_DIR.mkdir(parents=True, exist_ok=True)
@@ -144,22 +145,30 @@ def check_batch_status():
     if not files:
         print("No batches found. Submit one with --batch flag first.")
         return
+    found = False
     for f in sorted(files):
         info = json.loads(f.read_text())
+        if agent_filter and info.get("agent") != agent_filter:
+            continue
+        found = True
         try:
             batch = client.messages.batches.retrieve(info["batch_id"])
             c = batch.request_counts
+            total = c.succeeded + c.errored + c.expired + c.processing
+            done = c.succeeded + c.errored + c.expired
             emoji = "✅" if batch.processing_status == "ended" else "⏳"
-            print(f"\n{emoji} Batch: {info['batch_id']}")
-            print(f"   Agent: {info['agent']} | Submitted: {info['submitted_at']}")
-            print(f"   Status: {batch.processing_status}")
+            print(f"\n{emoji} {info['agent'].upper()}")
+            print(f"   Status: {batch.processing_status}  ({done}/{total} complete)")
             print(f"   Succeeded: {c.succeeded} | Errored: {c.errored} | Expired: {c.expired} | Processing: {c.processing}")
+            print(f"   Submitted: {info['submitted_at']}")
             if batch.processing_status == "ended":
                 print(f"   👉 Run: python3 agents/run.py download-batch")
             info["status"] = batch.processing_status
             f.write_text(json.dumps(info, indent=2))
         except Exception as e:
             print(f"❌ Error checking {info['batch_id']}: {e}")
+    if agent_filter and not found:
+        print(f"No batches found for agent '{agent_filter}'.")
 
 def download_batch_results():
     import anthropic
@@ -298,7 +307,7 @@ def generate_gm_index(out):
 def run_scheme_agent(args):
     spec = load_agent_spec("scheme")
     model = args.model or DEFAULT_MODELS["scheme"]
-    out = OUTPUT_DIR / "scheme-profiles"
+    out = OUTPUT_DIR / "scheme"
     out.mkdir(parents=True, exist_ok=True)
 
     if args.team: teams = [args.team.upper()]
@@ -326,23 +335,33 @@ def run_scheme_agent(args):
     if not to_run: print("\nAll done. Use --force to re-run."); return
 
     def make_msg(team):
-        return (f"Research the {team} coaching staff and produce a complete scheme profile. "
-                f"Follow your full research methodology: coaching staff identification, offensive scheme, "
-                f"defensive scheme (with front alignment), and positional value inflections. "
-                f"CRITICAL: Use the CURRENT 2025-2026 coaching staff. Verify any recent coaching changes. "
-                f"Output the complete JSON profile as specified in your instructions.\n\n"
-                f"QUALITY REQUIREMENTS:\n"
-                f"- Identify the current HC, OC, and DC with their scheme trees\n"
-                f"- Classify base front (3-4 vs 4-3 vs hybrid) with evidence\n"
-                f"- All four positional value inflections (TE receiving, LB pass rush, RB dual threat, S hybrid) "
-                f"must have ratings AND specific explanations\n"
-                f"- scheme_specific_draft_notes must be actionable, not generic\n"
-                f"- Output ONLY the JSON object. Start with {{ and end with }}.")
+        return (f"Research the {team} coaching staff and produce a COMPLETE v2 scheme intelligence profile. "
+                f"Follow your full research methodology: coaching staff deep dive (with coaching trees and development track records), "
+                f"offensive scheme DNA, defensive scheme DNA, and ALL 11 positional blueprints.\n\n"
+                f"CRITICAL: Use the CURRENT 2025-2026 coaching staff. Verify any recent coaching changes.\n\n"
+                f"POSITIONAL BLUEPRINTS (the core output) — produce a full blueprint for EVERY position: "
+                f"QB, RB, WR, TE, OT, IOL, EDGE, DL, LB, CB, S. Each blueprint MUST include:\n"
+                f"- scheme_role: what this position specifically does in THIS scheme\n"
+                f"- trait_weights: weight (summing to 1.00) for EVERY trait in the position's taxonomy, "
+                f"with importance level and reasoning referencing THIS team's specific scheme\n"
+                f"- ideal_archetype: vivid description with real NFL player examples\n"
+                f"- measurable_preferences: scheme-specific physical benchmarks with reasoning\n"
+                f"- development_context: what this staff can develop vs what must arrive ready\n"
+                f"- scheme_fit_narrative: 2-4 sentences of scout-talk explaining the ideal prospect\n"
+                f"- archetype_examples: current/recent NFL player comparisons\n\n"
+                f"DIFFERENTIATION STANDARD: Your weights for {team} must be SPECIFIC to this coaching staff's scheme. "
+                f"Two teams that run the same base defense should NOT produce identical weights — "
+                f"the coaching tree, coordinator history, and specific scheme variant all create differences.\n\n"
+                f"Also include: coaching_staff (with coaching_tree, scheme_evolution, development_track_record), "
+                f"offense (scheme_family, scheme_detail, run_scheme, pass_architecture, personnel_tendencies, motion_tempo), "
+                f"defense (scheme_family, scheme_detail, front_structure, coverage_philosophy, pressure_philosophy, sub_packages), "
+                f"and scheme_draft_intelligence (3-5 paragraph analysis).\n\n"
+                f"Output ONLY the JSON object. Start with {{ and end with }}.")
 
     if args.batch:
         if args.dry_run:
             print(f"\nDRY RUN — would batch {len(to_run)} teams: {', '.join(to_run)}"); return
-        reqs = [{"custom_id": t, "params": {"model": model, "max_tokens": 16000, "system": spec,
+        reqs = [{"custom_id": t, "params": {"model": model, "max_tokens": 32000, "system": spec,
                  "tools": [{"type": "web_search_20250305", "name": "web_search"}],
                  "messages": [{"role": "user", "content": make_msg(t)}]}} for t in to_run]
         submit_batch(reqs, "scheme"); return
@@ -350,7 +369,83 @@ def run_scheme_agent(args):
     for i, t in enumerate(to_run, 1):
         print(f"\n🏈 [{i}/{len(to_run)}] Researching scheme: {t}")
         if args.dry_run: print(f"   DRY RUN"); continue
-        result = call_agent(spec, make_msg(t), model, 16000)
+        result = call_agent(spec, make_msg(t), model, 32000)
+        jd = extract_json(result)
+        if jd: (out / f"{t}.json").write_text(json.dumps(jd, indent=2)); print(f"   ✅ Saved")
+        else: (out / f"{t}_raw.md").write_text(result); print(f"   ⚠️  No JSON, raw saved")
+        time.sleep(DELAY_BETWEEN_CALLS_SECONDS)
+
+# --- ROSTER VALUE AGENT ---
+
+def run_roster_value_agent(args):
+    spec = load_agent_spec("roster-value")
+    model = args.model or DEFAULT_MODELS.get("roster-value", "claude-opus-4-6")
+    out = OUTPUT_DIR / "roster-value"
+    out.mkdir(parents=True, exist_ok=True)
+
+    if args.team: teams = [args.team.upper()]
+    elif args.division:
+        matched = None
+        for k in NFL_DIVISIONS:
+            if args.division.lower().replace(" ","") in k.lower().replace(" ",""): matched = k; break
+        if not matched:
+            print(f"❌ Unknown division. Available: {', '.join(NFL_DIVISIONS.keys())}"); sys.exit(1)
+        teams = NFL_DIVISIONS[matched]
+        print(f"📋 {matched} — {', '.join(teams)}")
+    elif args.all: teams = ALL_TEAMS; print("📋 All 32 teams")
+    else: print("❌ Specify --team, --division, or --all"); sys.exit(1)
+
+    if args.force:
+        for t in teams:
+            for ext in [f"{t}.json", f"{t}_raw.md"]:
+                p = out / ext
+                if p.exists(): p.unlink(); print(f"🗑️  Deleted {ext}")
+        to_run = teams
+    else:
+        to_run = [t for t in teams if not (out / f"{t}.json").exists() or args.dry_run]
+        skipped = [t for t in teams if t not in to_run]
+        for t in skipped: print(f"⏭️  {t} — already done")
+    if not to_run: print("\nAll done. Use --force to re-run."); return
+
+    # Load the team's depth chart to include in the prompt
+    rosters_file = PROJECT_ROOT / "src" / "nflRosters.js"
+    roster_data = {}
+    if rosters_file.exists():
+        import ast
+        content = rosters_file.read_text()
+        # Extract just the team's roster block for context
+        for t in ALL_TEAMS:
+            m = re.search(rf'"{t}":\s*\{{([^}}]+)\}}', content)
+            if m: roster_data[t] = m.group(0)
+
+    def make_msg(team):
+        roster_ctx = ""
+        if team in roster_data:
+            roster_ctx = f"\n\nCURRENT DEPTH CHART (from ESPN, as of March 2026):\n{roster_data[team]}\n\nUse these exact player names in your output."
+        return (f"Research and produce a complete roster trade valuation for the {team}. "
+                f"Follow your full methodology: team context, then every starter and meaningful backup.\n\n"
+                f"For EVERY player, you MUST include: name (matching depth chart exactly), slot, position, age, "
+                f"draft pedigree, full contract details (years remaining, AAV, guaranteed remaining, cap hit 2026, "
+                f"dead cap if traded, free agent year), performance tier with evidence, trade value (pick equivalent "
+                f"+ value points + reasoning), availability classification with reasoning, and any relevant notes "
+                f"(injury, character, trade buzz).\n\n"
+                f"CRITICAL: Contract data must come from Spotrac or Over The Cap. Performance tiers must be "
+                f"evidence-based (stats, PFF grades, awards). Pick equivalents must be calibrated against actual "
+                f"recent NFL trades.\n\n"
+                f"Output ONLY the JSON object. Start with {{ and end with }}.{roster_ctx}")
+
+    if args.batch:
+        if args.dry_run:
+            print(f"\nDRY RUN — would batch {len(to_run)} teams: {', '.join(to_run)}"); return
+        reqs = [{"custom_id": t, "params": {"model": model, "max_tokens": 32000, "system": spec,
+                 "tools": [{"type": "web_search_20250305", "name": "web_search"}],
+                 "messages": [{"role": "user", "content": make_msg(t)}]}} for t in to_run]
+        submit_batch(reqs, "roster-value"); return
+
+    for i, t in enumerate(to_run, 1):
+        print(f"\n🏈 [{i}/{len(to_run)}] Researching roster values: {t}")
+        if args.dry_run: print(f"   DRY RUN"); continue
+        result = call_agent(spec, make_msg(t), model, 32000)
         jd = extract_json(result)
         if jd: (out / f"{t}.json").write_text(json.dumps(jd, indent=2)); print(f"   ✅ Saved")
         else: (out / f"{t}_raw.md").write_text(result); print(f"   ⚠️  No JSON, raw saved")
@@ -436,7 +531,13 @@ def run_scouting_agent(args):
         if f.exists() and not args.dry_run: print(f"⏭️  Already scouted."); return
         print(f"\n🔬 Scouting: {args.prospect}")
         if args.dry_run: print("   DRY RUN"); return
-        result = call_agent(spec, f"Scout {args.prospect}. Follow single prospect workflow.", model)
+        result = call_agent(spec, (
+            f"Scout {args.prospect}. Follow single prospect workflow.\n\n"
+            f"Produce the COMPLETE v2 output: trait grades with per-analyst source language, "
+            f"scouting blurb, strengths, weaknesses, pro comparisons, scheme fit tags, "
+            f"boom/bust variance, talent grade vs projected draft range, small school flag, "
+            f"analyst consensus level, and notable divergence. Every field is required."
+        ), model)
         jd = extract_json(result)
         if jd: f.write_text(json.dumps(jd, indent=2)); print("   ✅ Saved")
         else: (out / f"{safe}_raw.md").write_text(result); print("   ⚠️  No JSON, raw saved")
@@ -493,15 +594,28 @@ def run_scouting_agent(args):
                     print(f"   ⏭️  {name} — duplicate id, skipping")
                     continue
                 seen_ids.add(cid)
-                reqs.append({"custom_id": cid, "params": {"model": model, "max_tokens": 8000, "system": spec,
+                reqs.append({"custom_id": cid, "params": {"model": model, "max_tokens": 16000, "system": spec,
                      "tools": [{"type": "web_search_20250305", "name": "web_search"}],
-                     "messages": [{"role": "user", "content": f"Scout {name}, position {pos}. Follow single prospect workflow. Note any paywalled sources."}]}})
+                     "messages": [{"role": "user", "content": (
+                         f"Scout {name}, position {pos}. Follow single prospect workflow. "
+                         f"Note any paywalled sources. Produce the COMPLETE v2 output: trait grades "
+                         f"with per-analyst source language, scouting blurb, strengths, weaknesses, "
+                         f"pro comparisons, scheme fit tags, boom/bust variance, talent grade vs "
+                         f"projected draft range, small school flag, analyst consensus level, and "
+                         f"notable divergence. Every field is required."
+                     )}]}})
             submit_batch(reqs, "scouting"); return
 
         for i, (name, safe) in enumerate(to_run, 1):
             print(f"   [{i}/{len(to_run)}] 🔬 {name}")
             try:
-                result = call_agent(spec, f"Scout {name}, position {pos}. Follow single prospect workflow.", model)
+                result = call_agent(spec, (
+                    f"Scout {name}, position {pos}. Follow single prospect workflow. "
+                    f"Produce the COMPLETE v2 output: trait grades with per-analyst source language, "
+                    f"scouting blurb, strengths, weaknesses, pro comparisons, scheme fit tags, "
+                    f"boom/bust variance, talent grade vs projected draft range, small school flag, "
+                    f"analyst consensus level, and notable divergence. Every field is required."
+                ), model)
                 jd = extract_json(result)
                 if jd: (pos_out / f"{safe}.json").write_text(json.dumps(jd, indent=2)); print("      ✅")
                 else: (pos_out / f"{safe}_raw.md").write_text(result); print("      ⚠️  raw saved")
@@ -721,7 +835,7 @@ def main():
     p.add_argument("--message", help="Freeform message for generic agents")
     args = p.parse_args()
 
-    if args.agent == "check-batch": check_setup(); check_batch_status(); return
+    if args.agent == "check-batch": check_setup(); check_batch_status(args.message); return
     if args.agent == "download-batch": check_setup(); download_batch_results(); return
     check_setup()
     if args.agent in ("scouting","scout"): run_scouting_agent(args)
@@ -730,6 +844,7 @@ def main():
     elif args.agent in ("team-needs","needs"): run_team_needs_agent(args)
     elif args.agent in ("pro-day","proday"): run_pro_day_agent(args)
     elif args.agent in ("free-agency","fa"): run_free_agency_agent(args)
+    elif args.agent in ("roster-value","rv"): run_roster_value_agent(args)
     else:
         if not args.message: print(f"❌ Provide --message for custom agents"); sys.exit(1)
         run_generic_agent(args)

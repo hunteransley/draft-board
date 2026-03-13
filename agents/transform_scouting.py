@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """
-Transform agent scouting output into scoutingTraits.json format.
+Transform agent scouting output into scoutingTraits.json + scoutingNarratives.json.
 
 Reads all JSON files from agents/output/scouting/ (nested trait objects with
-grade/confidence/notes) and the raw_extracted.json fallback, then merges into
-the flat {trait: number} format that src/scoutingTraits.json expects.
+grade/confidence/notes) and the raw_extracted.json fallback, then:
+  1. Merges traits into the flat {trait: number} format for scoutingTraits.json
+  2. Extracts narrative fields into scoutingNarratives.json for Scout Vision
 
 Usage:
   python3 agents/transform_scouting.py              # preview changes
-  python3 agents/transform_scouting.py --write       # overwrite scoutingTraits.json
+  python3 agents/transform_scouting.py --write       # overwrite both output files
   python3 agents/transform_scouting.py --diff        # show side-by-side diffs
   python3 agents/transform_scouting.py --suggest     # show suggested new traits
 """
@@ -19,6 +20,7 @@ from collections import defaultdict
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 AGENT_DIR = PROJECT_ROOT / "agents" / "output" / "scouting"
 TRAITS_FILE = PROJECT_ROOT / "src" / "scoutingTraits.json"
+NARRATIVES_FILE = PROJECT_ROOT / "src" / "scoutingNarratives.json"
 RAW_EXTRACTED = AGENT_DIR / "raw_extracted.json"
 CONSENSUS_FILE = PROJECT_ROOT / "src" / "consensusData.js"
 
@@ -110,16 +112,84 @@ CEILING_KEYWORDS = {
 
 
 def detect_ceiling(d):
-    """Infer __ceiling from synthesis_notes and suggested_traits."""
+    """Infer __ceiling from synthesis_notes, suggested_traits, and boom/bust variance."""
     text = (d.get("synthesis_notes", "") + " " +
             json.dumps(d.get("suggested_traits", [])) + " " +
-            json.dumps(d.get("consensus_deviation", {})))
+            json.dumps(d.get("consensus_deviation", {})) + " " +
+            json.dumps(d.get("boom_bust_variance", {})) + " " +
+            d.get("scouting_blurb", ""))
     text_lower = text.lower()
     for level, keywords in CEILING_KEYWORDS.items():
         for kw in keywords:
             if re.search(kw, text_lower):
                 return level
+    # Use boom/bust variance as a ceiling signal
+    bbv = d.get("boom_bust_variance", {})
+    if isinstance(bbv, dict):
+        variance_level = bbv.get("level", "")
+        if variance_level == "high":
+            return "high"  # High variance implies meaningful ceiling
     return None
+
+
+# ── Narrative extraction ────────────────────────────────────────────────────
+
+# Fields to extract from v2 agent output for scoutingNarratives.json
+NARRATIVE_FIELDS = [
+    "scouting_blurb", "strengths", "weaknesses",
+    "pro_comparison", "pro_comparison_reasoning", "alt_pro_comparison",
+    "scheme_fit_tags", "boom_bust_variance",
+    "talent_grade", "projected_draft_range", "grade_vs_projection_gap",
+    "small_school_flag", "competition_level_note",
+    "analyst_consensus_level", "notable_analyst_divergence",
+    "synthesis_notes",
+]
+
+
+def extract_narratives(d):
+    """Extract all narrative/structured fields from a v2 agent JSON for Scout Vision.
+
+    Returns a dict of narrative fields, or None if this is a v1 output with no
+    narrative data (backwards-compatible — v1 files just don't produce narratives).
+    """
+    narrative = {}
+    has_any = False
+
+    for field in NARRATIVE_FIELDS:
+        val = d.get(field)
+        if val is not None:
+            narrative[field] = val
+            has_any = True
+
+    if not has_any:
+        return None
+
+    # Extract per-trait scout language for Scout Vision reasoning
+    trait_language = {}
+    raw_traits = d.get("traits", {})
+    for tname, tval in raw_traits.items():
+        if not isinstance(tval, dict):
+            continue
+        source_grades = tval.get("source_grades", {})
+        if source_grades:
+            lang_entries = {}
+            for analyst_key, sg in source_grades.items():
+                if isinstance(sg, dict) and sg.get("language"):
+                    lang_entries[analyst_key] = {
+                        "language": sg["language"],
+                        "grade": sg.get("implied_grade"),
+                    }
+            if lang_entries:
+                trait_language[tname] = lang_entries
+    if trait_language:
+        narrative["trait_language"] = trait_language
+
+    # Extract scout variance for display
+    scout_variance = d.get("scout_variance", [])
+    if scout_variance:
+        narrative["scout_variance"] = scout_variance
+
+    return narrative
 
 
 # ── New trait estimation ─────────────────────────────────────────────────────
@@ -202,6 +272,9 @@ def load_agent_data():
                 suggested = extract_new_trait_grades(d)
                 ceiling = detect_ceiling(d)
 
+                # Extract narrative fields (v2 agent output)
+                narratives = extract_narratives(d)
+
                 prospects.append({
                     "name": name,
                     "school": school,
@@ -209,6 +282,7 @@ def load_agent_data():
                     "traits": traits,
                     "suggested_new_traits": suggested,
                     "ceiling": ceiling,
+                    "narratives": narratives,
                     "source": "agent",
                     "file": f,
                 })
@@ -239,6 +313,7 @@ def load_agent_data():
                         "traits": traits,
                         "suggested_new_traits": {},
                         "ceiling": None,
+                        "narratives": None,
                         "source": "raw_extraction",
                         "file": "raw_extracted.json",
                     })
@@ -423,9 +498,18 @@ def rescale_traits(traits, pos, consensus_rank):
 # ── Transform ────────────────────────────────────────────────────────────────
 
 def transform():
-    """Build the merged scoutingTraits dict."""
+    """Build the merged scoutingTraits dict and scoutingNarratives dict."""
     with open(TRAITS_FILE) as f:
         baseline = json.load(f)
+
+    # Load existing narratives if present
+    narratives_baseline = {}
+    if NARRATIVES_FILE.exists():
+        try:
+            with open(NARRATIVES_FILE) as f:
+                narratives_baseline = json.load(f)
+        except (json.JSONDecodeError, KeyError):
+            pass
 
     # Build a normalized-key → original-key mapping for baseline
     baseline_norm = {}
@@ -442,6 +526,9 @@ def transform():
     print(f"Loaded {len(prospects)} agent prospect files")
 
     merged = dict(baseline)
+    merged_narratives = dict(narratives_baseline)
+    narratives_added = 0
+    narratives_updated = 0
     updated = 0
     added = 0
     unchanged = 0
@@ -523,7 +610,16 @@ def transform():
         if baseline_key and baseline_key != write_key and baseline_key in merged:
             del merged[baseline_key]
 
-    return merged, diffs, updated, added, unchanged, new_trait_stats
+        # Merge narrative data (v2 agent output)
+        if p.get("narratives"):
+            if write_key in merged_narratives:
+                narratives_updated += 1
+            else:
+                narratives_added += 1
+            merged_narratives[write_key] = p["narratives"]
+
+    return (merged, diffs, updated, added, unchanged, new_trait_stats,
+            merged_narratives, narratives_added, narratives_updated)
 
 
 def collect_suggested_traits():
@@ -626,11 +722,13 @@ def main():
                   (f" +{len(s['prospects'])-8} more" if len(s["prospects"]) > 8 else ""))
         return
 
-    merged, diffs, updated, added, unchanged, new_trait_stats = transform()
+    (merged, diffs, updated, added, unchanged, new_trait_stats,
+     merged_narratives, narratives_added, narratives_updated) = transform()
 
     print(f"\n{'='*50}")
-    print(f"  Updated: {updated}  |  Added: {added}  |  Unchanged: {unchanged}")
-    print(f"  Total in merged output: {len(merged)}")
+    print(f"  Traits — Updated: {updated}  |  Added: {added}  |  Unchanged: {unchanged}")
+    print(f"  Narratives — Added: {narratives_added}  |  Updated: {narratives_updated}  |  Total: {len(merged_narratives)}")
+    print(f"  Total in merged traits output: {len(merged)}")
     print(f"{'='*50}")
 
     if new_trait_stats:
@@ -713,7 +811,13 @@ def main():
         sorted_merged = dict(sorted(merged.items()))
         with open(TRAITS_FILE, "w") as f:
             json.dump(sorted_merged, f, indent=2)
-        print(f"\n✅ Written to {TRAITS_FILE}")
+        print(f"\n✅ Written traits to {TRAITS_FILE}")
+
+        if merged_narratives:
+            sorted_narratives = dict(sorted(merged_narratives.items()))
+            with open(NARRATIVES_FILE, "w") as f:
+                json.dump(sorted_narratives, f, indent=2)
+            print(f"✅ Written narratives to {NARRATIVES_FILE}")
     else:
         if not diff_mode and not suggest_mode:
             print("\nDry run. Use --write to save, --diff to see changes, --suggest for new traits.")

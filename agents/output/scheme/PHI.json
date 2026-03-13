@@ -4,72 +4,776 @@
   "coaching_staff": {
     "head_coach": {
       "name": "Nick Sirianni",
-      "tenure_years": 5,
+      "tenure_years": 6,
       "background": "offensive",
-      "scheme_philosophy": "Offensive background with CEO-style management; historically collaborative with OCs on playcalling; emphasizes run-game dominance and physicality; won Super Bowl LIX after 2024 season"
+      "coaching_tree": "Frank Reich / Indianapolis Colts tree \u2192 originally a WR coach who evolved into a playcaller. Sirianni's offensive roots trace through Reich, who blended West Coast principles with Peyton Manning-era concepts. Sirianni has increasingly operated as a CEO, delegating playcalling to coordinators.",
+      "scheme_philosophy": "Player-centric offensive philosophy built on adaptability. Sirianni's Eagles have cycled through five OCs in five years but maintained certain principles: elite offensive line play as the foundation, a heavy emphasis on the run game (Saquon Barkley), and using personnel advantages over schematic complexity. Now shifting toward a Shanahan/McVay-based system under new OC Sean Mannion while preserving select elements from prior years. Defensively, Sirianni has deferred entirely to Vic Fangio, allowing the legendary DC full autonomy."
     },
     "offensive_coordinator": {
       "name": "Sean Mannion",
-      "scheme_tree": "Shanahan/McVay/LaFleur wide zone",
-      "play_caller": true,
-      "notes": "First-time playcaller; spent 9 years as NFL backup QB, then 2 years coaching in Green Bay under Matt LaFleur (offensive assistant 2024, QBs coach 2025); played under Sean McVay with Rams and Kevin O'Connell with Vikings; hired Feb 2026 to replace fired Kevin Patullo; bringing Shanahan-McVay system to Philadelphia with emphasis on wide zone, play action, pre-snap motion, and under-center usage"
+      "coaching_tree": "Shanahan/McVay/LaFleur tree. Played under Sean McVay (Rams) and Kevin O'Connell (Vikings). Coached under Matt LaFleur in Green Bay as offensive assistant (2024) and QBs coach (2025). The entire new offensive staff is steeped in the Shanahan tree: pass game coordinator Josh Grizzard worked under Mike McDaniel in Miami; run game coordinator Ryan Mahaffey coached under LaFleur in GB; OL coach Chris Kuper worked with Kyle Shanahan.",
+      "scheme_evolution": "This is Mannion's first season as a playcaller. His offensive philosophy is projected to center on wide-zone run action as the foundation, heavy play-action off under-center formations, motion and misdirection to simplify reads for the QB, and sequenced passing concepts. This represents a major departure from the Eagles' recent shotgun-heavy, RPO-based, limited-motion offense. Expect more under-center snaps, outside zone, boot concepts, layered route designs, and crossers.",
+      "development_track_record": "In Green Bay, Mannion helped Jordan Love throw 23 TDs to 6 INTs and developed backup Malik Willis into a reliable option. His background as a QB coach suggests strong ability to develop quarterback mechanics and processing. However, he has zero track record developing offensive skill players or linemen \u2014 that's an unknown."
     },
     "defensive_coordinator": {
       "name": "Vic Fangio",
-      "scheme_tree": "Fangio 3-4 / split-field zone coverage system (original innovator)",
-      "play_caller": true,
-      "notes": "67 years old, returning for 3rd season as Eagles DC after contemplating retirement; 41-year coaching veteran; created the modern two-high disguised coverage system now widely copied across NFL; full autonomy over defensive playcalling"
+      "coaching_tree": "Original Fangio tree \u2014 he IS the tree. 40+ years of NFL coaching experience. Linebackers coach for the Dome Patrol Saints (1986-94). DC for Panthers, Colts, Texans, 49ers (under Jim Harbaugh), Bears, and now Eagles. Served as consultant for Eagles (2022) before being hired as DC in 2024. His defensive system has become the most imitated scheme in the NFL, spawning disciples including Brandon Staley, Ed Donatell, Jonathan Gannon, and Sean Desai.",
+      "scheme_evolution": "Fangio's defense has consistently been built on two-high safety shells pre-snap that disguise post-snap coverage rotations. His base 3-4 features a 'gap and a half' technique for DL rather than pure two-gapping. The scheme adapts to personnel: in Chicago it featured unique fronts vs. outside zone; in Denver more man coverage; in Philadelphia it has leaned into Cover 4 match/quarters as the foundational coverage. In his Eagles tenure, he has built the NFL's top defense (No. 1 in 2024, top-5 in 2025) by maximizing young talent \u2014 developing Mitchell, DeJean, Baun, Campbell, Hunt, and Carter into Pro Bowl/All-Pro performers.",
+      "development_track_record": "Elite developer of defensive talent across all positions. Mentored five Pro Football Hall of Famers (Kevin Greene, Rickey Jackson, Ray Lewis, Sam Mills, Patrick Willis). Turned Zack Baun from a journeyman into an All-Pro LB. Developed rookies Quinyon Mitchell and Cooper DeJean into first-team All-Pros by Year 2. Developed Jalyx Hunt and Nolan Smith into productive edge rushers. Bradley Chubb had career highs under Fangio in Denver. Jalen Carter emerged as an All-Pro DT. Fangio's track record of developing CBs (both outside and slot), LBs, and DL is exceptional."
     }
   },
   "offense": {
-    "scheme_family": "Shanahan/McVay wide zone (transitioning in 2026 from West Coast/Sirianni hybrid)",
-    "base_personnel": "11 and 12 (expect significant 12 personnel increase under Mannion; LaFleur's Packers used 12 personnel on 33-37% of snaps)",
-    "run_scheme": "wide zone primary, with gap/power complementary; boot and play-action concepts married to outside zone; expect more under-center looks than 2025 (Eagles were 27th in under-center usage in 2025)",
-    "pass_concepts": "play action heavy off wide zone, boot concepts with three-level flood routes, pre-snap motion to create leverage and disguise intent; timing-based passing with QB-friendly progressions; emphasis on tying run and pass together",
-    "rpo_usage": "moderate to low (Shanahan-McVay tree relies more on traditional play action than RPOs, though Hurts' athleticism will preserve some RPO elements)",
-    "te_usage": "critical to scheme; Shanahan/LaFleur systems feature TEs as both inline blockers and receiving weapons; expect move TE/flex usage in 12 personnel; TE leak routes off split zone and boot concepts are staples; Eagles losing Dallas Goedert in free agency creates major need at position; hired Ryan Mahaffey as TE coach/run game coordinator",
-    "rb_usage": "bell cow runner in Saquon Barkley; Shanahan-style values dual-threat backs who can run choice routes; Barkley has elite receiving traits but was underutilized in passing game in 2025 (47.2 PFF receiving grade); expect increased receiving role under Mannion's system"
+    "scheme_family": "Shanahan/McVay West Coast (LaFleur variant, transitioning in 2026)",
+    "scheme_detail": "The Eagles are undergoing a major offensive scheme overhaul in 2026 under Mannion. Moving from a shotgun-heavy, RPO-based system with limited motion (ranked bottom-5 in pre-snap motion in 2025 and bottom-5 in play-action rate) to a Shanahan-tree system built on wide-zone runs, under-center play-action, heavy motion and misdirection, and sequenced passing concepts. The LaFleur variant Mannion comes from blends traditional Shanahan outside-zone principles with more modern spread concepts, making it potentially a good bridge from what the Eagles have done previously. The offense will aim to make the run and pass look identical pre-snap, creating the 'illusion of complexity' that simplifies reads for the QB.",
+    "run_scheme": "Outside/wide zone primary \u2014 a significant shift from the Eagles' recent inside zone and gap-scheme emphasis. The new OL coach Chris Kuper and run game coordinator Ryan Mahaffey were specifically brought in to install outside zone. Gap schemes (power, counter) will be used as changeups to punish defenses that overcommit to the stretch. Under-center formations will increase dramatically. Saquon Barkley's one-cut vision and burst should translate well to wide zone. Designed QB runs will likely decrease from previous years, though bootleg and scramble opportunities increase.",
+    "pass_architecture": "Play-action heavy \u2014 boot concepts, half-rolls, and sprint-outs off outside-zone action. This marries the run and pass through identical pre-snap looks. Route concepts will shift toward crossers, layered floods, and progression-defined throws rather than the isolation/contested-catch approach of 2025. Expect more targets over the middle and intermediate areas. The 2x2 formation dominance of 2024 may give way to more varied alignments with tight ends flexed as wing or fullback-type alignments. RPO usage will decrease; traditional play-action and boot concepts will increase substantially.",
+    "personnel_tendencies": "Expect increased 12 personnel (2 TE) usage to create extra gaps for the run game and sell play-action. 21 personnel with a FB/H-back type (Ben VanSumeren or TE as FB) could feature. 11 personnel remains base but with more under-center looks and motion. The Eagles lost Dallas Goedert in free agency but signed blocking TE Johnny Mundt and re-signed Grant Calcaterra, signaling a shift toward TEs who can function as in-line blockers for the outside zone scheme. WR blocking becomes more important in this system.",
+    "motion_tempo": "Dramatically increased motion compared to 2025 (when Eagles ranked bottom-5). Shanahan/McVay systems are among the league leaders in pre-snap motion. Expect jet sweeps, orbit motion, and motion to identify coverage pre-snap. Tempo will be deliberate \u2014 this is a ball-control, run-first system, not a hurry-up spread attack."
   },
   "defense": {
-    "base_front": "3-4",
-    "alignment": "odd front (3 down linemen with 2 stand-up OLBs in base); shifts to 4-2 nickel front against 11 personnel with one LB removed; versatile fronts that toggle between 3-4 base and 4-2 nickel",
-    "edge_rush_source": "hybrid; stand-up OLBs in base 3-4 (Jaelan Phillips, Nolan Smith, Jalyx Hunt) who rush as primary edge players; in nickel 4-2, edges can be hand-in-dirt or two-point stance; Fangio values versatile edge players who can stand up or put hand down",
-    "coverage_base": "split-field zone with two-high shell disguise; primarily quarters (Cover 4), Cover 6 (quarter-quarter-half), and Cover 2/Cover 3 rotations post-snap; heavy coverage disguise pre-snap with interchangeable safeties; targeted coverages that roll to opponent's best receiver",
-    "blitz_tendency": "light (historically bottom-5 in NFL; 19.3% in 2024 Super Bowl season; increased to ~22-27% in 2025 due to edge personnel turnover but trended back to low rates by late season; Fangio's philosophy is to generate pressure with four-man rush and keep seven in coverage)",
-    "lb_role": "ILBs (Zack Baun, Nakobe Dean, Jihaad Campbell) are coverage-first with run-stopping duties; Baun is elite in coverage; Campbell has EDGE/LB hybrid versatility; OLBs are primary pass rushers; in nickel (majority of snaps), Eagles often play with only 1 off-ball LB",
-    "safety_usage": "interchangeable safeties are crucial to Fangio's system; both safeties start in two-high shell pre-snap to disguise coverage; strong safety used as C-gap run fitter; free safety can rotate to box or stay deep; Reed Blankenship (pending FA) and Andrew Mukuba fill hybrid roles; Cooper DeJean also plays in slot/nickel role"
+    "scheme_family": "Fangio 3-4 multiple front (original Fangio system \u2014 not a derivative)",
+    "scheme_detail": "The Eagles run the definitive Fangio defense \u2014 the system that has been copied across the NFL for a decade. It is built on two-high safety shells pre-snap that rotate into multiple coverages post-snap (Cover 4 match, Cover 2, Cover 3, man). The defense's calling card is disguise: showing the same two-high look every snap but playing different coverages behind it. Fangio's defense prioritizes eliminating explosive plays, forcing teams to string together long drives, and winning with the front four rather than blitzing. Now entering Year 3 in Philadelphia, the scheme is fully installed with young stars who have grown up in it.",
+    "front_structure": "Base 3-4 with a nose tackle shaded to the strong side playing 'a gap and a half' (not pure two-gap). DEs play tighter alignments than many 3-4 systems. OLBs are hybrid edge rushers in a two-point stance. In sub packages (which constitute the majority of snaps), the defense shifts to a 2-4-5/4-2-5 nickel with the nickel CB replacing the nose tackle. The Penny front (5 on the line with a nickel on the field) is also used extensively, getting the best of both worlds between run defense and pass coverage. A 4-down '40' package is used in goal-line and short-yardage situations.",
+    "coverage_philosophy": "Zone-match dominant with Cover 4 match/quarters as the foundation. Fangio's system uses split-field coverages based on passing strength (side with more receivers). Cornerbacks play zone match that can look like man coverage on vertical routes. Post-snap safety rotation is a key element \u2014 the two-high pre-snap shell frequently rotates to Cover 3, Cover 1, or bracket coverages post-snap. The Eagles led the NFL in opponent catch rate (56.8%) in 2025 and surrendered the fewest TD passes (14). Communication is paramount \u2014 defenders must match, carry, and deliver receivers through zone responsibilities. Low blitz rate (27th in NFL at ~20%) \u2014 Fangio trusts his front four and prefers safe pressures and fire zones over all-out blitzes.",
+    "pressure_philosophy": "Front-four driven with low blitz rate. Fangio generates pressure through scheme \u2014 stunts, twists, and games up front rather than extra rushers. When he does blitz, he uses 'safe pressures' and fire zones that leave coverage integrity intact behind them. In sub packages, the OLBs become pure edge rushers. The Eagles' DL talent (Jalen Carter, Jordan Davis) creates interior pressure that supports edge rushers. The loss of Jaelan Phillips in free agency creates a significant need at EDGE, with Nolan Smith, Jalyx Hunt, and newly signed Bradley Chubb as the primary options.",
+    "sub_packages": "4-2-5 nickel is the primary sub-package and constitutes the majority of snaps. Fangio ideally plays with 4 DL, 2 LB, and 5 DB on almost every snap. Cooper DeJean operates as the nickel CB but also plays outside in base. The Penny front is used frequently \u2014 it puts 5 defenders on the line while keeping the nickel on the field, providing run-stopping ability without sacrificing a DB. The defense lost Reed Blankenship at safety and will likely feature Andrew Mukuba and a new addition (or Michael Carter II shifting to safety) as the safety tandem."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "The transition to Mannion's Shanahan/McVay/LaFleur system massively elevates TE value. LaFleur's Packers used 12 personnel on 33-37% of snaps \u2014 among the highest rates in the NFL \u2014 with TEs as featured receivers on boot concepts, leak routes off split zone, and three-level floods. Dallas Goedert (11 TDs in 2025) is expected to leave in free agency, creating a massive void. The Eagles hired Ryan Mahaffey specifically as TE coach/run game coordinator from the same scheme tree. A receiving TE who can also block in the run game is arguably their highest-value draft target. Sirianni stated TEs must 'create mismatches in the pass game' and be 'great yards-after-catch guys' while also being 'effective in the run game.' This system treats an elite receiving TE as a WR-level weapon."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "Under the new Shanahan/McVay-influenced system, the QB will operate from under center significantly more, executing play-action boots, half-rolls, and sprint concepts off outside-zone run action. The system is designed to simplify reads through sequencing \u2014 making the run and pass look identical pre-snap so the QB can read one defender and throw to the predetermined answer. The QB must process coverage pre-snap using motion and then execute timing throws within the progression structure. Less reliance on RPOs and improvisation, more on rhythm and anticipation.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The Shanahan/McVay system relies more on timing and scheme-created windows than arm talent. Boot concepts and movement throws require functional arm strength to hit the backside crosser or dig with velocity, but this isn't a vertical/deep-shot dominant system. Hurts has adequate arm strength for this scheme."
+        },
+        "Accuracy": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "This system creates easy throws through design, but the QB must deliver the ball on time and on target for the timing to work. Play-action boot concepts require throwing on the move to defined spots. The intermediate crossers, floods, and comeback routes that define the Shanahan tree all demand accuracy to specific windows. The QB's accuracy directly determines whether the scheme functions."
+        },
+        "Pocket Presence": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Many throws come from movement (boots, half-rolls, sprint concepts), so traditional pocket presence is less critical than in a pure dropback system. However, the QB must manage the pocket on standard dropbacks and know when to climb vs. escape. Play-action requires selling the fake, which demands comfort in the pocket."
+        },
+        "Mobility": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Boot concepts, half-rolls, and sprint-outs are foundational to this system. The QB must move laterally and throw accurately on the run. While this isn't a designed-run-heavy system, the ability to execute movement throws is essential. Shanahan-tree offenses have thrived with mobile QBs (Russell Wilson in Denver's brief success, Jordan Love's scramble ability). Hurts' mobility is one reason this system was chosen \u2014 it can be weaponized within the design rather than as a bail-out."
+        },
+        "Decision Making": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The system simplifies decisions through sequencing, but the QB must still read the one defender who determines the throw. Post-snap processing on play-action \u2014 identifying whether the safety bites or stays deep \u2014 is critical. The QB must trust the progression and not force throws outside the design. Quick, decisive throwing within the scheme structure is paramount."
+        },
+        "Leadership": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Important for managing a locker room with elite skill talent (Brown, Smith, Barkley) and adapting to yet another new OC. Sirianni's culture values leadership, and the QB must keep offensive chemistry together during a major scheme transition."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Motion is used extensively in Shanahan systems to diagnose coverage pre-snap. The QB must read the defense's response to motion to identify man vs. zone and determine the correct throw before the snap. This is scheme-built but requires the QB to process the information quickly."
+        }
+      },
+      "ideal_archetype": "A mobile, decisive quarterback who throws accurately on the move and trusts the progression structure. Not a pure pocket passer and not a scrambler \u2014 a rhythm thrower who can execute boot concepts, hit intermediate crossers, and make decisive reads off play-action. Think of how Kirk Cousins thrived in the Shanahan system in Washington and Minnesota: timing, accuracy on movement throws, efficient processing within the scheme. Jared Goff in the McVay system is another model \u2014 scheme-dependent accuracy over arm talent. But the Eagles' version adds mobility as a wrinkle, closer to how Russell Wilson functioned in Denver's brief Shanahan-influenced period or how Jordan Love operates in Green Bay.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Shanahan-tree offenses have used QBs of various sizes. Under-center play-action requires seeing over the line less than shotgun. Mobility matters more than height."
+        },
+        "weight": {
+          "ideal": "215-235",
+          "floor": "205",
+          "reasoning": "The QB must absorb hits on designed rollouts and boots. Sturdy enough to take contact when the bootleg brings a free rusher."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Functional mobility for boot concepts and escape speed. This isn't a designed-run system, but movement ability directly impacts how the play-action game functions."
+        }
+      },
+      "development_context": "Mannion's primary coaching background is as a QB coach \u2014 he developed Jordan Love and Malik Willis in Green Bay. His ability to refine QB mechanics and processing is his strongest developmental asset. He can coach footwork, timing, and rhythm within the progression structure. However, this is a brand new scheme for the Eagles' QBs, so the transition period matters. The staff can develop anticipation and timing within their system but needs the mobility and arm talent to arrive ready.",
+      "scheme_fit_narrative": "This offense is built to make the quarterback's job easier through design, not harder through complexity. We want a QB who can sell the fake, get on the move, and deliver the ball on time to the open receiver that the scheme creates. The play-action boot game and motion concepts give the QB pre-snap information and post-snap answers. We don't need a gunslinger \u2014 we need a rhythm passer who moves well and makes decisive reads within the progression.",
+      "archetype_examples": [
+        "Kirk Cousins (Shanahan era)",
+        "Jordan Love",
+        "Jared Goff"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "high",
-      "explanation": "Fangio's 3-4 base uses stand-up OLBs as primary edge rushers. Aldon Smith had 42 sacks as a stand-up edge under Fangio in SF. Khalil Mack was All-Pro in Fangio's Bears defense. The Eagles' current OLB room (Phillips, Nolan Smith, Jalyx Hunt) are all stand-up rushers technically listed as LBs. Additionally, ILB Jihaad Campbell has EDGE/LB hybrid flexibility that Fangio values \u2014 he can drop to the edge and rush. Any LB prospect with elite pass rush traits (burst, bend, power) fits this defense as a stand-up edge rusher and should be valued at EDGE prices. Fangio also values ILBs who can be effective blitzers (Nakobe Dean was a praised blitzer)."
+    "RB": {
+      "scheme_role": "The lead back in this wide-zone system is the offensive centerpiece \u2014 everything flows from the run game. The RB must read the stretch play from the backside, press the line of scrimmage, and cut backside when the defensive flow over-pursues. In the Shanahan tree, the RB is also a key play-action decoy and must sell fakes convincingly. Pass catching is involved but secondary to the rushing role. The system's bread-and-butter is outside zone, with gap concepts mixed in as changeups.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Wide zone demands elite vision. The RB must read the stretch play horizontally, identify the cutback lane, and make one decisive cut. This is THE defining trait for a Shanahan-tree back \u2014 think Raheem Mostert, Derrick Henry in Tennessee's zone scheme, or Dalvin Cook in Minnesota. Barkley's one-cut vision should translate, but the zone read is different from the gap-scheme reads the Eagles have recently emphasized."
+        },
+        "Contact Balance": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Wide zone runs often feature initial contact at or near the line. The RB must stay on his feet through arm tackles and maintain forward lean. Not the primary trait but contributes to yards after contact in the zone scheme."
+        },
+        "Power": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Gap-scheme changeups and short-yardage situations require some power. But this is a zone-primary system \u2014 finesse and vision matter more than bulldozing. Barkley is already powerful enough."
+        },
+        "Elusiveness": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The one-cut ability in wide zone often leads to open space at the second level. The RB must make one defender miss in space to create explosives. Shanahan-tree RBs like Mostert and Deebo Samuel excel because of their elusiveness at the point of the cut."
+        },
+        "Speed": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Wide zone requires the RB to press the edge horizontally before cutting back. Speed to the edge creates the stretch that opens cutback lanes. The explosive potential of the system depends on the RB's ability to hit the hole and accelerate through it. Barkley's elite speed is ideal."
+        },
+        "Pass Catching": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Shanahan-tree offenses use RBs in the passing game through screens, swing routes, and check-downs, but this isn't a Kamara-style reception system. The RB must be a credible receiving threat to keep LBs honest on play-action, but 30-40 catches is typical, not 60+."
+        },
+        "Pass Protection": {
+          "weight": 0.11,
+          "importance": "moderate",
+          "reasoning": "Play-action boots often leave the RB responsible for the unblocked backside rusher. The RB must be willing and capable of picking up blitzes to protect the QB, especially on boot concepts where the QB rolls toward a certain direction. This is a non-negotiable minimum competency in the Shanahan tree."
+        }
+      },
+      "ideal_archetype": "A one-cut, explosive runner with the vision to read outside zone and the speed to press the edge before hitting the cutback lane. Think Raheem Mostert in San Francisco \u2014 not the biggest back, but elite vision and burst in the zone scheme. Among current backs, Aaron Jones in the LaFleur system (Green Bay/Minnesota) embodies what this scheme demands. Barkley himself is the ideal archetype if his zone vision holds up in the new system. The key differentiator from the Eagles' recent system: the RB must be patient horizontally before cutting vertically, rather than hitting the gap scheme hole immediately.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "205-225",
+          "floor": "195",
+          "reasoning": "Zone-scheme backs don't need to be bruisers. Speed-to-power ratio matters more than pure mass. The system creates lanes through blocking angles, not power."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "Wide zone requires the ability to stretch the defense horizontally. Speed to the edge forces the defense to over-pursue, which creates the cutback. Sub-4.50 is strongly preferred."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.20",
+          "floor": "4.30",
+          "reasoning": "Change-of-direction ability directly correlates with the one-cut ability that defines zone-scheme backs. The RB must plant and redirect explosively."
+        }
+      },
+      "development_context": "The new run game coordinator Ryan Mahaffey comes from Green Bay where he worked with Aaron Jones and AJ Dillon. He can teach zone-scheme reads and footwork. The staff can develop a back's patience and vision in the system, but the speed and explosiveness must arrive ready. A back who has only played in gap schemes may need time to adjust to reading the stretch play.",
+      "scheme_fit_narrative": "We're not looking for a tackle-breaker who runs through the pile. We need a back who can press the edge on outside zone, read the stretch play from backside to frontside, make one decisive cut, and accelerate through the hole. Vision and burst are king. If he can catch the ball and pick up a blitz, even better, but the run game is the meal and everything else is the seasoning.",
+      "archetype_examples": [
+        "Raheem Mostert",
+        "Aaron Jones",
+        "Dalvin Cook"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "high",
-      "explanation": "The Shanahan/McVay/LaFleur system specifically values pass-catching RBs. LaFleur has stated he 'prefers running backs who can run choice routes and catch flawlessly.' Saquon Barkley is the bell cow but his receiving usage was historically low in Philly's old scheme. Under the new system, the RB is a key outlet in play-action and boot concepts. Barkley was more active as a receiver in 2025 camp and Mannion's scheme should unlock this further. Additionally, the Eagles carry Will Shipley as a receiving back complement. For draft purposes, an RB who can execute as a receiver in this system gets a significant value boost \u2014 the Shanahan tree produced receiving backs like Christian McCaffrey and Austin Ekeler as scheme-elevated weapons."
+    "WR": {
+      "scheme_role": "In the Shanahan/McVay system, WRs must function within the play-action ecosystem. They run crossers, digs, floods, and comebacks that are timed off the play-action fake. The X receiver (WR1) runs more isolation routes and vertical shots, while the Z and slot receivers run more schemed-open concepts (crossers, layered routes). WR blocking is critical \u2014 outside zone requires perimeter blocking to seal the edge, and this system asks WRs to sustain blocks more than the Eagles' recent iso-route approach. The Eagles' receiving corps of A.J. Brown and DeVonta Smith must adapt to more schemed-open concepts rather than winning contested catches in isolation.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "This system creates windows through timing and design. Routes must be run at precise depth and speed to mesh with the QB's rhythm. The crosser, the comeback, the post \u2014 all require crisp route breaks at specific landmarks. The scheme maximizes good route runners because the design creates space if the route is run properly."
+        },
+        "Separation": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The system creates schemed separation through play-action and motion, but the WR must still win his individual rep on non-play-action snaps. Separation at the break point is more important than pure speed separation in this timing-based system."
+        },
+        "Hands": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "Timing throws arrive on schedule \u2014 the WR must catch the ball reliably when it hits his hands. Drops kill timing-based offenses because the QB is throwing to spots, not waiting for the WR to get open. Consistent, reliable hands are essential."
+        },
+        "YAC Ability": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Shanahan-tree offenses generate significant YAC by design \u2014 crossers, screens, and motion concepts put the ball in the WR's hands in space with momentum. The WR's ability to turn a 7-yard catch into a 20-yard gain is a major part of the offense's explosive play potential. Think Deebo Samuel, Cooper Kupp \u2014 YAC monsters in this system."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Speed helps on vertical shots and creates defensive respect that opens up the underneath game. But this system is more about timing and YAC than pure speed. A 4.55 WR with elite route running and YAC fits better than a 4.35 WR with raw routes."
+        },
+        "Contested Catches": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The scheme is designed to create open throws, not contested situations. This was a major criticism of the 2025 Eagles offense \u2014 they relied on contested catches instead of scheming receivers open. Under Mannion, contested-catch reliance should decrease significantly."
+        },
+        "Release Package": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Man coverage teams attempt to disrupt timing by pressing WRs at the line. In a timing-based offense, the WR must win his release cleanly and get into his route on schedule. A WR who gets re-routed at the line breaks the entire timing sequence. Clean releases are especially important for the outside WRs who face press coverage."
+        }
+      },
+      "ideal_archetype": "A precise route runner with elite YAC ability who can function within the timing structure of the play-action game. Cooper Kupp in the McVay system is the ultimate model: not the fastest, not the biggest, but routes are impeccable, hands are reliable, and YAC production is elite because he understands angles and leverage. For the outside role, a WR like DK Metcalf or A.J. Brown who can win vertically and run disciplined routes works, but the scheme values route precision over pure physical dominance. DeVonta Smith's route running and separation make him an ideal fit for this system's timing concepts.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-9",
+          "reasoning": "No hard requirement. The system uses all body types. The key is route running ability, not size. Kupp is 6-1, Deebo is 5-11, Amon-Ra St. Brown is 6-0."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.55",
+          "floor": "4.60",
+          "reasoning": "Functional speed is needed but this isn't a deep-ball-dominant system. The vertical game exists to keep defenses honest, not as the primary weapon. Speed to create YAC matters more than deep speed."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.15",
+          "floor": "4.25",
+          "reasoning": "Route-running precision correlates with agility and change-of-direction. The short shuttle measures the quickness that translates to winning route breaks."
+        }
+      },
+      "development_context": "The Eagles' WR coaching staff is still being finalized, but the Shanahan-tree system is known for developing WR technique \u2014 Kupp, Amon-Ra St. Brown, and Jayden Reed all thrived in these schemes. The system can mask certain limitations (lack of pure speed) if the WR has good route fundamentals. However, WR blocking technique must be coached \u2014 this isn't optional in outside zone. A WR who refuses to block is a liability in this system.",
+      "scheme_fit_narrative": "We're moving away from pure iso-ball where the receiver has to win contested catches on every throw. This system creates space through design. We want receivers who run clean routes at precise depth, catch the ball reliably when it arrives, and turn short completions into explosive plays with their YAC ability. Blocking on the perimeter matters more than it did before \u2014 the run game needs it. A receiver who won't block is a receiver who can't play on run downs, and we don't want to telegraph our intentions.",
+      "archetype_examples": [
+        "Cooper Kupp",
+        "Amon-Ra St. Brown",
+        "Jayden Reed"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "Fangio's system requires interchangeable safeties as a foundational principle. Both safeties must be able to play deep, rotate into the box, cover slot receivers, and fit the run from the C-gap. Pre-snap, both safeties show the same two-high look regardless of their post-snap assignment, which demands versatility. Fangio's scheme is built on disguise \u2014 a safety who can only play one role undermines the entire coverage system. Reed Blankenship is a pending free agent, creating a need. Andrew Mukuba showed promise but had early struggles. A safety prospect with hybrid traits (box tackling + deep range + slot coverage ability) is extremely valuable to this defense because the system literally cannot function without versatile safeties."
+    "TE": {
+      "scheme_role": "The TE is arguably the most schematically important position in the new Shanahan-tree offense. TEs function as extra linemen in the run game (sealing the edge on outside zone), as play-action targets on boot concepts (the backside crosser to the TE is a staple), and as flex alignments that create formation ambiguity. With Dallas Goedert's departure and the signing of blocking TE Johnny Mundt, the Eagles signal they want a TE who can block first and catch second \u2014 or ideally do both. The TE may also align as a wing, an H-back, or even a pseudo-fullback in heavy formations.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The Shanahan tree generates significant TE production through play-action boots and crossers. George Kittle and Mark Andrews have thrived in these systems. The TE is often the first read on boot concepts. But the Eagles' current TE room suggests blocking is the higher priority in 2026."
+        },
+        "Route Running": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The TE doesn't need to run a full route tree \u2014 the system uses the TE in defined concepts (crossers, drags, seams off play-action). But running those concepts at the correct depth and timing matters for the play-action game to function."
+        },
+        "Blocking": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "Outside zone lives and dies with the TE's ability to seal the edge. The TE must be able to lock onto a defensive end or OLB on the stretch side and sustain the block long enough for the RB to press the edge. In 12 personnel, the second TE is essentially an extra OT. The Eagles parted with Goedert (limited blocker) and signed Mundt (blocking specialist) \u2014 the scheme demands it."
+        },
+        "Athleticism": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The TE must be able to get to his blocking assignments on stretch plays (lateral movement), get downfield as a lead blocker, and then separately function as a credible receiving threat on play-action. The Shanahan tree values athletic TEs who can do both \u2014 Kittle is the gold standard."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "When the TE is the target on boot concepts, the ball arrives quickly and the catch must be clean. Drops by the TE on play-action can kill drives because these are typically high-percentage throws by design."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The TE must be able to threaten the seam to prevent safeties from jumping the crosser. A TE who can run a 4.6 40 creates a different level of stress on LBs and safeties in play-action. Kittle's speed is what makes him transcendent in this system. Speed also helps on stretch plays where the TE must reach the edge."
+        }
+      },
+      "ideal_archetype": "An athletic, block-first TE who can seal the edge on outside zone and then become a credible play-action threat on boots and crossers. George Kittle is the gold standard \u2014 elite blocker who also produces 60+ catches. Among current TEs, Dalton Schultz (Dallas/Houston) or Pat Freiermuth represent the blocking-plus-receiving balance this system demands. The Eagles may also value a pure blocker like a Marcedes Lewis type as a TE2 for 12 personnel packages.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-2",
+          "reasoning": "Size helps with in-line blocking assignments against defensive ends. Also creates a target in the red zone and on play-action."
+        },
+        "weight": {
+          "ideal": "245-260",
+          "floor": "235",
+          "reasoning": "Must hold up as an in-line blocker against NFL defensive ends on the edge of the formation. Lighter TEs get washed on stretch plays."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Speed to the edge on stretch plays and speed to stress the seam on play-action. A 4.80+ TE can still block but won't threaten as a receiver."
+        }
+      },
+      "development_context": "The new TE coach/run game coordinator Ryan Mahaffey comes from Green Bay where he worked with Luke Musgrave and Tucker Kraft. He can develop blocking technique and play-action route concepts. The staff can teach a receiving TE to block better, but the athleticism and willingness must arrive. A finesse-only TE without blocking instincts is unlikely to develop into a fit here.",
+      "scheme_fit_narrative": "We need a TE who can line up on the line and seal the edge on outside zone like an extra tackle, then run a boot crosser for 20 yards on the next play. Blocking is the baseline \u2014 if you can't hold the edge, you can't play in this offense on run downs. But if you can block AND catch, you become the ultimate chess piece because defenses can't predict what's coming based on your alignment.",
+      "archetype_examples": [
+        "George Kittle",
+        "Pat Freiermuth",
+        "Tucker Kraft"
+      ]
+    },
+    "OT": {
+      "scheme_role": "The OT in the new Shanahan/McVay-based system must execute outside zone blocking, which requires lateral movement, reach blocking, and climbing to the second level. This is a dramatic change from the Eagles' recent power-based blocking philosophy under Jeff Stoutland. The new OL coach Chris Kuper (who worked with Shanahan in San Francisco) will install zone blocking techniques that demand different physical attributes. The OT must also pass protect on play-action and bootleg concepts, where the pocket slides away from the boot side.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Play-action heavy offenses still require excellent pass protection, especially on max protection play-action looks. The LT must anchor against speed rushers while the boot goes away from him. But the increased run emphasis means pass protection shares priority with run blocking."
+        },
+        "Run Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Outside zone demands OTs who can reach-block defensive ends, sustain blocks while moving laterally, and climb to the second level to seal linebackers. This is the defining trait for an OT in a Shanahan system. Jordan Mailata's athleticism makes him an ideal fit; the RT position needs similar movement ability."
+        },
+        "Footwork": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Zone blocking footwork is fundamentally different from gap-scheme footwork. The OT must take flat lateral steps to initiate the stretch, maintain leverage through the reach, and redirect to climb to the second level. Quick, precise footwork is the mechanical foundation of the entire run scheme. This is why the Eagles brought in a new OL coach specifically for this system."
+        },
+        "Anchor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Pass protection anchor matters on standard dropbacks and play-action, but the scheme reduces the number of pure dropback situations. An OT who gets bull-rushed but can move laterally in the zone scheme fits better than a pure anchor player with no feet."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Wide zone requires athletic OTs who can move. The OT must reach-block athletic edge defenders and climb to the second level to seal linebackers. A stiff, powerful but unathletic OT kills the outside zone scheme. Think of how SF's Trent Williams combines power with elite athleticism \u2014 that's the ceiling for this system."
+        },
+        "Strength": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Raw strength is less important than movement ability in zone blocking. The OT needs enough strength to sustain blocks through contact, but the scheme generates leverage through angles and movement rather than power."
+        }
+      },
+      "ideal_archetype": "An athletic, movement-oriented tackle who excels in lateral blocking and can reach-block defensive ends on outside zone while also climbing to the second level. Trent Williams is the gold standard in the Shanahan system. Jordan Mailata \u2014 a rugby convert turned All-Pro thanks to his extraordinary athleticism \u2014 fits the mold perfectly. The ideal OT has good feet, lateral agility, and the ability to sustain blocks in space. A mauler with no feet is a poor fit.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Standard OT size. Length helps with reach blocking assignments on the edge."
+        },
+        "weight": {
+          "ideal": "310-330",
+          "floor": "300",
+          "reasoning": "Must be heavy enough to anchor in pass protection but light enough to move laterally in zone blocking."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.65",
+          "floor": "4.80",
+          "reasoning": "The short shuttle directly measures the lateral agility required for zone blocking. A stiff OT (4.90+) cannot execute the reach block that is the foundation of outside zone. This is a critical measurable for this scheme."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-5.10",
+          "floor": "5.20",
+          "reasoning": "Not a primary measurable, but overall athleticism correlates with zone blocking success. Faster OTs climb to the second level more effectively."
+        }
+      },
+      "development_context": "The Eagles just lost Jeff Stoutland \u2014 one of the best OL developers in NFL history \u2014 who helped turn a rugby player into an All-Pro. New OL coach Chris Kuper has experience in zone-blocking systems but hasn't proven he can develop raw OL talent the way Stoutland did. The staff CAN teach zone blocking technique to athletic linemen, but the foot speed and lateral mobility must arrive. An OT with good feet but raw technique is highly developable in this system. A powerful but stiff OT cannot be developed into a zone blocker.",
+      "scheme_fit_narrative": "We're changing the way we block up front. We need tackles who can move \u2014 lateral agility is as important as pass protection anchor now. If a tackle can reach-block a DE and climb to the second level on zone plays, that's our guy. We'll take an athletic tackle with developing pass pro technique over a stiff anchor with no feet every time, because we can teach pass pro but we can't teach movement.",
+      "archetype_examples": [
+        "Trent Williams",
+        "Jordan Mailata",
+        "Penei Sewell"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior linemen in the outside zone scheme must work in concert as a unit, executing coordinated lateral movement, double teams, and second-level climbs. The center is the axis of the zone run \u2014 he must identify the defensive front and make the line calls. Guards must be able to execute reach blocks, combo blocks to the linebacker level, and pull on gap-scheme changeups. The new system emphasizes lateral movement and communication more than the Eagles' previous power-based approach.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Interior pass pro matters on dropbacks and play-action. The center and guards must handle interior stunts and twist games. But the increased run emphasis means this shares priority with other traits."
+        },
+        "Run Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Zone blocking at the interior requires executing double teams that climb to the second level, sustaining combo blocks, and creating movement at the point of attack. The interior OL must be able to work in unison \u2014 zone blocking is a team skill, not an individual one."
+        },
+        "Pulling": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Gap-scheme changeups (power, counter) require guards who can pull and lead through the hole. This is the secondary run concept, not the primary, but it's important for scheme diversity."
+        },
+        "Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Interior defenders in the NFL are powerful. The IOL must be strong enough to sustain double teams and anchor against bull rushes. But in zone blocking, technique and leverage matter more than raw strength."
+        },
+        "Anchor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Interior pass pro requires anchor against bull-rushing DTs. Less critical than in a pure dropback offense because play-action and boots reduce the number of pure pass-pro reps."
+        },
+        "Versatility": {
+          "weight": 0.26,
+          "importance": "essential",
+          "reasoning": "Fangio's defense demands the Eagles draft versatile players, and the same applies on offense. Guards who can play center, centers who can play guard \u2014 OL versatility is critical for a Shanahan system because injuries require seamless replacement. The Eagles' GM Howie Roseman has emphasized wanting 10 OL who can play, which demands positional flexibility."
+        }
+      },
+      "ideal_archetype": "An athletic, technically sound interior lineman who can execute zone blocking concepts and communicate effectively as part of a unit. The Shanahan system has elevated guards like Mike Iupati and Zack Martin (in Dallas' zone-heavy concepts). Cam Jurgens at center fits the mold with his athleticism, though his back injury in 2025 is concerning. The ideal IOL prospect has lateral agility, can execute combo blocks to the second level, and offers guard-center versatility. Think of a Chris Lindstrom type \u2014 technically excellent, athletic, versatile.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Standard IOL range. No extreme preference."
+        },
+        "weight": {
+          "ideal": "305-325",
+          "floor": "295",
+          "reasoning": "Must be heavy enough to hold up against interior DL but mobile enough for zone blocking."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.55",
+          "floor": "4.70",
+          "reasoning": "Lateral agility is the defining measurable for zone-blocking IOL. The ability to execute combo blocks and climb to the second level correlates with short shuttle times."
+        },
+        "bench_press": {
+          "ideal": "28+",
+          "floor": "24",
+          "reasoning": "Functional strength indicator. Zone blocking requires sustaining blocks through contact, which demands upper-body strength."
+        }
+      },
+      "development_context": "Without Stoutland, the development environment for IOL is uncertain. Chris Kuper has zone-blocking expertise but is unproven as a developer of NFL talent. The Eagles may need to bring in more polished IOL rather than raw projects. An IOL who already understands zone blocking concepts (perhaps from a college spread-zone system) has a significant advantage.",
+      "scheme_fit_narrative": "Interior linemen who can move are premium in this system. We need guys who work as a unit, communicate at the line, execute combo blocks, and climb to the second level. Versatility matters \u2014 we want guards who can slide to center and vice versa. A mauler who can't move laterally or communicate zone assignments will struggle, no matter how strong he is.",
+      "archetype_examples": [
+        "Chris Lindstrom",
+        "Zack Martin",
+        "Robert Hunt"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "In Fangio's 3-4, EDGE players are OLBs who play from a two-point stance in base and become four-point edge rushers in sub packages. In base, they must set the edge against the run and occasionally drop into flat coverage on fire zones. In sub (which is the majority of snaps), they become primary pass rushers. Fangio's low blitz rate means the EDGE must win consistently with a four-man rush \u2014 he can't rely on scheme-generated free rushers. The Eagles lost Jaelan Phillips in free agency and signed Bradley Chubb (who has Fangio experience from Denver). The EDGE room of Nolan Smith, Jalyx Hunt, Chubb, and potentially a drafted player needs a premium addition.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Fangio's defense generates pressure with four rushers and drops seven into coverage. The EDGE must consistently win one-on-one pass rush reps because the defense rarely sends extra blitzers to help. If the EDGE can't pressure the QB with a four-man rush, the entire defensive philosophy breaks down."
+        },
+        "Bend": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Fangio's OLBs rush from a wide alignment and must bend the corner to collapse the pocket. Pure power rushers who can only bull-rush get washed wide. The ability to dip and bend around the edge creates the interior-collapse effect Fangio wants."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "In a four-man rush scheme, the EDGE must win early. A slow-developing rush gets negated by quick throws. The first step explosiveness creates the initial advantage that the rusher builds on with technique."
+        },
+        "Power": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The EDGE needs enough power to convert speed to power and to hold the point of attack against the run. But Fangio values versatile rushers over pure bull-rush specialists. Power is a tool in the arsenal, not the primary weapon."
+        },
+        "Motor": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "Fangio demands effort and assignment discipline on every snap. His defense is built on do-your-job principles. An EDGE who takes plays off creates gaps in the run game that the scheme can't compensate for with only 6 or 7 in the box."
+        },
+        "Run Defense": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "In base 3-4, the OLB must set the edge against the run \u2014 this is a primary responsibility. In sub packages, the EDGE is still responsible for contain. Fangio's light-box defense means every defender at the point of attack must do his job against the run. A pure pass rusher who gets washed in the run game forces Fangio to use extra defenders in the box, which defeats his coverage philosophy."
+        }
+      },
+      "ideal_archetype": "A versatile, two-way EDGE who can rush the passer from a stand-up stance, set the edge in the run game, and occasionally drop into flat coverage. Think Khalil Mack under Fangio in Chicago \u2014 not the fastest rusher, but technically complete with the motor and run defense to play every down. Among current Eagles, Jalyx Hunt's combination of pass-rush burst and interception ability reflects what Fangio values. Bradley Chubb at his best (2018 with Fangio in Denver, 12 sacks) embodies the complete EDGE rusher this system demands.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Length helps with setting the edge and playing with leverage against OTs. Fangio's OLBs historically have good length."
+        },
+        "weight": {
+          "ideal": "245-265",
+          "floor": "235",
+          "reasoning": "Must be heavy enough to hold the edge against the run but light enough to bend and rush the passer. Too heavy (280+) limits bend and speed off the edge."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Speed to the edge matters for closing on the QB in a four-man rush. But pure speed without run defense discipline is counterproductive."
+        },
+        "3_cone": {
+          "ideal": "sub-7.00",
+          "floor": "7.20",
+          "reasoning": "Change-of-direction ability supports both pass-rush counter moves and the occasional zone-drop assignment in fire zones."
+        }
+      },
+      "development_context": "Fangio has an elite track record developing edge rushers: Khalil Mack, Bradley Chubb, Von Miller, Aldon Smith (SF), Nolan Smith, and Jalyx Hunt all produced at high levels under Fangio. He can develop raw athletes into complete edge players by teaching hand usage, run defense technique, and rush moves. A raw EDGE with explosiveness and motor is highly developable in this system. But assignment discipline must be present \u2014 Fangio won't play a freelancer.",
+      "scheme_fit_narrative": "We need EDGE rushers who can win with four-man pressure because we're rarely sending extra bodies. That means the edge has to beat his man consistently. But equally important, he must set the edge in the run game because we play with light boxes. A sack specialist who can't defend the run forces us to change our coverage philosophy, and that's non-negotiable. Give us a complete two-way EDGE with a motor who plays within the system.",
+      "archetype_examples": [
+        "Khalil Mack (Fangio era)",
+        "Bradley Chubb (2018)",
+        "Jalyx Hunt"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Interior DL in Fangio's 3-4 play 'a gap and a half' \u2014 not pure two-gap, not pure one-gap. The NT shades to the strong side and is responsible for the gap in front of him while also influencing the adjacent gap. DEs play tighter alignments and must eat double teams to free up linebackers. In sub packages (majority of snaps), interior DL are key to the entire defensive philosophy: they must generate interior pressure with a four-man rush while also being stout enough against the run that Fangio can play with a light box. Jalen Carter (All-Pro) and Jordan Davis (newly extended at $78M) are the cornerstones.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Interior pressure is critical to Fangio's four-man rush philosophy. If the DT can collapse the pocket, it assists the edge rushers and forces QBs into the zone coverage behind. Carter's ability to rush the passer from the interior is a major reason the Eagles' defense succeeded."
+        },
+        "Run Defense": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Fangio plays with light boxes (often 6 in the box with two-high safeties). This means the interior DL must be dominant against the run at the point of attack because there aren't extra defenders in the box. If the DL gets moved in the run game, the entire defensive structure fails because the coverage is built to stop the pass, not compensate for run-game failures."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Fangio's 'gap and a half' technique requires the DL to attack their gap aggressively. A slow-footed DL who gets driven back can't control his gap. Quick first-step movement is what separates penetrating DTs from stationary space-eaters in this system."
+        },
+        "Hand Usage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Fangio's DL must defeat blocks with technique \u2014 using hands to control blockers, disengage, and make plays. This is a coaching staff that develops hand usage (see Carter's improvement), and it's the technical foundation of their gap control."
+        },
+        "Motor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Fangio demands effort and discipline. Interior DL must pursue plays laterally and not quit on the snap. But the DL rotates frequently, so individual snap counts may be managed."
+        },
+        "Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must hold the point of attack against double teams to keep linebackers clean. The 'gap and a half' technique requires the DL to be strong enough to control his gap while influencing the adjacent one. Jordan Davis's 340-pound frame anchors the interior; strength is foundational."
+        }
+      },
+      "ideal_archetype": "An athletic, disruptive interior lineman who can control his gap against the run AND push the pocket as a pass rusher. Jalen Carter IS the ideal archetype \u2014 disruptive first step, powerful at the point of attack, and developing as a pass rusher. The Fangio NT role requires a massive, strong player like Jordan Davis (340 lbs) who can shade and control the strong-side gap while absorbing double teams. For a 3-tech DT, the ideal is a penetrating interior disruptor like Aaron Donald (retired) or Chris Jones \u2014 quick first step, violent hands, and interior pressure generation.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4 (NT: 6-2 to 6-5)",
+          "floor": "6-0",
+          "reasoning": "DT/DE height varies by role. NTs tend to be taller and heavier; 3-techs can be shorter with better leverage."
+        },
+        "weight": {
+          "ideal": "290-315 (NT: 320-350)",
+          "floor": "280 (NT: 310)",
+          "reasoning": "Interior DL must hold the point of attack. The NT role demands size to absorb double teams. The 3-tech can be lighter if he has quickness."
+        },
+        "40_yard_dash": {
+          "ideal": "4.85-5.10 (3-tech: sub-5.00)",
+          "floor": "5.20",
+          "reasoning": "Fangio values athletic DL who can play his gap-and-a-half technique. A DL who can't move laterally can't play the scheme. Jordan Davis ran a 4.78 at 340 lbs \u2014 that's the athletic ceiling."
+        },
+        "bench_press": {
+          "ideal": "28+",
+          "floor": "24",
+          "reasoning": "Upper body strength directly correlates with hand usage effectiveness and the ability to control blockers at the point of attack."
+        }
+      },
+      "development_context": "Fangio and DL coach Clint Hurtt (who added associate head coach title in 2026) have an exceptional DL development track record. Carter went from talented-but-undisciplined rookie to All-Pro under this staff. Jordan Davis evolved from a rotational player to a full-time starter. Moro Ojomo and Byron Young developed into reliable contributors. This staff can develop hand usage, technique, and pass-rush moves from raw athletic DL. What must arrive: size, first-step quickness, and effort level.",
+      "scheme_fit_narrative": "Our DL has to be the engine of the entire defense. We play with light boxes and two-high safeties, which means if the DL can't stop the run at the point of attack, the whole system breaks. But we also need them to generate pressure with four because we don't blitz much. Give us an athletic interior DL who can control his gap, push the pocket, and play with effort. We'll teach him the rest.",
+      "archetype_examples": [
+        "Jalen Carter",
+        "Jordan Davis",
+        "Chris Jones"
+      ]
+    },
+    "LB": {
+      "scheme_role": "In Fangio's defense, LBs are the most schematically demanding position. The system typically plays with only 1-2 LBs on the field (often just 1 in sub packages). The MIKE is the defensive quarterback \u2014 processing formations, making coverage calls, and directing traffic. Fangio demands LBs who can process route combinations in zone-match coverage, tackle reliably in space, and hold up on early-down run fits despite playing in a light box. With Nakobe Dean leaving and Zack Baun entrenched as the MIKE, the Eagles need Jihaad Campbell (2025 1st-round pick) to step into a larger role.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Fangio's LBs must be sure tacklers because missed tackles in the second level create explosive plays that the defense is specifically designed to prevent. The light-box scheme means fewer defenders near the ball \u2014 each tackle attempt is high-leverage."
+        },
+        "Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Zone-match coverage requires LBs to read route combinations, carry receivers through zones, and deliver them to safeties. This is the single most important trait because Fangio plays with two LBs or fewer and asks them to match up in space against TEs and RBs. Zack Baun's coverage ability is what made him an All-Pro in this system."
+        },
+        "Pass Rush": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Fangio occasionally sends LB blitzes on fire zones and simulated pressures, but it's not a primary responsibility. Campbell's ability to rush the passer as a hybrid gives the defense flexibility."
+        },
+        "Instincts": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The MIKE must process offensive formations, identify passing strength, and make coverage calls pre-snap. Post-snap, he must read route combinations and decide whether to carry a receiver or pass him off. This requires football IQ and instinctive processing that can't easily be taught."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Fangio's LBs play in space \u2014 they're asked to cover slot receivers, TEs, and RBs in zone match. Athletic ability to move laterally, change direction, and close on the ball is essential. Baun's athleticism and range are what allow him to play the Fangio LB role at an All-Pro level."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "With light boxes and few LBs on the field, each LB must cover more ground. Sideline-to-sideline range helps compensate for having fewer defenders near the line of scrimmage."
+        },
+        "Block Shedding": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "DL are supposed to eat blocks and free up LBs. If the DL does its job, LBs should arrive at the ball carrier unblocked. Block shedding matters but is less critical than in a system where LBs take on fullbacks or pulling guards at the point of attack."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "The MIKE must set the defense based on offensive formation and strength. This is important but partially handled by the defensive coordinator and safety."
+        }
+      },
+      "ideal_archetype": "An athletic, coverage-capable LB who can process route combinations in zone-match coverage, make reliable tackles in space, and serve as the defensive quarterback. Zack Baun IS the ideal Fangio LB \u2014 a converted edge rusher with elite athleticism, coverage range, and instinctive processing. Fred Warner in San Francisco (another Fangio-adjacent system) is the league's gold standard for this role. Jihaad Campbell's hybrid athleticism and pass-rush ability make him a Fangio chess piece. The key: this LB must cover, not just run-stuff.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Size helps in run fits and coverage against TEs, but athleticism matters more than size in this scheme."
+        },
+        "weight": {
+          "ideal": "225-245",
+          "floor": "215",
+          "reasoning": "Must be light enough to move in coverage but heavy enough to hold up on run fits. Traditional 250+ thumpers don't fit this scheme."
+        },
+        "40_yard_dash": {
+          "ideal": "4.50-4.65",
+          "floor": "4.70",
+          "reasoning": "Speed directly impacts coverage ability in zone match. A 4.80 LB can't match up with modern TEs and RBs in space."
+        },
+        "3_cone": {
+          "ideal": "sub-6.90",
+          "floor": "7.10",
+          "reasoning": "Change-of-direction ability is critical for zone-match coverage where the LB must react to route combinations and redirect."
+        }
+      },
+      "development_context": "Fangio has an incredible LB development track record spanning decades: Sam Mills, Patrick Willis, Roquan Smith, Khalil Mack (as an OLB), and most recently Zack Baun's transformation from journeyman to All-Pro. He specifically develops coverage ability and processing in his LBs. A raw athlete with speed and instincts is highly developable. However, the processing demands are steep \u2014 an LB who can't learn the zone-match rules quickly will be a liability.",
+      "scheme_fit_narrative": "We play with one or two linebackers on the field for most of the game. That means whoever is out there has to do everything \u2014 cover slot receivers, match TEs in the seam, fit the run in space, and quarterback the defense. We can't afford a two-down run-stuffer who comes off the field on third down. Give us an athlete who can cover, process, and tackle. If he can rush the passer as a bonus, even better.",
+      "archetype_examples": [
+        "Zack Baun",
+        "Fred Warner",
+        "Roquan Smith"
+      ]
+    },
+    "CB": {
+      "scheme_role": "Fangio's CBs play primarily in zone-match coverage (Cover 4 match/quarters), where they start in a zone alignment but transition to man-to-man rules if the receiver runs a vertical route. Outside CBs must be comfortable pressing at the line, playing off-man, dropping into zone, and transitioning between all three based on post-snap reads. The nickel CB (Cooper DeJean) operates both in the slot and on the outside. Fangio's system frequently asks the CBs to play without safety help \u2014 he rolls coverage away from one side, leaving the boundary CB in effective one-on-one. Mitchell has thrived in this role. The Eagles signed Tariq Woolen to replace Darius Slay/Adoree' Jackson as the CB2 opposite Mitchell.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Zone-match often becomes man coverage on vertical routes. The outside CB must be able to mirror and trail receivers in man-to-man when the route dictates it. Mitchell allowed just 42.9% completions when targeted in 2025, demonstrating the man-coverage demands of this system."
+        },
+        "Ball Skills": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Turnovers are a bonus, not the primary objective. Fangio values coverage that prevents completions over gambling for interceptions. That said, Mitchell's two playoff INTs in 2024 and DeJean's Super Bowl pick-six show that ball production follows from good coverage."
+        },
+        "Zone Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Cover 4 match is the foundational coverage. The CB must read the receiver's route, determine whether to match him or pass him off, and communicate with the safety. Zone-match requires the CB to process route combinations and apply different rules based on the receiver's actions. This is the most intellectually demanding aspect of the position in this system."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "When the coverage rolls away and the CB is left in one-on-one, recovery speed is essential. Fangio's system puts CBs on islands by design. Woolen's 4.26 speed was a major reason the Eagles signed him. Speed also helps on zone turns and transition from zone to man on vertical routes."
+        },
+        "Press": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Fangio uses press coverage situationally, not as a base alignment. The CBs often play off or bail from the line. But the ability to press disrupts timing and can be deployed strategically. Mitchell is an excellent press corner; DeJean uses his physicality in press at the nickel."
+        },
+        "Nickel": {
+          "weight": 0.21,
+          "importance": "essential",
+          "reasoning": "The nickel CB role is arguably the most important defensive position in Fangio's scheme. DeJean plays the vast majority of snaps at nickel in sub packages. The nickel must be physical enough to support the run (DeJean graded elite in run defense), versatile enough to cover slot receivers in zone match, and smart enough to communicate coverage adjustments. This scheme lives in nickel \u2014 the nickel is never coming off the field."
+        }
+      },
+      "ideal_archetype": "An intelligent, versatile CB who can play zone-match coverage, transition to man on vertical routes, and play without safety help. Quinyon Mitchell is the prototype \u2014 a shutdown outside corner who travels with the opponent's best receiver in zero coverage and allows sub-50% completions. For the nickel role, Cooper DeJean IS the archetype: physical, smart, versatile, elite run defender, and instinctive in zone coverage. For a CB2, Tariq Woolen represents the desired traits: length, speed, and the ability to play in Fangio's zone-match system. Fangio historically prefers bigger corners (6-0+) with length who can disrupt routes.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2 (outside); 5-10 to 6-1 (nickel)",
+          "floor": "5-10",
+          "reasoning": "Fangio has historically preferred bigger corners. In SF, 4 of 7 CBs were 6-0+. Length helps in zone-match coverage and at the line of scrimmage. Mitchell is 6-0, DeJean is 5-11, Woolen is 6-4."
+        },
+        "weight": {
+          "ideal": "190-210",
+          "floor": "185",
+          "reasoning": "Physicality matters for run support and at the line. Lighter corners struggle in the run game, which matters because Fangio plays with light boxes."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "Recovery speed matters when playing without safety help. Fangio's system rolls coverage away from one side, leaving the CB in single coverage. Speed is the safety net."
+        },
+        "arm_length": {
+          "ideal": "32+ inches",
+          "floor": "31 inches",
+          "reasoning": "Length helps with disrupting routes in zone-match, getting hands on receivers, and playing through contact on vertical routes."
+        }
+      },
+      "development_context": "Fangio and the Eagles' secondary coaching staff (now led by Joe Kasper as passing game coordinator and Mark Pellegrino as secondary coach, replacing Christian Parker who left for Dallas) have an exceptional CB development track record. Mitchell and DeJean both became first-team All-Pros by Year 2. The staff teaches zone-match rules, communication, and technique. A raw athlete with speed and size can be developed in this system if they can process zone-match rules intellectually. A CB who can't learn the match principles won't survive regardless of athletic talent.",
+      "scheme_fit_narrative": "Our corners play in a zone-match system where they start in zone but can end up in man on any given snap. They need to be smart enough to process route combinations, fast enough to survive on an island, and physical enough to support the run game from the secondary. We don't need a pure man-coverage press corner \u2014 we need a versatile DB who can do everything at a high level. Size and length are preferred because our CBs play a lot of contested reps without safety help.",
+      "archetype_examples": [
+        "Quinyon Mitchell",
+        "Cooper DeJean",
+        "Trent McDuffie"
+      ]
+    },
+    "S": {
+      "scheme_role": "Safeties in Fangio's defense are the most tactically versatile players on the field. They align in a two-high shell pre-snap on virtually every snap but rotate into different coverages post-snap \u2014 one may drop into the box as a run-fitter while the other stays deep, or both may play deep halves, or one may rotate to a single-high. Fangio demands interchangeable safeties who can play both free and strong safety because the disguise requires both players to be credible in either role. With Reed Blankenship's departure to Houston, the Eagles need a starting safety alongside Andrew Mukuba. The safety position is a critical draft/free agency need.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Safeties occasionally match up with TEs in man coverage on fire zones and specific matchups. But this is primarily a zone-coverage system for safeties. Man coverage is a supplementary skill."
+        },
+        "Range": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Two-high safeties must cover their halves of the field from a deep alignment. Range to close on balls thrown to the deep half or to break on intermediate routes is the defining trait. Fangio's system gives safeties a lot of ground to cover because the two-high shell spreads them wide. A safety without range can't cover his deep half effectively."
+        },
+        "Ball Skills": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "Safeties are the last line of defense in the deep halves. When they arrive at the ball, they must be able to make a play \u2014 either intercept or break up the pass. Fangio's system creates opportunities for safeties to make plays on underthrown balls and over-routes."
+        },
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "When the safety rotates down into the box post-snap, he becomes a run-fitter who must tackle reliably. With light boxes, the safety filling the box is often the difference-maker on run plays. Missed tackles at the safety level create explosive plays. DeJean's run-defense prowess at nickel is supplemented by safeties who can also fill."
+        },
+        "Speed": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Deep-half range correlates directly with speed. The safety must be fast enough to cover his half of the field from a two-high alignment and close on deep balls. Speed also helps when rotating down into the box to arrive at the run with force."
+        },
+        "Nickel": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Fangio's safeties must be interchangeable \u2014 the pre-snap disguise requires both safeties to be credible in both roles. The strong safety sometimes plays closer to the line as a box defender who must cover slot receivers, while the free safety plays deep. Both must be able to do both. A safety who can only play one role limits the disguise."
+        }
+      },
+      "ideal_archetype": "An interchangeable, rangy safety who can play deep halves in two-high, rotate down as a box defender, and switch between free and strong safety roles seamlessly. Justin Simmons under Fangio in Denver is the perfect example \u2014 elite range, interchangeable, and smart enough to execute the post-snap rotation. Kyle Hamilton's combination of range, size, and versatility is the modern ideal. For the Eagles specifically, they need someone who can replace Blankenship's reliability while adding more athleticism. Andrew Mukuba's range and ball-tracking make him a potential fit, but the Eagles need a second safety who can match his versatility.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Size helps safeties in the box and in matchups against TEs. But range and speed matter more than height. Fangio has used safeties of various sizes."
+        },
+        "weight": {
+          "ideal": "200-215",
+          "floor": "190",
+          "reasoning": "Must be physical enough to fit the run when rotating into the box but not so heavy that deep-half range is compromised."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.55",
+          "floor": "4.60",
+          "reasoning": "Speed directly impacts deep-half coverage ability. In a two-high shell, the safety must cover a large area. A 4.65+ safety creates a coverage liability in the deep half."
+        },
+        "vertical_jump": {
+          "ideal": "38+",
+          "floor": "34",
+          "reasoning": "Vertical explosiveness helps safeties high-point balls at the catch point and close on passes in their deep zone."
+        }
+      },
+      "development_context": "Fangio has developed safeties throughout his career: Justin Simmons became an All-Pro in Denver, Eddie Jackson had a breakout season in Chicago, and C.J. Gardner-Johnson revived his career in Philadelphia's 2024 Super Bowl run. The coaching staff can teach post-snap rotation technique and zone responsibilities. But range and speed must arrive \u2014 a safety who can't run won't develop range. Instincts and ball skills can be sharpened, but the physical tools are prerequisites.",
+      "scheme_fit_narrative": "Our safeties have the hardest job in the defense. They must line up in the same two-high look every snap and then execute different coverages post-snap \u2014 sometimes deep half, sometimes rotating down into the box, sometimes matching a TE man-to-man. We need them to be interchangeable so the offense can't tell who's doing what until after the snap. Range is king \u2014 if you can't cover your deep half, nothing else matters. But we also need safeties who can tackle in the box when they come down. Give us a smart, rangy, versatile safety who can do it all.",
+      "archetype_examples": [
+        "Justin Simmons (Fangio era)",
+        "Kyle Hamilton",
+        "Jessie Bates III"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "The Eagles enter the 2026 draft at a scheme inflection point. On offense, Sean Mannion is installing a Shanahan/McVay/LaFleur wide zone system that demands fundamentally different skill sets than the prior West Coast approach. The biggest positional need is TE \u2014 with Goedert reportedly leaving and no other viable TEs under contract, the Eagles desperately need a receiving TE who can also block in 12 personnel. Any TE prospect with route-running, YAC ability, and adequate inline blocking should be valued significantly higher for PHI. The LaFleur system makes TEs WR-level weapons on boot concepts and seam routes. On defense, Fangio's 3-4 with stand-up OLB edge rushers means any LB with pass-rush traits should be valued like an EDGE for PHI. The system also demands interchangeable safeties \u2014 a traditional deep-only free safety has less value here than a versatile S who can play box, slot, and deep. Blitz rate is historically low, so the Eagles need edge rushers who can win 1-on-1 without help, not blitz-scheme dependent players. ILBs must be coverage-first, as Fangio often plays only 1 off-ball LB in nickel. RBs with receiving ability get a boost in Mannion's scheme due to the play-action/boot passing game that features RB outlets. With A.J. Brown potentially traded and the offense in transition, pass-catching skill players at every position get elevated consideration.",
+  "scheme_draft_intelligence": "The 2026 Eagles are at a fascinating inflection point: a major offensive scheme overhaul toward a Shanahan/McVay system under first-time playcaller Sean Mannion, combined with defensive continuity under the legendary Vic Fangio entering Year 3. This creates a unique draft profile where the offensive evaluation criteria are shifting dramatically while the defensive criteria remain stable and well-established.\n\nOn offense, the transition to wide-zone blocking fundamentally changes what the Eagles need at every position. Offensive linemen must be evaluated for lateral agility and zone-blocking athleticism rather than pure power. The loss of Jeff Stoutland \u2014 perhaps the NFL's best OL developer \u2014 creates additional urgency to find OL prospects with existing zone-blocking experience or exceptional natural movement ability. With Lane Johnson potentially in his final years and Landon Dickerson's health uncertain, OT is a premium draft need that must be evaluated through the Shanahan lens: short shuttle under 4.70, lateral agility, and the ability to reach-block. The TE position also shifts in value \u2014 the Eagles need a blocking TE who can seal the edge on outside zone, not a split-out receiving TE. This creates a hidden value opportunity: blocking TEs who other teams undervalue because they don't produce receiving stats may be scheme-perfect for Philadelphia.\n\nDefensively, the Eagles' biggest need is EDGE following Jaelan Phillips' departure to Carolina ($120M deal). While Nolan Smith, Jalyx Hunt, and newly signed Bradley Chubb provide a foundation, the Eagles' no-first-round-pick status (their earliest pick is No. 54 in the 2nd round) means they must find EDGE value in Days 2-3 of the draft. Fangio's track record of developing EDGEs (Mack, Chubb, Hunt, Smith) means they can target raw athletes with first-step explosion and motor who may lack polish \u2014 this staff will teach the rest. Safety is another critical need after losing Blankenship, though Andrew Mukuba provides one starter. A safety with range and interchangeability is essential for Fangio's two-high shell.\n\nThe Eagles' scheme philosophy creates unique value differentials. Their defensive system values CBs who can play zone-match coverage with size and intelligence over pure man-press corners \u2014 this means players like long, athletic zone CBs from college systems that teach pattern-matching may be undervalued by man-coverage teams but scheme-perfect for Fangio. Similarly, their LB evaluation is radically different from most teams: they need a coverage LB, not a thumper, because Fangio plays with just 1-2 LBs on the field and asks them to match up in space.\n\nHistorically, Howie Roseman has shown he evaluates through scheme fit: drafting Mitchell and DeJean specifically for Fangio's zone-match scheme, selecting Jihaad Campbell's hybrid athleticism for the LB role, and trading for Jaelan Phillips mid-season. Expect the Eagles to target athletic, versatile players at every position \u2014 Roseman's philosophy of 'good players can play in many different schemes' will be tested as the offense transitions to a fundamentally different system. The nine draft picks (including four compensatory picks) give the Eagles ammunition to address EDGE, OT, S, and WR depth, with a particular emphasis on players who embody the movement-oriented, versatile profile that both Fangio's defense and Mannion's new offense demand.",
   "confidence": "high",
   "sources": [
-    "Philadelphia Eagles official site - coaching staff announcements and Sean Mannion hire",
-    "ESPN - Tim McManus reporting on Mannion hire and Eagles OC search",
-    "NFL.com - Eagles hire Mannion as OC, Fangio retirement/return reporting",
-    "Philadelphia Inquirer - Jeff McLane reporting on Mannion scheme, Fangio return confirmation, Goedert departure",
-    "NBC Sports Philadelphia - Fangio return, Mannion scheme analysis, Goedert free agency",
-    "Bleeding Green Nation - Fangio defense 101 breakdown, Mannion offense analysis, Goedert departure reporting",
-    "PhillyVoice - Fangio blitz rate analysis, defensive scheme breakdowns",
-    "Pro Football Reference - Eagles 2025 stats, 3-4 defensive alignment classification",
-    "Match Quarters - Fangio quarters coverage and split-field system analysis",
-    "CBS News Chicago - Vic Fangio defensive scheme deep dive (3-4 front, two-gap principles)",
-    "Wisconsin Sports Talk - Matt LaFleur offensive scheme analysis (wide zone, 12 personnel, TE usage)"
+    "philadelphiaeagles.com/team/coaches",
+    "ESPN Tim McManus Eagles coverage",
+    "NBC Sports Philadelphia - Eagles beat coverage",
+    "Bleeding Green Nation scheme analysis",
+    "The Read Optional - Book of Fangio series by Shawn Syed",
+    "PhillyVoice Eagles analysis",
+    "Philadelphia Inquirer Eagles coverage",
+    "Pro-Football-Reference 2025 Eagles Advanced Stats",
+    "Sports Info Solutions offensive tendencies",
+    "MatchQuarters.com Fangio defensive analysis",
+    "NFL.com coaching and free agency coverage",
+    "Wikipedia - Vic Fangio, Kellen Moore, 2025 Philadelphia Eagles season"
   ]
 }

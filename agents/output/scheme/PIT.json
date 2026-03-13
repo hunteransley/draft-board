@@ -6,67 +6,744 @@
       "name": "Mike McCarthy",
       "tenure_years": 1,
       "background": "offensive",
-      "scheme_philosophy": "West Coast tradition with emphasis on run game, play-action, and ball control; calls his own plays; prioritizes building offense around QB's strengths"
+      "coaching_tree": "West Coast / Bill Walsh tree \u2192 Mike Holmgren \u2192 Green Bay lineage. McCarthy served as OC for the Saints under Jim Haslett (2000-04) and 49ers under Nolan (2005) before becoming Packers HC. His offensive roots trace through Walsh's WCO principles: footwork-driven quarterback play, timing-based passing, and horizontal stretch concepts.",
+      "scheme_philosophy": "Ball control, run-game emphasis, West Coast timing passing with play-action mixed in. Calls his own plays \u2014 confirmed he will do so in Pittsburgh. His self-described 'Texas Coast' offense ties QB footwork to route progressions and prioritizes short-to-intermediate completions, ball security, and time of possession over explosive plays. Historically maximizes QB production through structured reads and timing rather than improvisation or athleticism."
     },
     "offensive_coordinator": {
       "name": "Brian Angelichio",
-      "scheme_tree": "West Coast / McCarthy tree; background as TE coach and passing game coordinator under Kevin O'Connell in Minnesota",
-      "play_caller": false
+      "coaching_tree": "McCarthy tree via Green Bay (2016-18) / Kevin O'Connell influence from Minnesota (2022-25). Career TE coach who became passing game coordinator under O'Connell, now first-time OC.",
+      "scheme_evolution": "Began coaching career on the defensive side (secondary at SUNY Brockport, linebackers at Ithaca) before transitioning to offense. Rose to OC at Ithaca (D-III) setting 30 team records. In the NFL, has been exclusively a TE coach until his PGC role in Minnesota. Under O'Connell, the Vikings passing game prioritized downfield shots and TE-centric concepts. Angelichio's fingerprints are on Minnesota's TE usage \u2014 flexing TEs into the slot, featuring them in the progression, and creating mismatches. In Pittsburgh, McCarthy will call plays, so Angelichio's role is gameplan architect and weekly implementation.",
+      "development_track_record": "Elite TE developer: coached T.J. Hockenson to a franchise-record 95-catch season and three consecutive 50+ reception seasons in Minnesota. Coached Jared Cook, Jimmy Graham, and Martellus Bennett in Green Bay. Developed Josh Oliver and Johnny Mundt into career-high production in Minnesota. Sources describe him as 'elite' at tight end development and receiving. Less track record developing WRs or RBs, as his career has been TE-focused."
     },
     "defensive_coordinator": {
       "name": "Patrick Graham",
-      "scheme_tree": "Bill Belichick / New England Patriots tree; versatile multiple-front coordinator",
-      "play_caller": true
+      "coaching_tree": "Bill Belichick / New England Patriots tree (2009-15). Also influenced by Steve Spagnuolo (NYG 2016-17) and worked under Joe Judge (NYG 2020-21), Brian Flores (MIA 2019), and Josh McDaniels (LV 2022-23). All Belichick disciples. In 2025, worked under Pete Carroll in Las Vegas, absorbing Carroll's simplification principles. Brings a uniquely diverse defensive background.",
+      "scheme_evolution": "In Miami (2019), ran heavy man coverage (50%+ of snaps) with aggressive blitzing (35% blitz rate, 41% on 3rd down). In NYG (2020-21), adapted \u2014 started man-heavy but shifted to Cover 3/zone when CB2 couldn't hold up, showed willingness to adapt mid-season. In LV (2022-25), ran primarily even fronts (4-3 base) to maximize Maxx Crosby, used soft zone coverage ('bend don't break'), and relied on front-seven disguise over exotic secondary looks. Under Carroll in 2025, leaned even harder into Cover 3. In Pittsburgh, McCarthy mandated a 3-4 base; Graham is fully comfortable adapting \u2014 he told media the 3-4/4-3 distinction is 'almost antiquated.' Expect a multiple front that uses 3-4 as its origin point but shifts frequently.",
+      "development_track_record": "Developed Jabrill Peppers into a hybrid S/LB chess piece in NYG (career highs in sacks, TFLs, PDs). Maximized Maxx Crosby's production in LV despite minimal roster investment. Malcolm Koonce had a career year (8 sacks) under Graham. Strong at creating roles for versatile defensive players and getting production from underinvested rosters."
+    },
+    "assistant_head_coach_secondary": {
+      "name": "Joe Whitt Jr.",
+      "coaching_tree": "Bobby Petrino \u2192 Green Bay Packers (2008-18) under Mike McCarthy \u2192 Dan Quinn tree (Dallas 2021-23, Washington 2024-25). 20th NFL season, all coaching secondary.",
+      "scheme_evolution": "A press-man coverage specialist. In Green Bay, coached Charles Woodson to 2009 DPOY and oversaw the NFL's most prolific interception-producing secondary (176 INTs during his tenure, NFL-best). In Dallas, developed Trevon Diggs (11 INTs in 2021, NFL-leading) and DaRon Bland (NFL-record 5 pick-sixes in 2023). His Cowboys secondaries led the NFL with 59 INTs over three seasons. In Washington as DC, struggled when personnel couldn't match his man-coverage demands. His presence in Pittsburgh alongside Graham creates a compelling dynamic: Graham's scheme flexibility plus Whitt's aggressive press-man development could produce a defense that's primarily zone-based but features man coverage packages when matchups favor it.",
+      "development_track_record": "Elite CB developer. Transformed Trevon Diggs and DaRon Bland into All-Pro performers. Coached Tramon Williams and Sam Shields in GB. Prioritizes ball-hawking, press technique, and physical play at the catch point."
+    },
+    "offensive_line_coach": {
+      "name": "James Campen",
+      "coaching_tree": "McCarthy tree \u2014 spent 13 seasons under McCarthy in Green Bay (2004-18), rose from QC to OL coach to run game coordinator. Former NFL center (Saints/Packers, 1987-93).",
+      "scheme_evolution": "Built Green Bay's OL identity under McCarthy: physical but mobile, zone-based but adaptable, with linemen who could play multiple positions. Coached 7 Pro Bowl linemen in GB including David Bakhtiari (developed from 4th-round pick to All-Pro LT). Excels at developing mid-to-late round OL into starters through technical refinement. His zone blocking principles align with McCarthy's WCO timing requirements \u2014 OL must be laterally agile enough for zone concepts while maintaining the anchor for slide protection in the pass game.",
+      "development_track_record": "Developed David Bakhtiari from Day 3 pick to franchise LT. Coached Josh Sitton, T.J. Lang, Jeff Saturday, and Corey Linsley to Pro Bowls. Known for maximizing players' strengths \u2014 as David Bakhtiari said, 'I was a fourth-rounder, a Day 3 guy, not really on anyone's radar.' Also developed versatile OL who can play multiple spots (Justin McCray followed him to 3 teams)."
     }
   },
   "offense": {
     "scheme_family": "West Coast (McCarthy variant, self-described 'Texas Coast')",
-    "base_personnel": "11 with diverse personnel mixing (11, 12, 21 all used; McCarthy historically ranked bottom-half in 11-personnel usage because he diversifies groupings more than most)",
-    "run_scheme": "Inside zone / zone-based with gap concepts mixed in; McCarthy has historically emphasized running the ball to control tempo, though his Green Bay teams rarely had elite rushing attacks",
-    "pass_concepts": "West Coast quick passing game tied to QB footwork, short-to-intermediate timing routes that stretch defenses horizontally, with vertical shot plays mixed in; Angelichio's Vikings background adds emphasis on downfield passing concepts",
-    "rpo_usage": "low to moderate \u2014 McCarthy is a traditional West Coast play-caller, not an RPO-heavy designer",
-    "te_usage": "High-value receiving role. Angelichio is a career TE coach who developed T.J. Hockenson (95-catch season), Gary Barnidge (1,043 yards), and Jimmy Graham in GB. Pittsburgh has Pat Freiermuth and Jonnu Smith as dual receiving threats. Expect TEs flexed into slot, featured in 12 personnel passing, and integral to play-action concepts.",
-    "rb_usage": "McCarthy values the run to 'rest his defense' \u2014 expects a primary runner plus a committee element. West Coast system uses RBs as checkdown/flat receivers, moderate receiving role. Jaylen Warren is a capable pass-catcher."
+    "scheme_detail": "McCarthy's WCO builds around QB footwork-driven timing routes where each route progression is tied to the quarterback's drop and hitch. Unlike Shanahan-tree zone-run-first offenses, McCarthy's system uses the short passing game AS the run game \u2014 quick completions stretch the defense horizontally, then play-action shots attack vertically. McCarthy explicitly stated he wants to 'run the damn ball so I can rest my defense,' indicating a ball-control philosophy that prioritizes possession and limiting turnovers over explosive efficiency. Angelichio's Minnesota background adds TE-centric passing concepts and downfield shot plays. McCarthy will call plays; Angelichio will gameplan and install. The offense uses slide protection in the pass game (switched to this in Dallas in 2023), which demands OL discipline and technique over raw power.",
+    "run_scheme": "Inside zone primary with gap/power concepts mixed in. McCarthy's Green Bay offenses under Campen used zone-based blocking that demanded lateral agility from OL. The run game serves the larger ball-control philosophy \u2014 it exists to control tempo, rest the defense, and set up play-action. Not a creative or exotic rushing attack. Expects competent, physical zone blocking from the OL and a patient, one-cut runner behind it.",
+    "pass_architecture": "West Coast quick passing tied to QB footwork. Short-to-intermediate timing routes (slants, curls, digs, crossers, out routes) that stretch defenses horizontally. McCarthy's tendencies include heavy use of double-slant concepts, quick-game calls on early downs, and periodic deep shots off play-action. Angelichio's Vikings influence adds emphasis on TE targets in the intermediate and seam areas. YAC is prioritized \u2014 McCarthy's Packers offenses consistently ranked high in YAC per reception because the scheme creates catch-and-run opportunities underneath. Low RPO usage \u2014 McCarthy is a traditional, dropback-oriented play-caller.",
+    "personnel_tendencies": "Diverse groupings: 11 personnel (base), 12 personnel (significant \u2014 Freiermuth + Smith available), 21 (situational). McCarthy historically diversifies beyond 11 personnel more than most modern offenses. With Angelichio's TE background and Pittsburgh's TE investment (Freiermuth, Jonnu Smith), expect meaningful 12-personnel usage that flexes TEs into the slot for receiving concepts while also providing extra blocking surface in the run game. DK Metcalf and Michael Pittman are the WR1/WR2; the WR3 role may be contested.",
+    "motion_tempo": "Moderate-to-low motion usage, standard tempo. McCarthy was criticized in Dallas for reducing pre-snap motion compared to Kellen Moore's era. The offense operates at a controlled tempo \u2014 not hurry-up, not deliberately slow. Ball control philosophy dictates managing the clock and staying on schedule rather than creating tempo advantages."
   },
   "defense": {
-    "base_front": "3-4 (McCarthy explicitly stated he wants to remain in a 3-4 and build off the existing foundation)",
-    "alignment": "Nominally odd front (3-4) but Graham is scheme-flexible \u2014 in Las Vegas he deployed mostly even (4-down) fronts to maximize Maxx Crosby. With Pittsburgh's T.J. Watt and Nick Herbig as stand-up OLBs, expect a true 3-4 odd front as the base with sub-package 4-2-5 / nickel looks on passing downs.",
-    "edge_rush_source": "OLB stand-up (T.J. Watt, Nick Herbig as primary edge rushers from a two-point stance in 3-4 alignment)",
-    "coverage_base": "Primarily zone \u2014 Cover 3 foundation with soft zone ('bend but don't break'); Graham is not highly creative in the secondary but disguises fronts well. Limited exotic coverages; relies on front-seven pressure to support coverage.",
-    "blitz_tendency": "moderate to heavy \u2014 Graham incorporates simulated blitzes and creative pressure packages, though his Raiders defenses were not among the heaviest blitzers. Pittsburgh's elite OLB talent (Watt) means generating pressure without needing to blitz as often.",
-    "lb_role": "ILBs (Patrick Queen, Payton Wilson) are run/coverage players. OLBs (Watt, Herbig) are primary pass rushers. Graham values one LB who can handle the majority of snaps (a la Blake Martinez's 1,063-snap season with the Giants). Graham also historically uses a safety/LB hybrid in the box.",
-    "safety_usage": "Graham is known for deploying a strong safety/linebacker hybrid \u2014 Jabrill Peppers in NYG took more box snaps than the backup ILB. Expect one safety deep and one safety used as a versatile box/slot defender. Jamal Adams filled this hybrid role in Las Vegas in 2025. Minkah Fitzpatrick projects as the deep free safety; the strong safety spot will be a box/hybrid role."
+    "scheme_family": "Multiple 3-4 odd front (Belichick tree, with influences from Spagnuolo and Carroll)",
+    "scheme_detail": "Graham committed to running a 3-4 base at McCarthy's request, and this fits Pittsburgh's roster \u2014 Watt, Highsmith, and Herbig are stand-up OLB rushers. However, Graham's true identity is schematic multiplicity. He has oscillated between man-heavy and zone-heavy, blitz-heavy and rush-four approaches, and even/odd fronts throughout his career, adapting to personnel. In Pittsburgh, expect: 3-4 base on early downs with two-gapping principles from DL; multiple sub-packages (4-2-5 nickel, 3-3-5 with three OLBs); creative pressure packages using simulated blitzes, delayed rushes, and DB blitzes; and zone-primary coverage that uses front-seven disguise to confuse QBs rather than exotic secondary looks. Graham's coverage isn't flashy \u2014 it's soft zone, bend-don't-break, designed to eliminate explosive plays. Joe Whitt's presence adds a man-coverage element that Graham can deploy situationally when matchups favor it.",
+    "front_structure": "3-4 odd front as the base. Nose tackle (0-tech or 1-tech) flanked by two 3-4 DEs (4i/5-tech). Both OLBs (Watt/Highsmith, with Herbig rotating) rush from a two-point stance. Graham will use a three-OLB package (Watt/Highsmith/Herbig) more frequently than the previous staff, particularly on passing downs. In sub-packages, shifts to 4-down looks (nickel/dime) with one or both OLBs hand-in-dirt. DL are asked to control gaps, eat blocks, and keep LBs clean rather than penetrate \u2014 Belichick-tree principles emphasize assignment discipline over individual splash plays from the interior.",
+    "coverage_philosophy": "Zone-primary. Cover 3 as the foundation, with Cover 2, quarters, and robber concepts mixed in. Graham is not a heavy man-coverage coordinator despite his Miami year \u2014 he adapts to personnel. In LV, he ran predominantly soft zone with disguised fronts. In Pittsburgh, expect zone as the base with man packages deployed by Whitt when the corners (Porter Jr., Dean) can handle island assignments. Graham's secondary philosophy: eliminate explosive plays, force underneath completions, and rely on the front to generate pressure. Whitt's ball-hawking background could increase takeaway opportunities if the coverage gets more aggressive than Graham's recent tendencies.",
+    "pressure_philosophy": "Moderate blitz rate with creative pressure packages. Graham's blitz tendencies have varied: 35% in Miami, 25% in NYG's second half, moderate in LV. In Pittsburgh, the OLB talent (Watt/Highsmith/Herbig) means the defense can generate elite pressure with just four rushers, reducing the NEED to blitz. When Graham does bring extra, expect simulated pressures (show blitz, drop into zone), delayed LB/DB blitzes, and interior stunts/twists. The front-seven disguise is Graham's signature \u2014 moving players around pre-snap to confuse blocking assignments while maintaining coverage integrity behind it.",
+    "sub_packages": "4-2-5 nickel is the primary sub-package (one LB off, extra DB). Graham has historically used a S/LB hybrid \u2014 Jabrill Peppers in NYG, Jamal Adams in LV. In Pittsburgh, DeShon Elliott or a drafted safety could fill this role. The three-OLB package (Watt/Highsmith/Herbig) functions as a de facto nickel on passing downs with Herbig moving inside. Graham will also use 3-3-5 looks and occasionally 2-4-5 with creative personnel groupings. Expect more defensive sub-package usage than base, as is standard in 2026."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "Angelichio's entire NFL career has been built on developing receiving TEs \u2014 Hockenson's franchise-record 95-catch season in Minnesota, Barnidge's 1,043-yard Pro Bowl year in Cleveland, and Jimmy Graham's production in GB all came under his coaching. McCarthy's West Coast system uses TEs as featured receiving weapons, not just blockers. Pittsburgh already deploys Freiermuth and Jonnu Smith in pass-heavy roles. Angelichio's scheme will flex TEs into the slot and feature them in the progression reads. An elite receiving TE prospect (e.g., Kenyon Sadiq) would be valued near WR levels in this offense."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB in McCarthy's West Coast offense is the engine of the entire system. Every route progression is tied to the QB's footwork \u2014 his drop dictates the timing window, and the ball must come out on rhythm. The QB must make pre-snap reads to identify coverage, then deliver the ball accurately to the correct progression point before the defense reacts. This is not a system that asks the QB to create with his legs or improvise \u2014 it demands precision, processing speed, and anticipation. McCarthy will call the plays; the QB executes within a structured framework.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "McCarthy's WCO features primarily short-to-intermediate throws where timing matters more than velocity. Adequate arm strength is needed for 15-20 yard outs and play-action deep shots, but elite arm talent isn't the differentiator. McCarthy maximized Kirk Cousins-type QBs in his system, not cannon-armed gunslingers."
+        },
+        "Accuracy": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "THE defining trait. McCarthy's 'Texas Coast' offense ties every route progression to QB footwork. The ball must arrive at the correct spot before the receiver completes his break \u2014 anticipation accuracy on timing routes is non-negotiable. McCarthy's best offenses (Rodgers 2010-14, Prescott 2021-23) featured QBs who were surgically accurate on slants, curls, digs, and out routes."
+        },
+        "Pocket Presence": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "McCarthy's slide protection scheme creates a defined pocket \u2014 the QB must trust his protection, navigate subtle pressure, and deliver from the pocket. McCarthy's system does not encourage escapability; it rewards QBs who can stand in, feel pressure, and make micro-adjustments within the pocket structure."
+        },
+        "Mobility": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "McCarthy has never built his offense around a mobile QB. Rodgers and Prescott could create with their legs, but the system doesn't demand it. Mobility is a bonus that can extend plays, but the scheme functions without it. A statue who delivers on time fits better than a runner who disrupts timing."
+        },
+        "Decision Making": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Ball security and turnover avoidance are McCarthy's explicit priorities \u2014 he said he'd 'give up some production to take care of the ball.' The QB must read progressions quickly, take the check-down when the deep shot isn't there, and never force the ball into coverage. McCarthy's system rewards decisive, conservative decision-making over gunslinger mentality."
+        },
+        "Leadership": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "McCarthy's system puts a lot of responsibility on the QB to manage the line, handle audibles, and adjust protections. The QB is the offensive hub \u2014 CeeDee Lamb said 'all the offense is in Dak's hands now' in Dallas. Leadership in huddle and at the line matters for execution."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The WCO's timing depends on the QB identifying coverage pre-snap to know his first and second reads. McCarthy's offense isn't as complex as a Shanahan pre-snap motion system, but the QB must diagnose what the defense is showing and get to the right progression. This is more important in this system than in a spread/RPO offense where reads are often simplified."
+        }
+      },
+      "ideal_archetype": "A pocket-centric, highly accurate QB who trusts his footwork, reads progressions in order, and delivers the ball on time with touch and precision. Not a scrambler or improviser \u2014 a disciplined, processed passer who operates within the structure of the West Coast system. Think prime Dak Prescott in Dallas (2021-23) or Kirk Cousins in his best seasons \u2014 accurate, poised in the pocket, makes good decisions, and rarely turns the ball over. The system can elevate a B+ arm with A+ accuracy into a top-10 performance.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-4",
+          "floor": "6-1",
+          "reasoning": "McCarthy's WCO requires throwing over the interior from the pocket \u2014 not a roll-out or bootleg-heavy system. Height helps see over the line and deliver to intermediate windows. Rodgers (6-2) and Prescott (6-2) are the models."
+        },
+        "weight": {
+          "ideal": "215-235",
+          "floor": "210",
+          "reasoning": "Must be able to absorb hits in the pocket without the scheme asking him to escape. Durability matters in a system that keeps the QB in the pocket."
+        }
+      },
+      "development_context": "McCarthy has a strong track record of developing QBs within his system. He coached Rodgers through his development years in GB, maximized Prescott's accuracy through footwork alignment, and even got career-best production from Favre. Tom Arth, the retained QB coach, provides continuity. The staff can develop footwork, timing, and pocket mechanics. What they cannot develop: raw processing speed and inherent accuracy. The QB must arrive with the mental processing to handle a WCO progression system.",
+      "scheme_fit_narrative": "We need a QB who can stand in the pocket, work through reads, and deliver the ball accurately on rhythm. He doesn't need to be a magician \u2014 he needs to be a machine. The timing of his drops dictates when the ball comes out, and if he can't get through his reads and deliver accurately before the window closes, this whole offense stalls. Give me accuracy and poise over arm talent and mobility every time in this system.",
+      "archetype_examples": [
+        "Dak Prescott (2021-23)",
+        "Kirk Cousins",
+        "Philip Rivers"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "high",
-      "explanation": "McCarthy explicitly stated the Steelers will remain in a 3-4 defense. In this scheme, OLBs are the primary edge rushers \u2014 T.J. Watt is technically an OLB but is a pure pass rusher. Graham has flexibility to use both 3-4 and 4-3 fronts but the Pittsburgh base will feature two stand-up OLB rushers. Any LB prospect with elite pass rush traits (burst, bend, first step) fits perfectly as a stand-up OLB edge rusher in this defense and should be valued at EDGE prices, not traditional LB prices."
+    "RB": {
+      "scheme_role": "The RB in McCarthy's offense is a ball-control workhorse who runs inside zone, catches check-downs and screens out of the backfield, and provides reliable pass protection. McCarthy values running the ball to control tempo and rest the defense. This is not a splash-play role \u2014 it's a steady, efficient role where 3.5-4.5 YPC on early downs keeps the offense on schedule. The RB will see 15-20 touches per game with 2-4 targets in the passing game. Pass protection is critical because McCarthy's pocket-based system requires the RB to pick up blitzers.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Inside zone requires the RB to read the blocks, identify the cutback lane, and make one decisive cut. McCarthy's zone scheme doesn't create massive holes \u2014 the RB must find the seam and hit it with conviction. Patience and vision are inseparable in this system."
+        },
+        "Contact Balance": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "McCarthy's run game is not an explosive, big-play scheme \u2014 it's a grinding, chain-moving operation. The RB must fall forward, break arm tackles, and turn 2-yard gains into 4-yard gains consistently. Contact balance directly translates to the steady output this scheme demands."
+        },
+        "Power": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "McCarthy's ball-control philosophy rewards a physical runner who can convert short-yardage and sustain drives. The inside zone scheme produces a lot of congested running lanes where power to push through contact matters more than elusiveness in space."
+        },
+        "Elusiveness": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Useful for creating additional yards after first contact, but McCarthy's scheme doesn't create space for dancing \u2014 it requires decisive, north-south running with occasional cutback ability. Elusiveness is secondary to power and vision."
+        },
+        "Speed": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "McCarthy's offense doesn't need a home-run hitter. Breakaway speed is a bonus, not a requirement. The scheme creates modest running lanes where hitting the hole quickly matters more than top-end speed on the edge."
+        },
+        "Pass Catching": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "McCarthy's WCO uses the RB as a safety valve \u2014 check-downs, screens, and swing routes are built into the progression. The RB will see 30-50 targets per season. Reliable hands are important but this isn't a Kamara-in-the-spread role."
+        },
+        "Pass Protection": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "This is where McCarthy's system diverges from many others. The QB operates from the pocket with timing-based drops. If the RB cannot identify and pick up the blitzer, the entire timing structure collapses. McCarthy explicitly values pass protection \u2014 his best RBs (Eddie Lacy, Ezekiel Elliott) were reliable in protection."
+        }
+      },
+      "ideal_archetype": "A physical, patient zone runner with reliable hands and elite pass protection. Not a home-run hitter or a gadget weapon \u2014 a professional who runs behind his pads, falls forward, catches what's thrown to him, and keeps the quarterback clean. Think Eddie Lacy in his prime Green Bay years or Ezekiel Elliott in McCarthy's Dallas \u2014 physical, decisive, and dependable. Jaylen Warren's skill set (balance, receiving, toughness) fits this mold well.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "210-230",
+          "floor": "205",
+          "reasoning": "McCarthy values a physical back who can handle 18+ touches per game and absorb contact. Undersized backs wear down in this bell-cow-oriented system."
+        },
+        "40-yard dash": {
+          "ideal": "4.45-4.55",
+          "floor": "none",
+          "reasoning": "Speed is not a primary filter. Adequate speed to hit the zone cutback and turn the corner is enough. This scheme doesn't produce 50-yard runs."
+        }
+      },
+      "development_context": "Ramon Chinyoung Sr. (RB coach) comes from the Dallas Cowboys system where the staff developed Tony Pollard and helped manage Ezekiel Elliott. The staff can refine pass protection technique and zone running reads. What must arrive ready: vision and instincts. You can teach blitz pickup assignments, but you can't teach a back to see the cutback lane.",
+      "scheme_fit_narrative": "We need a back who can carry the mail 20 times and keep us on schedule. He doesn't need to be flashy \u2014 he needs to run behind his pads, fall forward on first and second down, catch the check-down when the defense takes away the receivers, and most importantly, keep the QB upright in pass protection. If he can do those three things reliably, he's our guy.",
+      "archetype_examples": [
+        "Eddie Lacy (2013-14)",
+        "Jaylen Warren",
+        "Ezekiel Elliott (2020-21)"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "medium",
-      "explanation": "McCarthy's West Coast foundation inherently values backs who can catch out of the backfield \u2014 the system uses RBs as checkdown targets, flat receivers, and screen options. However, McCarthy has historically prioritized the ground game and running the ball to control clock over featuring RBs as dynamic receivers. The boost is real but moderate \u2014 Pittsburgh wants backs who CAN catch, but won't scheme them as a primary weapon the way a true spread/pass-heavy team would. Jaylen Warren already fills a receiving back role."
+    "WR": {
+      "scheme_role": "WRs in McCarthy's WCO must run precise timing routes that sync with the QB's footwork. The WR1 (Metcalf) operates as the primary outside target. The WR2/WR3 must be able to win on slants, curls, digs, and crossing routes in the intermediate areas. YAC is paramount \u2014 McCarthy's scheme creates catch-and-run opportunities underneath that require receivers to turn short completions into first downs. The WR doesn't need to beat his man deep every play; he needs to be in the right spot at the right time with the ability to create yards after the catch.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "McCarthy's WCO is built on timing. If the WR's break is late or sloppy, the ball arrives before the receiver is ready or the window closes. Route precision \u2014 sharp breaks, correct depth, proper stem \u2014 is the foundational requirement. McCarthy's system demands WRs who can run the full route tree with crispness."
+        },
+        "Separation": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The quick passing game creates small windows. The WR must separate at the top of his route to give the QB a target on time. This isn't a contested-catch offense \u2014 it's a separation-and-timing offense."
+        },
+        "Hands": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Ball security is McCarthy's mantra. Drops disrupt the timing chain and can lead to turnovers. The WR must have reliable hands, especially on quick-game concepts where the ball arrives with pace in traffic."
+        },
+        "YAC Ability": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "McCarthy's Packers offenses consistently ranked among the NFL's best in YAC per reception because the scheme creates short-area catch-and-run opportunities. The WR's ability to turn a 5-yard slant into a 15-yard gain is the engine that makes the WCO offense explosive. This is the trait that separates a good fit from a great fit."
+        },
+        "Speed": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Adequate speed is needed to threaten deep and keep safeties honest, but McCarthy's offense doesn't rely on vertical speed the way a McVay or Shanahan system might. The WR1 (Metcalf) provides the speed element; complementary WRs need quickness more than top-end burners."
+        },
+        "Contested Catches": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Less critical than in a vertical offense, but the intermediate passing game does produce contested throws over the middle. Metcalf handles the contested catch role as the WR1; complementary WRs benefit from reliability in traffic but this isn't the primary demand."
+        },
+        "Release Package": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Useful against press coverage, but McCarthy's offense doesn't rely on outside receivers winning at the line against press \u2014 the scheme uses motion and formation to create free releases more than man-beating release technique. More important for the slot WR who faces off-man/zone drops."
+        }
+      },
+      "ideal_archetype": "A precise route runner with excellent YAC ability who can thrive in the short-to-intermediate passing game. Not necessarily a burner or a jump-ball specialist, but a technician who runs sharp routes on time, catches everything thrown his way, and turns underneath completions into explosive gains. Think Randall Cobb in McCarthy's Green Bay offense \u2014 not the biggest or fastest, but the most reliable, with elite YAC instincts. CeeDee Lamb in Dallas (2021) also exemplified this: precise routes, strong hands, excellent after the catch. For the WR2/3 role specifically, a slot-capable receiver with route-running polish and run-after-catch ability fits perfectly.",
+      "measurable_preferences": {
+        "short_shuttle": {
+          "ideal": "sub-4.20",
+          "floor": "4.30",
+          "reasoning": "Quick-area agility translates directly to route breaks and YAC. The WCO demands sharp, quick route breaks \u2014 not long-striding routes. A quick shuttle indicates the change-of-direction ability needed."
+        },
+        "3-cone": {
+          "ideal": "sub-6.90",
+          "floor": "7.05",
+          "reasoning": "Route-running precision requires excellent short-area quickness. The 3-cone drill correlates strongly with the ability to make sharp cuts at the top of routes, which is the foundational skill in this timing-based system."
+        }
+      },
+      "development_context": "Adam Henry (WR coach) developed CeeDee Lamb in Dallas (first Pro Bowl in 2021, 79 catches for 1,102 yards) and worked with Brandin Cooks, Gabe Davis, and Khalil Shakir in Buffalo. He can refine route technique and help raw athletes learn the full route tree. YAC instincts are harder to develop \u2014 that's an innate trait. Route precision can be taught; catch-and-run ability cannot.",
+      "scheme_fit_narrative": "We need a receiver who gets open on time, catches the ball reliably, and turns short throws into first downs. This isn't a '9-route and pray' offense \u2014 it's a precision machine where the receiver's break has to sync with the QB's feet. Give me a route runner with great hands and the ability to make the first man miss after the catch. Speed is secondary \u2014 if he can run a 4.50 and he's open on every slant and dig, he's more valuable to us than a 4.35 burner who can't run a proper curl.",
+      "archetype_examples": [
+        "CeeDee Lamb (2021-23)",
+        "Randall Cobb",
+        "Jordy Nelson"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "This is a signature element of Graham's defense. With the Giants, Graham deployed Jabrill Peppers as a safety/LB hybrid who took more box snaps than the backup ILB. Peppers recorded career-highs in sacks (2.5), TFLs (8), and passes defended (10) in this role. In Las Vegas, Jamal Adams was converted to a similar LB/safety hybrid. Graham consistently builds his defense around a versatile strong safety who can play in the box, cover TEs/RBs in the flat, blitz, and support the run. A safety prospect with elite tackling, blitz ability, and man coverage traits would be extremely valuable to Pittsburgh's defense."
+    "TE": {
+      "scheme_role": "The TE is a centerpiece of this offense under Angelichio. Pittsburgh's 12-personnel usage will be significant (Freiermuth + Smith). The TE must be able to flex into the slot and run a full intermediate route tree (seams, crossers, digs, out-breaking routes), serve as a primary target in the progression, AND provide competent in-line blocking for the zone run game. This is not a move-TE-only role \u2014 Pittsburgh will ask TEs to block on early downs and catch passes on later downs. The TE is the offense's Swiss Army knife.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Angelichio's entire career is built around maximizing receiving TEs. He coached Hockenson to 95 catches, developed Josh Oliver into a career-high producer. In Pittsburgh's 12-personnel sets, the TE is a primary passing weapon, not an afterthought. The TE must be a legitimate receiving threat to unlock the offense's full potential."
+        },
+        "Route Running": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Angelichio's TE development is route-technique driven. His TEs in Minnesota ran full intermediate route trees \u2014 seam routes, option routes, crossing patterns. The TE must run routes with precision that creates separation against LBs and safeties, not just run up the seam."
+        },
+        "Blocking": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "McCarthy's ball-control offense requires competent in-line blocking from the TE to support the zone run game. 12-personnel sets only work if the TE can hold up as an extra blocker on run plays. This staff won't sacrifice blocking for receiving \u2014 they want both. But blocking need not be elite; competent is sufficient if the receiving upside is high."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The TE must be able to flex to the slot and create mismatches against linebackers. Angelichio's best TEs (Hockenson, Jimmy Graham) were athletic enough to operate as oversized slot receivers. Athletic testing correlates strongly with TE usage flexibility."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Reliable hands in traffic are important as the TE catches many passes over the middle against bracket coverage. The TE will face tight windows on crossing routes and must secure contested catches. But this is covered partially by the 'Receiving' trait."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Adequate speed to threaten the seam and force safety help is needed, but the TE doesn't need to be a burner. The scheme creates separation through route technique and formation, not raw speed. 4.60-4.75 range is ideal \u2014 fast enough to stress the defense but not the primary trait."
+        }
+      },
+      "ideal_archetype": "A complete, receiving-first TE who can line up in-line, flex to the slot, and operate as a legitimate passing weapon while providing competent blocking in the run game. Think T.J. Hockenson under Angelichio \u2014 95-catch production from a TE who also blocked well enough to stay on the field in all personnel groupings. Or George Kittle's combination of receiving explosion and blocking tenacity. The ideal prospect has the route-running ability of a big slot receiver with enough physicality to hold up at the point of attack.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-2",
+          "reasoning": "The TE must win in contested catch situations over the middle and present a large target in the red zone. Size creates the mismatch advantage that makes TEs valuable in 12-personnel."
+        },
+        "weight": {
+          "ideal": "240-255",
+          "floor": "230",
+          "reasoning": "Must be heavy enough to provide credible in-line blocking in the zone run game. Undersized TEs become liabilities as blockers, which limits their snap count in McCarthy's diverse personnel approach."
+        },
+        "40-yard dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Angelichio's best TEs had the speed to threaten the seam. Hockenson ran 4.70 and was productive. Speed below 4.80 limits the seam-stretch element that makes TEs dangerous in this scheme."
+        }
+      },
+      "development_context": "This is the position where the coaching staff has the most development firepower. Angelichio is universally described as 'elite' at TE development. He can develop route technique, receiving skills, and red-zone usage. He turned Josh Oliver and Johnny Mundt into career-high producers. Blocking technique is harder to develop at the NFL level, but Angelichio coached TEs at Carolina and GB who blocked competently. A TE with raw receiving talent and developing blocking fits better than the reverse \u2014 this staff will maximize the receiving upside.",
+      "scheme_fit_narrative": "We need a TE who can catch the ball and threaten the middle of the field. Angelichio's entire career has been built around making TEs into primary passing weapons, and this offense is going to feature the TE heavily. We want a guy who can flex to the slot, run real routes, and create problems for linebackers and safeties. If he can also hold up as a blocker, even better \u2014 but the receiving ability is what unlocks this offense's potential in 12-personnel.",
+      "archetype_examples": [
+        "T.J. Hockenson (2023)",
+        "George Kittle",
+        "Dallas Goedert"
+      ]
+    },
+    "OT": {
+      "scheme_role": "OTs in McCarthy's offense must excel in two distinct phases: slide protection in the pass game (protecting the timing-based pocket) and zone blocking in the run game (reaching, climbing, and sustaining blocks laterally). The OL coach (Campen) built Green Bay's OL identity around linemen who were 'physical but mobile, zone-based but adaptable.' OTs must be technically sound, laterally agile enough for zone concepts, and disciplined enough to execute slide protection consistently. The LT protects the QB's blind side in a system that keeps the QB in the pocket \u2014 this is a high-value position.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "McCarthy's pocket-based passing system demands elite pass protection. The QB is taking 3-5-7 step drops and delivering on time \u2014 if the pocket collapses early, the entire timing chain breaks down. McCarthy explicitly said 'the biggest change of our offense is our protection in the pass game' when installing slide protection in Dallas. OTs must anchor and sustain."
+        },
+        "Run Blocking": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "McCarthy's ball-control philosophy requires the run game to function. Inside zone demands OTs who can reach-block, combo to the second level, and sustain blocks at the point of attack. Run blocking is important but secondary to pass protection in a WCO."
+        },
+        "Footwork": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Slide protection requires precise footwork \u2014 the OT must get lateral quickly, maintain proper kick-step depth, and mirror speed rushers without overcommitting. Zone blocking also demands lateral agility on the first step. Campen's development of Bakhtiari was largely footwork-driven."
+        },
+        "Anchor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The pocket must stay clean for timing routes. OTs facing bull rushes must be able to absorb and redirect power without collapsing the pocket. In the AFC North, facing power rushers like Hendrickson and Garrett, anchor is non-negotiable."
+        },
+        "Athleticism": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Zone blocking requires OTs to move laterally and climb to the second level. This isn't a pure man-blocking scheme that rewards raw mass \u2014 it needs OTs who can move. Campen's best OTs (Bakhtiari, Clifton) were above-average athletes for the position."
+        },
+        "Strength": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Important for sustaining blocks and generating push in the run game, but Campen's system prioritizes technique over pure power. Strength is the baseline; technique and athleticism are the differentiators."
+        }
+      },
+      "ideal_archetype": "A technically refined, athletic OT who excels in pass protection through footwork and mirroring ability, with enough mobility to execute zone blocking concepts. Think David Bakhtiari \u2014 a Day 3 pick that Campen developed into an All-Pro through technical mastery. Not necessarily the biggest or most powerful OT, but the most technically sound, with quick feet, good balance, and the ability to sustain blocks in both phases. Broderick Jones and Troy Fautanu represent the type Pittsburgh has invested in: athletic, first-round bookends who need technical refinement from Campen.",
+      "measurable_preferences": {
+        "short_shuttle": {
+          "ideal": "sub-4.60",
+          "floor": "4.70",
+          "reasoning": "Zone blocking demands lateral agility from OTs. The short shuttle measures the change-of-direction ability needed for reach blocks and second-level climb blocks. Stiff OTs who can only pass-set kill the zone run game."
+        },
+        "arm_length": {
+          "ideal": "34.0+",
+          "floor": "33.0",
+          "reasoning": "Pass protection in slide schemes requires the OT to maintain distance and steer rushers wide. Longer arms create leverage advantages in both pass pro and zone blocking."
+        },
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Standard OT height range. Must be tall enough to handle NFL edge rushers while maintaining pad level in the run game."
+        }
+      },
+      "development_context": "Campen is an elite OT developer \u2014 he turned Bakhtiari from a 4th-round pick into a franchise LT. His track record of developing mid-round OTs into starters is extensive (Chad Clifton, T.J. Lang at OT, etc.). Jahri Evans assists as a former All-Pro guard. This staff can develop footwork, technique, and zone blocking fundamentals. What must arrive: adequate athleticism and length. You can teach technique; you can't teach a 4.90 shuttle to a 5.10 shuttle.",
+      "scheme_fit_narrative": "We need OTs who can move. This isn't a phone-booth-brawling offense \u2014 it's a zone-based system with slide protection that demands footwork and balance. If a prospect has quick feet, good balance, and the athleticism to execute zone concepts, Campen can teach him the rest. Raw power maulers who can't move laterally won't work here, no matter how strong they are.",
+      "archetype_examples": [
+        "David Bakhtiari",
+        "Tristan Wirfs",
+        "Penei Sewell"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior OL in McCarthy's offense must be versatile zone blockers who can pull on gap concepts, execute combo blocks to the second level, and provide reliable pass protection in slide schemes. The center is the communication hub \u2014 must make protection calls and handle line adjustments. Guards must be athletic enough for zone concepts while strong enough to anchor against interior rushers. Campen's IOL development history emphasizes versatility \u2014 he values linemen who can play multiple interior positions.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Slide protection demands disciplined pass blocking from the interior. The center and guards must handle stunts, twists, and interior rushes without breaking the pocket. McCarthy's timing-based passing collapses if the interior gives ground."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "The run game flows through the interior in an inside zone scheme. IOL must execute double-teams, combo blocks, and climb to the second level to sustain zone running lanes. McCarthy's ball-control philosophy makes the interior run game essential."
+        },
+        "Pulling": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "McCarthy mixes gap/power concepts with his zone base. Guards who can pull on counter and power plays add diversity to the run scheme. Not the primary run concept, but an important complement that creates scheme flexibility."
+        },
+        "Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Interior OL face NFL DTs on every play. Adequate strength to anchor against bull rushes and sustain double-teams is essential. Campen's best IOL (Josh Sitton, Jeff Saturday, Corey Linsley) were strong enough to handle interior power."
+        },
+        "Anchor": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The center of the pocket must hold. If interior OL get pushed into the QB's lap on timing drops, the entire WCO breaks down. Anchor against interior pass rushers is critical in the AFC North where teams like Baltimore employ powerful interior rushers."
+        },
+        "Versatility": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Campen has always valued IOL who can play multiple positions. Justin McCray followed him to three teams because he could play guard and center. Pittsburgh's young IOL core (Frazier, McCormick, Anderson) are valued partly for their positional flexibility. The ability to slide between guard and center protects against injuries and gives roster flexibility."
+        }
+      },
+      "ideal_archetype": "A technically sound, versatile interior lineman with good lateral agility for zone blocking, reliable anchor in pass protection, and the ability to play multiple positions if needed. Think Josh Sitton or Corey Linsley in Campen's Green Bay system \u2014 not the biggest or most physically imposing, but the most technically proficient and reliable. Smart, consistent, and able to handle the communication demands of slide protection.",
+      "measurable_preferences": {
+        "short_shuttle": {
+          "ideal": "sub-4.55",
+          "floor": "4.65",
+          "reasoning": "Zone blocking demands interior OL move laterally on combo blocks and climb to the second level. The shuttle measures the agility needed."
+        },
+        "bench_press": {
+          "ideal": "28+",
+          "floor": "24",
+          "reasoning": "Interior OL must generate push in the run game and absorb bull rushes from DTs. Adequate upper body strength is a baseline requirement."
+        },
+        "arm_length": {
+          "ideal": "33.0+",
+          "floor": "32.0",
+          "reasoning": "Longer arms help maintain leverage in zone blocking and provide extension in pass protection against interior rushers."
+        }
+      },
+      "development_context": "Campen's track record of developing IOL is exceptional. He coached Jeff Saturday, Josh Sitton, T.J. Lang, and Corey Linsley \u2014 all developed under his watch into Pro Bowl-caliber players. He values technique over raw attributes and can turn mid-round picks into starters. The staff can develop blocking technique, zone footwork, and protection calls. Versatility and athleticism must arrive; technique can be taught.",
+      "scheme_fit_narrative": "We need smart, athletic interior linemen who can execute our zone scheme and protect the pocket. Campen can teach anyone the technique, but the prospect needs the lateral movement ability for zone and the anchor to hold up inside. Bonus points if he can play multiple positions \u2014 we value guys who give us roster flexibility and can step in at center or guard if needed.",
+      "archetype_examples": [
+        "Corey Linsley",
+        "Josh Sitton",
+        "Joel Bitonio"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "The EDGE rusher in Pittsburgh's 3-4 defense is a stand-up OLB who is the primary source of pass rush. With Watt, Highsmith, and Herbig, Graham has elite talent to deploy. The OLB rushes from a two-point stance, must set the edge in the run game, and is occasionally asked to drop into flat/curl zone coverage on zone blitzes. Graham will use the three-OLB package more aggressively than the previous staff. The ideal EDGE prospect for this defense is a versatile, motor-driven rusher who can play in multiple alignments (standing up, hand in dirt, inside on sub-packages).",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "This is the Steelers' defensive identity \u2014 elite edge pressure from OLBs. Watt, Highsmith, and Herbig define the defense. Any EDGE prospect must be able to win individual pass rush reps consistently. Graham's defense is built around generating pressure from the edge first, with coverage playing behind it."
+        },
+        "Bend": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Stand-up OLBs in the 3-4 win with bend around the edge more than bull rush power. Watt and Herbig are bend-and-explosion rushers. The system asks OLBs to dip and flatten around the corner from a wider alignment than a 4-3 DE. Bend is the primary pass-rush trait that separates elite 3-4 OLBs."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "From a two-point stance, the initial explosion off the snap determines whether the OLB gets an angle on the OT. Graham's 3-4 OLBs must fire off the edge with explosiveness to threaten the OT immediately. A slow first step negates bend because the OT can set easily."
+        },
+        "Power": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Useful as a secondary rush move (long arm, bull rush) and essential for setting the edge in the run game. But this is not a power-first system at the EDGE \u2014 it's a speed/bend system. Power is the complement, not the primary weapon."
+        },
+        "Motor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Graham values relentless effort \u2014 Maxx Crosby was his star in LV, and Crosby's defining trait is his motor. In Pittsburgh, the three-OLB rotation means fresh legs, but the defense still demands effort-based play. Pursuit angles, chasing plays from behind, and never taking a snap off are hallmarks of Graham's best edge players."
+        },
+        "Run Defense": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The 3-4 OLB must set the edge against the run \u2014 this is non-negotiable in a gap-sound odd front. Graham's assignment-football principles (Belichick tree) require every player to do their job. If the OLB can't set the edge, the entire run defense breaks down. This is especially important in the AFC North against Baltimore's run-heavy offense."
+        }
+      },
+      "ideal_archetype": "A stand-up OLB who wins with bend and explosion off the edge, can drop into flat coverage on zone blitzes, and has the motor to chase plays down from behind. Think T.J. Watt \u2014 not a pure speed rusher and not a bull-rush specialist, but an effort-based, versatile rusher who never takes a play off and can execute assignment football. Maxx Crosby under Graham in LV is another model: relentless motor, multiple rush moves, reliable edge setter. The prospect must be comfortable standing up and playing in space, not just putting his hand in the dirt.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "240-265",
+          "floor": "235",
+          "reasoning": "3-4 OLBs need enough mass to set the edge against NFL TEs and TBs while maintaining the speed and bend to rush the passer from a stand-up position. Undersized OLBs get washed in the run game; oversized ones lose bend."
+        },
+        "40-yard dash": {
+          "ideal": "4.50-4.65",
+          "floor": "4.70",
+          "reasoning": "Edge speed is the primary physical attribute for 3-4 OLBs. Must be fast enough to turn the corner and threaten the OT with speed before deploying power or counter moves."
+        },
+        "3-cone": {
+          "ideal": "sub-6.90",
+          "floor": "7.05",
+          "reasoning": "Bend and change-of-direction are critical for stand-up OLBs who must flatten around the edge. The 3-cone drill correlates with the bend and flexibility needed to turn the corner."
+        }
+      },
+      "development_context": "C.J. Ah You (OLB coach) is a new hire with limited NFL development track record to evaluate. However, Pittsburgh's OLB pipeline is the franchise's crown jewel \u2014 the organization has consistently produced elite edge rushers (Porter, Harrison, Woodley, Watt, Highsmith, Herbig). The system and institutional knowledge support edge development. What must arrive: first-step explosion and natural bend. Technique and rush moves can be developed; physical traits cannot.",
+      "scheme_fit_narrative": "We have the best edge room in football, so any EDGE prospect we draft is entering a room with Watt, Highsmith, and Herbig. He needs to be a natural pass rusher who can win off the edge with speed and bend from a stand-up position. He also must be willing and able to set the edge in the run game \u2014 this isn't a finesse-only role. And if he can drop into coverage on the occasional zone blitz, that's gravy. We're looking for the next wave of Pittsburgh OLB excellence.",
+      "archetype_examples": [
+        "T.J. Watt",
+        "Maxx Crosby",
+        "Nick Herbig"
+      ]
+    },
+    "DL": {
+      "scheme_role": "The DL in Pittsburgh's 3-4 are asked to control gaps, eat blocks, and keep the linebackers clean. This is a Belichick-tree principle: the DL sacrifices individual production (sack numbers) for team run defense. The nose tackle (0/1-tech) must handle double teams and plug the A/B gaps. The 3-4 DEs (4i/5-tech) must hold their gaps, two-gap when needed, and generate occasional interior pressure through technique rather than pure penetration. Cam Heyward has embodied this role for years \u2014 physical, disciplined, technique-driven.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Interior pass rush is less critical in this scheme because primary pressure comes from the OLBs. DL are asked to collapse the pocket from the inside and occupy blockers rather than record sacks. Some push ability is valuable but not the defining trait."
+        },
+        "Run Defense": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "THE primary job. The 3-4 DL must control the line of scrimmage against the run, absorb double teams, and maintain gap integrity so LBs can flow to the ball. Graham's Belichick-tree principles prioritize assignment-sound run defense from the DL above all else."
+        },
+        "First Step": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "A quick first step helps DL gain leverage at the point of attack, but this isn't a penetrating one-gap system. The DL needs to get off the ball quickly enough to establish position, not blow past blockers."
+        },
+        "Hand Usage": {
+          "weight": 0.17,
+          "importance": "high",
+          "reasoning": "DL in a two-gap/gap-control scheme must win with hands. Engaging blockers, controlling their pads, and shedding blocks to make tackles requires elite hand technique. This is how Cam Heyward has played at a high level for over a decade \u2014 winning with hands, not just physical gifts."
+        },
+        "Motor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Graham's defense asks DL to play a lot of snaps in a rotation (Heyward/Benton/Harmon). Relentless effort to sustain blocks, push the pocket, and pursue the ball is valued. The DL who takes plays off gets exposed when the OLBs are winning on the edge."
+        },
+        "Strength": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "The nose tackle and 3-4 DEs must handle double teams and hold the point of attack. In the AFC North, facing elite run games (Baltimore, Cleveland), interior strength is non-negotiable. The DL must be stout enough to plug gaps and not get moved off the ball."
+        }
+      },
+      "ideal_archetype": "A stout, technique-driven interior lineman who anchors against the run, uses his hands to control blockers, and plays with relentless effort. Not a sack artist \u2014 a run-stopper who keeps the linebackers clean and collapses the pocket from the inside. Think Cam Heyward's career \u2014 not flashy sack numbers every year, but elite run defense, excellent hand technique, and the motor to play at a high level for 60+ snaps. For the nose, think a traditional 0-tech who eats double teams: Grady Jarrett, Daron Payne. Keeanu Benton and Derrick Harmon represent the mold Pittsburgh has drafted.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "290-325",
+          "floor": "285",
+          "reasoning": "3-4 DL must have the mass to hold up against NFL double teams. The nose tackle ideally weighs 315+ to plug the middle. The DEs can be lighter (290-310) but must play with leverage."
+        },
+        "bench_press": {
+          "ideal": "28+",
+          "floor": "25",
+          "reasoning": "Upper body strength translates to hand fighting at the point of attack. The DL's primary tool is his hands, and bench press correlates with the ability to control and shed blockers."
+        },
+        "arm_length": {
+          "ideal": "33.5+",
+          "floor": "32.5",
+          "reasoning": "Longer arms help DL in a two-gap system maintain separation from blockers and control the point of attack. Length is leverage in the trenches."
+        }
+      },
+      "development_context": "Domata Peko (DL coach) is a former NFL DT with 15 years of playing experience as a nose tackle. He understands the position from the inside out. Cam Heyward's presence in the DL room provides mentorship for younger players (Benton, Harmon). This staff can develop hand technique, gap discipline, and run defense fundamentals. What must arrive: adequate size and strength. You can't teach a 280-pound DT to hold up at 0-tech against NFL double teams.",
+      "scheme_fit_narrative": "We need big, strong, disciplined interior linemen who eat blocks and stop the run. Sacks are the OLBs' job. Our DL's job is to control the line of scrimmage, handle double teams, and keep our linebackers clean to make plays. If a prospect can anchor, use his hands, and play with effort for 60 snaps, he fits. If he's a penetrating one-gap DT who wants to get upfield, he's probably better suited for a different defense.",
+      "archetype_examples": [
+        "Cam Heyward",
+        "Grady Jarrett",
+        "Daron Payne"
+      ]
+    },
+    "LB": {
+      "scheme_role": "The ILB in Pittsburgh's 3-4 is the every-down defensive quarterback who must process offensive formations, set the defense, and be reliable in both run fits and zone coverage drops. Graham has historically used one primary ILB who plays 80%+ of snaps. The ILB must flow to the ball against the run (with DL keeping him clean), drop into hook/curl zones in coverage, and occasionally blitz through designed gaps. Payton Wilson is the incumbent but struggled in 2025 as a three-down LB \u2014 the new staff needs to determine if he can handle the full scope of the role or needs to be used selectively in coverage.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The ILB is the leading tackler in this defense. With DL eating blocks and OLBs setting edges, the ILB must flow to the ball and finish plays. Missed tackles at the second level create explosive runs. Patrick Queen (120 tackles) and Payton Wilson (109 tackles) led Pittsburgh in 2025."
+        },
+        "Coverage": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Graham's zone-based coverage asks ILBs to drop into hook/curl zones and read the QB's eyes. In nickel, the ILB may be responsible for covering RBs and TEs. Graham's Belichick-tree principles demand ILBs who can cover \u2014 not just rush and tackle. Wilson's coverage ability was praised even when his run defense struggled."
+        },
+        "Pass Rush": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "ILB blitzes exist in Graham's scheme (delayed A-gap rushes), but primary pressure comes from the OLBs. The ILB is not the primary pressure source. Occasional blitz ability is nice; it's not a defining trait."
+        },
+        "Instincts": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "The ILB must diagnose offensive formations pre-snap, read run/pass keys post-snap, and flow to the correct gap in the run game. Graham's defense uses front disguise that requires the ILB to adjust responsibilities based on movement \u2014 instinctive processing is the separator between a good and great ILB in this system."
+        },
+        "Athleticism": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Modern ILBs need sideline-to-sideline range to cover zone concepts and track mobile QBs. Graham's defense doesn't ask the ILB to be a pure athlete, but adequate range to cover his assigned zone and flow in pursuit is needed."
+        },
+        "Range": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Complements athleticism \u2014 the ILB must be able to cover ground laterally in zone drops and pursue runs to the edge. In a scheme where DL eat blocks, the ILB must have the range to make plays from sideline to sideline."
+        },
+        "Block Shedding": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Even with DL absorbing double teams, the ILB will face blocks from pulling guards, lead-blocking FBs, and climbing OL on second-level blocks. The ability to shed and make the tackle is important for run defense consistency."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Graham's defense uses pre-snap movement and disguise, requiring the ILB to process changes and communicate adjustments. The ILB must set the front, communicate coverage responsibilities, and adjust to motion \u2014 he's the defensive QB."
+        }
+      },
+      "ideal_archetype": "A high-IQ, every-down linebacker who can process the defense, make tackles in the run game, and hold up in zone coverage drops. Not a pure thumper and not a pure cover LB \u2014 a complete player who can handle all three downs without coming off the field. Think Bobby Wagner's career \u2014 elite instincts, reliable tackling, adequate coverage, and the mental processing to be the defensive quarterback. Or Blake Martinez under Graham in NYG (1,063-snap season) \u2014 not the most athletic LB, but the most reliable and instinctive.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "230-245",
+          "floor": "225",
+          "reasoning": "Must be physical enough to take on blocks in the run game while athletic enough to cover in space. The modern 3-down LB lives in this weight range."
+        },
+        "40-yard dash": {
+          "ideal": "4.50-4.60",
+          "floor": "4.65",
+          "reasoning": "Adequate speed to cover zone drops and pursue ball carriers. Not a speed position, but modern coverage demands prevent slow-footed thumpers from surviving on all three downs."
+        },
+        "3-cone": {
+          "ideal": "sub-7.00",
+          "floor": "7.15",
+          "reasoning": "Change of direction matters for LBs dropping into zone and breaking on routes. The 3-cone correlates with the ability to flip hips and match route breaks in the short areas."
+        }
+      },
+      "development_context": "Scott McCurley (ILB coach, retained) developed Patrick Queen and Payton Wilson in Pittsburgh and spent 5 years coaching LBs in Dallas under McCarthy. He's familiar with both the Pittsburgh personnel and McCarthy's defensive expectations. Graham has a track record of using versatile LBs \u2014 Peppers as a hybrid, Martinez as a high-snap-count MIKE. The staff can develop run fits and coverage technique. What must arrive: instincts and processing speed. You can't teach a LB to read offensive formations.",
+      "scheme_fit_narrative": "We need a linebacker who can play all three downs and never come off the field. He has to make tackles, drop into zone coverage, and be smart enough to set our defense. We're not looking for a specialist \u2014 we need a complete player who processes fast, communicates well, and makes the routine plays routinely. Give us the high-IQ, reliable LB who the coaches trust on every snap.",
+      "archetype_examples": [
+        "Bobby Wagner",
+        "Blake Martinez (under Graham)",
+        "Lavonte David"
+      ]
+    },
+    "CB": {
+      "scheme_role": "CBs in Pittsburgh's defense under Graham and Whitt will operate in a primarily zone-based system with man-coverage packages deployed situationally. The CB1 (Porter Jr.) will be asked to play on an island in man reps and match routes in zone concepts. Whitt's development background emphasizes press-man techniques and ball-hawking. Graham's scheme asks CBs to play soft zone much of the time (bend-don't-break), but the ability to lock up in man coverage is required for third-down and red-zone situations. CBs must also be willing tacklers in run support \u2014 this is a physical, AFC North defense.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Whitt's entire coaching identity is built on press-man coverage. He developed Diggs (11 INTs), Bland (record pick-sixes), and Woodson (DPOY) in man-heavy schemes. While Graham's base will be zone, Whitt will demand CBs who can lock up in man when called upon. The man-coverage packages are where this defense generates turnovers."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Whitt's secondaries have been the NFL's most prolific interception-producing units \u2014 176 INTs in GB (NFL-best), 59 INTs in 3 years in Dallas (NFL-leading), Dallas led the NFL in INTs in 2021 with 26. Ball production is a non-negotiable trait for Whitt. He wants corners who attack the football."
+        },
+        "Zone Coverage": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Graham's base coverage is zone (Cover 3, Cover 2, quarters). CBs will spend the majority of their snaps in zone assignments, reading the QB's eyes and breaking on the ball. Zone discipline \u2014 maintaining proper depth, passing off routes, and triggering on underneath throws \u2014 is the baseline skill."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "In the AFC North, CBs face elite speed (Ja'Marr Chase, Zay Flowers). Recovery speed is critical in a zone-heavy system where CBs play off \u2014 if they get beat on a double-move or play-action, they need the speed to recover. Speed also matters in man coverage for staying in phase."
+        },
+        "Press": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Whitt's scheme demands CBs who can press at the line. His Dallas secondaries played press man 481 times in Miami, and Whitt explicitly coaches press technique. The ability to disrupt at the line creates the re-route that gives the defense an advantage in both man and zone. Even in zone looks, pressing before bailing creates timing disruption for the opposing offense."
+        },
+        "Nickel": {
+          "weight": 0.14,
+          "importance": "moderate",
+          "reasoning": "Graham's sub-packages use nickel extensively \u2014 the nickel CB must handle slot receivers in both man and zone. With Pittsburgh's secondary in transition (adding Jamel Dean, potentially drafting a CB), versatility to play outside and in the slot is valuable."
+        }
+      },
+      "ideal_archetype": "A physical, ball-hawking corner who can press at the line, play zone with discipline, and transition to man coverage when called upon. Not a pure zone corner who avoids contact, and not a pure man corner who gambles \u2014 a complete CB who tackles, competes at the catch point, and creates turnovers. Think Trevon Diggs under Whitt \u2014 aggressive, physical at the line, with the ball skills to turn plays into interceptions. Or James Bradberry under Graham in NYG \u2014 disciplined in zone, reliable in man, and a willing tackler. Joey Porter Jr. embodies the archetype: physical press corner with improving ball skills.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Whitt has developed corners of various sizes (Diggs 6-1, Bland 6-0, Woodson 6-1, Shields 5-11). No strict size requirement, but adequate length helps in press and contested catch situations in the AFC North."
+        },
+        "40-yard dash": {
+          "ideal": "4.35-4.45",
+          "floor": "4.50",
+          "reasoning": "Speed is critical for recovery and staying in phase in man coverage. In the AFC North, facing elite speed, CBs without adequate speed get exposed on double-moves and vertical routes. Whitt's best corners have all been above-average athletes."
+        },
+        "vertical_jump": {
+          "ideal": "36+",
+          "floor": "34",
+          "reasoning": "Ball skills at the catch point require vertical explosion. Whitt's ball-hawking philosophy demands corners who can high-point the ball and win contested situations. Vertical jump correlates with the ability to make plays on the ball."
+        }
+      },
+      "development_context": "Whitt is an elite CB developer \u2014 perhaps the best in the NFL over the past 15 years. He developed Charles Woodson (DPOY), Tramon Williams, Sam Shields, Trevon Diggs, and DaRon Bland into turnover machines. Jason Simmons (secondary/pass game coordinator) also has extensive DB coaching experience. This staff can develop press technique, ball skills, and coverage fundamentals. What must arrive: adequate speed and competitive toughness. You can teach technique; you can't teach a corner to be aggressive at the catch point.",
+      "scheme_fit_narrative": "We need corners who can press, play physical at the line, and make plays on the ball. Whitt has turned corners into All-Pros everywhere he's been, and the recipe is the same: competitive, physical, and aggressive. We'll play zone most of the time, but when we go to man, our corners need to be able to lock up and create turnovers. Ball production is non-negotiable \u2014 we want guys who attack the football, not guys who just break up passes.",
+      "archetype_examples": [
+        "Trevon Diggs (2021)",
+        "James Bradberry (under Graham)",
+        "DaRon Bland"
+      ]
+    },
+    "S": {
+      "scheme_role": "Safeties in Graham's defense must be versatile. The free safety plays deep in Cover 3 and quarters looks \u2014 he's the last line of defense and must have range to cover the deep middle. The strong safety operates closer to the box, handling run support, covering TEs, and rotating into nickel/hybrid roles. Graham has historically used a S/LB hybrid in the box (Peppers in NYG, Adams in LV) \u2014 a player who can line up at safety, come down to play LB, blitz, and cover TEs in man. This versatility is the defining characteristic of Graham's defensive chess pieces.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The strong safety/hybrid must cover TEs in man on occasion, particularly in man-coverage packages. The free safety rarely plays man \u2014 he's in zone or deep. Man coverage ability is more important for the hybrid role than the deep safety role."
+        },
+        "Range": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Graham's zone-based defense requires the free safety to cover the deep third and make plays on balls thrown to the deep middle and sideline. Range is the defining physical trait \u2014 the free safety must be able to get from the deep middle to the sideline to break up passes. DeShon Elliott's range has been valuable for Pittsburgh."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Whitt's ball-hawking emphasis extends to safeties. His Dallas secondaries featured safeties who generated turnovers. In Graham's zone scheme, safeties reading the QB's eyes and breaking on the ball create interception opportunities. Ball skills turn zone coverage from passive to aggressive."
+        },
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Both safety positions must be reliable tacklers. The free safety is the last line of defense \u2014 missed tackles result in touchdowns. The strong safety/hybrid operates near the box and must tackle in run support. In the physical AFC North, tackling is fundamental."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Deep safety range requires speed to cover ground. The free safety needs top-end speed to close on deep routes and prevent big plays. Graham's bend-don't-break philosophy depends on the deep safety eliminating explosive pass plays."
+        },
+        "Nickel": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Graham's hybrid S/LB usage means the strong safety must be able to function in nickel packages \u2014 covering slot receivers, matching up with TEs, and blitzing from the box. This is Jabrill Peppers' role under Graham in NYG, and Jamal Adams' role in LV. The versatility to play in multiple sub-packages is highly valued."
+        }
+      },
+      "ideal_archetype": "Two distinct archetypes serve this defense. The FREE SAFETY is a rangey, ball-hawking centerfielder who covers the deep middle and makes plays on the ball \u2014 think Minkah Fitzpatrick in his prime Pittsburgh years. The STRONG SAFETY/HYBRID is a versatile chess piece who lines up at safety, rotates into the box, covers TEs, and blitzes \u2014 think Jabrill Peppers under Graham in NYG or Derwin James. The hybrid role is the more scheme-specific need: a player who can play both safety and linebacker alignments and execute at each. Graham's defense is built to leverage this type of versatile player.",
+      "measurable_preferences": {
+        "40-yard dash": {
+          "ideal": "4.40-4.50",
+          "floor": "4.55",
+          "reasoning": "Deep safety range requires speed. Must be able to close on deep routes and eliminate explosive plays. Even the hybrid needs speed to cover TEs and match slot receivers."
+        },
+        "weight": {
+          "ideal": "200-215",
+          "floor": "195",
+          "reasoning": "The hybrid role demands enough mass to play near the box and tackle RBs/TEs. Undersized safeties get bullied in run support in the AFC North. The deep safety can be lighter (195+) but the hybrid needs physicality."
+        },
+        "vertical_jump": {
+          "ideal": "36+",
+          "floor": "34",
+          "reasoning": "Ball skills at the high point and range on deep balls correlate with vertical explosion. Safeties who can high-point the ball and create turnovers are valued in Whitt's ball-hawking scheme."
+        }
+      },
+      "development_context": "Jason Simmons (secondary/pass game coordinator) has extensive DB development experience. Whitt's ball-hawking coaching extends to safeties \u2014 his Dallas secondaries featured safety blitzes and aggressive deep play. Graham's track record of creating hybrid roles (Peppers, Adams) shows he can maximize versatile safeties. The staff can develop coverage technique and scheme understanding. What must arrive: range and versatility. You can't teach a safety to cover ground or to play multiple positions if the physical tools aren't there.",
+      "scheme_fit_narrative": "We need two types of safeties: a rangy centerfielder who eliminates explosive plays and makes plays on the ball, and a versatile hybrid who can play in the box, cover TEs, blitz, and rotate back to safety. The hybrid role is the more unique need \u2014 Graham has always had a Peppers/Adams-type chess piece in his defense, and that's a specific player. Give us a safety who can line up in five different spots and execute at each one. That versatility is what makes our defense multiple.",
+      "archetype_examples": [
+        "Jabrill Peppers (under Graham)",
+        "Derwin James",
+        "Minkah Fitzpatrick"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Pittsburgh's 2026 coaching overhaul creates several clear positional value shifts. On defense, the 3-4 base under Graham means OLB pass rushers are the premium \u2014 any LB with elite rush traits should be valued as an EDGE for PIT. Graham's signature hybrid safety/LB role (Peppers in NYG, Adams in LV) means a box safety with tackling/blitz/coverage versatility carries amplified value. On offense, Angelichio is the most TE-centric OC hire in the league \u2014 his entire coaching career was spent developing receiving TEs, and McCarthy's West Coast system feeds that. Elite receiving TEs should be valued near WR1 levels for Pittsburgh. The diverse personnel groupings McCarthy favors (not locked into 11 personnel) further enhance TE value since 12-personnel looks will be a significant part of the package. RBs with receiving chops get a moderate bump from the West Coast scheme but this is not a primary pass-game-through-the-backfield offense.",
+  "scheme_draft_intelligence": "Pittsburgh's 2026 draft approach is shaped by three converging forces: a new coaching staff installing fresh offensive and defensive philosophies, significant roster turnover (especially in the secondary and at QB), and 12 draft picks including four compensatory selections. The intersection of McCarthy's WCO demands, Graham's multiple 3-4 defense, and the existing roster gaps creates specific draft priorities that differ from a generic 'best player available' approach.\n\nThe biggest scheme-driven value differential comes at cornerback and safety. Joe Whitt's presence as assistant head coach/secondary coach \u2014 the best CB developer in the NFL over the past 15 years \u2014 means Pittsburgh can extract more value from CB prospects than any other team. A second-round CB who would be a developmental project elsewhere could become a starter under Whitt within a year. His track record with Trevon Diggs (second-round pick, became NFL INT leader), DaRon Bland (fifth-round pick, set pick-six record), and Sam Shields (undrafted, became quality starter) demonstrates his ability to develop raw athletes into productive corners. Pittsburgh should be aggressive in the secondary, knowing their coaching staff provides a developmental advantage that other teams cannot match. Similarly, Graham's hybrid S/LB usage creates hidden value in versatile safety prospects \u2014 players who project as tweeners for other teams could be scheme-perfect chess pieces in Graham's defense.\n\nOn offense, the TE position represents an underrated scheme-driven value play. Angelichio's elite TE development track record and McCarthy's 12-personnel tendencies mean Pittsburgh will use TEs more prominently than most teams. A TE prospect with raw receiving talent who falls because of blocking concerns is a perfect Angelichio development project. The OL position is also scheme-specific: Campen's zone-based system demands athletic, technically sound linemen rather than pure power maulers. IOL prospects with lateral agility who fall because they're not considered 'mean enough' by power-blocking teams could be perfect fits for Pittsburgh's zone scheme.\n\nThe EDGE position is Pittsburgh's greatest existing strength (Watt/Highsmith/Herbig/Sawyer), so draft investment there is unlikely unless a premium talent falls. Instead, the scheme-driven needs point toward the interior DL (need a nose tackle who can two-gap in the 3-4), ILB (Patrick Queen's future is uncertain, and the defense needs a reliable every-down MIKE next to Wilson), and WR (the roster beyond Metcalf and Pittman is thin, and McCarthy's WCO demands precise route runners with YAC ability \u2014 a skill set that's testable at the Combine). QB remains the elephant in the room \u2014 reports indicate Pittsburgh won't draft a first-round QB, but McCarthy's system is designed to elevate accurate, pocket-centric passers, so a Day 2 QB who fits that mold (accurate, poised, good decision-maker) could develop behind Rudolph/Howard and emerge as the future.\n\nHistorically, McCarthy's teams have drafted and developed offensive linemen well (multiple mid-round OL became starters in GB), and Graham's defensive backgrounds suggest he values versatile defenders who can play multiple positions over one-dimensional specialists. The Steelers' draft board should weight prospects who offer positional flexibility (IOL who can play guard and center, safeties who can play in the box and deep, edge players who can stand up and put their hand down) because both coordinators have built their careers around scheme adaptability \u2014 and that requires players who can adapt with them.",
   "confidence": "high",
   "sources": [
-    "steelers.com official coaching roster and announcements (2026 staff)",
-    "NFL.com \u2014 Steelers hire Brian Angelichio as OC, Patrick Graham as DC",
-    "steelers.com \u2014 Patrick Graham named Steelers DC (full coaching history)",
-    "Behind the Steel Curtain \u2014 scheme breakdowns of Graham and Angelichio",
-    "Silver and Black Pride \u2014 Patrick Graham's Raiders scheme analysis",
-    "SteelerNation.com \u2014 Graham 3-4 scheme analysis for Pittsburgh",
-    "Blogging the Boys / CBS Sports \u2014 McCarthy West Coast offensive philosophy",
-    "Yahoo Sports / Steeler Roundtable \u2014 McCarthy introductory press conference quotes on 3-4 defense and offensive philosophy",
-    "steelers.com \u2014 Brian Angelichio coaching bio (Hockenson, Barnidge development)",
-    "A to Z Sports \u2014 Angelichio's Vikings passing game impact"
+    "steelers.com/team/coaches-roster (official 2026 coaching staff)",
+    "steelersdepot.com - The Big Book of Patrick Graham (Feb 2026)",
+    "behindthesteelcurtain.com - What are the Steelers getting with Mike McCarthy? (Feb 2026)",
+    "behindthesteelcurtain.com - What are the Steelers getting with Brian Angelichio? (Feb 2026)",
+    "silverandblackpride.com - Patrick Graham Raiders scheme analysis",
+    "giants.com - Patrick Graham defensive philosophy film study",
+    "si.com/nfl/giants - How Giants roles change in Graham's system",
+    "cbssports.com - Cowboys Texas Coast offense details",
+    "bloggingtheboys.com - McCarthy offensive scheme breakdown",
+    "theringer.com - Cowboys offense under McCarthy analysis",
+    "steelcityunderground.com - James Campen OL analysis (Feb 2026)",
+    "steelersdepot.com - McCarthy 3-4 defense commitment (Jan 2026)",
+    "steelernation.com - Highsmith reveals 2026 defensive strategy (Mar 2026)",
+    "nfl.com - Steelers hire Mike McCarthy",
+    "Wikipedia - Joe Whitt Jr., Patrick Graham coaching histories",
+    "steelers.com - Brian Angelichio official bio",
+    "steelers.com - Joe Whitt Jr. official bio",
+    "hogshaven.com - Joe Whitt Jr. introductory presser transcript",
+    "matchquarters.com - Commanders Mike simulated pressure analysis",
+    "behindthesteelcurtain.com - Steelers roster needs ranking (Mar 2026)"
   ]
 }

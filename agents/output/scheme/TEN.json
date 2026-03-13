@@ -6,73 +6,747 @@
       "name": "Robert Saleh",
       "tenure_years": 1,
       "background": "defensive",
-      "scheme_philosophy": "Pete Carroll/Seattle coaching tree; 4-3 hybrid front with Wide-9 alignment and Cover 3/quarters coverage foundations; aggressive, physical defense that prioritizes front-four pressure over blitzing; evolved from pure Cover 3 to incorporate quarters and split-safety looks"
+      "coaching_tree": "Pete Carroll / Seattle Seahawks tree \u2192 Monte Kiffin lineage via Gus Bradley. Learned under Carroll as quality control (2011-13), then Gus Bradley in Jacksonville (2014-16), before becoming DC in San Francisco under Kyle Shanahan (2017-20). His scheme is the Carroll 4-3 Under/Over hybrid with Wide-9 front elements, married to an evolving quarters/Cover-3 backend.",
+      "scheme_philosophy": "Saleh is calling the defense himself in Tennessee. His philosophy centers on a Wide-9 front that isolates edge rushers for one-on-one pass rush opportunities, supported by a coverage backend that has evolved from spot-drop Cover-3 to a marriage of weak-rotation Cover-3 and quarters. He demands effort-based, assignment-sound football. His defenses prioritize affecting the QB through front-four pressure rather than exotic blitzing, though he has incorporated more two-high shells and match coverage over time. He wants speed, violence, and simplicity that lets players play fast."
     },
     "offensive_coordinator": {
       "name": "Brian Daboll",
-      "scheme_tree": "Erhardt-Perkins / New England (Belichick/Weis/McDaniels tree), adapted into spread-multiple concepts",
-      "play_caller": true
+      "coaching_tree": "Bill Belichick / New England Patriots tree \u2192 Charlie Weis / Erhardt-Perkins system. Trained under Belichick across two stints in New England, then further developed at Alabama under Nick Saban (2017). Modified the Erhardt-Perkins concept-based system into a multiple, formation-diverse, play-action-heavy attack.",
+      "scheme_evolution": "Daboll's system has evolved significantly. In his early career (Cleveland 2009-10), he struggled with a rigid implementation. At Alabama (2017), he built a balanced zone/gap-scheme run game with heavy RPOs. In Buffalo (2018-21), he evolved into a spread-centric, play-action-heavy system built around Josh Allen's unique abilities, moving from 40%+ under-center to only 28%. In New York (2022-25), he attempted to adapt to limited talent with mixed results. Each stop shows his core trait: he adapts scheme to personnel rather than forcing personnel into scheme.",
+      "development_track_record": "Daboll's QB development is his calling card. He transformed Josh Allen from a raw prospect into an MVP candidate over four years in Buffalo. He developed Tua Tagovailoa and Jalen Hurts at Alabama. He also elevated Cole Beasley and Wan'Dale Robinson as featured slot receivers. His track record with developing OL and RBs is more modest \u2014 he schemes around limitations rather than developing technique at those positions."
     },
     "defensive_coordinator": {
       "name": "Gus Bradley",
-      "scheme_tree": "Pete Carroll/Monte Kiffin 4-3 Under, Cover 3 zone; Seattle Legion of Boom architect",
-      "play_caller": true
+      "coaching_tree": "Monte Kiffin / Pete Carroll tree. Started under Kiffin in Tampa Bay (2006-08), then became Carroll's DC in Seattle (2009-12) where he orchestrated the Legion of Boom. His scheme is directly descended from Kiffin's Tampa-2 concepts, merged with Carroll's Cover-3 press-bail system.",
+      "scheme_evolution": "Bradley's defense has evolved from a rigid single-high Cover-3 in Seattle to incorporating more match coverage, quarters concepts, and varied fronts. With the Chargers (2017-20), he posted the NFL's highest Cover-3 rate at 43%. With the Colts (2022-24), he began mixing in more quarters coverage after early-season struggles. In 2025 with the 49ers alongside Saleh, he contributed to a more two-high oriented approach. His core remains Cover-3 with match principles, but the coverage menu has expanded significantly.",
+      "development_track_record": "Bradley developed the Legion of Boom secondary in Seattle (Sherman, Thomas, Chancellor, Kam). He maximized Joey Bosa and Melvin Ingram's pass rush in LA. With the Colts, he developed DeForest Buckner's interior dominance. He excels at developing edge rushers within his LEO system and turning secondary players into assignment-sound zone defenders. His strength is simplifying the game so young players can play fast."
     }
   },
   "offense": {
-    "scheme_family": "Erhardt-Perkins multiple / spread",
-    "base_personnel": "11",
-    "personnel_tendencies": "Heavy 11 personnel (historically 65-71% in Buffalo), notable 10 personnel usage (4 WR sets, up to 15% in Buffalo), light 12 personnel usage (8-12%), willing to use 21/12 situationally when roster permits",
-    "run_scheme": "Multiple: gap scheme foundation (power, counter, duo) married with zone concepts; evolved away from heavy gap toward more zone and pin-and-pull over time; designed QB runs and zone-read integrated",
-    "pass_concepts": "Play action heavy (led league in PA attempts in Buffalo), bootleg, movement throws, aggressive downfield shots (Bills were 2nd in air yards per attempt 2018-21), RPO integration, mismatch-driven game plans",
-    "rpo_usage": "moderate to high",
-    "te_usage": "Primarily 11 personnel with TE as versatile piece; Daboll historically used TEs as move pieces (flexed to slot, used as big slot receivers) when talent warrants it; traded for Darren Waller as flex/slot weapon in NYG; TE target share historically low (~12%) in Buffalo but usage increases with receiving TEs; will use 12 personnel more if talent is there but defaults to 3-WR looks",
-    "rb_usage": "Committee approach with role-based usage; values pass-catching backs for screen game and checkdowns; in Buffalo used Singletary as receiver/pass protector and Moss as ground-pounder; emphasizes RB versatility in pass protection and receiving"
+    "scheme_family": "Erhardt-Perkins (Daboll variant \u2014 concept-based, formation-multiple, play-action-heavy)",
+    "scheme_detail": "Daboll's system teaches play concepts rather than individual position assignments, allowing any receiver to line up anywhere. The Erhardt-Perkins foundation uses modular route concepts that can be run from multiple alignments with minimal terminology changes. Daboll layers in heavy pre-snap motion to identify man/zone coverage, play-action and boot concepts to create vertical stress, and an expanding empty/spread package that forces defenses to declare. The system is built to maximize matchups \u2014 Daboll identifies favorable personnel matchups first, then fits formations and plays to exploit them. With Cam Ward, expect a system that mirrors his Buffalo approach: simplify early reads for the young QB, use play-action to create defined windows, and gradually expand responsibility as comfort grows.",
+    "run_scheme": "Multiple \u2014 Daboll uses a blend of zone, gap/power, counter, and duo concepts. In Buffalo, he evolved from a gap-heavy run game (Alabama influence) to more zone-based concepts. He uses pin-and-pull schemes and jet-sweep motion to stress edges. The run game is designed to set up play-action rather than serve as the primary identity. Expect inside zone as the base concept with gap/power concepts mixed in for short yardage and goal line. OL must be versatile blockers who can execute both zone and gap schemes.",
+    "pass_architecture": "Daboll's passing game is aggressive downfield. In Buffalo, the Bills were second in air yards per pass attempt (8.6 AY/ATT). The foundation is play-action shots off run looks, vertical concepts that stress deep thirds, and mirrored route concepts with option routes that adjust based on coverage leverage. Quick-game concepts (slants, hitches, screens) serve as rhythm starters. Intermediate crossers and dig routes are high-volume concepts. Daboll uses pre-snap motion extensively to create coverage declarations. He also features the slot receiver heavily \u2014 Cole Beasley and Wan'Dale Robinson were central targets in his system. RPO usage is moderate but growing. Empty formation packages are a significant weapon, especially with an athletic QB.",
+    "personnel_tendencies": "Daboll heavily favors 11 personnel (3WR, 1TE, 1RB) \u2014 Buffalo used it 71% of snaps vs 60% league average. He also used 10 personnel (4WR, 1RB) at the second-highest rate in the NFL (15%). Expect less 12-personnel usage than a traditional Shanahan-tree offense. The slot WR is a critical position in this system. The TE is used more as a chess piece than a primary target \u2014 flexed out to create mismatches rather than featured in progressions. The RB role is split between a power/ground back and a pass-catching complementary back.",
+    "motion_tempo": "Heavy motion usage. Daboll uses pre-snap motion on a high percentage of plays to identify coverage and create advantageous alignments. Tempo is variable \u2014 he can push pace in favorable situations but is not a constant hurry-up coordinator. The emphasis is on variety and keeping defenses off-balance through formation flexibility rather than raw speed."
   },
   "defense": {
-    "base_front": "4-3 hybrid (4-3 Under base with 3-4 principles)",
-    "alignment": "Even front personnel (4 DL) in odd front alignment (Under); features LEO hybrid DE/OLB as primary speed rusher in wide-9 technique, Big End as strong-side run-stuffing DE, nose tackle, 3-technique DT; shifts to Over front in nickel; SAM LB walks down to line in Under creating quasi-3-4 look",
-    "edge_rush_source": "4-3 DE hands-in-dirt (LEO position) with hybrid elements; LEO can stand up in 2-point stance in some looks; LEO is essentially a speed rusher (~250 lbs) who aligns in wide-9 technique; Big End is a more traditional run-stopping DE on strong side",
-    "coverage_base": "Cover 3 primary (historically 43-55% Cover 3 rate under Bradley), evolved to include significant quarters/Cover 4 usage (20%+ under Saleh post-2019), match coverages, Cover 3 bail, some Cover 6; Saleh's latest evolution emphasizes two-deep zone on early downs and man coverage with 5-man rush on third down",
-    "blitz_tendency": "light (Bradley is historically one of the most conservative blitz callers in the NFL; relies on front-four pressure from LEO and interior DL; will bring occasional zone blitzes and simulated pressures but rarely sends 5+)",
-    "lb_role": "MIKE and WILL are traditional run-fill and coverage linebackers; SAM is a hybrid who must set the edge against the run and drop into coverage; LBs must be disciplined gap-fillers in Wide-9 scheme since DEs align wide; coverage ability is critical as LBs must react to play-action in this front; Fred Warner-type athletic coverage LBs are the ideal",
-    "safety_usage": "Cover 3 structure brings strong safety into the box frequently as an 8th run defender; free safety plays deep middle third; Saleh has evolved to use more split-safety looks (quarters) where both safeties play half-field; strong safety must be physical enough to play near the box on early downs but versatile enough to play deep in quarters; scheme creates hybrid box safety role similar to Kam Chancellor archetype"
+    "scheme_family": "4-3 Under/Over hybrid (Pete Carroll / Gus Bradley tree) with Wide-9 front elements \u2014 Saleh calls the plays",
+    "scheme_detail": "This defense merges Saleh's Wide-9 front philosophy with Bradley's Cover-3 coverage foundation. The front uses 4-3 Under as its base personnel package, which looks like a 3-4 odd front with the SAM linebacker walked down to the line. The key innovation is the LEO position \u2014 a weak-side edge rusher aligned in a wide-9 technique whose sole job is to rush the passer. The interior DL (1-tech and 3-tech) are gap-control run-stuffers who protect the LEO and linebackers. Saleh's evolution has added significant quarters coverage to the original Cover-3 base, with two-deep shells on early downs and man coverage with a five-man rush on third down. The scheme is intentionally simple to let players play fast and violent.",
+    "front_structure": "4-3 Under base with hybrid 3-4 elements. The front features a 1-tech nose tackle, a 3-tech DT (penetrating disruptor), a strong-side 5-tech DE (Big End \u2014 run-setting, bigger body), and the LEO (weak-side edge rusher in wide-9 alignment). In base, the SAM linebacker walks down to create a five-man front look. In nickel (primary sub-package), the defense shifts to a 4-man Over front with both edge rushers in wide-9 alignments. Jeffery Simmons is the 3-tech anchor. John Franklin-Myers provides interior pass rush. Jermaine Johnson projects as the LEO or Big End.",
+    "coverage_philosophy": "Cover-3 foundation with evolving match coverage and quarters concepts. Saleh's 2025 SF defense used approximately 14% quarters, the 4th-highest rate in the NFL. On early downs, expect a mix of weak-rotation Cover-3 and two-high quarters shells. On third down, Saleh shifts to man coverage with a five-man rush. Bradley adds Cover-3 bail technique (corners align tight then bail at the snap) and Rip/Liz match adjustments to handle four-vertical concepts. The backside corner plays on an island in Cover-3 \u2014 this is the most important secondary position in the scheme. The free safety must be a rangy center-fielder who can cover the deep middle third.",
+    "pressure_philosophy": "Low blitz rate \u2014 rely on the front four to generate pressure. In Indianapolis, Bradley's defenses had one of the lowest blitz rates in the NFL. Saleh's 49ers defenses similarly generated pressure through front-four talent rather than exotic blitzes. When they do blitz, they prefer six-man pressures over five-man looks (Bradley sent six on 44% of blitz snaps with the Colts). The nickel corner is the primary blitzer from the secondary. The scheme relies heavily on the LEO winning one-on-one matchups from a wide-9 alignment \u2014 without a disruptive LEO, the defense cannot generate consistent pressure.",
+    "sub_packages": "Nickel (4-2-5) is the primary sub-package and will be used on the majority of snaps. In nickel, the defense shifts to a 4-man Over front with one fewer linebacker. The nickel defender in this scheme is typically a hybrid \u2014 either a smaller safety or a larger cornerback who can blitz, cover the slot, and play in the box. Bradley also uses a Bear front (0-tech nose with 3-techs on each side) for short yardage situations. Dime packages are used sparingly."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "medium",
-      "explanation": "Daboll's Erhardt-Perkins offense is concept-based and position-interchangeable, allowing TEs to line up anywhere in the formation. He historically used Darren Waller flexed out as a big slot and has deployed move TEs effectively. However, his base offense runs 11 personnel with 3 WRs at a 70%+ rate, keeping TE target share relatively low (~12% in Buffalo). With Cam Ward and a need for weapons, a receiving TE would get moderate value \u2014 Daboll will scheme mismatches involving TEs in the slot or flexed wide, but the volume of 3-WR sets limits TE-centric passing. A receiving TE gets a moderate boost because Daboll will feature them creatively, but won't build the offense around the position."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB in Daboll's Erhardt-Perkins system must manage a concept-based playbook with significant pre-snap freedom. He is responsible for identifying coverage through motion, making line-of-scrimmage adjustments, and executing play-action shots downfield. Daboll gives his QBs autonomy to audible and adjust protections, which demands processing speed. With Cam Ward as the incumbent, the system is being tailored to maximize off-script playmaking, play-action aggression, and movement-based concepts.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Daboll's offense is aggressive downfield \u2014 Buffalo was 2nd in air yards per attempt. Ward's ability to push the ball vertically on play-action shots and make off-platform throws requires a strong arm. Daboll uses deep-intermediate concepts that stress the deep thirds of Cover-3 defenses."
+        },
+        "Accuracy": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The Erhardt-Perkins system relies on timing routes and rhythm passing. Daboll's quick-game concepts (slants, hitches, crossers) demand ball placement into tight windows. Accuracy on intermediate routes \u2014 the backbone of this system \u2014 separates good from great. Ward's 59.8% completion rate as a rookie must improve."
+        },
+        "Pocket Presence": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Daboll's protection structures use half-slide principles with hot and sight adjustments. The QB must navigate the pocket, feel pressure, and deliver from the platform. However, Daboll also designs rollouts and movement concepts that reduce pure pocket dependency, which is why this weight isn't higher."
+        },
+        "Mobility": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "This is where the Daboll-Ward pairing diverges from a traditional Erhardt-Perkins system. Daboll adapted his system to leverage Josh Allen's mobility in Buffalo \u2014 designed runs, scramble-drill extensions, and bootleg concepts became core features. Ward's athleticism is a primary weapon, and Daboll has explicitly said he wants to incorporate movement-based concepts. Mobility is weighted higher than a typical EP offense."
+        },
+        "Decision Making": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Daboll gives QBs significant line-of-scrimmage autonomy \u2014 they must identify coverage from motion, adjust protections, and choose the correct option-route progression. Poor decisions compound in this system because of the downfield aggression. Saleh noted they are taking a marathon approach to Ward's development, emphasizing decision-making growth."
+        },
+        "Leadership": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "Daboll values QBs who command the huddle and hold themselves accountable. He described wanting a tough-love relationship with Ward. However, this is a young team in rebuild mode \u2014 leadership is valued but not the primary evaluation criterion for prospects."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "The motion-heavy system provides pre-snap answers, somewhat reducing the cognitive load of pure pre-snap reads. Daboll simplifies progressions for young QBs by limiting choices \u2014 but as the QB grows, pre-snap diagnosis becomes more important for audible freedom."
+        }
+      },
+      "ideal_archetype": "The ideal QB in Daboll's Tennessee system is an athletic passer with a live arm who can stress defenses both in and out of the pocket. He must be accurate on timing routes, aggressive pushing the ball downfield on play-action, and dangerous as a runner when plays break down. Think Josh Allen in the Buffalo development arc \u2014 a strong-armed, mobile QB who improves his accuracy and decision-making within a structured system that still allows off-script magic. Not a pure pocket passer like Tom Brady, and not a run-first athlete \u2014 the sweet spot is a mobile, strong-armed QB who processes well within a concept-based system.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4",
+          "floor": "6-0",
+          "reasoning": "Daboll has worked with QBs ranging from Tua (6-0) to Allen (6-5). The EP system doesn't demand prototypical size, but play-action bootleg concepts work better with taller QBs who can see over the line."
+        },
+        "weight": {
+          "ideal": "215-240",
+          "floor": "205",
+          "reasoning": "Mobility is schematically important, so excessive weight is a negative. But the QB must be durable enough to handle designed runs and scramble plays."
+        },
+        "40-yard dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Daboll's system leverages QB running ability \u2014 designed runs, scrambles, and boot concepts. Sub-4.70 speed is highly valued but not strictly required if the QB has excellent pocket mobility and play-extension ability."
+        }
+      },
+      "development_context": "Daboll is one of the NFL's premier QB developers. He transformed Josh Allen from a 52% college passer to an MVP candidate. He coached Tua Tagovailoa and Jalen Hurts at Alabama. His approach is relationship-first, gradually expanding the playbook as trust and mastery grow. He can develop accuracy, processing, and decision-making over time. What must arrive: arm talent and competitive drive. Daboll has never successfully built a star from a weak-armed QB.",
+      "scheme_fit_narrative": "We need a QB who can push the ball downfield and make plays when the pocket collapses. This offense is built around play-action aggression and matchup exploitation. The ideal guy has a cannon, can move, and is coachable enough to develop within a concept-based system. We want Josh Allen's skill set \u2014 raw tools that we can refine into a complete player. Pure game managers and statue QBs don't fit.",
+      "archetype_examples": [
+        "Josh Allen",
+        "Patrick Mahomes"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "low",
-      "explanation": "Despite the 4-3 Under front having some 3-4 principles, the primary edge rushers in the Saleh/Bradley system are the LEO and Big End \u2014 both classified as defensive ends, not linebackers. The LEO is a hybrid DE/OLB type who can stand up, but is drafted and valued as a DE/EDGE, not a traditional LB. The SAM LB does walk down to the line of scrimmage in Under fronts and has some edge-setting responsibility, but is not the primary pass rusher. The MIKE and WILL LBs are coverage-and-fill players who rarely rush the passer. Bradley's blitz rate is among the lowest in the NFL, meaning off-ball LBs are almost never sent as rushers. A pure LB prospect with pass rush traits does NOT get a significant boost here \u2014 this team wants its LBs to cover, fill gaps, and play disciplined, not rush the passer."
+    "RB": {
+      "scheme_role": "The RB in Daboll's system is a complementary weapon, not the focal point. The position is asked to execute multiple run schemes (zone, gap, counter), sell play-action fakes convincingly, and contribute as a receiver out of the backfield. Daboll has historically used RB committees \u2014 in Buffalo, he split touches between a power back (Zack Moss) and a pass-catching back (Devin Singletary). Pass protection is a prerequisite for staying on the field, as the QB takes downfield shots.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Multiple run schemes (zone and gap) require RBs who can read blocks and find cutback lanes. The diversity of the run game demands processing speed at the position."
+        },
+        "Contact Balance": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Daboll's system doesn't manufacture massive holes consistently \u2014 the run game is secondary to play-action. RBs must create yards after initial contact in compressed spaces."
+        },
+        "Power": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Gap-scheme runs (power, counter) demand a back who can finish runs between the tackles. Short yardage and goal-line work require some physicality. However, Daboll values versatility over pure power."
+        },
+        "Elusiveness": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Daboll uses screens, swing routes, and designed space plays that reward backs who can make defenders miss in the open field. Elusiveness multiplies the value of schemed touches."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The offense features jet motions, outside zone concepts, and play-action boot designs that can spring backs into the open field. Explosive speed converts designed plays into big gains. The Titans are rumored to be targeting Jeremiyah Love (a speed-based RB) at #4 overall."
+        },
+        "Pass Catching": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Daboll heavily features backs in the passing game \u2014 screens, checkdowns, wheel routes, and option routes out of the backfield. In Buffalo, the RBs were integral to the quick game. Wan'Dale Robinson's signing adds slot competition, but the RB-as-receiver role remains critical."
+        },
+        "Pass Protection": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Daboll takes deep shots off play-action \u2014 the RB must hold up in pass protection to keep the QB upright on those high-value plays. A back who can't block won't stay on the field in obvious passing situations."
+        }
+      },
+      "ideal_archetype": "A versatile, three-down back who can catch passes, contribute in blitz pickup, and create explosive plays in the open field. Not a plodding between-the-tackles grinder. Think Devin Singletary's receiving/pass-pro profile combined with greater home-run speed. The ideal is a multi-purpose weapon like Alvin Kamara or a young Christian McCaffrey \u2014 capable of lining up in the slot, running routes, and being a legitimate receiving threat while still being effective on zone and gap runs.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "205-225",
+          "floor": "195",
+          "reasoning": "Must be big enough to pass protect and handle gap-scheme carries, but light and explosive enough for the receiving and open-field role."
+        },
+        "40-yard dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "Explosive speed turns schemed plays into big gains. Daboll's system creates space through formation and motion \u2014 speed converts that space into yardage."
+        },
+        "3-cone drill": {
+          "ideal": "sub-6.90",
+          "floor": "7.10",
+          "reasoning": "Zone scheme cuts and route running out of the backfield require change-of-direction agility."
+        }
+      },
+      "development_context": "Daboll has not historically been a RB developer \u2014 he uses the talent available and schemes around it. He effectively utilized committee approaches to maximize different backs' strengths. The coaching staff can develop route-running ability and pass-pro technique. What must arrive: natural vision, explosiveness, and receiving instincts. These are innate traits that don't coach up well at the NFL level.",
+      "scheme_fit_narrative": "We want a back who can do everything. This offense doesn't have a bell-cow identity \u2014 we need a guy who catches 50 balls, picks up blitzes, and has the speed to house one when we scheme him into space. A one-dimensional thumper won't get on the field enough to justify early draft capital. Give us an athlete who can run routes.",
+      "archetype_examples": [
+        "Alvin Kamara",
+        "Christian McCaffrey",
+        "Devin Singletary"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "medium-high",
-      "explanation": "Daboll's offense historically values backs who can contribute in the passing game. In Buffalo, he used Singletary as a pass-catching back and pass protector while Moss handled early-down carries, creating a committee with defined roles. The Erhardt-Perkins system uses screens, checkdowns, and swing routes frequently, and Daboll's play-action heavy approach often creates second-level passing windows where RBs become outlets. With Cam Ward as a mobile QB who may need quick release valves, a dual-threat RB who can catch, run routes, and pass protect would have elevated value. The moderate-to-high boost reflects Daboll's consistent track record of targeting backs in the passing game."
+    "WR": {
+      "scheme_role": "WRs in Daboll's system must be versatile \u2014 the Erhardt-Perkins concept-based approach teaches entire plays rather than individual routes, allowing receivers to align at any position. The scheme demands WRs who can run the full route tree, adjust routes based on coverage leverage (option routes are central), and create separation through technique and releases. The slot receiver is the most important WR position in this system \u2014 Daboll has consistently featured slot receivers (Cole Beasley, Wan'Dale Robinson) as high-volume targets. Outside receivers must be capable of winning vertical routes off play-action and making contested catches downfield.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The Erhardt-Perkins system features option routes and coverage-adjusted stems that require polished route technique. WRs must read leverage and convert routes on the fly. This is the foundational skill for the entire passing game."
+        },
+        "Separation": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Daboll's system is built on creating and exploiting matchups. Receivers who can generate separation from man coverage are force multipliers in a system that identifies favorable matchups and attacks them."
+        },
+        "Hands": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The quick game and intermediate passing concepts demand reliable hands in traffic. Drops kill the rhythm of the timing-based passing game."
+        },
+        "YAC Ability": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Daboll designs plays that get the ball to receivers in space \u2014 screens, quick slants, shallow crossers. YAC ability multiplies the value of these schemed touches. Robinson's signing underscores the importance of YAC playmakers in this system."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Vertical stress is important in play-action shots, but Daboll values route-running craft over raw speed. Cole Beasley (4.49 40) was a star in this system. Speed helps on vertical concepts but isn't the primary trait."
+        },
+        "Contested Catches": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The system is designed to create separation, not force 50-50 balls. However, outside receivers must win contested situations on deep play-action shots and in the red zone where space compresses."
+        },
+        "Release Package": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Pre-snap motion reduces the need for dominant releases off the line \u2014 receivers are often in motion or aligned in condensed splits. But against press coverage, a clean release is still valuable."
+        }
+      },
+      "ideal_archetype": "The ideal WR is a versatile route technician who can align anywhere in the formation and create separation through technique. The Z/slot receiver is the highest-priority position \u2014 a quick, crafty player who wins underneath and creates YAC. Think Cole Beasley or Wan'Dale Robinson: compact, explosive, excellent route-runners with outstanding hands and YAC ability. The outside X receiver should be a polished route-runner with contested-catch ability for the vertical play-action game \u2014 more Stefon Diggs than Julio Jones. The system values football IQ and versatility over raw measurables.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-9 to 6-2 (slot); 6-0 to 6-3 (outside)",
+          "floor": "5-8",
+          "reasoning": "The system doesn't demand prototypical size. Daboll has featured undersized slot receivers at high volume. Outside receivers benefit from size for contested-catch situations on play-action shots."
+        },
+        "40-yard dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "Speed is valued for vertical stress but is secondary to route-running craft. The system creates separation through scheme and technique, not pure speed."
+        },
+        "short shuttle": {
+          "ideal": "sub-4.15",
+          "floor": "4.25",
+          "reasoning": "Quick-twitch agility is critical for the option routes and sharp breaks that define this passing game."
+        }
+      },
+      "development_context": "Daboll has a strong track record of maximizing slot receivers \u2014 he turned Cole Beasley into a high-volume chain-mover and developed Wan'Dale Robinson into a featured target. He can develop route technique and football IQ. What must arrive: natural quickness, reliable hands, and the ability to process option-route concepts. Daboll cannot manufacture speed or hands.",
+      "scheme_fit_narrative": "We want smart, crafty receivers who can play multiple positions and win with technique. The slot is our most important WR position \u2014 we need a guy who runs sharp routes, catches everything, and makes people miss after the catch. On the outside, we want a route-runner who can win downfield on play-action. We don't need a 4.3 burner who can only run go routes \u2014 give us football players.",
+      "archetype_examples": [
+        "Stefon Diggs",
+        "Cole Beasley",
+        "Wan'Dale Robinson"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "The Saleh/Bradley Cover 3 system is built on a strong safety/box safety role that is critical to the defense's structure. In Cover 3, the strong safety functions as an 8th man in the box on early downs, responsible for run support, alley fills, and short zone coverage \u2014 essentially a linebacker-safety hybrid. The Kam Chancellor archetype is the gold standard for this role: a physical, box-capable safety who can tackle in the run game, cover tight ends, and occasionally drop into deep coverage in quarters looks. Saleh's evolved scheme adds quarters coverage where both safeties play half-field, demanding versatility. A safety with elite tackling, box physicality, slot coverage ability, and blitz capability gets a massive boost in this defense. The scheme literally creates a role where a safety functions like a LB in the box and then plays deep zone \u2014 the ultimate hybrid position."
+    "TE": {
+      "scheme_role": "The TE in Daboll's system is a chess piece who aligns both in-line and flexed into the slot. Daboll has not historically been a heavy TE-usage coordinator \u2014 in Buffalo, TEs got only 11.8% target share. The TE's primary value is blocking versatility and the ability to create matchup problems when flexed out. The Titans signed Daniel Bellinger (an in-line blocker from the Giants) and have Chig Okonkwo, suggesting a two-TE approach: one blocker, one receiving threat. The system asks TEs to sell play-action fakes, chip-release into routes, and find seam windows in zone coverage.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "While Daboll doesn't feature TEs like a McVay/Shanahan system, the TE must be a credible receiving threat to maintain play-action integrity. A non-threatening TE tips the play to the defense."
+        },
+        "Route Running": {
+          "weight": 0.14,
+          "importance": "moderate",
+          "reasoning": "When flexed into the slot, the TE must run credible routes against linebackers and safeties. Option routes and seam concepts require technique. But the TE isn't asked to run the full route tree of a WR."
+        },
+        "Blocking": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Daboll's run game uses multiple schemes that require the TE to block at the point of attack, pull on gap concepts, and sustain blocks on the edge. Play-action fakes demand convincing run-blocking before releasing. Bellinger's signing (an upgrade to blocking specifically) signals the staff's priority here."
+        },
+        "Athleticism": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The scheme flexes TEs into multiple alignments \u2014 in-line, wing, slot, and detached. Athletic TEs who can function in space create the matchup problems that Daboll schemes around."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "When targeted, the TE must be reliable \u2014 drops in the seam or on play-action are momentum-killers. But volume is lower than in TE-centric offenses, reducing the weight."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Speed creates mismatches when the TE is flexed against linebackers. Seam routes against Cover-3 require enough speed to threaten the deep safety. But this isn't a Kelce/Kittle role requiring WR-level speed."
+        }
+      },
+      "ideal_archetype": "The ideal TE is a complete Y who can sustain blocks at the point of attack, sell play-action convincingly, and threaten defenses in the seam when flexed out. Not a move-TE who can't block and not a blocking-only TE who tips the play. Think Dawson Knox in Buffalo \u2014 athletic enough to be a receiving threat in the red zone and on seam concepts, strong enough to hold up as an in-line blocker. A player who can do both at a B+ level rather than being an A at one and a D at the other.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-2",
+          "reasoning": "Size is important for in-line blocking leverage and red-zone receiving. The seam-route role benefits from catch radius."
+        },
+        "weight": {
+          "ideal": "245-265",
+          "floor": "235",
+          "reasoning": "Must anchor against defensive ends when blocking and sustain blocks in the run game. Too light and the blocking collapses; too heavy and the receiving role suffers."
+        },
+        "40-yard dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Athletic enough to stress linebackers in coverage when flexed. Speed creates the matchup nightmares Daboll schemes around."
+        }
+      },
+      "development_context": "Daboll has developed TEs as blockers and secondary receiving options \u2014 Knox improved significantly in Buffalo. The staff can develop receiving and route technique. What must arrive: blocking willingness and functional athleticism. A TE who doesn't want to block or lacks the frame to do it won't fit the system's play-action foundation.",
+      "scheme_fit_narrative": "Our TE has to block first \u2014 the entire play-action game depends on convincing fakes with a TE who looks like he's run-blocking. But we also want a guy who can flex out and give a linebacker nightmares in the seam. We're not looking for the next Travis Kelce \u2014 we want a reliable, versatile TE who does everything at a high level.",
+      "archetype_examples": [
+        "Dawson Knox",
+        "David Njoku",
+        "Dalton Kincaid"
+      ]
+    },
+    "OT": {
+      "scheme_role": "OTs in Daboll's system must be versatile enough to handle both zone and gap blocking schemes. The run game uses a mix of inside zone, outside zone, power, and counter \u2014 demanding footwork and scheme versatility. In pass protection, the OT must handle the half-slide protection system and keep the pocket clean for downfield throws. Play-action bootleg concepts roll the QB away from the line, reducing some pure pass-pro demands, but the blind-side tackle still faces premium rushers. The Titans' OL was historically poor \u2014 Carmen Bricillo (from New England/Las Vegas) is the new OL coach, bringing a power-based New England approach.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Daboll takes deep shots off play-action \u2014 the tackle must hold up long enough for routes to develop. In Buffalo, the OL ranked 5th in adjusted sack rate. Protecting Cam Ward's development is the highest priority for this coaching staff."
+        },
+        "Run Blocking": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Multiple run schemes (zone, gap, counter) require OTs who can execute zone reach blocks AND down-block on power concepts. The run game's versatility demands technical proficiency across schemes."
+        },
+        "Footwork": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Zone blocking requires lateral displacement on the first step. Gap concepts require pulling and kick-out blocks. Boot protection requires the tackle to sell the run fake convincingly. Footwork versatility is critical."
+        },
+        "Anchor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "AFC South features elite edge rushers. The tackle must anchor against bull rushes to maintain the pocket for Ward's downfield throws. Play-action requires patience in the pocket."
+        },
+        "Athleticism": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Zone concepts and pulling assignments require athletes who can move laterally and climb to the second level. The system doesn't ask tackles to sprint 15 yards downfield, but functional movement is necessary."
+        },
+        "Strength": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Base strength matters for anchor and run blocking, but Daboll's scheme values technique and footwork over raw power. A technically proficient tackle with adequate strength outperforms a mauler who can't move."
+        }
+      },
+      "ideal_archetype": "A technically sound, scheme-versatile tackle who can protect the pocket and execute multiple run-blocking concepts. Not a pure mauler and not a pure athlete \u2014 the ideal OT has clean footwork, reliable anchor, and the versatility to handle zone reaches, down-blocks, and pass sets. Think Dion Dawkins in Buffalo \u2014 a balanced tackle who excels in both run and pass protection without being elite at either in isolation. The system demands consistency and technique over flashy physical tools.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Length helps in pass protection to keep rushers at bay. The zone scheme benefits from tackles who can extend and reach."
+        },
+        "weight": {
+          "ideal": "305-325",
+          "floor": "295",
+          "reasoning": "Must anchor against power rushers but maintain enough mobility for zone concepts and pulling."
+        },
+        "short shuttle": {
+          "ideal": "sub-4.70",
+          "floor": "4.85",
+          "reasoning": "Lateral agility is critical for zone reach blocks and mirroring speed rushers in pass protection."
+        }
+      },
+      "development_context": "Carmen Bricillo coached OL in New England under Belichick and in Las Vegas. He develops technical fundamentals \u2014 hand placement, footwork, and leverage. The staff can develop technique and versatility. What must arrive: functional athleticism and football IQ. A stiff tackle who can only set in one direction will struggle in the multiple-scheme system.",
+      "scheme_fit_narrative": "We need tackles who can do multiple things well. Our run game isn't one-dimensional \u2014 we're going to zone block, pull guards, run counter, and boot the QB. A tackle who can only pass-set or can only drive-block isn't versatile enough. Give us clean footwork, good hands, and the ability to learn multiple schemes.",
+      "archetype_examples": [
+        "Dion Dawkins",
+        "Penei Sewell"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior OL in Daboll's system must be the engine of the multiple run game. Guards must pull on power and counter concepts, handle zone combination blocks, and anchor in pass protection. The center must process Daboll's concept-based protections and make line calls. The system demands IOL who can execute both zone and gap schemes. The Titans signed Cordell Volson (guard from Bengals) and Austin Schlottmann (center from Giants/Daboll's system), indicating a preference for scheme familiarity and versatility. Peter Skoronski is the anchor at guard.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Interior pressure collapses the pocket and disrupts Daboll's play-action timing. The IOL must handle A-gap and B-gap threats to keep Ward clean on deep-developing routes."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The interior run game is the foundation of the play-action attack. Zone double-teams, gap-scheme down-blocks, and combo blocks to the second level all demand technical run-blocking ability."
+        },
+        "Pulling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Daboll's power and counter concepts require guards who can pull effectively. Pin-and-pull schemes are a core run concept. A guard who can't pull limits half the run playbook."
+        },
+        "Strength": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Interior DL matchups demand functional strength at the point of attack. Zone combos require power to displace DTs vertically. Gap schemes need drive-blocking power."
+        },
+        "Anchor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Interior pass rushers (nose tackles, 3-techs) generate the most disruptive pressure. The IOL must hold ground on bull rushes and inside counter moves."
+        },
+        "Versatility": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Daboll's formation multiplicity sometimes requires IOL to adjust to different blocking assignments on the same concept based on formation. Guards who can play center or tackle provide valuable roster flexibility. Schlottmann's signing (can play center and guard) reflects this."
+        }
+      },
+      "ideal_archetype": "A powerful, technically sound interior lineman who can pull, zone-block, and anchor in pass protection. The ideal guard is a complete player who can execute gap-scheme pulls with power and zone-scheme reaches with athleticism. Think Quenton Nelson's power profile combined with zone-scheme mobility. The center must be a football-smart processor who can handle Daboll's protection calls and get everyone on the same page. Not a pure zone guard and not a pure drive-blocker \u2014 the multiple system demands all-around proficiency.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "305-325 (G); 295-315 (C)",
+          "floor": "295",
+          "reasoning": "Must be heavy enough to anchor against interior DL and sustain drive blocks, but athletic enough to pull and climb to the second level."
+        },
+        "short shuttle": {
+          "ideal": "sub-4.60",
+          "floor": "4.75",
+          "reasoning": "Pulling ability and zone-scheme lateral movement require functional agility. Stiff guards who can't pull limit the run game."
+        },
+        "bench press": {
+          "ideal": "28+ reps",
+          "floor": "24",
+          "reasoning": "Upper-body power correlates with drive-blocking ability and anchor strength on the interior."
+        }
+      },
+      "development_context": "Bricillo's coaching background emphasizes technique development. The staff can develop hand technique, leverage, and pass-pro fundamentals. What must arrive: natural power, functional athleticism, and the mental processing to handle a concept-based system. A guard who can only do one thing well won't survive the installation.",
+      "scheme_fit_narrative": "We need interior linemen who can pull and pass protect at a high level. Our run game is diverse \u2014 zone, power, counter \u2014 so we can't have a one-trick pony. The center has to be smart enough to handle our protection calls. Give us strong, athletic guards who can get out in space and finish blocks.",
+      "archetype_examples": [
+        "Quenton Nelson",
+        "Joel Bitonio",
+        "Creed Humphrey"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "The EDGE position in the Saleh/Bradley defense is split into two distinct roles: the LEO and the Big End (or SAM/DE). The LEO is the weak-side edge rusher aligned in a wide-9 technique \u2014 his primary job is to rush the passer from an isolated one-on-one alignment. He can also stand up in 3-4 looks. The Big End is the strong-side DE who plays in a 5-tech or 7-tech, responsible for setting the edge in the run game and rushing the passer. With Jermaine Johnson acquired from the Jets, the Titans are building their edge room around Saleh's preferred player types. The LEO is THE most important defensive position in this scheme \u2014 without a disruptive LEO, the entire defense collapses.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "The LEO position exists to rush the passer. The defense generates pressure through front-four wins rather than blitzing (bottom-5 blitz rate). The wide-9 alignment creates favorable one-on-one matchups that the edge must convert. Without a disruptive pass rush, the Cover-3 backend becomes vulnerable to the intermediate passing game."
+        },
+        "Bend": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "The wide-9 alignment demands edge rushers who can flatten around the corner and dip under tackles' punch. The wider alignment creates longer rush paths that require bend to convert speed to pressure. Saleh's best LEOs (Nick Bosa, Dee Ford) all possessed elite bend."
+        },
+        "First Step": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "From the wide-9, the edge rusher's first step creates the initial separation that the entire rush is built on. An explosive get-off from the wide alignment is the LEO's primary weapon. Bradley has said the position requires players who can attack off the edge."
+        },
+        "Power": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The Big End role requires power to set the edge against the run, but the LEO can win almost entirely with speed and bend. Power is more situational \u2014 useful on counter moves and long-arm techniques but not the primary winning method from the wide-9."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Saleh and Bradley demand effort-based defense. The edge must chase plays from the backside and close on scrambling QBs. The wide-9 alignment means the edge is further from inside runs \u2014 motor matters for pursuit angles."
+        },
+        "Run Defense": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The LEO's main run responsibility is maintaining backside contain \u2014 not a heavy run-defense role. The Big End must set the edge more traditionally. Bradley has explicitly stated the LEO doesn't need to be a dominant run defender \u2014 just disciplined enough to maintain contain."
+        }
+      },
+      "ideal_archetype": "The ideal LEO is a speed-based, flexible edge rusher who wins with first-step explosion and bend around the corner. He doesn't need to be 270+ pounds \u2014 Chris Clemons (254 lbs) and Dee Ford (252 lbs) were prototypical LEOs in this system. He lines up wide, attacks off the edge, and creates chaos. Think of a slightly bigger version of Dee Ford or a player like Carl Lawson \u2014 explosive, bendy, relentless. For the Big End role, think of a more traditional DE (6-4, 275+) who can anchor against the run and rush the passer from tighter alignments \u2014 Jermaine Johnson's profile. The two roles are distinct: the LEO is a pure speed rusher, the Big End is a versatile two-way end.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-4 (LEO); 6-3 to 6-5 (Big End)",
+          "floor": "6-1",
+          "reasoning": "The LEO doesn't need prototypical DE size \u2014 Bradley has explicitly said 6-3, 250 lb players have a place in the scheme. Length helps the Big End control the edge."
+        },
+        "weight": {
+          "ideal": "245-265 (LEO); 265-285 (Big End)",
+          "floor": "240",
+          "reasoning": "The LEO must be light and explosive enough to win the speed game from the wide-9. The Big End needs more mass to anchor against the run."
+        },
+        "40-yard dash": {
+          "ideal": "4.50-4.65",
+          "floor": "4.70",
+          "reasoning": "Speed off the edge from the wide-9 is the LEO's primary weapon. The extra distance from the wide alignment demands raw closing speed. This is a premium measurable for the LEO position."
+        }
+      },
+      "development_context": "Saleh and Bradley have exceptional track records developing edge rushers. Saleh maximized Nick Bosa (DPOY), developed Carl Lawson in NY, and elevated production from Dee Ford. Bradley developed Chris Clemons, Melvin Ingram, Joey Bosa, and Yannick Ngakoue. The staff can develop rush technique, counter moves, and effort habits. What must arrive: natural explosion and bend. You cannot teach first-step quickness or hip flexibility.",
+      "scheme_fit_narrative": "The LEO is the most important piece of our defense. We need a guy who can pin his ears back and get after the quarterback from a wide alignment. He doesn't need to be 280 pounds \u2014 we want explosive, bendy, relentless speed off the edge. If he can't rush, our whole defense struggles. For the Big End, we need a two-way player who can set the edge and rush the passer. Different roles, different body types.",
+      "archetype_examples": [
+        "Nick Bosa",
+        "Dee Ford",
+        "Carl Lawson",
+        "Melvin Ingram"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Interior DL in the Saleh/Bradley scheme play two primary roles: the 1-tech nose tackle (gap controller who commands double teams and protects linebackers) and the 3-tech (penetrating disruptor who attacks the B-gap and generates interior pressure). Jeffery Simmons is the All-Pro 3-tech anchor. John Franklin-Myers adds a pass-rushing 3-tech/5-tech presence. The 1-tech is a run-stuffer who must command blocks and create space for the LEO and linebackers. The 3-tech is the interior engine \u2014 he must penetrate gaps and generate pressure. Bradley's philosophy emphasizes attack-first penetration rather than read-and-react gap control.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Interior pressure is critical with a low-blitz-rate defense. The 3-tech must collapse the pocket from the inside while the LEO works the edge. Bradley pairs the 3-tech and LEO in TEX/EXIT stunts that require interior pass-rush ability."
+        },
+        "Run Defense": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The interior DL must control the run game so the linebackers can flow freely. The 1-tech must command double teams and plug gaps. The 3-tech must hold the point of attack while attacking his gap. Bradley's scheme asks interior DL to eat blocks so the LEO and LBs stay clean."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Bradley's philosophy emphasizes penetration over read-and-react. The 3-tech fires into his gap on the snap \u2014 a quick first step disrupts blocking schemes before they develop. This is a one-gap, attack-first system."
+        },
+        "Hand Usage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Defeating double teams and controlling blocks requires advanced hand technique. The 1-tech faces constant double teams and must use hands to stay square and shed. The 3-tech needs hand skills to win on pass rush moves."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Saleh's effort-based philosophy demands DL who play through the whistle and pursue. Interior DL who rest on plays compromise the entire front's integrity."
+        },
+        "Strength": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "The 1-tech must absorb double teams with base strength. The 3-tech must hold ground against combo blocks before attacking. Functional strength at the point of attack is a prerequisite for both roles."
+        }
+      },
+      "ideal_archetype": "The 3-tech is the premier interior position \u2014 a disruptive, penetrating force who attacks the B-gap and generates interior pressure. Think Jeffery Simmons or DeForest Buckner: quick off the ball, powerful at the point of attack, with the motor and hand skills to win both in the run game and as a pass rusher. The 1-tech is a space-eating nose who commands double teams and clogs running lanes \u2014 think Brandon Mebane or Akiem Hicks: massive, powerful, immovable in the A-gaps. The two roles have very different body types and trait demands.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5 (3-tech); 6-1 to 6-4 (1-tech)",
+          "floor": "6-0",
+          "reasoning": "The 3-tech needs length to play with leverage and disrupt passing lanes. The 1-tech needs a wide base and anchor strength."
+        },
+        "weight": {
+          "ideal": "280-310 (3-tech); 310-340 (1-tech)",
+          "floor": "280",
+          "reasoning": "The 3-tech must be explosive enough to penetrate but heavy enough to hold the point. The 1-tech must absorb double teams."
+        },
+        "40-yard dash": {
+          "ideal": "4.80-5.00 (3-tech)",
+          "floor": "5.10",
+          "reasoning": "The 3-tech's penetration-based role rewards athletic interior players who can close on QBs and disrupt running plays with quickness."
+        }
+      },
+      "development_context": "Saleh and Bradley have excellent DL development track records. Saleh maximized Arik Armstead, developed Solomon Thomas into a useful piece, and elevated Quinnen Williams with the Jets. Aaron Whitecotton (DL coach, from Jets) developed Franklin-Myers' pass-rush technique. The staff can develop hand technique, motor, and pass-rush moves. What must arrive: natural power and explosion. You can't teach a 300-pound man to be quick.",
+      "scheme_fit_narrative": "Our 3-tech is the most important interior position \u2014 we need a disruptive, penetrating player who can wreck the run game and collapse the pocket. Think Simmons-level impact. Our nose tackle eats blocks and makes life easy for everyone else. Different positions, different players. The 3-tech needs to be an athlete. The nose needs to be an anchor.",
+      "archetype_examples": [
+        "Jeffery Simmons",
+        "DeForest Buckner",
+        "Quinnen Williams",
+        "Brandon Mebane"
+      ]
+    },
+    "LB": {
+      "scheme_role": "The Saleh/Bradley scheme uses two inside linebackers (MIKE and WILL) in base and drops to one in nickel. The MIKE is the defensive quarterback who sets the front, communicates coverage calls, and handles the hook-curl zone in Cover-3. The WILL is the weakside LB who must flow to the ball and handle coverage responsibilities in the flat or hook zones. In this system, LBs are asked to fill run gaps, drop into zone coverage, and occasionally rush from delayed-blitz packages. They are NOT asked to play man coverage on TEs or RBs frequently \u2014 the zone scheme protects LBs from island coverage situations. Fred Warner was Saleh's ideal LB in SF \u2014 a sideline-to-sideline athlete who could process the defense, tackle in space, and drop into zone coverage.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "In a bend-don't-break zone defense, the LBs must be reliable tacklers who limit YAC on completions underneath. The Cover-3 shell allows short completions \u2014 LBs must make the stop and prevent explosive gains."
+        },
+        "Coverage": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Zone drops are a primary responsibility on every pass play. The LB must handle hook-curl and flat zones, process route combinations, and rally to the ball. Saleh's evolution toward more match coverage increases the coverage demands on LBs."
+        },
+        "Pass Rush": {
+          "weight": 0.05,
+          "importance": "low",
+          "reasoning": "LBs are rarely asked to blitz in this low-blitz-rate scheme. Pressure comes from the front four. Occasional delayed rushes add value but are not a primary trait."
+        },
+        "Instincts": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "The MIKE LB is the defensive quarterback \u2014 he must diagnose formations, set the front, and process coverage calls pre-snap. Post-snap, he must read run keys, fill the correct gap, and break on the ball in zone coverage. Football IQ is the highest-value trait at this position."
+        },
+        "Athleticism": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Saleh's ideal LB is a sideline-to-sideline athlete. Fred Warner was the prototype \u2014 able to cover TEs, chase RBs to the sideline, and close on scrambling QBs. The wide-9 front creates wider gaps that LBs must fill with speed."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The wide-9 front stretches the defensive line across a wider area, requiring LBs to cover more ground laterally. Range helps LBs flow to runs on the perimeter and chase down plays away from them."
+        },
+        "Block Shedding": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Interior DL are supposed to absorb blocks and keep LBs clean. When blocks do reach the second level, shedding technique matters \u2014 but the scheme is designed to minimize this occurrence."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.05,
+          "importance": "moderate",
+          "reasoning": "The MIKE handles most pre-snap communication. For the WILL, pre-snap diagnosis is less critical because the scheme provides clear assignment rules. But for MIKE candidates, this trait would be weighted much higher in practice."
+        }
+      },
+      "ideal_archetype": "A rangy, instinctive, sideline-to-sideline athlete who can process the defense, fill run gaps efficiently, and drop into zone coverage without being a liability. The prototype is Fred Warner \u2014 a three-down linebacker who can set the defense, tackle in space, and cover underneath zones. Not a one-dimensional thumper who can only play in the box, and not a coverage specialist who can't stop the run. The Saleh/Bradley defense asks LBs to be complete \u2014 smart, fast, and reliable. Cedric Gray (current starter) fits the athletic mold they prefer.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Length helps in coverage and block shedding. The scheme doesn't demand massive LBs \u2014 speed and instincts matter more."
+        },
+        "weight": {
+          "ideal": "225-245",
+          "floor": "220",
+          "reasoning": "Must be heavy enough to hold up against NFL blockers but light enough to cover in space. The zone scheme protects LBs from heavy blocking but still demands physicality."
+        },
+        "40-yard dash": {
+          "ideal": "4.50-4.65",
+          "floor": "4.70",
+          "reasoning": "Sideline-to-sideline range is critical. The wide-9 front demands LBs who can cover ground quickly. Saleh's best LBs (Warner, Al-Shaair) were all plus athletes."
+        }
+      },
+      "development_context": "Saleh has a strong LB development track record \u2014 he elevated Fred Warner into a perennial All-Pro and developed Azeez Al-Shaair from a UDFA into a productive starter. Bradley developed Darius Leonard's instincts and tackling in Indianapolis. The staff can develop instincts, tackling technique, and zone-drop discipline. What must arrive: natural athleticism and processing speed. Slow LBs with poor instincts cannot survive in this scheme.",
+      "scheme_fit_narrative": "We need LBs who can do everything \u2014 fill gaps, drop into zone, and tackle in space. Our defense doesn't ask them to blitz or play man coverage on TEs, but they have to be smart and athletic. The MIKE has to be our defensive quarterback who sets everything pre-snap. Give us a Fred Warner type \u2014 fast, smart, reliable, and instinctive.",
+      "archetype_examples": [
+        "Fred Warner",
+        "Roquan Smith",
+        "Azeez Al-Shaair"
+      ]
+    },
+    "CB": {
+      "scheme_role": "Corners in the Saleh/Bradley defense play a demanding role. In Cover-3, the outside CBs are responsible for the deep outside thirds \u2014 they align tight and bail at the snap (Cover-3 bail technique) or play a press-man technique against single receivers (Read technique). The backside corner plays on an island with minimal safety help in Cover-3. In quarters coverage, corners play man-match principles on the outside receiver with leverage rules based on alignment. This is a single-high, one-third zone defense where corners must be comfortable in off-man/zone hybrid coverage. Bradley's evolution has added more press-bail and match coverage, increasing the demands on technique and football IQ. The Titans signed Alontae Taylor ($60M) and Cor'Dale Flott ($45M) \u2014 physical, long corners who fit the scheme's demands.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "On third down, Saleh shifts to man coverage with a five-man rush. The Read technique in Cover-3 requires corners to play man-to-man on vertical routes. In quarters, corners play man-match on outside receivers. Man skills are critical despite the zone foundation."
+        },
+        "Ball Skills": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Saleh's defense historically generates turnovers from CBs. The zone shell gives corners opportunities to read the QB and break on the ball. Ball production is a priority \u2014 turnovers are how Bradley defines defensive success."
+        },
+        "Zone Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Cover-3 is the base coverage. Corners must play their deep third with discipline, pattern-match against vertical threats, and rally to underneath routes. Zone technique is the foundation of everything this defense does. Bradley's Cover-3 bail technique requires corners to sell press alignment then open and run to their zone."
+        },
+        "Speed": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Responsible for a deep third on 60%+ of defensive snaps. The corner must run with vertical routes and recover if beaten. The backside corner on an island needs recovery speed as an insurance policy. Speed is non-negotiable."
+        },
+        "Press": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The Cover-3 bail technique requires corners to align in press and sell man coverage before bailing to their zone at the snap. On third down, they play actual press-man. A corner who can't align in press tips the coverage."
+        },
+        "Nickel": {
+          "weight": 0.14,
+          "importance": "moderate",
+          "reasoning": "The outside corners don't play inside, but versatility is valued. Corners who can also play nickel provide depth flexibility. Alontae Taylor was specifically described as able to play outside or inside."
+        }
+      },
+      "ideal_archetype": "A long, physical, speedy corner who is comfortable in both zone and man coverage. The ideal CB can align in press, sell man coverage at the line, then bail to their deep third at the snap. He must be fast enough to hold up on an island with minimal safety help. Think Richard Sherman (the original prototype) or Sauce Gardner \u2014 long, technically sound, able to play press-bail zone and lockdown man when needed. Not a pure man corner who can't play zone, and not a soft zone corner who can't press. The scheme demands both.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Length is valued for the press-bail technique and for contesting catches in the deep third. Bradley's best corners (Sherman 6-3, Gardner 6-3) have been long. Taylor (6-0) and Flott (6-1) fit this mold."
+        },
+        "weight": {
+          "ideal": "190-210",
+          "floor": "185",
+          "reasoning": "Physical enough to press at the line and tackle in run support. Cover-3 corners are asked to rally downhill against the run."
+        },
+        "40-yard dash": {
+          "ideal": "4.35-4.48",
+          "floor": "4.52",
+          "reasoning": "Deep-third responsibility demands speed. The corner plays on an island with a single-high safety behind him. Recovery speed is essential. This is a hard floor \u2014 slow corners cannot play the island role."
+        },
+        "arm length": {
+          "ideal": "32+",
+          "floor": "31",
+          "reasoning": "Long arms are advantageous for the press-bail technique and for disrupting receivers at the line. The Saleh/Bradley tree consistently targets long-armed corners."
+        }
+      },
+      "development_context": "Saleh developed Sauce Gardner and D.J. Reed with the Jets. Bradley developed Jalen Ramsey's technique in Jacksonville (before his trade) and maximized Casey Hayward in LA. Tony Oden (DBs coach) spent four years developing corners with Saleh on the Jets. The staff can develop zone technique, press-bail mechanics, and ball skills. What must arrive: speed and length. You cannot teach a 4.55 corner to play the deep third on an island.",
+      "scheme_fit_narrative": "Our corners play on an island \u2014 single-high safety, deep third responsibility, minimal help. We need guys who are long, fast, and technically sound. They have to press at the line and bail at the snap without tipping the coverage. On third down, they play man. A corner who can only do one of those things doesn't fit. Give us long, fast, competitive DBs who can handle both.",
+      "archetype_examples": [
+        "Richard Sherman",
+        "Sauce Gardner",
+        "Casey Hayward"
+      ]
+    },
+    "S": {
+      "scheme_role": "The safety positions in Saleh/Bradley's scheme have distinct roles. The free safety (FS) is the single-high center-fielder in Cover-3 \u2014 he plays the deep middle third and is responsible for eliminating explosive plays over the top. He must have elite range and ball-hawking ability. The strong safety (SS) is the box defender who plays the flat/curl zone in Cover-3 and walks down as an extra run defender. In quarters coverage, both safeties play the deep halves with man-match responsibilities on the #2 receivers. The SS can also function as a hybrid LB in sub-packages. Amani Hooker is the current FS starter. The SS spot needs significant attention after Xavier Woods' release.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "In quarters, safeties play man-match on #2 receivers. In Cover-3, the SS must handle TEs on seam routes via the seam-alert adjustment. But the majority of coverage is zone-based, limiting pure man demands."
+        },
+        "Range": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The FS is the single-high center-fielder responsible for the deep middle third of the field. He must cover sideline to sideline and eliminate explosive plays. Range is THE defining trait for the FS in this scheme. Earl Thomas was the prototype \u2014 a rangy ball-hawk who erased deep throws."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The FS sees the entire field from his deep alignment and reads the QB's eyes. Turnovers are how Bradley defines defensive success. A FS with ball-hawking instincts turns the bend-don't-break coverage into game-changing plays."
+        },
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The SS is a primary run defender and must be a physical tackler in the box. The FS is often the last line of defense and must make open-field tackles to prevent touchdowns. Cover-3 allows completions underneath \u2014 safeties must tackle to limit damage."
+        },
+        "Speed": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The FS must cover ground quickly to play the deep middle. The SS must have enough speed to carry TEs down the seam in quarters and rally to the flat in Cover-3. Speed is critical for both roles but especially the FS."
+        },
+        "Nickel": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Bradley has historically used the SS as a hybrid in sub-packages \u2014 walking down into the box as a de facto LB. Jabrill Peppers-type versatility is valued. The SS who can blitz, play the box, and cover adds schematic flexibility."
+        }
+      },
+      "ideal_archetype": "The FS is a center-field ball-hawk with elite range and instincts \u2014 Earl Thomas is the defining prototype for this role. He plays the deep middle third, reads the QB, and eliminates explosive plays. The SS is a box-safety hybrid who can tackle in run support, cover TEs in the flat/seam, and blitz off the edge when needed. Think Kam Chancellor (physical box safety) or Budda Baker (versatile hybrid). The two safety roles have very different trait demands \u2014 the FS is a coverage-first player, the SS is a physical, versatile defender.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-10 to 6-1 (FS); 6-0 to 6-2 (SS)",
+          "floor": "5-9",
+          "reasoning": "The FS doesn't need prototypical size \u2014 range and speed matter more. The SS benefits from size for run support and TE coverage."
+        },
+        "weight": {
+          "ideal": "195-210 (FS); 205-220 (SS)",
+          "floor": "190",
+          "reasoning": "The FS must be light enough to cover ground. The SS must be physical enough to play in the box and support the run."
+        },
+        "40-yard dash": {
+          "ideal": "4.40-4.52 (FS); 4.45-4.58 (SS)",
+          "floor": "4.55 (FS)",
+          "reasoning": "The FS is a deep-field player covering the entire middle third. Speed is non-negotiable. Earl Thomas ran a 4.34 \u2014 that's the standard. The SS has more flexibility because his responsibilities are closer to the LOS."
+        }
+      },
+      "development_context": "Saleh developed the Legion of Boom's safety tandem philosophically (Thomas/Chancellor). He maximized Jabrill Peppers as a hybrid in NY and elevated Jordan Whitehead's career. Bradley has developed S/LB hybrid defenders across multiple stops. The staff can develop tackling, zone discipline, and blitz technique. What must arrive: range and instincts for the FS, physicality and versatility for the SS. You can't teach a safety to cover the deep middle third.",
+      "scheme_fit_narrative": "Our free safety is the most important player in our secondary \u2014 he's the last line of defense and the center-fielder who makes the whole Cover-3 shell work. We need a guy with elite range who can get to the ball sideline-to-sideline. Our strong safety needs to be a physical run defender who can also handle TEs and blitz. Two very different roles \u2014 don't give us two of the same player.",
+      "archetype_examples": [
+        "Earl Thomas",
+        "Budda Baker",
+        "Kam Chancellor",
+        "Amani Hooker"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Tennessee's 2026 draft profile is defined by two scheme identities merging. DEFENSE: Saleh and Bradley's 4-3 Under/Wide-9 system creates extreme positional value at two spots \u2014 (1) the LEO edge rusher, a 250-lb speed rusher who aligns in wide-9 and pins his ears back, making smaller, explosive EDGE prospects (even tweener OLB/DE types from college) ideal fits; and (2) the box/strong safety, where the Cover 3 structure demands a Kam Chancellor-type who can function as a quasi-linebacker in run support while covering the deep third in quarters. Off-ball LBs must be athletic coverage players (Fred Warner mold) \u2014 pure run-stuffers without coverage range are devalued. Blitz rate is extremely low, so LB pass rush traits are largely irrelevant. OFFENSE: Daboll's Erhardt-Perkins spread system with Cam Ward maximizes QB mobility, play-action, and formation multiplicity. WR value is premium (70%+ in 11/10 personnel). Receiving TEs get moderate value as mismatch weapons when flexed to the slot. Dual-threat RBs who catch and protect are valued over pure runners. The strongest positional value inflection for this team is at safety \u2014 draft a box/hybrid safety for Tennessee and he immediately has a defined, high-impact role in this scheme.",
+  "scheme_draft_intelligence": "The Tennessee Titans' 2026 coaching overhaul \u2014 Robert Saleh as HC, Brian Daboll as OC, and Gus Bradley as DC \u2014 creates a uniquely defined set of scheme demands that should heavily influence their draft approach with the No. 4 overall pick and beyond. The marriage of Saleh's Wide-9 front with Bradley's Cover-3 foundation and Daboll's Erhardt-Perkins offense creates specific positional value differentials that distinguish Tennessee from the rest of the league.\n\nOn defense, the LEO position is the single most critical need. Saleh's entire defensive philosophy is built around generating pressure through front-four wins, particularly from the wide-9 alignment. Trading T'Vondre Sweat for Jermaine Johnson signals the clear priority: speed and pass rush on the edge over run-stuffing size on the interior. Edge rushers with explosive first steps, elite bend, and closing speed will be valued significantly higher by Tennessee than by teams running two-gapping 3-4 schemes or zone-blitz packages. Conversely, the scheme devalues pure run-stopping edge defenders who lack pass-rush upside. Similarly, the 3-tech DT position next to Simmons is premium \u2014 penetrating interior disruptors who can generate pressure from the B-gap have outsized value in a low-blitz system. The Titans' aggressive free agency on the DL (Franklin-Myers, Elliott, Solomon Thomas) still leaves the LEO as a potential draft priority if an elite edge prospect is available.\n\nThe defensive secondary presents an interesting value dynamic. Saleh's Cover-3 demands corners who can play on an island \u2014 long, fast, physical corners who can handle press-bail technique. The Titans invested heavily in corners (Taylor $60M, Flott $45M) but the FS position remains a potential draft target given Xavier Woods' release and the scheme's extreme reliance on center-field range. A ball-hawking FS with 4.40 speed would have outsized value for this defense compared to teams running quarters-based or Cover-2 schemes where FS range is less critical.\n\nOn offense, Daboll's system creates hidden value in versatile slot receivers, athletic tight ends, and pass-catching running backs \u2014 positions where other teams might not invest early capital. Wan'Dale Robinson's $70M signing addresses the slot, but Daboll's heavy 11/10-personnel usage means multiple receiver investments make sense. The Erhardt-Perkins concept-based system values football IQ and route-running craft over raw speed at WR \u2014 prospects with plus route-running and separation skills but merely average 40 times (4.45-4.50) could be undervalued by speed-obsessed teams but highly valued by Tennessee. The strong free-agency consensus around Jeremiyah Love at No. 4 overall makes sense: Daboll's system features RBs heavily in the passing game, and an explosive, versatile back would be a force multiplier for Cam Ward's development.\n\nThe coaching staff's development track record should influence how Tennessee evaluates raw vs. polished prospects. Saleh/Bradley can develop edge rushers and secondary players within their clearly-defined system \u2014 meaning raw athletes with scheme-appropriate measurables are worth the gamble. Daboll has a proven track record developing QBs, slot receivers, and scheming around limitations elsewhere. The one area where development is harder: offensive line technique in a multiple run-blocking system. OL prospects need to arrive with versatility and football IQ, as the zone-gap hybrid system has a steep learning curve. Overall, the Titans' 2026 scheme identity \u2014 aggressive offense with a young QB, effort-based defense built on front-four pressure and zone coverage \u2014 creates a clear blueprint: invest in explosive athletes on the edges (offense and defense), high-IQ processors in the middle (LB, IOL, C), and speed throughout the secondary.",
   "confidence": "high",
   "sources": [
-    "tennesseetitans.com (official coaching staff page and hire announcements for Saleh, Daboll, Bradley)",
-    "nfl.com (Saleh hire, Daboll hire reporting by Rapoport/Pelissero)",
-    "Wikipedia (Gus Bradley, Robert Saleh, Brian Callahan career histories)",
-    "PFF (Daboll offensive scheme evolution with Buffalo Bills)",
-    "colts.com (Gus Bradley Cover 3 framework press conference 2022)",
-    "sfstandard.com (Robert Saleh 2025 defensive evolution at 49ers)",
-    "matchquarters.com (Saleh Wide-9 quarters coverage analysis)",
-    "si.com (Gus Bradley LEO position and Big End breakdowns with Colts)",
-    "tapedontlie.substack.com (Gus Bradley fronts and stunts analysis)",
-    "bigcatcountry.com (Bradley 4-3 defense and LEO position deep dive)",
-    "silverandblackpride.com (Bradley Cover 3 and coverage variations with Raiders)",
-    "stormcloud.blog (Brian Daboll Erhardt-Perkins scheme analysis)",
-    "buffalobills.com (Daboll offensive philosophy and personnel usage)",
-    "espn.com (Saleh-Bradley relationship and defensive philosophy at 49ers 2025)",
-    "pro-football-reference.com (2025 Titans staff and scheme classification)"
+    "TennesseeTitans.com coaching staff pages and press conferences",
+    "ESPN Titans free agency tracker and coaching hire coverage",
+    "NFL.com coaching hire and free agency reporting (Rapoport, Pelissero)",
+    "PFF analysis of Daboll's Erhardt-Perkins scheme evolution",
+    "SI Colts Film Room: Gus Bradley scheme breakdowns (LEO position, fronts and stunts)",
+    "Stampede Blue Gus Bradley defensive analysis series",
+    "MatchQuarters.com Saleh quarters coverage analysis",
+    "49ers Film Room: Robert Saleh Wide-9 technique breakdowns",
+    "Paul Kuharsky Titans analysis and free agency tracker",
+    "West Coast Football Substack: Saleh quarters coverage scheme analysis",
+    "JetsXFactor.com Saleh defensive scheme analysis",
+    "Big Blue Interactive: Daboll offense breakdown",
+    "Buffalo Bills official site: Daboll coaching philosophy features",
+    "Wikipedia coaching timelines for Saleh, Bradley, and Daboll"
   ]
 }

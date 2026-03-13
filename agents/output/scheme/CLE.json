@@ -6,71 +6,717 @@
       "name": "Todd Monken",
       "tenure_years": 1,
       "background": "offensive",
-      "scheme_philosophy": "Adaptable, personnel-driven offensive mind. Run-game foundation with spread/Air Raid passing concepts. Adjusts personnel groupings to roster talent. Physical, run-first identity with explosive play-action and vertical passing layered on top."
+      "coaching_tree": "Air Raid / Spread roots (Oklahoma State under Mike Gundy) \u2192 evolved into personnel-flexible system at Georgia \u2192 adapted to heavy personnel and run-first identity in Baltimore. Not a pure West Coast or pure Air Raid coach \u2014 Monken is a chameleon who adapts scheme to personnel but consistently prioritizes spacing, explosive plays, and run-game establishment.",
+      "scheme_philosophy": "Monken's core offensive identity revolves around six pillars: run the football, create explosive plays, protect the quarterback, take care of the ball, convert on third down, and score in the red zone. He believes in spacing the field to create favorable matchups, and he is personnel-flexible \u2014 he ran four-wide shotgun at Oklahoma State, 12-personnel heavy at Georgia, and a mix of 12/21/22 personnel in Baltimore. He adapts to what he has, but always seeks to attack vertically and create explosive plays. He will call plays in Cleveland."
     },
     "offensive_coordinator": {
       "name": "Travis Switzer",
-      "scheme_tree": "Monken/Ravens run game tree; served as Ravens run game coordinator under Monken 2023-2025",
-      "play_caller": false
+      "coaching_tree": "Baltimore Ravens internal development. Came up under John Harbaugh's staff, promoted under Monken to run game coordinator. Former college center at Akron. Worked with wide receivers, tight ends, and ultimately ran the NFL's best rushing attack for three consecutive seasons.",
+      "scheme_evolution": "Switzer is Monken's prot\u00e9g\u00e9 \u2014 described as Monken's 'right-hand man' in Baltimore. His expertise is in the run game, where he helped design schemes featuring inside zone reads, gap concepts, counter plays, and QB-designed runs that generated the NFL's #1 rushing offense in 2 of 3 seasons (2023-2025). He also has experience with tight ends and wide receivers from earlier in his career. This is his first OC role.",
+      "development_track_record": "At 33, Switzer is young for an OC but has been instrumental in maximizing Derrick Henry (1,921 rushing yards in 2024) and developing the Ravens' blocking schemes that featured tight ends Mark Andrews/Isaiah Likely and fullback Patrick Ricard as critical run-game elements. His background as a former offensive lineman gives him unique insight into blocking schemes."
     },
     "defensive_coordinator": {
       "name": "Mike Rutenberg",
-      "scheme_tree": "Robert Saleh/Gus Bradley 4-3 attacking front tree; influenced by Jeff Ulbrich; worked under Saleh in Jacksonville, San Francisco, and New York Jets",
-      "play_caller": true
+      "coaching_tree": "Gus Bradley / Robert Saleh tree. Began under Joe Gibbs in Washington (administrative), then spent 7 years with the Jaguars under Gus Bradley (assistant DBs, defensive assistant, assistant LBs), followed Saleh to San Francisco as pass game specialist (2020), then to the Jets as LB coach (2021-2024). Followed Jeff Ulbrich to Atlanta as defensive pass game coordinator (2025). This is the Saleh/Bradley/Schwartz adjacent defensive tree \u2014 all share roots in aggressive 4-down fronts with single-high coverage principles.",
+      "scheme_evolution": "Rutenberg's coaching tree (Bradley/Saleh) uses similar wide-front principles as Schwartz \u2014 4-3 base with wide-9 edge alignments and aggressive one-gap penetrating technique. Coverage background is rooted in Cover 3 (Bradley's trademark) but has evolved through Saleh's system to incorporate heavy Cover 1 man principles. In Atlanta under Ulbrich, the Falcons ran the highest Cover 1 rate in the NFL (41.2%) but also featured significant Cover 3 (45.7%) and quarters (22.1%) usage. Monken has stated he will maintain the existing Schwartz defensive system, and Rutenberg was specifically hired because his coaching tree uses similar fronts. Expect the attacking Wide-9 front to remain, with potential for more zone coverage mixed in and added pre-snap disguises from the back end.",
+      "development_track_record": "As Jets LB coach, developed Quincy Williams into a first-team All-Pro (2023) and helped C.J. Mosley earn Pro Bowl/All-Pro honors (2022). The Jets defense ranked in the top 5 in total defense in 3 consecutive years (2022-2024). In Atlanta, helped develop rookie safety Xavier Watts (5 INTs, led all rookies). Rutenberg's strength is coaching linebackers and understanding all three levels of the defense."
     }
   },
   "offense": {
-    "scheme_family": "Monken hybrid: Air Raid passing concepts married to a physical, varied run game. Personnel-flexible system that adapts groupings to roster talent. Run-game-first identity with play-action vertical shots.",
-    "base_personnel": "12/21 heavy with varied groupings; in Baltimore ran league-low 11 personnel (29.9%) in 2025, heavy 12 (35.9%), 21 (18.6%), and 22 (8.3%); Cleveland expected to maintain similar multi-personnel approach though may trend toward more 11 given receiver needs",
-    "run_scheme": "Inside zone read as primary concept, supplemented by power, counter, and gap schemes. QB-designed runs and read-option integral. Switzer as run game coordinator imports Ravens' rushing philosophy that led the NFL in rushing yards in 2 of 3 Monken seasons.",
-    "pass_concepts": "Play-action heavy off run-game looks, vertical shots, bunch/compressed formations, Air Raid four-verts and spacing concepts, RPO game, no-huddle tempo to stress defensive substitutions",
-    "rpo_usage": "moderate-to-high",
-    "te_usage": "Critical to scheme. Heavy 12 and 22 personnel usage means TE is a featured weapon. In Baltimore, Andrews/Likely were flexed into slot and split wide creating mismatches. TEs used as both inline blockers and move pieces. Expect TE to be an integral pass-catching target.",
-    "rb_usage": "Bell cow primary runner in a run-first system. Monken featured Derrick Henry as a workhorse in Baltimore. RBs also featured more in passing game under Monken than predecessor, with increased check-down and intermediate route work. Quinshon Judkins expected to be featured back."
+    "scheme_family": "Personnel-Flexible Spread (Monken variant \u2014 Air Raid roots with heavy-personnel adaptation)",
+    "scheme_detail": "Monken's offense is not easily classified because it genuinely changes based on personnel. At Oklahoma State, it was four-wide Air Raid. At Georgia, it was 12-personnel heavy with inside zone reads. In Baltimore, it featured the NFL's lowest 11-personnel rate (29.9%) while leaning on 12 (35.9%), 21 (18.6%), and 22 (8.3%) groupings. The common thread is: spread the field horizontally to create space, establish the run game with inside zone as the primary concept, layer play-action off established run looks, and attack vertically for explosive plays. Monken wants to be aggressive and score points \u2014 'we're paid to score' \u2014 but not reckless. He uses tempo variation (no-huddle mixed with standard) to keep defenses off-balance. In Cleveland, expect heavy 12-personnel usage given Harold Fannin Jr.'s receiving ability, and a strong emphasis on rebuilding the run game with Quinshon Judkins.",
+    "run_scheme": "Inside zone read is the foundational concept \u2014 the QB reads the unblocked edge defender and can hand off or keep. Gap/power and counter concepts are mixed in as complementary schemes. In Baltimore, Monken ran a near-50/50 split between zone and gap schemes. Play-action is built directly off the run game's look, using counter-action fakes to create explosive pass plays. The QB's ability to run or threaten to run is a critical element \u2014 Monken has consistently utilized mobile QBs (Lamar Jackson, Stetson Bennett, Brandon Weeden's play-action) to stress defensive edges.",
+    "pass_architecture": "Monken's passing game is built on three levels: (1) quick game/RPO concepts that attack defenses reacting to the run, (2) intermediate play-action shots \u2014 especially off counter and zone-read action \u2014 targeting tight ends on seam routes and receivers on crossers, and (3) vertical four-verts concepts (Air Raid staple) that stretch the secondary both vertically and horizontally. Bunch formations are a key wrinkle, creating condensed passing windows that stress zone coverage. Monken values explosive plays \u2014 targeting 1 explosive play per 8 snaps (12+ yard run or 16+ yard pass). He runs primarily from shotgun/pistol (84% at Georgia, similar in Baltimore).",
+    "personnel_tendencies": "Monken is distinctly anti-11-personnel compared to most modern NFL offenses. In Baltimore, 11 personnel was used at the league's lowest rate (29.9%). Instead, he favors 12 personnel (35.9% \u2014 two TEs) as his base, supplemented by 21 (18.6% \u2014 two RBs, one TE) and 22 (8.3% \u2014 two RBs, two TEs). This heavier personnel creates run/pass ambiguity \u2014 the same formation can produce gap runs, play-action deep shots, or TE-based passing concepts. Fullback/H-back usage is significant. In Cleveland, Fannin Jr. as a move TE and Judkins as a featured back will be the offensive building blocks.",
+    "motion_tempo": "Monken uses extensive pre-snap motion to create advantageous alignments and identify coverage. He also utilizes tempo as a weapon \u2014 mixing no-huddle with standard pace to keep defenses from substituting. Not a hurry-up offense by default, but will accelerate when advantageous. Motion rate is above average. Uses receiver motion, TE shifts, and H-back movement to manipulate defensive alignments pre-snap."
   },
   "defense": {
-    "base_front": "4-3",
-    "alignment": "Even front (4-down), wide-9 alignment with DEs lined up outside offensive tackles to maximize edge rush speed. Continuity from Schwartz's system explicitly maintained.",
-    "edge_rush_source": "4-3 DE hands-in-dirt; Myles Garrett is the prototype as a two-time DPOY. DEs aligned wide in wide-9 technique to get upfield quickly. Low blitz rate (18.4% in 2025, among league's lowest) relies on four-man pass rush.",
-    "coverage_base": "Man-heavy under Schwartz (Cover 1 on 40.8% of snaps in 2025, highest in NFL). Cover 3 at 23.7%. Rutenberg may introduce more Cover 4/quarters (Falcons used quarters at 6th-highest rate in 2025) and slightly more pre-snap disguise, but base remains single-high man coverage behind dominant front four.",
-    "blitz_tendency": "light (18.4% blitz rate in 2025, 2nd-lowest in NFL; scheme trusts four-man rush with Garrett, Graham, Collins)",
-    "lb_role": "Off-ball LBs are coverage/run-stopping, NOT pass rushers. ILBs (Carson Schwesinger, Devin Bush) asked to make calls, cover in man, play edges, and blitz sparingly. OLBs do not exist in this 4-3; pass rush comes entirely from DL. Rutenberg developed LBs CJ Mosley and Quincy Williams with Jets into elite coverage/tackling LBs.",
-    "safety_usage": "Grant Delpit and Ronnie Hickman as starting safeties. Schwartz deployed three safeties in nickel looks. Strong safety operates near box. Delpit led team with 108 tackles in 2024; Hickman had 100 tackles in 2025. Safeties are physical, tackle-first players in this scheme but not primary blitzers given low blitz rate."
+    "scheme_family": "4-3 Wide-9 Attacking Front (Schwartz/Saleh/Bradley tree hybrid)",
+    "scheme_detail": "The Browns are maintaining the aggressive 4-3 Wide-9 front that made them the NFL's #1 total defense over the past three seasons (298.6 yards/game average). Monken explicitly stated 'my anticipation is we're not going to change the system' and hired Rutenberg because his Saleh/Bradley coaching tree uses similar defensive fronts. The defense is built around Myles Garrett's record-breaking pass rush from a wide-9 alignment, with aggressive one-gap penetrating technique from the entire front four. Schwartz's system featured the NFL's highest man-coverage rates (led the league in man coverage 2 of 3 years) and a very low blitz rate \u2014 trusting the front four to generate pressure. Rutenberg may introduce more zone coverage (Cover 3 and quarters, per his Atlanta background) and additional pre-snap disguises, but the core aggressive front and man-heavy principles should remain.",
+    "front_structure": "4-3 with Wide-9 edge alignment. Myles Garrett operates as the primary edge rusher in a wide-9 (furthest outside alignment), which removes him from run-fitting responsibility but maximizes his pass rush lane. Interior features Mason Graham (2025 first-round pick, penetrating 3-technique) and a rotation of DTs. The defense generated a franchise-record 53 sacks in 2025. One-gap, upfield-penetrating technique for all DL \u2014 this is an attacking, not a holding, front. The front is designed to disrupt at the line of scrimmage rather than absorb blocks.",
+    "coverage_philosophy": "Under Schwartz, the Browns ran Cover 1 (man-free) on ~40% of coverage snaps \u2014 almost 8% higher than any other team \u2014 trusting their corners (Denzel Ward, Tyson Campbell) to play man-to-man behind the pass rush. Cover 3 was the secondary zone look (23.7% rate). Rutenberg's Atlanta background features similar man-heavy tendencies (41.2% Cover 1 rate) but with significantly more Cover 3 (45.7%) and quarters (22.1%) mixed in. The expectation is the Browns will maintain heavy man coverage but become slightly more varied in zone looks and pre-snap disguises under Rutenberg. The defense is fundamentally single-high (MOFC \u2014 middle of field closed), whether in Cover 1 or Cover 3.",
+    "pressure_philosophy": "Despite having the NFL's most prolific pass rusher, the Browns have maintained a relatively low blitz rate. Under Schwartz, the blitz rate was around 18-30% depending on the year \u2014 they trust the front four to win. When they do blitz, it's typically safety blitzes or delayed LB rushes. Rutenberg may incorporate Dom Capers' zone-blitz wrinkles, but the primary pressure philosophy remains: let Garrett and the DL win one-on-one and play sound coverage behind it. The 2025 defense generated a 43% pressure rate (7th in NFL) and 53 sacks while rarely sending extra rushers.",
+    "sub_packages": "4-2-5 nickel is the primary sub-package (likely the most-used grouping given modern passing rates). The nickel defender is a defensive back (Jeff Anderson coaches the nickelbacks position specifically). In base, two LBs play \u2014 Carson Schwesinger (2025 DROY) is the every-down MIKE who calls the defense. The defense uses extensive DB rotation to keep corners fresh. Slot coverage demands are handled by the nickelback, not a safety playing down."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "Monken's offense is built around heavy 12 and 22 personnel where TEs are featured pass-catchers, not just blockers. In Baltimore, Mark Andrews had a first-team All-Pro season (1,361 receiving yards in 2021 under Switzer's TE coaching), and Isaiah Likely was used as essentially a WR in a TE body \u2014 flexed into the slot, split wide, and aligned in the backfield. Monken called Likely/Andrews 'tough matchup guys' and ran 12 personnel on 35.9% of plays in 2025. David Njoku has departed Cleveland, creating a massive TE need. Any receiving TE will be a day-one featured weapon in this offense. Elite route running, hands, and separation from the TE position will be valued near WR-level."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "Monken's QB is the fulcrum of a run-game-first offense that builds explosive passing off play-action and inside zone reads. The QB must execute the read-option (reading unblocked edge defenders to decide handoff vs. keep), deliver play-action shots downfield off run fakes, manage tempo variations, and be capable of extending plays when the pocket collapses. Monken has consistently deployed mobile QBs (Lamar Jackson, Stetson Bennett with designed runs, Brandon Weeden with play-action) and explicitly values QB athleticism \u2014 'the more spread you are and the more empty you are, it's more fun if your guy is athletic.'",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Monken's offense targets explosive plays \u2014 1 per 8 snaps \u2014 including deep shots off play-action and four-verts concepts. The QB must be able to push the ball vertically off play fakes with velocity to punish single-high coverage looks. Arm strength is important but not the defining trait because the play-action creates open windows that reduce the need for elite arm talent."
+        },
+        "Accuracy": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The highest-weighted trait because Monken's intermediate passing game requires timing throws to TEs on seam routes, crossers in traffic, and receivers breaking out of bunch formations. In Baltimore, Jackson's improved accuracy in Year 2 was credited as the offense's biggest leap. The QB must be accurate in the short-to-intermediate range to convert on third downs and maximize the play-action passing game."
+        },
+        "Pocket Presence": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "With Cleveland's offensive line in complete rebuild mode, pocket presence matters for survival. However, Monken's scheme creates clean pockets through play-action (defenders biting on run fakes) and uses quick-game concepts that reduce time in the pocket. This trait is important but somewhat scheme-mitigated."
+        },
+        "Mobility": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "This is uniquely elevated in Monken's system compared to most offenses. The inside zone read is the foundational run concept, and the QB must be a credible run threat for the read to work \u2014 if the defense doesn't respect the keep, the RB faces an unblocked defender every play. Monken has said 'there are more and more athletic quarterbacks' and consistently deployed mobile QBs. In Cleveland's rebuild, a mobile QB can mask OL deficiencies and create explosive plays with his legs."
+        },
+        "Decision Making": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Monken's offense requires quick pre-snap identification of defensive alignment to execute read-option decisions, check to the right play at tempo, and avoid turnovers. Monken was 'irked' by Tampa Bay's 26 interceptions \u2014 he wants aggressive but not reckless play. The QB must process read-option keys instantly and avoid forcing throws."
+        },
+        "Leadership": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "Important for a team in full rebuild mode with a young roster, but not a primary scheme-driven trait. Monken's coaching style is described as 'hard-driving' so the QB must be coachable and resilient."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Monken uses tempo and no-huddle to force defensive alignment reveals. The QB must identify coverage quickly to make proper read-option decisions and find the right checkdowns in the progression, but the play-action structure simplifies many reads by creating open receivers."
+        }
+      },
+      "ideal_archetype": "The ideal QB for Monken's Cleveland offense is a dual-threat passer who can execute the read-option, push the ball downfield off play-action, and create explosive plays with his legs when the pocket breaks down. Think Lamar Jackson (the player Monken elevated to MVP) or Jalen Hurts \u2014 not a pure pocket passer, but a mobile quarterback who can also deliver accurate intermediate throws from structure. This is a quarterback who makes the inside zone read deadly because defenses must account for the keep, creates explosive run plays on zone-read keepers and scrambles, and can deliver 25+ yard play-action shots to TEs and receivers down the seam. He does not need to be a pure arm-talent thrower but must be accurate enough to capitalize on the open windows the run game creates.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Monken has no strong height preference \u2014 he deployed Lamar Jackson (6-2), Stetson Bennett (5-11), and Baker Mayfield (6-1). The spread/shotgun orientation and quick passing windows reduce the need for over-the-line vision."
+        },
+        "40-yard dash": {
+          "ideal": "Sub-4.6",
+          "floor": "Sub-4.75",
+          "reasoning": "The read-option is foundational. The QB must be a genuine run threat to make the inside zone read work. Sub-4.6 is ideal to create explosive keep plays; sub-4.75 is the floor to be a credible runner."
+        },
+        "weight": {
+          "ideal": "210-230",
+          "floor": "200",
+          "reasoning": "Must be able to absorb contact on designed runs and scrambles. Too light and durability becomes a concern in a run-heavy offense."
+        }
+      },
+      "development_context": "Monken has a track record of developing QBs within his system \u2014 he elevated Jackson from a run-first QB to an efficient passer in Year 2 (best passing season of Jackson's career in 2024). At Georgia, he developed Stetson Bennett from a walk-on to a two-time national champion. The coaching staff can develop a QB's passing accuracy and decision-making within the system, but mobility and arm strength must arrive ready. Monken cannot create athleticism that doesn't exist.",
+      "scheme_fit_narrative": "We need a QB who can run the read-option at a high level and keep defenses honest on the inside zone. The offensive line is being rebuilt, so we can't plant a statue back there \u2014 we need a guy who can create with his legs when protection breaks down. Play-action accuracy in the intermediate range is the second priority, because that's where Monken generates his explosive plays. If a prospect can run and throw with accuracy off play-action, he fits. If he's a pure pocket passer, he doesn't.",
+      "archetype_examples": [
+        "Lamar Jackson",
+        "Jalen Hurts",
+        "Josh Allen"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "low",
-      "explanation": "Cleveland runs a pure 4-3 with wide-9 alignment where ALL edge rushing comes from hands-in-dirt DEs, not stand-up OLBs. The blitz rate was the 2nd-lowest in the NFL (18.4%). Off-ball LBs like Schwesinger and Bush are asked to cover, tackle, and make calls \u2014 not rush the passer. Rutenberg developed traditional coverage LBs (Mosley, Williams) at his prior stops. An LB with pass rush traits would have very limited scheme-based opportunities to rush in this defense. There is no OLB edge role to convert into."
+    "RB": {
+      "scheme_role": "The RB in Monken's offense is a featured, high-volume runner in an inside zone-based scheme. In Baltimore, Derrick Henry carried 300+ times in consecutive seasons and Monken's offenses led the NFL in rushing in 2 of 3 years. The RB must execute zone reads (pressing the hole, reading blocks, cutting), handle gap/counter concepts, and contribute in pass protection. In Cleveland, Quinshon Judkins is the projected featured back. The RB is expected to be a workhorse who can handle 250+ carries and be effective in heavy personnel groupings (21/22 personnel).",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Inside zone is the foundational run concept. The RB must read double teams, identify cutback lanes, and press the hole before exploding through. Vision is the single most important trait because the zone scheme requires the back to make multiple reads on every play \u2014 the blocking creates lanes, but the back must find them."
+        },
+        "Contact Balance": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Monken's heavy personnel groupings create congested running lanes between the tackles. The RB must absorb contact at or near the line and keep his legs churning to gain extra yards. Derrick Henry's success in this scheme was partly due to his ability to break initial contact and fall forward."
+        },
+        "Power": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "This offense runs between the tackles in gap/power concepts and features the RB in short-yardage and goal-line situations out of 21/22 personnel. The RB must be a physical runner who can convert on third-and-short and gain tough yards in the red zone. Monken's system is built on establishing the run to set up play-action \u2014 the RB must be reliable for positive yardage."
+        },
+        "Elusiveness": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "While the primary run concepts are between-the-tackles zone and gap plays, the cutback ability on inside zone requires some elusiveness. Not the primary trait because this isn't a perimeter-heavy run scheme, but important for maximizing explosive runs."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Monken targets explosive plays \u2014 12+ yard runs are a key metric. The RB must have breakaway speed to take zone runs to the house when blocks connect. Derrick Henry's 1,921-yard season featured multiple explosive runs that required closing speed."
+        },
+        "Pass Catching": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Monken's heavy personnel groupings (12/21/22) mean the RB is occasionally the only back on the field. He must be able to release into routes as a safety valve and contribute in the screen game. However, TEs are the primary receiving weapons in this system, not the RB."
+        },
+        "Pass Protection": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "With the Browns' OL in rebuild, the RB must be dependable in pass protection to keep the QB upright on play-action drops. Monken's play-action is built off run fakes, which means the RB is often involved in the protection scheme before releasing."
+        }
+      },
+      "ideal_archetype": "The ideal RB is a physical, between-the-tackles zone runner who can handle a heavy workload, press the hole with patience, and then explode through creases. Think Derrick Henry \u2014 a power-speed combination who wears down defenses in the second half and creates explosive runs through the A-gap. Not a scat-back or a receiving specialist, but a three-down back who can carry 20+ times per game, convert on short yardage, and occasionally break a 40-yard run. The system needs a bellcow.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "215-235",
+          "floor": "210",
+          "reasoning": "Monken's run scheme features heavy personnel and between-the-tackles concepts. The RB must be able to absorb consistent punishment as a featured runner. Lighter backs struggle with the physical demands of 250+ carries in this scheme."
+        },
+        "40-yard dash": {
+          "ideal": "Sub-4.50",
+          "floor": "Sub-4.55",
+          "reasoning": "Explosive play generation requires breakaway speed. The zone scheme creates cutback lanes that a fast back can take to the second level and beyond."
+        }
+      },
+      "development_context": "Switzer's strength is developing the run game and maximizing the RB's production through scheme and blocking design. He helped Derrick Henry post a career-high 1,921 yards at age 30 by creating clean running lanes through formation and personnel manipulation. The staff can scheme around a RB's receiving limitations but cannot develop speed or power that doesn't exist. Vision is critical and must arrive \u2014 the zone scheme demands it.",
+      "scheme_fit_narrative": "We need a bellcow who can carry the load in an inside zone offense. The whole offense is built on establishing the run \u2014 if the back can't press the hole and find the crease, nothing else works. We want a physical, patient runner who can grind out yards between the tackles, convert on third-and-one, and then break the big one when the blocks connect. Receiving is secondary \u2014 our TEs are the primary pass-catchers.",
+      "archetype_examples": [
+        "Derrick Henry",
+        "Nick Chubb",
+        "Josh Jacobs"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "medium",
-      "explanation": "Monken increased RB pass game involvement significantly over the Greg Roman era in Baltimore. RBs were featured more on check-downs, intermediate routes, and even downfield concepts. However, Cleveland's identity will still be run-first (Ravens led NFL in rushing 2 of 3 years under Monken), and the primary back (Judkins) is valued first as a runner. Receiving ability is a plus trait, not the primary trait. Moderate boost for backs who can catch."
+    "WR": {
+      "scheme_role": "WRs in Monken's offense are not high-volume targets \u2014 the system feeds TEs and the run game first. Baltimore used 11 personnel at the lowest rate in the NFL (29.9%), meaning WRs are often limited to two on the field. However, the WRs that are on the field must be impactful on limited touches \u2014 they must win contested catches on play-action deep shots, create explosive plays after the catch on crossers, and block effectively in the run game (Monken used WR crack blocks extensively at Georgia). The WR1 must be a legitimate vertical threat to stretch defenses and prevent safeties from cheating into the box to stop the run.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Monken's WRs must run precise routes to create separation on intermediate crossers and to set up vertical shots off play-action. With fewer WR-targeted passes than typical offenses, each route must be efficient."
+        },
+        "Separation": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Important but somewhat mitigated by play-action \u2014 when the defense bites on the run fake, windows open that reduce the need for elite separation ability. Still important for third-down and non-play-action situations."
+        },
+        "Hands": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "With fewer total targets going to WRs in this heavy-personnel offense, each catch matters. Drops are devastatingly costly because opportunities are limited. Reliable hands are essential."
+        },
+        "YAC Ability": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Monken targets explosive plays and his WRs often catch short crossers or screens with space to run. YAC converts ordinary completions into chunk plays. This is how Zay Flowers was used in Baltimore \u2014 quick catches turned into explosive gains."
+        },
+        "Speed": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "The single most important WR trait in Monken's offense. Vertical speed stretches the defense to prevent safeties from loading the box against the run. Monken's four-verts concept (Air Raid staple) requires WRs who can threaten deep. If the defense doesn't respect the deep ball, they crowd the box and kill the run game. The WR must keep the defense honest."
+        },
+        "Contested Catches": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Play-action deep shots often result in contested catch situations \u2014 the QB is throwing before the WR has fully separated because the play-action creates a timing-based deep shot. The WR must win 50/50 balls. In Baltimore, DeAndre Hopkins was specifically added for his contested-catch ability."
+        },
+        "Release Package": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "With the Browns' defense potentially playing heavy man coverage, opposing defenses may do the same to Cleveland's WRs. A release package helps, but Monken's motion and bunch formations often create free releases for receivers."
+        }
+      },
+      "ideal_archetype": "The ideal WR is a fast, physical outside receiver who can stretch the field vertically on play-action shots, win contested catches on deep and sideline throws, and generate YAC on crossers and screens. Think Zay Flowers (explosive YAC) combined with DeAndre Hopkins (contested catch ability) \u2014 or a player like Stefon Diggs who can do both. This is not a pure slot receiver or a route-running technician playing in a timing-based West Coast system. This is a field-stretcher who keeps defenses honest and capitalizes on the high-quality looks the run game creates.",
+      "measurable_preferences": {
+        "40-yard dash": {
+          "ideal": "Sub-4.45",
+          "floor": "Sub-4.50",
+          "reasoning": "Vertical speed is the WR's primary contribution to this offense \u2014 stretching the defense to protect the run game. A slow WR cannot fulfill this role regardless of other traits."
+        },
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-10",
+          "reasoning": "Contested catches on play-action deep shots favor bigger receivers, but Monken has used shorter receivers effectively when they have elite speed and YAC ability (Zay Flowers at 5-10)."
+        }
+      },
+      "development_context": "Monken was a wide receivers coach earlier in his career (Jaguars 2007-2010) and has a track record of developing WRs within his system. He helped Justin Blackmon emerge at Oklahoma State. The coaching staff can develop route technique and scheme knowledge, but speed and ball skills must arrive ready. Cleveland's WR room is thin and will need immediate contributors.",
+      "scheme_fit_narrative": "Our WRs don't get the most targets in this offense \u2014 the TEs and the run game come first. But when we do throw to a receiver, it needs to count. We need a guy who can take the top off the defense and make the safety think twice before creeping into the box. Contested catches on play-action shots are where games are won. Speed first, physicality second, everything else follows.",
+      "archetype_examples": [
+        "Zay Flowers",
+        "DeAndre Hopkins",
+        "DK Metcalf"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "medium",
-      "explanation": "Under Schwartz, the Browns deployed three-safety nickel packages and used the strong safety near the box. Grant Delpit (108 tackles in 2024) and Ronnie Hickman (100 tackles in 2025) play physical, tackle-first safety roles. However, the low blitz rate means safeties are not frequently asked to blitz or rush. Rutenberg's background with Saleh values versatile safeties \u2014 he helped develop rookie Xavier Watts (5 INTs) in Atlanta. A safety who can cover, tackle in the box, and play slot coverage has value, but this is not a scheme that asks safeties to be LB/EDGE hybrids. Moderate boost for versatile, physical safeties."
+    "TE": {
+      "scheme_role": "The TE is arguably the most important skill position in Monken's offense. In Baltimore, he used 12 personnel at the second-highest rate in the past 20 years, and the Ravens' TE room (Andrews/Likely/Kolar) was central to everything the offense did. TEs must be dual-threat \u2014 credible enough as blockers to sell run-game personnel looks while dynamic enough as receivers to exploit LB/S matchups on play-action. The TE flexes into the slot, lines up inline, motions across the formation, and runs a full route tree. In Cleveland, Harold Fannin Jr. is the primary receiving TE, but the offense needs a second TE who can block.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Monken's 12-personnel offense is built on the TE being a primary receiving weapon. Mark Andrews posted 1,361 receiving yards in 2021 when Switzer worked with TEs. The TE is the mismatch creator that the entire passing game is designed around \u2014 seam routes, play-action targets, and red-zone scoring."
+        },
+        "Route Running": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The TE runs a full route tree in this system \u2014 seams, crossers, corners, digs, out routes. He must be able to separate from LBs and challenge safeties in zone coverage. Monken's bunch formations create compressed passing windows that require precision route-running to exploit."
+        },
+        "Blocking": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "This is what differentiates Monken's TE demands from a pure pass-catching TE offense. The 12-personnel identity means the TE must be on the field for run plays and sell the run-pass ambiguity. If the TE can't block, the defense knows it's a pass when he's on the field, destroying the schematic advantage. Charlie Kolar and Isaiah Likely were valued as run blockers despite being receiving TEs."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Monken moves TEs across the formation, motions them from inline to slot to wing, and uses them in a variety of roles. The TE must be athletic enough to flex into different alignments and create mismatches \u2014 this requires a rare combination of size and movement skills."
+        },
+        "Hands": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "As a primary receiving target in the intermediate passing game, the TE must have reliable hands in traffic. Many TE targets in this system come on play-action where the TE catches the ball in congested space over the middle."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The TE must be able to threaten safeties vertically on seam routes \u2014 this is how Andrews and Likely created explosive plays \u2014 but pure speed is less important than the combination of size, receiving skill, and blocking ability."
+        }
+      },
+      "ideal_archetype": "The ideal TE is a true Y-TE who can block inline on run plays and then beat a linebacker down the seam on play-action the next play. Think Mark Andrews or George Kittle \u2014 not a converted WR playing TE, but a genuine dual-threat who can sell the run with his blocking and then exploit the mismatch when the defense commits to the run. At Georgia, Monken used Brock Bowers in this exact role \u2014 flexing from inline to slot and running a full route tree while also contributing as a blocker.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-2",
+          "reasoning": "Size matters for both blocking and contested catches over the middle. The TE must present a mismatch over LBs in the passing game while being large enough to hold up at the point of attack in the run game."
+        },
+        "weight": {
+          "ideal": "240-260",
+          "floor": "230",
+          "reasoning": "Must be heavy enough to block defensive ends and linebackers on run plays from an inline alignment, but not so heavy that movement skills are compromised."
+        },
+        "40-yard dash": {
+          "ideal": "Sub-4.60",
+          "floor": "Sub-4.70",
+          "reasoning": "Must threaten safeties down the seam. Monken's play-action shots to TEs require enough speed to separate from LBs and challenge safety angles."
+        }
+      },
+      "development_context": "Switzer worked with TEs in Baltimore and helped develop Andrews into an All-Pro. Christian Jones coaches TEs in Cleveland (moved from ATL where he was assistant QBs coach). The staff can develop route running and receiving technique for TEs, but blocking technique at the NFL level is harder to coach quickly. A TE who arrives as a willing blocker with raw receiving talent fits better than the reverse.",
+      "scheme_fit_narrative": "The TE is the heartbeat of this offense. We run more two-TE sets than almost anyone in football, and the TE has to be able to do everything \u2014 block a defensive end on a gap run, motion to the slot and run a seam route on play-action, and be a reliable third-down target. If a prospect can only catch but can't block, he's a WR in our system, not a TE. We need the true dual-threat.",
+      "archetype_examples": [
+        "Mark Andrews",
+        "Brock Bowers",
+        "George Kittle"
+      ]
+    },
+    "OT": {
+      "scheme_role": "OTs in Monken's system must be scheme-versatile \u2014 primarily operating in a zone-blocking scheme (inside zone is the foundational run concept) while also executing gap/power blocking on counter plays. The offense operates heavily from shotgun/pistol, which changes pass-set demands compared to under-center offenses. With Cleveland's OL in complete rebuild (potentially all five starters turning over), the OT must be ready to contribute immediately. The OT must handle aggressive AFC North edge rushers (T.J. Watt, Odafe Oweh) while also being athletic enough to execute reach blocks and climb to the second level on zone runs.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The Browns ranked last in scoring over two years and had among the worst sack rates. Protecting the QB is existential for this rebuild. Monken's play-action requires time \u2014 the QB must be able to execute run fakes before throwing. Pass protection is the floor trait."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Equally weighted with pass protection because Monken's offense lives and dies with the run game. The OT must execute zone blocks (reach, double-team-to-climb) and gap blocks (down blocks, pulls on counter). The run game is not a complement \u2014 it is the identity."
+        },
+        "Footwork": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Zone blocking demands lateral footwork to execute reach blocks and get to the second level. Shotgun/pistol orientation requires different kickback angles than under-center pass sets. The OT must be light on his feet to execute both zone steps and pass sets."
+        },
+        "Anchor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "AFC North pass rushers (Garrett, Watt, Oweh) are among the best in football. The OT must be able to absorb bull rushes and hold the edge against power. This division demands anchor."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Zone blocking and climb-to-second-level technique require athletic OTs who can move in space. Monken's offense asks OTs to reach-block and engage LBs, which demands above-average athletic ability for the position."
+        },
+        "Strength": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Important for both pass protection anchoring and drive-blocking on gap plays, but footwork and athleticism are more scheme-critical than raw strength in a zone-based system."
+        }
+      },
+      "ideal_archetype": "The ideal OT is an athletic, scheme-versatile blocker who can execute zone concepts (reach, double-team, climb) while also anchoring against elite AFC North edge rushers. Think Ronnie Stanley in his prime or Penei Sewell \u2014 a technician with elite footwork who can move laterally in the zone game and pass-set against speed and power equally. Not a pure mauler who can only drive block, and not a pure pass protector who struggles in the run game. The Browns need a complete OT.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Length matters for pass protection in the AFC North against long-armed edge rushers, and for leverage in the zone blocking scheme."
+        },
+        "arm_length": {
+          "ideal": "34.5+",
+          "floor": "33.5",
+          "reasoning": "Long arms create wider blocking surfaces for zone reach blocks and better punch distance in pass protection against speed rushers."
+        },
+        "short_shuttle": {
+          "ideal": "Sub-4.60",
+          "floor": "Sub-4.75",
+          "reasoning": "Zone blocking demands lateral agility. The short shuttle is the best combine proxy for the lateral movement required on inside zone reach blocks."
+        }
+      },
+      "development_context": "Switzer was a college OL himself (center at Akron) and the offensive staff includes two assistant OL coaches (Sanders Davis, and likely others). However, with Cleveland's OL in total rebuild, the 2026 OT needs to contribute immediately \u2014 there isn't development time. The staff can refine technique and teach the zone scheme, but athleticism and pass protection fundamentals must arrive ready.",
+      "scheme_fit_narrative": "We're rebuilding the entire offensive line and our offense starts with the run game. We need a tackle who can zone-block, reach the second level, and also anchor against the best pass rushers in football \u2014 because we play in the AFC North. Athleticism and footwork are at a premium because we run a lot of inside zone out of shotgun. A stiff, phone-booth pass protector won't work. We need a mover.",
+      "archetype_examples": [
+        "Penei Sewell",
+        "Ronnie Stanley",
+        "Tristan Wirfs"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior OL in Monken's system execute inside zone double-teams, pull on counter/power concepts, and pass-protect in a shotgun-heavy offense. The center must handle pre-snap adjustments at tempo (Monken uses no-huddle). Guards must be capable pullers on gap/counter concepts \u2014 Monken runs a near-50/50 zone-to-gap split. The IOL must be athletic enough to climb to the second level on zone doubles and physically powerful enough to move the defensive interior. Cleveland signed Zion Johnson (G) and Elgin Jenkins (C) in free agency but still needs more youth and depth.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Must protect the interior against penetrating DTs and A-gap blitzes. The shotgun orientation means the IOL must handle quicker interior pressure paths. Important but slightly less dominant than at OT because the QB has more room to slide in the pocket from shotgun."
+        },
+        "Run Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The most important trait because the entire offense is built on running the football. IOL execute double-teams on inside zone, create drive on gap/power plays, and must be capable of physically displacing NFL DTs. Monken's run game led the NFL \u2014 the IOL are the engine."
+        },
+        "Pulling": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Monken runs counter and power concepts as complementary run concepts. Guards must be able to pull and lead through the hole. This is a critical differentiator \u2014 pure zone-scheme guards who can't pull are limited in this offense because of the 50/50 zone-to-gap split."
+        },
+        "Strength": {
+          "weight": 0.17,
+          "importance": "high",
+          "reasoning": "Must be strong enough to sustain double-teams on zone blocks and physically move DTs at the point of attack. AFC North interior defenders are physical and this scheme requires winning at the line of scrimmage."
+        },
+        "Anchor": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Must hold up against interior bull rushes on pass plays. Important but secondary to run blocking in a run-first offense."
+        },
+        "Versatility": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "With the OL in complete rebuild, a guard who can also play center (or vice versa) has added value. Monken's system also asks the center to handle tempo snap counts and line calls, which requires football intelligence that versatile linemen tend to possess."
+        }
+      },
+      "ideal_archetype": "The ideal IOL is a powerful, athletic run blocker who can execute zone doubles, pull on counter concepts, and sustain blocks at the second level. Think Tyler Linderbaum (athletic center who excels in zone) or Zack Martin (complete guard who can zone-block and power-pull equally). Not a pure pass-blocking specialist \u2014 this offense demands dominant run blocking first. The IOL must be able to move defensively \u2014 not a 350-pound anchor who can only pass protect.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "305-325",
+          "floor": "295",
+          "reasoning": "Must be heavy enough to sustain double-teams and drive blocks against NFL interior DL, but not so heavy that pulling ability is compromised."
+        },
+        "short_shuttle": {
+          "ideal": "Sub-4.60",
+          "floor": "Sub-4.75",
+          "reasoning": "Pulling and zone-blocking demand lateral agility. The IOL must be able to move their feet and reach the hole on counter pulls."
+        },
+        "bench_press": {
+          "ideal": "28+",
+          "floor": "24",
+          "reasoning": "Upper body strength correlates with the ability to sustain blocks and move defenders at the point of attack in a power-run scheme."
+        }
+      },
+      "development_context": "Switzer's background as a college center and the staff's emphasis on the run game mean IOL development is a priority. The staff can teach zone-blocking technique and the nuances of Monken's scheme. However, with the OL in total rebuild, IOL prospects must arrive with baseline strength and athleticism \u2014 there isn't time to develop raw players from scratch.",
+      "scheme_fit_narrative": "We need guards and a center who can run block at a high level first \u2014 our identity is the run game. But they also need to be able to pull on counter, because we're not a pure zone-only team. We want athletic, physical blockers who can move people at the line and get to the second level. Pure pass-protection specialists don't fit our scheme priority.",
+      "archetype_examples": [
+        "Tyler Linderbaum",
+        "Zack Martin",
+        "Joel Bitonio"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "The EDGE in this defense is a wide-9 aligned pass rusher whose primary job is to get after the quarterback. Myles Garrett (record-breaking 23 sacks in 2025) is the franchise cornerstone, but the defense needs a complementary EDGE who can produce one-on-one when Garrett draws attention. The Wide-9 alignment removes the EDGE from primary run-fitting responsibility \u2014 he is aligned outside the TE and his job is to win the edge and collapse the pocket. The scheme trusts interior defenders and LBs to fit the run. This is an attacking, get-upfield defense \u2014 not a read-and-react system.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "This is THE defining trait. The entire defense is built around four-man pressure with a low blitz rate. If the EDGE can't win one-on-one as a pass rusher, the defense cannot function because it doesn't rely on extra rushers. Garrett's 23 sacks came in a scheme designed to maximize pure pass-rush ability."
+        },
+        "Bend": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "The Wide-9 alignment creates a longer path to the quarterback. The EDGE must be able to bend the corner (dip and rip around the tackle's edge) to convert speed to pressure. Without bend, the wide alignment just means a wider rush lane with no payoff."
+        },
+        "First Step": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "An attacking, one-gap defense demands explosive first-step quickness to win the edge before the OT can set. The EDGE is firing upfield at the snap \u2014 there is no read, no hesitation. First step wins or loses the rep in this scheme."
+        },
+        "Power": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Important as a counter-move when the OT takes away the speed rush, but not the primary weapon. This scheme values speed-to-power conversion more than pure bull-rush ability. Garrett uses a devastating long-arm, but his primary move is speed."
+        },
+        "Motor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Must chase plays from the backside even from a wide alignment. Important for effort and cleanup, but the scheme doesn't ask the EDGE to be a high-volume tackler \u2014 that's the LBs' job."
+        },
+        "Run Defense": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The Wide-9 alignment largely excuses the EDGE from run-fitting responsibility. Garrett plays Wide-9 even on run downs, which 'removes him from being a core piece of fitting and stopping the run.' The complementary EDGE must set the edge on runs his direction but is not asked to be a primary run defender."
+        }
+      },
+      "ideal_archetype": "The ideal EDGE is a speed-based pass rusher with elite bend who can win one-on-one from a wide-9 alignment, complementing Garrett's dominance on the other side. Think Micah Parsons or Maxx Crosby \u2014 explosive off the edge with the bend to convert speed to sacks, and enough motor to chase plays down from the backside. This is not a traditional 3-4 OLB who sets the edge \u2014 this is a pure pass rusher who happens to play in a 4-3 alignment.",
+      "measurable_preferences": {
+        "40-yard dash": {
+          "ideal": "Sub-4.60",
+          "floor": "Sub-4.70",
+          "reasoning": "Speed is the primary pass-rush weapon in the Wide-9. The EDGE needs to threaten the corner and force OTs into panic sets."
+        },
+        "3-cone drill": {
+          "ideal": "Sub-7.00",
+          "floor": "Sub-7.15",
+          "reasoning": "Bend and change-of-direction are critical for converting speed to sacks. The 3-cone is the best combine proxy for the bend needed to dip around the edge."
+        },
+        "weight": {
+          "ideal": "240-265",
+          "floor": "235",
+          "reasoning": "Must be heavy enough to hold up against OT strikes while maintaining the speed and bend to win with athleticism. Too heavy and the speed advantage disappears."
+        }
+      },
+      "development_context": "DL coach Jacques Cesaire is retained from the Schwartz staff and has developed multiple pass rushers in Cleveland. The scheme and coaching are in place to develop EDGE technique (hand usage, rush moves). What must arrive is the physical toolkit \u2014 first step, bend, and explosiveness cannot be coached. A raw athlete with speed and bend can be developed into a pass rusher in this scheme; a slower, more powerful player cannot be turned into a speed rusher.",
+      "scheme_fit_narrative": "Garrett is the best pass rusher in football and he draws constant double-teams. We need a complementary EDGE who can win his one-on-one on the other side. The defense rushes four and plays coverage behind it \u2014 if both edges can win, quarterbacks have nowhere to go. Give us a speed rusher with bend who can get home from the wide-9 and we'll wreck game plans.",
+      "archetype_examples": [
+        "Maxx Crosby",
+        "Micah Parsons",
+        "Myles Garrett"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Interior DL in this defense are one-gap penetrators who attack their gap and disrupt the play at or behind the line of scrimmage. Mason Graham (2025 first-round pick) is the anchor at 3-technique. The scheme asks DTs to shoot gaps, collapse the pocket from the inside, and create pressure to complement the edge rush. This is NOT a two-gap, space-eating system \u2014 the DL are expected to be disruptive, not occupy blockers. Interior DL also rotate heavily to maintain freshness and intensity across four quarters.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Interior pass rush is critical because the defense relies on four-man pressure. When Garrett draws attention outside, the interior DL must win inside to create pocket collapse. Maliek Collins had 6.5 sacks and 13 QB hits in 2025 playing next to Garrett."
+        },
+        "Run Defense": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "The one-gap system requires the DT to control his gap and prevent interior runs. The Browns ranked first in PFF run-defense grade in 2025. However, the attacking style can leave the defense vulnerable to cutback runs if DTs don't maintain gap integrity while penetrating."
+        },
+        "First Step": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "One-gap penetrating technique demands explosive first steps to get across the face of blockers and into the offensive backfield. The entire DL scheme is built on winning at the snap \u2014 if the DT can't fire off the ball, he gets reached and sealed."
+        },
+        "Hand Usage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must defeat blocks quickly with hands to maintain gap control while penetrating. Hand usage is how DTs in this scheme stay skinny through gaps and avoid getting washed."
+        },
+        "Motor": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "DL rotate heavily to maintain intensity, but each DT must play at max effort every snap they're on the field. The defense demands relentless effort on every play."
+        },
+        "Strength": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Important for holding the point of attack on run plays and creating push in the pass rush, but this scheme values quickness and first step over raw power. DTs who are heavy and strong but slow don't fit the one-gap attacking style."
+        }
+      },
+      "ideal_archetype": "The ideal interior DL is an explosive, penetrating 3-technique who can collapse the pocket from the inside and control one gap against the run. Think Chris Jones or Aaron Donald \u2014 a disruptive interior presence who generates negative plays through quickness and technique, not a massive nose tackle who absorbs double-teams. This defense doesn't need a 340-pound space-eater. It needs a 285-310 pound gap-shooter who creates havoc.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "285-310",
+          "floor": "275",
+          "reasoning": "One-gap penetrators must be explosive enough to fire off the ball while maintaining enough mass to hold their gap. Too heavy and first-step quickness is compromised."
+        },
+        "40-yard dash": {
+          "ideal": "Sub-4.90",
+          "floor": "Sub-5.00",
+          "reasoning": "First-step quickness is paramount in a one-gap system. Faster DTs fire into gaps more effectively."
+        }
+      },
+      "development_context": "DL coach Jacques Cesaire developed Mason Graham (2025 first-rounder) as a rookie into a productive starter. The staff has a track record of developing young DL within the attacking system. Technique (hand usage, gap discipline) can be developed, but explosive first-step and athleticism must arrive. A raw athlete with quickness can be coached up; a slow, strong player cannot be turned into a penetrator.",
+      "scheme_fit_narrative": "We don't want a space-eater who sits there and absorbs blocks. We want a DT who gets off the ball, shoots his gap, and creates negative plays. If Garrett is collapsing the pocket from outside, we need someone collapsing it from inside. Quick, disruptive, relentless. That's our interior DL profile.",
+      "archetype_examples": [
+        "Chris Jones",
+        "Mason Graham",
+        "Javon Hargrave"
+      ]
+    },
+    "LB": {
+      "scheme_role": "The Browns' defense typically uses just one true LB in nickel (4-2-5), with Carson Schwesinger as the every-down MIKE who calls the defense (wears the green dot). In base, a second LB plays alongside Schwesinger. The MIKE must be a multi-dimensional player \u2014 stopping the run between the tackles, covering tight ends and running backs in man and zone, and occasionally blitzing. LBs in this defense must be excellent tacklers (Schwesinger led all rookies with 147 tackles) and have enough coverage ability to handle the passing game responsibilities that come with a man-heavy defensive scheme. Rutenberg coached LBs for 4 years with the Jets, developing Quincy Williams into an All-Pro.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "The attacking DL penetrates and creates disruption, but the LB must clean up and finish plays. The Browns prided themselves on low missed tackle rates (4th fewest in 2025). In a one-gap defense, runners who get through the line must be stopped by the LB \u2014 there's no safety net."
+        },
+        "Coverage": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The man-heavy defensive scheme means the LB is regularly matched up against RBs and TEs in coverage \u2014 both man and zone. With 40%+ of snaps in Cover 1, the LB must be able to match up in man coverage and not be a liability. This was specifically elevated under Schwartz and will continue under Rutenberg."
+        },
+        "Pass Rush": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The defense generates pressure from the front four, not LB blitzes. The blitz rate has been low (18-30%). LBs blitz occasionally on delayed rushes or simulated pressures, but it's not a primary responsibility."
+        },
+        "Instincts": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The MIKE LB calls the defense and must diagnose offensive formations, set the defense, and react to the play. Schwesinger called the defense as a rookie \u2014 this position demands a football-smart player who processes quickly. Rutenberg's experience developing C.J. Mosley (known for his football IQ) shows this is valued."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must be athletic enough to cover TEs in man, chase RBs to the sideline, and close on ball carriers in the run game. The modern passing game demands LBs who can move sideline-to-sideline."
+        },
+        "Range": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Important for sideline-to-sideline run stopping and for covering space in zone, but the one-gap defense and man-heavy coverage reduce the need for extreme range compared to a two-gap or zone-heavy defense."
+        },
+        "Block Shedding": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The attacking DL is designed to keep blockers off the LB, but the LB must still shed blocks when they arrive, particularly on inside runs where OL climb to the second level."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.05,
+          "importance": "moderate",
+          "reasoning": "The green-dot MIKE must set the defense and communicate calls. Important but the simplified coverage scheme (heavy Cover 1) reduces the diagnostic burden compared to complex pattern-matching systems."
+        }
+      },
+      "ideal_archetype": "The ideal LB is an every-down player who can tackle reliably, cover tight ends and running backs in man coverage, and process the game quickly enough to call the defense. Think Quincy Williams (All-Pro under Rutenberg) or Fred Warner \u2014 an instinctive, athletic LB who makes plays sideline-to-sideline, handles coverage responsibilities without being a liability, and finishes tackles at a high rate. Not a thumper who can only play downhill, and not a coverage-specialist tweener. A complete, every-down LB.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "225-245",
+          "floor": "220",
+          "reasoning": "Must be physical enough to take on blocks and tackle power runners between the tackles, but athletic enough to cover TEs and RBs in space."
+        },
+        "40-yard dash": {
+          "ideal": "Sub-4.55",
+          "floor": "Sub-4.65",
+          "reasoning": "Coverage demands require LBs who can run with NFL TEs and RBs. Man coverage is a primary scheme element \u2014 slow LBs get exposed."
+        }
+      },
+      "development_context": "Rutenberg's primary coaching background is as a linebackers coach (4 years with Jets). He developed Quincy Williams and C.J. Mosley into All-Pro/Pro Bowl players. Jason Tarver (linebackers coach/run game coordinator) also remains on staff. This staff can develop LB technique, coverage skills, and defensive processing. What must arrive is athleticism and instincts \u2014 the scheme demands both.",
+      "scheme_fit_narrative": "Our LB has to do everything. We play a lot of man coverage, so he's going to be matched up on TEs every week \u2014 he has to be able to run with them. We also need him to be a sure tackler because when our DL creates disruption, the LB finishes the play. If he can cover and tackle, we'll teach him the rest. Athletic, instinctive, tough \u2014 that's the profile.",
+      "archetype_examples": [
+        "Quincy Williams",
+        "Fred Warner",
+        "Roquan Smith"
+      ]
+    },
+    "CB": {
+      "scheme_role": "CBs in this defense are asked to play man coverage at the NFL's highest rates. Under Schwartz, the Browns led the league in man-coverage rate 2 of 3 years, and Rutenberg's Atlanta defense played man at the second-highest rate. The CB lines up across from his receiver and is expected to shut him down one-on-one while the pass rush gets home. The defense played Cover 1 on ~40% of snaps \u2014 the CB has a single-high safety behind him but is otherwise on an island. Denzel Ward (5-time Pro Bowler) is the CB1 with Tyson Campbell as CB2. The defense needs depth behind them, as the 2025 season exposed vulnerability when Ward was injured.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "This is THE defining trait for CBs in this defense. The Browns played man coverage at the highest rate in the NFL under Schwartz, and Rutenberg's background is in man-heavy systems. The CB must be able to mirror routes, maintain phase, and lock down his receiver one-on-one. There is no hiding in this defense."
+        },
+        "Ball Skills": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Important for creating turnovers, but the primary expectation is lockdown coverage \u2014 not gambling for picks. The defense prioritizes limiting completions over creating turnovers. Ball skills are a bonus, not the priority."
+        },
+        "Zone Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Rutenberg may introduce more Cover 3 and quarters than Schwartz used, which would require zone technique. The Falcons ran Cover 3 on 45.7% of snaps. The CB must be capable in zone, but man coverage remains the primary demand."
+        },
+        "Speed": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Man coverage demands the ability to stay with NFL receivers who run 4.3-4.4 40s. The CB must have recovery speed to survive when beaten off the line and keep plays in front of him. Without speed, man coverage against elite WRs is a death sentence."
+        },
+        "Press": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The defense lines CBs up in press alignment to disrupt timing and re-route receivers at the line. Schwartz and the Saleh/Bradley tree use press bail technique (align press, bail at the snap) as a key disguise. The CB must be comfortable engaging at the line of scrimmage."
+        },
+        "Nickel": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The Browns have a dedicated nickelbacks coach (Jeff Anderson). The outside CBs are not typically asked to play in the slot, but versatility to play both outside and inside adds value, particularly for depth pieces."
+        }
+      },
+      "ideal_archetype": "The ideal CB is a press-man corner who can line up on an island, disrupt at the line of scrimmage, mirror routes in phase, and has the recovery speed to survive when beaten. Think Denzel Ward or Jalen Ramsey \u2014 a corner who erases receivers in man coverage and doesn't need safety help to function. This is not a zone-specialist who sits in his area and reads the QB's eyes. This is a lockdown cover guy who takes away his receiver and lets the pass rush get home.",
+      "measurable_preferences": {
+        "40-yard dash": {
+          "ideal": "Sub-4.40",
+          "floor": "Sub-4.45",
+          "reasoning": "Man coverage demands elite speed to stay with NFL receivers. The CB is on an island in Cover 1 with only a single-high safety behind him. Speed is non-negotiable."
+        },
+        "height": {
+          "ideal": "5-11 to 6-1",
+          "floor": "5-10",
+          "reasoning": "Must be physical enough to press at the line and compete in contested-catch situations. Shorter corners can work if they have elite speed and technique, but length helps in press-man."
+        },
+        "arm_length": {
+          "ideal": "32+",
+          "floor": "31",
+          "reasoning": "Arm length helps with press technique \u2014 longer arms create more disruption at the line and better ability to re-route receivers."
+        }
+      },
+      "development_context": "Brandon Lynch (DBs coach/pass game specialist) has been with the Browns since 2020 and helped develop Ward into a consistent Pro Bowler. He's widely seen as a future DC candidate. The staff can develop press technique, footwork, and coverage awareness. Speed, hip fluidity, and ball skills must arrive \u2014 those are not teachable. A raw, athletic corner with speed can be developed; a slow, technically sound corner cannot play man coverage at the NFL level.",
+      "scheme_fit_narrative": "Our defense asks corners to play man coverage more than any team in football. You're going to line up across from the other team's best receiver, press him, and take him away. The pass rush will get home \u2014 we just need you to hold your matchup for 3-4 seconds. If you can't play man, you can't play here. Speed and press ability are non-negotiable.",
+      "archetype_examples": [
+        "Denzel Ward",
+        "Jalen Ramsey",
+        "Sauce Gardner"
+      ]
+    },
+    "S": {
+      "scheme_role": "The safety in this defense operates primarily as a single-high free safety in Cover 1 (the defense's most common look) or as a deep-third player in Cover 3. The defense ran MOFC (middle of field closed) on the majority of snaps, meaning one safety is typically the last line of defense over the top. With Rutenberg's background, the safety may also be asked to play more quarters coverage (two-high) than under Schwartz. The strong safety / box safety must be capable in man coverage against TEs and in the box on run support. Ephraim Banda (now defensive pass game coordinator) coaches safeties and developed Xavier Watts (5 INTs as a rookie in Atlanta).",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Cover 1 is a man-free concept \u2014 the safety is 'free' but the SS/slot defender is often in man coverage on the TE or RB. The box safety must be capable in man to handle the heavy Cover 1 usage."
+        },
+        "Range": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "As the single-high safety in the defense's most common coverage (Cover 1 and Cover 3), range to cover the entire width of the field is the defining trait. The safety must get from hash to sideline to prevent explosive plays behind the man coverage. This is the most important safety trait in any single-high defense."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The single-high safety sees the entire field and must make plays on the ball when it's thrown. Under Schwartz, the defense valued takeaways. In Atlanta, Rutenberg helped Jessie Bates III and Xavier Watts combine for 8 INTs from the safety position."
+        },
+        "Tackling": {
+          "weight": 0.17,
+          "importance": "high",
+          "reasoning": "The safety is the last line of defense against explosive runs and catches. In a man-heavy scheme where corners are locked on receivers, missed tackles by the safety result in touchdowns. The Browns' low missed-tackle rate was a point of pride."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must have the speed to cover the deep middle in single-high looks and close on the ball when thrown to the boundary. NFL speed is essential for a single-high safety who must cover sideline-to-sideline."
+        },
+        "Nickel": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The defense has a dedicated nickelback position, so the safety is not typically asked to play in the slot. However, a versatile safety who can rotate into box/nickel roles adds schematic flexibility, particularly in Rutenberg's system which may incorporate more two-high looks."
+        }
+      },
+      "ideal_archetype": "The ideal safety is a rangey, ball-hawking center-fielder who can cover the deep middle in single-high coverage and make plays on the ball. Think Jessie Bates III or Minkah Fitzpatrick \u2014 a free safety with elite range, ball skills, and reliable tackling who is the last line of defense behind an aggressive front seven. For the SS/box role, think a more versatile player who can cover TEs in man and support the run \u2014 Kyle Hamilton or Derwin James. The defense needs both archetypes.",
+      "measurable_preferences": {
+        "40-yard dash": {
+          "ideal": "Sub-4.50",
+          "floor": "Sub-4.55",
+          "reasoning": "Single-high safety must cover the entire width of the field. Speed is the foundation of range."
+        },
+        "height": {
+          "ideal": "6-0 to 6-2",
+          "floor": "5-11",
+          "reasoning": "Size helps with tackling in the open field and contesting passes at the catch point. The safety is often the last defender between the ball carrier and the end zone."
+        }
+      },
+      "development_context": "Ephraim Banda (now defensive pass game coordinator) developed Xavier Watts into an elite rookie safety with 5 INTs in Atlanta. The staff can develop ball skills, coverage technique, and defensive processing. Range and speed must arrive \u2014 they cannot be taught. A safety with natural range and ball skills can be coached into the scheme quickly.",
+      "scheme_fit_narrative": "We play a lot of single-high coverage, so our free safety needs to be a centerfielder who can cover the whole field and make plays on the ball. He's the insurance policy behind our man coverage \u2014 when a corner gets beat, the safety has to be there. Range and ball skills are the priorities. For the box safety, we need a guy who can match up on TEs in man and come up to support the run. Both roles matter.",
+      "archetype_examples": [
+        "Jessie Bates III",
+        "Minkah Fitzpatrick",
+        "Kyle Hamilton"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Cleveland's scheme creates a unique draft value profile: (1) TIGHT END is a premium need and premium scheme fit \u2014 with Njoku departing and Monken's 12/22-personnel-heavy system, a receiving TE like Kenyon Sadiq would function as a WR-equivalent weapon and should be valued 10-15 picks higher for CLE than for teams running light 11-personnel offenses; (2) OFFENSIVE LINE is the single biggest roster need, with Bitonio, Teller, Pocic, and multiple tackles hitting free agency \u2014 Monken's zone-based run scheme values athletic OL who can move laterally; (3) The 4-3 wide-9 defense with its league-lowest blitz rate means pass-rushing LBs have almost NO scheme fit here \u2014 LB prospects should be valued for coverage, tackling, and instincts, not pass rush; (4) DE/EDGE remains premium \u2014 Schwartz/Rutenberg's system is literally built around dominant 4-down rushing, and any edge prospect with explosion and bend pairs perfectly opposite Myles Garrett; (5) RB receiving traits have moderate value given Monken's increased back involvement in the pass game vs. the old Cleveland offensive approach; (6) SAFETY with coverage versatility fits the Rutenberg mold (Saleh tree values rangy, ball-hawking safeties), but the low-blitz scheme limits hybrid/blitz safety value.",
+  "scheme_draft_intelligence": "The Cleveland Browns enter the 2026 draft with a uniquely split roster: an elite defense that ranked top-4 in total yards allowed three consecutive years, and an offense that ranked last in scoring over the past two seasons. New head coach Todd Monken brings an offensive identity centered on establishing the run game through inside zone concepts from heavy personnel (12/21/22), generating explosive plays through play-action, and spacing the field to create mismatches. His OC Travis Switzer oversaw the NFL's top rushing attack in Baltimore. On defense, Mike Rutenberg was hired to maintain the attacking Wide-9 front and man-heavy coverage system that Schwartz built, with potential wrinkles from Rutenberg's Saleh/Bradley coaching tree (more Cover 3 and quarters mixed in, additional pre-snap disguises). The front-four pressure and man-coverage philosophy should remain intact.\n\nThe biggest draft value differentials for Cleveland stem from Monken's offensive system. First, the massive offensive line rebuild creates immediate need for scheme-specific OTs and IOL who can execute both zone and gap blocking concepts. Unlike pure zone-scheme teams that want only lateral movers, or pure power teams that want only maulers, Cleveland needs the rare OL who can do both \u2014 zone-step and reach-block while also pulling on counter. This narrows the prospect pool but creates a clear evaluation lens. Second, Monken's emphasis on TE-centric heavy personnel makes TE an unusually high-value position for this team. A dual-threat TE who can block and receive \u2014 like Brock Bowers or Mark Andrews \u2014 has scheme-inflated value in Cleveland because the offense runs through that position more than any other team. Third, the QB situation is unresolved (Shedeur Sanders, Deshaun Watson, and Dillon Gabriel are all on the roster), and Monken's clear preference for mobile QBs who can execute the read-option creates a specific trait profile that differs from most teams.\n\nOn defense, the draft priority is maintaining depth rather than wholesale change. The defense's structure is set with Garrett, Graham, Schwesinger, and Ward as cornerstones. The biggest defensive draft needs are at CB2/depth (the defense was exposed when Ward went down in 2025), safety (where the team needs a true single-high centerfielder with range), and interior DL depth (after Maliek Collins' injury). Rutenberg's background developing linebackers (Quincy Williams, C.J. Mosley) and the addition of Dom Capers as senior defensive assistant suggest the defense will continue to maximize the talent already in place.\n\nHistorically, GM Andrew Berry has favored athletic, versatile players who can contribute in multiple scheme roles. This tendency aligns well with both Monken's personnel-flexible offense and Rutenberg's defense that asks players to play fast in simplified coverage schemes. Berry has also been willing to make aggressive trades for veteran players (Amari Cooper, Tyson Campbell), so the draft may focus on foundational pieces (OL, TE, WR) while free agency and trades address immediate needs at positions like QB and CB. The two first-round picks (6th overall and 24th via Jacksonville) give Cleveland significant draft capital to address the offensive rebuild while maintaining defensive depth \u2014 expect at least one OT and one skill-position player (WR or TE) in the first round.",
   "confidence": "high",
   "sources": [
-    "clevelandbrowns.com official coaching staff and coordinator announcements (Jan-Mar 2026)",
-    "ESPN \u2014 Browns hire Todd Monken as new head coach (Jan 28, 2026)",
-    "ESPN \u2014 3 big questions as Mike Rutenberg takes over Browns defense (Feb 2026)",
-    "Fox Sports / AP \u2014 Browns tab Travis Switzer as OC, Mike Rutenberg as DC (Feb 2026)",
-    "NFL.com \u2014 Browns hire Travis Switzer as offensive coordinator (Feb 2026)",
-    "PFF \u2014 Breaking down the Cleveland Browns dominant defense (2025)",
-    "Pro Football Network \u2014 Early Look at Browns Defense Under Jim Schwartz (4-3 wide-9 analysis)",
-    "The Baltimore Banner \u2014 Todd Monken A-to-Z offense breakdown (2023)",
-    "Heavy.com \u2014 Ravens personnel packages under Monken (12/22 personnel analysis)",
-    "Wikipedia \u2014 Todd Monken, Mike Rutenberg, Jim Schwartz career histories",
-    "Dawgs By Nature \u2014 Mike Rutenberg profile (Saleh/Bradley tree analysis)",
-    "News-Herald \u2014 Rutenberg introductory press conference (Mar 3, 2026)",
-    "BrownsZone \u2014 Rutenberg great fit for what Monken wanted (Feb 25, 2026)",
-    "Roundtable.io \u2014 Todd Monken offensive stats and personnel groupings in Baltimore"
+    "clevelandbrowns.com coaching staff pages",
+    "ESPN - Browns hiring Todd Monken as new coach (January 2026)",
+    "ESPN - 3 big questions as Mike Rutenberg takes over Browns defense (February 2026)",
+    "NFL.com - Browns hire Travis Switzer as OC (February 2026)",
+    "SI.com - Who Is Mike Rutenberg (February 2026)",
+    "PFF - Breaking down the Browns dominant defense 2025",
+    "Baltimore Banner - Todd Monken Ravens offense A to Z",
+    "Baltimore Ravens official site - Todd Monken Six Pillars",
+    "Dawgs By Nature - Mike Rutenberg profile (February 2026)",
+    "Wikipedia - Mike Rutenberg coaching history",
+    "Roundtable.io - 3 Todd Monken offensive stats for Browns fans",
+    "Roundtable.io - 3 key figures for Rutenberg scheme",
+    "ESPN - Browns free agency primer 2026",
+    "Steelers Depot - Browns defense scouting report (December 2025)",
+    "Pro Football Rumors - Browns coaching staff updates (February 2026)"
   ]
 }

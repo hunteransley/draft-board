@@ -6,71 +6,733 @@
       "name": "Brian Schottenheimer",
       "tenure_years": 2,
       "background": "offensive",
-      "scheme_philosophy": "Physical, run-committed offense built on tight formations, pre-snap motion, play-action, and tempo. Emphasizes marrying run and pass concepts to create deception. Son of Marty Schottenheimer; career OC stints with Jets, Rams, Seahawks, and Cowboys."
+      "coaching_tree": "Marty Schottenheimer family lineage \u2192 West Coast/Coryell hybrid \u2192 Pete Carroll/Seattle influence. Father Marty Schottenheimer was a legendary HC. Brian served as OC for Jets (2006-2011), Rams (2012-2014), Seahawks (2018-2020), then Dallas OC under McCarthy (2023-2024) before promotion to HC.",
+      "scheme_philosophy": "Run-game-anchored offense that uses play-action and tempo to stretch the field vertically. Calls his own plays. Believes in 'cut splits, shifts, and motions to distort things, marrying runs and passes and making those things look the same.' Emphasizes getting the ball to elite players rather than forcing it to specific areas of the field. Historically ranks in top 10 in rushing and play-action rate. Has shown adaptability \u2014 evolved from ground-and-pound with Jets to 'Let Russ Cook' in Seattle \u2014 but core identity remains balanced, physical, and play-action driven."
     },
     "offensive_coordinator": {
       "name": "Klayton Adams",
-      "scheme_tree": "Run-game specialist; OL coach background via Boise State, Colorado, Indianapolis Colts, Arizona Cardinals. Emphasizes physicality, outside zone, and explosive run concepts.",
-      "play_caller": false
+      "coaching_tree": "Former OL coach at Boise State, Colorado, Indianapolis Colts, and Arizona Cardinals. Run game design specialist who rose through the OL coaching ranks. Brought to Dallas specifically for his ability to create elite run games.",
+      "scheme_evolution": "In Arizona (2023-2024), Adams' offensive line unit was the engine behind one of the league's best rushing attacks \u2014 third in rushing yards per game (141.6), second in yards per carry (5.02), and first in big-play rushing (15.4% of carries gaining 10+ yards). Brought a physical, violence-first mentality to Dallas. His philosophy: 'Create violence in the game. Be aggressive, run, hit.'",
+      "development_track_record": "Resurrected James Conner's career in Arizona with back-to-back 1,000-yard seasons. Helped develop Paris Johnson Jr. as a rookie RT who started all 17 games. Strong track record of developing OL into cohesive run-blocking units. In Dallas, Javonte Williams rushed for a career-best 1,201 yards and 11 touchdowns in Year 1 under Adams."
     },
     "defensive_coordinator": {
       "name": "Christian Parker",
-      "scheme_tree": "Vic Fangio tree (Denver Broncos DBs coach, Philadelphia Eagles passing game coordinator under Fangio). Also influenced by Ejiro Evero and Vance Joseph. First-time NFL coordinator.",
-      "play_caller": true
+      "coaching_tree": "Vic Fangio tree \u2014 served under Fangio as DBs coach in Denver (2020-2022) and as DBs coach/pass game coordinator in Philadelphia (2024-2025). Also worked under Ejiro Evero and Vance Joseph in Denver (all Fangio disciples). Entered NFL with Packers as QC coach under Mike Pettine (2019). First-time DC at age 34, youngest in Cowboys franchise history.",
+      "scheme_evolution": "Parker's entire NFL career has been spent coaching Fangio-tree defenses. In Denver, he developed Patrick Surtain II into a three-time All-Pro and NFL DPOY. In Philadelphia, he helped develop rookies Quinyon Mitchell and Cooper DeJean into first-team All-Pro talents while the Eagles ran the league's sixth-best pass defense and allowed the fewest passing TDs. Parker inherits the Fangio system's two-high safety shell, quarters-based match coverage, and front disguise, but will add his own wrinkles \u2014 particularly around more five-man fronts given Dallas's DT depth and a willingness to be more player-adaptive than Fangio himself.",
+      "development_track_record": "Elite DB developer: Patrick Surtain II (DPOY, three-time All-Pro), Jaire Alexander (Pro Bowl CB in Green Bay), Quinyon Mitchell (first-team All-Pro as rookie), Cooper DeJean (first-team All-Pro as rookie nickel). Parker's calling card is developing young corners and safeties into scheme-ready, technically sound cover players. Schottenheimer specifically cited this development track record as the primary reason for the hire."
     }
   },
   "offense": {
-    "scheme_family": "Schottenheimer pro-style with modern wrinkles: tight formations, heavy motion/shifts, play-action, tempo elements. OC Adams brings run-game emphasis from Arizona Cardinals zone scheme.",
-    "base_personnel": "11 primary, with significant 12 personnel on early downs",
-    "run_scheme": "Outside zone / wide zone primary, with duo, power, and pulling guard concepts mixed in. Adams coached one of the NFL's most explosive run games in Arizona (top-3 rushing 2023-24). Designed to create big-play rushing opportunities.",
-    "pass_concepts": "Play-action heavy off run-game looks, boot concepts, seam routes to TE, vertical shots. Schottenheimer emphasizes marrying run/pass so they look identical pre-snap. Uses cut splits, stacked formations, and tempo to manipulate defenses. Heavy short/intermediate targeting of TE as safety valve.",
-    "rpo_usage": "moderate",
-    "te_usage": "High-volume receiving target and inline blocker. Jake Ferguson had career-high 82 receptions and 8 TDs in 2025 (Pro Bowl). Used heavily in motion, play-action, and as Dak Prescott's primary safety valve underneath. 12 personnel featured on early downs with Ferguson and Schoonmaker.",
-    "rb_usage": "Committee approach with lead back tendencies. Javonte Williams rushed for 1,201 yards and 11 TDs in 2025, earning extension. Williams valued for power, pass protection. Scheme uses RB motion to create mismatches, motioning to empty sets and shifting back for play-action deception."
+    "scheme_family": "Schottenheimer Hybrid (Coryell/West Coast blend with Seattle-era influence)",
+    "scheme_detail": "Schottenheimer's offense is rooted in old-school principles \u2014 run the ball, control tempo, use play-action, avoid turnovers \u2014 but layered with modern elements from his Seattle years: heavy pre-snap motion, cut splits to manipulate defensive alignments, and tempo bursts. Adams' OC hire reinforces the run-first identity, bringing gap/power concepts alongside Schottenheimer's preferred inside zone. The Cowboys averaged 406 yards per game (league-leading) and 27.7 points per game in 2025. Prescott threw for 4,552 yards and 30 TDs. The offense married a strong run game (Javonte Williams, 1,201 yards) with explosive passing featuring CeeDee Lamb (1,077 yards) and George Pickens (1,429 yards).",
+    "run_scheme": "Inside zone primary with gap/power and duo concepts mixed in. Adams brought Arizona's big-play rushing philosophy to Dallas \u2014 emphasizing lateral OL movement to create cutback lanes and second-level reach blocks. Outside zone, duo, and power schemes are all in the toolbox. Pulling guards and motioning TEs/WRs create misdirection and eye candy. The Cowboys drafted Tyler Booker (first round) specifically to be a mauling run blocker for this scheme.",
+    "pass_architecture": "Play-action is the foundation \u2014 Schottenheimer's Seahawks ranked eighth in play-action rate (28.4%). The passing game is built to attack all three levels off run-action: boot concepts, deep crossers, and shots downfield to Pickens. Quick game features timing routes (slants, curls, crossers) from the West Coast foundation. Heavy use of cut splits to create pre-snap leverage advantages. Schottenheimer wants to 'make everyone cover the entire field' \u2014 the deep ball is a key feature, not a luxury.",
+    "personnel_tendencies": "11 personnel (3WR) is the base, but 12 personnel (2TE with Jake Ferguson and Luke Schoonmaker) sees significant early-down usage for play-action and run-game versatility. KaVontae Turpin is deployed as a slot/motion weapon in jet sweeps, screens, and orbit motion packages. George Pickens plays outside as the primary vertical threat. CeeDee Lamb operates across formations \u2014 outside, slot, and in motion.",
+    "motion_tempo": "High motion rate \u2014 a deliberate departure from McCarthy's static formations. Schottenheimer emphasizes shifts, motions, and tempo bursts as core schematic weapons. Cowboys use motion to reveal coverage, create leverage, and simplify reads for Prescott. Tempo is selective \u2014 bursts of no-huddle to keep defenses off balance rather than constant hurry-up."
   },
   "defense": {
-    "base_front": "3-4 (new for 2026, first time since 2012)",
-    "alignment": "Odd front with 3 down linemen and 4 LBs in base; shifts to 4-2-5 nickel and 4-3 spacing situationally. Parker stressed 'multiplicity' as the core identity. Fangio-style gap-and-a-half technique for DL, not traditional two-gap 3-4.",
-    "edge_rush_source": "OLB stand-up primarily, with hybrid versatility. Donovan Ezeiruaku (2025 2nd-round pick) as primary edge rusher. Marist Liufau being converted from ILB to OLB/edge role. Dallas is actively seeking additional edge talent via draft/free agency. OLB coach Chidera Uzo-Diribe hired specifically for this role.",
-    "coverage_base": "Cover 4 (quarters) / Cover 6 / Cover 8 match zone, heavy two-high safety shell pre-snap with post-snap rotation into Cover 3 or split-field looks. Fangio tree: coverage disguise is paramount. Zone-match principles that morph into man-match post-snap. Will use man coverage if corner talent allows. Major shift from Eberflus single-high zone emphasis.",
-    "blitz_tendency": "light (Fangio tree historically among lowest blitz rates in NFL; Parker stated 'if we can win on blitzing a running back, we'll blitz a lot' but default philosophy relies on 4-man rush efficiency and coverage disguise)",
-    "lb_role": "OLBs are primary edge rushers in base 3-4. ILBs tasked with coverage and run-stuffing. Nickel DB functions as extra LB in run support (Fangio's 'big nickel' concept). DeMarvion Overshown and Shemar James project as ILBs. Parker values high-IQ, versatile LBs who can match in coverage.",
-    "safety_usage": "Two-high shell as default pre-snap look, with heavy post-snap rotation. Safeties must be versatile \u2014 reading and reacting, leveraging from depth. Fangio tree uses safeties in coverage disguise rather than box-heavy roles. Nickel/slot defender is the true hybrid, functioning almost like an extra LB."
+    "scheme_family": "Fangio-tree multiple 3-4 (Parker variant)",
+    "scheme_detail": "Parker is installing a Fangio-style defense built on two-high safety shells, split-field coverage concepts, and front disguise. The base is a 3-4 alignment \u2014 the first time Dallas has run a 3-4 since Rob Ryan in 2012 \u2014 but Parker emphasizes being 'multiple': 3-4 base, 4-3 spacing situationally, 4-2-5 nickel as the primary sub-package, and Penny front (five-man DL) as a featured look given Dallas's DT talent (Quinnen Williams, Kenny Clark). Unlike old-school 3-4, Parker's DL will be one-gap aggressive ('getting vertical, using our hands and shredding' per Schottenheimer) rather than two-gap block-eaters. Coverage is the scheme's backbone \u2014 quarters-match and Cover 6 concepts that show identical pre-snap two-high looks but morph post-snap into various coverage shells to confuse QBs.",
+    "front_structure": "3-4 base with three down linemen (nose tackle flanked by two 3-4 DEs) and four linebackers (two ILBs, two OLBs who serve as primary edge rushers). Heavy use of Penny front \u2014 five DL on the field with one LB \u2014 to leverage the Quinnen Williams/Kenny Clark combination. Five-man fronts clog running lanes and create natural pass-rush advantages without needing to blitz. DL are asked to play 'a gap and a half' per Fangio principles \u2014 more aggressive than pure two-gap but not pure one-gap penetration.",
+    "coverage_philosophy": "Fangio-tree quarters-match coverage from a two-high shell is the foundation. Pre-snap, the defense shows the same two-deep look on nearly every snap, forcing QBs into post-snap reads. Post-snap, the coverage rotates into various looks: Cover 4 match (quarters), Cover 6 (quarter-quarter-half), Cover 8, and weak-rotation Cover 3. Zone-match rules mean DBs carry receivers through zones rather than playing pure spot-drop \u2014 creating man-coverage-like tightness within a zone framework. Parker has said he'll also play man coverage if the personnel supports it ('if we got good man-to-man corners, we're going to play man'). The nickel defender is critical \u2014 must 'cover like a corner, tackle like a linebacker, and blitz like a safety.'",
+    "pressure_philosophy": "Low blitz volume, high rush efficiency \u2014 the Fangio hallmark. The goal is to generate pressure with four rushers while keeping seven in coverage. Edge-tackle stunts, simulated pressures (Creeper packages where an edge drops and a LB/DB blitzes), and front disguise create confusion without sacrificing coverage numbers. The five-man fronts inherent to this scheme add a natural fifth rusher without pulling from the secondary. Parker will selectively blitz based on matchups but the default is to trust the front four/five to win.",
+    "sub_packages": "4-2-5 nickel is the primary sub-package and will see the majority of snaps. The nickel defender (potentially Jalen Thompson or a draft pick) must be a hybrid player who functions as a de facto extra linebacker against the run while covering slot receivers. Penny front (5-1-5 with five DL, one LB, five DBs) is a featured package given Dallas's DT depth. Dime (5-0-6 or 4-1-6) for obvious passing situations."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "Schottenheimer's offense featured Jake Ferguson as a 82-catch, 8-TD Pro Bowl weapon in 2025, the second Cowboys TE ever to exceed 80 receptions. Ferguson functions as Prescott's primary safety valve and is used extensively in motion, play-action, and seam routes. The offense uses 12 personnel on early downs and flexes TEs into receiving alignments. An elite receiving TE fits this offense perfectly as a high-volume target in the short/intermediate game. The scheme creates TE value well above typical inline-blocking systems."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB in Schottenheimer's offense must execute play-action fakes convincingly, deliver timing throws off bootleg and rollout concepts, push the ball downfield on shot plays, and process pre-snap defensive structures quickly enough to leverage motion and cut-split advantages. Prescott is the entrenched starter; this blueprint describes what the scheme demands for any QB.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Schottenheimer's offense emphasizes deep shots off play-action and must punish defenses that cheat on the run. The QB must be able to throw outside the numbers from bootleg platforms and push the ball vertically to Pickens-type targets. Not a pure air-raid arm-talent offense, but arm strength is a core requirement."
+        },
+        "Accuracy": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Timing routes \u2014 slants, curls, digs, crossers \u2014 are the bread and butter of this West Coast foundation. The QB must deliver the ball on time and on target to receivers in tight windows. Play-action boot throws require accuracy on the move. Schottenheimer's 2025 offense thrived on Prescott's 70.3% completion rate."
+        },
+        "Pocket Presence": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "With a young OL (Guyton, Smith, Beebe, Booker), the pocket will not always be clean. The QB must feel pressure, climb the pocket, and deliver strikes while taking hits. Schottenheimer's best offenses paired QB pocket awareness with a strong run game."
+        },
+        "Mobility": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Boot concepts and designed rollouts require the QB to move well outside the pocket. Schottenheimer's offense uses movement to create throwing lanes, not as a run-threat. The QB doesn't need to be a scrambler but must be functional on the move."
+        },
+        "Decision Making": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Motion-heavy, tempo-burst offenses create simplified reads, but the QB still must process post-snap coverage rotations and make quick decisions. Schottenheimer's tempo element ('more like pickup basketball') requires rapid processing and minimal turnovers \u2014 historically a Schottenheimer priority."
+        },
+        "Leadership": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Schottenheimer's offense requires the QB to manage tempo, communicate motion calls, and command the huddle. Prescott's leadership is a known quantity the scheme leverages."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Motion is used to reveal coverage for the QB, simplifying pre-snap reads. The QB must recognize defensive leverage created by motion and cut splits, but the scheme does some of this work for him."
+        }
+      },
+      "ideal_archetype": "A strong-armed, accurate pocket passer who excels off play-action and can push the ball downfield while maintaining timing on intermediate routes. Must be comfortable executing from moving platforms (bootlegs, rollouts) and be decisive enough to thrive in tempo situations. Not a system that requires a running QB, but needs someone who can keep plays alive with functional mobility. Think Dak Prescott himself, Russell Wilson circa 2018-2019, or Kirk Cousins in his prime \u2014 QBs who are at their best when play-action sets up deep shots and the run game is humming.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4",
+          "floor": "6-0",
+          "reasoning": "Boot concepts and rollouts don't require elite height, but must be able to see the field from the pocket and deliver over interior rushers."
+        },
+        "weight": {
+          "ideal": "215-240",
+          "floor": "210",
+          "reasoning": "Must absorb hits in the pocket behind a developing OL. Schottenheimer's QBs historically are built to sustain contact."
+        }
+      },
+      "development_context": "Schottenheimer has a track record of maximizing QB production through scheme \u2014 Chad Pennington's comeback, Mark Sanchez's playoff runs, Russell Wilson's explosive 2020 start, and Prescott's 2023 MVP runner-up season all came under his coordination. He can develop QB processing and timing through scheme. What must arrive: arm talent and the ability to throw accurately on the move.",
+      "scheme_fit_narrative": "This offense needs a QB who can sell play-action convincingly, deliver deep shots off bootlegs, and manage a motion-heavy, tempo-driven attack. We're not asking him to create off-script \u2014 we're asking him to execute a well-designed scheme at pace. The ideal prospect processes quickly, throws with anticipation on timing routes, and has enough arm to punish over-aggressive defenses downfield.",
+      "archetype_examples": [
+        "Dak Prescott",
+        "Russell Wilson (2018-2019)",
+        "Kirk Cousins"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "high",
-      "explanation": "Parker's switch to a 3-4 base \u2014 Dallas's first since 2012 \u2014 makes OLBs the primary edge rushers. The Cowboys are already converting ILB Marist Liufau to an OLB/edge role, explicitly because of his length and disruption ability. The team hired a dedicated OLB coach (Uzo-Diribe) and have Donovan Ezeiruaku as a stand-up edge rusher. Any LB prospect with pass rush traits, length, and burst projects as an EDGE equivalent in this defense. Dallas desperately needs edge talent after trading Micah Parsons and losing multiple OLB free agents."
+    "RB": {
+      "scheme_role": "The RB in Schottenheimer/Adams' offense is the engine that makes play-action work. Must be a downhill, physical runner who can operate in inside zone, duo, and power concepts. Expected to carry 20+ times on game days when the offense is clicking. Pass protection is essential given Prescott's pocket-first style. Limited but meaningful pass-catching role on checkdowns and screen concepts. Javonte Williams (1,201 yards, 11 TDs) is the established bell-cow; this blueprint reflects what the scheme demands.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Inside zone and duo require the RB to read cutback lanes and make one decisive cut. Adams' Arizona run game featured big-play rushing because backs found and hit creases. Vision is the differentiator between a 3-yard gain and a 15-yard run."
+        },
+        "Contact Balance": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "This is a physical, run-between-the-tackles offense. Adams' philosophy is about 'creating violence.' The RB must fall forward, absorb contact from second-level defenders, and extend runs through arm tackles."
+        },
+        "Power": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Power and duo concepts require the RB to run through gaps with authority. The scheme asks the RB to punish defenders at the point of attack, not dance around them. Adams resurrected James Conner's career with a power-first scheme."
+        },
+        "Elusiveness": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Secondary to power in this scheme, but useful for making defenders miss in space on outside zone concepts and screens. Not the primary trait the run game is built around."
+        },
+        "Speed": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Breakaway speed is a bonus, not a requirement. Adams' Cardinals led the league in big-play rushing despite Conner not being an elite burner. The OL creates the lanes; the RB finishes them."
+        },
+        "Pass Catching": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Schottenheimer's offenses use the RB in screen game and checkdown roles. Not a pass-catching backfield, but the RB must be reliable on targets when defenses take away downfield options."
+        },
+        "Pass Protection": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "With Prescott as the franchise QB and a young OL, the RB must be a willing and capable pass protector. Schottenheimer's play-action requires the RB to sell fakes AND pick up blitzers when the ball doesn't come to him."
+        }
+      },
+      "ideal_archetype": "A physical, downhill runner who can absorb contact and push piles in inside zone and power concepts while providing reliable pass protection. Not a scat back or a finesse runner \u2014 this is a big-body RB who can carry 20+ times and wear down defenses. Think Javonte Williams (pre-injury Denver version), James Conner in Arizona, or Marshawn Lynch in Seattle \u2014 the kind of back that makes play-action lethal because defenses HAVE to respect the run.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-9 to 6-0",
+          "floor": "5-8",
+          "reasoning": "Needs to run behind big bodies in inside zone and see over the OL for cutback reads."
+        },
+        "weight": {
+          "ideal": "215-230",
+          "floor": "205",
+          "reasoning": "Must be able to take 20+ carries and absorb punishment between the tackles. Adams' scheme grinds defenders down over four quarters."
+        },
+        "40_time": {
+          "ideal": "4.45-4.55",
+          "floor": "none",
+          "reasoning": "Not a speed-dependent scheme. Adequate burst matters more than top-end speed."
+        }
+      },
+      "development_context": "Adams has a track record of resurrecting and maximizing RB production through scheme \u2014 James Conner's back-to-back 1,000-yard seasons in Arizona are proof. The coaching staff can develop vision and patience through scheme repetition. What must arrive: power, contact balance, and pass protection willingness. Those are harder to teach.",
+      "scheme_fit_narrative": "We need a back who makes the play-action game go. That means carrying the ball 20 times and making defenses honest. He doesn't need to be flashy \u2014 he needs to be physical, fall forward, pick up blitzes, and hit the hole with authority. If the run game is working, the whole offense opens up. This is the foundational position for everything we do.",
+      "archetype_examples": [
+        "Javonte Williams",
+        "James Conner",
+        "Derrick Henry (lighter version)"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "medium",
-      "explanation": "Schottenheimer's offense values RB versatility \u2014 using motion to move backs to empty sets, alignment-shifting for play-action deception, and checkdown targets. However, the primary RB value in Dallas is as a runner: Adams was hired specifically to fix the run game, and Javonte Williams earned his extension on 1,201 rushing yards. Williams also has underrated pass protection value. Receiving ability in an RB is a plus trait but secondary to rushing and blocking in this scheme."
+    "WR": {
+      "scheme_role": "The WR room operates in a tiered system: WR1 (CeeDee Lamb) plays across formations as a route-running technician who creates separation underneath and intermediate. WR2 (George Pickens) is the vertical/contested-catch threat who stretches the field. WR3/slot (KaVontae Turpin) is the motion weapon and YAC creator. The scheme asks WRs to win in multiple ways depending on their role \u2014 the scheme needs both technicians and athletes.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Schottenheimer's timing-route offense requires WRs to be precise on breaks and stem routes correctly to create separation windows. Play-action only works if receivers are in position at the exact moment the QB turns to throw."
+        },
+        "Separation": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "With motion and cut splits creating pre-snap advantages, the WR must convert those leverage advantages into actual separation. The scheme creates opportunities; the WR must finish them."
+        },
+        "Hands": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Reliable hands are critical \u2014 Schottenheimer's play-calling philosophy emphasizes getting the ball to playmakers, and drops kill drives. The 2025 Cowboys were hurt by CeeDee Lamb's three crucial late-season drops."
+        },
+        "YAC Ability": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Motion, screens, and quick-game concepts are designed to get the ball into playmakers' hands in space. Turpin's deployment as a jet-sweep/screen weapon shows how much this scheme values run-after-catch. WRs who can turn short catches into explosive plays are gold."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Schottenheimer wants to 'make everyone cover the entire field.' Vertical speed stretches defenses and makes play-action shots lethal. Pickens' 1,429-yard season was built on his ability to win downfield."
+        },
+        "Contested Catches": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The WR2 role specifically demands contested-catch ability \u2014 Pickens' role is to win 50/50 balls on the perimeter. The scheme creates isolations for the X receiver and needs someone who can win those matchups."
+        },
+        "Release Package": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Motion pre-snap often puts WRs in free releases, reducing the importance of beating press at the LOS. Still valuable for the X receiver who will face press coverage on early downs."
+        }
+      },
+      "ideal_archetype": "The scheme needs multiple WR archetypes: the WR1 is a polished route-runner with elite separation skills (CeeDee Lamb), the WR2 is a big-bodied vertical threat who wins contested catches (George Pickens), and the WR3 is a speed/YAC specialist who creates explosive plays in motion and screens (KaVontae Turpin). The most valuable draft prospect for this offense would be a hybrid \u2014 someone with route-running polish, speed to stretch the field, AND YAC ability. Think Ja'Marr Chase or Garrett Wilson \u2014 players who can win all three phases of a route.",
+      "measurable_preferences": {
+        "height_wr1_wr3": {
+          "ideal": "5-10 to 6-1",
+          "floor": "5-9",
+          "reasoning": "Slot/motion weapons need agility and quickness more than size."
+        },
+        "height_wr2": {
+          "ideal": "6-1 to 6-4",
+          "floor": "6-0",
+          "reasoning": "Perimeter WR in this scheme must win at the catch point on vertical routes and contested situations."
+        },
+        "40_time": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "Speed to stretch the field vertically is essential to making play-action shots work."
+        }
+      },
+      "development_context": "The Cowboys' WR coaching room (Junior Adams) has less of a proven track record than the OL or defensive staff. The scheme itself helps WRs create separation through motion and leverage, but route-running technique must be at an NFL level upon arrival. What this staff can develop: understanding of the timing system and chemistry with Prescott. What must arrive: speed, hands, and at least baseline route-running ability.",
+      "scheme_fit_narrative": "We're looking for a receiver who can win in multiple ways. Motion does a lot of the work to create pre-snap leverage, but the WR has to finish \u2014 separate, catch, and create yards after the catch. Speed matters because Schotty loves to push the ball downfield off play-action. But we also need reliable hands and the ability to make plays in space. The ideal prospect is a complete receiver, not a one-trick pony.",
+      "archetype_examples": [
+        "CeeDee Lamb",
+        "George Pickens",
+        "DK Metcalf (for WR2 role)",
+        "Ja'Marr Chase"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "medium",
-      "explanation": "Parker's Fangio-tree defense uses a two-high safety shell as its foundation, requiring versatile safeties who can disguise coverage, rotate post-snap, and read from depth. The true hybrid role in this defense is the nickel/slot defender, who must fill runs and cover the middle like an extra linebacker. Safeties are not typically box-heavy in this scheme \u2014 they leverage from depth \u2014 but must be intelligent, versatile, and able to play both deep halves and rotate down. A safety with slot coverage skills and tackling ability adds value as a nickel candidate in the 4-2-5 packages."
+    "TE": {
+      "scheme_role": "The TE in Schottenheimer's offense serves a dual role: key target in the play-action passing game (particularly on boot concepts and crossers) and an inline blocker who helps create movement in the run game. 12 personnel (2 TE) is featured on early downs, requiring both TEs to be capable blockers. Jake Ferguson is the primary receiving TE; Schoonmaker is the blocking-first complement. The scheme features TEs in motion to adjust run-game strength post-snap and create play-action misdirection.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Ferguson's 600-yard 2025 season reflects the TE's role as Prescott's safety valve and play-action beneficiary. The TE must be a reliable target in the intermediate zones, particularly on boot concepts where he's the primary read."
+        },
+        "Route Running": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The TE runs a limited route tree \u2014 crossers, deep overs, flat routes off play-action \u2014 but must execute those routes precisely to hit timing windows."
+        },
+        "Blocking": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Adams' run-first philosophy and 12-personnel usage require the TE to be a legitimate inline blocker. The scheme cannot create the physical running game it needs if the TE is a liability at the point of attack. This is the defining trait for TE evaluation in Dallas."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Motion, flexing into the slot, and executing play-action require the TE to move well and create mismatches against LBs in coverage. The scheme exploits TE athleticism on bootleg and motion concepts."
+        },
+        "Hands": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Must be reliable in traffic on crossing routes and on boot-action throws where the window is tight. Not asked to make spectacular catches, but must not drop the ball."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Functional speed to get behind LBs on seam routes and play-action shots. Not a scheme that asks the TE to be a field-stretcher."
+        }
+      },
+      "ideal_archetype": "A dual-threat TE who is a legitimate inline blocker first and a receiving weapon second. Must be able to hold the point of attack in the run game while being athletic enough to flex into the slot and win against LBs in coverage. Think Mark Andrews (earlier in career) or Dallas Goedert \u2014 TEs who contribute meaningfully as blockers in heavy personnel while still being dangerous in the passing game off play-action.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-6",
+          "floor": "6-2",
+          "reasoning": "Inline blocking demands size and length to seal edges and sustain blocks in the run game."
+        },
+        "weight": {
+          "ideal": "240-260",
+          "floor": "235",
+          "reasoning": "Must be able to function as a 6th OL in 12-personnel run concepts while maintaining the athleticism to split out."
+        }
+      },
+      "development_context": "Schottenheimer has shown the ability to use TEs effectively in play-action concepts throughout his career. The staff can develop receiving skills and route refinement over time. What must arrive: blocking willingness and technique. A TE who can't block kills Adams' entire run-game philosophy.",
+      "scheme_fit_narrative": "We use two TEs a lot, so blocking comes first. If you can't sustain a block at the point of attack, you can't play here. But the best version of this position is a TE who blocks like a tackle and catches like a receiver. The play-action game creates huge windows for the TE on crossing routes and bootleg concepts \u2014 if he's athletic enough to exploit those windows, he becomes a matchup nightmare.",
+      "archetype_examples": [
+        "Jake Ferguson",
+        "Dallas Goedert",
+        "George Kittle (blocking emphasis)"
+      ]
+    },
+    "OT": {
+      "scheme_role": "OTs in this scheme must be capable in both pass protection (Prescott is a pocket-first QB who needs time) and run blocking (inside zone, power, and duo require lateral displacement and movement at the second level). The LT protects Prescott's blind side in a play-action heavy system where the QB holds the ball post-fake. The RT must be a road-grader in the run game while handling edge speed. Adams specifically brought Arizona's OL development philosophy to Dallas.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Play-action requires the QB to hold the ball longer than pure dropback \u2014 the OT must sustain blocks for an extra beat. Prescott's pocket presence is a strength but he needs time to execute timing routes and deep shots."
+        },
+        "Run Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Adams' run-first philosophy demands OTs who can create movement at the point of attack. Inside zone requires reach blocks and combination blocks that climb to the second level. Power and duo demand drive blocks that displace defenders."
+        },
+        "Footwork": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Inside zone requires precise first steps to reach-block DEs and climb to LBs. Boot protection requires mirror footwork to sell play-action before setting for the pass. Adams' scheme asks OTs to move laterally more than pure man-blocking schemes."
+        },
+        "Anchor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The play-action passing game holds the OT in place longer than quick-game offenses. Must anchor against bull rushes while Prescott executes fakes and delivers downfield."
+        },
+        "Athleticism": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Adams' run game requires OTs to reach the second level on inside zone. Dallas drafted Tyler Guyton (athletic LT) and Tyler Booker for their ability to move in space \u2014 athletic OTs are preferred."
+        },
+        "Strength": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Power run concepts require leverage and anchor, but raw strength is secondary to technique and movement ability in this scheme."
+        }
+      },
+      "ideal_archetype": "An athletic, technically sound OT who can pass protect for a play-action-heavy scheme while creating movement in zone and power run concepts. Must have quick feet to reach-block on inside zone and the anchor to sustain pass protection on deep play-action shots. Think Duane Brown (who thrived under Schottenheimer in Seattle) or Rashawn Slater \u2014 OTs who are equally effective in pass protection and as zone-scheme movers.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-7",
+          "floor": "6-3",
+          "reasoning": "Standard OT size to handle NFL edge rushers."
+        },
+        "weight": {
+          "ideal": "305-325",
+          "floor": "295",
+          "reasoning": "Must be heavy enough to anchor against power rushers while athletic enough to execute zone blocks."
+        },
+        "short_shuttle": {
+          "ideal": "Sub 4.60",
+          "floor": "4.70",
+          "reasoning": "Inside zone reach blocks and boot pass-protection sets require lateral quickness. Athletic OTs thrive in Adams' run game."
+        }
+      },
+      "development_context": "Adams' background as an OL coach (his entire career) makes this a position where the Cowboys can genuinely develop raw talent. He turned Paris Johnson Jr. into a capable rookie starter in Arizona. Conor Riley, the OL coach, was specifically hired for his development reputation at Kansas State. What must arrive: baseline athleticism and willingness to run block. What can be developed: pass protection technique, hand usage, anchor.",
+      "scheme_fit_narrative": "We need tackles who can do it all. The play-action game demands longer pass sets, and the run game demands movement and athleticism. The ideal prospect is a high-ceiling athlete with the feet to execute zone blocks and the anchor to protect Dak on deep play-action shots. We'll develop the technique \u2014 give us the athletic foundation.",
+      "archetype_examples": [
+        "Duane Brown (Seattle era)",
+        "Tyler Guyton",
+        "Rashawn Slater"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "IOL are the engine of Adams' run game. Guards must be capable pullers in power concepts, drive blockers in duo, and combination blockers who climb to the second level in inside zone. The center (Cooper Beebe) is the anchor who makes line calls and sets protection in Schottenheimer's tempo offense. Tyler Booker was drafted in the first round specifically because of his mauling run-blocking ability.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must handle interior pass rush to keep the pocket clean for play-action. Less critical than for OTs because the scheme uses quick play-action to move the pocket, but still essential."
+        },
+        "Run Blocking": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "THE defining trait for IOL in this scheme. Adams was hired because of his run-game design. Inside zone, duo, and power all require IOL who can create movement at the line of scrimmage and generate push. Booker was a first-round pick for this exact reason."
+        },
+        "Pulling": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Power and counter concepts require guards who can pull and lead through the hole. Adams' Arizona run game featured pulling guards extensively. This is a scheme differentiator from pure zone teams."
+        },
+        "Strength": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Adams' 'create violence' philosophy starts with IOL who can physically overpower interior defenders. Must be able to generate push on double teams and sustain drive blocks."
+        },
+        "Anchor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Must hold up against interior pass rush, particularly against stunting DTs on play-action dropbacks. Not the primary trait but can't be a liability."
+        },
+        "Versatility": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Tyler Smith has played both LG and OT for Dallas. The scheme values IOL who can bump outside in emergency situations and handle multiple blocking assignments within the run game."
+        }
+      },
+      "ideal_archetype": "A mauling, physical guard who dominates in the run game through power and leverage while maintaining enough athleticism to pull and lead on gap concepts. Think Quenton Nelson or Tyler Booker \u2014 big-bodied run-blockers who set the tone and create a physical identity. The center must be intelligent enough to handle tempo and line calls while being strong enough to anchor in the A-gaps.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Standard IOL size. No scheme-specific height requirement."
+        },
+        "weight": {
+          "ideal": "310-330",
+          "floor": "300",
+          "reasoning": "Must be heavy enough to generate push on double teams in inside zone and duo concepts."
+        },
+        "short_shuttle": {
+          "ideal": "Sub 4.65",
+          "floor": "4.75",
+          "reasoning": "Pulling ability requires adequate lateral movement and redirect speed."
+        }
+      },
+      "development_context": "Adams' entire coaching career is built on developing OL. Conor Riley's college background (Kansas State, where he developed Cooper Beebe) reinforces the staff's ability to refine technique. What must arrive: raw power and attitude \u2014 Adams needs physical, nasty linemen. What can be developed: pass protection technique, pulling footwork, and scheme understanding.",
+      "scheme_fit_narrative": "This is a position where we want physical, mean, road-grading linemen. The identity of this offense starts in the trenches. We need guards who can pull, drive block, and punish people. Adams' philosophy is about violence at the point of attack. Give us the most physical, powerful interior linemen available and we'll build the run game around them.",
+      "archetype_examples": [
+        "Tyler Booker",
+        "Quenton Nelson",
+        "Cooper Beebe"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "In Parker's 3-4, the EDGE players are stand-up OLBs who are the primary pass rushers. They must rush the passer from a two-point stance, set the edge against the run (critical in a 3-4), and occasionally drop into coverage on simulated pressure packages. The scheme asks for versatile EDGE players who can do more than just pin their ears back. Rashan Gary was traded for specifically because of his ability to both rush and set the edge. The Cowboys are moving Marist Liufau to EDGE, showing they value length and versatility at the position.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Parker's low-blitz-volume scheme demands that EDGE rushers win one-on-one against OTs without help. The defense keeps seven in coverage, so the four-man rush must generate pressure. This is the primary job."
+        },
+        "Bend": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Stand-up OLBs must be able to dip and bend around the arc from a two-point stance. This is different from a 4-3 DE who fires from a three-point \u2014 the EDGE needs flexibility to convert speed to power around the corner."
+        },
+        "First Step": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Parker's DL are told to 'get vertical' and be aggressive. A quick first step creates immediate pressure and forces OTs into reactive mode, which is the foundation of this scheme's rush efficiency."
+        },
+        "Power": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must set the edge against the run in a 3-4 \u2014 'the outside linebackers must be capable of setting the edges to stop the run' per the team's own analysis. EDGE players who can't hold the point against tight ends and pulling guards are liabilities."
+        },
+        "Motor": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Parker's defense relies on the front four winning without help. High-effort, play-to-play consistency matters because the scheme doesn't generate easy sacks from blitz schemes."
+        },
+        "Run Defense": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Parker explicitly stated 'stopping the run and affecting the quarterback are the two most important things' and 'you affect the quarterback by stopping the run.' Edge setting in the 3-4 is paramount \u2014 this isn't a pure pass-rush role."
+        }
+      },
+      "ideal_archetype": "A versatile, two-way EDGE who can rush the passer from a stand-up stance, set the edge against the run, and occasionally drop into flat coverage. Must have enough length and power to hold the point against OTs while possessing the explosiveness to convert speed to power on pass rush. Think Rashan Gary, Za'Darius Smith, or Bradley Chubb \u2014 3-4 OLBs who are complete defenders, not just pass-rush specialists. Pure speed rushers who can't set the edge are poor fits.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Length is critical for setting the edge in a 3-4. Schottenheimer specifically cited Liufau's 'length' and 'long arms' as reasons for his EDGE conversion."
+        },
+        "weight": {
+          "ideal": "245-265",
+          "floor": "240",
+          "reasoning": "Must be heavy enough to anchor against OTs in the run game while light enough to rush from a two-point stance and drop into coverage. Liufau was told to bulk up to ~250 from 239."
+        },
+        "arm_length": {
+          "ideal": "33.5+",
+          "floor": "32.5",
+          "reasoning": "Length creates leverage in both run defense (keeping OTs at bay) and pass rush (keeping blockers off the body)."
+        }
+      },
+      "development_context": "The Cowboys hired Chidera Uzo-Diribe from Georgia as outside linebackers coach \u2014 he developed Mykel Williams (first-round pick) at Georgia. The staff also added BT Jordan as a pass-rush specialist consultant from Denver (Fangio-tree). This is a coaching staff that can develop pass-rush technique. What must arrive: length, power, and run-defense ability. What can be developed: pass-rush moves, hand technique, and coverage drops.",
+      "scheme_fit_narrative": "We need EDGE players who can do three things: rush the passer, set the edge, and occasionally drop into coverage. Pure speed rushers don't fit \u2014 we saw that with Clowney and Fowler being poor fits for a 3-4. We want complete defenders with length, power, and enough pass-rush ability to win one-on-one. The scheme doesn't blitz much, so the front four must generate pressure by themselves. Give us a Rashan Gary type \u2014 not the sexiest pass rusher, but a complete player.",
+      "archetype_examples": [
+        "Rashan Gary",
+        "Za'Darius Smith",
+        "Bradley Chubb"
+      ]
+    },
+    "DL": {
+      "scheme_role": "DL in Parker's 3-4 are three down linemen (nose tackle and two DEs) who are asked to control gaps, occupy blockers, and generate interior pressure. The scheme uses one-gap-and-a-half principles \u2014 more aggressive than pure two-gap but not full penetration. The Penny front (five DL) is a featured package, meaning Dallas will rotate multiple DTs extensively. Quinnen Williams is the interior anchor; Kenny Clark provides veteran versatility. The DL must be stout enough to hold up against double teams while talented enough to generate pass rush from the interior.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Interior pressure is critical in the Fangio scheme \u2014 collapsing the pocket forces QBs into throwing underneath where zone coverage can take away options. Williams generated elite interior pressure in 2025. DTs who can win one-on-one inside are immensely valuable."
+        },
+        "Run Defense": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Parker's defense aims to 'force offenses to run the football' into loaded boxes. The DL must eat blocks, control A and B gaps, and allow LBs to run free to the ball. Parker said 'stopping the run and affecting the quarterback are the two most important things.'"
+        },
+        "First Step": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The 'getting vertical' philosophy means DL fire off the ball rather than reading and reacting. Quickness off the snap creates disruption, but this is moderated by gap-control responsibilities."
+        },
+        "Hand Usage": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Schottenheimer explicitly stated this defense is about 'using our hands and shredding.' Hand usage separates good from great DL in a gap-and-a-half system \u2014 must defeat blocks quickly to fill gaps and create pressure."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Five-man front rotations mean DL play in packages, but when on the field, must pursue and finish. The Penny front asks DTs to play both DT and DE in different alignments, requiring effort through whistles."
+        },
+        "Strength": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Must hold the point of attack against double teams in the 3-4. The nose tackle specifically needs anchor strength to control the A-gap. The Cowboys signed Otito Ogbonnia as a true nose tackle type."
+        }
+      },
+      "ideal_archetype": "A disruptive, two-way interior DL who can control gaps against the run while generating pass-rush pressure from the inside. The nose tackle should be a 330+ lb anchor who eats double teams; the 3-4 DEs should be versatile 5-techniques who can play multiple gaps. The ideal DT in this scheme is a Quinnen Williams-type \u2014 elite pass rush AND run defense from the interior. For the nose, think Kenny Clark \u2014 an intelligent, sturdy interior player who can execute Fangio's gap-and-a-half principles.",
+      "measurable_preferences": {
+        "height_dt": {
+          "ideal": "6-1 to 6-4",
+          "floor": "6-0",
+          "reasoning": "Leverage and pad level matter more than height for interior DL."
+        },
+        "weight_dt": {
+          "ideal": "295-320",
+          "floor": "285",
+          "reasoning": "Must be heavy enough to hold ground on double teams while quick enough to penetrate gaps."
+        },
+        "weight_nt": {
+          "ideal": "320-345",
+          "floor": "310",
+          "reasoning": "The nose in a 3-4 must be an immovable object in the A-gap. The Cowboys signed Ogbonnia as a true NT."
+        }
+      },
+      "development_context": "The Cowboys are rebuilding their DL coaching staff \u2014 Aaron Whitecotton departed and was replaced by new coaches under Parker. The Fangio-tree system is well-established and has clear technique demands, which helps with development. What must arrive: strength and run-defense ability. Interior pass rush can be refined through technique. What can be developed: hand moves, gap recognition, and alignment versatility.",
+      "scheme_fit_narrative": "The DL is the foundation of everything we do defensively. We need interior players who can hold up against the run so our LBs can flow free, and who can push the pocket on passing downs so our coverage holds up. The Penny front means we'll play a lot of DTs at once \u2014 we want depth and versatility. The ideal DT prospect is stout against the run, disruptive in the passing game, and versatile enough to play multiple alignments along the front.",
+      "archetype_examples": [
+        "Quinnen Williams",
+        "Kenny Clark",
+        "Chris Jones (for interior pass rush)"
+      ]
+    },
+    "LB": {
+      "scheme_role": "In Parker's Fangio-tree defense, LBs are reduced in number but elevated in importance. The scheme often uses just one or two LBs, and they must be elite processors who communicate, cover, and tackle in space. The ILB is the defensive QB \u2014 responsible for making calls, adjusting to offensive formations, and executing zone-match coverage rules against TEs and RBs. DeMarvion Overshown is the projected starter. The scheme shows 'light boxes' to dare teams to run, so the LB must be disciplined in gap integrity despite being outnumbered in the box.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Light-box defenses mean the LB will face ballcarriers in space with limited help. Must be a sure, open-field tackler. Schottenheimer specifically said they need 'guys that can run to the ball and can tackle.'"
+        },
+        "Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "THE defining trait for LBs in a Fangio defense. Zone-match rules require the LB to carry routes, match TEs and RBs in coverage, and play in space. The scheme only works if the LB can cover \u2014 otherwise the light box gets exploited by passes over the middle."
+        },
+        "Pass Rush": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Simulated pressures occasionally ask the LB to blitz, but this is secondary to coverage responsibilities. The Fangio scheme generates pressure from the front, not from LB blitzes."
+        },
+        "Instincts": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Zone-match coverage demands post-snap processing \u2014 the LB must read route combinations, match routes based on rules, and communicate in real time. Pattern-reading is a learned skill that requires elite football IQ."
+        },
+        "Athleticism": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Must cover slot receivers and TEs in space. The light-box philosophy puts the LB in matchup situations where athleticism is the difference between a completion and a pass breakup."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "With only one or two LBs on the field, sideline-to-sideline range becomes important to cover ground against zone runs and screens. Must be able to flow to the ball from depth."
+        },
+        "Block Shedding": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Light-box means the LB often faces OL climbing to the second level with minimal traffic. Must be able to shed blocks quickly, but the scheme uses DL to eat blocks to keep the LB clean."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "The LB must process offensive formations and adjust pre-snap, but Fangio-tree coverage rules simplify this by providing clear post-snap rules based on route distribution."
+        }
+      },
+      "ideal_archetype": "An athletic, high-IQ linebacker who can cover TEs and RBs in space, process zone-match rules quickly, and tackle in the open field. This is NOT a downhill, run-stuffing thumper role \u2014 it's a coverage-first position that requires the LB to function like a safety in space. Think Fred Warner, Roquan Smith, or Tremaine Edmunds \u2014 LBs who can run, cover, tackle, and communicate. Size is secondary to athleticism and coverage ability.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Length helps in zone coverage to contest throwing lanes."
+        },
+        "weight": {
+          "ideal": "225-245",
+          "floor": "215",
+          "reasoning": "Must be light enough to cover in space but physical enough to fill gaps on early downs."
+        },
+        "40_time": {
+          "ideal": "4.50-4.60",
+          "floor": "4.65",
+          "reasoning": "Coverage speed is essential \u2014 must be able to run with TEs and RBs vertically. Slow LBs are liabilities in this scheme."
+        }
+      },
+      "development_context": "Parker's background is in the secondary, so his approach to LBs will emphasize coverage technique and pattern-reading. The coaching staff can develop zone-match rules and coverage skills. What must arrive: athleticism and coverage ability. A LB who can't cover can't play in this scheme \u2014 period. What can be developed: run-fit discipline, block-shedding technique, and coverage communication.",
+      "scheme_fit_narrative": "We only play one or two LBs at a time, so whoever's out there has to be a stud. Coverage is non-negotiable \u2014 if you can't cover TEs and RBs in space, you can't play in this defense. We want a LB who thinks like a safety and hits like a linebacker. The DL does the dirty work against the run; the LB cleans up and covers. Give us the most athletic, instinctive, coverage-capable LB available.",
+      "archetype_examples": [
+        "Fred Warner",
+        "Roquan Smith",
+        "DeMarvion Overshown"
+      ]
+    },
+    "CB": {
+      "scheme_role": "CBs in Parker's defense play primarily in zone-match concepts from a two-high shell, where they must read route combinations and match receivers based on coverage rules rather than pure man-to-man or pure spot-drop zone. The scheme shows the same pre-snap look and rotates post-snap, requiring CBs to process quickly and execute multiple coverage techniques within a single play. Parker's calling card is developing CBs \u2014 he transformed Surtain, Mitchell, and DeJean into All-Pro players. DaRon Bland and Shavon Revel are the current starters Parker has expressed excitement about developing.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Zone-match rules often morph into man-coverage assignments post-snap (MEG coverage, Cover 1 rotations from two-high). CBs must be capable of mirroring routes when the coverage dictates man technique. Parker said 'if we got good man-to-man corners, we're going to play man.'"
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The scheme is designed to limit explosive plays and force underneath throws \u2014 when the ball is thrown to the CB's area, he must make a play on it. Parker's Eagles secondary generated turnovers through disciplined coverage that baited QBs into contested windows."
+        },
+        "Zone Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The Fangio system is quarters-match based \u2014 CBs must execute zone-match rules, pass off routes, and communicate with safeties. This is THE core coverage skill. CBs who can only play press-man or pure spot-drop zone are incomplete fits."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must be able to carry vertical routes in quarters coverage and recover when the coverage rotates post-snap. Speed is the safety net that allows CBs to play aggressively in zone-match without getting beaten deep."
+        },
+        "Press": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Parker's scheme can incorporate press looks, and he'll use man coverage when the personnel supports it. However, the default is off-coverage from a two-high shell, so press is a plus rather than a requirement."
+        },
+        "Nickel": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Parker called the nickel position 'very important' and Schottenheimer described it as needing to 'cover like a corner, tackle like a linebacker and blitz like a safety.' With the defense in nickel the majority of snaps, the nickel CB is arguably the most important position in the secondary."
+        }
+      },
+      "ideal_archetype": "A smart, technically sound corner who can execute zone-match rules, process route combinations post-snap, and make plays on the ball. Must be versatile enough to play both outside and in the slot (nickel). The ideal CB in this scheme is NOT a pure press-man lockdown corner \u2014 it's a zone-disciplined, instinctive player who can match receivers within the coverage framework. Think Quinyon Mitchell, Cooper DeJean, or Patrick Surtain II \u2014 CBs who Parker himself developed into All-Pro talents through this exact system.",
+      "measurable_preferences": {
+        "height_outside": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Must be able to contest catch points in zone-match and play at the line when the scheme calls for press."
+        },
+        "height_nickel": {
+          "ideal": "5-10 to 6-0",
+          "floor": "5-9",
+          "reasoning": "Must be quick enough to cover slot receivers while physical enough to tackle in the box and blitz."
+        },
+        "40_time": {
+          "ideal": "4.35-4.45",
+          "floor": "4.50",
+          "reasoning": "Must carry vertical routes and recover when the coverage rotates. Speed is the margin of error in a zone-match system."
+        }
+      },
+      "development_context": "Parker is an ELITE CB developer \u2014 Patrick Surtain II (DPOY), Quinyon Mitchell (All-Pro as rookie), Cooper DeJean (All-Pro as rookie), Jaire Alexander (Pro Bowler). This is the position where the Cowboys' coaching staff has the highest development ceiling. Parker can teach zone-match technique, coverage communication, and route-reading. What must arrive: speed and baseline athleticism. What can be developed: zone technique, ball skills, and pattern-reading. Ryan Smith (newly hired CB coach from Arizona's league-best pass defense) reinforces this development pipeline.",
+      "scheme_fit_narrative": "Christian Parker has developed every CB he's coached into a star. What he needs is athletes with speed who can learn the zone-match system. We don't need a finished product \u2014 we need a player with the physical tools and intelligence to be coached up. The scheme handles the complexity; the CB just needs to execute the rules. The nickel position is critical \u2014 it's essentially a sixth defensive back who must cover, tackle, and blitz. That's our most important secondary position to fill.",
+      "archetype_examples": [
+        "Quinyon Mitchell",
+        "Cooper DeJean",
+        "Patrick Surtain II",
+        "DaRon Bland"
+      ]
+    },
+    "S": {
+      "scheme_role": "Safeties in Parker's Fangio-tree defense are the keystone of the coverage system. Both safeties align in a two-high shell pre-snap on nearly every play, then rotate post-snap into various coverage responsibilities \u2014 quarters, Cover 6, Cover 3 (weak rotation), or man. The strong safety handles the passing-strength side; the weak safety is the 'Trix' player who reads across the formation for crossing routes and vertical threats. Safeties must process quickly, communicate the rotation, and play downhill aggressively against the run from depth. The Cowboys signed Jalen Thompson and P.J. Locke (who played under Parker in Denver) this offseason.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Safeties occasionally match TEs and RBs in man coverage when the scheme rotates to Cover 1. Not the primary responsibility, but must be capable."
+        },
+        "Range": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "THE defining trait. Two-high safeties must cover half the field pre-snap and rotate post-snap to various landmarks. The Fangio philosophy is 'easier to play defense coming downhill rather than running backward' \u2014 safeties start deep and break on the ball. Range allows them to cover massive zones while maintaining the two-high disguise."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The scheme funnels throws underneath and forces QBs into predictable windows. Safeties who can capitalize on these forced throws and create turnovers are immensely valuable. Parker's Eagles defense was elite at creating turnovers from this position."
+        },
+        "Tackling": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Light-box defenses mean safeties are often the last line against the run. They must come downhill and tackle in the open field when RBs break through the first level. Schottenheimer emphasized needing 'guys that can run to the ball and can tackle.'"
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Post-snap rotations require the safety to cover ground quickly. Must be able to rotate from two-high to single-high, or break from the hash to the sideline, in time to make a play. Slow safeties get exposed in this system."
+        },
+        "Nickel": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The Fangio system sometimes uses a safety in the nickel/slot-coverage role. Thompson was signed partly because he could potentially play nickel. Safeties with slot-coverage versatility add roster flexibility."
+        }
+      },
+      "ideal_archetype": "A rangy, instinctive safety who can play the deep half from a two-high shell, rotate post-snap to multiple coverage landmarks, come downhill aggressively against the run, and create turnovers. Not a box safety who lives near the line \u2014 this is a centerfield player who processes from depth. Think Derwin James (coverage versatility), Jessie Bates (range and ball skills), or Budda Baker (range and tackling) \u2014 safeties who can cover ground, play the ball, and tackle in space.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Must be able to contest passes and break up throws at the catch point when playing the deep half."
+        },
+        "weight": {
+          "ideal": "200-215",
+          "floor": "190",
+          "reasoning": "Must be physical enough to tackle RBs in the open field while fast enough to cover half the field."
+        },
+        "40_time": {
+          "ideal": "4.40-4.50",
+          "floor": "4.55",
+          "reasoning": "Post-snap rotations and deep-half coverage require speed. Range and speed are the same trait in this scheme."
+        }
+      },
+      "development_context": "Parker's background as a secondary coach means safety development is a strength of this staff. Derrick Ansley (who Schottenheimer mentioned regarding nickel/safety responsibilities) adds veteran secondary coaching experience. P.J. Locke was signed specifically because he has experience in this exact system from Denver. What must arrive: range and speed. What can be developed: coverage technique, communication, and pattern-reading within the Fangio system.",
+      "scheme_fit_narrative": "Our safeties are the last line of defense and the first line of coverage disguise. They start deep, process fast, and play downhill. We need rangey athletes who can cover half the field, rotate post-snap without hesitation, and tackle like linebackers when they come downhill. Ball skills matter because the scheme creates turnover opportunities by funneling throws into windows. Give us the best athlete with range and instincts \u2014 we'll teach the rest.",
+      "archetype_examples": [
+        "Jessie Bates",
+        "Budda Baker",
+        "P.J. Locke (system familiarity)"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Dallas's 2026 defense is undergoing a seismic scheme change: from a 4-3 run for over a decade to a Fangio-tree 3-4 under first-time coordinator Christian Parker. This creates massive positional value inflections. (1) EDGE/OLB is the single highest-need position \u2014 the Cowboys traded Micah Parsons, lost multiple OLB FAs, and are converting an ILB (Liufau) to edge. Any LB prospect with pass rush traits (bend, burst, length, power moves) should be valued like a premium EDGE for Dallas. The 3-4 OLB role IS the primary pass rusher. (2) The Fangio coverage system demands extremely high-IQ secondary players who can execute zone-match concepts, disguise coverages, and rotate post-snap. CBs who thrive in pattern-match zone with press ability are ideal. The nickel/slot defender is a critical piece \u2014 effectively a hybrid S/LB who must cover and tackle. (3) On offense, Schottenheimer's high-volume TE usage (Ferguson: 82 rec, 8 TD) means elite receiving TEs get a significant boost. The offense also values WRs who can block in tight formations \u2014 Schottenheimer uses 'cut splits' and condensed sets that require WRs to participate in the run game. (4) Dallas has two first-round picks in 2026 and Parker has stated he will campaign to use both on defense. Edge rusher, CB, and ILB are the top three defensive needs. The offensive line is stable, the skill positions are loaded (Prescott, Lamb, Pickens, Ferguson, Williams), so expect Dallas to draft defense-heavy.",
+  "scheme_draft_intelligence": "The Dallas Cowboys enter the 2026 draft at a genuine inflection point: an elite offense (27.7 PPG, league-leading yardage) carrying the NFL's worst defense (30.1 PPG allowed). This imbalance, combined with two first-round picks (Nos. 12 and 20), creates a clear mandate: defense first. Christian Parker's Fangio-tree 3-4 installation demands specific player types that Dallas largely does not have on roster, making this draft unusually scheme-driven. The defensive needs create massive value differentials from other teams.\n\nThe most scheme-critical positions to address are EDGE, LB, CB, and nickel \u2014 and critically, not in the traditional sense. Parker's EDGE is a stand-up 3-4 OLB who must rush and set the edge, not a pure speed rusher. His LB must be a coverage-first athlete, not a downhill thumper. His CB must process zone-match rules, not just play press-man. And the nickel must be a hybrid \u2014 Schottenheimer described it as needing to 'cover like a corner, tackle like a linebacker, and blitz like a safety.' Prospects who excel in these hybrid roles will be valued more highly by Dallas than by teams running simpler defensive schemes. A coverage LB who runs 4.55 and can match TEs might be a second-rounder on most boards but a first-round target for Dallas; a pure run-stuffing LB who can't cover is essentially worthless in this system.\n\nParker's development track record with defensive backs (Surtain to DPOY, Mitchell and DeJean to All-Pro as rookies) means the Cowboys can afford to draft raw but athletic CBs and develop them \u2014 a different approach than teams needing immediately polished cover men. This could create hidden value: CB prospects with elite physical tools but technique concerns (exactly the profile of a player like Shavon Revel, the Cowboys' current third-year CB whom Parker has expressed excitement about developing) become more attractive because Parker's coaching can close the gap. The Cowboys' hiring of Ryan Smith from Arizona (league-best passing defense in 2025) further reinforces this development pipeline.\n\nOn offense, the infrastructure is largely in place. Schottenheimer's second year with Prescott, Adams' run game with Williams, and a young OL (Guyton, Smith, Beebe, Booker) mean the offensive draft focus will be depth and development rather than immediate starters. IOL depth that fits Adams' physical, run-blocking-first philosophy could be a mid-round target. The TE position could warrant investment if the Cowboys want a developmental tight end who can eventually complement Ferguson as a blocking-receiving hybrid in 12-personnel packages. The scheme's emphasis on run-game physicality and play-action means the Cowboys should continue investing in the OL pipeline even without an immediate starter need.\n\nHistorically, the Cowboys under Will McClay have drafted offensively better than defensively \u2014 Stephen Jones himself acknowledged this tendency. With Parker as the defensive voice advocating for defensive draft picks, and Jerry Jones publicly stating he'll 'borrow from the future,' expect both first-rounders to address the defense. EDGE and CB/S are the most likely targets at 12 and 20, with LB as a potential option if an elite coverage LB falls. The Osa Odighizuwa trade recouped a third-round pick that could target nickel or LB depth. Parker's specific scheme demands make it essential to draft for the system rather than simply drafting the best athlete available \u2014 a player who fits the Fangio-tree's intelligence, communication, and versatility requirements will outperform a more talented player who doesn't understand the scheme's complexity.",
   "confidence": "high",
   "sources": [
-    "dallascowboys.com official coaching staff page and team articles",
-    "NFL.com - Cowboys DC Christian Parker scheme quotes",
-    "ESPN - Christian Parker introductory press conference coverage",
-    "CBS Sports - Parker vs Eberflus scheme comparison",
-    "Blogging The Boys - Christian Parker defensive scheme deep dive (Fangio tree analysis)",
-    "NFL.com - Marist Liufau OLB conversion under Parker's 3-4",
-    "dallascowboys.com - Klayton Adams OC profile and offensive philosophy",
-    "NFL.com - Klayton Adams 'create violence' offensive philosophy",
-    "InsideTheStar - Cowboys 2025 offense speed, motion, and power breakdown",
-    "dallascowboys.com - Jake Ferguson Pro Bowl selection and 2025 stats",
-    "Wikipedia - Brian Schottenheimer coaching career",
-    "Wikipedia - Matt Eberflus (fired after 2025 season)",
-    "Match Quarters / Bleeding Green Nation - Fangio coverage system breakdowns",
-    "Football Guys Forums - Parker 3-4 scheme change confirmation"
+    "DallasCowboys.com official coaching staff pages and press conferences",
+    "ESPN Todd Archer reporting on Parker hiring and Combine coverage",
+    "NFL.com reporting on Schottenheimer hire, Parker hire, and free agency moves",
+    "CBSSports.com analysis of Parker vs Eberflus schematic differences",
+    "SI.com Cowboys coverage of Parker's scheme plans",
+    "BloggingTheBoys.com deep dives on Parker's Fangio-tree scheme",
+    "PFF analysis of Schottenheimer's offensive tendencies",
+    "MatchQuarters.com Fangio coverage system breakdowns",
+    "BleedingGreenNation Fangio defense 101 series",
+    "D Magazine Schottenheimer play-calling analysis",
+    "Wikipedia coaching career pages for Schottenheimer, Eberflus, and Klayton Adams",
+    "Pro-Football-Reference 2025 Dallas Cowboys stats",
+    "NFL.com 2025 team statistics",
+    "Yahoo Sports Cowboys season review and free agency coverage"
   ]
 }

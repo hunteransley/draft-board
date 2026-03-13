@@ -4,71 +4,775 @@
   "coaching_staff": {
     "head_coach": {
       "name": "Matt LaFleur",
-      "tenure_years": 7,
+      "tenure_years": 8,
       "background": "offensive",
-      "scheme_philosophy": "Shanahan/McVay wide zone system with play action emphasis; LaFleur calls all offensive plays. Condensed formations, RPO elements, and a mobile QB dimension under Jordan Love."
+      "coaching_tree": "Mike Shanahan tree \u2192 Kyle Shanahan (Houston, Washington, Atlanta) \u2192 Sean McVay (LA Rams OC in 2017) \u2192 Tennessee Titans OC (2018) \u2192 Green Bay HC (2019-present). LaFleur is the nexus of the Shanahan and McVay branches, having worked directly under both.",
+      "scheme_philosophy": "Wide zone run game as the foundation, condensed formations to manipulate defensive leverage, and play-action passing that mirrors the run with ruthless consistency. LaFleur calls his own plays and emphasizes QB footwork, timing, and sequencing. His offense is built on the principle that every play should look like five other plays, putting the defense in conflict. He has adapted the Shanahan system to incorporate more gap-scheme runs, RPOs, and vertical passing with Jordan Love's arm talent."
     },
     "offensive_coordinator": {
       "name": "Adam Stenavich",
-      "scheme_tree": "Shanahan/LaFleur wide zone (SF 49ers assistant OL coach under Shanahan 2017-18, then LaFleur disciple since 2019). OL/run game specialist background.",
-      "play_caller": false
+      "coaching_tree": "LaFleur's staff since 2019. Former offensive lineman (Michigan). OL coach (2019-2021), run game coordinator (2021), promoted to OC in 2022 after Nathaniel Hackett departure. Non-playcalling OC \u2014 LaFleur retains play-calling.",
+      "scheme_evolution": "Stenavich's primary contribution is the run game and offensive line technique. Under his tenure as run game coordinator, the Packers incorporated more gap/power concepts alongside LaFleur's wide zone foundation. His OL coaching background means he brings a ground-level understanding of blocking schemes, but the offensive design and play-calling remain LaFleur's domain.",
+      "development_track_record": "Developed Elgton Jenkins into a versatile All-Pro capable of playing all five OL positions. Coached Jon Runyan Jr., Royce Newman, and other mid-to-late round picks into serviceable starters. The Packers' OL development has been mixed in recent years \u2014 strong at finding late-round starters but inconsistent in run-blocking execution in 2025."
     },
     "defensive_coordinator": {
       "name": "Jonathan Gannon",
-      "scheme_tree": "Zimmer/Eberflus/Fangio hybrid. Learned under Mike Zimmer in Minnesota (2014-17), Matt Eberflus in Indianapolis (2018-20), then ran Fangio-adjacent system as Eagles DC (2021-22) and Cardinals HC (2023-25). Extremely adaptable \u2014 uses both 3-4 and 4-3 fronts, heavy quarters coverage, disguised pressures.",
-      "play_caller": true
+      "coaching_tree": "Mike Zimmer tree (Minnesota Vikings 2014-2017) with significant Vic Fangio influence. Also worked under Matt Eberflus in Indianapolis (2018-2020). Spent time in St. Louis Rams personnel department (2009-2011). Eagles DC (2021-2022, Super Bowl LVII appearance), Cardinals HC (2023-2025, fired). Brings an eclectic blend of Zimmer's aggressive disguise concepts, Fangio's split-safety coverage principles, and Eberflus' pattern-matching elements.",
+      "scheme_evolution": "In Philadelphia, ran a Fangio-influenced split-safety shell with match-quarters coverage, relied heavily on front-four pressure with elite DL rotation (70 sacks in 2022). In Arizona without elite pass-rush talent, pivoted to more disguise, blitzing, and chaos-based defense. His coverage is quarters-heavy \u2014 led the NFL in Cover 4 usage in Arizona and was second in Philly. In Green Bay, expected to return to his Philly blueprint given Micah Parsons and a talented safety trio, using 3-4 base with quarters coverage and coverage disguise.",
+      "development_track_record": "As a DB coach, Gannon worked with quality secondaries in Minnesota and Indianapolis. In Philly, maximized Darius Slay, James Bradberry, and C.J. Gardner-Johnson. Developed Haason Reddick into a 16-sack edge rusher by moving him to a stand-up OLB role. His three years in Arizona showed less development due to roster limitations, but his assistant-level coaching career shows strong DB development capability."
     }
   },
   "offense": {
-    "scheme_family": "Shanahan wide zone / McVay tree",
-    "base_personnel": "11",
-    "personnel_grouping_rates": "67% 11 personnel, 25% 12 personnel, 6% 21 personnel (2024 data via SumerSports; expected similar split in 2025-26)",
-    "run_scheme": "Wide zone base with increasing gap/power concepts. LaFleur has added more pulling linemen and gap scheme runs in recent seasons, moving toward a 'power spread' approach with heavier OL. Play action and boot concepts remain foundational.",
-    "pass_concepts": "Play action heavy, bootleg/rollout concepts, condensed formation designs that generate explosive passing plays. Vertical shots off play action. 16.5% of passes went 15+ yards in 2024 (league leader tier).",
-    "rpo_usage": "moderate",
-    "te_usage": "Primary receiving weapon when healthy. Tucker Kraft is an elite move TE used flexed, in slot, and as a YAC machine (led all TEs in YAC/reception at 10.8 in 2025). Also used as inline blocker in 12 personnel. Kraft suffered torn ACL in Week 9 of 2025 \u2014 his return is the biggest offensive variable for 2026.",
-    "rb_usage": "Bell cow model with Josh Jacobs. Primary runner with moderate receiving role (36 catches, 282 receiving yards in 2025). PFF graded Jacobs 90.0 as a receiver in 2025 (3rd among HBs). Run game struggled in 2025 despite heavy investment in OL size."
+    "scheme_family": "Shanahan-tree wide zone (LaFleur variant)",
+    "scheme_detail": "LaFleur's offense is built on three pillars: wide zone as the run-game foundation, condensed formations to manipulate defensive leverage, and play-action passing that mirrors the run action. Unlike pure Shanahan systems (SF, Miami) that lean heavily into 21 personnel and speed, LaFleur's variant operates primarily from 11 and 12 personnel with an emphasis on vertical passing concepts. LaFleur's system is designed so every play looks like five other plays \u2014 the same pre-snap look can be a wide zone run, a boot pass, an RPO, or a vertical shot. LaFleur also incorporates more gap-scheme runs (power, counter) than traditional Shanahan disciples, reflecting Stenavich's influence and the need to adapt to two-high safety shells that have proliferated across the NFL.",
+    "run_scheme": "Wide zone primary, with increasing use of gap/power concepts as a secondary package. Inside zone with RPO tags is a staple on first down. The Packers use condensed formations and TEs as lead blockers (Tucker Kraft as a sniffer/H-back) to create angles. LaFleur has committed to running the ball against two-high shells, though execution has been inconsistent. The OL is asked to reach-block laterally on wide zone and climb to the second level \u2014 demands athletic, laterally quick linemen rather than pure maulers.",
+    "pass_architecture": "Play-action off wide zone is the engine \u2014 boot/naked concepts with sail/flood routes are signature LaFleur. The passing game features a high average depth of target (Love's ADOT was 3rd-highest in the NFL in 2024). Concepts include dagger, four verticals, high cross, and post/wheel combinations. Quick game features slants, spacing, and hitch concepts. LaFleur designs layered concepts with defined reads for the QB \u2014 short-to-intermediate options underneath vertical shots. RPOs are used, particularly glance/stick concepts off inside zone action. The play-action rate (25-26%) is consistent and ranks around 12th in the NFL.",
+    "personnel_tendencies": "11 personnel (1 RB, 1 TE, 3 WR) on approximately 65-70% of snaps. 12 personnel (1 RB, 2 TE, 2 WR) on approximately 22-25% of snaps. LaFleur uses 12 personnel to stress defenses with formation ambiguity \u2014 Tucker Kraft can align attached, flex to the slot, or motion as an H-back. Luke Musgrave provides a field-stretching athletic TE2. Condensed formations are a hallmark \u2014 receivers start tight and motion out, or vice versa, to force defensive declarations pre-snap. Motion rate is above league average and serves both as a coverage indicator and to create advantageous blocking angles on runs.",
+    "motion_tempo": "High motion usage \u2014 among the league leaders in pre-snap motion rate. Motion serves dual purposes: identifying man vs zone coverage and creating blocking angles or free releases for receivers. Standard tempo; not a hurry-up offense. LaFleur is methodical and values time on task. The offense operates under center more than most modern offenses (particularly in 12 personnel and on play-action), consistent with the Shanahan tree's emphasis on run-pass deception from under center."
   },
   "defense": {
-    "base_front": "hybrid (3-4 base principles with frequent 4-down nickel looks)",
-    "alignment": "Multiple front. GM Gutekunst hinted at 2026 Combine that Gannon will incorporate more '3-4 principles in base' than under Hafley, but acknowledged 'it's a nickel defense league' and predicted frequent four-down fronts with 5 DBs. Gannon ran 3-4 in Arizona and 4-3 in Philadelphia \u2014 expects to bounce between both.",
-    "edge_rush_source": "Hybrid. Micah Parsons is the primary pass rusher \u2014 played 85% of snaps off the edge in 2025 as a 4-3 DE but projects as a stand-up OLB in 3-4 looks. Lukas Van Ness on the opposite edge. Gannon's scheme in Arizona used OLBs (Zaven Collins, Dennis Gardeck) as primary edge rushers in 3-4 sets. Parsons' versatility to rush from DE, OLB, and even interior makes him the perfect fit for Gannon's multiple fronts.",
-    "coverage_base": "Quarters (Cover 4) heavy with Cover 3 and Cover 1 mixed in. In Arizona, Gannon led the entire NFL in Cover 4 usage in 2025. Also runs significant man coverage when matchups dictate. Emphasizes disguised coverages and pre-snap confusion.",
-    "blitz_tendency": "low-to-moderate (Gannon's defenses historically rank low in actual blitz rate but use heavy simulated pressures and disguised fronts. Under Hafley in 2024-25, Packers blitzed ~20-27% of the time. Gannon prefers generating pressure with the front four while dropping into zone.)",
-    "lb_role": "ILBs (Edgerrin Cooper, Quay Walker) are run/coverage hybrid players. In Gannon's 3-4 looks, OLBs become primary pass rushers. Cooper is an ascending player who took over as a starter in 2024. Under Gannon, expect more variety in LB usage \u2014 some OLB blitzing, some dropping into coverage.",
-    "safety_usage": "Three-safety looks are a hallmark. Xavier McKinney (elite free safety, 2x All-Pro), Evan Williams (strong safety), and Javon Bullard (slot/nickel hybrid who also plays safety). Gannon historically favors three-safety personnel \u2014 in Arizona he used 'a slew of combinations in the back seven' with three-safety looks allowing rotation into blitzing, coverage, and box roles. Bullard's versatility as a slot defender who can also play box safety is ideal for Gannon."
+    "scheme_family": "Quarters-based multiple front (Zimmer/Fangio hybrid)",
+    "scheme_detail": "Gannon's defense is predicated on coverage disguise and adaptability. He uses a split-safety two-high shell as his base look, from which the defense rotates into match-quarters (Cover 4), Cover 2, Cover 3, or Cover 6 post-snap. The pre-snap look is designed to make it impossible for QBs to identify the coverage \u2014 as LaFleur himself noted, 'the genius in what they do is they don't give you looks that are easy.' Gannon emphasizes front-four pressure over blitzing, though he increased blitz rates in Arizona when pass-rush talent was lacking. In Green Bay with Micah Parsons, expect a return to the Philadelphia model: elite front-four pressure supporting quarters coverage behind it. Gannon's approach is personnel-driven \u2014 he will mold the scheme to his players' strengths rather than forcing a rigid system.",
+    "front_structure": "3-4 base front with three 300-pound interior DL (nose tackle + two defensive ends) and two stand-up edge rushers. In Philadelphia, this meant Fletcher Cox/Javon Hargrave/Jordan Davis inside with Josh Sweat and Haason Reddick on the edge. In Green Bay, expect Devonte Wyatt and added DL inside with Micah Parsons and Lukas Van Ness as primary edge rushers. The 3-4 front is used specifically because it pairs with the quarters coverage \u2014 the extra body on the line of scrimmage compensates for having both safeties in high alignments. In sub-packages (nickel), one ILB comes off and a fifth DB enters, but the three interior DL often remain, creating a 3-1-5 or 3-3-5 look.",
+    "coverage_philosophy": "Match-quarters (Cover 4) is the foundation \u2014 Gannon led the NFL in quarters usage in Arizona and was second in Philly. The corners play from off-coverage alignment and transition from zone reads to man assignments post-snap based on route distribution. Safeties align 12 yards deep in two-high and can rotate into deep coverage, run support, or blitz. Three-safety packages ('Big Nickel') are a key wrinkle \u2014 with Xavier McKinney, Evan Williams, and Javon Bullard, Gannon has ideal personnel. Coverage busts are minimized through assignment clarity \u2014 Gannon's Cardinals had the fewest coverage busts in the NFL in 2025.",
+    "pressure_philosophy": "Front-four pressure is the priority. In Philadelphia with elite DL, Gannon blitzed at only 22% \u2014 among the lowest in the NFL. In Arizona without pass-rush talent, he increased to 28.6%. In Green Bay with Parsons, expect a return to low-blitz, high-pressure-rate approach. Gannon uses DL rotation extensively (8-man rotation in Philly) and creative interior stunts/twists. Edge rushers are asked to drop into flat/curl coverage at a significantly higher rate than under Hafley's 4-3 \u2014 Arizona's edges dropped 151 times vs Packers' 31 in 2025. Simulated pressures disguise the actual rush.",
+    "sub_packages": "Nickel (5 DB) is the primary sub-package but Gannon's usage varies dramatically year-to-year based on opponent personnel (41% nickel in AZ 2025, 67% in AZ 2024). Big Nickel with three safeties is a significant wrinkle \u2014 Javon Bullard's versatility to play slot, box, or deep makes him the ideal chess piece. Dime usage has increased under Gannon's tenure. Gannon pulls an ILB off the field in sub-packages rather than an edge rusher, maintaining pass-rush presence. Collin Oliver projects as a hybrid edge/nickel LB who can cover and rush."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "Tucker Kraft's usage proves Green Bay values elite receiving TEs at near-WR levels. Before his torn ACL in Week 9 of 2025, Kraft was the team's top receiver (32 catches, 489 yards, 6 TDs in 8 games), leading all TEs in yards per reception and YAC per reception. LaFleur's offense features the TE in condensed formations, flexed to the slot, and as the primary play-action target. The Packers ran 25% 12 personnel, and Kraft was on pace for a potential All-Pro season. Any TE prospect with elite receiving traits (route running, hands, YAC, speed) gets a significant value boost for Green Bay, especially with Kraft recovering from his ACL and Luke Musgrave proving unreliable as a backup."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB in LaFleur's system must execute timing-based play-action concepts off wide zone action, process layered reads from boot/naked concepts, and deliver the ball with anticipation into defined windows. LaFleur calls the plays and collaborates closely with his QB on the game plan \u2014 the QB must be comfortable within structure while having enough arm talent to push the ball vertically off play-action. The system demands under-center operation, sprint-out mechanics, and the ability to manipulate safeties with eyes pre-throw.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "LaFleur's offense features one of the highest average depths of target in the NFL. The boot/sprint-out concepts require throwing across the field with velocity, and the vertical shot plays off play-action demand the ability to push the ball 40+ yards. Love's arm talent has been central to making this offense explosive."
+        },
+        "Accuracy": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The Shanahan tree is built on timing \u2014 the ball must arrive at a specific landmark before the receiver completes the break. Boot concepts require throwing on the move to intermediate targets. Anticipation accuracy into defined windows is the single most important trait in this system."
+        },
+        "Pocket Presence": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "While LaFleur's system features significant movement (boots, sprint-outs), the QB still operates from the pocket on standard dropback concepts. The Packers' OL has been inconsistent, requiring the QB to navigate pressure and make subtle pocket adjustments to keep plays alive."
+        },
+        "Mobility": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "LaFleur's system asks the QB to execute boot/naked concepts that require him to sprint outside the pocket and deliver on the move. This isn't about scrambling \u2014 it's about structured mobility within designed movements. The scheme has QB draw and read-option packages, though they are used sparingly."
+        },
+        "Decision Making": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The layered read structure \u2014 with play-action concepts featuring three-level floods \u2014 requires rapid processing. The QB must read the conflict defender (flat/curl zone) and make the correct throw based on leverage. RPOs require pre-snap box count assessment and post-snap reads."
+        },
+        "Leadership": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "LaFleur involves his QB deeply in game-planning (Love 'combs the call sheet' weekly), so the QB must be communicative and proactive. But the system is designed to support the QB rather than require him to carry the team through audibles and free-play creation."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "LaFleur's use of motion pre-snap helps the QB identify coverage. The system provides built-in answers versus different coverage shells. While pre-snap reads matter, the system does significant heavy lifting for the QB through motion and formation design."
+        }
+      },
+      "ideal_archetype": "A timing-based passer with a strong arm who operates efficiently within structure. Must be comfortable under center, throw with anticipation on play-action, and deliver on the move from boot concepts. Think of a quarterback who can make all the throws within the system's framework but also has the arm talent to take deep shots when the defense gives it. Not a freelancer \u2014 a QB who thrives in a structured play-calling system with defined reads.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-4",
+          "floor": "6-1",
+          "reasoning": "The under-center operation and play-action fakes require a QB who can see over the line post-fake. Boot concepts have the QB throwing across traffic."
+        },
+        "weight": {
+          "ideal": "215-230",
+          "floor": "210",
+          "reasoning": "The boot/sprint-out concepts and occasional designed runs require enough mass to absorb hits while throwing on the move."
+        },
+        "40_yard_dash": {
+          "ideal": "4.65-4.80",
+          "floor": "4.90",
+          "reasoning": "Not a running QB system, but the boot concepts and designed movement require adequate foot speed to threaten the edge."
+        }
+      },
+      "development_context": "LaFleur has demonstrated the ability to elevate QBs within his system \u2014 Rodgers won back-to-back MVPs, Love developed into a franchise-caliber starter. Sean Mannion's departure to become the Eagles OC leaves a void at QB coach that needs monitoring. The system provides scaffolding for QB development through defined reads and schematic answers, but the QB must arrive with arm talent and the ability to throw with anticipation \u2014 those traits cannot be coached.",
+      "scheme_fit_narrative": "We need a quarterback who trusts the system. This offense is designed to make his job easier \u2014 motion reveals coverage, play-action creates layered reads, and every play has a defined progression. The ideal prospect has a live arm to exploit the play-action shots downfield, is accurate throwing on the move, and processes the field quickly within structure. He doesn't need to be a magician \u2014 he needs to be efficient, accurate, and trust his footwork.",
+      "archetype_examples": [
+        "Jordan Love",
+        "Kirk Cousins (peak)",
+        "Jared Goff"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "high",
-      "explanation": "Jonathan Gannon's hiring fundamentally changes this calculus. Gannon ran a 3-4 in Arizona where OLBs (Zaven Collins, Dennis Gardeck, BJ Ojulari) were the primary edge rushers. He split his defensive front coaching in Arizona into a '3-4 DL coach and a 3-4 outside linebackers coach.' Micah Parsons himself is transitioning from a 4-3 DE to what projects as a 3-4 OLB \u2014 the same archetype he played early in his career in Dallas. With Rashan Gary likely departing, Green Bay needs a second edge presence opposite Parsons. Any LB prospect with pass rush traits (burst, bend, power moves) who can stand up and rush from the OLB spot in a 3-4 gets a major value boost. Gannon's Eagles had four players with 10+ sacks in 2022 \u2014 he knows how to maximize edge talent in multiple alignments."
+    "RB": {
+      "scheme_role": "The RB in LaFleur's wide zone system must read the blocks and find cutback lanes \u2014 the system does not assign a specific hole but creates horizontal displacement that the RB exploits with vision and patience. The RB must also be effective in pass protection (Love has been hit due to RB pass-pro failures) and contribute as a checkdown receiver, though this is not a heavy RB-receiving offense. The RB handles 20-25 carries per game when LaFleur commits to the run.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Wide zone is a read-and-react scheme. The RB must press the outside zone, read the DL's reaction, and cut back to daylight. Josh Jacobs earned a Pro Bowl in this system specifically because of his elite vision and patience to let blocks develop."
+        },
+        "Contact Balance": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The Packers' OL has struggled to create clean running lanes \u2014 Jacobs generated 484 of 608 rushing yards after contact in a 2025 stretch. The RB must break arm tackles and fall forward for positive yardage when the blocking isn't perfect."
+        },
+        "Power": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "LaFleur has incorporated more gap/power concepts alongside wide zone, requiring the RB to run through tackles in tighter spaces. However, this is not primarily a downhill power scheme."
+        },
+        "Elusiveness": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The wide zone scheme creates one-cut opportunities in space. The RB needs lateral agility to make a defender miss in the hole and turn a 3-yard gain into a 10-yard gain. LaFleur's condensed formations create traffic that rewards elusive runners."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Wide zone can create breakaway opportunities when the RB presses the edge and the defense overflows. Speed matters for explosive plays, but vision and contact balance are more scheme-critical."
+        },
+        "Pass Catching": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "LaFleur uses the RB as a checkdown option and in screen concepts. The RB is not a primary receiving target (Jacobs had ~40 catches), but reliable hands are needed for the short passing game."
+        },
+        "Pass Protection": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "LaFleur's 7-step drops and play-action boots leave the RB responsible for picking up delayed blitzers. Jacobs' failure to anchor against Nakobe Dean's blitz was a critical play in the Eagles loss \u2014 pass protection directly affects QB survival."
+        }
+      },
+      "ideal_archetype": "A patient, one-cut runner with excellent vision who can press the wide zone horizontally and find the cutback lane. Must be able to absorb contact and fall forward when the blocking breaks down. Think of a back who makes the line look better than it is through patience and decisiveness. Not a pure speed back \u2014 this is a vision-first, contact-balance system.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "210-225",
+          "floor": "200",
+          "reasoning": "Wide zone requires enough mass to absorb contact at the second level but enough agility to make one-cut decisions in space."
+        },
+        "40_yard_dash": {
+          "ideal": "4.45-4.55",
+          "floor": "4.60",
+          "reasoning": "Speed is secondary to vision in this scheme, but the RB must be able to threaten the edge on wide zone and create explosive plays."
+        },
+        "short_shuttle": {
+          "ideal": "Sub-4.25",
+          "floor": "4.35",
+          "reasoning": "Lateral agility drives the one-cut ability that makes wide zone effective."
+        }
+      },
+      "development_context": "LaFleur has not shown a strong RB development track record \u2014 his success has come with established backs (Aaron Jones, Josh Jacobs). MarShawn Lloyd struggled as a 2024 third-rounder. The scheme can make an average back look good if he has vision, but elite vision and contact balance must arrive ready. Pass protection technique can be developed.",
+      "scheme_fit_narrative": "Give us a patient runner who trusts his eyes. This wide zone scheme creates lanes, but they don't always appear where you'd expect. We need a guy who presses the edge, sets up his blocks, and makes one decisive cut. Contact balance is non-negotiable \u2014 our line doesn't always give clean creases. He doesn't need to be the fastest guy on the field, but he needs to make the first defender miss and fall forward.",
+      "archetype_examples": [
+        "Josh Jacobs",
+        "Aaron Jones",
+        "Dalvin Cook (Minnesota era)"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "medium",
-      "explanation": "LaFleur's Shanahan-derived offense does value receiving backs, and Josh Jacobs showed elite receiving ability in 2025 (PFF 90.0 receiving grade, 3rd among HBs). However, Green Bay primarily uses Jacobs as a bell-cow runner \u2014 his receiving role is complementary, not primary. The offense is built around play action and the run game first, with RB targets being checkdowns and screens rather than designed routes. A dual-threat RB gets a moderate boost, but Green Bay won't draft an RB high purely for receiving ability."
+    "WR": {
+      "scheme_role": "Receivers in LaFleur's system operate from condensed formations and are frequently in motion. The X-receiver (Christian Watson) must win vertically to stretch the field and demand safety attention. The Z/slot receiver (Jayden Reed, Matthew Golden) must run intermediate crossers, dig routes, and slants that complement the vertical threat. All receivers must be willing blockers in the run game \u2014 this is non-negotiable in a Shanahan-tree offense. The WR corps is young and athletic, emphasizing YAC ability and explosive play potential over possession receiving.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "LaFleur's timing-based passing game requires precise stems and breaks. The system features multiple routes off the same stem to keep DBs guessing \u2014 corners from post stems, digs from go stems. Clean route technique is critical for the play-action game to work."
+        },
+        "Separation": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The system creates schematic separation through formation and motion, but the WR must also win against tight coverage on timing routes. Reed's quickness off the line and separation at the top of routes makes him ideal for the intermediate crosser role."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Timing routes arrive in tight windows \u2014 the WR must catch with his hands and secure through contact. Drops in this system kill drives because the ball is thrown to a spot, not to separation."
+        },
+        "YAC Ability": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "LaFleur's system generates significant YAC opportunities through schematic design \u2014 intermediate crossers, slants, and screen concepts put the ball in the WR's hands in space. The Packers had one of the highest explosive passing play rates in the league (16.5% in 2024). YAC is how this offense turns 8-yard completions into 20-yard gains."
+        },
+        "Speed": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Vertical speed is essential for the play-action deep shots that make the system work. Watson's speed demands safety depth, which opens up intermediate routes for other receivers. LaFleur's first-round pick of Matthew Golden (4.38 speed) confirms the premium on speed in this offense."
+        },
+        "Contested Catches": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The system is designed to create open throws through timing and scheme rather than contested situations. However, the deep shots off play-action sometimes produce 50-50 balls that require the WR to win."
+        },
+        "Release Package": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "LaFleur's condensed formations frequently put receivers near the line of scrimmage where they face press coverage. The ability to defeat press and win at the line is critical for timing \u2014 if the release is late, the play-action timing is disrupted. Motion helps create free releases, but the WR must also be able to win when aligned outside."
+        }
+      },
+      "ideal_archetype": "A fast, versatile receiver who can win vertically to stretch the field and also create explosive YAC on intermediate routes. Must be a willing blocker in the run game \u2014 this system values receivers who crack downhill on linebackers and seal on wide zone. The ideal Z/slot receiver has elite quickness off the line, can run the full route tree from the slot, and is a weapon after the catch. The ideal X receiver has vertical speed to demand safety attention and the release package to beat press consistently.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "Vertical speed is essential for the play-action deep ball game. LaFleur has consistently targeted fast receivers (Watson 4.36, Golden 4.38, Reed 4.39)."
+        },
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "No rigid height requirement \u2014 Reed is 5-11, Watson is 6-4. The system values speed and route craft over size. However, a taller X receiver who can win contested catches downfield adds another dimension."
+        },
+        "3_cone_drill": {
+          "ideal": "Sub-6.80",
+          "floor": "7.00",
+          "reasoning": "Quick-twitch agility drives route breaks and YAC ability in space. Reed's elite 3-cone (6.68) exemplifies the movement skill this system demands."
+        }
+      },
+      "development_context": "LaFleur and passing game coordinator Jason Vrable have shown an ability to develop young receivers rapidly \u2014 Watson, Reed, Wicks, and Doubs all produced as rookies or second-year players. The system provides schematic separation that helps young receivers succeed early. Route technique can be refined, but speed and YAC instincts must arrive ready. Blocking willingness is coached but relies on mentality \u2014 Watson and Wicks became excellent blockers, while others have not bought in.",
+      "scheme_fit_narrative": "Speed and versatility are non-negotiable. We need receivers who can stretch the field vertically, create explosive plays after the catch, and are willing to crack a linebacker on wide zone. The ideal prospect has 4.4 speed, plays fast on film, and shows the ability to separate at every level of the field. If he can block, he'll play immediately. If he can't, he'll be a sub-package player until he learns.",
+      "archetype_examples": [
+        "Jayden Reed",
+        "Deebo Samuel",
+        "DK Metcalf (vertical X role)",
+        "Puka Nacua (route precision role)"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "Gannon's scheme is built for hybrid safeties. In Arizona, he favored three-safety looks with safeties rotating between blitzing, coverage, and box roles. The Packers already have the prototype: Javon Bullard plays slot corner (493 snaps) and safety (218 snaps) interchangeably. McKinney is the elite deep FS, Williams is the strong safety, and Bullard is the Swiss Army knife. Gannon's use of multiple safeties to confuse opposing QBs means any safety prospect with versatility \u2014 who can play in the box, cover the slot, blitz, and also align deep \u2014 gets a significant value boost. The Packers' defensive identity under Gannon will be defined by their ability to deploy three safeties in multiple disguised looks."
+    "TE": {
+      "scheme_role": "The TE is a central figure in LaFleur's offense. Tucker Kraft operates as a move TE who aligns attached, flexes to the slot, motions as an H-back/sniffer, and runs the full route tree. In 12 personnel, the Packers marry wide zone and boot concepts at a high rate \u2014 the TE must sell the run fake and release into the flat or intermediate crosser. The TE is also a critical run-blocker, both as an in-line Y and as a lead blocker in split zone and power concepts. Kraft's YAC ability after intermediate catches has been specifically highlighted by film analysts as scheme-changing.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "LaFleur's 12-personnel concepts feature the TE as a primary target on boot/sail concepts. Kraft's receiving ability transforms intermediate throws into explosive plays. The TE is often the conflict defender's assignment on play-action \u2014 he must be a legitimate receiving threat to make the defense honor the fake."
+        },
+        "Route Running": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The TE runs seam routes, digs, crossers, and flat routes off play-action. Precise route technique at the intermediate level is critical for the timing of boot concepts. The TE must threaten multiple levels of the field."
+        },
+        "Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "LaFleur's run game demands that the TE be a reliable blocker \u2014 as an in-line Y on wide zone, as a sniffer/lead blocker on power/split zone, and as a motion-blocker on jet sweeps. Kraft is described as a 'psychopath' blocker. The Packers need TEs who can sustain blocks at the point of attack."
+        },
+        "Athleticism": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The TE must be a mismatch weapon who can line up everywhere \u2014 in-line, slot, motion, H-back. Versatile alignment is the key to how LaFleur stresses defenses with 12 personnel. The TE must be athletic enough to win against linebackers in coverage and fast enough to stretch the field down the seam."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Boot concepts produce tight-window throws to the TE on intermediate routes. Reliable hands are needed, but the system creates enough schematic separation that contested catching is less critical."
+        },
+        "Speed": {
+          "weight": 0.11,
+          "importance": "moderate",
+          "reasoning": "Luke Musgrave's speed (4.61 at the combine) provides a field-stretching element from the TE position. A TE who can threaten vertically adds another dimension, but speed is secondary to blocking and receiving ability."
+        }
+      },
+      "ideal_archetype": "A complete tight end who can block on the line, flex to the slot, and create mismatches in the passing game. Must be physically imposing enough to sustain blocks on defensive ends and athletic enough to threaten linebackers in coverage. The ideal TE is a YAC weapon on intermediate routes who also relishes the run-blocking aspect. Think George Kittle \u2014 a tight end who changes the offense's geometry by being equally dangerous as a blocker and receiver.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-2",
+          "reasoning": "Must have the frame to sustain blocks on the edge and win in the red zone on contested catches."
+        },
+        "weight": {
+          "ideal": "240-255",
+          "floor": "235",
+          "reasoning": "Blocking in the run game requires mass to handle NFL defensive ends and outside linebackers. Kraft is 254 pounds."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "The TE must be athletic enough to threaten the seam and create separation in the flat on boot concepts. Sub-4.70 is ideal for the move-TE role."
+        }
+      },
+      "development_context": "LaFleur has successfully utilized athletic TEs throughout his tenure \u2014 Robert Tonyan's breakout year, Kraft's rapid development, Musgrave's rookie flash. The system is designed to feature TEs, so even raw receiving TEs can be productive early. Blocking technique can be developed with Stenavich's OL coaching background. However, the dual-threat nature of the role means a one-dimensional prospect (blocker-only or receiver-only) will be limited.",
+      "scheme_fit_narrative": "We're looking for a tight end who changes the math for the defense. When we go 12 personnel, we need the defense to wonder whether we're running or passing \u2014 and the TE is the key to that ambiguity. He has to be able to sustain a block on a 270-pound end on one play and then beat a linebacker down the seam on the next. Blocking willingness is tested immediately. If he won't block, he won't play.",
+      "archetype_examples": [
+        "George Kittle",
+        "Tucker Kraft",
+        "Mark Andrews (receiving role)"
+      ]
+    },
+    "OT": {
+      "scheme_role": "The OTs in LaFleur's wide zone scheme must execute reach blocks and climb to the second level on the run game \u2014 this requires lateral agility and the ability to move in space. On the left side, the OT protects Love's blind side on standard drops and sprint-out bootlegs. On the right side, the OT must handle speed rushers and be comfortable in zone-scheme techniques. The Packers have invested a first-round pick (Jordan Morgan) at tackle, signaling the importance of the position. The OL has struggled with consistency in both pass and run blocking in 2025.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "LaFleur's deep passing game and play-action concepts require time in the pocket. Jordan Love was sacked on consecutive plays in key moments in 2025 due to OT failures. Protection is paramount for the entire offensive system to function."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Wide zone demands the OT reach-block the defensive end and seal the edge. On gap/power concepts, the OT must execute down blocks and combo blocks. The Packers' run game success hinges on the OL winning at the point of attack, which was a consistent problem in 2025."
+        },
+        "Footwork": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Wide zone requires a specific lateral first step to get into position for the reach block. In pass protection, the kick-slide technique must be clean to handle speed-to-power rushers in the NFC North (e.g., Parsons-level pass rushers). LaFleur's system is footwork-intensive at every position."
+        },
+        "Anchor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The NFC North features powerful pass rushers who convert speed to power. The OT must set a strong anchor and not give ground when bull-rushed. However, the wide zone scheme values movement skills over pure anchor."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The wide zone scheme asks OTs to move laterally, climb to the second level, and reach-block defensive ends. This is fundamentally an athletic OT system \u2014 stiff, powerful-but-immobile tackles struggle in this scheme."
+        },
+        "Strength": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Functional strength matters for sustaining blocks and driving defenders off the ball on runs. But scheme demands athleticism over brute strength \u2014 the Packers will take a lighter, more athletic tackle over a mauler."
+        }
+      },
+      "ideal_archetype": "An athletic, nimble tackle who can execute zone-scheme reach blocks, climb to the second level, and mirror pass rushers in space. Must have the footwork to handle the lateral demands of wide zone and the balance to recover when beaten. Think of a tackle who moves like a tight end but has the length and strength to anchor when needed. Not a phone-booth brawler \u2014 a mover.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Length provides leverage advantage in both pass protection and reach blocking."
+        },
+        "weight": {
+          "ideal": "305-320",
+          "floor": "295",
+          "reasoning": "The wide zone scheme doesn't require 340-pound maulers. Athletic tackles in the 305-320 range can execute the movement demands."
+        },
+        "short_shuttle": {
+          "ideal": "Sub-4.60",
+          "floor": "4.70",
+          "reasoning": "Lateral agility drives wide zone blocking effectiveness. The OT must get lateral displacement on the first step to reach the backside of zone plays."
+        },
+        "arm_length": {
+          "ideal": "34+ inches",
+          "floor": "33 inches",
+          "reasoning": "Arm length helps keep pass rushers at bay and creates leverage on reach blocks."
+        }
+      },
+      "development_context": "Stenavich's OL coaching background has produced mixed results. Elgton Jenkins became a versatile All-Pro, and Rasheed Walker developed from a seventh-rounder into a starting LT who earned a significant free-agent deal. However, the OL has struggled with consistency in zone blocking technique in 2025. Jordan Morgan (2024 1st rounder) is the future at tackle. The staff can develop zone-blocking technique, but the raw athleticism and feet must arrive ready.",
+      "scheme_fit_narrative": "We need tackles who can move. This is a zone-blocking offense that asks its tackles to reach, seal, and climb. If your feet don't work laterally, you can't play here. We'll take the 310-pound athlete who mirrors rushers and gets to the second level over the 340-pound anchor who can't move. Pass protection is non-negotiable \u2014 Love takes hits when the tackles fail, and the play-action game dies if there's no time.",
+      "archetype_examples": [
+        "Penei Sewell",
+        "Rashawn Slater",
+        "Tristan Wirfs"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior OL in LaFleur's scheme execute zone-combination blocks on the play-side of wide zone, pulling blocks on gap/power concepts, and must handle interior pressure in pass protection. The center is the mental engine who makes the protection calls. The guards must be athletic enough to combo-block to the linebacker level on zone runs and physical enough to handle interior DTs in gap schemes. Aaron Banks' pulling ability has been highlighted, and LaFleur has used guard pulls as part of his expanding gap-scheme package.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Interior pressure kills this offense. Jacobs' failure to handle Nakobe Dean's blitz resulted in back-to-back sacks. The IOL must be able to pick up A-gap pressure, interior stunts, and delayed blitzes without help."
+        },
+        "Run Blocking": {
+          "weight": 0.23,
+          "importance": "essential",
+          "reasoning": "The IOL executes the combination blocks that make wide zone work \u2014 double-teaming at the point of attack before one lineman climbs to the linebacker. This requires synchronization, strength, and the ability to sustain drive blocks."
+        },
+        "Pulling": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "LaFleur has incorporated more gap/power concepts, requiring guards to pull and lead-block. Banks was highlighted pulling on counter/power runs against the Eagles and Vikings. This demands athleticism and spatial awareness."
+        },
+        "Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "NFC North interior DL are physical and powerful (Jalen Carter, DJ Reader-types). The IOL must anchor against bull rushes and win the leverage battle at the point of attack on zone runs. The Packers' zone blocking was compromised in 2025 when defenders consistently had lower pad level."
+        },
+        "Anchor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Bull-rush resistance matters in pass protection, but the scheme asks the IOL to be movers more than anchors. A guard who can't hold his ground against a 340-pound nose tackle will struggle, but this is secondary to movement skills."
+        },
+        "Versatility": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "LaFleur values IOL who can play multiple positions. Jenkins played guard and center. Sean Rhyan stepped in at center. Jordan Morgan has moved between guard and tackle. The ability to slide across the interior line is critical for roster flexibility and in-game adjustments."
+        }
+      },
+      "ideal_archetype": "An athletic, intelligent interior lineman who can execute zone combination blocks, pull on gap schemes, and handle interior pressure in pass protection. Must be smart enough to make protection calls (especially at center) and physical enough to drive defenders off the ball. Think of a lineman who's equally comfortable combo-blocking on wide zone and pulling around the edge on power. Versatility to play multiple IOL spots is a major plus.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Interior linemen in the zone scheme don't need elite height but need enough frame to play with leverage."
+        },
+        "weight": {
+          "ideal": "305-325",
+          "floor": "295",
+          "reasoning": "Must be able to hold up against massive interior DTs while maintaining the movement skills for zone blocking."
+        },
+        "short_shuttle": {
+          "ideal": "Sub-4.55",
+          "floor": "4.65",
+          "reasoning": "Lateral movement drives zone-blocking effectiveness. The IOL must mirror DTs moving laterally and execute combination blocks seamlessly."
+        },
+        "bench_press": {
+          "ideal": "28+ reps",
+          "floor": "24",
+          "reasoning": "Upper body strength supports the hand usage needed to sustain blocks in both pass and run concepts."
+        }
+      },
+      "development_context": "Stenavich's background is in OL coaching, and he's developed several late-round picks into starters (Runyan, Rhyan). However, the interior OL's run-blocking regression in 2025 raises questions. Zone-blocking technique can be coached, but the athlete must arrive with sufficient movement skills and functional strength. The staff values versatile linemen who can cross-train at multiple positions.",
+      "scheme_fit_narrative": "We need smart, athletic linemen who can handle the movement demands of zone blocking while being physical enough to win inside. The center must be a communicator who handles protection calls seamlessly. The guards need to be able to pull and execute at the second level. Give us a college guard who played in a zone scheme and showed he can handle interior rushers \u2014 we can develop the technique from there.",
+      "archetype_examples": [
+        "Joel Bitonio",
+        "Landon Dickerson",
+        "Elgton Jenkins (at guard)"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "In Gannon's 3-4 defense, the EDGE rushers are stand-up OLBs who are primary pass rushers but must also set the edge in the run game and drop into coverage at a significantly higher rate than in Hafley's 4-3. Gannon's Arizona defense dropped edge rushers into coverage 151 times in 2025 \u2014 nearly five times more than the Packers under Hafley. The primary EDGE (Micah Parsons) will be a every-down impact player who can rush, set the edge, and occasionally drop into flat/curl zones. The system rotates edge rushers extensively \u2014 Gannon's Cardinals rotated four edge rushers equally between 475-518 snaps each.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Gannon's defensive philosophy is built on front-four pressure \u2014 his best defenses (Philadelphia 2022, 70 sacks) dominated with pass rush rather than blitzing. The EDGE must be a consistent disruptive force who can win one-on-one against offensive tackles."
+        },
+        "Bend": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The wide-rushing lanes created by Gannon's 3-4 alignment give edge rushers more space to corner around the tackle. Bend to flatten to the QB is essential for converting speed into sacks. Parsons' elite bend was a key factor in the trade."
+        },
+        "First Step": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Gannon's stunts and twists require explosive first steps to create the initial displacement that makes the rest of the rush effective. From a two-point stance in the 3-4, the first step determines whether the rusher wins or loses."
+        },
+        "Power": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Gannon pairs speed rushers on one side with power rushers on the other (Sweat + Reddick in Philly) to create a vice. Power converts are useful, but bend and speed are more valued in this scheme than pure bull rush."
+        },
+        "Motor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The rotation-heavy approach means each edge rusher must maximize every snap. Gannon rotated four edges equally in Arizona \u2014 he wants fresh, relentless rushers who play hard on every snap. Motor also matters because edges must chase plays down from behind when they're the backside rusher."
+        },
+        "Run Defense": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "This is where Gannon's 3-4 creates a higher bar than a typical 4-3 edge. The stand-up OLB must set the edge against the run, force the ball back inside, and maintain gap integrity. Gannon's philosophy sacrifices some run defense for pass defense, but the EDGE must still be a capable run defender. Additionally, the 151 coverage drops per year mean the EDGE must have enough coverage awareness to handle flat zones and carry TEs on short routes."
+        }
+      },
+      "ideal_archetype": "A versatile, athletic edge rusher who wins with bend and speed off the edge but can also set the edge against the run and drop into flat coverage when asked. Must be comfortable rushing from a two-point stance in the 3-4 and be willing to play in a rotation. Think Haason Reddick in Philadelphia \u2014 a stand-up OLB who posted 16 sacks with a relentless motor while also being scheme-versatile enough to handle coverage drops. The ideal prospect has violent hands, elite bend, and the discipline to play assignment football.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "The stand-up OLB alignment in the 3-4 doesn't require elite length the way a hand-in-the-dirt DE does. Shorter, bendier rushers can thrive."
+        },
+        "weight": {
+          "ideal": "240-265",
+          "floor": "235",
+          "reasoning": "Must be light enough to drop into coverage and rush with speed but heavy enough to set the edge against NFL tight ends and tackles. Gannon played 279-pound Jordan Burch on the edge 91% of the time in Arizona \u2014 there's some flexibility in build."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.75",
+          "reasoning": "Speed-to-bend conversion is the primary rushing tool. The edge must close ground quickly to the QB after clearing the tackle. Speed also matters for the coverage drops."
+        },
+        "3_cone_drill": {
+          "ideal": "Sub-7.00",
+          "floor": "7.15",
+          "reasoning": "Change-of-direction ability drives bend around the edge and the ability to redirect in coverage drops."
+        }
+      },
+      "development_context": "DeMarcus Covington (DL/run game coordinator) comes from the Patriots and has experience developing pass rushers. The addition of Will Smart as a pass-rush specialist adds another development resource. Gannon's track record of maximizing Reddick (from average LB to 16-sack edge) shows he can develop hybrid players. The scheme can develop a raw athlete into a productive rusher by creating advantageous rush situations through stunts and twists \u2014 but the bend and first step must arrive as natural traits.",
+      "scheme_fit_narrative": "We need edge rushers who can do more than just rush the passer. In this defense, you're going to rush on first down, drop into the flat on second down, and rush again on third. We need guys who are versatile enough to handle all three roles and have the motor to keep going in a rotation. Bend and speed are king \u2014 we'll take the 245-pound rusher who can corner the edge and drop into coverage over the 275-pound bull rusher who can only rush.",
+      "archetype_examples": [
+        "Micah Parsons",
+        "Haason Reddick (2022 Eagles)",
+        "Josh Sweat"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Interior DL in Gannon's 3-4 are 300-pound space-eaters who anchor the front. The nose tackle and two defensive ends are on the field to absorb blocks, maintain gap integrity, and allow the linebackers and edge rushers to flow freely. Gannon needs three big men who can handle double teams and not get pushed off the ball. In Philadelphia, this was Fletcher Cox/Javon Hargrave/Jordan Davis \u2014 all 300+ pounders. In sub-packages, quicker interior rushers (Devonte Wyatt, Karl Brooks) can rotate in for pass-rush situations. The Packers currently lack a true 340+ pound nose tackle for Gannon's scheme.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Interior pass rush is a secondary function in Gannon's base 3-4. The primary pass-rush comes from the edges. However, interior disruption through stunts and twists is critical on passing downs \u2014 Gannon runs extensive interior stunt packages."
+        },
+        "Run Defense": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "The interior DL must be immovable against the run. Gannon's quarters-based coverage plays both safeties high, meaning the front must handle the run without safety help. The 3-4 DEs and NT are responsible for controlling two gaps and preventing OL from climbing to the second level."
+        },
+        "First Step": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "A quick first step helps on interior stunts and passing-down packages, but the base role is more about occupying space than penetrating. Devonte Wyatt's pass-rush role in sub-packages requires more first step than the base DL."
+        },
+        "Hand Usage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The interior DL must use hands to control blockers, maintain leverage, and either hold the point of attack or shed blocks to make tackles. Two-gapping requires elite hand placement and technique."
+        },
+        "Motor": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "Gannon rotates his DL extensively to keep them fresh. But even with rotation, the DL must play with effort on every snap \u2014 pursuing the ball carrier, collapsing the pocket on passing downs, and never giving up on plays."
+        },
+        "Strength": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Raw strength is critical for holding the point of attack against double teams in the 3-4 base. The NT must be able to anchor against 600+ pounds of force from center-guard combination blocks without being driven off the ball. Gannon specifically needs bigger, more physical DL than Hafley used."
+        }
+      },
+      "ideal_archetype": "A massive, powerful interior lineman who can hold the point of attack against double teams and control gaps in the 3-4 front. The ideal NT is a 330+ pound anchor who occupies two gaps and prevents OL from reaching the linebackers. The 3-4 DE is a 300-310 pound player who can two-gap, hold the edge of the line, and provide interior pressure on stunts. Think of the 2022 Eagles' interior rotation \u2014 Cox (311), Hargrave (305), Davis (341) \u2014 all big, powerful men who controlled the line of scrimmage.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Interior DL need low pad level and leverage. Excessive height can be a disadvantage against zone-blocking schemes."
+        },
+        "weight": {
+          "ideal": "300-345",
+          "floor": "295",
+          "reasoning": "Gannon's 3-4 demands 300-pounders inside. He explicitly moved away from 265-pound tweener DEs. The nose tackle position requires 330+ pounds to anchor against double teams."
+        },
+        "bench_press": {
+          "ideal": "30+ reps",
+          "floor": "26",
+          "reasoning": "Upper body power drives hand usage and the ability to control and shed blocks at the point of attack."
+        },
+        "arm_length": {
+          "ideal": "33+ inches",
+          "floor": "32 inches",
+          "reasoning": "Long arms help keep blockers off the body and maintain leverage when controlling gaps."
+        }
+      },
+      "development_context": "DeMarcus Covington comes from New England where he was responsible for DL development including the transition from 3-4 to 4-3 concepts. He developed Christian Barmore in New England. However, the Packers currently lack a true 3-4 nose tackle, and beat writers have noted Gannon needs more size inside. The draft and free agency (Calais Campbell, Javon Hargrave signing) will be critical. Developing a 340-pound anchor takes time \u2014 the Packers need immediate contributors here.",
+      "scheme_fit_narrative": "We need big men who can hold the point. This defense is built from the inside out \u2014 if the interior DL gets pushed around, the safeties can't stay high and the quarters coverage breaks down. Give us a 330-pound nose tackle who can eat double teams and a pair of 300-pound DEs who control their gaps. Pass rush is secondary \u2014 hold the line, let the edges and stunts create the pressure.",
+      "archetype_examples": [
+        "Jordan Davis",
+        "Calais Campbell",
+        "Javon Hargrave",
+        "Fletcher Cox"
+      ]
+    },
+    "LB": {
+      "scheme_role": "In Gannon's 3-4 base, two ILBs play behind the three DL and between the two stand-up edge rushers. In sub-packages, one ILB comes off the field. The remaining ILB is the defensive quarterback who must process formations, communicate adjustments, and be reliable in both run fits and coverage. Gannon's linebackers play 'drop-and-rally' football in his quarters coverage \u2014 dropping to landmark zones and rallying to the ball. In Philadelphia, this was T.J. Edwards and Kyzir White. Edgerrin Cooper is the ascending star, and Zaire Franklin was acquired as a run-stuffing complement. The LB must handle the run without safety support early (quarters coverage keeps safeties high) and be able to match running backs and tight ends in coverage.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Gannon's philosophy sacrifices some run defense for pass coverage, meaning when LBs arrive at the ball carrier, they must finish. Quay Walker led the team with 128 tackles but his inability to be consistently around the ball limited his ceiling. Reliable tackling in space is critical."
+        },
+        "Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "This is the key differentiator. Gannon's quarters coverage asks LBs to match routes post-snap \u2014 carrying TEs on seams, matching RBs on checkdowns, and playing zone landmarks. Walker's 653 yards allowed in coverage (5th-most for any LB) was a major reason the Packers declined his option. The LB must be a legitimate coverage player."
+        },
+        "Pass Rush": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "ILB blitzes are used sparingly in Gannon's scheme \u2014 he prefers front-four pressure. Occasional A-gap blitzes exist but are not a primary function. The ILB's priority is coverage and run-stopping, not rushing the passer."
+        },
+        "Instincts": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Drop-and-rally coverage requires the LB to read route combinations and react to what the offense is doing. Mental processing speed is critical \u2014 Gannon values LBs who can 'think' (his stated top trait for defenders). Walker's inconsistent diagnoses (frequently out of position) limited his effectiveness."
+        },
+        "Athleticism": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Gannon needs LBs who can move sideline-to-sideline and cover ground in zone drops. Walker's 4.5 speed was his best asset. The modern NFL asks LBs to cover a massive amount of space, and Gannon's scheme amplifies this with high safeties that leave LBs responsible for intermediate coverage."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Sideline-to-sideline range matters for run defense when the DL is asked to hold gaps rather than penetrate. The LB must flow to the ball and make tackles at the perimeter."
+        },
+        "Block Shedding": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The 3-4 DL is designed to absorb blocks and keep the LBs clean, but OL will still climb to the second level. The LB must use hands to stack and shed blocks when reached."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "The LB must identify offensive formations and make the correct calls to set the defense. Cooper has shown improvement here. Pre-snap intelligence is important but less critical than coverage ability in this scheme."
+        }
+      },
+      "ideal_archetype": "A rangy, athletic linebacker who can drop into coverage, match tight ends and running backs in the passing game, and still be a reliable tackler against the run. Must have the processing speed to read route combinations and drop to the correct landmark. Think of Kyzir White in Philadelphia \u2014 a former safety who played LB with coverage skills that allowed Gannon's quarters scheme to function. The ideal LB has a safety's coverage instincts in a linebacker's body.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-3",
+          "floor": "6-0",
+          "reasoning": "Height provides the ability to disrupt passing lanes in zone coverage and match taller tight ends."
+        },
+        "weight": {
+          "ideal": "225-245",
+          "floor": "220",
+          "reasoning": "Must be heavy enough to take on blocks and tackle RBs but light enough to move in coverage. Walker was 241, Cooper is 235."
+        },
+        "40_yard_dash": {
+          "ideal": "4.45-4.60",
+          "floor": "4.65",
+          "reasoning": "Speed in coverage is the differentiator. Gannon's scheme asks LBs to carry routes downfield and rally to the ball over long distances."
+        },
+        "3_cone_drill": {
+          "ideal": "Sub-7.00",
+          "floor": "7.10",
+          "reasoning": "Change of direction drives the ability to match routes and redirect in zone coverage."
+        }
+      },
+      "development_context": "Sam Siefkes (new LB coach) was Gannon's LB coach in Arizona and previously coached at Virginia Tech and Minnesota. He's a rising 34-year-old coach who will install Gannon's LB techniques and coverage assignments. The system can develop instincts and coverage technique in athletic LBs \u2014 White was converted from safety to LB in this scheme. But the athleticism and speed must arrive ready. Franklin was acquired specifically for his run-stopping reliability as a complement to Cooper's coverage skills.",
+      "scheme_fit_narrative": "The days of the thumper LB who just hits people are over in this defense. We need linebackers who can cover. The quarters coverage keeps our safeties high, which means the LBs are on their own in the intermediate zones. If you can't match a tight end on a seam route or a running back on a wheel, you're a liability. Give us the 235-pound athlete with safety-like coverage skills who can also come downhill and fit the run. Instincts and processing speed are king.",
+      "archetype_examples": [
+        "Edgerrin Cooper",
+        "Kyzir White",
+        "Roquan Smith (coverage versatility)",
+        "Fred Warner"
+      ]
+    },
+    "CB": {
+      "scheme_role": "Corners in Gannon's defense align off-coverage and play from a match-quarters technique \u2014 they start in zone leverage and convert to man responsibilities post-snap based on route distribution. The corners must read the route stem, identify whether they have a man assignment (in quarters) or zone responsibility (in Cover 3/6), and execute accordingly. Gannon does NOT ask corners to play heavy press-man on an island like some defenses \u2014 the scheme provides help over the top from the two-high safeties. However, the corners must be smart enough to process the coverage conversion and disciplined enough to stay in their assignment. Jaire Alexander is the CB1 who has played in both man and zone systems.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Gannon's match-quarters asks corners to convert from zone to man based on route distribution. The CB must be able to mirror routes and stay in phase when the coverage calls for man responsibility. However, this is not a pure man-coverage defense \u2014 it's match-zone that looks like man."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Gannon's defense is designed to prevent big plays and force teams to play 'perfect' to move the ball. Turnovers are critical \u2014 the Packers had only 7 INTs in 2025 (28th in NFL), a number Babich is tasked with dramatically improving. The CB must play the ball in the air and create turnovers when opportunities arise."
+        },
+        "Zone Coverage": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "This is the most critical trait. Gannon's defense is fundamentally a zone-based system with quarters, Cover 3, and Cover 6 making up the majority of coverage calls. The CB must read route combinations, pattern-match, and rally to the ball. Zone discipline is paramount \u2014 the Cardinals had the fewest coverage busts in the NFL, meaning Gannon demands assignment integrity."
+        },
+        "Speed": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Playing off-coverage in a match-quarters system requires recovery speed when the offense attacks vertically. The CB must be able to stay with go routes from a zone start and close on deep balls. Speed is the safety net."
+        },
+        "Press": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Gannon rarely asks corners to press at the line \u2014 his defense plays from off-alignment to maintain vision on route development. Press technique is useful in specific situations but is not a primary ask in this system."
+        },
+        "Nickel": {
+          "weight": 0.21,
+          "importance": "essential",
+          "reasoning": "The slot corner is critical in Gannon's defense. With heavy use of nickel and dime packages and three-safety looks, the slot defender must handle quicker receivers in space, play zone landmarks in the middle of the field, and be physical enough to support the run. Javon Bullard's versatility to play slot/safety makes him the ideal chess piece."
+        }
+      },
+      "ideal_archetype": "A smart, instinctive corner who excels in zone coverage and can execute the match-quarters technique \u2014 reading route stems, converting from zone to man, and staying disciplined in his assignment. Must have excellent ball skills and the willingness to rally to the ball in run support. Not a pure press-man corner who shuts down receivers at the line \u2014 this is a pattern-reader who makes plays on the ball from off-coverage. The ideal outside CB has length, recovery speed, and ball skills. The ideal nickel has quick feet, versatility, and physicality.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-1 (outside), 5-10 to 6-0 (nickel)",
+          "floor": "5-9",
+          "reasoning": "Length helps in the match-quarters system for contesting catches at the catch point and disrupting route stems. Nickel corners can be shorter if they have quick feet and physicality."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.48",
+          "floor": "4.52",
+          "reasoning": "Off-coverage alignment requires recovery speed to stay with vertical routes. The CB can't afford to get stacked playing from depth."
+        },
+        "weight": {
+          "ideal": "185-200",
+          "floor": "180",
+          "reasoning": "The CB must be physical enough to support the run and tackle in the open field. Gannon's defense asks corners to be willing tacklers."
+        }
+      },
+      "development_context": "Bobby Babich (DPGC/secondary) developed All-Pros Tre'Davious White, Jordan Poyer, and Micah Hyde in Buffalo. He brings a strong DB development track record and an emphasis on takeaways. Daniel Bullocks (from SF's Shanahan staff) adds another experienced DB coach. This coaching combination should be able to develop zone-coverage technique in athletic DBs. Ball skills and instincts must arrive ready \u2014 you can teach technique but not anticipation.",
+      "scheme_fit_narrative": "We don't need a shutdown man-coverage corner who eliminates one receiver. We need smart corners who can read the offense, execute the match-quarters technique, and make plays on the ball. Ball production is critical \u2014 seven interceptions was embarrassing and must be fixed. Give us a corner with great ball skills, zone instincts, and the speed to recover when he's playing off. If he can also play nickel, even better.",
+      "archetype_examples": [
+        "Jaire Alexander (zone versatility)",
+        "James Bradberry (Gannon's Eagles)",
+        "Darius Slay (pattern-matching)"
+      ]
+    },
+    "S": {
+      "scheme_role": "Safeties are the most important position group in Gannon's defense. He uses a split-safety two-high shell as his base alignment, with both safeties aligned 12 yards deep. From this position, they can rotate into deep coverage, come downhill as run-force defenders, or blitz. Gannon frequently uses three-safety packages (Big Nickel) where all three of Xavier McKinney, Evan Williams, and Javon Bullard are on the field simultaneously. In match-quarters, the safeties bracket routes over the middle and help corners deep. The safeties are also critical run defenders \u2014 when running quarters, safeties act as the 'force' defender, allowing an extra body at the line of scrimmage via the 3-4 front.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "In match-quarters, safeties occasionally man up on tight ends or running backs when the coverage converts. However, this is not a primary man-coverage defense for safeties \u2014 the quarters technique handles most assignments through pattern matching."
+        },
+        "Range": {
+          "weight": 0.24,
+          "importance": "essential",
+          "reasoning": "The split-safety alignment 12 yards deep requires the safety to cover enormous amounts of ground. When the quarters coverage converts to a single-high look post-snap, one safety must have the range to cover the deep middle. McKinney's range is why he was an All-Pro acquisition. Range is the defining trait."
+        },
+        "Ball Skills": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Gannon's defense is designed to create turnover opportunities, and safeties are often in position to make plays on the ball. McKinney led the NFL with 8 INTs in 2024. Babich's hiring specifically targets improving the Packers' league-worst INT production. The safety must be a ball hawk."
+        },
+        "Tackling": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Safeties are the force defenders in the run game when playing quarters. Williams and Bullard are both physical safeties who can come downhill and hit. When the DL holds the point of attack, the safety must arrive and finish the tackle. Open-field tackling reliability is critical."
+        },
+        "Speed": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The deep alignment requires the ability to close on deep balls and recover when beaten vertically. Speed also matters for the run-force role \u2014 the safety must arrive from 12 yards deep to make tackles near the line of scrimmage."
+        },
+        "Nickel": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Javon Bullard exemplifies the hybrid safety/nickel role that Gannon loves. He used Budda Baker similarly in Arizona. A safety who can also play in the slot provides schematic flexibility \u2014 three-safety looks become a weapon when all three can cover and support the run."
+        }
+      },
+      "ideal_archetype": "A rangy, instinctive safety who excels from a deep alignment and has elite ball-hawking ability. Must be able to play from a split-safety shell and cover the deep middle when the coverage rotates. The ideal free safety has McKinney-like range and ball skills \u2014 the kind of player who makes QBs pay for deep mistakes. The ideal strong safety/hybrid has Bullard-like versatility \u2014 physical enough to come downhill as a run defender, athletic enough to cover in the slot, and instinctive enough to disguise his role pre-snap. The third safety role is critical and requires a player who can toggle between all three functions.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Safeties need enough size to be physical in run support and win contested catches in the deep middle."
+        },
+        "weight": {
+          "ideal": "195-215",
+          "floor": "190",
+          "reasoning": "Must be physical enough to handle the run-force role while maintaining deep-half speed. Bullard is 198, McKinney is 201."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.52",
+          "floor": "4.55",
+          "reasoning": "Deep-half speed is non-negotiable. The safety must be able to get from his 12-yard alignment to the deep sideline or deep middle in time to contest throws."
+        }
+      },
+      "development_context": "Babich developed Jordan Poyer and Micah Hyde into All-Pro safeties in Buffalo. Bullocks brings SF's Shanahan-influenced safety development approach. This safety coaching group is arguably the strongest on the entire staff. Green Bay already has three quality safeties in McKinney, Williams, and Bullard \u2014 the development focus will be on the reserve safety and any drafted prospects. The system demands football IQ and instincts that are hard to develop \u2014 the physical tools must be paired with processing speed.",
+      "scheme_fit_narrative": "Safeties run this defense. They're the ones who make the coverage disguise work \u2014 pre-snap they look like two-high, post-snap they could be anywhere. We need safeties who can play from depth, read the QB's eyes, break on the ball, and make plays. Range and ball skills are the two must-haves. If you can also play in the slot and come up as a box defender, you're never coming off the field. We're going to have three safeties on the field a lot \u2014 versatility is the key to unlocking this defense.",
+      "archetype_examples": [
+        "Xavier McKinney",
+        "Javon Bullard",
+        "Budda Baker",
+        "C.J. Gardner-Johnson (Gannon's Eagles)"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "The Gannon hire is the biggest variable for Green Bay's 2026 draft. His 3-4/multiple front system creates immediate demand for a stand-up OLB/EDGE hybrid opposite Parsons (Rashan Gary likely gone), making pass-rushing LBs like Arvell Reese or Sonny Styles significantly more valuable to GB than to traditional 4-3 teams. On defense, Gannon's quarters-heavy coverage and three-safety personnel mean versatile safeties and big slot corners who can rotate roles get a premium. Cornerback is a critical need after losing Jaire Alexander and Eric Stokes. On offense, TE is a sneaky need \u2014 Tucker Kraft's ACL recovery timeline is uncertain, and the offense collapsed without him. A receiving TE with YAC ability would be valued near WR1 prices. The OL also needs attention after a brutal 2025, particularly at center. LaFleur still calls plays, and the offense will remain Shanahan-rooted regardless of any OC changes. Gannon's adaptable defensive philosophy means Green Bay will value versatile defensive prospects who can play multiple positions over rigid specialists.",
+  "scheme_draft_intelligence": "The 2026 Packers are at a critical inflection point with Jonathan Gannon replacing Jeff Hafley as defensive coordinator. This shift from a 4-3 base to a 3-4 base creates immediate draft needs at interior defensive line \u2014 the Packers need true 300+ pound space-eaters who can anchor against double teams and hold gaps while both safeties play high in Gannon's quarters coverage. GM Brian Gutekunst acknowledged at the Combine that this is 'a good big-guy class' and the Packers need depth there. With the trade of Rashan Gary and departure of Kingsley Enagbare, the edge rotation also needs replenishing \u2014 but Gannon's edge profile (stand-up OLB who can drop into coverage) is specific and differs from a traditional 4-3 speed rusher.\n\nThe most significant scheme-driven value differential comes at linebacker and safety. Gannon's quarters-based system demands LBs who can cover \u2014 making athletic, coverage-capable linebackers disproportionately valuable to Green Bay relative to teams that play single-high coverages. With Quay Walker's departure (his coverage limitations made him scheme-limited) and Zaire Franklin's acquisition (run-stopping complement), the Packers may still target a coverage LB in the draft. Similarly, the three-safety packages create hidden value for versatile safety/nickel hybrids who other teams might not draft as early \u2014 think of Javon Bullard's second-round selection, which was driven by Hafley's (and now Gannon's) need for a chess piece.\n\nOn offense, LaFleur's Shanahan-tree system continues to create specific positional demands that differ from generic offensive profiles. Wide receivers must have speed AND blocking willingness \u2014 the 2025 first-round pick of Matthew Golden (4.38 speed, excellent blocker) was a perfect scheme fit. The tight end position remains a premium target because LaFleur's 12-personnel concepts are central to the offensive identity. With Luke Musgrave's health issues persisting, a versatile TE2 who can both block and receive could be a value target. At offensive tackle, the wide zone scheme's demand for athletic, laterally mobile tackles creates value for 'movers' over 'anchors' \u2014 prospects that pure power-scheme teams might overlook can thrive in Green Bay's system.\n\nGutekunst's draft approach will be shaped by a unique constraint: the Packers traded their 2026 and 2027 first-round picks for Micah Parsons. This means their first selection likely comes in Round 2-3, putting a premium on finding scheme-specific fits in the middle rounds. Interior DL, edge depth, CB, and TE are the positions where Gannon's specific scheme demands create the biggest gaps between generic prospect evaluation and Green Bay-specific fit. A 305-pound nose tackle who might not be a first-round pick in most draft classes could be a critical scheme fit for Gannon's 3-4 in the second round. Gannon's history of adapting to personnel means the Packers should draft the best athlete available at defensive positions of need, trusting that Gannon will find ways to maximize their strengths \u2014 his stated philosophy is 'figure out what our players can do, and put them in those positions as much as possible.'",
   "confidence": "high",
   "sources": [
-    "packers.com (official coaching announcements, player bios)",
-    "ESPN (Rob Demovsky reporting on Gannon hire, Parsons trade analysis)",
-    "SI / Packers On SI (Bill Huber's Combine reporting on Gannon 3-4/4-3 scheme)",
-    "Acme Packing Company (offensive approach analysis, defensive scheme breakdowns, Gannon coaching tree)",
-    "A to Z Sports (Gannon scheme analysis, Stenavich coaching tree)",
-    "Pro Football Reference (2025 Packers stats, defensive alignment)",
-    "MatchQuarters / Cody Alexander (Hafley scheme analysis, Gannon system breakdown)",
-    "Packers News / USA Today (Gannon defensive systems, safety grades)",
-    "Sharp Football Analysis (2025 defense preview)",
-    "NFL.com (Kraft injury, Hafley/Gannon hiring reports)",
-    "PFF (player grades \u2014 Kraft, Jacobs, Bullard)"
+    "packers.com official coaching staff announcements (April 2025)",
+    "ESPN - Rob Demovsky reporting on Jonathan Gannon hire (January 2026)",
+    "Packers On SI - Bill Huber reporting on Gannon scheme and Combine clues (February-March 2026)",
+    "Packersnews.com - Pete Dougherty film analysis and scheme breakdowns (2025-2026)",
+    "Acme Packing Company - detailed scheme analysis on Gannon's coverage tendencies, edge drops, and offensive callsheets (2025-2026)",
+    "247Sports - Jonathan Gannon coverage scheme analysis (January 2026)",
+    "Zone Coverage - Gannon hire analysis and safety impact (2026)",
+    "NBC Sports Philadelphia - Gannon defensive philosophy interviews (2021)",
+    "ReadOptional.com - Gannon's scheme evolution from Eagles to Cardinals (2025)",
+    "InsideTheIggles - Gannon Fangio system safety analysis (2022)",
+    "Yardbarker - Packers defensive staff restructuring analysis (2026)",
+    "Lombardiave.com - Stenavich evaluation and LaFleur play-calling analysis (2025-2026)",
+    "A to Z Sports - Stenavich/Mannion coaching staff updates (January-February 2026)",
+    "Wisconsin Sports Talk - LaFleur offensive scheme analysis with personnel details (2025)",
+    "Pro Football Rumors - Bobby Babich hiring details (January 2026)",
+    "Yahoo Sports/The Athletic - Shanahan tree evolution analysis (2025)",
+    "PFF - Gannon defensive scheme analysis and Shanahan offense history"
   ]
 }

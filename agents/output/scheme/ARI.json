@@ -6,70 +6,729 @@
       "name": "Mike LaFleur",
       "tenure_years": 1,
       "background": "offensive",
-      "scheme_philosophy": "Shanahan/McVay outside zone system; play-action heavy with heavy pre-snap motion, jet sweeps, RPOs; emphasizes outside run game and early easy reads for QB; will call plays"
+      "coaching_tree": "Kyle Shanahan tree \u2192 Sean McVay branch. Spent seven years under Kyle Shanahan (Cleveland 2014, Atlanta 2015-16, San Francisco 2017-20) and three years under McVay as Rams OC (2023-25). Brother of Green Bay HC Matt LaFleur. Deep roots in the Shanahan wide-zone and play-action system, refined through McVay's personnel multiplicity and motion-heavy approach.",
+      "scheme_philosophy": "Clarity over complexity. LaFleur believes in a streamlined system where every player understands the 'why' behind each play. Emphasizes pre-snap motion to diagnose coverage, duo and inside zone as run-game foundation, play-action off heavy run looks, and personnel multiplicity (12/13 personnel) to create defensive conflict. Calls his own plays. Values versatile tight ends, disciplined OL, and quarterbacks who process quickly within structure."
     },
     "offensive_coordinator": {
       "name": "Nathaniel Hackett",
-      "scheme_tree": "Shanahan/LaFleur West Coast zone; formerly OC under Matt LaFleur in Green Bay (2019-21), head coach in Denver (2022), OC with Jets (2023-24)",
-      "play_caller": false
+      "coaching_tree": "Paul Hackett (father) West Coast roots \u2192 Doug Marrone tree (Syracuse, Buffalo, Jacksonville) \u2192 Matt LaFleur/Shanahan tree merger in Green Bay (2019-21). Blends traditional West Coast passing concepts with Shanahan-tree zone running principles.",
+      "scheme_evolution": "In Jacksonville (2016-18), ran the NFL's best rushing attack in 2017 with Leonard Fournette using heavy inside zone. In Green Bay (2019-21), helped build the league's top-scoring offense in 2020, simplifying personnel (mostly 11/12) while using inside zone and duo as primary run concepts. Was Denver's HC briefly in 2022. Now in a non-play-calling OC role, serving as a veteran scheme architect and system installer for LaFleur.",
+      "development_track_record": "Helped develop Aaron Jones into an elite back in Green Bay's zone scheme. Maximized Blake Bortles' limited skillset through run-game emphasis and play-action. Strong at building offensive infrastructure and simplifying complex concepts for players. Father Paul Hackett was renowned for quarterback development in the traditional West Coast system."
     },
     "defensive_coordinator": {
       "name": "Nick Rallis",
-      "scheme_tree": "Zimmer/Gannon hybrid; quality control under Mike Zimmer in Minnesota (2018-20), LBs coach under Jonathan Gannon in Philadelphia (2021-22), DC in Arizona since 2023; Fangio-adjacent quarters-heavy system",
-      "play_caller": true
+      "coaching_tree": "Mike Zimmer tree (Minnesota 2018-20 as defensive QC/assistant LBs) \u2192 Jonathan Gannon branch (Philadelphia 2021-22 as LBs coach, Arizona 2023-25 as DC). Fangio-adjacent but with unique quarters coverage emphasis and three-safety alignments that distinguish him from pure Fangio or Zimmer disciples.",
+      "scheme_evolution": "In Philadelphia under Gannon, coached linebackers in a 4-3 system that was blitz-averse (sub-22% blitz rate) and relied on front-four pressure. In Arizona, adapted to a 3-4 base with hybrid OLB/EDGE rushers. Year 1 (2023): league-leading quarters coverage usage (30%+), low blitz rate, minimal talent. Year 2 (2024): jumped to 7th in blitz rate (31.8%), 4th in coverage disguise, added three-safety looks with Budda Baker as box/deep hybrid. Year 3 (2025): defense collapsed due to injuries despite talent infusion. Now entering Year 4 with autonomy under an offensive HC, expected to have full control of defensive scheming and play-calling.",
+      "development_track_record": "Developed T.J. Edwards into a career-best 159-tackle season in Philadelphia. Helped Eric Kendricks earn first Pro Bowl and first-team All-Pro in Minnesota. In Arizona, maximized Budda Baker by deploying him as a positionless chess piece (career-high 164 tackles in 2024). Developed undrafted/late-round DBs like Max Melton into contributors. Has shown ability to scheme around personnel limitations with creative coverage disguises."
     }
   },
   "offense": {
-    "scheme_family": "Shanahan/McVay West Coast outside zone",
-    "base_personnel": "11 (shifting toward more 12/13 per McVay/Rams recent evolution)",
-    "run_scheme": "outside zone / wide zone primary (major shift from prior regime which ran just 10% outside zone in 2025; LaFleur historically emphasizes outside zone)",
-    "pass_concepts": "play action heavy off outside zone, boot concepts, flood routes, vertical shots off play action, RPOs, jet sweep action; system designed for early easy QB reads",
-    "rpo_usage": "moderate to high",
-    "te_usage": "elite receiving weapon; Trey McBride set NFL TE single-season receptions record (126 catches, 1,239 yds, 11 TDs in 2025); offense built around TE as primary pass catcher; LaFleur's Rams featured 13-personnel heavily in 2025; expect continued TE-centric passing",
-    "rb_usage": "bell cow runner in zone scheme; moderate receiving role; Shanahan-tree values backs who can catch but primary function is zone running"
+    "scheme_family": "Shanahan/McVay-tree zone-run system (Mike LaFleur variant)",
+    "scheme_detail": "LaFleur's offense is a direct descendant of the Shanahan wide-zone system, filtered through his seven years under Kyle Shanahan and three years under McVay. The key differentiator from pure Shanahan offenses is the heavy emphasis on personnel multiplicity \u2014 LaFleur was instrumental in the Rams' 2025 explosion of 12 and 13 personnel usage (league-leading 3-TE sets). Rather than living in 11 personnel like most Shanahan-tree offenses, LaFleur creates defensive conflict by forcing defenses to match heavy personnel with heavier boxes, then attacking the vacated coverage. The run game is built on duo and inside zone (not wide zone), with play-action shots off those run looks. Pre-snap motion is foundational \u2014 the Rams used motion at the NFL's highest rate (76.7%) under LaFleur in 2024. LaFleur prioritizes clarity in QB progressions and shared teaching language over schematic volume.",
+    "run_scheme": "Duo primary, inside zone secondary, with occasional outside zone mixed in. LaFleur brought the duo concept from his San Francisco background and it became the Rams' signature run under his tenure. Duo uses gap-blocking principles without a puller \u2014 OL create double-teams and vertical displacement. This requires bigger, more physical interior OL than traditional wide-zone schemes. The RB's read of the MIKE linebacker determines the cutback. Outside zone and jet sweeps are complementary concepts used to stretch defenses horizontally.",
+    "pass_architecture": "Play-action heavy, built off the run-game identity. LaFleur's passing structure isolates the WR1 as the primary read in many progressions \u2014 the Packers targeted Davante Adams at triple the rate of other receivers under this system. Quick-game concepts (slants, speed-outs, crossers) keep the offense on schedule. Intermediate concepts (digs, crossers, sail) attack zones. Deep shots come primarily off play-action boots and keepers. LaFleur emphasizes QB footwork tied to progression reads. RPO usage is moderate \u2014 LaFleur uses packaged plays but is not a spread-RPO coordinator.",
+    "personnel_tendencies": "Personnel multiplicity is THE defining feature. LaFleur will use 11 personnel as the base (~55-65% of snaps) but deploys 12 personnel at meaningful rates (20-30%) and 13 personnel as a situational weapon (5-10%), far more than typical Shanahan-tree offenses. This demands versatile tight ends who can block in-line AND flex into the slot as receivers. The TE room is critical \u2014 LaFleur needs 3-4 playable TEs. RB usage is traditional: one primary back with a complementary change-of-pace. Fullback/H-back usage is situational.",
+    "motion_tempo": "Extremely high motion usage \u2014 LaFleur's Rams used pre-snap motion at the NFL's highest rate (76.7% in 2024). Motion serves diagnostic purposes (identifying man vs zone), creates leverage advantages, and generates momentum for jet sweeps and orbit concepts. Tempo is controlled, not hurry-up. LaFleur is a ball-control, run-game-first coordinator who wants to dictate pace rather than react."
   },
   "defense": {
-    "base_front": "3-4",
-    "alignment": "odd front, 3 down linemen with stand-up OLBs; unique three-safety looks frequently deployed on early downs",
-    "edge_rush_source": "hybrid \u2014 OLBs (Josh Sweat, Zaven Collins, Baron Browning, BJ Ojulari) function as primary edge rushers from stand-up and hand-in-dirt alignments; five-man front packages common",
-    "coverage_base": "Quarters (Cover 4) heavy \u2014 led NFL in quarters usage at 30%+ in 2023; three-deep safety shell frequently used with Budda Baker roaming as middle safety; high coverage disguise rate; Fangio-adjacent zone match concepts",
-    "blitz_tendency": "variable \u2014 historically low (19% in 2023) but jumped to heavy (31.8% in 2024, 7th in NFL); expect moderate-to-heavy going forward as talent improves on D-line",
-    "lb_role": "ILBs primarily coverage/run-fit; OLBs are primary pass rushers; defense values hybrid LBs who can cover and blitz",
-    "safety_usage": "elite hybrid usage \u2014 Budda Baker deployed as box safety, middle safety in 3-high shells, and edge-of-box rover; three-safety alignments are a scheme signature; Dadrion Taylor-Demerson emerging as FS"
+    "scheme_family": "Fangio-adjacent multiple front with Zimmer-tree roots (Rallis variant)",
+    "scheme_detail": "Rallis runs a unique defensive scheme that blends Fangio-style concepts (two-high shells, pattern-matching) with Zimmer-tree pressure packages and his own innovation \u2014 a three-safety system that deploys Budda Baker as a positionless chess piece. The base is a 3-4 odd front, but Rallis is not married to any alignment. He adjusts fronts and coverages based on opponent tendencies, and his defense has evolved significantly each year. The defining feature is the heavy use of quarters coverage (led the NFL in 2023 at 30%+ usage) combined with increasing coverage disguise and blitz creativity. Rallis does NOT call a static defense \u2014 he adapts weekly and has described himself as someone who builds around personnel rather than forcing a system.",
+    "front_structure": "3-4 base with hybrid OLB/EDGE rushers. Three down linemen (nose + two 3-4 DEs) with two stand-up OLBs who rush off the edge. In sub-packages, can shift to a 4-2-5 nickel. The OLBs are expected to rush the passer AND drop into flat/curl coverage on zone blitz concepts. Interior DL are asked to occupy blockers and control gaps rather than purely penetrate \u2014 Run Defense and Strength are prioritized over Pass Rush for the interior.",
+    "coverage_philosophy": "Quarters-heavy with two-high safety shells as the base look. Rallis led the NFL in quarters usage in 2023 and continues to feature it heavily. Three-safety looks are a signature \u2014 Garrett Williams (technically a CB) plays as a hash safety 10%+ of snaps, allowing Baker to rotate between deep, box, and blitz roles. Coverage disguise has increased dramatically (4th in NFL in 2024). Rallis uses pattern-matching principles where DBs read route combinations post-snap rather than playing pure spot-drop zone. Man coverage is used selectively, primarily in red zone and short-yardage.",
+    "pressure_philosophy": "Evolved from blitz-averse (19% in 2023) to moderate-aggressive (31.8% blitz rate in 2024, 7th in NFL). Rallis generates pressure through creative safety blitzes (Budda Baker), delayed linebacker rushes, and simulated pressures. With improved front-seven talent (Josh Sweat, Walter Nolen, Calais Campbell), the expectation is that four-man rush can generate more organic pressure, reducing the need for exotic blitz packages while maintaining the threat of bringing extra.",
+    "sub_packages": "4-2-5 nickel is the primary sub-package with one ILB removed and an extra DB inserted. The nickel defender is typically a hybrid CB/S type (Garrett Williams profile) who can play slot coverage and rotate to deep safety. Dime (4-1-6) is used in obvious passing situations. Rallis' three-safety concept often makes the nickel package look different from other teams' \u2014 it's less about adding a traditional slot corner and more about deploying versatile, positionless defenders."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "Arizona's offense is built around the TE as a primary receiving weapon at an unprecedented level. Trey McBride set the NFL single-season TE receptions record with 126 catches for 1,239 yards and 11 TDs in 2025, earning first-team All-Pro. The prior Petzing offense emphasized 12/13 personnel, and LaFleur's Rams led the NFL in three-TE sets in 2025. McBride functions as a de facto WR1 in this scheme, running routes from inline, slot, and flexed alignments. Any TE prospect with elite receiving traits (route running, hands, separation, YAC) gets maximum value here. The Cardinals explicitly targeted adding another pass-catching TE to complement McBride in 12/13 sets."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB in LaFleur's system must execute a timing-based, play-action-heavy passing attack from under center and shotgun. He processes within structured progressions (often WR1-first reads), must sell play-action fakes convincingly, and needs to operate at a controlled tempo. LaFleur's offense puts the ball in the QB's hands with designed reads, not off-script improvisation. The QB must handle pre-snap motion diagnostics (identifying man vs zone from defender reactions) and deliver accurate throws on time within the system's rhythm.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "LaFleur's system features play-action deep shots off boot concepts and requires throws into tight intermediate windows. Sufficient arm talent is needed, but elite arm strength is not THE differentiator \u2014 accuracy and timing matter more."
+        },
+        "Accuracy": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The Shanahan/McVay tree demands anticipation throws on timing routes where the ball arrives before the receiver completes his break. LaFleur's progression-based system punishes inaccuracy more than most because the QB is throwing to spots, not reacting to open receivers."
+        },
+        "Pocket Presence": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "LaFleur's under-center play-action requires the QB to operate in the pocket with poise \u2014 holding fakes, navigating interior pressure, and delivering from platform. The Rams' success with Stafford was built on his pocket manipulation."
+        },
+        "Mobility": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "LaFleur's system uses designed boots and rollouts that reward a QB who can move to create throwing angles, but this is NOT a run-first QB system. Functional mobility (bootleg execution, pocket sliding) matters more than elite rushing ability."
+        },
+        "Decision Making": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The system puts the QB in position to make efficient decisions through structure, but he must correctly diagnose coverage from motion indicators and work through progressions without stalling. LaFleur values QBs who take what the defense gives rather than forcing."
+        },
+        "Leadership": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "LaFleur is building a new culture in Arizona. A QB who can command the huddle and drive accountability matters, but the system's structure reduces the need for a QB to carry the team through personality alone."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "Pre-snap motion does much of the diagnostic work for the QB \u2014 the system is designed to simplify reads. The QB must still identify basic coverage shells and blitz indicators, but LaFleur's motion-heavy approach reduces the cognitive load compared to a West Coast timing system."
+        }
+      },
+      "ideal_archetype": "A composed, accurate passer who thrives within structure and can sell play-action convincingly from under center. Not a scramble-first athlete, but a QB with enough mobility to execute bootlegs and designed movements. Think a young Matthew Stafford or Kirk Cousins \u2014 a QB who can push the ball downfield off play-action, make anticipation throws in the intermediate range, and manage a run-first offense without turning the ball over. The system elevates QBs who are scheme-disciplined rather than freelancers.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-0",
+          "reasoning": "Under-center play-action and bootleg concepts require the QB to see over the line. Stafford at 6-3 was the prototype in LA."
+        },
+        "weight": {
+          "ideal": "215-235",
+          "floor": "205",
+          "reasoning": "Must absorb hits from selling fakes and operating in the pocket. Too light and the play-action game breaks down."
+        }
+      },
+      "development_context": "Hackett has experience developing QBs within structured systems (Aaron Rodgers' career resurgence, Blake Bortles' 2017 run). LaFleur worked closely with Stafford in LA. This staff can develop processing and footwork within the system, but the QB must arrive with baseline accuracy and pocket composure \u2014 those traits are harder to teach. A raw athlete who needs a spread system to function will NOT fit.",
+      "scheme_fit_narrative": "We need a QB who can operate from under center, sell play-action, and deliver timing throws within a structured progression. He doesn't need to be a generational arm talent \u2014 he needs to be accurate, composed, and smart enough to let the system work for him. The motion and run game will create his easy throws. He just needs to capitalize on them.",
+      "archetype_examples": [
+        "Matthew Stafford",
+        "Kirk Cousins",
+        "Jared Goff"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "high",
-      "explanation": "Arizona runs a 3-4 base where OLBs are the primary edge rushers. Josh Sweat, Zaven Collins, Baron Browning, and BJ Ojulari all function as stand-up edge rushers from the OLB position. The scheme deploys five-man fronts and asks OLBs to rush from two-point stances. Any LB prospect with elite pass rush traits (burst, bend, first step, power moves) can be deployed as a full-time edge rusher in this defense. The Zimmer/Gannon defensive lineage also values versatile front-seven players who can rush and drop into coverage."
+    "RB": {
+      "scheme_role": "The primary RB in LaFleur's system is a workhorse who runs duo and inside zone behind heavy personnel. He must read the MIKE linebacker's flow on duo and make decisive cuts, operate effectively between the tackles, and serve as a capable receiver out of the backfield on checkdowns and play-action leakage routes. The system also uses jet sweeps and complementary outside zone to stretch defenses, so the RB must have some lateral agility. A change-of-pace back provides speed and receiving ability.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Duo requires the RB to read the MIKE linebacker and choose his lane \u2014 the initial aiming point is the play-side guard's outside leg, but the RB's vision determines whether he bounces or cuts back. This is THE determining trait in LaFleur's run game."
+        },
+        "Contact Balance": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Inside zone and duo create collisions at the point of attack. The Rams' success with Kyren Williams was built on his ability to absorb contact and fall forward for positive yardage. LaFleur needs a back who converts 1-yard gains into 4-yard gains."
+        },
+        "Power": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The heavy personnel (12/13 packages) creates downhill running opportunities. The RB must be physical enough to run behind tight ends and OL without dancing. Williams' north-south style was THE prototype."
+        },
+        "Elusiveness": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Some elusiveness is needed for outside zone and screen concepts, but LaFleur's primary run game rewards north-south decisiveness over lateral creativity."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The complementary back needs speed for jet sweeps and perimeter runs, but the lead back needs functional speed \u2014 enough to hit the crease quickly, not necessarily home-run speed."
+        },
+        "Pass Catching": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "LaFleur's play-action system creates checkdown opportunities and designed RB releases. The Rams used Williams meaningfully in the passing game. The RB must be a reliable target on checkdowns and screens."
+        },
+        "Pass Protection": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "With play-action building off the run game, the RB must sell the fake AND pick up blitzers when the play-action is a pass. Competent pass protection is a baseline requirement in any Shanahan-tree system."
+        }
+      },
+      "ideal_archetype": "A decisive, physical, north-south runner with excellent vision who can grind out 4-5 yard gains on duo and inside zone, then house-call the occasional cutback. Not a pure speed back or a jukebox artist \u2014 a workhorse who runs behind his pads. Kyren Williams is the literal prototype: undersized but physical, great vision on zone concepts, reliable as a receiver and pass protector. Think also of Raheem Mostert's decisiveness in the Shanahan system, but with more contact balance.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "205-225",
+          "floor": "195",
+          "reasoning": "Must be heavy enough to absorb inside zone collisions and convert short-yardage. Williams at 194 is lighter than ideal but compensates with elite contact balance."
+        },
+        "40_yard_dash": {
+          "ideal": "4.45-4.55",
+          "floor": "4.60",
+          "reasoning": "Functional speed to hit creases. Home-run speed is a bonus, not a requirement."
+        }
+      },
+      "development_context": "LaFleur and Hackett have both turned mid-to-late round RBs into stars in their systems (Kyren Williams, Aaron Jones). The scheme creates lanes through pre-snap motion and heavy personnel, reducing the burden on the RB's individual talent. Vision and decisiveness can be coached within the system. This staff can develop a good RB into a great one if the vision and contact balance are there.",
+      "scheme_fit_narrative": "Give us a physical, decisive runner who can read the MIKE and hit the hole. We'll create the lanes with motion and heavy personnel. He doesn't need to be a highlight reel \u2014 he needs to be a chain-mover who wears down defenses. If he can catch the ball and protect the passer, even better.",
+      "archetype_examples": [
+        "Kyren Williams",
+        "Aaron Jones",
+        "Raheem Mostert"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "medium",
-      "explanation": "The Shanahan/McVay offensive tree values backs who can operate in the passing game as check-down targets and on screen/wheel routes off play action. However, the primary RB function in this outside zone system is as a runner \u2014 the back's vision, lateral agility, and ability to press the hole in zone are paramount. James Conner and Trey Benson were both graded well in pass protection (PFF 76.9 and 77.0 respectively in 2024). Receiving ability provides a moderate boost but zone-running traits are the primary filter."
+    "WR": {
+      "scheme_role": "LaFleur's WR1 is the primary target in the passing game and often the first read in progression. He must win on intermediate routes (slants, curls, digs, crossers), create separation against zone coverage, and make contested catches when isolated by the scheme. The WR2/WR3 must execute jet sweeps, motion responsibilities, and complementary routes that stretch the defense vertically and horizontally. Motion execution is non-negotiable \u2014 WRs must align and execute motion at the NFL's highest rate.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "LaFleur's timing-based passing game demands precise route running where the WR reaches his spot exactly when the QB's footwork dictates the throw. Sloppy routes blow up the entire progression system."
+        },
+        "Separation": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "LaFleur's scheme isolates the WR1 in one-on-one matchups through motion and personnel packaging. The WR must win those matchups consistently to make the system function."
+        },
+        "Hands": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Timing throws arrive in tight windows. The WR must pluck the ball cleanly and secure it immediately. Drops are catastrophic in a progression-based system because the QB has already moved on mentally."
+        },
+        "YAC Ability": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "LaFleur's system features quick-game concepts (slants, screens, crossers) designed to get the ball to receivers in space. YAC ability multiplies the efficiency of every short-to-intermediate completion. Puka Nacua's YAC ability was a key reason the Rams' offense thrived."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Play-action deep shots require at least one WR who can threaten vertically. But the system doesn't live on go routes \u2014 functional speed that creates separation on intermediate routes matters more than elite 40 time."
+        },
+        "Contested Catches": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The scheme creates isolation matchups, so the WR1 will occasionally face tight coverage without safety help. Contested catch ability is a tiebreaker, not a primary trait in a system designed to create openings through scheme."
+        },
+        "Release Package": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Motion-in concepts reduce the importance of a traditional press release since the WR is often catching the snap in motion. However, the WR1 must still beat press coverage on non-motion plays, especially in the red zone."
+        }
+      },
+      "ideal_archetype": "A smooth, polished route runner with elite YAC ability who wins consistently on intermediate routes and can execute motion assignments flawlessly. Puka Nacua is the direct prototype \u2014 not a burner, but an elite separator with incredible hands and YAC instincts who made the Rams' offense go. Davante Adams in the Packers system also fits: precise routes, strong hands, complete route tree. Not a one-trick deep threat \u2014 a complete receiver who makes the whole system work.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-10",
+          "reasoning": "The system accommodates various body types but intermediate route winners benefit from length to win at the catch point."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.50",
+          "floor": "4.55",
+          "reasoning": "Need enough speed to threaten deep off play-action. Pure speed merchants who can't run routes are not the priority."
+        }
+      },
+      "development_context": "LaFleur's background as a WR coach (San Francisco 2017-18) makes him uniquely equipped to develop receivers. He helped develop Puka Nacua from a 5th-round pick into an All-Pro candidate. Hackett helped maximize Davante Adams in Green Bay. This staff can develop route technique and motion execution. Raw speed/athleticism is harder to teach \u2014 the WR must arrive with enough movement skills to learn the route tree.",
+      "scheme_fit_narrative": "We want a complete receiver who can run every route, execute motion without thinking, and turn short completions into big plays. He doesn't need to be the fastest guy on the field \u2014 he needs to be the most reliable. Give us Puka Nacua's game: precise routes, strong hands, elite YAC, and the football IQ to thrive in a high-motion system.",
+      "archetype_examples": [
+        "Puka Nacua",
+        "Davante Adams",
+        "Cooper Kupp"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "Arizona's defense is THE model for hybrid safety usage in the NFL. The scheme deploys three-safety alignments on early downs more than any other team. Budda Baker \u2014 an eight-time Pro Bowler ranked as the NFL's top box safety by PFF \u2014 plays box, middle safety in 3-high shells, slot coverage, and even blitzes off the edge. He recorded 120+ tackles in 2025 while also covering deep thirds. The defense also morphs CB Garrett Williams into a safety/overhang role. Any safety prospect with box versatility, tackling ability, coverage range, and blitz capability gets premium value in this scheme. Rallis' three-safety structure means the Cardinals literally roster and play more safeties than most teams."
+    "TE": {
+      "scheme_role": "THE most important non-QB position in LaFleur's offense. LaFleur's system demands multiple TEs who can both block in-line (enabling 12/13 personnel run game) and flex out as receivers (creating mismatches in the passing game). The TE1 must be a true dual-threat: lining up as an extra tackle in the run game on one snap, then running a seam route out of the slot on the next. LaFleur led the NFL in 3-TE usage in 2025 \u2014 this staff needs a deep TE room where all players are complete.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "LaFleur's 12/13 personnel creates favorable matchups by forcing defenses to choose between heavy run fronts and passing coverage. The TE who can win as a receiver in these situations becomes a devastating weapon. Colby Parkinson set franchise records in LA."
+        },
+        "Route Running": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "TEs in this system run full route trees from various alignments \u2014 in-line, slot, and even split wide in 13 personnel. They must run routes with WR-like precision to capitalize on the mismatches the scheme creates."
+        },
+        "Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The 12/13 personnel run game CANNOT function without TEs who can block at the point of attack. LaFleur explicitly said his TEs must contribute in 'protection, run game, and the pass game.' Blocking is the floor \u2014 you cannot be on the field in heavy personnel if you cannot block."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "LaFleur needs TEs athletic enough to flex into different alignments and create mismatches against linebackers and safeties in the passing game while being physical enough to sustain blocks. The versatility demands a complete athlete."
+        },
+        "Hands": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "TEs are featured targets in the red zone and on play-action concepts. Reliable hands are essential \u2014 drops from TEs in tight coverage are momentum killers in a system that relies on converting heavy-personnel passing opportunities."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Functional speed to threaten seams and get separation on intermediate routes. Elite TE speed is a luxury, not a requirement, because the scheme creates openings through alignment and motion rather than pure athleticism."
+        }
+      },
+      "ideal_archetype": "A versatile, complete tight end who can block defensive ends in the run game AND run the seam against linebackers in the passing game. Think George Kittle's blocking physicality combined with reliable receiving chops. LaFleur's Rams used Tyler Higbee (blocking anchor), Colby Parkinson (red zone threat), and Davis Allen (utility) \u2014 each brought different strengths but all could block. The ideal TE1 does everything well. If he's a receiving specialist who can't block, he can't play in 13 personnel. If he's a blocking specialist who can't catch, the scheme loses its mismatch advantage.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-2",
+          "reasoning": "Size creates the mismatch advantage that 12/13 personnel is designed to exploit. A 6-5 TE aligned in-line who can also win contested catches in the red zone is ideal."
+        },
+        "weight": {
+          "ideal": "245-260",
+          "floor": "235",
+          "reasoning": "Must be heavy enough to sustain blocks against defensive ends and edge rushers in the run game. Undersized TEs can't anchor in heavy personnel."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.75",
+          "reasoning": "Needs to threaten the seam and create separation on intermediate routes. Doesn't need WR speed but can't be a pure blocker in this system."
+        }
+      },
+      "development_context": "Hackett helped develop Robert Tonyan into a productive receiving TE in Green Bay. LaFleur's Rams developed Davis Allen from an undrafted player into a meaningful 13-personnel contributor. This staff can develop blocking technique and route running. But the baseline athleticism and willingness to block must be present. A receiving-only college TE who refuses to block will not thrive under this staff.",
+      "scheme_fit_narrative": "Tight end is the most important position group in our offense. We need three or four guys who can block, catch, and move. The ideal TE gives us an identity \u2014 he lets us run 12 and 13 personnel, control the game on the ground, and then attack when defenses overcommit to the run. A TE who can only catch is a big WR to us. A TE who can only block is an extra lineman. We need both in one body.",
+      "archetype_examples": [
+        "George Kittle",
+        "Colby Parkinson",
+        "Tyler Higbee"
+      ]
+    },
+    "OT": {
+      "scheme_role": "OTs in LaFleur's system must be scheme-versatile: athletic enough to execute outside zone reach blocks and climb to the second level, while also physical enough to sustain blocks on duo and inside zone. The LT (Paris Johnson Jr.) anchors the pass protection side. The RT is a critical need \u2014 must be a plus run blocker who can also handle speed rushers. LaFleur's under-center play-action starts with convincing run fakes, which means the OT must sell the run block before transitioning to pass protection on bootleg concepts.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Play-action is only effective when the QB has time. OTs must provide clean pockets for the QB to hold fakes and deliver off play-action. The Rams' success under McVay/LaFleur was always anchored by competent OT pass protection."
+        },
+        "Run Blocking": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Duo and inside zone are the run-game foundation. OTs must sustain drive blocks, create vertical displacement on double-teams, and reach-block on outside zone. Run blocking is THE defining trait because the entire offense flows from the ground game."
+        },
+        "Footwork": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "LaFleur's system requires OTs to block in multiple run schemes \u2014 lateral steps on zone, vertical steps on duo, pull-adjacent movements on counters. Quick, precise feet are essential for scheme versatility."
+        },
+        "Anchor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must hold up against bull rushes, particularly on play-action passes when the OT's initial movement is forward (selling the run) and he must recover to anchor against the rush."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "LaFleur needs OTs who can move \u2014 reach blocks on outside zone, climbing to LBs on inside zone, and getting to the perimeter on bootleg concepts. A stiff, phone-booth OT kills the run game."
+        },
+        "Strength": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Functional strength for sustaining blocks and absorbing contact. Not the differentiator \u2014 athleticism and technique are more important in this scheme than raw power."
+        }
+      },
+      "ideal_archetype": "An athletic, versatile OT who excels in the run game and can handle NFL-caliber pass rushers. Think of the Rams' best OTs under McVay \u2014 Andrew Whitworth's technique and football IQ, or Paris Johnson Jr.'s athleticism and zone-blocking ability. The ideal OT has the lateral agility for zone concepts, the anchor for duo, and the intelligence to transition between the two within the same drive. Not a pure mauler and not a pure athlete \u2014 a complete player.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Length helps in pass protection and creates leverage advantages in the run game."
+        },
+        "weight": {
+          "ideal": "305-325",
+          "floor": "295",
+          "reasoning": "Must be heavy enough to sustain blocks on duo without being pushed back, but light enough to move laterally on zone concepts."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.60",
+          "floor": "4.70",
+          "reasoning": "Zone blocking requires lateral displacement on the first step. A stiff OT who can only pass-set kills the run scheme. Short shuttle is the best measurable indicator of zone-blocking capability."
+        }
+      },
+      "development_context": "OL coach Justin Frye comes from Ohio State where he developed elite OTs. LaFleur worked closely with the Rams' OL in implementing the run-game shift from wide zone to duo. This staff can develop run-blocking technique and zone-scheme footwork. Pass protection fundamentals must arrive ready \u2014 it's harder to teach at the NFL level. A raw athlete with good feet can be developed into a zone blocker by this staff.",
+      "scheme_fit_narrative": "We need an OT who can move. Our run game is built on zone and duo concepts that require lateral agility and the ability to climb to the second level. If he can only sit in a phone booth and pass block, he's not our guy. Give us an athlete who can run block at a high level and hold his own in pass protection \u2014 we'll develop the rest.",
+      "archetype_examples": [
+        "Paris Johnson Jr.",
+        "Andrew Whitworth",
+        "Trent Williams"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior OL in LaFleur's system are the engine of the run game. Guards must execute double-teams on duo (stepping toward each other to create vertical displacement), combo blocks on inside zone, and occasional pull-and-trap concepts. The center must process defensive fronts, make line calls, and execute the same blocking schemes. LaFleur shifted the Rams toward bigger, more physical IOL (Steve Avila, Kevin Dotson) to support the duo-heavy run game. The IOL must also handle interior pass rush threats on play-action, which starts with a run-blocking step.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Play-action success depends on the pocket remaining clean from the inside. IOL must handle stunts and interior pressure, particularly when the QB's initial movement is forward on fakes."
+        },
+        "Run Blocking": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "Duo blocking requires IOL to create vertical displacement through powerful double-teams. This is the single most important responsibility \u2014 the entire offensive identity flows from the run game's success between the tackles."
+        },
+        "Pulling": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "LaFleur's primary concepts (duo, inside zone) don't require heavy pulling, but counter and occasional power concepts demand guards who can pull and reach the second level. It's a complementary skill, not a primary one."
+        },
+        "Strength": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Duo blocking is predicated on moving people. The IOL must physically dominate at the point of attack to create the vertical push that opens running lanes. LaFleur specifically sought bigger guards (Avila at 333 lbs, Dotson at 322 lbs) for this reason."
+        },
+        "Anchor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must hold ground against interior rushers on play-action and dropback passes. A guard who gets pushed into the QB's lap kills the passing game."
+        },
+        "Versatility": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "LaFleur values IOL who can play multiple positions. The ability to slide between guard and center provides roster flexibility and scheme adaptability. The Rams moved pieces around regularly."
+        }
+      },
+      "ideal_archetype": "A big, powerful, technically sound interior lineman who wins at the point of attack. Steve Avila is the prototype \u2014 333 lbs, physically dominant in the run game, technically sound in pass protection. Not a finesse puller or a dancing guard \u2014 a mauler who creates movement in the run game. The shift from wide-zone (lighter, quicker IOL) to duo (heavier, more physical IOL) is THE key schematic change LaFleur brought to the Rams, and it should carry over to Arizona.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "315-340",
+          "floor": "305",
+          "reasoning": "Duo blocking demands mass. Lighter guards get washed out of gaps against heavy defensive tackles. LaFleur specifically built the Rams' IOL bigger."
+        },
+        "bench_press": {
+          "ideal": "28+ reps",
+          "floor": "24 reps",
+          "reasoning": "Upper body strength correlates directly with ability to sustain double-teams and create push on duo blocks."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.70",
+          "floor": "4.85",
+          "reasoning": "Still need lateral agility for inside zone concepts, but the threshold is lower than a pure wide-zone scheme."
+        }
+      },
+      "development_context": "OL coach Justin Frye developed multiple NFL-caliber IOL at Ohio State. LaFleur and Hackett have experience developing OL within zone-based systems. This staff can coach technique and scheme fit. Raw strength and mass must arrive \u2014 you can't teach a 295-lb guard to move 330-lb defensive tackles.",
+      "scheme_fit_narrative": "We need big, physical guards who can move people. Our run game is built on double-teams and vertical push. Give us a mauler at 320+ pounds who can also execute inside zone. Finesse is secondary \u2014 we need a guy who makes the defensive tackle's life miserable on every snap.",
+      "archetype_examples": [
+        "Steve Avila",
+        "Kevin Dotson",
+        "Joel Bitonio"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "EDGE rushers in Rallis' 3-4 are stand-up OLBs who rush from a two-point stance. They are the primary source of edge pressure, expected to win one-on-one pass rush matchups against OTs, AND drop into flat/curl zone coverage on zone blitz concepts. Rallis' scheme demands hybrid OLB/EDGEs who can rush, set the edge against the run, and drop into coverage \u2014 pure speed rushers with no coverage ability or run defense are scheme-limited. With Rallis increasing blitz rates, EDGEs must also execute complex simulated pressure packages.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The EDGE is the primary pass rush weapon in Rallis' 3-4. With improved interior talent (Nolen, Campbell), the EDGEs must capitalize on reduced double-teams. Arizona needs consistent pressure to support the quarters coverage behind it."
+        },
+        "Bend": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Stand-up OLBs rushing from a two-point stance need bend to turn the corner against NFL OTs. The 3-4 alignment gives the rusher a wider angle that rewards flexibility and corner-turning ability over pure power."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Speed off the edge is critical from the stand-up position. The OLB must threaten the tackle's outside shoulder immediately to set up counter moves inside."
+        },
+        "Power": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Bull-rush power is secondary to speed and bend in this system. However, the EDGE must also set the edge against the run, which requires sufficient play strength to hold the point of attack."
+        },
+        "Motor": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "Rallis' defense asks EDGEs to play a high number of snaps in various roles \u2014 rush, drop, and run support. Effort and motor are essential for assignment football across a full game."
+        },
+        "Run Defense": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "This is what separates a Rallis EDGE from a pure 4-3 DE. The OLB must set the edge against the run, funnel ball carriers to inside pursuit, and occasionally scrape to the ball. Arizona's run defense has been a weakness \u2014 EDGEs who can't defend the run are a liability in this base 3-4."
+        }
+      },
+      "ideal_archetype": "A versatile, stand-up OLB who can rush the passer with speed and bend, drop into flat zone coverage, and set the edge in the run game. Josh Sweat fits the mold \u2014 explosive off the edge, disciplined in run fits, capable of occasional zone drops. Think also of Haason Reddick's hybrid role in Gannon's Eagles defense. NOT a one-dimensional speed rusher and NOT a stiff run-stopping DE. A complete edge player who can execute assignment football.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Stand-up rushers need length to disengage from blocks and set the edge. Short, compact rushers struggle in the 3-4 OLB role."
+        },
+        "weight": {
+          "ideal": "240-265",
+          "floor": "230",
+          "reasoning": "Must be heavy enough to hold the edge against the run but light enough to drop into coverage and move laterally. Pure 280-lb DEs are too heavy for the OLB role."
+        },
+        "40_yard_dash": {
+          "ideal": "4.50-4.65",
+          "floor": "4.70",
+          "reasoning": "Speed off the edge and the ability to cover in space require plus athleticism. The stand-up position rewards speed more than the hand-in-the-dirt alignment."
+        }
+      },
+      "development_context": "Rallis developed Zaven Collins from a tweener into a productive hybrid rusher and maximized Dennis Gardeck as a blitz weapon. The staff can develop rush technique and zone drop discipline. Raw athleticism and motor must arrive \u2014 those are not coachable. A prospect with a projectable frame, elite first step, and willingness to play the run can be developed into a complete edge player by this staff.",
+      "scheme_fit_narrative": "We need an edge player who does everything. He rushes the passer, he sets the edge, he drops into the flat. We don't want a one-trick speed rusher who takes plays off or a lumbering DE who can't move in space. Give us a complete player with a motor who we can deploy in multiple ways. If he has to come off the field on run downs, he doesn't fit.",
+      "archetype_examples": [
+        "Josh Sweat",
+        "Haason Reddick",
+        "Za'Darius Smith"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Interior DL in Rallis' 3-4 are two-gapping, space-eating anchors. The nose tackle (0-tech or 1-tech) must absorb double-teams and control two gaps, freeing linebackers to make plays. The 3-4 DEs (3-tech/5-tech) must control their gap, hold the point of attack, and provide interior push on passing downs. Rallis has specifically rebuilt the DL with run-stopping anchors (Calais Campbell, Dalvin Tomlinson, Walter Nolen) who can also generate interior pressure as a bonus. Penetrating 3-techniques are less valued than two-gap controllers.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Interior pass rush is a bonus, not a primary demand. The 3-4 asks DL to control gaps and collapse the pocket rather than penetrate. Walter Nolen's pass rush upside is valued but secondary to his run defense."
+        },
+        "Run Defense": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "THE defining trait. Arizona's run defense has been bottom-5 for multiple years. Rallis NEEDS DL who can two-gap, hold the point of attack, and prevent interior run lanes. This is why they signed Campbell and Tomlinson and drafted Nolen."
+        },
+        "First Step": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Quick initial movement helps, but two-gapping DL prioritize reading the blocker over attacking gaps. A quick first step is more valuable for sub-package pass-rush snaps."
+        },
+        "Hand Usage": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Two-gapping requires the DL to use hands to control blockers, keep leverage, and disengage to make tackles. Hand technique separates good two-gappers from great ones."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The 3-4 DL play fewer snaps than 4-3 DL (rotating heavily), but effort within those snaps matters. Consistent effort on every play maintains gap integrity."
+        },
+        "Strength": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Two-gapping means absorbing double-teams from 330-lb guards. Raw strength is essential for holding the point of attack and not getting pushed off the ball."
+        }
+      },
+      "ideal_archetype": "A massive, anchor-style interior DL who controls his gap, absorbs double-teams, and frees linebackers to make plays. Calais Campbell is the veteran prototype \u2014 enormous, technically sound, dominant against the run with enough pass rush to contribute. Walter Nolen was drafted for this mold. Think Vita Vea or Grady Jarrett \u2014 DL who make the entire defense better by occupying blockers. NOT a penetrating 3-technique who shoots gaps and gets washed on inside zone.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "295-330",
+          "floor": "285",
+          "reasoning": "Two-gapping demands mass. A 270-lb interior DL will get moved off the ball by NFL guards on double-teams."
+        },
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-0",
+          "reasoning": "Length helps maintain leverage and control blocks in a two-gap system. Shorter DL can succeed if they have exceptional strength."
+        },
+        "bench_press": {
+          "ideal": "28+ reps",
+          "floor": "22 reps",
+          "reasoning": "Upper body strength directly impacts ability to control blockers and hold the point of attack."
+        }
+      },
+      "development_context": "New DL coach Winston DeLattiboudere III comes from Minnesota. Rallis can develop run-defense technique and two-gap discipline. Raw strength and mass cannot be taught. A prospect with elite size, strength, and hand usage can be coached into a two-gap anchor. Interior pass rush technique can be added once the run defense foundation is established.",
+      "scheme_fit_narrative": "We need big, heavy, strong DL who don't get moved. Our defense starts up front \u2014 if we can't stop the run inside, nothing else works. Give us an anchor who controls his gap, eats double-teams, and lets our linebackers run free. If he can rush the passer from the inside, even better \u2014 but run defense comes first.",
+      "archetype_examples": [
+        "Calais Campbell",
+        "Vita Vea",
+        "Walter Nolen"
+      ]
+    },
+    "LB": {
+      "scheme_role": "In Rallis' 3-4 with quarters coverage, the two ILBs are the defensive nerve center. The MIKE processes formations, makes coverage calls, and must excel in zone coverage (pattern-matching quarters concepts). The WILL is more of a downhill run-stopper who also drops into hook/curl zones. Both must shed blocks against the run because the 3-4 DL are two-gapping and occupying blockers rather than penetrating. Rallis' increasing blitz rates mean ILBs must also execute delayed rushes and A-gap pressures. With the three-safety structure, ILBs sometimes share the field with Budda Baker playing a pseudo-LB role, creating interesting alignment flexibility.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "With two-gapping DL occupying blockers, LBs must be the primary tacklers in the run game. Kyzir White's tackling reliability was a foundation of the defense."
+        },
+        "Coverage": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Quarters coverage with pattern-matching puts enormous coverage responsibility on LBs. They must read route combinations, pass off receivers correctly, and be reliable in zone drops. This is THE differentiator \u2014 many LBs can tackle but few can cover in pattern-match concepts."
+        },
+        "Pass Rush": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Rallis uses delayed LB blitzes and A-gap pressures as part of his increasing blitz rate. ILBs must be able to generate pressure when called upon."
+        },
+        "Instincts": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Pattern-matching and zone coverage require LBs to process offensive formations and route concepts in real-time. Instinctive LBs who read the QB's eyes and break on the ball make the quarters coverage work."
+        },
+        "Athleticism": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "Must move sideline to sideline in a 3-4 scheme, cover TEs and RBs in space, and close on ball carriers quickly. Rallis' defense asks LBs to play in a lot of space."
+        },
+        "Range": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "With two-gapping DL creating a cleaner second level, LBs need range to flow to the ball. Sideline-to-sideline range supports the run defense."
+        },
+        "Block Shedding": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "3-4 DL occupying blockers should reduce the block-shedding burden on LBs, but in practice, Arizona has struggled with OL reaching LBs on zone runs. Block shedding remains relevant."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "The MIKE makes defensive calls and identifies offensive formations. Pre-snap processing is important for the defensive quarterback role, but Rallis simplifies calls with clear communication systems."
+        }
+      },
+      "ideal_archetype": "An athletic, coverage-capable LB who can process zone coverage concepts, shed blocks in the run game, and occasionally rush the passer. Kyzir White was the mold \u2014 reliable tackler, competent in zone coverage, smart processor who understood Rallis' system. Think also of T.J. Edwards' role in Philadelphia under this same coaching tree. NOT a thumper who can only play downhill \u2014 the quarters coverage demands LBs who can move in space and cover.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "225-245",
+          "floor": "215",
+          "reasoning": "Must be heavy enough to shed blocks and tackle power backs but light enough to move in coverage. The 3-4 ILB is typically lighter than a 4-3 MIKE."
+        },
+        "40_yard_dash": {
+          "ideal": "4.50-4.60",
+          "floor": "4.65",
+          "reasoning": "Coverage ability in quarters demands speed to match TEs and RBs in space. Slow LBs are a liability in this scheme."
+        }
+      },
+      "development_context": "Rallis spent his entire coaching career as a LB specialist before becoming DC. He developed T.J. Edwards into a career-best season in Philly, developed Eric Kendricks into an All-Pro in Minnesota, and got the most out of Kyzir White and Mack Wilson in Arizona. This is the ONE position where the staff has the strongest development track record. A raw but athletic LB with coverage upside is a prime development target.",
+      "scheme_fit_narrative": "We need a linebacker who can cover. Period. If he can't drop into quarters coverage and pattern-match route combinations, he doesn't fit our defense. We'll take a slightly undersized, athletic LB who can fly around in coverage over a 250-lb thumper who can only play in the box. Our DL are built to take on blocks so our LBs don't have to. We need them flowing to the ball and covering in space.",
+      "archetype_examples": [
+        "Kyzir White",
+        "T.J. Edwards",
+        "Eric Kendricks"
+      ]
+    },
+    "CB": {
+      "scheme_role": "CBs in Rallis' system play primarily zone coverage (quarters-heavy) with two-high safety shells. They must execute pattern-matching concepts where they read the WR's route and pass off or carry based on route combinations \u2014 NOT pure man-to-man lockdown. The boundary CB plays more traditional coverage, while the slot/nickel CB (Garrett Williams profile) is a hybrid who toggles between slot coverage and hash safety responsibilities. Coverage disguise is emphasized \u2014 CBs must show one look pre-snap and execute a different coverage post-snap. Man coverage is used situationally (red zone, critical downs).",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Rallis uses man coverage selectively, primarily in red zone. CBs must be competent in man, but it is NOT the primary demand. A pure man-cover specialist who struggles in zone pattern-matching won't fit."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Rallis' zone coverage puts CBs in position to see the QB and break on the ball. Ball skills are essential for creating turnovers \u2014 Arizona had only 9 INTs in 2024, and improving takeaways is a priority."
+        },
+        "Zone Coverage": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "THE defining trait. Quarters coverage with pattern-matching is the foundation of the defense. CBs must read route combinations, identify high-low concepts, and carry or pass off receivers based on the route tree. This is football intelligence married to coverage technique."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must have enough speed to carry vertical routes in quarters coverage and recover when beaten. Not a pure speed-based scheme \u2014 processing speed matters more than timed speed."
+        },
+        "Press": {
+          "weight": 0.08,
+          "importance": "low",
+          "reasoning": "Rallis rarely asks CBs to play press-man on an island. The coverage is mostly off or bail-technique from two-high shells. Press ability is nice for red-zone situations but not a primary demand."
+        },
+        "Nickel": {
+          "weight": 0.24,
+          "importance": "essential",
+          "reasoning": "Garrett Williams' hybrid nickel/safety role is a signature of the scheme. Rallis needs a slot defender who can cover TEs and slot WRs, play as a hash safety, and rotate into the three-safety structure. This hybrid role is uniquely valuable in this defense \u2014 a traditional outside CB cannot fill it."
+        }
+      },
+      "ideal_archetype": "A smart, zone-savvy CB who excels at pattern-matching, reads the QB, and makes plays on the ball. Garrett Williams is the internal prototype for the nickel role \u2014 a hybrid who plays slot CB and rotates to safety. For the boundary, think of a CB who plays off-coverage well, reads route concepts, and arrives at the catch point. NOT a press-man lockdown corner who needs to be on an island. The scheme creates advantages through coverage disguise and zone concepts \u2014 the CB must execute those concepts with discipline.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-1",
+          "floor": "5-9",
+          "reasoning": "The scheme doesn't require prototypical size because it's not asking CBs to play press-man. Football intelligence and ball skills matter more than length."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.50",
+          "floor": "4.55",
+          "reasoning": "Must be fast enough to carry vertical routes in quarters, but elite timed speed is less important than processing speed and change-of-direction agility."
+        },
+        "3_cone_drill": {
+          "ideal": "sub-6.90",
+          "floor": "7.00",
+          "reasoning": "Pattern-matching requires quick transitions from backpedal to drive on the ball. Change-of-direction agility is more predictive of zone coverage success than straight-line speed."
+        }
+      },
+      "development_context": "Rallis developed Max Melton from a rookie into a meaningful contributor in 2024. The Gannon/Rallis tree has a strong track record with secondary development (Philadelphia's CBs thrived). Rallis can teach zone concepts and pattern-matching \u2014 those are coachable skills. Ball skills and football intelligence must arrive. A fast, twitchy athlete who doesn't process coverage concepts will struggle. An instinctive but less athletic CB who understands zone can thrive.",
+      "scheme_fit_narrative": "We play zone. Our corners need to be smart, disciplined, and aggressive at the catch point. We don't need a lockdown island corner \u2014 we need a guy who reads route combinations, triggers on the ball, and creates turnovers. If he's a natural in quarters coverage and has good ball skills, he'll be better in our defense than a pure man-cover guy with no instincts.",
+      "archetype_examples": [
+        "Garrett Williams",
+        "Darious Williams",
+        "Max Melton"
+      ]
+    },
+    "S": {
+      "scheme_role": "THE most important defensive position in Rallis' scheme. The safety group runs the entire defense. Budda Baker is the centerpiece \u2014 deployed as a box safety, free safety, hash safety, blitzer, and pseudo-LB depending on the call. The scheme operates with a 'three-safety' structure where one CB (Williams) rotates to safety. The other safeties (Thompson, Baker, Taylor-Demerson) must be versatile enough to play multiple roles pre-snap, disguise coverages, and execute pattern-matching from the deep half. Baker's unique positionless usage means the ideal safety is a chess piece who can tackle in the box, cover in the deep half, and blitz off the edge.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.08,
+          "importance": "low",
+          "reasoning": "Safeties are rarely in pure man assignments. The three-safety structure and quarters coverage create zone responsibilities, not man matchups. Functional man ability for TEs is needed situationally."
+        },
+        "Range": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "In quarters coverage, the deep safeties must cover half the field. Range to get from hash to sideline on deep routes is essential. Baker's range from the box to the deep third is what makes the three-safety concept work."
+        },
+        "Ball Skills": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Zone coverage puts safeties in position to see the QB and break on the ball. Improving takeaways is a top priority \u2014 the defense needs safeties who finish plays with interceptions, not just pass breakups."
+        },
+        "Tackling": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Baker set a career-high with 164 tackles from the safety position. Rallis deploys safeties as box defenders and pseudo-LBs. Open-field tackling is essential because missed tackles at the safety level are catastrophic."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must be fast enough to cover deep halves and close on ball carriers from the secondary. Baker at 5-10/195 succeeds because of processing speed and closing speed rather than pure timed speed."
+        },
+        "Nickel": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Rallis' three-safety structure requires safeties who can play nickel/hybrid roles \u2014 covering slot receivers, rotating between box and deep assignments, and blitzing off the edge. The 'nickel' trait for safeties in this scheme means positional versatility. Baker's ability to play as a safety, pseudo-LB, and blitzer is the scheme's calling card."
+        }
+      },
+      "ideal_archetype": "A positionless, do-everything safety who can tackle in the box, cover the deep half, blitz off the edge, and process coverage disguises pre-snap. Budda Baker IS the prototype \u2014 an 8-time Pro Bowler who thrives because of his versatility, tackling ferocity, and football intelligence. For the other safety spots, think of a rangy, ball-hawking free safety who can cover ground in quarters (Jalen Thompson profile). The system needs safeties who are chess pieces, not specialists.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-10 to 6-2",
+          "floor": "5-9",
+          "reasoning": "Size is less important than athleticism and versatility. Baker at 5-10/195 is undersized but thrives because of his processing and physicality."
+        },
+        "weight": {
+          "ideal": "195-215",
+          "floor": "185",
+          "reasoning": "Must be physical enough to tackle in the box against RBs and TEs, but light enough to cover deep halves with range."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.50",
+          "floor": "4.55",
+          "reasoning": "Deep-half coverage in quarters demands speed. A slow safety in this scheme gets beaten over the top."
+        }
+      },
+      "development_context": "Rallis' scheme is built around Budda Baker, who is a unique talent. Developing another Baker is extremely difficult. However, the scheme can make good safeties look great by deploying them in creative roles. Rallis developed Dadrion Taylor-Demerson and Jalen Thompson into capable pieces. This staff can teach coverage concepts and positional versatility. Tackling and instincts must arrive \u2014 those are baseline requirements.",
+      "scheme_fit_narrative": "Safety runs our defense. We need guys who can do everything \u2014 tackle like a linebacker, cover like a corner, and blitz like an edge rusher. Our three-safety concept creates flexibility, but only if the safeties are versatile enough to handle multiple roles. A one-dimensional deep safety who can't tackle in the box won't work. A box safety who can't cover won't work. We need chess pieces.",
+      "archetype_examples": [
+        "Budda Baker",
+        "Tyrann Mathieu",
+        "Derwin James"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Arizona is undergoing a massive offensive scheme transition from a run-first power/inside zone system (just 10% outside zone in 2025, lowest in NFL) to LaFleur's Shanahan/McVay outside zone system. This creates acute need for laterally agile offensive linemen who can execute reach blocks \u2014 PFF noted none of ARI's 700+ snap OL graded above 60.0 on outside zone in 2025. The OL need may override other picks early. On offense, the TE position carries WR1-level value: McBride's 126-catch, first-team All-Pro season makes ARI the single highest-value landing spot for receiving TEs in the NFL. LaFleur's Rams evolution toward 12/13 personnel means a second receiving TE has real draft value here. Defensively, the 3-4 base with OLBs as primary edge rushers means any LB with pass-rush traits (think Arvell Reese, Sonny Styles types) should be valued at EDGE prices for ARI. The three-safety defense is a defining scheme feature \u2014 Rallis literally led the NFL in quarters usage and three-high shells. Safety prospects with box/hybrid versatility (Caleb Downs-type) get a significant value boost, though ARI already has Budda Baker under contract. The blitz rate spiked to 31.8% in 2024, indicating willingness to pressure, which further elevates pass-rushing LB/S hybrid prospects.",
+  "scheme_draft_intelligence": "The Arizona Cardinals enter the 2026 draft at No. 3 overall with a new head coach in Mike LaFleur, a retained defensive coordinator in Nick Rallis, and massive roster needs across both lines of scrimmage. The coaching transition from Gannon (defensive-minded, did not call plays) to LaFleur (offensive-minded, WILL call plays) fundamentally reshapes how the team should be evaluated. For the first time in three years, the offense will be the driver in Arizona \u2014 and LaFleur's Shanahan/McVay-tree scheme demands specific player profiles that differ significantly from what the previous staff valued.\n\nThe biggest scheme-driven value differential is at tight end and offensive tackle. LaFleur's 12/13 personnel system requires 3-4 playable tight ends and athletic, zone-blocking OTs \u2014 positions the previous regime did not prioritize. PFF identified that none of Arizona's OL graded above 60.0 on outside-zone runs in 2025, highlighting the massive gap between LaFleur's schematic aspirations and the current roster's capabilities. Paris Johnson Jr. is the foundational LT, but the right tackle position is a gaping hole. A franchise RT at No. 3 overall (Francis Mauigoa, Spencer Fano) would be the single most impactful move to install LaFleur's run-game identity. Interior OL also need to get bigger and more physical to execute duo blocking \u2014 the Rams deliberately shifted toward 320+ lb guards under LaFleur's influence.\n\nDefensively, Rallis' retention provides scheme continuity but also reveals specific draft priorities. The three-safety structure and quarters coverage demand a very specific safety profile (positionless chess pieces) and a very specific CB profile (zone-savvy pattern-matchers) that differ from the press-man corners most teams prioritize. Edge rushers must be complete players who can rush, drop, and defend the run from a stand-up OLB position \u2014 pure speed rushers who can't cover or set the edge are scheme-limited in this defense. Interior DL must be run-stuffing anchors first, pass rushers second \u2014 the opposite of what most 4-3 teams want. This creates hidden value in space-eating nose tackles and two-gap DEs that other teams may undervalue.\n\nThe quarterback situation looms largest. With Kyler Murray released and Jacoby Brissett as the current starter, Arizona likely drafts a QB in 2027 after building the infrastructure (OL, TEs) in 2026. LaFleur's system elevates accurate, composed pocket passers who process within structure \u2014 think Stafford, Cousins, or Goff archetypes. Scramble-first QBs or pure gunslingers are poor fits. If the Cardinals target a QB later, they should prioritize accuracy and pocket presence above all else, knowing the run game and play-action will manufacture easy throws.\n\nThe coaching combination of LaFleur (Shanahan/McVay offense) and Rallis (Zimmer/Fangio-adjacent defense) creates unique draft board separation. On offense, the staff overvalues versatile TEs, athletic OTs, physical IOL, decisive zone-running RBs, and YAC-oriented WRs. On defense, they overvalue positionless safeties, zone-coverage LBs, pattern-matching CBs, complete OLB/EDGEs, and two-gapping DL. This creates a draft philosophy that should prioritize 'scheme fits' who may not be the consensus top players on generic big boards but become high-impact contributors within this specific system.",
   "confidence": "high",
   "sources": [
-    "Pro Football Reference (2025 Arizona Cardinals: Defensive Alignment 3-4, Offensive Scheme West Coast)",
-    "ESPN \u2014 Grading the Mike LaFleur hire (Feb 2026)",
-    "Arizona Cardinals official site \u2014 coaching staff announcements under Mike LaFleur (Feb 2026)",
-    "Arizona Sports \u2014 Cardinals coaching staff tracker (Feb 2026)",
-    "Match Quarters \u2014 Arizona Cardinals Unique Defense Scheme 2025",
-    "SI/PFF \u2014 How Cardinals Defense is Set for Success (3-4 base analysis)",
-    "The Forkball \u2014 How the Cardinals Are Changing the Way Defense Is Played (three-safety analysis)",
-    "Yahoo Sports \u2014 Trey McBride single-season TE receptions record (Dec 2025)",
-    "PFF \u2014 Arizona Cardinals should target OT at No. 3 overall (outside zone usage data)",
-    "Wikipedia \u2014 Nick Rallis, Nathaniel Hackett bios",
-    "Tucson.com \u2014 How Arizona Cardinals landed on Mike LaFleur (Shanahan/McVay tree analysis)",
-    "Sharp Football Stats \u2014 2025 Arizona Cardinals Defense Breakdown",
-    "Blogging the Boys \u2014 Cardinals defensive scheme breakdown (Zimmer/Gannon tree, quarters usage)"
+    "Wikipedia \u2014 Mike LaFleur, Nathaniel Hackett, Nick Rallis, Jonathan Gannon",
+    "AZCardinals.com \u2014 coaching staff announcements, Nick Rallis bio, LaFleur introductory press conference",
+    "Arizona Sports / arizonasports.com \u2014 coaching staff coverage, Rallis retention analysis",
+    "SI.com / FanNation Cardinals \u2014 defensive scheme analysis, draft needs",
+    "Blogging the Boys \u2014 Cardinals defensive scheme breakdown (Gannon/Rallis system analysis)",
+    "Match Quarters \u2014 Arizona Cardinals Unique Defense Scheme 2025 Explained",
+    "Orange County Register / Daily News \u2014 Rams 12/13 personnel analysis under LaFleur",
+    "Turf Show Times \u2014 Rams offensive scheme analysis under LaFleur",
+    "Heavy.com \u2014 Nick Rallis Budda Baker scheme analysis",
+    "Revenge of the Birds \u2014 Rallis defensive coverage and Baker usage",
+    "ESPN \u2014 Jonathan Gannon future analysis, 2025 Cardinals season recap",
+    "NBC Sports \u2014 coaching staff announcements",
+    "NFL.com \u2014 Hackett hiring, Rallis retention, draft order",
+    "PFF \u2014 Cardinals OL analysis for LaFleur scheme fit",
+    "Pro Football Reference \u2014 Cardinals coaching and stats pages",
+    "Cronkite News / thefoothillsfocus.com \u2014 LaFleur-Hackett-Rallis coaching connections",
+    "Bleacher Report \u2014 Cardinals 2026 draft needs and big board",
+    "Mile High Report \u2014 Hackett offensive scheme analysis (Packers/Broncos)",
+    "Sharp Football Analysis \u2014 Cardinals defense 2025 preview",
+    "therams.com \u2014 LaFleur coaching bio and press conferences",
+    "Yahoo Sports \u2014 Shanahan coaching tree evolution analysis",
+    "Acme Packing Company \u2014 Hackett/LaFleur Green Bay offensive analysis"
   ]
 }

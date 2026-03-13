@@ -112,6 +112,13 @@ function buildRoster(positions, defScheme) {
     set(slot, tryFirst(keys));
   }
 
+
+  // 4-DL fixup: ESPN sometimes lists both interior DL under single "nt" key
+  // instead of splitting ldt/rdt. Pull nt[1] for DT2 when rdt is missing.
+  if (!chart.DT2 && (defScheme === "43" || defScheme === "425" || defScheme === "w9")) {
+    set("DT2", name("nt", 1) || name("ldt", 1) || name("rde", 1) || name("lde", 1));
+  }
+
   // ── Secondary + Specialists (all schemes) ──
   set("CB1", name("lcb"));
   set("CB2", name("rcb"));

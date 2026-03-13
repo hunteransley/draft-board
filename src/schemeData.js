@@ -219,34 +219,128 @@ function classifyOffFamily(schemeFamily, runScheme) {
   return "pro_style";
 }
 
+// Derive 0-1 inflection rating from blueprint trait weight
+// Maps weight → rating: 0.25+ → ~0.8, 0.15 → ~0.5, 0.10 → ~0.3, 0.05 → ~0.15
+function weightToInflection(weight) {
+  if (weight == null || weight <= 0) return 0.2;
+  return Math.min(0.95, weight * 3.2);
+}
+
 function parseScheme(json) {
   const off = json.offense || {};
   const def = json.defense || {};
   const pvi = json.positional_value_inflections || {};
-  const defFront = classifyFront(def.base_front);
+  const bp = json.positional_blueprints || {};
+
+  // v2 field names with v1 fallbacks
+  const frontText = def.front_structure || def.base_front;
+  const coverageText = def.coverage_philosophy || def.coverage_base;
+  const blitzText = def.pressure_philosophy || def.blitz_tendency;
+  const personnelText = off.personnel_tendencies || off.base_personnel;
+  const passText = off.pass_architecture || off.pass_concepts;
+  const rpoText = off.motion_tempo || off.rpo_usage;
+  const teText = bp.TE?.scheme_role || off.te_usage;
+  const edgeText = bp.EDGE?.scheme_role || def.edge_rush_source;
+  const safetyText = bp.S?.scheme_role || def.safety_usage;
+  const lbText = bp.LB?.scheme_role || def.lb_role;
+
+  const defFront = classifyFront(frontText);
+
+  // Derive inflection ratings from blueprint weights (v2) or positional_value_inflections (v1)
+  const teRec = bp.TE?.trait_weights?.Receiving?.weight != null
+    ? weightToInflection(bp.TE.trait_weights.Receiving.weight)
+    : ratingToNum(pvi.te_receiving_boost?.rating);
+  const lbRush = bp.LB?.trait_weights?.["Pass Rush"]?.weight != null
+    ? weightToInflection(bp.LB.trait_weights["Pass Rush"].weight)
+    : ratingToNum(pvi.lb_pass_rush_boost?.rating);
+  const rbDual = bp.RB?.trait_weights?.["Pass Catching"]?.weight != null
+    ? weightToInflection(bp.RB.trait_weights["Pass Catching"].weight)
+    : ratingToNum(pvi.rb_dual_threat_boost?.rating);
+  const sMan = bp.S?.trait_weights?.["Man Coverage"]?.weight || 0;
+  const sNick = bp.S?.trait_weights?.Nickel?.weight || 0;
+  const sHybrid = (sMan + sNick) > 0
+    ? weightToInflection(sMan + sNick)
+    : ratingToNum(pvi.s_hybrid_boost?.rating);
+
   return {
     defFront,
-    coverageLean: classifyCoverage(def.coverage_base),
-    blitzTendency: classifyBlitz(def.blitz_tendency),
-    offPersonnel: classifyPersonnel(off.base_personnel),
+    coverageLean: classifyCoverage(coverageText),
+    blitzTendency: classifyBlitz(blitzText),
+    offPersonnel: classifyPersonnel(personnelText),
     runScheme: classifyRunScheme(off.run_scheme),
-    teRec: ratingToNum(pvi.te_receiving_boost?.rating),
-    lbRush: ratingToNum(pvi.lb_pass_rush_boost?.rating),
-    rbDual: ratingToNum(pvi.rb_dual_threat_boost?.rating),
-    sHybrid: ratingToNum(pvi.s_hybrid_boost?.rating),
+    teRec, lbRush, rbDual, sHybrid,
     // Enriched fields
-    passStyle: classifyPassStyle(off.pass_concepts, off.scheme_family),
-    rpoUsage: classifyRpoUsage(off.rpo_usage),
-    teRole: classifyTeRole(off.te_usage),
-    edgeType: classifyEdgeType(def.edge_rush_source),
-    safetyRole: classifySafetyRole(def.safety_usage),
-    lbSchemeRole: classifyLbSchemeRole(def.lb_role, defFront),
+    passStyle: classifyPassStyle(passText, off.scheme_family),
+    rpoUsage: classifyRpoUsage(rpoText),
+    teRole: classifyTeRole(teText),
+    edgeType: classifyEdgeType(edgeText),
+    safetyRole: classifySafetyRole(safetyText),
+    lbSchemeRole: classifyLbSchemeRole(lbText, defFront),
     offFamily: classifyOffFamily(off.scheme_family, off.run_scheme),
   };
 }
 
+function extractNarratives(json) {
+  const cs = json.coaching_staff || {};
+  const off = json.offense || {};
+  const def = json.defense || {};
+  const pvi = json.positional_value_inflections || {};
+  const bp = json.positional_blueprints || {};
+
+  // Build per-position blueprint narratives
+  const blueprints = {};
+  for (const [pos, data] of Object.entries(bp)) {
+    blueprints[pos] = {
+      schemeRole: data.scheme_role || "",
+      idealArchetype: data.ideal_archetype || "",
+      schemeFitNarrative: data.scheme_fit_narrative || "",
+      developmentContext: data.development_context || "",
+      measurablePreferences: data.measurable_preferences || null,
+    };
+  }
+
+  return {
+    hc: { name: cs.head_coach?.name || "", philosophy: cs.head_coach?.scheme_philosophy || "" },
+    oc: { name: cs.offensive_coordinator?.name || "", schemeTree: cs.offensive_coordinator?.scheme_tree || cs.offensive_coordinator?.coaching_tree || "" },
+    dc: { name: cs.defensive_coordinator?.name || "", schemeTree: cs.defensive_coordinator?.scheme_tree || cs.defensive_coordinator?.coaching_tree || "" },
+    inflections: {
+      te_receiving: { rating: pvi.te_receiving_boost?.rating || "", explanation: pvi.te_receiving_boost?.explanation || "" },
+      lb_pass_rush: { rating: pvi.lb_pass_rush_boost?.rating || "", explanation: pvi.lb_pass_rush_boost?.explanation || "" },
+      rb_dual_threat: { rating: pvi.rb_dual_threat_boost?.rating || "", explanation: pvi.rb_dual_threat_boost?.explanation || "" },
+      s_hybrid: { rating: pvi.s_hybrid_boost?.rating || "", explanation: pvi.s_hybrid_boost?.explanation || "" },
+    },
+    blueprints,
+    teUsage: bp.TE?.scheme_role || off.te_usage || "",
+    rbUsage: bp.RB?.scheme_role || off.rb_usage || "",
+    safetyUsage: bp.S?.scheme_role || def.safety_usage || "",
+    lbRole: bp.LB?.scheme_role || def.lb_role || "",
+    edgeSource: bp.EDGE?.scheme_role || def.edge_rush_source || "",
+    coverageBase: def.coverage_philosophy || def.coverage_base || "",
+    runScheme: off.run_scheme || "",
+    passConcepts: off.pass_architecture || off.pass_concepts || "",
+    draftNotes: json.scheme_draft_intelligence || json.scheme_specific_draft_notes || "",
+  };
+}
+
 export const SCHEME_PROFILES = {};
+export const SCHEME_NARRATIVES = {};
+export const SCHEME_BLUEPRINT_WEIGHTS = {};
 for (const [abbr, json] of Object.entries(ALL_SCHEMES)) {
   const teamName = ABBR_TO_TEAM[abbr];
-  if (teamName) SCHEME_PROFILES[teamName] = parseScheme(json);
+  if (teamName) {
+    SCHEME_PROFILES[teamName] = parseScheme(json);
+    SCHEME_NARRATIVES[teamName] = extractNarratives(json);
+    // Extract per-position blueprint weights
+    const bp = json.positional_blueprints || {};
+    const weights = {};
+    for (const [pos, data] of Object.entries(bp)) {
+      if (data.trait_weights) {
+        weights[pos] = {};
+        for (const [trait, info] of Object.entries(data.trait_weights)) {
+          weights[pos][trait] = info.weight;
+        }
+      }
+    }
+    SCHEME_BLUEPRINT_WEIGHTS[teamName] = weights;
+  }
 }

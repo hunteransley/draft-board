@@ -6,69 +6,767 @@
       "name": "Todd Bowles",
       "tenure_years": 5,
       "background": "defensive",
-      "scheme_philosophy": "Aggressive, multiple-front defense with heavy blitz rates and man coverage roots. Bowles also calls the defensive plays, functioning as de facto DC. Adaptable to personnel \u2014 has run both 3-4 and 4-3 schemes throughout career. On offense, has empowered McVay-tree coordinators to run high-tempo, pass-friendly systems."
+      "coaching_tree": "Bill Parcells tree (secondary coach under Parcells in Dallas 2005-07) \u2192 Bruce Arians connection (DC in Arizona 2013-14, DC in Tampa 2019-21) \u2192 head coach. Also worked under Andy Reid, Wade Phillips, Mike Holmgren. Defensive backs coach by trade with stops in CLE, DAL, MIA, PHI before becoming DC.",
+      "scheme_philosophy": "Aggressive, multiple-front defense that adapts to personnel and opponent. Bowles acts as his own defensive coordinator and playcaller. Philosophy centers on disguise, creative pressure packages, and physicality. Historically blitz-heavy but has evolved to incorporate more simulated pressures and four-man rush concepts since 2022. Favors one-gap, attack-style defense over traditional two-gap 3-4. Run defense is the identity \u2014 his Tampa units have led the NFL in fewest rushing yards per game allowed from 2019-2025. On offense, delegates to the OC but has consistently hired McVay-tree coordinators (Canales, Coen, Grizzard, Robinson)."
     },
     "offensive_coordinator": {
       "name": "Zac Robinson",
-      "scheme_tree": "Sean McVay / Shanahan-Kubiak wide zone, run-pass marriage",
-      "play_caller": true
+      "coaching_tree": "Sean McVay / LA Rams tree. Started coaching career with Rams in 2019 as assistant QBs coach, rose to pass game coordinator/QBs coach (2022-23). McVay system is rooted in Shanahan/Gruden offensive concepts: outside zone run game, boot/play-action pass game, heavy pre-snap motion, timing-based passing with defined reads.",
+      "scheme_evolution": "With the Rams, Robinson helped construct a passing attack that produced Puka Nacua's record-setting rookie season (105 catches, 1,486 yards). In Atlanta (2024-25), Robinson installed the McVay-based system but adapted to personnel limitations \u2014 Kirk Cousins' immobility led to heavy pistol usage (37-38% of plays, NFL-high) and outside zone emphasis (68% of runs outside tackle box in 2024). His Atlanta offense ranked ninth in yards per game and was fifth in explosive plays in 2024. However, struggled with play-action effectiveness and predictable tendencies in formation-specific playcalling. In Tampa, Robinson will have a more mobile QB in Baker Mayfield and an established OL, which should unlock more under-center work, bootlegs, and play-action concepts that were limited in Atlanta.",
+      "development_track_record": "Developed Puka Nacua from a fifth-round pick into a record-setting receiver in LA. Coached Bijan Robinson to back-to-back Pro Bowls and Drake London to his first 1,000-yard season in Atlanta. Background as both WR coach and QB coach gives him dual-position development capability. Strong at scheming explosive plays and maximizing YAC from skill players."
     },
     "defensive_coordinator": {
-      "name": "Todd Bowles (HC calls defense)",
-      "scheme_tree": "Rex Ryan-adjacent aggressive blitz, roots in secondary coaching; influenced by Bruce Arians, Wade Phillips, Andy Reid staffs",
-      "play_caller": true
+      "name": "Todd Bowles (HC/DC \u2014 no separate DC)",
+      "coaching_tree": "Bill Parcells defensive philosophy: physicality, gap integrity, multiplicity. Rex Ryan influence from shared Parcells lineage \u2014 Bowles' Arizona defense was compared to Ryan's 2009-10 Jets scheme with its creative blitzing, mixed coverages, and disguise packages. Not a Belichick-tree or Fangio-tree coordinator \u2014 Bowles' scheme is more aggressive and less pattern-match oriented than either.",
+      "scheme_evolution": "Arizona (2013-14): Blitz-heavy (league-leading blitz rate), Cover 1/Cover 3 foundation, aggressive man coverage, created the 'moneybacker' hybrid role with Deone Bucannon. NY Jets (2015-18): Maintained 3-4 base with creative pressure packages but struggled with talent limitations. Tampa Bay DC (2019-21): Installed one-gap 3-4, extremely high blitz rates (39-45%), Cover 3 base. Tampa Bay HC (2022-present): Evolved significantly \u2014 reduced blitz rate to ~29-35%, incorporated simulated pressures and creeper concepts, adopted more two-high pre-snap looks to disguise coverage, shifted Vita Vea from nose tackle to 3-technique, increased sub-package usage on early downs. The 2024-25 defenses struggled with big plays allowed despite maintaining elite run defense, leading to criticism of scheme complexity.",
+      "development_track_record": "Developed Shaquil Barrett from rotational player to 2x Pro Bowler and Super Bowl hero. Maximized Vita Vea as both run-stuffer and interior pass rusher. Developed Antoine Winfield Jr. into a Pro Bowl safety. Coached Calijah Kancey as an undersized penetrating DT. Historically develops physical, high-motor defensive players who fit his aggressive style. Struggled to develop secondary depth \u2014 coverage busts have been a persistent issue."
     }
   },
   "offense": {
-    "scheme_family": "McVay run-pass marriage / West Coast hybrid",
-    "base_personnel": "11",
-    "personnel_detail": "Under Coen in 2024, Tampa ran ~78% 11 personnel early in the season. Robinson used 11 personnel predominantly in 2024 ATL but shifted to 38.2% 12 personnel in 2025 ATL. Expect flexible personnel usage in Tampa with a 11-personnel base but willingness to deploy 12 and even 13 sets depending on matchup.",
-    "run_scheme": "outside zone primary, with gap/power elements mixed in; Robinson's Falcons were No. 1 in outside-the-tackles run rate",
-    "pass_concepts": "run-pass marriage under center, high pre-snap motion rate, quick-game and play-action concepts, exploit leverage advantages through motion. Robinson emphasizes intent behind every play rather than just running plays to run plays.",
-    "rpo_usage": "moderate",
-    "te_usage": "Dual-role: Otton is an elite blocker (993 snaps in 2025) who also runs a full route tree. Used on chip-and-release, sift blocks, and can flex into routes. Robinson is known to employ TEs to move the chains and used heavy 12/13 personnel in ATL in 2025. TE receiving role is moderate-to-high but blocking demands are significant.",
-    "rb_usage": "Committee approach with Bucky Irving as lead back. Shanahan/McVay-tree offenses traditionally value receiving backs. Rachaad White was used as receiving/third-down back before entering free agency. Backs expected to be involved in pass game."
+    "scheme_family": "McVay-tree outside zone / play-action system (Robinson variant)",
+    "scheme_detail": "Robinson brings the foundational McVay system \u2014 outside zone run game, boot/play-action passing, heavy pre-snap motion, timing-based passing with layered route concepts \u2014 but with his own tendencies. Robinson led the NFL in pre-snap motion usage in 2025 (65.65% of plays) and was notorious for heavy pistol formation usage in Atlanta (37-38%). His system emphasizes horizontal stretches to create open passing windows, quick rhythm throws, and explosive plays after the catch. In Tampa, expect significant carryover from the Liam Coen/Dave Canales offenses since all three coordinators share the McVay/Shanahan DNA. Robinson has stated he will build around Baker Mayfield's arm talent and mobility, incorporating more bootlegs and keepers than he could with immobile QBs in Atlanta.",
+    "run_scheme": "Zone-heavy. Outside zone is the primary concept, with inside zone as secondary. Robinson's Atlanta offense ran 68% of runs outside the tackle box in 2024 (second-most in NFL). Gap/power concepts mixed in as changeups. Robinson's system demands OL who can move laterally and reach-block on the front side while RBs read cutback lanes. The pistol formation serves as a base alignment for zone runs, giving the RB a head start on reading blocks. Expect the Bucs to maintain the improved ground game from 2024 (franchise-record 2,536 rushing yards) with Bucky Irving as the primary back.",
+    "pass_architecture": "Timing-based passing with defined reads. Layered route concepts that stretch defenses horizontally \u2014 crossers, digs, sail concepts, and flood routes. Play-action is a core principle from the McVay tree, though Robinson's execution in Atlanta was inconsistent. Quick game (slants, hitches, screens) to complement the run game. Boot/rollout concepts will increase with Mayfield's mobility. Robinson heavily targets receivers in the passing game (71% WR target share in LA vs only 38% in Atlanta) \u2014 expect WR-centric targets in Tampa with Evans/Egbuka/McMillan. RPO usage is moderate. Red zone offense emphasizes compressed formations and defined reads.",
+    "personnel_tendencies": "11 personnel (1 RB, 1 TE, 3 WR) is the base. Robinson started in 11 personnel heavily in Atlanta's first year (2024) but incorporated more 12 personnel (2 TE) in 2025. In Tampa, personnel will depend on TE availability \u2014 if Cade Otton departs in FA, 11 personnel will dominate. Pistol formation usage will be a signature but may decrease with Mayfield's ability to work under center. Robinson uses motion to create pre-snap reads and isolate mismatches, not just for window dressing.",
+    "motion_tempo": "Elite pre-snap motion usage \u2014 Robinson led the NFL at 65.65% motion rate in 2025. Motion is used with purpose: identifying man vs zone, isolating favorable matchups, strengthening run blocking angles. Robinson stated he wants intentional motion and emphasized playing with tempo. Not a hurry-up offense per se, but pace will increase from Tampa's recent seasons. Robinson has said he wants to 'apply pressure to the defense every single snap through pre-snap motion, tempo, you name it.'"
   },
   "defense": {
-    "base_front": "3-4 hybrid",
-    "alignment": "Odd front base (3 down linemen, 4 LBs) but frequently morphs into 4-2 nickel, 3-3-5, 2-4-5, and 4-3 looks depending on opponent and down/distance. One-gap attacking scheme, NOT a two-gap 3-4.",
-    "edge_rush_source": "OLB stand-up primary (Yaya Diaby, Haason Reddick types), but Bowles moves rushers between hands-in-dirt and stand-up constantly. DL also generates interior pressure with Vita Vea and Calijah Kancey.",
-    "coverage_base": "Man-heavy with Cover 1 / Cover 0 as base tendency. Will mix in Cover 3 and zone looks for disguise. MOFC (middle of field closed) is predominant pre-snap look. Heavy use of press coverage with length at corner.",
-    "blitz_tendency": "heavy (38.9% blitz rate in 2024, 2nd highest in NFL). Triple A-gap pressure is a signature. Bowles sends exotic zone blitzes, overload blitzes, and fire blitzes from multiple positions including safeties and corners.",
-    "lb_role": "ILBs (Lavonte David, SirVocea Dennis) are run-and-coverage players who also blitz from A-gaps. OLBs (Diaby, Reddick, David Walker) are primary edge rushers who stand up on the line. OLBs in this scheme function as pure edge rushers.",
-    "safety_usage": "Both safeties play hybrid roles. Antoine Winfield Jr. is an All-Pro used interchangeably in the post, box, and slot. Tykee Smith plays strong safety as a box/hybrid defender \u2014 led all safeties in passes defensed (13) in 2025, posted 100+ tackles, and is used as a blitzer. Bowles created the 'moneybacker' role (safety-LB hybrid) in Arizona with Deone Bucannon and continues to use safeties this way."
+    "scheme_family": "Multiple 3-4 one-gap defense (Parcells/Arians tree, Bowles variant)",
+    "scheme_detail": "Bowles runs a hybrid 3-4 that functions as a one-gap, attack-style defense rather than a traditional two-gap 3-4. DL are asked to penetrate and disrupt, not absorb blocks. The scheme is built on disguise \u2014 pre-snap looks rarely match post-snap reality. Bowles shows various fronts and coverage shells, then shifts after the snap. He will switch between 3-4 and 4-3 looks within a game based on opponent tendencies. The defense's identity is stopping the run first (NFL's best run defense 2019-2025 at 94.5 yards/game allowed) and then getting creative on third downs with pressure packages. Coverage is primarily Cover 3 (MOFC) with man-coverage principles underneath, though Bowles has incorporated more two-high pre-snap shells since 2022 to disguise coverage rotations.",
+    "front_structure": "Base 3-4 odd front with Vita Vea as the strong-side 3-technique (moved from nose), a nose tackle, and a 5-technique DE. OLBs are stand-up edge rushers from two-point stances. In sub packages, shifts to even fronts (4-2-5 nickel). Calijah Kancey plays as an undersized, penetrating 3-technique in pass-rush situations. The front is one-gap: DL attack their gap rather than occupying blockers. This creates more disruption but requires disciplined gap integrity from linebackers behind them.",
+    "coverage_philosophy": "Cover 3 is the foundation \u2014 single high safety with two deep thirds outside. However, Bowles mixes coverages extensively: Cover 1 man, Cover 2, quarters, and bracket coverages are all in the playbook. Pre-snap disguise is critical \u2014 Bowles shows two-high and rotates to single-high post-snap, or vice versa. Man coverage rate is relatively low (ranked 31st in 2024) but Bowles uses man principles within zone concepts. Corners are expected to play press at the line and disrupt timing. The scheme asks safeties to be versatile \u2014 Antoine Winfield Jr. is used as a slot cover man, box safety, and deep safety depending on the call. Coverage busts have been a persistent issue (27th in pass defense in 2025), suggesting the complexity of the disguise package can overwhelm less experienced DBs.",
+    "pressure_philosophy": "Aggressive but evolved. Early Tampa years (2019-21) featured blitz rates of 39-45%. Since becoming HC (2022), Bowles has reduced to 29-35% but maintains the highest third-down blitz rate in the NFL (~43%). The shift has been toward simulated pressures and creepers \u2014 showing blitz with 6-7 at the line, then dropping an edge rusher into coverage while a LB or DB rushes from depth. This creates confusion for offensive lines while keeping seven in coverage. On third down, Bowles unleashes his full pressure menu: safety blitzes, LB delays, overload looks, and exotic fire zone packages. Six different Bucs defenders had 25+ blitz plays in 2024. The pass rush has struggled to produce sacks (lowest sack total in Bowles' Tampa tenure in 2025), making EDGE talent a critical need.",
+    "sub_packages": "4-2-5 nickel is the primary sub package. Bowles has evolved to use sub packages on early downs more frequently since 2022, moving away from base-heavy tendencies. The nickel defender (Tykee Smith in 2025) is a hybrid safety/slot type rather than a pure corner. Dime (4-1-6) is used in obvious passing situations. Bowles occasionally deploys the 'moneybacker' concept \u2014 a safety/LB hybrid who can cover TEs and RBs while also fitting the run (originated with Deone Bucannon in Arizona, used with Antoine Winfield Jr. in Tampa)."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "medium",
-      "explanation": "Robinson's McVay-tree offense does utilize TEs in the passing game \u2014 Robinson employed Kyle Pitts aggressively in ATL and shifted to 38.2% 12-personnel in 2025. Cade Otton ran a full route tree and finished with 59 catches in 2025 while also being a primary blocker. However, Tampa's TE role is dual-purpose: significant blocking demands (993 snaps, sift blocks, chip-and-release) alongside receiving. A pure receiving TE gets a moderate boost but must also block in this scheme. The move toward heavier personnel (12/13 groupings) increases TE targets but demands versatility."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "Robinson's McVay-tree system asks the QB to operate within a timing-based passing attack with defined reads, execute boot/play-action concepts on the move, and manage pre-snap motion and cadence adjustments. The QB must process coverage rotations quickly because Bowles-style defenses (which Robinson has game-planned against) use extensive pre-snap disguise. The system demands a QB who can throw accurately on rhythm but also extend plays and create off-script when timing routes break down.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Robinson's system includes deep shots off play-action and boot concepts that require driving the ball down the field. Mayfield's arm was specifically praised by Robinson \u2014 'there is not a part of the field that he cannot attack.' The scheme needs enough arm to threaten all three levels but doesn't demand an elite cannon."
+        },
+        "Accuracy": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The McVay-tree timing-based passing game lives and dies on anticipation throws to defined windows. Robinson's layered route concepts create small windows that require ball placement \u2014 short-to-intermediate accuracy is the primary differentiator in this scheme."
+        },
+        "Pocket Presence": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Robinson's system relies on clean pockets from a strong OL (Wirfs, Barton, Goedeke), but the QB must navigate pressure with subtle movements rather than abandoning structure. Pocket manipulation keeps timing routes alive."
+        },
+        "Mobility": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Robinson specifically emphasized utilizing Mayfield's mobility \u2014 bootlegs, keepers, and third-down scrambles. His Atlanta offense was hampered by immobile QBs. This scheme unlocks a new dimension with a mobile QB, making this trait more valuable here than in a traditional West Coast system."
+        },
+        "Decision Making": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The heavy motion and formation diversity create pre-snap information that the QB must process and use. Robinson's system features defined reads, but the QB must identify the correct read based on defensive alignment and coverage rotation post-snap."
+        },
+        "Leadership": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "Mayfield's intangible leadership has been credited with Tampa's culture since 2023. Robinson values a QB who commands the huddle and manages the silent count on the road with high motion rates."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "Pre-snap motion helps identify coverage, but the QB still must confirm post-snap reads. Robinson's system provides answers through motion \u2014 this reduces the pre-snap cognitive burden compared to systems that don't motion as much."
+        }
+      },
+      "ideal_archetype": "A mobile, accurate, tough quarterback who can execute timing throws on rhythm but also create explosive plays on bootlegs and scrambles. Must have the arm to push the ball vertically off play-action and the toughness to stand in against pressure. The ideal QB is a dual-threat within the pocket-passing framework \u2014 not a true running QB, but one whose mobility makes the play-action game lethal. Think Baker Mayfield at his best or a Matthew Stafford type with more mobility \u2014 a strong-armed, instinctive passer who plays with edge and can improvise.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4",
+          "floor": "5-11",
+          "reasoning": "Robinson has worked with QBs of varying heights (Stafford 6-3, Mayfield 6-1). The scheme's quick passing and play-action concepts don't demand a towering pocket presence, but adequate height helps see over the interior line."
+        },
+        "weight": {
+          "ideal": "215-235",
+          "floor": "205",
+          "reasoning": "Must be sturdy enough to absorb hits on bootlegs and designed runs. Mayfield's durability at 215 is the benchmark."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.75",
+          "floor": "4.85",
+          "reasoning": "Robinson's emphasis on QB mobility and designed keepers means functional speed matters. The scheme incorporates QB runs on third down \u2014 Mayfield's 72.4% first-down conversion rate on third-down scrambles illustrates the value."
+        }
+      },
+      "development_context": "Robinson's career has been built around quarterback development \u2014 he helped refine Matthew Stafford's mechanics in LA and worked closely with Puka Nacua's development as a pass-game coordinator. New QB coach Chandler Whitmer tutored Heisman winner Fernando Mendoza at Indiana and helped develop Justin Herbert with the Chargers. This staff can develop accuracy, footwork, and decision-making within their timing system. Raw arm talent and natural mobility must arrive ready \u2014 those are less coachable.",
+      "scheme_fit_narrative": "This offense needs a quarterback who can throw with timing and anticipation on defined route concepts, but who also has the mobility to make bootlegs and designed runs a genuine threat. The heavy pre-snap motion gives the QB pre-snap answers, so you don't need a pure cerebral processor \u2014 you need a guy who can see the motion key, make a quick decision, and deliver the ball accurately on time or create when it breaks down. Arm talent is important but accuracy and mobility matter more.",
+      "archetype_examples": [
+        "Baker Mayfield",
+        "Matthew Stafford",
+        "Jared Goff"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "high",
-      "explanation": "Bowles' 3-4 base directly features OLBs as the primary edge rushers. Yaya Diaby (7.0 sacks, 16.3% pressure rate in 2025), Haason Reddick, and Shaquil Barrett before him were all listed as OLBs but function as pure edge rushers. Any LB prospect with elite pass rush traits \u2014 burst, bend, first step \u2014 would be deployed on the edge in Tampa's stand-up rush packages. The scheme is explicitly designed around OLBs rushing the passer. Larry Foote coaches the OLB room specifically as a pass-rush unit."
+    "RB": {
+      "scheme_role": "The primary ball carrier in Robinson's zone-heavy run scheme, asked to read cutback lanes on inside and outside zone concepts from pistol and shotgun formations. Must also catch passes out of the backfield as a check-down and screen target. Robinson's Atlanta offense featured Bijan Robinson (Pro Bowler, 1,456 rushing yards) as a zone-running scheme centerpiece. The RB needs patience to let zone blocks develop, vision to find cutback lanes, and burst to hit the hole explosively.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Zone running demands a back who reads blocks laterally, identifies the cutback lane, and makes one decisive cut. Robinson's scheme runs 68% of plays outside the tackle box \u2014 the RB must process flow and find daylight in space, not just hit a predetermined hole."
+        },
+        "Contact Balance": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Outside zone creates collisions at the edge. The back must stay on his feet through arm tackles and incidental contact to turn 3-yard runs into 7-yard gains."
+        },
+        "Power": {
+          "weight": 0.05,
+          "importance": "low",
+          "reasoning": "This is not a downhill power scheme. Robinson's zone concepts prioritize lateral movement and cutback ability over north-south power. Some finishing ability is needed but it's not the primary demand."
+        },
+        "Elusiveness": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Robinson praised Bijan Robinson's 'elusiveness and cutback ability' as perfect for his zone concepts. The RB must make defenders miss in space on outside zone runs where he's operating at the edge of the formation."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Outside zone requires getting to the edge quickly. The scheme needs a back who can stretch the defense horizontally and has breakaway speed to turn corners and hit explosive runs. Robinson's Atlanta offense was fifth in explosive plays."
+        },
+        "Pass Catching": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Robinson's McVay-tree offense features the RB in the passing game on screens, check-downs, and route concepts. The Rams had a 24% RB target share under the McVay system. Bucky Irving and the Bucs' backs are expected to be involved as receivers."
+        },
+        "Pass Protection": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Must be competent in blitz pickup, especially on boot/play-action plays where the QB is vulnerable. Not the primary demand but a baseline competency is required."
+        }
+      },
+      "ideal_archetype": "A patient, elusive zone runner with excellent vision who can stretch the defense horizontally on outside zone, plant and cut back decisively, and contribute as a receiver. Think Bijan Robinson or Bucky Irving \u2014 not a straight-line power back, but a fluid, one-cut runner who can make the first defender miss and accelerate through the hole. Must have enough speed to threaten the edge and enough hands to be a weapon in the screen game.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "200-220",
+          "floor": "190",
+          "reasoning": "Zone backs need agility over bulk. Robinson's featured backs (Bijan at 215, Bucky Irving at 195) lean toward the lighter, more elusive end of the spectrum."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "Outside zone demands speed to get to the edge. Sub-4.50 speed creates the threat of bouncing runs outside and turning the corner for explosive gains."
+        },
+        "3_cone_drill": {
+          "ideal": "Sub-6.90",
+          "floor": "7.05",
+          "reasoning": "Change-of-direction is critical for cutback ability in zone runs. The back must plant and redirect explosively to exploit cutback lanes."
+        }
+      },
+      "development_context": "RB coach Skip Peete has been with the Bucs since 2022 and developed Bucky Irving from a 4th-round pick into a 1,000-yard rusher in 2024. Robinson's scheme is RB-friendly and can develop vision and patience through the zone read system. Pass-catching and pass protection are coachable within the system. Speed and elusiveness must arrive ready \u2014 those are physical traits.",
+      "scheme_fit_narrative": "This is a zone-running offense that wants a back who can be patient, read blocks, and make one decisive cut. We're not looking for a battering ram \u2014 we want a guy who can set up blocks laterally on outside zone, find the crease, and explode through it. He needs to catch the ball and contribute in the passing game. Think smooth, fluid athlete with vision, not a straight-line pounder.",
+      "archetype_examples": [
+        "Bijan Robinson",
+        "Bucky Irving",
+        "Alvin Kamara"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "medium",
-      "explanation": "McVay-tree offenses historically value pass-catching backs. Robinson's scheme emphasizes run-pass marriage, where the RB is involved in both elements on any given play. Tampa used Rachaad White as a receiving/third-down back and Bucky Irving flashed receiving ability as a rookie. The offense distributes the ball widely and backs are part of the progression. However, Tampa has also shown a willingness to feature a power runner (Irving ran for 1,000 yards as a rookie in 2024), so pure running ability still carries significant value. Receiving RBs get a moderate but not dominant boost."
+    "WR": {
+      "scheme_role": "Robinson's McVay-tree system heavily targets receivers (71% target share in his Rams tenure). WRs run a full route tree with emphasis on timing routes \u2014 slants, curls, digs, crossers \u2014 that get the ball out quick. The scheme creates YAC opportunities through pre-snap motion and horizontal stretches. The X receiver runs contested-catch routes and vertical shots off play-action. The Z/slot receivers work intermediate crossers and underneath concepts to generate explosive plays after the catch. All receivers must be able to execute pre-snap motion assignments cleanly.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Robinson's timing-based system demands precise route-running to create separation at the exact moment the ball arrives. The QB throws to spots on defined timing \u2014 routes must break on time and at the correct depth."
+        },
+        "Separation": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The quick-passing game needs receivers who win with separation rather than contested catches. Robinson's system is designed to put players in space \u2014 the receiver must create that initial separation off the break."
+        },
+        "Hands": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Timing throws demand reliable hands. Drops kill drives in a system built on rhythm and efficiency. Robinson's WR development background means he emphasizes fundamentals like catch technique."
+        },
+        "YAC Ability": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Robinson's Atlanta offense was fifth in explosive plays (135) in 2024. The system creates YAC opportunities through horizontal stretches, screens, and motion \u2014 the receiver must be dangerous with the ball in his hands."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Needed to threaten vertically off play-action and on deep shots. The scheme uses speed to stretch the field and create space underneath, but it's not a purely vertical passing attack."
+        },
+        "Contested Catches": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Less critical in a scheme designed to create separation. The X receiver (Mike Evans' role) needs contested-catch ability for red zone and 50/50 ball situations, but the system primarily schemes receivers open."
+        },
+        "Release Package": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Important against press coverage that disrupts timing. Bowles-style defenses (which Robinson has seen extensively from the other sideline) press aggressively, so release technique matters in the NFC South."
+        }
+      },
+      "ideal_archetype": "A smooth route-runner with YAC ability who can win with separation and make plays after the catch. The ideal WR1 in this scheme is a technician who gets open on timing routes and turns short passes into explosive plays. Think Cooper Kupp or Puka Nacua \u2014 not necessarily the fastest player on the field, but a precise route-runner with excellent hands and natural feel for creating space. For the boundary X role, a bigger receiver with contested-catch ability (Evans profile) is valued for red zone and vertical shots.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-3",
+          "floor": "5-9",
+          "reasoning": "Robinson has developed receivers of various sizes \u2014 Nacua (6-2), London (6-4), Mooney (5-11). The scheme can accommodate different body types as long as the receiver can separate and catch."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "Speed is needed to threaten deep off play-action, but Robinson's system doesn't demand elite burners at every spot. Functional speed to separate and create YAC is more important than raw 40 time."
+        }
+      },
+      "development_context": "Robinson's WR development pedigree is strong \u2014 he served as assistant WR coach with the Rams and helped develop Puka Nacua into a record-setter. In Atlanta, Drake London had his first 1,000-yard season under Robinson. New pass game coordinator T.J. Yates spent five years developing Atlanta's receivers. This staff can develop route-running, timing, and contested-catch skills. Speed and natural YAC instincts are harder to teach and should arrive with the prospect.",
+      "scheme_fit_narrative": "We want receivers who can separate on timing routes and make plays after the catch. This isn't a 'throw it up to the big guy' offense \u2014 it's a precision system that creates matchups through motion and scheme. Give me a receiver who runs clean routes, catches everything, and turns a 7-yard slant into a 25-yard gain. Speed matters, but route-running and YAC matter more.",
+      "archetype_examples": [
+        "Puka Nacua",
+        "Cooper Kupp",
+        "Emeka Egbuka"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "This is one of the NFL's most hybrid-friendly safety schemes. Bowles invented the 'moneybacker' role in Arizona with Deone Bucannon, and the tradition continues. Antoine Winfield Jr. is a prototype \u2014 box safety, slot corner, blitzer, and deep safety all in one. Tykee Smith moved from nickel corner to strong safety in 2025 and posted 100+ tackles, 13 PDs, 2 sacks, and 3+ takeaways. Bowles called Smith 'probably our best player.' Both safeties are deployed interchangeably in the post and box. Bowles runs formations with 3 safeties on the field. Any safety prospect with tackling, blitz ability, man coverage skill, and versatility gets a massive value boost for Tampa."
+    "TE": {
+      "scheme_role": "Robinson's McVay-tree offense uses the TE in multiple roles \u2014 inline blocker on zone runs, route-runner from the slot, and play-action target down the seam. The Rams had a moderate TE target share but Robinson's Atlanta offense featured Kyle Pitts and other TEs more heavily (34% TE target share under Arthur Smith's roster). In Tampa, Cade Otton was the 'busiest tight end in the NFL' with back-to-back 59-catch seasons, serving as a reliable inline blocker and intermediate route-runner. The scheme needs a TE who can block on zone runs (critical for outside zone) and also flex into the slot and threaten the seam.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Robinson's scheme features the TE in the passing game on play-action, boot concepts, and red zone targets. With potential loss of Cade Otton in FA, the Bucs need a TE who can contribute as a receiver in the intermediate passing game."
+        },
+        "Route Running": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The timing-based system requires the TE to run precise routes from both inline and detached alignments. The TE must work the seam, run crossers, and execute option routes against linebackers and safeties."
+        },
+        "Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Outside zone is the primary run concept. The TE must seal the edge, execute reach blocks, and sustain blocks on defensive ends/OLBs. Without competent TE blocking, the outside zone run game collapses. This is the most critical trait for scheme fit."
+        },
+        "Athleticism": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Robinson's system asks TEs to flex into the slot, run routes, and also get to the second level on run blocks. The TE must have the athletic range to execute both blocking and receiving responsibilities in a single play."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Reliable hands are important for a TE who will be targeted in traffic over the middle and on play-action throws. Cade Otton's consistency as a catcher set the standard in Tampa."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Enough speed to threaten the seam and create mismatches against linebackers. Robinson's boot concepts feature the TE running vertical routes behind the defense \u2014 functional speed is needed to get open."
+        }
+      },
+      "ideal_archetype": "A complete tight end who can block at the point of attack on outside zone runs and also threaten as a receiver in the intermediate passing game. Not a move TE who can't block, and not a pure blocker with no receiving upside \u2014 the scheme needs both. Think Mark Andrews or George Kittle: an athletic, physical TE who can seal edges in the run game and then flex out and run routes. Cade Otton was the prototype \u2014 reliable in every phase but not spectacular in any single area.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-2",
+          "reasoning": "Need enough size to block defensive ends on the edge in outside zone. The TE is often matched up against 260+ lb OLBs at the point of attack."
+        },
+        "weight": {
+          "ideal": "240-260",
+          "floor": "230",
+          "reasoning": "Blocking at the point of attack in the run game requires functional mass. Lighter TEs struggle to sustain blocks on NFL edge defenders."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Functional speed to threaten seams and create mismatches. The McVay system doesn't need a 4.4 TE, but sub-4.70 speed helps separate from linebackers."
+        }
+      },
+      "development_context": "TE coach Justin Peelle has been with the Bucs since 2022 and developed Cade Otton into one of the busiest TEs in the NFL. The staff can develop route-running and receiving skills from a raw athlete. Blocking technique is coachable but requires physical tools (size, strength, functional base). A TE with raw athletic ability and willing blocking mentality is developable; a finesse receiving TE with no blocking foundation will struggle in this outside zone system.",
+      "scheme_fit_narrative": "The tight end in this offense must block. Period. Outside zone is our bread and butter, and the TE is responsible for sealing the edge on every run to the strong side. But we also need him to catch the ball \u2014 play-action boots, seam routes, red zone targets. Give me a physical, athletic TE who embraces the blocking role but has the receiving upside to develop into a complete player. We can't have a pure move TE who's a liability in the run game.",
+      "archetype_examples": [
+        "George Kittle",
+        "Mark Andrews",
+        "Cade Otton"
+      ]
+    },
+    "OT": {
+      "scheme_role": "Robinson's outside zone scheme demands offensive tackles who can execute reach blocks, climb to the second level, and sustain blocks while moving laterally. In pass protection, the OT must anchor against speed rushers off the edge in a timing-based passing system that requires the pocket to hold for 2.5-3 seconds. Tristan Wirfs (elite LT) is the foundation \u2014 the scheme needs a RT who can complement Wirfs' dominance. The zone run game asks OTs to get lateral displacement on the first step and drive defenders off the ball while moving horizontally.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Robinson's timing-based passing system requires a clean pocket for defined reads. His Atlanta OL allowed the fourth-fewest sacks in 2025 (26). The OT must mirror speed rushers and maintain pocket integrity to let the timing routes develop."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Outside zone is the primary run concept. The OT must execute reach blocks, seal backside pursuit, and climb to linebackers. Run blocking is equally weighted with pass protection because the scheme demands both at a high level."
+        },
+        "Footwork": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Zone blocking requires fluid lateral movement and precise foot placement. The OT must take quick lateral first steps to get positioning on outside zone reaches and then climb smoothly to the second level. Stiff OTs who can only pass-set kill this run scheme."
+        },
+        "Anchor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Must withstand bull rushes and power moves from NFC South edge defenders. The timing-based passing game needs the pocket to remain intact \u2014 if the OT gets walked back into the QB's lap, timing routes are disrupted."
+        },
+        "Athleticism": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The McVay zone scheme needs athletic OTs who can move in space. Pulling, climbing to the second level, and executing reach blocks all require above-average athleticism. Wirfs is the prototype \u2014 an elite athlete at OT."
+        },
+        "Strength": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Functional strength for sustaining blocks and anchoring, but raw strength is less important than movement skills in a zone scheme. The system emphasizes positioning and technique over overpowering opponents."
+        }
+      },
+      "ideal_archetype": "An athletic, fluid offensive tackle with excellent lateral movement who can execute zone blocks and pass protect with equal proficiency. The ideal OT moves like a basketball player \u2014 quick feet, fluid hips, ability to redirect and mirror. Must have enough anchor to handle power rushers but the primary trait is movement ability. Think Tristan Wirfs or Penei Sewell \u2014 elite athletes who dominate in a zone-based scheme through movement rather than brute force.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Need adequate length to execute reach blocks on defensive ends and maintain leverage in pass protection."
+        },
+        "weight": {
+          "ideal": "300-325",
+          "floor": "295",
+          "reasoning": "Must have enough mass to anchor against bull rushes while maintaining athletic movement ability."
+        },
+        "short_shuttle": {
+          "ideal": "Sub-4.55",
+          "floor": "4.65",
+          "reasoning": "Lateral agility is critical for outside zone. The OT must get lateral displacement on the first step and reach the backside of the play. The short shuttle directly measures this ability."
+        },
+        "40_yard_dash": {
+          "ideal": "Sub-5.0",
+          "floor": "5.10",
+          "reasoning": "Zone OTs need overall athleticism to climb to the second level and execute combo blocks. Sub-5.0 speed is a soft indicator of the athletic profile needed."
+        }
+      },
+      "development_context": "OL coach Kevin Carberry (now run game coordinator/OL coach) was promoted after the Bucs set franchise rushing records in 2024. The staff developed Graham Barton into a starting center as a rookie in 2024. Technique and footwork can be developed, but raw athleticism and lateral movement must arrive with the prospect. The Bucs' zone scheme is not forgiving of unathletic OTs \u2014 you can't coach foot speed.",
+      "scheme_fit_narrative": "We need an offensive tackle who can move. Outside zone is our identity and the OT has to get to the edge, seal defenders, and climb to linebackers. If he can't take a lateral first step and sustain blocks while moving, he's not for us. We also need him to pass protect \u2014 this is a timing system and the pocket needs to hold. Give me an athlete first, a mauler second.",
+      "archetype_examples": [
+        "Tristan Wirfs",
+        "Penei Sewell",
+        "Lane Johnson"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "In Robinson's zone scheme, interior linemen execute combination blocks, climb to linebackers, and create movement at the point of attack on inside and outside zone. Must also pull on counter/trap concepts used as changeups. In pass protection, the IOL must handle interior DL stunts and twist games, which Bowles-type defenses run extensively. The center (Graham Barton) is the pre-snap communicator who identifies fronts and makes protection calls. Guards must be able to combo with the center and tackles on zone runs and then release to the second level.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Must handle interior pressure from penetrating DTs and delayed blitzers. Robinson's timing system can't function if the interior pocket collapses. His Atlanta OL surrendered the fifth-fewest sacks over two years (58)."
+        },
+        "Run Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Zone blocking demands IOL who can move laterally, execute double teams at the point of attack, and climb to the second level. The run game is the scheme's foundation \u2014 IOL must generate movement on combo blocks to create running lanes."
+        },
+        "Pulling": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Robinson mixes in gap/power and counter concepts as changeups to the zone base. Guards must be able to pull and lead through the hole on power concepts, requiring athletic ability and spatial awareness."
+        },
+        "Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must win at the point of attack on double teams and sustain blocks against interior DL. Zone combo blocks require functional strength to move defenders off the ball before climbing to linebackers."
+        },
+        "Anchor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Interior pass rush from penetrating 3-techniques (common in the NFC South with Kancey-type DTs on other rosters) requires a solid anchor. The timing system needs interior stability."
+        },
+        "Versatility": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The Bucs' IOL situation is fluid \u2014 injuries hit Bredeson, Goedeke, and the unit in 2025. Robinson needs IOL who can play multiple positions (guard/center flexibility). Tampa specifically struggled with interior OL depth in 2025, making versatility a premium trait."
+        }
+      },
+      "ideal_archetype": "An athletic, versatile interior lineman with excellent lateral movement who can execute zone combo blocks, pull on gap concepts, and provide reliable pass protection. The ideal IOL in this scheme is a mover, not just an anchor \u2014 think Chris Lindstrom (whom Robinson coached to back-to-back Pro Bowls in Atlanta) or Cody Mauch. Must be technically sound in zone footwork and strong enough to sustain double teams.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Standard IOL height. The scheme doesn't have extreme preferences here but needs enough length for reach blocks and pass protection."
+        },
+        "weight": {
+          "ideal": "305-325",
+          "floor": "295",
+          "reasoning": "Need mass for combo blocks and anchoring, but not so heavy that lateral movement is compromised."
+        },
+        "short_shuttle": {
+          "ideal": "Sub-4.55",
+          "floor": "4.70",
+          "reasoning": "Lateral agility is paramount for zone IOL. Must redirect quickly on combo blocks and mirror interior pass rushers. The short shuttle is the best predictor of zone IOL success."
+        },
+        "bench_press": {
+          "ideal": "28+",
+          "floor": "24",
+          "reasoning": "Functional upper body strength for sustaining blocks and handling bull rushes. Zone IOL need enough strength to win at the point of attack on combo blocks."
+        }
+      },
+      "development_context": "OL coach Kevin Carberry was promoted after the franchise-record rushing season. The staff developed Graham Barton into a starting center as a rookie. Zone blocking technique can be taught, but athletic movement ability must arrive. The Bucs have shown ability to develop young IOL (Cody Mauch adapted from OT to guard) but need prospects with natural athleticism to execute the zone scheme.",
+      "scheme_fit_narrative": "We need interior linemen who can move. Zone blocking is our foundation \u2014 the guard has to get off the double team, climb to the second level, and wall off a linebacker while the back reads the cutback lane. If he can play multiple spots, even better \u2014 our interior has been shuffled by injuries for two years. Give me an athlete who can pull, combo, and pass protect. Pure road-graders who can't move laterally don't fit this scheme.",
+      "archetype_examples": [
+        "Chris Lindstrom",
+        "Cody Mauch",
+        "Tyler Smith"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "The stand-up OLB in Bowles' 3-4 is the primary edge pass rusher from a two-point stance who must also set the edge in the run game, drop into flat/hook zones on simulated pressures, and execute assignments in Bowles' complex blitz packages. Bowles asks OLBs to rush, drop, and set the edge \u2014 they are not one-dimensional speed rushers. The OLB must play on his feet in space, not exclusively with hand in the dirt. This is Tampa Bay's most critical positional need \u2014 the pass rush produced its lowest sack total in Bowles' seven-year tenure in 2025, and Haason Reddick (2.5 sacks) is a free agent.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Tampa Bay desperately needs a dominant pass rusher. The Bucs' sack total in the second half of 2025 averaged just 1.33 per game. Bowles' third-down blitz packages are designed to scheme pressure, but having a player who can win 1-on-1 is the missing element. This is THE defining need."
+        },
+        "Bend": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Bowles' stand-up OLBs rush from a two-point stance and must flatten around the edge. Bend allows the rusher to turn the corner without going wide, which is critical for a 3-4 OLB who doesn't get a 3-point stance head start."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Bowles' one-gap, attack-style defense rewards explosive first-step speed. The OLB must threaten the edge immediately to create the pressure that makes Bowles' coverage disguises work. Get-off is critical."
+        },
+        "Power": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Must have enough functional power to convert speed to power, set the edge against the run, and handle tackles who anchor against speed. Not the primary trait, but the rusher can't be a finesse-only player."
+        },
+        "Motor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Bowles demands assignment football and effort on every play. His best edge defenders (Shaq Barrett, Jason Pierre-Paul) played with relentless motor. The scheme asks the OLB to pursue plays from the backside and chase down scrambling QBs."
+        },
+        "Run Defense": {
+          "weight": 0.17,
+          "importance": "high",
+          "reasoning": "Bowles' defense is built on stopping the run first. The OLB MUST set the edge against outside runs \u2014 if he gets washed inside, the run defense breaks down. Run defense is weighted higher here than in a 4-3 system because the 3-4 OLB has more run-fit responsibility."
+        }
+      },
+      "ideal_archetype": "A versatile, high-motor stand-up edge rusher who can rush from a two-point stance with speed and bend, set the edge against the run, and drop into coverage on simulated pressures. Must be comfortable playing on his feet in space \u2014 this is not a hand-in-dirt defensive end role. Think Shaquil Barrett in his Tampa prime or T.J. Watt \u2014 an effort-based, versatile rusher who can win off the edge, set the edge in the run game, and execute assignment football in a complex defensive scheme. Not a one-dimensional speed rusher.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-0",
+          "reasoning": "Stand-up OLBs need enough frame to set the edge and handle NFL tackles but not so tall that they lose bend around the corner."
+        },
+        "weight": {
+          "ideal": "240-265",
+          "floor": "230",
+          "reasoning": "Must be heavy enough to hold the edge against the run but light enough to rush with speed and drop into coverage. Shaq Barrett played at 250, Yaya Diaby at 265."
+        },
+        "40_yard_dash": {
+          "ideal": "4.50-4.65",
+          "floor": "4.75",
+          "reasoning": "Speed off the edge is critical in Bowles' attack scheme. The OLB must close on quarterbacks and chase plays from behind. Functional speed to play in space on drops is also required."
+        },
+        "arm_length": {
+          "ideal": "33+",
+          "floor": "31.5",
+          "reasoning": "Length helps keep offensive tackles at bay and disengage from blocks in the run game. Bowles values physical edge players who can use their length to stack and shed."
+        }
+      },
+      "development_context": "Bowles developed Shaquil Barrett from a rotational player into a 2x Pro Bowler and Super Bowl hero. Larry Foote (now run game coordinator/OLB coach) coached OLBs for the Bucs from 2019-21 during Barrett's peak. The staff can develop pass-rush technique and run-defense fundamentals. What must arrive ready: first-step explosion, bend, and motor. Those are physical/intangible traits that can't be coached. Coverage ability can be improved within the scheme.",
+      "scheme_fit_narrative": "We need an edge rusher who can play on his feet. This isn't a 4-3 defensive end who puts his hand in the dirt and goes \u2014 our OLBs stand up, rush, set the edge, and occasionally drop. The ideal prospect has explosive first-step speed, natural bend around the corner, and the motor to chase plays down from behind. He must be able to anchor against the run because our defense is built on stopping the run first. We can teach him our pressure packages, but the physical traits have to be there Day 1.",
+      "archetype_examples": [
+        "Shaquil Barrett",
+        "T.J. Watt",
+        "Yaya Diaby"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Bowles' one-gap 3-4 asks defensive linemen to penetrate and disrupt, not absorb blocks and occupy space. Vita Vea (347 lbs) has moved from nose tackle to the strong-side 3-technique, making him a pass-rushing interior force. Calijah Kancey (280 lbs) is an undersized, penetrating DT who disrupts from the interior. The DL must attack their gap assignment, generate push in the run game, and collapse the pocket from the inside. In base 3-4, the nose tackle plays heads-up over the center and must anchor against double teams while the DEs play 5-technique over the offensive tackles.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Bowles' one-gap scheme allows DL to attack upfield and rush the passer. Interior pressure is critical because Bowles' coverage disguises rely on the front creating disruption. Vita Vea and Kancey are both interior pass-rush threats."
+        },
+        "Run Defense": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Bowles' defense has led the NFL in rush yards allowed per game (94.5) since 2019. Run defense is the identity. DL must control their gap, stack and shed blocks, and make plays in the backfield. This is the defining trait."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "One-gap DL must fire off the ball and penetrate their gap. Bowles' attack philosophy means the DL is going forward, not reading and reacting. Quick first step creates disruption that the linebackers benefit from."
+        },
+        "Hand Usage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "In a one-gap scheme, hand technique is how DL win their individual battles. Must use hands to control blockers, shed blocks, and collapse the pocket. Vita Vea's ability to use his hands while playing at 347 lbs is a model."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Bowles demands consistent effort. DL must play through the whistle and pursue on every play. Not as heavily weighted as for EDGE because DL are in the trenches every snap, but relentless effort is valued."
+        },
+        "Strength": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Must have the strength to hold the point of attack against double teams (especially the nose) and push the pocket as an interior pass rusher. Bowles prefers 'big, physical defensive linemen that can clog up running lanes on their way to the quarterback.'"
+        }
+      },
+      "ideal_archetype": "A physical, athletic interior defensive lineman who can penetrate his gap, control the line of scrimmage, and collapse the pocket from the inside. Bowles wants big, physical DL who can disrupt running lanes AND rush the passer. The ideal DL has quick hands, a powerful base, and the athleticism to penetrate gaps in a one-gap scheme. Think Vita Vea \u2014 a massive presence who can stuff the run and push the pocket \u2014 or Calijah Kancey \u2014 an undersized penetrator who wins with quickness and hand technique. Both profiles work in this scheme.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-5",
+          "floor": "6-0",
+          "reasoning": "Range accommodates both nose tackles and 3-techniques. The scheme uses different body types \u2014 Vea at 6-4/347 and Kancey at 6-1/280 both fit."
+        },
+        "weight": {
+          "ideal": "280-340",
+          "floor": "270",
+          "reasoning": "Wide range because the scheme uses different DL profiles. Nose tackles need 300+ to anchor; penetrating 3-techniques can be lighter (Kancey at 280)."
+        },
+        "bench_press": {
+          "ideal": "30+",
+          "floor": "25",
+          "reasoning": "Upper body strength for hand fighting and holding the point of attack. Interior DL must win with power at the point of attack."
+        },
+        "3_cone_drill": {
+          "ideal": "Sub-7.50",
+          "floor": "7.80",
+          "reasoning": "Agility matters in a one-gap scheme where DL must fire through gaps and redirect. Penetrating DTs especially need quickness."
+        }
+      },
+      "development_context": "New DL coach Charlie Strong (replaced by another hire for 2026 after being let go) \u2014 the Bucs' DL development has been mixed. Calijah Kancey was developed as a penetrating 3-tech but has been oft-injured. Vita Vea was transitioned from a traditional nose to a 3-technique under Bowles. The staff can develop hand technique and pass-rush moves. Raw power and first-step quickness must arrive \u2014 those are physical traits. The Bucs need DL depth with Vea entering a contract year at age 31 and Logan Hall departed.",
+      "scheme_fit_narrative": "We're a one-gap defense that wants our DL to attack. This isn't a sit-and-read scheme \u2014 our guys fire off the ball and penetrate. We need DL who can anchor against the run and collapse the pocket from the inside. Strength and first step are the foundation. If he has pass-rush upside from the interior, even better \u2014 that's how we generate pressure without blitzing.",
+      "archetype_examples": [
+        "Vita Vea",
+        "Calijah Kancey",
+        "Chris Jones"
+      ]
+    },
+    "LB": {
+      "scheme_role": "The inside linebacker in Bowles' 3-4 is asked to do everything: diagnose runs and fill gaps behind one-gap DL, drop into zone coverage (Cover 3 hook/curl zones), execute delayed blitz assignments, and tackle in space. With Lavonte David aging (14 years) and potentially retiring, and SirVocea Dennis lost to injury in 2025, the ILB position is a critical need. Bowles' scheme asks ILBs to process offensive formations quickly because his defensive disguises shift responsibilities post-snap. The ILB must be able to flow to the ball against the run, cover tight ends and running backs in the passing game, and rush the passer on designed blitz packages.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Bowles' run-first defensive identity requires sure tacklers. The ILB is the last line of defense behind one-gap DL who penetrate and can get washed out of their gaps. Missed tackles at ILB are catastrophic in this scheme."
+        },
+        "Coverage": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Bowles' shift toward more sub-package usage means the ILB must survive in coverage on early downs. K.J. Britt's extensive struggles in coverage in 2024-25 illustrate what happens when the ILB can't cover. Bowles needs ILBs who can defend TEs and RBs in zone drops and man assignments."
+        },
+        "Pass Rush": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Bowles uses delayed LB blitzes and simulated pressures from ILBs. The ILB must be able to rush from depth and provide interior pressure when Bowles' blitz packages call for it. Not the primary responsibility but a valuable skill."
+        },
+        "Instincts": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Bowles' defensive disguises shift assignments post-snap. The ILB must diagnose run vs pass quickly, read offensive formations, and react to motion and misdirection. Instinctual processing is critical because the scheme's complexity creates confusion for less cerebral players."
+        },
+        "Athleticism": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The ILB must play sideline to sideline, cover ground in zone drops, and match athletic TEs in man coverage. Bowles has historically valued athletic LBs \u2014 Lavonte David (smaller, quicker, instinctive), Devin White (explosive, fast) \u2014 over thumpers."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Sideline-to-sideline range matters in a scheme where DL penetrate upfield and create cutback lanes. The ILB must chase plays from the backside and clean up in the run game."
+        },
+        "Block Shedding": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "In a one-gap scheme, DL are supposed to occupy blockers and free up LBs. Block shedding matters less than in a two-gap scheme where LBs are taking on guards directly. Still needed against pullers and in the box on run fits."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "Must recognize offensive formations and communicate adjustments. Bowles' scheme complexity means the ILB needs to process pre-snap information quickly to know their assignment in the disguise package."
+        }
+      },
+      "ideal_archetype": "An athletic, instinctive inside linebacker who can cover ground sideline to sideline, drop into zone coverage competently, tackle reliably, and process the scheme's complexity. The ideal ILB is a modern three-down linebacker who doesn't come off the field in sub packages. Think Lavonte David \u2014 a smaller, faster, more instinctive LB who excels in coverage and tackling rather than a downhill thumper. Devin White's speed was valued but his lack of instincts and coverage ability ultimately limited him. The sweet spot is an athletic processor who can do it all.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Bowles has used a range of LB body types. Coverage ability matters more than prototypical size."
+        },
+        "weight": {
+          "ideal": "225-245",
+          "floor": "215",
+          "reasoning": "Must be physical enough to fill gaps in the run game but light enough to cover TEs and RBs. Lavonte David at 233 is the template."
+        },
+        "40_yard_dash": {
+          "ideal": "4.45-4.60",
+          "floor": "4.65",
+          "reasoning": "Speed is critical for sideline-to-sideline range and coverage ability. Bowles' scheme values athletic LBs who can match modern offensive weapons."
+        },
+        "3_cone_drill": {
+          "ideal": "Sub-6.90",
+          "floor": "7.10",
+          "reasoning": "Change of direction matters for zone drops and coverage ability against TEs running crossing routes. The ILB must redirect and close on the ball quickly."
+        }
+      },
+      "development_context": "Mike Caldwell returns as ILB coach after previously coaching Lavonte David and Devin White to All-Pro honors. During Caldwell's first stint (2019-21), the Bucs' run defense allowed an NFL-low 82.5 rushing yards per game. Caldwell can develop run-game fundamentals and tackling technique. Coverage skills and instincts are harder to coach \u2014 those need to arrive with the prospect. The Bucs have historically struggled to develop coverage LBs (K.J. Britt is the cautionary tale).",
+      "scheme_fit_narrative": "We need a linebacker who can cover. That's the bottom line. Our scheme is complex and we've been burned by ILBs who can't handle zone drops or match tight ends in man. Give me a fast, instinctive, three-down linebacker who doesn't have to come off the field on passing downs. He needs to tackle, cover, and process our defensive calls without getting confused. Lavonte David has been our prototype for 14 years \u2014 we need to find the next one.",
+      "archetype_examples": [
+        "Lavonte David",
+        "Fred Warner",
+        "Roquan Smith"
+      ]
+    },
+    "CB": {
+      "scheme_role": "Bowles asks corners to play aggressively at the line of scrimmage with press technique, disrupting timing in a league full of timing-based offenses. The scheme mixes man and zone coverage \u2014 corners must be able to play press-man, off-man, and zone (Cover 3 deep thirds). Bowles' coverage disguises mean the CB might show press-man pre-snap and bail into a Cover 3 deep third post-snap, or vice versa. The CB must handle multiple coverage assignments within a single defensive call. With Jamel Dean departing in FA, the Bucs need a starting-caliber outside CB alongside young players like Benjamin Morrison and Jacob Parrish.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Bowles' scheme features press-man concepts with single-high safety looks. Even when the overall man-coverage rate is low, CBs are asked to play man in critical situations \u2014 third downs, red zone, and when Bowles unleashes his pressure packages. Man coverage must be reliable."
+        },
+        "Ball Skills": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Bowles values takeaways \u2014 his Tampa defenses rank fifth in takeaways (168) since 2019. But coverage technique matters more than ball-hawking. A CB who gives up completions while chasing interceptions doesn't fit."
+        },
+        "Zone Coverage": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Cover 3 is the base coverage. The CB is responsible for a deep third and must have the discipline to protect against vertical routes while reading the QB's eyes. Zone technique is essential for the everyday defensive calls."
+        },
+        "Speed": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Bowles' CBs must recover when they play press and get beat off the line. Speed is the safety net. In Cover 3 deep thirds, the CB must carry vertical routes the entire length of the field. Recovery speed is critical."
+        },
+        "Press": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Bowles favors longer corners who can press and disrupt timing at the line. He has historically asked corners to play more aggressively with less cushion than typical zone defenses. Press technique is a foundational skill in this scheme \u2014 it disrupts the timing of opposing offenses."
+        },
+        "Nickel": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The primary nickel in Bowles' scheme is a safety/hybrid type (Tykee Smith), not a traditional slot corner. Outside CBs may occasionally move inside in dime packages, so some nickel ability helps but isn't the primary role."
+        }
+      },
+      "ideal_archetype": "A long, physical corner who can press at the line, play man coverage on an island, and transition into zone responsibilities post-snap. Must have the speed to recover when beat and the discipline to play deep thirds in Cover 3. Think Carlton Davis in his Tampa prime or Jamel Dean \u2014 long, physical corners who press aggressively and have enough speed to survive. Bowles values size and physicality at the position over quickness and finesse.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Bowles favors longer corners who can use their length in press coverage. He specifically noted when Carlton Davis was drafted that his 6-1, 206-lb frame fit what he wanted. Length disrupts receivers at the line."
+        },
+        "weight": {
+          "ideal": "190-210",
+          "floor": "180",
+          "reasoning": "Physical corners who can press and jam at the line need adequate mass. Bowles' press scheme requires CBs who won't get bullied by bigger receivers."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.45",
+          "floor": "4.50",
+          "reasoning": "Speed is the recovery mechanism. When pressing and playing aggressive, the CB will get beat \u2014 he needs the speed to recover and compete on the deep ball. Sub-4.45 speed is preferred."
+        },
+        "arm_length": {
+          "ideal": "32+",
+          "floor": "31",
+          "reasoning": "Length is a press-coverage tool. Long arms allow the CB to jam receivers, disrupt routes, and contest catches. Bowles' preference for long corners is well-documented."
+        }
+      },
+      "development_context": "New CB coach Rashad Johnson takes over for Kevin Ross (who was let go after 2025). The Bucs promoted assistant secondary coaches Tim Atkins and Rashad Johnson internally. Bowles has developed young corners (Zyon McCollum, Jacob Parrish) but with mixed results \u2014 McCollum has struggled to reach his vast potential. The staff can develop press technique and zone discipline. Raw speed and length must arrive \u2014 those are physical tools. The Bucs need CBs who can handle the scheme's complexity immediately; coverage busts from confused defenders have been the defense's Achilles heel.",
+      "scheme_fit_narrative": "We need corners who can press. Our defense starts at the line of scrimmage with physical, aggressive corners who disrupt timing. The guy has to be long, fast, and physical \u2014 he's going to be asked to jam at the line, play man on third downs, and then bail into Cover 3 deep thirds on first down. If he's a speed-and-finesse corner who can't press, he's not our guy. Give me a physical, long corner with recovery speed who can handle multiple coverage assignments.",
+      "archetype_examples": [
+        "Carlton Davis",
+        "Jamel Dean",
+        "Sauce Gardner"
+      ]
+    },
+    "S": {
+      "scheme_role": "Bowles' scheme uses safeties in highly versatile roles. Antoine Winfield Jr. is the prototype \u2014 he plays deep free safety, box safety, slot corner, and even rushes the passer on blitz packages. The 'moneybacker' concept (originated in Arizona with Deone Bucannon) lives in Tampa through Winfield. The strong safety (Tykee Smith in 2025) plays a box-safety/nickel hybrid role \u2014 lined up in the slot in sub packages and as a run-support safety in base. Bowles' scheme demands safeties who can disguise coverage by showing one alignment pre-snap and rotating to another post-snap. The free safety must be a center-field playmaker in Cover 3 and Cover 1, while also being able to trigger downhill in run support.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Bowles uses safeties in man coverage against TEs and slot receivers. Winfield's ability to cover in the slot is what makes the moneybacker concept work. The safety must be able to play man on athletic TEs in Bowles' nickel packages."
+        },
+        "Range": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "In Cover 3, the free safety is the single-high player responsible for the deep middle. Range is critical \u2014 the safety must cover ground from hash to hash to prevent big plays over the top. Bowles' defense has been burned by deep shots when safeties lack range."
+        },
+        "Ball Skills": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Bowles' defense ranks fifth in takeaways since 2019. The free safety is the last line of defense and must make plays on the ball. Winfield's ball-hawking ability (career-high 3 INTs in 2025) exemplifies what Bowles values."
+        },
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Bowles described Tykee Smith as the team's 'best tackler and tone-setter' at the Combine. Safeties must tackle in the run game and in space. Missed tackles at safety are magnified because there's no help behind them."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Speed is the foundation of range. The safety must close ground quickly to break up passes, support the run from depth, and recover when coverage responsibilities shift post-snap."
+        },
+        "Nickel": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Bowles' nickel package uses a hybrid safety in the slot (Tykee Smith role). The strong safety must be able to function as a slot defender, covering shifty receivers and tight ends. This dual-role demand makes nickel skills unusually important for safeties in this scheme."
+        }
+      },
+      "ideal_archetype": "A versatile, rangy, physical safety who can play center-field in Cover 3, cover tight ends in man, trigger downhill in run support, and rush the passer on blitz packages. The ultimate Bowles safety is Antoine Winfield Jr. \u2014 a chess piece who can do everything. The scheme needs safeties who are scheme-versatile: show two-high and rotate to single-high, play slot in nickel, blitz off the edge. Think Derwin James or Jessie Bates \u2014 physical, instinctive, versatile safeties who can be moved around.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Bowles has used safeties of varying sizes. Winfield at 5-11 is smaller but plays bigger. The strong safety/nickel hybrid needs enough size to tackle in the box but enough agility to cover in the slot."
+        },
+        "weight": {
+          "ideal": "200-215",
+          "floor": "190",
+          "reasoning": "Must be physical enough to support the run and tackle but athletic enough to cover in space. The hybrid nickel/safety role demands a balanced build."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "Speed is essential for range in single-high coverage and for the hybrid slot role. The safety must close ground from depth and match athletic offensive weapons."
+        }
+      },
+      "development_context": "Safeties coach Tim Atkins (promoted from assistant secondary coach for 2026) has been with the Bucs for seven years and has helped develop Antoine Winfield Jr. into a Pro Bowler. The staff can develop coverage technique and tackling fundamentals. Versatility and instincts must arrive \u2014 Bowles' scheme is too complex to teach a safety how to be versatile. The prospect must have a natural feel for multiple roles. Both starting safeties (Winfield, Tykee Smith) are under contract for 2026, but depth is needed.",
+      "scheme_fit_narrative": "We want a safety who's a Swiss Army knife. Our scheme asks safeties to do everything \u2014 play deep, play the box, cover the slot, rush the passer. Antoine Winfield Jr. is our model: a guy who can line up anywhere on the field and impact the game. Give me a physical, rangy safety with man-coverage ability and the instincts to process our disguise packages. If he can only do one thing, he doesn't fit here \u2014 we need versatility.",
+      "archetype_examples": [
+        "Antoine Winfield Jr.",
+        "Derwin James",
+        "Jessie Bates"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Tampa Bay is elite at maximizing hybrid defenders. Bowles' 3-4 defense makes OLB pass rushers the most valuable defensive commodity \u2014 any LB with edge rush traits (burst, bend, power moves) should be valued at EDGE prices for TB. The safety position is equally critical: Bowles demands safeties who can play box, slot, blitz, and deep \u2014 the Winfield/Smith mold. Prospects like nickel/safety hybrids get a significant TB premium. On offense, new OC Zac Robinson brings a McVay-tree scheme emphasizing run-pass marriage, outside zone, and heavy pre-snap motion. Robinson showed willingness to use 12/13 personnel heavily (38.2% 12-personnel in ATL 2025), which increases TE value but demands blocking versatility \u2014 pure receiving TEs without blocking ability are less ideal. With Mike Evans potentially departing in free agency, the WR room (Egbuka, McMillan, Godwin) may need reinforcement, elevating WR value. The 15th overall pick likely targets either EDGE (Cashius Howell), LB (CJ Allen), or secondary help. TB's blitz-heavy scheme (38.9% blitz rate) means man-coverage corners with length and press ability are premium fits. The pass rush produced its lowest sack total in Bowles' seven seasons in 2025, making edge rusher the most pressing need.",
+  "scheme_draft_intelligence": "The Tampa Bay Buccaneers enter the 2026 draft at pick 15 with a clear defensive mandate. Todd Bowles' defense produced its lowest sack total in his seven-year Tampa tenure in 2025, the pass defense ranked 27th in the NFL, and multiple starters are departing via free agency. Edge rusher is the most pressing need \u2014 the Bucs haven't had a player reach double-digit sacks since Shaquil Barrett in 2021, and Bowles' pressure-dependent scheme cannot function without a legitimate pass-rushing threat. Every Bucs mock draft has featured an EDGE at pick 15, and for good reason: Bowles' 3-4 system specifically demands a stand-up OLB who can rush from a two-point stance, set the edge in the run game, and drop into coverage on simulated pressures. This eliminates pure speed rushers who can't play on their feet and pure 4-3 defensive ends who only play with a hand in the dirt.\n\nInside linebacker is the second critical need. Lavonte David, the franchise's all-time tackles leader, may retire after 14 seasons. SirVocea Dennis was lost to a season-ending injury. K.J. Britt's coverage struggles exposed the scheme's vulnerability when the ILB can't process the complex disguise package. Bowles needs a modern three-down linebacker who can cover, tackle, and process \u2014 the Lavonte David archetype. This creates potential hidden value: athletic, coverage-capable ILBs who other teams might not value as highly because they lack traditional size or thumper qualities.\n\nOn offense, the hire of Zac Robinson from the McVay tree provides scheme continuity \u2014 the Bucs have now had four consecutive McVay/Shanahan-tree OCs (Canales, Coen, Grizzard, Robinson). This means offensive draft targets should fit the zone-running, motion-heavy, timing-based passing system that has been Tampa's identity since 2023. Robinson's heavy pre-snap motion usage (NFL-leading 65.65%) and zone-run emphasis create specific demands: athletic offensive linemen who can move laterally, elusive running backs with vision and cutback ability, and route-running receivers who generate YAC. The potential loss of Mike Evans (pending free agent) could create receiver need, while the departure of Cade Otton in free agency would make tight end a significant priority \u2014 particularly a complete TE who can block in the outside zone scheme AND contribute as a receiver.\n\nHistorically, GM Jason Licht and Bowles have drafted scheme-specific players rather than best-available athletes. This tendency has drawn criticism \u2014 fans argue the team drafts 'system players' rather than stars. However, it means Tampa's draft board will be heavily filtered through scheme fit. Prospects who can play multiple roles (versatile safeties, multi-position IOL, OLBs who can rush and drop) get elevated in Tampa's evaluation. The coaching staff's track record of developing mid-round picks into contributors (Bucky Irving, Graham Barton, Jacob Parrish) suggests they can find value in rounds 2-4, but the first-round pick needs to be an immediate-impact defender who addresses the pass-rush or linebacker need that has been building for multiple seasons.",
   "confidence": "high",
   "sources": [
-    "buccaneers.com official coaching staff pages and team news (2025-2026)",
-    "ESPN - Buccaneers hire Zac Robinson as OC (Jan 2026)",
-    "NFL.com - Robinson hire details and McVay coaching tree",
-    "Pro-Football-Reference 2025 TB advanced stats (3-4 alignment, West Coast offense)",
-    "Pewter Report - Robinson offensive philosophy (Jan 2026)",
-    "SI.com Buccaneers - Robinson 12-personnel usage data",
-    "Buccaneers.com - Bowles Combine 2026 interviews on Tykee Smith, defensive philosophy",
-    "Buccaneers.com - TE Cade Otton blocking and receiving analysis (2025)",
-    "Buccaneers.com - 2024 blitz rate data (38.9%, 2nd in NFL)",
-    "Bucs Nation - Todd Bowles defensive scheme breakdown (A-gap pressure, one-gap 3-4)",
-    "Wikipedia - Todd Bowles coaching history, 3-4 defense Tampa Bay listing"
+    "buccaneers.com official coaching roster and news",
+    "Buccaneers 2026 coaching staff announcements",
+    "Zac Robinson introductory press conference (January 27, 2026)",
+    "Pewter Report scheme analysis articles (2022-2026)",
+    "Wikipedia - Todd Bowles, Zac Robinson",
+    "ESPN Tampa Bay Buccaneers blog - scheme analysis",
+    "Blogging The Boys - Buccaneers defensive scheme scouting report (December 2024)",
+    "Bucs Nation - Todd Bowles defense analysis (2019)",
+    "SumerSports motion and formation data via SI/Pewter Report",
+    "Atlanta Falcons official site - Robinson scheme analysis",
+    "Yahoo Sports / Falcons Wire - Bijan Robinson zone scheme fit",
+    "NFL.com - Todd Bowles return for 2026",
+    "PFF and Next Gen Stats references via beat reporting",
+    "Buccaneers.com 2026 State of the Bucs position breakdowns",
+    "Pewter Report mailbag - roster holes analysis (March 2026)"
   ]
 }

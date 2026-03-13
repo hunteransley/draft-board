@@ -2425,7 +2425,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
             <svg viewBox="-2 -2 104 109" style={{width:"100%",maxWidth:360,margin:"0 auto",display:"block"}}>
               {[20,40,58,75,90].map(y=><line key={y} x1="2" y1={y} x2="98" y2={y} stroke="rgba(0,0,0,0.04)" strokeWidth="0.3"/>)}
               <line x1="2" y1="58" x2="98" y2="58" stroke={accent+"44"} strokeWidth="0.5" strokeDasharray="2,1.5"/>
-              {Object.entries(getFormationPos(trendsTeam)).map(([slot,pos])=>{const name=roster[slot];if(!name&&pos.schemeOnly)return null;const filled=!!name;const isFa=filled&&(FA_FLAGS[rosterAbbr]||[]).includes(name);const rv=filled&&ROSTER_BY_SLOT[trendsTeam]?.[slot];const dotColor=rv?TIER_COLORS[rv.performanceTier]||accent:filled?accent:"#d4d4d4";return<g key={slot}>
+              {Object.entries(getFormationPos(trendsTeam)).map(([slot,pos])=>{const name=roster[slot];if(!name&&pos.schemeOnly)return null;if(pos.altFor&&roster[pos.altFor])return null;const filled=!!name;const isFa=filled&&(FA_FLAGS[rosterAbbr]||[]).includes(name);const rv=filled&&ROSTER_BY_SLOT[trendsTeam]?.[slot];const dotColor=rv?TIER_COLORS[rv.performanceTier]||"#a8a29e":filled?"#a8a29e":"#d4d4d4";return<g key={slot}>
                 {isFa&&<circle cx={pos.x} cy={pos.y} r={3.2} fill="none" stroke="#f97316" strokeWidth="0.4"/>}
                 <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={filled?dotColor:"#a3a3a3"} strokeWidth="0.2"/>
                 <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="#a3a3a3" fontSize="1.8" fontFamily={mono}>{pos.label||slot.replace(/\d$/,'')}</text>

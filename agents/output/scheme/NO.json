@@ -6,71 +6,726 @@
       "name": "Kellen Moore",
       "tenure_years": 1,
       "background": "offensive",
-      "scheme_philosophy": "Diverse, adaptable offensive mind who blends West Coast timing concepts with outside zone run game, heavy pre-snap motion, tempo, and formation variety to keep defenses off-balance. Does not belong to one scheme tree; influences include Boise State's Chris Petersen and Dallas's Mike McCarthy. Emphasizes simplicity for players, complexity for defenses."
+      "coaching_tree": "Eclectic \u2014 not a single-tree coach. Rooted in Chris Petersen's Boise State system (as a player), with heavy West Coast influence from Mike McCarthy in Dallas and Air Coryell elements from the Jason Garrett lineage. Moore synthesizes multiple offensive philosophies into a system-agnostic, player-first approach.",
+      "scheme_philosophy": "Unpredictability as the core principle. Moore's offense is built around making the pre-snap picture unsolvable \u2014 heavy motion, multiple formations, diverse personnel groupings, and the deliberate creation and breaking of tendencies. He calls his own plays. Emphasizes simplicity for the players ('families' of concepts grouped by shared characteristics) while maximizing complexity for defenses. Run-game committed with outside zone as the primary scheme, heavy play-action, and a pass game that attacks all three levels. Won Super Bowl LIX as Eagles OC in 2024."
     },
     "offensive_coordinator": {
       "name": "Doug Nussmeier",
-      "scheme_tree": "Kellen Moore disciple \u2014 followed Moore from Dallas to LA Chargers to Philadelphia to New Orleans. Extensive college OC background (Alabama, Michigan, Washington, Fresno State). McCarthy/Moore West Coast hybrid tree.",
-      "play_caller": false
+      "coaching_tree": "Scott Linehan / Kellen Moore tree. Former QB who coached at Alabama under Nick Saban, Michigan, Florida, Washington. Has followed Moore through Dallas (2018-22), LA Chargers (2023), and Philadelphia (2024). Primarily a QB coach/developer throughout his NFL career.",
+      "scheme_evolution": "Nussmeier has been Moore's QB coach at three consecutive stops, making this a deeply integrated partnership. His college OC experience at Alabama (national championship), Washington, and Fresno State gives him play-design perspective, but Moore is the play-caller. Nussmeier's primary value is QB development \u2014 he tutored Dak Prescott, Justin Herbert, and Jalen Hurts under Moore's system, each producing career-best or near-career-best efficiency metrics.",
+      "development_track_record": "Elite QB developer: Helped Jalen Hurts to career-high 103.7 passer rating and 68.7% completion rate in 2024. Guided A.J. McCarron to Alabama school records. Worked with Prescott, Herbert, and Hurts across three different systems. His ability to develop QBs within Moore's framework is proven. In New Orleans, helped develop Tyler Shough from second-round pick to Offensive Rookie of the Month and potential franchise QB."
     },
     "defensive_coordinator": {
       "name": "Brandon Staley",
-      "scheme_tree": "Vic Fangio 3-4 tree. Coached under Fangio in Chicago (OLB coach) and Denver (OLB coach). Ran Fangio-style 3-4 as Rams DC (2020, #1 total defense) and Chargers HC (2021-2023). Emphasis on two-high safety shells, odd front, zone-match coverage.",
-      "play_caller": true
+      "coaching_tree": "Vic Fangio tree. Served as OLB coach under Fangio with the Bears (2017-18) and Broncos (2019). DC for the Rams in 2020 (No. 1 total defense), then HC of the Chargers (2021-23). Spent 2024 as assistant HC/defense with the 49ers under Kyle Shanahan. Studied Fangio's scheme extensively going back to Fangio's time with the Saints' Dome Patrol in the late '80s and '90s.",
+      "scheme_evolution": "Staley's scheme is a two-high safety, odd-front defense rooted in Fangio's principles but with his own aggressive wrinkles. His defining innovation is the commitment to pre-snap two-high shells (75%+ of snaps with the Rams in 2020) that disguise post-snap rotations. In New Orleans, he has installed a 3-4 base with the flexibility to shift to 4-down looks, using stand-up edge rushers as tone-setters and the 'Star' nickel position as a featured role. His coverage approach uses pattern-matching zone with man principles on the backside \u2014 flooding the frontside in zone while locking the backside in man.",
+      "development_track_record": "Developed Khalil Mack to a career-high 17 sacks in 2023 with the Chargers. Maximized Aaron Donald and Jalen Ramsey with the Rams in 2020. Developed Derwin James into a Pro Bowl 'Star' nickel/safety hybrid with the Chargers. In New Orleans in 2025, orchestrated a dramatic defensive turnaround with aging veterans and rookies, producing top-5 defensive EPA over the second half of the season despite limited talent. His 'Star' position has been a Pro Bowl-maker at every stop."
     }
   },
   "offense": {
-    "scheme_family": "West Coast hybrid / Erhardt-Perkins influenced with McCarthy roots",
-    "base_personnel": "11",
-    "personnel_detail": "73.9% 11-personnel in Week 1 2025 (5th in NFL). Significant increase from prior Saints regimes. Will also use 12-personnel given TE room depth, but 11 is the clear base. Rarely uses 2-RB sets.",
-    "run_scheme": "Balanced \u2014 50% zone, 41% gap/man in Week 1 data. Outside zone emphasis with gap/power mixed in. Moore historically runs more outside zone than inside zone, uses pin-pull concepts. Balanced inside/outside the tackles split.",
-    "pass_concepts": "Quick, decisive progressions; heavy pre-snap motion and shifts; tempo-based attack (led NFL in tempo snap rate in 2025). Distributes ball to many targets. Vertical shots mixed in but not primary. Play action usage was low in 2025 (18.9%, 5th-lowest) partly due to rookie QB. Uses no-huddle effectively.",
-    "rpo_usage": "low-to-moderate",
-    "te_usage": "Primarily inline in 11-personnel; TE (Juwan Johnson) used as intermediate target in play-action concepts. Moore historically does not feature TEs as primary weapons but uses them situationally. Will deploy 12-personnel sets given roster depth at TE.",
-    "rb_usage": "Bell cow model with Alvin Kamara as primary runner, but Moore historically depresses RB target share. Barkley's target share dropped from 17.7% to 13.8% under Moore in PHI. Kamara's 2025 targets ranked only 4th on team through 11 games. RB used primarily as runner with moderate checkdown work, fewer screens and slot alignments than prior Saints regimes."
+    "scheme_family": "Eclectic West Coast / Air Coryell hybrid (Moore variant \u2014 'system-agnostic' approach)",
+    "scheme_detail": "Moore's offense defies single-tree classification. He blends West Coast timing concepts from his McCarthy/Dallas years with Air Coryell vertical stretches, Shanahan-influenced outside zone runs, and Boise State-style formational creativity. The core identity is unpredictability \u2014 using multiple formations to get to the same plays, heavy pre-snap motion to stress defenses, and deliberate tendency-breaking. Moore simplifies the install for players by grouping concepts into 'families' so that similar plays share naming conventions, allowing players to process faster while the defense sees maximum variation. He adapts to personnel \u2014 ran heavy under-center with Dallas, adjusted to more shotgun with the Eagles, and in New Orleans has built around a young QB (Tyler Shough) with quick, decisive throws and a strong run game.",
+    "run_scheme": "Outside zone primary with gap/power concepts mixed in. Moore's Cowboys offenses were built on under-center outside zone (Shanahan-influenced), and he has maintained that foundation in New Orleans. Pin-and-pull concepts complement the zone scheme. The run game is central to the offense \u2014 controlling the clock, sustaining drives, and setting up play-action. In 2025, the Saints rushed for 1,603 yards (3.7 YPC) with Alvin Kamara and Devin Neal sharing carries. The OL must be able to reach-block laterally and climb to the second level.",
+    "pass_architecture": "All-three-levels attack built on quick, decisive progressions. Moore distributes the ball widely \u2014 no single receiver dominates targets. Play-action off outside zone is a staple, with boot concepts and deep shots off the run fake. The quick game features slants, curls, and rhythm throws that reward timing and accuracy. Moore also incorporates option routes where receivers adjust based on coverage, requiring QB-WR synergy. Rattler's description: 'A lot of quick, decisive throws. A lot of pure progression.' In 2025, the Saints passed for 4,027 yards total with Shough completing 67.6% in his starts.",
+    "personnel_tendencies": "Diverse groupings are a hallmark \u2014 Moore historically uses 11, 12, and 21 personnel at meaningful rates. He used more 11 personnel (3 WR) with the Chargers but diversified in Dallas and Philadelphia. Tight ends are featured as receivers who can flex to the slot. The offense also uses Taysom Hill as a unique gadget weapon at multiple positions. Moore emphasizes getting versatile players touches \u2014 RBs, TEs, and WRs all factor in the pass game.",
+    "motion_tempo": "Heavy pre-snap motion \u2014 consistently a top-10 motion offense across Moore's career. Uses shifts and motion to identify coverage, create mismatches, and stress defenses pre-snap. Tempo varies strategically \u2014 standard pace most of the time with no-huddle mixed in situationally. Moore's offenses consistently rank well in no-huddle success rate. Ball control philosophy \u2014 sustaining drives rather than running a hurry-up attack."
   },
   "defense": {
-    "base_front": "3-4",
-    "alignment": "Odd front (3 down linemen, 2 stand-up OLBs), morphing to 4-2 nickel or 3-3 sub-packages against spread looks. Former 4-3 DEs (Granderson, Young, Jordan, Foskey) converted to stand-up OLBs in two-point stance at ~265 lbs.",
-    "edge_rush_source": "OLB stand-up \u2014 primary edge rushers are the two OLBs (Granderson, Young, Jordan, Foskey), who align in stand-up two-point stance and rush the passer from the edge. Edge players sometimes drop into coverage as part of Fangio-tree multiplicity.",
-    "coverage_base": "Two-high safety shells (split safety / Cover 2 / Cover 4 / Cover 6) as primary look. Zone-match principles where initial zone reads convert to man-to-man based on receiver releases. Staley led NFL in two-high usage with Rams (2020). Also uses quarter-quarter-halves at high rate.",
-    "blitz_tendency": "light-to-moderate \u2014 Staley philosophy is to generate pressure with 4-man rushes through front multiplicity and stunts rather than bringing extra rushers. Disguises looks pre-snap to create confusion.",
-    "lb_role": "ILBs (Demario Davis as commander) are coverage/run-fit players. OLBs are primary pass rushers who also set the edge and occasionally drop into coverage. The scheme multiplies looks by having any of the 4 LBs potentially rush or cover.",
-    "safety_usage": "Two-high shells by default. Features a 'Star' position (nickel/slot DB \u2014 Alontae Taylor) as a featured role. Also uses 'Money' position (hybrid LB/safety in the box). Safeties must be disciplined in deep halves but are asked to come downhill to fit the run. Tyrann Mathieu could shift to box/money role.",
-    "star_position_detail": "The 'Star' (nickel) is a feature position in Staley's defense. Derwin James and Jalen Ramsey made Pro Bowls in this role under Staley. Alontae Taylor fills this role for the Saints."
+    "scheme_family": "Fangio-tree 3-4 odd front with two-high safety shells",
+    "scheme_detail": "Staley's defense in New Orleans is built on Vic Fangio's foundational principles: two-high safety looks pre-snap that disguise post-snap rotations, odd fronts that create one-on-one matchups in the run game while maintaining coverage superiority in the pass game, and pattern-matching zone coverage. The 3-4 base uses three down linemen with two stand-up outside linebackers as the primary edge rushers and two inside linebackers as the 'commanders' of the defense. The 'Star' nickel position (played by Alontae Taylor) is a featured role that Staley considers a premium position \u2014 Derwin James and Jalen Ramsey made Pro Bowls from this spot in his past systems.",
+    "front_structure": "3-4 odd front as the base, with the ability to shift to 4-down (even) fronts situationally. The nose tackle plays over the center with two 3-4 DEs flanking on the edges of the guards/tackles. Stand-up OLBs rush from a two-point stance and occasionally drop into coverage. Staley uses a 3-3-5 'Penny' package frequently \u2014 three linemen, three LBs, five DBs \u2014 where two of the LBs are really edge rushers, creating a 5-1 look. Edge rushers shift between standing up and three-point stances and must be versatile enough to rush and drop.",
+    "coverage_philosophy": "Zone-heavy with pattern-matching principles. Staley's Chargers ran zone coverage 67.3% of the time vs only 25.1% man \u2014 a dramatic shift from the Saints' prior Dennis Allen system (34.1% man, near league-high). Primary coverages include Cover 3, Cover 6 (split-field coverage), and Cover 8 (cloud corner with zone match). Two-high safety shells pre-snap that rotate post-snap to disguise looks. Corners must play zone and be physical at the LOS, but don't need elite man-coverage skills. DBs must read receiver releases and transition from zone to man-match principles based on pattern recognition.",
+    "pressure_philosophy": "Generate pressure with the front four/OLBs rather than relying on exotic blitzes. Staley uses simulated pressures \u2014 sending four rushers but from unexpected spots (nickel blitzes, safety insertions, DE drops with LB replacements). The key is that it looks like a blitz but drops seven into coverage. When he does dial up true pressure, it's creative \u2014 'Whip' and 'Slug' packages that send non-traditional rushers while dropping edge players into coverage. The system requires edge rushers who can win 1-on-1 without help.",
+    "sub_packages": "3-3-5 'Penny' package is the primary sub-package (nickel). The Star position (nickel DB) is the most featured sub-package role \u2014 Staley considers it a premium position. In 2025, Alontae Taylor plays this role, providing CB/S hybrid versatility. Staley's defenses spend roughly 65% of snaps with five DBs on the field. Dime packages are used in obvious passing situations. The defense is designed to be 'player-agnostic' enough to deploy multiple personnel groupings while maintaining coverage integrity."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "low",
-      "explanation": "Moore's offense lives in 11-personnel (73.9% in 2025) with three WRs and one TE. The TE is primarily used inline or as a play-action target, not as a flexed route-runner in the slot. Moore historically distributes to WRs and RBs rather than featuring TEs as receiving weapons. Dallas Goedert saw moderate usage in Philly but was not the focal point. The Saints' TE room (Juwan Johnson, Foster Moreau) serves as chain-movers, not high-volume receiving threats. A receiving TE would not get a significant scheme-driven value boost here."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB in Moore's offense must process quick progressions, distribute the ball to multiple receivers, and manage an under-center run game with significant play-action. Moore's system asks the QB to identify coverage pre-snap using motion, make decisive throws on timing routes, and occasionally extend plays. The system is described as 'quarterback-friendly' with simplified reads, but requires processing speed and accuracy on rhythm throws. Tyler Shough (6-5, 219) set the franchise rookie QB wins record in this system.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Moore's offense attacks all three levels and uses play-action deep shots, requiring adequate arm talent to push the ball downfield. However, the system is not built on arm strength alone \u2014 timing and accuracy matter more than velocity."
+        },
+        "Accuracy": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The defining trait. Moore's offense is built on timing routes, quick progressions, and rhythm throws where the ball must arrive on schedule. Receivers run concepts based on timing, not isolation routes. The QB must consistently place the ball where only the receiver can catch it on short and intermediate throws."
+        },
+        "Pocket Presence": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Under-center play-action requires the QB to turn his back to the defense and reset in the pocket. Moore's system asks the QB to stand in and deliver rather than escape. With a young OL still developing, pocket navigation is critical."
+        },
+        "Mobility": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Moore values some mobility \u2014 Shough showed effective scrambling (186 rushing yards, 3 TDs) and boot concepts require movement. Moore used Hurts' legs in Philly and Dak's mobility in Dallas. Not a pure pocket system, but not a designed-run system either."
+        },
+        "Decision Making": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Moore's offense distributes the ball to many receivers. The QB must read coverage, identify the correct target in the progression, and get the ball out quickly. Poor decision-making defeats the timing-based system."
+        },
+        "Leadership": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Moore's system requires the QB to manage the huddle, communicate formation adjustments, and lead a diverse group of skill players. Shough's leadership in rallying the 2025 Saints late-season was a key development."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Heavy motion is used to identify coverage pre-snap, but the system is designed to simplify reads. Moore uses motion to give the QB information, reducing the burden of pure pre-snap processing. Important but not the primary differentiator."
+        }
+      },
+      "ideal_archetype": "A poised, accurate passer with enough mobility to execute boot concepts and extend plays, who processes quickly through progressions and distributes the ball effectively. Not a gunslinger or a scrambler \u2014 a smart, efficient operator who lets the system create advantages. Think Dak Prescott in his peak Moore-era Cowboys years (2021) or Jalen Hurts in 2024 \u2014 accurate on timing throws, mobile enough to threaten with legs, and smart enough to manage the offense's complexities.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Moore has consistently worked with taller QBs (Dak 6-2, Herbert 6-6, Hurts 6-1, Shough 6-5). Under-center play-action and boot concepts benefit from height for seeing over the line."
+        },
+        "weight": {
+          "ideal": "215-240",
+          "floor": "210",
+          "reasoning": "Must be sturdy enough to withstand hits from under-center drops and boot concepts. Shough at 219 is on the lighter end but effective."
+        }
+      },
+      "development_context": "Moore and Nussmeier have an elite track record of developing QBs \u2014 Prescott, Herbert, and Hurts all produced career-best efficiency in their systems. They successfully developed Shough from a second-round pick into a franchise-caliber starter within one season. The system's simplified language ('families' of concepts) accelerates QB development. They can develop a raw processor into a functional starter but need baseline accuracy to arrive.",
+      "scheme_fit_narrative": "We need a poised, accurate passer who can operate from under center, execute play-action boots, and make quick decisions in a timing-based system. Arm strength is nice but secondary to accuracy and processing. The guy has to distribute the ball, not lock onto one receiver. Give us a smart, decisive player and this system will maximize him.",
+      "archetype_examples": [
+        "Dak Prescott (2021 Cowboys)",
+        "Jalen Hurts (2024 Eagles)",
+        "Kirk Cousins"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "high",
-      "explanation": "Staley's 3-4 Fangio-tree defense converts the primary edge rushers from traditional hands-in-dirt DEs to stand-up OLBs. The Saints literally reclassified Carl Granderson, Chase Young, Cam Jordan, and Isaiah Foskey from DEs to OLBs, having them play at ~265 lbs in two-point stance. Staley's scheme 'prioritizes athleticism off the edge' with 'slender, speedy, and agile standup pass rushers' \u2014 as seen with Khalil Mack (17 sacks in 2023 as OLB), Leonard Floyd, and Samson Ebukam. Any LB prospect with elite pass rush traits (bend, burst, speed-to-power) functions as a premium EDGE in this defense. The two OLBs are explicitly 'the tone setters for the defense' per Staley."
+    "RB": {
+      "scheme_role": "The RB in Moore's offense is the engine of the ball-control philosophy. Primarily runs outside zone from under center, requiring patience to read blocks and cutback ability. Must also be a capable pass receiver out of the backfield \u2014 Moore distributes targets widely, including to RBs. Pass protection is important as the system uses play-action heavily and the RB must sell the fake and then pick up blitzers. In 2025, Kamara and Neal shared the workload.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Outside zone demands a patient runner who can read the stretch, identify the cutback lane, and make one decisive cut. Vision is the difference between a 2-yard gain and a 12-yard run in this scheme."
+        },
+        "Contact Balance": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The Saints' 3.7 YPC in 2025 reflects an OL still developing. The RB will take contact at or near the LOS and must stay on his feet to convert positive yardage."
+        },
+        "Power": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Not the primary trait \u2014 this is a zone scheme, not a gap/power scheme. But short-yardage conversion ability matters in a ball-control offense."
+        },
+        "Elusiveness": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Zone running demands the ability to make defenders miss in space. Moore's Cowboys featured DeMarco Murray and Ezekiel Elliott \u2014 both excellent at making one cut and getting through the hole with elusiveness."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Outside zone requires enough speed to stretch the defense horizontally and hit the edge when the frontside opens up. Doesn't need to be a pure burner, but needs to threaten the perimeter."
+        },
+        "Pass Catching": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Moore distributes the ball to RBs as safety valves and in designed concepts. Kamara's receiving ability is a scheme fit. Moore used Saquon Barkley as both a runner and receiver in Philly. The RB is a full-field weapon, not just a between-the-tackles runner."
+        },
+        "Pass Protection": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Heavy play-action offense means the RB is often the last line of protection after selling the run fake. Must be willing and capable of picking up blitzers."
+        }
+      },
+      "ideal_archetype": "A patient, vision-oriented zone runner with pass-catching chops \u2014 not a straight-line speed back but a processing runner who can read blocks, make one cut, and contribute in the pass game. Think Alvin Kamara (the versatile, receiving-threat model), Saquon Barkley (the do-everything back Moore used in Philly), or DeMarco Murray (the zone-running technician from Moore's Dallas days).",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "205-225",
+          "floor": "195",
+          "reasoning": "Zone runners need to be light enough to have lateral agility but heavy enough to absorb contact. Kamara at 215 is the prototype."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.55",
+          "floor": "4.60",
+          "reasoning": "Must have enough speed to threaten the perimeter on outside zone but doesn't need elite straight-line speed."
+        }
+      },
+      "development_context": "Joel Thomas returns as RB coach after developing Kamara into a five-time Pro Bowler and franchise all-time leading rusher. Thomas has a proven track record of maximizing RB versatility. The staff can develop pass-catching and pass protection technique but needs vision and instincts to arrive \u2014 those traits are hardest to teach.",
+      "scheme_fit_narrative": "We need a back who can read the zone, be patient behind the line, make one decisive cut, and then be a weapon in the passing game. Pure speed guys who run to daylight won't work here \u2014 we need a processor who can see the whole field. If he can catch 40-50 balls out of the backfield, that's the ideal.",
+      "archetype_examples": [
+        "Alvin Kamara",
+        "Saquon Barkley",
+        "DeMarco Murray"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "low",
-      "explanation": "Despite the Saints historically valuing dual-threat RBs (Kamara's receiving legacy), Kellen Moore's offense consistently depresses RB receiving production. Saquon Barkley's target share dropped from 17.7%+ to 13.8% under Moore. Ezekiel Elliott's yards per route run declined under Moore. In 2025, Kamara's targets ranked only 4th on the team through 11 games with far fewer screens and slot alignments. Moore's philosophy is run-first with the RB and distribute passing targets to WRs. A receiving-back specialist does not get a meaningful scheme boost here."
+    "WR": {
+      "scheme_role": "WRs in Moore's offense must be versatile \u2014 they'll line up inside and outside, run timing routes, execute option routes based on coverage, and adjust routes when the defense blitzes. Moore moves his receivers around the formation to create mismatches. The system distributes targets widely, so no single WR will dominate volume. Route concepts are timing-based (slants, curls, digs, crossers) with occasional deep shots off play-action. Chris Olave remains the WR1 but the Saints need more pass-catching talent.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Moore's timing-based system requires receivers who can run precise routes and be in the right spot at the right time. The ball arrives before the break \u2014 receivers must win with technique, not just athleticism."
+        },
+        "Separation": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Moore's offense creates schematic advantages through formation and motion, but the WR must still win at the individual level. Separation at the intermediate level is where this offense lives."
+        },
+        "Hands": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Quick-game offense means the ball comes fast and receivers must be reliable catchers. Drops kill timing-based drives. Moore distributes widely, so every receiver must be trustworthy."
+        },
+        "YAC Ability": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Short-to-intermediate timing routes produce most of the passing yardage. YAC is critical to turning 8-yard completions into 15-yard gains. Moore's Eagles featured YAC-heavy players like Barkley and Smith."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Play-action deep shots require at least one speed threat to keep defenses honest. But Moore's system doesn't rely on speed-based isolation routes \u2014 it creates open receivers through scheme."
+        },
+        "Contested Catches": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Not the primary way this offense wins. Moore schematically creates open receivers rather than relying on 50-50 balls. However, some contested-catch ability is valuable on the shots downfield."
+        },
+        "Release Package": {
+          "weight": 0.09,
+          "importance": "moderate",
+          "reasoning": "Against press coverage, the WR must be able to get off the line cleanly to maintain timing routes. Moore's motion helps create free releases, but a refined release is valuable against man-press teams."
+        }
+      },
+      "ideal_archetype": "A polished, versatile route runner who can line up inside and outside, create separation on intermediate routes, and produce YAC after the catch. Not a one-trick speed merchant \u2014 a technician who understands concepts and can adjust routes based on coverage. Think DeVonta Smith (precise route runner with YAC), Keenan Allen (separation artist who ran Moore's offense in LA), or CeeDee Lamb (versatile, formation-flexible weapon Moore featured in Dallas).",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-9",
+          "reasoning": "Moore has featured a range of body types but values versatility to line up inside and outside. Not height-dependent but must be able to work intermediate windows."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.55",
+          "floor": "4.60",
+          "reasoning": "Speed is useful for vertical shots but the scheme creates separation through route-running and motion, not pure speed."
+        }
+      },
+      "development_context": "WR coach Keith Williams is a holdover who developed Chris Olave's pro game. Moore's system features option routes and concept-based adjustments that require football IQ \u2014 raw speed merchants will struggle in the install. The staff can develop route technique and route-tree breadth but needs baseline hands and football intelligence to arrive.",
+      "scheme_fit_narrative": "We need a receiver who can run the whole route tree, line up anywhere on the field, and create separation with his feet, not just his speed. The system creates opportunities but you have to be technically sound to take advantage. If he can't run a clean dig route and get open at 12 yards, he's not a fit \u2014 no matter how fast he runs the 40.",
+      "archetype_examples": [
+        "CeeDee Lamb",
+        "DeVonta Smith",
+        "Keenan Allen"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "Staley's defense features multiple hybrid safety/DB roles that dramatically increase the value of versatile safeties. The 'Star' (nickel) is a premium position \u2014 Derwin James and Jalen Ramsey made Pro Bowls there under Staley. The 'Money' role is a hybrid LB/safety box player. Staley's two-high shells require safeties who can play deep halves but also trigger downhill to fit the run. Tyrann Mathieu was identified as a potential Money/box role candidate. A safety with elite versatility \u2014 ability to play box, slot, cover, and blitz \u2014 gets a significant value boost. Staley explicitly said 'I don't look at Derwin as a safety. I look at Derwin as an impact player... he can play anywhere.'"
+    "TE": {
+      "scheme_role": "The TE in Moore's offense is a receiving weapon who can also line up as an in-line blocker in 12 and 21 personnel groupings. Moore uses TEs extensively \u2014 TE-specific quick throws and throws to RBs out of the backfield were noted by Dallas Goedert during the 2024 Eagles install. TEs flex to the slot, work the seam, and contribute to the run game on outside zone. Moore's diverse personnel groupings mean the TE is on the field in a variety of alignments. Juwan Johnson has been effective in this role in 2025.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Moore's offense distributes targets to TEs as featured pass-catchers, not afterthoughts. Goedert caught 66+ balls in Moore's Eagles system. The TE must be a legitimate receiving threat to make the offense's personnel diversity work."
+        },
+        "Route Running": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "TEs flex to the slot and run intermediate routes (seams, crossers, digs). Route-running technique is what separates a TE who creates separation from one who just runs into zones. Moore's timing system demands precision."
+        },
+        "Blocking": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Moore's 12 and 21 personnel groupings require in-line blocking on outside zone. The TE must be a credible blocker to maintain the run game's integrity when on the field. Cannot be a receiving-only TE in this system."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must flex from in-line to slot seamlessly. The ability to work all areas of the field as both a blocker and receiver requires plus athleticism. Moore values versatile TEs who stress defenses with alignment variety."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Reliable hands are important in a timing-based passing game. The TE often serves as a safety valve over the middle where traffic is heaviest."
+        },
+        "Speed": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Seam-stretching ability is valuable but the TE doesn't need WR speed. Must have enough pace to stress LBs in coverage and create vertical threats off play-action."
+        }
+      },
+      "ideal_archetype": "A complete TE who can block on the edge in the run game and then flex to the slot and catch 50+ balls. Not a glorified WR and not a sixth OL \u2014 a true Y-TE with receiving upside. Think Dallas Goedert (Moore's TE in Philly \u2014 reliable blocker and 60-catch receiver), Travis Kelce (the gold standard of move-TE versatility), or George Kittle (elite blocker who produces in the pass game).",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-6",
+          "floor": "6-2",
+          "reasoning": "Size matters for in-line blocking and contested catches over the middle. Must be big enough to hold up on the edge against DEs in the run game."
+        },
+        "weight": {
+          "ideal": "240-255",
+          "floor": "230",
+          "reasoning": "Must carry enough mass to block but remain athletic enough to flex into routes. The dual-threat nature of the position requires a balance."
+        }
+      },
+      "development_context": "TE coach Chase Haslett comes from the Dallas Cowboys staff where he worked with the TE group. Nussmeier has a history of QB-TE development synergy. The staff can develop route-running and receiving technique but needs blocking willingness and baseline athleticism to arrive. A receiving TE who can't block will limit the offense's personnel flexibility.",
+      "scheme_fit_narrative": "We need a TE who does it all \u2014 blocks on the edge when we're in 12 personnel running outside zone, then flexes to the slot and runs a full route tree. If he can only do one thing, he limits what we can do with personnel groupings. The ideal guy is a mismatch weapon who also holds up at the point of attack.",
+      "archetype_examples": [
+        "Dallas Goedert",
+        "George Kittle",
+        "Mark Andrews"
+      ]
+    },
+    "OT": {
+      "scheme_role": "The OT in Moore's offense must execute outside zone reach blocks, climb to the second level, and also provide reliable pass protection in a timing-based passing attack. Moore's under-center run game puts a premium on lateral movement and ability to sustain blocks on the move. The Saints invested heavily here \u2014 Kelvin Banks Jr. (2025 first-round pick) at LT and Taliese Fuaga (2024 first-round pick) at RT, showing how critical this position is to the scheme.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Moore's timing-based passing game requires a clean pocket for the QB to deliver on schedule. Banks was selected specifically for his elite pass protection (lowest pressure rate among Power Four LTs over two seasons). The OT must anchor and mirror."
+        },
+        "Run Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Outside zone is the primary run scheme. The OT must execute reach blocks, sustain movement on the edge, and climb to the second level. Moore's Cowboys featured elite run-blocking OLs that produced 1,800+ yard rushers."
+        },
+        "Footwork": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Outside zone demands lateral agility on the first step to reach-block. Under-center play-action requires the OT to set up in pass protection after selling the run. Quick, balanced feet are the separator."
+        },
+        "Anchor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must hold up against power rushers in pass protection, but the scheme's quick passing game limits extended pocket time. Anchor matters but is not the defining trait."
+        },
+        "Athleticism": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Must move in space for zone blocking and pull on pin-and-pull concepts. Banks' combine showed adequate athleticism (5.16 40, 4.66 shuttle) for the scheme."
+        },
+        "Strength": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Base strength to sustain blocks, but this is a movement-based scheme, not a phone-booth mauling scheme. Finesse and technique trump raw power."
+        }
+      },
+      "ideal_archetype": "An athletic, technically sound OT who excels in zone blocking and provides reliable pass protection. Must be light on his feet with the ability to reach, sustain, and climb. Think Kelvin Banks Jr. (the prototype Moore just drafted \u2014 elite pass protector, technically sound run blocker with athleticism), Tyron Smith (the Cowboys OT who thrived in Moore's zone scheme), or Lane Johnson (versatile Eagles OT who adapted to Moore's system).",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Length is important for pass protection reach and zone blocking leverage. Banks at 6-5 is the prototype."
+        },
+        "weight": {
+          "ideal": "305-320",
+          "floor": "295",
+          "reasoning": "Must carry enough mass to sustain blocks but remain athletic enough for zone movement."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.70",
+          "floor": "4.80",
+          "reasoning": "Outside zone requires lateral displacement on the first step. Stiff OTs who can only pass-set kill this run scheme."
+        }
+      },
+      "development_context": "OL coach Brendan Nugent returns to New Orleans after overseeing the Saints' OL from 2017-21 when they allowed the fewest sacks in the NFL (131 in five years). Jahri Evans (Hall of Fame-caliber former Saints guard) serves as assistant OL coach. Run game coordinator T.J. Paganetti followed Moore from Philadelphia. This is one of the best OL development staffs in the NFL. They can refine technique and develop run-blocking skills but need baseline athleticism and movement ability to arrive.",
+      "scheme_fit_narrative": "We need an OT who can move. This is a zone-blocking offense that requires lateral quickness and the ability to reach defenders on the edge. If you can't move your feet, you can't play here. But we also need rock-solid pass protection to protect a young QB. The ideal prospect is a mover who can also anchor \u2014 not a mauler who plods.",
+      "archetype_examples": [
+        "Kelvin Banks Jr.",
+        "Tyron Smith",
+        "Lane Johnson"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "The IOL in Moore's offense must combo block on zone runs, pull on pin-and-pull concepts, and provide interior pass protection in a timing-based system. The center is the communication hub for Moore's diverse formation calls. Guards must be athletic enough to move laterally on outside zone while also picking up interior stunts and twists. The Saints have Erik McCoy at center and Lucas Patrick/Lucas Fortner competing at guard.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Interior pressure kills the timing-based quick game. The IOL must handle stunts, twists, and interior DL penetration to keep the pocket clean for the QB's rhythm throws."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Zone blocking requires IOL to execute combo blocks, identify when to peel off to the second level, and sustain movement. The run game's success depends on the interior getting movement at the point of attack."
+        },
+        "Pulling": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Moore uses pin-and-pull concepts as a complement to outside zone. Guards who can pull and get to the second level or kick out edge defenders add another dimension. Gap concepts mixed with zone require pulling ability."
+        },
+        "Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must handle nose tackles and interior DL in both the run and pass game. The interior of the OL needs to be strong at the point of attack even in a movement-based scheme."
+        },
+        "Anchor": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Interior anchoring against bull rushes is important in pass protection but the quick passing game limits how often the IOL faces extended rush sequences."
+        },
+        "Versatility": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Moore's diverse formations and personnel groupings benefit from IOL who can play multiple spots. Banks was sampled at multiple positions during camp. Center-guard flexibility is valued."
+        }
+      },
+      "ideal_archetype": "An athletic, intelligent interior lineman who can move laterally on zone blocks, pull on counter/pin-pull concepts, and anchor in pass protection. The center must be the communicator who manages Moore's complex formation calls. Think Zack Martin (Moore's Dallas guard \u2014 technically elite, versatile, smart), Landon Dickerson (Eagles guard who thrived in Moore's zone scheme), or Jason Kelce (the mobile, cerebral center who defined Moore's Eagles interior).",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "IOL height matters less than athleticism in this scheme. Shorter, more athletic linemen can thrive in zone blocking."
+        },
+        "weight": {
+          "ideal": "300-320",
+          "floor": "290",
+          "reasoning": "Must be stout enough to handle interior DL but light enough to move in the zone scheme."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.60",
+          "floor": "4.75",
+          "reasoning": "Zone blocking and pulling require lateral movement. Heavy-footed guards who can't pull or reach are scheme-limited."
+        }
+      },
+      "development_context": "Brendan Nugent and Jahri Evans represent one of the best IOL development pipelines in the NFL. Under Nugent's previous tenure (2017-21), the Saints' interior line was among the best in football. The staff can develop zone-blocking technique and pulling mechanics but needs baseline athleticism and intelligence to arrive. Centers especially must be cerebral to handle Moore's complex cadence and motion system.",
+      "scheme_fit_narrative": "We want interior linemen who can move. Zone blocking and pulling are core to what we do. But we also need the mental processing to handle our formation diversity and protection calls. A strong, smart, athletic guard or center who can play in space is the ideal. Pure maulers who can't move laterally are scheme-limited.",
+      "archetype_examples": [
+        "Zack Martin",
+        "Landon Dickerson",
+        "Jason Kelce"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "In Staley's 3-4, the EDGE is a stand-up OLB who is the 'tone-setter' of the defense. Must rush the passer from a two-point stance, set the edge in the run game, and occasionally drop into flat/curl coverage on zone blitzes and simulated pressures. Staley uses creative rush packages \u2014 stunts, twists, delayed rushes \u2014 and asks EDGEs to rush from multiple alignments (standing up, in a three-point stance, inside, outside). Chase Young, Carl Granderson, Cameron Jordan, and Isaiah Foskey rotate at this position in New Orleans.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Staley's system generates pressure primarily from the front \u2014 the two OLBs must win their 1-on-1 matchups because the coverage relies on four-man pressure with seven dropping. If the edge can't get home, the two-high safety system collapses."
+        },
+        "Bend": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Stand-up rushers in this system need to convert speed to power around the edge. Bend allows them to dip and rip past tackles from a two-point stance. Khalil Mack's bend produced 17 sacks in Staley's Chargers system."
+        },
+        "First Step": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The edge rusher must generate immediate pressure to compensate for the zone coverage behind them. Explosive first step creates advantageous rush angles from the stand-up position."
+        },
+        "Power": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must set the edge against the run in the 3-4 front. Not a pure speed-rush system \u2014 the EDGE must hold his ground against OT run blocks before pursuing. But power is secondary to versatility and rush ability."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Staley's system asks EDGEs to rush, drop, rush again. High effort and relentless pursuit are valued. Von Miller and Mack \u2014 both high-motor players \u2014 thrived under Staley."
+        },
+        "Run Defense": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The 3-4 EDGE must set the edge and funnel runs inside to the ILBs. Staley's defense funnels everything to the edge where LBs flow in pursuit. If the EDGE gets washed, the entire run defense breaks down."
+        }
+      },
+      "ideal_archetype": "A versatile stand-up OLB who can rush from multiple alignments, set the edge against the run, and drop into coverage when asked. Not a one-dimensional speed rusher \u2014 a complete edge player with pass rush as his primary skill but enough versatility to execute Staley's creative pressures. Think Khalil Mack (Staley's Chargers \u2014 17 sacks from the 3-4 OLB role), Von Miller (Staley's Denver \u2014 explosive stand-up rusher), or Leonard Floyd (Staley's Rams \u2014 speed-to-power converter).",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Stand-up rushers need length to set the edge and reach to disrupt passing lanes when dropping. But not so tall that they lose bend."
+        },
+        "weight": {
+          "ideal": "240-265",
+          "floor": "235",
+          "reasoning": "Must be heavy enough to set the edge in the run game but light enough to rush from a two-point stance and drop into coverage. Mack at 247 is the sweet spot."
+        },
+        "40_yard_dash": {
+          "ideal": "4.50-4.65",
+          "floor": "4.70",
+          "reasoning": "Stand-up rushers must close on QBs from further away than hand-in-dirt DEs. Speed is important for both the pass rush and pursuit angles in the run game."
+        }
+      },
+      "development_context": "Edges coach Jay Rodgers has 17 years of NFL experience and previously coached the Falcons' DL. Staley has a proven track record of maximizing edge talent \u2014 Mack, Miller, and Floyd all had career-best or near-career-best production under him. He can develop rush technique and creative rush plans but needs baseline athleticism and effort to arrive. The 3-4 scheme change means converting hand-in-dirt DEs to stand-up rushers, which takes time.",
+      "scheme_fit_narrative": "We need an edge rusher who can do it all \u2014 rush from a two-point stance, set the edge in the run game, and drop into coverage on occasion. Pure speed rushers who can't hold the edge will get exposed against the run. Bull-rush specialists who can't move laterally won't get to the QB in our system. Give us a complete, versatile edge player with a motor.",
+      "archetype_examples": [
+        "Khalil Mack (Chargers era)",
+        "Von Miller (Broncos era)",
+        "Leonard Floyd"
+      ]
+    },
+    "DL": {
+      "scheme_role": "The DL in Staley's 3-4 consists of a nose tackle (0-tech/1-tech) and two 3-4 defensive ends (4i/5-tech). The nose anchors the defense by commanding double teams and controlling A-gaps, freeing up the ILBs to flow. The DEs must hold their gap responsibility and provide interior pass rush. Vernon Broughton (2025 third-round pick) was drafted for this system \u2014 he has first-step quickness and length to play the 3-tech/odd-front DE role. Bryan Bresee also competes for snaps.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Interior pass rush supports the two-high coverage. Staley's Rams had Aaron Donald generating historic interior pressure. Broughton's first-step quickness and diverse rush plan were why he was drafted."
+        },
+        "Run Defense": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Two-high safety defenses are vulnerable to the run. The DL must eat blocks and control gaps so the ILBs can flow freely. This is the defining trait \u2014 the run-stopping anchor of the defense."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Staley's DL are asked to penetrate and disrupt, not just absorb blocks. Broughton was described as having 'first-step quickness to penetrate.' Quick DL create havoc that supports the entire defensive structure."
+        },
+        "Hand Usage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must disengage from blockers to make plays in both the run and pass game. In a 3-4, the DL faces double teams frequently \u2014 hand usage is critical to holding ground and separating."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Staley rotates his DL to keep players fresh. High effort and pursuit are valued, but the rotation limits snap counts per player."
+        },
+        "Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The nose tackle and DEs must hold the point of attack against zone blocking. Anchor strength is critical to the run defense's integrity. Cannot be moved off the ball."
+        }
+      },
+      "ideal_archetype": "A long, strong, penetrating interior lineman who can hold his gap responsibility against the run while also providing interior pass rush. The nose tackle needs to be a two-gap anchor; the DEs need to be versatile enough to play multiple alignments along the front. Think Aaron Donald (Staley's Rams \u2014 the transcendent interior disruptor), Chris Jones (two-gap strength with pass-rush upside), or Vernon Broughton himself (length, quickness, diverse rush plan).",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Length is valued in Staley's odd front for controlling blockers and filling gaps. Broughton at 6-5 with 35-inch arms was ideal."
+        },
+        "weight": {
+          "ideal": "290-320",
+          "floor": "280",
+          "reasoning": "DEs can be lighter (280-300); the nose tackle must be heavier (310-330) to anchor against double teams. The scheme uses rotation, so pure mass is less important than quickness-to-weight ratio."
+        },
+        "arm_length": {
+          "ideal": "33+",
+          "floor": "32",
+          "reasoning": "Length matters for controlling blockers and maintaining leverage in both the run and pass game. Staley's DL keep blockers at arm's length."
+        }
+      },
+      "development_context": "DL coach Bo Davis has six years of NFL experience. Brian Young (assistant DL coach) has been with the Saints for 17 years and provides continuity. Staley's system requires DL who understand gap responsibility and assignment football \u2014 physical talent alone won't work. The staff can develop pass-rush moves and hand technique but needs baseline strength and motor to arrive. Broughton's quick development shows the staff can accelerate growth.",
+      "scheme_fit_narrative": "We need interior linemen who can do two things: hold their ground against the run and generate interior pressure to complement our edge rushers. The two-high safety system depends on the DL winning at the point of attack. If you can't stop the run, the whole defense collapses. But we also need some push up the middle \u2014 pure run-stuffers without pass-rush ability limit us in nickel.",
+      "archetype_examples": [
+        "Aaron Donald",
+        "Chris Jones",
+        "Calais Campbell"
+      ]
+    },
+    "LB": {
+      "scheme_role": "The ILBs in Staley's 3-4 are the 'commanders' of the defense \u2014 they process offensive formations, set the defense, and serve as the primary tacklers. Two ILBs play in the base 3-4, with one typically coming off in nickel. Must be excellent in zone coverage (pattern-matching concepts), flow to the ball against the run, and occasionally blitz on simulated pressures. Demario Davis has been the anchor; Danny Stutsman (2025 fourth-round pick) is the future. Staley values ILBs who can process and communicate.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The ILBs are the defense's primary tacklers, especially against the run. With DL eating blocks, the ILBs must flow and finish. Davis's tackle production has been a staple."
+        },
+        "Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Staley's zone coverage asks ILBs to pattern-match route combinations, wall off crossers, and carry TEs/RBs in man-match. This is the defining trait \u2014 ILBs who can't cover cannot stay on the field in modern football, and Staley's system demands it."
+        },
+        "Pass Rush": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "ILBs blitz occasionally on simulated pressures and fire zones, but this is not a heavy ILB-blitz system. Edge rushers are the primary pass rushers."
+        },
+        "Instincts": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Pattern-matching zone requires the ILB to read offensive formations, diagnose route combinations post-snap, and react. Football IQ is critical to executing the defense's complex assignments."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must move sideline-to-sideline in the run game and cover ground in the passing game. Staley's scheme asks ILBs to defend the whole field, not just between the tackles."
+        },
+        "Range": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Sideline-to-sideline range is valuable in the zone scheme but the DL is responsible for controlling the interior. The ILB needs enough range to flow to the ball but doesn't need to be a pure sideline-to-sideline tracker."
+        },
+        "Block Shedding": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "The DL is designed to absorb blocks and free the ILBs. Block shedding matters less in this scheme than in an aggressive, attacking front."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "The ILB is the defensive QB who communicates the front calls and coverage adjustments. Mental processing is critical but is captured across instincts and coverage."
+        }
+      },
+      "ideal_archetype": "A cerebral, athletic ILB who can process in zone coverage, flow to the ball in the run game, and communicate the defense's calls. Not a downhill thumper \u2014 a modern LB who excels in coverage and can handle the complexities of pattern-matching zone. Think Fred Warner (Staley worked with him in SF \u2014 the prototype modern ILB), Demario Davis (the Saints' own \u2014 veteran processor), or Bobby Wagner (sideline-to-sideline with coverage chops).",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Standard LB size. Must be big enough to hold up in the run game but not so heavy that coverage suffers."
+        },
+        "weight": {
+          "ideal": "225-245",
+          "floor": "220",
+          "reasoning": "Must be stout enough to take on blocks but light enough to cover TEs and RBs."
+        },
+        "40_yard_dash": {
+          "ideal": "4.50-4.60",
+          "floor": "4.65",
+          "reasoning": "Speed matters for zone coverage drops and sideline-to-sideline pursuit. Stutsman ran well at the combine, fitting the athletic profile."
+        }
+      },
+      "development_context": "LBs coach Peter Sirmon is in his first NFL coaching year but Staley has a strong track record of developing ILBs \u2014 he worked alongside Fred Warner in SF and maximized Drue Tranquill with the Chargers. The Saints can develop zone-drop technique and assignment football but need the athletic and intellectual foundation to arrive. Raw athletes without football IQ will struggle in the pattern-matching system.",
+      "scheme_fit_narrative": "We need an ILB who can think and run. This defense asks the linebackers to be the brains of the operation \u2014 diagnosing formations, communicating coverages, and executing complex zone-match assignments. If a guy can't cover, he can't play in this defense, period. Give us an athlete with a football brain who processes fast and tackles in space.",
+      "archetype_examples": [
+        "Fred Warner",
+        "Demario Davis",
+        "Roquan Smith"
+      ]
+    },
+    "CB": {
+      "scheme_role": "Corners in Staley's defense play primarily zone coverage with pattern-matching man principles. They must be physical at the line of scrimmage (disrupting timing) but drop into zones rather than trailing in pure man. The Star (nickel) is a featured position \u2014 Alontae Taylor plays this role, providing versatility to play CB and S. Outside CBs must be comfortable in off-coverage, reading the QB's eyes, and breaking on the ball. Kool-Aid McKinstry and Quincy Riley (2025 fourth-round pick) compete outside.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Staley's Chargers ran man coverage only 25.1% of the time. This is primarily a zone system. Man skills matter for pattern-matching backside assignments but pure man coverage is not the primary ask."
+        },
+        "Ball Skills": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Zone coverage creates opportunities for turnovers \u2014 CBs read the QB's eyes and break on the ball. The Saints' defense had 18 interceptions in 2025. Ball production is a scheme-valued trait."
+        },
+        "Zone Coverage": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The defining trait. Staley's defense is zone-heavy (67%+). CBs must understand zone principles, pattern-match route combinations, and maintain discipline in their zones. Zone intelligence is non-negotiable."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must have enough speed to match WR routes in the pattern-matching concepts and recover when beaten. But zone coverage is more about positioning than pure speed."
+        },
+        "Press": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Fangio-tree defenses want big, physical corners who can disrupt at the line. Staley's 'cloud corner' concept in Cover 8 asks the CB to be aggressive in the shallow-to-intermediate area. Press technique disrupts timing to support the zone behind."
+        },
+        "Nickel": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The Star position is a featured role. CBs who can play both outside and nickel have immense value. Staley spends 65% of snaps in nickel packages. Alontae Taylor's versatility at Star was specifically highlighted by Moore and Staley as a scheme priority."
+        }
+      },
+      "ideal_archetype": "A physical, zone-savvy corner who can press at the line to disrupt timing, drop into zone coverage with discipline, and make plays on the ball. Not a pure man-coverage specialist \u2014 a smart, physical DB who understands pattern-matching and can play outside or in the slot. Think Jalen Ramsey (Staley's Rams Star \u2014 versatile, physical, intelligent), Kyle Fuller (Fangio's Bears CB \u2014 zone ball hawk), or Kool-Aid McKinstry (the Saints' own \u2014 developing in this system).",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Fangio-tree defenses historically prefer bigger corners (6-0+) who can press and play physical. Staley's 49ers had four CBs at 6-0 or taller. Size helps in press coverage and run support."
+        },
+        "weight": {
+          "ideal": "190-210",
+          "floor": "185",
+          "reasoning": "Must be physical enough to press and hold up in run support. Zone CBs take on blocks more than man-to-man corners."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.50",
+          "floor": "4.55",
+          "reasoning": "Speed is less critical than in pure man systems, but must be fast enough to recover in zone and match routes in pattern-matching."
+        }
+      },
+      "development_context": "CBs coach Grady Brown has five years of NFL experience. Staley developed Jalen Ramsey into the league's premier versatile DB with the Rams. The scheme can develop zone-coverage technique and pattern-recognition skills, but needs physical tools (size, speed) and football IQ to arrive. The Star position specifically requires versatility that is hard to teach \u2014 the player must naturally process multiple alignments.",
+      "scheme_fit_narrative": "We don't need a shutdown man-coverage corner. We need a physical, smart DB who understands zone concepts, can press at the line to disrupt routes, and makes plays on the ball when it's in the air. Versatility is huge \u2014 if he can play outside and kick inside to the Star in nickel, that's premium value. Ball skills matter more than lockdown man ability in this system.",
+      "archetype_examples": [
+        "Jalen Ramsey (Rams era)",
+        "Kyle Fuller",
+        "Darius Slay"
+      ]
+    },
+    "S": {
+      "scheme_role": "The safeties in Staley's two-high defense are the backbone of the coverage system. They align in a split-safety shell pre-snap (two-high) and then rotate post-snap \u2014 one may spin down to the box (becoming a de facto single-high look) or both may stay deep (quarters). The safeties must be interchangeable \u2014 Fangio likes safeties who can play both deep and in the box. Justin Reid serves as the primary S; Jonas Sanker (2025 third-round pick) is a versatile, physical safety drafted specifically for this scheme. Tyrann Mathieu provides veteran leadership.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Safeties occasionally match TEs or RBs in man-match assignments, but the primary ask is zone. Man skills are useful for special situations, not the core demand."
+        },
+        "Range": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Two-high defense demands safeties who can cover deep halves from the split-safety alignment. Must get from hash to sideline and close on deep throws. Range is the defining physical trait for this system."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Deep-half safeties see the entire field and have opportunities to make plays on the ball. The two-high shell creates more INT chances than single-high. The Saints had 18 INTs in 2025."
+        },
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "When one safety rotates down into the box, he becomes a run-support defender who must tackle in space. Sanker was drafted for his physicality and tackling (9 TFLs in 2024). Safeties are the last line of defense against the run in a light-box scheme."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must cover deep halves and close on receivers in space. Sanker's 4.48 40-yard dash shows the athletic profile valued. Speed supports both range and run-defense angles."
+        },
+        "Nickel": {
+          "weight": 0.14,
+          "importance": "moderate",
+          "reasoning": "Fangio-tree defenses value interchangeable safeties. A safety who can drop into the box, play the nickel/Star role, or stay deep provides schematic flexibility. Derwin James was the ultimate version of this with Staley's Chargers."
+        }
+      },
+      "ideal_archetype": "A rangy, versatile safety who can play deep in two-high shells, rotate down into the box as a run defender, and make plays on the ball. Must be interchangeable \u2014 not locked into one role. Think Derwin James (Staley's Chargers \u2014 the Pro Bowl Star/safety hybrid), Justin Reid (the Saints' own \u2014 smart, versatile, physical), or Budda Baker (run-support safety with deep range).",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Must be physical enough to play in the box but not so big that deep coverage is limited. Sanker at 6-0 is the current model."
+        },
+        "weight": {
+          "ideal": "200-215",
+          "floor": "195",
+          "reasoning": "Must tackle in the box and hold up against TEs but maintain speed for deep coverage."
+        },
+        "40_yard_dash": {
+          "ideal": "4.42-4.52",
+          "floor": "4.55",
+          "reasoning": "Range in two-high demands speed. Must close sideline-to-sideline. Sanker's 4.48 is the target range."
+        }
+      },
+      "development_context": "Staley developed Derwin James into a Pro Bowl Star with the Chargers and worked alongside the 49ers' defensive backs in 2024. Defensive pass game coordinator Terry Joseph adds depth. The system can develop coverage technique and assignment discipline but needs baseline range and physicality to arrive. A slow safety with great instincts won't have the range for two-high halves. Sanker's physical tackle profile shows the staff prioritizes versatile safeties who can play multiple roles.",
+      "scheme_fit_narrative": "Our defense lives and dies with the safeties. Two-high means they must cover the deep halves and then rotate down to support the run. We need safeties who can do both \u2014 range to cover deep and physicality to tackle in the box. Interchangeability is key. If one safety can only play free and the other can only play strong, it limits our post-snap disguises. Give us an athlete who can play everywhere in the secondary.",
+      "archetype_examples": [
+        "Derwin James",
+        "Justin Reid",
+        "Budda Baker"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "The Saints' defensive scheme shift from a 4-3 to Staley's Fangio-tree 3-4 is the most impactful drafting lens. Any OLB/EDGE prospect with 240-265 lb frame, elite bend, burst, and ability to play in space should be valued higher for NO than for traditional 4-3 teams \u2014 they will be a featured stand-up edge rusher, not a backup LB. This is Khalil Mack territory. Similarly, versatile safeties who can play Star (nickel), Money (box), or deep halves get a massive boost \u2014 Staley's defense lives in two-high shells and demands Swiss-army-knife DBs. On offense, Moore's 11-personnel, tempo-heavy, WR-distributing system means: (1) WR prospects with route diversity and YAC ability are valued (the offense distributes to multiple receivers); (2) TE receiving weapons are NOT prioritized \u2014 the TE is inline; (3) RB receiving production is depressed under Moore despite the Saints' historical usage of Kamara \u2014 do not over-value receiving backs for NO. The biggest draft value mismatches: pass-rushing LBs valued as EDGE (high), versatile safeties valued as defensive centerpieces (high), receiving TEs and receiving backs both de-emphasized (low).",
+  "scheme_draft_intelligence": "The 2025 Saints draft class reveals the franchise's scheme-driven priorities under the Moore/Staley regime. Their first-round selection of Kelvin Banks Jr. (OT, Texas) established the offensive foundation \u2014 protecting a young QB in Moore's timing-based system. Banks' elite pass protection (lowest pressure rate among Power Four LTs over two seasons) and zone-blocking athleticism make him the archetype for Moore's outside zone offense. The second-round selection of Tyler Shough (QB, Louisville) directly reflected Moore's QB archetype: a poised, accurate passer with enough mobility for boot concepts, who processes quickly and distributes the ball. Shough's development into a franchise-caliber starter (5-4 record, Rookie of the Month in December) validates the staff's player-development model.\n\nOn defense, the third-round picks of Vernon Broughton (DT, Texas) and Jonas Sanker (S, Virginia) perfectly fit Staley's scheme needs. Broughton's first-step quickness and length profile as a Staley-style odd-front DE who can penetrate and disrupt. Sanker's versatility (box, slot, and free safety experience) and physicality (9 TFLs) match the interchangeable safety profile that Staley's two-high system demands. Danny Stutsman (LB, Oklahoma) and Quincy Riley (CB, Louisville) further filled scheme-specific needs \u2014 a coverage-capable ILB for the pattern-matching zone and a physical, versatile CB for the zone-heavy secondary.\n\nLooking ahead to 2026, the Saints' biggest scheme-driven draft priorities are pass-catching weapons (WR/TE) to support Shough's development in Moore's distribution-based offense, and EDGE rushers who can play the stand-up 3-4 OLB role in Staley's defense. The Saints allowed only 1,603 rushing yards while being strong against the run (3.7 YPC against), but generated only 49 sacks \u2014 suggesting the edge rush needs more explosive talent. Moore's offense also needs more receiving talent beyond Olave to take full advantage of the scheme's ability to distribute targets.\n\nThe biggest value differentials this scheme creates: (1) Zone-coverage CBs who can press \u2014 undervalued by man-heavy teams but premium for Staley. (2) Versatile hybrid safeties who can play the Star \u2014 most teams want a pure FS or SS, but Staley's system makes the hybrid a star. (3) Athletic, zone-blocking OL \u2014 Moore's scheme demands movers, not maulers, creating value in prospects other teams see as 'too light.' (4) Receiving TEs who can block \u2014 Moore's dual-role TE demand means prospects who only catch or only block have less value than those who do both.\n\nThe coaching staff's familiarity is a significant factor: Moore, Nussmeier, and Staley worked together with the 2023 Chargers, meaning the offensive and defensive systems are designed to complement each other. Staley's zone-heavy defense pairs with Moore's ball-control offense to limit opponent possessions and protect leads. This synergy means the Saints will prioritize players who execute their specific roles within the system over raw talent that doesn't fit the scheme.",
   "confidence": "high",
   "sources": [
-    "neworleanssaints.com/team/coaches-roster (official team site, coaching bios)",
-    "nola.com \u2014 Jeff Duncan: 'The 3-4 defense is back. Brandon Staley tells us what to expect' (June 2025)",
-    "louisianasports.net \u2014 Saints personnel groupings analysis (July/Sept/Nov 2025)",
-    "louisianasports.net \u2014 Three biggest positions of need for Staley's defense (Feb 2025)",
-    "pro-football-reference.com \u2014 2025 Saints season page (Defensive Alignment: 3-4, Offensive Scheme: Air Coryell)",
-    "pff.com \u2014 'Multiple and Aggressive: How Brandon Staley will fit the Chargers personnel into his scheme' (Feb 2021)",
-    "theringer.com \u2014 'Kellen Moore and the Cowboys Are Proving You Don't Need One System to Win' (Nov 2021)",
-    "bleedinggreennation.com \u2014 Kellen Moore scheme analysis (Feb 2024)",
-    "pff.com \u2014 Alvin Kamara 2025 player profile (May 2025)",
-    "footballguys.com \u2014 'Reading the New Defense: New Orleans Saints' (2025)",
-    "chargers.com \u2014 Derwin James Star/Money role under Staley (Aug 2022)",
-    "Wikipedia \u2014 Kellen Moore, Brandon Staley, Doug Nussmeier entries"
+    "NewOrleansSaints.com official coaching profiles and team news",
+    "NFL.com Saints 2025 season statistics",
+    "Wikipedia: Brandon Staley, Doug Nussmeier, Tyler Shough, Klint Kubiak",
+    "The Ringer: Kellen Moore Cowboys offense analysis (2021)",
+    "Sharp Football Analysis: Fangio/Staley two-high safety scheme (2021)",
+    "PFF: Fangio coaching tree analysis (2021), Saints 2025 draft breakdown",
+    "Bleeding Green Nation: Kellen Moore scheme analysis (2024)",
+    "NOLA.com / Times-Picayune: Staley 3-4 defense preview (Jeff Duncan, June 2025)",
+    "LouisianaSports.net: Saints defensive coverage shifts under Staley (August 2025)",
+    "SI.com: Kellen Moore Eagles offense analysis (2024-25)",
+    "ESPN: Tyler Shough Saints QB commitment (January 2026), Saints coaching staff",
+    "Canal Street Chronicles: Doug Nussmeier profile (February 2025)",
+    "The Read Optional: Book of Fangio scheme analysis",
+    "Joseph Ferraiola Substack: Brandon Staley scheme study",
+    "Pro Football Network: Kellen Moore Chargers offense change",
+    "WhoDAT Dish: Brandon Staley pass rush scheme analysis (July 2025)",
+    "Footballguys: Reading the New Defense - Saints 2025",
+    "The Devy Royale: Kellen Moore scheme changes fantasy impact (May 2025)",
+    "NBC Sports Philadelphia: Kellen Moore offense glimpse (August 2024)"
   ]
 }

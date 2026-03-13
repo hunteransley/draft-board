@@ -6,73 +6,754 @@
       "name": "Kyle Shanahan",
       "tenure_years": 9,
       "background": "offensive",
-      "scheme_philosophy": "Wide zone run game married to play-action passing; positionless offensive versatility through heavy personnel groupings (21/12) with formational manipulation and pre-snap motion"
+      "coaching_tree": "Mike Shanahan / Alex Gibbs tree \u2192 Denver zone-blocking lineage \u2192 Atlanta OC \u2192 SF HC. Son of Mike Shanahan, learned wide zone scheme from father and Alex Gibbs. Refined system as OC in Houston, Washington, Cleveland, and Atlanta before becoming HC.",
+      "scheme_philosophy": "Shanahan's offense is built on wide zone runs, play-action boots, pre-snap motion to diagnose coverage, and formational versatility using multi-back personnel. He calls his own plays and sequences concepts to put defenders in run/pass binds. The offense has evolved significantly \u2014 less reliant on pure play-action than early years, more gap scheme and condensed formations. Personnel versatility is the hallmark: any skill player can line up anywhere."
     },
     "offensive_coordinator": {
       "name": "Klay Kubiak",
-      "scheme_tree": "Shanahan/Kubiak wide zone (son of Gary Kubiak, raised in the system)",
-      "play_caller": false
+      "coaching_tree": "Gary Kubiak's son (Shanahan coaching family). Grew up around Shanahan system. Joined 49ers in 2021 as defensive QC, moved to assistant QBs (2022-23), passing game specialist (2024), promoted to OC in January 2025. Shanahan retains play-calling.",
+      "scheme_evolution": "Kubiak has been immersed in the Shanahan system his entire life via his father Gary and learned it firsthand under Kyle in San Francisco. His promotion is a continuity hire \u2014 no scheme change expected. He contributed to Brock Purdy's development and helped direct the NFL's 4th-ranked passing offense in 2024 (249.1 yards/game).",
+      "development_track_record": "Helped develop Brock Purdy from Mr. Irrelevant to franchise QB \u2014 Purdy set 49ers single-season records for passing yards (4,280) and passer rating (113.0) in 2023. Contributed to Jauan Jennings' career year in 2024 and George Kittle's consistent All-Pro production."
     },
     "defensive_coordinator": {
       "name": "Raheem Morris",
-      "scheme_tree": "Tampa-2 roots (Buccaneers under Gruden/Kiffin), evolved to multiple front 3-4/odd front (Rams DC 2021-23, Falcons HC 2024-25); Vic Fangio-adjacent with heavy blitz evolution",
-      "play_caller": true
+      "coaching_tree": "Tampa Bay Buccaneers Monte Kiffin Tampa-2 tree \u2192 adapted to Vic Fangio-influenced scheme at Rams under McVay \u2192 evolved further with increased blitz aggressiveness in Atlanta. Long relationship with Shanahan dating to Tampa Bay (2004-05), Washington (2012), and Atlanta (2015-16). Has coached both sides of the ball (WRs, secondary, DC, HC).",
+      "scheme_evolution": "Morris's defensive identity has evolved dramatically. Started in Tampa-2 under Kiffin with Bucs. At Rams (2021-23), inherited Fangio-influenced quarters/two-high scheme from Staley, kept the DNA but mixed in more Cover 2/Cover 3 looks and simulated pressures. In Atlanta (2024-25), ran 3-4 base with Tite fronts, Cover 3/Cover 6 heavy, and dramatically increased blitz rate (42.4% in 2025, second-highest in NFL). Morris adapts to personnel \u2014 his defenses prioritize stopping the run with gap-and-a-half technique, use heavy stunts, and manufacture pressure through scheme when edge talent is lacking.",
+      "development_track_record": "At Rams, developed low-pedigree defenders into productive starters (Michael Hoecht, Christian Rozeboom, Byron Young). In Atlanta, Jessie Bates earned Second-Team All-Pro under Morris's scheme. Strong at maximizing what players do best rather than forcing them into rigid roles. Drafted 3 defensive tackles across Falcons and Rams tenures \u2014 values DL investment."
     }
   },
   "offense": {
-    "scheme_family": "Shanahan wide zone / West Coast hybrid",
-    "base_personnel": "21 (2 RB/FB, 1 TE) and 12 (1 RB, 2 TE)",
-    "run_scheme": "outside zone / wide zone primary, gap/power/counter as complements, zone read wrinkles",
-    "pass_concepts": "play action off wide zone (boot, nakeds, deep crossers), intermediate attacking concepts, condensed formations creating mismatches; Shanahan has evolved toward more dropback passing with Purdy while retaining play-action foundation",
-    "rpo_usage": "low-to-moderate; Shanahan relies more on traditional play-action than RPOs",
-    "te_usage": "elite receiving weapon AND inline blocker; Kittle used as move TE, flexed to slot, runs full route tree; TE is central to the offense operating from 12 and 21 personnel as a matchup nightmare",
-    "rb_usage": "true dual-threat bell cow; McCaffrey lines up at WR, runs routes from backfield, bumper motion to create empty formations; 102 receptions in 2025; Juszczyk at FB is a core piece enabling 21 personnel dominance"
+    "scheme_family": "Shanahan System (Mike Shanahan/Alex Gibbs wide zone lineage, evolved)",
+    "scheme_detail": "Kyle Shanahan's offense is NOT the West Coast Offense \u2014 he has explicitly said so. It descends from Mike Shanahan and Alex Gibbs's Denver zone-blocking scheme merged with play-action passing concepts. The 2025-26 version has evolved beyond pure wide zone and bootleg: Shanahan now uses approximately 50% zone runs and 35% gap/power concepts, with heavy emphasis on formational manipulation, pre-snap motion to diagnose man/zone, and play sequencing that puts defenders in conflict. The offense derives its advantage from versatile skill players who can line up anywhere \u2014 McCaffrey in the slot, Kittle as a WR, Juszczyk as a lead blocker or receiver \u2014 making personnel groupings unpredictable despite using heavier packages than most teams.",
+    "run_scheme": "Wide/outside zone remains the foundation but has diversified significantly. Primary: outside zone with multiple tags (Wanda, Wizz, Weezy variants). Secondary: inside zone, gap/power concepts (trap, counter, duo). Shanahan uses more pulling linemen than his father did. The run game is built to stretch defenses horizontally, create cutback lanes, and set up play-action. Requires athletic OL who can move laterally and reach-block, not just phone-booth maulers.",
+    "pass_architecture": "Play-action bootlegs remain in the playbook but are less frequent than in earlier Shanahan iterations. The passing game now features more dropback concepts, quick game (hitch, slant, sail), and intermediate crossers/digs. Purdy excels at anticipation throws in the middle of the field. Play sequencing is key \u2014 same personnel, same formation, different play. Deep shots come off play-action and boot concepts. Low RPO usage. Shanahan schemes receivers open through formation and motion rather than asking them to win in isolation.",
+    "personnel_tendencies": "Shanahan's offense leads the NFL in 21 personnel usage (2 backs, 1 TE) \u2014 approximately 37% of snaps, far above league average. This is the signature grouping: McCaffrey + Juszczyk + Kittle + 2 WRs. Also uses 12 personnel (1 RB, 2 TE) at meaningful rates. Among the lowest 11 personnel usage in the NFL. The fullback (Juszczyk) is integral \u2014 not just a lead blocker but a receiver, decoy, and formation chess piece. Heavy reliance on versatile skill players who can align at multiple positions.",
+    "motion_tempo": "NFL-leading motion usage. The 49ers run pre-snap motion at an exceptionally high rate and are the most effective team in the NFL when doing so, particularly in the run game. Motion serves dual purposes: diagnoses coverage (man defenders follow, zone defenders stay) and creates leverage advantages at the point of attack. Standard tempo \u2014 not a hurry-up team. Ball-control philosophy that values efficiency and field position."
   },
   "defense": {
-    "base_front": "multiple / transitioning to 3-4 odd front under Morris",
-    "alignment": "odd front (3-down linemen with stand-up OLBs in base), but will use multiple looks including 4-2-5 nickel; Morris ran 3-4 base with Rams and tite fronts with five-man front concepts; expects significant evolution from Saleh's 4-3 Wide-9",
-    "edge_rush_source": "primarily hands-in-dirt DE (Bosa) but Morris's scheme allows stand-up OLBs on the edge as well; Dee Winters already used as edge adjuster 78 times in 2025; expect hybrid edge/LB usage under Morris",
-    "coverage_base": "Cover 3 / Cover 6 primary with quarters sprinkled in; Morris ran Cover 3 at 5th-highest rate and Cover 6 at 3rd-highest rate in Atlanta; zone-heavy with simulated pressures; significantly more blitz-oriented than prior Saleh defense",
-    "blitz_tendency": "heavy (Morris ran 42.4% blitz rate early in Atlanta 2025, finished with 7th-highest blitz rate on passing downs; 49ers under Saleh blitzed only 15% in 2025 \u2014 expect dramatic increase under Morris)",
-    "lb_role": "Fred Warner is elite coverage/run hybrid WILL LB; scheme under Morris will ask LBs to be versatile \u2014 coverage, blitz, and run-fit; Dee Winters showed edge-rushing capability (78 snaps on edge); Morris values LBs who can blitz from multiple alignments",
-    "safety_usage": "high versatility demanded; Mustapha used as box/hybrid safety with downhill thump and slot coverage ability; Sigle emerged as box safety; Morris historically uses safeties in versatile roles (Jessie Bates played more box in Atlanta than any prior season); expect safety-as-LB/blitzer packages under Morris"
+    "scheme_family": "Multiple 3-4 odd front (Tampa-2 roots blended with Fangio-adjacent two-high principles, evolved with aggressive blitz tendencies)",
+    "scheme_detail": "Morris brings a fundamentally different defensive philosophy than the Wide-9 four-down front the 49ers ran under Saleh. Morris's base is an odd front (3-4) with Tite alignments \u2014 both DTs at 4i technique with the nose head-up over center. This crowds the interior gaps and forces runs to bounce outside. In sub-packages (which dominate modern NFL snap counts), he shifts to four-down looks. Morris's coverage philosophy centers on Cover 3 and Cover 6, with quarters sprinkled in \u2014 NOT the heavy single-high/Cover 1 that Saleh ran. Morris ran man coverage at the third-lowest rate in the NFL in Atlanta (2025). The biggest schematic shift will be aggression: Morris's 2025 Falcons blitzed at a 42.4% rate (second in NFL), a dramatic departure from the Fangio-tree bend-don't-break approach. He uses heavy stunts on running downs and simulated pressures that disguise where rushers are coming from.",
+    "front_structure": "3-4 odd front with Tite alignments as the base. Three interior DL (nose at 0-tech, two DTs at 4i) with two stand-up OLBs as edge rushers in base. However, Bosa prefers hand-in-dirt and Morris has stated he won't force Bosa to stand up. On passing downs, shifts to four-down looks with Bosa and Williams/second EDGE on the edges, Odighizuwa sliding to 3-tech. Uses 'Penny' fronts where a linebacker (Dee Winters) walks down to the edge. DL plays gap-and-a-half technique \u2014 not pure single-gap or two-gap, but controlled aggression where linemen play their primary gap and can fall back to a secondary gap.",
+    "coverage_philosophy": "Zone-dominant. Cover 3 and Cover 6 are the primary coverages (Falcons ran Cover 3 at 5th-highest rate, Cover 6 at 3rd-highest in 2025). Two-high safety shells are used to disguise coverage pre-snap before rotating into single-high post-snap. Man coverage usage is among the lowest in the NFL under Morris. Corners play in coverage silos (aligned to a side rather than shadowing) \u2014 though Morris used A.J. Terrell as a shadow CB in Atlanta, suggesting he may deploy a top corner that way if the talent is there. The zone-heavy approach reduces the need for lockdown man corners but demands CBs who can play disciplined zone and break on the ball.",
+    "pressure_philosophy": "Aggressively blitz-heavy \u2014 a dramatic shift from the 49ers' recent past. Morris's 2025 Falcons had the 7th-highest blitz rate on passing downs and 2nd-highest stunt rate on running downs. Simulated pressures are a Morris hallmark: edge rushers drop into flat/hook zones while LBs or DBs blitz from unexpected angles. This scheme demands versatile defenders \u2014 EDGE players who can drop into coverage, LBs who can rush the passer, and safeties who are comfortable in the box. Morris also uses heavy DL stunts (6th-highest rate at Rams in 2023) to create interior pressure without blitzing.",
+    "sub_packages": "Nickel (4-2-5) is the primary sub-package given the modern NFL's pass-heavy tendencies. The Tite front shifts to a four-down look in sub. Morris values safety versatility \u2014 Jessie Bates was used in the box more than any prior season under Morris in Atlanta. The scheme demands a safety who can play deep center field AND come down into the box as an extra defender. Morris has historically drafted/targeted safeties who can do both \u2014 this is a critical need for the 2026 49ers."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "The Shanahan offense is the premier TE-as-weapon system in the NFL. George Kittle earned PFF's position-best 91.0 receiving grade in 2025 running routes from inline, slot, and flexed alignments. The 49ers run heavy 12 and 21 personnel where the TE is one of three primary pass-catchers alongside the RB and one WR. Any TE with elite receiving traits (route running, hands, YAC, speed) functions as a de facto WR2 in this offense. Kittle is 32 and suffered an Achilles tear in the 2025 playoffs \u2014 SF has clear succession need. A receiving TE drafted here gets immediate scheme-amplified value."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "Shanahan's QBs operate within a highly structured system that schemes open receivers through formation, motion, and play sequencing. The QB reads coverage pre-snap via motion tells, executes timing-based throws to predetermined progressions, and must be decisive with the football. The bootleg game requires some mobility, but this is primarily a pocket-passing system where the QB gets the ball out quickly to receivers who are schemed open. The QB also carries out convincing play-action fakes on bootlegs.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Shanahan's system doesn't require a cannon \u2014 most throws are short-to-intermediate timing routes and bootleg concepts. However, enough arm is needed to hit deep shots off play-action and throw with velocity on intermediate crossers. Purdy's arm is average and the system thrives."
+        },
+        "Accuracy": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The single most important trait. Shanahan's offense requires anticipation throws into tight windows on timing routes \u2014 slants, digs, crossers. The ball must arrive before the break. Purdy, Garoppolo, and Matt Ryan all succeeded here through accuracy, not arm talent."
+        },
+        "Pocket Presence": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "With Shanahan's boot/rollout concepts, the pocket is often moving. The QB must navigate the pocket with poise, climb when edges collapse, and feel pressure without panicking. The OL is built for zone blocking, not pure pass protection, so clean pockets aren't guaranteed."
+        },
+        "Mobility": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Higher than a traditional pocket system because bootlegs, nakeds, and waggles require the QB to move laterally and throw on the run. Not a run-first system, but mobility creates the play-action/boot threat that makes the offense go. RG3 and Purdy both used mobility differently but effectively."
+        },
+        "Decision Making": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Shanahan's play sequencing creates easy reads when executed, but the QB must process pre-snap motion tells quickly, identify the coverage, and get through progressions decisively. Holding the ball too long kills this timing-based system."
+        },
+        "Leadership": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "The system is coach-driven \u2014 Shanahan calls plays and the scheme creates advantages. Leadership matters for any QB but is less of a differentiator in a system where the HC controls game planning and personnel."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Pre-snap motion gives the QB a free read on man vs zone, but the QB must then translate that information into the correct adjustment. Shanahan's offense builds in pre-snap reads, but the system helps the QB rather than demanding elite independent processing."
+        }
+      },
+      "ideal_archetype": "The ideal Shanahan QB is an accurate, decisive pocket passer with enough mobility to execute boots and waggles convincingly. He processes pre-snap motion reads, throws with anticipation to timing routes, and delivers the ball accurately at all three levels of the field. He doesn't need to be a running QB, but he must be able to move in the pocket and throw on the run off play-action. Think Brock Purdy, Kirk Cousins in his prime, or Matt Ryan in 2016 \u2014 QBs who thrive when the scheme creates easy reads and reward decisiveness.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4",
+          "floor": "5-11",
+          "reasoning": "Height matters less in Shanahan's system because the QB is often rolling out or throwing from designed platforms rather than standing tall in a phone booth pocket. Purdy at 6-1 is the archetype."
+        },
+        "weight": {
+          "ideal": "210-230",
+          "floor": "200",
+          "reasoning": "Needs to be durable enough to absorb contact on designed runs and boots, but doesn't need to be a tank."
+        },
+        "40_yard_dash": {
+          "ideal": "4.65-4.85",
+          "floor": "4.95",
+          "reasoning": "Enough speed to execute bootlegs and escape the pocket, but 4.4 speed is not required. This is not a designed-QB-run system."
+        }
+      },
+      "development_context": "Shanahan's system is one of the NFL's best at developing QBs \u2014 the scheme creates easy reads and short throws that allow QBs to build confidence. Purdy's development from a 7th-round pick to a franchise QB is the ultimate example. The staff can develop accuracy, timing, and pocket mechanics. What must arrive: adequate arm strength and the processing speed to read pre-snap motion tells. You cannot teach arm strength or natural quickness in the pocket.",
+      "scheme_fit_narrative": "This scheme wants a QB who can hit timing routes with anticipation, read motion diagnostics pre-snap, and move well enough to sell play-action boots. We're not looking for a gunslinger or a dual-threat runner \u2014 we need a point guard who distributes the ball to playmakers on schedule. The system will make the QB better than his raw talent suggests, so we're prioritizing accuracy and decision-making over physical tools.",
+      "archetype_examples": [
+        "Brock Purdy",
+        "Kirk Cousins (2017-2019)",
+        "Matt Ryan (2016)"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "medium-high",
-      "explanation": "Morris's transition to a 3-4/odd front with heavy blitz packages (42%+ blitz rate in Atlanta) creates significant value for LBs with pass-rush traits. Dee Winters already rushed from the edge 78 times in 2025 under Saleh. Morris's scheme features simulated pressures where LBs blitz while edge rushers drop \u2014 requiring LBs who can win one-on-one as rushers. His Rams scheme explicitly used OLBs as edge rushers capable of coverage (per Mark Bullock analysis). Not a pure 3-4 OLB-as-EDGE system like Pittsburgh, but the blitz-heavy approach and hybrid fronts create clear value for pass-rushing LB archetypes."
+    "RB": {
+      "scheme_role": "The RB in Shanahan's offense is a true three-down weapon: primary ball carrier on zone runs, pass-catcher out of the backfield (60+ catches expected from the lead back), and must be able to pass protect. The RB lines up in the backfield, in the slot, and out wide. Christian McCaffrey's 102 catches and 1,202 rushing yards in 2025 illustrate the ideal. The RB must read zone-blocking cutback lanes on wide zone, catch the ball like a receiver, and be a consistent threat in all situations.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Wide zone demands elite vision to read blocks developing in real time, identify cutback lanes, and press the hole before cutting back. The system creates lanes, but the RB must find them. This is the most important trait in a zone scheme."
+        },
+        "Contact Balance": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Zone runs often require navigating traffic near the line of scrimmage. Contact balance helps, but the scheme is designed to get RBs into space rather than asking them to run through piles."
+        },
+        "Power": {
+          "weight": 0.05,
+          "importance": "low",
+          "reasoning": "Shanahan's zone scheme values lateral agility and speed over power. Gap concepts are mixed in, but the primary scheme doesn't ask the RB to bulldoze defenders at the point of attack."
+        },
+        "Elusiveness": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The scheme gets RBs into the second level where they must make defenders miss in space. McCaffrey and Raheem Mostert both thrived through elusiveness and open-field agility."
+        },
+        "Speed": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Wide zone stretches the defense horizontally \u2014 the RB must be fast enough to get to the edge and threaten the perimeter. Speed also creates explosive plays when the RB hits the cutback lane clean. Mostert and Jeff Wilson showed what speed means in this scheme."
+        },
+        "Pass Catching": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "McCaffrey caught 102 passes in 2025. Shanahan's offense demands a RB who can run a full route tree from the slot and backfield, not just checkdown catches. The RB is a primary pass game weapon. Pass catching is co-equal with vision as the defining trait."
+        },
+        "Pass Protection": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "With bootleg concepts and play-action, pass protection demands are somewhat reduced for the RB. But the RB must be able to pick up blitzes on dropback downs to stay on the field in passing situations."
+        }
+      },
+      "ideal_archetype": "The ideal Shanahan RB is a versatile, speed-based runner with elite pass-catching ability and the vision to read zone blocks. He must be a legitimate receiver who can line up in the slot, run routes, and catch 50+ balls while also handling a full rushing workload. Think Christian McCaffrey \u2014 the perfect embodiment of this role \u2014 or a player like Alvin Kamara, who combines zone-running vision with receiving dominance.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "4.40-4.55",
+          "floor": "4.60",
+          "reasoning": "Wide zone requires speed to hit the perimeter. Shanahan has consistently targeted speed backs \u2014 Mostert (4.32), Breida (4.39), even McCaffrey (4.48). Sub-4.6 is essential."
+        },
+        "weight": {
+          "ideal": "195-215",
+          "floor": "185",
+          "reasoning": "Needs to be durable enough for a 250+ touch workload but not so heavy that lateral agility suffers. McCaffrey at 205 is the sweet spot."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.15",
+          "floor": "4.25",
+          "reasoning": "Lateral quickness is critical for zone reads and cutbacks. The short shuttle measures the change-of-direction ability that separates good zone runners from great ones."
+        }
+      },
+      "development_context": "Shanahan's staff can develop vision and zone-running technique \u2014 the system teaches cutback discipline. Pass protection can be coached. What must arrive: speed, receiving ability, and natural elusiveness. You cannot teach a slow runner to be fast, and you cannot transform a non-receiver into a 70-catch back at the NFL level. Anthony Lynn's presence on staff adds RB development expertise.",
+      "scheme_fit_narrative": "We need a running back who is basically a receiver who also runs the ball. This offense asks the RB to catch 60 balls, run routes from the slot, and still be the primary ball carrier on zone runs. Speed to hit the edge on wide zone is non-negotiable. If a prospect can't catch or doesn't have the speed to stretch a defense horizontally, he doesn't fit here.",
+      "archetype_examples": [
+        "Christian McCaffrey",
+        "Alvin Kamara",
+        "Raheem Mostert"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "high",
-      "explanation": "This is the highest RB receiving-value offense in the NFL. McCaffrey led all RBs with a 91.7 PFF receiving grade, 102 receptions, and 924 receiving yards in 2025. He lines up at WR, runs option routes on LBs, and uses 'bumper' motion to create empty formations from 21 personnel. Shanahan has built his offense around a back who functions as a slot receiver. McCaffrey turns 30 in June 2026 \u2014 any RB with elite hands, route-running, and pass-protection traits receives maximum scheme amplification here."
+    "WR": {
+      "scheme_role": "Shanahan's WRs are asked to be versatile chess pieces, not just route runners. The X receiver is the primary outside target who must win contested catches and provide a downfield threat. The Z/slot receiver must be dynamic after the catch, able to take jet sweeps, and line up in the backfield. Motion is constant \u2014 WRs must align in multiple spots and know the full route tree. The system creates open receivers through scheme, so contested-catch ability matters at X but route-running precision matters everywhere. With Mike Evans signing as the X, the 49ers need their drafted WRs to provide speed, versatility, and YAC ability.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Shanahan's timing-based passing game requires precise route running to hit landmarks and windows. The system creates space through design, but receivers must be disciplined in their stems and breaks for the timing to work."
+        },
+        "Separation": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Important but somewhat mitigated by scheme \u2014 Shanahan creates separation through motion, formation, and play design. 46.4% of Purdy's passes go to 'open' receivers (5th in NFL). Separation is valuable but the scheme provides it more than most systems."
+        },
+        "Hands": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "In a timing-based offense, drops kill drives. Reliable hands are critical because the ball arrives quickly on anticipation throws. Jennings and Kittle have thrived through dependable hands."
+        },
+        "YAC Ability": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "This is THE defining trait for Shanahan WRs. The scheme gets the ball to receivers quickly with space to work \u2014 the receiver must generate yards after catch. Deebo Samuel's entire value is YAC. Shanahan has consistently prioritized YAC monsters over deep threats."
+        },
+        "Speed": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The 49ers were the 9th slowest team in average WR speed in 2025. Speed is a clear need \u2014 wide zone demands that the perimeter threat is real, and deep shots off play-action need receivers who can get behind the defense. The draft should address this."
+        },
+        "Contested Catches": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "With Mike Evans as the X, contested catch ability is covered by the veteran. Drafted WRs are more likely to be Z/slot players where YAC and speed matter more. But the X receiver role does demand it."
+        },
+        "Release Package": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Zone coverage is prevalent in the NFC West, reducing the need for press releases compared to an offense playing man-heavy opponents weekly. But clean releases help on timing routes."
+        }
+      },
+      "ideal_archetype": "The ideal Shanahan WR is a versatile, YAC-first weapon who can align inside or outside, take jet sweeps, and create explosive plays after the catch. He's not just a route runner \u2014 he's a playmaker with the ball in his hands. Deebo Samuel was the archetype: a receiver who could line up as a running back and create mismatches through versatility and physicality. The current need adds a speed element \u2014 a receiver who combines 4.3 speed with after-catch ability and the ability to take the top off the defense.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "The 49ers desperately need speed. Their 2025 WR group was among the slowest in the NFL. Wide zone and play-action boot concepts need a vertical threat to keep defenses honest."
+        },
+        "weight": {
+          "ideal": "190-220",
+          "floor": "180",
+          "reasoning": "Shanahan historically values bigger, more physical receivers who can take jet sweeps and absorb contact (Samuel at 215, Jennings at 210). Evans at 231 is the extreme. Slight speedsters have not been the preference."
+        },
+        "height": {
+          "ideal": "5-11 to 6-3",
+          "floor": "5-10",
+          "reasoning": "Shanahan has used a range of sizes \u2014 from Deebo's 5-11 to Evans' 6-5. The scheme doesn't require a specific height, but the X role demands bigger frames while the Z/slot can be more varied."
+        }
+      },
+      "development_context": "Leonard Hankerson's WR development track record is strong \u2014 his unit ranked 1st in yards per reception, 7th in total receiving yards over 2022-24. The staff developed Jennings from a late-round pick into a 77-catch weapon. Route technique and spatial awareness within the system can be taught. What must arrive: speed (can't be developed), natural ball skills, and after-catch instincts.",
+      "scheme_fit_narrative": "Forget pure route runners who win in isolation. This offense wants playmakers who do damage after the catch. We need a receiver who can take a quick slant 60 yards, run a jet sweep for 15, and occasionally beat you deep off play-action. Versatility to line up anywhere is a huge plus \u2014 if a WR can only play one alignment, his value is limited in this system.",
+      "archetype_examples": [
+        "Deebo Samuel",
+        "Tyreek Hill (for speed element)",
+        "Amon-Ra St. Brown (for YAC)"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "Morris's scheme demands extreme safety versatility. In Atlanta, Jessie Bates played more box snaps than any season in his career. The 49ers already deployed Mustapha and Sigle as box/hybrid safeties under Saleh's big-nickel package. Morris blitzes safeties, uses them in slot coverage, and requires them to trigger downhill as run defenders. Mustapha exemplifies the archetype \u2014 box thumper with slot coverage ability and blitz capability. Morris's 42%+ blitz rate creates frequent safety blitz packages. Any safety with tackling, blitz ability, man coverage, and versatility gets a significant scheme boost."
+    "TE": {
+      "scheme_role": "The TE in Shanahan's offense is a true hybrid weapon \u2014 George Kittle is the archetype. The TE must be a dominant in-line blocker for wide zone runs AND a dynamic receiving threat who runs a full route tree. Shanahan uses 12 and 21 personnel at high rates, so the TE is on the field for a majority of snaps. The TE flexes into the slot, runs seam routes, crosses, and wheels. Kittle's 78 catches and 1,106 yards in 2024 show the receiving expectation. But the blocking is non-negotiable \u2014 the wide zone run game requires the TE to seal edge defenders and climb to the second level.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Kittle's role as the team's leading receiver demonstrates how central receiving is to the TE position in this scheme. The TE is a primary target in the passing game, not an afterthought."
+        },
+        "Route Running": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Shanahan runs TEs on a full route tree \u2014 seams, crosses, wheel routes, option routes. The TE must be a legitimate route runner, not just a big body running seams."
+        },
+        "Blocking": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The MOST important trait because of the volume of wide zone runs this offense runs and the frequency of 12/21 personnel. If the TE can't block, the run game suffers on every snap he's on the field. Kittle is the NFL's best blocking TE and that is foundational to the scheme."
+        },
+        "Athleticism": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The scheme asks TEs to reach-block on zone runs, get downfield as a receiver, and create mismatches against linebackers. Athletic testing (speed, agility) directly correlates to TE effectiveness in this system."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Reliable hands matter because the TE is a primary passing target on intermediate routes. Drops in the middle of the field are drive-killers in a timing offense."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Speed helps create mismatches and generate YAC, but is secondary to blocking and overall athleticism. Kittle's speed (4.52 at combine) helps but isn't the defining trait."
+        }
+      },
+      "ideal_archetype": "George Kittle is literally the archetype \u2014 a complete TE who dominates as both a blocker and receiver. The ideal prospect is an elite athlete who can seal edge defenders on wide zone, release into routes and create mismatches against LBs and safeties, and generate YAC after the catch. He must be a willing, physical blocker first and a dynamic receiver second. Think Kittle or a player like Mark Andrews before injuries \u2014 TEs who are genuine receiving threats but also embrace the blocking demands.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Speed is important for creating mismatches in the passing game and for reaching the second level on zone blocks. Kittle ran 4.52. Sub-4.7 strongly preferred."
+        },
+        "weight": {
+          "ideal": "240-260",
+          "floor": "230",
+          "reasoning": "Must be heavy enough to sustain blocks against defensive ends on in-line zone runs. Undersized TEs get blown off the ball and the run game suffers."
+        },
+        "broad_jump": {
+          "ideal": "120+ inches",
+          "floor": "115 inches",
+          "reasoning": "Explosive athleticism matters for the dual-threat nature of the position. Broad jump correlates with blocking power and receiving explosiveness."
+        }
+      },
+      "development_context": "The 49ers have developed Kittle into the best TE in football, but much of that is innate talent. With Kittle recovering from an Achilles injury for 2026, TE depth is critical. Brian Fleury was the TE coach/run game coordinator before leaving for Seattle. The new staff can develop blocking technique \u2014 Shanahan's scheme teaches TE blocking assignments rigorously. Receiving skills are harder to develop. A TE who arrives as a blocker with raw receiving upside fits better than a pure receiver who can't block, because blocking can't be faked in this system.",
+      "scheme_fit_narrative": "Don't bring us a big receiver who plays tight end. We need a tight end who can put his hand in the dirt and seal a defensive end on wide zone, then release into a route and beat a linebacker down the seam. The blocking has to be there Day 1 \u2014 Shanahan won't play a TE who can't block, no matter how talented he is as a receiver. But if you can block AND catch, you'll see 70+ targets in this offense.",
+      "archetype_examples": [
+        "George Kittle",
+        "Dallas Goedert",
+        "T.J. Hockenson"
+      ]
+    },
+    "OT": {
+      "scheme_role": "Shanahan's zone-blocking scheme demands OTs who are athletic, lateral movers capable of reach-blocking defensive ends and climbing to the second level on zone runs. The OT must get horizontal displacement on the first step and sustain blocks through the play. In pass protection, the OT must handle speed rushers off the edge and redirect in a half-slide protection system. Trent Williams has been the prototype \u2014 elite athlete at OT who can run-block like a guard and pass-protect against elite edge rushers.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Protecting Purdy is critical, but pass protection shares importance with run blocking because Shanahan's offense is balanced. The boot/rollout game reduces some pass protection demands."
+        },
+        "Run Blocking": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "THE defining trait for Shanahan OTs. Wide zone demands that OTs get lateral movement, reach-block, and sustain blocks at the second level. If an OT can't execute zone-blocking assignments, the entire run scheme breaks down."
+        },
+        "Footwork": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Zone blocking is all about footwork \u2014 lateral steps, redirects, and sustained movement. The OT must have quick, precise feet to execute reach blocks and pass-set against speed."
+        },
+        "Anchor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Important on passing downs against power rushers, but less critical than in a pure dropback system. Shanahan's OTs spend more time moving laterally than sitting in the pocket."
+        },
+        "Athleticism": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Shanahan specifically targets athletic OTs \u2014 Williams is the prototype with his combine numbers at 320+ pounds. The zone scheme requires getting to the second level, pulling, and reaching edge defenders. Stiff, phone-booth tackles kill this scheme."
+        },
+        "Strength": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "Raw strength is secondary to athleticism and technique in this system. The scheme doesn't ask OTs to overpower defenders at the point of attack \u2014 it asks them to move and sustain."
+        }
+      },
+      "ideal_archetype": "Trent Williams is the gold standard \u2014 an elite athlete at 320+ pounds with the lateral agility to reach-block and the pass protection technique to shut down elite edge rushers. The ideal prospect has exceptional feet, long arms, and the athleticism to move in space. He must be able to pull, climb to the second level, and adjust to moving targets on zone concepts. Think Williams or a player like Penei Sewell \u2014 athletic freaks who can dominate in a zone-based run game.",
+      "measurable_preferences": {
+        "short_shuttle": {
+          "ideal": "sub-4.65",
+          "floor": "4.75",
+          "reasoning": "Short shuttle directly measures the lateral agility required for zone reach blocks. Shanahan's staff has historically valued this drill for OL evaluation."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-5.10",
+          "floor": "5.20",
+          "reasoning": "Speed for an OT correlates with the ability to get to the second level and sustain blocks in space. Shanahan targets athletic OTs who can move."
+        },
+        "arm_length": {
+          "ideal": "34+ inches",
+          "floor": "33 inches",
+          "reasoning": "Arm length helps with reach-blocking and maintaining leverage against edge rushers. Standard OT requirement."
+        },
+        "weight": {
+          "ideal": "305-325",
+          "floor": "295",
+          "reasoning": "Must be heavy enough to sustain blocks but athletic enough to move laterally. Williams at 320 is the sweet spot. Overly heavy tackles who can't move are a poor fit."
+        }
+      },
+      "development_context": "Chris Foerster is one of the NFL's most experienced OL coaches with 30+ years of experience. He has been instrumental in maintaining Shanahan's zone-blocking standards. Joe Graves has worked closely with Trent Williams. The staff can develop zone-blocking technique \u2014 footwork, hand placement, sustaining movement. What must arrive: innate athleticism and foot quickness. You cannot teach a slow-footed tackle to execute zone blocks at the NFL level. Physical tools must be present; technique can be developed.",
+      "scheme_fit_narrative": "Forget big, mauling phone-booth tackles. We need athletes at tackle \u2014 guys who move like guards but with OT length. The zone scheme demands lateral movement on every run play, and if our tackles can't reach-block, the entire offense bogs down. Give us the freak athlete with raw technique over the polished player with limited feet.",
+      "archetype_examples": [
+        "Trent Williams",
+        "Penei Sewell",
+        "Lane Johnson"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior OL in Shanahan's scheme must be mobile, athletic blockers who can execute zone combinations and climb to the second level. Guards are asked to pull on gap/counter concepts (approximately 35% of runs) and sustain zone double-teams. The center must handle calls and adjustments at the line while being athletic enough to execute zone blocks. Zone-blocking IOL must move laterally, get to linebacker landmarks, and sustain blocks through the whistle. The 49ers need a starting LG for 2026 after losing Aaron Banks.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.14,
+          "importance": "moderate",
+          "reasoning": "Important but secondary to run blocking in this scheme. The boot/rollout game reduces interior pass protection demands somewhat, and the OL slides protection frequently."
+        },
+        "Run Blocking": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Zone-blocking technique is the foundation of the offense. IOL must execute double-teams, combo blocks, and sustain movement on DL. The entire offensive identity depends on effective run blocking."
+        },
+        "Pulling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Shanahan uses more gap/power concepts than his father \u2014 approximately 35% gap scheme runs. Guards must pull on traps, counters, and power plays. This demands athletes who can get around the corner and hit moving targets."
+        },
+        "Strength": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Needed to sustain zone double-teams and anchor in pass protection, but the scheme values movement and technique over raw power."
+        },
+        "Anchor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Interior pass protection requires solid anchor against bull rushes, but the scheme mitigates this with quick-game passing and rollouts."
+        },
+        "Versatility": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Shanahan's scheme asks IOL to play multiple positions. Guards play either side, and positional versatility increases roster flexibility. The 49ers have historically valued IOL who can play C and G interchangeably."
+        }
+      },
+      "ideal_archetype": "The ideal Shanahan IOL is a mobile, athletic blocker who can pull, reach-block, and get to the second level on zone concepts. He's not a 330-pound phone-booth player \u2014 he's 305-315 pounds with the agility to pull on counter plays and the technique to execute zone combinations. Think Zack Martin's mobility paired with a zone-blocking specialist's footwork. Or more precisely, Aaron Banks before he left \u2014 a mobile guard who fit the zone scheme perfectly.",
+      "measurable_preferences": {
+        "short_shuttle": {
+          "ideal": "sub-4.60",
+          "floor": "4.70",
+          "reasoning": "Lateral agility is essential for zone blocking and pulling. The short shuttle is the most predictive drill for IOL success in zone schemes."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-5.15",
+          "floor": "5.25",
+          "reasoning": "Speed translates to pulling ability and getting to the second level. Shanahan's IOL must be able to move."
+        },
+        "weight": {
+          "ideal": "300-320",
+          "floor": "290",
+          "reasoning": "Must be heavy enough to sustain blocks against NFL DTs but light enough to move laterally and pull effectively."
+        }
+      },
+      "development_context": "Foerster's OL coaching track record is excellent \u2014 the 49ers offensive line has consistently been among the best in the NFL under his watch, ranking 1st in yards per play and 3rd in yards per rush from 2022-24. The staff can develop zone-blocking technique. What must arrive: lateral agility, foot quickness, and the ability to pull. These are athletic traits that can't be taught. Technique and awareness can be developed.",
+      "scheme_fit_narrative": "We need guards who can move. Zone-blocking and pulling ability are the priorities \u2014 if a guard can execute combo blocks, get to the second level, and pull on counter plays, he fits. We're not looking for pure pass-protection specialists or run-stuffers. We need athletes who can play in space.",
+      "archetype_examples": [
+        "Aaron Banks",
+        "Quenton Nelson (for pulling)",
+        "Chris Lindstrom"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "Under Morris, the EDGE role shifts from the Wide-9 speed-rush specialist that Saleh deployed to a more versatile role. In base 3-4, the EDGE is a stand-up OLB who must set the edge in the run game and rush the passer. In sub-packages, he shifts to a hand-in-the-dirt alignment. Morris's simulated pressure packages require EDGE players who can occasionally drop into flat/hook coverage zones while LBs or DBs blitz from unexpected angles. Bosa remains the alpha EDGE \u2014 the scheme will be built around maximizing his pass rush. The second EDGE must be versatile enough to handle Morris's multiple fronts.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The 49ers finished LAST in the NFL in sacks (20) in 2025. Pass rush is the number one priority. Morris's scheme generates pressure through stunts and blitzes, but the EDGE must be able to win one-on-one as well. Bosa's return from ACL makes a complementary rusher critical."
+        },
+        "Bend": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Morris's 3-4 base and Tite fronts create tight rushing lanes. The EDGE must be able to bend the corner and flatten to the QB, especially from a wider alignment in sub-packages."
+        },
+        "First Step": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Morris's heavy stunt usage (6th-highest rate at Rams) demands EDGE players who can execute twists and loops quickly. A fast first step is critical for both straight-line rushes and stunt coordination."
+        },
+        "Power": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Morris's gap-and-a-half technique asks DL to play controlled and physical. The EDGE needs enough power to set the edge against the run, but the scheme doesn't demand a pure bull-rush specialist."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Morris's defense asks for effort-based play \u2014 chasing plays from behind, finishing through the whistle. A high motor matters in a scheme that creates pressure through stunts and effort rather than pure talent."
+        },
+        "Run Defense": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "In Morris's 3-4, the EDGE must set the edge in the run game and force runners back inside. This is a departure from the Wide-9 where the EDGE was freed from run responsibilities. Morris demands two-way players at EDGE."
+        }
+      },
+      "ideal_archetype": "The ideal Morris EDGE is a versatile, two-way player who can rush the passer from multiple alignments, set the edge in the run game, and occasionally drop into short zones on simulated pressure concepts. He doesn't need to be a pure speed rusher \u2014 Morris values controlled aggression and stunt execution. Think of a player like Leonard Floyd, who thrived under Morris in both LA and Atlanta \u2014 not a sack artist, but a complete EDGE who wins with technique, motor, and versatility. The complementary EDGE to Bosa should be a power-speed hybrid who can execute stunts.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "4.55-4.75",
+          "floor": "4.80",
+          "reasoning": "Speed off the edge matters for rush conversion, but the scheme also asks EDGE to drop into zones and set the edge. Pure speed without power is less useful in Morris's 3-4 than in a Wide-9."
+        },
+        "weight": {
+          "ideal": "245-270",
+          "floor": "235",
+          "reasoning": "Must be heavy enough to set the edge against NFL tackles in the run game but athletic enough to bend the corner and execute stunts. Morris has used a range of EDGE body types."
+        },
+        "arm_length": {
+          "ideal": "33+ inches",
+          "floor": "32 inches",
+          "reasoning": "Arm length helps with hand fighting and keeping tackles at distance on pass rushes. Standard EDGE requirement."
+        }
+      },
+      "development_context": "Morris has a strong track record of developing mid-round EDGE talent \u2014 Byron Young flashed as a 3rd-round rookie at Rams, and Michael Hoecht developed from a UDFA into a starter. The scheme can maximize EDGE talent through stunts and simulated pressures even without elite individual pass rush ability. What must arrive: some pass-rush ability and the athleticism to execute multiple responsibilities. Run defense technique and coverage drops can be taught.",
+      "scheme_fit_narrative": "With Bosa back and Mykel Williams developing, we need a complementary EDGE who can do the dirty work \u2014 set the edge on runs, execute stunts, and get home on pass rushes when the scheme creates favorable matchups. We're not looking for a one-trick speed rusher. We want a complete player who can handle Morris's multiple fronts without coming off the field.",
+      "archetype_examples": [
+        "Leonard Floyd",
+        "Haason Reddick (versatile rusher)",
+        "Samson Ebukam"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Morris's Tite front deploys three interior DL: a nose tackle head-up over the center and two DTs at the 4i technique (inside eye of the tackle). The DL must play Morris's gap-and-a-half technique \u2014 controlling a primary gap while being able to 'fall back' to a secondary gap. On passing downs, one DT slides to the 3-tech position to rush the passer. Morris values DL who can penetrate AND control their gap \u2014 not pure one-gap penetrators or pure two-gap run stuffers. The Odighizuwa trade (ranked 9th in pass rush win rate among interior DL in 2025) plus Mykel Williams and CJ West give the 49ers a strong DL rotation.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Interior pass rush was the 49ers' biggest weakness in 2025 \u2014 only 4.5 sacks from DT. Morris's stunt packages create favorable matchups, but the DL must be able to convert those into pressures and sacks. Odighizuwa addresses this, but more is needed."
+        },
+        "Run Defense": {
+          "weight": 0.24,
+          "importance": "essential",
+          "reasoning": "Morris's #1 defensive priority is stopping the run. The Tite front crowds interior gaps and forces runs to bounce. DL must control gaps, handle double teams, and shed blocks to make tackles. Gap-and-a-half technique demands disciplined run defense."
+        },
+        "First Step": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Morris's heavy stunt usage demands DL who get off the ball quickly and can execute twists and loops. The first step matters for both pass rush and for getting into the gap on run plays."
+        },
+        "Hand Usage": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Morris's teaching explicitly emphasizes hand placement \u2014 'see your hands home, then put eyes into the gap.' Hand usage is central to Morris's gap-and-a-half technique. DL must win with their hands to control blocks and shed to make plays."
+        },
+        "Motor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Morris rotates his DL heavily \u2014 the Rams and Falcons both used deep rotations. A high motor helps maximize production in limited snaps and contributes to fourth-quarter push."
+        },
+        "Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Needed to control double teams and hold ground in the Tite front. But the scheme doesn't demand true two-gap behemoths \u2014 gap-and-a-half is a middle ground that values controlled aggression over pure size."
+        }
+      },
+      "ideal_archetype": "The ideal Morris DL is a quick-twitch, penetrating interior player who has enough strength to play gap-and-a-half technique but enough athleticism to pass rush from the 3-tech on passing downs. Not a pure nose tackle run-stuffer and not a pure interior pass rusher \u2014 Morris wants DL who can do both. Aaron Donald under Morris was the extreme example. More realistically, think Osa Odighizuwa (280 lbs, quick first step, disruptive penetrator) or a player like Javon Hargrave \u2014 interior players who disrupt both the run and pass.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "280-310",
+          "floor": "275",
+          "reasoning": "Morris's 4i DTs need to be heavy enough to handle double teams but athletic enough to execute stunts. The nose tackle should be 310-330, but the 4i technique allows for slightly undersized, more athletic DTs."
+        },
+        "40_yard_dash": {
+          "ideal": "4.85-5.05",
+          "floor": "5.15",
+          "reasoning": "Quickness off the ball directly correlates to pass rush production and stunt execution. Morris's interior DL must move."
+        },
+        "3_cone_drill": {
+          "ideal": "sub-7.40",
+          "floor": "7.60",
+          "reasoning": "Agility matters for stunt execution, gap navigation, and pursuit. Morris's DL must be able to change direction."
+        }
+      },
+      "development_context": "Morris has a documented pattern of investing in DL \u2014 he drafted 3 DTs across his Falcons and Rams tenures. The 49ers drafted Mykel Williams (1st round), Alfred Collins (2nd round), and CJ West (4th round) in 2025 specifically for the defensive front. Morris develops DL through technique \u2014 hand placement, gap discipline, stunt timing. What must arrive: first-step quickness and natural pass-rush ability. You can teach gap-and-a-half technique, but you can't teach a slow-footed DT to be disruptive.",
+      "scheme_fit_narrative": "We need interior linemen who can move. Not 340-pound run-stuffing nose tackles \u2014 we want 280-310 pound disruptors who can play gap-and-a-half, execute stunts, and get after the quarterback. The Odighizuwa trade tells you exactly what we value: quick-twitch interior pass rushers who also hold up against the run.",
+      "archetype_examples": [
+        "Osa Odighizuwa",
+        "Javon Hargrave",
+        "Chris Jones (for the pass rush)"
+      ]
+    },
+    "LB": {
+      "scheme_role": "In Morris's 3-4, two inside LBs are on the field in base. Fred Warner is the defensive QB \u2014 he processes formations, sets the defense, and must handle the majority of snaps. Morris uses LBs creatively: the 'adjuster' LB (Dee Winters' role in 2025) walks down to the edge in Penny fronts and can moonlight as an edge rusher. Morris's high blitz rate means LBs must be capable pass rushers from the interior. In zone coverage (Cover 3/Cover 6), LBs are responsible for hook/curl zones and must match route concepts. The scheme demands more versatility from LBs than a traditional run-stopping role.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Fundamental requirement. Morris's run-stopping priority means LBs must be reliable tacklers in the box and in space after zone drops."
+        },
+        "Coverage": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Morris runs zone-heavy coverage where LBs drop into hook/curl zones and must match routes. The high blitz rate also means that when LBs DON'T blitz, they're responsible for larger coverage areas. Warner's coverage ability is a major reason the defense functions."
+        },
+        "Pass Rush": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Morris's 42.4% blitz rate in Atlanta means LBs are rushing the passer frequently. The 'adjuster' LB walks to the edge in Penny fronts and must generate pressure. Kaden Elliss and Ernest Jones both contributed as pass rushers under Morris."
+        },
+        "Instincts": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Zone coverage and the gap-and-a-half run defense demand LBs who can read and react quickly. Pre-snap recognition of formations and post-snap route recognition are critical in a zone-heavy scheme."
+        },
+        "Athleticism": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Morris's multiple fronts and blitz packages demand athletic LBs who can play in space, drop in coverage, rush the passer, and walk to the edge. Stiff LBs who only fill gaps are a poor fit."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Sideline-to-sideline range helps in zone coverage and pursuit, but the scheme's stunt-based run defense limits the need for pure chase-down speed."
+        },
+        "Block Shedding": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "The Tite front crowds gaps and handles most offensive linemen before they reach the LB. Morris's DL are designed to take on blocks, allowing LBs to run free. Block shedding is important but less critical than in a two-gapping system."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "The defensive QB (Warner) handles most pre-snap adjustments. The second LB needs basic recognition skills but isn't asked to be the primary communicator."
+        }
+      },
+      "ideal_archetype": "The ideal Morris LB is a rangy, athletic three-down player who can cover in zone, rush the passer, and occasionally walk to the edge as the 'adjuster.' Warner is the archetype for the MIKE role \u2014 an every-snap player with elite coverage ability and instincts. The complementary LB should be an athletic player who can blitz effectively and hold up in coverage. Think Kaden Elliss in Atlanta \u2014 a versatile LB who lined up on the edge, rushed the passer, and covered in zone all within the same game.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "4.50-4.65",
+          "floor": "4.70",
+          "reasoning": "Morris's LBs must be fast enough to cover in space, chase in pursuit, and rush the passer from the interior. The adjuster role demands plus speed for an LB."
+        },
+        "weight": {
+          "ideal": "225-245",
+          "floor": "220",
+          "reasoning": "Must be athletic enough to cover but physical enough to handle the run. The modern NFL LB doesn't need to be 250 pounds in a scheme that uses DL to absorb blocks."
+        },
+        "3_cone_drill": {
+          "ideal": "sub-7.00",
+          "floor": "7.10",
+          "reasoning": "Change-of-direction ability is critical for zone coverage drops and for the adjuster LB who must rush from different angles."
+        }
+      },
+      "development_context": "Warner was developed from a 3rd-round pick into the NFL's best off-ball LB under the 49ers' staff. The system can develop coverage instincts and zone-drop technique. What must arrive: athletic ability and the physical tools to cover and rush. A slow LB can't be coached into coverage competence in this zone-heavy scheme.",
+      "scheme_fit_narrative": "Warner is a unicorn and we're not going to find another one in the draft. But what we need from the second LB is clear: an athlete who can blitz, cover, and walk to the edge when called upon. This defense doesn't have room for a one-dimensional thumper. We need a modern LB who can do a bit of everything \u2014 coverage first, pass rush second, run defense third.",
+      "archetype_examples": [
+        "Fred Warner",
+        "Kaden Elliss",
+        "Roquan Smith (for the coverage/instincts)"
+      ]
+    },
+    "CB": {
+      "scheme_role": "Morris's zone-heavy coverage scheme (Cover 3/Cover 6 dominant, 3rd-lowest man coverage rate in NFL in Atlanta 2025) asks CBs to play in zone rather than shadow receivers in man. CBs line up in coverage silos (assigned to a side, not following receivers). However, Morris has used a top CB as a shadow (A.J. Terrell in Atlanta), suggesting he may deploy a top corner that way if the talent exists. The scheme demands CBs who can play disciplined zone, break on the ball, and contribute in run support. Press coverage usage was very low with the Rams and increased only moderately in Atlanta.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Morris ran man coverage at the 3rd-lowest rate in the NFL in Atlanta 2025. Man coverage ability matters for specific matchup packages but is not the primary demand. Zone discipline is far more important in this scheme."
+        },
+        "Ball Skills": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "In zone coverage, the CB's eyes are on the quarterback, not the receiver. Ball skills \u2014 the ability to read the QB's eyes and make plays on the ball \u2014 are the most important trait. Morris's Rams' Ahkello Witherspoon thrived through ball skills, not man coverage."
+        },
+        "Zone Coverage": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "THE defining trait. Morris's scheme lives in Cover 3 and Cover 6 where CBs play thirds and half-field zones. The CB must maintain proper depth, play with eyes on the QB, break on routes within their zone, and make tackles in space. This is a zone-first defense."
+        },
+        "Speed": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Speed matters for recovery in zone coverage \u2014 when a receiver runs through the CB's zone, he must have the recovery speed to stay in phase. Also important for run support and pursuit angles."
+        },
+        "Press": {
+          "weight": 0.08,
+          "importance": "low",
+          "reasoning": "Morris ran the least press in the NFL with the 2022 Rams and only moderately more in subsequent seasons. Press technique matters less in a zone-dominant scheme where CBs are playing off coverage and reading the QB."
+        },
+        "Nickel": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "With heavy nickel usage in sub-packages, the ability to play inside is valuable. Morris's nickel CB needs to handle slot receivers in zone, rally to the run, and be physical in the box. Lenoir and Green play coverage silos, creating a need for a versatile nickel player."
+        }
+      },
+      "ideal_archetype": "The ideal Morris CB is a zone-disciplined, ball-hawking corner who can play a deep third or half-field zone, read the QB's eyes, and make plays on the ball. He doesn't need to be a lockdown man cover corner \u2014 Morris's scheme doesn't ask for that. Think of a player like Marcus Peters \u2014 a zone-coverage ballhawk with elite instincts and ball skills who generated turnovers by reading QBs rather than shadowing receivers. Or within Morris's own history, Ahkello Witherspoon in 2023 \u2014 a zone specialist with excellent ball skills.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "4.40-4.50",
+          "floor": "4.55",
+          "reasoning": "Speed is needed for recovery in zone coverage and for matching speed threats who run through the CB's zone. The NFC West has speed-based offenses that demand quick corners."
+        },
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Size matters for contesting catch points in zone and for run support. Morris has historically used bigger corners (Terrell at 6-1, Witherspoon at 6-3) but the scheme doesn't demand a specific size."
+        },
+        "weight": {
+          "ideal": "190-210",
+          "floor": "185",
+          "reasoning": "Must be physical enough for run support \u2014 zone CBs have run-fit responsibilities that lighter corners may struggle with."
+        }
+      },
+      "development_context": "Ray Brown was hired as defensive backs/cornerbacks coach for 2025. Lenoir developed from a 5th-round pick into a quality starter under the 49ers' staff. The 49ers can develop zone technique and instincts. What must arrive: ball skills and speed. You can teach a player to play zone disciplined, but you can't teach the instinct to read a QB's eyes and break on the ball.",
+      "scheme_fit_narrative": "Stop sending us lockdown man corners. We play zone. We want corners who read the quarterback, break on the ball, and create turnovers. Ball skills and zone instincts are the priority. If a corner has great ball production in college playing zone but struggles in man, he's actually a BETTER fit here than a man-coverage specialist with no interceptions.",
+      "archetype_examples": [
+        "Marcus Peters (zone ballhawk)",
+        "Deommodore Lenoir",
+        "A.J. Terrell (zone/shadow hybrid)"
+      ]
+    },
+    "S": {
+      "scheme_role": "Safety is the single most impactful draft need for the 2026 49ers under Morris. Morris's scheme demands safeties who can do everything: play deep center field in Cover 3, rotate into the box as an extra defender, blitz from depth (42.4% blitz rate in Atlanta), play in two-high shells, and contribute in run support. Jessie Bates was used in the box more than any prior season under Morris in 2025. Morris's scheme asks the safety to be the defense's Swiss Army knife \u2014 a player who can align anywhere pre-snap and execute multiple responsibilities post-snap. The 49ers lost Talanoa Hufanga in free agency and Malik Mustapha is a strong safety/box type, creating a clear need for a versatile free safety.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "Morris's extremely low man coverage rate means safeties are rarely asked to play man-to-man on receivers or TEs. Zone responsibilities dominate."
+        },
+        "Range": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "THE defining trait. In Cover 3 and Cover 6, the single-high safety must cover the deep middle \u2014 range to get from hash to hash is non-negotiable. Morris's two-high shells require range to rotate from depth to the flat or box."
+        },
+        "Ball Skills": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Deep safeties in zone coverage must make plays on the ball. Morris's Rams and Falcons targeted ballhawk safeties \u2014 Xavier Watts had 5 INTs as a rookie in Atlanta. The 49ers need turnover production from the safety position."
+        },
+        "Tackling": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Morris's safeties come down into the box and must be reliable tacklers in run support. With light boxes and gap-and-a-half technique up front, the safety is the last line of defense. Poor tackling from the safety leads to explosive plays."
+        },
+        "Speed": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Needed for deep coverage range, rotations from two-high to single-high, and closing on ball carriers in the open field. Morris's scheme requires safeties to cover a lot of ground quickly."
+        },
+        "Nickel": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Morris has used safeties in versatile roles \u2014 Bates lined up in the box and as a nickel player. The ability to play in the slot and closer to the LOS adds value in Morris's multiple packages, especially when blitzing."
+        }
+      },
+      "ideal_archetype": "The ideal Morris safety is a rangy, ballhawking center fielder who can also come down into the box and play as an extra defender. Jessie Bates under Morris is the perfect model \u2014 a deep safety with elite ball skills who was asked to do more box work than ever under Morris's scheme. The 49ers need a player who can cover the deep middle, rotate into the box, and occasionally blitz \u2014 all while creating turnovers. Think Bates, or a player like Budda Baker \u2014 a versatile safety with range, ball skills, and physicality.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "4.40-4.55",
+          "floor": "4.60",
+          "reasoning": "Speed is critical for range in the deep middle and for rotations between two-high and single-high. Morris's safeties must cover ground quickly to make the coverage work."
+        },
+        "weight": {
+          "ideal": "200-215",
+          "floor": "195",
+          "reasoning": "Must be physical enough to play in the box and tackle in run support but athletic enough to play deep. Bates at 200 is the model."
+        },
+        "vertical_jump": {
+          "ideal": "38+ inches",
+          "floor": "35 inches",
+          "reasoning": "Explosiveness correlates with ball skills \u2014 the ability to high-point contested balls at their highest point. Also indicates closing speed and reactive athleticism."
+        }
+      },
+      "development_context": "The 49ers developed Malik Mustapha from a 4th-round pick into a starting strong safety. Morris has developed safeties at every stop \u2014 Taylor Rapp at Rams, Jessie Bates improvement in Atlanta. The scheme can develop safety technique and awareness. What must arrive: range, speed, and ball skills. A slow safety without range cannot play the deep middle in Cover 3, and no amount of coaching will fix that. Ball instincts are largely innate.",
+      "scheme_fit_narrative": "Safety might be our most important draft target. Morris's defense runs through the safety position \u2014 the free safety has to be the quarterback of the back end, covering the deep middle, rotating to the box, and making plays on the ball. We need a rangy center fielder with ballhawk instincts. This is not a box safety role \u2014 we have Mustapha for that. We need a free safety who can cover sideline to sideline and create turnovers.",
+      "archetype_examples": [
+        "Jessie Bates III",
+        "Xavier Watts (ballhawk)",
+        "Budda Baker (versatile)"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "SF's offense is the NFL's gold standard for positionless skill players. Any TE with WR-caliber receiving traits should be valued as a top-tier weapon here \u2014 Kittle's Achilles injury and age (32) create genuine succession urgency. RBs with elite receiving profiles get a massive boost: Shanahan's system produced 102 receptions and 924 receiving yards from the RB position in 2025. On defense, Morris's arrival represents a dramatic scheme shift from Saleh's passive 4-3 Wide-9 to an aggressive, blitz-heavy multiple/3-4 odd front. This creates new value for: (1) LBs who can rush the passer from multiple alignments \u2014 not pure 3-4 OLB value, but hybrid blitz-capable LBs; (2) safeties who can play in the box, blitz, and cover the slot \u2014 Morris's scheme asks safeties to be chess pieces, not just deep coverage players. Edge rushers remain premium (Bosa, Mykel Williams), but the scheme now also values versatile tweener DL who can play 3-tech or 5-tech in different fronts. The 49ers used their first five 2025 draft picks on defense and will continue investing there. Priority traits: TE receiving, RB pass-catching, LB blitz versatility, S hybrid capability, and DL positional flexibility.",
+  "scheme_draft_intelligence": "The 2026 49ers are in a fascinating inflection point where offensive continuity meets defensive upheaval. On offense, Kyle Shanahan's system remains intact under Klay Kubiak as OC (Shanahan retains play-calling), creating clear and stable scheme demands across all offensive positions. The Mike Evans signing addresses the X receiver need, and the Osa Odighizuwa trade fills the interior pass-rush void. But with Brandon Aiyuk being released, Jauan Jennings leaving in free agency, and George Kittle recovering from an Achilles injury, the skill position group is in transition \u2014 creating potential draft value at WR (speed element) and TE (depth). The offensive line also needs attention at left guard after Aaron Banks' departure and with Trent Williams' contract situation unresolved. Shanahan's scheme creates hidden value in athletic, versatile players that other teams might undervalue \u2014 zone-blocking IOL, YAC-first WRs who aren't traditional route runners, and dual-threat RBs who can catch 60 balls.\n\nDefensively, Raheem Morris's arrival represents the most significant scheme change in years. The shift from Saleh's Wide-9 four-down front to Morris's odd-front Tite defense with gap-and-a-half technique fundamentally alters what every defensive position demands. The biggest scheme-driven draft need is safety \u2014 Morris's defense runs through the safety position in ways the previous system did not. His use of Jessie Bates as a second-team All-Pro versatile safety in Atlanta, combined with the 49ers losing Talanoa Hufanga, makes a first-round safety investment more likely than it's ever been under Lynch and Shanahan. Draft analysts should flag any ballhawking, rangy free safety as a premium target for SF.\n\nMorris's dramatically higher blitz rate (42.4% in Atlanta vs. Saleh's conservative approach) also changes the LB blueprint. The 49ers need LBs who can rush the passer and walk to the edge in Penny fronts, not just traditional run-stuffers. The 'adjuster' LB role (Dee Winters' role in 2025, Kaden Elliss's role in Atlanta) that moonlights as an edge rusher is a unique demand that creates draft value in tweener LB/EDGE prospects that other teams might pass on. On the corner side, Morris's extreme zone-heavy approach (Cover 3/Cover 6 dominant, 3rd-lowest man rate in NFL) means the 49ers should DEPRIORITIZE man-coverage specialists and target zone-discipline/ball-skills corners \u2014 prospects who generate interceptions in zone schemes but may fall in the draft because they struggle in man.\n\nThe 49ers hold the 27th pick, 58th pick, and four 4th-round picks (having traded their 3rd for Odighizuwa). This draft capital structure \u2014 with no 3rd-rounder but extra 4th-rounders \u2014 suggests the 49ers should target their highest-priority position (likely safety or WR speed) at 27, then seek IOL or LB depth at 58, and use the 4th-round ammunition for scheme-specific developmental picks. Morris's track record of developing low-pedigree defensive talent at the Rams (Michael Hoecht, Christian Rozeboom as UDFAs becoming starters) means the 49ers can find defensive contributors on Day 3. The coaching staff's ability to develop raw athletes means tools-heavy prospects who fall due to technique concerns are premium targets for San Francisco.",
   "confidence": "high",
   "sources": [
-    "49ers.com official coaching staff page (2025)",
-    "Pro-Football-Reference.com 2025 SF team page",
-    "ESPN \u2014 Robert Saleh returns to 49ers as DC (Jan 2025)",
-    "NFL.com \u2014 Raheem Morris hired as 49ers DC (Feb 2026)",
-    "Niners Nation \u2014 Raheem Morris primer: What to expect (Feb 2026)",
-    "SF Standard \u2014 Raheem Morris could be 49ers' long-term solution (Feb 2026)",
-    "SI.com \u2014 How 49ers defense will change under Morris (Feb 2026)",
-    "Match Quarters \u2014 Saleh's Quarters & Defensive Meta (2025 tape analysis)",
-    "PFF \u2014 George Kittle Top 101 (90.7 overall grade, 91.0 receiving grade 2025)",
-    "PFF \u2014 Christian McCaffrey Top 101 (91.7 receiving grade, 102 receptions 2025)",
-    "49ersWebzone.com \u2014 McCaffrey PFF Top 101 analysis",
-    "Mark Bullock Substack \u2014 Raheem Morris HC candidate profile (Rams 3-4 scheme breakdown)",
-    "SumerSports \u2014 Shanahan schemes deep dive",
-    "The Ringer \u2014 Kyle Shanahan offense evolution (2024 Super Bowl preview)",
-    "Eagles.com \u2014 Duffy 49ers offense analysis (21 personnel, 37.2% usage rate)",
-    "Pro-Football-Reference \u2014 49ers defensive alignment: 4-3 (2025 season under Saleh)"
+    "49ers.com official coaching staff page (2025-26)",
+    "ESPN - 49ers hire Raheem Morris as DC (Adam Schefter, Feb 2026)",
+    "CBS Sports - Morris replaces Saleh as 49ers DC (Jonathan Jones, Feb 2026)",
+    "Niners Nation - Raheem Morris primer: What to expect from the 49ers defense (Kyle Posey, Feb 2026)",
+    "The Ringer - How Raheem Morris Has Kept the Rams Defense on Track (Feb 2022)",
+    "Blogging the Boys - Breaking down the Rams defensive scheme under Morris (Oct 2023)",
+    "The Rams Huddle - Morris's gap-and-a-half defense",
+    "Match Quarters - Stacking the Back: A lesson from the Rams (Jan 2024)",
+    "Mark Bullock Substack - Head Coach Candidate Profile: Raheem Morris (Jan 2024)",
+    "NBC Sports Bay Area - Why Raheem Morris and Kyle Shanahan reunion is good news for 49ers (Feb 2026)",
+    "SI.com - How 49ers Defense Will Change Under New DC Raheem Morris (Grant Cohn, Feb 2026)",
+    "49ers Webzone - Mailbag: Morris defensive front look (Feb 2026)",
+    "Wikipedia - Kyle Shanahan, Raheem Morris, Klay Kubiak",
+    "SumerSports - Shanahan Schemes deep dive",
+    "The Ringer - Kyle Shanahan Is No Longer Running the Shanahan Offense (Ben Solak, Feb 2024)",
+    "Philadelphia Eagles site - Duffy: The 49ers offense is operating at such a high level (2023)",
+    "nfelo.com - NFL Team Tendencies (49ers 21 personnel usage)",
+    "ESPN - Tracking 49ers free agency: Mike Evans, OT Lowe (Mar 2026)",
+    "ESPN - Cowboys trade DT Odighizuwa to 49ers for 3rd-round pick (Mar 2026)",
+    "Pro Football Reference - 2025 San Francisco 49ers",
+    "49ers Webzone - Draft needs breakdown 2026",
+    "NFL.com - 2026 NFL Draft order"
   ]
 }

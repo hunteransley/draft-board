@@ -6,70 +6,750 @@
       "name": "Sean McVay",
       "tenure_years": 10,
       "background": "offensive",
-      "scheme_philosophy": "Pass-first offense with heavy pre-snap motion and play-action; McVay is the primary play-caller and the scheme's chief architect. Historically 11-personnel based, but evolved in 2025 to incorporate heavy multi-TE packages (12/13 personnel). Emphasizes outside zone and duo run concepts paired with an aggressive passing attack."
+      "coaching_tree": "Mike Shanahan tree \u2192 Washington 2010-2013 lineage (alongside Kyle Shanahan, Matt LaFleur, Mike McDaniel). McVay was tight ends coach in Washington under Mike Shanahan, learning the outside zone/play-action system at its source. Became youngest HC in modern NFL history with Rams in 2017. His own tree has produced Matt LaFleur, Kevin O'Connell, Zac Taylor, Liam Coen, and Mike LaFleur as head coaches.",
+      "scheme_philosophy": "McVay's offense is built around giving defenses identical pre-snap looks to disguise run/pass, using motion and personnel manipulation to create mismatches. He is the offensive play-caller. The offense has evolved from pure wide-zone/play-action (2017-2019) to spread/empty sets with Stafford (2021-2022) to a hybrid gap/zone run game with heavy 12/13 personnel (2023-present). McVay values QB intelligence over athleticism \u2014 the system amplifies QB strengths rather than masking deficiencies. On defense, McVay has committed to the Fangio defensive philosophy since hiring Brandon Staley in 2020, continuing through Raheem Morris and now Chris Shula: two-high shells, coverage disguise, front-four pressure, bend-but-don't-break."
     },
     "offensive_coordinator": {
       "name": "Nate Scheelhaase",
-      "scheme_tree": "McVay tree; former Iowa State OC, pass game coordinator under McVay/LaFleur, WR developer background",
-      "play_caller": false
+      "coaching_tree": "McVay internal development. Scheelhaase joined the Rams as an offensive assistant and pass game specialist, was promoted to pass game coordinator in 2025, then OC for 2026. He was the coach responsible for literally drawing the offensive plays for each week's game plan \u2014 the same detail-oriented role held by previous Rams assistants who became head coaches. Interviewed for five head coaching jobs in the 2026 cycle.",
+      "scheme_evolution": "Scheelhaase is a McVay prot\u00e9g\u00e9 who has grown entirely within this system. His promotion maintains continuity of the McVay offensive identity. The addition of Kliff Kingsbury as assistant head coach and Brian Johnson as senior offensive assistant creates a three-brain offensive trust that adds spread/RPO/Air Raid concepts from Kingsbury's background and Eagles/Commanders pass game concepts from Johnson. McVay still calls plays, making the OC title more of a collaborative design role.",
+      "development_track_record": "Limited independent track record given his rise through the Rams system. His primary contributions have been in pass game design and receiver development \u2014 Puka Nacua's route concepts and explosive play creation were partially attributed to Scheelhaase's influence. Kingsbury's track record with Jayden Daniels (ROY) and Baker Mayfield (career year) adds QB development depth to the staff."
     },
     "defensive_coordinator": {
       "name": "Chris Shula",
-      "scheme_tree": "Rams internal (Wade Phillips 3-4 \u2192 Brandon Staley Fangio influence \u2192 Raheem Morris \u2192 Shula). Grandson of Don Shula. Hybrid Fangio-Phillips zone scheme with dime-heavy sub-packages.",
-      "play_caller": true
+      "coaching_tree": "Rams internal / Fangio-adjacent. Grandson of Don Shula, son of Dave Shula. Played LB at Miami (OH) with McVay as a teammate. Began NFL career as quality control coach with Chargers (2015-16) under Mike McCoy. Joined McVay's Rams staff in 2017 as assistant LB coach, promoted through LB coach, pass game coordinator/DB coach, pass rush coordinator/LB coach, then DC in 2024. Mentored directly by Wade Phillips, Brandon Staley, and Raheem Morris \u2014 all of whom ran versions of the Fangio system in LA. Shula's defense is a continuation of the Staley/Morris Fangio-tree principles but with his own stamp on front versatility and pass rush creativity.",
+      "scheme_evolution": "Shula inherited the Fangio two-high, coverage-disguise, front-four-pressure system from Staley and Morris. In his first year (2024), he ran the sixth-best scoring defense despite Aaron Donald's retirement and minimal defensive spending. In 2025, the defense finished 10th in scoring, 3rd in total pressures, with the fourth-lowest blitz frequency \u2014 generating elite pressure from four rushers. Shula expanded coverage disguise rates (Rams led NFL), increased dime usage (most in NFL for two straight years), and evolved the front to feature creative alignment versatility with Jared Verse and Braden Fiske in Wide 9 looks. He added elements of Wink Martindale's pass rush concepts via Drew Wilkins.",
+      "development_track_record": "Turned an extremely young, cost-controlled defense (29th in cash spending) into a top-10 unit. Developed Jared Verse into DROY and 100-pressure performer in year two. Developed Byron Young from a productive starter into a Pro Bowl edge rusher with 12 sacks. Braden Fiske led the team in sacks as a rookie. Developed Kam Kinchens and Jaylen McCollough into productive rookie safeties. Nate Landman set career highs (132 tackles) under Shula's LB coaching. Track record shows elite ability to develop pass rushers and front-seven players. Secondary development has been more mixed \u2014 cornerback play has been a limitation."
     }
   },
   "offense": {
-    "scheme_family": "McVay system (West Coast foundation with Shanahan/wide zone influence)",
-    "base_personnel": "11 historically, but 2025 saw NFL-leading 13 personnel usage (~30% of plays, 330 plays from 13 personnel). Also heavy 12 personnel early in year. Expect continued multi-TE emphasis in 2026.",
-    "run_scheme": "Outside zone and duo as primary concepts; 13 personnel creates power blocking looks with three TEs acting as extra blockers to create size mismatches",
-    "pass_concepts": "Play action heavy off run looks, boot concepts, vertical shots, pre-snap motion to reveal coverage. No. 1 scoring offense in 2025. Stafford-centric downfield passing attack with elite WR targets (Nacua, Adams).",
-    "rpo_usage": "low to moderate",
-    "te_usage": "Massive and unprecedented. TEs used as inline blockers, flexed out as receivers, and in unique 13-personnel packages. Combined for 103 receptions, 1,128 yards, and 17 TDs in 2025. TEs are asked to block in run game, catch in play action, and motion to create mismatches. Versatility is paramount \u2014 McVay demands TEs who can block AND receive.",
-    "rb_usage": "Committee approach: Kyren Williams primary (~60-65% snaps) with Blake Corum as meaningful complement (~30-35%). Drive-to-drive rotation. RBs used primarily as runners; passing game targets go through WRs and TEs, not backs. Moderate receiving role \u2014 Williams had occasional catches (2 receptions in several games) but not a featured receiving back."
+    "scheme_family": "Shanahan-tree West Coast (McVay variant) \u2014 evolved into a hybrid zone/gap multi-personnel system",
+    "scheme_detail": "McVay's offense has reached what analysts called 'its final form' in 2025 \u2014 integrating elements from every iteration of his tenure. The system is built around giving defenses identical pre-snap looks to disguise play indicators, then exploiting mismatches created by personnel groupings. McVay mirrors run and pass off the same formations, making it impossible for defenses to identify run or pass pre-snap. The 2025 Rams led the NFL in EPA per play and success rate, with the most productive designed rushing attack in a decade. The offense is no longer purely zone or gap \u2014 it runs both at equal rates (108 zone attempts and 108 gap attempts through 10 weeks in 2025). The addition of Kliff Kingsbury for 2026 adds spread/RPO/Air Raid concepts to the playbook, potentially expanding the shotgun passing game. McVay still calls plays.",
+    "run_scheme": "Hybrid zone/gap. Outside zone remains the foundational run concept (39.8% of run plays since 2017), but gap/power/counter has been added significantly since 2023. In 2025, the Rams led the NFL in zone rushing success rate (62.5%) and ranked 3rd in gap rushing success rate. TEs are motioned into I-formation as lead blockers in the run game. The backfield split with Kyren Williams (power/patience) and Blake Corum (explosiveness) creates a thunder-and-lightning complement. OL must be capable of reach-blocking on zone plays AND pulling/trapping on gap concepts \u2014 true scheme versatility required.",
+    "pass_architecture": "Play-action off zone action remains the crown jewel \u2014 Stafford's ability to read zones post-snap while defenses react to run fakes. The offense features timing routes (slants, curls, digs, crossers) married to play-action boots. Stafford had 4,707 passing yards and won NFL MVP in 2025. Heavy personnel (12/13) creates advantageous matchups in the passing game \u2014 when defenses match heavy with base defense, TEs like Ferguson get matched on LBs. When defenses stay in nickel, the Rams have a blocking advantage in the run game. The offense also still operates effectively from empty/spread with Stafford. Quick game, screen game, and YAC-oriented plays are schemed to get playmakers in space \u2014 Puka Nacua, Davante Adams, and slot targets are featured on crossers and in-breakers.",
+    "personnel_tendencies": "2025 marked a massive shift: 13 personnel (1 RB, 3 TE) usage was the highest in the NFL since 2016 \u2014 no team had used it above 17.6% in the Next Gen Stats era, and the Rams blew past that. 12 personnel jumped from 15.6% (25th) in 2024 to 29.7% (11th) in 2025. 11 personnel dropped from 82.4% (2nd) in 2024 to 68.7% (13th) in 2025. The Rams scored 32 touchdowns out of 13 personnel, the most in the Next Gen Stats era. The Rams drafted Terrance Ferguson (TE, 2nd round) specifically to unlock this multi-TE identity. For 2026, with Kingsbury's influence, some 21 personnel (pony) concepts may be added.",
+    "motion_tempo": "High motion usage \u2014 a core Shanahan-tree principle. McVay uses motion to identify defensive coverages pre-snap, create blocking angles for zone runs, and generate mismatches. Motion increased further in 2023-2025 as McVay integrated more TE motion into the backfield for run blocking. Standard tempo with occasional hurry-up. Not a fast-tempo offense but uses motion and shift extensively to stress defensive communication."
   },
   "defense": {
-    "base_front": "3-4",
-    "alignment": "Odd front (tilted 3-4 / 5-1 front structure), two stand-up OLBs as edge rushers with three interior DL. Sub-packages heavily favor dime (6 DBs) \u2014 Rams led NFL in dime usage in both 2024 and 2025 seasons under Shula.",
-    "edge_rush_source": "OLB stand-up (Jared Verse and Byron Young are listed as OLBs, rush from standing and hand-in-dirt positions). Combined for ~19.5 sacks and 47 team sacks in 2025. Verse can rush from stand-up or hand-in-dirt.",
-    "coverage_base": "Zone heavy, primarily Cover 3 with Cover 6 (quarter-quarter-half) looks. Among lowest man coverage usage in NFL in 2025. Second-best EPA/play in zone coverage per FTN. Safety Quentin Lake plays nickel/slot role in dime packages.",
-    "blitz_tendency": "moderate (above league average rate, ranked 8th in blitz usage, but best results come rushing four \u2014 team PFF pass-rush grade with 4 rushers was 1st in NFL over mid-season stretch)",
-    "lb_role": "ILBs (Nate Landman) are run-and-coverage linebackers, not pass rushers. OLBs (Verse, Young) are the primary pass rushers. ILBs fill gaps in the tilted 3-4 front and must handle zone drops. The 3-4 OLB is essentially a full-time edge rusher role.",
-    "safety_usage": "Highly versatile. Quentin Lake operates as a hybrid nickel/slot defender (led slot coverage metrics), blitzes, and tackles. Kam Curl played 58.6% at free safety, 26.3% in box, 10.3% in slot per PFF. Rams frequently deploy 3-safety looks and led NFL in dime personnel. Jaylen McCollough used as hybrid LB/safety."
+    "scheme_family": "Fangio-tree two-high coverage system (Staley/Morris/Shula lineage)",
+    "scheme_detail": "The Rams defense has maintained the Fangio system installed by Brandon Staley in 2020, continued by Raheem Morris, and now run by Chris Shula. The core philosophy: align in two-high pre-snap shells to create coverage disguise, rotate post-snap into multiple coverage looks (Cover 3 weak rotation, Quarters, Cover 6/Stuff, Cover 8/Half-Quarter-Quarter), generate pressure with four rushers, and eliminate explosive plays. Shula's stamp includes creative front alignments (Wide 9 looks), increased dime usage (most in NFL), and integration of some Wink Martindale pass rush concepts via Drew Wilkins. The defense is bend-but-don't-break, giving up yards between the 20s but locking down in the red zone (top-12 in red zone efficiency both years under Shula). The Rams led the NFL in coverage disguise rate in 2024.",
+    "front_structure": "Hybrid. Nominally a 3-4 base with two stand-up OLBs (Verse, Young) as primary edge rushers, but the Rams play sub-packages (nickel/dime) at an extremely high rate. In dime (6 DBs), they led the NFL for two consecutive seasons. The front can present as a 4-down look with Verse/Young on the edge and Turner/Fiske inside. Shula has shown creativity with 5-man fronts, Wide 9 alignments, and Cheetah front packages. The DL is asked to one-gap and penetrate rather than two-gap and eat blocks \u2014 this is a penetrating front, not a read-and-react front.",
+    "coverage_philosophy": "Zone-dominant with heavy coverage disguise. Played the 4th-most zone coverage and 4th-lowest man coverage in 2025. Two-high shells pre-snap that rotate into multiple post-snap looks. Match zone concepts where DBs must read route combinations and pass off receivers. The system demands intelligence from the secondary \u2014 CBs and safeties must process coverage rotations post-snap. Quentin Lake emerged as a critical chess piece playing a safety/nickel hybrid role in dime, ranking 4th in slot havoc. The Rams' inability to play more man coverage has been a limitation, partly due to CB talent \u2014 better corners would unlock more coverage diversity.",
+    "pressure_philosophy": "Front-four dominant. The Rams generate elite pressure with four rushers \u2014 ranked 3rd in total pressures (4th in pressure rate) while blitzing at the 4th-lowest rate in the NFL. When rushing four, their PFF pass-rush grade was 1st in the NFL over multiple-week stretches. The Verse-Young edge rushing duo combined for the most QB hits among any duo, with Turner and Fiske providing interior push. Shula uses simulated pressures, stunts (8th in usage), and creative alignment changes to free up rushers. The philosophy is clear: rush four, drop seven in coverage, let the front win. The defense is significantly worse without pressure \u2014 ranked 12th in EPA when getting pressure but 28th without it in 2024.",
+    "sub_packages": "Dime (6 DBs) is the primary package \u2014 most dime usage in the NFL for two consecutive seasons. This is unusual and reflects the Rams' philosophy of keeping extra coverage defenders on the field to eliminate big plays. Quentin Lake plays the nickel/dime safety role, functioning as a hybrid S/LB. In sub-packages, one ILB comes off the field. The Rams rotate 15+ defensive players depending on matchups \u2014 true interchangeability is valued. The Rams' base defense rate is low because they spend so much time in sub-packages."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "The Rams ran an NFL-leading 330 plays out of 13 personnel in 2025 (nearly one-third of offense), with TEs combining for 103 receptions, 1,128 yards, and 17 TDs. McVay's offense demands TEs who can block AND catch \u2014 they motion TEs from inline to flexed positions to create coverage mismatches. TE Colby Parkinson was motioned outside to draw CBs and free up Puka Nacua. The 2025 Rams proved that investing in receiving-capable TEs directly fueled the NFL's top-scoring offense. A TE with elite receiving traits would be valued like a WR3/flex weapon in this system, but must also be able to block in 13-personnel packages."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB is the engine of McVay's offense. He must process pre-snap defensive alignments, execute play-action fakes from under center, deliver timing throws on West Coast routes, and attack deep voids created by the run-pass mirror. Stafford won NFL MVP in 2025 with 4,707 yards. McVay's system amplifies QB strengths rather than masking deficiencies \u2014 it demands an 'arrogant gunslinger' who can manipulate zone coverages, stand in the pocket under duress, and deliver the ball into tight windows with anticipation. The QB must also handle heavy pre-snap responsibilities: reading defensive shells, using motion to identify coverage, and checking into optimal play calls at the line.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "McVay's offense features deep play-action shots off 12/13 personnel looks. Stafford's ability to attack vertically while reading zones in real-time was a force multiplier. The QB must threaten all levels of the field \u2014 the deep ball off play-action is the crown jewel of the offense."
+        },
+        "Accuracy": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "West Coast timing routes (slants, curls, digs, crossers) require anticipation throws where the ball must arrive before the receiver completes the break. Stafford's 'contested catch' completions into tight windows were what elevated this offense to championship level. The run-pass mirror only works if the QB can hit timing windows precisely."
+        },
+        "Pocket Presence": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "McVay's offense asks the QB to stand in the pocket after play-action fakes and deliver throws while defenders are closing. Stafford's willingness to take hits in the pocket \u2014 standing in and delivering in year 17 \u2014 is exactly what this scheme demands. The QB cannot be skittish."
+        },
+        "Mobility": {
+          "weight": 0.05,
+          "importance": "low",
+          "reasoning": "McVay's scheme is built for pocket passers, not scramblers. Play-action bootlegs require some movement ability, but the offense does not rely on designed runs or scramble-drill improvisation. Stafford succeeded at age 36+ without elite mobility."
+        },
+        "Decision Making": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The offense features multiple coverage manipulations and progression reads. The QB must identify whether the defense is in two-high or rotating to single-high post-snap, then quickly work through progressions. Poor decisions in this system create turnovers because timing windows are tight."
+        },
+        "Leadership": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "McVay builds strong culture, but the QB must command the huddle and manage a diverse personnel package offense with multiple groupings shifting in and out. Stafford's leadership was specifically cited by McVay as a team-defining quality."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The Rams use motion extensively to identify coverage pre-snap. The QB must read the defensive response to motion and adjust play calls. This is important but McVay handles much of the scheme communication, reducing the burden compared to a no-huddle system."
+        }
+      },
+      "ideal_archetype": "A pocket-dominant QB with arm talent, accuracy, and the courage to stand in and deliver. Not a scrambler \u2014 a processor who reads defenses, manipulates coverage with his eyes, and attacks all three levels. Think Matthew Stafford in his prime: big arm, fearless in the pocket, anticipation accuracy on timing routes, with the veteran savvy to exploit defensive tendencies. The ideal QB doesn't need to create outside the structure \u2014 the scheme creates the openings.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Under-center play-action and play-faking require ability to see over the offensive line. McVay has never started a QB shorter than 6-2 in his tenure."
+        },
+        "arm_strength": {
+          "ideal": "60+ mph",
+          "floor": "55 mph",
+          "reasoning": "Deep play-action shots into two-high voids demand arm talent to drive the ball 50+ yards. The vertical threat off play-action is the offense's most dangerous weapon."
+        }
+      },
+      "development_context": "McVay's system has historically elevated QBs (Goff went from 0-7 to NFC champion). The staff can develop processing and timing, but arm talent and pocket courage must arrive ready. With Kingsbury now on staff (developed Kyler Murray, Jayden Daniels), the QB development infrastructure is among the NFL's best. Van Pelt (former Rodgers QB coach) departed but Ragone remains. The system can unlock a QB's ceiling but requires baseline processing speed and arm strength.",
+      "scheme_fit_narrative": "This offense doesn't need a dual-threat QB or a system manager. It needs a gunslinger who can process the pre-snap picture, stand tall in the pocket after play-action fakes, and drive the ball into tight windows with anticipation. The scheme creates openings through deception \u2014 the QB just has to be smart enough to find them and strong enough to exploit them.",
+      "archetype_examples": [
+        "Matthew Stafford",
+        "Kirk Cousins (prime, 2019-2020)"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "high",
-      "explanation": "The Rams run a 3-4 base where OLBs (Verse, Young) are the primary edge rushers. Verse and Young are listed as linebackers but function exclusively as edge rushers \u2014 Young led with 12 sacks, Verse had 7.5 in 2025. The team also added pass-rush coordinator Drew Wilkins (Wink Martindale disciple). Any LB prospect with elite pass rush traits (burst, bend, power) would be deployed as a stand-up edge rusher in this scheme and valued like an EDGE. Josaiah Stewart, a 6-1 249-lb 'tweener,' was drafted as an OLB specifically for this role."
+    "RB": {
+      "scheme_role": "The Rams use a two-back system \u2014 a thunder-and-lightning split. In 2025, Kyren Williams (patience, power, pass protection) and Blake Corum (explosiveness, burst) complemented each other to create the most successful designed rushing attack in a decade. The RB must execute both zone and gap concepts (50/50 split), pick up blitzes in pass protection for Stafford, and contribute as a receiver out of the backfield. With 13 personnel increasing, the RB operates behind multiple TEs and needs vision to find cutback lanes in zone and burst through designed holes in gap schemes.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The hybrid zone/gap run scheme demands a RB who can read blocks in real-time. On outside zone, the RB must press the edge and find cutback lanes. On gap/power, the RB must identify the designed hole and hit it decisively. Williams' patience and vision were specifically cited as keys to the run game's success."
+        },
+        "Contact Balance": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "With heavy personnel creating blocking advantages, the RB is often running behind multiple blockers. Contact balance allows the RB to absorb contact at the second level and fall forward for extra yards. Not the primary trait but contributes to the run game's success rate focus."
+        },
+        "Power": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Gap/power concepts demand a RB who can finish runs and move the pile. Williams' between-the-tackles power was valued for short-yardage and red zone work. However, the scheme creates running lanes \u2014 the RB doesn't need to create his own power opportunities."
+        },
+        "Elusiveness": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "McVay's offense values YAC ability across all positions. An elusive back who can make a defender miss in space turns a 4-yard run into an explosive play. Corum's burst and Jarquez Hunter's explosive run rate were targeted for this purpose."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Outside zone requires the ability to stretch the defense horizontally and reach the edge. Speed creates explosive run potential that keeps defenses honest. McVay specifically targeted Jarquez Hunter for his higher career explosive run rate than Ashton Jeanty."
+        },
+        "Pass Catching": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "McVay's offense historically utilizes the RB as a receiver \u2014 Cooper Kupp once led the team in routes from the backfield. The Rams envision RBs motioning into the slot and running routes. Jarquez Hunter had significant college slot snaps. Pass-catching ability unlocks 21 personnel and pony concepts McVay is exploring."
+        },
+        "Pass Protection": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Protecting Stafford is paramount. McVay will not put a RB on the field in obvious passing situations if he cannot pick up blitzes. Williams earned trust through reliable pass protection. This is the difference between a three-down back and a specialist in this system."
+        }
+      },
+      "ideal_archetype": "A patient, versatile three-down back with vision, receiving ability, and reliable pass protection. Not a one-dimensional speed back or a pure bruiser \u2014 the scheme needs a RB who can execute both zone and gap concepts, catch the ball from the backfield, and protect the QB. Think Kyren Williams or Christian McCaffrey: do-everything backs who win with processing and versatility rather than one dominant physical trait.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "200-215",
+          "floor": "195",
+          "reasoning": "The Rams use a committee approach, but the lead back must handle between-the-tackles work in gap schemes and pass protection duties. Too light compromises both."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.55",
+          "floor": "4.60",
+          "reasoning": "Outside zone requires the ability to reach the edge. Explosive run potential increases with speed. McVay targeted Jarquez Hunter specifically for his explosion."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.20",
+          "floor": "4.30",
+          "reasoning": "Zone reads require lateral agility and the ability to change direction quickly when pressing cutback lanes."
+        }
+      },
+      "development_context": "McVay has consistently gotten production from mid-round RBs (Williams as a 5th rounder, Corum in the 3rd, Henderson's Rams tenure). The staff can develop vision and scheme understanding. Pass protection and receiving ability benefit from coaching but must have baseline competence on arrival. The Rams' RB development track record is strong.",
+      "scheme_fit_narrative": "We need a complete back who can execute the entire playbook. He has to be patient in zone, decisive in gap, reliable in pass pro, and dangerous as a receiver. We're not asking him to be a star \u2014 we're asking him to be the last piece of an offense that creates opportunities through scheme. The RB who can do everything adequately is more valuable to us than the one who does one thing spectacularly.",
+      "archetype_examples": [
+        "Kyren Williams",
+        "Bucky Irving",
+        "Christian McCaffrey"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "low",
-      "explanation": "McVay's offense has always been run-first at RB. Williams and Corum are used primarily as runners in a committee rotation. The passing game targets flow overwhelmingly to WRs (Nacua, Adams) and TEs, not RBs. Williams averaged ~2 receptions per game in many weeks. McVay historically uses a primary runner with 14+ carries per start and doesn't feature pass-catching backs as offensive weapons. Receiving ability is a nice-to-have, not a primary value driver for LAR backs."
+    "WR": {
+      "scheme_role": "McVay's WR usage is differentiated by role. The X (Nacua's role) runs the full route tree \u2014 in-breakers, crossers, deep shots off play-action \u2014 and must win in contested-catch situations. The Z (Adams' role) is the red zone specialist and route-running technician who wins off the line and creates separation. The slot (replacement for Kupp) operates across the middle, running crossers and quick-hitters in space where YAC is at a premium. All receivers must block on zone runs \u2014 McVay's offense demands it. The mirroring of run and pass means receivers must be credible run blockers to prevent pre-snap tells.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "McVay's West Coast passing game is built on timing routes. The WR must run precise routes that create separation at the break point, allowing Stafford to throw with anticipation. Route running is the foundational skill that makes the timing passing game work."
+        },
+        "Separation": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The zone-heavy defenses the Rams face (including Fangio-style two-high looks) require WRs who can create windows in coverage. Separation at the intermediate level \u2014 on digs, crossers, curls \u2014 is where the offense lives."
+        },
+        "Hands": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Stafford throws into tight windows with velocity. The WR must catch balls in traffic and with defenders draped. Nacua's contested catch ability was specifically praised by McVay. Reliable hands are non-negotiable in a timing passing game."
+        },
+        "YAC Ability": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "McVay's offense schemes players into space \u2014 screens, crossers, quick-hitters \u2014 where YAC is the profit margin. Cooper Kupp built a career on YAC in this system. The slot WR in particular must be a YAC monster, exploiting space across the middle and making defenders miss. Luther Burden was scouted specifically for his YAC ability."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Deep play-action shots require at least one WR who can threaten vertically. Speed is valued but not at the expense of route running and hands. McVay has used speed specialists (Brandin Cooks, Tutu Atwell) but the primary WRs (Kupp, Nacua, Adams) were not burners."
+        },
+        "Contested Catches": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Against two-high coverages, the Rams face tight windows in the intermediate passing game. The X WR in particular must win 50-50 balls. Nacua's approach of 'if it's not me coming down with the ball, nobody can' exemplifies what the scheme demands."
+        },
+        "Release Package": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Against press coverage, the WR must get off the line cleanly to maintain timing with the QB. Important but secondary to route running and hands because the scheme uses motion and formation to create free releases."
+        }
+      },
+      "ideal_archetype": "Depends on the role. The X: a big-bodied, physical receiver who wins contested catches and runs precise intermediate routes \u2014 think Puka Nacua or Mike Evans. The Z: a technician with elite route running and red zone savvy \u2014 think Davante Adams. The slot: a YAC weapon who exploits space across the middle with burst and physicality after the catch \u2014 think Cooper Kupp or Cole Beasley with more juice.",
+      "measurable_preferences": {
+        "height_X": {
+          "ideal": "6-1 to 6-3",
+          "floor": "6-0",
+          "reasoning": "The X receiver needs size to win contested catches in the intermediate and red zone areas."
+        },
+        "height_slot": {
+          "ideal": "5-10 to 6-1",
+          "floor": "5-9",
+          "reasoning": "Slot receivers operate in tight spaces. Size is less important than quickness, route precision, and YAC ability."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.55",
+          "floor": "4.60",
+          "reasoning": "McVay's primary WRs have not been burners but all have functional speed. The scheme creates separation through design, reducing the need for pure speed. However, at least one WR on the roster needs top-end speed to threaten deep."
+        }
+      },
+      "development_context": "Eric Yarber (now senior offensive assistant) has coached Rams WRs for 9 seasons and was instrumental in developing Kupp, Woods, and Nacua. Rob Calabrese takes over as primary WR coach. The staff can develop route technique and scheme understanding \u2014 Nacua went from a 5th-round pick to an All-Pro. They can teach timing and spatial awareness within the offense. What must arrive: hands, competitive toughness, and baseline YAC instincts.",
+      "scheme_fit_narrative": "We need receivers who can run precise routes in a timing-based offense and make plays after the catch. The scheme creates separation through design, so we don't need a pure speed merchant \u2014 we need a smart, tough, reliable target who can operate in traffic and turn a 7-yard dig into a 20-yard gain. Blocking matters too. If a WR can't block, he tips off the defense on run/pass reads.",
+      "archetype_examples": [
+        "Puka Nacua",
+        "Cooper Kupp (prime)",
+        "Davante Adams"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "Shula's defense led the NFL in dime (6 DB) usage for two straight years. Quentin Lake functions as a hybrid nickel/slot defender, blitzer, and tackler despite being a safety \u2014 he led the league in QB pressures as a DB and was elite in slot coverage. Kam Curl played across free safety (58.6%), box (26.3%), and slot (10.3%). Jaylen McCollough was used as a hybrid LB/safety. The Rams' scheme demands safeties who can cover in the slot, tackle in the box, blitz, and play deep \u2014 true versatile hybrid players. A safety with coverage + tackling + blitz traits would be extremely valuable."
+    "TE": {
+      "scheme_role": "The TE position has become the most schematically important position in McVay's current offense. The 2025 Rams used 13 personnel at the highest rate in the Next Gen Stats era, scoring 32 TDs from that grouping. TEs must be able to: (1) block as in-line TEs in the run game (zone and gap), (2) motion into the backfield as lead blockers, (3) flex out as receivers and run the route tree when matched on LBs, and (4) pass protect. Terrance Ferguson was drafted in the 2nd round specifically as the 'F' TE who can do all of this. The Rams carry 4+ TEs and rotate them based on matchup \u2014 every TE needs to be competent in both blocking and receiving.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "When defenses match the Rams' 13 personnel with base defense, TEs get matched on LBs. The ability to exploit these mismatches in the passing game is the entire point of the heavy personnel philosophy. Ferguson's receiving ability unlocked the 13 personnel package."
+        },
+        "Route Running": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The Rams run TEs on boot passes, seam routes, crossers, and split-out routes. Ferguson described being asked to run 'split out routes' \u2014 routes typically reserved for WRs. Route technique allows TEs to create separation against LBs and leverage mismatches."
+        },
+        "Blocking": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "This is the most important trait. The entire 12/13 personnel philosophy depends on TEs who can block. If the TE can't block, the run game from heavy personnel collapses, and defenses can stay in nickel. Scott Huff was hired specifically as a career OL coach to improve TE blocking. The blocking creates the run threat that makes play-action lethal."
+        },
+        "Athleticism": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "TEs are asked to motion across the formation, lead block from the backfield, flex into the slot, and run vertical routes. This requires diverse athleticism \u2014 the ability to do everything. Ferguson's natural athleticism was specifically cited by McVay."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "When targeted, TEs must be reliable. The 2025 TE room combined for 50+ receptions through 9 games, more than all of 2024. Hands are important but secondary to blocking in this scheme because the TE is targeted less frequently than the WRs."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "TE speed creates mismatches against LBs and creates explosive plays in play-action. Ferguson's 31-yard and 21-yard receptions showed what speed from the TE position unlocks. However, blocking ability remains more important than speed."
+        }
+      },
+      "ideal_archetype": "A big, athletic, versatile TE who can block like an extra OT and catch like a WR3. The Rams need TEs who are willing to be selfless \u2014 blocking on most snaps but capitalizing when targeted. Think Mark Andrews with better blocking, or a young George Kittle: physical in the run game, dynamic in the passing game, and versatile enough to line up anywhere. The F-TE (Ferguson's role) specifically must be a true hybrid who can split out as a receiver.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Size creates blocking advantage in-line and red zone receiving threat. Ferguson is 6-5, 255 \u2014 the prototype."
+        },
+        "weight": {
+          "ideal": "245-265",
+          "floor": "235",
+          "reasoning": "Must hold up as in-line blocker against NFL defensive ends on zone and gap runs. Too light compromises the entire run-game identity."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "The TE must have enough speed to stress LBs in coverage and create explosive plays on seam routes and play-action."
+        }
+      },
+      "development_context": "Scott Huff (career OL coach) was hired specifically to develop TE blocking. The Rams patiently developed Ferguson through scout team reps before giving him offensive snaps \u2014 showing a methodical development approach. The staff can develop receiving skills and route technique over time. Blocking technique is the priority from day one because the scheme cannot function without it. The Rams tried to trade up for Kincaid (2023) and Bowers (2024) before landing Ferguson \u2014 they clearly prioritize the TE position.",
+      "scheme_fit_narrative": "Our TE has to be an elite blocker first and a receiving weapon second. The entire offensive identity depends on 12/13 personnel, and those formations only work if the TEs can block. We'll take a TE who blocks like a tackle and catches 25 balls over one who catches 60 balls but can't sustain blocks. That said, our dream is a TE who does both \u2014 that's what unlocks this offense at its highest level.",
+      "archetype_examples": [
+        "George Kittle",
+        "Terrance Ferguson (developing)",
+        "Mark Andrews (with better blocking)"
+      ]
+    },
+    "OT": {
+      "scheme_role": "The Rams OT must be a scheme-versatile blocker who can execute both zone and gap concepts. On outside zone (the foundational run play), the OT must reach-block defensive ends, get lateral displacement, and climb to the second level. On gap/power, the OT must drive-block and create movement at the point of attack. In pass protection, the OT must anchor against power rushers and mirror speed rushers for a QB (Stafford) who stands in the pocket. The Rams started 8+ different OL combinations in 2024 due to injuries and still allowed the 6th-fewest sacks \u2014 versatility and depth are valued.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.24,
+          "importance": "essential",
+          "reasoning": "Protecting Stafford is non-negotiable. McVay's offense features Stafford standing in the pocket after play-action fakes, holding the ball to find timing windows. If the OT cannot pass protect, the entire play-action passing game breaks down."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The run game is foundational to the offense \u2014 the play-action passing game only works if the run game is credible. The OT must sustain blocks on zone runs and create movement on gap/power plays. The 2025 run game was the most successful designed rushing attack in a decade."
+        },
+        "Footwork": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Outside zone requires quick lateral steps and the ability to reach the backside of the play. Pass protection requires mirroring and sliding. Both demand excellent footwork. McVay's OTs must execute zone steps AND drive-blocking technique."
+        },
+        "Anchor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Stafford holds the ball longer than average on play-action shots. The OT must anchor against bull rushers and power moves while Stafford goes through progressions. A weak anchor collapses the pocket and ruins the timing of the entire offense."
+        },
+        "Athleticism": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Zone blocking demands athletic OTs who can move laterally. The Rams need OTs who can reach-block, climb to the second level, and mirror edge rushers. The combination of zone and gap concepts requires more athleticism than a pure gap-blocking scheme."
+        },
+        "Strength": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Important for gap/power concepts and anchoring in pass protection, but the scheme values athleticism and footwork more. Strength is a baseline requirement rather than a differentiator."
+        }
+      },
+      "ideal_archetype": "An athletic, versatile tackle who can execute both zone and gap blocking schemes and is a reliable pass protector. Think Rob Havenstein at his best, or Penei Sewell: strong enough to drive-block in power schemes, athletic enough to reach-block in zone, and technically sound in pass protection. The Rams prefer 'smart' OTs who can process defensive fronts and execute multiple blocking schemes.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Length helps with reach-blocking on zone plays and maintaining leverage in pass protection."
+        },
+        "arm_length": {
+          "ideal": "34+",
+          "floor": "33",
+          "reasoning": "Arm length aids in zone blocking (reaching DEs) and pass protection (keeping rushers at bay)."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.70",
+          "floor": "4.85",
+          "reasoning": "Zone blocking demands lateral agility. The OT must get lateral displacement on the first step for outside zone and climb to the second level."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-5.10",
+          "floor": "5.20",
+          "reasoning": "Athletic OTs who can move in space are valued for zone blocking and screen concepts."
+        }
+      },
+      "development_context": "Ryan Wendell (OL coach, 3rd year) led a unit that started 8+ combinations and still allowed the 6th-fewest sacks. The staff has shown ability to develop and rotate OL effectively. Zak Kromer and Brian Allen provide additional coaching depth. The Rams can develop technique and scheme understanding. What must arrive: baseline athleticism and pass protection ability. The Rams have historically been willing to develop Day 2-3 OTs into starters.",
+      "scheme_fit_narrative": "We need a tackle who can do everything. Zone and gap, pass protection and run blocking. We can't have a specialist \u2014 our offense runs too many different concepts. Give us an athlete with good feet and a strong anchor, and our coaching staff will teach the technique. But he has to be able to move.",
+      "archetype_examples": [
+        "Penei Sewell",
+        "Rob Havenstein",
+        "Alaric Jackson"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "The IOL must execute the most scheme-diverse blocking assignments in the NFL. The Rams run outside zone, inside zone, gap/power, and counter at significant rates \u2014 each demands different blocking techniques. Guards must pull on counter and power plays while also executing zone combination blocks. The center must make protection calls against complex fronts. Steve Avila anchors the interior. The Rams OL also plays a critical role in the play-action passing game \u2014 their zone steps on play-action must mirror actual run blocking to sell the fake.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Interior pressure is the biggest threat to Stafford, who plays from the pocket. The Rams need IOL who can handle interior DL and blitzing LBs. Stafford's pocket presence is elite but he needs a clean interior to work through progressions."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The foundational importance of the run game in McVay's offense makes run blocking paramount. IOL must execute combination blocks on zone plays and drive blocks on gap plays. The run game's success rate determines the effectiveness of play-action."
+        },
+        "Pulling": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The Rams' gap/power/counter concepts require guards who can pull effectively. With a 50/50 zone/gap split, pulling ability is not optional \u2014 it's a core competency. A guard who cannot pull limits half the run playbook."
+        },
+        "Strength": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Interior battles against NFL DTs demand strength, especially on gap/power plays where the IOL must create movement. Strength is the baseline for sustaining blocks and anchoring against bull rushes."
+        },
+        "Anchor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Stafford's play-action drops require time. The IOL must anchor against interior rush and not give ground. Steve Avila's strength and anchor set the standard for what the Rams need inside."
+        },
+        "Versatility": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The Rams started 8+ different OL combinations in 2024. IOL who can play multiple positions (guard and center) provide scheme flexibility and insurance against injuries. McVay values players who can move around the line."
+        }
+      },
+      "ideal_archetype": "A powerful, mobile interior lineman who can pull on gap/power, execute combination blocks on zone, and anchor in pass protection. Think Steve Avila or Joel Bitonio: strong enough to move people, athletic enough to reach the second level, and smart enough to handle complex protection calls. Versatility to play guard or center is a major plus.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "310-330",
+          "floor": "300",
+          "reasoning": "Interior battles require mass. The Rams need IOL who can hold up against NFL DTs in both run blocking and pass protection."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.60",
+          "floor": "4.75",
+          "reasoning": "Pulling and zone blocking require lateral agility. The IOL must move laterally on zone steps and get around defensive linemen on pull blocks."
+        },
+        "bench_press": {
+          "ideal": "28+",
+          "floor": "24",
+          "reasoning": "Upper body strength correlates with the ability to sustain blocks and anchor against power. Important for gap scheme effectiveness."
+        }
+      },
+      "development_context": "Ryan Wendell has proven adept at developing OL and managing rotations through injuries. The Rams developed Steve Avila into a core piece and have gotten solid production from mid-round picks. The staff can teach technique and scheme. What must arrive: strength, athleticism, and football IQ. The Rams' diverse blocking scheme requires higher processing ability than a one-scheme offense.",
+      "scheme_fit_narrative": "Our interior line has to be as versatile as our offense. If you can only zone block or only gap block, you're limiting half our playbook. We need smart, athletic, strong interior linemen who can handle whatever we call. Pulling ability is not optional \u2014 it's required. Bonus points if you can play multiple positions.",
+      "archetype_examples": [
+        "Steve Avila",
+        "Joel Bitonio",
+        "Kevin Dotson"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "The EDGE is the most important defensive position in Shula's scheme. The Rams build their entire defense around generating pressure with four rushers \u2014 the edge rushers are the tip of the spear. Verse and Young combine for elite pressure that allows seven defenders to play coverage. The EDGE must rush the passer as the primary job, set the edge in the run game, and occasionally drop into coverage on zone blitzes. Verse is the power/motor rusher; Young is the versatile all-around rusher. The Rams need EDGEs who can play 1,000+ snaps (Verse led all edge defenders in snaps in 2025) with relentless effort.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "The entire defensive philosophy depends on four-man pressure. The Rams ranked 3rd in total pressures while blitzing at the 4th-lowest rate. Verse generated 100 QB pressures in year two. Pass rush ability IS the defense \u2014 without it, the secondary (which is less invested in) gets exposed."
+        },
+        "Bend": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Young's pilates-aided improvement in bend and flexibility directly correlated to his breakout year (12 sacks). The ability to bend the corner and convert pressures to sacks is what separates good rushers from elite ones. Verse's sack conversion rate was a noted weakness despite elite pressure numbers."
+        },
+        "First Step": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The Rams' EDGE must win quickly off the snap. Shula uses creative alignments (Wide 9) that give rushers a running start, but first-step explosion is what makes those looks work. Both Verse and Young's get-off is a core part of their effectiveness."
+        },
+        "Power": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Verse's patented bull rush is described as one-of-one in the NFL. His trainer said Verse 'might be the strongest, most powerful dude I've ever seen.' Power allows the edge rusher to collapse the pocket even when the OT sets properly. Power at the edge creates interior pressure opportunities for Turner/Fiske."
+        },
+        "Motor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Verse played more snaps than any edge defender in the NFL (1,026 including playoffs). Young led all edge rushers in stops and tackles. The Rams need EDGEs who never take plays off because the defense depends on sustained pressure, not just occasional splash plays."
+        },
+        "Run Defense": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Young led all players with 10+ sacks in run tackles (56). The EDGE must set the edge in the run game, but the Rams' scheme generates run defense more from coverage structure (light boxes forcing underneath throws) than from EDGE run-stopping. Pass rush is clearly prioritized."
+        }
+      },
+      "ideal_archetype": "A relentless, high-motor pass rusher who can win with power or bend and play 1,000+ snaps. Think Jared Verse (power/motor) or Byron Young (versatility/run-stopping). Not a pure speed rusher who disappears in the run game \u2014 the Rams need all-around EDGEs who can be on the field every snap, generate pressure consistently, and contribute against the run. The EDGE must be able to play from a stand-up OLB position in the Rams' 3-4/sub-package looks.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "245-265",
+          "floor": "235",
+          "reasoning": "The EDGE must hold up against NFL tackles for 1,000+ snaps. Too light leads to getting washed in the run game. Verse (6-4, 254) and Young (6-3, 250) set the template."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Closing speed on scrambling QBs and pursuit speed on backside runs. The EDGE must be fast enough to convert pressures to sacks."
+        },
+        "arm_length": {
+          "ideal": "33+",
+          "floor": "32",
+          "reasoning": "Long arms help win the hand-fighting battle with OTs and create leverage in both pass rush and run defense."
+        },
+        "3_cone_drill": {
+          "ideal": "sub-7.00",
+          "floor": "7.20",
+          "reasoning": "Bend and change of direction are critical for converting pressures to sacks \u2014 Verse's biggest development area. A tight 3-cone suggests the ability to redirect and finish plays."
+        }
+      },
+      "development_context": "Joe Coniglio (OLB coach, 4th year) developed both Verse and Young into elite rushers. Drew Wilkins (pass rush coordinator) added Martindale-tree concepts that diversified the rush packages. The staff has an elite track record of developing pass rushers \u2014 every major Rams pass rusher (Verse, Young, Fiske, Turner) was developed internally from draft picks. They can develop technique, moves, and IQ. What must arrive: explosiveness, motor, and baseline power.",
+      "scheme_fit_narrative": "Our defense lives and dies with edge pressure. We need a rusher who can get to the QB with four, play every snap, and contribute against the run. Motor is non-negotiable. We don't need a situational pass rusher \u2014 we need a guy who can be on the field for 1,000 snaps and still be winning in the fourth quarter. Power, bend, relentless effort. That's the profile.",
+      "archetype_examples": [
+        "Jared Verse",
+        "Byron Young",
+        "Micah Parsons (as pass rusher)"
+      ]
+    },
+    "DL": {
+      "scheme_role": "The interior DL in Shula's scheme must penetrate and disrupt \u2014 this is a one-gap penetrating system, not a two-gap reading system. Kobie Turner (7 sacks in 2025) and Braden Fiske (8.5 sacks as a rookie, 3 in year two) are asked to shoot gaps, collapse the pocket from the interior, and pressure the QB in concert with the edge rushers. The DL must also hold up against the run in light boxes. With the Rams playing the most dime in the NFL, the interior DL often faces fewer blockers but must be disruptive enough to make up for having fewer defenders in the box.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.26,
+          "importance": "essential",
+          "reasoning": "Interior pressure is the complement to edge pressure. Turner ranked 5th among interior DL in pressures on true passing sets. The Rams' four-man pressure philosophy depends on interior push collapsing the pocket toward the edge rushers. Interior pass rush creates the ecosystem for the defense."
+        },
+        "Run Defense": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "With the Rams playing light boxes (2nd-most in NFL) and the most dime, the interior DL must be stout enough to hold up against the run with fewer defenders. Run defense is important but secondary to pass rush in this penetrating scheme."
+        },
+        "First Step": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "One-gap penetration demands explosive first steps. The DL must win early and get into the backfield. Fiske's 8.5 sacks as a rookie were driven by his first-step quickness. This scheme does not ask DL to absorb blocks \u2014 it asks them to penetrate."
+        },
+        "Hand Usage": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Turner's ability to pressure against double teams \u2014 doing mentor Aaron Donald proud \u2014 was driven by elite hand technique. Hand usage allows interior DL to shed blocks and penetrate despite facing combinations."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The Rams rotate their interior DL (Turner, Fiske, Poona Ford, etc.), so individual snap counts are lower than edge. But motor is still valued because sustained interior pressure wears down offensive lines over four quarters."
+        },
+        "Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Baseline strength is required to hold up against NFL interior OL. However, the scheme values quickness and penetration over size and power. This is not a two-gap system that asks DL to eat double teams."
+        }
+      },
+      "ideal_archetype": "A quick, explosive interior penetrator who can collapse the pocket and generate pressure from the inside. Think Aaron Donald (the aspirational comp) or Chris Jones: explosive first step, dominant hand usage, ability to win 1-on-1 matchups and beat double teams. Not a nose tackle who occupies space \u2014 the Rams need disruptors.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "280-305",
+          "floor": "270",
+          "reasoning": "Must hold up against interior blocking but does not need to be a 320-pound space-eater. The scheme values quickness over bulk."
+        },
+        "40_yard_dash": {
+          "ideal": "4.75-4.90",
+          "floor": "5.00",
+          "reasoning": "Interior quickness and pursuit speed. Fiske's athleticism was a key reason he was drafted in the 2nd round. Athletic DTs thrive in this penetrating scheme."
+        },
+        "3_cone_drill": {
+          "ideal": "sub-7.30",
+          "floor": "7.50",
+          "reasoning": "Agility helps interior DL redirect and finish plays after initial penetration."
+        }
+      },
+      "development_context": "Giff Smith (DL coach/run game coordinator) developed Fiske into DROY finalist and Turner into one of the NFL's best interior pressurers. The Rams mentored their young DL with Aaron Donald's example and technique. The staff has an excellent track record of developing interior pass rushers from mid-round picks. Technique, hand usage, and pass rush moves can be taught. What must arrive: first-step explosion and baseline athleticism.",
+      "scheme_fit_narrative": "We need an interior disruptor, not a space-eater. Our defense generates pressure from four and drops seven in coverage. The interior DL must be able to collapse the pocket and create sacks or hurries from the inside. If you can only eat blocks and hold the point, you're not what we need. Give us a quick, explosive DT who can penetrate gaps and hunt the QB.",
+      "archetype_examples": [
+        "Kobie Turner",
+        "Braden Fiske",
+        "Chris Jones (younger version)"
+      ]
+    },
+    "LB": {
+      "scheme_role": "The Rams play the most dime in the NFL, which means the LB position has fewer snaps but must be maximally impactful when on the field. Typically only 1 ILB is on the field in sub-packages (Nate Landman, who led the team with 132 tackles in 2025). The ILB must be the defensive quarterback \u2014 setting the defense, processing offensive formations, and making tackles in both the run and pass game. In the Rams' zone-heavy coverage scheme, the LB must read route combinations post-snap, pass off receivers in match zone, and defend the underneath areas of the field. The LB also must be able to rush the passer on delayed blitz concepts.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Landman's 132 tackles led the team. With light boxes and only one ILB often on the field, every tackle matters. The LB must be a sure tackler in space because missed tackles in the Rams' bend-but-don't-break scheme lead to explosive plays."
+        },
+        "Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The Fangio scheme demands LBs who can process route combinations in match zone coverage and pass off receivers. Inability to cover was a noted weakness \u2014 the Rams' secondary struggles were partly because LBs couldn't handle coverage responsibilities. This is the defining trait in this scheme."
+        },
+        "Pass Rush": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "The Rams generate pressure from the edge and interior DL. LB blitzes are used sparingly (4th-lowest blitz rate). Pass rush is not a primary LB responsibility, though delayed blitz ability provides a useful wrinkle."
+        },
+        "Instincts": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "With only one ILB on the field in dime, that player must process quickly and be in the right place. Instincts allow the LB to diagnose plays, fill run gaps correctly against light box looks, and anticipate route concepts in coverage."
+        },
+        "Athleticism": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The Rams' dime-heavy scheme means the LB must cover ground sideline to sideline against the run and match up with RBs and TEs in the passing game. Athleticism is what allows a LB to function as the lone LB on the field."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "As the only LB on the field, range matters for covering the full width of the formation and making tackles in pursuit. However, range is less critical than coverage processing because the coverage structure provides help."
+        },
+        "Block Shedding": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "With light boxes and the front four handling the majority of run-game responsibilities, block shedding is less critical than in a traditional LB role. The scheme asks the LB to flow and fill rather than stack-and-shed."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "The LB must set the defense and communicate coverage responsibilities. Important, but McVay and Shula handle much of the strategic communication, and the scheme's simplicity (for players) is by design."
+        }
+      },
+      "ideal_archetype": "A smart, athletic, coverage-capable ILB who can function as the lone LB on the field in dime packages. Think Nate Landman (the Rams' own prototype), Fred Warner, or Zack Baun: high-volume tacklers who can cover RBs and TEs in zone, process formations quickly, and fill run gaps from light boxes. Not a thumper who can't cover \u2014 coverage ability is the most important trait.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "225-240",
+          "floor": "215",
+          "reasoning": "Must be big enough to handle NFL run-game responsibilities but athletic enough to cover. Too heavy limits coverage ability; too light compromises run-game durability."
+        },
+        "40_yard_dash": {
+          "ideal": "4.50-4.65",
+          "floor": "4.70",
+          "reasoning": "Sideline-to-sideline range and the ability to match up with RBs in coverage. Athletic LBs are essential in the Rams' dime-heavy scheme."
+        },
+        "3_cone_drill": {
+          "ideal": "sub-6.90",
+          "floor": "7.10",
+          "reasoning": "Change of direction and ability to cover routes in space. The LB must mirror TEs and RBs on underneath routes."
+        }
+      },
+      "development_context": "Greg Williams (ILB coach, 3rd year) developed Nate Landman into the team's tackle leader. The Rams have shown ability to develop productive LBs from lower-pedigree players. Ernest Jones set franchise tackle records under earlier coaching (with Shula as LB coach). The staff can develop tackling and instincts. What must arrive: coverage ability and baseline athleticism. Coverage processing is the hardest thing to develop and must show in college tape.",
+      "scheme_fit_narrative": "We only play one ILB in most of our packages, so he has to be special. We need a guy who can cover \u2014 that's the price of admission. If you can't match up with TEs and RBs in zone, you can't play in our dime-heavy defense. After that, give us a sure tackler with range who can process the game quickly. The old-school thumper who sits in the box doesn't fit our scheme.",
+      "archetype_examples": [
+        "Fred Warner",
+        "Zack Baun",
+        "Nate Landman"
+      ]
+    },
+    "CB": {
+      "scheme_role": "The Rams' CB position operates in a zone-dominant scheme with heavy coverage disguise. The CB must align in two-high shells pre-snap, then rotate post-snap into multiple coverage looks (Cover 3, Quarters, Cover 6, match zone). This requires mental processing to read route combinations and pass off receivers in pattern-reading zones. The Rams played the 4th-most zone and 4th-least man coverage in 2025. The defense's inability to play more man coverage was identified as a limitation. The Rams have invested minimally in the CB position (Darious Williams and Ahkello Witherspoon made a combined $10.5M) \u2014 better CB talent would unlock more coverage diversity. The CB also must support the run game from light boxes, reading and filling against run action from the secondary.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The Rams play the 4th-least man coverage in the NFL, making this less critical than in a man-heavy scheme. However, the inability to play man was identified as a limitation \u2014 a CB who CAN play man would unlock more defensive versatility and is a hidden value upgrade."
+        },
+        "Ball Skills": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The Rams were 5th in defensive takeaways in 2025. The bend-but-don't-break scheme relies on turnovers to make up for yards allowed. CBs must create turnovers when the pass rush forces errant throws. Kinchens and McCollough each had 4 INTs in 2024 \u2014 the secondary as a whole must capitalize on opportunities."
+        },
+        "Zone Coverage": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "This is the defining trait. The Fangio scheme demands CBs who can process route combinations in match zone, pass off receivers, and play with proper leverage in zone structures. The Rams led the NFL in coverage disguise rate \u2014 the CB must read the disguise and execute the post-snap coverage correctly. Inability to process match zone concepts was specifically cited as a weakness."
+        },
+        "Speed": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The two-high shell asks CBs to play with depth and rally to underneath routes. Recovery speed is critical when the CB bites on a fake or gets beat on a route. Speed also helps in run support from the secondary."
+        },
+        "Press": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The Rams do not ask CBs to press consistently in their zone scheme. However, press ability at the line can disrupt timing routes and is useful in the limited man coverage situations. Not a primary requirement but adds value."
+        },
+        "Nickel": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "With the Rams playing the most dime in the NFL, the ability to play inside/slot is extremely valuable. The nickel/dime CB must handle the shorter, quicker routes from the slot while processing zone assignments. Quentin Lake plays the primary dime role, but CBs who can play inside and outside create roster flexibility."
+        }
+      },
+      "ideal_archetype": "A smart, zone-savvy CB who can process coverage rotations post-snap and play with discipline in match zone. Not a pure lockdown man-coverage corner \u2014 the Rams need a CB who excels in zone, reads the QB's eyes, and makes plays on the ball when the pass rush forces throws. Think a smarter, more instinctive version of the Rams' current CBs: Darious Williams' zone awareness combined with better physical tools. The dream add is a CB with elite zone skills who CAN ALSO play man \u2014 that would unlock the defense's upside.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-1",
+          "floor": "5-10",
+          "reasoning": "Size is not a primary requirement in zone coverage. Length helps with ball disruption but processing speed matters more than physical dimensions."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.45",
+          "floor": "4.50",
+          "reasoning": "Speed allows the CB to play with depth in two-high shells and recover when beaten. Recovery speed is critical in the Fangio system because the CB often aligns off the receiver."
+        },
+        "3_cone_drill": {
+          "ideal": "sub-6.80",
+          "floor": "7.00",
+          "reasoning": "Change of direction helps the CB break on routes in zone coverage and mirror receivers in the limited man coverage situations."
+        }
+      },
+      "development_context": "Jimmy Lake (promoted to pass game coordinator/DB coach for 2026) was previously the Falcons' DC and a respected secondary coach. Aubrey Pleasant (departed) oversaw a secondary that produced multiple top-10 INT players. Chris Beake returns for his 4th year with the secondary. The staff has developed young safeties (Kinchens, McCollough) but CB development has been more challenged \u2014 the Rams have not produced a true CB1 internally. What must arrive: zone processing ability and ball skills. Physical tools can be developed but mental processing in match zone is hard to teach.",
+      "scheme_fit_narrative": "We need a corner who can think. Our scheme asks the secondary to process coverage rotations post-snap \u2014 the CB has to know whether he's in Cover 3, Quarters, or match zone after the snap, and he has to pass off receivers correctly. Ball skills matter because our bend-but-don't-break philosophy means we need turnovers. We're not asking for a shutdown man-cover guy \u2014 we're asking for a smart, athletic zone corner who can make plays on the ball.",
+      "archetype_examples": [
+        "Darius Slay (zone years)",
+        "Patrick Surtain II",
+        "Sauce Gardner (zone versatility)"
+      ]
+    },
+    "S": {
+      "scheme_role": "The safety position is central to the Rams' defensive identity. The two-high shell demands safeties who align deep pre-snap and then execute multiple post-snap rotations \u2014 rotating into Cover 3 single-high, staying in Quarters/split-field, or slamming into the box against the run. Quentin Lake played 100% of defensive snaps through 17 games in 2024 and emerged as the defense's most versatile defender, playing safety, nickel, and dime roles interchangeably. Kam Kinchens and Kam Curl provide additional safety depth. The safety must be the defense's best processor \u2014 reading the #2 WR's departure to determine coverage fit, communicating with the LBs and CBs, and serving as the last line of defense against explosive plays.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.08,
+          "importance": "low",
+          "reasoning": "The Rams play very little man coverage. Safeties are primarily asked to play zone \u2014 reading and reacting from depth rather than locking onto individual receivers. Man coverage is a bonus skill but not a requirement."
+        },
+        "Range": {
+          "weight": 0.24,
+          "importance": "essential",
+          "reasoning": "The two-high shell asks safeties to cover the deep halves of the field and rally to the ball. Range is what allows the safety to align deep and still make a play on underneath routes or run fills. Quentin Lake's range and instincts made him the defense's most valuable player \u2014 he played 100% of snaps and led the team in multiple defensive categories."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The Rams were 5th in takeaways. Kinchens and McCollough each had 4 INTs as rookies in 2024. The safety is positioned in zone to break on throws \u2014 when the pass rush forces an errant throw, the safety must capitalize. Ball skills are a key component of the defense's points-prevention strategy."
+        },
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "With light boxes (2nd-most in NFL), safeties must be reliable tacklers because they are the last line of defense. Quentin Lake recorded 111 tackles from the safety position \u2014 5th-most by a DB in franchise history. The bend-but-don't-break philosophy means safeties tackle in space on completions that the scheme allows underneath."
+        },
+        "Speed": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Deep alignment requires speed to close on the ball and prevent explosive plays. The safety must be able to cover the deep halves and still rally to the run. Speed is the enabler of the two-high shell."
+        },
+        "Nickel": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Quentin Lake's ability to play the nickel/dime role was transformative for the Rams \u2014 he ranked 4th in slot havoc. The Rams play more dime than any team in the NFL, and the safety/nickel hybrid is a critical position. A safety who can credibly cover the slot unlocks the Rams' preferred defensive packages."
+        }
+      },
+      "ideal_archetype": "A rangy, instinctive, versatile safety who can play deep in two-high, rotate into single-high, fill against the run from the secondary, and slide into the slot in dime packages. Think Quentin Lake (the Rams' own prototype) or Jessie Bates: zone-savvy safeties with range, ball skills, and the ability to tackle in space. The ideal Rams safety is essentially a defensive QB who can play every snap and handle multiple roles.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-2",
+          "floor": "5-11",
+          "reasoning": "Size helps with tackling in the box and competing for contested balls. Lake is 6-1, Kinchens is 6-0 \u2014 the prototype range."
+        },
+        "weight": {
+          "ideal": "200-215",
+          "floor": "195",
+          "reasoning": "Must be big enough to tackle in the box on run fills but athletic enough to cover deep and in the slot."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.50",
+          "floor": "4.55",
+          "reasoning": "Range and recovery speed are paramount in the two-high shell. The safety must cover deep halves and close on balls in front of him."
+        },
+        "3_cone_drill": {
+          "ideal": "sub-6.80",
+          "floor": "7.00",
+          "reasoning": "Agility for slot coverage in dime packages and the ability to change direction against route-running TEs and RBs."
+        }
+      },
+      "development_context": "Jimmy Lake (now pass game coordinator/DB coach) brings extensive secondary coaching experience from his time as Falcons DC and Washington head coach. The Rams developed Kam Kinchens and Jaylen McCollough into productive rookie safeties who each had 4 INTs. Quentin Lake's emergence from a 7th-round pick into a 100%-snap-rate starter is a testament to the staff's development ability. The staff can develop zone awareness, tackling, and versatility. What must arrive: range, ball skills, and baseline athleticism. The Rams' track record of developing safeties is strong.",
+      "scheme_fit_narrative": "Our defense runs through the safety position. We need a guy with range, smarts, and versatility. He has to play deep in two-high, come down and tackle in the box, and slide into the slot on passing downs. Ball skills are huge because our scheme is designed to take the ball away. The ideal safety for us is someone who can play every snap and handle whatever role we need on that play.",
+      "archetype_examples": [
+        "Quentin Lake",
+        "Jessie Bates",
+        "Budda Baker (versatility)"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "The Rams' 2026 draft needs center on CB (biggest need, pick 13), OT (Havenstein retired), and potentially TE depth to sustain their 13-personnel identity. For scheme fit: (1) TE prospects who can both block and catch are premium \u2014 the Rams' unprecedented 13-personnel usage means they need 3-4 TEs who are complete players, not just receivers or just blockers. A Kenyon Sadiq-type receiving TE gains value, but only if he can hold up inline. (2) The 3-4 OLB role is a pure edge rusher position \u2014 any LB/EDGE tweener with pass rush traits should be valued at EDGE prices for LAR. (3) Safety is a major value position: Shula's dime-heavy, zone-based scheme demands versatile safeties who function as slot defenders, box players, and deep coverage \u2014 a Sonny Styles or Caleb Downs archetype is ideal. (4) RB receiving value is minimal; LAR targets backs who can run between the tackles in outside zone/duo concepts. (5) CBs must be zone-capable; LAR is among the lowest man-coverage teams in the NFL \u2014 press-man specialists lose value, while zone/pattern-match corners gain it.",
+  "scheme_draft_intelligence": "The Rams' 2026 draft approach will be shaped by their offensive evolution toward heavy personnel and their defensive philosophy of investing in the front while developing cheap secondary talent. With two first-round picks (13th and 29th overall), the Rams have unusual draft capital for a McVay-era team that has historically traded away early picks.\n\nOn offense, the most valuable positional demands are at TE and OT. The Rams' unprecedented usage of 13 personnel (highest in the Next Gen Stats era) means they need multiple TEs who can both block and receive. Terrance Ferguson's development unlocked this identity, but the Rams need continued TE investment to sustain it. OT depth is critical after starting 8+ different combinations in 2024 \u2014 the offense's versatile zone/gap scheme demands athletic, scheme-versatile tackles. The addition of Kingsbury and Johnson to the offensive staff may also signal interest in a developmental QB for the post-Stafford era, though Stafford won MVP in 2025 and returns for 2026.\n\nOn defense, the Rams' biggest value differential comes from their approach to the secondary. They spend almost nothing on CBs and safeties ($54.2M in total defensive spending \u2014 last in the NFL), instead investing heavily in the pass rush and trusting their coverage scheme to compensate. This means the Rams should be aggressive in drafting secondary talent \u2014 particularly a CB1 who can process match zone concepts, which would unlock the defense's ceiling. The staff has proven they can develop pass rushers (Verse, Young, Fiske, Turner were all internal developments), so they may not need another early EDGE pick, creating an opportunity to address the secondary earlier than most teams would.\n\nThe Rams' coaching staff creates hidden value in prospects who are smart but physically raw. McVay's offense values IQ over raw athleticism at nearly every position \u2014 a WR who runs precise routes matters more than one with a 4.3 40. Similarly, Shula's defense values zone processing over lockdown man coverage. Prospects who other teams view as 'zone-only' defenders are perfect fits in LA. The defensive scheme also creates value in versatile defensive backs who can play multiple positions \u2014 the dime-heavy approach means a safety who can play the slot (like Quentin Lake) is worth more to the Rams than to any other team in the league.\n\nHistorically, the Rams under McVay/Snead have shown conviction when they identify a scheme fit \u2014 they traded up for Ferguson (TE), aggressively targeted Kincaid and Bowers in previous drafts, and showed conviction on Jarquez Hunter. When McVay says 'that's the guy I want,' the Rams move. Expect the same approach in 2026, particularly if a CB or safety with elite zone processing falls into their range. The Rams will also look for OL versatility \u2014 linemen who can play multiple positions have outsized value in a system that has managed constant injury-related shuffling.",
   "confidence": "high",
   "sources": [
-    "therams.com (official 2026 coaching staff announcement)",
-    "NFL.com (Scheelhaase promotion, Kingsbury hiring)",
-    "Pro-Football-Reference (2025 team page: West Coast offense, 3-4 defense)",
-    "PFF (Rams pass rush analysis, Verse/Young rankings, dime personnel usage)",
-    "SI.com Rams (Scheelhaase/Ragone co-OC, Shula analysis)",
-    "ESPN (Kingsbury joining Rams staff)",
-    "Daily News/OC Register (13-personnel identity shift article)",
-    "Turf Show Times (Shula scheme breakdown, 4-man front analysis, TE need)",
-    "MatchQuarters.com (Rams defensive primer: tilted 3-4, Cover 3/Cover 6)",
-    "therams.com (Kam Curl free agent spotlight: snap alignment data)",
-    "therams.com (Quentin Lake feature: slot coverage, blitzing, hybrid role)",
-    "SportsInfoSolutions (Rams deploy 13 personnel at highest rate in NFL)",
-    "Wikipedia (Chris Shula coaching history, Mike LaFleur departure)"
+    "therams.com (official team site, 2025-2026 coaching staff announcements and features)",
+    "ESPN (coaching staff finalization, Jared Verse/Byron Young pass rush feature, Scheelhaase promotion)",
+    "Sports Illustrated / On SI Rams beat coverage (scheme analysis, Chris Shula profiles)",
+    "Turf Show Times (McVay offense iterations, Shula defense analysis, personnel tendencies)",
+    "Match Quarters (Shula defensive scheme breakdown, Fangio-Phillips hybrid analysis, coverage disguise data)",
+    "The Ringer (Sean McVay vs. Mike Macdonald NFC Championship scheme analysis)",
+    "PFF (Verse/Young pass rush data, team defensive grades, coverage stats)",
+    "Baltimore Ravens official site (Chris Shula head coaching interview profile)",
+    "A to Z Sports (Terrance Ferguson draft analysis, Chris Shula candidacy profile)",
+    "LAFB Network (Rams offense personnel analysis vs. Seahawks)",
+    "Pro Football Reference / Next Gen Stats (13 personnel usage, EPA data)",
+    "Wikipedia (Chris Shula coaching history, 2026 Rams season)",
+    "Newsweek (Kliff Kingsbury role with Rams)",
+    "Yahoo Sports (Shanahan coaching tree evolution)"
   ]
 }

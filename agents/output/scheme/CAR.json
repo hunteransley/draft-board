@@ -6,70 +6,727 @@
       "name": "Dave Canales",
       "tenure_years": 2,
       "background": "offensive",
-      "scheme_philosophy": "Pete Carroll / Seattle tree; physical run-first identity built around play-action and QB development; commitment to balance and heavy personnel groupings"
+      "coaching_tree": "Pete Carroll / Seattle Seahawks tree. Spent 13 years (2010-2022) under Carroll, coaching WRs (2010-2017) then QBs/passing game coordinator (2018-2022). One year as Tampa Bay OC (2023) under Todd Bowles before becoming HC.",
+      "scheme_philosophy": "Run-first, ball-control offense rooted in Carroll's Seattle philosophy. Canales builds the offense around establishing the run game to set up play-action. Emphasizes ball security above all else \u2014 a direct Carroll influence. Uses condensed formations, motion, jet sweeps, and varied personnel groupings to create defensive confusion. Receivers learn the full route tree rather than being locked into slot/outside designations. Handing play-calling to OC Brad Idzik in 2026 to take a 'global approach' to the team."
     },
     "offensive_coordinator": {
       "name": "Brad Idzik",
-      "scheme_tree": "Seattle Seahawks / Pete Carroll offensive tree via Dave Canales; West Coast concepts with physical run emphasis",
-      "play_caller": true
+      "coaching_tree": "Canales/Carroll tree. Stanford grad assistant (5 years), then Seattle assistant WR coach (2019-2022), Tampa Bay WR coach (2023), Carolina OC (2024-present). Has followed Canales for six consecutive seasons.",
+      "scheme_evolution": "First-time playcaller in 2024 (Canales called plays). Oversaw Bryce Young's resurgence and offensive improvement of 6 points per game. In 2026, takes over play-calling duties. Background as WR coach shapes his pass game design \u2014 emphasis on route technique and receiver versatility. Collaborative with Canales and run game coordinator Harold Goodwin in building balanced attack.",
+      "development_track_record": "Strong WR development background from Seattle and Tampa Bay. Helped coach the room that included DK Metcalf, Tyler Lockett in Seattle, and Mike Evans/Chris Godwin in Tampa. Developing Tetairoa McMillan into Offensive Rookie of the Year (70 catches, 1,014 yards, 7 TDs) in his first year is the signature achievement."
     },
     "defensive_coordinator": {
       "name": "Ejiro Evero",
-      "scheme_tree": "Vic Fangio 3-4 zone; mentored under Monte Kiffin (Tampa 2), Dom Capers (zone blitz), Wade Phillips, Raheem Morris (Rams); secondary/pass game coordinator pedigree",
-      "play_caller": true
+      "coaching_tree": "Vic Fangio tree / Wade Phillips / Raheem Morris / Monte Kiffin lineage. Started under Kiffin in Tampa Bay (2007-09), then San Francisco under Harbaugh/Fangio (2011-15), Green Bay under Dom Capers (2016), LA Rams under Wade Phillips then Brandon Staley then Raheem Morris (2017-21), Denver DC (2022), Carolina DC (2023-present). Dom Capers serves as senior defensive assistant on his staff.",
+      "scheme_evolution": "Runs a Fangio-tree 3-4 base defense with two-high safety shells pre-snap that rotate to Cover 3 post-snap. Disguised his coverages more than any other DC in the NFL in 2022. Zone-heavy, bend-don't-break philosophy that prioritizes capping explosive plays. Has evolved to incorporate more creative blitz packages and safety pressures. Built around generating turnovers and making opponents earn every yard.",
+      "development_track_record": "Developed Patrick Surtain II and Justin Simmons into All-Pros in Denver. In Carolina, guided Jaycee Horn to first Pro Bowl (career-highs across the board in 2024) and developed Mike Jackson into one of the league leaders in passes defensed. Maximized Derrick Brown as an elite interior disruptor. Developed rookie Nic Scourton into a productive pass rusher. Strong at developing secondary talent given his safeties coach background."
     }
   },
   "offense": {
-    "scheme_family": "West Coast / Seattle-style run-first",
-    "base_personnel": "12 / 13 heavy; multiple TE sets featured prominently (13 personnel at 7.8%, 6th-highest in NFL in 2025)",
-    "run_scheme": "downhill inside zone / power; under-center heavy, physical run identity with commitment to establishing the ground game",
-    "pass_concepts": "play-action heavy off run-game foundation, boot concepts, quick game to protect QB, vertical shots off play-action; low-volume passing attack (bottom-third in passing yards per game)",
-    "rpo_usage": "low to moderate",
-    "te_usage": "versatile but primarily inline blocker / run-game contributor; TEs asked to do dirty work in run game and pass protection first, occasional routes; multiple TE sets (12/13 personnel) used heavily to establish physicality; TE receiving production historically low (last in NFL in TE targets over past 5 years)",
-    "rb_usage": "bell cow committee (Hubbard/Dowdle dual system); Hubbard valued for pass protection on third downs; run-first identity with moderate receiving involvement; primary runners with occasional checkdown targets"
+    "scheme_family": "West Coast (Pete Carroll / Seattle variant with Canales' own play-action emphasis)",
+    "scheme_detail": "Canales' offense is an amalgamation of his 13 years in Seattle's system. It's run-first but not a pure zone scheme \u2014 it uses a variety of run concepts to establish the ground game, then attacks with play-action from under center and shotgun. Unlike the Shanahan-tree outside zone systems, this offense uses condensed formations and diverse personnel groupings to create pre-snap confusion. Receivers are not labeled slot/outside \u2014 they learn the full route tree and move around formations. The emphasis is on ball security, physicality, and controlling tempo. Idzik's WR development background adds a layer of route technique refinement. Harold Goodwin (former Arizona OC under Bruce Arians, Tampa Bay RGC) brings gap/power concepts alongside the zone principles. The offense improved 6 points per game from 2023 to 2024, and the Panthers averaged 33.4 rush attempts in their seven 2025 wins vs 28.0 pass attempts.",
+    "run_scheme": "Diverse run scheme mixing inside zone, outside zone, gap/power, and counter concepts. Goodwin's Arians-tree background favors a physical, downhill approach. The Panthers ran their highest run percentage under Canales (61.3%) in the Rams upset win. Two-back system with Dowdle (1,076 yards) and Hubbard splitting work. Motion and jet sweeps are incorporated from the Seattle influence. The run game is designed to be 'offensive-line-friendly' \u2014 Canales explicitly described it as running the ball to make play-action friendly for the OL.",
+    "pass_architecture": "Play-action heavy. Quick game and intermediate timing routes that leverage the run game threat. Canales emphasizes getting the ball out quickly to protect the QB and reduce dropback exposure. Receivers use eyes and route technique to create separation rather than relying purely on speed. The scheme asks the QB to be a 'point guard' \u2014 distribute efficiently, protect the ball, do your 1/11th. Tetairoa McMillan (70-1,014-7 as a rookie) was featured on explosive plays (27 of 70 catches were 16+ yards). Fourth-down clutch passing was a feature. Deep shots mixed off play-action.",
+    "personnel_tendencies": "Diverse groupings: 11 (3WR) as base, but significant 12 (2TE) and 21 (2RB) usage. Canales explicitly embraces heavy personnel \u2014 committed to 'heavy personnel and under center, downhill runs' as the identity. Ja'Tavion Sanders and Tommy Tremble featured at TE. Two-back sets with Dowdle/Hubbard are a staple. The offense revolves around heavy tight end play per the Panthers' own reporting.",
+    "motion_tempo": "Moderate-to-high motion usage inherited from Seattle. Jet motion, orbit motion, and shifts are used to stress the defense pre-snap and create advantageous final formations. Standard tempo \u2014 this is a ball-control offense, not hurry-up. Canales wants to control the clock and impose physical will."
   },
   "defense": {
-    "base_front": "3-4",
-    "alignment": "odd front, 3 down linemen (NT, 2 DEs) with 2 stand-up OLBs; played base 3-4 at 4th-highest rate in NFL (31.1%); frequently shifts to nickel/sub packages",
-    "edge_rush_source": "OLB stand-up (Nic Scourton, Princely Umanmielen, DJ Wonnum, Patrick Jones II as stand-up OLBs); pass rush has been historically deficient under Evero \u2014 Panthers ranked last in pressure rate all three seasons",
-    "coverage_base": "Cover 3 heavy (ranked 2nd in NFL in Cover 3 usage); pre-snap two-high safety shell that rotates to single-high Cover 3 post-snap; zone dominant with heavy coverage disguises; bend-don't-break philosophy that caps explosive plays",
-    "blitz_tendency": "moderate; Evero more aggressive than Fangio tree norm \u2014 willing to bring 5-6 rushers when front four cannot generate pressure; safety blitzes and creative pressure packages used situationally",
-    "lb_role": "ILBs are run/coverage responsible; identified as biggest weakness on defense; need to be signal-callers and QB of the defense in Evero's zone scheme; coverage responsibility paramount",
-    "safety_usage": "extreme hybrid usage; Tre'von Moehrig deployed as chess piece across box (442 snaps), slot (310 snaps), free safety (143 snaps), and defensive line (94 snaps) in 2025; led all DBs in NFL in TFLs (14); used to disguise blitzes, rush passer (2.0 sacks, 12 QB pressures), cover slot, and play deep"
+    "scheme_family": "3-4 base, Fangio/Wade Phillips tree (via Rams/Broncos lineage)",
+    "scheme_detail": "Evero's defense is rooted in the Fangio philosophy of capping explosive plays. Aligns in two-high safety shells pre-snap to disguise coverage, then rotates to Cover 3 post-snap at one of the highest rates in the NFL. Carolina ranked fifth in MOFC (middle-of-field closed) coverage and second in Cover 3 usage. Played base 3-4 at the fourth-highest rate in the NFL (31.1%). Dom Capers, architect of the zone blitz, serves as senior defensive assistant \u2014 his influence adds creative pressure concepts. The defense is bend-don't-break, prioritizing forcing turnovers (top-10 in interceptions in 2025) over generating sacks.",
+    "front_structure": "3-4 odd front with Derrick Brown as the anchor 3-4 DE. Three-down linemen with two stand-up OLBs. Brown functions as a penetrating interior disruptor who commands double teams and bats passes at the line. Tershawn Wharton and Bobby Brown III rotate alongside. Nic Scourton and Princely Umanmielen are the primary edge rushers from OLB. The front is built to control gaps and funnel runners to the linebackers.",
+    "coverage_philosophy": "Zone-dominant. Two-high safety shells pre-snap rotating to Cover 3 post-snap. Evero disguises coverages at an elite rate \u2014 showing two-high then spinning to single-high, or vice versa. Very limited man coverage usage. Soft zone that gives cushion to prevent explosive plays. The secondary is the most stable unit \u2014 Jaycee Horn, Mike Jackson, Chau Smith-Wade (nickel), and Tre'von Moehrig/Lathan Ransom at safety provide continuity. Ball production is emphasized \u2014 the Panthers' CB tandem of Horn and Jackson combined for the most passes defensed by a CB duo in the NFL in 2024.",
+    "pressure_philosophy": "Moderate blitz rate with creative packages. Evero was slightly more aggressive in dialing up blitzes than traditional Fangio-tree coordinators. Uses safety blitzes and delayed LB rushes to generate pressure from unexpected angles. The 3-4 alignment naturally disguises where the fourth rusher is coming from. However, the Panthers have struggled to generate consistent pass rush \u2014 this remains a scheme weakness that relies on having talent up front.",
+    "sub_packages": "Nickel (4-2-5) is the primary sub-package. Chau Smith-Wade plays the nickel CB role. In sub, one LB comes off the field. The Panthers need better LB play \u2014 Christian Rozeboom and Claudin Cherelus graded below average for much of 2025, and LB is the biggest defensive need entering 2026. Safety Lathan Ransom provides versatility as a box/free safety hybrid."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "medium",
-      "explanation": "Canales has expressed strong affinity for TE usage and employs 12/13 personnel at elite rates (7.8% in 13 personnel, 6th-highest in NFL). However, TEs are primarily valued as inline blockers and run-game enablers first. Carolina ranked last in NFL in TE receiving production over the past five years. The offense asks TEs to 'do the dirty work' per Canales. A receiving TE would get moderate snaps but the scheme values blocking versatility over pure route-running. Sanders had only 29 catches for 190 yards in 2025. A TE who can block AND catch would be ideal, but pure receiving TEs will not see the volume they would in a spread/11-personnel offense."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB in Canales' system is a 'point guard' \u2014 distribute efficiently, protect the ball, manage the offense, and let the run game do the heavy lifting. The scheme is designed to minimize the QB's burden: heavy run game, play-action, quick timing throws. The QB must process pre-snap reads to identify defensive fronts and coverage rotations, get the ball out quickly, and avoid turnovers above all else. Mobility is secondary to decision-making and accuracy, as the scheme limits dropback exposure through play-action and quick game.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Canales' offense is built on quick-game and intermediate timing routes, not vertical bombs. Arm strength matters on play-action shots downfield but the scheme doesn't demand a cannon \u2014 it demands accuracy and touch on timing routes."
+        },
+        "Accuracy": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The West Coast/Carroll-tree offense lives on timing routes where the ball must arrive on rhythm \u2014 slants, digs, curls, and play-action crossers. Canales explicitly values QBs who 'get the ball out quickly.' Accuracy on short-to-intermediate throws is the defining trait. Bryce Young's resurgence came from completing 61.8% of passes after regaining the starting role."
+        },
+        "Pocket Presence": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "While the scheme minimizes dropback exposure, the offensive line remains a work in progress. The QB must feel pressure, navigate the pocket, and extend plays when the timing structure breaks down. Canales' QBs (Russell Wilson, Geno Smith, Baker Mayfield) all showed pocket awareness."
+        },
+        "Mobility": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Canales' bootleg/play-action concepts benefit from a QB who can move, but this is not a designed-run offense. Mobility is a plus, not a requirement \u2014 the scheme is built around pocket passing with occasional movement. Bryce Young's scrambling adds a dimension but the offense doesn't depend on it."
+        },
+        "Decision Making": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Ball security is Canales' top priority \u2014 a direct Pete Carroll influence. Seattle under Carroll committed the fewest turnovers in a 10-year stretch. The QB must protect the football, make smart reads within the progression, and take the checkdown when the play isn't there. Canales praised Young's ability to 'do your 1/11th' rather than try to be Superman."
+        },
+        "Leadership": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Canales emphasizes culture, transparency, and accountability. The QB sets the tone but this staff can develop leadership through their hands-on approach. The system doesn't require an elite leader \u2014 it requires a willing learner who trusts the process."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "The scheme simplifies pre-snap reads through run-first philosophy and play-action, reducing the mental burden. However, the QB must still identify fronts and leverage play-action off the correct looks. Canales praised Young's ability to 'identify things and adjust on the fly.'"
+        }
+      },
+      "ideal_archetype": "A smart, accurate, process-oriented quarterback who protects the football and manages the offense efficiently. Not a gunslinger or a scrambler \u2014 a distributor who thrives within timing and structure, makes anticipation throws on intermediate routes, and lets the run game dictate the offensive flow. Think Geno Smith's 2022 season under Canales (who was his QB coach) or Baker Mayfield's career year in Tampa under Canales (career-highs in passing yards, TDs, completion percentage). A QB who gets better when the system reduces his burden rather than expanding it.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4",
+          "floor": "5-10",
+          "reasoning": "Canales has worked with QBs of varying heights \u2014 Russell Wilson (5-11), Geno Smith (6-3), Baker Mayfield (6-1), Bryce Young (5-10). The scheme's quick-game emphasis means shorter QBs can survive because they get the ball out fast, but height helps with vision over the line on intermediate routes."
+        },
+        "weight": {
+          "ideal": "210-235",
+          "floor": "185",
+          "reasoning": "No strict weight floor given the scheme protects the QB. Bryce Young at ~190 lbs functions because the scheme limits hits. Larger QBs benefit from durability in the play-action bootleg game."
+        }
+      },
+      "development_context": "Canales is one of the NFL's premier QB developers. He resurrected Geno Smith into a Pro Bowler and Comeback Player of the Year. He guided Baker Mayfield to career highs. He revitalized Bryce Young from potential bust to competitive starter. This staff can develop accuracy, pocket mechanics, and decision-making. What must arrive is the mental wiring \u2014 the willingness to play within the system and protect the football.",
+      "scheme_fit_narrative": "This offense asks the QB to be a point guard, not a hero. We want a guy who completes 62% of his passes, takes care of the football, and trusts that the run game and play-action will create easy throws. If a prospect tries to do too much, he'll fight this system. Give us the smart, accurate processor who will let Canales' scheme amplify him.",
+      "archetype_examples": [
+        "Geno Smith (2022)",
+        "Baker Mayfield (2023 Tampa)"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "high",
-      "explanation": "Evero's 3-4 base defense makes OLBs the primary edge rushers. The Panthers have desperately needed pass-rush production from the OLB spot \u2014 they ranked dead last in pressure rate in all three seasons under Evero. Scourton and Umanmielen were 2025 draft picks specifically to rush from the stand-up OLB position. Any LB prospect with elite pass-rush traits (burst, bend, first step) would be immediately scheme-relevant as a stand-up edge rusher. The Panthers' biggest schematic need is pressure generation from the OLB spot to make Evero's zone coverage work."
+    "RB": {
+      "scheme_role": "The RB is the identity of this offense. Canales explicitly said 'it all starts with the run game.' The Panthers use a two-back committee system \u2014 the lead back handles the majority of early-down work (Dowdle led with 1,076 yards) with the complementary back providing change-of-pace and pass protection value (Hubbard). The RB must run with physicality and violence, convert first downs, and contribute as a receiver out of the backfield. Pass protection is critical because the scheme minimizes dropback exposure but when the QB does drop back, he needs clean pockets.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "The diverse run scheme (zone, gap, counter) requires a back who can read blocks and identify cutback lanes. Dowdle's first-down rushing rate (32.82%, league-leading) was a product of vision and patience within the zone scheme."
+        },
+        "Contact Balance": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Canales wants his backs to run with 'violence' and 'tempo.' The offense is built on physical, downhill running. Dowdle broke 8 tackles and generated 290 yards after contact in the first half of 2025 alone. The back must fall forward and convert short-yardage."
+        },
+        "Power": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The Panthers' identity is physical, ground-and-pound football. Goodwin's run game coordination emphasizes downhill, between-the-tackles running. Power matters for short-yardage, goal-line, and establishing physicality at the point of attack."
+        },
+        "Elusiveness": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "While physicality is primary, the outside zone and screen concepts benefit from a back who can make defenders miss in space. Hubbard's 35-yard screen TD against the Rams showed the value of elusiveness on the perimeter."
+        },
+        "Speed": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The offense doesn't require a home-run hitter. The Panthers' scheme is about sustained drives and controlling tempo, not explosive breakaways. Speed helps on outside zone and screens but is secondary to vision and contact balance."
+        },
+        "Pass Catching": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Both Dowdle (39 catches, 297 yards) and Hubbard (30 catches, 223 yards) are involved as receivers. Play-action concepts feature the RB on check-down and flat routes. The RB must be a reliable release valve for Bryce Young."
+        },
+        "Pass Protection": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The scheme is 'offensive-line-friendly' partly because the RB must help protect. Canales kept Hubbard on the field for third downs specifically because he was the better pass protector. This is a non-negotiable skill."
+        }
+      },
+      "ideal_archetype": "A physical, north-south runner who converts first downs, catches the ball out of the backfield, and protects the quarterback. Not a pure speed back or a gadget player \u2014 a reliable, every-down grinder who runs with violence and can sustain a 250+ carry workload when needed. Think Marshawn Lynch (Seattle influence) in philosophy, but the modern version is closer to Rico Dowdle or a young Chuba Hubbard \u2014 physical, versatile backs who do everything well without being elite at any one thing.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "210-225",
+          "floor": "200",
+          "reasoning": "The physical run style demands a back who can absorb contact and run through tackles. Lighter backs struggle in the between-the-tackles game this scheme demands."
+        },
+        "40-yard dash": {
+          "ideal": "4.45-4.55",
+          "floor": "none",
+          "reasoning": "Speed is secondary to vision and physicality. The scheme doesn't need a 4.3 burner \u2014 it needs a back who makes the right cut and falls forward."
+        }
+      },
+      "development_context": "Bernie Parmalee coaches the RBs \u2014 a former Jaguars RB coach who developed Travis Etienne's pass-catching game. Goodwin has a track record of developing productive rushing attacks wherever he's been (David Johnson's 2,118-scrimmage yard season in Arizona, Super Bowl LV's 122.5 rush yards/game). This staff can develop vision and technique. What must arrive is physicality and contact balance \u2014 those are innate traits.",
+      "scheme_fit_narrative": "We're a run-first team that wants to impose our will. Give us a back who runs angry, catches the ball, and picks up the blitz. We don't need a home-run threat \u2014 we need a guy who gets us 4.5 yards a carry and converts third-and-short. If he can't pass protect, he can't play on third down, and that limits his value.",
+      "archetype_examples": [
+        "Rico Dowdle",
+        "Chuba Hubbard",
+        "Rachaad White (Tampa 2023)"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "low",
-      "explanation": "Carolina's offense is built around a physical, downhill running identity. Canales and Idzik committed to 'heavy personnel and under center, downhill runs.' Hubbard is valued on third downs primarily for pass protection, not receiving ability. The Panthers ranked bottom-third in passing yards and utilize RBs primarily as runners. Dowdle showed receiving ability but the offense does not create significant RB receiving volume by design. Pure runners with physicality are valued more than dual-threat backs."
+    "WR": {
+      "scheme_role": "In Canales' system, receivers are not labeled by alignment \u2014 they learn and run the full route tree from multiple positions. The WR1 (McMillan) is the primary target on explosive plays and contested catches downfield. The WR2/WR3 run complete route trees with emphasis on intermediate routes and creating separation through technique. Canales taught Mike Evans to use his eyes more to manipulate defenders mid-route. The scheme demands football IQ and route-running discipline, not just raw speed.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Canales' system relies on receivers creating separation through technique \u2014 using eyes, stems, and breaks rather than pure athleticism. He explicitly develops route technique and demands WRs learn the full tree. McMillan's 27 explosive receptions came from route-running craft, not just speed."
+        },
+        "Separation": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The quick-game and timing-route emphasis requires receivers who create separation at the top of routes. The ball comes out fast \u2014 the WR must be open when it arrives. This is less about straight-line separation and more about creating windows."
+        },
+        "Hands": {
+          "weight": 0.18,
+          "importance": "essential",
+          "reasoning": "Ball security is the offensive philosophy's first tenet. Canales is fanatical about protecting the football. McMillan's 8 drops were a notable concern. Reliable hands on timing throws are non-negotiable \u2014 a drop kills a drive in this ball-control offense."
+        },
+        "YAC Ability": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The quick-game concepts (screens, slants, crossers) put the ball in receivers' hands in space. Hubbard's 35-yard screen TD against the Rams showed the value of YAC. McMillan's 14.5 yards per catch included significant RAC contribution."
+        },
+        "Speed": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Speed helps on play-action deep shots but this is not a vertical offense. The Panthers added Jimmy Horn Jr. for speed on jet motion and occasional deep routes, but the primary WR archetype values route craft over pure speed."
+        },
+        "Contested Catches": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "McMillan was drafted 8th overall at 6-5 because his ability to win contested catches adds a dimension the scheme needs. With Bryce Young's smaller stature and occasional inaccuracy, a WR who wins 50/50 balls provides a margin for error. McMillan's 7 TDs included multiple contested grabs."
+        },
+        "Release Package": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Since Evero's defense and similar schemes use zone coverage, the Panthers face press coverage less. But the WR must be able to release cleanly in man coverage situations and against physical corners. Less critical than route-running and hands in this system."
+        }
+      },
+      "ideal_archetype": "A big, technically refined receiver who runs the complete route tree, wins contested catches, and has reliable hands. Think a Mike Evans-type body with Doug Baldwin-type route technique. The scheme doesn't need a pure speed merchant \u2014 it needs a football-smart receiver who can be deployed from multiple alignments, use his eyes to manipulate zone defenders, and make clutch catches in traffic. McMillan (6-5, 212) is the prototype the Panthers drafted into this role.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-5",
+          "floor": "5-10",
+          "reasoning": "Canales values size for contested-catch ability and creating mismatches in the intermediate passing game. But he's also worked with smaller receivers like Tyler Lockett and Doug Baldwin effectively \u2014 the scheme accommodates multiple body types."
+        },
+        "weight": {
+          "ideal": "200-220",
+          "floor": "180",
+          "reasoning": "Bigger receivers help in the physical run-blocking demands of a run-first offense and win contested catches. The scheme asks WRs to block on run plays."
+        }
+      },
+      "development_context": "Rob Moore (WR coach) has extensive NFL WR coaching experience across multiple stops (Titans, Bills, Raiders). Idzik's background as a WR coach in Seattle and Tampa Bay gives this staff strong WR development credentials. They developed McMillan into OROY as a rookie. Canales personally coached Evans to use his eyes to move defenders. This staff can develop route technique and football IQ. What must arrive is body control, hands, and the willingness to learn the full route tree.",
+      "scheme_fit_narrative": "We don't put our receivers in a box. Everyone learns the full route tree, everyone moves around. Give us a big-bodied receiver with strong hands who can win contested catches and run precise routes from any alignment. We'll teach him the nuances of eye manipulation and route-running craft. Speed is a bonus, not a requirement.",
+      "archetype_examples": [
+        "Tetairoa McMillan",
+        "Mike Evans (2023 Tampa)",
+        "Doug Baldwin"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "This is the defining positional value inflection for the Panthers defense. Tre'von Moehrig's usage in 2025 was the blueprint: 442 snaps in the box, 310 in the slot, 143 at free safety, 94 on the defensive line \u2014 one of only 11 defenders to log 50+ snaps at LOS, LB, slot CB, and safety. Evero explicitly called Moehrig 'a very, very, very unique chess piece' with 'the ability to play safety, linebacker, nickel, outside backer.' Moehrig led all NFL DBs in TFLs (14, most by a DB in a season in NFL history), had 2.0 sacks, 12 QB pressures (4th among safeties), and 28 run stops (5th among safeties). Any safety prospect with box versatility, tackling physicality, blitz ability, and slot coverage skills would be extraordinarily valuable to this defense."
+    "TE": {
+      "scheme_role": "The TE is central to this offense. The Panthers use significant 12-personnel (2 TE) and the offense 'revolves around heavy tight end play' per team reporting. The TE must be a true dual-threat: block effectively in the run game (which is the team's identity) and serve as a reliable receiving option in play-action concepts. Ja'Tavion Sanders and Tommy Tremble split roles. The TE flexes into the slot on 12-personnel pass concepts and is featured in the intermediate passing game.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "The 12-personnel emphasis means the TE is a primary passing target when two TEs are on the field. The Panthers need a TE who can threaten the seam, work the intermediate zones, and provide Bryce Young with a reliable middle-of-field option. This is an area the Panthers have identified as needing improvement."
+        },
+        "Route Running": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The TE runs a limited route tree compared to WRs but must execute seam routes, crossers, and out routes with precision. The play-action concepts create easy throws for the TE if he can find soft spots in zone coverage."
+        },
+        "Blocking": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "In a run-first offense that uses heavy personnel, the TE must be an effective blocker. The entire offensive identity is built on running the ball, and the TE is asked to seal edges on outside zone, kick out on gap schemes, and help in pass protection. Without blocking, the TE undermines the foundation of the offense."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The dual-threat nature of the role requires a TE who can line up in-line, flex to the slot, and make plays in the open field. The Panthers' 12-personnel concepts create mismatches against LBs and safeties that only an athletic TE can exploit."
+        },
+        "Hands": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "Ball security is paramount in this offense. The TE catches intermediate throws in traffic and must be reliable. Drops in the middle of the field are drive-killers in a ball-control system."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Speed helps on seam routes and in the play-action game but is secondary to blocking and receiving reliability. The TE doesn't need to run past safeties \u2014 he needs to find soft spots in zone coverage."
+        }
+      },
+      "ideal_archetype": "A true Y-TE who can block on the line of scrimmage and contribute as a receiver in 12-personnel concepts. Not a move TE or oversized WR \u2014 a physical, in-line blocker who can also find seams in zone coverage and catch intermediate throws. Think George Kittle's dual-threat capability (though that's the ceiling). The Panthers need a TE who blocks well enough to stay on the field in heavy run situations and catches well enough to threaten as a receiver on play-action.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-6",
+          "floor": "6-2",
+          "reasoning": "Size matters for blocking at the point of attack against 3-4 DEs and OLBs. Larger TEs also present bigger targets in the intermediate passing game."
+        },
+        "weight": {
+          "ideal": "240-260",
+          "floor": "230",
+          "reasoning": "The blocking demands of a run-first offense require a TE with enough mass to hold up against NFL pass rushers and set edges in the run game."
+        },
+        "40-yard dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Athletic enough to threaten the seam and create mismatches against LBs. Pure blocking TEs who can't move aren't useful in the 12-personnel passing concepts."
+        }
+      },
+      "development_context": "Pat McPherson coaches TEs. The staff developed Ja'Tavion Sanders from a raw rookie into a meaningful contributor. The emphasis on heavy personnel means the Panthers will invest in TE development. Blocking technique can be refined by this staff given Goodwin's OL background. Receiving skills are harder to develop at the NFL level \u2014 the TE must arrive with functional catching ability.",
+      "scheme_fit_narrative": "This is a heavy-personnel offense that uses the TE as a foundation piece. We need a TE who can line up on the line and seal the edge on run plays, then leak out on play-action and catch intermediate throws. If he can't block, he can't play in our base offense. If he can block AND catch, he's a scheme multiplier because he lets us stay in 12-personnel and still threaten the pass.",
+      "archetype_examples": [
+        "George Kittle",
+        "Ja'Tavion Sanders",
+        "Dallas Goedert"
+      ]
+    },
+    "OT": {
+      "scheme_role": "The OT must be versatile enough to handle the diverse run scheme (zone and gap concepts) while providing reliable pass protection for Bryce Young. LT Ikem Ekwonu is the franchise tackle; RT Taylor Moton has been a stabilizing presence (84.9 PFF pass-blocking grade since 2018). The OT must be able to reach-block on outside zone, drive block on gap/power, and climb to the second level. In pass protection, the quick-game emphasis means the OT doesn't need to sustain blocks for 4+ seconds on every dropback, but play-action boots require athleticism to sell the run fake and reset.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Protecting Bryce Young is paramount. The Panthers reduced sacks from 65 (2023) to 36 (2024) by investing in the OL. While the scheme minimizes exposure through quick passes and play-action, the OT must handle speed rushers and power moves on the dropbacks that do occur."
+        },
+        "Run Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The run game is the offensive identity. Canales described this as an 'offensive-line-friendly' scheme because 'we run the ball a lot; they love it.' The OT must excel at both zone blocking (reach, combo, climb) and gap blocking (down, kick-out) given the scheme diversity."
+        },
+        "Footwork": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The diverse run scheme demands lateral agility to reach-block on zone plays and kick-step on pass protection. Ekwonu's ability to get to the second level and impose his will on linebackers exemplifies what this scheme needs."
+        },
+        "Anchor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "When the scheme calls dropback passes, the OT must anchor against bull rushes and power moves. Moton's consistency (allowed just 1 sack in multiple seasons) demonstrates the value of a sturdy anchor in this system."
+        },
+        "Athleticism": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Play-action bootleg concepts and zone blocking require OTs who can move laterally and get to the second level. The scheme values movement skills more than a pure phone-booth pass protector."
+        },
+        "Strength": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "Important for gap-scheme run blocking and anchoring in pass protection, but the scheme's quick-game emphasis reduces the need for pure brute strength compared to a heavy dropback offense."
+        }
+      },
+      "ideal_archetype": "A balanced, athletic tackle who excels in both run blocking and pass protection. Must have the lateral agility to execute zone blocks and reach the second level, combined with the anchor to handle speed-to-power rushers in pass protection. Not a pure mauler or a pure pass protector \u2014 a versatile, movement-oriented tackle who fits a diverse scheme. Think Taylor Moton's consistency or a more refined Ikem Ekwonu.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Length matters for pass protection and creating leverage at the point of attack."
+        },
+        "weight": {
+          "ideal": "305-325",
+          "floor": "295",
+          "reasoning": "Must be able to anchor against power rushers while maintaining the movement skills to zone-block."
+        },
+        "short shuttle": {
+          "ideal": "sub-4.60",
+          "floor": "4.75",
+          "reasoning": "Zone blocking requires lateral displacement on the first step. A stiff tackle kills the outside zone component of this run scheme."
+        }
+      },
+      "development_context": "Joe Gilbert (OL coach) is a veteran with experience under Bruce Arians in Tampa and Chuck Pagano in Indianapolis. Goodwin's OL background (played OL at Michigan, coached OL for Bears, Steelers, Colts) adds another layer. This staff can develop technique and footwork. What must arrive is baseline athleticism and anchor strength \u2014 those are harder to coach.",
+      "scheme_fit_narrative": "We need tackles who can do everything. Zone block on one play, gap block on the next, then pass set on third down. The diverse run scheme demands versatility \u2014 a one-dimensional tackle limits our offense. If he can move laterally and anchor, we'll teach him the technique. LT is the bigger need heading into 2026.",
+      "archetype_examples": [
+        "Taylor Moton",
+        "Penei Sewell",
+        "Tristan Wirfs"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "The interior offensive line is the foundation of this offense. Canales repeatedly pointed to guards Robert Hunt and Damien Lewis as critical pieces. The IOL must excel in the physical, downhill run game \u2014 pulling on counter and power, combo-blocking on zone, and creating movement at the point of attack. In pass protection, the quick-game emphasis reduces the burden, but the IOL must handle interior rushers and A-gap blitzes. Austin Corbett anchors center.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "While the run game is primary, the IOL must protect Bryce Young on dropbacks. The scheme's quick passing reduces time needed but interior pressure disrupts timing routes. Robert Hunt's Pro Bowl season was built on elite pass protection."
+        },
+        "Run Blocking": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "This is a run-first offense. The interior OL sets the tone. Canales said 'it all starts with the run game.' The IOL must create movement at the point of attack on zone and gap concepts. The Panthers ranked 10th in yards per carry (4.6) in 2024 behind this interior."
+        },
+        "Pulling": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Goodwin's gap/power concepts require guards who can pull effectively. Counter and power are significant parts of the run scheme. A guard who can't pull limits the offensive playbook."
+        },
+        "Strength": {
+          "weight": 0.18,
+          "importance": "essential",
+          "reasoning": "The physical identity of this offense demands strong interior linemen who can move defenders at the point of attack. Canales wants to 'impose our will on the line of scrimmage' \u2014 that starts with IOL strength."
+        },
+        "Anchor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must handle interior rushers (DTs, blitzing LBs) on pass plays. The quick-game emphasis reduces the time needed to sustain blocks but the anchor must hold for 2.5-3 seconds on timing throws."
+        },
+        "Versatility": {
+          "weight": 0.09,
+          "importance": "moderate",
+          "reasoning": "The ability to play multiple interior positions adds value given the Panthers' history of OL injuries. A guard who can slide to center or vice versa provides roster flexibility."
+        }
+      },
+      "ideal_archetype": "A powerful, physical guard who excels in the run game \u2014 pulling on power/counter, driving defenders off the ball on zone, and creating movement at the point of attack. Think Robert Hunt \u2014 a mauler who also provides reliable pass protection. Not a finesse player or a pure pass protector. The scheme demands nastiness and physicality at the interior.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "310-335",
+          "floor": "300",
+          "reasoning": "The physical run scheme demands mass to move defenders. Lighter guards get pushed back at the point of attack."
+        },
+        "bench press": {
+          "ideal": "28+",
+          "floor": "24",
+          "reasoning": "Upper-body strength correlates with the ability to sustain blocks and create movement in the gap scheme."
+        },
+        "short shuttle": {
+          "ideal": "sub-4.60",
+          "floor": "4.75",
+          "reasoning": "Pulling and zone blocking require lateral agility. A stiff guard can't execute the diverse run concepts this scheme demands."
+        }
+      },
+      "development_context": "Gilbert and Goodwin have extensive IOL development backgrounds. Goodwin coached Steve Hutchinson at Michigan, a Hall of Fame guard. The staff developed the Hunt/Lewis/Corbett interior into one of the league's better units. They can refine technique and footwork. What must arrive is strength and nasty disposition \u2014 you can't coach physicality.",
+      "scheme_fit_narrative": "Our offense starts with the interior line. We need maulers who love to run block and can pull on gap schemes. Pass protection matters but this isn't a 60-dropback-a-game offense. Give us the nasty, physical guard who creates movement and sets the tone. If he can pull and drive block, we'll build the run game around him.",
+      "archetype_examples": [
+        "Robert Hunt",
+        "Damien Lewis",
+        "Zack Martin"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "In Evero's 3-4, the EDGE is a stand-up OLB who must rush the passer, set the edge in the run game, and occasionally drop into flat/curl zone coverage on zone blitz concepts. Nic Scourton and Princely Umanmielen are the primary edge rushers. The scheme disguises where the fourth rusher comes from, so the EDGE must be disciplined enough to hold his gap assignment before rushing. The Panthers' pass rush has been a weakness \u2014 they need more juice off the edge.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The Panthers struggled to generate consistent pass rush in 2025, which undermined Evero's zone coverage. The EDGE position is the primary source of pressure. Without a reliable pass rusher, the soft zone scheme becomes exploitable."
+        },
+        "Bend": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Stand-up OLB rushers in a 3-4 need bend to turn the corner from a two-point stance. The wider alignment requires the ability to flatten around the edge rather than bull-rush through the tackle."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The 3-4 alignment gives the EDGE a wider starting position. A quick first step is essential to win the edge before the tackle can set. Scourton showed this trait with 3.5 sacks in a single game."
+        },
+        "Power": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Power rush is less emphasized than speed/bend from the OLB position in this 3-4. However, the ability to convert speed to power and collapse the pocket adds a dimension. The scheme primarily asks for edge speed."
+        },
+        "Motor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Evero's defense demands relentless effort. The bend-don't-break philosophy means the EDGE must pursue plays sideline-to-sideline and chase down bootlegs. The scheme depends on effort plays to compensate for soft zone coverage."
+        },
+        "Run Defense": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The 3-4 OLB must set the edge against outside runs and force the ball back inside to the linebackers and defensive line. Evero's scheme is gap-responsible \u2014 an EDGE who gets upfield and gives up the edge kills the run defense."
+        }
+      },
+      "ideal_archetype": "A versatile, high-motor stand-up OLB who wins with speed and bend off the edge, can set the edge against the run, and has the athleticism to drop into short zone coverage on occasion. Think a T.J. Watt-lite \u2014 not a bull-rush specialist but a relentless, effort-based rusher who can rush from multiple alignments. The Panthers desperately need more pass-rush production, making this a premium position for the 2026 draft.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "240-265",
+          "floor": "230",
+          "reasoning": "The stand-up OLB position requires enough mass to set the edge against NFL tackles while maintaining the speed to rush the passer. Too heavy and you lose bend; too light and you get washed in the run game."
+        },
+        "40-yard dash": {
+          "ideal": "4.50-4.65",
+          "floor": "4.70",
+          "reasoning": "Speed off the edge is the primary pass rush weapon from the 3-4 OLB position. The scheme needs edge speed to compensate for relatively light blitz rates."
+        },
+        "arm length": {
+          "ideal": "33+",
+          "floor": "32",
+          "reasoning": "Length helps in both pass rush (keeping tackles at bay) and run defense (extending to set the edge). Evero's scheme asks EDGE players to engage and disengage from blocks."
+        }
+      },
+      "development_context": "AC Carter (OLB coach) worked under Evero in Denver as a quality control coach, so he understands the scheme demands. The staff developed Scourton and Umanmielen as rookies. Evero can develop pass-rush technique and assignment discipline. What must arrive is explosion, bend, and motor \u2014 those are athletic traits that can't be coached.",
+      "scheme_fit_narrative": "Our defense needs more pass-rush juice, period. We want a stand-up OLB who can rush the passer with speed and bend, set the edge on run downs, and play with a relentless motor. He doesn't need to be a pure speed rusher \u2014 he needs to be a complete player who can handle the assignment football this scheme demands. But he must get to the quarterback.",
+      "archetype_examples": [
+        "Nic Scourton",
+        "Haason Reddick",
+        "T.J. Watt (in archetype, not production level)"
+      ]
+    },
+    "DL": {
+      "scheme_role": "In Evero's 3-4, the DL consists of a nose tackle (0/1-tech) and two 3-4 DEs (3/4-tech). Derrick Brown is the anchor \u2014 an elite interior disruptor who commands double teams, collapses the pocket, bats passes, and controls the line of scrimmage. The DL must control gaps, occupy blockers to free up linebackers, and generate interior pressure. Brown's return from injury in 2025 was the single biggest factor in the defensive turnaround. The 3-4 DEs are asked to play both run defense and generate interior pass rush.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Interior pressure is critical because the edge rush has been inconsistent. Derrick Brown's pass-rush disruption (batted balls, pocket collapse) is essential to making the secondary's zone coverage work. A penetrating DT compresses the pocket and forces QBs into throwing lanes."
+        },
+        "Run Defense": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The 3-4 DL's primary job is controlling the line of scrimmage and defending the run. The Panthers' run defense was historically bad without Brown in 2024, then improved dramatically with his return. The DL must eat blocks, control gaps, and make tackles at or near the line."
+        },
+        "First Step": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Quickness off the snap helps the DL disrupt run blocking schemes before they develop. However, this isn't a primary penetration scheme \u2014 it values gap control more than pure explosion."
+        },
+        "Hand Usage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The DL must shed blocks to make plays. Brown's ability to throw offensive linemen aside is legendary in Carolina. Hand usage is how a 3-4 DE separates from combo blocks and gets to the ball carrier."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Evero's defense demands consistent effort from the front. The DL must chase plays and stay active through the whistle, not just collapse into a heap at the point of attack."
+        },
+        "Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The 3-4 DE must hold up at the point of attack against double teams and zone combo blocks. Strength is the foundation for everything else \u2014 a DL who gets moved off the ball can't control gaps."
+        }
+      },
+      "ideal_archetype": "An elite, disruptive interior defender who dominates the line of scrimmage through power, hand usage, and relentless effort. Think Derrick Brown \u2014 a massive, athletic interior player who commands double teams, collapses the pocket, bats passes, and makes tackles behind the line. Not a pure pass-rush specialist or a space-eating nose \u2014 a complete 3-4 DE who impacts every phase of the defense.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "290-320",
+          "floor": "280",
+          "reasoning": "The 3-4 DE must hold up against NFL guards and centers at the point of attack. Mass matters for controlling the line of scrimmage."
+        },
+        "height": {
+          "ideal": "6-3 to 6-6",
+          "floor": "6-2",
+          "reasoning": "Length helps control the point of attack, disengage from blocks, and bat passes at the line. Brown's pass deflections are a direct product of his length."
+        },
+        "bench press": {
+          "ideal": "28+",
+          "floor": "24",
+          "reasoning": "Upper-body strength correlates with the ability to control and shed blocks, the primary function of the 3-4 DE."
+        }
+      },
+      "development_context": "Todd Wash (DL coach) is a former Jaguars DC (2016-2020) with extensive DL coaching experience. Dom Capers provides additional schematic expertise. The staff developed Brown into an elite interior defender and brought the best out of journeymen like Tershawn Wharton. This staff can develop hand usage and technique. What must arrive is size, strength, and baseline explosiveness.",
+      "scheme_fit_narrative": "Derrick Brown is our franchise player up front and everything runs through him. We need DL who can complement him \u2014 either a space-eating nose who frees Brown from double teams, or another penetrating 3-tech who can generate interior pressure. Run defense is the priority because if the DL gets pushed back, the whole defense collapses. Give us big, strong, active defenders who want to live at the line of scrimmage.",
+      "archetype_examples": [
+        "Derrick Brown",
+        "Tershawn Wharton",
+        "Chris Jones (in run defense impact)"
+      ]
+    },
+    "LB": {
+      "scheme_role": "The ILB position is the biggest defensive need entering 2026. In Evero's 3-4, two ILBs play in base and one remains in nickel sub-packages. The ILBs must be the 'quarterbacks of the defense' \u2014 processing pre-snap formations, aligning the front, and executing zone drops post-snap. They must fill run gaps cleanly, cover the middle of the field in zone, and occasionally blitz. Both Rozeboom and Cherelus graded below average (sub-35 PFF grades in multiple games), exposing this as the scheme's weakest link.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "essential",
+          "reasoning": "In a bend-don't-break defense, the LB must make tackles and limit YAC. The Panthers' zone scheme funnels receivers and runners to the LBs \u2014 if they miss tackles, the defense breaks instead of bending. Rozeboom/Cherelus combined for 24 tackles in the Packers win when the defense was at its best."
+        },
+        "Coverage": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Evero's zone-heavy scheme puts the LB in hook/curl zones over the middle of the field. The LB must read route combinations, drop into passing lanes, and make plays on the ball. Zone coverage is THE defining feature of this defense, and the LB is the last line of defense in the intermediate window."
+        },
+        "Pass Rush": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "The LB occasionally blitzes on creative pressure packages but is not a primary pass rusher. Evero uses safety blitzes and EDGE pressure more than LB blitzes. This is a supplementary skill, not a defining one."
+        },
+        "Instincts": {
+          "weight": 0.18,
+          "importance": "essential",
+          "reasoning": "The LB must anticipate plays, read keys, and process route combinations in Evero's pattern-matching zone concepts. The defense relies on the LB to be in the right place at the right time. Poor instincts create soft spots in the zone that QBs exploit."
+        },
+        "Athleticism": {
+          "weight": 0.12,
+          "importance": "high",
+          "reasoning": "The zone coverage demands require a LB who can carry TEs and RBs in the intermediate zones and close on the ball. Modern NFL offenses attack the middle of the field against zone \u2014 the LB must have the athleticism to compete."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Sideline-to-sideline range helps in Evero's zone scheme, which asks the LB to flow with the play and make tackles at the point of attack. A LB who is limited to a small area undermines the defense's horizontal coverage."
+        },
+        "Block Shedding": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The 3-4 DL is supposed to eat blocks and free the LBs, but NFL offenses will still get linemen to the second level. The LB must disengage from blocks to make plays in the run game."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The LB must align the defense and ensure everyone is in the right gap. In Evero's disguise-heavy scheme, the LB communicates the coverage rotation to the rest of the defense. This is a significant responsibility."
+        }
+      },
+      "ideal_archetype": "A smart, athletic, three-down linebacker who excels in zone coverage and makes plays in the intermediate window. Must be a sure tackler, a quick processor, and capable of covering TEs and RBs in zone. Think Fred Warner or Roquan Smith \u2014 cerebral, athletic LBs who quarterback the defense and make plays in all three phases. The Panthers specifically need a LB who can be the 'defensive quarterback' this scheme demands. Devin Lloyd (signed in 2026 FA) fits this mold.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Size helps in the zone coverage game \u2014 taller LBs disrupt passing lanes in the intermediate window and can match up with NFL TEs."
+        },
+        "weight": {
+          "ideal": "225-245",
+          "floor": "220",
+          "reasoning": "Must be big enough to take on blocks and fill run gaps in the 3-4 but light enough to cover in zone."
+        },
+        "40-yard dash": {
+          "ideal": "4.50-4.60",
+          "floor": "4.65",
+          "reasoning": "Zone coverage demands require a LB who can close on the ball and cover ground laterally. A slow LB creates soft spots in the intermediate zones."
+        }
+      },
+      "development_context": "Peter Hansen (LB coach) was previously a DC at UNLV. Mayur Chaudhari assists. The staff has struggled to develop the LB position \u2014 it's been the weakest group on the roster. This suggests the staff may need LBs who arrive more polished in coverage and processing. Run-game technique can be developed, but instincts and zone coverage ability need to arrive ready.",
+      "scheme_fit_narrative": "This is our biggest need. We need a linebacker who can quarterback the defense, drop into zone coverage over the middle, and make sure tackles. Our scheme asks the LBs to be the last line of defense in the intermediate passing game \u2014 if they can't cover, the whole zone concept falls apart. Give us a smart, athletic, three-down player who processes fast and makes plays on the ball.",
+      "archetype_examples": [
+        "Fred Warner",
+        "Devin Lloyd",
+        "Roquan Smith"
+      ]
+    },
+    "CB": {
+      "scheme_role": "Evero's zone-dominant scheme asks CBs to play primarily in zone coverage, reading the QB's eyes and breaking on the ball. Jaycee Horn is the CB1 \u2014 a physical, ball-hawking corner who had career-highs across the board in his first Pro Bowl season (68 tackles, 2 sacks, 13 PDs). Mike Jackson is CB2, leading the NFL in PDs (17). The CBs operate with two-high safety shells pre-snap and play soft zone, giving cushion to prevent explosive plays. Ball production (interceptions, PDs) is emphasized because the scheme's bend-don't-break philosophy generates opportunities when the defense forces the offense to throw underneath.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.08,
+          "importance": "low",
+          "reasoning": "Evero's defense runs very limited man coverage. The scheme is zone-dominant with disguised two-high looks. Man coverage is a supplementary skill used in red zone or specific situations, not the base coverage."
+        },
+        "Ball Skills": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "This is THE differentiating trait in Evero's scheme. The zone coverage creates opportunities for CBs to read the QB and break on the ball. Horn and Jackson combined for the most PDs by a CB duo in the NFL (30). The scheme produces interceptions (top-10 in 2025) when CBs have elite ball skills."
+        },
+        "Zone Coverage": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Evero's defense lives in zone. The CB must read route combinations, maintain his zone responsibility, and break on the ball when the throw comes. Cover 3 and disguised two-high shells are the base \u2014 the CB must process zone coverages at a high level."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Even in zone coverage, the CB must have the speed to close on the ball and recover when receivers attack the soft spots. The bend-don't-break philosophy means giving up cushion \u2014 the CB needs speed to close that cushion when the ball is thrown."
+        },
+        "Press": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "Press coverage is rarely used in this scheme. The CBs play off-coverage in zone shells. Press ability is a bonus for red zone and short-yardage situations but is not a primary evaluation criterion."
+        },
+        "Nickel": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Chau Smith-Wade plays the nickel role, but the ability to play inside in the slot is valuable for depth. The nickel CB in Evero's scheme must handle TEs and slot receivers in zone coverage \u2014 a different skill set than outside zone coverage. Versatility across alignments is valued."
+        }
+      },
+      "ideal_archetype": "A rangy, ball-hawking zone corner with elite instincts and ball skills who can read the QB's eyes and make plays on the ball. Not a pure press-man corner \u2014 a zone technician who understands route combinations, maintains his leverage, and attacks the ball when it's in the air. Think Jaycee Horn's 2024 Pro Bowl season \u2014 physical at the catch point, excellent ball skills, and the ability to jump routes in zone. The scheme doesn't require a shutdown man-cover corner; it requires a playmaker who generates turnovers in zone.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Length helps at the catch point in zone coverage and when fighting for contested balls. Horn (6-1) and Jackson (6-1) are both above-average sized corners."
+        },
+        "40-yard dash": {
+          "ideal": "4.35-4.45",
+          "floor": "4.50",
+          "reasoning": "Speed is needed to close on throws in zone coverage. The scheme gives cushion, which means the CB must be fast enough to recover when the ball is in the air."
+        },
+        "arm length": {
+          "ideal": "32+",
+          "floor": "31",
+          "reasoning": "Length helps at the catch point and in disrupting throws in zone coverage. Longer arms allow the CB to compete for the ball even when he's a step behind."
+        }
+      },
+      "development_context": "Renaldo Hill (secondary coach) has extensive NFL experience as both a player (10-year safety career) and coach (Dolphins, Broncos, Chargers). Kevin Peterson (defensive assistant) is a former NFL CB. The staff developed Horn into a Pro Bowler and developed undrafted Mike Jackson into one of the league's best CB2s. This staff excels at developing zone technique and ball skills. What must arrive is instincts and ball-hawking mentality \u2014 you can't teach a DB to find the ball.",
+      "scheme_fit_narrative": "We don't play a lot of man coverage, so we're not looking for a lockdown shadow corner. We want a ball hawk who can play zone at a high level, read the quarterback, and create turnovers. Ball skills are king in this defense. If a prospect has 10 interceptions in college playing zone, that's our guy. If he's a pure press-man corner who doesn't get his head around, he'll struggle in our system.",
+      "archetype_examples": [
+        "Jaycee Horn",
+        "Justin Simmons (in ball skills)",
+        "Patrick Surtain II (Evero developed in Denver)"
+      ]
+    },
+    "S": {
+      "scheme_role": "Safeties are critical in Evero's defense \u2014 the two-high pre-snap shell is the foundation of the entire scheme. The safeties must align in two-high, then rotate post-snap to Cover 3 (one safety becomes the deep middle, the other rotates down) or stay in two-high on Cover 2/quarters calls. The scheme demands safeties who can disguise coverages, communicate rotations, and play multiple roles post-snap. Tre'von Moehrig is the free safety; Lathan Ransom (rookie in 2025) is the strong safety. Nick Scott provides veteran depth. The safety must be able to blitz off the edge in Evero's creative pressure packages.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "Limited man coverage in this scheme means the safety rarely matches up in true man assignments. The occasional bracket or man-match on TEs is the extent."
+        },
+        "Range": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The two-high shell demands safeties who can cover the deep half of the field and rotate to the deep middle on Cover 3. Range is the defining trait because the safety must align in a two-high look, then rotate 15+ yards to the deep middle or cover a deep half. Without range, the disguise is useless."
+        },
+        "Ball Skills": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Evero's defenses consistently produce interceptions. Justin Simmons had 6 interceptions (tied for NFL lead) under Evero in Denver. The Rams generated 82 interceptions in Evero's five years there. The safety must attack the ball in the deep zones and create turnovers."
+        },
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The bend-don't-break philosophy means the safety is often the last line of defense. When zone coverage breaks down and receivers catch the ball in the intermediate zone, the safety must make the tackle to prevent explosives. Miss a tackle and the bend becomes a break."
+        },
+        "Speed": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The post-snap rotation demands speed to get from two-high alignment to the deep middle or to rotate down into the box. The disguise only works if the safety can move fast enough to get to his post-snap assignment before the throw arrives."
+        },
+        "Nickel": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Evero has historically used a safety/LB hybrid (Jabrill Peppers in NYG was under Graham, not Evero, but Evero values safety versatility). A safety who can rotate down into the box, blitz off the edge, and cover slot receivers adds scheme flexibility."
+        }
+      },
+      "ideal_archetype": "A rangy, ball-hawking safety who can play the deep middle in Cover 3, cover a deep half in Cover 2, and make open-field tackles as the last line of defense. Must have the speed to rotate pre-snap to post-snap assignments and the instincts to read route concepts from depth. Think Justin Simmons under Evero in Denver \u2014 a safety who generated turnovers, covered ground, and made the entire secondary better through communication and range.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Size helps in the box when the safety rotates down and in fighting for contested catches at the deep safety position."
+        },
+        "40-yard dash": {
+          "ideal": "4.40-4.50",
+          "floor": "4.55",
+          "reasoning": "Speed is essential for the post-snap rotation that defines this scheme. A slow safety can't get from two-high to deep middle fast enough to disguise the coverage effectively."
+        },
+        "vertical jump": {
+          "ideal": "38+",
+          "floor": "34",
+          "reasoning": "Explosiveness helps the safety close on deep balls and contest catches at the high point. Ball skills at safety require the ability to out-athletic receivers at the catch point."
+        }
+      },
+      "development_context": "Renaldo Hill (secondary coach) was an NFL safety for 10 years \u2014 he understands the position intimately. Evero spent 4 years as a safeties coach with the Rams, developing a secondary that generated 82 interceptions. He knows how to develop safeties. The staff can teach zone technique, rotation timing, and coverage processing. What must arrive is range, speed, and ball skills \u2014 those are athletic/instinctual traits that can't be taught.",
+      "scheme_fit_narrative": "Our entire defense is built on the two-high safety shell. If our safeties can't cover ground and disguise coverage, the scheme falls apart. We need rangey, ball-hawking safeties who can play the deep middle, rotate post-snap, and create turnovers. Tackling is critical because our soft zone means the safety is the last man. Give us the safety who can do everything from depth \u2014 we'll put him in position to make plays.",
+      "archetype_examples": [
+        "Justin Simmons (Denver under Evero)",
+        "Tre'von Moehrig",
+        "Jessie Bates"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Carolina's two most actionable draft value inflections are at OLB/EDGE and hybrid safety. The 3-4 base under Evero makes stand-up OLB pass rushers the team's most urgent need \u2014 they have ranked last in pressure rate in all three Evero seasons, and the zone coverage scheme collapses without QB pressure. An LB with elite pass-rush traits (Arvell Reese, Sonny Styles types) should be valued at EDGE prices for CAR. Similarly, hybrid safeties who can play box, slot, and blitz are scheme-critical given Moehrig's deployment as the defense's most versatile weapon. On offense, the heavy personnel / run-first identity means pure receiving TEs get a moderate boost at best \u2014 CAR values blocking TEs who can also catch, not move TEs used as slot weapons. RB receiving value is low; CAR wants physical downhill runners. Brad Idzik takes over play-calling in 2026, but the offensive identity is expected to remain run-first and physical. Note: Panthers still need ILBs who can be signal-callers in Evero's zone scheme \u2014 coverage LBs with processing speed and communication skills are valued. The biggest draft value disconnect is that a player labeled 'LB' who is really a pass rusher or a player labeled 'S' who is really a box/slot hybrid will be valued significantly higher by CAR than their position label suggests.",
+  "scheme_draft_intelligence": "The Carolina Panthers' 2026 draft strategy should be shaped by three core realities: Canales' run-first offensive identity, Evero's zone-heavy defensive scheme, and the specific positional needs exposed during their 8-9 playoff season. The Panthers pick 19th overall with clear needs at inside linebacker, offensive tackle, edge rusher, and tight end.\n\nThe most glaring need is inside linebacker, which was the weakest position group in 2025. Evero's zone-heavy defense demands LBs who can process route combinations and drop into intermediate zones \u2014 the kind of cerebral, athletic players who are often undervalued by teams running man-heavy schemes. A LB prospect with elite zone coverage instincts and processing speed is worth more to Carolina than to almost any other team. The Panthers signed Devin Lloyd in free agency to address this, but adding a draft pick at the position would provide depth and long-term insurance. Any LB prospect with Fangio-tree experience or zone coverage prowess should be flagged as a Carolina scheme fit.\n\nOn offense, the combination of Canales' play-action-heavy scheme and Idzik taking over play-calling creates an interesting evaluation lens. The Panthers value run-blocking ability at nearly every position \u2014 from OT to TE to WR. A tight end who can block at the point of attack AND contribute as a receiver is a scheme multiplier because of how much 12-personnel the Panthers use. With Ja'Tavion Sanders' injury limiting TE production late in 2025, the Panthers may prioritize a dual-threat TE earlier than other teams would. Similarly, the LT position needs an upgrade \u2014 Ikem Ekwonu's development has been uneven, and the diverse run scheme demands an OT who can zone block, gap block, and pass protect.\n\nDefensively, the edge rusher position represents the biggest hidden value opportunity. The Panthers' zone coverage is designed to create turnovers, but it collapses when the pass rush doesn't generate pressure. Evero's 3-4 asks edge rushers to be stand-up OLBs with versatility \u2014 not pure speed rushers. A prospect with elite motor, bend, and the discipline for assignment football will be valued higher in Carolina than in a 4-3 scheme that just wants a pass-rush specialist. The Panthers' developmental success with Nic Scourton and Princely Umanmielen as 2025 rookies suggests they can develop raw edge talent if the athletic traits (explosion, bend, motor) are present.\n\nHistorically, the Canales/Morgan front office has prioritized physicality and scheme fit over raw athleticism. Their 2025 draft class (McMillan, Scourton, Umanmielen, Ransom) showed a preference for position-versatile players who fit the specific scheme demands. The free agency approach (signing run-defense specialists and zone-coverage secondary players) reinforces that this staff drafts and signs for scheme fit, not just talent. Expect Carolina to target prospects who fit the Fangio-tree defensive mold and the Carroll-tree offensive physicality in the 2026 draft.",
   "confidence": "high",
   "sources": [
-    "panthers.com coaching staff and positional review pages",
-    "Pro-Football-Reference 2025 Panthers page (West Coast offense, 3-4 defense classification)",
-    "NFL.com coaching staff announcements (Evero retained, Idzik named OC)",
-    "Denver Post / Greeley Tribune Evero introductory press conference (scheme tree: Fangio, Kiffin, Capers, Morris)",
-    "Match Quarters analysis of Evero Cover 3 scheme (ranked 2nd in Cover 3 usage, 4th-highest base 3-4 rate at 31.1%)",
-    "Heavy.com / Ben Solak coaching staff analysis (heavy personnel, under center, downhill runs)",
-    "Panthers.com Tre'von Moehrig feature (hybrid safety usage, snap distribution)",
-    "CBS Sports Moehrig stats (442 box snaps, 310 slot, 143 FS, 94 DL; 14 TFLs, 3.0 sacks)",
-    "Panthers.com TE positional review (13 personnel at 7.8%, blocking-first TE usage)",
-    "Cat Scratch Reader defensive review (zone heavy coverage, bend-don't-break, last in pressure rate)",
-    "SI.com Panthers coverage (Evero zone scheme, pass rush deficiency)",
-    "LWOS NFL Evero linebacker analysis (3-4 base, zone concepts, two-high shells)",
-    "Panthers.com Idzik play-calling announcement for 2026"
+    "Panthers.com official coaching staff pages and press conferences",
+    "Pro-Football-Reference 2025 Carolina Panthers",
+    "Wikipedia: Dave Canales, Ejiro Evero, Brad Idzik",
+    "MatchQuarters.com: Carolina Panthers Safety Blitz/Evero scheme analysis",
+    "Denver Post: Evero introductory press conference (Feb 2022)",
+    "NFL.com: Panthers coaching hires and scheme reporting",
+    "CatScratchReader.com: Panthers defensive reviews and mailbags",
+    "Buccaneers.com: Inside Dave Canales' Offense (Pewter Report)",
+    "FOX Sports: Canales Seattle-to-Tampa scheme comparison",
+    "ESPN: Panthers OC Brad Idzik reporting",
+    "JoeBucsFan.com: Canales 'offensive-line-friendly' scheme quotes",
+    "Panthers.com: Balance on offense, run game identity reporting (Dec 2025)",
+    "SI Panthers: Chuck Pagano on Evero's defense",
+    "NBC Sports: Panthers 2025 coaching staff announcements",
+    "Last Word on Sports: Panthers LB needs, McMillan OROY analysis",
+    "Heavy.com: Panthers coaching staff rankings"
   ]
 }

@@ -6,75 +6,740 @@
       "name": "Kevin O'Connell",
       "tenure_years": 4,
       "background": "offensive",
-      "scheme_philosophy": "West Coast / McVay-Shanahan branch; elite play designer focused on intermediate-to-deep passing windows, pre-snap motion, and personnel multiplicity. 2024 AP Coach of the Year."
+      "coaching_tree": "Shanahan-McVay tree. O'Connell served as OC under Sean McVay with the Rams (2020-21), winning Super Bowl LVI. Earlier stops under Jon Gruden (Washington) and in Washington's coaching orbit. He is a direct branch of the McVay variant of the Shanahan system \u2014 zone runs, play-action, pre-snap motion, timing-based passing \u2014 but has evolved the scheme into a more aggressive downfield attack than McVay typically runs.",
+      "scheme_philosophy": "Pass-first play-caller who designs explosive downfield concepts built around elite WR usage, crossing routes, and play-action. Calls his own plays. Has historically been among the most pass-heavy coaches in the league (60%+ pass rate in 2022-23, dropping to ~57% in 2024 and attempted to balance further in 2025). Believes in scheming players open through formation manipulation, motion, and route-concept layering rather than relying on raw talent to win one-on-one. Added Frank Smith (ex-Dolphins OC under McDaniel) in 2026 to inject Shanahan-tree zone-run expertise and improve the ground game."
     },
     "offensive_coordinator": {
       "name": "Wes Phillips",
-      "scheme_tree": "McVay/Shanahan West Coast via Cowboys (Wade Phillips), Washington, Rams; extensive TE coaching background",
-      "play_caller": false,
-      "notes": "O'Connell is the primary play caller. Phillips is the titled OC but does not call plays. Frank Smith (former Dolphins OC under McDaniel) was added as assistant head coach in 2026 offseason to boost the run game."
+      "coaching_tree": "Son of Wade Phillips, grandson of Bum Phillips. Worked under McVay in LA as pass game coordinator/TE coach (2019-21). Earlier: Dallas Cowboys (quality control, asst OL, TE coach 2007-13), Washington (TE coach 2014-18, overlapping with McVay). Extended through 2026. Phillips does NOT call plays \u2014 O'Connell does \u2014 but shapes offensive installation, especially passing concepts and TE usage.",
+      "scheme_evolution": "Phillips' background as a lifelong TE coach infuses the offense with TE-centric passing concepts. In LA, he helped develop Tyler Higbee into a productive weapon and oversaw Cooper Kupp's historic 2021 receiving season as pass game coordinator. In Minnesota, he's helped create one of the NFL's best 12-personnel units with Hockenson and Oliver. The offense uses WRs flexing across multiple positions rather than fixed X/Z alignments.",
+      "development_track_record": "Elite TE developer: Jordan Reed (Pro Bowl, Washington), Jason Witten (Pro Bowl, Dallas), Tyler Higbee (3 consecutive 500+ yard seasons, LA), T.J. Hockenson. Also assisted Tyron Smith's early development in Dallas. Can develop route technique and receiving skills in TEs. Less direct track record with WR or OL development, though those areas fall more under O'Connell and position coaches."
     },
     "defensive_coordinator": {
       "name": "Brian Flores",
-      "scheme_tree": "Bill Belichick / New England Patriots tree with Vic Fangio and Steve Spagnuolo influences; former Dolphins HC (2019-2021)",
-      "play_caller": true,
-      "notes": "Signed contract extension in January 2026. Entering 4th year as Vikings DC. Scheme emphasizes disguise, heavy blitzing, multiple fronts, and positional versatility."
+      "coaching_tree": "Bill Belichick / New England Patriots tree. Spent 2004-2018 with the Patriots in various roles (scouting assistant through defensive play-caller). HC of Miami Dolphins 2019-21. Senior defensive assistant in Pittsburgh 2022. DC for Vikings since 2023. Has evolved WELL beyond Belichick's traditional approach \u2014 borrowing from Vic Fangio (zone coverage structures), Steve Spagnuolo (simulated pressures), and even college (Pat Narduzzi's zone-behind-blitz concepts).",
+      "scheme_evolution": "In Miami, pioneered aggressive blitz-heavy schemes with read-blitzes and stacked fronts. In Pittsburgh, refined coverage disguises behind T.J. Watt's pass rush. In Minnesota, created a truly revolutionary hybrid: the NFL's highest blitz rate (48-51%) paired with the NFL's highest zone coverage rate (~76%). Uses 5-6 man fronts that look like blitzes but often only rush 4, creating confusion. Called 'MAZE' (Man Alignment, Zone Execution) packages. Leads league in early-down blitz rate. His defense finished 2nd in DVOA in 2024 and 3rd in 2025.",
+      "development_track_record": "Turned Josh Metellus from a special-teams ace into a Swiss Army knife who played every defensive position (59 edge snaps, 69 DT snaps, 408 LB snaps, 267 slot snaps in 2024). Maximized Andrew Van Ginkel into a Pro Bowler (11.5 sacks while dropping into coverage 212 times \u2014 most among all edge defenders). Developed Dallas Turner from raw rookie into hybrid game-wrecker. Developed Ivan Pace Jr. into one of the NFL's best blitzing linebackers as an UDFA. Byron Murphy Jr. had career-best 6 INTs under Flores. Excels at creating roles for versatile, high-IQ defenders regardless of draft pedigree."
+    },
+    "assistant_head_coach": {
+      "name": "Frank Smith",
+      "coaching_tree": "Mike McDaniel / Shanahan tree (via Miami). Was Dolphins OC 2022-2025 under McDaniel. Earlier: Saints (asst OL 2010-14), Chargers, Raiders, Bears. Former center at Miami (OH) who blocked for Ben Roethlisberger. Brings zone-run and McDaniel-style run-game expertise to complement O'Connell's passing-centric approach.",
+      "role_description": "Hired specifically to shape the run game and run-game planning. Miami's rushing attack ranked 6th in 2023 under Smith and McDaniel with elite efficiency (4.6 YPC since 2022 despite ranking 26th in attempts). His addition signals a commitment to making the zone run game more explosive and less pass-dependent."
+    },
+    "notable_additions_2026": {
+      "Ryan Nielsen": "Defensive Running Game Coordinator / DL Coach. Former Saints DL coach (2017-22), Falcons DC (2023), Jaguars DC (2024), Bills senior assistant (2025). Known as an intense, hands-on DL developer. Replaces Marcus Dixon.",
+      "Gerald Alexander": "Defensive Passing Game Coordinator / DBs Coach. Former Flores DB coach in Miami (2020-21), Steelers (2022-23, 2025), Raiders safeties (2024). Deep familiarity with Flores' system. Replaces Daronte Jones (hired as Commanders DC).",
+      "Keith Carter": "Offensive Line Coach (promoted from assistant). Replaces Chris Kuper. Previous experience with Titans and Jets.",
+      "Josh McCown": "Offensive Passing Game Coordinator / QBs Coach (title expanded). Replaces Brian Angelichio's passing game coordinator role (Angelichio hired as Steelers OC).",
+      "Curtis Modkins": "Offensive Running Game Coordinator / RBs Coach."
     }
   },
   "offense": {
-    "scheme_family": "McVay/Shanahan West Coast",
-    "base_personnel": "11 and 12 (multiple)",
-    "personnel_notes": "O'Connell runs more 12-personnel than typical McVay trees. Vikings ranked 5th in 12-personnel PFF grade in 2024. Also explored 21 personnel (two-back sets) with Jones and Mason in 2025. Fullback C.J. Ham is regularly used in heavier groupings. O'Connell emphasizes being 'more multiple' than the Rams' 86% 11-personnel approach.",
-    "run_scheme": "primarily outside zone and duo, with inside zone mixed in; traps used as complementary concepts; added Frank Smith (Dolphins run game architect) to boost efficiency in 2026",
-    "pass_concepts": "deep crossing routes (often to Justin Jefferson), play-action bootlegs (Keeper concept), dagger routes, deep comebacks, stick-hitch, smash; emphasis on intermediate-to-deep passing windows with pre-snap motion and formation variety to create separation",
-    "rpo_usage": "moderate",
-    "te_usage": "Hockenson used as move TE / receiving weapon from multiple alignments (slot, flexed, inline); Josh Oliver serves as inline blocker (2nd-best PFF run-blocking grade among TEs since 2022). 12-personnel gives their TE grouping the feel of 11 personnel because Hockenson functions like a WR while Oliver blocks.",
-    "rb_usage": "committee approach with pass-catching back (Jones) and power runner (Mason); Jones averaged 48 receptions per season over 6 years and was top-10 among RBs in routes run, targets, receptions, and receiving yards in 2024. Mason handles early-down/short-yardage rushing. Aaron Jones expected to be released for 2026, opening RB need."
+    "scheme_family": "Shanahan-McVay tree West Coast (O'Connell variant \u2014 aggressive downfield passing with zone-run foundation)",
+    "scheme_detail": "O'Connell's offense descends directly from McVay's LA system but has evolved into a more pass-aggressive, downfield-attacking variant. Where McVay originally stayed in 11 personnel and tied everything to the run, O'Connell has diversified personnel (especially heavy 12-personnel usage) and built an offense that attacks vertically regardless of QB. His signature is crossing routes at multiple depths (shallow, intermediate, deep) that stress zone coverage, paired with play-action deep shots off zone-run looks. The addition of Frank Smith from Miami's Shanahan-tree run system signals a 2026 pivot toward more zone-run efficiency and explosive ground plays rather than pure passing volume. O'Connell calls his own plays and is known for a complex playbook that demands significant QB processing \u2014 he has simplified for younger QBs when necessary.",
+    "run_scheme": "Outside zone primary with duo and inside zone as secondary concepts. Gap/power schemes used situationally (particularly with Jordan Mason). O'Connell has said he wants to run 'zone with gap complements like the 49ers.' Frank Smith's addition from Miami's elite zone-run operation should enhance outside zone execution. The run game has historically underperformed (ranked 29th, 25th, 22nd in EPA/rush in O'Connell's first three years), partly due to OL limitations. C.J. Ham provides a legitimate fullback presence for 21 personnel. Late motion to change strength/blocking angles is a hallmark of this system.",
+    "pass_architecture": "West Coast timing passing with aggressive downfield elements. Route concepts include dagger (deep in-breaking + vertical clear-out + shallow cross), wave routes, stick-hitch, smash, and Omaha concepts. Play-action is married to zone-run looks. O'Connell designs layered route combinations that create built-in answers for any coverage \u2014 but this complexity can overwhelm QBs (Cousins and Darnold both took time to fully absorb it). Deep crossing routes are a staple, especially with Justin Jefferson. Pre-snap motion is used heavily to reveal coverage and create favorable matchups. Short-to-intermediate timing is the foundation; vertical shots are taken off play-action. RPO usage is low \u2014 this is a traditional, read-based passing game.",
+    "personnel_tendencies": "Significant 12-personnel usage (1 RB, 2 TE, 2 WR) \u2014 ranked among the highest in the NFL. Their 12 personnel was elite: 5th in team PFF grade, 4th in yards per play, 2nd in successful play rate in 2024. Also uses 11 personnel as base and 21 personnel (with FB C.J. Ham) situationally. Hockenson functions as a flex/slot weapon in 12, while Oliver stays in-line as a blocker, giving 12 personnel the feel of 11. Two-RB sets with Jones and Mason were explored. WRs flex across X/Z/slot positions rather than staying fixed.",
+    "motion_tempo": "Heavy pre-snap motion \u2014 a signature of the Shanahan-McVay tree. Motion is used to diagnose coverage, create blocking angles, and generate pre-snap leverage. Standard tempo overall; this is not a hurry-up offense. O'Connell has been among the slowest in time-per-play due to complex pre-snap communication, though he trimmed exotic formations midseason in 2024 to improve pace."
   },
   "defense": {
-    "base_front": "multiple / hybrid (leans 4-2-5 nickel with frequent 5-man fronts)",
-    "alignment": "multiple fronts; uses Bear/Penny 5-man fronts with wide-9 edge alignment frequently; often shows 6 or 7 defenders on the line of scrimmage pre-snap; will also drop to 3-man rush (8 in coverage) more than any other team",
-    "edge_rush_source": "stand-up OLBs (Jonathan Greenard, Andrew Van Ginkel, Dallas Turner) who also drop into coverage ~20% of the time; Van Ginkel can rush from any alignment",
-    "coverage_base": "zone-heavy (man coverage only 22% of the time in 2024, 8th-lowest in NFL); complex zone with disguised pre-snap looks (MAZE package: man alignment, zone execution); Cover 3 / quarters variations",
-    "blitz_tendency": "heavy \u2014 NFL-leading 40.6% blitz rate in 2024; led league in blitz rate on 1st down (47.5%) and 2nd down (42.6%); uses five-man fronts on early downs as pressure base",
-    "lb_role": "ILBs (Blake Cashman, Ivan Pace Jr.) are primarily run-stoppers and zone coverage defenders; OLBs are primary edge rushers but with significant coverage responsibilities (drop back ~20% of snaps); Flores asks OLBs to be versatile rush/coverage players, not pure rushers",
-    "safety_usage": "extreme hybrid usage \u2014 Josh Metellus has lined up at 12 different positions including safety, LB, slot CB, edge, and DT; in 2024 he spent ~82% of snaps in box or slot; Harrison Smith plays box/deep depending on package; Flores sees '11 spots on the field, not 11 positions'"
+    "scheme_family": "Multiple hybrid front (Flores system \u2014 Belichick foundation, Fangio zone structures, Spagnuolo pressure principles)",
+    "scheme_detail": "Flores has created a defensive system unlike anything else in the NFL. It pairs the league's highest blitz rate (~48-51%) with the league's highest zone coverage rate (~76%). The philosophical core: load the line of scrimmage with 5-7 potential rushers, force the offense to declare protections, then selectively rush while dropping others into zone. The 'MAZE' concept (Man Alignment, Zone Execution) disguises coverage post-snap. His read-blitzes assign defenders to 'tag' offensive linemen \u2014 those on the slide side drop into coverage while those away from the slide rush, guaranteeing a free rusher while maintaining coverage integrity. Early-down pressure is the defining feature: Vikings led the NFL in 1st-down blitz rate (47.5%) and 2nd-down blitz rate (42.6%) in 2024. The goal is to force offenses into 3rd-and-long, where Flores shifts to more coverage and simulated pressures. Ranked 2nd in DVOA in 2024 and 3rd in 2025.",
+    "front_structure": "Multiple fronts with 3-4 base that frequently shifts to Bear/Penny 5-man fronts (5-1 or 6-1 alignments). DL align from 0-tech to 5-tech with wide-9 edge alignments common against zone-run teams. Interior DL (Allen, Hargrave, Phillips) are versatile and can play from nose to 3-tech. Edge rushers operate from stand-up OLB positions but also move to 3-tech, wide-9, and even off-ball LB alignments. Flores wants DL who can win 1-on-1 matchups because his fronts create those opportunities through alignment and blitz design. With Ryan Nielsen now coaching the DL, expect even more emphasis on DL technique and run-game coordination.",
+    "coverage_philosophy": "Zone-dominant (76.4% zone in 2025 \u2014 league-high). Primary coverages: split-field quarters variants (Palms, Stubbie), Cover-2 variations (Cover-2 Invert, Cover-2 Roll, Cover-2 Hole), and some Cover-3. Even when blitzing, the Vikings run split-field zone coverage on 52.8% of their pressures (league average is ~26%). Man coverage used only ~22% of snaps \u2014 8th lowest in the NFL in 2024. The philosophy encourages opposing QBs to throw short/check down by disguising zone looks behind aggressive fronts. Pattern-reading zone that requires DBs and LBs to process route combinations post-snap. Flores has indicated he may increase man coverage in 2025-26 with better CB personnel (Rodgers, Blackmon).",
+    "pressure_philosophy": "The most blitz-happy defense in football. Led NFL in blitz rate in 2023 (50.7%) and 2025 (48.7%), ranked 2nd-3rd in 2024 (~40-41%). BUT \u2014 the definition matters. Many of these 'blitzes' are 5-man fronts where a DL or EDGE player is already on the line. True off-ball blitzing is supplemented by simulated pressures: showing 6-7 rushers, reading the OL slide, and having some drop while others rush. Safety blitzes (Metellus, Harrison Smith) and LB delayed rushes are frequent wrinkles. The defense doesn't generate elite pressure rates despite high blitz volume \u2014 pressure rate has hovered around 37-38%. The design is more about confusion and forcing quick, short throws than about generating actual sacks. Sacks come from talented individual rushers (Greenard, Van Ginkel, Turner) winning 1-on-1s that the scheme creates.",
+    "sub_packages": "Flores effectively plays in sub-packages almost full-time. The 'base' often features only one true off-ball LB (Blake Cashman or Eric Wilson) with Metellus functioning as a hybrid LB/S/nickel. Nickel and dime packages are the norm, not the exception. Metellus has played every defensive position from DT to CB in this scheme. The secondary is structured around versatile players who can disguise their roles \u2014 a safety may be lined up at slot CB, on the edge, or at LB on any given snap. Flores uses a three-safety look (Smith, Metellus, + one more) as his primary sub-package rather than traditional nickel CB alignments."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "O'Connell's offense has historically featured a receiving TE as a centerpiece. Hockenson ranked 5th among all TEs in PFF receiving grade over the past two seasons (84.3). Phillips' TE coaching background (developed Tyler Higbee, Gerald Everett at LAR; coached TEs for 9 consecutive seasons with 500+ receiving yard players) ensures the TE receiving role is schematically prioritized. In 12 personnel, Hockenson functions essentially as a WR while Oliver blocks, giving the Vikings' 12-personnel 'the feel of 11 personnel.' An elite receiving TE prospect would slot into an established, high-volume role alongside Jefferson and Addison."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB in O'Connell's system must process a complex, layered playbook with multiple pre-snap reads and built-in answers for every coverage. O'Connell designs route concepts where the QB must identify the coverage post-snap and deliver the ball to the correct read within the timing of the route. Play-action requires selling the run and hitting intermediate-to-deep crossing routes. The system has historically maximized pocket passers (Cousins, Darnold) with accuracy and anticipation rather than mobility. However, the 2025 season with J.J. McCarthy struggled due to QB processing limitations, suggesting the system demands high cognitive processing above all else.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "O'Connell's offense attacks downfield more aggressively than typical Shanahan-tree systems. Deep crossing routes, play-action deep shots, and intermediate dagger concepts require arm talent to drive the ball into tight windows at the second and third levels. Not a pure arm-talent system like Mahomes/Allen, but needs above-average zip."
+        },
+        "Accuracy": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The West Coast timing foundation demands anticipation throws on crossing routes, slants, curls, and dig routes where the ball must arrive before the receiver completes the break. O'Connell lauded Cousins and Stafford as 'elite throwers' \u2014 accuracy is the non-negotiable. Darnold's success in 2024 was built on precision intermediate throws; McCarthy's 2025 struggles were driven by inaccuracy."
+        },
+        "Pocket Presence": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Minnesota's OL has been a persistent weakness (surrendered 2nd-most sacks in 2025). The QB must feel pressure, make subtle pocket movements, and deliver within rhythm despite interior pressure. O'Connell's complex playcalls and long cadence demand a QB who can operate from the pocket, not escape it."
+        },
+        "Mobility": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Not a run-oriented QB system \u2014 Cousins and Darnold were both limited movers. However, McCarthy's athletic upside suggests O'Connell could evolve the scheme. Enough mobility to extend plays and escape the pocket when OL breaks down is useful but not essential."
+        },
+        "Decision Making": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "O'Connell's system features 'an answer within the concept for any approach a defense might take.' QBs must process defensive disguises, read coverage rotations, and deliver to the correct progression read within a compressed time window. McCarthy's 2025 struggles and Darnold's turnovers both stemmed from decision-making under complexity. This is the key differentiator between success and failure in KOC's system."
+        },
+        "Leadership": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "Important for locker room culture but not scheme-specific. O'Connell cultivates a strong team culture, and the QB is expected to lead, but the scheme itself doesn't uniquely demand this trait beyond normal NFL requirements."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "O'Connell uses heavy pre-snap motion specifically to help the QB diagnose coverage, reducing the burden of pure pre-snap reads. The motion does some of the diagnostic work, but the QB still needs to recognize defensive structures quickly to get the play in \u2014 especially given the complex/long playcalls."
+        }
+      },
+      "ideal_archetype": "A pocket passer with elite accuracy and rapid processing who can manage a complex, layered playbook while delivering anticipation throws into tight windows at the intermediate and deep levels. The ideal QB lets the system work \u2014 hitting timing routes with precision, making full-field reads, and operating within structure rather than freelancing. Think Kirk Cousins' 2024 level of processing or Matthew Stafford's ability to combine downfield arm talent with timing-route accuracy. Not a system for a raw athlete or a pure scrambler.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-4",
+          "floor": "6-0",
+          "reasoning": "Pocket-based system that requires seeing over the interior OL to locate crossing routes. O'Connell has exclusively started QBs 6-1 or taller (Cousins 6-3, Darnold 6-3, McCarthy 6-3)."
+        },
+        "arm_strength": {
+          "ideal": "Above-average NFL arm",
+          "floor": "Average",
+          "reasoning": "Needs to drive intermediate crossers and deep play-action shots into tight windows. Not an arm-dependent system but needs enough juice to attack downfield."
+        }
+      },
+      "development_context": "O'Connell has proven he can maximize veteran QBs (Cousins, Darnold) through scheme design, but the 2025 season showed the challenge of developing a young QB simultaneously. The complex playbook has a steep learning curve. Both Cousins and Darnold needed simplification early in their tenures. O'Connell can develop processing and timing \u2014 he transformed Darnold from career journeyman to 14-win QB \u2014 but needs a baseline of accuracy and cognitive processing to work with.",
+      "scheme_fit_narrative": "This offense is designed for a QB who can think fast and throw on time. We're not asking him to create off-script or extend plays with his legs \u2014 we need a guy who can stand in the pocket, process a sophisticated route concept against a disguised coverage, and put the ball where it needs to be before the receiver finishes his break. If he can do that, KOC will design the rest.",
+      "archetype_examples": [
+        "Kirk Cousins",
+        "Matthew Stafford",
+        "Sam Darnold (2024)"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "medium-high",
-      "explanation": "Flores' defense does not use a traditional 3-4 where OLBs are pure edge rushers, but it heavily values versatile OLBs who can both rush and drop into coverage. Van Ginkel and Turner rush from stand-up alignments but drop back ~20% of the time. Flores frequently uses 5-man fronts where an extra defender (often a safety or LB) rushes. Any LB with pass-rush traits AND coverage ability is extremely valuable \u2014 Flores won't use a one-dimensional rusher, but a hybrid LB who can rush, set edges, and cover short zones is a premium asset. The 40.6% blitz rate means LBs with blitzing ability get substantial pass-rush opportunities."
+    "RB": {
+      "scheme_role": "The RB in O'Connell's offense operates in a zone-based run scheme with duo complements. The starter must be a 1A/1B type who can handle a significant workload in zone concepts while also contributing as a pass-catcher out of the backfield and in pass protection. O'Connell has evolved toward wanting an explosive, big-play runner in the zone scheme \u2014 his 2026 hire of Frank Smith from Miami's Achane-centric system signals a desire for burst and breakaway speed in the zone game. The RB is NOT the offensive centerpiece \u2014 Justin Jefferson is \u2014 but the running game must be efficient enough to set up play-action.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Outside zone requires the RB to read the flow of the OL blocks, identify the cutback lane, and make one decisive cut. Vision is THE distinguishing trait in zone-run systems \u2014 it's what separates good zone backs from great ones. O'Connell specifically praised Mason's ability to 'see zone run schemes' when acquiring him."
+        },
+        "Contact Balance": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Zone schemes don't always create clean holes; the RB must absorb contact at the line and power through arm tackles to generate positive yardage on plays that aren't home runs."
+        },
+        "Power": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "O'Connell has historically preferred complementary backs (Mason for power, Jones for finesse). Short-yardage and goal-line have been persistent problems \u2014 'We've really left a lot to be desired' per O'Connell. Some power is needed but it's not the primary RB archetype."
+        },
+        "Elusiveness": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Frank Smith's Miami offenses generated elite breakaway rates (Achane led NFL with 24 breakaway runs in 2025). O'Connell wants explosive plays from the ground game. Elusiveness \u2014 the ability to make defenders miss in space \u2014 is how zone-run backs generate the big plays this system craves."
+        },
+        "Speed": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The shift toward wanting breakaway explosiveness, exemplified by targeting Miami-style backs with Frank Smith's hiring, elevates speed. Zone schemes create horizontal displacement and cutback lanes \u2014 speed turns 5-yard gains into 20-yard gains. O'Connell described his ideal RB acquisition as having 'burst and explosion to finish runs.'"
+        },
+        "Pass Catching": {
+          "weight": 0.17,
+          "importance": "high",
+          "reasoning": "RBs in this system are featured in the passing game. Aaron Jones had 51 catches in 2024. The WCO foundation uses RB checkdowns, screens, and wheel routes as key progressions. O'Connell praised Mason's 'every-down versatility' including pass-catching. In 12 personnel especially, the RB becomes a critical safety valve."
+        },
+        "Pass Protection": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Given the OL's struggles (2nd-most sacks allowed in 2025), RB pass protection matters. Mason's pass protection issues contributed to his declining snap share in 2025. The RB must be able to pick up blitzes to keep the QB upright in a timing-based passing attack."
+        }
+      },
+      "ideal_archetype": "A zone-scheme specialist with explosive speed who can read blocks, make one cut, and turn corners for big gains. Must be a capable pass-catcher who can run routes out of the backfield and provide reliable pass protection. The ideal prospect combines Aaron Jones' route-running and receiving ability with the burst and breakaway speed of Miami's backs under Frank Smith. Think De'Von Achane's explosiveness married to Jones's complete game \u2014 a player who can be on the field for all three downs without tipping run or pass.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "Sub-4.45",
+          "floor": "Sub-4.55",
+          "reasoning": "Frank Smith's Miami influence prioritizes explosive speed to generate breakaway runs in zone concepts. The outside zone scheme creates cutback lanes that speed turns into touchdowns."
+        },
+        "weight": {
+          "ideal": "200-215 lbs",
+          "floor": "195",
+          "reasoning": "Zone-scheme backs don't need to be bruisers, but need enough mass to handle contact at the LOS and contribute in pass protection. O'Connell has used two-back systems to distribute the physical toll."
+        },
+        "short_shuttle": {
+          "ideal": "Sub-4.20",
+          "floor": "Sub-4.30",
+          "reasoning": "Lateral agility is critical for zone-run backs who must cut against the grain and change direction at the LOS."
+        }
+      },
+      "development_context": "O'Connell and the new RB coach Curtis Modkins (offensive run game coordinator) can develop route-running and receiving skills in RBs. Pass protection technique can be coached. Vision in zone schemes is harder to teach \u2014 it tends to be more innate, and backs who struggle to read zone blocks rarely improve dramatically. The addition of Frank Smith should improve the scheme-side coaching of zone-run execution.",
+      "scheme_fit_narrative": "We're looking for a zone-scheme back with explosive speed who can make one cut and go. He needs to catch the ball and protect the quarterback. We're not asking him to be a battering ram \u2014 we're asking him to be a weapon in the zone game and a safety valve in the passing game. If he can create breakaway runs, he'll see the field early and often.",
+      "archetype_examples": [
+        "Aaron Jones",
+        "De'Von Achane",
+        "Raheem Mostert"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "high",
-      "explanation": "O'Connell's West Coast scheme and the departure of Aaron Jones (being released for 2026) create a significant need for a pass-catching back. Jones was top-10 among RBs in routes run, targets, receptions, and receiving yards in 2024 and averaged 48 receptions per season. Mason is the power runner but lacks receiving production (15 career receptions in 46 games). The Vikings' offense is built around creating passing windows, and the RB receiving role is schematically baked into the system with Texas routes, option routes, and checkdowns. A dual-threat RB who can catch and run routes would directly fill Jones' vacated role."
+    "WR": {
+      "scheme_role": "The WR room in O'Connell's offense is built around versatility. WRs are asked to line up across multiple positions (X, Z, slot) rather than staying fixed. The WR1 (Justin Jefferson) runs a full route tree with heavy emphasis on deep crossing routes, dagger concepts, and contested catches downfield. The WR2 runs complementary routes that stretch defenses horizontally and vertically. WR3 needs speed to take the top off. All WRs must understand the timing-based passing system \u2014 routes must be run to precise depths to mesh with the QB's footwork. O'Connell designs formations and motion specifically to scheme WRs open rather than asking them to win purely through individual talent.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The Shanahan-McVay WCO demands precise route-running tied to QB footwork timing. O'Connell's passing concepts require WRs to run routes to specific depths and break at specific times. Phillips has WRs 'switch positions and see different looks' \u2014 meaning route technique at multiple positions is essential. The system creates open receivers through route precision, not just speed."
+        },
+        "Separation": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "O'Connell's system creates opportunities for separation through scheme (motion, pick concepts, crossing routes), but the WR still needs the ability to win at the top of routes against zone and man defenders. Jefferson's elite separation is why this offense works \u2014 a prospect needs to get open at intermediate depths."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "high",
+          "reasoning": "Timing passes arrive with velocity and require receivers to catch in traffic, especially on intermediate crossing routes where defenders are closing. Drop rate directly impacts offensive rhythm in this system."
+        },
+        "YAC Ability": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The Shanahan-McVay tree explicitly designs for YAC. Crossing routes, screens, and quick-game concepts are all designed to put the ball in the WR's hands in space. O'Connell's offense generated its explosiveness through Jefferson's and Addison's ability to create after the catch. YAC is not incidental \u2014 it's schemed."
+        },
+        "Speed": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "Vertical threats open up the intermediate passing game that O'Connell relies on. The WR3 role specifically requires speed to take the top off and clear out safeties for crossing routes underneath. The addition of Tai Felton (elite speed) as a 3rd-round pick in 2025 shows the value placed on speed at the bottom of the WR room."
+        },
+        "Contested Catches": {
+          "weight": 0.09,
+          "importance": "moderate",
+          "reasoning": "O'Connell prefers to scheme WRs open, reducing the need for contested catches compared to isolation-heavy offenses. However, downfield play-action shots and red-zone fades still require the ability to win 50/50 balls, especially for the WR1 role."
+        },
+        "Release Package": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Against press-man coverage, WRs need to win at the line to maintain route timing. Less critical than in pure man-beater offenses since Flores-style defenses that play heavy zone are the primary threat in practice and in divisional matchups, but release technique matters."
+        }
+      },
+      "ideal_archetype": "A technically precise route runner who can line up at multiple positions, win at the intermediate level with sharp breaks and separation, and create explosive plays after the catch. The ideal WR understands timing-based passing \u2014 he arrives at the right spot at the right time to mesh with the QB's footwork. For the WR1 role, think Cooper Kupp (2021) or Justin Jefferson \u2014 elite route runners with YAC ability and the versatility to win from any alignment. For the WR2/3, a speedy separator who can run precise crossing routes and take the top off.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "Sub-4.45",
+          "floor": "Sub-4.55",
+          "reasoning": "Speed opens up the intermediate game by threatening vertically. WR3 should be sub-4.40. This system uses speed to clear coverage zones for crossing routes underneath."
+        },
+        "3_cone_drill": {
+          "ideal": "Sub-6.90",
+          "floor": "Sub-7.10",
+          "reasoning": "Route-running precision and change-of-direction ability at the top of routes is the foundation of this system's passing game. Sharp breaks create the separation windows the timing-based passing game requires."
+        }
+      },
+      "development_context": "O'Connell and WR coach Keenan McCardell can develop route technique and expand a WR's route tree. Phillips specifically mentioned WRs learning to 'switch positions' in year two of the system. The coaching staff can polish technique but needs a baseline of speed and body control. They developed Jalen Nailor from a raw speed merchant into a functional WR3 and scheme fit. Cannot easily develop contested-catch ability or hands \u2014 those traits must arrive.",
+      "scheme_fit_narrative": "We need a route runner who understands timing. This isn't an offense where we isolate the WR and say 'go win.' We're going to scheme him open with motion, formation, and route design \u2014 but he has to run the route precisely, at the right depth, with the right tempo. If he can do that and create after the catch, we'll manufacture matchups he can exploit all day.",
+      "archetype_examples": [
+        "Cooper Kupp",
+        "Justin Jefferson",
+        "Jordan Addison"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "Flores' defense is the NFL's premier system for hybrid safeties. Josh Metellus has lined up at 12 different positions in a single season \u2014 safety, all 3 LB spots, all CB spots, edge, and even DT. O'Connell noted counting 7 different alignments for Metellus in a single game. Metellus earned a 3-year, $36M extension based on this versatility. With Harrison Smith aging (36) and Cam Bynum departed to Indianapolis, the Vikings need safety depth that can fill Flores' hybrid/box/slot roles. Any safety prospect with tackling, blitz ability, slot coverage skills, and positional versatility would be valued significantly higher by Minnesota than by almost any other team."
+    "TE": {
+      "scheme_role": "The TE position is arguably the most schematically important in O'Connell's offense. The Vikings use 12 personnel at one of the NFL's highest rates, and the TE room is structured as a complementary pair: one receiving TE (Hockenson) who flexes into the slot and runs a full route tree, and one blocking TE (Oliver) who stays in-line and enables the run game. This dual-TE structure gives 12 personnel the feel of 11 personnel because Hockenson functions as a de facto WR. The passing game coordinator role has historically been held by a TE coach (Angelichio, now Cordell), showing how central TEs are to the passing game architecture.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The TE1 in this system is a featured pass-catcher. Hockenson had 95 catches for a franchise record in 2023. The 12-personnel passing concepts require a TE who can win at the intermediate level on crossing routes, seam routes, and option routes. For the TE2, receiving is less critical but still useful."
+        },
+        "Route Running": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Phillips' career as a TE coach has been defined by developing route technique \u2014 Jordan Reed, Tyler Higbee, Hockenson all became better route runners under his tutelage. The TE1 must run a full route tree from flex/slot alignments. The system creates mismatches by putting the TE in the slot against LBs and safeties."
+        },
+        "Blocking": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "The TE2 must be an elite in-line blocker \u2014 Oliver's 79.1 PFF run-blocking grade (2nd among TEs behind Kittle) is what makes 12 personnel work. For the TE1, competent blocking is needed to stay on the field in run-heavy situations and not tip play-calling."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Flores' defense demands that TEs be accounted for in coverage, and O'Connell's play-action concepts use TE athleticism to stress LBs and safeties in the vertical seam and over the middle. The TE1 archetype requires enough athleticism to separate from linebackers and compete with safeties."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "high",
+          "reasoning": "Timing passes to TEs over the middle arrive in traffic. Hockenson's reliable hands in contested situations are a core part of why this system's 12-personnel production is elite. Drops from the TE position break the offensive rhythm."
+        },
+        "Speed": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Not asking the TE to run vertically past safeties \u2014 this is an intermediate-depth receiving system for TEs. Functional speed to threaten seams is useful but not a differentiator. The TE wins with route technique and body control rather than raw speed."
+        }
+      },
+      "ideal_archetype": "Two distinct archetypes needed: (1) TE1 \u2014 a flex/move TE who can line up in the slot, run a full route tree, and be a primary pass-catching weapon while providing adequate blocking. Think T.J. Hockenson, Travis Kelce, or Dallas Goedert. (2) TE2 \u2014 an in-line blocker who can seal edges in zone-run concepts and chip pass rushers while providing occasional receiving contributions. Think Josh Oliver or George Kittle's blocking game. A prospect who can do both is a premium fit.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-2",
+          "reasoning": "Size creates the mismatch advantage that 12 personnel is designed to exploit. TEs need to be big enough to block DEs on zone concepts but athletic enough to win in the passing game against LBs."
+        },
+        "weight": {
+          "ideal": "240-260 lbs",
+          "floor": "230",
+          "reasoning": "Must be heavy enough for in-line blocking duties \u2014 even the receiving TE needs to handle run-blocking assignments to stay on the field and not tip pass/run tendency."
+        },
+        "40_yard_dash": {
+          "ideal": "Sub-4.65 (TE1)",
+          "floor": "Sub-4.80",
+          "reasoning": "TE1 needs enough speed to separate on intermediate routes and threaten the seam. TE2 speed requirements are lower \u2014 blocking ability matters more."
+        }
+      },
+      "development_context": "This coaching staff has the best TE development pedigree in the NFL. Phillips has developed Pro Bowl TEs at every stop (Reed, Witten, Higbee, Hockenson). Ryan Cordell, who replaces Angelichio as the TE coach, spent four years learning under Angelichio and O'Connell. This staff CAN develop receiving skills, route technique, and scheme understanding in TEs. Blocking technique is also coachable. A raw athlete with upside as a receiver can flourish here \u2014 this is the ideal landing spot for a physically gifted but technically raw TE prospect.",
+      "scheme_fit_narrative": "We run more 12 personnel than almost anyone, and our TEs are central to everything we do. We need one TE who can run routes like a receiver \u2014 he'll be a top-three target in our passing game. And we need another who can block like a 6th OL and enable our zone run game. If a prospect can do both, he's instantly one of the most valuable players on our roster.",
+      "archetype_examples": [
+        "T.J. Hockenson",
+        "George Kittle",
+        "Dallas Goedert",
+        "Josh Oliver"
+      ]
+    },
+    "OT": {
+      "scheme_role": "OTs in this zone-based system must be athletic enough to execute reach blocks and climb to the second level on outside zone runs while also providing reliable pass protection in a timing-based passing attack. The Vikings invested heavily in their OL infrastructure (Darrisaw, O'Neill as bookend tackles) and the addition of Frank Smith from Miami's zone-run operation should further emphasize lateral movement and athletic blocking. The LT especially must anchor against speed rushers (Flores' own defense demands this in practice daily).",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The Vikings surrendered the 2nd-most sacks in 2025. O'Connell's timing-based passing game collapses when the OL can't hold up. The QB is often a pocket-bound passer who cannot escape pressure \u2014 pass protection is the first imperative."
+        },
+        "Run Blocking": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Zone-run schemes require OTs to reach-block, seal backside pursuit, and sustain blocks on the edge. Frank Smith's Miami run game was built on athletic OL execution in outside zone. This has been the weakest element of Minnesota's OL play and is the primary area of schematic emphasis for 2026."
+        },
+        "Footwork": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Outside zone demands lateral first-step quickness and the ability to get positioning angles on DEs. In pass protection, mirroring and re-setting against speed rushers requires refined footwork. Phillips noted how 'the slightest false step' at OL kills execution."
+        },
+        "Anchor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "While the scheme values athleticism, the OT must be able to handle power rushers and bull rushes, especially on the right side where many defenses send their best pass rushers. Interior pressure has been a persistent issue \u2014 a strong anchor helps neutralize collapse."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The defining trait difference from non-zone systems. Zone-run OTs must get lateral displacement on the 1st step, reach-block DEs, and climb to the 2nd level. Frank Smith's influence will further prioritize this. A stiff OT who can only pass-set kills the outside zone game."
+        },
+        "Strength": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Baseline NFL strength is required but this isn't a power-blocking scheme that demands elite raw strength. The scheme creates angles through movement rather than overpowering defenders."
+        }
+      },
+      "ideal_archetype": "An athletic, movement-oriented tackle who can pass protect at a high level while executing zone-run blocks with lateral agility and second-level climbing ability. The ideal OT mirrors speed rushers with clean footwork, anchors against power, and reaches DEs on outside zone without losing position. Think Christian Darrisaw when healthy \u2014 elite athleticism with the technique to handle both pass and run duties in a zone scheme. Or Trent Williams's ability to dominate in Shanahan's zone game.",
+      "measurable_preferences": {
+        "short_shuttle": {
+          "ideal": "Sub-4.60",
+          "floor": "Sub-4.75",
+          "reasoning": "Zone-run OTs must move laterally to reach-block and get to the second level. This is the most scheme-specific measurable for Shanahan-tree offenses."
+        },
+        "40_yard_dash": {
+          "ideal": "Sub-5.10",
+          "floor": "Sub-5.20",
+          "reasoning": "Overall athleticism correlates with zone-blocking effectiveness. The OT needs to mirror edge rushers in pass pro and reach DEs on zone runs."
+        },
+        "arm_length": {
+          "ideal": "34+",
+          "floor": "33",
+          "reasoning": "Length helps establish hand position and maintain leverage on zone reach blocks and pass protection sets."
+        }
+      },
+      "development_context": "New OL coach Keith Carter takes over from Kuper, who was let go after 4 seasons of inconsistent OL play. Carter's track record is mixed (criticism from Titans/Jets players about coaching style, but earned the promotion after articulating his vision). Frank Smith's Saints/Dolphins background brings additional OL expertise. The staff can develop technique in zone-blocking and pass protection fundamentals, but athletic ability \u2014 lateral movement, foot speed \u2014 must arrive ready. Those traits cannot be significantly improved at the NFL level.",
+      "scheme_fit_narrative": "Our tackles need to move. This is a zone-run offense that's going to ask them to reach-block and get to linebackers at the second level. At the same time, our QBs tend to stay in the pocket, so pass protection is non-negotiable. We need an athletic tackle who can do both \u2014 mirror speed rushers AND execute zone-run assignments. If he can't move laterally, he doesn't fit.",
+      "archetype_examples": [
+        "Christian Darrisaw",
+        "Trent Williams",
+        "Penei Sewell"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior OL in this zone-based system must create lateral displacement on outside zone blocks, handle combo blocks to the second level on duo/inside zone, and provide pocket integrity from the interior. The Vikings completely rebuilt their IOL in 2025 (Jackson, Kelly, Fries from the Colts' zone system) but still surrendered massive interior pressure. The center is the mental QB of the OL, responsible for identifying defensive fronts \u2014 critical against the complex blitzes this team practices against daily (Flores' defense).",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Interior pressure has been the offense's Achilles heel. O'Connell specifically said they need to 'solidify the interior of the pocket.' The timing-based passing game requires a clean interior pocket \u2014 interior pressure destroys rhythm more than edge pressure in this system."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Zone-run scheme demands IOL who can execute combo blocks, get movement at the point of attack, and climb to the second level. Frank Smith's hire specifically targets run-game improvement. The Colts' IOL (Kelly, Fries) were brought in for their zone-run prowess (Fries ranked 5th in PFF run-blocking among guards in 2024)."
+        },
+        "Pulling": {
+          "weight": 0.08,
+          "importance": "low",
+          "reasoning": "Not a heavy pulling scheme. Outside zone and duo don't require much pulling. Some counter and power concepts use guard pulls situationally, but it's not a primary scheme demand."
+        },
+        "Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must handle interior DL in 1-on-1 matchups on zone double-teams and pass protection. The Vikings face Flores' own DL in practice \u2014 Allen, Hargrave, Phillips are all powerful interior defenders. Strength matters for anchoring and driving defenders off the ball."
+        },
+        "Anchor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Interior pressure has been catastrophic for this offense. The IOL must anchor against power rushers and stunts \u2014 Minnesota's offense 'struggled massively with stunts during all four seasons' under the previous OL coach. Stunt recognition and anchor are intertwined."
+        },
+        "Versatility": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Minnesota used 20+ OL combinations in 2025 due to injuries. Center-guard versatility is extremely valuable. The zone scheme asks IOL to slide and communicate as a unit \u2014 a player who can play center and guard provides crucial flexibility. O'Connell has shown willingness to move players across IOL positions."
+        }
+      },
+      "ideal_archetype": "An athletic, intelligent interior lineman who can execute zone-blocking concepts, anchor against interior rushers, and process complex defensive fronts pre-snap. The ideal IOL combines zone-movement skills with the mental processing to handle Flores-style stunts and blitzes (since they practice against the NFL's most exotic pressure schemes daily). Think Quenton Nelson's power blended with a zone-scheme mover's foot speed \u2014 though Nelson himself is more gap-scheme oriented. Ryan Kelly's intelligence paired with Fries' run-blocking technique is the mold.",
+      "measurable_preferences": {
+        "short_shuttle": {
+          "ideal": "Sub-4.55",
+          "floor": "Sub-4.70",
+          "reasoning": "Zone blocking requires lateral movement from the IOL to execute combo blocks and reach defenders. The 2025 IOL overhaul specifically targeted Colts linemen known for their lateral movement in zone schemes."
+        },
+        "arm_length": {
+          "ideal": "33+",
+          "floor": "32",
+          "reasoning": "Length helps establish hand position on zone double-teams and pass protection. Guards especially need length to handle DTs who use arm-length advantages."
+        },
+        "bench_press": {
+          "ideal": "28+ reps",
+          "floor": "24",
+          "reasoning": "Interior strength is needed to anchor against NFL DTs and sustain combo blocks through the second level in the zone game."
+        }
+      },
+      "development_context": "Keith Carter (promoted from assistant OL coach) takes over the IOL room. The previous coaching failed to develop Ed Ingram (who immediately became a Top 15 guard after leaving Minnesota for Houston) and couldn't maximize Garrett Bradbury. Carter's first task is proving he can get more from the same caliber of players. Technique in zone blocking can be developed. Mental processing of stunts is coachable over time. Raw lateral athleticism must arrive \u2014 it can't be taught.",
+      "scheme_fit_narrative": "We need interior linemen who can move and think. Our zone scheme demands lateral foot speed to execute combo blocks, and our QB needs a clean pocket. We face the most complex pressure packages in football every day in practice \u2014 our IOL must be sharp mentally. If a prospect can pass-protect, zone-block, and play multiple interior positions, he's exactly what we need.",
+      "archetype_examples": [
+        "Will Fries",
+        "Ryan Kelly",
+        "Joel Bitonio"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "The EDGE position in Flores' defense is arguably the most unique and demanding in the NFL. Flores doesn't want traditional pass-rush specialists \u2014 he wants hybrid OLB/LB chess pieces who can rush from a two-point stance on the edge, move inside to a 3-technique, drop into zone coverage (Van Ginkel dropped into coverage 212 times in 2024 \u2014 most among all edge defenders), blitz from off-ball LB alignments, and play run defense from multiple alignments. The Vikings deploy THREE edge rushers simultaneously as 'starters' (Greenard, Van Ginkel, Turner) in various rotations and packages. Coverage ability is non-negotiable \u2014 Flores' zone-behind-blitz philosophy requires EDGEs to show blitz, then drop into flat or hook zones.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The scheme creates 1-on-1 matchups through alignment and blitz design \u2014 EDGE rushers must convert those opportunities. Greenard had 12 sacks, Van Ginkel 11.5 in 2024, Turner 8 in 2025. Individual pass-rush ability within the scheme's created advantages is the primary value-add."
+        },
+        "Bend": {
+          "weight": 0.12,
+          "importance": "high",
+          "reasoning": "Wide-9 alignments used against zone-run teams require the EDGE to bend around the corner at wide angles. Turner's 4.46 forty shows the speed; bend converts that speed into sacks by dipping under OT hands around the arc."
+        },
+        "First Step": {
+          "weight": 0.12,
+          "importance": "high",
+          "reasoning": "Flores' stacked fronts and simulated pressures rely on timing \u2014 the EDGE must explode off the ball to create the confusion and pressure the scheme designs. Turner's explosiveness was specifically praised by coaches and teammates."
+        },
+        "Power": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Flores' EDGEs are not power rushers. Van Ginkel (242 lbs), Turner (247 lbs) are undersized by traditional standards. They win with speed, technique, and scheme rather than bull-rushing offensive tackles. Some power is useful for setting the edge but it's secondary."
+        },
+        "Motor": {
+          "weight": 0.18,
+          "importance": "essential",
+          "reasoning": "Flores demands effort on every snap because the scheme requires EDGEs to play run defense, rush, AND drop into coverage \u2014 often within the same series. Van Ginkel's relentless motor is the template. The EDGE plays 70%+ of snaps and must be assignment-sound on every one of them. Flores values effort-based, do-your-job mentality inherited from his Belichick roots."
+        },
+        "Run Defense": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "THIS IS THE KEY DIFFERENTIATOR FROM OTHER TEAMS' EDGE WEIGHTS. Flores' 5-man fronts with wide-9 alignments ask EDGEs to set the edge against zone runs. But the REAL reason run defense is weighted this high is that 'Run Defense' encompasses the coverage and assignment versatility Flores demands. Van Ginkel dropped into coverage 23% of his snaps; Turner 13.2%. The EDGE must be a reliable run defender, coverage player, and assignment-football executor. A pure speed rusher who can't do anything else doesn't fit \u2014 period."
+        }
+      },
+      "ideal_archetype": "A hybrid OLB who can rush the passer from multiple alignments, drop into zone coverage convincingly, set the edge in the run game, and play 70%+ of defensive snaps without declining in effort or assignment reliability. The archetype is Andrew Van Ginkel \u2014 a former 5th-round pick who isn't the most physically gifted rusher but combines elite coverage instincts with good pass-rush ability and tireless motor. Or a younger version: Dallas Turner's blend of speed (4.46), coverage drops, and developing pass-rush technique. NOT a Micah Parsons/Myles Garrett-style pure rusher \u2014 those players are too valuable to drop into zone coverage, which this scheme demands.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "Sub-4.55",
+          "floor": "Sub-4.70",
+          "reasoning": "Speed enables the wide-9 alignment rush, flat-zone coverage drops, and chase-down ability on cutback runs. Turner (4.46) and Van Ginkel (4.59) are both plus athletes. Flores values speed at EDGE."
+        },
+        "weight": {
+          "ideal": "240-260 lbs",
+          "floor": "230",
+          "reasoning": "Flores' EDGEs are lighter than traditional 3-4 OLBs because they must be athletic enough to drop into coverage. Van Ginkel at 242, Turner at 247 are the models. A 280-lb pure power rusher doesn't fit."
+        },
+        "3_cone_drill": {
+          "ideal": "Sub-7.00",
+          "floor": "Sub-7.20",
+          "reasoning": "Change-of-direction ability is critical for transitioning from rush to coverage drops and for mirroring RBs in flat zones."
+        }
+      },
+      "development_context": "Flores has proven he can develop EDGEs \u2014 Van Ginkel was a 5th-round pick who became a Pro Bowler, and Turner was developed from a raw rookie into a hybrid game-wrecker. The staff can teach coverage technique, rush moves, and assignment discipline. What must arrive: athleticism, motor, and football IQ. A smart, athletic player with limited college production can flourish here because Flores will create opportunities through scheme.",
+      "scheme_fit_narrative": "Our defense asks edge rushers to do everything. We need a guy who can rush from a two-point stance, line up inside, drop into zone coverage, and set the edge against the run \u2014 all within the same game, sometimes within the same series. If he can only rush the passer, he doesn't fit. We need a complete, versatile defender with an elite motor who trusts the scheme and executes his assignment on every single snap.",
+      "archetype_examples": [
+        "Andrew Van Ginkel",
+        "Dallas Turner",
+        "Matthew Judon",
+        "Uchenna Nwosu"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Interior DL in Flores' defense must be versatile enough to align from 0-tech (over center) through 5-tech (outside tackle) depending on the front call. The scheme frequently uses Bear/Penny 5-man fronts that ask DTs to line up in unusual gaps and create 1-on-1 matchups through alignment. DL must hold their gaps to funnel runners to pursuing defenders, absorb blocks to keep linebackers clean, and generate interior push on passing downs. With Ryan Nielsen (former Saints DL coach, Falcons/Jags DC) now coaching the DL, expect a renewed emphasis on hand technique and gap discipline.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Flores' blitz designs create 1-on-1 matchups for interior DL. Allen and Hargrave were specifically acquired for their pass-rush ability in these situations. The scheme amplifies interior pass-rush talent because DTs face fewer double teams thanks to the alignment and pressure packages. But pass rush alone isn't enough."
+        },
+        "Run Defense": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Flores' early-down philosophy loads the box to stop the run and force passing situations. The Vikings led the NFL in EPA per rush allowed (-0.17) in 2024. Interior DL must hold gaps in multiple-alignment fronts and control the LOS. Nielsen's background is rooted in run defense \u2014 Saints had #1 rushing defense in 2021 under his DL coaching."
+        },
+        "First Step": {
+          "weight": 0.12,
+          "importance": "high",
+          "reasoning": "The scheme creates penetration opportunities \u2014 DL must have the burst to exploit them. Flores wants DL who can shoot gaps when asked and collapse the pocket quickly. First-step quickness translates the scheme's advantages into actual disruption."
+        },
+        "Hand Usage": {
+          "weight": 0.18,
+          "importance": "essential",
+          "reasoning": "Nielsen is known as a hands-on technician who 'gets in the mud' with DL. Hand technique \u2014 swipes, rips, clubs, stacks \u2014 is how DL win their 1-on-1 matchups in Flores' scheme. The system provides the matchups; the DL must convert them through technique. Harrison Phillips was a lower-pedigree player who contributed through elite hand usage and technique."
+        },
+        "Motor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "DL in this system play heavy snap counts and must sustain effort across all three downs. The early-down pressure philosophy means DL are asked to be aggressive on 1st/2nd down \u2014 not resting for passing situations. Flores' Belichick-tree DNA demands relentless effort regardless of down."
+        },
+        "Strength": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Must be strong enough to hold point of attack in multiple gap assignments and anchor against double teams. However, the scheme doesn't demand 340-lb two-gapping nose tackles \u2014 it uses versatile 3-techs and 4i-techs who can penetrate and control in multiple alignments."
+        }
+      },
+      "ideal_archetype": "A versatile interior defender who can line up from nose to 3-tech, win 1-on-1 matchups through hand technique and quickness, hold run gaps on early downs, and generate interior pressure on passing downs. The ideal DT has the alignment versatility of Jonathan Allen (who can play from over-center to over-tackle effectively) combined with the pass-rush pop of Javon Hargrave. Harrison Phillips' effort-based, technically sound game also fits. NOT a one-dimensional run-plugging nose tackle or a pure passing-down penetrator \u2014 this scheme demands both.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "280-310 lbs",
+          "floor": "275",
+          "reasoning": "Must be heavy enough to hold point of attack against NFL centers and guards, but athletic enough to play multiple alignments. Flores doesn't use a traditional 340-lb nose tackle \u2014 his DTs are more athletic and versatile."
+        },
+        "arm_length": {
+          "ideal": "33+",
+          "floor": "32",
+          "reasoning": "Nielsen's DL technique emphasizes hand placement and control \u2014 longer arms create leverage advantages in hand fighting."
+        },
+        "3_cone_drill": {
+          "ideal": "Sub-7.40",
+          "floor": "Sub-7.60",
+          "reasoning": "Versatile alignment demands lateral agility. DL who can move from 0-tech to 3-tech need the change-of-direction ability to play different techniques effectively."
+        }
+      },
+      "development_context": "Ryan Nielsen has an excellent DL development track record. With the Saints, he developed Cameron Jordan, Marcus Davenport, and David Onyemata into productive players. His intense, hands-on coaching style focuses on technique refinement. This staff can develop pass-rush moves, hand technique, and gap discipline. Raw physical tools (burst, strength, motor) must arrive. A mid-round DL prospect with athletic upside but limited college production could develop here under Nielsen's tutelage.",
+      "scheme_fit_narrative": "We need interior linemen who can play everywhere along the front. Some plays, you're the nose tackle in a Bear front. Other plays, you're a penetrating 3-tech creating a free rusher behind you. We want guys who are technically sound with their hands, play their guts out on every snap, and can handle both the run and the pass. If he can only do one, he's not versatile enough for what we do.",
+      "archetype_examples": [
+        "Jonathan Allen",
+        "Javon Hargrave",
+        "Chris Jones",
+        "Harrison Phillips"
+      ]
+    },
+    "LB": {
+      "scheme_role": "Flores typically deploys only ONE off-ball linebacker on the field for most snaps, replacing the second LB with a safety (Metellus) or extra DB. The starting LB (Blake Cashman in 2024, Cashman/Eric Wilson in 2025) must be an every-down player capable of handling 90%+ of defensive snaps. The LB must process offensive formations, trigger against the run, drop into zone coverage on passing downs, and execute blitz assignments from A-gap or B-gap. With Metellus functioning as a hybrid LB/S, the off-ball LB must work in tandem with a player who isn't a traditional LB. Flores values intelligence, instincts, and tackling over raw athleticism at this position.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "essential",
+          "reasoning": "Flores' zone coverage encourages short throws in front of the coverage. The LB must be a reliable tackler to limit YAC and keep plays to short gains. Ivan Pace Jr. led all rookies in tackles (102) in 2023. The defense's identity is bending but not breaking, which requires tackling discipline."
+        },
+        "Coverage": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "With only one LB on the field, that LB is on the field in passing situations and MUST be able to drop into zone coverage effectively. Pattern-reading zone that requires diagnosing route combinations post-snap. Blake Cashman's coverage ability is what made him the starter. A LB who can't cover forces Flores to substitute, limiting his disguise packages."
+        },
+        "Pass Rush": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Flores sends LBs on delayed blitzes and A/B-gap rushes \u2014 it's a component of the scheme, but the EDGE rushers are the primary pressure generators. The LB blitz is a constraint play, not the primary weapon. Some pass-rush utility is needed but it's not the defining trait."
+        },
+        "Instincts": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Flores' scheme is complex and evolves weekly. The LB must process offensive formations, recognize plays pre-snap, and react to what develops post-snap \u2014 all within a system that disguises its own intentions. Metellus's 'football IQ' was specifically cited as why Flores relies on him. The LB must be equally intelligent."
+        },
+        "Athleticism": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Baseline NFL athleticism is required to play in space, but Flores hasn't prioritized elite athletic LBs \u2014 he's used Ivan Pace Jr. (UDFA, not elite measurables) and Blake Cashman (mid-round pick, not a freak athlete). Intelligence and instincts compensate for average athleticism in this scheme."
+        },
+        "Range": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Some range is needed to play zone drops and pursue sideline-to-sideline, but with only one LB on the field and safeties filling box roles, the coverage demands are more about processing than pure range."
+        },
+        "Block Shedding": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The 5-man fronts are designed to protect the LB from blockers, but OL combination blocks and pulling schemes can still target the lone LB. Must be able to disengage from blocks to make tackles in the run game."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Flores involves the LB in pre-snap communication and defensive calls. Eric Wilson and Cashman have functioned as the defensive signal-callers. Some pre-snap processing is critical, but Flores himself handles much of the schematic complexity from the sideline."
+        }
+      },
+      "ideal_archetype": "An every-down linebacker who combines coverage ability with tackling reliability and elite football intelligence. Not a thumper-only or a pure athlete \u2014 Flores needs a player who can process the defense's complex scheme, stay on the field in all situations (including obvious passing downs), and execute assignments across run defense, zone coverage, and occasional blitz packages. Think Blake Cashman's reliability and intelligence, or Lavonte David's three-down completeness. The LB must be smart enough to function as the defensive quarterback on the field.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "Sub-4.55",
+          "floor": "Sub-4.70",
+          "reasoning": "Must be athletic enough to play zone coverage against NFL tight ends and running backs in space. Doesn't need to be elite but must be functional."
+        },
+        "weight": {
+          "ideal": "225-240 lbs",
+          "floor": "220",
+          "reasoning": "Lighter LBs who can move in space fit better than 260-lb run-stuffing thumpers. Flores only plays one LB, and that LB must handle coverage \u2014 excess weight is a liability."
+        }
+      },
+      "development_context": "Flores has developed UDFA Ivan Pace Jr. into a productive blitzing LB, showing he can develop raw talent. Eric Wilson had a career resurgence in 2025. The staff excels at scheme-specific development \u2014 teaching LBs where to be, what to read, and how to execute within the system. Football IQ and baseline coverage ability must arrive; the scheme will maximize what's there. This is NOT a premium draft-capital position in Flores' defense given that only one LB plays and Metellus fills a hybrid LB role.",
+      "scheme_fit_narrative": "We play one linebacker most of the time, so he's got to be a complete player. He's going to be on the field for 90% of snaps \u2014 run, pass, blitz. Can he cover tight ends and running backs in zone? Can he tackle reliably in space when we force the short throw? Is he smart enough to process our defensive calls and execute week-to-week adjustments? If yes, he's our guy.",
+      "archetype_examples": [
+        "Blake Cashman",
+        "Lavonte David",
+        "Devin White (coverage version)",
+        "Eric Wilson"
+      ]
+    },
+    "CB": {
+      "scheme_role": "Corners in Flores' defense play predominantly zone coverage (~76% zone rate). The CB1 plays outside and must be comfortable in split-field zone concepts (Quarters, Palms, Cover-2 variants) where they read the #2 receiver's route to determine their assignment. In Palms coverage, the CB may end up covering the #2 receiver on flat routes rather than the #1. Man coverage is used sparingly (~22%) but has been increasing as Flores gets better CB personnel. The CB must handle late coverage rotation and disguise \u2014 Flores' 'MAZE' concept has CBs align in man but execute zone. Press is NOT a primary demand; off-coverage zones are the baseline.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Flores plays zone 76%+ of the time, making man coverage a secondary requirement. However, Flores has been increasing man looks (particularly in 3rd-down situations) and the presence of better man-coverage CBs (Rodgers, Blackmon) suggests a gradual shift. Some man ability is valuable but zone is the primary demand."
+        },
+        "Ball Skills": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Flores' defense generated the most interceptions in the NFL in 2024 (24) and had a takeaway in every game. The zone-behind-pressure scheme creates turnovers by forcing rushed throws into coverage. CBs must capitalize on these opportunities. Byron Murphy Jr.'s career-best 6 INTs were a product of zone coverage creating ball-hawking opportunities."
+        },
+        "Zone Coverage": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "THIS is the defining trait. Flores' defense plays the most zone in football. CBs must execute multiple zone variants (Quarters, Palms, Cover-2 Invert, Cover-2 Roll, Cover-3) and pattern-read route combinations post-snap. A CB who thrives in zone \u2014 reading the QB's eyes, breaking on throws, maintaining proper leverage in their zone \u2014 is vastly more valuable than a pure man-coverage lockdown corner in this system."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Zone CBs need recovery speed when receivers break out of their zone or when the coverage rotates post-snap. Cover-2 variations ask CBs to play deep thirds or halves, requiring the speed to cover ground. Speed also matters for closing on the ball after reading the QB in zone."
+        },
+        "Press": {
+          "weight": 0.05,
+          "importance": "low",
+          "reasoning": "Flores' CBs predominantly play off-coverage zones. Press-man is used sparingly. A CB who can only press and play man is a poor fit. Off-coverage technique, zone eyes, and route recognition matter far more than press ability."
+        },
+        "Nickel": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Flores operates out of nickel/dime almost full-time. The slot CB position is critical \u2014 Metellus has played there but is a hybrid. A true nickel CB who can handle zone assignments in the slot, tackle in run support, and blitz occasionally is extremely valuable. Byron Murphy Jr. played 1,046 snaps (almost exclusively slot/outside in zone) \u2014 nickel versatility is paramount."
+        }
+      },
+      "ideal_archetype": "A zone-coverage specialist with elite ball skills and the football intelligence to execute multiple zone concepts within the same game. The ideal CB reads the QB's eyes, breaks on the ball, and converts interception opportunities \u2014 not a pure man-coverage lockdown corner. Think Byron Murphy Jr.'s 2024 season: playing zone most of the time, generating 6 INTs through zone instincts and ball skills. Or a Marcus Peters-type ball hawk who thrives in zone. Must be comfortable in off-coverage and slot alignments. Pure man-coverage press corners are a poor fit \u2014 this system doesn't maximize that skillset.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "Sub-4.45",
+          "floor": "Sub-4.55",
+          "reasoning": "Recovery speed in zone coverage and ability to cover deep zones require adequate speed. Not asking for 4.3 burners, but functional NFL speed is non-negotiable in a system that plays off-coverage."
+        },
+        "height": {
+          "ideal": "5-11 to 6-1",
+          "floor": "5-9",
+          "reasoning": "No extreme size requirements. Zone corners need functional length but don't need to be 6-2 press-man specialists. The system values zone instincts and ball skills over physical dominance at the line."
+        }
+      },
+      "development_context": "Gerald Alexander (new DBs coach/defensive passing game coordinator) has deep experience in Flores' system \u2014 he was Flores' DB coach in Miami and Pittsburgh. He developed Byron Murphy Jr. to Pro Bowl level and Camryn Bynum into a career-numbers producer. Alexander can develop zone technique, coverage instincts, and turnover production. A prospect with good athleticism but limited zone experience can be taught Flores' system. What must arrive: ball skills and instincts. Those are largely innate.",
+      "scheme_fit_narrative": "We play zone almost every snap. We're not asking our corners to lock up a receiver one-on-one in man coverage across the field. We need guys who can read the quarterback, break on the ball, and catch it when they get there. If a corner has great ball skills and understands zone leverage, we'll put him in position to make plays. The interceptions will come \u2014 our scheme creates them.",
+      "archetype_examples": [
+        "Byron Murphy Jr.",
+        "Marcus Peters",
+        "Darius Slay (zone years)"
+      ]
+    },
+    "S": {
+      "scheme_role": "The safety position in Flores' defense is the most versatile and scheme-specific in the NFL. Flores deploys safeties as hybrid chess pieces who play deep, in the box, at LB, in the slot, on the edge, and even at DT. Josh Metellus played snaps at EVERY defensive position in 2024 (59 edge, 69 DT, 408 LB, 267 slot, 17 CB, 98 FS, 20 SS). Harrison Smith has functioned as the deep-safety/quarterback of the defense with legendary coverage instincts. The three-safety look is Flores' primary sub-package. With Smith likely retiring, the Vikings need a safety who can be the defensive signal-caller AND a Swiss Army knife who can disguise the defense's intentions by lining up anywhere.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Zone-dominant scheme means man-coverage situations for safeties are limited. When Flores does go man, the safety is typically on a TE or RB. Some man-coverage ability is useful but zone processing is far more important."
+        },
+        "Range": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The split-field zone concepts (Quarters, Cover-2 variations) demand safeties who can cover deep halves or thirds. When Flores disguises his coverage by rotating post-snap (Cover-2 Roll), the safety must have the range to get from a pre-snap position to a post-snap assignment that may be 15+ yards away. Harrison Smith's range and instincts are what made the entire scheme function."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "essential",
+          "reasoning": "Flores' defense creates turnover opportunities through coverage disguises. Safeties in zone must read the QB and break on the ball. The Vikings had 53 takeaways in Flores' first two seasons (3rd in NFL). Safeties are the last line \u2014 they must capitalize on forced throws. Smith's career 67.6 QB rating allowed in coverage illustrates the bar."
+        },
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "essential",
+          "reasoning": "Cover-2 Invert and Cover-2 Roll concepts bring safeties into run support and flat coverage where they must tackle in the open field. The zone scheme encourages short throws \u2014 safeties must limit YAC through reliable tackling. Metellus and Smith were consistently praised for their tackling. The safety is often the defense's last line against explosives."
+        },
+        "Speed": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Range and recovery speed to play deep zones and rotate from disguised pre-snap looks to post-snap responsibilities. Bryan Cook (mentioned as a Harrison Smith replacement target) was cited for his ability to play both safety and slot \u2014 speed enables that versatility."
+        },
+        "Nickel": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Flores' three-safety sub-package means one safety is always functioning as a nickel/slot defender or box LB. Metellus was the NFL's most versatile defender in 2024 specifically because he could play nickel, LB, edge, and safety. PFF cited Bryan Cook's ability to grade 'above the 90th percentile as both a safety and in the slot.' Nickel versatility is the defining characteristic Flores demands."
+        }
+      },
+      "ideal_archetype": "A football genius with elite versatility who can play deep safety, box safety, nickel, and even stack in the box as a pseudo-LB \u2014 all within the same game. The defining attribute is football IQ: understanding disguise concepts, knowing when to rotate, processing route combinations in zone, and communicating the defense's calls. The physical template is Harrison Smith \u2014 not the fastest, not the biggest, but always in the right place with elite instincts and ball skills. The hybrid template is Josh Metellus \u2014 a Swiss Army knife who plays everywhere and understands the scheme deeply enough to call plays himself. Bryan Cook (Chiefs) was cited as a perfect replacement \u2014 elite coverage grade when blitzing, 90th+ percentile at safety and slot.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "Sub-4.50",
+          "floor": "Sub-4.60",
+          "reasoning": "Range and recovery speed for deep zone coverage and post-snap rotation from disguised alignments. Not asking for 4.3 speed but functional plus-speed is critical."
+        },
+        "weight": {
+          "ideal": "200-215 lbs",
+          "floor": "195",
+          "reasoning": "Must be physical enough to tackle in the box and play pseudo-LB roles, but light enough to cover in space and play nickel. Metellus at 209 is the template."
+        },
+        "3_cone_drill": {
+          "ideal": "Sub-6.90",
+          "floor": "Sub-7.10",
+          "reasoning": "Change of direction matters for a safety who transitions between deep zone, box, nickel, and blitz roles within the same possession. Must be fluid enough to handle multiple position demands."
+        }
+      },
+      "development_context": "Gerald Alexander (new DBs coach) developed Camryn Bynum into a career-numbers producer and worked with Metellus during his transformation into a Swiss Army knife. Flores himself turned Metellus from a special-teamer into an every-position defender. This staff excels at developing versatile safeties through scheme \u2014 they'll find roles for a smart, athletic safety and expand those roles as the player shows he can handle more. Football IQ and ball skills must arrive; positional versatility and scheme understanding can be taught.",
+      "scheme_fit_narrative": "Our safety has to be the smartest player on the field. We're going to line him up at safety, in the slot, in the box, maybe even on the edge \u2014 and we need him to know what he's doing at every spot. He's the last line of defense when our blitzes create big plays, and he's the first line of confusion when we disguise our coverage. Ball skills matter \u2014 we create turnovers. Tackling matters \u2014 we force short throws. But intelligence is the non-negotiable. If he can think, we'll teach him the rest.",
+      "archetype_examples": [
+        "Harrison Smith",
+        "Josh Metellus",
+        "Derwin James (versatile usage)",
+        "Bryan Cook"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Minnesota's 2026 draft profile is shaped by two forces: O'Connell's pass-first West Coast offense and Flores' positionless, blitz-heavy defense. On offense, the TE receiving role is elite-tier \u2014 Hockenson (returning but declining, 51 catches/438 yards in 2025) creates a succession opportunity, and Phillips' TE development pedigree means a receiving TE prospect like Kenyon Sadiq would be valued near WR prices. The RB room is in flux with Jones being released; a dual-threat RB who catches 40+ passes would fill a critical schematic void. On defense, Flores' system is the ultimate scheme for positional versatility. He does NOT want one-dimensional players at any position. Edge rushers must cover (~20% of snaps); safeties must play LB, slot, and blitz; LBs must rush and cover. This means: (1) A pass-rushing LB gets a meaningful boost but ONLY if he also has coverage traits \u2014 pure rushers are less valuable here than in a traditional 3-4. (2) Hybrid safeties are the single most valuable defensive archetype for this team. Metellus' $12M/year extension proves it. A Sonny Styles-type S/LB hybrid would be a scheme-perfect addition. (3) Versatile CBs who can play outside and in the slot (like the Isaiah Rodgers acquisition) are preferred over pure outside corners. Draft analysts have specifically noted CB, S, and RB as top 2026 draft targets for Minnesota.",
+  "scheme_draft_intelligence": "The Minnesota Vikings' 2026 draft approach should be shaped by three overlapping realities: an elite defensive scheme that demands specific, unusual player archetypes; an offensive scheme in transition toward a more balanced run-pass attack; and a roster with clear holes at quarterback, safety (Harrison Smith likely retiring), and offensive line depth.\n\nFlores' defensive scheme creates the biggest value differentials in the draft. His EDGE demands are unlike any other team's \u2014 he needs hybrid OLB/LB chess pieces who can rush, drop into zone coverage, and play run defense from multiple alignments. A prospect like a Dallas Turner archetype (4.46 forty, 247 lbs, coverage ability) who other teams might undervalue as 'tweener' or 'undersized' is a premium fit in Minnesota. Conversely, a pure speed rusher without coverage skills is worth less to the Vikings than to a traditional 4-3 defense. Similarly, Flores' zone-heavy secondary demands CBs with ball skills and zone instincts rather than press-man specialists \u2014 a corner who generates interceptions in zone but can't play man one-on-one is worth more to Minnesota than to most teams. The safety position is perhaps the league's most unique role under Flores, and a versatile, high-IQ safety prospect who other teams might slot as a nickel or hybrid could be a premium value pick for the Vikings.\n\nOn offense, the addition of Frank Smith from Miami signals O'Connell's commitment to improving the zone run game, which has been the scheme's weakest element throughout his tenure. Draft prospects with zone-blocking athleticism on the OL and explosive speed at RB gain additional value in Minnesota's system. The TE position is a scheme-maximizer \u2014 a receiving TE who can flex into the slot immediately benefits from the NFL's best TE development staff (Phillips' pedigree, and now Cordell). A raw TE with receiving upside is worth significantly more to Minnesota than to teams that use TEs primarily as blockers.\n\nThe QB situation (J.J. McCarthy's uncertain development, 9-8 record in 2025) may drive the Vikings to consider adding a veteran or draft capital QB. O'Connell's system demands elite processing and accuracy \u2014 the ideal QB prospect would be a polished pocket passer with strong cognitive traits, not a raw dual-threat. The system has a steep learning curve that has challenged even veterans, but O'Connell has proven he can maximize QB production when he finds the right mental match.\n\nHistorically, the Vikings under O'Connell and formerly Adofo-Mensah have been aggressive traders who move up for specific targets (traded up for both McCarthy and Turner in 2024). With Rob Brzezinski now leading football operations, the approach may shift toward consensus-building in player evaluation. But the coaching staff's scheme specificity \u2014 particularly Flores' unique defensive requirements \u2014 should continue to create situations where players Minnesota values highly are undervalued by the rest of the league, creating trade-down and mid-round value opportunities.",
   "confidence": "high",
   "sources": [
-    "vikings.com official coaching staff page and press conferences",
-    "NBC Sports \u2014 Vikings announce full 2025 coaching staff (April 2025)",
-    "Daily Norseman \u2014 'The Flores Scheme and What's Next' (July 2025)",
-    "Daily Norseman \u2014 'Kevin O'Connell's Offensive Scheme and What's Next' (July 2025)",
-    "MatchQuarters \u2014 'Breaking Down the Vikings 6-1 Scheme' (August 2025)",
-    "PFF \u2014 'NFL Teams Best Built for Success by Personnel Grouping in 2025' (June 2025)",
-    "The Viking Age \u2014 'Brian Flores just gave the Vikings a massive edge for 2026' (January 2026)",
-    "Star Tribune \u2014 'Vikings add to coaching staff, hiring former Dolphins OC Frank Smith' (January 2026)",
-    "Vikings Territory \u2014 'Six Coaches Have Left the Vikings' (February 2026)",
-    "CBS Sports \u2014 'Inside Vikings 3-0 start: The crazy defensive scheme of Brian Flores' (September 2024)",
-    "Zone Coverage \u2014 'The Vikings Finally Have the Pieces to Make Flores' Scheme Work' (August 2025)",
-    "Bleacher Report / ESPN \u2014 Josh Metellus contract extension reporting (July 2025)",
-    "SI.com \u2014 'Kevin O'Connell on 2025 Vikings offense: I want to run the football' (April 2025)",
-    "Heavy.com \u2014 'Vikings RB Aaron Jones Losing Top Rushing Role to Jordan Mason' (September 2025)",
-    "Wikipedia \u2014 Kevin O'Connell, Brian Flores, Wes Phillips pages"
+    "vikings.com (official coaching staff pages, season recaps, press conferences)",
+    "ESPN (Kevin Seifert Vikings coverage, O'Connell scheme analysis)",
+    "CBS Sports (Brian Flores defensive scheme breakdown by Chris Trapasso)",
+    "MatchQuarters (Brian Flores 6-1 scheme breakdown, Vikings hot coverages analysis)",
+    "Daily Norseman (Kevin O'Connell offensive scheme analysis, Flores scheme analysis by Warren Ludford)",
+    "The Athletic (coaching staff changes reporting by Alec Lewis)",
+    "SI Vikings (Brian Flores contract details, 2025/2026 coaching updates)",
+    "PFF (personnel grouping analysis, player grades, coverage stats)",
+    "Football Film Room (Brian Flores pressure schemes by Nick Kehoe)",
+    "Zone Coverage (Vikings offensive scheme analysis, Frank Smith hiring analysis)",
+    "Star Tribune (Ben Goessling \u2014 coaching staff changes, Frank Smith hire details)",
+    "A to Z Sports (coaching staff changes, Dallas Turner analysis)",
+    "Hogs Haven (Van Ginkel and Turner snap/coverage data from PFF)",
+    "Purple Insider (Harrison Smith replacement analysis, safety position future)",
+    "Vikings Territory (coaching hires, Ryan Nielsen background, roster analysis)",
+    "Yahoo Sports (Shanahan tree evolution analysis)"
   ]
 }

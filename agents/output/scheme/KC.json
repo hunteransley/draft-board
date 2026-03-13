@@ -6,70 +6,774 @@
       "name": "Andy Reid",
       "tenure_years": 13,
       "background": "offensive",
-      "scheme_philosophy": "Evolved West Coast offense with Air Raid and spread elements; shotgun-heavy, pass-first philosophy built around timing, horizontal stretching, and schematic creativity. Reid is the primary playcaller."
+      "coaching_tree": "Bill Walsh \u2192 LaVell Edwards (BYU) \u2192 Mike Holmgren (Green Bay) \u2192 Andy Reid. Reid played at BYU under Edwards, was a graduate assistant on Edwards' staff alongside Holmgren in 1982, then spent 7 years under Holmgren in Green Bay (1992-98) before becoming Eagles HC in 1999. Reid's scheme blends Walsh's West Coast timing principles with Edwards' BYU pass-spread philosophy and Holmgren's Green Bay power-run/play-action concepts.",
+      "scheme_philosophy": "Reid is the primary play-caller. His offensive philosophy is a hybrid West Coast Gun system \u2014 short-to-intermediate timing routes out of shotgun formations that stretch defenses horizontally, combined with play-action shots and Mahomes' improvisational ability. Reid has evolved from traditional under-center WCO in Philadelphia to a shotgun-dominant system in Kansas City, incorporating Air Raid spread concepts from his BYU roots. He adapts the scheme to his personnel \u2014 the Hill/Kelce era emphasized matchup manipulation and man-beater concepts, while the 2025 speed era attempted to push the ball vertically with Xavier Worthy and Tyquan Thornton."
     },
     "offensive_coordinator": {
       "name": "Eric Bieniemy",
-      "scheme_tree": "Andy Reid West Coast / Bill Walsh tree",
-      "play_caller": false
+      "coaching_tree": "Andy Reid tree. Former NFL RB who played for Reid in Philadelphia. Spent 10 seasons on Reid's KC staff (RB coach 2013-17, OC 2018-22). Additional experience as OC in Washington under Ron Rivera (2023), OC at UCLA (2024), and RB coach under Ben Johnson in Chicago (2025).",
+      "scheme_evolution": "During Bieniemy's first OC stint (2018-22), KC led the NFL in average points per game (30.1), total touchdowns (296), and yards per game (406.2). The offense was explosively pass-first built around Mahomes-Hill-Kelce. After leaving, Bieniemy's independent stints struggled \u2014 Washington finished 21st in yards per game, UCLA ranked 117th. His 2025 Chicago RB coaching experience under Ben Johnson exposed him to one of the NFL's most varied rushing schemes, which he's tasked with importing to fix KC's league-worst explosive run rate. Reid retains play-calling authority but Bieniemy has significant input, especially on run game and situational calls.",
+      "development_track_record": "Elite RB developer: Jamaal Charles (led NFL in TDs 2013, franchise rushing leader), Kareem Hunt (NFL rushing leader as rookie 2017), and most recently D'Andre Swift (career-high 1,087 yards in Chicago 2025) and seventh-rounder Kyle Monangai (5th among all rookies in rushing). Bieniemy's RB development pedigree is among the best in football. Less direct track record developing WRs or QBs, though he oversaw Mahomes' development as a coordinator."
     },
     "defensive_coordinator": {
       "name": "Steve Spagnuolo",
-      "scheme_tree": "Jim Johnson / Philadelphia Eagles aggressive blitz tree",
-      "play_caller": true
+      "coaching_tree": "Jim Johnson (Philadelphia Eagles) tree. Spagnuolo spent 8 years (1999-2006) under Johnson in Philadelphia, learning Johnson's aggressive, blitz-heavy defensive philosophy. Johnson influenced Ron Rivera, Sean McDermott, Leslie Frazier, and Spagnuolo \u2014 all of whom became successful defensive coordinators or head coaches. Spagnuolo also overlaps with the Andy Reid tree, as Reid gave him his first NFL job in Philly. After stints as NYG DC (2007-08), St. Louis HC (2009-11), New Orleans DC (2012), Baltimore assistant (2013-14), and NYG DC again (2015-17), Spagnuolo reunited with Reid in KC in 2019.",
+      "scheme_evolution": "In New York, Spagnuolo ran a traditional 4-3 with his 'Four Aces' pass rush (Strahan, Umenyiora, Tuck) generating pressure without heavy blitzing. In KC, he adapted to a personnel-flexible system \u2014 4-3 base but spending the majority of snaps in nickel (4-2-5) and dime (4-1-6) packages. Kansas City plays the second-most snaps with 6+ DBs on the field in the NFL. He shifted from relying on a dominant front four to generating pressure through disguise, simulated pressures, and creative blitz packages from secondary players. His coverage has evolved to favor split-safety (MOFO) looks \u2014 KC finished 3rd in the NFL in MOFO coverage usage (49.2%) and 2nd in quarters/palms usage. The defense is zone-centric and bend-don't-break, forcing opponents to sustain long drives and penalizing turnovers.",
+      "development_track_record": "Transformed KC's defense from a liability to championship-caliber by developing mid-to-late round picks: Trent McDuffie (1st round to All-Pro), L'Jarius Sneed (4th round to starter), Jaylen Watson (7th round to starter), Bryan Cook (2nd round to starter), Chamarri Conner (UDFA to key contributor), Nohl Williams (4th round to immediate impact rookie in 2025). Spagnuolo has consistently let expensive veterans walk (Tyrann Mathieu, Charvarius Ward, Frank Clark, L'Jarius Sneed, Justin Reid) and replaced them with younger, cheaper players developed in-house. This is a development-first defensive staff."
     }
   },
   "offense": {
-    "scheme_family": "Reid West Coast (Walsh/Holmgren tree with Air Raid/spread elements)",
-    "base_personnel": "11",
-    "personnel_detail": "Heavy 11 personnel (~65-70%), meaningful 12 personnel usage (~20-25%) due to Travis Kelce serving as a pass-catching TE who functions as a de facto WR from flexed alignments. Historically avoid 13 and heavy sets entirely.",
-    "run_scheme": "Inside zone / gap / power mix; historically inconsistent run game. Bieniemy tasked with rebuilding run scheme in 2026 after Chiefs ranked 25th in rushing (106 YPG) in 2025.",
-    "pass_concepts": "Short-to-intermediate timing routes (slants, curls, digs, crossers), play action off bootleg, deep shots off spread formations, flood/snag concepts, extensive pre-snap motion and formation creativity. ~80% shotgun formation rate.",
-    "rpo_usage": "moderate",
-    "te_usage": "Elite receiving weapon. Kelce (if he returns) is the prototypical move TE used as primary target from slot/flexed alignments, inline, and detached. TE is the centerpiece of the passing attack \u2014 led team in targets (108), receptions (76), and receiving yards (851) in 2025. Even with Kelce's potential retirement, the offense structurally requires a receiving TE.",
-    "rb_usage": "Historically pass-heavy scheme demands backs who can catch. Bieniemy's return signals emphasis on improving run game, but Reid's system still values RBs as receivers out of the backfield (checkdowns, swings, flats). Committee approach likely in 2026."
+    "scheme_family": "West Coast Gun (Reid variant \u2014 BYU/Holmgren lineage blended with Air Raid spread concepts)",
+    "scheme_detail": "Reid's offense defies simple classification. It is a short-to-intermediate, pass-first system run predominantly from shotgun that uses West Coast timing principles as its foundation but incorporates Air Raid spread concepts (empty sets, mesh/scissors concepts), Holmgren-era power-run/play-action, and Mahomes' off-script improvisational ability. The system is built around quarterback processing and anticipation throws, with heavy pre-snap motion to manipulate defensive alignments and identify man vs zone. Reid creates schematic advantages through formation diversity, personnel grouping versatility, and play design \u2014 not through asking receivers to win isolation matchups. The 2026 version will emphasize a revitalized run game (importing concepts from Ben Johnson's Bears system via Bieniemy) and pushing the ball vertically with Worthy and Thornton's speed to restore the explosive plays KC lacked in 2024-25.",
+    "run_scheme": "Historically inside zone primary with gap/power mixed in. The 2025 run game was among the NFL's worst (25th in yards per game, fewest 20+ yard rushes in the NFL). For 2026, Bieniemy is tasked with diversifying the run scheme using concepts from Ben Johnson's varied system \u2014 more outside zone, counter, and duo to complement the inside zone base. KC's elite interior OL (Trey Smith, Creed Humphrey, Kingsley Suamataia) is built for inside zone and gap schemes. The signing of Kenneth Walker III provides an explosive runner who can generate long runs that Pacheco and Hunt could not. Reid has always viewed the run game as a tempo-control and play-action setup tool rather than a primary offensive weapon.",
+    "pass_architecture": "Short-to-intermediate timing routes form the backbone: slants, curls, crossers, digs, spacing. These West Coast concepts stretch defenses horizontally and give Mahomes quick reads. Play-action bootleg concepts off the run game create shot plays downfield. Reid layers concepts with multiple route progressions that reward quarterback processing \u2014 the first read is schemed open, but Mahomes' ability to find secondary and tertiary options makes the offense lethal. For 2026, expect more vertical push with Worthy's 4.21 speed and Thornton's deep ability, returning to the explosive deep-shot element that defined the 2018-20 Mahomes-Hill era. Low RPO usage \u2014 Reid is a traditional play-caller who designs plays, not tags.",
+    "personnel_tendencies": "Reid uses diverse personnel groupings more than most modern offenses. Significant 12 personnel usage (1 RB, 2 TE \u2014 especially with Kelce returning for his 14th season). Historically ranks in the bottom half of 11-personnel usage because of TE-heavy sets. Uses 13 and 21 groupings situationally. The Chiefs' multi-TE looks create matchup problems by flexing TEs into receiver alignments. Motion rates are moderate-to-high, used primarily to identify coverage and create free releases for speed receivers.",
+    "motion_tempo": "Moderate to high pre-snap motion usage. Reid uses motion to diagnose man vs zone coverage pre-snap, giving Mahomes a decisive information edge. Standard tempo during drives \u2014 not a hurry-up offense. Ball-control philosophy that trusts the defense to hold."
   },
   "defense": {
-    "base_front": "4-3",
-    "alignment": "Even front (4-down linemen), multiple looks with frequent dime packages (6+ DBs)",
-    "edge_rush_source": "4-3 DEs (George Karlaftis, Chris Jones as interior pass rusher at 3-tech) with extensive exotic blitz packages from all secondary positions",
-    "coverage_base": "MOFO-heavy (Cover 2, Cover 4/Quarters, split-field coverages). Chiefs finished 3rd in MOFO coverage usage in 2024 at 49.2%. Quarters/Palms is the signature coverage behind five-man pressures (Tango package). Heavy use of disguised pre-snap shells.",
-    "blitz_tendency": "heavy (35.6% blitz rate in 2024, 5th highest in NFL; remained top-3 in 2025). Signature is creative five-man pressures with corner and safety blitzes from varied positions. Simulated pressures used to confuse QBs.",
-    "lb_role": "Traditional ILB role (Nick Bolton as run/coverage MLB). LBs are NOT primary pass rushers \u2014 edge rush comes from DEs. However, LBs like Leo Chenal show versatility; Spagnuolo has used Chenal at end, tackle, and multiple alignments.",
-    "safety_usage": "Safeties are the most versatile unit. Justin Reid (before departure) played 525 snaps at FS and 302 as slot/LB hybrid. Chiefs play second-most snaps with 6+ DBs leaguewide. Safeties rotate heavily, blitz frequently, play box, slot, and deep. Hybrid/versatile safety is critical to this defense."
+    "scheme_family": "Multiple 4-3 (Jim Johnson tree, heavily sub-package oriented)",
+    "scheme_detail": "Spagnuolo runs a base 4-3 defense that functions primarily as a nickel (4-2-5) and dime (4-1-6) system \u2014 the base 4-3 with three LBs is reserved for heavy offensive personnel (12/21). The nickel IS the effective base defense. Spagnuolo's system is defined by controlled chaos: pre-snap disguise, late safety rotations, simulated pressures, and exotic blitz packages that generate unblocked pressures at the NFL's highest rate. Coverage is zone-centric with split-safety (MOFO) looks dominating \u2014 quarters/palms and Cover 2 as primary coverages. The defense is bend-don't-break: force opponents into long drives, maintain discipline, and capitalize on turnovers. Spagnuolo adapts his front to talent \u2014 his NYG defenses relied on a dominant front four, while his KC defenses generate pressure through scheme when edge rush talent is limited.",
+    "front_structure": "4-3 base with single-gap responsibilities for DL. In the base: two DEs, a nose tackle, and a 3-technique under tackle. Chris Jones is the centerpiece as a penetrating 3-technique DT who moves between interior and edge in sub-packages. The 2025 pass rush declined significantly (25th in sacks) without a productive counterpart to Jones. Khyiris Tonga was signed to provide run-stuffing at NT. George Karlaftis is the primary DE but has been inconsistent. Spagnuolo shifts Jones to DE in passing situations while putting Karlaftis inside \u2014 this positional versatility from DL is a hallmark of the scheme.",
+    "coverage_philosophy": "Zone-dominant with split-safety foundation. KC finished 3rd in MOFO (two-high) coverages at 49.2% in 2024, and 2nd in quarters/palms usage. The coverage shell disguises are moderate (16th in post-snap rotation rate) \u2014 Spagnuolo doesn't rely on heavy disguise as much as on making his base coverage look like something else pre-snap through player alignment manipulation. The scheme requires DBs who can tackle, play press, rotate between positions, and execute both man and zone assignments on any given snap. Spagnuolo asks more of his secondary than almost any other DC \u2014 they must be football-smart, versatile, and physical.",
+    "pressure_philosophy": "Creative and aggressive blitz packages from all levels. Spagnuolo generates league-leading unblocked pressures (73 in 2023, consistently top-7) through simulated pressures \u2014 showing blitz from one side, sending it from the other. Safety blitzes (Justin Reid's role, now potentially Gilman's), corner blitzes (McDuffie generated 14 unblocked pressures in 2023), and delayed LB rushes are all core concepts. However, Spagnuolo is not a volume blitzer \u2014 he picks spots strategically. When the front four can generate pressure alone (as in the NYG 'Four Aces' era), he reduces blitzing. With KC's current edge rush deficiency, expect continued creative pressure packages.",
+    "sub_packages": "Nickel (4-2-5) is the de facto base and used on most snaps. Dime (4-1-6) is used heavily on passing downs \u2014 KC plays more 6+ DB snaps than almost any team in the NFL. In dime, a safety (previously Justin Reid, now potentially Gilman or Conner) effectively plays as a linebacker in the box. Spagnuolo keeps one LB on the field in dime who must handle run fits and zone drops. The nickel CB role is critical \u2014 McDuffie excelled here, generating blitz pressure from the slot. With McDuffie traded, this becomes a massive draft/development need. NASCAR pass-rush packages use 3-4 DEs on the line simultaneously."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "The Chiefs' offense has been built around a receiving TE for over a decade. Travis Kelce led the team in receptions, targets, and receiving yards in 2025 (76-851-5). The TE is flexed into the slot, detached, and used as the primary pass-catcher in Reid's West Coast system. Even with Kelce potentially retiring or declining, the scheme structurally demands a TE who can win as a receiver. Reid's offense historically uses 12 personnel at above-average rates specifically because the TE functions as a third receiver. Any TE prospect with elite route running, hands, and separation gets a significant value boost for KC."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB in Reid's system is the engine of everything. He must process pre-snap reads (identifying coverage via motion), execute timing throws on West Coast concepts where the ball must arrive before the receiver completes the break, improvise when the play breaks down, and push the ball vertically on play-action shots. Reid's system requires a QB who can operate from shotgun, make full-field reads through multiple progressions, and throw with anticipation to timing windows. The QB is also expected to contribute as a runner on designed scrambles and broken plays \u2014 Reid has historically maximized mobile QBs (McNabb, Vick, Smith, Mahomes).",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Reid's 2026 offense is deliberately pushing the ball vertically again with Worthy's 4.21 speed and Thornton's deep ability. The QB must be able to hit deep shots off play-action and make strong intermediate throws into tight windows on crossers and digs. Mahomes' cannon arm is a core schematic weapon."
+        },
+        "Accuracy": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "West Coast timing routes demand precision \u2014 slants, curls, and spacing concepts require the ball to arrive at the exact spot the receiver expects before the break completes. Reid's system creates schemed-open windows that shrink quickly; accuracy is the trait that converts Reid's play design into completions."
+        },
+        "Pocket Presence": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Reid's offense asks the QB to operate behind an elite interior OL but with OT uncertainty (Simmons' health, lack of proven RT). The QB must feel pressure, navigate the pocket, and extend plays. Mahomes' ability to avoid sacks and create off-script is integral to the offense \u2014 Reid designs first reads, but Mahomes' pocket movement creates second and third chances."
+        },
+        "Mobility": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Reid has historically maximized mobile QBs \u2014 McNabb, Vick, Alex Smith, Mahomes. The scheme uses designed QB runs, bootleg rollouts, and scramble-throw plays. Mahomes was KC's third-leading rusher in 2025 with 422 yards on 64 scrambles. Mobility is not a luxury in this system; it's a schematic feature."
+        },
+        "Decision Making": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Reid's multi-progression passing concepts require the QB to read defenses quickly and make the right decision. The offense features RPO-adjacent concepts where the QB must determine coverage post-snap and distribute to the correct receiver in the progression. Poor decisions in this system lead to turnovers that waste Reid's careful play design."
+        },
+        "Leadership": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "The Chiefs' culture flows from Reid and Mahomes. A backup or successor QB would need to command respect in a locker room built around elite leadership. Not a primary evaluation trait but contextually relevant as KC navigates the Mahomes ACL recovery."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "Reid uses pre-snap motion extensively to diagnose coverage. The QB must read the defensive response to motion and adjust the play accordingly. This is a learnable skill in Reid's system \u2014 the coaching staff teaches it well \u2014 so it's important but not as differentiating as accuracy or arm talent."
+        }
+      },
+      "ideal_archetype": "The ideal QB in Reid's system is a shotgun-comfortable passer with a strong arm, above-average mobility, and elite accuracy on timing routes. He must process pre-snap information quickly, work through progressions efficiently, and extend plays when the pocket collapses. The archetype is Patrick Mahomes himself \u2014 a dynamic, improvisational passer who can execute the structured West Coast passing game but also create off-schedule. If Mahomes were unavailable, the system could accommodate a mobile, strong-armed passer who trusts the scheme's progressions. Think a young Josh Allen with better anticipation, or Dak Prescott with more mobility.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4",
+          "floor": "6-0",
+          "reasoning": "Reid has worked with QBs of varying heights (McNabb 6-2, Vick 6-0, Mahomes 6-3). The shotgun-heavy system reduces sight-line issues for shorter QBs, but enough height to see over the interior line is preferred."
+        },
+        "weight": {
+          "ideal": "215-235",
+          "floor": "205",
+          "reasoning": "Must be sturdy enough to absorb hits on scrambles and designed runs. Mahomes at 225 is the prototype."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.75",
+          "floor": "4.85",
+          "reasoning": "Mobility is a schematic feature, not a luxury. The QB must be able to execute bootleg rollouts and designed scrambles effectively. Sub-4.85 ensures adequate escapability."
+        }
+      },
+      "development_context": "Reid is perhaps the NFL's greatest QB developer \u2014 he has maximized production from Donovan McNabb, Michael Vick, Alex Smith, and Patrick Mahomes. His system teaches QB processing through structured progressions, and the coaching staff can develop pre-snap diagnosis and decision-making. What must arrive: arm talent and mobility cannot be coached. Accuracy at the short-intermediate level can be refined but must have a solid baseline.",
+      "scheme_fit_narrative": "This offense is built for a QB who can execute West Coast timing throws with precision, push the ball downfield with arm strength, and create chaos when plays break down. We need a passer who processes fast, moves well, and has the arm to attack all three levels. Reid will scheme him open \u2014 but he has to deliver the ball on time and on target.",
+      "archetype_examples": [
+        "Patrick Mahomes",
+        "Josh Allen",
+        "Dak Prescott"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "low",
-      "explanation": "Spagnuolo runs a 4-3 base where edge rush comes from defensive ends (Karlaftis, Felix Anudike-Uzomah) and interior pressure from Chris Jones at 3-tech. ILBs like Nick Bolton are used primarily in run-stop and coverage roles, not as edge rushers. While LBs like Leo Chenal have occasionally lined up at end in sub packages, this is situational, not structural. The blitz-heavy scheme does send LBs on designed pressures, but the primary pass-rush architecture is DE-driven. LB pass rush traits have only marginal extra value here compared to a true 3-4 team."
+    "RB": {
+      "scheme_role": "The RB in the 2026 Chiefs offense is asked to run inside zone, gap/power, and the diversified concepts Bieniemy brings from Ben Johnson's Chicago system. With the signing of Kenneth Walker III, KC is looking for an explosive, elusive runner who can generate long runs behind an elite interior OL that the Pacheco/Hunt tandem could not. The RB must also contribute as a pass-catcher out of the backfield on checkdowns and wheel routes \u2014 Reid uses RBs in the passing game regularly. Pass protection is important to keep Mahomes upright on his ACL recovery.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "KC's 2024-25 run game failure was largely attributed to backs lacking vision and creativity in their cuts despite elite interior blocking. Vision is the differentiating trait \u2014 the OL creates lanes, but the RB must find and exploit them quickly."
+        },
+        "Contact Balance": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Inside zone and gap concepts require the ability to absorb contact at the line and fall forward for positive yardage. Not the primary trait but important for short-yardage and goal-line work."
+        },
+        "Power": {
+          "weight": 0.07,
+          "importance": "low",
+          "reasoning": "Reid's offense does not rely on a power-back identity. Walker was signed for his elusiveness and explosive ability, not as a battering ram. Power is useful situationally but not scheme-defining."
+        },
+        "Elusiveness": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The Chiefs desperately need a back who can make defenders miss and generate explosive runs. Walker's 30.2% forced missed tackle rate (3rd in NFL) is exactly what KC craved after Pacheco's zero 20+ yard rushes in 2025. The scheme creates initial gaps; elusiveness converts them into big plays."
+        },
+        "Speed": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Reid's offense needs an explosive element in the run game to complement the vertical passing attack. A fast back forces defenses to respect the run and opens up play-action shots. Speed is what separates a 5-yard gain from a 25-yard gain in zone blocking."
+        },
+        "Pass Catching": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Reid uses RBs as checkdown and wheel-route targets. Mahomes' processing creates hot reads to backs in the flat. A back who can catch reliably adds a dimension to the West Coast passing game."
+        },
+        "Pass Protection": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "With Mahomes returning from ACL surgery, pass protection from the RB takes on added importance. Blitz pickup ability keeps the QB safe on timing routes. Must be competent, but the elite interior OL reduces the burden."
+        }
+      },
+      "ideal_archetype": "An explosive, elusive back with vision to find lanes behind KC's elite interior OL, speed to break long runs, and enough pass-catching ability to contribute in Reid's West Coast passing game. Think Jamaal Charles \u2014 the quintessential Reid RB who combined vision, speed, and receiving ability to become a matchup weapon. The Kenneth Walker III signing defines the archetype: explosive, elusive, makes defenders miss, and can turn a 3-yard gain into a 30-yard gain.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-9 to 5-11",
+          "floor": "5-7",
+          "reasoning": "No strict height requirement. Reid has used backs of all sizes. Slightly smaller, quicker backs tend to maximize the inside zone lanes created by KC's OL."
+        },
+        "weight": {
+          "ideal": "200-215",
+          "floor": "190",
+          "reasoning": "Must be sturdy enough for inside zone contact but not so heavy that speed and elusiveness are compromised."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.50",
+          "floor": "4.55",
+          "reasoning": "Speed is a premium trait for generating the explosive runs KC lacked. Sub-4.50 is ideal for breakaway ability."
+        }
+      },
+      "development_context": "Bieniemy is one of the NFL's elite RB developers \u2014 Jamaal Charles, Kareem Hunt, D'Andre Swift, and Kyle Monangai all thrived under his coaching. He can develop vision and patience in young backs. The staff can also develop pass protection technique. What must arrive: speed and elusiveness are athletic traits that cannot be coached. A fast, elusive back with raw vision fits better than a polished power back without explosion.",
+      "scheme_fit_narrative": "We need a back who can make people miss and take it to the house. Our interior line creates lanes \u2014 we need someone with the vision to find them and the speed to exploit them. After two years of grinding out 3.7 YPC, we need explosion. Pass-catching and pass-pro are bonuses, but we're drafting for big-play ability first.",
+      "archetype_examples": [
+        "Jamaal Charles",
+        "Kenneth Walker III",
+        "Alvin Kamara"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "high",
-      "explanation": "Reid's West Coast offense has always valued pass-catching RBs \u2014 from LeSean McCoy in Philadelphia to Jamaal Charles and subsequent backs in KC. The scheme features RB routes into flats, swings, and option routes as core elements. Reid historically runs a pass rate over expected (PROE) among the highest in the NFL. Even with Bieniemy returning to fix the run game, the pass-first philosophy means RBs must contribute as receivers. The Chiefs' RB room is being rebuilt entirely for 2026 (Pacheco and Hunt both free agents), making a dual-threat back extremely valuable."
+    "WR": {
+      "scheme_role": "WRs in Reid's offense are deployed in multiple roles depending on alignment and personnel. The X receiver (boundary) must win contested catches and create separation on the outside. The Z receiver runs a full route tree with motion and alignment flexibility. The slot receiver must be quick in-and-out of breaks on Reid's West Coast timing concepts. Reid's 2025-26 WR corps is built around speed (Worthy 4.21, Thornton 4.28) but lacked a true contested-catch X receiver \u2014 none of the WRs hit 600 receiving yards in 2025. The offense needs a WR who can separate consistently and finish difficult catches.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Reid's West Coast timing concepts require precise route running \u2014 the QB throws to spots, and the WR must arrive there exactly on time. Sloppy routes destroy the timing that makes this offense function. This was a 2025 failing \u2014 route concepts were called 'simple combinations to combat for opposing defenses.'"
+        },
+        "Separation": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "KC's 2025 WR corps struggled to separate consistently. The offense was predictable partly because receivers couldn't create open windows. Separation \u2014 through route craft, quickness, or speed \u2014 is the primary differentiator between WRs in this system."
+        },
+        "Hands": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Reid's timing routes require catching the ball in traffic at the intermediate level. Drops destroy drives in a short-passing offense. Reliable hands are non-negotiable."
+        },
+        "YAC Ability": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "The West Coast offense is designed to create yards after catch \u2014 short passes replace runs. Reid's slant, spacing, and screen concepts are specifically designed to get the ball to playmakers in space. Rice's YAC ability (2.15 yards per route run) was KC's most valuable receiver trait in 2025."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "KC already has two 4.2-speed receivers in Worthy and Thornton. Speed is valuable as a vertical threat but is not the missing piece \u2014 the missing piece is route craft and contested-catch ability. Additional speed has diminishing returns."
+        },
+        "Contested Catches": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The biggest gap in KC's WR room. The team completed just 12 of 40 deep passes outside the numbers in 2025 for zero TDs. They lack a true X receiver who can win 50-50 balls. This trait has elevated importance because it addresses a specific roster deficiency."
+        },
+        "Release Package": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "Reid uses pre-snap motion and formation alignment to create free releases for his WRs \u2014 the system reduces the need for an elite press-beat release. Nice to have, but the scheme works around it."
+        }
+      },
+      "ideal_archetype": "The ideal WR for the 2026 Chiefs is a complete route runner who can separate at all three levels, catch reliably in traffic, and generate YAC on the West Coast timing concepts that form the offense's backbone. The Chiefs specifically need a WR who can win contested catches on the outside \u2014 something the speed-only approach of 2025 lacked. Think Keenan Allen's route craft combined with some downfield juice, or DeAndre Hopkins' ability to win 50-50 balls. Rashee Rice's 2024 profile (2.15 YPRR, elite separation, YAC monster) is the internal archetype Reid covets.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-10",
+          "reasoning": "KC needs size at WR to complement Worthy and Thornton's speed. A bigger WR who can win on the outside and make contested catches addresses the biggest gap in the roster."
+        },
+        "weight": {
+          "ideal": "195-215",
+          "floor": "185",
+          "reasoning": "Must be physical enough to absorb contact on intermediate routes and fight for contested catches."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.55",
+          "floor": "4.60",
+          "reasoning": "Speed is already abundant on this roster. Route craft and separation ability matter more. A 4.50 WR who runs great routes is more valuable than a 4.30 WR who can't separate underneath."
+        }
+      },
+      "development_context": "New WR coach Chad O'Shea comes from the Belichick/Patriots tree and brings a different developmental approach \u2014 O'Shea developed Julian Edelman, Wes Welker, and was involved in coaching WRs in Cleveland. He can refine route technique and develop NFL release packages. The Chiefs' WR development has been mixed historically \u2014 they developed Tyreek Hill's route tree but struggled to develop later-round WRs into consistent producers. What must arrive: hands and separation instincts. Route refinement can be developed, but natural hands and feel for creating space are harder to coach.",
+      "scheme_fit_narrative": "We need a WR who can separate and catch. We've got speed \u2014 Worthy and Thornton can take the top off. What we're missing is a guy who can run a full route tree, win on the intermediate level, and make the tough catch in traffic. Reid's system will create open looks, but the WR has to finish. Give us a polished route runner who plays bigger than his size.",
+      "archetype_examples": [
+        "Keenan Allen",
+        "Rashee Rice",
+        "Stefon Diggs"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "Spagnuolo's defense is arguably the NFL's most demanding system for safety versatility. The Chiefs play the second-most snaps with 6+ DBs leaguewide. Safeties in this defense play FS, box, slot, blitz off the edge, and even simulate LB alignments in dime packages. Justin Reid previously logged 525 FS snaps and 302 slot/LB snaps in a single season. Spagnuolo's Tango/Palms pressure packages specifically rely on safeties to rotate and disguise coverage pre-snap while also being credible blitzers. Bryan Cook and Chamarri Conner fill hybrid roles. Any safety prospect with man coverage ability, blitzing skills, tackling, and positional versatility gets a major value boost."
+    "TE": {
+      "scheme_role": "The TE is the fulcrum of Reid's offense. Travis Kelce's return for a 14th season maintains the TE-centric philosophy, but at 36, his successor must be identified. Reid's TEs flex into the slot, split wide, motion across formations, and run a full intermediate route tree (seams, crossers, dig routes). In 12 personnel, two TEs create matchup nightmares \u2014 one acts as a receiver while the other blocks. The TE must be able to sell play-action by blocking credibly on early downs, then release into routes on passing downs. Kelce's unique value was his ability to function as a WR from TE alignments \u2014 any successor needs significant receiving capability.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Reid's offense features the TE as a primary receiving weapon. Kelce averaged 80+ catches per season in his prime. The TE must be able to win matchups against LBs and safeties in the intermediate passing game. This is the defining trait for the position in KC's scheme."
+        },
+        "Route Running": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The TE runs a full route tree in Reid's system \u2014 seam routes, crossers, out-breaking routes, and option routes that require feel for zone holes. Kelce's route-running craft made him the NFL's most dominant receiving TE. Precision route running is what separates a good TE from a matchup weapon in this system."
+        },
+        "Blocking": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Reid uses 12 personnel frequently, and the second TE must be a credible blocker to sell play-action and hold up in the run game. However, the primary TE (Kelce's role) is asked to block less than in most systems because he's used as a receiver. Blocking is important for roster construction but not the differentiating trait."
+        },
+        "Athleticism": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The TE must be athletic enough to create mismatches against LBs in coverage and run after the catch. Reid's scheme puts TEs in space \u2014 aligned in the slot, motioned into the flat \u2014 where athleticism converts schematic advantages into yards."
+        },
+        "Hands": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Intermediate timing throws to TEs in traffic are a staple of the West Coast offense. The TE must catch the ball reliably in contested situations between zones. Drops at the TE position are particularly costly because the passing windows are tight."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Reid uses the TE vertically on seam routes and wheel routes. A TE who can threaten the deep middle opens up underneath routes for the WRs. Speed is valuable but secondary to receiving craft and route running."
+        }
+      },
+      "ideal_archetype": "The ideal TE in Reid's system is a dynamic receiving weapon who can run a full route tree from multiple alignments, create separation against LBs and safeties in the intermediate passing game, and threaten the seam vertically. Think Travis Kelce \u2014 not a blocking-first TE, but a matchup nightmare who functions as an oversized WR. The successor might look like George Kittle's receiving/blocking hybrid or Dallas Goedert's smooth route-running from the TE position.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-6",
+          "floor": "6-2",
+          "reasoning": "Reid's TEs need size to create mismatches against smaller DBs in the intermediate passing game and provide a reliable target window on seam routes."
+        },
+        "weight": {
+          "ideal": "240-260",
+          "floor": "230",
+          "reasoning": "Must be heavy enough to block credibly in 12 personnel but athletic enough to run routes from the slot."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.75",
+          "reasoning": "TE speed matters in this scheme because of vertical seam threats and the need to separate from LBs. Sub-4.70 is preferred for the primary receiving TE role."
+        }
+      },
+      "development_context": "Reid has maximized TE production throughout his career \u2014 Kelce is a first-ballot Hall of Famer developed in this system, and the offense has consistently featured TEs as primary weapons. The staff can develop route-running technique and teach the full route tree. What must arrive: natural receiving instincts, hands, and athleticism. A raw athlete with receiving upside fits better than a polished blocker with limited receiving ceiling, because the system demands a receiving TE above all.",
+      "scheme_fit_narrative": "We're looking for the next Travis Kelce, or at least the next closest thing. Our offense is built around the TE \u2014 he's our safety valve, our matchup weapon, and our red-zone threat. We need a guy who can catch, run routes, and create mismatches from multiple alignments. Blocking matters, but if you can't catch and separate, you can't play this role.",
+      "archetype_examples": [
+        "Travis Kelce",
+        "George Kittle",
+        "Dallas Goedert"
+      ]
+    },
+    "OT": {
+      "scheme_role": "The OT in Reid's offense must excel in pass protection to keep Mahomes (returning from ACL surgery) upright on timing throws and must be athletic enough to execute zone-blocking concepts in the run game. KC's interior line is elite (Smith, Humphrey, Suamataia) but the tackle situation was a revolving door in 2025 \u2014 LT Josh Simmons needs to return healthy, and Jawaan Taylor was released at RT. The OTs must be able to handle speed rushers on the outside and execute reach blocks and climbs to the second level on inside zone. Reid's shotgun-heavy offense gives OTs more time to set, but the OTs must also execute bootleg pass protection on play-action concepts where Mahomes rolls to one side.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "Protecting Mahomes is the single most important function of any Chiefs OT. Mahomes' ACL recovery makes pass protection even more critical in 2026. The shotgun-heavy offense gives OTs an extra beat to set, but they must handle elite edge rushers on an island. KC's OT carousel in 2025 directly contributed to offensive struggles."
+        },
+        "Run Blocking": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Bieniemy's renewed emphasis on the run game requires OTs who can execute inside zone reach blocks and climb to the second level. KC's elite interior OL creates the foundation, but the OTs must sustain blocks on the edges to open running lanes for Walker."
+        },
+        "Footwork": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Reid's shotgun passing game and bootleg concepts require OTs with quick feet \u2014 lateral slides in pass protection, kick-steps to mirror speed rushers, and the ability to redirect on bootleg protection. Athletic footwork is a premium trait."
+        },
+        "Anchor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Must be able to absorb bull rushes from power edge rushers without giving ground. The OT must hold the pocket's edge to give Mahomes the clean passing lanes his timing throws require."
+        },
+        "Athleticism": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Zone blocking requires lateral movement and the ability to reach-block and climb. Reid's bootleg pass protection asks OTs to move in space. A stiff OT who can only pass-set damages the run game and limits play-action."
+        },
+        "Strength": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Raw strength matters for anchor and run blocking but is secondary to technique and footwork in this scheme. Reid's system is built on timing and movement, not power football at the OT position."
+        }
+      },
+      "ideal_archetype": "The ideal OT in Reid's system is an athletic pass protector with quick feet, reliable anchor, and enough run-blocking ability to execute inside zone concepts. Think a Mitchell Schwartz type \u2014 technically excellent, quick-footed, rarely beaten, and able to execute zone concepts. Josh Simmons (when healthy) showed this profile in limited 2024 film: athletic in zone blocking and powerful when blocking downhill. ESPN's mock has Miami's Francis Mauigoa as KC's pick at #9 \u2014 a steady, balanced OT with nimble footwork.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "NFL-caliber length is needed to handle speed-to-power edge rushers and maintain leverage in the run game."
+        },
+        "weight": {
+          "ideal": "305-325",
+          "floor": "295",
+          "reasoning": "Must be heavy enough to anchor against bull rushes but not so heavy that athleticism is compromised for zone blocking."
+        },
+        "arm_length": {
+          "ideal": "34+",
+          "floor": "33",
+          "reasoning": "Arm length creates the striking distance needed to keep edge rushers at bay in pass protection. Longer arms make it harder for speed rushers to get inside."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.70",
+          "floor": "4.80",
+          "reasoning": "Lateral agility is critical for zone blocking reach steps and pass protection mirror ability. A stiff OT kills the run game in this scheme."
+        }
+      },
+      "development_context": "Reid's OL coaching staff has developed interior linemen well (Humphrey, Suamataia's growth), but OT development has been more inconsistent \u2014 the 2025 tackle carousel (Taylor, Simmons' injury) was a weakness. New WR coach O'Shea's Belichick-tree influence may not translate to OL, but the overall staff emphasizes technique. What must arrive: pass protection technique and anchor must have a solid floor. The staff can refine zone-blocking footwork, but a prospect who consistently loses the edge in pass pro won't survive while Mahomes heals.",
+      "scheme_fit_narrative": "We need a tackle who can protect Patrick at all costs. He's coming back from an ACL \u2014 we can't have him getting hit. Give us a quick-footed, technically sound pass protector who can also execute our zone run game. We don't need a mauler; we need a technician who wins with positioning and footwork.",
+      "archetype_examples": [
+        "Mitchell Schwartz",
+        "Tristan Wirfs",
+        "Lane Johnson"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "KC's interior OL is the team's greatest offensive strength \u2014 Creed Humphrey (1st-team All-Pro 2025), Trey Smith (75.1% run block win rate, elite hands), and second-year LG Kingsley Suamataia form the NFL's best interior trio. IOL in this scheme must execute inside zone combination blocks, climb to the second level on zone runs, and provide a clean pocket for Mahomes' timing throws. The center is the mental quarterback of the OL, responsible for protection calls. Guards must be able to pull on gap/counter concepts that Bieniemy imports from the Bears system.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Mahomes' health demands a clean pocket. Humphrey's 96.4% pass block win rate (tied for 1st among guards/centers) sets the standard. Interior pressure is kryptonite for timing-based passing games."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The renewed emphasis on the run game under Bieniemy makes run blocking equally important. KC's interior trio must execute zone combination blocks, double teams, and second-level climbs. This is where KC's run game lives \u2014 the interior creates the lanes."
+        },
+        "Pulling": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Bieniemy's diversified run scheme includes counter and power concepts that require guards to pull. This trait gains importance in the 2026 scheme evolution from pure inside zone to a more varied run game."
+        },
+        "Strength": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Interior OL face the NFL's most powerful defensive tackles on every snap. Trey Smith's elite hand strength exemplifies the standard. Must be able to anchor against bull rushes and sustain double teams at the point of attack."
+        },
+        "Anchor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Cannot give ground in pass protection. Interior collapse ruins the pocket geometry that Mahomes needs for timing throws. Must hold the line against power rushers and stunts."
+        },
+        "Versatility": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "KC values IOL who can play multiple positions \u2014 Thuney's transition from guard to tackle in 2024 was critical. Suamataia moved from tackle to guard. The ability to play center, guard, or even kick out to tackle in emergencies is highly valued in Reid's roster construction philosophy."
+        }
+      },
+      "ideal_archetype": "The ideal IOL is a powerful, technically refined interior lineman who excels at zone combination blocks, can pull on counter/power, and provides an impenetrable pocket for Mahomes. Think Creed Humphrey's football IQ and technique combined with Trey Smith's physicality and finishing ability. Joel Bitonio's career with the Browns exemplifies the standard \u2014 a versatile, smart, powerful interior player who can execute any run concept.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Interior OL height is less critical than strength and leverage. The system accommodates various heights as long as the player can generate leverage at the point of attack."
+        },
+        "weight": {
+          "ideal": "305-330",
+          "floor": "295",
+          "reasoning": "Must be heavy enough to anchor against interior DL but athletic enough for zone-blocking movement."
+        },
+        "bench_press": {
+          "ideal": "28+",
+          "floor": "25",
+          "reasoning": "Upper body strength matters for hand combat with interior DL. Trey Smith's elite hands are powered by elite upper body strength."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.70",
+          "floor": "4.80",
+          "reasoning": "Lateral agility for zone combination blocks and pulling on counter concepts. Must be able to move laterally and climb to the second level."
+        }
+      },
+      "development_context": "KC's OL development has been excellent under Andy Heck's coaching \u2014 Humphrey developed into an All-Pro, Suamataia transitioned from tackle to guard as a rookie. The staff can develop zone blocking technique and interior pass protection. What must arrive: strength and anchor. A prospect with natural power and leverage can be taught zone footwork, but a weak interior player will get pushed into Mahomes' lap.",
+      "scheme_fit_narrative": "Our interior line is our identity. We need guys who can push people around in the run game, keep Mahomes clean, and play multiple spots. We don't draft for one position \u2014 we draft for versatile, smart, physical interior linemen who can execute whatever blocking scheme we call.",
+      "archetype_examples": [
+        "Creed Humphrey",
+        "Trey Smith",
+        "Joel Bitonio"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "The EDGE in Spagnuolo's 4-3 is a DE who must be able to rush the passer from multiple alignments \u2014 standard DE, wide-9 speed rush, and occasionally kicked inside to DT in NASCAR packages. Spagnuolo moves his DEs around the formation, asking them to line up at both left and right end, and occasionally slide inside when Chris Jones moves to the edge. The EDGE must be versatile enough to set the edge in the run game on base downs and convert to a pass rusher on passing downs. KC's pass rush declined to 25th in sacks in 2025, creating an urgent need for a productive EDGE opposite Jones.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "KC's most desperate defensive need. The Chiefs' sack totals have declined from 2nd to 25th over two seasons. Jones is drawing constant double teams without a productive counterpart. A dominant EDGE rusher who can win one-on-one would transform the entire defense by freeing Jones for single-team matchups. This is the trait that matters most."
+        },
+        "Bend": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Spagnuolo asks EDGEs to rush from wide-9 alignments and convert speed to power around the arc. Bend allows the rusher to flatten to the quarterback after winning the edge, which is critical in a scheme that creates one-on-one matchups through stunts and simulated pressure."
+        },
+        "First Step": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Spagnuolo's defense times blitzes and rushes to the snap count \u2014 the unblocked pressure rate is the highest in the NFL because defenders get off the ball before blockers react. An explosive first step is the physical trait that converts Spagnuolo's schematic advantages into pressures."
+        },
+        "Power": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The EDGE must be able to convert speed to power when tackles overcommit to speed rush. Bull rush ability provides a counter move. However, Spagnuolo's scheme relies more on scheme-generated free rushes than on individual power wins."
+        },
+        "Motor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Spagnuolo's defense generates pressure through effort and positional discipline, not just talent. The EDGE must pursue plays down the line, chase scrambling QBs, and maintain intensity over 60+ defensive snaps. George Karlaftis' 755 snaps in 2024 show the workload."
+        },
+        "Run Defense": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The EDGE must set the edge in the run game on base downs. In a 4-3 single-gap system, the DE is responsible for maintaining outside contain. Run defense is important but secondary to pass rush production, which is KC's critical need."
+        }
+      },
+      "ideal_archetype": "The ideal EDGE in Spagnuolo's defense is an explosive, versatile pass rusher who can win with speed and bend off the edge, has the motor to play high-snap counts, and can set the edge in the run game. Think of a young Maxx Crosby \u2014 relentless motor, versatile rush plan, can line up at multiple spots on the line. Or a Myles Garrett type who combines elite first step with power and bend. Spagnuolo's 'Four Aces' philosophy in NYG shows he wants DEs who can generate pressure individually and in combination.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Spagnuolo's DEs in the 4-3 need enough length to hold the edge in the run game and convert speed to power against OTs. Not as long as a traditional 3-4 OLB requirement."
+        },
+        "weight": {
+          "ideal": "250-275",
+          "floor": "240",
+          "reasoning": "Must be heavy enough to hold point of attack against the run but light enough for speed rushing. George Karlaftis at 263 and Mike Danna at 257 show the scheme's typical range."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Closing speed matters for chasing QBs who escape the pocket. An explosive, twitchy athlete thrives in Spagnuolo's scheme because the scheme creates opportunities that athleticism converts to sacks."
+        },
+        "3_cone_drill": {
+          "ideal": "sub-7.00",
+          "floor": "7.10",
+          "reasoning": "Change-of-direction ability is critical for bending the arc, executing stunts with interior DL, and redirecting on bootleg protection. Spagnuolo's stunt packages demand EDGE players who can change direction."
+        }
+      },
+      "development_context": "Spagnuolo's staff developed George Karlaftis from a raw first-rounder into a productive edge player, and Felix Anudike-Uzomah has shown promise. Joe Cullen (DL coach, who returns for 2026) has extensive development experience. The staff can teach pass rush technique, stunt timing, and run defense assignment football. What must arrive: first step explosion and bend. Pass rush moves can be refined, but the athletic tools to win the edge cannot be coached. A raw athlete with explosive traits fits better than a technically polished but athletically limited rusher.",
+      "scheme_fit_narrative": "We need someone who can get to the quarterback. Period. Chris Jones is getting doubled on every snap because nobody else can rush. Give us an explosive athlete with a motor who can bend the edge, win with speed, and play every snap. Spags will put him in position to succeed \u2014 we just need the physical tools.",
+      "archetype_examples": [
+        "Maxx Crosby",
+        "Myles Garrett",
+        "Will Anderson Jr."
+      ]
+    },
+    "DL": {
+      "scheme_role": "Interior DL in Spagnuolo's 4-3 are single-gap penetrators in a system designed to create disruption through alignment and technique. The 3-technique (Chris Jones' role) is the primary interior pass rusher, tasked with penetrating the B-gap and collapsing the pocket. The nose tackle must hold the point of attack and anchor against double teams on early downs, freeing LBs to make plays. Spagnuolo moves his DL around \u2014 Jones shifts to end, interior DL swap gaps, and stunts are frequent. Versatile interior DL who can play multiple techniques are highly valued.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Spagnuolo's defense generates interior pressure as its primary pass-rush mechanism. Chris Jones' 75.5 career sacks from DT are historically elite. The 3-technique must be a disruptive pass rusher who can collapse the pocket and create pressure up the middle."
+        },
+        "Run Defense": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "The bend-don't-break philosophy requires DL who can hold the point of attack and not get pushed backward. KC signed Khyiris Tonga specifically for run-stuffing ability alongside Jones. The nose tackle's primary job is controlling the A-gaps in the run game."
+        },
+        "First Step": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Single-gap penetration demands an explosive first step to get across the face of the offensive lineman before he can execute his block. Jones' elite first step is what makes him a generational DT. This is the athletic trait that makes the scheme function."
+        },
+        "Hand Usage": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Spagnuolo's DL must execute stunts, swap gaps, and disengage from blockers quickly. Elite hand technique is what converts athletic tools into production on the interior, where the space is compressed and leverage battles are won at the point of attack."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Interior DL rotate more frequently than EDGEs, but the scheme still demands effort. DL must pursue the ball, chase plays laterally, and maintain intensity through stunt packages that require precise timing."
+        },
+        "Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must be strong enough to hold the point of attack against double teams (especially the nose tackle) and convert power to production on bull rush moves. Jones at 310 lbs with elite strength sets the standard for the 3-technique role."
+        }
+      },
+      "ideal_archetype": "The ideal interior DL in Spagnuolo's scheme is a disruptive, athletic penetrator who can rush the passer from the interior, hold the point of attack in the run game, and execute the positional versatility (sliding between DT and DE) that the scheme demands. Chris Jones is the archetype \u2014 6-6, 310 lbs, with an explosive first step, elite hand technique, and the ability to play multiple spots on the line. A complementary DT would look like Javon Hargrave \u2014 disruptive interior pass rusher who can also hold up against the run.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-0",
+          "reasoning": "Interior DL height varies by role. The 3-technique benefits from length (Jones at 6-6 is exceptional). The nose tackle can be shorter and stockier."
+        },
+        "weight": {
+          "ideal": "295-320",
+          "floor": "285",
+          "reasoning": "3-technique weight: 290-310 for pass-rush ability. Nose tackle weight: 310-330 for anchor against double teams. The scheme uses both body types."
+        },
+        "40_yard_dash": {
+          "ideal": "4.80-5.00",
+          "floor": "5.10",
+          "reasoning": "Interior quickness and burst matter more than straight-line speed. The first step is the key athletic trait, and it's better measured by short-area explosiveness than 40 time."
+        },
+        "bench_press": {
+          "ideal": "28+",
+          "floor": "25",
+          "reasoning": "Upper body strength powers hand combat at the point of attack. Must be able to push back offensive linemen and disengage from blocks quickly."
+        }
+      },
+      "development_context": "Joe Cullen (DL coach) has developed Chris Jones into a perennial All-Pro and maximized production from mid-round picks. Terry Bradden Jr. returns as assistant DL coach for 2026. The staff can teach hand technique, stunt timing, and positional versatility. What must arrive: explosive first step and natural pass-rush ability. Run defense technique and stunt execution can be taught, but the burst to penetrate the A/B-gap must be innate.",
+      "scheme_fit_narrative": "We need someone who can disrupt. Chris Jones can't do it alone \u2014 he's getting doubled and tripled. Give us a DT with a quick first step and natural pass rush ability who can demand attention from the interior. The nose tackle needs to eat blocks and free up our LBs. Both roles are critical, but interior pressure is what makes Spags' defense go.",
+      "archetype_examples": [
+        "Chris Jones",
+        "Javon Hargrave",
+        "Quinnen Williams"
+      ]
+    },
+    "LB": {
+      "scheme_role": "LBs in Spagnuolo's defense play reduced snaps because the nickel/dime packages remove 1-2 LBs from the field. The MIKE is the one LB who stays on the field in nickel \u2014 he must handle interior run fits AND zone coverage drops. The WILL in nickel is a more athletic, coverage-oriented LB who is asked to scrape on runs and cover the flat/hook zones in passing. In dime (KC's frequent package), only one LB remains \u2014 and he must be a complete, three-down player. Nick Bolton was the prototypical KC MIKE LB, but with Leo Chenal departing to Washington in free agency, the position needs fresh investment.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Spagnuolo's bend-don't-break defense requires reliable tackling to prevent big plays. With so many DBs on the field, missed tackles by the one remaining LB are catastrophic. Tackling is foundational \u2014 'the first thing Spagnuolo asks of his defenders.'"
+        },
+        "Coverage": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "The LB who stays on the field in nickel/dime must be able to cover TEs and RBs in zone and match concepts. Spagnuolo's quarters/palms coverage puts LBs in space against pass catchers. A LB who can't cover gets pulled for a DB, limiting the defense's versatility."
+        },
+        "Pass Rush": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Spagnuolo sends LB blitzes from both MIKE and WILL. Nick Bolton and Drue Tranquill were used in tandem on interior pressure packages. LB blitz ability adds to the defense's pressure versatility, but it's not the primary role."
+        },
+        "Instincts": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Spagnuolo's defensive complexity requires LBs who can process pre-snap and post-snap information quickly. The MIKE LB must diagnose run/pass, identify blocking schemes, and fit gaps correctly while also recognizing route combinations in coverage. Drue Tranquill admitted it took a full year to feel comfortable in the system."
+        },
+        "Athleticism": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The scheme puts LBs in space against TEs and RBs. Sideline-to-sideline range is valuable because with fewer LBs on the field, each one must cover more ground. Athletic LBs allow Spagnuolo to keep them on the field in sub-packages."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Related to athleticism \u2014 the ability to pursue plays laterally and cover ground in zone drops. With one LB on the field in dime, range becomes important to limit underneath passing lanes."
+        },
+        "Block Shedding": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "Less critical than in a traditional 4-3 where three LBs absorb blocks. Spagnuolo's single-gap DL are designed to penetrate and free up the LBs, reducing the need for LBs to take on blocks at the point of attack."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "The LB must set the defense and communicate adjustments. In a scheme with extensive coverage disguise and late rotations, the LB must understand the full playbook to execute assignment football. This is a developable skill but requires intelligence."
+        }
+      },
+      "ideal_archetype": "The ideal LB in Spagnuolo's defense is an athletic, coverage-capable three-down player who can tackle reliably, process Spagnuolo's complex scheme quickly, and contribute on blitzes. Think Bobby Okereke or Roquan Smith \u2014 sideline-to-sideline athletes who can cover, tackle, and play all three downs without coming off the field. The LB must be smart enough to handle the scheme's complexity and athletic enough to justify staying on the field over a sixth DB.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Size matters less than athleticism and coverage ability. The scheme values movement over mass at LB."
+        },
+        "weight": {
+          "ideal": "225-245",
+          "floor": "215",
+          "reasoning": "Must be light enough for coverage but physical enough for interior run fits. The modern LB in Spagnuolo's defense skews lighter than traditional."
+        },
+        "40_yard_dash": {
+          "ideal": "4.50-4.60",
+          "floor": "4.65",
+          "reasoning": "Speed and range are critical for a LB asked to cover TEs and RBs in space. A slow LB gets pulled for a DB in Spagnuolo's scheme, limiting his value to base-only situations."
+        },
+        "3_cone_drill": {
+          "ideal": "sub-6.90",
+          "floor": "7.00",
+          "reasoning": "Change of direction matters for zone coverage drops and blitz-path execution. The LB must redirect quickly when reading route combinations."
+        }
+      },
+      "development_context": "Spagnuolo's staff developed Nick Bolton from a 2nd-round pick into a reliable starter. However, LB has been an area where KC has cycled through players rather than developing homegrown stars \u2014 they've relied on veteran additions (Tranquill) and scheme to compensate. With Chenal departing, the LB corps needs fresh talent. The staff can teach scheme assignment and blitz timing. What must arrive: coverage ability and athleticism. A LB who can't cover will be taken off the field in nickel/dime, making his value extremely limited in a defense that lives in sub-packages.",
+      "scheme_fit_narrative": "We need a linebacker who can stay on the field. That means he has to cover \u2014 period. If he can't match up with a TE in space, he's a two-down player in our defense, and we don't invest high picks in two-down players. Give us an athlete who can tackle, cover, and handle Spags' playbook. We'll teach him the scheme \u2014 but he has to have the speed and instincts to play in space.",
+      "archetype_examples": [
+        "Bobby Okereke",
+        "Roquan Smith",
+        "Fred Warner"
+      ]
+    },
+    "CB": {
+      "scheme_role": "CBs in Spagnuolo's defense are asked to do more than almost any other scheme. They play press coverage at one of the NFL's highest rates. They align near the line of scrimmage to disguise blitzes, then bail into deep zones. The nickel CB (previously Trent McDuffie's role) must blitz from the slot, play man on slot receivers, and play zone in underneath windows. The outside CBs must be long, physical press corners who can disrupt timing at the LOS and survive on the boundary in split-safety coverages. With McDuffie traded to the Rams and Jaylen Watson departing in free agency, CB is KC's most urgent roster need for 2026. Only Nohl Williams (2025 4th-round pick) and Kristian Fulton remain as significant contributors.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "While Spagnuolo's scheme is zone-dominant, his CBs must be able to execute man coverage on specific concepts \u2014 particularly in red zone and short-yardage situations. The ability to match up in man coverage provides Spagnuolo flexibility to run his full coverage menu."
+        },
+        "Ball Skills": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Turnovers are critical in the bend-don't-break philosophy \u2014 the defense forces long drives and capitalizes when opponents make mistakes. Ball-hawking ability is valuable but secondary to coverage technique and tackling."
+        },
+        "Zone Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Spagnuolo's defense is built on split-safety zone coverages \u2014 quarters, Cover 2, and pattern-matching concepts. CBs must be able to read route combinations, pass off receivers in zone, and maintain positioning in their area. This is the primary coverage responsibility."
+        },
+        "Speed": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Must be able to stay with vertical routes in split-safety coverages where the safety is two-high rather than providing over-the-top help. Speed ensures recovery ability when beaten at the LOS in press coverage."
+        },
+        "Press": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Spagnuolo plays press coverage at one of the highest rates in the NFL. His CBs align at the LOS to jam receivers, disrupt timing, and create the illusion of blitz. Press technique is foundational to the defense's pre-snap disguise \u2014 CBs who can't press undermine the entire defensive structure."
+        },
+        "Nickel": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "With McDuffie traded, the nickel CB role is a massive void. This CB must play in the slot, blitz from the interior (McDuffie generated 14 unblocked pressures from slot), play zone in the hook/curl area, and match up with slot receivers in man. The nickel CB is arguably the most important secondary position in Spagnuolo's scheme."
+        }
+      },
+      "ideal_archetype": "The ideal CB in Spagnuolo's defense is a long, physical press corner who can execute zone coverage responsibilities in the split-safety scheme, tackle reliably in run support, and contribute as a blitzer from the slot in nickel packages. The outside CB archetype is Jaylen Watson \u2014 long (6-2), physical at the LOS, with the speed to survive on the boundary. The nickel CB archetype is Trent McDuffie \u2014 quick, versatile, capable of blitzing, covering, and functioning as a hybrid defender. Spagnuolo needs CBs who are willing to do the dirty work \u2014 tackle, fill run gaps, and execute assignment football.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Spagnuolo has historically preferred long, physical outside CBs (Watson 6-2, Williams 6-3, Sneed 6-1). Length matters for press disruption and contesting catches at the boundary. Nickel CBs can be shorter (McDuffie 5-11)."
+        },
+        "weight": {
+          "ideal": "190-205",
+          "floor": "185",
+          "reasoning": "Must be physical enough to press, tackle in run support, and hold up against bigger slot receivers. Spagnuolo's first ask of his DBs is tackling \u2014 a light CB who can't tackle is a liability."
+        },
+        "40_yard_dash": {
+          "ideal": "4.38-4.50",
+          "floor": "4.55",
+          "reasoning": "Speed is critical for recovery in a split-safety scheme with less over-the-top help. Must be fast enough to stay with vertical routes after pressing at the LOS."
+        },
+        "arm_length": {
+          "ideal": "32+",
+          "floor": "31",
+          "reasoning": "Long arms are valuable for press disruption \u2014 jamming receivers at the line of scrimmage and rerouting. Spagnuolo's press-heavy scheme rewards CBs with length."
+        }
+      },
+      "development_context": "Spagnuolo's staff is arguably the NFL's best at developing CBs. L'Jarius Sneed (4th round), Jaylen Watson (7th round), Nohl Williams (4th round), and Chamarri Conner (UDFA) were all developed into starters or significant contributors. The staff teaches press technique, zone coverage rules, and the defensive playbook that takes a full year to master. McDuffie was a 1st-round pick who became an All-Pro under Spagnuolo's coaching. What must arrive: speed and physical toughness. The staff can teach coverage technique and scheme, but the athletic tools to press and recover, and the willingness to tackle, must be innate.",
+      "scheme_fit_narrative": "We just lost McDuffie and Watson \u2014 we need corners badly. We need long, physical press corners who can tackle and play zone. We'll teach the coverage \u2014 Spags does that better than anyone. But the prospect has to be willing to get his hands dirty: press, tackle, fill the run. We don't need a ball hawk; we need a lockdown technician who does his job every snap.",
+      "archetype_examples": [
+        "Trent McDuffie",
+        "Jaylen Watson",
+        "Sauce Gardner"
+      ]
+    },
+    "S": {
+      "scheme_role": "Safeties are the most versatile and schematically important positions in Spagnuolo's defense. They rotate between deep-half responsibilities in split-safety coverages, drop into the box as quasi-LBs in dime packages, blitz from the secondary, and disguise coverage shells pre-snap. Justin Reid's role (now departed) exemplified this: 525 snaps at FS and 302 as a slot defender/LB. Spagnuolo's safeties must be chameleons \u2014 smart, versatile, and capable of playing multiple roles on any given snap. With Bryan Cook departing in free agency and Justin Reid having left previously, the safety position is being rebuilt around Alohi Gilman, Chamarri Conner, and Jaden Hicks.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Safeties are occasionally asked to match up with TEs in man concepts, particularly in red zone. This is a supplementary responsibility, not the primary role."
+        },
+        "Range": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "In a split-safety scheme, each safety is responsible for half the field in deep coverage. Range \u2014 the ability to cover ground from the hash to the sideline \u2014 is the defining physical trait. Without range, the safety can't execute the deep-half responsibilities that form the foundation of Spagnuolo's coverage philosophy."
+        },
+        "Ball Skills": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Turnovers are central to the bend-don't-break approach. A safety who can make plays on the ball when opportunities arise creates the game-changing turnovers that the defense is designed to generate. Valuable but secondary to range and tackling."
+        },
+        "Tackling": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Spagnuolo's first requirement for all DBs is tackling. Safeties in dime packages play as quasi-LBs in the box, responsible for tackling RBs in the hole and filling run gaps. Justin Reid was valued specifically for his 'dirty work' in tackling and box play. Safeties who miss tackles in this scheme create explosive plays."
+        },
+        "Speed": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Closing speed to rally in run support from deep alignments and to recover when beaten in coverage. The split-safety scheme puts safeties in positions where they must close ground quickly on both runs and passes."
+        },
+        "Nickel": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Spagnuolo's safeties must be able to play in the slot, the box, and deep \u2014 often changing roles between plays or even within plays via post-snap rotation. Justin Reid's 302 snaps as a slot/LB defender exemplify this demand. Alohi Gilman was signed specifically for his versatility. A safety who can only play one role limits Spagnuolo's ability to disguise and rotate."
+        }
+      },
+      "ideal_archetype": "The ideal safety in Spagnuolo's defense is a versatile, intelligent, physical defender who can play deep halves in split-safety coverage, rotate into the box as a quasi-LB in dime packages, blitz from the secondary, and tackle reliably in run support. Think Justin Reid \u2014 a football-smart chameleon who played 525 snaps at FS and 302 as a slot/LB defender. Or Budda Baker \u2014 a safety who excels in the box and in coverage with elite tackling ability. Spagnuolo's safeties must be willing to do the dirty work and smart enough to handle the scheme's complexity.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Must be big enough to function as a box defender/quasi-LB in dime and tackle RBs in the hole. Not as size-dependent as CB, but physicality matters for the box role."
+        },
+        "weight": {
+          "ideal": "200-215",
+          "floor": "195",
+          "reasoning": "Must be physical enough to tackle in the box and take on blocks in run support, but athletic enough for deep coverage responsibilities."
+        },
+        "40_yard_dash": {
+          "ideal": "4.42-4.55",
+          "floor": "4.60",
+          "reasoning": "Speed translates directly to range in split-safety coverage. A slow safety limits the deep-half zone and forces Spagnuolo to adjust coverage calls. Closing speed in run support is also critical."
+        }
+      },
+      "development_context": "Spagnuolo's staff has developed safeties well \u2014 Chamarri Conner (UDFA to starter), Jaden Hicks (showing promise), and Bryan Cook (2nd round to starter) were all developed within the system. Justin Reid's career-best production came under Spagnuolo. The staff teaches the complex coverage rotations and role versatility that the scheme demands \u2014 Drue Tranquill's LB example shows it takes a full year to master the playbook. What must arrive: range, speed, and tackling willingness. Scheme understanding and coverage technique can be taught over time. A raw athlete who can cover ground and tackle fits better than a polished but slow safety.",
+      "scheme_fit_narrative": "We need safeties who can do everything. We're going to ask them to play deep, play in the box, blitz, cover the slot \u2014 sometimes all in the same game. We need guys who are smart, tough, and fast enough to handle it all. If you can tackle and you can cover ground, Spags will put you in position to make plays. But you have to be willing to do the dirty work \u2014 fill the run, take on blocks, and communicate with your teammates. This isn't a defense where you freelance; it's assignment football that demands intelligence and versatility.",
+      "archetype_examples": [
+        "Justin Reid",
+        "Budda Baker",
+        "Jessie Bates III"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "KC's 2026 draft profile is shaped by three urgent needs created by scheme and roster turnover: (1) TE receiving weapon \u2014 if Kelce retires or further declines, the Chiefs MUST replace the most important non-QB position in Reid's offense. A TE with elite route running and hands (e.g., Kenyon Sadiq profile) should be valued like a top WR for KC. (2) Versatile safety \u2014 Spagnuolo's exotic blitz-heavy 4-3 Multiple defense demands safeties who can play box, slot, deep, and blitz. This is the most safety-valuable scheme in the NFL. A hybrid safety (Malaki Starks/Kyle Hamilton archetype) is worth significantly more to KC than to a traditional split-safety defense. (3) Dual-threat RB \u2014 with the backfield being completely rebuilt and Bieniemy tasked with fixing the run game, a back who can run between the tackles AND catch passes out of Reid's West Coast scheme is critical. The 4-3 base means traditional LB-to-EDGE value boosts are minimal; KC gets edge rush from DEs and exotic blitz design rather than OLB conversion. Mahomes' knee rehab also increases the value of anyone who can make the QB's job easier \u2014 receiving TEs, pass-catching RBs, and versatile offensive weapons.",
+  "scheme_draft_intelligence": "The 2026 Kansas City Chiefs enter the draft in an unfamiliar position \u2014 picking 9th overall after a 6-11 season, their worst since 2012. Patrick Mahomes' torn ACL, a historically bad run game, and significant roster turnover have created a unique confluence of need and draft capital (9 picks including two extra from the Trent McDuffie trade to the Rams). The coaching staff is in a transitional moment: Eric Bieniemy returns as OC to revitalize the offense, while Spagnuolo's defense has lost three starting DBs (McDuffie, Watson, Cook) and needs edge rush help badly.\n\nThe scheme creates specific draft value differentials that should shape KC's approach. Offensively, the combination of Reid's West Coast system and Bieniemy's renewed run emphasis means the Chiefs should prioritize an offensive tackle who can protect Mahomes and execute zone blocking \u2014 ESPN mocks Francis Mauigoa at #9, and that archetype (balanced, nimble, technically sound) fits Reid's scheme perfectly. The WR position is equally critical: the roster lacks a true separation-and-contested-catch X receiver, with the speed positions already filled by Worthy and Thornton. A polished route runner like Isaiah Bond or Emeka Egbuka would provide more schematic value than another speed merchant.\n\nDefensively, Spagnuolo's scheme creates massive value in versatile defensive backs and interior-exterior flexible DL. The CB need is existential \u2014 KC lost its All-Pro nickel (McDuffie) and starting boundary corner (Watson). Spagnuolo's track record of developing mid-round CBs into starters (Sneed, Watson, Williams) suggests KC could target a Day 2 CB with press ability and long speed rather than using the #9 pick at the position. The EDGE position may be the best use of premium capital \u2014 KC's pass rush declined from 2nd to 25th in sacks over two seasons, and Spagnuolo's scheme can only compensate for so much with creative blitzing. A first-round EDGE like Michigan's Derrick Moore would immediately transform the defense by freeing Chris Jones from double teams.\n\nHistorically, Brett Veach's drafting under Reid/Spagnuolo reveals clear scheme-driven preferences: versatile, athletic defensive players (McDuffie, Watson, Cook, Williams \u2014 all drafted in a two-year span for Spagnuolo's secondary overhaul), explosive skill players (Worthy, Rice), and interior OL investments (Humphrey, Suamataia). Veach has consistently let expensive veterans walk and replaced them with younger, cheaper talent developed in-house \u2014 expect the same approach in 2026, especially given the cap constraints. The coaching staff's development track record \u2014 particularly Spagnuolo's ability to turn Day 2-3 defensive backs into quality starters \u2014 means KC can be more aggressive with their premium picks on offense (OT, WR) or edge rush while trusting later picks and free agents to fill secondary roles.\n\nThe most impactful scheme-specific draft strategy for 2026: Use the #9 pick on EDGE or OT (the two hardest positions to fill via development), target a polished WR in Round 2 (from the McDuffie trade Rams' pick), and invest Day 2-3 capital in CBs and safeties that Spagnuolo's staff can develop. The Chiefs' scheme creates hidden value in athletic, raw defensive backs who other teams would view as projects \u2014 Spagnuolo has repeatedly turned those profiles into impact players.",
   "confidence": "high",
   "sources": [
-    "chiefs.com official coaching roster",
-    "Pro Football Reference 2025 KC roster page",
-    "ESPN - Nate Taylor on Bieniemy return (Jan 2026)",
-    "Wikipedia - Steve Spagnuolo, Eric Bieniemy, Matt Nagy pages",
-    "The Ringer - Spagnuolo blitz analysis (Feb 2025)",
-    "Match Quarters - Chiefs Odd Stack / Tango package analysis",
-    "CBS Sports - Spagnuolo blitz design (Feb 2025)",
-    "Arrowhead Pride - Chiefs 2025 defensive stats",
-    "Athlon Sports - Chiefs coaching changes (Feb 2026)",
-    "A to Z Sports / Yardbarker - Reid playcalling confirmation (Jan 2026)",
-    "NFL.com - Matt Nagy hired by Giants (Feb 2026)",
-    "Arrowhead Pride - Andy Reid shotgun/West Coast evolution"
+    "chiefs.com coaching staff roster",
+    "ESPN \u2014 Chiefs free agency tracker 2026",
+    "The Ringer \u2014 Steve Spagnuolo Chiefs defense analysis (Ben Solak, Diante Lee)",
+    "Match Quarters \u2014 Kansas City Chiefs Odd Stack Package analysis",
+    "NFL.com \u2014 Greatest DC analysis of Spagnuolo",
+    "Arrowhead Pride \u2014 2025 season stats, coaching tree analysis, offense/defense analysis",
+    "Arrowhead Addict \u2014 Chiefs coaching changes 2026 tracker",
+    "SI Chiefs \u2014 Eric Bieniemy Bears ideologies, 2026 offensive evolution",
+    "A to Z Sports \u2014 Nohl Williams nickel role, Bieniemy playcalling",
+    "Read Optional \u2014 Chiefs offense re-orientation 2025",
+    "Wikipedia \u2014 Steve Spagnuolo, Eric Bieniemy, Andy Reid, West Coast offense",
+    "Pro Football History \u2014 Andy Reid coaching bio",
+    "PFF \u2014 Spagnuolo dime package analysis",
+    "FOX Sports \u2014 Andy Reid secret plays analysis",
+    "BYU Athletics \u2014 Coaching tree",
+    "The Draft Network \u2014 2026 mock draft post-free agency",
+    "Athlon Sports \u2014 Chris Jones 2025 stats and DL signings"
   ]
 }

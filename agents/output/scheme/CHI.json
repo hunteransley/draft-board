@@ -6,70 +6,752 @@
       "name": "Ben Johnson",
       "tenure_years": 2,
       "background": "offensive",
-      "scheme_philosophy": "Creative, multiplicity-based offense built around personnel; play-action heavy with outside zone run game foundation; adapts scheme to roster talent rather than importing a rigid system"
+      "coaching_tree": "Eclectic / Dan Campbell-Lions lineage with influences from Adam Gase, Mike Martz, Darrell Bevell, Clyde Christensen, John Shoop, Kevin Rogers. Boston College grad assistant roots under Gary Tranquill (Belichick/Saban adjacent). Rose through Miami (Gase era) and Detroit (Campbell era).",
+      "scheme_philosophy": "Multiplicity is the organizing principle \u2014 formationally and conceptually. Johnson builds offense from the run game out, using outside zone as the foundation to layer play-action, boot concepts, and downfield passing. Calls his own plays. Prioritizes unpredictability: diverse personnel groupings, heavy pre-snap motion, creative trick plays, and dressing up the same concepts in different looks. Calibrates offense to his QB's strengths \u2014 adapted from Goff's rhythm/timing pocket game to Williams' improvisational mobility. Believes balance is seasonal, not per-game ('whether it's 50 runs or 50 passes')."
     },
     "offensive_coordinator": {
       "name": "Press Taylor",
-      "scheme_tree": "Pederson/Reid West Coast, with Chip Kelly spread influence; previously OC in Jacksonville (2022-24), Eagles QB coach under Pederson",
-      "play_caller": false
+      "coaching_tree": "Chip Kelly / Doug Pederson / Frank Reich lineage. Coached under Kelly in Philadelphia (2013-15), promoted under Pederson through Eagles Super Bowl era, served as Jacksonville OC (2022-24) under Pederson. Brother of Zac Taylor (Bengals HC). Joined Bears in 2025 as Pass Game Coordinator, promoted to OC for 2026 after Declan Doyle left for Baltimore.",
+      "scheme_evolution": "Cut teeth in Kelly's up-tempo spread, evolved under Pederson's West Coast/RPO hybrid that won Super Bowl LII, then ran Jaguars offense (7th in scoring in 2022 with Trevor Lawrence's Pro Bowl year before regression). Brings pass-game design expertise and QB development background to complement Johnson's play-calling. In 2025 as pass game coordinator, helped Williams set a franchise record with 3,942 passing yards.",
+      "development_track_record": "Developed Trevor Lawrence to a Pro Bowl in 2022. Worked with Carson Wentz during his MVP-caliber 2017 season in Philadelphia. Has extensive QB development pedigree spanning multiple systems. Helped guide Caleb Williams through his sophomore leap in 2025."
     },
     "defensive_coordinator": {
       "name": "Dennis Allen",
-      "scheme_tree": "New Orleans Saints/Sean Payton tree; 4-3 base with man-coverage lean; aggressive, attacking philosophy rooted in secondary coaching background (Atlanta Falcons, Saints DC 2015-2021, Saints HC 2022-2024)",
-      "play_caller": true
+      "coaching_tree": "New Orleans Saints / Sean Payton ecosystem. Began at Texas A&M (secondary), then Atlanta Falcons secondary (2002-06) under Jim Mora Jr., then Saints under Payton from 2006-2010. One year as Denver Broncos DC (2011), Oakland Raiders HC (2012-14), returned to Saints as DC (2015-21) then HC (2022-24). Deep roots in Payton's New Orleans defensive infrastructure built around aggressive man coverage and four-man front pressure.",
+      "scheme_evolution": "In New Orleans (2016-21), built a top-10 scoring defense four consecutive years using man-heavy coverage (55% man rate, 5th-highest in NFL), two-high safety shells (45% of snaps, 3rd-highest), and elite four-man front pressure with minimal blitzing. His peak was 2021 (1st in defensive success rate, 2nd in EPA). As Saints HC (2022-24), blitz rate dropped to 20% (2nd-lowest) but simulated pressure usage increased (7th-highest). Adapted to Chicago's personnel by emphasizing takeaways \u2014 Bears led NFL with 32 turnovers forced in 2025.",
+      "development_track_record": "Developed Marshon Lattimore from raw rookie to perennial Pro Bowler. Maximized Demario Davis as an every-down LB into his mid-30s. In Chicago, turned career backup Nahshon Wright into a 5-interception player and converted C.J. Gardner-Johnson from safety to slot corner mid-season. Eye for identifying players from his previous stops who fit the system (D'Marco Jackson, Gardner-Johnson, Wright via Al Harris from Dallas)."
     }
   },
   "offense": {
-    "scheme_family": "Ben Johnson system \u2014 multiple formation, motion-heavy, play-action based with outside zone run game",
-    "base_personnel": "11 and 12 (flexible split; Lions ran 47% 11 and 39% 12 in 2024 under Johnson; Bears in 2025 used heavy 12 personnel with Loveland/Kmet duo, shifting based on matchups)",
-    "run_scheme": "outside zone / wide zone primary, with power, duo, and ISO mixed in; Bears finished 3rd in NFL in rushing (144.5 ypg) in 2025; center Drew Dalman specifically signed as elite outside zone blocker",
-    "pass_concepts": "play action heavy (Johnson led NFL at 36% PA rate in 2024 Detroit), boot concepts, deep shots off play action, RPOs, creative misdirection and trick plays; emphasis on quarterback-centric design around Caleb Williams' improvisational ability",
-    "rpo_usage": "moderate to heavy",
-    "te_usage": "elite receiving weapon + inline blocker; Colston Loveland (1st round pick, 10th overall 2025) led team in receiving with 713 yards and 6 TDs; flexes to slot, runs full route tree; Cole Kmet used as secondary TE/blocker; team invested 1st round capital in TE specifically for Johnson's 12-personnel concepts",
-    "rb_usage": "committee approach with lead back; D'Andre Swift had career year (1,087 rushing yards, 299 receiving yards, 34 receptions); Johnson historically limits lead back carries while increasing receiving work to get RBs in space; Kyle Monangai as complementary power back"
+    "scheme_family": "Multiple / Run-Game-First with Play-Action Layering (Johnson Original \u2014 eclectic influences, not a single coaching tree)",
+    "scheme_detail": "Johnson's offense is built on formational multiplicity and conceptual diversity, designed to make defenses wrong before the snap. The foundation is an outside zone run game that sets up a lethal play-action passing attack. Johnson layers in gap concepts (counter, power, pin-and-pull), jet sweeps, and inside zone to keep defenses off-balance. The passing game features Dagger (dig + seam) as a staple concept, Hi-Cross three-level vertical stretches, and hi-lo reads that exploit zone coverage. The offense uses heavy pre-snap motion to diagnose coverage and create advantageous blocking angles. In 2025, Johnson initially installed a stripped-down version focused on 12 personnel and zone runs, then expanded complexity as Williams grew comfortable. By season's end, the Bears ranked 6th in total yards per game (379.2) and 9th in scoring (25.9 PPG).",
+    "run_scheme": "Outside zone is the primary run scheme, consistent with Johnson's three years in Detroit where Lions were one of the most outside-heavy running teams in the NFL on 1st down. Inside zone mixed in as secondary concept. Gap schemes (counter, power) used situationally. Pin-and-pull concepts and jet sweeps add variety. OL must excel at lateral movement and reach-blocking. D'Andre Swift rushed for 1,087 yards in 2025, with rookie Kyle Monangai adding 783 yards in a committee approach. The Bears had the league's 2nd-best rushing offense through midseason.",
+    "pass_architecture": "Play-action is the engine \u2014 Johnson's Lions had Goff ranked 4th in EPA on play-action in 2024. Dagger (dig + post/seam) is the staple intermediate concept. Hi-Cross provides three-level vertical stretches. Quick game (curl-flat, slant-flat) pairs with West Coast timing principles from Taylor's background. QB reads are often split-field, working away from the weak hook defender. Johnson designs specific route packages tailored to individual skill players. The offense spread targets widely in 2025 \u2014 no receiver exceeded 24.1% target share, with 8 players regularly targeted per game. Williams set franchise records with 3,942 passing yards.",
+    "personnel_tendencies": "Heavy 12 personnel (1 RB, 2 TE, 2 WR) usage, especially early in games and on early downs. In Detroit, Johnson used 12 personnel on 39% of 1st/2nd down plays in 2024. In Chicago, 12 personnel was the base grouping with Cole Kmet and rookie Colston Loveland (713 receiving yards). 11 personnel used increasingly on passing downs and as Luther Burden III emerged. Johnson adapts personnel to available talent rather than forcing a fixed grouping \u2014 used more 11 late in the season as Burden developed. RB committee approach: Swift as lead back with Monangai as change-of-pace.",
+    "motion_tempo": "Heavy pre-snap motion \u2014 Johnson uses motion both to diagnose coverage (if a defender follows, it's man; if not, zone) and to create blocking advantages on run plays. Standard tempo, not hurry-up. Ball control philosophy with explosive play capability. Diverse formations dress up the same concepts differently each week. Johnson described wanting to 'make the same things look different and different things look the same.'"
   },
   "defense": {
-    "base_front": "4-3",
-    "alignment": "even front (4-down) base, but Allen frequently shows over fronts and odd fronts to disguise; uses multiple D-line alignments (7-3-1-7, G-front with two 3-techs, tight front with two 1-techs); DEs sometimes in 2-point stance",
-    "edge_rush_source": "4-3 DE hands-in-dirt primary (Montez Sweat, Austin Booker, Dayo Odeyingbo); Allen uses 9-tech alignment for speed rushers",
-    "coverage_base": "man coverage heavy with mixed zone; Allen plays more man than predecessor Eberflus (roughly 1/3 man); zone split between Cover 1, Cover 2, and Cover 3 more evenly than typical teams; heavy dime usage (66% on 3rd down) replacing LBs with extra DBs",
-    "blitz_tendency": "heavy (Allen described as aggressive and blitz-heavy; blitzes safeties and corners at similar rates; defense led NFL in takeaways with 32 forced turnovers and 21 INTs in 2025)",
-    "lb_role": "ILBs (Tremaine Edmunds, T.J. Edwards) are coverage + run stoppers; Edmunds specifically used for coverage including carrying TEs downfield; Allen pulls LBs off field frequently in sub packages (dime heavy), so LBs are NOT primary pass rushers; SAM LB barely on field for 3rd downs",
-    "safety_usage": "interchangeable/hybrid safeties; Allen wants safeties who can disguise coverages by playing multiple spots; Jaquan Brisker used as Swiss Army knife \u2014 box, slot, blitz, deep; spent 35-40% of snaps in box; Kevin Byard as deep safety/coverage; Allen blitzes safeties at high rate; C.J. Gardner-Johnson converted from safety to nickel corner mid-season"
+    "scheme_family": "4-3 Multiple Front (New Orleans / Sean Payton ecosystem)",
+    "scheme_detail": "Allen runs a base 4-3 defense that shifts between even and odd fronts while maintaining 4-3 personnel. His hallmarks are man-heavy coverage (55% man rate in New Orleans), four-man front pressure with minimal blitzing, and heavy use of two-high safety shells to disguise coverage. In Chicago, Allen's defense led the NFL with 32 turnovers forced. The scheme is complex \u2014 Montez Sweat called it 'complex' \u2014 requiring versatile defenders who can handle multiple responsibilities. Allen aligns 6+ defenders on the line of scrimmage pre-snap to create confusion about who's rushing and who's dropping, generating simulated pressure without committing extra rushers.",
+    "front_structure": "Base 4-3 with two DEs and two DTs, but Allen frequently shifts to odd-front looks (bear, tite, under) using the same 4-3 personnel. On passing downs, he replaces a DT with a third DE roughly 20% of the time. DEs align wide of offensive tackles. Interior DL are asked to take on double teams and control gaps. The front is designed to generate pressure through four-man rushes and stunts rather than blitzes. Montez Sweat (10 sacks) and Austin Booker anchor the edge, with Gervon Dexter Sr. (6 sacks) and Grady Jarrett inside.",
+    "coverage_philosophy": "Man-heavy scheme with diverse zone complements. Allen's Saints used man coverage on 55% of dropbacks (5th-highest rate in NFL). Cover 1 (man-free) is the primary man look. In zone, Allen runs an even split of Cover 2, Cover 3, and Cover 4 \u2014 unlike Eberflus who was Cover 3 dominant. Two-man coverage (two-deep safeties with man underneath) was a Saints specialty \u2014 they ran it at twice the league average in their peak years. Allen disguises coverages 18-21% of the time. CBs are asked to play press-man and shadow assignments. In 2025, Bears were 18th in pass defense (218.9 YPG) but excelled in the red zone and on third down.",
+    "pressure_philosophy": "Low blitz rate but aggressive simulated pressure. Allen's Saints blitzed only 20% of the time in 2024 (25th in NFL), but were 6th in overall pressure rate since 2016 (31%). He generates pressure through creative four-man stunts and games up front, plus simulated pressures where he shows 6+ on the line and drops rushers into coverage. On 3rd down, Allen aligned 6+ on the line of scrimmage 40% of the time but only brought 5+ rushers 20% of the time \u2014 and actually dropped to only 3 rushers 27% of the time. This requires versatile defensive linemen who can occasionally drop into coverage.",
+    "sub_packages": "Heavy dime usage on passing downs \u2014 Allen ran dime (6 DBs) on 66% of 3rd downs in 2024, with nickel on 30%. His preferred 3rd-down packages are 4-1-6 (43% of 3rd downs) and 3-2-6 (23%). Allen uses more CBs and safeties in the slot than most coordinators, reducing LB slot coverage responsibilities. In Chicago, Kyler Gordon plays nickel CB, with C.J. Gardner-Johnson deployed as a versatile slot/safety hybrid. Jaquan Brisker functions as the strong safety/box player with the versatility Allen prizes."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "Ben Johnson's offense is one of the premier TE-receiving schemes in the NFL. Chicago used a 1st-round pick (10th overall) on Colston Loveland specifically for this role. Loveland led the team in receiving yards (713) and TDs (6) as a rookie. Johnson historically runs heavy 12-personnel sets (33%+ in Detroit) with TEs flexed to slot, running full route trees, and serving as primary targets in play action. OC Declan Doyle praised Loveland's 'versatility on both base and third down.' Johnson's scheme treats elite receiving TEs as weapons equivalent to WRs, not just blockers. Any TE with route-running ability, hands, and separation gets maximum value here."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB in Johnson's system must operate within a structured, timing-based framework on play-action and quick-game concepts while possessing the improvisational ability to extend plays when the pocket breaks down. Johnson calibrates the offense to the QB \u2014 he built around Goff's rhythm passing in Detroit and shifted to exploit Williams' mobility and arm talent in Chicago. The QB must process split-field reads, execute play-action fakes convincingly, and deliver with anticipation on intermediate timing routes (Dagger, Hi-Cross). Pre-snap motion reads are a core responsibility \u2014 the QB must diagnose man vs. zone based on defensive reactions to motion.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Johnson's Hi-Cross and Dagger concepts include 7-step drops and deep post/seam shots that require driving the ball downfield with velocity. Williams' arm talent unlocked deeper play-action shots that weren't available with Goff in Detroit."
+        },
+        "Accuracy": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The timing-route foundation of Johnson's passing game demands anticipation throws \u2014 delivering the ball before the receiver completes the break on digs, curls, and crossers. Williams' accuracy was specifically cited as an area to improve in 2025 despite the system working well overall."
+        },
+        "Pocket Presence": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Play-action requires the QB to operate from under center and in the pocket, reading coverage while the fake develops. Johnson's offense suffered when the 2024 Bears OL collapsed \u2014 pocket navigation is critical to executing timing concepts."
+        },
+        "Mobility": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Johnson adapted his system specifically for Williams' mobility \u2014 adding designed QB runs, boot concepts that leverage the QB's ability to threaten on rollouts, and extending the playbook to include scramble-drill opportunities. Williams' 388 rushing yards show the scheme values a mobile QB more than Johnson's Detroit system did."
+        },
+        "Decision Making": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Split-field read concepts require rapid processing \u2014 the QB must identify the weak hook/weak safety movement and progress through the read before windows close. The Bears' league-low 11 giveaways in 2025 reflect the scheme's emphasis on ball security and smart decisions."
+        },
+        "Leadership": {
+          "weight": 0.05,
+          "importance": "moderate",
+          "reasoning": "Johnson creates the culture and calls the plays, reducing the QB's burden as a field general relative to systems where the QB has more autonomy. But the QB must command the huddle and manage the diverse personnel groupings."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Motion-based coverage identification is built into the scheme \u2014 the QB reads whether defenders follow motion to determine man or zone. This is schematically supported (the design makes it easy) rather than requiring elite pre-snap processing from the QB alone."
+        }
+      },
+      "ideal_archetype": "The ideal QB in Johnson's Chicago system is an accurate, mobile passer who can operate within timing-based concepts while possessing the improvisational talent to extend plays and attack downfield. Not a pure pocket passer like Goff was in Detroit \u2014 Johnson specifically rebuilt the offense around a more dynamic, dual-threat profile. Think Josh Allen or Dak Prescott \u2014 a QB who can execute play-action, hit intermediate timing routes with anticipation, and create explosive plays with his legs when structure breaks down. Must be comfortable with heavy pre-snap motion and diverse personnel groupings.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4",
+          "floor": "6-0",
+          "reasoning": "Johnson's scheme uses heavy play-action with under-center formations, requiring the QB to see over the line. But Williams at 6-1 proves the scheme can work with a slightly shorter QB who has mobility to create throwing windows."
+        },
+        "weight": {
+          "ideal": "215-230",
+          "floor": "205",
+          "reasoning": "Must be durable enough to absorb hits on designed runs and boot concepts, but mobile enough to execute the scramble-drill and designed QB runs that Johnson added for Williams."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.75",
+          "reasoning": "Johnson's Chicago offense incorporates more designed QB runs and scramble opportunities than his Detroit system. Sub-4.75 speed is a soft floor to credibly threaten as a runner."
+        }
+      },
+      "development_context": "Johnson and Taylor (formerly Pederson's QB coach) have a combined track record of developing QBs: Johnson maximized Goff into a top-10 efficiency QB; Taylor helped develop Wentz (2017 MVP candidate) and Lawrence (2022 Pro Bowl). The staff can develop accuracy, timing, and decision-making within the system. Williams' franchise-record 3,942 passing yards in his second year under Johnson shows the staff can elevate young QBs. What must arrive: arm talent and mobility are not coachable \u2014 the scheme now expects both.",
+      "scheme_fit_narrative": "This offense needs a QB who can do two things: execute timing routes within a structured play-action system, and then improvise when the play breaks down. Johnson built around Goff's precision in Detroit and around Williams' playmaking in Chicago \u2014 but in both cases, the foundation was play-action, motion, and intermediate passing. We want a guy who can run the Dagger concept on time but also extend the play and find the deep ball when the first read isn't there.",
+      "archetype_examples": [
+        "Josh Allen",
+        "Dak Prescott",
+        "Caleb Williams"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "low",
-      "explanation": "Allen runs a 4-3 base where edge rush comes from hands-in-dirt DEs (Sweat, Booker, Odeyingbo), not stand-up LBs. Allen's dime-heavy approach actually removes LBs from the field on passing downs \u2014 the SAM LB was on the field for only two 3rd-down snaps across five charted games of Allen's Saints defense. ILBs Edmunds and Edwards are used for coverage and run defense, not pass rushing. LB-to-pass-rusher conversion is minimal in this scheme. Blitzes come from safeties and corners more than LBs."
+    "RB": {
+      "scheme_role": "Johnson uses a committee approach \u2014 the lead back handles 55-60% of carries while the change-of-pace back provides a complementary skill set. The primary back must excel in outside zone, reading the front-side blocks and cutting back when the backside opens. Johnson's scheme also requires pass-catching ability \u2014 his Detroit backs (Gibbs) were deployed as route-runners out of the backfield with choice routes and screen concepts. The RB must sell play-action fakes convincingly to support the passing game foundation.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Outside zone demands elite vision \u2014 the RB must read the reach blocks developing, identify cutback lanes, and make one decisive cut. Johnson's Lions were consistently one of the most outside-run-heavy teams in the NFL, and the scheme breaks down without a back who can find the crease."
+        },
+        "Contact Balance": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Zone runs often develop behind imperfect blocks where the RB takes contact at the point of attack. Contact balance allows yards after first contact, but Johnson's scheme creates more open-field lanes than a gap/power system."
+        },
+        "Power": {
+          "weight": 0.05,
+          "importance": "low",
+          "reasoning": "Johnson uses committee approach where short-yardage can go to a different back. The scheme creates space through angles and reach blocks rather than requiring the RB to hammer through stacked boxes."
+        },
+        "Elusiveness": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Zone runs demand a back who can make defenders miss in space \u2014 Johnson's best backs (Gibbs, Swift) are elusive, not power runners. The outside zone creates one-on-one matchups in space that favor lateral agility."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Johnson's outside zone creates alley runs and perimeter lanes that reward speed to the edge. His Detroit Lions produced four 1,000-yard scrimmage players with explosive backs. The scheme needs a back who can turn the corner."
+        },
+        "Pass Catching": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Johnson designs specific pass packages for the RB \u2014 choice routes, HB screens, angle routes, and checkdowns are integral to the offense. Gibbs and Swift were both heavily featured as receivers. Monangai caught 18 passes as a rookie seventh-rounder, showing the scheme distributes to the position."
+        },
+        "Pass Protection": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Play-action requires the RB to occasionally stay in and pick up rushers. Important but not a primary evaluation criterion \u2014 Johnson's system uses max protection and TE chips to supplement."
+        }
+      },
+      "ideal_archetype": "The ideal back in Johnson's system is a versatile, elusive zone runner who can catch passes out of the backfield and create explosive plays in space. Not a between-the-tackles pounder \u2014 a speed/elusiveness back who reads zone blocks, makes one cut, and accelerates through the hole. Think Jahmyr Gibbs or Alvin Kamara \u2014 backs who win with lateral agility, receiving ability, and burst rather than size and power. Swift's 1,087-yard season in 2025 exemplifies the archetype: a back who thrived in outside zone and caught passes on choice routes.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "195-215",
+          "floor": "185",
+          "reasoning": "Zone scheme creates space rather than requiring the back to absorb punishment. Lighter backs with speed and agility fit better than 230-lb bruisers."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "Outside zone demands the ability to reach the edge and outrun pursuit angles. Speed is critical for the perimeter run game."
+        },
+        "3_cone": {
+          "ideal": "Sub-6.90",
+          "floor": "7.00",
+          "reasoning": "Lateral agility directly maps to zone-scheme effectiveness \u2014 the back must make sharp cuts in the hole and change direction fluidly."
+        }
+      },
+      "development_context": "Eric Studesville (2026 RB coach) developed De'Von Achane (1,350 rushing yards in 2025) and Raheem Mostert in Miami. Bieniemy (2025 RB coach) developed Kareem Hunt in Kansas City. The staff has deep expertise developing backs in zone-heavy systems. Pass-catching technique can be taught \u2014 vision and elusiveness are harder to develop and should arrive with the prospect.",
+      "scheme_fit_narrative": "We need a back who can run zone. That's non-negotiable. The outside zone is the foundation of everything we do offensively \u2014 it sets up play-action, it controls tempo, it creates explosive runs. The ideal prospect makes one cut and goes, has the speed to bounce it outside, and can line up in the slot and run routes. We don't need a 235-pound hammer \u2014 we need a guy who makes people miss and catches the ball.",
+      "archetype_examples": [
+        "Jahmyr Gibbs",
+        "Alvin Kamara",
+        "D'Andre Swift"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "high",
-      "explanation": "Johnson's offense explicitly values RB receiving ability. In Detroit, he limited D'Andre Swift's carries to ~7/game while increasing pass targets to get him in space, resulting in a career-best 5.5 YPC and 8.1 YPR. In Chicago, Swift had 34 receptions for 299 receiving yards alongside his rushing production. Johnson's play-action heavy system creates natural checkdown and screen opportunities for RBs. Swift's 55-yard catch-and-run TD vs Washington exemplifies how Johnson schemes RBs as receivers. The team's official bio calls Swift a 'dynamic dual-threat running back' who is 'a key asset in Coach Ben Johnson's offense \u2014 capable of catching passes out of the backfield and turning short gains into explosive plays.' Pass protection is also valued."
+    "WR": {
+      "scheme_role": "Johnson distributes targets widely \u2014 no Bears WR exceeded 24.1% target share in 2025. The WR1 (Odunze) runs the full route tree including deep shots off play-action. The WR2 (Moore/Burden) works intermediate crossers, digs, and underneath routes. WR3 is often replaced by a second TE in 12 personnel, so the WR3 must earn snaps through versatility. All receivers are expected to block on outside zone runs and sell run fakes on play-action. Johnson uses WRs in jet sweep motion and trick plays, requiring comfort with pre-snap motion assignments.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Johnson's Dagger and Hi-Cross concepts require precise route-running \u2014 the dig must hit at the correct depth, the post must stem properly. The timing-based passing game breaks down without technically sound route runners who create separation at the top of routes."
+        },
+        "Separation": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "With Allen's man-heavy defense across the league, Johnson's passing concepts are designed to beat man coverage \u2014 but the WR must win 1-on-1 matchups. Johnson distributes targets widely, so every receiver must be able to get open independently."
+        },
+        "Hands": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Johnson's quick game and timing routes deliver the ball into tight windows. The Bears had the fewest giveaways (11) in the NFL in 2025, and reliable hands are part of ball security. Johnson also uses WRs on trick plays and lateral exchanges."
+        },
+        "YAC Ability": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Johnson's short-to-intermediate passing game (curl-flat, slant concepts, screens) is designed to create YAC opportunities. The offense depends on receivers turning short catches into chunk plays. Burden (652 yards as a rookie) exemplifies the YAC weapon Johnson values."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Play-action deep shots off the Hi-Cross concept require a vertical threat, but Johnson's system doesn't demand a pure burner at every position. Speed is important for creating the big play, not for running go routes every snap."
+        },
+        "Contested Catches": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Johnson's scheme creates separation by design \u2014 contested catches are a secondary skill. But with Williams' arm and tendency to extend plays, receivers must be able to win above the rim on improvisational throws outside the structure."
+        },
+        "Release Package": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Against Allen-style man-heavy defenses across the NFC North, a clean release off the line is important. But Johnson's motion and formation creativity often give receivers free releases, reducing the premium on release technique."
+        }
+      },
+      "ideal_archetype": "The ideal WR in Johnson's Chicago system is a technician who wins with route-running and YAC ability, comfortable in a distributed target share where he might lead the team one week and be the fourth option the next. Not a pure X-receiver iso player \u2014 a versatile playmaker who can run the full route tree, block on zone runs, and execute in pre-snap motion. Think Amon-Ra St. Brown (Johnson's top target in Detroit) \u2014 a complete receiver who wins with technique, toughness, and YAC rather than pure speed. Odunze's 661-yard, 6-TD season as the nominal WR1 shows the archetype: a well-rounded receiver, not a one-dimensional speed threat.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-9",
+          "reasoning": "Johnson's scheme doesn't demand a specific body type \u2014 he's used everything from Amon-Ra (6-0) to Jameson Williams (6-1) to DJ Moore (5-11). Versatility and route-running matter more than size."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.55",
+          "floor": "4.60",
+          "reasoning": "Need enough speed to threaten deep off play-action, but the scheme creates separation through design rather than requiring a 4.30 burner. Speed is complementary, not primary."
+        }
+      },
+      "development_context": "Antwaan Randle El (WR coach/Asst HC) was a versatile NFL receiver who spent 9 years in the league and worked with Johnson in Detroit. The staff can develop route-running technique and schematic understanding. Luther Burden III (652 yards as a rookie) shows they can integrate raw talent quickly. What must arrive: hands and competitive toughness. The blocking demands of the outside zone run game require toughness that can't easily be taught.",
+      "scheme_fit_narrative": "We spread the ball around \u2014 our top guy had 24% target share. So we need receivers who can win on any given play, not just when they're the primary read. Route-running and YAC are what we value most. We want a guy who can run a dig at 12 yards, catch it in stride, and turn it into a 25-yard gain. He's gotta block on zone runs without complaining. If he can do that and handle motion assignments, he fits our system.",
+      "archetype_examples": [
+        "Amon-Ra St. Brown",
+        "Rome Odunze",
+        "DJ Moore"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "Dennis Allen's defense is built around interchangeable, versatile safeties. Jaquan Brisker described his role as 'Swiss Army Knife' \u2014 lining up at box, slot, deep, and outside corner. He said 'I'll be close, I'll be in the back, I might be outside corner, I might be in the slot.' Allen used Tyrann Mathieu similarly in New Orleans. Allen blitzes safeties at a high rate (equal to CB blitz rate), wants interchangeable safeties to disguise coverages, and deploys dime packages (removing LBs, adding S/CB) 66% of the time on 3rd down. Brisker spent 35-40% of snaps in box. C.J. Gardner-Johnson was converted from safety to slot corner. Any safety with box/blitz/man coverage versatility gets maximum value in this scheme."
+    "TE": {
+      "scheme_role": "The TE position is the linchpin of Johnson's offense. In 12 personnel \u2014 the Bears' most frequent grouping \u2014 both TEs must function as dual-threat players. The Y-TE (Kmet) aligns on the line as an extra blocker on zone runs and releases into routes on play-action. The F/move TE (Loveland) flexes into the slot, lines up as a receiver, and runs a full route tree. Johnson described wanting TE versatility 'on both base and third down.' Loveland led the Bears in receiving yards (713) as a rookie, showing the scheme features the TE as a primary pass-catcher. TEs are critical to play-action \u2014 they must sell the fake and then release into option routes that exploit zone coverage soft spots.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The TE is the primary beneficiary of Johnson's play-action concepts \u2014 Dagger puts the TE on seam/dig routes, and option routes give the TE freedom to find soft spots in zone. Loveland's 713 receiving yards as a rookie prove the scheme demands a TE who can be a top-3 pass-catcher."
+        },
+        "Route Running": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Johnson's TEs run a WR-like route tree \u2014 Williams said Loveland's 'body language running routes is very similar to a wide receiver.' Option routes require the TE to read coverage and make route adjustments on the fly."
+        },
+        "Blocking": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "12 personnel is the base grouping, and outside zone requires the TE to reach-block or seal the edge. The scheme cannot function in 12 personnel if the TE is a liability as a blocker \u2014 Doyle explicitly cited 'versatility on both base and third down' as the key trait."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The move TE must be able to line up in the slot, run seam routes, and create mismatches against LBs and safeties. Loveland at 6-6, 248 pounds embodies the athletic profile the scheme exploits \u2014 too fast for LBs, too big for safeties."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Timing routes and play-action concepts deliver the ball on schedule \u2014 the TE must catch cleanly in traffic. Reliability matters more than acrobatic catches in this system."
+        },
+        "Speed": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "The TE doesn't need WR speed, but must be fast enough to threaten the seam on Dagger concepts and create separation on intermediate routes. Loveland's receiving production shows the scheme rewards athletic TEs without requiring 4.5 speed."
+        }
+      },
+      "ideal_archetype": "The ideal TE in Johnson's system is a 6-4+ athletic mismatch weapon who can line up on the line and block on zone runs, then flex into the slot and run a full route tree as a pass-catcher. Think Kyle Pitts in terms of receiving ability combined with George Kittle in terms of blocking willingness \u2014 the scheme demands both. Loveland (6-6, 248, 713 receiving yards as a rookie) is the prototype: a dynamic every-down TE who creates mismatches and can hold up as a run blocker in 12 personnel.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "The scheme creates seam routes and red-zone targets for the TE \u2014 size creates the mismatches that make these concepts work. Loveland at 6-6 is the ideal frame."
+        },
+        "weight": {
+          "ideal": "240-260",
+          "floor": "230",
+          "reasoning": "Must be able to sustain blocks on zone runs while maintaining the athleticism to run routes. Under 230 creates blocking concerns in 12 personnel."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "The seam-based passing game requires TEs who can stress the defense vertically. Sub-4.70 is ideal to create genuine matchup problems."
+        }
+      },
+      "development_context": "Johnson's career traced through TE coaching \u2014 he was TE coach at Boston College, Miami, and Detroit before becoming OC. He has deep expertise developing TEs. Loveland's 713-yard rookie season under Johnson proves he can turn raw receiving talent into production quickly. The staff can develop route-running and receiving technique. Blocking technique is the harder development ask \u2014 Johnson's scheme requires it immediately in 12 personnel.",
+      "scheme_fit_narrative": "This offense lives in 12 personnel. Our TE has to be able to block on outside zone and release into the Dagger concept 10 plays later. Loveland proved you can have a top-3 receiving TE who also holds up as a blocker in this system. We want a guy who creates mismatches in the passing game \u2014 too fast for linebackers, too big for safeties \u2014 but can also sustain blocks at the point of attack. If he can't block, he can't stay on the field in our base grouping, and that limits what we can do schematically.",
+      "archetype_examples": [
+        "Colston Loveland",
+        "Kyle Pitts",
+        "George Kittle"
+      ]
+    },
+    "OT": {
+      "scheme_role": "Johnson's outside zone scheme demands OTs who can move laterally on reach blocks, climb to the second level, and sustain blocks on the edge. In pass protection, the OT must handle speed rushers on the edge while Johnson's play-action rollouts require the ability to execute boot protection (seal the backside, allowing the QB to roll out). The 2024 Bears allowed a franchise-record 68 sacks, making OL a top priority. Dan Roushar (OL coach, former Saints OL coach) rebuilt the unit in 2025, dramatically improving protection. OTs must be 'smart, tough guys that love football' per Roushar's stated criteria.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "After allowing 68 sacks in 2024, protecting Caleb Williams is the top priority. Johnson's play-action concepts require time to develop \u2014 the 7-step Dagger and Hi-Cross concepts need the pocket to hold for 2.5-3 seconds. Pass protection failure destroys the entire offensive architecture."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Outside zone is the foundation of the offense. OTs must execute reach blocks \u2014 getting lateral displacement on the first step to seal the edge \u2014 and climb to the second level to engage linebackers. Johnson's Lions were one of the most outside-run-heavy teams in the NFL for three straight years."
+        },
+        "Footwork": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Zone blocking demands quick lateral footwork to get into position on reach blocks. The zone step (lateral first step) is the most fundamental technique in this scheme. Boot protection requires the backside OT to execute a hinge/drop technique. Roushar's Saints OL background emphasizes technical footwork."
+        },
+        "Anchor": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Must hold up against power rushers, but the scheme's quick timing passes and play-action reduce the number of extended pass sets. Anchor matters less than in a true dropback-heavy system."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Outside zone OTs must move \u2014 they're asked to reach-block DEs, pull on pin-and-pull concepts, and climb to the second level. The scheme punishes stiff, statue-like tackles who can only pass-set. Johnson's best OL in Detroit (Penei Sewell, Taylor Decker) were above-average athletes."
+        },
+        "Strength": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Baseline strength is necessary, but the scheme relies more on angles and leverage than pure power. The zone blocking philosophy is about positioning and technique rather than mauling."
+        }
+      },
+      "ideal_archetype": "The ideal OT in Johnson's system is an athletic, technically sound blocker who can execute zone reach blocks, climb to the second level, and hold up in pass protection. Not a massive phone-booth mauler \u2014 a mover who can sustain blocks on the edge and mirror speed rushers. Think Penei Sewell \u2014 the Lions' All-Pro LT who thrived in Johnson's zone scheme with elite athleticism and technique. Ozzy Trapilo (Bears 2025 2nd-round pick) exemplifies the raw athletic profile the scheme seeks at the position.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Need length to execute reach blocks and mirror rushers, but extreme height (6-8) can create pad-level issues on zone blocks."
+        },
+        "weight": {
+          "ideal": "305-325",
+          "floor": "295",
+          "reasoning": "Must be heavy enough to sustain blocks but light enough to move laterally. Zone blocking punishes overweight, immobile linemen."
+        },
+        "short_shuttle": {
+          "ideal": "Sub-4.65",
+          "floor": "4.75",
+          "reasoning": "Lateral agility is the most important measurable for zone OTs \u2014 they must get lateral displacement on the first step to execute reach blocks. A stiff OT who can only pass-set kills the run scheme."
+        }
+      },
+      "development_context": "Roushar is a 41-year coaching veteran who spent 10 years with the Saints and oversaw their run game coordination. He transformed the Bears' OL in 2025 from the worst in the NFL (68 sacks) to a competent unit. He emphasizes 'smart, tough guys that love football.' The staff can develop technique \u2014 footwork, hand placement, zone steps. What must arrive: baseline athleticism. You can't teach lateral movement to a stiff OT. Roushar's Saints background shows he can develop zone blockers, but the athletic foundation must exist.",
+      "scheme_fit_narrative": "We rebuilt this offensive line from scratch in 2025 because the old group couldn't move. Zone blocking demands athletic linemen who can get from A to B laterally. We need tackles who can reach-block on outside zone, climb to the second level, and then hold up against speed rushers on the next play. Smart and tough. If a guy can't move his feet, he can't play for us no matter how strong he is.",
+      "archetype_examples": [
+        "Penei Sewell",
+        "Taylor Decker",
+        "Joe Thuney (IOL but archetype for intelligence/technique)"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "The interior OL in Johnson's system must execute inside and outside zone combo blocks, handle down blocks and reach blocks, and pull on counter/pin-and-pull concepts. The center makes protection calls and manages the line communication \u2014 Johnson's scheme uses diverse formations that require the IOL to identify fronts quickly. Guards must pull on gap runs and execute combo blocks at the second level. Joe Thuney (All-Pro in 2025) exemplifies the standard: technically elite, intelligent, and capable of handling multiple blocking schemes. The IOL must protect the QB on quick-game and play-action concepts.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Interior pressure collapses the pocket and disrupts the timing-based passing game. After the 68-sack disaster in 2024, the Bears invested heavily in pass-protecting IOL (Thuney, Jonah Jackson). Play-action concepts require a clean pocket to develop."
+        },
+        "Run Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The IOL drives the zone run game. Combo blocks \u2014 where two adjacent IOL double-team a DT before one climbs to the LB \u2014 are the fundamental play in outside zone. The Bears had the 2nd-best rushing offense through midseason 2025, powered by the revamped interior line."
+        },
+        "Pulling": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Johnson mixes in counter, power, and pin-and-pull concepts that require guards to pull. Not the primary run scheme (zone is), but a meaningful secondary element that adds to the multiplicity."
+        },
+        "Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must handle interior DTs on combo blocks and sustain double teams. But the zone scheme emphasizes positioning and leverage over raw power \u2014 you're redirecting defenders, not driving them backward 5 yards."
+        },
+        "Anchor": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Interior rushers (Aaron Donald archetypes) can destroy the timing passing game. Must hold the point of attack against bull rushes and stunts. Critical but secondary to movement skills."
+        },
+        "Versatility": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Roushar wants 'smart, tough guys' who can handle multiple responsibilities. Johnson's diverse formations require IOL to handle different fronts, stunts, and blitz pickups. Guards who can play center (and vice versa) are valued. Luke Newman (6th-round pick) was drafted for his versatility."
+        }
+      },
+      "ideal_archetype": "The ideal IOL is a technically refined, intelligent zone blocker who can handle combo blocks, pull on gap runs, and protect the QB against interior pressure. Think Joe Thuney \u2014 an All-Pro who excels in every phase through technique and football IQ rather than raw athletic dominance. Or Joel Bitonio \u2014 a smart, complete guard who can execute zone blocks, pull, and pass-protect at a high level. Not a pure mauler who struggles in space \u2014 a balanced, technically sound lineman who processes blocking assignments quickly.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Zone blocking IOL benefit from lower pad level \u2014 extremely tall guards can struggle getting leverage on combo blocks."
+        },
+        "weight": {
+          "ideal": "305-325",
+          "floor": "295",
+          "reasoning": "Must handle interior DTs but mobile enough to execute zone steps and pull. The scheme doesn't reward immovable objects who can't get to the second level."
+        },
+        "short_shuttle": {
+          "ideal": "Sub-4.70",
+          "floor": "4.80",
+          "reasoning": "Lateral agility for zone blocks and pulling ability are highly correlated with short shuttle times. Stiff interior linemen break the zone run game."
+        }
+      },
+      "development_context": "Roushar and assistant OL coach DeVan (who worked together previously) can develop technique \u2014 zone footwork, hand placement, combo-block timing. Thuney's presence in the room sets the standard. The staff developed the Bears from the worst OL in the NFL to a playoff-caliber unit in one year. Intelligence and processing speed must arrive \u2014 you can't teach a lineman to make protection calls quickly if he doesn't process information well.",
+      "scheme_fit_narrative": "Joe Thuney is the standard. Smart. Tough. Versatile. Every IOL we bring in has to process information quickly \u2014 we run a lot of different formations and the fronts change constantly. If a guard can't identify a stunt and pick it up, the whole play dies. We want zone blockers who can pull, anchor against the bull rush, and slide to handle stunts. Football IQ is the separator for us at this position.",
+      "archetype_examples": [
+        "Joe Thuney",
+        "Joel Bitonio",
+        "Jonah Jackson"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "In Allen's 4-3 defense, the EDGE (DE) aligns wide of the offensive tackle in a 3-point stance. The primary responsibility is generating pressure as part of the four-man front \u2014 Allen's system generates pressure through the front four rather than blitzing. EDGE rushers must also set the edge against outside zone runs, which is critical because Allen's Saints led the NFL in yards per rush allowed (4.0) from 2016-21. On passing downs, Allen replaces a DT with a third DE roughly 20% of the time, so the EDGE must be able to play both strong-side and weak-side. The scheme uses extensive stunts \u2014 the DE must execute twist and games with the DT to generate pressure without blitzing.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "Allen's entire defensive philosophy depends on generating pressure with the front four. With blitz rates around 20%, the EDGE must win 1-on-1 against the OT. Montez Sweat's 10 sacks led the 2025 Bears and were critical to the defense's 32-takeaway season \u2014 pressure fuels turnovers."
+        },
+        "Bend": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Allen deploys DEs wide of the OT, requiring the ability to flatten around the edge on speed rushes. The wide alignment creates natural speed-to-power and bend opportunities. Sweat's athletic profile \u2014 long, bendy, explosive \u2014 fits this alignment."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Four-man front pressure generation requires winning early in the pass rush rep. Allen's stunts and games create one-on-one opportunities, but the EDGE must win his initial matchup to make the scheme work."
+        },
+        "Power": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Speed-to-power conversion is valuable in Allen's system, but it's secondary to edge-setting and speed rushing. The wide DE alignment favors speed and bend over pure bull-rush power."
+        },
+        "Motor": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Allen's simulated pressure looks (6+ on the LOS, only 3-4 actually rushing) mean the EDGE may have to sustain effort through the fake and then rush late. Also important for chasing mobile QBs in the NFC North (Hurts, Fields, etc.)."
+        },
+        "Run Defense": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Allen's Saints were elite against the run (1st in yards per rush, 2016-21). The EDGE must set the edge on outside zone and contain \u2014 the entire run defense structure depends on DEs maintaining gap discipline. This isn't a system where the EDGE can sell out for sacks and ignore the run."
+        }
+      },
+      "ideal_archetype": "The ideal EDGE in Allen's Chicago system is a long, athletic speed rusher who can win on the edge with bend and burst, convert speed to power, and set the edge against the run with discipline. Think Cameron Jordan \u2014 Allen's All-Pro DE in New Orleans who combined pass-rush productivity with elite run defense over a decade. Or Montez Sweat, the current anchor \u2014 explosive off the edge, disciplined in the run game, productive in stunts. Not a pure pass-rush specialist who can't play the run \u2014 Allen demands two-way production from his DEs.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-6",
+          "floor": "6-2",
+          "reasoning": "Allen's DEs align wide and need length to set the edge and challenge OTs with long arms. Shorter, more compact rushers fit better as interior penetrators."
+        },
+        "weight": {
+          "ideal": "250-275",
+          "floor": "240",
+          "reasoning": "Must be strong enough to hold the edge against zone runs but athletic enough to threaten with speed. Allen's best DEs (Jordan, Sweat) have been in this range."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.75",
+          "reasoning": "The wide alignment rewards speed off the edge. Allen's scheme creates opportunities for speed-to-power, but the initial burst must be there."
+        },
+        "arm_length": {
+          "ideal": "34+",
+          "floor": "33",
+          "reasoning": "Long arms are critical for keeping OTs at bay on bull rushes and for setting the edge in the run game. Allen's DEs use length as a fundamental tool."
+        }
+      },
+      "development_context": "Allen developed Cameron Jordan into a perennial Pro Bowler and All-Pro over a decade in New Orleans. He also maximized Marcus Davenport's raw talent into productive pass-rush seasons. In Chicago, he's working with Montez Sweat (10 sacks) and developing Austin Booker (4.5 sacks as a young player). The staff can refine pass-rush technique and hand usage. What must arrive: first-step explosion and bend \u2014 these are athletic traits that can't be taught. Run defense discipline can be coached within Allen's system.",
+      "scheme_fit_narrative": "Dennis Allen's defense starts up front. We need EDGE players who can get after the quarterback with four rushers because we're not blitzing much. But they absolutely must set the edge in the run game \u2014 that's not optional. We want a guy who gives us 8-10 sacks and 50+ pressures while also being a top-tier run defender. Sweat is the model. If a prospect can't do both, he doesn't fit.",
+      "archetype_examples": [
+        "Cameron Jordan",
+        "Montez Sweat",
+        "Trey Hendrickson"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Allen's interior DL (DTs) must control the interior and take on double teams to keep linebackers clean. The 4-3 front asks DTs to command gaps and occupy blockers rather than penetrating upfield. On passing downs, Allen wants interior push to collapse the pocket \u2014 complementing the EDGE rush from the outside. The scheme uses extensive stunts between DTs and DEs, so DTs must be able to execute twist games. Allen replaces a DT with a third DE on roughly 20% of passing downs, so the starting DT who stays on the field must be a capable pass rusher. Gervon Dexter (6 sacks) and Grady Jarrett represent the one-gap penetrator and two-gap anchor archetypes, respectively.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Interior pressure is what creates sacks on the edge \u2014 Allen's system needs DTs who can push the pocket and generate interior heat. The scheme doesn't blitz much, so DT pass-rush ability amplifies the four-man front effectiveness. Dexter's 6 sacks show what the scheme expects from a penetrating DT."
+        },
+        "Run Defense": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Allen's Saints led the NFL in run defense (4.0 YPC allowed, 2016-21). Interior DTs anchoring against double teams is the foundational element. The DL must control the line of scrimmage to allow LBs to make plays. Allen's best defenses were built on interior dominance."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Allen's stunt games require DTs with quickness to execute twist techniques \u2014 the DT must clear his gap quickly before looping behind the DE. A slow first step makes the stunt scheme ineffective."
+        },
+        "Hand Usage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Interior DTs face double teams on nearly every snap in the run game. Winning with hands \u2014 swim moves, rip techniques, and stack-and-shed \u2014 is critical for both pass rush and run defense. Allen's interior DL must control blocks, not just absorb them."
+        },
+        "Motor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Allen's simulated pressure looks require DTs to sustain effort and remain active through extended plays. Also important for chasing plays down in the run game \u2014 Allen's run defense demands effort from the interior."
+        },
+        "Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must anchor against double teams and hold the point of attack. The 4-3 front asks DTs to occupy two blockers \u2014 this requires a physical baseline that allows the DT to control the interior without getting displaced."
+        }
+      },
+      "ideal_archetype": "Allen's ideal DT is a versatile interior player who can command double teams in the run game and push the pocket as a pass rusher. Think Sheldon Rankins \u2014 Allen's productive Saints DT who combined run stuffing with interior pass-rush ability. Or Chris Jones \u2014 a disruptive interior presence who wins with quickness and hand usage. Allen wants DTs who can execute stunts, handle gap responsibilities, and generate pressure from the inside. The DT who stays on the field in dime must be the pass-rush DT, while the early-down DT must be the run stuffer.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-0",
+          "reasoning": "Interior DTs need leverage \u2014 excessively tall DTs can get caught with high pad level. The ideal is a player with a long frame who can play with good pad level."
+        },
+        "weight": {
+          "ideal": "295-320",
+          "floor": "280",
+          "reasoning": "Must hold up against double teams in the run game. Under 280 creates concerns against power run games. The scheme asks DTs to occupy space, not just penetrate."
+        },
+        "bench_press": {
+          "ideal": "28+",
+          "floor": "24",
+          "reasoning": "Upper body strength is critical for controlling blockers and winning hand-fighting battles. Allen's run defense philosophy demands DTs who can handle double teams."
+        }
+      },
+      "development_context": "Bill Johnson (Sr. Defensive Assistant/DL) brings extensive experience. Allen developed Sheldon Rankins and David Onyemata in New Orleans into productive starters. Gervon Dexter's 6-sack season in 2025 shows the staff can develop young DTs. The staff can refine hand usage and technique. What must arrive: baseline size/strength to handle NFL double teams and athletic quickness for stunts. Allen's system demands versatile DTs \u2014 pure space-eaters without pass-rush upside have limited value in dime packages.",
+      "scheme_fit_narrative": "Our interior DL has to do two things: stop the run and push the pocket. We're not going to blitz five or six guys \u2014 the front four has to get it done. We need DTs who can hold up against double teams on early downs and then win one-on-ones on passing downs. If a prospect can only do one of those things, he's a rotational piece. If he can do both, he starts.",
+      "archetype_examples": [
+        "Chris Jones",
+        "Sheldon Rankins",
+        "Gervon Dexter Sr."
+      ]
+    },
+    "LB": {
+      "scheme_role": "In Allen's 4-3 base, two LBs (MIKE and WILL) are on the field in early-down/run situations, but on passing downs Allen frequently moves to dime (4-1-6 or 3-2-6), removing one or both LBs. The MIKE (Tremaine Edmunds, 112 tackles) is the defensive QB who must process information, communicate, and make plays against the run. Allen's scheme asks LBs to fill run gaps disciplined by the DL's gap control, drop into zone coverage on passing downs, and occasionally blitz in creative pressure packages. Allen uses LBs to mug the line of scrimmage before dropping into coverage \u2014 LBs must sell the blitz convincingly. On 3rd down, Allen often keeps only 1 LB on the field, making that LB's versatility critical.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Edmunds' 112 tackles show the MIKE is the leading tackler in this system. With DL occupying blocks, LBs must run to the ball and finish tackles cleanly. Allen's run defense depends on LBs making plays once the DL controls the front."
+        },
+        "Coverage": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Allen's dime-heavy approach on passing downs means the LB who stays on the field MUST be able to cover. Allen's Saints had LBs cover the slot less often than most teams (using CBs/Ss instead), but the LB must handle hook/curl zones and carry TEs in man coverage. Demario Davis thrived in this role for years."
+        },
+        "Pass Rush": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Allen mugs LBs at the LOS before dropping them into coverage \u2014 the LB must look like a rusher pre-snap. Occasional A-gap blitzes are called, but with a 20% blitz rate, LB pass rush is situational, not primary."
+        },
+        "Instincts": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Allen's defense disguises coverages and mugs with LBs \u2014 the LB must process information quickly to transition from a fake blitz to zone drop or man assignment. Edmunds was specifically cited as someone whose 'playing style' fit Allen's scheme perfectly."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Allen's scheme asks LBs to range sideline to sideline against the run AND drop into coverage against TEs and RBs. The dime-heavy approach means only the most athletic LBs stay on the field in passing situations. Non-athletic thumpers get subbed off."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Must patrol from hash to hash in Allen's zone drops and chase outside zone runs to the perimeter. Range is important but secondary to instincts and coverage ability \u2014 Allen takes LBs off the field rather than exposing slow ones in space."
+        },
+        "Block Shedding": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "The DL is designed to occupy blockers and keep LBs clean \u2014 block shedding is less critical when the DL is doing its job. More important against teams that send OL to the second level."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.05,
+          "importance": "moderate",
+          "reasoning": "The MIKE communicates the defensive calls \u2014 but Allen himself is the schematic brain. The LB must execute assignments correctly, but the system's disguise is designed at the coordinator level, not requiring the LB to make independent pre-snap adjustments."
+        }
+      },
+      "ideal_archetype": "The ideal LB in Allen's system is a rangy, athletic three-down player who can fill run gaps, drop into coverage, and sell fake blitzes at the line of scrimmage. Think Demario Davis \u2014 Allen's All-Pro LB in New Orleans who played at a high level into his mid-30s through instincts, coverage ability, and leadership. Or Tremaine Edmunds (112 tackles, 4 INTs in 2025) \u2014 the prototypical size/athleticism/coverage LB. Not a downhill thumper who has to come off on passing downs \u2014 the ideal LB is versatile enough to stay on the field in all three downs.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4",
+          "floor": "6-0",
+          "reasoning": "Allen's LBs need size to match up against TEs in man coverage and length to patrol zones. Edmunds at 6-5, 250 is the high end; Davis at 6-2, 235 is the standard."
+        },
+        "weight": {
+          "ideal": "230-250",
+          "floor": "220",
+          "reasoning": "Must be physical enough to fill run gaps but light enough to run with TEs and RBs. The dime-heavy approach punishes LBs who are too heavy to move in space."
+        },
+        "40_yard_dash": {
+          "ideal": "4.50-4.65",
+          "floor": "4.70",
+          "reasoning": "Three-down LBs in Allen's scheme must cover ground quickly \u2014 whether chasing outside zone runs or dropping into hook/curl zones. A 4.70+ LB will get pulled off the field on 3rd down."
+        }
+      },
+      "development_context": "Richard Smith (LB coach) works under Allen's system. Allen developed Demario Davis into an All-Pro and kept him producing at elite levels through age 34. In Chicago, Edmunds' 2025 resurgence (112 tackles, 4 INT) under Allen validates that the scheme maximizes instinctive, athletic LBs. Allen also signed D'Marco Jackson (former Saints LB who earned NFC Defensive Player of the Week in 2025). The staff can develop coverage skills and assignment discipline. What must arrive: athleticism and instincts. A slow, non-athletic LB gets removed from the field in Allen's dime-heavy system.",
+      "scheme_fit_narrative": "We play a lot of dime. That means if you're a linebacker in this defense, you have to be able to cover. Period. We need a guy who fills the run gap, makes the tackle, and then stays on the field on third down to match up with a tight end or run with a running back. If you have to come off the field in passing situations, you're limited in value. Edmunds is our model \u2014 big, rangy, instinctive, and able to play all three downs.",
+      "archetype_examples": [
+        "Demario Davis",
+        "Tremaine Edmunds",
+        "Fred Warner"
+      ]
+    },
+    "CB": {
+      "scheme_role": "Allen's man-heavy scheme (55% man coverage in New Orleans, highest in Chicago's history under his watch) demands CBs who can play press-man and shadow assignments. Jaylon Johnson is the alpha CB who follows the opponent's WR1 \u2014 he explicitly said 'you lock up the No. 1 guy.' The boundary CB2 must also handle man-to-man responsibilities. The nickel CB (Kyler Gordon) plays the slot in man and zone, with Allen using CBs in the slot more frequently than most coordinators. Allen's two-man coverage concept (two-deep safeties with man underneath) was a Saints specialty \u2014 CBs must execute bump-and-run with safety help over the top. On third down in dime (6 DBs), additional CBs are deployed in the secondary.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "Allen's defense was in man coverage on 55% of dropbacks in New Orleans (5th-highest in NFL). Cover 1 (man-free) is the primary call. Tyrique Stevenson said 'most of the defense for the corners is man on man, so it's mano a mano.' This is THE defining trait."
+        },
+        "Ball Skills": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Allen's defense led the NFL with 32 turnovers and 21 interceptions in 2025. Kevin Byard had 7 INT, Nahshon Wright had 5. Allen coaches aggressive ball-hawking technique \u2014 CBs are expected to turn and play the ball. The scheme creates tight coverage that leads to errant throws and INT opportunities."
+        },
+        "Zone Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Allen mixes Cover 2, Cover 3, and Cover 4 when not in man. The CB must handle zone responsibilities \u2014 matching route concepts, reading QBs in zone drops. But zone is secondary to man in Allen's hierarchy, used more situationally."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Man coverage demands the ability to mirror routes and recover when beaten. In the NFC North with fast receivers across the division, CBs need functional speed to stay in phase on vertical routes. Allen's two-man coverage provides safety help, but the CB must keep it close."
+        },
+        "Press": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Allen's man coverage starts at the line with press technique \u2014 disrupting releases, redirecting routes, and delaying timing. His Saints defense built around Marshon Lattimore's press skills. Stevenson was 'excited for the opportunity' to play press. Allen's scheme delays receiver releases to give the pass rush time to arrive."
+        },
+        "Nickel": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Allen uses CBs in the slot more than most coordinators, with Gordon as the primary nickel. The CB must handle slot assignments in both man and zone. Gardner-Johnson's conversion from safety to slot corner mid-season shows Allen values versatile slot defenders."
+        }
+      },
+      "ideal_archetype": "The ideal CB in Allen's Chicago system is a physical, press-man corner who can shadow WR1s, disrupt at the line of scrimmage, and play aggressive man coverage with safety help over the top. Think Marshon Lattimore \u2014 Allen's All-Pro CB in New Orleans who was a press-man technician. Or Jaylon Johnson \u2014 the Bears' Pro Bowl CB who thrives in the shadow role. Not a zone-scheme cover-3 corner \u2014 Allen needs CBs who can win one-on-one battles at the line and mirror routes in phase. Ball-hawking instincts are the separator.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Press coverage rewards length \u2014 longer CBs can disrupt releases and contest catches. Allen's best CBs (Lattimore 6-1, Johnson 6-0, Wright 6-4) have been on the taller end."
+        },
+        "weight": {
+          "ideal": "190-210",
+          "floor": "185",
+          "reasoning": "Press technique requires functional strength to jam receivers at the line. Lightweight CBs get bullied at the point of attack in man coverage."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.48",
+          "floor": "4.52",
+          "reasoning": "Man coverage against NFL WRs demands speed. The CB must stay in phase over 40 yards on vertical routes. Allen's two-man coverage provides a safety net, but the CB can't be regularly beaten deep."
+        }
+      },
+      "development_context": "Al Harris (DB coach) is an elite developer of CBs \u2014 he coached Daron Bland and Jourdan Lewis to stellar seasons in Dallas, and turned Nahshon Wright from a career backup into a 5-INT player in 2025. Harris and Allen together bring unmatched CB development expertise. The staff can develop press technique, ball skills, and coverage recognition. What must arrive: speed and competitive toughness. You can't teach a slow CB to play man coverage, and press-man requires a specific mentality that either exists or doesn't.",
+      "scheme_fit_narrative": "Dennis Allen's defense is built on man coverage. Our cornerbacks are going mano a mano against the best receivers in the NFL every week. We need corners who love that challenge \u2014 guys who want to press, who want to shadow, who want to prove they're better than the guy across from them. Ball skills are a huge plus because this defense creates turnovers. But first and foremost, can you play man? Can you press? That's the starting point.",
+      "archetype_examples": [
+        "Marshon Lattimore",
+        "Jaylon Johnson",
+        "Sauce Gardner"
+      ]
+    },
+    "S": {
+      "scheme_role": "Allen deploys safeties in multiple roles \u2014 the free safety plays deep in two-high shells (Allen showed two-high on 45% of snaps in New Orleans, 3rd-highest) while the strong safety (Brisker) operates as a box/hybrid player with versatility to blitz, cover the slot, and support the run. Allen's 'Swiss Army Knife' usage of safeties is a defining feature \u2014 Brisker described being used to 'show my versatility.' In dime (6 DB) packages, a third safety enters the game. The scheme asks safeties to disguise coverages by showing one alignment pre-snap and rotating post-snap. Kevin Byard (7 INT in 2025) anchored the back end as the ball-hawking FS, while Brisker (93 tackles) functioned as the in-the-box enforcer.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Allen's man-heavy system asks safeties to cover TEs and RBs in man coverage, particularly in the two-man concept where safeties play deep halves while CBs play man underneath. The SS must match up 1-on-1 with slot receivers or TEs on occasion."
+        },
+        "Range": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Allen's two-high safety shells require the FS to cover half the field. Byard's 7 interceptions came largely from his ability to read the QB and break on the ball from a deep alignment. The FS must patrol from hash to sideline \u2014 range is the defining trait for the deep safety."
+        },
+        "Ball Skills": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Allen's defense led the NFL with 32 turnovers in 2025. Byard (7 INT) and the secondary's ball production were the engine of the takeaway machine. Allen coaches safeties to be aggressive play-makers on the ball \u2014 interceptions and forced turnovers are an explicit scheme goal, not a byproduct."
+        },
+        "Tackling": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The SS (Brisker, 93 tackles) is the last-line run support player. He fills the box on run plays and must be a reliable tackler in space. Allen's run defense asks the SS to be an eighth man in the box while the FS stays deep \u2014 creating asymmetric responsibilities."
+        },
+        "Speed": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Range and speed are connected \u2014 the FS must cover ground quickly to break on throws. The SS needs speed to blitz and chase sideline-to-sideline. But Allen's two-high shells mean safeties have depth before the snap, reducing the premium on pure straightline speed."
+        },
+        "Nickel": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Allen uses safeties in the slot more frequently than most coordinators \u2014 Gardner-Johnson was converted from safety to slot corner mid-season. Brisker described being used as a 'Swiss Army Knife.' The ability to play nickel/slot assignments is a significant differentiator in Allen's dime-heavy system."
+        }
+      },
+      "ideal_archetype": "Allen's ideal safety pairing is a FS with elite range and ball skills (think Kevin Byard or Marcus Williams \u2014 Allen's best FS in New Orleans) and a SS who is a versatile, box-safety hybrid with the ability to cover, blitz, and play run support (think Tyrann Mathieu or Jaquan Brisker). The FS is a deep-middle ball hawk who steals interceptions from two-high shells. The SS is a chess piece who can line up anywhere from deep half to the box to the slot. Versatility is the organizing principle \u2014 Allen moves pieces around to disguise the defense.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Safeties need enough size to match up with TEs in man coverage but not so much that they lose speed. Allen's best safeties have been in this range."
+        },
+        "weight": {
+          "ideal": "195-215",
+          "floor": "190",
+          "reasoning": "The SS needs physicality for run support and box play. The FS can be lighter but must still tackle in space. Allen's system punishes safeties who can't tackle."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.55",
+          "floor": "4.58",
+          "reasoning": "Range is the defining trait for the FS \u2014 must cover half the field from a two-high alignment. The SS needs speed for slot coverage and blitzing. Both roles require above-average NFL speed."
+        }
+      },
+      "development_context": "Al Harris (DB coach) develops the entire secondary and has shown an ability to maximize versatile defenders (Gardner-Johnson's mid-season slot conversion, Wright's breakout). Allen developed Marcus Williams into the NFL's best FS and maximized Tyrann Mathieu as a versatile chess piece. The staff can develop coverage instincts and ball skills within the scheme. What must arrive: range and athleticism for the FS, and versatility/physicality for the SS. You can't coach range, and Allen's system demands it from the back end.",
+      "scheme_fit_narrative": "We use our safeties differently than most teams. Our free safety has to be a ball hawk \u2014 Byard had 7 picks in this system. He reads the QB from two-deep, breaks on the ball, and creates turnovers. Our strong safety has to be a Swiss Army Knife \u2014 cover the slot, blitz, play in the box, support the run. If a safety can only do one thing, he's limited in this scheme. We move pieces around to confuse offenses, and that requires safeties who can handle multiple responsibilities.",
+      "archetype_examples": [
+        "Kevin Byard",
+        "Marcus Williams",
+        "Tyrann Mathieu",
+        "Jaquan Brisker"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Chicago's offense under Ben Johnson is one of the NFL's most TE-friendly schemes \u2014 they drafted Colston Loveland 10th overall and he led the team in receiving as a rookie. Any TE prospect with elite receiving traits (route running, hands, YAC, separation) should be valued like a top-tier pass catcher for CHI, not a traditional blocking TE. On the RB side, Johnson's history of limiting carries while increasing receiving work means dual-threat backs with hands, route running, and pass protection are significantly more valuable than pure grinders. On defense, Dennis Allen's 4-3 base with man-coverage lean means EDGE value comes from traditional 4-3 DEs, not converted LBs \u2014 LB pass-rush value is depressed here. However, safety value is dramatically inflated: Allen's dime-heavy, safety-blitzing scheme demands versatile, interchangeable safeties who can play box, slot, and deep. A hybrid safety prospect (tackling, blitz, man coverage) should be valued nearly like a LB for CHI. The Bears also need a left tackle entering 2026 and may target DL help at pick 25.",
+  "scheme_draft_intelligence": "The Bears' 2026 draft strategy is shaped by two dominant forces: Ben Johnson's multiplicity-driven offense and Dennis Allen's man-heavy, four-man-front defense. Both sides of the ball demand versatile players who can execute in multiple roles, creating a clear philosophical thread for talent evaluation. Johnson's offense doesn't have a rigid prototype at any position \u2014 he adapts to his personnel \u2014 but the outside zone foundation creates non-negotiable athletic requirements for the offensive line. The Bears should prioritize OL athletes who can move laterally, TEs who can block and receive, and skill players who can handle diverse assignments.\n\nThe biggest value differential for the Bears comes at cornerback and safety, where Allen's man-heavy scheme creates a dramatically different evaluation lens than zone-heavy teams. A press-man corner who thrives in Cover 1 has significantly more value to Chicago than to a team running a Tampa-2 or Cover-3-heavy scheme. Similarly, a versatile safety who can play deep, cover the slot, and support the run has outsized value in Allen's dime-heavy system. The 2025 draft showed this \u2014 Zah Frazier (5th round) was drafted specifically for his fit in Allen's coverage scheme, not as a generic best-available pick.\n\nOn the defensive front, the Bears' biggest need heading into 2026 is interior DL (Grady Jarrett underperformed, Dexter may be traded) and additional edge rush depth (Dayo Odeyingbo was a disappointment). Allen's scheme demands DTs who can both anchor against the run and rush the passer \u2014 pure space-eaters without pass-rush upside don't fit the dime-heavy approach where a DT gets pulled for a third DE on passing downs. Edge rushers must combine pass-rush production with run defense \u2014 Allen's system can't afford one-dimensional speed rushers who get washed on outside zone.\n\nThe offensive line remains an investment priority despite the dramatic 2025 improvement. With left tackle still a question (Ozzy Trapilo started as a rookie, potentially recovering from knee injury), the Bears may target a zone-scheme-fit tackle in the first two rounds. The scheme's zone-blocking demands create hidden value in athletic OL who may be overlooked by teams running gap/power schemes. Roushar's development track record (transforming the OL from worst to playoff-caliber in one year) suggests the staff can develop raw athletes, making Day 2 OL with elite movement skills a smart investment.\n\nLooking at the broader picture, Johnson's track record of adapting his system to personnel means the Bears won't force-draft a specific archetype \u2014 they'll take the best player available and find ways to use him. But Allen's defensive scheme is more rigid in its demands: press-man corners, versatile safeties, run-defending edge players, and interior DTs who can push the pocket. The defensive side of the draft is where scheme fit matters most for Chicago, and where the coaching staff's ability to identify players from their previous systems (Wright from Dallas via Harris, Gardner-Johnson from New Orleans via Allen) creates an informational edge that no draft board can replicate.",
   "confidence": "high",
   "sources": [
-    "chicagobears.com official coaches pages",
-    "chicagotribune.com \u2014 Press Taylor OC promotion (Feb 2026)",
-    "fox32chicago.com \u2014 2025 coaching staff announcement",
-    "ESPN \u2014 Dennis Allen takeaway machine analysis (Dec 2025)",
-    "ESPN \u2014 Dennis Allen defense plan (Jul 2025)",
-    "windycitygridiron.com \u2014 Ben Johnson personnel tendencies analysis",
-    "windycitygridiron.com \u2014 Dennis Allen vs Eberflus defensive comparison",
-    "footballguys.com \u2014 Reading the New Defense: Chicago Bears",
-    "SI.com \u2014 Dennis Allen scheme complexity",
-    "chicagobears.com \u2014 2025 position reviews (TE, RB, OL)",
-    "PFF \u2014 Bears built for 11 personnel success",
-    "marqueesportsnetwork.com \u2014 Brisker expanded role in Allen defense",
-    "Wikipedia \u2014 Ben Johnson, Dennis Allen, Colston Loveland entries"
+    "chicagobears.com official coaching pages and press conferences",
+    "ESPN - Courtney Cronin Bears defense analysis (July 2025)",
+    "Windy City Gridiron - Ben Johnson offense analysis Parts 1 & 2 (May 2025)",
+    "Windy City Gridiron - Dennis Allen vs Eberflus defensive comparison (August 2025)",
+    "Chicago Sun-Times - Ben Johnson offense proof-of-concept (November 2025)",
+    "Marquee Sports Network - Ben Johnson introductory press conference (January 2025)",
+    "Marquee Sports Network - Dennis Allen defensive philosophy (January 2025)",
+    "SI.com - Dennis Allen Bears scheme analysis (June 2025)",
+    "ESPN - Bears Dennis Allen takeaway machine (December 2025)",
+    "On Tap Sports Net - Dennis Allen 3rd down pressure analysis (July 2025)",
+    "Coach Kou Football - Dennis Allen Saints base defense and 3rd down schemes",
+    "Match Quarters - Saints under-front analysis (June 2024)",
+    "Read Optional - Allen Dilemma: Saints defense analysis (June 2022)",
+    "PFF - Dennis Allen vs Tom Brady game plan analysis (December 2021)",
+    "Alert The Post - Ben Johnson Bears offensive concepts (July 2025)",
+    "Mark Bullock Substack - Ben Johnson coaching profile and Bears offensive evolution",
+    "Sports Mockery - Ben Johnson 12-personnel analysis (July 2025)",
+    "Wikipedia - Ben Johnson coaching career, Dennis Allen career, Declan Doyle",
+    "Fox32 Chicago - Bears 2025 coaching staff announcement (February 2025)",
+    "NFL.com - Bears 2025 season statistics",
+    "Yahoo Sports - Bears 2025 player statistics",
+    "Chicago Sun-Times - Press Taylor OC promotion (February 2026)",
+    "DetroitNews - Ben Johnson coaching influences (September 2023)",
+    "Footballguys - Reading the New Defense: Chicago Bears (2025)"
   ]
 }

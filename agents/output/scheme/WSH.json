@@ -6,71 +6,716 @@
       "name": "Dan Quinn",
       "tenure_years": 2,
       "background": "defensive",
-      "scheme_philosophy": "Pete Carroll tree; aggressive 4-3 hybrid base with Cover 3/Cover 1 core, evolved to incorporate multiple fronts, man coverage, and post-snap disguises. Values versatile, dual-role defenders. CEO approach in Year 2+, delegating playcalling to coordinators."
+      "coaching_tree": "Pete Carroll / Seattle Cover 3 tree \u2192 Nick Saban influence (Miami DL coach) \u2192 evolved in Dallas with Cover 1/man concepts",
+      "scheme_philosophy": "Quinn's core principle is adaptability \u2014 creating post-snap uncertainty and forcing turnovers. He rose to prominence building Seattle's Legion of Boom Cover 3 defense, but evolved significantly in Dallas (2021-2023) to incorporate heavy Cover 1 man-free and Tampa rotation disguises. Led the NFL in takeaways three consecutive years in Dallas. Values simplicity, speed, and communication \u2014 wants players playing fast and thinking less. Now as HC, he has fully delegated defensive play-calling to Daronte Jones while maintaining philosophical influence. Believes in competition culture, aggressive defense, and a run-first, play-action offensive identity."
     },
     "offensive_coordinator": {
       "name": "David Blough",
-      "scheme_tree": "Hybrid: Kingsbury Air Raid + Ben Johnson creativity + Kevin O'Connell West Coast; shifting to pro-style under-center system with play-action and 12 personnel emphasis",
-      "play_caller": true
+      "coaching_tree": "Ben Johnson / Kliff Kingsbury hybrid influence. Played for Lions under Ben Johnson's OC tenure, Vikings under Kevin O'Connell, Cardinals under Kingsbury. Absorbed elements from each system. Closest schematic DNA to Ben Johnson's Lions offense \u2014 outside zone run-heavy, play-action off under-center looks, diverse formations and motion.",
+      "scheme_evolution": "First-time coordinator with no play-calling experience, promoted from assistant QBs coach. His philosophy is built around going under center significantly more (WSH was dead last with 112 under-center snaps in 2025), establishing an outside zone run game, and building play-action concepts off that run foundation. Wants to create explosive plays through play-action rather than relying on QB heroics. Described his approach as 'strong convictions, lightly held' \u2014 adaptable to personnel but with core identity pillars.",
+      "development_track_record": "Too early to evaluate. Close relationship with Jayden Daniels is his biggest asset. Credited with designing the game-winning TD play vs Philadelphia in 2024 Week 17. Kingsbury praised his demanding coaching style and ability to see the game 'from the lens of the player.' Staff includes Ben Steele (TE coach who developed Trey McBride into record-setter in Arizona) and David Raih (passing game coordinator). Quinn wants him to feature Terry McLaurin at 10 targets per game and build around Daniels' dual-threat ability."
     },
     "defensive_coordinator": {
       "name": "Daronte Jones",
-      "scheme_tree": "Brian Flores (Belichick tree) blitz-heavy system blended with Vance Joseph/Lou Anarumo zone-match principles; Vikings 3-4 multiple front",
-      "play_caller": true
+      "coaching_tree": "Brian Flores \u2192 Mike Zimmer \u2192 Vance Joseph \u2192 Lou Anarumo lineage. Spent five seasons with the Minnesota Vikings across two stints, serving as DB coach and pass game coordinator under Flores for three years. Also coached under Vance Joseph (Miami), Lou Anarumo (Cincinnati), and Mike Zimmer (Minnesota). This gives him exposure to aggressive blitz-heavy schemes (Flores), pattern-matching zone (Zimmer), press-man concepts (Joseph), and coverage disguise (Anarumo).",
+      "scheme_evolution": "Jones was Flores' 'right-hand man' in Minnesota, where the Vikings led the NFL in blitz rate (46-49%) while ranking second in zone coverage frequency. The Vikings' defense under their collaboration was known for exotic blitz packages, split-field coverage, MAZE concepts (man alignment, zone execution), and five-man fronts. Jones has stated he will run a 'multiple' defense \u2014 '3-4, 4-3, they're just numbers. It's just 7-man spacing.' He emphasizes 'matchability' \u2014 putting players in advantageous positions \u2014 and wants to create turnovers through aggressive disguised pressure. First-time NFL play-caller but his scheme influence is clearly Flores-derived with elements from all his coaching stops.",
+      "development_track_record": "Elite DB developer. Coached Byron Murphy Jr. to a Pro Bowl/Defensive MVP caliber 2024 season (career highs across the board). Developed Camryn Bynum into a 137-tackle safety (2023). Helped develop Derek Stingley Jr. at LSU before he went 3rd overall. Coached Darius Phillips to a breakout season in Cincinnati. Harrison Smith posted career-best interception numbers under Jones. His track record suggests he can develop raw athletic DBs into productive players within a complex scheme."
     }
   },
   "offense": {
-    "scheme_family": "Pro-style hybrid (transitioning from Air Raid/spread to under-center, play-action-heavy system with Ben Johnson influence)",
-    "base_personnel": "11/12 (shifting toward more 12 personnel with 2-TE sets; Sinnott/Bates as dual-threat TEs)",
-    "run_scheme": "Zone-based with more under-center power/gap concepts; moving away from pure shotgun spread run game of Kingsbury era. Play-action and bootleg married to run game.",
-    "pass_concepts": "Play-action heavy off under-center looks, bootleg concepts, vertical shots, West Coast timing routes. Moving away from Kingsbury's no-huddle/Air Raid quick game. RPO likely reduced in favor of traditional play-action.",
-    "rpo_usage": "low-to-moderate (major departure from Kingsbury's shotgun-heavy RPO approach; Blough emphasizes under-center play-action instead)",
-    "te_usage": "Elevated priority: 12 personnel emphasis with TEs used as inline blockers AND move pieces in play-action. Sinnott projected as move TE/FB hybrid, Bates as inline blocker. Hired Ben Steele (developed Trey McBride) as TE coach. Major TE need in draft/FA.",
-    "rb_usage": "Bell cow lean with receiving component; Quinn wants physical run game to control clock. Anthony Lynn still coaching RBs. Back expected to catch passes in play-action-based scheme."
+    "scheme_family": "Ben Johnson-influenced pro-style with outside zone foundation (Blough variant \u2014 first-year implementation)",
+    "scheme_detail": "Blough is installing a new offense built around under-center formations, outside zone runs, and play-action passing \u2014 a stark departure from Kingsbury's shotgun-spread system. The scheme borrows heavily from Ben Johnson's Lions offense, which Blough experienced firsthand as a Lions QB. Key pillars: (1) significantly more under-center snaps to enable play-action and run diversity, (2) outside zone as the primary run concept with cutback lanes, (3) play-action shots off run looks targeting intermediate-to-deep areas, (4) building around Daniels' dual-threat ability with designed keepers and bootlegs, (5) featuring Terry McLaurin as the primary target with 10+ targets per game. The offense will use diverse personnel groupings (12 personnel expected to be featured with TE additions) and pre-snap motion to create confusion. Quinn described the vision as 'an aggressive, balanced attack' focused on explosive plays through run-action marriage rather than no-huddle spread.",
+    "run_scheme": "Outside zone primary \u2014 Blough has stated this is something he is 'convicted about.' The OZ scheme leverages the athleticism of tackles Laremy Tunsil and Josh Conerly Jr. to reach-block and create horizontal displacement. Cutback running from Jacory Croskey-Merritt is a priority. Gap concepts (counter, power) will be mixed in as complements, similar to how Johnson used them in Detroit. Under-center runs will open play-action keepers and boot concepts for Daniels. The run game ranked 8th in rushing yards in 2025 despite other offensive struggles, providing a foundation to build on.",
+    "pass_architecture": "Play-action heavy off outside zone and gap looks. Dagger, Hi-Cross, and sail concepts are expected staples borrowed from the Johnson tree. Intermediate crossing routes and post-dig combinations designed to attack space vacated by linebackers biting on run fakes. Deep shots off play-action boots rather than 7-step dropback. Quick game concepts (slants, hitches, RPOs) remain for early-down efficiency, but the emphasis shifts toward generating explosive plays through schemed shots rather than relying on Daniels to create. McLaurin as primary X receiver running full route tree with vertical and intermediate emphasis. TE usage expected to increase significantly \u2014 Blough hired Ben Steele specifically for TE development.",
+    "personnel_tendencies": "Expected shift to more 12 personnel (1 RB, 2 TE, 2 WR) as the base grouping, similar to Johnson's early-implementation approach in Chicago. 11 personnel will still be significant. 21 personnel possible in short-yardage. Under Kingsbury, WSH was no-huddle spread almost exclusively \u2014 that changes dramatically. Motion usage expected to increase substantially. Multiple TEs (Chig Okonkwo added in FA, Ben Sinnott developing) will be deployed as inline blockers, H-backs, and flex receivers.",
+    "motion_tempo": "Expect heavy pre-snap motion (Johnson tree hallmark) with controlled tempo \u2014 not the no-huddle pace of the Kingsbury era. Motion will be used to identify coverage, create blocking advantages, and set up play-action. Tempo will be deliberate to establish the run game and control game flow, with occasional tempo bursts to exploit defensive substitution patterns."
   },
   "defense": {
-    "base_front": "Multiple (3-4 primary lean with 4-3 elements)",
-    "alignment": "Hybrid/multiple; Jones stated 'multiple, 3-4, 4-3, they're just numbers.' Expected to install Flores-style 3-4 base with stand-up OLBs as primary edge rushers, but will use even-front looks situationally. Quinn hinted at Daron Payne playing 3-4 DE and nose tackle.",
-    "edge_rush_source": "OLB stand-up (Flores/Vikings model: OLBs line up on DL 92%+ of snaps, wide alignment, but also drop into coverage ~20% of time). Current roster lacks true 3-4 OLBs; major draft/FA need at edge.",
-    "coverage_base": "Zone-heavy with quarters (Cover 4) family as base; fire zone blitzes behind zone coverage rather than man. Flores influence: league-high zone rate (~76%) paired with heavy blitz rate. Jones also brings Vance Joseph zone-match principles. Quinn's Cover 3/Cover 1 background provides supplementary looks.",
-    "blitz_tendency": "heavy (Flores/Vikings led NFL in blitz rate every year: 51.5% in 2023, 38.9% in 2024, ~48.7% in 2025. Jones expected to replicate aggressive blitz philosophy. Fire zone blitzes with zone coverage behind them, not pure man.)",
-    "lb_role": "ILBs cover/run; OLBs are primary edge rushers who also drop into coverage. Flores scheme requires OLBs that can both rush and cover. Vikings OLBs dropped into coverage ~20% of the time while primarily rushing from wide alignments. Versatility is paramount.",
-    "safety_usage": "Hybrid/versatile: Flores scheme uses safety (Harrison Smith type) as blitzer, slot cover man, and robber. Josh Metellus-type nickel/safety hybrid critical to scheme. Quinn covets 'do-everything' safety (Caleb Downs archetype): deep-third, robber, pattern-match, and blitz roles."
+    "scheme_family": "Multiple / Flores-influenced aggressive pressure scheme (Jones variant \u2014 first-year implementation)",
+    "scheme_detail": "Jones will install his own system drawing from his years as Flores' right-hand man in Minnesota. The defense will be 'multiple' \u2014 neither strictly 3-4 nor 4-3. Jones stated '3-4, 4-3, they're just numbers \u2014 it's just 7-man spacing.' Expect heavy blitz rates (Minnesota led the NFL at 46-49% under Flores), extensive pre-snap disguises, split-field coverages, and the MAZE concept (man alignment, zone execution). The defense will prioritize creating turnovers and applying relentless pressure while playing zone-heavy coverage behind blitzes. Jones emphasizes 'matchability' \u2014 putting defenders in positions to exploit offensive weaknesses. Quinn explicitly gave Jones full autonomy: 'This would be his system.' Free agency additions (Oweh, Chenal, Robertson, Cross, Chaisson) reflect this aggressive, versatile vision.",
+    "front_structure": "Multiple fronts \u2014 five-man fronts (Bear/Penny packages), standard 4-down looks, and occasional 3-4 sets. Jones will move Daron Payne across alignments (nose, 3-tech, 3-4 end) to maximize his versatility. Jer'Zhan Newton provides interior mobility. Odafe Oweh and Dorance Armstrong as primary edge rushers from multiple alignments (wide-9, 5-tech, stand-up). Frankie Luvu expected to take an Andrew Van Ginkel-like hybrid role \u2014 edge rusher, off-ball LB, A-gap blitzer, coverage dropper. The front will shift dramatically pre-snap to disguise intentions.",
+    "coverage_philosophy": "Zone-heavy with split-field coverage concepts. Expect significant quarters (Cover 4) usage with multiple variations that are nearly impossible for QBs to distinguish pre-snap. Cover 2, Cover 6 (split Cover 4/Cover 2), and Tampa-2 variants mixed in. The Flores influence means playing two-high safety looks most of the time (Minnesota was 55%+ in split-field coverage) while disguising whether it's quarters, Cover 2, or a blitz behind the shell. Zone coverage behind blitzes is the signature concept \u2014 unlike traditional blitz-man schemes, this defense sends extra rushers and plays zone behind them, which is why it confuses QBs expecting man-coverage hot routes. Man coverage mixed in situationally to counter quick-game adjustments.",
+    "pressure_philosophy": "Aggressive blitz-heavy approach. Minnesota led the NFL in blitz rate under Flores (46-49% annually), and Jones was instrumental in designing those packages. Five-man rushes from the base front are common (which inflate 'blitz' stats), but true extra-rusher blitzes from safeties, LBs, and nickel defenders are frequent. Simulated pressures \u2014 showing five or more rushers but only sending four \u2014 are a key wrinkle to manipulate protection. Edge rushers drop into coverage while LBs or safeties replace them in the rush. Pressure comes from everywhere and anywhere, making it impossible for OLs to identify the extra rusher pre-snap. The signing of Odafe Oweh ($100M), K'Lavon Chaisson, and Charles Omenihu shows the commitment to edge pressure generation.",
+    "sub_packages": "Nickel (4-2-5 or 3-3-5) will be the primary package given the pass-heavy NFC East. Amik Robertson signed specifically for slot/nickel versatility. Mike Sainristil can play both CB and nickel. Dime packages expected when facing spread looks. Jones will use safety/LB hybrids extensively \u2014 Frankie Luvu and Leo Chenal can both rush and drop. Safety Jeremy Reaves and Tyler Owens provide versatility. Nick Cross (signed from IND) brings blitzing ability from the safety position. The sub-packages will feature pre-snap movement and role-swapping that makes it impossible to identify who is rushing and who is covering."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "Blough's new offense is explicitly moving toward more 12 personnel with play-action married to the run game. Washington hired Ben Steele (who developed Trey McBride's record-setting 126-catch season) as TE coach. The team has a 'giant hole at TE1' with Ertz departing. Blough and passing game coordinator David Raih bring West Coast and Air Raid receiving TE concepts. Sinnott is projected as a move TE/FB hybrid used on play-action releases. A receiving TE who can also block inline fits perfectly\u2014the scheme creates situations where the TE functions as a primary passing weapon off play-action, not just an inline blocker."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB in Blough's offense must operate from under center at a significantly higher rate than the Kingsbury era, executing play-action fakes, boot concepts, and designed runs off zone action. He must process defenses from under center after turning his back on run fakes, deliver timing throws to the intermediate level off play-action, and maintain his dynamic playmaking ability on designed QB runs and scramble extensions. The offense is built around Jayden Daniels \u2014 the scheme role is specifically tailored to his dual-threat profile with an emphasis on protecting him through schemed plays rather than asking him to win in the pocket independently.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Play-action shots off boot concepts require arm talent to hit intermediate-to-deep throws on the move, but this isn't a vertical-first offense. Daniels' arm is sufficient; the scheme doesn't demand elite arm strength."
+        },
+        "Accuracy": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Timing routes off play-action \u2014 dagger concepts, crossers, and intermediate attacks against vacated zones \u2014 demand anticipation accuracy. McLaurin's role as primary target at 10+ targets/game means the QB must place the ball precisely in tight windows."
+        },
+        "Pocket Presence": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Under-center play-action involves moving through progressions after faking. The QB must navigate the pocket, feel pressure, and deliver from various platforms. But designed movement (boots, keepers) reduces pure pocket demands compared to a traditional dropback system."
+        },
+        "Mobility": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "This is THE defining trait for WSH's QB role. Blough's offense is built specifically around Daniels' mobility \u2014 designed keepers off zone runs, boot concepts that get him on the perimeter, scramble extensions that create explosive plays. Quinn said they want to 'feature every part of Jayden in the way that makes him unique.' A non-mobile QB cannot run this scheme."
+        },
+        "Decision Making": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Play-action concepts present multi-level reads where the QB must identify which defenders bit on the fake and where space opened. The offense asks the QB to execute pre-determined reads rather than process full-field, but correct post-snap decisions are critical for explosive plays."
+        },
+        "Leadership": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "Important for any QB, but the scheme doesn't create unique leadership demands. Blough's close relationship with Daniels emphasizes collaboration over command structure."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Under-center play-action requires identifying defensive fronts and coverage shells to determine run/pass checks, but the motion-heavy approach helps the QB diagnose coverage without needing to do it purely from alignment reads."
+        }
+      },
+      "ideal_archetype": "A dynamic dual-threat QB who is lethal on designed movement \u2014 boot concepts, read-option keepers, and scramble extensions \u2014 while being accurate enough to hit timing routes off play-action in the intermediate range. Think Jalen Hurts in Sirianni's early Philadelphia offense or Lamar Jackson in a more pass-balanced scheme. The QB must sell the run fake convincingly from under center and hit throws on the move. He doesn't need to be a pure pocket passer, but he must be accurate on timing routes when the play-action creates open receivers.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Under-center play-action requires the QB to see the field after turning his back. Height helps with vision over the OL on bootleg throws, but mobility is prioritized over prototypical size."
+        },
+        "40-yard dash": {
+          "ideal": "Sub-4.55",
+          "floor": "Sub-4.65",
+          "reasoning": "Designed runs (keepers, boots, scramble) are central to the offense. The QB must be a genuine run threat to hold the edge defender on read-option and create explosive plays on the ground."
+        }
+      },
+      "development_context": "Blough's entire coaching career (3 years) has been spent working with Daniels. His development track record is minimal but the Daniels-Blough relationship is the foundation of the offense. The staff includes David Raih (passing game coordinator) and D.J. Williams (QB coach) to provide development infrastructure. The scheme is being built around Daniels' existing strengths rather than asking him to develop new ones, which is wise for a third-year QB.",
+      "scheme_fit_narrative": "We're building this offense around a dual-threat QB who can make defenses pay when they overcommit to the run. The ideal QB sells the play-action fake, gets outside on boot concepts, and has the accuracy to hit timing throws on the move. We need a runner first, thrower second \u2014 but the throws must be accurate enough to make the play-action game lethal. If a prospect can't run designed concepts and threaten with his legs, he doesn't fit this system.",
+      "archetype_examples": [
+        "Jayden Daniels",
+        "Jalen Hurts",
+        "Josh Allen (early career)"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "high",
-      "explanation": "Jones is expected to install the Flores-style 3-4 multiple front where OLBs are the primary edge rushers. In Minnesota, the OLBs (Greenard, Van Ginkel, Turner) lined up on the defensive line on 92%+ of snaps in wide alignments, functioning as de facto edge rushers, but were also asked to drop into coverage ~20% of the time. Quinn hinted at the transition by discussing Payne's versatility as a 3-4 DE/NT. Washington currently lacks true 3-4 OLBs and needs to acquire them. Any LB prospect with elite pass rush traits AND enough athleticism to drop into coverage gains massive value for this scheme. The Flores system demands edge players who are technically OLBs but function primarily as rushers\u2014the textbook LB-to-pass-rusher value inflection."
+    "RB": {
+      "scheme_role": "The RB in Blough's outside zone scheme must be a one-cut runner who can press the line of scrimmage, read OL leverage, and hit cutback lanes. Blough has stated he wants a feature back who can be a 'starting running back in this league' and indicated he will add to the room beyond Croskey-Merritt. The RB must also function as a pass-catcher out of the backfield in the play-action game and protect the QB on boot concepts. The outside zone scheme rewards patience and vision more than raw power.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Outside zone is a read-and-react scheme. The RB must press the hole, read OL blocks, identify cutback lanes, and make one decisive cut. Vision is the single most important trait \u2014 Blough specifically praised Croskey-Merritt's 'cutback skills' as fitting his vision."
+        },
+        "Contact Balance": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "OZ creates situations where the RB is hit at or near the line of scrimmage before he can get into the open field. Contact balance to absorb initial contact and fall forward is important but secondary to vision and elusiveness."
+        },
+        "Power": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "This is not a power/gap-first scheme. Power is nice for short-yardage but the primary run concepts reward lateral agility and cutback ability over raw power."
+        },
+        "Elusiveness": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "OZ creates one-on-one situations in space. The RB must make defenders miss at the second level. The Ben Johnson influence values backs who can turn small gains into explosive runs through elusiveness \u2014 think Jahmyr Gibbs."
+        },
+        "Speed": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "OZ creates opportunities to bounce outside and hit the edge. Speed is necessary to threaten the perimeter and turn cutback lanes into chunk plays. The scheme stretches the defense horizontally, rewarding backs who can outrun pursuit angles."
+        },
+        "Pass Catching": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Play-action concepts create checkdown opportunities, and the RB must be reliable as a safety valve. Ben Johnson's Lions used backs extensively in the pass game (Gibbs was a receiving weapon). Blough will want similar versatility."
+        },
+        "Pass Protection": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Boot concepts and play-action require the RB to sell the fake and then pick up rushers. Pass protection is more important in this scheme than a pure spread system because the QB turns his back to the defense."
+        }
+      },
+      "ideal_archetype": "A one-cut zone runner with lateral agility, vision, and enough speed to threaten the edge on outside zone. Think Jahmyr Gibbs or Breece Hall \u2014 backs who can press the hole patiently, read the cutback, and explode through the crease. Must be effective as a pass-catcher and capable in pass protection. Not a between-the-tackles banger \u2014 this is a scheme that creates space through OL leverage and rewards backs who can find and exploit it.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "200-215",
+          "floor": "190",
+          "reasoning": "OZ rewards lighter, quicker backs who can change direction and hit the edge. Heavy power backs (230+) don't fit the scheme as well."
+        },
+        "40-yard dash": {
+          "ideal": "Sub-4.45",
+          "floor": "Sub-4.55",
+          "reasoning": "Speed to threaten the perimeter on stretch runs and turn cutbacks into explosive plays. The scheme creates horizontal running lanes that reward fast backs."
+        },
+        "3-cone drill": {
+          "ideal": "Sub-6.90",
+          "floor": "Sub-7.05",
+          "reasoning": "Lateral agility and change-of-direction are essential for OZ cutbacks. The RB must plant and redirect decisively."
+        }
+      },
+      "development_context": "Anthony Lynn remains as RB coach (demoted from run game coordinator). Lynn has a long track record of RB development across multiple stops. The scheme can develop a raw athlete's zone running instincts, but vision is hard to teach \u2014 it must arrive at least partially formed. Pass-catching and protection can be developed.",
+      "scheme_fit_narrative": "We need a zone-running back who sees the cutback lane before it opens and has the burst to hit it. Not a straight-line power back \u2014 give us a guy who can press the hole, set up his blocks, and make one decisive cut. If he can also catch the ball out of the backfield and protect the QB, that's the complete package for this offense.",
+      "archetype_examples": [
+        "Jahmyr Gibbs",
+        "Breece Hall",
+        "D'Andre Swift"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "medium",
-      "explanation": "Blough's under-center, play-action-heavy scheme values RBs who can sell the run fake and then release into routes. Quinn wants a physical, clock-controlling run game (the reason Kingsbury was fired), so the primary role is still as a runner. However, the Ben Johnson influence and West Coast passing concepts create checkdown and play-action wheel/flat routes for the RB. Not a pure receiving back scheme, but dual-threat ability is valued more than in the Kingsbury shotgun system where the RB was primarily a runner."
+    "WR": {
+      "scheme_role": "The WR1 (McLaurin's role) is the primary target at 10+ targets per game, running a full route tree with emphasis on intermediate and deep concepts off play-action. The WR2/WR3 must function in the play-action game \u2014 selling blocks on run fakes before releasing into routes, running crossing routes that attack zones vacated by LBs, and being reliable in the intermediate range. Motion usage will be heavy, requiring WRs to align in multiple positions (boundary, field, slot, tight). Blocking on perimeter run plays is important in an OZ scheme \u2014 WRs must sustain blocks on CBs and safeties to spring RBs on outside runs.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Play-action timing concepts demand precise route running to exploit the specific zones vacated by the run fake. The WR must hit his landmark at the exact right time \u2014 late arrivals kill the play-action advantage."
+        },
+        "Separation": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Play-action creates some schemed separation, but the WR must still win at the top of routes against zone defenders who aren't fully fooled. The intermediate crossing routes and dagger concepts require separation to hit timing windows."
+        },
+        "Hands": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Blough's emphasis on explosive plays means catching 50/50 balls and contested throws downfield off play-action. Drops on explosive-play opportunities are devastating in a scheme designed around generating them."
+        },
+        "YAC Ability": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The Ben Johnson influence values YAC \u2014 intermediate routes (crossers, digs, shallow crosses) are designed to put the ball in the WR's hands with space to run. Amon-Ra St. Brown-type YAC ability is the archetype this scheme creates."
+        },
+        "Speed": {
+          "weight": 0.14,
+          "importance": "moderate",
+          "reasoning": "Deep play-action shots require vertical speed to threaten safeties, but this isn't a pure vertical offense. Speed is important for clearing defenders and opening underneath routes for others."
+        },
+        "Contested Catches": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "McLaurin's role specifically demands contested-catch ability in the red zone and on deep shots. The WR2/3 have less demand here as they primarily work the intermediate zones created by play-action."
+        },
+        "Release Package": {
+          "weight": 0.09,
+          "importance": "moderate",
+          "reasoning": "Press coverage must be beaten cleanly to maintain route timing in the play-action game. Important but secondary to route running and hands in a scheme that generates openings through deception rather than pure WR talent."
+        }
+      },
+      "ideal_archetype": "A versatile, YAC-capable receiver who can run the full intermediate route tree, align in multiple positions, and block on perimeter runs. The WR1 profile is Terry McLaurin \u2014 a complete WR who wins at all three levels. The WR2/3 profile is more Amon-Ra St. Brown \u2014 a YAC monster who works the intermediate zones created by play-action, catches everything, and can block. Must be willing and able to block on the perimeter for OZ runs \u2014 effort and toughness matter in this system.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-9",
+          "reasoning": "No extreme size requirement. The scheme creates openings through play-action deception rather than requiring physical dominance. Versatility to align in multiple spots matters more than prototypical size."
+        },
+        "40-yard dash": {
+          "ideal": "Sub-4.45",
+          "floor": "Sub-4.55",
+          "reasoning": "Enough speed to threaten deep on play-action shots and create YAC on intermediate routes. Not a pure speed scheme but speed opens up the rest of the route tree."
+        }
+      },
+      "development_context": "Wes Welker was hired as WR coach (previously with Houston). Welker's background as an all-time great slot receiver suggests an emphasis on route precision and separation technique. The staff can develop route running and technique, but YAC instincts and hands must arrive. The addition of Brandon Aiyuk (potentially) as a one-year signing would provide a WR2 with scheme-ready skills, but the draft should target WRs who can fit the motion-heavy, block-willing, YAC-oriented profile.",
+      "scheme_fit_narrative": "We want receivers who can do more than just run routes \u2014 they need to block on the edge for our run game, catch the ball in traffic off play-action, and turn intermediate receptions into explosive gains. Give us a tough, versatile route runner who can line up anywhere, sell a run block before releasing, and make plays after the catch. Pure vertical speed merchants who can't do the dirty work don't fit here.",
+      "archetype_examples": [
+        "Amon-Ra St. Brown",
+        "Terry McLaurin",
+        "Puka Nacua"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "The Flores defensive system is built around safety versatility. In Minnesota, Josh Metellus functioned as a hybrid nickel/safety/blitzer, and Harrison Smith toggled between deep-third, robber, and blitz roles. Jones will bring this philosophy to Washington. Quinn has explicitly coveted a 'do-everything' safety (the Caleb Downs archetype was specifically mentioned in draft analysis tied to Jones). Washington's safety room is thin (Quan Martin, Percy Butler), making this a major need. A safety who can play in the box, cover the slot, blitz off the edge, and rotate to deep coverage gains enormous value in this scheme\u2014it's the linchpin position for the Flores fire zone blitz packages."
+    "TE": {
+      "scheme_role": "The TE is a critical piece of Blough's scheme. With the expected shift to 12 personnel as a primary grouping, TEs must function as inline blockers on OZ runs, flex receivers in play-action concepts, and credible threats in the intermediate passing game. Blough specifically hired Ben Steele (who developed Trey McBride into a record-setting TE) and promoted David Raih to passing game coordinator for TE-centric passing concepts. The TE must be able to block convincingly to sell the play-action fake and then release into routes when the defense bites on the run. This dual-purpose demand is the hallmark of the position in this scheme.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "12 personnel play-action heavily features TEs in the intermediate range \u2014 seam routes, crossing routes, and dig concepts over zones vacated by LBs. Blough hired Steele specifically to develop TE receiving. The TE must be a legitimate receiving threat to make 12 personnel a viable passing formation."
+        },
+        "Route Running": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "TEs must run precise intermediate routes off play-action fakes. Dagger concepts with the TE on the dig/crosser underneath are a Johnson-tree staple. The TE must sell the block and release cleanly into his route."
+        },
+        "Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "OZ scheme requires TEs to sustain blocks on edge defenders and second-level LBs. If the TE can't block, the run game \u2014 and therefore the play-action game \u2014 falls apart. This is THE defining trait because everything flows from the run. The Ben Johnson offense demanded excellent blocking TEs (Brock Wright was a key blocker in DET)."
+        },
+        "Athleticism": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The TE must be athletic enough to sell the block, release, and create separation on intermediate routes against LBs and safeties. Motion usage requires TEs to align in multiple positions \u2014 inline, slot, flexed out, H-back \u2014 demanding overall athleticism."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Reliable hands are necessary in the intermediate range where TEs will see contested throws over the middle with LBs closing. Not as critical as blocking or receiving but drops on play-action timing throws are costly."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Enough speed to threaten the seam and create vertical stress. Not a scheme that asks TEs to win deep, but seam routes off play-action require the ability to get behind LBs."
+        }
+      },
+      "ideal_archetype": "A true dual-purpose TE who can sustain blocks on the edge for OZ runs and then be a credible receiving threat on play-action. Think Sam LaPorta in Detroit or George Kittle in San Francisco \u2014 TEs who block with physicality and then run precise intermediate routes. The ideal is a Y TE who can line up inline, flex to the slot, and execute motion assignments. Pure receiving TEs who can't block (like a Darren Waller type) don't fit as well because the run game is the foundation of everything.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-2",
+          "reasoning": "Size to sustain blocks on edge defenders in the OZ run game and win contested catches over the middle in play-action."
+        },
+        "weight": {
+          "ideal": "240-255",
+          "floor": "230",
+          "reasoning": "Must have enough mass to hold up as an inline blocker. Lighter TEs who can't sustain OZ edge blocks won't survive in this scheme."
+        },
+        "40-yard dash": {
+          "ideal": "Sub-4.65",
+          "floor": "Sub-4.75",
+          "reasoning": "Enough speed to threaten the seam and create separation on intermediate routes. Doesn't need to be a freak athlete but must be able to run away from LBs."
+        }
+      },
+      "development_context": "This is a staff built to develop TEs. Ben Steele developed Trey McBride into a record-setting TE (126 catches in ARI). David Raih is the passing game coordinator with TE background. The staff can develop receiving skills and route technique from raw athletes. Blocking technique can also be developed, but the physical willingness and frame to block must exist. A receiving-first raw TE with blocking potential is the ideal draft target for this staff.",
+      "scheme_fit_narrative": "Our TE has to be able to do two things: sustain a block on the edge to set up our outside zone runs, and then run a route that makes the defense pay when they cheat on the run. Blocking is non-negotiable \u2014 we're running 12 personnel as a base and our play-action game dies if the TE can't sell it. But we also hired one of the best TE developers in the NFL, so if a prospect has the athletic tools and the willingness to block, we can develop the receiving side.",
+      "archetype_examples": [
+        "Sam LaPorta",
+        "George Kittle",
+        "Trey McBride"
+      ]
+    },
+    "OT": {
+      "scheme_role": "OTs in Blough's OZ scheme must be athletic enough to execute reach blocks, climb to the second level, and sustain movement in the run game while also protecting a mobile QB who extends plays. The left side (Tunsil) provides elite pass protection while the right side (Conerly Jr.) adds youth and athleticism. Blough specifically mentioned the athleticism of both tackles as fitting his vision. OTs must be able to mirror defenders on boot concept protection \u2014 the QB rolling out creates a longer pass-protection window on the backside. Zone blocking demands lateral movement, not just anchor.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Protecting Daniels is paramount \u2014 his elbow injury in 2025 underscored the need for elite protection. Boot concepts create specific pass-pro demands (seal the backside, mirror rushers while the QB moves). But the scheme reduces pure dropback exposure through play-action, moderating this weight slightly."
+        },
+        "Run Blocking": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "OZ run blocking is THE defining demand. OTs must reach-block, sustain lateral movement, and climb to the second level. The run game is the foundation of the entire offense \u2014 if OTs can't execute zone blocks, nothing works. Blough's conviction about OZ makes this the most important trait."
+        },
+        "Footwork": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "OZ demands exceptional lateral footwork to get to the reach block angle. The OT must take a lateral first step, sustain movement across the face of the defender, and maintain leverage through the entire block. This is more technically demanding than gap-scheme blocking."
+        },
+        "Anchor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Important on pass protection reps, especially against power rushers, but the scheme reduces pure anchor demands through play-action rollouts and quick game. Not as critical as in a pure dropback offense."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "OZ requires OTs to move laterally and vertically. Must be able to reach-block edge defenders and climb to the second level on zone runs. Blough specifically praised the 'athleticism' of Tunsil and Conerly as fitting his vision. Heavy, stiff tackles kill this scheme."
+        },
+        "Strength": {
+          "weight": 0.07,
+          "importance": "low",
+          "reasoning": "Baseline strength is necessary for sustaining blocks, but this is a movement-first scheme. The OZ technique relies on angles and leverage more than raw power. A strong but immobile tackle is a poor fit."
+        }
+      },
+      "ideal_archetype": "An athletic, light-footed tackle who excels in zone blocking \u2014 reaching, climbing, and sustaining lateral movement \u2014 while providing reliable pass protection for a mobile QB. Think Penei Sewell or Lane Johnson \u2014 tackles who can dominate in the run game through movement and technique while also being elite pass protectors. The ideal OT can get to the second level on zone runs and mirror speed rushers in pass protection. Not a heavy, anchor-first tackle \u2014 this scheme demands movers.",
+      "measurable_preferences": {
+        "short_shuttle": {
+          "ideal": "Sub-4.60",
+          "floor": "Sub-4.75",
+          "reasoning": "Lateral agility is critical for OZ reach blocks. The OT must get lateral displacement on the first step and sustain movement across the defender's face."
+        },
+        "40-yard dash": {
+          "ideal": "Sub-5.05",
+          "floor": "Sub-5.15",
+          "reasoning": "Must be athletic enough to climb to the second level on zone runs. Slow OTs who can only pass-set kill the run game."
+        },
+        "arm_length": {
+          "ideal": "34+",
+          "floor": "33",
+          "reasoning": "Length helps establish reach-block leverage and keep defenders at arm's length during sustained zone blocks."
+        }
+      },
+      "development_context": "Darnell Stapleton promoted to OL coach, Shane Toub as assistant. The staff is new in these roles with limited track record. Tunsil provides an elite veteran presence to anchor the left side. Conerly Jr. is a young, athletic RT who fits the zone-blocking profile. The scheme can accommodate developing OTs IF they have the baseline athleticism \u2014 technique can be taught, but movement ability cannot.",
+      "scheme_fit_narrative": "Our tackles need to move. If a guy can't take a lateral first step and reach the edge defender, he can't play in our outside zone scheme. We want athletic movers who can dominate in the run game and protect a mobile QB. Give us a tackle with light feet and natural movement skills \u2014 we'll develop the technique. But if he's a pure anchor player who can't get to the second level, he doesn't fit here regardless of how strong he is.",
+      "archetype_examples": [
+        "Penei Sewell",
+        "Lane Johnson",
+        "Tristan Wirfs"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior OL in the OZ scheme must execute combination blocks, sustain lateral movement at the point of attack, and pull on gap-scheme complements (counter, power). The center must handle the pre-snap communication demands of under-center football \u2014 something WSH had almost none of in 2025. Guards must be athletic enough to reach-block DTs on zone runs and pull on gap concepts. The scheme demands mobility across all three IOL spots. Tyler Biadasz was released \u2014 center is a major need.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.15,
+          "importance": "moderate",
+          "reasoning": "Play-action and boot concepts reduce pure pass-pro demands on IOL compared to a dropback system. Important but not the primary trait \u2014 the run game drives everything."
+        },
+        "Run Blocking": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "OZ combination blocks require IOL to work in tandem \u2014 one engages while the other climbs to the LB. This is the most important trait because the run game is the offense's foundation."
+        },
+        "Pulling": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Counter and power are secondary run concepts that complement OZ. Guards must be able to pull and kick out/wrap on gap schemes. The Johnson offense featured heavy counter usage \u2014 Detroit led the NFL in counter runs."
+        },
+        "Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must sustain combination blocks against NFL DTs and anchor in pass protection. Baseline strength is required but this is a movement-first scheme \u2014 strength without mobility doesn't work."
+        },
+        "Anchor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Necessary in pass protection against interior pass rushers, especially on dropback plays. But play-action reduces exposure and the scheme emphasizes movement over holding a spot."
+        },
+        "Versatility": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "WSH needs IOL who can play multiple positions. Center is a massive need (Biadasz released). Guards who can slide to center or vice versa are extremely valuable. The diverse run scheme (OZ, counter, power) demands IOL who can execute multiple blocking schemes."
+        }
+      },
+      "ideal_archetype": "An athletic, mobile interior lineman who excels in zone combination blocks, can pull on gap schemes, and has the versatility to play multiple positions. Think Frank Ragnow or the Detroit model \u2014 interior linemen who are technically sound in zone blocking and athletic enough to reach, climb, and pull. A center with the football intelligence to handle under-center snap timing and protection calls is a specific need \u2014 WSH has barely operated from under center in two years.",
+      "measurable_preferences": {
+        "short_shuttle": {
+          "ideal": "Sub-4.60",
+          "floor": "Sub-4.75",
+          "reasoning": "Lateral agility for zone combination blocks and pulling on gap concepts. IOL must move laterally to sustain reach blocks at the point of attack."
+        },
+        "bench_press": {
+          "ideal": "28+ reps",
+          "floor": "25",
+          "reasoning": "Baseline strength for sustaining combination blocks and anchoring in pass protection. Not the primary trait but a floor is needed."
+        }
+      },
+      "development_context": "Stapleton and Toub are new in their OL coaching roles. Andrew Wylie was re-signed and Nick Allegretti (KC) provides veteran depth. The biggest developmental need is teaching under-center snap mechanics \u2014 WSH's IOL have barely done it. Zone blocking technique can be installed but athletic baseline must exist.",
+      "scheme_fit_narrative": "We need interior linemen who can move. Zone combination blocks, pulling on counter, handling the under-center snap \u2014 our IOL have to do it all. Versatility is huge because we need a center and we need guards who can execute diverse run schemes. If a prospect is a road grader who can only drive block straight ahead, he doesn't fit. Give us athletes with football intelligence who can handle multiple assignments.",
+      "archetype_examples": [
+        "Frank Ragnow",
+        "Kevin Zeitler",
+        "Tyler Smith"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "EDGEs in Jones' multiple-front defense must be versatile enough to align in multiple positions \u2014 wide-9, 5-tech, stand-up LB, A-gap blitzer \u2014 and execute assignment football within creative pressure packages. The scheme asks EDGEs to rush from various alignments, drop into flat/hook coverage on zone blitzes, and set the edge in the run game. Not purely one-dimensional pass rushers \u2014 Jones wants 'matchability' and will use EDGEs like Andrew Van Ginkel was used in Minnesota (edge rusher, off-ball LB, interior blitzer). Odafe Oweh was signed as the primary edge rusher ($100M), with Chaisson and Armstrong as complements. The scheme will create one-on-one pass rush opportunities through pre-snap movement and blitz disguises.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The defense is built around generating pressure. Jones' scheme creates favorable rush situations through blitz disguises and overloads, but the EDGE must convert those opportunities into pressures and sacks. Oweh's career-high 81.0 PFF pass-rush grade shows the type of ascending rusher they want."
+        },
+        "Bend": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Wide-9 alignment (a Vikings staple) puts the EDGE far outside, requiring the ability to bend the corner and flatten to the QB. Important in the speed-rush game that this alignment creates."
+        },
+        "First Step": {
+          "weight": 0.17,
+          "importance": "high",
+          "reasoning": "Pre-snap movement and alignment variety mean the EDGE often attacks from unexpected positions. A quick first step is critical to beat blockers before they can set \u2014 the scheme creates the opportunity, but the EDGE must exploit it immediately."
+        },
+        "Power": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Jones values length and power \u2014 Oweh (6-5, 260) and Omenihu (6-5) were signed for their physical profiles. The EDGE must be able to set the edge against OZ runs and convert speed to power as a rush move. This isn't a finesse-only rush scheme."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Jones wants players who 'run and hit.' The aggressive, relentless scheme requires EDGEs who never take plays off \u2014 chasing from backside on zone runs, pursuing QBs who escape the pocket, and maintaining effort on every snap."
+        },
+        "Run Defense": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Multiple-front defense means EDGEs must play run defense from various alignments. WSH ranked dead last in yards allowed in 2025 \u2014 run defense improvement is critical. Jones emphasized wanting players who are 'tough and physical.' EDGEs must set the edge against OZ and contain mobile QBs."
+        }
+      },
+      "ideal_archetype": "A long, athletic, versatile edge rusher who can win from multiple alignments, set the edge in the run game, and occasionally drop into coverage on zone blitzes. Think Andrew Van Ginkel in Minnesota's scheme \u2014 not a pure speed rusher, not a pure power rusher, but a complete edge defender who can play in space, rush from multiple spots, and execute whatever the scheme asks on any given play. Must have the length and power to set the edge and the athleticism to rush from wide-9 or stack over the OT. The Odafe Oweh profile (6-5, 260, athletic, ascending) is exactly what this scheme wants.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-2",
+          "reasoning": "Length is valued \u2014 Jones signed three EDGEs 6-5 or taller. Length helps set the edge, keep blockers at bay, and disrupt passing lanes when dropping into zone."
+        },
+        "weight": {
+          "ideal": "250-265",
+          "floor": "240",
+          "reasoning": "Must have enough mass to set the edge against OZ runs while maintaining the athleticism to rush from wide-9 and drop into coverage."
+        },
+        "40-yard dash": {
+          "ideal": "Sub-4.60",
+          "floor": "Sub-4.70",
+          "reasoning": "The wide-9 alignment demands speed to threaten the edge. Must be athletic enough to cover flat zones on zone blitzes and pursue mobile QBs."
+        }
+      },
+      "development_context": "Eric Henderson was hired as DL coach and run game coordinator. John Pagano coaches OLBs. Jones has a strong track record of maximizing edge rushers \u2014 Van Ginkel and Dallas Turner thrived in Minnesota's scheme. The staff can develop pass-rush technique and coverage skills in versatile athletes. Raw athletic prospects who lack refinement but have the physical tools (length, speed, power) are excellent development candidates because the scheme creates favorable rush situations.",
+      "scheme_fit_narrative": "We need edge rushers who can do more than just pin their ears back and rush. Our scheme moves guys around pre-snap and asks them to rush from different spots, drop into zone, and play the run from multiple alignments. If a prospect can only rush from a wide alignment, he's limited in our system. Give us a long, athletic, versatile rusher who can win from anywhere \u2014 we'll create the opportunities, he just has to convert them.",
+      "archetype_examples": [
+        "Andrew Van Ginkel",
+        "Odafe Oweh",
+        "Brian Burns"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Interior DL in Jones' multiple-front defense must be versatile enough to align in multiple positions \u2014 nose, 3-tech, 4i, and even as a 3-4 end. Quinn specifically praised Daron Payne's ability to play 'nose, inside at 3-tech, and also move as a 3-4 end.' The DL must penetrate gaps to disrupt the run game and generate interior pressure, but also absorb double teams on plays where the pressure comes from elsewhere. The five-man front (Bear/Penny packages) will put extra bodies on the defensive line, requiring DL to hold up in reduced spaces.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Interior pressure was the Vikings' Achilles heel when they lacked it. Jones saw firsthand how lacking interior pass rush forced Minnesota to blitz at unsustainable rates. Interior DL who can generate pressure with four rushers make the entire scheme more sustainable."
+        },
+        "Run Defense": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "WSH was dead last in yards allowed and 30th against the run in 2025. Jones' scheme needs interior DL who can control gaps, absorb double teams, and free up LBs. Five-man front packages require DL to occupy blocks so EDGEs and blitzers can attack clean."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The multiple-front scheme creates confusion for OLs. Interior DL must exploit that confusion with a quick first step to penetrate gaps before protection adjusts. Jones wants 'mobility inside the interior d-line' \u2014 Jer'Zhan Newton epitomizes this."
+        },
+        "Hand Usage": {
+          "weight": 0.17,
+          "importance": "high",
+          "reasoning": "Multiple alignments mean DL face different blocking schemes. Must have the hand technique to shed blocks from various angles \u2014 OZ combination blocks, gap-scheme down blocks, and pass-pro double teams. Versatility demands technical hand usage."
+        },
+        "Motor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Jones' aggressive scheme requires relentless effort. DL who take plays off create gaps in the run defense and allow QBs to step up in the pocket to avoid edge pressure."
+        },
+        "Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must anchor against double teams in five-man front packages and hold the point of attack in the run game. Payne's ability to two-gap when needed requires exceptional strength. Not just for one-gap penetration \u2014 sometimes the DL is asked to eat blocks for others."
+        }
+      },
+      "ideal_archetype": "A versatile, athletic interior DL who can align in multiple spots and provide both run defense and interior pass rush. Think Chris Jones or Javon Hargrave \u2014 players who can play 0-tech, 3-tech, or shade and generate pressure from any alignment. The ideal DT can absorb double teams on early downs and penetrate on passing downs. Must be athletic enough to function in the five-man front packages that Jones will deploy. Quinn specifically highlighted wanting DL who can be 'moved around.'",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "290-320",
+          "floor": "280",
+          "reasoning": "Must have the mass to hold up at nose but the athleticism to function at 3-tech. Lighter, more athletic DTs fit better than pure space-eaters in a scheme that values versatility and interior pressure."
+        },
+        "40-yard dash": {
+          "ideal": "Sub-4.95",
+          "floor": "Sub-5.10",
+          "reasoning": "Interior mobility matters \u2014 Jones praised Newton's 'mobility inside the interior d-line.' Must be quick enough to penetrate gaps and pursue in the run game."
+        }
+      },
+      "development_context": "Eric Henderson (DL coach) was specifically hired to oversee the front seven rebuild. Darryl Tapp moves to assistant DL coach. Daron Payne and Jer'Zhan Newton are the foundational pieces. Tim Settle and Shy Tuttle were re-signed/extended for depth. Javon Kinlaw provides rotational versatility. The staff needs DL who can learn multiple alignments \u2014 the scheme's versatility demands it.",
+      "scheme_fit_narrative": "We need interior DL who can move. Not just one-gap penetrators and not just two-gap space-eaters \u2014 we need guys who can do both depending on what the scheme asks. If a prospect can only play one alignment, he's limited in our system. Give us an athletic, versatile DT who can hold the point of attack against the run and generate interior pressure in the pass game. We'll move him around to create mismatches.",
+      "archetype_examples": [
+        "Chris Jones",
+        "Javon Hargrave",
+        "Dexter Lawrence"
+      ]
+    },
+    "LB": {
+      "scheme_role": "LBs in Jones' scheme must be hybrid athletes who can blitz, drop into zone coverage, and defend the run \u2014 all within the same play depending on the disguise. The Vikings under Flores used LBs like Blake Cashman (coverage specialist) and Ivan Pace Jr. (blitzing specialist) in complementary roles. Jones wants athletic LBs who can 'run and hit.' Frankie Luvu will be used as a Van Ginkel-like hybrid (edge rusher/LB). Leo Chenal was signed specifically for his blitzing ability and range. The scheme requires LBs to process rapidly \u2014 pre-snap they may show blitz and then drop, or show coverage and then rush. Bobby Wagner's era is over \u2014 Jones needs modern, athletic LBs who can play in space.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must be a reliable tackler in the run game and in space after zone drops. Important but the scheme creates tackling opportunities through positioning rather than requiring LBs to win one-on-one in the hole consistently."
+        },
+        "Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Zone coverage behind blitzes is the scheme's signature. LBs must drop into zones (hook, curl/flat, seam) and read the QB's eyes to break on throws. Quinn acknowledged WSH's LBs were exposed in coverage in 2025. Jones demands coverage ability \u2014 it's non-negotiable."
+        },
+        "Pass Rush": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The Flores-influenced scheme sends LBs as extra rushers frequently. Chenal was signed specifically for his blitzing prowess. LBs must be credible blitz threats from A-gap, B-gap, and delayed-rush timing. The scheme creates one-on-one matchups for blitzing LBs against RBs and OL."
+        },
+        "Instincts": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Must process offensive formations to execute the right assignment \u2014 sometimes blitzing, sometimes dropping, sometimes doing the opposite of what was shown pre-snap. The scheme's complexity demands football intelligence."
+        },
+        "Athleticism": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Jones explicitly identified athleticism as the defense's greatest current strength. Athletic LBs are required to cover sideline-to-sideline, match RBs out of the backfield, and close on the ball in zone drops. Jones said the roster's young LBs (Magee, Medrano) 'can run and hit' \u2014 that's the requirement."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Sideline-to-sideline range to cover zones, pursue outside zone runs to the perimeter, and chase down mobile QBs. The scheme spaces out its coverage, so LBs must cover ground quickly."
+        },
+        "Block Shedding": {
+          "weight": 0.05,
+          "importance": "low",
+          "reasoning": "The scheme uses DL and EDGEs to absorb blocks and free up LBs. Block shedding matters but it's less critical than in a read-and-react defense because the scheme creates clean lanes for LBs to attack."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.04,
+          "importance": "low",
+          "reasoning": "The scheme tells the LB what to do \u2014 his assignment is determined by the play call, not by reading the offense. Pre-snap diagnosis is more of a coaching staff responsibility in this system."
+        }
+      },
+      "ideal_archetype": "An athletic, rangy linebacker who can cover in space, blitz through gaps, and defend the run \u2014 a three-down LB who never comes off the field. Think Blake Cashman or Fred Warner \u2014 LBs who combine coverage ability, blitzing prowess, and run defense into a complete package. The ideal WSH LB is a player Jones can line up at WILL, MIKE, or even walk down to the edge depending on the front. Must be comfortable showing blitz and then dropping, or showing coverage and then rushing.",
+      "measurable_preferences": {
+        "40-yard dash": {
+          "ideal": "Sub-4.55",
+          "floor": "Sub-4.65",
+          "reasoning": "Jones wants LBs who 'run and hit.' Coverage ability in space and sideline-to-sideline range require speed. The aggressive scheme needs LBs who can close on the ball quickly in zone drops."
+        },
+        "weight": {
+          "ideal": "225-245",
+          "floor": "220",
+          "reasoning": "Must be athletic enough to cover but physical enough to blitz and tackle in the run game. Chenal at 6-3, 250 with a 9.99 RAS shows the athletic/size combination Jones values."
+        },
+        "3-cone drill": {
+          "ideal": "Sub-6.90",
+          "floor": "Sub-7.10",
+          "reasoning": "Change of direction ability for zone drops, covering RBs out of the backfield, and redirecting in pursuit. The scheme's coverage demands require lateral agility."
+        }
+      },
+      "development_context": "Jones developed LBs who excelled in specific roles \u2014 Cashman as a coverage ace, Pace as a blitzer. He can develop raw athletes into role-specific contributors. The scheme doesn't require LBs to be elite at everything \u2014 Jones will scheme around strengths. An athletic prospect with one elite trait (coverage or blitzing) and average in other areas can be developed into a starter because the scheme creates favorable situations.",
+      "scheme_fit_narrative": "Bobby Wagner was great but his time is over. We need LBs who can run. Our scheme asks LBs to show blitz and drop, show coverage and rush \u2014 they have to be athletes who can do multiple things. Coverage is non-negotiable. If a prospect can't cover in space, he's a two-down player in our system, and we can't afford that. Give us a rangy, athletic LB who can blitz, cover, and tackle \u2014 we'll scheme the rest.",
+      "archetype_examples": [
+        "Blake Cashman",
+        "Fred Warner",
+        "Roquan Smith"
+      ]
+    },
+    "CB": {
+      "scheme_role": "CBs in Jones' defense must execute split-field zone coverage concepts, disguise their alignment, and be comfortable in multiple coverage structures on the same play (Cover 4 on one side, Cover 2 on the other). The Vikings' secondary under Jones allowed the second-fewest passing yards and completions in the NFL. CBs must play press at the line to disrupt timing, then execute zone drops with eyes on the QB. Man coverage is mixed in situationally. The slot CB (Amik Robertson profile) must handle nickel responsibilities in the NFC East's pass-heavy division. The scheme asks CBs to disguise coverage pre-snap \u2014 showing one look and executing another \u2014 which requires football intelligence and versatility.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.14,
+          "importance": "moderate",
+          "reasoning": "Man coverage is mixed in situationally but is not the primary scheme. The Flores influence is zone-dominant (69%+ zone rate in MIN). Man coverage ability provides versatility and is used to counter quick-game adjustments by offenses."
+        },
+        "Ball Skills": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Jones' units in Minnesota generated 73 interceptions over four years, including an INT in every game in 2024. Creating turnovers is the defensive identity. CBs must locate and attack the ball when zone drops put them in position. Quinn has demanded more takeaways."
+        },
+        "Zone Coverage": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The defense is zone-dominant. Split-field coverage (quarters variations, Cover 2, Cover 6) is the foundation. CBs must read the QB's eyes, break on throws, and execute pattern-matching concepts in quarters coverage. This is THE defining trait."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must be fast enough to cover vertical routes in Cover 4 (quarters) where the CB has deep-quarter responsibility. In the NFC East with speed receivers in DAL, PHI, and NYG, recovery speed matters on play-action shots."
+        },
+        "Press": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Jones' MAZE concept (man alignment, zone execution) requires CBs to press at the line \u2014 showing man \u2014 before executing zone drops. Press disruption buys time for the blitz to arrive. Must be physical at the line even in zone schemes."
+        },
+        "Nickel": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Slot CB is a premium position in this defense. Robertson was signed specifically for slot versatility. The nickel must handle zone drops in the slot area, blitz from the slot, and cover quick slot receivers in an occasional man look. In the NFC East's spread-heavy offenses, nickel usage will be high."
+        }
+      },
+      "ideal_archetype": "A physical, ball-hawking zone corner who can press at the line, execute split-field coverage concepts, and attack the football in the air. Think Byron Murphy Jr. in Minnesota \u2014 a versatile CB who Jones coached to career highs across the board. Murphy is the prototype: physical in press, elite in zone, outstanding ball skills, capable in the slot and outside. Not a pure man-coverage lockdown corner \u2014 this scheme values versatility, football intelligence, and ball production over pure one-on-one coverage ability.",
+      "measurable_preferences": {
+        "40-yard dash": {
+          "ideal": "Sub-4.40",
+          "floor": "Sub-4.50",
+          "reasoning": "Speed is critical for deep-quarter responsibilities in Cover 4 and recovery when blitzes don't get home. The NFC East has elite speed receivers."
+        },
+        "height": {
+          "ideal": "5-10 to 6-1",
+          "floor": "5-9",
+          "reasoning": "No extreme size requirement. The scheme creates favorable coverage situations through disguise rather than requiring physical dominance. Versatility to play inside and outside is more valuable than prototypical outside CB size."
+        }
+      },
+      "development_context": "Jones is an elite CB developer. He coached Byron Murphy Jr. to a Pro Bowl, developed Derek Stingley Jr. at LSU (3rd overall pick), and turned Darius Phillips into a playmaker in Cincinnati. William Gay (now CBs coach) and Tommy Donatell (safeties coach) provide additional development infrastructure. The staff can develop zone technique and ball skills in raw athletes. Man coverage technique is harder to develop but less critical in this zone-first scheme.",
+      "scheme_fit_narrative": "We want corners who play with their eyes on the quarterback in zone coverage and attack the football. If a prospect is a pure man-coverage corner who can't play zone, he's not our guy. Give us an athletic, instinctive corner with ball skills who can press at the line, read route concepts, and make plays on the ball. We'll teach the zone technique \u2014 but the ball skills and football intelligence have to be there.",
+      "archetype_examples": [
+        "Byron Murphy Jr.",
+        "Sauce Gardner",
+        "Jaire Alexander"
+      ]
+    },
+    "S": {
+      "scheme_role": "Safeties in Jones' defense must be versatile enough to play multiple roles \u2014 deep safety in two-high shells, rotating down as a blitzer, playing in the box as a run defender, and covering TEs/RBs in man situations. The Flores-influenced scheme used Harrison Smith and Camryn Bynum in highly versatile roles. Jones coached Smith to career-high interception numbers and developed Bynum into a 137-tackle player. Nick Cross was signed for his blitzing ability and run defense. The scheme shows two-high looks 55%+ of the time, requiring safeties to play deep quarters, but then rotates them down to support the blitz or fill run gaps. Safeties are the key to disguising coverage \u2014 they must be able to show one alignment and execute a completely different responsibility post-snap.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Occasional man assignments on TEs and RBs. Not the primary demand but must be capable when the scheme calls for it. Jones' MAZE concept sometimes has safeties in man-like responsibilities."
+        },
+        "Range": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Two-high shells with split-field coverage require safeties to cover deep halves and quarters. Must have the range to get from one side of the field to the other on rotations. The scheme's disguise means safeties often start in one position and rotate to another post-snap \u2014 range is everything."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The defense generated 73 INTs over four years with Jones. Safeties in deep positions must locate and attack the ball. Harrison Smith posted career-best INT numbers under Jones. Turnovers are the defensive identity."
+        },
+        "Tackling": {
+          "weight": 0.17,
+          "importance": "high",
+          "reasoning": "Safeties rotate down into the box on run plays and must be reliable tacklers. WSH allowed the most yards in the NFL in 2025 \u2014 tackling improvement is critical. Cross was signed partly for his run-defense ability (career-high 120 tackles in 2025)."
+        },
+        "Speed": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Must cover deep quarters and chase down plays from the secondary. Cross's 4.34 40-yard dash exemplifies the speed Jones wants. The scheme asks safeties to play deep and then drive downhill on run fakes \u2014 speed enables both."
+        },
+        "Nickel": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Versatile safeties like Reaves and Owens can play nickel roles in certain sub-packages. Jones wants 'versatility' from his safeties \u2014 the ability to align in the box, in the slot, or deep and execute multiple responsibilities."
+        }
+      },
+      "ideal_archetype": "A rangey, versatile safety who can play deep in two-high shells, rotate down as a blitzer or run defender, and make plays on the ball. Think Harrison Smith or Jessie Bates \u2014 safeties with elite range, reliable tackling, ball-hawking ability, and enough versatility to handle multiple roles within the same game. The ideal safety can show two-high, rotate to single-high, blitz from the edge, and cover a TE in man \u2014 all in the same series. Must be smart enough to execute Jones' elaborate pre-snap disguises.",
+      "measurable_preferences": {
+        "40-yard dash": {
+          "ideal": "Sub-4.45",
+          "floor": "Sub-4.55",
+          "reasoning": "Speed is critical for deep-half and deep-quarter coverage. Must cover ground quickly on rotations and close on the ball in zone drops. Cross (4.34) sets the benchmark."
+        },
+        "weight": {
+          "ideal": "200-215",
+          "floor": "195",
+          "reasoning": "Must be physical enough to play in the box and tackle in the run game but athletic enough for deep coverage. Not a 230-pound box safety and not a 185-pound centerfielder \u2014 the scheme demands both."
+        }
+      },
+      "development_context": "Tommy Donatell is now the dedicated safeties coach (previously just DBs coach). Jones developed multiple safeties in Minnesota \u2014 Bynum (career year in 2023), Metellus (career-high starts and production), and maintained Harrison Smith's elite play. The staff can develop range and coverage instincts. Tackling and ball skills tend to be more innate. The Flores-influenced scheme's complexity requires football intelligence that's difficult to develop \u2014 IQ is a prerequisite.",
+      "scheme_fit_narrative": "We need safeties who can play chess. Our scheme asks them to show one thing and do another \u2014 align deep and rotate down, align in the box and bail to deep coverage. Range is king. If a prospect can't cover ground from sideline to sideline and from the box to the deep middle, he can't play in our defense. We want ball-hawking athletes who tackle reliably and are smart enough to execute our disguises. Pure box safeties and pure centerfielders are limited \u2014 we need the full package.",
+      "archetype_examples": [
+        "Harrison Smith",
+        "Jessie Bates",
+        "Camryn Bynum"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Washington's 2026 defense under Daronte Jones is transitioning from Quinn's traditional 4-3 to a Flores-style multiple 3-4 with heavy blitz tendencies and zone coverage. This creates two massive draft value inflections: (1) EDGE/OLB prospects who can rush AND drop into coverage are worth premium prices\u2014the scheme demands stand-up OLBs who line up wide but can drop into fire zone coverage 15-20% of the time, making tweener LB/EDGE prospects (Arvell Reese, Sonny Styles types) significantly more valuable. Washington currently lacks these pieces entirely. (2) Hybrid safeties who can blitz, play slot, and rotate to deep thirds are scheme-critical\u2014a Caleb Downs-type safety is arguably the most impactful non-QB pick for this defense. On offense, Blough's shift to under-center play-action with 12 personnel elevates receiving TEs dramatically\u2014Washington has a glaring TE1 need and hired the coach who developed Trey McBride. A TE like Kenyon Sadiq with elite receiving traits would function as a primary weapon, not just a role player. RBs with receiving chops get a moderate boost from the play-action/boot scheme but the primary need is still a physical runner. The no-huddle Air Raid era is over; Washington now values pro-style, under-center versatility across all positions.",
-  "confidence": "high",
+  "scheme_draft_intelligence": "The Washington Commanders enter the 2026 draft with the No. 7 overall pick and a clear mandate: rebuild the defense while supporting a transitioning offense. The coaching staff overhaul \u2014 with both coordinators being first-time NFL play-callers \u2014 creates both uncertainty and opportunity. On offense, Blough's transition to a Ben Johnson-influenced, under-center, outside-zone system dramatically changes the positional demands compared to Kingsbury's shotgun spread. OL athleticism for zone blocking becomes paramount, and the TE position suddenly carries scheme-critical importance. Prospects who can block and catch in 12 personnel are far more valuable to WSH than to spread-first teams. The RB position also shifts toward zone runners with vision and cutback ability rather than between-the-tackles power backs.\n\nDefensively, Jones' Flores-influenced multiple scheme creates the biggest draft value differentials. Washington will value versatile, athletic defenders who can play multiple roles \u2014 EDGEs who can drop into coverage, LBs who can blitz and cover, safeties who can play deep and in the box, and CBs who excel in zone with ball skills. Pure one-dimensional players (coverage-only CBs, pass-rush-only EDGEs, run-stuffing-only LBs) lose significant value because the scheme demands versatility from every position. The heavy investment in edge rushers via free agency (Oweh $100M, Chaisson, Omenihu) suggests the draft focus will shift to cornerback, safety, linebacker, or offensive weapons.\n\nCornerback is particularly interesting because Jones' track record of developing zone CBs with ball skills (Murphy, Stingley, Phillips) suggests WSH could take a raw athletic CB with ball production and develop them into a starter. The No. 7 pick could easily be a CB given the roster need and Jones' ability to develop the position. The defense's zone-heavy, disguise-intensive scheme creates hidden value in prospects who test as elite athletes but lack the refined man-coverage technique that traditional schemes demand \u2014 Jones can teach zone technique to athletes in a way that man-coverage defenses cannot.\n\nThe offensive side creates hidden value at TE and IOL. The shift to under-center, outside-zone football means WSH needs a center who can handle under-center snap mechanics and zone blocking \u2014 a specific skill set that many centers lack. Athletic IOL who can pull and zone-block are more valuable to WSH than to power-scheme teams. The TE position is perhaps the biggest hidden-value play: Blough hired one of the NFL's best TE developers (Steele) and plans to feature 12 personnel. A blocking-capable receiving TE could be a scheme-unlocking addition that other teams wouldn't value as highly.\n\nHistorically, Quinn's draft approach has favored athletes and competitors over polished technicians \u2014 he trusts his staff to develop technique. Adam Peters (GM) comes from the San Francisco 49ers' scouting tree, which also emphasizes athletic testing and scheme versatility. Together, they're likely to target high-RAS (Relative Athletic Score) prospects at defensive positions and scheme-specific fits on offense, creating opportunities to find value where other teams see raw, undeveloped prospects.",
+  "confidence": "medium-high",
   "sources": [
-    "commanders.com (official coaching staff page, press conferences)",
-    "Pro Football Reference (2025 Washington Commanders team page)",
-    "SI.com/CommanderGameday (Jones introductory press conference coverage)",
-    "Mark Bullock/Substack (Commanders hire Daronte Jones scheme breakdown)",
-    "atozsports.com (Quinn on Jones defensive scheme installation)",
-    "Hogs Haven (3-4 defense analysis, personnel fit evaluation)",
-    "NFL.com (Commanders hiring Jones as DC, Ian Rapoport)",
-    "Yardbarker (David Blough offense, Ben Steele TE coach hiring)",
-    "heavy.com (Blough plan for Ben Sinnott, TE usage)",
-    "roundtable.io (Blough under-center shift, offensive philosophy)",
-    "Washington Times (Jones hiring background)",
-    "Match Quarters (Flores/Vikings blitz rate and coverage data)",
-    "ESPN (Kingsbury-Whitt firing, scheme context)",
-    "Wikipedia (Blough and Jones biographical coaching history)"
+    "commanders.com official coaching staff page and press conferences",
+    "ESPN John Keim - Jayden Daniels and Commanders 2026 offense preview",
+    "NFL Network - Commanders part ways with Kingsbury and Whitt",
+    "Washington Times - Daronte Jones hiring profile",
+    "Heavy.com - Daronte Jones Flores connection analysis",
+    "A to Z Sports - Jones scheme and free agency coverage",
+    "SI.com Commanders - Jones defensive scheme reveal",
+    "Mark Bullock Substack - Dan Quinn defensive scheme analysis and Ben Johnson lessons for Blough",
+    "Match Quarters - Dan Quinn Tampa rotations and Vikings 6-1 scheme",
+    "Daily Norseman - Flores scheme breakdown",
+    "Zone Coverage - Vikings defense deep dive",
+    "CBS Sports - Brian Flores scheme analysis",
+    "Pro Football Reference - 2025 Washington Commanders stats",
+    "Hogs Haven - Free agency tracker and offensive preview",
+    "Roundtable.io - Blough offense adaptability analysis",
+    "Yardbarker - Blough scheme reveals and under-center philosophy",
+    "Wikipedia - Dan Quinn, Kliff Kingsbury, Daronte Jones coaching histories",
+    "Pete Carroll coaching tree Raiders profile",
+    "Windy City Gridiron - Ben Johnson offensive tendencies analysis"
   ]
 }

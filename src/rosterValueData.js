@@ -89,8 +89,8 @@ export function formatTradeValue(player) {
 }
 
 export const TIER_COLORS = {
-  elite: "#7c3aed", pro_bowl: "#2563eb", quality_starter: "#0d9488",
-  starter: "#525252", rotational: "#a3a3a3", backup: "#d4d4d4", declining: "#dc2626"
+  elite: "#6d28d9", pro_bowl: "#8b5cf6", quality_starter: "#a78bfa",
+  starter: "#78716c", rotational: "#a8a29e", backup: "#d6d3d1", declining: "#d4d4d4"
 };
 
 export const AVAILABILITY_DISPLAY = {

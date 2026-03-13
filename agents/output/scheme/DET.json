@@ -4,71 +4,765 @@
   "coaching_staff": {
     "head_coach": {
       "name": "Dan Campbell",
-      "tenure_years": 5,
+      "tenure_years": 6,
       "background": "offensive (tight ends)",
-      "scheme_philosophy": "Physical, aggressive, run-first identity. Former TE who played 11 years and coached TEs in Miami and New Orleans under Sean Payton. Values grit, toughness, 4th-down aggressiveness, and establishing the run. Took over offensive playcalling midseason in 2025 after firing OC John Morton from duties."
+      "coaching_tree": "New Orleans Saints / Sean Payton tree \u2192 Miami Dolphins interim HC \u2192 built Detroit culture from ground up",
+      "scheme_philosophy": "Physical, run-first identity rooted in toughness and grit. Campbell is an offensive-minded HC who took over play-calling mid-2025 after relieving OC John Morton. Believes in establishing the run, controlling the line of scrimmage, and play-action passing. Previously took over play-calling from Anthony Lynn in 2021. Wants an OC who calls plays so he can oversee the whole team, but has shown willingness to intervene. Culture-first coach who values effort, physicality, and mental toughness above scheme rigidity."
     },
     "offensive_coordinator": {
       "name": "Drew Petzing",
-      "scheme_tree": "Kevin Stefanski / Minnesota Vikings tree; Browns (Stefanski) tight ends coach; Arizona Cardinals OC 2023-2025. Run-heavy, play-action oriented, TE-centric passing game.",
-      "play_caller": true
+      "coaching_tree": "Kevin Stefanski / Minnesota Vikings tree (2014-2019 under Zimmer/Stefanski) \u2192 Cleveland Browns (TEs, QBs under Stefanski 2020-2022) \u2192 Arizona Cardinals OC (2023-2025) \u2192 Detroit. Shares coaching DNA with Shanahan-tree concepts via Stefanski but with his own run-game identity rooted in gap/power schemes. Close personal friend of Ben Johnson (both coached at Boston College). Also worked alongside Hank Fraley in Minnesota (2014-2016).",
+      "scheme_evolution": "In Cleveland under Stefanski, absorbed wide zone principles and play-action-heavy passing. In Arizona, initially planned wide zone but pivoted to gap/power schemes when the Cardinals' OL couldn't execute zone. Built one of the NFL's most effective rushing attacks in 2023-2024 (top-7 rushing, top-2 YPC) with James Conner. Heavy user of 12 and 13 personnel (Arizona ranked 8th in 12 personnel, 3rd in 13 personnel). Increased under-center usage to ~25% of snaps. In 2025, lost Conner/Murray to injury and adapted to pass-heavy approach. In Detroit, has stated he will adapt to the roster \u2014 will likely blend gap schemes with Detroit's existing zone foundation, lean into play-action, and utilize TEs aggressively.",
+      "development_track_record": "Developed Trey McBride into the NFL's single-season TE receptions record holder. Helped Stefon Diggs reach 1,130 receiving yards as Vikings WR coach in 2019. Credited with Bo Nix's development as Denver's passing game coordinator (though that was Morton's role, Petzing's influence on QBs in Cleveland with Deshaun Watson/Jacoby Brissett is notable). Strong at maximizing TE production and building running games around physical backs."
     },
     "defensive_coordinator": {
       "name": "Kelvin Sheppard",
-      "scheme_tree": "Aaron Glenn disciple / Lions internal promotion. Former LB (LSU/NFL). Coached under Glenn in Detroit's 4-3 aggressive man-heavy system since 2021. First-year DC in 2025, entering second year in 2026.",
-      "play_caller": true
+      "coaching_tree": "Aaron Glenn protege / Dennis Allen-Fangio tree (inherited through Glenn's New Orleans background). Glenn's scheme blended Fangio two-high principles with aggressive man-coverage when personnel allowed. Sheppard was mentored directly by Glenn for four years (2021-2024), learning play-calling by studying Glenn's tendencies and running mock game-call exercises with his LB room. Also influenced by Dan Campbell's physicality-first defensive identity.",
+      "scheme_evolution": "Year 1 (2025): Maintained Glenn's 4-3 base but leaned too heavily on base defense \u2014 Detroit played the highest rate of base 4-3 in the NFL. Coverage was less effective without Glenn's game-plan mastery. Used Cover 1 man concepts but struggled to generate consistent pressure (allowed longest avg QB time to throw at 2.99 seconds). In his own words, prioritizes adaptability \u2014 'Detroit's played four different variations of defense over the last four years based on personnel.' Year 2 (2026): Expected to increase nickel usage, add a hybrid nickel defender, and reduce base 4-3 reliance. Continuity on coaching staff (Rodgers, Townsend, O'Neil all returning) should allow refinement. Self-scout identified 105 explosive plays allowed as primary area for correction.",
+      "development_track_record": "Developed Jack Campbell into an All-Pro LB (165+ tackles, 5.0 sacks, 3 forced fumbles in 2025 \u2014 only NFL player with those numbers). Helped Malcolm Rodriguez become a Week 1 starter as a 6th-round rookie. Guided Alex Anzalone to franchise-best tackle seasons. Developed Charles Harris to career-high 7.5 sacks in first year under his coaching. Strong at developing instinctive, assignment-sound LBs."
     }
   },
   "offense": {
-    "scheme_family": "Run-heavy play-action, Coryell-influenced vertical passing with Stefanski/Browns TE-centric concepts",
-    "base_personnel": "11 personnel primary, with significant 12 and 13 personnel usage expected under Petzing. In Arizona, Petzing ran 8th-most 12 personnel and 3rd-most 13 personnel in 2025. Campbell has stated Detroit will not become a heavy-set team like Arizona but will adapt to roster. Expect a blend of 11 and 12 personnel.",
-    "run_scheme": "Outside zone / wide zone primary, gap and power concepts mixed in. Petzing's Cardinals ranked 2nd in NFL in rushing average (4.92 YPC) across his three seasons. Hank Fraley continues as run game coordinator / OL coach, providing continuity from the dominant 2022-2024 run game.",
-    "pass_concepts": "Play-action heavy with under-center looks, vertical shots off play-action, high-accuracy short/intermediate routes to complement Jared Goff's strengths. Petzing emphasized TE in the passing game in Arizona (Trey McBride: 126 receptions, 1,239 yards in 2025). Mike Kafka joins as passing game coordinator, adding Erhardt-Perkins / Chiefs-tree concepts.",
-    "rpo_usage": "moderate",
-    "te_usage": "High-priority receiving weapon. Sam LaPorta is a featured pass catcher (was on pace for 76 rec / 924 yards before injury in 2025). Under Petzing in Arizona, Trey McBride averaged 106 receptions per year over three seasons. LaPorta expected to see even bigger role in 2026 under this TE-friendly system. 12 and 13 personnel sets will be utilized.",
-    "rb_usage": "Featured bell cow in Jahmyr Gibbs. In 2025, Gibbs posted 1,223 rushing yards + 77 receptions for 616 receiving yards and 18 total TDs. David Montgomery traded to Houston. Gibbs is now the clear RB1 with elite dual-threat usage. Petzing values strong RB receiving role in play-action offense."
+    "scheme_family": "Stefanski-tree run-first offense (gap/power primary, zone secondary) with play-action passing",
+    "scheme_detail": "Petzing brings a run-game-centric philosophy that aligns with Campbell's identity but differs from Ben Johnson's spread-oriented approach. Petzing's Arizona offenses were built on establishing the run through gap and power schemes, then attacking with play-action and RPOs. He uses heavy personnel groupings (12, 13) to create numbers advantages in the run game and force defenses to choose between stopping the run and covering pass-catchers. Unlike Johnson's explosive, spread-based system, Petzing's approach is more methodical \u2014 control the line of scrimmage, use under-center alignments, and let the run game create easy throws. However, in Detroit he inherits elite skill weapons (Goff, St. Brown, Williams, Gibbs, LaPorta) that will allow more 11-personnel usage than Arizona. With Mike Kafka (Andy Reid tree) as pass game coordinator, expect a blend: Petzing's run foundation with more creative passing concepts than he had in Arizona. Hank Fraley's presence as run game coordinator is critical \u2014 he and Petzing worked together in Minnesota and share a deep trust.",
+    "run_scheme": "Gap/power primary with zone concepts mixed in. In Arizona, Petzing leaned on power, counter, and duo concepts rather than wide zone \u2014 though he has expressed affinity for wide zone benefits (bootleg game, number count control). Initially planned wide zone in Arizona but pivoted when OL couldn't execute it. In Detroit, expect a blend: the Lions' OL (Sewell, Ragnow when healthy) has excelled at zone blocking historically, so Petzing will likely incorporate both. Key emphasis on pulling guards, under-center runs, and using TEs as extra blockers. 'Running the ball is an attitude thing, and it's about moving people off the line of scrimmage.'",
+    "pass_architecture": "Play-action heavy, TE-centric intermediate passing with Shanahan-tree route concepts. Petzing's passing game in Arizona relied heavily on TEs (McBride led Cardinals in targets, receptions, receiving yards). Short-to-intermediate timing routes, crossers, and designed TE seam routes off play-action. In Arizona, criticized for overly simplistic route trees and too many checkdowns. With Kafka's Andy Reid-tree influence and Detroit's superior receiving talent (St. Brown, Williams, LaPorta), expect more aggressive downfield concepts than Arizona showed. Goff's strengths in play-action and timing throws align perfectly with Petzing's system. RPO usage will be moderate \u2014 Petzing used a 'steady diet of RPOs and play-action passes' per Arizona analysis.",
+    "personnel_tendencies": "Diverse groupings with emphasis on 12 and 13 personnel. Arizona ranked 8th in 12-personnel plays and 3rd in 13-personnel plays. Detroit already ranked 2nd in 12-personnel usage in 2025. Campbell has stated the Lions won't become a heavy-set team just because Petzing used it in Arizona \u2014 'That's not something I foresee us being.' Expect significant 11 personnel (Goff, Gibbs, St. Brown, Williams, LaPorta), heavy 12 personnel (LaPorta + TE2), and some 13 personnel in short-yardage/red zone. Under-center usage will increase from Detroit's norm but won't approach Arizona's 25% rate given Goff's comfort in shotgun.",
+    "motion_tempo": "Moderate-to-heavy pre-snap motion. Petzing used motion to attack varied coverages in Arizona. Standard tempo \u2014 not a hurry-up offense. Ball control philosophy that aligns with Campbell's run-first identity. Play-action rate will be among the highest in the NFL given Petzing's scheme and Detroit's rushing talent."
   },
   "defense": {
-    "base_front": "4-3",
-    "alignment": "Even front, 4-down linemen (two DEs with hands in dirt, including Aidan Hutchinson as primary edge rusher, two DTs). Three off-ball LBs in base. Detroit played the most base 4-3 defense in the NFL in 2025 (~60% of snaps), far above the league average of ~20%.",
-    "edge_rush_source": "4-3 DE hands-in-dirt. Aidan Hutchinson is the premier edge rusher as a true defensive end. Marcus Davenport, Al-Quadin Muhammad as complementary DEs. Kacy Rodgers (former Todd Bowles DL coach from Tampa) coaches the DL. Edge rushers are traditional 4-3 DEs, not stand-up OLBs.",
-    "coverage_base": "Man-heavy with Cover 1 / single-high tendencies, zone mixed in. Aaron Glenn's aggressive man-coverage system was largely maintained by Sheppard. Heavy reliance on man coverage with press concepts. Sheppard intends to continue this identity in Year 2.",
-    "blitz_tendency": "moderate to heavy (aggressive pressure packages inherited from Glenn system)",
-    "lb_role": "Traditional run-stopping LBs who must also cover. MIKE (Jack Campbell) is the defensive quarterback \u2014 sideline-to-sideline tackler who also added 3 sacks in 2025. WILL (Alex Anzalone, pending free agency) is the backside pursuit LB. SAM (Derrick Barnes) is a hybrid edge-setting/pass rush LB deployed outside the tackle box on the LOS, with responsibilities including rushing the passer, overloading the box, and dropping into coverage. SAM role creates some LB\u2192pass rush value.",
-    "safety_usage": "Dual-safety system with Brian Branch and Kerby Joseph as elite starters. Branch is a true hybrid \u2014 played nickel as a rookie, moved to safety, logged 2.5 sacks and showed versatile blitz/coverage/box skills in 2025 before tearing his Achilles. Joseph is a deep ball-hawk safety. Both suffered significant injuries in 2025; safety is a major draft need for 2026. Sheppard values the ability to dictate to offenses by staying in base and maintaining physicality at the LB/safety level."
+    "scheme_family": "4-3 base (Glenn/Dennis Allen-Fangio tree) with evolving nickel usage",
+    "scheme_detail": "Sheppard inherited Glenn's 4-3 defense and maintained it in Year 1, but leaned too heavily on base personnel (highest base 4-3 rate in the NFL in 2025). The defense was built around man coverage (Cover 1 was primary coverage in 2024 under Glenn at 35.2% of snaps, second-highest in NFL) with quarters/split-field zone concepts mixed in. Sheppard wants to play man coverage aggressively but acknowledged the pass rush must improve for that to work. In 2026, with coaching staff continuity and a self-scout focus on explosive plays allowed, expect more nickel usage, better situational awareness, and a more varied coverage menu. Kacy Rodgers (Todd Bowles tree) brings elite run-stopping DL coaching and stunt packages. The defense channels through LB Jack Campbell as the defensive QB \u2014 'This is Jack Campbell's defense,' per Sheppard.",
+    "front_structure": "4-3 base with even front. Four down linemen (two DEs, one 3-tech DT, one nose tackle) with three LBs behind. In nickel, drop a LB and add a DB (historically Brian Branch or a nickel CB). Glenn used odd-front looks (tite front, Eagle front) situationally, and Sheppard has maintained this flexibility. DEs (Hutchinson, Davenport) align in traditional 4-3 DE spots. Alim McNeill is the primary 3-technique penetrator. The nose tackle spot lost DJ Reader and Roy Lopez in free agency \u2014 need here. High stunt rate (2nd in NFL in 2024 at 23.1%) to generate interior pressure.",
+    "coverage_philosophy": "Man-coverage dominant when healthy. In 2024, Detroit ran Cover 1 on 35.2% of snaps (2nd in NFL). Cover 0 blitzes used aggressively in high-leverage situations. When Glenn had the right CBs (Davis, Arnold) and safeties (Branch, Joseph), the defense could play island man coverage. Sheppard wants to continue this but the 2025 secondary injuries (Joseph, Branch, Arnold all missed time) forced more zone. Quarters/split-field zone concepts used as secondary coverage. Two-high safety shells used pre-snap to disguise Cover 1 post-snap. The defense needs CBs who can play press-man and a nickel defender who can handle slot receivers in man.",
+    "pressure_philosophy": "Front-four pressure preferred when Hutchinson is healthy \u2014 he generated pressure at elite rates before his 2024 leg injury. When the front four can't get home, Detroit uses high stunt rates and creative blitz packages (safety blitzes, LB green-dog blitzes, Cover 0 pressures). In 2025, struggled to generate pressure without Hutchinson for stretches. Sheppard is known for wanting aggressive, attacking defense. With Hutchinson healthy for 2026, the defense should return to generating pressure with the front four, allowing man coverage behind it.",
+    "sub_packages": "4-2-5 nickel should become the primary sub-package in 2026 (replacing base 4-3 as the most-used look). One LB off the field, extra DB in. Brian Branch has played both safety and nickel \u2014 in 2023 he was an elite slot defender, in 2024 Glenn moved him to safety full-time. The defense needs a dedicated nickel corner or will use Branch/Ya-Sin in the slot. Dime (4-1-6) used sparingly in obvious passing situations."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "This is one of the highest TE-value offenses in the NFL for 2026. New OC Drew Petzing's track record is definitive: in Arizona, Trey McBride averaged 106 receptions per year over three seasons and earned back-to-back Pro Bowls, including a First-Team All-Pro with 126 catches and 1,239 yards in 2025. Petzing's offense features TEs as primary receiving weapons in 12/13 personnel with play-action, seam routes, and flexed alignments. Sam LaPorta already profiles as an elite receiving TE (86 rec, 10 TDs as a rookie). Detroit's offense will treat a receiving TE like a WR1B-level target. A TE prospect with elite route-running, hands, and separation gets maximum value here."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB in Petzing's system operates as a play-action distributor who reads the field pre-snap, gets the ball out on time, and makes decisive throws to the open man. Under-center work is critical \u2014 the QB must be comfortable taking snaps from center, executing play-fakes, and hitting timing routes off boot/rollout action. This is not a system that asks the QB to create off-script or throw into tight windows downfield consistently. The offense will put the QB in advantageous situations through personnel groupings and play-action, and the QB must capitalize with accuracy and decision-making.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Petzing's system is built on short-to-intermediate timing routes and play-action. Deep arm talent is secondary to anticipation and ball placement. Goff has thrived here without elite arm strength. The passing game coordinator Kafka may add some downfield concepts, but the system doesn't demand a cannon."
+        },
+        "Accuracy": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "Petzing's play-action passing game demands pinpoint accuracy on timing throws, particularly to TEs on seam routes and crossers. In Arizona, completion percentage was tied to offensive success \u2014 McBride and Conner both caught passes at high rates because the system creates open windows that require precise ball placement. This is THE defining trait for a Petzing QB."
+        },
+        "Pocket Presence": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "With heavier personnel groupings and under-center work, the QB will face more traditional pocket situations. Must navigate pressure calmly, step up in the pocket, and deliver. The OL has had injury concerns \u2014 pocket manipulation is critical. Goff's pocket presence has been a Lions strength."
+        },
+        "Mobility": {
+          "weight": 0.08,
+          "importance": "low",
+          "reasoning": "Petzing's bootleg and rollout concepts benefit from a QB who can get outside the pocket and threaten the run, but this is not a designed-run offense at QB. Goff is largely immobile and the system works fine. Some mobility helps on play-action boots but it's not a priority."
+        },
+        "Decision Making": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Petzing's offense features RPOs and play-action reads where the QB must quickly identify the correct target based on the defensive look. The Shanahan-tree concepts often involve one primary read before a checkdown \u2014 quick, correct decisions are essential. Bad decisions in this system lead to turnovers because routes develop slowly."
+        },
+        "Leadership": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "Campbell's culture demands strong locker room leaders. The QB must embody the team's grit-and-toughness identity. But this is more of a cultural fit than a schematic demand."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Under-center play-action requires pre-snap identification of the defensive front to set protection and confirm the run fake will work. The QB must 'point to the Mike' and process the coverage shell before the snap. Important but not as differentiating as accuracy or decision-making in this system."
+        }
+      },
+      "ideal_archetype": "A composed, accurate pocket passer who thrives in play-action and timing-based systems. Not a scrambler or a gunslinger \u2014 a quarterback who processes quickly, delivers the ball on time, and takes care of the football. The ideal QB for this system is Jared Goff himself: excellent accuracy, elite play-action performance, strong pocket presence, and a willingness to take what the defense gives. Kirk Cousins in his Minnesota prime is another archetype \u2014 high completion percentage, play-action dominance, TE-friendly distribution.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Under-center snaps and play-action fakes benefit from standard QB height for vision over the OL. No extreme preference beyond standard NFL thresholds."
+        },
+        "weight": {
+          "ideal": "215-235",
+          "floor": "210",
+          "reasoning": "Must be sturdy enough to take hits in the pocket without relying on escapability."
+        }
+      },
+      "development_context": "Mark Brunell remains as QB coach and has developed strong rapport with Goff. Petzing coached QBs in Cleveland (worked with Watson/Brissett). This staff can refine mechanics and processing speed. However, this is not a system that will make a raw, inaccurate passer successful \u2014 accuracy and decision-making must arrive ready. The scheme can maximize a limited-arm QB but cannot compensate for poor ball placement.",
+      "scheme_fit_narrative": "We want a quarterback who's going to stand in the pocket, go through his reads quickly, and put the ball exactly where it needs to be. This offense is going to give him layups through play-action and personnel advantages \u2014 he just has to knock them down. We don't need him to create magic. We need him to be efficient, smart, and deadly accurate.",
+      "archetype_examples": [
+        "Jared Goff",
+        "Kirk Cousins",
+        "Desmond Ridder's ceiling"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "low-to-medium",
-      "explanation": "Detroit runs a true 4-3 with hands-in-dirt DEs as the primary edge rushers \u2014 Aidan Hutchinson is the archetype. LBs are NOT the primary pass rushers as they would be in a 3-4. HOWEVER, the SAM linebacker role (Derrick Barnes) does function as a hybrid edge-setter/rusher deployed on the LOS outside the tackle box with pass-rush responsibilities. This creates a narrow pathway for an LB with pass-rush traits to contribute as a SAM, but the primary edge rush still comes from the DE position. Traditional ILBs (MIKE/WILL) rarely rush the passer. A pass-rushing LB prospect would have limited but real value in the SAM role specifically."
+    "RB": {
+      "scheme_role": "Detroit's offense features a lead-back (Gibbs) who is the three-down workhorse, complemented by a power/short-yardage back (now Pacheco). The scheme asks RBs to run behind gap and power blocking, read pulling guards, and hit designed holes with violence. The lead back must also be a receiving threat out of the backfield and capable of pass protection. Gibbs is the centerpiece \u2014 any drafted RB would either complement him as a physical short-yardage option or develop behind him as the future lead back.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Gap/power schemes require the RB to read pulling linemen, identify the correct gap, and make one decisive cut. Unlike zone schemes where the RB can freelance to the backside, gap/power demands discipline and vision to hit the designed hole. Petzing's run game is built on trust between the RB and the OL."
+        },
+        "Contact Balance": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Petzing wants physical running. 'Running the ball is an attitude thing.' The complementary back especially must absorb contact at the second level and fall forward. Conner's contact balance was central to Arizona's rushing success."
+        },
+        "Power": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The power/counter run game demands an RB who can move the pile on short-yardage and goal-line. With Montgomery traded, Detroit needs a back who can provide physicality between the tackles. This is a scheme where a 220-lb back who falls forward for 4 yards is more valuable than a 190-lb back who dances for 1 or 7."
+        },
+        "Elusiveness": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Gibbs provides elite elusiveness as the lead back. A complement doesn't need to be a juke artist. But some ability to make a man miss in space helps on stretch concepts and screen passes."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Gap schemes don't demand elite straight-line speed the way outside zone does. Gibbs has the home-run speed. A complement needs adequate but not elite speed \u2014 must be fast enough to hit the hole before it closes."
+        },
+        "Pass Catching": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Petzing used Conner heavily as a receiver (414 receiving yards in 2024). The system features RB checkdowns and designed RB routes, particularly off play-action. A three-down back in this system must be a reliable receiver. Detroit's lead back will be heavily involved in the passing game."
+        },
+        "Pass Protection": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Play-action requires the RB to fake and then pick up blitzers. In heavier personnel, the RB is sometimes the last line of protection. Must be willing and capable in blitz pickup. Petzing's system puts the RB in protection more than pure spread offenses."
+        }
+      },
+      "ideal_archetype": "A physical, versatile back who can run between the tackles with power, catch passes out of the backfield, and protect the QB. The Gibbs complement should be a David Montgomery-type: 215+ lbs, excellent vision in gap schemes, reliable hands, willing blocker. For the lead-back role, the ideal is Gibbs himself: explosive, dynamic, capable of carrying 250+ touches. Think James Conner in Arizona \u2014 not the fastest but the most physical, reliable, and complete back on the roster.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-9 to 6-0",
+          "floor": "5-8",
+          "reasoning": "Standard RB frame. Gap scheme backs benefit from a low center of gravity to absorb contact."
+        },
+        "weight": {
+          "ideal": "210-225 (complement)",
+          "floor": "200",
+          "reasoning": "The physical running identity demands a back who can handle the punishment of running into stacked boxes created by heavy personnel groupings."
+        },
+        "40_yard_dash": {
+          "ideal": "4.45-4.55",
+          "floor": "4.60",
+          "reasoning": "Adequate speed to hit the hole in gap schemes. Not a speed-dependent system for the complement role."
+        }
+      },
+      "development_context": "Tashard Choice (RB coach) developed Bijan Robinson and Jahmyr Gibbs at the college level. He has a strong track record of maximizing RB talent. The staff can develop vision and pass-catching ability. Power and contact balance are more innate traits that are harder to teach \u2014 those should arrive ready.",
+      "scheme_fit_narrative": "We need a back who runs angry and falls forward. This offense is going to put him in advantageous positions behind pulling guards and extra tight ends, and he needs to capitalize by moving the pile. We also need him to catch the ball and protect the quarterback \u2014 this isn't a one-dimensional role. Think power and versatility, not just speed.",
+      "archetype_examples": [
+        "James Conner",
+        "David Montgomery",
+        "Isiah Pacheco"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "high",
-      "explanation": "Jahmyr Gibbs is the prototype: 1,223 rushing yards PLUS 77 receptions for 616 receiving yards in 2025 \u2014 career-highs in targets (94), catches, and receiving yards. Detroit's offense under Campbell has always valued backs who catch (Gibbs + Montgomery were both used in the passing game). Petzing's play-action system further elevates RBs who can run routes out of the backfield. With Montgomery traded, Detroit may seek a complementary back who can also catch. Any RB prospect with elite hands, route-running, and pass-protection skills gets a significant boost here."
+    "WR": {
+      "scheme_role": "Detroit's WR room is headlined by Amon-Ra St. Brown (WR1, do-everything slot/outside player) and Jameson Williams (deep threat/field-stretcher). Petzing's system doesn't ask WRs to be the primary offensive engine the way a pure spread does \u2014 the run game and TEs carry more of the load. WRs must win on play-action shots, run precise routes in the timing-based passing game, and block in the run game. WR1 must be a possession-type who moves the chains. WR2/3 must offer speed to stretch the field and create space underneath for TEs and RBs.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Petzing's timing-based passing game demands precise route running. Routes must be run at specific depths and with correct tempo to match the QB's footwork. Scottie Montgomery (WR coach) has emphasized pass-game detail. The quick-game and intermediate concepts only work if WRs run routes to the correct spot."
+        },
+        "Separation": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Play-action creates some natural separation, but WRs still must win against man coverage. Detroit's passing game relies on WRs creating windows for Goff, who doesn't throw into tight coverage well. Separation at the top of the route is critical."
+        },
+        "Hands": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Petzing's offense had drop issues in Arizona that directly cost games. Reliable hands are non-negotiable. The passing game features high-percentage throws that must be converted. St. Brown's reliability is a model for what this system needs."
+        },
+        "YAC Ability": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Short and intermediate passes dominate Petzing's system \u2014 YAC is where explosive plays come from in the passing game. St. Brown is one of the NFL's best YAC receivers. The system needs WRs who can turn 8-yard catches into 20-yard gains."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Jameson Williams provides the speed element. The system benefits from at least one WR who can take the top off the defense to create space for the run game and underneath routes. But not every WR needs elite speed \u2014 St. Brown isn't a 4.3 guy."
+        },
+        "Contested Catches": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Play-action typically creates open looks, reducing the need for contested-catch ability. Goff isn't a QB who consistently throws into tight windows. Contested catches matter more in the red zone where windows shrink."
+        },
+        "Release Package": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Against the man-coverage looks this offense will face (opponents loading the box to stop the run), WRs must win at the line of scrimmage. Press release is important but secondary to route-running precision and hands in this system."
+        }
+      },
+      "ideal_archetype": "A reliable, high-effort possession receiver who runs crisp routes, catches everything, and is dangerous after the catch. The WR1 archetype is Amon-Ra St. Brown \u2014 not the biggest or fastest but the most complete: elite route running, sure hands, top-5 YAC ability, willing blocker. For WR2/3, the system values a speed element (Williams) and a reliable slot option. Think of a receiver who can win in the intermediate zones and turn short passes into big gains rather than a pure vertical threat.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-9",
+          "reasoning": "The system doesn't demand a specific size profile. Versatility to play inside and outside is valued over pure size. St. Brown is 6-0, Williams is 6-1."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "At least one WR needs sub-4.40 speed to threaten vertically. But the WR1/slot role doesn't demand elite speed \u2014 YAC ability and route precision matter more."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.15",
+          "floor": "4.25",
+          "reasoning": "Quick-change-of-direction is important for route running in the intermediate zones and for YAC ability on short passes."
+        }
+      },
+      "development_context": "Scottie Montgomery (associate HC/WR coach) previously coached WRs for the Steelers and has been with the Lions since 2022. He can develop route-running technique and has helped Williams' progression. Bruce Gradkowski (assistant WR coach) adds another perspective. The staff can polish route running and help raw athletes become more reliable. Speed and YAC instincts are harder to develop \u2014 those should arrive ready.",
+      "scheme_fit_narrative": "We want receivers who are going to catch the ball, period. This offense is going to create open looks through play-action and personnel advantages, and we need guys who convert those opportunities. Give us a receiver who runs precise routes, has great hands, and can turn a 6-yard hitch into a 15-yard gain. We need at least one speed element to keep safeties honest, but reliable, high-effort possession receivers are the foundation.",
+      "archetype_examples": [
+        "Amon-Ra St. Brown",
+        "CeeDee Lamb",
+        "Tee Higgins"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "Detroit's defensive identity is built around versatile safeties. Brian Branch is the gold standard: he was drafted as a nickel CB, moved to safety, and logged 2.5 sacks, 75 tackles, and 9 passes defended while playing box, slot, and deep roles in 2025 before a torn Achilles. Kerby Joseph is also injured (knee). Both are facing uncertain 2026 timelines. Safety is the Lions' most critical draft need. Sheppard's heavy-base defense (60% 4-3 base, lowest nickel rate in NFL) demands safeties who can function like LBs in the box while also covering. A safety prospect with tackling, blitz ability, man-coverage skills, and positional versatility (box/slot/deep) gets maximum value \u2014 Detroit is literally looking for another Brian Branch-type player. Sheppard even referenced wanting a player like Seattle's Nick Emmanwori (6'3, 225-lb hybrid nickel/safety)."
+    "TE": {
+      "scheme_role": "The TE is the single most important non-QB position in Petzing's offense. In Arizona, TEs were the primary receiving threat (McBride led team in targets, receptions, yards, and set the NFL's single-season TE reception record). Petzing uses TEs as both receivers and blockers, deploying them inline, flexed to the slot, and split wide. In 12/13 personnel, TEs are asked to block on run plays and then release into routes on play-action. The TE1 (LaPorta) must be a complete player \u2014 reliable receiver AND functional blocker. A TE2/TE3 who can block is essential for the heavy personnel groupings.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Petzing's offense targets TEs at an elite rate. McBride's 1,111 receiving yards and record-setting receptions prove the TE is the safety valve and primary intermediate target. LaPorta was a top-5 TE before injury. The TE must be a legitimate receiving weapon in the seam, on crossers, and in the red zone."
+        },
+        "Route Running": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "TEs in Petzing's system run a full route tree \u2014 seams, crossers, out routes, option routes. They must run routes with WR-like precision to create separation in the intermediate zones. The TE must be a mismatch weapon against LBs in man coverage."
+        },
+        "Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "This is where Petzing's system differs from pure pass-first TE usage. In 12/13 personnel, TEs are inline blockers on gap/power runs. The run game DEPENDS on TEs holding their blocks at the point of attack. A TE who can't block limits the personnel groupings the offense can deploy, which limits the entire scheme."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The TE must line up everywhere \u2014 inline, slot, motioned across the formation, flexed outside. Athletic versatility allows Petzing to disguise formations and create pre-snap confusion for defenses."
+        },
+        "Hands": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "TEs are targeted in traffic on crossers and seam routes. Drops from TEs in this system kill drives because the TE is often the primary read on play-action passes. Reliability is paramount."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The TE doesn't need WR speed but must have enough to threaten the seam and create separation against LBs. 4.6-4.7 forty range is ideal \u2014 fast enough to stress the defense vertically but not required to run away from anyone."
+        }
+      },
+      "ideal_archetype": "A complete, two-way tight end who can win as a receiver in the intermediate zones AND hold up as an inline blocker in the run game. Think Trey McBride \u2014 not a freak athlete but an incredibly reliable receiver who also blocks well enough to play inline in 13 personnel. Sam LaPorta is the TE1 model: dynamic receiver with improving blocking. For TE2/TE3, prioritize blocking ability with enough receiving upside to keep defenses honest in play-action.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-2",
+          "reasoning": "TE blocking in gap schemes requires leverage and length to seal the edge. Size also creates a matchup advantage in the passing game against LBs and safeties."
+        },
+        "weight": {
+          "ideal": "240-255",
+          "floor": "230",
+          "reasoning": "Must be heavy enough to block defensive ends and LBs at the point of attack in heavy personnel. Undersized TEs can't function in 13 personnel."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.75",
+          "reasoning": "Must threaten the seam and create separation against LBs. Sub-4.60 is preferred for the receiving TE. Blocking TEs can be slower."
+        }
+      },
+      "development_context": "Petzing's track record with TEs is elite \u2014 he developed McBride into a record-setter. Steve Oliver (TE coach, promoted from OL assistant) brings a blocking-first perspective that should help develop the blocking side. The staff can develop receiving skills \u2014 McBride's progression under Petzing proves this. Blocking technique can also be taught. But athletic baseline (speed, agility) must arrive ready.",
+      "scheme_fit_narrative": "The tight end is the engine of this offense. We need a guy who can line up inline and move a defensive end off the ball on a power run, then flex out to the slot and beat a linebacker on a seam route. He doesn't have to be the best athlete on the field \u2014 he has to be the most reliable. Catch the ball, block his man, and be the safety valve our QB trusts on every play-action.",
+      "archetype_examples": [
+        "Trey McBride",
+        "Sam LaPorta",
+        "Dallas Goedert"
+      ]
+    },
+    "OT": {
+      "scheme_role": "Offensive tackles in Petzing's system must excel in both run blocking and pass protection, with a premium on run-game physicality. Gap/power schemes ask OTs to drive-block defenders off the ball, seal the edge on power/counter plays, and sometimes pull (rare but not unheard of). Under-center play-action puts the OT in true pocket-protection mode (no shotgun advantages). The LT (currently a need after offseason changes) must anchor in pass protection. The RT (Sewell) is an elite building block. OL continuity and physicality are foundational to everything Petzing wants to do.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Despite the run-first identity, Goff's effectiveness depends on a clean pocket. The OT must protect a relatively immobile QB. Under-center snaps give the pass rush a slight advantage. The Lions' OL struggled with inconsistency in 2025 and Petzing identified OL attitude as a priority."
+        },
+        "Run Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Gap/power schemes demand OTs who can drive-block, down-block, and seal the edge. The entire offensive identity flows through the run game. OTs who can move people off the line of scrimmage are essential. 'Running the ball is an attitude thing, and it's about moving people off the line of scrimmage.'"
+        },
+        "Footwork": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Under-center kickback technique is different from shotgun sets. The OT must handle speed rushers off the edge with proper footwork in both under-center and shotgun alignments. Gap-scheme footwork (down blocks, kick-out blocks) is also critical."
+        },
+        "Anchor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Power rushers will test this OL, especially in play-action situations where the OT is momentarily caught between run-blocking and pass-setting posture. Must hold ground against bull rushes. Under-center play-action creates a split-second vulnerability that requires a strong anchor."
+        },
+        "Athleticism": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Gap schemes are less demanding of lateral athleticism than wide zone. The OT doesn't need to reach-block across the front as frequently. But some athleticism is needed for screen blocking, pulling on rare occasions, and climbing to the second level."
+        },
+        "Strength": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Raw strength matters for drive blocking in the gap/power game. But strength without technique is insufficient. The scheme creates leverage advantages through design \u2014 OTs don't need to overpower defenders alone."
+        }
+      },
+      "ideal_archetype": "A physical, technically sound tackle who can anchor in pass protection and drive-block in the run game. The Penei Sewell model: elite in both phases, nasty demeanor, championship-caliber. For the LT, the ideal is a fundamentally sound pass protector with enough physicality to hold up in gap-scheme run blocking. Think of a traditional, phone-booth tackle rather than a dancing, reach-blocking zone tackle. Power-based with good feet.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Standard tackle frame for NFL play. Length helps in pass protection and creating leverage on drive blocks."
+        },
+        "weight": {
+          "ideal": "310-330",
+          "floor": "300",
+          "reasoning": "The physical running identity demands big, strong tackles. Undersized OTs get pushed around in gap schemes."
+        },
+        "arm_length": {
+          "ideal": "34+",
+          "floor": "33",
+          "reasoning": "Arm length creates striking distance advantage in pass protection and allows OTs to control defensive ends at the point of attack."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.70",
+          "floor": "4.80",
+          "reasoning": "Gap schemes are less demanding of lateral agility than zone, but OTs still need adequate movement skills for pass sets and climbing to the second level."
+        }
+      },
+      "development_context": "Hank Fraley (OL coach/run game coordinator) is one of the best in the business. He developed Sewell, Ragnow, and the Lions' OL into a top-5 unit. He can coach up technique and physicality. Fraley and Petzing worked together in Minnesota \u2014 they speak the same language on run-game concepts. This staff can develop raw physical tackles into scheme-ready players. What must arrive: size, strength, and competitive toughness.",
+      "scheme_fit_narrative": "Give us a big, physical tackle who wants to move people. This isn't a finesse blocking scheme \u2014 we're going to run power and counter and ask our tackles to drive-block people off the ball. He also needs to protect our QB in the pocket because we're going to be under center a lot. We need someone who can anchor against a bull rush and then reset to drive-block on the next play. Attitude matters as much as technique.",
+      "archetype_examples": [
+        "Penei Sewell",
+        "Dion Dawkins",
+        "Lane Johnson"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior linemen in Petzing's gap/power scheme are the most critical run blockers on the team. Guards must pull on power/counter concepts, execute combo blocks to the second level, and anchor against interior pass rushers. The center (Ragnow, or potentially Cade Mays as a new addition) must make pre-snap calls, handle the nose tackle, and be the communication hub. Petzing's system asks guards to pull frequently \u2014 this is a defining feature that separates his scheme from zone-based systems.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Interior pressure was a problem in 2025. Under-center play-action puts IOL in challenging protection situations where they must hold their ground against DT stunts and interior blitzes. Must handle 3-techniques and nose tackles in one-on-one situations."
+        },
+        "Run Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The gap/power run game lives and dies with interior blocking. Guards must execute double teams, drive defenders off the ball, and create movement at the point of attack. This is the primary job in Petzing's scheme."
+        },
+        "Pulling": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "This is where Petzing's scheme creates the biggest IOL demand differential. Power/counter requires guards to pull across the formation and lead-block at the point of attack. An IOL who can't pull limits the entire gap-scheme playbook. This was a defining feature of Arizona's 2023-2024 rushing success."
+        },
+        "Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Drive blocking and pulling require raw power. IOL must generate movement at the line of scrimmage. The physical running identity demands interior linemen who can overpower defenders in phone-booth battles."
+        },
+        "Anchor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must hold ground against interior pass rushers. Less critical than pulling and run blocking because the offense will use play-action to lighten the pass-rush load on IOL."
+        },
+        "Versatility": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Center/guard versatility is valuable for roster flexibility. The Lions signed Cade Mays and have multiple IOL options. A guard who can play center in a pinch adds value but isn't the primary evaluation criterion."
+        }
+      },
+      "ideal_archetype": "A powerful, athletic guard who can pull on counter and power plays, drive-block defenders off the ball, and hold up in pass protection. The ideal is a Kevin Zeitler/Joel Bitonio-type: technically sound, physically dominant, with the athleticism to pull and get to the second level. Must have a nasty demeanor and the leg drive to move people. For center, a smart, physical player who can make pre-snap calls and handle nose tackles \u2014 Frank Ragnow is the standard.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Standard IOL frame. Leverage matters more than height."
+        },
+        "weight": {
+          "ideal": "310-330",
+          "floor": "300",
+          "reasoning": "Must be heavy enough to anchor and powerful enough to drive-block. Undersized guards get pushed around at the point of attack."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.55",
+          "floor": "4.65",
+          "reasoning": "Pulling demands lateral agility and the ability to get to the second level in space. A stiff guard who can't pull kills the gap-scheme run game. This is the most important athletic measurable for IOL in this system."
+        },
+        "bench_press": {
+          "ideal": "28+",
+          "floor": "24",
+          "reasoning": "Upper body strength correlates with drive-blocking ability and the capacity to sustain blocks at the point of attack."
+        }
+      },
+      "development_context": "Hank Fraley is an elite IOL developer \u2014 he turned the Lions' OL into a top-5 unit. He can develop technique, particularly in pulling and combo blocking. What must arrive: size, strength, and the athletic baseline to pull. You can't teach a stiff lineman to be athletic enough for gap-scheme pulls.",
+      "scheme_fit_narrative": "Guards in this system better be able to pull. We're going to ask them to lead the way on power and counter plays, and they need to be athletic enough to get across the formation and physical enough to bury a linebacker at the point of attack. We also need them to pass protect, but the run game is where they'll define themselves. Give us big, strong, athletic guards who play with attitude.",
+      "archetype_examples": [
+        "Joel Bitonio",
+        "Kevin Zeitler",
+        "Frank Ragnow (C)"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "Detroit's EDGE rushers in the 4-3 defense are traditional defensive ends who rush from a three-point stance. Aidan Hutchinson is the franchise's premier pass rusher \u2014 everything on the defensive front is built around maximizing his production. The scheme uses a league-high stunt rate (23.1% in 2024) to create interior pressure and free up the edges. EDGE players must be disciplined run defenders first (set the edge in the 4-3 base), then convert speed-to-power as pass rushers. With Hutchinson drawing extra attention, Detroit needs a complementary EDGE who can win one-on-one when opponents scheme away from Hutch.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The man-coverage scheme behind the front requires the pass rush to get home. When the pass rush struggled in 2025 (1 sack in final 2-game stretch), the secondary was exposed. Hutchinson is elite but needs help \u2014 the complementary EDGE must be a legitimate pass-rush threat to prevent offenses from sliding protection to Hutch."
+        },
+        "Bend": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Hutchinson wins with power and motor more than bend. The scheme accommodates different rush styles through stunts and games. A complementary rusher with bend gives the defense a different look, but it's not the primary demand."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The high stunt rate means EDGE rushers must be quick off the ball to execute their assignments. First-step quickness is critical for both standard rush and twist/stunt execution. A slow first step makes the entire stunt package less effective."
+        },
+        "Power": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Hutchinson's archetype is power-based \u2014 a relentless, motor-driven rusher who converts speed to power. The scheme values EDGE rushers who can bull-rush, set the edge, and stack-and-shed against the run. The Todd Bowles/Kacy Rodgers influence (Tampa Bay) emphasizes physical DL play."
+        },
+        "Motor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Campbell's culture demands relentless effort. Hutchinson's motor is his defining trait. The defensive identity is built on effort and pursuit. An EDGE who takes plays off doesn't fit the culture or the scheme \u2014 hustle plays and backside pursuit are expected."
+        },
+        "Run Defense": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "In the 4-3 base, EDGEs must set the edge and contain the run. Detroit was top-5 against the run in 2024 before struggling in 2025. Run defense is the foundation \u2014 you can't be a liability against the run and play 60%+ of snaps in this scheme."
+        }
+      },
+      "ideal_archetype": "A high-motor, power-based edge rusher who can win with effort, physicality, and technique. Aidan Hutchinson is the model \u2014 relentless pursuit, speed-to-power conversion, disciplined run defense, and the motor to chase plays down from behind. The complement should offer a different skill set (more bend/speed to pair with Hutch's power), but the non-negotiables are effort, run defense, and the ability to win one-on-one. Think of a player like Shaquil Barrett in his Tampa prime \u2014 not a pure speed rusher but a complete, effort-based player who contributes in every phase.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Standard 4-3 DE frame. Must have enough length to set the edge and stack OTs."
+        },
+        "weight": {
+          "ideal": "250-275",
+          "floor": "240",
+          "reasoning": "Must be heavy enough to hold the point of attack against the run. Undersized speed rushers who get washed out in the run game don't fit this defense."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.75",
+          "reasoning": "Speed is secondary to power and motor in this scheme. But adequate speed is needed for the stunt package and to convert speed-to-power on rush reps."
+        },
+        "bench_press": {
+          "ideal": "24+",
+          "floor": "20",
+          "reasoning": "Kacy Rodgers emphasizes 'violent hands' \u2014 upper body strength helps with hand fighting and disengaging from blocks."
+        }
+      },
+      "development_context": "Kacy Rodgers developed Cameron Wake, Shaquil Barrett, and other elite pass rushers. David Corrao (OLB coach) has been with the Lions since 2022. This staff can develop pass-rush technique and run-defense discipline. What must arrive: motor and competitive toughness. You can't coach effort \u2014 it's either there or it isn't. Physical tools and technique can be refined.",
+      "scheme_fit_narrative": "We need an edge rusher who's going to play every snap like it's the Super Bowl. This defense is built on relentless effort from the front four. Hutch is our guy, but we need someone across from him who can win one-on-one and force offenses to account for both sides. Give us a motor player who can rush the passer, set the edge, and play 65% of snaps without a dip in intensity.",
+      "archetype_examples": [
+        "Aidan Hutchinson",
+        "Shaquil Barrett",
+        "Marcus Davenport"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Interior DL in Detroit's 4-3 are asked to be versatile: stop the run, generate interior pressure through stunts and games, and hold their ground at the point of attack. The 3-technique (Alim McNeill) is the primary interior disruptor \u2014 quick, penetrating, capable of getting into the backfield. The nose tackle must eat blocks, control gaps, and allow LBs to flow free. With DJ Reader and Roy Lopez departing in free agency, there's a significant need at nose tackle. The scheme uses the NFL's second-highest stunt rate, requiring DTs to execute twists and games with the EDGEs.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Interior pressure is critical to the man-coverage scheme. Rodgers helped Vita Vea (7 sacks) and Calijah Kancey (7.5 sacks) generate interior pressure in Tampa. McNeill is expected to take a similar leap. The stunt package creates interior rush opportunities that DTs must capitalize on."
+        },
+        "Run Defense": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Detroit was top-5 against the run in 2024 and needs to restore that level in 2026 after losing Lopez and Reader. The nose tackle must be a run-stuffer first. Rodgers' Tampa defenses were consistently elite against the run (fewest rushing yards per carry in NFL during his tenure). Run defense is the foundation."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The high stunt rate demands DTs who can execute twists quickly. The 3-technique must win with first-step quickness to penetrate gaps. A slow-footed DT can't execute the stunt package and becomes a liability in the pass-rush scheme."
+        },
+        "Hand Usage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Rodgers explicitly emphasizes 'violent hands' \u2014 hand fighting is central to his coaching. DTs must use hands to control blockers, shed blocks against the run, and create pass-rush lanes. This is a development priority for the staff."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Interior DL rotate frequently, but when on the field they must play with relentless effort. The Lions' culture demands maximum effort from all defensive players. Campbell's identity extends to the DL room."
+        },
+        "Strength": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "The nose tackle must anchor against double teams and hold ground. The 3-tech needs enough strength to hold the point of attack but primarily wins with quickness and technique. Run defense demands functional strength."
+        }
+      },
+      "ideal_archetype": "Two distinct archetypes needed. 3-Technique: A quick, disruptive interior presence who can penetrate gaps, generate pressure, and execute stunts \u2014 Alim McNeill is the model, similar to Chris Jones or Calijah Kancey. Nose Tackle: A massive, space-eating run-stuffer who controls two gaps, absorbs double teams, and frees LBs \u2014 think Vita Vea or Grady Jarrett. Detroit's biggest DL need is at nose tackle after losing Reader and Lopez.",
+      "measurable_preferences": {
+        "height_3tech": {
+          "ideal": "6-1 to 6-4",
+          "floor": "6-0",
+          "reasoning": "3-technique needs to play low and penetrate. Standard interior DL frame."
+        },
+        "weight_3tech": {
+          "ideal": "290-310",
+          "floor": "280",
+          "reasoning": "Must be big enough to hold ground but athletic enough to execute stunts and penetrate gaps."
+        },
+        "weight_NT": {
+          "ideal": "310-340",
+          "floor": "300",
+          "reasoning": "Nose tackle must eat space and control the A-gaps. Size is paramount for this role."
+        },
+        "40_yard_dash_3tech": {
+          "ideal": "4.80-5.00",
+          "floor": "5.10",
+          "reasoning": "Interior quickness matters for the stunt package and gap penetration. The 3-tech must be among the more athletic DTs on the field."
+        }
+      },
+      "development_context": "Kacy Rodgers is among the NFL's best DL coaches. He developed Vita Vea, Calijah Kancey, Cameron Wake, and others. His emphasis on hand technique and run-game discipline is well-documented. This staff can develop raw physical DTs into scheme-ready players. What must arrive: size and athletic baseline. Rodgers can teach hands and technique, but he can't make a small player big enough to play nose tackle.",
+      "scheme_fit_narrative": "We need interior players who can do two things: stop the run and create pressure. Our 3-tech needs to be a problem on the inside \u2014 quick, disruptive, capable of winning one-on-one in pass-rush stunts. Our nose tackle needs to be a mountain \u2014 eat blocks, control the middle, and let Jack Campbell run free. If you can do both, you're exactly what we need.",
+      "archetype_examples": [
+        "Alim McNeill (3-tech)",
+        "Vita Vea (NT)",
+        "Calijah Kancey (3-tech)"
+      ]
+    },
+    "LB": {
+      "scheme_role": "The MIKE linebacker is the defensive quarterback in Sheppard's defense. Jack Campbell is the centerpiece \u2014 he processes the offense pre-snap, makes the calls, and is asked to be everywhere post-snap. In the 4-3 base, three LBs are on the field (MIKE, WILL, SAM), but with a likely increase in nickel usage for 2026, the MIKE is the one who stays on the field in every package. The LB must tackle at an elite rate, process run fits quickly, and hold up in zone coverage. In 2025, Sheppard relied heavily on traditional LBs (highest base 4-3 rate in NFL), exposing LBs in space against spread formations. For 2026, the surviving LB must be an every-down player who can handle coverage responsibilities.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Campbell led the NFL in tackles. The LB must be the team's leading tackler and most sure-handed defender. Missed tackles kill drives in Sheppard's defense because the secondary is playing tight man coverage \u2014 if the LB misses, there's no help behind him. Sheppard's track record is built on developing sure-handed tacklers (Anzalone, Campbell, Rodriguez)."
+        },
+        "Coverage": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The 2025 defense was exposed because LBs couldn't survive in space against spread formations. For 2026, the scheme needs LBs who can carry TEs and RBs in man coverage and drop into zones with awareness. Coverage ability will determine how much nickel the defense can play \u2014 if the MIKE can cover, Detroit can stay in base more without being vulnerable."
+        },
+        "Pass Rush": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Campbell had a career-high 5.0 sacks in 2025, but LB blitzing is supplementary in this scheme. The pass rush comes primarily from the front four and stunts. Green-dog blitzes are used when a LB's man stays in to block, but this is reactive, not a primary assignment."
+        },
+        "Instincts": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "'This is Jack Campbell's defense, and everyone in that locker room knows it. It all goes through Jack.' The MIKE LB must process offensive formations instantly, recognize run/pass keys, and put the defense in the right position pre-snap. Instincts separate a good LB from a great one in this system because the defense asks the MIKE to be the quarterback of the unit."
+        },
+        "Athleticism": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The shift toward more nickel usage means the surviving LB must have the athletic profile to stay on the field in passing situations. A LB who can only play the run will be subbed out in nickel, limiting the defense. But elite athleticism is secondary to instincts and tackling."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Sideline-to-sideline range is valued but not the primary trait. Campbell is described as a 'sideline-to-sideline linebacker' who gets into double-digit tackles. The MIKE must be able to cover the full width of the defense on run plays and zone drops."
+        },
+        "Block Shedding": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "With the DL controlling blockers in front of him, the LB must finish plays by shedding residual blocks. Important but the scheme is designed to free LBs through DL play rather than asking LBs to take on blockers directly."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "Processing offensive formations and making defensive calls is critical for the MIKE. But this overlaps with 'Instincts' in this system \u2014 the pre-snap diagnosis feeds directly into the LB's ability to diagnose plays correctly."
+        }
+      },
+      "ideal_archetype": "A high-volume, every-down linebacker who can tackle everything in sight, process the game like a coordinator, and hold up in coverage well enough to stay on the field in nickel. Jack Campbell is the model \u2014 not the most explosive athlete but the smartest, most productive, and most reliable LB on the field. Think Bobby Wagner or Roquan Smith: high-tackle, high-IQ LBs who are always around the ball. The key is that this LB must be a 3-down player, not a run-stuffing specialist who gets subbed out on passing downs.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Standard LB frame. Must be big enough to stack and shed blockers but not so big that they can't move in space."
+        },
+        "weight": {
+          "ideal": "230-245",
+          "floor": "220",
+          "reasoning": "Must be physical enough to tackle RBs and TEs but athletic enough to cover. Campbell is 243 lbs."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.65",
+          "floor": "4.70",
+          "reasoning": "Must have adequate speed to stay on the field in nickel packages. A 4.70+ LB becomes a liability in coverage, which is the exact problem the 2025 defense had."
+        }
+      },
+      "development_context": "Sheppard is an elite LB developer \u2014 perhaps the best on the entire staff. He turned Jack Campbell into an All-Pro, developed Malcolm Rodriguez as a late-round starter, and maximized Anzalone's production. Shaun Dion Hamilton (new LBs coach, former NFL LB) adds another player-development voice. This staff can develop instincts, tackling technique, and coverage skills. What must arrive: athletic baseline and competitive fire.",
+      "scheme_fit_narrative": "Our linebacker has to be the smartest player on the defense and the surest tackler on the team. This is Jack Campbell's defense \u2014 any LB we add has to fit around him. We need a guy who can process the game pre-snap, get to the ball post-snap, and tackle everything he touches. And in 2026, he can't be a guy who comes off the field on third down. He has to cover.",
+      "archetype_examples": [
+        "Jack Campbell",
+        "Bobby Wagner",
+        "Roquan Smith"
+      ]
+    },
+    "CB": {
+      "scheme_role": "Detroit's man-coverage scheme demands CBs who can play press at the line of scrimmage, mirror routes in phase, and win individual matchups without safety help. In 2024 under Glenn, the Lions ran Cover 1 on 35.2% of snaps (2nd-highest in NFL) \u2014 this means one-on-one coverage is the baseline expectation. Sheppard wants to continue this approach in 2026 but needs healthy CBs to do it (Arnold, Reed missed significant time in 2025). The CBs must be physical and aggressive, matching Campbell's culture. Nickel CB is a specific need \u2014 the defense needs a hybrid slot defender who can cover and play near the box.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Cover 1 at 35%+ of snaps means CBs are on islands. Must be able to mirror routes, stay in phase, and contest catches without safety help. This is THE defining demand. Detroit specifically acquired Carlton Davis and drafted Terrion Arnold for their man-coverage ability. Any CB who can't play man is scheme-incompatible."
+        },
+        "Ball Skills": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Kerby Joseph leads the Lions in interceptions from safety \u2014 the CBs don't need to be elite ball-hawks. But the ability to get hands on the ball when in position adds turnovers. Glenn's defense valued CBs who could play the ball at the catch point."
+        },
+        "Zone Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Zone is used as a change-up, not the base coverage. Quarters concepts are part of the package but man is the foundation. CBs need to understand zone assignments but they won't be asked to play zone at high volume."
+        },
+        "Speed": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Man coverage demands recovery speed. When the CB gets beat, he must be able to recover and close on the receiver. Without safety help in Cover 1, a CB who gets beat deep gives up a touchdown. Speed is the insurance policy for man-coverage corners."
+        },
+        "Press": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Glenn's philosophy \u2014 'I like to smother the offense' \u2014 demands CBs who disrupt at the line of scrimmage. Press technique slows receivers, disrupts timing routes, and gives the pass rush extra time. Detroit specifically targets physical, press-capable CBs. Arnold and Davis were acquired for their press ability."
+        },
+        "Nickel": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "With increased nickel usage expected in 2026, the slot CB becomes more important. Brian Branch has played nickel but is now the full-time safety. Detroit needs a dedicated nickel defender \u2014 either a CB with slot skills or a hybrid S/CB. This is a significant 2026 draft/FA need."
+        }
+      },
+      "ideal_archetype": "A physical, press-man cornerback who can handle one-on-one coverage without safety help. Must be aggressive at the line, physical through the route, and fast enough to recover when beat. Think Terrion Arnold or Carlton Davis \u2014 big, physical CBs who match the Lions' aggressive defensive identity. For the nickel spot, a Brian Branch-type hybrid who can cover slot receivers, play near the box, and blitz. The defense doesn't need finesse zone corners \u2014 it needs street fighters who can mirror and disrupt.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Press coverage benefits from length to jam receivers at the line. Lions have preferred bigger CBs (Davis 6-1, Arnold 6-0) to match up physically against larger WRs."
+        },
+        "weight": {
+          "ideal": "190-210",
+          "floor": "185",
+          "reasoning": "Must be physical enough to press and handle contact through the route. Slight CBs get pushed around in Detroit's physical scheme."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.45",
+          "floor": "4.50",
+          "reasoning": "Recovery speed is essential in man coverage. A CB who runs 4.55+ will get burned in one-on-one coverage without safety help. This is a hard floor."
+        },
+        "vertical_jump": {
+          "ideal": "37+",
+          "floor": "34",
+          "reasoning": "Vertical athleticism helps contest catches at the high point. In man coverage, the CB must be able to play the ball when the receiver is making a play."
+        }
+      },
+      "development_context": "Deshea Townsend (CB coach / passing game coordinator/DB coach) is a former NFL CB with 13 years of playing experience. He develops press-man technique and physicality. Arnold showed improvement through his rookie year despite injuries. The staff can develop technique \u2014 what must arrive is speed, length, and competitive toughness. You can't teach a slow CB to play man coverage in the NFL.",
+      "scheme_fit_narrative": "We need corners who want to compete one-on-one. This defense is built on man coverage \u2014 our corners are going to be on islands with no safety help. We need guys who are physical at the line, fast enough to stay in phase, and tough enough to compete on every snap. If you don't want to press, this isn't the place for you. We want street fighters, not guys who sit back in zones and hope the ball doesn't come their way.",
+      "archetype_examples": [
+        "Terrion Arnold",
+        "Carlton Davis",
+        "Derek Stingley Jr."
+      ]
+    },
+    "S": {
+      "scheme_role": "Detroit's safety duo (Kerby Joseph, Brian Branch) is the most critical unit in the secondary. Joseph is the ballhawking free safety who patrols the deep middle and creates turnovers. Branch is the versatile strong safety who plays the 'Down' safety role in Cover 1 \u2014 closer to the line, matching up with slot receivers and TEs in man coverage. The safety duo must communicate coverages, disguise pre-snap looks, and make plays on the ball. Both players missed time in 2025, exposing the defense. For 2026, safety depth is a priority. The scheme asks the free safety to play the post (deep centerfield) and the strong safety to be a hybrid match-up defender.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Cover 1 demands the 'Down' safety (Branch role) to match up with TEs, slot receivers, and RBs in man coverage. This is not a traditional deep-safety-only role. The strong safety must be a legitimate man-coverage defender who can mirror routes. Branch's coverage ability is what enables the Cover 1 scheme."
+        },
+        "Range": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The free safety (Joseph role) must cover the deep middle in Cover 1 \u2014 single-high, centerfield responsibility. Range is the defining trait because this safety is the last line of defense. Joseph's interceptions come from his ability to cover ground and arrive at the ball. The free safety's range determines how aggressive the CBs can play."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Joseph leads the Lions in interceptions despite missing games. Turnovers are a massive emphasis \u2014 Detroit was 6-1 with a takeaway and 1-4 without in 2025. The free safety must create turnovers. Ball skills are what separate a good centerfield safety from a game-changing one."
+        },
+        "Tackling": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The strong safety (Branch role) is asked to fit the run from the box, tackle in space, and clean up after missed tackles by LBs or CBs. Sure tackling from the safety position prevents explosive plays. Both safeties must be reliable tacklers."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Range in the deep middle requires elite straight-line speed. The free safety must have 4.40-range speed to cover sideline-to-sideline. The strong safety needs enough speed to match slot receivers and athletic TEs in man coverage."
+        },
+        "Nickel": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Branch's ability to play nickel/slot gave the defense its most dominant chess piece in 2023. The strong safety who can also function as a nickel defender creates matchup flexibility that Sheppard covets. A true hybrid S/CB profile (like Kyle Hamilton or Derwin James) would be the ultimate addition."
+        }
+      },
+      "ideal_archetype": "Two distinct profiles. Free Safety: A centerfield ballhawk with elite range, ball skills, and the instincts to read QBs and break on throws \u2014 Kerby Joseph is the model, similar to Kevin Byard or Minkah Fitzpatrick in their prime. Strong Safety: A hybrid defender who can play man coverage on TEs and slot receivers, fit the run, and blitz \u2014 Brian Branch is the model, similar to Kyle Hamilton or Derwin James. The strong safety must be versatile enough to function as a nickel defender when the defense goes to sub-packages.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Size helps in man coverage against TEs and in run-support situations. Branch is 6-0, Joseph is 6-1."
+        },
+        "weight": {
+          "ideal": "200-215",
+          "floor": "195",
+          "reasoning": "Must be physical enough to tackle and fit the run but athletic enough to cover. The strong safety needs to be stout against the run near the box."
+        },
+        "40_yard_dash": {
+          "ideal": "4.38-4.48",
+          "floor": "4.52",
+          "reasoning": "Range in the deep middle (free safety) and coverage speed (strong safety) demand plus speed. A safety who runs 4.55+ can't cover enough ground in Cover 1 to make it work."
+        }
+      },
+      "development_context": "Jim O'Neil (assistant HC/safeties coach) has been with the Lions since 2024 and has extensive defensive coaching experience. The staff can develop coverage technique and ball skills. What must arrive: speed, instincts, and the athletic baseline to play man coverage. Ball skills and range are largely innate traits that are difficult to develop. The Lions' 2026 need for safety depth (Joseph/Branch health concerns) could make this a draft priority.",
+      "scheme_fit_narrative": "We need safeties who make plays. The free safety has to cover the deep middle and get his hands on the ball \u2014 interceptions change games for this defense. The strong safety has to be our Swiss Army knife \u2014 cover the slot, fit the run, blitz when we ask him to, and never be a liability in man coverage. If we can find a guy who does all of that, he plays every snap. That's the ultimate weapon for this defense.",
+      "archetype_examples": [
+        "Kerby Joseph (FS)",
+        "Brian Branch (SS)",
+        "Kyle Hamilton"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Detroit's 2026 draft profile centers on three premium needs shaped by scheme and injury. (1) SAFETY is the top need: Both Brian Branch (torn Achilles, may miss early 2026) and Kerby Joseph (chronic knee, uncertain future) are injured. Sheppard's defense demands hybrid safeties who can play in the box, cover man-to-man in the slot, and blitz \u2014 the team played 60% base 4-3, the most in the NFL. Any safety with versatility (nickel/box/deep) and physicality should be valued significantly higher for DET. Think Emmanwori/Derwin James/Kyle Hamilton archetypes. (2) TIGHT END receiving value is elite here: New OC Drew Petzing's system made Trey McBride a First-Team All-Pro. Sam LaPorta is coming off back surgery, and Detroit could add a versatile TE via the draft. Any TE with receiving upside (route-running, hands, YAC) gets a major boost. (3) RB dual-threat value remains high: Gibbs is the bellcow, but with Montgomery traded, a pass-catching complement is needed. (4) EDGE remains important but comes from the DE position, not stand-up LBs \u2014 draft EDGE prospects as traditional DEs. (5) The SAM LB role provides a narrow but real pathway for athletic LBs with rush/coverage hybrid traits. (6) Offensive line is a major need (interior especially) but is position-label neutral. Detroit picks 17th overall in the 2026 draft.",
+  "scheme_draft_intelligence": "The 2026 Detroit Lions enter the draft with clear scheme-driven needs shaped by both coaching changes and roster turnover. On offense, Drew Petzing's gap/power run scheme creates a distinctive demand for pulling guards and complete tight ends \u2014 two positions where the trait profile differs meaningfully from the zone-based approach Detroit employed under Ben Johnson. With Hank Fraley as run game coordinator and Petzing's preference for gap schemes, interior offensive linemen who can pull on power and counter concepts are at a premium. A guard who tests well in the short shuttle but has the mass to drive-block is the ideal draft target \u2014 this is a prospect other zone-scheme teams might undervalue because they prioritize reach-blocking ability over pulling.\n\nDefensively, the losses of Alex Anzalone, Roy Lopez, DJ Reader, and Amik Robertson in free agency create immediate needs at nose tackle, linebacker, and in the secondary. Kelvin Sheppard's self-scout identified excessive base 4-3 usage as a core problem from 2025. The path to improvement in 2026 runs through adding a hybrid nickel defender who can replace the base LB on passing downs \u2014 a safety/CB hybrid similar to Kyle Hamilton or Derwin James who allows the defense to reduce base usage and increase nickel without sacrificing run-defense integrity. This archetype creates significant draft value because Detroit's scheme specifically demands the hybrid profile that pure man-coverage teams also covet.\n\nThe nose tackle vacancy is another scheme-critical need. Kacy Rodgers' coaching background emphasizes run-defense excellence (Tampa Bay was the NFL's best rush defense during his tenure), and the defense cannot function in its 4-3 base without a nose tackle who can eat blocks and control the A-gaps. A large, space-eating DT in the 310-340 lb range who may fall in the draft because he's not a flashy pass rusher would represent hidden value for Detroit \u2014 Rodgers has a track record of turning run-stuffing DTs into complete players (Vita Vea's 7-sack season).\n\nThe offensive line is also a critical area where Petzing's scheme shapes draft priorities. With questions at left tackle and interior depth, the Lions need OL who fit a gap/power identity \u2014 big, physical blockers who can drive-block and operate under center. Zone-scheme tackles who rely on lateral agility over power are less valuable in Petzing's system. The Lions may seek a tackle who can play either side and anchor in pass protection while excelling in the run game \u2014 the opposite of the finesse, reach-blocking profile that pure Shanahan-tree teams target.\n\nHistorically under Brad Holmes, the Lions have drafted for ceiling and athletic upside while trusting their coaching staff to develop technique. This approach should continue in 2026, but with Petzing's emphasis on physical, attitude-driven play, expect the Lions to prioritize competitive toughness and effort traits alongside physical measurables. The Campbell-Petzing-Sheppard staff collectively values effort, physicality, and adaptability \u2014 prospects who embody those traits will grade higher in Detroit's system than their raw physical profiles might suggest to other teams.",
   "confidence": "high",
   "sources": [
-    "Pro Football Reference - 2025 Detroit Lions (defensive alignment: 4-3, offensive scheme: Air Coryell)",
-    "DetroitLions.com - 2025 coaching staff announcement, Drew Petzing hiring announcement",
-    "ESPN - Detroit Lions 2025 new coordinators preview (August 2025)",
-    "SI.com - 'One Schematic Change Detroit Lions Defense Can Make in 2026' (base defense usage analysis)",
-    "1240theticket.com / SI.com - Kelvin Sheppard Combine 2026 interview on 4-3 base philosophy",
-    "Pride of Detroit - Lions 2025 training camp preview: Linebacker battles (4-2-5 / 4-3 hybrid explanation)",
-    "DetroitLions.com - 2025 position breakdown: Tight ends (LaPorta stats, Petzing TE usage)",
-    "FantasyData / Fox Sports - Jahmyr Gibbs 2025 stats (1,223 rush yards, 77 rec, 616 rec yards)",
-    "Wikipedia / DetroitLions.com - Dan Campbell coaching background, John Morton background",
-    "SideLionReport / DetroitFootball.net - Drew Petzing scheme analysis, run-heavy play-action philosophy",
-    "CBS Sports / ESPN - Brian Branch 2025 injury (torn Achilles), hybrid safety usage",
-    "Pride of Detroit - Kelvin Sheppard responds to defensive scheme criticism (base defense rates)"
+    "DetroitLions.com official coaching staff announcements (2025 and 2026)",
+    "ESPN (Eric Woodyard) \u2014 Lions coordinator preview articles",
+    "Pride of Detroit \u2014 Drew Petzing interview and scheme analysis",
+    "Detroit Football Network \u2014 Justin Rogers coaching staff breakdowns",
+    "SI Lions \u2014 Kelvin Sheppard defensive scheme analysis and 2026 schematic recommendations",
+    "Pro-Football-Reference \u2014 2025 Detroit Lions team page (4-3 base, Air Coryell offensive scheme designation)",
+    "MatchQuarters \u2014 Detroit Lions 2024 defense scheme analysis (Cover 1 usage, stunt rates, hybrid player impact)",
+    "Football Film Room \u2014 Aaron Glenn game plan breakdowns (man coverage, Cover 0 blitz usage)",
+    "The 33rd Team \u2014 Lions defense stunt rate and pressure generation analysis",
+    "NBC Sports \u2014 Kelvin Sheppard 2026 defensive philosophy statements",
+    "NFL.com \u2014 Drew Petzing hiring and Cardinals scheme analysis",
+    "Blogging The Boys \u2014 Lions defensive scheme breakdown (Glenn/Fangio tree identification)",
+    "Grokipedia \u2014 Drew Petzing coaching history and scheme innovations",
+    "Side Lion Report \u2014 Petzing scheme fit analysis and defensive nickel recommendations",
+    "DetroitLions.com \u2014 Kacy Rodgers profile and defensive line philosophy",
+    "ESPN \u2014 Lions 2026 free agency tracker (Pacheco signing, roster losses)"
   ]
 }

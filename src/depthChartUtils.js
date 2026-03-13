@@ -14,18 +14,38 @@ export const DEPTH_GROUPS=[
 export const ALL_SLOTS=DEPTH_GROUPS.flatMap(g=>g.slots);
 
 export const TEAM_SCHEME={
-  Steelers:{def:"34",off:"11"},Patriots:{def:"34",off:"12"},Eagles:{def:"34",off:"11"},
-  Broncos:{def:"34",off:"11"},Saints:{def:"34",off:"11"},Rams:{def:"34",off:"11"},
-  Buccaneers:{def:"34",off:"11"},Cowboys:{def:"34",off:"11"},
-  Ravens:{def:"34",off:"12"},Bills:{def:"34",off:"11"},Chargers:{def:"34",off:"11"},
-  Panthers:{def:"34",off:"12"},Seahawks:{def:"34",off:"12"},Cardinals:{def:"34",off:"11"},
-  Raiders:{def:"34",off:"12"},Dolphins:{def:"34",off:"11"},Vikings:{def:"34",off:"11"},
-  Jets:{def:"34",off:"11"},Falcons:{def:"34",off:"12"},
-  Browns:{def:"w9",off:"12"},Titans:{def:"w9",off:"11"},
-  Bengals:{def:"425",off:"11"},Bears:{def:"425",off:"11"},Packers:{def:"425",off:"11"},
-  Texans:{def:"425",off:"11"},Colts:{def:"425",off:"11"},Jaguars:{def:"425",off:"11"},
-  Giants:{def:"425",off:"11"},"49ers":{def:"425",off:"12"},Commanders:{def:"425",off:"11"},
-  Chiefs:{def:"43",off:"11"},Lions:{def:"43",off:"11"},
+  Cardinals:{def:"34",off:"12"},
+  Falcons:{def:"43",off:"11"},
+  Ravens:{def:"34",off:"12"},
+  Bills:{def:"34",off:"11"},
+  Panthers:{def:"34",off:"11"},
+  Bears:{def:"43",off:"12"},
+  Bengals:{def:"425",off:"11"},
+  Browns:{def:"w9",off:"12"},
+  Cowboys:{def:"34",off:"12"},
+  Broncos:{def:"34",off:"11"},
+  Lions:{def:"43",off:"12"},
+  Packers:{def:"34",off:"11"},
+  Texans:{def:"425",off:"12"},
+  Colts:{def:"425",off:"12"},
+  Jaguars:{def:"43",off:"12"},
+  Chiefs:{def:"425",off:"11"},
+  Chargers:{def:"425",off:"11"},
+  Rams:{def:"34",off:"12"},
+  Raiders:{def:"43",off:"12"},
+  Dolphins:{def:"43",off:"11"},
+  Vikings:{def:"34",off:"12"},
+  Patriots:{def:"425",off:"11"},
+  Saints:{def:"34",off:"11"},
+  Giants:{def:"34",off:"12"},
+  Jets:{def:"43",off:"11"},
+  Eagles:{def:"34",off:"11"},
+  Steelers:{def:"34",off:"12"},
+  Seahawks:{def:"425",off:"12"},
+  "49ers":{def:"34",off:"12"},
+  Buccaneers:{def:"34",off:"12"},
+  Titans:{def:"w9",off:"11"},
+  Commanders:{def:"34",off:"12"},
 };
 
 // Team name → roster abbreviation (matches nflRosters.js keys)
@@ -48,23 +68,24 @@ export function getFormationPos(team){
   if(def==="34"){
     Object.assign(pos,{
       DE1:{x:30,y:48},DT1:{x:50,y:48,label:"NT"},DE2:{x:70,y:48},
-      LB1:{x:18,y:42,label:"OLB"},LB2:{x:40,y:38,label:"ILB"},LB3:{x:60,y:38,label:"ILB"},LB4:{x:82,y:42,label:"OLB",schemeOnly:true}
+      LB1:{x:18,y:42,label:"OLB"},LB2:{x:40,y:38,label:"ILB"},LB3:{x:60,y:38,label:"ILB",schemeOnly:true},LB4:{x:82,y:42,label:"OLB",schemeOnly:true},
+      NB:{x:50,y:30,label:"NB",schemeOnly:true,altFor:"LB3"}
     });
   }else if(def==="w9"){
     Object.assign(pos,{
-      DE1:{x:18,y:48},DT1:{x:42,y:48},DT2:{x:58,y:48},DE2:{x:82,y:48},
+      DE1:{x:18,y:48},DT1:{x:42,y:48},DT2:{x:58,y:48,schemeOnly:true},DE2:{x:82,y:48},
       LB1:{x:38,y:38},LB2:{x:62,y:38},
       NB:{x:50,y:30,label:"NB"}
     });
   }else if(def==="425"){
     Object.assign(pos,{
-      DE1:{x:28,y:48},DT1:{x:42,y:48},DT2:{x:58,y:48},DE2:{x:72,y:48},
+      DE1:{x:28,y:48},DT1:{x:42,y:48},DT2:{x:58,y:48,schemeOnly:true},DE2:{x:72,y:48},
       LB1:{x:38,y:38},LB2:{x:62,y:38},
       NB:{x:50,y:30,label:"NB"}
     });
   }else{
     Object.assign(pos,{
-      DE1:{x:28,y:48},DT1:{x:42,y:48},DT2:{x:58,y:48},DE2:{x:72,y:48},
+      DE1:{x:28,y:48},DT1:{x:42,y:48},DT2:{x:58,y:48,schemeOnly:true},DE2:{x:72,y:48},
       LB1:{x:30,y:38},LB2:{x:50,y:38},LB3:{x:70,y:38}
     });
   }

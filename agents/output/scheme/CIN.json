@@ -6,68 +6,752 @@
       "name": "Zac Taylor",
       "tenure_years": 7,
       "background": "offensive",
-      "scheme_philosophy": "McVay/Shanahan tree disciple who has evolved the offense into a shotgun-heavy, spread passing attack tailored to Joe Burrow's processing speed and quick release. Originally installed McVay-style under-center zone runs but shifted dramatically toward spread concepts since 2022."
+      "coaching_tree": "McVay/Shanahan tree \u2192 QBs coach under McVay in LA (2017-18) \u2192 Also spent time under Joe Philbin in Miami. One of the earliest McVay-tree hires.",
+      "scheme_philosophy": "Originally installed a carbon-copy McVay offense with under-center wide zone and play-action. Has radically evolved the offense to suit Joe Burrow: now a pass-heavy, spread, shotgun-based system that ranks among the highest in 11-personnel usage and PROE (pass rate over expected). Calls his own plays. Views the offense as Burrow-centric \u2014 the scheme adapts to the QB, not the other way around. Prioritizes explosive passing over run-game establishment."
     },
     "offensive_coordinator": {
       "name": "Dan Pitcher",
-      "scheme_tree": "Zac Taylor / McVay branch; long-time Bengals internal promotion from QBs coach, 2nd year as OC",
-      "play_caller": true
+      "coaching_tree": "Bengals internal promotion. Spent entire NFL career in Cincinnati (since 2016). Rose from offensive assistant to WR coach to QB coach to OC. Learned under both Marvin Lewis-era staff and the Taylor/Callahan system. No external coaching lineage \u2014 a pure Bengals product shaped by Taylor's philosophy.",
+      "scheme_evolution": "Pitcher coached Burrow as QB coach from 2020-23, then promoted to OC when Brian Callahan left for Tennessee. His first year as OC (2024) saw the Bengals lead in several passing categories. In 2025, despite Burrow missing 9 games with turf toe, the offense averaged 2.58 points per drive when Burrow started. Pitcher has publicly stated a desire to spend more time under center and create more explosive plays on first/second down in 2026, suggesting a slight philosophical shift toward more balance and play-action.",
+      "development_track_record": "Has been Joe Burrow's QB coach or OC for his entire NFL career. Helped develop Burrow into one of the most efficient passers in the league. Also helped Jake Browning perform well as a backup. Limited track record developing skill position players independently, as the roster was pre-loaded with talent."
     },
     "defensive_coordinator": {
       "name": "Al Golden",
-      "scheme_tree": "College DC background (Virginia 3-4, Notre Dame multiple); LB coaching roots; 1st year as NFL DC in 2025, entering Year 2. Mid-season 'hard reset' in 2025 shifted toward aggressive single-high man-heavy scheme with five-man fronts.",
-      "play_caller": true
+      "coaching_tree": "Unique coaching journey: Penn State TE \u2192 Virginia grad assistant under George Welsh \u2192 LBs at Boston College and Penn State \u2192 DC at Virginia (2001-05, ran a 3-4) \u2192 Head coach at Temple and Miami (FL) \u2192 DL/LBs coach at Detroit Lions (2016-19) \u2192 LBs coach at Cincinnati (2020-21, Super Bowl run) \u2192 DC at Notre Dame (2022-24, national championship game) \u2192 DC at Cincinnati (2025-present). Not clearly aligned with one NFL coaching tree. A college-to-NFL hybrid who brings pro-style concepts to a fundamentals-first philosophy.",
+      "scheme_evolution": "At Virginia, ran a 3-4 defense. At Notre Dame, ran a multiple 4-down front with heavy man coverage, press corners, single-high safety looks, and aggressive blitzing from all 11 defenders. In 2025 with the Bengals, started with a complex 'fluid' secondary that created too much mental load for young players. Mid-season hard reset simplified the scheme: shifted to ~68% single-high usage (1st in NFL), ~43% man coverage rate (1st), turned LB Demetrius Knight into a dedicated edge rusher, and increased physicality. The Bengals ranked last in blitz rate (17.6%) in 2025 \u2014 the lowest of Golden's career \u2014 due to lack of personnel. Golden has stated he wants to return to his aggressive, blitz-heavy roots in 2026 with better talent.",
+      "development_track_record": "Elite LB developer: coached Logan Wilson and Germaine Pratt into quality starters during Bengals' Super Bowl run. At Notre Dame, developed six NFL Draft picks in two years. Maximized Xavier Watts (Bronko Nagurski winner). Ball-disruption specialist \u2014 everywhere he coaches, forced fumbles increase dramatically. At Detroit, helped defense jump from 27th to 10th in total defense. Can develop LBs and safeties; also brings out the best in edge rushers through his 'viper' versatile edge concept."
     }
   },
   "offense": {
-    "scheme_family": "McVay/Shanahan descendant, heavily evolved toward spread passing attack",
-    "base_personnel": "11",
-    "run_scheme": "Duo / inside zone from spread formations; moved away from traditional wide zone under-center concepts since 2022. Run game is shotgun-centric.",
-    "pass_concepts": "Quick game, vertical shots, spread isolations of LBs in space. Extremely low play-action rate (~11.2% in 2025, dead last in NFL). Shotgun on ~92% of attempts. Fast time-to-throw (2.5 sec avg). Burrow-centric spread passing with Ja'Marr Chase and Tee Higgins as primary targets. OC Pitcher has stated a desire to increase under-center and play-action usage in 2026.",
-    "rpo_usage": "low-to-moderate",
-    "te_usage": "Receiving weapon (Gesicki) used as a move TE / flex piece, not a true inline blocker. Had 65 catches for 665 yards in 2024; limited to 28 catches in 2025 due to injury. Gesicki is functionally a big slot receiver. Drew Sample handles blocking duties. TE room is a clear receiving-vs-blocking platoon.",
-    "rb_usage": "Chase Brown emerged as a true dual-threat bell cow: 1,019 rushing yards + 437 receiving yards (6th among RBs) in 2025, 1,456 scrimmage yards. Significant receiving role with route-running from backfield. Extension talks underway."
+    "scheme_family": "Shanahan/McVay tree (Burrow-adapted variant)",
+    "scheme_detail": "Taylor's offense has diverged significantly from the traditional Shanahan outside-zone foundation. While the roots are McVay's system, the Bengals have evolved into a spread, shotgun-dominant, pass-first attack tailored to Burrow's processing speed and accuracy. The offense majors in 11 personnel with three WRs, operates primarily from shotgun, and relies on Burrow reading coverages and making anticipation throws within a structured concept system. Play-action rate is among the lowest in the NFL (ranked last at 11.2% in 2025) because the offense is designed to win through the pass game directly rather than off run-game deception. Pitcher wants to shift this slightly in 2026, incorporating more under-center looks and play-action to create explosive opportunities on first/second down.",
+    "run_scheme": "Under new OL coach Scott Peters (Bill Callahan tree), the Bengals have adapted their zone scheme to fit limited OL athleticism. Peters keeps linemen square initially rather than opening hips \u2014 a modified wide zone technique that minimizes the need for elite lateral athletes. Primary concepts are inside zone, tight zone, and duo, with wide zone mixed in using Peters' adapted technique. The run game has historically been a weakness (bottom-3 in success rate and YPC since 2021), but Peters showed improvement in 2025 by tailoring technique to personnel. Gap/power concepts are mixed in. The shotgun run game (duo from spread) is a key complement to the passing attack.",
+    "pass_architecture": "Burrow-centric dropback passing built on core Shanahan-tree concepts: slants, crossers, digs, and vertical shots. Heavy use of isolated WR routes that let Chase and Higgins win 1-on-1. Empty sets feature prominently to isolate LBs in space. Quick game exists but the offense is willing to push the ball vertically \u2014 Burrow has been among the league leaders in 20+ yard TD passes. Screen game is robust and functions almost as a run-game substitute on early downs. Pitcher has signaled a desire for more play-action and under-center concepts in 2026 to create more explosive first-down plays. Low RPO usage.",
+    "personnel_tendencies": "Among the highest 11-personnel usage rates in the NFL (2nd highest historically under Taylor). WR-heavy approach: three receivers are on the field for the vast majority of snaps. 12 personnel has increased slightly with Mike Gesicki's emergence as a receiving TE (nearly 60 catches in 2024). 21 personnel is rare. Chase Brown is a true every-down back with significant pass-catching role (70% rush share, 25+ receptions when Burrow plays). The offense is built to win through its WR/QB talent.",
+    "motion_tempo": "Moderate pre-snap motion rooted in Shanahan-tree principles, though less motion-dependent than SF or MIA versions. Standard tempo. Not a hurry-up team by design, though Burrow can push the pace in 2-minute situations. The offense's identity is deliberate execution through superior talent at the skill positions rather than schematic deception."
   },
   "defense": {
-    "base_front": "4-3 / 4-2 nickel (primary)",
-    "alignment": "Even front (4-down), primarily 4-2 nickel with a 4-3 base against heavy personnel. Mid-2025 evolved toward five-man fronts with LB Demetrius Knight used as a de facto edge rusher. Al Golden also sprinkled in occasional 3-4 odd-front looks at Notre Dame and carried some of that flexibility to CIN.",
-    "edge_rush_source": "4-3 DE hands-in-dirt (Trey Hendrickson, Shemar Stewart) as primary. Knight Jr. used as stand-up edge blitzer in sub-packages from Week 10 onward in 2025.",
-    "coverage_base": "Shifted dramatically mid-2025: single-high usage jumped to ~68% (1st in NFL, Weeks 10-18), man coverage spiked to ~43% (1st in NFL). Early 2025 was fluid/amorphous two-high zone that failed. Going forward: man-heavy Cover 1 / Cover 3 base with zone changeups off man looks, mirroring Golden's Notre Dame approach.",
-    "blitz_tendency": "light in 2025 (17.6%, 32nd/last in NFL) but Golden has explicitly stated this will increase significantly in 2026. His Notre Dame defenses were aggressive blitzers. Year 1 personnel limitations forced conservative approach.",
-    "lb_role": "Hybrid. Knight Jr. (2nd round 2025) played as off-ball LB early but was moved to de facto edge rusher/blitzer from Week 10 on. Barrett Carter (4th round) used as blitzing LB. Both rookies showed growth. Logan Wilson is the coverage/run-fit ILB. Golden wants 'force multipliers' who can line up in multiple positions.",
-    "safety_usage": "Jordan Battle and Geno Stone split deep/box roles. Safeties were forced to cover more TEs and RBs to free LBs to fit the box in Golden's simplified second-half scheme. Strong safety frequently plays near-box in man assignments. CIN actively seeking safety upgrade (Caleb Downs, etc.) in 2026 draft."
+    "scheme_family": "Multiple 4-3 front (Golden's pro-style hybrid)",
+    "scheme_detail": "Golden retained the 4-3 base and 4-2-5 nickel structure from the Anarumo era but installed his own playbook. The scheme is fundamentally multiple \u2014 Golden has used 4-3 over, 4-3 under, 3-4 odd fronts, and even 4-4 looks depending on opponent personnel. His 'react-attack' DL technique (read blocks first, then attack) differs from penetration-first 4-3 systems. After a rocky first half of 2025, Golden simplified to a more aggressive single-high, man-heavy approach that became the defense's identity. The 2026 vision is to build on that simplified structure while adding more blitz packages and DL stunts as players gain comfort with the system. Golden's signature is the 'viper' \u2014 a versatile edge/LB hybrid who can rush, drop, and move pre-snap.",
+    "front_structure": "4-3 base with even front as primary look. Nose tackle in a 1-tech or shade-G alignment (not a true 0-tech). 3-technique DT as the primary interior pass rusher. Two DEs in 5/6-tech alignments who are traditional hands-in-the-dirt rushers. Golden will flex to 3-4 odd fronts situationally with OLB stand-ups. Shemar Stewart (1st round, 2025) was drafted as the prototype edge \u2014 a 6-5, 267-pound freak athlete with rare speed and power. Trey Hendrickson is likely departing in 2026 FA, creating a massive need for a difference-making pass rusher.",
+    "coverage_philosophy": "Golden's revealed preference is man coverage. At Notre Dame, he was the most man-reliant defense in the country. By late 2025 with the Bengals, man coverage rate spiked to ~43% (1st in NFL) and single-high usage hit ~68% (1st). Cover 1 and Cover 3 are the primary shells. The zone concepts serve as changeups off the man-coverage base look. Golden uses match-zone principles when in zone. The secondary was asked to cover more TEs and RBs to free LBs for run fits in base personnel. The scheme demands CBs who can play press-man on an island with single-high help, and a free safety with elite range to be the last line.",
+    "pressure_philosophy": "Golden's natural tendency is aggressive, blitz-heavy defense \u2014 he wants to pressure from all 11 positions. However, in 2025, the Bengals ranked dead last (32nd) in blitz rate at 17.6% due to lack of personnel trust. Golden acknowledged this was his least pressure in 'forever.' When they did blitz, it was primarily simulated pressure with single-high coverage behind it. The 2026 plan is to dramatically increase pressure \u2014 Golden is targeting 'force multiplier' players who can line up in multiple spots to create disguised pressure looks. Expect a return to 25-30%+ blitz rates if talent improves.",
+    "sub_packages": "4-2-5 nickel is the base sub-package and primary defensive grouping (NFL teams are in nickel ~65%+ of snaps). In the Anarumo era, Mike Hilton was a hybrid slot CB/LB who played a unique role. Golden adapted this by using Demetrius Knight as a de facto edge rusher in sub-packages (his edge drop rate fell below 15% in the second half of 2025). Golden wants versatile defenders who can play multiple spots \u2014 safeties who cover TEs, LBs who blitz off the edge, and a nickel defender who functions as a coverage weapon. Dime is used situationally against spread offenses."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "Cincinnati's offense is a spread, shotgun-dominant passing attack (92% shotgun) built around Burrow's quick processing. The TE is functionally a big slot receiver in this system\u2014Gesicki had 65 catches in 2024 from a move/flex alignment, not as an inline blocker. The team runs heavy 11 personnel with the TE flexed out or in the slot. An elite receiving TE (route_running, hands, separation, speed) is valued like a WR3/flex weapon in this offense, not a traditional blocking TE. Drew Sample handles the blocking; the pass-catching TE gets receiver-level usage."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB is the engine of this offense. This is not a scheme that hides a QB \u2014 it puts Burrow in shotgun, gives him full-field reads, and trusts him to process defenses and deliver the ball accurately on timing routes. The QB must command the entire passing tree from the gun, read coverages pre-snap, and deliver anticipation throws into tight windows. Under-center play-action is growing but remains secondary to shotgun dropback.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Taylor's offense takes deep shots off play-action and in empty sets. The QB needs enough arm to push the ball downfield to Chase/Higgins on vertical concepts, but this is not a system that demands elite arm talent \u2014 it wins with accuracy and processing first."
+        },
+        "Accuracy": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The offense lives and dies on anticipation throws \u2014 slants, crossers, digs, and timing routes where the ball must arrive before the receiver completes the break. Burrow's accuracy is the foundational trait that makes this entire system work. This is THE defining QB trait in Taylor's offense."
+        },
+        "Pocket Presence": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The Bengals' OL has been a persistent weakness (48 sacks allowed in 2024). The QB must navigate pressure, climb the pocket, and deliver throws under duress. Burrow was among the best QBs under pressure in 2024. This scheme cannot function if the QB panics."
+        },
+        "Mobility": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "This is a pocket-based system. Burrow extends plays with subtle movement but is not asked to run designed QB runs. Mobility is a bonus, not a requirement. The offense is shifting slightly toward under-center, where mobility matters even less."
+        },
+        "Decision Making": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Burrow processes full-field reads from shotgun on nearly every dropback. The pass-heavy, 11-personnel approach means the QB faces sophisticated coverages and must distribute to multiple weapons quickly. Poor decisions destroy this offense because there is no run-game safety net."
+        },
+        "Leadership": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Burrow's leadership has been the glue holding the franchise together through three consecutive non-playoff years. The QB must command the huddle and locker room, but this is more of a franchise trait than a scheme-specific one."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "With the offense operating primarily from shotgun with limited play-action disguise, the QB must read defensive alignments to make protection calls and identify coverage shells. Important but less critical than post-snap processing in this spread system."
+        }
+      },
+      "ideal_archetype": "A poised, accurate, high-processing pocket passer who can operate from shotgun, read coverages at the line, and deliver the ball with timing and anticipation into tight windows. Not a scrambler or a run-threat \u2014 a pure thrower who makes the offense go through his arm and his mind. Think Joe Burrow himself: an elite processor with outstanding accuracy who can navigate chaos in the pocket and still deliver dimes. The secondary archetype is Kirk Cousins in Minnesota's high-volume passing attack or Matthew Stafford in McVay's LA system \u2014 QBs who thrive in dropback-heavy, talent-rich skill groups.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4",
+          "floor": "6-0",
+          "reasoning": "Pocket passers need adequate height to see over the OL and deliver from the pocket. Burrow is 6-4 and the system is built around his sightlines."
+        },
+        "weight": {
+          "ideal": "215-230",
+          "floor": "205",
+          "reasoning": "Must be durable enough to absorb hits in a pass-heavy offense behind an imperfect OL. Not a size-dependent system."
+        },
+        "arm_strength": {
+          "ideal": "Above average",
+          "floor": "Average",
+          "reasoning": "Must push the ball downfield on vertical concepts to Chase/Higgins, but the system creates open throws through scheme more than requiring arm talent to throw into impossibly tight windows."
+        }
+      },
+      "development_context": "Pitcher has been Burrow's only QB coach/OC in the NFL and has shown an ability to adapt the system to different QBs (Browning, Flacco). The staff can adjust to a QB's strengths, but the foundational requirement is accuracy and processing \u2014 those traits must arrive. Mobility and arm strength can be schemed around, but the Bengals will not simplify the passing game for a raw QB.",
+      "scheme_fit_narrative": "We need a pocket surgeon. Someone who can stand in the gun, read the whole field, and deliver the ball on time to three elite receivers. Our OL isn't perfect, so he needs to handle pressure without panicking. We're not asking him to run \u2014 we're asking him to process faster than the defense can cover.",
+      "archetype_examples": [
+        "Joe Burrow",
+        "Kirk Cousins",
+        "Matthew Stafford"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "medium-high",
-      "explanation": "While Cincinnati runs a 4-3 base (not a traditional 3-4 OLB edge system), Golden's mid-2025 schematic shift directly elevates LBs with pass rush traits. Demetrius Knight Jr. was explicitly moved from off-ball LB to a de facto edge rusher/blitzer from Week 10 on, playing zero slot snaps and rushing the passer from five-man fronts. Golden wants 'force multipliers'\u2014versatile LBs who can rush, blitz, and set edges. An LB prospect with elite pass_rush, burst, and first_step traits has significantly elevated value in this scheme because Golden will deploy them as supplemental edge rushers alongside the base 4-3 DEs. Not quite a full 3-4 OLB boost, but meaningfully above a standard 4-3 LB role."
+    "RB": {
+      "scheme_role": "The RB in this system is a true every-down back who must be a weapon in the passing game. Chase Brown had a 70% rush share and caught 25+ balls when Burrow played in 2025. The RB runs primarily inside zone, tight zone, and duo from shotgun \u2014 vertical, one-cut runs that require vision to find creases. Critically, the RB must be a reliable receiver out of the backfield, as the Bengals use the screen game and RB targets as a substitute for a traditional run game.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Inside zone and duo from shotgun require the back to press the line, read blocks in real time, and make one decisive cut. Peters' modified zone technique creates tight running lanes that demand precise reads."
+        },
+        "Contact Balance": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The Bengals' OL doesn't consistently create gaping holes. The back must gain yards after first contact, breaking arm tackles in tight quarters between the tackles."
+        },
+        "Power": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "This is not a power/gap-heavy run scheme. The offense wins with speed and elusiveness in space. Short-yardage power helps but is not the primary trait."
+        },
+        "Elusiveness": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Chase Brown's value comes from his ability to create in the open field on screens, check-downs, and zone runs that bounce outside. The spread offense creates opportunities for backs who can make defenders miss in space."
+        },
+        "Speed": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Spread offenses with shotgun zone runs create cutback lanes and perimeter opportunities that reward speed. The back must threaten the edge on wide zone and outrun pursuit angles on screen passes."
+        },
+        "Pass Catching": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "This is THE differentiating trait. Brown caught 25+ balls in just the games Burrow started. The Bengals use RB targets as run-game substitutes. A back who can't catch and run routes out of the backfield is a non-starter in this offense."
+        },
+        "Pass Protection": {
+          "weight": 0.11,
+          "importance": "moderate",
+          "reasoning": "With Burrow taking significant hits (48 sacks in 2024), the back must be a willing and capable pass protector. In a spread offense where the back is often the only player left in protection, blitz pickup is critical to keeping the franchise QB upright."
+        }
+      },
+      "ideal_archetype": "A versatile, three-down back who is elite as a receiver and dynamic in the open field. Think Alvin Kamara or Austin Ekeler \u2014 not a 230-pound bruiser between the tackles, but a quick, elusive weapon who creates mismatches against linebackers in the passing game. Chase Brown is the current template: a scatback-type elevated to a full-time role through his receiving ability and speed on zone runs.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "195-215",
+          "floor": "185",
+          "reasoning": "The spread, pass-heavy scheme doesn't require a huge back. Lighter, quicker backs fit the zone scheme and passing game better."
+        },
+        "40_yard_dash": {
+          "ideal": "Sub-4.45",
+          "floor": "4.55",
+          "reasoning": "Speed is critical for wide zone cutbacks and screen plays in the spread offense. The back must be able to hit the perimeter quickly."
+        },
+        "3_cone": {
+          "ideal": "Sub-6.90",
+          "floor": "7.00",
+          "reasoning": "Agility is essential for zone running (one-cut decisiveness) and route running out of the backfield."
+        }
+      },
+      "development_context": "RB coach Justin Hill has three 1,300-touch seasons from Mixon and Brown. The staff has shown the ability to develop two-back rotations and to maximize passing-game usage. What they need to arrive is pass-catching ability \u2014 route running and hands. They can develop zone-scheme fit and pass protection technique.",
+      "scheme_fit_narrative": "Our back has to be a receiver first and a runner second. We throw the ball more than almost anyone, and our RB is a critical safety valve and weapon in the passing game. Give us a quick, elusive back who can run routes, catch everything, and make guys miss in space. We'll manufacture touches for him both on the ground and through the air.",
+      "archetype_examples": [
+        "Chase Brown",
+        "Austin Ekeler",
+        "Alvin Kamara"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "high",
-      "explanation": "Chase Brown's breakout in 2025 (1,019 rush + 437 receiving yards, 6th among RBs in receiving) proves this offense heavily values receiving ability from the RB position. The spread-shotgun scheme creates natural RB receiving opportunities through checkdowns, screens, and designed routes. Burrow's quick release and the offense's tendency to play from behind (defense ranked 30th in points allowed) amplifies RB targets. Brown caught 50+ passes across multiple seasons. An RB with elite hands, route_running, and pass_protection traits gets a significant value boost here."
+    "WR": {
+      "scheme_role": "WRs are the centerpiece of this offense. The Bengals invest more in their passing attack than any team in the NFL ($616M in contracts for WRs, TEs, and QBs). The WR corps is asked to win 1-on-1 matchups on isolation routes from 3-WR sets. Chase and Higgins both operate inside and outside, with Chase increasingly deployed from the slot (his 2024 slot usage took the offense 'up a gear'). The WR3 runs complementary routes but must still win contested situations. This is a WR-driven passing attack \u2014 the scheme creates 1-on-1 opportunities and trusts its receivers to win them.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The Bengals' passing game is built on timing concepts where the WR must be in the right spot at the right time. Burrow throws anticipation balls \u2014 the receiver must create separation through route technique, not just speed. Chase's ability to snap off routes is what makes the offense elite."
+        },
+        "Separation": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "In a spread, shotgun, 11-personnel offense, defenses know the pass is coming. WRs must create separation against press and off coverage. The Bengals don't rely heavily on play-action or motion to scheme receivers open \u2014 they expect WRs to win their matchups."
+        },
+        "Hands": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Burrow targets his WRs at an extremely high rate, including tight-window throws. Drops are devastating in a pass-first offense because they kill drives that have no run-game fallback."
+        },
+        "YAC Ability": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The horizontal passing concepts (slants, crossers, screens) create YAC opportunities. Chase's YAC ability is a major part of the offense's explosiveness. But this is secondary to winning at the route level."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Burrow has been among the league leaders in 20+ yard TD passes. Speed is needed to take the top off the defense and create vertical threats, but the offense is not built exclusively around speed \u2014 it wins with route running and accuracy."
+        },
+        "Contested Catches": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Against AFC North defenses (Baltimore's aggressive secondary, Pittsburgh's physical corners), the WR must be able to win at the catch point. Higgins in particular has been a contested-catch specialist, and the offense designs shots to allow physical receivers to attack the ball."
+        },
+        "Release Package": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The Bengals face man-heavy defenses in the AFC North and in the playoffs. The WR must be able to defeat press coverage at the line to execute timing concepts. Chase's release has improved year over year and is critical to the offense's consistency."
+        }
+      },
+      "ideal_archetype": "A complete, do-everything receiver who can win from multiple alignments \u2014 outside in X, flanker in Z, and from the slot. The ideal WR is a route technician with the speed to threaten deep and the physicality to win contested catches against AFC North corners. Think Ja'Marr Chase \u2014 a polished route runner with explosive play-making ability, strong hands, and the toughness to win against press-man coverage. The secondary archetype is a Tee Higgins-type: a big-bodied X receiver with excellent contested-catch ability who complements the primary weapon.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-10",
+          "reasoning": "The offense uses WRs to attack at multiple levels. A taller WR wins contested catches against physical AFC North DBs, while shorter, quicker WRs can win from the slot."
+        },
+        "40_yard_dash": {
+          "ideal": "Sub-4.45",
+          "floor": "4.55",
+          "reasoning": "Must threaten deep to prevent defenses from bracketing Chase/Higgins underneath. Speed creates the vertical threat that opens the intermediate game."
+        },
+        "weight": {
+          "ideal": "190-215",
+          "floor": "180",
+          "reasoning": "Must withstand physical press coverage from AFC North corners. Too light and the receiver gets pushed off his routes by aggressive man coverage."
+        }
+      },
+      "development_context": "WR coach Troy Walters has been on staff throughout the Burrow era. The staff has developed Chase into an All-Pro and Higgins into a standout WR2. They can refine route technique and help WRs learn to operate within the timing system. Release technique and contested-catch ability are harder to develop \u2014 those should arrive. The staff has hired Davis Koetter (former NFL HC and OC) as assistant WR coach for 2026, adding veteran experience to the development pipeline.",
+      "scheme_fit_narrative": "We need receivers who can win their matchups, period. We don't scheme guys open with motion and misdirection \u2014 we put them in 1-on-1 situations and let Burrow throw to the winner. Give us a polished route runner who can separate against man coverage, catch everything, and break tackles after the catch. Contested-catch ability is a must because we play in the AFC North.",
+      "archetype_examples": [
+        "Ja'Marr Chase",
+        "Tee Higgins",
+        "CeeDee Lamb"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "medium-high",
-      "explanation": "Golden's simplified second-half 2025 scheme required safeties to cover TEs and RBs in man coverage to free LBs to fit the box. The defense moved to heavy single-high (~68% rate, 1st in NFL) which demands one safety who can play deep center field AND a box safety who can match up in man coverage, blitz, and play in the slot. Golden is explicitly targeting 'force multiplier' defensive backs in the 2026 draft. A safety prospect with elite man_coverage, tackling, versatility, and blitz ability (think Caleb Downs archetype) has elevated value because of the hybrid roles Golden demands."
+    "TE": {
+      "scheme_role": "The TE role is evolving in this offense. Historically, the Bengals underutilized TEs under Taylor \u2014 but 2024 saw Mike Gesicki post a near-60-catch season, and James Casey (TE coach since 2019) has been promoted to run game coordinator for 2026, signaling increased emphasis on the TE's dual role. The TE primarily operates as a receiving weapon in 12-personnel sets and flexes to the slot in 11 sets. Blocking is growing in importance as the offense looks to incorporate more under-center play-action and improve the run game.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "This is a pass-first offense that needs its TE to be a credible receiving threat. Gesicki's emergence showed how a pass-catching TE opens up the middle of the field and gives Burrow another weapon. The TE must win against LB coverage in the seams."
+        },
+        "Route Running": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The Bengals' timing-based passing game requires the TE to run precise routes from multiple alignments \u2014 inline, slot, flexed out. The TE must be sharp enough to work within the Burrow timing system."
+        },
+        "Blocking": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "With Casey taking over run game coordinator duties and Pitcher emphasizing more under-center play-action, blocking becomes more important. The TE must be a credible inline blocker to sell play-action and sustain the run game \u2014 a pure receiving TE limits formation flexibility."
+        },
+        "Athleticism": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Golden's defense at Notre Dame used TEs/big athletes extensively, and the offensive parallel is wanting a TE who creates matchup problems. An athletic TE who can stretch the seam gives Burrow a weapon defenses can't cover with a LB or a safety."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "In a pass-heavy offense, the TE's catch rate matters. Burrow will target the TE in traffic over the middle, and drops are costly in this system."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Seam speed to threaten the middle of the field vertically is valuable, but the TE doesn't need WR-level speed. Gesicki's success showed that route polish and hands matter more than raw speed."
+        }
+      },
+      "ideal_archetype": "A versatile TE who can catch 50+ balls and also hold up as an inline blocker on 12-personnel run plays. Think George Kittle or Travis Kelce \u2014 not a pure blocking TE and not a glorified WR, but a true dual-threat who creates formation flexibility and matchup nightmares. The Bengals have been looking for this player for years, and the promotion of Casey to run game coordinator suggests the TE will be asked to do more in both phases.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-2",
+          "reasoning": "Must be big enough to block DEs on the edge and win at the catch point in traffic. The TE's size creates the mismatch advantage in the passing game."
+        },
+        "weight": {
+          "ideal": "240-260",
+          "floor": "230",
+          "reasoning": "Must be functional as an inline blocker. A 220-pound receiving TE can't sustain blocks in the run game that the offense needs in 2026's more balanced approach."
+        },
+        "40_yard_dash": {
+          "ideal": "Sub-4.65",
+          "floor": "4.75",
+          "reasoning": "Must threaten the seam to create vertical stretch. Doesn't need WR speed but needs enough juice to separate against LBs."
+        }
+      },
+      "development_context": "James Casey, the TE coach since 2019 and now run game coordinator, was himself an NFL TE for seven years. Casey has struggled to develop impact receiving TEs in Cincinnati (the position was consistently underutilized until Gesicki). The staff has shown they can incorporate a ready-made receiving TE (Gesicki) but hasn't proven they can develop one from scratch. Blocking technique can be coached; receiving ability and route feel should arrive.",
+      "scheme_fit_narrative": "We've been missing a true difference-making TE for years. We need a guy who can line up inline, sustain blocks in the run game, and then flex out and catch 50+ balls. The TE position is going to grow in importance for us \u2014 Casey's new role as run game coordinator tells you that. Give us a complete TE who opens up our offense in 12 personnel.",
+      "archetype_examples": [
+        "George Kittle",
+        "Mark Andrews",
+        "Mike Gesicki"
+      ]
+    },
+    "OT": {
+      "scheme_role": "The OT must protect Joe Burrow first and sustain the modified zone run scheme second. Burrow has been one of the most-sacked QBs in the NFL, so pass protection is paramount. Under Peters, the OL stays more square in the run game rather than opening hips on wide zone \u2014 this means OTs don't need to be elite lateral athletes but must be technically sound pass protectors with good anchor. Orlando Brown Jr. is the LT; the RT has been a rotating door. Peters' martial arts-influenced hand technique is the foundation of his teaching.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "This is the single most important OT trait in Cincinnati. Burrow has been sacked 48 times in a season. The Bengals are a pass-first team. If the OT can't protect the most important player on the roster, nothing else matters. Peters is a pass-protection technician and demands it from his players."
+        },
+        "Run Blocking": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Peters' adapted zone scheme (staying square, shuffling rather than opening hips) still requires OTs to create movement and reach-block. Important but clearly secondary to pass protection in this pass-heavy offense."
+        },
+        "Footwork": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Peters' BJJ/martial arts-influenced system emphasizes hand strikes and footwork as the foundation of both pass and run blocking. Quick, precise feet allow the OT to mirror speed rushers, which is critical against AFC North edge talent (Watt, Hendrickson, Garrett types)."
+        },
+        "Anchor": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Facing AFC North power rushers twice a year (plus playoff-caliber pass rushers), the OT must be able to absorb bull rushes and hold his ground. Peters' square technique in the run game also demands strong anchor to sustain blocks."
+        },
+        "Athleticism": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Peters' modified zone technique was specifically designed to work with 'limited athletes up front.' The scheme reduces the need for elite lateral movement, making athleticism a nice-to-have rather than a requirement."
+        },
+        "Strength": {
+          "weight": 0.09,
+          "importance": "moderate",
+          "reasoning": "Base strength supports both anchor in pass protection and sustaining blocks in the run game. Peters' system uses leverage and hand technique to compensate for raw strength deficiencies, but a floor of NFL-level strength is needed."
+        }
+      },
+      "ideal_archetype": "A technically sound, anchor-first pass protector with the footwork to handle NFL speed rushers. Not necessarily an elite athlete \u2014 Peters' system is designed to work with technique-over-talent linemen \u2014 but a smart, fundamentally sound blocker who can keep his QB clean. Think Garett Bolles or Jack Conklin under Bill Callahan in Cleveland: not the flashiest athletes but technically proficient, reliable protectors who improve under detailed coaching.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Length helps with pass protection \u2014 longer arms keep rushers at bay. Peters' hand-strike system leverages length."
+        },
+        "weight": {
+          "ideal": "310-325",
+          "floor": "300",
+          "reasoning": "Must anchor against AFC North power rushers. Too light and the OT gets walked back into Burrow's lap."
+        },
+        "arm_length": {
+          "ideal": "34+ inches",
+          "floor": "33 inches",
+          "reasoning": "Peters' technique system emphasizes hand placement and strikes. Longer arms create more distance between the rusher and the QB."
+        },
+        "short_shuttle": {
+          "ideal": "No strict requirement",
+          "floor": "none",
+          "reasoning": "Peters' modified zone doesn't demand elite lateral agility. The scheme was specifically designed to work without requiring sub-4.5 shuttle times."
+        }
+      },
+      "development_context": "Peters is specifically praised for developing lower-round and back-of-roster OL. In Cleveland, he developed practice squad players into starters (Froholdt, Pocic, Geron Christian). His martial arts-influenced hand technique system has been called revolutionary by Jim McNally. Peters can develop pass-protection technique from raw prospects \u2014 what he needs is baseline intelligence, coachability, and adequate physical tools. He can teach technique; he can't teach size or desire.",
+      "scheme_fit_narrative": "Protect Joe Burrow. That's the job. We need an OT who can anchor against power, mirror speed, and keep our franchise QB clean. Peters can develop technique \u2014 give us a guy with good feet, adequate length, and the desire to improve. He doesn't need to be a world-class athlete because our run scheme doesn't demand it. But he cannot be a liability in pass protection.",
+      "archetype_examples": [
+        "Garett Bolles",
+        "Jack Conklin",
+        "Orlando Brown Jr."
+      ]
+    },
+    "IOL": {
+      "scheme_role": "The IOL operates in Peters' modified zone system that keeps linemen square and tight to each other, executing inside zone, tight zone, duo, and adapted wide zone. Pass protection is critical \u2014 the interior must handle DT stunts and blitzes to keep Burrow's pocket clean. Dylan Fairchild (3rd round 2025) started 15 games at LG as a rookie. Dalton Risner was re-signed and Ted Karras has been the center. Intelligence and communication are paramount \u2014 the IOL must handle calls and adjustments in a pass-heavy offense that faces sophisticated blitz packages.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Same logic as OT \u2014 this is a pass-first offense with a franchise QB who has been sacked at historic rates. Interior pressure is especially dangerous because it collapses the pocket directly into Burrow's face. Peters' hand-strike system demands technical pass protection."
+        },
+        "Run Blocking": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Peters' inside zone and duo concepts require IOL to create vertical push between the tackles. The modified wide zone technique asks IOL to stay square and handle stunts/games \u2014 intelligence matters as much as raw power in the run game."
+        },
+        "Pulling": {
+          "weight": 0.08,
+          "importance": "low",
+          "reasoning": "The Bengals' zone-based run game rarely asks guards to pull in traditional gap/power concepts. Pulling is used on counter and trap plays that are mixed in but are not the foundation of the scheme."
+        },
+        "Strength": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Must anchor against interior DTs (3-techs, nose tackles) in pass protection and generate push in the run game. The AFC North features powerful interior linemen. Peters' technique helps but can't fully compensate for insufficient strength."
+        },
+        "Anchor": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Interior pressure kills this offense. The guard/center must hold ground against bull rushes and not get walked back into the QB. This is especially important on duo and tight zone where the IOL is responsible for double teams at the point of attack."
+        },
+        "Versatility": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Peters' Callahan-tree background values IOL who can play multiple spots. The ability to play guard and center (or swing between LG and RG) provides roster flexibility that the Bengals' budget-conscious front office values."
+        }
+      },
+      "ideal_archetype": "A smart, tough, technically proficient interior lineman who excels in pass protection and can sustain blocks in a zone-based run scheme. Think Joel Bitonio or Wyatt Teller under Bill Callahan in Cleveland \u2014 Pro Bowl-caliber guards who thrived in a Callahan-tree zone scheme with elite pass protection technique. The IOL doesn't need to be a world-class puller but must be strong, intelligent, and anchor against interior pressure.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Standard IOL height for visibility and leverage in pass protection."
+        },
+        "weight": {
+          "ideal": "305-325",
+          "floor": "300",
+          "reasoning": "Must anchor against interior DTs. The zone scheme allows slightly lighter guards than pure power systems, but a floor of 300 is needed for NFL competition."
+        },
+        "bench_press": {
+          "ideal": "25+ reps",
+          "floor": "20 reps",
+          "reasoning": "Peters' hand-strike system demands upper-body strength to execute the punch-and-control technique that is the foundation of his blocking style."
+        }
+      },
+      "development_context": "Peters' entire coaching identity is built on development. He developed Pro Bowl guards in Cleveland (Bitonio, Teller) and developed lower-round talents into starters. He specifically excels at teaching hand technique from his martial arts background. Fairchild started 15 games as a rookie, showing the staff can integrate young IOL immediately. What needs to arrive is baseline intelligence and competitive toughness \u2014 Peters can teach the rest.",
+      "scheme_fit_narrative": "We need a smart, tough interior lineman who can keep Burrow clean and sustain blocks in the zone run game. Peters will develop the technique \u2014 give us a guy with good strength, a competitive streak, and the football IQ to handle calls and stunts. Versatility is a bonus because our roster construction demands it.",
+      "archetype_examples": [
+        "Joel Bitonio",
+        "Wyatt Teller",
+        "Dylan Fairchild"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "The EDGE in Golden's 4-3 is a traditional hands-in-the-dirt DE who is the primary pass rusher. With Trey Hendrickson likely departing in 2026 FA, this is the Bengals' most critical defensive need. Golden wants long, explosive athletes on the edge \u2014 he drafted Shemar Stewart (6-5, 267, perfect 10.0 RAS) with the 17th pick in 2025 as the prototype. The EDGE must be a complete player: rush the passer, set the edge in the run game, and occasionally execute a coverage drop. Golden's 'viper' concept from Notre Dame uses the best edge athlete as a versatile chess piece who can rush, drop, and move pre-snap.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Golden's 2025 defense ranked 24th in pressure rate and his stated priority is generating more pass rush in 2026. With Hendrickson gone, the EDGE must be the primary source of quarterback pressure. The scheme is built around the front four getting to the QB to support the man coverage behind them."
+        },
+        "Bend": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The ability to flatten around the corner is important but Golden's edges are not pure speed-to-power or pure bend rushers \u2014 they're versatile athletes. Stewart's value is his combination of traits rather than elite bend specifically."
+        },
+        "First Step": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Golden's 'react-attack' technique asks the DL to read blocks first, but the EDGE still needs explosive get-off to threaten the QB. Stewart's 4.59 40-time and 40-inch vertical show the explosive athleticism Golden prioritizes. First step creates the initial advantage that the pass rush builds on."
+        },
+        "Power": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "AFC North football demands edge players who can hold up against the run. Baltimore's run game was the best in the NFL. The EDGE must set the edge and not get washed inside by tight ends and tackles. Golden specifically wants big, powerful edges (Stewart at 267 lbs)."
+        },
+        "Motor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Golden is a fundamentals-first coach who demands effort on every snap. Hendrickson's value was partly his relentless motor (17.5 sacks in 2024). The EDGE must chase plays down from behind, never quit on a rush, and convert effort into production."
+        },
+        "Run Defense": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The Bengals allowed 2,500 rushing yards in 2025 \u2014 the run defense was catastrophic. The EDGE must be a reliable run defender who sets the edge and forces runs back inside. Golden's 'react-attack' technique specifically asks the EDGE to read blocks and play assignment football before attacking."
+        }
+      },
+      "ideal_archetype": "A big, explosive, multi-tool edge rusher with the size to set the edge and the athleticism to rush the passer. Think Shemar Stewart's profile: 6-5, 267, with a 4.59 40 and a 40-inch vertical \u2014 a rare combination of size, speed, and power. The ideal EDGE is not a one-trick speed rusher; he's a versatile athlete who can rush, set edges, and occasionally drop. Golden's Notre Dame vipers (Boubacar Traore, Bryce Young at 6-7) show he covets length and explosiveness above all else.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-6",
+          "floor": "6-2",
+          "reasoning": "Golden covets long, rangy edge rushers. Stewart at 6-5, prior Notre Dame vipers at 6-4+. Length creates leverage advantages in both pass rush and run defense."
+        },
+        "weight": {
+          "ideal": "255-275",
+          "floor": "245",
+          "reasoning": "Must be heavy enough to set the edge against NFL tackles and TEs. Golden's edges are not 230-pound speed rushers \u2014 they're 250+ athletes who can hold the point of attack."
+        },
+        "40_yard_dash": {
+          "ideal": "Sub-4.65",
+          "floor": "4.75",
+          "reasoning": "Golden prioritized Stewart's elite athletic testing (perfect 10.0 RAS). The EDGE must have rare explosiveness for his size \u2014 this is what differentiates Golden's ideal from a standard 4-3 DE."
+        },
+        "vertical_jump": {
+          "ideal": "35+ inches",
+          "floor": "32 inches",
+          "reasoning": "Lower-body explosiveness translates to first-step burst and power at the point of attack. Stewart's 40-inch vertical was fourth among all combine participants."
+        }
+      },
+      "development_context": "Golden and DL coach Jerry Montgomery (9 years in Green Bay) have strong track records developing edge rushers. Golden maximized production from Notre Dame edges with varying experience levels (Foskey, Traore, Bryce Young). Montgomery developed multiple Packers pass rushers. They can develop technique and rush plans \u2014 what must arrive is explosive athleticism and competitive drive. Stewart's Year 1 struggles (1 sack in 8 games) show that even elite athletes need time in this system.",
+      "scheme_fit_narrative": "We need a freak athlete on the edge. Big, long, explosive \u2014 a guy who can rush the passer, set the edge, and make plays with his athletic gifts. We lost Hendrickson and we need someone who can be a game-wrecker off the edge. Give us the best athlete you can find at 250+ pounds with a violent motor. We'll develop the rest.",
+      "archetype_examples": [
+        "Shemar Stewart",
+        "Myles Garrett",
+        "Trey Hendrickson"
+      ]
+    },
+    "DL": {
+      "scheme_role": "The interior DL operates in Golden's 'react-attack' technique: read blocks, defeat them with hands/hips/feet, then attack. The 3-technique is the primary interior pass rusher, while the nose tackle (1-tech or shade-G) is responsible for controlling gaps and eating double teams. The Bengals' interior DL was a major weakness in 2025 (30th in run defense success rate). Golden needs a 3-tech who can penetrate and a nose who can anchor. Jerry Montgomery's coaching style emphasizes hand usage and technical development.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The 3-technique must generate interior pressure to complement the edge rush. With Golden's low blitz rates in 2025, the DL must create disruption on its own. Interior pressure is the most valuable type because it collapses the pocket directly into the QB."
+        },
+        "Run Defense": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The Bengals allowed 2,500 rushing yards in 2025. This is the most critical DL trait. The nose must control the A-gaps and the 3-tech must hold the B-gap before penetrating. Golden's 'react-attack' technique is fundamentally run-first: read the block, defeat it, then pursue."
+        },
+        "First Step": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Important for the 3-tech to win the initial battle against the guard, but Golden's system is 'react-attack' (read first), not 'attack-react' (penetrate first). A quick first step helps but technique matters more than raw explosion in this system."
+        },
+        "Hand Usage": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Golden's DL technique is hands-first: hands, hips, then feet. Montgomery's coaching emphasizes hand technique development. This is the primary skill that determines whether the DL can execute the 'react-attack' style \u2014 read the block, use hands to defeat it, then pursue."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Golden demands relentless effort. The DL must pursue plays sideline to sideline and never take snaps off. Ball disruption (forced fumbles) is a Golden hallmark that requires constant effort at the point of attack."
+        },
+        "Strength": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "The nose must anchor against double teams and the 3-tech must hold the point of attack before pursuing. The AFC North's physical run games (Baltimore especially) demand interior DL who can't be moved off their spot."
+        }
+      },
+      "ideal_archetype": "A technically sound, powerful interior lineman who can anchor against the run and generate interior pressure. The ideal 3-tech is a two-way player like Chris Jones \u2014 a disruptive pass rusher who also controls his gap against the run. The ideal nose is an anchor like Grover Stewart or DJ Reader \u2014 a massive human who eats double teams and frees up the LBs. Golden needs both: a penetrator and a space-eater.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4 (3-tech), 6-2 to 6-5 (nose)",
+          "floor": "6-0",
+          "reasoning": "Standard DL heights. Golden's system is technique-first, so height is less critical than hand usage and strength."
+        },
+        "weight": {
+          "ideal": "290-310 (3-tech), 310-335 (nose)",
+          "floor": "280 (3-tech), 300 (nose)",
+          "reasoning": "Must anchor against NFL interior OL. The run defense crisis demands heavy, powerful DL who can't be moved."
+        },
+        "bench_press": {
+          "ideal": "25+ reps",
+          "floor": "20 reps",
+          "reasoning": "Golden's hands-first technique demands upper body strength for hand placement and control at the point of attack."
+        }
+      },
+      "development_context": "Montgomery spent 9 years developing DL in Green Bay and coached Notre Dame DL for Golden. He can develop hand usage and technique. Jenkins (2024 2nd round) and McKinnley Jackson (2024 3rd round) are young pieces. Howard Cross III (Golden's former Notre Dame DT) was a standout under Golden's tutelage. The staff can develop technique and effort \u2014 what must arrive is adequate size and baseline strength.",
+      "scheme_fit_narrative": "We got gashed in the run game last year. We need a DT who can anchor, control his gaps, and generate push against the run. If he can rush the passer too, even better. Give us a big, strong, technically sound interior lineman who plays with his hands and never quits. We need a run-stopper first and a pass-rusher second.",
+      "archetype_examples": [
+        "DJ Reader",
+        "Chris Jones",
+        "Howard Cross III"
+      ]
+    },
+    "LB": {
+      "scheme_role": "The LB position was the Bengals' biggest weakness in 2025. Golden asked rookie LBs Demetrius Knight and Barrett Carter to handle the full mental load of his defense, and it failed badly. After a mid-season simplification, Knight was moved to an edge role and Carter became more of a downhill run-stuffer. Golden wants his LBs to be the defensive quarterbacks \u2014 communicating coverages, setting the defense, and processing offensive formations. But he also acknowledges they need a veteran anchor. Duke Tobin described the ideal as a 'combo linebacker who could set the edge and blitz.' Golden's background is as a LB coach \u2014 this is his specialty position.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The Bengals' tackling was atrocious in 2025, with both rookie LBs among the biggest contributors to tackling issues. Golden emphasizes fundamentals and tackling is the most basic. A LB who misses tackles destroys the defense."
+        },
+        "Coverage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Golden's man-heavy scheme asks safeties to cover TEs/RBs to free LBs for run fits, but the LB must still handle zone drops and occasional man assignments. Carter and Knight both ranked near the bottom in LB coverage grades. Coverage competency is non-negotiable."
+        },
+        "Pass Rush": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Golden wants to increase blitz rates dramatically in 2026. He needs LBs who can rush off the edge, through the A-gap, and on delayed pressures. Tobin specifically described wanting a LB who 'could set the edge and blitz.' This is a bigger part of the scheme than in typical 4-3 defenses."
+        },
+        "Instincts": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Golden's defense requires LBs to process offensive formations, set the defense, and react to play-action and run schemes. The 2025 disaster was largely caused by young LBs who couldn't process the mental load. Football IQ and instincts are critical \u2014 the LB must be the defensive quarterback."
+        },
+        "Athleticism": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Knight and Carter were drafted specifically for their athleticism and speed. Golden values athletic LBs who can cover ground \u2014 his Notre Dame LBs were described as 'lighter and faster than usual.' But athleticism without processing ability failed in 2025."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The 4-2-5 nickel with only two LBs on the field means each LB must cover more ground. Range to get sideline-to-sideline is important for making plays in the run game and covering underneath zones."
+        },
+        "Block Shedding": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Golden's 'react-attack' philosophy extends to LBs: read, shed, and tackle. The LB must defeat blocks from OL climbing to the second level and from TEs/FBs. Block shedding was a weakness for the rookie LBs in 2025."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Golden's complicated defense requires LBs to read offensive formations and adjust pre-snap. This is more important in Golden's system than in simpler defenses because of the coverage responsibilities and communication demands."
+        }
+      },
+      "ideal_archetype": "A smart, physical, every-down LB who can quarterback the defense, tackle reliably, and contribute as a blitzer. Think Logan Wilson in his prime (Golden coached Wilson to 4 interceptions and a game-saving playoff pick in 2021) or Roquan Smith \u2014 a three-down LB with the instincts to process, the physicality to tackle, and the athleticism to cover ground. Golden needs at least one veteran LB who can anchor the unit while Knight and Carter develop.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Golden's Notre Dame LBs were described as 'lighter and faster.' He doesn't need 6-4 thumpers \u2014 he needs athletes who can move."
+        },
+        "weight": {
+          "ideal": "225-245",
+          "floor": "220",
+          "reasoning": "Must be heavy enough to take on blocks and stuff runs at the second level, but light enough to cover ground in coverage and blitz effectively."
+        },
+        "40_yard_dash": {
+          "ideal": "Sub-4.55",
+          "floor": "4.65",
+          "reasoning": "Golden values speed and range at LB. Knight and Carter were drafted for their explosiveness. The 4-2-5 with two LBs demands each one covers a lot of ground."
+        }
+      },
+      "development_context": "Golden is THE LB developer. He coached James Farrior and Jamie Sharper at Virginia (both 1st round picks). He developed Logan Wilson and Germaine Pratt into quality starters during the Bengals' Super Bowl run. At Notre Dame, he developed Marist Liufau and JD Bertrand into draft picks. He can develop LBs from Day 1 \u2014 but the 2025 experience showed that even Golden needs time and can't overcome a total lack of experience. Instincts and tackling should arrive; the scheme details and coverage technique can be taught.",
+      "scheme_fit_narrative": "We need a LB who can think and play. Our rookie LBs were overwhelmed last year \u2014 the mental load was too high. Give us a football-smart, physical LB who can communicate, tackle, and handle multiple responsibilities. Blitz ability is a real plus because we want to bring more pressure. This is Golden's best position to develop \u2014 put the right athlete in front of him and he'll make them a star.",
+      "archetype_examples": [
+        "Logan Wilson (prime)",
+        "Roquan Smith",
+        "Devin Lloyd"
+      ]
+    },
+    "CB": {
+      "scheme_role": "In Golden's man-heavy scheme, the CB is asked to play press-man coverage on an island with single-high safety help. By late 2025, the Bengals were playing ~43% man coverage (1st in NFL) with ~68% single-high looks. The outside CBs must jam at the line, mirror routes in phase, and play with outside leverage knowing they have help inside from the safety. DJ Turner II emerged as a standout CB in 2025. Dax Hill has transitioned to CB and provides versatility. The nickel/slot CB is a critical role \u2014 the Bengals need a slot defender who can match up with slot WRs and TEs in man coverage.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Golden's defense is man-coverage-first. At Notre Dame, he was the most man-reliant defense in the country. The Bengals' late-season pivot to heavy man was the defensive turning point. The CB MUST be a man-coverage player \u2014 zone-only corners do not fit this system."
+        },
+        "Ball Skills": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Golden's defenses at Notre Dame led the nation in interceptions and turnovers. Ball disruption is a Golden hallmark. The CB should be able to turn and play the ball, but this is secondary to coverage ability \u2014 a lockdown corner who doesn't get INTs is still valuable."
+        },
+        "Zone Coverage": {
+          "weight": 0.08,
+          "importance": "low",
+          "reasoning": "Zone is the changeup in Golden's scheme, not the base. The CB must be competent in Cover 3 and match-zone concepts, but the scheme doesn't demand elite zone instincts. The CB who can play man at an elite level is far more valuable than one who excels in zone."
+        },
+        "Speed": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Man coverage demands recovery speed. When the CB gets beaten at the line or loses phase in a route, speed is the only way to recover. Playing single-high with no deep help over the top means the CB must have the speed to stay in phase on vertical routes."
+        },
+        "Press": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Golden's scheme has corners in press alignment as the base look. Notre Dame's corners were described as playing 'press man with outside leverage.' The CB must disrupt at the line of scrimmage, re-route receivers, and win the initial contact battle. Press technique is foundational to the coverage scheme."
+        },
+        "Nickel": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The nickel/slot position is important in the 4-2-5 base sub-package. The Bengals need a slot defender who can match up with shifty slot WRs in man coverage. The Anarumo era used Mike Hilton as a unique hybrid slot CB/LB \u2014 Golden may want similar versatility."
+        }
+      },
+      "ideal_archetype": "A press-man corner who can jam at the line, mirror routes in phase, and play on an island with single-high help. Think Sauce Gardner or Denzel Ward \u2014 physical, technically sound man-coverage corners with the speed to run with NFL WRs and the toughness to compete at the catch point. DJ Turner's emergence shows the archetype: a quick, aggressive corner who can disrupt in press and stay in phase through the route.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Must be long enough to jam and contest catches at the point of attack. Golden's Notre Dame corners were athletic, not necessarily huge \u2014 length and speed matter more than bulk."
+        },
+        "40_yard_dash": {
+          "ideal": "Sub-4.40",
+          "floor": "4.45",
+          "reasoning": "Man coverage with single-high help demands elite speed. The CB must be able to turn and run with vertical threats. Recovery speed is the safety net in this scheme."
+        },
+        "arm_length": {
+          "ideal": "31+ inches",
+          "floor": "30 inches",
+          "reasoning": "Length aids press technique \u2014 longer arms allow the CB to jam and reroute at the line while maintaining distance from the receiver."
+        }
+      },
+      "development_context": "The Bengals have struggled to develop CBs historically (Cam Taylor-Britt's two-year slump, Dre Kirkpatrick's inconsistency). DJ Turner is a bright spot as a 2023 2nd-round pick who emerged in 2025. Secondary/CBs coach Charles Burks is working under Golden's umbrella. Golden's Notre Dame secondary was elite, developing Benjamin Morrison into a lockdown corner. Man-coverage technique can be taught \u2014 speed and competitive fire must arrive.",
+      "scheme_fit_narrative": "We play man coverage. A lot of it. We need corners who can press at the line, disrupt the release, and mirror routes in phase. Speed is critical because we play single-high \u2014 if you get beat, there's no safety over the top to bail you out. Give us aggressive, fast, competitive corners who want to be on an island.",
+      "archetype_examples": [
+        "DJ Turner II",
+        "Sauce Gardner",
+        "Denzel Ward"
+      ]
+    },
+    "S": {
+      "scheme_role": "Safety is one of the Bengals' biggest needs heading into 2026. Golden's defense asks the free safety to be the last line of defense in a single-high structure (~68% of snaps in late 2025). The strong safety must be versatile \u2014 covering TEs and RBs in man coverage to free LBs for run fits. Jordan Battle is the expected returning starter, but a starter opposite him is desperately needed. Golden's ideal is a chess piece who can play deep center field, cover in the slot, fill against the run, and blitz. Caleb Downs (Ohio State) is the most mocked prospect to Cincinnati at pick #10.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Golden's man-heavy scheme asks safeties to cover TEs and RBs in man. Both Jordan Battle and Geno Stone ranked in the top 20 in man coverage rates in late 2025. The safety must be able to match up with NFL tight ends and running backs in isolation \u2014 this is not optional in Golden's defense."
+        },
+        "Range": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "In a single-high defense (~68% usage), the free safety must cover the entire deep middle of the field. Range to get from hash to sideline is THE defining trait. The Bengals were repeatedly 'burned down the seam' in 2025 due to insufficient safety range. This is the single most important safety trait in Golden's scheme."
+        },
+        "Ball Skills": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Golden's defenses lead in turnovers wherever he coaches. At Notre Dame, the defense was first in turnovers with 28. Ball disruption is a foundational principle \u2014 the safety must be able to intercept passes, punch out balls, and create takeaways. Ball skills elevate a safety from functional to impactful in this system."
+        },
+        "Tackling": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The Bengals allowed 2,500 rushing yards in 2025. The safety is the last line of defense when runs break through the front seven. Reliable tackling in space is critical \u2014 missed tackles by the safety result in touchdowns. Golden's ball-disruption philosophy also demands violent contact at the tackle point."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Single-high coverage demands elite closing speed to cover ground from the deep middle. The safety must be able to drive on throws to the sideline and recover when beaten vertically. Speed supports both range and man-coverage ability."
+        },
+        "Nickel": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Golden wants 'force multiplier' players who can line up in multiple spots. A safety who can drop into the slot as a nickel defender creates coverage flexibility without substitution. The Bengals used a safety/LB hybrid concept and would value a safety who can play down in the box or in the slot."
+        }
+      },
+      "ideal_archetype": "A rangy, ball-hawking center-field safety who can cover the deep middle of the field, come down and match up with TEs in man coverage, and make plays on the ball. Think Caleb Downs (the most mocked prospect to CIN) or Jessie Bates \u2014 a dynamic playmaker with elite range, ball skills, and the versatility to play multiple roles. Golden's scheme demands a safety who can be the defensive eraser \u2014 covering up mistakes by everyone in front of him.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Must be big enough to tackle NFL ball carriers and contest catches against TEs, but not so big that range and speed are compromised."
+        },
+        "weight": {
+          "ideal": "200-215",
+          "floor": "195",
+          "reasoning": "Must be physical enough to handle man coverage on TEs and fill against the run, while maintaining the speed to play center field."
+        },
+        "40_yard_dash": {
+          "ideal": "Sub-4.45",
+          "floor": "4.50",
+          "reasoning": "Single-high safety demands elite speed. The safety must cover the entire deep middle \u2014 hash to sideline \u2014 and close on throws with explosive burst. This is a hard requirement in Golden's scheme."
+        }
+      },
+      "development_context": "Golden developed Xavier Watts into the Bronko Nagurski winner at Notre Dame. He developed Jabrill Peppers (as a coach in the Bengals organization's orbit) and helped safeties find their roles. He can develop instincts and coverage technique \u2014 what must arrive is range, speed, and ball skills. The Bengals are so desperate at safety that they may take Caleb Downs at #10 overall, showing how highly they value this position in Golden's scheme.",
+      "scheme_fit_narrative": "We got burned down the seam all year because we didn't have a safety who could cover ground. In our single-high defense, the safety IS the defense. Give us a rangy, fast, ball-hawking safety who can play center field and also come down to cover TEs in man. We need a guy who can do it all \u2014 cover, tackle, blitz, and create turnovers. This is the most impactful position we can upgrade.",
+      "archetype_examples": [
+        "Caleb Downs",
+        "Jessie Bates",
+        "Kyle Hamilton"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Cincinnati's 2026 draft priorities are defense-heavy after ranking 30th in points allowed. Golden's evolving scheme creates specific value inflections: (1) EDGE/DL remains the top priority\u2014Shemar Stewart's injury-marred rookie year means more edge help is needed alongside Hendrickson; (2) LB prospects with pass-rush versatility (Knight archetype: can play off-ball AND rush from five-man fronts) are valued significantly above traditional thumper LBs; (3) Safety is a massive need\u2014Golden's man-heavy single-high scheme demands a true hybrid FS/SS who can play deep, cover TEs in man, and blitz; (4) On offense, this is an elite passing offense that values receiving skill at every position\u2014TEs who can separate and RBs who can catch are worth more here than traditional blockers/runners; (5) The offense operates at extremely low play-action rates from heavy shotgun, so traditional Shanahan-tree 'wide zone TE' blocking profiles have minimal value\u2014pure receiving ability is the differentiator at TE. OL remains a need (pass protection has been bottom-5 for four straight years) but the team invested Day 2-3 picks there in 2025.",
+  "scheme_draft_intelligence": "The Cincinnati Bengals enter the 2026 draft with the 10th overall pick and a singular mission: fix the defense. The offense is set \u2014 Burrow, Chase, Higgins, Brown, and continuity with Taylor/Pitcher provide one of the NFL's most talented passing attacks. The entire draft and free-agency strategy will revolve around giving Al Golden the defensive talent to execute his scheme. The Bengals' defense ranked 30th in points allowed in 2025, gave up at least 30 points seven times, and was historically bad at every level. Trey Hendrickson's likely departure to free agency creates a massive void at edge rusher. The linebacker room relies on two second-year players (Knight and Carter) who struggled badly as rookies. And safety is a critical need, with Golden's single-high scheme demanding an elite center-field player the team currently lacks.\n\nGolden's scheme creates specific value differentials at several positions. At EDGE, Golden wants rare-athlete types (6-4+, 255+, with sub-4.65 speed) who can function in his 'viper' role \u2014 a versatile edge chess piece that rushes, drops, and moves. This profile is rarer than a pure speed rusher or pure power rusher, meaning the Bengals may value a high-upside athletic edge over a more polished but less versatile rusher. At safety, Golden's single-high scheme (~68% usage) makes this position dramatically more important than in two-high defenses. A top safety prospect like Caleb Downs would provide more scheme-specific value to Cincinnati than to a team running quarters coverage. At linebacker, Golden's background as a LB developer (Farrior, Sharper, Wilson, Pratt, Liufau, Bertrand) means he can extract more value from raw but athletic LB prospects than most DCs. A speed-and-range LB who other teams would view as a developmental project could become an immediate contributor under Golden's tutelage.\n\nThe Bengals' 2025 draft reveals Golden's preferred player profiles: Stewart (EDGE, 6-5, 267, perfect RAS) for athletic upside at the edge, Knight (LB, 6-1.5, 235, missile blitzer with range) as a 'force multiplier,' and Carter (LB, versatile coverage/blitz piece from Clemson). The common thread is athleticism, versatility, and the ability to line up in multiple spots \u2014 exactly what Golden means when he says 'force multiplier.' For 2026, expect the Bengals to target players who can play multiple roles without substitution, reducing the dependency on depth while allowing Golden to present more complex defensive looks. The Bengals' approach to the draft has historically favored athletic upside over polish, and Golden's aggressive developmental philosophy reinforces this tendency.\n\nOn offense, the draft strategy will be about protecting Burrow and sustaining the passing attack's elite production. Peters' ability to develop lower-round OL means the Bengals can find value in Day 2-3 OL prospects who have technique deficiencies but adequate physical tools. The WR and RB positions are locked in with elite talent. The TE position could be a target if a true dual-threat TE falls \u2014 Casey's promotion to run game coordinator signals the offense wants more from the position. But make no mistake: this is a defense-first draft for Cincinnati. Every pick should be viewed through the lens of whether it helps Golden's defense get to 'middle of the pack' \u2014 the baseline that Burrow and Chase need to carry the team back to the playoffs.",
   "confidence": "high",
   "sources": [
-    "bengals.com official coaching staff page (2025)",
-    "bengals.com Al Golden introductory press conference (Jan 2025)",
-    "Pro-Football-Reference 2025 Bengals (West Coast offense, 4-3 alignment)",
-    "Match Quarters: 'Run-and-Hit: How Al Golden Burned the Playbook to Save the Bengals Defense' (Feb 2026)",
-    "SI/AllBengals: Al Golden scheme philosophy and 2026 blitz changes (Mar 2026)",
-    "Sharp Football Analysis: Joe Burrow shotgun rate (92%) and play-action rate analysis",
-    "Yahoo Sports: Shanahan coaching tree evolution and Bengals divergence (Aug 2025)",
-    "ESPN: Chase Brown 2025 stats and contract extension talks (Jan 2026)",
-    "The Ringer: McVay-Shanahan scheme tree and Bengals adaptation (2022)",
-    "FOX19: Bengals defensive changes and trust development in Al Golden defense (Dec 2025)",
-    "Bengals.com: 2025 NFL Draft picks (Stewart R1/17, Knight R2/49, Fairchild R3/81, Carter R4/119)"
+    "bengals.com official coaching roster and press conferences",
+    "Pro Football Reference 2025 Cincinnati Bengals advanced stats",
+    "Match Quarters film study: 'Run-and-Hit: How Al Golden Burned the Playbook'",
+    "ESPN: Al Golden Notre Dame defensive coordinator profile",
+    "Bengals.com: Al Golden introductory press conference",
+    "SI Bengals: Scott Peters hire analysis and film breakdown",
+    "Yahoo Sports: Shanahan coaching tree evolution analysis",
+    "The Ringer: NFL scheme wars analysis",
+    "Bengals.com: Dan Pitcher coaching profile",
+    "Charlie's Chalkboard: crash course in Al Golden's system at Notre Dame",
+    "SI Bengals: Al Golden scheme philosophy outline",
+    "Blogging the Boys: Bengals offensive scheme breakdown 2024",
+    "FTN Fantasy: Bengals team tendencies and personnel data",
+    "NFL Trade Rumors: Bengals 2026 offseason needs analysis",
+    "CBS Sports: Bengals 2025 draft class grades and analysis"
   ]
 }

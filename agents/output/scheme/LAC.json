@@ -4,70 +4,727 @@
   "coaching_staff": {
     "head_coach": {
       "name": "Jim Harbaugh",
-      "tenure_years": 2,
-      "background": "offensive (former QB, offensive-minded HC at Stanford, San Francisco, Michigan)",
-      "scheme_philosophy": "Physical, run-first identity; culture-driven, disciplined football; adaptable on both sides of the ball with strong coordinator empowerment"
+      "tenure_years": 3,
+      "background": "offensive",
+      "coaching_tree": "Bo Schembechler tree \u2192 Michigan \u2192 NFL journeyman QB \u2192 Stanford/Michigan/San Francisco HC lineage. Offensive philosophy shaped by physical run-first identity honed at Stanford and Michigan, then refined in San Francisco.",
+      "scheme_philosophy": "Harbaugh's philosophy is physicality-first football. He has described offensive linemen as 'weapons' and 'the tip of the spear.' His teams are built on a dominant run game, stout defense, and controlled tempo. He does NOT call plays but sets the philosophical tone \u2014 he wants physical, disciplined football that wins in the trenches and protects the quarterback. Now pairing his physicality ethos with McDaniel's innovation creates a unique hybrid."
     },
     "offensive_coordinator": {
       "name": "Mike McDaniel",
-      "scheme_tree": "Mike Shanahan / Kyle Shanahan wide zone tree (Denver intern under Mike Shanahan 2005, then Houston, Washington, Cleveland, Atlanta, San Francisco alongside Kyle Shanahan)",
-      "play_caller": true
+      "coaching_tree": "Mike Shanahan / Gary Kubiak / Kyle Shanahan tree. Interned under Mike Shanahan in Denver (2005), worked alongside Kyle Shanahan in Houston, Washington, Cleveland, Atlanta, and San Francisco. Run game coordinator then OC for 49ers (2017-2021). Head coach in Miami (2022-2025). The purest disciple of the Shanahan wide-zone system in the NFL.",
+      "scheme_evolution": "McDaniel's offense evolved from pure Shanahan zone running into a motion-heavy, speed-based system in Miami. Led the NFL's No. 1 offense in 2023 (401.3 yards/game). His Dolphins used motion on 70-81% of plays (league-high). His Miami variant prioritized speed at every skill position and maximized YAC through schemed-open completions and misdirection. In LA, he'll adapt to Harbaugh's physicality emphasis \u2014 expect the motion and zone-run identity to remain, but married to a more physical OL and a true fullback (Alec Ingold) in 21 personnel. McDaniel has explicitly described creating 'low-cost, high-reward' easy completions for Herbert.",
+      "development_track_record": "Transformed Tua Tagovailoa from question mark to top-5 EPA passer (2022-2024). Made De'Von Achane a star from a 3rd-round pick. Developed Jaylen Waddle into a versatile weapon. His system has historically elevated QBs, slot receivers, and zone-running backs. Less track record developing big-bodied WR1 types \u2014 his offense thrives on speed and separation. His OL coach Butch Barry followed him from Miami and produced a pair of 1,000-yard rushers with the Dolphins."
     },
     "defensive_coordinator": {
       "name": "Chris O'Leary",
-      "scheme_tree": "Jesse Minter disciple (Georgia State GA under Minter, Notre Dame DB coach, Chargers safeties coach 2024 under Minter, Western Michigan DC 2025); carries forward Minter's Michigan/Ravens-influenced multiple front system",
-      "play_caller": true
+      "coaching_tree": "Jesse Minter prot\u00e9g\u00e9 \u2192 Minter/Macdonald/Ravens defensive tree. Got his coaching start under Minter at Georgia State (2015-16). Worked under Rick Minter at Florida Tech (2017). Spent six seasons at Notre Dame coaching safeties, including developing Kyle Hamilton (All-Pro), Jeremiah Owusu-Koramoah (Butkus Award), and Xavier Watts. Served as Minter's safeties coach with the Chargers in 2024. DC at Western Michigan in 2025 (9th FBS in scoring defense). Direct lineage to the Ravens' modular defensive philosophy.",
+      "scheme_evolution": "O'Leary is expected to maintain the Minter defensive framework with continuity. Minter's scheme was a modular system where fronts, pressures, and coverages are mixed-and-matched. The defense was heavy on Dime packages (league outlier), used Derwin James as a box safety/nickel/slot hybrid, and deliberately stayed light in personnel to bait teams into running gap schemes while dominating the passing game. O'Leary coached the safety group that was the engine of this defense. He will bring his own personality but the scheme DNA \u2014 disguised coverages, late rotations, block destruction, and versatility \u2014 will remain.",
+      "development_track_record": "Developed Kyle Hamilton into an All-Pro at Notre Dame. Converted Ramon Henderson (CB) and Xavier Watts (WR) into productive safeties. At the Chargers, coached Elijah Molden to career highs across the board in 2024. His development specialty is safeties and hybrid defenders \u2014 teaching instincts, positioning, and versatility. At Western Michigan, led the MAC's 2nd-best scoring defense in one year."
     }
   },
   "offense": {
-    "scheme_family": "Shanahan wide zone (McDaniel variant \u2014 speed-based, heavy pre-snap motion, conflict-driven run-pass marriage)",
-    "base_personnel": "11 (with meaningful 21 personnel usage; McDaniel's Dolphins were among league leaders in 21 personnel alongside the 49ers)",
-    "run_scheme": "Outside zone / wide zone primary, with counter, power, and gap concepts layered in; McDaniel expands traditional Shanahan wide zone with more creative gap-scheme supplements and jet motion",
-    "pass_concepts": "Play-action heavy off zone-run looks, bootleg and naked boot concepts, quick game catch-and-run, vertical shots off play-action; Harbaugh praised McDaniel's 'emphasis on the run game and play-action pass'",
-    "rpo_usage": "moderate \u2014 McDaniel uses RPO elements but the offense is more play-action driven than pure RPO",
-    "te_usage": "Move TE / flex weapon preferred; McDaniel historically used TEs in multiple alignments \u2014 inline, flexed to slot, attached \u2014 to create formation versatility. Chargers have Oronde Gadsden II as a young receiving TE. The TE room was ranked 22nd in PFF receiving grade in 2024, signaling a draft need that McDaniel will prioritize schematically.",
-    "rb_usage": "Dual-threat back heavily featured; McDaniel's system made De'Von Achane the league's top receiving back in Miami (78 receptions for 592 yards in 2024). Omarion Hampton projects as primary ball carrier with receiving upside. Speed and receiving ability are premium traits for RBs in this system."
+    "scheme_family": "Shanahan Wide Zone (McDaniel variant) merged with Harbaugh's physical run-game identity",
+    "scheme_detail": "McDaniel's system is the motion-heavy, speed-oriented branch of the Shanahan tree. It starts with outside/wide zone as the base run concept, layers in extensive pre-snap motion (70-80% of plays in Miami) to create pre-snap reads and manipulate defensive leverage, and builds the pass game off play-action and quick-game completions that maximize YAC. In LA, this system will be adapted: Harbaugh's emphasis on physicality means more 21 personnel (with Ingold at FB), bigger OL capable of both zone blocking and providing pass protection, and a commitment to establishing the run before opening play-action. McDaniel emphasized creating 'easy buttons' and 'low-cost, high-reward' completions for Herbert. The Chargers released Mekhi Becton to make room for more mobile linemen and signed Tyler Biadasz at center \u2014 moves tailored specifically to McDaniel's zone-blocking requirements.",
+    "run_scheme": "Wide/outside zone primary. The entire OL steps laterally in unison to create horizontal displacement. The RB reads one gap at a time from outside-in and cuts when a lane opens. Gap schemes (power, counter) are mixed in as change-ups, often with the fullback (Ingold) as a lead blocker. McDaniel's Miami offense ran zone on roughly 50% of rush attempts. The fullback is critical \u2014 Ingold's signing on a $7.5M deal confirms the commitment to 21 personnel. OL must be laterally agile, able to reach-block and climb to the second level. This is a fundamentally different blocking scheme than the Greg Roman gap-heavy offense the Chargers ran in 2024-2025.",
+    "pass_architecture": "West Coast foundation with Shanahan-tree play-action concepts. High motion rate creates pre-snap defensive tells. Heavy crossing routes \u2014 McDaniel's Miami offenses led the NFL in targets, receptions, and receiving yards on crossers. Quick game emphasizes short completions that allow playmakers to create YAC in space. Play-action off zone-run action creates deep shots. McDaniel schemes completions rather than asking the QB to make hero plays. Herbert's elite arm strength adds a dimension McDaniel didn't have with Tua \u2014 expect more vertical shots off play-action than Miami ran. Short-to-intermediate timing routes remain the bread and butter.",
+    "personnel_tendencies": "Expect significantly more 21 personnel (1 RB, 1 FB, 1 TE, 2 WR) than the NFL average \u2014 McDaniel's Dolphins were top-2 in 21 personnel usage. Also will use 11 personnel (3 WR sets) situationally and 12 personnel with Oronde Gadsden and Charlie Kolar as dual TEs. The fullback (Ingold) is a true every-down weapon who blocks, catches, and creates misdirection. WRs must be comfortable with heavy motion assignments. RBs must be able to catch out of the backfield.",
+    "motion_tempo": "Extremely high motion rate \u2014 expect 70%+ of plays to feature some form of pre-snap motion, the highest in the NFL based on McDaniel's track record. Tempo is standard \u2014 not a hurry-up offense. Ball control philosophy inherited from Harbaugh. McDaniel historically ran bottom-half pass rate over expected, meaning this will be a run-first offense that uses motion and misdirection rather than pure volume passing."
   },
   "defense": {
-    "base_front": "3-4 / 4-2-5 hybrid (odd front base that shifts to 4-down nickel frequently)",
-    "alignment": "Odd front base with 3 DL and 4 LBs, but predominantly operates in nickel/dime sub-packages; OLBs (Tuipulotu, Mack, Oweh) function as stand-up edge rushers; DL features nose tackle and two DEs who absorb double teams",
-    "edge_rush_source": "OLB stand-up primarily; Tuli Tuipulotu (13 sacks in 2025), Odafe Oweh (7.5 sacks), Khalil Mack (5.5 sacks) are the primary pass rushers from stand-up OLB alignments",
-    "coverage_base": "Multiple / no dominant coverage; Cover 3 (31.1%), Cover 2 (25%), Cover 1 (13.1%), Cover 4 (11.7%) per FTN data from 2025; mixes one-high and two-high structures extensively",
-    "blitz_tendency": "moderate \u2014 relies heavily on simulated pressures (9.5% rate, 10th in NFL) and stunts (19.8% rate, 9th in NFL) rather than traditional all-out blitzes; disguised pressure is the hallmark, not volume blitzing",
-    "lb_role": "ILBs (Daiyan Henley, Troy Dye) are coverage/run-fit players who also participate in simulated pressure packages; OLBs are the primary edge rushers; LBs are asked to drop into coverage on simulated pressures while DBs creep in as rushers",
-    "safety_usage": "Derwin James is elite hybrid \u2014 plays near the box on ~85% of snaps, functions as nickel/overhang/LB/blitzer; earned All-Pro at slot cornerback in 2025; Elijah Molden serves as second hybrid safety. This scheme demands versatile safeties who can play in the box, slot, and blitz."
+    "scheme_family": "Minter/Macdonald modular defense (Ravens tree), maintained by O'Leary",
+    "scheme_detail": "The Chargers defense under Minter was a modern, versatile system that mixed fronts, pressures, and coverages in a modular fashion. O'Leary, as Minter's direct prot\u00e9g\u00e9 and former safeties coach, will maintain this framework. The defense was built on four pillars: block destruction, shocking effort, ball disruption, and obnoxious communication. The system asks every player to understand their role within a zone framework, creating disguised looks that stress QBs with late rotations. The Chargers were a Dime outlier \u2014 staying light in personnel even against heavy offensive sets, using Derwin James as the 'Big Nickel' who can fit the box like a linebacker.",
+    "front_structure": "Primarily 4-down Nickel front with massive interior bodies (Teair Tart) and athletic edge rushers (Tuli Tuipulotu, Khalil Mack). Only ~17% base defense usage (28th in NFL) and ~57% Nickel (28th). Heavy Dime usage \u2014 a clear league outlier. The front four is asked to generate pressure without blitzing, which they did effectively (11th in sacks in 2025). Interior DL are large run-stuffing bodies who eat blocks. Edge rushers are athletic pass-rushing specialists.",
+    "coverage_philosophy": "Disguised zone-match concepts with late rotations. The defense shows one look pre-snap and rotates into another post-snap to confuse QBs. Split-safety coverages against 11 personnel. Derwin James operates as a hybrid \u2014 logged 236 snaps in the slot, 203 in the box, and 89 along the DL in 2025. The defense deliberately concedes some run yardage on gap schemes to maintain pass-defense integrity. Ranked top-5 in sack rate. Coverage is zone-heavy but uses James' versatility to create matchup advantages against TEs and slot receivers.",
+    "pressure_philosophy": "Front-four pressure is the foundation. Low blitz rate but creative when they do bring extra \u2014 James blitzed on 12.9% of his snaps and generated the 5th-most pressures on the team. Simulated pressures and delayed blitzes from the safety position. The front generates pressure through technique and effort rather than exotic blitz packages. Tuli Tuipulotu had 13.5 sacks and 70 pressures in 2025. Mack and the edges set the tone.",
+    "sub_packages": "Dime (6 DBs) is used at a league-leading rate. The 'Big Nickel' package with James in the box is the true base package. Nickel with 5 DBs is standard on obvious passing downs. Base (4-3/3-4 with 3 LBs) is rarely used \u2014 only ~17% of snaps. This means the defense needs versatile, athletic safeties and CBs who can handle extra responsibilities rather than bulking up with more linebackers."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "McDaniel's Shanahan-variant offense is built on formation versatility and pre-snap deception. TEs are used as flex/move pieces who align inline, in the slot, and split wide to create mismatches. The Chargers' TE room was ranked 22nd in PFF receiving grade entering 2025 and is a clear need. McDaniel's offense historically features the TE as a key play-action target and red zone weapon \u2014 a receiving TE with route-running ability and YAC skills gets a significant value boost in this system. Oronde Gadsden II showed promise as a rookie but the room needs an alpha. A Kenyon Sadiq-type TE who can win from multiple alignments would be schematically ideal."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The QB in McDaniel's Shanahan-tree offense must process pre-snap motion reads, identify defensive leverage shifts created by that motion, and deliver the ball quickly to schemed-open receivers. Herbert is the established starter, but the scheme demands a QB who can execute timing throws off play-action, make accurate short-to-intermediate passes that allow YAC, and punish defenses deep when they cheat on the run. McDaniel's system creates easy completions but rewards QBs who can also push the ball vertically off play-action.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "McDaniel's Miami offense didn't need elite arm strength with Tua, but in LA, Harbaugh and McDaniel want to marry the quick game with Herbert's ability to push the ball vertically off play-action. Arm strength is the differentiator that allows deep shots that Tua couldn't make, unlocking the full playbook."
+        },
+        "Accuracy": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The Shanahan system is built on timing routes and schemed completions \u2014 slants, crossers, and quick outs where the ball must arrive on time and on target. McDaniel's 'easy button' philosophy requires pinpoint accuracy on short-to-intermediate throws to maximize YAC."
+        },
+        "Pocket Presence": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The wide zone run game and boot/rollout concepts create moving pockets. The QB must navigate play-action fakes, feel pressure, and deliver from multiple arm platforms. Herbert was sacked 54 times in 2025 \u2014 pocket presence is critical to survive behind a rebuilding OL."
+        },
+        "Mobility": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "McDaniel's offense uses boot concepts and designed rollouts off zone-run action. The QB doesn't need to be a runner but must be able to execute play-action fakes convincingly, roll to the flat, and throw on the move. Herbert's mobility adds a dimension that was missing in Miami."
+        },
+        "Decision Making": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "With 70%+ motion rate, the QB must process pre-snap information quickly \u2014 reading defensive rotations, identifying leverage changes, and making rapid decisions on where the ball goes. McDaniel's system simplifies reads but demands fast processing."
+        },
+        "Leadership": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "Harbaugh demands cultural leadership and toughness. The QB must embody the physical, competitive identity of the program. Herbert's leadership and toughness have been praised by Harbaugh."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The motion-heavy offense provides built-in pre-snap information. The QB must read how the defense reacts to motion to identify coverage and make the correct call. This is important but the system does some of the cognitive work for the QB."
+        }
+      },
+      "ideal_archetype": "The ideal QB in this merged Harbaugh-McDaniel system is a strong-armed passer with elite accuracy on timing routes who can push the ball vertically off play-action while processing motion-created reads quickly. Think Justin Herbert himself \u2014 or a Matt Ryan (2016 Atlanta) type who thrived in Shanahan's system with elite accuracy and arm talent. Not a pure pocket passer like Tua \u2014 this scheme with Harbaugh's influence wants a QB who can make every throw and also handle designed rollouts.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "McDaniel's system doesn't demand height specifically, but Harbaugh's preference for traditional QBs and the Chargers' OL rebuild suggest a taller QB who can see over the line and deliver from the pocket."
+        },
+        "arm_strength": {
+          "ideal": "60+ mph ball velocity",
+          "floor": "55 mph",
+          "reasoning": "The deep play-action shots off wide zone require the ability to push the ball vertically with velocity, something that differentiates this LAC version from McDaniel's Miami offense."
+        }
+      },
+      "development_context": "McDaniel's system historically simplifies the game for QBs \u2014 Tua went from question mark to top-5 EPA passer. The system creates easy completions and reduces the need for hero-ball. However, this staff hasn't proven it can develop a raw passer \u2014 it needs a QB who arrives with accuracy and arm talent, and the system elevates everything around it.",
+      "scheme_fit_narrative": "We want a QB who can deliver the ball accurately on timing routes, process pre-snap motion reads, and punish defenses vertically off play-action. The system will create easy completions \u2014 we need a QB with the accuracy to capitalize and the arm to keep defenses honest deep. Pocket awareness matters because the OL is still being rebuilt. This is Herbert's offense, but any prospect should fit this mold.",
+      "archetype_examples": [
+        "Justin Herbert",
+        "Matt Ryan (2016)",
+        "Kirk Cousins (Minnesota)"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "high",
-      "explanation": "The Chargers run a 3-4 base where OLBs are the primary edge rushers. Tuipulotu, Mack, and Oweh are all technically OLBs who function as pure edge rushers from stand-up alignments. Khalil Mack is aging (34 in 2026) and the team deployed four OLB/edge rushers regularly. Any LB prospect with elite pass rush traits \u2014 burst, bend, power moves \u2014 fits this defense perfectly as a stand-up OLB rusher. Additionally, the simulated pressure scheme sometimes uses ILBs as delayed rushers, giving pass-rush-capable ILBs extra value."
+    "RB": {
+      "scheme_role": "The RB in McDaniel's wide zone system must read blocks one gap at a time from outside-in, press the hole laterally, and cut decisively on the 5th step. The scheme gets the RB to the edge and asks him to find the crease. In Miami, De'Von Achane (5'9, 188) was the archetype \u2014 explosive speed, one-cut ability, and receiving chops. However, in LA, Harbaugh's physicality and Omarion Hampton's profile suggest a bigger back who can handle the zone scheme while adding power between the tackles. The RB must also be a viable receiver out of the backfield \u2014 McDaniel targets his backs frequently on checkdowns, screens, and swing routes.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Wide zone demands elite vision \u2014 the RB must read the horizontal blocking flow, identify the cutback lane, and make one decisive cut. This is THE defining trait in any Shanahan-tree run game."
+        },
+        "Contact Balance": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "With Harbaugh's physical identity, the LAC RB will encounter more inside-zone and gap scheme reps than a pure Miami-style back. Contact balance matters for grinding out yards after initial contact."
+        },
+        "Power": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Harbaugh values physical runners \u2014 he drafted Hampton in the 1st round. Power is more important here than in pure McDaniel-Miami offense because of the gap scheme change-ups."
+        },
+        "Elusiveness": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "McDaniel's offense schemes the RB into space via motion and misdirection. Once in the open field, elusiveness creates explosive plays. Achane's broken tackle rate was elite in this system."
+        },
+        "Speed": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Wide zone rewards speed to the perimeter. The RB must threaten the edge and outrun pursuit. McDaniel's Miami offenses were built on speed \u2014 Achane's 4.32 speed was the engine. In LA, speed is still critical even with a bigger back."
+        },
+        "Pass Catching": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "McDaniel uses RBs extensively in the pass game \u2014 screens, checkdowns, and route running out of the backfield. Achane was a featured receiver. The LAC RB must be a reliable pass catcher to unlock the full offense."
+        },
+        "Pass Protection": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "With Ingold at fullback to handle some protection duties, the RB's pass pro burden is slightly reduced. Still important on 3rd downs but not the primary evaluation trait."
+        }
+      },
+      "ideal_archetype": "The ideal RB in this LAC scheme is a one-cut zone runner with speed to the edge, vision to find cutback lanes, and the receiving ability to function as a weapon in the pass game. Think Raheem Mostert (SF/Miami) \u2014 a zone-running specialist who presses the hole, makes one cut, and explodes. Hampton brings more size and power than Achane, so the LAC variant may slightly favor a bigger-bodied zone runner who can also catch. Nick Chubb in his prime (Cleveland's zone scheme) is another good comp \u2014 patient, explosive, physical.",
+      "measurable_preferences": {
+        "forty_yard_dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "Wide zone demands perimeter speed. The RB must threaten the edge and outrun pursuit angles. Sub-4.50 is strongly preferred in this system."
+        },
+        "weight": {
+          "ideal": "195-220",
+          "floor": "185",
+          "reasoning": "Harbaugh's physical identity means the LAC variant may prefer slightly bigger backs than McDaniel's Miami norm (Achane at 188). Hampton at 220+ shows the preference."
+        }
+      },
+      "development_context": "McDaniel has a strong track record developing RBs in his zone scheme \u2014 Mostert, Achane, and others became stars. The system can teach zone reads and patience. However, pass-catching ability and vision are harder to develop. A RB with raw speed and athleticism can be coached into the zone scheme, but the processing required for wide zone vision typically must arrive naturally.",
+      "scheme_fit_narrative": "This offense will feature the run game prominently and we need a back who can execute wide zone. Give me a one-cut runner with speed to the edge, the vision to find cutback lanes, and soft hands out of the backfield. We'll use him in the passing game extensively. He doesn't have to be a bruiser \u2014 the fullback handles the lead blocking \u2014 but he can't go down on first contact. Speed and vision are the non-negotiables.",
+      "archetype_examples": [
+        "Raheem Mostert",
+        "De'Von Achane",
+        "Nick Chubb (pre-injury)"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "high",
-      "explanation": "McDaniel's offense in Miami made De'Von Achane the NFL's top receiving back \u2014 78 receptions for 592 receiving yards and 6 receiving TDs in 2024, with a 25.4% target rate. His system features RBs on wheel routes, swing passes, screens, and as checkdown options out of zone-run looks. Speed and receiving ability are premium traits. Omarion Hampton showed receiving flashes as a rookie (4 games with 25+ receiving yards) and McDaniel will maximize that usage. Any RB prospect with elite hands, route-running, and YAC ability gets a significant value boost for this offense."
+    "WR": {
+      "scheme_role": "WRs in McDaniel's offense are asked to execute heavy motion assignments (jet sweeps, orbit motions, pre-snap shifts), run precise routes on timing concepts, and create YAC after schemed-open completions. Crossing routes are the bread and butter \u2014 McDaniel's Dolphins led the NFL in crosser targets, catches, and yards. WRs must be comfortable catching in traffic over the middle and making defenders miss after the catch. The WR1 (likely McConkey's role) runs the full route tree from multiple alignments. The system values separation-creating route runners over big-bodied contested-catch specialists.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "McDaniel's timing-based passing game requires crisp route running with precise breaks. WRs must stem defenders, create windows on timing, and run the full route tree from multiple alignments including motion assignments."
+        },
+        "Separation": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The offense schemes completions but the WR must create separation at the break point. McDaniel's system creates natural leverage advantages through motion \u2014 the WR must capitalize on that pre-snap edge to get open."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Short-to-intermediate timing routes require reliable hands. Drops kill timing sequences. Not the defining trait but a necessary baseline."
+        },
+        "YAC Ability": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "McDaniel's offense is built on YAC. Short completions to schemed-open receivers who can turn 5-yard catches into 15-yard gains are the foundation. Waddle and Hill thrived because they created explosive YAC on crossing routes and screens."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "McDaniel's Miami offense was speed-obsessed (Hill, Waddle, Achane). In LA, the WR room lacks that top-end speed. Speed creates the deep threat that opens up underneath routes and forces single-high safety looks. The Chargers need more speed at WR to unlock the full system."
+        },
+        "Contested Catches": {
+          "weight": 0.05,
+          "importance": "low",
+          "reasoning": "McDaniel's system schemes receivers open \u2014 contested catches are a failure of the scheme, not a feature. The system doesn't rely on 50/50 balls; it relies on creating space."
+        },
+        "Release Package": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "WRs must beat press coverage quickly because the timing routes have defined windows. A WR who gets jammed at the line destroys the timing. Release matters more against press-heavy AFC West opponents (KC, DEN)."
+        }
+      },
+      "ideal_archetype": "The ideal WR in this McDaniel-LAC scheme is a quick, precise route runner with elite YAC ability and the speed to threaten vertically. Think Jaylen Waddle \u2014 compact, explosive, runs sharp routes, and creates massive YAC on crossers and shallow concepts. Ladd McConkey fits this mold. The scheme does NOT require a big-bodied WR1 \u2014 it requires speed, route precision, and ability to create with the ball in their hands. A Nico Collins-type big body is less valuable than a Amon-Ra St. Brown-type precision separator.",
+      "measurable_preferences": {
+        "forty_yard_dash": {
+          "ideal": "4.30-4.45",
+          "floor": "4.50",
+          "reasoning": "Speed is the great separator in McDaniel's system. Motion-created leverage only works if the WR can outrun angles to the ball. Hill (4.29) and Waddle (4.37) set the standard in Miami."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.10",
+          "floor": "4.20",
+          "reasoning": "Short-area quickness is critical for route breaks, motion assignments, and YAC creation. The system demands agility over raw straight-line speed."
+        },
+        "weight": {
+          "ideal": "170-200",
+          "floor": "165",
+          "reasoning": "The system values speed and agility over size. Bigger receivers can work but must maintain the quickness profile. Not a disqualifier but heavier receivers (220+) must prove they can execute motion at the required tempo."
+        }
+      },
+      "development_context": "McDaniel has historically maximized WR production through scheme rather than developing raw talent. Hill and Waddle arrived as finished products. His system can make average WRs productive (Cedrick Wilson had career years in Miami) but the ceiling is determined by the player's speed and YAC traits. Route technique can be refined but speed and agility must arrive ready.",
+      "scheme_fit_narrative": "We want receivers who can separate, create YAC, and threaten defenses with speed. Our system will scheme guys open \u2014 we need players who can exploit that with quickness and after-the-catch ability. Precision route runners who can win on crossers and exploit leverage advantages from motion. We're not looking for a jump-ball specialist \u2014 we want guys who make the catch in space and turn it into a bigger play.",
+      "archetype_examples": [
+        "Jaylen Waddle",
+        "Amon-Ra St. Brown",
+        "Ladd McConkey"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "The Chargers defense is built around Derwin James as a hybrid safety who plays near the box on ~85% of snaps, blitzes, covers the slot, and has earned All-Pro honors at slot cornerback. James had 2.0 sacks and 8 combined sacks/QB hits in 2025, leading all NFL DBs. O'Leary was James' position coach in 2024 and built the scheme around his versatility. A safety prospect who can tackle, blitz, play man coverage in the slot, and function as a box defender gets maximum value in this system. With James entering his age-30 season, the Chargers may look for a long-term hybrid replacement."
+    "TE": {
+      "scheme_role": "The TE in this merged Harbaugh-McDaniel scheme has a dual role: (1) an in-line blocker for wide zone and gap concepts \u2014 Harbaugh's 'tip of the spear' identity demands it \u2014 and (2) a receiving weapon who can flex into the slot or inline and run the route tree. McDaniel's Dolphins used TEs in diverse ways, but Harbaugh's run-first identity makes blocking non-negotiable. The Chargers have Oronde Gadsden (receiving-focused) and signed Charlie Kolar (blocking-focused) \u2014 this dual TE approach mirrors SF's Kittle/Juszczyk setup. The ideal TE combines both skill sets.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "McDaniel's system flexes TEs into the slot and targets them in the seam and on crossing routes. Gadsden's development as a receiver is a priority. The TE is a featured part of the passing game."
+        },
+        "Route Running": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The TE must run the full intermediate route tree \u2014 seams, crossers, corner routes. McDaniel uses TEs as matchup weapons against LBs and safeties. Precise route running creates easy completions in the middle of the field."
+        },
+        "Blocking": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Harbaugh's #1 priority is blocking. Wide zone demands the TE seal the edge or reach-block the DE. Gap schemes need the TE to down-block. Kolar was signed specifically as a blocking TE. In this system, blocking ability is the floor \u2014 a TE who can't block will not see the field in the run game."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The wide zone scheme and motion concepts demand an athletic TE who can move laterally, execute motion assignments, and function as a run-after-catch weapon. Think Kittle's athletic profile."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Reliable hands on intermediate routes and play-action targets. The TE is often the 2nd or 3rd option in the progression and must secure catches in traffic over the middle."
+        },
+        "Speed": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "The TE must threaten the seam and get behind LBs in coverage. McDaniel's system creates vertical shots for TEs off play-action. Speed isn't elite-level required but must be enough to stress the second level."
+        }
+      },
+      "ideal_archetype": "The ideal TE in this LAC scheme is a George Kittle clone \u2014 an elite run blocker with the athleticism to flex into the slot and be a genuine receiving threat. Kittle thrived in the same Shanahan system McDaniel learned under. He could seal the edge on wide zone, run crossers for 15+ yards, and create YAC. The Chargers would love a TE who can do it all \u2014 block with physicality and catch with athleticism. Kittle, Dallas Goedert, and Mark Andrews (when healthy) are the archetype.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "240-260",
+          "floor": "230",
+          "reasoning": "Must be able to sustain blocks on NFL DEs in the run game. Harbaugh won't play a lightweight TE who can't hold up at the point of attack."
+        },
+        "forty_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.75",
+          "reasoning": "Must be athletic enough to threaten the seam and create separation on routes. Not a speed position but can't be a pure blocker in McDaniel's system."
+        },
+        "three_cone": {
+          "ideal": "sub-7.00",
+          "floor": "7.10",
+          "reasoning": "Route running agility matters for a TE who will run the intermediate route tree. Must be able to create separation on crossers against LBs."
+        }
+      },
+      "development_context": "Harbaugh's staff has developed blocking TEs historically. McDaniel's system has used specialized roles (blocking TE vs receiving TE) in Miami. This staff can develop blocking technique and route concepts, but the athletic foundation must arrive. Gadsden showed promise as a rookie receiver \u2014 the staff can refine his receiving skills. The harder development is teaching an athletic receiver to become a willing, effective blocker.",
+      "scheme_fit_narrative": "This offense asks the TE to be a true dual-threat. Block on wide zone, seal the edge on gap concepts, then flex into the slot and threaten the seam. We need a TE who embraces physicality in the run game \u2014 Harbaugh won't tolerate soft blocking \u2014 but also has the athleticism to be a mismatch weapon in the passing game. George Kittle is the gold standard. Give me a blocker-first TE with real receiving upside.",
+      "archetype_examples": [
+        "George Kittle",
+        "Dallas Goedert",
+        "Mark Andrews"
+      ]
+    },
+    "OT": {
+      "scheme_role": "OTs in McDaniel's wide zone scheme must execute lateral zone steps, reach-block edge defenders, and climb to the second level on designed runs. This is fundamentally different from the vertical-set, power-blocking scheme the Chargers ran under Greg Roman. The Chargers released Mekhi Becton specifically because he didn't fit McDaniel's zone-blocking requirements. OTs must also be capable pass protectors \u2014 Herbert was sacked 54 times in 2025 and protection is a stated priority. Rashawn Slater and Joe Alt are the prototypes \u2014 athletic, technically sound tackles who can move laterally.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.24,
+          "importance": "essential",
+          "reasoning": "Herbert was sacked 54 times in 2025 and faced 263 pressures (league-high). Harbaugh and Hortiz explicitly stated protecting Herbert is the top priority. The OT must be a reliable pass protector first."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Wide zone demands OTs who can execute lateral reach blocks, seal edge defenders, and create running lanes. Run blocking in this system is NOT power-based \u2014 it's movement-based. The OT must move defenders laterally and sustain blocks through the whistle."
+        },
+        "Footwork": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Wide zone requires precise lateral footwork on the first step. The OT's zone step must be quick, flat, and coordinated. Sloppy footwork kills the entire run play because it disrupts the horizontal blocking flow."
+        },
+        "Anchor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Despite the zone-running emphasis, the OT still must anchor against power rushers in pass protection. Herbert needs time in the pocket. The anchor can't be sacrificed for athleticism."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "McDaniel's scheme demands OTs who can move \u2014 reach-block, pull on designed gap concepts, and climb to the second level. Becton was released because he couldn't move laterally. Slater and Alt are among the most athletic tackles in the NFL, setting the standard."
+        },
+        "Strength": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Strength matters for sustaining blocks but the scheme values movement over raw power. The OT doesn't need to be a mauler \u2014 they need to be an athlete who can redirect and sustain."
+        }
+      },
+      "ideal_archetype": "The ideal OT in this scheme is Joe Alt himself \u2014 a 6-8, 321-pound athlete who moves like a guard, can execute zone reach blocks, and is a dominant pass protector. Trent Williams (SF) is the gold standard for the Shanahan-tree OT \u2014 he blocks the edge on wide zone, climbs to the second level, and is a shutdown pass blocker. The emphasis is on athletic, technically sound OTs who can handle diverse assignments, NOT pure road-grading power blockers.",
+      "measurable_preferences": {
+        "short_shuttle": {
+          "ideal": "sub-4.60",
+          "floor": "4.70",
+          "reasoning": "Lateral agility is critical for wide zone reach blocks. The OT must get displacement on the first step. A stiff OT who can only vertical-set kills this run scheme."
+        },
+        "forty_yard_dash": {
+          "ideal": "sub-5.00",
+          "floor": "5.10",
+          "reasoning": "Must be athletic enough to climb to the second level and execute reach blocks against fast-flow DEs."
+        },
+        "arm_length": {
+          "ideal": "34+",
+          "floor": "33",
+          "reasoning": "Longer arms help with reach-blocking technique and pass protection. The OT needs length to keep edge rushers at bay while maintaining lateral movement."
+        }
+      },
+      "development_context": "OL coach Butch Barry followed McDaniel from Miami and has a strong track record \u2014 he produced 1,000-yard rushers and the NFL's best pass protection in 2023 with the Dolphins. Previously at SF and GB. This staff can develop zone-blocking technique and footwork. What must arrive is the athletic foundation \u2014 lateral movement ability is largely innate. A college power blocker can be taught zone technique, but the physical ability to move laterally must be present.",
+      "scheme_fit_narrative": "We need OTs who can move. This is a wide zone offense that demands lateral agility and the ability to reach-block edge defenders. The tackle must also anchor in pass pro because we're not going to let Justin get hit 54 times again. Give me athletes who can play on their feet, sustain blocks through the whistle, and handle diverse blocking assignments. Pure road-graders who can't move laterally don't work here.",
+      "archetype_examples": [
+        "Joe Alt",
+        "Trent Williams",
+        "Rashawn Slater"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior OL in McDaniel's wide zone scheme must execute coordinated lateral steps, create double teams at the point of attack, and climb to the second level to pick up LBs. The center is the mental quarterback of the OL \u2014 the Chargers signed Tyler Biadasz specifically for this role. Guards must be able to pull on gap concepts and reach-block on zone plays. The Chargers released Mekhi Becton and saw Zion Johnson leave in free agency \u2014 the IOL is being completely rebuilt for McDaniel's scheme. Cole Strange was signed at guard \u2014 another mobile, zone-blocking fit.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Herbert's protection issues in 2025 make pass protection a high priority. The IOL must handle interior pressure, which was a consistent problem. Biadasz improves the center spot but guard protection must also improve."
+        },
+        "Run Blocking": {
+          "weight": 0.24,
+          "importance": "essential",
+          "reasoning": "Wide zone is the primary run scheme. IOL must execute lateral movement, create double teams, and drive defenders off the ball. The run game is the foundation of the entire offense."
+        },
+        "Pulling": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "McDaniel mixes in gap concepts (power, counter) as change-ups. Guards must be able to pull and lead block on these concepts. The fullback helps but guards pulling is a core part of the diverse run game."
+        },
+        "Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must be strong enough to sustain double teams and hold the point of attack. But the scheme values movement over raw power \u2014 the IOL wins with technique and leverage, not brute force."
+        },
+        "Anchor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Interior pass protection requires anchoring against bull rushes from DTs. Herbert needs a clean pocket. Can't get walked back into the QB's lap."
+        },
+        "Versatility": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "McDaniel's system asks IOL to execute diverse blocking assignments \u2014 zone, gap, pull, screen blocking. Biadasz can play center, Strange has guard flexibility. The ability to handle multiple assignments and lineup spots is valuable."
+        }
+      },
+      "ideal_archetype": "The ideal IOL in this scheme is a mobile, intelligent blocker who excels in zone blocking and can pull on gap concepts. Think Zack Martin (Dallas) or Landon Dickerson \u2014 technically sound, athletic enough to climb to the second level, and smart enough to process blocking assignments in a diverse scheme. The Chargers don't want stiff, pure-power guards \u2014 they want movers who can handle the lateral demands of wide zone.",
+      "measurable_preferences": {
+        "short_shuttle": {
+          "ideal": "sub-4.55",
+          "floor": "4.65",
+          "reasoning": "Lateral agility is essential for zone blocking. The IOL must mirror DTs laterally and execute reach blocks. This is the key measurable that separates zone-scheme guards from power-scheme guards."
+        },
+        "weight": {
+          "ideal": "300-320",
+          "floor": "295",
+          "reasoning": "Must have enough mass to anchor against interior pressure but can't be so heavy that lateral movement is compromised. The scheme doesn't need 340-pound anchors."
+        },
+        "bench_press": {
+          "ideal": "25+ reps",
+          "floor": "20",
+          "reasoning": "Upper-body strength for sustaining blocks, but this is secondary to movement ability. Not a disqualifier if lower."
+        }
+      },
+      "development_context": "Butch Barry developed one of the NFL's best OLs in Miami. This staff can develop zone-blocking technique and communication. However, the athletic profile must arrive \u2014 you can't teach lateral agility to a 340-pound power blocker. The Chargers' wholesale IOL rebuild (Biadasz, Strange, releasing Becton) signals exactly what they're looking for: mobile, smart, zone-scheme linemen.",
+      "scheme_fit_narrative": "We're rebuilding the interior line from scratch for this new scheme. We need guards who can move laterally, execute zone steps, and pull on gap concepts. Smart players who can communicate \u2014 the center has to be the brains of the operation. We don't want stiff power blockers who can only push straight ahead. Give me athletes who can execute diverse blocking assignments and protect the QB.",
+      "archetype_examples": [
+        "Landon Dickerson",
+        "Zack Martin",
+        "Tyler Biadasz"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "Edge rushers in the Chargers' defense are athletic pass-rushing specialists who operate from a stand-up or hand-down position in a 4-man front. The scheme relies on the front four to generate pressure without blitzing. Tuli Tuipulotu (13.5 sacks, 70 pressures in 2025) is the franchise edge. Mack provides veteran pass-rush technique. With Odafe Oweh departing to Washington, the Chargers need a 3rd EDGE \u2014 likely through the 2026 draft. The edge must also set the edge in the run game against zone runs, which the defense handles well.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The defense generates pressure with the front four. Low blitz rate means the edge MUST win 1-on-1 pass-rush matchups. Tuipulotu's 70 pressures show the standard. This is the primary evaluation criterion."
+        },
+        "Bend": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The Chargers' best edges (Mack, Tuipulotu) win with bend and flexibility around the corner. The scheme asks edges to get to the QB with speed-to-power conversions and cornering ability, not bull-rush power."
+        },
+        "First Step": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Explosive first step is critical in a front-four-pressure scheme. The edge must win the timing battle off the snap to disrupt the QB's rhythm. Tuipulotu's explosiveness sets the standard."
+        },
+        "Power": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Pass-rush power matters as a secondary tool \u2014 converting speed to power at the apex of the rush. But the scheme doesn't ask edges to win primarily with bull-rush. Power is supplementary to speed and bend."
+        },
+        "Motor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Minter's pillar of 'shocking effort' is continued by O'Leary. The edge must pursue relentlessly, chase plays from behind, and never take a snap off. Mack's career is built on motor."
+        },
+        "Run Defense": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The defense deliberately allows some gap-scheme runs to maintain pass-defense integrity. The edge must set the edge and funnel runs inside, but run defense is secondary to pass-rush production in this scheme."
+        }
+      },
+      "ideal_archetype": "The ideal EDGE in this Chargers defense is Tuli Tuipulotu \u2014 an explosive, athletic edge rusher who wins with speed, bend, and effort. He can rush from multiple alignments, convert speed to power, and chase plays from behind. Maxx Crosby is another archetype \u2014 a motor-driven rusher with relentless effort and diverse pass-rush tools. The Chargers don't need a 275-pound run-stuffing DE \u2014 they need a pass-rush specialist with the athleticism to rush from a stand-up position.",
+      "measurable_preferences": {
+        "forty_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.75",
+          "reasoning": "Edge speed is critical for a front-four-pressure scheme. Must be fast enough to threaten the corner and convert speed to power."
+        },
+        "weight": {
+          "ideal": "245-270",
+          "floor": "240",
+          "reasoning": "The scheme uses athletic, lighter edges rather than massive 280-pound run-stuffers. Tuipulotu at 258 and Mack at 252 set the template."
+        },
+        "arm_length": {
+          "ideal": "33+",
+          "floor": "32",
+          "reasoning": "Arm length helps with hand placement on pass-rush moves and setting the edge. Longer arms create leverage advantages."
+        }
+      },
+      "development_context": "This defense has developed edge rushers at a high level \u2014 Tuipulotu went from 2nd-round pick to 13.5-sack Pro Bowler. Oweh exploded with 10.5 sacks in just 13 games after the trade from Baltimore. Minter (and now O'Leary) can develop pass-rush technique. What must arrive is the athletic foundation \u2014 speed, bend, and explosion. A raw athlete with a motor can be coached into a productive pass rusher in this system.",
+      "scheme_fit_narrative": "We lost Oweh and need a third edge rusher to pair with Tuli and Mack. We want an explosive athlete who can get to the QB. Give me speed, bend, and effort \u2014 we'll develop the pass-rush plan. This defense generates pressure without blitzing so our edges must win 1-on-1. Motor is non-negotiable \u2014 our culture demands relentless effort every snap.",
+      "archetype_examples": [
+        "Tuli Tuipulotu",
+        "Maxx Crosby",
+        "Odafe Oweh"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Interior DL in the Chargers' 4-down Nickel/Dime front are large, space-eating run defenders who anchor the middle of the defense. Teair Tart (re-signed to a multi-year extension) is the prototype \u2014 a massive nose tackle who occupies double teams and allows the edges and LBs to make plays. The defense deliberately stays light in personnel (heavy Dime usage) which means the interior DL must control the run game without extra LBs on the field. The DL is NOT asked to be a primary pass rusher \u2014 that's the edges' job.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Interior pass rush is a bonus, not the primary job. The edges generate the majority of sacks. DL pass rush helps but the scheme doesn't depend on a 3-technique penetrator."
+        },
+        "Run Defense": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "The DL must control the run game while the defense stays in Dime packages. With only one LB on the field at times, the interior DL must eat double teams, clog lanes, and make the gap scheme runs the defense deliberately concedes less damaging."
+        },
+        "First Step": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "A quick first step helps against zone runs but the DL's primary value is holding ground, not penetrating. This is secondary to anchor and strength."
+        },
+        "Hand Usage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "DL must defeat blocks with hand technique to free themselves or hold their gap. Block destruction is one of Minter's four pillars and O'Leary will continue this emphasis."
+        },
+        "Motor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Effort and pursuit are core defensive values. The DL must pursue plays down the line and never quit on a rep. 'Shocking effort' applies to every position."
+        },
+        "Strength": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Must absorb double teams, hold the point of attack, and control gaps. Tart's strength and mass are what allow the defense to play Dime against 12 and 21 personnel. Strength is the foundation of this position."
+        }
+      },
+      "ideal_archetype": "The ideal interior DL in this defense is Teair Tart \u2014 a 330-pound run-stuffing nose tackle who occupies blocks, holds the point of attack, and allows the secondary to play light. Think Vita Vea (Tampa) or Grady Jarrett (Atlanta) as archetypes \u2014 space-eaters who are stout against the run and can occasionally push the pocket. The Chargers don't need a 3-technique penetrator (Aaron Donald type) \u2014 they need a 1-tech anchor who makes their Dime defense viable.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "310-340",
+          "floor": "300",
+          "reasoning": "Must have the mass to absorb double teams and anchor the middle. Tart at 330+ sets the standard. Lighter interior DL can't hold up when the defense plays 6 DBs."
+        },
+        "bench_press": {
+          "ideal": "28+ reps",
+          "floor": "24",
+          "reasoning": "Upper-body strength for holding the point of attack and defeating blocks. Physical strength is the primary measurable for this position in this scheme."
+        }
+      },
+      "development_context": "The defensive staff has developed interior DL \u2014 Tart went from journeyman to extension-worthy starter. Justin Eboigbe showed promise as a young player. The staff can refine technique and effort, but physical mass and strength must arrive. You can't teach a 280-pound penetrator to be a 330-pound anchor.",
+      "scheme_fit_narrative": "Our defense plays Dime more than any team in the NFL. That means our interior DL has to hold up against the run with just 4-5 defenders in the box. We need big, strong bodies who can eat double teams, hold their gap, and let our DBs and edges make plays. This isn't a penetrating 3-tech role \u2014 it's a space-eating anchor who makes our lightweight personnel packages viable against the run.",
+      "archetype_examples": [
+        "Teair Tart",
+        "Vita Vea",
+        "Grady Jarrett"
+      ]
+    },
+    "LB": {
+      "scheme_role": "Linebackers in this defense play a reduced role \u2014 the Chargers were 28th in base defense usage (~17%) meaning the LB is only on the field for a limited portion of snaps. In Dime packages, only ONE LB is on the field. Daiyan Henley is the every-down LB \u2014 a captain and leader who must process coverages, fit runs, and cover in space. The scheme asks the LB to be a do-everything player who can handle responsibilities typically spread across 2-3 LBs. Must be comfortable being the sole LB surrounded by 6 DBs.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "With only one LB on the field in Dime, every tackle attempt must be successful. Missed tackles are amplified because there's no safety net behind a single LB."
+        },
+        "Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "In Dime packages, the lone LB must cover TEs, RBs, and sometimes slot receivers. The defense plays light specifically to prioritize coverage \u2014 the LB who can't cover can't be on the field."
+        },
+        "Pass Rush": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "Pass rush comes from the front four and occasional safety blitzes. The LB is not a primary blitzer in this scheme."
+        },
+        "Instincts": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Processing offensive formations and making the right read is critical when you're the only LB on the field. Henley's growth into a defensive captain shows the value of instinctual play. The LB must diagnose and react quickly."
+        },
+        "Athleticism": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Must be athletic enough to cover in space and match up with modern NFL TEs and pass-catching RBs. The defense plays light, so the LB must have DB-like movement skills."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Sideline-to-sideline range matters for a solo LB who must cover the entire middle of the field. Must be able to flow and pursue against zone runs."
+        },
+        "Block Shedding": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Must shed blocks from OL who climb to the second level on zone runs. The DL absorbs initial blocks but the LB must still process and shed to make plays."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "The defense's late rotations and disguises require the LB to understand the full defensive concept. Must be able to communicate and adjust pre-snap."
+        }
+      },
+      "ideal_archetype": "The ideal LB in this defense is Daiyan Henley himself \u2014 an athletic, coverage-capable LB who can be the sole LB on the field in Dime and handle diverse responsibilities. Think Roquan Smith in Baltimore's similar defense \u2014 a rangy, athletic LB who excels in coverage and against the run. Or Fred Warner in SF \u2014 a sideline-to-sideline athlete who covers like a safety. The Chargers don't need a thumping run-stuffer \u2014 they need a coverage LB who can also tackle.",
+      "measurable_preferences": {
+        "forty_yard_dash": {
+          "ideal": "4.45-4.55",
+          "floor": "4.60",
+          "reasoning": "Must be fast enough to cover TEs and RBs in space. The defense plays Dime specifically to get faster players on the field \u2014 the LB can't be the slow link."
+        },
+        "weight": {
+          "ideal": "220-240",
+          "floor": "215",
+          "reasoning": "Must be light and athletic enough to cover but heavy enough to fill gaps and tackle. The scheme doesn't need 250-pound thumpers."
+        },
+        "three_cone": {
+          "ideal": "sub-6.90",
+          "floor": "7.10",
+          "reasoning": "Change-of-direction agility is critical for coverage and pursuit. The LB must mirror TEs and RBs in man-to-man situations."
+        }
+      },
+      "development_context": "The defensive staff developed Henley from a 3rd-round pick into a team captain and impact starter. Junior Colson (2024 draft) is also developing. The staff can teach scheme responsibilities and coverage technique, but the athletic profile must arrive \u2014 coverage ability is largely innate for LBs. A fast, athletic LB can be coached into coverage; a slow, instinctual LB cannot.",
+      "scheme_fit_narrative": "Our defense plays one LB on the field most of the time. That LB must do everything \u2014 cover TEs, fill run lanes, process formations, and communicate the defense. We need a rangy athlete who can cover like a safety and tackle like a linebacker. If you can't cover, you can't play for us in Dime. Give me speed, range, and instincts.",
+      "archetype_examples": [
+        "Daiyan Henley",
+        "Roquan Smith",
+        "Fred Warner"
+      ]
+    },
+    "CB": {
+      "scheme_role": "CBs in this defense play a critical role because the scheme stays in Dime (6 DBs) at a league-leading rate. With Derwin James handling the slot/nickel/big nickel role, the outside CBs must hold up on the boundary. The defense uses zone-match concepts with late rotations \u2014 CBs must execute pattern-matching responsibilities, carry routes through zones, and play with eyes on both the QB and receivers. Donte Jackson is the incumbent CB1. The defense doesn't ask CBs to play heavy man coverage \u2014 it's primarily zone with disguised looks.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The defense is primarily zone-based. Man coverage is used situationally but not as the primary coverage call. CBs must be capable in man but it's not the defining trait."
+        },
+        "Ball Skills": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The defense's 'ball disruption' pillar demands CBs who can create turnovers. The Chargers were tied for 7th in takeaways in 2025. CBs must have the instincts and hands to make plays on the ball when opportunities arise."
+        },
+        "Zone Coverage": {
+          "weight": 0.26,
+          "importance": "essential",
+          "reasoning": "The defense is zone-heavy with pattern-matching responsibilities. CBs must read route combinations, carry receivers through zones, and rally to the ball. Zone coverage discipline is the primary evaluation trait."
+        },
+        "Speed": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "CBs must have the recovery speed to survive in a scheme that uses late rotations and disguised coverages. When a CB gets caught in a rotation, speed is the safety net."
+        },
+        "Press": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The scheme doesn't ask CBs to play heavy press-man. Some press is used in red zone and short-yardage situations, but it's not the default. Press ability is nice-to-have."
+        },
+        "Nickel": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "With Dime as the primary package, the defense needs CBs who can function inside as well as outside. The 4th and 5th CBs on the roster play significant snaps in Dime. Versatility to play inside or outside is highly valued because of the heavy sub-package usage."
+        }
+      },
+      "ideal_archetype": "The ideal CB in this defense is a zone-coverage specialist with ball skills and the versatility to play multiple positions in the secondary. Think Sauce Gardner (NYJ) \u2014 a long, instinctual zone player who breaks on routes and creates turnovers. Or Patrick Surtain II (DEN) \u2014 zone-match technique, ball skills, and the ability to play outside or over the slot. The scheme doesn't need a pure press-man lockdown corner \u2014 it needs smart, instinctual zone players who can execute pattern-matching and make plays on the ball.",
+      "measurable_preferences": {
+        "forty_yard_dash": {
+          "ideal": "4.35-4.48",
+          "floor": "4.52",
+          "reasoning": "Must have recovery speed to play zone with late rotations. CBs who get caught in rotations need the speed to recover and close on the ball."
+        },
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Length helps in zone coverage for disrupting passing lanes and contesting catches at the high point. The scheme doesn't demand tall corners but they help."
+        },
+        "arm_length": {
+          "ideal": "31+",
+          "floor": "30",
+          "reasoning": "Longer arms help with jamming at the line and disrupting route stems, even in a primarily zone scheme."
+        }
+      },
+      "development_context": "O'Leary's background is in safeties, not corners specifically. But the defensive staff under Minter developed Tarheeb Still and Cam Hart into contributors. The system's zone-match concepts are teachable \u2014 smart players can be coached into pattern-matching. What must arrive is the athletic profile and ball skills. The Chargers can teach zone technique but can't teach instincts and speed.",
+      "scheme_fit_narrative": "Our defense plays Dime at an extreme rate, so we need corners who can handle heavy snap counts in zone-match concepts. We want smart, instinctual players who read route combinations, break on the ball, and create turnovers. We don't need a pure press-man corner \u2014 we need zone discipline, ball skills, and the versatility to play inside or outside. Speed matters for recovery, but football IQ is what separates good zone corners from great ones.",
+      "archetype_examples": [
+        "Patrick Surtain II",
+        "Sauce Gardner",
+        "Jaire Alexander"
+      ]
+    },
+    "S": {
+      "scheme_role": "The safety position is THE centerpiece of this defense. Derwin James operates as a hybrid safety/nickel/slot CB/box defender who logged 236 snaps in the slot, 203 in the box, and 89 on the DL line in 2025. O'Leary coached this position group directly \u2014 he was the safeties coach who helped James to All-Pro. The defense asks the free safety to play deep center field while the 'Big Nickel' (James) operates near the line. Elijah Molden plays a secondary safety/nickel role. The safety group IS the engine of this defense \u2014 it allows the team to play Dime without sacrificing run defense.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The Big Nickel safety must cover TEs and slot receivers in man-to-man situations. James' ability to match up with tight ends was a primary reason for his All-Pro selection. Man coverage at the safety position is more important here than in most defenses."
+        },
+        "Range": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The free safety must cover deep center field while the Big Nickel operates near the box. Range allows the single-high safety to protect against deep shots while the rest of the defense stays aggressive."
+        },
+        "Ball Skills": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Ball disruption is a core defensive pillar. Molden had 3 INTs in 2024 \u2014 career-high. The safety must have the hands and instincts to create turnovers when the defense generates tips and deflections."
+        },
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "With the defense in Dime packages, safeties are primary run defenders. James was 2nd on the team in tackles. The safety who misses tackles in the box devastates the light personnel packages."
+        },
+        "Speed": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Must cover the deep half/third AND close on runs in the box. The dual responsibility demands speed to transition between coverage and run support. James' range and closing speed are why the Dime packages work."
+        },
+        "Nickel": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "The 'Big Nickel' role IS the defense. James plays ~85% of his snaps near the box in the slot or nickel alignment. Any safety in this scheme must be able to function as a slot defender, blitzer, and box run defender. This is the most important trait for the SS/Big Nickel role specifically."
+        }
+      },
+      "ideal_archetype": "The ideal safety in this defense is Derwin James \u2014 a do-it-all hybrid who can play slot corner, box safety, deep safety, and occasional edge rusher. Think Kyle Hamilton (BAL) in the Ravens' schematic cousin defense \u2014 a versatile, physical safety who covers TEs, fills the box, and creates turnovers. The free safety role is more traditional \u2014 think Jessie Bates or Minkah Fitzpatrick as a deep-center-field playmaker. But the Big Nickel is the star role: a box safety with coverage skills, tackling ability, and the physicality to play near the line of scrimmage on most snaps.",
+      "measurable_preferences": {
+        "forty_yard_dash": {
+          "ideal": "4.40-4.55",
+          "floor": "4.58",
+          "reasoning": "Must be fast enough to cover slot receivers and TEs while also closing on run plays from the box. The dual role demands high-end speed."
+        },
+        "weight": {
+          "ideal": "205-220",
+          "floor": "195",
+          "reasoning": "The Big Nickel must have enough mass to play in the box, fill run lanes, and blitz. James at 215 is the template \u2014 big enough to be physical, light enough to cover."
+        },
+        "vertical_jump": {
+          "ideal": "36+",
+          "floor": "33",
+          "reasoning": "Explosiveness translates to closing speed and ball-winning ability in coverage. The safety must be able to high-point the ball and close on receivers in traffic."
+        }
+      },
+      "development_context": "O'Leary IS the safety developer on this staff. He coached Kyle Hamilton at Notre Dame (1st-round pick, All-Pro). He converted Ramon Henderson (CB) and Xavier Watts (WR) into productive safeties. He coached Molden to career highs at the Chargers. His development specialty is teaching safeties positioning, instincts, and versatility. This staff can develop raw athletes into productive safeties \u2014 O'Leary's entire career has been built on this. A hybrid athlete who arrives with speed and physicality can be coached into the Big Nickel role.",
+      "scheme_fit_narrative": "The safety position is the heartbeat of our defense. We need versatile, physical players who can play the slot, fill the box, cover TEs, and occasionally blitz. Derwin James is the template \u2014 but any safety we add must be able to handle multiple roles. The Big Nickel is the most important position in this defense. Give me an athlete who can cover, tackle, and make plays on the ball. We'll teach him the scheme \u2014 O'Leary has a track record of doing exactly that.",
+      "archetype_examples": [
+        "Derwin James",
+        "Kyle Hamilton",
+        "Budda Baker"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "The Chargers are a rare team where ALL FOUR positional value inflections rate 'high,' creating a uniquely favorable environment for versatile, multi-dimensional athletes regardless of position label. On offense, McDaniel's Shanahan-variant scheme transforms how TEs and RBs are valued: a receiving TE functions as a de facto WR from flexed alignments (massive boost for Kenyon Sadiq / Colston Loveland types), and a pass-catching RB is a scheme centerpiece, not a luxury. On defense, the 3-4 base means OLBs ARE the edge rushers \u2014 any LB with pass-rush traits (Arvell Reese, etc.) should be valued at EDGE prices for LAC. The ~85% box-rate usage of Derwin James means the Chargers prize hybrid safeties above all other DB archetypes; prospects with LB/S tweener profiles (Sonny Styles type) get a massive boost. Mack's age (34) makes edge rusher a priority need. The TE room is a glaring weakness that McDaniel will want to address. Speed is the connective tissue across all positions in this scheme \u2014 McDaniel's Dolphins invested in speed at every level, and that philosophy will carry over to LA with Justin Herbert.",
+  "scheme_draft_intelligence": "The 2026 Chargers are at an inflection point: a complete offensive overhaul under Mike McDaniel paired with defensive continuity under Chris O'Leary. This creates a fascinating draft dynamic. On offense, the Chargers need to rebuild their entire interior offensive line for McDaniel's wide zone scheme \u2014 Becton was released, Bozeman retired, and Zion Johnson left in free agency. Tyler Biadasz and Cole Strange were signed, but the OL remains the biggest need. The Chargers should prioritize athletic, mobile interior OL in the draft \u2014 guards who can pull and zone-block are at a premium. Additionally, the WR room lacks the speed McDaniel's system demands. Without a Tyreek Hill or Jaylen Waddle, the Chargers need to add speed at receiver \u2014 either through the draft or trade. McDaniel's system creates value in undersized, fast WRs that other teams may undervalue because they lack prototypical size.\n\nOn defense, the departure of Odafe Oweh to Washington creates a critical need at EDGE. The Chargers have Tuipulotu and Mack but need a third edge rusher. With 17 edge rushers in PFF's top-100 draft prospects and a deep FA class, the Chargers have optionality \u2014 but a Day 1/Day 2 EDGE pick makes sense. The Minter/O'Leary defense develops edge rushers well (Tuipulotu from Round 2, Oweh's breakout in half a season), so a raw, athletic edge rusher could be a smart investment. This defense creates hidden value in hybrid safety/LB types \u2014 Derwin James' usage as a Big Nickel means the Chargers value safeties who can do everything. A versatile safety prospect that other teams might view as 'tweener' could be perfect for the Chargers' Dime-heavy scheme.\n\nThe biggest value differential the Chargers create is at fullback-adjacent positions and athletic OTs. McDaniel's system demands a specific OL profile (lateral agility, zone-blocking technique) that most teams don't prioritize as heavily. A prospects like an athletic OT who tests well in the shuttle but lacks elite bench press reps would be undervalued by power-blocking teams but perfect for LAC. Similarly, Harbaugh's stated philosophy of calling OL 'weapons' and drafting Joe Alt over Malik Nabers in 2024 signals this front office will draft OL/blocking-first regardless of conventional wisdom.\n\nHistorically, GM Joe Hortiz (Baltimore Ravens background) drafts best-player-available and doesn't chase need. He has explicitly stated: 'If you chase perceived needs in free agency and the draft then you end up overpaying or making a mistake.' This suggests the Chargers won't reach for a specific position \u2014 but their scheme creates clear preferences at every position that align with specific prospect profiles. The coaching changes create urgency: McDaniel needs his kind of players on offense (mobile OL, speed WRs, zone-running RBs), and O'Leary needs to prove the defense can sustain without Minter by maintaining the scheme's personnel demands.",
   "confidence": "high",
   "sources": [
-    "chargers.com official coaching hires and press conferences (Jan-Feb 2026)",
-    "ESPN \u2014 Mike McDaniel and Chris O'Leary hiring reports (Kris Rhim, Jan 2026)",
-    "NFL.com \u2014 Chargers DC and OC hiring coverage",
-    "The Baltimore Banner \u2014 Jesse Minter film study with Chargers 2025 defensive stats (FTN coverage data)",
-    "MatchQuarters.com \u2014 Chargers defense scheme analysis (Minter 4-down front, Derwin James box usage ~85%)",
-    "Pro-Football-Reference \u2014 2025 LAC defensive alignment listed as 3-4",
-    "PFF \u2014 2025 Chargers defensive grades, Derwin James evaluation",
-    "Steelers Depot \u2014 Chargers defense scouting report (Tuipulotu, Mack, James usage detail)",
-    "SumerSports / Thin Air \u2014 Shanahan scheme analysis and McDaniel variant breakdown",
-    "Yahoo Sports / SI \u2014 Achane receiving stats and McDaniel RB usage",
-    "WMU Athletics \u2014 Chris O'Leary coaching bio and background"
+    "chargers.com official coaching announcements and press conferences",
+    "ESPN - Kris Rhim reporting on LAC coaching hires",
+    "NFL.com - O'Leary and McDaniel hiring coverage",
+    "matchquarters.com - Chargers defensive scheme analysis (Minter Dime usage)",
+    "Yahoo Sports - Shanahan tree offensive analysis",
+    "BoltBeat - LAC free agency tracker and scheme analysis",
+    "SI.com - Chargers defensive coordinator coverage",
+    "Fox Sports - Jesse Minter/Derwin James feature",
+    "stormcloud.blog - McDaniel scheme breakdown and Minter modular defense analysis",
+    "PFF - Dolphins offensive tendencies under McDaniel",
+    "Baltimore Ravens official site - Minter hire background",
+    "uhnd.com / ndinsider.com - O'Leary Notre Dame background",
+    "Pro Football Reference - Chargers coaching history"
   ]
 }

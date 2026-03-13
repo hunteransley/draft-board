@@ -6,66 +6,776 @@
       "name": "Joe Brady",
       "tenure_years": 1,
       "background": "offensive",
-      "scheme_philosophy": "Sean Payton coaching tree; spread concepts with West Coast roots; emphasizes spacing, tempo, RPOs, and getting playmakers the ball in space; philosophy of forcing defenses to defend every blade of grass"
+      "coaching_tree": "Sean Payton tree \u2192 LSU passing game coordinator \u2192 Carolina OC \u2192 Buffalo QB coach/OC \u2192 HC. Roots in New Orleans' aggressive, balanced offensive philosophy with Payton/Carmichael from 2017-2018.",
+      "scheme_philosophy": "Player-first offensive designer who builds the system around personnel strengths rather than forcing players into a rigid scheme. Coined the 'Everybody Eats' philosophy \u2014 distributing touches and targets across all skill positions so no single player can be schemed away. Run-game emphasis with play-action layered on top. Will continue calling plays as HC. Believes in simplifying the QB's job ('we don't need you to do that every single snap') while keeping defensive coordinators under stress with multiplicity in personnel groupings and formations."
     },
     "offensive_coordinator": {
       "name": "Pete Carmichael Jr.",
-      "scheme_tree": "Sean Payton / West Coast / Erhardt-Perkins hybrid",
-      "play_caller": false
+      "coaching_tree": "Sean Payton tree \u2014 spent 18 years with the Saints (2006-2023), last 15 as OC. Reunited with Payton in Denver (2024-2025) as senior offensive assistant. Worked with Drew Brees from San Diego through New Orleans. Overlapped with Brady in New Orleans (2017-2018).",
+      "scheme_evolution": "Built his reputation running Payton's West Coast/spread hybrid in New Orleans \u2014 timing-based passing game with deep play-action shots, diverse personnel groupings, and an emphasis on QB accuracy and decision-making. Saints ranked first in total yards four times under his coordination. After Payton left, the offense declined, and Carmichael was fired following 2023. Spent two years refining his approach under Payton in Denver. Now reunited with Brady in a supporting role \u2014 Brady calls plays, Carmichael handles weekly planning and strategy.",
+      "development_track_record": "Elite QB developer: Drew Brees set multiple records under his tutelage including single-season completion percentage (72.0%). Developed Alvin Kamara into AP Offensive Rookie of the Year. Chris Olave had two 1,000-yard seasons as a rookie and sophomore. Strong track record developing RBs as dual-threat weapons (Kamara, Mark Ingram). Less success post-Brees developing new QBs (Jameis Winston, Derek Carr struggled)."
     },
     "defensive_coordinator": {
       "name": "Jim Leonhard",
-      "scheme_tree": "Rex Ryan 3-4 / Dave Aranda simulated pressure / Vance Joseph (Wade Phillips lineage)",
-      "play_caller": true
+      "coaching_tree": "Unique hybrid tree \u2014 played for Rex Ryan (Ravens, Jets) absorbing aggressive 3-4 principles, then coached under Dave Aranda and Justin Wilcox at Wisconsin learning simulated pressure/Tite Front concepts. Spent two years under Vance Joseph (Wade Phillips disciple) in Denver as pass game coordinator/assistant HC. Combines Rex Ryan's aggressive 3-4 blitzing, Aranda's simulated pressure packages, Saban-influenced pattern-matching coverage, and Joseph's 3-4 front structure.",
+      "scheme_evolution": "At Wisconsin (2017-2022), ran a dominant 3-4 defense that ranked first among Power 5 in total defense, first downs allowed, and third-down defense. Built the scheme around simulated pressures (ran sim pressures on 30 of 34 early-down snaps vs Notre Dame) \u2014 bringing LBs from depth while dropping DEs into coverage to confuse blocking schemes. This creates 4-man rush pressure while maintaining 7-man coverage integrity. Lives in MOFC (middle of field closed) world \u2014 Cover 1 and Cover 3 foundation with pattern-matching techniques and heavy coverage disguise. In Denver, implemented these pass-game concepts within Joseph's existing 3-4 structure. First NFL DC job in Buffalo \u2014 explicitly committed to 3-4 base with emphasis on multiplicity, versatility, and attacking the offense.",
+      "development_track_record": "At Wisconsin, consistently developed undersized or overlooked defenders into NFL-caliber players. Created dominant linebacker groups (Leo Chenal, Jack Sanborn, Nick Herbig \u2014 all became NFL contributors). Developed ball-hawking secondaries \u2014 Wisconsin had 132 takeaways and 87 interceptions during his DC tenure. Known for maximizing players who don't fit traditional positional boxes by leveraging their versatility. Values high football IQ, communication skills, and Swiss Army Knife-type defenders."
     }
   },
   "offense": {
-    "scheme_family": "Sean Payton tree spread / West Coast hybrid",
-    "base_personnel": "11",
-    "run_scheme": "inside zone / gap with increasing play-action and under-center looks via Carmichael influence",
-    "pass_concepts": "spacing concepts, shallow crosses, stick routes, RPOs, play-action bootlegs; quick game emphasis with horizontal stretch; vertical shots off play action; RB screen game expected to expand under Carmichael/Payton system",
-    "rpo_usage": "high",
-    "te_usage": "move TE / flex weapon; Kincaid lines up in slot, inline, and flexed out as de facto WR4; 29% of 2025 snaps featured 2+ TEs; Carmichael/Payton system historically employs heavier personnel with under-center play action, suggesting continued diverse TE usage",
-    "rb_usage": "bell cow runner (Cook led NFL in rushing with 1,621 yards in 2025) but historically underused as receiver (only 33 catches/291 yards); Carmichael/Payton system values RB screen game and receiving backs, so expect expanded receiving role in 2026"
+    "scheme_family": "Payton-tree balanced attack (Brady variant \u2014 'Everybody Eats')",
+    "scheme_detail": "Brady's offense is not a pure West Coast system nor a pure spread \u2014 it's a chameleon that shifts identity week-to-week based on game plan and matchup. The foundation is a run-first attack built on gap-scheme concepts with zone-read elements that leverage Josh Allen's legs. The passing game is layered on top through play-action, RPOs, and a distributional philosophy where no single receiver dominates targets. Carmichael adds Payton-tree passing concepts \u2014 timing routes, deep play-action shots off 12-personnel looks, and an emphasis on QB accuracy on intermediate throws. Brady has stated he makes the system fit the players, not vice versa. The offense produced the NFL's No.1 rushing attack (159.6 ypg) and No.4 scoring offense (28.3 ppg) in 2025, with the rushing title going to James Cook (1,621 yards). Five different players caught 33+ passes. The offense uses jumbo packages (6 OL groupings with 83% involving motion/shifts), heavy 12-personnel sets, and traditional 11-personnel, creating a diverse and unpredictable attack.",
+    "run_scheme": "Gap-scheme primary with zone concepts mixed in. Brady significantly increased gap/power run volume after taking over from Dorsey, moving away from the zone-heavy approach (Dorsey ran 42% zone). The OL is now built to execute power, counter, and duo concepts with Allen as an RPO/read-option threat. Inside zone and outside zone remain in the playbook as complements. The fullback (Reggie Gilliam) is used as a lead blocker in 21-personnel. Run game features pre-snap motion on a very high percentage of plays to create leverage advantages and identify defensive alignments before the snap.",
+    "pass_architecture": "Distributional philosophy \u2014 no alpha WR required. Short-to-intermediate timing routes from the Payton tree form the foundation. Play-action is the primary shot-play driver, built off the dominant run game. RPO rate increased under Brady. Allen's deep-ball arm talent is leveraged for play-action shots, but the 2025 deep passing game struggled (fewest 15+ air-yard attempts of Allen's career). Allen completed a career-high 69.3% in 2024 under this system. The passing game flows through the TE (Kincaid) and slot (Shakir) as primary receiving options, with outside WRs functioning more as complementary pieces. Allen's mobility and improvisational ability create extended plays that the system embraces rather than constrains.",
+    "personnel_tendencies": "Diverse groupings: 11-personnel (base), 12-personnel (significant \u2014 Kincaid + Hawes/Knox), 21-personnel (meaningful \u2014 Gilliam as FB), and jumbo 13/22 packages (situational). The Bills use more heavy personnel than most modern offenses. Brady added 6-OL packages in 2024-2025 with motion and shifts on 83% of those plays. This personnel diversity is core to the 'Everybody Eats' philosophy \u2014 it creates mismatches by forcing defenses to declare their personnel first.",
+    "motion_tempo": "Very high motion rate \u2014 among league leaders. Motion and shifts are integral to the pre-snap phase, used both to identify defensive coverage and create blocking advantages in the run game. Standard tempo \u2014 not a hurry-up offense. Ball control philosophy with an emphasis on time of possession through the run game. Occasionally uses no-huddle to exploit mismatches identified by Allen at the line."
   },
   "defense": {
-    "base_front": "3-4",
-    "alignment": "odd front, 3 down linemen with 2 stand-up OLBs; transitioning from McDermott's 4-3 to Leonhard's 3-4; separate ILB and OLB coaches hired to reflect scheme change",
-    "edge_rush_source": "OLB stand-up primary, with simulated pressures frequently sending ILBs and dropping DEs; Leonhard's creeper/sim pressure package disguises the actual pass rusher, creating 4-man rush looks from non-traditional rushers",
-    "coverage_base": "MOFC (middle of field closed) heavy \u2014 Cover 1 and Cover 3 base with pattern matching; heavy use of coverage disguises; clogs middle of field with LBs/safeties and funnels receivers inside",
-    "blitz_tendency": "heavy \u2014 Leonhard learned under Vance Joseph in Denver where Broncos blitzed at 4th-highest rate (35.9%); however many pressures are simulated (4-man rush with deceptive personnel), not true Cover 0 blitzes; expects significant increase from Buffalo's prior 22.9% blitz rate",
-    "lb_role": "OLBs are primary edge rushers with coverage versatility; ILBs handle run fits and coverage responsibilities; simulated pressures frequently involve LBs creeping to rush while DEs drop into coverage zones",
-    "safety_usage": "Leonhard, a former safety, emphasizes safety play as a defensive cornerstone; expects aggressive ball-hawking safeties; Cole Bishop projects as a centerpiece; strong safety likely plays near box in run support with coverage flexibility"
+    "scheme_family": "Multiple 3-4 odd front (Rex Ryan/Aranda hybrid with Vance Joseph influence)",
+    "scheme_detail": "Leonhard is installing a fundamentally different defensive identity from the McDermott-era 4-3. The new scheme is a 3-4 base with extensive use of simulated pressures, coverage disguise, and front multiplicity. The philosophy is to dictate to the offense rather than react \u2014 creating pre-snap confusion through varied fronts and post-snap chaos through replacement pressures where LBs rush and DEs drop. Leonhard wants versatile, high-IQ players who can execute multiple assignments within the same personnel grouping. The defense will feature separate ILB and OLB coaches for the first time, reflecting the 3-4's distinct positional demands. Leonhard has emphasized building around 'known commodities' already on the roster while adapting the scheme to fit available talent.",
+    "front_structure": "3-4 odd front base \u2014 three down linemen (nose tackle + two 3-4 DEs) with four linebackers (two inside, two outside). The OLBs are hybrid rush/coverage players who must be comfortable in two-point stance. Leonhard also deploys a 'Peso' package (2-4-5 / four-down front) against pass-heavy teams, where DEs shift inside and OLBs become the edge players. Can morph into bear (five-down) fronts for run defense. Gregory Rousseau may play both 5-tech DE and some interior alignments (4i). The scheme requires DL who can occupy blockers and control gaps rather than purely penetrate, allowing LBs to flow freely.",
+    "coverage_philosophy": "MOFC (middle of field closed) foundation \u2014 predominantly Cover 1 and Cover 3 with pattern-matching techniques. Leonhard clogs the middle of the field with LBs and safeties and has CBs funnel receivers inside. Pattern matching allows the defense to shift between man and zone principles based on offensive route combinations post-snap. Coverage disguise is heavy \u2014 the defense shows one look pre-snap and rotates into another post-snap. This is NOT the same as McDermott's soft zone/Cover 3 shell \u2014 Leonhard's version is more aggressive, with DBs expected to play with physicality at the line and contest catches. Rarely plays Cover 0 \u2014 will not sacrifice coverage integrity for reckless blitzing.",
+    "pressure_philosophy": "Simulated pressure is THE defining feature. Leonhard ran sim pressures on nearly every early-down snap at Wisconsin. The core concept: show 5-6 potential rushers pre-snap, then rush only 4, with a LB replacing a dropping DE in the rush lane. This forces offenses to keep the RB in pass protection (reducing receiving options) while maintaining 7-man coverage behind the rush. The illusion of extra pressure disrupts blocking assignments without actually sacrificing coverage. When Leonhard does bring 5, it's typically a creeper blitz with a delayed LB, not a Cover 0 all-out pressure. Safety blitzes are used selectively. The scheme is designed to generate pressure through deception and scheme rather than relying on individual pass-rush talent.",
+    "sub_packages": "Peso package (2-4-5) is the primary sub-package for passing downs. Takes off a DL, keeps four LB-types on the field with an extra DB. In this look, OLBs become de facto edge rushers. Leonhard may not regularly deploy a traditional nickel CB \u2014 the Bills did not fill the nickel coaching position, suggesting LBs or safeties may play that hybrid role. Safety usage will be critical: Leonhard historically brings a safety into the box for run support on the wide side, creating 8-man fronts. Cole Bishop's athleticism makes him a candidate for the movable chess-piece safety role."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "Buffalo's offense under Brady treats the TE as a true receiving weapon. Dalton Kincaid lined up in 16 different spots including heavy slot usage (3rd among TEs in slot snaps), functioning as a de facto WR. Kincaid posted elite receiving metrics (PFF receiving grade of 81.9, 2.7 yards per route run \u2014 1st among TEs) in 2025. The Payton/Carmichael system historically features TEs as primary pass catchers (Jimmy Graham, Taysom Hill archetypes). Brady's 'Everybody Eats' philosophy and spread formations create massive value for any TE with route running, hands, and separation ability. A receiving TE is valued like a WR3/WR4 in this offense."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The franchise quarterback is the engine of the entire offense. In Brady's system, the QB must manage a distributional passing attack where no single receiver dominates, meaning he must process the full field quickly and deliver to whoever is open. Allen's dual-threat ability is central to the run game through RPOs, designed runs, and read-option. The QB must be comfortable operating under center in heavy personnel, in shotgun spread looks, and executing play-action at a high level. Brady wants the QB to 'make the routine plays routinely' \u2014 take the easy completion, don't force hero-ball, and let the system create explosive plays organically.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Allen's cannon arm is leveraged for play-action deep shots and throwing into tight windows in Buffalo's cold weather. The system doesn't require constant deep throws, but arm talent is needed to exploit the play-action opportunities the run game creates."
+        },
+        "Accuracy": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Brady's 'Everybody Eats' philosophy demands accurate ball placement to multiple receivers on timing routes across the full field. Allen's career-high 69.3% completion rate in 2024 was driven by the system simplifying his reads. Short-to-intermediate accuracy on Payton-tree concepts is paramount."
+        },
+        "Pocket Presence": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The offense uses heavy 12/21 personnel with play-action, creating longer-developing routes that require the QB to navigate the pocket, climb when needed, and keep eyes downfield while under duress."
+        },
+        "Mobility": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Unlike most Payton-tree offenses, Brady's system explicitly leverages QB run ability through RPOs, designed QB runs, and read-option. Allen rushed for significant yardage each season. Mobility is schematically embedded, not just an escape valve \u2014 it's a featured weapon."
+        },
+        "Decision Making": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The distributional passing game requires quick, correct reads through progressions. Brady simplified Allen's decision-making ('we don't need you to make an incredible play every snap') but the system still demands reading defenses and distributing efficiently."
+        },
+        "Leadership": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Brady's collaborative culture where players help select plays requires a QB who commands respect and buy-in. Allen's leadership was instrumental in the 'Everybody Eats' buy-in."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.05,
+          "importance": "moderate",
+          "reasoning": "The high motion rate serves to help the QB identify coverage before the snap, partially reducing the pre-snap diagnostic burden. Still valuable for audibles and RPO reads."
+        }
+      },
+      "ideal_archetype": "A physically gifted, dual-threat quarterback who combines high-level accuracy on timing routes with explosive running ability. The ideal is a QB who can execute the Payton-tree's precision passing game while also functioning as a legitimate weapon in the ground game through RPOs and designed runs. Think Josh Allen himself \u2014 a player who can make the simple throw look easy, extend plays with his legs, and occasionally uncork a 60-yard bomb off play-action. The system doesn't need a pure pocket passer or a pure runner; it needs someone who does both at a high level and trusts the scheme enough to take the easy completion rather than forcing deep shots.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "The offense uses a mix of under-center and shotgun with heavy personnel, requiring the QB to see over the line in condensed formations."
+        },
+        "weight": {
+          "ideal": "225-245",
+          "floor": "215",
+          "reasoning": "Designed QB runs and RPOs expose the QB to contact. Durability through size matters in this run-heavy scheme, especially in Buffalo's December/January weather."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.7",
+          "floor": "sub-4.8",
+          "reasoning": "The designed run game and read-option component require a QB who can threaten as a runner. Not track speed, but enough to pick up first downs on zone-read keepers."
+        }
+      },
+      "development_context": "Brady was a QB coach before becoming OC, with an extensive track record developing Allen and working with Joe Burrow at LSU. Carmichael spent his career developing Drew Brees. This staff can develop accuracy, decision-making, and pocket mechanics. What must arrive: arm talent and athletic ability cannot be coached at this level. A raw but physically gifted QB could thrive here given Brady's player-development approach.",
+      "scheme_fit_narrative": "This offense is built for a dual-threat QB who can beat you in multiple ways. We need a guy who can execute the timing-route game accurately, read RPOs post-snap, and punish defenses with his legs when they sell out against the run. The system is designed to take pressure off the QB by distributing the ball \u2014 but the QB has to buy in and take the easy throw. If he can do that AND create explosive plays with his athleticism, this offense becomes nearly impossible to stop.",
+      "archetype_examples": [
+        "Josh Allen",
+        "Jalen Hurts",
+        "Dak Prescott"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "high",
-      "explanation": "Leonhard's switch to a 3-4 base with separate OLB/ILB coaches fundamentally changes how Buffalo values LBs. OLBs are now the primary edge rushers \u2014 Greg Rousseau may transition to a two-point stance in this scheme. Leonhard's system from Wisconsin heavily used simulated pressures where LBs creep to rush and DEs drop, meaning any LB with pass rush traits (burst, bend, first step) has premium value. The Bills also need edge talent: they ranked 19th in sacks over the last two years. An LB prospect with pass rush ability projects directly into a starting OLB/edge role."
+    "RB": {
+      "scheme_role": "The featured back in a run-first offense that produced the NFL's No.1 rushing attack. The RB is asked to carry a heavy workload (300+ carries) in gap-scheme and zone-read concepts, catch passes out of the backfield (33+ receptions), and pick up blitzes to protect Allen. Brady's scheme makes the RB the second-most important offensive player behind the QB. The system creates big holes through heavy personnel and pre-snap motion, asking the RB to find and hit them with vision and burst rather than creating something from nothing behind the line.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Brady's gap-scheme run game creates defined lanes that the RB must identify and hit decisively. James Cook's elite vision was cited as the best in the NFL by the Bills' own staff. The scheme creates holes \u2014 the RB must see them."
+        },
+        "Contact Balance": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The run game creates clean running lanes more often than not, but the RB must break arm tackles in the hole and after contact. Cook generated elite yards after contact (1,016 YAC in 2025)."
+        },
+        "Power": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The gap scheme creates opportunities, but the Bills also use Cook between the tackles in short-yardage. Some power is needed, though the OL does the heavy lifting."
+        },
+        "Elusiveness": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Cook's 'poetry in motion' running style \u2014 gliding, lateral agility, making defenders miss in space \u2014 is central to the scheme's explosive-play creation. The motion/shift pre-snap concepts create space; the RB must exploit it with elusiveness."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The Bills' run game produced 39 explosive (10+ yard) runs in 2025. The scheme creates big running lanes through heavy personnel; a back with home-run speed turns 10-yard gains into touchdowns."
+        },
+        "Pass Catching": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The 'Everybody Eats' philosophy includes the RB as a receiving weapon. Cook caught 33 passes for 291 yards in 2025. The distributional passing attack uses the RB as a check-down and in the flat, particularly off play-action."
+        },
+        "Pass Protection": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "With Leonhard's defense likely to be imitated by opponents using simulated pressures, Brady needs a RB who can identify and pick up delayed blitzers to protect Allen. Also critical in 3rd-and-long situations."
+        }
+      },
+      "ideal_archetype": "A patient, one-cut runner with elite vision and long speed who can also catch the ball and pass protect. The ideal is James Cook \u2014 not a 230-pound bruiser, but a fluid, instinctive runner who lets blocks develop, finds the crease, and accelerates through it. The scheme doesn't need a between-the-tackles pounder because the OL creates the space; it needs a back who can exploit that space and turn good runs into great ones. Think Alvin Kamara's versatility combined with Cook's home-run hitting ability.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-10 to 6-0",
+          "floor": "5-8",
+          "reasoning": "The gap scheme doesn't require a towering frame. Cook is 5-11, 190 lbs and led the NFL in rushing. Vision and speed matter more than size."
+        },
+        "weight": {
+          "ideal": "190-215",
+          "floor": "185",
+          "reasoning": "Must be durable enough for 300+ carry workload. Cook at 190 handles the load, but the scheme doesn't demand a 230-pound back."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.45",
+          "floor": "sub-4.55",
+          "reasoning": "The Bills' run game creates long runs \u2014 39 explosive runs in 2025. Breakaway speed turns good blocking into touchdowns."
+        }
+      },
+      "development_context": "Brady has shown the ability to maximize RB production \u2014 Cook went from good to great under his scheme. Carmichael developed Alvin Kamara into a dual-threat weapon in New Orleans. This staff can develop a RB's receiving game and patience in the run game. What must arrive: vision and burst. You can teach patience and pass protection technique, but the ability to see and hit the hole is instinctual.",
+      "scheme_fit_narrative": "We need a back who can see the hole and hit it. This offense creates running lanes through scheme \u2014 heavy personnel, motion, gap concepts \u2014 so we don't need a guy who has to make something out of nothing. Give us vision, burst, and the ability to catch the ball, and we'll give you 1,500 yards. The back doesn't need to be a 230-pound short-yardage hammer because Allen handles much of the goal-line work himself.",
+      "archetype_examples": [
+        "James Cook",
+        "Alvin Kamara",
+        "Saquon Barkley"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "high",
-      "explanation": "The Carmichael/Payton offensive system is known for featuring RBs heavily in the passing game through screens, checkdowns, and designed routes. James Cook had only 33 receptions for 291 yards in 2025 despite leading the NFL in rushing \u2014 a clear underutilization that former Saints QB Chase Daniel has publicly noted will change under Brady/Carmichael. The Payton offense historically made RBs like Alvin Kamara, Darren Sproles, and Reggie Bush into elite receiving threats. Brady's spread concepts with trips formations and empty sets also create natural RB receiving opportunities. Any RB with receiving ability has significantly elevated value here."
+    "WR": {
+      "scheme_role": "In the 'Everybody Eats' offense, no single WR is expected to carry the passing game. The WR corps functions as a committee where each player may only see 3-5 targets per game but must maximize those opportunities. Outside WRs must win in man coverage, block in the run game (critical given the run-first identity), and create separation on limited routes. The slot WR (Shakir role) is the highest-volume receiver and must run precise intermediate routes. Brady's scheme asks WRs to beat man coverage \u2014 'man coverage is the best opportunity to make plays' \u2014 and be reliable when their number is called. No WR has broken 900 receiving yards under Brady, but 13 different players caught TDs in 2024.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Payton-tree passing concepts demand precise route running on timing throws. The distributional system means each route must be run correctly because the QB is reading progressions quickly and the ball arrives on schedule."
+        },
+        "Separation": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Brady's offense asks WRs to beat man coverage. The Bills had the lowest air yards per pass attempt to outside receivers in 2025 (9.7), meaning WRs must win at short-to-intermediate levels through separation creation rather than contested-catch ability."
+        },
+        "Hands": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "With limited target volume per player, every reception must be secured. Allen's arm strength means the ball arrives with velocity. Drops are magnified in a system where you may only get 3-4 chances per game."
+        },
+        "YAC Ability": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Brady loves receiver screens and short passes that allow WRs to create after the catch. The Bills ran frequent WR screens and quick-hitters designed to get the ball in playmakers' hands in space. YAC makes the short passing game function as an extension of the run game."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The deep passing game struggled in 2025 (Allen's fewest deep attempts), but play-action shots still require a vertical threat to keep defenses honest. Speed matters more as a complement than as the primary winning trait."
+        },
+        "Contested Catches": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The scheme prefers getting WRs open rather than forcing 50/50 balls. Allen's tendency to take easy completions under Brady reduces contested-catch situations. Useful in the red zone but not scheme-defining."
+        },
+        "Release Package": {
+          "weight": 0.09,
+          "importance": "moderate",
+          "reasoning": "With Leonhard's defense likely to inspire opponents to play more press coverage against the Bills' receivers, release technique matters. The scheme values man-coverage beaters, and the release is the first step in winning those reps."
+        }
+      },
+      "ideal_archetype": "A versatile, separation-based receiver who wins with quickness, route technique, and YAC ability rather than pure size or deep speed. The ideal WR in this system is closer to Khalil Shakir \u2014 a reliable, route-savvy player who creates separation at all three levels and maximizes every touch \u2014 than a contested-catch specialist like Mike Evans. The system can also use a complementary deep threat to stretch defenses and create space for the underneath game, but the primary need is a player who can beat man coverage consistently and produce after the catch. Think of a Nico Collins or Keenan Allen type who runs crisp routes and is reliable on every target.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-9",
+          "reasoning": "The scheme doesn't require a specific body type \u2014 Shakir (6-0) and Mack Hollins (6-4) both thrived. But intermediate route runners tend to be in this range."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.45",
+          "floor": "sub-4.55",
+          "reasoning": "Speed helps create separation and run after the catch, but the scheme doesn't require a 4.3 burner as the primary WR. A 4.55 route runner who creates 2 yards of separation is more valuable than a 4.3 straight-line speed demon who can't run a full route tree."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.20",
+          "floor": "none",
+          "reasoning": "Short-area quickness matters more than top-end speed in this distributional passing game. Ability to sink hips, break off routes, and create separation in tight windows."
+        }
+      },
+      "development_context": "Brady was a WR coach at William & Mary, passing game coordinator/WR coach at LSU (developing Ja'Marr Chase and Justin Jefferson's routes), and has shown the ability to maximize WR production in a committee approach. However, no Bills WR has reached 900 receiving yards under Brady, raising questions about whether the system develops WR1-caliber production or just spreads targets thin. The staff can develop route technique and YAC skills but cannot create elite speed or natural separation ability.",
+      "scheme_fit_narrative": "We don't need a diva WR1 who demands 150 targets. We need reliable players who win their individual matchups, make plays when the ball comes their way, and block their tails off in the run game. The ideal WR buys into the 'Everybody Eats' mentality, wins in man coverage, and maximizes every touch with YAC. If he happens to have deep speed too, that's a bonus \u2014 but separation ability and hands come first.",
+      "archetype_examples": [
+        "Khalil Shakir",
+        "Keenan Allen",
+        "Nico Collins"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "Jim Leonhard is a former NFL safety who has always built his defenses around versatile safety play. At Wisconsin, safeties were consistently his unit's strength. His MOFC coverage philosophy requires safeties who can play deep single-high, rotate into the box, cover slot receivers, and trigger downhill against the run. His simulated pressure packages also occasionally involve safeties in blitz roles. Cole Bishop is already being groomed as a centerpiece. Any safety prospect with hybrid versatility \u2014 box play, man coverage, blitz ability \u2014 has premium value in this defense."
+    "TE": {
+      "scheme_role": "TEs are central to this offense \u2014 it runs significant 12-personnel with two TEs on the field simultaneously. The primary TE (Kincaid role) is a high-volume receiving target who runs a full route tree from the slot and inline. The second TE (Hawes/Knox role) is a blocking-first player who powers the run game in heavy sets. The TE position is arguably the most important skill position in this scheme after RB, because 12-personnel is the formation that best marries the run-game identity with the passing attack. Run game coordinator Rob Boras is also the TE coach, underscoring the position's importance to the ground game.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "In the 'Everybody Eats' system, the TE is often Allen's highest-volume passing target. Kincaid recorded 73 catches as a rookie (franchise TE record). The Payton tree has always featured TEs as primary receivers (Jimmy Graham, Jared Cook). Receiving ability is the differentiator."
+        },
+        "Route Running": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The TE flexes into the slot and must run a full route tree in the Payton-tree passing game. Intermediate routes \u2014 crossers, digs, seams \u2014 are staples. Route precision on timing throws is critical."
+        },
+        "Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The NFL's No.1 rushing attack was powered by 12-personnel formations with TEs as extra blockers. Run game coordinator Boras oversees TEs specifically because blocking is core to the position. Rookie TE Jackson Hawes 'became one of the most important blockers in 2025.' Inline blocking in gap-scheme concepts is non-negotiable."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The TE must function as both a blocker in heavy sets and a receiving weapon in the passing game. This dual role demands high-level athleticism to create mismatches against LBs in coverage while physically competing against DEs as a blocker."
+        },
+        "Hands": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "With Allen's arm strength, the TE must secure passes with velocity in traffic over the middle. Allen's off-platform throws create difficult catch angles that require strong, reliable hands."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The TE must threaten the seam and create matchup problems against LBs, which requires enough speed to get vertical. But this isn't a joker TE role \u2014 blocking matters equally, and elite speed is not the primary winning trait."
+        }
+      },
+      "ideal_archetype": "A complete tight end who can both block in-line on gap-scheme runs and split out as a high-volume receiving target. The ideal is a Dalton Kincaid/Travis Kelce hybrid \u2014 a player athletic enough to win from the slot against LBs and safeties, but physical enough to sustain blocks in 12-personnel run concepts. The Bills ideally want two TEs: one receiving-first (Kincaid) and one blocking-first (Hawes), but the highest-value draft pick would be someone who does both at a high level. Mark Andrews or George Kittle archetypes fit perfectly.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-2",
+          "reasoning": "Must be large enough to block 3-4 DEs in-line while tall enough to win contested catches in the red zone."
+        },
+        "weight": {
+          "ideal": "240-255",
+          "floor": "230",
+          "reasoning": "The heavy run game demands a TE who can hold up at the point of attack. Sub-230 TEs struggle to sustain blocks against NFL edge defenders."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.60",
+          "floor": "sub-4.75",
+          "reasoning": "Must threaten the seam to create receiving matchup problems, but doesn't need elite track speed. The route tree and hands matter more than straight-line speed."
+        }
+      },
+      "development_context": "Rob Boras has been the Bills' TE coach since 2017 and has developed Dawson Knox (franchise-record 9 receiving TDs in 2021) and Dalton Kincaid (73-catch rookie season). Boras can develop receiving skills and route technique. Blocking technique can be coached but requires a physical baseline. Carmichael's Saints featured Jimmy Graham and Jared Cook as receiving weapons. This staff is elite at developing the receiving side of the TE game.",
+      "scheme_fit_narrative": "We need a TE who can do both \u2014 block in the run game and catch 50+ balls. This offense runs significant 12-personnel, so we're asking the TE to be an extra OT one snap and a slot receiver the next. The receiving side gets you drafted high; the blocking side keeps you on the field for the 60% of snaps where we're running the ball. Give us a guy who can do both and he'll be one of the most important players on this offense.",
+      "archetype_examples": [
+        "George Kittle",
+        "Dalton Kincaid",
+        "Mark Andrews"
+      ]
+    },
+    "OT": {
+      "scheme_role": "The OTs anchor the NFL's top-ranked rushing attack and protect the franchise QB. In Brady's gap-scheme heavy run game, OTs must execute down blocks, kick-out blocks, and reach blocks while also pulling on counter plays. In pass protection, the OT must handle speed rushers and set up for Allen's longer-developing play-action concepts. The LT protects Allen's blind side; the RT (Spencer Brown, 6-8, 311) is a massive road grader in the run game. Brady's use of heavy personnel and 6-OL packages means the OT room has expanded importance.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Protecting Allen is paramount \u2014 the offense's play-action concepts create longer-developing routes that expose the OT to extended pass rush. Allen's mobility helps, but the OL took a step back in pass protection in 2025 and that's a primary 2026 improvement target."
+        },
+        "Run Blocking": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The NFL's No.1 rushing attack (159.6 ypg, 5.0 ypc) was built on dominant run blocking. Gap-scheme concepts (power, counter, duo) demand OTs who can create movement at the point of attack, execute combo blocks, and climb to the second level."
+        },
+        "Footwork": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Gap-scheme blocking requires precise footwork on kick-out and down blocks. Pass protection against speed rushers requires quick, mirror-capable feet. The high motion rate means OTs must adjust to pre-snap shifts."
+        },
+        "Anchor": {
+          "weight": 0.12,
+          "importance": "high",
+          "reasoning": "Play-action concepts keep the OT engaged for extended pass sets. Must handle bull rushes and power moves while Allen holds the ball on deep play-action shots."
+        },
+        "Athleticism": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "Counter and pull concepts in the gap scheme require OTs to move laterally and reach the second level. Spencer Brown's athleticism at 6-8 is a model \u2014 this offense wants OTs who can move."
+        },
+        "Strength": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Run blocking at the point of attack requires strength to create movement, especially on double teams and down blocks. But the scheme creates leverage advantages through angles and combo blocks, partially reducing the pure strength demand."
+        }
+      },
+      "ideal_archetype": "A big, athletic OT who excels in the run game and can pull/climb to the second level while maintaining solid pass protection. Think of Spencer Brown \u2014 a massive frame (6-8) with surprising athleticism who road-grades defenders in the run game and uses length to keep rushers at bay. The ideal OT in this scheme is a mauler first and a pass protector second, though both skills are required. This is NOT a pure pass-protection offense \u2014 the run game is king, and the OT must be a willing, physical run blocker.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-5 to 6-7",
+          "floor": "6-4",
+          "reasoning": "Longer OTs create longer levers for the gap scheme's down blocks and kick-outs. Spencer Brown at 6-8 is an outlier, but the scheme loves length."
+        },
+        "weight": {
+          "ideal": "310-330",
+          "floor": "300",
+          "reasoning": "Must be heavy enough to sustain blocks in a run-first scheme. Lighter OTs struggle with the physicality demanded by gap-scheme blocking."
+        },
+        "arm_length": {
+          "ideal": "34+",
+          "floor": "33",
+          "reasoning": "Length creates control points in both pass and run blocking. Longer arms keep pass rushers at bay and create leverage in down blocks."
+        }
+      },
+      "development_context": "Pat Meyer (new OL coach) comes from the Kromer coaching tree and worked with Brady in Carolina. Kromer developed the Bills' current elite OL \u2014 Dion Dawkins, Spencer Brown, O'Cyrus Torrence. Meyer's language and techniques are similar to Kromer's, easing the transition. Meyer developed the Steelers' OL from ranked 29th in rushing to respectable. The staff can develop technique and gap-scheme execution but needs athletic raw material to work with.",
+      "scheme_fit_narrative": "We need road-grading OTs who can physically dominate in the run game. This is the No.1 rushing offense in football \u2014 if you can't move people at the point of attack and get to the second level, you don't fit. Pass protection matters, but this scheme uses motion, play-action, and Allen's mobility to offset pass-protection deficiencies. Give us a big, athletic mauler and we'll make him a Pro Bowler.",
+      "archetype_examples": [
+        "Spencer Brown",
+        "Penei Sewell",
+        "Tristan Wirfs"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior OL are the engine room of the NFL's best rushing attack. In Brady's gap scheme, guards must execute combo blocks, pull on counter/power plays, and sustain double-teams at the point of attack. The center must handle complex snap-and-reach assignments while making protection calls in a high-motion offense. O'Cyrus Torrence was a dominant run blocker in 2025. With both C (McGovern) and LG (Edwards) potentially departing in free agency, IOL development is a premium need.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Interior pressure disrupts the timing-route passing game. Allen's mobility helps escape edge pressure, but interior collapses directly impact his ability to step up and deliver."
+        },
+        "Run Blocking": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "The No.1 rushing attack demands elite interior run blocking. Gap-scheme concepts (power, counter, duo) require guards who create movement with combo blocks and sustain double teams. The scheme's success starts with interior dominance."
+        },
+        "Pulling": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Brady significantly increased gap-scheme volume. Counter and power require guards to pull across the formation and lead through the hole. This is THE differentiating IOL skill in this specific scheme. Torrence's pulling ability was cited as critical to the rushing title."
+        },
+        "Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must physically displace DTs at the point of attack on double teams and sustain blocks in the run game. Gap-scheme OL must be power players first."
+        },
+        "Anchor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Interior anchor matters for pass protection, but the scheme's high run rate and play-action concepts reduce the number of pure drop-back pass sets the IOL faces."
+        },
+        "Versatility": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "With both starting IOL potentially departing, guards who can also play center (or vice versa) have added value. The Bills' heavy personnel packages also demand flexibility in 6-OL groupings."
+        }
+      },
+      "ideal_archetype": "A massive, physically dominant interior lineman who can move people in the run game and pull across the formation with athleticism. Think O'Cyrus Torrence \u2014 a 347-pound wrecking ball who pancakes defenders on double teams and pulls on counter plays. The ideal IOL in this scheme is a run-game mauler first with enough pass-protection technique to hold up on passing downs. Pure finesse pass-protectors who can't create movement in the run game don't fit. Quenton Nelson or Chris Lindstrom types who blend power with athleticism.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Standard IOL range. Not as important as weight and athletic testing in this scheme."
+        },
+        "weight": {
+          "ideal": "315-345",
+          "floor": "305",
+          "reasoning": "Must be heavy enough to win at the point of attack. The gap scheme demands mass. Torrence at 347 is the archetype."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.70",
+          "floor": "sub-4.90",
+          "reasoning": "Pulling guard ability requires short-area quickness. Must be able to pull across the formation and hit a moving target at the second level."
+        },
+        "bench_press": {
+          "ideal": "30+",
+          "floor": "25",
+          "reasoning": "Correlates with the upper-body strength needed for the physicality demanded by gap-scheme combo blocks and sustaining blocks."
+        }
+      },
+      "development_context": "Pat Meyer's OL coaching tree (Kromer-rooted) emphasizes gap-scheme technique and physical run blocking. This staff can develop pulling mechanics and combo-block technique. Kromer developed Torrence from a second-round pick into an elite run blocker. Meyer developed young Steelers OL in a similar system. The staff needs raw power and athleticism to mold \u2014 finesse IOL who lack physicality are poor fits regardless of technique coaching.",
+      "scheme_fit_narrative": "We're the best rushing team in football. That starts with guards who can move mountains and pull across the formation. If you can't sustain a combo block and get to the second level, you don't play here. We'll teach you the technique, but you better be a nasty, physical people-mover who relishes contact. Pass protection is important but secondary \u2014 this offense runs the ball and uses play-action, so we're asking you to block in the run game far more than sit in pass sets.",
+      "archetype_examples": [
+        "O'Cyrus Torrence",
+        "Quenton Nelson",
+        "Chris Lindstrom"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "In Leonhard's 3-4 defense, the EDGE is an outside linebacker (OLB) who must rush the passer from a two-point stance, set the edge against the run, and drop into coverage on simulated pressures. This is the most critical schematic shift from the McDermott era \u2014 the EDGE is no longer a 4-3 DE with his hand in the dirt. Leonhard's sim pressure concepts require the OLB to show rush, then drop into flat/curl zones while an ILB replaces him in the rush lane. The scheme creates pressure through deception, not brute force, so the EDGE must be disciplined, versatile, and intelligent. The Bills have a major need here \u2014 Joey Bosa and A.J. Epenesa are likely departing, and the scheme requires a completely different body type than the 4-3 DEs on the current roster.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "While the scheme generates pressure through deception, the OLB must still win individual pass-rush reps when his number is called. The sim pressure only works if the replacement rusher can actually get home. Edge rushers who can convert their rush reps at a high rate make the entire scheme more dangerous."
+        },
+        "Bend": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Stand-up OLBs in a 3-4 must convert speed-to-power around the edge. Bend allows the rusher to flatten to the QB after getting upfield. In Leonhard's scheme, the OLB often rushes from wide alignments and must corner the edge against OTs."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The sim pressure scheme relies on creating initial confusion. A quick first step from the OLB forces the OT to commit, opening the replacement rusher's lane. Even when the OLB drops, his initial step must look like a legitimate rush to sell the fake."
+        },
+        "Power": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Less critical than in a traditional 4-3 DE role because Leonhard's scheme creates unblocked rushers through schematic deception rather than requiring the EDGE to bull-rush through a blocker. Some power is needed for setting the edge in the run game."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "high",
+          "reasoning": "Leonhard's defense requires constant effort \u2014 the OLB might rush, drop, rush, drop on consecutive plays. The scheme's effectiveness depends on every player executing with intensity every snap, regardless of whether they're the featured rusher."
+        },
+        "Run Defense": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "The 3-4 OLB must set the edge and funnel runs back inside. This is a two-gap defensive concept where gap integrity matters enormously. An OLB who only rushes the passer and gets washed in the run game destroys the scheme's foundation."
+        }
+      },
+      "ideal_archetype": "A stand-up, versatile OLB who can rush the passer with speed and bend, set the edge against the run, and drop into flat/curl coverage on zone blitzes. Think of a Nick Herbig-type player \u2014 a former Wisconsin OLB under Leonhard who translated those exact skills to the NFL with the Steelers. The ideal EDGE is 6-2 to 6-4, 245-260 lbs, with the speed to rush from a two-point stance, the discipline to execute coverage drops, and the motor to sustain effort on every snap. NOT a pure speed rusher who disappears in the run game, and NOT a 270-pound DE who can't move in space. The sweet spot is the hybrid OLB who does everything well.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-4",
+          "floor": "6-1",
+          "reasoning": "Stand-up OLBs in a 3-4 need to be tall enough to set the edge and play in space, but not so large they can't drop into coverage."
+        },
+        "weight": {
+          "ideal": "245-260",
+          "floor": "235",
+          "reasoning": "Must be big enough to set the edge against NFL TEs and pulling guards, but light enough to cover in space. 270+ is too heavy for the coverage demands."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.60",
+          "floor": "sub-4.70",
+          "reasoning": "The OLB must be fast enough to rush from width and close on the QB, and athletic enough to drop into the flat and cover RBs/TEs."
+        },
+        "3_cone_drill": {
+          "ideal": "sub-7.00",
+          "floor": "sub-7.20",
+          "reasoning": "Agility is critical for the rush-to-coverage transitions demanded by sim pressures. The OLB may rush upfield, plant, and redirect into a coverage zone on the same play."
+        },
+        "arm_length": {
+          "ideal": "33+",
+          "floor": "32",
+          "reasoning": "Length helps set the edge in the run game and creates control points against blockers. Leonhard's Wisconsin OLBs who translated well to the NFL (Herbig) had adequate length."
+        }
+      },
+      "development_context": "Bobby April III (ILB coach) and John Egorugwu (OLB coach) bring experience in Leonhard's system \u2014 April coached under Leonhard at Wisconsin. This staff can develop pass-rush technique, coverage drops, and the discipline required for sim pressures. What must arrive: athleticism and instincts. The rush-to-coverage transition is extremely difficult to teach if the player lacks the physical tools and football IQ.",
+      "scheme_fit_narrative": "Forget about 4-3 DEs with their hand in the dirt \u2014 we need stand-up OLBs who can rush, drop, and set the edge. The ideal EDGE in this defense sells the rush to freeze the OT, then drops into the flat while a LB comes free. When it's his turn to rush, he wins with speed and bend around the edge. He's not just a pass rusher \u2014 he's a complete OLB who takes pride in setting the edge and executing his coverage assignment. We need a 250-pound athlete, not a 280-pound bull rusher.",
+      "archetype_examples": [
+        "Nick Herbig",
+        "Nik Bonitto",
+        "Harold Landry"
+      ]
+    },
+    "DL": {
+      "scheme_role": "In Leonhard's 3-4, the three down linemen (NT + two 3-4 DEs) are asked to control gaps, eat blockers, and free up the linebackers to make plays. This is fundamentally different from the McDermott-era 4-3 where interior DL were asked to penetrate. Leonhard's DL must two-gap (control the blocker and react to the run to either side) rather than one-gap (shoot a gap and penetrate). The NT is a 0-tech nose who must command double teams. The 3-4 DEs play 4i/5-tech and must anchor against OTs while controlling the B and C gaps. Ed Oliver's fit is a question mark because he's a penetrating 3-tech, not a two-gapping 3-4 DE. Gregory Rousseau may play DE in the 3-4 or shift inside in sub-packages.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Interior DL pass rush is less prioritized because Leonhard generates pressure through scheme (sim pressures, LB blitzes) rather than relying on the DL to win individual matchups. When the DL does rush, it's typically as part of a stunt or game, not a pure pass-rush rep."
+        },
+        "Run Defense": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "The 3-4 base requires DL who can hold the point of attack, control their gap, and not get driven off the ball. If the DL gets pushed back, the entire front collapses and LBs can't flow to the ball. Run defense is THE defining trait."
+        },
+        "First Step": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Less important than in a one-gap scheme because the DL is reading and reacting rather than firing off the ball. A controlled first step that gets hands on the blocker is more valuable than pure explosiveness."
+        },
+        "Hand Usage": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Two-gap technique is built on hands \u2014 the DL must get hands on the OL, control the blocker, read the play, and shed to make the tackle. Elite hand usage separates good two-gappers from bad ones."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "high",
+          "reasoning": "Leonhard's scheme features constant front-line movement, stunts, and games. DL must sustain effort through varied alignments and assignments on every snap."
+        },
+        "Strength": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Must anchor against double teams (NT) and hold the point against zone-block combos (DEs). The DL's ability to absorb blocks and maintain gap integrity is the foundation of the entire defensive structure."
+        }
+      },
+      "ideal_archetype": "A big, anchor-heavy defensive lineman who controls blockers with hand placement and strength rather than trying to blow past them. The ideal 3-4 DE is 6-3 to 6-5, 285-310 lbs, with the strength to hold the point against OTs and the hand usage to stack and shed. The NT is a massive 320-340 lb space-eater who commands double teams and clogs the A-gaps. Think of classic 3-4 DL: Calais Campbell (3-4 DE) or Vince Wilfork (NT). These are NOT Aaron Donald-type penetrators \u2014 they're stout, physical, gap-controlling anchors who free up the linebackers.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5 (DE), 6-1 to 6-3 (NT)",
+          "floor": "6-1",
+          "reasoning": "DEs need length to control OTs at the point of attack. NTs need lower pad level to anchor against double teams."
+        },
+        "weight": {
+          "ideal": "290-310 (DE), 320-345 (NT)",
+          "floor": "280 (DE), 310 (NT)",
+          "reasoning": "Mass is critical in a two-gap scheme. Undersized penetrators get driven off the ball against zone blocking schemes."
+        },
+        "arm_length": {
+          "ideal": "33+ (DE), 33+ (NT)",
+          "floor": "32",
+          "reasoning": "Long arms create control points for hand fighting and keeping blockers from getting into the DL's chest. Essential for two-gap technique."
+        },
+        "bench_press": {
+          "ideal": "28+ reps",
+          "floor": "23 reps",
+          "reasoning": "Upper-body strength correlates with the ability to anchor and control blocks, which is the primary function in this scheme."
+        }
+      },
+      "development_context": "Terrance Jamison (new DL coach) comes from Illinois, where Leonhard spent a year as analyst. John Fox (senior assistant) brings decades of experience with 3-4/4-3 defensive fronts. The coaching transition from a 4-3 penetrating scheme to a 3-4 two-gapping scheme will be challenging for current DL. This staff can teach hand technique and gap control, but the physical profile (size, strength, anchor) must be present. A 285-pound penetrator cannot be converted into a 320-pound NT.",
+      "scheme_fit_narrative": "We need big bodies who eat blocks and hold their ground. This defense isn't about DL who shoot gaps and make plays in the backfield \u2014 it's about DL who absorb blocks, control their gaps, and let the linebackers run free. If you can command a double team at 320+ pounds and still hold the point, you're exactly what we need at nose. If you can play 5-tech at 300 pounds and stack-and-shed OTs, you're our 3-4 DE. Penetration is a bonus, not the primary job.",
+      "archetype_examples": [
+        "Calais Campbell",
+        "Vita Vea",
+        "DJ Reader"
+      ]
+    },
+    "LB": {
+      "scheme_role": "In the 3-4 base, there are two inside linebackers (ILBs) on the field at all times \u2014 the MIKE and WILL. This is a major shift from the McDermott era, which often only had one true LB on the field. Leonhard's ILBs must be the defensive quarterbacks: diagnosing formations, setting the defense, making protection calls, and executing in both run fits and coverage. Leonhard's sim pressure scheme frequently sends an ILB as the replacement rusher while a DE drops, so ILBs must be capable blitzers from depth. In coverage, Leonhard's MOFC/pattern-matching concepts ask ILBs to match routes by TEs and RBs, requiring genuine coverage ability. The Bills need a significant upgrade at ILB with Matt Milano likely departing and Terrel Bernard/Dorian Williams not projecting as ideal fits for this scheme.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.12,
+          "importance": "high",
+          "reasoning": "With two ILBs flowing to the ball behind gap-controlling DL, both must be reliable tacklers. Missed tackles in the run game undermine the entire defensive structure."
+        },
+        "Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Leonhard's pattern-matching coverage asks ILBs to match TEs and RBs on routes. The MOFC structure puts LBs in position to contest intermediate throws. This is not spot-drop zone \u2014 the LB must process route combinations and carry receivers through his zone. Coverage ability is the single most important trait separating a good LB from a great one in this scheme."
+        },
+        "Pass Rush": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Sim pressures frequently send the ILB as the delayed or replacement rusher. The ILB must be able to generate pressure when schemed free \u2014 not just clean up sacks, but actually win at the point of attack when his number is called."
+        },
+        "Instincts": {
+          "weight": 0.18,
+          "importance": "essential",
+          "reasoning": "Leonhard's defense requires constant pre-snap and post-snap processing. The ILB must diagnose run/pass, identify formation strength, recognize motion, and execute the correct assignment in a scheme with constant front-line movement and disguise."
+        },
+        "Athleticism": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "Must move sideline-to-sideline, drop into coverage, rush from depth, and pursue in the open field. Leonhard values 'position-less' defenders who can do multiple things \u2014 athleticism enables that versatility."
+        },
+        "Range": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Sideline-to-sideline range matters in the run game for a scheme that funnels runners inside, but the two-ILB structure means range is shared between two players rather than one LB covering the entire field."
+        },
+        "Block Shedding": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "The 3-4 DL are designed to absorb blocks and free the ILBs. When the scheme works correctly, ILBs should be unblocked more often than in a 4-3. But OL still reach the second level, and block shedding separates good from average."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.05,
+          "importance": "moderate",
+          "reasoning": "Leonhard needs 'a coach on the field who can get the team lined up in the new system.' The MIKE must be the defensive quarterback who makes calls and adjustments, especially critical during a scheme transition year."
+        }
+      },
+      "ideal_archetype": "A sideline-to-sideline, three-down linebacker who can cover, blitz, and diagnose. The ideal ILB in Leonhard's defense is an athletic, high-IQ player who processes information quickly, matches routes in coverage, and generates pressure on sim blitzes. Think of Leo Chenal or Jack Sanborn \u2014 Wisconsin LBs who thrived in this exact scheme \u2014 or Roquan Smith as an NFL comp. The ILB must be comfortable doing a different job on every snap: rushing A-gap on one play, matching a TE on a seam route the next, and filling against the run on the third. Coverage ability is the differentiator \u2014 a run-stuffing thumper who can't cover is a two-down player in this defense.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Must have enough size to take on blocks in the run game and contest passes over the middle, but not so tall that they lose fluidity in coverage."
+        },
+        "weight": {
+          "ideal": "225-245",
+          "floor": "215",
+          "reasoning": "Must balance the physicality needed for run defense with the athleticism required for coverage. Leonhard's best Wisconsin LBs were in this range."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.55",
+          "floor": "sub-4.65",
+          "reasoning": "Three-down LBs in pattern-matching coverage must be fast enough to match RBs and TEs on routes. Speed separates coverage LBs from run-only thumpers."
+        },
+        "3_cone_drill": {
+          "ideal": "sub-7.00",
+          "floor": "sub-7.15",
+          "reasoning": "Change-of-direction ability is critical for matching routes in coverage and redirecting in pursuit. Leonhard's scheme demands fluid athletes, not stiff run-and-chase defenders."
+        }
+      },
+      "development_context": "Bobby April III (ILB coach) coached under Leonhard at Wisconsin and knows the scheme intimately. This staff can teach the pattern-matching coverage concepts and sim pressure assignments that are unique to this defense. What must arrive: athleticism and football IQ. You can teach a player the scheme, but you can't teach him to process information faster or move more fluidly in coverage. The scheme transition year makes a plug-and-play LB with high football IQ extremely valuable.",
+      "scheme_fit_narrative": "We need linebackers who can think and move. This defense asks the ILB to be a Swiss Army Knife \u2014 rush on one play, cover on the next, fill the run on the third. The old days of a two-down thumper who comes off the field on passing downs are over in this scheme. We need a three-down player who can match TEs in coverage, come free on sim blitzes, and be the defensive quarterback who gets everyone lined up. Coverage is king \u2014 if he can't cover, he can't play here.",
+      "archetype_examples": [
+        "Roquan Smith",
+        "Fred Warner",
+        "Leo Chenal"
+      ]
+    },
+    "CB": {
+      "scheme_role": "In Leonhard's MOFC defense, CBs are asked to play with physicality at the line, funnel receivers inside toward the safety help in the middle of the field, and execute pattern-matching techniques that shift between man and zone post-snap. Leonhard explicitly praised CB Christian Benford's 'physicality' and 'energy' and is considering having him travel with opposing WR1s. The scheme uses Cover 1 and Cover 3 as its foundation, meaning the CB often has inside help from a safety but must handle his man one-on-one on the outside. Press technique is emphasized \u2014 the CB must disrupt at the line and redirect the receiver's route to take away the outside. The Bills did not fill the nickel CB coaching position, suggesting the defense may use safeties or LBs in the slot rather than a traditional nickel CB.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Cover 1 is a primary coverage call. When Leonhard runs man-free, the CB must win one-on-one matchups against outside receivers with minimal help. The safety is in the middle, not over the top \u2014 the CB must handle his assignment independently."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Leonhard's Wisconsin defenses produced elite takeaway numbers \u2014 87 interceptions during his DC tenure. His defenses ranked first among Power 5 in interceptions. Ball production is a scheme priority, and CBs who can create turnovers when the scheme puts them in position have outsized value."
+        },
+        "Zone Coverage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Cover 3 is the other primary coverage. The CB must play the deep third, read the QB, and break on the ball. Pattern-matching concepts also require the CB to transition from zone responsibility to man-matching based on the route combination, demanding zone awareness."
+        },
+        "Speed": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "MOFC coverage with inside leverage means the CB is vulnerable to go routes and back-shoulder fades along the boundary. Must have the recovery speed to stay in phase when beaten and close the window on deep throws."
+        },
+        "Press": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Leonhard's philosophy has CBs funnel receivers inside toward the safety in the middle. This requires press technique to disrupt the release, redirect the receiver, and take away the outside. The CB must be physical at the line \u2014 this is a non-negotiable in Leonhard's system."
+        },
+        "Nickel": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The Bills may not use a traditional nickel CB, with the slot coverage potentially handled by safeties or LBs. However, CBs with nickel versatility can play multiple roles in the defense, which Leonhard values."
+        }
+      },
+      "ideal_archetype": "A physical, press-capable corner who can disrupt at the line, funnel receivers inside, and compete for the football. The ideal CB in Leonhard's defense is a long, aggressive corner who mirrors routes in man coverage, plays with inside leverage in zone, and has the ball skills to create turnovers. Think Christian Benford \u2014 physical, competitive, with good ball skills \u2014 or a Patrick Surtain II type who combines press technique with coverage range. The CB must be willing to be physical; soft, bail-technique corners who play 10 yards off the line don't fit this defense.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Length helps jam receivers at the line and contest catches at the catch point. The physical press style favors taller, longer CBs."
+        },
+        "weight": {
+          "ideal": "190-205",
+          "floor": "185",
+          "reasoning": "Must be physical enough to press and redirect NFL receivers. Lightweight corners get pushed around at the line of scrimmage."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.40",
+          "floor": "sub-4.50",
+          "reasoning": "MOFC coverage exposes the CB to deep routes along the boundary. Must have the speed to stay in phase when playing with inside leverage."
+        },
+        "arm_length": {
+          "ideal": "32+",
+          "floor": "31",
+          "reasoning": "Longer arms create a wider disruption zone at the line in press coverage and help contest catches at the catch point."
+        }
+      },
+      "development_context": "Jay Valai (new CB coach) comes from Oklahoma's defensive staff and brings a college background in developing physical, aggressive corners. Leonhard himself was a DB coach before becoming DC and spent two years as Denver's pass game coordinator developing secondary technique. Joe Danna (returning safeties coach, now full secondary coach) provides continuity. This staff can develop press technique and pattern-matching fundamentals. What must arrive: speed and competitive fire. You can teach hand placement and coverage technique, but you can't teach a corner to be physical and aggressive.",
+      "scheme_fit_narrative": "We want corners who are going to punch receivers in the mouth at the line and funnel them right into our safety. No soft zones. No giving up free releases. This defense demands press coverage on the outside with the safety helping over the middle. If you can jam, redirect, and compete for the ball, you'll thrive here. If you prefer to play off coverage and read the QB's eyes, this isn't your scheme.",
+      "archetype_examples": [
+        "Patrick Surtain II",
+        "Christian Benford",
+        "Jalen Ramsey"
+      ]
+    },
+    "S": {
+      "scheme_role": "Safeties are the most versatile and critical position in Leonhard's defense. The MOFC coverage philosophy requires a single-high safety who can patrol the deep middle and close on throws to either side of the field. The box safety/strong safety must function as a hybrid \u2014 rotating down into the box for run support, covering slot receivers and TEs, and potentially replacing the traditional nickel CB in sub-packages. Leonhard historically brings a safety into the box for run support, creating 8-man fronts. Cole Bishop (2024 2nd-round pick) projects as the rangy free safety; the Bills need a second safety who can be the box/hybrid player. Leonhard values 'position-less' safeties who can do multiple things \u2014 the more versatile, the more Leonhard can disguise his coverage pre-snap.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "With the Bills potentially not using a traditional nickel CB, safeties may be asked to match slot receivers and TEs in man coverage. Leonhard's pattern-matching concepts require safeties who can handle man assignments when routes dictate."
+        },
+        "Range": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The single-high safety in MOFC must patrol the entire deep middle. When Leonhard shows Cover 1 or Cover 3, the FS is responsible for getting from hash to hash. Range is THE defining trait for the free safety in this scheme."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Leonhard's Wisconsin defenses were elite in takeaways (87 INTs). The FS in the deep middle sees the entire field and must convert interception opportunities. Leonhard's defenses at Wisconsin ranked in the top 3 nationally in INTs."
+        },
+        "Tackling": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The box safety rotates down for run support and must be a reliable, physical tackler in the run game. The FS must also be a dependable tackler as the last line of defense."
+        },
+        "Speed": {
+          "weight": 0.17,
+          "importance": "high",
+          "reasoning": "The single-high safety must cover the deep middle from hash to hash. The box safety must have enough speed to cover slot receivers and TEs in man. Speed enables the pre-snap disguise \u2014 a fast safety can show one look and rotate to another."
+        },
+        "Nickel": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "With no dedicated nickel CB position, safeties who can play slot coverage in sub-packages are extremely valuable. Leonhard's defense may use a safety-type in the nickel role rather than a smaller CB."
+        }
+      },
+      "ideal_archetype": "A versatile, rangy safety who can play deep middle, rotate into the box, and cover slot receivers. The ideal is a Swiss Army Knife \u2014 a player like Derwin James who is equally comfortable as a single-high FS, a box SS, and a slot defender. Leonhard values football IQ and communication skills highly \u2014 the safety must process coverage disguises, rotate on the snap, and be in the right position despite constant pre-snap movement. The FS needs to be a rangy, ball-hawking centerfielder (think Kyle Hamilton or Jessie Bates). The SS needs to be a physical, box-capable hybrid who can also cover (think Jabrill Peppers or Budda Baker).",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Larger safeties who can match TEs in coverage and play in the box are preferred. Leonhard's defense asks safeties to handle multiple roles, and size helps in all of them."
+        },
+        "weight": {
+          "ideal": "200-215",
+          "floor": "195",
+          "reasoning": "The box safety needs enough mass to play run support at the point of attack. The FS needs enough size to tackle in the open field as the last line of defense."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.45",
+          "floor": "sub-4.55",
+          "reasoning": "Hash-to-hash range in MOFC coverage demands speed. The single-high safety must get across the field to the opposite hash before the ball arrives."
+        },
+        "3_cone_drill": {
+          "ideal": "sub-7.00",
+          "floor": "sub-7.15",
+          "reasoning": "Change of direction matters for the disguise-heavy scheme \u2014 the safety may show one alignment pre-snap and rotate to an entirely different position post-snap."
+        }
+      },
+      "development_context": "Leonhard was an NFL safety for 10 seasons and a DB coach before becoming DC \u2014 he is uniquely positioned to develop safeties. He was Denver's pass game coordinator/DB coach for two years, directly developing secondary technique. Joe Danna (retained from the McDermott staff) provides continuity as the secondary coach. This staff can develop coverage technique, pre-snap disguise execution, and pattern-matching reads. What must arrive: range and ball skills. You can teach alignment and communication, but you can't teach a safety to cover the deep middle from hash to hash.",
+      "scheme_fit_narrative": "We need a center fielder who can cover ground and a box player who can do everything. Our FS is the last line of defense in MOFC \u2014 he must get from hash to hash and create turnovers. Our SS is the chess piece who rotates into the box, covers the slot, and plays run support. The more things a safety can do, the more we can disguise our coverage and confuse the offense. Give us a smart, rangy, ball-hawking playmaker and we'll build the defense around him.",
+      "archetype_examples": [
+        "Kyle Hamilton",
+        "Jessie Bates",
+        "Budda Baker"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Buffalo's 2026 offseason represents a rare dual-scheme overhaul: the offense is doubling down on Sean Payton-tree principles (more play-action, RB screens, TE receiving emphasis) while the defense is undergoing a wholesale transition from a 4-3 to a 3-4 odd front with simulated pressures. EDGE/OLB is the single highest-value need \u2014 Leonhard's 3-4 creates starting OLB roles for pass rushers who can stand up, and the Bills ranked just 19th in sacks the past two years. LB prospects with elite pass rush traits (bend, burst, power) should be valued at EDGE prices for BUF. On offense, WR is a glaring need (Buffalo ranked 29th in yards per catch at 11.6 in 2025), meaning any pass-catcher \u2014 including TEs with WR-caliber route running \u2014 has inflated value. The Payton-tree RB screen game also means dual-threat RBs get a clear boost. On defense, versatile safeties who can operate in Leonhard's MOFC scheme with box/slot/deep flexibility are premium targets. DT/NT value is moderate \u2014 Leonhard needs a true nose tackle for his odd front, but the Bills have Ed Oliver. Slot CB value decreases as the Bills may not deploy a traditional nickel cornerback under Leonhard's 3-4 base with four LBs.",
+  "scheme_draft_intelligence": "The 2026 Buffalo Bills are a franchise in rare schematic transition. While the offense will maintain strong continuity under HC Joe Brady (who continues calling plays) and OC Pete Carmichael, the defense is undergoing a fundamental overhaul from Sean McDermott's 4-3 to Jim Leonhard's 3-4 \u2014 changing everything from front structure to coverage philosophy to personnel demands. This creates an unusual draft profile: the Bills need offensive skill players (WR, potentially TE depth) to complement an already-elite rushing attack, but their most urgent needs are defensive bodies that fit an entirely new scheme.\n\nThe biggest value differential this scheme creates is at EDGE and LB. Under McDermott, the Bills needed 4-3 defensive ends \u2014 hand-in-dirt, 270-pound pass rushers. Under Leonhard, they need 245-260 pound stand-up OLBs who can rush, drop into coverage, and set the edge. This is a completely different player archetype, and many prospects that other teams would value as tweeners or undersized edge players become ideal fits in Buffalo. Similarly, the two-ILB 3-4 creates a premium on coverage-capable linebackers \u2014 prospects with safety-like coverage skills who might be considered 'too light' for traditional LB roles are exactly what Leonhard wants. The Bills could find hidden value in athletic, versatile defenders that don't fit traditional 4-3 positional boxes.\n\nOn offense, the distributional 'Everybody Eats' philosophy means the Bills may value different WR traits than most teams. Where other franchises seek alpha WR1 types with contested-catch ability and 9+ targets per game, Brady's system rewards reliable separation creators with YAC ability who can also block in the run game. A prospect who projects as a WR2 elsewhere might be a perfect scheme fit in Buffalo, where the system distributes targets and creates open looks. The Bills' biggest offensive need remains a WR who can beat man coverage consistently \u2014 the D.J. Moore trade helps but doesn't solve the depth problem behind Moore and Shakir.\n\nThe DL transition is critical. The Bills' current DL was built for a penetrating 4-3, with Ed Oliver as the centerpiece 3-tech. Leonhard's 3-4 demands space-eating, two-gapping DL who absorb blocks rather than shoot gaps. This mismatch means the Bills need to add gap-controlling interior DL through the draft \u2014 specifically a true 0-tech nose tackle who can command double teams. The team may also seek a 3-4 DE body type (295-310 lbs) that doesn't exist on the current roster.\n\nHistorically, Brandon Beane has shown a willingness to take the best player available regardless of position, but the coaching transition adds urgency at specific spots. The hiring of Bobby April III and John Egorugwu as separate ILB and OLB coaches \u2014 both with ties to Leonhard's system \u2014 signals that the Bills are committed to fielding the right 3-4 personnel immediately. With pick No. 26 and limited Day 2 capital (they traded their 2nd-round pick in the Moore deal), the Bills must maximize their early selections on players who can start immediately in the new defensive scheme. An EDGE rusher who can rush from a two-point stance and drop into coverage, or an athletic LB with three-down ability, would provide the most scheme-specific value.",
   "confidence": "high",
   "sources": [
-    "buffalobills.com \u2014 official coaching staff page and Jim Leonhard introductory press conference",
-    "buffalorumblings.com \u2014 Brady/Carmichael/Leonhard schematic analysis (Feb 2026)",
-    "nfl.com \u2014 Bills hire Leonhard as DC report (Jan 2026)",
-    "si.com \u2014 Pete Carmichael hire analysis, Jim Leonhard DC analysis",
-    "bloggingtheboys.com \u2014 Jim Leonhard defensive scheme deep dive (Jan 2026)",
-    "coachkoufootball.substack.com \u2014 Leonhard Wisconsin scheme film study",
-    "pff.com \u2014 Bills personnel usage analysis, James Cook and Kincaid stats",
-    "espn.com \u2014 Joe Brady offensive philosophy breakdown",
-    "Wikipedia \u2014 Joe Brady, Jim Leonhard, Sean McDermott coaching histories"
+    "buffalobills.com official coaching announcements and press conferences",
+    "ESPN \u2014 Joe Brady HC hire analysis (Alaina Getzenberg, January 2026)",
+    "SI.com \u2014 Jim Leonhard defensive scheme analysis and Bills assistant hiring",
+    "Blogging the Boys / Yahoo Sports \u2014 Jim Leonhard DC candidate profile (deep scheme analysis)",
+    "CoachKouFootball Substack \u2014 Jim Leonhard Wisconsin defense film study",
+    "MatchQuarters.com \u2014 Leonhard simulated pressure and Peso package breakdown",
+    "Eleven Warriors \u2014 Jim Leonhard 3-4 defense film study",
+    "Go Long TD \u2014 Inside the Bills' decision to hire Joe Brady (Brandon Beane interview)",
+    "Buffalo Rumblings \u2014 Joe Brady coaching staff analysis (February 2026)",
+    "NFL.com \u2014 Pete Carmichael Jr. OC hire; Joe Brady offensive philosophy",
+    "Wikipedia \u2014 Joe Brady, Jim Leonhard, Pete Carmichael Jr. coaching histories",
+    "PFF \u2014 James Cook 2025 stats and grades",
+    "Read Optional \u2014 Bills heavy personnel offensive analysis (December 2024)",
+    "Clutch Points \u2014 Bills 2026 mock draft roundup (needs analysis)"
   ]
 }

@@ -6,73 +6,744 @@
       "name": "DeMeco Ryans",
       "tenure_years": 3,
       "background": "defensive",
-      "scheme_philosophy": "Simplicity and execution over complexity. Robert Saleh/Kyle Shanahan 49ers defensive tree. Aggressive, physical 4-3 front that generates pressure with front four, rarely blitzes. Offense inherited Shanahan-tree system, now transitioning toward McVay/Erhardt-Perkins hybrid under Caley."
+      "coaching_tree": "San Francisco 49ers tree \u2192 Robert Saleh lineage (Pete Carroll/Gus Bradley Cover 3 roots) \u2192 Kyle Shanahan staff. Ryans was a defensive quality control coach under Shanahan in 2017, rose to ILB coach (2018-2020), then replaced Saleh as DC (2021-2022). His defensive DNA traces through the Seattle Cover 3 family but with significant personal evolution toward simplicity and aggressiveness.",
+      "scheme_philosophy": "Defense-first head coach who builds from the 'middle out' \u2014 elite linebackers, safeties, and defensive tackles form the core, with premium edge rushers and corners layered around them. Believes in structural simplicity that allows players to play fast. Turned over defensive play-calling to Matt Burke mid-2025 to focus on big-picture team management and helping first-year OC Nick Caley. Wants a physical, run-first offense that controls the clock and keeps his elite defense fresh."
     },
     "offensive_coordinator": {
       "name": "Nick Caley",
-      "scheme_tree": "Belichick/McDaniels (Patriots 2015-2022) + McVay (Rams 2023-2024). Erhardt-Perkins roots with McVay West Coast overlay. TE development specialist (coached Gronkowski, Hunter Henry, Tyler Higbee).",
-      "play_caller": true
+      "coaching_tree": "Bill Belichick/Josh McDaniels New England tree (2015-2022) \u2192 Sean McVay Los Angeles Rams tree (2023-2024). Unique hybrid of Erhardt-Perkins system concepts from New England and McVay's motion/formation-based attack. Was instrumental in helping the Rams transition from an outside zone-heavy run game to a gap scheme-dominant identity.",
+      "scheme_evolution": "Spent 8 years in New England as an offensive assistant and TE coach (coached Gronkowski, Hunter Henry, Jonnu Smith). Joined Rams in 2023, rose to passing game coordinator in 2024. In LA, helped McVay evolve from outside zone to the NFL's top gap-scheme team. Brings a 'game plan team' mentality from Belichick combined with McVay's motion and formation diversity. First-year play-caller in 2025 \u2014 struggled early (0-3 start) but adapted significantly, building identity around gap/duo runs, motion-based passing, and QB empowerment at the line of scrimmage.",
+      "development_track_record": "Elite tight end developer: coached Rob Gronkowski to All-Pro/Pro Bowl (2017), developed Hunter Henry and Jonnu Smith in New England, helped Tyler Higbee sustain production in LA, maximized Puka Nacua's development as passing game coordinator. Background as a college defensive backs coach gives him unique perspective on how defensive schemes create offensive opportunities. Strong at developing receiving tight ends and schematic understanding in pass catchers."
     },
     "defensive_coordinator": {
       "name": "Matt Burke",
-      "scheme_tree": "Multiple NFL stops (Miami DC, Philadelphia DL/run game, Arizona DL, Jets). Aligned with Ryans' Saleh/Shanahan-tree 4-3 philosophy. Emphasis on simple structures, front-four pressure, and tight man/zone coverage.",
-      "play_caller": true
+      "coaching_tree": "Well-traveled NFL defensive coach. DC for Miami Dolphins (2017-2018), defensive roles with Eagles under Doug Pederson, Jets under Saleh, Cardinals DL coach (coached J.J. Watt's 12.5-sack final season). Arrived in Houston with Ryans in 2023. Not from a single dominant coaching tree \u2014 instead a synthesizer who has absorbed multiple defensive philosophies across stops in Tennessee, Detroit, Cincinnati, Miami, Philadelphia, New York, Arizona, and Houston.",
+      "scheme_evolution": "In Miami, ran a more traditional 4-3 defense. In Houston, has built a scheme around Ryans' 49ers-rooted principles but stripped to maximum simplicity. Took over defensive play-calling from Ryans in Week 4 of 2025, and the defense became the NFL's #1 scoring unit (16.6 PPG). Key innovation: the NFL's lowest blitz rate (32nd) paired with the NFL's highest pass rush win rate (48.7%), proving pressure comes from talent and technique, not scheme complexity.",
+      "development_track_record": "Helped maximize Maxx Crosby-type players across stops. In Houston, oversaw Derek Stingley Jr.'s evolution into a two-time All-Pro, Kamari Lassiter's rookie breakout, Calen Bullock's immediate impact, and Will Anderson Jr.'s ascension to first-team All-Pro. Strong at developing young secondary players within a zone-heavy scheme that lets them play fast."
     }
   },
   "offense": {
-    "scheme_family": "McVay/West Coast hybrid with Erhardt-Perkins roots. Shift from Slowik's pure Shanahan wide zone to more gap concepts and QB-driven pre-snap reads under Caley.",
-    "base_personnel": "11 (~60%) and 12 (~35%). Uses condensed formations at highest rate in NFL. Occasional fullback usage (Caley values FB/TE toughness packages from Patriots background).",
-    "run_scheme": "Gap scheme primary (power, counter) \u2014 shift from predecessor's wide zone emphasis. Caley brought Rams-style gap concepts. Also retains some outside zone from Shanahan-tree holdovers on staff.",
-    "pass_concepts": "Play action, boot concepts, high-low reads, outside vertical stretches, crossing patterns. Caley's system gives QB more pre-snap control (audibles, protection calls) compared to Slowik's answer-built-in Shanahan system. Quick game and screens used to counter blitz pressure.",
-    "rpo_usage": "low to moderate",
-    "te_usage": "Significant. Caley is a career TE coach who developed Gronkowski, Hunter Henry, and Higbee. Expects TE to be flex/move piece in passing game and inline blocker in gap run schemes. 12 personnel used ~35% of snaps. Dalton Schultz integrated as receiving TE.",
-    "rb_usage": "Bell cow tendency with Joe Mixon/Nick Chubb. Gap scheme emphasizes downhill running. Moderate receiving role, but pass protection has been a major issue (RBs responsible for highest pressure rate in NFL in 2025)."
+    "scheme_family": "Erhardt-Perkins / McVay hybrid (Caley variant: 'New England roots with McVay sprinkles')",
+    "scheme_detail": "Caley's offense blends the New England Patriots' Erhardt-Perkins system \u2014 concept-based play-calling, gap/power run schemes, QB control at the line \u2014 with Sean McVay's formation diversity, motion usage, and play-action architecture. This is NOT a Shanahan-tree zone-run offense like predecessor Bobby Slowik ran. The shift is dramatic: from outside-zone-heavy (4th in OZ usage under Slowik) to gap/duo-dominant. Caley empowers C.J. Stroud with pre-snap audible authority, protection adjustments, and hot-route checks \u2014 something Stroud explicitly lacked under Slowik's Shanahan-tree system. The offense also incorporates tight end-centric passing concepts from Caley's extensive TE coaching background.",
+    "run_scheme": "Gap/duo/power primary. Significant departure from Slowik's outside zone emphasis. Duo runs that force vertical push with cutback options. Inside zone as a secondary concept. Just enough wide zone to run counter bootleg pass plays off of it. Caley was specifically brought to the Rams by McVay to help transition LA from outside zone to the NFL's #1 gap scheme team \u2014 he's now doing the same in Houston. The run game demands physical, downhill offensive linemen who can drive-block at the point of attack rather than reach-block laterally.",
+    "pass_architecture": "West Coast quick-game foundation with play-action shots layered on top. Motion before the snap to help Stroud diagnose coverages. RPOs off inside zone giving quick throws vs soft boxes. Bootlegs and rollouts with run-action misdirection. Short-to-intermediate timing routes (slants, crossers, digs) from Erhardt-Perkins concept-based calling. TE-centric intermediate concepts reflecting Caley's background. Stroud now has full autonomy to adjust protections, identify blitzes, kill run calls, and throw with timing against zone rotation.",
+    "personnel_tendencies": "11 personnel as base (3 WR), with significant 12 personnel usage (2 TE) reflecting Caley's TE emphasis and Houston's investment in Dalton Schultz. Some 21 personnel packages. Has used jumbo/tackle-eligible formations (Blake Fisher as extra lineman) when TEs were injured. Condensed formations, receiver stacks, and multiple looks from similar alignments \u2014 a McVay hallmark. Fullback usage is limited but present situationally.",
+    "motion_tempo": "Increased motion usage compared to Slowik era \u2014 a direct McVay influence. Motion used to create favorable angles in run game and identify coverages pre-snap for Stroud. Tempo is situational: uses quick-game tempo after first downs and explosive plays to prevent defensive rotation and disguise. Not a hurry-up base tempo team \u2014 Ryans wants ball control and clock management to support the defense."
   },
   "defense": {
-    "base_front": "4-3 (nickel base: 4-2-5)",
-    "alignment": "Even front (4-down linemen). Nickel personnel on field ~76-82% of snaps (among highest in NFL). Base 4-3 used only ~24% of snaps against heavy offensive personnel. One-gapping, penetrating front.",
-    "edge_rush_source": "4-3 DE hands-in-dirt. Will Anderson Jr. and Danielle Hunter are traditional 4-3 DEs who form arguably the best pass-rushing DE tandem in the NFL. Anderson (All-Pro) and Hunter (15 sacks in 2025) are the engine of the defense.",
-    "coverage_base": "Cover 3 (single high / MOFC) primary on early downs with strong safety rolled down to apex. Cover 2 man and match quarters on later downs. Split-field coverages used (press-man field side, zone boundary side). Simple coverage shells \u2014 they do not disguise or run exotic rotations. Roughly 70% zone, 26% man.",
-    "blitz_tendency": "light \u2014 32nd in blitz rate in 2025 (dead last). 32nd in simulated pressure rate. Generate pressure almost entirely through front four. Green dog blitzes only when assigned RB/TE stays in to block. True blitz rate even lower than the ~22% raw number.",
-    "lb_role": "Coverage-first, run-fitting LBs. Henry To'oTo'o and Azeez Al-Shaair are athletic and rangy \u2014 built for zone drops and run fits, not pass rushing. LBs asked to drop into coverage frequently. Al-Shaair used as QB spy against mobile QBs. LBs rarely blitz.",
-    "safety_usage": "Jalen Pitre is the x-factor \u2014 plays a hybrid nickel/star role (safety listed, plays slot DB/LB). Lines up near LOS, fits in run gaps like a LB, blitzes, and covers slot receivers. Highest-paid nickel in the NFL. Calen Bullock plays deep free safety (ball-hawk). Traditional split safety look with Pitre down and Bullock deep."
+    "scheme_family": "49ers/Saleh-tree 4-3 (simplified Ryans/Burke variant)",
+    "scheme_detail": "Houston runs what has been called the NFL's 'anti-defense' \u2014 while the league trends toward complexity, disguised coverages, and high blitz rates, Ryans and Burke have doubled down on simplicity and execution. The Texans ranked 32nd in blitz rate AND simulated pressure rate in 2025 yet finished #1 in scoring defense and #1 in pass rush win rate. The philosophy: let elite front-four talent create pressure while disciplined zone coverage eliminates threats. Structural simplicity allows all 11 defenders to play fast without overthinking assignments. This is the direct descendant of the 49ers defense Ryans ran, but stripped even further \u2014 fewer disguises, fewer exotic looks, more reliance on talent and technique.",
+    "front_structure": "4-3 base with a penetrating, attacking defensive line. DEs play in a 9-technique, edged up to cause disruption. The DL plays a one-gap, penetrating style \u2014 not two-gap read-and-react. Burke described it as 'attack mode \u2014 penetrate, disrupt, and reset the line of scrimmage.' Will Anderson Jr. and Danielle Hunter as edge bookends form the NFL's premier pass rush duo. Interior DTs (Sheldon Rankins, Denico Autry as hybrid DE/DT) rotate frequently to stay fresh. Houston plays base 4-3 on only ~24% of snaps (28th overall), overwhelmingly preferring nickel.",
+    "coverage_philosophy": "Zone-heavy with Cover 3 as the foundational shell. Ryans uses zone coverage at one of the highest rates in the NFL \u2014 man coverage is used sparingly despite having elite man-coverage corners (Stingley, Lassiter). This is by design: zone drops allow the secondary to play off the pass rush, keeping eyes on the quarterback and breaking on the ball. The coverage 'eliminates threats with incredible zone drops while matching routes with integrity from inside out.' When man coverage is deployed, it's typically in situational passing downs with Stingley shadowing the opponent's top receiver. Pattern-matching concepts let DBs play zone pre-snap but match man principles post-snap.",
+    "pressure_philosophy": "Generate pressure exclusively through the front four. Dead last in blitz rate (32nd in NFL) in 2025. This is not a weakness \u2014 it's the core philosophy. With Anderson and Hunter, Houston can win at the highest rate in the NFL (48.7% PRWR) rushing only four. Burke and Ryans use DL stunts and games to manipulate protection schemes rather than bringing extra rushers. This keeps seven defenders in coverage, which is why the secondary generates so many turnovers (league leaders in INTs). When they do blitz, it's a safety blitz or delayed LB rush to create confusion \u2014 but it's rare and situational.",
+    "sub_packages": "Nickel (4-2-5) is the de facto base defense, played on ~76% of snaps. Jalen Pitre operates as the nickel/LB hybrid \u2014 a chess piece who can align in the slot, in the box at LB depth, or as a safety. This mirrors how Ryans used Jimmie Ward in San Francisco. Almost no dime usage because the 11 defenders in nickel can all run and the box can win one-on-one matchups. The strong safety and nickel drop into the box pre-snap against heavier personnel, maintaining nickel alignment while adding run-game defenders through pre-snap rotation rather than personnel substitution."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "Nick Caley is the most TE-centric OC in the NFL \u2014 he spent his entire NFL coaching career developing elite receiving TEs (Gronkowski to All-Pro, Hunter Henry to career-high 9 TDs, Tyler Higbee to multi-year TD streaks). Houston uses 12 personnel ~35% of snaps and Caley's McVay/Erhardt-Perkins system features TEs as flex route runners in the slot and as play-action targets. A TE with elite receiving traits (route running, separation, hands) would be deployed as a true move piece in this offense, functioning like a big slot WR. This is the ideal landing spot for a receiving-first TE prospect."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The quarterback in Caley's system has dramatically more pre-snap responsibility than under the previous Shanahan-tree scheme. Stroud now adjusts protections, identifies blitzes, kills run calls, and checks to hot routes \u2014 full line-of-scrimmage ownership. The QB must process coverages pre-snap, deliver timing throws on rhythm, and execute play-action bootlegs. This is a pocket-centric system that asks the QB to be a field general, not a scrambler.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Caley's system features intermediate timing routes, play-action deep shots off bootlegs, and some downfield concepts from 12 personnel. Adequate arm strength is needed but the offense doesn't lean on pure arm talent to drive balls into tight windows like a Reid or Arians system."
+        },
+        "Accuracy": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The Erhardt-Perkins system demands anticipation throws on timing routes where the ball must arrive at the break point. Quick-game rhythm and intermediate crossers require elite ball placement. Caley's passing game lives on precision, not improvisation."
+        },
+        "Pocket Presence": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Houston's offensive line has been a persistent weakness. The QB must navigate a collapsing pocket, climb appropriately, and deliver from within structure. The system relies on pocket throws \u2014 the QB who panics and bails destroys the timing."
+        },
+        "Mobility": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Caley uses bootlegs, rollouts, and designed movement concepts, so some mobility is needed to execute these. But this is not a designed-run or scramble-based system. Functional athleticism matters more than elite speed."
+        },
+        "Decision Making": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The QB now has kill authority on runs, protection adjustments, and hot-route checks. This requires fast, accurate processing. Stroud has been given 'full ownership' of the offense at the line. A QB who can't process quickly will stall the offense before the snap."
+        },
+        "Leadership": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "Ryans values leadership deeply \u2014 he was 'Cap' in Houston as a player. The offensive culture flows through the QB. With a first-year play-caller in Caley, the QB must stabilize the huddle and command respect."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.12,
+          "importance": "high",
+          "reasoning": "This is the single biggest schematic shift from Slowik to Caley. Stroud explicitly said Caley's system asks him to 'take control' pre-snap with tools he didn't have before. A QB who can't read coverages and adjust pre-snap will not function in this system."
+        }
+      },
+      "ideal_archetype": "A poised, process-oriented pocket passer who commands the offense from the line of scrimmage. He diagnoses coverages pre-snap, adjusts protections, and delivers timing throws with precision. He can execute play-action boots and move within the pocket but isn't asked to create with his legs. Think Matthew Stafford in McVay's system or Tom Brady in the McDaniels-era Patriots \u2014 a field general who makes the right decision quickly and puts the ball exactly where it needs to be on rhythm.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Pocket-centric system requires seeing over the line. Both Brady and Stafford models were 6-3+. Caley's experience is with taller pocket passers."
+        },
+        "weight": {
+          "ideal": "215-240",
+          "floor": "210",
+          "reasoning": "Must withstand pocket hits behind a developing OL. Durability matters in a system that asks the QB to stand tall and deliver."
+        }
+      },
+      "development_context": "Caley's system gives the QB enormous pre-snap responsibility, which is teachable but requires high football IQ. The Patriots tree has historically developed QBs through scheme mastery rather than athletic gifts (Brady being the ultimate example). Caley can teach progressions, protection recognition, and timing. What must arrive: accuracy, pocket poise, and processing speed. A raw athlete who needs to learn to throw from the pocket is a poor fit.",
+      "scheme_fit_narrative": "We need a quarterback who can run the show at the line of scrimmage. This system gives him the keys \u2014 kill authority, protection calls, hot routes. He has to be smart enough to use those tools and accurate enough to make the timing throws. We're not asking him to create magic with his legs. We're asking him to diagnose, decide, and deliver.",
+      "archetype_examples": [
+        "Matthew Stafford",
+        "Tom Brady",
+        "Kirk Cousins"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "none",
-      "explanation": "Houston runs a 4-3 even front where all edge pressure comes from hands-in-dirt DEs (Anderson, Hunter). The defense ranked dead last (32nd) in blitz rate and simulated pressure rate in 2025. ILBs are coverage-first players who rarely rush the passer \u2014 they drop into zones and fit runs. An LB with pass-rush traits has almost no scheme pathway to be used as a rusher in this defense. Pass-rushing LB prospects get zero value boost for Houston."
+    "RB": {
+      "scheme_role": "The running back in Caley's gap/duo-heavy system is a downhill, physical runner asked to hit vertical creases and press the line of scrimmage. This is NOT a zone-read-and-dance scheme \u2014 the RB takes the handoff, reads the down block, and hits the cutback lane with authority. Duo and power concepts ask the back to run behind double-teams and make one decisive cut. The RB also must be capable in pass protection given the OL's inconsistency and is asked to contribute in the short passing game as a check-down option.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Gap/duo scheme demands a one-cut runner who can identify the cutback lane off double-teams quickly. The RB must read the down block and hit the crease vertically \u2014 hesitation kills gap runs."
+        },
+        "Contact Balance": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Duo runs generate vertical push but often result in traffic at the point of attack. The RB must absorb contact and fall forward for positive yardage. Caley's identity is 'staying on schedule' \u2014 the RB who goes down on first contact behind the line kills drives."
+        },
+        "Power": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Ryans explicitly wants a physical, run-the-ball-40-times-a-game identity. The back must be able to convert short-yardage and grind out yards between the tackles. This is a smashmouth run philosophy."
+        },
+        "Elusiveness": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "One cut and go \u2014 not a make-em-miss scheme. Some elusiveness helps on cutback lanes but the system doesn't ask the RB to create in space like a zone-read offense would."
+        },
+        "Speed": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Gap scheme creates vertical lanes that reward decisive runners more than fast ones. Top-end speed is nice for breaking long runs but the system generates more 4-6 yard gains than home runs."
+        },
+        "Pass Catching": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Caley's Erhardt-Perkins concepts use the RB as a pressure-release check-down. With a developing OL, the hot-route to the RB in the flat is a critical safety valve. Dalton Schultz and the RB share this intermediate/check-down role."
+        },
+        "Pass Protection": {
+          "weight": 0.12,
+          "importance": "high",
+          "reasoning": "Houston's OL has been a persistent weakness (52 sacks allowed in 2024). The RB must identify blitzing LBs and pick up pressure reliably. Caley's system asks the QB to hold the ball \u2014 the RB who can't protect leaves the QB exposed."
+        }
+      },
+      "ideal_archetype": "A downhill, physical between-the-tackles runner who makes one decisive cut and falls forward. He needs reliable hands and must be dependable in pass protection. Think Nick Chubb (pre-injury) in Cleveland or Kyren Williams in McVay's Rams \u2014 not an elite athlete but a consistent, tough, professional runner who gains what's available and converts short-yardage situations. The Texans specifically signed Chubb alongside Mixon for this exact profile.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "215-230",
+          "floor": "205",
+          "reasoning": "Gap scheme demands a back who can absorb contact at the point of attack. Sub-200 backs get swallowed by DL in the hole."
+        },
+        "40_yard_dash": {
+          "ideal": "4.45-4.55",
+          "floor": "none",
+          "reasoning": "Speed is not a primary differentiator in this gap scheme. Decisive first step and contact balance matter more than 40 time."
+        }
+      },
+      "development_context": "Caley's scheme can make an average athlete productive by creating defined lanes through gap blocking. Vision and contact balance are difficult to teach \u2014 they must arrive. Pass protection technique can be coached. The Belichick/McDaniels tree has historically gotten production from non-elite RB athletes (James White, Rex Burkhead, Rhamondre Stevenson) by fitting them to roles.",
+      "scheme_fit_narrative": "Give me a back who hits the hole with conviction and doesn't go down on first contact. We're going to create vertical lanes with our gap scheme \u2014 he needs to see them, hit them, and gain four yards. I also need him to pick up the blitz, because our line is a work in progress. Don't need a home-run hitter. Need a pro.",
+      "archetype_examples": [
+        "Nick Chubb",
+        "Kyren Williams",
+        "Rhamondre Stevenson"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "medium",
-      "explanation": "Caley's McVay/Patriots hybrid scheme does create checkdown and screen opportunities for RBs, and quick-game passing is used to counter blitz pressure. However, Houston's run scheme is gap-based and bell-cow oriented (Mixon/Chubb), prioritizing downhill power. The biggest RB concern in Houston is pass protection \u2014 RBs allowed the highest pressure rate of any backfield in the NFL in 2025. A RB who can catch AND pass protect gets a moderate boost, but pure receiving backs are not the primary need. Pass protection and physicality matter as much as hands."
+    "WR": {
+      "scheme_role": "In Caley's system, the WR1 (Nico Collins) is a high-volume target who wins contested catches and after-the-catch. The WR2/3 roles are scheme-dependent: the slot receiver (Christian Kirk profile) runs intermediate crossers and timing routes as a 'safety blanket,' while the outside WR2 (Jayden Higgins profile) is a big-bodied target who can win 50/50 balls and work the intermediate areas. The system demands precise route running on timing concepts \u2014 the ball arrives at the break, and the receiver must be where the QB expects him.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Erhardt-Perkins concept-based passing requires receivers to run precise timing routes. The ball is thrown before the break on many concepts \u2014 a receiver who freelances or rounds routes breaks the entire timing structure."
+        },
+        "Separation": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The system creates separation through scheme (motion, picks, rubs) more than individual ability. Useful but not the primary differentiator since Houston's zone-heavy defensive opponents often play off-coverage."
+        },
+        "Hands": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Timing throws arrive in tight windows. Drops destroy the offensive rhythm. Caley's quick-game depends on reliable hands to keep the chains moving. The WR1 (Collins archetype) especially must win contested-catch situations."
+        },
+        "YAC Ability": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Quick-game slants, crossers, and RPO throws are designed to get the ball in the receiver's hands with space to work. Yards after catch turn 5-yard completions into first downs \u2014 critical for an offense that wants to 'stay on schedule.'"
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Some speed is needed for play-action deep shots and to threaten vertically to open intermediate routes. But this isn't a speed-dominant vertical passing offense \u2014 it's an intermediate timing attack."
+        },
+        "Contested Catches": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "With Collins and Higgins, the Texans have invested in big-bodied receivers who win 50/50 balls. The scheme values WRs who can win in traffic and in the red zone where windows shrink. This is a deliberate personnel philosophy."
+        },
+        "Release Package": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Against press coverage, the WR must be able to get off the line cleanly to maintain route timing. The McVay influence uses motion to avoid press, but a WR who can't beat press on his own limits motion flexibility."
+        }
+      },
+      "ideal_archetype": "Two archetypes depending on role: The WR1 is a big-bodied, physical receiver who wins contested catches, dominates after the catch, and is a reliable target on all three levels. Think Nico Collins himself, or Puka Nacua in the Rams system \u2014 not a pure burner but a complete receiver who's always open enough because of size, hands, and route discipline. The slot/WR2 is a polished route runner who provides a safety-blanket presence on intermediate timing routes \u2014 think Cooper Kupp or Christian Kirk.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4 (outside), 5-10 to 6-1 (slot)",
+          "floor": "5-10",
+          "reasoning": "Caley and Houston have clearly invested in big-bodied outside receivers (Collins 6-4, Higgins 6-4) who can win contested catches. The slot can be smaller but must be reliable on timing routes."
+        },
+        "weight": {
+          "ideal": "200-220 (outside), 185-205 (slot)",
+          "floor": "185",
+          "reasoning": "Physical receivers who can absorb contact and generate YAC are preferred in this gap/power-identity offense."
+        }
+      },
+      "development_context": "Caley's background is as a TE coach, not a WR developer. Ben McDaniels (WR coach/pass game coordinator) has been retained from the previous staff and provides WR development continuity. Route timing and technique can be taught. What must arrive: hands, body control, and competitive toughness in contested-catch situations. Speed cannot be coached \u2014 if a prospect lacks adequate speed, they need to compensate with elite route running and hands.",
+      "scheme_fit_narrative": "We want receivers who are reliable. Timing routes demand precision \u2014 be where you're supposed to be, catch the ball, and get upfield. For the outside, give me a big body who can win 50/50 balls and doesn't drop passes in traffic. For the slot, give me a route technician who Stroud can trust on third down. We'll move guys around with motion to create matchups, but the receiver has to do his job when the ball arrives.",
+      "archetype_examples": [
+        "Nico Collins",
+        "Puka Nacua",
+        "Cooper Kupp"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "The Jalen Pitre role is the single most valuable hybrid safety position in the NFL. Ryans called Pitre 'the x-factor for our defense.' Pitre plays a star/nickel role \u2014 lined up near the LOS, he fits run gaps like a linebacker, covers slot receivers in man, and blitzes on occasion. He's listed as a safety but functions as a safety/LB/nickel hybrid. He had an 86.5 PFF overall grade (2nd among safeties) and an 88.1 coverage grade in 2025. Houston's 4-2-5 nickel defense is on the field 76-82% of snaps, making this hybrid safety/nickel role essentially a starter position. Any safety prospect with slot coverage ability, tackling physicality, run-fit instincts, and blitz capability gets a massive value boost for Houston. This is a scheme that turns a versatile safety into a top-35 player."
+    "TE": {
+      "scheme_role": "The TE is central to Caley's identity. His entire NFL career has been built around tight end production. Houston uses 12 personnel at a significant rate, and the TE is asked to be a dual-threat: a legitimate receiving weapon who can run a full intermediate route tree AND a capable inline blocker who can hold up in the gap/power run game. Dalton Schultz serves as the security-blanket receiver; the TE2 (Cade Stover, Brevin Jordan) provides blocking versatility. The ideal TE flexes between inline, slot, and wing alignments.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Caley is one of the NFL's premier TE developers (Gronkowski, Hunter Henry, Tyler Higbee). His offense features TEs in the progression as primary targets, not afterthoughts. The TE must be a legitimate receiving threat to justify the 12 personnel usage."
+        },
+        "Route Running": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "TE routes in this system include intermediate crossers, seam routes, option routes, and flat releases. The TE must run precise routes at the intermediate level to function as the 'safety blanket' in Caley's concept-based passing game."
+        },
+        "Blocking": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "The gap/duo run scheme demands the TE seal the edge, kick out linebackers, or double at the point of attack. Unlike a pure Shanahan scheme where the TE can be a move player, Caley's gap concepts need physical inline blocking. This was a weak point when TEs were injured and Houston had to use tackle-eligible formations."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Caley's TEs flex between inline, slot, wing, and motion positions. The TE must be athletic enough to threaten defenses from multiple alignments and create matchup problems against LBs in coverage."
+        },
+        "Hands": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "As a primary progression target, the TE cannot have drop issues. Schultz has been valued specifically as a 'major security blanket' for Houston's QBs. Reliable hands in traffic are non-negotiable."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Enough speed to threaten the seam and create separation vs LBs, but this is not a Pitts-in-Atlanta role where the TE is essentially a big WR. The TE needs functional NFL speed, not elite track speed."
+        }
+      },
+      "ideal_archetype": "A do-everything Y tight end who can block in the run game and be a legitimate receiving threat. Think Rob Gronkowski (Caley's greatest coaching achievement) or Hunter Henry \u2014 a complete tight end who can set the edge on duo runs, then run a seam route and come down with a contested catch over a linebacker. Not a move TE who can't block and not a blocking TE who can't catch \u2014 the hybrid who does both well.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-6",
+          "floor": "6-2",
+          "reasoning": "Inline blocking requires adequate size to match up with edge defenders. Receiving value increases with length for contested catches over LBs."
+        },
+        "weight": {
+          "ideal": "245-265",
+          "floor": "235",
+          "reasoning": "Gap scheme blocking demands mass to hold up at the point of attack. Sub-235 TEs get washed in the run game."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Must threaten the seam to create real matchup problems in 12 personnel. A TE who can't run past LBs limits the 12 personnel passing game."
+        }
+      },
+      "development_context": "This is the one position where Houston's coaching staff has an elite development edge. Caley is arguably the NFL's best TE developer \u2014 Gronkowski to All-Pro, Hunter Henry's peak years, Tyler Higbee's sustained production, Jonnu Smith's development. He can take a raw athlete with blocking ability and develop receiving technique, or take a receiving TE and improve their blocking fundamentals. A TE with raw talent and high athletic ceiling is an excellent developmental target for this staff specifically.",
+      "scheme_fit_narrative": "This is a tight end offense. Nick Caley built his entire career coaching tight ends, and he features them in his system. We need a guy who can block in our gap scheme and then beat linebackers up the seam. He doesn't have to be Gronk on day one \u2014 Caley will develop him. But he needs the athletic ceiling and competitive toughness to eventually become a dual-threat. The more things he can do, the more formations we can run.",
+      "archetype_examples": [
+        "Rob Gronkowski",
+        "Hunter Henry",
+        "Dallas Goedert"
+      ]
+    },
+    "OT": {
+      "scheme_role": "The OT in Caley's offense must be a physical drive-blocker who can execute gap/duo concepts at the point of attack. This is a significant departure from the Slowik era, which demanded lateral agility for outside zone reach blocks. Now the emphasis is on anchoring in pass protection and creating vertical displacement in the run game. The left tackle protects Stroud's blind side; the right tackle executes combo blocks and seals the edge on power/duo runs. Houston traded Laremy Tunsil and is building a new OL identity around physicality rather than athleticism.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Houston gave up 52 sacks in 2024 and 31 in 2025. Protecting Stroud is the #1 offensive priority. Caley's system asks the QB to hold the ball for timing throws \u2014 the OT must sustain blocks long enough for the play to develop."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Gap/duo scheme demands OTs who can execute down blocks, combo blocks, and seal the edge with physicality. The run game identity has shifted from lateral reach blocks to vertical displacement. OTs must move people at the point of attack."
+        },
+        "Footwork": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Both pass sets and run-game angles require clean footwork. However, the emphasis is on power sets and controlled aggression rather than the quick kick-slide needed for outside zone."
+        },
+        "Anchor": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Must hold up against power rushers who try to collapse the pocket. The pocket-based passing game is destroyed if the tackles get pushed into the QB's lap. Anchor matters more here than in a quick-release or scramble-based offense."
+        },
+        "Athleticism": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Some athleticism needed for combo blocks climbing to the second level, but this is NOT an outside zone scheme demanding elite lateral movement. The shift from Slowik to Caley explicitly reduced the athleticism demands on OTs."
+        },
+        "Strength": {
+          "weight": 0.11,
+          "importance": "moderate",
+          "reasoning": "Gap/power scheme rewards raw strength for drive blocking. The OT must generate movement against defensive linemen, not just mirror them."
+        }
+      },
+      "ideal_archetype": "A physical, powerful pass protector with a strong anchor who can also drive-block in the gap/power run game. Not a dancing, athletic zone-scheme tackle \u2014 a mauler who controls his man. Think of the New England Patriots' OT tradition under Scarnecchia (Nate Solder, Trent Brown) \u2014 big, strong, functional athletes who protect the pocket and move people in the run game. Cole Popovich (new OL coach) comes from that exact Scarnecchia lineage.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-7",
+          "floor": "6-3",
+          "reasoning": "Length helps in pass protection to keep edge rushers at bay. Gap scheme doesn't require the low pad level of zone blocking as much."
+        },
+        "weight": {
+          "ideal": "310-330",
+          "floor": "300",
+          "reasoning": "Mass matters for anchor and drive blocking in gap scheme. Lighter, quicker tackles fit zone schemes better than this one."
+        },
+        "arm_length": {
+          "ideal": "34+",
+          "floor": "33",
+          "reasoning": "Long arms create leverage advantage in pass protection against elite edge rushers (Houston faces them in practice daily with Anderson/Hunter)."
+        }
+      },
+      "development_context": "Cole Popovich, promoted to OL coach/run game coordinator, comes from the Dante Scarnecchia Patriots lineage. This coaching tree is known for developing physical, technique-sound linemen rather than relying on pure athleticism. Pass protection technique (hand placement, anchor drills, set points) can be developed. What must arrive: adequate length, functional strength, and the mentality to be physical. A finesse athlete will not develop into a gap-scheme blocker under this staff.",
+      "scheme_fit_narrative": "We changed our whole run-game identity. We're not asking tackles to reach-block on outside zone anymore. We're asking them to drive-block, combo-block, and protect the pocket with violence. Give me a big, strong, long tackle who can anchor against a bull rush and then pancake a DE on a duo run. Athletic upside is nice, but if he can't move people, he doesn't fit.",
+      "archetype_examples": [
+        "Trent Brown",
+        "Nate Solder",
+        "Penei Sewell"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior offensive linemen in Caley's system must be physical gap-scheme blockers who can execute double-teams, pull on power/counter concepts, and provide a stable pocket interior. The center must handle Stroud's new pre-snap responsibilities by identifying fronts and making protection calls. Guards must generate push at the point of attack on duo/gap runs and anchor against interior rushers in pass protection.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Pocket integrity starts with the interior. Stroud's timing throws require a clean interior pocket. The system suffered when interior pressure disrupted the QB's rhythm."
+        },
+        "Run Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Gap/duo scheme demands IOL who can execute double-teams and create vertical push. The interior must generate movement at the point of attack \u2014 this is the engine of the run game."
+        },
+        "Pulling": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Power, counter, and trap concepts require guards who can pull and lead through the hole. This is a core element of the gap scheme identity Caley brought from New England and the Rams transition."
+        },
+        "Strength": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Drive blocking on duo requires raw strength to move defensive tackles. The Patriots OL tradition under Scarnecchia and his disciples emphasizes strength and leverage over athleticism."
+        },
+        "Anchor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Interior pass protection demands holding ground against powerful DTs. If the interior collapses, the pocket-based passing game is destroyed regardless of how well the tackles block."
+        },
+        "Versatility": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Some positional flexibility is useful given Houston's OL turnover, but the system values specialist execution at each position more than utility-player versatility."
+        }
+      },
+      "ideal_archetype": "A physical, powerful interior blocker who excels at drive blocking and pulling. Think of the Patriots' IOL tradition \u2014 Shaq Mason's mauling in the gap scheme, or David Andrews' intelligence and consistency at center. Not a finesse zone-scheme guard who wins with lateral movement \u2014 a powerful, low-pad-level blocker who creates displacement and can pull through traffic to lead runs.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Gap scheme rewards lower pad level for leverage on drive blocks. Extremely tall guards can struggle getting under defensive tackles."
+        },
+        "weight": {
+          "ideal": "310-330",
+          "floor": "300",
+          "reasoning": "Mass generates push in gap blocking. The system demands physical presence at the point of attack."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.70",
+          "floor": "none",
+          "reasoning": "Pulling ability requires adequate change-of-direction. A guard who can't pull on power/counter limits the run scheme significantly."
+        },
+        "bench_press": {
+          "ideal": "28+",
+          "floor": "24",
+          "reasoning": "Upper body strength correlates with drive-blocking ability and the physical style this scheme demands."
+        }
+      },
+      "development_context": "Popovich comes from the Scarnecchia coaching tree, which has historically developed physical linemen through technique refinement. Hand placement, leverage, and footwork in the run game can be coached. What must arrive: adequate strength, physicality, and mental processing (especially for centers managing the protection scheme in Caley's system). A raw athlete with strength and nastiness is more developable than a technician who lacks power.",
+      "scheme_fit_narrative": "Our gap scheme lives and dies with the interior offensive line. We need guards who can double-team a defensive tackle off the ball and then pull to the second level. The center has to be smart \u2014 he's making protection calls that Stroud builds off of. Give me strong, physical players who want to finish blocks. Don't need them to dance \u2014 need them to drive people backward.",
+      "archetype_examples": [
+        "Shaq Mason",
+        "David Andrews",
+        "Joel Bitonio"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "The EDGE in Houston's 4-3 is a one-gap, penetrating defensive end aligned in a wide 9-technique. The DEs are the foundation of the entire defensive philosophy \u2014 the scheme is built to let them pin their ears back and attack the quarterback with a four-man rush. With Anderson and Hunter as the models, the EDGE is the most important position on defense. They must win one-on-one pass rush battles because the defense almost never blitzes (32nd in blitz rate). They also set the edge in the run game and must be disciplined enough to maintain gap integrity in a zone-coverage scheme.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Houston's entire defensive philosophy is 'win with four.' The EDGE must be able to generate pressure one-on-one because the defense sends the fewest blitzers in the NFL. If the edge can't win, the coverage collapses regardless of how good the secondary is."
+        },
+        "Bend": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Will Anderson Jr. wins with elite bend and flexibility around the corner. Burke's penetrating style demands DEs who can turn the corner and flatten to the QB. Power-only rushers who can't bend don't fit the 9-technique alignment."
+        },
+        "First Step": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Burke described the DL style as 'attack mode \u2014 penetrate, disrupt, reset the line of scrimmage.' An explosive first step is the trigger for the entire pass rush plan. The DE fires off the ball and the rest of the defense reads off his disruption."
+        },
+        "Power": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Some power is needed as a counter move and for setting the edge against the run. However, Anderson and Hunter win primarily with speed and bend, not bull rushing. Power is supplementary, not primary."
+        },
+        "Motor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Anderson led the NFL in pressures in 2025 by combining talent with relentless effort. In a defense that asks four players to generate all the pressure, each DE must bring maximum effort on every snap. No plays off."
+        },
+        "Run Defense": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The 9-technique alignment means the DE has edge-setting responsibilities. Must maintain outside leverage and force runs back inside. However, the penetrating style means the DE is crashing up-field rather than reading and reacting \u2014 run defense is more about discipline than gap-control technique."
+        }
+      },
+      "ideal_archetype": "An explosive, high-motor edge rusher who wins with speed, bend, and relentless pursuit. He pins back his ears and attacks \u2014 he's not asked to two-gap or read blocks. Think Will Anderson Jr. himself or a Nick Bosa \u2014 elite pass rushers who set the edge with their alignment and effort, generate pressure as solo acts, and never take plays off. The ideal EDGE in this defense is a premium pass-rush talent because the entire scheme depends on the front four winning.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "The 9-technique alignment benefits from length to control offensive tackles, but the penetrating style values explosiveness over size."
+        },
+        "weight": {
+          "ideal": "240-265",
+          "floor": "235",
+          "reasoning": "Must be stout enough to set the edge against the run but not so heavy that it compromises bend and first-step explosiveness."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.60",
+          "floor": "4.70",
+          "reasoning": "Closing speed to the QB is critical when the scheme doesn't use stunts or blitzes to create free rushers. The DE must win on his own."
+        },
+        "3_cone": {
+          "ideal": "sub-7.00",
+          "floor": "7.20",
+          "reasoning": "Bend and change-of-direction translate directly to corner-turning ability in the pass rush."
+        }
+      },
+      "development_context": "Rod Wright (DL coach) has helped develop Anderson into a first-team All-Pro. The staff can refine pass rush technique and develop a repertoire of moves. What must arrive: explosion, bend, and motor. A physically gifted athlete with a limited pass-rush repertoire can be developed; a technically sound but physically limited rusher cannot be coached into the explosive, one-gap attacker this scheme demands.",
+      "scheme_fit_narrative": "Our defense lives on the edge rush. We're not going to blitz to help you \u2014 you have to win your one-on-one battle. We need a DE who can beat an offensive tackle by himself, play after play, and never let up. Bend, explosion, and effort are non-negotiable. If you can rush the passer at an elite level, we'll build the rest of the defense around you.",
+      "archetype_examples": [
+        "Will Anderson Jr.",
+        "Nick Bosa",
+        "Danielle Hunter"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Interior defensive linemen in Houston's scheme are penetrating, one-gap players aligned as 3-techniques and 1-techniques. They are NOT two-gap space-eaters \u2014 Burke's scheme asks them to attack, get off the ball, and disrupt in the backfield. The DTs work in heavy rotation to stay fresh (Rankins, Autry, Settle, Togiai, Edwards have all contributed). The DT must collapse the interior pocket to prevent QBs from stepping up away from the edge rush, and must be disruptive enough against the run to stuff inside zone \u2014 which the Texans allowed only 3.67 YPC against in 2025.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "With the lowest blitz rate in the NFL, interior pressure must come from the DTs winning individual matchups. The DT collapsing the pocket complements the elite edge rush \u2014 if the QB steps up cleanly, Anderson and Hunter's work is wasted."
+        },
+        "Run Defense": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Houston was elite against inside zone (3.67 YPC allowed). The DT must control the A and B gaps, stuff runs at the line, and prevent offensive linemen from climbing to the second level to block LBs."
+        },
+        "First Step": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Burke's penetrating style asks DTs to fire off the ball and get up-field. The one-gap scheme rewards quick, disruptive DTs who shoot gaps rather than hold ground and read."
+        },
+        "Hand Usage": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Interior pass rush and run defense both depend on winning the hand battle against guards and centers. The DT must defeat blocks quickly to make plays in the backfield or maintain gap control."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The heavy rotation mitigates the need for a single DT to play 80% of snaps, but relentless effort during snaps on the field maximizes the rotation philosophy."
+        },
+        "Strength": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Base strength is needed to hold the point of attack, but the scheme values quickness and disruption over anchoring. This is a penetrating DT, not a nose tackle eating blocks for LBs."
+        }
+      },
+      "ideal_archetype": "A quick, disruptive interior rusher who plays with penetration and violence. Not a 340-pound nose tackle who absorbs blocks \u2014 a 290-310 pound athlete who fires off the ball and disrupts. Think Chris Jones in Kansas City or Sheldon Rankins at his best \u2014 interior players who create negative plays through explosiveness and hand technique. Denico Autry's hybrid DE/DT versatility is also valued \u2014 players who can play multiple spots along the front.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4",
+          "floor": "6-0",
+          "reasoning": "Low pad level is critical for the penetrating style. Shorter, powerful DTs who can get under offensive linemen's pads thrive in this system."
+        },
+        "weight": {
+          "ideal": "285-315",
+          "floor": "280",
+          "reasoning": "The penetrating style values quickness-to-power ratio. Undersized DTs who are explosive can succeed; oversized DTs who are stiff cannot."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-5.00",
+          "floor": "5.10",
+          "reasoning": "First-step quickness translates to penetration. The scheme doesn't ask DTs to two-gap \u2014 it asks them to shoot and disrupt."
+        }
+      },
+      "development_context": "Rod Wright (DL coach) and new assistant Frank Okam have developed the DT rotation effectively. Rankins was revived after leaving Cincinnati. Autry's hybrid role was created. The staff excels at getting production from rotational DTs who bring specific skills. A raw athletic DT with pass-rush potential can be developed through hand technique refinement. Two-gap/nose tackle types don't fit this scheme and won't be developed here.",
+      "scheme_fit_narrative": "We rotate defensive tackles aggressively to keep them fresh and attacking. We don't need you to play 70 snaps \u2014 we need you to be violent for 30-40 snaps. Get off the ball, win with your hands, and collapse the pocket. If you can pass rush from the interior, you complement our edge rushers perfectly. We don't ask DTs to eat blocks \u2014 we ask them to make plays.",
+      "archetype_examples": [
+        "Chris Jones",
+        "Sheldon Rankins",
+        "Denico Autry"
+      ]
+    },
+    "LB": {
+      "scheme_role": "Houston typically deploys only two LBs in their nickel-heavy scheme (one LB off the field 76% of the time). The MIKE is the defensive signal-caller and play-relayer \u2014 Azeez Al-Shaair in 2025 \u2014 who must be a physical, instinctive tackler who anchors the run defense and makes the defensive calls. The WILL is a more athletic, coverage-capable LB (Henry To'oto'o/Christian Harris profile) who must handle TEs and RBs in zone drops. LBs play off the defensive line \u2014 they read the DL's disruption and clean up plays behind them. Zone drops require processing route combinations rather than running with individual receivers.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "Al-Shaair led the Texans with 96 tackles as the team captain and emotional leader. In a scheme with only two LBs, missing tackles is catastrophic. The LB must be sure and physical in the run game."
+        },
+        "Coverage": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Zone drops require the LB to read route combinations and get to landmark areas in coverage. With Pitre functioning as the nickel/LB hybrid, the off-ball LBs handle intermediate zone responsibilities. Must cover TEs and RBs."
+        },
+        "Pass Rush": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "Houston blitzes LBs extremely rarely (32nd in blitz rate). The LB is almost never asked to rush the passer \u2014 that's the DL's job exclusively. Some delayed blitz ability is nice but it's a rare call."
+        },
+        "Instincts": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Ryans built the 49ers defense 'from the middle out' around instinctive LBs (Fred Warner). The Houston LB must diagnose run fits, recognize formations, and set the defense. Al-Shaair's 8 passes defensed came from reading QBs' eyes and breaking on balls \u2014 instinct-driven production."
+        },
+        "Athleticism": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "In a two-LB system, each LB covers more ground. Must be athletic enough to handle zone drops and chase plays sideline to sideline. But this scheme values instinct over raw athleticism."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "With only two LBs and Pitre sometimes playing deeper, the LBs must cover ground in the run game and underneath zones. Not as critical as in a 3-LB base defense, but important."
+        },
+        "Block Shedding": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The penetrating DL does a lot of the dirty work, but LBs still must defeat blocks from fullbacks, pulling guards, and TEs to make tackles. Burke's 'play off the DL' philosophy means LBs must shed cleanly after the DL disrupts."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "The MIKE relays the defensive calls and must process offensive formations pre-snap. Ryans demanded this of Fred Warner \u2014 'say it with authority.' The signal-calling LB needs to process quickly."
+        }
+      },
+      "ideal_archetype": "A physical, instinctive, sideline-to-sideline linebacker who is a sure tackler and capable zone dropper. Not a pass-rush specialist or a pure cover LB \u2014 a complete every-down linebacker who processes the game quickly and makes plays in all phases. The model is Azeez Al-Shaair himself \u2014 a former undrafted free agent who became a Pro Bowler through instinct, physicality, and leadership. Or Fred Warner in the 49ers' scheme, which is the direct ancestor of this one.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "225-245",
+          "floor": "220",
+          "reasoning": "Must be physical enough to defeat blocks and tackle power runners but athletic enough to drop in zone coverage."
+        },
+        "40_yard_dash": {
+          "ideal": "4.50-4.65",
+          "floor": "4.70",
+          "reasoning": "Two-LB system requires adequate range. Not asking for 4.4 speed but the LB must cover ground."
+        },
+        "3_cone": {
+          "ideal": "sub-7.00",
+          "floor": "7.20",
+          "reasoning": "Zone drops and changing direction in coverage require adequate agility."
+        }
+      },
+      "development_context": "Bill Davis (LBs coach) has been a trusted Ryans associate since their playing days in Philadelphia. Ryans personally developed Fred Warner from an uncertain rookie into the NFL's highest-paid LB. This staff knows how to develop instinctive, smart LBs. What must arrive: tackling reliability and competitive toughness. Coverage technique and zone-drop reads can be taught. A physical, smart player who processes quickly can be developed into this role.",
+      "scheme_fit_narrative": "We only play two linebackers most of the time, so both of them have to do everything. The MIKE has to set the defense and be our most dependable tackler. The WILL needs to be athletic enough to cover. We don't need LBs who rush the passer \u2014 our DL handles that. We need LBs who are smart, physical, and never miss tackles. Give me a guy like Azeez \u2014 he wasn't drafted and became a Pro Bowler because he's instinctive, physical, and plays every snap like it's his last.",
+      "archetype_examples": [
+        "Azeez Al-Shaair",
+        "Fred Warner",
+        "Roquan Smith"
+      ]
+    },
+    "CB": {
+      "scheme_role": "Cornerbacks in Houston's defense play primarily zone coverage despite having elite man-coverage talent. Stingley (CB1) and Lassiter (CB2) play predominantly zone with pattern-matching principles \u2014 they align in zone shell pre-snap but match routes post-snap with man technique. When man coverage is deployed situationally, Stingley shadows the opponent's top receiver. The CBs play off the pass rush \u2014 the front four creates pressure, and the CBs break on the ball when the QB is forced to hold it. This scheme has produced dominant ball-production numbers (Stingley 4 INTs, Lassiter 4 INTs in 2025).",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.14,
+          "importance": "moderate",
+          "reasoning": "Houston uses man coverage less than most teams, but Stingley's ability to shadow top receivers is a weapon deployed situationally. Man-coverage ability unlocks the defense's full versatility even though zone is the base."
+        },
+        "Ball Skills": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "This defense generates turnovers from the secondary at an elite rate. Stingley had the best passer rating allowed in the NFL (49.4). The CBs read the QB's eyes in zone, break on the ball, and make plays. Ball-hawking is the single most valued CB trait in this scheme."
+        },
+        "Zone Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Zone is the base coverage philosophy. The CB must read route combinations, maintain landmark integrity, and play off the pass rush. Pattern-matching zone requires understanding offensive concepts and making coverage adjustments post-snap."
+        },
+        "Speed": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The zone scheme protects against deep shots, but the CB must have recovery speed when beaten. Also needed to close on underneath routes after reading the QB's eyes. Lassiter and Stingley both have elite long speed."
+        },
+        "Press": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "While the base is zone, Houston's CBs press at the line to disrupt timing before dropping into zone. Stingley is elite at the press-bail technique \u2014 jamming the receiver and then flowing into his zone drop. Press ability enhances the zone coverage."
+        },
+        "Nickel": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "With Pitre playing the primary nickel/safety role, the CBs are primarily outside players. However, the outside CB2 in this system must handle the slot receiver when formations shift. Lassiter's versatility to play outside and some slot is valued."
+        }
+      },
+      "ideal_archetype": "A ball-hawking, zone-instinct corner who can press at the line and then flow into his zone drop. He reads the QB's eyes, breaks on the ball, and makes game-changing plays. He has the man-coverage ability to shadow when asked but lives in zone most of the time. Think Derek Stingley Jr. himself \u2014 a complete corner who is elite in zone, capable in man, aggressive at the catch point, and generates turnovers. Or a Jaire Alexander/Trevon Diggs type who combines coverage skill with playmaking.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Length helps at the catch point for contested passes and in press technique. Stingley (6-1) and Lassiter (6-0) both have adequate size."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.45",
+          "floor": "4.50",
+          "reasoning": "Recovery speed is critical in zone when the CB must close on intermediate routes after reading the QB. Also needed to match speed receivers in situational man coverage."
+        },
+        "weight": {
+          "ideal": "185-200",
+          "floor": "180",
+          "reasoning": "Must be physical enough to press and tackle in run support from the perimeter. Zone scheme demands more physical play than pure off-coverage man schemes."
+        }
+      },
+      "development_context": "Cory Undlin (defensive passing game coordinator) and Dino Vasso (DBs coach) have been outstanding developers. They guided Stingley from a struggling, injury-plagued first two years to a two-time All-Pro. Lassiter was a Day 2 pick who became a near-Pro Bowler as a rookie. This staff excels at developing zone instincts, press technique, and ball skills. A raw athlete with speed and length can be developed. What must arrive: competitive toughness and ball-tracking ability. The scheme will teach zone reads, but the CB must have the instinct to find the ball.",
+      "scheme_fit_narrative": "We play zone most of the time, but we need corners who can press and disrupt at the line before settling into their drops. The pass rush gives our corners time \u2014 they read the QB, break on the ball, and make plays. We want ball-hawks who create turnovers. Man-coverage ability is a bonus that unlocks our full package, but zone instincts and ball skills are the foundation. Look at what we did with Stingley \u2014 he went from underperforming to the best corner in football because this scheme lets him play to his strengths.",
+      "archetype_examples": [
+        "Derek Stingley Jr.",
+        "Kamari Lassiter",
+        "Charvarius Ward"
+      ]
+    },
+    "S": {
+      "scheme_role": "Houston's safety positions are differentiated. The free safety (Calen Bullock) is a deep-half/single-high Cover 3 safety who reads the QB and makes plays on the ball from centerfield. The strong safety/nickel hybrid (Jalen Pitre) is a chess piece who aligns in the slot, in the box at LB depth, or at safety depth depending on formation \u2014 this mirrors how Ryans used Jimmie Ward in San Francisco. C.J. Gardner-Johnson/Reed Blankenship provides the versatile, physical presence. The safety room is asked to play zone, read QBs, generate turnovers, and support the run without blitzing.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Primarily a zone-coverage scheme for safeties. Some man assignments on TEs for the nickel/SS, but the base responsibility is zone reads and landmark coverage."
+        },
+        "Range": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The Cover 3 shell demands a FS who can patrol centerfield and cover deep thirds. Bullock led all rookies in INTs in 2024 because of his range. The defense keeps seven in coverage, so each safety covers more ground."
+        },
+        "Ball Skills": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Houston's secondary collectively generates turnovers at an elite rate. Pitre had 4 INTs, Bullock had 5 as a rookie. The safeties read the QB in zone and break on the ball aggressively. Ball production is a primary evaluation criterion."
+        },
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "In a two-LB nickel defense, safeties are frequently the last line of defense in the run game. Pitre functions as a run-support player from his nickel alignment. Sure tackling is critical \u2014 missed tackles in the secondary are catastrophic."
+        },
+        "Speed": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Range in the deep third requires legitimate speed. The FS must be able to play single-high and get from the middle of the field to the sideline. The nickel/SS must have enough speed to cover slot receivers."
+        },
+        "Nickel": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Pitre's role as a safety/nickel hybrid is central to the defensive identity. The safety who can also play nickel provides enormous scheme flexibility, allowing Houston to stay in nickel alignment (76% of snaps) without substituting. A safety who can function in the slot is uniquely valuable to this defense."
+        }
+      },
+      "ideal_archetype": "Two archetypes: The FS is a deep-ranging centerfield ballhawk who reads QBs and creates turnovers. Think Calen Bullock or a young Earl Thomas \u2014 a rangy, instinctive safety who covers ground and makes plays on the ball. The SS/nickel hybrid is a versatile chess piece who can play in the slot, in the box, or at safety. Think Jalen Pitre or Jimmie Ward \u2014 a physical, smart player who creates chaos from multiple alignments and is equally comfortable covering a TE or filling a run gap.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Length helps in coverage against TEs (especially for the nickel/SS). The FS can be slightly smaller if he has elite range and ball skills."
+        },
+        "weight": {
+          "ideal": "195-215",
+          "floor": "190",
+          "reasoning": "The nickel/SS must be physical enough to play in the box and tackle. The FS can be lighter if he has elite coverage ability."
+        },
+        "40_yard_dash": {
+          "ideal": "sub-4.45",
+          "floor": "4.50",
+          "reasoning": "Range demands speed. The FS must cover deep ground in the Cover 3 shell. The nickel must close on slot receivers."
+        }
+      },
+      "development_context": "Stephen Adegoke (safeties coach) and Undlin/Vasso have developed both Bullock and Pitre into elite performers. Pitre was moved from a traditional safety role to the nickel hybrid chess piece position under this staff. Bullock was developed immediately as a rookie free safety. This staff excels at identifying versatile secondary players and creating roles that maximize their skills. A safety with coverage instincts and positional versatility can be developed \u2014 the scheme will create a role for him.",
+      "scheme_fit_narrative": "We need two kinds of safeties. The free safety has to patrol the deep middle and make plays on the ball \u2014 that's his job, period. Range and ball skills. The strong safety/nickel has to be our Swiss Army knife \u2014 he plays everywhere. If you can cover a tight end, fill a run gap, and play the slot, you fit. Versatility is the key. We'll never have enough versatile defensive backs in this scheme.",
+      "archetype_examples": [
+        "Calen Bullock",
+        "Jalen Pitre",
+        "Jimmie Ward",
+        "Talanoa Hufanga"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Houston's draft value map is defined by two extremes: the TE-specialist OC and the hybrid safety defense. On offense, Nick Caley's entire coaching identity is built around maximizing tight ends \u2014 any TE prospect with elite receiving traits (route running, separation, YAC) should be valued significantly higher for HOU than their raw positional grade suggests, as Caley will deploy them as true move pieces in 11 and 12 personnel. On defense, the Jalen Pitre 'star' role is the NFL's premier hybrid safety position \u2014 a safety with box physicality, slot coverage skills, and blitz instincts gets an enormous boost. Conversely, pass-rushing LBs get ZERO boost here; Houston's 4-3 front generates all pressure from its DE tandem and ranked dead last in blitz rate. LBs must be coverage-first athletes who can run and drop. Edge rushers must be traditional 4-3 hands-in-dirt DEs with pass rush bend and power \u2014 stand-up OLB types are a poor fit. On the offensive side, RBs must be able to pass protect; receiving ability alone is insufficient given HOU's league-worst RB pressure rate. The gap-scheme run game favors physical, downhill runners over finesse backs.",
+  "scheme_draft_intelligence": "The Houston Texans' 2026 draft approach will be shaped by a clear offensive need-set and a defense that is already among the NFL's elite. Offensively, the shift from Bobby Slowik's Shanahan-tree zone scheme to Nick Caley's Erhardt-Perkins/McVay hybrid has fundamentally changed what Houston needs from its offensive linemen. The outside-zone-to-gap-scheme transition means Houston now values physical, powerful OL who can drive-block and pull rather than athletic, lateral-movement zone blockers. This creates a potential value differential: OL prospects with 'old school' power profiles who other teams might overlook for lacking modern zone-scheme athleticism could be premium fits for Houston's gap-heavy system. The offensive line \u2014 which traded away Laremy Tunsil \u2014 remains the most pressing need, particularly at tackle and guard.\n\nCaley's TE-centric background creates another hidden value opportunity. A tight end prospect with dual-threat ability (blocking plus receiving) would get elite development under arguably the NFL's best TE coaching pedigree. Prospects who are raw receivers but willing blockers \u2014 types that pure passing-game teams would undervalue \u2014 could thrive here because Caley can develop the receiving side while leveraging the blocking ability immediately in the gap scheme. The Texans should be aggressive targeting TE prospects that other teams view as 'projects.'\n\nDefensively, the scheme's simplicity and talent-dependent nature means Houston should prioritize high-floor, scheme-versatile defensive players rather than scheme-specific specialists. The defense doesn't ask exotic things of players \u2014 it asks them to play fast, play smart, and win one-on-one battles. This means athletic, instinctive defenders are valued over technical specialists who need a specific system to produce. The secondary development pipeline (Stingley, Lassiter, Bullock, Pitre) has been extraordinary, suggesting Houston can continue to develop Day 2 and Day 3 DBs at a high level. The LB position remains the relative weakness \u2014 a coverage-capable LB who can contribute immediately alongside Al-Shaair would be a smart investment.\n\nHistorically, DeMeco Ryans and Nick Caserio have heavily invested in defense through the draft (12 of 27 picks in three years). The 2025 offseason signaled a pivot toward offensive investment, and the 2026 draft should continue that trend. With the defense largely locked in through extensions (Hunter, Anderson forthcoming, Rankins, Blankenship), draft capital can be focused on OL, WR depth, and potentially a running back to replace the production lost when Joe Mixon was unavailable for most of 2025.\n\nThe most significant coaching-staff-driven draft edge Houston possesses is the combination of Caley's TE development expertise and the defensive staff's ability to develop secondary players. These two positional groups represent Houston's highest developmental upside relative to other teams. A team that drafts raw TEs or Day 2 DBs for Houston is making picks that will outperform their draft position because of the coaching context. Conversely, Houston should be cautious about investing premium capital in DL \u2014 the rotation-heavy approach means they can get production from mid-round DTs rather than needing a first-round interior presence.",
   "confidence": "high",
   "sources": [
-    "Houston Texans official coaching staff page (houstontexans.com)",
-    "Pro Football Reference 2025 Houston Texans (offensive scheme: West Coast, defensive alignment: 4-3)",
-    "MatchQuarters.com \u2014 'The Houston Texans Defensive Scheme: Winning With Simplicity' (Jan 2026)",
-    "GoLongTD.com \u2014 'We're savages: The Houston Texans defense aims for history' (Jan 2026)",
-    "SI.com \u2014 'DeMeco Ryans Highlights X-Factor of Texans Elite Defense' on Jalen Pitre (Dec 2025)",
-    "NFL.com \u2014 'Texans hiring Rams assistant Nick Caley as OC' (Feb 2025)",
-    "ESPN \u2014 'The Texans defense is soaring off belief, guidance from DeMeco Ryans' (Jan 2025)",
-    "Stormcloud Blog \u2014 'Wildcard Preview: Scouting the Houston Texans Defense' (Jan 2025)",
-    "SI.com Patriots \u2014 'Patriots Comprehensive Blueprint to Beating Texans Defense' (Jan 2026)",
-    "HoustonStressans.com \u2014 'Why the Texans Offense Is Struggling' and coaching staff analysis (2025)",
-    "HawkBlogger.com \u2014 'Texans Will Test Seahawks With Elite Defense' (Oct 2025)",
-    "BattleRedBlog.com \u2014 'Post-mortem on the 2025-26 Houston Texans' (2026)",
-    "Click2Houston \u2014 Nick Caley OC hiring and Pitre nickel role analysis (2024-2025)",
-    "CBS Sports \u2014 Pitre PFF grading and role analysis (Jan 2026)",
-    "SportsInfoSolutions \u2014 'NFL Playoff Team Offensive Schemes' condensed formation data (Jan 2025)",
-    "Wikipedia \u2014 DeMeco Ryans, Nick Caley, Matt Burke, 2025 Houston Texans season pages"
+    "Houston Texans official coaching staff announcements (houstontexans.com, February 2025)",
+    "Pro Football Reference 2025 Houston Texans team page",
+    "ESPN: Texans revamped offense training camp article (July 2025)",
+    "NFL.com: C.J. Stroud on Nick Caley pre-snap control (2025)",
+    "MatchQuarters: Houston Texans Defensive Scheme analysis (January 2026)",
+    "Brett Kollmann analysis of Nick Caley gap scheme transition",
+    "Click2Houston: Nick Caley offense analysis (September/October 2025)",
+    "Battle Red Blog: Post-mortem on 2025-26 Texans",
+    "SI.com: DeMeco Ryans coaching profile",
+    "PFF: DeMeco Ryans 49ers defensive scheme analysis",
+    "Toro Times: Matt Burke defensive spotlight (November 2025)",
+    "Sharp Football Analysis: 2025 Texans defense preview",
+    "FOX 26 Houston: 2026 Pro Bowl selections",
+    "ESPN All-Pro analysis (Will Anderson Jr., Derek Stingley Jr.)",
+    "SI Texans: Projected depth chart with Blankenship signing",
+    "Pats Pulpit/Boston Herald: Nick Caley coaching background analysis",
+    "FantasyPoints: Rushing scheme fits analysis (2025)",
+    "Turf Show Times: Rams-Texans offensive comparison",
+    "Wildcard Preview: Scouting the Houston Texans Defense (January 2025)",
+    "The Ringer: 49ers Defensive Success under DeMeco Ryans",
+    "Wikipedia: Matt Burke, Nick Caley, 2025 Houston Texans season"
   ]
 }

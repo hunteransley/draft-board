@@ -6,70 +6,736 @@
       "name": "Aaron Glenn",
       "tenure_years": 2,
       "background": "defensive",
-      "scheme_philosophy": "Aggressive, man-coverage-heavy defense built on physicality, pressure, and versatile safety play. Played under Bill Parcells and Bill Belichick; coached under Dennis Allen in New Orleans and alongside Dan Campbell in Detroit. Will call the defensive plays himself in 2026. CEO-style manager on offense, delegates playcalling to OC."
+      "coaching_tree": "Bill Parcells tree (as player) \u2192 Dennis Allen / Saints secondary (as coach) \u2192 Dan Campbell / Detroit Lions DC. Blends Parcells toughness with New Orleans coverage versatility. Played under Belichick as Jets DC in late 1990s.",
+      "scheme_philosophy": "Aggressive, man-coverage-first defensive identity. Glenn described his Detroit defense as 'a tough, physical, violent operation that loves to play man coverage.' Emphasizes attacking the QB through creative blitz packages, Cover 0 usage, and front disguise. Values hybrid players who can play multiple roles. Adapts scheme to personnel rather than forcing players into rigid systems. Will call defensive plays himself in 2026 after firing DC Steve Wilks mid-2025 season."
     },
     "offensive_coordinator": {
       "name": "Frank Reich",
-      "scheme_tree": "West Coast / Erhardt-Perkins hybrid; Peyton Manning Colts tree, Doug Pederson/Eagles influence",
-      "play_caller": true
+      "coaching_tree": "Peyton Manning / Tom Moore Colts QB room \u2192 Ken Whisenhunt (Chargers) \u2192 Doug Pederson / Andy Reid tree (Eagles Super Bowl LII) \u2192 Indianapolis HC. A West Coast foundation influenced by the Reid tree's spread elements and Manning-era timing concepts.",
+      "scheme_evolution": "As Eagles OC (2016-17), Reich co-built a Super Bowl-winning offense featuring RPOs, play-action, and versatile TE usage. In Indianapolis (2018-22), he developed a multiple run scheme (inside zone, split zone, power, duo) and a quick-passing game built around QB footwork. His recent stops (2022 Colts, 2023 Panthers) were disasters \u2014 fired mid-season in consecutive years. Has been out of the NFL for two years (Stanford interim HC in 2025). Historically reliant on 11 personnel (three WR sets) at very high rates.",
+      "development_track_record": "Excellent QB developer during peak years: maximized Andrew Luck's comeback (2018), got career year from Philip Rivers (2020), helped Carson Wentz to MVP-caliber play in Philly. Developed Jonathan Taylor into league-leading rusher. However, failed to develop Bryce Young in Carolina. Strong track record with offensive lines \u2014 the 2018-19 Colts OL went from worst to best under his watch with Chris Ballard's talent."
     },
     "defensive_coordinator": {
       "name": "Brian Duker",
-      "scheme_tree": "Aaron Glenn / Detroit Lions tree; Baltimore Ravens background under John Harbaugh; secondary specialist",
-      "play_caller": false
+      "coaching_tree": "Baltimore Ravens analyst \u2192 Aaron Glenn protege in Detroit (2021-23, rising from defensive assistant to safeties coach to DBs coach) \u2192 Miami Dolphins pass game coordinator/secondary coach (2024-25). First-time DC; Glenn will call defensive plays.",
+      "scheme_evolution": "Duker is Glenn's hand-picked lieutenant who learned his system from the ground up in Detroit. In Detroit, he coached Kerby Joseph into a standout rookie safety (4 INTs, 2 FF in 2022) and oversaw a secondary that produced three defenders with 3+ INTs in 2023. In Miami, he was the pass game coordinator under Anthony Weaver. Duker's role is to manage the secondary and game-plan passing downs while Glenn calls plays.",
+      "development_track_record": "Developed Kerby Joseph from a third-round pick into one of the NFL's best ball-hawking safeties. Helped Brian Branch's development as a hybrid safety/nickel in Detroit. Track record is strongest with safeties and slot defenders \u2014 exactly what the Jets need after recording zero interceptions in 2025."
     }
   },
   "offense": {
-    "scheme_family": "West Coast with modern RPO elements",
-    "base_personnel": "11",
-    "personnel_tendencies": "Reich averaged 72% 11 personnel across his last six seasons as HC; 87% in Carolina 2023, 77% in Indianapolis 2022. Remainder is primarily 12 personnel. Virtually no 21/22 personnel usage (3% and 0.5% respectively). Expect 65-80% 11 personnel.",
-    "run_scheme": "Inside zone / man-duo primary; outside zone used sparingly, well below league average. Between-the-tackles emphasis.",
-    "pass_concepts": "Triangle reads over the middle of the field, short-to-intermediate emphasis. Favors dig/in routes and drag routes at league-leading rates. Below-average go/post route usage. No-huddle and tempo elements. Play action usage is variable (high under Luck, low in recent years). Screens and YAC-oriented concepts. Aggressive on fourth down.",
-    "rpo_usage": "moderate to high",
-    "te_usage": "Primary TE in 11 personnel as inline blocker with receiving role; TEs accounted for 37.2% of Colts TD receptions under Reich (league avg 28.5%). When in 12 personnel, TEs flex and create mismatches. TE is a red zone weapon, not a pure move piece.",
-    "rb_usage": "Bell cow with significant receiving role. Colts RBs averaged 117 targets and 663 receiving yards per season under Reich. Pass-catching ability highly valued."
+    "scheme_family": "Reid-tree West Coast (Reich variant) \u2014 spread-oriented, 11-personnel-heavy, timing-based passing with diverse run scheme",
+    "scheme_detail": "Reich's offense descends from the Andy Reid / Doug Pederson coaching tree but is filtered through his Peyton Manning-era roots in Indianapolis. Unlike pure Shanahan-tree offenses that lean on outside zone and pre-snap motion, Reich uses multiple run schemes (inside zone, split zone, duo, power, pin-and-pull) and attacks through QB footwork-driven timing routes. His passing concepts emphasize getting the ball out quickly to open receivers through mesh, drive, levels, and dagger concepts. He incorporates RPOs as a complement to the run game \u2014 not as a primary weapon \u2014 and builds his play-action shots off a credible rushing attack. Reich has historically been heavy on 11 personnel (three WRs), using it at rates well above league average across six seasons as a play-caller. His 2022-23 teams ranked among the highest in 11 personnel usage. This represents a shift from the 2025 Jets under Engstrand, which tried to emulate Detroit's heavier 12/13 personnel approach.",
+    "run_scheme": "Multiple and diverse \u2014 this is what distinguishes Reich from Shanahan-tree coaches. He mixes inside zone, split zone (with the TE sealing the backside), duo (double teams at the point of attack), power, counter, and pin-and-pull schemes. The Colts OL under Reich famously featured all five linemen capable of pulling. Split zone was a foundational concept in Indianapolis, often paired with play-action where the TE fakes the seal block and leaks into the flat. Reich values OL versatility \u2014 his linemen must execute both zone and gap concepts.",
+    "pass_architecture": "Short-to-intermediate timing routes are the foundation: mesh concepts, drive routes (shallow crossers), levels concepts, spot routes, and dagger plays. The ball comes out fast at the top of the QB's drop. Play-action is a secondary weapon built off the run game, especially split-zone action with TEs leaking into routes. RPOs are used as a run-game complement, not a primary passing tool. Deep shots are occasional \u2014 typically post-dig (Yankee) concepts and flood routes off play-action. Screen passes are a significant part of the toolkit, used to get playmakers the ball in space. Reich's offenses have historically ranked well in YAC and screen efficiency.",
+    "personnel_tendencies": "Heavily 11 personnel (three WR, one TE, one RB). Reich's consistent reliance on 11 personnel across six consecutive years makes this a core philosophical commitment. In his best years (2018-20 Colts), he mixed in meaningful 12 personnel with versatile TEs (Doyle, Ebron), but 11 was still dominant. Multi-TE sets are used situationally rather than as a base. Unlike the 2025 Jets under Engstrand (which tried Detroit-style heavy sets), expect a more spread-out offense in 2026.",
+    "motion_tempo": "Moderate motion \u2014 Reich uses pre-snap motion primarily to identify defensive coverage (man vs zone reads) rather than to create blocking angles like Shanahan-tree coaches. Tempo varies: Reich favors no-huddle elements to keep defenses off-balance but is not a full-time hurry-up coach. He has described his philosophy as 'multiple, attack, up-tempo' but in practice tends toward a controlled, methodical pace with burst tempo mixed in."
   },
   "defense": {
-    "base_front": "4-3",
-    "alignment": "Even front (4-down) primary; capable of mixing in odd fronts (3-3-5 nickel) seamlessly. Glenn ran 4-3 as his base in all four Detroit seasons but used tite fronts and 3-man looks situationally. Nickel is the true base given modern NFL 11-personnel rates.",
-    "edge_rush_source": "4-3 DE hands-in-dirt primary; DEs may occasionally stand up. Edge rushers are traditional defensive ends, not OLB stand-up types.",
-    "coverage_base": "Man-heavy (Cover 1 primary, 35%+ usage in Detroit 2024), with quarters/split-field zone concepts mixed in. Two-man coverage influence from Saints tenure. Aggressive man-to-man approach, corners expected to play on islands. Glenn evolved from zone-heavy early in Detroit to man-dominant once he acquired the right personnel.",
-    "blitz_tendency": "heavy (Glenn blitzed on 56% of dropbacks in key games; extensive Cover 0 usage; described as aggressive blitzer who uses variety of blitz packages including double edge rushers, DL twists, safety blitzes, and delayed rushes)",
-    "lb_role": "Traditional run-and-coverage LBs in a 4-3 scheme. ILBs are communicators and box defenders, not primary pass rushers. Glenn values LBs who can cover and fit the run. Hybrid LBs who can handle slot coverage in base packages are prized.",
-    "safety_usage": "Extremely high value on safety play. Glenn built the Lions' defense around the Kerby Joseph / Brian Branch safety tandem. One safety plays the post (deep), one plays down/box as a versatile man-coverage / slot defender. Safety who can play nickel-slot-box roles and communicate coverages is critical. Glenn's system requires safeties to handle multiple coverage responsibilities and occasionally blitz."
+    "scheme_family": "Multiple hybrid front (Glenn system) \u2014 man-coverage-dominant with aggressive blitzing and front versatility",
+    "scheme_detail": "Glenn's defensive philosophy, which he will personally call for the Jets in 2026, is built on three pillars: (1) physical man coverage that allows corners to play on islands, (2) aggressive pressure through varied blitz packages including Cover 0, and (3) schematic fluidity between odd and even fronts. In Detroit, Glenn ran a base 4-3 that evolved to incorporate 3-4 elements, 3-3-5 looks, and Tite fronts depending on matchups. He was the #1 team in base defense usage in 2024 while also running complex split-field coverages. The hiring of DL coach Karl Dunbar (13 years of 3-4 experience) signals more odd-front looks in 2026. Glenn values hybrid players who can blur positional lines \u2014 safeties who cover like corners, linebackers who rush like edges, and defensive linemen who can play multiple techniques.",
+    "front_structure": "Multiple \u2014 primarily 4-3 base with significant 3-4 odd and 3-3-5 nickel elements. Glenn ran both odd and even fronts seamlessly in Detroit. The Dunbar hire (Steelers' 3-4 DL coach for 8 years, developed the Williams Wall in Minnesota's 4-3) suggests the Jets will use more odd-front alignments in 2026. Glenn's DL must be able to align in multiple techniques \u2014 a 3-tech who can also play 4i, a nose who can shade to 1-tech. One-gap penetration is the philosophy, not two-gap reading. Glenn explicitly stated in 2022 he wanted 'attack technique' from his linemen, not a read-and-react style.",
+    "coverage_philosophy": "Man-coverage dominant with quarters zone as the secondary shell. In Detroit's 2024 season, the Lions were second in Cover 1 usage (35.2%) behind only the Browns. Glenn also ranked 8th in quarters usage. Against key opponents (Week 18 vs Minnesota), Glenn played man coverage on 66.7% of snaps \u2014 the second-highest rate by any defense in a single game that season. Glenn's roots in New Orleans featured heavy two-man coverage (Cover 2 Man), giving him versatility to play both single-high and two-high man shells. He values corners who can press and mirror, and safeties who can play man on TEs and slot receivers while also ranging to the post.",
+    "pressure_philosophy": "Aggressive and creative. Glenn blitzed on over 50% of dropbacks in key 2024 games. He uses Cover 0 blitzes at high rates \u2014 14 Cover 0 snaps in one game was a season-high for any defense. Pressure comes from everywhere: safety blitzes, LB delayed rushes, DB blitzes, and DL twists. Glenn values generating pressure with four rushers when possible but is unafraid to bring extra. He described his philosophy as 'attack the quarterback' and his Lions teams generated high pressure rates even after losing Aidan Hutchinson to injury.",
+    "sub_packages": "Glenn was 29th in nickel usage in Detroit (2024), preferring base defense to sub-packages. He expanded what base personnel could do \u2014 running split-field coverages and spread defensive concepts from base. When in sub-packages, he uses a 3-3-5 nickel with a hybrid safety/nickel (Brian Branch's role in Detroit). The nickel defender in Glenn's system is a safety-type who can cover the slot in man, blitz, and play run support \u2014 not a small corner. This role is critical and mirrors what he wants to recreate in New York."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "medium",
-      "explanation": "Reich's offense historically features TEs as meaningful red zone targets (37.2% of TD receptions in Indy, vs 28.5% league avg), and TEs are involved in 12-personnel passing concepts with triangle reads and play action. However, his extreme 11 personnel lean (72% career avg) means the TE1 is often the only TE on the field, limiting multi-TE receiving opportunities. The TE functions more as an inline weapon with receiving upside than a flexed-out move piece. A receiving TE adds value, but not at WR-level premium."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "Reich's QB must operate a timing-based passing game with quick decision-making at the top of his drop. He reads coverage pre-snap using motion, executes RPO reads post-snap, and delivers accurate short-to-intermediate throws on rhythm. The QB does not need to be a dynamic runner but must be able to manage the play-action game and execute occasional bootleg and rollout concepts. Reich's system asks the QB to work through progressions \u2014 his offenses have historically featured low first-read pass rates, meaning the QB must process multiple options.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Reich's offense lives on short-to-intermediate timing routes. Arm strength matters for occasional deep shots (Yankee post-dig, flood concepts) and throwing into tight windows on crossers, but this isn't a vertical attack. Rivers and Matt Ryan succeeded in this system without elite arm talent."
+        },
+        "Accuracy": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The defining trait for a Reich QB. His offense is built on timing routes where the ball must arrive at the top of the drop \u2014 mesh concepts, drive routes, levels. Reich has stated his QB philosophy is 'this game is played from the ground up' with emphasis on footwork driving accurate throws. Philip Rivers' anticipation accuracy made him the best QB in Reich's system."
+        },
+        "Pocket Presence": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Reich's QB must survive in the pocket long enough to work through progressions. His low first-read rate means the QB is often holding the ball to his second or third option. With a Jets OL that is still being built, pocket navigation is critical. Andrew Luck's pocket instincts were central to the 2018 Colts' success."
+        },
+        "Mobility": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Not a primary requirement \u2014 Rivers, Ryan, and Luck were not designed runners \u2014 but mobile QBs help the RPO game and can extend plays on bootlegs. Justin Fields' mobility was valued in 2025. Reich uses some QB-designed rollouts and boot concepts that benefit from a mobile passer."
+        },
+        "Decision Making": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Reich's multi-read progressions and RPO decision-making demand a QB with fast processing. His offenses feature conflict defenders that the QB must read post-snap. The low first-read pass rate across his career means this system puts heavy cognitive demands on the QB. Poor decision-making was a key factor in the 2022-23 collapses."
+        },
+        "Leadership": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "Important for any franchise QB but not scheme-specific. Reich has worked with diverse QB personalities (Luck's quiet excellence, Rivers' fiery leadership, Wentz's struggles). The Jets' rebuilding situation elevates the need for a steady presence."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "Reich uses pre-snap motion to give the QB coverage reads (man vs zone). The QB must process this information and adjust protection calls. However, Reich's system does more of this schematic heavy-lifting than systems that ask the QB to audible independently like Manning's did."
+        }
+      },
+      "ideal_archetype": "A pocket-centric, high-processing QB who delivers accurate timing throws and can work through multi-read progressions. The ideal is a player with Philip Rivers' anticipation accuracy, Andrew Luck's pocket feel, and enough mobility to execute bootlegs and RPO keeps. This is not a system for a pure gunslinger or a run-first athlete \u2014 it's for a QB who can get the ball out fast to the right receiver at the right time. Think Kirk Cousins in his prime or Derek Carr at his best \u2014 smart, accurate, decisive in the pocket.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-4",
+          "floor": "6-0",
+          "reasoning": "Pocket passers in Reich's system benefit from height to see over the line and deliver timing throws into windows. Rivers (6-5), Luck (6-4), Wentz (6-5), Ryan (6-4) \u2014 every successful QB in Reich's system has been 6-2+."
+        },
+        "arm_strength": {
+          "ideal": "Above average",
+          "floor": "Average",
+          "reasoning": "Must be able to drive the ball on deep crossers and occasional vertical shots. Rivers succeeded with average arm strength through elite anticipation, so the floor is manageable."
+        }
+      },
+      "development_context": "Reich has a strong track record developing QBs during his peak years \u2014 he revived Andrew Luck's career in 2018, got the best out of Rivers in 2020, and co-developed Wentz into an MVP candidate in Philly. However, his most recent QB development (Bryce Young in Carolina) was a disaster. The concern is whether a 64-year-old coach two years removed from the NFL can still develop a young passer. The Jets may be better served finding a veteran who arrives ready for the system than a developmental project.",
+      "scheme_fit_narrative": "This system needs a smart, accurate pocket passer who can process progressions and deliver timing throws. We're not looking for a highlight-reel arm or a dual-threat runner \u2014 we need a QB who can diagnose coverage pre-snap from motion, work through reads at the top of his drop, and put the ball on time to receivers running crossers, mesh, and drive concepts. Think less Mahomes, more Rivers.",
+      "archetype_examples": [
+        "Philip Rivers",
+        "Andrew Luck",
+        "Kirk Cousins"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "low",
-      "explanation": "Glenn runs a 4-3 even front where edge rush comes from hands-in-dirt defensive ends, not stand-up OLBs. ILBs in this system are run-coverage players, not primary pass rushers. An LB with elite pass rush traits has limited positional value here compared to a true 3-4 system. Glenn may occasionally use an LB in a blitz package, but the primary pass rush identity is built around 4-3 DEs. LB pass rush traits are a situational bonus, not a scheme-driven value multiplier."
+    "RB": {
+      "scheme_role": "Reich's RB is the engine of the offense. The run game establishes play-action credibility and creates the RPO threat. The RB must handle a diverse run scheme \u2014 inside zone, split zone, duo, power, stretch \u2014 requiring vision to find cutback lanes in zone and patience to let pullers develop in gap schemes. Pass-catching is important: Reich has historically used RBs on screens, check-downs, and even as slot alignments to create mismatches (Nyheim Hines, Darren Sproles model).",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Reich's multiple run scheme demands a back who can read blocks across zone, gap, and duo concepts. Jonathan Taylor's vision was the key to his 1,811-yard season. The back must find the cutback lane on zone, wait for the puller on power, and burst through the designed hole on duo."
+        },
+        "Contact Balance": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Important for creating yards after contact on inside zone and split zone, where the back often meets defenders at the second level. Taylor's ability to run through arm tackles was a significant factor in explosive run play generation."
+        },
+        "Power": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Useful for short-yardage and goal-line situations. Reich has historically been aggressive on fourth downs and values a back who can convert 4th-and-1. However, this isn't a pure power scheme \u2014 it's diverse."
+        },
+        "Elusiveness": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "The screen game and space plays that Reich values require a back who can make defenders miss in the open field. Nyheim Hines and Darren Sproles were valued for this in Reich offenses. The back must create after the catch on screens."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Reich's offense produced a high rate of explosive rush plays (20+ yards) \u2014 four in the top 5 in the league under his tenure. Speed is needed to hit the edge on stretch concepts and turn the corner on outside zone. Taylor's breakaway speed was essential."
+        },
+        "Pass Catching": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Reich values RBs who can line up in the slot and stress LBs in coverage \u2014 a core element inherited from the Reid tree. Screen passes and check-downs are featured heavily. Hines caught 63 balls in 2020. The Jets' 11-personnel-heavy approach means the RB is a featured receiver."
+        },
+        "Pass Protection": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "With the RB staying in for blitz pickups on play-action concepts and staying on the field in 11 personnel, pass protection matters. However, Reich has historically used the TE and OL to handle most protection duties rather than relying on the back."
+        }
+      },
+      "ideal_archetype": "A three-down workhorse with elite vision, strong receiving skills, and enough speed to break long runs. Think Jonathan Taylor crossed with Austin Ekeler \u2014 a back who can grind between the tackles on inside zone, catch 50+ balls out of the backfield, and occasionally take it to the house on a stretch or screen play. The back must be versatile enough to handle all the different looks in Reich's multiple run scheme without being a one-trick pony.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "210-225 lbs",
+          "floor": "195",
+          "reasoning": "Must handle a significant workload across multiple run schemes. Taylor was 226 lbs. A lighter back can work if paired with a complement, but Reich's workhorse usage demands durability."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.55",
+          "floor": "4.60",
+          "reasoning": "Speed is needed for explosive plays \u2014 Reich's offenses generated top-5 rates of 20+ yard runs. The back must threaten the edge."
+        },
+        "three_cone": {
+          "ideal": "Sub-7.00",
+          "floor": "7.10",
+          "reasoning": "Change of direction matters for zone scheme cutbacks and elusiveness in the screen game."
+        }
+      },
+      "development_context": "Reich developed Jonathan Taylor from a third-round pick into the NFL's leading rusher by maximizing the diverse run scheme. He also effectively used complementary backs (Hines as the pass-catcher, Wilkins as the change-of-pace). The offensive staff can develop a back's route-running and vision, but instinctive traits are harder to teach. The new RB coach Nic McKissic-Luke brings a pass-catching perspective.",
+      "scheme_fit_narrative": "We need a back who can do it all \u2014 hit the A-gap on duo, press the edge on outside zone, catch screens and routes out of the backfield, and occasionally break one for 60 yards. This is a feature-back offense that asks the RB to handle 15-20 touches per game across a diverse scheme. He has to be smart enough to read blocks on five different run concepts and reliable enough to catch 40+ balls.",
+      "archetype_examples": [
+        "Jonathan Taylor",
+        "Austin Ekeler",
+        "Saquon Barkley"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "high",
-      "explanation": "Reich's offenses have historically been among the league's most RB-friendly in the passing game. Colts RBs averaged 117 targets and 663 receiving yards per season from 2018-22. His West Coast roots emphasize getting the ball to playmakers within 5 yards of the LOS and generating YAC. The emphasis on screens (top 8 in Indy), short passing, and RB route-running makes a pass-catching back significantly more valuable in this scheme than in a pure ground-and-pound system. Breece Hall's receiving upside is a major asset."
+    "WR": {
+      "scheme_role": "In Reich's 11-personnel-heavy offense, WRs are the primary receiving weapons and must run a full route tree with precision. The WR1 (Garrett Wilson) runs the full complement of timing routes \u2014 slants, curls, digs, crossers, posts. The WR2 and WR3 must be legitimate starters because 11 personnel is the base package. The slot receiver runs primarily mesh concepts, shallow crosses, and option routes. Outside WRs must win quickly at the LOS for the timing-based passing game to function.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Reich's timing-based passing game demands route precision. The ball is delivered at the top of the drop on rhythm \u2014 if the WR is a step late or rounds off his break, the window closes. Mesh concepts, drive routes, and dagger plays all require crisp route technique. T.Y. Hilton's route polish made him the ideal WR1 for this system."
+        },
+        "Separation": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Quick separation on timing routes is critical because the ball comes out fast. The WR must win at the break point on curls, digs, and crossers. This isn't a contested-catch offense \u2014 it's a separation offense."
+        },
+        "Hands": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "High volume of short-to-intermediate targets means reliable hands are essential. Drops kill drives in a timing offense because they disrupt rhythm and put the QB in longer-developing situations."
+        },
+        "YAC Ability": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Reich's offenses have historically ranked well in YAC. Screen passes, shallow crossers, and drive routes all depend on the WR creating yards after the catch. The Colts ranked 4th in YAC in 2020."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Deep speed matters for occasional vertical shots (Yankee, flood concepts) and to keep defenses honest, but this isn't a speed-based vertical attack. T.Y. Hilton was the deep threat \u2014 the WR2 and WR3 don't need to be burners."
+        },
+        "Contested Catches": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "Reich schemes receivers open rather than relying on 50-50 balls. The timing game is designed to deliver the ball to open receivers, not ask them to make contested grabs."
+        },
+        "Release Package": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Quick releases off the line are important for timing routes \u2014 the WR must get into his route stem on time for the QB's footwork to sync. Against press coverage, a clean release keeps the timing intact."
+        }
+      },
+      "ideal_archetype": "A precise route runner with reliable hands and YAC ability who consistently creates separation at the break point. Think Keenan Allen in his prime \u2014 not the biggest, not the fastest, but always open because his route technique is elite. The WR2 should complement Wilson with a different skill set \u2014 perhaps a deep threat (Hilton role) or a dynamic slot player. Reich's WR3 must be a legitimate contributor because 11 personnel asks three receivers to play two-thirds of snaps.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "4.40-4.55",
+          "floor": "4.60",
+          "reasoning": "Speed helps but is not the primary separator. Hilton was 4.34, but Zach Pascal and others succeeded in this system without elite speed because route precision matters more."
+        },
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-9",
+          "reasoning": "No rigid size requirement \u2014 the system creates open receivers rather than asking them to win at the catch point through size. Various body types have succeeded."
+        },
+        "three_cone": {
+          "ideal": "Sub-6.85",
+          "floor": "7.00",
+          "reasoning": "Agility matters for route breaks and YAC. Quick change of direction translates to sharp breaks on curls, digs, and option routes."
+        }
+      },
+      "development_context": "Reich has a mixed WR development record. He maximized T.Y. Hilton's talent but struggled to develop younger receivers in Indianapolis. WR coach Shawn Jefferson returns from the 2025 staff and is a respected teacher. The Jets desperately need WR2 and WR3 talent \u2014 Reich's 11-personnel emphasis makes this the most critical skill position need alongside QB. Garrett Wilson should thrive in a timing-based system after years of inconsistent QB play.",
+      "scheme_fit_narrative": "We need two more starter-quality wideouts to play alongside Garrett Wilson in 11 personnel. The ideal WR runs crisp routes, separates at the break, catches everything thrown his way, and creates yards after the catch. Speed is a bonus but not the primary need \u2014 we want route technicians who sync with the QB's timing. A contested-catch specialist who can't run routes is the wrong fit for this system.",
+      "archetype_examples": [
+        "Keenan Allen",
+        "T.Y. Hilton",
+        "CeeDee Lamb"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "Glenn's defensive philosophy is built around elite safety play. He explicitly values safeties who can play multiple coverage roles, comparing his ideal tandem to Malcolm Jenkins/Marcus Williams in New Orleans and Kerby Joseph/Brian Branch in Detroit. His system requires one safety as a deep post player and another as a down/box/slot defender who can play man coverage, fit the run, and blitz. Brian Branch was effectively used as a safety-nickel hybrid in Detroit, and Glenn's Cover 0 blitz packages frequently incorporate safety pressure. A safety with versatility (box, slot, blitz, man coverage) gets a major value boost in this scheme. Glenn invested premium draft capital in safeties throughout his Detroit tenure."
+    "TE": {
+      "scheme_role": "In Reich's 11-personnel-heavy offense, the TE's role is more limited in snap count than in a 12-personnel system, but highly impactful when on the field. The TE must be a versatile player who can inline block on split zone (sealing the backside edge), flex into the slot for pass routes, and serve as a safety valve in the progression. Reich's best offenses featured versatile TEs (Ertz/Burton in Philly, Doyle/Ebron in Indy) who could execute the split-zone seal block AND run routes in the middle of the field.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "When the TE is on the field, he must be a credible receiving threat. Reich features TEs on mesh concepts, flat routes off play-action, and seam routes against zone coverage. Ertz was central to the Super Bowl-winning offense."
+        },
+        "Route Running": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The TE must run clean routes from the slot and inline alignments. Drive routes, flat routes off split-zone fakes, and seam routes all require technique. Burton's ability to 'look like a wide receiver with his technique' was praised by Reich."
+        },
+        "Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Split zone is a foundational run concept and the TE is the key blocker \u2014 he crosses the formation to seal the backside defensive end. Jack Doyle's blocking was 'absolutely vital' to the success of this play. Without a TE who can execute the split-zone seal, a core run concept is compromised."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The TE must be athletic enough to flex into the slot, sell play-action, and leak into the flat on boot concepts. Glenn's offense under Engstrand leaned on heavier personnel \u2014 Reich's 11-personnel approach reduces TE snaps but asks more athleticism when the TE is on the field."
+        },
+        "Hands": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "TEs are frequently targeted in the red zone and on critical third-down conversions in Reich's system. Ertz's reliable hands made him a go-to target. Drops in the middle of the field are costly."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Seam speed helps create matchup problems against LBs, but this isn't a TE-centric vertical passing game. The TE's speed matters more for getting to the flat on boot concepts than for running deep seams."
+        }
+      },
+      "ideal_archetype": "A complete TE who can execute the split-zone seal block at the point of attack AND flex into the slot to run routes. Think Zach Ertz crossed with Jack Doyle \u2014 a reliable blocker who is also a smart, savvy receiving threat in the middle of the field. The TE doesn't need to be a 1,000-yard receiver in this system, but when he's on the field, he must contribute in both phases. A blocking-only TE or a receive-only TE both miss the mark.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "245-260 lbs",
+          "floor": "235",
+          "reasoning": "Must be heavy enough to execute the split-zone seal block against NFL edge rushers. Doyle (246 lbs) and Ertz (250 lbs) were the prototypes."
+        },
+        "height": {
+          "ideal": "6-3 to 6-6",
+          "floor": "6-2",
+          "reasoning": "Red zone target in the middle of the field. Size helps in contested catch situations that arise in traffic."
+        },
+        "40_yard_dash": {
+          "ideal": "4.60-4.80",
+          "floor": "4.85",
+          "reasoning": "Must be athletic enough to flex into the slot and threaten the seam. Not a rigid threshold but pure plodders won't work in the pass game."
+        }
+      },
+      "development_context": "Reich has a strong track record developing TEs across his career. He maximized Ertz, Burton, and Celek in Philly, and Doyle/Ebron were effective in Indianapolis. He understands how to create roles for different TE types. The Jets have Tyler Conklin under contract \u2014 a solid receiving TE but not an elite blocker. Reich can develop blocking technique more than he can develop receiving instincts.",
+      "scheme_fit_narrative": "Our TE has to be a complete player. The split-zone seal block is a non-negotiable \u2014 if you can't cross the formation and wall off the backside edge, you're killing one of our foundational run concepts. But we also need you to be a weapon when we put you in the slot or leak you into the flat off play-action. Two-way TEs are what make this system work.",
+      "archetype_examples": [
+        "Zach Ertz",
+        "Jack Doyle",
+        "Dallas Goedert"
+      ]
+    },
+    "OT": {
+      "scheme_role": "Reich's multiple run scheme demands OTs who can execute both zone and gap blocking concepts. On outside zone, the OT must reach and seal defenders. On power and counter, the OT must anchor at the point of attack while guards pull around them. In pass protection, the OT faces significant responsibility because the timing game requires the QB to stand in the pocket and deliver on rhythm. Reich values OL who are 'fast off the football' and can handle stunts and games.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Reich's timing-based passing game depends on clean pockets. The QB delivers at the top of his drop on rhythm \u2014 if the pocket collapses early, the entire system breaks down. The 2018 Colts' turnaround started when the OL stopped giving up sacks. This is the most important trait."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "The diverse run scheme demands proficient run blockers across zone and gap concepts. OTs must execute reach blocks on outside zone, down blocks on power, and combo blocks to the second level on duo."
+        },
+        "Footwork": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Both the zone run scheme (lateral first step on reach blocks) and pass protection (kick slide technique) require excellent footwork. Reich explicitly stated his philosophy is 'this game is played from the ground up, starting with the feet.'"
+        },
+        "Anchor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Must hold ground against bull rushes to maintain the pocket integrity that the timing game demands. The LT especially faces elite speed-to-power edge rushers in the AFC East (Von Miller, etc.)."
+        },
+        "Athleticism": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Zone blocking requires athletic OTs who can climb to the second level and reach defenders in space. The multiple scheme doesn't ask for pure maulers \u2014 it asks for versatile athletes who can handle different blocking assignments."
+        },
+        "Strength": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "Strength matters but is secondary to technique and athleticism in this scheme. Reich's best OL (2018-19 Colts) were athletic and technically sound rather than brute-force dominant."
+        }
+      },
+      "ideal_archetype": "An athletic, technically sound pass protector with the footwork to execute multiple run schemes. Think Anthony Castonzo or Braden Smith from Reich's Colts \u2014 not the biggest or most powerful tackles in the league, but excellent technicians with quick feet, good anchor, and the ability to block in space on zone concepts AND sustain blocks on gap schemes.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Standard NFL tackle size. Length matters for pass protection reach and sustaining blocks."
+        },
+        "arm_length": {
+          "ideal": "34+",
+          "floor": "33",
+          "reasoning": "Longer arms help keep edge rushers at bay in the pocket-centric passing game."
+        },
+        "short_shuttle": {
+          "ideal": "Sub-4.60",
+          "floor": "4.70",
+          "reasoning": "Lateral agility for zone blocking reach steps and mirror technique in pass protection."
+        }
+      },
+      "development_context": "OL coach Steve Heiden returns from the 2025 staff. The Jets invested the 2025 first-round pick (#7 overall) in Armand Membou, who started all 17 games at tackle. Heiden's continuity should help the OL development. Reich has historically maximized OL talent \u2014 the 2018-19 Colts line went from a weakness to a top-5 unit. He can develop technique and scheme fit in young tackles.",
+      "scheme_fit_narrative": "We need tackles who can do it all \u2014 pass protect on timing routes where the QB has to trust his pocket, reach-block on zone, and anchor on gap schemes. Athletic tackles with good feet are our bread and butter. Pure maulers who can't move laterally or technicians who can't anchor both fail in this system.",
+      "archetype_examples": [
+        "Anthony Castonzo",
+        "Braden Smith",
+        "Lane Johnson"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior OL in Reich's offense must be the most versatile in the league. His multiple run scheme asks guards and centers to execute zone combination blocks, pull on power/counter/pin-and-pull, and sustain double teams on duo concepts. All five Colts OL were capable of pulling under Reich \u2014 this is non-negotiable. In pass protection, the interior must handle stunts and twists because timing routes demand a clean pocket inside. The center must also manage protections and make line calls.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Interior pass protection is critical for the timing game. Stunts and interior pressure collapse the pocket and disrupt the QB's footwork-driven throws. Must handle 3-techs and nose tackles while picking up A-gap and B-gap blitzes."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Interior run blocking creates the foundation for the run game that fuels play-action. Duo concepts (center-guard and guard-tackle double teams) were a staple. Must generate movement at the point of attack."
+        },
+        "Pulling": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "This is what separates Reich's IOL demands from most systems. All five linemen must pull. Power, counter, and pin-and-pull schemes are core concepts. Quenton Nelson was the prototype \u2014 an elite puller who could also anchor in pass protection. Guards who cannot pull are disqualifying."
+        },
+        "Strength": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Interior double teams and duo blocks require raw power at the point of attack. Must be able to drive defenders off the ball on combination blocks and control the interior."
+        },
+        "Anchor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must hold ground against interior rushers on passing downs. Less critical than for OTs because the timing game gets the ball out fast, reducing pressure exposure."
+        },
+        "Versatility": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Guards who can play center (or vice versa) are valued. Reich's scheme asks linemen to execute varied blocking assignments \u2014 a guard who can only zone-block or only pull is less useful than one who can do both."
+        }
+      },
+      "ideal_archetype": "A powerful, athletic guard who is an elite puller while also being technically sound in pass protection and zone schemes. Quenton Nelson is the obvious ideal \u2014 an All-Pro who could maul defenders at the point of attack, pull around the corner with devastating impact, and anchor against interior rushers. The center must be smart (protection calls) and athletic (climbing to the second level on zone).",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "310-330",
+          "floor": "300",
+          "reasoning": "Must be heavy enough to sustain blocks at the point of attack while athletic enough to pull. Nelson was 330 lbs with elite athleticism."
+        },
+        "short_shuttle": {
+          "ideal": "Sub-4.60",
+          "floor": "4.75",
+          "reasoning": "Pulling ability requires lateral agility and the ability to move in space. Guards who test poorly in the shuttle often struggle to get around the corner on pull blocks."
+        },
+        "bench_press": {
+          "ideal": "28+ reps",
+          "floor": "24",
+          "reasoning": "Strength matters for sustaining double teams and anchoring against interior bull rushes."
+        }
+      },
+      "development_context": "Reich and his staff developed the 2018 Colts OL from a bottom-tier unit into one of the NFL's best. He can develop technique and scheme fit. OL coach Steve Heiden and assistant Brian Natkin provide continuity. The Jets have some pieces in place but need significant investment \u2014 both starting guards from 2025 are entering free agency.",
+      "scheme_fit_narrative": "Our guards need to pull. Period. If you can't get out of your stance and lead the way on a power sweep, you don't fit here. We also need guys who can handle stunts in pass protection and drive defenders off the ball on double teams. It's a demanding system that asks IOL to be athletes, not just anchors. Give us Quenton Nelson types who can do everything.",
+      "archetype_examples": [
+        "Quenton Nelson",
+        "Ryan Kelly",
+        "Zack Martin"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "In Glenn's multiple front defense, the EDGE must be versatile enough to rush from both a 3-point stance (4-3 DE) and a 2-point stance (3-4 OLB). Glenn runs both even and odd fronts, so the EDGE cannot be locked into one alignment. The primary job is getting after the QB \u2014 Glenn's philosophy is 'attack the quarterback.' The EDGE must also set the edge against the run because Glenn's run defense was elite in Detroit (second-fewest rushing yards allowed in 2023). In blitz packages, the EDGE may occasionally drop into flat coverage on zone-blitz concepts.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Glenn's defensive identity is built on pressuring the QB. The Lions led the NFL in sacks for multiple years under his defensive philosophy. The Jets ranked 31st in sacks in 2025 (26) \u2014 this is the #1 priority. Glenn wants EDGEs who can win 1-on-1 and generate pressure without help."
+        },
+        "Bend": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Glenn's EDGEs must be able to turn the corner and finish at the QB. Aidan Hutchinson's combination of bend and power was the prototype. Glenn values EDGEs who can flatten to the QB rather than running the arc too wide."
+        },
+        "First Step": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Glenn's one-gap, 'attack technique' philosophy demands explosive first steps. He doesn't want DL to read and react \u2014 he wants them to attack. The first step off the ball creates the advantage that the rest of the rush builds on."
+        },
+        "Power": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Must be able to convert speed to power as a counter move and to set the edge against the run. Glenn's defenses have been elite against the run, which requires EDGEs who don't get washed out at the point of attack. The balance of power and speed is key."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Glenn's aggressive defense asks players to chase plays and pursue relentlessly. His Lions culture was built on effort and physicality \u2014 'it's for the tough, the grinders, the gritty.' Non-stop motor is a cultural requirement."
+        },
+        "Run Defense": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must set the edge and not get reached on zone runs. Glenn's Detroit defense ranked second in rush defense in 2023. However, this is secondary to pass rush because the scheme generates run defense through front alignment and LB play more than EDGE."
+        }
+      },
+      "ideal_archetype": "An explosive, versatile pass rusher who can rush from multiple alignments (2-point and 3-point) and maintain discipline against the run. Think Aidan Hutchinson \u2014 a relentless effort player with elite first step, good bend, and enough power to convert speed to bull rush as a counter move. The EDGE must fit Glenn's culture of 'tough, physical, violent' football while also being a primary QB-pressure generator.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "250-270",
+          "floor": "240",
+          "reasoning": "Must be heavy enough to set the edge against the run while athletic enough to rush the passer. Glenn's hybrid front allows both larger (4-3 DE) and lighter (3-4 OLB) EDGE types."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Closing speed to the QB matters in Glenn's aggressive scheme. EDGEs who can't convert first-step explosion into finish won't generate the sack totals this defense needs."
+        },
+        "arm_length": {
+          "ideal": "33+",
+          "floor": "32",
+          "reasoning": "Length helps keep blockers at bay and control the edge. Standard for NFL pass rushers."
+        }
+      },
+      "development_context": "DL coach Karl Dunbar is an elite EDGE developer \u2014 he tutored Jared Allen, T.J. Watt, Cameron Heyward, Sheldon Richardson, and Muhammad Wilkerson. His Pittsburgh DL led the NFL with 392 sacks over eight years. Dunbar can develop raw pass rushers into productive NFL players. The Jets already have Will McDonald IV (first-round pick) but desperately need a true impact EDGE rusher \u2014 the #2 overall pick is likely to be used here (Arvell Reese is a consensus mock choice).",
+      "scheme_fit_narrative": "We need a game-wrecker off the edge. Glenn's entire defensive philosophy revolves around attacking the QB, and we ranked dead last in sacks. The EDGE must be able to rush from a 3-point and 2-point stance, win with speed and convert to power, and play with relentless effort every snap. We'll develop the technique \u2014 Dunbar is one of the best in the business. But the explosion, the bend, and the motor have to come through the door.",
+      "archetype_examples": [
+        "Aidan Hutchinson",
+        "Micah Parsons",
+        "Myles Garrett"
+      ]
+    },
+    "DL": {
+      "scheme_role": "In Glenn's multiple front, interior DL must be versatile enough to align as a 3-tech in a 4-3 and as a DE in a 3-4. Glenn's philosophy is one-gap penetration \u2014 he wants DL who 'attack' their gap rather than read-and-react two-gapping. The DL must collapse the pocket from the interior to complement EDGE rushers and anchor against the run. With the trade of Quinnen Williams mid-2025, the Jets have a massive void at this position. Dunbar's coaching background emphasizes 3-4 DL who can also play 4-3 techniques.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Interior pass rush is critical to Glenn's pressure philosophy. When the front four generates pressure, Glenn can play more man coverage without blitzing. The Steelers under Dunbar had three DL with 5+ sacks in a single year. Interior disruption supports the EDGE rush."
+        },
+        "Run Defense": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Glenn's Lions ranked 2nd in rush defense in 2023. Interior DL are the foundation of run defense \u2014 they must control gaps and not get pushed off the ball. The Dunbar-coached Williams Wall in Minnesota was the NFL's #1 run defense for three straight years."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Glenn's 'attack technique' philosophy demands explosive DL who penetrate their gap. He doesn't want two-gapping nose tackles who sit and read \u2014 he wants one-gap attackers who disrupt. Alim McNeill's athleticism was what convinced Glenn to switch to an attacking front."
+        },
+        "Hand Usage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Interior DL must defeat blocks quickly to penetrate. Good hand technique \u2014 swim, rip, club \u2014 is essential for both pass rush and run defense. Dunbar's coaching emphasis has always been on hand technique to control and shed blockers."
+        },
+        "Motor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Glenn's cultural demand for relentless effort applies to interior DL as well. DL who take plays off or coast in the run game are antithetical to the 'tough, physical, violent' identity. Cameron Heyward's tireless motor made him thrive under Dunbar."
+        },
+        "Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Raw strength helps hold the point of attack against double teams, especially in a 3-4 where the nose may face center-guard combinations. However, Glenn values athleticism and penetration over brute immovability."
+        }
+      },
+      "ideal_archetype": "An athletic, penetrating interior DL who can play multiple techniques across even and odd fronts. Think Chris Jones or Quinnen Williams \u2014 a 3-tech who can win with quickness and power, collapse the pocket, and anchor against the run. In Glenn's system, the ideal DL is a one-gap destroyer, not a space-eating nose tackle. Must be able to align at 3-tech, 4i, and 0/1-tech depending on the front call.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "290-315",
+          "floor": "280",
+          "reasoning": "Must be heavy enough to hold up against double teams but athletic enough to penetrate gaps. The one-gap philosophy means lighter, quicker DL are preferred over massive space-eaters."
+        },
+        "40_yard_dash": {
+          "ideal": "4.80-5.00",
+          "floor": "5.10",
+          "reasoning": "Interior quickness for penetration. Glenn's DL need to get off the ball and into the backfield, not sit and absorb blocks."
+        },
+        "bench_press": {
+          "ideal": "28+ reps",
+          "floor": "24",
+          "reasoning": "Upper body strength for hand fighting and holding ground against double teams. Dunbar's DL training emphasizes hand usage which requires a strong base."
+        }
+      },
+      "development_context": "Karl Dunbar is one of the NFL's premier DL developers. He developed the Williams Wall (Minnesota), Richardson and Wilkerson (Jets), and oversaw Heyward's peak years (Steelers). Dunbar can develop raw athletes into productive DL. The Jets lost Quinnen Williams mid-season and ranked 29th in pressures \u2014 this position needs major investment via the draft (Kayden McDonald is mocked to the Jets at #16).",
+      "scheme_fit_narrative": "We lost our best interior player and it showed \u2014 29th in pressures, 31st in sacks. We need a penetrating 3-tech who can collapse the pocket AND hold up against the run. Glenn wants one-gap attackers, not space-eaters. Dunbar will develop the hand technique and motor. But we need the athletic foundation \u2014 a quick-twitch interior player who can align in multiple spots across our hybrid front.",
+      "archetype_examples": [
+        "Chris Jones",
+        "Quinnen Williams",
+        "Alim McNeill"
+      ]
+    },
+    "LB": {
+      "scheme_role": "In Glenn's defense, LBs are critical communicators and coverage players who also must fit the run and contribute to the blitz. Glenn's base-heavy approach (29th in nickel usage) means LBs play a high volume of snaps. The MIKE is the defensive QB who sets the defense and communicates coverage checks. Glenn used hybrid LBs in Detroit \u2014 Jack Campbell processed as the MIKE while Malcolm Rodriguez/Derrick Barnes played the physically demanding SAM/WILL role. LBs must be able to match TEs and RBs in man coverage, which is a core requirement given Glenn's man-coverage-dominant scheme.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Glenn's run defense excellence (2nd in 2023) starts with LBs who are sure tacklers. Missed tackles in the box compromise the entire front. Alex Anzalone and Jack Campbell were reliable tacklers who fit the identity."
+        },
+        "Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "This is the differentiating trait for LBs in Glenn's scheme. His man-coverage-dominant defense requires LBs to match up with TEs and RBs. In Cover 1, the LB is often responsible for the TE or RB man-to-man. LBs who can't cover are liabilities in a scheme that plays man on 35%+ of snaps."
+        },
+        "Pass Rush": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Glenn uses LB blitzes and delayed rushes as part of his pressure packages. Jack Campbell contributed sacks from the LB position. However, this is supplementary \u2014 the EDGE and DL are the primary pass rushers."
+        },
+        "Instincts": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Glenn's base-heavy approach asks LBs to process offensive formations and route combinations. The MIKE must diagnose plays quickly and communicate to the secondary. Campbell's growth as a processor was central to Detroit's 2024 defensive improvement."
+        },
+        "Athleticism": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Glenn's scheme demands LBs who can run with TEs in man coverage, close on the ball in zone, and blitz effectively. Sideline-to-sideline range is essential because the base defense faces 3-WR sets and must cover space without a fifth DB."
+        },
+        "Range": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "LBs must be able to cover ground in Glenn's base defense, which stays on the field against offensive personnel that other defenses would counter with nickel. Range allows LBs to play run fits AND get to their zone/man responsibilities."
+        },
+        "Block Shedding": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Must disengage from OL blocks to make tackles in the run game. Important but secondary to coverage and athleticism in Glenn's scheme because the DL is asked to occupy blockers and free up LBs."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "The MIKE must set the defense and communicate coverage calls. Important for the defensive QB role but less critical for the other LB positions where athleticism and coverage skills take priority."
+        }
+      },
+      "ideal_archetype": "An athletic, coverage-capable LB who can match TEs in man coverage while also fitting the run downhill. Think Jack Campbell's development in Detroit \u2014 a LB who grew into a communicator, a sure tackler, and increasingly capable in coverage. The ideal Jets LB is an Arvell Reese or Fred Warner type who can do everything: cover, tackle, rush, and process. Glenn's base-heavy defense needs LBs who blur the line between LB and safety athletically.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "4.50-4.65",
+          "floor": "4.70",
+          "reasoning": "Coverage speed is non-negotiable in Glenn's man-heavy scheme. LBs must be able to run with TEs down the seam and RBs in the flat. Traditional thumper LBs who run 4.75+ are scheme mismatches."
+        },
+        "weight": {
+          "ideal": "225-245",
+          "floor": "215",
+          "reasoning": "Must be physical enough to fit the run but not so heavy that coverage ability is compromised. Glenn's hybrid approach favors lighter, faster LBs."
+        },
+        "vertical_jump": {
+          "ideal": "36+",
+          "floor": "33",
+          "reasoning": "Explosiveness indicator that correlates with closing speed and coverage ability. Critical for a LB who must change direction and close on the ball."
+        }
+      },
+      "development_context": "Glenn developed Jack Campbell from a raw prospect into a core defensive player in Detroit. Campbell's growth in coverage and processing was a testament to Glenn's teaching. LB coach Aaron Curry (poached from Pittsburgh) brings his own development perspective. Jamien Sherwood is the returning defensive QB but the Jets need significant LB additions \u2014 Quincy Williams is entering free agency.",
+      "scheme_fit_narrative": "Glenn's defense lives in base personnel against spread offenses. That means our LBs have to cover like safeties and tackle like LBs. If you can't match a TE in man coverage, you can't play here \u2014 it's that simple. We need athletes who can process quickly and play in space. Traditional run-stuffing LBs who are liabilities in coverage are the worst possible fit for this scheme.",
+      "archetype_examples": [
+        "Fred Warner",
+        "Jack Campbell",
+        "Roquan Smith"
+      ]
+    },
+    "CB": {
+      "scheme_role": "Glenn's corners play on islands in press-man coverage with minimal safety help. This is the defining feature of his defensive scheme. In Detroit, Glenn ran Cover 1 at the second-highest rate in the NFL (35.2%) \u2014 meaning one safety is deep and the corners are in man-to-man. He also uses Cover 0 (no safety help) at extreme rates in key situations. CBs must press at the line, mirror routes in phase, and have the recovery speed to survive when beaten. Glenn values height at corner \u2014 Sauce Gardner (6-3) was the ideal before being traded. Ball skills are secondary to lockdown coverage ability.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.3,
+          "importance": "essential",
+          "reasoning": "This IS Glenn's defense. Cover 1 man coverage on 35%+ of snaps, Cover 0 in key situations, and two-man with safety help mixed in. The corner must be able to lock up a WR one-on-one with minimal help. Carlton Davis and Terrion Arnold were acquired specifically because they could play man at volume."
+        },
+        "Ball Skills": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Creating turnovers is valuable \u2014 Glenn values safeties who create turnovers \u2014 but corners in this system are first and foremost coverage players. The Jets had zero interceptions in 2025, so ball production is needed, but not at the expense of coverage ability."
+        },
+        "Zone Coverage": {
+          "weight": 0.08,
+          "importance": "low",
+          "reasoning": "Glenn uses quarters zone as a complementary coverage (8th in quarters usage in 2024) but it's not the foundation. CBs must be able to play zone but it's clearly secondary to man coverage demands."
+        },
+        "Speed": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Recovery speed is critical when playing man coverage on an island with limited safety help. In Cover 1, if the corner gets beat, the single high safety may be committed elsewhere. In Cover 0, there IS no safety help. Speed is the insurance policy."
+        },
+        "Press": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Glenn's man coverage starts at the line of scrimmage. Corners must disrupt receivers' routes within the first 5 yards to throw off timing and give the pass rush time to get home. Glenn emphasized height at corner (Gardner at 6-3, Stephens at 6-1) because it aids the press."
+        },
+        "Nickel": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Glenn prefers a safety-type in the nickel (Brian Branch's role) rather than deploying a corner. However, some CBs may be asked to play inside in sub-packages, making slot coverage ability a useful secondary trait."
+        }
+      },
+      "ideal_archetype": "A long, physical press-man corner who can lock up receivers one-on-one with minimal safety help. Think Sauce Gardner before the trade \u2014 a tall, long, physical corner who jams at the line, mirrors routes in phase, and has the length to contest catch points. Speed must be elite or near-elite to survive in Cover 0. Ball production is a bonus but not the primary requirement. Glenn stressed height at corner \u2014 he wants big corners who can disrupt at the line.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Glenn explicitly stressed height at corner. Gardner (6-3) and Stephens (6-1) were his Jets CBs. In Detroit, he acquired Carlton Davis (6-1) and drafted Terrion Arnold (6-0). Length helps in press and at the catch point."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.48",
+          "floor": "4.52",
+          "reasoning": "Speed is the insurance policy in man coverage. In Cover 0 with no safety help, the corner MUST have the recovery speed to survive. Slower corners get exposed in this scheme."
+        },
+        "arm_length": {
+          "ideal": "32+",
+          "floor": "31",
+          "reasoning": "Long arms help in press technique and at the catch point. Glenn's preference for tall, long corners is well-documented."
+        }
+      },
+      "development_context": "Glenn's background is as a cornerback \u2014 both as a player (15 NFL seasons) and coach (Saints DB coach, 2016-20). He developed Marshon Lattimore and C.J. Gardner-Johnson in New Orleans. DBs coach/pass game coordinator Chris Harris and assistant DB coach Dre Bly provide additional development resources. Glenn can develop press technique and coverage skills but the physical tools (speed, length) must arrive ready. The Jets traded Sauce Gardner mid-2025 and desperately need CB talent.",
+      "scheme_fit_narrative": "We play man coverage. A lot. Our corners line up across from their guy and win. We don't hide them in zone or give them a safety over the top on every play. If you need help, you can't play here. We want tall, fast, physical corners who can press at the line, turn and run with any route, and compete at the catch point. Glenn was a lockdown corner himself \u2014 he knows exactly what this takes.",
+      "archetype_examples": [
+        "Sauce Gardner",
+        "Marshon Lattimore",
+        "Carlton Davis"
+      ]
+    },
+    "S": {
+      "scheme_role": "Safeties are arguably the most important position in Glenn's defense. He spent his coaching formative years in New Orleans learning that 'a multitude of different coverages in the back end requires safeties to actually communicate at a high level.' Glenn's defense uses a tandem of a ball-hawking post safety (Kerby Joseph role \u2014 ranges deep, reads the QB, creates turnovers) and a down/strong safety (Brian Branch role \u2014 plays man on TEs/slots, supports the run, blitzes). Glenn explicitly values safety play and has invested heavily in the position throughout his career.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "The down safety in Glenn's scheme plays man coverage on TEs, slot receivers, and RBs. Brian Branch's ability to lock up any slot player in man was what made Detroit's defense work. In Cover 1, the safety in the box is responsible for a man-to-man assignment."
+        },
+        "Range": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The post safety must be a single-high center-fielder who can range sideline to sideline and provide the one deep help in Cover 1. Kerby Joseph's range was what allowed Glenn to play man coverage so aggressively \u2014 because Joseph could cover mistakes. This is the most important safety trait."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Glenn's New Orleans background emphasized safeties creating turnovers \u2014 Marcus Williams led the Saints in INTs. The Lions had three defenders with 3+ INTs in 2023, with two being safeties (Joseph and Branch). The Jets had ZERO interceptions in 2025. Ball production from safeties is a critical need."
+        },
+        "Tackling": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Both safeties must be reliable tacklers. The post safety is the last line of defense in Cover 1. The box safety must fit the run from the secondary level. Glenn's defenses have been elite against the run, which requires disciplined tackling at all three levels."
+        },
+        "Speed": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Range and recovery speed in the deep half are essential for the post safety. The down safety needs enough speed to cover TEs and RBs in man. In Cover 0 packages, safeties may blitz, requiring closing speed to the QB."
+        },
+        "Nickel": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Glenn's preferred nickel defender is a safety, not a corner. Branch moved between safety and nickel throughout his Detroit career. The ability to play the slot in man coverage while also lining up at deep safety creates the versatility Glenn craves. This hybrid ability is highly valued."
+        }
+      },
+      "ideal_archetype": "A two-safety tandem: (1) A ball-hawking free safety with elite range who can play single-high in Cover 1 and create turnovers \u2014 Kerby Joseph is the template. (2) A hybrid strong safety/nickel who can cover TEs in man, blitz, and play run support \u2014 Brian Branch is the template. Together, they must communicate at an elite level to execute Glenn's coverage variety. The ideal safety tandem allows Glenn to play man coverage aggressively because the safeties clean up any breakdowns.",
+      "measurable_preferences": {
+        "40_yard_dash": {
+          "ideal": "4.40-4.55",
+          "floor": "4.58",
+          "reasoning": "Speed is essential for the post safety's range and the down safety's man coverage ability. Must be able to cover ground quickly in Cover 1 and man-up on TEs."
+        },
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Size helps the down safety match up with TEs. The post safety can be slightly smaller if range compensates. Branch (6-0) and Joseph (6-1) were the Detroit template."
+        },
+        "weight": {
+          "ideal": "200-215",
+          "floor": "190",
+          "reasoning": "Must be physical enough to play run support and tackle in the box while athletic enough to cover. Glenn's safeties are not pure deep cover guys \u2014 they must be willing hitters."
+        }
+      },
+      "development_context": "Brian Duker's primary coaching background is developing safeties and DBs. He coached Kerby Joseph into a standout rookie (4 INTs, 2 FF in 2022) and oversaw Branch's emergence. Safeties coach Ryan Slowik adds another development resource. Duker's track record is specifically in the Glenn system \u2014 he knows exactly what traits to develop at safety. The Jets desperately need safety upgrades after the 2025 disaster (zero INTs). Malachi Moore (2025 draft pick) is a building block.",
+      "scheme_fit_narrative": "Safeties make this defense go. We need a center-fielder who can range sideline to sideline in single-high and create turnovers \u2014 that's our Kerby Joseph. And we need a hybrid box safety who can cover TEs man-to-man, blitz, and fit the run \u2014 that's our Brian Branch. The safeties have to communicate at an elite level because Glenn runs a multitude of coverages that all start with the safety alignment. We had zero picks last year. That starts with our safeties.",
+      "archetype_examples": [
+        "Kerby Joseph",
+        "Brian Branch",
+        "Jessie Bates III"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "The Jets' defensive rebuild under Glenn prioritizes three archetypes: (1) 4-3 DEs with elite first-step quickness and pass-rush ability \u2014 Glenn needs edge talent desperately after trading Quinnen Williams and losing Sauce Gardner; (2) physical, press-capable CBs who can play man on islands \u2014 Glenn's system demands cornerbacks who thrive without safety help; (3) hybrid safeties who can toggle between deep coverage, slot coverage, and box/blitz roles \u2014 this is Glenn's highest-value positional investment historically. On offense, Reich's 11-personnel-heavy West Coast scheme with inside zone run concepts means: WRs who win on intermediate in-breaking routes (dig, drag) are prioritized over pure vertical threats; RBs with receiving chops are highly valued; TEs need to be well-rounded (block in inside zone, run routes from inline, score in red zone). The Jets hold the No. 2 overall pick and need a franchise QB \u2014 Reich's adaptability to different QB types (pocket passer or dual-threat) is a strength. For positional value mapping: do NOT boost LB-to-EDGE for NYJ (4-3 scheme), DO boost RB receiving and safety versatility significantly, and apply moderate TE receiving boost given red zone emphasis.",
+  "scheme_draft_intelligence": "The 2026 Jets are a franchise in crisis that presents a unique scheme-draft alignment. Aaron Glenn's decision to personally call the defense creates the clearest positional demands in the league: this is a man-coverage-dominant, blitz-heavy defense that needs athletes at every level. The #2 overall pick will almost certainly be used on a defensive impact player \u2014 EDGE or LB \u2014 because Glenn's defense was historically successful when built around a dominant pass rusher (Hutchinson) and coverage-capable LBs (Campbell). Mock drafts consistently project Ohio State's Arvell Reese, a hybrid EDGE/LB, which perfectly fits Glenn's preference for versatile defenders who can rush and cover.\n\nOn offense, the shift from Engstrand's Detroit-influenced heavy personnel approach to Reich's 11-personnel-heavy system dramatically changes the skill position priorities. The Jets desperately need two starting-caliber WRs to place alongside Garrett Wilson \u2014 Reich's scheme cannot function with only one real receiving threat spread across three WR spots. Multiple mock drafts have projected WR with the Jets' #16 pick (Denzel Boston, Makai Lemon, or Carnell Tate), and this aligns perfectly with the scheme demand. The WR additions must be route technicians who create separation and produce YAC, not contested-catch specialists.\n\nThe quarterback situation creates a fascinating tension. Reich has historically maximized veteran QBs (Luck, Rivers, Wentz in his prime) rather than developing raw prospects. The Jets appear likely to acquire a veteran bridge QB (potentially Geno Smith, already traded back; Kyler Murray or Tua Tagovailoa in free agency) while possibly drafting Ty Simpson at #16 or later as a developmental option. Reich's scheme demands accuracy and pocket processing above all \u2014 any QB investment should prioritize those traits over arm strength or athleticism.\n\nDefensively, the Dunbar hire signals a potential shift toward more 3-4 fronts, which impacts DL and EDGE evaluation. The Jets need interior DL talent after trading Quinnen Williams, and Glenn's one-gap penetration philosophy means they should target athletic, quick-twitch DL rather than massive nose tackles. At CB and S, Glenn's man-coverage-dominant scheme creates clear trait demands that diverge sharply from zone-based defenses \u2014 the Jets should exclusively target CBs with elite speed and press ability, and safeties who can range in single-high and cover TEs in man. Ball production at safety is an existential need after the historic zero-interception 2025 season.\n\nThe biggest hidden value for the Jets in this draft comes from Glenn's ability to develop hybrid defenders. His track record in Detroit shows he can turn raw athletes into scheme-specific impact players \u2014 Brian Branch as a safety/nickel, Malcolm Rodriguez as a hybrid LB, and various DL in multiple techniques. Prospects who other teams might pass on because they don't fit a traditional positional box could have outsized value in Glenn's multiple front, as long as they bring the athletic tools and the mentality Glenn demands: tough, physical, and relentless.",
   "confidence": "high",
   "sources": [
-    "newyorkjets.com official coaching bios and hire announcements",
-    "ESPN Rich Cimini Jets coverage (coaching hires, Glenn/Duker/Reich analysis)",
-    "NFL.com Tom Pelissero reporting on Duker and Engstrand moves",
-    "Jets X-Factor scheme analysis (Frank Reich tendencies, Glenn 4-3 front analysis)",
-    "Yardbarker/Jets X-Factor deep dive on Reich personnel usage data",
-    "Match Quarters Detroit Lions 2024 defense scheme breakdown",
-    "Yahoo Sports Aaron Glenn defensive philosophy profile",
-    "Blogging the Boys Lions defensive scheme scouting report",
-    "Detroit Football Network safety usage and Glenn coverage philosophy",
-    "Football Film Room Lions defensive gameplan analysis",
-    "SI.com and Panthers.com on Reich offensive philosophy analytics",
-    "Stampede Blue Colts offensive scheme breakdowns"
+    "newyorkjets.com official announcements (Frank Reich hire 2/4/2026, Brian Duker hire 1/28/2026)",
+    "ESPN Rich Cimini reporting on Jets coaching staff changes and Glenn calling defense",
+    "NFL Network Tom Pelissero reporting on Jets coordinator hires",
+    "Jets X-Factor analysis of Frank Reich scheme tendencies and Karl Dunbar hire",
+    "Match Quarters film analysis of Detroit Lions 2024 defensive scheme under Glenn",
+    "Yahoo Sports profile of Aaron Glenn's defensive philosophy in Detroit",
+    "Stampede Blue film study of Frank Reich's offense in Indianapolis",
+    "Weekly Spiral film breakdown of Reich's diverse run game",
+    "Pro Football Reference coaching pages",
+    "Bleacher Report, WalterFootball, Fox Sports, and NFL.com mock draft projections",
+    "Detroit Football Network analysis of Glenn's safety philosophy and Saints influences",
+    "Blogging The Boys scouting reports on Glenn's defensive scheme (2023-2024)",
+    "Panthers.com analytics breakdown of Frank Reich's offensive philosophy",
+    "SI.com analysis of Glenn's defensive scheme evolution in Detroit"
   ]
 }

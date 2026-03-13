@@ -6,72 +6,751 @@
       "name": "Mike Vrabel",
       "tenure_years": 1,
       "background": "defensive",
-      "scheme_philosophy": "Physical, disciplined defense with disguised coverages and aggressive fronts; adaptable offense built around QB development. Former LB who played under Belichick and Cowher, bringing a hybrid Belichick defensive philosophy with more one-gap aggression. Led Patriots to Super Bowl LX appearance in Year 1 (14-3)."
+      "coaching_tree": "Belichick tree (played 8 years as LB under Belichick in NE) \u2192 HC Tennessee Titans (2018-2023) \u2192 Consultant with Cleveland Browns (2024) \u2192 HC New England Patriots (2025-present)",
+      "scheme_philosophy": "CEO-style head coach who does not call plays on either side of the ball. Defensive philosophy centers on 'coverage consistency and front multiplicity' \u2014 maintain consistent coverage rules while disguising fronts. Offensively, prioritizes establishing the run from both under center and shotgun, play-action, and physical football. Vrabel's Titans had the highest early-down rush frequency in the NFL (45.3%) over six seasons. Values versatile, disciplined players who execute assignment football \u2014 a direct Belichick influence."
     },
     "offensive_coordinator": {
       "name": "Josh McDaniels",
-      "scheme_tree": "Belichick/Erhardt-Perkins, with modern RPO and zone-run influences from Thomas Brown (McVay tree)",
-      "play_caller": true
+      "coaching_tree": "Belichick tree \u2192 joined Patriots in 2001 as personnel assistant \u2192 QB coach 2004 \u2192 OC 2006-2008 \u2192 HC Denver Broncos (2009-2010) \u2192 OC St. Louis Rams (2011) \u2192 OC Patriots (2012-2021) \u2192 HC Las Vegas Raiders (2022-2023) \u2192 OC Patriots (2025-present). Won AP Assistant Coach of the Year in 2025.",
+      "scheme_evolution": "Career Erhardt-Perkins system architect. Oversaw the 2007 record-setting offense (589 points). Has shown remarkable adaptability within the EP framework: ran a spread passing attack with Brady/Moss (2007), two-TE offense with Gronk/Hernandez (2011-2012), ground-and-pound with Sony Michel (2018 Super Bowl run), designed QB run game with Cam Newton (2020), and now has incorporated outside zone concepts and bootleg actions to fit Drake Maye's mobility in 2025. Historically loves under-center play-action off gap schemes (ISO, power, counter), but modernized the system with more shotgun, motion, and outside zone in 2025. The 2025 Patriots offense was 2nd in scoring (28.8 PPG), up from 30th the prior year.",
+      "development_track_record": "Elite at maximizing quarterback production through scheme: developed Tom Brady from game-manager to MVP, got career-best years from Matt Cassel, created a productive offense with Cam Newton, and in 2025 developed Drake Maye into an MVP candidate (4,394 yards, 31 TDs). Less track record developing skill position players from raw prospects \u2014 his best WR/RB results came with already-established players. System demands high football IQ from all positions, particularly QB."
     },
     "defensive_coordinator": {
-      "name": "Terrell Williams",
-      "scheme_tree": "Vrabel/Belichick 3-4 one-gap aggressive front; DL coaching background with Titans (2018-2023) and Lions (2024)",
-      "play_caller": false
+      "name": "Zak Kuhr",
+      "coaching_tree": "Vrabel tree \u2192 Quality control coach with Tennessee Titans (2020) \u2192 Inside linebacker assistant (2021-2023) \u2192 Defensive assistant with New York Giants (2024) \u2192 Inside linebackers coach with Patriots (2025) \u2192 Interim DC after Week 1 when DC Terrell Williams was diagnosed with prostate cancer \u2192 Promoted to full-time DC (February 2026). Traces through Ohio State, James Madison, Rutgers, and Texas at the college level before entering the NFL under Vrabel.",
+      "scheme_evolution": "Kuhr inherited the framework that Vrabel and Terrell Williams (career D-line coach) installed in the 2025 offseason, which drew from Vrabel's Titans defense: even-front base (4-2-5 nickel) with one-gapping mechanics, shifted toward more split-field coverages and heavy blitz usage as the season progressed. Under Kuhr's play-calling, the defense ranked 4th in points allowed, 8th in yards, and dominated in the playoffs (8.6 PPG allowed across three AFC playoff wins). Kuhr increased blitz rates and relied on simulated pressures/creeper concepts to manufacture a pass rush from a front seven that lacked elite individual pass rushers. Increased quarters/split-field coverage usage from ~37% early in the season to ~43% post-Week 6.",
+      "development_track_record": "As a first-time coordinator, Kuhr's development track record is limited but shows promise through the Vrabel tree's emphasis on assignment football and physicality. His background coaching inside linebackers translates to a defense that emphasizes LB processing speed, discipline, and coverage ability. Williams (the original DC hire, now in an advisory role) is widely regarded as one of the best DL coaches in football \u2014 developed Jeffrey Simmons into a 2x All-Pro, maximized Jurrell Casey, Cameron Wake, Ndamukong Suh, and Denico Autry."
     }
   },
   "offense": {
-    "scheme_family": "Erhardt-Perkins",
-    "base_personnel": "12 / 21 heavy",
-    "personnel_grouping_detail": "Heavy personnel usage among the highest in the NFL. 21 personnel (2 RB, 1 TE, 2 WR) used at a top-3 rate league-wide; 12 personnel (1 RB, 2 TE, 2 WR) deployed on approximately 30% of snaps (12th in NFL). McDaniels is one of the most frequent deployers of heavy offensive sets in the league.",
-    "run_scheme": "Transitioning from traditional gap/power to more outside zone, but retaining ISO, power, counter, wham, and crack toss. Mix of zone and gap concepts with zone schemes becoming more prominent in 2025 to fit personnel (TreVeyon Henderson) and Drake Maye's mobility.",
-    "pass_concepts": "Play-action heavy off run-action, boot concepts sequenced off toss schemes, dropback passing from multiple formations, moving pockets to leverage Maye's athleticism. RPO elements added via Thomas Brown influence. Quick game and vertical shots off play-action.",
-    "rpo_usage": "moderate-to-high (increased from historical McDaniels norms, Thomas Brown influence bringing more early-down RPO elements)",
-    "te_usage": "Dual-role: inline blocker in heavy sets AND play-action target from 12-personnel. TEs run crossers off play-action, used in 2-TE sets frequently. Thomas Brown (McVay tree) serves as TE coach/pass-game coordinator, elevating TE receiving role. Heavy 12-personnel usage means TEs are integral to both run blocking and route running.",
-    "rb_usage": "Multiple-back system with heavy 21-personnel usage. Committee approach: TreVeyon Henderson as zone-scheme speed back, with fullback/H-back types for lead ISO. RBs used in pass game as part of play-action design. 2-RB sets force defenses to replace DBs with linebackers, creating mismatches downfield."
+    "scheme_family": "Erhardt-Perkins (McDaniels variant, modernized for Maye)",
+    "scheme_detail": "The Patriots run a concept-based Erhardt-Perkins offensive system that uses single-word play calls to communicate route concepts, allowing the same plays to be run from any formation or personnel grouping. McDaniels' 2025 version has been modernized with outside zone run concepts, bootleg/half-roll actions, and designed QB runs to leverage Drake Maye's mobility \u2014 a significant departure from the pure pocket passing approach of the Brady era. The system places immense cognitive burden on the quarterback, who is responsible for making line calls, setting protections, checking plays, and audibling at the line of scrimmage. McDaniels' scheme is philosophically neutral \u2014 it doesn't commit to a single approach, instead adapting weekly to exploit defensive weaknesses. The 2025 offense led the NFL in personnel diversity, forcing defenses to match heavy formations while passing into lighter boxes.",
+    "run_scheme": "Gap/power primary (ISO, power, counter, wham, crack toss) with a significant addition of outside zone concepts in 2025 to fit the offensive line and Maye's mobility. McDaniels historically builds around under-center gap schemes with a fullback lead (he brought back FB usage in 2025). His Raiders had the NFL's rushing champion in Josh Jacobs (2022). The OL under Doug Marrone is built for both gap-scheme road-grading and zone movement \u2014 first-round pick Will Campbell was drafted specifically for his zone-blocking athleticism. Play-action off run actions is the engine of the passing attack. The run game's purpose is to set up play-action shots, not just move the chains.",
+    "pass_architecture": "Concept-based passing built on QB footwork and progression reads. Short-to-intermediate timing routes (hitches, slants, digs, crossers) form the base. McDaniels sequences play-action off heavy run looks to attack deep \u2014 bootlegs, deep overs, and vertical shots off 12/21 personnel are key concepts. The slot receiver is critical \u2014 historically the chain-mover (Welker, Edelman, Amendola). TEs work the seams and intermediate zones. The offense incorporates a no-huddle/up-tempo package with one-word calls for situational use. Low RPO usage \u2014 McDaniels prefers play-action over RPO because it uses pass-blocking schemes he trusts more. McDaniels' offense finds matchups \u2014 he schemes skill players against LBs between the numbers, a staple concept in 2025.",
+    "personnel_tendencies": "Among the NFL's most frequent deployers of heavy personnel. In 2025, the Patriots were top-3 in 21 personnel usage (2 RBs, 1 TE, 2 WRs) and top-12 in 12 personnel (~30% of snaps). This is a hallmark McDaniels trait \u2014 he diversifies groupings far more than the league average, forcing defenses to match with heavier personnel and creating mismatches when passing. The fullback is a real offensive weapon in this system, not a vestige. 11 personnel is used but at a lower rate than league average. McDaniels will go empty or spread situationally, but it is not the base look.",
+    "motion_tempo": "Moderate-to-high motion usage in 2025, increased from historical McDaniels norms. The addition of outside zone and boot concepts brought more pre-snap motion to sell run/pass conflicts. Tempo varies: standard tempo in early downs with the ability to accelerate to no-huddle (a Brady-era signature) when needed. McDaniels uses tempo as a weapon to prevent defensive substitutions and exploit personnel mismatches."
   },
   "defense": {
-    "base_front": "3-4",
-    "alignment": "Nominally 3-4 but operates functionally as a 4-3 under with one-gap responsibilities. Shifts to 4-down linemen on passing downs with overloads, wide-nine alignments, and 3-technique rushers.",
-    "edge_rush_source": "OLB stand-up primary (Harold Landry, K'Lavon Chaisson), with DEs rushing from 3-point stance on passing downs. OLB coach Mike Smith is specifically a pass-rush specialist who coached Danielle Hunter (16.5 sacks) and Dee Ford (13 sacks). System uses both 2-point and 3-point stance rushers.",
-    "coverage_base": "Multiple / disguise-heavy. Mix of Cover 3, Cover 1 (man-free), Cover 2, Tampa 2, Quarters, and inverted coverages. Heavy use of pre-snap disguise \u2014 showing one coverage and rotating to another post-snap. Man coverage tendency remains high. Creeper pressures at 5th-highest rate in NFL. Cover Zero usage at 3rd-highest rate (8%).",
-    "blitz_tendency": "moderate-to-heavy (heavy use of simulated/creeper pressures where DBs blitz and DL drops into coverage; 2nd-highest rate of unblocked pressures in NFL)",
-    "lb_role": "ILBs (Zak Kuhr coaching) are run/coverage players expected to run free behind DL that occupies blockers. OLBs (Mike Smith coaching) are primary edge pass rushers who also occasionally drop into coverage on creeper/sim pressure plays. System is designed to keep ILBs clean to flow to the ball.",
-    "safety_usage": "Hybrid-heavy. Dime personnel used at 3rd-highest rate in NFL (22.8%). Safety types like Jabrill Peppers, Kyle Dugger, and Craig Woodson play box, slot, and blitz roles. Dugger ranked 4th among DBs in QB pressures. Peppers tied for 4th in run stops among safeties. Safeties rotate pre-snap as part of coverage disguise scheme."
+    "scheme_family": "Multiple hybrid front (Vrabel/Belichick-influenced, Kuhr-called)",
+    "scheme_detail": "The 2025 Patriots defense shifted from the Belichick-era odd-front (3-4/3-3-5) base to an even-front system drawn from Vrabel's Tennessee tenure. The base is a 4-2-5 nickel with one-gapping mechanics. The front structure uses an over front with a 3-technique and 1-technique on the interior, with wide DEs in 7/9 techniques. Kuhr maintained Vrabel's 'coverage consistency, front multiplicity' philosophy \u2014 the coverages stay relatively simple and consistent while the front alignments shift play-to-play (over, under, overload, wide-9, etc.) to create confusion. Heavy blitz usage was a defining characteristic, with simulated pressures/creeper concepts (an edge rusher dropping into coverage while a safety or LB blitzes) being a core tool. The defense evolved toward more split-field coverages (quarters, Cover 6) as the season progressed, moving from ~37% to ~43% split-field usage. Man coverage remains in the toolbox but is not the primary call like it was under Belichick \u2014 Kuhr blended zone-match concepts, quarters, Cover 2, and Cover 3 with aggressive pre-snap disguise.",
+    "front_structure": "Even front base (4-2-5 nickel). Interior DL features a 3-technique (penetrating DT) and a 1-technique (nose). Wide DEs in 7/9 techniques set edges and provide rush. On passing downs, the front shifts to overloads (3 rushers to one side) or wide-9 looks with two 3-technique interior rushers for maximum pass-rush penetration. Christian Barmore and Milton Williams anchor the interior with disruptive one-gap penetration. The Patriots can flex to 3-down (odd front) looks but use even fronts as the primary call, a clear departure from the Belichick era. One-gapping mechanics throughout \u2014 not two-gapping.",
+    "coverage_philosophy": "Split-field and match coverages are the emerging base, with quarters, Cover 2, Cover 6, and Cover 3 all in the call sheet. Pre-snap disguise is essential \u2014 Kuhr/Vrabel rotate the secondary and show different looks before snapping into the actual coverage. Zone-match principles where DBs pattern-read rather than spot-drop. Man coverage is used situationally (Cover 1 Robber on third downs, Cover 0 blitz calls) but is not the primary call like it was under Belichick. The shift toward split-field coverages reflects a modern approach that protects against both the run and the pass without committing to a single-high or two-high shell pre-snap.",
+    "pressure_philosophy": "Blitz-heavy. The Patriots under Kuhr relied heavily on the blitz to compensate for a front seven that lacked elite individual pass rushers. Simulated pressures (creepers) are a core concept \u2014 an edge rusher drops into coverage while a safety, nickel, or linebacker rushes from an unexpected angle. The goal is to create confusion for the offensive line's pass protection assignments rather than relying on individual talent to win 1-on-1. In the playoffs, the Patriots registered 12 sacks in three games, largely through scheme rather than individual dominance. Safety blitzes, LB delays, and overload stunts are staple pressure concepts.",
+    "sub_packages": "The 4-2-5 nickel IS the base package (~80-85% of defensive snaps). Base 3-4/4-3 with 3 LBs is used sparingly in heavy run situations. Dime (6 DBs) is used in obvious passing situations. The nickel defender (Marcus Jones in 2025) is a true cornerback-type, not a safety, reflecting the defense's need for coverage ability in its most-used package. The safety positions are split between a deep/rangy free safety and a strong safety who plays closer to the box as a quasi-LB in run support \u2014 Vrabel's Titans used Jabrill Peppers-type hybrids in this role, and Kyle Dugger fills that function in New England."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "The Patriots run 12-personnel at approximately 30% of snaps with Thomas Brown (Sean McVay coaching tree) serving as TE coach and pass-game coordinator \u2014 the first pass-game coordinator title in team history. McDaniels sequences play-action passes directly off heavy personnel looks, with TEs running crossers from 12-personnel as primary targets. The Erhardt-Perkins system historically values versatile TEs who can both block in-line and run routes from multiple alignments. A receiving TE who can also hold up as an in-line blocker in heavy sets has tremendous value here because the entire offensive structure relies on presenting heavy formations to force defensive personnel changes, then exploiting coverage mismatches in the passing game."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The quarterback in McDaniels' Erhardt-Perkins system is the offensive nerve center. He is responsible for setting protections, making line calls, checking plays at the line of scrimmage, and audibling based on defensive looks. The system places immense cognitive burden on the QB \u2014 former players described learning the playbook as 'calculus.' Maye showed that a mobile, big-armed QB can thrive here when McDaniels adapts the scheme with bootlegs, rollouts, and designed runs. The QB must process quickly through progressions and deliver accurate timing throws on concept-based routes while also having the ability to extend plays and make throws on the move.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "McDaniels' 2025 offense leverages Maye's big arm for play-action deep shots off heavy formations and bootleg throws across the field. The EP system doesn't require an arm cannon as its base \u2014 short/intermediate timing is the bread and butter \u2014 but the modern iteration with vertical shots off 12/21 personnel rewards arm talent significantly more than the Brady-era version."
+        },
+        "Accuracy": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The Erhardt-Perkins system is built on timing routes where the ball must arrive on schedule before the receiver completes his break. Hitches, slants, digs, and crossers \u2014 the staple concepts \u2014 all require anticipation accuracy. McDaniels' offense generates open receivers through scheme, not individual separation, which means the QB must deliver accurately into tight windows on time."
+        },
+        "Pocket Presence": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Despite adding more movement concepts for Maye, this remains a pocket-passing foundation. The QB must feel pressure, step up or slide in the pocket, and deliver from a clean platform. McDaniels' historic preference for under-center play-action demands a QB who can sell the fake and set up in the pocket with composure."
+        },
+        "Mobility": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "McDaniels historically did not value mobility (Brady, Mac Jones). However, his 2025 adaptation for Maye \u2014 incorporating bootlegs, designed QB runs, and outside zone reads \u2014 elevated mobility's value. A mobile QB unlocks the full modern version of this offense, but a pure pocket passer can still operate the core system effectively."
+        },
+        "Decision Making": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "The EP system requires the QB to process concept reads quickly, identify the right progression based on coverage shell, and take what the defense gives. McDaniels' offense is philosophically neutral \u2014 it exploits weaknesses, which means the QB must diagnose those weaknesses in real time. Poor decision-making in this system leads to turnovers because the QB is expected to have 'the last word' at the line of scrimmage."
+        },
+        "Leadership": {
+          "weight": 0.05,
+          "importance": "moderate",
+          "reasoning": "Vrabel's culture demands accountability and competitive leadership from the QB position. Maye was pushed to lead conditioning runs and set the tone. However, leadership is more of a cultural trait than a schematic one \u2014 it matters for the program but doesn't directly impact scheme execution."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "high",
+          "reasoning": "The QB in McDaniels' system must read defensive alignments, identify coverage shells, set protections, and check into the right play \u2014 all before the snap. Pre-snap responsibility here is higher than in most NFL offenses. However, the EP system's concept-based nature actually simplifies post-snap reads, so the weight is shared between pre- and post-snap processing."
+        }
+      },
+      "ideal_archetype": "The ideal QB in this system is an intelligent, accurate passer with enough mobility to capitalize on bootleg/rollout concepts but whose primary value comes from mental processing and ball placement. The 2025 Patriots showed that a big-armed, mobile QB like Maye unlocks the system's ceiling, but the floor is set by accuracy and decision-making. Think of a player who processes like Tom Brady but moves like a young Aaron Rodgers \u2014 someone who can operate the timing structure but also extend plays and attack on the move. The prototype blends the mental acuity the EP system demands with the physical tools that McDaniels' modernized version now rewards.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "McDaniels has historically preferred taller QBs for sight lines over the OL (Brady 6-4, Mac Jones 6-3, Maye 6-4). Height matters for seeing over the line in under-center play-action sets."
+        },
+        "weight": {
+          "ideal": "220-240",
+          "floor": "210",
+          "reasoning": "The system asks the QB to take hits in the pocket on play-action and deliver through contact. The modern version also includes designed runs, so a sturdier build is preferred."
+        },
+        "arm_strength": {
+          "ideal": "60+ mph velocity",
+          "floor": "55 mph",
+          "reasoning": "Must drive the ball on deep play-action shots off bootleg and into tight intermediate windows on timing routes."
+        }
+      },
+      "development_context": "McDaniels has an elite track record of developing QBs within his system. He took a 6th-round pick (Brady) and turned him into the GOAT. He developed Mac Jones into a competent starter as a rookie. In 2025, he took Maye from a raw, turnover-prone rookie to an MVP candidate. The system itself teaches QBs to process \u2014 the concept-based structure gradually layers complexity. However, the EP playbook has a steep initial learning curve that can overwhelm QBs lacking football IQ. A prospect who arrives with strong processing skills and accuracy will develop faster; raw athleticism alone won't survive the 'calculus' of this system.",
+      "scheme_fit_narrative": "We need a quarterback who can handle the mental load of this offense \u2014 setting protections, checking plays, reading coverages pre-snap \u2014 because that's where the system generates its advantage. Accuracy on timing routes is non-negotiable; this offense lives on anticipation throws. If the prospect also brings mobility and arm talent, McDaniels has shown he'll adapt the scheme to weaponize those tools. But the foundation has to be between the ears.",
+      "archetype_examples": [
+        "Drake Maye",
+        "Aaron Rodgers (younger version)",
+        "Tom Brady (mental processing model)"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "high",
-      "explanation": "The defense operates as a 3-4 with stand-up OLBs as primary edge rushers. OLB coach Mike Smith is a dedicated pass-rush specialist who coached Danielle Hunter to 16.5 sacks and Dee Ford to 13 sacks in his previous stops. Harold Landry (8.5 sacks) and K'Lavon Chaisson (7.5 sacks) were the team's top sack producers in 2025 as stand-up OLBs. Edge rusher is the team's most glaring need heading into 2026 \u2014 Patriots ranked 20th in sack percentage and 26th in total sacks. Any LB with elite pass-rush traits (burst, bend, hand usage) would be valued at EDGE prices because the system uses OLBs both in 2-point and 3-point stances as the primary source of edge pressure. Vrabel's Titans historically drafted OLBs in the 6-3, 250-260 pound range."
+    "RB": {
+      "scheme_role": "The RB in McDaniels' offense is a multi-dimensional weapon, not just a ball carrier. The system uses heavy personnel (21 packages among the highest in the NFL) which means the RB must function in a two-back system alongside a fullback. He runs inside zone, ISO, power, and counter from under center and shotgun. Critically, RBs in the EP system are targets in the passing game \u2014 they line up across the formation in different roles, particularly in hurry-up, and must be able to catch the ball out of the backfield. Pass protection is essential because McDaniels' play-action schemes require the RB to sell the fake and then pick up blitzers.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "McDaniels' gap-scheme runs (ISO, power, counter) require the RB to read the block progression, identify the designed hole, and hit it decisively. The addition of outside zone in 2025 adds a second-level read requirement \u2014 the RB must see backside cutback lanes when the frontside is walled off. Vision separates productive backs from replacement-level in this scheme."
+        },
+        "Contact Balance": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The gap-scheme runs in this offense involve the RB hitting designed holes where contact at the point of attack is guaranteed. The ability to absorb a hit from a scraping LB and fall forward for extra yards is valued, but it's secondary to vision and pass-catching in this system's overall design."
+        },
+        "Power": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "McDaniels' under-center ISO and power concepts require the RB to run behind a lead blocker and deliver a blow at the second level. The 2018 Super Bowl team exemplified this with Sony Michel \u2014 a downhill, physical runner. Vrabel's run-first philosophy also prioritizes backs who can grind out tough yards in cold weather and late-game situations."
+        },
+        "Elusiveness": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Outside zone concepts added in 2025 reward elusiveness \u2014 the ability to make a defender miss in space on the perimeter. However, this offense is more about schemed lanes than broken-field running. Elusiveness is a bonus, not a requirement."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Home run speed is not essential in a gap-scheme offense that values ball control and moving the chains. However, the crack-toss and outside zone concepts do reward the ability to get to the perimeter quickly. Functional speed (burst through the hole) matters more than top-end 40 time."
+        },
+        "Pass Catching": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "RBs in the Erhardt-Perkins system see a higher percentage of targets per route run than in other systems. In McDaniels' offense, the RB is a featured receiving weapon out of the backfield \u2014 James White, Shane Vereen, and Kevin Faulk were all critical pass-catching backs. The RB lines up across the formation and runs routes against LBs, making pass-catching a core skill, not a supplementary one."
+        },
+        "Pass Protection": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "McDaniels' play-action heavy offense requires the RB to sell the fake and then become a secondary pass protector. With heavy blitz rates around the league, the RB must identify and pick up unblocked rushers. Brady's insistence on solid pass protection from his RBs was a hallmark of this system, and that demand continues with Maye."
+        }
+      },
+      "ideal_archetype": "A three-down back with excellent vision in gap schemes, reliable hands as a receiver, and the willingness to pass protect. Think James White's versatility crossed with Sony Michel's downhill power \u2014 a back who can run ISO between the tackles, catch 50+ balls out of the backfield, and pick up a blitzing linebacker. The ideal back is not necessarily a home-run hitter but a complete player who executes all three phases. Rhamondre Stevenson's skill set (size, pass-catching, pass protection) is the modern template for this role.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "210-225 lbs",
+          "floor": "200 lbs",
+          "reasoning": "Gap-scheme running behind a fullback requires a back who can absorb contact at the point of attack. The pass protection demands also favor a bigger body that can anchor against blitzers."
+        },
+        "40_yard_dash": {
+          "ideal": "4.45-4.55",
+          "floor": "4.60",
+          "reasoning": "Functional speed to get to the perimeter on crack-toss and outside zone, not necessarily top-end burners. The system creates holes through scheme, not by outrunning pursuit."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.25",
+          "floor": "4.35",
+          "reasoning": "Vision and lateral agility to read gap-scheme blocks and hit cutback lanes on outside zone. The short shuttle captures the quick-twitch change of direction this offense demands."
+        }
+      },
+      "development_context": "McDaniels has a history of getting production from mid-round and undrafted RBs through scheme (Ridley, White, Faulk, Vereen). The system creates lanes through personnel manipulation and play design, so elite physical talent is less critical than football IQ and versatility. A RB who arrives with pass-catching and pass-protection skills has a fast development path; those skills are harder to teach. Running vision can be sharpened with NFL reps in this scheme.",
+      "scheme_fit_narrative": "This offense doesn't need a star running back \u2014 it needs a complete one. We want a back who can run between the tackles behind a fullback, catch 50 balls out of the backfield, and pass protect well enough that we trust him on third down. If he has breakaway speed too, great, but that's the cherry on top. The system will create the production if the player has the tools and the football IQ.",
+      "archetype_examples": [
+        "James White",
+        "Rhamondre Stevenson",
+        "Josh Jacobs (2022)"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "medium-to-high",
-      "explanation": "McDaniels' 2025 offense uses 21 personnel at a top-3 rate league-wide. The heavy personnel groupings are specifically designed to force defenses to replace DBs with linebackers, creating passing mismatches. McDaniels then uses RBs in play-action concepts and occasionally as receivers out of the backfield. The system values backs who can catch and operate in space because the entire offensive strategy revolves around making heavy formations a passing threat. However, the primary RB value driver remains running ability (zone scheme fit, burst, vision) rather than pure receiving. A back with legitimate receiving chops gets a meaningful boost but it's secondary to running traits."
+    "WR": {
+      "scheme_role": "WRs in McDaniels' EP system must be versatile \u2014 the concept-based playbook requires receivers to know their role in each concept from any alignment. A WR who lines up outside one play may be in the slot the next, running the same concept from a different spot. The slot WR is historically the most important receiver in this offense (Welker 112 catches in 2007, Edelman 1,000+ yard seasons). The outside WRs must run the full route tree with route optionality \u2014 they adjust routes based on coverage, reading the defense and breaking off the route to find soft spots. Contested-catch ability matters because McDaniels schemes matchup throws into tight windows.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The EP system's concept-based structure requires receivers to run precise routes with option breaks built in. Routes are not fixed \u2014 the receiver must read the coverage and adjust his route accordingly (e.g., sitting in a zone hole vs. breaking away from man coverage). This demands elite route technique and understanding."
+        },
+        "Separation": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "McDaniels' timing passing game delivers the ball at or just before the break point. The receiver must create separation at the top of his route so the QB can deliver with anticipation. Pure speed separation is less important than quickness out of breaks."
+        },
+        "Hands": {
+          "weight": 0.18,
+          "importance": "essential",
+          "reasoning": "McDaniels' offense throws into tight windows on timing routes. Drops are devastating because the play design assumes the completion \u2014 a drop disrupts the entire offensive rhythm. Brady demanded reliable hands above all else from his receivers, and the system still prizes that."
+        },
+        "YAC Ability": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Short passing concepts (hitches, slants, screens) comprise a large portion of this offense. YAC turns 5-yard completions into 12-yard gains. Edelman and Welker were elite YAC producers in this system. However, the offense doesn't rely exclusively on YAC \u2014 intermediate and deep passing matters too."
+        },
+        "Speed": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "This is not a vertical offense that requires 4.3 speed. The EP system wins with timing, route technique, and matchup exploitation. Speed helps on deep shots off play-action but is not the primary separator. Functional quickness (0-to-15 yard burst) matters more than 40-yard-dash time."
+        },
+        "Contested Catches": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "McDaniels schemes matchup throws where the receiver must win at the catch point against tight coverage. The 2025 addition of Stefon Diggs (before his release) and the use of 6-4 Mack Hollins showed value in bigger WRs who win contested catches. Play-action shots into coverage require this skill."
+        },
+        "Release Package": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Against press-man coverage, the WR must win at the line to maintain the timing structure of the offense. If a receiver gets jammed and delayed, the entire concept's timing breaks down. However, McDaniels can also motion or align receivers to avoid press, reducing the weight slightly."
+        }
+      },
+      "ideal_archetype": "The ideal outside WR is a complete route runner with reliable hands who can adjust routes based on coverage \u2014 think Julian Edelman's intelligence in a bigger body. The slot WR is the engine: a quick, savvy, tough player who works the middle of the field, catches everything, and produces YAC (Edelman/Welker archetype). McDaniels also values a big-bodied X-receiver for play-action shots and red-zone targets (Randy Moss, Mack Hollins). The key trait across all WR roles is football IQ \u2014 the ability to understand concept-based route running and adjust on the fly. A one-trick-speed receiver who can't run option routes will struggle in this system.",
+      "measurable_preferences": {
+        "height_outside": {
+          "ideal": "6-1 to 6-4",
+          "floor": "5-11",
+          "reasoning": "Outside WRs benefit from size for contested catches on play-action shots and red-zone targets. McDaniels has used both big (Moss 6-4, Hollins 6-4) and smaller (Branch 5-9) outside receivers, but the modern iteration favors size."
+        },
+        "height_slot": {
+          "ideal": "5-9 to 6-0",
+          "floor": "5-8",
+          "reasoning": "Slot receivers must be quick and agile to work the middle of the field. Welker (5-9), Edelman (5-10), and Amendola (5-11) set the physical template for this role."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.10",
+          "floor": "4.20",
+          "reasoning": "The EP system rewards quickness in and out of breaks far more than straight-line speed. The short shuttle captures the lateral agility and change-of-direction ability that separates productive receivers in this timing-based offense."
+        }
+      },
+      "development_context": "McDaniels has developed some receivers within the system (Edelman from QB to slot WR, Jakobi Meyers from UDFA to reliable starter), but his track record is more about maximizing existing talent through scheme than developing raw prospects. The EP system demands football IQ that is hard to develop if it doesn't exist on arrival. Route technique can be refined, but the conceptual understanding \u2014 reading coverages and adjusting routes \u2014 must be present. Pass game coordinator Thomas Brown (McVay tree) may bring modern route concepts that could help develop less refined receivers.",
+      "scheme_fit_narrative": "We're looking for receivers who are football-smart enough to learn a concept-based offense where every route has a built-in option. Hands and route running are non-negotiable \u2014 this offense puts the ball where it needs to be on time, and the receiver must be there to catch it. We'd love a slot receiver who can work the middle of the field like Edelman did, and an outside guy with enough size and ball skills to win on play-action shots. Pure speed merchants without route savvy won't survive here.",
+      "archetype_examples": [
+        "Julian Edelman (slot)",
+        "Wes Welker (slot)",
+        "Stefon Diggs (outside)",
+        "Mack Hollins (big target)"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "The Patriots deploy dime personnel at the 3rd-highest rate in the NFL (22.8%), meaning they frequently have 6 DBs on the field. This is only possible because their safeties function as hybrid defenders \u2014 playing box, slot coverage, blitzing, and rotating through coverage disguises. Kyle Dugger ranked 4th among all DBs in QB pressures; Jabrill Peppers tied for 4th in run stops among safeties. The defense uses creeper pressures (5th-highest rate) and cover-zero (3rd-highest rate at 8%), both of which require safeties who can blitz, play man coverage, and handle the run. A safety with box/slot/blitz versatility is extremely valuable because the entire defensive philosophy relies on hybrid DBs who eliminate the need for traditional linebacker personnel."
+    "TE": {
+      "scheme_role": "The TE is a premium position in McDaniels' offense. With ~30% of snaps in 12 personnel and heavy 21 usage, TEs are on the field constantly. The system uses TEs as inline blockers in the gap-scheme run game, flex receivers in the slot running full route trees, and play-action targets working the seams and intermediate zones. The Gronkowski/Hernandez two-TE attack from 2011-2012 was the gold standard \u2014 one dominant blocking/receiving TE with a move TE who could flex into the slot. In 2025, Hunter Henry and the TE room were integral to the heavy-personnel approach that forced defensive matchup problems.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "McDaniels features TEs in the passing game at an elite rate. The TE is a primary progression read, not a checkdown. Gronkowski's 17 TD season in 2011, Hernandez's slot production, and Hunter Henry's consistent 50+ catch seasons all reflect how central receiving is to the TE position in this offense."
+        },
+        "Route Running": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "The EP system asks TEs to run a full route tree from multiple alignments \u2014 inline, wing, slot, split out. The TE must run option routes, seam routes, crossing patterns, and intermediate breaks just like a WR. Route technique separates the TEs who thrive in this system from those who are merely athletic."
+        },
+        "Blocking": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "The heavy personnel packages (12/21) require inline blocking on gap schemes. A TE who cannot block in the run game limits the offense's ability to use its preferred personnel groupings authentically \u2014 defenses won't respect the run if the TE is a liability at the point of attack. McDaniels has always required TEs who can block (Gronkowski was a dominant run blocker)."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The system asks TEs to flex across the formation, work against LBs in space, and create mismatches in the middle of the field. Athletic TEs who can separate against linebackers and safeties are the matchup weapons that make 12 personnel so dangerous in this offense."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "high",
+          "reasoning": "The TE often catches the ball in traffic on crossing routes and seam throws. Reliable hands in contested situations are critical because the TE is frequently the primary read in high-leverage situations (third downs, red zone). A drop from the TE kills drives."
+        },
+        "Speed": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Elite speed at TE is a bonus that creates mismatches (Hernandez's 4.6 speed was devastating). But functional speed to work the seams and get behind LBs in zone coverage is sufficient. The system creates separation through formation and scheme, not raw TE speed."
+        }
+      },
+      "ideal_archetype": "The ideal TE1 in this offense is a complete player who can block in-line on power and ISO runs, then flex to the slot and run a full route tree against LBs and safeties. Think Rob Gronkowski \u2014 a physical presence at the point of attack who is also one of the most dangerous receiving weapons on the field. The TE2 should be a move/flex TE with receiving upside who can line up in the slot or as an H-back. The system can accommodate different TE types (blocking-first and receiving-first) but the premium is on players who do both at a high level.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-2",
+          "reasoning": "Size matters for blocking in-line against DEs and for being a large red-zone target in the passing game. Gronkowski (6-6), Henry (6-5) set the size standard."
+        },
+        "weight": {
+          "ideal": "245-265 lbs",
+          "floor": "235 lbs",
+          "reasoning": "Must have the mass to sustain blocks against DEs on gap schemes and absorb hits working the middle of the field. The heavy personnel approach demands physically imposing TEs."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Functional speed to work the seams and beat LBs down the field. Not a speed position, but the TE must be athletic enough to create separation against linebackers in zone coverage."
+        }
+      },
+      "development_context": "Thomas Brown (TE/pass game coordinator) brings TE development expertise from the McVay tree and his work in Chicago/Carolina. McDaniels has historically maximized TEs through scheme rather than raw development \u2014 Gronkowski and Hernandez arrived as elite talents, while Hunter Henry was already a polished pro. Brown may help develop raw receiving TEs more effectively than McDaniels has historically done. Blocking technique is a must-have on arrival; it's very difficult to teach at the NFL level, and this scheme requires it from Day 1.",
+      "scheme_fit_narrative": "This offense makes TEs stars. We need a guy who can line up on the tackle's hip and blow someone off the ball on ISO, then flex to the slot next play and beat a linebacker on a seam route. If we can get a complete TE \u2014 blocks and catches \u2014 he's going to be on the field 80%+ of the time in this offense. Receiving-only TEs have a role as the TE2, but the TE1 has to do it all.",
+      "archetype_examples": [
+        "Rob Gronkowski",
+        "Hunter Henry",
+        "Aaron Hernandez (athletic move TE)"
+      ]
+    },
+    "OT": {
+      "scheme_role": "The OT in McDaniels' offense must be versatile across multiple run-scheme demands: gap-scheme power/counter (sustain blocks, drive defenders off the ball), outside zone (lateral reach blocks, climbing to the second level), and play-action pass protection (anchoring against edge rushers while the QB sells the fake). The LT is the QB's blind-side protector and must be an elite pass protector. The RT faces more of the run-game responsibility, particularly in McDaniels' tendency to run power/counter to the right. OL coach Doug Marrone (Sean Payton coaching tree) and informal advisor Dante Scarnecchia bring a power-technique foundation. First-round pick Will Campbell (2025, No. 4 overall) was drafted for his zone-blocking athleticism, signaling the scheme's evolution.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "McDaniels' play-action heavy offense requires OTs to sustain blocks through the play-fake and then settle into pass protection. The timing-based passing game means the QB needs a clean pocket at specific drop-back intervals. A blown protection in this offense is catastrophic because the QB is stationary in the pocket delivering anticipation throws."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Vrabel's physical, run-first philosophy and McDaniels' gap-scheme run game demand OTs who can move defenders at the point of attack. ISO, power, and counter require down blocks and double-team combinations that sustain through the whistle. The addition of outside zone requires reach blocks and zone combinations \u2014 a dual skill set."
+        },
+        "Footwork": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The OT must transition between gap-scheme footwork (firing off the ball, driving blocks) and pass-protection sets (kick-slide, mirror) and zone-blocking technique (lateral first step, reach angles) within the same drive. Will Campbell was drafted specifically because his footwork in zone concepts translates to this scheme's dual demands."
+        },
+        "Anchor": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Against power rushers, the OT must anchor and absorb bull rushes without surrendering ground. Play-action pass protection is particularly demanding because the fake-handoff disrupts the OT's ability to get into a normal pass set. The OT must reset quickly and anchor against the rush."
+        },
+        "Athleticism": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "The outside zone addition requires OTs who can move laterally and reach-block edge defenders. Climbing to the second level to block LBs on zone runs demands athleticism. The 2025 draft of the athletic Will Campbell signals that the offense is evolving toward more athletic OT profiles."
+        },
+        "Strength": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Raw strength matters in the gap-scheme run game for sustaining double-teams and driving DL off the ball. However, this offense balances strength with athleticism \u2014 a pure road-grader who can't move laterally won't fit the outside zone concepts."
+        }
+      },
+      "ideal_archetype": "The ideal OT is a technically sound blocker who can power-drive defenders on ISO and counter, reach-block on outside zone, and anchor against speed and power rushers in pass protection. Think Trent Williams \u2014 an athletic, physically dominant tackle who excels in both gap and zone schemes. Will Campbell was drafted to be this player. The system asks OTs to be scheme-versatile rather than specialists in one blocking style.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Length matters for pass protection (creating distance from the rusher) and for sustaining blocks in the gap-scheme run game."
+        },
+        "weight": {
+          "ideal": "310-330 lbs",
+          "floor": "300 lbs",
+          "reasoning": "Must have the mass to anchor against power rushers and sustain drive blocks on gap schemes. Too light and the play-action pass protection suffers against NFL edge rushers."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.70",
+          "floor": "4.85",
+          "reasoning": "The outside zone component demands lateral agility. An OT who can't reach-block and climb kills the outside zone run game. Sub-4.70 indicates the movement ability needed to execute both gap and zone concepts."
+        },
+        "arm_length": {
+          "ideal": "34+",
+          "floor": "33",
+          "reasoning": "Length creates leverage advantages in both pass protection and run blocking. Longer arms allow the OT to control the edge rusher's chest and steer him around the pocket."
+        }
+      },
+      "development_context": "OL coach Doug Marrone has over two decades of NFL coaching experience including stints as a head coach and OC. He has developed linemen across multiple schemes. Informal advisor Dante Scarnecchia is the most renowned OL coach in Patriots history. This staff can develop technique and fundamentals at an elite level. A prospect who arrives with raw athleticism and one blocking skill set (zone OR power) can be developed into a dual-scheme blocker by this staff. However, the starting OT must be able to pass protect immediately \u2014 that cannot be developed slowly in this QB-centric offense.",
+      "scheme_fit_narrative": "We need tackles who can do everything \u2014 power-drive on ISO, reach on outside zone, and anchor against edge rushers in play-action pass pro. This offense runs multiple run schemes from game to game and even series to series. A tackle who can only zone block or only gap block limits what we can do. If we're drafting high, we want a tackle with zone athleticism and power-scheme strength. Pass protection must be ready now \u2014 Drake Maye's protection is non-negotiable.",
+      "archetype_examples": [
+        "Will Campbell (2025 1st-round pick)",
+        "Trent Williams",
+        "Michael Onwenu"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior OL in McDaniels' offense must be the most versatile blockers on the team. The center is responsible for making line calls and communicating protections \u2014 though in this system, the QB takes the 'last word,' the center still must diagnose blitzes and stunts. Guards must pull on counter and power plays (a McDaniels staple), sustain double-teams on ISO, and execute zone combinations on outside zone runs. The scheme's personnel-grouping diversity means the IOL sees varied defensive fronts (3-4, 4-3, nickel) and must adjust blocking assignments accordingly.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The interior faces exotic blitz packages (simulated pressures, A-gap blitzes, delayed LB rushes) that the EP system must handle cleanly. Interior pressures are the fastest way to disrupt the timing passing game. The center and guards must identify and pick up stunts and twists with precision."
+        },
+        "Run Blocking": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "McDaniels' gap-scheme run game puts heavy demands on interior OL: double-team combinations on ISO, down blocks and combination blocks on power, and zone combination blocks with reach angles on outside zone. Vrabel's run-first philosophy means the interior must be dominant run blockers."
+        },
+        "Pulling": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Counter and power pulls are McDaniels' staple run concepts. Guards must pull across the formation, locate the target defender at the second level, and deliver a block in space. Pulling ability is a true differentiator in this scheme \u2014 a guard who can't pull limits the run game's core concepts."
+        },
+        "Strength": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The gap-scheme run game requires interior OL to win 1-on-1 at the point of attack and sustain double-teams long enough for the ball carrier to hit the hole. Against 3-techniques and nose tackles, raw strength matters."
+        },
+        "Anchor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Against interior pass rushers (particularly 3-techniques who align in the B-gap), the guard must anchor and not get bull-rushed into the QB's lap. The timing-based passing game requires a clean interior pocket."
+        },
+        "Versatility": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "McDaniels values IOL who can play multiple positions. Michael Onwenu has played both guard and tackle for this offense. The EP system's philosophy of maximizing personnel means an IOL who can slide between center and guard or guard and tackle has added value. Third-round pick Jared Wilson (2025) is a C/G type who fits this mold."
+        }
+      },
+      "ideal_archetype": "The ideal IOL is a powerful, technically sound blocker who can pull in space, sustain drive blocks on gap schemes, and handle interior pass-rush stunts. Think Joe Thuney \u2014 a smart, strong, versatile guard who can play multiple positions, pull with athleticism, and pass protect with consistency. The center should be a cerebral player who communicates at a high level and can handle nose tackles physically. The system rewards linemen who are scheme-versatile and football-smart over those who are merely big and strong.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "305-325 lbs",
+          "floor": "295 lbs",
+          "reasoning": "Must have mass to anchor against interior DL and sustain double-team blocks. However, too heavy and the pulling game and outside zone movement suffer."
+        },
+        "short_shuttle": {
+          "ideal": "sub-4.60",
+          "floor": "4.75",
+          "reasoning": "Pulling ability and outside zone movement demand lateral agility. The short shuttle captures the quick-change-of-direction ability needed to pull and reach block."
+        },
+        "bench_press": {
+          "ideal": "28+ reps",
+          "floor": "22 reps",
+          "reasoning": "Functional upper body strength for sustaining drive blocks and anchoring against bull rushes. McDaniels' power-scheme demands favor strong IOL."
+        }
+      },
+      "development_context": "Doug Marrone and the OL staff (including informal advisor Dante Scarnecchia) can develop technique across multiple blocking schemes. A raw but athletic prospect can be taught pulling technique and zone-blocking footwork by this staff. However, the center position requires immediate mental readiness \u2014 the communication demands with McDaniels' system and Maye's pre-snap process demand a player who can process defensive looks from Day 1. Guards have more development time if they have physical tools.",
+      "scheme_fit_narrative": "We need interior linemen who can pull, period. If a guard can't pull on counter and power, he's limiting our offense's identity. Beyond pulling, we need guys smart enough to handle the blitz pickup responsibilities in this system and strong enough to win at the point of attack on gap runs. Versatility is a huge plus \u2014 a guy who can play center and guard gives us roster flexibility that McDaniels loves to exploit with personnel manipulation.",
+      "archetype_examples": [
+        "Joe Thuney",
+        "Shaq Mason",
+        "David Andrews (center)"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "In the 2025/2026 Patriots defense under Kuhr, the EDGE rusher operates primarily as a hand-in-the-dirt DE in a 4-man front (7 or 9 technique). The defense shifted from the Belichick-era stand-up OLB rushers to more traditional hand-down DE play. On passing downs, the defense uses overload fronts (3 DL to one side) and wide-9 alignments to create pre-snap confusion. The EDGE must set the edge against the run (one-gapping, not two-gapping), rush the passer with a combination of technique and effort, and occasionally drop into short zone coverage on creeper/simulated pressure concepts. The defense compensates for a lack of elite individual pass rushers with scheme (stunts, overloads, simulated pressures), so the EDGE must execute assignment football above individual brilliance.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The 2024 Patriots were dead last in sacks and 31st in pressure rate. Improving the pass rush is the defense's top priority. While Kuhr manufactures pressure through blitz schemes, having an EDGE who can win 1-on-1 pass-rush matchups provides a foundation the scheme can build upon. Without individual pass-rush ability, the blitz-heavy approach becomes predictable."
+        },
+        "Bend": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The wide-9 and wide-7 alignments used in this defense put the EDGE on the arc around the tackle. Converting speed to sacks from the wide alignment requires bend \u2014 the ability to dip and turn the corner without being steered past the quarterback. Stiff rushers who run wide cannot convert in this scheme's alignment system."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "In a one-gap scheme, the EDGE fires off the ball and attacks his gap immediately. A quick first step creates the initial advantage that the rest of the rush is built on. The wide-9 alignment magnifies the importance of the first step because the EDGE has more ground to cover to reach the QB."
+        },
+        "Power": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Against the run, the EDGE in this system must set the edge and hold the point of attack. One-gapping means controlling your gap assignment. Power also provides a rush plan B \u2014 when speed/bend fails, the ability to convert to a bull rush or long-arm move provides versatility. Harold Landry and K'Lavon Chaisson were brought in for this blend."
+        },
+        "Motor": {
+          "weight": 0.18,
+          "importance": "essential",
+          "reasoning": "Vrabel's defensive identity is built on discipline, effort, and physicality. The defense's blitz-heavy approach means the EDGE sometimes drops into coverage while a DB rushes \u2014 this requires effort and willingness to do the unglamorous work. Vrabel's Titans were described as 'the most disciplined and physical units in the league.' A high-motor EDGE who never takes a snap off is essential to this culture."
+        },
+        "Run Defense": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "One-gapping DEs must control their gap against the run. Vrabel's Titans had the best rushing defense in the NFL in 2022 (76.9 YPG). The Patriots' 2025 defense was a top-5 run defense in the playoffs. Run defense is not secondary to pass rush \u2014 it is a co-equal demand. An EDGE who can rush the passer but gets washed out against the run will not see the field in Vrabel's program."
+        }
+      },
+      "ideal_archetype": "The ideal EDGE in this defense is a two-way player who can set the edge in the run game and rush the passer with a combination of technique, power, and effort. Think Harold Landry \u2014 a Vrabel favorite who is strong against the run, has consistent pass-rush productivity without being a pure speed rusher, and plays with relentless effort. Not a finesse speed rusher who disappears against the run, and not a run-stuffing DE who can't get to the QB. The system needs an EDGE who can execute the scheme's demands \u2014 including dropping into flat coverage on creeper concepts \u2014 while providing enough individual pass-rush ability to keep the blitz-heavy approach from becoming the only way to generate pressure.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "250-275 lbs",
+          "floor": "240 lbs",
+          "reasoning": "Must have the size to hold the edge against NFL tight ends and offensive tackles in the run game. The one-gapping system demands strength at the point of attack. Too light and the run defense suffers."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Functional speed to close on the QB from wide-9 alignment. Not a pure speed position \u2014 the scheme creates pressure through stunts and overloads \u2014 but the EDGE must be quick enough to threaten the edge."
+        },
+        "arm_length": {
+          "ideal": "33+",
+          "floor": "32",
+          "reasoning": "Length provides leverage in both run defense (keeping blockers at bay) and pass rush (long-arm moves, hand fighting). The wide alignment magnifies the importance of length for reaching the tackle."
+        }
+      },
+      "development_context": "Terrell Williams (now in an advisory role) is regarded as one of the best DL coaches in the NFL, having developed Cameron Wake, Denico Autry, and maximized Harold Landry. Clint McMillan (DL coach) continues this development tradition. The staff can develop pass-rush technique and refine an EDGE player's repertoire of moves. What they need arriving is size, motor, and run-defense willingness \u2014 those traits are intrinsic and hard to develop. Pass-rush technique can be taught; effort and physicality cannot.",
+      "scheme_fit_narrative": "We need an edge player who shows up on every snap, not just pass rush downs. This defense asks the EDGE to set the edge, execute stunts, drop into coverage occasionally, and rush the passer with effort and technique. A pure speed rusher who takes run plays off won't play in this system. Give us a 255-pound DE who can hold the point, get after the QB with a variety of rush moves, and play with the motor that Vrabel demands. The scheme will help him get home.",
+      "archetype_examples": [
+        "Harold Landry",
+        "Trey Hendrickson (effort-based)",
+        "K'Lavon Chaisson (athletic project)"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Interior DL in the 2025/2026 Patriots defense are one-gap penetrators who attack assigned gaps rather than two-gapping and holding ground like in the Belichick era. The shift to an even-front scheme with 3-techniques and 1-techniques means the DT is responsible for shooting his gap, disrupting the backfield, and creating negative plays. The 3-technique (B-gap) is the primary interior pass-rush position, while the 1-technique (A-gap) must control interior run fits. On passing downs, the defense uses two 3-technique rushers to maximize interior pressure. Christian Barmore and Milton Williams represent the prototype \u2014 disruptive, one-gap penetrators with pass-rush upside.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The shift from two-gapping to one-gapping directly elevates the importance of interior pass rush. The 2025 defense built its pressure scheme around interior disruption from Barmore and Milton Williams, complemented by blitzes from the second level. An interior DL who can win 1-on-1 against guards is the foundation of the pass-rush scheme."
+        },
+        "Run Defense": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "One-gapping still requires controlling your assigned gap against the run. Vrabel's run-defense philosophy demands that DL hold their ground and not get displaced. The 2025 Patriots allowed just 71.3 rushing YPG in the playoffs. Interior DL are the first line of run defense."
+        },
+        "First Step": {
+          "weight": 0.18,
+          "importance": "essential",
+          "reasoning": "One-gapping mechanics are predicated on winning off the snap. The DT must penetrate his gap before the offensive lineman can get hands on him. A quick first step is the defining trait of a one-gap DT \u2014 it's what makes the shift from the Belichick two-gap system meaningful."
+        },
+        "Hand Usage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Interior DL must defeat blocks with hand technique \u2014 swim moves, rip moves, club-and-swim \u2014 to penetrate gaps against guards and centers. Milton Williams and Barmore both win with active hands. The one-gap system rewards hand fighters over space-eaters."
+        },
+        "Motor": {
+          "weight": 0.13,
+          "importance": "high",
+          "reasoning": "Vrabel's defensive culture demands relentless effort. The DL rotates frequently, but each rep must be played at full speed. Williams' DL rooms in Tennessee were known for rushing 'in unison to perfection' \u2014 every player pursuing at maximum effort on every snap."
+        },
+        "Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "While one-gapping prioritizes quickness over anchoring, the DT still needs functional strength to hold his gap against double-teams and to convert pass-rush moves against bigger OL. Strength is not the primary trait like it was in the Belichick two-gap system, but it provides the floor for run defense."
+        }
+      },
+      "ideal_archetype": "The ideal interior DL is a quick-twitch penetrator who can shoot gaps, disrupt the backfield in both run and pass, and play with relentless effort. Think Aaron Donald at 280 lbs \u2014 a 3-technique who wins with first step, hand usage, and motor. Christian Barmore is the in-house archetype: explosive off the snap, active hands, and the ability to wreck a game from the inside. The 1-technique should be a more traditional nose \u2014 heavier, gap-controlling \u2014 but still with enough quickness to one-gap rather than two-gap. The system does not need 340-pound space-eaters; it needs 280-310 pound disruptors.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "280-310 lbs",
+          "floor": "275 lbs",
+          "reasoning": "One-gapping penetrators need enough mass to hold gaps against the run but not so much that it kills their first step. The Belichick era used 330+ pound two-gappers; this defense uses leaner, quicker DL."
+        },
+        "40_yard_dash": {
+          "ideal": "4.80-5.00",
+          "floor": "5.10",
+          "reasoning": "Quickness off the snap is the defining trait. A sub-5.0 forty for a 290-pound DT indicates the explosive first step this one-gap system demands."
+        },
+        "3_cone": {
+          "ideal": "sub-7.40",
+          "floor": "7.60",
+          "reasoning": "Agility matters for interior DL in a one-gap system \u2014 they must redirect and chase plays, not just hold ground. Agile DTs who can loop on stunts and pursue laterally are valued."
+        }
+      },
+      "development_context": "Terrell Williams (advisory role) developed Jeffrey Simmons into a 2x All-Pro, Cameron Wake into a Pro Bowler, and Ndamukong Suh to elite production. DL coach Clint McMillan continues this development pipeline. This staff can develop raw DL with athleticism and motor into productive NFL players through technique refinement. What must arrive on Day 1 is explosive quickness and effort \u2014 those traits are not teachable. Hand technique and pass-rush moves can be developed over time.",
+      "scheme_fit_narrative": "Forget the 340-pound nose tackles who eat space. This defense needs interior linemen who get off the ball and wreck plays in the backfield. We want 290-pound 3-techniques who can shoot the B-gap and get to the quarterback, and 300-pound noses who can one-gap the A-gap and hold their ground. First step and motor are non-negotiable. The DL room is where Williams and McMillan will develop pass-rush technique, but the explosive tools have to be there already.",
+      "archetype_examples": [
+        "Christian Barmore",
+        "Milton Williams",
+        "Jeffrey Simmons (one-gap version)"
+      ]
+    },
+    "LB": {
+      "scheme_role": "In the 4-2-5 base defense, only two off-ball LBs are on the field for most snaps, which elevates the demands on each LB significantly. The MIKE is the defensive signal-caller who must process formations, set the defense, and communicate adjustments \u2014 a quarterback-like role. LBs in this scheme must be able to blitz (the heavy blitz scheme sends LBs frequently), cover in zone-match concepts (pattern-reading responsibilities against TEs and RBs), and fill run gaps with physicality. The defense uses simulated pressures where an LB may rush from depth while an EDGE drops \u2014 the LB must be versatile enough to execute multiple assignments pre- and post-snap. In Vrabel's Titans, ILBs were put in 'high-stress coverage assignments' and needed sideline-to-sideline range.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "With only two LBs on the field, every tackle matters \u2014 there are fewer bodies to clean up missed assignments. The one-gap scheme spills runs outside, requiring the LB to be a sure tackler in space on the overlap. Robert Spillane was valued precisely for his tackling reliability."
+        },
+        "Coverage": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "The 4-2-5 base puts LBs in pass coverage on the majority of snaps. Zone-match concepts require LBs to pattern-read route combinations and carry TEs/RBs through their zones. Kuhr's defense increased split-field coverage usage, which asks LBs to handle intermediate zones with discipline. A LB who can't cover will be on the field for <30% of snaps \u2014 the defense will just go dime."
+        },
+        "Pass Rush": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The blitz-heavy scheme sends LBs as extra rushers on simulated pressures. Delayed blitzes, A-gap rushes, and creeper concepts all feature LB pass rushers. An LB with a pass-rush skill set adds another dimension to the pressure packages. However, this is scheme-generated production, not asking the LB to rush off the edge every play."
+        },
+        "Instincts": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "With only two LBs and a pattern-reading coverage system, instincts determine whether the LB is in the right place at the right time. The ability to read the QB's eyes, diagnose route combinations, and anticipate run-play designs pre-snap separates productive LBs from liabilities in this system."
+        },
+        "Athleticism": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The 4-2-5 scheme asks LBs to cover more ground than a traditional 3-4 base. Sideline-to-sideline range is essential because the one-gap run defense spills ball carriers to the edges. Athletic LBs who can close space laterally and vertically are necessary to make this two-LB scheme work."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Range supplements athleticism \u2014 the LB must chase runs to the sideline, cover TEs down the seam, and close on dump-off passes to RBs. The defense's spill-and-overlap run fits create long pursuit angles that demand range. However, this trait overlaps significantly with Athleticism, so its independent weight is moderate."
+        },
+        "Block Shedding": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "One-gapping up front is supposed to keep the LBs cleaner, but they still face blocks from pulling guards and releasing OL on second-level runs. Block shedding matters for run defense, but the scheme is designed to minimize the LBs' block engagement compared to a two-gap system."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "The MIKE LB must communicate defensive adjustments, but the overall pre-snap responsibility is shared with the safety and coordinated by the DC. Pattern-reading post-snap is more important than pre-snap diagnosis in this scheme's coverage design."
+        }
+      },
+      "ideal_archetype": "The ideal LB in this defense is an athletic, coverage-capable player who can process route combinations, blitz through gaps, and tackle reliably in space. Think Fred Warner \u2014 a sideline-to-sideline LB who excels in coverage, plays physical against the run, and has the instincts to diagnose plays pre-snap. Not a thumper who can only play downhill \u2014 the 4-2-5 scheme eliminates that player by design. Both LB spots should be able to cover TEs and RBs man-to-man if asked, and both must have the athleticism to close on the ball from multiple alignment spots.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "225-245 lbs",
+          "floor": "220 lbs",
+          "reasoning": "The 4-2-5 scheme favors lighter, more athletic LBs over traditional 250+ thumpers. Must have enough mass to take on blocks and tackle backs, but not so heavy that coverage ability suffers."
+        },
+        "40_yard_dash": {
+          "ideal": "4.50-4.60",
+          "floor": "4.65",
+          "reasoning": "Sideline-to-sideline range and the ability to cover TEs vertically demand elite speed for a LB. The spill-and-overlap run defense creates long pursuit angles that only fast LBs can close."
+        },
+        "3_cone": {
+          "ideal": "sub-6.90",
+          "floor": "7.10",
+          "reasoning": "Zone-match coverage requires change of direction to break on routes and react to route combinations. The 3-cone captures the agility needed for this system's coverage demands."
+        }
+      },
+      "development_context": "Kuhr was the ILB coach before being promoted to DC, so he has direct development expertise at this position. His background coaching inside linebackers under Vrabel in Tennessee means he understands exactly what this scheme demands. A raw athletic LB can be developed in coverage technique and blitz execution under Kuhr. What must arrive is athleticism and football IQ \u2014 a slow, instinct-poor LB cannot be schemed into productivity in a two-LB defense. Block-shedding technique and blitz timing can be developed.",
+      "scheme_fit_narrative": "We only have two linebackers on the field most plays, so both of them have to be three-down players. If a linebacker can't cover a tight end or a running back in space, he's not playing in this defense \u2014 we'll just go dime. Give us an athlete who can run sideline to sideline, pattern-read in zone, and fill gaps against the run. If he can blitz too, even better. This defense creates pressure through scheme, but we need LBs who are smart and fast enough to execute the assignments.",
+      "archetype_examples": [
+        "Fred Warner",
+        "Matt Milano",
+        "Robert Spillane (run-defense model)"
+      ]
+    },
+    "CB": {
+      "scheme_role": "The CB in the 2025/2026 Patriots defense must be comfortable in multiple coverage techniques. The defense plays Cover 2, Cover 3, quarters, Cover 6, and man coverage \u2014 often within the same game, sometimes within the same series. Pre-snap disguise means the CB must align in one look and rotate to another post-snap. The CB1 (Christian Gonzalez, All-Pro in 2025) is asked to travel with the opponent's best receiver in man situations and play his zone assignment with discipline in zone. The nickel CB is a true slot corner who must handle the slot receiver in both man and zone. The defense's blitz-heavy approach means CBs are frequently in coverage without safety help, elevating the importance of individual man-coverage ability.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "When the defense sends blitzes and simulated pressures, it often puts CBs on an island in Cover 1 or Cover 0. The CB must be able to mirror routes and stay in phase without safety help. Kuhr's playoff defense frequently isolated CBs against WRs and trusted them to hold up. Christian Gonzalez was the prototype \u2014 an elite man-coverage CB who can travel."
+        },
+        "Ball Skills": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The defense's pattern-reading zone concepts create opportunities for CBs to break on routes and make plays on the ball. Zone-match coverage rewards CBs who can read the QB's eyes and make interceptions. The defense as a whole was about average in takeaways (9 INTs), suggesting ball production could be improved."
+        },
+        "Zone Coverage": {
+          "weight": 0.18,
+          "importance": "essential",
+          "reasoning": "The shift toward split-field coverages (quarters, Cover 2, Cover 6) under Kuhr means CBs spend significant time in zone assignments. The CB must understand his zone responsibility, pattern-read route combinations, and pass off receivers properly. This is not a pure man-coverage defense like the Belichick era \u2014 zone technique is equally critical."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "When the defense blitzes and leaves CBs in single coverage, speed is the safety net. Recovery speed saves plays when the CB gets beat on a route. The defense also plays Cover 3, where the CB must run with vertical routes deep \u2014 speed is essential for these deep-third responsibilities."
+        },
+        "Press": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The defense uses press-man looks to disrupt timing, particularly in red-zone and third-down situations. The Belichick-era influence of 'jamming and redirecting receivers at the line of scrimmage' remains part of this defense's DNA. CBs must be comfortable in press alignment and able to disrupt routes within the first 5 yards."
+        },
+        "Nickel": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The nickel CB is on the field for 80%+ of snaps. Marcus Jones played this role in 2025. The nickel must handle slot receivers in both man and zone, blitz from the slot on creeper concepts, and tackle in run support. This is a distinct role from the outside CB, and the defense values players who can fill it."
+        }
+      },
+      "ideal_archetype": "The ideal CB1 is a long, athletic press-man corner who can also execute zone-match assignments with discipline. Think Christian Gonzalez \u2014 a 6-1 corner with elite man-coverage skills, enough speed to play deep thirds in Cover 3, and the physicality to press at the line. The ideal CB2 should complement the CB1 with reliable zone technique and enough man-coverage ability to hold up when blitzes are sent. The nickel CB should be a quick, instinctive slot defender who can cover, blitz, and tackle \u2014 a multi-tool player in the defense's most-used package.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "The press-man component favors longer corners who can disrupt at the line of scrimmage and contest catches at the catch point. Gonzalez at 6-1 sets the standard."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.45",
+          "floor": "4.50",
+          "reasoning": "Must have the speed to play deep thirds in Cover 3 and stay with vertical routes in man coverage without safety help. The blitz-heavy scheme means CBs are frequently isolated, so speed is the ultimate safety net."
+        },
+        "arm_length": {
+          "ideal": "32+",
+          "floor": "30.5",
+          "reasoning": "Arm length aids press technique at the line and contesting catches at the catch point. Longer arms allow the CB to redirect receivers and create disruption within the legal contact window."
+        }
+      },
+      "development_context": "CBs coach Justin Hamilton is relatively new to the NFL coaching ranks, but the system under Vrabel/Kuhr values technique development in both man and zone. The Belichick-era Patriots developed undrafted and late-round CBs into productive starters (Malcolm Butler, J.C. Jackson, Jonathan Jones) through technique coaching. This staff likely has similar development capability. A raw athlete with speed and length can be developed in press technique and zone assignments. What must arrive is competitive toughness and the willingness to play on an island \u2014 that's a personality trait, not a technique.",
+      "scheme_fit_narrative": "This defense asks corners to play man when we blitz and zone when we don't \u2014 sometimes on back-to-back plays. We need corners who are technically versatile enough to execute both and mentally tough enough to play on an island when the blitz is coming. Length and speed are the physical foundation. We want a press-man corner who can also sit in his zone and read routes. If he can only do one, he's a situational player, not a starter.",
+      "archetype_examples": [
+        "Christian Gonzalez",
+        "Jaire Alexander",
+        "Sauce Gardner (press-man model)"
+      ]
+    },
+    "S": {
+      "scheme_role": "Safeties in the 2025/2026 Patriots defense play two distinct roles: a rangy free safety who plays the deep middle in single-high looks and quarters, and a box/hybrid strong safety who plays closer to the line of scrimmage as a quasi-LB. The Vrabel defense has historically used hybrid safety/LB players \u2014 Jabrill Peppers in the Belichick era, Kyle Dugger in the current scheme \u2014 who can play in the box, cover TEs man-to-man, blitz off the edge on creeper concepts, and tackle in the run game. The secondary blitz is a core part of the pressure scheme, with safeties frequently used as the unexpected rusher in simulated pressures. In split-field coverages (quarters, Cover 6), safeties must read the #2 receiver and make run/pass decisions.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The strong safety must be able to cover TEs man-to-man in Cover 1 and Cover 0 blitz situations. Kuhr's playoff defense asked safeties to match up with TEs on critical downs. The free safety has less man responsibility but must be able to handle RBs and slot receivers on occasion."
+        },
+        "Range": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The free safety must cover ground in single-high looks (Cover 1, Cover 3) and be able to rotate from a two-high shell to a single-high shell post-snap as part of the defense's disguise package. In quarters coverage, the safety reads the #2 receiver and must break on routes quickly. Range is the defining trait of the free safety in this defense."
+        },
+        "Ball Skills": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Jaylinn Hawkins led the Patriots' safeties with 3 INTs in 2025. The defense's zone-match concepts and split-field coverages create opportunities for safeties to read the QB and make plays on the ball. Turnovers from the safety position are a schematic priority, not just a bonus."
+        },
+        "Tackling": {
+          "weight": 0.2,
+          "importance": "essential",
+          "reasoning": "The strong safety is a primary run-support defender in this scheme, playing near the line of scrimmage on early downs. The defense's spill-and-overlap run fits funnel ball carriers to the safety for the tackle. The free safety is the last line of defense and must be a reliable tackler in space. Both safety spots demand sure tackling."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The pre-snap rotation disguises require safeties to align in one spot and get to their actual assignment before the play develops. A slow safety who can't rotate in time exposes the disguise. Speed also matters for run support (closing on ball carriers from depth) and for playing the deep middle."
+        },
+        "Nickel": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The strong safety in Vrabel's defense frequently functions as a nickel/dime defender \u2014 covering slot receivers, blitzing from the box, and supporting the run. Kyle Dugger and Jabrill Peppers were both used as hybrid safety/nickel defenders. This dual functionality is a major part of the defense's personnel flexibility and blitz creativity."
+        }
+      },
+      "ideal_archetype": "The ideal free safety is a rangy, ball-hawking center-fielder who can cover ground in single-high looks, read the QB's eyes in zone-match concepts, and tackle reliably in space. Think Jessie Bates \u2014 a smart, instinctive safety with range and ball skills. The ideal strong safety is a hybrid box player who can cover TEs, blitz from the box, support the run at the point of attack, and occasionally play deep. Think Kyle Dugger or Jabrill Peppers \u2014 a versatile chess piece who creates disguise options and blitz flexibility. The defense needs both types \u2014 a rangey ballhawk and a physical box safety \u2014 to function optimally.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Size matters for the strong safety role, which involves tackling RBs, covering TEs, and playing in the box. The free safety can be smaller if he has elite range and ball skills."
+        },
+        "weight": {
+          "ideal": "200-215 lbs (FS), 210-225 lbs (SS)",
+          "floor": "195 lbs",
+          "reasoning": "The strong safety must have the mass to take on blockers and tackle in the box. The free safety can be lighter if he makes up for it with speed and range."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.50",
+          "floor": "4.55",
+          "reasoning": "Pre-snap rotation speed and the ability to play single-high demand elite closing speed. A slow safety exposes the defense's disguise package and can't close on deep threats."
+        }
+      },
+      "development_context": "Safeties coach Scott Booker spent 6 seasons coaching safeties under Vrabel in Tennessee and a year in Buffalo \u2014 he has extensive experience developing safeties in this specific system. The Belichick-era Patriots developed late-round and undrafted safeties (Patrick Chung, Devin McCourty's transition from CB) into productive starters. This staff can develop a raw athletic safety into a scheme-specific role. The hybrid SS role is easier to develop into if the prospect arrives with box/LB skills; the FS role requires instincts and ball-hawking ability that are harder to teach.",
+      "scheme_fit_narrative": "We need two different kinds of safeties. The free safety has to cover ground \u2014 he's the last line of defense and the center of our coverage disguises. Range and ball skills are the priorities. The strong safety is a chess piece \u2014 he blitzes, he covers TEs, he tackles in the run game, he plays in the slot. We need an athlete who can do all of those things at a high level. The pre-snap rotation game falls apart if either safety can't get to his spot in time, so speed matters for both.",
+      "archetype_examples": [
+        "Jessie Bates (FS model)",
+        "Kyle Dugger (SS/hybrid model)",
+        "Jabrill Peppers (SS/hybrid model)",
+        "Jaylinn Hawkins"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "New England's 2026 draft needs align perfectly with several positional value inflections. EDGE/OLB is the team's most critical need: they ranked 20th in sack percentage and 26th in sacks in 2025, and K'Lavon Chaisson is hitting free agency. The 3-4 system with stand-up OLBs means any prospect with pass-rush traits \u2014 whether labeled LB or EDGE \u2014 gets valued at a premium. Vrabel's Titans historically drafted OLBs around 6-3/259 pounds who could rush from both 2-point and 3-point stances. On offense, McDaniels' heavy personnel philosophy (top-3 in 21 personnel, 30% 12 personnel) means TEs who can both block and catch have elevated value. Thomas Brown's McVay-tree influence as pass-game coordinator specifically elevates receiving TEs further. A TE like Kenyon Sadiq with elite receiving traits would be schematically maximized here because the offense uses TE-heavy formations as the foundation of its play-action passing attack. Safety is another high-value position: the defense's 3rd-highest dime rate in the NFL and reliance on creeper/sim pressures demand hybrid safeties who can cover, blitz, and play the run. Any safety prospect with box/slot versatility gets a significant boost. RBs who can contribute in the passing game get a moderate-to-high boost because McDaniels' heavy formations are specifically designed to create passing mismatches \u2014 but pure running ability remains the primary trait given the zone scheme transition.",
+  "scheme_draft_intelligence": "The 2025 Patriots underwent one of the most dramatic single-year transformations in NFL history \u2014 from 4-13 to the Super Bowl \u2014 driven by the Vrabel/McDaniels/Kuhr coaching staff overhaul and Drake Maye's development into an MVP candidate. The 2026 draft will be shaped by both the continuity of this staff's scheme demands and the specific roster holes exposed by their Super Bowl loss to Seattle. With Stefon Diggs released and the receiver room thin, the offense's need for scheme-versatile, football-intelligent WRs who can operate in McDaniels' concept-based Erhardt-Perkins system is the top offensive priority. However, McDaniels has historically been able to scheme production from non-elite receivers \u2014 meaning the draft approach may prioritize other positions and find WR value later.\n\nDefensively, the pass rush remains the Achilles heel despite Kuhr's creative blitz schemes. The 2025 roster lacked elite individual edge rushers, compensating through scheme. Drafting a high-upside EDGE who fits the one-gapping, wide-technique system \u2014 one who can set the edge against the run AND rush the passer with bend and motor \u2014 would give Kuhr an individual weapon to pair with his blitz designs. This is where the Patriots' scheme creates a unique value differential: they don't need a pure speed rusher (which is what most teams draft EDGE players to be). They need a complete DE who can do everything from a 7/9 technique \u2014 and those players are often available later because they lack the flashy sack numbers that drive up draft boards.\n\nThe offensive line also demands attention heading into 2026. McDaniels' dual-scheme run game (gap + outside zone) requires OL who can do both \u2014 and the 2025 draft of Will Campbell at No. 4 overall showed this staff will invest premium picks in linemen who fit that mold. Interior OL who can pull on power/counter AND execute zone combinations are scheme-specific targets. The Patriots' EP system also places unique value on versatile IOL who can play multiple positions, because McDaniels' personnel-diverse approach creates odd alignment challenges that favor positional flexibility.\n\nThe secondary, despite Christian Gonzalez's emergence as an All-Pro, needs depth at CB and continued development of the hybrid safety roles. The defense's mixed coverage approach (man, zone-match, quarters, Cover 2) demands CBs who are technically versatile \u2014 not just man or just zone specialists. This creates value in drafting CBs who may not be elite in one coverage style but are good in multiple styles. Similarly, the hybrid SS role (Dugger/Peppers type) is a scheme-specific archetype that many teams don't prioritize \u2014 the Patriots can find value in box safeties with coverage upside who don't fit traditional single-high FS profiles.\n\nHistorically, the Belichick-era Patriots were known for finding value in the middle and late rounds through scheme-specific player evaluation \u2014 taking players other teams undervalued because their traits didn't fit generic scouting models. Under Vrabel and McDaniels, this approach continues: the EP offensive system rewards football IQ over raw physical traits, the defensive scheme rewards motor and discipline over individual brilliance, and the entire program values versatile players who can execute multiple roles. The 2026 draft should reflect these values \u2014 expect the Patriots to target intelligent, scheme-versatile players at every level rather than chasing the most physically gifted prospect available.",
   "confidence": "high",
   "sources": [
-    "Patriots.com official coaching staff page and analysis (February 2025)",
-    "Pro-Football-Reference.com 2025 NE Patriots team page (Erhardt-Perkins offense, 3-4 defensive alignment)",
-    "NBC Sports Boston - Josh McDaniels scheme tweaks analysis (November 2025)",
-    "Patriots.com - Analysis: What Could the Patriots Defensive Scheme Look Like Under New DC Terrell Williams",
-    "Boston Herald - What Patriots defense will look like under Mike Vrabel, Terrell Williams (January 2025)",
-    "BVM Sports - Transforming the Patriots: 3-4 alignment operating as 4-3 under with one-gap approach",
-    "Heavy.com - Josh McDaniels Making Major Change to Patriots Offense (zone run transition)",
-    "FOX Sports - How Josh McDaniels Revived Patriots Explosive Offense (Super Bowl LX preview)",
-    "NE Football Journal - 5 noticeable differences in Patriots defense 2025 (man coverage, aggressive front)",
-    "NBC Sports Boston - 2026 NFL Mock Draft: Edge rusher 'obviously an area of need' for Patriots",
-    "FTN Fantasy - Final 2025 DVOA Ratings (Patriots 9th overall)",
-    "Patriots.com - Analysis: How Patriots Continue Evolving on Defense (dime rate, creeper usage, hybrid safeties)",
-    "Yahoo Sports - Patriots 2025 NFL Draft Guide: Edge Rushers (Vrabel OLB prototypical size and traits)",
-    "Arrowhead Pride - How Vrabel's Titans defenses scheme analysis (coverage disguise, multiple coverages)"
+    "Patriots.com official coaching staff announcements and analysis (Evan Lazar)",
+    "NFL.com reporting on Kuhr promotion and McDaniels Assistant Coach of the Year",
+    "ESPN reporting on Williams' cancer diagnosis and Kuhr's elevation",
+    "Pats Pulpit coaching staff analysis",
+    "NBC Sports Boston analysis of McDaniels' scheme tweaks for Maye",
+    "SI Patriots coverage of 2025 coaching staff and defensive scheme",
+    "Sharp Football Analysis 2025 Patriots defensive preview",
+    "Footballguys.com New England defense scheme analysis",
+    "Match Quarters analysis of Patriots quarters coverage under Kuhr",
+    "Arrowhead Pride Vrabel defensive scheme breakdown",
+    "Grantland/Chris B. Brown Erhardt-Perkins system analysis",
+    "PaulKuharsky.com Vrabel scheme philosophy quotes",
+    "Wikipedia - Josh McDaniels, Terrell Williams, New England Patriots strategy",
+    "Boston Globe McDaniels-Maye offensive terminology reporting",
+    "Pro Football Reference 2025 Patriots advanced stats",
+    "Level Up Fantasy Patriots defensive scheme classification",
+    "FTN Fantasy Patriots season summary and Drake Maye stats"
   ]
 }

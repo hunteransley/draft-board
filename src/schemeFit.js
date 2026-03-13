@@ -2,7 +2,7 @@
 // Computes 0-100 scheme fit score for each prospect × team pair
 // Returns score, prospect-specific tags, component breakdown, and plain-English summary
 
-import { SCHEME_PROFILES } from "./schemeData.js";
+import { SCHEME_PROFILES, SCHEME_NARRATIVES, SCHEME_BLUEPRINT_WEIGHTS } from "./schemeData.js";
 import { TEAM_PROFILES, SCHEME_INFLECTIONS } from "./draftConfig.js";
 import { POSITION_TRAITS, TRAIT_WEIGHTS, TRAIT_ABBREV } from "./positions.js";
 import { TEAM_SCHEME } from "./depthChartUtils.js";
@@ -10,6 +10,7 @@ import { getScoutingTraits } from "./scoutingData.js";
 import { getStatBasedTraits } from "./statTraits.js";
 import { getCombineScores } from "./combineTraits.js";
 import { getCombineData } from "./combineData.js";
+import SCOUTING_NARRATIVES from "./scoutingNarratives.json";
 
 function tv(userTraits, id, trait, name, school) {
   return userTraits[id]?.[trait] ?? getScoutingTraits(name, school)?.[trait] ?? getStatBasedTraits(name, school)?.[trait] ?? 50;
@@ -21,10 +22,64 @@ function getCeiling(userTraits, id, name, school) {
   return sc?.__ceiling || "normal";
 }
 
+function getScoutNarrative(name, school) {
+  const nKey = `${name?.toLowerCase()}|${school?.toLowerCase()}`;
+  return SCOUTING_NARRATIVES[nKey] || null;
+}
+
+// ── Scheme fit tag → scheme matcher (returns true if tag matches team's scheme) ──
+const SCHEME_TAG_MATCHERS = {
+  // Offensive
+  zone_run: (s) => s.runScheme === "zone" || s.offFamily === "shanahan_zone",
+  gap_scheme: (s) => s.runScheme === "gap" || s.offFamily === "power_run",
+  play_action: (s) => s.passStyle === "play_action",
+  rpo_fit: (s) => s.rpoUsage === "high",
+  west_coast: (s) => s.passStyle === "timing" || s.offFamily === "west_coast",
+  spread_offense: (s) => s.passStyle === "spread" || s.offFamily === "spread_rpo",
+  slot_receiver: (s) => s.passStyle === "spread" || s.passStyle === "timing",
+  boundary_receiver: (s) => s.passStyle === "vertical" || s.passStyle === "play_action",
+  receiving_back: (s) => s.rbDual >= 0.6,
+  power_back: (s) => s.runScheme === "gap" || s.offFamily === "power_run",
+  inline_te: (s) => s.teRole === "inline",
+  // Defensive
+  "34_fit": (s) => s.defFront === "34",
+  "43_fit": (s) => s.defFront === "43" || s.defFront === "425",
+  pass_rush_specialist: (s) => s.blitzTendency === "heavy",
+  run_stuffer: () => true,
+  hands_in_dirt: (s) => s.edgeType === "hands_dirt",
+  standup_edge: (s) => s.edgeType === "standup",
+  zone_coverage: (s) => s.coverageLean === "zone" || s.coverageLean === "multiple",
+  press_man: (s) => s.coverageLean === "man",
+  nickel_coverage: (s) => s.defFront === "425" || s.coverageLean === "multiple",
+  hybrid_safety: (s) => s.safetyRole === "hybrid_box" || s.safetyRole === "versatile",
+  // EXCLUDE
+  gap_scheme_EXCLUDE: (s) => s.runScheme === "gap" || s.offFamily === "power_run",
+};
+
 // ── Scheme-specific trait weight overrides ──
-function getSchemeWeights(pos, scheme) {
+function getSchemeWeights(pos, scheme, teamName) {
   const base = TRAIT_WEIGHTS[pos];
   if (!base) return null;
+
+  // Agent-provided per-team weights (v2 blueprint data)
+  const agentWeights = teamName && SCHEME_BLUEPRINT_WEIGHTS[teamName]?.[pos];
+  if (agentWeights && Object.keys(agentWeights).length > 0) {
+    const posTraits = POSITION_TRAITS[pos];
+    if (posTraits) {
+      const w = {};
+      let sum = 0;
+      for (const trait of posTraits) {
+        w[trait] = agentWeights[trait] || 0;
+        sum += w[trait];
+      }
+      if (sum > 0 && Math.abs(sum - 1) > 0.01) {
+        for (const k in w) w[k] /= sum;
+      }
+      return sum > 0 ? w : { ...base };
+    }
+  }
+
+  // Fallback: hardcoded scheme-type weights
   const w = { ...base };
 
   if (pos === "EDGE") {
@@ -209,10 +264,10 @@ function getSchemeWeights(pos, scheme) {
 }
 
 // Find a prospect's top N traits (scheme-weighted) for tag generation
-function getTopSchemeTraits(prospect, scheme, userTraits, n = 2) {
+function getTopSchemeTraits(prospect, scheme, userTraits, n = 2, teamName) {
   const pos = prospect.gpos || prospect.pos;
   const posTraits = POSITION_TRAITS[pos];
-  const weights = getSchemeWeights(pos, scheme);
+  const weights = getSchemeWeights(pos, scheme, teamName);
   if (!posTraits || !weights) return [];
 
   const traitScores = posTraits.map(trait => {
@@ -226,12 +281,12 @@ function getTopSchemeTraits(prospect, scheme, userTraits, n = 2) {
 }
 
 // ── Component 1: Trait Alignment (40%) ──
-function traitAlignmentScore(prospect, scheme, userTraits) {
+function traitAlignmentScore(prospect, scheme, userTraits, teamName) {
   const pos = prospect.gpos || prospect.pos;
   const posTraits = POSITION_TRAITS[pos];
   if (!posTraits || pos === "K/P") return { score: 50, tags: [] };
 
-  const weights = getSchemeWeights(pos, scheme);
+  const weights = getSchemeWeights(pos, scheme, teamName);
   if (!weights) return { score: 50, tags: [] };
 
   let totalW = 0, totalV = 0;
@@ -250,7 +305,7 @@ function traitAlignmentScore(prospect, scheme, userTraits) {
 
   // Generate prospect-specific tags from their actual strong traits
   const tags = [];
-  const top = getTopSchemeTraits(prospect, scheme, userTraits, 2);
+  const top = getTopSchemeTraits(prospect, scheme, userTraits, 2, teamName);
   if (top.length >= 2 && top[0].val >= 70 && top[1].val >= 70) {
     tags.push(`${TRAIT_ABBREV[top[0].trait] || top[0].trait} ${Math.round(top[0].val)} + ${TRAIT_ABBREV[top[1].trait] || top[1].trait} ${Math.round(top[1].val)}`);
   } else if (top.length >= 1 && top[0].val >= 75) {
@@ -556,6 +611,27 @@ function archetypeMatchScore(prospect, scheme, teamName, userTraits) {
     }
   }
 
+  // ── Scout narrative scheme_fit_tags bonus ──
+  const scoutNarr = getScoutNarrative(prospect.name, prospect.school);
+  if (scoutNarr?.scheme_fit_tags?.length) {
+    let tagBonus = 0, tagPenalty = 0, tagMatches = 0;
+    for (const tag of scoutNarr.scheme_fit_tags) {
+      if (tag.endsWith("_EXCLUDE")) {
+        const matcher = SCHEME_TAG_MATCHERS[tag];
+        if (matcher && matcher(scheme)) tagPenalty += 0.06;
+      } else {
+        const matcher = SCHEME_TAG_MATCHERS[tag];
+        if (!matcher) continue;
+        if (matcher(scheme)) { tagBonus += 0.05; tagMatches++; }
+      }
+    }
+    tagBonus = Math.min(tagBonus, 0.15);
+    tagPenalty = Math.min(tagPenalty, 0.12);
+    archetypeScore += tagBonus - tagPenalty;
+    if (tagMatches >= 2) tags.push("Scout-tagged scheme fit");
+    if (tagPenalty > 0) tags.push("Scheme concern flagged");
+  }
+
   if (matchCount === 0) {
     return { score: 50, tags: [] };
   }
@@ -682,6 +758,23 @@ function ceilingPreferenceScore(prospect, teamName, userTraits) {
     if (ceiling === "elite") score -= 6;
   }
 
+  // ── boom_bust_variance interaction with ceiling chasing ──
+  const scoutNarrC5 = getScoutNarrative(prospect.name, prospect.school);
+  const variance = scoutNarrC5?.boom_bust_variance?.level;
+  if (variance) {
+    if (prof.ceilingChaser > 0.06) {
+      if (variance === "high") score += 10;
+      else if (variance === "medium") score += 3;
+      else if (variance === "low") score -= 5;
+    } else if (prof.ceilingChaser === 0) {
+      if (variance === "high") score -= 8;
+      else if (variance === "low") score += 5;
+    } else {
+      if (variance === "high") score += 3;
+      else if (variance === "low") score += 2;
+    }
+  }
+
   return { score: Math.max(0, Math.min(100, score)), tags };
 }
 
@@ -766,13 +859,23 @@ export function computeSchemeFit(prospect, teamName, userTraits) {
     return { score: 0, tags: [], components: null, summary: "" };
   }
 
-  const c1 = traitAlignmentScore(prospect, scheme, userTraits);
+  const c1 = traitAlignmentScore(prospect, scheme, userTraits, teamName);
   const c2 = archetypeMatchScore(prospect, scheme, teamName, userTraits);
   const c3 = positionalSchemeValue(prospect, scheme);
   const c4 = athleticProfileScore(prospect, teamName);
   const c5 = ceilingPreferenceScore(prospect, teamName, userTraits);
 
-  const raw = c1.score * 0.40 + c2.score * 0.25 + c3.score * 0.15 + c4.score * 0.10 + c5.score * 0.10;
+  let raw = c1.score * 0.40 + c2.score * 0.25 + c3.score * 0.15 + c4.score * 0.10 + c5.score * 0.10;
+
+  // ── Analyst consensus confidence modifier ──
+  const scoutNarrFinal = getScoutNarrative(prospect.name, prospect.school);
+  const consensus = scoutNarrFinal?.analyst_consensus_level;
+  if (consensus === "low") {
+    raw = 50 + (raw - 50) * 0.88;
+  } else if (consensus === "moderate") {
+    raw = 50 + (raw - 50) * 0.95;
+  }
+
   const score = Math.round(Math.max(0, Math.min(100, raw)));
 
   // Component breakdown for UI
@@ -868,7 +971,7 @@ export function getSchemeTraitBreakdown(prospect, teamName, userTraits) {
   const pos = prospect.gpos || prospect.pos;
   if (pos === "K/P") return null;
 
-  const weights = getSchemeWeights(pos, scheme);
+  const weights = getSchemeWeights(pos, scheme, teamName);
   const posTraits = POSITION_TRAITS[pos];
   if (!weights || !posTraits) return null;
 
@@ -921,4 +1024,343 @@ export function getTeamSchemeFits(teamName, allFits, prospects, posFilter, thres
   if (above55.length >= 5) return above55;
 
   return entries.slice(0, 5).map(e => ({ ...e, limitedFit: true }));
+}
+
+// ── Scout Vision: position → narrative field mapping ──
+const POS_NARRATIVE_MAP = {
+  QB: "passConcepts", WR: "passConcepts", TE: "teUsage", RB: "rbUsage",
+  OT: "runScheme", IOL: "runScheme", EDGE: "edgeSource", DL: "edgeSource",
+  LB: "lbRole", CB: "coverageBase", S: "safetyUsage",
+};
+// Position → inflection key mapping
+const POS_INFLECTION_MAP = {
+  TE: "te_receiving", LB: "lb_pass_rush", EDGE: "lb_pass_rush",
+  RB: "rb_dual_threat", S: "s_hybrid",
+};
+
+function getFitLevel(score) {
+  if (score >= 75) return "strong";
+  if (score >= 60) return "moderate";
+  if (score >= 45) return "weak";
+  return "mismatch";
+}
+
+export function generateScoutReasoning(prospect, teamName, fitResult, userTraits) {
+  const scheme = SCHEME_PROFILES[teamName];
+  const narr = SCHEME_NARRATIVES[teamName];
+  if (!scheme || !narr || !fitResult) return null;
+  const pos = prospect.gpos || prospect.pos;
+  if (pos === "K/P") return null;
+
+  const roleLabel = getSchemeRoleLabel(pos, scheme);
+  const fitLevel = getFitLevel(fitResult.score);
+  const components = fitResult.components || {};
+
+  // ── Gather trait data ──
+  const posTraits = POSITION_TRAITS[pos] || [];
+  const weights = getSchemeWeights(pos, scheme, teamName) || {};
+  const allTraits = posTraits.map(trait => ({
+    trait,
+    abbr: TRAIT_ABBREV[trait] || trait,
+    val: Math.round(tv(userTraits, prospect.id, trait, prospect.name, prospect.school)),
+    w: weights[trait] || 0,
+  })).sort((a, b) => b.w - a.w);
+
+  const eliteFits = [], solidFits = [], criticalGaps = [], hiddenGems = [];
+  for (const t of allTraits) {
+    if (t.val >= 72 && t.w >= 0.15) eliteFits.push(t);
+    else if (t.val >= 60 && t.w >= 0.10) solidFits.push(t);
+    if (t.val < 58 && t.w >= 0.14) criticalGaps.push(t);
+    if (t.val >= 72 && t.w < 0.10) hiddenGems.push(t);
+  }
+
+  const cd = getCombineData(prospect.name, prospect.school);
+  const cs = getCombineScores(prospect.name, prospect.school);
+  const ceiling = getCeiling(userTraits, prospect.id, prospect.name, prospect.school);
+
+  // ── Scheme narrative data ──
+  const isOff = ["QB", "WR", "TE", "RB", "OT", "IOL"].includes(pos);
+  const coord = isOff ? narr.oc : narr.dc;
+  const bpNarr = narr.blueprints?.[pos];
+  const schemeFitNarrative = bpNarr?.schemeFitNarrative || "";
+  const idealArchetype = bpNarr?.idealArchetype || "";
+  const developmentContext = bpNarr?.developmentContext || "";
+  const narrativeKey = POS_NARRATIVE_MAP[pos];
+  const schemeDemand = schemeFitNarrative || (narrativeKey && narr[narrativeKey] ? narr[narrativeKey] : "");
+
+  // ── Scouting narrative data (from agent) ──
+  const nKey = `${prospect.name?.toLowerCase()}|${prospect.school?.toLowerCase()}`;
+  const scoutNarr = SCOUTING_NARRATIVES[nKey];
+
+  // ── Prospect strengths line (for trait bar display) ──
+  const topTraits = getTopSchemeTraits(prospect, scheme, userTraits, 3, teamName);
+  const prospectStrengths = topTraits.length > 0
+    ? topTraits.map(t => `${TRAIT_ABBREV[t.trait] || t.trait} ${Math.round(t.val)}`).join(" + ")
+    : "balanced trait profile";
+
+  // ── Helper: get analyst language for a trait ──
+  function getTraitQuote(traitName) {
+    const tl = scoutNarr?.trait_language?.[traitName];
+    if (!tl) return null;
+    // Prefer tier 1 analysts, then pick the most relevant
+    const entries = Object.entries(tl);
+    const tier1 = entries.find(([k]) => /^(zierlein|jeremiah|brugler)$/i.test(k));
+    const pick = tier1 || entries[0];
+    if (!pick) return null;
+    const lang = pick[1]?.language;
+    if (!lang || lang.length < 20) return null;
+    // Trim to first sentence or 120 chars
+    const dot = lang.indexOf(". ");
+    return dot > 0 && dot < 140 ? lang.substring(0, dot + 1) : lang.substring(0, 120).replace(/[,;]\s*$/, "") + "…";
+  }
+
+  // ── Helper: find strength/weakness text that matches a trait ──
+  function findRelevantStrength(traitName) {
+    if (!scoutNarr?.strengths) return null;
+    const keywords = traitName.toLowerCase().split(" ");
+    return scoutNarr.strengths.find(s => {
+      const sl = s.toLowerCase();
+      return keywords.some(k => k.length > 3 && sl.includes(k));
+    }) || null;
+  }
+  function findRelevantWeakness(traitName) {
+    if (!scoutNarr?.weaknesses) return null;
+    const keywords = traitName.toLowerCase().split(" ");
+    return scoutNarr.weaknesses.find(w => {
+      const wl = w.toLowerCase();
+      return keywords.some(k => k.length > 3 && wl.includes(k));
+    }) || null;
+  }
+
+  // ── Helper: trim text to a max length at a sentence boundary ──
+  function trimSentence(text, max) {
+    if (!text || text.length <= max) return text;
+    const dot = text.lastIndexOf(". ", max);
+    if (dot > max * 0.5) return text.substring(0, dot + 1);
+    return text.substring(0, max).replace(/[,;]\s*$/, "") + "…";
+  }
+
+  // ── Build the analysis ──
+  const sentences = [];
+  const coordName = coord?.name?.split(" ").pop() || teamName;
+  // Get prospect last name, stripping suffixes like Jr., Sr., II, III, IV
+  const nameParts = (prospect.name || "").split(" ");
+  const suffixes = new Set(["jr.", "jr", "sr.", "sr", "ii", "iii", "iv", "v"]);
+  let lastName = nameParts[nameParts.length - 1];
+  if (suffixes.has(lastName.toLowerCase()) && nameParts.length > 2) lastName = nameParts[nameParts.length - 2];
+
+  // PART 1: Who this prospect IS — grounded in scouting language, not numbers
+  let blurbText = "";
+  if (scoutNarr?.scouting_blurb) {
+    // Extract the key identity statement (first sentence of blurb)
+    const blurb = scoutNarr.scouting_blurb;
+    const firstSentence = trimSentence(blurb, 180);
+    blurbText = firstSentence.toLowerCase();
+    sentences.push(firstSentence);
+  } else if (eliteFits.length >= 2) {
+    sentences.push(`Profiles as a ${roleLabel.toLowerCase()} with elite ${eliteFits[0].trait.toLowerCase()} and ${eliteFits[1].trait.toLowerCase()}.`);
+  } else if (eliteFits.length === 1) {
+    sentences.push(`Standout ${eliteFits[0].trait.toLowerCase()} prospect who projects as a ${roleLabel.toLowerCase()}.`);
+  } else {
+    sentences.push(`Profiles as a developmental ${roleLabel.toLowerCase()} prospect.`);
+  }
+
+  // PART 2: WHY this prospect fits THIS scheme — the bridge
+  // Check which traits are already mentioned in the blurb to avoid repetition
+  function traitMentionedInBlurb(trait) {
+    if (!blurbText) return false;
+    const words = trait.toLowerCase().split(" ");
+    return words.filter(w => w.length > 3).some(w => blurbText.includes(w));
+  }
+
+  if (eliteFits.length > 0 && schemeFitNarrative) {
+    // Pick the best fit trait for Part 2 — prefer one NOT already in the blurb
+    let topFit = eliteFits[0];
+    let altFitUsed = false;
+    if (blurbText && traitMentionedInBlurb(topFit.trait) && eliteFits.length >= 2 && !traitMentionedInBlurb(eliteFits[1].trait)) {
+      topFit = eliteFits[1];
+      altFitUsed = true;
+    }
+
+    const quote = getTraitQuote(topFit.trait);
+    const strength = findRelevantStrength(topFit.trait);
+    // Find the clause in the scheme narrative that connects to their strength
+    const demandClauses = schemeFitNarrative.split(/[.;]/).map(c => c.trim()).filter(c => c.length > 15);
+    const traitWords = topFit.trait.toLowerCase().split(" ");
+    const matchClause = demandClauses.find(c => {
+      const cl = c.toLowerCase();
+      return traitWords.some(w => w.length > 3 && cl.includes(w));
+    });
+
+    if (matchClause && strength) {
+      const trimmedStrength = trimSentence(strength, 120);
+      if (traitMentionedInBlurb(topFit.trait)) {
+        // Trait already in blurb — lead with scheme demand, skip restating the prospect trait
+        sentences.push(`${coordName}'s system demands exactly that: ${matchClause.charAt(0).toLowerCase() + matchClause.slice(1).trim()}.`);
+      } else {
+        sentences.push(`${coordName}'s system demands ${matchClause.charAt(0).toLowerCase() + matchClause.slice(1).trim()}. ${lastName} delivers: ${trimmedStrength.charAt(0).toLowerCase() + trimmedStrength.slice(1)}`);
+      }
+    } else if (matchClause && quote) {
+      if (traitMentionedInBlurb(topFit.trait)) {
+        sentences.push(`${coordName}'s system demands exactly that: ${matchClause.charAt(0).toLowerCase() + matchClause.slice(1).trim()}.`);
+      } else {
+        sentences.push(`${coordName}'s system demands ${matchClause.charAt(0).toLowerCase() + matchClause.slice(1).trim()}. Scouts see it: "${quote}"`);
+      }
+    } else if (matchClause) {
+      if (traitMentionedInBlurb(topFit.trait)) {
+        sentences.push(`${coordName}'s scheme needs ${matchClause.charAt(0).toLowerCase() + matchClause.slice(1).trim()} — and that's the profile.`);
+      } else {
+        sentences.push(`${coordName}'s scheme needs ${matchClause.charAt(0).toLowerCase() + matchClause.slice(1).trim()} — ${lastName}'s ${topFit.trait.toLowerCase()} (${topFit.val}) is built for it.`);
+      }
+    } else if (idealArchetype) {
+      const arcSnip = trimSentence(idealArchetype, 100);
+      sentences.push(`${teamName} wants ${arcSnip.charAt(0).toLowerCase() + arcSnip.slice(1)} — ${eliteFits.map(t => t.trait.toLowerCase()).join(" and ")} are the priorities, and this prospect delivers.`);
+    }
+
+    // Add a second elite fit with scout language if available (skip if already used as topFit)
+    if (eliteFits.length >= 2) {
+      const second = altFitUsed ? eliteFits[0] : eliteFits[1];
+      // Only add if this trait isn't already covered in blurb
+      if (!traitMentionedInBlurb(second.trait)) {
+        const q2 = getTraitQuote(second.trait);
+        if (q2) {
+          sentences.push(`${second.trait} also aligns: "${q2}"`);
+        }
+      }
+    }
+  } else if (solidFits.length >= 2 && schemeFitNarrative) {
+    // Moderate fit — still connect to scheme
+    const firstClause = schemeFitNarrative.split(/[.;]/)[0].trim();
+    if (firstClause.length > 15) {
+      sentences.push(`This scheme wants ${firstClause.charAt(0).toLowerCase() + firstClause.slice(1)}. ${lastName} checks enough boxes — solid ${solidFits[0].trait.toLowerCase()} (${solidFits[0].val}) and ${solidFits[1].trait.toLowerCase()} (${solidFits[1].val}) — but isn't a natural archetype match.`);
+    }
+  } else if (fitLevel === "weak" || fitLevel === "mismatch") {
+    // Mismatch — explain what the scheme wants vs what the prospect is
+    if (idealArchetype) {
+      const arcSnip = trimSentence(idealArchetype, 100);
+      sentences.push(`${teamName} wants ${arcSnip.charAt(0).toLowerCase() + arcSnip.slice(1)} — that's not this prospect's game.`);
+    }
+    if (criticalGaps.length > 0) {
+      const gap = criticalGaps[0];
+      const weakness = findRelevantWeakness(gap.trait);
+      if (weakness) {
+        sentences.push(`The critical gap: ${trimSentence(weakness, 140)}`);
+      } else {
+        sentences.push(`${gap.trait} (${gap.val}) is a critical gap — this scheme weights it as a top priority.`);
+      }
+    }
+  }
+
+  // PART 3: Combine/measurables (brief, only when meaningful)
+  if (cd) {
+    const measParts = [];
+    if (cd.forty && cd.forty > 0) measParts.push(`${cd.forty}s forty`);
+    if (cd.broad) measParts.push(`${cd.broad}" broad`);
+    if (cd.bench) measParts.push(`${cd.bench} bench`);
+    if (cs?.athleticScore != null && cs.athleticScore >= 80 && components.athletic >= 65) {
+      sentences.push(`Combine validates the fit: ${cs.athleticScore.toFixed(1)} athletic composite (${measParts.slice(0,2).join(", ")}).`);
+    } else if (cs?.athleticScore != null && cs.athleticScore < 40 && components.athletic < 40) {
+      sentences.push(`Measurables are a concern: ${cs.athleticScore.toFixed(1)} athletic composite — below ${teamName}'s typical targets.`);
+    }
+  }
+
+  // PART 4: Critical gaps with scout language (only if not already covered in mismatch section)
+  if (criticalGaps.length > 0 && fitLevel !== "weak" && fitLevel !== "mismatch") {
+    const gap = criticalGaps[0];
+    const weakness = findRelevantWeakness(gap.trait);
+    const gapQuote = getTraitQuote(gap.trait);
+    if (weakness) {
+      sentences.push(`The concern: ${trimSentence(weakness, 140)}`);
+    } else if (gapQuote) {
+      sentences.push(`The concern at ${gap.trait.toLowerCase()}: "${gapQuote}"`);
+    } else {
+      sentences.push(`${gap.trait} (${gap.val}) is below the bar for this scheme's ${roleLabel.toLowerCase()} role.`);
+    }
+  }
+
+  // PART 5: Pro comparison as scheme context (when it adds insight)
+  if (scoutNarr?.pro_comparison_reasoning && (fitLevel === "strong" || fitLevel === "moderate")) {
+    const compReasoning = scoutNarr.pro_comparison_reasoning;
+    // Only include if it has scheme-relevant language
+    const schemeWords = ["scheme", "system", "zone", "gap", "timing", "play-action", "coverage", "press", "man", "thriv"];
+    if (schemeWords.some(w => compReasoning.toLowerCase().includes(w))) {
+      sentences.push(`Pro comp context: ${trimSentence(compReasoning, 150)}`);
+    }
+  }
+
+  // PART 6: Boom/bust context (development context shown separately via relevantInflection)
+  if (scoutNarr?.boom_bust_variance?.level === "high" && fitLevel !== "mismatch") {
+    const bbExpl = scoutNarr.boom_bust_variance.explanation;
+    if (bbExpl) sentences.push(`High variance prospect: ${trimSentence(bbExpl, 120)}`);
+  }
+
+  const whyItFits = sentences.join(" ");
+
+  // ── Headline — grounded in scouting identity + scheme connection ──
+  const archetypeTag = fitResult.tags?.[0] || "";
+  const proComp = scoutNarr?.pro_comparison || "";
+  let headline;
+  if (fitLevel === "strong") {
+    if (proComp && archetypeTag) {
+      headline = `${proComp} archetype — ${archetypeTag}`;
+    } else if (archetypeTag) {
+      headline = `Strong fit — ${archetypeTag}`;
+    } else {
+      headline = `Strong scheme fit as ${roleLabel}`;
+    }
+  } else if (fitLevel === "moderate") {
+    if (components.trait >= 70 && components.archetype < 55) {
+      headline = proComp ? `${proComp}-type traits, unconventional archetype` : `Trait fit is strong, archetype is unconventional`;
+    } else if (components.archetype >= 70 && components.trait < 55) {
+      headline = `Right archetype, needs trait development`;
+    } else {
+      headline = archetypeTag ? `Solid fit — ${archetypeTag}` : `Moderate fit as ${roleLabel}`;
+    }
+  } else if (fitLevel === "weak") {
+    if (criticalGaps.length >= 2) headline = `Multiple scheme-critical gaps at ${roleLabel}`;
+    else if (hiddenGems.length > 0) headline = `Marginal fit but has translatable traits`;
+    else headline = `Marginal scheme fit — different archetype preferred`;
+  } else {
+    headline = `Scheme mismatch at ${roleLabel}`;
+  }
+
+  // ── Relevant inflection / scheme context ──
+  let relevantInflection = null;
+  if (developmentContext && developmentContext.length > 40) {
+    relevantInflection = developmentContext;
+  } else {
+    const inflKey = POS_INFLECTION_MAP[pos];
+    if (inflKey) {
+      const infl = narr.inflections[inflKey];
+      if (infl && infl.explanation && /high|very high/i.test(infl.rating)) {
+        relevantInflection = infl.explanation;
+      }
+    }
+  }
+  if (!relevantInflection && schemeDemand && schemeDemand.length > 40) {
+    relevantInflection = schemeDemand;
+  }
+
+  return {
+    headline,
+    roleLabel,
+    prospectStrengths,
+    schemeDemand,
+    whyItFits,
+    fitLevel,
+    relevantInflection,
+  };
+}
+
+export function computeTeamScoutVision(teamName, prospects, allFits, userTraits) {
+  const teamFits = allFits[teamName];
+  if (!teamFits) return new Map();
+  const result = new Map();
+  for (const p of prospects) {
+    const fit = teamFits[p.id];
+    if (!fit || fit.score < 35) continue;
+    const reasoning = generateScoutReasoning(p, teamName, fit, userTraits);
+    if (reasoning) result.set(p.id, reasoning);
+  }
+  return result;
 }

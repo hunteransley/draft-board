@@ -6,74 +6,762 @@
       "name": "Jeff Hafley",
       "tenure_years": 1,
       "background": "defensive",
-      "scheme_philosophy": "Aggressive, attacking 4-3 defense with Wide-9 front and single-high safety structure; run-first, play-action-heavy offense; emphasizes physicality, toughness, and winning in the trenches"
+      "coaching_tree": "Robert Saleh / Pete Carroll tree \u2192 49ers single-high Wide-9 lineage. Also influenced by Greg Schiano (Tampa Bay), Mike Pettine (Cleveland). DB coach by trade who coached Darrelle Revis at Pitt, Richard Sherman at SF, Joe Haden/Tashaun Gipson at Cleveland.",
+      "scheme_philosophy": "Aggressive, attacking 4-3 defense with Wide-9 front alignment and single-high safety coverage structure. Believes in simplicity for players so they can play fast and aggressive. Calls defensive plays himself. Emphasizes front disguise, simulated pressures, and vision-based zone coverage with press-man mixed in on passing downs. Player-first schematic approach \u2014 adapts scheme to personnel rather than forcing players into a rigid system."
     },
     "offensive_coordinator": {
       "name": "Bobby Slowik",
-      "scheme_tree": "Kyle Shanahan / West Coast wide zone",
-      "play_caller": true
+      "coaching_tree": "Kyle Shanahan tree \u2192 Mike Shanahan lineage. Part of the famous 2011-2013 Washington staff with Kyle Shanahan, Sean McVay, Matt LaFleur, Mike McDaniel. Rose through 49ers organization from defensive QC to passing game coordinator.",
+      "scheme_evolution": "Began on the defensive side, switched to offense under Shanahan in SF. As Houston OC in 2023, his Shanahan-variant offense produced a top-12 unit and C.J. Stroud's historic rookie season. In 2024, offense regressed to 22nd in yards, became predictable. Criticized for inability to adjust when game script went negative. Showed willingness to incorporate gap scheme runs when zone personnel wasn't ideal, indicating some schematic flexibility beyond pure Shanahan orthodoxy.",
+      "development_track_record": "Instrumental in C.J. Stroud's Offensive Rookie of the Year campaign using pure progression reads that simplified the game for a young QB. Background as PFF analyst (2014-2016) gives him an analytical edge in scheme design. Passing game specialist by training \u2014 strength is in route design, spacing concepts, and timing-based passing architecture."
     },
     "defensive_coordinator": {
       "name": "Sean Duggan",
-      "scheme_tree": "Saleh/Hafley 4-3 Wide-9 single-high; Carroll/Saleh lineage adapted through Hafley at SF, Ohio State, Boston College, Green Bay",
-      "play_caller": false
+      "coaching_tree": "Jeff Hafley disciple. Followed Hafley from Ohio State (2019) \u2192 Boston College (2020-2023, LB coach and co-DC) \u2192 Green Bay (2024-2025, defensive assistant then LB coach) \u2192 Miami. BC alum who played linebacker. 32 years old, first-time DC.",
+      "scheme_evolution": "Has run the same system as Hafley at every stop. Will not call plays \u2014 Hafley retains that responsibility. Serves as the organizational DC and primary communicator of Hafley's defense to the players. Developed Edgerrin Cooper and Quay Walker as LBs in Green Bay's system.",
+      "development_track_record": "Linebacker specialist. Coached LBs at BC through four seasons, helping develop players in a single-high system that asks LBs to play downhill rather than cover in space. In Green Bay, Cooper accumulated 105 combined tackles in 2025 as a first-time starter under Duggan's tutelage."
     }
   },
   "offense": {
-    "scheme_family": "Shanahan wide zone / West Coast",
-    "base_personnel": "11",
-    "run_scheme": "wide zone / outside zone primary, flexible to gap schemes based on personnel",
-    "pass_concepts": "Play-action heavy off zone run action, bootleg keepers, layered progressions, RPO slant concepts, vertical shots off play-action, screen game",
-    "rpo_usage": "moderate",
-    "te_usage": "Mixed \u2014 inline blocker in 12 personnel zone runs and play-action weapon; Shanahan tree values move TEs but Miami's TE room is thin; moderate flex/route usage expected",
-    "rb_usage": "Bell cow / centerpiece \u2014 De'Von Achane is the offensive focal point with 1,838 scrimmage yards in 2025; heavy dual-threat usage as both runner and receiver; committee backs Jaylen Wright and Ollie Gordon II spell him"
+    "scheme_family": "Shanahan West Coast (Kyle Shanahan variant via Bobby Slowik)",
+    "scheme_detail": "Slowik's offense is rooted in the Shanahan system: outside/wide zone run scheme as the foundation, play-action bootlegs off zone action, and timing-based West Coast passing concepts. Slowik's specific variant emphasizes pure progression reads for the QB rather than full-field coverage reads, simplifying the passing game for the signal-caller. He uses motion and formational manipulation to create pre-snap stress, though his Houston offense was middle-of-the-pack in motion rate compared to peers like McDaniel or McVay. Slowik showed willingness to incorporate gap scheme runs when his OL personnel didn't fit traditional zone blocking, suggesting he'll adapt to Miami's talent. Kevin Patullo (passing game coordinator, formerly Eagles OC/associate HC) adds a Sirianni/Eagles passing game influence that could expand the vertical passing concepts beyond standard Shanahan fare.",
+    "run_scheme": "Outside/wide zone primary. The hallmark Shanahan concept \u2014 OL steps laterally in unison, RB reads blocks outside-in and cuts on the fifth step. Bootleg keepers and play-action shots are sequenced directly off the zone look. Slowik will also mix in inside zone, gap/power, and counter based on personnel fit, as he did in Houston when his OL was shuffled by injuries. OL coach Zach Yenser comes from the Shanahan tree (SF 2019-21, Houston 2024-25) and will install zone-blocking technique.",
+    "pass_architecture": "Timing-based West Coast passing tied to play-action off zone runs. Pure progression reads simplify the QB's job \u2014 reads a defender or spot on the field with up to five options within the progression. Short-to-intermediate routes (slants, digs, crossers, curls) are the bread and butter. Bootleg concepts off zone action create easy throws. Slowik's first year in Houston produced the 7th-ranked passing attack. Three-level route combinations with emphasis on spacing and post-snap YAC. Patullo's Eagles influence could add more downfield shot plays and RPO elements.",
+    "personnel_tendencies": "Shanahan-tree offenses historically rank near the bottom of the league in 11 personnel usage, favoring 12 (2 TE) and 21 (FB/2 RB) personnel to force defenses into heavier boxes and create mismatches. Slowik in Houston used 12 personnel frequently with Dalton Schultz as a flex TE. Expect significant use of 12 and 21 groupings with TEs and versatile backfield pieces. Formational manipulation \u2014 shifts and motions change strength of the play at the last moment, creating leverage advantages in the run game.",
+    "motion_tempo": "Moderate-to-high motion rate consistent with Shanahan-tree norms. Slowik's Houston offense was roughly league-average in motion in Year 1 but increased to 8th in the NFL in Year 2. Standard tempo \u2014 this is a ball-control offense that wants to dictate pace, not a hurry-up system. Heavy use of pre-snap shifts and late motions to stress defensive communication."
   },
   "defense": {
-    "base_front": "4-3",
-    "alignment": "Even front (4-down), Wide-9 edge alignment, single-gap penetrating principles",
-    "edge_rush_source": "4-3 DE hands-in-dirt, Wide-9 alignment (e.g., Chop Robinson, Bradley Chubb)",
-    "coverage_base": "Cover 3 primary (~36-38% of snaps), with Cover 1, inverted Cover 2, quarters, and Tampa-2 simulated pressures; predominantly zone (78%+ in Green Bay) with press-man mixed in on passing downs",
-    "blitz_tendency": "moderate overall (~27% pass blitz rate), but situationally aggressive \u2014 heavy blitz on 3rd and long (45%+ in GB); heavy use of simulated pressures (top-5 in NFL) to disguise rushers",
-    "lb_role": "Traditional 4-3 inside linebackers \u2014 MIKE and WILL handle run fits in single-gap scheme and zone drop responsibilities; speed and coverage ability prioritized over size; LBs do NOT serve as primary edge rushers",
-    "safety_usage": "Single-high free safety (post safety) patrols deep middle; strong safety/nickel hybrid plays box, slot, and robber roles; Minkah Fitzpatrick projected as versatile chess piece used in multiple alignments"
+    "scheme_family": "4-3 Wide-9 single-high (Saleh/Carroll tree)",
+    "scheme_detail": "Hafley's defense is built on a four-down Wide-9 front with a single-high safety structure. The scheme traces from Pete Carroll's Seattle system through Robert Saleh's 49ers adaptation, where Hafley served as DB coach from 2016-2018. The core philosophy is aggressive, one-gap penetration up front paired with vision-based zone coverage behind it. In Green Bay, Hafley's defense played zone 78% of the time and man coverage roughly 18-22%. He heavily leverages simulated pressures \u2014 the Packers ranked 5th in simulated pressure rate at 36% in 2024 \u2014 to create confusion without selling out coverage. Cover 3 is the base single-high zone with pattern-match principles. Tampa 2 is mixed in significantly (21% Cover 2 in 2024). On third downs, Hafley shifts to quarters/split-safety looks with creative pressure packages. Blitz rate is low overall (17-19%) but spikes dramatically on third-and-long (45% on 3rd-and-6+). Hafley values disguise \u2014 showing press-man at the snap then bailing into zone.",
+    "front_structure": "4-3 even front, primarily 'under' alignment. Wide-9 technique on the edges \u2014 edge rushers align well outside the tackle, pinning their ears back to rush the passer and force runs back inside. Interior DL are one-gapping and penetrating, NOT two-gapping. The 3-technique DT and LEO (weakside DE) are the primary pass-rush weapons on the interior weak side. Strong-side features a 5-tech DE and 1-tech nose. In sub-packages (nickel), the SAM LB comes off the field and a slot DB replaces him.",
+    "coverage_philosophy": "Single-high dominant. Cover 3 with pattern-match rules is the base \u2014 corners press at the line and run with vertical routes, then bail to their deep third if the receiver breaks underneath. The free/post safety patrols the deep middle at a 45-degree angle to break on posts and digs. Strong safety drops into the box or covers the slot. On third downs, shifts to quarters/split-safety looks. Tampa 2 is a significant secondary coverage (21% in 2024). Hafley loves press-man coverage philosophically but in practice deployed it sparingly in GB (18-22% man) because he lacked the personnel for it. With Miami's secondary rebuild, expect him to seek press-man corners who can also execute his zone-match principles.",
+    "pressure_philosophy": "Hafley prefers to rush four and play zone behind it. When he needs extra pressure, he overwhelmingly uses simulated pressures \u2014 sending unexpected rushers (LBs, safeties, nickel DBs) while dropping a DL into coverage. This creates the effect of a blitz without spending coverage resources. In Green Bay, the Packers were 30th in blitz rate (17.8% in 2025) but 5th in simulated pressure rate. On obvious passing downs (3rd-and-6+), Hafley becomes very aggressive, blitzing 45% of the time with creative overload fronts and Cover 0 looks. The scheme is designed so that an elite edge rusher (Parsons in GB, Chop Robinson in MIA) can win 1-on-1 while simulated pressures create free rushers elsewhere.",
+    "sub_packages": "Nickel (4-2-5) is the primary sub-package and likely the most-used grouping overall. SAM LB comes off the field, replaced by a nickel/slot DB. Hafley's system features defined safety roles: a 'post safety' (center-field, single-high) and a 'dropdown/box safety' (closer to the line, slot coverage, run support). This creates distinct archetypes \u2014 the post safety needs range and ball skills, the box safety needs versatility and physicality. In dime (4-1-6), Hafley will bring the second LB off for obvious passing situations."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "medium",
-      "explanation": "Slowik's Shanahan-tree offense features TEs as play-action targets and zone-run blockers in both 11 and 12 personnel. In Houston, Slowik used TEs like Dalton Schultz and Brevin Jordan in intermediate routes off play-action and in chip-and-release concepts. Hafley has specifically emphasized under-center play-action, bootlegs, and keepers \u2014 all of which create natural receiving opportunities for athletic TEs. However, Miami's TE room is thin and the offense is built around explosive WRs (Waddle) and RBs (Achane), so TEs are secondary receiving options, not primary weapons. A receiving TE gets moderate value \u2014 inline blocking and route versatility matter equally."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "In Slowik's Shanahan-tree offense, the QB operates primarily from under center and shotgun with a heavy diet of play-action off outside zone runs. Pure progression reads simplify the QB's processing \u2014 he reads a defender or a spot on the field rather than making full-field coverage diagnoses. The QB must execute bootleg keepers, deliver timing throws on schedule, and move the defense with eye manipulation within progressions. Ball placement on the move (boot action) is critical.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Shanahan-tree offenses don't demand elite arm strength because the scheme creates open windows through play-action and spacing. Adequate arm strength to make bootleg throws across the field and push the ball intermediate is sufficient. Slowik's Houston offense ranked 7th in passing in 2023 with Stroud, who has good but not elite arm talent."
+        },
+        "Accuracy": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "This is THE defining trait. Slowik's scheme heavily emphasizes timing, anticipation, ball placement and footwork. DeMeco Ryans explicitly said 'accuracy is something you either have or you don't.' The pure progression reads create tight windows that demand anticipation and placement, especially on bootleg throws and timing routes off play-action."
+        },
+        "Pocket Presence": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Slowik's Houston offense allowed the 2nd-most sacks in the NFL in 2024, partly due to scheme predictability. The QB must feel pressure and navigate the pocket because zone blocking can allow interior leakage. Boot action creates moving pockets that require spatial awareness."
+        },
+        "Mobility": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Higher than a typical pocket-passer weight because the Shanahan system heavily features bootleg keepers and rollouts. The QB must threaten the edge on boot action to hold the unblocked defender. Doesn't need to be a runner, but must be athletic enough to execute play-action fakes convincingly and gain yards on designed runs when the boot creates open grass."
+        },
+        "Decision Making": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Pure progression reads have up to five options. The QB must process quickly within the structure and avoid holding the ball. Slowik's system was criticized for predictability in Houston \u2014 a QB with superior processing can elevate the scheme by finding answers the coordinator can't always design."
+        },
+        "Leadership": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "Hafley and Sullivan have emphasized culture and accountability from the top down, reducing the need for the QB to be the sole cultural driver. Important but not scheme-specific."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Slowik's pure progression system intentionally reduces pre-snap burden \u2014 'you don't need all the answers to the test, but you can have clues before the snap.' Pre-snap reads help but are not as critical as in a full-field-read system like the Eagles' or McVay's."
+        }
+      },
+      "ideal_archetype": "The ideal QB in Slowik's system is an accurate, mobile-enough pocket passer who thrives on timing routes and play-action. He doesn't need a cannon arm but must deliver the ball on schedule with anticipation. Think C.J. Stroud's 2023 rookie season \u2014 a composed, accurate passer who processes within structure and executes on the move off boot action. Kirk Cousins in Washington/Minnesota is the historical Shanahan-tree archetype: not a dynamic athlete, but precise with his feet and eyes, deadly on timing concepts, and effective on bootlegs.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4",
+          "floor": "6-0",
+          "reasoning": "Shanahan-tree offenses have historically been agnostic on QB height \u2014 Jimmy Garoppolo (6-2), Trey Lance (6-4), Stroud (6-3), Kirk Cousins (6-3). No extreme preference, but the boot-action heavy scheme benefits from a QB who can see over the line on rollouts."
+        },
+        "weight": {
+          "ideal": "215-235",
+          "floor": "205",
+          "reasoning": "Must be durable enough to handle hits on boot keepers and zone read elements. Not a size-dependent scheme."
+        },
+        "40_yard_dash": {
+          "ideal": "4.65-4.80",
+          "floor": "4.90",
+          "reasoning": "Boot action and designed QB runs require adequate mobility. Doesn't need elite speed, but sub-4.90 ensures the boot is a legitimate threat."
+        }
+      },
+      "development_context": "Slowik's greatest development success was C.J. Stroud's rookie year, where pure progression reads simplified the game and allowed a young QB to play at an elite level immediately. This suggests Slowik can develop young QBs within his system quickly. However, his inability to evolve the scheme when defenses adjusted in Year 2 is a concern \u2014 the next QB may need to be independently talented enough to compensate for scheme predictability. Patullo's Eagles experience adds a complementary voice for developing passing game concepts.",
+      "scheme_fit_narrative": "We need an accurate, poised passer who can execute timing routes and play-action at a high level. He doesn't need to be a magician \u2014 the scheme creates windows through run-action and motion. But he must be precise with his ball placement, comfortable operating on the move off boot action, and quick enough in his processing to work through progressions without holding the ball. If he can do that, this system will make him efficient.",
+      "archetype_examples": [
+        "C.J. Stroud (2023)",
+        "Kirk Cousins",
+        "Jimmy Garoppolo"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "low",
-      "explanation": "Hafley runs a 4-3 even front with four down linemen in Wide-9 alignment. Edge rush comes from hands-in-dirt 4-3 DEs (Chop Robinson, Bradley Chubb), NOT from stand-up OLBs. Inside linebackers in this scheme have single-gap run fit and zone coverage responsibilities \u2014 they are asked to play fast and cover ground, not rush the passer. Hafley's Green Bay defense was among the lowest in 5-man pressure usage (27th) and relied heavily on 4-man rush. LBs occasionally participate in simulated pressures on 3rd down (Quay Walker A-gap stunts), but this is situational, not a primary role. An LB with elite pass rush traits would be miscast as a starting ILB in this defense."
+    "RB": {
+      "scheme_role": "The featured back in an outside zone scheme. Must read blocks laterally, identify cutback lanes, and have the vision to press the hole before cutting upfield on his fifth step. In Slowik's Shanahan-tree offense, the RB is also a legitimate receiving threat out of the backfield and on screens. Expected to handle 15-20+ touches per game with a significant pass-catching role. Play-action effectiveness depends on a credible run threat.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Outside zone demands elite vision. The RB must read blocks one gap at a time from outside-in, identify when to press the edge vs. cut back, and make a decisive cut on the fifth step. This is THE separator in Shanahan-tree schemes \u2014 vision elevates average athletes (Raheem Mostert, Jeff Wilson) into productive backs."
+        },
+        "Contact Balance": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Zone runs often feature cutback lanes through traffic where the RB must absorb contact and keep his feet. Not the primary trait but important for converting short-yardage and maintaining balance through arm tackles."
+        },
+        "Power": {
+          "weight": 0.05,
+          "importance": "low",
+          "reasoning": "This is not a power/gap-heavy scheme. The zone run game relies on lateral movement and cutting, not running through defenders. Short-yardage situations may require some power, but it's the least critical trait in this system."
+        },
+        "Elusiveness": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Zone cutback runs reward RBs who can make defenders miss in space. The scheme creates one-on-one situations at the second level where elusiveness converts 4-yard runs into 12-yard gains. De'Von Achane thrived in McDaniel's similar scheme precisely because of his elusiveness."
+        },
+        "Speed": {
+          "weight": 0.17,
+          "importance": "high",
+          "reasoning": "Outside zone runs stretch the defense horizontally, and the scheme creates explosive play opportunities when the RB can hit the edge with speed. Shanahan-tree offenses have consistently valued speed at RB \u2014 Mostert, Achane, Singletary. Speed turns schemed plays into chunk gains."
+        },
+        "Pass Catching": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Slowik's system features the RB as a legitimate receiving weapon. Check-downs, screens, and wheel routes out of the backfield are integral concepts. The RB must be reliable with his hands and able to run routes. In Houston, Joe Mixon and Devin Singletary both contributed significantly as receivers."
+        },
+        "Pass Protection": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Must be competent in blitz pickup. Slowik's Houston offense allowed too many sacks partly due to poor protection scheme. The RB must identify blitzers and hold up long enough for boot concepts to develop."
+        }
+      },
+      "ideal_archetype": "A quick, decisive zone runner with excellent vision and the ability to catch passes out of the backfield. Think De'Von Achane \u2014 explosive speed, lateral agility to make cuts in the zone scheme, and pass-catching ability that makes him a weapon on all three downs. Christian McCaffrey is the gold standard for Shanahan-tree RBs \u2014 elite vision, receiving ability, and the speed to hit explosive runs. Raheem Mostert shows how pure speed and vision can thrive even without elite size.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "195-215",
+          "floor": "185",
+          "reasoning": "Zone RBs don't need to be bruisers. The scheme creates running lanes through blocking angles, not power. Lighter, quicker backs who can change direction are preferred."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "Speed is a premium because outside zone stretches the defense laterally and creates edge opportunities. Sub-4.50 speed turns schemed plays into explosive gains."
+        },
+        "3_cone_drill": {
+          "ideal": "Sub-6.90",
+          "floor": "7.00",
+          "reasoning": "Zone cutbacks require change-of-direction ability. The RB must plant and cut decisively on his fifth step. Agility drills predict zone-fit better than straight-line speed alone."
+        }
+      },
+      "development_context": "Shanahan-tree schemes have a long track record of making average RBs productive \u2014 the system is the star. However, the best versions of this scheme pair elite vision with speed. The coaching staff can develop patience and read skills within the zone scheme, but vision and speed must arrive ready. RB coach Ladell Betts comes from the Giants, where he helped the team finish 5th in rushing yards per game in 2025.",
+      "scheme_fit_narrative": "We want a quick, decisive runner who sees cutback lanes in zone blocking and has the speed to hit the edge when it opens up. He needs to catch the ball out of the backfield \u2014 this isn't a two-back rotation where the pass-catching back spells the runner. We want a three-down player who can be our lead back in both the run and pass game. Vision is the separator \u2014 give us a guy who reads blocks and makes one cut.",
+      "archetype_examples": [
+        "De'Von Achane",
+        "Christian McCaffrey",
+        "Raheem Mostert"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "high",
-      "explanation": "De'Von Achane is the prototype: 1,838 scrimmage yards (1,350 rushing + 488 receiving) in 2025, functioning as Miami's offensive centerpiece. Slowik's Shanahan-tree offense inherently values backs who catch, run routes out of the backfield, and create mismatches against linebackers in space. Hafley explicitly wants play-action, screens, and bootleg concepts where RBs leak into the flat. With an uncertain QB situation (likely a young/new starter), the checkdown/screen role for the RB becomes even more critical. Any RB prospect with elite receiving traits, hands, and route-running ability fits this offense at a premium."
+    "WR": {
+      "scheme_role": "Receivers in Slowik's system run timing routes tied to the QB's footwork. The Z (flanker) is often the primary target on crossers, digs, and intermediate routes. The X (split end) runs the full route tree and must win at all three levels. The slot receiver works the middle of the field on option routes and quick concepts. All receivers must be credible blockers in the run game because the outside zone scheme depends on perimeter blocking to seal the edge. YAC is critical \u2014 the scheme creates open throws at the catch point that must be converted into chunk plays.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Timing-based passing demands precise route running \u2014 hitting landmarks and timing breaks to perfection. Slowik himself was described as 'a meticulous route-runner obsessed with the intricacies of hitting landmarks.' The scheme creates windows through precise spacing, and sloppy routes collapse the timing."
+        },
+        "Separation": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The scheme creates separation through design (motion, rub routes, play-action) rather than relying on individual separation ability. Important but the system helps here."
+        },
+        "Hands": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Timing routes often deliver the ball into traffic. The WR must catch the ball on schedule, frequently in contested or tight-window situations. Drops kill timing offenses because the QB has already committed the throw before the catch."
+        },
+        "YAC Ability": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Shanahan-tree offenses are built on YAC. Slants, crossers, screens, and quick hitters are designed to get the ball to the WR in space, and the WR must convert those catches into explosive gains. PFF noted that in Miami, the Dolphins should target athletic WRs with size. YAC is the engine that drives efficiency in this system."
+        },
+        "Speed": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Speed opens up the play-action deep shots that punish defenses for loading the box against zone runs. The Shanahan system sequences outside zone \u2192 boot \u2192 deep shot, and a vertical threat makes the entire sequence more dangerous. Tyreek Hill's speed was the ultimate weapon in McDaniel's version."
+        },
+        "Contested Catches": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "PFF's Dolphins mock draft specifically noted that 'size is sorely lacking in Miami's current receiver room.' With Tyreek Hill likely departing, a bigger receiver who can win contested catches adds a dimension the scheme currently lacks \u2014 particularly in the red zone and on 50/50 balls."
+        },
+        "Release Package": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Press coverage can disrupt the timing of this offense. Receivers must have the ability to get off the line cleanly against press to maintain route timing. Important but secondary to route precision and YAC ability."
+        }
+      },
+      "ideal_archetype": "A versatile, YAC-dominant receiver who runs precise routes and converts catches into explosive plays. In the X role, think Deebo Samuel \u2014 not a pure route technician but a dynamic playmaker who creates after the catch and can line up in multiple spots. For the Z/flanker, Brandon Aiyuk's combination of route precision and YAC perfectly embodies the Shanahan-tree WR. For the slot, a quick, shifty player who can work the middle of the field. Miami specifically needs a bigger receiver (6-2+) who can add contested-catch ability the room currently lacks.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-4 (position-dependent)",
+          "floor": "5-9",
+          "reasoning": "The scheme is position-flexible on height. Outside WRs benefit from size for contested catches (especially with Hill likely gone), while slot WRs can be smaller if they have elite quickness."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "Speed is valued for the deep-shot play-action element and YAC ability. Not every WR needs to be a burner, but at least one must threaten vertically to make the play-action sequences work."
+        },
+        "weight": {
+          "ideal": "195-215 for outside, 185-200 for slot",
+          "floor": "none",
+          "reasoning": "YAC-heavy scheme benefits from receivers who can break tackles. Bigger bodies convert more catches into chunk plays."
+        }
+      },
+      "development_context": "Slowik's development track record at WR is limited \u2014 his background is as a passing game coordinator, not a position coach. The WR coaching staff will matter more for individual technique development. However, the Shanahan system has historically elevated WR production through scheme \u2014 Deebo Samuel, Brandon Aiyuk, Nico Collins all thrived within the system's route concepts and YAC design. The scheme can make a good WR look great, but the WR must arrive with adequate route discipline and hands.",
+      "scheme_fit_narrative": "We need receivers who can run precise routes on time and turn catches into explosive plays. YAC is everything in this offense \u2014 we're going to scheme guys open at the catch point, and we need them to do damage with the ball in their hands. We also need at least one receiver with size and speed who can win downfield on play-action shots. Give us a versatile playmaker who can line up inside and outside, block in the run game, and create after the catch.",
+      "archetype_examples": [
+        "Deebo Samuel",
+        "Brandon Aiyuk",
+        "Nico Collins"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "high",
-      "explanation": "Hafley's defense is built on single-high safety structures that demand a versatile second safety/nickel hybrid. In Green Bay, Javon Bullard played 25% of his snaps in the slot and functioned as both a box safety and slot defender. Xavier McKinney was the deep post safety while Bullard/Evan Williams rotated through hybrid roles. PFF noted Minkah Fitzpatrick is 'exactly the kind of versatile chess piece Hafley adores' and projects him in multiple roles. Hafley's scheme uses inverted Cover-2, robber coverages, and slot coverage assignments that require safeties to play in the box, cover slot receivers man-to-man, and blitz. Any safety prospect with man coverage skills, tackling, and slot versatility gets a significant boost."
+    "TE": {
+      "scheme_role": "The TE is a foundational position in Shanahan-tree offenses. Used extensively in 12 and 21 personnel as both a blocker on zone runs and a receiving weapon. Must be able to block inline on outside zone runs (seal the edge, reach-block DEs), flex into the slot to run routes, and serve as a safety valve in the progression. Slowik's Houston offense featured Dalton Schultz prominently \u2014 53 catches in 2024, though production was inconsistent. The TE is critical to the formational manipulation that defines this offense \u2014 shifts and motions between inline and detached alignments create defensive communication stress.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "The TE is a featured receiver in 12 personnel. Slowik's scheme uses the TE on crossers, seam routes, and as a checkdown target. PFF noted the Dolphins should target a TE who can fill a Dalton Schultz-like role in Slowik's offense. Must be a reliable target in the intermediate passing game."
+        },
+        "Route Running": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "TEs in this system flex into the slot and run a full route tree. Route precision matters because the timing-based passing game demands the TE to be where the QB expects him. Kittle's route running in SF is the gold standard for Shanahan-tree TEs."
+        },
+        "Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "This is the most critical TE trait because the outside zone run scheme depends on TE blocking to seal the edge. In 12 and 21 personnel, the TE must be a credible run blocker or the entire formational structure collapses. The defense will key on weak-blocking TEs and set the edge, killing zone runs."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Shanahan-tree offenses use TEs in motion, as lead blockers on outside zone, and flexed out as receivers. The TE must be athletic enough to shift between these roles within a single drive. Versatility in alignment is scheme-critical."
+        },
+        "Hands": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Reliable hands are necessary because the TE is often the safety valve or the progression target in the middle of the field. Drops from the TE position disrupt timing and stall drives. Not as heavily weighted as blocking because the scheme creates open looks."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Adequate speed to threaten the seam and create mismatches against linebackers in coverage. Doesn't need WR speed, but must be athletic enough to separate from box defenders. Kittle's speed is aspirational; Schultz-level athleticism is the floor."
+        }
+      },
+      "ideal_archetype": "A complete TE who can block on the edge in zone runs and catch 50+ balls as a receiver. Think George Kittle \u2014 elite blocker, dynamic after the catch, and athletic enough to split out wide or motion across the formation. Dalton Schultz represents the floor: a reliable inline blocker who catches 50-60 passes from the slot and inline alignments. The ideal prospect leans more toward Kittle than Travis Kelce \u2014 this scheme demands a blocker-first TE who also happens to be a weapon in the passing game.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-2",
+          "reasoning": "Must have the frame to block NFL defensive ends inline. Zone blocking TEs need length to reach-block and seal."
+        },
+        "weight": {
+          "ideal": "240-255",
+          "floor": "230",
+          "reasoning": "Inline blocking on outside zone runs requires the mass to sustain blocks against 260+ pound DEs. Too light and the TE gets pushed back into the running lane."
+        },
+        "40_yard_dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.80",
+          "reasoning": "Must be athletic enough to flex into the slot and threaten downfield. The Shanahan system's TE usage requires functional speed to create mismatches."
+        }
+      },
+      "development_context": "Shanahan-tree staffs have historically excelled at developing TEs as receivers while demanding blocking arrive ready. Kittle was a 5th-round pick who became an All-Pro in the system. However, blocking technique at the NFL level is extremely difficult to develop. A TE who can block and has raw receiving upside fits better than one who catches well but can't sustain blocks. OL coach Zach Yenser's zone-blocking background will help integrate the TE into the blocking scheme.",
+      "scheme_fit_narrative": "The TE is the Swiss Army knife of this offense. We need a guy who can lock down a DE on outside zone, then flex into the slot next play and catch a 15-yard crosser. Blocking comes first \u2014 if you can't block, you're a big wide receiver, and we already have receivers. Give us an athletic, willing blocker who can also catch 50 balls and we'll make him a weapon.",
+      "archetype_examples": [
+        "George Kittle",
+        "Dalton Schultz",
+        "Mark Andrews"
+      ]
+    },
+    "OT": {
+      "scheme_role": "Outside zone OTs must execute reach blocks, climb to the second level, and sustain blocks while moving laterally. The scheme demands athletic tackles who can get lateral displacement on the first step and work to the second level on zone runs. In pass protection, the boot-action heavy passing game reduces the number of true dropback pass-pro reps, but OTs must still hold up in obvious passing situations. Zone blocking requires coordination and technique over pure power.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Important but slightly de-emphasized because play-action and boot concepts reduce true dropback pass-pro frequency. Slowik's Houston offense was criticized for poor pass protection (2nd-most sacks in 2024), making this a priority to fix. OTs must be reliable in pass sets."
+        },
+        "Run Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The entire offensive identity is built on outside zone. OTs must reach-block defenders, get lateral displacement, and climb to the second level. This is the defining skill for an OT in this scheme. Poor zone-blocking OTs kill the run game at the point of attack."
+        },
+        "Footwork": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Zone blocking is a footwork-intensive scheme. The lateral first step, the bucket step on reach blocks, and the coordination to work in tandem with the guard all demand elite feet. PFF specifically noted that Miami should target OTs with 'lower-body flexibility needed to thrive in Slowik's zone-based scheme.'"
+        },
+        "Anchor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Less critical than in a gap/power scheme because zone blocking is about movement and angles, not absorbing bull rushes at the point of attack. Still necessary for pass protection against power rushers."
+        },
+        "Athleticism": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Zone OTs must be athletes. They are asked to reach-block ends who are wider than them, climb to the second level on linebackers, and mirror defenders laterally. Stiff OTs who can only pass-set kill this run scheme. Athletic testing (shuttle, 3-cone) is predictive of zone-scheme success."
+        },
+        "Strength": {
+          "weight": 0.07,
+          "importance": "low",
+          "reasoning": "Raw strength is the least important trait because zone blocking is about angles, leverage, and movement rather than overpowering defenders at the point of attack. Adequate strength to sustain blocks is all that's needed."
+        }
+      },
+      "ideal_archetype": "An athletic, light-footed tackle who excels at zone blocking and can reach the second level on outside zone runs. Think Trent Williams \u2014 the prototype Shanahan OT with elite athleticism, lateral agility, and the ability to dominate in space. Laremy Tunsil in Houston showed what an elite zone OT looks like in Slowik's system specifically. The ideal prospect has a short shuttle sub-4.70, can move laterally with fluidity, and has the body control to sustain blocks on the move.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-4 to 6-6",
+          "floor": "6-3",
+          "reasoning": "Standard OT height range. No extreme preference from the scheme."
+        },
+        "weight": {
+          "ideal": "305-320",
+          "floor": "295",
+          "reasoning": "Zone OTs can be lighter than power-scheme OTs because the scheme relies on movement, not mass. A 305-pound mover is better than a 330-pound anchor."
+        },
+        "short_shuttle": {
+          "ideal": "Sub-4.60",
+          "floor": "4.70",
+          "reasoning": "Zone blocking requires lateral agility to execute reach blocks. The short shuttle is the best predictor of zone-scheme OT success."
+        },
+        "3_cone_drill": {
+          "ideal": "Sub-7.40",
+          "floor": "7.60",
+          "reasoning": "Change-of-direction ability matters for climbing to the second level and adjusting to moving targets."
+        }
+      },
+      "development_context": "OL coach Zach Yenser comes directly from the Shanahan pipeline (49ers 2019-21, Texans 2024-25), specializing in zone-blocking technique. He helped develop Trent Williams and Laken Tomlinson to Pro Bowls in SF. This staff can teach zone footwork and technique, but athleticism and body control must arrive. A raw athlete with good feet is a better target than a polished pass-protector with limited mobility.",
+      "scheme_fit_narrative": "We want athletic tackles who can move. Our run game is built on the offensive line moving laterally in sync, and tackles who can't get to the second level kill our zone scheme. Give us a light-footed mover with good body control who can reach-block and climb. We can teach the technique \u2014 we can't teach the feet.",
+      "archetype_examples": [
+        "Trent Williams",
+        "Laremy Tunsil",
+        "Mike McGlinchey"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior offensive linemen in the outside zone scheme must execute combo blocks (double-team to climb), pull on counter/trap concepts mixed into the scheme, and work laterally in unison on zone runs. The center must make line calls and coordinate the zone-blocking unit. Guards must be agile enough to execute reach blocks on shaded DTs and climb to the second level. Pass protection requires handling interior stunts and games.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Interior pass protection is critical because Slowik's scheme was destroyed in Houston when the interior line collapsed. Stroud was sacked 52 times in 2024. IOL must handle interior pressure, pick up blitzes, and maintain pocket integrity for timing routes."
+        },
+        "Run Blocking": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Zone blocking demands IOL who can execute combination blocks \u2014 double-team the DT then peel off to the second-level LB. This is the foundational skill. IOL who can sustain combos and climb create the rushing lanes the scheme depends on."
+        },
+        "Pulling": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Slowik mixes in gap/counter concepts, which require guards to pull. Not the primary scheme but used often enough that pulling ability matters. More important than in a pure zone-only offense."
+        },
+        "Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must be strong enough to execute combo blocks against 300+ pound interior DL. Not about overpowering but about sustaining double-teams long enough to create displacement before climbing."
+        },
+        "Anchor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Interior pass rushers (Aaron Donald archetypes) can collapse the pocket if the IOL can't anchor. Adequate anchor is necessary for pass protection, but the scheme's play-action design reduces pure dropback frequency."
+        },
+        "Versatility": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "This is elevated because zone-blocking IOL must execute multiple types of blocks on every play \u2014 zone combos, reach blocks, cut blocks, second-level climbs, screen setups. Versatility also matters because Shanahan-tree offenses historically value interchangeable IOL who can play multiple positions, reducing roster spots needed."
+        }
+      },
+      "ideal_archetype": "An athletic, smart interior lineman who excels at zone combination blocks and can play multiple positions. Think Alex Mack \u2014 a cerebral center who anchored Shanahan's zone scheme in Atlanta and SF with intelligence and movement skills. Zion Johnson (drafted from Hafley's BC program) represents the guard archetype \u2014 an athletic guard with the feet to zone-block and the versatility to play center if needed. The ideal IOL has quick feet, understands blocking geometry, and can sustain blocks on the move.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Standard range. Zone IOL don't need extreme height."
+        },
+        "weight": {
+          "ideal": "300-320",
+          "floor": "295",
+          "reasoning": "Zone IOL can be lighter and more athletic. A 305-pound mover is preferred over a 335-pound statue."
+        },
+        "short_shuttle": {
+          "ideal": "Sub-4.55",
+          "floor": "4.65",
+          "reasoning": "Lateral agility is critical for zone combos and reach blocks. The short shuttle predicts zone-blocking success at the IOL position."
+        },
+        "bench_press": {
+          "ideal": "25+ reps",
+          "floor": "22 reps",
+          "reasoning": "Adequate upper body strength to sustain double-teams and handle bull rushes. Not the primary evaluation metric but a baseline for interior OL."
+        }
+      },
+      "development_context": "Yenser's Shanahan-tree coaching background is tailor-made for developing zone-blocking IOL. He coached Alex Mack and Laken Tomlinson at SF. The staff can develop zone-blocking technique and combo-block timing. Intelligence and movement skills must arrive. Matt Applebaum (assistant OL coach) has previous Miami experience and BC ties to Hafley, adding depth to the developmental pipeline.",
+      "scheme_fit_narrative": "We need smart, athletic interior linemen who can execute zone combination blocks and climb to the second level. Raw maulers who can only straight-ahead block won't work \u2014 we need guys who can move laterally, process blocking assignments on the fly, and play multiple spots on the line. Give us movers with football IQ and we'll build the run game around them.",
+      "archetype_examples": [
+        "Alex Mack",
+        "Zion Johnson",
+        "Laken Tomlinson"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "In Hafley's Wide-9 front, the EDGE rusher aligns well outside the offensive tackle in a 9-technique and attacks upfield. The primary job is to rush the passer and force runs back inside to the pursuing defense. This is NOT a contain/set-the-edge role \u2014 the EDGE is told to pin his ears back and get after the QB. In simulated pressures, the EDGE may occasionally drop into flat coverage while a LB or DB rushes, but this is infrequent. The LEO (weakside DE) is the premium pass-rush spot, aligned to the weak side with the 3-tech for maximum disruption.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Wide-9 alignment is designed to maximize pass rush. Hafley's entire defensive structure \u2014 low blitz rate, zone coverage behind it \u2014 depends on the front four generating pressure. In Green Bay, the defense was built around Parsons' pass-rush ability. Chop Robinson in Miami must be that type of disruptive force."
+        },
+        "Bend": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Wide-9 alignment creates a wide rush lane. The EDGE must convert speed to power around the arc, which requires exceptional bend to dip under the tackle's punch and flatten to the QB. Without bend, the Wide-9 EDGE runs past the QB. This is the key trait that separates productive Wide-9 rushers from speed-only players."
+        },
+        "First Step": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "One-gap, penetrating scheme demands explosive first-step quickness to beat the OT off the snap. The Wide-9 alignment adds extra distance to cover, making first-step explosion even more critical. Parsons' first step was elite; Rashan Gary's was adequate but the gap was massive."
+        },
+        "Power": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Some bull-rush ability is useful to keep OTs honest, but the scheme is speed-and-bend oriented, not power-rush oriented. The Wide-9 alignment naturally favors speed-to-power conversion over pure bull rushing."
+        },
+        "Motor": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Hafley's defense values effort and pursuit. In Green Bay, 16 different players had at least a half-sack because the scheme creates opportunities through hustle and pursuit. A high-motor EDGE contributes to the collective pass-rush without needing to win every 1-on-1 rep."
+        },
+        "Run Defense": {
+          "weight": 0.08,
+          "importance": "low",
+          "reasoning": "In the Wide-9 alignment, the EDGE's run responsibility is limited to forcing the ball carrier back inside. The interior DL and LBs handle the primary run defense. Run defense is the least important trait for the EDGE in this scheme, which is a significant departure from 3-4 systems that ask EDGEs to set the edge."
+        }
+      },
+      "ideal_archetype": "A speed-to-power EDGE rusher with elite bend who can win off the edge in a Wide-9 alignment. Think Micah Parsons \u2014 explosive first step, devastating bend, can rush from a 3-point or 2-point stance, and generates pressure that warps the offense's protection plan. For the opposite end, Chop Robinson in Miami already fits as a speed rusher from the wide alignment. The ideal prospect is a high-effort, bendy speed rusher who can convert rushing opportunities created by simulated pressures.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-2 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Wide-9 rushers can be slightly shorter because the wide alignment eliminates the need to stack-and-shed OTs at the point of attack. Length is less critical than in a 5-tech base DE role."
+        },
+        "weight": {
+          "ideal": "245-265",
+          "floor": "235",
+          "reasoning": "The Packers liked bigger players at the edge per SI's Dolphins analysis, but the scheme rewards speed-based rushers. Chop Robinson at 254 lbs is a good baseline. Must be heavy enough to sustain versus run blocks."
+        },
+        "40_yard_dash": {
+          "ideal": "4.50-4.65",
+          "floor": "4.70",
+          "reasoning": "Speed is a premium in Wide-9 because the EDGE must close the extra distance created by the wide alignment. Sub-4.65 speed combined with bend is the ideal combination."
+        },
+        "arm_length": {
+          "ideal": "33+",
+          "floor": "32",
+          "reasoning": "Length helps keep OTs at bay during the rush. Long arms allow the EDGE to use long-arm moves to create separation on the edge."
+        }
+      },
+      "development_context": "Hafley's track record with EDGE development is promising. In Green Bay, he maximized Parsons' production immediately and got career years from Rashan Gary and Lukas Van Ness. The simulated-pressure scheme creates opportunities for EDGEs who might not win consistently on pure 1-on-1 reps. The staff can develop pass-rush technique and rush-plan sophistication, but athletic traits (speed, bend, first step) must arrive.",
+      "scheme_fit_narrative": "We want a speed rusher with elite bend who can pin his ears back from the Wide-9 and get after the QB. He doesn't need to be a 280-pound base end who sets the edge \u2014 we want a pass-rush weapon. Bend is everything in our scheme because the wide alignment creates a long rush arc. Give us a guy who can dip under the tackle's hands, flatten to the QB, and finish. We'll create extra opportunities with our pressure packages.",
+      "archetype_examples": [
+        "Micah Parsons",
+        "Chop Robinson",
+        "Rashan Gary"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Interior DL in Hafley's 4-3 are one-gap penetrators, NOT two-gap space-eaters. The 3-technique (aligned in the B-gap between guard and tackle) is the primary interior pass-rush weapon. The 1-technique nose (aligned in the A-gap) controls the interior run gaps but is also expected to generate penetration. This is a radical departure from two-gap schemes \u2014 Hafley's DL are told to get upfield, get into their gap, and be disruptive. Kenny Clark in Green Bay said the scheme would 'allow us to be way more disruptive' because DL are freed to use their athleticism rather than holding at the point of attack.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Interior pass rush is critical because Hafley generates pressure from the front four rather than blitzing. The 3-technique must be a legitimate pass-rush threat to create interior collapse. In Green Bay, the Packers were 22nd in pressure rate on pure 4-man rushes \u2014 interior pass rush is the key to elevating the defense."
+        },
+        "Run Defense": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "One-gap penetration helps in run defense by disrupting blocking schemes at the point of attack. The DL must win their gap quickly to blow up run plays before they develop. Hafley's Packers finished 7th in Run DVOA in 2024 \u2014 a significant improvement from 26th the prior year."
+        },
+        "First Step": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "One-gap DL must fire off the ball and penetrate their gap before the OL can execute zone combination blocks. A quick first step disrupts zone-blocking timing, which is the primary offensive scheme they'll face. This trait is more critical in a penetrating 1-gap scheme than a read-and-react 2-gap system."
+        },
+        "Hand Usage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "DL who can defeat blocks with hand technique generate pressure and shed blockers efficiently. Critical for the 3-tech to use hands to cross the face of guards on pass rush and disengage from combos in the run game."
+        },
+        "Motor": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Hafley values relentless effort. The scheme creates opportunities through pursuit and secondary pass-rush efforts after initial rushes are stalled. High-motor DL finish plays and contribute to the collective pressure."
+        },
+        "Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Adequate strength to hold the point of attack and not get moved off the ball by zone combo blocks. Not the primary trait because the scheme values quickness over mass, but interior DL must be strong enough to anchor against double-teams."
+        }
+      },
+      "ideal_archetype": "A quick, explosive interior penetrator who can rush the passer and stuff runs with gap penetration. Think Javon Hargrave \u2014 an athletic 3-technique who generates interior pressure and can blow up zone runs by penetrating the backfield. Jordan Davis under Clint Hurtt (who Miami interviewed for DC) showed how an athletic interior player can thrive in a 1-gap scheme. Kenneth Grant and Zach Sieler on Miami's current roster fit this mold \u2014 Sieler especially, as a relentless motor guy who penetrates gaps.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4",
+          "floor": "6-0",
+          "reasoning": "Interior DL can be shorter in a penetrating scheme because leverage is created by pad level and explosion, not by length to control blockers at arm's length."
+        },
+        "weight": {
+          "ideal": "285-310 (3-tech), 300-325 (1-tech)",
+          "floor": "280 (3-tech), 295 (1-tech)",
+          "reasoning": "Penetrating DL can be lighter than two-gapping space-eaters. A 290-pound explosive 3-tech is preferred over a 320-pound plug."
+        },
+        "40_yard_dash": {
+          "ideal": "Sub-4.90 (3-tech)",
+          "floor": "5.05",
+          "reasoning": "Interior athleticism and burst matter in a 1-gap scheme. Sub-4.90 for a 3-tech indicates the explosion needed to beat blocks."
+        },
+        "3_cone_drill": {
+          "ideal": "Sub-7.30",
+          "floor": "7.50",
+          "reasoning": "Agility to redirect on stunts and games. Hafley's pressure packages include interior DL in stunts and simulated pressures that require change-of-direction ability."
+        }
+      },
+      "development_context": "DL coach Austin Clark has been with the Dolphins since 2021 and is retained under Hafley \u2014 the longest-tenured member of the coaching staff. Clark developed Zach Sieler into one of the most productive interior DL in the NFL. This continuity is valuable because Clark understands the existing personnel. Hafley's scheme asks DL to do something different than before (penetrate rather than hold), but Clark can bridge that transition.",
+      "scheme_fit_narrative": "We want explosive, quick interior players who can penetrate their gap and wreck the backfield. We're not asking our DL to hold blocks and read \u2014 we're telling them to fire off the ball, win their gap, and be disruptive. The 3-tech must be a pass-rush weapon from the interior. Give us athletic, twitchy interior linemen with great first steps. We'll develop the technique \u2014 bring the explosion.",
+      "archetype_examples": [
+        "Javon Hargrave",
+        "Kenny Clark",
+        "Zach Sieler"
+      ]
+    },
+    "LB": {
+      "scheme_role": "In Hafley's 4-3, LBs play a reduced but critical role compared to 3-4 systems. The MIKE and WILL are the two starters in base; only the MIKE stays on the field in nickel. With the DL one-gapping and penetrating, LBs have 'less on their plate' \u2014 they don't need to cover in space as much or handle complex two-way-go assignments. Their primary job is to fill run gaps behind the penetrating DL, make tackles in space, and drop into short zone in the underneath coverage windows. In simulated pressures, LBs are the primary delayed blitz threats. Edgerrin Cooper in GB showed how a rangy, athletic LB can thrive as a tackler and occasional blitzer.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "With the DL penetrating and the safety single-high, LBs must be sure tacklers who clean up everything that gets through the front. Cooper led the Packers with 105 tackles in 2025. Missed tackles in this scheme are devastating because there's only one high safety behind them."
+        },
+        "Coverage": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "In Hafley's zone-heavy scheme, LBs drop into underneath zones (hook/curl) but aren't asked to cover WRs or TEs in space like in a quarters-based system. Pattern-match zone reduces the LB's coverage burden. Adequate zone drops are necessary but elite coverage isn't the differentiator."
+        },
+        "Pass Rush": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "LBs are the primary blitz threats in simulated pressures. Cooper and Walker in GB were effective delayed blitzers. The ability to generate pressure as a blitzer adds a dimension to Hafley's creative pressure packages, especially on third downs."
+        },
+        "Instincts": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "In a penetrating 1-gap scheme, LBs must read quickly and react to the run because the DL is firing upfield and creating chaos. Poor instincts lead to hesitation, and hesitation kills in a scheme built on aggression and speed."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Hafley's defense puts a lot of emphasis on athleticism at all three levels. LBs must be rangy enough to cover sideline-to-sideline and close on ball carriers in space. The single-high structure means fewer run-fitters in the box, requiring each LB to cover more ground."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Sideline-to-sideline range matters because the single-high safety structure reduces help in the box. LBs must be able to flow to the ball and make plays at the edge of the defense. Less critical than tackling but still important."
+        },
+        "Block Shedding": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Zone-blocking OL will climb to the second level and engage LBs. Must shed blocks to make tackles. The penetrating DL helps by disrupting combo blocks before they reach the LB, but block-shedding still matters."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.05,
+          "importance": "low",
+          "reasoning": "Hafley simplifies the game for his players \u2014 LBs don't need to be defensive quarterbacks processing complex coverages. The scheme is designed so LBs can play fast without overthinking. Read your key, fill your gap, drop to your zone."
+        }
+      },
+      "ideal_archetype": "A rangy, athletic, sure-tackling LB who can fill gaps, drop into short zones, and rush the passer on blitzes. Think Edgerrin Cooper \u2014 explosive athleticism, elite tackling consistency, and the ability to blur protection rules as a blitzer. Jordyn Brooks (already on the roster) fits this mold as a high-volume tackler who led the NFL in tackles in 2025. The ideal LB isn't a coverage specialist or a pass-rush specialist but a do-everything athlete who makes tackles everywhere.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3",
+          "floor": "5-11",
+          "reasoning": "Athletic LBs in this range can play in space and fit the run. No extreme height preference."
+        },
+        "weight": {
+          "ideal": "225-240",
+          "floor": "215",
+          "reasoning": "Must be big enough to take on blocks from climbing OL but light enough to cover ground and close on ball carriers."
+        },
+        "40_yard_dash": {
+          "ideal": "4.45-4.55",
+          "floor": "4.60",
+          "reasoning": "Range and closing speed matter because the single-high safety structure requires LBs to cover more ground. Sub-4.55 speed at 225+ lbs is the ideal combination."
+        }
+      },
+      "development_context": "Joe Barry (run game coordinator/senior defensive assistant) has 25 years of NFL experience including seven as a DC. He mentored Jordyn Brooks to a first-team All-Pro in 2025 with the Dolphins. Sean Duggan is a lifelong LB coach. This staff can develop tackling technique, instincts, and blitz timing. Athleticism and range must arrive \u2014 you can't coach speed. The Dolphins' LB corps 'is in desperate need of youth and athleticism' per PFF.",
+      "scheme_fit_narrative": "Give us athletic, rangy linebackers who make tackles. We don't need a MIKE who calls coverages like a quarterback \u2014 our scheme is simple by design. We need guys who play fast, hit gaps, and don't miss when they get there. If he can rush the passer on blitzes too, even better. Tackling is non-negotiable \u2014 in our single-high defense, missed tackles turn 5-yard gains into 30-yard gains.",
+      "archetype_examples": [
+        "Edgerrin Cooper",
+        "Jordyn Brooks",
+        "Fred Warner"
+      ]
+    },
+    "CB": {
+      "scheme_role": "Corners in Hafley's defense play press coverage at the line of scrimmage, then bail into their deep-third zone assignment in Cover 3, or stick with the receiver vertically in Cover 1. Pattern-match zone requires corners to run with #1 receivers vertically and zone off when the receiver breaks underneath. On third downs, corners may play pure man in Cover 1 or press-bail into quarters. Hafley's background as a DB coach means he demands technical excellence from corners. His defense asks corners to be physical at the line, disrupt timing with press, and play with vision to read routes and break on the ball.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "While Hafley played ~78% zone in Green Bay, he believes in press-man coverage and uses it on critical downs. At BC, he ran man coverage 43% of the time. In Miami, with a secondary rebuild, he'll seek corners who can play both man and zone. Man coverage ability is essential for third-and-medium/long situations where Hafley dials up Cover 1."
+        },
+        "Ball Skills": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Hafley's Green Bay defense created 31 takeaways in 2024 (4th in NFL) and Xavier McKinney had 8 interceptions. The scheme's vision-based zone puts corners in position to read the QB's eyes and make plays on the ball. Ball skills are a premium because the scheme creates interception opportunities."
+        },
+        "Zone Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Cover 3 pattern-match is the base coverage. Corners must understand zone responsibilities, read route combinations, and match receivers within their zone. This is the single most important coverage trait because 78% of snaps are zone-based. Poor zone corners get picked apart in the void areas between deep third and underneath coverage."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Corners must recover when beaten vertically because they're responsible for their deep third. In press-bail technique, the corner must turn and run with speed receivers after jamming them at the line. Adequate recovery speed is critical because the single-high safety can't help everywhere."
+        },
+        "Press": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Hafley explicitly loves press coverage. His corners show press pre-snap then either jam and run with the receiver (man) or jam and bail to their zone assignment (press-bail). Press disrupts timing, which is critical against Shanahan-tree offenses that rely on timing routes. Eric Stokes said Hafley 'wants you to ball' and 'won't make you overthink.'"
+        },
+        "Nickel": {
+          "weight": 0.09,
+          "importance": "moderate",
+          "reasoning": "The nickel/slot corner is important in 4-2-5 packages, but it's a different archetype than the outside corners. Javon Bullard played a hybrid nickel/safety role in GB. The nickel must handle slot routes and contribute as a blitzer in simulated pressures."
+        }
+      },
+      "ideal_archetype": "A physical, press-capable corner who can play both man and zone with ball skills. Think Jaire Alexander \u2014 an elite press corner who can lock down in man coverage but also has the instincts to play zone and make plays on the ball. Joe Haden under Hafley in Cleveland was the prototype: a physical corner with ball skills who earned All-Pro honors. For the nickel, a Javon Bullard-type who can play slot coverage, blitz, and play in the box as a hybrid defender.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Press-man corners benefit from length to jam at the line and contest at the catch point. Hafley's scheme doesn't demand massive corners but values ones with enough size to be physical."
+        },
+        "40_yard_dash": {
+          "ideal": "4.35-4.45",
+          "floor": "4.50",
+          "reasoning": "Recovery speed is critical in the press-bail technique. If the corner jams and the receiver releases cleanly, the corner must have the speed to recover and reach his deep third."
+        },
+        "arm_length": {
+          "ideal": "31+",
+          "floor": "30",
+          "reasoning": "Length matters for press technique. Longer arms allow corners to jam receivers and keep them at distance during the press phase before bailing to their zone."
+        }
+      },
+      "development_context": "Hafley is one of the NFL's most accomplished DB developers. His resume includes coaching Darrelle Revis at Pitt, Richard Sherman at SF, Joe Haden and Tashaun Gipson to Pro Bowls in Cleveland, and Jaire Alexander to elite status in GB. He also produced 21 interceptions in two years at Tampa Bay (4th in NFL). New CB coach Jahleel Addae comes from Buffalo where the Bills led the NFL in passing defense (156.9 yards allowed per game in 2025). This staff can develop press technique, zone instincts, and ball skills. Speed and athleticism must arrive \u2014 everything else can be coached by one of the NFL's best secondary developers.",
+      "scheme_fit_narrative": "We need physical corners who can press at the line and play both man and zone. Hafley's a DB coach \u2014 he'll develop the technique. But we need athletic raw material: speed to recover, length to press, and ball skills to create turnovers. Our scheme puts corners in position to make plays on the ball, so give us guys who attack the football. The secondary is a near-complete rebuild, so we need multiple corners who fit this profile.",
+      "archetype_examples": [
+        "Jaire Alexander",
+        "Joe Haden",
+        "Richard Sherman"
+      ]
+    },
+    "S": {
+      "scheme_role": "Hafley's defense features two distinct safety roles: the 'post safety' (free safety) patrols the deep middle as the single-high centerfielder, and the 'dropdown/box safety' (strong safety) plays closer to the line of scrimmage in run support or covers the slot. The post safety is the most important position in the secondary \u2014 he must range sideline-to-sideline to cover the deep middle and create turnovers. Xavier McKinney had 8 interceptions as the post safety in GB's first year under Hafley. The box safety must be versatile enough to play in the box, cover the slot, and blitz in simulated pressures. Hafley has also used 'rock and roll' \u2014 rotating safeties left-right rather than free-strong \u2014 to disguise coverages.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.08,
+          "importance": "low",
+          "reasoning": "Safeties are rarely in pure man assignments in this scheme. The box safety may match TEs or RBs occasionally, but the scheme primarily uses zone principles. Man coverage is the least critical safety trait in this zone-heavy system."
+        },
+        "Range": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The post safety must cover the entire deep middle of the field. In a single-high structure, there is no help deep \u2014 the post safety is the last line of defense. Range is THE defining trait. McKinney's ability to play center field enabled the entire defense in GB. Without a rangy post safety, Cover 3 and Cover 1 become exploitable."
+        },
+        "Ball Skills": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "The vision-based zone scheme puts the post safety in position to read the QB's eyes and drive on throws. McKinney's 8 INTs in 2024 weren't accidental \u2014 the scheme creates turnover opportunities for safeties who can finish. Ball skills at safety are a premium because the scheme manufactures opportunities."
+        },
+        "Tackling": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "As the last line of defense in a single-high structure, the post safety must be a reliable tackler in space. The box safety must tackle in the run game as a de facto extra linebacker. Missed tackles from safeties in this scheme result in touchdowns."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The post safety must cover ground quickly to reach the sideline from the deep middle. Speed enables the range necessary to play single-high. The box safety needs enough speed to cover slot receivers and close on ball carriers."
+        },
+        "Nickel": {
+          "weight": 0.09,
+          "importance": "moderate",
+          "reasoning": "The box safety/nickel hybrid (Javon Bullard archetype) plays in the slot in sub-packages, blitzes in simulated pressures, and drops into the box against the run. This versatility is valuable but not the primary evaluation criterion for the post safety position."
+        }
+      },
+      "ideal_archetype": "Two distinct archetypes. Post safety: Xavier McKinney \u2014 a rangy center-fielder who can cover the deep middle sideline-to-sideline, create turnovers with elite ball skills, and tackle reliably in space. Box safety: Javon Bullard \u2014 a versatile hybrid who can play the slot, blitz on simulated pressures, drop into the box against the run, and cover TEs. The post safety is the more impactful position in this scheme and must be the priority. Minkah Fitzpatrick's departure (traded to Jets) creates a massive void at this position.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-10",
+          "reasoning": "Post safeties need enough size to tackle but the primary evaluation is range and ball skills. No extreme height preference."
+        },
+        "weight": {
+          "ideal": "195-215 (post), 200-220 (box)",
+          "floor": "190",
+          "reasoning": "Post safeties can be lighter and rangier. Box safeties need more mass for run support and blitzing."
+        },
+        "40_yard_dash": {
+          "ideal": "4.40-4.50 (post), 4.45-4.55 (box)",
+          "floor": "4.55 (post), 4.60 (box)",
+          "reasoning": "The post safety must cover the deep middle at NFL speed. Sub-4.50 speed at safety is strongly preferred for the centerfield role."
+        }
+      },
+      "development_context": "Hafley is a DB coach by trade and has developed elite safeties throughout his career: Tashaun Gipson (Pro Bowl in Cleveland), Xavier McKinney (8 INTs/All-Pro in GB), Javon Bullard and Evan Williams (immediate contributors as rookies in GB). DeShawn Shead (assistant DB coach, retained from 2025 staff) provides continuity. This staff can develop ball skills, zone instincts, and tackling technique at safety. Range and speed must arrive \u2014 those are not coachable traits. The Dolphins traded Minkah Fitzpatrick to the Jets, creating an urgent need at post safety.",
+      "scheme_fit_narrative": "The post safety is the most important player on our defense. We need a rangy center-fielder who can cover the deep middle and create turnovers. Our entire coverage structure is built around having a safety who can play single-high and make the defense work. Ball skills are critical \u2014 our scheme puts the safety in position to pick passes, and we need a guy who finishes. For the box safety, give us a versatile chess piece who can blitz, cover the slot, and play in the box.",
+      "archetype_examples": [
+        "Xavier McKinney",
+        "Javon Bullard",
+        "Jessie Bates III"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Miami's 2026 draft profile is shaped by two major forces: Slowik's Shanahan offense and Hafley's aggressive 4-3 Wide-9 defense. On OFFENSE: The scheme requires zone-blocking OL who can move laterally, a receiving-capable RB (already have Achane), and TEs who can both block in-line for zone runs and release into play-action routes. WR value is standard \u2014 speed helps in this deep-shot play-action system (Waddle fits). The RB dual-threat boost is among the highest in the NFL given Achane's role and the Shanahan tree's reliance on backs in the pass game. On DEFENSE: The 4-3 Wide-9 front means Miami values EDGE rushers who can win from wide alignments with speed-to-power \u2014 true DEs, not converted LBs. Interior DL must be single-gap penetrators (Kenneth Grant, Zach Sieler). ILBs must be fast, rangy, and coverage-capable \u2014 speed over size \u2014 not pass-rush LBs. The safety room is critical: Hafley's single-high/hybrid scheme creates premium value for safeties who can play in the slot, box, and deep. Minkah Fitzpatrick's versatility is the archetype. A safety prospect who can match up in man coverage against slot receivers while providing box support is valued at a premium here. LB-to-EDGE conversion is a NON-FACTOR in this scheme \u2014 unlike 3-4 teams, Miami's 4-3 provides no pathway for a linebacker to function as an edge rusher.",
+  "scheme_draft_intelligence": "The 2026 Miami Dolphins face one of the most significant scheme overhauls in the NFL. Jeff Hafley replaces Mike McDaniel's Shanahan-offensive identity with a defensive-first culture built around a 4-3 Wide-9 front and single-high safety structure. Bobby Slowik retains Shanahan-tree offensive DNA, providing continuity on that side of the ball, but the defensive scheme is a complete departure from Anthony Weaver's system. This dual transition \u2014 new defensive scheme plus new offensive play-caller \u2014 means the draft must address both sides with scheme-specific traits in mind.\n\nThe biggest value differentials for Miami come at three positions: post safety, cornerback, and edge rusher. Hafley's single-high defense absolutely requires a rangey center-field safety \u2014 without one, the entire coverage structure collapses. Minkah Fitzpatrick's departure to the Jets makes this the most scheme-critical need on the roster. Prospects with elite range and ball skills but perhaps below-average run support grades will be valued higher by Miami than by teams running two-high safety schemes. Similarly, press-capable corners who can play pattern-match zone are essential \u2014 the secondary needs near-complete overhaul, and Hafley's track record as a DB developer means he can project raw athletes further than other staffs can.\n\nOn offense, Slowik's Shanahan-tree scheme creates value in athletic offensive linemen who thrive in zone blocking. Teams that run gap/power schemes won't value short-shuttle and 3-cone times the way Miami will. An OT who tests well in agility drills but lacks brute anchoring ability might fall on other boards while being a perfect fit for Slowik's wide zone. Similarly, the TE position demands a blocker-receiver who can facilitate 12-personnel looks \u2014 Slowik used Dalton Schultz heavily in Houston, and a TE who can block inline AND flex to the slot has outsized value in this scheme compared to receiving-only TEs.\n\nHistorically, Hafley and Sullivan's Green Bay background reveals their draft philosophy: invest heavily in defensive players (6 of 11 picks in 2024 were defensive), prioritize versatile athletes who can play multiple roles, and target players who fit the scheme's specific athletic demands rather than conventional positional archetypes. The Packers drafted Javon Bullard as a hybrid safety/nickel, Edgerrin Cooper as a ranging LB, and used late picks on developmental defensive players. Expect Miami to follow a similar pattern \u2014 front-loading the draft with defensive talent while using Slowik's Shanahan-tree scheme to elevate average offensive skill players through design.\n\nThe coaching staff change from McDaniel to Hafley also shifts the entire positional demand philosophy. McDaniel's offense relied on speed at every skill position (Tyreek Hill, Jaylen Waddle, De'Von Achane); Hafley's team-building philosophy emphasizes toughness, physicality, and size. Sullivan explicitly said 'we're going one way and it's going to be the hard way.' This suggests Miami will target bigger, more physical players at WR and TE rather than continuing to stockpile speedsters. PFF noted that the Dolphins specifically need 'size' at receiver. The scheme still values speed, but the cultural shift means prospects with toughness, physicality, and run-blocking willingness will get a significant bump on Miami's board compared to the McDaniel era.",
   "confidence": "high",
   "sources": [
-    "miamidolphins.com/news/miami-dolphins-announce-2026-coaching-staff",
-    "espn.com \u2014 Dolphins hire Packers DC Jeff Hafley as head coach (Jan 2026)",
-    "espn.com \u2014 Source: Dolphins to promote Bobby Slowik to offensive coordinator (Jan 2026)",
-    "espn.com \u2014 Sources: Dolphins hiring Sean Duggan as defensive coordinator (Feb 2026)",
-    "espn.com \u2014 Sean Duggan DC profile with Hafley relationship (Feb 2026)",
-    "pff.com \u2014 How Jeff Hafley's scheme can transform the Miami Dolphins defense",
-    "si.com/nfl/dolphins \u2014 What the Dolphins Defense Should Look Like Under Jeff Hafley",
-    "acmepackingcompany.com \u2014 Understanding Jeff Hafley's Defense, 4-3 fronts, primary pass coverages",
-    "matchquarters.com \u2014 Green Bay's Defensive Overhaul: Unpacking Jeff Hafley's Modern Scheme",
-    "packers.com \u2014 Jeff Hafley looks to bring fearless approach to Packers defense",
-    "espn.com \u2014 Packers players excited about Jeff Hafley 4-3 scheme",
-    "skysports.com \u2014 Bobby Slowik Shanahan disciple profile",
-    "markbullock.substack.com \u2014 Head Coach Candidate Profile: Bobby Slowik",
-    "wikipedia.org \u2014 Bobby Slowik career history",
-    "atozsports.com \u2014 Dolphins DTs multiple fronts under Duggan",
-    "orlandosentinel.com \u2014 Dolphins coordinators reveal core philosophies under Hafley",
-    "phinsnews.com \u2014 Slowik & Duggan: Identity Starts in the Trenches"
+    "Miami Dolphins official site (coaching staff announcements, Jeff Hafley bio, 2026 coaching staff release)",
+    "ESPN (Jeff Hafley hire, Bobby Slowik/Texans analysis, Sean Duggan hire)",
+    "NFL.com (Hafley hire, Duggan hire, Slowik firing)",
+    "Acme Packing Company (Jeff Hafley scheme deep dives: fronts, coverages, third-down packages)",
+    "Match Quarters / Cody Alexander (Hafley's Cover 2, simulated pressure, and Wide-9 analysis)",
+    "Pro Football Reference (2025 Miami Dolphins season data, coaching records)",
+    "SI Dolphins On SI / Alain Poupart (coaching staff moves, scheme projections)",
+    "Mark Bullock Substack (Bobby Slowik head coach profile, Shanahan system analysis)",
+    "Zone Coverage (Hafley scheme comparison to Joe Barry)",
+    "Sky Sports (Bobby Slowik Shanahan tree analysis)",
+    "PFF (Dolphins mock draft, scheme fit projections)",
+    "Sun-Sentinel / Orlando Sentinel (Hafley fast facts, Duggan hire)",
+    "DolphinsTalk (Hafley reinvention of Packers defense)",
+    "Yahoo Sports (Shanahan tree evolution article)",
+    "Wikipedia (Jeff Hafley, Bobby Slowik coaching histories)"
   ]
 }

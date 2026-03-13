@@ -6,70 +6,754 @@
       "name": "Mike Macdonald",
       "tenure_years": 2,
       "background": "defensive",
-      "scheme_philosophy": "Defensive playcaller. Zone-based coverage with heavy pre-snap disguise and movement. Generates pressure via four-man rush, stunts, and schemed matchup isolation rather than blitzing. Offense: hired Shanahan-tree coordinators to run outside zone West Coast system."
+      "coaching_tree": "Baltimore Ravens tree / John Harbaugh lineage. Spent 2014-2020 rising through Baltimore's coaching silo (intern \u2192 DB coach \u2192 LB coach), DC at Michigan (2021), DC at Baltimore (2022-2023). Influenced by Rex Ryan/Wink Martindale's pressure principles but modernized them into a zone-centric, disguise-heavy system. Calls defensive plays himself.",
+      "scheme_philosophy": "Disguise-based, zone-dominant defense that wins through structural pressure rather than exotic blitzing. Macdonald coaches defense 'like offensive coaches coach offense' \u2014 each play is specifically detailed with roles designed to confuse protections. Prioritizes front-four pressure, split-safety shells, and positional versatility. On offense, hired Shanahan-tree coordinators to build a run-first, play-action-heavy system. Values toughness, physicality, and fundamentals across the roster."
     },
     "offensive_coordinator": {
       "name": "Brian Fleury",
-      "scheme_tree": "Kyle Shanahan / West Coast (49ers TE coach & run game coordinator for 7 seasons)",
-      "play_caller": true
+      "coaching_tree": "Kyle Shanahan tree. Spent 7 seasons (2019-2025) on Shanahan's 49ers staff, rising from defensive QC to offensive QC to TE coach to run game coordinator. Direct lineage to the same Shanahan-Kubiak system that Klint Kubiak installed in Seattle in 2025. Replaces Kubiak after he left for Raiders HC job.",
+      "scheme_evolution": "Fleury's entire offensive formation comes from the 49ers' version of the Shanahan system. Has explicitly stated goal is 'to maintain' Kubiak's offense while supplementing with concepts developed in San Francisco. Never called plays at NFL level before \u2014 first-time playcaller. His run game coordinator background and TE coaching experience suggest continued emphasis on wide zone, 12/21 personnel, and TE usage. The continuity with Kubiak's system is the primary selling point.",
+      "development_track_record": "As TE coach in SF, developed George Kittle's continued excellence and helped integrate younger tight ends. His run game coordinator work helped SF maintain one of the league's best rushing attacks. Limited track record developing QBs or WRs directly, but understands how the Shanahan system creates easy reads for quarterbacks and schemed-open throws for receivers."
     },
     "defensive_coordinator": {
       "name": "Aden Durde",
-      "scheme_tree": "Dan Quinn (Falcons) / Dallas Cowboys DL coaching tree, integrated into Macdonald's Ravens 2.0 system",
-      "play_caller": false
+      "coaching_tree": "Dan Quinn tree. Spent 4 seasons under Quinn in Atlanta (2016-2020: intern \u2192 defensive assistant \u2192 OLB coach), then 3 years as Dallas Cowboys DL coach under Quinn (2021-2023). First British-born DC in NFL history. Hired by Macdonald in 2024; now in his 3rd year. Macdonald calls the defensive plays, but Durde manages the defensive line and front-seven personnel. Strong development pedigree with pass rushers (helped develop Micah Parsons' rookie year in DAL, maximized DeMarcus Lawrence).",
+      "scheme_evolution": "Under Quinn in Atlanta and Dallas, Durde operated in a 4-3 under front with aggressive, penetrating pass rush principles. In Seattle, he adapted to Macdonald's hybrid system \u2014 which initially used 3-4 personnel/under front but evolved in 2025 into primarily a nickel 4-3 with shape-shifting fronts. Durde's DL coaching background is critical to Seattle's front-four pressure philosophy. He develops edge and interior rushers to win with technique and motor within a stunting, movement-heavy scheme.",
+      "development_track_record": "In Dallas, helped Micah Parsons record a franchise-rookie-record 13.0 sacks when DeMarcus Lawrence was injured. Cowboys DL produced 23 sacks and the 3rd-most pressures in the league under Durde in 2021. In Seattle, developed Derick Hall (8 sacks in 2024), Boye Mafe, and maintained Leonard Williams as a dominant interior force. Strong track record of maximizing edge talent through technique coaching."
     }
   },
   "offense": {
-    "scheme_family": "Shanahan West Coast / outside zone",
-    "base_personnel": "12 and 21 heavy; used heavier sub packages on 54.2% of plays in 2025 (6th highest in NFL), condensed formations at 2nd highest rate (54.2%)",
-    "run_scheme": "outside zone primary, supplemented by gap schemes, inside zone, pin-and-pull; fullback featured prominently",
-    "pass_concepts": "play action heavy off outside zone action, bootleg/rollout concepts, rhythm-based passing, quick game; ranked 1st in designed rush rate (51.8% early season), lowest pass play rate in NFL (51.3%)",
-    "rpo_usage": "low; this is a traditional under-center play-action system, not a shotgun RPO scheme",
-    "te_usage": "high usage; 12 personnel led NFL with 7.5 yards per play; TEs used both inline for run blocking and flexed out as receivers; Fleury's background as 49ers TE coach/run game coordinator will sustain or increase TE involvement; TE can function as move piece or X receiver per Kubiak's system",
-    "rb_usage": "committee approach (Walker/Charbonnet); backs valued for catching out of backfield, running screens, and zone fit; Kubiak explicitly emphasized utilizing RBs in passing game"
+    "scheme_family": "Shanahan-Kubiak West Coast (wide zone variant, maintained under Fleury)",
+    "scheme_detail": "The Seahawks' offense is built on the same Shanahan-Kubiak system installed by Klint Kubiak in 2025 and now maintained by Brian Fleury, who comes from the same 49ers coaching tree. The system emphasizes outside zone as the foundational run concept, with heavy play-action and bootleg passing built off those run looks. Unlike Grubb's 2024 shotgun-heavy attack, this offense operates more from under center, commits to running the ball as a non-negotiable identity, and uses pre-snap motion and misdirection to create explosive plays. The passing game attacks the intermediate middle of the field with timing routes, crossing patterns, and play-action shots. Kubiak's 2025 offense ranked 1st in designed rush rate early in the season (51.8%) and finished 3rd in scoring (28.4 ppg). Fleury has stated continuity is the primary goal.",
+    "run_scheme": "Outside/wide zone is the foundational run concept, directly descended from Mike Shanahan and Alex Gibbs through Gary Kubiak. OL coach John Benton learned the scheme from Gibbs himself and has taught it for decades across Houston, SF, and now Seattle. Supplemented by gap concepts (power, counter, pin-and-pull) to prevent predictability. Heavy use of a true fullback as lead blocker \u2014 Seattle drafted FB Robbie Ouzts in the 5th round of 2025. The zone scheme requires athletic OL who block space rather than specific defenders, with RBs reading three options: bounce, bang, or bend cutback.",
+    "pass_architecture": "Shanahan-tree play-action passing is the engine. Boot concepts, rollouts, and waggles off zone run action create easy throws for the QB. The passing game emphasizes rhythm-based intermediate throws \u2014 slants, digs, crossers, and 'lookie' option routes that attack the middle of the field. Deep shots come off play-action, not from empty sets. Quick passing game serves as the run game's complement. Sight adjustments by WRs based on defensive coverage are a staple \u2014 receivers must read coverage and adjust routes accordingly. The system simplifies QB reads behind a veil of offensive complexity.",
+    "personnel_tendencies": "Diverse personnel groupings: 11 personnel (1 RB, 1 TE, 3 WR) is the base, but 12 personnel (2 TE) was used at ~30% rate and 21 personnel (2 RB/FB, 1 TE) at ~16% under Kubiak in NO. Seattle used a fullback extensively in 2025. Multiple TE sets create run-pass conflict. JSN operates primarily from the slot with Cooper Kupp (and Shaheed) on the outside. RBs are heavily involved in the passing game \u2014 screens, routes out of the backfield, and checkdowns.",
+    "motion_tempo": "High motion rate \u2014 pre-snap motion and jet sweeps are foundational to the Shanahan system. Motion is used to identify coverage (man vs zone), create blocking angles, and generate misdirection. Standard tempo with occasional hurry-up. Not a no-huddle offense. Ball control philosophy that controls clock through the run game."
   },
   "defense": {
-    "base_front": "hybrid (listed 3-4 but operates as 4-down nickel)",
-    "alignment": "four-down nickel front; 87.2% nickel usage in 2025 (led NFL by ~10 percentage points); four-man rush on 79% of opponent dropbacks (3rd highest in NFL)",
-    "edge_rush_source": "4-down DE hands-in-dirt and stand-up hybrid; primary edge rushers are Boye Mafe, Uchenna Nwosu, DeMarcus Lawrence, Derick Hall \u2014 mix of hand-down DEs and versatile rushers; 7 players with double-digit pressures",
-    "coverage_base": "zone heavy with pre-snap disguise; safeties rotate post-snap to mask coverages; Cover 3 base with match principles and situational Cover 2/quarters; man coverage used selectively",
-    "blitz_tendency": "light (19.0-21.8%); 2nd-lowest blitz rate in NFL; generates 5th-highest pressure rate with four-man rush (36.1%); when blitzing, 51.7% pressure rate (3rd in NFL)",
-    "lb_role": "ILBs primarily in coverage and run-fill; OLBs/edge players are primary pass rushers; Macdonald values positional versatility \u2014 defenders move between roles pre-snap",
-    "safety_usage": "extreme hybrid usage; Nick Emmanwori played 449 snaps as slot corner, 359 in box, 113 on line of scrimmage, only 7 as traditional free safety; Julian Love and Quandre Diggs serve as deep/intermediate coverage safeties; Macdonald deploys 3-safety packages frequently, as he did in Baltimore with Kyle Hamilton"
+    "scheme_family": "Macdonald hybrid zone defense (Ravens 2.0 / Fangio-adjacent with disguise emphasis)",
+    "scheme_detail": "Macdonald's defense \u2014 nicknamed 'The Dark Side' in 2025 \u2014 is built on structural dominance rather than schematic trickery. It combines elements of Baltimore's Ravens tradition (front versatility, pressure creativity) with modern Fangio-adjacent zone principles (two-high shells, gap-and-a-half technique, light boxes). The key innovation is Macdonald's disguise philosophy: zone disguised as man, man disguised as zone, and even zone coverages designed to look like different zone coverages. This confusion, combined with simulated pressures and stunting fronts that disguise which four players will rush, creates systematic pressure without heavy blitzing. In 2025, Seattle had the NFL's #1 scoring defense (17.2 ppg), 3rd-best pressure rate (34.2%), while ranking 26th in blitz rate. The defense evolved from a 3-4 under base in 2024 to primarily a nickel 4-3 in 2025.",
+    "front_structure": "Nickel 4-3 is the functional base, though Macdonald describes it as a shape-shifting front. Seattle played with 5+ defensive backs on 93.1% of defensive snaps in 2025 \u2014 the highest rate in the NFL. The front four is the engine: Leonard Williams and Byron Murphy II inside, with DeMarcus Lawrence and Uchenna Nwosu/Boye Mafe/Derick Hall rotating on the edges. DL play gap-and-a-half technique (responsible for primary and secondary gaps), which allows the defense to function in light boxes. Extensive use of stunts (5th in stunt usage at 21.5%) and simulated pressures to confuse protections.",
+    "coverage_philosophy": "Zone-dominant (71.7% zone in 2025). Split-safety/MOFO (two-high) shells used 51.4% of the time \u2014 3rd highest in the NFL. Cover 2 is a primary call (31% rate, 3rd highest in league), complemented by quarters (Cover 4) and Cover 3 variations. Disguise is paramount: Macdonald shows two-high shells pre-snap that rotate to one-high post-snap, shows man alignment that becomes zone, and vice versa. The two-high structure caps the defense against explosive plays while the front four handles the run. Elite against play-action passes due to safeties staying deep and not biting on fakes.",
+    "pressure_philosophy": "Front-four pressure is the foundation. Seattle generates pressure through scheme (stunts, simulated pressures, movement) rather than sending extra rushers. In 2025, the Seahawks had the 6th-lowest blitz rate but the 5th-best pressure rate. When they do blitz, it comes from unexpected sources \u2014 CB Devon Witherspoon blitzed 6 times in the Super Bowl after only 21 blitzes all regular season. Safety and LB delayed rushes are situational wrinkles. The philosophy: win with four, drop seven, and make the QB hold the ball into pressure.",
+    "sub_packages": "Nickel IS the base \u2014 Seattle is in nickel/dime on 93%+ of snaps. Nick Emmanwori is the hybrid nickel/safety who functions as both a box defender and a coverage player, allowing Seattle to stay in light personnel against heavy offensive sets. Even against 13 personnel (3 TEs), the Seahawks stayed in nickel 66.6% of the time. Dime (6 DBs) is used frequently. Macdonald described the defense as 'a 4-3 base team with a crazy athletic SAM' \u2014 Emmanwori is that SAM/nickel hybrid who never leaves the field."
   },
-  "positional_value_inflections": {
-    "te_receiving_boost": {
-      "rating": "high",
-      "explanation": "Seattle's Shanahan-style offense under Fleury (and previously Kubiak) is structurally TE-dependent. In 2025, the Seahawks led the NFL with 7.5 yards per play in 12 personnel and used heavier sub packages at the 6th-highest rate. Kubiak explicitly said TEs can 'split out wide, do X receiver type of things.' Fleury's entire coaching pedigree is coaching TEs (George Kittle) and coordinating the run game in SF's system where the TE is the offensive fulcrum. A receiving TE who can also block in the zone run game is maximized here \u2014 think Kittle's role. AJ Barner's physical play and receiving upside thrived in this system."
+  "positional_blueprints": {
+    "QB": {
+      "scheme_role": "The Shanahan-Kubiak system is designed to simplify quarterback reads behind offensive complexity. The QB operates heavily from under center, must execute play-action fakes and bootleg rollouts, and make rhythm-based timing throws to the intermediate middle of the field. Pre-snap reads are consistent, and the run game sets up high-percentage passing situations. The QB does not need to create on his own \u2014 the system creates for him. Sam Darnold's 2025 resurgence (Pro Bowl, Super Bowl champion) proves the system can elevate a QB who buys in.",
+      "trait_weights": {
+        "Arm Strength": {
+          "weight": 0.14,
+          "importance": "moderate",
+          "reasoning": "The Shanahan system requires enough arm talent to hit deep shots off play-action and make throws on bootleg rollouts against the grain, but does not demand a cannon. Intermediate accuracy matters more than arm power. Darnold and Kirk Cousins thrived without elite arm strength."
+        },
+        "Accuracy": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "This is THE defining trait. The Shanahan-Kubiak system lives on timing routes where the ball must arrive at precise spots before receivers complete their breaks. Play-action throws to the intermediate MOF require pinpoint placement. The system simplifies reads but demands execution accuracy. Every successful QB in this tree (Cousins, Garoppolo, Darnold) has been an accurate rhythm passer."
+        },
+        "Pocket Presence": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The heavy use of play-action and under-center operation means the QB must navigate a collapsing pocket after faking handoffs. Bootleg concepts provide escape lanes, but the QB still needs to feel pressure, climb the pocket, and deliver from a compressed space. Not as critical as in a pure dropback system because rollouts provide built-in escapes."
+        },
+        "Mobility": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Bootleg and rollout concepts require functional mobility \u2014 the QB must sell the fake, get outside the pocket, and throw on the move. This is not a designed-run/scramble system, but the ability to execute rollouts and move in the pocket is schematically critical. Darnold's ability to throw on the move was a key to his 2025 success."
+        },
+        "Decision Making": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The system simplifies reads to progression-based decisions, but the QB must make correct sight adjustments at the line, read high-low concepts quickly, and avoid turnovers. Darnold led the league in regular-season turnovers in 2025 \u2014 the one trait the system couldn't mask. Decision-making discipline is what separates good-in-the-system from elite-in-the-system."
+        },
+        "Leadership": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "Macdonald's culture is defense-driven and coach-led. The QB needs to manage the huddle and command respect, but the defense sets the tone. Darnold's leadership grew organically from his play, not from being the alpha voice. Not a scheme-differentiating trait."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.07,
+          "importance": "moderate",
+          "reasoning": "The system uses motion to help the QB diagnose coverage pre-snap (man vs zone reads on jet motion), which reduces the cognitive burden. However, the sight adjustments built into the WR routes require the QB to see the same coverage indicators and get on the same page. Useful but not the differentiator \u2014 the system does much of the work."
+        }
+      },
+      "ideal_archetype": "A rhythm passer with functional mobility who thrives on timing routes and play-action. Not a gunslinger or a scrambler \u2014 a quarterback who processes quickly within the structure, delivers with accuracy on the move and from the pocket, and trusts the system to create open throws. The ideal QB sells play-action convincingly, hits intermediate crossers and digs with precision, and takes deep shots off boot action. Think Sam Darnold (2025), Kirk Cousins (2019 MIN), or Jimmy Garoppolo (2019 SF) \u2014 QBs whose production spiked dramatically inside this exact system.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-1 to 6-4",
+          "floor": "6-0",
+          "reasoning": "Under-center operation and play-action require seeing over the line after the fake. Height helps with vision in the middle of the field."
+        },
+        "weight": {
+          "ideal": "215-235",
+          "floor": "205",
+          "reasoning": "Bootleg concepts expose the QB to hits on the perimeter. Needs enough mass to absorb contact while throwing on the move."
+        },
+        "40-yard dash": {
+          "ideal": "4.65-4.85",
+          "floor": "none",
+          "reasoning": "Not a speed-dependent position in this system, but functional athleticism for rollouts is valuable."
+        }
+      },
+      "development_context": "This coaching staff has proven it can maximize veteran QBs within the system \u2014 Kubiak elevated Cousins, Darnold \u2014 but the track record developing young QBs is thin. Andrew Janocko (now in LV) worked with Justin Fields in Chicago without much development success. The system itself is the development tool: it simplifies reads and creates high-percentage situations that can accelerate a young QB's growth. However, a raw project QB who can't execute timing throws from Day 1 will struggle. The system demands accuracy that is difficult to teach.",
+      "scheme_fit_narrative": "This offense is built to make good QBs look great, not to build QBs from scratch. We need a passer who can deliver on rhythm, sell play-action, and throw accurately on the move. Arm talent matters less than processing and accuracy \u2014 the system creates open windows, but the QB has to hit them on time. A big arm that misses timing windows is less valuable here than an average arm that delivers with anticipation.",
+      "archetype_examples": [
+        "Sam Darnold (2025)",
+        "Kirk Cousins (2019 MIN)",
+        "Jimmy Garoppolo (2019 SF)"
+      ]
     },
-    "lb_pass_rush_boost": {
-      "rating": "medium",
-      "explanation": "While PFR lists Seattle as a 3-4, they functionally operate as a 4-down nickel front with hands-down edge rushers (Mafe, Nwosu, Lawrence, Hall). The OLB label is less relevant because edge rushers are deployed as four-down linemen, not stand-up OLBs in a traditional sense. However, Macdonald's system values positional versatility \u2014 Devon Witherspoon blitzed from CB, Emmanwori rushed from safety \u2014 meaning any LB with edge rush ability can be schemed into pass-rush roles. A hybrid LB/EDGE who can drop into coverage AND rush has moderate added value because of how Macdonald disguises pressure pre-snap."
+    "RB": {
+      "scheme_role": "The RB in the Shanahan-Kubiak wide zone system must read three options on every outside zone play: bounce it outside, bang it up inside, or bend on a cutback across the formation. The RB must have patience to let blocks develop, then burst through the hole. Seattle uses a committee approach (Walker/Charbonnet split in 2025) with heavy carry volume. RBs are also involved in the passing game \u2014 screens, routes out of the backfield, and checkdowns are integral. Pass protection is expected on every down.",
+      "trait_weights": {
+        "Vision": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "Zone rushing demands elite vision above all else. The RB must read the wash of blocks flowing laterally and identify cutback lanes in real time. The bounce/bang/bend read progression is the core of the run game. Shanahan-tree RBs are not gap runners hitting predetermined holes \u2014 they are readers who find daylight."
+        },
+        "Contact Balance": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Zone runs often produce congestion at the point of attack before the cutback lane opens. The RB needs to absorb contact, stay on his feet, and continue gaining yards. Not the primary trait, but important for sustained productivity."
+        },
+        "Power": {
+          "weight": 0.05,
+          "importance": "low",
+          "reasoning": "This is not a gap/power system where the RB runs through arm tackles. Wide zone creates space through scheme, not through RB physicality. Power is supplementary, not primary."
+        },
+        "Elusiveness": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The cutback ability that makes zone running work requires lateral agility and the ability to make defenders miss in space. The best Shanahan-tree backs (Raheem Mostert, Alvin Kamara in this system) create explosive plays through elusiveness on zone reads."
+        },
+        "Speed": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Wide zone is designed to get the RB to the edge. When the bounce option is there, breakaway speed turns a 5-yard gain into a 50-yard touchdown. The Shanahan-tree consistently values speed backs \u2014 Mostert, Breida, the late-game spark of Jeff Wilson. Kenneth Walker's home-run ability was a key to 2025."
+        },
+        "Pass Catching": {
+          "weight": 0.14,
+          "importance": "moderate",
+          "reasoning": "Kubiak explicitly stated he wants to 'get the ball to our best runners' through routes and screens out of the backfield. RBs catch 40-60 passes in this system. The passing game integration is critical for offensive balance. Kamara caught 68 passes in Kubiak's NO offense."
+        },
+        "Pass Protection": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "The heavy play-action usage means the RB must sell the fake, then pick up blitzers. Bootleg concepts occasionally leave the RB responsible for a free rusher. Competence is required; elite pass protection is not the differentiator."
+        }
+      },
+      "ideal_archetype": "A patient, one-cut zone runner with vision, lateral agility, and breakaway speed who can also contribute as a receiver out of the backfield. Not a plodding power back \u2014 this system needs a runner who lets the play develop, reads the flow of blocks laterally, then explodes through the cutback lane. Think Raheem Mostert (2019 SF), Kenneth Walker III, or Alvin Kamara \u2014 backs who combine patience, burst, and receiving ability.",
+      "measurable_preferences": {
+        "40-yard dash": {
+          "ideal": "4.38-4.50",
+          "floor": "4.55",
+          "reasoning": "Wide zone creates edge opportunities that require speed to exploit. The bounce-and-go is a signature play in this system."
+        },
+        "3-cone drill": {
+          "ideal": "sub-6.85",
+          "floor": "7.00",
+          "reasoning": "Lateral agility is critical for the cutback that makes zone running work. The RB must redirect horizontally at full speed."
+        },
+        "weight": {
+          "ideal": "195-215",
+          "floor": "190",
+          "reasoning": "Not a between-the-tackles power system. The scheme needs quickness and burst more than mass."
+        }
+      },
+      "development_context": "The Shanahan-Kubiak system has historically created productive RBs from mid-to-late-round picks \u2014 the scheme does much of the work. Mostert was undrafted. The system can develop vision and patience through repetition, but innate lateral agility and speed must arrive. This coaching staff will use a committee, so the system accommodates different styles. Justin Outten and John Benton have decades of experience coaching zone running to RBs.",
+      "scheme_fit_narrative": "We need a back who can read the zone play and make one decisive cut. Vision and lateral agility are non-negotiable \u2014 if you can't read the wash and find the cutback, you kill our run game. Speed is the difference-maker because our scheme creates edge opportunities that fast backs turn into explosive plays. Catching the ball is increasingly important because we want our backs involved in the passing game.",
+      "archetype_examples": [
+        "Raheem Mostert",
+        "Kenneth Walker III",
+        "Alvin Kamara"
+      ]
     },
-    "rb_dual_threat_boost": {
-      "rating": "high",
-      "explanation": "Kubiak explicitly stated: 'I've seen the guy catch the ball well out of the backfield which I think is really important for our backs that we utilize them... throwing him routes, throwing him screens.' The Shanahan system fundamentally values receiving RBs \u2014 from Marshall Faulk to Christian McCaffrey to Austin Ekeler. Fleury continues this philosophy directly from San Francisco. Seattle also used committee backs (Walker/Charbonnet), meaning a versatile back who can catch and block is essential to staying on the field. The play-action system creates high-value checkdown and flat routes for RBs."
+    "WR": {
+      "scheme_role": "WRs in this system must run a full route tree because sight adjustments dictate route selection based on defensive coverage \u2014 the WR might go deep, intermediate, or short on any given play depending on what the defense shows. The X receiver runs option routes and deep crossers. The slot (JSN's role) is the primary target, running intermediate concepts that attack the MOF. Outside WRs must also be willing and effective run blockers \u2014 wide zone requires WR blocks to seal the edge. Cooper Kupp and JSN typify the two WR archetypes Seattle uses: a technician outside and a separator inside.",
+      "trait_weights": {
+        "Route Running": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "The Shanahan system's sight adjustments require WRs who can run a full route tree and adjust routes based on coverage reads. Precise route technique \u2014 breaking at exact depths, selling stems \u2014 is what creates the timing windows the QB depends on. JSN's route-running mastery drove his 1,793-yard OPOY season."
+        },
+        "Separation": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "The timing-based passing game depends on WRs creating separation at the break point. The ball arrives on schedule, and the WR must be open when it does. This system does not rely on contested catch ability \u2014 it creates schemed separation through design, but the WR must execute the route to complete the design."
+        },
+        "Hands": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Timing throws arrive with velocity at the catch point. WRs must catch cleanly in traffic on crossing routes over the middle. Drops in this system kill drives because the QB has already moved to the next read."
+        },
+        "YAC Ability": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The Shanahan system is designed to get the ball to playmakers in space and let them create after the catch. Short crossing routes, screens, and option routes are schemed to generate YAC. JSN's 1,793 yards included massive YAC production."
+        },
+        "Speed": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Deep shots off play-action require a vertical threat to keep safeties honest, but this system does not live on the 9-route. Speed is valuable for taking the top off and creating space underneath, but it's a complementary trait. Shaheed provides the speed element."
+        },
+        "Contested Catches": {
+          "weight": 0.05,
+          "importance": "low",
+          "reasoning": "The system is designed to create separation and avoid contested-catch situations. Kubiak's offense schemed receivers open \u2014 it does not throw 50/50 balls as a core concept. This was one reason DK Metcalf (a contested-catch specialist) was traded."
+        },
+        "Release Package": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Man-beater releases at the line are important because the motion-based system often identifies man coverage pre-snap. When the defense shows man, the WR's ability to win off the line becomes critical for the timing of the route."
+        }
+      },
+      "ideal_archetype": "A technician route runner with YAC ability who can execute sight adjustments and run a full route tree. Not a one-dimensional deep threat or a contested-catch specialist \u2014 this system needs receivers who create separation through technique, catch everything in their radius, and create yards after the catch. The ideal WR is a Jaxon Smith-Njigba or Cooper Kupp type: precise, smart, catches with his hands, and turns short completions into explosive plays. Speed is secondary to route mastery.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-2",
+          "floor": "5-9",
+          "reasoning": "The system values quickness and agility over height. Bigger targets like Metcalf were traded away; the offense is built around separators, not jump-ball artists."
+        },
+        "short shuttle": {
+          "ideal": "sub-4.15",
+          "floor": "4.25",
+          "reasoning": "Short-area quickness drives route running and YAC creation. The ability to change direction explosively at the break point is what creates separation in timing routes."
+        },
+        "3-cone drill": {
+          "ideal": "sub-6.80",
+          "floor": "7.00",
+          "reasoning": "Route-running precision correlates with agility. The best receivers in this system are quick-twitch athletes who can sell stems and break sharply."
+        }
+      },
+      "development_context": "This coaching staff \u2014 through Fleury's SF background and the existing system \u2014 can develop route running and teach sight adjustments. The Shanahan system has historically elevated WRs (Deebo Samuel, Brandon Aiyuk became stars in SF). Hands and instincts must arrive; route technique can be refined. The staff can also coach run blocking discipline. A raw speed merchant who can't run routes will not contribute early in this system.",
+      "scheme_fit_narrative": "We're looking for route runners, not athletes. The system creates schemed separation, but the receiver has to execute precise technique at exact depths. We need guys who catch the ball cleanly in traffic, create yards after the catch, and can adjust routes based on what the defense shows pre-snap. If he can't run a full route tree, he can't play in this offense \u2014 sight adjustments are a non-negotiable.",
+      "archetype_examples": [
+        "Jaxon Smith-Njigba",
+        "Cooper Kupp",
+        "Deebo Samuel"
+      ]
     },
-    "s_hybrid_boost": {
-      "rating": "very high",
-      "explanation": "Seattle is the NFL's premier destination for hybrid safety value. Nick Emmanwori's rookie usage is the blueprint: 449 snaps at slot corner, 359 in the box, 113 on the line of scrimmage, about 60 as an edge rusher, and only 7 as a traditional free safety. He recorded 2.5 sacks, 9 TFL, and 11 PBUs as a safety. Macdonald explicitly modeled this after Kyle Hamilton's role in Baltimore. He said Emmanwori 'can literally do anything' and wants to 'augment his role' further. Any safety prospect with size (6'2\"+), elite athleticism, tackling, man coverage, and blitz ability gets a massive value boost for Seattle. This is the team that redefines what a safety can be in the modern NFL."
+    "TE": {
+      "scheme_role": "The TE is critically important in this offense. Seattle ran 12 personnel at ~30% and 21 personnel at ~16% under Kubiak, making the TE an every-down player. The TE must function as an inline blocker in the wide zone scheme (sealing the edge, climbing to LBs), flex into the slot and run routes as a receiving weapon, and contribute to play-action concepts. The system uses multiple TE looks to create run-pass conflict \u2014 defenses cannot play light boxes against 12 personnel without getting gashed on the ground. Fleury's TE coaching background in SF suggests continued heavy TE usage.",
+      "trait_weights": {
+        "Receiving": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Shanahan-tree offenses have historically produced elite TE receiving seasons (Kittle in SF). The TE is often the play-action's primary beneficiary, running seam routes and crossers that exploit linebackers. Must be a legitimate receiving threat to maintain run-pass conflict."
+        },
+        "Route Running": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The TE runs a varied route tree from both inline and flexed alignments. Play-action designs often feature the TE running crossers, digs, and seams that require precise route technique to find holes in zone coverage. Must be able to run receiver-quality routes from the slot."
+        },
+        "Blocking": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "In a wide zone offense that uses 12/21 personnel at a very high rate and employs a fullback, the TE's blocking ability is paramount. The TE must seal edge defenders on outside zone, sustain blocks on DEs who outweigh them, and climb to the second level. Without TE blocking, the entire run-game identity collapses. This is what differentiates Seattle's TE need from a pass-first offense."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The dual-role requirement \u2014 inline blocker AND flexed receiver \u2014 demands high-end athleticism. Must be able to engage defensive ends at the point of attack then release into routes on play-action. The ability to flex out and create mismatches against LBs is scheme-critical."
+        },
+        "Hands": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Play-action throws to the TE often arrive in traffic over the middle. Reliable hands are necessary, though the system creates easier catches than a TE-dominant passing attack would."
+        },
+        "Speed": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Seam routes and crossers require enough speed to threaten LBs vertically and safeties horizontally. Does not need WR speed, but must be fast enough to create separation on play-action concepts."
+        }
+      },
+      "ideal_archetype": "A complete TE who can block as an inline Y-TE on wide zone runs and also flex into the slot and beat LBs as a receiver on play-action. Not a move TE or a glorified WR \u2014 the blocking is non-negotiable in this system. Think George Kittle (the gold standard), Dallas Goedert, or Mark Andrews at his healthiest \u2014 TEs who can do everything but whose blocking makes them three-down players in a run-first offense.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-2",
+          "reasoning": "Must be big enough to sustain blocks against DEs and edge setters. Also provides a large catch radius on play-action throws in traffic."
+        },
+        "weight": {
+          "ideal": "240-260",
+          "floor": "235",
+          "reasoning": "Inline blocking against NFL defensive ends requires mass. Too light and the TE gets driven off the ball, killing the outside zone."
+        },
+        "40-yard dash": {
+          "ideal": "4.55-4.70",
+          "floor": "4.75",
+          "reasoning": "Must be athletic enough to flex out and threaten LBs/safeties in the passing game. A slow TE becomes a liability in the passing game portion of 12 personnel."
+        }
+      },
+      "development_context": "Brian Fleury was literally a TE coach for the 49ers \u2014 this is his specialty. He developed and maintained George Kittle's production and helped younger SF TEs contribute in the system. The staff can develop receiving technique and route running. Blocking instincts and willingness are harder to teach \u2014 the TE must arrive with a physical mindset and baseline blocking competence. A receiving-first TE who won't block kills this offense.",
+      "scheme_fit_narrative": "Our TE has to block, period. In a wide zone offense that lines up in 12 and 21 personnel this often, if your tight end can't seal the edge, you don't have a run game. But we also need him to be a weapon in the passing game \u2014 our play-action concepts are designed to get the TE open on seams and crossers. The complete TE who can do both is the most valuable non-QB position in this offense.",
+      "archetype_examples": [
+        "George Kittle",
+        "Dallas Goedert",
+        "Mark Andrews"
+      ]
+    },
+    "OT": {
+      "scheme_role": "OTs in the wide zone scheme must reach-block defensive ends and climb to the second level to engage linebackers in space. This requires lateral movement and athleticism that differs fundamentally from a gap-blocking scheme. On pass protection, the heavy play-action usage means OTs must sell the run fake before transitioning to pass sets. Bootleg concepts provide built-in protection for the QB rolling out, but the backside tackle must hold his block long enough. The OL staff (Benton, Outten) learned from Alex Gibbs and the Shanahan system \u2014 they demand athletic, light-footed tackles.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Essential but not the primary trait because the system provides built-in protection through play-action, rollouts, and quick passing game. The OT still must protect on dropback sets and on the backside of bootlegs. Competent pass protection is required, but the system reduces the pure pass-protection burden compared to a spread offense."
+        },
+        "Run Blocking": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "This is the defining OT trait in the Shanahan wide zone. The OT must execute reach blocks on DEs to the play side and climb to the second level to block LBs in space. The entire run game identity depends on OTs who can move laterally, sustain blocks while traveling, and create the displacement that makes wide zone work."
+        },
+        "Footwork": {
+          "weight": 0.18,
+          "importance": "high",
+          "reasoning": "Wide zone demands precise, quick footwork to execute the lateral movement required on the first step. The OT must gain outside leverage on the DE with his first step, then sustain the block while moving. Stiff-footed tackles who can only pass-set kill this run scheme."
+        },
+        "Anchor": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Less critical than in a gap scheme because the system is built on movement, not holding ground. The OT needs enough anchor to not get pushed into the QB's lap, but the play-action and rollout game mitigates some pass-rush pressure."
+        },
+        "Athleticism": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The zone scheme requires OTs who can get to the second level and block LBs in space. This is fundamentally an athletic demand \u2014 big, stiff OTs who can only down-block are terrible fits. The Seahawks drafted Grey Zabel 18th overall specifically because of his movement skills for this scheme."
+        },
+        "Strength": {
+          "weight": 0.08,
+          "importance": "moderate",
+          "reasoning": "Needs enough strength to sustain blocks on zone runs and hold up in pass protection, but this is not a power-blocking system where raw strength is the differentiator. Movement trumps mass."
+        }
+      },
+      "ideal_archetype": "An athletic, light-footed tackle who excels at reach blocking and climbing to the second level. Not a phone-booth mauler \u2014 this system needs an OT who can move laterally, sustain blocks in space, and still hold up in pass protection. Think Trent Williams (the gold standard zone OT), or Orlando Brown Jr. at his most mobile. The key distinction: can this tackle block a LB at the second level on outside zone? If no, he doesn't fit.",
+      "measurable_preferences": {
+        "short shuttle": {
+          "ideal": "sub-4.60",
+          "floor": "4.75",
+          "reasoning": "Lateral agility is directly tied to reach-block ability. Wide zone requires OTs to get outside the DE's shoulder on the first step. Stiff OTs who can't change direction kill the scheme."
+        },
+        "40-yard dash": {
+          "ideal": "sub-5.10",
+          "floor": "5.20",
+          "reasoning": "Must be able to get to the second level and block LBs in space. Slow OTs are blocked by the scheme from contributing on zone runs."
+        },
+        "height": {
+          "ideal": "6-4 to 6-7",
+          "floor": "6-3",
+          "reasoning": "Standard OT size requirements. Reach and leverage for pass protection and sustaining blocks."
+        },
+        "weight": {
+          "ideal": "305-325",
+          "floor": "295",
+          "reasoning": "Needs enough mass to hold up at the point of attack but not so heavy that lateral movement is compromised. This system prefers 310 and athletic to 340 and stiff."
+        }
+      },
+      "development_context": "John Benton has spent his entire career teaching zone blocking \u2014 from Colorado State to Houston to SF to Seattle. He can absolutely develop zone-blocking technique in OTs who have the athletic traits. But the athletic traits themselves \u2014 lateral agility, footwork, movement skills \u2014 must arrive. Benton's track record: developed Trent Williams' dominance in SF, coached the 2019 49ers' #1 rushing OL. He can refine technique, but he can't teach someone to be athletic.",
+      "scheme_fit_narrative": "We need tackles who can move. This isn't about being the biggest guy on the field \u2014 it's about getting to spots, reaching defenders, and climbing to linebackers. If a tackle can't execute a reach block on an outside zone play, he's killing our identity. Give us the 310-pound athlete over the 345-pound anchor every time.",
+      "archetype_examples": [
+        "Trent Williams",
+        "Andrew Thomas",
+        "Penei Sewell"
+      ]
+    },
+    "IOL": {
+      "scheme_role": "Interior OL in the wide zone are asked to execute some of the most technically demanding blocks in football. Guards must reach-block 3-tech DTs on the play side and 1-tech NTs from the backside \u2014 requiring elite lateral quickness. Centers must make line calls, execute zone-reach blocks, and climb to the second level. Kubiak specifically mentioned needing an 'elite' center for the zone scheme. The system values intelligence and movement over raw power. Seattle drafted Grey Zabel 18th overall as a guard specifically for this scheme.",
+      "trait_weights": {
+        "Pass Protection": {
+          "weight": 0.15,
+          "importance": "moderate",
+          "reasoning": "Important but mitigated by play-action, quick game, and rollout concepts that reduce sustained pass-pro reps. The IOL must be competent but the system doesn't demand elite pass protection as its primary trait."
+        },
+        "Run Blocking": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The zone-blocking scheme demands elite run blocking from the IOL. Reach blocks on DTs, combo blocks to linebackers, and sustained drive blocks while moving laterally are the core of the system. The running game lives and dies with interior OL zone-blocking execution."
+        },
+        "Pulling": {
+          "weight": 0.08,
+          "importance": "low",
+          "reasoning": "The primary run concepts are zone-based, not gap-based. Pulling occurs on supplementary counter and power concepts but is not the bread and butter. When pulling does occur (pin-and-pull, counter), it's valuable but not the primary evaluation criterion."
+        },
+        "Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must be strong enough to sustain combo blocks on NFL DTs and convert those combos into second-level blocks. But raw bench press strength is less important than functional strength applied in motion."
+        },
+        "Anchor": {
+          "weight": 0.09,
+          "importance": "moderate",
+          "reasoning": "The system reduces the need for pure anchor because play-action, quick passing, and rollouts limit sustained pass-rush opportunities. But the IOL must not get bullrushed backwards into the QB's lap on standard dropbacks."
+        },
+        "Versatility": {
+          "weight": 0.28,
+          "importance": "essential",
+          "reasoning": "The Shanahan-Kubiak system prizes versatile IOL who can play multiple positions. Centers who can play guard, guards who can play center \u2014 positional flexibility allows the staff to find the best five. Zabel's ability to play both guard spots was a major reason he was drafted. Benton has historically valued OL who can move around."
+        }
+      },
+      "ideal_archetype": "An athletic, intelligent interior lineman with outstanding lateral movement and the versatility to play multiple positions. Not a pure anchor \u2014 this system needs guards and centers who can reach-block DTs, climb to LBs, and execute zone-blocking with precision footwork. Think Zack Martin (in his prime mobility), Joel Bitonio, or Tyler Linderbaum \u2014 technically refined, laterally agile, and smart. The ideal IOL in this scheme is 310 pounds with guard feet and center brains.",
+      "measurable_preferences": {
+        "short shuttle": {
+          "ideal": "sub-4.50",
+          "floor": "4.65",
+          "reasoning": "Lateral agility is the single most important physical trait for zone IOL. Reach blocks on DTs require getting outside the defender's shoulder from a standing start. The shuttle directly measures this ability."
+        },
+        "3-cone drill": {
+          "ideal": "sub-7.40",
+          "floor": "7.60",
+          "reasoning": "Change of direction matters for combo blocks where the IOL must disengage from one defender and redirect to another at the second level."
+        },
+        "weight": {
+          "ideal": "300-325",
+          "floor": "295",
+          "reasoning": "Athletic enough to move laterally but heavy enough to sustain blocks on NFL DTs. The system does not want 340-pound anchors who can't get to the second level."
+        }
+      },
+      "development_context": "John Benton and Justin Outten have decades of experience developing IOL in zone schemes. Benton's tenure in Houston, SF, and now Seattle produced multiple Pro Bowl IOL. He can teach zone-blocking technique, and the repetition-based system (same tracks every play) accelerates learning. Athletic traits (lateral agility, movement) must arrive; technique can be refined. Benton specifically develops centers \u2014 he values intelligent, communicative pivots who can make the line calls that the zone scheme demands.",
+      "scheme_fit_narrative": "Give us athletes on the interior. We can teach them zone-blocking technique \u2014 Benton's been doing it for 20 years. But they have to be able to move. A guard who can't reach a 3-tech kills our base play. We want guys who played basketball, who have quick feet, who can redirect. And if they can play multiple spots, even better \u2014 we need five interchangeable pieces, not five specialists.",
+      "archetype_examples": [
+        "Zack Martin",
+        "Tyler Linderbaum",
+        "Joel Bitonio"
+      ]
+    },
+    "EDGE": {
+      "scheme_role": "Edge rushers in Macdonald's defense operate from a 4-down front in nickel (the base package). The EDGE must rush the passer from a three-point stance, set the edge in the run game using gap-and-a-half technique (responsible for primary and secondary gaps), and execute stunt and twist packages that are the foundation of Seattle's pressure scheme. The EDGE must be disciplined enough to maintain gap integrity in a system that uses light boxes and depends on the front four to stop the run without LB/safety help. Versatility is valued \u2014 the ability to line up at multiple spots along the front. DeMarcus Lawrence and Uchenna Nwosu typify what Macdonald wants: disciplined, technical rushers with elite motors.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.25,
+          "importance": "essential",
+          "reasoning": "Seattle's entire defensive philosophy is built on generating pressure with four rushers. The EDGE must win 1-on-1 pass rush reps consistently because the defense drops seven into coverage and rarely brings extra rushers. The front four's ability to pressure determines whether the zone coverage behind it survives."
+        },
+        "Bend": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Important for winning the edge in pass rush, but Seattle's system also heavily uses interior stunts and twists to manufacture pressure. Bend is one tool, not the only tool. The scheme creates favorable matchups through movement; the EDGE doesn't need to be a pure speed-to-power converter."
+        },
+        "First Step": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "The stunting, movement-based front requires explosive first steps to execute twists and games effectively. The EDGE must fire off the ball with enough violence to occupy the OT and create the twist lane for the looping defender."
+        },
+        "Power": {
+          "weight": 0.13,
+          "importance": "moderate",
+          "reasoning": "Gap-and-a-half technique requires the EDGE to hold the point of attack against the run and squeeze gaps. Cannot be washed out by a run block. Must be physical enough to set the edge and control blocks, but pure bull-rush power is secondary to technique and motor."
+        },
+        "Motor": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Macdonald's defense demands relentless effort. The front-four pressure philosophy means the EDGE cannot take plays off \u2014 even when not winning, the EDGE must be chasing the play, collapsing the pocket, and finishing. DeMarcus Lawrence's motor and Lawrence's instinct-play in the NFC Championship (dropping into coverage on his own to break up a TD pass) epitomizes the motor and football IQ this staff wants."
+        },
+        "Run Defense": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "With nickel as the base and only 5-6 players in the box, the EDGE must be a dependable run defender. Gap-and-a-half technique means the EDGE is responsible for two gaps \u2014 the primary and a secondary. Getting washed in the run game forces safeties to come down and breaks the two-high coverage structure that makes the defense work."
+        }
+      },
+      "ideal_archetype": "A disciplined, high-motor edge rusher who can win with technique and effort in pass rush, set the edge in the run game, and execute stunts/twists within a movement-based front. Not a one-trick speed rusher \u2014 this system needs an every-down DE who maintains gap integrity, plays with relentless motor, and generates pressure through technique and scheme rather than pure athleticism. Think DeMarcus Lawrence, Calais Campbell (earlier career), or Maxx Crosby \u2014 effort-based, complete DEs who never take a play off and are equally valuable against the run.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "250-275",
+          "floor": "240",
+          "reasoning": "Must be big enough to set the edge against NFL tackles in the run game. Too light and the gap-and-a-half technique breaks down."
+        },
+        "height": {
+          "ideal": "6-3 to 6-5",
+          "floor": "6-1",
+          "reasoning": "Longer frames provide leverage advantages in stunt packages and allow the EDGE to play with length at the point of attack."
+        },
+        "arm length": {
+          "ideal": "33.5\"+",
+          "floor": "32.5\"",
+          "reasoning": "Length matters for hand usage and keeping blockers at bay while maintaining gap control."
+        }
+      },
+      "development_context": "Durde's background as a DL coach in Dallas makes him excellent at developing edge rushers. He helped Micah Parsons record 13 sacks as a rookie when DeMarcus Lawrence was injured. In Seattle, he's developed Derick Hall (8 sacks) and Boye Mafe into reliable contributors. The staff can develop pass-rush technique and teach the stunt packages. But motor, effort, and competitive character are non-negotiable traits that must arrive \u2014 those can't be taught. Raw athletes with lazy motors are the worst fit.",
+      "scheme_fit_narrative": "Our defense lives and dies with the front four. We're not going to blitz our way to pressure \u2014 we need EDGE rushers who can win their matchups and generate pressure as part of the four-man rush. But just as important, they have to be dependable run defenders who hold their gaps. A sack artist who gives up 5-yard runs off the edge breaks our entire coverage structure. Give us the motor-and-technique guy over the freaky athlete who disappears for plays.",
+      "archetype_examples": [
+        "DeMarcus Lawrence",
+        "Maxx Crosby",
+        "Uchenna Nwosu"
+      ]
+    },
+    "DL": {
+      "scheme_role": "Interior DL in Macdonald's defense are the anchor of everything. The front four must dominate without help from blitzing defenders. The 3-tech (Byron Murphy II's role) is a penetrating, gap-disrupting force who collapses the pocket from the inside. The 1-tech/NT (Leonard Williams) is a two-way player who must control double teams in the run game AND generate interior pressure as a pass rusher. The gap-and-a-half technique means interior DL are responsible for multiple gaps, requiring size AND movement ability. Seattle's 2025 interior was elite: Williams and Murphy generated pressure at a top-5 rate.",
+      "trait_weights": {
+        "Pass Rush": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Interior pressure is the key to making the four-man rush work. Seattle's stunts and twists are designed to free interior DL to collapse the pocket. The 3-tech especially must be a genuine pass-rush threat who can win with quickness and hand usage inside."
+        },
+        "Run Defense": {
+          "weight": 0.22,
+          "importance": "high",
+          "reasoning": "Gap-and-a-half technique requires interior DL to control run gaps without safety help. With only 5-6 in the box and zone coverage behind, the interior DL must eat double teams, hold the point of attack, and not get displaced. A run-defense liability forces the defense out of its two-high structure."
+        },
+        "First Step": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The stunting front requires explosive first steps to execute twists and games effectively. The interior DL must fire off the ball to either penetrate his gap or occupy blocks to create lanes for the looping edge rusher."
+        },
+        "Hand Usage": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "Technical hand fighting is critical for both defeating blocks in the run game and creating pass-rush wins inside. The system depends on interior DL who can shed blocks with technique rather than pure strength."
+        },
+        "Motor": {
+          "weight": 0.14,
+          "importance": "high",
+          "reasoning": "Like the EDGE position, relentless effort is demanded. Interior DL must chase plays, collapse pockets even when not getting home, and finish. The four-man-rush philosophy means every rep matters."
+        },
+        "Strength": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Must be strong enough to hold the point of attack and not get driven backwards. But the system uses movement and technique more than brute force. Functional strength applied with quickness trumps raw power."
+        }
+      },
+      "ideal_archetype": "A versatile, high-motor interior DL who can both control the run and generate pass rush from the inside. The 3-tech should be a disruptive penetrator with quick hands \u2014 think Chris Jones or Javon Hargrave \u2014 while the 1-tech should be a massive, athletic two-gap controller who can also rush the passer \u2014 think Leonard Williams or DeForest Buckner. Both must play with relentless motor and execute the stunt packages that are the foundation of Seattle's pressure.",
+      "measurable_preferences": {
+        "weight": {
+          "ideal": "290-320 (3-tech), 300-340 (1-tech/NT)",
+          "floor": "280 (3-tech), 295 (NT)",
+          "reasoning": "Interior DL must be big enough to hold up against double teams in the run game while athletic enough to execute stunts and generate pressure."
+        },
+        "40-yard dash": {
+          "ideal": "sub-5.00 (3-tech), sub-5.10 (NT)",
+          "floor": "5.10/5.20",
+          "reasoning": "The stunting front requires interior DL who can move. Slow, immovable plugs who can't execute twists are poor fits."
+        },
+        "arm length": {
+          "ideal": "33\"+",
+          "floor": "32\"",
+          "reasoning": "Length helps control blocks with hand usage and create separation in both run defense and pass rush."
+        }
+      },
+      "development_context": "Durde's DL coaching background is a direct asset here \u2014 he spent three years as Dallas's DL coach before becoming DC. He developed young DL in Dallas and maximized Leonard Williams in Seattle. The staff can develop hand technique and teach the stunt/twist packages. The traits that must arrive: motor, explosiveness, and the ability to play with leverage. A raw athlete with no hand usage can be developed; a player without effort cannot.",
+      "scheme_fit_narrative": "Our interior DL are the most important players on the defense. They have to be able to rush the passer and stop the run \u2014 we can't have specialists. The 3-tech has to be a pocket-collapser who makes the QB uncomfortable, and the nose has to eat blocks and still be athletic enough to execute our stunts. If the inside doesn't win, the whole defense falls apart \u2014 the coverage can't survive if the QB has all day.",
+      "archetype_examples": [
+        "Leonard Williams",
+        "Chris Jones",
+        "DeForest Buckner"
+      ]
+    },
+    "LB": {
+      "scheme_role": "In Macdonald's nickel-base defense, there are typically only 1-2 true LBs on the field at any time (often just one in dime). The MIKE LB must be the defensive quarterback who processes formations, makes line calls, and communicates the defense. Ernest Jones IV played this role in 2025. The LB must excel in zone coverage (dropping into intermediate zones, reading route combinations, carrying TEs and RBs in coverage), tackle in space, and fit the run from a light box. With Nick Emmanwori functioning as a hybrid LB/safety, the traditional LB room gets fewer snaps \u2014 but the one LB on the field must be excellent.",
+      "trait_weights": {
+        "Tackling": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "The LB is often the last line of defense in a light box. Must be a sure tackler in space who wraps up and prevents YAC. Missed tackles in this system are catastrophic because there's minimal safety help against the run."
+        },
+        "Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "Zone coverage ability is the defining LB trait in Macdonald's defense. With 71.7% zone usage and frequent two-high shells, the LB must read route combinations, carry RBs and TEs in coverage, and wall off intermediate zones. A LB who can't cover forces the defense out of its base structure."
+        },
+        "Pass Rush": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "Seattle rarely blitzes LBs \u2014 the front four generates pressure. Occasional delayed blitzes and simulated pressures use the LB as a rusher, but this is a situational complement, not a primary responsibility."
+        },
+        "Instincts": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "As the lone LB in nickel/dime, processing offensive formations and anticipating plays is critical. The LB must diagnose run/pass quickly, trigger on the run without biting on play-action, and read route combinations in zone. Football IQ is what separates good from great at this position in the system."
+        },
+        "Athleticism": {
+          "weight": 0.15,
+          "importance": "high",
+          "reasoning": "With only 1-2 LBs on the field, the one who plays must cover sideline-to-sideline in the run game and match athletes (RBs, TEs) in coverage. Macdonald uses Emmanwori as the 'crazy athletic SAM' precisely because this scheme demands freaky athletic ability from its box defenders."
+        },
+        "Range": {
+          "weight": 0.1,
+          "importance": "moderate",
+          "reasoning": "Must be able to cover ground in zone drops and chase plays sideline-to-sideline. The light box means fewer defenders between the tackles, so the LB must make up for it with range."
+        },
+        "Block Shedding": {
+          "weight": 0.06,
+          "importance": "low",
+          "reasoning": "Less critical than in a traditional 4-3 because the front four handles most block engagement. The LB flows to the ball in space rather than taking on blocks at the point of attack."
+        },
+        "Pre-Snap Diagnosis": {
+          "weight": 0.06,
+          "importance": "moderate",
+          "reasoning": "As the defensive QB, must process formations and communicate assignments. However, Macdonald's system is coach-driven with very specific play calls, which reduces the on-field processing burden compared to a system where the MIKE makes all the adjustments."
+        }
+      },
+      "ideal_archetype": "A rangy, coverage-capable LB who can function as the lone traditional linebacker in nickel/dime packages. Must be a sure tackler in space, a reliable zone dropper who can carry TEs and RBs, and an instinctive processor who triggers correctly on run-pass keys without biting on play-action. Think Fred Warner, Roquan Smith, or Daiyan Henley \u2014 modern LBs who play in space, cover, and tackle. Not a thumper who runs downhill \u2014 this system needs a LB who moves laterally and processes quickly.",
+      "measurable_preferences": {
+        "40-yard dash": {
+          "ideal": "4.50-4.60",
+          "floor": "4.65",
+          "reasoning": "Range and coverage ability demand speed. The LB must be able to match RBs and TEs in coverage while also chasing plays sideline-to-sideline."
+        },
+        "weight": {
+          "ideal": "225-240",
+          "floor": "220",
+          "reasoning": "Must be big enough to take on blocks and tackle ballcarriers but light enough to cover in space. The scheme doesn't ask LBs to be run-stuffers at the point of attack."
+        },
+        "3-cone drill": {
+          "ideal": "sub-7.00",
+          "floor": "7.10",
+          "reasoning": "Change of direction matters for zone drops where the LB must redirect on route combinations."
+        }
+      },
+      "development_context": "Macdonald's background includes coaching LBs in Baltimore (2018-2020), and new ILB coach Zach Orr (former Ravens player/coach) brings additional LB development expertise. The staff can teach zone-drop technique, run fits, and communication. Instincts and athletic ability must arrive \u2014 you can refine coverage technique but you can't teach processing speed or physical gifts. The system's demand for coverage ability means a raw run-stuffer who can't cover will not see the field.",
+      "scheme_fit_narrative": "We only have one traditional linebacker on the field most of the time, so that one guy has to be able to do everything. He has to cover \u2014 that's non-negotiable. If he can't carry a TE down the seam or match a RB on a wheel route, he's off the field and we're in dime. We also need him to be a sure tackler because in our light boxes, he's the last line of defense. Give us the coverage LB who also tackles well over the run-stuffer who can't cover.",
+      "archetype_examples": [
+        "Fred Warner",
+        "Roquan Smith",
+        "Ernest Jones IV"
+      ]
+    },
+    "CB": {
+      "scheme_role": "CBs in Macdonald's defense play primarily in zone (71.7%) with significant two-high shell usage. However, the disguise-heavy system requires CBs to show man alignment pre-snap and play zone post-snap, or vice versa. Devon Witherspoon is the prototype: a versatile, physical CB who plays outside, slides to nickel, blitzes off the edge, and makes plays against the run. The outside CBs (Woolen, Jobe) play a lot of off/soft coverage in zone with deep-third responsibilities, but must also be capable of pressing and playing man when Macdonald disguises. Witherspoon operates as a 'force multiplier' who moves all over the formation.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.14,
+          "importance": "moderate",
+          "reasoning": "Despite being a zone-dominant defense, man coverage is still used and is frequently disguised as zone. CBs must be able to play man when called upon, especially in red zone and critical situations. Witherspoon's man coverage ability allows the defense to disguise its coverage shell."
+        },
+        "Ball Skills": {
+          "weight": 0.14,
+          "importance": "moderate",
+          "reasoning": "The zone-heavy system puts CBs in position to read the QB and break on the ball. Ball production comes from pattern-reading and anticipation in zone rather than trailing in man coverage. The defense's bend-but-don't-break approach values turnovers when they come, but doesn't chase them."
+        },
+        "Zone Coverage": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "With 71.7% zone usage, zone coverage technique is the foundational CB skill. CBs must play deep thirds in Cover 3, deep quarters in Cover 4, and half-field responsibilities in Cover 2. Must understand pattern-matching and zone-turn concepts. This is the primary thing CBs do in this defense."
+        },
+        "Speed": {
+          "weight": 0.14,
+          "importance": "moderate",
+          "reasoning": "Recovery speed matters when playing off-coverage in zone \u2014 the CB must be able to stay on top of routes. Riq Woolen (4.26 speed) and Witherspoon are both fast, but the defense doesn't require elite 4.3 speed as much as it requires technique and intelligence."
+        },
+        "Press": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "The disguise system sometimes asks CBs to press at the line before bailing into zone. Physical, press-capable CBs who can jam receivers and disrupt timing are valuable, especially in the Witherspoon mold where the CB's physicality at the LOS creates disruption. But this is not a pure press-man defense."
+        },
+        "Nickel": {
+          "weight": 0.24,
+          "importance": "essential",
+          "reasoning": "With nickel as the base defense (93%+ of snaps), the ability to play inside is enormously valuable. Witherspoon's nickel ability is what makes him the defense's MVP \u2014 he can play outside, slide inside, blitz, and defend the run from the slot. Seattle needs CBs who can handle slot responsibilities including run support, blitzing, and covering underneath routes."
+        }
+      },
+      "ideal_archetype": "A physical, versatile CB who can play multiple alignments (outside, nickel), execute zone coverage with discipline, and contribute in run support and as an occasional blitzer. Not a pure trail-and-mirror man-cover corner \u2014 this system needs a complete DB who understands zone concepts, shows man pre-snap but plays zone post-snap (and vice versa), and plays with the physicality to impact the run game. Devon Witherspoon IS the archetype. Think Witherspoon, Trent McDuffie, or Sauce Gardner \u2014 physical, smart, versatile corners who can do everything.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "5-11 to 6-1",
+          "floor": "5-9",
+          "reasoning": "The defense values versatility over size. Witherspoon (5-11) is the ideal. Bigger CBs can work outside, but nickel demands agility and short-area quickness that smaller, quicker CBs often possess."
+        },
+        "40-yard dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "Needs enough speed to play deep-zone responsibilities and recover when beaten. But 4.25 speed isn't required \u2014 the system is built on technique and disguise rather than pure athletic matchups."
+        },
+        "weight": {
+          "ideal": "190-210",
+          "floor": "185",
+          "reasoning": "The physical, run-support-demanding nature of this defense requires CBs with enough mass to tackle, set edges, and contribute in the box. Witherspoon's physicality (195 lbs of violent collision) is the model."
+        }
+      },
+      "development_context": "Karl Scott (DB coach) has been with the Seahawks since 2022 and was instrumental in developing Witherspoon and Riq Woolen. He's a Saban disciple who teaches disciplined, technique-based coverage. The staff can develop zone technique and teach the disguise packages. What must arrive: physicality, competitive toughness, and the willingness to play the run. A corner who only wants to cover and avoids contact is a poor fit for a defense that asks CBs to blitz and support the run.",
+      "scheme_fit_narrative": "We don't need lockdown man-cover corners \u2014 we need complete defensive backs. Our CBs play zone most of the time, but they also have to show man and play zone, show zone and play man. They have to tackle. They have to support the run. They have to blitz occasionally. Devon Witherspoon is what we're looking for \u2014 a fierce competitor who can line up anywhere and hurt the offense in multiple ways. Give us the versatile, physical corner who can play nickel or outside and handle all of our disguise packages.",
+      "archetype_examples": [
+        "Devon Witherspoon",
+        "Trent McDuffie",
+        "Sauce Gardner"
+      ]
+    },
+    "S": {
+      "scheme_role": "Safeties in Macdonald's defense operate in split-safety (two-high) shells 51.4% of the time \u2014 3rd highest in the NFL. The free safety (Julian Love's role) plays deep half in Cover 2, deep quarter in Cover 4, and must be a reliable last line of defense who prevents explosive plays. The strong safety/nickel hybrid (Nick Emmanwori's role) is a unique chess piece: 6-3, 220 lbs with 4.38 speed, he functions as a hybrid LB/safety/nickel who plays in the box, covers TEs, rushes the passer, and defends the run. Both safety roles require versatility \u2014 the defense rotates responsibilities and disguises who is playing deep vs down. The 'hybrid safety' role (Emmanwori) is arguably the most valuable defensive position in Macdonald's system.",
+      "trait_weights": {
+        "Man Coverage": {
+          "weight": 0.12,
+          "importance": "moderate",
+          "reasoning": "Macdonald's disguise system sometimes requires safeties to match up man-to-man with TEs or RBs, especially the box safety. The Emmanwori role frequently covers TEs and slot receivers in man. Not the primary coverage call, but must be capable when the disguise calls for it."
+        },
+        "Range": {
+          "weight": 0.22,
+          "importance": "essential",
+          "reasoning": "In two-high shells, the safeties must cap the defense by covering half the field. The free safety especially needs elite range to get from hash to sideline. Without range, the two-high structure breaks down and explosive plays result. This is the single most important trait for the deep safety role."
+        },
+        "Ball Skills": {
+          "weight": 0.14,
+          "importance": "moderate",
+          "reasoning": "The zone-heavy, two-high structure puts safeties in position to read the QB and make plays on the ball. Turnovers in this system come from safeties driving on throws. Ball skills are a secondary benefit of playing disciplined zone."
+        },
+        "Tackling": {
+          "weight": 0.2,
+          "importance": "high",
+          "reasoning": "Both safety roles require sure tackling. The box safety/nickel hybrid (Emmanwori) is a primary tackler who functions almost as a LB. Even the deep safety must come down and tackle in run support and on completions underneath. Macdonald's defense was praised for its tackling fundamentals in 2025 \u2014 tackling is a staff-wide emphasis."
+        },
+        "Speed": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "Range and speed are closely linked. Emmanwori's 4.38 speed on a 6-3 frame is what allows him to function as a box defender AND cover receivers in space. The deep safety needs speed to close on the ball from two-high alignments. Speed is what makes the hybrid safety role possible."
+        },
+        "Nickel": {
+          "weight": 0.16,
+          "importance": "high",
+          "reasoning": "The box safety/hybrid role IS a nickel position. Emmanwori is listed as a nickel but plays safety responsibilities. The ability to function in the slot \u2014 covering slot WRs, blitzing from the box, defending the run as an extra box defender \u2014 is what makes this position uniquely valuable. A safety who can only play deep and can't function as a nickel is only half the player this scheme needs."
+        }
+      },
+      "ideal_archetype": "Two distinct archetypes exist. The FREE SAFETY must be a reliable deep-half coverage player with elite range, ball skills, and the ability to keep the defense 'capped' \u2014 think Julian Love, Jessie Bates, or Minkah Fitzpatrick. The BOX/HYBRID SAFETY (Emmanwori role) must be a rare athlete who combines size, speed, and physicality to function as a LB, nickel, and safety simultaneously \u2014 think Derwin James, Kyle Hamilton, or Nick Emmanwori himself. This is the most scheme-specific position: a 6-2+, 215+ safety who runs 4.40 and can cover slot receivers, blitz the edge, and tackle running backs. That combination is extraordinarily rare and extraordinarily valuable in this system.",
+      "measurable_preferences": {
+        "height": {
+          "ideal": "6-0 to 6-3 (hybrid), 5-11 to 6-1 (deep)",
+          "floor": "5-10",
+          "reasoning": "The hybrid safety role demands size to function as a box defender and cover TEs. Emmanwori at 6-3 is the prototype. The deep safety can be slightly smaller as range and speed matter more than size."
+        },
+        "40-yard dash": {
+          "ideal": "4.35-4.50",
+          "floor": "4.55",
+          "reasoning": "Speed is critical for both roles \u2014 the deep safety must cover half the field, and the hybrid safety must close space from the box to cover slot receivers."
+        },
+        "weight": {
+          "ideal": "210-225 (hybrid), 195-210 (deep)",
+          "floor": "195",
+          "reasoning": "The hybrid safety must be heavy enough to tackle in the box, set edges, and match up with TEs. The deep safety can be lighter as the primary role is coverage."
+        },
+        "broad jump": {
+          "ideal": "10-6+",
+          "floor": "10-0",
+          "reasoning": "Explosive closing ability matters for both the deep safety (driving on throws from depth) and the hybrid (closing on ball carriers in the box). Emmanwori's explosive athleticism is what makes the position work."
+        }
+      },
+      "development_context": "Jeff Howard (safeties coach) and Karl Scott (DB coach) developed the Emmanwori/Love tandem in 2025 \u2014 Emmanwori's transformation from a deep safety at South Carolina to a hybrid nickel/LB/safety was one of the NFL's best developmental stories of the season. The staff has proven they can teach positional versatility and develop safeties for multiple roles. However, the raw athleticism that makes the hybrid role work (6-3, 220, 4.38) cannot be taught. The staff can teach technique; they need the physical tools to arrive.",
+      "scheme_fit_narrative": "We need two types of safeties and we need both. The deep safety has to keep the lid on the defense \u2014 if he gets beat deep, our whole structure collapses. Range, range, range. For the hybrid nickel/safety role, we're looking for a unicorn: big enough to play in the box, fast enough to cover in space, physical enough to tackle and blitz. Nick Emmanwori is the model \u2014 6-3, 220, runs 4.38, covers Justin Jefferson on third down, and blocks field goals. If you find another one, that's the most valuable defensive player in the draft for our system.",
+      "archetype_examples": [
+        "Nick Emmanwori (hybrid)",
+        "Kyle Hamilton (hybrid)",
+        "Julian Love (deep)",
+        "Jessie Bates (deep)"
+      ]
     }
   },
-  "scheme_specific_draft_notes": "Seattle is the league's most scheme-distinctive team on both sides of the ball. On OFFENSE: Fleury continues the Shanahan/Kubiak system that demands TEs who can block in outside zone AND run routes from flexed alignments \u2014 a receiving TE is valued nearly as a WR3 here. RBs who catch are essential, not optional. The heavy 12/21 personnel usage means fewer WR3 snaps but more TE snaps than any typical offense. On DEFENSE: Macdonald's 4-down nickel with extreme disguise creates the NFL's highest value for hybrid safety/slot defenders. After Emmanwori's breakout, any safety with LB size, slot coverage ability, and pass-rush traits should be valued at a premium for SEA. Traditional box safeties or pure deep safeties get less of a boost \u2014 Macdonald wants swiss-army-knife athletes. Edge rushers don't need to be pure speed rushers; the system generates pressure via stunts and matchup isolation, so technique and motor matter as much as raw burst. ILBs must be coverage-capable \u2014 this defense lives in nickel with only 1 LB on the field most snaps.",
+  "scheme_draft_intelligence": "The Seattle Seahawks enter the 2026 draft as defending Super Bowl champions, which means they'll be drafting at the back of the first round, but their scheme creates enormous value differentials at specific positions. Macdonald's defensive scheme places a premium on a very specific type of player at several positions \u2014 particularly the hybrid safety/nickel (Emmanwori archetype), versatile CBs (Witherspoon archetype), and high-motor, disciplined EDGE rushers \u2014 that other teams may undervalue because they don't fit traditional position classifications. A safety who ran a 4.38 at 220 pounds but wasn't a great deep safety in college could be transformative in Seattle's scheme as a box hybrid, while other teams might see him as a tweener.\n\nOn offense, the Shanahan-tree wide zone system creates clear value preferences along the offensive line: athletic, lateral-moving IOL and OTs are scheme-critical, while pure power blockers that other teams covet in gap schemes have diminished value. The Seahawks' 2025 draft of Grey Zabel (18th overall, IOL) demonstrated this \u2014 they prioritized movement skills over raw strength. With Kenneth Walker III and potentially Zach Charbonnet departing as free agents, and Brian Fleury maintaining the Kubiak system, Seattle will need running backs who fit the zone scheme (vision + lateral agility + speed), creating potential value at RB where Seattle can find late-round zone runners that the system elevates.\n\nThe most significant roster holes heading into 2026 include: potential RB replacement (Walker III hitting free agency, Charbonnet ACL), OL depth to continue developing the zone front, potential QB of the future (Darnold is a stop-gap on a one-year deal and the staff lacks a young QB development track record), and continued DL depth to maintain the front-four pressure identity. The defensive secondary is largely locked in with Witherspoon, Emmanwori, Woolen, Love, and Bryant, though DeMarcus Lawrence's age and contract status could create EDGE need.\n\nHistorically, Macdonald and GM John Schneider have shown a willingness to invest premium picks in defensive versatility (Witherspoon 5th overall, Emmanwori 35th overall) \u2014 both picks were for players whose value was maximized by the scheme's demand for positional flex. This pattern suggests they'll continue targeting defensive players whose versatility is undervalued by other teams' more traditional scheme demands. On offense, the Shanahan-tree's preference for late-round RBs and developmental zone OL suggests they'll look for value in the middle rounds rather than investing premium capital at skill positions.",
   "confidence": "high",
   "sources": [
-    "seahawks.com official coaching staff page (2025)",
-    "Pro Football Reference 2025 Seattle Seahawks page",
-    "ESPN: Seahawks expected to hire 49ers' Brian Fleury as OC (Feb 2026)",
-    "ESPN: Seahawks defense scheme analysis - Mike Macdonald Super Bowl LX preview",
-    "NFL.com: Heavy personnel trend shaping Super Bowl LX (Seahawks personnel data)",
-    "Match Quarters: Inside the Seahawks' Elite Defensive Schemes (Nov 2025)",
-    "FOX Sports: Nick Emmanwori hybrid safety role breakdown (Jan 2026)",
-    "Field Gulls: Seahawks coaching staff changes tracker (Feb 2025)",
-    "ESPN: Klint Kubiak balanced offensive scheme analysis (Feb 2025)",
-    "Seahawks.com: Brian Fleury introductory press conference (Feb 2026)",
-    "Seattle Times: Seahawks offense under Klint Kubiak (Sep 2025)",
-    "PFF: NFL teams best built for success by personnel grouping 2025",
-    "Seattle Sports/mynorthwest: Emmanwori hybrid role snap counts via PFF"
+    "seahawks.com coaching staff pages and press conferences",
+    "Wikipedia: Mike Macdonald, Klint Kubiak, Aden Durde, 2025 Seattle Seahawks season",
+    "ESPN: Klint Kubiak balanced scheme (Feb 2025), Seahawks new offense (Sep 2025), Seahawks defense Super Bowl keys (Feb 2026)",
+    "Field Gulls: Kubiak film review (Jan 2025), coaching staff tracker (Feb 2025)",
+    "Match Quarters: Macdonald Seahawks defense analysis (Jun/Nov 2025)",
+    "Seaside Joe: Emmanwori defense breakdown (Feb 2026), John Benton career (May 2025)",
+    "Herald Net: Macdonald defensive evolution (Feb 2026)",
+    "Yahoo Sports: Macdonald trademark 'awkward pause' Super Bowl analysis (Feb 2026)",
+    "SI.com: Aden Durde profile (Feb 2026), Shanahan-Kubiak system analysis",
+    "Pro Football Reference: 2025 Seattle Seahawks stats and coaching records",
+    "Silver and Black Pride: Kubiak scheme analysis for Raiders (Feb 2026)",
+    "NFL.com: Coverage trends turning Seahawks into Super Bowl winners, Brian Fleury hiring",
+    "Seahawks.com: Witherspoon/Emmanwori versatility feature, training camp storylines",
+    "Coach Kou Football: Macdonald 'Dark Side' defense breakdown",
+    "Mark Bullock Substack: Mike Macdonald HC candidate profile (disguise analysis)",
+    "Emerald City Spectrum: John Benton impact on OL personnel"
   ]
 }
