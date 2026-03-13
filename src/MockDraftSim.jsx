@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo, useRef } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef, memo } from "react";
 import NFL_ROSTERS from "./nflRosters.js";
 import FA_FLAGS from "./freeAgencyFlags.js";
 import { getScoutingTraits } from "./scoutingData.js";
@@ -64,6 +64,168 @@ const NFL_TEAM_ESPN_IDS={Raiders:13,Jets:20,Cardinals:22,Titans:10,Giants:19,Bro
 function nflLogoUrl(team){const id=NFL_TEAM_ESPN_IDS[team];return id?`https://a.espncdn.com/i/teamlogos/nfl/500/${id}.png`:null;}
 function loadImg(src,timeout=3000){return new Promise((res,rej)=>{const img=new Image();img.crossOrigin="anonymous";img.onload=()=>res(img);img.onerror=()=>rej();setTimeout(rej,timeout);img.src=src;});}
 function drawTrunc(ctx,text,x,y,maxW){let t=text;while(ctx.measureText(t).width>maxW&&t.length>1)t=t.slice(0,-1);if(t!==text)t=t.slice(0,-1)+'…';ctx.fillText(t,x,y);}
+
+// --- Module-level sub-components (extracted from MockDraftSim for stable reconciliation) ---
+
+const FormationChart=memo(({team,depthChart,mono,sans})=>{
+  const chart=depthChart[team]||{};
+  const accent=NFL_TEAM_COLORS[team]||'#6366f1';
+  const faAbbr=TEAM_ABBR[team]||team;
+  const faList=FA_FLAGS[faAbbr]||[];
+  return(<svg viewBox="-2 -2 104 109" style={{width:"100%"}}>
+    <rect x="-2" y="-2" width="104" height="109" rx="4" fill="none" stroke="none"/>
+    {[20,40,58,75,90].map(y=><line key={y} x1="2" y1={y} x2="98" y2={y} stroke="rgba(0,0,0,0.04)" strokeWidth="0.3"/>)}
+    <line x1="2" y1="58" x2="98" y2="58" stroke={accent+"44"} strokeWidth="0.5" strokeDasharray="2,1.5"/>
+    {Object.entries(getFormationPos(team)).map(([slot,pos])=>{
+      const entry=chart[slot];const filled=!!entry;const isDraft=entry?.isDraft;
+      if(!filled&&pos.schemeOnly)return null;
+      if(pos.altFor&&chart[pos.altFor])return null;
+      const rvSlot=ROSTER_BY_SLOT[team]?.[slot];const rv=filled&&!isDraft&&(rvSlot||Object.values(ROSTER_BY_SLOT[team]||{}).find(r=>r.name===entry.name));
+      const tierColor=rv?TIER_COLORS[rv.performanceTier]:null;
+      const dotColor=isDraft?"#7c3aed":tierColor||(filled?"#a8a29e":"#d4d4d4");
+      const lastName=entry?shortName(entry.name):"";
+      const isFa=filled&&!isDraft&&faList.includes(entry.name);
+      return(<g key={slot}>
+        {isFa&&<circle cx={pos.x} cy={pos.y} r={3.2} fill="none" stroke="#f97316" strokeWidth="0.4"/>}
+        <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={isDraft?"#7c3aed":filled?dotColor:"#a3a3a3"} strokeWidth={isDraft?"0.5":"0.2"}/>
+        <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="#a3a3a3" fontSize="1.8" fontFamily={mono}>{pos.label||slot.replace(/\d$/,'')}</text>
+        {filled&&<text x={pos.x} y={pos.y+4.5} textAnchor="middle" fill={isDraft?"#7c3aed":"#525252"} fontSize={isDraft?"2.2":"1.8"} fontWeight={isDraft?"bold":"normal"} fontFamily={sans}>{lastName}</text>}
+      </g>);
+    })}
+  </svg>);
+});
+
+const DepthList=memo(({team,depthChart,mono,sans})=>{
+  const chart=depthChart[team]||{};
+  const groups=getSchemeDepthGroups(team);
+  const faAbbr=TEAM_ABBR[team]||team;
+  const faList=FA_FLAGS[faAbbr]||[];
+  const baseGroupMap={};
+  DEPTH_GROUPS.forEach(g=>{baseGroupMap[g.posMatch]=g.slots;});
+  const faPill=(name)=>faList.includes(name)&&<span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:"#f97316",background:"rgba(249,115,22,0.08)",padding:"2px 6px",borderRadius:99}}>FA</span>;
+  const tierDot=(slot,name)=>{const rv=ROSTER_BY_SLOT[team]?.[slot]||(name&&ROSTER_BY_NAME[name]);const tc=rv?TIER_COLORS[rv.performanceTier]:null;return tc?<span style={{width:5,height:5,borderRadius:3,background:tc,flexShrink:0}} title={rv.performanceTier}/>:null;};
+  return(<div style={{marginTop:2}}>
+    {groups.map((group,gi)=>{
+      const entries=group.slots.map(s=>({slot:s,entry:chart[s]})).filter(x=>x.entry);
+      const extras=Object.entries(chart).filter(([k])=>group.slots.some(s=>k.startsWith(s+"_d"))).map(([k,v])=>({slot:k,entry:v}));
+      const baseSlots=baseGroupMap[group.posMatch]||[];
+      const hiddenRoster=baseSlots.filter(s=>!group.slots.includes(s)&&chart[s]).map(s=>({slot:s,entry:chart[s]}));
+      extras.push(...hiddenRoster);
+      if(entries.length===0&&extras.length===0)return null;
+      return(<div key={group.label} style={{marginBottom:8,...(gi>0?{paddingTop:6,borderTop:"1px solid #f5f5f5"}:{})}}>
+        {entries.map(({slot,entry})=>(<div key={slot} style={{fontFamily:sans,fontSize:11,padding:"2px 0",display:"flex",alignItems:"center",gap:6}}>
+          <span style={{fontFamily:mono,color:"#d4d4d4",width:24,fontSize:9,flexShrink:0}}>{group.slotLabels?.[slot]||slot}</span>
+          {entry.isDraft
+            ?<span style={{fontFamily:sans,fontWeight:700,fontSize:11,color:"#7c3aed",background:"rgba(124,58,237,0.06)",padding:"1px 6px",borderRadius:4}}>{entry.name}</span>
+            :<>{tierDot(slot,entry.name)}<span style={{fontFamily:sans,fontWeight:400,fontSize:11,color:entry.isTraded?"#a855f7":"#525252"}}>{entry.name}</span>{entry.isTraded&&<span style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 4px",borderRadius:2}}>TRD</span>}{faPill(entry.name)}</>}
+        </div>))}
+        {extras.map(({slot,entry})=>(<div key={slot} style={{fontFamily:sans,fontSize:11,padding:"2px 0",display:"flex",alignItems:"center",gap:6}}>
+          <span style={{fontFamily:mono,color:"#d4d4d4",width:24,fontSize:9,flexShrink:0}}>+</span>
+          {entry.isDraft
+            ?<span style={{fontFamily:sans,fontWeight:700,fontSize:11,color:"#7c3aed",background:"rgba(124,58,237,0.06)",padding:"1px 6px",borderRadius:4}}>{entry.name}</span>
+            :<>{tierDot(slot,entry.name)}<span style={{fontFamily:sans,fontWeight:400,fontSize:11,color:entry.isTraded?"#a855f7":"#525252"}}>{entry.name}</span>{entry.isTraded&&<span style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 4px",borderRadius:2}}>TRD</span>}{faPill(entry.name)}</>}
+        </div>))}
+      </div>);
+    })}
+  </div>);
+});
+
+const DraftFit=memo(({team,teamPicks,fpPills,liveNeeds,prospectsMap,mono,sans})=>{
+  const base=TEAM_NEEDS_COUNTS?.[team]||{};const remaining=liveNeeds[team]||{};
+  const prof=TEAM_PROFILES[team];
+  const needEntries=Object.entries(base).sort((a,b)=>b[1]-a[1]);
+  const totalNeeds=Object.values(base).reduce((s,v)=>s+v,0);
+  const filledCount=totalNeeds-Object.values(remaining).reduce((s,v)=>s+v,0);
+  if(teamPicks.length===0)return null;
+  // Team philosophy
+  const stageMap={rebuild:"rebuilding",retool:"retooling",contend:"contending",dynasty:"in dynasty mode"};
+  const stageLabel=stageMap[prof?.stage]||"";
+  const boosted=prof?.posBoost||[];
+  // Tendency pills
+  const tendencies=[];
+  if(stageLabel)tendencies.push({text:stageMap[prof.stage],color:"#525252"});
+  if(prof?.bpaLean>=0.7)tendencies.push({text:"BPA-first",color:"#2563eb"});
+  else if(prof?.bpaLean<=0.4)tendencies.push({text:"need-driven",color:"#ea580c"});
+  if(prof?.athBoost>=0.1)tendencies.push({text:"values athleticism",color:"#059669"});
+  if(prof?.sizePremium)tendencies.push({text:"favors size",color:"#7c3aed"});
+  if(prof?.ceilingChaser>=0.08)tendencies.push({text:"chases upside",color:"#d97706"});
+  if(prof?.reachTolerance>=0.45)tendencies.push({text:"willing to reach",color:"#dc2626"});
+  // Prose traits for sentence
+  const sentenceTraits=[];
+  if(prof?.bpaLean>=0.7)sentenceTraits.push("tend to take the best player available");
+  else if(prof?.bpaLean<=0.4)sentenceTraits.push("tend to draft for need");
+  if(prof?.athBoost>=0.1)sentenceTraits.push("value athleticism");
+  if(prof?.sizePremium)sentenceTraits.push("favor bigger prospects at the position");
+  if(prof?.ceilingChaser>=0.08)sentenceTraits.push("chase upside");
+  if(prof?.reachTolerance>=0.45)sentenceTraits.push("reach for their guy");
+  const pickedPositions=teamPicks.map(pk=>{const p=prospectsMap[pk.playerId];return p?.pos;}).filter(Boolean);
+  let philoLine="";
+  if(stageLabel){
+    philoLine=`The ${team} are ${stageLabel}${sentenceTraits.length>0?" and "+sentenceTraits[0]:""}. `;
+    if(sentenceTraits.length>1)philoLine+=`They also tend to ${sentenceTraits.slice(1).join(" and ")}. `;
+    if(boosted.length>0){
+      const nonBoosted=pickedPositions.filter(pos=>!boosted.includes(pos));
+      if(nonBoosted.length>0&&teamPicks.length===1)philoLine+=`This front office usually prioritizes ${boosted.slice(0,3).join(", ")} — not ${nonBoosted[0]}.`;
+      else philoLine+=`This front office usually prioritizes ${boosted.slice(0,3).join(", ")}.`;
+    }
+  }
+  // Picks analysis
+  const boostHits=pickedPositions.filter(pos=>boosted.includes(pos)).length;
+  const topNeed=needEntries[0]?.[0];const topFilled=topNeed?base[topNeed]-(remaining[topNeed]||0):0;
+  const lines=[];
+  if(totalNeeds>0){
+    if(filledCount===totalNeeds){lines.push({text:`You addressed every pre-draft need.`,color:"#16a34a"});}
+    else if(filledCount===0){
+      if(teamPicks.length===1)lines.push({text:`Your pick didn't fill a listed need — but value is value.`,color:"#a3a3a3"});
+      else lines.push({text:`None of your ${teamPicks.length} picks addressed a team need.`,color:"#dc2626"});
+    }else{
+      const remainingNeeds=needEntries.filter(([pos])=>(remaining[pos]||0)>0).map(([pos])=>pos);
+      if(topFilled>0)lines.push({text:`Filled their biggest need at ${topNeed}.`,color:"#16a34a"});
+      else lines.push({text:`Left the top need (${topNeed}) unaddressed.`,color:"#ea580c"});
+      if(remainingNeeds.length>0&&remainingNeeds.length<=3)lines.push({text:`Still need${remainingNeeds.length===1?"s":""}: ${remainingNeeds.join(", ")}`,color:"#a3a3a3"});
+    }
+  }
+  return(<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"12px 16px"}}>
+    <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8,display:"flex",alignItems:"center",gap:4}}><span style={{fontSize:10}}>🧠</span> draft fit</div>
+    {tendencies.length>0&&<div style={{display:"flex",flexWrap:"wrap",gap:4,marginBottom:8}}>
+      {tendencies.map((t,i)=><span key={i} style={{fontFamily:mono,fontSize:8,padding:"2px 6px",borderRadius:4,color:t.color,background:t.color+"0d",border:`1px solid ${t.color}22`}}>{t.text}</span>)}
+    </div>}
+    {philoLine&&<div style={{fontFamily:sans,fontSize:11,color:"#737373",lineHeight:1.5,marginBottom:10}}>{philoLine}</div>}
+    {needEntries.length>0&&<>
+      <div style={{borderTop:"1px solid #f5f5f5",marginBottom:8}}/>
+      <div style={{fontFamily:mono,fontSize:7,letterSpacing:1,color:"#d4d4d4",textTransform:"uppercase",marginBottom:4}}>pre-draft needs</div>
+      <div style={{display:"flex",flexWrap:"wrap",gap:4,marginBottom:lines.length>0?10:0}}>
+        {(()=>{const broad=new Set(["DB","DL","OL"]);return needEntries.filter(([pos,v])=>v>=2&&!broad.has(pos)).map(([pos])=>{const rem=remaining[pos]||0;const isFilled=rem<=0;
+          return <span key={pos} style={{fontFamily:mono,fontSize:9,padding:"2px 6px",borderRadius:4,
+            ...(isFilled?{background:"rgba(34,197,94,0.1)",color:"#16a34a",border:"1px solid rgba(34,197,94,0.2)"}
+              :{background:"rgba(239,68,68,0.06)",color:"#dc2626",border:"1px solid rgba(239,68,68,0.12)"})
+          }}>{pos}{isFilled?" ✓":""}</span>;
+        });})()}
+      </div>
+    </>}
+    {lines.length>0&&<div>{lines.map((l,i)=><div key={i} style={{fontFamily:sans,fontSize:11,color:l.color,lineHeight:1.5}}>{l.text}</div>)}</div>}
+    {fpPills&&fpPills.length>0&&<>
+      <div style={{borderTop:"1px solid #f5f5f5",marginTop:8,marginBottom:8}}/>
+      <div style={{fontFamily:mono,fontSize:7,letterSpacing:1,color:"#d4d4d4",textTransform:"uppercase",marginBottom:4}}>your strategy</div>
+      <div style={{display:"flex",flexWrap:"wrap",gap:4}}>
+        {fpPills.map((pill,i)=><span key={i} style={{fontFamily:sans,fontSize:9,fontWeight:600,color:pill.color,background:`${pill.color}0d`,border:`1px solid ${pill.color}22`,padding:"2px 7px",borderRadius:99,display:"inline-flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{pill.emoji}</span><span>{pill.text}</span></span>)}
+      </div>
+    </>}
+  </div>);
+});
+
+const LiveNeeds=memo(({team,liveNeeds,userTeams,mono})=>{
+  const needs=liveNeeds[team]||{};const base=TEAM_NEEDS_COUNTS?.[team]||{};const isUser=userTeams.has(team);const broad=new Set(["DB","DL","OL"]);
+  const entries=Object.entries(needs).filter(([pos,v])=>v>0&&(!isUser||(!broad.has(pos)&&(base[pos]||0)>=2)));
+  const filled=Object.entries(base).filter(([k])=>(!needs[k]||needs[k]===0)&&(!isUser||(!broad.has(k)&&(base[k]||0)>=2)));
+  return(<div style={{marginTop:4}}>
+    <div style={{fontFamily:mono,fontSize:7,letterSpacing:1.5,color:"rgba(255,255,255,0.3)",textTransform:"uppercase",marginBottom:2}}>needs</div>
+    <div style={{display:"flex",flexWrap:"wrap",gap:2}}>
+      {entries.map(([pos])=>(<span key={pos} style={{fontFamily:mono,fontSize:7,padding:"1px 4px",borderRadius:3,background:"rgba(239,68,68,0.2)",color:"#fca5a5",border:"1px solid rgba(239,68,68,0.25)"}}>{pos}</span>))}
+      {filled.map(([pos])=>(<span key={pos} style={{fontFamily:mono,fontSize:7,padding:"1px 4px",background:"rgba(34,197,94,0.15)",color:"#86efac",borderRadius:3,textDecoration:"line-through",opacity:0.5}}>{pos} ✓</span>))}
+    </div>
+  </div>);
+});
 
 // Override consensus ranks for players the board data may undervalue
 // These represent realistic draft range ceilings/floors based on current intel
@@ -147,8 +309,9 @@ function pickVerdict(pickNum,consRank,grade){
 
 export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,onMockComplete,myGuys,myGuysUpdated,setMyGuysUpdated,mockCount,allProspects,PROSPECTS,CONSENSUS,ratings,traits,setTraits,notes,setNotes,POS_COLORS,POSITION_TRAITS,SchoolLogo,NFLTeamLogo,RadarChart,PlayerProfile,font,mono,sans,schoolLogo,getConsensusRank,getConsensusGrade,getConsensusRound,rankedGroups,mockLaunchTeam,mockLaunchRounds,mockLaunchSpeed,mockLaunchCpuTrades,mockLaunchBoardMode,onRankPosition,isGuest,onRequireAuth,trackEvent,userId,isGuestUser,traitThresholds,qualifiesForFilter,prospectBadges,TRAIT_ABBREV,TRAIT_EMOJI,SCHOOL_CONFERENCE,POS_EMOJI,onShareMyGuys,copiedShare:parentCopiedShare,measurableThresholds,qualifiesForMeasurableFilter,MEASURABLE_EMOJI,MEASURABLE_SHORT,MEASURABLE_LIST,MEASURABLE_DRILLS,MEASURABLE_KEY,MEASURABLE_RAW,MEAS_GROUPS,getMeasRadarData,schemeFits,generateScoutReasoning,computeTeamScoutVision}){
   const TRAIT_SHORT={"Contested Catches":"Contested","Man Coverage":"Man Cov","Contact Balance":"Contact Bal","Directional Control":"Directional","Decision Making":"Decision","Pocket Presence":"Pocket Pres","Pass Catching":"Pass Catch","Run Blocking":"Run Block","Pass Protection":"Pass Prot","Hand Usage":"Hand Use","Run Defense":"Run Def","Zone Coverage":"Zone Cov","Leg Strength":"Leg Str"};
+  const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[PROSPECTS]);
   // Trait value with scouting fallback (same chain as App.jsx tv())
-  const tvFn=useCallback((id,trait)=>{const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;return traits[id]?.[trait]??getScoutingTraits(p.name,p.school)?.[trait]??getStatBasedTraits(p.name,p.school)?.[trait]??50;},[traits,PROSPECTS]);
+  const tvFn=useCallback((id,trait)=>{const p=prospectsMap[id];if(!p)return 50;return traits[id]?.[trait]??getScoutingTraits(p.name,p.school)?.[trait]??getStatBasedTraits(p.name,p.school)?.[trait]??50;},[traits,prospectsMap]);
   const ALL_TEAMS=useMemo(()=>[...new Set(DRAFT_ORDER.map(d=>d.team))],[]);
   const[boardMode,setBoardMode]=useState("consensus");
   const activeBoard=boardMode==="my"&&myBoard?myBoard:board;
@@ -247,8 +410,6 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     }
   },[mockLaunchTeam]);
 
-  const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[PROSPECTS]);
-
   // Position run tracker: count how many of each pos drafted in last 8 picks
   const recentPosCounts=useMemo(()=>{
     const recent=picks.slice(-8);
@@ -303,6 +464,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     if(trackEvent)trackEvent(userId,'mock_draft_sim_started',{team:[...userTeams].join(','),rounds:numRounds,speed,cpuTrades,boardMode,guest:!!isGuestUser});
   },[activeBoard,generateBoardNoise,trackEvent,userId,isGuestUser,userTeams,numRounds,speed,cpuTrades,boardMode]);
 
+  const picksRef=useRef(picks);picksRef.current=picks;
+  const recentPosCountsRef=useRef(recentPosCounts);recentPosCountsRef.current=recentPosCounts;
   const cpuPick=useCallback((team,avail,pickNum)=>{
     const needs=teamNeeds[team]||["QB","WR","DL"];
     const dn=TEAM_NEEDS_COUNTS?.[team]||{};
@@ -331,7 +494,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     const finalNeedW=Math.max(0.2,needW+roundNeedShift);
 
     // Track positions already drafted this draft
-    const teamDrafted=picks.filter(pk=>pk.team===team).map(pk=>{const p=prospectsMap[pk.playerId];return p?p.pos:null;}).filter(Boolean);
+    const teamDrafted=picksRef.current.filter(pk=>pk.team===team).map(pk=>{const p=prospectsMap[pk.playerId];return p?p.pos:null;}).filter(Boolean);
     const posCounts={};teamDrafted.forEach(pos=>{posCounts[pos]=(posCounts[pos]||0)+1;});
 
     // Score every available player
@@ -382,7 +545,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       const alreadyAtPos=posCounts[pos]||0;
       const dimReturn=alreadyAtPos>=3?0.4:alreadyAtPos>=2?0.65:alreadyAtPos>=1?0.85:1.0;
 
-      const recentRun=recentPosCounts[pos]||0;
+      const recentRun=recentPosCountsRef.current[pos]||0;
       const runPenalty=recentRun>=4?0.72:recentRun>=3?0.84:recentRun>=2?0.93:1.0;
 
       const isTopNeed=nc>=2||(ni===0);
@@ -473,7 +636,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       if(r<=0)return pool[i].id;
     }
     return pool[0].id;
-  },[teamNeeds,prospectsMap,gradeMap,getConsensusGrade,getConsensusRank,TEAM_NEEDS_COUNTS,picks,recentPosCounts,schemeFits]);
+  },[teamNeeds,prospectsMap,gradeMap,getConsensusGrade,getConsensusRank,TEAM_NEEDS_COUNTS,schemeFits]);
 
   const isUserPick=useMemo(()=>{
     return picks.length<totalPicks&&userTeams.has(getPickTeam(picks.length));
@@ -871,34 +1034,34 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
   const toggleCompare=(p)=>{setCompareList(prev=>{const e=prev.find(x=>x.id===p.id);if(e)return prev.filter(x=>x.id!==p.id);if(prev.length>=4)return prev;return[...prev,p];});};
 
   // Depth chart: NFL roster + drafted players overlay — round-aware slotting
-  const depthChart=useMemo(()=>{
+  // Static base roster — computed once, never changes during draft
+  const baseDepthChart=useMemo(()=>{
     const chart={};
     const allTeamAbbrs=Object.keys(NFL_ROSTERS);
     allTeamAbbrs.forEach(team=>{
       chart[team]={};const roster=NFL_ROSTERS[team]||{};
-      // Start with roster in slots
       DEPTH_GROUPS.forEach(g=>{
         g.slots.forEach(s=>{if(roster[s])chart[team][s]={name:roster[s],isRoster:true};});
       });
     });
-    // Also build for team names used in draft order (e.g. "Saints" → "NO")
     Object.entries(TEAM_ABBR).forEach(([name,abbr])=>{
-      if(chart[name])return; // already built
+      if(chart[name])return;
       const roster=NFL_ROSTERS[abbr]||{};
       chart[name]={};
       DEPTH_GROUPS.forEach(g=>{
         g.slots.forEach(s=>{if(roster[s])chart[name][s]={name:roster[s],isRoster:true};});
       });
     });
+    return chart;
+  },[]);
+  // Depth chart with draft overlay — clones base then layers picks
+  const depthChart=useMemo(()=>{
+    const chart={};
+    for(const team of Object.keys(baseDepthChart)){chart[team]={...baseDepthChart[team]};}
     // Overlay drafted players
     const allDraftTeams=new Set(picks.map(pk=>pk.team));
     [...allDraftTeams].forEach(team=>{
-      if(!chart[team])chart[team]={};
-      const roster=NFL_ROSTERS[TEAM_ABBR[team]||team]||{};
-      // Ensure base roster is loaded
-      DEPTH_GROUPS.forEach(g=>{
-        g.slots.forEach(s=>{if(roster[s]&&!chart[team][s])chart[team][s]={name:roster[s],isRoster:true};});
-      });
+      if(!chart[team])chart[team]={...baseDepthChart[TEAM_ABBR[team]||team]||{}};
       const teamPicks=picks.filter(pk=>pk.team===team);
       teamPicks.forEach(pk=>{
         const p=prospectsMap[pk.playerId];if(!p)return;
@@ -1099,7 +1262,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       }
     });
     return chart;
-  },[picks,prospectsMap,getConsensusGrade,gradeMap,playerTradeMap]);
+  },[baseDepthChart,picks,prospectsMap,getConsensusGrade,gradeMap,playerTradeMap]);
 
   const liveNeeds=useMemo(()=>{
     const needs={};
@@ -1706,35 +1869,6 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
 
   const userPickCount=useMemo(()=>picks.filter(p=>p.isUser).length,[picks]);
 
-  // Sub-components
-  const FormationChart=({team})=>{
-    const chart=depthChart[team]||{};
-    const accent=NFL_TEAM_COLORS[team]||'#6366f1';
-    const faAbbr=TEAM_ABBR[team]||team;
-    const faList=FA_FLAGS[faAbbr]||[];
-    return(<svg viewBox="-2 -2 104 109" style={{width:"100%"}}>
-      <rect x="-2" y="-2" width="104" height="109" rx="4" fill="none" stroke="none"/>
-      {[20,40,58,75,90].map(y=><line key={y} x1="2" y1={y} x2="98" y2={y} stroke="rgba(0,0,0,0.04)" strokeWidth="0.3"/>)}
-      <line x1="2" y1="58" x2="98" y2="58" stroke={accent+"44"} strokeWidth="0.5" strokeDasharray="2,1.5"/>
-      {Object.entries(getFormationPos(team)).map(([slot,pos])=>{
-        const entry=chart[slot];const filled=!!entry;const isDraft=entry?.isDraft;
-        if(!filled&&pos.schemeOnly)return null;
-        if(pos.altFor&&chart[pos.altFor])return null;
-        const rvSlot=ROSTER_BY_SLOT[team]?.[slot];const rv=filled&&!isDraft&&(rvSlot||Object.values(ROSTER_BY_SLOT[team]||{}).find(r=>r.name===entry.name));
-        const tierColor=rv?TIER_COLORS[rv.performanceTier]:null;
-        const dotColor=isDraft?"#7c3aed":tierColor||(filled?"#a8a29e":"#d4d4d4");
-        const lastName=entry?shortName(entry.name):"";
-        const isFa=filled&&!isDraft&&faList.includes(entry.name);
-        return(<g key={slot}>
-          {isFa&&<circle cx={pos.x} cy={pos.y} r={3.2} fill="none" stroke="#f97316" strokeWidth="0.4"/>}
-          <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={isDraft?"#7c3aed":filled?dotColor:"#a3a3a3"} strokeWidth={isDraft?"0.5":"0.2"}/>
-          <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="#a3a3a3" fontSize="1.8" fontFamily={mono}>{pos.label||slot.replace(/\d$/,'')}</text>
-          {filled&&<text x={pos.x} y={pos.y+4.5} textAnchor="middle" fill={isDraft?"#7c3aed":"#525252"} fontSize={isDraft?"2.2":"1.8"} fontWeight={isDraft?"bold":"normal"} fontFamily={sans}>{lastName}</text>}
-        </g>);
-      })}
-    </svg>);
-  };
-
   const draftFingerprint=(teamPicks)=>{
     if(teamPicks.length<5)return[];
     const guys=teamPicks.map(pk=>{const p=prospectsMap[pk.playerId];if(!p)return null;return{id:p.id,name:p.name,school:p.school,gpos:p.gpos||p.pos,pick:pk.pick,round:pk.round};}).filter(Boolean);
@@ -1779,138 +1913,6 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     const repeats=Object.entries(schoolCounts).filter(([,c])=>c>=2).sort((a,b)=>b[1]-a[1]);
     if(repeats.length>0){const[sch]=repeats[0];pills.push({emoji:"🏫",text:`${sch} pipeline`,color:"#7c3aed"});}
     return pills.slice(0,4);
-  };
-
-  const DepthList=({team})=>{
-    const chart=depthChart[team]||{};
-    const groups=getSchemeDepthGroups(team);
-    const faAbbr=TEAM_ABBR[team]||team;
-    const faList=FA_FLAGS[faAbbr]||[];
-    const baseGroupMap={};
-    DEPTH_GROUPS.forEach(g=>{baseGroupMap[g.posMatch]=g.slots;});
-    const faPill=(name)=>faList.includes(name)&&<span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:"#f97316",background:"rgba(249,115,22,0.08)",padding:"2px 6px",borderRadius:99}}>FA</span>;
-    const tierDot=(slot,name)=>{const rv=ROSTER_BY_SLOT[team]?.[slot]||(name&&ROSTER_BY_NAME[name]);const tc=rv?TIER_COLORS[rv.performanceTier]:null;return tc?<span style={{width:5,height:5,borderRadius:3,background:tc,flexShrink:0}} title={rv.performanceTier}/>:null;};
-    return(<div style={{marginTop:2}}>
-      {groups.map((group,gi)=>{
-        const entries=group.slots.map(s=>({slot:s,entry:chart[s]})).filter(x=>x.entry);
-        const extras=Object.entries(chart).filter(([k])=>group.slots.some(s=>k.startsWith(s+"_d"))).map(([k,v])=>({slot:k,entry:v}));
-        const baseSlots=baseGroupMap[group.posMatch]||[];
-        const hiddenRoster=baseSlots.filter(s=>!group.slots.includes(s)&&chart[s]).map(s=>({slot:s,entry:chart[s]}));
-        extras.push(...hiddenRoster);
-        if(entries.length===0&&extras.length===0)return null;
-        return(<div key={group.label} style={{marginBottom:8,...(gi>0?{paddingTop:6,borderTop:"1px solid #f5f5f5"}:{})}}>
-          {entries.map(({slot,entry})=>(<div key={slot} style={{fontFamily:sans,fontSize:11,padding:"2px 0",display:"flex",alignItems:"center",gap:6}}>
-            <span style={{fontFamily:mono,color:"#d4d4d4",width:24,fontSize:9,flexShrink:0}}>{group.slotLabels?.[slot]||slot}</span>
-            {entry.isDraft
-              ?<span style={{fontFamily:sans,fontWeight:700,fontSize:11,color:"#7c3aed",background:"rgba(124,58,237,0.06)",padding:"1px 6px",borderRadius:4}}>{entry.name}</span>
-              :<>{tierDot(slot,entry.name)}<span style={{fontFamily:sans,fontWeight:400,fontSize:11,color:entry.isTraded?"#a855f7":"#525252"}}>{entry.name}</span>{entry.isTraded&&<span style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 4px",borderRadius:2}}>TRD</span>}{faPill(entry.name)}</>}
-          </div>))}
-          {extras.map(({slot,entry})=>(<div key={slot} style={{fontFamily:sans,fontSize:11,padding:"2px 0",display:"flex",alignItems:"center",gap:6}}>
-            <span style={{fontFamily:mono,color:"#d4d4d4",width:24,fontSize:9,flexShrink:0}}>+</span>
-            {entry.isDraft
-              ?<span style={{fontFamily:sans,fontWeight:700,fontSize:11,color:"#7c3aed",background:"rgba(124,58,237,0.06)",padding:"1px 6px",borderRadius:4}}>{entry.name}</span>
-              :<>{tierDot(slot,entry.name)}<span style={{fontFamily:sans,fontWeight:400,fontSize:11,color:entry.isTraded?"#a855f7":"#525252"}}>{entry.name}</span>{entry.isTraded&&<span style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 4px",borderRadius:2}}>TRD</span>}{faPill(entry.name)}</>}
-          </div>))}
-        </div>);
-      })}
-    </div>);
-  };
-
-  const DraftFit=({team,teamPicks,fpPills})=>{
-    const base=TEAM_NEEDS_COUNTS?.[team]||{};const remaining=liveNeeds[team]||{};
-    const prof=TEAM_PROFILES[team];
-    const needEntries=Object.entries(base).sort((a,b)=>b[1]-a[1]);
-    const totalNeeds=Object.values(base).reduce((s,v)=>s+v,0);
-    const filledCount=totalNeeds-Object.values(remaining).reduce((s,v)=>s+v,0);
-    if(teamPicks.length===0)return null;
-    // Team philosophy
-    const stageMap={rebuild:"rebuilding",retool:"retooling",contend:"contending",dynasty:"in dynasty mode"};
-    const stageLabel=stageMap[prof?.stage]||"";
-    const boosted=prof?.posBoost||[];
-    // Tendency pills
-    const tendencies=[];
-    if(stageLabel)tendencies.push({text:stageMap[prof.stage],color:"#525252"});
-    if(prof?.bpaLean>=0.7)tendencies.push({text:"BPA-first",color:"#2563eb"});
-    else if(prof?.bpaLean<=0.4)tendencies.push({text:"need-driven",color:"#ea580c"});
-    if(prof?.athBoost>=0.1)tendencies.push({text:"values athleticism",color:"#059669"});
-    if(prof?.sizePremium)tendencies.push({text:"favors size",color:"#7c3aed"});
-    if(prof?.ceilingChaser>=0.08)tendencies.push({text:"chases upside",color:"#d97706"});
-    if(prof?.reachTolerance>=0.45)tendencies.push({text:"willing to reach",color:"#dc2626"});
-    // Prose traits for sentence
-    const sentenceTraits=[];
-    if(prof?.bpaLean>=0.7)sentenceTraits.push("tend to take the best player available");
-    else if(prof?.bpaLean<=0.4)sentenceTraits.push("tend to draft for need");
-    if(prof?.athBoost>=0.1)sentenceTraits.push("value athleticism");
-    if(prof?.sizePremium)sentenceTraits.push("favor bigger prospects at the position");
-    if(prof?.ceilingChaser>=0.08)sentenceTraits.push("chase upside");
-    if(prof?.reachTolerance>=0.45)sentenceTraits.push("reach for their guy");
-    const pickedPositions=teamPicks.map(pk=>{const p=prospectsMap[pk.playerId];return p?.pos;}).filter(Boolean);
-    let philoLine="";
-    if(stageLabel){
-      philoLine=`The ${team} are ${stageLabel}${sentenceTraits.length>0?" and "+sentenceTraits[0]:""}. `;
-      if(sentenceTraits.length>1)philoLine+=`They also tend to ${sentenceTraits.slice(1).join(" and ")}. `;
-      if(boosted.length>0){
-        const nonBoosted=pickedPositions.filter(pos=>!boosted.includes(pos));
-        if(nonBoosted.length>0&&teamPicks.length===1)philoLine+=`This front office usually prioritizes ${boosted.slice(0,3).join(", ")} — not ${nonBoosted[0]}.`;
-        else philoLine+=`This front office usually prioritizes ${boosted.slice(0,3).join(", ")}.`;
-      }
-    }
-    // Picks analysis
-    const boostHits=pickedPositions.filter(pos=>boosted.includes(pos)).length;
-    const topNeed=needEntries[0]?.[0];const topFilled=topNeed?base[topNeed]-(remaining[topNeed]||0):0;
-    const lines=[];
-    if(totalNeeds>0){
-      if(filledCount===totalNeeds){lines.push({text:`You addressed every pre-draft need.`,color:"#16a34a"});}
-      else if(filledCount===0){
-        if(teamPicks.length===1)lines.push({text:`Your pick didn't fill a listed need — but value is value.`,color:"#a3a3a3"});
-        else lines.push({text:`None of your ${teamPicks.length} picks addressed a team need.`,color:"#dc2626"});
-      }else{
-        const remainingNeeds=needEntries.filter(([pos])=>(remaining[pos]||0)>0).map(([pos])=>pos);
-        if(topFilled>0)lines.push({text:`Filled their biggest need at ${topNeed}.`,color:"#16a34a"});
-        else lines.push({text:`Left the top need (${topNeed}) unaddressed.`,color:"#ea580c"});
-        if(remainingNeeds.length>0&&remainingNeeds.length<=3)lines.push({text:`Still need${remainingNeeds.length===1?"s":""}: ${remainingNeeds.join(", ")}`,color:"#a3a3a3"});
-      }
-    }
-    return(<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"12px 16px"}}>
-      <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8,display:"flex",alignItems:"center",gap:4}}><span style={{fontSize:10}}>🧠</span> draft fit</div>
-      {tendencies.length>0&&<div style={{display:"flex",flexWrap:"wrap",gap:4,marginBottom:8}}>
-        {tendencies.map((t,i)=><span key={i} style={{fontFamily:mono,fontSize:8,padding:"2px 6px",borderRadius:4,color:t.color,background:t.color+"0d",border:`1px solid ${t.color}22`}}>{t.text}</span>)}
-      </div>}
-      {philoLine&&<div style={{fontFamily:sans,fontSize:11,color:"#737373",lineHeight:1.5,marginBottom:10}}>{philoLine}</div>}
-      {needEntries.length>0&&<>
-        <div style={{borderTop:"1px solid #f5f5f5",marginBottom:8}}/>
-        <div style={{fontFamily:mono,fontSize:7,letterSpacing:1,color:"#d4d4d4",textTransform:"uppercase",marginBottom:4}}>pre-draft needs</div>
-        <div style={{display:"flex",flexWrap:"wrap",gap:4,marginBottom:lines.length>0?10:0}}>
-          {(()=>{const broad=new Set(["DB","DL","OL"]);return needEntries.filter(([pos,v])=>v>=2&&!broad.has(pos)).map(([pos])=>{const rem=remaining[pos]||0;const isFilled=rem<=0;
-            return <span key={pos} style={{fontFamily:mono,fontSize:9,padding:"2px 6px",borderRadius:4,
-              ...(isFilled?{background:"rgba(34,197,94,0.1)",color:"#16a34a",border:"1px solid rgba(34,197,94,0.2)"}
-                :{background:"rgba(239,68,68,0.06)",color:"#dc2626",border:"1px solid rgba(239,68,68,0.12)"})
-            }}>{pos}{isFilled?" ✓":""}</span>;
-          });})()}
-        </div>
-      </>}
-      {lines.length>0&&<div>{lines.map((l,i)=><div key={i} style={{fontFamily:sans,fontSize:11,color:l.color,lineHeight:1.5}}>{l.text}</div>)}</div>}
-      {fpPills&&fpPills.length>0&&<>
-        <div style={{borderTop:"1px solid #f5f5f5",marginTop:8,marginBottom:8}}/>
-        <div style={{fontFamily:mono,fontSize:7,letterSpacing:1,color:"#d4d4d4",textTransform:"uppercase",marginBottom:4}}>your strategy</div>
-        <div style={{display:"flex",flexWrap:"wrap",gap:4}}>
-          {fpPills.map((pill,i)=><span key={i} style={{fontFamily:sans,fontSize:9,fontWeight:600,color:pill.color,background:`${pill.color}0d`,border:`1px solid ${pill.color}22`,padding:"2px 7px",borderRadius:99,display:"inline-flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{pill.emoji}</span><span>{pill.text}</span></span>)}
-        </div>
-      </>}
-    </div>);
-  };
-
-  const LiveNeeds=({team})=>{
-    const needs=liveNeeds[team]||{};const base=TEAM_NEEDS_COUNTS?.[team]||{};const isUser=userTeams.has(team);const broad=new Set(["DB","DL","OL"]);
-    const entries=Object.entries(needs).filter(([pos,v])=>v>0&&(!isUser||(!broad.has(pos)&&(base[pos]||0)>=2)));
-    const filled=Object.entries(base).filter(([k])=>(!needs[k]||needs[k]===0)&&(!isUser||(!broad.has(k)&&(base[k]||0)>=2)));
-    return(<div style={{marginTop:4}}>
-      <div style={{fontFamily:mono,fontSize:7,letterSpacing:1.5,color:"rgba(255,255,255,0.3)",textTransform:"uppercase",marginBottom:2}}>needs</div>
-      <div style={{display:"flex",flexWrap:"wrap",gap:2}}>
-        {entries.map(([pos])=>(<span key={pos} style={{fontFamily:mono,fontSize:7,padding:"1px 4px",borderRadius:3,background:"rgba(239,68,68,0.2)",color:"#fca5a5",border:"1px solid rgba(239,68,68,0.25)"}}>{pos}</span>))}
-        {filled.map(([pos])=>(<span key={pos} style={{fontFamily:mono,fontSize:7,padding:"1px 4px",background:"rgba(34,197,94,0.15)",color:"#86efac",borderRadius:3,textDecoration:"line-through",opacity:0.5}}>{pos} ✓</span>))}
-      </div>
-    </div>);
   };
 
   // === SETUP SCREEN ===
@@ -2143,14 +2145,14 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
               </div>
               <div style={{display:"flex",gap:16,alignItems:"stretch",flexWrap:"wrap"}}>
                 <div style={{flex:"1 1 280px",minWidth:260,display:"flex",flexDirection:"column",gap:12}}>
-                  <DraftFit team={team} teamPicks={tp} fpPills={fpPills}/>
+                  <DraftFit team={team} teamPicks={tp} fpPills={fpPills} liveNeeds={liveNeeds} prospectsMap={prospectsMap} mono={mono} sans={sans}/>
                   <div style={{background:"#fff",borderRadius:12,padding:"8px 4px"}}>
-                    <FormationChart team={team}/>
+                    <FormationChart team={team} depthChart={depthChart} mono={mono} sans={sans}/>
                   </div>
                 </div>
                 <div style={{flex:"1 1 280px",minWidth:200,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"12px 16px"}}>
                   <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:6}}>depth chart</div>
-                  <DepthList team={team}/>
+                  <DepthList team={team} depthChart={depthChart} mono={mono} sans={sans}/>
                   <div style={{display:"flex",gap:4,flexWrap:"wrap",marginTop:6}}>
                     {[["elite","ELT"],["pro_bowl","PRO"],["quality_starter","QS"],["starter","STR"],["rotational","ROT"],["backup","BKP"],["declining","DEC"]].map(([tier,label])=><span key={tier} style={{display:"inline-flex",alignItems:"center",gap:2}}><span style={{width:5,height:5,borderRadius:3,background:TIER_COLORS[tier]}}/><span style={{fontFamily:mono,fontSize:7,color:"#a3a3a3"}}>{label}</span></span>)}
                   </div>
@@ -2355,12 +2357,12 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
             <span style={{fontFamily:sans,fontSize:12,fontWeight:700,color:"#171717"}}>{team}</span>
             <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginLeft:"auto"}}>{picks.filter(pk=>pk.team===team).length} drafted</span>
           </div>
-          <FormationChart team={team}/>
-          <DepthList team={team}/>
+          <FormationChart team={team} depthChart={depthChart} mono={mono} sans={sans}/>
+          <DepthList team={team} depthChart={depthChart} mono={mono} sans={sans}/>
           <div style={{display:"flex",gap:4,flexWrap:"wrap",marginTop:4,marginBottom:4}}>
             {[["elite","ELT"],["pro_bowl","PRO"],["quality_starter","QS"],["starter","STR"],["rotational","ROT"],["backup","BKP"],["declining","DEC"]].map(([tier,label])=><span key={tier} style={{display:"inline-flex",alignItems:"center",gap:2}}><span style={{width:5,height:5,borderRadius:3,background:TIER_COLORS[tier]}}/><span style={{fontFamily:mono,fontSize:7,color:"#a3a3a3"}}>{label}</span></span>)}
           </div>
-          <LiveNeeds team={team}/>
+          <LiveNeeds team={team} liveNeeds={liveNeeds} userTeams={userTeams} mono={mono}/>
         </div>
       );
     })()}
@@ -2553,13 +2555,13 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
             </div>
             {/* Scrollable content */}
             <div style={{flex:1,overflowY:"auto",padding:"0 12px 20px",WebkitOverflowScrolling:"touch"}}>
-              <FormationChart team={depthSheetTeam}/>
+              <FormationChart team={depthSheetTeam} depthChart={depthChart} mono={mono} sans={sans}/>
               <div style={{marginTop:12,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"10px 12px"}}>
                 <div style={{fontFamily:mono,fontSize:8,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:6}}>depth chart</div>
-                <DepthList team={depthSheetTeam}/>
+                <DepthList team={depthSheetTeam} depthChart={depthChart} mono={mono} sans={sans}/>
               </div>
               <div style={{marginTop:10}}>
-                <LiveNeeds team={depthSheetTeam}/>
+                <LiveNeeds team={depthSheetTeam} liveNeeds={liveNeeds} userTeams={userTeams} mono={mono}/>
               </div>
             </div>
           </div>

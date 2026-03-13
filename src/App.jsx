@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect, useCallback, useMemo, useRef, Fragment } from "react";
+import { useState, useEffect, useLayoutEffect, useCallback, useMemo, useRef, Fragment, memo } from "react";
 import { supabase } from "./supabase.js";
 import MockDraftSim from "./MockDraftSim.jsx";
 import Round1Prediction from "./Round1Prediction.jsx";
@@ -235,7 +235,7 @@ function beeswarmLayoutVertical(points,chartH,colW,dotR,globalMin,globalMax,inve
   return placed;
 }
 
-function BeeswarmChart({data,width,myGuys,showMyGuys,showLogos,onHover,onTap,hoveredId}){
+const BeeswarmChart=memo(function BeeswarmChart({data,width,myGuys,showMyGuys,showLogos,onHover,onTap,hoveredId}){
   const isMobile=width<600;
   const dotR=isMobile?3.5:4.5;
   const chartH=isMobile?320:400;
@@ -317,7 +317,7 @@ function BeeswarmChart({data,width,myGuys,showMyGuys,showLogos,onHover,onTap,hov
     {/* Y-axis label */}
     <text x={10} y={chartH/2} textAnchor="middle" dominantBaseline="middle" transform={`rotate(-90,10,${chartH/2})`} style={{fontSize:"10px",fill:"#a3a3a3",fontFamily:"monospace"}}>{data.label}</text>
   </svg>);
-}
+});
 
 function BeeswarmChartWrapper({data,myGuys,showMyGuys,showLogos,onHover,onTap,hoveredId}){
   const ref=useRef(null);
@@ -331,7 +331,7 @@ function BeeswarmChartWrapper({data,myGuys,showMyGuys,showLogos,onHover,onTap,ho
   return<div ref={ref}>{w>0&&<BeeswarmChart data={data} width={w} myGuys={myGuys} showMyGuys={showMyGuys} showLogos={showLogos} onHover={onHover} onTap={onTap} hoveredId={hoveredId}/>}</div>;
 }
 
-function ScatterChart({points,width,xLabel,yLabel,xInverted,yInverted,posColor,showLogos,onHover,onTap,hoveredId,myGuys,showMyGuys}){
+const ScatterChart=memo(function ScatterChart({points,width,xLabel,yLabel,xInverted,yInverted,posColor,showLogos,onHover,onTap,hoveredId,myGuys,showMyGuys}){
   const isMobile=width<600;
   const chartH=isMobile?300:380;
   const padT=16,padR=20,padB=36,padL=isMobile?42:50;
@@ -424,7 +424,7 @@ function ScatterChart({points,width,xLabel,yLabel,xInverted,yInverted,posColor,s
       </g>;
     })}
   </svg>);
-}
+});
 
 function ScatterChartWrapper(props){
   const ref=useRef(null);
@@ -611,7 +611,7 @@ function ProfileTeamFits({topFits,player,userTraits,schemeFits,allProspects,font
   </div>;
 }
 
-function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getGrade,onClose,onSelectPlayer,consensus,ratings,isGuest,onRequireAuth,schemeFits}){
+const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getGrade,onClose,onSelectPlayer,consensus,ratings,isGuest,onRequireAuth,schemeFits}){
   const[isOpen,setIsOpen]=useState(false);
   const[profileMeasMode,setProfileMeasMode]=useState(false);
   const[historicalData,setHistoricalData]=useState(_historicalCompsCache||null);
@@ -1024,7 +1024,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
       </div>
     </>
   );
-}
+});
 
 // ============================================================
 // Auth Modal (contextual sign-in prompt for guests)
@@ -1338,6 +1338,13 @@ function AuthScreen({onSignIn,onSkip,onOpenGuide}){
 }
 
 // ============================================================
+// SaveBar — fixed top nav bar (module-level to avoid remount)
+// ============================================================
+const SaveBar=memo(function SaveBar({navigate,mono,sans,isGuest,userEmail,showOnboarding,setShowOnboarding,saving,lastSaved,onRequireAuth,onSignOut}){
+  return(<div style={{position:"fixed",top:0,left:0,right:0,zIndex:9999,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}><div style={{display:"flex",alignItems:"center",gap:12}}><img src="/logo.png" alt="BBL" style={{height:24,cursor:"pointer"}} onClick={()=>navigate('/')}/><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{isGuest?"guest":userEmail}</span></div><div style={{display:"flex",alignItems:"center",gap:8}}>{!showOnboarding&&<button onClick={()=>setShowOnboarding(true)} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 8px",cursor:"pointer"}} title="How it works">?</button>}{!isGuest&&<span style={{fontFamily:mono,fontSize:10,color:saving?"#ca8a04":"#d4d4d4"}}>{saving?"saving...":lastSaved?`saved ${new Date(lastSaved).toLocaleTimeString()}`:""}</span>}<button onClick={isGuest?()=>onRequireAuth("sign in to save your progress"):onSignOut} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>{isGuest?"sign in":"sign out"}</button></div></div>);
+});
+
+// ============================================================
 // Main Board App (post-auth)
 // ============================================================
 function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMockLaunch,onClearGmQuizMock}){
@@ -1348,6 +1355,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[matchups,setMatchups]=useState({});
   const[currentMatchup,setCurrentMatchup]=useState(null);
   const[traits,setTraits]=useState({});
+  const traitsRef=useRef(traits);traitsRef.current=traits;
+  const[debouncedTraits,setDebouncedTraits]=useState(traits);
+  useEffect(()=>{const t=setTimeout(()=>setDebouncedTraits(traits),300);return()=>clearTimeout(t);},[traits]);
   const[rankedGroups,setRankedGroups]=useState(new Set());
   const[traitReviewedGroups,setTraitReviewedGroups]=useState(new Set());
   const[selectedPlayer,setSelectedPlayer]=useState(null);
@@ -1363,11 +1373,11 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[lastSaved,setLastSaved]=useState(null);
   const[profilePlayer,setProfilePlayer]=useState(null);
   const profileTraitsSnapshot=useRef(null);
-  const openProfile=useCallback((p)=>{profileTraitsSnapshot.current=p?JSON.stringify(traits[p.id]||{}):null;setProfilePlayer(p);},[traits]);
+  const openProfile=useCallback((p)=>{profileTraitsSnapshot.current=p?JSON.stringify(traitsRef.current[p.id]||{}):null;setProfilePlayer(p);},[]);
   const closeProfile=useCallback(()=>{
     if(profilePlayer){
       const before=profileTraitsSnapshot.current;
-      const after=JSON.stringify(traits[profilePlayer.id]||{});
+      const after=JSON.stringify(traitsRef.current[profilePlayer.id]||{});
       if(before!==after){
         const gpos=profilePlayer.gpos||profilePlayer.pos;
         const group=(gpos==="K"||gpos==="P"||gpos==="LS")?"K/P":gpos;
@@ -1381,7 +1391,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
       }
     }
     setProfilePlayer(null);
-  },[profilePlayer,traits,rankedGroups]);
+  },[profilePlayer,rankedGroups]);
   const[notes,setNotes]=useState({});
   const[partialProgress,setPartialProgress]=useState({}); // {pos: {matchups:[], completed:Set, ratings:{}}}
   const[communityBoard,setCommunityBoard]=useState(null);
@@ -1509,13 +1519,13 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const prospectsMap=useMemo(()=>{const m={};PROSPECTS.forEach(p=>m[p.id]=p);return m;},[]);
   const byPos=useMemo(()=>{const m={};const seen=new Set();PROSPECTS.forEach(p=>{if(seen.has(p.id))return;seen.add(p.id);const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;if(!m[group])m[group]=[];m[group].push(p);});return m;},[]);
   // Trait thresholds: per-position percentile cutoffs
-  const traitThresholds=useMemo(()=>{const result={};Object.entries(POSITION_TRAITS).forEach(([pos,posTraits])=>{const players=byPos[pos]||[];if(!players.length)return;result[pos]={};posTraits.forEach(trait=>{const values=players.map(p=>tv(traits,p.id,trait,p.name,p.school)).sort((a,b)=>a-b);const n=values.length;result[pos][trait]={p80:values[Math.floor(n*0.8)]||50,p90:values[Math.floor(n*0.9)]||50};});});return result;},[traits,byPos]);
-  const qualifiesForFilter=useCallback((id,pos,trait)=>{const p=PROSPECTS.find(x=>x.id===id);if(!p)return false;const th=traitThresholds[pos]?.[trait];if(!th)return false;const score=tv(traits,id,trait,p.name,p.school);return score>=th.p80&&score>75;},[traitThresholds,traits]);
-  const qualifiesForBadge=useCallback((id,pos,trait)=>{const p=PROSPECTS.find(x=>x.id===id);if(!p)return false;const th=traitThresholds[pos]?.[trait];if(!th)return false;const score=tv(traits,id,trait,p.name,p.school);return score>=th.p90&&score>80;},[traitThresholds,traits]);
+  const traitThresholds=useMemo(()=>{const result={};Object.entries(POSITION_TRAITS).forEach(([pos,posTraits])=>{const players=byPos[pos]||[];if(!players.length)return;result[pos]={};posTraits.forEach(trait=>{const values=players.map(p=>tv(debouncedTraits,p.id,trait,p.name,p.school)).sort((a,b)=>a-b);const n=values.length;result[pos][trait]={p80:values[Math.floor(n*0.8)]||50,p90:values[Math.floor(n*0.9)]||50};});});return result;},[debouncedTraits,byPos]);
+  const qualifiesForFilter=useCallback((id,pos,trait)=>{const p=prospectsMap[id];if(!p)return false;const th=traitThresholds[pos]?.[trait];if(!th)return false;const score=tv(debouncedTraits,id,trait,p.name,p.school);return score>=th.p80&&score>75;},[traitThresholds,debouncedTraits,prospectsMap]);
+  const qualifiesForBadge=useCallback((id,pos,trait)=>{const p=prospectsMap[id];if(!p)return false;const th=traitThresholds[pos]?.[trait];if(!th)return false;const score=tv(debouncedTraits,id,trait,p.name,p.school);return score>=th.p90&&score>80;},[traitThresholds,debouncedTraits,prospectsMap]);
   const getMeasVal=useCallback((name,school,m)=>{const key=MEASURABLE_KEY[m];if(MEASURABLE_DRILLS.includes(m)){const cs=getCombineScores(name,school);return cs?.percentiles?.[key]??null;}if(MEASURABLE_RAW.includes(m)){const cd=getCombineData(name,school);return cd?.[key]??null;}const cs=getCombineScores(name,school);return cs?.[key]??null;},[]);
   const measurableThresholds=useMemo(()=>{const result={};POSITION_GROUPS.forEach(pos=>{const players=byPos[pos]||[];if(!players.length)return;result[pos]={};MEASURABLE_LIST.forEach(m=>{const values=players.map(p=>getMeasVal(p.name,p.school,m)).filter(v=>v!=null);if(values.length<3)return;values.sort((a,b)=>a-b);const n=values.length;result[pos][m]={p80:values[Math.floor(n*0.8)]||0,p90:values[Math.floor(n*0.9)]||0};});});return result;},[byPos,getMeasVal]);
-  const qualifiesForMeasurableFilter=useCallback((id,pos,m)=>{const p=PROSPECTS.find(x=>x.id===id);if(!p)return false;const th=measurableThresholds[pos]?.[m];if(!th)return false;const val=getMeasVal(p.name,p.school,m);if(val==null)return false;const isRaw=MEASURABLE_RAW.includes(m);return val>=th.p80&&(isRaw||val>75);},[measurableThresholds,getMeasVal]);
-  const prospectBadges=useMemo(()=>{const badges={};PROSPECTS.forEach(p=>{const pos=p.gpos||p.pos;const pk=(pos==="K"||pos==="P"||pos==="LS")?"K/P":pos;const posTraits=POSITION_TRAITS[pk]||[];const qualifying=posTraits.filter(trait=>qualifiesForBadge(p.id,pk,trait)).map(trait=>({trait,emoji:TRAIT_EMOJI[trait]||"",score:tv(traits,p.id,trait,p.name,p.school)})).sort((a,b)=>b.score-a.score).slice(0,4);if(qualifying.length>0)badges[p.id]=qualifying;});return badges;},[traits,qualifiesForBadge]);
+  const qualifiesForMeasurableFilter=useCallback((id,pos,m)=>{const p=prospectsMap[id];if(!p)return false;const th=measurableThresholds[pos]?.[m];if(!th)return false;const val=getMeasVal(p.name,p.school,m);if(val==null)return false;const isRaw=MEASURABLE_RAW.includes(m);return val>=th.p80&&(isRaw||val>75);},[measurableThresholds,getMeasVal,prospectsMap]);
+  const prospectBadges=useMemo(()=>{const badges={};PROSPECTS.forEach(p=>{const pos=p.gpos||p.pos;const pk=(pos==="K"||pos==="P"||pos==="LS")?"K/P":pos;const posTraits=POSITION_TRAITS[pk]||[];const qualifying=posTraits.filter(trait=>qualifiesForBadge(p.id,pk,trait)).map(trait=>({trait,emoji:TRAIT_EMOJI[trait]||"",score:tv(debouncedTraits,p.id,trait,p.name,p.school)})).sort((a,b)=>b.score-a.score).slice(0,4);if(qualifying.length>0)badges[p.id]=qualifying;});return badges;},[debouncedTraits,qualifiesForBadge]);
   const posRankFn=useCallback((id)=>{const p=prospectsMap[id];if(!p)return 999;const ps=getProspectStats(p.name,p.school);return ps?.posRank||getConsensusRank(p.name)||999;},[prospectsMap]);
   const startRanking=useCallback((pos,resume=false)=>{
     setLockedPlayer(null);
@@ -1623,7 +1633,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     if(raw>=70)return Math.round(50+(raw-70)*2);
     return Math.max(1,Math.round(30+(raw-60)*2));
   },[]);
-  const getGrade=useCallback((id)=>{const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;
+  const getGrade=useCallback((id)=>{const p=prospectsMap[id];if(!p)return 50;
     const pos=p.gpos||p.pos;const t=traits[id];
     // If user has set traits, use those (existing behavior with ceiling support)
     if(t&&Object.keys(t).length>0){const sc=getScoutingTraits(p.name,p.school)||{};const st=getStatBasedTraits(p.name,p.school)||{};const merged={...st,...sc,...t};const grade=gradeFromTraits(merged,pos);const ceil=t.__ceiling;if(!ceil||ceil==="normal")return grade;const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let rawW=0,rawV=0;posTraits.forEach(trait=>{const teach=TRAIT_TEACHABILITY[trait]??0.5;if(teach<0.4){const w=weights[trait]||1/posTraits.length;rawW+=w;rawV+=(merged[trait]||50)*w;}});const rawScore=rawW>0?rawV/rawW:grade;const gap=rawScore-grade;if(ceil==="high")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.5,0)+4)));if(ceil==="elite")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.7,0)+7)));if(ceil==="capped")return Math.max(1,Math.min(99,Math.round(grade-Math.max(-gap*0.3,0)-3)));return grade;}
@@ -1631,14 +1641,14 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     const sc=getScoutingTraits(p.name,p.school);
     if(sc){const grade=gradeFromTraits(sc,pos);const ceil=sc.__ceiling;if(!ceil||ceil==="normal")return grade;const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let rawW=0,rawV=0;posTraits.forEach(trait=>{const teach=TRAIT_TEACHABILITY[trait]??0.5;if(teach<0.4){const w=weights[trait]||1/posTraits.length;rawW+=w;rawV+=(sc[trait]||50)*w;}});const rawScore=rawW>0?rawV/rawW:grade;const gap=rawScore-grade;if(ceil==="high")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.5,0)+4)));if(ceil==="elite")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.7,0)+7)));if(ceil==="capped")return Math.max(1,Math.min(99,Math.round(grade-Math.max(-gap*0.3,0)-3)));return grade;}
     return 50;
-  },[traits,gradeFromTraits]);
+  },[traits,gradeFromTraits,prospectsMap]);
   // Scouting-only grade — immutable, never reads user traits. Used for consensus board.
-  const getScoutingGrade=useCallback((id)=>{const p=PROSPECTS.find(x=>x.id===id);if(!p)return 50;
+  const getScoutingGrade=useCallback((id)=>{const p=prospectsMap[id];if(!p)return 50;
     const pos=p.gpos||p.pos;
     const sc=getScoutingTraits(p.name,p.school);
     if(sc){const grade=gradeFromTraits(sc,pos);const ceil=sc.__ceiling;if(!ceil||ceil==="normal")return grade;const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let rawW=0,rawV=0;posTraits.forEach(trait=>{const teach=TRAIT_TEACHABILITY[trait]??0.5;if(teach<0.4){const w=weights[trait]||1/posTraits.length;rawW+=w;rawV+=(sc[trait]||50)*w;}});const rawScore=rawW>0?rawV/rawW:grade;const gap=rawScore-grade;if(ceil==="high")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.5,0)+4)));if(ceil==="elite")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.7,0)+7)));if(ceil==="capped")return Math.max(1,Math.min(99,Math.round(grade-Math.max(-gap*0.3,0)-3)));return grade;}
     return 50;
-  },[gradeFromTraits]);
+  },[gradeFromTraits,prospectsMap]);
   const finishRanking=useCallback((pos)=>{
     setRankedGroups(prev=>new Set([...prev,pos]));
     setTraitReviewedGroups(prev=>new Set([...prev,pos]));
@@ -1653,8 +1663,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const CONSENSUS=useMemo(()=>{
     return PROSPECTS.map(p=>({name:p.name,rank:getConsensusRank(p.name)}));
   },[]);
-  const schemeFits=useMemo(()=>computeAllSchemeFits(PROSPECTS,traits),[traits]);
-  const getBoard=useCallback(()=>PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;const hasTraitEdits=traits[p.id]&&Object.keys(traits[p.id]).length>0;return rankedGroups.has(group)||hasTraitEdits;}).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings,traits]);
+  const schemeFits=useMemo(()=>computeAllSchemeFits(PROSPECTS,debouncedTraits),[debouncedTraits]);
+  const board=useMemo(()=>PROSPECTS.filter(p=>{const g=p.gpos||p.pos;const group=(g==="K"||g==="P"||g==="LS")?"K/P":g;const hasTraitEdits=traits[p.id]&&Object.keys(traits[p.id]).length>0;return rankedGroups.has(group)||hasTraitEdits;}).sort((a,b)=>{const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}),[rankedGroups,getGrade,ratings,traits]);
 
   // Build mock draft board: consensus order for all 319, user rankings override when graded
   const mockDraftBoard=useMemo(()=>{
@@ -1663,7 +1673,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   },[getConsensusRank]);
 
 
-  const SaveBar=()=>(<div style={{position:"fixed",top:0,left:0,right:0,zIndex:9999,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}><div style={{display:"flex",alignItems:"center",gap:12}}><img src="/logo.png" alt="BBL" style={{height:24,cursor:"pointer"}} onClick={()=>navigate('/')}/><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{isGuest?"guest":user?.email}</span></div><div style={{display:"flex",alignItems:"center",gap:8}}>{!showOnboarding&&<button onClick={()=>setShowOnboarding(true)} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 8px",cursor:"pointer"}} title="How it works">?</button>}{!isGuest&&<span style={{fontFamily:mono,fontSize:10,color:saving?"#ca8a04":"#d4d4d4"}}>{saving?"saving...":lastSaved?`saved ${new Date(lastSaved).toLocaleTimeString()}`:""}</span>}<button onClick={isGuest?()=>onRequireAuth("sign in to save your progress"):onSignOut} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>{isGuest?"sign in":"sign out"}</button></div></div>);
+
 
   // === MOCK DRAFT (check before phase returns to fix click bug) ===
   // My Guys state
@@ -1704,7 +1714,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[sfTeam,setSfTeam]=useState("49ers");
   const[sfPosFilter,setSfPosFilter]=useState("WR");
   const[sfExpandedId,setSfExpandedId]=useState(null);
-  const sfVision=useMemo(()=>{if(!sfTeam)return new Map();try{return computeTeamScoutVision(sfTeam,PROSPECTS,schemeFits,traits);}catch(e){console.error("sfVision error:",e);return new Map();}},[sfTeam,schemeFits,traits]);
+  const sfVision=useMemo(()=>{if(!sfTeam)return new Map();try{return computeTeamScoutVision(sfTeam,PROSPECTS,schemeFits,debouncedTraits);}catch(e){console.error("sfVision error:",e);return new Map();}},[sfTeam,schemeFits,debouncedTraits]);
+  const explorerTraitsKey=useMemo(()=>explorerMode==="traits"?traits:null,[explorerMode,traits]);
   const explorerData=useMemo(()=>{
     if(explorerMode==="combo")return{points:[],min:0,max:0,groups:[],label:"",measCode:null,statCode:null,inverted:false};
     const points=[];
@@ -1782,7 +1793,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
       const flipAxis=!isBreakout&&inverted&&explorerAbsolute;
       return{points,min:mn,max:mx,groups,label:STAT_SHORT[stat]||stat,measCode:null,statCode:stat,inverted:flipAxis};
     }
-  },[explorerMode,explorerMeas,explorerTrait,traits,getMeasVal,explorerAbsolute,explorerStat]);
+  },[explorerMode,explorerMeas,explorerTrait,explorerTraitsKey,getMeasVal,explorerAbsolute,explorerStat]);
   const comboMetrics=useMemo(()=>getComboMetrics(comboPos),[comboPos]);
   const comboData=useMemo(()=>{
     if(explorerMode!=="combo")return{points:[],xMeta:null,yMeta:null};
@@ -1908,6 +1919,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     applyRoute(path);
   },[applyRoute]);
   navigateRef.current=navigate;
+  const saveBarProps={navigate,mono,sans,isGuest,userEmail:user?.email,showOnboarding,setShowOnboarding,saving,lastSaved,onRequireAuth,onSignOut};
 
   const openExplorer=useCallback((mode)=>{const target=mode?"/lab/"+mode:"/lab/scheme-fit";navigate(target);setShowExplorer(true);if(mode)setExplorerMode(mode);},[navigate]);
   const closeExplorer=useCallback(()=>{if(isLabPath(window.location.pathname))navigate('/');setShowExplorer(false);setExplorerHover(null);},[navigate]);
@@ -1923,7 +1935,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[showTrends,setShowTrends]=useState(()=>window.location.pathname==='/trends');
   useEffect(()=>{window.scrollTo(0,0);},[phase,showMyGuys,showExplorer,showRound1Prediction,showTrends]);
   const[trendsTeam,setTrendsTeam]=useState(()=>{if(window.location.pathname==='/trends'){const p=new URLSearchParams(window.location.search);return p.get('team')||'Titans';}return'Titans';});
-  const trendsVision=useMemo(()=>{if(!trendsTeam)return new Map();try{return computeTeamScoutVision(trendsTeam,PROSPECTS,schemeFits,traits);}catch(e){console.error("trendsVision error:",e);return new Map();}},[trendsTeam,schemeFits,traits]);
+  const trendsVision=useMemo(()=>{if(!trendsTeam)return new Map();try{return computeTeamScoutVision(trendsTeam,PROSPECTS,schemeFits,debouncedTraits);}catch(e){console.error("trendsVision error:",e);return new Map();}},[trendsTeam,schemeFits,debouncedTraits]);
   const[trendsData,setTrendsData]=useState(null);
   const[trendsLoading,setTrendsLoading]=useState(false);
   const trendsCacheRef=useRef({});
@@ -1959,7 +1971,6 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
 
   useEffect(()=>{if(showTrends&&trendsTeam)loadTrendsData(trendsTeam);},[showTrends,trendsTeam,loadTrendsData]);
 
-  const traitsRef=useRef(traits);traitsRef.current=traits;
   const ratingsRef=useRef(ratings);ratingsRef.current=ratings;
   const getGradeRef=useRef(getGrade);getGradeRef.current=getGrade;
 
@@ -2138,7 +2149,6 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
 
   // Share top 10 (overall or position-specific) as branded image — matches My Guys layout
   const sharePositionTop10=useCallback(async(pos)=>{
-    const board=getBoard();
     const singlePos=pos||null;
     const top10=(singlePos?board.filter(p=>(p.gpos||p.pos)===singlePos):board).slice(0,10);
     if(top10.length===0)return;
@@ -2269,13 +2279,13 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
       }catch(e){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=fname;a.click();URL.revokeObjectURL(url);}
       trackEvent(user?.id,'share_triggered',{type:singlePos?'position_top10':'board_top10',position:singlePos||'all',guest:!user});
     });
-  },[getBoard,getGrade,traits,prospectBadges]);
+  },[board,getGrade,traits,prospectBadges]);
 
   if(phase==="loading")return(<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><img src="/logo.png" alt="" style={{height:48,animation:"pulse 1.5s ease-in-out infinite"}}/><style>{`@keyframes pulse{0%,100%{opacity:.3;transform:scale(.95)}50%{opacity:1;transform:scale(1)}}`}</style></div>);
 
 
 
-  if(showRound1Prediction){return<><SaveBar/><Round1Prediction board={mockDraftBoard} PROSPECTS={PROSPECTS} POS_COLORS={POS_COLORS} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} font={font} mono={mono} sans={sans} onClose={()=>{navigate('/');}} onResults={setR1PredictionSlots} trackEvent={trackEvent} userId={user?.id} getGrade={getGrade}/></>;}
+  if(showRound1Prediction){return<><SaveBar {...saveBarProps}/><Round1Prediction board={mockDraftBoard} PROSPECTS={PROSPECTS} POS_COLORS={POS_COLORS} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} font={font} mono={mono} sans={sans} onClose={()=>{navigate('/');}} onResults={setR1PredictionSlots} trackEvent={trackEvent} userId={user?.id} getGrade={getGrade}/></>;}
 
   if(showMockDraft){const myBoard=[...PROSPECTS].sort((a,b)=>{const gA=(a.gpos==="K"||a.gpos==="P"||a.gpos==="LS")?"K/P":(a.gpos||a.pos);const gB=(b.gpos==="K"||b.gpos==="P"||b.gpos==="LS")?"K/P":(b.gpos||b.pos);const aRanked=rankedGroups.has(gA)||(traits[a.id]&&Object.keys(traits[a.id]).length>0);const bRanked=rankedGroups.has(gB)||(traits[b.id]&&Object.keys(traits[b.id]).length>0);if(aRanked&&!bRanked)return-1;if(!aRanked&&bRanked)return 1;if(aRanked&&bRanked){const d=getGrade(b.id)-getGrade(a.id);return d!==0?d:(ratings[b.id]||1500)-(ratings[a.id]||1500);}return getConsensusRank(a.name)-getConsensusRank(b.name);});return<MockDraftSim board={mockDraftBoard} myBoard={myBoard} getGrade={getGrade} teamNeeds={TEAM_NEEDS_SIMPLE} onClose={()=>{setShowMockDraft(false);setMockLaunchTeam(null);}} onMockComplete={saveMockPicks} myGuys={myGuys} myGuysUpdated={myGuysUpdated} setMyGuysUpdated={setMyGuysUpdated} mockCount={mockCount} allProspects={PROSPECTS} PROSPECTS={PROSPECTS} CONSENSUS={CONSENSUS} ratings={ratings} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} POS_COLORS={POS_COLORS} POSITION_TRAITS={POSITION_TRAITS} SchoolLogo={SchoolLogo} NFLTeamLogo={NFLTeamLogo} RadarChart={RadarChart} PlayerProfile={PlayerProfile} font={font} mono={mono} sans={sans} schoolLogo={schoolLogo} getConsensusRank={getConsensusRank} getConsensusGrade={getConsensusGrade} getConsensusRound={getConsensusRound} rankedGroups={rankedGroups} mockLaunchTeam={mockLaunchTeam} mockLaunchRounds={mockRounds} mockLaunchSpeed={mockSpeed} mockLaunchCpuTrades={mockCpuTrades} mockLaunchBoardMode={mockBoardMode} onRankPosition={(pos)=>{setShowMockDraft(false);setMockLaunchTeam(null);navigate('/rank/'+posToSlug(pos));}} isGuest={isGuest} onRequireAuth={onRequireAuth} trackEvent={trackEvent} userId={user?.id} isGuestUser={!user} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} TRAIT_ABBREV={TRAIT_ABBREV} TRAIT_EMOJI={TRAIT_EMOJI} SCHOOL_CONFERENCE={SCHOOL_CONFERENCE} POS_EMOJI={POS_EMOJI} onShareMyGuys={shareMyGuys} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter} MEASURABLE_EMOJI={MEASURABLE_EMOJI} MEASURABLE_SHORT={MEASURABLE_SHORT} MEASURABLE_LIST={MEASURABLE_LIST} MEASURABLE_DRILLS={MEASURABLE_DRILLS} MEASURABLE_KEY={MEASURABLE_KEY} MEASURABLE_RAW={MEASURABLE_RAW} MEAS_GROUPS={MEAS_GROUPS} getMeasRadarData={getMeasRadarData} schemeFits={schemeFits} generateScoutReasoning={generateScoutReasoning} computeTeamScoutVision={computeTeamScoutVision}/>;}
   // === TEAM MOCK TRENDS PAGE ===
@@ -2287,7 +2297,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     const positions=trendsData?.positions||[];
     const totalPosPicks=positions.reduce((s,p)=>s+Number(p.pos_count),0);
     return(<div style={{position:"fixed",inset:0,background:"#faf9f6",zIndex:9000,overflow:"auto",WebkitOverflowScrolling:"touch"}}>
-      <SaveBar/>
+      <SaveBar {...saveBarProps}/>
       <div style={{maxWidth:960,margin:"0 auto",padding:"52px 16px 80px"}}>
         <style>{`@media(max-width:700px){.trends-grid{flex-direction:column!important;}}`}</style>
         {/* Header */}
@@ -2593,7 +2603,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     const traitPosCounts={};
     allTraits.forEach(t=>{traitPosCounts[t]=EXPLORER_GROUPS.filter(pos=>POSITION_TRAITS[pos]?.includes(t)).length;});
     return(<div style={{position:"fixed",inset:0,background:"#faf9f6",zIndex:9000,overflow:"auto",WebkitOverflowScrolling:"touch"}}>
-      <SaveBar/>
+      <SaveBar {...saveBarProps}/>
       <div style={{maxWidth:900,margin:"0 auto",padding:"52px 16px 80px"}}>
         {/* Header */}
         <div style={{marginBottom:12}}>
@@ -3837,7 +3847,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     })();
 
     return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
-      <SaveBar/>
+      <SaveBar {...saveBarProps}/>
       <div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 60px"}}>
         <div style={{marginBottom:8}}>
           <div style={{display:"flex",alignItems:"center",gap:12}}>
@@ -3942,13 +3952,13 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     // Consensus big board — all prospects sorted by consensus rank
     const consensusBoard=[...PROSPECTS].sort((a,b)=>getConsensusRank(a.name)-getConsensusRank(b.name));
     // User big board
-    const userBoard=getBoard();
+    const userBoard=board;
 
     // Board toggle state
     const showBoard=boardTab==="my"?userBoard:consensusBoard;
     const filteredBoard=boardFilter.size>0?showBoard.filter(p=>{const g=(p.gpos||p.pos)==="K"||(p.gpos||p.pos)==="P"||(p.gpos||p.pos)==="LS"?"K/P":(p.gpos||p.pos);return boardFilter.has(g);}):showBoard;
 
-    return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 60px"}}>
+    return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar {...saveBarProps}/><div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 60px"}}>
 
     {/* First-visit banner — differentiators, not flow */}
     {showOnboarding&&<div style={{background:"linear-gradient(135deg,#ec4899,#7c3aed)",borderRadius:13,padding:2,marginBottom:20}}>
@@ -4188,7 +4198,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   }
 
   // === RANKING ===
-  if(phase==="ranking"&&currentMatchup&&activePos){const[aId,bId]=currentMatchup;const pA=prospectsMap[aId],pB=prospectsMap[bId];const c=POS_COLORS[activePos];const totalM=(matchups[activePos]||[]).length;const doneM=(completed[activePos]||new Set()).size;const ranked=getRanked(activePos);return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 40px"}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}><h1 style={{fontSize:28,fontWeight:900,color:c,margin:0}}>rank {activePos}s</h1><div style={{display:"flex",gap:6}}>
+  if(phase==="ranking"&&currentMatchup&&activePos){const[aId,bId]=currentMatchup;const pA=prospectsMap[aId],pB=prospectsMap[bId];const c=POS_COLORS[activePos];const totalM=(matchups[activePos]||[]).length;const doneM=(completed[activePos]||new Set()).size;const ranked=getRanked(activePos);return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar {...saveBarProps}/><div style={{maxWidth:720,margin:"0 auto",padding:"52px 24px 40px"}}><div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}><h1 style={{fontSize:28,fontWeight:900,color:c,margin:0}}>rank {activePos}s</h1><div style={{display:"flex",gap:6}}>
     {canFinish&&<button onClick={()=>finishRanking(activePos,ratings)} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"8px 20px",background:"#22c55e",color:"#fff",border:"none",borderRadius:99,cursor:"pointer"}}>✓ done</button>}
     {canSim&&<button onClick={()=>simAndFinish(activePos)} style={{fontFamily:sans,fontSize:11,padding:"8px 16px",background:"linear-gradient(135deg,#ec4899,#7c3aed)",color:"#fff",border:"none",borderRadius:99,cursor:"pointer"}}>sim rest ⚡</button>}
     <button onClick={()=>{setLockedPlayer(null);const done=completed[activePos]||new Set();if(done.size>0){setPartialProgress(prev=>({...prev,[activePos]:{matchups:matchups[activePos]||[],completed:done,ratings}}));}navigate('/');}} style={{fontFamily:sans,fontSize:11,padding:"8px 14px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>save & exit</button>
@@ -4216,15 +4226,15 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
 })()}<div style={{display:"flex",gap:12,marginBottom:24,alignItems:"stretch",position:"relative"}}><div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",zIndex:2,fontFamily:font,fontSize:16,fontWeight:900,color:"#d4d4d4",background:"#faf9f6",padding:"4px 10px",borderRadius:99,border:"1px solid #e5e5e5"}}>vs</div>{[{p:pA,id:aId},{p:pB,id:bId}].map(({p,id})=>{const ps=getProspectStats(p.name,p.school);return<button key={id} onClick={()=>{if(showConfidence)return;if(isGuest){onRequireAuth("sign in to vote and build your big board");return;}setPendingWinner(id);setShowConfidence(true);}} style={{flex:1,padding:"24px 16px 20px",background:pendingWinner===id?`${c}08`:"#fff",border:pendingWinner===id?`2px solid ${c}`:"1px solid #e5e5e5",borderRadius:16,cursor:showConfidence?"default":"pointer",textAlign:"center",transition:"all 0.15s",display:"flex",flexDirection:"column",alignItems:"center",gap:4}} onMouseEnter={e=>{if(!showConfidence)e.currentTarget.style.borderColor=c;}} onMouseLeave={e=>{if(!showConfidence&&pendingWinner!==id)e.currentTarget.style.borderColor="#e5e5e5";}}><SchoolLogo school={p.school} size={44}/><div style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",lineHeight:1.1,marginTop:2}}>{p.name}</div><div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{p.school}</div><div style={{display:"flex",gap:6,alignItems:"center",marginTop:2}}><span style={{fontFamily:mono,fontSize:10,fontWeight:500,color:c,background:`${c}0d`,padding:"3px 10px",borderRadius:4,border:`1px solid ${c}1a`}}>{p.gpos||p.pos}</span>{ps&&<span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{ps.rank?"#"+ps.rank+" ovr":"NR"}{ps.posRank?" · "+(p.gpos||p.pos)+ps.posRank:""}</span>}</div>{ps&&(ps.height||ps.weight)&&<div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginTop:2}}>{[ps.height,ps.weight?ps.weight+"lbs":"",ps.cls?("yr "+ps.cls):""].filter(Boolean).join(" · ")}</div>}{ps&&ps.statLine&&<div style={{fontFamily:mono,fontSize:10,color:"#525252",marginTop:4,lineHeight:1.3,background:"#f9f9f6",padding:"4px 8px",borderRadius:6,border:"1px solid #f0f0f0",maxWidth:"100%"}}>{ps.statLine}{ps.statExtra&&<><br/><span style={{color:"#a3a3a3"}}>{ps.statExtra}</span></>}</div>}{(compCount[id]||0)>=2&&<div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",marginTop:4}}>{Math.round(((winCount[id]||0)/(compCount[id]))*100)}% pick rate</div>}</button>})}</div>{showConfidence&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"20px 24px",marginBottom:24,textAlign:"center"}}><p style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",margin:"0 0 4px"}}>how confident?</p><p style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",margin:"0 0 16px"}}>higher = bigger rating swing</p><div style={{display:"flex",gap:8,justifyContent:"center",flexWrap:"wrap"}}>{[["coin flip",.2],["leaning",.5],["confident",.75],["lock",1]].map(([label,val])=><button key={label} onClick={()=>handlePick(pendingWinner,val)} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:val>=.75?"#171717":"transparent",color:val>=.75?"#faf9f6":"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}} onMouseEnter={e=>{e.currentTarget.style.background="#171717";e.currentTarget.style.color="#faf9f6";}} onMouseLeave={e=>{if(val<.75){e.currentTarget.style.background="transparent";e.currentTarget.style.color="#525252";}}}>{label}</button>)}</div><button onClick={()=>{setShowConfidence(false);setPendingWinner(null);}} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer",marginTop:10}}>← pick again</button></div>}<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:16}}>{lockedPlayer&&(()=>{const lp=prospectsMap[lockedPlayer];const remLocked=(matchups[activePos]||[]).filter(m=>!((completed[activePos]||new Set()).has(`${m[0]}-${m[1]}`))&&(m[0]===lockedPlayer||m[1]===lockedPlayer));return<div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"8px 12px",marginBottom:12,background:"linear-gradient(135deg,#fef3c7,#fef9c3)",border:"1px solid #fbbf24",borderRadius:8}}><div style={{display:"flex",alignItems:"center",gap:8}}><span style={{fontSize:14}}>🎯</span><span style={{fontFamily:sans,fontSize:12,fontWeight:700,color:"#92400e"}}>{lp?.name} focus mode</span><span style={{fontFamily:mono,fontSize:10,color:"#b45309"}}>{remLocked.length} left</span></div><button onClick={()=>{setLockedPlayer(null);const ns=completed[activePos]||new Set();const next=getNextMatchup(matchups[activePos],ns,ratings,compCount,posRankFn,null);if(next)setCurrentMatchup(next);}} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"4px 10px",background:"#fff",color:"#92400e",border:"1px solid #fbbf24",borderRadius:99,cursor:"pointer"}}>unlock</button></div>;})()}<p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 10px"}}>live rankings</p><div style={{maxHeight:400,overflowY:"auto"}}>{ranked.map((p,i)=>{const isLocked=lockedPlayer===p.id;return<div key={p.id} className="rank-row" style={{display:"flex",alignItems:"center",gap:10,padding:"5px 0",borderBottom:i<ranked.length-1?"1px solid #f5f5f5":"none",background:isLocked?"#fef9c3":"transparent",borderRadius:isLocked?4:0,margin:isLocked?"0 -4px":"0",padding:isLocked?"5px 4px":"5px 0"}}><span style={{fontFamily:mono,fontSize:11,color:"#d4d4d4",width:20,textAlign:"right"}}>{i+1}</span><SchoolLogo school={p.school} size={20}/><span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",flex:1,cursor:"pointer",textDecoration:"none"}} onClick={e=>{e.stopPropagation();setProfilePlayer(p);}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{Math.round(ratings[p.id]||1500)}</span><button onClick={e=>{e.stopPropagation();if(isLocked){setLockedPlayer(null);const ns=completed[activePos]||new Set();const next=getNextMatchup(matchups[activePos],ns,ratings,compCount,posRankFn,null);if(next)setCurrentMatchup(next);}else{setLockedPlayer(p.id);const ns=completed[activePos]||new Set();const next=getNextMatchup(matchups[activePos],ns,ratings,compCount,posRankFn,p.id);if(next)setCurrentMatchup(next);else setLockedPlayer(null);}}} title={isLocked?"Unlock":"Focus matchups on this player"} style={{fontSize:12,background:"none",border:"none",cursor:"pointer",padding:"2px 4px",opacity:isLocked?1:0,transition:"opacity 0.15s",flexShrink:0}} className="lock-btn">{isLocked?"🎯":"📌"}</button></div>;})}</div><style>{`.rank-row:hover .lock-btn{opacity:1!important;}@media(max-width:768px){.lock-btn{display:none!important;}.reorder-hint-desktop{display:none!important;}.reorder-hint-mobile{display:inline!important;}}`}</style></div><button onClick={()=>{setLockedPlayer(null);const done=completed[activePos]||new Set();if(done.size>0){setPartialProgress(prev=>({...prev,[activePos]:{matchups:matchups[activePos]||[],completed:done,ratings}}));}navigate('/');}} style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"8px 20px",cursor:"pointer"}}>← save & exit</button></div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth} schemeFits={schemeFits}/>}</div>);}
 
   // === RECONCILE ===
-  if(phase==="reconcile"&&reconcileQueue.length>0){const item=reconcileQueue[Math.min(reconcileIndex,reconcileQueue.length-1)];const c=POS_COLORS[item.player.pos];const dir=item.gradeRank<item.pairRank?"higher":"lower";return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar/><div style={{maxWidth:500,margin:"0 auto",padding:"52px 24px"}}><p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 4px"}}>reconcile · {reconcileIndex+1} of {reconcileQueue.length}</p><div style={{height:3,background:"#e5e5e5",borderRadius:2,marginBottom:28,overflow:"hidden"}}><div style={{height:"100%",width:`${((reconcileIndex+1)/reconcileQueue.length)*100}%`,background:c,borderRadius:2}}/></div><div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:32,textAlign:"center"}}><SchoolLogo school={item.player.school} size={56}/><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c,marginBottom:4,marginTop:8}}>{item.player.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3",marginBottom:24}}>{item.player.school}</div><div style={{display:"flex",justifyContent:"center",gap:32,marginBottom:24}}>{[["gut rank",`#${item.pairRank}`,"#171717"],["grade rank",`#${item.gradeRank}`,dir==="higher"?"#16a34a":"#dc2626"],["composite",`${item.grade}`,"#171717"]].map(([label,val,col])=><div key={label}><div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:4}}>{label}</div><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:col}}>{val}</div></div>)}</div><p style={{fontFamily:sans,fontSize:14,color:"#737373",lineHeight:1.5,marginBottom:24}}>your traits suggest this player should rank <strong style={{color:dir==="higher"?"#16a34a":"#dc2626"}}>{dir}</strong> than your gut. accept?</p><div style={{display:"flex",gap:10,justifyContent:"center"}}><button onClick={()=>{const pos=item.player.pos;const rk=getRanked(pos);const ti=item.gradeRank-1;const tp=rk[ti];if(tp)setRatings(prev=>({...prev,[item.player.id]:(prev[tp.id]||1500)+(dir==="higher"?1:-1)}));reconcileIndex>=reconcileQueue.length-1?(setBoardInitPos(activePos),setPhase("board"),window.history.replaceState({},'','/board')):setReconcileIndex(reconcileIndex+1);}} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 24px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>accept</button><button onClick={()=>reconcileIndex>=reconcileQueue.length-1?(setBoardInitPos(activePos),setPhase("board"),window.history.replaceState({},'','/board')):setReconcileIndex(reconcileIndex+1)} style={{fontFamily:sans,fontSize:13,padding:"10px 24px",background:"transparent",color:"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>keep my rank</button></div></div></div></div>);}
+  if(phase==="reconcile"&&reconcileQueue.length>0){const item=reconcileQueue[Math.min(reconcileIndex,reconcileQueue.length-1)];const c=POS_COLORS[item.player.pos];const dir=item.gradeRank<item.pairRank?"higher":"lower";return(<div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}><SaveBar {...saveBarProps}/><div style={{maxWidth:500,margin:"0 auto",padding:"52px 24px"}}><p style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 4px"}}>reconcile · {reconcileIndex+1} of {reconcileQueue.length}</p><div style={{height:3,background:"#e5e5e5",borderRadius:2,marginBottom:28,overflow:"hidden"}}><div style={{height:"100%",width:`${((reconcileIndex+1)/reconcileQueue.length)*100}%`,background:c,borderRadius:2}}/></div><div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:32,textAlign:"center"}}><SchoolLogo school={item.player.school} size={56}/><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c,marginBottom:4,marginTop:8}}>{item.player.name}</div><div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3",marginBottom:24}}>{item.player.school}</div><div style={{display:"flex",justifyContent:"center",gap:32,marginBottom:24}}>{[["gut rank",`#${item.pairRank}`,"#171717"],["grade rank",`#${item.gradeRank}`,dir==="higher"?"#16a34a":"#dc2626"],["composite",`${item.grade}`,"#171717"]].map(([label,val,col])=><div key={label}><div style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginBottom:4}}>{label}</div><div style={{fontFamily:font,fontSize:28,fontWeight:900,color:col}}>{val}</div></div>)}</div><p style={{fontFamily:sans,fontSize:14,color:"#737373",lineHeight:1.5,marginBottom:24}}>your traits suggest this player should rank <strong style={{color:dir==="higher"?"#16a34a":"#dc2626"}}>{dir}</strong> than your gut. accept?</p><div style={{display:"flex",gap:10,justifyContent:"center"}}><button onClick={()=>{const pos=item.player.pos;const rk=getRanked(pos);const ti=item.gradeRank-1;const tp=rk[ti];if(tp)setRatings(prev=>({...prev,[item.player.id]:(prev[tp.id]||1500)+(dir==="higher"?1:-1)}));reconcileIndex>=reconcileQueue.length-1?(setBoardInitPos(activePos),setPhase("board"),window.history.replaceState({},'','/board')):setReconcileIndex(reconcileIndex+1);}} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 24px",background:"#171717",color:"#faf9f6",border:"none",borderRadius:99,cursor:"pointer"}}>accept</button><button onClick={()=>reconcileIndex>=reconcileQueue.length-1?(setBoardInitPos(activePos),setPhase("board"),window.history.replaceState({},'','/board')):setReconcileIndex(reconcileIndex+1)} style={{fontFamily:sans,fontSize:13,padding:"10px 24px",background:"transparent",color:"#737373",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>keep my rank</button></div></div></div></div>);}
 
   // === BIG BOARD ===
-  if(phase==="board")return(<div><SaveBar/><div style={{paddingTop:32}}><BoardView getBoard={getBoard} getGrade={getGrade} rankedGroups={rankedGroups} setPhase={setPhase} navigate={navigate} setSelectedPlayer={setSelectedPlayer} setActivePos={setActivePos} traits={traits} compareList={compareList} setCompareList={setCompareList} setProfilePlayer={setProfilePlayer} setShowMockDraft={setShowMockDraft} communityBoard={communityBoard} setCommunityBoard={setCommunityBoard} ratings={ratings} byPos={byPos} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} sharePositionTop10={sharePositionTop10} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter} initialPos={boardInitPos} onClearInitPos={()=>setBoardInitPos(null)} movePlayer={movePlayer} getRanked={getRanked} isGuest={isGuest} onRequireAuth={onRequireAuth} setRankedGroups={setRankedGroups} setTraitReviewedGroups={setTraitReviewedGroups} setRatings={setRatings} setTraits={setTraits} setCompCount={setCompCount} setPartialProgress={setPartialProgress}/></div><TwitterFooter/><div style={{textAlign:"center",padding:"4px 24px 24px",fontFamily:mono,fontSize:10,color:"#d4d4d4",letterSpacing:0.5}}>© {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth} schemeFits={schemeFits}/>}</div>);
+  if(phase==="board")return(<div><SaveBar {...saveBarProps}/><div style={{paddingTop:32}}><BoardView board={board} getGrade={getGrade} rankedGroups={rankedGroups} setPhase={setPhase} navigate={navigate} setSelectedPlayer={setSelectedPlayer} setActivePos={setActivePos} traits={traits} compareList={compareList} setCompareList={setCompareList} setProfilePlayer={setProfilePlayer} setShowMockDraft={setShowMockDraft} communityBoard={communityBoard} setCommunityBoard={setCommunityBoard} ratings={ratings} byPos={byPos} traitThresholds={traitThresholds} qualifiesForFilter={qualifiesForFilter} prospectBadges={prospectBadges} sharePositionTop10={sharePositionTop10} copiedShare={copiedShare} measurableThresholds={measurableThresholds} qualifiesForMeasurableFilter={qualifiesForMeasurableFilter} initialPos={boardInitPos} onClearInitPos={()=>setBoardInitPos(null)} movePlayer={movePlayer} getRanked={getRanked} isGuest={isGuest} onRequireAuth={onRequireAuth} setRankedGroups={setRankedGroups} setTraitReviewedGroups={setTraitReviewedGroups} setRatings={setRatings} setTraits={setTraits} setCompCount={setCompCount} setPartialProgress={setPartialProgress}/></div><TwitterFooter/><div style={{textAlign:"center",padding:"4px 24px 24px",fontFamily:mono,fontSize:10,color:"#d4d4d4",letterSpacing:0.5}}>© {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth} schemeFits={schemeFits}/>}</div>);
 
   return(<>{profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth} schemeFits={schemeFits}/>}</>);
 }
 
-function DraggableRankList({ranked,activePos,cur,c,getGrade,setSelectedPlayer,movePlayer,setProfilePlayer,font,mono,sans,isGuest,onRequireAuth}){
+const DraggableRankList=memo(function DraggableRankList({ranked,activePos,cur,c,getGrade,setSelectedPlayer,movePlayer,setProfilePlayer,font,mono,sans,isGuest,onRequireAuth}){
   const[dragIdx,setDragIdx]=useState(null);
   const[overIdx,setOverIdx]=useState(null);
   // Touch long-press drag support
@@ -4244,7 +4254,7 @@ function DraggableRankList({ranked,activePos,cur,c,getGrade,setSelectedPlayer,mo
         <span>rankings</span>{!isGuest&&<><span className="reorder-hint-desktop" style={{fontSize:9,letterSpacing:1,color:"#d4d4d4",fontWeight:400}}>drag to reorder</span><span className="reorder-hint-mobile" style={{fontSize:9,letterSpacing:1,color:"#d4d4d4",fontWeight:400,display:"none"}}>hold to reorder</span></>}
       </div>
       <div ref={listRef} style={{maxHeight:480,overflowY:"auto"}}>
-        {ranked.map((p,i)=>(
+        {ranked.map((p,i)=>{const grade=getGrade(p.id);return(
           <div key={p.id} draggable={!isGuest} onDragStart={e=>handleDragStart(e,i)} onDragOver={e=>handleDragOver(e,i)} onDrop={e=>handleDrop(e,i)} onDragEnd={handleDragEnd}
             onTouchStart={e=>handleTouchStart(e,i)} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}
             onClick={()=>setSelectedPlayer(p)}
@@ -4255,20 +4265,20 @@ function DraggableRankList({ranked,activePos,cur,c,getGrade,setSelectedPlayer,mo
             <div style={{flex:1,minWidth:0}}>
               <div style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#171717",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",cursor:"pointer"}} onClick={e=>{e.stopPropagation();setProfilePlayer(p);}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</div>
             </div>
-            <span style={{fontFamily:font,fontSize:12,fontWeight:900,color:getGrade(p.id)>=75?"#16a34a":getGrade(p.id)>=55?"#ca8a04":"#dc2626",flexShrink:0}}>{getGrade(p.id)}</span>
+            <span style={{fontFamily:font,fontSize:12,fontWeight:900,color:grade>=75?"#16a34a":grade>=55?"#ca8a04":"#dc2626",flexShrink:0}}>{grade}</span>
           </div>
-        ))}
+        );})}
       </div>
     </div>
   );
-}
+});
 
-function BoardView({getBoard,getGrade,rankedGroups,setPhase,navigate,setSelectedPlayer,setActivePos,traits,compareList,setCompareList,setProfilePlayer,setShowMockDraft,communityBoard,setCommunityBoard,ratings,byPos,traitThresholds,qualifiesForFilter,prospectBadges,sharePositionTop10,copiedShare,measurableThresholds,qualifiesForMeasurableFilter,initialPos,onClearInitPos,movePlayer,getRanked,isGuest,onRequireAuth,setRankedGroups,setTraitReviewedGroups,setRatings,setTraits,setCompCount,setPartialProgress}){
+const BoardView=memo(function BoardView({board,getGrade,rankedGroups,setPhase,navigate,setSelectedPlayer,setActivePos,traits,compareList,setCompareList,setProfilePlayer,setShowMockDraft,communityBoard,setCommunityBoard,ratings,byPos,traitThresholds,qualifiesForFilter,prospectBadges,sharePositionTop10,copiedShare,measurableThresholds,qualifiesForMeasurableFilter,initialPos,onClearInitPos,movePlayer,getRanked,isGuest,onRequireAuth,setRankedGroups,setTraitReviewedGroups,setRatings,setTraits,setCompCount,setPartialProgress}){
   const[filterPos,setFilterPos]=useState(new Set());const[traitFilter,setTraitFilter]=useState(new Set());const[measMode,setMeasMode]=useState(false);useEffect(()=>{setTraitFilter(new Set());setMeasMode(false);},[filterPos]);const[showCommunity,setShowCommunity]=useState(false);
   // 6a: consume initialPos on mount
   useEffect(()=>{if(initialPos){setFilterPos(new Set([initialPos]));onClearInitPos();}},[initialPos]);
   // 6b: drag-to-reorder state
-  const[dragIdx,setDragIdx]=useState(null);const[overIdx,setOverIdx]=useState(null);const touchState=useRef({timer:null,dragging:false,startIdx:null,startY:0,currentIdx:null});const listRef=useRef(null);const board=getBoard();let display=filterPos.size>0?board.filter(p=>filterPos.has(p.gpos||p.pos)):board;if(traitFilter.size>0&&filterPos.size===1){const pos=[...filterPos][0];display=display.filter(p=>measMode?[...traitFilter].some(m=>qualifiesForMeasurableFilter(p.id,pos,m)):[...traitFilter].some(t=>qualifiesForFilter(p.id,pos,t)));}
+  const[dragIdx,setDragIdx]=useState(null);const[overIdx,setOverIdx]=useState(null);const touchState=useRef({timer:null,dragging:false,startIdx:null,startY:0,currentIdx:null});const listRef=useRef(null);let display=filterPos.size>0?board.filter(p=>filterPos.has(p.gpos||p.pos)):board;if(traitFilter.size>0&&filterPos.size===1){const pos=[...filterPos][0];display=display.filter(p=>measMode?[...traitFilter].some(m=>qualifiesForMeasurableFilter(p.id,pos,m)):[...traitFilter].some(t=>qualifiesForFilter(p.id,pos,t)));}
   // When single ranked position filtered, show in ranking order
   const activeSingleRanked=filterPos.size===1&&rankedGroups.has([...filterPos][0])?[...filterPos][0]:null;
   const canDrag=!!activeSingleRanked&&traitFilter.size===0;
@@ -4382,7 +4392,7 @@ function BoardView({getBoard,getGrade,rankedGroups,setPhase,navigate,setSelected
         </div>
       </>}
     </div>}<div ref={listRef} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>{display.map((p,i)=>{const grade=getGrade(p.id);const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos];const cIdx=compareList.indexOf(p.id);const isC=cIdx>=0;return<div key={p.id} draggable={canDrag&&!isGuest} onDragStart={e=>handleDragStart(e,i)} onDragOver={e=>handleDragOver(e,i)} onDrop={e=>handleDrop(e,i)} onDragEnd={handleDragEnd} onTouchStart={e=>handleTouchStart(e,i)} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} style={{display:"flex",alignItems:"center",gap:12,padding:"10px 16px",borderBottom:i<display.length-1?(overIdx===i&&dragIdx!==null?`2px solid ${c}`:"1px solid #f5f5f5"):"none",cursor:canDrag?"grab":"pointer",background:dragIdx===i?"#f0f0f0":isC?`${compColors[cIdx]}08`:"transparent",opacity:dragIdx===i?0.5:1,userSelect:canDrag?"none":"auto"}} onMouseEnter={e=>{if(!isC&&dragIdx===null)e.currentTarget.style.background=`${c}06`;}} onMouseLeave={e=>{if(!isC&&dragIdx===null)e.currentTarget.style.background="transparent";}} onClick={()=>{if(showCompareTip)dismissCompareTip();if(isC)setCompareList(prev=>prev.filter(id=>id!==p.id));else if(compareList.length<4)setCompareList(prev=>[...prev,p.id]);}} onDoubleClick={()=>setProfilePlayer(p)}>{canDrag&&!isGuest&&<span style={{fontFamily:mono,fontSize:9,color:"#d4d4d4",cursor:"grab",padding:"0 2px",flexShrink:0}}>⠿</span>}{isC&&<div style={{width:6,height:6,borderRadius:99,background:compColors[cIdx],flexShrink:0}}/>}<div style={{width:84,flexShrink:0,display:"flex",alignItems:"center",gap:8}}><span style={{fontFamily:mono,fontSize:12,color:"#d4d4d4",width:24,textAlign:"right",flexShrink:0}}>{i+1}</span><span style={{fontFamily:mono,fontSize:10,fontWeight:500,color:c,background:`${c}0d`,padding:"2px 8px",borderRadius:4}}>{p.gpos||p.pos}</span></div><SchoolLogo school={p.school} size={24}/><div style={{flex:1,minWidth:0,marginLeft:10,display:"flex",alignItems:"center",gap:4,overflow:"hidden"}}><span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",cursor:"pointer",whiteSpace:"nowrap"}} onClick={e=>{e.stopPropagation();setProfilePlayer(p);}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{p.name}</span><span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",whiteSpace:"nowrap"}}>{p.school}</span>{(traitFilter.size>0?(prospectBadges[p.id]||[]).filter(b=>traitFilter.has(b.trait)):(prospectBadges[p.id]||[])).map(b=><span key={b.trait} title={b.trait+" "+b.score} className={traitFilter.size>0?"":"board-badge"} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:c,background:c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{b.emoji}</span>)}</div>{(()=>{const pk=(p.gpos||p.pos)==="K"||(p.gpos||p.pos)==="P"||(p.gpos||p.pos)==="LS"?"K/P":(p.gpos||p.pos);const pt=POSITION_TRAITS[pk]||[];return pt.length>=3?<MiniRadar values={pt.map(t=>tv(traits,p.id,t,p.name,p.school))} color={c} size={28}/>:null;})()}<span style={{fontFamily:font,fontSize:14,fontWeight:900,color:grade>=75?"#16a34a":grade>=55?"#ca8a04":"#dc2626",width:24,textAlign:"right",flexShrink:0}}>{grade}</span></div>;})}</div>{activeSingleRanked&&<div style={{display:"flex",gap:10,marginTop:12,justifyContent:"center"}}><button onClick={()=>{if(window.confirm(`Reset ${activeSingleRanked} rankings? This will clear all pair comparisons and traits for this position.`)){const posIds=new Set((byPos[activeSingleRanked]||[]).map(p=>p.id));setRatings(prev=>{const n={...prev};posIds.forEach(id=>delete n[id]);return n;});setTraits(prev=>{const n={...prev};posIds.forEach(id=>delete n[id]);return n;});setCompCount(prev=>{const n={...prev};posIds.forEach(id=>delete n[id]);return n;});setRankedGroups(prev=>{const n=new Set(prev);n.delete(activeSingleRanked);return n;});setTraitReviewedGroups(prev=>{const n=new Set(prev);n.delete(activeSingleRanked);return n;});setPartialProgress(prev=>{const n={...prev};delete n[activeSingleRanked];return n;});setFilterPos(new Set());}}} style={{fontFamily:sans,fontSize:11,padding:"7px 14px",background:"transparent",color:"#dc2626",border:"1px solid #fecaca",borderRadius:99,cursor:"pointer"}}>reset {activeSingleRanked}</button></div>}<p style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",textAlign:"center",marginTop:16}}>click name for profile · click row to compare (up to 4) · double-click for profile{canDrag?<><span className="reorder-hint-desktop"> · drag to reorder</span><span className="reorder-hint-mobile" style={{display:"none"}}> · hold to reorder</span></>:null}</p><style>{`@media(max-width:600px){.board-badge{display:none!important;}.mini-radar{display:none!important;}.reorder-hint-desktop{display:none!important;}.reorder-hint-mobile{display:inline!important;}}`}</style></div></div>);
-}
+});
 
 // ============================================================
 // Content Ideas — Tweet Engine Generators
