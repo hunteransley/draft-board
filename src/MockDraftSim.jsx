@@ -479,8 +479,13 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     return picks.length<totalPicks&&userTeams.has(getPickTeam(picks.length));
   },[picks,userTeams,totalPicks,getPickTeam]);
 
-  // Scout Vision: which team lens is active (null when off or multi-team)
-  const scoutTeam=useMemo(()=>scoutVision&&userTeams.size===1?[...userTeams][0]:null,[scoutVision,userTeams]);
+  // Scout Vision: which team lens is active (team currently on the clock)
+  const scoutTeam=useMemo(()=>{
+    if(!scoutVision)return null;
+    const current=picks.length<totalPicks?getPickTeam(picks.length):null;
+    if(current&&userTeams.has(current))return current;
+    return null;
+  },[scoutVision,picks.length,totalPicks,getPickTeam,userTeams]);
 
   // Compute contextual tags for available players during user picks: NEED, SLIDE, RIVAL
   const playerTags=useMemo(()=>{
@@ -2394,7 +2399,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
           </div>
           {/* Position filter — horizontal scroll, with scout vision toggle inline */}
           <div style={{display:"flex",gap:4,padding:"0 12px 8px",overflowX:"auto",WebkitOverflowScrolling:"touch",alignItems:"center"}}>
-            {userTeams.size===1&&<div style={{position:"relative",flexShrink:0}}>
+            {<div style={{position:"relative",flexShrink:0}}>
               <button onClick={()=>{setScoutVision(v=>!v);setExpandedScoutId(null);setSvTooltip(false);localStorage.setItem("bbl_sv_seen_2","1");}} title={scoutVision?"Disable Scout Vision":"Enable Scout Vision"} style={{width:40,height:22,borderRadius:11,border:"none",background:scoutVision?"linear-gradient(135deg,#4f46e5,#7c3aed,#a855f7)":"linear-gradient(135deg,#c4b5fd,#a3a3a3)",cursor:"pointer",position:"relative",transition:"background 0.2s"}}><div style={{width:16,height:16,borderRadius:8,background:"#fff",position:"absolute",top:3,left:scoutVision?21:3,transition:"left 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:scoutVision?"#6366f1":"#a3a3a3",lineHeight:1}}>SV</span></div></button>
               {svTooltip&&<div style={{position:"absolute",top:-36,left:0,background:"#171717",color:"#fff",fontFamily:sans,fontSize:9,padding:"6px 10px",borderRadius:8,whiteSpace:"nowrap",pointerEvents:"none",animation:"svFadeIn 0.3s ease, svFadeOut 0.5s ease 5.5s forwards",zIndex:10,lineHeight:1.3,boxShadow:"0 4px 12px rgba(0,0,0,0.2)"}}><span style={{fontWeight:700}}>Scout Vision</span> — sort by scheme fit<div style={{position:"absolute",bottom:-4,left:16,width:0,height:0,borderLeft:"5px solid transparent",borderRight:"5px solid transparent",borderTop:"5px solid #171717"}}/></div>}
             </div>}
@@ -2879,7 +2884,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
 
           {/* Position filter + scout vision toggle */}
           <div style={{display:"flex",gap:4,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
-            {userTeams.size===1&&<div style={{position:"relative",flexShrink:0,marginRight:4}}>
+            {<div style={{position:"relative",flexShrink:0,marginRight:4}}>
               <button onClick={()=>{setScoutVision(v=>!v);setExpandedScoutId(null);setSvTooltip(false);localStorage.setItem("bbl_sv_seen_2","1");}} title={scoutVision?"Disable Scout Vision":"Enable Scout Vision"} style={{width:40,height:22,borderRadius:11,border:"none",background:scoutVision?"linear-gradient(135deg,#4f46e5,#7c3aed,#a855f7)":"linear-gradient(135deg,#c4b5fd,#a3a3a3)",cursor:"pointer",position:"relative",transition:"background 0.2s"}}><div style={{width:16,height:16,borderRadius:8,background:"#fff",position:"absolute",top:3,left:scoutVision?21:3,transition:"left 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:scoutVision?"#6366f1":"#a3a3a3",lineHeight:1}}>SV</span></div></button>
               {svTooltip&&<div style={{position:"absolute",top:-36,left:0,background:"#171717",color:"#fff",fontFamily:sans,fontSize:9,padding:"6px 10px",borderRadius:8,whiteSpace:"nowrap",pointerEvents:"none",animation:"svFadeIn 0.3s ease, svFadeOut 0.5s ease 5.5s forwards",zIndex:10,lineHeight:1.3,boxShadow:"0 4px 12px rgba(0,0,0,0.2)"}}><span style={{fontWeight:700}}>Scout Vision</span> — sort by scheme fit<div style={{position:"absolute",bottom:-4,left:16,width:0,height:0,borderLeft:"5px solid transparent",borderRight:"5px solid transparent",borderTop:"5px solid #171717"}}/></div>}
             </div>}
