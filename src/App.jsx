@@ -1671,7 +1671,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const posToSlug=(pos)=>pos==='K/P'?'k-p':pos.toLowerCase();
   const[showExplorer,setShowExplorer]=useState(()=>isLabPath(window.location.pathname));
   const[explorerMeas,setExplorerMeas]=useState("ATH");
-  const[explorerMode,setExplorerMode]=useState(()=>{const s=labSuffix(window.location.pathname);return s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":"measurables";});
+  const[explorerMode,setExplorerMode]=useState(()=>{const s=labSuffix(window.location.pathname);return s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":s==="scheme-fit"?"scheme-fit":"measurables";});
   const[explorerTrait,setExplorerTrait]=useState("Speed");
   const[explorerMyGuys,setExplorerMyGuys]=useState(false);
   const[explorerAbsolute,setExplorerAbsolute]=useState(false);
@@ -1695,6 +1695,10 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[faPosFilter,setFaPosFilter]=useState(null);
   const[faTeamFilter,setFaTeamFilter]=useState(null);
   const[faDrop,setFaDrop]=useState(null);
+  const[sfTeam,setSfTeam]=useState("49ers");
+  const[sfPosFilter,setSfPosFilter]=useState(null);
+  const[sfExpandedId,setSfExpandedId]=useState(null);
+  const sfVision=useMemo(()=>{if(!sfTeam)return new Map();try{return computeTeamScoutVision(sfTeam,PROSPECTS,schemeFits,traits);}catch(e){console.error("sfVision error:",e);return new Map();}},[sfTeam,schemeFits,traits]);
   const explorerData=useMemo(()=>{
     if(explorerMode==="combo")return{points:[],min:0,max:0,groups:[],label:"",measCode:null,statCode:null,inverted:false};
     const points=[];
@@ -1858,7 +1862,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     if(isLabPath(p)){
       setShowExplorer(true);
       const s=labSuffix(p);
-      setExplorerMode(s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":"measurables");
+      const mode=s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":s==="scheme-fit"?"scheme-fit":"measurables";
+      setExplorerMode(mode);
+      if(mode==="scheme-fit"&&!sfTeam)setSfTeam("49ers");
     }else if(p==='/trends'){
       setShowTrends(true);
       setTrendsTeam(search.get('team')||'Titans');
@@ -1897,7 +1903,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   },[applyRoute]);
   navigateRef.current=navigate;
 
-  const openExplorer=useCallback((mode)=>{const target=mode==="combo"?"/lab/combo":mode==="scarcity"?"/lab/scarcity":mode==="free-agency"?"/lab/free-agency":"/lab";navigate(target);setShowExplorer(true);if(mode)setExplorerMode(mode);},[navigate]);
+  const openExplorer=useCallback((mode)=>{const target=mode==="combo"?"/lab/combo":mode==="scarcity"?"/lab/scarcity":mode==="free-agency"?"/lab/free-agency":mode==="scheme-fit"?"/lab/scheme-fit":"/lab";navigate(target);setShowExplorer(true);if(mode)setExplorerMode(mode);},[navigate]);
   const closeExplorer=useCallback(()=>{if(isLabPath(window.location.pathname))navigate('/');setShowExplorer(false);setExplorerHover(null);},[navigate]);
 
   // Consolidated popstate listener for all DraftBoard-level routes
@@ -2600,7 +2606,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         {/* Header */}
         <div style={{marginBottom:12}}>
           <h2 style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",margin:0}}>data lab</h2>
-          <p style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"2px 0 0"}}>{explorerMode==="combo"?`${comboData.points.length} ${comboPos} players`:explorerMode==="scarcity"?"supply vs demand by position":explorerMode==="free-agency"?"2026 free agency contracts":`${explorerData.points.length} players · ${explorerData.groups.length} positions`}</p>
+          <p style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"2px 0 0"}}>{explorerMode==="combo"?`${comboData.points.length} ${comboPos} players`:explorerMode==="scarcity"?"supply vs demand by position":explorerMode==="free-agency"?"2026 free agency contracts":explorerMode==="scheme-fit"?"scheme fit by team & position":`${explorerData.points.length} players · ${explorerData.groups.length} positions`}</p>
         </div>
 
         {/* Mode toggle */}
@@ -2612,6 +2618,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
           <button onClick={()=>{setExplorerMode("combo");navigate('/lab/combo');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="combo"?"linear-gradient(135deg,#6366f1,#8b5cf6)":"transparent",color:explorerMode==="combo"?"#fff":"#7c3aed",border:explorerMode==="combo"?"1px solid #6366f1":"1px solid #7c3aed44",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="combo"?"0 2px 8px rgba(99,102,241,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>⚡ combo</button>
           <button onClick={()=>{setExplorerMode("free-agency");setFaView("position");setFaPosFilter(null);setFaTeamFilter(null);navigate('/lab/free-agency');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="free-agency"?"linear-gradient(135deg,#d97706,#f59e0b)":"transparent",color:explorerMode==="free-agency"?"#fff":"#d97706",border:explorerMode==="free-agency"?"1px solid #d97706":"1px solid #d9770644",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="free-agency"?"0 2px 8px rgba(217,119,6,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>💰 free agency</button>
           <button onClick={()=>{setExplorerMode("scarcity");navigate('/lab/scarcity');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="scarcity"?"linear-gradient(135deg,#059669,#10b981)":"transparent",color:explorerMode==="scarcity"?"#fff":"#059669",border:explorerMode==="scarcity"?"1px solid #059669":"1px solid #05966944",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="scarcity"?"0 2px 8px rgba(5,150,105,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>🫥 scarcity</button>
+          <button onClick={()=>{setExplorerMode("scheme-fit");setSfPosFilter(null);if(!sfTeam)setSfTeam("49ers");navigate('/lab/scheme-fit');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="scheme-fit"?"linear-gradient(135deg,#0891b2,#06b6d4)":"transparent",color:explorerMode==="scheme-fit"?"#fff":"#0891b2",border:explorerMode==="scheme-fit"?"1px solid #0891b2":"1px solid #0891b244",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="scheme-fit"?"0 2px 8px rgba(8,145,178,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>🧬 scheme fit</button>
         </div>
 
         {/* Combo mode UI */}
@@ -2764,7 +2771,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         </>}
 
         {/* Measurable / Trait picker */}
-        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&(explorerMode==="measurables"?(<div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none"}}>
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&(explorerMode==="measurables"?(<div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none"}}>
           {MEAS_GROUPS.map(grp=>grp.keys.map(k=><button key={k} onClick={gateAuth(()=>setExplorerMeas(k))} style={{fontFamily:mono,fontSize:10,fontWeight:explorerMeas===k?700:500,padding:"5px 10px",background:explorerMeas===k?grp.border+"18":"transparent",color:explorerMeas===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerMeas===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{MEASURABLE_EMOJI[k]} {MEASURABLE_SHORT[k]}</button>))}
         </div>):explorerMode==="stats"?(<div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none",alignItems:"center"}}>
           {STAT_CATEGORIES.map(grp=>{const isOpen=explorerStatOpen.has(grp.label);const hasSelection=grp.keys.includes(explorerStat);return<Fragment key={grp.label}><button onClick={gateAuth(()=>{setExplorerStatOpen(prev=>{const next=new Set(prev);if(next.has(grp.label))next.delete(grp.label);else next.add(grp.label);return next;});})} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"5px 12px",background:hasSelection?grp.border:isOpen?grp.border+"18":"transparent",color:hasSelection?"#fff":isOpen?grp.border:"#737373",border:`1.5px solid ${hasSelection||isOpen?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{isOpen?"− ":"+ "}{grp.label}</button>{isOpen&&grp.keys.map(k=><button key={k} onClick={gateAuth(()=>setExplorerStat(k))} style={{fontFamily:mono,fontSize:10,fontWeight:explorerStat===k?700:500,padding:"5px 10px",background:explorerStat===k?grp.border+"18":"transparent",color:explorerStat===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerStat===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{STAT_EMOJI[k]||""} {STAT_SHORT[k]||k}</button>)}</Fragment>;})}
@@ -2785,10 +2792,10 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         </div>}
 
         {/* Sparse data warning */}
-        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerData.points.length>0&&explorerData.points.length<20&&<div style={{fontFamily:sans,fontSize:11,color:"#92400e",background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:8,padding:"6px 12px",marginBottom:8}}>⚠️ sparse data — only {explorerData.points.length} players have this {explorerMode==="stats"?"stat":"measurement"}</div>}
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&explorerData.points.length>0&&explorerData.points.length<20&&<div style={{fontFamily:sans,fontSize:11,color:"#92400e",background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:8,padding:"6px 12px",marginBottom:8}}>⚠️ sparse data — only {explorerData.points.length} players have this {explorerMode==="stats"?"stat":"measurement"}</div>}
 
         {/* Beeswarm */}
-        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&(explorerData.points.length===0?(<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no data available for this {explorerMode==="stats"?"stat":"measurable"}</p></div>):(
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&(explorerData.points.length===0?(<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no data available for this {explorerMode==="stats"?"stat":"measurable"}</p></div>):(
           <div style={{marginTop:4,position:"relative"}}>
             <BeeswarmChartWrapper data={explorerData} myGuys={myGuys} showMyGuys={explorerMyGuys} showLogos={explorerLogos} onHover={setExplorerHover} onTap={(pt)=>{const p=PROSPECTS.find(pr=>pr.id===pt.id);if(p)openProfile(p);}} hoveredId={explorerHover?.id||null}/>
             <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",display:"flex",alignItems:"center",gap:0,opacity:0.06,pointerEvents:"none"}}>
@@ -2809,7 +2816,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         ))}
 
         {/* Leaderboard + Position Averages */}
-        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerData.points.length>=5&&(()=>{
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&explorerData.points.length>=5&&(()=>{
           const mc=explorerData.measCode;
           const sc=explorerData.statCode;
           const inv=explorerData.inverted;
@@ -2896,7 +2903,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
 
 
         {/* Tooltip — beeswarm modes */}
-        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerHover&&<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-180),top:Math.max(explorerHover.cy-60,8),background:"#171717",color:"#fff",padding:"8px 12px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:200}}>
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&explorerHover&&<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-180),top:Math.max(explorerHover.cy-60,8),background:"#171717",color:"#fff",padding:"8px 12px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:200}}>
           <div style={{fontWeight:700}}>{explorerHover.name}</div>
           <div style={{fontSize:10,color:"#a3a3a3",marginTop:1}}>{explorerHover.school}</div>
           <div style={{display:"flex",alignItems:"center",gap:6,marginTop:4}}>
@@ -3160,6 +3167,270 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                 </div>
               </div>;
             })()}
+          </>;
+        })()}
+
+        {/* Scheme Fit mode */}
+        {explorerMode==="scheme-fit"&&(()=>{
+          const SF_GROUPS=EXPLORER_GROUPS;
+          const teamFits=sfTeam?schemeFits[sfTeam]:null;
+
+          // Team logo row
+          const teamRow=<div className="trait-pills-scroll" style={{display:"flex",gap:4,overflowX:"auto",WebkitOverflowScrolling:"touch",paddingBottom:4,scrollbarWidth:"none",marginBottom:8}}>
+            {allTeams.sort().map(t=>{const sel=sfTeam===t;const tc=NFL_TEAM_COLORS[t]||"#171717";return<button key={t} onClick={()=>{setSfTeam(sel?null:t);setExplorerHover(null);}} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:"4px 6px",background:sel?`${tc}15`:"transparent",border:sel?`2px solid ${tc}`:"2px solid transparent",borderRadius:8,cursor:"pointer",flexShrink:0}}><NFLTeamLogo team={t} size={22}/><span style={{fontFamily:mono,fontSize:7,color:sel?tc:"#a3a3a3",fontWeight:sel?700:500}}>{NFL_TEAM_ABR[t]||t}</span></button>;})}
+          </div>;
+
+          // Position pills
+          const posPills=<div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:6,WebkitOverflowScrolling:"touch",scrollbarWidth:"none",marginBottom:4}}>
+            <button onClick={()=>{setSfPosFilter(null);setExplorerHover(null);}} style={{fontFamily:mono,fontSize:10,fontWeight:700,padding:"5px 12px",background:!sfPosFilter?"#171717":"transparent",color:!sfPosFilter?"#fff":"#737373",border:!sfPosFilter?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>ALL</button>
+            {SF_GROUPS.map(pos=>{const c=POS_COLORS[pos]||"#525252";const active=sfPosFilter===pos;return<button key={pos} onClick={()=>{setSfPosFilter(active?null:pos);setExplorerHover(null);}} style={{fontFamily:mono,fontSize:10,fontWeight:700,padding:"5px 12px",background:active?c:"transparent",color:active?"#fff":c,border:`1.5px solid ${active?c:c+"33"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>{pos}</button>;})}
+          </div>;
+
+          if(!sfTeam){
+            return<>{teamRow}<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>select a team to see scheme fit landscape</p></div></>;
+          }
+
+          if(!sfPosFilter){
+            // === Aggregate Bubble View ===
+            const agg=SF_GROUPS.map(pos=>{
+              const atPos=PROSPECTS.filter(p=>{const g=p.gpos||p.pos;return g===pos&&g!=="K/P";});
+              if(!atPos.length||!teamFits)return null;
+              const scores=atPos.map(p=>({p,score:teamFits[p.id]?.score||0}));
+              const fitCount=scores.filter(s=>s.score>=70).length;
+              const avgScore=Math.round(scores.reduce((s,x)=>s+x.score,0)/scores.length);
+              const best=scores.sort((a,b)=>b.score-a.score)[0];
+              return{pos,count:fitCount,total:atPos.length,avgScore,topScore:best.score,topName:best.p.name,pctFit:Math.round((fitCount/atPos.length)*100)};
+            }).filter(Boolean);
+
+            const xVals=agg.map(d=>d.count);
+            const yVals=agg.map(d=>d.avgScore);
+            const xMin=Math.min(...xVals),xMax=Math.max(...xVals,1);
+            const yMin=Math.min(...yVals),yMax=Math.max(...yVals,1);
+            const xRange=xMax-xMin||1,yRange=yMax-yMin||1;
+            const meanX=xVals.reduce((s,v)=>s+v,0)/agg.length;
+            const meanY=yVals.reduce((s,v)=>s+v,0)/agg.length;
+            const W=Math.min(860,window.innerWidth-32),H=380;
+            const pad={top:30,right:30,bottom:50,left:60};
+            const cw=W-pad.left-pad.right,ch=H-pad.top-pad.bottom;
+            const sx=d=>((d.count-xMin)/xRange)*cw;
+            const sy=d=>ch-((d.avgScore-yMin)/yRange)*ch;
+            const sr=d=>8+((d.count/Math.max(...xVals,1))*16);
+            const meanPxX=((meanX-xMin)/xRange)*cw;
+            const meanPxY=ch-((meanY-yMin)/yRange)*ch;
+            const top3=[...agg].sort((a,b)=>b.count-a.count).slice(0,3);
+            const tc=NFL_TEAM_COLORS[sfTeam]||"#6366f1";
+
+            return<>
+              {teamRow}
+              {posPills}
+              <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:8}}>
+                <NFLTeamLogo team={sfTeam} size={20}/>
+                <span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:tc}}>{sfTeam}</span>
+                <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>scheme fit landscape</span>
+              </div>
+              <div style={{position:"relative",marginTop:4}}>
+                <svg width={W} height={H} style={{display:"block"}}>
+                  <defs>
+                    <pattern id="sf-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                      <line x1="0" y1="0" x2="0" y2="6" stroke={tc+"22"} strokeWidth="1"/>
+                    </pattern>
+                  </defs>
+                  {/* Top-right quadrant highlight */}
+                  <rect x={pad.left+meanPxX} y={pad.top} width={cw-meanPxX} height={meanPxY} fill="url(#sf-hatch)"/>
+                  {/* Mean crosshairs */}
+                  <line x1={pad.left+meanPxX} y1={pad.top} x2={pad.left+meanPxX} y2={pad.top+ch} stroke="#d4d4d4" strokeWidth={1} strokeDasharray="4,3"/>
+                  <line x1={pad.left} y1={pad.top+meanPxY} x2={pad.left+cw} y2={pad.top+meanPxY} stroke="#d4d4d4" strokeWidth={1} strokeDasharray="4,3"/>
+                  {/* Axes */}
+                  <line x1={pad.left} y1={pad.top+ch} x2={pad.left+cw} y2={pad.top+ch} stroke="#e5e5e5" strokeWidth={1}/>
+                  <line x1={pad.left} y1={pad.top} x2={pad.left} y2={pad.top+ch} stroke="#e5e5e5" strokeWidth={1}/>
+                  {/* X-axis label */}
+                  <text x={pad.left+cw/2} y={H-6} textAnchor="middle" style={{fontSize:10,fill:"#737373",fontFamily:"monospace"}}>Prospects ≥70 Fit (Depth)</text>
+                  {/* Y-axis label */}
+                  <text x={14} y={pad.top+ch/2} textAnchor="middle" transform={`rotate(-90,14,${pad.top+ch/2})`} style={{fontSize:10,fill:"#737373",fontFamily:"monospace"}}>Avg Scheme Fit</text>
+                  {/* X ticks */}
+                  {[0,0.25,0.5,0.75,1].map(f=>{const xp=pad.left+f*cw;const v=xMin+f*xRange;return<g key={f}><line x1={xp} y1={pad.top+ch} x2={xp} y2={pad.top+ch+4} stroke="#d4d4d4"/><text x={xp} y={pad.top+ch+16} textAnchor="middle" style={{fontSize:9,fill:"#a3a3a3",fontFamily:"monospace"}}>{Math.round(v)}</text></g>;})}
+                  {/* Y ticks */}
+                  {[0,0.25,0.5,0.75,1].map(f=>{const yp=pad.top+ch-f*ch;const v=yMin+f*yRange;return<g key={f}><line x1={pad.left-4} y1={yp} x2={pad.left} y2={yp} stroke="#d4d4d4"/><text x={pad.left-8} y={yp+3} textAnchor="end" style={{fontSize:9,fill:"#a3a3a3",fontFamily:"monospace"}}>{Math.round(v)}</text></g>;})}
+                  {/* Bubbles */}
+                  {agg.map(d=>{
+                    const cx=pad.left+sx(d),cy=pad.top+sy(d),r=sr(d),c=POS_COLORS[d.pos]||"#525252";
+                    return<g key={d.pos}
+                      onClick={()=>setSfPosFilter(d.pos)}
+                      onMouseEnter={e=>setExplorerHover({sfBubble:d,cx:e.clientX,cy:e.clientY})}
+                      onMouseLeave={()=>setExplorerHover(null)}
+                      style={{cursor:"pointer"}}>
+                      <circle cx={cx} cy={cy} r={r} fill={c+"38"} stroke={c} strokeWidth={2}/>
+                      <text x={cx} y={cy+1} textAnchor="middle" dominantBaseline="middle" style={{fontSize:Math.max(8,r*0.7),fill:c,fontFamily:"monospace",fontWeight:700,pointerEvents:"none"}}>{d.pos}</text>
+                    </g>;})}
+                </svg>
+                {/* Center watermark */}
+                <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",display:"flex",alignItems:"center",gap:0,opacity:0.06,pointerEvents:"none"}}>
+                  <img src="/logo.png" alt="" style={{height:60,width:"auto"}}/>
+                  <span style={{fontFamily:font,fontSize:32,fontWeight:900,color:"#171717",letterSpacing:-1,marginLeft:-6}}>bigboardlab.com</span>
+                </div>
+                {/* Bottom-right logo */}
+                <div style={{display:"flex",justifyContent:"flex-end",alignItems:"center",gap:5,marginTop:2,paddingRight:4}}>
+                  <img src="/logo.png" alt="" style={{height:12,width:"auto"}}/>
+                  <span style={{fontFamily:mono,fontSize:8,fontWeight:600,color:"#171717",letterSpacing:0.3}}>bigboardlab.com</span>
+                </div>
+
+                {/* Bubble tooltip */}
+                {explorerHover&&explorerHover.sfBubble&&(()=>{
+                  const d=explorerHover.sfBubble;
+                  return<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-260),top:Math.max(explorerHover.cy-100,8),background:"#171717",color:"#fff",padding:"10px 14px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:260}}>
+                    <div style={{fontWeight:700,marginBottom:4}}>{POS_EMOJI[d.pos]||""} {d.pos}</div>
+                    <div style={{fontSize:11,color:"#d4d4d4",lineHeight:1.6}}>
+                      <div>{d.count} of {d.total} fit ({d.pctFit}%)</div>
+                      <div>Avg score: {d.avgScore}</div>
+                      <div>Best: {d.topName} ({d.topScore})</div>
+                    </div>
+                    <div style={{fontSize:9,color:"#525252",marginTop:4}}>tap to drill down</div>
+                  </div>;
+                })()}
+              </div>
+
+              {/* Summary Cards — Top 3 by count */}
+              <div style={{display:"flex",gap:10,marginTop:16,overflowX:"auto",paddingBottom:4}}>
+                {top3.map((d,i)=>{
+                  const c=POS_COLORS[d.pos]||"#525252";
+                  return<div key={d.pos} onClick={()=>setSfPosFilter(d.pos)} style={{flex:"1 0 0",minWidth:140,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"14px 16px",position:"relative",overflow:"hidden",cursor:"pointer",transition:"border 0.15s"}}>
+                    <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:c}}/>
+                    <div style={{fontFamily:mono,fontSize:14,fontWeight:900,color:c,marginBottom:4}}>{POS_EMOJI[d.pos]||""} {d.pos}</div>
+                    <div style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.5}}>{d.count} of {d.total} prospects fit · avg {d.avgScore}</div>
+                    <div style={{marginTop:6}}><span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#6366f1",background:"#6366f118",border:"1px solid #6366f144",borderRadius:99,padding:"2px 8px",textTransform:"uppercase",letterSpacing:0.5}}>best: {d.topName} ({d.topScore})</span></div>
+                  </div>;})}
+              </div>
+            </>;
+          }
+
+          // === Individual Prospect Scatter View ===
+          const atPos=PROSPECTS.filter(p=>{const g=p.gpos||p.pos;return g===sfPosFilter&&g!=="K/P";});
+          const points=atPos.map(p=>{const fit=teamFits?.[p.id];const rank=getConsensusRank(p.name)||999;const sv=sfVision.get(p.id);return{...p,fit:fit?.score||0,tags:fit?.tags||[],rank,sv};});
+          const xMin=0,xMax=100;
+          const rankedPts=points.filter(d=>d.rank<900);
+          const yMin2=1,yMax2=rankedPts.length?Math.max(...rankedPts.map(d=>d.rank)):300;
+          const yRange2=yMax2-yMin2||1;
+          const W=Math.min(860,window.innerWidth-32),H=380;
+          const pad={top:20,right:20,bottom:50,left:60};
+          const cw=W-pad.left-pad.right,ch=H-pad.top-pad.bottom;
+          const tc=NFL_TEAM_COLORS[sfTeam]||"#0891b2";
+          const pc=POS_COLORS[sfPosFilter]||"#525252";
+          const dotX=d=>pad.left+((d.fit-xMin)/(xMax-xMin))*cw;
+          const dotY=d=>pad.top+((d.rank-yMin2)/yRange2)*ch; // rank 1 at top
+          const dotR=d=>d.rank<50?8:d.rank<150?6:4;
+          const top10=[...points].sort((a,b)=>b.fit-a.fit).slice(0,10);
+
+          return<>
+            {teamRow}
+            {posPills}
+            <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:8}}>
+              <NFLTeamLogo team={sfTeam} size={20}/>
+              <span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:tc}}>{sfTeam}</span>
+              <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:pc,background:pc+"0d",padding:"2px 8px",borderRadius:4,border:`1px solid ${pc}22`}}>{POS_EMOJI[sfPosFilter]||""} {sfPosFilter}</span>
+              <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{points.length} prospects</span>
+            </div>
+
+            {points.length===0?<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no {sfPosFilter} prospects available</p></div>:(
+              <div style={{position:"relative",marginTop:4}}>
+                <svg width={W} height={H} style={{display:"block"}}>
+                  {/* Vertical threshold line at 65 */}
+                  <line x1={pad.left+((70-xMin)/(xMax-xMin))*cw} y1={pad.top} x2={pad.left+((70-xMin)/(xMax-xMin))*cw} y2={pad.top+ch} stroke="#0891b2" strokeWidth={1} strokeDasharray="6,4" opacity={0.4}/>
+                  <text x={pad.left+((70-xMin)/(xMax-xMin))*cw} y={pad.top-6} textAnchor="middle" style={{fontSize:8,fill:"#0891b2",fontFamily:"monospace",opacity:0.6}}>fit threshold (70)</text>
+                  {/* Axes */}
+                  <line x1={pad.left} y1={pad.top+ch} x2={pad.left+cw} y2={pad.top+ch} stroke="#e5e5e5" strokeWidth={1}/>
+                  <line x1={pad.left} y1={pad.top} x2={pad.left} y2={pad.top+ch} stroke="#e5e5e5" strokeWidth={1}/>
+                  {/* X-axis label */}
+                  <text x={pad.left+cw/2} y={H-6} textAnchor="middle" style={{fontSize:10,fill:"#737373",fontFamily:"monospace"}}>Scheme Fit Score</text>
+                  {/* Y-axis label */}
+                  <text x={14} y={pad.top+ch/2} textAnchor="middle" transform={`rotate(-90,14,${pad.top+ch/2})`} style={{fontSize:10,fill:"#737373",fontFamily:"monospace"}}>Consensus Rank (↑ better)</text>
+                  {/* X ticks */}
+                  {[0,25,50,70,85,100].map(v=>{const xp=pad.left+((v-xMin)/(xMax-xMin))*cw;return<g key={v}><line x1={xp} y1={pad.top+ch} x2={xp} y2={pad.top+ch+4} stroke="#d4d4d4"/><text x={xp} y={pad.top+ch+16} textAnchor="middle" style={{fontSize:9,fill:"#a3a3a3",fontFamily:"monospace"}}>{v}</text></g>;})}
+                  {/* Y ticks — rank 1 at top, higher ranks at bottom */}
+                  {[0,0.25,0.5,0.75,1].map(f=>{const yp=pad.top+f*ch;const v=Math.round(yMin2+f*yRange2);return<g key={f}><line x1={pad.left-4} y1={yp} x2={pad.left} y2={yp} stroke="#d4d4d4"/><text x={pad.left-8} y={yp+3} textAnchor="end" style={{fontSize:9,fill:"#a3a3a3",fontFamily:"monospace"}}>#{v}</text></g>;})}
+                  {/* Dots / Logos */}
+                  {(()=>{const myGuySet=new Set(myGuys.map(g=>g.name));return rankedPts.map((d,i)=>{
+                    const cx=dotX(d),cy=dotY(d),r=dotR(d);
+                    const isFit=d.fit>=70;
+                    const isMyGuy=explorerMyGuys&&myGuySet.has(d.name);
+                    const dimmed=explorerMyGuys&&myGuySet.size>0&&!isMyGuy;
+                    const baseOpacity=isFit?1:0.4;
+                    const opacity=dimmed?0.1:baseOpacity;
+                    const logoUrl=explorerLogos?schoolLogo(d.school):null;
+                    const handlers={onMouseEnter:e=>setExplorerHover({sfDot:d,cx:e.clientX,cy:e.clientY}),onMouseLeave:()=>setExplorerHover(null),onClick:()=>{const p=PROSPECTS.find(pr=>pr.id===d.id);if(p)openProfile(p);}};
+                    if(logoUrl){const sz=isMyGuy?28:20;return<g key={d.id} {...handlers} style={{cursor:"pointer"}}><image href={logoUrl} x={cx-sz/2} y={cy-sz/2} width={sz} height={sz} opacity={opacity}/>{isMyGuy&&<circle cx={cx} cy={cy} r={sz/2+2} fill="none" stroke="#ec4899" strokeWidth={2} opacity={0.8}/>}</g>;}
+                    return<g key={d.id}>{isMyGuy&&<circle cx={cx} cy={cy} r={r+3} fill="none" stroke="#ec4899" strokeWidth={2} opacity={0.8}/>}<circle cx={cx} cy={cy} r={r} fill={(isFit?tc:pc)+(isFit?"55":"1a")} stroke={isFit?tc:pc} strokeWidth={isFit?1.5:1} opacity={opacity} {...handlers} style={{cursor:"pointer"}}/></g>;
+                  });})()}
+                </svg>
+                {/* Center watermark */}
+                <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",display:"flex",alignItems:"center",gap:0,opacity:0.06,pointerEvents:"none"}}>
+                  <img src="/logo.png" alt="" style={{height:60,width:"auto"}}/>
+                  <span style={{fontFamily:font,fontSize:32,fontWeight:900,color:"#171717",letterSpacing:-1,marginLeft:-6}}>bigboardlab.com</span>
+                </div>
+                <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:6,paddingRight:4}}>
+                  <div style={{display:"flex",gap:6,alignItems:"center"}}>
+                    <button onClick={()=>setExplorerLogos(v=>!v)} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:explorerLogos?"#17171710":"transparent",color:explorerLogos?"#171717":"#a3a3a3",border:explorerLogos?"1px solid #17171722":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>{explorerLogos?"● dots":"🏫 logos"}</button>
+                    {myGuys.length>0&&<button onClick={()=>setExplorerMyGuys(v=>!v)} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:explorerMyGuys?"linear-gradient(135deg,#ec4899,#7c3aed)":"transparent",color:explorerMyGuys?"#fff":"#a3a3a3",border:explorerMyGuys?"1px solid transparent":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>👀 my guys</button>}
+                  </div>
+                  <div style={{display:"flex",alignItems:"center",gap:5}}>
+                    <img src="/logo.png" alt="" style={{height:12,width:"auto"}}/>
+                    <span style={{fontFamily:mono,fontSize:8,fontWeight:600,color:"#171717",letterSpacing:0.3}}>bigboardlab.com</span>
+                  </div>
+                </div>
+
+                {/* Dot tooltip */}
+                {explorerHover&&explorerHover.sfDot&&(()=>{
+                  const d=explorerHover.sfDot;
+                  const isFit=d.fit>=70;
+                  const sv=d.sv;
+                  const hlColor=isFit?"#06b6d4":d.fit>=55?"#fbbf24":"#f87171";
+                  return<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-320),top:Math.max(explorerHover.cy-140,8),background:"#171717",color:"#fff",padding:"12px 16px",borderRadius:12,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 16px rgba(0,0,0,0.4)",maxWidth:320}}>
+                    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:2}}>
+                      <span style={{fontWeight:700,fontSize:13}}>{d.name}</span>
+                      <span style={{fontFamily:"monospace",fontSize:13,fontWeight:800,color:hlColor}}>{d.fit}</span>
+                    </div>
+                    <div style={{fontSize:10,color:"#737373",marginBottom:4}}>{d.pos} · {d.school} · #{d.rank}</div>
+                    {sv&&<div style={{fontSize:10,fontWeight:600,color:hlColor,marginBottom:6}}>{sv.headline}</div>}
+                    {sv&&sv.whyItFits&&<div style={{fontSize:10,color:"#d4d4d4",lineHeight:1.5,marginBottom:4}}>{sv.whyItFits.length>300?sv.whyItFits.slice(0,300).replace(/[,;]\s*$/,"")+"…":sv.whyItFits}</div>}
+                    {!sv&&<div style={{fontSize:10,color:"#737373",fontStyle:"italic"}}>no scout vision data available</div>}
+                  </div>;
+                })()}
+              </div>
+            )}
+
+            {/* Top-10 Leaderboard */}
+            {top10.length>0&&<div style={{marginTop:16,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
+              <div style={{padding:"10px 14px",borderBottom:"1px solid #f0f0f0",display:"flex",alignItems:"center",gap:6}}>
+                <span style={{fontSize:14}}>🏆</span>
+                <span style={{fontFamily:mono,fontSize:11,fontWeight:900,letterSpacing:1,color:"#171717",textTransform:"uppercase"}}>Top 10 by Scheme Fit</span>
+              </div>
+              {top10.map((d,i)=>{
+                const isOpen=sfExpandedId===d.id;
+                const svR=d.sv;
+                const fitColor=d.fit>=70?"#0891b2":d.fit>=55?"#d97706":"#a3a3a3";
+                return<div key={d.id}>
+                  <div style={{display:"flex",alignItems:"center",gap:8,padding:"7px 14px",borderBottom:isOpen?"none":i<top10.length-1?"1px solid #f5f5f5":"none",cursor:"pointer"}}
+                  onClick={()=>setSfExpandedId(isOpen?null:d.id)}
+                  onMouseEnter={e=>{e.currentTarget.style.background="#faf9f6";}}
+                  onMouseLeave={e=>{e.currentTarget.style.background="transparent";}}>
+                  <span style={{fontFamily:mono,fontSize:10,color:i<3?"#171717":"#a3a3a3",fontWeight:i<3?700:400,width:20,textAlign:"right",flexShrink:0}}>#{i+1}</span>
+                  <SchoolLogo school={d.school} size={20}/>
+                  <div style={{flex:1,minWidth:0,overflow:"hidden",whiteSpace:"nowrap",textOverflow:"ellipsis"}}><span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",cursor:"pointer"}} onClick={e=>{e.stopPropagation();const p=PROSPECTS.find(pr=>pr.id===d.id);if(p)openProfile(p);}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{d.name}</span></div>
+                  <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:pc,background:pc+"18",border:`1px solid ${pc}44`,borderRadius:99,padding:"2px 8px",flexShrink:0}}>{sfPosFilter}</span>
+                  <span style={{fontFamily:mono,fontSize:12,fontWeight:700,color:fitColor,flexShrink:0,minWidth:36,textAlign:"right"}}>{d.fit}</span>
+                  <span style={{fontFamily:mono,fontSize:10,color:"#525252",flexShrink:0,minWidth:40,textAlign:"right"}}>#{d.rank}</span>
+                  <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",flexShrink:0}}>{isOpen?"−":"+"}</span>
+                </div>
+                {isOpen&&svR&&<div style={{padding:"10px 14px 14px 54px",background:"rgba(8,145,178,0.04)",borderLeft:"3px solid #0891b2",borderBottom:i<top10.length-1?"1px solid rgba(8,145,178,0.12)":"none",borderRadius:"0 0 8px 0"}} onClick={e=>e.stopPropagation()}>
+                  <div style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#0891b2",marginBottom:4}}>{svR.headline}</div>
+                  <div style={{fontFamily:mono,fontSize:9,color:"#0891b2",marginBottom:4,opacity:0.8}}>{svR.roleLabel}</div>
+                  <div style={{fontFamily:sans,fontSize:11,color:"#404040",lineHeight:1.5,marginBottom:8}}>{svR.whyItFits}</div>
+                  {svR.prospectStrengths&&<div style={{fontFamily:mono,fontSize:9,color:"#737373",marginBottom:6}}>key traits: {svR.prospectStrengths}</div>}
+                  {svR.relevantInflection&&<div style={{fontFamily:sans,fontSize:10,color:"#0891b2",fontStyle:"italic",lineHeight:1.4,padding:"6px 8px",background:"rgba(8,145,178,0.06)",borderRadius:6,borderLeft:"2px solid rgba(8,145,178,0.4)"}}>{svR.relevantInflection.length>200?svR.relevantInflection.slice(0,200)+"…":svR.relevantInflection}</div>}
+                </div>}
+                {isOpen&&!svR&&<div style={{padding:"10px 14px 14px 54px",background:"#faf9f6",borderBottom:i<top10.length-1?"1px solid #f5f5f5":"none"}}><span style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",fontStyle:"italic"}}>no scout vision data available</span></div>}
+                </div>;
+              })}
+            </div>}
           </>;
         })()}
         {explorerMode==="free-agency"&&(()=>{
