@@ -17,24 +17,6 @@
       "draft_range_target": "Round 2-3"
     },
     {
-      "position": "RB",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Travis Etienne (1,107 rush yards, 7 rush TDs, 36 rec, 6 rec TDs) is a UFA who was not franchise tagged. The Jaguars are reportedly unlikely to re-sign him due to cap constraints, and multiple teams (Texans, Chiefs, Bears) are interested. Bhayshul Tuten (2025 4th-round pick) showed promise as a rookie and showed starting potential in the playoffs, but the team still needs a complementary back. DeeJay Dallas was re-signed but is a depth piece.",
-      "current_starter": "Bhayshul Tuten (projected starter if Etienne leaves)",
-      "depth": "DeeJay Dallas (re-signed), no proven backup behind Tuten",
-      "draft_range_target": "Round 3-5"
-    },
-    {
-      "position": "IDL",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "The Jaguars ranked 27th in sacks (32) despite ranking 3rd in pressures (222), exposing a massive conversion problem on the interior. Arik Armstead (32, turning 33) started strong with 5.5 sacks through 12 weeks but faded after a hand injury, and the DT group managed just 12 pressures and zero sacks in the final 5 weeks without him. Maason Smith was a healthy scratch in the playoffs after a disappointing sophomore season (11 pressures). DaVon Hamilton is a potential cap casualty. The front office has publicly acknowledged this as a top need, and DT is the most commonly mocked position at pick 56.",
-      "current_starter": "Arik Armstead (age 32, declining/injured), DaVon Hamilton (cap casualty candidate)",
-      "depth": "Maason Smith (disappointing, healthy scratch in playoffs), Matt Dickerson (re-signed, limited contributor), Jordan Jefferson (depth)",
-      "draft_range_target": "Round 2 — prime target at No. 56 overall (Christen Miller, etc.)"
-    },
-    {
       "position": "IOL",
       "tier": 2,
       "urgency": "important",
@@ -44,13 +26,13 @@
       "draft_range_target": "Round 2-4"
     },
     {
-      "position": "OT",
+      "position": "RB",
       "tier": 2,
       "urgency": "important",
-      "explanation": "Anton Harrison had a breakout year at RT (6th in PFF pass-blocking among qualified RTs, zero sacks allowed). Walker Little remains the starting LT but was inconsistent (9 sacks, 29 pressures allowed before being replaced by Cole Van Lanen late in the season). Van Lanen outperformed Little at LT and was re-signed. Little has a $12M cap hit in 2026 and is a potential trade candidate. The OT position is not urgent given Harrison's development and Van Lanen's emergence, but Little's inconsistency at LT keeps this as a background need.",
-      "current_starter": "Walker Little (LT, inconsistent/trade candidate), Anton Harrison (RT, ascending)",
-      "depth": "Cole Van Lanen (re-signed, played well at LT), Chuma Edoga — LT is the question mark",
-      "draft_range_target": "Round 4-7 or addressed via trade"
+      "explanation": "Travis Etienne (1,107 rush yards, 7 rush TDs, 36 rec, 6 rec TDs) is a UFA who was not franchise tagged. The Jaguars are reportedly unlikely to re-sign him due to cap constraints, and multiple teams (Texans, Chiefs, Bears) are interested. Bhayshul Tuten (2025 4th-round pick) showed promise as a rookie and showed starting potential in the playoffs, but the team still needs a complementary back. DeeJay Dallas was re-signed but is a depth piece.",
+      "current_starter": "Bhayshul Tuten (projected starter if Etienne leaves)",
+      "depth": "DeeJay Dallas (re-signed), no proven backup behind Tuten",
+      "draft_range_target": "Round 3-5"
     },
     {
       "position": "EDGE",
@@ -60,6 +42,15 @@
       "current_starter": "Josh Hines-Allen, Travon Walker",
       "depth": "Yasir Abdullah, B.J. Green II, Ethan Downs — significant depth concern with Gardeck/Ogbah/Smoot all UFAs",
       "draft_range_target": "Round 3-5"
+    },
+    {
+      "position": "IDL",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "The Jaguars ranked 27th in sacks (32) despite ranking 3rd in pressures (222), exposing a massive conversion problem on the interior. Arik Armstead (32, turning 33) started strong with 5.5 sacks through 12 weeks but faded after a hand injury, and the DT group managed just 12 pressures and zero sacks in the final 5 weeks without him. Maason Smith was a healthy scratch in the playoffs after a disappointing sophomore season (11 pressures). DaVon Hamilton is a potential cap casualty. The front office has publicly acknowledged this as a top need, and DT is the most commonly mocked position at pick 56.",
+      "current_starter": "Arik Armstead (age 32, declining/injured), DaVon Hamilton (cap casualty candidate)",
+      "depth": "Maason Smith (disappointing, healthy scratch in playoffs), Matt Dickerson (re-signed, limited contributor), Jordan Jefferson (depth)",
+      "draft_range_target": "Round 2 — prime target at No. 56 overall (Christen Miller, etc.)"
     },
     {
       "position": "S",
@@ -89,6 +80,15 @@
       "draft_range_target": "Round 2-3"
     },
     {
+      "position": "OT",
+      "tier": 4,
+      "urgency": "minor",
+      "explanation": "Anton Harrison had a breakout year at RT (6th in PFF pass-blocking among qualified RTs, zero sacks allowed). Walker Little remains the starting LT but was inconsistent (9 sacks, 29 pressures allowed before being replaced by Cole Van Lanen late in the season). Van Lanen outperformed Little at LT and was re-signed. Little has a $12M cap hit in 2026 and is a potential trade candidate. The OT position is not urgent given Harrison's development and Van Lanen's emergence, but Little's inconsistency at LT keeps this as a background need.",
+      "current_starter": "Walker Little (LT, inconsistent/trade candidate), Anton Harrison (RT, ascending)",
+      "depth": "Cole Van Lanen (re-signed, played well at LT), Chuma Edoga — LT is the question mark",
+      "draft_range_target": "Round 4-7 or addressed via trade"
+    },
+    {
       "position": "WR",
       "tier": 4,
       "urgency": "minor",
@@ -100,37 +100,37 @@
   ],
   "needs_summary": {
     "tier_1": [
-      "LB",
-      "RB"
+      "LB"
     ],
     "tier_2": [
-      "IDL",
       "IOL",
-      "OT"
+      "RB"
     ],
     "tier_3": [
       "EDGE",
+      "IDL",
       "S",
       "TE"
     ],
     "tier_4": [
       "CB",
+      "OT",
       "WR"
     ]
   },
   "simple_needs": [
     "LB",
+    "OL",
     "RB",
     "DL",
-    "OL",
     "DB",
     "TE"
   ],
   "detailed_needs": {
     "LB": 1,
-    "RB": 1,
-    "DL": 2,
     "OL": 2,
+    "RB": 2,
+    "DL": 3,
     "DB": 3,
     "TE": 3
   },
@@ -138,21 +138,18 @@
     "Travis Etienne Jr. (RB) → New Orleans Saints",
     "Devin Lloyd (LB) → Carolina Panthers",
     "Greg Newsome II (CB) → New York Giants",
-    "Johnny Mundt (TE) → Released",
-    "Emmanuel Ogbah (EDGE) → TBD/unsigned",
-    "Dawuane Smoot (EDGE) → TBD/unsigned",
-    "Andrew Wingard (S) → TBD/unsigned",
-    "Austin Johnson (IDL) → TBD/unsigned",
-    "Tim Patrick (WR) → TBD/unsigned",
-    "Dyami Brown (WR) → TBD/unsigned",
-    "Signed Jakobi Meyers (WR) from Las Vegas Raiders (trade, Nov 2025) — $20.0M AAV",
+    "Andrew Wingard (S) → Arizona Cardinals",
+    "Johnny Mundt (TE) → Philadelphia Eagles",
     "Signed Montaric Brown (CB) from Jacksonville Jaguars (re-sign) — $11.0M AAV",
-    "Signed Dennis Gardeck (LB) from Jacksonville Jaguars (re-sign) — $6.0M AAV",
-    "Signed Quintin Morris (TE) from Jacksonville Jaguars (re-sign) — $3.0M AAV",
-    "Signed DeeJay Dallas (RB) from Jacksonville Jaguars (re-sign) — terms TBD AAV",
-    "Signed Matt Dickerson (IDL) from Jacksonville Jaguars (re-sign) — terms TBD AAV",
-    "Signed Christian Braswell (CB) from Jacksonville Jaguars (ERFA re-sign) — terms TBD AAV",
-    "Signed Keith Taylor (CB) from Jacksonville Jaguars (RFA re-sign) — terms TBD AAV"
+    "Signed Dennis Gardeck (EDGE) from Jacksonville Jaguars (re-sign) — $3.2M AAV",
+    "Signed Quintin Morris (TE) from Jacksonville Jaguars (re-sign) — $2.0M AAV",
+    "Signed Chris Rodriguez Jr. (RB) from Washington Commanders — $5.0M AAV",
+    "Signed DeeJay Dallas (RB) from Jacksonville Jaguars (re-sign) — $1.3M AAV",
+    "Signed Matt Dickerson (IDL) from Jacksonville Jaguars (re-sign) — $1.5M AAV",
+    "Signed Jakobi Meyers (WR) from Las Vegas Raiders (via trade, re-signed via extension) — $20.0M AAV",
+    "Signed Cole Van Lanen (OT) from Jacksonville Jaguars (extension) — $17.0M AAV",
+    "Signed Keith Taylor (CB) from Jacksonville Jaguars (re-sign) — $1.2M AAV",
+    "Signed Christian Braswell (CB) from Jacksonville Jaguars (re-sign, ERFA tender) — $1.1M AAV"
   ],
   "scheme_fit_notes": "Under DC Anthony Campanile, the Jaguars run an attacking 4-3 defense that emphasizes pressure generation and versatile LB play. Campanile's scheme allowed Devin Lloyd to thrive as a blitzer/coverage LB hybrid, so his replacement needs similar versatility. IDL prospects who can generate interior pressure and convert pressures to sacks are the highest-value targets given the team's league-worst pressure-to-sack conversion rate. On offense, Liam Coen runs a creative, run-heavy scheme with play-action and motion. IOL prospects who are strong run-blockers and can handle zone-blocking concepts fit best. The offense's identity runs through the interior OL and RB position.",
   "confidence": "high",

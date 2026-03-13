@@ -8,15 +8,6 @@
   "roster_context": "Coming off a hugely disappointing 8-9 season that led to John Harbaugh's firing after 18 years. Jesse Minter hired from the Chargers as the new defensive-minded HC. Lamar Jackson's $74.5M cap hit must be restructured/extended to unlock roster-building flexibility. The defense collapsed without Nnamdi Madubuike (neck injury, 15 games missed), finishing 30th in the NFL in sacks (30). The offensive interior line was a consistent weakness, and the Ravens face 19 unrestricted free agents including elite center Tyler Linderbaum, TE Isaiah Likely, EDGE Kyle Van Noy, and DE Dre'Mont Jones. The team is in retool mode with a new coaching staff but still has Lamar Jackson, Derrick Henry, Kyle Hamilton, Roquan Smith, and Zay Flowers as a strong core.",
   "needs": [
     {
-      "position": "EDGE",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Dre'Mont Jones departed to New England. The Maxx Crosby trade — agreed to on March 6 and expected to solve this position — fell through after a failed physical on March 11. Baltimore now retains their 2026 and 2027 first-round picks but has NO EDGE acquisition to show for it. Only Mike Green and Tavius Robinson remain as in-house options. Baltimore ranked 30th in the NFL in sacks in 2025 (the first year since 1996 without an EDGE recording 4.5+ sacks). EDGE remains an absolute Tier 1 critical need — possibly the highest priority on the board entering the draft.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
-    },
-    {
       "position": "IOL",
       "tier": 1,
       "urgency": "critical",
@@ -33,24 +24,6 @@
       "current_starter": "",
       "depth": "",
       "draft_range_target": ""
-    },
-    {
-      "position": "TE",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Isaiah Likely (UFA) appears headed out of Baltimore after a disappointing season (27 catches, 307 yards). Charlie Kolar (UFA) is also departing. Mark Andrews signed a 3-year extension but had a down 2025. The Ravens may need to draft a TE to develop as the future TE2/eventual replacement for the aging Andrews (33 in 2026).",
-      "current_starter": "Mark Andrews",
-      "depth": "No TEs under contract beyond Andrews after Likely and Kolar leave",
-      "draft_range_target": "Round 3-5"
-    },
-    {
-      "position": "CB",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Marlon Humphrey is expected to return but is coming off a poor 2025, is entering his age-30 season, and carries a $26.3M cap hit that may require a restructure or pay cut. Nate Wiggins is the future CB1 entering Year 3. Chidobe Awuzie (UFA) is departing. Behind Wiggins and Humphrey, only T.J. Tampa and Keyon Martin remain, neither of whom have received significant playing time. The Ravens need a true CB2 long-term, especially with Humphrey aging and in a contract year.",
-      "current_starter": "Marlon Humphrey, Nate Wiggins",
-      "depth": "T.J. Tampa, Keyon Martin — very limited experience",
-      "draft_range_target": "Round 1-3"
     },
     {
       "position": "DT",
@@ -71,9 +44,45 @@
       "draft_range_target": ""
     },
     {
-      "position": "S",
+      "position": "P",
       "tier": 2,
       "urgency": "important",
+      "explanation": "NEW NEED. Jordan Stout's departure to the Giants (3yr/$12.3M, record punter deal) leaves a significant special teams hole. Stout was All-Pro and Pro Bowl in his contract year, averaging a career-high 44.9 net yards per punt. No replacement signed as of 3/13. Punter is now a legitimate need — could be addressed via mid-round draft pick or later free agency signing.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
+      "position": "TE",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Isaiah Likely (UFA) appears headed out of Baltimore after a disappointing season (27 catches, 307 yards). Charlie Kolar (UFA) is also departing. Mark Andrews signed a 3-year extension but had a down 2025. The Ravens may need to draft a TE to develop as the future TE2/eventual replacement for the aging Andrews (33 in 2026).",
+      "current_starter": "Mark Andrews",
+      "depth": "No TEs under contract beyond Andrews after Likely and Kolar leave",
+      "draft_range_target": "Round 3-5"
+    },
+    {
+      "position": "CB",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Marlon Humphrey is expected to return but is coming off a poor 2025, is entering his age-30 season, and carries a $26.3M cap hit that may require a restructure or pay cut. Nate Wiggins is the future CB1 entering Year 3. Chidobe Awuzie (UFA) is departing. Behind Wiggins and Humphrey, only T.J. Tampa and Keyon Martin remain, neither of whom have received significant playing time. The Ravens need a true CB2 long-term, especially with Humphrey aging and in a contract year.",
+      "current_starter": "Marlon Humphrey, Nate Wiggins",
+      "depth": "T.J. Tampa, Keyon Martin — very limited experience",
+      "draft_range_target": "Round 1-3"
+    },
+    {
+      "position": "EDGE",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Dre'Mont Jones departed to New England. The Maxx Crosby trade — agreed to on March 6 and expected to solve this position — fell through after a failed physical on March 11. Baltimore now retains their 2026 and 2027 first-round picks but has NO EDGE acquisition to show for it. Only Mike Green and Tavius Robinson remain as in-house options. Baltimore ranked 30th in the NFL in sacks in 2025 (the first year since 1996 without an EDGE recording 4.5+ sacks). EDGE remains an absolute Tier 1 critical need — possibly the highest priority on the board entering the draft.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
+      "position": "S",
+      "tier": 3,
+      "urgency": "moderate",
       "explanation": "Kyle Hamilton is an All-Pro locked up long-term. Malaki Starks (2025 1st-round pick) is the FS alongside Hamilton. However, Alohi Gilman (UFA) and Ar'Darius Washington (UFA) are both departing, leaving a void at the third safety/sub-package role. The Ravens need a third safety to complement Hamilton and Starks.",
       "current_starter": "Kyle Hamilton (SS/nickel), Malaki Starks (FS)",
       "depth": "Thin after losing Gilman and Washington in FA",
@@ -81,8 +90,8 @@
     },
     {
       "position": "WR",
-      "tier": 2,
-      "urgency": "important",
+      "tier": 3,
+      "urgency": "moderate",
       "explanation": "DeAndre Hopkins (33, UFA) is departing after a career-low 330 yards. Rashod Bateman had a career-low 224 yards in 2025 and is the current WR2 but underperformed badly. Zay Flowers is elite (back-to-back 1,000-yard seasons) but has no reliable complement. Devontez Walker and LaJohntay Wester are unproven depth. Baltimore needs a true outside WR to pair with Flowers. Multiple mock drafts have the Ravens targeting a WR in the first two rounds.",
       "current_starter": "Zay Flowers (WR1), Rashod Bateman (WR2)",
       "depth": "Devontez Walker, LaJohntay Wester, Cornelius Johnson — very thin",
@@ -100,52 +109,65 @@
   ],
   "needs_summary": {
     "tier_1": [
-      "EDGE",
       "IOL",
-      "IOL_C",
-      "TE"
+      "IOL_C"
     ],
     "tier_2": [
-      "CB",
       "DT",
       "IDL",
+      "P",
+      "TE"
+    ],
+    "tier_3": [
+      "CB",
+      "EDGE",
       "S",
       "WR"
     ],
-    "tier_3": [],
     "tier_4": [
       "LB"
     ]
   },
   "simple_needs": [
-    "DL",
     "OL",
     "IOL_C",
+    "DL",
+    "P",
     "TE",
     "DB",
     "WR"
   ],
   "detailed_needs": {
-    "DL": 1,
     "OL": 1,
     "IOL_C": 1,
-    "TE": 1,
-    "DB": 2,
-    "WR": 2
+    "DL": 2,
+    "P": 2,
+    "TE": 2,
+    "DB": 3,
+    "WR": 3
   },
   "free_agency_impact": [
     "Tyler Linderbaum (IOL) → Las Vegas Raiders",
     "Isaiah Likely (TE) → New York Giants",
     "Charlie Kolar (TE) → Los Angeles Chargers",
-    "Dre'Mont Jones (EDGE) → New England Patriots",
     "Alohi Gilman (S) → Kansas City Chiefs",
     "Ar'Darius Washington (S) → New York Giants",
-    "Jordan Stout (ST) → New York Giants",
+    "Dre'Mont Jones (EDGE) → New England Patriots",
+    "Kyle Van Noy (EDGE) → TBD/Unsigned as of 3/13",
+    "Jordan Stout (P) → New York Giants",
     "Patrick Ricard (FB) → New York Giants",
+    "Daniel Faalele (IOL) → TBD/Unsigned as of 3/13",
+    "DeAndre Hopkins (WR) → TBD/Unsigned as of 3/13",
     "Jake Hummel (LB) → Las Vegas Raiders",
-    "Keaton Mitchell (RB) → TBD/unsigned",
-    "Signed Tyler Huntley (QB) from Baltimore Ravens (re-sign) — $2.5M AAV",
-    "Signed John Simpson (IOL) from New York Jets — $10.0M AAV"
+    "Keaton Mitchell (RB) → Los Angeles Chargers",
+    "Signed Trey Hendrickson (EDGE) from Cincinnati Bengals — $28.0M AAV",
+    "Signed John Simpson (IOL) from New York Jets — $10.0M AAV",
+    "Signed Jaylinn Hawkins (S) from New England Patriots — $5.0M AAV",
+    "Signed Mark Andrews (TE) from Baltimore Ravens (re-signed/extension Dec 2025) — $13.1M AAV",
+    "Signed Durham Smythe (TE) from Chicago Bears — terms TBD AAV",
+    "Signed Tyler Huntley (QB) from Baltimore Ravens (re-signed) — $5.5M AAV",
+    "Signed Chidobe Awuzie (CB) from Baltimore Ravens (re-signed) — $5.0M AAV",
+    "Signed Jovaughn Gwyn (IOL) from Atlanta Falcons — terms TBD AAV"
   ],
   "scheme_fit_notes": "New HC Jesse Minter brings a defensive-minded approach from the Chargers. Minter's system utilizes match coverages in the secondary (Hamilton/Starks are perfect fits) and demands versatile interior DL who can rush the passer and defend the run on all downs. Edge rushers in Minter's system are asked to do more than just pin-their-ears-back rushing — they must set edges and contribute in multiple responsibilities, meaning high-floor, versatile EDGE prospects have elevated value. Minter has emphasized building through the trenches. On offense, the Ravens run a heavy ground-and-pound scheme with Lamar Jackson's dual-threat ability, making IOL who can dominate in gap/power run blocking particularly valuable. WR prospects who can win contested catches and provide a big-bodied outside target are ideal complements to the undersized slot talent of Zay Flowers.",
   "confidence": "high",

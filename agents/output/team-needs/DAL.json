@@ -8,15 +8,6 @@
   "roster_context": "Coming off a historically bad defensive season (30.1 PPG allowed, worst in NFL) and a 7-9-1 record despite a top-5 offense. Traded Micah Parsons to GB pre-season for two 1sts and Kenny Clark, then traded for Quinnen Williams at midseason. New DC Christian Parker installing a 3-4 base scheme. Lost DE Marshawn Kneeland to tragedy in November. Offense is set with Dak Prescott, CeeDee Lamb, franchise-tagged George Pickens, and re-signed Javonte Williams. Restructured Prescott, Lamb, and Tyler Smith contracts to create ~$66M in cap space. Jerry Jones has pledged aggressive free agency spending. Two first-round picks (12 and 20) but no picks in Rounds 2-3, creating a top-heavy draft.",
   "needs": [
     {
-      "position": "LB",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Logan Wilson was released in February, saving $6.5M. Kenneth Murray and Jack Sanborn are UFAs and won't return. The only LBs under contract are DeMarvion Overshown (injury-prone, missed 32 of 51 career games), Shemar James (promising 5th-round rookie, 91 tackles), and Marist Liufau (disappointing, now converting to OLB). Overshown has enormous upside but has never completed a full offseason program healthy until now. The 2026 LB draft class is strong (Sonny Styles, CJ Allen). Parker's 3-4 scheme requires two quality inside linebackers.",
-      "current_starter": "DeMarvion Overshown, Shemar James",
-      "depth": "Marist Liufau (moving to OLB). Very thin after top two. Need a reliable starter next to Overshown.",
-      "draft_range_target": "Round 1-2 (but no Round 2 pick, so Round 1 or FA)"
-    },
-    {
       "position": "CB",
       "tier": 2,
       "urgency": "important",
@@ -44,6 +35,24 @@
       "draft_range_target": "Round 4-5 or low-cost FA"
     },
     {
+      "position": "LB",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Logan Wilson was released in February, saving $6.5M. Kenneth Murray and Jack Sanborn are UFAs and won't return. The only LBs under contract are DeMarvion Overshown (injury-prone, missed 32 of 51 career games), Shemar James (promising 5th-round rookie, 91 tackles), and Marist Liufau (disappointing, now converting to OLB). Overshown has enormous upside but has never completed a full offseason program healthy until now. The 2026 LB draft class is strong (Sonny Styles, CJ Allen). Parker's 3-4 scheme requires two quality inside linebackers.",
+      "current_starter": "DeMarvion Overshown, Shemar James",
+      "depth": "Marist Liufau (moving to OLB). Very thin after top two. Need a reliable starter next to Overshown.",
+      "draft_range_target": "Round 1-2 (but no Round 2 pick, so Round 1 or FA)"
+    },
+    {
+      "position": "IDL",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Quinnen Williams, Kenny Clark, and Osa Odighizuwa remain on roster — three solid IDL starters. Clark's $21.5M cap hit with no guarantees is a potential cap casualty. If Clark is moved, IDL escalates. For now, tier holds at 3 — depth and contingency planning only.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
       "position": "OT",
       "tier": 3,
       "urgency": "moderate",
@@ -53,10 +62,10 @@
       "draft_range_target": "Day 3 (Round 4-5) — defensive picks will dominate Rounds 1"
     },
     {
-      "position": "IDL",
-      "tier": 4,
-      "urgency": "minor",
-      "explanation": "Quinnen Williams, Kenny Clark, and Osa Odighizuwa remain on roster — three solid IDL starters. Clark's $21.5M cap hit with no guarantees is a potential cap casualty. If Clark is moved, IDL escalates. For now, tier holds at 3 — depth and contingency planning only.",
+      "position": "WR",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "George Pickens is on the franchise tag at $27.3M for 2026, but the long-term situation is unresolved. Until a multi-year extension is signed (July 15 deadline), a trade remains a non-trivial possibility. CeeDee Lamb is under contract. WR tier stays unchanged pending the Pickens long-term resolution — if he's traded, this escalates to tier 1.",
       "current_starter": "",
       "depth": "",
       "draft_range_target": ""
@@ -72,54 +81,54 @@
     }
   ],
   "needs_summary": {
-    "tier_1": [
-      "LB"
-    ],
+    "tier_1": [],
     "tier_2": [
       "CB",
       "EDGE",
-      "IOL"
+      "IOL",
+      "LB"
     ],
     "tier_3": [
-      "OT"
+      "IDL",
+      "OT",
+      "WR"
     ],
     "tier_4": [
-      "IDL",
       "S"
     ]
   },
   "simple_needs": [
-    "LB",
     "DB",
     "DL",
-    "OL"
+    "OL",
+    "LB",
+    "WR"
   ],
   "detailed_needs": {
-    "LB": 1,
     "DB": 2,
     "DL": 2,
-    "OL": 2
+    "OL": 2,
+    "LB": 2,
+    "WR": 3
   },
   "free_agency_impact": [
     "Jadeveon Clowney (EDGE) → TBD/unsigned",
+    "Dante Fowler Jr. (EDGE) → TBD/unsigned",
     "Donovan Wilson (S) → TBD/unsigned",
     "DeMarcus Lawrence (EDGE) → Seattle Seahawks",
-    "Dante Fowler Jr. (EDGE) → TBD/unsigned",
-    "Jourdan Lewis (CB) → Jacksonville Jaguars",
-    "Logan Wilson (LB) → released/cut",
-    "Kenneth Murray (LB) → TBD/unsigned",
-    "Payton Turner (EDGE) → TBD/unsigned",
-    "Brock Hoffman (IOL) → Pittsburgh Steelers (reported)",
-    "Signed Rashan Gary (EDGE) from Green Bay Packers — $19.5M AAV",
+    "Osa Odighizuwa (IDL) → San Francisco 49ers",
+    "Solomon Thomas (IDL) → Tennessee Titans",
+    "Jack Sanborn (LB) → TBD/unsigned",
+    "Jalen Tolbert (WR) → TBD/unsigned",
+    "Signed Rashan Gary (EDGE) from Green Bay Packers — $16.0M AAV",
     "Signed Jalen Thompson (S) from Arizona Cardinals — $11.0M AAV",
-    "Signed P.J. Locke (S) from Denver Broncos — $5.0M AAV",
-    "Signed Sam Williams (EDGE) from Dallas Cowboys (re-sign) — $3.0M AAV",
-    "Signed Otito Ogbonnia (IDL) from Los Angeles Chargers — $3.0M AAV",
     "Signed Javonte Williams (RB) from Dallas Cowboys (re-sign) — $8.0M AAV",
     "Signed George Pickens (WR) from Dallas Cowboys (franchise tag) — $27.3M AAV",
-    "Signed Malik Hooker (S) from Dallas Cowboys (restructure retained) — $5.0M AAV",
-    "Signed Brandon Aubrey (K) from Dallas Cowboys (RFA tendered) — $5.8M AAV",
-    "Signed T.J. Bass (IOL) from Dallas Cowboys (RFA tendered) — $5.8M AAV"
+    "Signed Sam Williams (EDGE) from Dallas Cowboys (re-sign) — $3.0M AAV",
+    "Signed P.J. Locke (S) from Denver Broncos — $5.0M AAV",
+    "Signed Otito Ogbonnia (IDL) from Los Angeles Chargers — $3.0M AAV",
+    "Signed Sam Howell (QB) from Philadelphia Eagles — $2.0M AAV",
+    "Signed Tyrus Wheat (EDGE) from Dallas Cowboys (re-sign) — terms TBD AAV"
   ],
   "scheme_fit_notes": "New DC Christian Parker is installing a 3-4 base defense (first since 2012) that will be multiple with 4-3, 4-2-5 nickel, and 5-man front looks. This scheme change elevates the need for stand-up OLB/EDGE rushers who can drop into coverage, versatile inside linebackers, and coverage-capable safeties. Parker's Philly roots (Vic Fangio tree) emphasize two-high safety shells, pre-snap disguises, and scheme versatility. The DT room (Williams/Clark/Odighizuwa) is the one defensive strength and will anchor the front. Edge prospects who can play with their hand up in a 3-4 OLB role (not just 4-3 DEs) are ideal fits. CBs who can play man or zone from multiple alignments fit Parker's multiple coverage philosophy.",
   "confidence": "high",

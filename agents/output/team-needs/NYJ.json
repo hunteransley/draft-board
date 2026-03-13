@@ -8,15 +8,6 @@
   "roster_context": "Coming off a catastrophic 3-14 season under first-year HC Aaron Glenn. The Jets executed a full-scale teardown at the 2025 trade deadline, shipping out franchise cornerstones Sauce Gardner and Quinnen Williams for a massive haul of draft capital (5 first-round picks over two drafts). Justin Fields was a disaster at QB and is expected to be cut. The defense set an NFL record with zero interceptions all season and ranked 31st in sacks (26). The offense ranked dead last (32nd) in passing. The only bright spots were an emerging young OL core (Fashanu, Membou, Tippmann), Breece Hall's 1,000-yard rushing season, and rookie TE Mason Taylor. The Jets have ~$90M in cap space, four picks in the top 44, and massive roster holes on both sides of the ball — a true ground-up rebuild.",
   "needs": [
     {
-      "position": "IOL",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "The OL core of Fashanu-Tippmann-Membou is excellent and all under contract. However, LG is wide open with both John Simpson and Alijah Vera-Tucker hitting free agency. The Jets are reportedly willing to let both test the market. Center Josh Myers was extended but is adequate, not a difference-maker. The Jets may target Tyler Linderbaum in FA for center and could draft a LG (Vega Ioane at No. 16 has been discussed). One starting guard spot needs to be filled.",
-      "current_starter": "Josh Myers (C, extended), LG vacant (Simpson/AVT both UFAs)",
-      "depth": "Joe Tippmann provides versatility (can play C or G). Max Mitchell (UFA). Need at least one starting guard.",
-      "draft_range_target": "Round 1-2 if top IOL available, or free agency"
-    },
-    {
       "position": "CB",
       "tier": 2,
       "urgency": "important",
@@ -53,6 +44,15 @@
       "draft_range_target": "Round 1-2 (No. 16 for Makai Lemon, Denzel Boston, or Carnell Tate)"
     },
     {
+      "position": "IOL",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "The OL core of Fashanu-Tippmann-Membou is excellent and all under contract. However, LG is wide open with both John Simpson and Alijah Vera-Tucker hitting free agency. The Jets are reportedly willing to let both test the market. Center Josh Myers was extended but is adequate, not a difference-maker. The Jets may target Tyler Linderbaum in FA for center and could draft a LG (Vega Ioane at No. 16 has been discussed). One starting guard spot needs to be filled.",
+      "current_starter": "Josh Myers (C, extended), LG vacant (Simpson/AVT both UFAs)",
+      "depth": "Joe Tippmann provides versatility (can play C or G). Max Mitchell (UFA). Need at least one starting guard.",
+      "draft_range_target": "Round 1-2 if top IOL available, or free agency"
+    },
+    {
       "position": "K",
       "tier": 3,
       "urgency": "moderate",
@@ -69,15 +69,6 @@
       "current_starter": "Jamien Sherwood",
       "depth": "Kiko Mauigoa (2nd-year), Mykal Walker (UFA). Quincy Williams (UFA, expected to leave).",
       "draft_range_target": "Round 2-4, plus FA signing (Anzalone, Devin Lloyd linked)"
-    },
-    {
-      "position": "S",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "The Jets' defense did not record a single interception in 2025 — an NFL record for futility. Safety Andre Cisco is a UFA, and Tony Adams is also a UFA. Rookie Malachi Moore showed promise (85 tackles) but is still developing. The Jets need two starting-caliber safeties. Multiple mock drafters have linked Caleb Downs (Ohio State) to the Jets at No. 2. The team is reportedly considering Bryan Cook, Nick Cross, and Minkah Fitzpatrick (trade) in free agency.",
-      "current_starter": "Malachi Moore (SS, 2025 4th-round pick)",
-      "depth": "Andre Cisco (UFA), Tony Adams (UFA) — both expected to leave. Moore is the only safety under contract.",
-      "draft_range_target": "Round 1-2 (No. 2 if Downs, or Round 2 at No. 33-44)"
     },
     {
       "position": "TE",
@@ -99,9 +90,7 @@
     }
   ],
   "needs_summary": {
-    "tier_1": [
-      "IOL"
-    ],
+    "tier_1": [],
     "tier_2": [
       "CB",
       "EDGE",
@@ -109,9 +98,9 @@
       "WR"
     ],
     "tier_3": [
+      "IOL",
       "K",
       "LB",
-      "S",
       "TE"
     ],
     "tier_4": [
@@ -119,47 +108,49 @@
     ]
   },
   "simple_needs": [
-    "OL",
     "DB",
     "DL",
     "QB",
     "WR",
+    "OL",
     "K",
     "LB",
     "TE"
   ],
   "detailed_needs": {
-    "OL": 1,
     "DB": 2,
     "DL": 2,
     "QB": 2,
     "WR": 2,
+    "OL": 3,
     "K": 3,
     "LB": 3,
     "TE": 3
   },
   "free_agency_impact": [
     "Jermaine Johnson II (EDGE) → Tennessee Titans",
-    "Alijah Vera-Tucker (IOL) → New England Patriots",
     "John Simpson (IOL) → Baltimore Ravens",
+    "Alijah Vera-Tucker (IOL) → New England Patriots",
     "Quincy Williams (LB) → Cleveland Browns",
+    "Micheal Clemons (EDGE) → Indianapolis Colts",
     "Nick Folk (K) → Atlanta Falcons",
-    "Andre Cisco (S) → TBD/unsigned",
-    "Tony Adams (S) → TBD/unsigned",
-    "Signed T'Vondre Sweat (IDL) from Tennessee Titans — terms TBD AAV",
     "Signed Minkah Fitzpatrick (S) from Miami Dolphins — $13.3M AAV",
-    "Signed Geno Smith (QB) from Las Vegas Raiders — $19.5M AAV",
     "Signed Joseph Ossai (EDGE) from Cincinnati Bengals — $12.0M AAV",
     "Signed Kingsley Enagbare (EDGE) from Green Bay Packers — $10.0M AAV",
     "Signed Demario Davis (LB) from New Orleans Saints — $11.0M AAV",
     "Signed David Onyemata (IDL) from Atlanta Falcons — $10.5M AAV",
-    "Signed Nahshon Wright (CB) from Chicago Bears — $5.5M AAV",
+    "Signed T'Vondre Sweat (IDL) from Tennessee Titans — $4.9M AAV",
+    "Signed Geno Smith (QB) from Las Vegas Raiders — $3.3M AAV",
     "Signed Dane Belton (S) from New York Giants — $6.0M AAV",
-    "Signed Andrew Beck (RB) from New York Jets — $1.5M AAV",
+    "Signed Nahshon Wright (CB) from Chicago Bears — $3.5M AAV",
+    "Signed Dylan Parham (IOL) from Las Vegas Raiders — $8.0M AAV",
+    "Signed Austin Schlottmann (IOL) from Tennessee Titans — $4.5M AAV",
     "Signed Jelani Woods (TE) from New York Jets — terms TBD AAV",
-    "Signed Jowon Briggs (IDL) from New York Jets — terms TBD AAV",
-    "Signed Marcelino McCrary-Ball (LB) from New York Jets — terms TBD AAV",
-    "Signed Breece Hall (RB) from New York Jets — $14.3M AAV"
+    "Signed Breece Hall (RB) from New York Jets — $14.3M AAV",
+    "Signed Andrew Beck (FB) from New York Jets — $1.5M AAV",
+    "Signed Max Mitchell (OT) from New York Jets — terms TBD AAV",
+    "Signed Mykal Walker (LB) from New York Jets — terms TBD AAV",
+    "Signed Cade York (K) from Unsigned/New Orleans Saints — terms TBD AAV"
   ],
   "scheme_fit_notes": "Aaron Glenn is taking over defensive playcalling in 2026 with new DC Brian Duker. Glenn prefers a 3-4 base that values versatile EDGE/LB hybrids (hence Arvell Reese fits perfectly — a college off-ball LB transitioning to EDGE). The defense will feature T'Vondre Sweat as a true nose tackle with space-eaters inside and aggressive edge rushers outside. Glenn's background as a former DB coach means he values instinctive, ball-hawking safeties (Caleb Downs profile). On offense, new OC Frank Reich runs a more traditional, pass-forward system — a stark departure from the mobility-focused scheme that catered to Fields. The Jets need a pocket passer or dual-threat who can operate within structure. Reich's offense elevates WR and TE usage, making a true WR2 essential.",
   "confidence": "high",

@@ -1,9 +1,9 @@
 {
   "team": "CLE",
   "team_full": "Cleveland Browns",
-  "updated_through": "2026-03-10",
-  "cap_space_pre_fa": "$33000000",
-  "cap_space_post_fa": "$10659433",
+  "updated_through": "2026-03-13",
+  "cap_space_pre_fa": "~30000000",
+  "cap_space_post_fa": "8649433",
   "key_departures": [
     {
       "player": "Devin Bush",
@@ -11,18 +11,20 @@
       "age": 27,
       "role": "starter",
       "new_team": "Chicago Bears",
-      "impact": "Bush was the Browns' lone defensive starting-caliber free agent. Posted career highs of 125 tackles, 3 INTs, 2 forced fumbles, 2 sacks, and 2 defensive TDs in 2025. Lost to the Bears on a 3-year, $30M deal. Significant hole at the position, but Browns moved quickly to replace him.",
-      "need_impact": "escalates",
+      "contract_at_new_team": "3yr/$30M, $21M guaranteed",
+      "impact": "Bush was the Browns' lone defensive starter hitting free agency. He posted career highs with 125 tackles, 3 INTs, and 8 PDs in 2025. Cleveland chose not to match his $10M/yr asking price, prioritizing the offensive line overhaul.",
+      "need_impact": "creates",
       "need_position": "LB"
     },
     {
       "player": "David Njoku",
       "position": "TE",
-      "age": 30,
+      "age": 29,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "Njoku announced his departure via social media before free agency opened. Posted just 293 receiving yards in 12 games in 2025 in a diminished role behind 2025 draft pick Harold Fannin Jr. His departure creates a TE2/blocking TE need, though Fannin mitigates the loss at TE1.",
-      "need_impact": "creates",
+      "contract_at_new_team": "TBD",
+      "impact": "Njoku announced he would not return to Cleveland in 2026. He was the team's starting TE and the centerpiece of the passing offense in prior years. His departure leaves Harold Fannin Jr. as the clear TE1 with thin depth behind him.",
+      "need_impact": "escalates",
       "need_position": "TE"
     },
     {
@@ -30,20 +32,44 @@
       "position": "IOL",
       "age": 31,
       "role": "starter",
-      "new_team": "Houston Texans (reported destination)",
-      "impact": "Teller posted his own farewell before free agency. Was a 3-time Pro Bowler but production declined in 2025 with injuries limiting him. One of four starting OL hitting free agency simultaneously. Browns aggressively replaced interior line depth.",
+      "new_team": "TBD/unsigned",
+      "contract_at_new_team": "TBD",
+      "impact": "Teller announced his departure publicly. A long-time starting right guard for Cleveland, his exit is one of four Week 1 OL starters lost. Released with post-June 1 designation.",
+      "need_impact": "escalates",
+      "need_position": "IOL"
+    },
+    {
+      "player": "Joel Bitonio",
+      "position": "IOL",
+      "age": 35,
+      "role": "starter",
+      "new_team": "TBD/likely retired",
+      "contract_at_new_team": "N/A",
+      "impact": "Seven-time Pro Bowler's contract voided, carrying a $23.5M dead-cap charge. Bitonio is contemplating retirement. His departure\u2014by retirement or free agency\u2014removes an elite anchor at left guard. The signing of Zion Johnson was directly driven by anticipation of his exit.",
       "need_impact": "escalates",
       "need_position": "IOL"
     },
     {
       "player": "Jack Conklin",
       "position": "OT",
-      "age": 32,
+      "age": 30,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "Acquisition of Tytus Howard signals Conklin will not return. Conklin battled significant knee injuries throughout his tenure in Cleveland and was no longer the same player by the end of his time with the team. Right tackle vacancy effectively replaced by Howard trade.",
-      "need_impact": "creates",
+      "contract_at_new_team": "TBD",
+      "impact": "Conklin was released and is a free agent. He was a former All-Pro who struggled to stay healthy. The acquisition of Tytus Howard signals Cleveland has moved on from Conklin at right tackle.",
+      "need_impact": "escalates",
       "need_position": "OT"
+    },
+    {
+      "player": "Ethan Pocic",
+      "position": "IOL",
+      "age": 30,
+      "role": "starter",
+      "new_team": "TBD/unsigned",
+      "contract_at_new_team": "TBD",
+      "impact": "Starting center is rehabbing a torn Achilles sustained in Week 14 of 2025. His contract voided, making him a free agent. Unlikely to return given injury timeline and the signing of Elgton Jenkins at C/G.",
+      "need_impact": "escalates",
+      "need_position": "IOL"
     },
     {
       "player": "Cam Robinson",
@@ -51,29 +77,10 @@
       "age": 30,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "Starting left tackle is now a glaring vacancy with Robinson departing. No replacement has been signed at LT as of March 10, making this the most critical remaining need on the roster. Browns are expected to address LT in the draft.",
-      "need_impact": "creates",
+      "contract_at_new_team": "TBD",
+      "impact": "Left tackle starter departed as a free agent. One of four Week 1 OL starters lost. Left tackle remains the single most pressing remaining need on the offensive line after FA additions.",
+      "need_impact": "escalates",
       "need_position": "OT"
-    },
-    {
-      "player": "Ethan Pocic",
-      "position": "IOL",
-      "age": 31,
-      "role": "starter",
-      "new_team": "TBD/unsigned",
-      "impact": "Pocic suffered a torn Achilles in Week 14 and his contract voided. Coming off major injury at 31, Browns expected to move on. Center remains a need though Elgton Jenkins (C/G) and Luke Wypler provide stopgap options.",
-      "need_impact": "escalates",
-      "need_position": "IOL"
-    },
-    {
-      "player": "Joel Bitonio",
-      "position": "IOL",
-      "age": 34,
-      "role": "starter",
-      "new_team": "Expected retirement/unsigned",
-      "impact": "7-time Pro Bowler mulling retirement. Contract void date pushed to March 10-11. Browns' signing of Zion Johnson at Bitonio's LG position signals they are prepared for his departure. If he retires, Browns absorb a ~$23.5M dead cap hit. His departure is effectively replaced by the Johnson signing.",
-      "need_impact": "escalates",
-      "need_position": "IOL"
     },
     {
       "player": "Cameron Thomas",
@@ -81,27 +88,20 @@
       "age": 26,
       "role": "rotational",
       "new_team": "Atlanta Falcons",
-      "impact": "Rotational DE signed a 1-year, $3.1M deal with Atlanta. Had 310 defensive snaps with Cleveland in 2025, posting a sack in a memorable Week 12 win. Depth loss but not a starter. Minimal impact on overall need picture.",
+      "contract_at_new_team": "1yr/$3.1M",
+      "impact": "Rotational defensive end logged 310 snaps in 2025. Modest loss of depth. Not a starter-level departure and does not materially alter the EDGE need picture.",
       "need_impact": "none",
       "need_position": "EDGE"
-    },
-    {
-      "player": "Martin Emerson Jr.",
-      "position": "CB",
-      "age": 25,
-      "role": "depth",
-      "new_team": "TBD/unsigned",
-      "impact": "Missed all of 2025 with a torn Achilles. Browns have Denzel Ward and Tyson Campbell as starting CBs. Emerson played primarily nickel. His departure is not expected to create a significant hole given the existing depth at the position.",
-      "need_impact": "none",
-      "need_position": "CB"
     }
   ],
   "signings": [
     {
       "player": "Tytus Howard",
       "position": "OT",
-      "age": 30,
-      "previous_team": "Houston Texans (via trade)",
+      "age": 29,
+      "previous_team": "Houston Texans",
+      "acquisition_type": "trade",
+      "trade_compensation": "2026 fifth-round pick (originally from Raiders)",
       "contract": {
         "years": 3,
         "total_value": 63000000,
@@ -110,17 +110,16 @@
       },
       "expected_role": "starter",
       "market_tier": "starter",
-      "need_impact": "fully_addressed",
+      "need_impact": "partially_addressed",
       "need_position": "OT",
-      "analysis": "Acquired via trade (5th-round pick to Houston) and immediately signed to a 3-year, $63M extension with $43M guaranteed. Howard has started all 93 games he has played and is highly versatile, having played RT, RG, and LG. Expected to start at right tackle, directly replacing Conklin. The multi-year extension with substantial guarantees signals this is Cleveland's RT for the foreseeable future. Draft compensation: Browns sent a 5th-round pick to Houston. RT need fully addressed; only LT remains on the OT front.",
-      "trade_details": "Browns sent 5th-round pick to Houston Texans",
-      "need_position_secondary": "OT"
+      "analysis": "Howard is a versatile veteran who has started at RT, RG, and LG. The 3yr/$63M extension with $43M guaranteed is a real commitment and he projects as the starting right tackle. However, left tackle remains completely unaddressed \u2014 Dawand Jones (recovering from knee surgery) is the only other tackle under contract. OT is partially addressed: the right side is now stable, but LT is a critical draft priority. The trade cost was minimal (one of three 5th-round picks Cleveland held)."
     },
     {
       "player": "Zion Johnson",
       "position": "IOL",
       "age": 26,
       "previous_team": "Los Angeles Chargers",
+      "acquisition_type": "free_agent",
       "contract": {
         "years": 3,
         "total_value": 49500000,
@@ -131,14 +130,14 @@
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "IOL",
-      "analysis": "3-year, $49.5M deal with $32.4M guaranteed (including $17.1M signing bonus plus 2026 and 2027 salaries fully guaranteed, per OverTheCap). Chargers' first-round pick in 2022 who started 65 games. He was the top guard on the free agent market and ranked 2nd in run block win rate (79.3%) in 2025. Pass-blocking concerns remain (5th-lowest pass block win rate among guards), but the run-blocking fit for Monken's Ravens-style scheme is excellent. The deal includes 5 void years for cap management, making the real cap hit ~$5M in 2026 and ~$8M in 2027. Fills one of the two guard vacancies (likely LG), but IOL still needs resolution at RG (Teven Jenkins competition) and C (Elgton Jenkins/Wypler). IOL partially addressed, not fully \u2014 LG secured, C and RG still unsettled.",
-      "need_position_secondary": "IOL"
+      "analysis": "Johnson (26) was arguably the top guard on the free agent market. He's a former No. 17 overall pick with 65 career starts, primarily at left guard. The 3yr/$32.4M guaranteed deal is a legitimate investment in a starting-caliber player in his prime. He ranked second in run block win rate in 2025 \u2014 ideal for Todd Monken's run-first identity. IOL is partially addressed: Johnson fills one guard spot, and Elgton Jenkins addresses center/the other guard, but the overall line still has open competition and left tackle void. Cleveland utilized five void years to keep the cap hit manageable (~$5M in 2026)."
     },
     {
       "player": "Elgton Jenkins",
       "position": "IOL",
       "age": 30,
       "previous_team": "Green Bay Packers",
+      "acquisition_type": "free_agent",
       "contract": {
         "years": 2,
         "total_value": 24000000,
@@ -149,68 +148,101 @@
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "IOL",
-      "analysis": "2-year, $24M deal with $20M guaranteed (83% of total value guaranteed), per NFL Network's Tom Pelissero. Two-time Pro Bowler (2020, 2022) at left guard who moved to center in 2025 before fracturing his leg and suffering ligament damage in Week 9. Released by Green Bay with a failed-physical designation. Likely slots at center, filling the Pocic vacancy, though he could also play guard. The Browns and Ravens (who lost Linderbaum) were both pursuing Jenkins, likely driving up the guarantee. Coming off a significant injury, the failed physical tag introduces health risk. With Johnson at LG and Jenkins at C, Cleveland now has four of five OL starters filled. Only LT remains as a critical hole. Combined with Johnson and Howard, IOL need is substantially addressed though not fully \u2014 health risk and LT/RG competition still linger.",
-      "need_position_secondary": "IOL"
+      "analysis": "Two-time Pro Bowl lineman with experience at center, guard, and tackle. Released by Green Bay with a 'failed physical' designation after fracturing his fibula and suffering ligament damage in his ankle in November 2025, the same day he signed with Cleveland \u2014 indicating the Browns are betting on his recovery. The 2yr/$24M with $20M guaranteed is significant investment. He projects to start at center with Zion Johnson at left guard. Combined with Johnson, Teven Jenkins re-sign, and Howard, the interior line has been substantially rebuilt \u2014 but health risk is real and LT remains open."
     },
     {
       "player": "Teven Jenkins",
       "position": "IOL",
       "age": 28,
-      "previous_team": "Cleveland Browns (re-sign)",
+      "previous_team": "Cleveland Browns",
+      "acquisition_type": "re-signing",
       "contract": {
         "years": 1,
-        "total_value": 3000000,
-        "guaranteed": 1200000,
-        "aav": 3000000
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
       },
-      "expected_role": "depth/starter competition",
+      "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "IOL",
-      "analysis": "Re-signed to a 1-year deal (terms not fully disclosed; contract void from prior deal was $1.2M dead cap). Appeared in all 17 games in 2025, starting four at RG late in the season when Teller was injured. Had a 94.4% pass block win rate at guard when he played (would have ranked 17th), but run block win rate was among the worst (65.6%). Projects as a RG starter or backup depending on draft adds. One-year deal signals a bridge/competition player rather than the long-term answer. Depth and competition but not a slam-dunk starter.",
-      "need_position_secondary": "IOL"
+      "analysis": "Re-signed on an undisclosed one-year deal (prior deal was 1yr/$3M). A second-round pick (No. 39) by Chicago in 2021, Jenkins started four games at right guard after Teller was benched and appeared in all 17 games. He's a swing starter/depth piece but not a long-term solution. With Johnson, Elgton Jenkins, and Zak Zinter already on roster, Teven Jenkins is depth competition at RG. Low-cost, low-risk retention. Contract terms not yet publicly reported \u2014 valued here as a veteran minimum-equivalent."
     },
     {
       "player": "Quincy Williams",
       "position": "LB",
       "age": 29,
       "previous_team": "New York Jets",
+      "acquisition_type": "free_agent",
       "contract": {
         "years": 2,
         "total_value": 17000000,
-        "guaranteed": 13100000,
+        "guaranteed": null,
         "aav": 8500000
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "LB",
-      "analysis": "2-year deal worth up to $17M (NFL.com reported $13.1M base per Judy Battista; Jordan Schultz reported 'up to $17M' \u2014 using the upper figure as reported by most outlets). Reunites with new DC Mike Rutenberg, who coached Williams with the Jets LBs from 2021-24. First-team All-Pro in 2023 (139 tackles, 15 TFLs, 2 sacks, 1 INT). In 2025, battled a shoulder injury, missed 4 games, and was briefly demoted under Aaron Glenn. Turned 30 in August 2026. The 2-year deal is a real commitment but at below-LB starter market AAV (market starter tier is $8-16M, so this is low-end starter). He replaces Devin Bush next to reigning DROY Carson Schwesinger. The 2-year structure and age (30 in August) means LB remains a long-term need for the draft, but the immediate starter hole is filled.",
-      "need_position_secondary": "LB"
+      "analysis": "Williams was signed within hours of Devin Bush departing for Chicago. He's a 2023 first-team All-Pro with ties to new DC Mike Rutenberg, who coached him in both Jacksonville and New York over five seasons. Williams made 100+ tackles in each of his four seasons under Rutenberg and brings speed and coverage ability that complement 2025 Defensive Rookie of the Year Carson Schwesinger. However, his 2025 was a down year (83 tackles, 45.5 PFF grade in 13 games), and the 2yr/$17M deal lacks the guarantees of a top-of-market LB signing. At best a lateral move from Bush in 2025 production \u2014 need partially addressed with clear scheme-fit upside via Rutenberg connection. Guarantee figure not yet publicly confirmed; structure noted as TBD."
+    },
+    {
+      "player": "Jack Stoll",
+      "position": "TE",
+      "age": 28,
+      "previous_team": "New Orleans Saints",
+      "acquisition_type": "free_agent",
+      "contract": {
+        "years": 1,
+        "total_value": 1315000,
+        "guaranteed": 617400,
+        "aav": 1315000
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "minimal",
+      "need_position": "TE",
+      "analysis": "Veteran minimum-level signing ($1.315M per OTC/Spotrac) to pair with Harold Fannin Jr. after Njoku's departure. Stoll is an inline blocking TE \u2014 81% of career snaps from inline alignment. He has just 28 career receptions. He is not a receiving replacement for Njoku; rather, he is a complementary blocker to give Monken two-TE sets for the run game. The one-year, near-minimum deal signals he is a TE2/TE3, not a solution. TE remains a legitimate draft need for a receiving option to pair with Fannin."
+    },
+    {
+      "player": "Ronnie Hickman",
+      "position": "S",
+      "age": 24,
+      "previous_team": "Cleveland Browns",
+      "acquisition_type": "re-signing",
+      "contract": {
+        "years": 1,
+        "total_value": 5767000,
+        "guaranteed": 5767000,
+        "aav": 5767000
+      },
+      "expected_role": "starter",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "S",
+      "analysis": "Hickman was tendered as a restricted free agent at the second-round tender level ($5.767M). He started all 17 games at safety in 2025. This is a retention move that keeps an ascending young starter in the fold. S was not a pre-FA need and this tender confirms it is not a need going forward. Any team signing Hickman would owe Cleveland a 2nd-round pick, making him effectively locked in."
     }
   ],
   "needs_impact_summary": {
-    "fully_addressed": [
-      "OT"
-    ],
+    "fully_addressed": [],
     "partially_addressed": [
+      "OT",
       "IOL",
       "LB"
     ],
-    "minimally_addressed": [],
+    "minimally_addressed": [
+      "TE"
+    ],
     "unchanged": [
       "WR",
       "QB",
-      "TE",
       "EDGE",
-      "CB",
-      "S",
-      "DT",
-      "RB"
+      "IDL",
+      "CB"
     ],
     "escalated": [],
     "new_needs_created": [
-      "OT_LT"
+      "OT"
     ]
   },
   "recommended_need_adjustments": [
@@ -218,49 +250,37 @@
       "position": "OT",
       "previous_tier": 1,
       "recommended_tier": 2,
-      "reasoning": "RT fully addressed by Howard trade/extension (3yr/$63M, $43M gtd). However, LEFT TACKLE remains a critical, gaping hole \u2014 Cam Robinson departed and no LT has been signed. The right side is solved; the left side is not. OT as a composite position drops from tier 1 only because RT is secured. LT specifically should be treated as a tier 1 need heading into the draft. Browns have picks 6 and 24 and are heavily expected to draft an LT in round 1."
+      "reasoning": "Howard (3yr/$63M, $43M gtd) firmly addresses right tackle. Tytus Howard is committed as a starter through 2028. However, left tackle is completely unaddressed \u2014 Cam Robinson and Jack Conklin are both gone, and Dawand Jones is recovering from knee surgery. LT is now a critical Day 1 or Day 2 draft target. OT drops from a blanket Tier 1 need to Tier 2 specifically because RT is now solved but LT is urgent. Expect the Browns to target a LT at pick No. 6 or 24."
     },
     {
       "position": "IOL",
       "previous_tier": 1,
-      "recommended_tier": 2,
-      "reasoning": "Three significant IOL moves: Howard (versatile G/T), Zion Johnson (3yr/$49.5M, LG starter), and Elgton Jenkins (2yr/$24M, C starter). Teven Jenkins re-signed as depth/RG competition. The interior is substantially rebuilt. However, health risk on Elgton Jenkins (failed physical designation coming off fractured leg + ligament damage) and uncertainty at RG (Teven Jenkins vs. draft pick) keep this from being fully resolved. Bitonio's expected departure further muddles the picture. Grade down from tier 1 to tier 2 \u2014 Browns should still target OL depth in the mid-rounds."
+      "recommended_tier": 3,
+      "reasoning": "The Browns lost all five OL starters and have substantially rebuilt the interior: Zion Johnson (3yr/$49.5M, starts at LG), Elgton Jenkins (2yr/$24M, starts at C \u2014 health caveat), Teven Jenkins (depth/swing RG), and Zak Zinter (2024 3rd-round pick). Bitonio's likely retirement was already priced in. The main IOL risk is Elgton Jenkins' ankle fracture recovery. If he's healthy, the interior is a genuine strength. Drops from Tier 1 to Tier 3 \u2014 residual depth and developmental IOL still useful in mid-rounds but no longer urgent."
     },
     {
       "position": "LB",
       "previous_tier": 2,
       "recommended_tier": 3,
-      "reasoning": "Devin Bush (3yr/$30M to Bears) departure escalated the need, but Browns answered quickly with Quincy Williams (2yr/$17M). Williams is an established starter with DC Rutenberg familiarity and a first-team All-Pro pedigree. The 2-year deal at age 30 means the long-term need still exists, but the immediate starter vacancy is filled. Schwesinger + Williams is a legitimate starting pair. LB drops from tier 2 to tier 3 \u2014 developmental depth in mid-to-late rounds would be appropriate, but no longer a premium need."
+      "reasoning": "Bush departure created a hole; Williams signing partially fills it. The Rutenberg connection is genuine and Williams has starter pedigree (2023 All-Pro). Pairing with Schwesinger gives Cleveland a plausible two-LB starting unit. However, Williams' decline in 2024-25 and age (29 turning 30) introduce uncertainty. LB drops one tier \u2014 still a mid-round draft target for depth and developmental competition, but no longer a top-3 priority."
     },
     {
       "position": "TE",
-      "previous_tier": 3,
+      "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "David Njoku's departure creates a TE2/blocking TE void. Harold Fannin Jr. is the clear TE1, but Cleveland needs a complementary tight end. Todd Monken's offense at Baltimore was heavily two-TE, and no replacement for Njoku has been signed. The Browns have been linked to Charlie Kolar (Ravens) given the Monken connection. TE escalates to tier 2 \u2014 a day 2-3 draft pick or late free agent signing is needed to complete the room."
+      "reasoning": "Njoku's departure is a significant loss. Stoll's near-minimum signing does not address the receiving TE need \u2014 he is a blocker. Harold Fannin Jr. is a legitimate TE1 after leading the team in receiving as a rookie, but Cleveland needs a legitimate receiving TE2 to unlock two-TE sets in Monken's offense. TE need is unchanged \u2014 rounds 2-4 remain a realistic target window."
     },
     {
       "position": "WR",
       "previous_tier": 1,
       "recommended_tier": 1,
-      "reasoning": "No WR additions made through March 10. The Browns' WR room produced only 1,467 receiving yards in 2025 \u2014 the least productive in the NFL. Top target Alec Pierce signed with the Colts (4yr/$116M). Cleveland was reportedly 'aggressively in the mix' for Alijah Vera-Tucker (who went to New England). WR remains a critical tier 1 need. Expected to be addressed heavily in the draft (picks 6, 24, 39 available) and potentially via trade."
+      "reasoning": "Zero WR signings. Cleveland's WR room produced just 1,467 receiving yards in 2025 \u2014 the worst in the NFL. No additions have been made. WR remains a critical need and should be addressed in rounds 1-3 of the draft or potentially via a later trade."
     },
     {
       "position": "QB",
       "previous_tier": 1,
       "recommended_tier": 1,
-      "reasoning": "No QB additions. Malik Willis signed with the Dolphins ($67.5M), Tua Tagovailoa went to Atlanta. Shedeur Sanders (rookie) and Deshaun Watson (returning from Achilles, $80.7M restructured cap hit) are the options. Kyler Murray and Geno Smith are being released and could be targets. QB remains a critical tier 1 need \u2014 the starter competition between Sanders and Watson is unresolved, and a veteran bridge QB may still be added."
-    },
-    {
-      "position": "EDGE",
-      "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "No EDGE signings or departures of starters. Cameron Thomas (rotational) left for Atlanta on a 1yr/$3.1M deal \u2014 depth loss only. Myles Garrett remains under contract and is the franchise cornerstone. Need unchanged."
-    },
-    {
-      "position": "CB",
-      "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "Denzel Ward and Tyson Campbell (acquired via trade from Jacksonville in 2025) are under contract as the starting corners. Martin Emerson Jr. (missed all of 2025 with Achilles) is the only CB departure and was not a starter. CB need unchanged \u2014 depth/nickel work may be addressed in later draft rounds but no priority concern."
+      "reasoning": "No QB additions made. Watson is still on the books with a massive restructured cap hit. Shedeur Sanders (rookie), Dillon Gabriel, and Joe Flacco rotated in 2025. The quarterback situation is entirely unresolved and is effectively the franchise's defining question heading into the draft. QB remains a Tier 1 need."
     }
   ],
   "team_page_additions": {
@@ -268,113 +288,138 @@
       {
         "player": "Tytus Howard",
         "position": "OT",
-        "contract_summary": "3yr/$63M ($43M gtd) + trade (5th-round pick to HOU)",
+        "contract_summary": "3yr/$63M ($43M gtd) via trade",
         "previous_team": "Houston Texans",
-        "headline": "Versatile veteran RT acquired via trade anchors massive OL overhaul; starts all 93 career games"
+        "headline": "Versatile veteran RT acquired via trade + extension anchors a completely rebuilt offensive line"
       },
       {
         "player": "Zion Johnson",
         "position": "IOL",
         "contract_summary": "3yr/$49.5M ($32.4M gtd)",
         "previous_team": "Los Angeles Chargers",
-        "headline": "Top free-agent guard slots in at LG, ranked 2nd in run block win rate in 2025 for Monken's run-heavy scheme"
+        "headline": "Top guard on FA market fills critical interior void with elite run-blocking profile"
       },
       {
         "player": "Elgton Jenkins",
         "position": "IOL",
         "contract_summary": "2yr/$24M ($20M gtd)",
         "previous_team": "Green Bay Packers",
-        "headline": "Two-time Pro Bowl OL (C/G) fills Pocic's center vacancy; health risk after fractured leg/ligament damage in 2025"
+        "headline": "Two-time Pro Bowl interior lineman projects as starting center; health is the key question"
       },
       {
         "player": "Quincy Williams",
         "position": "LB",
-        "contract_summary": "2yr/$17M",
+        "contract_summary": "2yr/$17M (gtd TBD)",
         "previous_team": "New York Jets",
-        "headline": "Former All-Pro LB reunites with DC Rutenberg to replace Devin Bush alongside DROY Carson Schwesinger"
+        "headline": "Former All-Pro LB reunites with DC Rutenberg to replace departed Devin Bush"
       },
       {
         "player": "Teven Jenkins",
         "position": "IOL",
-        "contract_summary": "1yr/~$3M",
+        "contract_summary": "1yr (terms undisclosed)",
         "previous_team": "Cleveland Browns (re-sign)",
-        "headline": "Re-signed OG/OT provides depth and RG competition in Cleveland's revamped interior line room"
+        "headline": "Re-signed swing guard provides interior depth and starter competition at RG"
+      },
+      {
+        "player": "Jack Stoll",
+        "position": "TE",
+        "contract_summary": "1yr/$1.315M ($617K gtd)",
+        "previous_team": "New Orleans Saints",
+        "headline": "Blocking TE specialist added to pair with Fannin Jr. after Njoku's departure"
+      },
+      {
+        "player": "Ronnie Hickman",
+        "position": "S",
+        "contract_summary": "1yr/$5.767M RFA tender",
+        "previous_team": "Cleveland Browns (re-sign)",
+        "headline": "All-17-game starter retained on second-round RFA tender to anchor secondary"
       }
     ],
     "key_losses": [
       {
         "player": "Devin Bush",
         "position": "LB",
-        "contract_summary": "3yr/$30M with Bears",
+        "contract_summary": "3yr/$30M ($21M gtd) with Bears",
         "new_team": "Chicago Bears",
-        "headline": "Starter-caliber LB (125 tackles, 3 INTs in 2025) departs; quickly replaced by Quincy Williams"
+        "headline": "Career-best season (125 tackles, 3 INTs) earned Bush a $30M deal Cleveland chose not to match"
       },
       {
         "player": "David Njoku",
         "position": "TE",
-        "contract_summary": "TBD",
+        "contract_summary": "Released (post-June 1 designation)",
         "new_team": "TBD/unsigned",
-        "headline": "Nine-year Brown and former Pro Bowler departs after farewell post; Harold Fannin Jr. takes TE1 role"
+        "headline": "Longtime starting TE officially released, leaving Fannin Jr. as the clear TE1 with thin depth"
       },
       {
         "player": "Joel Bitonio",
         "position": "IOL",
-        "contract_summary": "Expected retirement/$23.5M dead cap hit",
-        "new_team": "Expected retirement",
-        "headline": "7-time Pro Bowl LG likely retiring; replaced by Zion Johnson signing in a planned succession"
+        "contract_summary": "Contract voided; $23.5M dead cap",
+        "new_team": "TBD/likely retired",
+        "headline": "Seven-time Pro Bowl left guard's contract voided; likely retiring after 12 seasons in Cleveland"
       },
       {
         "player": "Wyatt Teller",
         "position": "IOL",
-        "contract_summary": "TBD/Houston Texans reported",
-        "new_team": "Houston Texans (reported)",
-        "headline": "3-time Pro Bowl RG posts farewell; part of unprecedented all-5-starter OL turnover in one offseason"
-      },
-      {
-        "player": "Cam Robinson",
-        "position": "OT",
-        "contract_summary": "TBD/unsigned",
+        "contract_summary": "Released (post-June 1 designation)",
         "new_team": "TBD/unsigned",
-        "headline": "Starting LT departs with no replacement yet signed; left tackle remains the Browns' most critical remaining need"
-      },
-      {
-        "player": "Ethan Pocic",
-        "position": "IOL",
-        "contract_summary": "TBD/unsigned",
-        "new_team": "TBD/unsigned",
-        "headline": "Starting C departs after torn Achilles in Week 14; Elgton Jenkins acquired to fill the vacancy"
+        "headline": "Starting RG formally cut after public farewell; one of four Week 1 OL starters lost"
       },
       {
         "player": "Jack Conklin",
         "position": "OT",
-        "contract_summary": "TBD/unsigned",
+        "contract_summary": "Released",
         "new_team": "TBD/unsigned",
-        "headline": "Injury-plagued RT departs; directly replaced by Tytus Howard trade from Houston"
+        "headline": "Injury-plagued former All-Pro RT released; Howard acquisition signals his replacement"
+      },
+      {
+        "player": "Cam Robinson",
+        "position": "OT",
+        "contract_summary": "Unrestricted free agent",
+        "new_team": "TBD/unsigned",
+        "headline": "Starting LT departed as UFA, leaving left tackle the lone unsolved OL hole heading to draft"
+      },
+      {
+        "player": "Ethan Pocic",
+        "position": "IOL",
+        "contract_summary": "Unrestricted free agent (torn Achilles)",
+        "new_team": "TBD/unsigned",
+        "headline": "Starting center's contract voided while rehabbing Achilles; Elgton Jenkins his likely replacement"
+      },
+      {
+        "player": "Cameron Thomas",
+        "position": "EDGE",
+        "contract_summary": "1yr/$3.1M with Falcons",
+        "new_team": "Atlanta Falcons",
+        "headline": "Rotational DE departs for Atlanta; modest depth loss that does not escalate EDGE need"
       }
     ]
   },
-  "additional_context": {
-    "ol_overhaul_note": "No team since 1970 has lost all five starting OL in the same offseason (per CBS Sports Research). Cleveland replaced RT (Howard), LG (Zion Johnson), C (Elgton Jenkins), and RG competition (Teven Jenkins), but LEFT TACKLE remains completely unaddressed as of March 10. This is the most glaring remaining hole on the roster and will almost certainly be addressed in the top half of the 2026 NFL Draft (Browns hold picks 6 and 24).",
-    "watson_cap_note": "Deshaun Watson's contract was restructured to lower his $80.7M cap hit. He missed all of 2025 recovering from a torn Achilles (2024) and is expected to compete for the starting job in 2026 alongside Shedeur Sanders.",
-    "draft_capital": "Browns hold picks: Round 1 (#6, #24), Round 2 (#39), Round 3 (#70), Round 4 (#107), Round 5 (#145, #148), Round 6 (#205), Round 7 (#248). Lost one 5th-round pick in the Tytus Howard trade."
-  },
   "confidence": "high",
+  "notes": [
+    "Teven Jenkins re-sign contract terms (length, value) have not been publicly reported as of March 13, 2026. Flagged as undisclosed; role assessed as depth/rotational.",
+    "Quincy Williams 2yr/$17M guarantee structure not yet confirmed by OTC/Spotrac; total value confirmed by multiple reporters.",
+    "Howard contract figure discrepancy: ESPN initially reported 2yr/$45M extension (new money), while NFL.com, CBS, and Cleveland.com reported 3yr/$63M including existing year. OTC reflects a $56M figure on older Texans deal. The 3yr/$63M with $43M guaranteed from click2houston/NFL.com sourcing used as primary figure \u2014 noting this reflects total contract commitment including existing year.",
+    "Joel Bitonio's status as of March 13 is still technically undecided (not signed elsewhere, not officially announced retirement), but his contract has voided and the Browns have signed replacements at his position.",
+    "Martin Emerson Jr. (CB, ACL recovery) listed as 'terms not yet known' for a re-sign in some trackers. Not included in signings until contract terms are confirmed.",
+    "Cap space of $8,649,433 per Over The Cap as of March 11, 2026 close of business."
+  ],
   "sources": [
-    "https://www.espn.com/nfl/story/_/id/48080244/cleveland-browns-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
-    "https://www.espn.com/nfl/story/_/id/48138737/cleveland-browns-2026-free-agency-primer-salary-cap-space-potential-additions",
-    "https://www.espn.com/nfl/story/_/id/48165504/browns-re-sign-teven-jenkins-amid-offensive-line-overhaul",
-    "https://www.espn.com/nfl/story/_/id/48166808/source-browns-signing-ex-packer-elgton-jenkins-2-year-deal",
-    "https://www.nfl.com/news/tytus-howard-browns-texans-trade-three-year-63m-extension",
-    "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
-    "https://www.cbssports.com/nfl/news/texans-browns-trade-tytus-howard/",
     "https://www.clevelandbrowns.com/news/browns-free-agency-tracker",
-    "https://dawgpounddaily.com/browns-nfl-offseason-tracker-every-move-shaping-cleveland-s-2026-roster",
-    "https://dawgpounddaily.com/zion-johnson-s-contract-details-make-browns-big-gamble-look-smarter-nfl",
-    "https://sports.yahoo.com/articles/former-packers-ol-elgton-jenkins-221133786.html",
-    "https://www.brownszone.com/2026/03/10/browns-continue-to-work-on-ol-finalizing-deal-to-bring-in-packers-veteran-elgton-jenkins/",
+    "https://www.espn.com/nfl/story/_/id/48080244/cleveland-browns-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
+    "https://overthecap.com/salary-cap/cleveland-browns",
+    "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/cle",
+    "https://www.spotrac.com/nfl/player/_/id/72712/jack-stoll",
+    "https://www.nfl.com/news/tytus-howard-browns-texans-trade-three-year-63m-extension",
+    "https://www.click2houston.com/sports/2026/03/02/i-wasnt-surprised-i-aint-mad-texans-tytus-howard-on-trade-to-browns-as-he-agrees-to-three-year-60-million-deal",
+    "https://www.espn.com/nfl/story/_/id/48155267/browns-bolster-o-line-reach-deal-guard-zion-johnson",
     "https://www.news-herald.com/2026/03/09/browns-agree-to-two-year-deal-with-starting-linebacker-quincy-williams/",
     "https://www.wkyc.com/article/sports/nfl/browns/cleveland-browns-2026-free-agency-live-tracker-trades-signings-andrew-berry-todd-monken-joel-bitonio/95-b63465bc-327f-4e65-8452-df8f6a6cdd35",
-    "https://overthecap.com/salary-cap/cleveland-browns",
-    "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/cle"
+    "https://www.news5cleveland.com/sports/browns/2026-browns-free-agent-tracker-whos-coming-whos-staying-and-whos-leaving-cleveland",
+    "https://dawgpounddaily.com/browns-nfl-offseason-tracker-every-move-shaping-cleveland-s-2026-roster",
+    "https://www.dawgsbynature.com/cleveland-browns-roster-players/119375/browns-roster-tracking-list-free-agents-additions-subtractions-in-out",
+    "https://dawgpounddaily.com/zion-johnson-s-contract-details-browns-130006237.html",
+    "https://www.acmepackingcompany.com/green-bay-packers-news/80536/elgton-jenkins-signs-with-cleveland-browns",
+    "https://overthecap.com/player/jack-stoll/9857",
+    "https://sports.yahoo.com/articles/tracking-every-browns-offseason-addition-002904660.html"
   ]
 }

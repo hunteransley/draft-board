@@ -1,17 +1,23 @@
 {
   "team": "CIN",
   "team_full": "Cincinnati Bengals",
-  "updated_through": "2026-03-11",
-  "cap_space_pre_fa": "$47238882",
-  "cap_space_post_fa": "$25000000",
+  "updated_through": "2026-03-13",
+  "cap_space_pre_fa": "$47000000",
+  "cap_space_post_fa": "$24182216",
   "key_departures": [
     {
       "player": "Trey Hendrickson",
       "position": "EDGE",
       "age": 31,
       "role": "starter",
-      "new_team": "unsigned_as_of_2026-03-11",
-      "impact": "Four-time Pro Bowler and 2024 sack leader (17.5) departs after the Bengals declined to franchise tag him. Missed most of 2025 due to core muscle surgery. Had prolonged contract dispute with Cincinnati. Despite injury concerns and market gap (~$10M/yr between his ask and offers), his departure removes the most productive pass rusher on the roster. Bengals signed Boye Mafe as a partial replacement but the production gap is significant.",
+      "new_team": "Baltimore Ravens",
+      "contract_signed_elsewhere": {
+        "years": 4,
+        "total_value": 112000000,
+        "guaranteed": 60000000,
+        "aav": 28000000
+      },
+      "impact": "The Bengals' best defensive player for five seasons and four-time Pro Bowler. Led NFL in sacks in 2024 (17.5). Was limited to 7 games in 2025 due to injury amid a yearslong contract dispute. Departs to a divisional rival (Ravens), where he will face Bengals twice per year. Massive hole at EDGE \u2014 he was the entire identity of CIN's pass rush.",
       "need_impact": "escalates",
       "need_position": "EDGE"
     },
@@ -19,71 +25,83 @@
       "player": "Joseph Ossai",
       "position": "EDGE",
       "age": 25,
-      "role": "rotational",
+      "role": "rotational_starter",
       "new_team": "New York Jets",
-      "impact": "Signed 3yr/$36M with Jets. Rotational edge rusher who accumulated 14.5 sacks in his Bengals career. Departure removes rotational EDGE depth and further thins the pass rush room. With both Hendrickson and Ossai gone, the Bengals lost their entire EDGE pass rush corps from 2025.",
+      "contract_signed_elsewhere": {
+        "years": 3,
+        "total_value": 36000000,
+        "guaranteed": 22500000,
+        "aav": 12000000
+      },
+      "impact": "Ossai had 5 sacks, 43 tackles, 12 QB hits, and 2 forced fumbles in 14 games in 2025. Was emerging as a reliable starter-level EDGE with back-to-back 5-sack seasons. Losing him compounded the Hendrickson departure and left the Bengals with almost no proven EDGE talent.",
       "need_impact": "escalates",
       "need_position": "EDGE"
     },
     {
-      "player": "Cameron Sample",
-      "position": "EDGE",
-      "age": 27,
-      "role": "rotational",
-      "new_team": "TBD/unsigned",
-      "impact": "Rotational edge rusher. Departure further depletes an already thin pass rush room, though his role was modest.",
-      "need_impact": "creates",
-      "need_position": "EDGE"
-    },
-    {
-      "player": "Noah Fant",
-      "position": "TE",
-      "age": 27,
-      "role": "starter",
-      "new_team": "New Orleans Saints",
-      "impact": "Signed a two-year deal with the Saints. Was the Bengals' starting TE in 2025. His departure creates a need at TE with no clear in-house replacement at the starter level.",
-      "need_impact": "creates",
-      "need_position": "TE"
-    },
-    {
-      "player": "Cordell Volson",
-      "position": "IOL",
-      "age": 27,
-      "role": "rotational",
-      "new_team": "Tennessee Titans",
-      "impact": "Signed 1yr/$4.215M with Titans. Was a reserve/depth guard for Cincinnati. Departure is a minor IOL depth loss; Risner's re-signing offsets much of this.",
-      "need_impact": "none",
-      "need_position": "IOL"
-    },
-    {
       "player": "Geno Stone",
       "position": "S",
-      "age": 26,
-      "role": "depth",
+      "age": 27,
+      "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "Reserve safety who never met expectations with the Bengals. Departure has minimal impact on the need picture; team was already seeking a starting safety upgrade.",
-      "need_impact": "none",
+      "contract_signed_elsewhere": null,
+      "impact": "Stone started every game for four straight seasons and posted a career-high 104 tackles in 2025 with 13 interceptions over the last three seasons. Bengals signing Bryan Cook effectively replaced him in the starting lineup.",
+      "need_impact": "creates",
       "need_position": "S"
+    },
+    {
+      "player": "Jake Browning",
+      "position": "QB",
+      "age": 29,
+      "role": "backup",
+      "new_team": "Tampa Bay Buccaneers",
+      "contract_signed_elsewhere": null,
+      "impact": "Bengals declined to tender Browning as a restricted free agent. With Joe Burrow's injury history (limited to 8 games in 2025), losing a known backup creates a need for a reliable QB2.",
+      "need_impact": "creates",
+      "need_position": "QB"
     },
     {
       "player": "Cam Taylor-Britt",
       "position": "CB",
       "age": 25,
-      "role": "depth",
+      "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "Declined CB who was unlikely to return. Departure has minimal impact as he was not a meaningful starter.",
-      "need_impact": "none",
+      "contract_signed_elsewhere": null,
+      "impact": "Former 2nd-round pick who started for three seasons in Cincinnati. His departure, combined with Marco Wilson also leaving, thins an already-struggling CB room.",
+      "need_impact": "escalates",
       "need_position": "CB"
     },
     {
-      "player": "Lucas Patrick",
-      "position": "IOL",
-      "age": 32,
-      "role": "depth",
+      "player": "Marco Wilson",
+      "position": "CB",
+      "age": 25,
+      "role": "rotational",
       "new_team": "TBD/unsigned",
-      "impact": "Veteran backup IOL depth piece. Low-impact departure; Risner re-signing and existing OL depth absorb this.",
-      "need_impact": "none",
+      "contract_signed_elsewhere": null,
+      "impact": "Rotational CB depth departs alongside Taylor-Britt. Further weakens a cornerback group that was already below average.",
+      "need_impact": "escalates",
+      "need_position": "CB"
+    },
+    {
+      "player": "Cordell Volson",
+      "position": "IOL",
+      "age": 27,
+      "role": "starter",
+      "new_team": "TBD/unsigned",
+      "contract_signed_elsewhere": null,
+      "impact": "Starting-caliber guard who departed. However, Bengals have Dalton Risner (re-signed) and Ted Karras at center, so the interior line is partially covered. Volson departure is a depth concern but not catastrophic.",
+      "need_impact": "creates",
       "need_position": "IOL"
+    },
+    {
+      "player": "Noah Fant",
+      "position": "TE",
+      "age": 28,
+      "role": "starter",
+      "new_team": "TBD/unsigned",
+      "contract_signed_elsewhere": null,
+      "impact": "Starting TE departs, though Tanner Hudson was retained on a one-year extension. Fant's departure creates a noticeable void at the top of the depth chart at tight end.",
+      "need_impact": "creates",
+      "need_position": "TE"
     },
     {
       "player": "Joe Flacco",
@@ -91,29 +109,43 @@
       "age": 41,
       "role": "backup",
       "new_team": "TBD/unsigned",
-      "impact": "Veteran backup QB. Departure creates a minor need for a backup QB; Jake Browning (RFA) is expected to return but competition may be needed.",
-      "need_impact": "creates",
+      "contract_signed_elsewhere": null,
+      "impact": "Veteran backup departs along with Browning. Leaves the QB room thin behind Burrow.",
+      "need_impact": "escalates",
       "need_position": "QB"
+    },
+    {
+      "player": "Cam Sample",
+      "position": "EDGE",
+      "age": 26,
+      "role": "rotational",
+      "new_team": "TBD/unsigned",
+      "contract_signed_elsewhere": null,
+      "impact": "Depth EDGE rusher who contributed in a rotational role. Departure further depletes a thin edge room.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Lucas Patrick",
+      "position": "IOL",
+      "age": 31,
+      "role": "depth",
+      "new_team": "TBD/unsigned",
+      "contract_signed_elsewhere": null,
+      "impact": "Depth/backup IOL. Minimal impact on the starting lineup.",
+      "need_impact": "none",
+      "need_position": "IOL"
     },
     {
       "player": "Brian Asamoah",
       "position": "LB",
       "age": 25,
-      "role": "depth",
+      "role": "rotational",
       "new_team": "TBD/unsigned",
-      "impact": "Depth linebacker. Departure minimally affects the LB need picture.",
-      "need_impact": "none",
+      "contract_signed_elsewhere": null,
+      "impact": "Rotational LB departs. Bengals remain thin at linebacker with only rookie Barrett Carter and Demetrius Knight Jr. as the primary starters.",
+      "need_impact": "escalates",
       "need_position": "LB"
-    },
-    {
-      "player": "Marco Wilson",
-      "position": "CB",
-      "age": 25,
-      "role": "depth",
-      "new_team": "TBD/unsigned",
-      "impact": "Depth CB. Departure has minimal impact.",
-      "need_impact": "none",
-      "need_position": "CB"
     },
     {
       "player": "Tycen Anderson",
@@ -121,7 +153,8 @@
       "age": 25,
       "role": "depth",
       "new_team": "TBD/unsigned",
-      "impact": "Depth safety. Departure has minimal need impact; S was already a top need before free agency.",
+      "contract_signed_elsewhere": null,
+      "impact": "Depth safety departs. Bryan Cook signing replaces Geno Stone at the starter level, so this is a depth loss only.",
       "need_impact": "none",
       "need_position": "S"
     }
@@ -142,9 +175,8 @@
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "EDGE",
-      "analysis": "Mafe is a 3-year, $20M AAV deal \u2014 mid-to-upper starter tier for EDGE. He posted a top-8 pass rush win rate in 2025 despite just 2 sacks, was a Super Bowl contributor for Seattle, and has shown a peak of 9 sacks in 2023. The structure is a real investment \u2014 3 years with Bengals-typical heavy Year 1 cash (~$19M guaranteed via bonus) \u2014 but guaranteed money is notably below elite EDGE market. He is a clear upgrade over depth alternatives but is not a Hendrickson-tier replacement. With both Hendrickson AND Ossai departed, Mafe partially addresses the need. EDGE is reduced from critical to moderate: the Bengals still need another EDGE via draft or free agency (especially with Shemar Stewart still developing from 2025 rookie year).",
-      "contract_confidence": "high",
-      "sources_note": "Confirmed by agent Mike McCartney and Adam Schefter on March 9, 2026. Spotrac confirms 3yr/$60M, AAV $20M. Guaranteed per Kelsey Conway/Cincinnati Enquirer reporting ~$19M signing bonus structure."
+      "analysis": "Three-year deal at $20M/year is solidly in the starter tier for EDGE. Mafe is fresh off a Super Bowl with Seattle and was eighth in pass rush win rate among all edge rushers in 2025 per Next Gen Stats despite recording only 2 official sacks. PFF credited him with 44 pressures, which would have led the Bengals last season. The guarantee structure ($19M) is modest relative to the total value, suggesting only the first year is truly locked in. This is a legitimate starter-level investment \u2014 not elite market, but real commitment. Mafe replaces one of the two departed starters (Ossai-level talent, not Hendrickson-level). EDGE remains a need given the double departure of Hendrickson and Ossai, but Mafe + Myles Murphy + Shemar Stewart gives a functional rotation. Need drops from tier 1 critical to tier 2.",
+      "notes": "Spotrac confirms 3yr/$60M with $19M guaranteed (roster bonus in Year 1). Cap hit of $17M in 2026 due to front-loaded structure."
     },
     {
       "player": "Bryan Cook",
@@ -161,9 +193,44 @@
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "S",
-      "analysis": "Cook is the top signing of the Bengals' offseason by impact. Ranked 4th overall and 6th in coverage grade among safeties on PFF in 2025. The 3yr/$40.25M deal at $13.4M AAV is mid-tier safety starter money (market tier: $13-15M/yr is solidly starter range). He joins Jordan Battle to form a legitimate starting safety tandem. Pay structure is characteristically Bengals: $18M in Year 1 cash vs. only $14M fully guaranteed, but three years of commitment is a real investment for this organization. S moves from critical need to addressed. Still plausible to add draft depth, but starter need is solved.",
-      "contract_confidence": "high",
-      "sources_note": "Confirmed by Tom Pelissero (NFL Network/The Insiders) on March 9, 2026. OverTheCap and Spotrac confirm 3yr/$40.25M ($14M guaranteed, $13.4M AAV). Bengals.com tracker confirmed."
+      "analysis": "Three-year, $40.25M deal with $14M guaranteed (signing bonus that vests early in Week 1). Cook is a two-time Super Bowl champion with KC and posted 85 tackles and 6 passes defensed in 2025. The deal is front-loaded with $18M in Year 1 cash, signaling real commitment. Cincinnati native who attended UC \u2014 immediate cultural fit. He replaces Geno Stone alongside Jordan Battle and materially upgrades a safety room that was one of the team's biggest weaknesses. AAV of $13.4M is fair market for an ascending 26-year-old starting safety. Safety need fully addressed for the duration of the deal.",
+      "notes": "Contract confirmed via OTC and Spotrac. $14M fully guaranteed as signing bonus."
+    },
+    {
+      "player": "Jonathan Allen",
+      "position": "IDL",
+      "age": 31,
+      "previous_team": "Minnesota Vikings (cut)",
+      "contract": {
+        "years": 2,
+        "total_value": 26000000,
+        "guaranteed": 8000000,
+        "aav": 13000000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "partially_addressed",
+      "need_position": "IDL",
+      "analysis": "Two-year deal (up to $28M with incentives) at $13M/year. Allen is a two-time Pro Bowler who posted 3.5 sacks, 68 tackles, and 34 pressures in 17 games for Minnesota in 2025. Vikings released him as a cap casualty. At 31, he is declining from his peak but posted the third-most pressures among all DTs on the Bengals roster if he'd been there last year. The effective guarantee is partially offset by $8M already owed by Minnesota, so Cincinnati's true cash outlay is lower. This is a short-term veteran fix \u2014 not a foundational signing. The 2-year term signals a bridge, not a long-term solution. IDL is partially addressed; Bengals likely still want a younger DT via the draft. Bengals retain B.J. Hill who is locked in with a $2M roster bonus.",
+      "notes": "Base deal confirmed at $26M/2yr via ESPN/Spotrac; max $28M with incentives per Tom Pelissero. $8M of Allen's contract offset by Vikings guaranteed salary remaining."
+    },
+    {
+      "player": "Orlando Brown Jr.",
+      "position": "OT",
+      "age": 30,
+      "previous_team": "Cincinnati Bengals (extension)",
+      "contract": {
+        "years": 2,
+        "total_value": 32000000,
+        "guaranteed": 23000000,
+        "aav": 16000000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "fully_addressed",
+      "need_position": "OT",
+      "analysis": "Two-year extension through 2028 at $16M/year \u2014 essentially a paycut from his prior $16.023M/year but with restructured guarantees ($23M in first 12 months per beat reporter Kelsey Conway). Brown was entering the final year of his 4yr/$64M deal and could have tested the market. Instead, he negotiated the extension himself and stays as the starting LT. This marks the first time since the Joe Burrow era that CIN returns all five OL starters from the prior season. OT is no longer a need. Brown's declining PFF grades (60th-66th among tackles in recent years) mean the team may still draft a long-term LT eventually, but it is not a pressing need through 2028.",
+      "notes": "Extension terms reported by Kelsey Conway (Bengals beat) at $32M/2yr, $23M in Year 1 cash. Final guarantee structure pending official disclosure."
     },
     {
       "player": "Dalton Risner",
@@ -180,28 +247,44 @@
       "market_tier": "depth",
       "need_impact": "partially_addressed",
       "need_position": "IOL",
-      "analysis": "Risner re-signed to a 1-year, $3.25M deal (up to $5M with incentives) before the legal tampering period opened. He was a starter-quality guard in 2025 with a career-high 69.4 PFF grade and 98.0% pass block efficiency. His retention keeps the entire 2025 starting OL intact (Brown Jr., Fairchild, Karras, Risner, Mims). Despite the one-year bridge structure (which signals the team isn't committing long-term), the starting OL continuity is a major stabilizing factor for Joe Burrow's protection. IOL remains a long-term need (one-year deals at RG and C for Karras) but is not an immediate critical need in 2026.",
-      "contract_confidence": "high",
-      "sources_note": "Official team announcement March 2, 2026. Contract details per ESPN/Adam Schefter and Drew Rosenhaus: 1yr base $3.25M, up to $5M. Spotrac confirms $3.25M base value."
+      "analysis": "One-year, $3.25M deal (up to $5M with incentives). Risner was a massive bargain \u2014 his 98.0% pass block efficiency was eighth-best among all starting guards in 2025. He is the returning right guard and slots directly into the starting lineup. However, the one-year structure signals this is not a long-term solution at IOL. With Cordell Volson gone, the depth behind Risner at guard is thin. IOL need is partially addressed: Risner returns as a solid starter but the depth and long-term picture at guard remain concerns.",
+      "notes": "Contract confirmed by official Bengals announcement March 2, 2026. Spotrac: 1yr/$3.25M base, $1M guaranteed, up to $5M with incentives."
     },
     {
       "player": "Jalen Davis",
       "position": "CB",
-      "age": 30,
-      "previous_team": "Cincinnati Bengals (re-sign)",
+      "age": 28,
+      "previous_team": "Cincinnati Bengals (extension)",
       "contract": {
         "years": 1,
-        "total_value": 1400000,
-        "guaranteed": 100000,
-        "aav": 1400000
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
       },
       "expected_role": "depth",
-      "market_tier": "minimum",
+      "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "CB",
-      "analysis": "Davis re-signed for 1yr/$1.4M as the nickel/slot CB. He played a breakout volume of snaps in 2025 after spending years as a rotational piece. Minimum-tier deal signals clear depth/special teams role. Does not address any CB need at starter level; provides roster continuity at slot corner at minimum cost.",
-      "contract_confidence": "high",
-      "sources_note": "Official team announcement Feb. 20, 2026. Spotrac confirms 1yr/$1.4M ($100K guaranteed)."
+      "analysis": "One-year extension for a depth/developmental CB. Does not address the departure of starters Cam Taylor-Britt and Marco Wilson. CB remains a significant need.",
+      "notes": "Official Bengals announcement Feb 20. Contract financial terms not disclosed."
+    },
+    {
+      "player": "Tanner Hudson",
+      "position": "TE",
+      "age": 29,
+      "previous_team": "Cincinnati Bengals (extension)",
+      "contract": {
+        "years": 1,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "expected_role": "depth",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "TE",
+      "analysis": "One-year extension for a backup TE. With Noah Fant departed, Hudson is now the top returning TE on the roster but has never been a true starter-level player. TE remains a real need.",
+      "notes": "Official Bengals announcement Jan 19. Contract terms not disclosed."
     },
     {
       "player": "Kendall Milton",
@@ -210,17 +293,16 @@
       "previous_team": "Cincinnati Bengals (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 795000,
-        "guaranteed": 795000,
-        "aav": 795000
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
       },
       "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "RB",
-      "analysis": "Practice squad re-sign. Has appeared in only 3 career games with 2 carries. Essentially a camp body/PS player. No needs impact.",
-      "contract_confidence": "medium",
-      "sources_note": "Official team announcement Feb. 20, 2026. Contract value estimated at rookie minimum; exact figures not publicly confirmed."
+      "analysis": "Depth RB re-sign behind Chase Brown. No impact on team needs.",
+      "notes": "Official announcement Feb 20."
     },
     {
       "player": "Kendric Pryor",
@@ -229,111 +311,185 @@
       "previous_team": "Cincinnati Bengals (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 795000,
-        "guaranteed": 795000,
-        "aav": 795000
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
       },
       "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "WR",
-      "analysis": "Depth WR/special teams re-sign. Does not affect any WR need given the team already has Chase and Higgins as a top receiving duo.",
-      "contract_confidence": "medium",
-      "sources_note": "Official team announcement Feb. 18, 2026. Contract value estimated at veteran minimum."
+      "analysis": "Special teams/depth WR re-sign. No impact on positional needs.",
+      "notes": "Official announcement Feb 18."
     },
     {
-      "player": "Tanner Hudson",
-      "position": "TE",
-      "age": 30,
+      "player": "Mitch Tinsley",
+      "position": "WR",
+      "age": 26,
       "previous_team": "Cincinnati Bengals (extension)",
       "contract": {
         "years": 1,
-        "total_value": 795000,
-        "guaranteed": 795000,
-        "aav": 795000
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
       },
       "expected_role": "depth",
       "market_tier": "minimum",
-      "need_impact": "minimal",
+      "need_impact": "none",
+      "need_position": "WR",
+      "analysis": "Depth WR extension. No meaningful need impact with Ja'Marr Chase and Tee Higgins as the top two.",
+      "notes": "Official announcement Jan 5."
+    },
+    {
+      "player": "PJ Jules",
+      "position": "S",
+      "age": 25,
+      "previous_team": "Cincinnati Bengals (extension)",
+      "contract": {
+        "years": 1,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "S",
+      "analysis": "Special teams/depth safety extension. Bryan Cook signing already addressed the starting S need.",
+      "notes": "Official announcement Jan 5."
+    },
+    {
+      "player": "Shaka Heyward",
+      "position": "LB",
+      "age": 25,
+      "previous_team": "Cincinnati Bengals (extension)",
+      "contract": {
+        "years": 1,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "LB",
+      "analysis": "Special teams/depth LB extension. Does not address the starter-level LB need.",
+      "notes": "Official announcement Jan 5."
+    },
+    {
+      "player": "Joe Giles-Harris",
+      "position": "LB",
+      "age": 28,
+      "previous_team": "Cincinnati Bengals (extension)",
+      "contract": {
+        "years": 1,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "LB",
+      "analysis": "Special teams/depth LB extension. Does not address LB need.",
+      "notes": "Official announcement Jan 5."
+    },
+    {
+      "player": "Cam Grandy",
+      "position": "TE",
+      "age": 25,
+      "previous_team": "Cincinnati Bengals (extension)",
+      "contract": {
+        "years": 1,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "none",
       "need_position": "TE",
-      "analysis": "Backup TE on a one-year extension. Does not replace the production of departed starter Noah Fant. TE remains a meaningful need despite Hudson's retention \u2014 the team needs a starter-quality option.",
-      "contract_confidence": "medium",
-      "sources_note": "Official team announcement Jan. 19, 2026. Contract value estimated at veteran minimum."
+      "analysis": "Camp/depth TE extension. Does not address the Noah Fant departure at the top of the TE depth chart.",
+      "notes": "Official announcement Jan 5."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
-      "S"
+      "S",
+      "OT"
     ],
     "partially_addressed": [
       "EDGE",
+      "IDL",
       "IOL"
     ],
     "minimally_addressed": [
-      "CB"
-    ],
-    "unchanged": [
-      "DT",
-      "LB",
-      "WR",
-      "OT"
-    ],
-    "escalated": [
+      "CB",
       "TE"
     ],
-    "new_needs_created": [
-      "TE",
-      "QB_backup"
+    "unchanged": [
+      "WR",
+      "RB"
+    ],
+    "escalated": [
+      "LB",
+      "QB"
     ]
   },
   "recommended_need_adjustments": [
     {
-      "position": "S",
-      "previous_tier": 1,
-      "recommended_tier": 4,
-      "reasoning": "Bryan Cook signing (3yr/$40.25M, $14M guaranteed) fully addresses the starting safety need. Cook was PFF's 4th-ranked safety overall and 6th in coverage grade in 2025. He pairs with Jordan Battle to form a legitimate starting tandem. Safety is no longer a premium draft need \u2014 a day-3 developmental pick is fine but not required."
-    },
-    {
       "position": "EDGE",
       "previous_tier": 1,
       "recommended_tier": 2,
-      "reasoning": "Boye Mafe (3yr/$60M) is a meaningful starter-tier signing but does not fully replace Trey Hendrickson (4x Pro Bowler, 17.5 sacks in 2024) or Joseph Ossai (rotational). The Bengals lost their entire EDGE room and replaced it with one player. Mafe is a legitimate starter, but the depth is gone and Shemar Stewart (2025 1st-round pick) is still developing. EDGE should remain a tier-2 priority in the draft \u2014 the Bengals need a complement to Mafe and cannot rely solely on Stewart."
+      "reasoning": "Bengals lost both Trey Hendrickson (Ravens, 4yr/$112M) and Joseph Ossai (Jets, 3yr/$36M) \u2014 their entire starting EDGE rotation. They countered with Boye Mafe (3yr/$60M, $19M guaranteed), a Super Bowl champion with elite pass rush win rate but only 2 official sacks in 2025. Mafe + Myles Murphy + Shemar Stewart is a functional rotation but lacks a proven sack producer. The Mafe signing partially addresses the need \u2014 it's a real 3-year investment at starter money \u2014 but it does not replicate what was lost. EDGE drops from catastrophic tier 1 to a real tier 2 need. Bengals should target an EDGE in rounds 2\u20133 of the draft."
+    },
+    {
+      "position": "IDL",
+      "previous_tier": 2,
+      "recommended_tier": 3,
+      "reasoning": "Jonathan Allen (2yr/$26M, up to $28M incentives) gives Cincinnati a two-time Pro Bowl DT to pair with B.J. Hill. Allen posted 34 pressures in 2025, third-most of any DT who would have been on CIN's roster. However, Allen is 31, declining, was a cap casualty, and posted a career-low 53.2 PFF grade. The deal is a 2-year bridge, not a franchise solution. IDL drops from a tier 2 need to tier 3 \u2014 real veteran presence added, but a developmental IDL in the mid-rounds of the draft remains wise."
+    },
+    {
+      "position": "S",
+      "previous_tier": 2,
+      "recommended_tier": 4,
+      "reasoning": "Bryan Cook signing (3yr/$40.25M, $14M guaranteed) fully addresses the safety need. Cook is 26, posted 85 tackles and 6 PDs in 2025, won two Super Bowls with KC, and brings legitimate starting caliber alongside Jordan Battle. Three-year commitment at real money. Safety is no longer a meaningful draft need."
+    },
+    {
+      "position": "OT",
+      "previous_tier": 2,
+      "recommended_tier": 5,
+      "reasoning": "Orlando Brown Jr. extension (2yr/$32M through 2028) eliminates the OT need. Bengals return all five OL starters for the first time in the Burrow era. OT is not a draft priority. The team may eventually want a developmental successor given Brown's declining PFF grades, but there is no urgency."
     },
     {
       "position": "IOL",
       "previous_tier": 2,
       "recommended_tier": 3,
-      "reasoning": "Dalton Risner's re-sign (1yr/$3.25M) keeps the entire 2025 starting OL intact. However, both Risner (RG) and Ted Karras (C) are on 1-year deals, meaning IOL is a significant 2027 concern. For 2026, the line is stable and the need drops slightly. A depth/developmental IOL pick in rounds 3-5 is still smart given the expiring contracts up front."
+      "reasoning": "Dalton Risner re-sign (1yr/$3.25M) keeps the starting right guard in place and maintains OL continuity. However, Cordell Volson departed and depth behind Risner is thin. Ted Karras remains at center. IOL drops from tier 2 to tier 3 \u2014 starter is covered but depth needs a solution. A Day 3 IOL pick makes sense."
+    },
+    {
+      "position": "LB",
+      "previous_tier": 2,
+      "recommended_tier": 1,
+      "reasoning": "No LB was signed in free agency. The Bengals watched every meaningful LB option (Kaden Elliss, Leo Chenal) sign elsewhere. Brian Asamoah departed. Barrett Carter and Demetrius Knight Jr. \u2014 both 2025 rookies who struggled \u2014 are the primary starters. No veteran presence added. LB escalates to tier 1 \u2014 the Bengals must address this via the draft or late free agency or face a critical weakness on the second level."
+    },
+    {
+      "position": "CB",
+      "previous_tier": 2,
+      "recommended_tier": 1,
+      "reasoning": "Cam Taylor-Britt and Marco Wilson both departed. The only notable CB retained was Jalen Davis on a one-year depth deal. No outside CB was signed. The cornerback room is now dangerously thin. CB escalates to tier 1 \u2014 this needs to be addressed in rounds 1\u20133 of the draft."
     },
     {
       "position": "TE",
       "previous_tier": 3,
       "recommended_tier": 2,
-      "reasoning": "Noah Fant's departure to the Saints leaves a genuine starter void at TE. Only Tanner Hudson (minimum deal, backup-caliber) remains. The Bengals need a starting-quality TE to support Joe Burrow's offense. This is now a tier-2 draft or free agency need \u2014 rounds 2-4 in the draft or a second-wave free agent signing."
-    },
-    {
-      "position": "DT",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "No DT/IDL signings in the first wave of free agency. The need is unchanged. T.J. Slaton remains a potential cut candidate. Cincinnati still needs an interior pass rusher to complement their defensive scheme under Al Golden. Active draft need through rounds 2-4."
-    },
-    {
-      "position": "LB",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "No LB signing confirmed through March 11. The Bengals had flagged LB as a need at the combine; Demetrius Knight Jr. and Barrett Carter are developmental options but the team needs a proven starter. Still a tier-2 need \u2014 second wave of free agency or draft rounds 2-3."
-    },
-    {
-      "position": "CB",
-      "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "Jalen Davis re-signed on a minimum deal as the slot/nickel. CB Taylor-Britt and Marco Wilson both departed, further thinning the depth. DJ Turner II is the primary starter but the CB2 role remains unsettled. Need stays at tier 3 \u2014 a mid-round draft pick or second-wave FA at CB is warranted."
+      "reasoning": "Noah Fant departed (UFA). Tanner Hudson retained on a 1-year depth deal. No starter-level TE was signed. Hudson has never been a featured TE. TE need escalates from tier 3 to tier 2 \u2014 CIN should target a TE in rounds 3\u20135 of the draft."
     },
     {
       "position": "QB",
-      "previous_tier": 4,
-      "recommended_tier": 3,
-      "reasoning": "Joe Flacco departed and is unsigned. Jake Browning (RFA) is expected to return under a qualifying offer but his status is not yet confirmed. The Bengals need at least one legitimate backup QB behind Burrow. A second-wave minimum or prove-it deal for a veteran backup is likely. Modest but real need created by Flacco's departure."
+      "previous_tier": 3,
+      "recommended_tier": 2,
+      "reasoning": "Both Jake Browning (not tendered, going to Buccaneers) and Joe Flacco (UFA) departed. Burrow missed 9 games in 2025 with injury. The Bengals have no proven QB2 on the roster. Backup QB escalates to a real need \u2014 they must add a capable veteran backup before or during the draft."
     }
   ],
   "team_page_additions": {
@@ -341,77 +497,100 @@
       {
         "player": "Boye Mafe",
         "position": "EDGE",
-        "contract_summary": "3yr/$60M (~$19M gtd)",
+        "contract_summary": "3yr/$60M ($19M gtd)",
         "previous_team": "Seattle Seahawks",
-        "headline": "Super Bowl champion pass rusher (top-8 in pass rush win rate in 2025) replaces departed Hendrickson as the Bengals' new EDGE anchor"
+        "headline": "Super Bowl champion edge rusher brings top-8 pass-rush win rate to replace depleted CIN EDGE room"
       },
       {
         "player": "Bryan Cook",
         "position": "S",
         "contract_summary": "3yr/$40.25M ($14M gtd)",
         "previous_team": "Kansas City Chiefs",
-        "headline": "PFF's 4th-ranked safety in 2025 fills Cincinnati's biggest secondary need alongside Jordan Battle"
+        "headline": "Two-time Super Bowl champion returns home to Cincinnati, immediately upgrades a safety room that ranked among the NFL's worst"
+      },
+      {
+        "player": "Jonathan Allen",
+        "position": "IDL",
+        "contract_summary": "2yr/$26M (up to $28M w/ incentives)",
+        "previous_team": "Minnesota Vikings (cut)",
+        "headline": "Two-time Pro Bowl DT signs as cap casualty, adds veteran presence and 34 pressures to interior defensive line"
+      },
+      {
+        "player": "Orlando Brown Jr.",
+        "position": "OT",
+        "contract_summary": "2yr/$32M ext. (through 2028)",
+        "previous_team": "Cincinnati Bengals (extension)",
+        "headline": "Starting LT self-negotiates extension, locking in entire 2025 OL starting five for first time in Burrow era"
       },
       {
         "player": "Dalton Risner",
         "position": "IOL",
         "contract_summary": "1yr/$3.25M (up to $5M)",
         "previous_team": "Cincinnati Bengals (re-sign)",
-        "headline": "Starter-quality guard re-signs on a team-friendly deal, preserving the Bengals' entire 2025 offensive line"
-      },
-      {
-        "player": "Jalen Davis",
-        "position": "CB",
-        "contract_summary": "1yr/$1.4M ($100K gtd)",
-        "previous_team": "Cincinnati Bengals (re-sign)",
-        "headline": "Veteran nickel back returns on a minimum deal for slot corner continuity"
+        "headline": "Beloved right guard returns on team-friendly deal after posting 8th-best pass block efficiency among starting guards in 2025"
       }
     ],
     "key_losses": [
       {
         "player": "Trey Hendrickson",
         "position": "EDGE",
-        "contract_summary": "Unsigned as of 2026-03-11",
-        "new_team": "TBD",
-        "headline": "Four-time Pro Bowler and 2024 sack leader (17.5) departs after Bengals decline franchise tag, ending a contentious two-year contract standoff"
+        "contract_summary": "4yr/$112M ($60M gtd) with Baltimore",
+        "new_team": "Baltimore Ravens",
+        "headline": "Four-time Pro Bowler and 2024 NFL sacks leader departs to division rival Ravens after yearslong contract dispute \u2014 the most impactful departure in recent CIN history"
       },
       {
         "player": "Joseph Ossai",
         "position": "EDGE",
-        "contract_summary": "3yr/$36M with Jets",
+        "contract_summary": "3yr/$36M ($22.5M gtd) with New York Jets",
         "new_team": "New York Jets",
-        "headline": "Rotational pass rusher leaves for New York, completing Cincinnati's loss of their entire 2025 EDGE corps"
+        "headline": "Rising 25-year-old EDGE with back-to-back 5-sack seasons departs, compounding the Hendrickson loss and stripping CIN's pass rush"
+      },
+      {
+        "player": "Geno Stone",
+        "position": "S",
+        "contract_summary": "UFA/unsigned",
+        "new_team": "TBD",
+        "headline": "Four-year starting safety (104 tackles, 13 INTs over last 3 years) departs after Bengals prioritize Bryan Cook signing"
+      },
+      {
+        "player": "Cam Taylor-Britt",
+        "position": "CB",
+        "contract_summary": "UFA/unsigned",
+        "new_team": "TBD",
+        "headline": "Starting CB departs along with Marco Wilson, leaving the cornerback room critically thin heading into the draft"
       },
       {
         "player": "Noah Fant",
         "position": "TE",
-        "contract_summary": "2yr/TBD with Saints",
-        "new_team": "New Orleans Saints",
-        "headline": "Starting tight end departs, creating a real void in the Bengals' red zone offense"
+        "contract_summary": "UFA/unsigned",
+        "new_team": "TBD",
+        "headline": "Starting TE departs with no replacement signed, creating a new need at a position that was previously stable"
       },
       {
-        "player": "Cordell Volson",
-        "position": "IOL",
-        "contract_summary": "1yr/$4.215M with Titans",
-        "new_team": "Tennessee Titans",
-        "headline": "Reserve guard departs but impact is softened by Risner's re-signing"
+        "player": "Jake Browning",
+        "position": "QB",
+        "contract_summary": "1yr (Buccaneers)",
+        "new_team": "Tampa Bay Buccaneers",
+        "headline": "Bengals decline to tender RFA Browning, leaving Joe Burrow \u2014 who missed 9 games in 2025 \u2014 with no proven backup on the roster"
       }
     ]
   },
   "confidence": "high",
-  "notes": "Free agency officially began March 11 at 4pm ET. Deals agreed to during the legal tampering window (March 9-11) are included as confirmed per NFL.com, ESPN, Spotrac, and OverTheCap. Trey Hendrickson remains unsigned as of the updated_through date \u2014 linked to Ravens and Colts but no deal confirmed. Guaranteed money for Mafe ($19M) based on Kelsey Conway/Cincinnati Enquirer reporting on bonus structure; Spotrac lists $60M total/3yr confirmed. Bryan Cook guaranteed ($14M) confirmed via OverTheCap and Tom Pelissero. Cap space post-FA estimated at $25M based on Mike Petraglia's reported $25-30M remaining figure after Cook and Mafe signings.",
+  "notes": "All major signings confirmed via official Bengals.com announcements, ESPN, NFL.com, OTC, and Spotrac. Jonathan Allen contract base confirmed at 2yr/$26M; max value $28M with incentives per Jeremy Fowler/ESPN and Tom Pelissero/NFL Network. Orlando Brown Jr. extension financial terms ($32M/2yr, $23M Year 1 cash) per beat reporter Kelsey Conway; official financials not formally disclosed by team as of publish date. Jonathan Allen guaranteed figure reflects $8M base salary guarantee; additional new-money guarantees from Bengals TBD pending full contract disclosure. Cap space post-FA reflects OTC data prior to Allen and Brown extension cap adjustments being fully processed \u2014 estimate ~$15-20M remaining effective cap room heading into the draft per historical CIN spending patterns.",
   "sources": [
     "https://www.bengals.com/news/bengals-2026-free-agency-tracker",
     "https://www.espn.com/nfl/story/_/id/48054804/cincinnati-bengals-2026-free-agency-tracker-offseason-moves-signings-trades",
+    "https://www.espn.com/nfl/story/_/id/48186103/sources-bengals-reach-2-year-deal-dt-jonathan-allen",
     "https://www.spotrac.com/nfl/player/_/id/76916/boye-mafe",
     "https://www.spotrac.com/nfl/player/_/id/76938/bryan-cook",
-    "https://www.spotrac.com/nfl/player/_/id/25787/jalen-davis",
+    "https://www.spotrac.com/nfl/player/_/id/21758/jonathan-allen",
+    "https://www.spotrac.com/nfl/player/_/id/29077/dalton-risner",
+    "https://overthecap.com/player/bryan-cook/10107",
     "https://overthecap.com/salary-cap/cincinnati-bengals",
+    "https://www.bengals.com/news/orlando-brown-jr-contract-extension-2026",
+    "https://www.bengals.com/news/dalton-risner-re-signed-2026",
     "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
-    "https://www.cbssports.com/nfl/news/nfl-free-agency-tracker-2026-full-list-signings-trades-moves/",
-    "https://atozsports.com/nfl/cincinnati-bengals-news/bengals-free-agency-tracker-extensions-re-signings-new-additions-departures/",
-    "https://www.cincyjungle.com/cincinnati-bengals-news/187580/bengals-nfl-free-agency-tracker",
-    "https://sports.yahoo.com/articles/bengals-contract-details-bryan-cook-093121295.html",
-    "https://www.si.com/nfl/bengals/onsi/news/latest-guard-extension-makes-bengals-dalton-risner-deal-look-like-a-steal-01kk8ya9s08z"
+    "https://www.cbssports.com/nfl/news/nfl-free-agency-2026-live-updates-tracker-march-12/live/",
+    "https://atozsports.com/nfl/cincinnati-bengals-news/bengals-free-agency-tracker-extensions-re-signings-new-additions-departures/"
   ]
 }

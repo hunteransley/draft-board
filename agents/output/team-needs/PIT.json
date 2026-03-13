@@ -35,15 +35,6 @@
       "draft_range_target": ""
     },
     {
-      "position": "S",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "DeShon Elliott returns from a season-ending knee injury in 2025 as the projected box safety, but the free safety spot is wide open. Kyle Dugger (UFA, traded for mid-season in 2025) was inconsistent and is expected to leave. Juan Thornhill was released during the 2025 season. Jalen Ramsey played safety out of necessity but the team doesn't want him there long-term. The Steelers have just two safeties on the roster right now. Multiple analysts project safety as a top-3 need.",
-      "current_starter": "DeShon Elliott (SS, returning from injury), vacant FS",
-      "depth": "Only Elliott under contract as a safety. Chuck Clark (UFA). Jabrill Peppers (UFA).",
-      "draft_range_target": "Round 2-4, also likely to sign a FA safety"
-    },
-    {
       "position": "RB",
       "tier": 3,
       "urgency": "moderate",
@@ -51,6 +42,15 @@
       "current_starter": "Jaylen Warren (UFA) / Kaleb Johnson",
       "depth": "Just Kaleb Johnson under contract if Warren and Gainwell leave",
       "draft_range_target": "Round 4-6 or free agency"
+    },
+    {
+      "position": "S",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "DeShon Elliott returns from a season-ending knee injury in 2025 as the projected box safety, but the free safety spot is wide open. Kyle Dugger (UFA, traded for mid-season in 2025) was inconsistent and is expected to leave. Juan Thornhill was released during the 2025 season. Jalen Ramsey played safety out of necessity but the team doesn't want him there long-term. The Steelers have just two safeties on the roster right now. Multiple analysts project safety as a top-3 need.",
+      "current_starter": "DeShon Elliott (SS, returning from injury), vacant FS",
+      "depth": "Only Elliott under contract as a safety. Chuck Clark (UFA). Jabrill Peppers (UFA).",
+      "draft_range_target": "Round 2-4, also likely to sign a FA safety"
     },
     {
       "position": "TE",
@@ -104,11 +104,11 @@
       "QB"
     ],
     "tier_2": [
-      "OT",
-      "S"
+      "OT"
     ],
     "tier_3": [
       "RB",
+      "S",
       "TE",
       "WR"
     ],
@@ -121,33 +121,44 @@
   "simple_needs": [
     "OL",
     "QB",
-    "DB",
     "RB",
+    "DB",
     "TE",
     "WR"
   ],
   "detailed_needs": {
     "OL": 1,
     "QB": 1,
-    "DB": 2,
     "RB": 3,
+    "DB": 3,
     "TE": 3,
     "WR": 3
   },
   "free_agency_impact": [
-    "Isaac Seumalo (IOL) → Arizona Cardinals",
     "Kenneth Gainwell (RB) → Tampa Bay Buccaneers",
+    "Isaac Seumalo (IOL) → Arizona Cardinals",
     "James Pierre (CB) → Minnesota Vikings",
-    "Jonnu Smith (TE) → released/unsigned",
-    "Aaron Rodgers (QB) → TBD/unsigned",
+    "Calvin Austin III (WR) → New York Giants",
+    "Jonnu Smith (TE) → Released/Free Agent",
+    "Connor Heyward (TE) → Las Vegas Raiders",
+    "Kyle Dugger (S) → unsigned/TBD",
+    "Chuck Clark (S) → unsigned/TBD",
+    "Jabrill Peppers (S) → unsigned/TBD",
+    "Adam Thielen (WR) → Retired",
+    "Skylar Thompson (QB) → Tennessee Titans",
+    "Miles Killebrew (S) → Tampa Bay Buccaneers",
+    "Corliss Waitman (P) → Free Agent/TBD",
     "Signed Michael Pittman Jr. (WR) from Indianapolis Colts — $19.7M AAV",
     "Signed Jamel Dean (CB) from Tampa Bay Buccaneers — $12.2M AAV",
     "Signed Rico Dowdle (RB) from Carolina Panthers — $6.1M AAV",
-    "Signed Cameron Heyward (IDL) from Pittsburgh Steelers — $16.1M AAV",
-    "Signed Asante Samuel Jr. (CB) from Pittsburgh Steelers — $4.0M AAV",
-    "Signed Cole Holcomb (LB) from Pittsburgh Steelers — $2.5M AAV",
-    "Signed Esezi Otomewo (IDL) from Pittsburgh Steelers — terms TBD AAV",
-    "Signed Cameron Johnston (P) from New York Giants — terms TBD AAV"
+    "Signed Jaquan Brisker (S) from Chicago Bears — $5.5M AAV",
+    "Signed Cameron Heyward (IDL) from Pittsburgh Steelers (extension) — $18.0M AAV",
+    "Signed Asante Samuel Jr. (CB) from Pittsburgh Steelers (re-sign) — $4.0M AAV",
+    "Signed Cole Holcomb (LB) from Pittsburgh Steelers (re-sign) — $2.5M AAV",
+    "Signed Darnell Savage (S) from Various (Packers/Jaguars/Commanders/Bills in 2025) — $1.5M AAV",
+    "Signed Esezi Otomewo (IDL) from Pittsburgh Steelers (re-sign) — terms TBD AAV",
+    "Signed Jack Driscoll (IOL) from Pittsburgh Steelers (practice squad) — terms TBD AAV",
+    "Signed Cameron Johnston (P) from Buffalo Bills / New York Giants (2025) — terms TBD AAV"
   ],
   "scheme_fit_notes": "Under new DC Patrick Graham, Pittsburgh is expected to shift from Teryl Austin's base 3-4 to a more multiple, hybrid defensive scheme. Graham ran multiple fronts in Las Vegas and New York. This means EDGE prospects with versatility (can rush and drop) have elevated value. CB prospects who can play press or zone are important as Graham uses both. On offense, Mike McCarthy will call plays himself — his offenses historically favor vertical passing, play-action, and need a true WR2 opposite a WR1. IOL prospects who can pass protect are essential for McCarthy's dropback-heavy scheme. The weak 2026 QB class may push the Steelers toward a developmental mid-round QB pick (Round 3) rather than reaching in Round 1.",
   "confidence": "high",

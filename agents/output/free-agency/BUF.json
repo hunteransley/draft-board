@@ -1,9 +1,9 @@
 {
   "team": "BUF",
   "team_full": "Buffalo Bills",
-  "updated_through": "2026-03-11",
-  "cap_space_pre_fa": "-13000000",
-  "cap_space_post_fa": "TBD \u2014 Bills were over the cap pre-FA and required restructures/releases to achieve compliance; OTC shows approximately -$13.4M before all moves processed",
+  "updated_through": "2026-03-13",
+  "cap_space_pre_fa": "$33000000",
+  "cap_space_post_fa": "$20000000",
   "key_departures": [
     {
       "player": "David Edwards",
@@ -11,52 +11,97 @@
       "age": 28,
       "role": "starter",
       "new_team": "New Orleans Saints",
-      "contract_signed": "4yr/$61M with Saints",
-      "impact": "Starting left guard departs on a 4-year, $61M deal to New Orleans. Edwards was one of the top IOL free agents on the market. Alec Anderson (1yr/$2.5M, versatile backup) is the primary internal replacement, creating a clear starter-level void at LG.",
+      "impact": "Starting left guard signed a 4-year, $61M deal with New Orleans. Buffalo kept center Connor McGovern but could not retain both interior starters. Alec Anderson (backup) is the in-house fallback at LG, creating a clear starter-level hole.",
       "need_impact": "creates",
       "need_position": "IOL"
     },
     {
       "player": "Taron Johnson",
       "position": "CB",
-      "age": 29,
+      "age": 28,
       "role": "starter",
-      "new_team": "Las Vegas Raiders",
-      "contract_signed": "Traded for 2026 6th-round pick (BUF sent 7th)",
-      "impact": "Eight-year Bills starter and All-Pro nickel corner traded to Raiders in a 6th/7th pick swap. Johnson was a cornerstone of Buffalo's three-CB defensive system. Scheme change to 3-4 under new DC Jim Leonhard accelerated the departure. Clear hole at slot/nickel CB.",
+      "new_team": "Las Vegas Raiders (trade)",
+      "impact": "Starting nickel cornerback traded to Raiders for a 6th-round pick (Bills sent a 7th). Johnson was the team's best slot defender and was set to earn $8.5M+ in 2026. Departure creates a direct nickel CB need.",
       "need_impact": "creates",
       "need_position": "CB"
     },
     {
-      "player": "Mitchell Trubisky",
+      "player": "Mitch Trubisky",
       "position": "QB",
-      "age": 31,
+      "age": 32,
       "role": "backup",
       "new_team": "Tennessee Titans",
-      "contract_signed": "2yr deal with Titans",
-      "impact": "Backup QB departed. Josh Allen has not missed a start since his rookie year; backup QB is low urgency but must be addressed for depth.",
+      "impact": "Veteran backup QB departed on a 2-year deal with Tennessee. Leaves the QB2 role vacant behind Josh Allen.",
       "need_impact": "creates",
       "need_position": "QB"
     },
     {
       "player": "Reggie Gilliam",
-      "position": "RB",
+      "position": "FB",
       "age": 28,
       "role": "starter",
       "new_team": "New England Patriots",
-      "contract_signed": "3yr/up to $12M ($6M gtd) with Patriots",
-      "impact": "Starting fullback lost to a division rival. Gilliam was a valued blocker and special teams contributor. Loss is notable but FB is not a premium positional need.",
+      "impact": "Starting fullback departed on a 2-year deal worth up to $12M ($6M gtd) with New England. Niche but real hole in Buffalo's run-heavy offensive scheme.",
       "need_impact": "creates",
       "need_position": "RB"
+    },
+    {
+      "player": "Taylor Rapp",
+      "position": "S",
+      "age": 27,
+      "role": "starter",
+      "new_team": "TBD/unsigned",
+      "impact": "Released after failing a physical. Was a starting safety. Combined with Darnell Savage also departing (1-year deal to Pittsburgh Steelers), the Bills lost two safeties from their depth chart.",
+      "need_impact": "escalates",
+      "need_position": "S"
+    },
+    {
+      "player": "Darnell Savage Jr.",
+      "position": "S",
+      "age": 28,
+      "role": "rotational",
+      "new_team": "Pittsburgh Steelers",
+      "impact": "Signed a 1-year deal with Pittsburgh. Secondary depth loss compounds the Taylor Rapp release. Cole Bishop is the only clear returning starter at safety.",
+      "need_impact": "escalates",
+      "need_position": "S"
+    },
+    {
+      "player": "Curtis Samuel",
+      "position": "WR",
+      "age": 30,
+      "role": "rotational",
+      "new_team": "TBD/unsigned",
+      "impact": "Released for cap savings. Was a veteran slot/depth receiver. Adds modest pressure to the WR depth chart, but WR need was already pre-existing.",
+      "need_impact": "escalates",
+      "need_position": "WR"
+    },
+    {
+      "player": "Dane Jackson",
+      "position": "CB",
+      "age": 28,
+      "role": "depth",
+      "new_team": "TBD/unsigned",
+      "impact": "Released for cap savings. Was a depth/rotational corner. Loss is manageable given low role.",
+      "need_impact": "none",
+      "need_position": "CB"
+    },
+    {
+      "player": "Cam Lewis",
+      "position": "CB",
+      "age": 27,
+      "role": "depth",
+      "new_team": "Chicago Bears",
+      "impact": "Signed a 2-year deal with the Bears. Depth defensive back loss.",
+      "need_impact": "none",
+      "need_position": "CB"
     },
     {
       "player": "Joey Bosa",
       "position": "EDGE",
       "age": 31,
-      "role": "starter",
+      "role": "rotational/starter",
       "new_team": "TBD/unsigned",
-      "contract_signed": null,
-      "impact": "Led the NFL with 5 forced fumbles in 2025. Departed as UFA. Void year triggered $7.2M in dead cap. With new 3-4 scheme under Leonhard, Bills did not re-sign him. Major hole at EDGE.",
+      "impact": "1-year deal expired. Led Bills with 5 sacks + a league-leading 5 forced fumbles in 2025. Departure left EDGE as the team's most urgent defensive need entering free agency.",
       "need_impact": "escalates",
       "need_position": "EDGE"
     },
@@ -66,120 +111,9 @@
       "age": 26,
       "role": "rotational",
       "new_team": "TBD/unsigned",
-      "contract_signed": null,
-      "impact": "24 career sacks in six seasons, useful rotational EDGE. Voided contract triggered $2.8M dead cap. Unsigned. Depth loss at an already thin position.",
+      "impact": "Contract expired. Rotational edge rusher departed, compounding the pass rush need.",
       "need_impact": "escalates",
       "need_position": "EDGE"
-    },
-    {
-      "player": "Matt Milano",
-      "position": "LB",
-      "age": 30,
-      "role": "starter",
-      "new_team": "TBD/unsigned",
-      "contract_signed": null,
-      "impact": "Contract voided, triggering $11M in dead cap. Injury-prone but talented off-ball LB (12 games in 2025, 67 tackles, 3.5 sacks). Departure leaves a void at LB.",
-      "need_impact": "escalates",
-      "need_position": "LB"
-    },
-    {
-      "player": "Matt Judon",
-      "position": "EDGE",
-      "age": 34,
-      "role": "rotational",
-      "new_team": "TBD/unsigned",
-      "contract_signed": null,
-      "impact": "Veteran EDGE departing further deepens pass rush need.",
-      "need_impact": "escalates",
-      "need_position": "EDGE"
-    },
-    {
-      "player": "Curtis Samuel",
-      "position": "WR",
-      "age": 29,
-      "role": "depth",
-      "new_team": "released",
-      "contract_signed": null,
-      "impact": "Released for cap savings. Depth WR loss, minimal impact given WR need was already being addressed.",
-      "need_impact": "none",
-      "need_position": "WR"
-    },
-    {
-      "player": "Taylor Rapp",
-      "position": "S",
-      "age": 28,
-      "role": "starter",
-      "new_team": "released",
-      "contract_signed": null,
-      "impact": "Released after failing a physical. Started in 2025 but was being cleared for cap purposes. Sam Franklin re-signing partially mitigates the loss at S.",
-      "need_impact": "escalates",
-      "need_position": "S"
-    },
-    {
-      "player": "Dane Jackson",
-      "position": "CB",
-      "age": 28,
-      "role": "depth",
-      "new_team": "released",
-      "contract_signed": null,
-      "impact": "Released for cap savings. Depth CB departure. Minimal direct need impact.",
-      "need_impact": "none",
-      "need_position": "CB"
-    },
-    {
-      "player": "Brandin Cooks",
-      "position": "WR",
-      "age": 33,
-      "role": "depth",
-      "new_team": "TBD/unsigned",
-      "contract_signed": null,
-      "impact": "In-season addition in 2025, not re-signed. Older veteran depth piece, loss absorbed by DJ Moore trade.",
-      "need_impact": "none",
-      "need_position": "WR"
-    },
-    {
-      "player": "Jordan Poyer",
-      "position": "S",
-      "age": 35,
-      "role": "depth/veteran",
-      "new_team": "TBD/unsigned",
-      "contract_signed": null,
-      "impact": "Longtime Bills safety departed as UFA. At 35, primarily a veteran depth piece. Departure contributes to thin safety room.",
-      "need_impact": "escalates",
-      "need_position": "S"
-    },
-    {
-      "player": "Tre'Davious White",
-      "position": "CB",
-      "age": 30,
-      "role": "starter",
-      "new_team": "TBD/unsigned",
-      "contract_signed": null,
-      "impact": "Returned to Bills in 2025 after a year away, played solid football. Departed as UFA. With Johnson also gone, CB depth is critically thin.",
-      "need_impact": "escalates",
-      "need_position": "CB"
-    },
-    {
-      "player": "Cam Lewis",
-      "position": "CB",
-      "age": 26,
-      "role": "depth",
-      "new_team": "Chicago Bears",
-      "contract_signed": "2yr deal with Bears",
-      "impact": "Versatile DB/special teams contributor departed to Chicago.",
-      "need_impact": "none",
-      "need_position": "CB"
-    },
-    {
-      "player": "DaQuan Jones",
-      "position": "IDL",
-      "age": 33,
-      "role": "rotational",
-      "new_team": "TBD/unsigned",
-      "contract_signed": null,
-      "impact": "Void year triggered $3.7M in dead cap. Veteran run-stuffing DT departed. Depth loss at IDL.",
-      "need_impact": "none",
-      "need_position": "IDL"
     }
   ],
   "signings": [
@@ -187,217 +121,227 @@
       "player": "DJ Moore",
       "position": "WR",
       "age": 28,
-      "previous_team": "Chicago Bears",
-      "acquisition_type": "trade",
-      "trade_details": "Bills sent 2026 2nd-round pick (No. 60) to Chicago; received Moore and 2026 5th-round pick (No. 164). Bills also guaranteed $15.5M of Moore's 2028 salary.",
+      "previous_team": "Chicago Bears (via trade)",
       "contract": {
         "years": 4,
-        "total_value": 98000000,
-        "guaranteed": 62500000,
-        "aav": 24500000,
-        "notes": "Moore's 2026 base salary ($23.5M) fully guaranteed. 2027 base salary ($23.5M) becomes fully guaranteed March 13. Bills added $15.5M guarantee on 2028 salary as part of trade. Contract runs through 2029."
+        "total_value": 110000000,
+        "guaranteed": 62485000,
+        "aav": 23485000,
+        "notes": "Existing Bears extension (4yr/$110M signed 2024) assumed in full. 2026 salary $23.485M fully guaranteed; 2027 salary becomes fully guaranteed March 13, 2026; Bills also guaranteed $15.5M of 2028 salary as part of trade. Bills paid 2026 2nd-round pick (#60) and received CHI 2026 5th-round pick (#165). Contract being restructured to lower 2026 cap hit to ~$7.5M. Guarantees TBD on full 2029 year."
       },
       "expected_role": "starter",
       "market_tier": "elite",
       "need_impact": "fully_addressed",
       "need_position": "WR",
-      "analysis": "Top-of-market WR acquisition. Moore enters his age-29 season with four 1,000-yard seasons and familiarity with new HC Joe Brady from their Carolina days. The Bills' WR corps generated the ninth-fewest receiving yards in the NFL in 2025. Moore immediately becomes the WR1 ahead of Khalil Shakir and Keon Coleman. The $24.5M AAV and fully guaranteed 2026-27 salaries signal a multi-year commitment. WR need is fully resolved at starter level. Cost is a 2026 2nd-round pick (No. 60)."
+      "analysis": "The biggest offensive move of Buffalo's offseason. Moore is a proven WR1 with nine straight NFL seasons of fully guaranteed compensation and a reunion with HC Joe Brady, under whom he had his two best statistical seasons in Carolina. Trade cost was a 2026 2nd-round pick (#60), a significant investment. Buffalo's WR room generated the 9th-fewest receiving yards in the NFL in 2025. Moore is the clear WR1 alongside Khalil Shakir, and at $23.5M/year he is legitimately elite AAV-tier. The 4-year structure with multi-year guarantees signals a long-term commitment. WR drops from a Tier 1 need to a Tier 3-4 depth/developmental consideration."
+    },
+    {
+      "player": "Bradley Chubb",
+      "position": "EDGE",
+      "age": 29,
+      "previous_team": "Miami Dolphins",
+      "contract": {
+        "years": 3,
+        "total_value": 43500000,
+        "guaranteed": 29000000,
+        "aav": 14500000,
+        "notes": "Max value $52.5M with incentives. Per Spotrac/OverTheCap confirmed."
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "partially_addressed",
+      "need_position": "EDGE",
+      "analysis": "The most critical defensive signing of the offseason. Chubb had 8.5 sacks in 2025 and would have led the entire Bills roster if on the team a year earlier. At $14.5M AAV, he lands in low-end starter territory for EDGE (market: $15-25M is starter tier), aided by the fact he's already earned $98M in career earnings and accepted a modestly-priced deal. The 3-year, $29M guaranteed structure is a real investment but not top-of-market. Key injury flags: he's torn the ACL in both knees, missed all of 2024. He slots in as the starter opposite Greg Rousseau in Jim Leonhard's new 3-4. EDGE drops from Tier 1 (critical) to Tier 2-3 \u2014 still a need for developmental depth given health concerns and aging curve, but no longer urgent. Rating: Partially addressed rather than fully, due to injury history and below-elite AAV on a 3-year deal."
     },
     {
       "player": "Connor McGovern",
       "position": "IOL",
       "age": 28,
       "previous_team": "Buffalo Bills (re-sign)",
-      "acquisition_type": "re-sign",
       "contract": {
         "years": 4,
         "total_value": 52000000,
         "guaranteed": 32000000,
         "aav": 13000000,
-        "notes": "Re-signed before free agency to prevent him from hitting market. $13M AAV ranks 3rd among NFL centers per OverTheCap."
+        "notes": "4yr/$52M with $32M guaranteed. Per ESPN/Spotrac confirmed. AAV is 3rd-4th highest among all NFL centers."
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "IOL",
-      "analysis": "Re-signing the Pro Bowl center locks up the most important piece of the Bills' interior OL through 2030. With 4 years/$32M guaranteed, this is a true investment \u2014 McGovern is a long-term starter. However, starting LG David Edwards departed to the Saints on a 4yr/$61M deal. Alec Anderson (1yr/$2.5M) is the only in-house LG option and profiles as a swing lineman, not a starter-quality solution. IOL is partially addressed: C is locked in, but LG remains a clear need heading into the draft."
-    },
-    {
-      "player": "Dawson Knox",
-      "position": "TE",
-      "age": 29,
-      "previous_team": "Buffalo Bills (re-sign/extension)",
-      "acquisition_type": "extension",
-      "contract": {
-        "years": 3,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null,
-        "notes": "3-year extension restructured from previous $17.068M cap hit in 2026. Specific financial terms not yet reported. Extension lowers 2026 cap number while keeping Knox through 2028. Terms TBD."
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "none",
-      "need_position": "TE",
-      "analysis": "TE was not a pre-FA need. Knox (29 receptions, 417 yards, 4 TDs in 2025) is retained alongside Dalton Kincaid and Jackson Hawes, giving Buffalo one of the NFL's deeper TE rooms. The extension primarily serves cap management purposes, lowering Knox's bloated $17M cap figure while keeping a valued blocking and receiving TE in the fold."
+      "analysis": "Locking up the starting center was essential; McGovern has started all 49 regular-season games since joining in 2023 and posted a 97.2% pass-block win rate in 2025. The 4-year, $32M guaranteed deal is a real commitment at C. However, by retaining McGovern, the Bills could not also keep starting LG David Edwards (who signed a 4yr/$61M deal in New Orleans). The IOL need shifts from 'C AND LG' to just 'LG/interior depth' \u2014 Alec Anderson is the fallback at LG on a 1-year prove-it deal. IOL partially addressed: C is locked up long-term but LG is an active starter-level need."
     },
     {
       "player": "Dee Alford",
       "position": "CB",
       "age": 28,
       "previous_team": "Atlanta Falcons",
-      "acquisition_type": "free_agent",
       "contract": {
         "years": 3,
         "total_value": 15750000,
         "guaranteed": 10120000,
         "aav": 5250000,
-        "notes": "Base contract is 3yr/$15.75M plus incentives up to $21M total. $10.12M guaranteed. 2026 compensation (signing bonus + base salary) fully guaranteed; 2027 base partially guaranteed with offset language. Effectively a 1-year commitment with a team-friendly out."
+        "notes": "Base deal 3yr/$15.75M, max $21M with incentives, $7.875M fully guaranteed at signing (OTC). $4.5M signing bonus. 2027 salary partially guaranteed, becomes fully guaranteed early in 2027 league year. Per OverTheCap and Spotrac confirmed."
       },
       "expected_role": "starter",
       "market_tier": "depth",
       "need_impact": "partially_addressed",
       "need_position": "CB",
-      "analysis": "Signed specifically as the Taron Johnson replacement at nickel/slot corner under new DC Jim Leonhard. Alford had a career year in 2025 (3 INTs, 13 PDs, 2 sacks in 16 games) and brings versatility to play inside, outside, and in the box. At $5.25M AAV with offset guarantees, this is a depth-tier deal despite his projected starter role. The contract is team-friendly and functions as a one-year prove-it deal. With Tre'Davious White, Taron Johnson, Cam Lewis, and Dane Jackson all gone, CB remains a significant need \u2014 Alford addresses the nickel specifically but the cupboard is thin outside of Christian Benford, Dorian Strong (neck), and Maxwell Hairston (ankle). CB need is partially addressed at nickel but still critical at the boundary."
+      "analysis": "Alford is the direct replacement for traded nickel CB Taron Johnson. He spent the majority of his 4-year Atlanta career operating from the slot (64 games, 23 starts), posting career highs across the board in 2025: 3 INTs, 2 sacks, 6 TFLs. At $5.25M AAV, this is depth-market money for CB (starter tier is $12-20M), though the 3-year structure and $10.12M in total guarantees signal the Bills see him as more than a stopgap. He fills the nickel role in Leonhard's new defense. CB need is partially addressed for nickel specifically \u2014 outside CB depth (following Dane Jackson's release and Tre'Davious White's departure) is still a real concern for the draft."
+    },
+    {
+      "player": "Dawson Knox",
+      "position": "TE",
+      "age": 29,
+      "previous_team": "Buffalo Bills (re-sign/extension)",
+      "contract": {
+        "years": 3,
+        "total_value": 21000000,
+        "guaranteed": 7000000,
+        "aav": 7000000,
+        "notes": "New 3-year deal through 2028 (restructured from bloated $17.1M 2026 cap hit). Total value and full guarantee structure TBD per ESPN/Tom Pelissero \u2014 cap hit in 2026 expected to drop $3-6M from $17.1M. AAV estimated at ~$7M based on reporting. Guarantees TBD from final paperwork."
+      },
+      "expected_role": "starter",
+      "market_tier": "depth",
+      "need_impact": "fully_addressed",
+      "need_position": "TE",
+      "analysis": "Re-signing Knox was primarily a cap restructure \u2014 his previous $17.1M cap hit was unsustainable, and the new 3-year deal lowers his 2026 number by an estimated $3-6M. He remains the starting TE alongside 2023 1st-round pick Dalton Kincaid and 2025 5th-round pick Jackson Hawes. This is one of the NFL's better TE rooms. Knox had 417 yards and 4 TDs in 2025. The position is fully addressed with three capable contributors; no TE investment needed in the draft."
     },
     {
       "player": "Kyle Allen",
       "position": "QB",
       "age": 30,
-      "previous_team": "TBD/free agent",
-      "acquisition_type": "free_agent",
+      "previous_team": "Detroit Lions",
       "contract": {
         "years": 2,
         "total_value": 4100000,
         "guaranteed": 1800000,
         "aav": 2050000,
-        "notes": "2yr/$4.1M base ($1.8M gtd), max value $6.1M with incentives. $300K signing bonus; $1.65M 2026 salary ($1.5M gtd); $1.95M 2027 salary. Up to $1M/yr in play-time/performance incentives."
+        "notes": "2yr/$4.1M base, max $6.1M with incentives. $300K signing bonus, $1.65M base 2026 ($1.5M gtd), $1.95M base 2027. Per Spotrac confirmed."
       },
-      "expected_role": "backup",
+      "expected_role": "depth",
       "market_tier": "depth",
       "need_impact": "fully_addressed",
       "need_position": "QB",
-      "analysis": "Directly replaces Mitch Trubisky as the backup QB. Allen is a close friend of Josh Allen, has prior Bills experience (2023), and gives Joe Brady a comfortable veteran in the room. Josh Allen has not missed a start since his rookie year, making backup QB a low-urgency need. This deal fully addresses the depth need at backup QB with a market-appropriate 2-year/$4.1M deal."
+      "analysis": "Allen is a low-cost veteran insurance policy behind Josh Allen, who has not missed a start since his rookie season (122 consecutive). The 2-year, $4.1M base deal costs Buffalo essentially nothing against the cap. Allen knows the system (2023 stint in BUF), is close friends with the starter, and stepped in admirably as backup in Detroit. QB2 need is resolved at an appropriate cost for this roster construction."
     },
     {
       "player": "Sam Franklin Jr.",
       "position": "S",
-      "age": 27,
+      "age": 30,
       "previous_team": "Buffalo Bills (re-sign)",
-      "acquisition_type": "re-sign",
       "contract": {
         "years": 3,
         "total_value": 6490000,
-        "guaranteed": null,
+        "guaranteed": 2530000,
         "aav": 2163333,
-        "notes": "3yr/$6.49M. Primary role is special teams; also provides safety depth."
+        "notes": "3yr/$6.49M, max $7.5M. $1.25M signing bonus, $2.53M fully guaranteed at signing. Per OverTheCap/Buffalo Rumblings confirmed."
       },
-      "expected_role": "depth/special teams",
-      "market_tier": "minimum",
+      "expected_role": "depth",
+      "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "S",
-      "analysis": "Franklin is a core special teams player and depth safety. At $2.16M AAV on a 3-year deal, this does not address the starting safety need left by Taylor Rapp's release and Jordan Poyer's departure. S remains a clear need for a starter-quality player."
-    },
-    {
-      "player": "Mitch Wishnowsky",
-      "position": "P",
-      "age": 31,
-      "previous_team": "Buffalo Bills (re-sign)",
-      "acquisition_type": "re-sign",
-      "contract": {
-        "years": 1,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null,
-        "notes": "1-year deal. Terms not disclosed. Provides stability at punter after joining the team in Week 5 of 2025."
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "none",
-      "need_position": "P",
-      "analysis": "Punter was not a need. Wishnowsky posted 41.8 net yards per punt in 2025, second-most in his career. Re-signing locks up special teams stability on a team-friendly 1-year deal."
-    },
-    {
-      "player": "Phidarian Mathis",
-      "position": "IDL",
-      "age": 27,
-      "previous_team": "Buffalo Bills (re-sign)",
-      "acquisition_type": "re-sign",
-      "contract": {
-        "years": 1,
-        "total_value": 1195000,
-        "guaranteed": null,
-        "aav": 1195000,
-        "notes": "1yr/$1.195M. Reserve/depth deal."
-      },
-      "expected_role": "rotational",
-      "market_tier": "minimum",
-      "need_impact": "minimal",
-      "need_position": "IDL",
-      "analysis": "Minimum-level deal to retain a rotational IDL. Does not address any starter need at DT. Provides depth behind Ed Oliver as the defense transitions to a 3-4 scheme."
+      "analysis": "Franklin is a special teams ace who logged 329 of 335 snaps on special teams in 2025. He has only 9 career defensive starts. Retaining him on a cap-friendly 3-year deal adds special teams continuity, but does nothing to address the starter-level S vacancy left by the releases of Taylor Rapp and Darnell Savage's departure. Cole Bishop is the lone returning starter at safety. Buffalo still urgently needs a second safety starter either in free agency or in the draft."
     },
     {
       "player": "Alec Anderson",
       "position": "IOL",
       "age": 26,
       "previous_team": "Buffalo Bills (re-sign)",
-      "acquisition_type": "re-sign",
       "contract": {
         "years": 1,
         "total_value": 2500000,
-        "guaranteed": null,
+        "guaranteed": 1800000,
         "aav": 2500000,
-        "notes": "1yr/$2.5M. Versatile interior OL who can play guard or tackle."
+        "notes": "1yr/$2.5M, $500K signing bonus, $1.8M guaranteed. Per Spotrac confirmed."
       },
-      "expected_role": "depth/swing starter",
+      "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "IOL",
-      "analysis": "Anderson is the internal candidate to step into the LG hole left by David Edwards. However, at $2.5M on a 1-year deal, this is a backup/swing plan, not a committed starter solution. Bills retain Anderson to compete for the LG spot while drafting for depth. IOL remains a need."
+      "analysis": "Anderson is the in-house fallback at LG after David Edwards' departure to New Orleans. He can play all five OL positions and has appeared in 17 games. His 1-year deal signals the Bills view him as bridge/competition, not a solved problem at LG. The IOL starter void at LG remains \u2014 Anderson is a depth answer, not a long-term solution. Bills will likely look for a LG upgrade in the draft."
+    },
+    {
+      "player": "Phidarian Mathis",
+      "position": "IDL",
+      "age": 27,
+      "previous_team": "Buffalo Bills (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 1195000,
+        "guaranteed": 1000000,
+        "aav": 1195000,
+        "notes": "1yr/$1.195M. Per Buffalo Rumblings confirmed."
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "minimal",
+      "need_position": "IDL",
+      "analysis": "Former 2nd-round pick retained on a near-minimum deal. Provides depth at DT alongside Ed Oliver. No meaningful need impact \u2014 this is a camp body/depth signing at minimum cost."
+    },
+    {
+      "player": "Mitch Wishnowsky",
+      "position": "P",
+      "age": 33,
+      "previous_team": "Buffalo Bills (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 1215000,
+        "guaranteed": 1215000,
+        "aav": 1215000,
+        "notes": "1-year veteran minimum deal per The Athletic/Buffalo News. Exact value approximately vet minimum (~$1.215M for his experience level)."
+      },
+      "expected_role": "starter",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "P",
+      "analysis": "Wishnowsky stabilized the punting position after a revolving door through the first four weeks of 2025. His 41.8 net yards/punt ranked 2nd in his career and he led the NFL in limiting punt returns. Veteran minimum deal is outstanding value. Punter need is fully resolved at essentially no cap cost."
     },
     {
       "player": "Shane Buechele",
       "position": "QB",
       "age": 28,
       "previous_team": "Buffalo Bills (re-sign)",
-      "acquisition_type": "re-sign",
       "contract": {
         "years": 1,
         "total_value": 1150000,
-        "guaranteed": null,
+        "guaranteed": 100000,
         "aav": 1150000,
-        "notes": "1yr/$1.15M reserve/future contract."
+        "notes": "1yr/$1.15M reserve/future contract. Per Buffalo Rumblings confirmed."
       },
       "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "QB",
-      "analysis": "Reserve/future deal for a third-string QB. No meaningful need impact."
+      "analysis": "Third QB on depth chart behind both Allens. Reserve/futures deal. Camp body at QB with no meaningful need impact."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
       "WR",
-      "QB"
+      "TE",
+      "QB",
+      "IOL_C"
     ],
     "partially_addressed": [
-      "IOL",
-      "CB"
+      "EDGE",
+      "CB",
+      "IOL_LG"
     ],
     "minimally_addressed": [
       "S",
       "IDL"
     ],
     "unchanged": [
-      "EDGE",
       "LB"
     ],
     "escalated": [
-      "EDGE",
-      "LB",
-      "CB",
       "S",
-      "IOL"
+      "IOL_LG"
+    ],
+    "new_needs_created": [
+      "IOL_LG",
+      "S"
     ]
   },
   "recommended_need_adjustments": [
@@ -405,43 +349,49 @@
       "position": "WR",
       "previous_tier": 1,
       "recommended_tier": 3,
-      "reasoning": "DJ Moore trade (4yr remaining, $23.5M fully guaranteed 2026-27) immediately installs a proven WR1 who has four 1,000-yard seasons. He pairs with Khalil Shakir in the slot and gives Josh Allen a reliable outside target. WR drops from critical to a depth/developmental need. A Day 3 WR pick to push Keon Coleman makes sense, but a premium WR pick is no longer warranted."
+      "reasoning": "DJ Moore trade (4yr/$110M inherited, 2026+2027 salaries fully guaranteed, cost a 2026 2nd-round pick) gives Buffalo a true WR1. Moore is a proven 1,000-yard receiver who excelled under new HC Joe Brady in Carolina. WR is no longer a premium need \u2014 depth/developmental WR in rounds 4-7 is appropriate, but don't reach early."
+    },
+    {
+      "position": "EDGE",
+      "previous_tier": 1,
+      "recommended_tier": 2,
+      "reasoning": "Bradley Chubb signing (3yr/$43.5M, $29M gtd) is a legitimate starter-level addition opposite Greg Rousseau. Chubb posted 8.5 sacks in 2025 and would have led the Bills roster. However, ACL injuries in both knees and below-elite AAV ($14.5M) temper the certainty. EDGE drops from critical (Tier 1) but remains a Tier 2 need \u2014 the Bills should still target a developmental EDGE in rounds 2-3 given health risk, and depth remains thin (Hoecht/Jackson both recovering from season-ending injuries)."
     },
     {
       "position": "IOL",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Connor McGovern's 4yr/$52M re-signing resolves the C position entirely. However, starting LG David Edwards departed to New Orleans on 4yr/$61M. Alec Anderson (1yr/$2.5M, swing lineman) is the only in-house LG option. LG starter need remains \u2014 IOL stays as a Tier 2 need but shifts from C-focused to LG-focused. Strong draft target in rounds 2-4."
-    },
-    {
-      "position": "EDGE",
-      "previous_tier": 1,
-      "recommended_tier": 1,
-      "reasoning": "EDGE was already a top need and has only gotten worse. Joey Bosa (5 forced fumbles in 2025) departed as UFA. A.J. Epenesa, Matt Judon, and Andre Jones Jr. are all unsigned. The team signed zero EDGEs in free agency. The defense is transitioning to a 3-4 under new DC Jim Leonhard, who needs OLBs/EDGE with 3-4 versatility. This is the Bills' biggest unaddressed need. Must address in Day 1 or Day 2 of the draft."
-    },
-    {
-      "position": "LB",
-      "previous_tier": 2,
-      "recommended_tier": 1,
-      "reasoning": "Matt Milano (12 games, 67 tackles, 3.5 sacks in 2025) voided his contract, triggering $11M dead cap, and is unsigned. Shaq Thompson and Baylon Spector are also unsigned. The team has made no LB additions whatsoever in free agency. The transition to a 3-4 scheme makes ILB/off-ball LB a critical priority \u2014 Leonhard's system requires thumping linebackers. This need escalates to Tier 1 alongside EDGE."
+      "reasoning": "Re-signing McGovern (4yr/$52M, $32M gtd) solves center long-term. But losing starting LG David Edwards (4yr/$61M to Saints) created an equivalent hole. Alec Anderson (1yr/$2.5M) is a rotational bridge at LG, not a solved starter. IOL need remains Tier 2 but shifts from 'C or LG' entirely to 'LG starter' \u2014 this is a priority Round 2-3 draft target."
     },
     {
       "position": "CB",
       "previous_tier": 2,
-      "recommended_tier": 1,
-      "reasoning": "The Bills lost Taron Johnson (traded), Tre'Davious White (UFA), Dane Jackson (released), and Cam Lewis (UFA) in a single offseason. The CB room now consists of Christian Benford, Dorian Strong (neck), Maxwell Hairston (ankle), and newly signed Dee Alford at nickel. Alford's contract is team-friendly and functions as a one-year bridge \u2014 it does not solve the outside CB need. CB is now a Tier 1 need, particularly for a true boundary starter."
+      "recommended_tier": 2,
+      "reasoning": "Dee Alford (3yr/$15.75M, $10.12M gtd) replaces traded nickel CB Taron Johnson at slot cornerback \u2014 same role, lower price, less proven. Outside CB depth is thin: Christian Benford and Maxwell Hairston are the starters, but Dane Jackson was released and Tre'Davious White is a UFA. CB remains Tier 2 \u2014 Alford handles the nickel need adequately but outside CB depth needs addressing in the draft (rounds 2-4)."
     },
     {
       "position": "S",
       "previous_tier": 2,
+      "recommended_tier": 1,
+      "reasoning": "Safety escalated to Tier 1 need. Taylor Rapp (released/failed physical) and Darnell Savage Jr. (signed with Pittsburgh) both departed. Cole Bishop is the lone returning starter. Sam Franklin Jr. re-signed (3yr/$6.49M) but is purely a special teams player (329 of 335 snaps on ST in 2025). The Bills have a legitimate starter vacancy opposite Bishop. Safety should be addressed in the first three rounds of the draft or in ongoing free agency."
+    },
+    {
+      "position": "LB",
+      "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Taylor Rapp was released (failed physical) and Jordan Poyer departed as UFA. The only re-signed safety is Sam Franklin Jr. on a 3yr/$6.49M deal, primarily a special teamer. Cole Bishop (2024 2nd-round pick) is the presumptive starter but has limited NFL starting experience. S remains Tier 2 \u2014 need for a veteran starter or high-upside draft pick."
+      "reasoning": "Jim Leonhard's new 3-4 scheme requires off-ball LBs who fit his vision. Matt Milano (UFA, unsigned), Shaq Thompson (UFA, unsigned), and Baylon Spector (UFA, unsigned) are all available but unsigned \u2014 no Bills LB signings have been made. LB remains a Tier 2 need with the scheme change amplifying positional importance. Draft priority rounds 2-4."
     },
     {
       "position": "IDL",
       "previous_tier": 3,
-      "recommended_tier": 2,
-      "reasoning": "DaQuan Jones (rotational) voided and is unsigned. Larry Ogunjobi and Jordan Phillips are also unsigned. The roster currently has Ed Oliver and Phidarian Mathis as the only meaningful IDL options on minimum deals. The 3-4 transition typically demands bigger nose tackle types. IDL depth is thin enough that this escalates to a Tier 2 need in the middle rounds of the draft."
+      "recommended_tier": 3,
+      "reasoning": "Ed Oliver returns and Phidarian Mathis (1yr minimum) re-signed. No major IDL losses or additions. DT depth (Jones, Ogunjobi, Phillips all UFA and unsigned) is thin, but Oliver anchors the unit. IDL stays Tier 3 \u2014 draft depth in rounds 4-6."
+    },
+    {
+      "position": "TE",
+      "previous_tier": 3,
+      "recommended_tier": 5,
+      "reasoning": "Knox re-extension (3yr through 2028) locks up TE1 alongside Dalton Kincaid and Jackson Hawes. One of the NFL's deepest TE rooms. TE is effectively off the board \u2014 skip in draft entirely unless elite value falls."
     }
   ],
   "team_page_additions": {
@@ -449,45 +399,51 @@
       {
         "player": "DJ Moore",
         "position": "WR",
-        "contract_summary": "Trade (4yr contract remaining, $23.5M gtd 2026-27)",
+        "contract_summary": "Trade (4yr/$110M existing contract; 2026+2027 fully gtd)",
         "previous_team": "Chicago Bears",
-        "headline": "Bills trade 2026 2nd-round pick for Bills' new WR1 \u2014 four 1,000-yard seasons and built-in chemistry with HC Joe Brady",
-        "trade_cost": "2026 2nd-round pick (No. 60); received Moore + 2026 5th-round pick (No. 164)"
+        "headline": "Bills' biggest need solved: proven WR1 reunites with HC Joe Brady, costs 2026 2nd-round pick (#60)"
+      },
+      {
+        "player": "Bradley Chubb",
+        "position": "EDGE",
+        "contract_summary": "3yr/$43.5M ($29M gtd, max $52.5M)",
+        "previous_team": "Miami Dolphins",
+        "headline": "Two-time Pro Bowl pass rusher (8.5 sacks in 2025) fills urgent EDGE need opposite Greg Rousseau"
       },
       {
         "player": "Connor McGovern",
         "position": "IOL",
         "contract_summary": "4yr/$52M ($32M gtd)",
         "previous_team": "Buffalo Bills (re-sign)",
-        "headline": "Pro Bowl center locked up through 2030 \u2014 3rd-highest paid C in the NFL anchors Josh Allen's offensive line"
+        "headline": "Starting center re-signed on long-term deal; started all 49 BUF regular-season games since 2023"
       },
       {
         "player": "Dee Alford",
         "position": "CB",
-        "contract_summary": "3yr/$15.75M base ($10.12M gtd), up to $21M",
+        "contract_summary": "3yr/$15.75M ($10.12M gtd, max $21M)",
         "previous_team": "Atlanta Falcons",
-        "headline": "Versatile nickel corner replaces Taron Johnson as Jim Leonhard's first free agent move \u2014 career year in 2025 (3 INTs, 13 PDs)"
+        "headline": "Nickel CB replaces traded Taron Johnson; career year in 2025 with 3 INTs, 2 sacks"
       },
       {
         "player": "Dawson Knox",
         "position": "TE",
-        "contract_summary": "3yr extension (terms TBD, lowers $17M cap hit)",
+        "contract_summary": "3yr/~$21M (restructured, gtd TBD)",
         "previous_team": "Buffalo Bills (extension)",
-        "headline": "Knox stays in Buffalo through 2028 after restructure \u2014 red-zone weapon retained alongside Dalton Kincaid"
+        "headline": "TE re-extension through 2028 preserves Josh Allen's trusted target; cap-friendly restructure saves $3-6M in 2026"
       },
       {
         "player": "Kyle Allen",
         "position": "QB",
-        "contract_summary": "2yr/$4.1M ($1.8M gtd), up to $6.1M",
-        "previous_team": "Free agent",
-        "headline": "Josh Allen's close friend returns as backup QB to replace Trubisky \u2014 been in this system before (2023)"
+        "contract_summary": "2yr/$4.1M ($1.8M gtd, max $6.1M)",
+        "previous_team": "Detroit Lions",
+        "headline": "Josh Allen's close friend returns as backup QB, replacing departing Mitch Trubisky"
       },
       {
         "player": "Sam Franklin Jr.",
         "position": "S",
-        "contract_summary": "3yr/$6.49M",
+        "contract_summary": "3yr/$6.49M ($2.53M gtd, max $7.5M)",
         "previous_team": "Buffalo Bills (re-sign)",
-        "headline": "Core special teams safety retained on a 3-year deal \u2014 provides depth as Bills navigate thin safety room"
+        "headline": "Special teams ace re-signed on 3-year deal; played 329 of 335 snaps on ST in 2025"
       }
     ],
     "key_losses": [
@@ -496,67 +452,73 @@
         "position": "IOL",
         "contract_summary": "4yr/$61M with Saints",
         "new_team": "New Orleans Saints",
-        "headline": "Starting left guard cashes in \u2014 Bills chose McGovern at C, leaving LG as the biggest remaining OL hole"
+        "headline": "Starting LG departs on massive deal to New Orleans; leaves starter-level void at left guard"
       },
       {
         "player": "Taron Johnson",
         "position": "CB",
-        "contract_summary": "Traded for 2026 6th-round pick",
+        "contract_summary": "Traded to LV Raiders (Bills received 6th-round pick, sent 7th)",
         "new_team": "Las Vegas Raiders",
-        "headline": "Eight-year Bills nickel corner traded away as Jim Leonhard's scheme change reshapes the secondary"
+        "headline": "Starter nickel CB traded away in draft pick swap; Dee Alford signed as replacement"
       },
       {
         "player": "Joey Bosa",
         "position": "EDGE",
-        "contract_summary": "UFA/unsigned",
-        "new_team": "TBD",
-        "headline": "Led NFL with 5 forced fumbles in 2025 \u2014 departure leaves Bills with zero EDGEs under contract"
-      },
-      {
-        "player": "Matt Milano",
-        "position": "LB",
-        "contract_summary": "Contract voided ($11M dead cap)",
+        "contract_summary": "Unsigned (1-year deal expired)",
         "new_team": "TBD/unsigned",
-        "headline": "Talented but injury-prone LB exits via void year \u2014 leaves Bills without a proven starter at linebacker"
+        "headline": "Bills' 2025 sack leader (5 sacks, 5 forced fumbles) departs; Bradley Chubb signed as replacement"
       },
       {
-        "player": "Tre'Davious White",
-        "position": "CB",
-        "contract_summary": "UFA/unsigned",
-        "new_team": "TBD",
-        "headline": "Returned to Bills in 2025, played solid football \u2014 departure further depletes a thin CB room"
+        "player": "Taylor Rapp",
+        "position": "S",
+        "contract_summary": "Released (failed physical)",
+        "new_team": "TBD/unsigned",
+        "headline": "Starting safety released after failing physical; leaves significant hole opposite Cole Bishop"
       },
       {
-        "player": "Reggie Gilliam",
-        "position": "RB",
-        "contract_summary": "3yr/up to $12M ($6M gtd) with Patriots",
-        "new_team": "New England Patriots",
-        "headline": "Starting fullback lost to a division rival \u2014 key blocker and special teams contributor departs"
-      },
-      {
-        "player": "Mitchell Trubisky",
+        "player": "Mitch Trubisky",
         "position": "QB",
         "contract_summary": "2yr deal with Titans",
         "new_team": "Tennessee Titans",
-        "headline": "Backup QB reunites with Brian Daboll in Tennessee \u2014 replaced immediately by Kyle Allen"
+        "headline": "Backup QB departs for Tennessee; Kyle Allen signed as direct replacement"
+      },
+      {
+        "player": "Reggie Gilliam",
+        "position": "FB",
+        "contract_summary": "2yr/up to $12M ($6M gtd) with Patriots",
+        "new_team": "New England Patriots",
+        "headline": "Starting fullback and key run-game piece departs to AFC East rival New England"
+      },
+      {
+        "player": "Darnell Savage Jr.",
+        "position": "S",
+        "contract_summary": "1yr deal with Steelers",
+        "new_team": "Pittsburgh Steelers",
+        "headline": "Depth safety departs to Pittsburgh, compounding Bills' urgent need for a starter opposite Cole Bishop"
       }
     ]
   },
   "confidence": "high",
-  "notes": "All signings are confirmed/agreed upon as of March 11, 2026. Dawson Knox extension financial terms have not been publicly disclosed as of this update \u2014 total value and guarantees are listed as null pending reporting. DJ Moore contract reflects inherited deal from Chicago Bears (original 4yr/$110M extension); Bills added $15.5M guarantee on 2028 salary as part of trade. OTC shows BUF at approximately -$13.4M in 2026 cap space pre-FA; Bills were working to achieve cap compliance through restructures (Ed Oliver, Spencer Brown) and releases before the new league year. Post-FA cap position not yet fully calculable. The Bills made NO free agent signings at EDGE or LB \u2014 the two biggest schematic needs under new DC Jim Leonhard.",
+  "notes": "All contract figures sourced from Spotrac, OverTheCap, ESPN, NFL.com, and official Bills announcements. DJ Moore's full 2026 cap hit will be restructured upon trade processing (reported ~$7.5M post-restructure vs. $24.5M base). Dawson Knox's exact new contract total and full guarantee breakdown have not been officially disclosed as of March 13, 2026 \u2014 3-year structure through 2028 confirmed, AAV and guarantees estimated from reporting. Alec Anderson's Spotrac-listed figure ($2.5M) differs slightly from the Ian Rapoport-reported $3M figure; $2.5M used as Spotrac is the confirmed official source. Bills' remaining cap space post-FA estimated at $20M based on Buffalo Rumblings/Yahoo cap analysis after all restructures and signings.",
   "sources": [
     "https://www.buffalobills.com/news/buffalo-bills-free-agency-tracker-2026",
     "https://www.espn.com/nfl/story/_/id/48015515/bills-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
+    "https://www.spotrac.com/nfl/buffalo-bills/overview",
+    "https://overthecap.com/player/dee-alford/10033",
+    "https://overthecap.com/player/dawson-knox/7887",
+    "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
     "https://www.buffalorumblings.com/buffalo-bills-free-agency/130589/buffalo-bills-2026-free-agency-tracker-rumors-signings-trades-news-and-more",
-    "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/buf",
-    "https://overthecap.com/salary-cap/buffalo-bills",
-    "https://www.nfl.com/news/bills-trading-veteran-cb-taron-johnson-to-raiders-for-2026-sixth-round-pick",
-    "https://www.nfl.com/news/bears-trading-wr-dj-moore-to-bills-for-mid-round-draft-pick",
-    "https://www.profootballrumors.com/2026/03/bills-to-re-sign-c-connor-mcgovern",
+    "https://www.espn.com/nfl/story/_/id/48133800/sources-bills-c-connor-mcgovern-reach-4-year-52m-deal",
     "https://www.espn.com/nfl/story/_/id/48163223/sources-te-dawson-knox-stays-bills-new-3-year-deal",
-    "https://www.espn.com/nfl/story/_/id/48156468/source-bills-sign-dee-alford-3-year-deal-worth-21m",
-    "https://www.cbssports.com/nfl/news/nfl-free-agency-tracker-2026-full-list-signings-trades-moves/",
-    "https://sports.yahoo.com/articles/where-buffalo-bills-players-signed-160048837.html",
-    "https://www.buffalorumblings.com/buffalo-bills-salary-cap-contracts/130721/dee-alford-contract-details-buffalo-bills-cornerback-gets-only-one-year-guaranteed"
+    "https://www.espn.com/nfl/story/_/id/48176802/ex-dolphins-olb-bradley-chubb-gets-3-year-deal-bills",
+    "https://www.espn.com/nfl/story/_/id/48111983/bills-agree-trade-acquire-bears-wr-dj-moore-sources-say",
+    "https://www.profootballrumors.com/2026/02/bills-to-re-sign-s-sam-franklin",
+    "https://www.spotrac.com/nfl/player/_/id/25100/bradley-chubb",
+    "https://www.spotrac.com/nfl/player/_/id/75171/dee-alford",
+    "https://www.spotrac.com/nfl/player/_/id/25469/kyle-allen",
+    "https://www.spotrac.com/nfl/player/_/id/77606/alec-anderson",
+    "https://www.si.com/nfl/bills/onsi/transactions-tracking-buffalo-bills-offseason-moves-nfl-free-agency-2026",
+    "https://atozsports.com/nfl/buffalo-bills-news/unable-keep-o-line-together-2026-nfl-free-agency-latest-departure-nfc-south/",
+    "https://www.profootballrumors.com/2026/03/bills-cb-dee-alford-agree-to-deal"
   ]
 }

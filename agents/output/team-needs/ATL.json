@@ -8,15 +8,6 @@
   "roster_context": "Massive organizational overhaul: fired HC Raheem Morris and GM Terry Fontenot after back-to-back 8-9 seasons. Hired Matt Ryan as President of Football, Kevin Stefanski as HC, Ian Cunningham as GM, and Tommy Rees as OC. QB Michael Penix Jr. tore his ACL in Week 11 and is aiming for a Week 1 return but uncertain. Kirk Cousins being released with $35M dead cap. Cutting WR Darnell Mooney. Kyle Pitts franchise tagged. Kaden Elliss likely leaving in free agency. James Pearce Jr. arrested on 5 felony charges (domestic violence) in February, status uncertain. No first-round pick severely limits draft capital. Over half the roster hitting free agency.",
   "needs": [
     {
-      "position": "EDGE",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "James Pearce Jr. faces 5 felony charges including aggravated battery and aggravated stalking after a February arrest. His status for 2026 is in serious doubt — potential NFL suspension and legal proceedings could sideline him. Leonard Floyd is a UFA likely to depart. Arnold Ebiketie is also a UFA and seemed frustrated with his role. Jalon Walker (6 sacks as a rookie) is the only locked-in edge piece. The team set a franchise record with 57 sacks in 2025 but could lose the majority of that production.",
-      "current_starter": "Jalon Walker, James Pearce Jr. (legal uncertainty)",
-      "depth": "Leonard Floyd (UFA), Arnold Ebiketie (UFA), DeAngelo Malone, Khalid Kareem (UFA). Significant attrition likely.",
-      "draft_range_target": "Round 2-3, or Round 6-7 for depth if FA addresses starting need"
-    },
-    {
       "position": "LB",
       "tier": 1,
       "urgency": "critical",
@@ -24,15 +15,6 @@
       "current_starter": "Kaden Elliss (UFA, likely departing), Divine Deablo",
       "depth": "Troy Andersen (UFA), JD Bertrand, Josh Woods (UFA), Ronnie Harrison. Extremely thin if Elliss and Andersen leave.",
       "draft_range_target": "Round 3-4"
-    },
-    {
-      "position": "WR",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Cutting Darnell Mooney ($18.4M cap hit) leaves Drake London as the only proven receiver on the roster. Mooney was terrible in 2025 after a collarbone injury in training camp. Behind London there is virtually nothing — David Sills V is a free agent, depth was described as 'absurd' in how thin it was. Cunningham called WR a 'premium position' at the combine. This team desperately needs a WR2.",
-      "current_starter": "Drake London (WR1), Darnell Mooney (being cut)",
-      "depth": "Extremely thin after London. Dylan Drummond, Nathan Carter (injured), and practice squad-level players only.",
-      "draft_range_target": "Round 2 (No. 48) — top priority for first pick"
     },
     {
       "position": "CB",
@@ -44,6 +26,15 @@
       "draft_range_target": "Round 2-3"
     },
     {
+      "position": "EDGE",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "James Pearce Jr. faces 5 felony charges including aggravated battery and aggravated stalking after a February arrest. His status for 2026 is in serious doubt — potential NFL suspension and legal proceedings could sideline him. Leonard Floyd is a UFA likely to depart. Arnold Ebiketie is also a UFA and seemed frustrated with his role. Jalon Walker (6 sacks as a rookie) is the only locked-in edge piece. The team set a franchise record with 57 sacks in 2025 but could lose the majority of that production.",
+      "current_starter": "Jalon Walker, James Pearce Jr. (legal uncertainty)",
+      "depth": "Leonard Floyd (UFA), Arnold Ebiketie (UFA), DeAngelo Malone, Khalid Kareem (UFA). Significant attrition likely.",
+      "draft_range_target": "Round 2-3, or Round 6-7 for depth if FA addresses starting need"
+    },
+    {
       "position": "IDL",
       "tier": 2,
       "urgency": "important",
@@ -53,13 +44,22 @@
       "draft_range_target": "Round 4-6"
     },
     {
-      "position": "QB",
+      "position": "RB",
       "tier": 2,
       "urgency": "important",
-      "explanation": "Tua Tagovailoa signing (1yr/$1.3M minimum) partially addresses the immediate 2026 starter problem with a capable stopgap while Penix recovers from ACL surgery. However, because it is a league-minimum bridge deal with no multi-year commitment, QB remains a priority need in the draft — Atlanta must confirm Michael Penix Jr. as the long-term answer and still lacks a true developmental QB2 locked in beyond 2026. Drop from Tier 1 critical to Tier 2 — still draft-worthy in rounds 2–4 if the value is there.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
+      "explanation": "Bijan Robinson is an elite RB1. However, Tyler Allgeier is a UFA and likely to depart for a starting job elsewhere. That leaves no proven RB2 behind Robinson. Nathan Carter missed most of 2025 with a knee injury. A Day 3 or cheap FA addition is needed for depth.",
+      "current_starter": "Bijan Robinson",
+      "depth": "Tyler Allgeier (UFA, likely gone), Nathan Carter (injury concerns). Need a backup.",
+      "draft_range_target": "Round 5-7 or UDFA"
+    },
+    {
+      "position": "WR",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Cutting Darnell Mooney ($18.4M cap hit) leaves Drake London as the only proven receiver on the roster. Mooney was terrible in 2025 after a collarbone injury in training camp. Behind London there is virtually nothing — David Sills V is a free agent, depth was described as 'absurd' in how thin it was. Cunningham called WR a 'premium position' at the combine. This team desperately needs a WR2.",
+      "current_starter": "Drake London (WR1), Darnell Mooney (being cut)",
+      "depth": "Extremely thin after London. Dylan Drummond, Nathan Carter (injured), and practice squad-level players only.",
+      "draft_range_target": "Round 2 (No. 48) — top priority for first pick"
     },
     {
       "position": "IOL",
@@ -80,13 +80,13 @@
       "draft_range_target": "Round 3-4"
     },
     {
-      "position": "RB",
+      "position": "QB",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "Bijan Robinson is an elite RB1. However, Tyler Allgeier is a UFA and likely to depart for a starting job elsewhere. That leaves no proven RB2 behind Robinson. Nathan Carter missed most of 2025 with a knee injury. A Day 3 or cheap FA addition is needed for depth.",
-      "current_starter": "Bijan Robinson",
-      "depth": "Tyler Allgeier (UFA, likely gone), Nathan Carter (injury concerns). Need a backup.",
-      "draft_range_target": "Round 5-7 or UDFA"
+      "explanation": "Tua Tagovailoa signing (1yr/$1.3M minimum) partially addresses the immediate 2026 starter problem with a capable stopgap while Penix recovers from ACL surgery. However, because it is a league-minimum bridge deal with no multi-year commitment, QB remains a priority need in the draft — Atlanta must confirm Michael Penix Jr. as the long-term answer and still lacks a true developmental QB2 locked in beyond 2026. Drop from Tier 1 critical to Tier 2 — still draft-worthy in rounds 2–4 if the value is there.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
     },
     {
       "position": "TE",
@@ -100,63 +100,70 @@
   ],
   "needs_summary": {
     "tier_1": [
-      "EDGE",
-      "LB",
-      "WR"
+      "LB"
     ],
     "tier_2": [
       "CB",
+      "EDGE",
       "IDL",
-      "QB"
+      "RB",
+      "WR"
     ],
     "tier_3": [
       "IOL",
       "OT",
-      "RB"
+      "QB"
     ],
     "tier_4": [
       "TE"
     ]
   },
   "simple_needs": [
-    "DL",
     "LB",
-    "WR",
     "DB",
-    "QB",
+    "DL",
+    "RB",
+    "WR",
     "OL",
-    "RB"
+    "QB"
   ],
   "detailed_needs": {
-    "DL": 1,
     "LB": 1,
-    "WR": 1,
     "DB": 2,
-    "QB": 2,
+    "DL": 2,
+    "RB": 2,
+    "WR": 2,
     "OL": 3,
-    "RB": 3
+    "QB": 3
   },
   "free_agency_impact": [
     "Kirk Cousins (QB) → TBD/unsigned",
-    "Kaden Elliss (LB) → New Orleans Saints (3yr/$33M, $23M guaranteed)",
-    "Dee Alford (CB) → Buffalo Bills (3yr/$15.75M base / up to $21M, $10.12M guaranteed)",
-    "David Onyemata (IDL) → New York Jets (1yr/$10.5M, $9.65M guaranteed)",
-    "Tyler Allgeier (RB) → Arizona Cardinals (2yr/$12.25M)",
-    "Darnell Mooney (WR) → TBD/unsigned",
-    "KhaDarel Hodge (WR) → TBD/unsigned",
-    "Arnold Ebiketie (EDGE) → TBD/unsigned",
+    "Kaden Elliss (LB) → New Orleans Saints",
+    "Dee Alford (CB) → Buffalo Bills",
+    "Arnold Ebiketie (EDGE) → Philadelphia Eagles",
+    "David Onyemata (IDL) → New York Jets",
+    "Tyler Allgeier (RB) → Arizona Cardinals",
+    "Darnell Mooney (WR) → TBD/released",
+    "KhaDarel Hodge (WR) → TBD/released",
     "Leonard Floyd (EDGE) → TBD/unsigned",
+    "Signed Kyle Pitts (TE) from Atlanta Falcons (retained via franchise tag) — $15.0M AAV",
     "Signed Tua Tagovailoa (QB) from Miami Dolphins — $1.3M AAV",
     "Signed Jahan Dotson (WR) from Philadelphia Eagles — $7.5M AAV",
-    "Signed Olamide Zaccheaus (WR) from Chicago Bears — $2.0M AAV",
+    "Signed Olamide Zaccheaus (WR) from Chicago Bears — $1.5M AAV",
     "Signed Austin Hooper (TE) from New England Patriots — $3.2M AAV",
-    "Signed Kyle Pitts (TE) from Atlanta Falcons (retained) — $15.0M AAV",
+    "Signed Azeez Ojulari (EDGE) from Philadelphia Eagles — $3.0M AAV",
+    "Signed Samson Ebukam (EDGE) from Indianapolis Colts — $2.5M AAV",
     "Signed Cameron Thomas (EDGE) from Cleveland Browns — $3.1M AAV",
-    "Signed Christian Harris (LB) from Houston Texans — $2.0M AAV",
+    "Signed Christian Harris (LB) from Houston Texans — $3.0M AAV",
+    "Signed Channing Tindall (LB) from Arizona Cardinals — $1.5M AAV",
+    "Signed LaCale London (IDL) from Atlanta Falcons (re-signed) — $2.0M AAV",
+    "Signed Chris Williams (IDL) from Chicago Bears — $2.0M AAV",
+    "Signed Corey Levin (IOL) from Tennessee Titans — $1.5M AAV",
     "Signed Nick Folk (K) from New York Jets — $4.5M AAV",
     "Signed Jake Bailey (P) from Miami Dolphins — $3.0M AAV",
-    "Signed Natrone Brooks (CB) from Atlanta Falcons (retained) — $1.2M AAV",
-    "Signed Elijah Garcia (EDGE) from Atlanta Falcons (retained) — $0.8M AAV"
+    "Signed Natrone Brooks (CB) from Atlanta Falcons (re-signed/extended) — $1.5M AAV",
+    "Signed Elijah Garcia (IDL) from Atlanta Falcons (ERFA tender) — $1.0M AAV",
+    "Signed Troy Andersen (LB) from Atlanta Falcons (contract restructure/retention) — $1.1M AAV"
   ],
   "scheme_fit_notes": "Kevin Stefanski brings a heavy play-action, under-center offense with wide-zone run concepts — Bijan Robinson is the centerpiece. OC Tommy Rees ran more in-breaking routes in Cleveland. WR prospects who win on intermediate/slot routes and provide YAC fit better than pure deep threats. On defense, Jeff Ulbrich's aggressive scheme blitzed at the 2nd-highest rate in the NFL in 2025. Edge rushers who can set the edge in the run game AND rush the passer are prioritized. Off-ball LBs with blitz ability are highly valued (Elliss was an elite blitzing LB). The 4-3 under front means IDL prospects need to be versatile enough to play multiple alignments. CB2 must be able to play man coverage to hold up when the defense sends extra rushers.",
   "confidence": "high",

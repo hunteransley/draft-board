@@ -17,15 +17,6 @@
       "draft_range_target": "Round 2-3"
     },
     {
-      "position": "IDL",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Tim Settle Jr. departed to Washington on a 3-year, $24M deal, creating a hole next to Rankins. Rankins' re-signing (2yr/$14M, $12M gtd) partially addresses this but he is 31 with injury history. Naquan Jones is only a $2M depth signing. Houston needs a quality IDL piece — either a mid-tier FA or a Day 2 draft pick. Need escalated from tier 3 to tier 2.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
-    },
-    {
       "position": "IOL",
       "tier": 2,
       "urgency": "important",
@@ -33,15 +24,6 @@
       "current_starter": "Jake Andrews (C), Ed Ingram (RG — UFA)",
       "depth": "Scruggs traded away. Extremely thin. No quality IOL depth on roster.",
       "draft_range_target": "Round 1-2 (priority pick at 28 or 38)"
-    },
-    {
-      "position": "LB",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Azeez Al-Shaair (signed through 2026) and Henry To'oTo'o are the core, but E.J. Speed (UFA), Christian Harris (UFA, fell to 5th-string), and Damone Clark (UFA) are all departing. The linebacker room needs depth and a developmental piece. Speed had some productive snaps but will be 31. The team could use a younger rotational/special teams LB.",
-      "current_starter": "Azeez Al-Shaair (Pro Bowler), Henry To'oTo'o",
-      "depth": "Thin after top two. Speed, Harris, Clark all UFAs. Need rotational depth.",
-      "draft_range_target": "Round 4-5"
     },
     {
       "position": "OT",
@@ -53,13 +35,31 @@
       "draft_range_target": "Round 1-3 (Kadyn Proctor, Blake Miller, Carter Smith linked)"
     },
     {
-      "position": "WR",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Christian Kirk departed (rotational loss only). Tank Dell expected back from injury, Jaylin Noel emerging in year 2, Nico Collins locked in. No WR additions made in FA. Need unchanged — Houston could still use a WR2/slot opposite Nico Collins in the mid-rounds of the draft.",
+      "position": "EDGE",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Will Anderson Jr. (All-Pro, 12 sacks, most pressures in NFL) and Danielle Hunter (All-Pro, 27 combined sacks in two years with Houston) are elite. However, rotational depth behind them is being gutted: Derek Barnett (5 sacks, UFA), Denico Autry (age 36, UFA), and Darrell Taylor are all pending free agents. The team needs a developmental rotational edge rusher to keep Anderson and Hunter fresh. Hunter's extension may not extend beyond 2026, so long-term planning matters.",
+      "current_starter": "Will Anderson Jr. (EDGE), Danielle Hunter (EDGE)",
+      "depth": "Derek Barnett (UFA), Denico Autry (UFA), Darrell Taylor (UFA). Rotation depleted.",
+      "draft_range_target": "Round 3-5"
+    },
+    {
+      "position": "IDL",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Tim Settle Jr. departed to Washington on a 3-year, $24M deal, creating a hole next to Rankins. Rankins' re-signing (2yr/$14M, $12M gtd) partially addresses this but he is 31 with injury history. Naquan Jones is only a $2M depth signing. Houston needs a quality IDL piece — either a mid-tier FA or a Day 2 draft pick. Need escalated from tier 3 to tier 2.",
       "current_starter": "",
       "depth": "",
       "draft_range_target": ""
+    },
+    {
+      "position": "LB",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Azeez Al-Shaair (signed through 2026) and Henry To'oTo'o are the core, but E.J. Speed (UFA), Christian Harris (UFA, fell to 5th-string), and Damone Clark (UFA) are all departing. The linebacker room needs depth and a developmental piece. Speed had some productive snaps but will be 31. The team could use a younger rotational/special teams LB.",
+      "current_starter": "Azeez Al-Shaair (Pro Bowler), Henry To'oTo'o",
+      "depth": "Thin after top two. Speed, Harris, Clark all UFAs. Need rotational depth.",
+      "draft_range_target": "Round 4-5"
     },
     {
       "position": "TE",
@@ -71,13 +71,13 @@
       "draft_range_target": ""
     },
     {
-      "position": "EDGE",
-      "tier": 4,
-      "urgency": "minor",
-      "explanation": "Will Anderson Jr. (All-Pro, 12 sacks, most pressures in NFL) and Danielle Hunter (All-Pro, 27 combined sacks in two years with Houston) are elite. However, rotational depth behind them is being gutted: Derek Barnett (5 sacks, UFA), Denico Autry (age 36, UFA), and Darrell Taylor are all pending free agents. The team needs a developmental rotational edge rusher to keep Anderson and Hunter fresh. Hunter's extension may not extend beyond 2026, so long-term planning matters.",
-      "current_starter": "Will Anderson Jr. (EDGE), Danielle Hunter (EDGE)",
-      "depth": "Derek Barnett (UFA), Denico Autry (UFA), Darrell Taylor (UFA). Rotation depleted.",
-      "draft_range_target": "Round 3-5"
+      "position": "WR",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Christian Kirk departed (rotational loss only). Tank Dell expected back from injury, Jaylin Noel emerging in year 2, Nico Collins locked in. No WR additions made in FA. Need unchanged — Houston could still use a WR2/slot opposite Nico Collins in the mid-rounds of the draft.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
     },
     {
       "position": "RB",
@@ -102,17 +102,17 @@
     "tier_1": [],
     "tier_2": [
       "DT",
-      "IDL",
       "IOL",
-      "LB",
-      "OT",
-      "WR"
+      "OT"
     ],
     "tier_3": [
-      "TE"
+      "EDGE",
+      "IDL",
+      "LB",
+      "TE",
+      "WR"
     ],
     "tier_4": [
-      "EDGE",
       "RB",
       "S"
     ]
@@ -121,41 +121,45 @@
     "DL",
     "OL",
     "LB",
-    "WR",
-    "TE"
+    "TE",
+    "WR"
   ],
   "detailed_needs": {
     "DL": 2,
     "OL": 2,
-    "LB": 2,
-    "WR": 2,
-    "TE": 3
+    "LB": 3,
+    "TE": 3,
+    "WR": 3
   },
   "free_agency_impact": [
     "Tytus Howard (OT) → Cleveland Browns (trade)",
-    "Juice Scruggs (IOL) → Detroit Lions (trade)",
-    "Joe Mixon (RB) → Released/unsigned",
-    "Tim Settle Jr. (IDL) → Washington Commanders",
+    "Juice Scruggs (IOL) → Detroit Lions (trade, part of Montgomery deal)",
+    "Joe Mixon (RB) → TBD/unsigned",
     "Christian Harris (LB) → Atlanta Falcons",
-    "Christian Kirk (WR) → TBD/unsigned",
-    "Nick Chubb (RB) → TBD/unsigned",
+    "Tim Settle Jr. (IDL) → TBD/unsigned",
     "Denico Autry (EDGE) → TBD/unsigned",
+    "Nick Chubb (RB) → TBD/unsigned",
+    "Christian Kirk (WR) → TBD/unsigned",
     "Tommy Townsend (P) → TBD/unsigned",
+    "Derek Barnett (EDGE) → TBD/unsigned",
     "Signed Danielle Hunter (EDGE) from Houston Texans (extension) — $40.1M AAV",
-    "Signed Ed Ingram (IOL) from Houston Texans (re-sign) — $12.9M AAV",
-    "Signed Sheldon Rankins (IDL) from Houston Texans (re-sign) — $7.0M AAV",
+    "Signed Ed Ingram (IOL) from Houston Texans (re-sign) — $12.5M AAV",
+    "Signed Dalton Schultz (TE) from Houston Texans (extension) — $12.6M AAV",
+    "Signed Sheldon Rankins (IDL) from Houston Texans (re-sign) — $6.0M AAV",
+    "Signed Trent Brown (OT) from Houston Texans (re-sign) — $7.0M AAV",
+    "Signed Braden Smith (OT) from Indianapolis Colts — $12.5M AAV",
     "Signed David Montgomery (RB) from Detroit Lions (trade) — $6.5M AAV",
     "Signed Reed Blankenship (S) from Philadelphia Eagles — $8.2M AAV",
-    "Signed Braden Smith (OT) from Indianapolis Colts — $12.5M AAV",
-    "Signed Trent Brown (OT) from Houston Texans (re-sign) — $7.0M AAV",
     "Signed E.J. Speed (LB) from Houston Texans (re-sign) — $6.5M AAV",
-    "Signed Dalton Schultz (TE) from Houston Texans (extension) — $12.6M AAV",
+    "Signed M.J. Stewart (S) from Houston Texans (re-sign) — $3.0M AAV",
     "Signed Dominique Robinson (EDGE) from Chicago Bears — $4.0M AAV",
-    "Signed Logan Hall (IDL) from Tampa Bay Buccaneers — $7.0M AAV",
-    "Signed Naquan Jones (IDL) from Houston Texans (re-sign) — $2.0M AAV",
+    "Signed Foster Moreau (TE) from New Orleans Saints — $3.1M AAV",
+    "Signed Naquan Jones (IDL) from Houston Texans (re-sign) — $2.5M AAV",
+    "Signed Logan Hall (EDGE) from Tampa Bay Buccaneers — $7.0M AAV",
     "Signed Ka'imi Fairbairn (K) from Houston Texans (extension) — $6.5M AAV",
     "Signed Kai Kroeger (P) from New Orleans Saints (trade) — $1.1M AAV",
-    "Signed M.J. Stewart (S) from Houston Texans (re-sign) — $3.0M AAV"
+    "Signed Desmond King II (CB) from Houston Texans (re-sign) — terms TBD AAV",
+    "Signed Michael Thomas (S) from TBD — terms TBD AAV"
   ],
   "scheme_fit_notes": "DeMeco Ryans runs a 4-3 base with heavy nickel usage. The defense thrives on an aggressive, physical front four that generates pressure up the middle and off the edge. IDL prospects need to be disruptive pass rushers (3-tech penetrators) to complement Anderson and Hunter's edge dominance. On offense, new OC Nick Caley wants to establish a physical run game — IOL prospects with mauling run-blocking ability are prioritized. OT prospects should be capable pass protectors to keep Stroud upright (113 sacks in 46 starts). The secondary plays a lot of man coverage, so any DB additions need man-cover skills and physicality — though the starting CBs (Stingley, Lassiter) and FS (Bullock) are elite and locked in.",
   "confidence": "high",

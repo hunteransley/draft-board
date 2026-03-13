@@ -17,15 +17,6 @@
       "draft_range_target": "Round 1-2 — Caleb Banks (Florida), Kayden McDonald (Ohio State), Peter Woods (Clemson), Lee Hunter (Texas Tech)"
     },
     {
-      "position": "IDL",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Jonathan Allen (expected release) and Javon Hargrave (release) both leave the roster, wiping out two starting DTs. Jalen Redmond (ERFA tender, minimum salary) is now the de facto starter but has only one year of NFL starting experience and is on a prove-it deal. IDL escalates to Tier 1 — depth is critically thin with no meaningful free agent additions made yet.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
-    },
-    {
       "position": "IOL",
       "tier": 1,
       "urgency": "critical",
@@ -62,6 +53,15 @@
       "draft_range_target": ""
     },
     {
+      "position": "IDL",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Jonathan Allen (expected release) and Javon Hargrave (release) both leave the roster, wiping out two starting DTs. Jalen Redmond (ERFA tender, minimum salary) is now the de facto starter but has only one year of NFL starting experience and is on a prove-it deal. IDL escalates to Tier 1 — depth is critically thin with no meaningful free agent additions made yet.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
       "position": "P",
       "tier": 2,
       "urgency": "important",
@@ -69,24 +69,6 @@
       "current_starter": "",
       "depth": "",
       "draft_range_target": ""
-    },
-    {
-      "position": "QB",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "No QB has been signed as of March 10. Vikings are heavy favorites to sign Kyler Murray (expected minimum deal once officially released by ARI on March 11) but it is NOT confirmed. J.J. McCarthy (injury-prone, 10 starts in 2 seasons) remains the only QB under contract. QB is still a Tier 1 critical need until a veteran is officially signed.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
-    },
-    {
-      "position": "RB",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Aaron Jones is being released ($7.75M savings) after an injury-plagued 2025 (12 games, 548 rushing yards). Jordan Mason, acquired from San Francisco in March 2025, had a productive year (758 yards, 6 TDs on 159 carries) and projects as the RB1. However, Mason has only one year left on his deal, and the Vikings need a strong run game to support McCarthy's development. The depth behind Mason (Zavier Scott, Ty Chandler) is limited. A Day 2 running back could be a high-value addition.",
-      "current_starter": "Jordan Mason (RB1 going forward)",
-      "depth": "Zavier Scott (ERFA), Ty Chandler. C.J. Ham (FB) retired.",
-      "draft_range_target": "Round 2-4 — Jeremiyah Love if he falls, Jadarian Price (Notre Dame), Emmett Johnson (Nebraska, local product)"
     },
     {
       "position": "WR",
@@ -105,6 +87,24 @@
       "current_starter": "Christian Darrisaw (LT, under contract), Brian O'Neill (RT, final year)",
       "depth": "Justin Skule (UFA), Walter Rouse, Blake Brandel (UFA, versatile). Thin if Darrisaw misses time again.",
       "draft_range_target": "Round 3-5 — developmental swing tackle for depth/insurance"
+    },
+    {
+      "position": "QB",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "No QB has been signed as of March 10. Vikings are heavy favorites to sign Kyler Murray (expected minimum deal once officially released by ARI on March 11) but it is NOT confirmed. J.J. McCarthy (injury-prone, 10 starts in 2 seasons) remains the only QB under contract. QB is still a Tier 1 critical need until a veteran is officially signed.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
+      "position": "RB",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Aaron Jones is being released ($7.75M savings) after an injury-plagued 2025 (12 games, 548 rushing yards). Jordan Mason, acquired from San Francisco in March 2025, had a productive year (758 yards, 6 TDs on 159 carries) and projects as the RB1. However, Mason has only one year left on his deal, and the Vikings need a strong run game to support McCarthy's development. The depth behind Mason (Zavier Scott, Ty Chandler) is limited. A Day 2 running back could be a high-value addition.",
+      "current_starter": "Jordan Mason (RB1 going forward)",
+      "depth": "Zavier Scott (ERFA), Ty Chandler. C.J. Ham (FB) retired.",
+      "draft_range_target": "Round 2-4 — Jeremiyah Love if he falls, Jadarian Price (Notre Dame), Emmett Johnson (Nebraska, local product)"
     },
     {
       "position": "LB",
@@ -128,20 +128,20 @@
   "needs_summary": {
     "tier_1": [
       "DT",
-      "IDL",
       "IOL",
       "S"
     ],
     "tier_2": [
       "CB",
       "EDGE",
+      "IDL",
       "P",
-      "QB",
-      "RB",
       "WR"
     ],
     "tier_3": [
-      "OT"
+      "OT",
+      "QB",
+      "RB"
     ],
     "tier_4": [
       "LB",
@@ -153,35 +153,37 @@
     "OL",
     "DB",
     "P",
+    "WR",
     "QB",
-    "RB",
-    "WR"
+    "RB"
   ],
   "detailed_needs": {
     "DL": 1,
     "OL": 1,
     "DB": 1,
     "P": 2,
-    "QB": 2,
-    "RB": 2,
-    "WR": 2
+    "WR": 2,
+    "QB": 3,
+    "RB": 3
   },
   "free_agency_impact": [
-    "Aaron Jones (RB) → TBD/released",
-    "Javon Hargrave (IDL) → TBD/released",
-    "Jonathan Allen (IDL) → TBD/released",
-    "Ryan Kelly (IOL) → retired",
+    "Ryan Kelly (IOL) → RETIRED",
     "Jalen Nailor (WR) → Las Vegas Raiders",
+    "Harrison Smith (S) → TBD/unsigned",
+    "Jonathan Allen (IDL) → Cincinnati Bengals",
+    "Javon Hargrave (IDL) → Green Bay Packers",
     "Ryan Wright (P) → New Orleans Saints",
-    "C.J. Ham (RB) → retired",
-    "Harrison Smith (S) → TBD/expected retirement",
+    "C.J. Ham (RB) → RETIRED",
+    "Ben Sims (TE) → Miami Dolphins",
+    "Signed Kyler Murray (QB) from Arizona Cardinals — $1.3M AAV",
     "Signed Eric Wilson (LB) from Minnesota Vikings (re-sign) — $7.5M AAV",
     "Signed James Pierre (CB) from Pittsburgh Steelers — $4.2M AAV",
+    "Signed Tavierre Thomas (S) from Minnesota Vikings (re-sign) — $2.3M AAV",
     "Signed Andrew DePaola (LS) from Minnesota Vikings (re-sign) — $1.7M AAV",
-    "Signed Jalen Redmond (IDL) from Minnesota Vikings (ERFA tender) — $1.1M AAV",
-    "Signed Ivan Pace Jr. (LB) from Minnesota Vikings (RFA tender) — $3.5M AAV",
-    "Signed Bo Richter (EDGE) from Minnesota Vikings (ERFA tender) — $1.1M AAV",
-    "Signed Zavier Scott (RB) from Minnesota Vikings (ERFA tender) — $1.1M AAV"
+    "Signed Bo Richter (EDGE) from Minnesota Vikings (re-sign) — $1.1M AAV",
+    "Signed Aaron Jones (RB) from Minnesota Vikings (restructure) — $5.6M AAV",
+    "Signed Jalen Redmond (IDL) from Minnesota Vikings (exclusive rights tender) — $1.1M AAV",
+    "Signed Ivan Pace Jr. (LB) from Minnesota Vikings (right-of-first-refusal tender) — $3.3M AAV"
   ],
   "scheme_fit_notes": "Brian Flores' defense is blitz-heavy and man-coverage intensive — the 4th-highest blitz rate in the NFL in 2025. This means CB prospects must be able to play press-man, not just zone. Safety prospects need range and tackling ability to work as single-high or in Flores' versatile packages. LB prospects with blitz ability and sideline-to-sideline range are ideal (Wilson's profile). DT prospects should be interior disruptors who collapse pockets quickly — Flores creates pressure through chaos, not just edge speed. Kevin O'Connell's offense is pass-first and scheme-dependent; protecting McCarthy behind a revamped OL is paramount. The draft class is deep at WR, DT, LB, S, and CB — positions where the Vikings have needs — which gives them flexibility at 18.",
   "confidence": "high",

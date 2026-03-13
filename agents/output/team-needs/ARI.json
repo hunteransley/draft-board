@@ -8,15 +8,6 @@
   "roster_context": "Massive rebuild underway after a 3-14 season. New HC Mike LaFleur replacing fired Jonathan Gannon. Kyler Murray being released March 11, leaving a massive QB void. Likely to cut Dalvin Tomlinson, Sean Murphy-Bunting, and possibly James Conner to generate ~$25M+ in additional cap space. Roughly $28-30M in cap space post-Murray release, with avenues to create more. Heavily linked to FA QB Malik Willis. Core pieces to build around: Trey McBride (TE, locked through 2029), Marvin Harrison Jr. (WR), Paris Johnson Jr. (LT), Michael Wilson (WR), Budda Baker (S), Will Johnson (CB), Josh Sweat (EDGE).",
   "needs": [
     {
-      "position": "OT",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Right tackle is arguably the biggest hole on the roster. Jonah Williams suffered back-to-back season-ending injuries and is a UFA. Kelvin Beachum (also UFA) filled in but is not a long-term answer. The only players under contract who could compete are Demontrey Jacobs and Josh Fryar, neither of whom are starter-caliber. Arizona allowed 59 sacks (28th) and averaged 93.1 rushing YPG (31st). The consensus top OT prospect Francis Mauigoa is the most common mock draft pick for Arizona at #3 overall. Paris Johnson Jr. is solid at LT but RT is barren.",
-      "current_starter": "None — Jonah Williams (UFA), Kelvin Beachum (UFA)",
-      "depth": "Demontrey Jacobs, Josh Fryar (neither viewed as starters)",
-      "draft_range_target": "Round 1 (pick #3 — Mauigoa or Fano)"
-    },
-    {
       "position": "QB",
       "tier": 1,
       "urgency": "critical",
@@ -24,15 +15,6 @@
       "current_starter": "Jacoby Brissett (bridge QB under contract)",
       "depth": "Kedon Slovis only; Murray released, no franchise QB on roster",
       "draft_range_target": "Free agency (Willis) + possible Round 2 QB (Ty Simpson)"
-    },
-    {
-      "position": "S",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Jalen Thompson is an unrestricted free agent after starting 15 games and leading the team with 58 solo tackles. While Budda Baker is locked in through 2027 (8x Pro Bowler), the other safety spot needs addressing. Dadrion Taylor-Demerson and rookie Kitan Crawford are in the wings but unproven. Thompson could be re-signed but may seek a payday elsewhere. If Thompson walks, safety becomes a clear need opposite Baker.",
-      "current_starter": "Budda Baker (SS, locked up), Jalen Thompson (FS, UFA)",
-      "depth": "Dadrion Taylor-Demerson, Kitan Crawford (young/unproven)",
-      "draft_range_target": "Round 3-4 if Thompson not re-signed, free agency option"
     },
     {
       "position": "EDGE",
@@ -60,6 +42,24 @@
       "current_starter": "Hjalte Froholdt (C, final year), Evan Brown (LG, final year), Isaiah Adams (RG)",
       "depth": "Jon Gaines II, Christian Jones",
       "draft_range_target": "Round 4-6"
+    },
+    {
+      "position": "OT",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Right tackle is arguably the biggest hole on the roster. Jonah Williams suffered back-to-back season-ending injuries and is a UFA. Kelvin Beachum (also UFA) filled in but is not a long-term answer. The only players under contract who could compete are Demontrey Jacobs and Josh Fryar, neither of whom are starter-caliber. Arizona allowed 59 sacks (28th) and averaged 93.1 rushing YPG (31st). The consensus top OT prospect Francis Mauigoa is the most common mock draft pick for Arizona at #3 overall. Paris Johnson Jr. is solid at LT but RT is barren.",
+      "current_starter": "None — Jonah Williams (UFA), Kelvin Beachum (UFA)",
+      "depth": "Demontrey Jacobs, Josh Fryar (neither viewed as starters)",
+      "draft_range_target": "Round 1 (pick #3 — Mauigoa or Fano)"
+    },
+    {
+      "position": "S",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Jalen Thompson is an unrestricted free agent after starting 15 games and leading the team with 58 solo tackles. While Budda Baker is locked in through 2027 (8x Pro Bowler), the other safety spot needs addressing. Dadrion Taylor-Demerson and rookie Kitan Crawford are in the wings but unproven. Thompson could be re-signed but may seek a payday elsewhere. If Thompson walks, safety becomes a clear need opposite Baker.",
+      "current_starter": "Budda Baker (SS, locked up), Jalen Thompson (FS, UFA)",
+      "depth": "Dadrion Taylor-Demerson, Kitan Crawford (young/unproven)",
+      "draft_range_target": "Round 3-4 if Thompson not re-signed, free agency option"
     },
     {
       "position": "CB",
@@ -100,14 +100,14 @@
   ],
   "needs_summary": {
     "tier_1": [
-      "OT",
-      "QB",
-      "S"
+      "QB"
     ],
     "tier_2": [
       "EDGE",
       "IDL",
-      "IOL"
+      "IOL",
+      "OT",
+      "S"
     ],
     "tier_3": [
       "CB",
@@ -119,43 +119,48 @@
     ]
   },
   "simple_needs": [
-    "OL",
     "QB",
-    "DB",
     "DL",
+    "OL",
+    "DB",
     "LB",
     "WR"
   ],
   "detailed_needs": {
-    "OL": 1,
     "QB": 1,
-    "DB": 1,
     "DL": 2,
+    "OL": 2,
+    "DB": 2,
     "LB": 3,
     "WR": 3
   },
   "free_agency_impact": [
-    "Kyler Murray (QB) → TBD/unsigned",
+    "Kyler Murray (QB) → Minnesota Vikings",
     "Jalen Thompson (S) → Dallas Cowboys",
-    "Dalvin Tomlinson (IDL) → released",
-    "Bilal Nichols (IDL) → released",
-    "Akeem Davis-Gaither (LB) → released",
-    "Jonah Williams (OT) → TBD/unsigned",
-    "Kelvin Beachum (OT) → TBD/unsigned",
+    "Dalvin Tomlinson (IDL) → TBD/unsigned",
+    "Bilal Nichols (IDL) → TBD/unsigned",
+    "Akeem Davis-Gaither (LB) → TBD/unsigned",
+    "Evan Brown (IOL) → TBD/unsigned",
+    "Will Hernandez (IOL) → TBD/unsigned",
+    "Jonah Williams (OT) → Signed back with ARI (1-year deal)",
     "Calais Campbell (IDL) → TBD/unsigned",
-    "Zay Jones (WR) → TBD/unsigned",
-    "Greg Dortch (WR) → TBD/unsigned",
     "Signed Isaac Seumalo (IOL) from Pittsburgh Steelers — $10.5M AAV",
-    "Signed Matt Pryor (OT) from Philadelphia Eagles — $3.5M AAV",
-    "Signed Tyler Allgeier (RB) from Atlanta Falcons — $6.1M AAV",
-    "Signed Kendrick Bourne (WR) from San Francisco 49ers — $5.0M AAV",
-    "Signed Gardner Minshew (QB) from Kansas City Chiefs — $5.8M AAV",
     "Signed Roy Lopez (IDL) from Detroit Lions — $5.8M AAV",
-    "Signed LJ Collier (IDL) from Arizona Cardinals (re-sign) — $2.5M AAV",
-    "Signed James Conner (RB) from Arizona Cardinals (restructure/re-sign) — terms TBD AAV",
-    "Signed Sean Murphy-Bunting (CB) from Arizona Cardinals (restructure/re-sign) — terms TBD AAV",
+    "Signed Kendrick Bourne (WR) from San Francisco 49ers — $5.7M AAV",
+    "Signed Tyler Allgeier (RB) from Atlanta Falcons — $6.1M AAV",
+    "Signed Gardner Minshew (QB) from Kansas City Chiefs — $5.8M AAV",
+    "Signed Andrew Wingard (S) from Jacksonville Jaguars — $3.0M AAV",
+    "Signed Matt Pryor (IOL) from Philadelphia Eagles — terms TBD AAV",
+    "Signed Elijah Wilkinson (OT) from Atlanta Falcons — terms TBD AAV",
+    "Signed Jonah Williams (IDL) from New Orleans Saints — terms TBD AAV",
+    "Signed L.J. Collier (IDL) from Arizona Cardinals (re-sign) — $2.5M AAV",
+    "Signed James Conner (RB) from Arizona Cardinals (restructure) — terms TBD AAV",
+    "Signed Sean Murphy-Bunting (CB) from Arizona Cardinals (restructure) — terms TBD AAV",
+    "Signed Starling Thomas V (CB) from Arizona Cardinals (re-sign) — terms TBD AAV",
     "Signed Chad Ryland (K) from Arizona Cardinals (re-sign) — terms TBD AAV",
-    "Signed Blake Gillikin (P) from Arizona Cardinals (re-sign) — terms TBD AAV"
+    "Signed Blake Gillikin (P) from Arizona Cardinals (re-sign) — $2.6M AAV",
+    "Signed Zonovan 'Bam' Knight (RB) from Arizona Cardinals (re-sign) — terms TBD AAV",
+    "Signed Casey Kreiter (LS) from New York Giants — terms TBD AAV"
   ],
   "scheme_fit_notes": "New HC Mike LaFleur is expected to call the offense, bringing a Shanahan/McVay-based scheme that prioritizes outside zone running, play-action, and a mobile QB. His brother Matt is the Packers HC, giving Arizona insider intel on Malik Willis. New DC Nick Rallis will run a defense with creative fronts. EDGE prospects who can rush from multiple alignments (stand-up or hand down) have elevated value. The run-heavy offensive philosophy increases the premium on OT and IOL prospects who excel in zone blocking. A mobile, accurate QB fits the scheme profile — Willis's dual-threat ability is a scheme match.",
   "confidence": "high",

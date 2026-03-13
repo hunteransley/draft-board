@@ -1,39 +1,69 @@
 {
   "team": "LV",
   "team_full": "Las Vegas Raiders",
-  "updated_through": "2026-03-11",
+  "updated_through": "2026-03-13",
   "cap_space_pre_fa": "$111900000",
-  "cap_space_post_fa": "$67610609",
+  "cap_space_post_fa": "$37000000",
   "key_departures": [
     {
-      "player": "Maxx Crosby",
-      "position": "EDGE",
-      "age": 28,
-      "role": "franchise_cornerstone",
-      "new_team": "TBD (Ravens trade fell through \u2014 failed physical; Crosby remains on Raiders roster)",
-      "impact": "Raiders agreed to trade Crosby to Baltimore for two first-round picks (2026 No. 14, 2027 1st), but Ravens backed out after Crosby failed his physical on March 11. Crosby underwent meniscus repair surgery in January. He remains under contract with Las Vegas, but his status and relationship with the team are deeply complicated. If he is eventually traded or remains on the roster under uncertain health, this is the defining EDGE situation of the offseason. His 2025 season ended on IR with a knee injury and 10 sacks.",
-      "need_impact": "creates",
-      "need_position": "EDGE"
+      "player": "Geno Smith",
+      "position": "QB",
+      "age": 36,
+      "role": "starter",
+      "new_team": "New York Jets",
+      "impact": "Traded to the Jets along with a 2026 seventh-round pick in exchange for a 2026 sixth-round pick. Smith had been acquired mid-2025 via trade with Seattle. Trade clears the path for the Raiders to select QB Fernando Mendoza with the No. 1 overall pick.",
+      "need_impact": "none",
+      "need_position": "QB"
     },
     {
-      "player": "Devin White",
-      "position": "LB",
+      "player": "Dylan Parham",
+      "position": "IOL",
       "age": 27,
       "role": "starter",
-      "new_team": "TBD/unsigned",
-      "impact": "One of three starting LBs entering free agency. White was a one-year prove-it signing in 2025 who started the majority of games. Departure leaves a hole that the Raiders addressed aggressively in free agency.",
+      "new_team": "New York Jets",
+      "impact": "Starting guard departed to the Jets in free agency. Was a key piece of the interior line but the Raiders are aggressively rebuilding the IOL around Linderbaum and Jackson Powers-Johnson.",
       "need_impact": "escalates",
-      "need_position": "LB"
+      "need_position": "IOL"
     },
     {
-      "player": "Elandon Roberts",
-      "position": "LB",
-      "age": 30,
-      "role": "starter",
+      "player": "Alex Cappa",
+      "position": "IOL",
+      "age": 31,
+      "role": "depth",
       "new_team": "TBD/unsigned",
-      "impact": "Second starting LB departing. Along with White and Adams, the entire 2025 LB trio is gone. Created a critical need at the position.",
-      "need_impact": "escalates",
-      "need_position": "LB"
+      "impact": "Released by the Raiders. Veteran guard who spent 2025 in Las Vegas. Depth loss at IOL but not a starter-level hole.",
+      "need_impact": "none",
+      "need_position": "IOL"
+    },
+    {
+      "player": "Stone Forsythe",
+      "position": "OT",
+      "age": 28,
+      "role": "starter",
+      "new_team": "Carolina Panthers",
+      "impact": "Started 13 games at left tackle filling in for injured Kolton Miller in 2025. The Raiders had no plans to bring him back with Miller expected to return healthy. Depth loss only.",
+      "need_impact": "none",
+      "need_position": "OT"
+    },
+    {
+      "player": "Kenny Pickett",
+      "position": "QB",
+      "age": 28,
+      "role": "backup",
+      "new_team": "Carolina Panthers",
+      "impact": "Backup QB who appeared in six games (two starts) for the Raiders after being acquired from Cleveland mid-2025. His departure is by design \u2014 the Raiders are clearing the QB room ahead of drafting Mendoza No. 1 overall.",
+      "need_impact": "none",
+      "need_position": "QB"
+    },
+    {
+      "player": "Lonnie Johnson Jr.",
+      "position": "S",
+      "age": 29,
+      "role": "rotational",
+      "new_team": "Miami Dolphins",
+      "impact": "Safety signed with the Dolphins on a 1-year deal. Not a priority for the Raiders; missed time due to a broken fibula in training camp. Rotational/depth loss only.",
+      "need_impact": "none",
+      "need_position": "S"
     },
     {
       "player": "Jamal Adams",
@@ -41,85 +71,55 @@
       "age": 30,
       "role": "rotational",
       "new_team": "New York Jets",
-      "impact": "Adams transitioned to linebacker and was third in the starting rotation. Not high-priority for Las Vegas but his departure further emptied the LB room.",
-      "need_impact": "escalates",
-      "need_position": "LB"
-    },
-    {
-      "player": "Geno Smith",
-      "position": "QB",
-      "age": 35,
-      "role": "starter",
-      "new_team": "New York Jets (trade)",
-      "impact": "Raiders traded Smith and a 2026 7th-round pick to the Jets for a 2026 6th-round pick. Smith was the projected starter before the Raiders pivoted to tanking for Fernando Mendoza. The Raiders hold the No. 1 overall pick and are expected to draft Mendoza, making Smith's departure a planned move, not a loss.",
+      "impact": "Linebacker who was not a high priority for the Raiders. His departure is inconsequential given the massive LB overhaul via Dean and Walker signings.",
       "need_impact": "none",
-      "need_position": "QB"
-    },
-    {
-      "player": "Alex Cappa",
-      "position": "IOL",
-      "age": 30,
-      "role": "starter",
-      "new_team": "Released",
-      "impact": "Starting guard released to clear cap space. Left a hole at guard alongside the existing center need.",
-      "need_impact": "escalates",
-      "need_position": "IOL"
+      "need_position": "LB"
     },
     {
       "player": "Daniel Carlson",
       "position": "K",
-      "age": 28,
+      "age": 29,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "8-year Raiders kicker effectively replaced by signing of Matt Gay. Carlson's FG% had declined to 81.5% in 2025 (29th in NFL). Team chose to move on. Not a need position for mock draft purposes.",
+      "impact": "The Raiders' all-time No. 2 scorer was let go after the team signed Matt Gay. Carlson was a reliable long-tenured kicker; his departure is offset immediately by the Gay signing.",
       "need_impact": "none",
       "need_position": "K"
-    },
-    {
-      "player": "Kenny Pickett",
-      "position": "QB",
-      "age": 27,
-      "role": "backup",
-      "new_team": "Carolina Panthers",
-      "impact": "Backup QB signing to Carolina for depth. Raiders acquired Pickett in a trade last offseason but are moving on. With Mendoza expected at No. 1, a bridge/veteran QB will still be needed.",
-      "need_impact": "creates",
-      "need_position": "QB"
     }
   ],
   "signings": [
     {
       "player": "Tyler Linderbaum",
       "position": "IOL",
-      "age": 26,
+      "age": 25,
       "previous_team": "Baltimore Ravens",
       "contract": {
         "years": 3,
         "total_value": 81000000,
-        "guaranteed": 60000000,
+        "guaranteed": 80000000,
         "aav": 27000000
       },
       "expected_role": "starter",
       "market_tier": "elite",
       "need_impact": "fully_addressed",
       "need_position": "IOL",
-      "analysis": "Record-setting deal \u2014 Linderbaum became the highest-paid interior offensive lineman in NFL history at signing. $60M guaranteed on a 3-year deal is a massive commitment. The 25-year-old (turns 26) started 66 games in 4 seasons with Baltimore and is elite in run blocking and the pass-rush operation critical to new HC Klint Kubiak's offense. The Cappa release had created a center/guard void; this fully addresses center. Jackson Powers-Johnson now solidified at RG. IOL drops from a top-2 need to depth/guard only."
+      "analysis": "Record-setting contract makes Linderbaum the highest-paid interior offensive lineman in NFL history at $27M AAV, surpassing Creed Humphrey's $18M/yr by a staggering margin. The deal is effectively fully guaranteed ($80M of $81M). Linderbaum is a three-time Pro Bowler who has started 71 of a possible 73 games and posted a 96.2% pass block win rate since 2022. His arrival anchors the IOL rebuild around Jackson Powers-Johnson (now locked in at right guard) in preparation for rookie QB Fernando Mendoza. IOL goes from a glaring top-tier need to solved at center. Guard depth still needed but the critical center hole is emphatically closed."
     },
     {
       "player": "Taron Johnson",
       "position": "CB",
       "age": 29,
-      "previous_team": "Buffalo Bills (trade)",
+      "previous_team": "Buffalo Bills",
       "contract": {
-        "years": 2,
-        "total_value": 17610000,
-        "guaranteed": 1750000,
-        "aav": 8670000
+        "years": 1,
+        "total_value": 1600000,
+        "guaranteed": 1600000,
+        "aav": 1600000
       },
       "expected_role": "starter",
-      "market_tier": "starter",
+      "market_tier": "depth",
       "need_impact": "partially_addressed",
       "need_position": "CB",
-      "analysis": "Acquired via trade (Raiders sent 2026 6th, received Johnson + 2026 7th). Johnson is signed through 2027 with a $8.67M cap hit in 2026 and $10M in 2027. He is a former 2nd-Team All-Pro nickel corner (2023) who immediately slots into the slot CB role. However, this only addresses the nickel \u2014 the Raiders still need outside CB depth. Contract structure (pre-existing deal absorbed, not a new guaranteed commitment) signals a starter-level value at a reasonable price but not a long-term CB1 investment. CB need partially addressed at nickel, outside CB need remains."
+      "analysis": "Acquired via trade (Raiders sent 2026 sixth-round pick, received Johnson plus a 2026 seventh-round pick). Johnson is a veteran nickel/slot CB who was a Second-Team All-Pro in 2023 and brings 572 career tackles, six interceptions, eight forced fumbles and eight sacks across 113 career games. However, his 1-year contract at $1.6M is almost certainly a prove-it deal at the back end of his career \u2014 this is a bridge/depth-level financial commitment despite his starting pedigree. His age (29, turns 30 in-season) and the lack of guaranteed money beyond this season signal the Raiders will look for a longer-term answer at CB in the draft. Partially addresses slot CB need but not a long-term solution."
     },
     {
       "player": "Eric Stokes",
@@ -136,41 +136,41 @@
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "CB",
-      "analysis": "Re-signing Stokes keeps the former Packers 1st-round pick who started a career-high 16 games for Las Vegas in 2025 with an OPR of 77.7. $20M guaranteed on a 3-year deal is a real commitment. He is the CB1 outside. Combined with Johnson at nickel, Las Vegas now has a functional CB duo. However, CB depth behind them is thin and no elite CB1 was acquired. CB need moves from tier 1 critical to tier 3 depth-only need."
+      "analysis": "Re-signing Stokes to a 3-year/$30M deal with $20M guaranteed locks in a corner who had a strong bounce-back season in 2025 after his injury-plagued stint with Green Bay, starting a career-high 16 games and logging 53 tackles and five passes defensed. At $10M AAV, this sits firmly in the mid-tier starter range for CB. The 3-year commitment and $20M guaranteed signals genuine investment. Prevents a secondary hole from opening and gives the Raiders a credible starting CB2/CB1. However, Stokes has not yet proven he is an elite CB1; the Raiders likely still want to address CB further through the draft. Partially addresses CB need \u2014 avoids a crisis scenario but doesn't fully close the position out."
     },
     {
       "player": "Kwity Paye",
       "position": "EDGE",
-      "age": 26,
+      "age": 27,
       "previous_team": "Indianapolis Colts",
       "contract": {
         "years": 3,
         "total_value": 48000000,
-        "guaranteed": 32000000,
+        "guaranteed": 31280000,
         "aav": 16000000
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "EDGE",
-      "analysis": "Paye is a 2021 first-round pick who totaled 30.5 sacks across 5 seasons in Indianapolis but had a down 2025 (4 sacks). $32M guaranteed signals starter-level investment. He addresses the EDGE vacancy created by the Crosby trade drama, but the situation remains complicated: Crosby failed his physical and is still on the roster, creating an uncertain EDGE room. Paye alone does not fully solve the pass-rush need \u2014 ESPN's beat reporter noted Las Vegas will need another EDGE opposite Paye. If Crosby is eventually moved, EDGE remains a real need in the draft. Partially addressed."
+      "analysis": "Signed to a 3-year/$48M deal with $31.28M guaranteed. Paye is a former first-round pick (21st overall, 2021) who started 74 of 75 games across five seasons with the Colts and totaled 30.5 career sacks. His 2025 was a down year (4 sacks, his lowest since his rookie season) but he showed a career-high 23 pressures. At $16M AAV, this is a mid-tier EDGE commitment \u2014 meaningful investment but not top-of-market. With the Maxx Crosby trade collapsing (Crosby remains on the roster), Paye slots in as a complementary EDGE rusher rather than the lead star. However, ESPN analysis notes Las Vegas will still need another pass rusher on the opposite side of Paye. EDGE is partially addressed \u2014 Paye + Crosby (if retained) is a solid pair, but if Crosby is eventually traded, the Raiders will need more at the position."
     },
     {
       "player": "Malcolm Koonce",
       "position": "EDGE",
-      "age": 26,
+      "age": 27,
       "previous_team": "Las Vegas Raiders (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 11000000,
-        "guaranteed": 0,
-        "aav": 11000000
+        "total_value": 11040000,
+        "guaranteed": 10020000,
+        "aav": 11040000
       },
       "expected_role": "rotational",
       "market_tier": "starter",
       "need_impact": "minimal",
       "need_position": "EDGE",
-      "analysis": "One-year deal signals a prove-it contract for Koonce, who missed all of 2024 with a knee injury but returned for 4.5 sacks in 2025. He has a relationship with DC Rob Leonard and fits the 3-4 scheme. However, a 1-year deal with reported $0 guaranteed at signing is a bridge \u2014 this is not a long-term EDGE solution. With Paye also signed, Koonce gives depth and upside on a short commitment. EDGE need minimally reduced by this signing alone."
+      "analysis": "Re-signed on a 1-year prove-it deal after bouncing back from a season-ending knee injury in 2024. Koonce appeared in all 17 games in 2025 and tallied 4.5 sacks and 13 QB hits. He had a breakout 2023 (8 sacks) before the ACL tear. At $11M on a single year, this is pure bridge/depth with high upside optionality. Has a relationship with new DC Rob Leonard. His one-year structure means the Raiders don't view him as their long-term EDGE answer \u2014 he is insurance and depth alongside Paye and (for now) Crosby. Minimal need impact on its own; the Paye signing does more work."
     },
     {
       "player": "Nakobe Dean",
@@ -179,15 +179,16 @@
       "previous_team": "Philadelphia Eagles",
       "contract": {
         "years": 3,
-        "total_value": 36000000,
-        "guaranteed": 20000000,
-        "aav": 12000000
+        "total_value": 36030000,
+        "guaranteed": 23000000,
+        "aav": 12010000
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "LB",
-      "analysis": "Three-year deal with $20M guaranteed is a real starter commitment for the Super Bowl champion LB. Dean brings coverage ability and pass-rush upside (7.5 career sacks) that had been absent from the Raiders' LB room. Injury history (patellar tendon in 2024 playoffs, foot in 2023) is a risk, but at 25 he is young. Combined with Walker below, this is a complete overhaul of the LB room. LB need fully addressed."
+      "impact_note": "Combined assessment with Walker signing; see analysis.",
+      "analysis": "Three-year deal at $12M AAV with $23M guaranteed per Spotrac. Dean is 25 years old, a known blitzer who played a key role in Philadelphia's Super Bowl LIX championship defense in 2024, posting career highs in tackles (128), TFLs (9), and fumble recoveries (2). Has durability concerns (47 games across 4 seasons) but is elite when healthy. The three-year commitment and majority-guaranteed structure signal genuine starter investment. Combined with the Quay Walker signing below, the Raiders have effectively rebuilt their LB room from scratch \u2014 replacing Devin White/Jamal Adams/Elandon Roberts with two credentialed starters. LB was a critical need; it is now fully addressed."
     },
     {
       "player": "Quay Walker",
@@ -204,7 +205,7 @@
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "LB",
-      "analysis": "Largest contract of the two LB signings \u2014 $28M guaranteed makes this a clear long-term starter investment. Walker recorded 100+ tackles in each of his 4 Packers seasons, with a career-high 128 in 2025. He is a thumper against the run and fits the 3-4 OLB role under DC Rob Leonard. Coverage limitations are real but offset by Dean's coverage skills next to him. Walker + Dean = complete LB rebuild from a position that was a top-2 need entering the offseason. Raiders now have two of the ten highest-paid off-ball LBs in the NFL."
+      "analysis": "Three-year/$40.5M deal with $28M guaranteed per Spotrac. Walker led the Packers in tackles in all four of his NFL seasons, topped 100 tackles in each campaign, and posted a career-high 128 tackles in 2025 with a low 4.5% missed tackle rate. At 25, he has significant upside, though his coverage deficiencies are a legitimate concern. At $13.5M AAV (seventh-highest paid ILB), this is a full-value starter commitment. Paired with Nakobe Dean, the Raiders have invested over $76M in guaranteed money across three years to remake the LB position wholesale. Together, Dean and Walker fully address what ESPN called the 'biggest need on the roster.' LB is no longer a draft priority."
     },
     {
       "player": "Jalen Nailor",
@@ -213,15 +214,15 @@
       "previous_team": "Minnesota Vikings",
       "contract": {
         "years": 3,
-        "total_value": 35000000,
+        "total_value": 35030000,
         "guaranteed": 23000000,
-        "aav": 11666667
+        "aav": 11676667
       },
       "expected_role": "starter",
-      "market_tier": "starter",
+      "market_tier": "depth",
       "need_impact": "partially_addressed",
       "need_position": "WR",
-      "analysis": "Three-year deal with $23M guaranteed positions Nailor as the intended WR1 for incoming rookie QB Fernando Mendoza. However, his production is limited \u2014 he has never exceeded 29 catches or 444 yards in a single season, largely due to being buried behind Jefferson and Addison in Minnesota. He is a slot/vertical threat with 14.8-15.3 YPC over the past two seasons. The Raiders' WR room (Tucker, Bech, Thornton, Nailor) is still thin \u2014 analysts note more additions are needed and WR remains a viable draft target. Partially addressed \u2014 the room has a clear starter now, but the group still lacks a true WR1 in terms of production resume."
+      "analysis": "Three-year/$35M deal with $23M guaranteed per Spotrac. At $11.7M AAV, this sits at the bottom of starter-tier WR money but well above depth. Nailor averaged 15.4 yards per reception over four Vikings seasons, posting career highs in receptions (29) and yards (444) in 2025. He is a speed-first receiver with explosive upside who was buried behind Jefferson and Addison in Minnesota. For a rookie QB in Fernando Mendoza, Nailor's reliability (career 98.8 passer rating when targeted with J.J. McCarthy) is valuable. However, the Raiders' WR room remains thin \u2014 Nailor, Tre Tucker, Jack Bech, and Donte Thornton Jr. is not an elite supporting cast. WR need is partially addressed: the signing is meaningful but the Raiders still need at least one more credible pass-catcher, potentially via the draft."
     },
     {
       "player": "Matt Gay",
@@ -230,51 +231,24 @@
       "previous_team": "San Francisco 49ers",
       "contract": {
         "years": 1,
-        "total_value": 0,
-        "guaranteed": 0,
-        "aav": 0
+        "total_value": 1600000,
+        "guaranteed": 1600000,
+        "aav": 1600000
       },
       "expected_role": "starter",
       "market_tier": "depth",
       "need_impact": "none",
       "need_position": "K",
-      "analysis": "One-year deal \u2014 contract financials not yet publicly disclosed. Gay replaced Daniel Carlson, who is now an unsigned free agent. Gay made his 2021 Pro Bowl with the Rams under new special teams coordinator Joe DeCamillis, reuniting the tandem. However, Gay was 73.9% on FGs in 2025 (only 2 games for SF after being released by Washington). This is a lateral-to-downgrade replacement at K from a pure stats standpoint. Not a draft position of need."
-    },
-    {
-      "player": "Charles Snowden",
-      "position": "EDGE",
-      "age": 25,
-      "previous_team": "Las Vegas Raiders (ERFA tender)",
-      "contract": {
-        "years": 1,
-        "total_value": 795000,
-        "guaranteed": 795000,
-        "aav": 795000
-      },
-      "expected_role": "depth",
-      "market_tier": "minimum",
-      "need_impact": "none",
-      "need_position": "EDGE",
-      "analysis": "Exclusive Rights Free Agent tendered at league minimum. Snowden is a developmental DE/EDGE piece. No meaningful impact on positional need."
-    },
-    {
-      "player": "Tristin McCollum",
-      "position": "S",
-      "age": 24,
-      "previous_team": "Las Vegas Raiders (ERFA tender)",
-      "contract": {
-        "years": 1,
-        "total_value": 795000,
-        "guaranteed": 795000,
-        "aav": 795000
-      },
-      "expected_role": "depth",
-      "market_tier": "minimum",
-      "need_impact": "none",
-      "need_position": "S",
-      "analysis": "ERFA tender at league minimum. Depth safety retained. No need impact."
+      "analysis": "1-year deal replacing Daniel Carlson, who was allowed to walk. Gay has an 84.3% career field goal percentage across seven seasons but was only 73.9% in 2025 across 12 games split between Washington and San Francisco. He has history with new Raiders special teams coordinator Joe DeCamillis (they won Super Bowl LVI together with the Rams). A lateral move at kicker \u2014 replaces one veteran starter with another. No meaningful impact on positional needs picture."
     }
   ],
+  "notable_roster_context": {
+    "maxx_crosby_trade_collapse": "The Raiders agreed to trade EDGE Maxx Crosby to the Baltimore Ravens for two first-round picks (2026 No. 14 overall and a 2027 first) on March 6. The deal collapsed on March 11 when the Ravens backed out citing medical concerns related to Crosby's knee (torn meniscus repaired in January). Crosby remains on the Las Vegas roster under contract at $30M for 2026. This significantly complicates the Raiders' cap picture \u2014 they committed ~$281.5M in free agency contracts partly predicated on Crosby's $30M salary coming off the books. With Crosby retained, the Raiders still have over $37M in remaining cap space per Over the Cap. The team has indicated all free agent deals will be honored and has signaled openness to revisiting a Crosby trade with other suitors. Crosby's status as starter vs. trade candidate remains fluid as of the updated_through date.",
+    "maxx_crosby_current_status": "Remains on Raiders roster; trade to Baltimore officially voided. Team has not ruled out future trade. His presence means the EDGE position is well-stocked (Crosby + Paye + Koonce) even though the long-term plan for him is uncertain.",
+    "jackson_powers_johnson": "Incumbent RG whose starting role was solidified by the Linderbaum signing. Coach Kubiak's previous uncertainty about his role resolved \u2014 he is the starting right guard.",
+    "kolton_miller": "Starting LT who missed significant time in 2025 with injury but is under contract and expected to return healthy. Stone Forsythe's departure does not create a new OT hole.",
+    "draft_context": "Raiders hold the No. 1 overall pick, widely expected to be used on Indiana QB Fernando Mendoza. They also hold a 2026 sixth-round pick received from the Jets in the Geno Smith trade. The Ravens' two first-round picks were voided with the Crosby trade collapse."
+  },
   "needs_impact_summary": {
     "fully_addressed": [
       "IOL",
@@ -287,69 +261,68 @@
     ],
     "minimally_addressed": [],
     "unchanged": [
-      "S",
-      "DT",
       "OT",
+      "S",
+      "IDL",
       "RB"
     ],
-    "escalated": [
-      "QB"
-    ]
+    "escalated": [],
+    "new_needs_created": []
   },
   "recommended_need_adjustments": [
     {
       "position": "IOL",
       "previous_tier": 1,
-      "recommended_tier": 4,
-      "reasoning": "Tyler Linderbaum signing (3yr/$81M, $60M gtd) makes center a solved problem for 3 years. Jackson Powers-Johnson returns healthy at RG. The Cappa release created a guard void but Powers-Johnson fills it. At most, a developmental guard on Day 3 of the draft. IOL is no longer a premium need."
+      "recommended_tier": 3,
+      "reasoning": "Tyler Linderbaum (3yr/$81M, $80M guaranteed) is the best center in the NFL and makes this the most locked-in position on the roster. Jackson Powers-Johnson is entrenched at RG. The only remaining IOL need is guard depth \u2014 likely a Day 2/3 draft pick or late signing. Do not treat IOL as a draft priority at premium picks."
     },
     {
       "position": "LB",
       "previous_tier": 1,
-      "recommended_tier": 4,
-      "reasoning": "The Raiders completely rebuilt their LB room: Walker (3yr/$40.5M, $28M gtd) + Dean (3yr/$36M, $20M gtd) represent two multi-year starter commitments totaling $76.5M. All three 2025 starters (White, Roberts, Adams) were allowed to walk but were replaced by significantly better players. LB is no longer a need for the 2026 draft."
+      "recommended_tier": 3,
+      "reasoning": "Nakobe Dean (3yr/$36M, $23M gtd) and Quay Walker (3yr/$40.5M, $28M gtd) represent over $76M in guaranteed money and fully remake the LB room. Both are 25 years old on multi-year deals \u2014 this is a long-term solution, not a bridge. LB is no longer a premium draft need. At most, a Day 3 depth addition."
     },
     {
-      "position": "CB",
+      "position": "QB",
       "previous_tier": 1,
-      "recommended_tier": 3,
-      "reasoning": "Stokes re-sign (3yr/$30M, $20M gtd) secures the CB1 outside. Taron Johnson trade adds a former 2nd-Team All-Pro nickel corner. The Raiders now have a functional CB starting duo. However, CB depth behind Stokes/Johnson is thin, and no elite lockdown CB1 was acquired. CB remains a tier 3 depth need \u2014 a Day 2 cornerback in the draft would still be welcome."
+      "recommended_tier": 5,
+      "reasoning": "Fernando Mendoza is the near-certain No. 1 overall pick. Geno Smith and Kenny Pickett have been traded/departed. No current need at QB beyond finding a veteran backup after the draft, which will likely happen via late free agency or camp invites."
     },
     {
       "position": "EDGE",
       "previous_tier": 1,
       "recommended_tier": 2,
-      "reasoning": "The EDGE situation is uniquely complicated. Paye (3yr/$48M, $32M gtd) is a real starter commitment, and Koonce returns on a 1-year deal. However, Maxx Crosby failed his Ravens physical on March 11 and remains on the Raiders roster in an unclear status \u2014 his trade market will likely reset at a lower price. The team may still seek to move Crosby (health risk, relationship strain). Even with Paye + Koonce, the Raiders lack an elite proven pass-rusher opposite. ESPN's beat reporter noted Las Vegas will need another EDGE opposite Paye. EDGE remains a tier 2 need \u2014 a premium EDGE in the draft (now at No. 14, not No. 1) is realistic and likely."
+      "reasoning": "With the Crosby trade collapse, Las Vegas retains their best EDGE rusher alongside new additions Paye (3yr/$48M) and Koonce (1yr/$11M). The EDGE room is solid for 2026. However, Crosby's long-term future in Las Vegas is uncertain (trade still possible), and Koonce is only on a 1-year deal. A Day 2 developmental EDGE is still advisable to build future depth, but this is no longer a crisis need. Reduce from critical to moderate."
+    },
+    {
+      "position": "CB",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Eric Stokes re-signed (3yr/$30M, $20M gtd) provides CB1/CB2 continuity. Taron Johnson (1yr/$1.6M) adds veteran slot depth but is a short-term bridge. The secondary still lacks a true lockdown CB1 and Johnson's 1-year deal means the slot needs a long-term answer. CB remains a meaningful draft need \u2014 a Day 1 or 2 pick at the position is warranted."
     },
     {
       "position": "WR",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Nailor (3yr/$35M, $23M gtd) gives the Raiders a WR1-caliber salary player but unproven WR1-caliber production. He has never caught more than 29 balls in a season. The room of Nailor + Tucker + Bech + Thornton is improved but still thin for a rebuilding team expecting a rookie QB. WR stays at tier 2 \u2014 a WR in the draft (particularly at No. 14 or in rounds 2-3) is still a strong possibility and need."
-    },
-    {
-      "position": "QB",
-      "previous_tier": 1,
-      "recommended_tier": 3,
-      "reasoning": "The Raiders hold the No. 1 overall pick and are widely expected to select Indiana QB Fernando Mendoza. The QB need is effectively solved via the draft, not free agency. Geno Smith was traded to the Jets and Pickett departed to Carolina, leaving no veteran QB on roster yet. A veteran bridge/backup QB is still needed (team reportedly exploring options), but QB as a draft need is resolved. Tier 3 reflects the backup/bridge QB gap that still exists."
-    },
-    {
-      "position": "DT",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "No meaningful IDL additions in free agency. The interior defensive line remains a need heading into the draft. Thomas Booker IV was tendered as an RFA, providing modest depth continuity, but no starter-level IDL was signed. Need unchanged."
+      "reasoning": "Jalen Nailor (3yr/$35M) upgrades the WR room but does not solve it \u2014 he is a WR2/speed threat, not a true No. 1. The current room of Nailor, Tre Tucker, Jack Bech, and Thornton Jr. is below average for a team building around a rookie QB. WR remains a meaningful need for both free agency continuation and the draft, particularly in Rounds 1-3."
     },
     {
       "position": "OT",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "No offensive tackle signings in free agency. Kolton Miller returns healthy at LT but missed significant time in 2025. Opposite tackle is still a concern. OT need unchanged."
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "Kolton Miller returns healthy at LT; Stone Forsythe's departure was expected and doesn't open a new hole. However, RT depth and long-term OT depth behind Miller remain thin. Unchanged \u2014 still a Day 2/3 consideration."
+    },
+    {
+      "position": "IDL",
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "No significant IDL additions or departures in free agency. Thomas Booker received an RFA tender. The Raiders' 3-4 base under DC Rob Leonard will need quality IDL talent. Unchanged need \u2014 Day 2/3 draft priority."
     },
     {
       "position": "S",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "No safety signed beyond ERFA tender of Tristin McCollum at the minimum. Lonnie Johnson Jr. is a UFA. The Raiders' safety room has not been addressed. Need unchanged."
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "Lonnie Johnson Jr. departed but was not a key starter. No replacement signed. Safety remains a background need \u2014 the Raiders should look at Day 3 or veteran minimum options."
     }
   ],
   "team_page_additions": {
@@ -357,133 +330,125 @@
       {
         "player": "Tyler Linderbaum",
         "position": "IOL",
-        "contract_summary": "3yr/$81M ($60M gtd)",
+        "contract_summary": "3yr/$81M ($80M gtd)",
         "previous_team": "Baltimore Ravens",
-        "headline": "Record-setting center signing ($60M gtd) instantly upgrades the offensive line and Kubiak's presnap operation for rookie QB Fernando Mendoza"
+        "headline": "Record-setting center deal makes Linderbaum highest-paid interior lineman in NFL history, anchoring the rebuild around rookie QB Fernando Mendoza"
+      },
+      {
+        "player": "Nakobe Dean",
+        "position": "LB",
+        "contract_summary": "3yr/$36M ($23M gtd)",
+        "previous_team": "Philadelphia Eagles",
+        "headline": "Super Bowl champion LB brings elite blitzing ability and championship pedigree to overhaul a Raiders linebacker room that was a major weakness"
       },
       {
         "player": "Quay Walker",
         "position": "LB",
         "contract_summary": "3yr/$40.5M ($28M gtd)",
         "previous_team": "Green Bay Packers",
-        "headline": "100+ tackle machine in each of his 4 NFL seasons anchors a completely rebuilt LB room alongside college teammate Nakobe Dean"
-      },
-      {
-        "player": "Nakobe Dean",
-        "position": "LB",
-        "contract_summary": "3yr/$36M ($20M gtd)",
-        "previous_team": "Philadelphia Eagles",
-        "headline": "Super Bowl champion LB brings pass-rush ability and coverage skills to erase the Raiders' most glaring defensive need"
+        "headline": "Four-year tackling machine (100+ tackles each season) reunites with Georgia teammate Dean to give Las Vegas its most credentialed LB duo in years"
       },
       {
         "player": "Kwity Paye",
         "position": "EDGE",
-        "contract_summary": "3yr/$48M ($32M gtd)",
+        "contract_summary": "3yr/$48M ($31.28M gtd)",
         "previous_team": "Indianapolis Colts",
-        "headline": "30.5 career sacks in 5 seasons with Colts steps into the pass-rush void created by Maxx Crosby's failed trade"
-      },
-      {
-        "player": "Taron Johnson",
-        "position": "CB",
-        "contract_summary": "Trade (6th for 7th + Johnson); $8.67M cap hit 2026",
-        "previous_team": "Buffalo Bills",
-        "headline": "Former 2nd-Team All-Pro nickel corner acquired for a 6th-round pick, immediately upgrades the slot coverage unit"
+        "headline": "First-round pedigree EDGE rusher (30.5 career sacks) gives Raiders a legitimate starter alongside Maxx Crosby as they reshape the pass rush"
       },
       {
         "player": "Eric Stokes",
         "position": "CB",
         "contract_summary": "3yr/$30M ($20M gtd) \u2014 re-sign",
         "previous_team": "Las Vegas Raiders",
-        "headline": "Raiders retain their CB1 with a 3-year commitment, locking in the former 1st-round pick who started all 16 games in 2025"
+        "headline": "Raiders lock up bounce-back CB who started a career-high 16 games in 2025, maintaining secondary continuity heading into the Mendoza era"
+      },
+      {
+        "player": "Taron Johnson",
+        "position": "CB",
+        "contract_summary": "1yr/$1.6M (via trade)",
+        "previous_team": "Buffalo Bills",
+        "headline": "Former Second-Team All-Pro nickel CB acquired via trade (6th/7th pick swap) adds veteran savvy to the slot"
       },
       {
         "player": "Jalen Nailor",
         "position": "WR",
         "contract_summary": "3yr/$35M ($23M gtd)",
         "previous_team": "Minnesota Vikings",
-        "headline": "Speedy homecoming signing (Las Vegas native) becomes the Raiders' de facto WR1 ahead of Mendoza's expected arrival"
+        "headline": "Explosive speed threat (15.4 ypc career avg) gives rookie QB Fernando Mendoza a reliable vertical weapon and security blanket"
       },
       {
         "player": "Malcolm Koonce",
         "position": "EDGE",
-        "contract_summary": "1yr/$11M \u2014 re-sign",
+        "contract_summary": "1yr/$11M ($10M gtd) \u2014 re-sign",
         "previous_team": "Las Vegas Raiders",
-        "headline": "Raiders retain the 4.5-sack pass rusher on a prove-it deal as he continues his comeback from a 2024 torn ACL"
+        "headline": "Proven 8-sack pass rusher returns on a prove-it deal as he continues recovery from 2024 ACL tear, providing EDGE depth and upside"
+      },
+      {
+        "player": "Matt Gay",
+        "position": "K",
+        "contract_summary": "1yr/$1.6M",
+        "previous_team": "San Francisco 49ers",
+        "headline": "Veteran kicker reunites with Raiders special teams coordinator Joe DeCamillis, replacing longtime franchise kicker Daniel Carlson"
       }
     ],
     "key_losses": [
       {
-        "player": "Maxx Crosby",
-        "position": "EDGE",
-        "contract_summary": "Trade to Ravens collapsed \u2014 failed physical; remains on Raiders roster",
-        "new_team": "TBD",
-        "headline": "Blockbuster Ravens trade dissolved after Crosby failed his physical (January meniscus repair); franchise icon's future in Las Vegas deeply uncertain"
-      },
-      {
         "player": "Geno Smith",
         "position": "QB",
-        "contract_summary": "Traded for 2026 6th-round pick",
+        "contract_summary": "Traded (received 2026 6th, sent 7th)",
         "new_team": "New York Jets",
-        "headline": "Veteran QB traded away as Raiders prepare to draft Fernando Mendoza No. 1 overall and enter a full franchise rebuild"
+        "headline": "QB trade to Jets clears the decks for the Raiders to select Fernando Mendoza No. 1 overall in April's draft"
       },
       {
-        "player": "Alex Cappa",
+        "player": "Dylan Parham",
         "position": "IOL",
-        "contract_summary": "Released",
-        "new_team": "Free Agent",
-        "headline": "Starting guard released in cap cleanup, accelerating the offensive line overhaul that led to the Linderbaum signing"
-      },
-      {
-        "player": "Devin White",
-        "position": "LB",
         "contract_summary": "UFA \u2014 departed",
-        "new_team": "TBD/unsigned",
-        "headline": "One of three starting LBs who walked in free agency, triggering the Raiders' twin Dean and Walker signings"
+        "new_team": "New York Jets",
+        "headline": "Starting guard's departure creates depth gap at IOL, though Linderbaum signing addresses the more critical center void"
       },
       {
         "player": "Daniel Carlson",
         "position": "K",
-        "contract_summary": "UFA \u2014 replaced by Matt Gay signing",
+        "contract_summary": "UFA \u2014 departed",
         "new_team": "TBD/unsigned",
-        "headline": "Eight-year Raiders franchise kicker effectively replaced as new regime moves on from one of the last Oakland holdovers"
+        "headline": "All-time No. 2 scorer in Raiders history let go as new regime pivots to Matt Gay at the kicking position"
       },
       {
-        "player": "Jamal Adams",
-        "position": "LB",
-        "contract_summary": "UFA \u2014 signed with Jets",
-        "new_team": "New York Jets",
-        "headline": "Former safety-turned-linebacker returns to the team that drafted him, completing the Raiders' complete LB room turnover"
+        "player": "Stone Forsythe",
+        "position": "OT",
+        "contract_summary": "UFA \u2014 departed",
+        "new_team": "Carolina Panthers",
+        "headline": "Backup LT who started 13 games in 2025 for injured Miller signs with Carolina; departure expected with Miller healthy"
+      },
+      {
+        "player": "Kenny Pickett",
+        "position": "QB",
+        "contract_summary": "UFA \u2014 departed",
+        "new_team": "Carolina Panthers",
+        "headline": "Backup QB departure confirms Raiders are going all-in on Mendoza at No. 1 overall; leaves team without a backup until further action"
       }
     ]
   },
   "confidence": "high",
-  "notes": [
-    "The Maxx Crosby situation is the most significant unresolved item: the Ravens backed out of the agreed trade (2026 No. 14 pick + 2027 1st) on March 11 after Crosby failed his physical. Crosby (meniscus repair, January 2026) remains on the Raiders roster. His trade market will reset at a lower ask. His status \u2014 whether traded, retained, or released \u2014 is the most critical remaining EDGE decision and may shift EDGE tier significantly.",
-    "Geno Smith trade (to Jets for a 6th) is confirmed. Raiders receive a 2026 6th in return. A veteran bridge QB is still needed as Fernando Mendoza's backup.",
-    "Matt Gay contract financials were not publicly disclosed as of March 11, 2026. The one-year deal is confirmed; raw dollar values listed as 0 pending disclosure.",
-    "Malcolm Koonce re-signing reported with $0 guaranteed by available sources \u2014 listed accordingly. Actual guarantee structure may be slightly different pending official filing.",
-    "Thomas Booker IV and Jordan Meredith were tendered as RFAs \u2014 not included as meaningful FA signings.",
-    "Cap space post-FA per OverTheCap as of March 11, 2026 ($67,610,609). Pre-FA figure based on reported $111.9M (per Over The Cap before signings). Raiders spent approximately $281.5M in total contract value in the first wave per NFL Network."
-  ],
+  "confidence_notes": "All contract figures sourced from Spotrac and NFL.com/ESPN reports. The Linderbaum $80M guaranteed figure ($60M per original reports, $80M per Spotrac breakdown) reflects a fully-guaranteed structure over 3 years per Spotrac's detailed breakdown. The Maxx Crosby trade voiding is confirmed. Cap space estimates are approximate pending final accounting of all contract structures against the $301.2M 2026 cap. Paye guaranteed figure ($31.28M per Spotrac) vs. earlier ESPN report of $32M is a minor rounding discrepancy \u2014 using Spotrac as primary source. Gay and Koonce 1-year figures sourced from Spotrac and NFL.com respectively.",
   "sources": [
+    "https://www.spotrac.com/nfl/player/_/id/76879/tyler-linderbaum",
+    "https://www.spotrac.com/nfl/player/_/id/76876/quay-walker",
+    "https://www.spotrac.com/nfl/player/_/id/76959/nakobe-dean",
+    "https://www.spotrac.com/nfl/player/_/id/77068/jalen-nailor",
+    "https://www.spotrac.com/nfl/player/_/id/72401/kwity-paye",
+    "https://www.spotrac.com/nfl/player/_/id/72459/malcolm-koonce",
     "https://www.espn.com/nfl/story/_/id/48022810/las-vegas-raiders-2026-free-agency-tracker-offseason-moves-signings",
     "https://www.nfl.com/news/raiders-signing-lbs-nakobe-dean-quay-walker-to-three-year-deals",
-    "https://www.spotrac.com/nfl/player/_/id/76959/nakobe-dean",
-    "https://www.spotrac.com/nfl/player/_/id/76876/quay-walker",
-    "https://www.spotrac.com/nfl/player/_/id/77068/jalen-nailor",
-    "https://overthecap.com/salary-cap/las-vegas-raiders",
-    "https://www.nfl.com/news/bills-trading-veteran-cb-taron-johnson-to-raiders-for-2026-sixth-round-pick",
-    "https://www.nfl.com/news/raiders-ravens-backed-out-of-trade-for-pass-rusher-maxx-crosby",
-    "https://www.cbssports.com/nfl/news/nfl-free-agency-2026-winners-losers-day-1/",
-    "https://www.inquirer.com/eagles/nakobe-dean-las-vegas-raiders-2026-free-agency-20260309.html",
+    "https://www.nfl.com/news/raiders-center-tyler-linderbaum-three-year-81-million-contract",
+    "https://www.raiders.com/team/free-agent-tracker",
+    "https://www.raiders.com/news/raiders-sign-nakobe-dean-nfl-2026-free-agency-transactions",
+    "https://www.raiders.com/news/raiders-sign-wr-jalen-nailor-nfl-2026-free-agency-transactions",
+    "https://www.raiders.com/news/raiders-re-sign-malcolm-koonce-defensive-end-2026-nfl-free-agency-transactions",
+    "https://www.raiders.com/news/raiders-sign-kicker-matt-gay-nfl-2026-free-agency-transactions",
     "https://www.silverandblackpride.com/las-vegas-raiders-news/121991/raiders-news-2026-nfl-free-agency-tracker",
-    "https://atozsports.com/nfl/las-vegas-raiders-news/lv-2026-free-agency-tracker-keeping-up-with-league-leading-cap-space-moves/",
-    "https://www.si.com/nfl/raiders/onsi/las-vegas-2026-free-agency-latest-signings-losses-news-rumors",
-    "https://www.raiders.com/news/raiders-free-agency-reports-rumors-2026-nfl-transactions",
-    "https://www.profootballrumors.com/2026/03/raiders-to-sign-lb-quay-walker",
-    "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/raiders-will-trade-for-bills-cb-taron-johnson",
-    "https://www.cbssports.com/nfl/news/ravens-back-out-of-maxx-crosby-trade-raiders/",
-    "https://justblogbaby.com/raiders-end-daniel-carlson-tenure-with-kicker-who-looks-worse-on-paper-matt-gay",
-    "https://www.reviewjournal.com/sports/raiders/grading-the-raiders-puzzling-signing-of-kicker-matt-gay-3717325/"
+    "https://www.espn.com/nfl/story/_/id/48168371/whats-next-maxx-crosby-las-vegas-raiders-baltimore-ravens-fallout-canceled-trade",
+    "https://www.profootballnetwork.com/raiders-cap-space-maxx-crosby-2026/",
+    "https://www.8newsnow.com/sports/las-vegas-raiders/las-vegas-raiders-discuss-free-agent-signings-trades-ahead-of-draft/"
   ]
 }

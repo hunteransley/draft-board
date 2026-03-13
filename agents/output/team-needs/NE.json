@@ -17,15 +17,6 @@
       "draft_range_target": "Round 1 (pick 31) — top target position"
     },
     {
-      "position": "S",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Jaylinn Hawkins is a UFA after a career season (4 INTs, 1.5 sacks, 91.3% of defensive snaps). Craig Woodson (2025 4th-round pick) emerged as a building-block starter at FS, but if Hawkins leaves, the Patriots need a replacement starting SS. Dell Pettus is the only other safety under contract with any game experience. The team is taking a 'patient approach' with Hawkins and he reportedly hopes to 'remain home.' If re-signed, this drops to tier 4. If not, it becomes tier 2.",
-      "current_starter": "Craig Woodson (FS, under contract), Jaylinn Hawkins (SS, UFA)",
-      "depth": "Dell Pettus, Brenden Schooler (ST specialist), John Saunders Jr.",
-      "draft_range_target": "Round 3-5 for depth even if Hawkins returns"
-    },
-    {
       "position": "IDL",
       "tier": 2,
       "urgency": "important",
@@ -53,15 +44,6 @@
       "draft_range_target": "Round 1-3"
     },
     {
-      "position": "TE",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Hunter Henry is entering his age-31 season and is the only TE on the roster with significant experience. Austin Hooper is a UFA. The team needs to find a long-term complement or eventual successor to Henry. The Combine scouts were looking at athletic TEs like Roush. Jack Westover (ERFA) and C.J. Dippre are unproven behind Henry. Kyle Pitts (franchise tagged by ATL) was a Patriots target that is now unavailable.",
-      "current_starter": "Hunter Henry (under contract, age 31)",
-      "depth": "C.J. Ham, Jack Westover (ERFA) — very thin behind Henry",
-      "draft_range_target": "Round 3-5"
-    },
-    {
       "position": "WR",
       "tier": 2,
       "urgency": "important",
@@ -71,6 +53,15 @@
       "draft_range_target": "Round 1-2 if not addressed in FA/trade"
     },
     {
+      "position": "LB",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Wolf stated at the Combine that New England wants to add youth at inside linebacker behind veterans Robert Spillane, Jahlani Tavai, and Christian Elliss. Jack Gibbens (RFA) is a re-sign candidate but not a certainty. The Patriots' LB corps is experienced but aging and lacks long-term developmental talent. Spillane is the anchor but the defense needs a young off-ball LB who can eventually step into a starting role.",
+      "current_starter": "Robert Spillane, Jahlani Tavai, Christian Elliss",
+      "depth": "Jack Gibbens (RFA), Marte Mapu, Chad Muma",
+      "draft_range_target": "Round 3-5"
+    },
+    {
       "position": "RB",
       "tier": 3,
       "urgency": "moderate",
@@ -78,6 +69,24 @@
       "current_starter": "Rhamondre Stevenson, TreVeyon Henderson",
       "depth": "Terrell Jennings, Lan Larison, Elijah Mitchell (futures contract)",
       "draft_range_target": "Day 3 or UDFA"
+    },
+    {
+      "position": "S",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Jaylinn Hawkins is a UFA after a career season (4 INTs, 1.5 sacks, 91.3% of defensive snaps). Craig Woodson (2025 4th-round pick) emerged as a building-block starter at FS, but if Hawkins leaves, the Patriots need a replacement starting SS. Dell Pettus is the only other safety under contract with any game experience. The team is taking a 'patient approach' with Hawkins and he reportedly hopes to 'remain home.' If re-signed, this drops to tier 4. If not, it becomes tier 2.",
+      "current_starter": "Craig Woodson (FS, under contract), Jaylinn Hawkins (SS, UFA)",
+      "depth": "Dell Pettus, Brenden Schooler (ST specialist), John Saunders Jr.",
+      "draft_range_target": "Round 3-5 for depth even if Hawkins returns"
+    },
+    {
+      "position": "TE",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Hunter Henry is entering his age-31 season and is the only TE on the roster with significant experience. Austin Hooper is a UFA. The team needs to find a long-term complement or eventual successor to Henry. The Combine scouts were looking at athletic TEs like Roush. Jack Westover (ERFA) and C.J. Dippre are unproven behind Henry. Kyle Pitts (franchise tagged by ATL) was a Patriots target that is now unavailable.",
+      "current_starter": "Hunter Henry (under contract, age 31)",
+      "depth": "C.J. Ham, Jack Westover (ERFA) — very thin behind Henry",
+      "draft_range_target": "Round 3-5"
     },
     {
       "position": "CB",
@@ -96,72 +105,69 @@
       "current_starter": "Milton Williams (3-tech), Christian Barmore (IDL)",
       "depth": "Cory Durden, Leonard Taylor III, Joshua Farmer, Eric Gregory (IR)",
       "draft_range_target": "Round 5-7"
-    },
-    {
-      "position": "LB",
-      "tier": 4,
-      "urgency": "minor",
-      "explanation": "Wolf stated at the Combine that New England wants to add youth at inside linebacker behind veterans Robert Spillane, Jahlani Tavai, and Christian Elliss. Jack Gibbens (RFA) is a re-sign candidate but not a certainty. The Patriots' LB corps is experienced but aging and lacks long-term developmental talent. Spillane is the anchor but the defense needs a young off-ball LB who can eventually step into a starting role.",
-      "current_starter": "Robert Spillane, Jahlani Tavai, Christian Elliss",
-      "depth": "Jack Gibbens (RFA), Marte Mapu, Chad Muma",
-      "draft_range_target": "Round 3-5"
     }
   ],
   "needs_summary": {
     "tier_1": [
-      "EDGE",
-      "S"
+      "EDGE"
     ],
     "tier_2": [
       "IDL",
       "IOL",
       "OT",
-      "TE",
       "WR"
     ],
     "tier_3": [
-      "RB"
+      "LB",
+      "RB",
+      "S",
+      "TE"
     ],
     "tier_4": [
       "CB",
-      "DT",
-      "LB"
+      "DT"
     ]
   },
   "simple_needs": [
     "DL",
-    "DB",
     "OL",
-    "TE",
     "WR",
-    "RB"
+    "LB",
+    "RB",
+    "DB",
+    "TE"
   ],
   "detailed_needs": {
     "DL": 1,
-    "DB": 1,
     "OL": 2,
-    "TE": 2,
     "WR": 2,
-    "RB": 3
+    "LB": 3,
+    "RB": 3,
+    "DB": 3,
+    "TE": 3
   },
   "free_agency_impact": [
-    "Stefon Diggs (WR) → Released/UFA",
-    "Garrett Bradbury (IOL) → Chicago Bears (trade)",
+    "Stefon Diggs (WR) → TBD/unsigned",
+    "K'Lavon Chaisson (EDGE) → Washington Commanders",
     "Khyiris Tonga (IDL) → Kansas City Chiefs",
-    "K'Lavon Chaisson (EDGE) → TBD/unsigned as of 2026-03-11",
-    "Jaylinn Hawkins (S) → TBD/unsigned as of 2026-03-11",
+    "Garrett Bradbury (IOL) → Chicago Bears",
     "Austin Hooper (TE) → Atlanta Falcons",
+    "Jaylinn Hawkins (S) → Baltimore Ravens",
     "Vederian Lowe (OT) → San Francisco 49ers",
-    "Jahlani Tavai (LB) → Released/UFA",
-    "Antonio Gibson (RB) → Released/UFA",
-    "Alex Austin (CB) → TBD/UFA",
-    "Yasir Durant (OT) → TBD/UFA",
+    "Anfernee Jennings (EDGE) → TBD/unsigned",
+    "Jahlani Tavai (LB) → TBD/unsigned",
+    "Alex Austin (CB) → Miami Dolphins",
+    "Antonio Gibson (RB) → TBD/unsigned",
     "Signed Romeo Doubs (WR) from Green Bay Packers — $17.0M AAV",
     "Signed Alijah Vera-Tucker (IOL) from New York Jets — $14.0M AAV",
-    "Signed Dre'Mont Jones (EDGE) from Baltimore Ravens (via Tennessee Titans) — $12.2M AAV",
-    "Signed Reggie Gilliam (RB) from Buffalo Bills — $3.6M AAV",
-    "Signed Jesse Luketa (EDGE) from Arizona Cardinals (via LA Rams practice squad) — $1.1M AAV",
-    "Signed Tommy DeVito (QB) from New England Patriots (re-sign, RFA) — $2.2M AAV"
+    "Signed Dre'Mont Jones (EDGE) from Baltimore Ravens — $12.2M AAV",
+    "Signed Kevin Byard (S) from Chicago Bears — $9.0M AAV",
+    "Signed Reggie Gilliam (RB) from Buffalo Bills — $4.0M AAV",
+    "Signed Julian Hill (TE) from Miami Dolphins — terms TBD AAV",
+    "Signed Mike Brown (S) from Tennessee Titans — terms TBD AAV",
+    "Signed K.J. Britt (LB) from Miami Dolphins — terms TBD AAV",
+    "Signed Jesse Luketa (EDGE) from Arizona Cardinals — $1.1M AAV",
+    "Signed Tommy DeVito (QB) from New England Patriots — $2.2M AAV"
   ],
   "scheme_fit_notes": "Under Vrabel and new DC Zak Kuhr, the Patriots run an aggressive 4-down front defense. Edge rushers need to be violent, explosive first-step players who can set the edge in the run game AND rush the passer — Vrabel explicitly values 'violence' and 'disruption.' Interior DL features penetrating 3-techs (Williams, Barmore) paired with space-eating NTs. Off-ball LBs must be versatile enough to blitz from interior or drop into coverage. On offense, Josh McDaniels' system values centers who are assignment-sound and move well in space, and wide receivers who can separate and win contested catches. The Patriots prefer high-character, competitive players who fit their 'Do Your Job' culture.",
   "confidence": "high",

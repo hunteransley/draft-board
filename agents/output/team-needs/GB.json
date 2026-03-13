@@ -26,15 +26,6 @@
       "draft_range_target": "Round 3-4. Need a contributor who can play early while Parsons recovers."
     },
     {
-      "position": "IDL",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Trading away Colby Wooden — who had made 16 starts at NT in 2025 — without adding a replacement leaves Devonte Wyatt as the only proven IDL on the roster. With Kenny Clark also long gone (traded in the Parsons deal), the interior DL is severely depleted. This is the Packers' most urgent need heading into the draft per multiple analysts. Must address in rounds 1-3 of the draft and/or remaining free agency.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
-    },
-    {
       "position": "CB",
       "tier": 2,
       "urgency": "important",
@@ -42,6 +33,24 @@
       "current_starter": "Keisean Nixon, Carrington Valentine (outside); Javon Bullard (slot)",
       "depth": "Nate Hobbs (50% chance of being traded per ESPN), Kamal Hadden, Bo Melton (WR/CB hybrid), Kitan Oladapo. No true CB1 on the roster.",
       "draft_range_target": "Round 2 (pick 52) — top target position. Could double-dip with 2nd CB in rounds 3-5."
+    },
+    {
+      "position": "IDL",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Trading away Colby Wooden — who had made 16 starts at NT in 2025 — without adding a replacement leaves Devonte Wyatt as the only proven IDL on the roster. With Kenny Clark also long gone (traded in the Parsons deal), the interior DL is severely depleted. This is the Packers' most urgent need heading into the draft per multiple analysts. Must address in rounds 1-3 of the draft and/or remaining free agency.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
+    },
+    {
+      "position": "LB",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Quay Walker is a UFA and may depart, though the Packers want to re-sign him. Edgerrin Cooper is the long-term answer at WILL LB and was excellent in 2025. If Walker leaves, the MIKE LB role falls to Ty'Ron Hopper (3rd-round pick, 2024) or Isaiah McDuffie, neither of whom are proven starters. The team could target a FA LB with Gannon connections (Alex Singleton). Not as critical if Walker is re-signed.",
+      "current_starter": "Edgerrin Cooper (WILL), Quay Walker (MIKE, UFA)",
+      "depth": "Isaiah McDuffie, Ty'Ron Hopper, Jamon Johnson. Depth is thin if Walker leaves.",
+      "draft_range_target": "Round 4-5 if Walker departs. Lower priority if re-signed."
     },
     {
       "position": "OT",
@@ -53,13 +62,13 @@
       "draft_range_target": "Round 4-5 for swing tackle depth."
     },
     {
-      "position": "LB",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "Quay Walker is a UFA and may depart, though the Packers want to re-sign him. Edgerrin Cooper is the long-term answer at WILL LB and was excellent in 2025. If Walker leaves, the MIKE LB role falls to Ty'Ron Hopper (3rd-round pick, 2024) or Isaiah McDuffie, neither of whom are proven starters. The team could target a FA LB with Gannon connections (Alex Singleton). Not as critical if Walker is re-signed.",
-      "current_starter": "Edgerrin Cooper (WILL), Quay Walker (MIKE, UFA)",
-      "depth": "Isaiah McDuffie, Ty'Ron Hopper, Jamon Johnson. Depth is thin if Walker leaves.",
-      "draft_range_target": "Round 4-5 if Walker departs. Lower priority if re-signed."
+      "position": "WR",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Romeo Doubs (UFA) may depart, but the Packers have invested heavily here: Jayden Reed (2023 2nd-round), Matthew Golden (2025 1st-round), Christian Watson (extended through 2026), Dontayvion Wicks. If Doubs leaves, the room is still deep with young talent. Not a priority unless multiple departures happen.",
+      "current_starter": "Jayden Reed, Christian Watson, Matthew Golden",
+      "depth": "Dontayvion Wicks, Bo Melton. Romeo Doubs (UFA, likely departing — team invested in position via draft).",
+      "draft_range_target": "Not a draft priority. May add veteran depth if Doubs leaves."
     },
     {
       "position": "QB",
@@ -80,69 +89,76 @@
       "draft_range_target": "Round 4-6."
     },
     {
-      "position": "WR",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "Romeo Doubs (UFA) may depart, but the Packers have invested heavily here: Jayden Reed (2023 2nd-round), Matthew Golden (2025 1st-round), Christian Watson (extended through 2026), Dontayvion Wicks. If Doubs leaves, the room is still deep with young talent. Not a priority unless multiple departures happen.",
-      "current_starter": "Jayden Reed, Christian Watson, Matthew Golden",
-      "depth": "Dontayvion Wicks, Bo Melton. Romeo Doubs (UFA, likely departing — team invested in position via draft).",
-      "draft_range_target": "Not a draft priority. May add veteran depth if Doubs leaves."
+      "position": "IOL",
+      "tier": 4,
+      "urgency": "minor",
+      "explanation": "Rhyan re-signed on a 3-year, $33M deal with $11M guaranteed and will be the starting center. Aaron Banks (LG) was restructured and remains under contract. Jordan Morgan likely moves to LT. The interior OL is now among the most stable units on the roster. IOL is no longer a meaningful draft need.",
+      "current_starter": "",
+      "depth": "",
+      "draft_range_target": ""
     }
   ],
   "needs_summary": {
     "tier_1": [
       "DT",
-      "EDGE",
-      "IDL"
+      "EDGE"
     ],
     "tier_2": [
       "CB",
-      "OT"
-    ],
-    "tier_3": [
+      "IDL",
       "LB",
-      "QB",
-      "TE",
+      "OT",
       "WR"
     ],
-    "tier_4": []
+    "tier_3": [
+      "QB",
+      "TE"
+    ],
+    "tier_4": [
+      "IOL"
+    ]
   },
   "simple_needs": [
     "DL",
     "DB",
-    "OL",
     "LB",
+    "OL",
+    "WR",
     "QB",
-    "TE",
-    "WR"
+    "TE"
   ],
   "detailed_needs": {
     "DL": 1,
     "DB": 2,
+    "LB": 2,
     "OL": 2,
-    "LB": 3,
+    "WR": 2,
     "QB": 3,
-    "TE": 3,
-    "WR": 3
+    "TE": 3
   },
   "free_agency_impact": [
-    "Malik Willis (QB) → Miami Dolphins",
-    "Romeo Doubs (WR) → New England Patriots",
-    "Quay Walker (LB) → Las Vegas Raiders",
+    "Rashan Gary (EDGE) → Dallas Cowboys (trade)",
     "Kingsley Enagbare (EDGE) → New York Jets",
+    "Quay Walker (LB) → Las Vegas Raiders",
+    "Romeo Doubs (WR) → New England Patriots",
+    "Malik Willis (QB) → Miami Dolphins",
     "Rasheed Walker (OT) → TBD/unsigned",
-    "Rashan Gary (EDGE) → Dallas Cowboys",
     "Elgton Jenkins (IOL) → Cleveland Browns",
-    "Nate Hobbs (CB) → TBD/unsigned",
-    "Colby Wooden (IDL) → Indianapolis Colts",
-    "Signed Zaire Franklin (LB) from Indianapolis Colts — $7.6M AAV",
+    "Nate Hobbs (CB) → Released/unsigned",
+    "Colby Wooden (IDL) → Indianapolis Colts (trade)",
+    "Zayne Anderson (S) → Miami Dolphins",
+    "Emanuel Wilson (RB) → TBD/unsigned",
+    "Signed Zaire Franklin (LB) from Indianapolis Colts — $7.0M AAV",
     "Signed Sean Rhyan (IOL) from Green Bay Packers (re-sign) — $11.0M AAV",
+    "Signed Javon Hargrave (IDL) from Minnesota Vikings — $11.5M AAV",
     "Signed Benjamin St-Juste (CB) from Los Angeles Chargers — $5.0M AAV",
-    "Signed Chris Brooks (RB) from Green Bay Packers (re-sign/RFA) — $2.4M AAV",
-    "Signed Nick Niemann (LB) from Green Bay Packers (re-sign) — $2.5M AAV",
-    "Signed Darian Kinnard (IOL) from Green Bay Packers (re-sign) — $3.8M AAV",
-    "Signed Kristian Welch (LB) from Green Bay Packers (re-sign) — terms TBD AAV",
-    "Signed Skyy Moore (WR) from San Francisco 49ers — terms TBD AAV"
+    "Signed Skyy Moore (WR) from San Francisco 49ers — $2.5M AAV",
+    "Signed Brenton Cox Jr. (EDGE) from Green Bay Packers (re-sign) — $2.5M AAV",
+    "Signed Darian Kinnard (OT) from Green Bay Packers (re-sign) — $3.8M AAV",
+    "Signed Chris Brooks (RB) from Green Bay Packers (re-sign) — $2.4M AAV",
+    "Signed Jonathan Ford (IDL) from Green Bay Packers (re-sign) — $1.1M AAV",
+    "Signed Nick Niemann (LB) from Green Bay Packers (re-sign) — $2.2M AAV",
+    "Signed Andre Dillard (OT) from San Francisco 49ers — $1.1M AAV"
   ],
   "scheme_fit_notes": "New DC Jonathan Gannon runs a quarters-based coverage scheme (highest rate in NFL in Arizona at 23%). This demands long, fast, physical outside cornerbacks who can play in space — a very different profile than what the Packers currently have. Gannon's scheme also emphasizes interior DL disruption to fuel the pass rush, which pairs well with Parsons on the edge. The Packers historically favor CBs at least 5'10.25\" and ~195 lbs. Edge rushers in Gannon's system benefit from versatile alignments. On offense, LaFleur runs a West Coast/outside zone scheme that values athletic, mobile OL who can pull and reach block. Center must be smart and mobile in this system.",
   "confidence": "high",

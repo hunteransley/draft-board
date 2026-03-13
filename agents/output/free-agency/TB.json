@@ -1,9 +1,9 @@
 {
   "team": "TB",
   "team_full": "Tampa Bay Buccaneers",
-  "updated_through": "2026-03-11",
+  "updated_through": "2026-03-13",
   "cap_space_pre_fa": "$19962510",
-  "cap_space_post_fa": "$15699177",
+  "cap_space_post_fa": "~$5000000",
   "key_departures": [
     {
       "player": "Mike Evans",
@@ -11,13 +11,8 @@
       "age": 32,
       "role": "starter",
       "new_team": "San Francisco 49ers",
-      "contract_signed_elsewhere": {
-        "years": 3,
-        "total_value": 42400000,
-        "guaranteed": 16300000,
-        "aav": 14133333
-      },
-      "impact": "Franchise icon and all-time leading receiver departs after 12 seasons. Limited to 8 games in 2025 (broken collarbone, hamstring) but still the team's X-receiver and red zone weapon. Bucs retain Chris Godwin, Emeka Egbuka (2025 R1, missed most of year with injury), Jalen McMillan, and Tez Johnson, but none replicates Evans' X-receiver big-body archetype or red zone dominance.",
+      "contract_signed": "3yr/$42.4M ($16.3M gtd)",
+      "impact": "All-time franchise receiving leader departs after 12 seasons. Was limited to 8 games in 2025 due to injury, but remains a true WR1-caliber player. Chris Godwin, Emeka Egbuka, Jalen McMillan, and Tez Johnson remain, but none are proven replacements for Evans as a boundary X receiver.",
       "need_impact": "creates",
       "need_position": "WR"
     },
@@ -27,26 +22,21 @@
       "age": 29,
       "role": "starter",
       "new_team": "Pittsburgh Steelers",
-      "contract_signed_elsewhere": {
-        "years": 3,
-        "total_value": 36750000,
-        "guaranteed": 12000000,
-        "aav": 12250000
-      },
-      "impact": "Last remaining CB from Tampa's Super Bowl LV championship team. Career-best 3 INTs, 2 forced fumbles, 9 PDs in 2025. Primary starter opposite Zyon McCollum. Bucs retain McCollum and 2025 Day 2 picks Benjamin Morrison and Jacob Parrish, but lose their most experienced outside CB.",
-      "need_impact": "escalates",
+      "contract_signed": "3yr/$36.75M ($12M gtd)",
+      "impact": "Starting CB2 departs. Dean was a key part of the secondary and restructured his contract last offseason only to leave a year early. Zyon McCollum had a disappointing 2025 and hasn't locked down CB1. Tampa Bay's CB room now lacks proven depth behind McCollum.",
+      "need_impact": "creates",
       "need_position": "CB"
     },
     {
-      "player": "Rachaad White",
-      "position": "RB",
-      "age": 27,
-      "role": "rotational_starter",
-      "new_team": "TBD/unsigned",
-      "contract_signed_elsewhere": null,
-      "impact": "Three-year starter who split duties with Bucky Irving in 2025. Pass-catching specialist and experienced No. 2 back behind Irving. Departed without re-signing; Bucs moved quickly to replace with Gainwell. Impact is mitigated by Gainwell signing.",
-      "need_impact": "none",
-      "need_position": "RB"
+      "player": "Logan Hall",
+      "position": "IDL",
+      "age": 25,
+      "role": "starter",
+      "new_team": "Houston Texans",
+      "contract_signed": "2yr/$14M ($9M gtd)",
+      "impact": "2022 second-round pick who started all 17 games in 2025 departs. Never developed into an elite pass rusher but was a solid starter. His departure creates real depth issues on the interior DL alongside Vita Vea and an injury-prone Calijah Kancey.",
+      "need_impact": "escalates",
+      "need_position": "IDL"
     },
     {
       "player": "Haason Reddick",
@@ -54,32 +44,65 @@
       "age": 31,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "contract_signed_elsewhere": null,
-      "impact": "Signed to a 1-year, $14M deal in 2025. Underperformed massively due to leg injuries \u2014 only 2.5 sacks in 13 games. His departure has minimal direct impact given that failure, but the EDGE position remains a critical need. Yaya Diaby led team with just 7.0 sacks in 2025; no other edge had more than 3.0. EDGE is Tampa's biggest remaining need entering the draft.",
+      "contract_signed": null,
+      "impact": "Signed a 1yr/$14M deal in 2025 that massively underperformed. Finished with just 2.5 sacks in 13 games. Now a free agent again. His departure leaves EDGE as the team's most critical unresolved need \u2014 Yaya Diaby is the only proven presence on the edge.",
       "need_impact": "escalates",
       "need_position": "EDGE"
+    },
+    {
+      "player": "Rachaad White",
+      "position": "RB",
+      "age": 26,
+      "role": "rotational",
+      "new_team": "Washington Commanders",
+      "contract_signed": "1yr/terms undisclosed",
+      "impact": "Had already been displaced as RB1 by Bucky Irving in 2025 but was a versatile pass-catcher and secondary contributor. Departure is largely offset by Gainwell signing.",
+      "need_impact": "none",
+      "need_position": "RB"
+    },
+    {
+      "player": "Teddy Bridgewater",
+      "position": "QB",
+      "age": 34,
+      "role": "backup",
+      "new_team": "Detroit Lions",
+      "contract_signed": "terms undisclosed",
+      "impact": "Backup QB who played in 4 games (including emergency start in Week 11) departs. Offset by Jake Browning signing.",
+      "need_impact": "none",
+      "need_position": "QB"
+    },
+    {
+      "player": "Christian Izien",
+      "position": "S",
+      "age": 24,
+      "role": "depth/special teams",
+      "new_team": "Detroit Lions",
+      "contract_signed": "1yr/terms undisclosed",
+      "impact": "Versatile DB and special teams contributor who could play safety and nickel departures. Partially offset by Miles Killebrew signing. Starters Antoine Winfield Jr. and Tykee Smith remain.",
+      "need_impact": "none",
+      "need_position": "S"
+    },
+    {
+      "player": "Greg Gaines",
+      "position": "IDL",
+      "age": 29,
+      "role": "rotational",
+      "new_team": "TBD/unsigned",
+      "contract_signed": null,
+      "impact": "Rotational IDL departs. Compounds the loss of Logan Hall, increasing urgency on the interior DL.",
+      "need_impact": "escalates",
+      "need_position": "IDL"
     },
     {
       "player": "Lavonte David",
       "position": "LB",
       "age": 36,
       "role": "starter",
-      "new_team": "TBD/retirement_decision_pending",
-      "contract_signed_elsewhere": null,
-      "impact": "Franchise legend deciding between return to Bucs or retirement. Led defense with 114 tackles in 2025. Bucs have signed Anzalone to partially account for his departure/retirement. ESPN sources indicate David will decide between returning to Bucs or retiring \u2014 not signing elsewhere. Need impact is absorbed by Anzalone signing.",
-      "need_impact": "escalates",
+      "new_team": "TBD/retirement decision pending",
+      "contract_signed": null,
+      "impact": "14-year franchise LB deciding between return and retirement. Still led team with 114 tackles in 2025. His potential absence would be significant for the LB corps. ESPN reports a decision imminent. NOT yet confirmed as departed.",
+      "need_impact": "pending",
       "need_position": "LB"
-    },
-    {
-      "player": "Logan Hall",
-      "position": "IDL",
-      "age": 25,
-      "role": "starter",
-      "new_team": "TBD/unsigned",
-      "contract_signed_elsewhere": null,
-      "impact": "Started 16 games in 2025, career-high 39 tackles. Interior presence on a D-line anchored by Vita Vea. His departure creates a depth hole at IDL. Bucs have Greg Gaines also unsigned. Vita Vea remains but is aging (31).",
-      "need_impact": "creates",
-      "need_position": "IDL"
     }
   ],
   "signings": [
@@ -98,8 +121,7 @@
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "TE",
-      "analysis": "3-year, $30M deal with $20M guaranteed is a legitimate investment at TE \u2014 $10M AAV is mid-tier starter money at the position. Otton has back-to-back 59-catch seasons and has started every game he's been healthy over four years. With new OC Zac Robinson (who unlocked Kyle Pitts in Atlanta), Otton's ceiling with this offensive system is higher than ever. $20M guaranteed signals this is their guy through at least 2027. TE was a pre-FA need; this fully resolves it. Bucs still have Payne Durham as a blocker/depth piece.",
-      "notes": "Re-signing of own UFA. Deal reported March 9, 2026 by Adam Schefter and Ari Meirov. Contract terms confirmed by Spotrac."
+      "analysis": "Otton re-signs on a 3yr/$30M deal with $20M guaranteed \u2014 a real investment, not a bridge. He led all TEs in offensive snap % (87.5%) over the past 4 seasons. At $10M AAV, this is mid-tier starter money for the position. TE is fully addressed through at least 2028 with a 26-year-old starter in place."
     },
     {
       "player": "Alex Anzalone",
@@ -116,44 +138,126 @@
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "LB",
-      "analysis": "2-year, $17M deal at mid-tier LB starter money. Anzalone is a significant upgrade \u2014 95 tackles, 9 PDs, 2.5 sacks, 1 INT in 2025 for Detroit, voted team captain 5 straight years. He addresses the glaring coverage liability at LB (defense was torched over the middle in 2025 under SirVocea Dennis). However, at 31 on a 2-year deal, this is a bridge/starter move rather than a long-term fix. The Bucs' LB room is still unresolved with Lavonte David's retirement decision pending. Partially addresses LB \u2014 the position still benefits from a Day 2 draft pick. Notably turned down more money from the NY Giants for Tampa's tax-friendly environment.",
-      "notes": "Reported by NFL Network's Mike Garafolo and ESPN's Adam Schefter, March 9, 2026. Guarantees not yet publicly confirmed; estimated mid-range based on AAV. Spotrac lists 2yr/$17M."
+      "analysis": "Two-year, $17M deal brings in a proven starter who accumulated 490 tackles and 9.0 sacks over 5 years as Detroit's starting LB. At $8.5M AAV, this is mid-range starter money at LB. A real signing, not a bridge \u2014 but at 31, this is a 2-year fix, not a long-term solution. LB remains a secondary need, especially with Lavonte David's future uncertain. Does not fully solve the position."
+    },
+    {
+      "player": "A'Shawn Robinson",
+      "position": "IDL",
+      "age": 31,
+      "previous_team": "Carolina Panthers",
+      "contract": {
+        "years": 1,
+        "total_value": 10000000,
+        "guaranteed": 10000000,
+        "aav": 10000000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "partially_addressed",
+      "need_position": "IDL",
+      "analysis": "1yr/$10M fully guaranteed \u2014 significant commitment for a one-year deal. Robinson (6'3\", 320 lbs) provides the size Bowles wanted and posted 2.5 sacks and 65 tackles in 2025 with Carolina. He directly replaces Logan Hall's starter role alongside Vita Vea and gives the interior DL credible depth if Calijah Kancey (returning from pectoral IR) is healthy. However, this is still a 1-year deal at age 31, with the Panthers having just released him. IDL remains a draft-day consideration but is no longer a top-tier crisis need."
     },
     {
       "player": "Kenneth Gainwell",
       "position": "RB",
-      "age": 26,
+      "age": 25,
       "previous_team": "Pittsburgh Steelers",
       "contract": {
         "years": 2,
         "total_value": 14000000,
-        "guaranteed": 10000000,
+        "guaranteed": null,
         "aav": 7000000
       },
-      "expected_role": "starter",
+      "expected_role": "starter/rotational",
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "RB",
-      "analysis": "2-year, $14M deal with $10M guaranteed directly replaces Rachaad White. Gainwell was 2025 Steelers team MVP with 1,023 yards from scrimmage and 8 TDs, including 73 receptions on 85 targets \u2014 an elite pass-catching profile that fits perfectly alongside Bucky Irving. At $7M AAV with $10M guaranteed, this is legitimate starter-level investment at RB (ranks 22nd at position per Spotrac). The Bucs now have a clear 1-2 punch: Irving as the explosive runner, Gainwell as the versatile pass-catcher/third-down specialist. RB depth concern is resolved. White's departure is a push.",
-      "notes": "Reported by ESPN's Jeremy Fowler and Jordan Schultz, March 9, 2026. Guarantees of $10M confirmed by Jordan Schultz and Spotrac."
+      "analysis": "2yr/$14M directly replaces Rachaad White as the Bucky Irving complement. Gainwell rushed for 537 yards in Pittsburgh's committee and is a proven pass-catcher out of the backfield. With Tucker tendered for depth, Tampa's RB room is set. RB was never a top need \u2014 White's departure is cleanly replaced."
+    },
+    {
+      "player": "Al-Quadin Muhammad",
+      "position": "EDGE",
+      "age": 31,
+      "previous_team": "Detroit Lions",
+      "contract": {
+        "years": 1,
+        "total_value": 6000000,
+        "guaranteed": null,
+        "aav": 6000000
+      },
+      "expected_role": "rotational",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "EDGE",
+      "analysis": "1yr/$6M (max value) for Muhammad, coming off a career year with 11 sacks, 53 pressures, and a 71.9 PFF pass-rush grade in Detroit. However, his previous season-high was 6.0 sacks (2021), making 2025 potentially an outlier season at age 31. This is a one-year, incentive-laden deal \u2014 clearly a prove-it structure, not a solution. He's projected as the No. 3 edge rusher behind Yaya Diaby. EDGE remains TB's biggest draft need. This move provides short-term depth but doesn't close the position need."
+    },
+    {
+      "player": "Jake Browning",
+      "position": "QB",
+      "age": 29,
+      "previous_team": "Cincinnati Bengals",
+      "contract": {
+        "years": 1,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "expected_role": "backup",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "QB",
+      "analysis": "1-year deal (terms undisclosed) replaces Teddy Bridgewater as the backup behind Mayfield. Browning has starting experience with the Bengals and provides a credible option if Mayfield is injured. Procedural positional replacement \u2014 no need impact."
+    },
+    {
+      "player": "Miles Killebrew",
+      "position": "S",
+      "age": 32,
+      "previous_team": "Pittsburgh Steelers",
+      "contract": {
+        "years": 1,
+        "total_value": 1800000,
+        "guaranteed": null,
+        "aav": 1800000
+      },
+      "expected_role": "special teams/depth",
+      "market_tier": "minimum",
+      "need_impact": "minimal",
+      "need_position": "S",
+      "analysis": "1yr/$1.8M. Two-time Pro Bowl special teamer (2023-24) who reunites with new ST coordinator Danny Smith from their Pittsburgh days. Killebrew is coming off a torn ACL (Week 6, 2025) and is projected to return by May-June. His role is primarily special teams, with limited defensive snaps. Partially offsets Christian Izien's departure but at a fraction of the defensive value. S as a position need is unchanged since Winfield and Tykee Smith remain the starters."
+    },
+    {
+      "player": "Sean Tucker",
+      "position": "RB",
+      "age": 24,
+      "previous_team": "Tampa Bay Buccaneers (RFA tender)",
+      "contract": {
+        "years": 1,
+        "total_value": 3520000,
+        "guaranteed": 0,
+        "aav": 3520000
+      },
+      "expected_role": "depth",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "RB",
+      "analysis": "Low RFA tender keeps Tucker as RB3 depth behind Irving and Gainwell. Non-guaranteed, fully exposed. No material need impact \u2014 positional bookkeeping."
     },
     {
       "player": "Connor Bazelak",
       "position": "QB",
-      "age": 25,
-      "previous_team": "Tampa Bay Buccaneers (re-sign)",
+      "age": 24,
+      "previous_team": "Tampa Bay Buccaneers (ERFA re-sign)",
       "contract": {
         "years": 1,
         "total_value": 1005000,
-        "guaranteed": 1005000,
+        "guaranteed": 0,
         "aav": 1005000
       },
       "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "QB",
-      "analysis": "Veteran minimum re-sign of backup QB. No impact on team needs. Baker Mayfield is firmly the starter. Pure depth/practice squad insurance.",
-      "notes": "Reported in A to Z Sports tracker, March 9, 2026."
+      "analysis": "Exclusive rights re-sign at league minimum. Procedural move to retain developmental QB. No need impact."
     },
     {
       "player": "Evan Deckers",
@@ -163,15 +267,14 @@
       "contract": {
         "years": 1,
         "total_value": 1075000,
-        "guaranteed": 1075000,
+        "guaranteed": null,
         "aav": 1075000
       },
-      "expected_role": "starter",
+      "expected_role": "special teams",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "LS",
-      "analysis": "Routine re-sign of long snapper at near-minimum deal. Special teams continuity maintained. No impact on positional needs.",
-      "notes": "Reported in A to Z Sports tracker, March 9, 2026."
+      "analysis": "Long snapper re-sign. Standard procedural move. No need impact."
     }
   ],
   "needs_impact_summary": {
@@ -180,68 +283,75 @@
       "RB"
     ],
     "partially_addressed": [
-      "LB"
+      "LB",
+      "IDL"
     ],
-    "minimally_addressed": [],
-    "unchanged": [
-      "IOL",
+    "minimally_addressed": [
+      "EDGE",
       "S"
     ],
-    "escalated": [
-      "EDGE",
+    "unchanged": [
       "CB",
+      "WR"
+    ],
+    "escalated": [
+      "IDL",
+      "CB",
+      "WR"
+    ],
+    "created": [
       "WR",
-      "IDL"
+      "CB"
     ]
   },
   "recommended_need_adjustments": [
     {
-      "position": "WR",
-      "previous_tier": 2,
-      "recommended_tier": 1,
-      "reasoning": "Mike Evans' departure to SF on a 3yr/$42.4M deal (only $16.3M guaranteed) removes the team's only true X-receiver/boundary specialist. Godwin, Egbuka (missed most of 2025 injured), McMillan, and Tez Johnson are all slot/zone attackers. There is no direct replacement for Evans' big-body, red zone, and deep-threat profile. WR jumps to critical top need \u2014 particularly a physical outside WR early in the draft (Bucs pick 15th overall)."
-    },
-    {
       "position": "EDGE",
       "previous_tier": 1,
       "recommended_tier": 1,
-      "reasoning": "Reddick's departure eliminates the only 'name' pass rusher outside of Yaya Diaby (7 sacks in 2025). No other edge rusher had more than 3 sacks on the roster. Bucs tried and failed to land Hendrickson (price too high) on Day 1 of FA. EDGE remains the single biggest defensive need and a prime candidate for pick 15 or a mid-FA signing. Unchanged at Tier 1."
+      "reasoning": "Muhammad signing (1yr/$6M max, prove-it) does NOT address this need. He is a rotational/No. 3 EDGE at best. Yaya Diaby is the only bankable starter. TB had 37 sacks in 2025 \u2014 their lowest under Bowles. EDGE remains the single highest-priority draft need and should be Day 1 or 2 target."
+    },
+    {
+      "position": "WR",
+      "previous_tier": 3,
+      "recommended_tier": 2,
+      "reasoning": "Mike Evans departs to San Francisco (3yr/$42.4M). Godwin, Egbuka (returning from injury), McMillan, and Johnson remain, but none are proven WR1-caliber X receivers. Evans was TB's true boundary threat. Need created/escalated \u2014 WR2 or WR3 with upside should be a draft target in rounds 2-4."
     },
     {
       "position": "CB",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Dean's departure to Pittsburgh removes the most experienced starter from the CB room. The Bucs retain Zyon McCollum and 2025 Day 2 draftees Benjamin Morrison and Jacob Parrish. The young trio has upside but is unproven; Dean's leadership and starting experience is hard to replace. CB remains a Tier 2 need \u2014 depth veteran CB via later-round free agency or Day 3 draft pick still needed. Tier holds."
+      "reasoning": "Jamel Dean departs to Pittsburgh (3yr/$36.75M). Zyon McCollum (restructured) is CB1 by default after a disappointing 2025 season. No free agent CB signed to replace Dean. CB remains a critical need \u2014 draft target in rounds 1-3."
+    },
+    {
+      "position": "IDL",
+      "previous_tier": 2,
+      "recommended_tier": 3,
+      "reasoning": "Robinson (1yr/$10M, fully gtd) partially offsets the loss of Hall and Gaines. Vita Vea (healthy) + Robinson + a returning Kancey (if healthy) gives the interior line functional depth. But Robinson is 31 on a 1-year deal and Kancey's health is a question mark. IDL drops from critical to a mid-round draft priority \u2014 likely rounds 3-5."
     },
     {
       "position": "LB",
-      "previous_tier": 1,
+      "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Anzalone signing (2yr/$17M) substantially improves a position that was a critical weakness \u2014 SirVocea Dennis and the 2025 LB corps were routinely torched in coverage. Anzalone's elite coverage skills, 95 tackles, and 5-year captaincy reduce this from a crisis need. However, at 31 on a 2-year deal and with David's retirement decision still pending, LB needs one more piece \u2014 ideally a younger LB in the middle rounds of the draft. Drops from Tier 1 to Tier 2."
+      "reasoning": "Anzalone (2yr/$17M) is a real starter acquisition and helps a depleted LB corps. However, Lavonte David's retirement/return decision is still pending. At 31, Anzalone is a 2-year bridge, not a long-term solution. If David retires, LB escalates back to tier 1. Even with both, depth is thin. LB holds as a rounds 2-4 draft consideration."
     },
     {
       "position": "TE",
       "previous_tier": 2,
       "recommended_tier": 4,
-      "reasoning": "Otton re-sign (3yr/$30M, $20M gtd) fully resolves TE. He's the starter under new OC Zac Robinson, has back-to-back 59-catch seasons, and the guaranteed money signals genuine commitment. Payne Durham provides depth. No draft capital needed here."
+      "reasoning": "Otton re-signs on 3yr/$30M ($20M gtd) \u2014 a genuine starter commitment with a 26-year-old who has started every game he's appeared in. TE is resolved. No draft spend needed."
     },
     {
       "position": "RB",
-      "previous_tier": 2,
-      "recommended_tier": 4,
-      "reasoning": "Gainwell signing (2yr/$14M, $10M gtd) directly replaces Rachaad White with an arguably superior pass-catching option. Irving-Gainwell is a legitimate starter tandem. $10M guaranteed at RB is a real investment. Need fully addressed; Bucs can pivot all RB draft considerations to late rounds or UDFA."
+      "previous_tier": 3,
+      "recommended_tier": 5,
+      "reasoning": "Gainwell (2yr/$14M) replaces White cleanly. Irving (RB1) + Gainwell (RB2) + Tucker (RB3, tendered) gives TB a complete backfield. RB need is resolved."
     },
     {
-      "position": "IDL",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Logan Hall's departure (unsigned) leaves a hole alongside aging Vita Vea (31). Greg Gaines also remains unsigned. The Bucs have not added any IDL in free agency as of this update. IDL remains a draft need in rounds 2-4, particularly with an eye toward long-term succession at DT."
-    },
-    {
-      "position": "IOL",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Dan Feeney and Mike Jordan \u2014 who both stepped into starting roles mid-2025 after Ben Bredeson and Cody Mauch went to IR \u2014 remain unsigned UFAs. Goedeke is locked in at RT. No IOL additions in free agency yet. Guard depth and competition remain thin; IOL is a mid-round draft priority."
+      "position": "S",
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "Winfield Jr. and Tykee Smith are the starters and both are retained. Killebrew (1yr/$1.8M) is a special-teamer who adds depth but not a defensive starter. Izien's departure leaves some nickel/depth hole but not a critical need. Draft in rounds 4-7 if value presents."
     }
   ],
   "team_page_additions": {
@@ -251,79 +361,119 @@
         "position": "TE",
         "contract_summary": "3yr/$30M ($20M gtd)",
         "previous_team": "Tampa Bay Buccaneers (re-sign)",
-        "headline": "Reliable starter re-signed with real guarantees; continuity at TE under new OC Zac Robinson"
+        "headline": "Franchise re-signs its starting TE through 2028; most snaps of any TE in the NFL over past 4 seasons"
       },
       {
         "player": "Alex Anzalone",
         "position": "LB",
+        "age": 31,
         "contract_summary": "2yr/$17M",
         "previous_team": "Detroit Lions",
-        "headline": "Elite coverage LB from Detroit's championship defense addresses Tampa's biggest 2025 weakness"
+        "headline": "Proven 73-game Lions starter brings veteran leadership to TB's depleted linebacker corps"
+      },
+      {
+        "player": "A'Shawn Robinson",
+        "position": "IDL",
+        "age": 31,
+        "contract_summary": "1yr/$10M (fully gtd)",
+        "previous_team": "Carolina Panthers",
+        "headline": "320-lb DT pairs with Vita Vea to give TB size-based interior run stuffing capability Todd Bowles demanded"
       },
       {
         "player": "Kenneth Gainwell",
         "position": "RB",
-        "contract_summary": "2yr/$14M ($10M gtd)",
+        "age": 25,
+        "contract_summary": "2yr/$14M",
         "previous_team": "Pittsburgh Steelers",
-        "headline": "2025 Steelers MVP (1,023 yards, 8 TDs, 73 catches) replaces Rachaad White as Irving's backfield partner"
+        "headline": "Versatile pass-catching back replaces Rachaad White as Bucky Irving's complement in TB's backfield"
+      },
+      {
+        "player": "Al-Quadin Muhammad",
+        "position": "EDGE",
+        "age": 31,
+        "contract_summary": "1yr/$6M (max value)",
+        "previous_team": "Detroit Lions",
+        "headline": "11-sack pass rusher adds rotational EDGE depth on a prove-it deal; does not solve TB's starter need"
+      },
+      {
+        "player": "Jake Browning",
+        "position": "QB",
+        "age": 29,
+        "contract_summary": "1yr/terms undisclosed",
+        "previous_team": "Cincinnati Bengals",
+        "headline": "Experienced Burrow backup replaces Bridgewater as Baker Mayfield's emergency option"
+      },
+      {
+        "player": "Miles Killebrew",
+        "position": "S",
+        "age": 32,
+        "contract_summary": "1yr/$1.8M",
+        "previous_team": "Pittsburgh Steelers",
+        "headline": "Two-time Pro Bowl special teamer reunites with new ST coordinator Danny Smith to fix TB's struggling coverage units"
       }
     ],
     "key_losses": [
       {
         "player": "Mike Evans",
         "position": "WR",
-        "contract_summary": "3yr/$42.4M ($16.3M gtd) with SF",
+        "contract_summary": "3yr/$42.4M ($16.3M gtd) \u2014 to 49ers",
         "new_team": "San Francisco 49ers",
-        "headline": "Hall of Fame WR ends 12-year Bucs career; franchise's all-time leading receiver leaves a massive X-receiver void"
+        "headline": "Franchise all-time leading receiver and future Hall of Famer departs after 12 seasons; creates TB's biggest post-FA offensive void"
       },
       {
         "player": "Jamel Dean",
         "position": "CB",
-        "contract_summary": "3yr/$36.75M ($12M gtd) with PIT",
+        "contract_summary": "3yr/$36.75M ($12M gtd) \u2014 to Steelers",
         "new_team": "Pittsburgh Steelers",
-        "headline": "Last Super Bowl LV CB departs; career-best 2025 season (3 INTs, 9 PDs) makes this loss sting at an already thin position"
-      },
-      {
-        "player": "Haason Reddick",
-        "position": "EDGE",
-        "contract_summary": "UFA/unsigned",
-        "new_team": "TBD/unsigned",
-        "headline": "One-year flier ends without resolution; 2.5 sacks in 13 games leaves EDGE as Tampa's most critical draft need"
-      },
-      {
-        "player": "Rachaad White",
-        "position": "RB",
-        "contract_summary": "UFA/unsigned \u2014 departed",
-        "new_team": "TBD/unsigned",
-        "headline": "Four-year Bucs back departs as expected; Gainwell signing makes this a clean transition"
+        "headline": "Starting CB2 walks in free agency; TB has no proven replacement and CB becomes a urgent draft need"
       },
       {
         "player": "Logan Hall",
         "position": "IDL",
-        "contract_summary": "UFA/unsigned",
+        "contract_summary": "2yr/$14M ($9M gtd) \u2014 to Texans",
+        "new_team": "Houston Texans",
+        "headline": "2022 2nd-round pick and 17-game starter departs; Robinson signing partially offsets but IDL depth remains thin"
+      },
+      {
+        "player": "Haason Reddick",
+        "position": "EDGE",
+        "contract_summary": "1yr/$14M (2025 deal) \u2014 unsigned",
         "new_team": "TBD/unsigned",
-        "headline": "16-game starter and 2022 first-round pick departs, thinning interior D-line depth behind aging Vita Vea"
+        "headline": "Disappointing 2.5-sack 2025 season ends his TB tenure; EDGE still TB's most critical unaddressed positional need"
+      },
+      {
+        "player": "Rachaad White",
+        "position": "RB",
+        "contract_summary": "1yr/undisclosed \u2014 to Commanders",
+        "new_team": "Washington Commanders",
+        "headline": "Former lead back departures cleanly replaced by Gainwell; limited need impact"
       }
     ]
   },
+  "pending_decisions": [
+    {
+      "player": "Lavonte David",
+      "position": "LB",
+      "age": 36,
+      "status": "Decision imminent \u2014 return to TB or retirement per ESPN sources",
+      "impact_if_gone": "LB escalates from tier 2 to tier 1 need; Anzalone cannot anchor the position alone",
+      "impact_if_returns": "LB partially addressed; depth still needed in draft rounds 3-5"
+    }
+  ],
   "confidence": "high",
-  "notes": "Lavonte David's status is pending \u2014 ESPN sources confirm decision is between returning to Bucs or retirement, not signing elsewhere. His decision will affect LB tier further. Rachaad White has not signed elsewhere as of 2026-03-11. The Buccaneers notably did NOT sign an edge rusher in free agency despite EDGE being their biggest defensive need; Trey Hendrickson's asking price was reported as too high. Cap space figures from OverTheCap.com: $19.96M pre-FA (as of March 9), approximately $15.7M post-signings per OTC current roster data. Cap restructures of Wirfs, Goedeke, and Winfield Jr. could generate additional space. Alex Anzalone guarantee amount not yet publicly confirmed; Spotrac lists 2yr/$17M total. Connor Bazelak and Evan Deckers re-sign details from A to Z Sports tracker.",
+  "notes": "Jake Browning contract financial terms not publicly disclosed as of 2026-03-13. Alex Anzalone guarantee breakdown not confirmed \u2014 $17M total reported by NFL.com/Spotrac but full guarantee split TBD. Muhammad deal reported as 'up to $6M' \u2014 base likely lower. Cap space post-FA is estimated; team restructured Goedeke and McCollum contracts to generate ~$26M in new 2026 cap room per Fox Sports reports.",
   "sources": [
-    "https://www.espn.com/nfl/story/_/id/48044837/tampa-bay-buccaneers-2026-free-agency-tracker-offseason-moves-signings-trades",
-    "https://www.espn.com/nfl/story/_/id/48154249/sources-bucs-reach-deals-kenneth-gainwell-alex-anzalone",
-    "https://www.espn.com/nfl/story/_/id/48155046/star-wr-mike-evans-leaving-buccaneers-sign-49ers",
+    "https://www.buccaneers.com/news/bucs-2026-nfl-free-agency-updates-five-players-sign",
     "https://www.spotrac.com/nfl/player/_/id/76983/cade-otton",
-    "https://www.spotrac.com/nfl/player/_/id/21818/alex-anzalone",
-    "https://www.spotrac.com/nfl/player/_/id/72534/kenneth-gainwell",
-    "https://overthecap.com/salary-cap/tampa-bay-buccaneers",
-    "https://www.pewterreport.com/bucs-free-agency-tracker-2026-updated/",
-    "https://thepewterplank.com/tampa-bay-buccaneers-free-agency-tracker",
+    "https://www.espn.com/nfl/story/_/id/48187673/source-al-quadin-muhammad-reaches-deal-buccaneers",
+    "https://www.profootballrumors.com/2026/03/buccaneers-to-sign-dl-ashawn-robinson",
+    "https://www.pewterreport.com/bucs-free-agency-tracker-updated-2026/",
     "https://atozsports.com/nfl/tampa-bay-buccaneers-news/bucs-free-agency-tracker-latest-signings-departures-and-more-as-tampa-bay-tries-to-get-back-into-playoff-shape/",
-    "https://heavy.com/sports/nfl/tampa-bay-buccaneers/cade-otton-mike-evans-free-agency-news/",
-    "https://heavy.com/sports/nfl/tampa-bay-buccaneers/sign-free-agent-linebacker-alex-anzalone/",
-    "https://www.profootballrumors.com/2026/03/49ers-to-sign-wr-mike-evans",
-    "https://www.espn.com/nfl/story/_/id/48155068/steelers-adding-cb-jamel-dean-3-year-deal-agent-says",
+    "https://thepewterplank.com/tampa-bay-buccaneers-free-agency-tracker",
+    "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/tb",
     "https://steelersdepot.com/2026/03/additional-contract-details-emerge-for-new-steelers-cb-jamel-dean/",
-    "https://www.buccaneers.com/freeagency"
+    "https://www.yardbarker.com/nfl/articles/bucs_restructure_2_contracts_to_create_cap_room/s1_17102_43589986",
+    "https://bucsreport.com/2026/03/12/buccaneers-bolster-their-special-teams-with-miles-killebrew-signing/",
+    "https://www.si.com/nfl/buccaneers/onsi/news/how-the-buccaneers-spot-in-the-nfc-south-shifted-after-day-3-of-free-agency-2026"
   ]
 }

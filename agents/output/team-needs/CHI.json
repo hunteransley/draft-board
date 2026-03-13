@@ -8,6 +8,15 @@
   "roster_context": "Coming off an 11-6 NFC North title and first playoff win since 2010 under first-year HC Ben Johnson. QB Caleb Williams broke franchise passing record with 3,942 yards and 27 TDs. Offense is set around Williams, but defense was propped up by turnovers and needs significant upgrades across all three levels. Cap is tight (~$5M under) with several costly veterans being moved. Drew Dalman's sudden retirement at 27 creates an unexpected IOL hole. Ozzy Trapilo's torn patellar tendon in the playoffs leaves LT barren. DJ Moore traded to Bills on March 5 for cap relief and draft capital. Tremaine Edmunds given permission to seek trade. Team is in win-now mode around Williams' rookie contract window.",
   "needs": [
     {
+      "position": "CB",
+      "tier": 1,
+      "urgency": "critical",
+      "explanation": "Jaylon Johnson (signed through 2027) played only 7 regular-season games due to groin injuries and looked a step slow. Tyrique Stevenson is inconsistent but had lowest passer rating allowed (86.3). Kyler Gordon (signed through 2028) is excellent at nickel when healthy but played only 3 regular season games in 2025. Nahshon Wright (UFA) may leave. Seven different CBs started at least one game in 2025. Adding a CB2 to play opposite Johnson would improve depth, but not as urgent as safety.",
+      "current_starter": "Jaylon Johnson, Tyrique Stevenson",
+      "depth": "Kyler Gordon (nickel, injury-prone), Zah Frazier (2025 5th-rounder, missed rookie year)",
+      "draft_range_target": "Round 2-4"
+    },
+    {
       "position": "DT",
       "tier": 1,
       "urgency": "critical",
@@ -26,22 +35,13 @@
       "draft_range_target": "Round 1-2 (or addressed via Crosby trade)"
     },
     {
-      "position": "OT",
+      "position": "WR",
       "tier": 1,
       "urgency": "critical",
-      "explanation": "Left tackle is a crisis. Ozzy Trapilo (2025 2nd-rounder who emerged as the starter) suffered a torn patellar tendon in the wild card game and will miss most of 2026. Braxton Jones (UFA, was benched in Week 5) may re-sign cheaply as a bridge. Theo Benedet is a UDFA not viewed as a long-term answer. Kiran Amegadjie (2024 3rd-rounder) spent all of 2025 on IR. OL coach Roushar said the LT answer requires 'draft capital or an asset we currently don't have.'",
-      "current_starter": "Theo Benedet / Braxton Jones (UFA)",
-      "depth": "Kiran Amegadjie (oft-injured), Ozzy Trapilo (out most of 2026)",
-      "draft_range_target": "Round 1-2, or veteran FA signing"
-    },
-    {
-      "position": "CB",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Jaylon Johnson (signed through 2027) played only 7 regular-season games due to groin injuries and looked a step slow. Tyrique Stevenson is inconsistent but had lowest passer rating allowed (86.3). Kyler Gordon (signed through 2028) is excellent at nickel when healthy but played only 3 regular season games in 2025. Nahshon Wright (UFA) may leave. Seven different CBs started at least one game in 2025. Adding a CB2 to play opposite Johnson would improve depth, but not as urgent as safety.",
-      "current_starter": "Jaylon Johnson, Tyrique Stevenson",
-      "depth": "Kyler Gordon (nickel, injury-prone), Zah Frazier (2025 5th-rounder, missed rookie year)",
-      "draft_range_target": "Round 2-4"
+      "explanation": "DJ Moore was traded to the Bills on March 5, leaving Rome Odunze as WR1 and Luther Burden III as WR2. Jahdae Walker showed flashes as a rookie. Colston Loveland is a receiving TE. The young core is promising, but WR depth behind the top two is thin. A Day 2-3 WR with big-play ability would round out the room.",
+      "current_starter": "Rome Odunze, Luther Burden III",
+      "depth": "Jahdae Walker, Colston Loveland (TE) — thin at WR3 after Moore trade",
+      "draft_range_target": "Round 3-5"
     },
     {
       "position": "IDL",
@@ -53,13 +53,22 @@
       "draft_range_target": ""
     },
     {
-      "position": "IOL",
+      "position": "LB",
       "tier": 2,
       "urgency": "important",
-      "explanation": "Drew Dalman's shocking retirement at 27 after a Pro Bowl season creates an immediate hole at center. Guards are elite (Joe Thuney, Jonah Jackson), but center is now vacant. Bears hosted FA Tyler Biadasz for a visit and are exploring options. Could be addressed via FA or mid-round draft pick.",
-      "current_starter": "Joe Thuney (LG), VACANT (C), Jonah Jackson (RG)",
-      "depth": "Jordan McFadden, Luke Newman — no proven center on roster",
-      "draft_range_target": "Round 3-5, or FA signing"
+      "explanation": "Tremaine Edmunds has been given permission to seek a trade, which will save ~$15M in cap. T.J. Edwards (turning 30) broke his fibula in the playoff win over Green Bay and faces recovery. Noah Sewell tore his Achilles. D'Marco Jackson (UFA) impressed in spot starts. LB room is decimated by injury and cap-driven departures. Bears are 'firmly in the market for off-ball linebackers.'",
+      "current_starter": "T.J. Edwards (recovering from broken fibula), Tremaine Edmunds (trade candidate)",
+      "depth": "Ruben Hyppolite II (2025 4th-rounder), Noah Sewell (Achilles recovery)",
+      "draft_range_target": "Round 2-4"
+    },
+    {
+      "position": "OT",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Left tackle is a crisis. Ozzy Trapilo (2025 2nd-rounder who emerged as the starter) suffered a torn patellar tendon in the wild card game and will miss most of 2026. Braxton Jones (UFA, was benched in Week 5) may re-sign cheaply as a bridge. Theo Benedet is a UDFA not viewed as a long-term answer. Kiran Amegadjie (2024 3rd-rounder) spent all of 2025 on IR. OL coach Roushar said the LT answer requires 'draft capital or an asset we currently don't have.'",
+      "current_starter": "Theo Benedet / Braxton Jones (UFA)",
+      "depth": "Kiran Amegadjie (oft-injured), Ozzy Trapilo (out most of 2026)",
+      "draft_range_target": "Round 1-2, or veteran FA signing"
     },
     {
       "position": "S",
@@ -71,78 +80,75 @@
       "draft_range_target": "Round 1-2"
     },
     {
-      "position": "WR",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "DJ Moore was traded to the Bills on March 5, leaving Rome Odunze as WR1 and Luther Burden III as WR2. Jahdae Walker showed flashes as a rookie. Colston Loveland is a receiving TE. The young core is promising, but WR depth behind the top two is thin. A Day 2-3 WR with big-play ability would round out the room.",
-      "current_starter": "Rome Odunze, Luther Burden III",
-      "depth": "Jahdae Walker, Colston Loveland (TE) — thin at WR3 after Moore trade",
-      "draft_range_target": "Round 3-5"
-    },
-    {
-      "position": "LB",
+      "position": "IOL",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "Tremaine Edmunds has been given permission to seek a trade, which will save ~$15M in cap. T.J. Edwards (turning 30) broke his fibula in the playoff win over Green Bay and faces recovery. Noah Sewell tore his Achilles. D'Marco Jackson (UFA) impressed in spot starts. LB room is decimated by injury and cap-driven departures. Bears are 'firmly in the market for off-ball linebackers.'",
-      "current_starter": "T.J. Edwards (recovering from broken fibula), Tremaine Edmunds (trade candidate)",
-      "depth": "Ruben Hyppolite II (2025 4th-rounder), Noah Sewell (Achilles recovery)",
-      "draft_range_target": "Round 2-4"
+      "explanation": "Drew Dalman's shocking retirement at 27 after a Pro Bowl season creates an immediate hole at center. Guards are elite (Joe Thuney, Jonah Jackson), but center is now vacant. Bears hosted FA Tyler Biadasz for a visit and are exploring options. Could be addressed via FA or mid-round draft pick.",
+      "current_starter": "Joe Thuney (LG), VACANT (C), Jonah Jackson (RG)",
+      "depth": "Jordan McFadden, Luke Newman — no proven center on roster",
+      "draft_range_target": "Round 3-5, or FA signing"
     }
   ],
   "needs_summary": {
     "tier_1": [
+      "CB",
       "DT",
       "EDGE",
-      "OT"
-    ],
-    "tier_2": [
-      "CB",
-      "IDL",
-      "IOL",
-      "S",
       "WR"
     ],
+    "tier_2": [
+      "IDL",
+      "LB",
+      "OT",
+      "S"
+    ],
     "tier_3": [
-      "LB"
+      "IOL"
     ],
     "tier_4": []
   },
   "simple_needs": [
-    "DL",
-    "OL",
     "DB",
+    "DL",
     "WR",
-    "LB"
+    "LB",
+    "OL"
   ],
   "detailed_needs": {
+    "DB": 1,
     "DL": 1,
-    "OL": 1,
-    "DB": 2,
-    "WR": 2,
-    "LB": 3
+    "WR": 1,
+    "LB": 2,
+    "OL": 2
   },
   "free_agency_impact": [
-    "Drew Dalman (IOL) → Retired",
+    "Drew Dalman (IOL) → retired",
     "DJ Moore (WR) → Buffalo Bills",
     "Tremaine Edmunds (LB) → New York Giants",
-    "Kevin Byard III (S) → TBD/unsigned",
-    "Jaquan Brisker (S) → TBD/unsigned",
-    "Nahshon Wright (CB) → New York Jets",
+    "Kevin Byard III (S) → New England Patriots",
+    "Jaquan Brisker (S) → Pittsburgh Steelers",
+    "C.J. Gardner-Johnson (S) → Buffalo Bills",
     "Olamide Zaccheaus (WR) → Atlanta Falcons",
+    "Nahshon Wright (CB) → New York Jets",
     "Dominique Robinson (EDGE) → Houston Texans",
+    "Amen Ogbongbemiga (LB) → released",
+    "Durham Smythe (TE) → Baltimore Ravens",
     "Andrew Billings (IDL) → TBD/unsigned",
-    "Amen Ogbongbemiga (LB) → Released",
     "Signed Garrett Bradbury (IOL) from New England Patriots — $5.7M AAV",
     "Signed Coby Bryant (S) from Seattle Seahawks — $13.3M AAV",
     "Signed Devin Bush (LB) from Cleveland Browns — $10.0M AAV",
     "Signed Neville Gallimore (IDL) from Indianapolis Colts — $6.0M AAV",
-    "Signed D'Marco Jackson (LB) from Chicago Bears (re-sign) — $3.8M AAV",
-    "Signed Braxton Jones (OT) from Chicago Bears (re-sign) — $5.0M AAV",
     "Signed Kalif Raymond (WR) from Detroit Lions — $5.1M AAV",
+    "Signed Braxton Jones (OT) from Chicago Bears (re-sign) — $10.0M AAV",
     "Signed Case Keenum (QB) from Chicago Bears (re-sign) — $2.8M AAV",
-    "Signed Daniel Hardy (EDGE) from Chicago Bears (re-sign, RFA) — $2.5M AAV",
-    "Signed Cameron Lewis (CB) from Buffalo Bills — terms TBD AAV",
-    "Signed Kentavius Street (EDGE) from Atlanta Falcons — terms TBD AAV"
+    "Signed D'Marco Jackson (LB) from Chicago Bears (re-sign) — $3.8M AAV",
+    "Signed Cam Lewis (CB) from Buffalo Bills — $3.0M AAV",
+    "Signed Kentavius Street (EDGE) from Atlanta Falcons — $2.5M AAV",
+    "Signed Jedrick Wills Jr. (OT) from Cleveland Browns — $5.0M AAV",
+    "Signed Daniel Hardy (EDGE) from Chicago Bears (re-sign) — $2.5M AAV",
+    "Signed Elijah Hicks (S) from Chicago Bears (re-sign) — $1.5M AAV",
+    "Signed Jordan McFadden (IOL) from Chicago Bears (re-sign) — $1.5M AAV",
+    "Signed Theo Benedet (OT) from Chicago Bears (re-sign) — $1.0M AAV"
   ],
   "scheme_fit_notes": "Dennis Allen's 4-3 defense values interior disruption and a physical secondary. The defense was turnover-dependent in 2025 but tied for last in pass rush win rate, making DL and EDGE premium needs. Allen's system needs a true 3-technique DT who can penetrate and a rangy, ball-hawking safety. Ben Johnson's offense is built around play-action and creative schematic designs — the passing game should sustain with Odunze, Burden, and Loveland even after Moore's departure. LT must be able to handle speed rushers to protect Williams in Johnson's dropback concepts.",
   "confidence": "high",

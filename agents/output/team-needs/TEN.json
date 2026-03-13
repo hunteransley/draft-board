@@ -9,8 +9,8 @@
   "needs": [
     {
       "position": "EDGE",
-      "tier": 2,
-      "urgency": "important",
+      "tier": 1,
+      "urgency": "critical",
       "explanation": "Despite acquiring Jermaine Johnson from the Jets, Tennessee still desperately needs a premier pass rusher. Johnson is coming off an Achilles tear (2024) and had only 3 sacks in 2025 on a one-year $13.4M fifth-year option — he's a reclamation project, not a solution. Outside of Jeffery Simmons, no other pass rusher on the roster has recorded a season with double-digit sacks. 2025 2nd-round pick Femi Oladejo broke his leg in Week 6 and barely contributed. Arden Key and Jihad Ward are UFAs. Saleh's 4-3 system demands dominant edge play, and the draft at #4 offers elite EDGE prospects like Rueben Bain Jr. or Arvell Reese.",
       "current_starter": "Jermaine Johnson (acquired via trade, $13.4M 5th-year option)",
       "depth": "Femi Oladejo (2nd-year, returning from broken leg), Arden Key (UFA), Jihad Ward (UFA)",
@@ -26,6 +26,15 @@
       "draft_range_target": "Round 3-4 for developmental IOL, free agency for center"
     },
     {
+      "position": "S",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Amani Hooker signed a 3-year, $48.6M extension in September 2025 and is the team's defensive captain. Rookie Kevin Winston Jr. took over starting duties from the now-released Xavier Woods and showed promise. Safety is one of the few secondary positions that isn't a dire need, though adding depth or a versatile nickel safety would help.",
+      "current_starter": "Amani Hooker (extended through 2028), Kevin Winston Jr.",
+      "depth": "Thin after top two, but not a critical concern",
+      "draft_range_target": "Round 5-7 depth piece"
+    },
+    {
       "position": "WR",
       "tier": 2,
       "urgency": "important",
@@ -35,13 +44,13 @@
       "draft_range_target": "Round 1-2, plus free agency (linked to Alec Pierce, Rome Doubs, others)"
     },
     {
-      "position": "IDL",
+      "position": "LB",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "Jeffery Simmons remains an All-Pro caliber 3-tech, but the Sweat-for-Johnson trade gutted the interior depth. T'Vondre Sweat was PFF's 5th-ranked interior DL and provided elite run-stuffing presence. Sebastian Joseph-Day is a UFA and the Titans let him walk, though they're pursuing John Franklin-Myers as a replacement. Still, they need a nose tackle to replace Sweat's production in Saleh's 4-3 scheme.",
-      "current_starter": "Jeffery Simmons (elite, under contract through 2027)",
-      "depth": "Sebastian Joseph-Day (UFA, let walk), no proven NT on roster after Sweat trade",
-      "draft_range_target": "Round 2-4, plus free agency (connected to John Franklin-Myers)"
+      "explanation": "Cedric Gray had a solid sophomore year as an off-ball linebacker. Cody Barton is under contract on a 3-year deal. Ernest Jones was acquired from the Rams. This group is adequate but not elite. Saleh's scheme could elevate their play. An upgrade at WILL linebacker would help, but it's not a pressing need compared to other holes.",
+      "current_starter": "Cedric Gray, Cody Barton, Ernest Jones",
+      "depth": "Adequate for now",
+      "draft_range_target": "Round 4-6 depth"
     },
     {
       "position": "OT",
@@ -62,15 +71,6 @@
       "draft_range_target": "Round 1-2 if top RB like Jeremiyah Love available, otherwise Round 3-4"
     },
     {
-      "position": "S",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "Amani Hooker signed a 3-year, $48.6M extension in September 2025 and is the team's defensive captain. Rookie Kevin Winston Jr. took over starting duties from the now-released Xavier Woods and showed promise. Safety is one of the few secondary positions that isn't a dire need, though adding depth or a versatile nickel safety would help.",
-      "current_starter": "Amani Hooker (extended through 2028), Kevin Winston Jr.",
-      "depth": "Thin after top two, but not a critical concern",
-      "draft_range_target": "Round 5-7 depth piece"
-    },
-    {
       "position": "TE",
       "tier": 3,
       "urgency": "moderate",
@@ -89,71 +89,83 @@
       "draft_range_target": "Round 2-3 plus free agency signing"
     },
     {
-      "position": "LB",
+      "position": "IDL",
       "tier": 4,
       "urgency": "minor",
-      "explanation": "Cedric Gray had a solid sophomore year as an off-ball linebacker. Cody Barton is under contract on a 3-year deal. Ernest Jones was acquired from the Rams. This group is adequate but not elite. Saleh's scheme could elevate their play. An upgrade at WILL linebacker would help, but it's not a pressing need compared to other holes.",
-      "current_starter": "Cedric Gray, Cody Barton, Ernest Jones",
-      "depth": "Adequate for now",
-      "draft_range_target": "Round 4-6 depth"
+      "explanation": "Jeffery Simmons remains an All-Pro caliber 3-tech, but the Sweat-for-Johnson trade gutted the interior depth. T'Vondre Sweat was PFF's 5th-ranked interior DL and provided elite run-stuffing presence. Sebastian Joseph-Day is a UFA and the Titans let him walk, though they're pursuing John Franklin-Myers as a replacement. Still, they need a nose tackle to replace Sweat's production in Saleh's 4-3 scheme.",
+      "current_starter": "Jeffery Simmons (elite, under contract through 2027)",
+      "depth": "Sebastian Joseph-Day (UFA, let walk), no proven NT on roster after Sweat trade",
+      "draft_range_target": "Round 2-4, plus free agency (connected to John Franklin-Myers)"
     }
   ],
   "needs_summary": {
-    "tier_1": [],
+    "tier_1": [
+      "EDGE"
+    ],
     "tier_2": [
-      "EDGE",
       "IOL",
+      "S",
       "WR"
     ],
     "tier_3": [
-      "IDL",
+      "LB",
       "OT",
       "RB",
-      "S",
       "TE"
     ],
     "tier_4": [
       "CB",
-      "LB"
+      "IDL"
     ]
   },
   "simple_needs": [
     "DL",
     "OL",
-    "WR",
-    "RB",
     "DB",
+    "WR",
+    "LB",
+    "RB",
     "TE"
   ],
   "detailed_needs": {
-    "DL": 2,
+    "DL": 1,
     "OL": 2,
+    "DB": 2,
     "WR": 2,
+    "LB": 3,
     "RB": 3,
-    "DB": 3,
     "TE": 3
   },
   "free_agency_impact": [
+    "L'Jarius Sneed (CB) → TBD/released (expected)",
+    "Calvin Ridley (WR) → TBD (cut candidate)",
+    "Chig Okonkwo (TE) → Washington Commanders",
     "Arden Key (EDGE) → Indianapolis Colts",
-    "Dre'Mont Jones (EDGE) → New England Patriots",
-    "T'Vondre Sweat (IDL) → New York Jets",
-    "L'Jarius Sneed (CB) → TBD/unsigned",
-    "Calvin Ridley (WR) → TBD/unsigned",
-    "Lloyd Cushenberry III (IOL) → TBD/unsigned",
-    "Xavier Woods (S) → TBD/unsigned",
-    "Signed Jermaine Johnson II (EDGE) from New York Jets (trade) — $13.4M AAV",
-    "Signed John Franklin-Myers (IDL) from Denver Broncos — $21.0M AAV",
+    "Sebastian Joseph-Day (IDL) → TBD/unsigned",
+    "Lloyd Cushenberry III (IOL) → released",
+    "Xavier Woods (S) → released",
+    "T'Vondre Sweat (IDL) → New York Jets (trade)",
+    "Johnny Hekker (P) → TBD/released",
     "Signed Wan'Dale Robinson (WR) from New York Giants — $17.5M AAV",
-    "Signed Alontae Taylor (CB) from New Orleans Saints — $20.0M AAV",
     "Signed Cor'Dale Flott (CB) from New York Giants — $15.0M AAV",
-    "Signed Joshua Williams (CB) from Kansas City Chiefs — $5.0M AAV",
-    "Signed Daniel Bellinger (TE) from New York Giants — $14.0M AAV",
-    "Signed Mitchell Trubisky (QB) from Buffalo Bills — terms TBD AAV",
-    "Signed Austin Schlottman (IOL) from New York Giants — terms TBD AAV",
-    "Signed Cordell Volson (IOL) from Cincinnati Bengals — $4.2M AAV",
+    "Signed Alontae Taylor (CB) from New Orleans Saints — $20.0M AAV",
+    "Signed John Franklin-Myers (IDL) from Denver Broncos — $21.0M AAV",
+    "Signed Jermaine Johnson II (EDGE) from New York Jets (trade) — $13.4M AAV",
+    "Signed Jacob Martin (EDGE) from Washington Commanders — $5.5M AAV",
     "Signed Jordan Elliott (IDL) from San Francisco 49ers — $4.0M AAV",
-    "Signed Tommy Townsend (ST) from Houston Texans — $3.0M AAV",
-    "Signed Morgan Cox (ST) from Tennessee Titans (re-sign) — terms TBD AAV"
+    "Signed Solomon Thomas (IDL) from Dallas Cowboys (trade) — terms TBD AAV",
+    "Signed Daniel Bellinger (TE) from New York Giants — $8.0M AAV",
+    "Signed Austin Schlottmann (IOL) from New York Giants — $3.5M AAV",
+    "Signed Cordell Volson (IOL) from Cincinnati Bengals — $4.2M AAV",
+    "Signed Joshua Williams (CB) from Kansas City Chiefs — terms TBD AAV",
+    "Signed Mitchell Trubisky (QB) from Buffalo Bills — terms TBD AAV",
+    "Signed Tommy Townsend (P) from Houston Texans — $3.0M AAV",
+    "Signed Joey Slye (K) from Tennessee Titans (re-sign) — terms TBD AAV",
+    "Signed Bryce Oliver (WR) from Tennessee Titans (re-sign) — $1.1M AAV",
+    "Signed Corey Herring (S) from Kansas City Chiefs — terms TBD AAV",
+    "Signed Tray Reed (S) from Tennessee Titans (re-sign) — terms TBD AAV",
+    "Signed Darius Adams (S) from New York Jets — terms TBD AAV",
+    "Signed Morgan Cox (LS) from Tennessee Titans (re-sign) — terms TBD AAV"
   ],
   "scheme_fit_notes": "Robert Saleh's 4-3 defense (with Gus Bradley as DC) prioritizes winning with the front four. This elevates the need for a true EDGE rusher who can rush off the edge on all three downs. Boundary corners must be physical in press-man and long enough to match up with big WRs. On offense, Brian Daboll's scheme historically features a shifty slot receiver as a safety valve (Cole Beasley role in Buffalo), a vertical outside threat, and heavy tight end usage. A dynamic RB who can catch out of the backfield also fits Daboll's Bills-era scheme. IOL must be able to handle quick passing concepts and zone blocking.",
   "confidence": "high",

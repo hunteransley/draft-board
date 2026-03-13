@@ -1,8 +1,8 @@
 {
   "team": "SEA",
   "team_full": "Seattle Seahawks",
-  "updated_through": "2026-03-11",
-  "cap_space_pre_fa": "$55420000",
+  "updated_through": "2026-03-13",
+  "cap_space_pre_fa": "$58000000",
   "cap_space_post_fa": "$42966262",
   "key_departures": [
     {
@@ -13,10 +13,10 @@
       "new_team": "Kansas City Chiefs",
       "contract_signed_elsewhere": {
         "years": 3,
-        "total_value": 45000000,
-        "aav": 15000000
+        "total_value": 43050000,
+        "aav": 14350000
       },
-      "impact": "Super Bowl LX MVP and the team's featured back. Walker posted 730+ scrimmage yards and 20 touchdowns in the regular season and over 300 rushing yards with 4 TDs in the playoffs. Departs to become the highest-paid RB in league history per reports. Zach Charbonnet is recovering from a torn ACL, leaving only depth options (George Holani, Kenny McIntosh, Cam Akers) as healthy backfield options.",
+      "impact": "Super Bowl LX MVP. Departed as the highest-paid RB in league history at time of signing. Zach Charbonnet (recovering from late-season ACL) is the presumed RB1, but is not ready for Week 1. Only low-cost RBs remain on the depth chart (Holani, McIntosh, Akers). Massive production hole to fill.",
       "need_impact": "creates",
       "need_position": "RB"
     },
@@ -29,10 +29,9 @@
       "contract_signed_elsewhere": {
         "years": 3,
         "total_value": 40000000,
-        "guaranteed": 25750000,
         "aav": 13333333
       },
-      "impact": "Versatile safety/slot CB hybrid who logged 4 INTs and 41 tackles in 2025 and 7 interceptions over his last two seasons. Was Seattle's ball-hawking defensive back and a key piece of the top-ranked scoring defense. Departure leaves a genuine hole at the starting safety spot opposite Julian Love.",
+      "impact": "4-year starter and key piece of Seattle's top-ranked scoring defense. Posted 7 interceptions and 13 pass breakups across 2025 season and playoffs. Departure creates a real void at safety alongside Julian Love. Ty Okada (tendered) is the likely replacement but is unproven as a starter.",
       "need_impact": "creates",
       "need_position": "S"
     },
@@ -40,89 +39,65 @@
       "player": "Boye Mafe",
       "position": "EDGE",
       "age": 26,
-      "role": "rotational",
+      "role": "starter",
       "new_team": "Cincinnati Bengals",
       "contract_signed_elsewhere": {
         "years": 3,
         "total_value": 60000000,
         "aav": 20000000
       },
-      "impact": "2022 second-round pick who racked up 146 pressures across three seasons, ranking 31st at the position over that span per PFF. Only 2 sacks in 2025 but ranked No. 22 among all free agents by PFF due to elite pass-rush win rate. Was a rotational edge rusher (not a full-time starter) but played in 38% of playoff snaps. Departure escalates EDGE depth concern but DeMarcus Lawrence, Derick Hall, and Uchenna Nwosu remain.",
-      "need_impact": "escalates",
+      "impact": "Generated 146 pressures over 3 seasons as one of Seattle's primary pass rushers. Leaving creates a legitimate need at EDGE alongside Uchenna Nwosu and DeMarcus Lawrence. The 2026 draft class is reportedly deep at EDGE, but this is a real production gap. DeMarcus Lawrence (signed 2025) remains; Mike Morris and Nwosu are the next options.",
+      "need_impact": "creates",
       "need_position": "EDGE"
     },
     {
       "player": "Riq Woolen",
       "position": "CB",
-      "age": 26,
-      "role": "starter",
+      "age": 27,
+      "role": "rotational",
       "new_team": "Philadelphia Eagles",
       "contract_signed_elsewhere": {
         "years": 1,
         "total_value": 15000000,
         "aav": 15000000
       },
-      "impact": "Former Pro Bowl corner who led the NFL with 6 INTs as a rookie in 2022 and totaled 6 INTs over the last three seasons. Lost his starting spot to Josh Jobe in 2025 but remained a key piece of the secondary. Seattle let him walk, retaining Jobe instead. The 1-year Eagles deal suggests even Philly views him as a prove-it signing. CB2 spot (outside Witherspoon and Jobe) is now thin.",
+      "impact": "Former Pro Bowler who had been overtaken on the depth chart by Josh Jobe in 2025. Departed on a one-year prove-it deal, widely expected by the team. CB2 spot opposite Jobe (re-signed) remains open. Devon Witherspoon is the CB1. Loss escalates need for CB depth/CB2.",
       "need_impact": "escalates",
       "need_position": "CB"
     },
     {
-      "player": "Rashid Shaheed",
+      "player": "Dareke Young",
       "position": "WR",
       "age": 26,
-      "role": "starter",
-      "new_team": "RE-SIGNED",
-      "impact": "N/A \u2014 retained",
+      "role": "depth/special teams",
+      "new_team": "Las Vegas Raiders",
+      "contract_signed_elsewhere": {
+        "years": null,
+        "total_value": null,
+        "aav": null
+      },
+      "impact": "Special teams contributor and depth WR. Signed with new Raiders HC Klint Kubiak (former SEA OC). WR room remains deep with JSN, Kupp, Shaheed, Horton, and tendered Bobo. Departure is low-impact.",
       "need_impact": "none",
       "need_position": "WR"
-    },
-    {
-      "player": "Josh Jobe",
-      "position": "CB",
-      "age": 28,
-      "role": "starter",
-      "new_team": "RE-SIGNED",
-      "impact": "N/A \u2014 retained",
-      "need_impact": "none",
-      "need_position": "CB"
     },
     {
       "player": "Chazz Surratt",
       "position": "LB",
       "age": 27,
-      "role": "special_teams",
+      "role": "depth/special teams",
       "new_team": "TBD/unsigned",
-      "impact": "Special teams standout. Depth loss only. LB need picture unchanged.",
+      "contract_signed_elsewhere": null,
+      "impact": "Special teams LB. Drake Thomas (re-signed) and Ernest Jones IV remain as the starting duo. Surratt was a ST contributor only. Departure is minimal impact; LB depth needs monitoring.",
       "need_impact": "none",
       "need_position": "LB"
-    },
-    {
-      "player": "Dareke Young",
-      "position": "WR",
-      "age": 25,
-      "role": "special_teams",
-      "new_team": "TBD/unsigned",
-      "impact": "Primarily a special teams contributor. Minimal offensive role. Depth/ST loss only.",
-      "need_impact": "none",
-      "need_position": "WR"
-    },
-    {
-      "player": "Jake Bobo",
-      "position": "WR",
-      "age": 27,
-      "role": "depth",
-      "new_team": "TBD/UFA",
-      "impact": "Seahawks declined to tender Bobo as an RFA, making him a UFA. Caught only 2 passes in the regular season but contributed on special teams including an NFC Championship TD catch. Expect Seattle to try to re-sign on a lower deal. Minimal offensive impact.",
-      "need_impact": "none",
-      "need_position": "WR"
     }
   ],
   "signings": [
     {
       "player": "Rashid Shaheed",
       "position": "WR",
-      "age": 26,
-      "previous_team": "Seattle Seahawks (re-sign)",
+      "age": 25,
+      "previous_team": "Seattle Seahawks (re-sign; acquired via trade from Saints in Nov 2025)",
       "contract": {
         "years": 3,
         "total_value": 51000000,
@@ -133,223 +108,220 @@
       "market_tier": "starter",
       "need_impact": "none",
       "need_position": "WR",
-      "analysis": "Shaheed re-signs on a 3yr/$51M deal with $34.7M guaranteed per Adam Schefter. Cap hits of $9.666M (2026), $19.166M (2027), $22.166M (2028). WR was not a critical need entering FA \u2014 JSN, Kupp, Shaheed, and Tory Horton give Darnold a deep room. Re-signing keeps the position fully addressed. The $17M AAV is starter-tier for WR. Note: Shaheed was primarily a return specialist and big-play threat after the midseason trade from New Orleans; the expectation is a bigger offensive role in 2026 under new OC Brian Fleury.",
-      "contract_confidence": "high",
-      "source": "ESPN/Adam Schefter"
+      "analysis": "Re-signing a key piece of the Super Bowl-winning team. Shaheed was the only player in the NFL with kick return and punt return TDs in the 2025 regular season. His $17M AAV is mid-tier for WR but elite for a returner/flex receiver. $34.7M guaranteed signals a real commitment. WR was not a pre-FA need \u2014 Shaheed's return solidifies a deep room (JSN, Kupp, Shaheed, Horton). No need impact but prevents one from forming."
     },
     {
       "player": "Josh Jobe",
       "position": "CB",
-      "age": 28,
+      "age": 27,
       "previous_team": "Seattle Seahawks (re-sign)",
       "contract": {
         "years": 3,
         "total_value": 24000000,
-        "guaranteed": 9250000,
+        "guaranteed": 7000000,
         "aav": 8000000
       },
       "expected_role": "starter",
-      "market_tier": "starter",
+      "market_tier": "depth",
       "need_impact": "partially_addressed",
       "need_position": "CB",
-      "analysis": "Jobe re-signs on a 3yr/$24M deal. Contract structure: $7M signing bonus, $2.25M guaranteed salary in 2026, with a Feb. 10, 2027 trigger date for $5M of the 2027 salary to vest fully guaranteed. Cap hits: $4.533M (2026), $9.333M (2027), $10.083M (2028). Jobe was the NFL's 4th-lowest completion-percentage-allowed CB (47.7%, min. 50 targets) and 4th-fewest yards per target (5.4) among outside CBs in 2025. He solidifies the CB2 role behind Devon Witherspoon. However, the loss of Riq Woolen leaves the CB3 spot thin (Nehemiah Pritchett is the next man up). CB is partially addressed \u2014 starter locked in, but depth is a live concern going into the draft.",
-      "contract_confidence": "high",
-      "source": "Spotrac/Seattle Times/Field Gulls"
+      "analysis": "Jobe was arguably the best value signing of Seattle's early FA period. He posted the 4th-lowest completion percentage allowed in the NFL in 2025 (47.7%) and started 15 of 16 games. At $8M AAV, this is below starter CB market (~$12-20M AAV) but reflects Jobe's first full season as a starter. The 3-year deal with $7M guaranteed (signing bonus) is a real commitment but only the signing bonus is fully locked in \u2014 back-year salaries are not guaranteed. Locks in the CB1 opposite Devon Witherspoon. However, Woolen's departure still leaves a CB2/nickel void, and the limited guaranteed structure suggests the team views this more as a 2-year real commitment. CB need reduced but not eliminated \u2014 a CB2 or nickel corner is still needed in the draft or late free agency."
     },
     {
       "player": "Drake Thomas",
       "position": "LB",
-      "age": 26,
-      "previous_team": "Seattle Seahawks (extension \u2014 was RFA)",
+      "age": 24,
+      "previous_team": "Seattle Seahawks (re-sign; was RFA)",
       "contract": {
         "years": 2,
         "total_value": 8000000,
-        "guaranteed": "TBD \u2014 up to $9M with incentives",
+        "guaranteed": 3000000,
         "aav": 4000000
       },
       "expected_role": "starter",
       "market_tier": "depth",
       "need_impact": "none",
       "need_position": "LB",
-      "analysis": "Thomas agreed to a 2yr/$8M base extension (up to $9M with incentives) per Ian Rapoport. Was a restricted free agent who avoided the tender process with a deal. Had 96 tackles and 3.5 sacks as a first-year starter in 2025, adding 18 tackles during the Super Bowl run. Paired with Ernest Jones IV, the Seahawks retain both starting LBs. LB was not a need going into FA and remains fully addressed. $4M AAV is below-market for a starter but reflects his RFA status \u2014 this is a team-friendly deal.",
-      "contract_confidence": "high",
-      "source": "Ian Rapoport/ESPN/OverTheCap"
+      "analysis": "Thomas had a breakout 2025 season starting 14 of 17 games, posting 47 solo tackles, 8 PDs, 6 QB hits, 3.5 sacks. The 2-year, $8M deal is a bargain \u2014 well below the $8-16M starter tier for LBs. $3M guaranteed is modest but enough to show commitment through Year 1. He pairs with Ernest Jones IV to give Seattle a complete LB unit at minimal cost. LB was not a need and remains stable. Extension done in lieu of RFA tender to give Thomas guaranteed money."
     },
     {
-      "player": "Drew Lock",
-      "position": "QB",
-      "age": 29,
-      "previous_team": "New York Giants",
+      "player": "Emanuel Wilson",
+      "position": "RB",
+      "age": 24,
+      "previous_team": "Green Bay Packers",
       "contract": {
-        "years": 2,
-        "total_value": 5000000,
-        "guaranteed": 2250000,
-        "aav": 2500000
+        "years": 1,
+        "total_value": 2100000,
+        "guaranteed": 0,
+        "aav": 2100000
       },
-      "expected_role": "backup",
+      "expected_role": "rotational",
       "market_tier": "depth",
-      "need_impact": "none",
-      "need_position": "QB",
-      "analysis": "Lock returns to Seattle on a 2yr/$5M deal signed in April 2025 (already under contract entering 2026 FA period). Was Seattle's backup QB in 2022-23 before leaving. Now provides insurance behind Sam Darnold. Contract is minimum-adjacent at $2.5M AAV. QB is not a need with Darnold signed as the clear starter. Lock is a known commodity as a backup \u2014 this does not change any positional need picture.",
-      "contract_confidence": "high",
-      "source": "OverTheCap/Spotrac (contract signed April 2025)"
+      "need_impact": "minimal",
+      "need_position": "RB",
+      "analysis": "First outside RB addition after losing Super Bowl MVP Kenneth Walker III. Wilson is a former Packers backup who rushed for 998 yards and 7 TDs over two seasons and filled in capably as a starter for injured Josh Jacobs in 2025. The 1-year, up to $2.1M deal is a minimum-tier signing. He's a capable RB2/3 but this does not come close to replacing Walker's explosiveness or volume. With Charbonnet (ACL) uncertain for Week 1, RB is still a significant need \u2014 this is a bridge/competition signing, not a solution. RB need remains tier 1-2."
+    },
+    {
+      "player": "Rodney Thomas II",
+      "position": "S",
+      "age": 26,
+      "previous_team": "Indianapolis Colts",
+      "contract": {
+        "years": 1,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "expected_role": "rotational",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "S",
+      "analysis": "Seattle's first external FA signing of the 2026 period, confirmed by GM John Schneider. Thomas is a 1-year deal at low cost (contract terms undisclosed but comp pick formula suggests sub-market). He started 25 games over his first two Colts seasons, with 6 career INTs and 114 tackles, but was relegated to a backup/special teams role over the past two years. He provides competition for a starting spot alongside Julian Love, with Ty Okada (tendered ERFA) also in the mix. One-year deal signals bridge/competition, not a long-term fix. Safety remains a genuine need for the draft after losing Coby Bryant."
     },
     {
       "player": "D'Anthony Bell",
       "position": "S",
       "age": 29,
-      "previous_team": "Cleveland Browns",
+      "previous_team": "Carolina Panthers (was SEA, waived, claimed by CAR late 2025)",
       "contract": {
         "years": 1,
-        "total_value": 1370000,
-        "guaranteed": 225000,
-        "aav": 1370000
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
       },
-      "expected_role": "depth",
-      "market_tier": "minimum",
+      "expected_role": "depth/special teams",
+      "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "S",
-      "analysis": "Bell signed a 1yr/$1.37M deal (signed March 24, 2025 \u2014 was on the roster for the Super Bowl run). Primarily a special teams standout who blocked a punt against the Saints in 2025. Logged 14 appearances (2 starts), 0.5 sacks, 15 tackles. Not a starter-caliber safety. With Coby Bryant gone and Julian Love the clear starter, Bell provides depth/ST value but does NOT address the vacancy left by Bryant. Safety remains a meaningful need despite Bell's presence.",
-      "contract_confidence": "high",
-      "source": "Spotrac/OverTheCap/Wikipedia"
+      "analysis": "Bell is a familiar face who played 14 games for Seattle in 2025 with two starts before being waived and claimed by Carolina. Returns as a depth safety and special teams contributor. One-year deal at undisclosed terms. Adds secondary depth but is not a starter solution. Combined with Rodney Thomas II, the safety room now has Julian Love, Ty Okada, Bell, Thomas, and AJ Finley \u2014 but none of these are clear Coby Bryant replacements. S need persists."
     },
     {
-      "player": "Eric Saubert",
-      "position": "TE",
-      "age": 30,
-      "previous_team": "San Francisco 49ers (re-sign \u2014 extended Dec. 2025)",
+      "player": "AJ Finley",
+      "position": "S",
+      "age": 25,
+      "previous_team": "Seattle Seahawks (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": "TBD (extension added to existing deal)",
-        "guaranteed": "TBD",
-        "aav": "TBD"
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "expected_role": "depth/special teams",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "S",
+      "analysis": "Finley missed the entire 2025 season with a knee injury suffered in August. Returns on an undisclosed deal (minimum range) to provide depth and compete on special teams. His 2026 contribution is uncertain given the lengthy layoff. Low-cost move that has no meaningful impact on the safety need picture."
+    },
+    {
+      "player": "Brandon Pili",
+      "position": "IDL",
+      "age": 26,
+      "previous_team": "Seattle Seahawks (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 2000000,
+        "guaranteed": 0,
+        "aav": 2000000
       },
       "expected_role": "depth",
       "market_tier": "depth",
       "need_impact": "none",
+      "need_position": "IDL",
+      "analysis": "Depth nose tackle re-signed at a bargain rate. Was not tendered as an RFA (which would have cost $3.5M+), instead brought back at $2M. Pili averaged only 11.5 snaps per game in 2025 on one of the best defensive lines in football. Leonard Williams and Jarran Reed (both 30+) lead the group; Pili adds needed youth to the rotation. IDL was not a meaningful pre-FA need and remains unchanged. Low-cost, sensible retention."
+    },
+    {
+      "player": "Brady Russell",
+      "position": "TE",
+      "age": 24,
+      "previous_team": "Seattle Seahawks (re-sign; was RFA)",
+      "contract": {
+        "years": 2,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "expected_role": "depth/special teams",
+      "market_tier": "minimum",
+      "need_impact": "none",
       "need_position": "TE",
-      "analysis": "Saubert had his contract extended for an additional year in December 2025 per Seahawks.com. A journeyman TE (Falcons, Bears, Jaguars, Broncos, Cowboys, Texans, 49ers) who provides depth behind Noah Fant. TE is not a pressing need with Fant locked in as the starter. Saubert is a blocking TE and depth piece only.",
-      "contract_confidence": "medium",
-      "source": "Seahawks.com"
+      "analysis": "2-year deal for the team's unofficial special teams captain and versatile TE/FB hybrid. Led all NFL players with 394 special teams snaps in the regular season and led the Seahawks with 14 ST tackles. Valued primarily for his leadership and special teams impact rather than offensive production. TE was not a pre-FA need (Noah Fant, AJ Barner, Arroyo remain); this is a retention of a key role player."
     },
     {
-      "player": "Josh Ross",
-      "position": "LB",
-      "age": 25,
-      "previous_team": "Seattle Seahawks (re-sign \u2014 was waiver claim from Baltimore)",
+      "player": "Josh Jones",
+      "position": "IOL",
+      "age": 29,
+      "previous_team": "Seattle Seahawks (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": "TBD (minimum range)",
-        "guaranteed": "TBD",
-        "aav": "TBD"
-      },
-      "expected_role": "special_teams",
-      "market_tier": "minimum",
-      "need_impact": "none",
-      "need_position": "LB",
-      "analysis": "Ross re-signed after appearing in 10 games on special teams in 2025 (67% of ST snaps, 4 tackles). Was claimed off waivers from Baltimore in-season. A special teams ace who has a prior relationship with Mike Macdonald from both Michigan and the Ravens. Purely a ST/depth signing. Does not affect LB need picture.",
-      "contract_confidence": "low",
-      "source": "Seahawks.com/NBC Sports"
-    },
-    {
-      "player": "River Cracraft",
-      "position": "WR",
-      "age": 30,
-      "previous_team": "Miami Dolphins",
-      "contract": {
-        "years": 1,
-        "total_value": "TBD (minimum range)",
-        "guaranteed": "TBD",
-        "aav": "TBD"
+        "total_value": 4000000,
+        "guaranteed": 3000000,
+        "aav": 4000000
       },
       "expected_role": "depth",
-      "market_tier": "minimum",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "IOL",
+      "analysis": "Top reserve OL re-signed on a 1-year, $4M deal with $3M guaranteed. Jones provides backup versatility at tackle and guard. The offensive line returns intact with Cross, Lucas, Zabel, Bradford, Sundell \u2014 Jones is the swing backup. IOL was not a pre-FA need. $3M of $4M guaranteed signals he's a real roster lock, not a training camp arm."
+    },
+    {
+      "player": "Jake Bobo",
+      "position": "WR",
+      "age": 27,
+      "previous_team": "Seattle Seahawks (ROFR tender)",
+      "contract": {
+        "years": 1,
+        "total_value": 3520000,
+        "guaranteed": 0,
+        "aav": 3520000
+      },
+      "expected_role": "depth",
+      "market_tier": "depth",
       "need_impact": "none",
       "need_position": "WR",
-      "analysis": "Signed March 21, 2025 \u2014 under contract entering 2026 FA period. Seven-year veteran with 53 career games, 32 catches for 374 yards. Former WSU product who can also handle punt returns. Pure depth/ST body in a WR room already featuring JSN, Kupp, Shaheed, and Horton. Minimal positional impact.",
-      "contract_confidence": "medium",
-      "source": "Seahawks.com/Fox 13 Seattle"
+      "analysis": "Right-of-first-refusal tender keeps the backup WR and fan favorite in the fold at $3.52M (unguaranteed). Bobo projects no higher than WR5 behind JSN, Kupp, Shaheed, and Horton. He's a tough run blocker and ST contributor. Team retains the right to match any offer sheet. WR depth maintained; if cut before camp it frees cap room."
     },
     {
-      "player": "Steven Sims",
-      "position": "WR",
-      "age": 28,
-      "previous_team": "Baltimore Ravens",
+      "player": "Eric Saubert",
+      "position": "TE",
+      "age": 31,
+      "previous_team": "Seattle Seahawks (extension signed Dec 2025 while on roster; signed originally March 2025)",
       "contract": {
         "years": 1,
-        "total_value": "TBD (minimum range)",
-        "guaranteed": "TBD",
-        "aav": "TBD"
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
       },
       "expected_role": "depth",
       "market_tier": "minimum",
-      "need_impact": "minimal",
-      "need_position": "WR",
-      "notes": "Signed as WR depth and a candidate to handle kick and punt returns after the departures of Rashid Shaheed (re-signed) and Dareke Young. Spent time with Commanders, Steelers, Texans, Ravens. Veteran minimum-range deal. Also serves as a return option.",
-      "contract_confidence": "low",
-      "source": "Seahawks.com"
-    },
-    {
-      "player": "George Holani",
-      "position": "RB",
-      "age": 24,
-      "previous_team": "Seattle Seahawks (ERFA tender)",
-      "contract": {
-        "years": 1,
-        "total_value": "TBD (ERFA tender)",
-        "guaranteed": "TBD",
-        "aav": "TBD"
-      },
-      "expected_role": "depth",
-      "market_tier": "minimum",
-      "need_impact": "minimal",
-      "need_position": "RB",
-      "analysis": "Tendered as an Exclusive Rights Free Agent \u2014 can only sign with Seattle at the tender rate. Healthy depth back alongside McIntosh, Akers, etc. with Zach Charbonnet on ACL recovery. Does NOT address the starter void left by Kenneth Walker III. RB remains a high-priority need for the draft.",
-      "contract_confidence": "high",
-      "source": "Seahawks.com/official tender"
-    },
-    {
-      "player": "Ty Okada",
-      "position": "S",
-      "age": 24,
-      "previous_team": "Seattle Seahawks (ERFA tender)",
-      "contract": {
-        "years": 1,
-        "total_value": "TBD (ERFA tender)",
-        "guaranteed": "TBD",
-        "aav": "TBD"
-      },
-      "expected_role": "depth",
-      "market_tier": "minimum",
-      "need_impact": "minimal",
-      "need_position": "S",
-      "analysis": "Tendered as an ERFA \u2014 can only sign with Seattle. Young developmental safety who provides depth. Does not fill Coby Bryant's starting role. Safety remains a genuine need.",
-      "contract_confidence": "high",
-      "source": "Seahawks.com/official tender"
+      "need_impact": "none",
+      "need_position": "TE",
+      "analysis": "Already under contract via a mid-season 1-year extension signed December 2025 when activated from IR (calf injury). He was the team's depth TE and special teams contributor in 2025. Listed here for completeness \u2014 this was not a 2026 free agency move but an in-season extension that carries into 2026."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
       "LB",
-      "WR",
-      "QB"
+      "IOL",
+      "WR"
     ],
     "partially_addressed": [
       "CB"
     ],
     "minimally_addressed": [
       "S",
-      "EDGE"
+      "RB"
     ],
     "unchanged": [
-      "IOL",
-      "OT",
       "IDL",
+      "EDGE",
+      "OT",
+      "QB",
       "TE"
     ],
     "escalated": [],
-    "newly_created": [
+    "created": [
       "RB",
+      "EDGE",
       "S"
     ]
   },
@@ -358,143 +330,179 @@
       "position": "RB",
       "previous_tier": 3,
       "recommended_tier": 1,
-      "reasoning": "Kenneth Walker III (Super Bowl MVP) departed to Kansas City on a 3yr/$45M deal \u2014 the highest-paid RB in league history at signing. Zach Charbonnet is recovering from a torn ACL. The only healthy backs on roster are depth bodies: George Holani (ERFA tender), Kenny McIntosh, Cam Akers, Velus Jones Jr. No meaningful FA signing was made at the position. RB rockets to a Tier 1 draft need. This is the biggest hole created by free agency and a near-certain Day 1 or Day 2 draft target."
+      "reasoning": "Loss of Super Bowl MVP Kenneth Walker III (to KC, 3yr/$43M) creates an immediate, critical need. Zach Charbonnet is recovering from a late-season ACL and may not be ready for Week 1. The only current healthy depth is George Holani (ERFA tender), Emanuel Wilson (1yr/$2.1M, depth signing), Kenny McIntosh, and Cam Akers. Wilson's signing is a bridge move, not a solution. RB is now a top-2 draft/FA priority."
     },
     {
-      "position": "S",
+      "position": "EDGE",
       "previous_tier": 3,
       "recommended_tier": 2,
-      "reasoning": "Coby Bryant signed a 3yr/$40M deal with the Bears ($25.75M guaranteed). He was Seattle's starting ball-hawking safety who produced 7 INTs over the last two seasons. Julian Love is the clear starter, but the No. 2 safety role is now unmanned. D'Anthony Bell (minimum/ST player) and ERFA Ty Okada are not starter-quality replacements. S escalates to a Tier 2 need \u2014 rounds 2-4 or a later free agent addition."
+      "reasoning": "Boye Mafe's departure to Cincinnati (3yr/$60M) removes one of Seattle's primary pass rushers (146 career pressures in 3 seasons). DeMarcus Lawrence (signed 2025), Uchenna Nwosu, and Mike Morris remain, but Lawrence is 34 and Nwosu has battled injuries. No external EDGE signed in 2026 FA. With the 2026 draft reportedly deep at EDGE, this is a strong Day 1-2 draft target. Not yet tier 1 because of the Lawrence/Nwosu depth, but EDGE is now a legitimate prioritized need."
     },
     {
       "position": "CB",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Partially addressed by the Josh Jobe re-signing (3yr/$24M). Jobe solidifies CB2 behind Devon Witherspoon. However, Riq Woolen's departure to Philadelphia leaves the CB3 spot thin \u2014 Nehemiah Pritchett (2024 5th-round pick) is the only realistic option and hasn't proven capable of a starting role. CB remains Tier 2: starter depth is needed, ideally in rounds 2-4 of the draft. Need is unchanged despite Jobe's retention \u2014 the LOSS of Woolen exactly offsets the RETENTION of Jobe."
+      "reasoning": "Josh Jobe re-signed (3yr/$24M) locks in one starting outside CB. Devon Witherspoon (CB1, extension-eligible) is under contract. But Riq Woolen's departure (Eagles, 1yr/$15M prove-it) leaves the CB2/nickel role open. Jobe's deal \u2014 only $7M guaranteed (signing bonus only, back-year salaries not fully guaranteed) \u2014 means Seattle still views this position as needing long-term investment. CB need is unchanged in tier: still need a CB2/nickel corner from the draft or late FA. Tier stays at 2."
     },
     {
-      "position": "EDGE",
+      "position": "S",
       "previous_tier": 2,
-      "recommended_tier": 3,
-      "reasoning": "Boye Mafe's departure (3yr/$60M to Bengals) escalates edge depth slightly. However, DeMarcus Lawrence (signed last offseason), Derick Hall, and Uchenna Nwosu remain. The Seahawks have a functional starting edge rotation even without Mafe, who was rotational (38% of playoff snaps). This drops from a mild Tier 2 to a Tier 3 \u2014 they should add a developmental EDGE in the mid-rounds but it is not an urgent Day 1/2 need."
+      "recommended_tier": 2,
+      "reasoning": "Coby Bryant's departure (Bears, 3yr/$40M) creates a real starting safety need. The response \u2014 Rodney Thomas II (1yr, terms TBD), D'Anthony Bell (1yr, terms TBD), and AJ Finley (re-sign, undisclosed, coming off IR) \u2014 is all depth/competition signings on one-year deals. Julian Love is the CB1 safety; Ty Okada (ERFA tender) is the heir apparent but unproven as a starter. No starter-level safety has been added. S remains a tier 2 draft need \u2014 the draft or a later FA addition should be pursued."
+    },
+    {
+      "position": "LB",
+      "previous_tier": 3,
+      "recommended_tier": 4,
+      "reasoning": "Drake Thomas re-signed (2yr/$8M) pairs with Ernest Jones IV (multi-year deal signed 2025) to give Seattle a complete, starting-caliber LB duo at a bargain price. Both starters are locked up, and the position group has depth. LB drops from a minor need to virtually no need heading into the draft."
     },
     {
       "position": "WR",
       "previous_tier": 3,
       "recommended_tier": 4,
-      "reasoning": "Rashid Shaheed retained on a 3yr/$51M deal with $34.7M guaranteed. WR room: JSN (extension pending), Cooper Kupp ($13.5M cap hit), Shaheed, Tory Horton, plus depth. This is a fully stacked room for a run-first team. WR drops to Tier 4 \u2014 luxury pick only. Day 3 developmental talent at most."
+      "reasoning": "Rashid Shaheed re-signed (3yr/$51M, $34.7M gtd) to return alongside JSN, Kupp, and Horton. WR is now a position of strength. Dareke Young's departure (to Raiders) is easily absorbed. The 4-deep receiving core plus tendered Jake Bobo is among the strongest in the NFC. WR drops to a luxury pick; depth WR/developmental slot is the most one could justify drafting here."
     },
     {
-      "position": "LB",
-      "previous_tier": 2,
+      "position": "IOL",
+      "previous_tier": 3,
       "recommended_tier": 4,
-      "reasoning": "Both starting LBs retained: Drake Thomas (2yr/$8M extension) and Ernest Jones IV (already under contract). Thomas had 96 tackles and 3.5 sacks as a first-year starter in 2025. LB is fully addressed. Tier 4 \u2014 no meaningful draft investment needed here."
-    },
-    {
-      "position": "QB",
-      "previous_tier": 4,
-      "recommended_tier": 4,
-      "reasoning": "Sam Darnold is the unquestioned starter under a multi-year deal. Drew Lock returns as the backup on a 2yr/$5M deal. QB room is stable. No change needed."
+      "reasoning": "Josh Jones re-signed (1yr/$4M, $3M gtd) as the swing backup. The starting OL of Cross, Lucas, Zabel, Bradford, Sundell returns intact from the Super Bowl. IOL is not a pressing need; drafting depth is always useful but not a priority."
     }
   ],
   "team_page_additions": {
     "key_additions": [
       {
         "player": "Rashid Shaheed",
-        "position": "WR",
+        "position": "WR/KR",
         "contract_summary": "3yr/$51M ($34.7M gtd)",
         "previous_team": "Seattle Seahawks (re-sign)",
-        "headline": "Playoff hero and Pro Bowl returner re-signs, keeping Seattle's receiver room elite and returning specialist intact"
+        "headline": "Pro Bowl returner and receiver stays in Seattle after three return TDs helped win the Super Bowl"
       },
       {
         "player": "Josh Jobe",
         "position": "CB",
-        "contract_summary": "3yr/$24M (~$9.25M gtd)",
+        "contract_summary": "3yr/$24M ($7M gtd)",
         "previous_team": "Seattle Seahawks (re-sign)",
-        "headline": "UDFA-to-starter locked up at below-market value; posted 4th-lowest completion % allowed by any CB in 2025"
+        "headline": "Starting CB locked up on a bargain deal after allowing the 4th-lowest completion rate in the NFL in 2025"
       },
       {
         "player": "Drake Thomas",
         "position": "LB",
-        "contract_summary": "2yr/$8M (up to $9M w/ incentives)",
-        "previous_team": "Seattle Seahawks (extension)",
-        "headline": "Starting LB retained on team-friendly extension; 96 tackles and 3.5 sacks in first year as a starter"
+        "contract_summary": "2yr/$8M ($3M gtd)",
+        "previous_team": "Seattle Seahawks (re-sign)",
+        "headline": "Breakout starting linebacker retained at below-market value to anchor the defense alongside Ernest Jones IV"
       },
       {
-        "player": "Drew Lock",
-        "position": "QB",
-        "contract_summary": "2yr/$5M ($2.25M gtd)",
-        "previous_team": "New York Giants",
-        "headline": "Familiar backup returns to back up Darnold at minimum cost after two seasons in Seattle 2022-23"
+        "player": "Emanuel Wilson",
+        "position": "RB",
+        "contract_summary": "1yr/$2.1M",
+        "previous_team": "Green Bay Packers",
+        "headline": "First outside RB addition after Walker's departure; career backup who stepped up as Packers starter in 2025"
+      },
+      {
+        "player": "Rodney Thomas II",
+        "position": "S",
+        "contract_summary": "1yr/terms TBD",
+        "previous_team": "Indianapolis Colts",
+        "headline": "First external FA signing addresses Coby Bryant's void at safety; former starter with 6 career INTs"
       },
       {
         "player": "D'Anthony Bell",
         "position": "S",
-        "contract_summary": "1yr/$1.37M ($225k gtd)",
-        "previous_team": "Cleveland Browns",
-        "headline": "Special teams standout and safety depth re-signed after Super Bowl run; punt block against Saints was a season highlight"
+        "contract_summary": "1yr/terms TBD",
+        "previous_team": "Carolina Panthers",
+        "headline": "Familiar face returns to bolster safety depth and special teams after making two starts in 2025"
       },
       {
-        "player": "George Holani",
-        "position": "RB",
-        "contract_summary": "1yr/ERFA tender",
-        "previous_team": "Seattle Seahawks (retained)",
-        "headline": "ERFA tender keeps healthy depth back on roster as team searches for a Walker replacement"
+        "player": "Josh Jones",
+        "position": "IOL/OT",
+        "contract_summary": "1yr/$4M ($3M gtd)",
+        "previous_team": "Seattle Seahawks (re-sign)",
+        "headline": "Versatile OL reserve keeps the Super Bowl offensive line depth intact for another year"
+      },
+      {
+        "player": "Brady Russell",
+        "position": "TE/FB",
+        "contract_summary": "2yr/terms TBD",
+        "previous_team": "Seattle Seahawks (re-sign)",
+        "headline": "Special teams captain re-signs; led all NFL players with 394 ST snaps in the 2025 regular season"
+      },
+      {
+        "player": "Brandon Pili",
+        "position": "IDL",
+        "contract_summary": "1yr/$2M",
+        "previous_team": "Seattle Seahawks (re-sign)",
+        "headline": "26-year-old depth DT kept at below-RFA-tender rate to inject youth into an aging D-line rotation"
       }
     ],
     "key_losses": [
       {
         "player": "Kenneth Walker III",
         "position": "RB",
-        "contract_summary": "3yr/$45M with Chiefs (est. highest-paid RB at signing)",
+        "contract_summary": "3yr/$43.05M with Chiefs",
         "new_team": "Kansas City Chiefs",
-        "headline": "Super Bowl LX MVP departs as the Seahawks' biggest loss; 730 scrimmage yards and 20 TDs in the regular season, 300+ rushing yards in the playoffs"
-      },
-      {
-        "player": "Coby Bryant",
-        "position": "S",
-        "contract_summary": "3yr/$40M ($25.75M gtd) with Bears",
-        "new_team": "Chicago Bears",
-        "headline": "Ball-hawking safety/CB hybrid with 7 INTs over last two seasons leaves a starter-sized hole opposite Julian Love"
+        "headline": "Super Bowl LX MVP departs as the biggest free agent loss; leaves a critical RB void with Charbonnet on ACL rehab"
       },
       {
         "player": "Boye Mafe",
         "position": "EDGE",
         "contract_summary": "3yr/$60M with Bengals",
         "new_team": "Cincinnati Bengals",
-        "headline": "2022 2nd-round pick cashes in with Bengals; 146 pressures over three seasons, top-25 pass-rush win rate in the NFL"
+        "headline": "Primary pass rusher who produced 146 pressures in 3 seasons departs, leaving a significant EDGE need"
+      },
+      {
+        "player": "Coby Bryant",
+        "position": "S",
+        "contract_summary": "3yr/$40M with Bears",
+        "new_team": "Chicago Bears",
+        "headline": "Four-year defensive starter who posted 7 INTs and 13 PBUs in 2025 departs to Chicago, creating safety hole"
       },
       {
         "player": "Riq Woolen",
         "position": "CB",
         "contract_summary": "1yr/$15M with Eagles",
         "new_team": "Philadelphia Eagles",
-        "headline": "Former Pro Bowl CB and 2022 INT leader (6) departs on a prove-it deal; Josh Jobe's retention makes Woolen expendable"
+        "headline": "Former Pro Bowl CB departs on a prove-it deal, leaving CB2/nickel role open heading into the draft"
+      },
+      {
+        "player": "Dareke Young",
+        "position": "WR/ST",
+        "contract_summary": "terms TBD, Raiders",
+        "new_team": "Las Vegas Raiders",
+        "headline": "Special teams WR follows ex-Seahawks OC Klint Kubiak to Las Vegas; depth loss absorbed by returning WR room"
       }
     ]
   },
   "confidence": "high",
-  "notes": "All major signings and departures confirmed through NFL.com, ESPN, OverTheCap, Spotrac, and Seahawks.com as of March 11, 2026. Drew Lock, D'Anthony Bell, River Cracraft, Steven Sims, and Josh Ross were signed in 2025 offseason and remain under contract; included as relevant to 2026 roster context. Contract guarantees for Jobe sourced from Seattle Times salary cap breakdown and Field Gulls/OverTheCap detail. Guaranteed money for Drake Thomas extension not fully published \u2014 listed as TBD. Steven Sims, River Cracraft, and Josh Ross contract values are minimum-range deals with terms not yet publicly reported in detail. Cap space post-FA reflects OverTheCap figure of $42,966,262 as of March 11, 2026, which must still accommodate rookie class and in-season roster needs. Pending extensions for Jaxon Smith-Njigba and Devon Witherspoon will significantly reduce remaining cap space.",
+  "notes": [
+    "Seahawks' stated offseason strategy per GM John Schneider: prioritize retaining their own free agents over splashy external additions.",
+    "Seattle entered 2026 FA with approximately $58M in cap space (per Field Gulls/OverTheCap). Current post-FA space per OTC: ~$42.97M \u2014 still significant flexibility remaining for draft rookies and any late FA additions.",
+    "Zach Charbonnet (ACL) is the presumed RB1 when healthy but timeline for Week 1 availability is uncertain \u2014 this makes the RB need even more acute.",
+    "Devon Witherspoon and Jaxon Smith-Njigba are both extension-eligible and expected to command top-of-market deals in coming months; this will significantly affect remaining cap space.",
+    "Seahawks have only 4 draft picks in 2026; Schneider has indicated 2027 draft class is viewed as stronger and the team is managing compensatory pick formula accordingly.",
+    "Contract for Rodney Thomas II and D'Anthony Bell had not been fully disclosed as of March 13, 2026; estimated at below comp-pick formula threshold.",
+    "Shemar Jean-Charles, Eric Saubert, Steven Sims, Drew Lock, River Cracraft, and Josh Ross were all signed during the 2025 offseason (March 2025) and are already under contract heading into 2026 \u2014 they are not 2026 free agency moves and are excluded from this tracker accordingly.",
+    "Josh Jones contract per OverTheCap: 1yr/$4M with $3M guaranteed. Jobe contract per multiple reports: 3yr/$24M with $7M signing bonus (primary guarantee). Thomas contract per Spotrac/OTC: 2yr/$8M with $3M guaranteed."
+  ],
   "sources": [
-    "https://www.seahawks.com/news/seattle-seahawks-2026-free-agency-tracker-roster-moves",
-    "https://www.seahawks.com/news/seahawks-2026-free-agency-primer",
     "https://www.espn.com/nfl/story/_/id/48084500/seattle-seahawks-2026-free-agency-tracker-offseason-moves-signings-contract",
-    "https://www.fieldgulls.com/seattle-seahawks-free-agency/164117/seattle-seahawks-2026-nfl-free-agent-tracker-results-news-updates",
+    "https://www.seahawks.com/news/seattle-seahawks-2026-free-agency-tracker-roster-moves",
     "https://www.fieldgulls.com/seattle-seahawks-free-agency/164184/seattle-seahawks-2026-offseason-roster-tracker-latest-free-agent-signings-tradesnewscap-casualties",
-    "https://www.emeraldcityspectrum.com/home/seattle-seahawks-free-agency-tracker-2026-signings-departures-rumors",
+    "https://www.fieldgulls.com/seattle-seahawks-free-agency/164117/seattle-seahawks-2026-nfl-free-agent-tracker-results-news-updates",
+    "https://www.spotrac.com/nfl/player/_/id/83036/drake-thomas",
+    "https://overthecap.com/player/drake-thomas/11399",
+    "https://overthecap.com/player/josh-jones/8812",
+    "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/sea",
     "https://overthecap.com/salary-cap/seattle-seahawks",
-    "https://www.spotrac.com/nfl/seattle-seahawks/contracts",
-    "https://www.spotrac.com/nfl/player/_/id/77524/josh-jobe",
-    "https://www.spotrac.com/nfl/player/_/id/77391/danthony-bell",
-    "https://www.spotrac.com/nfl/player/_/id/76986/coby-bryant",
-    "https://www.si.com/nfl/seahawks/onsi/seahawks-news/seahawks-salary-cap-tracker-cap-space-dead-money-and-new-contracts",
-    "https://www.union-bulletin.com/sports/seattle_times_sports/detailing-seahawks-salary-cap-numbers-as-nfl-free-agency-continues/article_e8763769-799e-5a1b-a35d-e0d454baadfe.html",
-    "https://www.fieldgulls.com/seattle-seahawks-news/164360/seahawks-free-agency-2026-the-cost-to-keep-josh-jobe-and-rashid-shaheed",
-    "https://www.fieldgulls.com/seattle-seahawks-news/164170/seattle-seahawks-2026-free-agency-how-much-it-cost-to-keep-lb-drake-thomas",
-    "https://www.yardbarker.com/nfl/articles/seahawks_re_sign_lb_drake_thomas_to_new_two_year_contract/s1_17039_43555327",
-    "https://heavy.com/sports/nfl/seattle-seahawks/josh-jobe-signs-news/",
-    "https://12thmanrising.com/seattle-seahawks-2026-free-agency-tracker-guide-to-signings-leavings-trades",
     "https://sports.mynorthwest.com/nfl/seattle-seahawks/seattle-seahawks-offseason-tracker-2026-free-agents-draft/1841648",
-    "https://www.seahawks.com/news/seahawks-sign-wr-river-cracraft-lb-josh-ross"
+    "https://12thmanrising.com/seattle-seahawks-2026-free-agency-tracker-guide-to-signings-leavings-trades",
+    "https://www.si.com/nfl/seahawks/onsi/seahawks-news/seattle-seahawks-2026-free-agency-tracker-latest-signings-losses-news-and-rumors",
+    "https://www.fieldgulls.com/seattle-seahawks-free-agency/164573/seahawks-2026-free-agency-seattle-adds-former-packers-running-back-emanuel-wilson-nfl-news",
+    "https://www.fieldgulls.com/nfl-free-agency/164565/seahawks-free-agency-2026-seattle-outside-free-agent-rodney-thomas",
+    "https://www.spokesman.com/stories/2026/mar/12/seahawks-sign-safety-rodney-thomas-ii/",
+    "https://www.fox13seattle.com/sports/seahawks-reach-deals-wilson-thomas",
+    "https://nationaltoday.com/us/wa/seattle/news/2026/03/10/seahawks-secure-josh-jobe-with-24m-deal-after-bryant-exit/",
+    "https://www.wiltonbulletin.com/sports/article/seahawks-agree-to-a-2-year-contract-with-fullback-22073598.php",
+    "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/seahawks-agree-to-two-year-contract-with-lb-drake-thomas"
   ]
 }

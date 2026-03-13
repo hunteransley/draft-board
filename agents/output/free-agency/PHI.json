@@ -1,41 +1,25 @@
 {
   "team": "PHI",
   "team_full": "Philadelphia Eagles",
-  "updated_through": "2026-03-11",
-  "cap_space_pre_fa": "$13700000",
-  "cap_space_post_fa": "~$5000000",
+  "updated_through": "2026-03-13",
+  "cap_space_pre_fa": "$12500000",
+  "cap_space_post_fa": "$11520188",
   "key_departures": [
     {
       "player": "Jaelan Phillips",
       "position": "EDGE",
-      "age": 27,
+      "age": 25,
       "role": "starter",
       "new_team": "Carolina Panthers",
-      "contract_signed": {
+      "contract_signed_elsewhere": {
         "years": 4,
         "total_value": 120000000,
         "guaranteed": 80000000,
         "aav": 30000000
       },
-      "impact": "Phillips was Philadelphia's top pass rusher after being acquired from Miami at the 2025 trade deadline. In eight games with the Eagles he posted two sacks and 34 quarterback pressures. The Eagles were reportedly willing to offer $20-25M/yr but Carolina pushed to $30M/yr \u2014 a price Philly would not match. With Phillips gone, Nolan Smith Jr. and Jalyx Hunt are the only edge rushers under contract who were on the 2025 active roster.",
-      "need_impact": "escalates",
+      "impact": "Phillips was acquired at the 2025 trade deadline for a 3rd-round pick and immediately became the Eagles' top pass rusher, posting 2 sacks and 34 QB pressures in 8 games. His departure leaves a gaping hole at the top of the EDGE depth chart. The Eagles missed on Trey Hendrickson (Ravens, 4yr/$112M) and are currently pursuing a Jonathan Greenard trade but nothing is confirmed.",
+      "need_impact": "creates",
       "need_position": "EDGE"
-    },
-    {
-      "player": "Nakobe Dean",
-      "position": "LB",
-      "age": 25,
-      "role": "starter",
-      "new_team": "Las Vegas Raiders",
-      "contract_signed": {
-        "years": 3,
-        "total_value": 36000000,
-        "guaranteed": 20000000,
-        "aav": 12000000
-      },
-      "impact": "Dean was a third-round pick (2022) who developed into a starting LB, posting a career-high 128 tackles in 2024 and 55 tackles with four sacks in 10 games in 2025. His departure is partially mitigated by second-year LB Jihaad Campbell, who was drafted as Dean's heir apparent and is expected to step into a larger role.",
-      "need_impact": "escalates",
-      "need_position": "LB"
     },
     {
       "player": "Reed Blankenship",
@@ -43,29 +27,45 @@
       "age": 26,
       "role": "starter",
       "new_team": "Houston Texans",
-      "contract_signed": {
+      "contract_signed_elsewhere": {
         "years": 3,
         "total_value": 24750000,
         "guaranteed": null,
         "aav": 8250000
       },
-      "impact": "Blankenship was an undrafted free agent success story who started 50 games for Philadelphia and was named a team captain in 2025. His departure leaves a major void at starting safety. The current internal candidates \u2014 Drew Mukuba (returning from injury), Sydney Brown, Andre Sam, and Michael Carter II \u2014 represent a significant step down in reliability.",
+      "impact": "Blankenship started 50 games across four seasons as an undrafted free agent success story and was a team captain in 2025. His departure leaves a significant void at starting safety. Andrew Mukuba suffered a season-ending injury in 2025, leaving the Eagles extremely thin at the position. Michael Carter II (renegotiated) can play some safety snaps but is not a starter-caliber solution.",
       "need_impact": "creates",
       "need_position": "S"
     },
     {
+      "player": "Nakobe Dean",
+      "position": "LB",
+      "age": 24,
+      "role": "starter",
+      "new_team": "Las Vegas Raiders",
+      "contract_signed_elsewhere": {
+        "years": 3,
+        "total_value": 36000000,
+        "guaranteed": 20000000,
+        "aav": 12000000
+      },
+      "impact": "Dean posted a career-high 128 tackles in 2024 and had 55 tackles and 4 sacks in 10 games in 2025 before injury. His departure is somewhat mitigated by the presence of 2025 first-round pick Jihaad Campbell \u2014 however, Campbell is dealing with a shoulder injury that will keep him out most of the offseason. The LB depth behind Campbell is thin.",
+      "need_impact": "escalates",
+      "need_position": "LB"
+    },
+    {
       "player": "Jahan Dotson",
       "position": "WR",
-      "age": 25,
+      "age": 24,
       "role": "rotational",
       "new_team": "Atlanta Falcons",
-      "contract_signed": {
+      "contract_signed_elsewhere": {
         "years": 2,
         "total_value": 15000000,
         "guaranteed": 10000000,
         "aav": 7500000
       },
-      "impact": "Dotson was acquired in a 2024 trade with Washington and served as the Eagles' WR3 in 2025. His departure thins the receiver depth behind A.J. Brown and DeVonta Smith (assuming Brown remains). With A.J. Brown's trade status uncertain, WR depth is now a notable concern.",
+      "impact": "Dotson was acquired in a 2024 trade from Washington and totaled 37 catches for 478 yards and 1 TD across two Eagles seasons. He was a depth/rotational receiver, not a true starter. His departure thins a WR room that is already dealing with the ongoing A.J. Brown trade uncertainty.",
       "need_impact": "escalates",
       "need_position": "WR"
     },
@@ -75,48 +75,101 @@
       "age": 30,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "contract_signed": null,
-      "impact": "Jackson started at outside cornerback in 2025, with Cooper DeJean moving to nickel. His departure (if he doesn't re-sign) would have been the primary CB2 void. The Eagles signing Riq Woolen addresses this directly. Jackson's status as of March 11 is unsigned/undecided, but Woolen's addition makes his return a depth question rather than a need.",
+      "contract_signed_elsewhere": null,
+      "impact": "Jackson started 10 games for the Eagles in 2025 as the CB2 opposite Quinyon Mitchell, posting 11 passes defended and 1 interception. He is an unrestricted free agent and has not signed elsewhere as of this writing. His role is functionally being replaced by the signing of Riq Woolen. Departure does not escalate need since Woolen was signed expressly as his replacement.",
       "need_impact": "none",
       "need_position": "CB"
+    },
+    {
+      "player": "Matt Pryor",
+      "position": "IOL",
+      "age": 30,
+      "role": "depth",
+      "new_team": "Arizona Cardinals",
+      "contract_signed_elsewhere": {
+        "years": 1,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "impact": "Reserve guard/tackle who started 1 game in 2025. Depth-only departure; does not create a meaningful need.",
+      "need_impact": "none",
+      "need_position": "IOL"
+    },
+    {
+      "player": "Brett Toth",
+      "position": "IOL",
+      "age": 28,
+      "role": "depth",
+      "new_team": "San Francisco 49ers",
+      "contract_signed_elsewhere": {
+        "years": 1,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "impact": "Versatile OL backup who made 4 starts in 2025 and could play center. His departure is a mild depth loss but does not escalate a core need.",
+      "need_impact": "none",
+      "need_position": "IOL"
+    },
+    {
+      "player": "Joshua Uche",
+      "position": "EDGE",
+      "age": 27,
+      "role": "rotational",
+      "new_team": "Miami Dolphins",
+      "contract_signed_elsewhere": {
+        "years": 1,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "impact": "Uche had 1 sack and 15 QB pressures in 12 games as a rotational edge rusher. His departure further depletes an already thin EDGE room post-Phillips.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Azeez Ojulari",
+      "position": "EDGE",
+      "age": 24,
+      "role": "depth",
+      "new_team": "Atlanta Falcons",
+      "contract_signed_elsewhere": {
+        "years": 1,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "impact": "Depth edge rusher who did not contribute significantly. Minor loss but adds to the cumulative EDGE attrition.",
+      "need_impact": "none",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Sam Howell",
+      "position": "QB",
+      "age": 25,
+      "role": "depth",
+      "new_team": "Dallas Cowboys",
+      "contract_signed_elsewhere": {
+        "years": 1,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "impact": "Backup QB who served as emergency QB2 behind Tanner McKee. Minor departure; QB depth need remains but was never a critical concern with McKee under contract.",
+      "need_impact": "none",
+      "need_position": "QB"
     },
     {
       "player": "Dallas Goedert",
       "position": "TE",
       "age": 31,
       "role": "starter",
-      "new_team": "TBD/unsigned",
-      "contract_signed": null,
-      "impact": "Goedert broke the Eagles franchise TE record with 11 TD grabs in 2025. As of March 11, he has not signed elsewhere and talks with the Eagles are reportedly ongoing, though he is widely expected to test the market. If he leaves, the Eagles take on roughly $20M in dead cap and are left with a massive void at TE1. The signings of Mundt and Calcaterra are complementary pieces only \u2014 neither is a TE1 replacement.",
+      "new_team": "TBD \u2014 void date extended to March 13, negotiations ongoing",
+      "contract_signed_elsewhere": null,
+      "impact": "Goedert had a career year in 2025: 60 catches, 591 yards, 11 TDs (Eagles franchise record for TDs by a TE). His contract void date was pushed back from March 11 to give both sides time to negotiate a new deal. As of March 13, no new contract has been announced. If he departs, TE becomes a critical need. The Eagles have signed Mundt and re-signed Calcaterra as depth, but neither is a starting-caliber starter. FLAGGED AS PENDING.",
       "need_impact": "creates",
       "need_position": "TE"
-    },
-    {
-      "player": "Matt Pryor",
-      "position": "IOL",
-      "age": 31,
-      "role": "depth",
-      "new_team": "Arizona Cardinals",
-      "contract_signed": {
-        "years": 1,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
-      },
-      "impact": "Pryor was a reserve guard/tackle who played 17 games (1 start) for Philadelphia in 2025. Depth-level loss with minimal impact on the need picture.",
-      "need_impact": "none",
-      "need_position": "IOL"
-    },
-    {
-      "player": "Brandon Graham",
-      "position": "EDGE",
-      "age": 38,
-      "role": "rotational",
-      "new_team": "TBD/unsigned",
-      "contract_signed": null,
-      "impact": "Graham came out of retirement to play nine games for the Eagles in 2025. He has expressed openness to an 18th season and Roseman has said he is welcome back. As of March 11 his status is undecided, but even if he returns it would be as a veteran presence/mentor, not a solution to the EDGE starter void.",
-      "need_impact": "none",
-      "need_position": "EDGE"
     }
   ],
   "signings": [
@@ -124,7 +177,7 @@
       "player": "Jordan Davis",
       "position": "IDL",
       "age": 26,
-      "previous_team": "Philadelphia Eagles (re-sign/extension)",
+      "previous_team": "Philadelphia Eagles (extension \u2014 retained)",
       "contract": {
         "years": 3,
         "total_value": 78000000,
@@ -135,10 +188,10 @@
       "market_tier": "elite",
       "need_impact": "fully_addressed",
       "need_position": "IDL",
-      "analysis": "The Eagles locked down their nose tackle to a 3-year, $78M extension ($65M guaranteed) \u2014 making Davis the highest-paid nose tackle in NFL history and the second-highest-paid IDL behind only Chris Jones. Coming off a career year (72 tackles, 9 TFL, 4.5 sacks, 22 pressures), this is a full long-term commitment through 2029. IDL is no longer a need \u2014 Davis and Jalen Carter (still on rookie deal) form one of the best interior DL duos in the league. This deal removes IDL entirely from the draft needs list."
+      "analysis": "Three-year, $78M extension with $65M guaranteed makes Davis the highest-paid nose tackle in NFL history. He had a breakout 2025 season: 4.5 sacks, 72 tackles, 9 TFL. The extension \u2014 signed before free agency even opened \u2014 locks the interior DL anchor through 2029. IDL is no longer a need; the pairing of Davis and Jalen Carter (on his rookie deal, 5th-year option decision pending by May 1) gives Philadelphia one of the best IDL duos in football. This position can drop multiple tiers."
     },
     {
-      "player": "Riq Woolen",
+      "player": "Riq Woolen (Tariq Woolen)",
       "position": "CB",
       "age": 26,
       "previous_team": "Seattle Seahawks",
@@ -152,7 +205,7 @@
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "CB",
-      "analysis": "Woolen fills the CB2/outside corner vacancy left by Adoree' Jackson's departure. The addition gives the Eagles three high-upside corners \u2014 Mitchell (All-Pro), DeJean (All-Pro), and Woolen (Pro Bowl 2022, 12 career INTs) \u2014 which is a legitimate strength. However, it is a one-year prove-it deal, worth up to $15M including incentives. Woolen's role decreased in Seattle in 2025 (7 starts in 16 games) and this is structured as a one-year showcase rather than a long-term solution. CB remains a moderate need for the 2027 horizon, but the 2026 starting unit is addressed. The Eagles may still want to draft a developmental CB. Need drops from critical/Tier 1 to moderate/Tier 3."
+      "analysis": "One-year deal worth up to $15M. Woolen replaces Adoree' Jackson as the CB2 opposite Quinyon Mitchell, with Cooper DeJean sliding to full-time nickel. He is a Pro Bowl-caliber athlete (6-4, 4.26 40, 6 INTs as a rookie) who posted the lowest completion rate in man coverage of any defender in 2025 (27.6%). However, the 1-year structure is explicitly a prove-it deal after he lost his starting job in Seattle. This is a high-upside gamble: if it works, the CB room is elite; if it doesn't, the Eagles face a CB need again in 2027. Need is partially addressed \u2014 the starting role is filled for 2026, but no long-term commitment means CB remains a position to watch in the draft for future depth/succession planning."
     },
     {
       "player": "Johnny Mundt",
@@ -169,13 +222,47 @@
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "TE",
-      "analysis": "Mundt is a blocking-specialist TE who fills a specific void the Eagles had in 2025 \u2014 a lack of a true inline blocker in the tight end room. He has familiarity with new OC Sean Mannion (both were with the Rams) and new OL coach Chris Kuper (Vikings). Nine catches for 111 yards in 2025 underscore that he is not a receiving threat. This is a complementary signing that addresses a scheme fit, not the TE1 starter problem. If Goedert walks, the TE need remains critical. One-year deal at depth value."
+      "analysis": "One-year deal for a veteran blocking TE. The Eagles needed a dedicated blocking tight end after lacking one in 2025, which hampered the run game. Mundt (9 catches, 111 yards in 2025 with Jacksonville) addresses that specific blocking role. However, this move does nothing to replace Dallas Goedert as a pass-catching starter \u2014 the TE need at the top of the depth chart is unaddressed (and Goedert's status is still pending). Minimal need impact."
     },
     {
       "player": "Grant Calcaterra",
       "position": "TE",
-      "age": 27,
+      "age": 26,
       "previous_team": "Philadelphia Eagles (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "expected_role": "depth",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "TE",
+      "analysis": "One-year re-sign for Calcaterra, a pass-catching backup TE with 42 career catches. He has been Goedert's primary backup and provides reliable depth. Combined with Mundt, the Eagles have functional TE2/TE3 pieces in place, but if Goedert departs, neither is a TE1. Minimal need impact."
+    },
+    {
+      "player": "Braden Mann",
+      "position": "P",
+      "age": 28,
+      "previous_team": "Philadelphia Eagles (re-sign)",
+      "contract": {
+        "years": 4,
+        "total_value": 14000000,
+        "guaranteed": 7000000,
+        "aav": 3500000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "fully_addressed",
+      "need_position": "P",
+      "analysis": "Four-year, $14M re-sign with $7M guaranteed locks down one of the NFL's best punters (49.9 yards per punt in 2025, 6th in league; 82.3 PFF grade). This was a potential need \u2014 Mann was a UFA \u2014 but the Eagles moved quickly to retain him. Punter is fully addressed through 2029."
+    },
+    {
+      "player": "Michael Carter II",
+      "position": "S",
+      "age": 26,
+      "previous_team": "Philadelphia Eagles (renegotiation \u2014 retained)",
       "contract": {
         "years": 1,
         "total_value": null,
@@ -185,92 +272,81 @@
       "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
-      "need_position": "TE",
-      "analysis": "Calcaterra returns for a fifth season as the Eagles' pass-catching TE2 option behind Goedert. He has 42 career catches for 494 yards and 2 TDs in 62 games \u2014 a reliable but unspectacular complementary piece. His best season came in 2024 when Goedert missed games. Re-signing Calcaterra on a one-year deal keeps roster continuity but does nothing to address the TE1 hole if Goedert leaves. Minimal impact on the need picture."
-    },
-    {
-      "player": "Michael Carter II",
-      "position": "S",
-      "age": 27,
-      "previous_team": "Philadelphia Eagles (renegotiated/retained)",
-      "contract": {
-        "years": null,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
-      },
-      "expected_role": "depth",
-      "market_tier": "depth",
-      "need_impact": "minimal",
       "need_position": "S",
-      "analysis": "Carter's original cap hit was over $10.1M for 2026 \u2014 a problematic number given his limited usage (106 defensive snaps, 65 special teams snaps in 2025). The Eagles renegotiated the deal downward to free cap space while retaining a versatile DB who can play nickel corner or safety. He may compete for the starting safety job post-Blankenship, but he is not a proven starter at S. This is a cap-management move with a depth floor, not a need-solving move. S remains a prominent need entering the draft."
+      "analysis": "Carter II had his contract renegotiated downward from a $10.1M+ cap hit to avoid being cut, freeing Eagles cap space while retaining a versatile DB who can play nickel corner and safety. He will compete for time but is not a starter-caliber safety. With Blankenship gone, this is a temporary plug. S need remains."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
-      "IDL"
+      "IDL",
+      "P"
     ],
     "partially_addressed": [
       "CB"
     ],
     "minimally_addressed": [
-      "TE"
+      "TE",
+      "S"
     ],
     "unchanged": [
-      "IOL",
       "QB",
+      "RB",
       "OT",
-      "RB"
+      "IOL",
+      "WR"
     ],
     "escalated": [
       "EDGE",
-      "LB",
+      "LB"
+    ],
+    "created": [
       "S",
-      "WR"
+      "EDGE",
+      "TE"
     ]
   },
   "recommended_need_adjustments": [
     {
-      "position": "IDL",
-      "previous_tier": 3,
-      "recommended_tier": 5,
-      "reasoning": "Jordan Davis extension (3yr/$78M/$65M guaranteed through 2029) locks up the best nose tackle in the NFL. Paired with Jalen Carter on his rookie deal, this is a dominant IDL duo. Remove from draft needs entirely. Day 3 depth only if they want developmental rotational pieces."
-    },
-    {
       "position": "EDGE",
       "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Jaelan Phillips departed on a 4yr/$120M deal to Carolina. Only Nolan Smith Jr. and Jalyx Hunt remain as active-roster EDGE players under contract. No meaningful free agent addition made at the position. This is now the Eagles' most critical need heading into the draft \u2014 a Tier 1 priority. Should target EDGE in rounds 1-2."
+      "reasoning": "Jaelan Phillips (the team's best pass rusher) signed a 4yr/$120M deal with Carolina. Uche (rotational) went to Miami. Ojulari (depth) went to Atlanta. The remaining EDGE corps is Nolan Smith Jr., Jalyx Hunt, and Jose Ramirez \u2014 none of whom have established themselves as impact starters. The Eagles missed on Hendrickson (Ravens) and are pursuing a Greenard trade (unconfirmed as of March 13). EDGE is now the team's most critical need. Upgrade from tier 2 to tier 1 critical."
     },
     {
       "position": "S",
       "previous_tier": 3,
       "recommended_tier": 1,
-      "reasoning": "Reed Blankenship signed a 3yr/$24.75M deal with the Texans. The Eagles have no proven starting safety on the roster. Drew Mukuba (2025 2nd-round pick) is returning from injury and is the likely starter, but an opposite-side starter is urgently needed. Michael Carter II (renegotiated, depth/nickel) is not the answer. Safety is a co-equal Tier 1 need with EDGE entering the draft \u2014 should address rounds 2-4."
-    },
-    {
-      "position": "LB",
-      "previous_tier": 3,
-      "recommended_tier": 2,
-      "reasoning": "Nakobe Dean signed a 3yr/$36M deal with the Raiders. Jihaad Campbell provides an internal solution at LB and is expected to step into a larger role, which prevents this from becoming Tier 1. However, the position does need attention \u2014 Campbell is still developing and the Eagles lack proven LB depth. Tier 2 need; rounds 3-5 range."
+      "reasoning": "Reed Blankenship (starter, team captain) signed a 3yr/$24.75M deal with Houston. Andrew Mukuba suffered a season-ending injury in 2025. The only remaining safety options are Michael Carter II (renegotiated, can play some safety snaps) and depth. The Eagles have no starting-caliber safety under contract. This is a co-critical need alongside EDGE. Upgrade from tier 3 to tier 1."
     },
     {
       "position": "TE",
       "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Dallas Goedert remains unsigned and is widely expected to leave. His departure would trigger ~$20M in dead cap and leave the Eagles with only Mundt (blocking specialist, 1yr) and Calcaterra (pass-catcher, 1yr) as TE options \u2014 neither is a TE1. With the new Shanahan-McVay scheme under OC Sean Mannion, a receiving/versatile TE is critical. If Goedert departs (likely), TE escalates to Tier 1. This must be addressed in free agency or rounds 2-3 of the draft. Note: Goedert's situation is still fluid as of March 11 \u2014 downgrade only if he formally signs elsewhere."
+      "reasoning": "Dallas Goedert (11 TDs, 60 catches in 2025) is in active negotiations as of March 13 with his void date extended. If he departs, the Eagles would have only Calcaterra, Mundt, Cameron Latu, and E.J. Jenkins at TE \u2014 none are remotely capable of replacing Goedert's production. Should Goedert sign elsewhere, TE immediately becomes a tier 1 critical need. Flag as PENDING \u2014 hold at tier 1 until Goedert's situation resolves. If Goedert re-signs on a new deal, TE drops back to tier 4+."
+    },
+    {
+      "position": "LB",
+      "previous_tier": 3,
+      "recommended_tier": 2,
+      "reasoning": "Nakobe Dean (3yr/$36M, Raiders) departed. Jihaad Campbell (2025 first-round pick) is the assumed heir but is out most of the offseason with a shoulder injury (dealt with it all of 2025 despite pre-draft surgery). Campbell's health and timeline create real uncertainty. Zack Baun is under contract as depth. The Eagles need a LB2 opposite Campbell. Upgrade from tier 3 to tier 2."
+    },
+    {
+      "position": "IDL",
+      "previous_tier": 2,
+      "recommended_tier": 4,
+      "reasoning": "Jordan Davis locked up on a 3yr/$78M deal with $65M guaranteed (highest-paid nose tackle in NFL history). Jalen Carter remains on his rookie deal (5th-year option decision pending by May 1; extension likely). The IDL pairing of Davis and Carter is elite. This is no longer a need. Drop from tier 2 to tier 4."
     },
     {
       "position": "CB",
-      "previous_tier": 1,
+      "previous_tier": 2,
       "recommended_tier": 3,
-      "reasoning": "Riq Woolen signing (1yr/up to $15M) fills the CB2 starting role vacated by Adoree' Jackson. With Mitchell, DeJean, and Woolen, the 2026 starting CB unit is legitimate. However, Woolen's one-year deal means this need resurfaces in 2027. Eagles should target a developmental CB in rounds 3-5 to groom as a future starter, but this is no longer a priority pick."
+      "reasoning": "Adoree' Jackson (CB2 starter) departed. Riq Woolen signed a 1-year deal (up to $15M) as the replacement. Quinyon Mitchell and Cooper DeJean are two of the best young CBs in the NFL. Woolen's talent is undeniable but his 1-year deal is a prove-it structure \u2014 his inconsistency (lost his starting job in Seattle) means CB remains a watchable position in the draft for long-term depth and eventual succession. Drop from tier 2 to tier 3."
     },
     {
       "position": "WR",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Jahan Dotson (WR3) departed to Atlanta. The A.J. Brown trade situation remains unresolved \u2014 if Brown is dealt, WR becomes a Tier 1 emergency. Even assuming Brown stays, WR depth is thin behind Brown and DeVonta Smith. No WR additions made in free agency. Need remains Tier 2 entering the draft; escalates to Tier 1 if Brown is traded."
+      "reasoning": "Jahan Dotson (rotational) departed to Atlanta. No WR signings made. A.J. Brown trade situation remains unresolved and is a wildcard that could escalate WR to tier 1 instantly if he is moved. With Brown retained, DeVonta Smith and Brown form one of the NFL's best duos and WR is not a pressing need. However, without a true WR3 replacement for Dotson and the A.J. Brown situation looming, WR stays at tier 2."
     }
   ],
   "team_page_additions": {
@@ -278,103 +354,115 @@
       {
         "player": "Jordan Davis",
         "position": "IDL",
-        "contract_summary": "3yr/$78M ($65M gtd) extension through 2029",
-        "previous_team": "Eagles (extension)",
-        "headline": "Career-year nose tackle locked up as highest-paid NT in NFL history, anchoring a dominant DL duo with Jalen Carter"
+        "contract_summary": "3yr/$78M ($65M gtd) extension",
+        "previous_team": "Philadelphia Eagles (retained)",
+        "headline": "Highest-paid nose tackle in NFL history locked up through 2029 after breakout 4.5-sack, 72-tackle 2025 season"
       },
       {
         "player": "Riq Woolen",
         "position": "CB",
         "contract_summary": "1yr/up to $15M",
         "previous_team": "Seattle Seahawks",
-        "headline": "Pro Bowl corner and Super Bowl champion fills the CB2 void, giving Philly three elite corners alongside Mitchell and DeJean"
+        "headline": "Super Bowl champion and Pro Bowl corner joins elite Philadelphia secondary to replace Adoree' Jackson as CB2"
+      },
+      {
+        "player": "Braden Mann",
+        "position": "P",
+        "contract_summary": "4yr/$14M ($7M gtd) extension",
+        "previous_team": "Philadelphia Eagles (retained)",
+        "headline": "Best punter in franchise history locked up through 2029 on new multi-year deal"
       },
       {
         "player": "Johnny Mundt",
         "position": "TE",
         "contract_summary": "1yr (terms undisclosed)",
         "previous_team": "Jacksonville Jaguars",
-        "headline": "Blocking TE with Shanahan-scheme familiarity addresses Eagles' 2025 run-game weakness at tight end"
+        "headline": "Veteran blocking TE addresses Eagles' run-game deficiency in tight end room"
       },
       {
         "player": "Grant Calcaterra",
         "position": "TE",
-        "contract_summary": "1yr (terms undisclosed)",
-        "previous_team": "Eagles (re-sign)",
-        "headline": "Pass-catching TE2 returns for a fifth season, providing continuity in a rebuilding tight end room"
-      },
-      {
-        "player": "Michael Carter II",
-        "position": "S",
-        "contract_summary": "Renegotiated deal (terms undisclosed, reduced from $10.1M cap hit)",
-        "previous_team": "Eagles (restructured)",
-        "headline": "Versatile DB retained at reduced cap cost to provide secondary depth at nickel and safety"
+        "contract_summary": "1yr (terms undisclosed) re-sign",
+        "previous_team": "Philadelphia Eagles (retained)",
+        "headline": "Pass-catching backup TE returns for fifth season to provide depth behind Dallas Goedert situation"
       }
     ],
     "key_losses": [
       {
         "player": "Jaelan Phillips",
         "position": "EDGE",
-        "contract_summary": "4yr/$120M ($80M gtd) with Panthers",
+        "contract_summary": "4yr/$120M ($80M gtd) \u2014 Carolina Panthers",
         "new_team": "Carolina Panthers",
-        "headline": "Eagles' best pass rusher departs on a blockbuster deal, leaving Nolan Smith and Jalyx Hunt as the only edge rushers under contract"
+        "headline": "Eagles' top pass rusher departs on elite deal after trade deadline acquisition; leaves critical EDGE void"
       },
       {
         "player": "Reed Blankenship",
         "position": "S",
-        "contract_summary": "3yr/$24.75M with Texans",
+        "contract_summary": "3yr/$24.75M \u2014 Houston Texans",
         "new_team": "Houston Texans",
-        "headline": "50-game starter and team captain walks, leaving a gaping hole at starting safety alongside second-year Drew Mukuba"
+        "headline": "Undrafted free agent success story and team captain departs, leaving Eagles without a starting safety"
       },
       {
         "player": "Nakobe Dean",
         "position": "LB",
-        "contract_summary": "3yr/$36M ($20M gtd) with Raiders",
+        "contract_summary": "3yr/$36M ($20M gtd) \u2014 Las Vegas Raiders",
         "new_team": "Las Vegas Raiders",
-        "headline": "Starting LB departs after four seasons; Jihaad Campbell is the in-house heir apparent but the position needs depth"
-      },
-      {
-        "player": "Jahan Dotson",
-        "position": "WR",
-        "contract_summary": "2yr/$15M ($10M gtd) with Falcons",
-        "new_team": "Atlanta Falcons",
-        "headline": "WR3 leaves for Atlanta, thinning receiver depth behind Brown and Smith amid A.J. Brown trade uncertainty"
+        "headline": "Starting linebacker departs on big deal; Eagles rely on injured Jihaad Campbell to fill void in 2026"
       },
       {
         "player": "Dallas Goedert",
         "position": "TE",
-        "contract_summary": "TBD \u2014 still unsigned as of March 11",
-        "new_team": "TBD/unsigned",
-        "headline": "Franchise-record 11-TD tight end remains unsigned and expected to depart; exit would create Tier 1 need and ~$20M dead cap hit"
+        "contract_summary": "PENDING \u2014 void date extended to March 13, 2026",
+        "new_team": "TBD \u2014 negotiations ongoing",
+        "headline": "Eagles TE record-holder (11 TDs in 2025) in contract limbo; departure would create immediate critical need at TE"
+      },
+      {
+        "player": "Jahan Dotson",
+        "position": "WR",
+        "contract_summary": "2yr/$15M ($10M gtd) \u2014 Atlanta Falcons",
+        "new_team": "Atlanta Falcons",
+        "headline": "Rotational receiver departs, further thinning a WR depth chart already under A.J. Brown trade uncertainty"
       }
     ]
   },
-  "confidence": "high",
-  "notes": [
-    "Dallas Goedert and Adoree' Jackson remain unsigned as of March 11, 2026 (official new league year start). Both are classified as potential departures pending official action.",
-    "Contract guarantees for Blankenship's Texans deal, Mundt's Eagles deal, and Calcaterra's Eagles deal not yet fully reported. Blankenship AAV/structure sourced from NFL Network/NBC Sports Philadelphia; Mundt and Calcaterra terms are one-year deals per NFL Network/ESPN but dollar values not yet disclosed.",
-    "Michael Carter II renegotiated contract terms not fully disclosed \u2014 original cap hit was $10.1M; reduced amount not confirmed.",
-    "A.J. Brown trade situation is unresolved and could dramatically shift the WR need if a deal is executed.",
-    "Jalen Carter extension eligible but not yet executed \u2014 his extension would further cement the IDL need as resolved for years.",
-    "Eagles received four 2026 compensatory picks (R3/98, R4/137, R5/178, R6/215) for 2025 FA losses (Becton, Rodgers, Sweat, M. Williams). Total 2026 picks: 9."
+  "pending_situations": [
+    {
+      "player": "Dallas Goedert",
+      "position": "TE",
+      "status": "Void date on existing contract extended to March 13, 2026. Eagles and Goedert in active negotiations for a new deal. If no deal is reached, Goedert becomes a free agent. Any new deal expected to be a 1-year structure given his age (31) and Eagles' cap constraints. Resolution will dramatically alter TE need tier.",
+      "if_retained": "TE drops to tier 4 \u2014 fully addressed for 2026.",
+      "if_departed": "TE escalates to tier 1 \u2014 most critical need on roster alongside EDGE and S."
+    },
+    {
+      "player": "Jonathan Greenard (Vikings)",
+      "position": "EDGE",
+      "status": "NOT CONFIRMED. Eagles have inquired about a trade and spoken to Greenard's agent about a potential extension. No deal reached as of March 13, 2026. If completed, would likely require a Day 2 draft pick and new contract. Would partially address EDGE need.",
+      "if_acquired": "EDGE drops from tier 1 to tier 2 \u2014 partially addressed with a proven starter.",
+      "if_not_acquired": "EDGE remains tier 1 \u2014 must be addressed in draft (early round) or via another FA/trade."
+    },
+    {
+      "player": "Jalen Carter",
+      "position": "IDL",
+      "status": "Eagles must decide on Carter's 5th-year option ($27.13M) by May 1. Extension talks expected. If extended, IDL need is locked up long-term. If option declined and Carter departs next offseason, IDL resurfaces as a need in 2027.",
+      "if_retained": "IDL stays at tier 4.",
+      "if_departed_next_offseason": "IDL resurfaces as tier 2+ need in 2027 draft."
+    }
   ],
+  "confidence": "high",
+  "notes": "All contract data sourced from NFL.com, ESPN, OverTheCap, Spotrac, and beat reporters (Inquirer, NBC Sports Philadelphia, PhillyVoice). Riq Woolen guaranteed money not yet reported \u2014 total value is 'up to $15M' per NFL Network/ESPN. Mundt and Calcaterra contract financial terms not publicly reported. Goedert's situation is the single largest variable in this assessment and will require a same-day update when resolved. Jonathan Greenard trade is inquiry/rumor only \u2014 not included in signings. Eagles' post-FA cap space of ~$11.52M per OverTheCap as of March 13.",
   "sources": [
-    "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
-    "https://www.nfl.com/news/eagles-dt-jordan-davis-agree-to-three-year-78-million-contract-extension",
     "https://www.espn.com/nfl/story/_/id/48015714/eagles-2026-free-agency-tracker-offseason-moves-signings-trades",
-    "https://www.espn.com/nfl/story/_/id/48153817/sources-linebacker-jaelan-phillips-leaves-eagles-panthers",
     "https://www.inquirer.com/eagles/nfl-eagles-free-agency-tracker-2026-20260309.html",
-    "https://www.inquirer.com/eagles/live/eagles-free-agency-news-rumors-signings-tracker-trades-reaction-20260310.html",
-    "https://www.inquirer.com/eagles/riq-woolen-cornerback-seahawks-2026-nfl-free-agency-20260310.html",
-    "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/eagles-free-agency/riq-woolen-cornerback-reaches-deal/719642/",
-    "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/eagles-jordan-davis-contract-extension-georgia-fifth-year-option/719319/",
-    "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/michael-carter-ii-renegotiated-deal-2026-eagles-safety-nickel/719694/",
-    "https://www.nbcphiladelphia.com/news/sports/nfl/philadelphia-eagles/eagles-add-johnny-mundt-grant-calcaterra-tight-ends-free-agency-dallas-goedert/4366455/",
-    "https://www.philadelphiaeagles.com/news/eagles-jordan-davis-contract-extension",
-    "https://www.philadelphiaeagles.com/news/philadelphia-eagles-2026-free-agents",
+    "https://www.inquirer.com/eagles/live/eagles-free-agency-news-rumors-signings-tracker-trades-reaction-20260312.html",
     "https://www.phillyvoice.com/eagles-2026-free-agency-tracker-signings-retirements-departing-players-gains-losses-howie-roseman/",
-    "https://www.profootballrumors.com/2026/03/eagles-agree-to-extension-for-dt-jordan-davis",
+    "https://www.nfl.com/news/eagles-dt-jordan-davis-agree-to-three-year-78-million-contract-extension",
+    "https://www.nfl.com/news/eagles-signing-former-seahawks-cb-riq-woolen-to-one-year-deal-worth-max-value-of-15-million",
+    "https://www.spotrac.com/nfl/player/_/id/76861/jordan-davis",
+    "https://overthecap.com/salary-cap/philadelphia-eagles",
+    "https://www.profootballrumors.com/2026/03/eagles-to-re-sign-p-braden-mann",
+    "https://www.philadelphiaeagles.com/news/philadelphia-eagles-2026-free-agents",
+    "https://www.nbcsportsphiladelphia.com/nfl/philadelphia-eagles/free-agency-legal-tampering-live-updates/719602/",
     "https://973espn.com/eagles-nfl-free-agency-tracker-updates/",
-    "https://spotrac.com/nfl/free-agents/_/year/2026/team/phi"
+    "https://www.phillyvoice.com/eagles-notes-dallas-goedert-contract-jihaad-campbell-injury-jaire-alexander-trade/"
   ]
 }

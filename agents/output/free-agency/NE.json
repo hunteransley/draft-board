@@ -1,59 +1,49 @@
 {
   "team": "NE",
   "team_full": "New England Patriots",
-  "updated_through": "2026-03-11",
-  "cap_space_pre_fa": "$41300000",
-  "cap_space_post_fa": "$37129730",
+  "updated_through": "2026-03-13",
+  "cap_space_pre_fa": "$41000000",
+  "cap_space_post_fa": "$18000000",
   "key_departures": [
     {
       "player": "Stefon Diggs",
       "position": "WR",
       "age": 32,
       "role": "starter",
-      "new_team": "Released/UFA",
-      "impact": "Led the team with 85 catches, 1,013 yards, and 4 TDs in his lone season. Released after his 2026 cap hit was set to balloon to $26.5M. Carries $9.7M dead cap hit. Leaves a significant void at WR1.",
+      "new_team": "TBD/unsigned",
+      "impact": "Released after one season. Led team with 85 receptions and 1,013 receiving yards in 2025 despite cap hit of $26M. Departure opens a significant WR1 hole and creates dead money of $9.7M against the cap.",
       "need_impact": "creates",
       "need_position": "WR"
-    },
-    {
-      "player": "Garrett Bradbury",
-      "position": "IOL",
-      "age": 30,
-      "role": "starter",
-      "new_team": "Chicago Bears (trade)",
-      "impact": "Started all 21 games for the Patriots in 2025. Traded to Bears for a 2027 fifth-round pick. Opens door for Jared Wilson to shift from LG to C, but creates a left guard hole. Net effect is a positional shuffle that elevates IOL need.",
-      "need_impact": "escalates",
-      "need_position": "IOL"
-    },
-    {
-      "player": "Khyiris Tonga",
-      "position": "IDL",
-      "age": 29,
-      "role": "starter",
-      "new_team": "Kansas City Chiefs",
-      "impact": "Career year in 2025 \u2014 blossomed as a pass-rusher and run-stuffer (disruptive space-eater). Signed 3yr/$21M with $14M guaranteed in KC. Cory Durden now slots into starting role; loss of Tonga's versatility and special-teams value is meaningful.",
-      "need_impact": "creates",
-      "need_position": "IDL"
     },
     {
       "player": "K'Lavon Chaisson",
       "position": "EDGE",
       "age": 26,
       "role": "starter",
-      "new_team": "TBD/unsigned as of 2026-03-11",
-      "impact": "Breakout 2025 season: 7.5 sacks (per some reports 10.5 sacks across playoffs), 18 QB hits, 2 forced fumbles, 64.9% snap share. Addition of Dre'Mont Jones signals Chaisson is unlikely to return. Significant hole created if he departs.",
+      "new_team": "Washington Commanders",
+      "impact": "Team's leading pass rusher in 2025 with 73 pressures and 10.5 sacks \u2014 first on the team. Signed with Commanders on 1yr/$12M. A significant loss at the top of the EDGE depth chart.",
       "need_impact": "escalates",
       "need_position": "EDGE"
     },
     {
-      "player": "Jaylinn Hawkins",
-      "position": "S",
-      "age": 28,
+      "player": "Khyiris Tonga",
+      "position": "IDL",
+      "age": 27,
       "role": "starter",
-      "new_team": "TBD/unsigned as of 2026-03-11",
-      "impact": "Standout 2025 season: 4 interceptions (tied team lead), 6 PBUs, 91.3% defensive snap share. If he leaves, safety becomes one of the team's most glaring needs.",
+      "new_team": "Kansas City Chiefs",
+      "impact": "Signed with Chiefs on 3yr/$21M ($14M guaranteed). Was one of the stoutest run-stuffing DTs on the roster and also showed interior pass-rush ability. Loss weakens IDL depth and run defense.",
+      "need_impact": "escalates",
+      "need_position": "IDL"
+    },
+    {
+      "player": "Garrett Bradbury",
+      "position": "IOL",
+      "age": 30,
+      "role": "starter",
+      "new_team": "Chicago Bears",
+      "impact": "Traded to Chicago Bears for a 2027 fifth-round pick. Started all 21 games in 2025. Departure creates a clear hole at center, though Jared Wilson is expected to slide from LG to C.",
       "need_impact": "creates",
-      "need_position": "S"
+      "need_position": "IOL"
     },
     {
       "player": "Austin Hooper",
@@ -61,59 +51,69 @@
       "age": 32,
       "role": "rotational",
       "new_team": "Atlanta Falcons",
-      "impact": "Signed 1yr/$3.25M with Atlanta. Veteran backup TE depth piece. Leaves Patriots without a proven No. 2 TE behind Hunter Henry.",
+      "impact": "Signed with Falcons on 1yr/$3.25M. Was the TE2 and a dependable blocker. His departure leaves a gap at the backup TE role behind Hunter Henry.",
       "need_impact": "escalates",
       "need_position": "TE"
     },
     {
+      "player": "Jaylinn Hawkins",
+      "position": "S",
+      "age": 27,
+      "role": "starter",
+      "new_team": "Baltimore Ravens",
+      "impact": "Signed 2yr deal with Ravens. Was a starting safety in New England's Super Bowl run. Departure triggers the Kevin Byard signing and opens a starting spot next to Craig Woodson.",
+      "need_impact": "creates",
+      "need_position": "S"
+    },
+    {
       "player": "Vederian Lowe",
       "position": "OT",
-      "age": 27,
+      "age": 26,
       "role": "rotational",
       "new_team": "San Francisco 49ers",
-      "impact": "Signed 2yr/$12M max with $5.75M guaranteed in SF. Lowe improved each of his three seasons in NE, going from overmatched backup to quality spot starter. Leaves Patriots without a proven swing tackle behind Will Campbell.",
-      "need_impact": "creates",
+      "impact": "Signed with 49ers on 2yr/$12M. Was the primary swing tackle and filled in capably when Will Campbell was injured in Week 12. Departure leaves the team without a proven backup OT.",
+      "need_impact": "escalates",
       "need_position": "OT"
+    },
+    {
+      "player": "Anfernee Jennings",
+      "position": "EDGE",
+      "age": 28,
+      "role": "rotational",
+      "new_team": "TBD/unsigned",
+      "impact": "Released. Was a stout edge-setter and run defender, and was the team's longest-tenured player. 25 pressures in 2025 but limited as a pass rusher. Primarily a special teams and run-defense asset.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
     },
     {
       "player": "Jahlani Tavai",
       "position": "LB",
       "age": 30,
       "role": "rotational",
-      "new_team": "Released/UFA",
-      "impact": "Released before free agency to save $3.5M cap. Appeared in 12 games in 2025, 21 solo tackles, 1 forced fumble. Core special teamer and rotational LB. Depth loss; team moving younger at the position.",
+      "new_team": "TBD/unsigned",
+      "impact": "Released. Was a rotational LB and special teams contributor who appeared in 12 games in 2025. Depth loss but not a critical starter hole.",
       "need_impact": "none",
       "need_position": "LB"
     },
     {
-      "player": "Antonio Gibson",
-      "position": "RB",
-      "age": 27,
-      "role": "rotational",
-      "new_team": "Released/UFA",
-      "impact": "Released in February after tearing his ACL in Week 5 of 2025. Explosive kick returner and rotational back. Leaves a hole in the return game and at RB depth.",
-      "need_impact": "none",
-      "need_position": "RB"
-    },
-    {
       "player": "Alex Austin",
       "position": "CB",
-      "age": 25,
+      "age": 26,
       "role": "depth",
-      "new_team": "TBD/UFA",
-      "impact": "Patriots chose not to tender the RFA, making him an unrestricted free agent. Depth CB, not a starter. Minimal impact on CB need picture.",
+      "new_team": "Miami Dolphins",
+      "impact": "Not tendered as an RFA. Signed with Dolphins on 1yr deal. Was a depth CB who did not start regularly. Minimal need impact.",
       "need_impact": "none",
       "need_position": "CB"
     },
     {
-      "player": "Yasir Durant",
-      "position": "OT",
+      "player": "Antonio Gibson",
+      "position": "RB",
       "age": 26,
       "role": "depth",
-      "new_team": "TBD/UFA",
-      "impact": "Patriots declined to tender the RFA. Durant was on IR all of 2025. No real roster impact.",
+      "new_team": "TBD/unsigned",
+      "impact": "Released after tearing his ACL in 2025 season. Was the team's primary kick returner. Depth/ST loss at RB.",
       "need_impact": "none",
-      "need_position": "OT"
+      "need_position": "RB"
     }
   ],
   "signings": [
@@ -125,15 +125,16 @@
       "contract": {
         "years": 4,
         "total_value": 68000000,
-        "guaranteed": null,
+        "guaranteed": 0,
         "aav": 17000000,
-        "notes": "Base value $68M per Albert Breer; max value up to $80M per Adam Schefter/ESPN. Guaranteed money not yet fully disclosed. AAV of $17M per Spotrac (tied 23rd among WRs)."
+        "max_value": 80000000,
+        "notes": "Base deal per Albert Breer/Spotrac is 4yr/$68M with max value up to $80M per ESPN/Schefter. Guarantees not yet fully disclosed publicly; estimated significant given 4yr structure."
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "WR",
-      "analysis": "Doubs (55 catches, 724 yards, 6 TDs in 2025) is a 4-year investment and the clear WR1 replacement for Diggs, stepping into a starting role immediately opposite Maye. The $17M AAV is solidly mid-tier starter money for the position. However, he was never the No. 1 receiver in Green Bay and has never topped 724 yards in a season. Patriots still lack a true X/WR1 threat \u2014 Doubs profiles as a high-end WR2 with slot versatility. 4-year length with real guarantees (exact figure TBD) signals commitment. Partially addresses the WR need; team may still pursue a WR1 via trade (A.J. Brown chatter ongoing) or the draft."
+      "analysis": "Four-year commitment at $17M AAV (max $20M) signals real investment \u2014 Doubs is the clear WR1 replacement for Diggs. He had 55 catches, 724 yards, 6 TDs in 2025 and has posted 600+ yards in each of his last three seasons. The $17-20M AAV is solidly mid-tier at WR. However, he has never eclipsed 750 yards in a season and was never WR1 in Green Bay's crowded room. The four-year structure commits him as the starter, dropping WR from a critical tier-1 hole to a tier-2 need \u2014 the team likely still wants a true boundary WR1 upgrade (A.J. Brown trade pursuit still active) or a high-upside WR in the draft."
     },
     {
       "player": "Alijah Vera-Tucker",
@@ -145,31 +146,50 @@
         "total_value": 42000000,
         "guaranteed": 21000000,
         "aav": 14000000,
-        "notes": "3yr/$42M per Adam Schefter/ESPN; max value up to $48M. $21M guaranteed per NFL Network/Ian Rapoport."
+        "max_value": 48000000,
+        "notes": "Per Spotrac/OTC: 3yr/$42M, $21M guaranteed, $7.2M signing bonus. Max value $48M including per-game roster bonuses ($250K/game, up to $12.75M total). All guaranteed money in first two years."
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "IOL",
-      "analysis": "AVT projects as the starting LG, slotting between Will Campbell (LT) and Jared Wilson (who shifts from LG to C following the Bradbury trade). When healthy, he graded 10th among all OGs per PFF in 2024 with the 4th-lowest pressure rate allowed (2.8%). The 3-year deal with $21M guaranteed signals a real investment. However, AVT has had season-ending injuries in 3 of his 5 NFL seasons \u2014 torn triceps in 2022 and 2025, torn Achilles in 2023. This is a high-risk, high-upside signing. The IOL need is partially addressed (LG slot filled IF healthy), but the health risk and lack of a proven center solution behind Wilson means the IOL unit still warrants attention in the draft."
+      "analysis": "Vera-Tucker projects as the starting LG after Jared Wilson slides from LG to C to replace traded Garrett Bradbury. When healthy (2024), he was PFF's 10th-best guard with the fourth-lowest pressure rate allowed. However, he's missed three of five seasons to injury (torn triceps, Achilles, torn triceps again), sat out all of 2025, and has played just 43 of 85 possible games. The contract is structured to minimize risk \u2014 $21M in real guarantees and heavy per-game incentives. The IOL is partially addressed: LG has a high-upside answer, but the Bradbury trade means the C position is now held by second-year player Jared Wilson with no proven veteran backup. IOL remains a moderate need, especially for draft-day depth."
     },
     {
       "player": "Dre'Mont Jones",
       "position": "EDGE",
       "age": 29,
-      "previous_team": "Baltimore Ravens (via Tennessee Titans)",
+      "previous_team": "Baltimore Ravens",
       "contract": {
         "years": 3,
         "total_value": 36500000,
         "guaranteed": 23100000,
         "aav": 12166667,
-        "notes": "Per Spotrac and Aaron Wilson: 3yr/$36.5M, $23.1M guaranteed, $11M signing bonus. Salaries fully guaranteed in years 1 and 2. Max value with incentives ~$39.5M."
+        "notes": "Per Spotrac/OTC/Aaron Wilson: 3yr/$36.5M, $23.1M guaranteed, $11M signing bonus. Salaries in 2026 ($2.3M, gtd) and 2027 ($9.8M, gtd) are both guaranteed. Per-game bonuses of $60K/game + $180K workout bonus annually."
       },
       "expected_role": "starter",
       "market_tier": "depth",
-      "need_impact": "minimally_addressed",
+      "need_impact": "partially_addressed",
       "need_position": "EDGE",
-      "analysis": "Jones (career-high 7 sacks, 51 pressures in 2025 split between TEN and BAL) is the 34th-highest paid EDGE at $12.17M AAV \u2014 well below the mid-tier starter threshold of $15M+. The structure guarantees him through 2 seasons (mirroring the Harold Landry deal template). He provides a veteran presence and versatility (can kick inside to 3-tech). However, he's not a star-caliber pass rusher and fills a rotational/second EDGE role more than a true No. 1 replacement for Chaisson. With Chaisson's departure still likely, the team still desperately needs EDGE reinforcement. Jones is a floor-setter, not a ceiling-raiser. EDGE remains a top draft need."
+      "analysis": "Jones fills the EDGE2 role but is not a true pass-rush star. His 12.67M AAV ranks 34th among edge rushers \u2014 mid-to-low-tier starter money. He posted a career-high 7 sacks and 51 pressures split between Tennessee and Baltimore in 2025 and was the top pressure-rate player on the Ravens stretch (11.4%). Salaries in Years 1 and 2 are fully guaranteed, meaning he's a 2-year investment at minimum. With K'Lavon Chaisson (team sack leader, 10.5 sacks) and Anfernee Jennings both gone, Jones partially addresses the pass-rush void but does not replace Chaisson's production on his own. Harold Landry (knee concerns) and developing players (Ponder, Swinson) fill out the depth. EDGE remains a tier-1/2 need for the draft \u2014 the team is clearly still in the market."
+    },
+    {
+      "player": "Kevin Byard",
+      "position": "S",
+      "age": 33,
+      "previous_team": "Chicago Bears",
+      "contract": {
+        "years": 1,
+        "total_value": 9000000,
+        "guaranteed": 0,
+        "aav": 9000000,
+        "notes": "Per NFL Network/Tom Pelissero: 1yr/$9M. Guarantees not publicly disclosed. One-year bridge deal."
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "partially_addressed",
+      "need_position": "S",
+      "analysis": "Byard is a 3x All-Pro coming off one of the best seasons of his career \u2014 led the NFL with 7 INTs in 2025 and earned first-team All-Pro honors. He reunites with Mike Vrabel (former Titans HC) and slots in as the starting S next to second-year Craig Woodson. At $9M AAV he's mid-tier for the position. However, it's a one-year deal for a 33-year-old, signaling a bridge arrangement rather than a long-term fix. The S need is PARTIALLY addressed: the 2026 starting spot is solved with a veteran of real quality, but the one-year structure means S will resurface as a need (likely in the draft or future FA) by 2027. Team still likely interested in a developmental S."
     },
     {
       "player": "Reggie Gilliam",
@@ -178,75 +198,130 @@
       "previous_team": "Buffalo Bills",
       "contract": {
         "years": 3,
-        "total_value": 10800000,
+        "total_value": 12000000,
         "guaranteed": 6000000,
-        "aav": 3600000,
-        "notes": "3yr/up to $12M, $6M fully guaranteed per NFL Network's Mike Garafolo. Spotrac lists 3yr/$10.8M base."
+        "aav": 4000000,
+        "notes": "Per NFL Network/Mike Garafolo: 3yr/up to $12M, $6M fully guaranteed. Will earn $4.4M in 2026. Fullback designation."
       },
       "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "none",
+      "need_position": "RB",
+      "analysis": "Gilliam is a fullback \u2014 a new position addition rather than a need-filler at RB. He played 80% of special teams snaps for the Bills over five seasons and 21% of offensive snaps. Josh McDaniels has historically used a fullback in his schemes and the Patriots lacked a legitimate FB in 2025. Three-year deal signals long-term commitment to the position. Not a traditional RB need-filler. Tagged under RB but is a specialized positional addition that also enhances ST. Minimal draft need impact at the FB/RB position."
+    },
+    {
+      "player": "Julian Hill",
+      "position": "TE",
+      "age": 25,
+      "previous_team": "Miami Dolphins",
+      "contract": {
+        "years": 3,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0,
+        "notes": "Per ESPN/NFL Network: 3-year deal. Specific financial terms not publicly disclosed as of 2026-03-13. Classified as a lower-tier starter/TE2 deal given career undrafted status and role."
+      },
+      "expected_role": "rotational",
       "market_tier": "depth",
-      "need_impact": "fully_addressed",
-      "need_position": "FB",
-      "analysis": "Gilliam is the best fullback in football \u2014 opened holes for the NFL's leading rusher James Cook in Buffalo. He played 21% of offensive snaps and 77% on special teams in 2025. Josh McDaniels has always employed a fullback-centric offense and the Patriots badly lacked a true FB after Brock Lampe's injury in 2025 camp. 3-year deal shows long-term commitment. This is a need fully addressed at a specialty position."
+      "need_impact": "minimal",
+      "need_position": "TE",
+      "analysis": "Hill replaces Austin Hooper as the TE2 behind Hunter Henry. He had 22 starts over the last two years in Miami with 33 career catches and was valued primarily as a blocker and run-game asset, playing 55% of offensive snaps for the Dolphins. The three-year structure is a mild surprise given his modest receiving numbers (0 career TDs). He partially fills the TE depth hole but is a blocker-first backup, not a receiving upgrade. TE need is minimally addressed \u2014 Hunter Henry remains the clear starter. If the team wants a pass-catching TE2, it's still a viable draft target."
+    },
+    {
+      "player": "Mike Brown",
+      "position": "S",
+      "age": 26,
+      "previous_team": "Tennessee Titans",
+      "contract": {
+        "years": 1,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0,
+        "notes": "Per NFL Network/Ian Rapoport: 1-year deal. Financial terms not publicly disclosed. Minimum or near-minimum deal expected based on role."
+      },
+      "expected_role": "depth",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "S",
+      "analysis": "Brown reunites with Mike Vrabel (coached him with the Titans in 2023) and safeties coach Scott Booker. He's a special teams first player who played just 9 games in 2025 and had 37% of defensive snaps in 2024. Projects as S3 behind Byard and Craig Woodson. One-year, minimal-cost depth. Does not change the S need picture substantively."
+    },
+    {
+      "player": "K.J. Britt",
+      "position": "LB",
+      "age": 26,
+      "previous_team": "Miami Dolphins",
+      "contract": {
+        "years": 1,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0,
+        "notes": "Per Adam Schefter: 1-year deal. Financial terms not publicly disclosed. Depth/minimum range contract expected."
+      },
+      "expected_role": "depth",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "LB",
+      "analysis": "Britt played 334 special teams snaps and just 148 defensive snaps for the Dolphins in 2025 \u2014 primarily a core ST player. He did start 11 games for Tampa Bay at ILB in 2024. He slots in as LB3/4 behind Robert Spillane and Christian Elliss and replaces some of the ST production lost with Jennings' and Tavai's departures. One-year deal means he's a stopgap/depth piece. LB remains a moderate need given departures."
     },
     {
       "player": "Jesse Luketa",
       "position": "EDGE",
       "age": 27,
-      "previous_team": "Arizona Cardinals (via LA Rams practice squad)",
+      "previous_team": "Arizona Cardinals",
       "contract": {
         "years": 1,
         "total_value": 1145000,
-        "guaranteed": 1145000,
+        "guaranteed": 0,
         "aav": 1145000,
-        "notes": "Veteran minimum deal. $1.145M fully guaranteed per Aaron Wilson/Pats Pulpit."
+        "notes": "Per Aaron Wilson/KPRC: 1yr/$1.145M veteran minimum deal. Signed March 5, pre-tampering period."
       },
       "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "EDGE",
-      "analysis": "Veteran minimum deal for a core special-teamer and depth EDGE. Luketa had 3 sacks in 10 games with Arizona in 2024, then was on the Rams' practice squad in 2025. He carves out a role primarily on special teams. This is a camp body / depth signing \u2014 does not move the needle on the EDGE need at all."
+      "analysis": "Veteran minimum signing. Luketa appeared on the Rams' practice squad in 2025 and brings 3 career sacks. He's primarily a special teams contributor who appeared on 74% of ST snaps in his final two Cardinals seasons. Depth/camp body at EDGE. Does not address the significant pass-rush void left by Chaisson/Jennings departures. EDGE remains a critical need."
     },
     {
       "player": "Tommy DeVito",
       "position": "QB",
-      "age": 27,
-      "previous_team": "New England Patriots (re-sign, RFA)",
+      "age": 28,
+      "previous_team": "New England Patriots",
       "contract": {
         "years": 2,
         "total_value": 4400000,
         "guaranteed": 2000000,
         "aav": 2200000,
-        "notes": "2yr/$4.4M base, max $7.4M per Spotrac/ESPN Adam Schefter. $2M guaranteed."
+        "notes": "Per ESPN/Schefter: 2yr max $7.4M (base $4.4M + ~$3M incentives), $2M guaranteed. RFA re-signing."
       },
       "expected_role": "depth",
-      "market_tier": "depth",
+      "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "QB",
-      "analysis": "Re-signed third-string QB (did not take a snap in 2025). Retains depth behind Drake Maye and Joshua Dobbs. QB was never a need \u2014 this is roster maintenance. QB room remains unchanged. No impact on draft needs."
+      "analysis": "Re-signing the QB3 on a minimum-tier deal. DeVito dressed every game in 2025 but never appeared in a game. Drake Maye and Josh Dobbs are atop the depth chart. This is a continuity/roster management move. No impact on any positional need."
     }
   ],
   "needs_impact_summary": {
-    "fully_addressed": [
-      "FB"
-    ],
+    "fully_addressed": [],
     "partially_addressed": [
       "WR",
-      "IOL"
-    ],
-    "minimally_addressed": [
+      "IOL",
+      "S",
       "EDGE"
     ],
-    "unchanged": [
-      "QB",
-      "CB",
+    "minimally_addressed": [
+      "TE",
       "LB"
     ],
-    "escalated": [
-      "S",
-      "TE",
-      "IDL",
+    "unchanged": [
+      "CB",
+      "RB",
       "OT"
+    ],
+    "escalated": [
+      "EDGE",
+      "IDL",
+      "OT",
+      "IOL"
     ]
   },
   "recommended_need_adjustments": [
@@ -254,49 +329,49 @@
       "position": "WR",
       "previous_tier": 1,
       "recommended_tier": 2,
-      "reasoning": "Doubs (4yr/$68M base) is a real 4-year commitment and fills the WR1 void left by Diggs. He's a good slot/possession receiver with strong hands and playoff experience (20 catches, 371 yards, 2 TDs in 4 postseason games). However, he has never topped 724 yards in a season and was never the No. 1 option in Green Bay. Patriots still lack a true alpha WR for Drake Maye. A.J. Brown trade chatter is live. Need drops from urgent Tier 1 to Tier 2 \u2014 a high-end WR or true X receiver via the draft or trade remains important but is no longer the single most pressing need."
+      "reasoning": "Doubs signing (4yr/$68M base, max $80M) is a genuine multi-year starter investment. He directly replaces Diggs' role and brings volume production. However, he has never topped 750 receiving yards in a season and was never WR1 in Green Bay. The team is still actively pursuing A.J. Brown via trade and WR remains a position they should address in the first two rounds of the draft. Drop from critical tier-1 to elevated tier-2 \u2014 still a premium need."
     },
     {
       "position": "IOL",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Bradbury trade (LG \u2192 LT bump for Jared Wilson to C) created a new LG hole that AVT fills \u2014 IF healthy. The AVT deal at $14M AAV/3 years is a genuine starter investment. But AVT's 3 season-ending injuries in 5 years introduces massive health risk, and the center position (Wilson is unproven as starter) is also a question mark. IOL need holds at Tier 2: the team should still target an IOL in the draft, ideally a day 2 center/guard with starter upside."
-    },
-    {
-      "position": "EDGE",
-      "previous_tier": 1,
-      "recommended_tier": 1,
-      "reasoning": "Jones signing ($12.17M AAV, below mid-tier EDGE money) is a rotational piece at best. Chaisson is very likely gone (his breakout 7.5-sack season priced him into the $15-20M+ market). Harold Landry is under contract but was hampered by a knee injury in 2025. The Patriots finished tied for last in the NFL in sacks (35) in 2025. Jones + Luketa (minimum deal) does not solve the EDGE problem. EDGE remains the Patriots' single most critical draft need \u2014 this should be a Round 1 or early Round 2 target. Tier holds at 1."
+      "reasoning": "Vera-Tucker (3yr/$42M) fills the LG spot vacated when Jared Wilson shifts to C post-Bradbury trade. When healthy, Vera-Tucker is legitimately elite (PFF top-10 guard in 2024). BUT: he's missed 3 of 5 seasons to injury, sat out all of 2025, and hasn't played a game since 2024. The center shift (Wilson: rookie-year starter moving to new position) plus Vera-Tucker's injury risk keeps IOL firmly at tier-2. A reliable, proven center would be valuable in the draft (rounds 2-4)."
     },
     {
       "position": "S",
-      "previous_tier": 3,
-      "recommended_tier": 1,
-      "reasoning": "Jaylinn Hawkins (4 INTs, 91.3% snap share, first-team defensive contributor) remains unsigned as of March 11. If he leaves \u2014 which is a real possibility given teams are pursuing him \u2014 the starting safety spot opposite Craig Woodson becomes a massive hole. This need has escalated from moderate to critical. Must be addressed in FA or rounds 2-3 of the draft."
+      "previous_tier": 2,
+      "recommended_tier": 3,
+      "reasoning": "Kevin Byard (1yr/$9M) fills the Hawkins void with an All-Pro-caliber starter. 2025 NFL interceptions leader. The pairing of Byard + Craig Woodson is strong for 2026. However, the 1-year deal on a 33-year-old means S resurfaces as a need in 2027. Reduce to tier-3 for 2026 draft \u2014 developmental S in rounds 4-6 is reasonable, but not a priority pick."
     },
     {
-      "position": "TE",
+      "position": "EDGE",
       "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Austin Hooper departed to Atlanta (1yr/$3.25M). Hunter Henry remains as the starting TE, but is entering the final year of his deal. The Patriots missed out on Isaiah Likely (signed NYG 3yr/$40M) and Cade Otton (re-signed TBD). No replacement TE has been added. The need holds at Tier 2 \u2014 a TE who can develop as a future starter or complement Henry is needed in rounds 2-4."
+      "recommended_tier": 1,
+      "reasoning": "The net effect of free agency ESCALATES this need. Chaisson (10.5 sacks, team leader) and Jennings (run defense stalwart) both departed. Dre'Mont Jones (3yr/$36.5M, $12.67M AAV, 34th highest-paid edge) partially offsets but is a mid-tier addition, not a top-end replacement. Harold Landry has knee concerns. Elijah Ponder and Bradyn Swinson are developmental. The Patriots are still actively looking for more EDGE help per multiple beat reporters. EDGE should be the top priority in the 2026 draft \u2014 rounds 1-2 target."
     },
     {
       "position": "IDL",
-      "previous_tier": 2,
+      "previous_tier": 3,
       "recommended_tier": 2,
-      "reasoning": "Tonga (3yr/$21M/$14M gtd with Chiefs) was the Patriots' primary nose tackle and run-stopper in 2025. Cory Durden takes over the starting role with Eric Gregory as backup. The run-stopping IDL depth is thin. No replacement DT has been signed in free agency. Tier holds at 2 \u2014 a developmental IDL in mid-rounds of the draft would serve this team well."
+      "reasoning": "Tonga's departure (3yr/$21M to Chiefs) removes the team's best run-stuffing DT and an emerging interior pass rusher. No free agent was signed to replace him. Cory Durden and Christian Barmore (charges dropped) are the primary interior options. IDL rises to a tier-2 need \u2014 team should target a run-stuffing DT in rounds 3-5 of the draft."
     },
     {
       "position": "OT",
       "previous_tier": 3,
       "recommended_tier": 2,
-      "reasoning": "Vederian Lowe's departure (2yr/$12M to 49ers) leaves the Patriots without a proven swing tackle. Will Campbell is the starting LT, Morgan Moses the starting RT. But behind them, Marcus Bryant is the only in-house option. The team noted explicitly they'll need a veteran backup swing tackle. Need escalates from Tier 3 to Tier 2 \u2014 a veteran OT signing or mid-round draft pick is warranted."
+      "reasoning": "Vederian Lowe (swing tackle) departed to San Francisco on 2yr/$12M. No replacement OT was signed. Will Campbell (LT, 2nd year) is the starter and Morgan Moses (RT) returns, but there is now no reliable swing tackle behind them. OT depth is a real concern \u2014 rounds 3-5 draft target or potential late-FA addition."
     },
     {
-      "position": "RB",
+      "position": "TE",
       "previous_tier": 3,
       "recommended_tier": 3,
-      "reasoning": "Gibson was released after his ACL tear. The team needs a kick returner and RB2 behind Rhamondre Stevenson. No signing yet, but this is a Day 3 draft/UDFA priority, not a top need. Tier unchanged at 3."
+      "reasoning": "Julian Hill (3yr deal) replaces Hooper as TE2 in a like-for-like blocker/depth swap. Hunter Henry remains the clear starter. The signing keeps TE stable as a tier-3 need. If the team wants a pass-catching TE2, rounds 3-5 of the draft remain viable, but this is not an urgent need."
+    },
+    {
+      "position": "LB",
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "Tavai released, Jennings released. Britt (1yr depth) and Luketa (minimum) added on ST-focused deals. Robert Spillane and Christian Elliss anchor the group with Jack Gibbens' status uncertain. The depth is thin but the starters are adequate. LB stays tier-3 \u2014 rounds 4-6 draft addition reasonable."
     }
   ],
   "team_page_additions": {
@@ -304,116 +379,153 @@
       {
         "player": "Romeo Doubs",
         "position": "WR",
-        "contract_summary": "4yr/$68M base (max $80M)",
+        "contract_summary": "4yr/$68M ($80M max)",
         "previous_team": "Green Bay Packers",
-        "headline": "Lead WR replacement for Diggs; 4-year commitment gives Drake Maye a reliable starter-caliber target"
+        "headline": "Patriots' new WR1 on a long-term deal replaces Diggs; 55 catches, 724 yards, 6 TDs in 2025"
       },
       {
         "player": "Alijah Vera-Tucker",
         "position": "IOL",
         "contract_summary": "3yr/$42M ($21M gtd)",
         "previous_team": "New York Jets",
-        "headline": "Former first-round guard fills LG hole created by Bradbury trade \u2014 elite talent when healthy but major injury risk"
+        "headline": "Former 14th-overall pick and PFF's top-10 guard (2024) fills LG; significant injury risk after missing all of 2025"
       },
       {
         "player": "Dre'Mont Jones",
         "position": "EDGE",
         "contract_summary": "3yr/$36.5M ($23.1M gtd)",
         "previous_team": "Baltimore Ravens",
-        "headline": "Career-high 7 sacks in 2025 adds veteran EDGE depth, but doesn't replace Chaisson's starter production"
+        "headline": "Veteran pass rusher with career-high 7 sacks in 2025 partially fills Chaisson void; 2yr effective guarantee"
+      },
+      {
+        "player": "Kevin Byard",
+        "position": "S",
+        "contract_summary": "1yr/$9M",
+        "previous_team": "Chicago Bears",
+        "headline": "3x All-Pro led NFL with 7 INTs in 2025; reunites with Vrabel in Foxborough to anchor safety position"
       },
       {
         "player": "Reggie Gilliam",
         "position": "FB",
-        "contract_summary": "3yr/$10.8M ($6M gtd)",
+        "contract_summary": "3yr/$12M ($6M gtd)",
         "previous_team": "Buffalo Bills",
-        "headline": "Best fullback in football fills a critical role in Josh McDaniels' run-heavy system"
+        "headline": "Physical fullback on a 3-year deal signals long-term offensive identity shift under Josh McDaniels"
       },
       {
-        "player": "Tommy DeVito",
-        "position": "QB",
-        "contract_summary": "2yr/$4.4M ($2M gtd) \u2014 re-sign",
-        "previous_team": "New England Patriots",
-        "headline": "Third-string QB retained; QB depth chart unchanged with Maye/Dobbs/DeVito"
+        "player": "Julian Hill",
+        "position": "TE",
+        "contract_summary": "3yr/terms undisclosed",
+        "previous_team": "Miami Dolphins",
+        "headline": "Blocking TE2 steps in to replace Austin Hooper behind Hunter Henry on a 3-year deal"
+      },
+      {
+        "player": "Mike Brown",
+        "position": "S",
+        "contract_summary": "1yr/terms undisclosed",
+        "previous_team": "Tennessee Titans",
+        "headline": "Vrabel reunion with depth safety adds secondary and special teams insurance"
+      },
+      {
+        "player": "K.J. Britt",
+        "position": "LB",
+        "contract_summary": "1yr/terms undisclosed",
+        "previous_team": "Miami Dolphins",
+        "headline": "Core ST linebacker replaces Tavai/Jennings special teams production on 1-year depth deal"
       },
       {
         "player": "Jesse Luketa",
         "position": "EDGE",
-        "contract_summary": "1yr/$1.145M (min deal)",
-        "previous_team": "Arizona Cardinals/Rams PS",
-        "headline": "Veteran minimum depth EDGE and core special-teamer; camp competition body"
+        "contract_summary": "1yr/$1.1M (minimum)",
+        "previous_team": "Arizona Cardinals",
+        "headline": "Veteran minimum EDGE depth piece and special teams contributor, camp competition role"
+      },
+      {
+        "player": "Tommy DeVito",
+        "position": "QB",
+        "contract_summary": "2yr/$4.4M ($2M gtd) [re-sign]",
+        "previous_team": "New England Patriots",
+        "headline": "QB3 retained on minimum deal; provides continuity behind Maye and Dobbs"
       }
     ],
     "key_losses": [
       {
         "player": "Stefon Diggs",
         "position": "WR",
-        "contract_summary": "Released ($9.7M dead cap)",
-        "new_team": "UFA",
-        "headline": "Led team in 2025 with 85 catches/1,013 yards; released due to ballooning $26.5M cap hit and off-field concerns"
-      },
-      {
-        "player": "Garrett Bradbury",
-        "position": "IOL",
-        "contract_summary": "Traded for 2027 5th-round pick",
-        "new_team": "Chicago Bears",
-        "headline": "Starting center who started all 21 games traded away, triggering domino shuffle of interior OL"
-      },
-      {
-        "player": "Khyiris Tonga",
-        "position": "IDL",
-        "contract_summary": "3yr/$21M ($14M gtd) with Chiefs",
-        "new_team": "Kansas City Chiefs",
-        "headline": "Career-year NT and run-stopper departs; significant loss of versatility and pass-rush ability at IDL"
+        "contract_summary": "Released (1yr into 3yr deal; $9.7M dead cap)",
+        "new_team": "TBD/unsigned",
+        "headline": "Led team with 85 catches and 1,013 yards in 2025 Super Bowl run; released after one season, creating WR1 void"
       },
       {
         "player": "K'Lavon Chaisson",
         "position": "EDGE",
-        "contract_summary": "UFA \u2014 market TBD",
-        "new_team": "TBD/unsigned",
-        "headline": "Breakout 2025 star (7.5+ sacks) is a pending UFA; departure essentially certain after Jones signing"
+        "contract_summary": "1yr/$12M (Commanders)",
+        "new_team": "Washington Commanders",
+        "headline": "Team's top pass rusher (10.5 sacks, 73 pressures in 2025) departs, leaving critical EDGE hole"
+      },
+      {
+        "player": "Garrett Bradbury",
+        "position": "IOL",
+        "contract_summary": "Traded for 2027 5th-round pick (Bears)",
+        "new_team": "Chicago Bears",
+        "headline": "Starting center traded after 21-game season; Jared Wilson shifts to C as unproven second-year starter"
+      },
+      {
+        "player": "Khyiris Tonga",
+        "position": "IDL",
+        "contract_summary": "3yr/$21M ($14M gtd) (Chiefs)",
+        "new_team": "Kansas City Chiefs",
+        "headline": "Premier run-stopping DT and interior pass rusher departs, weakening IDL without a direct replacement"
       },
       {
         "player": "Jaylinn Hawkins",
         "position": "S",
-        "contract_summary": "UFA \u2014 market TBD",
-        "new_team": "TBD/unsigned",
-        "headline": "Standout 2025 starter (4 INTs, 91.3% snap share) remains unsigned; safety becomes critical need if he leaves"
-      },
-      {
-        "player": "Austin Hooper",
-        "position": "TE",
-        "contract_summary": "1yr/$3.25M with Falcons",
-        "new_team": "Atlanta Falcons",
-        "headline": "Veteran backup TE departs; leaves Patriots thin at TE2 behind Hunter Henry"
+        "contract_summary": "2yr/deal (Ravens)",
+        "new_team": "Baltimore Ravens",
+        "headline": "Starting safety departs for Baltimore, triggering Kevin Byard signing"
       },
       {
         "player": "Vederian Lowe",
         "position": "OT",
-        "contract_summary": "2yr/$12M with 49ers",
+        "contract_summary": "2yr/$12M ($5.75M gtd) (49ers)",
         "new_team": "San Francisco 49ers",
-        "headline": "Quality swing tackle departed; leaves Patriots without a proven backup behind Campbell and Moses"
+        "headline": "Primary swing tackle departs, leaving team without a proven OT backup behind Campbell and Moses"
+      },
+      {
+        "player": "Austin Hooper",
+        "position": "TE",
+        "contract_summary": "1yr/$3.25M (Falcons)",
+        "new_team": "Atlanta Falcons",
+        "headline": "Veteran TE2 returns to Atlanta; replaced by Julian Hill on a new 3-year deal"
+      },
+      {
+        "player": "Anfernee Jennings",
+        "position": "EDGE",
+        "contract_summary": "Released",
+        "new_team": "TBD/unsigned",
+        "headline": "Team's longest-tenured player and stout run-defense edge setter released, compounding EDGE room losses"
       }
     ]
   },
   "confidence": "high",
-  "notes": "Free agency officially opens March 11 at 4 PM ET. All signings above were reported during the legal tampering window (March 9-10) by multiple credible sources (Rapoport, Schefter, Garafolo, Pelissero, Breer). Contract figures sourced from Spotrac, OverTheCap, and verified reporter disclosures. Romeo Doubs' exact guaranteed money not yet publicly confirmed; base value $68M/max $80M is credible per Albert Breer and Adam Schefter. K'Lavon Chaisson and Jaylinn Hawkins remain unsigned UFAs as of this report \u2014 their fates will significantly alter the EDGE and S need tiers. The Bradbury trade involved pick compensation (2027 5th to NE), reducing future draft capital slightly.",
   "sources": [
-    "https://www.espn.com/nfl/story/_/id/48084019/new-england-patriots-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
-    "https://www.nfl.com/news/romeo-doubs-patriots-sign-former-packers-wr-four-year-contract",
-    "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
-    "https://www.spotrac.com/nfl/player/_/id/29107/dremont-jones",
-    "https://www.spotrac.com/nfl/player/_/id/82842/tommy-devito",
-    "https://www.spotrac.com/nfl/new-england-patriots/cap/_/year/2026",
-    "https://overthecap.com/salary-cap/new-england-patriots",
     "https://www.patriots.com/news/2026-patriots-free-agent-tracker",
-    "https://www.patspulpit.com/new-england-patriots-free-agency-rumors-signings-updates-transactions/123617/dremont-jones-contract-details",
-    "https://www.patspulpit.com/new-england-patriots-free-agency-rumors-signings-updates-transactions/123271/contract-details-signing-jesse-luketa",
+    "https://www.espn.com/nfl/story/_/id/48084019/new-england-patriots-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
     "https://www.si.com/nfl/patriots/onsi/news/new-england-patriots-2026-free-agency-tracker-signings-trades-former-players",
-    "https://www.boston.com/sports/new-england-patriots/2026/03/10/patriots-offseason-signings-free-agency-live-updates-tracker-news-new-england-nfl-football-offseason/",
-    "https://www.nbcsportsboston.com/nfl/new-england-patriots/best-free-agent-fits-remaining-2026/775043/",
+    "https://sports.yahoo.com/articles/patriots-2026-free-agency-tracker-141131941.html",
+    "https://www.spotrac.com/nfl/player/_/id/72394/alijah-vera-tucker",
+    "https://www.spotrac.com/nfl/player/_/id/29107/dremont-jones",
+    "https://www.spotrac.com/nfl/player/_/id/77009/romeo-doubs",
+    "https://overthecap.com/player/alijah-vera-tucker/9478",
+    "https://overthecap.com/salary-cap/new-england-patriots",
+    "https://985thesportshub.com/2026/03/10/alijah-vera-tucker-patriots-contract-includes-significant-incentives-in-one-area/",
+    "https://985thesportshub.com/2026/03/09/details-are-in-on-dremont-jones-patriots-contract/",
+    "https://www.elevenwarriors.com/ohio-state-football/2026/03/161814/2026-nfl-buckeye-free-agency-tracker-jk-dobbins-joey-bosa-dre-mont-jones-taylor-decker-tyquan-lewis",
+    "https://www.espn.com/nfl/story/_/id/48164633/sources-romeo-doubs-patriots-4-year-80-million-deal",
+    "https://www.nfl.com/news/romeo-doubs-patriots-sign-former-packers-wr-four-year-contract",
     "https://heavy.com/sports/nfl/new-england-patriots/free-agency-tracker-2026-news-signings-rumors-2/",
-    "https://www.espn.com/nfl/story/_/id/48122874/patriots-qb-tommy-devito-agree-2-year-74m-deal-agent-says",
-    "https://www.bostonherald.com/2026/03/10/callahan-the-patriots-must-sustain-their-momentum-in-free-agency/"
+    "https://www.patspulpit.com/new-england-patriots-free-agency-rumors-signings-updates-transactions/123764/klavon-chaisson-anfernee-jennings-departure-analysis-salary-cap-roster",
+    "https://www.si.com/nfl/patriots/onsi/news/resetting-new-england-patriots-roster-after-start-free-agency",
+    "https://www.patspulpit.com/new-england-patriots-free-agency-rumors-signings-updates-transactions/123271/contract-details-signing-jesse-luketa",
+    "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams"
   ]
 }

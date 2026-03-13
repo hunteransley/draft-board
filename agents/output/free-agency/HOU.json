@@ -1,17 +1,17 @@
 {
   "team": "HOU",
   "team_full": "Houston Texans",
-  "updated_through": "2026-03-11",
-  "cap_space_pre_fa": "~$30000000",
+  "updated_through": "2026-03-13",
+  "cap_space_pre_fa": "$30000000",
   "cap_space_post_fa": "~$5000000",
   "key_departures": [
     {
       "player": "Tytus Howard",
       "position": "OT",
-      "age": 28,
+      "age": 29,
       "role": "starter",
       "new_team": "Cleveland Browns (trade)",
-      "impact": "7-year Texans veteran and versatile starter at guard/tackle was traded to Cleveland for a 2026 fifth-round pick. Howard was entering the final year of his deal and reportedly wanted to play right tackle exclusively. His departure removes a key, experienced piece from a chronically troubled OL.",
+      "impact": "Traded for a 2026 fifth-round pick. Howard was Houston's best offensive lineman in 2025, starting at RT, LG, and RG. He allowed pressure on just 3.4% of snaps (career best). Second consecutive year the Texans traded away their best OL \u2014 Tunsil in 2025, Howard in 2026. Leaves Houston with only two returning starters on the OL.",
       "need_impact": "escalates",
       "need_position": "OT"
     },
@@ -19,9 +19,9 @@
       "player": "Juice Scruggs",
       "position": "IOL",
       "age": 25,
-      "role": "depth/rotational",
-      "new_team": "Detroit Lions (trade)",
-      "impact": "Former second-round pick sent to Detroit as part of the David Montgomery trade (with a 2026 4th and 2027 7th). Scruggs started just one game in 2025 after failing to live up to draft status. While not a major loss on the field, it depletes IOL depth.",
+      "role": "rotational",
+      "new_team": "Detroit Lions (trade, part of Montgomery deal)",
+      "impact": "2023 second-round pick traded to Detroit as part of the David Montgomery package. Started just one game in 2025 but was a key interior depth piece and center option. Losing him further depletes interior OL depth and removes the in-house center competition.",
       "need_impact": "escalates",
       "need_position": "IOL"
     },
@@ -29,51 +29,31 @@
       "player": "Joe Mixon",
       "position": "RB",
       "age": 30,
-      "role": "starter",
-      "new_team": "Released/unsigned",
-      "impact": "Cut before the new league year, clearing $8M in cap space. Mixon missed all of 2025 with a foot injury. The Texans quickly replaced him via the David Montgomery trade. Departure was expected and proactively addressed.",
-      "need_impact": "creates",
+      "role": "starter (injured \u2014 missed all of 2025)",
+      "new_team": "TBD/unsigned",
+      "impact": "Released before the start of the league year, clearing $8M in cap space. Mixon missed all of 2025 with a foot injury. His release was expected and does not create a new need as Montgomery was acquired to replace him.",
+      "need_impact": "none",
       "need_position": "RB"
+    },
+    {
+      "player": "Christian Harris",
+      "position": "LB",
+      "age": 24,
+      "role": "rotational",
+      "new_team": "Atlanta Falcons",
+      "impact": "Departed to Atlanta. Was a depth/rotational linebacker; loss creates minor depth thinning at LB but not a starting hole given Al-Shaair, To'oTo'o, and Speed returning.",
+      "need_impact": "none",
+      "need_position": "LB"
     },
     {
       "player": "Tim Settle Jr.",
       "position": "IDL",
       "age": 28,
-      "role": "starter",
-      "new_team": "Washington Commanders",
-      "impact": "Lost to Washington on a 3yr/$24M deal (up to $25.5M). Settle had been a full-time starter on Houston's elite defense, logging 29 starts over two years with the Texans. His departure creates a genuine void at starting IDL behind Rankins.",
-      "need_impact": "escalates",
-      "need_position": "IDL"
-    },
-    {
-      "player": "Christian Harris",
-      "position": "LB",
-      "age": 25,
-      "role": "depth/special teams",
-      "new_team": "Atlanta Falcons",
-      "impact": "Fourth-year Texan was phased out of the defensive rotation during 2025, becoming primarily a special teams player. His departure is a minor roster move, not a significant need creator.",
-      "need_impact": "none",
-      "need_position": "LB"
-    },
-    {
-      "player": "Christian Kirk",
-      "position": "WR",
-      "age": 28,
       "role": "rotational",
       "new_team": "TBD/unsigned",
-      "impact": "Acquired from Jacksonville in the 2025 offseason, Kirk never consistently claimed a starting role in Houston. With Jaylin Noel emerging and Tank Dell expected back healthy, Kirk was considered one-and-done. Depth loss only.",
+      "impact": "Lost to free agency. Was a rotational interior defensive lineman. Some depth lost on the DL but Rankins re-signed and Logan Hall added, mitigating impact.",
       "need_impact": "none",
-      "need_position": "WR"
-    },
-    {
-      "player": "Nick Chubb",
-      "position": "RB",
-      "age": 30,
-      "role": "starter/rotational",
-      "new_team": "TBD/unsigned",
-      "impact": "Signed to a one-year deal in summer 2025, Chubb gradually faded down the depth chart behind Woody Marks. The Montgomery trade made his departure a foregone conclusion. RB need was simultaneously created and filled.",
-      "need_impact": "none",
-      "need_position": "RB"
+      "need_position": "IDL"
     },
     {
       "player": "Denico Autry",
@@ -81,19 +61,49 @@
       "age": 35,
       "role": "rotational",
       "new_team": "TBD/unsigned",
-      "impact": "Missed substantial time in 2025 with injuries, recording just 3.5 sacks in 12 games at age 35. Expected departure; Logan Hall was signed specifically as a replacement-caliber piece.",
+      "impact": "Not expected to return per KPRC2's Aaron Wilson. Was an aging veteran depth piece behind Hunter and Anderson. Mitigated by the Logan Hall and Dominique Robinson signings.",
       "need_impact": "none",
       "need_position": "EDGE"
     },
     {
+      "player": "Nick Chubb",
+      "position": "RB",
+      "age": 30,
+      "role": "depth/starter",
+      "new_team": "TBD/unsigned",
+      "impact": "Not expected to return. Rushed for 506 yards on 122 carries in 15 games in 2025 but was still slowed by his 2023 knee injury. Departure covered by the David Montgomery trade.",
+      "need_impact": "none",
+      "need_position": "RB"
+    },
+    {
+      "player": "Christian Kirk",
+      "position": "WR",
+      "age": 28,
+      "role": "depth/rotational",
+      "new_team": "TBD/unsigned",
+      "impact": "Not expected to return. Was a rotational receiver behind Nico Collins. Loss creates some WR depth need, but does not eliminate a true starter.",
+      "need_impact": "creates",
+      "need_position": "WR"
+    },
+    {
       "player": "Tommy Townsend",
       "position": "P",
-      "age": 29,
+      "age": 28,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "Two-year Texans punter departed as a free agent. Texans proactively addressed the void by trading for Kai Kroeger from New Orleans.",
+      "impact": "Not re-signed; replaced via trade for Kai Kroeger. Townsend had declining stats in 2025. The Kroeger trade directly replaced this spot so net need impact is neutral.",
       "need_impact": "none",
       "need_position": "P"
+    },
+    {
+      "player": "Derek Barnett",
+      "position": "EDGE",
+      "age": 29,
+      "role": "depth",
+      "new_team": "TBD/unsigned",
+      "impact": "Depth EDGE rusher not re-signed. Covered by Logan Hall and Dominique Robinson signings.",
+      "need_impact": "none",
+      "need_position": "EDGE"
     }
   ],
   "signings": [
@@ -112,7 +122,7 @@
       "market_tier": "elite",
       "need_impact": "none",
       "need_position": "EDGE",
-      "analysis": "One-year, $40.1M fully-guaranteed extension (all $40.1M secured at signing) keeps the 15-sack, 2nd-team All-Pro locked in through 2027. The deal makes Hunter one of the top-paid defensive ends in the NFL. While it's only one year \u2014 signaling the team isn't fully locked in long-term \u2014 the full guarantee on a single season is an extraordinary commitment. EDGE was not a need before FA and remains a strength. The 1-year structure means they'll revisit again next offseason, but for 2026 purposes this is done."
+      "analysis": "One-year, $40.1M fully guaranteed extension keeps Hunter through 2027. He posted 15 sacks in 2025 (all 17 games), earning Second Team All-Pro honors. The deal makes him the 4th-highest-paid edge rusher in the NFL. EDGE was not a need pre-FA and remains rock-solid. The 1-year structure is notable \u2014 Houston and Hunter continue their annual extension pattern, meaning EDGE will need to be revisited again next offseason. Will Anderson Jr.'s extension is the next domino."
     },
     {
       "player": "Ed Ingram",
@@ -121,73 +131,73 @@
       "previous_team": "Houston Texans (re-sign)",
       "contract": {
         "years": 3,
-        "total_value": 38600000,
+        "total_value": 37500000,
         "guaranteed": 23500000,
-        "aav": 12867000
+        "aav": 12500000
       },
       "expected_role": "starter",
       "market_tier": "starter",
-      "need_impact": "partially_addressed",
+      "need_impact": "fully_addressed",
       "need_position": "IOL",
-      "analysis": "Three-year, $38.6M re-sign with $23.5M guaranteed locks in the starting right guard through 2028. Ingram had his best season in 2025 as a run blocker but struggled in pass protection. At $12.9M AAV with multi-year guarantees, this is a real investment \u2014 not a bridge. Retaining Ingram partially addresses the IOL need (right guard is now set), but center remains a glaring hole after losing out on top FA options. IOL need drops from critical to moderate."
+      "analysis": "Three-year, $37.5M re-signing with $23.5M guaranteed locks in the best remaining offensive lineman on the roster through 2028. Ingram was a top-10 PFF run-blocking guard in 2025 and would have commanded $15\u201318M/year on the open market. At $12.5M AAV, this is well-below projected market and secures the right guard spot long-term. RG is fully addressed. Center (Jake Andrews) and LT (Aireontae Ersery, 2nd year) remain ongoing concerns, but the most critical interior free agent is locked up."
+    },
+    {
+      "player": "Dalton Schultz",
+      "position": "TE",
+      "age": 29,
+      "previous_team": "Houston Texans (extension)",
+      "contract": {
+        "years": 1,
+        "total_value": 12600000,
+        "guaranteed": 17600000,
+        "aav": 12600000,
+        "notes": "$17.6M total guaranteed across 2026+2027 seasons combined"
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "none",
+      "need_position": "TE",
+      "analysis": "One-year, $12.6M extension through 2027. Schultz led the Texans in targets in 2025 with a career-high 82 catches for 777 yards and 3 TDs. TE was not a need, and this re-signing keeps the position stable through 2027. Foster Moreau added as depth. TE is in good shape."
     },
     {
       "player": "Sheldon Rankins",
       "position": "IDL",
-      "age": 32,
+      "age": 31,
       "previous_team": "Houston Texans (re-sign)",
       "contract": {
         "years": 2,
-        "total_value": 14000000,
+        "total_value": 12000000,
         "guaranteed": 12000000,
-        "aav": 7000000
+        "aav": 6000000
+      },
+      "expected_role": "starter",
+      "market_tier": "depth",
+      "need_impact": "fully_addressed",
+      "need_position": "IDL",
+      "analysis": "Two-year deal with full $12M guaranteed. Rankins had a resurgent year in 2025: 3 sacks, 35 tackles, 44 pressures, and two touchdowns. Re-signing him stabilizes the IDL with Rankins alongside incumbent rotation pieces. The $12M total guaranteed signals real commitment for a 31-year-old. IDL need is addressed at the starter level, though age means they'll likely want a young piece in the draft still."
+    },
+    {
+      "player": "Trent Brown",
+      "position": "OT",
+      "age": 32,
+      "previous_team": "Houston Texans (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 7000000,
+        "guaranteed": 0,
+        "aav": 7000000,
+        "notes": "Worth up to $7M; exact guarantees not reported"
       },
       "expected_role": "starter",
       "market_tier": "depth",
       "need_impact": "partially_addressed",
-      "need_position": "IDL",
-      "analysis": "Two-year re-sign with $12M fully guaranteed keeps Rankins \u2014 who started all 17 games in 2025 \u2014 anchoring the interior. At $7M AAV, this is slightly below mid-market for a starting IDL, but the guarantees signal genuine commitment for a player who turns 32. However, with Tim Settle Jr. departing to Washington, Rankins is now the sole reliable IDL starter. Houston still needs IDL depth/rotation. Need partially addressed \u2014 Rankins holds down one spot but a second starter-caliber IDL is needed."
-    },
-    {
-      "player": "David Montgomery",
-      "position": "RB",
-      "age": 28,
-      "previous_team": "Detroit Lions (trade)",
-      "contract": {
-        "years": 2,
-        "total_value": 12980000,
-        "guaranteed": 0,
-        "aav": 6490000
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "fully_addressed",
-      "need_position": "RB",
-      "acquisition_type": "trade",
-      "trade_compensation_sent": "G Juice Scruggs, 2026 4th-round pick (#128), 2027 7th-round pick",
-      "analysis": "Traded for Montgomery (2 remaining years, base salaries of $5.49M in 2026 and $7.49M in 2027, no guaranteed money remaining) to address the void left by Joe Mixon's release. Montgomery had 2,506 rushing yards and 33 touchdowns in 3 seasons with Detroit and should immediately serve as the RB1 in a committee with Woody Marks. The lack of guaranteed money suggests Houston will aim to extend him. RB need is fully addressed \u2014 Montgomery plus Marks is a legitimate 1-2 punch."
-    },
-    {
-      "player": "Reed Blankenship",
-      "position": "S",
-      "age": 25,
-      "previous_team": "Philadelphia Eagles",
-      "contract": {
-        "years": 3,
-        "total_value": 24750000,
-        "guaranteed": 16500000,
-        "aav": 8250000
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "fully_addressed",
-      "need_position": "S",
-      "analysis": "Three-year, $24.75M deal with $16.5M guaranteed brings in a 25-year-old starting safety who had 4 interceptions in 2024. He slots in alongside Calen Bullock as a legitimate starter in a secondary that already features Derek Stingley Jr. and Kamari Lassiter. At $8.25M AAV, he is at the lower end of starter-tier money for a safety, representing solid value. The 3-year structure with significant guarantees signals a real commitment. Safety need is fully addressed."
+      "need_position": "OT",
+      "analysis": "One-year deal worth up to $7M. Brown started 7 games in 2025 and allowed the 6th-lowest pressure rate (7.1%) among RT starters Weeks 10\u201316. Health is the primary concern \u2014 knee and ankle issues have limited him. At $7M/year on a 1-year deal, this is a bridge not a solution. The Texans lost Tytus Howard and traded Scruggs, leaving OT a critical need. Brown and 2025 2nd-rounder Aireontae Ersery form the likely starting pair but the depth and long-term outlook remain thin. OT need partially addressed \u2014 draft investment still required."
     },
     {
       "player": "Braden Smith",
       "position": "OT",
-      "age": 29,
+      "age": 30,
       "previous_team": "Indianapolis Colts",
       "contract": {
         "years": 2,
@@ -199,92 +209,112 @@
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "OT",
-      "analysis": "Two-year, $25M deal ($13.5M guaranteed) brings in a 29-year-old tackle who started 105 of 107 career games with Indianapolis \u2014 mostly at right tackle. Smith provides immediate starting-caliber experience and versatility (was originally drafted as a guard). At $12.5M AAV, this is mid-tier OT money, appropriate for a quality-not-elite tackle. Two years with meaningful guarantees is real commitment, though the shorter duration signals the Texans still want to find a longer-term answer. After trading Tytus Howard, OT goes from critical to moderate need. Still a priority position in the draft."
+      "analysis": "Two-year, $25M deal ($13.5M fully guaranteed) with the former Colts veteran. Smith was a starter for 8 seasons in Indianapolis, playing in 107 games (starting 105). He ranked 21st in pressure rate allowed among tackles with 300+ pass block snaps (7.8%). Concerns include injury history. This is a legitimate starting-caliber signing that stabilizes the right side alongside Brown and Ersery, but the 2-year structure and age (30) mean the long-term OT picture still warrants a draft investment. Combined with the Brown re-sign, OT is partially addressed \u2014 no longer a panic need but still one for the draft."
     },
     {
-      "player": "Trent Brown",
-      "position": "OT",
-      "age": 33,
-      "previous_team": "Houston Texans (re-sign)",
+      "player": "David Montgomery",
+      "position": "RB",
+      "age": 28,
+      "previous_team": "Detroit Lions (trade)",
       "contract": {
-        "years": 1,
-        "total_value": 7000000,
-        "guaranteed": 3500000,
-        "aav": 7000000
+        "years": 2,
+        "total_value": 12980000,
+        "guaranteed": 0,
+        "aav": 6490000,
+        "notes": "Existing Lions contract: $5.49M in 2026, $7.49M in 2027; no guaranteed money remaining. Trade cost: OL Juice Scruggs + 2026 4th-round pick + 2027 7th-round pick"
       },
-      "expected_role": "starter/swing",
-      "market_tier": "depth",
-      "need_impact": "minimal",
-      "need_position": "OT",
-      "analysis": "One-year, $7M re-sign keeps the veteran insurance tackle back for 2026. Brown was the team's best lineman when healthy in 2025, but has missed significant time in multiple recent seasons and played only 7 games as a starter before an ankle injury ended his season. As a 1-year deal at age 33 with a severe injury history, this is a depth/bridge signing, not a starter solution. Does not move the OT needle meaningfully \u2014 Braden Smith is the primary OT addition."
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "fully_addressed",
+      "need_position": "RB",
+      "analysis": "Acquired via trade from Detroit (cost: Scruggs + 2026 4th + 2027 7th). Montgomery is expected to be the lead back, paired with sophomore Woody Marks. Houston was 29th in yards-per-attempt in 2025 and dead last in yards after contact. Montgomery brings proven power-running (2,506 yards and 33 TDs over 3 Lions seasons) and short-yardage capability. The loss of the 4th-round pick is meaningful cost but RB was a clear need after releasing Mixon and losing Chubb. RB need fully addressed. Draft capital should now pivot elsewhere."
+    },
+    {
+      "player": "Reed Blankenship",
+      "position": "S",
+      "age": 27,
+      "previous_team": "Philadelphia Eagles",
+      "contract": {
+        "years": 3,
+        "total_value": 24750000,
+        "guaranteed": 16500000,
+        "aav": 8250000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "fully_addressed",
+      "need_position": "S",
+      "analysis": "Three-year, $24.75M deal ($16.5M guaranteed). Blankenship started 50 games over three Eagles seasons and is a Super Bowl champion. His 2025 was a down year (1 INT, down from 4 in 2024) but he was 27 and a team captain in Philly. At $8.25M AAV he's mid-tier starter pricing. He joins Calen Bullock in a two-safety starting set. This fills the open safety spot MJ Stewart vacated in effectiveness (Stewart re-signed on a vet deal). S need fully addressed for 2026 with a committed 3-year investment."
     },
     {
       "player": "E.J. Speed",
       "position": "LB",
-      "age": 28,
+      "age": 30,
       "previous_team": "Houston Texans (re-sign)",
       "contract": {
         "years": 2,
         "total_value": 13000000,
-        "guaranteed": 7500000,
-        "aav": 6500000
+        "guaranteed": 0,
+        "aav": 6500000,
+        "notes": "Up to $13M max value; exact guarantees not publicly confirmed"
       },
-      "expected_role": "starter/rotational",
-      "market_tier": "depth",
+      "expected_role": "rotational/starter",
+      "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "LB",
-      "analysis": "Two-year, $13M deal ($7.5M guaranteed) re-signs a linebacker who started 9 games in his first year in Houston. Speed is a quality rotational piece who can start if needed. At $6.5M AAV with two years of guarantees, this is a legitimate commitment to the LB room. With Christian Harris departing, Speed takes on a more prominent role. LB depth is addressed but Azeez Al-Shaair's extension looms as the real priority at this position."
+      "analysis": "Two-year deal worth up to $13M. Speed started 9 games in his first Texans season and is the No. 3 LB behind Al-Shaair and To'oTo'o. He fills a hybrid LB/special teams role. The Christian Harris departure opens a depth spot, but Speed's re-signing maintains the core LB group. Azeez Al-Shaair's extension remains the more pressing LB business. LB depth is adequately addressed by Speed's return but the room still needs Al-Shaair locked in."
     },
     {
-      "player": "Dalton Schultz",
-      "position": "TE",
+      "player": "M.J. Stewart",
+      "position": "S",
       "age": 29,
-      "previous_team": "Houston Texans (extension)",
+      "previous_team": "Houston Texans (re-sign)",
       "contract": {
-        "years": 1,
-        "total_value": 12600000,
-        "guaranteed": 8000000,
-        "aav": 12600000
+        "years": 2,
+        "total_value": 6000000,
+        "guaranteed": 3000000,
+        "aav": 3000000
       },
-      "expected_role": "starter",
-      "market_tier": "starter",
+      "expected_role": "depth/special teams",
+      "market_tier": "depth",
       "need_impact": "none",
-      "need_position": "TE",
-      "analysis": "One-year, $12.6M extension retains Schultz, who set a career high with 82 catches in 2025. At $12.6M AAV, this is squarely in the starter tier for TE. The 1-year structure is a bridge deal \u2014 Schultz is 29 and Houston will revisit again next offseason \u2014 but the position is covered for 2026. TE was not a need heading into FA, and it remains stable."
+      "need_position": "S",
+      "analysis": "Two-year, $6M re-sign. Stewart is a versatile DB and special teams contributor. At $3M AAV this is clearly a depth/special teams signing. Blankenship handles the starter need. Stewart provides continuity as a chess piece in the secondary."
     },
     {
       "player": "Dominique Robinson",
       "position": "EDGE",
-      "age": 26,
+      "age": 25,
       "previous_team": "Chicago Bears",
       "contract": {
         "years": 1,
         "total_value": 4000000,
-        "guaranteed": 2000000,
-        "aav": 4000000
+        "guaranteed": 0,
+        "aav": 4000000,
+        "notes": "Worth up to $4M"
       },
-      "expected_role": "rotational",
+      "expected_role": "depth",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "EDGE",
-      "analysis": "One-year, up-to-$4M deal brings in a 26-year-old depth edge rusher from Chicago. Robinson was a rotational piece for the Bears and provides developmental/rotation value behind Hunter and Anderson. Low-cost depth addition, does not move any need needle. EDGE depth improves marginally."
+      "analysis": "One-year deal worth up to $4M. Robinson was a depth piece for Chicago for 4 seasons. ESPN notes he will fill the same depth role for Houston. Provides rotational EDGE depth behind Hunter and Anderson as Autry and Barnett depart. EDGE depth is thin beyond the top two but this keeps the room functional."
     },
     {
-      "player": "Logan Hall",
-      "position": "IDL",
-      "age": 26,
-      "previous_team": "Tampa Bay Buccaneers",
+      "player": "Foster Moreau",
+      "position": "TE",
+      "age": 28,
+      "previous_team": "New Orleans Saints",
       "contract": {
         "years": 2,
-        "total_value": 14000000,
-        "guaranteed": 7000000,
-        "aav": 7000000
+        "total_value": 6300000,
+        "guaranteed": 0,
+        "aav": 3150000
       },
-      "expected_role": "rotational",
+      "expected_role": "depth",
       "market_tier": "depth",
-      "need_impact": "partially_addressed",
-      "need_position": "IDL",
-      "analysis": "Two-year, ~$14M deal (reported ~$7M/year) brings back a Houston-area product who was Tampa's 33rd overall pick in 2022. Hall offers edge/interior versatility at 6'6\", 283 lbs and functions as a direct replacement for Denico Autry and partial replacement for Tim Settle. He started a career-high 16 games in 2025 but had only 1.5 sacks. The 2-year structure with ~$7M guaranteed signals real commitment, though he's more rotation than starter. Combined with Rankins re-sign, IDL need is partially addressed but not fully resolved \u2014 a starter-caliber IDL partner for Rankins remains a draft priority."
+      "need_impact": "none",
+      "need_position": "TE",
+      "analysis": "Two-year, $6.3M deal. Moreau had 413 receiving yards in 2024 (2nd-most of his career) and adds depth behind Schultz. TE was already addressed via Schultz's extension. This is pure depth/insurance at a team-friendly price."
     },
     {
       "player": "Naquan Jones",
@@ -293,32 +323,51 @@
       "previous_team": "Houston Texans (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 2000000,
-        "guaranteed": 1000000,
-        "aav": 2000000
+        "total_value": 2500000,
+        "guaranteed": 0,
+        "aav": 2500000
       },
       "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "IDL",
-      "analysis": "One-year, $2M re-sign (up to $2.5M with incentives) keeps a veteran IDL depth piece in the building. Jones is a run-stuffing reserve who never gets above 40% defensive snaps. Depth retention only \u2014 does not address the starter-level IDL vacancy left by Settle."
+      "analysis": "One-year, $2.5M re-sign. Jones is a veteran IDL depth piece. With Rankins re-signed and Logan Hall (EDGE/IDL tweener) and Settle departing, Jones keeps the rotation intact cheaply. Depth move only."
+    },
+    {
+      "player": "Logan Hall",
+      "position": "EDGE",
+      "age": 25,
+      "previous_team": "Tampa Bay Buccaneers",
+      "contract": {
+        "years": 2,
+        "total_value": 14000000,
+        "guaranteed": 0,
+        "aav": 7000000,
+        "notes": "ESPN reported $14M deal; PFR/Tom Pelissero reported $7M total \u2014 discrepancy noted, ESPN figure used as higher credibility source given ESPN tracked the FA signing directly. Guarantees not publicly confirmed."
+      },
+      "expected_role": "rotational",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "EDGE",
+      "analysis": "Two-year deal (value reported between $7M\u2013$14M total across sources; ESPN pegged at $14M). Hall is a 2022 second-round pick of the Buccaneers who had 5.5 sacks in 2024 but only 1.5 in 2025. At 25, he has upside in Houston's scheme and will compete for the first rotational EDGE spot behind Hunter and Anderson. Replaces Autry and Barnett in the depth chart. This is a bounce-back opportunity deal \u2014 not a need-filler at the starter level. EDGE depth improved but need remains for a developmental piece long-term."
     },
     {
       "player": "Ka'imi Fairbairn",
       "position": "K",
-      "age": 31,
+      "age": 32,
       "previous_team": "Houston Texans (extension)",
       "contract": {
         "years": 2,
         "total_value": 13000000,
-        "guaranteed": 9000000,
-        "aav": 6500000
+        "guaranteed": 0,
+        "aav": 6500000,
+        "notes": "Makes him the highest-paid kicker in NFL history at signing"
       },
       "expected_role": "starter",
       "market_tier": "elite",
       "need_impact": "none",
       "need_position": "K",
-      "analysis": "Two-year, $13M extension makes Fairbairn the highest-paid kicker in the NFL. This was a retention of the incumbent; K was not a need before FA and remains solved."
+      "analysis": "Two-year, $13M extension. Fairbairn tied the NFL record with 44 field goals in 2025. K was not a need and this simply locks in a franchise kicker at record-setting money. No draft impact."
     },
     {
       "player": "Kai Kroeger",
@@ -327,46 +376,63 @@
       "previous_team": "New Orleans Saints (trade)",
       "contract": {
         "years": 2,
-        "total_value": 2200000,
-        "guaranteed": 1400000,
-        "aav": 1100000
+        "total_value": 2117000,
+        "guaranteed": 1005000,
+        "aav": 1058500,
+        "notes": "Existing rookie contract ($1.005M in 2026, $1.112M in 2027). Trade cost: 2028 6th-round pick for Kroeger + 2028 7th-round pick"
       },
       "expected_role": "starter",
-      "market_tier": "minimum",
-      "acquisition_type": "trade",
-      "trade_compensation_sent": "2028 6th-round pick",
-      "trade_compensation_received": "2028 7th-round pick",
+      "market_tier": "depth",
       "need_impact": "none",
       "need_position": "P",
-      "analysis": "Low-stakes punter trade (2028 6th for 2028 7th + Kroeger) replaces Tommy Townsend with a 23-year-old on his rookie deal through 2027. Kroeger averaged 44.8 yards per punt as a 2025 Saints rookie. Economical solution to the punter vacancy. Not a positional need item."
+      "analysis": "Acquired via trade swapping late 2028 picks. Directly replaces Tommy Townsend who departed. Kroeger averaged 44.8 yards on 56 punts in his Saints rookie season. Houston gets a young, cost-controlled punter. No meaningful need impact \u2014 one punter replaced another."
     },
     {
-      "player": "M.J. Stewart",
-      "position": "S",
-      "age": 29,
+      "player": "Desmond King II",
+      "position": "CB",
+      "age": 30,
       "previous_team": "Houston Texans (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 3000000,
-        "guaranteed": 1500000,
-        "aav": 3000000
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0,
+        "notes": "Terms not publicly disclosed as of 2026-03-13"
       },
-      "expected_role": "rotational/depth",
-      "market_tier": "depth",
-      "need_impact": "minimal",
+      "expected_role": "depth/special teams",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "CB",
+      "analysis": "Re-signed as a veteran depth DB and special teams contributor. CB starting spots (Stingley, Lassiter) are already set. This is a depth/special teams retention."
+    },
+    {
+      "player": "Michael Thomas",
+      "position": "S",
+      "age": 30,
+      "previous_team": "TBD",
+      "contract": {
+        "years": 1,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0,
+        "notes": "Signed per Texans official 'Just Signed' page; contract terms not publicly reported as of 2026-03-13"
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "none",
       "need_position": "S",
-      "analysis": "One-year, $3M re-sign of the versatile safety who missed the second half of 2025 with a quad injury. Depth/insurance signing for the secondary. Does not change the S need picture \u2014 Blankenship is the starter-level addition."
+      "analysis": "Listed on Texans' official Just Signed page. Safety depth addition after Blankenship and Stewart handle the starter/backup roles. Terms not yet public."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
       "RB",
+      "IOL",
+      "IDL",
       "S"
     ],
     "partially_addressed": [
-      "IOL",
       "OT",
-      "IDL",
       "LB"
     ],
     "minimally_addressed": [
@@ -374,196 +440,224 @@
     ],
     "unchanged": [
       "WR",
-      "QB",
+      "CB",
       "TE",
-      "CB"
+      "QB"
     ],
-    "escalated": []
+    "escalated": [
+      "OT",
+      "IOL"
+    ],
+    "created": [
+      "WR"
+    ]
   },
   "recommended_need_adjustments": [
     {
-      "position": "RB",
+      "position": "OT",
       "previous_tier": 2,
-      "recommended_tier": 4,
-      "reasoning": "Joe Mixon cut, Nick Chubb departed, but Houston proactively traded for David Montgomery (2 yrs remaining) to pair with Woody Marks. Montgomery had 33 TDs in 3 Lions seasons. This is a legitimate 1-2 punch. RB is no longer a meaningful draft need."
-    },
-    {
-      "position": "S",
-      "previous_tier": 2,
-      "recommended_tier": 4,
-      "reasoning": "Reed Blankenship signed to a 3yr/$24.75M deal ($16.5M gtd) provides a proven starter alongside Calen Bullock. M.J. Stewart re-signed as depth. Safety is resolved for multiple years. No longer a draft priority."
-    },
-    {
-      "position": "EDGE",
-      "previous_tier": 2,
-      "recommended_tier": 4,
-      "reasoning": "Danielle Hunter extended (1yr/$40.1M fully guaranteed), Will Anderson Jr. extension imminent. Both are top-5 edge rushers. Dominique Robinson and Logan Hall add rotation depth behind them. Denico Autry's departure is negligible given the elite starters in place. EDGE is a strength, not a need."
+      "recommended_tier": 2,
+      "reasoning": "Tytus Howard was traded to Cleveland (5th-round pick return), stripping the Texans of their best OL. The Braden Smith signing (2yr/$25M) and Trent Brown re-sign (1yr/$7M) provide two veteran starters but neither is a long-term anchor. Smith is 30 with injury history; Brown is 32 on a one-year deal. Aireontae Ersery (2nd-year 2025 pick) projects as the LT. Center Jake Andrews is the only other returning starter. OT/OL overall remains a top-2 draft priority \u2014 should target a high-upside OT in rounds 1\u20132 to build around Ersery and provide long-term security. Need stays at tier 2."
     },
     {
       "position": "IOL",
       "previous_tier": 1,
       "recommended_tier": 2,
-      "reasoning": "Ed Ingram re-signed (3yr/$38.6M, $23.5M gtd) locks in the starting RG. However, center remains a critical vacancy \u2014 top FA centers (Linderbaum, Cade Mays) signed elsewhere. Jake Andrews returns but is not a reliable starter. IOL drops from critical but center is still a genuine need and a top draft target in rounds 1-3."
+      "reasoning": "Ed Ingram's 3yr/$37.5M re-sign solves RG. However, Juice Scruggs was traded away, and center is now a glaring concern. Jake Andrews projects as the starting C but Houston missed out on free agent centers (Linderbaum to Raiders, Cade Mays to Lions). No veteran C was added in FA. IOL need drops from critical (tier 1) to elevated (tier 2) thanks to the Ingram re-sign, but C remains a draft target in rounds 2\u20133."
     },
     {
-      "position": "OT",
-      "previous_tier": 1,
-      "recommended_tier": 2,
-      "reasoning": "Tytus Howard was traded away, creating a hole. Braden Smith signed (2yr/$25M, $13.5M gtd) as the primary RT solution and brings 105 career starts but has missed significant time in recent seasons. Trent Brown re-signed (1yr/$7M) as the backup/bridge. OT is partially addressed but still a meaningful draft need \u2014 Houston likely targets OT on Day 1 or 2 of the draft given Brown's injury history."
+      "position": "RB",
+      "previous_tier": 2,
+      "recommended_tier": 4,
+      "reasoning": "David Montgomery trade fully addresses the lead RB role. He steps in as the starter alongside Woody Marks. Joe Mixon was released, Nick Chubb departed. The backfield is now properly stocked. RB drops from a tier-2 need to a tier-4 luxury \u2014 no meaningful draft investment warranted here."
+    },
+    {
+      "position": "S",
+      "previous_tier": 2,
+      "recommended_tier": 4,
+      "reasoning": "Reed Blankenship's 3yr/$24.75M signing ($16.5M guaranteed) fills the open safety spot alongside Calen Bullock. MJ Stewart re-signed for depth. Safety drops from a meaningful need to fully addressed. No draft investment needed at S in 2026."
     },
     {
       "position": "IDL",
       "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Sheldon Rankins re-signed (2yr/$14M, $12M gtd) and Logan Hall added (2yr/$14M). Naquan Jones back on minimum. BUT Tim Settle Jr. departed to Washington on a 3yr/$24M deal, leaving a genuine hole next to Rankins. Net: IDL depth improved, but starter-level IDL remains a priority. Need tier holds at 2 \u2014 should draft IDL in rounds 1-3."
+      "recommended_tier": 3,
+      "reasoning": "Sheldon Rankins re-signed on a 2yr/$12M fully guaranteed deal. Naquan Jones re-signed for depth. Tim Settle Jr. departed but was rotational. Logan Hall can play as a 3-4 end/DT tweener. IDL drops from a tier-2 need to a tier-3 depth consideration. A young IDL piece in rounds 3\u20135 of the draft would still be smart given Rankins' age (31)."
     },
     {
-      "position": "LB",
+      "position": "EDGE",
       "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "E.J. Speed re-signed (2yr/$13M) as a viable rotational/starting LB. However, Azeez Al-Shaair's extension is still pending \u2014 he is entering the final year of his deal and could become very expensive on the open market if not extended. Christian Harris departed (depth loss only). LB need stays at tier 2 pending Al-Shaair resolution; if he signs an extension this drops to tier 3-4."
+      "recommended_tier": 3,
+      "reasoning": "Danielle Hunter's 1yr/$40.1M extension and Will Anderson Jr. (under contract) keep the starting pair elite. Depth was thinned with Autry/Barnett departures but Logan Hall (2yr/$14M) and Dominique Robinson (1yr/$4M) partially refill the room. EDGE drops slightly as a need \u2014 still worth a day-2 or day-3 pick for developmental depth given Anderson's extension will be massive and Hunter is on annual deals."
     },
     {
       "position": "WR",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Christian Kirk departed (rotational loss only). Tank Dell expected back from injury, Jaylin Noel emerging in year 2, Nico Collins locked in. No WR additions made in FA. Need unchanged \u2014 Houston could still use a WR2/slot opposite Nico Collins in the mid-rounds of the draft."
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "Christian Kirk's departure creates a depth/slot WR void. Nico Collins is the clear WR1. Jaylin Noel and Tank Dell (returning from injury) are the other known options. No WR was added in free agency. WR remains a tier-3 need \u2014 not critical given Collins, but the slot depth is thin and a mid-round WR in the draft makes sense."
     },
     {
-      "position": "QB",
-      "previous_tier": 5,
-      "recommended_tier": 5,
-      "reasoning": "C.J. Stroud is the unquestioned starter. No change. Extension discussions ongoing."
+      "position": "LB",
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "E.J. Speed re-signed (2yr/$13M) and Christian Harris departed to Atlanta. Al-Shaair (potential extension pending) and Henry To'oTo'o anchor the group. LB depth is functional but Azeez Al-Shaair's extension situation remains unresolved \u2014 if he departs, this escalates sharply. Hold at tier 3 pending Al-Shaair resolution. The Texans should prioritize getting that extension done."
+    },
+    {
+      "position": "OT",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Combined note with IOL above \u2014 Houston's offensive line remains the most pressing offseason concern heading into the draft even after FA spending. Two starters (Howard, Scruggs) were traded out. While Ingram, Brown, Smith, and Ersery provide a workable group, the line has only one established long-term piece (Ingram). Draft must prioritize OL in the first two days."
     }
   ],
   "team_page_additions": {
     "key_additions": [
       {
-        "player": "David Montgomery",
-        "position": "RB",
-        "contract_summary": "Trade acquisition (2yr/$12.9M remaining, no guarantees)",
-        "previous_team": "Detroit Lions",
-        "headline": "Power RB1 acquired via trade (for Scruggs + 4th + 7th) to replace released Joe Mixon \u2014 33 TDs in 3 Lions seasons"
-      },
-      {
         "player": "Danielle Hunter",
         "position": "EDGE",
-        "contract_summary": "1yr/$40.1M (fully guaranteed)",
+        "contract_summary": "1yr/$40.1M (fully gtd)",
         "previous_team": "Houston Texans (extension)",
-        "headline": "Historic 1-year, $40.1M fully-guaranteed extension keeps 2nd-team All-Pro (15 sacks) locked in through 2027"
+        "headline": "15-sack All-Pro re-signed on historic 1-year deal, locking in the elite pass-rush duo with Anderson through 2027"
       },
       {
         "player": "Ed Ingram",
         "position": "IOL",
-        "contract_summary": "3yr/$38.6M ($23.5M gtd)",
+        "contract_summary": "3yr/$37.5M ($23.5M gtd)",
         "previous_team": "Houston Texans (re-sign)",
-        "headline": "Starting RG locked in on multi-year deal, preventing an IOL catastrophe after losing Tytus Howard and Juice Scruggs"
+        "headline": "Top-10 PFF run-blocking guard retained on below-market deal, anchoring the rebuilt offensive interior through 2028"
       },
       {
-        "player": "Reed Blankenship",
-        "position": "S",
-        "contract_summary": "3yr/$24.75M ($16.5M gtd)",
-        "previous_team": "Philadelphia Eagles",
-        "headline": "Young, proven starter (3yr/$24.75M) fills the long-vacant safety2 slot alongside Calen Bullock"
+        "player": "David Montgomery",
+        "position": "RB",
+        "contract_summary": "Traded (Scruggs + 2026 4th + 2027 7th); existing 2yr/$12.98M deal",
+        "previous_team": "Detroit Lions",
+        "headline": "Power back acquired to fix Houston's league-worst run game after Mixon release and Chubb departure"
       },
       {
         "player": "Braden Smith",
         "position": "OT",
         "contract_summary": "2yr/$25M ($13.5M gtd)",
         "previous_team": "Indianapolis Colts",
-        "headline": "Veteran OT with 105 career starts steps in as the primary right tackle replacement for traded Tytus Howard"
+        "headline": "8-year Colts starter signed to stabilize the offensive tackle room after Tytus Howard trade"
+      },
+      {
+        "player": "Reed Blankenship",
+        "position": "S",
+        "contract_summary": "3yr/$24.75M ($16.5M gtd)",
+        "previous_team": "Philadelphia Eagles",
+        "headline": "Super Bowl champion safety fills the open starting spot alongside Calen Bullock in Houston's elite secondary"
       },
       {
         "player": "Sheldon Rankins",
         "position": "IDL",
-        "contract_summary": "2yr/$14M ($12M gtd)",
+        "contract_summary": "2yr/$12M (fully gtd)",
         "previous_team": "Houston Texans (re-sign)",
-        "headline": "Full-time IDL starter retained on veteran-friendly deal after anchoring Houston's elite 2025 defense"
-      },
-      {
-        "player": "Logan Hall",
-        "position": "IDL",
-        "contract_summary": "2yr/$14M (~$7M gtd est.)",
-        "previous_team": "Tampa Bay Buccaneers",
-        "headline": "UH hometown product and former 2nd-round pick adds versatile IDL/EDGE rotation depth behind elite pass-rush duo"
-      },
-      {
-        "player": "E.J. Speed",
-        "position": "LB",
-        "contract_summary": "2yr/$13M ($7.5M gtd)",
-        "previous_team": "Houston Texans (re-sign)",
-        "headline": "Linebacker who started 9 games in his first Texans season retained on a real multi-year commitment"
+        "headline": "Disruptive DT re-signed on fully guaranteed deal to maintain the league's top-ranked interior defensive line"
       },
       {
         "player": "Dalton Schultz",
         "position": "TE",
-        "contract_summary": "1yr/$12.6M",
+        "contract_summary": "1yr/$12.6M ext (thru 2027, $17.6M gtd across '26\u2013'27)",
         "previous_team": "Houston Texans (extension)",
-        "headline": "Career-high 82-catch TE keeps the position stable on a bridge deal for 2026"
+        "headline": "Career-high 82-catch TE locked in through 2027 as Stroud's top safety valve"
+      },
+      {
+        "player": "Trent Brown",
+        "position": "OT",
+        "contract_summary": "1yr/up to $7M",
+        "previous_team": "Houston Texans (re-sign)",
+        "headline": "Veteran RT re-signed on team-friendly deal to provide starting-caliber continuity after Howard trade"
+      },
+      {
+        "player": "Logan Hall",
+        "position": "EDGE",
+        "contract_summary": "2yr/$14M",
+        "previous_team": "Tampa Bay Buccaneers",
+        "headline": "2022 second-round pick joins Houston's elite defensive line as the top rotational EDGE option"
+      },
+      {
+        "player": "Kai Kroeger",
+        "position": "P",
+        "contract_summary": "Traded (2028 6th for Kroeger + 2028 7th); existing rookie deal",
+        "previous_team": "New Orleans Saints",
+        "headline": "Young punter acquired via minimal cost to replace departing Tommy Townsend"
       }
     ],
     "key_losses": [
       {
         "player": "Tytus Howard",
         "position": "OT",
-        "contract_summary": "Traded to Browns (3yr/$63M extension with Cleveland), HOU received 2026 5th-round pick",
+        "contract_summary": "Traded for 2026 5th-round pick",
         "new_team": "Cleveland Browns",
-        "headline": "Seven-year franchise stalwart dealt to Cleveland, creating urgent OT/IOL overhaul heading into 2026"
+        "headline": "Best OL on the roster traded for a 5th-rounder \u2014 second straight year Houston dealt away its starting tackle"
       },
       {
         "player": "Juice Scruggs",
         "position": "IOL",
-        "contract_summary": "Traded to Lions with 2026 4th + 2027 7th for RB David Montgomery",
+        "contract_summary": "Traded as part of Montgomery deal",
         "new_team": "Detroit Lions",
-        "headline": "Second-round bust departure costs Houston draft capital but yields a legitimate RB1 in Montgomery"
-      },
-      {
-        "player": "Tim Settle Jr.",
-        "position": "IDL",
-        "contract_summary": "3yr/$24M (up to $25.5M) with Commanders",
-        "new_team": "Washington Commanders",
-        "headline": "Starting DT cashed in with Washington, leaving a hole next to Rankins on Houston's elite defensive front"
+        "headline": "2023 2nd-round IOL depth piece traded to Detroit, deepening Houston's center concerns"
       },
       {
         "player": "Joe Mixon",
         "position": "RB",
-        "contract_summary": "Released (cleared $8M cap)",
-        "new_team": "Released",
-        "headline": "Veteran RB cut after missing all of 2025 with a foot injury; Montgomery trade was the immediate answer"
+        "contract_summary": "Released (saved $8M)",
+        "new_team": "Unsigned",
+        "headline": "2-time Pro Bowl RB cut after missing all of 2025 with foot injury; replaced by Montgomery"
       },
       {
         "player": "Christian Kirk",
         "position": "WR",
-        "contract_summary": "Unsigned/departed",
+        "contract_summary": "Unrestricted free agent",
         "new_team": "TBD",
-        "headline": "One-year rental WR departs as Tank Dell's return and Jaylin Noel's emergence reduce the need for his slot"
+        "headline": "Slot depth receiver departs, thinning Houston's WR room behind Nico Collins"
       },
       {
-        "player": "Tommy Townsend",
-        "position": "P",
-        "contract_summary": "Unsigned/departed",
+        "player": "Christian Harris",
+        "position": "LB",
+        "contract_summary": "3yr deal with Falcons",
+        "new_team": "Atlanta Falcons",
+        "headline": "Young rotational LB signs with Atlanta, creating minor depth thinning at linebacker"
+      },
+      {
+        "player": "Denico Autry",
+        "position": "EDGE",
+        "contract_summary": "Unrestricted free agent",
         "new_team": "TBD",
-        "headline": "Two-year Texans punter replaced economically via Kai Kroeger trade from New Orleans"
+        "headline": "35-year-old depth EDGE rusher not expected back; replaced by Logan Hall and Dominique Robinson"
+      },
+      {
+        "player": "Nick Chubb",
+        "position": "RB",
+        "contract_summary": "Unrestricted free agent",
+        "new_team": "TBD",
+        "headline": "Veteran RB not expected to return; Montgomery trade directly replaces his role"
       }
     ]
   },
   "confidence": "high",
-  "notes": "Contract for Ed Ingram reported at both $37.5M (Rapoport/NFL Network) and $38.6M (KPRC2/click2houston) \u2014 using $38.6M per KPRC2 Aaron Wilson sourcing. Sheldon Rankins total contract value not explicitly confirmed beyond $12M guaranteed on a 2-year deal; total value estimated at $14M based on $7M AAV (up from $5.25M prior deal). Logan Hall guarantees reported only as 'much of the deal will be guaranteed' per agent; estimated at ~$7M (50% of total). Azeez Al-Shaair extension has mutual interest reported but no deal confirmed as of March 11, 2026 \u2014 not included. Will Anderson Jr. extension is an offseason priority but unconfirmed \u2014 not included. David Montgomery contract remaining value sourced from Spotrac ($5.49M 2026 base + $7.49M 2027 base = ~$12.98M, no guarantees remaining). Trent Brown guarantees not officially reported; estimated at ~50% of AAV.",
   "sources": [
+    "https://www.houstontexans.com/news/houston-texans-2026-free-agency-tracker",
     "https://www.espn.com/nfl/story/_/id/47978352/houston-texans-2026-free-agency-tracker-offseason-moves-signings-trade",
-    "https://www.si.com/nfl/texans/onsi/news/houston-texans-2026-free-agency-tracker-latest-signings-losses-news-rumors",
-    "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
+    "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/hou",
+    "https://www.spotrac.com/nfl/player/_/id/77509/reed-blankenship",
+    "https://www.spotrac.com/nfl/player/_/id/76935/ed-ingram",
+    "https://www.spotrac.com/nfl/player/_/id/16812/danielle-hunter",
+    "https://www.spotrac.com/nfl/houston-texans/mj-stewart-25152/",
+    "https://overthecap.com/player/danielle-hunter/3936",
+    "https://www.nfl.com/news/texans-five-time-pro-bowler-danielle-hunter-agree-to-terms-on-one-year-40-1m-extension",
     "https://www.nfl.com/news/tytus-howard-browns-texans-trade-three-year-63m-extension",
     "https://www.nfl.com/news/david-montgomery-trade-texans-lions-juice-scruggs",
-    "https://www.nfl.com/news/texans-five-time-pro-bowler-danielle-hunter-agree-to-terms-on-one-year-40-1m-extension",
-    "https://www.espn.com/nfl/story/_/id/48117978/de-danielle-hunter-texans-agree-1-year-40m-deal-source-says",
+    "https://www.nfl.com/news/texans-sign-rg-ed-ingram-to-3-year-37-5-million-contract",
     "https://www.espn.com/nfl/story/_/id/48164400/texans-reach-two-year-deal-ex-colts-ot-braden-smith",
-    "https://www.click2houston.com/news/local/2026/03/10/nfl-free-agency-tracker-texans-make-kaimi-fairbairn-highest-paid-kicker-in-nfl-with-new-deal/",
+    "https://www.espn.com/nfl/story/_/id/48081713/sources-texans-trade-draft-pick-lions-rb-david-montgomery",
+    "https://www.espn.com/nfl/story/_/id/48080683/texans-trade-starting-rt-tytus-howard-browns-source-says",
+    "https://www.espn.com/nfl/story/_/id/48151253/sources-ed-ingram-stays-texans-3-year-deal",
+    "https://www.si.com/nfl/texans/onsi/news/houston-texans-2026-free-agency-tracker-latest-signings-losses-news-rumors",
     "https://www.click2houston.com/sports/2026/03/09/sources-texans-strike-two-year-deal-to-hold-onto-sheldon-rankins-with-12-million-total-guaranteed/",
-    "https://www.profootballrumors.com/2026/03/texans-to-sign-de-logan-hall",
+    "https://www.click2houston.com/sports/2026/03/09/sources-texans-reach-three-year-375-million-deal-for-guard-ed-ingram-hours-before-free-agency-tampering-period/",
+    "https://www.click2houston.com/sports/2026/03/10/source-texans-kaimi-fairbairn-becomes-nfls-highest-paid-kicker-with-two-year-13-million-extension/",
+    "https://www.click2houston.com/sports/2026/03/10/source-texans-trade-for-saints-punter-kai-kroeger-in-exchange-of-late-round-2028-draft-picks/",
+    "https://www.neworleanssaints.com/news/kai-kroeger-punter-trade-houston-texans-nfl-free-agency-2026-saints-roster-moves",
     "https://www.profootballrumors.com/2026/03/texans-to-acquire-p-kai-kroeger-from-saints",
-    "https://www.profootballrumors.com/2026/03/commanders-to-sign-dt-tim-settle",
-    "https://overthecap.com/player/danielle-hunter/3936",
-    "https://www.spotrac.com/nfl/houston-texans/contracts/"
+    "https://www.si.com/nfl/texans/onsi/news/houston-texans-trent-brown-agree-to-new-contract"
   ]
 }
