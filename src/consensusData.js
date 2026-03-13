@@ -154,14 +154,14 @@ export function getConsensusRank(name) {
 // Round projection from consensus rank
 export function getConsensusRound(name) {
   const rank = getConsensusRank(name);
-  if (rank <= 11) return { label: "RD 1", bg: "#171717", fg: "#fff" };
-  if (rank <= 39) return { label: "RD 1-2", bg: "#525252", fg: "#fff" };
-  if (rank <= 60) return { label: "RD 2", bg: "#737373", fg: "#fff" };
-  if (rank <= 97) return { label: "RD 3", bg: "#a3a3a3", fg: "#fff" };
-  if (rank <= 134) return { label: "RD 4", bg: "#c8c8c8", fg: "#737373" };
-  if (rank <= 171) return { label: "RD 5", bg: "#d4d4d4", fg: "#737373" };
-  if (rank <= 208) return { label: "RD 6", bg: "#e0e0e0", fg: "#a3a3a3" };
-  if (rank <= 245) return { label: "RD 7", bg: "#e8e8e8", fg: "#a3a3a3" };
+  if (rank <= 18) return { label: "RD 1", bg: "#171717", fg: "#fff" };
+  if (rank <= 36) return { label: "RD 1-2", bg: "#525252", fg: "#fff" };
+  if (rank <= 63) return { label: "RD 2", bg: "#737373", fg: "#fff" };
+  if (rank <= 100) return { label: "RD 3", bg: "#a3a3a3", fg: "#fff" };
+  if (rank <= 137) return { label: "RD 4", bg: "#c8c8c8", fg: "#737373" };
+  if (rank <= 174) return { label: "RD 5", bg: "#d4d4d4", fg: "#737373" };
+  if (rank <= 211) return { label: "RD 6", bg: "#e0e0e0", fg: "#a3a3a3" };
+  if (rank <= 248) return { label: "RD 7", bg: "#e8e8e8", fg: "#a3a3a3" };
   return { label: "UDFA", bg: "#f0f0f0", fg: "#b8b8b8" };
 }
 
