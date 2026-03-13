@@ -1098,46 +1098,95 @@ export function generateScoutReasoning(prospect, teamName, fitResult, userTraits
     ? topTraits.map(t => `${TRAIT_ABBREV[t.trait] || t.trait} ${Math.round(t.val)}`).join(" + ")
     : "balanced trait profile";
 
-  // ── Helper: get analyst language for a trait ──
+  // ── Helper: get scouting language for a trait (no source attribution) ──
   function getTraitQuote(traitName) {
     const tl = scoutNarr?.trait_language?.[traitName];
     if (!tl) return null;
-    // Prefer tier 1 analysts, then pick the most relevant
+    // Try all entries, pick the first one with usable language
     const entries = Object.entries(tl);
-    const tier1 = entries.find(([k]) => /^(zierlein|jeremiah|brugler)$/i.test(k));
-    const pick = tier1 || entries[0];
-    if (!pick) return null;
-    const lang = pick[1]?.language;
-    if (!lang || lang.length < 20) return null;
-    // Trim to first sentence or 120 chars
-    const dot = lang.indexOf(". ");
-    return dot > 0 && dot < 140 ? lang.substring(0, dot + 1) : lang.substring(0, 120).replace(/[,;]\s*$/, "") + "…";
+    // Prefer tier 1, then any
+    const sorted = [...entries].sort(([a], [b]) => {
+      const t1 = /^(zierlein|jeremiah|brugler)$/i;
+      return (t1.test(b) ? 1 : 0) - (t1.test(a) ? 1 : 0);
+    });
+    for (const [, val] of sorted) {
+      let lang = val?.language;
+      if (!lang || lang.length < 20) continue;
+      // Skip AI artifact / error text
+      if (/no specific|no explicit|not ranked|language recovered|fragments|not found|no \w+-specific/i.test(lang)) continue;
+      // Strip analyst name mentions
+      lang = lang.replace(/\b(Zierlein|Jeremiah|Brugler|Kiper|McShay|Schrager|Miller|Rang|Emory|Cosell|NFL\.com|CBS Sports|ESPN|PFF)(?:'s?)?\b/gi, "").replace(/\s{2,}/g, " ").replace(/^\s*['']\s*/, "").trim();
+      if (lang.length < 20) continue;
+      // Use first complete sentence
+      const dot = lang.indexOf(". ");
+      if (dot > 0 && dot < 160) return lang.substring(0, dot + 1);
+      const nextDot = lang.indexOf(".", 120);
+      if (nextDot > 0 && nextDot < 200) return lang.substring(0, nextDot + 1);
+      const cut = lang.substring(0, 140);
+      const lastBreak = Math.max(cut.lastIndexOf(", "), cut.lastIndexOf("; "), cut.lastIndexOf(" — "), cut.lastIndexOf(" – "));
+      return lastBreak > 60 ? cut.substring(0, lastBreak) + "." : cut.replace(/[,;\s]+$/, "") + ".";
+    }
+    return null;
+  }
+
+  // ── Helper: strip analyst/source names from text ──
+  function stripSources(text) {
+    if (!text) return text;
+    return text.replace(/\b(Zierlein|Jeremiah|Brugler|Kiper|McShay|Schrager|Miller|Rang|Emory|Cosell|NFL\.com|CBS Sports|ESPN|PFF)(?:'s?)?\b/gi, "").replace(/\s{2,}/g, " ").trim();
   }
 
   // ── Helper: find strength/weakness text that matches a trait ──
   function findRelevantStrength(traitName) {
     if (!scoutNarr?.strengths) return null;
     const keywords = traitName.toLowerCase().split(" ");
-    return scoutNarr.strengths.find(s => {
+    const match = scoutNarr.strengths.find(s => {
       const sl = s.toLowerCase();
       return keywords.some(k => k.length > 3 && sl.includes(k));
-    }) || null;
+    });
+    return match ? stripSources(match) : null;
   }
   function findRelevantWeakness(traitName) {
     if (!scoutNarr?.weaknesses) return null;
     const keywords = traitName.toLowerCase().split(" ");
-    return scoutNarr.weaknesses.find(w => {
+    const match = scoutNarr.weaknesses.find(w => {
       const wl = w.toLowerCase();
       return keywords.some(k => k.length > 3 && wl.includes(k));
-    }) || null;
+    });
+    return match ? stripSources(match) : null;
   }
 
   // ── Helper: trim text to a max length at a sentence boundary ──
   function trimSentence(text, max) {
     if (!text || text.length <= max) return text;
+    // Try last sentence boundary before max
     const dot = text.lastIndexOf(". ", max);
-    if (dot > max * 0.5) return text.substring(0, dot + 1);
-    return text.substring(0, max).replace(/[,;]\s*$/, "") + "…";
+    if (dot > max * 0.4) return text.substring(0, dot + 1);
+    // Try next sentence boundary just past max
+    const nextDot = text.indexOf(".", max);
+    if (nextDot > 0 && nextDot < max + 60) return text.substring(0, nextDot + 1);
+    // End at last clause boundary with a period
+    const cut = text.substring(0, max);
+    const lastBreak = Math.max(cut.lastIndexOf(", "), cut.lastIndexOf("; "), cut.lastIndexOf(" — "), cut.lastIndexOf(" – "));
+    return lastBreak > max * 0.4 ? cut.substring(0, lastBreak) + "." : cut.replace(/[,;\s]+$/, "") + ".";
+  }
+
+  // ── Helper: clean idealArchetype text for use after "want" ──
+  function cleanArchetype(text) {
+    if (!text) return text;
+    // "[Player] IS the archetype — [desc]" → "[desc]"
+    const archMatch = text.match(/\bIS the archetype\s*[—–-]\s*/i);
+    if (archMatch) return text.substring(archMatch.index + archMatch[0].length);
+    // Find "The [role] is [rest]" or "The ideal [role] is [rest]"
+    const isMatch = text.match(/^(The\s+(?:ideal\s+)?(?:.*?))\s+is\s+/i);
+    if (isMatch) {
+      const after = text.substring(isMatch[0].length);
+      // If what follows "is" starts with a/an → it's a description, use directly
+      if (/^(a|an)\s/i.test(after)) return after;
+      // Otherwise it's a player name → "a [role] like [rest]"
+      let role = isMatch[1].replace(/^The\s+(ideal\s+)?/i, "").replace(/\s+in\s+.*$/i, "").trim();
+      return `a ${role} like ${after}`;
+    }
+    return text;
   }
 
   // ── Build the analysis ──
@@ -1153,7 +1202,7 @@ export function generateScoutReasoning(prospect, teamName, fitResult, userTraits
   let blurbText = "";
   if (scoutNarr?.scouting_blurb) {
     // Extract the key identity statement (first sentence of blurb)
-    const blurb = scoutNarr.scouting_blurb;
+    const blurb = stripSources(scoutNarr.scouting_blurb);
     const firstSentence = trimSentence(blurb, 180);
     blurbText = firstSentence.toLowerCase();
     sentences.push(firstSentence);
@@ -1204,7 +1253,7 @@ export function generateScoutReasoning(prospect, teamName, fitResult, userTraits
       if (traitMentionedInBlurb(topFit.trait)) {
         sentences.push(`${coordName}'s system demands exactly that: ${matchClause.charAt(0).toLowerCase() + matchClause.slice(1).trim()}.`);
       } else {
-        sentences.push(`${coordName}'s system demands ${matchClause.charAt(0).toLowerCase() + matchClause.slice(1).trim()}. Scouts see it: "${quote}"`);
+        sentences.push(`${coordName}'s system demands ${matchClause.charAt(0).toLowerCase() + matchClause.slice(1).trim()}, and ${lastName} shows exactly that — ${quote.charAt(0).toLowerCase() + quote.slice(1)}`);
       }
     } else if (matchClause) {
       if (traitMentionedInBlurb(topFit.trait)) {
@@ -1213,8 +1262,8 @@ export function generateScoutReasoning(prospect, teamName, fitResult, userTraits
         sentences.push(`${coordName}'s scheme needs ${matchClause.charAt(0).toLowerCase() + matchClause.slice(1).trim()} — ${lastName}'s ${topFit.trait.toLowerCase()} (${topFit.val}) is built for it.`);
       }
     } else if (idealArchetype) {
-      const arcSnip = trimSentence(idealArchetype, 100);
-      sentences.push(`${teamName} wants ${arcSnip.charAt(0).toLowerCase() + arcSnip.slice(1)} — ${eliteFits.map(t => t.trait.toLowerCase()).join(" and ")} are the priorities, and this prospect delivers.`);
+      const arcSnip = trimSentence(cleanArchetype(idealArchetype), 120);
+      sentences.push(`The ${teamName} want ${arcSnip.charAt(0).toLowerCase() + arcSnip.slice(1)} — ${eliteFits.map(t => t.trait.toLowerCase()).join(" and ")} are the priorities, and ${lastName} delivers.`);
     }
 
     // Add a second elite fit with scout language if available (skip if already used as topFit)
@@ -1224,7 +1273,7 @@ export function generateScoutReasoning(prospect, teamName, fitResult, userTraits
       if (!traitMentionedInBlurb(second.trait)) {
         const q2 = getTraitQuote(second.trait);
         if (q2) {
-          sentences.push(`${second.trait} also aligns: "${q2}"`);
+          sentences.push(`${lastName}'s ${second.trait.toLowerCase()} also fits — ${q2.charAt(0).toLowerCase() + q2.slice(1)}`);
         }
       }
     }
@@ -1232,13 +1281,14 @@ export function generateScoutReasoning(prospect, teamName, fitResult, userTraits
     // Moderate fit — still connect to scheme
     const firstClause = schemeFitNarrative.split(/[.;]/)[0].trim();
     if (firstClause.length > 15) {
-      sentences.push(`This scheme wants ${firstClause.charAt(0).toLowerCase() + firstClause.slice(1)}. ${lastName} checks enough boxes — solid ${solidFits[0].trait.toLowerCase()} (${solidFits[0].val}) and ${solidFits[1].trait.toLowerCase()} (${solidFits[1].val}) — but isn't a natural archetype match.`);
+      const cleanClause = firstClause.replace(/^the\s+ideal\s+\w+\s+is\s+/i, "");
+      sentences.push(`The ${teamName} want ${cleanClause.charAt(0).toLowerCase() + cleanClause.slice(1)}. ${lastName} checks enough boxes — solid ${solidFits[0].trait.toLowerCase()} (${solidFits[0].val}) and ${solidFits[1].trait.toLowerCase()} (${solidFits[1].val}) — but isn't a natural archetype match.`);
     }
   } else if (fitLevel === "weak" || fitLevel === "mismatch") {
     // Mismatch — explain what the scheme wants vs what the prospect is
     if (idealArchetype) {
-      const arcSnip = trimSentence(idealArchetype, 100);
-      sentences.push(`${teamName} wants ${arcSnip.charAt(0).toLowerCase() + arcSnip.slice(1)} — that's not this prospect's game.`);
+      const arcSnip = trimSentence(cleanArchetype(idealArchetype), 120);
+      sentences.push(`The ${teamName} want ${arcSnip.charAt(0).toLowerCase() + arcSnip.slice(1)} — that's not ${lastName}'s game.`);
     }
     if (criticalGaps.length > 0) {
       const gap = criticalGaps[0];
@@ -1272,7 +1322,7 @@ export function generateScoutReasoning(prospect, teamName, fitResult, userTraits
     if (weakness) {
       sentences.push(`The concern: ${trimSentence(weakness, 140)}`);
     } else if (gapQuote) {
-      sentences.push(`The concern at ${gap.trait.toLowerCase()}: "${gapQuote}"`);
+      sentences.push(`The concern at ${gap.trait.toLowerCase()}: ${gapQuote.charAt(0).toLowerCase() + gapQuote.slice(1)}`);
     } else {
       sentences.push(`${gap.trait} (${gap.val}) is below the bar for this scheme's ${roleLabel.toLowerCase()} role.`);
     }
@@ -1280,7 +1330,7 @@ export function generateScoutReasoning(prospect, teamName, fitResult, userTraits
 
   // PART 5: Pro comparison as scheme context (when it adds insight)
   if (scoutNarr?.pro_comparison_reasoning && (fitLevel === "strong" || fitLevel === "moderate")) {
-    const compReasoning = scoutNarr.pro_comparison_reasoning;
+    const compReasoning = stripSources(scoutNarr.pro_comparison_reasoning);
     // Only include if it has scheme-relevant language
     const schemeWords = ["scheme", "system", "zone", "gap", "timing", "play-action", "coverage", "press", "man", "thriv"];
     if (schemeWords.some(w => compReasoning.toLowerCase().includes(w))) {
@@ -1290,7 +1340,7 @@ export function generateScoutReasoning(prospect, teamName, fitResult, userTraits
 
   // PART 6: Boom/bust context (development context shown separately via relevantInflection)
   if (scoutNarr?.boom_bust_variance?.level === "high" && fitLevel !== "mismatch") {
-    const bbExpl = scoutNarr.boom_bust_variance.explanation;
+    const bbExpl = stripSources(scoutNarr.boom_bust_variance.explanation);
     if (bbExpl) sentences.push(`High variance prospect: ${trimSentence(bbExpl, 120)}`);
   }
 

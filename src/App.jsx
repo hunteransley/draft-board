@@ -2512,7 +2512,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                 <div style={{fontFamily:mono,fontSize:9,color:accent,marginBottom:4,opacity:0.8}}>{svR.roleLabel}</div>
                 <div style={{fontFamily:sans,fontSize:11,color:"#404040",lineHeight:1.5,marginBottom:8}}>{svR.whyItFits}</div>
                 {svR.prospectStrengths&&<div style={{fontFamily:mono,fontSize:9,color:"#737373",marginBottom:6}}>key traits: {svR.prospectStrengths}</div>}
-                {svR.relevantInflection&&<div style={{fontFamily:sans,fontSize:10,color:accent,fontStyle:"italic",lineHeight:1.4,padding:"6px 8px",background:`${accent}06`,borderRadius:6,borderLeft:`2px solid ${accent}40`}}>{svR.relevantInflection.length>200?svR.relevantInflection.slice(0,200)+"…":svR.relevantInflection}</div>}
+                {svR.relevantInflection&&<div style={{fontFamily:sans,fontSize:10,color:accent,fontStyle:"italic",lineHeight:1.4,padding:"6px 8px",background:`${accent}06`,borderRadius:6,borderLeft:`2px solid ${accent}40`}}>{svR.relevantInflection}</div>}
               </div>}
               {isOpen&&!svR&&<div style={{padding:"10px 14px 14px 54px",background:"#faf9f6",borderBottom:i<sfVisible.length-1?"1px solid #f5f5f5":"none"}}><span style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",fontStyle:"italic"}}>no scout vision data available</span></div>}
             </div>;})}
@@ -3376,7 +3376,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                     </div>
                     <div style={{fontSize:10,color:"#737373",marginBottom:4}}>{d.pos} · {d.school} · #{d.rank}</div>
                     {sv&&<div style={{fontSize:10,fontWeight:600,color:hlColor,marginBottom:6}}>{sv.headline}</div>}
-                    {sv&&sv.whyItFits&&<div style={{fontSize:10,color:"#d4d4d4",lineHeight:1.5,marginBottom:4}}>{sv.whyItFits.length>300?sv.whyItFits.slice(0,300).replace(/[,;]\s*$/,"")+"…":sv.whyItFits}</div>}
+                    {sv&&sv.whyItFits&&<div style={{fontSize:10,color:"#d4d4d4",lineHeight:1.5,marginBottom:4}}>{(()=>{if(sv.whyItFits.length<=300)return sv.whyItFits;const dot=sv.whyItFits.lastIndexOf(". ",300);return dot>120?sv.whyItFits.substring(0,dot+1):sv.whyItFits.substring(0,300).replace(/[,;\s]+$/,"")+".";})()}</div>}
                     {!sv&&<div style={{fontSize:10,color:"#737373",fontStyle:"italic"}}>no scout vision data available</div>}
                   </div>;
                 })()}
@@ -3411,7 +3411,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                   <div style={{fontFamily:mono,fontSize:9,color:"#0891b2",marginBottom:4,opacity:0.8}}>{svR.roleLabel}</div>
                   <div style={{fontFamily:sans,fontSize:11,color:"#404040",lineHeight:1.5,marginBottom:8}}>{svR.whyItFits}</div>
                   {svR.prospectStrengths&&<div style={{fontFamily:mono,fontSize:9,color:"#737373",marginBottom:6}}>key traits: {svR.prospectStrengths}</div>}
-                  {svR.relevantInflection&&<div style={{fontFamily:sans,fontSize:10,color:"#0891b2",fontStyle:"italic",lineHeight:1.4,padding:"6px 8px",background:"rgba(8,145,178,0.06)",borderRadius:6,borderLeft:"2px solid rgba(8,145,178,0.4)"}}>{svR.relevantInflection.length>200?svR.relevantInflection.slice(0,200)+"…":svR.relevantInflection}</div>}
+                  {svR.relevantInflection&&<div style={{fontFamily:sans,fontSize:10,color:"#0891b2",fontStyle:"italic",lineHeight:1.4,padding:"6px 8px",background:"rgba(8,145,178,0.06)",borderRadius:6,borderLeft:"2px solid rgba(8,145,178,0.4)"}}>{svR.relevantInflection}</div>}
                 </div>}
                 {isOpen&&!svR&&<div style={{padding:"10px 14px 14px 54px",background:"#faf9f6",borderBottom:i<top10.length-1?"1px solid #f5f5f5":"none"}}><span style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",fontStyle:"italic"}}>no scout vision data available</span></div>}
                 </div>;
