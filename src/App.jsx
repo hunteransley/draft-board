@@ -616,6 +616,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
   const[profileMeasMode,setProfileMeasMode]=useState(false);
   const[historicalData,setHistoricalData]=useState(_historicalCompsCache||null);
   useEffect(()=>{setTimeout(()=>setIsOpen(true),10);setProfileMeasMode(false);return()=>setIsOpen(false);},[player.id]);
+  useEffect(()=>{const prev=document.body.style.overflow;document.body.style.overflow="hidden";return()=>{document.body.style.overflow=prev;};},[]);
   useEffect(()=>{if(!historicalData)loadHistoricalComps(setHistoricalData);},[]);
   const handleClose=()=>{setIsOpen(false);setTimeout(onClose,300);};
   const c=POS_COLORS[player.gpos||player.pos]||POS_COLORS[player.pos];
