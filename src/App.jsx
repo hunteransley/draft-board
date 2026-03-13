@@ -615,7 +615,9 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
   const[isOpen,setIsOpen]=useState(false);
   const[profileMeasMode,setProfileMeasMode]=useState(false);
   const[historicalData,setHistoricalData]=useState(_historicalCompsCache||null);
-  useEffect(()=>{setTimeout(()=>setIsOpen(true),10);setProfileMeasMode(false);return()=>setIsOpen(false);},[player.id]);
+  const[localTraitOverrides,setLocalTraitOverrides]=useState({});
+  const debounceRef=useRef(null);
+  useEffect(()=>{setTimeout(()=>setIsOpen(true),10);setProfileMeasMode(false);setLocalTraitOverrides({});return()=>setIsOpen(false);},[player.id]);
   useEffect(()=>{const prev=document.body.style.overflow;document.body.style.overflow="hidden";return()=>{document.body.style.overflow=prev;};},[]);
   useEffect(()=>{if(!historicalData)loadHistoricalComps(setHistoricalData);},[]);
   const handleClose=()=>{setIsOpen(false);setTimeout(onClose,300);};
@@ -924,7 +926,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
             </div>
           );})()}
           <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>traits</div>
-          {posTraits.map(trait=>{const val=tv(traits,player.id,trait,player.name,player.school);const emoji=TRAIT_EMOJI[trait]||"";const t=val/100;const r=Math.round(236+(124-236)*t);const g=Math.round(72+(58-72)*t);const b=Math.round(153+(237-153)*t);const barColor=`rgb(${r},${g},${b})`;return(
+          {posTraits.map(trait=>{const base=tv(traits,player.id,trait,player.name,player.school);const val=localTraitOverrides[trait]!=null?localTraitOverrides[trait]:base;const emoji=TRAIT_EMOJI[trait]||"";const t=val/100;const r=Math.round(236+(124-236)*t);const g=Math.round(72+(58-72)*t);const b=Math.round(153+(237-153)*t);const barColor=`rgb(${r},${g},${b})`;return(
             <div key={trait} style={{marginBottom:16}}>
               <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}>
                 <span style={{fontFamily:mono,fontSize:11,color:"#737373"}}>{trait}</span>
@@ -935,7 +937,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
                 <div style={{position:"absolute",left:0,height:6,width:`${val}%`,background:"linear-gradient(90deg, #ec4899, #7c3aed)",borderRadius:3}}/>
                 <div style={{position:"absolute",left:`${val}%`,transform:"translateX(-50%)",fontSize:18,lineHeight:1,pointerEvents:"none",zIndex:3,filter:"drop-shadow(0 1px 2px rgba(0,0,0,.15))"}}>{emoji}</div>
                 <input type="range" min="0" max="100" value={val}
-                  onChange={e=>{if(isGuest){onRequireAuth("want to edit traits and lock in your grades?");return;}setTraits(prev=>{const existing=prev[player.id]||{};if(!existing.__ceiling){const sc=getScoutingTraits(player.name,player.school);if(sc?.__ceiling)existing.__ceiling=sc.__ceiling;}return{...prev,[player.id]:{...existing,[trait]:parseInt(e.target.value)}};});}}
+                  onChange={e=>{if(isGuest){onRequireAuth("want to edit traits and lock in your grades?");return;}const v=parseInt(e.target.value);setLocalTraitOverrides(prev=>({...prev,[trait]:v}));if(debounceRef.current)clearTimeout(debounceRef.current);debounceRef.current=setTimeout(()=>{setTraits(prev=>{const existing=prev[player.id]||{};if(!existing.__ceiling){const sc=getScoutingTraits(player.name,player.school);if(sc?.__ceiling)existing.__ceiling=sc.__ceiling;}return{...prev,[player.id]:{...existing,[trait]:v}};});setLocalTraitOverrides(prev=>{const next={...prev};delete next[trait];return next;});},150);}}
                   style={{position:"absolute",left:0,width:"100%",height:24,background:"transparent",cursor:isGuest?"default":"pointer",zIndex:4,opacity:0,margin:0}}/>
               </div>
             </div>
