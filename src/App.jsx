@@ -1917,6 +1917,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[showTrends,setShowTrends]=useState(()=>window.location.pathname==='/trends');
   useEffect(()=>{window.scrollTo(0,0);},[phase,showMyGuys,showExplorer,showRound1Prediction,showTrends]);
   const[trendsTeam,setTrendsTeam]=useState(()=>{if(window.location.pathname==='/trends'){const p=new URLSearchParams(window.location.search);return p.get('team')||'Titans';}return'Titans';});
+  const trendsVision=useMemo(()=>{if(!trendsTeam)return new Map();try{return computeTeamScoutVision(trendsTeam,PROSPECTS,schemeFits,traits);}catch(e){console.error("trendsVision error:",e);return new Map();}},[trendsTeam,schemeFits,traits]);
   const[trendsData,setTrendsData]=useState(null);
   const[trendsLoading,setTrendsLoading]=useState(false);
   const trendsCacheRef=useRef({});
@@ -2490,13 +2491,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
           // Scheme fits tab content
           const schemeFitsContent=<div>
             <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:12}}>{schemeFitPills.map(p=><button key={p} onClick={()=>{setSchemeFitPos(p);setSchemeFitExpanded(false);setExpandedSchemeFitId(null);}} style={{fontFamily:mono,fontSize:9,padding:"3px 10px",borderRadius:99,border:schemeFitPos===p?"1px solid "+accent:"1px solid #e5e5e5",background:schemeFitPos===p?accent+"11":"#fff",color:schemeFitPos===p?accent:"#a3a3a3",cursor:"pointer",fontWeight:schemeFitPos===p?700:400}}>{p}</button>)}</div>
-            {sfVisible.map((sf,i)=>{const p=sf.prospect;const pos=p.gpos||p.pos;const pc=POS_COLORS[pos]||"#a3a3a3";const sc=sf.score;const scColor=sc>=80?"#16a34a":sc>=65?"#0d9488":sc>=50?"#d97706":"#a3a3a3";const isOpen=expandedSchemeFitId===p.id;const bars=[{label:"Traits",val:sf.components?.trait||0,color:"#6366f1"},{label:"Archetype",val:sf.components?.archetype||0,color:"#8b5cf6"},{label:"Scheme",val:sf.components?.positional||0,color:"#a78bfa"},{label:"Athletic",val:sf.components?.athletic||0,color:"#14b8a6"},{label:"Ceiling",val:sf.components?.ceiling||0,color:"#f59e0b"}];
-            const breakdown=isOpen?getSchemeTraitBreakdown(p,trendsTeam,traits):null;
-            const posAvg=isOpen?getPositionAvgFit(pos,trendsTeam,schemeFits,PROSPECTS):null;
-            const diff=posAvg!=null?sc-posAvg:null;
-            const impTier=(w)=>w>=0.24?"essential":w>=0.18?"important":"contributing";
-            const impColor=(tier)=>tier==="essential"?"#6366f1":tier==="important"?"#a78bfa":"#d4d4d4";
-            const impDots=(tier)=>tier==="essential"?3:tier==="important"?2:1;
+            {sfVisible.map((sf,i)=>{const p=sf.prospect;const pos=p.gpos||p.pos;const pc=POS_COLORS[pos]||"#a3a3a3";const sc=sf.score;const scColor=sc>=80?"#16a34a":sc>=65?"#0d9488":sc>=50?"#d97706":"#a3a3a3";const isOpen=expandedSchemeFitId===p.id;const svR=trendsVision.get(p.id);
             return<div key={p.id} style={{borderBottom:i<sfVisible.length-1?"1px solid #f5f5f5":"none",cursor:"pointer"}} onClick={()=>setExpandedSchemeFitId(isOpen?null:p.id)}>
               <div style={{display:"flex",alignItems:"center",gap:8,padding:"8px 0"}}>
                 <span style={{fontFamily:font,fontSize:13,fontWeight:900,color:"#d4d4d4",width:22,textAlign:"right",flexShrink:0}}>{i+1}</span>
@@ -2510,25 +2505,16 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                 </div>
                 <span style={{fontFamily:mono,fontSize:12,fontWeight:800,color:scColor,background:`${scColor}11`,padding:"2px 8px",borderRadius:6,border:`1px solid ${scColor}22`,minWidth:28,textAlign:"center",transition:"opacity 0.15s",opacity:isOpen?1:0.85}}>{sc}</span>
                 {sf.limitedFit&&<span style={{fontFamily:mono,fontSize:7,color:"#d97706",marginLeft:2}}>limited</span>}
+                <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",flexShrink:0}}>{isOpen?"−":"+"}</span>
               </div>
-              {isOpen&&<div style={{padding:"0 0 10px 54px"}} onClick={e=>e.stopPropagation()}>
-                {breakdown&&<div style={{display:"flex",alignItems:"center",gap:6,marginBottom:6}}>
-                  <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#6366f1",background:"#6366f111",padding:"2px 8px",borderRadius:4,border:"1px solid #6366f122"}}>{breakdown.roleLabel}</span>
-                  {diff!=null&&<span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>avg {pos}: {posAvg} ({diff>0?"+":""}{diff})</span>}
-                </div>}
-                {sf.summary&&<div style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.4,marginBottom:8,fontStyle:"italic"}}>{sf.summary}</div>}
-                {breakdown&&<div style={{marginBottom:8}}>
-                  <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginBottom:4,textTransform:"uppercase",letterSpacing:1}}>key traits</div>
-                  {breakdown.traits.map(t=>{const vColor=t.value>=72?"#16a34a":t.value>=60?"#0d9488":t.value>=50?"#d97706":"#dc2626";const tier=impTier(t.weight);const dots=impDots(tier);const dc=impColor(tier);return<div key={t.trait} style={{display:"flex",alignItems:"center",gap:6,marginBottom:3}}>
-                    <span style={{fontFamily:mono,fontSize:9,color:"#525252",width:32,textAlign:"right",flexShrink:0}}>{t.abbrev}</span>
-                    <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:vColor,width:18,textAlign:"right",flexShrink:0}}>{Math.round(t.value)}</span>
-                    <div style={{flex:1,height:5,background:"#f0f0f0",borderRadius:2,overflow:"hidden",maxWidth:120}}><div style={{height:"100%",width:`${t.value}%`,background:vColor,borderRadius:2,opacity:0.7}}/></div>
-                    <span style={{display:"flex",gap:2,flexShrink:0,width:20,justifyContent:"flex-end"}} title={tier}>{Array.from({length:dots},(_,k)=><span key={k} style={{width:4,height:4,borderRadius:2,background:dc}}/>)}</span>
-                  </div>;})}
-                </div>}
-                <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginBottom:4,textTransform:"uppercase",letterSpacing:1}}>components</div>
-                {bars.map(b=><div key={b.label} style={{display:"flex",alignItems:"center",gap:6,marginBottom:3}}><span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",width:52,textAlign:"right",flexShrink:0}}>{b.label}</span><div style={{flex:1,height:4,background:"#f0f0f0",borderRadius:2,overflow:"hidden",maxWidth:120}}><div style={{height:"100%",width:`${b.val}%`,background:b.color,borderRadius:2}}/></div><span style={{fontFamily:mono,fontSize:8,color:"#737373",width:20,textAlign:"right"}}>{b.val}</span></div>)}
+              {isOpen&&svR&&<div style={{padding:"10px 14px 14px 54px",background:`${accent}04`,borderLeft:`3px solid ${accent}`,borderRadius:"0 0 8px 0"}} onClick={e=>e.stopPropagation()}>
+                <div style={{fontFamily:sans,fontSize:11,fontWeight:700,color:accent,marginBottom:4}}>{svR.headline}</div>
+                <div style={{fontFamily:mono,fontSize:9,color:accent,marginBottom:4,opacity:0.8}}>{svR.roleLabel}</div>
+                <div style={{fontFamily:sans,fontSize:11,color:"#404040",lineHeight:1.5,marginBottom:8}}>{svR.whyItFits}</div>
+                {svR.prospectStrengths&&<div style={{fontFamily:mono,fontSize:9,color:"#737373",marginBottom:6}}>key traits: {svR.prospectStrengths}</div>}
+                {svR.relevantInflection&&<div style={{fontFamily:sans,fontSize:10,color:accent,fontStyle:"italic",lineHeight:1.4,padding:"6px 8px",background:`${accent}06`,borderRadius:6,borderLeft:`2px solid ${accent}40`}}>{svR.relevantInflection.length>200?svR.relevantInflection.slice(0,200)+"…":svR.relevantInflection}</div>}
               </div>}
+              {isOpen&&!svR&&<div style={{padding:"10px 14px 14px 54px",background:"#faf9f6",borderBottom:i<sfVisible.length-1?"1px solid #f5f5f5":"none"}}><span style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",fontStyle:"italic"}}>no scout vision data available</span></div>}
             </div>;})}
             {sfList.length>12&&!schemeFitExpanded&&<button onClick={()=>setSchemeFitExpanded(true)} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 12px",cursor:"pointer",marginTop:8}}>show all ({sfList.length})</button>}
           </div>;
