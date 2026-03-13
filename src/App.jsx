@@ -1688,7 +1688,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const posToSlug=(pos)=>pos==='K/P'?'k-p':pos.toLowerCase();
   const[showExplorer,setShowExplorer]=useState(()=>isLabPath(window.location.pathname));
   const[explorerMeas,setExplorerMeas]=useState("ATH");
-  const[explorerMode,setExplorerMode]=useState(()=>{const s=labSuffix(window.location.pathname);return s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":s==="scheme-fit"?"scheme-fit":"measurables";});
+  const[explorerMode,setExplorerMode]=useState(()=>{const s=labSuffix(window.location.pathname);return s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":s==="measurables"?"measurables":s==="traits"?"traits":s==="stats"?"stats":"scheme-fit";});
   const[explorerTrait,setExplorerTrait]=useState("Speed");
   const[explorerMyGuys,setExplorerMyGuys]=useState(false);
   const[explorerAbsolute,setExplorerAbsolute]=useState(false);
@@ -1879,7 +1879,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     if(isLabPath(p)){
       setShowExplorer(true);
       const s=labSuffix(p);
-      const mode=s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":s==="scheme-fit"?"scheme-fit":"measurables";
+      const mode=s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":s==="measurables"?"measurables":s==="traits"?"traits":s==="stats"?"stats":"scheme-fit";
       setExplorerMode(mode);
       if(mode==="scheme-fit"&&!sfTeam)setSfTeam("49ers");
     }else if(p==='/trends'){
