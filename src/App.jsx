@@ -1696,7 +1696,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[faTeamFilter,setFaTeamFilter]=useState(null);
   const[faDrop,setFaDrop]=useState(null);
   const[sfTeam,setSfTeam]=useState("49ers");
-  const[sfPosFilter,setSfPosFilter]=useState(null);
+  const[sfPosFilter,setSfPosFilter]=useState("WR");
   const[sfExpandedId,setSfExpandedId]=useState(null);
   const sfVision=useMemo(()=>{if(!sfTeam)return new Map();try{return computeTeamScoutVision(sfTeam,PROSPECTS,schemeFits,traits);}catch(e){console.error("sfVision error:",e);return new Map();}},[sfTeam,schemeFits,traits]);
   const explorerData=useMemo(()=>{
@@ -2611,14 +2611,14 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
 
         {/* Mode toggle */}
         <div style={{display:"flex",gap:6,marginBottom:12,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",paddingBottom:2}}>
+          <button onClick={gateAuth(()=>{setExplorerMode("scheme-fit");setSfPosFilter(null);if(!sfTeam)setSfTeam("49ers");navigate('/lab/scheme-fit');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="scheme-fit"?"linear-gradient(135deg,#0891b2,#06b6d4)":"transparent",color:explorerMode==="scheme-fit"?"#fff":"#0891b2",border:explorerMode==="scheme-fit"?"1px solid #0891b2":"1px solid #0891b244",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="scheme-fit"?"0 2px 8px rgba(8,145,178,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>🧬 scheme fit</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("combo");navigate('/lab/combo');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="combo"?"linear-gradient(135deg,#6366f1,#8b5cf6)":"transparent",color:explorerMode==="combo"?"#fff":"#7c3aed",border:explorerMode==="combo"?"1px solid #6366f1":"1px solid #7c3aed44",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="combo"?"0 2px 8px rgba(99,102,241,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>⚡ combo</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("free-agency");setFaView("position");setFaPosFilter(null);setFaTeamFilter(null);navigate('/lab/free-agency');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="free-agency"?"linear-gradient(135deg,#d97706,#f59e0b)":"transparent",color:explorerMode==="free-agency"?"#fff":"#d97706",border:explorerMode==="free-agency"?"1px solid #d97706":"1px solid #d9770644",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="free-agency"?"0 2px 8px rgba(217,119,6,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>💰 free agency</button>
+          <button onClick={gateAuth(()=>{setExplorerMode("scarcity");navigate('/lab/scarcity');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="scarcity"?"linear-gradient(135deg,#059669,#10b981)":"transparent",color:explorerMode==="scarcity"?"#fff":"#059669",border:explorerMode==="scarcity"?"1px solid #059669":"1px solid #05966944",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="scarcity"?"0 2px 8px rgba(5,150,105,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>🫥 scarcity</button>
+          <div style={{width:1,height:20,background:"#e5e5e5",margin:"0 4px",flexShrink:0}}/>
           <button onClick={gateAuth(()=>{setExplorerMode("measurables");setExplorerAbsolute(false);setExplorerLeaderPos(null);navigate('/lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="measurables"?"#171717":"transparent",color:explorerMode==="measurables"?"#fff":"#737373",border:explorerMode==="measurables"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>measurables</button>
           <button onClick={gateAuth(()=>{setExplorerMode("traits");setExplorerLeaderPos(null);navigate('/lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="traits"?"#171717":"transparent",color:explorerMode==="traits"?"#fff":"#737373",border:explorerMode==="traits"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>scouting traits</button>
           <button onClick={gateAuth(()=>{setExplorerMode("stats");setExplorerAbsolute(true);setExplorerLeaderPos(null);navigate('/lab');})} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="stats"?"#171717":"transparent",color:explorerMode==="stats"?"#fff":"#737373",border:explorerMode==="stats"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>college stats</button>
-          <div style={{width:1,height:20,background:"#e5e5e5",margin:"0 4px",flexShrink:0}}/>
-          <button onClick={()=>{setExplorerMode("combo");navigate('/lab/combo');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="combo"?"linear-gradient(135deg,#6366f1,#8b5cf6)":"transparent",color:explorerMode==="combo"?"#fff":"#7c3aed",border:explorerMode==="combo"?"1px solid #6366f1":"1px solid #7c3aed44",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="combo"?"0 2px 8px rgba(99,102,241,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>⚡ combo</button>
-          <button onClick={()=>{setExplorerMode("free-agency");setFaView("position");setFaPosFilter(null);setFaTeamFilter(null);navigate('/lab/free-agency');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="free-agency"?"linear-gradient(135deg,#d97706,#f59e0b)":"transparent",color:explorerMode==="free-agency"?"#fff":"#d97706",border:explorerMode==="free-agency"?"1px solid #d97706":"1px solid #d9770644",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="free-agency"?"0 2px 8px rgba(217,119,6,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>💰 free agency</button>
-          <button onClick={()=>{setExplorerMode("scarcity");navigate('/lab/scarcity');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="scarcity"?"linear-gradient(135deg,#059669,#10b981)":"transparent",color:explorerMode==="scarcity"?"#fff":"#059669",border:explorerMode==="scarcity"?"1px solid #059669":"1px solid #05966944",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="scarcity"?"0 2px 8px rgba(5,150,105,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>🫥 scarcity</button>
-          <button onClick={()=>{setExplorerMode("scheme-fit");setSfPosFilter(null);if(!sfTeam)setSfTeam("49ers");navigate('/lab/scheme-fit');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="scheme-fit"?"linear-gradient(135deg,#0891b2,#06b6d4)":"transparent",color:explorerMode==="scheme-fit"?"#fff":"#0891b2",border:explorerMode==="scheme-fit"?"1px solid #0891b2":"1px solid #0891b244",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="scheme-fit"?"0 2px 8px rgba(8,145,178,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>🧬 scheme fit</button>
         </div>
 
         {/* Combo mode UI */}
@@ -3177,13 +3177,13 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
 
           // Team logo row
           const teamRow=<div className="trait-pills-scroll" style={{display:"flex",gap:4,overflowX:"auto",WebkitOverflowScrolling:"touch",paddingBottom:4,scrollbarWidth:"none",marginBottom:8}}>
-            {allTeams.sort().map(t=>{const sel=sfTeam===t;const tc=NFL_TEAM_COLORS[t]||"#171717";return<button key={t} onClick={()=>{setSfTeam(sel?null:t);setExplorerHover(null);}} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:"4px 6px",background:sel?`${tc}15`:"transparent",border:sel?`2px solid ${tc}`:"2px solid transparent",borderRadius:8,cursor:"pointer",flexShrink:0}}><NFLTeamLogo team={t} size={22}/><span style={{fontFamily:mono,fontSize:7,color:sel?tc:"#a3a3a3",fontWeight:sel?700:500}}>{NFL_TEAM_ABR[t]||t}</span></button>;})}
+            {allTeams.sort().map(t=>{const sel=sfTeam===t;const tc=NFL_TEAM_COLORS[t]||"#171717";return<button key={t} onClick={gateAuth(()=>{setSfTeam(sel?null:t);setExplorerHover(null);})} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:2,padding:"4px 6px",background:sel?`${tc}15`:"transparent",border:sel?`2px solid ${tc}`:"2px solid transparent",borderRadius:8,cursor:"pointer",flexShrink:0}}><NFLTeamLogo team={t} size={22}/><span style={{fontFamily:mono,fontSize:7,color:sel?tc:"#a3a3a3",fontWeight:sel?700:500}}>{NFL_TEAM_ABR[t]||t}</span></button>;})}
           </div>;
 
           // Position pills
           const posPills=<div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:6,WebkitOverflowScrolling:"touch",scrollbarWidth:"none",marginBottom:4}}>
-            <button onClick={()=>{setSfPosFilter(null);setExplorerHover(null);}} style={{fontFamily:mono,fontSize:10,fontWeight:700,padding:"5px 12px",background:!sfPosFilter?"#171717":"transparent",color:!sfPosFilter?"#fff":"#737373",border:!sfPosFilter?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>ALL</button>
-            {SF_GROUPS.map(pos=>{const c=POS_COLORS[pos]||"#525252";const active=sfPosFilter===pos;return<button key={pos} onClick={()=>{setSfPosFilter(active?null:pos);setExplorerHover(null);}} style={{fontFamily:mono,fontSize:10,fontWeight:700,padding:"5px 12px",background:active?c:"transparent",color:active?"#fff":c,border:`1.5px solid ${active?c:c+"33"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>{pos}</button>;})}
+            <button onClick={gateAuth(()=>{setSfPosFilter(null);setExplorerHover(null);})} style={{fontFamily:mono,fontSize:10,fontWeight:700,padding:"5px 12px",background:!sfPosFilter?"#171717":"transparent",color:!sfPosFilter?"#fff":"#737373",border:!sfPosFilter?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>ALL</button>
+            {SF_GROUPS.map(pos=>{const c=POS_COLORS[pos]||"#525252";const active=sfPosFilter===pos;return<button key={pos} onClick={gateAuth(()=>{setSfPosFilter(active?null:pos);setExplorerHover(null);})} style={{fontFamily:mono,fontSize:10,fontWeight:700,padding:"5px 12px",background:active?c:"transparent",color:active?"#fff":c,border:`1.5px solid ${active?c:c+"33"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>{pos}</button>;})}
           </div>;
 
           if(!sfTeam){
@@ -3255,7 +3255,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                   {agg.map(d=>{
                     const cx=pad.left+sx(d),cy=pad.top+sy(d),r=sr(d),c=POS_COLORS[d.pos]||"#525252";
                     return<g key={d.pos}
-                      onClick={()=>setSfPosFilter(d.pos)}
+                      onClick={gateAuth(()=>setSfPosFilter(d.pos))}
                       onMouseEnter={e=>setExplorerHover({sfBubble:d,cx:e.clientX,cy:e.clientY})}
                       onMouseLeave={()=>setExplorerHover(null)}
                       style={{cursor:"pointer"}}>
@@ -3293,7 +3293,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
               <div style={{display:"flex",gap:10,marginTop:16,overflowX:"auto",paddingBottom:4}}>
                 {top3.map((d,i)=>{
                   const c=POS_COLORS[d.pos]||"#525252";
-                  return<div key={d.pos} onClick={()=>setSfPosFilter(d.pos)} style={{flex:"1 0 0",minWidth:140,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"14px 16px",position:"relative",overflow:"hidden",cursor:"pointer",transition:"border 0.15s"}}>
+                  return<div key={d.pos} onClick={gateAuth(()=>setSfPosFilter(d.pos))} style={{flex:"1 0 0",minWidth:140,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"14px 16px",position:"relative",overflow:"hidden",cursor:"pointer",transition:"border 0.15s"}}>
                     <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:c}}/>
                     <div style={{fontFamily:mono,fontSize:14,fontWeight:900,color:c,marginBottom:4}}>{POS_EMOJI[d.pos]||""} {d.pos}</div>
                     <div style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.5}}>{d.count} of {d.total} prospects fit · avg {d.avgScore}</div>
@@ -3368,8 +3368,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                 </div>
                 <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:6,paddingRight:4}}>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}>
-                    <button onClick={()=>setExplorerLogos(v=>!v)} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:explorerLogos?"#17171710":"transparent",color:explorerLogos?"#171717":"#a3a3a3",border:explorerLogos?"1px solid #17171722":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>{explorerLogos?"● dots":"🏫 logos"}</button>
-                    {myGuys.length>0&&<button onClick={()=>setExplorerMyGuys(v=>!v)} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:explorerMyGuys?"linear-gradient(135deg,#ec4899,#7c3aed)":"transparent",color:explorerMyGuys?"#fff":"#a3a3a3",border:explorerMyGuys?"1px solid transparent":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>👀 my guys</button>}
+                    <button onClick={gateAuth(()=>setExplorerLogos(v=>!v))} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:explorerLogos?"#17171710":"transparent",color:explorerLogos?"#171717":"#a3a3a3",border:explorerLogos?"1px solid #17171722":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>{explorerLogos?"● dots":"🏫 logos"}</button>
+                    {myGuys.length>0&&<button onClick={gateAuth(()=>setExplorerMyGuys(v=>!v))} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:explorerMyGuys?"linear-gradient(135deg,#ec4899,#7c3aed)":"transparent",color:explorerMyGuys?"#fff":"#a3a3a3",border:explorerMyGuys?"1px solid transparent":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>👀 my guys</button>}
                   </div>
                   <div style={{display:"flex",alignItems:"center",gap:5}}>
                     <img src="/logo.png" alt="" style={{height:12,width:"auto"}}/>
@@ -3409,7 +3409,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                 const fitColor=d.fit>=70?"#0891b2":d.fit>=55?"#d97706":"#a3a3a3";
                 return<div key={d.id}>
                   <div style={{display:"flex",alignItems:"center",gap:8,padding:"7px 14px",borderBottom:isOpen?"none":i<top10.length-1?"1px solid #f5f5f5":"none",cursor:"pointer"}}
-                  onClick={()=>setSfExpandedId(isOpen?null:d.id)}
+                  onClick={gateAuth(()=>setSfExpandedId(isOpen?null:d.id))}
                   onMouseEnter={e=>{e.currentTarget.style.background="#faf9f6";}}
                   onMouseLeave={e=>{e.currentTarget.style.background="transparent";}}>
                   <span style={{fontFamily:mono,fontSize:10,color:i<3?"#171717":"#a3a3a3",fontWeight:i<3?700:400,width:20,textAlign:"right",flexShrink:0}}>#{i+1}</span>
