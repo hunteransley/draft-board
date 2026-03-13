@@ -1005,7 +1005,7 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
           </div>
         ):null;})()}
 
-        {(()=>{const nKey=`${player.name?.toLowerCase()}|${player.school?.toLowerCase()}`;const sn=SCOUTING_NARRATIVES[nKey];if(!sn||(!sn.scouting_blurb&&!sn.strengths?.length&&!sn.weaknesses?.length))return null;const strip=t=>t?.replace(/\b(Zierlein|Jeremiah|Brugler|Kiper|McShay|Schrager|Miller|Rang|Emory|Cosell|NFL\.com|CBS Sports|ESPN|PFF)(?:'s?)?\b/gi,"").replace(/\s{2,}/g," ").trim();return<div style={{padding:"0 24px 20px"}}>
+        {(()=>{const pName=player.name?.toLowerCase()||"";const pSchool=player.school?.toLowerCase()||"";const norm=n=>n.replace(/\./g,"").replace(/\s+(jr|sr|ii|iii|iv|v|vi|vii|viii)$/i,"").replace(/\s+/g," ").trim();const schoolAlias={"uconn":"connecticut","miami":"miami","ole miss":"mississippi","nc state":"north carolina state","n.c. state":"north carolina state"};const pNorm=norm(pName);const pSchNorm=schoolAlias[pSchool]||pSchool;const nKey=`${pName}|${pSchool}`;let sn=SCOUTING_NARRATIVES[nKey];if(!sn){sn=Object.entries(SCOUTING_NARRATIVES).find(([k])=>{const[kn,ks]=k.split("|");const knNorm=norm(kn),ksNorm=ks||"";return(knNorm===pNorm||kn===pName)&&(ksNorm===pSchool||ksNorm===pSchNorm||ksNorm.includes(pSchNorm)||pSchNorm.includes(ksNorm));})?.[1];}if(!sn||(!sn.scouting_blurb&&!sn.strengths?.length&&!sn.weaknesses?.length))return null;const strip=t=>t?.replace(/\b(Zierlein|Jeremiah|Brugler|Kiper|McShay|Schrager|Miller|Rang|Emory|Cosell|NFL\.com|CBS Sports|ESPN|PFF)(?:'s?)?\b/gi,"").replace(/\s{2,}/g," ").trim();return<div style={{padding:"0 24px 20px"}}>
           <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>scouting report</div>
           {sn.scouting_blurb&&<div style={{fontFamily:sans,fontSize:12,color:"#404040",lineHeight:1.6,marginBottom:12}}>{strip(sn.scouting_blurb)}</div>}
           {sn.strengths?.length>0&&<div style={{marginBottom:10}}>
@@ -1015,15 +1015,6 @@ function PlayerProfile({player,traits,setTraits,notes,setNotes,allProspects,getG
           {sn.weaknesses?.length>0&&<div style={{marginBottom:10}}>
             <div style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#dc2626",textTransform:"uppercase",letterSpacing:1,marginBottom:4}}>weaknesses</div>
             {sn.weaknesses.map((w,i)=><div key={i} style={{display:"flex",gap:6,marginBottom:4,alignItems:"flex-start"}}><span style={{color:"#dc2626",fontSize:10,lineHeight:1.7,flexShrink:0}}>−</span><span style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.5}}>{strip(w)}</span></div>)}
-          </div>}
-          {sn.pro_comparison&&<div style={{display:"flex",alignItems:"center",gap:6,marginBottom:6}}>
-            <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1}}>pro comp</span>
-            <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>{sn.pro_comparison}</span>
-          </div>}
-          {sn.pro_comparison_reasoning&&<div style={{fontFamily:sans,fontSize:11,color:"#737373",lineHeight:1.5,marginBottom:8,fontStyle:"italic"}}>{strip(sn.pro_comparison_reasoning)}</div>}
-          {sn.boom_bust_variance?.level&&sn.boom_bust_variance.level!=="low"&&<div style={{display:"flex",alignItems:"center",gap:6,padding:"6px 10px",background:sn.boom_bust_variance.level==="high"?"#fef2f2":"#fefce8",border:`1px solid ${sn.boom_bust_variance.level==="high"?"#fecaca":"#fef08a"}`,borderRadius:6}}>
-            <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:sn.boom_bust_variance.level==="high"?"#dc2626":"#ca8a04",textTransform:"uppercase"}}>{sn.boom_bust_variance.level} variance</span>
-            {sn.boom_bust_variance.explanation&&<span style={{fontFamily:sans,fontSize:10,color:"#737373",lineHeight:1.4}}>{strip(sn.boom_bust_variance.explanation)}</span>}
           </div>}
         </div>;})()}
 
