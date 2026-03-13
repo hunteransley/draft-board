@@ -22,7 +22,7 @@ import NFL_ROSTERS from "./nflRosters.js";
 import FA_FLAGS from "./freeAgencyFlags.js";
 import { TEAM_ABBR, TEAM_SCHEME, getFormationPos, getSchemeDepthGroups } from "./depthChartUtils.js";
 import { ROSTER_BY_SLOT, ROSTER_BY_NAME, formatContract, formatTradeValue, TIER_COLORS, AVAILABILITY_DISPLAY } from "./rosterValueData.js";
-import { computeAllSchemeFits, getTopTeamFits, getTeamSchemeFits, getSchemeTraitBreakdown, getPositionAvgFit, generateScoutReasoning, computeTeamScoutVision } from "./schemeFit.js";
+import { computeAllSchemeFits, getTopTeamFits, getTeamSchemeFits, getPositionAvgFit, generateScoutReasoning, computeTeamScoutVision } from "./schemeFit.js";
 import SCOUTING_NARRATIVES from "./scoutingNarratives.json";
 
 // Suffix-aware short name: "Rueben Bain Jr." → "Bain Jr." not "Jr."
@@ -582,12 +582,10 @@ function ProfileTeamFits({topFits,player,userTraits,schemeFits,allProspects,font
     </div>
     {showInfo&&<div style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.5,background:"#f9f9f6",border:"1px solid #e5e5e5",borderRadius:8,padding:"10px 12px",marginBottom:10}}>Scheme fit scores rate how well this prospect's traits, archetype, and athletic profile align with each team's offensive or defensive scheme. Tap a score to see the breakdown.</div>}
     <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:8,overflow:"hidden"}}>
-      {sortedFits.map((tf,i)=>{const sc=tf.score;const scColor=sc>=80?"#16a34a":sc>=65?"#0d9488":sc>=50?"#d97706":"#a3a3a3";const isOpen=expanded===tf.team;const bars=[{l:"Traits",v:tf.components?.trait||0,c:"#6366f1"},{l:"Archetype",v:tf.components?.archetype||0,c:"#8b5cf6"},{l:"Scheme",v:tf.components?.positional||0,c:"#a78bfa"},{l:"Athletic",v:tf.components?.athletic||0,c:"#14b8a6"},{l:"Ceiling",v:tf.components?.ceiling||0,c:"#f59e0b"}];
-      const breakdown=isOpen?getSchemeTraitBreakdown(player,tf.team,userTraits):null;
+      {sortedFits.map((tf,i)=>{const sc=tf.score;const scColor=sc>=80?"#16a34a":sc>=65?"#0d9488":sc>=50?"#d97706":"#a3a3a3";const isOpen=expanded===tf.team;
       const {posAvg,diff}=tf;
-      const impTier=(w)=>w>=0.24?"essential":w>=0.18?"important":"contributing";
-      const impColor=(tier)=>tier==="essential"?"#6366f1":tier==="important"?"#a78bfa":"#d4d4d4";
-      const impDots=(tier)=>tier==="essential"?3:tier==="important"?2:1;
+      const accent=NFL_TEAM_COLORS[tf.team]||"#6366f1";
+      const svR=isOpen?generateScoutReasoning(player,tf.team,schemeFits[tf.team]?.[player.id],userTraits):null;
       return<div key={tf.team} style={{borderBottom:i<sortedFits.length-1?"1px solid #f5f5f5":"none",cursor:"pointer"}} onClick={()=>setExpanded(isOpen?null:tf.team)}>
         <div style={{display:"flex",alignItems:"center",gap:10,padding:"10px 14px"}}>
           <NFLTeamLogo team={tf.team} size={24}/>
@@ -600,26 +598,14 @@ function ProfileTeamFits({topFits,player,userTraits,schemeFits,allProspects,font
             <span style={{fontFamily:mono,fontSize:13,fontWeight:800,color:scColor,background:`${scColor}11`,padding:"3px 10px",borderRadius:6,border:`1px solid ${scColor}22`,minWidth:32,textAlign:"center",display:"inline-block",transition:"opacity 0.15s",opacity:isOpen?1:0.85}}>{sc}</span>
           </div>
         </div>
-        {isOpen&&<div style={{padding:"0 14px 10px 58px"}} onClick={e=>e.stopPropagation()}>
-          {breakdown&&<div style={{display:"flex",alignItems:"center",gap:6,marginBottom:6}}>
-            <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#6366f1",background:"#6366f111",padding:"2px 8px",borderRadius:4,border:"1px solid #6366f122"}}>{breakdown.roleLabel}</span>
-            {diff!=null&&<span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>avg {pos}: {posAvg}</span>}
-          </div>}
-          {tf.summary&&<div style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.4,marginBottom:8,fontStyle:"italic"}}>{tf.summary}</div>}
-          {breakdown&&<div style={{marginBottom:8}}>
-            <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginBottom:4,textTransform:"uppercase",letterSpacing:1}}>key traits</div>
-            {breakdown.traits.map(t=>{const vColor=t.value>=72?"#16a34a":t.value>=60?"#0d9488":t.value>=50?"#d97706":"#dc2626";const tier=impTier(t.weight);const dots=impDots(tier);const dc=impColor(tier);return<div key={t.trait} style={{display:"flex",alignItems:"center",gap:6,marginBottom:3}}>
-              <span style={{fontFamily:mono,fontSize:9,color:"#525252",width:32,textAlign:"right",flexShrink:0}}>{t.abbrev}</span>
-              <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:vColor,width:18,textAlign:"right",flexShrink:0}}>{Math.round(t.value)}</span>
-              <div style={{flex:1,height:5,background:"#f0f0f0",borderRadius:2,overflow:"hidden",maxWidth:120}}>
-                <div style={{height:"100%",width:`${t.value}%`,background:vColor,borderRadius:2,opacity:0.7}}/>
-              </div>
-              <span style={{display:"flex",gap:2,flexShrink:0,width:20,justifyContent:"flex-end"}} title={tier}>{Array.from({length:dots},(_,k)=><span key={k} style={{width:4,height:4,borderRadius:2,background:dc}}/>)}</span>
-            </div>;})}
-          </div>}
-          <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginBottom:4,textTransform:"uppercase",letterSpacing:1}}>components</div>
-          {bars.map(b=><div key={b.l} style={{display:"flex",alignItems:"center",gap:6,marginBottom:3}}><span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",width:52,textAlign:"right",flexShrink:0}}>{b.l}</span><div style={{flex:1,height:4,background:"#f0f0f0",borderRadius:2,overflow:"hidden",maxWidth:120}}><div style={{height:"100%",width:`${b.v}%`,background:b.c,borderRadius:2}}/></div><span style={{fontFamily:mono,fontSize:8,color:"#737373",width:20,textAlign:"right"}}>{b.v}</span></div>)}
+        {isOpen&&svR&&<div style={{padding:"10px 14px 14px 58px",background:`${accent}04`,borderLeft:`3px solid ${accent}`}} onClick={e=>e.stopPropagation()}>
+          <div style={{fontFamily:sans,fontSize:11,fontWeight:700,color:accent,marginBottom:4}}>{svR.headline}</div>
+          <div style={{fontFamily:mono,fontSize:9,color:accent,marginBottom:4,opacity:0.8}}>{svR.roleLabel}</div>
+          <div style={{fontFamily:sans,fontSize:11,color:"#404040",lineHeight:1.5,marginBottom:8}}>{svR.whyItFits}</div>
+          {svR.prospectStrengths&&<div style={{fontFamily:mono,fontSize:9,color:"#737373",marginBottom:6}}>key traits: {svR.prospectStrengths}</div>}
+          {svR.relevantInflection&&<div style={{fontFamily:sans,fontSize:10,color:accent,fontStyle:"italic",lineHeight:1.4,padding:"6px 8px",background:`${accent}06`,borderRadius:6,borderLeft:`2px solid ${accent}40`}}>{svR.relevantInflection}</div>}
         </div>}
+        {isOpen&&!svR&&<div style={{padding:"10px 14px 14px 58px",background:"#faf9f6"}} onClick={e=>e.stopPropagation()}><span style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",fontStyle:"italic"}}>no scout vision data available</span></div>}
       </div>;})}
     </div>
   </div>;
