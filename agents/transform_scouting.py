@@ -27,10 +27,6 @@ CONSENSUS_FILE = PROJECT_ROOT / "src" / "consensusData.js"
 # ── Name / school normalization ──────────────────────────────────────────────
 
 NAME_ALIASES = {
-    "jam miller": "jamarion miller",
-    "nicholas singleton": "nick singleton",
-    "kc concepcion": "kevin concepcion",
-    "j michael sturdivant": "jmichael sturdivant",
     "marquarius white": "squirrel white",
 }
 

@@ -1024,6 +1024,43 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
             <div style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#dc2626",textTransform:"uppercase",letterSpacing:1,marginBottom:4}}>weaknesses</div>
             {wks.map((w,i)=>{const em=matchEmoji(w);return<div key={i} style={{display:"flex",gap:6,marginBottom:4,alignItems:"flex-start"}}><span style={{fontSize:em?11:10,lineHeight:1.7,flexShrink:0,...(!em&&{color:"#dc2626"})}}>{em||"−"}</span><span style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.5}}>{strip(w)}</span></div>;})}
           </div>}
+          {sn.boom_bust_variance&&(()=>{
+            const bb=sn.boom_bust_variance;
+            const level=bb.level||"medium";
+            const lvlCfg={low:{color:"#0891b2",label:"LOW VARIANCE",spread:11},medium:{color:"#f59e0b",label:"MED VARIANCE",spread:22},high:{color:"#ef4444",label:"HIGH VARIANCE",spread:33}}[level]||{color:"#f59e0b",label:"MED VARIANCE",spread:22};
+            const tg=Math.max(5,Math.min(95,sn.talent_grade||50));
+            const lo=Math.max(2,tg-lvlCfg.spread);
+            const hi=Math.min(98,tg+lvlCfg.spread);
+            const floorMatch=(blurb||bb.explanation||"").match(/floor\s+is\s+([^;.]{10,100})/i);
+            const ceilMatch=(blurb||bb.explanation||"").match(/ceiling\s+is\s+([^;.]{10,100})/i);
+            const floorText=floorMatch?.[1]?.trim();
+            const ceilText=ceilMatch?.[1]?.trim();
+            const zones=[{label:"BUST",p:8},{label:"BACKUP",p:27},{label:"STARTER",p:50},{label:"STAR",p:71},{label:"ELITE",p:90}];
+            return<div style={{marginTop:14,paddingTop:12,borderTop:"1px solid #f0f0f0"}}>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
+                <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>outcome range</div>
+                <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:lvlCfg.color,background:lvlCfg.color+"18",padding:"2px 7px",borderRadius:4,border:`1px solid ${lvlCfg.color}33`}}>{lvlCfg.label}</span>
+              </div>
+              <div style={{position:"relative",height:8,background:"#f0f0f0",borderRadius:99,marginBottom:6,overflow:"visible"}}>
+                <div style={{position:"absolute",left:`${lo}%`,width:`${hi-lo}%`,top:0,bottom:0,background:lvlCfg.color,opacity:0.75,borderRadius:99}}/>
+                <div style={{position:"absolute",left:`${tg}%`,top:-2,bottom:-2,width:3,background:"#fff",borderRadius:2,transform:"translateX(-50%)",boxShadow:`0 0 0 1.5px ${lvlCfg.color}`}}/>
+              </div>
+              <div style={{position:"relative",height:16,marginBottom:floorText||ceilText?10:0}}>
+                {zones.map(z=><span key={z.label} style={{position:"absolute",left:`${z.p}%`,transform:"translateX(-50%)",fontFamily:mono,fontSize:7,color:"#c0c0c0",letterSpacing:0.3,whiteSpace:"nowrap"}}>{z.label}</span>)}
+              </div>
+              {(floorText||ceilText)&&<div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:6}}>
+                {floorText&&<div style={{background:"#fafafa",borderRadius:8,padding:"8px 10px",border:"1px solid #f0f0f0"}}>
+                  <div style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#a3a3a3",textTransform:"uppercase",letterSpacing:1,marginBottom:3}}>⬇ floor</div>
+                  <div style={{fontFamily:sans,fontSize:10,color:"#737373",lineHeight:1.4}}>{floorText}</div>
+                </div>}
+                {ceilText&&<div style={{background:"#fafafa",borderRadius:8,padding:"8px 10px",border:"1px solid #f0f0f0"}}>
+                  <div style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#16a34a",textTransform:"uppercase",letterSpacing:1,marginBottom:3}}>⬆ ceiling</div>
+                  <div style={{fontFamily:sans,fontSize:10,color:"#525252",lineHeight:1.4}}>{ceilText}</div>
+                </div>}
+              </div>}
+              {!floorText&&!ceilText&&bb.explanation&&<div style={{fontFamily:sans,fontSize:11,color:"#737373",lineHeight:1.5}}>{bb.explanation}</div>}
+            </div>;
+          })()}
         </div>;})()}
 
         <div style={{padding:"0 24px 32px"}}>
