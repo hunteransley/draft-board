@@ -1715,6 +1715,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[sfTeam,setSfTeam]=useState("49ers");
   const[sfPosFilter,setSfPosFilter]=useState("WR");
   const[sfExpandedId,setSfExpandedId]=useState(null);
+  const[sfPickSlider,setSfPickSlider]=useState(0);
   const sfVision=useMemo(()=>{if(!sfTeam)return new Map();try{return computeTeamScoutVision(sfTeam,PROSPECTS,schemeFits,debouncedTraits);}catch(e){console.error("sfVision error:",e);return new Map();}},[sfTeam,schemeFits,debouncedTraits]);
   const explorerTraitsKey=useMemo(()=>explorerMode==="traits"?traits:null,[explorerMode,traits]);
   const explorerData=useMemo(()=>{
@@ -3324,6 +3325,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
           const dotY=d=>pad.top+((d.rank-yMin2)/yRange2)*ch; // rank 1 at top
           const dotR=d=>d.rank<50?8:d.rank<150?6:4;
           const top10=[...points].sort((a,b)=>b.fit-a.fit).slice(0,10);
+          const sfTeamPicks=sfTeam?DRAFT_ORDER.filter(d=>d.team===sfTeam):[];
+          const sfClampedSlider=Math.min(sfPickSlider,sfTeamPicks.length);
+          const sfCutoffPick=sfClampedSlider>0?(sfTeamPicks[sfClampedSlider-1]?.pick||999):999;
 
           return<>
             {teamRow}
@@ -3358,7 +3362,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                     const isFit=d.fit>=70;
                     const isMyGuy=explorerMyGuys&&myGuySet.has(d.name);
                     const dimmed=explorerMyGuys&&myGuySet.size>0&&!isMyGuy;
-                    const baseOpacity=isFit?1:0.4;
+                    const taken=sfClampedSlider>0&&d.rank<900&&d.rank<=sfCutoffPick;
+                    const baseOpacity=taken?0.06:(isFit?1:0.4);
                     const opacity=dimmed?0.1:baseOpacity;
                     const logoUrl=explorerLogos?schoolLogo(d.school):null;
                     const handlers={onMouseEnter:e=>setExplorerHover({sfDot:d,cx:e.clientX,cy:e.clientY}),onMouseLeave:()=>setExplorerHover(null),onClick:()=>{const p=PROSPECTS.find(pr=>pr.id===d.id);if(p)openProfile(p);}};
@@ -3402,6 +3407,46 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
               </div>
             )}
 
+            {/* Available at Pick slider */}
+            {sfTeamPicks.length>0&&(()=>{
+              const handlePct=(sfClampedSlider/sfTeamPicks.length)*100;
+              const currentPick=sfClampedSlider>0?sfTeamPicks[sfClampedSlider-1]:null;
+              const availableGems=sfClampedSlider>0?points.filter(d=>(d.rank>sfCutoffPick||d.rank>=900)&&d.fit>=70).length:null;
+              const statusLabel=sfClampedSlider===0?"all rounds":`R${currentPick.round} · Pick #${currentPick.pick}${availableGems!==null?` · ${availableGems} fit gem${availableGems!==1?"s":""} available`:""}`;
+              const showDots=sfTeamPicks.length<=14;
+              return<div style={{margin:"16px 0 4px",padding:"12px 16px",background:`${tc}08`,border:`1px solid ${tc}33`,borderRadius:12}}>
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10}}>
+                  <div style={{display:"flex",alignItems:"center",gap:6}}>
+                    <NFLTeamLogo team={sfTeam} size={16}/>
+                    <span style={{fontFamily:mono,fontSize:11,fontWeight:900,letterSpacing:1,color:"#171717",textTransform:"uppercase"}}>Available at Pick</span>
+                  </div>
+                  <span style={{fontFamily:mono,fontSize:12,fontWeight:700,color:tc,background:tc+"15",padding:"3px 10px",borderRadius:99}}>{statusLabel}</span>
+                </div>
+                <div style={{position:"relative",height:32,display:"flex",alignItems:"center",padding:"0 10px"}}>
+                  <div style={{position:"absolute",left:10,right:10,height:8,background:`${tc}1a`,borderRadius:4}}/>
+                  <div style={{position:"absolute",left:10,right:10,height:8,borderRadius:4,overflow:"hidden"}}>
+                    <div style={{height:"100%",width:`${handlePct}%`,background:`linear-gradient(90deg,${tc},${tc}bb)`,borderRadius:4,transition:"width 0.15s cubic-bezier(.4,1.3,.65,1)"}}/>
+                  </div>
+                  {showDots?sfTeamPicks.map((d,i)=>{
+                    const stopIdx=i+1;const pct=(stopIdx/sfTeamPicks.length)*100;
+                    const past=stopIdx<sfClampedSlider;const current=stopIdx===sfClampedSlider;
+                    return<div key={d.pick} style={{position:"absolute",left:`${pct}%`,top:"50%",transform:"translate(-50%,-50%)",width:current?0:past?6:10,height:current?0:past?6:10,borderRadius:"50%",background:tc,border:past?"none":`2px solid ${tc}`,boxShadow:past?"none":"0 0 0 2px #fff",zIndex:2,pointerEvents:"none",transition:"all 0.15s cubic-bezier(.4,1.3,.65,1)"}} title={`Pick ${d.pick} (R${d.round})${d.from?" from "+d.from:""}`}/>;
+                  }):[1,2,3,4,5,6,7].map(rd=>{
+                    const first=sfTeamPicks.find(d=>d.round===rd);if(!first)return null;
+                    const idx=sfTeamPicks.indexOf(first);const pct=((idx+1)/sfTeamPicks.length)*100;const past=idx<sfClampedSlider;
+                    return<div key={rd} style={{position:"absolute",left:`${pct}%`,top:"50%",width:past?6:8,height:past?6:8,borderRadius:"50%",background:past?tc:"#d4d4d4",transform:"translate(-50%,-50%)",pointerEvents:"none",zIndex:2,transition:"all 0.15s"}}/>;
+                  })}
+                  <div style={{position:"absolute",left:`${handlePct}%`,top:"50%",transform:"translate(-50%,-50%)",width:22,height:22,borderRadius:"50%",background:"#fff",border:`3px solid ${tc}`,boxShadow:"0 2px 8px rgba(0,0,0,0.18)",zIndex:3,pointerEvents:"none",transition:"left 0.15s cubic-bezier(.4,1.3,.65,1)"}}/>
+                  <input type="range" min="0" max={sfTeamPicks.length} step="1" value={sfClampedSlider} onChange={e=>setSfPickSlider(parseInt(e.target.value))} style={{position:"absolute",left:0,width:"100%",height:32,background:"transparent",cursor:"pointer",zIndex:5,opacity:0,margin:0}}/>
+                </div>
+                <div style={{display:"flex",justifyContent:"space-between",marginTop:4,padding:"0 10px"}}>
+                  <span style={{fontFamily:mono,fontSize:9,color:sfClampedSlider===0?tc:"#a3a3a3",fontWeight:sfClampedSlider===0?700:400}}>All</span>
+                  {showDots?sfTeamPicks.map((d,i)=>{const stopIdx=i+1;return<span key={d.pick} style={{fontFamily:mono,fontSize:8,color:stopIdx<=sfClampedSlider?tc:"#a3a3a3",fontWeight:stopIdx===sfClampedSlider?700:400}}>R{d.round}</span>;}):
+                  [1,2,3,4,5,6,7].map(rd=>{const first=sfTeamPicks.find(d=>d.round===rd);if(!first)return null;const stopIdx=sfTeamPicks.indexOf(first)+1;return<span key={rd} style={{fontFamily:mono,fontSize:9,color:stopIdx<=sfClampedSlider?tc:"#a3a3a3",fontWeight:400}}>R{rd}</span>;})}
+                </div>
+              </div>;
+            })()}
+
             {/* Top-10 Leaderboard */}
             {top10.length>0&&<div style={{marginTop:16,background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
               <div style={{padding:"10px 14px",borderBottom:"1px solid #f0f0f0",display:"flex",alignItems:"center",gap:6}}>
@@ -3412,7 +3457,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                 const isOpen=sfExpandedId===d.id;
                 const svR=d.sv;
                 const fitColor=d.fit>=70?"#0891b2":d.fit>=55?"#d97706":"#a3a3a3";
-                return<div key={d.id}>
+                const lbTaken=sfClampedSlider>0&&d.rank<900&&d.rank<=sfCutoffPick;
+                return<div key={d.id} style={{opacity:lbTaken?0.35:1}}>
                   <div style={{display:"flex",alignItems:"center",gap:8,padding:"7px 14px",borderBottom:isOpen?"none":i<top10.length-1?"1px solid #f5f5f5":"none",cursor:"pointer"}}
                   onClick={gateAuth(()=>setSfExpandedId(isOpen?null:d.id))}
                   onMouseEnter={e=>{e.currentTarget.style.background="#faf9f6";}}
@@ -3420,6 +3466,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                   <span style={{fontFamily:mono,fontSize:10,color:i<3?"#171717":"#a3a3a3",fontWeight:i<3?700:400,width:20,textAlign:"right",flexShrink:0}}>#{i+1}</span>
                   <SchoolLogo school={d.school} size={20}/>
                   <div style={{flex:1,minWidth:0,overflow:"hidden",whiteSpace:"nowrap",textOverflow:"ellipsis"}}><span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",cursor:"pointer"}} onClick={e=>{e.stopPropagation();const p=PROSPECTS.find(pr=>pr.id===d.id);if(p)openProfile(p);}} onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"} onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}>{d.name}</span></div>
+                  {lbTaken&&<span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:"#a3a3a3",background:"#f0f0f0",borderRadius:3,padding:"1px 5px",flexShrink:0}}>gone</span>}
                   <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:pc,background:pc+"18",border:`1px solid ${pc}44`,borderRadius:99,padding:"2px 8px",flexShrink:0}}>{sfPosFilter}</span>
                   <span style={{fontFamily:mono,fontSize:12,fontWeight:700,color:fitColor,flexShrink:0,minWidth:36,textAlign:"right"}}>{d.fit}</span>
                   <span style={{fontFamily:mono,fontSize:10,color:"#525252",flexShrink:0,minWidth:40,textAlign:"right"}}>#{d.rank}</span>
