@@ -1882,7 +1882,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
       const s=labSuffix(p);
       const mode=s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":s==="measurables"?"measurables":s==="traits"?"traits":s==="stats"?"stats":"scheme-fit";
       setExplorerMode(mode);
-      if(mode==="combo"){try{const pc=sessionStorage.getItem('pendingCombo');if(pc){const{pos,x,y}=JSON.parse(pc);if(pos)setComboPos(pos);if(x)setComboX(x);if(y)setComboY(y);sessionStorage.removeItem('pendingCombo');}}catch(e){}}
+      if(mode==="combo"){const cp=search.get('pos'),cx=search.get('x'),cy=search.get('y');if(cp)setComboPos(cp);if(cx)setComboX(cx);if(cy)setComboY(cy);}
       if(mode==="scheme-fit"&&!sfTeam)setSfTeam("49ers");
     }else if(p==='/trends'){
       setShowTrends(true);
@@ -5895,7 +5895,7 @@ function AdminDashboard({user,onBack,onOpenCombo}){
         </div>
 
         {/* SECTION 8: Player Spotlight — best combo finder */}
-        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",marginTop:12}}>
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,marginTop:12}}>
           <div style={{padding:"14px 16px",borderBottom:"1px solid #f0f0f0"}}>
             <div style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717",marginBottom:4}}>player spotlight</div>
             <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>find the best combo chart pairings for a player — skip self-correlated axes</div>
@@ -5953,7 +5953,7 @@ function AdminDashboard({user,onBack,onOpenCombo}){
                         <span style={{fontFamily:mono,fontSize:11,fontWeight:900,color:"#a3a3a3"}}>#{i+1}</span>
                         <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:"#171717"}}>score {Math.round(combo.score)}th pctile avg</span>
                         {i===0&&<span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#d97706",background:"#fef3c7",padding:"2px 6px",borderRadius:4,marginLeft:"auto"}}>BEST</span>}
-                        {onOpenCombo&&<button onClick={()=>onOpenCombo(pos,combo.xKey,combo.yKey)} style={{fontFamily:mono,fontSize:9,color:"#3b82f6",background:"#eff6ff",border:"1px solid #bfdbfe",borderRadius:6,padding:"3px 8px",cursor:"pointer",fontWeight:600,marginLeft:i===0?"0":"auto"}}>open in lab</button>}
+                        <button onClick={()=>window.open(`/lab/combo?pos=${encodeURIComponent(pos)}&x=${encodeURIComponent(combo.xKey)}&y=${encodeURIComponent(combo.yKey)}`,'_blank')} style={{fontFamily:mono,fontSize:9,color:"#3b82f6",background:"#eff6ff",border:"1px solid #bfdbfe",borderRadius:6,padding:"3px 8px",cursor:"pointer",fontWeight:600,marginLeft:i===0?"0":"auto"}}>open in lab ↗</button>
                       </div>
                       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
                         {[{axis:"X",meta:combo.xMeta,pct:combo.xPct,val:combo.xVal,cat:xCat},{axis:"Y",meta:combo.yMeta,pct:combo.yPct,val:combo.yVal,cat:yCat}].map(({axis,meta,pct,val,cat})=>(
@@ -6837,7 +6837,7 @@ export default function App(){
   if(showOG)return<OGPreview/>;
   if(showGmQuiz)return<GmQuiz user={user} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} trackEvent={trackEvent} userId={user?.id} onLaunchMock={(team)=>{setGmQuizMockLaunch(team);setShowGmQuiz(false);window.history.pushState({},'','/');}} onHome={()=>{setShowGmQuiz(false);window.history.pushState({},'','/');window.dispatchEvent(new PopStateEvent("popstate"));}}/>;
   if(!user&&!isGuest&&!(window.location.pathname==='/lab'||window.location.pathname==='/data-lab'||window.location.pathname.startsWith('/lab/')||window.location.pathname.startsWith('/data-lab/'))&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>{const p=window.location.pathname;if(p==='/board'||p.startsWith('/rank')||p==='/r1'||p==='/my-guys')window.history.replaceState({},'','/');setIsGuest(true);}} onOpenGuide={navigateToGuide}/>;
-  if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}} onOpenCombo={(pos,x,y)=>{try{sessionStorage.setItem('pendingCombo',JSON.stringify({pos,x,y}));}catch(e){}window.location.hash="";setShowAdmin(false);window.history.pushState({},'','/lab/combo');}}/>;
+  if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
   return<>
     <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} gmQuizMockLaunch={gmQuizMockLaunch} onClearGmQuizMock={()=>setGmQuizMockLaunch(null)} onRequireAuth={(msg)=>{
       const src=msg.includes('play with the data')?'data-lab':msg.includes('vote')||msg.includes('big board')?'pair rank':msg.includes('trait')||msg.includes('grade')||msg.includes('slider')?'sliders':msg.includes('mock')||msg.includes('draft')?'mock draft':msg.includes('reorder')?'pair rank':msg.includes('note')?'notes':msg.includes('guys')?'my guys':msg.includes('share')?'share':msg.includes('save')?'save':'homepage';
