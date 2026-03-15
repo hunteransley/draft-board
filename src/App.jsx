@@ -616,8 +616,10 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
   const[profileMeasMode,setProfileMeasMode]=useState(false);
   const[historicalData,setHistoricalData]=useState(_historicalCompsCache||null);
   const[localTraitOverrides,setLocalTraitOverrides]=useState({});
+  const[eliteCombo,setEliteCombo]=useState(null);
   const debounceRef=useRef(null);
-  useEffect(()=>{setTimeout(()=>setIsOpen(true),10);setProfileMeasMode(false);setLocalTraitOverrides({});return()=>setIsOpen(false);},[player.id]);
+  useEffect(()=>{setTimeout(()=>setIsOpen(true),10);setProfileMeasMode(false);setLocalTraitOverrides({});setEliteCombo(null);return()=>setIsOpen(false);},[player.id]);
+  useEffect(()=>{const pos=player.gpos||player.pos;if(pos==='K/P')return;setTimeout(()=>{const combos=getCachedSpotlight(player);const top=combos[0];if(top&&top.score>=75){const phrase=buildComboPhrase(top);if(phrase)setEliteCombo({phrase,xPct:Math.round(top.xPct),yPct:Math.round(top.yPct),xLabel:top.xMeta?.label,yLabel:top.yMeta?.label,pos});}},0);},[player.id]);
   useEffect(()=>{const prev=document.body.style.overflow;document.body.style.overflow="hidden";return()=>{document.body.style.overflow=prev;};},[]);
   useEffect(()=>{if(!historicalData)loadHistoricalComps(setHistoricalData);},[]);
   const handleClose=()=>{setIsOpen(false);setTimeout(onClose,300);};
@@ -997,6 +999,17 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
           const matchEmoji=(text)=>{const t=text.toLowerCase();for(const[trait,rx]of traitKw){if(rx.test(t))return TRAIT_EMOJI[trait.split(" ").map(w=>w[0].toUpperCase()+w.slice(1)).join(" ")]||null;}return null;};
           return<div style={{padding:"0 24px 20px"}}>
           <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>scouting report</div>
+          {eliteCombo&&<div style={{background:"linear-gradient(135deg,#fefce8,#fef9c3)",border:"1px solid #fbbf24",borderRadius:10,padding:"10px 14px",marginBottom:12}}>
+            <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:4}}>
+              <span style={{fontSize:13}}>⚡</span>
+              <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:"#92400e",textTransform:"uppercase",letterSpacing:1}}>elite combo</span>
+            </div>
+            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",lineHeight:1.4,marginBottom:6}}>{eliteCombo.phrase}</div>
+            <div style={{display:"flex",gap:8}}>
+              <span style={{fontFamily:mono,fontSize:9,color:"#78350f",background:"#fef3c7",padding:"2px 7px",borderRadius:4}}>{eliteCombo.xLabel} · {eliteCombo.xPct}th pctile</span>
+              <span style={{fontFamily:mono,fontSize:9,color:"#78350f",background:"#fef3c7",padding:"2px 7px",borderRadius:4}}>{eliteCombo.yLabel} · {eliteCombo.yPct}th pctile</span>
+            </div>
+          </div>}
           {blurb&&<div style={{fontFamily:sans,fontSize:12,color:"#404040",lineHeight:1.6,marginBottom:12}}>{strip(blurb)}</div>}
           {strs?.length>0&&<div style={{marginBottom:10}}>
             <div style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#16a34a",textTransform:"uppercase",letterSpacing:1,marginBottom:4}}>strengths</div>
@@ -5132,6 +5145,25 @@ function computeSpotlightCombos(player){
     }
   }
   return pairs.sort((a,b)=>b.score-a.score).slice(0,5);
+}
+const _spotlightCache=new Map();
+function getCachedSpotlight(player){
+  if(_spotlightCache.has(player.id))return _spotlightCache.get(player.id);
+  const result=computeSpotlightCombos(player);
+  _spotlightCache.set(player.id,result);
+  return result;
+}
+function buildComboPhrase(combo){
+  const{xMeta,yMeta,xPct,yPct}=combo;
+  if(xMeta?.cat==='T'&&yMeta?.cat==='T')return null;
+  const[a,b]=xPct>=yPct?[xMeta,yMeta]:[yMeta,xMeta];
+  const aLabel=(a?.label||'').toLowerCase();
+  const bLabel=(b?.label||'').toLowerCase();
+  const aIsP=a?.cat==='P',bIsP=b?.cat==='P';
+  if(aIsP&&bIsP)return`Dominant ${aLabel} and ${bLabel}`;
+  if(bIsP)return`Elite ${aLabel} backed by dominant ${bLabel}`;
+  if(aIsP)return`Dominant ${aLabel} with elite ${bLabel}`;
+  return`Elite ${aLabel} paired with elite ${bLabel}`;
 }
 
 // ============================================================
