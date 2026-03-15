@@ -1373,7 +1373,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[lastSaved,setLastSaved]=useState(null);
   const[profilePlayer,setProfilePlayer]=useState(null);
   const profileTraitsSnapshot=useRef(null);
-  const openProfile=useCallback((p)=>{profileTraitsSnapshot.current=p?JSON.stringify(traitsRef.current[p.id]||{}):null;setProfilePlayer(p);},[]);
+  const userIdRef=useRef(user?.id);userIdRef.current=user?.id;
+  const openProfile=useCallback((p)=>{if(p)trackEvent(userIdRef.current,'profile_opened',{player:p.name,pos:p.pos});profileTraitsSnapshot.current=p?JSON.stringify(traitsRef.current[p.id]||{}):null;setProfilePlayer(p);},[]);
   const closeProfile=useCallback(()=>{
     if(profilePlayer){
       const before=profileTraitsSnapshot.current;
@@ -1881,6 +1882,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
       const s=labSuffix(p);
       const mode=s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":s==="measurables"?"measurables":s==="traits"?"traits":s==="stats"?"stats":"scheme-fit";
       setExplorerMode(mode);
+      if(mode==="combo"){try{const pc=sessionStorage.getItem('pendingCombo');if(pc){const{pos,x,y}=JSON.parse(pc);if(pos)setComboPos(pos);if(x)setComboX(x);if(y)setComboY(y);sessionStorage.removeItem('pendingCombo');}}catch(e){}}
       if(mode==="scheme-fit"&&!sfTeam)setSfTeam("49ers");
     }else if(p==='/trends'){
       setShowTrends(true);
@@ -1917,6 +1919,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     if(opts?.replace)window.history.replaceState({},'',path);
     else window.history.pushState({},'',path);
     applyRoute(path);
+    if(!opts?.replace)trackEvent(userIdRef.current,'page_view',{path});
   },[applyRoute]);
   navigateRef.current=navigate;
   const saveBarProps={navigate,mono,sans,isGuest,userEmail:user?.email,showOnboarding,setShowOnboarding,saving,lastSaved,onRequireAuth,onSignOut};
@@ -3308,7 +3311,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
           // === Individual Prospect Scatter View ===
           const atPos=PROSPECTS.filter(p=>{const g=p.gpos||p.pos;return g===sfPosFilter&&g!=="K/P";});
           const points=atPos.map(p=>{const fit=teamFits?.[p.id];const rank=getConsensusRank(p.name)||999;const sv=sfVision.get(p.id);return{...p,fit:fit?.score||0,tags:fit?.tags||[],rank,sv};});
-          const xMin=0,xMax=100;
+          const xMin=50,xMax=100;
           const rankedPts=points.filter(d=>d.rank<900);
           const yMin2=1,yMax2=rankedPts.length?Math.max(...rankedPts.map(d=>d.rank)):300;
           const yRange2=yMax2-yMin2||1;
@@ -3346,7 +3349,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                   {/* Y-axis label */}
                   <text x={14} y={pad.top+ch/2} textAnchor="middle" transform={`rotate(-90,14,${pad.top+ch/2})`} style={{fontSize:10,fill:"#737373",fontFamily:"monospace"}}>Consensus Rank (↑ better)</text>
                   {/* X ticks */}
-                  {[0,25,50,70,85,100].map(v=>{const xp=pad.left+((v-xMin)/(xMax-xMin))*cw;return<g key={v}><line x1={xp} y1={pad.top+ch} x2={xp} y2={pad.top+ch+4} stroke="#d4d4d4"/><text x={xp} y={pad.top+ch+16} textAnchor="middle" style={{fontSize:9,fill:"#a3a3a3",fontFamily:"monospace"}}>{v}</text></g>;})}
+                  {[50,60,70,80,90,100].map(v=>{const xp=pad.left+((v-xMin)/(xMax-xMin))*cw;return<g key={v}><line x1={xp} y1={pad.top+ch} x2={xp} y2={pad.top+ch+4} stroke="#d4d4d4"/><text x={xp} y={pad.top+ch+16} textAnchor="middle" style={{fontSize:9,fill:"#a3a3a3",fontFamily:"monospace"}}>{v}</text></g>;})}
                   {/* Y ticks — rank 1 at top, higher ranks at bottom */}
                   {[0,0.25,0.5,0.75,1].map(f=>{const yp=pad.top+f*ch;const v=Math.round(yMin2+f*yRange2);return<g key={f}><line x1={pad.left-4} y1={yp} x2={pad.left} y2={yp} stroke="#d4d4d4"/><text x={pad.left-8} y={yp+3} textAnchor="end" style={{fontSize:9,fill:"#a3a3a3",fontFamily:"monospace"}}>#{v}</text></g>;})}
                   {/* Dots / Logos */}
@@ -4989,10 +4992,108 @@ function generateTweetCards(lastCategories,historicalData){
 }
 
 // ============================================================
+// AdminLineChart — reusable SVG line chart for admin
+// ============================================================
+function AdminLineChart({series,labels,height=110,normalize=false}){
+  const[hovIdx,setHovIdx]=useState(null);
+  const W=860,padL=4,padR=4,padT=8,padB=20;
+  const chartW=W-padL-padR,chartH=height-padT-padB;
+  const n=labels.length;
+  if(n<2)return null;
+  // normalize=true: each series scaled to its own max so all lines are visible
+  const plotSeries=normalize
+    ?series.map(s=>{const mx=Math.max(...s.data,1);return{...s,plot:s.data.map(v=>v/mx*100)};})
+    :series.map(s=>({...s,plot:s.data}));
+  const maxV=normalize?100:Math.max(...plotSeries.flatMap(s=>s.plot),1);
+  const xp=i=>padL+(i/(n-1))*chartW;
+  const yp=v=>padT+chartH-Math.max(0,v/maxV)*chartH;
+  const labelStep=Math.max(1,Math.ceil(n/8));
+  return(
+    <div style={{position:'relative'}} onMouseLeave={()=>setHovIdx(null)}>
+      <svg viewBox={`0 0 ${W} ${height}`} style={{width:'100%',height:height,display:'block',overflow:'visible'}}>
+        {[0.25,0.5,0.75,1].map(f=><line key={f} x1={padL} x2={W-padR} y1={padT+chartH*(1-f)} y2={padT+chartH*(1-f)} stroke="#f5f5f5" strokeWidth={1}/>)}
+        {plotSeries.map(s=>{
+          const pts=s.plot.map((v,i)=>`${xp(i)},${yp(v)}`).join(' ');
+          return<g key={s.label}>
+            <polygon points={`${xp(0)},${padT+chartH} ${pts} ${xp(n-1)},${padT+chartH}`} fill={s.color} fillOpacity={0.08} stroke="none"/>
+            <polyline points={pts} fill="none" stroke={s.color} strokeWidth={2} strokeLinejoin="round" strokeLinecap="round"/>
+          </g>;
+        })}
+        {hovIdx!=null&&<>
+          <line x1={xp(hovIdx)} x2={xp(hovIdx)} y1={padT} y2={padT+chartH} stroke="#e5e5e5" strokeWidth={1}/>
+          {plotSeries.map(s=><circle key={s.label} cx={xp(hovIdx)} cy={yp(s.plot[hovIdx])} r={4} fill={s.color} stroke="#fff" strokeWidth={2}/>)}
+        </>}
+        {labels.map((l,i)=>{
+          if(i%labelStep!==0&&i!==n-1)return null;
+          return<text key={i} x={xp(i)} y={height-2} textAnchor={i===0?'start':i===n-1?'end':'middle'} fontSize={9} fontFamily="monospace" fill="#c4c4c4">{l}</text>;
+        })}
+        {Array.from({length:n},(_,i)=><rect key={i} x={i===0?xp(0):xp(i)-chartW/(n-1)/2} y={padT} width={chartW/(n-1)} height={chartH} fill="transparent" style={{cursor:'default'}} onMouseEnter={()=>setHovIdx(i)}/>)}
+      </svg>
+      {hovIdx!=null&&<div style={{position:'absolute',top:4,left:`${Math.min(Math.max(xp(hovIdx)/W*100-5,0),62)}%`,background:'#171717',borderRadius:6,padding:'6px 10px',pointerEvents:'none',zIndex:20,minWidth:90}}>
+        <div style={{fontFamily:'monospace',fontSize:8,color:'#737373',marginBottom:3}}>{labels[hovIdx]}</div>
+        {series.map(s=><div key={s.label} style={{display:'flex',alignItems:'center',gap:5,lineHeight:1.4}}>
+          <span style={{display:'inline-block',width:8,height:8,borderRadius:'50%',background:s.color,flexShrink:0}}/>
+          <span style={{fontFamily:'monospace',fontSize:11,fontWeight:700,color:'#fff'}}>{s.data[hovIdx].toLocaleString()}</span>
+          <span style={{fontFamily:'monospace',fontSize:9,color:'#737373'}}>{s.label}</span>
+        </div>)}
+      </div>}
+    </div>
+  );
+}
+
+// ============================================================
+// Player Spotlight — admin combo finder
+// ============================================================
+const SPOTLIGHT_REDUNDANCY_GROUPS=[
+  ["meas_40","meas_SPD","meas_ATH","trait_Speed"],
+  ["meas_3C","meas_SHT","meas_AGI","trait_Agility","trait_Quickness"],
+  ["meas_VRT","meas_BRD","meas_EXP","trait_Explosiveness"],
+  ["meas_HT","meas_WT","meas_WING","meas_ARM","meas_HND"],
+  ["passing_YDS","passing_ATT","passing_COMP","passing_TD","passing_DOM"],
+  ["rushing_YDS","rushing_CAR","rushing_TD","rushing_DOM"],
+  ["receiving_YDS","receiving_REC","receiving_TD","receiving_DOM"],
+  ["defensive_TKL","defensive_TFL","defensive_SACKS","defensive_QBHUR","defensive_DOM"],
+];
+function computeSpotlightCombos(player){
+  const pos=player.gpos||player.pos;
+  const peers=PROSPECTS.filter(p=>(p.gpos||p.pos)===pos);
+  const metrics=getComboMetrics(pos);
+  const metricPcts={};
+  const metricVals={};
+  metrics.forEach(m=>{
+    const val=getComboVal(player.name,player.school,player.id,m.key,pos,{});
+    if(val==null)return;
+    metricVals[m.key]=val;
+    const allVals=peers.map(p=>getComboVal(p.name,p.school,p.id,m.key,pos,{})).filter(v=>v!=null);
+    if(allVals.length<4)return;
+    const sorted=[...allVals].sort((a,b)=>a-b);
+    const lo=sorted.filter(v=>v<val).length;
+    const rawPct=lo/sorted.length*100;
+    metricPcts[m.key]=m.inverted?100-rawPct:rawPct;
+  });
+  const redundancyMap={};
+  SPOTLIGHT_REDUNDANCY_GROUPS.forEach((group,gi)=>group.forEach(key=>{redundancyMap[key]=gi;}));
+  const validKeys=Object.keys(metricPcts);
+  const pairs=[];
+  for(let i=0;i<validKeys.length;i++){
+    for(let j=i+1;j<validKeys.length;j++){
+      const xKey=validKeys[i],yKey=validKeys[j];
+      if(redundancyMap[xKey]!=null&&redundancyMap[xKey]===redundancyMap[yKey])continue;
+      const xPct=metricPcts[xKey],yPct=metricPcts[yKey];
+      const score=(xPct+yPct)/2;
+      const xMeta=metrics.find(m=>m.key===xKey);
+      const yMeta=metrics.find(m=>m.key===yKey);
+      pairs.push({xKey,yKey,xMeta,yMeta,xPct,yPct,score,xVal:metricVals[xKey],yVal:metricVals[yKey]});
+    }
+  }
+  return pairs.sort((a,b)=>b.score-a.score).slice(0,5);
+}
+
+// ============================================================
 // Admin Dashboard (gated by email)
 // ============================================================
 const ADMIN_EMAILS=["hunteransley@gmail.com"];
-function AdminDashboard({user,onBack}){
+function AdminDashboard({user,onBack,onOpenCombo}){
   const[rawData,setRawData]=useState(null);
   const[loading,setLoading]=useState(true);
   const[excludeAdmin,setExcludeAdmin]=useState(true);
@@ -5002,13 +5103,17 @@ function AdminDashboard({user,onBack}){
   const[lastTweetCategories,setLastTweetCategories]=useState([]);
   const[tweetHistorical,setTweetHistorical]=useState(_historicalCompsCache||null);
   const[tweetCopied,setTweetCopied]=useState(null);
+  const[spotlightQuery,setSpotlightQuery]=useState('');
+  const[spotlightPlayer,setSpotlightPlayer]=useState(null);
+  const[spotlightResults,setSpotlightResults]=useState([]);
+  const[spotlightSuggestions,setSpotlightSuggestions]=useState([]);
   useEffect(()=>{if(!tweetHistorical)loadHistoricalComps(setTweetHistorical);},[]);
   useEffect(()=>{
     (async()=>{
       try{
         const fourteenAgo=new Date(Date.now()-14*86400000).toISOString();
         const[boardsRes,communityRes,,authCountRes,authUsersRes]=await Promise.all([
-          supabase.from('boards').select('user_id,board_data,updated_at'),
+          supabase.rpc('get_all_boards_summary'),
           supabase.from('community_boards').select('user_id,board_data'),
           null, // events fetched via pagination below
           supabase.rpc('get_auth_user_count'),
@@ -5062,10 +5167,13 @@ function AdminDashboard({user,onBack}){
     allEvents.reverse();
 
     const now=new Date();
-    const activeToday=authUsers.filter(u=>u.last_sign_in_at&&(now-new Date(u.last_sign_in_at))<86400000).length;
-    const activeWeek=authUsers.filter(u=>u.last_sign_in_at&&(now-new Date(u.last_sign_in_at))<604800000).length;
     const signupsToday=authUsers.filter(u=>(now-new Date(u.created_at))<86400000).length;
     const signupsWeek=authUsers.filter(u=>(now-new Date(u.created_at))<604800000).length;
+    // Use event timestamps for active users (more accurate than last_sign_in_at which fires on any auth)
+    const activeUserIds1d=new Set(allEventsFiltered.filter(e=>e.user_id&&(now-new Date(e.created_at))<86400000).map(e=>e.user_id));
+    const activeUserIds7d=new Set(allEventsFiltered.filter(e=>e.user_id&&(now-new Date(e.created_at))<604800000).map(e=>e.user_id));
+    const activeToday=activeUserIds1d.size;
+    const activeWeek=activeUserIds7d.size;
 
     const eventCounts={};
     allEvents.forEach(e=>{eventCounts[e.event]=(eventCounts[e.event]||0)+1;});
@@ -5150,6 +5258,27 @@ function AdminDashboard({user,onBack}){
     authUsers.forEach(u=>{if(u.created_at){const d=localDateStr(u.created_at);if(d>=fourteenAgoLocal)signupDayMap[d]=(signupDayMap[d]||0)+1;}});
     const signupHeatmap=Array.from({length:14},(_,i)=>{const d=localDateStr(new Date(now-(13-i)*86400000));return{date:d,count:signupDayMap[d]||0};});
 
+    // Per-day mock + share counts for sparklines
+    const mockDayMap={};const shareDayMap={};const activeDayMap={};
+    allEvents.forEach(e=>{
+      const d=localDateStr(e.created_at);if(d<fourteenAgoLocal)return;
+      if(e.event==='mock_draft_completed')mockDayMap[d]=(mockDayMap[d]||0)+1;
+      if(e.event==='share_triggered'||e.event==='share_results')shareDayMap[d]=(shareDayMap[d]||0)+1;
+      if(e.user_id){if(!activeDayMap[d])activeDayMap[d]=new Set();activeDayMap[d].add(e.user_id);}
+    });
+    const mockHeatmap=Array.from({length:14},(_,i)=>{const d=localDateStr(new Date(now-(13-i)*86400000));return{date:d,count:mockDayMap[d]||0};});
+    const shareHeatmap=Array.from({length:14},(_,i)=>{const d=localDateStr(new Date(now-(13-i)*86400000));return{date:d,count:shareDayMap[d]||0};});
+    const activeHeatmap=Array.from({length:14},(_,i)=>{const d=localDateStr(new Date(now-(13-i)*86400000));return{date:d,count:activeDayMap[d]?activeDayMap[d].size:0};});
+
+    // Cumulative user growth (90 days)
+    const growthDays=90;
+    const cutoffGrowth=new Date(now-growthDays*86400000);
+    const baseUsers=authUsers.filter(u=>new Date(u.created_at)<cutoffGrowth).length;
+    const signupsByDay90={};
+    authUsers.filter(u=>new Date(u.created_at)>=cutoffGrowth).forEach(u=>{const d=localDateStr(u.created_at);signupsByDay90[d]=(signupsByDay90[d]||0)+1;});
+    let runningTotal=baseUsers;
+    const growthChart=Array.from({length:growthDays},(_,i)=>{const d=localDateStr(new Date(now-(growthDays-1-i)*86400000));runningTotal+=signupsByDay90[d]||0;return{date:d,count:runningTotal};});
+
     const anonSessionDayMap={};
     heatmapAll.filter(e=>!e.user_id).forEach(e=>{const d=localDateStr(e.created_at);if(!anonSessionDayMap[d])anonSessionDayMap[d]=new Set();if(e.session_id)anonSessionDayMap[d].add(e.session_id);});
     const anonSessionHeatmap=Array.from({length:14},(_,i)=>{const d=localDateStr(new Date(now-(13-i)*86400000));return{date:d,count:anonSessionDayMap[d]?anonSessionDayMap[d].size:0};});
@@ -5186,28 +5315,61 @@ function AdminDashboard({user,onBack}){
     signupEventsArr.forEach(se=>{
       const source=se.metadata?.source;
       if(source){signupFlows[source]=(signupFlows[source]||0)+1;return;}
-      const firstEvt=allEvents.filter(e=>e.user_id===se.user_id&&e.event!=='signup'&&e.event!=='login').pop();
-      const flow=firstEvt?
-        (firstEvt.event==='mock_draft_started'||firstEvt.event==='mock_draft_sim_started'||firstEvt.event==='mock_draft_completed'?'mock draft':
-        firstEvt.event==='ranking_started'||firstEvt.event==='ranking_completed'?'pair rank':
-        firstEvt.event==='share_results'||firstEvt.event==='share_triggered'?'share':
-        'homepage'):'homepage';
-      signupFlows[flow]=(signupFlows[flow]||0)+1;
+      // Use same-session page_view to infer entry point (populates as page_view events accumulate)
+      const sessionPageViews=se.session_id?allEvents.filter(e=>e.session_id===se.session_id&&e.event==='page_view'):[];
+      if(sessionPageViews.length>0){
+        const path=sessionPageViews[0].metadata?.path||'';
+        const flow=path.includes('/mock')||path.includes('/r1')?'mock draft':path.startsWith('/rank')||path.startsWith('/board')?'pair rank':path.startsWith('/lab')?'data lab':'homepage';
+        signupFlows[flow]=(signupFlows[flow]||0)+1;
+      } else {
+        signupFlows['unknown']=(signupFlows['unknown']||0)+1;
+      }
     });
 
     const funnelSignedUp=totalUsers;
-    const funnelRankedPos=new Set([...allEvents.filter(e=>e.event==='ranking_completed').map(e=>e.user_id),...boards.filter(b=>(b.board_data?.rankedGroups||[]).length>0).map(b=>b.user_id)]).size;
+    const funnelRankedPos=new Set([...allEvents.filter(e=>e.event==='ranking_completed'&&e.user_id).map(e=>e.user_id),...boards.filter(b=>(b.board_data?.rankedGroups||[]).length>0).map(b=>b.user_id)]).size;
     const funnelRanMock=new Set(allEvents.filter(e=>e.event==='mock_draft_started'||e.event==='mock_draft_completed').filter(e=>e.user_id).map(e=>e.user_id)).size;
     const funnelShared=new Set(allEvents.filter(e=>e.event==='share_triggered'||e.event==='share_results').filter(e=>e.user_id).map(e=>e.user_id)).size;
+
+    // Session depth + duration
+    const sessionCounts={};const sessionTimes={};
+    allEvents.forEach(e=>{
+      if(!e.session_id)return;
+      sessionCounts[e.session_id]=(sessionCounts[e.session_id]||0)+1;
+      const t=new Date(e.created_at).getTime();
+      if(!sessionTimes[e.session_id])sessionTimes[e.session_id]={min:t,max:t};
+      else{if(t<sessionTimes[e.session_id].min)sessionTimes[e.session_id].min=t;if(t>sessionTimes[e.session_id].max)sessionTimes[e.session_id].max=t;}
+    });
+    const sessionArr=Object.values(sessionCounts);
+    const avgSessionDepth=sessionArr.length>0?+(sessionArr.reduce((s,v)=>s+v,0)/sessionArr.length).toFixed(1):0;
+    const totalSessions=sessionArr.length;
+    const CAP_MS=45*60000;
+    const durationArr=Object.values(sessionTimes).map(s=>Math.min(s.max-s.min,CAP_MS)).filter(d=>d>0).sort((a,b)=>a-b);
+    const medianDurationMs=durationArr.length>0?durationArr[Math.floor(durationArr.length/2)]:0;
+    const avgSessionDurationMin=medianDurationMs>0?+(medianDurationMs/60000).toFixed(1):0;
+
+    // Retention (event-based)
+    const sevenDaysMs=604800000;const thirtyDaysMs=30*86400000;
+    const eligibleFor7d=authUsers.filter(u=>u.id!==adminId&&(now-new Date(u.created_at))>=sevenDaysMs);
+    const eligibleFor30d=authUsers.filter(u=>u.id!==adminId&&(now-new Date(u.created_at))>=thirtyDaysMs);
+    const userEventMap={};
+    allEventsFiltered.filter(e=>e.user_id).forEach(e=>{if(!userEventMap[e.user_id])userEventMap[e.user_id]=[];userEventMap[e.user_id].push(new Date(e.created_at));});
+    const retained7d=eligibleFor7d.filter(u=>{const signup=new Date(u.created_at);return(userEventMap[u.id]||[]).some(t=>t>signup&&(t-signup)<sevenDaysMs);}).length;
+    const retained30d=eligibleFor30d.filter(u=>{const signup=new Date(u.created_at);return(userEventMap[u.id]||[]).some(t=>t>signup&&(t-signup)<thirtyDaysMs);}).length;
+    const retention7dRate=eligibleFor7d.length>0?Math.round(retained7d/eligibleFor7d.length*100):null;
+    const retention30dRate=eligibleFor30d.length>0?Math.round(retained30d/eligibleFor30d.length*100):null;
+    const retention7dLabel=eligibleFor7d.length>0?`${retained7d}/${eligibleFor7d.length} eligible`:null;
+    const retention30dLabel=eligibleFor30d.length>0?`${retained30d}/${eligibleFor30d.length} eligible`:null;
 
     return{
       stats:{totalUsers,activeToday,activeWeek,posStats,partialCount,avgPositions,hasNotes,
         communityUsers:community.length,eventCounts,uniqueEventUsers,signupsToday,signupsWeek,
         mockDrafts,mockDraftUsers,rankingsCompleted,
-        heatmap,signupHeatmap,anonSessionHeatmap,rankingsStarted,mocksStarted,mocksCompleted,singleTeamMocks,multiTeamMocks,allTeamMocks,totalShares,shareUsers,shareByType,noteUsers,
+        heatmap,signupHeatmap,anonSessionHeatmap,mockHeatmap,shareHeatmap,activeHeatmap,growthChart,rankingsStarted,mocksStarted,mocksCompleted,singleTeamMocks,multiTeamMocks,allTeamMocks,totalShares,shareUsers,shareByType,noteUsers,
         guestMocksStarted,guestMocksCompleted,guestShares,guestMocksWeek,guestTopTeams,
         signupFlows,
         funnelSignedUp,funnelRankedPos,funnelRanMock,funnelShared,
+        avgSessionDepth,totalSessions,avgSessionDurationMin,retention7dRate,retention30dRate,retention7dLabel,retention30dLabel,
       },
       users:userDetails,
       displayEvents:allEvents.slice(0,50),
@@ -5236,6 +5398,22 @@ function AdminDashboard({user,onBack}){
     return{label:"one-visit",color:"#d4d4d4",bg:"#fafafa"};
   };
 
+  const downloadCSV=(rows,filename)=>{
+    const csv=rows.map(r=>r.map(v=>`"${String(v??'').replace(/"/g,'""')}"`).join(',')).join('\n');
+    const blob=new Blob([csv],{type:'text/csv'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+  };
+  const exportUsersCSV=()=>{
+    const rows=[['email','status','signup_date','last_active','ranked_positions','mock_count','share_count','note_count','event_count'],...users.filter(u=>!u.isAnon).map(u=>[u.email,tagUser(u).label,u.createdAt?new Date(u.createdAt).toISOString().slice(0,10):'',u.updatedAt?new Date(u.updatedAt).toISOString().slice(0,16).replace('T',' '):'',u.rankedPositions,u.mockCount,u.shareCount,u.noteCount,u.eventCount])];
+    downloadCSV(rows,`bbl-users-${new Date().toISOString().slice(0,10)}.csv`);
+  };
+  const exportEventsCSV=()=>{
+    const emailMap=Object.fromEntries(users.filter(u=>!u.isAnon).map(u=>[u.userId,u.email]));
+    const rows=[['date','event','user_email','session_id','metadata'],...(computed?.allEventsRaw||[]).slice(0,20000).map(e=>[new Date(e.created_at).toISOString().slice(0,16).replace('T',' '),e.event,emailMap[e.user_id]||'',e.session_id||'',JSON.stringify(e.metadata||{})])];
+    downloadCSV(rows,`bbl-events-${new Date().toISOString().slice(0,10)}.csv`);
+  };
+
   return(
     <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font}}>
       <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 16px",background:"#171717",borderBottom:"1px solid #333"}}>
@@ -5245,6 +5423,8 @@ function AdminDashboard({user,onBack}){
             <input type="checkbox" checked={excludeAdmin} onChange={e=>setExcludeAdmin(e.target.checked)} style={{accentColor:"#22c55e"}}/>
             <span style={{fontFamily:mono,fontSize:9,color:excludeAdmin?"#22c55e":"#737373"}}>exclude admin</span>
           </label>
+          <button onClick={exportUsersCSV} style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",background:"none",border:"1px solid #444",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>↓ users.csv</button>
+          <button onClick={exportEventsCSV} style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",background:"none",border:"1px solid #444",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>↓ events.csv</button>
           <button onClick={onBack} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"1px solid #444",borderRadius:99,padding:"3px 12px",cursor:"pointer"}}>← back to app</button>
         </div>
       </div>
@@ -5264,13 +5444,47 @@ function AdminDashboard({user,onBack}){
       `}</style>
       <div style={{maxWidth:920,margin:"0 auto",padding:"52px 24px 60px"}}>
 
-        {/* SECTION 1: KPI Strip — 4 cards */}
+        {/* SECTION 1: KPI Strip — 4 cards with sparklines */}
+        {(()=>{
+          const kpis=[
+            {label:"Users (all-time)",value:stats.totalUsers,sub:`+${stats.signupsWeek} this week`,color:"#171717",spark:stats.signupHeatmap},
+            {label:"Active (7d)",value:stats.activeWeek,sub:`${stats.activeToday} today`,color:"#3b82f6",spark:stats.activeHeatmap},
+            {label:"Mocks Run (all-time)",value:stats.mocksCompleted,sub:`${stats.mockDraftUsers} users`,color:"#f59e0b",spark:stats.mockHeatmap},
+            {label:"Shared (all-time)",value:stats.totalShares,sub:`${stats.shareUsers} users`,color:"#22c55e",spark:stats.shareHeatmap},
+          ];
+          return<div className="admin-kpi">
+            {kpis.map(c=>{
+              const sparkMax=Math.max(...(c.spark||[]).map(d=>d.count),1);
+              const sparkH=28,sparkW=80;
+              return<div key={c.label} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:10,padding:"14px 16px"}}>
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
+                  <div>
+                    <div style={{fontFamily:font,fontSize:26,fontWeight:900,color:c.color,lineHeight:1}}>{c.value}</div>
+                    <div style={{fontFamily:mono,fontSize:7,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase",marginTop:5}}>{c.label}</div>
+                    <div style={{fontFamily:mono,fontSize:10,color:"#737373",marginTop:3}}>{c.sub}</div>
+                  </div>
+                  {c.spark&&<svg viewBox={`0 0 ${sparkW} ${sparkH}`} style={{width:sparkW,height:sparkH,flexShrink:0}}>
+                    {(()=>{
+                      const pts=(c.spark||[]).map((d,i)=>`${(i/(c.spark.length-1))*sparkW},${sparkH-Math.max(0,d.count/sparkMax)*(sparkH-2)-1}`).join(' ');
+                      return<>
+                        <polygon points={`0,${sparkH} ${pts} ${sparkW},${sparkH}`} fill={c.color} fillOpacity={0.12} stroke="none"/>
+                        <polyline points={pts} fill="none" stroke={c.color} strokeWidth={1.5} strokeLinejoin="round" strokeLinecap="round"/>
+                      </>;
+                    })()}
+                  </svg>}
+                </div>
+              </div>;
+            })}
+          </div>;
+        })()}
+
+        {/* SECTION 1b: Session & Retention KPIs */}
         <div className="admin-kpi">
           {[
-            {label:"Users (all-time)",value:stats.totalUsers,sub:`+${stats.signupsWeek} this week`,color:"#171717"},
-            {label:"Active (7d)",value:stats.activeWeek,sub:`${stats.activeToday} today`,color:"#3b82f6"},
-            {label:"Mocks Run (all-time)",value:stats.mocksCompleted,sub:`${stats.mockDraftUsers} users`,color:"#f59e0b"},
-            {label:"Shared (all-time)",value:stats.totalShares,sub:`${stats.shareUsers} users`,color:"#22c55e"},
+            {label:"Total Sessions",value:stats.totalSessions,sub:`avg ${stats.avgSessionDepth} events · ${stats.avgSessionDurationMin}min median`,color:"#8b5cf6"},
+            {label:"7-day Retention",value:stats.retention7dRate!=null?stats.retention7dRate+"%":"—",sub:stats.retention7dLabel||"not enough data",color:stats.retention7dRate==null?"#d4d4d4":stats.retention7dRate>=30?"#22c55e":stats.retention7dRate>=15?"#f59e0b":"#dc2626"},
+            {label:"30-day Retention",value:stats.retention30dRate!=null?stats.retention30dRate+"%":"—",sub:stats.retention30dLabel||"not enough data",color:stats.retention30dRate==null?"#d4d4d4":stats.retention30dRate>=20?"#22c55e":stats.retention30dRate>=10?"#f59e0b":"#dc2626"},
+            {label:"Avg Positions Ranked",value:stats.avgPositions,sub:`among rankers`,color:"#3b82f6"},
           ].map(c=>(
             <div key={c.label} style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:10,padding:"16px 18px",textAlign:"center"}}>
               <div style={{fontFamily:font,fontSize:28,fontWeight:900,color:c.color,lineHeight:1}}>{c.value}</div>
@@ -5279,6 +5493,19 @@ function AdminDashboard({user,onBack}){
             </div>
           ))}
         </div>
+
+        {/* User Growth Chart */}
+        {stats.growthChart&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:24}}>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:12}}>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>user growth — 90 days</div>
+            <div style={{fontFamily:font,fontSize:13,fontWeight:900,color:"#171717"}}>{stats.totalUsers.toLocaleString()} total</div>
+          </div>
+          <AdminLineChart
+            series={[{label:"users",data:stats.growthChart.map(d=>d.count),color:"#171717"}]}
+            labels={stats.growthChart.map((d,i)=>i%15===0||i===stats.growthChart.length-1?new Date(d.date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'}):'')}
+            height={120}
+          />
+        </div>}
 
         {/* SECTION 2: Conversion Funnel — step-over-step */}
         {(()=>{
@@ -5310,6 +5537,32 @@ function AdminDashboard({user,onBack}){
             })}
           </div>;
         })()}
+
+        {/* 14-day combined activity chart */}
+        {stats.heatmap&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:12}}>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:12}}>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>activity — last 14 days</div>
+            <div style={{display:"flex",gap:12,alignItems:"center"}}>
+              {[{label:"events",color:"#22c55e"},{label:"signups",color:"#7c3aed"},{label:"anon sessions",color:"#f97316"}].map(s=>(
+                <span key={s.label} style={{fontFamily:mono,fontSize:8,color:s.color,display:"flex",alignItems:"center",gap:4}}>
+                  <span style={{display:"inline-block",width:12,height:2,background:s.color,borderRadius:1}}/>
+                  {s.label}
+                </span>
+              ))}
+              <span style={{fontFamily:mono,fontSize:7,color:"#d4d4d4"}}>relative scale</span>
+            </div>
+          </div>
+          <AdminLineChart
+            series={[
+              {label:"events",data:stats.heatmap.map(d=>d.count),color:"#22c55e"},
+              {label:"signups",data:stats.signupHeatmap.map(d=>d.count),color:"#7c3aed"},
+              {label:"anon sessions",data:stats.anonSessionHeatmap.map(d=>d.count),color:"#f97316"},
+            ]}
+            labels={stats.heatmap.map(d=>new Date(d.date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'}))}
+            height={110}
+            normalize={true}
+          />
+        </div>}
 
         {/* SECTION 3: Activity Heatmap — last 14 days */}
         {stats.heatmap&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:24}}>
@@ -5485,6 +5738,41 @@ function AdminDashboard({user,onBack}){
           </div>
         </div>
 
+        {/* Feature & Page Popularity */}
+        {(()=>{
+          const features=[
+            {label:'Profile Drawer Opens',evt:'profile_opened',color:'#8b5cf6'},
+            {label:'Data Lab Opened',evt:'explorer_opened',color:'#06b6d4'},
+            {label:'R1 Predictor Started',evt:'round1_prediction_started',color:'#f59e0b'},
+            {label:'R1 Predictor CTA Click',evt:'round1_prediction_cta_click',color:'#fbbf24'},
+            {label:'Guide Views',evt:'guide_viewed',color:'#22c55e'},
+            {label:'R1 Share',evt:'round1_prediction_share',color:'#10b981'},
+          ].map(f=>({...f,count:stats.eventCounts[f.evt]||0,users:stats.uniqueEventUsers[f.evt]?.size||0})).filter(f=>f.count>0).sort((a,b)=>b.count-a.count);
+          const pageViewCount=stats.eventCounts['page_view']||0;
+          const pageViewUsers=stats.uniqueEventUsers['page_view']?.size||0;
+          if(features.length===0&&pageViewCount===0)return null;
+          const maxCount=Math.max(...features.map(f=>f.count),pageViewCount,1);
+          return<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:24}}>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>feature & page usage</div>
+            <div style={{display:"flex",flexDirection:"column",gap:6}}>
+              {pageViewCount>0&&<div>
+                <div style={{display:"flex",justifyContent:"space-between",marginBottom:2}}>
+                  <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>Page Views (all routes)</span>
+                  <span style={{fontFamily:mono,fontSize:11,color:"#3b82f6"}}>{pageViewCount} <span style={{fontSize:9,color:"#a3a3a3"}}>{pageViewUsers}u</span></span>
+                </div>
+                <div style={{height:4,background:"#f5f5f5",borderRadius:99,overflow:"hidden"}}><div style={{height:"100%",width:Math.round(pageViewCount/maxCount*100)+"%",background:"#3b82f6",borderRadius:99}}/></div>
+              </div>}
+              {features.map(f=><div key={f.evt}>
+                <div style={{display:"flex",justifyContent:"space-between",marginBottom:2}}>
+                  <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>{f.label}</span>
+                  <span style={{fontFamily:mono,fontSize:11,color:f.color}}>{f.count} <span style={{fontSize:9,color:"#a3a3a3"}}>{f.users}u</span></span>
+                </div>
+                <div style={{height:4,background:"#f5f5f5",borderRadius:99,overflow:"hidden"}}><div style={{height:"100%",width:Math.round(f.count/maxCount*100)+"%",background:f.color,borderRadius:99}}/></div>
+              </div>)}
+            </div>
+          </div>;
+        })()}
+
         {/* SECTION 5: Users Table */}
         <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",marginBottom:24}}>
           <div style={{padding:"14px 16px",borderBottom:"1px solid #f0f0f0",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
@@ -5508,7 +5796,8 @@ function AdminDashboard({user,onBack}){
                   <span className="admin-table-hide" style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>{u.updatedAt?new Date(u.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric'})+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
                 </div>
                 {isExp&&(()=>{
-                  const ue={};(computed?.allEventsRaw||[]).filter(e=>u.isAnon?(e.user_id===null||e.user_id===undefined||e.metadata?.guest===true):e.user_id===u.userId).forEach(e=>{ue[e.event]=(ue[e.event]||0)+1;});
+                  const userEvtList=(computed?.allEventsRaw||[]).filter(e=>u.isAnon?(e.user_id===null||e.user_id===undefined||e.metadata?.guest===true):e.user_id===u.userId);
+                  const ue={};userEvtList.forEach(e=>{ue[e.event]=(ue[e.event]||0)+1;});
                   const evtColor=ev=>ev==='signup'||ev==='login'?"#22c55e":ev.includes('mock_draft')?"#f59e0b":ev.includes('ranking')?"#3b82f6":ev.includes('share')?"#22c55e":ev==='session_return'?"#a3a3a3":"#8b5cf6";
                   return<div style={{padding:"8px 16px 12px",background:"#f9f9f7",borderBottom:i<users.length-1?"1px solid #e5e5e5":"none"}}>
                   <div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:8}}>
@@ -5535,6 +5824,20 @@ function AdminDashboard({user,onBack}){
                     <span>{u.isAnon?"first seen":"signed up"} {u.createdAt?new Date(u.createdAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):""}</span>
                     <span>last active {u.updatedAt?new Date(u.updatedAt).toLocaleDateString('en-US',{month:'short',day:'numeric'})+" "+new Date(u.updatedAt).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):""}</span>
                   </div>
+                  {userEvtList.length>0&&<div style={{marginTop:8,borderTop:"1px solid #f0f0f0",paddingTop:8}}>
+                    <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginBottom:4,textTransform:"uppercase",letterSpacing:1}}>recent activity</div>
+                    <div style={{display:"flex",flexDirection:"column",gap:2}}>
+                      {userEvtList.slice(0,12).map((e,ei)=>{
+                        const metaPairs=e.metadata?Object.entries(e.metadata).filter(([k,v])=>v!=null&&v!==false&&v!=='').map(([k,v])=>`${k}: ${v}`).join(' · '):'';
+                        return<div key={ei} style={{display:"flex",gap:6,alignItems:"baseline"}}>
+                          <span style={{fontFamily:mono,fontSize:8,color:"#d4d4d4",whiteSpace:"nowrap",minWidth:50}}>{new Date(e.created_at).toLocaleDateString('en-US',{month:'short',day:'numeric'})}</span>
+                          <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:evtColor(e.event)}}>{e.event.replace(/_/g,' ')}</span>
+                          {metaPairs&&<span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{metaPairs}</span>}
+                        </div>;
+                      })}
+                      {userEvtList.length>12&&<div style={{fontFamily:mono,fontSize:8,color:"#d4d4d4"}}>+{userEvtList.length-12} more events</div>}
+                    </div>
+                  </div>}
                 </div>})()}
               </div>;
             })}
@@ -5589,6 +5892,95 @@ function AdminDashboard({user,onBack}){
               </div>
             </div>;})}
           </div>}
+        </div>
+
+        {/* SECTION 8: Player Spotlight — best combo finder */}
+        <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden",marginTop:12}}>
+          <div style={{padding:"14px 16px",borderBottom:"1px solid #f0f0f0"}}>
+            <div style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717",marginBottom:4}}>player spotlight</div>
+            <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>find the best combo chart pairings for a player — skip self-correlated axes</div>
+          </div>
+          <div style={{padding:"16px 20px"}}>
+            {/* Search input */}
+            <div style={{position:"relative",marginBottom:16}}>
+              <input
+                value={spotlightQuery}
+                onChange={e=>{
+                  const q=e.target.value;
+                  setSpotlightQuery(q);
+                  setSpotlightPlayer(null);
+                  setSpotlightResults([]);
+                  if(q.length<2){setSpotlightSuggestions([]);return;}
+                  const ql=q.toLowerCase();
+                  setSpotlightSuggestions(PROSPECTS.filter(p=>p.name.toLowerCase().includes(ql)).slice(0,8));
+                }}
+                placeholder="Type a player name..."
+                style={{width:"100%",fontFamily:sans,fontSize:14,padding:"10px 14px",border:"1px solid #e5e5e5",borderRadius:8,outline:"none",boxSizing:"border-box",background:"#fafaf8",color:"#171717"}}
+              />
+              {spotlightSuggestions.length>0&&!spotlightPlayer&&(
+                <div style={{position:"absolute",top:"100%",left:0,right:0,background:"#fff",border:"1px solid #e5e5e5",borderRadius:8,boxShadow:"0 4px 16px rgba(0,0,0,0.08)",zIndex:100,overflow:"hidden",marginTop:2}}>
+                  {spotlightSuggestions.map(p=>(
+                    <div key={p.id} onClick={()=>{
+                      setSpotlightQuery(p.name);
+                      setSpotlightPlayer(p);
+                      setSpotlightSuggestions([]);
+                      setSpotlightResults(computeSpotlightCombos(p));
+                    }} style={{padding:"10px 14px",cursor:"pointer",borderBottom:"1px solid #f5f5f5",display:"flex",alignItems:"center",gap:10}}>
+                      <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:POS_COLORS[p.gpos||p.pos]||"#525252",background:`${POS_COLORS[p.gpos||p.pos]||"#525252"}15`,padding:"2px 6px",borderRadius:3,minWidth:32,textAlign:"center"}}>{p.gpos||p.pos}</span>
+                      <span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717"}}>{p.name}</span>
+                      <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{p.school}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Results */}
+            {spotlightPlayer&&spotlightResults.length>0&&(
+              <div>
+                <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14}}>
+                  <span style={{fontFamily:sans,fontSize:16,fontWeight:800,color:"#171717"}}>{spotlightPlayer.name}</span>
+                  <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:POS_COLORS[spotlightPlayer.gpos||spotlightPlayer.pos]||"#525252",background:`${POS_COLORS[spotlightPlayer.gpos||spotlightPlayer.pos]||"#525252"}15`,padding:"3px 8px",borderRadius:4}}>{spotlightPlayer.gpos||spotlightPlayer.pos}</span>
+                  <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{spotlightPlayer.school}</span>
+                </div>
+                <div style={{display:"flex",flexDirection:"column",gap:10}}>
+                  {spotlightResults.map((combo,i)=>{
+                    const xCat=COMBO_CAT_STYLE[combo.xMeta?.cat]||{label:"?",color:"#a3a3a3"};
+                    const yCat=COMBO_CAT_STYLE[combo.yMeta?.cat]||{label:"?",color:"#a3a3a3"};
+                    const pos=spotlightPlayer.gpos||spotlightPlayer.pos;
+                    return<div key={i} style={{border:"1px solid #e5e5e5",borderRadius:10,padding:"12px 14px",background:i===0?"#fffbeb":"#fafaf8"}}>
+                      <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10}}>
+                        <span style={{fontFamily:mono,fontSize:11,fontWeight:900,color:"#a3a3a3"}}>#{i+1}</span>
+                        <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:"#171717"}}>score {Math.round(combo.score)}th pctile avg</span>
+                        {i===0&&<span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#d97706",background:"#fef3c7",padding:"2px 6px",borderRadius:4,marginLeft:"auto"}}>BEST</span>}
+                        {onOpenCombo&&<button onClick={()=>onOpenCombo(pos,combo.xKey,combo.yKey)} style={{fontFamily:mono,fontSize:9,color:"#3b82f6",background:"#eff6ff",border:"1px solid #bfdbfe",borderRadius:6,padding:"3px 8px",cursor:"pointer",fontWeight:600,marginLeft:i===0?"0":"auto"}}>open in lab</button>}
+                      </div>
+                      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+                        {[{axis:"X",meta:combo.xMeta,pct:combo.xPct,val:combo.xVal,cat:xCat},{axis:"Y",meta:combo.yMeta,pct:combo.yPct,val:combo.yVal,cat:yCat}].map(({axis,meta,pct,val,cat})=>(
+                          <div key={axis} style={{background:"#fff",borderRadius:8,padding:"10px 12px",border:"1px solid #f0f0f0"}}>
+                            <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:6}}>
+                              <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3"}}>{axis}-axis</span>
+                              <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:"#fff",background:cat.color,padding:"1px 5px",borderRadius:3}}>{cat.label}</span>
+                            </div>
+                            <div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717",marginBottom:6}}>{meta?.label}</div>
+                            <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:4}}>
+                              <div style={{flex:1,height:6,background:"#f0f0f0",borderRadius:99,overflow:"hidden"}}>
+                                <div style={{height:"100%",width:Math.round(pct)+"%",background:pct>=80?"#22c55e":pct>=60?"#f59e0b":"#e5e5e5",borderRadius:99}}/>
+                              </div>
+                              <span style={{fontFamily:mono,fontSize:12,fontWeight:900,color:pct>=80?"#22c55e":pct>=60?"#f59e0b":"#a3a3a3",minWidth:36,textAlign:"right"}}>{Math.round(pct)}th</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>;
+                  })}
+                </div>
+              </div>
+            )}
+            {spotlightPlayer&&spotlightResults.length===0&&(
+              <div style={{fontFamily:mono,fontSize:12,color:"#a3a3a3",textAlign:"center",padding:"20px 0"}}>not enough data to rank combos for this player</div>
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -6445,7 +6837,7 @@ export default function App(){
   if(showOG)return<OGPreview/>;
   if(showGmQuiz)return<GmQuiz user={user} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} trackEvent={trackEvent} userId={user?.id} onLaunchMock={(team)=>{setGmQuizMockLaunch(team);setShowGmQuiz(false);window.history.pushState({},'','/');}} onHome={()=>{setShowGmQuiz(false);window.history.pushState({},'','/');window.dispatchEvent(new PopStateEvent("popstate"));}}/>;
   if(!user&&!isGuest&&!(window.location.pathname==='/lab'||window.location.pathname==='/data-lab'||window.location.pathname.startsWith('/lab/')||window.location.pathname.startsWith('/data-lab/'))&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>{const p=window.location.pathname;if(p==='/board'||p.startsWith('/rank')||p==='/r1'||p==='/my-guys')window.history.replaceState({},'','/');setIsGuest(true);}} onOpenGuide={navigateToGuide}/>;
-  if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
+  if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}} onOpenCombo={(pos,x,y)=>{try{sessionStorage.setItem('pendingCombo',JSON.stringify({pos,x,y}));}catch(e){}window.location.hash="";setShowAdmin(false);window.history.pushState({},'','/lab/combo');}}/>;
   return<>
     <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} gmQuizMockLaunch={gmQuizMockLaunch} onClearGmQuizMock={()=>setGmQuizMockLaunch(null)} onRequireAuth={(msg)=>{
       const src=msg.includes('play with the data')?'data-lab':msg.includes('vote')||msg.includes('big board')?'pair rank':msg.includes('trait')||msg.includes('grade')||msg.includes('slider')?'sliders':msg.includes('mock')||msg.includes('draft')?'mock draft':msg.includes('reorder')?'pair rank':msg.includes('note')?'notes':msg.includes('guys')?'my guys':msg.includes('share')?'share':msg.includes('save')?'save':'homepage';
