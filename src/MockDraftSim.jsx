@@ -88,6 +88,7 @@ const FormationChart=memo(({team,depthChart,mono,sans})=>{
       return(<g key={slot}>
         {isFa&&<circle cx={pos.x} cy={pos.y} r={3.2} fill="none" stroke="#f97316" strokeWidth="0.4"/>}
         <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={isDraft?"#7c3aed":filled?dotColor:"#a3a3a3"} strokeWidth={isDraft?"0.5":"0.2"}/>
+        {isDraft&&<polygon transform={`translate(${pos.x},${pos.y})`} points="0,-1.2 0.28,-0.39 1.14,-0.37 0.46,0.15 0.71,0.97 0,0.48 -0.71,0.97 -0.46,0.15 -1.14,-0.37 -0.28,-0.39" fill="white" style={{pointerEvents:"none"}}/>}
         <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="#a3a3a3" fontSize="1.8" fontFamily={mono}>{pos.label||slot.replace(/\d$/,'')}</text>
         {filled&&<text x={pos.x} y={pos.y+4.5} textAnchor="middle" fill={isDraft?"#7c3aed":"#525252"} fontSize={isDraft?"2.2":"1.8"} fontWeight={isDraft?"bold":"normal"} fontFamily={sans}>{lastName}</text>}
       </g>);

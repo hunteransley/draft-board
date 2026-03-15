@@ -331,7 +331,7 @@ function BeeswarmChartWrapper({data,myGuys,showMyGuys,showLogos,onHover,onTap,ho
   return<div ref={ref}>{w>0&&<BeeswarmChart data={data} width={w} myGuys={myGuys} showMyGuys={showMyGuys} showLogos={showLogos} onHover={onHover} onTap={onTap} hoveredId={hoveredId}/>}</div>;
 }
 
-const ScatterChart=memo(function ScatterChart({points,width,xLabel,yLabel,xInverted,yInverted,posColor,showLogos,onHover,onTap,hoveredId,myGuys,showMyGuys}){
+const ScatterChart=memo(function ScatterChart({points,width,xLabel,yLabel,xInverted,yInverted,posColor,showLogos,onHover,onTap,hoveredId,myGuys,showMyGuys,spotlightName}){
   const isMobile=width<600;
   const chartH=isMobile?300:380;
   const padT=16,padR=20,padB=36,padL=isMobile?42:50;
@@ -404,23 +404,28 @@ const ScatterChart=memo(function ScatterChart({points,width,xLabel,yLabel,xInver
       const isHovered=hoveredId===pt.id;
       const color=posColor||POS_COLORS[pt.pos]||"#737373";
       const isMyGuy=showMyGuys&&myGuyNames.has(pt.name);
-      const fade=showMyGuys&&myGuyNames.size>0&&!isMyGuy;
+      const isSpotlit=spotlightName&&pt.name===spotlightName;
+      const fade=spotlightName?!isSpotlit:(showMyGuys&&myGuyNames.size>0&&!isMyGuy);
+      const opacity=fade?(spotlightName?0.08:0.3):1;
+      const r=isSpotlit?dotR*2.2:isMyGuy?dotR+1.5:isHovered?dotR+1:dotR;
       return<g key={pt.id} style={{cursor:"pointer"}}>
         <circle cx={cx} cy={cy} r={showLogos?logoSize/2+2:12} fill="transparent" stroke="none"
           onPointerEnter={e=>onHover({...pt,cx:e.clientX,cy:e.clientY})}
           onPointerLeave={()=>onHover(null)}
           onClick={()=>onTap(pt)}/>
-        {showLogos?<foreignObject x={cx-logoSize/2} y={cy-logoSize/2} width={logoSize} height={logoSize} style={{opacity:fade?0.25:1,transition:"opacity 0.2s",pointerEvents:"none",overflow:"visible"}}>
+        {isSpotlit&&<circle cx={cx} cy={cy} r={r+5} fill={color} opacity={0.15} style={{pointerEvents:"none"}}/>}
+        {showLogos?<foreignObject x={cx-logoSize/2} y={cy-logoSize/2} width={logoSize} height={logoSize} style={{opacity,transition:"opacity 0.2s",pointerEvents:"none",overflow:"visible"}}>
           <div xmlns="http://www.w3.org/1999/xhtml" style={{width:logoSize,height:logoSize}}>
             <SchoolLogo school={pt.school} size={logoSize}/>
           </div>
         </foreignObject>
-        :<circle cx={cx} cy={cy} r={isMyGuy?dotR+1.5:isHovered?dotR+1:dotR}
-          fill={fade?"#d4d4d4":color}
-          opacity={fade?0.3:1}
-          stroke={isMyGuy?"#ec4899":isHovered?"#171717":"none"}
-          strokeWidth={isMyGuy?2:isHovered?1.5:0}
+        :<circle cx={cx} cy={cy} r={r}
+          fill={fade&&!spotlightName?"#d4d4d4":color}
+          opacity={opacity}
+          stroke={isSpotlit?"#171717":isMyGuy?"#ec4899":isHovered?"#171717":"none"}
+          strokeWidth={isSpotlit?2.5:isMyGuy?2:isHovered?1.5:0}
           style={{transition:"r 0.15s,stroke 0.15s,opacity 0.2s",pointerEvents:"none"}}/>}
+        {isSpotlit&&<text x={cx} y={cy-r-6} textAnchor="middle" style={{fontSize:"10px",fontWeight:700,fill:"#171717",fontFamily:"sans-serif",pointerEvents:"none"}}>{pt.name}</text>}
       </g>;
     })}
   </svg>);
@@ -1713,6 +1718,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[comboPos,setComboPos]=useState(()=>{const s=new URLSearchParams(window.location.search);return s.get('pos')||"EDGE";});
   const[comboX,setComboX]=useState(()=>{const s=new URLSearchParams(window.location.search);const pos=s.get('pos')||"EDGE";return s.get('x')||COMBO_DEFAULTS[pos]?.[0]||"defensive_SACKS";});
   const[comboY,setComboY]=useState(()=>{const s=new URLSearchParams(window.location.search);const pos=s.get('pos')||"EDGE";return s.get('y')||COMBO_DEFAULTS[pos]?.[1]||"meas_40";});
+  const[comboSpotlightName,setComboSpotlightName]=useState(()=>{const s=new URLSearchParams(window.location.search);return s.get('player')||null;});
   const[comboDrop,setComboDrop]=useState(null); // null | "x" | "y"
   const[scarcityPick,setScarcityPick]=useState(0);
   const[scarcityTeam,setScarcityTeam]=useState(null);
@@ -1894,7 +1900,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
       const s=labSuffix(p);
       const mode=s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":s==="measurables"?"measurables":s==="traits"?"traits":s==="stats"?"stats":"scheme-fit";
       setExplorerMode(mode);
-      if(mode==="combo"){const cp=search.get('pos'),cx=search.get('x'),cy=search.get('y');if(cp)setComboPos(cp);if(cx)setComboX(cx);if(cy)setComboY(cy);}
+      if(mode==="combo"){const cp=search.get('pos'),cx=search.get('x'),cy=search.get('y'),cpl=search.get('player');if(cp)setComboPos(cp);if(cx)setComboX(cx);if(cy)setComboY(cy);setComboSpotlightName(cpl||null);}
       if(mode==="scheme-fit"&&!sfTeam)setSfTeam("49ers");
     }else if(p==='/trends'){
       setShowTrends(true);
@@ -2660,7 +2666,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
           {comboData.points.length>0&&comboData.points.length<8&&<div style={{fontFamily:sans,fontSize:11,color:"#92400e",background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:8,padding:"6px 12px",marginBottom:8}}>⚠️ sparse data — only {comboData.points.length} {comboPos} players have both metrics</div>}
           {comboData.points.length===0?(<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no {comboPos} players have both {comboData.xMeta?.label||"X"} and {comboData.yMeta?.label||"Y"}</p></div>):(
             <div style={{marginTop:4,position:"relative"}}>
-              <ScatterChartWrapper points={comboData.points} xLabel={comboData.xMeta?.label||""} yLabel={comboData.yMeta?.label||""} xInverted={comboData.xMeta?.inverted||false} yInverted={comboData.yMeta?.inverted||false} posColor={POS_COLORS[comboPos]||"#737373"} showLogos={explorerLogos} onHover={setExplorerHover} onTap={(pt)=>{const p=PROSPECTS.find(pr=>pr.id===pt.id);if(p)openProfile(p);}} hoveredId={explorerHover?.id||null} myGuys={myGuys} showMyGuys={explorerMyGuys}/>
+              <ScatterChartWrapper points={comboData.points} xLabel={comboData.xMeta?.label||""} yLabel={comboData.yMeta?.label||""} xInverted={comboData.xMeta?.inverted||false} yInverted={comboData.yMeta?.inverted||false} posColor={POS_COLORS[comboPos]||"#737373"} showLogos={explorerLogos} onHover={setExplorerHover} onTap={(pt)=>{const p=PROSPECTS.find(pr=>pr.id===pt.id);if(p)openProfile(p);}} hoveredId={explorerHover?.id||null} myGuys={myGuys} showMyGuys={explorerMyGuys} spotlightName={comboSpotlightName}/>
               <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",display:"flex",alignItems:"center",gap:0,opacity:0.06,pointerEvents:"none"}}>
                 <img src="/logo.png" alt="" style={{height:60,width:"auto"}}/>
                 <span style={{fontFamily:font,fontSize:32,fontWeight:900,color:"#171717",letterSpacing:-1,marginLeft:-6}}>bigboardlab.com</span>
@@ -6030,7 +6036,7 @@ function AdminDashboard({user,onBack,onOpenCombo}){
                         <span style={{fontFamily:mono,fontSize:11,fontWeight:900,color:"#a3a3a3"}}>#{i+1}</span>
                         <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:"#171717"}}>score {Math.round(combo.score)}th pctile avg</span>
                         {i===0&&<span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#d97706",background:"#fef3c7",padding:"2px 6px",borderRadius:4,marginLeft:"auto"}}>BEST</span>}
-                        <button onClick={()=>window.open(`/lab/combo?pos=${encodeURIComponent(pos)}&x=${encodeURIComponent(combo.xKey)}&y=${encodeURIComponent(combo.yKey)}`,'_blank')} style={{fontFamily:mono,fontSize:9,color:"#3b82f6",background:"#eff6ff",border:"1px solid #bfdbfe",borderRadius:6,padding:"3px 8px",cursor:"pointer",fontWeight:600,marginLeft:i===0?"0":"auto"}}>open in lab ↗</button>
+                        <button onClick={()=>window.open(`/lab/combo?pos=${encodeURIComponent(pos)}&x=${encodeURIComponent(combo.xKey)}&y=${encodeURIComponent(combo.yKey)}&player=${encodeURIComponent(spotlightPlayer.name)}`,'_blank')} style={{fontFamily:mono,fontSize:9,color:"#3b82f6",background:"#eff6ff",border:"1px solid #bfdbfe",borderRadius:6,padding:"3px 8px",cursor:"pointer",fontWeight:600,marginLeft:i===0?"0":"auto"}}>open in lab ↗</button>
                       </div>
                       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
                         {[{axis:"X",meta:combo.xMeta,pct:combo.xPct,val:combo.xVal,cat:xCat},{axis:"Y",meta:combo.yMeta,pct:combo.yPct,val:combo.yVal,cat:yCat}].map(({axis,meta,pct,val,cat})=>(
