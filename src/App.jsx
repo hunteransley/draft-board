@@ -863,9 +863,7 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
         </div>
 
         {ps&&<div style={{padding:"0 24px 16px"}}>
-          {(ps.rank||ps.posRank)&&<div style={{textAlign:"center",marginBottom:8}}>
-            <span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{ps.rank?"#"+ps.rank+" overall":""}{ps.posRank?" · "+(player.gpos||player.pos)+" #"+ps.posRank:""}</span>
-          </div>}
+          {(()=>{const cr=getConsensusRank(player.name);const ovr=cr<900?cr:null;return(ovr||ps.posRank)&&<div style={{textAlign:"center",marginBottom:8}}><span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{ovr?"#"+ovr+" overall":""}{ps.posRank?" · "+(player.gpos||player.pos)+" #"+ps.posRank:""}</span></div>;})()}
           {(ps.height||ps.weight||ps.cls||cd)&&<div style={{display:"flex",justifyContent:"center",gap:12,marginBottom:8,flexWrap:"wrap"}}>
             {[(cd?.height?{label:"HT",val:formatHeight(cd.height)}:ps.height&&{label:"HT",val:ps.height}),(cd?.weight?{label:"WT",val:cd.weight+" lbs"}:ps.weight&&{label:"WT",val:ps.weight+" lbs"}),ps.cls&&{label:"YR",val:ps.cls},cd?.arms&&{label:"ARM",val:cd.arms+'"'},cd?.hands&&{label:"HAND",val:cd.hands+'"'},cd?.wingspan&&{label:"WING",val:cd.wingspan+'"'}].filter(Boolean).map(({label,val})=>(
               <div key={label} style={{textAlign:"center",background:"#fff",border:"1px solid #e5e5e5",borderRadius:8,padding:"6px 12px",minWidth:60}}>
