@@ -288,6 +288,18 @@ function parseHeight(v) {
   return v;
 }
 
+// Converts any height format to total inches (e.g. "6-5" -> 77, "6'5" -> 77, 76.75 -> 76.75)
+function parseHeightToInches(v) {
+  if (!v || v === 'NA') return null;
+  // "6-5" or "6'5" format
+  const m = String(v).match(/^(\d+)[-'](\d+(?:\.\d+)?)$/);
+  if (m) return parseInt(m[1]) * 12 + parseFloat(m[2]);
+  const n = parseFloat(v);
+  if (isNaN(n)) return null;
+  // Only accept as total inches if plausibly in range (60-90 inches = 5' to 7'6")
+  return (n >= 60 && n <= 90) ? n : null;
+}
+
 // ============================================================
 // MAIN
 // ============================================================
@@ -344,7 +356,7 @@ async function main() {
       const match = findMatch(row, bblMap);
       if (match) {
         const r = results[match.name];
-        const htRaw = parseNum(row.ht);
+        const htRaw = parseHeightToInches(row.ht);
         const ht = parseHeight(row.ht);
         const wt = parseNum(row.wt);
         const forty = parseNum(row.forty);
@@ -390,7 +402,7 @@ async function main() {
       if (match) {
         const r = results[match.name];
         // Manual only fills gaps - doesn't overwrite nflverse data
-        const htRawManual = parseNum(row.height || row.ht);
+        const htRawManual = parseHeightToInches(row.height || row.ht);
         const ht = parseHeight(row.height || row.ht);
         if (htRawManual && !r.heightInches) r.heightInches = htRawManual;
         if (ht && !r.height) r.height = ht;
