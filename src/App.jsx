@@ -1699,9 +1699,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[explorerLeaderPos,setExplorerLeaderPos]=useState(null);
   const[explorerLeaderInfo,setExplorerLeaderInfo]=useState(false);
   const[explorerHover,setExplorerHover]=useState(null);
-  const[comboPos,setComboPos]=useState("EDGE");
-  const[comboX,setComboX]=useState("defensive_SACKS");
-  const[comboY,setComboY]=useState("meas_40");
+  const[comboPos,setComboPos]=useState(()=>{const s=new URLSearchParams(window.location.search);return s.get('pos')||"EDGE";});
+  const[comboX,setComboX]=useState(()=>{const s=new URLSearchParams(window.location.search);const pos=s.get('pos')||"EDGE";return s.get('x')||COMBO_DEFAULTS[pos]?.[0]||"defensive_SACKS";});
+  const[comboY,setComboY]=useState(()=>{const s=new URLSearchParams(window.location.search);const pos=s.get('pos')||"EDGE";return s.get('y')||COMBO_DEFAULTS[pos]?.[1]||"meas_40";});
   const[comboDrop,setComboDrop]=useState(null); // null | "x" | "y"
   const[scarcityPick,setScarcityPick]=useState(0);
   const[scarcityTeam,setScarcityTeam]=useState(null);
