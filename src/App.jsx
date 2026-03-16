@@ -420,7 +420,7 @@ const ScatterChart=memo(function ScatterChart({points,width,xLabel,yLabel,xInver
           stroke={isSpotlit?"#171717":isMyGuy?"#ec4899":isHovered?"#171717":"none"}
           strokeWidth={isSpotlit?2.5:isMyGuy?2:isHovered?1.5:0}
           style={{transition:"r 0.15s,stroke 0.15s,opacity 0.2s",pointerEvents:"none"}}/>}
-        {isSpotlit&&<text x={cx} y={cy-r-6} textAnchor="middle" style={{fontSize:"10px",fontWeight:700,fill:"#171717",fontFamily:"sans-serif",pointerEvents:"none"}}>{pt.name}</text>}
+        {isSpotlit&&<text x={cx} y={cy-r-6} textAnchor={cx>width*0.8?"end":cx<width*0.2?"start":"middle"} style={{fontSize:"10px",fontWeight:700,fill:"#171717",fontFamily:"sans-serif",pointerEvents:"none"}}>{pt.name}</text>}
       </g>;
     })}
   </svg>);
