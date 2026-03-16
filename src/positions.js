@@ -17,4 +17,4 @@ export const POSITION_GROUPS=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","C
 
 export const POS_EMOJI={QB:"🎯",RB:"🏃",WR:"🧤",TE:"🦾",OT:"🛡️",IOL:"🧱",EDGE:"🌪️",DL:"🦬",LB:"💥",CB:"🏝️",S:"🦅","K/P":"🦵"};
 
-export const POS_COLORS={QB:"#1e3a5f",RB:"#5b21b6",WR:"#0d9488",TE:"#0891b2",OT:"#b45309",IOL:"#d97706",OL:"#b45309",EDGE:"#15803d",DL:"#166534",LB:"#4338ca",CB:"#0f766e",S:"#047857",DB:"#0f766e","K/P":"#78716c"};
+export const POS_COLORS={QB:"#dc2626",RB:"#ea580c",WR:"#ca8a04",TE:"#65a30d",OT:"#16a34a",IOL:"#059669",OL:"#16a34a",EDGE:"#0d9488",DL:"#0284c7",LB:"#2563eb",CB:"#4f46e5",S:"#7c3aed",DB:"#4f46e5","K/P":"#78716c"};

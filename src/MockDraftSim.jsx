@@ -435,11 +435,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
   };
   // Map granular position labels to colors (use parent colors where needed)
   const granularPosColor=(label)=>{
-    if(label==="OT")return POS_COLORS["OT"]||POS_COLORS["OL"];
-    if(label==="IOL")return POS_COLORS["IOL"]||POS_COLORS["OL"];
-    if(label==="EDGE"||label==="IDL")return POS_COLORS["DL"];
-    if(label==="CB"||label==="S")return POS_COLORS["DB"];
-    return POS_COLORS[label]||"#999";
+    if(label==="IDL")return POS_COLORS["DL"];
+    return POS_COLORS[label]||POS_COLORS["DL"]||"#999";
   };
 
   const fullDraftOrder=useMemo(()=>{
