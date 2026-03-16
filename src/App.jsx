@@ -331,155 +331,6 @@ function BeeswarmChartWrapper({data,myGuys,showMyGuys,showLogos,onHover,onTap,ho
   return<div ref={ref}>{w>0&&<BeeswarmChart data={data} width={w} myGuys={myGuys} showMyGuys={showMyGuys} showLogos={showLogos} onHover={onHover} onTap={onTap} hoveredId={hoveredId}/>}</div>;
 }
 
-function kdeGaussian(values,bandwidth,nPoints=100){
-  if(!values.length)return[];
-  const mn=Math.min(...values),mx=Math.max(...values);
-  const range=mx-mn||1;
-  const start=mn-range*0.12,end=mx+range*0.12;
-  const step=(end-start)/nPoints;
-  const pts=[];
-  const coeff=1/(bandwidth*Math.sqrt(2*Math.PI));
-  for(let i=0;i<=nPoints;i++){
-    const x=start+step*i;
-    let density=0;
-    for(const v of values){const z=(x-v)/bandwidth;density+=Math.exp(-0.5*z*z);}
-    density*=coeff/values.length;
-    pts.push({x,y:density});
-  }
-  return pts;
-}
-
-function silvermanBandwidth(values){
-  const n=values.length;if(n<2)return 1;
-  const mean=values.reduce((a,b)=>a+b,0)/n;
-  const variance=values.reduce((a,v)=>a+(v-mean)**2,0)/(n-1);
-  const sd=Math.sqrt(variance);
-  return 1.06*sd*Math.pow(n,-0.2);
-}
-
-const RidgePlot=memo(function RidgePlot({data,width,posColors,onTap}){
-  const isMobile=width<600;
-  const groups=data.groups;
-  const rowH=isMobile?44:55;
-  const overlap=0.62;
-  const effectiveRowH=rowH*(1-overlap);
-  const padL=isMobile?42:52;
-  const padR=16;
-  const padT=10;
-  const padB=isMobile?32:38;
-  const plotW=width-padL-padR;
-  const totalH=padT+groups.length*effectiveRowH+rowH*overlap+padB;
-  const[hoveredGroup,setHoveredGroup]=useState(null);
-
-  const curves=useMemo(()=>{
-    const result={};
-    let globalMaxDensity=0;
-    groups.forEach(g=>{
-      const vals=data.points.filter(p=>p.group===g).map(p=>p.val);
-      if(vals.length<2){result[g]={kde:[],count:vals.length,vals};return;}
-      const bw=silvermanBandwidth(vals);
-      const curve=kdeGaussian(vals,bw,120);
-      const maxD=Math.max(...curve.map(c=>c.y));
-      if(maxD>globalMaxDensity)globalMaxDensity=maxD;
-      result[g]={kde:curve,count:vals.length,vals,maxDensity:maxD};
-    });
-    // Normalize all curves to same visual height
-    groups.forEach(g=>{
-      if(result[g].kde.length>0){
-        result[g].normalizedKde=result[g].kde.map(pt=>({x:pt.x,y:globalMaxDensity>0?pt.y/globalMaxDensity:0}));
-      }else{result[g].normalizedKde=[];}
-    });
-    return result;
-  },[data.points,groups]);
-
-  // X scale
-  const xMin=data.min,xMax=data.max;
-  const xRange=xMax-xMin||1;
-  const xScale=(v)=>{
-    const t=(v-xMin)/xRange;
-    return data.inverted?padL+(1-t)*plotW:padL+t*plotW;
-  };
-
-  // Ticks
-  const ticks=useMemo(()=>{
-    const range=xMax-xMin||1;
-    const step=range<=5?0.5:range<=10?1:range<=50?5:range<=100?10:range<=200?25:50;
-    const arr=[];
-    const start=Math.ceil(xMin/step)*step;
-    for(let v=start;v<=xMax;v+=step)arr.push(v);
-    if(arr.length>10){const keep=[];for(let i=0;i<arr.length;i+=Math.ceil(arr.length/8))keep.push(arr[i]);return keep;}
-    return arr;
-  },[xMin,xMax]);
-
-  return(<svg width={width} height={totalH} viewBox={`0 0 ${width} ${totalH}`} style={{display:"block"}}>
-    <defs>
-      {groups.map(g=>{
-        const c=posColors[g]||"#737373";
-        return<linearGradient key={`rg-${g}`} id={`ridge-grad-${g}`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor={c} stopOpacity={hoveredGroup===g?0.5:0.28}/>
-          <stop offset="100%" stopColor={c} stopOpacity={hoveredGroup===g?0.18:0.06}/>
-        </linearGradient>;
-      })}
-    </defs>
-    {/* Vertical grid lines */}
-    {ticks.map(v=>{const x=xScale(v);return<line key={`grid-${v}`} x1={x} y1={padT} x2={x} y2={totalH-padB} stroke="#e5e5e5" strokeWidth="0.5" strokeDasharray="2,3"/>;})}
-    {/* X-axis labels */}
-    {ticks.map(v=>{const x=xScale(v);return<text key={`lbl-${v}`} x={x} y={totalH-padB+14} textAnchor="middle" style={{fontSize:"9px",fill:"#a3a3a3",fontFamily:"'DM Mono','Courier New',monospace"}}>{v%1?v.toFixed(v%1&&Math.abs(v)<10?2:1):Math.round(v)}</text>;})}
-    {/* X-axis title */}
-    <text x={padL+plotW/2} y={totalH-4} textAnchor="middle" style={{fontSize:"10px",fill:"#a3a3a3",fontFamily:"'DM Mono','Courier New',monospace"}}>{data.label}</text>
-    {/* Ridge curves — draw bottom to top so higher curves overlap lower */}
-    {[...groups].reverse().map((g,ri)=>{
-      const i=groups.length-1-ri;
-      const baseY=padT+i*effectiveRowH+rowH;
-      const curveData=curves[g];
-      if(!curveData||curveData.normalizedKde.length<2)return<g key={g}>
-        <text x={padL-6} y={baseY-rowH*0.4} textAnchor="end" dominantBaseline="middle" style={{fontSize:isMobile?"8px":"10px",fill:posColors[g]||"#737373",fontFamily:"'DM Mono','Courier New',monospace",fontWeight:700}}>{g}</text>
-        <text x={padL+plotW/2} y={baseY-rowH*0.4} textAnchor="middle" style={{fontSize:"9px",fill:"#d4d4d4",fontFamily:"'DM Sans','Helvetica Neue',sans-serif"}}>n={curveData.count}</text>
-      </g>;
-      const peakH=rowH*0.92;
-      const pathPts=curveData.normalizedKde.map(pt=>{
-        const x=xScale(pt.x);
-        const y=baseY-pt.y*peakH;
-        return`${x},${y}`;
-      });
-      const firstX=xScale(curveData.normalizedKde[0].x);
-      const lastX=xScale(curveData.normalizedKde[curveData.normalizedKde.length-1].x);
-      const pathD=`M${firstX},${baseY} L${pathPts.join(" L")} L${lastX},${baseY} Z`;
-      const strokeD=`M${pathPts.join(" L")}`;
-      const color=posColors[g]||"#737373";
-      const isHovered=hoveredGroup===g;
-      return<g key={g} style={{cursor:"pointer"}}
-        onPointerEnter={()=>setHoveredGroup(g)}
-        onPointerLeave={()=>setHoveredGroup(null)}>
-        {/* Fill */}
-        <path d={pathD} fill={`url(#ridge-grad-${g})`} style={{transition:"opacity 0.2s"}}/>
-        {/* Stroke */}
-        <path d={strokeD} fill="none" stroke={color} strokeWidth={isHovered?2.5:1.5} opacity={isHovered?1:0.85} style={{transition:"stroke-width 0.2s, opacity 0.2s"}}/>
-        {/* Baseline */}
-        <line x1={padL} y1={baseY} x2={padL+plotW} y2={baseY} stroke={color} strokeWidth="0.3" opacity="0.3"/>
-        {/* Position label */}
-        <text x={padL-6} y={baseY-rowH*0.35} textAnchor="end" dominantBaseline="middle" style={{fontSize:isMobile?"8px":"10px",fill:color,fontFamily:"'DM Mono','Courier New',monospace",fontWeight:700,opacity:isHovered?1:0.8}}>{g}</text>
-        {/* Count badge on hover */}
-        {isHovered&&<text x={padL-6} y={baseY-rowH*0.35+12} textAnchor="end" dominantBaseline="middle" style={{fontSize:"8px",fill:"#a3a3a3",fontFamily:"'DM Sans','Helvetica Neue',sans-serif"}}>n={curveData.count}</text>}
-        {/* Hover overlay for tooltip area */}
-        <rect x={padL} y={baseY-rowH} width={plotW} height={rowH} fill="transparent" stroke="none"/>
-      </g>;
-    })}
-  </svg>);
-});
-
-function RidgePlotWrapper({data,posColors,onTap}){
-  const ref=useRef(null);
-  const[w,setW]=useState(800);
-  useEffect(()=>{
-    const el=ref.current;if(!el)return;
-    setW(el.getBoundingClientRect().width);
-    const ro=new ResizeObserver(entries=>{for(const e of entries)setW(e.contentRect.width);});
-    ro.observe(el);return()=>ro.disconnect();
-  },[]);
-  return<div ref={ref}>{w>0&&<RidgePlot data={data} width={w} posColors={posColors} onTap={onTap}/>}</div>;
-}
-
 const ScatterChart=memo(function ScatterChart({points,width,xLabel,yLabel,xInverted,yInverted,posColor,showLogos,onHover,onTap,hoveredId,myGuys,showMyGuys,spotlightName}){
   const isMobile=width<600;
   const chartH=isMobile?300:380;
@@ -1910,7 +1761,6 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[explorerStatOpen,setExplorerStatOpen]=useState(()=>new Set(["Passing"]));
   const[explorerAvgInfo,setExplorerAvgInfo]=useState(false);
   const[explorerLogos,setExplorerLogos]=useState(()=>new URLSearchParams(window.location.search).get('logos')==='1');
-  const[explorerRidge,setExplorerRidge]=useState(false);
   const[explorerLeaderPos,setExplorerLeaderPos]=useState(null);
   const[explorerLeaderInfo,setExplorerLeaderInfo]=useState(false);
   const[explorerHover,setExplorerHover]=useState(null);
@@ -3052,22 +2902,18 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         {/* Sparse data warning */}
         {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&explorerMode!=="madness"&&explorerData.points.length>0&&explorerData.points.length<20&&<div style={{fontFamily:sans,fontSize:11,color:"#92400e",background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:8,padding:"6px 12px",marginBottom:8}}>⚠️ sparse data — only {explorerData.points.length} players have this {explorerMode==="stats"?"stat":"measurement"}</div>}
 
-        {/* Beeswarm / Ridge Plot */}
+        {/* Beeswarm */}
         {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&explorerMode!=="madness"&&(explorerData.points.length===0?(<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no data available for this {explorerMode==="stats"?"stat":"measurable"}</p></div>):(
           <div style={{marginTop:4,position:"relative"}}>
-            {explorerRidge
-              ?<RidgePlotWrapper data={explorerData} posColors={POS_COLORS} onTap={(pt)=>{const p=PROSPECTS.find(pr=>pr.id===pt.id);if(p)openProfile(p);}}/>
-              :<BeeswarmChartWrapper data={explorerData} myGuys={myGuys} showMyGuys={explorerMyGuys} showLogos={explorerLogos} onHover={setExplorerHover} onTap={(pt)=>{const p=PROSPECTS.find(pr=>pr.id===pt.id);if(p)openProfile(p);}} hoveredId={explorerHover?.id||null}/>
-            }
+            <BeeswarmChartWrapper data={explorerData} myGuys={myGuys} showMyGuys={explorerMyGuys} showLogos={explorerLogos} onHover={setExplorerHover} onTap={(pt)=>{const p=PROSPECTS.find(pr=>pr.id===pt.id);if(p)openProfile(p);}} hoveredId={explorerHover?.id||null}/>
             <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",display:"flex",alignItems:"center",gap:0,opacity:0.06,pointerEvents:"none"}}>
               <img src="/logo.png" alt="" style={{height:60,width:"auto"}}/>
               <span style={{fontFamily:font,fontSize:32,fontWeight:900,color:"#171717",letterSpacing:-1,marginLeft:-6}}>bigboardlab.com</span>
             </div>
             <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:6,paddingRight:4}}>
               <div style={{display:"flex",gap:6,alignItems:"center"}}>
-                <button onClick={gateAuth(()=>setExplorerRidge(v=>!v))} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:explorerRidge?"linear-gradient(135deg,#6366f1,#8b5cf6)":"transparent",color:explorerRidge?"#fff":"#a3a3a3",border:explorerRidge?"1px solid transparent":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>{explorerRidge?"〰 waves":"● dots"}</button>
-                {!explorerRidge&&<button onClick={gateAuth(()=>setExplorerLogos(v=>!v))} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:explorerLogos?"#17171710":"transparent",color:explorerLogos?"#171717":"#a3a3a3",border:explorerLogos?"1px solid #17171722":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>{explorerLogos?"● dots":"🏫 logos"}</button>}
-                {!explorerRidge&&myGuys.length>0&&<button onClick={gateAuth(()=>setExplorerMyGuys(v=>!v))} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:explorerMyGuys?"linear-gradient(135deg,#ec4899,#7c3aed)":"transparent",color:explorerMyGuys?"#fff":"#a3a3a3",border:explorerMyGuys?"1px solid transparent":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>👀 my guys</button>}
+                <button onClick={gateAuth(()=>setExplorerLogos(v=>!v))} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:explorerLogos?"#17171710":"transparent",color:explorerLogos?"#171717":"#a3a3a3",border:explorerLogos?"1px solid #17171722":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>{explorerLogos?"● dots":"🏫 logos"}</button>
+                {myGuys.length>0&&<button onClick={gateAuth(()=>setExplorerMyGuys(v=>!v))} style={{fontFamily:sans,fontSize:10,fontWeight:600,padding:"5px 10px",background:explorerMyGuys?"linear-gradient(135deg,#ec4899,#7c3aed)":"transparent",color:explorerMyGuys?"#fff":"#a3a3a3",border:explorerMyGuys?"1px solid transparent":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",transition:"all 0.2s"}}>👀 my guys</button>}
               </div>
               <div style={{display:"flex",alignItems:"center",gap:5}}>
                 <img src="/logo.png" alt="" style={{height:12,width:"auto"}}/>
