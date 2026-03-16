@@ -1936,20 +1936,31 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
 
   // === URL NAVIGATION ===
   const navigateRef=useRef(null);
+  const setMetaTag=(sel,attr,val)=>{let el=document.querySelector(sel);if(!el){el=document.createElement('meta');const[a,v]=attr.split('=');el.setAttribute(a,v);document.head.appendChild(el);}el.setAttribute('content',val);};
+  const updateRouteMeta=(title,desc,canonical)=>{
+    document.title=title;
+    setMetaTag('meta[name="description"]','name=description',desc);
+    let link=document.querySelector('link[rel="canonical"]');if(!link){link=document.createElement('link');link.rel='canonical';document.head.appendChild(link);}
+    link.setAttribute('href',canonical);
+    setMetaTag('meta[property="og:title"]','property=og:title',title);
+    setMetaTag('meta[property="og:description"]','property=og:description',desc);
+    setMetaTag('meta[property="og:url"]','property=og:url',canonical);
+    setMetaTag('meta[name="twitter:title"]','name=twitter:title',title);
+    setMetaTag('meta[name="twitter:description"]','name=twitter:description',desc);
+  };
   const applyRoute=useCallback((fullPath)=>{
     const raw=fullPath.split('?')[0];
     const p=raw.length>1?raw.replace(/\/+$/,''):raw;
     const search=new URLSearchParams(fullPath.includes('?')?fullPath.split('?')[1]:'');
-    // Update browser tab title
-    const base="Big Board Lab";
-    if(isLabPath(p))document.title=`Data Lab — ${base}`;
-    else if(p==='/trends')document.title=`Team Insights — ${base}`;
-    else if(p==='/r1')document.title=`R1 Predictions — ${base}`;
-    else if(p==='/my-guys')document.title=`My Guys — ${base}`;
-    else if(p==='/board'||p.startsWith('/board/'))document.title=`Big Board — ${base}`;
-    else if(p.startsWith('/rank'))document.title=`Rankings — ${base}`;
-    else if(p==='/mock')document.title=`Mock Draft — ${base}`;
-    else document.title=`${base} — 2026 NFL Mock Draft Simulator & Board Builder`;
+    // Update meta tags per route
+    if(isLabPath(p))updateRouteMeta('Data Lab — Big Board Lab','Explore 450+ NFL Draft prospects with interactive charts. Combine measurables, college stats, scheme fit analysis, scarcity maps, and free agency contract data.','https://bigboardlab.com/lab');
+    else if(p==='/trends')updateRouteMeta('Team Insights — Big Board Lab','Deep-dive into every NFL team\'s draft strategy. Roster depth charts, free agency impact, positional needs, scheme fit analysis, and mock draft tendencies for all 32 teams.','https://bigboardlab.com/trends');
+    else if(p==='/mock')updateRouteMeta('Mock Draft Simulator — Big Board Lab','Run realistic NFL mock drafts against 32 AI GMs with real team personalities, scheme preferences, and live trades. Every pick graded with depth chart updates.','https://bigboardlab.com/mock');
+    else if(p==='/r1')updateRouteMeta('Round 1 Predictions — Big Board Lab','Monte Carlo simulation of the 2026 NFL Draft first round. 500 iterations predict where each prospect lands based on team needs, trade probability, and draft value.','https://bigboardlab.com/r1');
+    else if(p==='/my-guys')updateRouteMeta('My Guys — Big Board Lab','Your most-drafted prospects across all mock draft simulations. Track which players you keep picking and share your favorites.','https://bigboardlab.com/my-guys');
+    else if(p==='/board'||p.startsWith('/board/'))updateRouteMeta('Big Board — Big Board Lab','Your custom 2026 NFL Draft big board. Rank 450+ prospects with trait-based grading across every position. Consensus rankings and community data included.','https://bigboardlab.com/board');
+    else if(p.startsWith('/rank'))updateRouteMeta('Rankings — Big Board Lab','Rank NFL Draft prospects head-to-head. Compare players side by side with stats, measurables, and trait profiles to build your positional rankings.','https://bigboardlab.com/rank');
+    else updateRouteMeta('Big Board Lab — 2026 NFL Mock Draft Simulator & Board Builder','The most advanced 2026 NFL Draft tool. Build your big board with head-to-head rankings. Run mock drafts against 32 AI GMs with real team personalities, live trades, and depth charts. Combine explorer, college stats, dominator ratings, and historical percentiles. Every pick graded. Free.','https://bigboardlab.com');
     // Reset all DraftBoard-level overlays
     setShowExplorer(false);setShowTrends(false);setShowRound1Prediction(false);setShowMyGuys(false);setShowMockDraft(false);setMockLaunchTeam(null);
     if(isLabPath(p)){
