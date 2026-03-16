@@ -1401,7 +1401,7 @@ const SaveBar=memo(function SaveBar({navigate,mono,sans,isGuest,userEmail,showOn
 // ============================================================
 // Main Board App (post-auth)
 // ============================================================
-function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMockLaunch,onClearGmQuizMock}){
+function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMockLaunch,onClearGmQuizMock,adminOverrides}){
   const[phase,setPhase]=useState("loading");
   const[activePos,setActivePos]=useState(null);
   const[ratings,setRatings]=useState({});
@@ -1677,6 +1677,21 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     }
     setRatings(newRatings);
   },[getRanked,ratings]);
+  // Admin-aware scouting traits: scouting baseline → admin overrides merged on top
+  const _normAdmin=(name)=>name.toLowerCase().replace(/\./g,"").replace(/\s+(jr|sr|ii|iii|iv|v)\s*$/i,"").replace(/\s+/g," ").trim();
+  const _adminAliases={"marquarius white":"squirrel white"};
+  const getAdminScoutingTraits=useCallback((name,school)=>{
+    const sc=getScoutingTraits(name,school);
+    if(!adminOverrides||!Object.keys(adminOverrides).length)return sc;
+    const n=_adminAliases[_normAdmin(name)]||_normAdmin(name);
+    const key=n+"|"+school.toLowerCase().replace(/\s+/g," ").trim();
+    const ao=adminOverrides[key]||(()=>{for(const k in adminOverrides){if(k.startsWith(n+"|"))return adminOverrides[k];}return null;})();
+    if(!ao)return sc;
+    if(!sc)return ao.traits?{...(ao.traits),__ceiling:ao.ceiling||"normal"}:null;
+    const merged={...sc,...(ao.traits||{})};
+    if(ao.ceiling)merged.__ceiling=ao.ceiling;
+    return merged;
+  },[adminOverrides]);
   // Grade computation: user traits → scouting traits → fallback 50
   const gradeFromTraits=useCallback((traitObj,pos)=>{
     const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];
@@ -1691,19 +1706,19 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const getGrade=useCallback((id)=>{const p=prospectsMap[id];if(!p)return 50;
     const pos=p.gpos||p.pos;const t=traits[id];
     // If user has set traits, use those (existing behavior with ceiling support)
-    if(t&&Object.keys(t).length>0){const sc=getScoutingTraits(p.name,p.school)||{};const st=getStatBasedTraits(p.name,p.school)||{};const merged={...st,...sc,...t};const grade=gradeFromTraits(merged,pos);const ceil=t.__ceiling;if(!ceil||ceil==="normal")return grade;const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let rawW=0,rawV=0;posTraits.forEach(trait=>{const teach=TRAIT_TEACHABILITY[trait]??0.5;if(teach<0.4){const w=weights[trait]||1/posTraits.length;rawW+=w;rawV+=(merged[trait]||50)*w;}});const rawScore=rawW>0?rawV/rawW:grade;const gap=rawScore-grade;if(ceil==="high")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.5,0)+4)));if(ceil==="elite")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.7,0)+7)));if(ceil==="capped")return Math.max(1,Math.min(99,Math.round(grade-Math.max(-gap*0.3,0)-3)));return grade;}
-    // No user traits — use scouting data (with optional default ceiling)
-    const sc=getScoutingTraits(p.name,p.school);
+    if(t&&Object.keys(t).length>0){const sc=getAdminScoutingTraits(p.name,p.school)||{};const st=getStatBasedTraits(p.name,p.school)||{};const merged={...st,...sc,...t};const grade=gradeFromTraits(merged,pos);const ceil=t.__ceiling;if(!ceil||ceil==="normal")return grade;const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let rawW=0,rawV=0;posTraits.forEach(trait=>{const teach=TRAIT_TEACHABILITY[trait]??0.5;if(teach<0.4){const w=weights[trait]||1/posTraits.length;rawW+=w;rawV+=(merged[trait]||50)*w;}});const rawScore=rawW>0?rawV/rawW:grade;const gap=rawScore-grade;if(ceil==="high")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.5,0)+4)));if(ceil==="elite")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.7,0)+7)));if(ceil==="capped")return Math.max(1,Math.min(99,Math.round(grade-Math.max(-gap*0.3,0)-3)));return grade;}
+    // No user traits — use scouting data with admin overrides (new effective baseline)
+    const sc=getAdminScoutingTraits(p.name,p.school);
     if(sc){const grade=gradeFromTraits(sc,pos);const ceil=sc.__ceiling;if(!ceil||ceil==="normal")return grade;const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let rawW=0,rawV=0;posTraits.forEach(trait=>{const teach=TRAIT_TEACHABILITY[trait]??0.5;if(teach<0.4){const w=weights[trait]||1/posTraits.length;rawW+=w;rawV+=(sc[trait]||50)*w;}});const rawScore=rawW>0?rawV/rawW:grade;const gap=rawScore-grade;if(ceil==="high")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.5,0)+4)));if(ceil==="elite")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.7,0)+7)));if(ceil==="capped")return Math.max(1,Math.min(99,Math.round(grade-Math.max(-gap*0.3,0)-3)));return grade;}
     return 50;
-  },[traits,gradeFromTraits,prospectsMap]);
+  },[traits,gradeFromTraits,prospectsMap,getAdminScoutingTraits]);
   // Scouting-only grade — immutable, never reads user traits. Used for consensus board.
   const getScoutingGrade=useCallback((id)=>{const p=prospectsMap[id];if(!p)return 50;
     const pos=p.gpos||p.pos;
-    const sc=getScoutingTraits(p.name,p.school);
+    const sc=getAdminScoutingTraits(p.name,p.school);
     if(sc){const grade=gradeFromTraits(sc,pos);const ceil=sc.__ceiling;if(!ceil||ceil==="normal")return grade;const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];let rawW=0,rawV=0;posTraits.forEach(trait=>{const teach=TRAIT_TEACHABILITY[trait]??0.5;if(teach<0.4){const w=weights[trait]||1/posTraits.length;rawW+=w;rawV+=(sc[trait]||50)*w;}});const rawScore=rawW>0?rawV/rawW:grade;const gap=rawScore-grade;if(ceil==="high")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.5,0)+4)));if(ceil==="elite")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.7,0)+7)));if(ceil==="capped")return Math.max(1,Math.min(99,Math.round(grade-Math.max(-gap*0.3,0)-3)));return grade;}
     return 50;
-  },[gradeFromTraits,prospectsMap]);
+  },[gradeFromTraits,prospectsMap,getAdminScoutingTraits]);
   const finishRanking=useCallback((pos)=>{
     setRankedGroups(prev=>new Set([...prev,pos]));
     setTraitReviewedGroups(prev=>new Set([...prev,pos]));
@@ -6172,9 +6187,12 @@ function AdminGrades({onBack}){
   const[editKey,setEditKey]=useState(null);
   const[pendingEdits,setPendingEdits]=useState({}); // {scoutKey: {traits:{...}, ceiling:"..."}}
   const[saveStatus,setSaveStatus]=useState("idle");
-  const[devMode,setDevMode]=useState(false);
+  const[savedOverrides,setSavedOverrides]=useState({}); // what's currently in Supabase
 
-  useEffect(()=>{fetch("/__admin/ping").then(r=>r.json()).then(d=>{if(d&&d.ok)setDevMode(true);}).catch(()=>{});},[]);
+  // Load existing admin overrides from Supabase on mount
+  useEffect(()=>{supabase.from('admin_overrides').select('overrides').eq('id',1).single().then(({data})=>{
+    if(data?.overrides&&Object.keys(data.overrides).length){setSavedOverrides(data.overrides);setPendingEdits(data.overrides);}
+  });},[]);
 
   const positions=useMemo(()=>{const s=new Set();prospectList.forEach(p=>s.add(p.pos));return["ALL",...[...s].sort()];},[prospectList]);
 
@@ -6222,30 +6240,26 @@ function AdminGrades({onBack}){
     setPendingEdits(prev=>{const existing=prev[editKey]||{};return{...prev,[editKey]:{...existing,traits:newTraits}};});
   };
   const resetPlayer=()=>{
-    setPendingEdits(prev=>{const next={...prev};delete next[editKey];return next;});
+    setPendingEdits(prev=>{const next={...prev};if(savedOverrides[editKey])next[editKey]=savedOverrides[editKey];else delete next[editKey];return next;});
   };
 
-  const totalEdited=Object.keys(pendingEdits).length;
+  const hasUnsaved=JSON.stringify(pendingEdits)!==JSON.stringify(savedOverrides);
 
   const handleSave=async()=>{
-    if(!devMode){setSaveStatus("error");return;}
     setSaveStatus("saving");
-    const updated={...SCOUTING_RAW};
+    // Clean up: remove entries where traits are empty and ceiling is default
+    const clean={};
     for(const[key,ed] of Object.entries(pendingEdits)){
-      const existing=updated[key]||{};
-      const merged={...existing,...(ed.traits||{})};
-      if(ed.ceiling&&ed.ceiling!=="normal")merged.__ceiling=ed.ceiling;
-      else if(ed.ceiling==="normal")delete merged.__ceiling;
-      updated[key]=merged;
+      const hasTraits=ed.traits&&Object.keys(ed.traits).length>0;
+      const hasCeiling=ed.ceiling&&ed.ceiling!=="normal";
+      if(hasTraits||hasCeiling)clean[key]=ed;
     }
-    // Sort keys for clean diffs
-    const sorted={};
-    Object.keys(updated).sort().forEach(k=>{sorted[k]=updated[k];});
     try{
-      const res=await fetch("/__admin/save-traits",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(sorted,null,2)});
-      if(res.ok){setSaveStatus("saved");setPendingEdits({});setTimeout(()=>setSaveStatus("idle"),3000);}
-      else{setSaveStatus("error");setTimeout(()=>setSaveStatus("idle"),3000);}
-    }catch(e){setSaveStatus("error");setTimeout(()=>setSaveStatus("idle"),3000);}
+      const{error}=await supabase.from('admin_overrides').update({overrides:clean,updated_at:new Date().toISOString()}).eq('id',1);
+      if(error)throw error;
+      setSavedOverrides(clean);setPendingEdits(clean);
+      setSaveStatus("saved");setTimeout(()=>setSaveStatus("idle"),3000);
+    }catch(e){console.error('Admin save error:',e);setSaveStatus("error");setTimeout(()=>setSaveStatus("idle"),3000);}
   };
 
   const gradeColor=(g)=>g>=75?"#22c55e":g>=55?"#f59e0b":"#ef4444";
@@ -6275,10 +6289,10 @@ function AdminGrades({onBack}){
           <button onClick={()=>{window.location.hash="#admin";}} style={{fontFamily:mono,fontSize:9,color:"#525252",background:"#2a2a2a",border:"1px solid #404040",borderRadius:4,padding:"3px 8px",cursor:"pointer"}}>dashboard</button>
         </div>
         <div style={{display:"flex",alignItems:"center",gap:12}}>
-          {totalEdited>0&&<span style={{fontFamily:mono,fontSize:10,color:"#f59e0b"}}>{totalEdited} unsaved</span>}
+          {hasUnsaved&&<span style={{fontFamily:mono,fontSize:10,color:"#f59e0b"}}>unsaved changes</span>}
           {saveStatus==="saved"&&<span style={{fontFamily:mono,fontSize:10,color:"#22c55e"}}>saved!</span>}
-          {saveStatus==="error"&&<span style={{fontFamily:mono,fontSize:10,color:"#ef4444"}}>{devMode?"save failed":"dev server only"}</span>}
-          <button onClick={handleSave} disabled={totalEdited===0||saveStatus==="saving"} style={{fontFamily:mono,fontSize:10,fontWeight:700,color:totalEdited>0?"#fff":"#525252",background:totalEdited>0?"#22c55e":"#2a2a2a",border:"none",borderRadius:6,padding:"6px 14px",cursor:totalEdited>0?"pointer":"default"}}>{saveStatus==="saving"?"saving...":"save to file"}</button>
+          {saveStatus==="error"&&<span style={{fontFamily:mono,fontSize:10,color:"#ef4444"}}>save failed</span>}
+          <button onClick={handleSave} disabled={!hasUnsaved||saveStatus==="saving"} style={{fontFamily:mono,fontSize:10,fontWeight:700,color:hasUnsaved?"#fff":"#525252",background:hasUnsaved?"#22c55e":"#2a2a2a",border:"none",borderRadius:6,padding:"6px 14px",cursor:hasUnsaved?"pointer":"default"}}>{saveStatus==="saving"?"saving...":"save"}</button>
         </div>
       </div>
 
@@ -7229,6 +7243,7 @@ export default function App(){
   const[gmQuizMockLaunch,setGmQuizMockLaunch]=useState(null);// {team} from quiz CTA
   const[isGuest,setIsGuest]=useState(false);
   const[authPrompt,setAuthPrompt]=useState(null);
+  const[adminOverrides,setAdminOverrides]=useState({});
   const authSourceRef=useRef(null);
   if(authSourceRef.current===null){try{const s=sessionStorage.getItem('authSource');if(s)authSourceRef.current=s;}catch(e){}}
 
@@ -7259,6 +7274,7 @@ export default function App(){
     return()=>subscription.unsubscribe();
   },[]);
 
+  useEffect(()=>{supabase.from('admin_overrides').select('overrides').eq('id',1).single().then(({data})=>{if(data?.overrides)setAdminOverrides(data.overrides);});},[]);
   const signOut=async()=>{try{await supabase.auth.signOut();}catch(e){}setUser(null);};
 
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
@@ -7270,7 +7286,7 @@ export default function App(){
   if(showAdmin==="grades"&&user&&ADMIN_EMAILS.includes(user.email))return<AdminGrades onBack={()=>{window.location.hash="";setShowAdmin(null);}}/>;
 
   return<>
-    <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} gmQuizMockLaunch={gmQuizMockLaunch} onClearGmQuizMock={()=>setGmQuizMockLaunch(null)} onRequireAuth={(msg)=>{
+    <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} gmQuizMockLaunch={gmQuizMockLaunch} onClearGmQuizMock={()=>setGmQuizMockLaunch(null)} adminOverrides={adminOverrides} onRequireAuth={(msg)=>{
       const src=msg.includes('play with the data')?'data-lab':msg.includes('vote')||msg.includes('big board')?'pair rank':msg.includes('trait')||msg.includes('grade')||msg.includes('slider')?'sliders':msg.includes('mock')||msg.includes('draft')?'mock draft':msg.includes('reorder')?'pair rank':msg.includes('note')?'notes':msg.includes('guys')?'my guys':msg.includes('share')?'share':msg.includes('save')?'save':'homepage';
       authSourceRef.current=src;
       try{sessionStorage.setItem('authSource',src)}catch(e){}
