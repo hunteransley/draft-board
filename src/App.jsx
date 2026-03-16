@@ -24,6 +24,7 @@ import { TEAM_ABBR, TEAM_SCHEME, getFormationPos, getSchemeDepthGroups } from ".
 import { ROSTER_BY_SLOT, ROSTER_BY_NAME, formatContract, formatTradeValue, TIER_COLORS, AVAILABILITY_DISPLAY } from "./rosterValueData.js";
 import { computeAllSchemeFits, getTopTeamFits, getTeamSchemeFits, getPositionAvgFit, generateScoutReasoning, computeTeamScoutVision } from "./schemeFit.js";
 import SCOUTING_NARRATIVES from "./scoutingNarratives.json";
+import SCOUTING_RAW from "./scoutingTraits.json";
 
 // Suffix-aware short name: "Rueben Bain Jr." → "Bain Jr." not "Jr."
 const GEN_SUFFIXES=/^(Jr\.?|Sr\.?|II|III|IV|V|VI|VII|VIII)$/i;
@@ -6108,6 +6109,314 @@ function AdminDashboard({user,onBack,onOpenCombo}){
 }
 
 // ============================================================
+// Admin Grades — baseline trait & ceiling editor
+// ============================================================
+function AdminGrades({onBack}){
+  const NAME_ALIASES={"marquarius white":"squirrel white"};
+  const normName=(name)=>{const n=name.toLowerCase().replace(/\./g,"").replace(/\s+(jr|sr|ii|iii|iv|v)\s*$/i,"").replace(/\s+/g," ").trim();return NAME_ALIASES[n]||n;};
+  const scoutKey=(name,school)=>{
+    const n=normName(name);const k=n+"|"+school.toLowerCase().replace(/\s+/g," ").trim();
+    if(SCOUTING_RAW[k])return k;
+    for(const key in SCOUTING_RAW){if(key.startsWith(n+"|"))return key;}
+    return k; // fallback to constructed key even if missing
+  };
+
+  // Grade math (mirrors gradeFromTraits in DraftBoard)
+  const rawGrade=(traitObj,pos)=>{
+    const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];
+    let totalW=0,totalV=0;posTraits.forEach(t=>{const w=weights[t]||1/posTraits.length;const v=traitObj[t]??50;totalW+=w;totalV+=v*w;});
+    return totalW>0?totalV/totalW:50;
+  };
+  const remapGrade=(raw)=>{
+    if(raw>=90)return Math.min(99,Math.round(raw));
+    if(raw>=80)return Math.round(70+(raw-80)*2);
+    if(raw>=70)return Math.round(50+(raw-70)*2);
+    return Math.max(1,Math.round(30+(raw-60)*2));
+  };
+  const inverseRemap=(grade)=>{
+    if(grade>=90)return grade;
+    if(grade>=70)return 80+(grade-70)/2;
+    if(grade>=50)return 70+(grade-50)/2;
+    return 60+(grade-30)/2;
+  };
+  const applyCeiling=(grade,traitObj,pos,ceil)=>{
+    if(!ceil||ceil==="normal")return grade;
+    const weights=TRAIT_WEIGHTS[pos]||TRAIT_WEIGHTS["QB"];const posTraits=POSITION_TRAITS[pos]||[];
+    let rawW=0,rawV=0;posTraits.forEach(t=>{const teach=TRAIT_TEACHABILITY[t]??0.5;if(teach<0.4){const w=weights[t]||1/posTraits.length;rawW+=w;rawV+=(traitObj[t]||50)*w;}});
+    const rawScore=rawW>0?rawV/rawW:grade;const gap=rawScore-grade;
+    if(ceil==="high")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.5,0)+4)));
+    if(ceil==="elite")return Math.max(1,Math.min(99,Math.round(grade+Math.max(gap*0.7,0)+7)));
+    if(ceil==="capped")return Math.max(1,Math.min(99,Math.round(grade-Math.max(-gap*0.3,0)-3)));
+    return grade;
+  };
+  const fullGrade=(traitObj,pos,ceil)=>{
+    const g=remapGrade(rawGrade(traitObj,pos));
+    return applyCeiling(g,traitObj,pos,ceil);
+  };
+
+  // Build prospect list with scouting keys
+  const prospectList=useMemo(()=>PROSPECTS.map(p=>{
+    const pos=p.gpos||p.pos;const key=scoutKey(p.name,p.school);
+    const base=SCOUTING_RAW[key]||{};const posTraits=POSITION_TRAITS[pos]||[];
+    // Only include prospects that have scouting data
+    if(!posTraits.some(t=>base[t]!=null))return null;
+    const baseCeil=base.__ceiling||"normal";
+    const baseGrade=fullGrade(base,pos,baseCeil);
+    return{...p,pos,key,baseTraits:base,baseCeil,baseGrade};
+  }).filter(Boolean),[]);
+
+  const[search,setSearch]=useState("");
+  const[posFilter,setPosFilter]=useState("ALL");
+  const[sortBy,setSortBy]=useState("grade");
+  const[sortDir,setSortDir]=useState(-1);
+  const[editKey,setEditKey]=useState(null);
+  const[pendingEdits,setPendingEdits]=useState({}); // {scoutKey: {traits:{...}, ceiling:"..."}}
+  const[saveStatus,setSaveStatus]=useState("idle");
+  const[devMode,setDevMode]=useState(false);
+
+  useEffect(()=>{fetch("/__admin/ping").then(r=>{if(r.ok)setDevMode(true);}).catch(()=>{});},[]);
+
+  const positions=useMemo(()=>{const s=new Set();prospectList.forEach(p=>s.add(p.pos));return["ALL",...[...s].sort()];},[prospectList]);
+
+  const filtered=useMemo(()=>{
+    let list=prospectList;
+    if(search){const q=search.toLowerCase();list=list.filter(p=>p.name.toLowerCase().includes(q));}
+    if(posFilter!=="ALL")list=list.filter(p=>p.pos===posFilter);
+    list=[...list];
+    const getEditedGrade=(p)=>{const ed=pendingEdits[p.key];if(!ed)return p.baseGrade;const merged={...p.baseTraits,...(ed.traits||{})};const ceil=ed.ceiling||p.baseCeil;return fullGrade(merged,p.pos,ceil);};
+    if(sortBy==="name")list.sort((a,b)=>sortDir*a.name.localeCompare(b.name));
+    else if(sortBy==="pos")list.sort((a,b)=>sortDir*a.pos.localeCompare(b.pos));
+    else if(sortBy==="grade")list.sort((a,b)=>sortDir*(getEditedGrade(a)-getEditedGrade(b)));
+    else if(sortBy==="delta")list.sort((a,b)=>{const da=getEditedGrade(a)-a.baseGrade;const db=getEditedGrade(b)-b.baseGrade;return sortDir*(da-db);});
+    return list;
+  },[prospectList,search,posFilter,sortBy,sortDir,pendingEdits]);
+
+  const editingPlayer=editKey?prospectList.find(p=>p.key===editKey):null;
+  const editData=editKey?pendingEdits[editKey]:null;
+  const editTraits=editingPlayer?{...editingPlayer.baseTraits,...(editData?.traits||{})}:null;
+  const editCeil=editData?.ceiling||editingPlayer?.baseCeil||"normal";
+  const editPos=editingPlayer?.pos;
+  const editPosTraits=editPos?POSITION_TRAITS[editPos]||[]:[];
+  const editGrade=editingPlayer?fullGrade(editTraits,editPos,editCeil):0;
+  const editBaseGrade=editingPlayer?.baseGrade||0;
+  const editNarr=editingPlayer?SCOUTING_NARRATIVES[editingPlayer.key]:null;
+
+  const setTrait=(trait,val)=>{
+    setPendingEdits(prev=>{const existing=prev[editKey]||{};return{...prev,[editKey]:{...existing,traits:{...(existing.traits||{}),[trait]:val}}};});
+  };
+  const setCeiling=(ceil)=>{
+    setPendingEdits(prev=>{const existing=prev[editKey]||{};return{...prev,[editKey]:{...existing,ceiling:ceil}};});
+  };
+  const setTargetGrade=(target)=>{
+    if(!editingPlayer)return;
+    // Compute uniform delta to reach target pre-ceiling grade
+    const currentTraits={...editingPlayer.baseTraits,...(editData?.traits||{})};
+    const currentRaw=rawGrade(currentTraits,editPos);
+    const targetRaw=inverseRemap(target);
+    const delta=targetRaw-currentRaw;
+    const newTraits={};
+    editPosTraits.forEach(t=>{
+      const base=editingPlayer.baseTraits[t]??50;
+      newTraits[t]=Math.max(1,Math.min(99,Math.round(base+delta)));
+    });
+    setPendingEdits(prev=>{const existing=prev[editKey]||{};return{...prev,[editKey]:{...existing,traits:newTraits}};});
+  };
+  const resetPlayer=()=>{
+    setPendingEdits(prev=>{const next={...prev};delete next[editKey];return next;});
+  };
+
+  const totalEdited=Object.keys(pendingEdits).length;
+
+  const handleSave=async()=>{
+    if(!devMode){setSaveStatus("error");return;}
+    setSaveStatus("saving");
+    const updated={...SCOUTING_RAW};
+    for(const[key,ed] of Object.entries(pendingEdits)){
+      const existing=updated[key]||{};
+      const merged={...existing,...(ed.traits||{})};
+      if(ed.ceiling&&ed.ceiling!=="normal")merged.__ceiling=ed.ceiling;
+      else if(ed.ceiling==="normal")delete merged.__ceiling;
+      updated[key]=merged;
+    }
+    // Sort keys for clean diffs
+    const sorted={};
+    Object.keys(updated).sort().forEach(k=>{sorted[k]=updated[k];});
+    try{
+      const res=await fetch("/__admin/save-traits",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(sorted,null,2)});
+      if(res.ok){setSaveStatus("saved");setPendingEdits({});setTimeout(()=>setSaveStatus("idle"),3000);}
+      else{setSaveStatus("error");setTimeout(()=>setSaveStatus("idle"),3000);}
+    }catch(e){setSaveStatus("error");setTimeout(()=>setSaveStatus("idle"),3000);}
+  };
+
+  const gradeColor=(g)=>g>=75?"#22c55e":g>=55?"#f59e0b":"#ef4444";
+  const deltaColor=(d)=>d>0?"#22c55e":d<0?"#ef4444":"#a3a3a3";
+  const fmtDelta=(d)=>d>0?`+${d}`:d<0?`${d}`:"0";
+
+  const sortHeader=(label,key)=>(
+    <span onClick={()=>{if(sortBy===key)setSortDir(d=>-d);else{setSortBy(key);setSortDir(key==="name"||key==="pos"?1:-1);}}} style={{cursor:"pointer",userSelect:"none"}}>
+      {label}{sortBy===key?(sortDir>0?" ▲":" ▼"):""}
+    </span>
+  );
+
+  const ceilTiers=[
+    {key:"capped",label:"Capped",color:"#737373"},
+    {key:"normal",label:"Normal",color:"#6366f1"},
+    {key:"high",label:"High",color:"#f59e0b"},
+    {key:"elite",label:"Elite",color:"#8b5cf6"},
+  ];
+
+  return(
+    <div style={{position:"fixed",inset:0,background:"#faf9f6",zIndex:9000,overflow:"auto",WebkitOverflowScrolling:"touch"}}>
+      {/* Top bar */}
+      <div style={{position:"sticky",top:0,zIndex:100,background:"#171717",padding:"0 16px",height:44,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+        <div style={{display:"flex",alignItems:"center",gap:12}}>
+          <button onClick={onBack} style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer"}}>← back</button>
+          <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:"#fff",letterSpacing:1}}>ADMIN / GRADES</span>
+          <button onClick={()=>{window.location.hash="#admin";}} style={{fontFamily:mono,fontSize:9,color:"#525252",background:"#2a2a2a",border:"1px solid #404040",borderRadius:4,padding:"3px 8px",cursor:"pointer"}}>dashboard</button>
+        </div>
+        <div style={{display:"flex",alignItems:"center",gap:12}}>
+          {totalEdited>0&&<span style={{fontFamily:mono,fontSize:10,color:"#f59e0b"}}>{totalEdited} unsaved</span>}
+          {saveStatus==="saved"&&<span style={{fontFamily:mono,fontSize:10,color:"#22c55e"}}>saved!</span>}
+          {saveStatus==="error"&&<span style={{fontFamily:mono,fontSize:10,color:"#ef4444"}}>{devMode?"save failed":"dev server only"}</span>}
+          <button onClick={handleSave} disabled={totalEdited===0||saveStatus==="saving"} style={{fontFamily:mono,fontSize:10,fontWeight:700,color:totalEdited>0?"#fff":"#525252",background:totalEdited>0?"#22c55e":"#2a2a2a",border:"none",borderRadius:6,padding:"6px 14px",cursor:totalEdited>0?"pointer":"default"}}>{saveStatus==="saving"?"saving...":"save to file"}</button>
+        </div>
+      </div>
+
+      <div style={{display:"flex",height:"calc(100vh - 44px)"}}>
+        {/* Left: prospect list */}
+        <div style={{width:editKey?420:undefined,flex:editKey?undefined:1,borderRight:editKey?"1px solid #e5e5e5":"none",display:"flex",flexDirection:"column",minWidth:0}}>
+          {/* Filters */}
+          <div style={{padding:"12px 16px",borderBottom:"1px solid #e5e5e5",display:"flex",gap:8,alignItems:"center",flexWrap:"wrap"}}>
+            <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search name..." style={{fontFamily:sans,fontSize:13,padding:"6px 12px",border:"1px solid #e5e5e5",borderRadius:6,outline:"none",width:180,background:"#fff"}}/>
+            <select value={posFilter} onChange={e=>setPosFilter(e.target.value)} style={{fontFamily:mono,fontSize:11,padding:"6px 8px",border:"1px solid #e5e5e5",borderRadius:6,background:"#fff",cursor:"pointer"}}>
+              {positions.map(p=><option key={p} value={p}>{p}</option>)}
+            </select>
+            <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginLeft:"auto"}}>{filtered.length} prospects</span>
+          </div>
+          {/* Header */}
+          <div style={{display:"grid",gridTemplateColumns:"1fr 50px 50px 50px",gap:4,padding:"6px 16px",borderBottom:"1px solid #f0f0f0",background:"#f9f9f7"}}>
+            <span style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase"}}>{sortHeader("Name","name")}</span>
+            <span style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase",textAlign:"center"}}>{sortHeader("Pos","pos")}</span>
+            <span style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase",textAlign:"center"}}>{sortHeader("Grade","grade")}</span>
+            <span style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase",textAlign:"center"}}>{sortHeader("Δ","delta")}</span>
+          </div>
+          {/* Rows */}
+          <div style={{flex:1,overflowY:"auto"}}>
+            {filtered.map(p=>{
+              const ed=pendingEdits[p.key];
+              const merged=ed?{...p.baseTraits,...(ed.traits||{})}:p.baseTraits;
+              const ceil=ed?.ceiling||p.baseCeil;
+              const grade=ed?fullGrade(merged,p.pos,ceil):p.baseGrade;
+              const delta=grade-p.baseGrade;
+              const isSel=editKey===p.key;
+              return<div key={p.key} onClick={()=>setEditKey(isSel?null:p.key)} style={{display:"grid",gridTemplateColumns:"1fr 50px 50px 50px",gap:4,padding:"7px 16px",borderBottom:"1px solid #f8f8f6",cursor:"pointer",background:isSel?"#f0f4ff":ed?"#fffbeb":"transparent",alignItems:"center"}}>
+                <div style={{overflow:"hidden",whiteSpace:"nowrap",textOverflow:"ellipsis"}}>
+                  <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717"}}>{p.name}</span>
+                  <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3",marginLeft:6}}>{p.school}</span>
+                </div>
+                <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:POS_COLORS[p.pos]||"#525252",textAlign:"center"}}>{p.pos}</span>
+                <span style={{fontFamily:font,fontSize:13,fontWeight:900,color:gradeColor(grade),textAlign:"center"}}>{grade}</span>
+                <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:deltaColor(delta),textAlign:"center"}}>{delta!==0?fmtDelta(delta):""}</span>
+              </div>;
+            })}
+          </div>
+        </div>
+
+        {/* Right: edit panel */}
+        {editingPlayer&&<div style={{flex:1,overflowY:"auto",padding:"20px 24px",minWidth:0}}>
+          {/* Header */}
+          <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:16}}>
+            <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:POS_COLORS[editPos]||"#525252",background:`${POS_COLORS[editPos]||"#525252"}15`,padding:"4px 10px",borderRadius:6}}>{editPos}</span>
+            <span style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717"}}>{editingPlayer.name}</span>
+            <span style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>{editingPlayer.school}</span>
+            {editData&&<button onClick={resetPlayer} style={{fontFamily:mono,fontSize:9,color:"#ef4444",background:"#fef2f2",border:"1px solid #fecaca",borderRadius:6,padding:"4px 10px",cursor:"pointer",marginLeft:"auto"}}>reset</button>}
+          </div>
+
+          {/* Grade display + grade slider */}
+          <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:16}}>
+            <div style={{display:"flex",alignItems:"center",gap:16,marginBottom:12}}>
+              <div>
+                <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>grade</div>
+                <div style={{fontFamily:font,fontSize:32,fontWeight:900,color:gradeColor(editGrade),lineHeight:1}}>{editGrade}</div>
+              </div>
+              <div>
+                <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>baseline</div>
+                <div style={{fontFamily:font,fontSize:20,fontWeight:700,color:"#a3a3a3",lineHeight:1}}>{editBaseGrade}</div>
+              </div>
+              {editGrade!==editBaseGrade&&<div>
+                <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>delta</div>
+                <div style={{fontFamily:font,fontSize:20,fontWeight:900,color:deltaColor(editGrade-editBaseGrade),lineHeight:1}}>{fmtDelta(editGrade-editBaseGrade)}</div>
+              </div>}
+              <div style={{marginLeft:"auto"}}>
+                <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:4}}>ceiling</div>
+                <div style={{display:"flex",gap:4}}>
+                  {ceilTiers.map(t=>{const sel=editCeil===t.key;return<button key={t.key} onClick={()=>setCeiling(t.key)} style={{fontFamily:mono,fontSize:9,fontWeight:sel?700:500,color:sel?"#fff":t.color,background:sel?t.color:"transparent",border:`1px solid ${sel?t.color:"#e5e5e5"}`,borderRadius:6,padding:"4px 8px",cursor:"pointer"}}>{t.label}</button>;})}
+                </div>
+              </div>
+            </div>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:6}}>target grade (moves all traits)</div>
+            <div style={{display:"flex",alignItems:"center",gap:12}}>
+              <input type="range" min="1" max="99" value={remapGrade(rawGrade(editTraits,editPos))} onChange={e=>setTargetGrade(parseInt(e.target.value))} style={{flex:1,cursor:"pointer",accentColor:"#7c3aed"}}/>
+              <span style={{fontFamily:mono,fontSize:12,fontWeight:700,color:"#525252",minWidth:28,textAlign:"right"}}>{remapGrade(rawGrade(editTraits,editPos))}</span>
+            </div>
+            <div style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",marginTop:2}}>pre-ceiling grade · ceiling adds {editCeil==="high"?"+bonus":editCeil==="elite"?"+big bonus":editCeil==="capped"?"penalty":"nothing"}</div>
+          </div>
+
+          {/* Traits */}
+          <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:16}}>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>traits</div>
+            {editPosTraits.map(trait=>{
+              const baseVal=editingPlayer.baseTraits[trait]??50;
+              const val=editTraits[trait]??50;
+              const delta=val-baseVal;
+              const weight=TRAIT_WEIGHTS[editPos]?.[trait]||(1/editPosTraits.length);
+              const weightPct=Math.round(weight*100);
+              const emoji=TRAIT_EMOJI[trait]||"";
+              const t=val/100;const r=Math.round(236+(124-236)*t);const g=Math.round(72+(58-72)*t);const b=Math.round(153+(237-153)*t);const barColor=`rgb(${r},${g},${b})`;
+              return<div key={trait} style={{marginBottom:14}}>
+                <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:3}}>
+                  <span style={{fontSize:14}}>{emoji}</span>
+                  <span style={{fontFamily:mono,fontSize:11,color:"#737373",flex:1}}>{trait}</span>
+                  <span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",background:"#f5f5f5",padding:"2px 5px",borderRadius:3}}>{weightPct}%</span>
+                  <span style={{fontFamily:font,fontSize:14,fontWeight:900,color:barColor,minWidth:28,textAlign:"right"}}>{val}</span>
+                  {delta!==0&&<span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:deltaColor(delta),minWidth:30,textAlign:"right"}}>{fmtDelta(delta)}</span>}
+                  {delta===0&&<span style={{minWidth:30}}/>}
+                </div>
+                <div style={{position:"relative",height:22,display:"flex",alignItems:"center"}}>
+                  <div style={{position:"absolute",left:0,right:0,height:5,background:"#f0f0f0",borderRadius:3}}/>
+                  <div style={{position:"absolute",left:0,height:5,width:`${val}%`,background:`linear-gradient(90deg, #ec4899, #7c3aed)`,borderRadius:3}}/>
+                  {/* Baseline marker */}
+                  <div style={{position:"absolute",left:`${baseVal}%`,top:0,width:1.5,height:22,background:"#d4d4d4",zIndex:2}}/>
+                  <input type="range" min="1" max="99" value={val} onChange={e=>setTrait(trait,parseInt(e.target.value))} style={{position:"absolute",left:0,width:"100%",height:22,background:"transparent",cursor:"pointer",zIndex:4,opacity:0,margin:0}}/>
+                </div>
+              </div>;
+            })}
+          </div>
+
+          {/* Scouting writeup */}
+          {editNarr&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,padding:"16px 20px",marginBottom:16}}>
+            <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:10}}>scouting report</div>
+            {editNarr.scouting_blurb&&<div style={{fontFamily:sans,fontSize:12,color:"#525252",lineHeight:1.6,marginBottom:12}}>{editNarr.scouting_blurb}</div>}
+            {editNarr.strengths&&editNarr.strengths.length>0&&<div style={{marginBottom:10}}>
+              <div style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#22c55e",textTransform:"uppercase",marginBottom:4}}>strengths</div>
+              {editNarr.strengths.map((s,i)=><div key={i} style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.5,marginBottom:3}}>
+                <span style={{color:"#22c55e",marginRight:4}}>+</span>{typeof s==="string"?s:(s.description||s.text||JSON.stringify(s))}
+              </div>)}
+            </div>}
+            {editNarr.weaknesses&&editNarr.weaknesses.length>0&&<div>
+              <div style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#ef4444",textTransform:"uppercase",marginBottom:4}}>weaknesses</div>
+              {editNarr.weaknesses.map((s,i)=><div key={i} style={{fontFamily:sans,fontSize:11,color:"#525252",lineHeight:1.5,marginBottom:3}}>
+                <span style={{color:"#ef4444",marginRight:4}}>−</span>{typeof s==="string"?s:(s.description||s.text||JSON.stringify(s))}
+              </div>)}
+            </div>}
+          </div>}
+        </div>}
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
 // Guide Page: /guide — how to use Big Board Lab
 // ============================================================
 function GuidePage({onBack}){
@@ -6913,7 +7222,7 @@ export default function App(){
   if(window.location.pathname.length>1&&window.location.pathname.endsWith('/'))window.history.replaceState({},'',window.location.pathname.replace(/\/+$/,'')+window.location.search+window.location.hash);
   const[user,setUser]=useState(null);
   const[loading,setLoading]=useState(true);
-  const[showAdmin,setShowAdmin]=useState(()=>window.location.hash==="#admin");
+  const[showAdmin,setShowAdmin]=useState(()=>{const h=window.location.hash;return h==="#admin"?"dashboard":h==="#admin/grades"?"grades":null;});
   const[showOG,setShowOG]=useState(()=>window.location.hash==="#og-preview");
   const[showGuide,setShowGuide]=useState(()=>window.location.pathname==='/guide');
   const[showGmQuiz,setShowGmQuiz]=useState(()=>window.location.pathname==='/gm'||window.location.pathname==='/which-gm-are-you');
@@ -6924,7 +7233,7 @@ export default function App(){
   if(authSourceRef.current===null){try{const s=sessionStorage.getItem('authSource');if(s)authSourceRef.current=s;}catch(e){}}
 
   useEffect(()=>{
-    const onHash=()=>{setShowAdmin(window.location.hash==="#admin");setShowOG(window.location.hash==="#og-preview");};
+    const onHash=()=>{const h=window.location.hash;setShowAdmin(h==="#admin"?"dashboard":h==="#admin/grades"?"grades":null);setShowOG(h==="#og-preview");};
     window.addEventListener("hashchange",onHash);
     return()=>window.removeEventListener("hashchange",onHash);
   },[]);
@@ -6957,7 +7266,9 @@ export default function App(){
   if(showOG)return<OGPreview/>;
   if(showGmQuiz)return<GmQuiz user={user} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} trackEvent={trackEvent} userId={user?.id} onLaunchMock={(team)=>{setGmQuizMockLaunch(team);setShowGmQuiz(false);window.history.pushState({},'','/');}} onHome={()=>{setShowGmQuiz(false);window.history.pushState({},'','/');window.dispatchEvent(new PopStateEvent("popstate"));}}/>;
   if(!user&&!isGuest&&!(window.location.pathname==='/lab'||window.location.pathname==='/data-lab'||window.location.pathname.startsWith('/lab/')||window.location.pathname.startsWith('/data-lab/'))&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>{const p=window.location.pathname;if(p==='/board'||p.startsWith('/rank')||p==='/r1'||p==='/my-guys')window.history.replaceState({},'','/');setIsGuest(true);}} onOpenGuide={navigateToGuide}/>;
-  if(showAdmin&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(false);}}/>;
+  if(showAdmin==="dashboard"&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(null);}}/>;
+  if(showAdmin==="grades"&&user&&ADMIN_EMAILS.includes(user.email))return<AdminGrades onBack={()=>{window.location.hash="";setShowAdmin(null);}}/>;
+
   return<>
     <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} gmQuizMockLaunch={gmQuizMockLaunch} onClearGmQuizMock={()=>setGmQuizMockLaunch(null)} onRequireAuth={(msg)=>{
       const src=msg.includes('play with the data')?'data-lab':msg.includes('vote')||msg.includes('big board')?'pair rank':msg.includes('trait')||msg.includes('grade')||msg.includes('slider')?'sliders':msg.includes('mock')||msg.includes('draft')?'mock draft':msg.includes('reorder')?'pair rank':msg.includes('note')?'notes':msg.includes('guys')?'my guys':msg.includes('share')?'share':msg.includes('save')?'save':'homepage';
