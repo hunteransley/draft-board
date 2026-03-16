@@ -6126,7 +6126,7 @@ function AdminDashboard({user,onBack,onOpenCombo}){
 // ============================================================
 // Admin Grades — baseline trait & ceiling editor
 // ============================================================
-function AdminGrades({onBack}){
+function AdminGrades({onBack,onSave}){
   const NAME_ALIASES={"marquarius white":"squirrel white"};
   const normName=(name)=>{const n=name.toLowerCase().replace(/\./g,"").replace(/\s+(jr|sr|ii|iii|iv|v)\s*$/i,"").replace(/\s+/g," ").trim();return NAME_ALIASES[n]||n;};
   const scoutKey=(name,school)=>{
@@ -6255,9 +6255,11 @@ function AdminGrades({onBack}){
       if(hasTraits||hasCeiling)clean[key]=ed;
     }
     try{
-      const{error}=await supabase.from('admin_overrides').update({overrides:clean,updated_at:new Date().toISOString()}).eq('id',1);
+      const{data,error}=await supabase.from('admin_overrides').update({overrides:clean,updated_at:new Date().toISOString()}).eq('id',1).select();
       if(error)throw error;
+      if(!data||data.length===0)throw new Error('RLS blocked update — 0 rows affected');
       setSavedOverrides(clean);setPendingEdits(clean);
+      if(onSave)onSave(clean);
       setSaveStatus("saved");setTimeout(()=>setSaveStatus("idle"),3000);
     }catch(e){console.error('Admin save error:',e);setSaveStatus("error");setTimeout(()=>setSaveStatus("idle"),3000);}
   };
@@ -7283,7 +7285,7 @@ export default function App(){
   if(showGmQuiz)return<GmQuiz user={user} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} trackEvent={trackEvent} userId={user?.id} onLaunchMock={(team)=>{setGmQuizMockLaunch(team);setShowGmQuiz(false);window.history.pushState({},'','/');}} onHome={()=>{setShowGmQuiz(false);window.history.pushState({},'','/');window.dispatchEvent(new PopStateEvent("popstate"));}}/>;
   if(!user&&!isGuest&&!(window.location.pathname==='/lab'||window.location.pathname==='/data-lab'||window.location.pathname.startsWith('/lab/')||window.location.pathname.startsWith('/data-lab/'))&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>{const p=window.location.pathname;if(p==='/board'||p.startsWith('/rank')||p==='/r1'||p==='/my-guys')window.history.replaceState({},'','/');setIsGuest(true);}} onOpenGuide={navigateToGuide}/>;
   if(showAdmin==="dashboard"&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(null);}}/>;
-  if(showAdmin==="grades"&&user&&ADMIN_EMAILS.includes(user.email))return<AdminGrades onBack={()=>{window.location.hash="";setShowAdmin(null);}}/>;
+  if(showAdmin==="grades"&&user&&ADMIN_EMAILS.includes(user.email))return<AdminGrades onBack={()=>{window.location.hash="";setShowAdmin(null);}} onSave={setAdminOverrides}/>;
 
   return<>
     <DraftBoard user={user} onSignOut={user?signOut:()=>setIsGuest(false)} isGuest={!user} onOpenGuide={navigateToGuide} gmQuizMockLaunch={gmQuizMockLaunch} onClearGmQuizMock={()=>setGmQuizMockLaunch(null)} adminOverrides={adminOverrides} onRequireAuth={(msg)=>{
