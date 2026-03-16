@@ -18,8 +18,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 67.1,
     "ftr": 0.378,
     "threePAr": 0.444,
-    "tovPct": 0.568,
-    "orbPct": 13.3
+    "tovPct": 13.3,
+    "orbPct": 38.1
   },
   {
     "team": "UConn",
@@ -36,8 +36,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 66.0,
     "ftr": 0.3,
     "threePAr": 0.403,
-    "tovPct": 0.553,
-    "orbPct": 14.3
+    "tovPct": 14.3,
+    "orbPct": 35.7
   },
   {
     "team": "Michigan State",
@@ -54,8 +54,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 66.8,
     "ftr": 0.362,
     "threePAr": 0.364,
-    "tovPct": 0.536,
-    "orbPct": 14.4
+    "tovPct": 14.4,
+    "orbPct": 38.5
   },
   {
     "team": "Kansas",
@@ -72,8 +72,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 68.2,
     "ftr": 0.326,
     "threePAr": 0.357,
-    "tovPct": 0.516,
-    "orbPct": 13.5
+    "tovPct": 13.5,
+    "orbPct": 29.5
   },
   {
     "team": "St. John's",
@@ -90,8 +90,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 71.0,
     "ftr": 0.419,
     "threePAr": 0.338,
-    "tovPct": 0.51,
-    "orbPct": 12.4
+    "tovPct": 12.4,
+    "orbPct": 35.9
   },
   {
     "team": "Louisville",
@@ -108,8 +108,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 71.0,
     "ftr": 0.335,
     "threePAr": 0.528,
-    "tovPct": 0.564,
-    "orbPct": 14.1
+    "tovPct": 14.1,
+    "orbPct": 32.9
   },
   {
     "team": "UCLA",
@@ -126,8 +126,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 65.7,
     "ftr": 0.331,
     "threePAr": 0.359,
-    "tovPct": 0.539,
-    "orbPct": 11.6
+    "tovPct": 11.6,
+    "orbPct": 31.1
   },
   {
     "team": "Ohio State",
@@ -144,8 +144,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 66.5,
     "ftr": 0.378,
     "threePAr": 0.401,
-    "tovPct": 0.565,
-    "orbPct": 13.6
+    "tovPct": 13.6,
+    "orbPct": 30.8
   },
   {
     "team": "TCU",
@@ -162,8 +162,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 69.7,
     "ftr": 0.387,
     "threePAr": 0.369,
-    "tovPct": 0.509,
-    "orbPct": 13.2
+    "tovPct": 13.2,
+    "orbPct": 34.4
   },
   {
     "team": "UCF",
@@ -180,8 +180,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 70.6,
     "ftr": 0.308,
     "threePAr": 0.344,
-    "tovPct": 0.528,
-    "orbPct": 13.4
+    "tovPct": 13.4,
+    "orbPct": 34.4
   },
   {
     "team": "South Florida",
@@ -198,8 +198,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 73.3,
     "ftr": 0.411,
     "threePAr": 0.442,
-    "tovPct": 0.514,
-    "orbPct": 12.4
+    "tovPct": 12.4,
+    "orbPct": 38.2
   },
   {
     "team": "Northern Iowa",
@@ -216,8 +216,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 63.7,
     "ftr": 0.256,
     "threePAr": 0.399,
-    "tovPct": 0.548,
-    "orbPct": 13.2
+    "tovPct": 13.2,
+    "orbPct": 22.1
   },
   {
     "team": "Cal Baptist",
@@ -234,8 +234,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 67.5,
     "ftr": 0.367,
     "threePAr": 0.318,
-    "tovPct": 0.487,
-    "orbPct": 15.0
+    "tovPct": 15.0,
+    "orbPct": 38.1
   },
   {
     "team": "North Dakota State",
@@ -252,8 +252,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 68.5,
     "ftr": 0.308,
     "threePAr": 0.419,
-    "tovPct": 0.545,
-    "orbPct": 13.2
+    "tovPct": 13.2,
+    "orbPct": 33.3
   },
   {
     "team": "Furman",
@@ -270,8 +270,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 66.7,
     "ftr": 0.317,
     "threePAr": 0.47,
-    "tovPct": 0.553,
-    "orbPct": 15.2
+    "tovPct": 15.2,
+    "orbPct": 32.7
   },
   {
     "team": "Siena",
@@ -288,8 +288,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 64.3,
     "ftr": 0.342,
     "threePAr": 0.319,
-    "tovPct": 0.506,
-    "orbPct": 13.8
+    "tovPct": 13.8,
+    "orbPct": 31.9
   },
   {
     "team": "Florida",
@@ -306,8 +306,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 72.5,
     "ftr": 0.391,
     "threePAr": 0.371,
-    "tovPct": 0.535,
-    "orbPct": 13.5
+    "tovPct": 13.5,
+    "orbPct": 43.2
   },
   {
     "team": "Houston",
@@ -324,8 +324,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 64.9,
     "ftr": 0.269,
     "threePAr": 0.408,
-    "tovPct": 0.521,
-    "orbPct": 10.9
+    "tovPct": 10.9,
+    "orbPct": 35.9
   },
   {
     "team": "Illinois",
@@ -342,8 +342,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 66.2,
     "ftr": 0.329,
     "threePAr": 0.507,
-    "tovPct": 0.551,
-    "orbPct": 11.0
+    "tovPct": 11.0,
+    "orbPct": 38.7
   },
   {
     "team": "Nebraska",
@@ -360,8 +360,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 67.3,
     "ftr": 0.272,
     "threePAr": 0.507,
-    "tovPct": 0.554,
-    "orbPct": 12.8
+    "tovPct": 12.8,
+    "orbPct": 26.3
   },
   {
     "team": "Vanderbilt",
@@ -378,8 +378,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 70.8,
     "ftr": 0.387,
     "threePAr": 0.438,
-    "tovPct": 0.556,
-    "orbPct": 11.7
+    "tovPct": 11.7,
+    "orbPct": 31.4
   },
   {
     "team": "North Carolina",
@@ -396,8 +396,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 68.8,
     "ftr": 0.374,
     "threePAr": 0.423,
-    "tovPct": 0.546,
-    "orbPct": 12.2
+    "tovPct": 12.2,
+    "orbPct": 31.4
   },
   {
     "team": "St. Mary's",
@@ -414,8 +414,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 66.5,
     "ftr": 0.362,
     "threePAr": 0.362,
-    "tovPct": 0.532,
-    "orbPct": 13.8
+    "tovPct": 13.8,
+    "orbPct": 37.8
   },
   {
     "team": "Clemson",
@@ -432,8 +432,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 65.5,
     "ftr": 0.371,
     "threePAr": 0.429,
-    "tovPct": 0.526,
-    "orbPct": 12.5
+    "tovPct": 12.5,
+    "orbPct": 28.1
   },
   {
     "team": "Iowa",
@@ -450,8 +450,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 63.4,
     "ftr": 0.345,
     "threePAr": 0.416,
-    "tovPct": 0.566,
-    "orbPct": 13.4
+    "tovPct": 13.4,
+    "orbPct": 30.1
   },
   {
     "team": "Texas A&M",
@@ -468,8 +468,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 72.5,
     "ftr": 0.374,
     "threePAr": 0.463,
-    "tovPct": 0.542,
-    "orbPct": 12.5
+    "tovPct": 12.5,
+    "orbPct": 32.3
   },
   {
     "team": "VCU",
@@ -486,8 +486,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 69.5,
     "ftr": 0.44,
     "threePAr": 0.438,
-    "tovPct": 0.542,
-    "orbPct": 13.2
+    "tovPct": 13.2,
+    "orbPct": 32.8
   },
   {
     "team": "McNeese",
@@ -504,8 +504,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 67.3,
     "ftr": 0.381,
     "threePAr": 0.347,
-    "tovPct": 0.523,
-    "orbPct": 11.9
+    "tovPct": 11.9,
+    "orbPct": 36.4
   },
   {
     "team": "Troy",
@@ -522,8 +522,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 68.1,
     "ftr": 0.358,
     "threePAr": 0.455,
-    "tovPct": 0.526,
-    "orbPct": 14.3
+    "tovPct": 14.3,
+    "orbPct": 35.3
   },
   {
     "team": "Penn",
@@ -540,8 +540,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 69.6,
     "ftr": 0.37,
     "threePAr": 0.345,
-    "tovPct": 0.505,
-    "orbPct": 13.3
+    "tovPct": 13.3,
+    "orbPct": 31.2
   },
   {
     "team": "Idaho",
@@ -558,8 +558,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 69.6,
     "ftr": 0.34,
     "threePAr": 0.468,
-    "tovPct": 0.531,
-    "orbPct": 13.2
+    "tovPct": 13.2,
+    "orbPct": 30.0
   },
   {
     "team": "Prairie View A&M",
@@ -576,8 +576,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 73.8,
     "ftr": 0.43,
     "threePAr": 0.307,
-    "tovPct": 0.495,
-    "orbPct": 14.1
+    "tovPct": 14.1,
+    "orbPct": 28.0
   },
   {
     "team": "Arizona",
@@ -594,8 +594,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 71.3,
     "ftr": 0.429,
     "threePAr": 0.268,
-    "tovPct": 0.551,
-    "orbPct": 12.9
+    "tovPct": 12.9,
+    "orbPct": 38.1
   },
   {
     "team": "Purdue",
@@ -612,8 +612,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 65.4,
     "ftr": 0.283,
     "threePAr": 0.414,
-    "tovPct": 0.577,
-    "orbPct": 11.8
+    "tovPct": 11.8,
+    "orbPct": 36.7
   },
   {
     "team": "Gonzaga",
@@ -630,8 +630,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 70.4,
     "ftr": 0.311,
     "threePAr": 0.31,
-    "tovPct": 0.563,
-    "orbPct": 11.7
+    "tovPct": 11.7,
+    "orbPct": 34.8
   },
   {
     "team": "Arkansas",
@@ -648,8 +648,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 72.4,
     "ftr": 0.367,
     "threePAr": 0.331,
-    "tovPct": 0.563,
-    "orbPct": 10.6
+    "tovPct": 10.6,
+    "orbPct": 32.6
   },
   {
     "team": "Wisconsin",
@@ -666,8 +666,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 68.8,
     "ftr": 0.319,
     "threePAr": 0.526,
-    "tovPct": 0.545,
-    "orbPct": 11.1
+    "tovPct": 11.1,
+    "orbPct": 29.4
   },
   {
     "team": "BYU",
@@ -684,8 +684,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 70.5,
     "ftr": 0.342,
     "threePAr": 0.398,
-    "tovPct": 0.547,
-    "orbPct": 13.0
+    "tovPct": 13.0,
+    "orbPct": 34.6
   },
   {
     "team": "Miami",
@@ -702,8 +702,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 69.3,
     "ftr": 0.375,
     "threePAr": 0.317,
-    "tovPct": 0.556,
-    "orbPct": 13.7
+    "tovPct": 13.7,
+    "orbPct": 37.0
   },
   {
     "team": "Villanova",
@@ -720,8 +720,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 66.4,
     "ftr": 0.313,
     "threePAr": 0.457,
-    "tovPct": 0.537,
-    "orbPct": 12.9
+    "tovPct": 12.9,
+    "orbPct": 32.4
   },
   {
     "team": "Utah State",
@@ -738,8 +738,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 68.5,
     "ftr": 0.378,
     "threePAr": 0.412,
-    "tovPct": 0.572,
-    "orbPct": 13.3
+    "tovPct": 13.3,
+    "orbPct": 33.3
   },
   {
     "team": "Missouri",
@@ -756,8 +756,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 68.4,
     "ftr": 0.425,
     "threePAr": 0.36,
-    "tovPct": 0.553,
-    "orbPct": 15.3
+    "tovPct": 15.3,
+    "orbPct": 35.5
   },
   {
     "team": "Texas",
@@ -774,8 +774,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 69.2,
     "ftr": 0.453,
     "threePAr": 0.36,
-    "tovPct": 0.55,
-    "orbPct": 13.5
+    "tovPct": 13.5,
+    "orbPct": 36.3
   },
   {
     "team": "High Point",
@@ -792,8 +792,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 71.8,
     "ftr": 0.433,
     "threePAr": 0.42,
-    "tovPct": 0.566,
-    "orbPct": 11.1
+    "tovPct": 11.1,
+    "orbPct": 33.1
   },
   {
     "team": "Hawaii",
@@ -810,8 +810,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 72.1,
     "ftr": 0.429,
     "threePAr": 0.401,
-    "tovPct": 0.522,
-    "orbPct": 16.1
+    "tovPct": 16.1,
+    "orbPct": 32.3
   },
   {
     "team": "Kennesaw State",
@@ -828,8 +828,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 72.4,
     "ftr": 0.436,
     "threePAr": 0.434,
-    "tovPct": 0.522,
-    "orbPct": 13.7
+    "tovPct": 13.7,
+    "orbPct": 36.6
   },
   {
     "team": "Queens",
@@ -846,8 +846,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 71.0,
     "ftr": 0.374,
     "threePAr": 0.47,
-    "tovPct": 0.567,
-    "orbPct": 13.1
+    "tovPct": 13.1,
+    "orbPct": 30.2
   },
   {
     "team": "LIU",
@@ -864,8 +864,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 68.1,
     "ftr": 0.347,
     "threePAr": 0.29,
-    "tovPct": 0.533,
-    "orbPct": 16.4
+    "tovPct": 16.4,
+    "orbPct": 34.3
   },
   {
     "team": "Michigan",
@@ -882,8 +882,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 71.6,
     "ftr": 0.386,
     "threePAr": 0.419,
-    "tovPct": 0.582,
-    "orbPct": 14.6
+    "tovPct": 14.6,
+    "orbPct": 35.4
   },
   {
     "team": "Iowa State",
@@ -900,8 +900,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 68.2,
     "ftr": 0.34,
     "threePAr": 0.388,
-    "tovPct": 0.565,
-    "orbPct": 12.8
+    "tovPct": 12.8,
+    "orbPct": 35.3
   },
   {
     "team": "Virginia",
@@ -918,8 +918,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 66.5,
     "ftr": 0.33,
     "threePAr": 0.465,
-    "tovPct": 0.546,
-    "orbPct": 13.4
+    "tovPct": 13.4,
+    "orbPct": 37.9
   },
   {
     "team": "Alabama",
@@ -936,8 +936,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 74.6,
     "ftr": 0.372,
     "threePAr": 0.537,
-    "tovPct": 0.554,
-    "orbPct": 11.2
+    "tovPct": 11.2,
+    "orbPct": 31.8
   },
   {
     "team": "Texas Tech",
@@ -954,8 +954,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 67.9,
     "ftr": 0.271,
     "threePAr": 0.48,
-    "tovPct": 0.562,
-    "orbPct": 13.6
+    "tovPct": 13.6,
+    "orbPct": 33.3
   },
   {
     "team": "Tennessee",
@@ -972,8 +972,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 67.3,
     "ftr": 0.387,
     "threePAr": 0.317,
-    "tovPct": 0.516,
-    "orbPct": 13.9
+    "tovPct": 13.9,
+    "orbPct": 45.1
   },
   {
     "team": "Kentucky",
@@ -990,8 +990,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 69.8,
     "ftr": 0.375,
     "threePAr": 0.392,
-    "tovPct": 0.531,
-    "orbPct": 12.8
+    "tovPct": 12.8,
+    "orbPct": 33.8
   },
   {
     "team": "Georgia",
@@ -1008,8 +1008,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 73.4,
     "ftr": 0.37,
     "threePAr": 0.439,
-    "tovPct": 0.546,
-    "orbPct": 12.2
+    "tovPct": 12.2,
+    "orbPct": 35.2
   },
   {
     "team": "St. Louis",
@@ -1026,8 +1026,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 72.0,
     "ftr": 0.341,
     "threePAr": 0.454,
-    "tovPct": 0.6,
-    "orbPct": 15.2
+    "tovPct": 15.2,
+    "orbPct": 32.0
   },
   {
     "team": "Santa Clara",
@@ -1044,8 +1044,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 69.7,
     "ftr": 0.252,
     "threePAr": 0.451,
-    "tovPct": 0.546,
-    "orbPct": 13.0
+    "tovPct": 13.0,
+    "orbPct": 36.7
   },
   {
     "team": "SMU",
@@ -1062,8 +1062,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 70.7,
     "ftr": 0.306,
     "threePAr": 0.36,
-    "tovPct": 0.557,
-    "orbPct": 13.6
+    "tovPct": 13.6,
+    "orbPct": 35.4
   },
   {
     "team": "Akron",
@@ -1080,8 +1080,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 71.8,
     "ftr": 0.277,
     "threePAr": 0.451,
-    "tovPct": 0.588,
-    "orbPct": 13.2
+    "tovPct": 13.2,
+    "orbPct": 34.0
   },
   {
     "team": "Hofstra",
@@ -1098,8 +1098,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 65.6,
     "ftr": 0.319,
     "threePAr": 0.437,
-    "tovPct": 0.522,
-    "orbPct": 13.5
+    "tovPct": 13.5,
+    "orbPct": 35.5
   },
   {
     "team": "Wright State",
@@ -1116,8 +1116,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 69.0,
     "ftr": 0.377,
     "threePAr": 0.334,
-    "tovPct": 0.549,
-    "orbPct": 14.0
+    "tovPct": 14.0,
+    "orbPct": 34.2
   },
   {
     "team": "Tennessee State",
@@ -1134,8 +1134,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 72.0,
     "ftr": 0.338,
     "threePAr": 0.306,
-    "tovPct": 0.51,
-    "orbPct": 14.3
+    "tovPct": 14.3,
+    "orbPct": 35.4
   },
   {
     "team": "UMBC",
@@ -1152,8 +1152,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 66.9,
     "ftr": 0.329,
     "threePAr": 0.392,
-    "tovPct": 0.542,
-    "orbPct": 12.7
+    "tovPct": 12.7,
+    "orbPct": 25.6
   },
   {
     "team": "NC State",
@@ -1170,8 +1170,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 69.5,
     "ftr": 0.352,
     "threePAr": 0.439,
-    "tovPct": 0.553,
-    "orbPct": 11.5
+    "tovPct": 11.5,
+    "orbPct": 28.5
   },
   {
     "team": "Miami (OH)",
@@ -1188,8 +1188,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 72.1,
     "ftr": 0.396,
     "threePAr": 0.447,
-    "tovPct": 0.612,
-    "orbPct": 12.9
+    "tovPct": 12.9,
+    "orbPct": 26.4
   },
   {
     "team": "Lehigh",
@@ -1206,8 +1206,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 67.1,
     "ftr": 0.323,
     "threePAr": 0.389,
-    "tovPct": 0.534,
-    "orbPct": 15.8
+    "tovPct": 15.8,
+    "orbPct": 23.6
   },
   {
     "team": "Howard",
@@ -1224,8 +1224,8 @@ export const MARCH_MADNESS_TEAMS = [
     "pace": 69.9,
     "ftr": 0.45,
     "threePAr": 0.34,
-    "tovPct": 0.517,
-    "orbPct": 16.4
+    "tovPct": 16.4,
+    "orbPct": 37.2
   }
 ];
 
