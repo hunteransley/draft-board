@@ -865,10 +865,13 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
         ctx.fillText(bar.label,bx+eqBarW/2,eqMidY+eqHalfH+8);ctx.textAlign='left';
       });
       ctx.fillStyle='#d4d4d4';ctx.fillRect(eqStartX-2,eqMidY,eqTotalBarW+4,0.5);
-      // Legend
-      ctx.font=`bold 7px ${mono}`;ctx.textAlign='left';
-      ctx.fillStyle='#7c3aed';ctx.fillText('◼ TRAITS',centerX+mp,eqTop+mp);
-      if(eqMeas.length>0){ctx.fillStyle='#0891b2';ctx.fillText('◼ MEASURABLES',centerX+mp+60,eqTop+mp);}
+      // Title
+      ctx.fillStyle='#a3a3a3';ctx.font=`10px ${mono}`;ctx.letterSpacing='2px';ctx.textAlign='left';
+      ctx.fillText('EQUALIZER',centerX+mp,eqTop+mp);ctx.letterSpacing='0px';
+      // Traits label left, Measurables label right
+      ctx.font=`bold 8px ${mono}`;
+      ctx.fillStyle='#7c3aed';ctx.textAlign='left';ctx.fillText('◼ TRAITS',eqStartX,eqTop+mp);
+      if(eqMeas.length>0){ctx.fillStyle='#0891b2';ctx.textAlign='right';ctx.fillText('MEASURABLES ◼',eqStartX+eqTotalBarW,eqTop+mp);ctx.textAlign='left';}
     }}
 
     // ====== MODULE 7: Traits Radar ======
