@@ -6174,7 +6174,7 @@ function AdminGrades({onBack}){
   const[saveStatus,setSaveStatus]=useState("idle");
   const[devMode,setDevMode]=useState(false);
 
-  useEffect(()=>{fetch("/__admin/ping").then(r=>{if(r.ok)setDevMode(true);}).catch(()=>{});},[]);
+  useEffect(()=>{fetch("/__admin/ping").then(r=>r.json()).then(d=>{if(d&&d.ok)setDevMode(true);}).catch(()=>{});},[]);
 
   const positions=useMemo(()=>{const s=new Set();prospectList.forEach(p=>s.add(p.pos));return["ALL",...[...s].sort()];},[prospectList]);
 

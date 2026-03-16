@@ -7,25 +7,30 @@ function adminSavePlugin() {
   return {
     name: 'admin-save-traits',
     configureServer(server) {
-      server.middlewares.use('/__admin/ping', (_req, res) => {
-        res.setHeader('Content-Type', 'text/plain');
-        res.end('ok');
-      });
-      server.middlewares.use('/__admin/save-traits', (req, res) => {
-        if (req.method !== 'POST') { res.statusCode = 405; res.end(); return; }
-        let body = '';
-        req.on('data', c => body += c);
-        req.on('end', () => {
-          try {
-            JSON.parse(body); // validate
-            writeFileSync('./src/scoutingTraits.json', body, 'utf-8');
-            res.setHeader('Content-Type', 'text/plain');
-            res.end('ok');
-          } catch (e) {
-            res.statusCode = 400;
-            res.end('invalid json');
-          }
-        });
+      server.middlewares.use((req, res, next) => {
+        if (req.url === '/__admin/ping') {
+          res.setHeader('Content-Type', 'application/json');
+          res.end('{"ok":true}');
+          return;
+        }
+        if (req.url === '/__admin/save-traits') {
+          if (req.method !== 'POST') { res.statusCode = 405; res.end(); return; }
+          let body = '';
+          req.on('data', c => body += c);
+          req.on('end', () => {
+            try {
+              JSON.parse(body);
+              writeFileSync('./src/scoutingTraits.json', body, 'utf-8');
+              res.setHeader('Content-Type', 'text/plain');
+              res.end('ok');
+            } catch (e) {
+              res.statusCode = 400;
+              res.end('invalid json');
+            }
+          });
+          return;
+        }
+        next();
       });
     }
   };
