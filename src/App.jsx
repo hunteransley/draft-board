@@ -846,7 +846,7 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
       const eqMidY=eqTop+Math.floor(eqModH/2);
       eqBars.forEach((bar,i)=>{
         const nBlocks=Math.max(1,Math.round((bar.value/100)*eqMaxBlocks));
-        const bx=eqStartX+i*(eqBarW+eqGap)+(bar.type==="meas"&&i===eqTraits.length?10:0);
+        const bx=eqStartX+i*(eqBarW+eqGap)+(bar.type==="meas"?10:0);
         for(let bi=0;bi<eqMaxBlocks;bi++){
           const active=bi<nBlocks;const t2=active?(bi/(eqMaxBlocks-1)):0;
           if(bar.type==="trait"){
