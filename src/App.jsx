@@ -3,6 +3,7 @@ import { supabase } from "./supabase.js";
 import MockDraftSim from "./MockDraftSim.jsx";
 import Round1Prediction from "./Round1Prediction.jsx";
 import GmQuiz from "./GmQuiz.jsx";
+import DraftBracket from "./DraftBracket.jsx";
 import { CONSENSUS_BOARD, getConsensusRank, getConsensusGrade, getConsensusRound } from "./consensusData.js";
 import { getProspectStats } from "./prospectStats.js";
 import { getStatBasedTraits } from "./statTraits.js";
@@ -7698,6 +7699,7 @@ export default function App(){
   const[showOG,setShowOG]=useState(()=>window.location.hash==="#og-preview");
   const[showGuide,setShowGuide]=useState(()=>window.location.pathname==='/guide');
   const[showGmQuiz,setShowGmQuiz]=useState(()=>window.location.pathname==='/gm'||window.location.pathname==='/which-gm-are-you');
+  const[showDraftBracket,setShowDraftBracket]=useState(()=>window.location.pathname==='/draft-bracket');
   const[gmQuizMockLaunch,setGmQuizMockLaunch]=useState(null);// {team} from quiz CTA
   const[isGuest,setIsGuest]=useState(false);
   const[authPrompt,setAuthPrompt]=useState(null);
@@ -7712,7 +7714,7 @@ export default function App(){
   },[]);
 
   useEffect(()=>{
-    const onPop=()=>{setShowGuide(window.location.pathname==='/guide');setShowGmQuiz(window.location.pathname==='/gm'||window.location.pathname==='/which-gm-are-you');};
+    const onPop=()=>{setShowGuide(window.location.pathname==='/guide');setShowGmQuiz(window.location.pathname==='/gm'||window.location.pathname==='/which-gm-are-you');setShowDraftBracket(window.location.pathname==='/draft-bracket');};
     window.addEventListener("popstate",onPop);
     return()=>window.removeEventListener("popstate",onPop);
   },[]);
@@ -7739,6 +7741,7 @@ export default function App(){
   if(showGuide)return<GuidePage onBack={()=>{window.history.back();}}/>;
   if(showOG)return<OGPreview/>;
   if(showGmQuiz)return<GmQuiz user={user} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} trackEvent={trackEvent} userId={user?.id} onLaunchMock={(team)=>{setGmQuizMockLaunch(team);setShowGmQuiz(false);window.history.pushState({},'','/');}} onHome={()=>{setShowGmQuiz(false);window.history.pushState({},'','/');window.dispatchEvent(new PopStateEvent("popstate"));}}/>;
+  if(showDraftBracket)return<DraftBracket SchoolLogo={SchoolLogo} onHome={()=>{setShowDraftBracket(false);window.history.pushState({},'','/');window.dispatchEvent(new PopStateEvent("popstate"));}}/>;
   if(!user&&!isGuest&&!(window.location.pathname==='/lab'||window.location.pathname==='/data-lab'||window.location.pathname.startsWith('/lab/')||window.location.pathname.startsWith('/data-lab/'))&&window.location.pathname!=='/trends')return<AuthScreen onSkip={()=>{const p=window.location.pathname;if(p==='/board'||p.startsWith('/rank')||p==='/r1'||p==='/my-guys')window.history.replaceState({},'','/');setIsGuest(true);}} onOpenGuide={navigateToGuide}/>;
   if(showAdmin==="dashboard"&&user&&ADMIN_EMAILS.includes(user.email))return<AdminDashboard user={user} onBack={()=>{window.location.hash="";setShowAdmin(null);}}/>;
   if(showAdmin==="grades"&&user&&ADMIN_EMAILS.includes(user.email))return<AdminGrades onBack={()=>{window.location.hash="";setShowAdmin(null);}} onSave={setAdminOverrides}/>;
