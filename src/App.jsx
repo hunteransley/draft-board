@@ -1940,6 +1940,15 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     const raw=fullPath.split('?')[0];
     const p=raw.length>1?raw.replace(/\/+$/,''):raw;
     const search=new URLSearchParams(fullPath.includes('?')?fullPath.split('?')[1]:'');
+    // Update browser tab title
+    const base="Big Board Lab";
+    if(isLabPath(p))document.title=`Data Lab — ${base}`;
+    else if(p==='/trends')document.title=`Team Insights — ${base}`;
+    else if(p==='/r1')document.title=`R1 Predictions — ${base}`;
+    else if(p==='/my-guys')document.title=`My Guys — ${base}`;
+    else if(p==='/board'||p.startsWith('/board/'))document.title=`Big Board — ${base}`;
+    else if(p.startsWith('/rank'))document.title=`Rankings — ${base}`;
+    else document.title=`${base} — 2026 NFL Mock Draft Simulator & Board Builder`;
     // Reset all DraftBoard-level overlays
     setShowExplorer(false);setShowTrends(false);setShowRound1Prediction(false);setShowMyGuys(false);setShowMockDraft(false);setMockLaunchTeam(null);
     if(isLabPath(p)){
@@ -4113,6 +4122,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     {(()=>{
       const topTeams=["Raiders","Jets","Cardinals","Titans","Giants","Browns","Commanders","Saints","Chiefs","Bengals","Dolphins","Cowboys","Rams","Ravens","Buccaneers","Lions","Vikings","Panthers","Steelers","Chargers","Eagles","Bears","Bills","49ers","Texans","Broncos","Patriots","Seahawks","Falcons","Colts","Packers","Jaguars"];
       const launchMock=()=>{
+        document.title="Mock Draft — Big Board Lab";
         setShowMockDraft(true);
         setMockLaunchTeam(mockTeamSet);
         trackEvent(user?.id,'mock_draft_cta_click',{teams:[...mockTeamSet].join(','),rounds:mockRounds,speed:mockSpeed,guest:!user});
