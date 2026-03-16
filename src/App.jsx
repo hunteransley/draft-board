@@ -3173,13 +3173,13 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
           const maxStops=scarcityTeam?teamPicks.length:7;
           const clampedPick=Math.min(scarcityPick,maxStops);
           const consumeCount=scarcityTeam?(clampedPick===0?0:teamPicks[clampedPick-1].pick-1):(ROUND_BOUNDS[clampedPick]||0);
-          const allSorted=[...PROSPECTS].sort((a,b)=>getGrade(b.id)-getGrade(a.id));
+          const allSorted=[...PROSPECTS].sort((a,b)=>getConsensusRank(a.name)-getConsensusRank(b.name));
           const consumedSet=new Set(allSorted.slice(0,consumeCount).map(p=>p.id));
 
           const scarcityData=EXPLORER_GROUPS.map(pos=>{
             const allAtPos=byPos[pos]||[];
             const remaining=allAtPos.filter(p=>!consumedSet.has(p.id));
-            const qualityCount=remaining.filter(p=>getGrade(p.id)>=60).length;
+            const qualityCount=remaining.filter(p=>getScoutingGrade(p.id)>=60).length;
             // Demand is always league-wide (stable axes)
             let demandTeams=0,totalUrgency=0;
             const teamUrgencies=[];
