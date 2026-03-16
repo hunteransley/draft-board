@@ -404,14 +404,14 @@ const ScatterChart=memo(function ScatterChart({points,width,xLabel,yLabel,xInver
       const isMyGuy=showMyGuys&&myGuyNames.has(pt.name);
       const isSpotlit=spotlightName&&pt.name===spotlightName;
       const fade=spotlightName?!isSpotlit:(showMyGuys&&myGuyNames.size>0&&!isMyGuy);
-      const opacity=fade?(spotlightName?(showLogos?0.3:0.15):0.3):1;
+      const opacity=fade?(spotlightName?(showLogos?0.2:0.15):0.3):1;
       const r=isSpotlit?dotR*2.2:isMyGuy?dotR+1.5:isHovered?dotR+1:dotR;
       return<g key={pt.id} style={{cursor:"pointer"}}>
         <circle cx={cx} cy={cy} r={showLogos?logoSize/2+2:12} fill="transparent" stroke="none"
           onPointerEnter={e=>onHover({...pt,cx:e.clientX,cy:e.clientY})}
           onPointerLeave={()=>onHover(null)}
           onClick={()=>onTap(pt)}/>
-        {isSpotlit&&<circle cx={cx} cy={cy} r={r+5} fill={color} opacity={0.15} style={{pointerEvents:"none"}}/>}
+        {isSpotlit&&<><defs><linearGradient id="spotGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#ec4899"/><stop offset="100%" stopColor="#7c3aed"/></linearGradient></defs><circle cx={cx} cy={cy} r={r+5} fill="none" stroke="url(#spotGrad)" strokeWidth={2.5} style={{pointerEvents:"none"}}/></>}
         {showLogos?(()=>{const logoUrl=schoolLogo(pt.school);return logoUrl?<image href={logoUrl} x={cx-logoSize/2} y={cy-logoSize/2} width={logoSize} height={logoSize} opacity={opacity} style={{pointerEvents:"none"}}/>
           :<circle cx={cx} cy={cy} r={dotR} fill="#d4d4d4" opacity={opacity} style={{pointerEvents:"none"}}/>;})()
         :<circle cx={cx} cy={cy} r={r}
