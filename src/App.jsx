@@ -2357,7 +2357,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     return(<div style={{position:"fixed",inset:0,background:"#faf9f6",zIndex:9000,overflow:"auto",WebkitOverflowScrolling:"touch"}}>
       <SaveBar {...saveBarProps}/>
       <div style={{maxWidth:960,margin:"0 auto",padding:"52px 16px 80px"}}>
-        <style>{`@media(max-width:700px){.trends-grid{flex-direction:column!important;}}`}</style>
+        <style>{`@media(max-width:700px){.trends-grid{flex-direction:column!important;align-items:stretch!important;}}`}</style>
         {/* Header */}
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
           <h1 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:0}}>team mock trends</h1>
