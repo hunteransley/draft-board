@@ -847,8 +847,48 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
       drawRadar(r8CX,r8CY,radarRad8,measData.labels,measData.values,c,null,measData.proDaySpokes);
     }
 
+    // ====== EQUALIZER — between radars and branding ======
+    {const eqY=radarTop+actualRadarH+8;const eqW=centerW+gap+rightW;const eqH=60;
+    const eqTraits=posTraits.map(t=>({label:TRAIT_ABBREV[t]||t.split(" ").map(w=>w[0]).join(""),value:tv(traits,player.id,t,player.name,player.school),type:"trait"}));
+    const eqMeasData=getMeasRadarData(player.name,player.school);
+    const eqMeas=eqMeasData?eqMeasData.labels.map((l,i)=>({label:l,value:eqMeasData.values[i],type:"meas"})):[];
+    const eqBars=[...eqTraits,...eqMeas];
+    if(eqBars.length>=3){
+      const eqBarW=Math.min(24,Math.floor((eqW-mp*2-20)/(eqBars.length+1)));const eqGap=2;
+      const eqMaxBlocks=6;const eqBlockH=3;const eqBlockGap=1;const eqHalfH=eqMaxBlocks*(eqBlockH+eqBlockGap);
+      const eqTotalBarW=eqBars.length*(eqBarW+eqGap)+8;
+      const eqStartX=centerX+Math.floor((eqW-eqTotalBarW)/2);
+      const eqMidY=eqY+Math.floor(eqH/2);
+      eqBars.forEach((bar,i)=>{
+        const nBlocks=Math.max(1,Math.round((bar.value/100)*eqMaxBlocks));
+        const bx=eqStartX+i*(eqBarW+eqGap)+(bar.type==="meas"&&i===eqTraits.length?8:0);
+        // Draw blocks up and down from center
+        for(let bi=0;bi<eqMaxBlocks;bi++){
+          const active=bi<nBlocks;const t2=active?(bi/(eqMaxBlocks-1)):0;
+          if(bar.type==="trait"){
+            const cr=Math.round(236+(124-236)*t2),cg=Math.round(72+(58-72)*t2),cb=Math.round(153+(237-153)*t2);
+            ctx.fillStyle=active?`rgb(${cr},${cg},${cb})`:'#f0eef3';
+          }else{
+            const cr=Math.round(160+(6-160)*t2),cg=Math.round(215+(182-215)*t2),cb=Math.round(220+(212-220)*t2);
+            ctx.fillStyle=active?`rgb(${cr},${cg},${cb})`:'#edf7f9';
+          }
+          // Up
+          const uy=eqMidY-1-(bi+1)*(eqBlockH+eqBlockGap);
+          rr(bx,uy,eqBarW,eqBlockH,1);ctx.fill();
+          // Down
+          const dy=eqMidY+1+bi*(eqBlockH+eqBlockGap);
+          rr(bx,dy,eqBarW,eqBlockH,1);ctx.fill();
+        }
+        // Label
+        ctx.fillStyle=bar.type==="trait"?"#a3a3a3":"#0891b2";ctx.font=`6px ${mono}`;ctx.textAlign='center';
+        ctx.fillText(bar.label,bx+eqBarW/2,eqMidY+eqHalfH+6);ctx.textAlign='left';
+      });
+      // Center line
+      ctx.fillStyle='#d4d4d4';ctx.fillRect(eqStartX-2,eqMidY,eqTotalBarW+4,0.5);
+    }}
+
     // ====== BRANDING (no module) — centered between radar bottom and traits module bottom ======
-    const radarBot=radarTop+actualRadarH;
+    const radarBot=radarTop+actualRadarH+70;
     const traitsBot=m6Y+m6H;
     const brandCenterY=radarBot+Math.floor((traitsBot-radarBot)/2);
     ctx.textBaseline='middle';
