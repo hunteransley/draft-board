@@ -80,7 +80,7 @@ const FormationChart=memo(({team,depthChart,mono,sans})=>{
       const entry=chart[slot];const filled=!!entry;const isDraft=entry?.isDraft;
       if(!filled&&pos.schemeOnly)return null;
       if(pos.altFor&&chart[pos.altFor])return null;
-      const rvSlot=ROSTER_BY_SLOT[team]?.[slot];const rv=filled&&!isDraft&&(rvSlot||Object.values(ROSTER_BY_SLOT[team]||{}).find(r=>r.name===entry.name));
+      const rvSlot=ROSTER_BY_SLOT[team]?.[slot];const rv=filled&&!isDraft&&(rvSlot||(entry&&ROSTER_BY_NAME[entry.name])||Object.values(ROSTER_BY_SLOT[team]||{}).find(r=>r.name===entry.name));
       const tierColor=rv?TIER_COLORS[rv.performanceTier]:null;
       const dotColor=isDraft?"#7c3aed":tierColor||(filled?"#a8a29e":"#d4d4d4");
       const lastName=entry?shortName(entry.name):"";
@@ -1341,7 +1341,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
   const resultsRef=useRef(null);
   const ctaPickRef=useRef(null);
 
-  const shareDraft=useCallback(async()=>{
+  const shareDraft=useCallback(async(previewOnly)=>{
     const up=picks.filter(pk=>pk.isUser);
     if(up.length===0)return;
     const isSingleTeam=userTeams.size===1;
@@ -1796,7 +1796,10 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       }
     }
 
-    // === EXPORT — clipboard + toast on desktop, share sheet on mobile ===
+    // === EXPORT — preview mode returns data URL, otherwise clipboard/share ===
+    if(previewOnly){
+      return new Promise(resolve=>{canvas.toBlob(blob=>{if(!blob)return resolve(null);const url=URL.createObjectURL(blob);resolve(url);},'image/png');});
+    }
     const label=isSingleTeam?team:'mock-draft';
     canvas.toBlob(async blob=>{
       if(trackEvent)trackEvent(userId,'share_triggered',{type:isAllTeams?'mock_all32':'mock_single',team:[...userTeams].join(','),grade:draftGrade?.grade||null,guest:!!isGuestUser});
@@ -1913,6 +1916,14 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     return pills.slice(0,4);
   };
 
+  // Share card preview state (must be before any early returns)
+  const[shareCardUrl,setShareCardUrl]=useState(null);
+  useEffect(()=>{if(showResults&&picks.length>=totalPicks&&(userTeams.size===1||userTeams.size===32)){
+    setShareCardUrl(null);
+    const t=setTimeout(()=>{shareDraft(true).then(url=>{if(url)setShareCardUrl(url);});},300);
+    return()=>clearTimeout(t);
+  }},[showResults,picks.length]);
+
   // === SETUP SCREEN ===
   // If launching from home screen, show a loading state instead of setup screen during auto-start
   if(!setupDone&&mockLaunchTeam&&mockLaunchTeam instanceof Set&&mockLaunchTeam.size>0)return(
@@ -1996,17 +2007,21 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
           <button onClick={onClose} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"3px 10px",cursor:"pointer"}}>✕ exit</button>
         </div>
         <div ref={resultsRef} style={{maxWidth:900,margin:"0 auto",padding:"52px 24px 40px",textAlign:"center"}}>
-          <h1 style={{fontSize:36,fontWeight:900,color:"#171717",margin:"0 0 8px"}}>draft complete!</h1>
-          {/* Overall grade — single team only, shown prominently at top */}
-          {draftGrade&&userTeams.size===1&&<div style={{display:"inline-block",padding:"12px 32px",background:"#fff",border:"2px solid "+draftGrade.color,borderRadius:16,marginBottom:24}}>
-            <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>draft grade</div>
-            <div style={{fontFamily:font,fontSize:56,fontWeight:900,color:draftGrade.color,lineHeight:1}}>{draftGrade.grade}</div>
-            {tradeValueDelta!==0&&<div style={{fontFamily:mono,fontSize:10,color:tradeValueDelta>0?"#16a34a":"#dc2626",marginTop:4}}>trade surplus: {tradeValueDelta>0?"+":""}{tradeValueDelta} pts</div>}
+          {/* Share card preview — the hero */}
+          {shareCardUrl&&<div style={{marginBottom:16}}>
+            <img src={shareCardUrl} alt="Draft results" style={{width:"100%",maxWidth:700,borderRadius:12,border:"1px solid #e5e5e5",boxShadow:"0 4px 24px rgba(0,0,0,0.08)"}}/>
           </div>}
-          {/* All-32: no grade, just a label */}
-          {userTeams.size===32&&<div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",marginBottom:24,letterSpacing:1}}>2026 NFL DRAFT · FIRST ROUND PREDICTIONS</div>}
+          {!shareCardUrl&&<>
+            <h1 style={{fontSize:36,fontWeight:900,color:"#171717",margin:"0 0 8px"}}>draft complete!</h1>
+            {draftGrade&&userTeams.size===1&&<div style={{display:"inline-block",padding:"12px 32px",background:"#fff",border:"2px solid "+draftGrade.color,borderRadius:16,marginBottom:24}}>
+              <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>draft grade</div>
+              <div style={{fontFamily:font,fontSize:56,fontWeight:900,color:draftGrade.color,lineHeight:1}}>{draftGrade.grade}</div>
+              {tradeValueDelta!==0&&<div style={{fontFamily:mono,fontSize:10,color:tradeValueDelta>0?"#16a34a":"#dc2626",marginTop:4}}>trade surplus: {tradeValueDelta>0?"+":""}{tradeValueDelta} pts</div>}
+            </div>}
+          </>}
+          {userTeams.size===32&&!shareCardUrl&&<div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",marginBottom:24,letterSpacing:1}}>2026 NFL DRAFT · FIRST ROUND PREDICTIONS</div>}
           <div style={{display:"flex",gap:8,justifyContent:"center",marginBottom:24}}>
-            {(userTeams.size===1||userTeams.size===32)&&<button onClick={shareDraft} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 24px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",position:"relative"}}><span style={{visibility:copiedDraft?"hidden":"visible"}}><span className="shimmer-text">share results</span></span>{copiedDraft&&<span style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#a3a3a3",fontWeight:400}}>copied</span>}</button>}
+            {(userTeams.size===1||userTeams.size===32)&&<button onClick={shareDraft} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 24px",background:"#171717",color:"#fff",border:"none",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",position:"relative"}}><span style={{visibility:copiedDraft?"hidden":"visible"}}><span className="shimmer-text" style={{background:"linear-gradient(90deg,#fff,#ec4899,#fff)",backgroundSize:"200% auto",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",backgroundClip:"text"}}>share to X</span></span>{copiedDraft&&<span style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontWeight:400}}>copied!</span>}</button>}
             <button onClick={onClose} style={{fontFamily:sans,fontSize:12,padding:"8px 20px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>draft again</button>
             {myGuys&&<button onClick={()=>{if(isGuest){onRequireAuth("want to see and share the guys you draft more than others?");return;}if(trackEvent)trackEvent(userId,'my_guys_viewed',{count:(myGuys||[]).length});setShowMyGuysOverlay(true);if(setMyGuysUpdated)setMyGuysUpdated(false);}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:myGuysUpdated?"linear-gradient(135deg,#ec4899,#7c3aed)":mockCount>0?"#171717":"transparent",color:myGuysUpdated||mockCount>0?"#fff":"#a3a3a3",border:myGuysUpdated||mockCount>0?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",position:"relative",transition:"all 0.2s"}}>
               👀 my guys
