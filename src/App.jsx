@@ -850,8 +850,8 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
 
   return(
     <>
-      <div onClick={handleClose} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.25)",zIndex:200,opacity:isOpen?1:0,transition:"opacity 0.3s",cursor:"pointer"}}/>
-      <div style={{position:"fixed",top:0,right:0,bottom:0,width:Math.min(460,window.innerWidth-24),background:"#faf9f6",zIndex:201,boxShadow:"-8px 0 32px rgba(0,0,0,0.12)",transform:isOpen?"translateX(0)":"translateX(100%)",transition:"transform 0.3s cubic-bezier(0.16,1,0.3,1)",display:"flex",flexDirection:"column",overflowY:"auto",overflowX:"hidden"}}>
+      <div onClick={handleClose} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.25)",zIndex:10000,opacity:isOpen?1:0,transition:"opacity 0.3s",cursor:"pointer"}}/>
+      <div style={{position:"fixed",top:0,right:0,bottom:0,width:Math.min(460,window.innerWidth-24),background:"#faf9f6",zIndex:10001,boxShadow:"-8px 0 32px rgba(0,0,0,0.12)",transform:isOpen?"translateX(0)":"translateX(100%)",transition:"transform 0.3s cubic-bezier(0.16,1,0.3,1)",display:"flex",flexDirection:"column",overflowY:"auto",overflowX:"hidden"}}>
         <div style={{padding:"20px 24px 0",display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
           <div style={{display:"flex",gap:8,alignItems:"center"}}>
             <button onClick={handleClose} style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"5px 14px",cursor:"pointer"}}>✕ close</button>
@@ -1091,8 +1091,8 @@ function AuthModal({message,onClose}){
   };
   return(
     <>
-      <div onClick={onClose} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.5)",zIndex:10000}}/>
-      <div style={{position:"fixed",top:"50%",left:"50%",transform:"translate(-50%,-50%)",zIndex:10001,background:"#faf9f6",borderRadius:16,padding:window.innerWidth<480?"24px 16px 20px":"32px 28px 28px",width:"calc(100vw - 32px)",maxWidth:400,boxShadow:"0 20px 60px rgba(0,0,0,0.25)",textAlign:"center"}}>
+      <div onClick={onClose} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.5)",zIndex:10100}}/>
+      <div style={{position:"fixed",top:"50%",left:"50%",transform:"translate(-50%,-50%)",zIndex:10101,background:"#faf9f6",borderRadius:16,padding:window.innerWidth<480?"24px 16px 20px":"32px 28px 28px",width:"calc(100vw - 32px)",maxWidth:400,boxShadow:"0 20px 60px rgba(0,0,0,0.25)",textAlign:"center"}}>
         <button onClick={onClose} style={{position:"absolute",top:12,right:12,fontFamily:sans,fontSize:16,color:"#a3a3a3",background:"none",border:"none",cursor:"pointer"}}>✕</button>
         <img src="/logo.png" alt="Big Board Lab" style={{width:window.innerWidth<480?48:64,height:"auto",marginBottom:10}}/>
         <p style={{fontFamily:mono,fontSize:window.innerWidth<480?8:10,letterSpacing:3,color:"#a3a3a3",textTransform:"uppercase",margin:"0 0 6px"}}>2026 NFL Draft</p>
