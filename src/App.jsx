@@ -2370,7 +2370,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         <style>{`@media(max-width:700px){.trends-grid{flex-direction:column!important;align-items:stretch!important;}}`}</style>
         {/* Header */}
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
-          <h1 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:0}}>team mock trends</h1>
+          <h1 style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",margin:0}}>team insights</h1>
         </div>
 
         {/* Team switcher */}
@@ -4294,7 +4294,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
 
     {/* Team Mock Trends */}
     <div style={{marginTop:32}}>
-      <h2 style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717",margin:"0 0 4px",letterSpacing:-0.5}}>team mock trends</h2>
+      <h2 style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#171717",margin:"0 0 4px",letterSpacing:-0.5}}>team insights</h2>
       <p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",margin:"0 0 14px"}}>see what the community drafts for each team</p>
       <div style={{display:"grid",gridTemplateColumns:"repeat(8, 1fr)",gap:8}}>
         {allTeams.sort().map(t=>{const tc=NFL_TEAM_COLORS[t]||"#171717";return<button key={t} onClick={()=>openTrends(t)} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:4,padding:"10px 4px",background:"#fff",border:"1px solid #e5e5e5",borderRadius:10,cursor:"pointer",transition:"all 0.15s"}} onMouseEnter={e=>{e.currentTarget.style.borderColor=tc;e.currentTarget.style.background=`${tc}08`;}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e5e5e5";e.currentTarget.style.background="#fff";}}><NFLTeamLogo team={t} size={24}/><span style={{fontFamily:mono,fontSize:7,color:"#a3a3a3",fontWeight:600}}>{NFL_TEAM_ABR[t]}</span></button>;})}
