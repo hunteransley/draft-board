@@ -302,11 +302,8 @@ const BeeswarmChart=memo(function BeeswarmChart({data,width,myGuys,showMyGuys,sh
           onPointerEnter={(e)=>onHover({...pt,cx:e.clientX,cy:e.clientY})}
           onPointerLeave={()=>onHover(null)}
           onClick={()=>onTap(pt)}/>
-        {showLogos?<foreignObject x={cx-logoSize/2} y={cy-logoSize/2} width={logoSize} height={logoSize} style={{opacity:fade?0.25:1,transition:"opacity 0.2s",pointerEvents:"none",overflow:"visible"}}>
-          <div xmlns="http://www.w3.org/1999/xhtml" style={{width:logoSize,height:logoSize}}>
-            <SchoolLogo school={pt.school} size={logoSize}/>
-          </div>
-        </foreignObject>
+        {showLogos?(()=>{const logoUrl=schoolLogo(pt.school);return logoUrl?<image href={logoUrl} x={cx-logoSize/2} y={cy-logoSize/2} width={logoSize} height={logoSize} opacity={fade?0.25:1} style={{pointerEvents:"none"}}/>
+          :<circle cx={cx} cy={cy} r={dotR} fill="#d4d4d4" opacity={fade?0.25:1} style={{pointerEvents:"none"}}/>;})()
         :<circle cx={cx} cy={cy} r={isMyGuy?dotR+1.5:dotR}
           fill={fade?"#d4d4d4":color}
           opacity={fade?0.3:1}
@@ -415,11 +412,8 @@ const ScatterChart=memo(function ScatterChart({points,width,xLabel,yLabel,xInver
           onPointerLeave={()=>onHover(null)}
           onClick={()=>onTap(pt)}/>
         {isSpotlit&&<circle cx={cx} cy={cy} r={r+5} fill={color} opacity={0.15} style={{pointerEvents:"none"}}/>}
-        {showLogos?<foreignObject x={cx-logoSize/2} y={cy-logoSize/2} width={logoSize} height={logoSize} style={{opacity,transition:"opacity 0.2s",pointerEvents:"none",overflow:"visible"}}>
-          <div xmlns="http://www.w3.org/1999/xhtml" style={{width:logoSize,height:logoSize}}>
-            <SchoolLogo school={pt.school} size={logoSize}/>
-          </div>
-        </foreignObject>
+        {showLogos?(()=>{const logoUrl=schoolLogo(pt.school);return logoUrl?<image href={logoUrl} x={cx-logoSize/2} y={cy-logoSize/2} width={logoSize} height={logoSize} opacity={opacity} style={{pointerEvents:"none"}}/>
+          :<circle cx={cx} cy={cy} r={dotR} fill="#d4d4d4" opacity={opacity} style={{pointerEvents:"none"}}/>;})()
         :<circle cx={cx} cy={cy} r={r}
           fill={fade&&!spotlightName?"#d4d4d4":color}
           opacity={opacity}
