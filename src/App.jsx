@@ -3964,8 +3964,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                     <text x={pad.l+plotW/2} y={svgH-6} textAnchor="middle" style={{fontFamily:sans,fontSize:11,fill:"#737373"}}>{xMeta.label} →</text>
                     <text x={14} y={pad.t+plotH/2} textAnchor="middle" transform={`rotate(-90,14,${pad.t+plotH/2})`} style={{fontFamily:sans,fontSize:11,fill:"#737373"}}>{yMeta.label} →</text>
                     {/* Tick labels */}
-                    {Array.from({length:6}).map((_,i)=>{const v=xMin-xPad+(xRange+2*xPad)*(i/5);return<text key={`tx${i}`} x={pad.l+(plotW/5)*i} y={pad.t+plotH+16} textAnchor="middle" style={{fontFamily:mono,fontSize:9,fill:"#525252"}}>{v.toFixed(1)}</text>;})}
-                    {Array.from({length:6}).map((_,i)=>{const v=yMax+yPad-(yRange+2*yPad)*(i/5);return<text key={`ty${i}`} x={pad.l-8} y={pad.t+(plotH/5)*i+4} textAnchor="end" style={{fontFamily:mono,fontSize:9,fill:"#525252"}}>{v.toFixed(1)}</text>;})}
+                    {Array.from({length:6}).map((_,i)=>{const frac=i/5;const v=xMeta.inverted?(xMax+xPad-(xRange+2*xPad)*frac):(xMin-xPad+(xRange+2*xPad)*frac);return<text key={`tx${i}`} x={pad.l+(plotW/5)*i} y={pad.t+plotH+16} textAnchor="middle" style={{fontFamily:mono,fontSize:9,fill:"#525252"}}>{v.toFixed(1)}</text>;})}
+                    {Array.from({length:6}).map((_,i)=>{const frac=i/5;const v=yMeta.inverted?(yMin-yPad+(yRange+2*yPad)*frac):(yMax+yPad-(yRange+2*yPad)*frac);return<text key={`ty${i}`} x={pad.l-8} y={pad.t+(plotH/5)*i+4} textAnchor="end" style={{fontFamily:mono,fontSize:9,fill:"#525252"}}>{v.toFixed(1)}</text>;})}
                     {/* Dots */}
                     {validPts.map((t,i)=>{
                       const cx=sx(t[madnessX]),cy=sy(t[madnessY]);
