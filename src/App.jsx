@@ -689,7 +689,9 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
     const simCount=Math.min(similar.length,5);
     const m5H=Math.max(simCount*38+mp*2+22,80);
     const rightTopBot=pad+m5H;
-    const radarTop=Math.max(centerTopBot,rightTopBot)+gap;
+    const eqModH=70;
+    const eqTop=Math.max(centerTopBot,rightTopBot)+gap;
+    const radarTop=eqTop+eqModH+gap;
     const radarH=H-radarTop-pad;
     const m6Y=pad+m1H+gap;
     const m6H=H-pad-m1H-gap-pad;
@@ -829,6 +831,46 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
     const maxRadarH=380;
     const actualRadarH=Math.min(radarH,maxRadarH);
 
+    // ====== EQUALIZER MODULE — full width across center+right ======
+    {const eqW=centerW+gap+rightW;
+    mod(centerX,eqTop,eqW,eqModH);
+    const eqTraits=posTraits.map(t=>({label:TRAIT_ABBREV[t]||t.split(" ").map(w=>w[0]).join(""),value:tv(traits,player.id,t,player.name,player.school),type:"trait"}));
+    const eqMeasData=getMeasRadarData(player.name,player.school);
+    const eqMeas=eqMeasData?eqMeasData.labels.map((l,i)=>({label:l,value:eqMeasData.values[i],type:"meas"})):[];
+    const eqBars=[...eqTraits,...eqMeas];
+    if(eqBars.length>=3){
+      const eqBarW=Math.min(28,Math.floor((eqW-mp*2-20)/(eqBars.length+1)));const eqGap=3;
+      const eqMaxBlocks=7;const eqBlockH=3;const eqBlockGap=1;const eqHalfH=eqMaxBlocks*(eqBlockH+eqBlockGap);
+      const eqTotalBarW=eqBars.length*(eqBarW+eqGap)+8;
+      const eqStartX=centerX+Math.floor((eqW-eqTotalBarW)/2);
+      const eqMidY=eqTop+Math.floor(eqModH/2);
+      eqBars.forEach((bar,i)=>{
+        const nBlocks=Math.max(1,Math.round((bar.value/100)*eqMaxBlocks));
+        const bx=eqStartX+i*(eqBarW+eqGap)+(bar.type==="meas"&&i===eqTraits.length?10:0);
+        for(let bi=0;bi<eqMaxBlocks;bi++){
+          const active=bi<nBlocks;const t2=active?(bi/(eqMaxBlocks-1)):0;
+          if(bar.type==="trait"){
+            const cr=Math.round(236+(124-236)*t2),cg=Math.round(72+(58-72)*t2),cb=Math.round(153+(237-153)*t2);
+            ctx.fillStyle=active?`rgb(${cr},${cg},${cb})`:'#f0eef3';
+          }else{
+            const cr=Math.round(160+(6-160)*t2),cg=Math.round(215+(182-215)*t2),cb=Math.round(220+(212-220)*t2);
+            ctx.fillStyle=active?`rgb(${cr},${cg},${cb})`:'#edf7f9';
+          }
+          const uy=eqMidY-2-(bi+1)*(eqBlockH+eqBlockGap);
+          rr(bx,uy,eqBarW,eqBlockH,1);ctx.fill();
+          const dy=eqMidY+2+bi*(eqBlockH+eqBlockGap);
+          rr(bx,dy,eqBarW,eqBlockH,1);ctx.fill();
+        }
+        ctx.fillStyle=bar.type==="trait"?"#a3a3a3":"#0891b2";ctx.font=`7px ${mono}`;ctx.textAlign='center';
+        ctx.fillText(bar.label,bx+eqBarW/2,eqMidY+eqHalfH+8);ctx.textAlign='left';
+      });
+      ctx.fillStyle='#d4d4d4';ctx.fillRect(eqStartX-2,eqMidY,eqTotalBarW+4,0.5);
+      // Legend
+      ctx.font=`bold 7px ${mono}`;ctx.textAlign='left';
+      ctx.fillStyle='#7c3aed';ctx.fillText('◼ TRAITS',centerX+mp,eqTop+mp);
+      if(eqMeas.length>0){ctx.fillStyle='#0891b2';ctx.fillText('◼ MEASURABLES',centerX+mp+60,eqTop+mp);}
+    }}
+
     // ====== MODULE 7: Traits Radar ======
     const labelZone=44;
     mod(centerX,radarTop,centerW,actualRadarH);
@@ -847,48 +889,8 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
       drawRadar(r8CX,r8CY,radarRad8,measData.labels,measData.values,c,null,measData.proDaySpokes);
     }
 
-    // ====== EQUALIZER — between radars and branding ======
-    {const eqY=radarTop+actualRadarH+8;const eqW=centerW+gap+rightW;const eqH=60;
-    const eqTraits=posTraits.map(t=>({label:TRAIT_ABBREV[t]||t.split(" ").map(w=>w[0]).join(""),value:tv(traits,player.id,t,player.name,player.school),type:"trait"}));
-    const eqMeasData=getMeasRadarData(player.name,player.school);
-    const eqMeas=eqMeasData?eqMeasData.labels.map((l,i)=>({label:l,value:eqMeasData.values[i],type:"meas"})):[];
-    const eqBars=[...eqTraits,...eqMeas];
-    if(eqBars.length>=3){
-      const eqBarW=Math.min(24,Math.floor((eqW-mp*2-20)/(eqBars.length+1)));const eqGap=2;
-      const eqMaxBlocks=6;const eqBlockH=3;const eqBlockGap=1;const eqHalfH=eqMaxBlocks*(eqBlockH+eqBlockGap);
-      const eqTotalBarW=eqBars.length*(eqBarW+eqGap)+8;
-      const eqStartX=centerX+Math.floor((eqW-eqTotalBarW)/2);
-      const eqMidY=eqY+Math.floor(eqH/2);
-      eqBars.forEach((bar,i)=>{
-        const nBlocks=Math.max(1,Math.round((bar.value/100)*eqMaxBlocks));
-        const bx=eqStartX+i*(eqBarW+eqGap)+(bar.type==="meas"&&i===eqTraits.length?8:0);
-        // Draw blocks up and down from center
-        for(let bi=0;bi<eqMaxBlocks;bi++){
-          const active=bi<nBlocks;const t2=active?(bi/(eqMaxBlocks-1)):0;
-          if(bar.type==="trait"){
-            const cr=Math.round(236+(124-236)*t2),cg=Math.round(72+(58-72)*t2),cb=Math.round(153+(237-153)*t2);
-            ctx.fillStyle=active?`rgb(${cr},${cg},${cb})`:'#f0eef3';
-          }else{
-            const cr=Math.round(160+(6-160)*t2),cg=Math.round(215+(182-215)*t2),cb=Math.round(220+(212-220)*t2);
-            ctx.fillStyle=active?`rgb(${cr},${cg},${cb})`:'#edf7f9';
-          }
-          // Up
-          const uy=eqMidY-1-(bi+1)*(eqBlockH+eqBlockGap);
-          rr(bx,uy,eqBarW,eqBlockH,1);ctx.fill();
-          // Down
-          const dy=eqMidY+1+bi*(eqBlockH+eqBlockGap);
-          rr(bx,dy,eqBarW,eqBlockH,1);ctx.fill();
-        }
-        // Label
-        ctx.fillStyle=bar.type==="trait"?"#a3a3a3":"#0891b2";ctx.font=`6px ${mono}`;ctx.textAlign='center';
-        ctx.fillText(bar.label,bx+eqBarW/2,eqMidY+eqHalfH+6);ctx.textAlign='left';
-      });
-      // Center line
-      ctx.fillStyle='#d4d4d4';ctx.fillRect(eqStartX-2,eqMidY,eqTotalBarW+4,0.5);
-    }}
-
     // ====== BRANDING (no module) — centered between radar bottom and traits module bottom ======
-    const radarBot=radarTop+actualRadarH+70;
+    const radarBot=radarTop+actualRadarH;
     const traitsBot=m6Y+m6H;
     const brandCenterY=radarBot+Math.floor((traitsBot-radarBot)/2);
     ctx.textBaseline='middle';
