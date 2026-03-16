@@ -4038,8 +4038,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                   </select>
                 </div>
                 {tA&&tB&&(()=>{
-                  const colorA=REGION_COLORS[tA.region]||"#dc2626";
-                  const colorB=REGION_COLORS[tB.region]||"#2563eb";
+                  const sameRegion=tA.region===tB.region;
+                  const colorA=sameRegion?"#ec4899":(REGION_COLORS[tA.region]||"#dc2626");
+                  const colorB=sameRegion?"#7c3aed":(REGION_COLORS[tB.region]||"#2563eb");
                   let winsA=0,winsB=0;
                   compMetrics.forEach(m=>{
                     const vA=tA[m.key],vB=tB[m.key];
@@ -4094,16 +4095,17 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                       const mRange=mMax-mMin||1;
                       const pctA=((vA-mMin)/mRange)*100;
                       const pctB=((vB-mMin)/mRange)*100;
+                      const norm=mRange?(Math.abs(vA-vB)/mRange):0;const barPct=Math.min(norm*100,50);
                       return<div key={m.key} style={{display:"flex",alignItems:"center",gap:0,padding:"5px 0",borderBottom:"1px solid #1f1f1f"}}>
                         {/* Team A value */}
                         <span style={{fontFamily:mono,fontSize:11,fontWeight:better==="A"?900:500,color:better==="A"?colorA:"#525252",width:55,textAlign:"right",flexShrink:0}}>{typeof vA==="number"?vA.toFixed(vA<1&&vA>-1?3:1):vA}</span>
-                        {/* Bar area */}
-                        <div style={{flex:1,display:"flex",alignItems:"center",height:18,margin:"0 8px",position:"relative"}}>
+                        {/* Center-out bar */}
+                        <div style={{flex:1,display:"flex",alignItems:"center",height:20,margin:"0 8px",position:"relative"}}>
                           <div style={{position:"absolute",left:0,right:0,top:"50%",height:2,background:"#2a2a2a",transform:"translateY(-50%)"}}/>
-                          {/* A marker */}
-                          <div style={{position:"absolute",left:`${pctA}%`,top:"50%",transform:"translate(-50%,-50%)",width:better==="A"?10:7,height:better==="A"?10:7,borderRadius:99,background:colorA,border:better==="A"?"2px solid #fff":"none",zIndex:2,transition:"all 0.2s"}}/>
-                          {/* B marker */}
-                          <div style={{position:"absolute",left:`${pctB}%`,top:"50%",transform:"translate(-50%,-50%)",width:better==="B"?10:7,height:better==="B"?10:7,borderRadius:99,background:colorB,border:better==="B"?"2px solid #fff":"none",zIndex:2,transition:"all 0.2s"}}/>
+                          <div style={{position:"absolute",left:"50%",top:0,width:1,height:20,background:"#333"}}/>
+                          {better==="A"&&<><div style={{position:"absolute",right:"50%",top:"50%",height:6,width:`${barPct}%`,background:colorA,borderRadius:"3px 0 0 3px",transform:"translateY(-50%)",transition:"width 0.3s"}}/><div style={{position:"absolute",right:`${50+barPct}%`,top:"50%",transform:"translate(50%,-50%)",width:10,height:10,borderRadius:99,background:colorA,border:"2px solid #fff",zIndex:2}}/></>}
+                          {better==="B"&&<><div style={{position:"absolute",left:"50%",top:"50%",height:6,width:`${barPct}%`,background:colorB,borderRadius:"0 3px 3px 0",transform:"translateY(-50%)",transition:"width 0.3s"}}/><div style={{position:"absolute",left:`${50+barPct}%`,top:"50%",transform:"translate(-50%,-50%)",width:10,height:10,borderRadius:99,background:colorB,border:"2px solid #fff",zIndex:2}}/></>}
+                          {better==="tie"&&<div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",width:6,height:6,borderRadius:99,background:"#525252"}}/>}
                         </div>
                         {/* Team B value */}
                         <span style={{fontFamily:mono,fontSize:11,fontWeight:better==="B"?900:500,color:better==="B"?colorB:"#525252",width:55,textAlign:"left",flexShrink:0}}>{typeof vB==="number"?vB.toFixed(vB<1&&vB>-1?3:1):vB}</span>
@@ -4244,6 +4246,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
             })()}
           </div>;
         })()}
+        {_isDark&&<div style={{textAlign:"center",padding:"8px 24px 4px",fontFamily:mono,fontSize:9,color:"#3a3a3a"}}>Data via <a href="https://www.sports-reference.com/cbb/seasons/men/2026-advanced-school-stats.html" target="_blank" rel="noopener noreferrer" style={{color:"#525252",textDecoration:"underline"}}>Sports Reference</a></div>}
         <TwitterFooter/>
         <div style={{textAlign:"center",padding:"4px 24px 16px",fontFamily:mono,fontSize:10,color:_isDark?"#3a3a3a":"#d4d4d4",letterSpacing:0.5}}>{"\u00A9"} {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>
       </div>
