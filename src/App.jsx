@@ -25,6 +25,7 @@ import { ROSTER_BY_SLOT, ROSTER_BY_NAME, formatContract, formatTradeValue, TIER_
 import { computeAllSchemeFits, getTopTeamFits, getTeamSchemeFits, getPositionAvgFit, generateScoutReasoning, computeTeamScoutVision } from "./schemeFit.js";
 import SCOUTING_NARRATIVES from "./scoutingNarratives.json";
 import SCOUTING_RAW from "./scoutingTraits.json";
+import { MARCH_MADNESS_TEAMS, MADNESS_METRICS, REGION_COLORS } from "./marchMadnessData.js";
 
 // Suffix-aware short name: "Rueben Bain Jr." → "Bain Jr." not "Jr."
 const GEN_SUFFIXES=/^(Jr\.?|Sr\.?|II|III|IV|V|VI|VII|VIII)$/i;
@@ -1751,7 +1752,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const posToSlug=(pos)=>pos==='K/P'?'k-p':pos.toLowerCase();
   const[showExplorer,setShowExplorer]=useState(()=>isLabPath(window.location.pathname));
   const[explorerMeas,setExplorerMeas]=useState("ATH");
-  const[explorerMode,setExplorerMode]=useState(()=>{const s=labSuffix(window.location.pathname);return s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":s==="measurables"?"measurables":s==="traits"?"traits":s==="stats"?"stats":"scheme-fit";});
+  const[explorerMode,setExplorerMode]=useState(()=>{const s=labSuffix(window.location.pathname);return s==="madness"?"madness":s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":s==="measurables"?"measurables":s==="traits"?"traits":s==="stats"?"stats":"scheme-fit";});
   const[explorerTrait,setExplorerTrait]=useState("Speed");
   const[explorerMyGuys,setExplorerMyGuys]=useState(false);
   const[explorerAbsolute,setExplorerAbsolute]=useState(false);
@@ -1780,10 +1781,20 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[sfPosFilter,setSfPosFilter]=useState("WR");
   const[sfExpandedId,setSfExpandedId]=useState(null);
   const[sfPickSlider,setSfPickSlider]=useState(0);
+  // March Madness Lab state
+  const[madnessMode,setMadnessMode]=useState("combo");
+  const[madnessX,setMadnessX]=useState("ortg");
+  const[madnessY,setMadnessY]=useState("drtg");
+  const[madnessRegion,setMadnessRegion]=useState("ALL");
+  const[madnessTeamA,setMadnessTeamA]=useState(null);
+  const[madnessTeamB,setMadnessTeamB]=useState(null);
+  const[madnessUpsetSlider,setMadnessUpsetSlider]=useState(50);
+  const[madnessHover,setMadnessHover]=useState(null);
+  const[madnessMatchupDetail,setMadnessMatchupDetail]=useState(null);
   const sfVision=useMemo(()=>{if(!sfTeam)return new Map();try{return computeTeamScoutVision(sfTeam,PROSPECTS,schemeFits,debouncedTraits);}catch(e){console.error("sfVision error:",e);return new Map();}},[sfTeam,schemeFits,debouncedTraits]);
   const explorerTraitsKey=useMemo(()=>explorerMode==="traits"?traits:null,[explorerMode,traits]);
   const explorerData=useMemo(()=>{
-    if(explorerMode==="combo")return{points:[],min:0,max:0,groups:[],label:"",measCode:null,statCode:null,inverted:false};
+    if(explorerMode==="combo"||explorerMode==="madness")return{points:[],min:0,max:0,groups:[],label:"",measCode:null,statCode:null,inverted:false};
     const points=[];
     const groupSet=new Set();
     if(explorerMode==="traits"){
@@ -1966,7 +1977,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     if(isLabPath(p)){
       setShowExplorer(true);
       const s=labSuffix(p);
-      const mode=s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":s==="measurables"?"measurables":s==="traits"?"traits":s==="stats"?"stats":"scheme-fit";
+      const mode=s==="madness"?"madness":s==="combo"?"combo":s==="scarcity"?"scarcity":s==="free-agency"?"free-agency":s==="measurables"?"measurables":s==="traits"?"traits":s==="stats"?"stats":"scheme-fit";
       setExplorerMode(mode);
       if(mode==="combo"){const cp=search.get('pos'),cx=search.get('x'),cy=search.get('y'),cpl=search.get('player');if(cp)setComboPos(cp);if(cx)setComboX(cx);if(cy)setComboY(cy);setComboSpotlightName(cpl||null);}
       if(mode==="scheme-fit"&&!sfTeam)setSfTeam("49ers");
@@ -2693,13 +2704,14 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
     const allTraits=[...new Set(Object.values(POSITION_TRAITS).flat())].sort();
     const traitPosCounts={};
     allTraits.forEach(t=>{traitPosCounts[t]=EXPLORER_GROUPS.filter(pos=>POSITION_TRAITS[pos]?.includes(t)).length;});
-    return(<div style={{position:"fixed",inset:0,background:"#faf9f6",zIndex:9000,overflow:"auto",WebkitOverflowScrolling:"touch"}}>
+    const _isDark=explorerMode==="madness";
+    return(<div style={{position:"fixed",inset:0,background:_isDark?"#0f0f0f":"#faf9f6",zIndex:9000,overflow:"auto",WebkitOverflowScrolling:"touch",transition:"background 0.3s"}}>
       <SaveBar {...saveBarProps}/>
       <div style={{maxWidth:900,margin:"0 auto",padding:"52px 16px 80px"}}>
         {/* Header */}
         <div style={{marginBottom:12}}>
-          <h2 style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#171717",margin:0}}>data lab</h2>
-          <p style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:"2px 0 0"}}>{explorerMode==="combo"?`${comboData.points.length} ${comboPos} players`:explorerMode==="scarcity"?"supply vs demand by position":explorerMode==="free-agency"?"2026 free agency contracts":explorerMode==="scheme-fit"?"scheme fit by team & position":`${explorerData.points.length} players · ${explorerData.groups.length} positions`}</p>
+          <h2 style={{fontFamily:font,fontSize:22,fontWeight:900,color:_isDark?"#e5e5e5":"#171717",margin:0}}>{_isDark?"march madness lab":"data lab"}</h2>
+          <p style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:explorerMode==="madness"?"#737373":"#a3a3a3",textTransform:"uppercase",margin:"2px 0 0"}}>{explorerMode==="madness"?"68 teams \u00b7 march madness 2026":explorerMode==="combo"?`${comboData.points.length} ${comboPos} players`:explorerMode==="scarcity"?"supply vs demand by position":explorerMode==="free-agency"?"2026 free agency contracts":explorerMode==="scheme-fit"?"scheme fit by team & position":`${explorerData.points.length} players · ${explorerData.groups.length} positions`}</p>
         </div>
 
         {/* Mode toggle */}
@@ -2708,6 +2720,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
           <button onClick={()=>{setExplorerMode("combo");navigate('/lab/combo');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="combo"?"linear-gradient(135deg,#6366f1,#8b5cf6)":"transparent",color:explorerMode==="combo"?"#fff":"#7c3aed",border:explorerMode==="combo"?"1px solid #6366f1":"1px solid #7c3aed44",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="combo"?"0 2px 8px rgba(99,102,241,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>⚡ combo</button>
           <button onClick={()=>{setExplorerMode("free-agency");setFaView("position");setFaPosFilter(null);setFaTeamFilter(null);navigate('/lab/free-agency');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="free-agency"?"linear-gradient(135deg,#d97706,#f59e0b)":"transparent",color:explorerMode==="free-agency"?"#fff":"#d97706",border:explorerMode==="free-agency"?"1px solid #d97706":"1px solid #d9770644",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="free-agency"?"0 2px 8px rgba(217,119,6,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>💰 free agency</button>
           <button onClick={()=>{setExplorerMode("scarcity");navigate('/lab/scarcity');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="scarcity"?"linear-gradient(135deg,#059669,#10b981)":"transparent",color:explorerMode==="scarcity"?"#fff":"#059669",border:explorerMode==="scarcity"?"1px solid #059669":"1px solid #05966944",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="scarcity"?"0 2px 8px rgba(5,150,105,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>🫥 scarcity</button>
+          <button onClick={()=>{setExplorerMode("madness");setMadnessMode("combo");navigate('/lab/madness');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="madness"?"linear-gradient(135deg,#ea580c,#dc2626)":"transparent",color:explorerMode==="madness"?"#fff":"#ea580c",border:explorerMode==="madness"?"1px solid #ea580c":"1px dashed #ea580c88",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="madness"?"0 2px 8px rgba(234,88,12,0.3)":"none",whiteSpace:"nowrap",flexShrink:0,position:"relative"}}>{"\uD83C\uDFC0"} march madness<span style={{position:"absolute",top:-6,right:-4,fontFamily:mono,fontSize:7,fontWeight:900,letterSpacing:1,color:"#fff",background:"linear-gradient(135deg,#ea580c,#dc2626)",padding:"1px 5px",borderRadius:99,textTransform:"uppercase",lineHeight:"12px"}}>NEW</span></button>
           <div style={{width:1,height:20,background:"#e5e5e5",margin:"0 4px",flexShrink:0}}/>
           <button onClick={()=>{setExplorerMode("measurables");setExplorerAbsolute(false);setExplorerLeaderPos(null);navigate('/lab/measurables');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="measurables"?"#171717":"transparent",color:explorerMode==="measurables"?"#fff":"#737373",border:explorerMode==="measurables"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>measurables</button>
           <button onClick={()=>{setExplorerMode("traits");setExplorerLeaderPos(null);navigate('/lab/traits');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="traits"?"#171717":"transparent",color:explorerMode==="traits"?"#fff":"#737373",border:explorerMode==="traits"?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>scouting traits</button>
@@ -2864,7 +2877,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         </>}
 
         {/* Measurable / Trait picker */}
-        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&(explorerMode==="measurables"?(<div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none"}}>
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&explorerMode!=="madness"&&(explorerMode==="measurables"?(<div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none"}}>
           {MEAS_GROUPS.map(grp=>grp.keys.map(k=><button key={k} onClick={gateAuth(()=>setExplorerMeas(k))} style={{fontFamily:mono,fontSize:10,fontWeight:explorerMeas===k?700:500,padding:"5px 10px",background:explorerMeas===k?grp.border+"18":"transparent",color:explorerMeas===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerMeas===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{MEASURABLE_EMOJI[k]} {MEASURABLE_SHORT[k]}</button>))}
         </div>):explorerMode==="stats"?(<div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none",alignItems:"center"}}>
           {STAT_CATEGORIES.map(grp=>{const isOpen=explorerStatOpen.has(grp.label);const hasSelection=grp.keys.includes(explorerStat);return<Fragment key={grp.label}><button onClick={gateAuth(()=>{setExplorerStatOpen(prev=>{const next=new Set(prev);if(next.has(grp.label))next.delete(grp.label);else next.add(grp.label);return next;});})} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"5px 12px",background:hasSelection?grp.border:isOpen?grp.border+"18":"transparent",color:hasSelection?"#fff":isOpen?grp.border:"#737373",border:`1.5px solid ${hasSelection||isOpen?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{isOpen?"− ":"+ "}{grp.label}</button>{isOpen&&grp.keys.map(k=><button key={k} onClick={gateAuth(()=>setExplorerStat(k))} style={{fontFamily:mono,fontSize:10,fontWeight:explorerStat===k?700:500,padding:"5px 10px",background:explorerStat===k?grp.border+"18":"transparent",color:explorerStat===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerStat===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{STAT_EMOJI[k]||""} {STAT_SHORT[k]||k}</button>)}</Fragment>;})}
@@ -2885,10 +2898,10 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         </div>}
 
         {/* Sparse data warning */}
-        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&explorerData.points.length>0&&explorerData.points.length<20&&<div style={{fontFamily:sans,fontSize:11,color:"#92400e",background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:8,padding:"6px 12px",marginBottom:8}}>⚠️ sparse data — only {explorerData.points.length} players have this {explorerMode==="stats"?"stat":"measurement"}</div>}
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&explorerMode!=="madness"&&explorerData.points.length>0&&explorerData.points.length<20&&<div style={{fontFamily:sans,fontSize:11,color:"#92400e",background:"#fef3c7",border:"1px solid #fcd34d",borderRadius:8,padding:"6px 12px",marginBottom:8}}>⚠️ sparse data — only {explorerData.points.length} players have this {explorerMode==="stats"?"stat":"measurement"}</div>}
 
         {/* Beeswarm */}
-        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&(explorerData.points.length===0?(<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no data available for this {explorerMode==="stats"?"stat":"measurable"}</p></div>):(
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&explorerMode!=="madness"&&(explorerData.points.length===0?(<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#a3a3a3"}}>no data available for this {explorerMode==="stats"?"stat":"measurable"}</p></div>):(
           <div style={{marginTop:4,position:"relative"}}>
             <BeeswarmChartWrapper data={explorerData} myGuys={myGuys} showMyGuys={explorerMyGuys} showLogos={explorerLogos} onHover={setExplorerHover} onTap={(pt)=>{const p=PROSPECTS.find(pr=>pr.id===pt.id);if(p)openProfile(p);}} hoveredId={explorerHover?.id||null}/>
             <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",display:"flex",alignItems:"center",gap:0,opacity:0.06,pointerEvents:"none"}}>
@@ -2909,7 +2922,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         ))}
 
         {/* Leaderboard + Position Averages */}
-        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&explorerData.points.length>=5&&(()=>{
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&explorerMode!=="madness"&&explorerData.points.length>=5&&(()=>{
           const mc=explorerData.measCode;
           const sc=explorerData.statCode;
           const inv=explorerData.inverted;
@@ -2996,7 +3009,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
 
 
         {/* Tooltip — beeswarm modes */}
-        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&explorerHover&&<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-180),top:Math.max(explorerHover.cy-60,8),background:"#171717",color:"#fff",padding:"8px 12px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:200}}>
+        {explorerMode!=="combo"&&explorerMode!=="scarcity"&&explorerMode!=="free-agency"&&explorerMode!=="scheme-fit"&&explorerMode!=="madness"&&explorerHover&&<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-180),top:Math.max(explorerHover.cy-60,8),background:"#171717",color:"#fff",padding:"8px 12px",borderRadius:10,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 12px rgba(0,0,0,0.3)",maxWidth:200}}>
           <div style={{fontWeight:700}}>{explorerHover.name}</div>
           <div style={{fontSize:10,color:"#a3a3a3",marginTop:1}}>{explorerHover.school}</div>
           <div style={{display:"flex",alignItems:"center",gap:6,marginTop:4}}>
@@ -3865,8 +3878,369 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
             </div>}
           </>;
         })()}
+        {explorerMode==="madness"&&(()=>{
+          const MM_REGIONS=["ALL","East","South","West","Midwest"];
+          const filtered=madnessRegion==="ALL"?MARCH_MADNESS_TEAMS:MARCH_MADNESS_TEAMS.filter(t=>t.region===madnessRegion);
+          const xMeta=MADNESS_METRICS.find(m=>m.key===madnessX)||MADNESS_METRICS[0];
+          const yMeta=MADNESS_METRICS.find(m=>m.key===madnessY)||MADNESS_METRICS[1];
+          const svgW=860,svgH=440,pad={t:30,r:30,b:50,l:60};
+          const plotW=svgW-pad.l-pad.r,plotH=svgH-pad.t-pad.b;
+          const teamAbbr=t=>{const n=t.team;return n.length<=4?n:n.replace(/^(North |South |East |West |Northern |Southern |Eastern |Western |Central )/,'').slice(0,4).toUpperCase();};
+
+          // Build first-round matchups by pairing seeds within each region
+          const buildMatchups=()=>{
+            const matchups=[];
+            const pairs=[[1,16],[2,15],[3,14],[4,13],[5,12],[6,11],[7,10],[8,9]];
+            ["East","South","West","Midwest"].forEach(region=>{
+              const regionTeams=MARCH_MADNESS_TEAMS.filter(t=>t.region===region);
+              pairs.forEach(([hi,lo])=>{
+                const higher=regionTeams.find(t=>t.seed===hi);
+                const lower=regionTeams.find(t=>t.seed===lo);
+                if(higher&&lower)matchups.push({higher,lower,region,seedDiff:lo-hi,ratingGap:Math.abs((higher.netRtg||0)-(lower.netRtg||0)),srsGap:Math.abs((higher.srs||0)-(lower.srs||0))});
+              });
+            });
+            return matchups;
+          };
+
+          const winProb=(teamSrs,oppSrs)=>{const diff=teamSrs-oppSrs;const p=0.5+diff*0.02;return Math.max(0.1,Math.min(0.9,p));};
+
+          // Sub-mode tabs
+          const subModes=[{key:"combo",label:"Scatter",icon:"\u2B50"},{key:"matchup",label:"Matchup",icon:"\u2694\uFE0F"},{key:"upset",label:"Upset Finder",icon:"\uD83D\uDD25"}];
+
+          return<div style={{marginTop:4}}>
+            {/* Sub-mode tabs */}
+            <div style={{display:"flex",gap:6,marginBottom:16}}>
+              {subModes.map(sm=>{const active=madnessMode===sm.key;return<button key={sm.key} onClick={()=>{setMadnessMode(sm.key);setMadnessHover(null);setMadnessMatchupDetail(null);}} style={{fontFamily:sans,fontSize:12,fontWeight:700,padding:"8px 18px",background:active?"linear-gradient(135deg,#ea580c,#dc2626)":"#1a1a1a",color:active?"#fff":"#a3a3a3",border:active?"1px solid #ea580c":"1px solid #2a2a2a",borderRadius:10,cursor:"pointer",transition:"all 0.15s"}}>{sm.icon} {sm.label}</button>;})}
+            </div>
+
+            {/* COMBO MODE */}
+            {madnessMode==="combo"&&(()=>{
+              const validPts=filtered.filter(t=>t[madnessX]!=null&&t[madnessY]!=null);
+              if(validPts.length===0)return<div style={{textAlign:"center",padding:"60px 20px"}}><p style={{fontFamily:sans,fontSize:14,color:"#737373"}}>no data available for this metric combination</p></div>;
+              const xVals=validPts.map(t=>t[madnessX]);
+              const yVals=validPts.map(t=>t[madnessY]);
+              const xMin=Math.min(...xVals),xMax=Math.max(...xVals);
+              const yMin=Math.min(...yVals),yMax=Math.max(...yVals);
+              const xRange=xMax-xMin||1,yRange=yMax-yMin||1;
+              const xPad=xRange*0.08,yPad=yRange*0.08;
+              const sx=v=>pad.l+((v-(xMin-xPad))/(xRange+2*xPad))*plotW;
+              const sy=v=>pad.t+plotH-((v-(yMin-yPad))/(yRange+2*yPad))*plotH;
+
+              // "best corner" distance for leaderboard
+              const bestX=xMeta.inverted?xMin:xMax;
+              const bestY=yMeta.inverted?yMin:yMax;
+              const dist=(t)=>{const dx=(t[madnessX]-bestX)/(xRange||1);const dy=(t[madnessY]-bestY)/(yRange||1);return Math.sqrt(dx*dx+dy*dy);};
+              const ranked=[...validPts].sort((a,b)=>dist(a)-dist(b));
+
+              return<>
+                {/* Region pills */}
+                <div style={{display:"flex",gap:5,marginBottom:10}}>
+                  {MM_REGIONS.map(r=>{const active=madnessRegion===r;const c=r==="ALL"?"#e5e5e5":REGION_COLORS[r];return<button key={r} onClick={()=>setMadnessRegion(r)} style={{fontFamily:mono,fontSize:10,fontWeight:700,padding:"5px 12px",background:active?c:"transparent",color:active?(r==="ALL"||r==="South"?"#171717":"#fff"):c,border:`1.5px solid ${active?c:c+"44"}`,borderRadius:99,cursor:"pointer",transition:"all 0.15s"}}>{r}</button>;})}
+                </div>
+                {/* Axis dropdowns */}
+                <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:10,flexWrap:"wrap"}}>
+                  <div style={{display:"flex",alignItems:"center",gap:5}}>
+                    <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#737373",textTransform:"uppercase"}}>X</span>
+                    <select value={madnessX} onChange={e=>setMadnessX(e.target.value)} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"6px 10px",borderRadius:8,border:"1px solid #2a2a2a",background:"#1a1a1a",color:"#e5e5e5",cursor:"pointer"}}>
+                      {MADNESS_METRICS.map(m=><option key={m.key} value={m.key}>{m.label}</option>)}
+                    </select>
+                  </div>
+                  <button onClick={()=>{setMadnessX(madnessY);setMadnessY(madnessX);}} style={{fontSize:14,color:"#737373",background:"#1a1a1a",border:"1px solid #2a2a2a",borderRadius:8,padding:"3px 7px",cursor:"pointer",lineHeight:1}}>{"\uD83D\uDD00"}</button>
+                  <div style={{display:"flex",alignItems:"center",gap:5}}>
+                    <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#737373",textTransform:"uppercase"}}>Y</span>
+                    <select value={madnessY} onChange={e=>setMadnessY(e.target.value)} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"6px 10px",borderRadius:8,border:"1px solid #2a2a2a",background:"#1a1a1a",color:"#e5e5e5",cursor:"pointer"}}>
+                      {MADNESS_METRICS.map(m=><option key={m.key} value={m.key}>{m.label}</option>)}
+                    </select>
+                  </div>
+                </div>
+                {/* SVG scatter */}
+                <div style={{background:"#1a1a1a",border:"1px solid #2a2a2a",borderRadius:14,padding:12,marginBottom:16,overflow:"hidden"}}>
+                  <svg width="100%" viewBox={`0 0 ${svgW} ${svgH}`} style={{display:"block"}}>
+                    {/* Grid lines */}
+                    {Array.from({length:6}).map((_,i)=>{const x=pad.l+(plotW/5)*i;return<line key={`gx${i}`} x1={x} y1={pad.t} x2={x} y2={pad.t+plotH} stroke="#2a2a2a" strokeWidth={1}/>;})}
+                    {Array.from({length:6}).map((_,i)=>{const y=pad.t+(plotH/5)*i;return<line key={`gy${i}`} x1={pad.l} y1={y} x2={pad.l+plotW} y2={y} stroke="#2a2a2a" strokeWidth={1}/>;})}
+                    {/* Axis labels */}
+                    <text x={pad.l+plotW/2} y={svgH-6} textAnchor="middle" style={{fontFamily:sans,fontSize:11,fill:"#737373"}}>{xMeta.label}{xMeta.inverted?" (lower = better)":""}</text>
+                    <text x={14} y={pad.t+plotH/2} textAnchor="middle" transform={`rotate(-90,14,${pad.t+plotH/2})`} style={{fontFamily:sans,fontSize:11,fill:"#737373"}}>{yMeta.label}{yMeta.inverted?" (lower = better)":""}</text>
+                    {/* Tick labels */}
+                    {Array.from({length:6}).map((_,i)=>{const v=xMin-xPad+(xRange+2*xPad)*(i/5);return<text key={`tx${i}`} x={pad.l+(plotW/5)*i} y={pad.t+plotH+16} textAnchor="middle" style={{fontFamily:mono,fontSize:9,fill:"#525252"}}>{v.toFixed(1)}</text>;})}
+                    {Array.from({length:6}).map((_,i)=>{const v=yMax+yPad-(yRange+2*yPad)*(i/5);return<text key={`ty${i}`} x={pad.l-8} y={pad.t+(plotH/5)*i+4} textAnchor="end" style={{fontFamily:mono,fontSize:9,fill:"#525252"}}>{v.toFixed(1)}</text>;})}
+                    {/* Dots */}
+                    {validPts.map((t,i)=>{
+                      const cx=sx(t[madnessX]),cy=sy(t[madnessY]);
+                      const rc=REGION_COLORS[t.region]||"#737373";
+                      const isHov=madnessHover?.team===t.team;
+                      return<g key={i} onMouseEnter={()=>setMadnessHover({...t,cx,cy})} onMouseLeave={()=>setMadnessHover(null)} style={{cursor:"pointer"}}>
+                        <circle cx={cx} cy={cy} r={isHov?8:6} fill={rc} opacity={isHov?1:0.85} stroke={isHov?"#fff":"none"} strokeWidth={2}/>
+                        {(isHov||validPts.length<=20)&&<text x={cx} y={cy-10} textAnchor="middle" style={{fontFamily:mono,fontSize:8,fontWeight:700,fill:"#e5e5e5",pointerEvents:"none"}}>{teamAbbr(t)}</text>}
+                      </g>;
+                    })}
+                  </svg>
+                </div>
+                {/* Hover tooltip */}
+                {madnessHover&&<div style={{position:"fixed",left:Math.min(madnessHover.cx+80,window.innerWidth-220),top:Math.max(60,8),background:"#1a1a1a",color:"#e5e5e5",padding:"10px 14px",borderRadius:12,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 16px rgba(0,0,0,0.5)",border:"1px solid #2a2a2a",maxWidth:240}}>
+                  <div style={{fontWeight:700,fontSize:14,marginBottom:4}}><span style={{color:REGION_COLORS[madnessHover.region]}}>{"\u25CF"}</span> {madnessHover.team}</div>
+                  <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginBottom:4}}>({madnessHover.seed}) {madnessHover.region} · {madnessHover.record} · {madnessHover.conf}</div>
+                  <div style={{fontFamily:mono,fontSize:11}}>{xMeta.label}: <b>{madnessHover[madnessX]!=null?madnessHover[madnessX].toFixed(2):"N/A"}</b></div>
+                  <div style={{fontFamily:mono,fontSize:11}}>{yMeta.label}: <b>{madnessHover[madnessY]!=null?madnessHover[madnessY].toFixed(2):"N/A"}</b></div>
+                  <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginTop:2}}>SRS: {madnessHover.srs?.toFixed(1)} · Net: {madnessHover.netRtg?.toFixed(1)}</div>
+                </div>}
+                {/* Region legend */}
+                <div style={{display:"flex",gap:12,marginBottom:12,justifyContent:"center"}}>
+                  {["East","South","West","Midwest"].map(r=><div key={r} style={{display:"flex",alignItems:"center",gap:4}}>
+                    <div style={{width:10,height:10,borderRadius:99,background:REGION_COLORS[r]}}/>
+                    <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{r}</span>
+                  </div>)}
+                </div>
+                {/* Leaderboard: top 10 closest to "best" corner */}
+                <div style={{background:"#1a1a1a",border:"1px solid #2a2a2a",borderRadius:12,overflow:"hidden"}}>
+                  <div style={{padding:"10px 14px",borderBottom:"1px solid #2a2a2a",display:"flex",alignItems:"center",gap:6}}>
+                    <span style={{fontSize:14}}>{"\uD83C\uDFC6"}</span>
+                    <span style={{fontFamily:mono,fontSize:11,fontWeight:900,letterSpacing:1,color:"#e5e5e5",textTransform:"uppercase"}}>Best Corner — {xMeta.label} vs {yMeta.label}</span>
+                  </div>
+                  {ranked.slice(0,10).map((t,i)=>{const rc=REGION_COLORS[t.region]||"#525252";return<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"7px 14px",borderBottom:i<9?"1px solid #1f1f1f":"none"}}
+                    onMouseEnter={e=>{e.currentTarget.style.background="#222";}}
+                    onMouseLeave={e=>{e.currentTarget.style.background="transparent";}}>
+                    <span style={{fontFamily:mono,fontSize:10,color:"#525252",width:20,textAlign:"right",flexShrink:0}}>#{i+1}</span>
+                    <div style={{width:10,height:10,borderRadius:99,background:rc,flexShrink:0}}/>
+                    <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#e5e5e5",flex:1,minWidth:0,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{t.team}</span>
+                    <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:rc,background:rc+"22",border:`1px solid ${rc}44`,borderRadius:99,padding:"2px 8px",flexShrink:0}}>({t.seed}) {t.region}</span>
+                    <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:"#e5e5e5",flexShrink:0,minWidth:50,textAlign:"right"}}>{t[madnessX]!=null?t[madnessX].toFixed(1):"-"}</span>
+                    <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:"#a3a3a3",flexShrink:0,minWidth:50,textAlign:"right"}}>{t[madnessY]!=null?t[madnessY].toFixed(1):"-"}</span>
+                  </div>;})}
+                </div>
+              </>;
+            })()}
+
+            {/* MATCHUP MODE */}
+            {madnessMode==="matchup"&&(()=>{
+              const allTeams=[...MARCH_MADNESS_TEAMS].sort((a,b)=>a.team.localeCompare(b.team));
+              const tA=madnessTeamA?MARCH_MADNESS_TEAMS.find(t=>t.team===madnessTeamA):null;
+              const tB=madnessTeamB?MARCH_MADNESS_TEAMS.find(t=>t.team===madnessTeamB):null;
+              // Metrics for comparison — use the non-style metrics
+              const compMetrics=MADNESS_METRICS.filter(m=>m.key!=="seed");
+              return<>
+                {/* Team dropdowns */}
+                <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:16,flexWrap:"wrap"}}>
+                  <select value={madnessTeamA||""} onChange={e=>{setMadnessTeamA(e.target.value||null);}} style={{fontFamily:sans,fontSize:13,fontWeight:600,padding:"8px 14px",borderRadius:10,border:"1px solid #2a2a2a",background:"#1a1a1a",color:"#e5e5e5",cursor:"pointer",minWidth:180}}>
+                    <option value="">Select Team A</option>
+                    {allTeams.map(t=><option key={t.team} value={t.team}>({t.seed}) {t.team} — {t.region}</option>)}
+                  </select>
+                  <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#525252"}}>vs</span>
+                  <select value={madnessTeamB||""} onChange={e=>{setMadnessTeamB(e.target.value||null);}} style={{fontFamily:sans,fontSize:13,fontWeight:600,padding:"8px 14px",borderRadius:10,border:"1px solid #2a2a2a",background:"#1a1a1a",color:"#e5e5e5",cursor:"pointer",minWidth:180}}>
+                    <option value="">Select Team B</option>
+                    {allTeams.map(t=><option key={t.team} value={t.team}>({t.seed}) {t.team} — {t.region}</option>)}
+                  </select>
+                </div>
+                {tA&&tB&&(()=>{
+                  const colorA=REGION_COLORS[tA.region]||"#dc2626";
+                  const colorB=REGION_COLORS[tB.region]||"#2563eb";
+                  let winsA=0,winsB=0;
+                  compMetrics.forEach(m=>{
+                    const vA=tA[m.key],vB=tB[m.key];
+                    if(vA==null||vB==null)return;
+                    const better=m.inverted?(vA<vB?"A":"B"):(vA>vB?"A":"B");
+                    if(better==="A")winsA++;else if(vA!==vB)winsB++;
+                  });
+                  const probA=winProb(tA.srs||0,tB.srs||0);
+                  const probB=1-probA;
+                  return<div style={{background:"#1a1a1a",border:"1px solid #2a2a2a",borderRadius:14,padding:"16px 20px"}}>
+                    {/* Header with team names and win prob */}
+                    <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
+                      <div style={{textAlign:"left"}}>
+                        <div style={{fontFamily:font,fontSize:18,fontWeight:900,color:colorA}}>{tA.team}</div>
+                        <div style={{fontFamily:mono,fontSize:10,color:"#737373"}}>({tA.seed}) {tA.region} · {tA.record}</div>
+                      </div>
+                      <div style={{textAlign:"center"}}>
+                        <div style={{fontFamily:mono,fontSize:11,color:"#525252",marginBottom:2}}>win probability</div>
+                        <div style={{display:"flex",gap:8,alignItems:"baseline"}}>
+                          <span style={{fontFamily:mono,fontSize:22,fontWeight:900,color:colorA}}>{(probA*100).toFixed(0)}%</span>
+                          <span style={{fontFamily:mono,fontSize:12,color:"#525252"}}>—</span>
+                          <span style={{fontFamily:mono,fontSize:22,fontWeight:900,color:colorB}}>{(probB*100).toFixed(0)}%</span>
+                        </div>
+                      </div>
+                      <div style={{textAlign:"right"}}>
+                        <div style={{fontFamily:font,fontSize:18,fontWeight:900,color:colorB}}>{tB.team}</div>
+                        <div style={{fontFamily:mono,fontSize:10,color:"#737373"}}>({tB.seed}) {tB.region} · {tB.record}</div>
+                      </div>
+                    </div>
+                    {/* Win prob bar */}
+                    <div style={{display:"flex",height:6,borderRadius:99,overflow:"hidden",marginBottom:16,background:"#0f0f0f"}}>
+                      <div style={{width:`${probA*100}%`,background:colorA,transition:"width 0.3s"}}/>
+                      <div style={{width:`${probB*100}%`,background:colorB,transition:"width 0.3s"}}/>
+                    </div>
+                    {/* Edge count */}
+                    <div style={{textAlign:"center",marginBottom:14}}>
+                      <span style={{fontFamily:mono,fontSize:12,color:winsA>winsB?colorA:winsB>winsA?colorB:"#737373",fontWeight:700}}>
+                        {winsA>winsB?`${tA.team} wins ${winsA} metrics`:winsB>winsA?`${tB.team} wins ${winsB} metrics`:`tied at ${winsA} metrics`}
+                      </span>
+                      <span style={{fontFamily:mono,fontSize:11,color:"#525252"}}> ({winsA} — {winsB})</span>
+                    </div>
+                    {/* Metric bars */}
+                    {compMetrics.map(m=>{
+                      const vA=tA[m.key],vB=tB[m.key];
+                      if(vA==null||vB==null)return<div key={m.key} style={{display:"flex",alignItems:"center",gap:8,padding:"6px 0",borderBottom:"1px solid #1f1f1f"}}>
+                        <span style={{fontFamily:mono,fontSize:10,color:"#525252",width:110,textAlign:"center",flexShrink:0}}>{m.label}</span>
+                        <span style={{fontFamily:sans,fontSize:11,color:"#525252",flex:1,textAlign:"center"}}>N/A</span>
+                      </div>;
+                      const better=m.inverted?(vA<vB?"A":vA>vB?"B":"tie"):(vA>vB?"A":vA<vB?"B":"tie");
+                      const allVals=MARCH_MADNESS_TEAMS.map(t=>t[m.key]).filter(v=>v!=null);
+                      const mMin=Math.min(...allVals),mMax=Math.max(...allVals);
+                      const mRange=mMax-mMin||1;
+                      const pctA=((vA-mMin)/mRange)*100;
+                      const pctB=((vB-mMin)/mRange)*100;
+                      return<div key={m.key} style={{display:"flex",alignItems:"center",gap:0,padding:"5px 0",borderBottom:"1px solid #1f1f1f"}}>
+                        {/* Team A value */}
+                        <span style={{fontFamily:mono,fontSize:11,fontWeight:better==="A"?900:500,color:better==="A"?colorA:"#525252",width:55,textAlign:"right",flexShrink:0}}>{typeof vA==="number"?vA.toFixed(vA<1&&vA>-1?3:1):vA}</span>
+                        {/* Bar area */}
+                        <div style={{flex:1,display:"flex",alignItems:"center",height:18,margin:"0 8px",position:"relative"}}>
+                          <div style={{position:"absolute",left:0,right:0,top:"50%",height:2,background:"#2a2a2a",transform:"translateY(-50%)"}}/>
+                          {/* A marker */}
+                          <div style={{position:"absolute",left:`${pctA}%`,top:"50%",transform:"translate(-50%,-50%)",width:better==="A"?10:7,height:better==="A"?10:7,borderRadius:99,background:colorA,border:better==="A"?"2px solid #fff":"none",zIndex:2,transition:"all 0.2s"}}/>
+                          {/* B marker */}
+                          <div style={{position:"absolute",left:`${pctB}%`,top:"50%",transform:"translate(-50%,-50%)",width:better==="B"?10:7,height:better==="B"?10:7,borderRadius:99,background:colorB,border:better==="B"?"2px solid #fff":"none",zIndex:2,transition:"all 0.2s"}}/>
+                        </div>
+                        {/* Team B value */}
+                        <span style={{fontFamily:mono,fontSize:11,fontWeight:better==="B"?900:500,color:better==="B"?colorB:"#525252",width:55,textAlign:"left",flexShrink:0}}>{typeof vB==="number"?vB.toFixed(vB<1&&vB>-1?3:1):vB}</span>
+                        {/* Label */}
+                        <span style={{fontFamily:mono,fontSize:9,color:"#525252",width:100,textAlign:"right",flexShrink:0,marginLeft:4}}>{m.label}</span>
+                      </div>;
+                    })}
+                  </div>;
+                })()}
+                {(!tA||!tB)&&<div style={{textAlign:"center",padding:"60px 20px"}}>
+                  <p style={{fontFamily:sans,fontSize:16,color:"#525252",marginBottom:6}}>select two teams to compare</p>
+                  <p style={{fontFamily:mono,fontSize:11,color:"#3a3a3a"}}>head-to-head statistical breakdown + win probability</p>
+                </div>}
+              </>;
+            })()}
+
+            {/* UPSET FINDER MODE */}
+            {madnessMode==="upset"&&(()=>{
+              const matchups=buildMatchups();
+              const upsetW=860,upsetH=440,uPad={t:30,r:30,b:50,l:60};
+              const uPlotW=upsetW-uPad.l-uPad.r,uPlotH=upsetH-uPad.t-uPad.b;
+
+              // X = seed difference, Y = SRS gap (closer = better upset candidate)
+              const maxSeedDiff=Math.max(...matchups.map(m=>m.seedDiff));
+              const maxSrsGap=Math.max(...matchups.map(m=>m.srsGap));
+              const uxMin=0,uxMax=maxSeedDiff+1;
+              const uyMin=0,uyMax=maxSrsGap+2;
+              const usx=v=>uPad.l+((v-uxMin)/(uxMax-uxMin))*uPlotW;
+              const usy=v=>uPad.t+((v-uyMin)/(uyMax-uyMin))*uPlotH; // lower SRS gap = top of chart (inverted for "best upsets at top-left")
+
+              // Upset score: high seed diff + low SRS gap = juicy upset
+              // Normalize both 0-100 and combine
+              const upsetScore=(m)=>{
+                const seedNorm=(m.seedDiff/(maxSeedDiff||1))*100;
+                const srsNorm=(1-(m.srsGap/(maxSrsGap||1)))*100;
+                return seedNorm*0.4+srsNorm*0.6;
+              };
+              const threshold=madnessUpsetSlider;
+              const scoredMatchups=matchups.map(m=>({...m,score:upsetScore(m)}));
+              const highlighted=scoredMatchups.filter(m=>m.score>=threshold);
+
+              // Filter by region if needed
+              const regionFiltered=madnessRegion==="ALL"?scoredMatchups:scoredMatchups.filter(m=>m.region===madnessRegion);
+
+              return<>
+                {/* Region pills */}
+                <div style={{display:"flex",gap:5,marginBottom:10}}>
+                  {MM_REGIONS.map(r=>{const active=madnessRegion===r;const c=r==="ALL"?"#e5e5e5":REGION_COLORS[r];return<button key={r} onClick={()=>setMadnessRegion(r)} style={{fontFamily:mono,fontSize:10,fontWeight:700,padding:"5px 12px",background:active?c:"transparent",color:active?(r==="ALL"||r==="South"?"#171717":"#fff"):c,border:`1.5px solid ${active?c:c+"44"}`,borderRadius:99,cursor:"pointer",transition:"all 0.15s"}}>{r}</button>;})}
+                </div>
+                {/* Upset aggressiveness slider */}
+                <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:12}}>
+                  <span style={{fontFamily:mono,fontSize:10,color:"#737373",textTransform:"uppercase",letterSpacing:1}}>upset threshold</span>
+                  <input type="range" min={0} max={80} value={madnessUpsetSlider} onChange={e=>setMadnessUpsetSlider(Number(e.target.value))} style={{flex:1,maxWidth:300,accentColor:"#ea580c"}}/>
+                  <span style={{fontFamily:mono,fontSize:11,color:"#ea580c",fontWeight:700}}>{highlighted.length} upset{highlighted.length!==1?"s":""}</span>
+                </div>
+                {/* SVG scatter */}
+                <div style={{background:"#1a1a1a",border:"1px solid #2a2a2a",borderRadius:14,padding:12,marginBottom:16,overflow:"hidden"}}>
+                  <svg width="100%" viewBox={`0 0 ${upsetW} ${upsetH}`} style={{display:"block"}}>
+                    {/* Grid */}
+                    {Array.from({length:6}).map((_,i)=>{const x=uPad.l+(uPlotW/5)*i;return<line key={`ugx${i}`} x1={x} y1={uPad.t} x2={x} y2={uPad.t+uPlotH} stroke="#2a2a2a" strokeWidth={1}/>;})}
+                    {Array.from({length:6}).map((_,i)=>{const y=uPad.t+(uPlotH/5)*i;return<line key={`ugy${i}`} x1={uPad.l} y1={y} x2={uPad.l+uPlotW} y2={y} stroke="#2a2a2a" strokeWidth={1}/>;})}
+                    {/* "Upset Zone" highlight area — top left */}
+                    <rect x={uPad.l} y={uPad.t} width={uPlotW*0.4} height={uPlotH*0.4} fill="#ea580c" opacity={0.06} rx={8}/>
+                    <text x={uPad.l+10} y={uPad.t+18} style={{fontFamily:mono,fontSize:9,fill:"#ea580c",opacity:0.5}}>UPSET ZONE</text>
+                    {/* Axis labels */}
+                    <text x={uPad.l+uPlotW/2} y={upsetH-6} textAnchor="middle" style={{fontFamily:sans,fontSize:11,fill:"#737373"}}>Seed Difference (larger = bigger upset)</text>
+                    <text x={14} y={uPad.t+uPlotH/2} textAnchor="middle" transform={`rotate(-90,14,${uPad.t+uPlotH/2})`} style={{fontFamily:sans,fontSize:11,fill:"#737373"}}>SRS Gap (smaller = more vulnerable)</text>
+                    {/* Tick labels */}
+                    {Array.from({length:6}).map((_,i)=>{const v=uxMin+(uxMax-uxMin)*(i/5);return<text key={`utx${i}`} x={uPad.l+(uPlotW/5)*i} y={uPad.t+uPlotH+16} textAnchor="middle" style={{fontFamily:mono,fontSize:9,fill:"#525252"}}>{Math.round(v)}</text>;})}
+                    {Array.from({length:6}).map((_,i)=>{const v=uyMin+(uyMax-uyMin)*(i/5);return<text key={`uty${i}`} x={uPad.l-8} y={uPad.t+(uPlotH/5)*i+4} textAnchor="end" style={{fontFamily:mono,fontSize:9,fill:"#525252"}}>{v.toFixed(1)}</text>;})}
+                    {/* Matchup dots */}
+                    {regionFiltered.map((m,i)=>{
+                      const cx=usx(m.seedDiff);
+                      const cy=usy(m.srsGap);
+                      const rc=REGION_COLORS[m.region]||"#737373";
+                      const hot=m.score>=threshold;
+                      const isHov=madnessHover?.key===`${m.higher.team}-${m.lower.team}`;
+                      return<g key={i} onMouseEnter={()=>setMadnessHover({...m,key:`${m.higher.team}-${m.lower.team}`,cx,cy})} onMouseLeave={()=>setMadnessHover(null)} onClick={()=>setMadnessMatchupDetail(m)} style={{cursor:"pointer"}}>
+                        <circle cx={cx} cy={cy} r={isHov?10:hot?8:6} fill={hot?rc:"#3a3a3a"} opacity={hot?0.95:0.4} stroke={isHov?"#fff":hot?"#fff":"none"} strokeWidth={isHov?2:hot?1:0}/>
+                        {(isHov||hot)&&<text x={cx} y={cy-12} textAnchor="middle" style={{fontFamily:mono,fontSize:7,fontWeight:700,fill:hot?"#e5e5e5":"#737373",pointerEvents:"none"}}>{m.lower.seed}v{m.higher.seed}</text>}
+                      </g>;
+                    })}
+                  </svg>
+                </div>
+                {/* Hover tooltip */}
+                {madnessHover&&madnessHover.higher&&<div style={{position:"fixed",left:Math.min((madnessHover.cx||200)+80,window.innerWidth-260),top:Math.max(60,8),background:"#1a1a1a",color:"#e5e5e5",padding:"12px 16px",borderRadius:12,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 16px rgba(0,0,0,0.5)",border:"1px solid #2a2a2a",maxWidth:280}}>
+                  <div style={{fontWeight:700,fontSize:14,marginBottom:4}}><span style={{color:REGION_COLORS[madnessHover.region]}}>{"\u25CF"}</span> ({madnessHover.higher.seed}) {madnessHover.higher.team} vs ({madnessHover.lower.seed}) {madnessHover.lower.team}</div>
+                  <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginBottom:4}}>{madnessHover.region} Region</div>
+                  <div style={{fontFamily:mono,fontSize:11}}>Seed gap: {madnessHover.seedDiff} · SRS gap: {madnessHover.srsGap.toFixed(1)}</div>
+                  <div style={{fontFamily:mono,fontSize:11}}>Net rating gap: {madnessHover.ratingGap.toFixed(1)}</div>
+                  <div style={{fontFamily:mono,fontSize:10,color:"#ea580c",fontWeight:700,marginTop:4}}>Upset score: {madnessHover.score.toFixed(0)}/100</div>
+                </div>}
+                {/* Matchup detail card */}
+                {madnessMatchupDetail&&(()=>{
+                  const md=madnessMatchupDetail;
+                  const colorH=REGION_COLORS[md.higher.region]||"#2563eb";
+                  const colorL=REGION_COLORS[md.lower.region]||"#dc2626";
+                  const probH=winProb(md.higher.srs||0,md.lower.srs||0);
+                  return<div style={{background:"#1a1a1a",border:"1px solid #2a2a2a",borderRadius:14,padding:"16px 20px",marginBottom:16}}>
+                    <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
+                      <div><div style={{fontFamily:font,fontSize:16,fontWeight:900,color:colorH}}>({md.higher.seed}) {md.higher.team}</div><div style={{fontFamily:mono,fontSize:10,color:"#525252"}}>{md.higher.record} · SRS {md.higher.srs?.toFixed(1)}</div></div>
+                      <div style={{textAlign:"center"}}>
+                        <div style={{fontFamily:mono,fontSize:9,color:"#525252",marginBottom:2}}>upset probability</div>
+                        <div style={{fontFamily:mono,fontSize:20,fontWeight:900,color:"#ea580c"}}>{((1-probH)*100).toFixed(0)}%</div>
+                      </div>
+                      <div style={{textAlign:"right"}}><div style={{fontFamily:font,fontSize:16,fontWeight:900,color:colorL}}>({md.lower.seed}) {md.lower.team}</div><div style={{fontFamily:mono,fontSize:10,color:"#525252"}}>{md.lower.record} · SRS {md.lower.srs?.toFixed(1)}</div></div>
+                    </div>
+                    <div style={{display:"flex",gap:12,flexWrap:"wrap",fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>
+                      <span>Seed diff: <b style={{color:"#e5e5e5"}}>{md.seedDiff}</b></span>
+                      <span>SRS gap: <b style={{color:"#e5e5e5"}}>{md.srsGap.toFixed(1)}</b></span>
+                      <span>Net Rtg gap: <b style={{color:"#e5e5e5"}}>{md.ratingGap.toFixed(1)}</b></span>
+                      <span>Upset score: <b style={{color:"#ea580c"}}>{md.score.toFixed(0)}/100</b></span>
+                    </div>
+                    <button onClick={()=>setMadnessMatchupDetail(null)} style={{fontFamily:sans,fontSize:10,color:"#525252",background:"transparent",border:"none",cursor:"pointer",marginTop:8,padding:0}}>dismiss</button>
+                  </div>;
+                })()}
+                {/* Ranked upset list */}
+                <div style={{background:"#1a1a1a",border:"1px solid #2a2a2a",borderRadius:12,overflow:"hidden"}}>
+                  <div style={{padding:"10px 14px",borderBottom:"1px solid #2a2a2a",display:"flex",alignItems:"center",gap:6}}>
+                    <span style={{fontSize:14}}>{"\uD83D\uDD25"}</span>
+                    <span style={{fontFamily:mono,fontSize:11,fontWeight:900,letterSpacing:1,color:"#e5e5e5",textTransform:"uppercase"}}>Best Upset Picks</span>
+                  </div>
+                  {regionFiltered.sort((a,b)=>b.score-a.score).slice(0,10).map((m,i)=>{
+                    const rc=REGION_COLORS[m.region]||"#525252";
+                    const hot=m.score>=threshold;
+                    return<div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"8px 14px",borderBottom:i<9?"1px solid #1f1f1f":"none",opacity:hot?1:0.5,cursor:"pointer"}} onClick={()=>setMadnessMatchupDetail(m)}
+                      onMouseEnter={e=>{e.currentTarget.style.background="#222";}}
+                      onMouseLeave={e=>{e.currentTarget.style.background="transparent";}}>
+                      <span style={{fontFamily:mono,fontSize:10,color:"#525252",width:20,textAlign:"right",flexShrink:0}}>#{i+1}</span>
+                      <div style={{width:8,height:8,borderRadius:99,background:rc,flexShrink:0}}/>
+                      <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#e5e5e5",flex:1,minWidth:0}}>({m.lower.seed}) {m.lower.team} over ({m.higher.seed}) {m.higher.team}</span>
+                      <span style={{fontFamily:mono,fontSize:9,color:rc,flexShrink:0}}>{m.region}</span>
+                      <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:m.score>=60?"#ea580c":"#737373",flexShrink:0,minWidth:40,textAlign:"right"}}>{m.score.toFixed(0)}</span>
+                    </div>;
+                  })}
+                </div>
+              </>;
+            })()}
+          </div>;
+        })()}
         <TwitterFooter/>
-        <div style={{textAlign:"center",padding:"4px 24px 16px",fontFamily:mono,fontSize:10,color:"#d4d4d4",letterSpacing:0.5}}>© {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>
+        <div style={{textAlign:"center",padding:"4px 24px 16px",fontFamily:mono,fontSize:10,color:_isDark?"#3a3a3a":"#d4d4d4",letterSpacing:0.5}}>{"\u00A9"} {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>
       </div>
       {profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth} schemeFits={schemeFits}/>}
     </div>);
