@@ -4101,11 +4101,11 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         <p style={{fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",margin:0}}>2026 NFL Draft · April 23–25</p>
       </div>
       <div style={{display:"flex",gap:8,alignItems:"center"}}>
-        <button onClick={()=>{openExplorer();trackEvent(user?.id,'explorer_opened',{guest:!user});}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"6px 14px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",transition:"all 0.2s",display:"flex",alignItems:"center",gap:5}}>🧪 <span className="shimmer-text">data lab</span></button>
-        <button onClick={()=>{if(isGuest){onRequireAuth("want to see and share the guys you draft more than others?");return;}navigate('/my-guys');setMyGuysUpdated(false);}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:myGuysUpdated?"linear-gradient(135deg,#ec4899,#7c3aed)":mockCount>0?"#171717":"transparent",color:myGuysUpdated||mockCount>0?"#fff":"#a3a3a3",border:myGuysUpdated||mockCount>0?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",position:"relative",transition:"all 0.2s",whiteSpace:"nowrap"}}>
+        <button onClick={()=>{if(isGuest){onRequireAuth("want to see and share the guys you draft more than others?");return;}navigate('/my-guys');setMyGuysUpdated(false);}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"6px 14px",background:"transparent",color:"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",transition:"all 0.2s",position:"relative"}}>
           👀 my guys
           {myGuysUpdated&&<span style={{position:"absolute",top:-2,right:-2,width:8,height:8,borderRadius:4,background:"#ec4899",border:"2px solid #faf9f6"}}/>}
         </button>
+        <button onClick={()=>{openExplorer();trackEvent(user?.id,'explorer_opened',{guest:!user});}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:"#171717",color:"#fff",border:"none",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",transition:"all 0.2s",display:"flex",alignItems:"center",gap:5}}>🧪 <span className="shimmer-text">data lab</span></button>
       </div>
     </div>
 
