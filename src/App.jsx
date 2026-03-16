@@ -3378,7 +3378,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
 
             {/* Drill-Down Panel */}
             {expandedData&&(()=>{
-              const allProspects=[...expandedData.allAtPos].sort((a,b)=>getGrade(b.id)-getGrade(a.id));
+              const allProspects=[...expandedData.allAtPos].sort((a,b)=>getConsensusRank(a.name)-getConsensusRank(b.name));
               const availableCount=expandedData.remaining.length;
               const draftedCount=expandedData.allAtPos.length-availableCount;
               const ec=POS_COLORS[scarcityExpanded]||"#525252";
