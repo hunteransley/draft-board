@@ -868,10 +868,11 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
       // Title
       ctx.fillStyle='#a3a3a3';ctx.font=`10px ${mono}`;ctx.letterSpacing='2px';ctx.textAlign='left';
       ctx.fillText('EQUALIZER',centerX+mp,eqTop+mp);ctx.letterSpacing='0px';
-      // Traits label left, Measurables label right
-      ctx.font=`bold 8px ${mono}`;
-      ctx.fillStyle='#7c3aed';ctx.textAlign='left';ctx.fillText('◼ TRAITS',eqStartX,eqTop+mp);
-      if(eqMeas.length>0){ctx.fillStyle='#0891b2';ctx.textAlign='right';ctx.fillText('MEASURABLES ◼',eqStartX+eqTotalBarW,eqTop+mp);ctx.textAlign='left';}
+      // Traits label left of bars, Measurables label right of bars — vertically centered
+      ctx.textBaseline='middle';ctx.font=`bold 8px ${mono}`;
+      ctx.fillStyle='#7c3aed';ctx.textAlign='right';ctx.fillText('TRAITS ◼',eqStartX-8,eqMidY);
+      if(eqMeas.length>0){ctx.fillStyle='#0891b2';ctx.textAlign='left';ctx.fillText('◼ MEASURABLES',eqStartX+eqTotalBarW+8,eqMidY);}
+      ctx.textAlign='left';ctx.textBaseline='top';
     }}
 
     // ====== MODULE 7: Traits Radar ======
