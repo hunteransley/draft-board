@@ -407,7 +407,7 @@ const ScatterChart=memo(function ScatterChart({points,width,xLabel,yLabel,xInver
       const isMyGuy=showMyGuys&&myGuyNames.has(pt.name);
       const isSpotlit=spotlightName&&pt.name===spotlightName;
       const fade=spotlightName?!isSpotlit:(showMyGuys&&myGuyNames.size>0&&!isMyGuy);
-      const opacity=fade?(spotlightName?0.08:0.3):1;
+      const opacity=fade?(spotlightName?(showLogos?0.35:0.15):0.3):1;
       const r=isSpotlit?dotR*2.2:isMyGuy?dotR+1.5:isHovered?dotR+1:dotR;
       return<g key={pt.id} style={{cursor:"pointer"}}>
         <circle cx={cx} cy={cy} r={showLogos?logoSize/2+2:12} fill="transparent" stroke="none"
@@ -1764,7 +1764,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[explorerStat,setExplorerStat]=useState("passing_YDS");
   const[explorerStatOpen,setExplorerStatOpen]=useState(()=>new Set(["Passing"]));
   const[explorerAvgInfo,setExplorerAvgInfo]=useState(false);
-  const[explorerLogos,setExplorerLogos]=useState(false);
+  const[explorerLogos,setExplorerLogos]=useState(()=>new URLSearchParams(window.location.search).get('logos')==='1');
   const[explorerLeaderPos,setExplorerLeaderPos]=useState(null);
   const[explorerLeaderInfo,setExplorerLeaderInfo]=useState(false);
   const[explorerHover,setExplorerHover]=useState(null);
@@ -6089,7 +6089,7 @@ function AdminDashboard({user,onBack,onOpenCombo}){
                         <span style={{fontFamily:mono,fontSize:11,fontWeight:900,color:"#a3a3a3"}}>#{i+1}</span>
                         <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:"#171717"}}>score {Math.round(combo.score)}th pctile avg</span>
                         {i===0&&<span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#d97706",background:"#fef3c7",padding:"2px 6px",borderRadius:4,marginLeft:"auto"}}>BEST</span>}
-                        <button onClick={()=>window.open(`/lab/combo?pos=${encodeURIComponent(pos)}&x=${encodeURIComponent(combo.xKey)}&y=${encodeURIComponent(combo.yKey)}&player=${encodeURIComponent(spotlightPlayer.name)}`,'_blank')} style={{fontFamily:mono,fontSize:9,color:"#3b82f6",background:"#eff6ff",border:"1px solid #bfdbfe",borderRadius:6,padding:"3px 8px",cursor:"pointer",fontWeight:600,marginLeft:i===0?"0":"auto"}}>open in lab ↗</button>
+                        <button onClick={()=>window.open(`/lab/combo?pos=${encodeURIComponent(pos)}&x=${encodeURIComponent(combo.xKey)}&y=${encodeURIComponent(combo.yKey)}&player=${encodeURIComponent(spotlightPlayer.name)}&logos=1`,'_blank')} style={{fontFamily:mono,fontSize:9,color:"#3b82f6",background:"#eff6ff",border:"1px solid #bfdbfe",borderRadius:6,padding:"3px 8px",cursor:"pointer",fontWeight:600,marginLeft:i===0?"0":"auto"}}>open in lab ↗</button>
                       </div>
                       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
                         {[{axis:"X",meta:combo.xMeta,pct:combo.xPct,val:combo.xVal,cat:xCat},{axis:"Y",meta:combo.yMeta,pct:combo.yPct,val:combo.yVal,cat:yCat}].map(({axis,meta,pct,val,cat})=>(
