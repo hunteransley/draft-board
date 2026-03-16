@@ -1,9 +1,9 @@
 {
   "team": "NYG",
   "team_full": "New York Giants",
-  "updated_through": "2026-03-13",
-  "cap_space_pre_fa": "~$10000000",
-  "cap_space_post_fa": "~$12083735",
+  "updated_through": "2026-03-16",
+  "cap_space_pre_fa": "$9800000",
+  "cap_space_post_fa": "$25800000",
   "key_departures": [
     {
       "player": "Wan'Dale Robinson",
@@ -11,20 +11,18 @@
       "age": 25,
       "role": "starter",
       "new_team": "Tennessee Titans",
-      "contract_signed_elsewhere": "4yr/$78M ($38M guaranteed)",
-      "impact": "Robinson stepped up as WR1 after Malik Nabers' ACL tear, posting 92 catches, 1,014 yards, and 4 TDs in 2025. His departure leaves a significant hole as a reliable slot option and second receiver behind Nabers.",
+      "impact": "Robinson was the Giants' lead receiver in 2025 after Nabers went down to ACL tear, finishing with 92 catches for 1,014 yards and 4 TDs. His departure leaves a significant slot/production void. Giants did not retain him despite interest.",
       "need_impact": "escalates",
       "need_position": "WR"
     },
     {
       "player": "Cor'Dale Flott",
       "position": "CB",
-      "age": 24,
+      "age": 25,
       "role": "starter",
       "new_team": "Tennessee Titans",
-      "contract_signed_elsewhere": "3yr/$45M ($32M fully guaranteed)",
-      "impact": "Flott had developed into a legitimate starter opposite Paulson Adebo, posting 11 passes defensed and 3 TFL in 2025. Losing him creates a meaningful CB2 hole in an already thin secondary.",
-      "need_impact": "creates",
+      "impact": "Flott signed a 3yr/$45M deal with $32M fully guaranteed with Tennessee. He started 24 games in his final two seasons with NYG, had 11 passes defended in 2025. A real loss from the secondary, which was already a need.",
+      "need_impact": "escalates",
       "need_position": "CB"
     },
     {
@@ -32,9 +30,8 @@
       "position": "LB",
       "age": 29,
       "role": "starter",
-      "new_team": "TBD/unsigned",
-      "contract_signed_elsewhere": null,
-      "impact": "Released as a cap casualty saving $9M. Okereke posted 143 tackles in 2025, fourth-most in franchise history, and was a two-year defensive captain. The cut directly created the need that Tremaine Edmunds was signed to fill.",
+      "new_team": "TBD/released",
+      "impact": "Released by Giants for $9M cap savings. Had 143 tackles in 2025 (4th most in franchise history). A veteran captain cut to open cap space and allow Edmunds signing.",
       "need_impact": "creates",
       "need_position": "LB"
     },
@@ -42,10 +39,9 @@
       "player": "Daniel Bellinger",
       "position": "TE",
       "age": 25,
-      "role": "rotational",
+      "role": "depth",
       "new_team": "Tennessee Titans",
-      "contract_signed_elsewhere": "3yr/$24M",
-      "impact": "Bellinger had declined to just 19 receptions in 2025 with Theo Johnson emerging. His departure was expected after the Isaiah Likely signing. Minimal impact on need picture.",
+      "impact": "Bellinger's role had diminished with Theo Johnson's arrival. Just 19 receptions in 2025. Departure was expected with Likely incoming. Minimal impact.",
       "need_impact": "none",
       "need_position": "TE"
     },
@@ -53,45 +49,31 @@
       "player": "Austin Schlottmann",
       "position": "IOL",
       "age": 29,
-      "role": "rotational",
+      "role": "backup/swing",
       "new_team": "Tennessee Titans",
-      "contract_signed_elsewhere": "terms undisclosed",
-      "impact": "Schlottmann provided versatile IOL depth, capable of filling in at both center and guard. His departure leaves the Giants without a reliable backup center under contract.",
+      "impact": "Lost valuable center/guard swing depth to Titans on a 2yr/$9M deal. Schlottmann was the Giants' only reliable backup center; his departure leaves John Michael Schmitz (injury-prone) with no experienced backup at C.",
       "need_impact": "escalates",
       "need_position": "IOL"
     },
     {
       "player": "Dane Belton",
       "position": "S",
-      "age": 24,
-      "role": "rotational",
+      "age": 25,
+      "role": "depth/ST",
       "new_team": "New York Jets",
-      "contract_signed_elsewhere": "1yr/$4M",
-      "impact": "Belton was the team's special teams tackle leader and third safety who never carved out a full starting role. His departure slightly thins safety depth but doesn't create a starter-level hole given Nubin and Holland remain.",
+      "impact": "Special teams leader who never locked down a starting role. Depth/ST loss; Giants still have Tyler Nubin and Jevon Holland.",
       "need_impact": "none",
       "need_position": "S"
     },
     {
-      "player": "Graham Gano",
-      "position": "K",
-      "age": 38,
-      "role": "starter",
+      "player": "Russell Wilson",
+      "position": "QB",
+      "age": 37,
+      "role": "backup",
       "new_team": "TBD/unsigned",
-      "contract_signed_elsewhere": null,
-      "impact": "Released as a cap casualty saving $4.5M. Missed 2025 season with hip injury. Giants have Ben Sauls (8-for-8 FG as a rookie) as the in-house option and signed Jason Sanders as upgrade.",
+      "impact": "Backup QB behind Jaxson Dart. Not expected to return. Low impact on team needs given Dart's status as starter.",
       "need_impact": "none",
-      "need_position": "K"
-    },
-    {
-      "player": "Jamie Gillan",
-      "position": "P",
-      "age": 30,
-      "role": "starter",
-      "new_team": "TBD/unsigned",
-      "contract_signed_elsewhere": null,
-      "impact": "Released to make way for Jordan Stout. Gillan ranked 29th in punts inside the 20 and 30th in net average in 2025. Upgrade move, not a hole.",
-      "need_impact": "none",
-      "need_position": "P"
+      "need_position": "QB"
     },
     {
       "player": "Casey Kreiter",
@@ -99,58 +81,12 @@
       "age": 35,
       "role": "starter",
       "new_team": "Arizona Cardinals",
-      "contract_signed_elsewhere": "terms undisclosed",
-      "impact": "Kreiter had been the Giants' long-snapper for seven seasons. His departure leaves a hole at an often overlooked but critical specialist position.",
-      "need_impact": "creates",
-      "need_position": "LS"
-    },
-    {
-      "player": "James Hudson III",
-      "position": "OT",
-      "age": 26,
-      "role": "depth",
-      "new_team": "TBD/unsigned",
-      "contract_signed_elsewhere": null,
-      "impact": "Released as a cap casualty saving $5.38M. Hudson was a disaster when called upon in 2025. Depth loss only.",
+      "impact": "Six-year Giants long snapper and former captain. Departure is a special teams note but not a positional need for the draft.",
       "need_impact": "none",
-      "need_position": "OT"
+      "need_position": "LS"
     }
   ],
   "signings": [
-    {
-      "player": "Isaiah Likely",
-      "position": "TE",
-      "age": 25,
-      "previous_team": "Baltimore Ravens",
-      "contract": {
-        "years": 3,
-        "total_value": 40000000,
-        "guaranteed": 20000000,
-        "aav": 13333333
-      },
-      "expected_role": "starter",
-      "market_tier": "elite",
-      "need_impact": "fully_addressed",
-      "need_position": "TE",
-      "analysis": "3yr/$40M ($47.5M upside with incentives) makes Likely the 3rd-highest-paid TE in the NFL. He reunites with Harbaugh and is the clear TE1 over Theo Johnson. Contract structure \u2014 3 years, elite AAV for the position \u2014 signals a genuine starter investment. TE had been a moderate need; this fully resolves it with a young starter-caliber player. Giants will run heavy 12 personnel with Likely and Johnson. Note: Spotrac shows $0 in fully guaranteed money; likely structured as full-year guarantees. Guarantees TBD on exact structure, but AAV and years confirm starter commitment."
-    },
-    {
-      "player": "Tremaine Edmunds",
-      "position": "LB",
-      "age": 27,
-      "previous_team": "Chicago Bears",
-      "contract": {
-        "years": 3,
-        "total_value": 36000000,
-        "guaranteed": 23700000,
-        "aav": 12000000
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "fully_addressed",
-      "need_position": "LB",
-      "analysis": "3yr/$36M with $23.7M guaranteed directly replaces Bobby Okereke at the green-dot ILB role. Edmunds posted 112 tackles, 4 INTs, and 9 PDs in 2025 before injury. At $12M/yr with significant guarantees (65%+ of total), this is a genuine starter investment. Giants also re-signed McFadden at $3.75M/yr as his partner. The duo is not a long-term answer (both on shorter deals), so LB may still be addressed in mid-rounds of the draft, but the immediate starting need is resolved. Need drops from tier 1 critical to tier 3."
-    },
     {
       "player": "Jermaine Eluemunor",
       "position": "OT",
@@ -166,7 +102,41 @@
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "OT",
-      "analysis": "Re-signing Eluemunor on a 3yr/$39M deal with $25.45M guaranteed locks up the starting RT opposite Andrew Thomas. Eluemunor graded as one of the best pass-protecting RTs in 2025 and helps protect Jaxson Dart. At $13M/yr he is a slight below-market bargain for an above-average starter. RT was a significant risk before this signing \u2014 now fully resolved. OT need fully eliminated."
+      "analysis": "Giants retain their starting RT on a 3yr/$39M deal with $25.45M guaranteed (per Spotrac/Big Blue View). Eluemunor had a career-best season in 2025, playing 1,088 snaps with a 88.8% pass block win rate. Paired with Andrew Thomas on the left, the Giants have a secure starting tackle tandem through at least 2027. RT goes from a significant need to a locked position. Age (31 turning 32) and the 3-year term signal a bridge rather than a dynasty-level solution, but the 2-year effective guarantee window is real. OT is no longer a draft priority."
+    },
+    {
+      "player": "Isaiah Likely",
+      "position": "TE",
+      "age": 25,
+      "previous_team": "Baltimore Ravens",
+      "contract": {
+        "years": 3,
+        "total_value": 40000000,
+        "guaranteed": 0,
+        "aav": 13333333
+      },
+      "expected_role": "starter",
+      "market_tier": "elite",
+      "need_impact": "fully_addressed",
+      "need_position": "TE",
+      "analysis": "3yr/$40M deal (upside to $47.5M per Jordan Schultz) makes Likely the 3rd-highest paid TE in the NFL at signing. Harbaugh reunion piece \u2014 Likely played all 4 seasons under him in Baltimore. With Theo Johnson already on roster, Giants now have 12-personnel as their base identity. Likely is a primary receiving TE who will be Dart's most trusted target. $0 in fully guaranteed money per OTC (injury offset and escalator structure), but the AAV and term signal a real starter commitment. TE goes from a notable need to a strength. Draft TE is no longer necessary early."
+    },
+    {
+      "player": "Tremaine Edmunds",
+      "position": "LB",
+      "age": 27,
+      "previous_team": "Chicago Bears",
+      "contract": {
+        "years": 3,
+        "total_value": 36000000,
+        "guaranteed": 23700000,
+        "aav": 12000000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "partially_addressed",
+      "need_position": "LB",
+      "analysis": "3yr/$36M with $23.7M guaranteed (per OTC/Spotrac/Rapoport). Direct replacement for released Bobby Okereke. Edmunds, 27, was a 2x Pro Bowler with the Bills and started all 119 career games he played. Has 100+ tackles in every season played. However, he missed the final 4 games of 2025 with a groin injury and was cut by Chicago entering the final year of his $72M deal. Giants still may want a Day 2/3 LB prospect given the draft class depth. Partially addresses LB \u2014 starter secured, but Micah McFadden's 1yr re-sign (depth) and the youth question means LB remains a draft consideration."
     },
     {
       "player": "Greg Newsome II",
@@ -176,82 +146,14 @@
       "contract": {
         "years": 1,
         "total_value": 10000000,
-        "guaranteed": 3000000,
+        "guaranteed": 0,
         "aav": 10000000
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "CB",
-      "analysis": "1yr/$10M (up to $10M with escalators, only $3M guaranteed) is a high-upside prove-it deal after losing Cor'Dale Flott. Newsome is a former 2021 first-round pick (Browns, 26th overall) who had 3 elite years before declining in 2024 and being traded to Jacksonville. One-year deal with minimal guarantees screams 'bridge/competition,' not 'solved.' The Giants still clearly view CB as a priority for the 2026 draft. CB need partially addressed \u2014 Newsome could start opposite Adebo but the one-year structure means the team must still draft a long-term CB2. Need tier drops from 1 to 2."
-    },
-    {
-      "player": "Patrick Ricard",
-      "position": "FB",
-      "age": 31,
-      "previous_team": "Baltimore Ravens",
-      "contract": {
-        "years": 2,
-        "total_value": 7630000,
-        "guaranteed": 3540000,
-        "aav": 3815000
-      },
-      "expected_role": "starter",
-      "market_tier": "elite",
-      "need_impact": "none",
-      "need_position": "FB",
-      "analysis": "2yr/$7.63M (max $8.5M) makes Ricard the highest-paid fullback in the NFL. This is a pure scheme-fit signing under Harbaugh \u2014 the Giants did not have an established fullback need previously. Ricard is a 6x Pro Bowler who will lead-block for Cam Skattebo and Tyrone Tracy in Harbaugh's power-run offense. Not addressing a pre-existing need, but a scheme-defining addition."
-    },
-    {
-      "player": "Ar'Darius Washington",
-      "position": "S",
-      "age": 26,
-      "previous_team": "Baltimore Ravens",
-      "contract": {
-        "years": 1,
-        "total_value": 3000000,
-        "guaranteed": 1500000,
-        "aav": 3000000
-      },
-      "expected_role": "rotational",
-      "market_tier": "depth",
-      "need_impact": "minimal",
-      "need_position": "S",
-      "analysis": "1yr/$3M depth/rotational signing. Washington is coming off a torn Achilles that cost him most of 2025. He'll be the team's third safety behind Tyler Nubin and Jevon Holland and may take some slot duties. Injury history (IR three of five seasons) limits the impact. Partially replaces Dane Belton in the depth chart. S was not a pressing need; this keeps depth adequate."
-    },
-    {
-      "player": "Jordan Stout",
-      "position": "P",
-      "age": 27,
-      "previous_team": "Baltimore Ravens",
-      "contract": {
-        "years": 3,
-        "total_value": 12300000,
-        "guaranteed": 6000000,
-        "aav": 4100000
-      },
-      "expected_role": "starter",
-      "market_tier": "elite",
-      "need_impact": "none",
-      "need_position": "P",
-      "analysis": "3yr/$12.3M makes Stout the NFL's highest-paid punter. 2025 first-team All-Pro (50.1 gross average, 44.9 net average \u2014 1st in NFL). Replaces Jamie Gillan (who ranked 29th-30th in key punting metrics). Pure upgrade move at specialist; punter was not a formal team need per se but was a bottom-of-league weakness. Harbaugh made specialist investment a priority."
-    },
-    {
-      "player": "Jason Sanders",
-      "position": "K",
-      "age": 30,
-      "previous_team": "Miami Dolphins",
-      "contract": {
-        "years": 1,
-        "total_value": 3500000,
-        "guaranteed": 1500000,
-        "aav": 3500000
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "none",
-      "need_position": "K",
-      "analysis": "1yr deal (terms approximate; official figures not disclosed). Sanders is a former All-Pro who missed all of 2025 with a hip injury. Competes with Ben Sauls (8-for-8 as a rookie). Kicker was not a pre-FA team need tier target \u2014 Graham Gano was cut as a cap casualty and Sauls was the internal solution. Specialism upgrade, not a positional need fulfillment."
+      "analysis": "1yr/$10M (per Spotrac). Former first-round pick (26th overall, 2021) on a prove-it deal. Has 71 career games with 58 starts, 43 passes defensed. Injuries have derailed a promising career \u2014 missed significant time with Cleveland and was traded to Jacksonville mid-2025 season. One-year structure is the tell: Giants want upside but aren't committing. Loses Flott (3yr/$45M) and gains Newsome (1yr/$10M) \u2014 net downgrade in commitment. CB remains a pressing need heading into the draft, especially with Paulson Adebo as the only locked-in starter. CB moves from tier 1 to tier 2 \u2014 partially addressed but not solved."
     },
     {
       "player": "Calvin Austin III",
@@ -261,65 +163,184 @@
       "contract": {
         "years": 1,
         "total_value": 4500000,
-        "guaranteed": 200000,
+        "guaranteed": 0,
         "aav": 4500000
       },
       "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "WR",
-      "analysis": "1yr/$1.5M base ($4.5M max with incentives, only $200K guaranteed) \u2014 a near-minimum deal. Austin brings elite speed (4.32 40-time), slot/return versatility, and 31 catches/372 yards/3 TDs in 2025. He partially addresses the Wan'Dale Robinson vacancy as a slot/return option, but the minimal guarantees and volume replacement profile (Robinson had 92 catches) make this depth-level impact. WR remains a meaningful draft need. Austin is a comp for Robinson's ST role more than his offensive production."
+      "analysis": "1yr/$4.5M (per ESPN/Adam Schefter). Slot receiver option to partially replace Wan'Dale Robinson's production. Austin brings elite speed and return value. 84 career catches for 1,100 yards in 48 games. One-year depth deal \u2014 not a starter-caliber signing at the market-rate level. WR remains a meaningful draft need with Nabers' ACL recovery timeline uncertain."
+    },
+    {
+      "player": "Darnell Mooney",
+      "position": "WR",
+      "age": 28,
+      "previous_team": "Atlanta Falcons",
+      "contract": {
+        "years": 1,
+        "total_value": 10000000,
+        "guaranteed": 0,
+        "aav": 10000000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "partially_addressed",
+      "need_position": "WR",
+      "analysis": "1yr/$10M up to $10M (per ESPN/Rapoport). Released as Falcons cap casualty. Had 64 catches for 992 yards and career-high 5 TDs in 2024 before a down 2025 (32/443/1 TD, collarbone injury). Mid-tier prove-it deal at a position where NYG lost their leading receiver. Nabers' return (ACL) is the key variable. With Mooney + Austin + Hodgins + Slayton, WR depth is adequate but uninspiring. 1-year deal means WR is still a legitimate mid-round draft target. Partially addresses the post-Robinson hole; need drops from tier 1 critical to tier 2."
+    },
+    {
+      "player": "Patrick Ricard",
+      "position": "RB",
+      "age": 31,
+      "previous_team": "Baltimore Ravens",
+      "contract": {
+        "years": 2,
+        "total_value": 7630000,
+        "guaranteed": 3540000,
+        "aav": 3815000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "none",
+      "need_position": "FB",
+      "analysis": "2yr/$7.63M with $3.54M guaranteed (per Big Blue View breakdown). 6x Pro Bowl fullback, 3x All-Pro including 1st-team All-Pro in 2025. Scheme-defining signing for Harbaugh's run-heavy identity \u2014 reunites with the FB he coached for 9 years in Baltimore. Ricard is the highest-paid fullback in the league. FB was not a pre-FA need but this creates an entirely new schematic dimension. No draft impact at traditional positions."
+    },
+    {
+      "player": "Ar'Darius Washington",
+      "position": "S",
+      "age": 26,
+      "previous_team": "Baltimore Ravens",
+      "contract": {
+        "years": 1,
+        "total_value": 3000000,
+        "guaranteed": 0,
+        "aav": 3000000
+      },
+      "expected_role": "depth",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "S",
+      "analysis": "1yr/$3M (per SNY/Connor Hughes). Third safety behind Tyler Nubin and Jevon Holland. Harbaugh connection from Baltimore. Coming off torn Achilles (missed most of 2025). Played all 17 games in 2024 with 10 starts for Ravens. This is a low-cost, high-ceiling bet on health. Depth move only. S was not a critical pre-FA need and remains a minor consideration."
+    },
+    {
+      "player": "Jason Pinnock",
+      "position": "S",
+      "age": 26,
+      "previous_team": "San Francisco 49ers",
+      "contract": {
+        "years": 1,
+        "total_value": 1487500,
+        "guaranteed": 262500,
+        "aav": 1487500
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "S",
+      "analysis": "1yr/$1.4875M (per Big Blue View). Former Giants starting safety returns from SF where he started 7 games in 2025. Veteran minimum-tier re-sign for secondary depth and ST. No meaningful need impact."
+    },
+    {
+      "player": "Elijah Campbell",
+      "position": "S",
+      "age": 27,
+      "previous_team": "Miami Dolphins",
+      "contract": {
+        "years": 1,
+        "total_value": 1000000,
+        "guaranteed": 0,
+        "aav": 1000000
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "S",
+      "analysis": "Minimum deal. Special teams specialist from Miami. 24 career tackles, 21 on ST. Camp body/ST depth only. No positional need impact."
+    },
+    {
+      "player": "Jordan Stout",
+      "position": "P",
+      "age": 27,
+      "previous_team": "Baltimore Ravens",
+      "contract": {
+        "years": 3,
+        "total_value": 12300000,
+        "guaranteed": 7300000,
+        "aav": 4100000
+      },
+      "expected_role": "starter",
+      "market_tier": "elite",
+      "need_impact": "none",
+      "need_position": "P",
+      "analysis": "3yr/$12.3M with $7.3M guaranteed (per Spotrac/OTC). NFL's highest-paid punter. 2025 first-team All-Pro, led league in net punting average (44.9). Replaces Jamie Gillan (released). Pure special teams upgrade \u2014 not a positional draft need."
+    },
+    {
+      "player": "Jason Sanders",
+      "position": "K",
+      "age": 30,
+      "previous_team": "Miami Dolphins",
+      "contract": {
+        "years": 1,
+        "total_value": 2000000,
+        "guaranteed": 0,
+        "aav": 2000000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "none",
+      "need_position": "K",
+      "analysis": "1yr deal (terms TBD beyond estimated $2M). Former 1st-team All-Pro kicker. Missed 2025 season with hip injury. Will compete with Ben Sauls. One-year deal reflects injury uncertainty. Pure ST move."
     },
     {
       "player": "Micah McFadden",
       "position": "LB",
-      "age": 25,
-      "previous_team": "New York Giants (re-sign)",
-      "contract": {
-        "years": 1,
-        "total_value": 3750000,
-        "guaranteed": 2000000,
-        "aav": 3750000
-      },
-      "expected_role": "starter",
-      "market_tier": "depth",
-      "need_impact": "partially_addressed",
-      "need_position": "LB",
-      "analysis": "1yr/$3.75M re-sign (plus $2M incentives) pairs McFadden alongside Edmunds as the ILB duo. McFadden missed 2025 with a foot injury but posted 107 tackles in 2024. At $3.75M he is a cost-effective depth/starter piece. Combined with Edmunds, the LB room is addressed for 2026, though neither is considered a long-term answer. Contributes to 'fully_addressed' classification for LB alongside Edmunds."
-    },
-    {
-      "player": "Isaiah Hodgins",
-      "position": "WR",
       "age": 26,
       "previous_team": "New York Giants (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 2500000,
-        "guaranteed": 750000,
-        "aav": 2500000
+        "total_value": 3750000,
+        "guaranteed": 0,
+        "aav": 3750000
+      },
+      "expected_role": "rotational",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "LB",
+      "analysis": "1yr/$3.75M with up to $2M in incentives (per ESPN). Re-signed as depth LB alongside Edmunds. Had 100+ tackles in 2023 and 2024 before injury in 2025. Provides rotational depth but is not a starter-level solution. Paired with Edmunds, this brings LB from a top need to a moderate one."
+    },
+    {
+      "player": "Isaiah Hodgins",
+      "position": "WR",
+      "age": 27,
+      "previous_team": "New York Giants (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 2000000,
+        "guaranteed": 0,
+        "aav": 2000000
       },
       "expected_role": "depth",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "WR",
-      "analysis": "1yr prove-it re-sign. Hodgins (10 catches/115 yards/1 TD in 7 games in 2025) is a physical receiver who fits Harbaugh's blocking scheme. One-year deal at well below starter money. Adds WR depth but does not solve the Robinson replacement need. WR remains a primary draft target."
+      "analysis": "Low-cost 1yr re-sign. Physical WR who fits Harbaugh's blocking scheme on the outside. Depth piece only. WR need still exists."
     },
     {
       "player": "Evan Neal",
-      "position": "IOL",
-      "age": 24,
+      "position": "OT",
+      "age": 25,
       "previous_team": "New York Giants (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 1215000,
-        "guaranteed": 1215000,
-        "aav": 1215000
+        "total_value": 1075000,
+        "guaranteed": 0,
+        "aav": 1075000
       },
       "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "IOL",
-      "analysis": "Veteran minimum ($1.215M) re-sign of the 2022 7th-overall pick. Neal is expected to compete at guard (not tackle) where the Giants have a right side opening. His pass block win rate of 82.9% was dead last among qualifiers at tackle, but Harbaugh saw something on tape. Minimum deal = high upside/zero downside. Does not resolve the interior OL starter need but adds cheap competition."
+      "analysis": "1yr/veteran minimum (per Big Blue View \u2014 Giants recoup full $1.075M if he doesn't make roster). 2022 7th-overall pick who never lived up to his draft position. Harbaugh sees reclamation potential. Can provide emergency tackle depth or attempt a position switch inside. Minimal impact on OT need (Eluemunor handles that); could help IOL depth."
     },
     {
       "player": "Aaron Stinnie",
@@ -328,100 +349,100 @@
       "previous_team": "New York Giants (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 2000000,
-        "guaranteed": 1000000,
-        "aav": 2000000
+        "total_value": 1500000,
+        "guaranteed": 0,
+        "aav": 1500000
       },
       "expected_role": "depth",
-      "market_tier": "depth",
+      "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "IOL",
-      "analysis": "1yr depth re-sign. Stinnie is a trusted backup guard with some center flexibility \u2014 partially mitigating the Schlottmann departure. Does not solve the starting guard need but provides quality depth insurance."
+      "analysis": "Low-cost 1yr re-sign for interior line depth. Giants still need guard help beyond Stinnie. Depth-only move with John Michael Schmitz as starting C and Schlottmann gone. IOL remains a real draft need."
     },
     {
       "player": "Gunner Olszewski",
       "position": "WR",
-      "age": 28,
+      "age": 29,
       "previous_team": "New York Giants (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 1402000,
-        "guaranteed": 1000000,
-        "aav": 1402000
+        "total_value": 1200000,
+        "guaranteed": 0,
+        "aav": 1200000
       },
       "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "WR",
-      "analysis": "Low-cost re-sign as a slot/return specialist. Olszewski fills in at slot receiver and serves as a returner. Competes with Calvin Austin III for the punt return role. Minimal cap impact; pure depth and special teams retention."
-    },
-    {
-      "player": "Chris Manhertz",
-      "position": "TE",
-      "age": 32,
-      "previous_team": "New York Giants (re-sign)",
-      "contract": {
-        "years": 1,
-        "total_value": 2000000,
-        "guaranteed": 1000000,
-        "aav": 2000000
-      },
-      "expected_role": "depth",
-      "market_tier": "depth",
-      "need_impact": "none",
-      "need_position": "TE",
-      "analysis": "Re-signed as the blocking TE3 behind Likely and Johnson. Manhertz's blocking contributions were an integral part of the running game. 1yr deal confirms depth role. With Likely signed, TE is now a strength; Manhertz adds specialist blocking value."
+      "analysis": "1yr minimum re-sign. ST/slot depth only. No meaningful impact on WR need."
     },
     {
       "player": "Zaire Barnes",
       "position": "LB",
-      "age": 24,
+      "age": 25,
       "previous_team": "New York Giants (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 1200000,
-        "guaranteed": 900000,
-        "aav": 1200000
+        "total_value": 1000000,
+        "guaranteed": 0,
+        "aav": 1000000
       },
       "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "LB",
-      "analysis": "RFA re-sign primarily as a special teams contributor. Minimum-level deal. LB depth retention."
+      "analysis": "RFA tender re-sign. Primarily a ST contributor. No meaningful impact on LB starter need."
     },
     {
       "player": "Caleb Murphy",
       "position": "EDGE",
       "age": 24,
-      "previous_team": "New York Giants (re-sign)",
+      "previous_team": "New England Patriots (practice squad)",
       "contract": {
         "years": 1,
-        "total_value": 1200000,
-        "guaranteed": 900000,
-        "aav": 1200000
+        "total_value": 800000,
+        "guaranteed": 0,
+        "aav": 800000
       },
       "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "EDGE",
-      "analysis": "Re-signed as a rotational OLB/special teams contributor. 19 career games across three teams. Minimum deal. Does not address any starting need."
+      "analysis": "ERFA tender. Practice squad project elevated for another year. No impact on starting EDGE depth."
     },
     {
       "player": "Art Green",
       "position": "CB",
-      "age": 24,
+      "age": 25,
       "previous_team": "New York Giants (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 795000,
-        "guaranteed": 795000,
-        "aav": 795000
+        "total_value": 800000,
+        "guaranteed": 0,
+        "aav": 800000
       },
       "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "CB",
-      "analysis": "ERFA tender at league minimum. Green was the team's best punt gunner and a special teams tackle leader despite missing 5 games. Purely a special teams/depth retention."
+      "analysis": "ERFA tender. Physical corner and best punt gunner on team. ST specialist only \u2014 CB starter need unchanged."
+    },
+    {
+      "player": "Chris Manhertz",
+      "position": "TE",
+      "age": 33,
+      "previous_team": "New York Giants (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 1100000,
+        "guaranteed": 0,
+        "aav": 1100000
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "TE",
+      "analysis": "Veteran minimum 1yr re-sign. Blocking TE depth behind Likely and Theo Johnson. No need impact \u2014 TE is now a strength."
     },
     {
       "player": "Devin Singletary",
@@ -430,104 +451,90 @@
       "previous_team": "New York Giants (restructure)",
       "contract": {
         "years": 1,
-        "total_value": 2550000,
-        "guaranteed": 1000000,
-        "aav": 2550000
+        "total_value": 3000000,
+        "guaranteed": 0,
+        "aav": 3000000
       },
       "expected_role": "depth",
       "market_tier": "depth",
       "need_impact": "none",
       "need_position": "RB",
-      "analysis": "Restructured from a $6.5M cap hit to approximately $2.55M, saving ~$3.95M in 2026 cap space. Singletary is the clear RB3 behind Cam Skattebo and Tyrone Tracy. Versatile pass-catcher who fits Harbaugh's scheme. Re-structure is cap management, not a positional need fill. RB is not a team need with Skattebo and Tracy."
+      "analysis": "Restructured contract to stay with Giants at reduced cap number. Depth RB behind Cam Skattebo and Tyrone Tracy Jr. No positional need impact."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
       "OT",
-      "LB",
       "TE"
     ],
     "partially_addressed": [
-      "CB"
+      "LB",
+      "CB",
+      "WR"
     ],
     "minimally_addressed": [
-      "WR",
       "IOL",
       "S"
     ],
     "unchanged": [
       "EDGE",
-      "IDL"
+      "IDL",
+      "QB"
     ],
     "escalated": [
       "CB",
+      "WR",
       "IOL"
-    ],
-    "created": [
-      "CB",
-      "LS"
     ]
   },
   "recommended_need_adjustments": [
     {
       "position": "OT",
-      "previous_tier": 1,
+      "previous_tier": 2,
       "recommended_tier": 4,
-      "reasoning": "Eluemunor re-signed (3yr/$39M, $25.45M gtd) locks up starting RT opposite Andrew Thomas for 3+ years. Bookend tackles are set. OT is no longer a need at any meaningful tier. Could still take a developmental tackle on Day 3 but not a draft priority."
-    },
-    {
-      "position": "LB",
-      "previous_tier": 1,
-      "recommended_tier": 3,
-      "reasoning": "Edmunds (3yr/$36M, $23.7M gtd) directly replaces Okereke as green-dot ILB. McFadden re-signed as partner. Immediate need resolved. However, neither is under 30 on a long-term deal \u2014 Edmunds is 27 on a 3-year deal and McFadden is on a 1-year prove-it. LB drops to tier 3 developmental: worth targeting in rounds 3-5 (Sonny Styles at #5 OAV still possible for Harbaugh's defense). Not a Day 1 need."
+      "reasoning": "Eluemunor re-sign (3yr/$39M, $25.45M gtd) locks in the starting RT. Andrew Thomas holds LT. Bookend tackles are now secured through 2027 minimum. OT is no longer a draft priority \u2014 only developmental depth at best."
     },
     {
       "position": "TE",
       "previous_tier": 2,
       "recommended_tier": 5,
-      "reasoning": "Isaiah Likely (3yr/$40M, elite market tier, clear starter) fills TE1 role. Theo Johnson returns as TE2 and Chris Manhertz re-signed as blocking TE3. The position group went from a need to a legitimate strength. No draft capital needed at TE unless it's a premium value fall."
+      "reasoning": "Isaiah Likely (3yr/$40M, elite AAV) is a bonafide starter and Harbaugh's offensive centerpiece. Paired with Theo Johnson, Giants are TE-rich. This position is a strength now \u2014 remove from needs board entirely."
+    },
+    {
+      "position": "LB",
+      "previous_tier": 1,
+      "recommended_tier": 3,
+      "reasoning": "Okereke release created the need; Edmunds signing (3yr/$36M, $23.7M gtd) partially fills it. Edmunds is a clear starter with 119-game starting track record, but his groin injury and Bears release create health/durability questions. McFadden back as rotational depth. Giants would still benefit from a Day 2 LB prospect (deep class this year) to build for the future \u2014 need drops from tier 1 critical to tier 3 value."
     },
     {
       "position": "CB",
-      "previous_tier": 2,
+      "previous_tier": 1,
       "recommended_tier": 2,
-      "reasoning": "Flott's departure to Tennessee created the need; Newsome's 1yr/$10M signing (only $3M gtd) partially addresses it. Newsome is a starter-capable player but the one-year structure and $3M guarantee makes this a bridge solution, not a resolution. CB remains a premium draft target \u2014 CB2 opposite Adebo is still unsettled long-term. Should target CB in rounds 1-2 regardless of Newsome."
+      "reasoning": "Lost Flott (3yr/$45M to Titans) \u2014 a real starter \u2014 and replaced with Newsome on a 1yr/$10M prove-it deal. Newsome has starting pedigree but injury history is concerning. Adebo is the only locked-in CB1 on the roster. CB remains a genuine priority in the draft \u2014 likely Rounds 1 or 2. Drops from tier 1 (acute) to tier 2 (still important) because Newsome adds legitimate competition."
     },
     {
       "position": "WR",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Robinson's departure (92 catches, 1,014 yds in 2025) was not adequately replaced. Austin III (1yr/$1.5M base, minimum guarantees) and Hodgins (1yr depth) are slot/depth options but neither replicates Robinson's volume or reliability. Nabers (returning from ACL) makes WR2 the critical need. Giants must address WR in rounds 1-3 of the draft. Need remains at tier 2."
+      "reasoning": "Lost Robinson (92/1014/4 in 2025) to Titans. Added Mooney (1yr/$10M) and Calvin Austin (1yr/$4.5M). Both are one-year depth signings. Nabers' ACL recovery timeline is uncertain. Mooney had a significant down year in 2025. The depth is fine but the starting quality post-Nabers-absence is fragile. WR stays at tier 2 \u2014 remains a real Round 2-3 target especially if Nabers' return is at risk."
     },
     {
       "position": "IOL",
-      "previous_tier": 2,
+      "previous_tier": 1,
       "recommended_tier": 2,
-      "reasoning": "Schlottmann's departure removed backup center depth. Starting guard situation remains unclear with Greg Van Roten not returning and Jon Runyan's status uncertain. Neal (min deal, guard) and Stinnie (depth) are insufficient to call this resolved. IOL \u2014 particularly starting-caliber guard and a reliable backup center \u2014 remains a meaningful need. Target in rounds 2-4."
+      "reasoning": "Schlottmann's departure to Titans removes the only experienced C backup behind injury-prone John Michael Schmitz. Guard depth is also thin with Stinnie (minimum) and Neal (minimum reclamation) as the backups. No starter-level IOL was signed. Need stays high \u2014 interior OL (particularly G and C depth) is a real Round 2-4 draft target. Drops from tier 1 only because the starting group (Schmitz at C, Jon Runyan at G) is still intact."
     },
     {
       "position": "EDGE",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "No meaningful EDGE signings. Kayvon Thibodeaux and Brian Burns remain the starters but neither has been extended and the team did not add pass rush depth in FA. Caleb Murphy is a minimum-level depth piece. EDGE need unchanged \u2014 still a legitimate consideration in the middle rounds of the draft."
+      "reasoning": "No meaningful EDGE signings or departures. Brian Burns ($36.55M cap hit) and Kayvon Thibodeaux are the starters. EDGE need is unchanged from pre-FA \u2014 still a position to address in the draft if value presents, particularly given Thibodeaux's contract year situation."
     },
     {
       "position": "IDL",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Dexter Lawrence remains the cornerstone but the position next to him (referenced by Harbaugh himself as a priority) was not addressed in free agency. Rakeem Nunez-Roches' status is uncertain. IDL depth/starting partner for Lawrence unchanged as a need. Target in rounds 2-4."
-    },
-    {
-      "position": "LS",
-      "previous_tier": 0,
-      "recommended_tier": 3,
-      "reasoning": "Casey Kreiter's departure to Arizona created a new need at long-snapper for the first time in 7 seasons. The Giants will need to find a replacement via free agency, trade, or as an undrafted free agent. This is a newly created need."
-    },
-    {
-      "position": "S",
-      "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "Nubin and Holland are the starting safeties. Belton departed, Washington signed as depth (1yr/$3M, coming off Achilles tear). Safety depth is thin but the starters are intact. Ar'Darius Washington minimally addresses the depth hole. Need tier unchanged at 3 \u2014 could still look at a camp-level or late-round safety."
+      "reasoning": "Dexter Lawrence anchors the interior. No significant IDL moves in FA. Need unchanged \u2014 Giants could still use an interior pass rusher or rotational piece in the mid-rounds."
     }
   ],
   "team_page_additions": {
@@ -535,119 +542,101 @@
       {
         "player": "Isaiah Likely",
         "position": "TE",
-        "contract_summary": "3yr/$40M ($47.5M upside)",
+        "contract_summary": "3yr/$40M (up to $47.5M)",
         "previous_team": "Baltimore Ravens",
-        "headline": "Top-3 paid TE reunites with Harbaugh as the offensive centerpiece, scheme-defining move for 12-personnel attack"
+        "headline": "Harbaugh reunion piece and Dart's new security blanket; 3rd-highest paid TE makes NYG 12-personnel a base identity"
       },
       {
         "player": "Tremaine Edmunds",
         "position": "LB",
         "contract_summary": "3yr/$36M ($23.7M gtd)",
         "previous_team": "Chicago Bears",
-        "headline": "Pro Bowl ILB replaces released Bobby Okereke as the green-dot defensive quarterback with 112 tackles in 2025"
+        "headline": "Two-time Pro Bowler replaces Okereke as defensive QB, bringing 900 career tackles and 14 interceptions to a much-needed LB overhaul"
       },
       {
         "player": "Jermaine Eluemunor",
         "position": "OT",
-        "contract_summary": "3yr/$39M ($25.45M gtd)",
-        "previous_team": "New York Giants (re-sign)",
-        "headline": "Starting RT locked up long-term on a relative bargain, preserving the bookend tackle duo protecting Jaxson Dart"
+        "contract_summary": "3yr/$39M ($25.45M gtd) \u2014 re-sign",
+        "previous_team": "New York Giants",
+        "headline": "Giants lock in starting RT to protect Dart; bookend tackles secured with Andrew Thomas through 2027"
+      },
+      {
+        "player": "Greg Newsome II",
+        "position": "CB",
+        "contract_summary": "1yr/$10M",
+        "previous_team": "Jacksonville Jaguars",
+        "headline": "Former first-round pick on prove-it deal attempts to stabilize a CB room gutted by Flott's departure"
+      },
+      {
+        "player": "Darnell Mooney",
+        "position": "WR",
+        "contract_summary": "1yr/$10M",
+        "previous_team": "Atlanta Falcons",
+        "headline": "Speed and outside threat joins Nabers and Slayton to replace Robinson's production \u2014 992 yards and 5 TDs in 2024 peak"
       },
       {
         "player": "Patrick Ricard",
         "position": "FB",
         "contract_summary": "2yr/$7.63M ($3.54M gtd)",
         "previous_team": "Baltimore Ravens",
-        "headline": "6x Pro Bowl fullback follows Harbaugh to New York as NFL's highest-paid FB, installing power-run identity"
-      },
-      {
-        "player": "Greg Newsome II",
-        "position": "CB",
-        "contract_summary": "1yr/$10M ($3M gtd)",
-        "previous_team": "Jacksonville Jaguars",
-        "headline": "Former 2021 1st-round pick on a prove-it deal bridges CB2 vacancy left by Cor'Dale Flott's departure"
+        "headline": "Six-time Pro Bowl fullback follows Harbaugh to New York, becoming the NFL's highest-paid FB to lead-block for Cam Skattebo"
       },
       {
         "player": "Jordan Stout",
         "position": "P",
-        "contract_summary": "3yr/$12.3M",
+        "contract_summary": "3yr/$12.3M ($7.3M gtd)",
         "previous_team": "Baltimore Ravens",
-        "headline": "2025 1st-team All-Pro punter (50.1 gross avg) becomes NFL's highest-paid punter in specialist overhaul"
-      },
-      {
-        "player": "Calvin Austin III",
-        "position": "WR",
-        "contract_summary": "1yr/$4.5M max ($200K gtd)",
-        "previous_team": "Pittsburgh Steelers",
-        "headline": "Elite-speed slot/returner on near-minimum deal partially addresses Wan'Dale Robinson vacancy"
-      },
-      {
-        "player": "Ar'Darius Washington",
-        "position": "S",
-        "contract_summary": "1yr/$3M",
-        "previous_team": "Baltimore Ravens",
-        "headline": "Fourth former Raven to follow Harbaugh to New York; versatile DB adds secondary depth coming off Achilles"
+        "headline": "2025 first-team All-Pro punter (50.1-yd avg, NFL-leading 44.9 net) becomes league's highest-paid punter in Harbaugh ST overhaul"
       }
     ],
     "key_losses": [
       {
         "player": "Wan'Dale Robinson",
         "position": "WR",
-        "contract_summary": "4yr/$78M ($38M gtd) with Titans",
+        "contract_summary": "4yr/$78M with Tennessee Titans",
         "new_team": "Tennessee Titans",
-        "headline": "Giants let go of their best offensive weapon from 2025 (92-1,014-4 in Nabers' absence) \u2014 biggest loss of the offseason"
+        "headline": "Giants' 2025 leading receiver (92/1014/4 TDs) departs as a free agent, leaving a significant slot production hole"
       },
       {
         "player": "Cor'Dale Flott",
         "position": "CB",
-        "contract_summary": "3yr/$45M ($32M fully gtd) with Titans",
+        "contract_summary": "3yr/$45M ($32M fully gtd) with Tennessee Titans",
         "new_team": "Tennessee Titans",
-        "headline": "Breakout CB2 (11 PD, 3 TFL in 2025) bolts for top-of-market deal, creating urgent secondary hole"
+        "headline": "Developing starter (24 starts in final 2 seasons, 11 PDs in 2025) commands top-market CB deal NYG couldn't match"
       },
       {
         "player": "Bobby Okereke",
         "position": "LB",
-        "contract_summary": "Released (cap savings: $9M)",
-        "new_team": "TBD/unsigned",
-        "headline": "Two-year defensive captain with 143 tackles in 2025 cut for cap savings, directly replaced by Tremaine Edmunds"
-      },
-      {
-        "player": "Daniel Bellinger",
-        "position": "TE",
-        "contract_summary": "3yr/$24M with Titans",
-        "new_team": "Tennessee Titans",
-        "headline": "TE2 departs to Tennessee; departure expected following Isaiah Likely signing making room redundant"
+        "contract_summary": "Released \u2014 $9M cap savings",
+        "new_team": "TBD",
+        "headline": "Three-year Giants captain and 143-tackle performer cut for cap room to facilitate Edmunds signing"
       },
       {
         "player": "Austin Schlottmann",
         "position": "IOL",
-        "contract_summary": "Signed with Titans (terms undisclosed)",
+        "contract_summary": "2yr/$9M with Tennessee Titans",
         "new_team": "Tennessee Titans",
-        "headline": "Versatile C/G depth piece leaves, stripping Giants of their only reliable backup center under contract"
-      },
-      {
-        "player": "Dane Belton",
-        "position": "S",
-        "contract_summary": "1yr/$4M with Jets",
-        "new_team": "New York Jets",
-        "headline": "Special teams leader and safety depth departs across town to division rival Jets"
+        "headline": "Underrated swing C/G departs, leaving Giants with no experienced backup behind injury-prone John Michael Schmitz"
       }
     ]
   },
   "confidence": "high",
   "sources": [
-    "https://www.espn.com/nfl/story/_/id/48015678/giants-2026-free-agency-tracker-offseason-moves-signings-trades",
     "https://www.giants.com/news/2026-new-york-giants-free-agency-tracker-roster-moves",
-    "https://www.spotrac.com/nfl/player/_/id/77016/isaiah-likely",
-    "https://overthecap.com/player/tremaine-edmunds/6901",
-    "https://www.spotrac.com/nfl/player/_/id/25111/tremaine-edmunds",
-    "https://www.spotrac.com/nfl/player/_/id/21901/jermaine-eluemunor",
-    "https://www.spotrac.com/nfl/player/_/id/22506/patrick-ricard",
+    "https://www.spotrac.com/nfl/new-york-giants/cap/_/year/2026",
+    "https://overthecap.com/salary-cap/new-york-giants",
+    "https://www.espn.com/nfl/story/_/id/48015678/giants-2026-free-agency-tracker-offseason-moves-signings-trades",
     "https://sports.yahoo.com/articles/giants-free-agency-tracker-2026-135456830.html",
-    "https://www.bigblueview.com/new-york-giants-free-agency/155973/rumors-cuts-signings-news-analysis-tracker-start-date",
-    "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/giants-set-to-sign-greg-newsome",
+    "https://www.bigblueview.com/new-york-giants-salary-cap/156791/free-agency-contracts-salary-cap-tracker",
+    "https://www.profootballrumors.com/2026/03/giants-to-re-sign-rt-jermaine-eluemunor",
+    "https://nfltraderumors.co/giants-signing-lb-tremaine-edumunds-to-three-year-36m-contract/",
+    "https://www.spotrac.com/nfl/player/_/id/25111/tremaine-edmunds",
+    "https://www.spotrac.com/nfl/player/_/id/77016/isaiah-likely",
+    "https://www.spotrac.com/nfl/player/_/id/21901/jermaine-eluemunor",
+    "https://www.spotrac.com/nfl/player/_/id/72406/greg-newsome",
+    "https://www.spotrac.com/nfl/player/_/id/77007/jordan-stout",
     "https://sny.tv/articles/giants-signing-safety-ardarius-washington-ravens-deal-2026",
-    "https://www.espn.com/nfl/story/_/id/48187908/wr-calvin-austin-iii-leaving-steelers-sign-giants",
-    "https://overthecap.com/salary-cap/new-york-giants"
+    "https://www.espn.com/nfl/story/_/id/48207911/giants-add-wr-darnell-mooney-one-year-contract-sources-say",
+    "https://gmenhq.com/new-york-giants-free-agency-tracker-hub"
   ]
 }

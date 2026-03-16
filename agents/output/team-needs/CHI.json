@@ -1,169 +1,158 @@
 {
   "team": "CHI",
   "team_full": "Chicago Bears",
-  "updated_through": "2026-03-11",
+  "updated_through": "2026-03-16",
   "first_round_pick": 25,
-  "total_draft_picks": 7,
-  "notable_pick_trades": "Traded 2026 4th-round pick to KC for Joe Thuney (2025). Traded 2026 6th to CLE for Joe Tryon-Shoyinka, received CLE 2026 7th. DJ Moore trade to BUF returns mid-round 2026 pick. Acquired 4th from LAR in 2025 draft.",
-  "roster_context": "Coming off an 11-6 NFC North title and first playoff win since 2010 under first-year HC Ben Johnson. QB Caleb Williams broke franchise passing record with 3,942 yards and 27 TDs. Offense is set around Williams, but defense was propped up by turnovers and needs significant upgrades across all three levels. Cap is tight (~$5M under) with several costly veterans being moved. Drew Dalman's sudden retirement at 27 creates an unexpected IOL hole. Ozzy Trapilo's torn patellar tendon in the playoffs leaves LT barren. DJ Moore traded to Bills on March 5 for cap relief and draft capital. Tremaine Edmunds given permission to seek trade. Team is in win-now mode around Williams' rookie contract window.",
+  "total_draft_picks": 8,
+  "notable_pick_trades": "Traded DJ Moore + 5th-round pick to Bills for 2nd-round pick (#60). Traded 2027 5th to Patriots for C Garrett Bradbury. Traded original 4th to Chiefs for Joe Thuney in 2025. Traded original 6th to Browns for Joe Tryon-Shoyinka.",
+  "roster_context": "Coming off an 11-6 NFC North title and Divisional Round loss to the Rams. Ben Johnson's first year as HC was a massive success. Now pivoting to defense-heavy offseason after two years building the offense around Caleb Williams. Significant secondary turnover with Kevin Byard, Jaquan Brisker, C.J. Gardner-Johnson, and Pro Bowl CB Nahshon Wright all departing. Drew Dalman's shocking retirement and Ozzy Trapilo's patellar tendon injury create OL concerns. Defense ranked 23rd in points allowed (24.4/g) despite 33 takeaways \u2014 pass rush and interior DL need significant upgrades to contend for a Super Bowl.",
   "needs": [
     {
-      "position": "CB",
+      "position": "EDGE",
       "tier": 1,
       "urgency": "critical",
-      "explanation": "Jaylon Johnson (signed through 2027) played only 7 regular-season games due to groin injuries and looked a step slow. Tyrique Stevenson is inconsistent but had lowest passer rating allowed (86.3). Kyler Gordon (signed through 2028) is excellent at nickel when healthy but played only 3 regular season games in 2025. Nahshon Wright (UFA) may leave. Seven different CBs started at least one game in 2025. Adding a CB2 to play opposite Johnson would improve depth, but not as urgent as safety.",
-      "current_starter": "Jaylon Johnson, Tyrique Stevenson",
-      "depth": "Kyler Gordon (nickel, injury-prone), Zah Frazier (2025 5th-rounder, missed rookie year)",
-      "draft_range_target": "Round 2-4"
+      "explanation": "Despite Montez Sweat posting 10 sacks as the team's sack leader, the Bears lack a proven high-end edge presence opposite him. Austin Booker had 4.5 sacks in 10 games but struggles against the run. Dayo Odeyingbo was a nonfactor (1 sack, 10 pressures in 8 games) before a season-ending injury. Shemar Turner played just 5 games before a season-ending injury and his best position (DT vs. DE) is still unclear. The Bears signed Kentavius Street for depth but he's a rotational player, not a starter. Dennis Allen's defense needs a legitimate second edge rusher to generate consistent pressure.",
+      "current_starter": "Montez Sweat (DE1), Austin Booker (DE2)",
+      "depth": "Dayo Odeyingbo (coming off injury, underperformed in 2025), Shemar Turner (coming off injury, position unclear), Joe Tryon-Shoyinka, Kentavius Street (depth signing)",
+      "draft_range_target": "Round 1-2"
     },
     {
       "position": "DT",
       "tier": 1,
       "urgency": "critical",
-      "explanation": "Interior defensive line was Chicago's weakest unit in 2025 — tied last in pass rush win rate (28.8%). Only Gervon Dexter (entering final year, 55.8 PFF grade) and aging Grady Jarrett (33 in April, disappointing first year) are under contract. Shemar Turner (2025 2nd-round pick) tore his ACL as a rookie and is uncertain for 2026. The Bears desperately need a disruptive 3-technique.",
-      "current_starter": "Gervon Dexter Sr., Grady Jarrett",
-      "depth": "Shemar Turner (ACL recovery), Joe Tryon-Shoyinka — extremely thin",
-      "draft_range_target": "Round 1 if top DT available"
+      "explanation": "The interior defensive line was a glaring weakness in 2025. Grady Jarrett had just 1.5 sacks and ranked 71st among DTs in impact scoring. Gervon Dexter has potential but was inconsistent. Andrew Billings is a free agent. Neville Gallimore was signed on a 2-year/$10M deal but is a depth piece, not a game-changing interior disruptor. The Bears need a true pass-rushing DT who can collapse the pocket and complement the edge rush. Multiple mock drafts have Chicago targeting a DT at #25.",
+      "current_starter": "Gervon Dexter, Grady Jarrett",
+      "depth": "Neville Gallimore (signed 2yr/$10M), Shemar Turner (if he moves back inside), Kentavius Street",
+      "draft_range_target": "Round 1"
     },
     {
-      "position": "EDGE",
+      "position": "S",
       "tier": 1,
       "urgency": "critical",
-      "explanation": "Montez Sweat led the team in sacks but Chicago tied for dead last in pass rush win rate. There is no viable second edge rusher opposite Sweat. Austin Booker is a rotational piece. The Maxx Crosby trade pursuit is the Bears' biggest offseason storyline — they are the betting favorites to land him. If a Crosby trade doesn't materialize, EDGE becomes the top draft priority or a FA signing (Trey Hendrickson, Khalil Mack).",
-      "current_starter": "Montez Sweat, Austin Booker",
-      "depth": "Joe Tryon-Shoyinka, DeMarcus Walker — no consistent second starter",
-      "draft_range_target": "Round 1-2 (or addressed via Crosby trade)"
-    },
-    {
-      "position": "WR",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "DJ Moore was traded to the Bills on March 5, leaving Rome Odunze as WR1 and Luther Burden III as WR2. Jahdae Walker showed flashes as a rookie. Colston Loveland is a receiving TE. The young core is promising, but WR depth behind the top two is thin. A Day 2-3 WR with big-play ability would round out the room.",
-      "current_starter": "Rome Odunze, Luther Burden III",
-      "depth": "Jahdae Walker, Colston Loveland (TE) — thin at WR3 after Moore trade",
-      "draft_range_target": "Round 3-5"
-    },
-    {
-      "position": "IDL",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Neville Gallimore (2yr/$12M) replaces Andrew Billings as the nose tackle. He is a run-stuffer who adds durability but his AAV ($6M) is at the floor of the starter-tier market. Gervon Dexter and Shemar Turner provide interior depth. The immediate hole is patched but the unit lacks a true disruptive interior presence. IDL remains Tier 2 — this is still a draft-worthy position.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
-    },
-    {
-      "position": "LB",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Tremaine Edmunds has been given permission to seek a trade, which will save ~$15M in cap. T.J. Edwards (turning 30) broke his fibula in the playoff win over Green Bay and faces recovery. Noah Sewell tore his Achilles. D'Marco Jackson (UFA) impressed in spot starts. LB room is decimated by injury and cap-driven departures. Bears are 'firmly in the market for off-ball linebackers.'",
-      "current_starter": "T.J. Edwards (recovering from broken fibula), Tremaine Edmunds (trade candidate)",
-      "depth": "Ruben Hyppolite II (2025 4th-rounder), Noah Sewell (Achilles recovery)",
-      "draft_range_target": "Round 2-4"
+      "explanation": "The Bears lost ALL of their safeties from 2025. Kevin Byard (signed with Patriots, $9M), Jaquan Brisker (Steelers, $5.5M), C.J. Gardner-Johnson (Bills, $6M), and Jonathan Owens (Colts) all departed. Coby Bryant was signed to a 3-year/$40M deal to fill one starting spot, but the second starting safety position is completely vacant. Elijah Hicks was re-signed but is a special teams player who didn't start a game in 2025. The Bears must draft a safety to pair with Bryant.",
+      "current_starter": "Coby Bryant (signed 3yr/$40M), TBD (vacant)",
+      "depth": "Elijah Hicks (re-signed, special teams role), Cam Lewis (depth signing from Bills)",
+      "draft_range_target": "Round 2"
     },
     {
       "position": "OT",
       "tier": 2,
       "urgency": "important",
-      "explanation": "Left tackle is a crisis. Ozzy Trapilo (2025 2nd-rounder who emerged as the starter) suffered a torn patellar tendon in the wild card game and will miss most of 2026. Braxton Jones (UFA, was benched in Week 5) may re-sign cheaply as a bridge. Theo Benedet is a UDFA not viewed as a long-term answer. Kiran Amegadjie (2024 3rd-rounder) spent all of 2025 on IR. OL coach Roushar said the LT answer requires 'draft capital or an asset we currently don't have.'",
-      "current_starter": "Theo Benedet / Braxton Jones (UFA)",
-      "depth": "Kiran Amegadjie (oft-injured), Ozzy Trapilo (out most of 2026)",
-      "draft_range_target": "Round 1-2, or veteran FA signing"
+      "explanation": "Ozzy Trapilo (2025 2nd-round pick) suffered a ruptured patellar tendon that will sideline him for most of 2026. Drew Dalman's retirement forced Joe Thuney to left tackle in the playoffs, but Poles confirmed Thuney won't be moving to LT permanently. The Bears re-signed Braxton Jones (1yr/$5M with $5M incentives) and signed Jedrick Wills, but Jones was benched during 2025 and Wills hasn't started since 2023 due to injuries. Theo Benedet and Kiran Amegadjie are developmental options. LT is a clear concern with no proven long-term answer while Trapilo recovers. Darnell Wright (RT) is a second-team All-Pro and locked in.",
+      "current_starter": "Braxton Jones / Jedrick Wills / Theo Benedet (competition at LT), Darnell Wright (RT - locked in)",
+      "depth": "Ozzy Trapilo (IR, patellar tendon), Kiran Amegadjie (developmental)",
+      "draft_range_target": "Round 2-3"
     },
     {
-      "position": "S",
+      "position": "CB",
       "tier": 2,
       "urgency": "important",
-      "explanation": "The Bears' top four safeties from 2025 are all unrestricted free agents: Kevin Byard (32), Jaquan Brisker (26), C.J. Gardner-Johnson (28), and Jonathan Owens. The entire safety room must be rebuilt. ESPN's Jordan Reid called safety 'arguably the Bears' top need.' Even if one is re-signed, Chicago needs at least one high-caliber starter via draft.",
-      "current_starter": "Kevin Byard (UFA) / Jaquan Brisker (UFA)",
-      "depth": "C.J. Gardner-Johnson (UFA), Jonathan Owens (UFA), Elijah Hicks (UFA) — literally no safeties under contract",
-      "draft_range_target": "Round 1-2"
+      "explanation": "Pro Bowl CB Nahshon Wright (5 INTs, NFL-leading 8 takeaways) signed with the Jets for just $5.5M, a move many think the Bears should have matched. Jaylon Johnson is under contract through 2027 but had an injury-plagued 2025 (7 games played, groin injuries). Kyler Gordon played only 3 regular season games. Tyrique Stevenson had the lowest passer rating allowed when targeted but was phased out of the rotation late. Terell Smith missed all of 2025 (patellar tendon). The Bears signed Cam Lewis from the Bills for depth but lost Wright's production and have no proven CB2 outside of injury-prone starters.",
+      "current_starter": "Jaylon Johnson (CB1, signed through 2027), Tyrique Stevenson (CB2), Kyler Gordon (nickel, signed through 2028)",
+      "depth": "Cam Lewis (signed 2yr deal), Terell Smith (returning from torn patellar tendon), Zah Frazier (missed rookie year), Josh Blackwell (special teams ace)",
+      "draft_range_target": "Round 3-4"
     },
     {
       "position": "IOL",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "Drew Dalman's shocking retirement at 27 after a Pro Bowl season creates an immediate hole at center. Guards are elite (Joe Thuney, Jonah Jackson), but center is now vacant. Bears hosted FA Tyler Biadasz for a visit and are exploring options. Could be addressed via FA or mid-round draft pick.",
-      "current_starter": "Joe Thuney (LG), VACANT (C), Jonah Jackson (RG)",
-      "depth": "Jordan McFadden, Luke Newman — no proven center on roster",
-      "draft_range_target": "Round 3-5, or FA signing"
+      "explanation": "Drew Dalman's surprise retirement at 27 created a hole at center. The Bears traded a 2027 5th-round pick for Garrett Bradbury from the Patriots, a serviceable starter but not the Pro Bowler Dalman was. Bradbury carries a $5.7M cap hit. Joe Thuney (LG) won Protector of the Year and is elite, and Jonah Jackson (RG) is solid. The long-term center question remains \u2014 the Bears may draft a developmental center to eventually replace Bradbury.",
+      "current_starter": "Joe Thuney (LG - All-Pro), Garrett Bradbury (C - traded from NE), Jonah Jackson (RG)",
+      "depth": "Jordan McFadden (re-signed, filled in at LG in playoffs), Luke Newman (2025 6th-round pick)",
+      "draft_range_target": "Round 4-5"
+    },
+    {
+      "position": "WR",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "The Bears traded DJ Moore to the Bills for a 2nd-round pick and lost Olamide Zaccheaus to the Falcons. However, Rome Odunze and 2025 2nd-round pick Luther Burden III are expected to step into elevated roles. Jahdae Walker showed promise as a young receiver. The Bears signed Kalif Raymond as a WR4/return specialist to replace Devin Duvernay. The WR room is young but talented \u2014 this isn't a critical need but another weapon wouldn't hurt.",
+      "current_starter": "Rome Odunze (WR1), Luther Burden III (WR2)",
+      "depth": "Jahdae Walker, Kalif Raymond (signed, WR4/return specialist)",
+      "draft_range_target": "Round 3-5"
+    },
+    {
+      "position": "LB",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Tremaine Edmunds was released as a cap casualty, saving $15M. The Bears signed Devin Bush (3yr/$30M) as a faster, cheaper replacement. T.J. Edwards fractured his fibula in the Wild Card game and will miss much of the offseason, but is expected to return as the MIKE linebacker. D'Marco Jackson was re-signed (2yr/$7.5M) and impressed filling in for Edmunds in 2025. Bush should start at WILL with Jackson at SAM. Depth concerns remain with Edwards' recovery timeline.",
+      "current_starter": "T.J. Edwards (MIKE, recovering from fractured fibula), Devin Bush (WILL, signed 3yr/$30M), D'Marco Jackson (SAM, re-signed 2yr/$7.5M)",
+      "depth": "Ruben Hyppolite II (developmental), Amen Ogbongbemiga (special teams)",
+      "draft_range_target": "Round 3-5"
     }
   ],
   "needs_summary": {
     "tier_1": [
-      "CB",
-      "DT",
       "EDGE",
-      "WR"
-    ],
-    "tier_2": [
-      "IDL",
-      "LB",
-      "OT",
+      "DT",
       "S"
     ],
-    "tier_3": [
-      "IOL"
+    "tier_2": [
+      "OT",
+      "CB"
     ],
-    "tier_4": []
+    "tier_3": [
+      "IOL",
+      "WR",
+      "LB"
+    ],
+    "tier_4": [
+      "RB"
+    ]
   },
   "simple_needs": [
-    "DB",
     "DL",
+    "DB",
+    "OL",
     "WR",
-    "LB",
-    "OL"
+    "LB"
   ],
   "detailed_needs": {
-    "DB": 1,
     "DL": 1,
-    "WR": 1,
-    "LB": 2,
-    "OL": 2
+    "DB": 1,
+    "OL": 2,
+    "WR": 2,
+    "LB": 2
   },
   "free_agency_impact": [
-    "Drew Dalman (IOL) → retired",
-    "DJ Moore (WR) → Buffalo Bills",
-    "Tremaine Edmunds (LB) → New York Giants",
-    "Kevin Byard III (S) → New England Patriots",
-    "Jaquan Brisker (S) → Pittsburgh Steelers",
-    "C.J. Gardner-Johnson (S) → Buffalo Bills",
-    "Olamide Zaccheaus (WR) → Atlanta Falcons",
-    "Nahshon Wright (CB) → New York Jets",
-    "Dominique Robinson (EDGE) → Houston Texans",
-    "Amen Ogbongbemiga (LB) → released",
-    "Durham Smythe (TE) → Baltimore Ravens",
-    "Andrew Billings (IDL) → TBD/unsigned",
-    "Signed Garrett Bradbury (IOL) from New England Patriots — $5.7M AAV",
-    "Signed Coby Bryant (S) from Seattle Seahawks — $13.3M AAV",
-    "Signed Devin Bush (LB) from Cleveland Browns — $10.0M AAV",
-    "Signed Neville Gallimore (IDL) from Indianapolis Colts — $6.0M AAV",
-    "Signed Kalif Raymond (WR) from Detroit Lions — $5.1M AAV",
-    "Signed Braxton Jones (OT) from Chicago Bears (re-sign) — $10.0M AAV",
-    "Signed Case Keenum (QB) from Chicago Bears (re-sign) — $2.8M AAV",
-    "Signed D'Marco Jackson (LB) from Chicago Bears (re-sign) — $3.8M AAV",
-    "Signed Cam Lewis (CB) from Buffalo Bills — $3.0M AAV",
-    "Signed Kentavius Street (EDGE) from Atlanta Falcons — $2.5M AAV",
-    "Signed Jedrick Wills Jr. (OT) from Cleveland Browns — $5.0M AAV",
-    "Signed Daniel Hardy (EDGE) from Chicago Bears (re-sign) — $2.5M AAV",
-    "Signed Elijah Hicks (S) from Chicago Bears (re-sign) — $1.5M AAV",
-    "Signed Jordan McFadden (IOL) from Chicago Bears (re-sign) — $1.5M AAV",
-    "Signed Theo Benedet (OT) from Chicago Bears (re-sign) — $1.0M AAV"
+    "Traded DJ Moore + 5th-round pick to Bills for 2nd-round pick (#60) \u2014 creates WR depth question but adds draft capital",
+    "Lost Kevin Byard (UFA, signed 1yr/$9M with Patriots) \u2014 major safety loss",
+    "Lost Jaquan Brisker (UFA, signed 1yr/$5.5M with Steelers) \u2014 major safety loss",
+    "Lost C.J. Gardner-Johnson (UFA, signed 1yr/$6M with Bills) \u2014 secondary versatility loss",
+    "Lost Nahshon Wright (UFA, signed 1yr/$5.5M with Jets) \u2014 Pro Bowl CB who led NFL in takeaways",
+    "Lost Tremaine Edmunds (released, signed with Giants) \u2014 opened $15M cap space",
+    "Lost Olamide Zaccheaus (UFA, signed with Falcons) \u2014 WR3 departure",
+    "Lost Dominique Robinson (UFA, signed 1yr/$4M with Texans) \u2014 depth EDGE",
+    "Lost Jonathan Owens (UFA, signed with Colts) \u2014 backup safety",
+    "Drew Dalman retired at age 27 \u2014 shocking loss of Pro Bowl center",
+    "Ozzy Trapilo (2025 2nd-round pick) out most of 2026 with ruptured patellar tendon \u2014 LT hole",
+    "Signed S Coby Bryant (3yr/$40M from Seahawks) \u2014 fills one starting safety spot",
+    "Signed LB Devin Bush (3yr/$30M from Browns) \u2014 Edmunds replacement, adds defensive speed",
+    "Signed DT Neville Gallimore (2yr/$10M from Colts) \u2014 DT depth, not a game-changer",
+    "Traded for C Garrett Bradbury from Patriots (cost: 2027 5th) \u2014 Dalman replacement",
+    "Re-signed OT Braxton Jones (1yr/$5M, up to $10M) \u2014 LT competition bridge",
+    "Signed OT Jedrick Wills (1yr, former 1st-round pick) \u2014 LT depth/competition",
+    "Signed WR Kalif Raymond (1yr/$5.1M) \u2014 WR4/return specialist, Ben Johnson reunion",
+    "Signed CB Cam Lewis (2yr deal from Bills) \u2014 secondary depth",
+    "Signed DE Kentavius Street (1yr) \u2014 DL depth, Dennis Allen reunion",
+    "Re-signed LB D'Marco Jackson (2yr/$7.5M) \u2014 showed promise filling in for Edmunds",
+    "Re-signed QB Case Keenum (2yr/$5.5M) \u2014 backup QB continuity",
+    "Re-signed S Elijah Hicks \u2014 special teams contributor, safety depth"
   ],
-  "scheme_fit_notes": "Dennis Allen's 4-3 defense values interior disruption and a physical secondary. The defense was turnover-dependent in 2025 but tied for last in pass rush win rate, making DL and EDGE premium needs. Allen's system needs a true 3-technique DT who can penetrate and a rangy, ball-hawking safety. Ben Johnson's offense is built around play-action and creative schematic designs — the passing game should sustain with Odunze, Burden, and Loveland even after Moore's departure. LT must be able to handle speed rushers to protect Williams in Johnson's dropback concepts.",
+  "scheme_fit_notes": "Dennis Allen runs a 4-3 defense that values speed and versatility in the secondary. The Bears need a true three-down EDGE who can rush and set the edge \u2014 designated pass rushers like Booker are fine as DE3 but not DE2. Interior DTs who can generate pressure are premium targets. Allen's scheme uses interchangeable DBs, so safety/slot hybrid types (like Coby Bryant) have elevated value. On offense, Ben Johnson runs an Erhardt-Perkins system emphasizing a dominant run game and play-action \u2014 the OL is scheme-critical, and LT must be a strong run blocker who can handle speed rushers off the edge.",
   "confidence": "high",
   "sources": [
-    "https://www.chicagobears.com/news/2026-chicago-bears-nfl-draft-picks-news-photos-highlights",
-    "https://www.bearstalk.com/2026/03/04/chicago-bears-target-defense-in-espns-latest-two-round-2026-mock-draft/",
-    "https://www.fox32chicago.com/sports/chicago-bears-free-agents-2026-offseason-byard-brisker-nfl",
-    "https://www.bearstalk.com/2026/03/03/chicago-bears-drew-dalman-tyler-linderbaum-2026-nfl-free-agency-center/",
-    "https://chicago.suntimes.com/bears/2026/02/28/left-tackle-back-among-bears-nfl-draft-options-at-no-25-overall-after-ozzy-trapilos-knee-injury",
-    "https://clutchpoints.com/nfl/chicago-bears/bears-7-round-2026-nfl-draft-according-to-pff-mock-draft-simulator-after-nfl-combine",
-    "https://www.si.com/nfl/bears/onsi/draft/bears-best-case-2026-nfl-draft-scenario-includes-defensive-overhaul",
-    "https://heavy.com/sports/nfl/chicago-bears/maxx-crosby-trade-odds-raiders-news/",
-    "https://www.fox32chicago.com/sports/chicago-bears-in-process-of-trading-dj-moore-afc-contender",
-    "https://bleacherreport.com/articles/25330412-chicago-bears-2026-nfl-draft-pick-order-and-big-board-top-needs",
-    "https://sports.yahoo.com/articles/bears-7-round-2026-nfl-212149771.html",
-    "https://www.windycitygridiron.com/chicago-bears-draft/111881/chicago-bears-mock-offseason-2026-nfl-draft-free-agency-drew-dalman-retirement"
+    "https://www.espn.com/nfl/story/_/id/48054614/chicago-bears-2026-free-agency-tracker-offseason-moves-signings",
+    "https://atozsports.com/nfl/chicago-bears-news/bears-2026-free-agency-tracker-signings-re-signings-departures/",
+    "https://www.windycitygridiron.com/chicago-bears-draft/112233/chicago-bears-2026-nfl-draft-order-set",
+    "https://allchgo.com/2026-chicago-bears-free-agency-tracker-reactions/",
+    "https://www.windycitygridiron.com/chicago-bears-free-agency/112621/chicago-bears-jaquan-brisker-cj-gardner-johnson",
+    "https://www.bearstalk.com/2026/03/10/chicago-bears-updated-2026-nfl-draft-needs-after-first-wave-of-free-agency/",
+    "https://www.windycitygridiron.com/chicago-bears-draft/111659/chicago-bears-draft-2026-nfl-combine-day-1",
+    "https://247sports.com/nfl/chicago-bears/contentgallery/2026-nfl-free-agency-early-grades-for-chicago-bears-signings-277092524/",
+    "https://www.si.com/nfl/bears/onsi/news/new-2026-nfl-mock-draft-sends-disruptive-defensive-lineman-to-chicago-bears-at-no-25",
+    "https://chicago.suntimes.com/bears/2026/03/10/bears-2026-nfl-draft-order-set-first-second-third-fourth-round-ryan-poles-ben-johnson-pittsburgh",
+    "https://www.windycitygridiron.com/chicago-bears-roster/111117/chicago-bears-2026-roster-turnover-will-they-let-their-pro-bowl-cornerback-walk-jaylon-johnson-kyler-gordon",
+    "https://www.windycitygridiron.com/chicago-bears-analysis/109795/2026-chicago-bears-offseason-primer-creating-cap-space",
+    "https://www.bleachernation.com/bears/2026/02/28/bears-montez-sweat-2/"
   ]
 }

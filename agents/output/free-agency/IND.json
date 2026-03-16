@@ -1,27 +1,17 @@
 {
   "team": "IND",
   "team_full": "Indianapolis Colts",
-  "updated_through": "2026-03-13",
-  "cap_space_pre_fa": "$50500000",
-  "cap_space_post_fa": "TBD \u2014 significant cap committed to Jones/Pierce deals; cap figures still settling",
+  "updated_through": "2026-03-16",
+  "cap_space_pre_fa": "$50000000",
+  "cap_space_post_fa": "$10000000",
   "key_departures": [
-    {
-      "player": "Michael Pittman Jr.",
-      "position": "WR",
-      "age": 28,
-      "role": "starter",
-      "new_team": "Pittsburgh Steelers (trade)",
-      "impact": "Traded to Steelers along with a swap of late-round draft picks (received 6th, sent 7th). Freed ~$24M in cap space. Was WR1 on the roster but carrying a massive cap number. Departure creates a WR depth need opposite Alec Pierce.",
-      "need_impact": "creates",
-      "need_position": "WR"
-    },
     {
       "player": "Kwity Paye",
       "position": "EDGE",
       "age": 27,
       "role": "starter",
       "new_team": "Las Vegas Raiders",
-      "impact": "Signed Raiders to 3yr/$48M. Had a disappointing 2025 (4.0 sacks in 17 games) in a contract year. Despite the decline, was still a starter and his exit thins the EDGE room further.",
+      "impact": "Five-year Colt and former first-round pick departed after a down 2025 (4 sacks in 17 games). Signed 3yr/$48M ($32M gtd) with Las Vegas. Despite his decline, he was a starter and opens a pass-rush hole opposite Laiatu Latu.",
       "need_impact": "escalates",
       "need_position": "EDGE"
     },
@@ -29,21 +19,21 @@
       "player": "Samson Ebukam",
       "position": "EDGE",
       "age": 30,
-      "role": "rotational",
+      "role": "rotational/starter",
       "new_team": "Atlanta Falcons",
-      "impact": "Signed Falcons (terms undisclosed). Missed all of 2024 with a torn Achilles; returned in 2025 for 14 games with just 2 sacks. Departure continues the EDGE room overhaul.",
+      "impact": "Signed a 1-year deal (terms undisclosed) with Atlanta. Had career-high 9.5 sacks in 2023 but missed all of 2024 (torn Achilles) and was limited to just 2 sacks in 2025. Departure removes a veteran pass-rush presence.",
       "need_impact": "escalates",
       "need_position": "EDGE"
     },
     {
-      "player": "Zaire Franklin",
-      "position": "LB",
-      "age": 29,
+      "player": "Braden Smith",
+      "position": "OT",
+      "age": 30,
       "role": "starter",
-      "new_team": "Green Bay Packers (trade)",
-      "impact": "Traded to Packers for DT Colby Wooden. Was the team's starting MLB; had declined in 2025 (PFF grade 38.4 vs. All-Pro 2024). Saved ~$5M in cap space net of Wooden's salary. Creates a need at LB.",
+      "new_team": "Houston Texans",
+      "impact": "8-year starting right tackle (105 starts) signed 2yr/$25M ($13.5M gtd) with Houston. Departure creates a starting RT vacancy. Colts will turn to 2025 4th-round pick Jalen Travis, who started four games late in 2025 with solid PFF grades.",
       "need_impact": "creates",
-      "need_position": "LB"
+      "need_position": "OT"
     },
     {
       "player": "Nick Cross",
@@ -51,27 +41,17 @@
       "age": 24,
       "role": "starter",
       "new_team": "Washington Commanders",
-      "impact": "Signed 2yr/$14M with Commanders. Was a starting safety for the Colts. Young, ascending player the team could not afford after committing to Jones and Pierce. Creates a need at S.",
+      "impact": "Signed 2yr/$14M with Washington. A 38-start strong safety who developed into one of the better box safeties in the AFC. Departure creates a starting safety hole alongside newly signed Camryn Bynum.",
       "need_impact": "creates",
       "need_position": "S"
-    },
-    {
-      "player": "Braden Smith",
-      "position": "OT",
-      "age": 29,
-      "role": "starter",
-      "new_team": "Houston Texans",
-      "impact": "Signed Texans to 2yr/$25M ($13.5M guaranteed). Was the Colts' starting RT for 8 seasons (105 starts in 107 games). Colts appeared comfortable moving on, with 2025 4th-round pick Jalen Travis having played well in 4 late-season starts. Departure creates a starting RT competition.",
-      "need_impact": "creates",
-      "need_position": "OT"
     },
     {
       "player": "Rodney Thomas II",
       "position": "S",
       "age": 25,
-      "role": "depth",
+      "role": "rotational/depth",
       "new_team": "Seattle Seahawks",
-      "impact": "Signed Seahawks (terms not disclosed). Was a depth/rotational safety. Loss is minor given he was not a starter, but compounds the S need.",
+      "impact": "Depth safety signed with Seattle. 26 starts over 4 years with the Colts. Depth loss at a position already thin after Cross's departure.",
       "need_impact": "escalates",
       "need_position": "S"
     },
@@ -81,9 +61,29 @@
       "age": 29,
       "role": "rotational",
       "new_team": "Chicago Bears",
-      "impact": "Signed Bears to a 2-year deal. Was a rotational IDL who had career highs in 2025 (3.5 sacks, 38 tackles). The Colts have added multiple IDL replacements (Wooden, Clemons, Nnadi) so this is a manageable loss.",
+      "impact": "Signed 2yr/$12M with Chicago. One-year Colt who posted a career-high 3.5 sacks in 2025. Depth/rotational loss behind Buckner and Stewart.",
       "need_impact": "none",
       "need_position": "IDL"
+    },
+    {
+      "player": "Zaire Franklin",
+      "position": "LB",
+      "age": 28,
+      "role": "starter",
+      "new_team": "Green Bay Packers (trade)",
+      "impact": "8-year Colt traded to Green Bay for DT Colby Wooden. Pro Bowl-caliber LB who was the defensive leader. Trade saves $5.75M in cap space but leaves a massive hole at LB \u2014 Jaylon Carlies (limited 2025 action) now projects as the top LB.",
+      "need_impact": "escalates",
+      "need_position": "LB"
+    },
+    {
+      "player": "Michael Pittman Jr.",
+      "position": "WR",
+      "age": 28,
+      "role": "starter/WR1",
+      "new_team": "Pittsburgh Steelers (trade)",
+      "impact": "Traded to Pittsburgh for a 2026 6th-round pick (received a 7th in return). Colts received a 6th-rounder. Created WR depth need alongside Pierce and Josh Downs, though Pierce steps into a larger WR1 role.",
+      "need_impact": "creates",
+      "need_position": "WR"
     }
   ],
   "signings": [
@@ -91,7 +91,7 @@
       "player": "Daniel Jones",
       "position": "QB",
       "age": 28,
-      "previous_team": "Indianapolis Colts (re-sign)",
+      "previous_team": "Indianapolis Colts (re-sign, had transition tag)",
       "contract": {
         "years": 2,
         "total_value": 88000000,
@@ -102,7 +102,7 @@
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "QB",
-      "analysis": "Largest two-year contract in NFL history ($88M, up to $100M with incentives). $50M fully guaranteed at signing, $60M injury-guaranteed. Re-sign locks in QB who went 8-2 in 2025 before a torn Achilles ended his season. Health is the wildcard but the Colts were always re-signing him \u2014 the only question was structure. At $44M AAV, this is mid-tier starter money. QB is no longer a need, though the backup situation (Riley Leonard? Anthony Richardson?) remains unresolved."
+      "analysis": "The richest 2-year deal in NFL history. Jones gets $50M guaranteed in Year 1 alone, giving the Colts a committed 2-year window. He threw for 3,101 yards, 19 TDs, 8 INTs, 68% completion rate in 2025 before a torn Achilles. At $44M AAV he's mid-tier for elite QB contracts but fully starter-committed. The 2-year structure means the QB need will re-emerge in 2028, but for this draft cycle the position is fully addressed. Health in 2026 is the one caveat \u2014 Jones is recovering from an Achilles tear but the Colts believe he'll be ready Week 1."
     },
     {
       "player": "Alec Pierce",
@@ -112,19 +112,70 @@
       "contract": {
         "years": 4,
         "total_value": 114000000,
-        "guaranteed": 80000000,
+        "guaranteed": 84000000,
         "aav": 28500000
       },
-      "expected_role": "starter",
+      "expected_role": "starter/WR1",
       "market_tier": "elite",
-      "need_impact": "partially_addressed",
+      "need_impact": "fully_addressed",
       "need_position": "WR",
-      "analysis": "Blockbuster 4yr/$114M re-sign with $80M guaranteed ($60M fully guaranteed at signing). Makes Pierce the highest-paid free-agent receiver in NFL history at $28.5M AAV. He led the NFL in yards per catch (21.3) for the second straight year and surpassed 1,000 receiving yards in 2025. However, the Colts simultaneously traded WR1 Michael Pittman Jr. to the Steelers, meaning Pierce now IS the WR1 and the team lacks a credible WR2. Josh Downs is the next returning receiver but the WR room has a meaningful depth hole post-Pittman trade. WR is partially addressed at the top, but a WR2 need remains."
+      "analysis": "Four-year, $114M max deal with $60M fully guaranteed at signing and $84M total guarantees \u2014 the most guaranteed money ever for a free-agent WR. Pierce led the NFL in yards per catch (21.3) for the second consecutive year and eclipsed 1,000 receiving yards for the first time. Now the unquestioned WR1 after Pittman's departure. The 4-year commitment with massive guarantees signals the Colts view him as a long-term cornerstone. WR1 need is fully addressed for the foreseeable future; a complementary WR2/slot upgrade remains desirable given Pittman's departure."
+    },
+    {
+      "player": "Charvarius Ward",
+      "position": "CB",
+      "age": 29,
+      "previous_team": "San Francisco 49ers",
+      "contract": {
+        "years": 3,
+        "total_value": 60000000,
+        "guaranteed": 35000000,
+        "aav": 20000000
+      },
+      "expected_role": "starter/CB2",
+      "market_tier": "starter",
+      "need_impact": "fully_addressed",
+      "need_position": "CB",
+      "analysis": "Three-year/$60M deal with $35M guaranteed and $20M signing bonus. Ward's 41 pass deflections since joining SF in 2022 rank top-5 in the NFL. He steps in as the CB2 opposite Sauce Gardner (acquired via trade deadline). At $20M AAV, this is solid starter-tier value. Combined with Gardner's $120.4M extension the Colts have invested heavily at CB \u2014 the position moves from a need to a strength."
+    },
+    {
+      "player": "Camryn Bynum",
+      "position": "S",
+      "age": 26,
+      "previous_team": "Minnesota Vikings",
+      "contract": {
+        "years": 4,
+        "total_value": 60000000,
+        "guaranteed": 26000000,
+        "aav": 15000000
+      },
+      "expected_role": "starter (free safety)",
+      "market_tier": "starter",
+      "need_impact": "partially_addressed",
+      "need_position": "S",
+      "analysis": "Four-year/$60M with $26M guaranteed and $18M signing bonus. Bynum (one of four players with 300+ tackles and 7+ INTs since 2023) fills the free safety role. However, Nick Cross's departure at strong safety leaves the other starting spot unresolved \u2014 Juanyeh Thomas (36 career games) is the current placeholder at SS. Bynum addresses one safety spot fully; the strong safety/box safety role created by Cross's exit is still a concern. S remains a partial need."
+    },
+    {
+      "player": "Sauce Gardner",
+      "position": "CB",
+      "age": 24,
+      "previous_team": "New York Jets (trade, Nov. 2025 deadline)",
+      "contract": {
+        "years": 4,
+        "total_value": 120400000,
+        "guaranteed": 70000000,
+        "aav": 30100000
+      },
+      "expected_role": "starter/CB1",
+      "market_tier": "elite",
+      "need_impact": "fully_addressed",
+      "need_position": "CB",
+      "analysis": "Acquired at the 2025 trade deadline for the 2026 (No. 15 overall) and 2027 first-round picks plus WR Adonai Mitchell. Gardner's 4-year/$120.4M extension (signed with NYJ) transferred with him \u2014 the highest-paid CB in NFL history. Two-time first-team All-Pro in his first two seasons. Projects as CB1 alongside Ward and Bynum in a revamped secondary. The trade cost the Colts their top two first-round picks (no 2026 or 2027 first-rounders). CB is a position of strength, not need."
     },
     {
       "player": "Arden Key",
       "position": "EDGE",
-      "age": 29,
+      "age": 30,
       "previous_team": "Tennessee Titans",
       "contract": {
         "years": 2,
@@ -136,58 +187,126 @@
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "EDGE",
-      "analysis": "2yr/$20M (max) with only $11M guaranteed \u2014 effectively a 2yr/$11M deal with incentives. Key is an 8-year journeyman with career-high 6.5 sacks; had 4 sacks in 12 games in 2025. Mid-tier pass rusher at best. Per PFF, ranked 70th of 115 qualifying edge defenders in 2025. Described by multiple outlets as a 'bridge/rotational' player, not a starter-caliber solution. EDGE remains a significant need \u2014 this does not address the loss of both Paye and Ebukam in any meaningful long-term sense."
+      "analysis": "Two-year/$20M (up to) with $11M guaranteed. Key is a career rotational rusher with 30.5 career sacks across 8 NFL seasons. He fills a rotation role but ESPN explicitly noted his signing 'won't preclude the Colts from signing or drafting additional edge players.' At $10M AAV he is below starter tier for EDGE ($15M+). The Colts lost Paye, Ebukam, and Lewis \u2014 Key alone doesn't solve the EDGE problem. EDGE remains a significant draft need."
     },
     {
       "player": "Micheal Clemons",
       "position": "EDGE",
-      "age": 28,
+      "age": 26,
       "previous_team": "New York Jets",
       "contract": {
         "years": 3,
         "total_value": 17500000,
-        "guaranteed": 5990000,
+        "guaranteed": 0,
         "aav": 5833333
       },
       "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "EDGE",
-      "analysis": "3yr/$17.5M (up to $18.5M) but contract is effectively structured as a 1-year deal for the Colts \u2014 the only hard money is ~$3M prorated signing bonus and ~$2.99M base salary in Year 1. Years 2 and 3 are team options with minimal guarantees. Had career-high 4.5 sacks in 2024 but only 1 sack in 2025 with Jets. 8.5 career sacks in 4 seasons. Pure rotational piece at best. Alongside Key, provides EDGE volume but neither player is a starter-quality signing. EDGE remains a top draft priority."
+      "analysis": "Three-year/$17.5M (max $18.5M). Clemons had 8.5 sacks in 4 seasons with the Jets, totaling 20 QB hits and 13 TFLs. Projects as a rotational piece. At $5.8M AAV this is depth-level money. Combined with Key, the Colts have added two rotational EDGE players but no clear starter. EDGE pass-rush remains an unaddressed primary need for the draft."
     },
     {
       "player": "Colby Wooden",
       "position": "IDL",
-      "age": 24,
-      "previous_team": "Green Bay Packers (via trade for LB Zaire Franklin)",
-      "contract": {
-        "years": 1,
-        "total_value": 1145000,
-        "guaranteed": 1145000,
-        "aav": 1145000
-      },
-      "expected_role": "rotational",
-      "market_tier": "minimum",
-      "need_impact": "minimal",
-      "need_position": "IDL",
-      "analysis": "Acquired via trade (for Zaire Franklin) on the final year of his rookie contract. A run-stuffer IDL who started 16 of 17 games for Green Bay in 2025 (50 tackles, 6 TFLs). Young (24) with upside as a run defender. PFF grade 50.6 in 2025. Cheap \u2014 $1.145M in 2026 \u2014 and becomes a UFA after this season. Provides IDL depth behind Buckner and Stewart. Net cap savings of ~$5M from the Franklin trade. Partially replaces Gallimore's depth role at IDL."
-    },
-    {
-      "player": "Derrick Nnadi",
-      "position": "IDL",
-      "age": 29,
-      "previous_team": "Kansas City Chiefs",
+      "age": 25,
+      "previous_team": "Green Bay Packers (trade for Zaire Franklin)",
       "contract": {
         "years": 1,
         "total_value": 0,
         "guaranteed": 0,
         "aav": 0
       },
-      "expected_role": "depth",
+      "expected_role": "rotational",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "IDL",
+      "analysis": "Acquired in the Franklin trade. The 25-year-old started 16 games for Green Bay in 2025. He's a young developmental IDL piece behind Buckner and Stewart. Contract details not yet disclosed (was on rookie deal). IDL depth is adequately addressed with Buckner, Stewart, Wooden, Nnadi, and Adebawore."
+    },
+    {
+      "player": "Derrick Nnadi",
+      "position": "IDL",
+      "age": 30,
+      "previous_team": "Kansas City Chiefs (via Jets)",
+      "contract": {
+        "years": 1,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
+      },
+      "expected_role": "rotational",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "IDL",
+      "analysis": "3-time Super Bowl champion with 130 career games and 98 starts. Provides veteran IDL depth behind Buckner and Stewart. Contract terms not disclosed. This is a veteran minimum/low-cost depth add. IDL depth is now well-stocked with Buckner, Stewart, Wooden, Nnadi, and Adebawore \u2014 the position doesn't need a draft pick."
+    },
+    {
+      "player": "Khalil Herbert",
+      "position": "RB",
+      "age": 26,
+      "previous_team": "Cincinnati Bengals",
+      "contract": {
+        "years": 1,
+        "total_value": 1337500,
+        "guaranteed": 482500,
+        "aav": 1337500
+      },
+      "expected_role": "backup/depth",
       "market_tier": "minimum",
       "need_impact": "minimal",
-      "need_position": "IDL",
-      "analysis": "Contract terms not publicly disclosed at time of research. 3x Super Bowl champion with Chiefs; 130 career games, 98 starts. Primarily a run-stopping nose tackle. Had 16 tackles in 15 games in 2025 (PFF grade 43.6, 118th of 134 IDL). Pure veteran depth behind Stewart and Buckner. Will not change the IDL need picture but adds cheap, experienced depth."
+      "need_position": "RB",
+      "analysis": "One-year deal at near-minimum ($1.34M). Herbert has averaged 4.8 yards per carry over his NFL career. He provides a quality backup option behind Jonathan Taylor. Low-cost move that adequately fills the backup RB role. RB depth need minimally addressed \u2014 it's unlikely a premium draft pick is needed here."
+    },
+    {
+      "player": "Drew Ogletree",
+      "position": "TE",
+      "age": 27,
+      "previous_team": "Indianapolis Colts (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
+      },
+      "expected_role": "depth/blocking TE",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "TE",
+      "analysis": "Re-signed on a low-cost deal. Ogletree earned the top pass-blocking grade among all TEs in 2025 per PFF. He's a blocking specialist behind Tyler Warren. TE is not a need \u2014 Warren is a young starter."
+    },
+    {
+      "player": "Laquon Treadwell",
+      "position": "WR",
+      "age": 30,
+      "previous_team": "Indianapolis Colts (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
+      },
+      "expected_role": "depth/special teams",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "WR",
+      "analysis": "Re-signed on a low-cost deal. Has not caught a pass as a Colt but saw 51% of special teams snaps in 2025. This is a camp/special teams body. WR depth/WR2 need remains active."
+    },
+    {
+      "player": "Ashton Dulin",
+      "position": "WR",
+      "age": 29,
+      "previous_team": "Indianapolis Colts (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
+      },
+      "expected_role": "depth/special teams",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "WR",
+      "analysis": "Re-signed after being an undrafted FA presence since 2019. A core special teamer. Does not address the WR2/slot need created by Pittman's departure."
     },
     {
       "player": "Blake Grupe",
@@ -196,53 +315,53 @@
       "previous_team": "Indianapolis Colts (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 1005000,
-        "guaranteed": 1005000,
-        "aav": 1005000
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
       },
-      "expected_role": "starter",
-      "market_tier": "minimum",
+      "expected_role": "kicker",
+      "market_tier": "starter",
       "need_impact": "none",
       "need_position": "K",
-      "analysis": "Re-signed as ERFA at minimum salary. Went 11/11 on FGs and 10/10 on PATs in 5 games in 2025, including a franchise-record 60-yard FG. Will compete with Spencer Shrader (recovering from ACL/MCL) for the kicking job. No impact on draft needs."
+      "analysis": "Re-signed after going 11/11 on FGs (including a franchise-record 60-yarder) in 5 games in 2025. Kicking competition with recovering Spencer Shrader expected. Not a draft need."
     },
     {
       "player": "Austin Ajiake",
       "position": "LB",
-      "age": 25,
-      "previous_team": "Indianapolis Colts (re-sign)",
+      "age": 24,
+      "previous_team": "Indianapolis Colts (exclusive rights FA retained)",
       "contract": {
         "years": 1,
         "total_value": 1005000,
         "guaranteed": 1005000,
         "aav": 1005000
       },
-      "expected_role": "depth",
+      "expected_role": "depth/special teams",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "LB",
-      "analysis": "Re-signed as ERFA at minimum salary (signed Jan 5, 2026). Had 32 tackles and 2 QB hits in 16 games in 2025. Pure depth/special teams player. Does not address the hole left by trading Zaire Franklin."
+      "analysis": "Retained via exclusive rights tag at $1.005M. Had 32 tackles in 16 games in 2025 as a depth piece. Does not address the critical LB void left by Zaire Franklin's trade. LB remains a top draft need."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
-      "QB"
+      "QB",
+      "CB"
     ],
     "partially_addressed": [
-      "WR",
-      "IDL"
+      "S",
+      "WR"
     ],
     "minimally_addressed": [
-      "EDGE"
+      "EDGE",
+      "RB"
     ],
     "unchanged": [
-      "LB",
-      "S",
-      "OT"
+      "IDL",
+      "TE",
+      "IOL"
     ],
     "escalated": [
-      "EDGE",
-      "S",
       "LB",
       "OT"
     ]
@@ -251,44 +370,56 @@
     {
       "position": "QB",
       "previous_tier": 1,
-      "recommended_tier": 4,
-      "reasoning": "Daniel Jones re-signed to 2yr/$88M ($60M guaranteed). Largest two-year deal in NFL history locks in the starter for 2026-27. Achilles recovery is a risk but the team is fully committed. QB is no longer a draft priority. Backup situation (Leonard/Richardson?) is a modest secondary concern but does not require a premium pick."
+      "recommended_tier": 5,
+      "reasoning": "Daniel Jones re-signed on a 2yr/$88M deal ($60M gtd, $50M in Year 1 alone). He's the unquestioned starter for 2026-2027. The position is fully resolved for this draft cycle. Note: the 2-year structure means QB returns as a need in 2028 draft cycle, but it's off the board entirely in 2026."
+    },
+    {
+      "position": "CB",
+      "previous_tier": 2,
+      "recommended_tier": 5,
+      "reasoning": "Sauce Gardner (4yr/$120.4M, acquired via trade deadline) plus Charvarius Ward (3yr/$60M, $35M gtd) plus re-installed Kenny Moore II at nickel create arguably the best CB room in the AFC. The Colts gave up two first-round picks (2026 + 2027) to acquire Gardner \u2014 they are fully committed. CB is a strength, not a need."
     },
     {
       "position": "WR",
-      "previous_tier": 2,
+      "previous_tier": 1,
       "recommended_tier": 2,
-      "reasoning": "Net neutral to slightly worse. Alec Pierce retained on elite 4yr/$114M deal (fully addressed as WR1), but Michael Pittman Jr. was simultaneously traded to Pittsburgh. Pierce is now unquestioned WR1 but the WR2 slot behind Josh Downs is genuinely open. The Colts need a complement opposite Pierce \u2014 this remains a Day 2 draft need."
+      "reasoning": "Alec Pierce re-signed (4yr/$114M, $60M fully guaranteed) and is now the unquestioned WR1. However, Michael Pittman Jr. was traded to Pittsburgh, and the WR2/slot role is thin \u2014 Josh Downs is the primary slot option with Ashton Dulin and Laquon Treadwell as depth only. A complementary WR2 (outside or slot) is a legitimate rounds 2-4 draft target, especially with the Colts lacking a first-round pick."
     },
     {
       "position": "EDGE",
-      "previous_tier": 1,
+      "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Paye (Raiders) and Ebukam (Falcons) both departed. Replacements are Arden Key (2yr/$20M, rotational) and Micheal Clemons (3yr/$17.5M, effectively 1-year deal, rotational). Neither signing indicates a starter-level investment. EDGE remains a critical need \u2014 Laiatu Latu is the only reliable piece. The Colts have no first-round pick, so premium EDGE via Day 2 (2nd or 3rd round) is likely. Still the team's most urgent defensive need."
-    },
-    {
-      "position": "IDL",
-      "previous_tier": 3,
-      "recommended_tier": 4,
-      "reasoning": "Gallimore departed but was replaced by three IDL additions: Colby Wooden (trade), Micheal Clemons (also functions as IDL), and Derrick Nnadi. DeForest Buckner and Grover Stewart remain entrenched starters. IDL depth is now adequate. Still a late-round draft pick of interest, but no longer a pressing need."
+      "reasoning": "Kwity Paye (to Raiders, 3yr/$48M), Samson Ebukam (to Falcons, 1yr), and Tyquan Lewis (departed) all left. Replacements are Arden Key (2yr/$20M, rotational) and Micheal Clemons (3yr/$17.5M, rotational). Neither is a proven starter. Laiatu Latu is the only true starter-caliber edge rusher. EDGE is now the #1 draft priority given the total depth problem. The Colts don't have a 1st-round pick, making a high-value Day 2 EDGE a must."
     },
     {
       "position": "LB",
-      "previous_tier": 3,
-      "recommended_tier": 2,
-      "reasoning": "Zaire Franklin traded to Green Bay. Franklin was the starter and a two-time Pro Bowler (though 2025 was a down year). Only Austin Ajiake (depth) returned at LB. The room is critically thin. Colts will need to add a starter-quality LB via the draft (likely rounds 2-4) or potentially additional free agency moves."
-    },
-    {
-      "position": "S",
       "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Nick Cross departed (Commanders, 2yr/$14M) and Rodney Thomas II departed (Seahawks). Camryn Bynum (2025 free agent signing, 4yr/$60M) remains and is the starter. Hunter Wohler (missed 2025 with Lisfranc) is the depth option. With Cross gone, there is a starter-level hole at the second safety spot. Remains a mid-round draft need."
+      "recommended_tier": 1,
+      "reasoning": "Zaire Franklin was traded to Green Bay (for Colby Wooden). Franklin was an 8-year starter, Pro Bowler, and defensive signal-caller. Jaylon Carlies 'hardly touched the field in 2025' and is now the nominal LB1. Austin Ajiake is depth only. No quality free-agent LB was signed. LB is co-equal with EDGE as the most critical draft need \u2014 the Colts need a starter-caliber LB in rounds 2-3."
     },
     {
       "position": "OT",
       "previous_tier": 3,
       "recommended_tier": 2,
-      "reasoning": "Braden Smith (105 career starts) signed with the Texans. Colts are internally penciling in 2025 4th-round pick Jalen Travis as the replacement RT \u2014 he played well in 4 starts (74.2 PFF grade, 1 sack allowed in 165 snaps). But Travis is still an unproven 2nd-year player. Bernhard Raimann holds down LT. The OT situation is manageable but a swing at an experienced tackle in the mid-rounds would be prudent. Elevated from depth need to genuine starter competition."
+      "reasoning": "Braden Smith (8-year starter) departed to Houston (2yr/$25M). The replacement plan is Jalen Travis, a 2025 4th-round pick with 4 starts and a solid 74.2 PFF grade. Travis is promising but unproven over a full season. Bernhard Raimann continues at LT. OT is escalated \u2014 a developmental OT or veteran backup in rounds 3-5 would provide insurance behind Travis."
+    },
+    {
+      "position": "S",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Camryn Bynum (4yr/$60M) fills the free safety role credibly. However, Nick Cross's departure (2yr/$14M to Washington) leaves strong safety as a genuine hole \u2014 Juanyeh Thomas has 36 career games and 4 INTs, but is unproven as a starter. Rodney Thomas II also departed to Seattle. The FS spot is addressed but SS/box safety is a live need. S remains tier 2 \u2014 a Day 2 safety would be a quality addition."
+    },
+    {
+      "position": "IDL",
+      "previous_tier": 3,
+      "recommended_tier": 4,
+      "reasoning": "Despite losing Neville Gallimore (to Bears, 2yr/$12M), the Colts added Colby Wooden (via trade, started 16 games for GB in 2025), Derrick Nnadi (veteran depth), and retain DeForest Buckner and Grover Stewart. IDL depth is well-stocked. Not a draft priority."
+    },
+    {
+      "position": "WR",
+      "previous_tier": 1,
+      "recommended_tier": 2,
+      "reasoning": "Split into WR1 (fully addressed by Pierce re-signing) vs WR2/depth (escalated by Pittman departure). Net assessment is tier 2 \u2014 a developmental or starter-caliber complement to Pierce is needed to support the offense. Josh Downs profiles as the slot/WR2, but an outside complement and overall depth upgrade is warranted."
     }
   ],
   "team_page_additions": {
@@ -298,86 +429,114 @@
         "position": "QB",
         "contract_summary": "2yr/$88M ($60M gtd)",
         "previous_team": "Indianapolis Colts (re-sign)",
-        "headline": "Historic re-sign (largest 2-year deal in NFL history) locks in franchise QB as he recovers from torn Achilles"
+        "headline": "Richest 2-year QB deal in NFL history locks in Colts' starter after career year (3,101 yds, 68% completion rate)"
       },
       {
         "player": "Alec Pierce",
         "position": "WR",
-        "contract_summary": "4yr/$114M ($80M gtd)",
+        "contract_summary": "4yr/$114M ($84M gtd, $60M fully guaranteed)",
         "previous_team": "Indianapolis Colts (re-sign)",
-        "headline": "Two-time NFL yards-per-catch leader retained on record-setting deal as new WR1 following Pittman trade"
+        "headline": "Record-setting WR extension ($29M AAV, most-ever for free-agent WR) makes Pierce the Colts' WR1 for the next four years"
+      },
+      {
+        "player": "Charvarius Ward",
+        "position": "CB",
+        "contract_summary": "3yr/$60M ($35M gtd, $20M signing bonus)",
+        "previous_team": "San Francisco 49ers",
+        "headline": "Elite CB2 with 41 PDs since 2022 joins Sauce Gardner to give Colts arguably the best cornerback tandem in the AFC"
+      },
+      {
+        "player": "Camryn Bynum",
+        "position": "S",
+        "contract_summary": "4yr/$60M ($26M gtd)",
+        "previous_team": "Minnesota Vikings",
+        "headline": "Ballard's biggest free-agent investment ever in a safety \u2014 Bynum brings elite tackling and ball-hawking instincts to the Colts' rebuilt secondary"
+      },
+      {
+        "player": "Sauce Gardner",
+        "position": "CB",
+        "contract_summary": "4yr/$120.4M (acquired via trade, Nov. 2025; 2026+2027 1sts + Adonai Mitchell)",
+        "previous_team": "New York Jets",
+        "headline": "Two-time All-Pro and highest-paid CB in NFL history gives Indy a shutdown No. 1 corner acquired at the trade deadline"
       },
       {
         "player": "Arden Key",
         "position": "EDGE",
         "contract_summary": "2yr/$20M ($11M gtd)",
         "previous_team": "Tennessee Titans",
-        "headline": "Journeyman pass rusher adds EDGE rotation depth to replace departed Paye and Ebukam"
+        "headline": "Veteran pass-rush addition (30.5 career sacks) provides EDGE rotation depth alongside Laiatu Latu"
       },
       {
         "player": "Micheal Clemons",
         "position": "EDGE",
-        "contract_summary": "3yr/$17.5M (~$6M gtd, team options yr 2-3)",
+        "contract_summary": "3yr/$17.5M (max $18.5M)",
         "previous_team": "New York Jets",
-        "headline": "Rotational edge rusher continues Colts' overhaul of the defensive front on a prove-it structure"
+        "headline": "Young EDGE piece (8.5 sacks in 4 Jets seasons) adds pass-rush depth on a team-friendly deal"
       },
       {
         "player": "Colby Wooden",
         "position": "IDL",
-        "contract_summary": "1yr/$1.145M (via trade, Zaire Franklin to GB)",
-        "previous_team": "Green Bay Packers (trade)",
-        "headline": "Young run-stopping IDL acquired in Franklin trade; cheap depth behind Buckner and Stewart"
+        "contract_summary": "Acquired via trade (Zaire Franklin to GB)",
+        "previous_team": "Green Bay Packers",
+        "headline": "25-year-old IDL who started 16 games for the Packers in 2025 arrives as the headline return in the Franklin trade"
       },
       {
         "player": "Derrick Nnadi",
         "position": "IDL",
-        "contract_summary": "Terms TBD",
+        "contract_summary": "Terms TBD (veteran depth deal)",
         "previous_team": "Kansas City Chiefs",
-        "headline": "3x Super Bowl champion adds veteran interior depth to support Buckner and Stewart"
+        "headline": "3-time Super Bowl champion and 98-game starter bolsters IDL depth behind Buckner and Stewart"
+      },
+      {
+        "player": "Khalil Herbert",
+        "position": "RB",
+        "contract_summary": "1yr/$1.34M ($482K gtd)",
+        "previous_team": "Cincinnati Bengals",
+        "headline": "Veteran backup (4.8 career YPC) gives Colts reliable insurance behind Jonathan Taylor at near-minimum cost"
       }
     ],
     "key_losses": [
       {
         "player": "Michael Pittman Jr.",
         "position": "WR",
-        "contract_summary": "Traded; 3yr/$59M with Steelers",
+        "contract_summary": "Traded; signed 3yr/$59M with Pittsburgh",
         "new_team": "Pittsburgh Steelers",
-        "headline": "Longtime WR1 traded to Steelers (Colts received 6th-round pick), freeing $24M cap but opening WR2 void"
-      },
-      {
-        "player": "Kwity Paye",
-        "position": "EDGE",
-        "contract_summary": "3yr/$48M with Raiders",
-        "new_team": "Las Vegas Raiders",
-        "headline": "2021 first-round pick departs after disappointing contract year (4 sacks), leaving EDGE room critically thin"
-      },
-      {
-        "player": "Samson Ebukam",
-        "position": "EDGE",
-        "contract_summary": "Terms TBD with Falcons",
-        "new_team": "Atlanta Falcons",
-        "headline": "Veteran pass rusher (9.5 sacks in 2023) departs after Achilles-limited 2025 (2 sacks), completing EDGE room overhaul"
+        "headline": "8-year Colt and former WR1 traded to Pittsburgh for a 6th-round pick, freeing cap and clearing the path for Pierce's record extension"
       },
       {
         "player": "Zaire Franklin",
         "position": "LB",
-        "contract_summary": "Traded; 2yr remaining ($7M in 2026) to Packers",
+        "contract_summary": "Traded for Colby Wooden (frees $5.75M cap)",
         "new_team": "Green Bay Packers",
-        "headline": "2024 All-Pro tackler traded for DT Colby Wooden as Colts reset linebacker room"
+        "headline": "Pro Bowl LB and 8-year defensive leader traded away, leaving the Colts without a proven starter at linebacker"
       },
       {
-        "player": "Nick Cross",
-        "position": "S",
-        "contract_summary": "2yr/$14M with Commanders",
-        "new_team": "Washington Commanders",
-        "headline": "Starting safety (24) departs as Colts prioritized Jones/Pierce cap spending, leaving hole at S2"
+        "player": "Kwity Paye",
+        "position": "EDGE",
+        "contract_summary": "3yr/$48M ($32M gtd) with Raiders",
+        "new_team": "Las Vegas Raiders",
+        "headline": "Former first-round pick and 5-year starter departs in free agency, leaving a significant hole in the Colts' pass rush"
       },
       {
         "player": "Braden Smith",
         "position": "OT",
         "contract_summary": "2yr/$25M ($13.5M gtd) with Texans",
         "new_team": "Houston Texans",
-        "headline": "8-year Colts cornerstone (105 starts) signs division rival, opening RT competition for 2nd-year Jalen Travis"
+        "headline": "8-year starting right tackle (105 starts) departs for a division rival, handing the starting RT job to unproven 2025 4th-rounder Jalen Travis"
+      },
+      {
+        "player": "Nick Cross",
+        "position": "S",
+        "contract_summary": "2yr/$14M with Commanders",
+        "new_team": "Washington Commanders",
+        "headline": "Ascending strong safety and 38-game starter leaves, opening a hole alongside newly signed Camryn Bynum"
+      },
+      {
+        "player": "Samson Ebukam",
+        "position": "EDGE",
+        "contract_summary": "1yr/terms undisclosed with Falcons",
+        "new_team": "Atlanta Falcons",
+        "headline": "Pass-rush veteran (9.5 sacks in 2023 with Colts) departs after slower-than-hoped Achilles recovery in 2025"
       }
     ]
   },
@@ -385,17 +544,19 @@
   "sources": [
     "https://www.espn.com/nfl/story/_/id/48054795/indianapolis-colts-2026-free-agency-tracker-offseason-moves-signings-trades",
     "https://www.colts.com/news/2026-nfl-free-agency-tracker-daniel-jones-alec-pierce",
-    "https://www.spotrac.com/nfl/player/_/id/29041/daniel-jones",
-    "https://www.spotrac.com/nfl/player/_/id/76929/alec-pierce",
-    "https://www.spotrac.com/nfl/player/_/id/25525/charvarius-ward",
-    "https://overthecap.com/player/camryn-bynum/9589",
+    "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
     "https://www.si.com/nfl/colts/onsi/news/colts-2026-free-agency-tracker-signings-losses-news-rumors",
-    "https://www.nfl.com/news/packers-trade-dt-colby-wooden-to-colts-for-lb-zaire-franklin",
-    "https://www.profootballrumors.com/2026/03/colts-de-arden-key-agree-to-deal",
-    "https://www.profootballrumors.com/2026/03/colts-to-add-de-micheal-clemons",
     "https://horseshoeheroes.com/indianapolis-colts-2026-free-agency-tracker-guide-to-signings-leavings-trades",
-    "https://www.cbssports.com/nfl/news/daniel-jones-contract-colts-qb-nfl-free-agency/",
-    "https://www.cbssports.com/nfl/news/alec-pierce-colts-contract-extension/",
-    "https://sports.yahoo.com/articles/braden-smith-signs-texans-why-210634992.html"
+    "https://www.cbssports.com/nfl/news/colts-signing-charvarius-ward-to-three-year-deal-worth-up-to-60-million-per-report/",
+    "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-monday-march-10",
+    "https://www.colts.com/news/colts-acquire-cb-sauce-gardner-from-new-york-jets-in-exchange-for-2026-2027-first-round-picks-and-wr-adonai-mitchell",
+    "https://www.si.com/nfl/sauce-gardner-contract-jets-colts-trade",
+    "https://www.profootballrumors.com/2026/03/colts-sign-dt-derrick-nnadi-re-sign-te-andrew-ogletree",
+    "https://overthecap.com/salary-cap/indianapolis-colts",
+    "https://atozsports.com/nfl/indianapolis-colts-news/colts-free-agency-signing-live-tracker-legal-tampering-daniel-jones-alec-pierce-offseason-shane-steichen-chris-ballard/",
+    "https://heavy.com/sports/nfl/free-agency-tracker-2026-news-signings-rumors/",
+    "https://www.si.com/nfl/colts/onsi/news/colts-projected-starting-lineup-after-free-agency-week-1",
+    "https://www.pff.com/news/2026-nfl-offseason-tracker-signings-trades-and-cuts-for-all-32-teams",
+    "https://ns1.overthecap.com/player/khalil-herbert/9681"
   ]
 }

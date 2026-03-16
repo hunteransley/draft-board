@@ -1,10 +1,10 @@
 {
   "team": "BAL",
   "team_full": "Baltimore Ravens",
-  "updated_through": "2026-03-13",
-  "cap_space_pre_fa": "$22000000",
-  "cap_space_post_fa": "$54950187",
-  "cap_notes": "Lamar Jackson restructure freed approximately $40M in cap space, creating more room post-FA than pre-FA on paper. OTC tracks $54.95M remaining as of 3/13.",
+  "updated_through": "2026-03-16",
+  "cap_space_pre_fa": "$40000000",
+  "cap_space_post_fa": "$44856069",
+  "notes": "Lamar Jackson restructured his contract on March 12, converting $51.25M of salary into a bonus and clearing ~$40M in 2026 cap space (reducing his cap hit from ~$74.5M to ~$34.5M). OverTheCap shows $44.9M in current team cap space post-FA signings. The failed Maxx Crosby trade (Ravens backed out due to medical concerns) preserved two first-round picks (2026 and 2027) that would have been sent to Las Vegas.",
   "key_departures": [
     {
       "player": "Tyler Linderbaum",
@@ -12,19 +12,19 @@
       "age": 25,
       "role": "starter",
       "new_team": "Las Vegas Raiders",
-      "contract_signed": "3yr/$81M ($60M guaranteed, $27M AAV \u2014 record for interior OL)",
-      "impact": "Three-time Pro Bowl center and one of the top 5 centers in the NFL. Left for a record-setting deal the Ravens could not match under cap constraints. Leaves a massive void at C with only UDFA Corey Bullock as an in-house option.",
+      "contract_signed": "3yr/$81M ($27M AAV) \u2014 record deal for interior OL",
+      "impact": "Three-time Pro Bowl center and one of the top-5 centers in the NFL. Departure leaves a massive hole at C. In-house option Corey Bullock (ERFA, retained) is a depth piece, not a starter-caliber replacement. No veteran free-agent center was signed to fill the void.",
       "need_impact": "creates",
       "need_position": "IOL"
     },
     {
       "player": "Isaiah Likely",
       "position": "TE",
-      "age": 26,
-      "role": "starter",
+      "age": 25,
+      "role": "rotational",
       "new_team": "New York Giants",
       "contract_signed": "3yr/$40M",
-      "impact": "Followed new NYG head coach John Harbaugh. Was the secondary receiving TE behind Mark Andrews. Ravens now thin at TE depth and pass-catching at the position behind Andrews.",
+      "impact": "Versatile receiving TE and valued backup to Mark Andrews. Loss removes the only true pass-catching weapon behind Andrews. Durham Smythe (blocking TE) was added but is not a receiving replacement for Likely.",
       "need_impact": "creates",
       "need_position": "TE"
     },
@@ -35,18 +35,40 @@
       "role": "starter",
       "new_team": "Los Angeles Chargers",
       "contract_signed": "3yr/$24.3M \u2014 highest-paid blocking TE in NFL history",
-      "impact": "Primary blocking TE and key run-game piece for Derrick Henry. Combined with Likely's departure, Ravens lost both non-Andrews TEs. Replaced by Durham Smythe but at a significant talent downgrade.",
+      "impact": "Primary in-line blocking TE in Baltimore's run-heavy offense. Durham Smythe was signed as a direct replacement, partially addressing this departure.",
       "need_impact": "escalates",
       "need_position": "TE"
     },
     {
+      "player": "Dre'Mont Jones",
+      "position": "EDGE",
+      "age": 28,
+      "role": "rotational",
+      "new_team": "New England Patriots",
+      "contract_signed": "3yr/$36.5M\u2013$39M (reported range)",
+      "impact": "Productive rotational edge rusher (2.5 sacks, 15 QB hits in 9 games in 2025). Departure reduces EDGE depth behind Hendrickson and Mike Green. Partly offset by Hendrickson signing.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "David Ojabo",
+      "position": "EDGE",
+      "age": 25,
+      "role": "rotational",
+      "new_team": "Miami Dolphins",
+      "contract_signed": "terms not publicly confirmed",
+      "impact": "Former 2nd-round pick who never fulfilled draft promise due to injuries (4.5 career sacks). Leaves Ravens with thin EDGE depth. Mike Green and Tavius Robinson remain.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
       "player": "Alohi Gilman",
       "position": "S",
-      "age": 28,
+      "age": 27,
       "role": "starter",
       "new_team": "Kansas City Chiefs",
       "contract_signed": "3yr/$24.75M ($15M guaranteed)",
-      "impact": "Starting deep safety who paired well with Kyle Hamilton and Malaki Starks. Departure leaves a meaningful hole at S3/deep safety. Addressed by Hawkins signing.",
+      "impact": "Starting safety who helped stabilize the Ravens' secondary. Combined with Ar'Darius Washington's departure, left a total void at the S3 role behind Kyle Hamilton and Malaki Starks. Addressed by Hawkins signing.",
       "need_impact": "creates",
       "need_position": "S"
     },
@@ -56,32 +78,10 @@
       "age": 26,
       "role": "rotational",
       "new_team": "New York Giants",
-      "contract_signed": "1yr (terms undisclosed)",
-      "impact": "Coming off Achilles tear in OTAs, played only 4 games in 2025. Depth loss but limited impact given injury history. Part of the mass departure to Harbaugh's Giants.",
-      "need_impact": "none",
-      "need_position": "S"
-    },
-    {
-      "player": "Dre'Mont Jones",
-      "position": "EDGE",
-      "age": 29,
-      "role": "rotational",
-      "new_team": "New England Patriots",
-      "contract_signed": "3yr/$39.5M ($14.5M Year 1)",
-      "impact": "Deadline acquisition who provided 2.5 sacks and 32 pressures in 9 games. Departure partially mitigated by Hendrickson signing \u2014 Jones would have been a rotational piece behind the starter. Team still needs depth EDGE opposite Hendrickson.",
+      "contract_signed": "1yr (terms not disclosed)",
+      "impact": "Rotational safety who tore his Achilles in OTAs and played only 4 games in 2025. Followed former HC John Harbaugh to New York. Minimal on-field impact but part of double safety departure.",
       "need_impact": "escalates",
-      "need_position": "EDGE"
-    },
-    {
-      "player": "Kyle Van Noy",
-      "position": "EDGE",
-      "age": 34,
-      "role": "rotational",
-      "new_team": "TBD/Unsigned as of 3/13",
-      "contract_signed": null,
-      "impact": "Veteran depth EDGE who produced career-high 12.5 sacks in 2024 but fell to just 2 in 2025. Was considering return on minimum deal. Marginal impact given Hendrickson signing and Mike Green returning.",
-      "need_impact": "none",
-      "need_position": "EDGE"
+      "need_position": "S"
     },
     {
       "player": "Jordan Stout",
@@ -90,51 +90,18 @@
       "role": "starter",
       "new_team": "New York Giants",
       "contract_signed": "3yr/$12.3M \u2014 record deal for a punter",
-      "impact": "All-Pro, Pro Bowl punter in his contract year who led the NFL in net punting average. Major special teams loss; Ravens must find a replacement.",
+      "impact": "First-team All-Pro punter in his contract year (44.9 net YPP). Departure forces Ravens to find a replacement punter. Special teams need created.",
       "need_impact": "creates",
       "need_position": "P"
     },
     {
-      "player": "Patrick Ricard",
-      "position": "FB",
-      "age": 31,
-      "role": "starter",
-      "new_team": "New York Giants",
-      "contract_signed": "Terms undisclosed",
-      "impact": "Six-time Pro Bowl fullback who was a critical blocker for Derrick Henry's ground game. His presence on field correlated with Henry's most explosive runs. Loss hurts the run game; new OC Doyle reportedly leans 12 personnel so FB usage may be reduced anyway.",
-      "need_impact": "creates",
-      "need_position": "FB"
-    },
-    {
-      "player": "Daniel Faalele",
-      "position": "IOL",
-      "age": 26,
-      "role": "starter",
-      "new_team": "TBD/Unsigned as of 3/13",
-      "contract_signed": null,
-      "impact": "Starting RG who ranked 32nd in pass block win rate. Replaced by John Simpson; not a significant football loss.",
-      "need_impact": "none",
-      "need_position": "IOL"
-    },
-    {
-      "player": "DeAndre Hopkins",
-      "position": "WR",
-      "age": 33,
-      "role": "rotational",
-      "new_team": "TBD/Unsigned as of 3/13",
-      "contract_signed": null,
-      "impact": "Voiding contract at start of league year. Provided depth and contested-catch ability but was underutilized. WR room remains Flowers/Bateman led. Hopkins could potentially return on cheap deal.",
-      "need_impact": "none",
-      "need_position": "WR"
-    },
-    {
       "player": "Jake Hummel",
       "position": "LB",
-      "age": 26,
+      "age": 25,
       "role": "depth/ST",
       "new_team": "Las Vegas Raiders",
-      "contract_signed": "2yr (terms undisclosed)",
-      "impact": "Special teams ace who led Ravens in ST snaps. Depth/ST loss only.",
+      "contract_signed": "2yr (terms not disclosed)",
+      "impact": "Special teams contributor with 18 tackles in 2025. Depth loss only.",
       "need_impact": "none",
       "need_position": "LB"
     },
@@ -145,9 +112,20 @@
       "role": "depth",
       "new_team": "Los Angeles Chargers",
       "contract_signed": "2yr/$9.25M ($5M guaranteed)",
-      "impact": "Not tendered as RFA. Ravens have Derrick Henry, Justice Hill, and Rasheen Ali. Depth only departure.",
+      "impact": "RFA not tendered. Derrick Henry, Justice Hill, and Rasheen Ali remain at RB. Minimal roster impact.",
       "need_impact": "none",
       "need_position": "RB"
+    },
+    {
+      "player": "Kyle Van Noy",
+      "position": "EDGE",
+      "age": 35,
+      "role": "depth",
+      "new_team": "TBD/unsigned",
+      "contract_signed": "N/A",
+      "impact": "Veteran with only 2 sacks in 2025 after 12.5-sack Pro Bowl season two years prior. Clear decline. Depth loss only.",
+      "need_impact": "none",
+      "need_position": "EDGE"
     }
   ],
   "signings": [
@@ -159,6 +137,7 @@
       "contract": {
         "years": 4,
         "total_value": 112000000,
+        "max_value": 120000000,
         "guaranteed": 60000000,
         "aav": 28000000
       },
@@ -166,7 +145,14 @@
       "market_tier": "elite",
       "need_impact": "fully_addressed",
       "need_position": "EDGE",
-      "analysis": "Four-time Pro Bowler and 2024 NFL sacks leader (17.5). Since 2020, his 74.5 sacks rank third in the NFL. The $28M AAV is elite-tier at EDGE and the $60M guaranteed reflects genuine long-term investment. Note: missed 10 games in 2025 with hip/pelvis surgery \u2014 health is the key question. But on talent and contract structure, EDGE goes from a Tier 1 critical need to a managed need. Ravens still retain Mike Green and Tavius Robinson. Some developmental EDGE depth still useful in the draft."
+      "analysis": "The biggest outside free agent signing in Ravens franchise history. Four-time Pro Bowler and 2024 NFL sacks leader (17.5). One of only five players in NFL history with 17+ sacks in back-to-back seasons (2023\u201324). The $60M guaranteed on a 4-year deal is a clear long-term commitment. EDGE goes from tier-1 critical to tier-3 depth/developmental need \u2014 Ravens may want a rotational EDGE in mid rounds but the starter problem is solved. Signed just hours after the Maxx Crosby trade fell through on medical concerns, preserving Baltimore's 2026 and 2027 first-round picks in the process. Knock is run defense (16% run stop win rate over last 5 seasons, last among EDGE) and an injury (core muscle surgery) that limited him to 7 games in 2025.",
+      "contract_confidence": "high",
+      "sources": [
+        "spotrac.com",
+        "overthecap.com",
+        "nfl.com",
+        "cbssports.com"
+      ]
     },
     {
       "player": "John Simpson",
@@ -176,14 +162,20 @@
       "contract": {
         "years": 3,
         "total_value": 30000000,
-        "guaranteed": null,
+        "guaranteed": 17500000,
         "aav": 10000000
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "IOL",
-      "analysis": "Returning reunion signing \u2014 Simpson started all 17 games at LG for Baltimore in 2023 before 2 strong seasons with the Jets. The 3yr/$30M is a legitimate starter investment at guard. He addresses one of the two guard spots. However, CENTER remains a critical unaddressed need \u2014 Linderbaum's departure to LV for $27M AAV was not replaced. Corey Bullock (UDFA backup) is the only in-house option. IOL need is split: guard is partially addressed, C is a critical outstanding hole. Overall IOL: partially addressed. Note: discipline concerns (led NFL in penalty yards in 2025)."
+      "analysis": "A reunion for Simpson, who started every game for Baltimore in 2023 before 2 seasons with the Jets. $17.5M fully guaranteed at signing including a $10.5M signing bonus \u2014 a real investment at guard. He projects as the starting right guard, with 2025 3rd-round pick Emery Jones Jr. likely competing at LG. Addresses the GUARD need but does NOT solve center \u2014 Linderbaum's departure still leaves a massive hole at C with only ERFA Corey Bullock as an in-house option. IOL partially addressed (one guard starter added, center remains critical).",
+      "contract_confidence": "high",
+      "sources": [
+        "spotrac.com",
+        "overthecap.com",
+        "baltimoresun.com"
+      ]
     },
     {
       "player": "Jaylinn Hawkins",
@@ -193,31 +185,20 @@
       "contract": {
         "years": 2,
         "total_value": 10000000,
-        "guaranteed": null,
+        "guaranteed": 5000000,
         "aav": 5000000
       },
       "expected_role": "starter",
       "market_tier": "depth",
       "need_impact": "partially_addressed",
       "need_position": "S",
-      "analysis": "2yr/$10M ($5M AAV) is below the starter-tier threshold for S. However, Hawkins is expected to be a genuine starter as the S3 alongside Hamilton and Starks. PFF graded him No. 5 overall safety in 2025 (83.3 grade), 4 INTs, 15 starts for AFC champion Patriots. This is a below-market contract for above-average production \u2014 a Ravens specialty signing. The S need caused by losing both Gilman and Washington is partially addressed: Hawkins replaces Gilman's role meaningfully but the lack of guarantees reported and 2-year structure signals more of a bridge than a franchise-level solve. Malaki Starks is the long-term answer. S drops from critical to moderate need."
-    },
-    {
-      "player": "Mark Andrews",
-      "position": "TE",
-      "age": 30,
-      "previous_team": "Baltimore Ravens (re-signed/extension Dec 2025)",
-      "contract": {
-        "years": 3,
-        "total_value": 39267000,
-        "guaranteed": 25944444,
-        "aav": 13089000
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "partially_addressed",
-      "need_position": "TE",
-      "analysis": "Extension signed in December 2025, locking up the franchise's all-time leader in receptions (473), receiving yards (5,862), and TDs (56). The 3yr/$39.3M with $26M guaranteed is a real starter-level commitment at TE. Andrews as the TE1 is secured. However, the departures of BOTH Isaiah Likely AND Charlie Kolar leave the TE room critically thin behind him. Durham Smythe was signed for the blocking role but is a clear step-down from Kolar. A pass-catching TE2 is still a priority need. TE: partially addressed \u2014 anchor secured, depth is the remaining hole."
+      "analysis": "15-game starter for the AFC Champion Patriots in 2025, leading the team with 4 interceptions. PFF coverage grade of 74.7 (12th among safeties) and 79.7 run defense grade (15th). Fills the S3 role behind Kyle Hamilton and Malaki Starks, allowing Hamilton continued freedom to roam as a quasi-linebacker. However, the 2-year deal at $5M AAV signals a bridge/depth signing rather than a long-term solution. Safety depth remains thin and the Ravens may still want a developmental safety in the draft.",
+      "contract_confidence": "high",
+      "sources": [
+        "spotrac.com",
+        "baltimoreravens.com",
+        "pff.com via twitter"
+      ]
     },
     {
       "player": "Durham Smythe",
@@ -226,38 +207,50 @@
       "previous_team": "Chicago Bears",
       "contract": {
         "years": 1,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "total_value": 2500000,
+        "guaranteed": 2500000,
+        "aav": 2500000
       },
-      "expected_role": "depth/blocking",
-      "market_tier": "minimum",
+      "expected_role": "rotational",
+      "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "TE",
-      "analysis": "Brought in as the Charlie Kolar blocking replacement. Smythe blocked on 74.1% of his snaps in Chicago last year and is familiar with new OC Declan Doyle's system. However, PFF graded him as its LOWEST-graded TE in 2025. Terms not fully disclosed but likely a modest deal. This is a warm-body/system-fit signing for the blocking TE role \u2014 it does not address the pass-catching TE2 void. TE depth minimally addressed; pass-catching TE2 still a clear need."
+      "analysis": "Direct replacement for blocking TE Charlie Kolar. Reunites with new OC Declan Doyle, who coached him in Chicago. Blocked on 74.1% of offensive snaps for the Bears, who ranked 7th in rushing. However, he was PFF's lowest-graded TE in 2025 overall and is a minimal pass-catcher (4 catches, 25 yards in 2025). The 1-year deal is depth/prove-it money. Kolar's blocking departure is minimally addressed; Likely's pass-catching departure is NOT addressed \u2014 TE remains a genuine need, particularly at the receiving TE role.",
+      "contract_confidence": "medium",
+      "notes": "Contract terms reported as a 1-year deal; exact guaranteed amount not fully confirmed but estimated at near full value given short term. ESPN/NFL reporters confirmed the agreement.",
+      "sources": [
+        "nfltraderumors.co",
+        "247sports.com",
+        "profootballrumors.com"
+      ]
     },
     {
       "player": "Tyler Huntley",
       "position": "QB",
       "age": 28,
-      "previous_team": "Baltimore Ravens (re-signed)",
+      "previous_team": "Baltimore Ravens (re-sign)",
       "contract": {
         "years": 2,
-        "total_value": 11000000,
-        "guaranteed": null,
-        "aav": 5500000
+        "total_value": 5000000,
+        "guaranteed": 2500000,
+        "aav": 2500000
       },
       "expected_role": "backup",
       "market_tier": "depth",
-      "need_impact": "none",
+      "need_impact": "fully_addressed",
       "need_position": "QB",
-      "analysis": "Re-signing of proven backup who led Ravens to two wins in relief of Lamar Jackson in 2025. QB was never a need with Jackson. This secures an important safety valve role given Jackson's injury history. Cooper Rush released as a result. Minimal need impact."
+      "analysis": "Re-signing Huntley as the backup QB behind Lamar Jackson. Huntley won both starts in 2025, completing 77.6% of passes with a 103.1 rating and 151 rushing yards. Cooper Rush was cut as a result. QB depth (backup) was a soft need and it is now resolved. The Ravens committed 2 years, confirming they view Huntley as a legitimate safety net for Jackson \u2014 critical given Jackson has missed 4+ games in 3 of the last 5 seasons.",
+      "contract_confidence": "high",
+      "sources": [
+        "espn.com",
+        "baltimoreravens.com"
+      ]
     },
     {
       "player": "Chidobe Awuzie",
       "position": "CB",
       "age": 30,
-      "previous_team": "Baltimore Ravens (re-signed)",
+      "previous_team": "Baltimore Ravens (re-sign)",
       "contract": {
         "years": 1,
         "total_value": 5000000,
@@ -268,49 +261,104 @@
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "CB",
-      "analysis": "One-year, $5M fully guaranteed deal to retain last year's best value signing. Awuzie is a solid CB3 behind Wiggins and Humphrey. PFF graded him 13th among CBs (74.7) with 27.6% forced tight-window throw rate. However, one-year deals signal bridge/depth \u2014 this does NOT address CB depth long-term. Durability concerns (missed 34 games in 6 seasons). CB3 is maintained; long-term CB depth is still a draft concern."
+      "analysis": "Re-signing Awuzie, who was arguably the Ravens' best CB in 2025 despite only 5 starts (13th-highest PFF CB grade among players with 20%+ snap share). 7 PBUs and 55.6% completion rate allowed \u2014 excellent cover man. The $5M fully guaranteed 1-year deal is a bargain but signals short-term thinking. He profiles as CB3 behind Marlon Humphrey (starter) and Nate Wiggins (starter), though both had rough 2025 seasons. One-year deal = bridge. CB still needs long-term answers, particularly with Humphrey turning 30 and Wiggins still developing. Need is minimally addressed \u2014 CB remains a viable mid-round draft target.",
+      "contract_confidence": "high",
+      "sources": [
+        "baltimoreravens.com",
+        "profootballrumors.com",
+        "espn.com"
+      ]
     },
     {
-      "player": "Jovaughn Gwyn",
-      "position": "IOL",
-      "age": 26,
-      "previous_team": "Atlanta Falcons",
+      "player": "C.J. Okoye",
+      "position": "IDL",
+      "age": 25,
+      "previous_team": "Baltimore Ravens (re-sign, ERFA)",
       "contract": {
         "years": 1,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "total_value": 1005000,
+        "guaranteed": 1005000,
+        "aav": 1005000
+      },
+      "expected_role": "rotational",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "IDL",
+      "analysis": "International Pathway Player retained via ERFA tender. Had 15 tackles, 1 sack in 13 games (214 defensive snaps) in 2025. Developmental rotational piece. Minimum deal \u2014 does not move the needle on IDL need at all. IDL remains a genuine need alongside Nnamdi Madubuike (recovering from neck injury, availability uncertain).",
+      "contract_confidence": "high",
+      "sources": [
+        "heavy.com",
+        "fantasyguru.com"
+      ]
+    },
+    {
+      "player": "Corey Bullock",
+      "position": "IOL",
+      "age": 24,
+      "previous_team": "Baltimore Ravens (re-sign, ERFA)",
+      "contract": {
+        "years": 1,
+        "total_value": 795000,
+        "guaranteed": 795000,
+        "aav": 795000
       },
       "expected_role": "depth",
       "market_tier": "minimum",
-      "need_impact": "minimal",
+      "need_impact": "none",
       "need_position": "IOL",
-      "analysis": "One-year depth signing of a C/G versatile backup who played only 11 offensive snaps in 2025 with Atlanta. Reunites with new OL coach Dwayne Ledford. PFF grade of 81.2 is solid but came almost entirely on special teams. The value here is scheme familiarity and positional versatility (can play C or G), potentially audition for a starting center role. Does not address the Linderbaum void meaningfully \u2014 more of a developmental camp body who could surprise."
+      "analysis": "ERFA tendered at minimum. Bullock was Linderbaum's backup and the most likely internal candidate to start at center in 2026 by default. However, he is an undrafted player with minimal starting experience \u2014 a big step up. His retention does not resolve the center need; it merely provides a warm body. Center remains a critical draft/free-agency target.",
+      "contract_confidence": "high",
+      "sources": [
+        "baltimoresun.com headline confirmation",
+        "si.com ravens tracker"
+      ]
+    },
+    {
+      "player": "Jake Gwyn",
+      "position": "IOL",
+      "age": 25,
+      "previous_team": "Atlanta Falcons",
+      "contract": {
+        "years": 1,
+        "total_value": 795000,
+        "guaranteed": 795000,
+        "aav": 795000
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "IOL",
+      "analysis": "One-year deal for depth OL who has played only 9 offensive snaps in 3 NFL seasons. Reunites with OL coach Dwayne Ledford (coached Gwyn at Atlanta). Camp/depth body. Does not address the IOL starting need whatsoever.",
+      "contract_confidence": "high",
+      "sources": [
+        "espn.com ravens tracker"
+      ]
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
-      "EDGE"
+      "EDGE",
+      "QB"
     ],
     "partially_addressed": [
       "IOL",
-      "S",
-      "TE"
+      "S"
     ],
     "minimally_addressed": [
-      "CB"
+      "CB",
+      "TE"
     ],
     "unchanged": [
-      "WR",
       "IDL",
-      "LB",
-      "RB",
-      "OT"
+      "WR",
+      "LB"
     ],
-    "escalated": [],
+    "escalated": [
+      "IOL"
+    ],
     "new_needs_created": [
       "IOL_center",
-      "TE_depth",
+      "TE_receiving",
       "P"
     ]
   },
@@ -319,49 +367,49 @@
       "position": "EDGE",
       "previous_tier": 1,
       "recommended_tier": 3,
-      "reasoning": "Hendrickson signing (4yr/$112M, $60M guaranteed, $28M AAV) is an elite-tier investment that fills the Tier 1 pass-rush void. Four-time Pro Bowler, 2024 sacks leader. Mike Green and Tavius Robinson also return. Some developmental depth still useful in Day 2-3 but no longer a critical need. Caveat: Hendrickson missed 10 games in 2025 with surgery \u2014 if health doesn't hold, this could escalate back. For now: drop to Tier 3."
+      "reasoning": "Hendrickson signing (4yr/$112M, $60M guaranteed) fully addresses the starter need. Ravens may still want developmental depth/rotational EDGE (Green + Robinson are young and unproven), but this is no longer a premium draft need. Day 2 or early Day 3 pick at most."
     },
     {
       "position": "IOL",
       "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Linderbaum's departure to LV on a record $27M AAV deal CREATES a new Tier 1 center need. Simpson's 3yr/$30M partially addresses guard, but center remains completely unresolved. Corey Bullock is the only in-house C option and is an unproven UDFA. Gwyn is a camp-level depth signing. IOL overall escalates from Tier 2 to Tier 1, driven by the unaddressed center hole. This is arguably the most pressing remaining need heading into the draft."
+      "reasoning": "Linderbaum's departure to Las Vegas (3yr/$81M) escalates this from a guard-focused need to a critical center + guard need. Simpson (3yr/$30M) addresses one guard spot. But center has NO viable starter on roster \u2014 Corey Bullock is an ERFA undrafted player. IOL is now the single most critical remaining need entering the draft. Center specifically should be a top-60 pick priority."
     },
     {
       "position": "TE",
-      "previous_tier": 3,
+      "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Mark Andrews (3yr/$39.3M) secures the TE1 position. However, losing BOTH Isaiah Likely (3yr/$40M, Giants) AND Charlie Kolar (3yr/$24.3M, Chargers) in the same week leaves the TE room dangerously thin. Durham Smythe is a minimum-deal blocking placeholder and PFF's lowest-graded TE in 2025. A pass-catching TE2 is a real need. Tier escalates from 3 to 2 \u2014 should address in Rounds 2-4 of the draft."
+      "reasoning": "Losing both Likely (pass-catcher, 3yr/$40M to Giants) and Kolar (blocker, 3yr/$24.3M to Chargers) was a significant double-departure. Smythe (1yr/$2.5M) replaces Kolar in the blocking role only \u2014 a minimal substitution. The receiving TE vacancy behind Mark Andrews (35 in 2026) is unaddressed. TE remains a tier-2 need, especially with Andrews aging. Rounds 3-5 target."
     },
     {
       "position": "S",
       "previous_tier": 2,
       "recommended_tier": 3,
-      "reasoning": "Losing both Gilman (3yr/$24.75M) and Ar'Darius Washington hurts, but the Hawkins signing (2yr/$10M, PFF's No. 5 overall S in 2025) fills the S3/deep safety role admirably at value pricing. Hamilton and Starks are the foundation. S drops from Tier 2 to Tier 3 \u2014 depth signing adequate for now, but no long-term anchor beyond Hawkins's 2-year bridge."
+      "reasoning": "Both Gilman and Washington departed, but Hawkins (2yr/$10M) was a legitimate starter for the AFC Champion Patriots in 2025 (4 INTs, 74.7 PFF coverage grade). He fills the S3 role behind Hamilton and Starks competently. Safety drops from a clear need to a mid-round depth target \u2014 the Ravens might still want a developmental safety in rounds 4-6."
     },
     {
       "position": "CB",
-      "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "Awuzie re-signed on 1yr/$5M maintains the CB3 spot. Wiggins and Humphrey are intact as CB1/CB2. Durability concerns persist with Awuzie and Humphrey approaching 30. CB stays at Tier 3 \u2014 depth/succession planning worth addressing in the middle rounds."
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Awuzie re-signed (1yr/$5M fully guaranteed) but the deal structure signals one year of bridge depth. He's CB3. Humphrey (30, regressed badly in 2025) and Wiggins (entering year 3 with development questions) are the starters. No long-term CB2 solution has been added. CB remains a genuine need \u2014 ideally addressed in rounds 2-3 with a young corner who can develop."
     },
     {
       "position": "IDL",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "No moves made at IDL. Nnamdi Madubuike's status after a neck injury remains uncertain \u2014 if he can't play, this escalates to Tier 1. Taven Bryan and Brent Urban both departed (depth pieces). Travis Jones is the one reliable piece. IDL remains Tier 2 and may need a draft solution at DT."
+      "reasoning": "Dre'Mont Jones (starter-level production in 2025) and Brent Urban (depth) departed. Nnamdi Madubuike's health remains uncertain after a 2025 neck injury \u2014 he's under contract but availability is unclear. Okoye (minimum) retained but is developmental. IDL remains a critical need. Travis Jones is on the roster but not an every-down starter. Should target IDL in rounds 2-4."
     },
     {
       "position": "WR",
-      "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "DeAndre Hopkins voided off the roster; no replacement signed at WR as of 3/13. Flowers and Bateman lead the room. Bateman had a career-low 224 yards in 2025 and is a trade rumor candidate. WR depth is thin but Flowers is elite and the team runs heavy. Stays at Tier 3 \u2014 a developmental or value WR in the mid-rounds makes sense."
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "No significant additions or losses at WR in free agency. Zay Flowers (approaching contract year) and Rashod Bateman (trade rumors) create uncertainty. DeAndre Hopkins (330 yards in 2025) remains unsigned. WR2/3 remains an unaddressed need. Should target WR in rounds 2-4."
     },
     {
       "position": "P",
-      "previous_tier": 5,
+      "previous_tier": 4,
       "recommended_tier": 2,
-      "reasoning": "NEW NEED. Jordan Stout's departure to the Giants (3yr/$12.3M, record punter deal) leaves a significant special teams hole. Stout was All-Pro and Pro Bowl in his contract year, averaging a career-high 44.9 net yards per punt. No replacement signed as of 3/13. Punter is now a legitimate need \u2014 could be addressed via mid-round draft pick or later free agency signing."
+      "reasoning": "Jordan Stout (First-Team All-Pro, 44.9 net YPP) signed a record-breaking punter deal with the Giants. The Ravens have no replacement punter. Special teams need created from scratch. Should address via free agency or mid-to-late draft."
     }
   ],
   "team_page_additions": {
@@ -369,134 +417,127 @@
       {
         "player": "Trey Hendrickson",
         "position": "EDGE",
-        "contract_summary": "4yr/$112M ($60M gtd)",
+        "age": 31,
+        "contract_summary": "4yr/$112M ($60M gtd, max $120M)",
         "previous_team": "Cincinnati Bengals",
-        "headline": "Elite 4x Pro Bowl pass rusher (2024 sacks leader, 17.5 sacks) fills the Ravens' biggest defensive need after Crosby trade collapse"
+        "headline": "2024 NFL sacks leader (17.5) and four-time Pro Bowler fills Baltimore's biggest need on a franchise-record free-agent deal"
       },
       {
         "player": "John Simpson",
         "position": "IOL",
-        "contract_summary": "3yr/$30M",
+        "age": 28,
+        "contract_summary": "3yr/$30M ($17.5M gtd)",
         "previous_team": "New York Jets",
-        "headline": "Reunion signing upgrades guard room after Linderbaum departure; started all 17 games at LG for BAL in 2023"
+        "headline": "Returning guard stabilizes one IOL spot but center vacancy created by Linderbaum's departure remains unsolved"
       },
       {
         "player": "Jaylinn Hawkins",
         "position": "S",
+        "age": 28,
         "contract_summary": "2yr/$10M",
         "previous_team": "New England Patriots",
-        "headline": "PFF's No. 5-graded safety in 2025 (4 INTs, 15 starts) replaces both Gilman and Washington departures at S3"
-      },
-      {
-        "player": "Mark Andrews",
-        "position": "TE",
-        "contract_summary": "3yr/$39.3M ($26M gtd) \u2014 extension signed Dec 2025",
-        "previous_team": "Baltimore Ravens (extension)",
-        "headline": "Franchise all-time leader in receptions, yards, and TDs locked up through 2028 as TE1 anchor"
+        "headline": "AFC Champion Patriots starter (4 INTs, 15 starts in 2025) fills the S3 role vacated by Gilman and Washington"
       },
       {
         "player": "Durham Smythe",
         "position": "TE",
-        "contract_summary": "1yr (terms TBD)",
+        "age": 30,
+        "contract_summary": "1yr/$2.5M",
         "previous_team": "Chicago Bears",
-        "headline": "Blocking TE replacement for Charlie Kolar; reunites with new Ravens OC Declan Doyle from Chicago"
+        "headline": "Blocking TE replacement for Charlie Kolar reunites with OC Declan Doyle but does not address the receiving TE vacancy"
       },
       {
         "player": "Tyler Huntley",
         "position": "QB",
-        "contract_summary": "2yr/$11M",
-        "previous_team": "Baltimore Ravens (re-signed)",
-        "headline": "Proven dual-threat backup re-signed after going 2-0 in relief of Jackson in 2025; Cooper Rush released"
+        "age": 28,
+        "contract_summary": "2yr/$5M (re-sign)",
+        "previous_team": "Baltimore Ravens",
+        "headline": "Dual-threat backup who won both 2025 starts retained; Cooper Rush released"
       },
       {
         "player": "Chidobe Awuzie",
         "position": "CB",
-        "contract_summary": "1yr/$5M (fully gtd)",
-        "previous_team": "Baltimore Ravens (re-signed)",
-        "headline": "Best-value CB3 in the league returns on one-year deal after ranking 13th in PFF CB grades in 2025"
-      },
-      {
-        "player": "Jovaughn Gwyn",
-        "position": "IOL",
-        "contract_summary": "1yr (terms TBD)",
-        "previous_team": "Atlanta Falcons",
-        "headline": "Versatile C/G depth signing reunites with OL coach Ledford; camp competition for center role"
+        "age": 30,
+        "contract_summary": "1yr/$5M fully gtd (re-sign)",
+        "previous_team": "Baltimore Ravens",
+        "headline": "Team's best CB in 2025 (13th PFF grade) brought back on a bargain 1-year bridge deal"
       }
     ],
     "key_losses": [
       {
         "player": "Tyler Linderbaum",
         "position": "IOL",
-        "contract_summary": "3yr/$81M ($60M gtd) with Raiders \u2014 record for interior OL",
+        "contract_summary": "3yr/$81M with Las Vegas Raiders ($27M AAV \u2014 record for interior OL)",
         "new_team": "Las Vegas Raiders",
-        "headline": "3x Pro Bowl center departs for record-breaking contract; leaves massive unresolved hole at C"
+        "headline": "Three-time Pro Bowl center departs on a record-breaking deal, leaving an enormous hole at C that was not replaced in free agency"
       },
       {
         "player": "Isaiah Likely",
         "position": "TE",
-        "contract_summary": "3yr/$40M with Giants",
+        "contract_summary": "3yr/$40M with New York Giants",
         "new_team": "New York Giants",
-        "headline": "Pass-catching TE2 follows coach Harbaugh to NYG; Ravens lose both non-Andrews TEs in same week"
+        "headline": "Versatile receiving TE follows former HC John Harbaugh to New York, leaving Andrews without a pass-catching complement"
       },
       {
         "player": "Charlie Kolar",
         "position": "TE",
-        "contract_summary": "3yr/$24.3M with Chargers \u2014 record for blocking TE",
+        "contract_summary": "3yr/$24.3M with LA Chargers \u2014 highest-paid blocking TE in NFL history",
         "new_team": "Los Angeles Chargers",
-        "headline": "Elite blocking TE and critical Henry run-game piece departs; biggest scheme loss in free agency"
-      },
-      {
-        "player": "Alohi Gilman",
-        "position": "S",
-        "contract_summary": "3yr/$24.75M ($15M gtd) with Chiefs",
-        "new_team": "Kansas City Chiefs",
-        "headline": "Starting deep safety joins AFC rival; Hawkins signing mitigates but does not fully replace"
+        "headline": "Primary blocking TE and key run-game weapon departs, partially replaced by Durham Smythe"
       },
       {
         "player": "Dre'Mont Jones",
         "position": "EDGE",
-        "contract_summary": "3yr/$39.5M with Patriots",
+        "contract_summary": "3yr/$36.5M\u2013$39M with New England Patriots",
         "new_team": "New England Patriots",
-        "headline": "Productive mid-season trade acquisition departs; Hendrickson signing largely negates impact"
+        "headline": "Productive rotational edge rusher (2.5 sacks, 15 QB hits in 9 games) departs, reducing depth behind new star Hendrickson"
+      },
+      {
+        "player": "Alohi Gilman",
+        "position": "S",
+        "contract_summary": "3yr/$24.75M ($15M gtd) with Kansas City Chiefs",
+        "new_team": "Kansas City Chiefs",
+        "headline": "Starting safety signs big deal with Chiefs; Hawkins signing partially replaces his production"
       },
       {
         "player": "Jordan Stout",
         "position": "P",
-        "contract_summary": "3yr/$12.3M with Giants \u2014 record for punter",
+        "contract_summary": "3yr/$12.3M with New York Giants \u2014 record punter deal",
         "new_team": "New York Giants",
-        "headline": "All-Pro, Pro Bowl punter (44.9 net avg) follows Harbaugh to NYG; creates a new unaddressed need"
+        "headline": "First-Team All-Pro punter follows Harbaugh to New York on a record contract, creating an unaddressed special teams need"
       },
       {
-        "player": "Patrick Ricard",
-        "position": "FB",
-        "contract_summary": "Terms undisclosed with Giants",
-        "new_team": "New York Giants",
-        "headline": "6x Pro Bowl fullback and critical Derrick Henry run-game blocker follows Harbaugh; run game impact TBD"
+        "player": "David Ojabo",
+        "position": "EDGE",
+        "contract_summary": "Terms not disclosed; Miami Dolphins",
+        "new_team": "Miami Dolphins",
+        "headline": "Former 2nd-round pick who never fulfilled his draft potential departs for fresh start with division rival"
       }
     ]
   },
   "confidence": "high",
+  "confidence_notes": "All major contract figures sourced from OverTheCap and Spotrac. Hendrickson ($112M/$60M gtd), Simpson ($30M/$17.5M gtd), and Hawkins ($10M) are fully confirmed and filed. Smythe contract terms (1yr) confirmed by multiple reporters; exact guarantee amount estimated near full value. Awuzie (1yr/$5M fully guaranteed) confirmed by Garafolo/Zrebiec. Huntley (2yr/$5M) confirmed by ESPN. Ojabo and Dre'Mont Jones departure destinations confirmed; Jones contract figure reported as $36.5M (Yahoo/CBS) and $39M (SI) \u2014 range noted. Cap space figure from OverTheCap as of 3/16/2026.",
   "sources": [
-    "https://www.espn.com/nfl/story/_/id/48015558/ravens-2026-free-agency-tracker-offseason-moves-signings-trades",
-    "https://www.cbssports.com/nfl/news/nfl-free-agency-tracker-2026-full-list-signings-trades-moves/",
-    "https://www.cbssports.com/nfl/news/2026-nfl-free-agency-grades-march-11/",
-    "https://www.spotrac.com/nfl/player/_/id/21845/trey-hendrickson",
-    "https://www.spotrac.com/nfl/player/_/id/25185/mark-andrews",
-    "https://www.spotrac.com/nfl/player/_/id/47729/jaylinn-hawkins",
     "https://overthecap.com/player/trey-hendrickson/5689",
-    "https://overthecap.com/player/mark-andrews/6971",
+    "https://overthecap.com/player/john-simpson/8849",
     "https://overthecap.com/salary-cap/baltimore-ravens",
+    "https://www.spotrac.com/nfl/player/_/id/21845/trey-hendrickson",
+    "https://www.spotrac.com/nfl/player/_/id/47704/john-simpson",
+    "https://www.spotrac.com/nfl/player/_/id/47729/jaylinn-hawkins",
+    "https://www.espn.com/nfl/story/_/id/48015558/ravens-2026-free-agency-tracker-offseason-moves-signings-trades",
+    "https://www.nfl.com/news/trey-hendrickson-ravens-sign-de-four-year-112-million-contract-maxx-crosby-trade",
+    "https://www.cbssports.com/nfl/news/2026-nfl-free-agency-grades-march-11/",
     "https://www.baltimoreravens.com/news/ravens-jaylinn-hawkins-signing-veteran-safety-free-agency-2026",
-    "https://www.baltimoreravens.com/news/durham-smythe-blocking-tight-end-chicago-bears-declan-doyle",
-    "https://www.baltimoreravens.com/news/jovaughn-gwyn-guard-center-one-year-deal-ravens-falcons",
-    "https://www.baltimoreravens.com/news/tyler-huntley-ravens-bringing-back-snoop-two-year-deal-free-agency",
-    "https://www.baltimoreravens.com/news/chidobe-awuzie-baltimore-ravens-free-agency-signing-2026",
-    "https://www.nfl.com/news/ravens-te-mark-andrews-agrees-to-three-year-39-3m-contract-extension",
-    "https://www.nfl.com/news/2026-nfl-free-agency-free-agents-notable-departures-for-all-32-teams",
-    "https://sports.yahoo.com/articles/ravens-lose-7-free-agents-182403549.html",
-    "https://www.si.com/nfl/ravens/onsi/news/baltimore-ravens-2026-free-agency-tracker-signings-trades-former-players",
-    "https://www.thebanner.com/sports/ravens-nfl/ravens-free-agency-tracker-eric-decosta-ILYRMZTU7RBLNOCGJRRM63SNAQ/",
+    "https://www.baltimoreravens.com/news/trey-hendrickson-ravens-signing-reaction-maxx-crosby-speculation-chidobe-awuzie-jaylinn-hawkins",
     "https://www.baltimoreravens.com/news/ravens-needs-free-agency-losses-safety-tight-end-2026",
-    "https://www.baltimorebeatdown.com/baltimore-ravens-analysis/80939/ravens-lose-multiple-players-in-first-wave-of-free-agency"
+    "https://www.si.com/nfl/ravens/onsi/news/baltimore-ravens-2026-free-agency-tracker-signings-trades-former-players",
+    "https://www.baltimorebeatdown.com/baltimore-ravens-free-agency/80897/roundtable-reactions-and-grades-ravens-sign-og-john-simpson-to-3-year-deal",
+    "https://www.profootballrumors.com/2026/03/ravens-to-re-sign-cb-chidobe-awuzie",
+    "https://www.profootballrumors.com/2026/03/ravens-to-sign-te-durham-smythe",
+    "https://heavy.com/sports/nfl/baltimore-ravens/david-ojabo-signs-dolphins-free-agency/",
+    "https://www.thebanner.com/sports/ravens-nfl/ravens-free-agency-tracker-eric-decosta-ILYRMZTU7RBLNOCGJRRM63SNAQ/",
+    "https://sports.yahoo.com/articles/ravens-lose-7-free-agents-182403549.html",
+    "https://www.baltimorebeatdown.com/baltimore-ravens-analysis/80939/ravens-lose-multiple-players-in-first-wave-of-free-agency",
+    "https://www.baltimoreravens.com/news/ravens-trey-hendrickson-deal-sign-free-agency-maxx-crosby-2026"
   ]
 }

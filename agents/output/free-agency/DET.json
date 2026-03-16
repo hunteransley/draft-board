@@ -1,58 +1,37 @@
 {
   "team": "DET",
   "team_full": "Detroit Lions",
-  "updated_through": "2026-03-13",
-  "cap_space_pre_fa": "~$5500000",
-  "cap_space_post_fa": "~$35000000",
-  "notes_on_cap": "Lions were over the cap pre-FA. Restructured Jared Goff's contract, converting ~$40M of base salary into a signing bonus, creating approximately $32M in new cap space. Combined with releases of Glasgow and Decker (saving ~$17M+), team moved from negative effective cap space to approximately $35M available per OverTheCap post-FA.",
+  "updated_through": "2026-03-16",
+  "cap_space_pre_fa": "$35100000",
+  "cap_space_post_fa": "$30179808",
   "key_departures": [
     {
       "player": "Taylor Decker",
       "position": "OT",
       "age": 32,
       "role": "starter",
-      "new_team": "Released (requested release)",
-      "impact": "10-year Lions starter at LT requested his release after discussions with the team. Saved $11.6M in cap space. Created a glaring hole at left tackle \u2014 the biggest positional departure of the offseason. Penei Sewell may shift to LT.",
+      "new_team": "Released/UFA",
+      "impact": "10-year franchise LT requested and received his release after contract renegotiation talks broke down. His release creates a wide-open starting hole at left tackle opposite Penei Sewell. Detroit may shift Sewell from RT to LT, but a new OT starter is still needed. Saves $11.6M in cap space with $9.4M in dead money.",
       "need_impact": "creates",
       "need_position": "OT"
     },
     {
-      "player": "Graham Glasgow",
-      "position": "IOL",
-      "age": 33,
-      "role": "starter",
-      "new_team": "Released (cut)",
-      "impact": "Released ahead of free agency, saving $5.5M. Glasgow had struggled at center in 2025 after sliding over from guard following Frank Ragnow's retirement. Departure escalated the IOL/center need the Lions already had.",
-      "need_impact": "escalates",
-      "need_position": "IOL"
-    },
-    {
-      "player": "David Montgomery",
-      "position": "RB",
-      "age": 29,
-      "role": "starter",
-      "new_team": "Houston Texans (trade)",
-      "impact": "Traded to the Texans for IOL Juice Scruggs, a 2026 4th-round pick, and a 2027 7th-round pick. Saved ~$3.5M on the cap. Left a hole as Jahmyr Gibbs' primary complement. Creates a need for a bruiser/RB2.",
-      "need_impact": "creates",
-      "need_position": "RB"
-    },
-    {
       "player": "Al-Quadin Muhammad",
       "position": "EDGE",
-      "age": 30,
-      "role": "starter/rotational",
+      "age": 31,
+      "role": "starter",
       "new_team": "Tampa Bay Buccaneers",
-      "impact": "Had a career-best 11 sacks in 2025 playing opposite Aidan Hutchinson. Signed a 1-year deal worth up to $6M with Tampa. His departure, along with Tyrus Wheat and Josh Paschal, leaves Detroit dangerously thin at EDGE behind Hutchinson.",
+      "impact": "Was Detroit's second-leading pass rusher with 11 sacks and a career-high 53 pressures in 2025. His departure leaves Aidan Hutchinson with no established complementary rusher. EDGE is now arguably the most critical need on the roster.",
       "need_impact": "escalates",
       "need_position": "EDGE"
     },
     {
       "player": "Alex Anzalone",
       "position": "LB",
-      "age": 31,
+      "age": 30,
       "role": "starter",
       "new_team": "Tampa Bay Buccaneers",
-      "impact": "Multi-year defensive captain signed a 2-year, $17M deal with Tampa Bay. Departure removes the veteran signal-caller from Detroit's LB room. Jack Campbell (All-Pro) and Derrick Barnes return, but depth is now thin.",
+      "impact": "5-year Lion signed a 2yr/$17M deal in Tampa. Was the heartbeat of the defense and the primary WILL/signal-caller alongside Jack Campbell. His departure creates a depth/quality hole at LB, though Detroit retains Campbell, Derrick Barnes, and now Rodriguez.",
       "need_impact": "escalates",
       "need_position": "LB"
     },
@@ -60,9 +39,9 @@
       "player": "Amik Robertson",
       "position": "CB",
       "age": 26,
-      "role": "rotational/spot starter",
+      "role": "starter",
       "new_team": "Washington Commanders",
-      "impact": "Signed a 2-year, $16M deal with Washington. Was filling a near-starter role due to Detroit's injury woes in 2025. Departure leaves CB depth thin, especially with Brian Branch (Achilles) and Kerby Joseph (knee) recovering.",
+      "impact": "Signed 2yr/$16M with Washington. Was one of the most-used CBs in Detroit's injury-riddled secondary in 2025, effectively starting for much of the season. His departure thins a CB group that is still recovering from multiple injuries.",
       "need_impact": "escalates",
       "need_position": "CB"
     },
@@ -72,7 +51,7 @@
       "age": 28,
       "role": "rotational",
       "new_team": "Arizona Cardinals",
-      "impact": "Signed a 2-year, $10.5M-$11.5M deal with Arizona. Had 2 sacks in his lone Detroit season. Departure, combined with DT DJ Reader also departing, strips the Lions' interior defensive line depth.",
+      "impact": "Signed 2-year deal to return to Arizona. Had 2 sacks in his lone season in Detroit and was considered the best interior run-defender in the rotation. His departure thins an IDL group already under pressure with DJ Reader also departing.",
       "need_impact": "escalates",
       "need_position": "IDL"
     },
@@ -80,31 +59,21 @@
       "player": "DJ Reader",
       "position": "IDL",
       "age": 32,
-      "role": "rotational/starter",
-      "new_team": "TBD/unsigned (UFA)",
-      "impact": "Veteran nose tackle departing via UFA. Combined with Lopez's departure, the Lions' interior D-line is significantly thinner heading into the draft.",
+      "role": "starter",
+      "new_team": "UFA/unsigned",
+      "impact": "The veteran nose tackle appears unlikely to return to Detroit per multiple reports. Was a starter-caliber run-stopper. His potential departure alongside Lopez's exit significantly depletes the IDL room. Detroit now relies heavily on Alim McNeill, Tyleik Williams, and Levi Onwuzurike.",
       "need_impact": "escalates",
       "need_position": "IDL"
     },
     {
-      "player": "Tyrus Wheat",
-      "position": "EDGE",
-      "age": 25,
-      "role": "rotational/special teams",
-      "new_team": "Dallas Cowboys",
-      "impact": "Signed a 1-year, $1.755M deal with Dallas. Was not tendered by the Lions. Primarily a special teams contributor (88 defensive snaps, 86 special teams snaps in 2025). Loss is manageable on defense but hurts ST.",
-      "need_impact": "none",
-      "need_position": "EDGE"
-    },
-    {
-      "player": "Josh Paschal",
-      "position": "EDGE",
-      "age": 26,
-      "role": "depth/IR",
-      "new_team": "Released (cut)",
-      "impact": "Released, saving $1.66M. Missed entire 2025 season on IR. Depth loss on paper but had not contributed meaningfully due to injury.",
-      "need_impact": "none",
-      "need_position": "EDGE"
+      "player": "David Montgomery",
+      "position": "RB",
+      "age": 28,
+      "role": "starter",
+      "new_team": "Houston Texans (trade)",
+      "impact": "Traded to Houston for OL Juice Scruggs, a 2026 4th-round pick, and a 2027 7th-round pick. Was Jahmyr Gibbs's backfield partner and the team's power back. His departure creates a need for a complementary RB2 behind Gibbs.",
+      "need_impact": "creates",
+      "need_position": "RB"
     },
     {
       "player": "Kyle Allen",
@@ -112,28 +81,38 @@
       "age": 30,
       "role": "backup",
       "new_team": "Buffalo Bills",
-      "impact": "Signed a 2-year, $4.1M (up to $6.1M) deal with Buffalo. Created a QB2 vacancy that the Lions immediately addressed with Teddy Bridgewater.",
+      "impact": "Signed a 2yr deal with Buffalo. Was Jared Goff's backup. Departure creates a minor need at QB2 that was quickly addressed with Bridgewater's re-signing.",
       "need_impact": "creates",
       "need_position": "QB"
     },
     {
       "player": "Kalif Raymond",
       "position": "WR",
-      "age": 30,
-      "role": "depth/special teams",
+      "age": 29,
+      "role": "depth",
       "new_team": "Chicago Bears",
-      "impact": "Signed a 1-year, $5.1M (reported as $3.5M by some sources) deal with Chicago. Five-year Lion departs. Primarily a slot/return specialist. Hurts ST depth and slot receiver depth.",
+      "impact": "Signed 1yr/$5.1M with Chicago. Five-year Lion was a reliable WR4/special teams ace. His departure is a depth loss only; the Lions retain Amon-Ra St. Brown, Jameson Williams, and Isaac TeSlaa.",
       "need_impact": "none",
       "need_position": "WR"
+    },
+    {
+      "player": "Graham Glasgow",
+      "position": "IOL",
+      "age": 33,
+      "role": "starter",
+      "new_team": "Released",
+      "impact": "Cut to save $5.6M in cap space. Was pressed into starting center duty after Frank Ragnow's retirement and struggled. His release was necessary and the IOL center vacancy was the primary driver behind signing Cade Mays.",
+      "need_impact": "creates",
+      "need_position": "IOL"
     },
     {
       "player": "Grant Stuard",
       "position": "LB",
       "age": 27,
-      "role": "special teams captain/depth LB",
+      "role": "depth/ST",
       "new_team": "Los Angeles Rams",
-      "impact": "Signed a 2-year deal worth up to $5.05M with the Rams. Led team with 375 special teams snaps in 2025. Significant special teams loss on top of the Anzalone departure.",
-      "need_impact": "escalates",
+      "impact": "Signed 2yr/$5.1M with the Rams. Was a core special-teamer and depth LB. Minor loss, doesn't change the need picture significantly.",
+      "need_impact": "none",
       "need_position": "LB"
     }
   ],
@@ -153,43 +132,41 @@
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "IOL",
-      "analysis": "Detroit's top priority entering FA was center, created by Frank Ragnow's retirement and Graham Glasgow's release/struggles. Mays, 26, was a starter for Carolina in 2025, allowing zero sacks on 726 snaps with a 94.3% pass block win rate (20th among qualified centers). The 3-year deal with $14M guaranteed is a real commitment \u2014 this is their center. The $8.3M AAV is mid-starter tier, reasonable for the market. IOL drops from a critical tier-1 need to a depth/developmental consideration. Juice Scruggs (acquired via Montgomery trade) also adds depth/competition at center/guard."
+      "analysis": "3yr/$25M with $14M guaranteed directly fills the starting center void left by Graham Glasgow/Frank Ragnow retirement. Mays allowed zero sacks over 726 snaps with Carolina in 2025 and has a 94.3% pass block win rate. At $8.3M AAV, this is a bargain-tier deal for a projected starter at a position that was tier-1 critical. The three-year commitment signals Detroit's intention to make him the long-term answer. IOL drops from critical to a depth/developmental need for guard depth only."
     },
     {
       "player": "Juice Scruggs",
       "position": "IOL",
-      "age": 25,
-      "previous_team": "Houston Texans (via David Montgomery trade)",
+      "age": 26,
+      "previous_team": "Houston Texans (trade)",
       "contract": {
         "years": 1,
         "total_value": 0,
         "guaranteed": 0,
-        "aav": 0,
-        "notes": "Existing contract, $0 guaranteed remaining. Acquired as part of Montgomery trade along with 2026 4th-round pick and 2027 7th-round pick."
+        "aav": 0
       },
-      "expected_role": "rotational",
+      "expected_role": "depth",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "IOL",
-      "analysis": "Former 2nd-round pick (2023) with 1,663 career snaps at both guard spots and center. No guaranteed money remaining on his contract \u2014 purely a low-risk evaluation. Profiles as a capable backup at center and below-average spot starter at guard. Adds IOL depth but is not a starter solution on his own. The real value here was the 2026 4th-round pick acquired alongside him."
+      "analysis": "Acquired via the David Montgomery trade (with 2026 4th-round pick and 2027 7th-round pick). Former 2nd-round pick has one year remaining on his rookie deal. Primarily played LG in Houston with some center reps in 2024. Graded poorly in 2025 (45.0 PFF overall, 78th of 81 qualifying guards). Depth piece and camp competition, not a starter. Does not move the IOL needle beyond what Mays already addressed."
     },
     {
       "player": "Larry Borom",
       "position": "OT",
-      "age": 26,
+      "age": 27,
       "previous_team": "Miami Dolphins",
       "contract": {
         "years": 1,
-        "total_value": 2500000,
+        "total_value": 5000000,
         "guaranteed": 0,
-        "aav": 2500000,
-        "notes": "1-year deal; exact guarantees not reported. Some sources cite ~$2.5M per SI, others have terms TBD. Using SI/reported figure."
+        "aav": 5000000
       },
-      "expected_role": "starter/swing tackle",
+      "expected_role": "depth",
       "market_tier": "depth",
-      "need_impact": "partially_addressed",
+      "need_impact": "minimal",
       "need_position": "OT",
-      "analysis": "Detroit native signed a 1-year deal after Taylor Decker's release created an urgent LT vacancy. Borom is penciled in as the starting RT with Penei Sewell potentially shifting to LT, though the Lions are expected to pursue a true LT via the draft. Has 38 career starts across four O-line positions. Allowed 15 pressures and 2 sacks for Miami in 2025; PFF graded him 35th among tackles in the second half of 2025. One-year deal signals bridge solution \u2014 OT remains a tier-1 draft need. Partially addresses depth but does NOT solve the LT starter problem long-term."
+      "analysis": "1yr/$5M deal. Has 38 career starts, including 11 at RT for Miami in 2025. Can play either tackle spot. Has starting experience and functional value, but a 1-year deal at $5M is below starter money for OT. He is the Lions' bridge/insurance option while they figure out the Penei Sewell LT/RT alignment and potentially draft a tackle. Does not fully solve the starting OT need created by Decker's release, especially at LT."
     },
     {
       "player": "Isiah Pacheco",
@@ -199,69 +176,48 @@
       "contract": {
         "years": 1,
         "total_value": 1810000,
-        "guaranteed": 1810000,
-        "aav": 1810000,
-        "notes": "1-year, fully guaranteed per NFL Network/Ari Meirov."
+        "guaranteed": 0,
+        "aav": 1810000
       },
-      "expected_role": "rotational/backup",
+      "expected_role": "starter",
       "market_tier": "depth",
-      "need_impact": "minimal",
+      "need_impact": "partially_addressed",
       "need_position": "RB",
-      "analysis": "Replaces David Montgomery as Jahmyr Gibbs' complement, but at a fraction of the cost and with far less certainty. Pacheco had injury issues in 2025 (563 yards from scrimmage in 13 games) and has seen production decline since 2023. At $1.81M fully guaranteed, this is a prove-it deal \u2014 he is NOT a like-for-like replacement for Montgomery's power/goal-line role. RB depth remains a legitimate need, though not urgent given Gibbs' elite status. Team still likely wants to add depth via late-round draft pick."
+      "analysis": "1yr/$1.81M prove-it deal. A Super Bowl winner with the Chiefs who is a physical north-south runner in the Montgomery mold \u2014 ideal stylistic replacement behind Jahmyr Gibbs. However, the 1-year minimum-adjacent deal reflects injury concerns and a down stretch of play. His ability to stay healthy and recapture earlier form is legitimately in doubt. The deal is essentially cost-free but also commitment-free. RB goes from a tier-1 need (post-trade) to a partially-addressed tier-2 need with ongoing risk."
     },
     {
       "player": "Teddy Bridgewater",
       "position": "QB",
       "age": 33,
-      "previous_team": "Tampa Bay Buccaneers",
+      "previous_team": "Retired/re-signed",
       "contract": {
         "years": 1,
         "total_value": 0,
         "guaranteed": 0,
-        "aav": 0,
-        "notes": "Terms not yet publicly reported as of 2026-03-13. Expected to be a low-cost backup deal (veteran minimum to low single-digit millions)."
+        "aav": 0
       },
-      "expected_role": "backup",
+      "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "fully_addressed",
       "need_position": "QB",
-      "analysis": "Familiar face returning as Jared Goff's backup after Kyle Allen departed to Buffalo. Bridgewater previously served as Goff's backup in 2023 and 2024. Known locker-room leader and mentor (especially to Jameson Williams). Has not started an NFL game since 2022. QB2 need is resolved for 2026 at a minimal cap cost. Lions may still target a developmental QB in the mid-rounds of the draft."
+      "analysis": "1-year deal to return as Goff's backup. Previously served as Goff's backup in 2023 and returned for the late-season playoff stretch in 2024-25. Trusted by Dan Campbell and understands the system deeply. The QB2 need created by Kyle Allen's departure is considered resolved \u2014 this is a clear backup role with no starter implications."
     },
     {
       "player": "Rock Ya-Sin",
       "position": "CB",
       "age": 28,
-      "previous_team": "Las Vegas Raiders (re-signing from Lions)",
+      "previous_team": "Detroit Lions (re-sign)",
       "contract": {
         "years": 1,
         "total_value": 4000000,
         "guaranteed": 0,
-        "aav": 4000000,
-        "notes": "Guaranteed amount not confirmed. Re-signed with Lions."
+        "aav": 4000000
       },
-      "expected_role": "rotational/spot starter",
-      "market_tier": "depth",
-      "need_impact": "minimally_addressed",
-      "need_position": "CB",
-      "analysis": "One of the more effective Lions FA signings from 2025; re-ups on another 1-year deal. Ya-Sin can play outside and slot, valuable with Brian Branch (Achilles) and Kerby Joseph (knee) recovering. Finished 2025 with 47 tackles, 9 PBUs, 51% completion rate allowed and 74 passer rating allowed. At $4M/year on a 1-year deal, this is depth-tier money \u2014 Ya-Sin is not a CB1 solution. CB remains a legitimate need for the draft, especially after Amik Robertson departed."
-    },
-    {
-      "player": "Malcolm Rodriguez",
-      "position": "LB",
-      "age": 26,
-      "previous_team": "Detroit Lions (re-signing)",
-      "contract": {
-        "years": 1,
-        "total_value": 0,
-        "guaranteed": 0,
-        "aav": 0,
-        "notes": "1-year deal; exact terms not publicly reported as of 2026-03-13."
-      },
-      "expected_role": "rotational/depth",
+      "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
-      "need_position": "LB",
-      "analysis": "Re-signed on a 1-year deal to add depth after Alex Anzalone departed. Rodriguez was coming off a torn ACL in 2024 and played only 7 games in 2025 (12 tackles, 1 TFL). A homegrown 6th-round pick (2022) who is still proving himself healthy. His re-signing partially addresses LB depth behind Jack Campbell and Derrick Barnes, but the loss of Anzalone (defensive captain) and Grant Stuard (375 special-teams snaps) still leaves a meaningful LB gap. LB remains a mid-round draft priority."
+      "need_position": "CB",
+      "analysis": "1yr/$4M re-sign. Was one of Detroit's more effective secondary signings last year, providing versatility and depth amid a wave of injuries. His return is a continuity depth move \u2014 he knows the system and provides insurance. However, the 1-year, sub-starter money deal signals this is a CB3/depth role, not the solution to the Robertson departure. CB remains a genuine need."
     },
     {
       "player": "Christian Izien",
@@ -272,14 +228,98 @@
         "years": 1,
         "total_value": 0,
         "guaranteed": 0,
-        "aav": 0,
-        "notes": "1-year deal; exact terms not publicly reported as of 2026-03-13."
+        "aav": 0
       },
-      "expected_role": "rotational/special teams",
+      "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "S",
-      "analysis": "Nickel/safety hybrid signing from Tampa Bay. Recorded 165 total tackles over 3 seasons in Tampa; in 2025 logged 25 tackles, a forced fumble and a TFL in 14 games. Adds valuable versatility to a secondary decimated by injury (Brian Branch \u2014 Achilles, Kerby Joseph \u2014 knee). One-year deal is a depth move only. Safety remains a pressing need with both starters coming off season-ending injuries; Izien is insurance, not a replacement for an elite safety."
+      "analysis": "1-year deal, terms undisclosed. A versatile DB who has played nickel CB and safety for Tampa, recording 165 tackles over three seasons. His 2025 season saw limited action (25 tackles in 14 games). With Brian Branch (Achilles) and Kerby Joseph (knee) both recovering from season-ending injuries, Izien provides emergency insurance and ST value but is not a legitimate starter. Safety remains a significant concern entering the draft."
+    },
+    {
+      "player": "Roger McCreary",
+      "position": "CB",
+      "age": 26,
+      "previous_team": "Los Angeles Rams",
+      "contract": {
+        "years": 1,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
+      },
+      "expected_role": "rotational",
+      "market_tier": "depth",
+      "need_impact": "partially_addressed",
+      "need_position": "CB",
+      "analysis": "1-year deal, terms undisclosed. Former Titans 2nd-round pick (No. 35 overall) with 38 career starts. Split 2025 between Tennessee and the Rams, posting a 69.2 PFF overall grade. Projects as the primary nickel/slot corner and will likely compete for a starting role. At just 26 with significant starting experience, this is the most upside-driven depth signing Detroit has made in the secondary. Still a 1-year deal with no commitment, so CB is partially but not fully addressed \u2014 Detroit should still target a CB in the draft."
+    },
+    {
+      "player": "Malcolm Rodriguez",
+      "position": "LB",
+      "age": 27,
+      "previous_team": "Detroit Lions (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
+      },
+      "expected_role": "rotational",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "LB",
+      "analysis": "1-year deal, terms undisclosed. Returning from a torn ACL that limited him to 7 games in 2025. Re-signing provides depth and a familiar face in the system, but he is not Alex Anzalone's replacement as a starter/signal-caller. Detroit still lacks an established WILL linebacker capable of replacing Anzalone's role. LB remains a meaningful draft and/or free agency need."
+    },
+    {
+      "player": "Tyler Conklin",
+      "position": "TE",
+      "age": 30,
+      "previous_team": "Los Angeles Chargers",
+      "contract": {
+        "years": 1,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
+      },
+      "expected_role": "depth",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "TE",
+      "analysis": "1-year deal, terms undisclosed. Veteran of 8 NFL seasons with 127 career appearances and connection to new OC Drew Petzing from their time together in Minnesota. Sam LaPorta is recovering from a back injury, and Brock Wright (neck) is also working back. Conklin provides experienced TE2/TE3 insurance in a new 13-personnel heavy scheme. Given all three of Detroit's tight ends are in the final year of their contracts, TE is still a position that needs a long-term answer \u2014 likely in the draft."
+    },
+    {
+      "player": "Tom Kennedy",
+      "position": "WR",
+      "age": 29,
+      "previous_team": "Detroit Lions (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "WR",
+      "analysis": "Re-signed as an RFA. The longest-tenured Lion enters his 8th season with the team as a WR4/ST contributor. Originally signed as a UDFA in 2019, provides zero impact on the WR need picture. With St. Brown, Jameson Williams, and Isaac TeSlaa ahead of him, Kennedy is camp depth / ST value only."
+    },
+    {
+      "player": "Trevor Nowaske",
+      "position": "LB",
+      "age": 25,
+      "previous_team": "Detroit Lions (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "LB",
+      "analysis": "Returned after Detroit declined to tender him as an RFA. Depth LB with special teams value. Does not meaningfully address the LB need created by Anzalone's departure."
     }
   ],
   "needs_impact_summary": {
@@ -288,77 +328,82 @@
       "QB"
     ],
     "partially_addressed": [
-      "OT",
-      "RB"
+      "RB",
+      "CB"
     ],
     "minimally_addressed": [
-      "CB",
-      "LB",
-      "S"
+      "S",
+      "LB"
     ],
     "unchanged": [
-      "WR",
-      "TE"
+      "EDGE",
+      "WR"
     ],
     "escalated": [
-      "EDGE",
+      "OT",
       "IDL"
     ]
   },
   "recommended_need_adjustments": [
     {
-      "position": "OT",
-      "previous_tier": 2,
-      "recommended_tier": 1,
-      "reasoning": "Taylor Decker's release request created a new, critical LT need. Borom is a 1-year bridge on a depth-tier deal \u2014 not a starter solution. Penei Sewell could shift to LT, but that creates a RT vacancy. The OT class in 2026 is deep (potentially 7 first-rounders), and Detroit sitting at pick #17 makes this the premier draft target. Escalate to tier 1 \u2014 this is the top need entering the draft."
-    },
-    {
-      "position": "EDGE",
-      "previous_tier": 2,
-      "recommended_tier": 1,
-      "reasoning": "Detroit lost ALL of its EDGE depth behind Aidan Hutchinson: Al-Quadin Muhammad (11 sacks, to Buccaneers), Tyrus Wheat (to Cowboys), Josh Paschal (released, IR all year). No meaningful EDGE was added in free agency. Hutchinson is elite but cannot carry the entire pass rush alone. EDGE is now a co-top-1 need with OT. Draft must address this with a high pick or multiple selections."
-    },
-    {
       "position": "IOL",
       "previous_tier": 1,
       "recommended_tier": 3,
-      "reasoning": "Cade Mays signing (3yr/$25M, $14M guaranteed) fills the center vacancy created by Glasgow's release. He's a legitimate starter who allowed 0 sacks in 726 snaps for Carolina. Juice Scruggs adds cheap depth. IOL drops from critical to depth need. Lions may still want a developmental guard given Tate Ratledge/Mahogany are young, but the acute center crisis is resolved."
+      "reasoning": "Cade Mays signing (3yr/$25M, $14M guaranteed) directly fills the center void. He is a projected Day 1 starter with a 94.3% pass block win rate and zero sacks allowed in 2025. The three-year deal signals commitment. Juice Scruggs adds quality depth. IOL drops from critical to a developmental/guard-depth need only."
     },
     {
-      "position": "IDL",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Both Roy Lopez (2yr/$10.5M, Cardinals) and DJ Reader (UFA, unsigned) departed. Detroit's interior D-line is now dangerously thin \u2014 primarily younger/unproven players remain. No IDL was added in FA. Remains a tier 2 need and should be addressed in the mid-rounds of the draft. Lions are clearly looking to get younger and cheaper here, but the current depth is inadequate."
+      "position": "EDGE",
+      "previous_tier": 1,
+      "recommended_tier": 1,
+      "reasoning": "Al-Quadin Muhammad (11 sacks, 53 pressures) departed for Tampa Bay and was NOT replaced. Detroit currently has only Aidan Hutchinson and undeveloped rookie Ahmad Hassanein at the position. This is the single biggest unaddressed need on the roster and remains the highest draft/free agency priority. EDGE stays tier 1 critical."
     },
     {
-      "position": "CB",
+      "position": "OT",
       "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Amik Robertson departed (2yr/$16M, Commanders). Rock Ya-Sin re-signed on a 1-year depth deal ($4M). With Brian Branch (Achilles) and Kerby Joseph (knee) both recovering from season-ending injuries, CB/DB depth is critical. Ya-Sin minimally offsets the Robertson departure but doesn't solve CB2 long-term. CB remains a tier 2 need \u2014 priority in rounds 2-3 or via late FA."
+      "recommended_tier": 1,
+      "reasoning": "Taylor Decker's surprise release created a new starting hole at LT. Larry Borom (1yr/$5M) is a functional depth piece but not a starter-tier solution. The Lions may shift Penei Sewell to LT, but even then a quality RT is needed. OT escalates from tier 2 to tier 1 \u2014 this is now a premium draft need, likely round 1 or 2."
     },
     {
       "position": "LB",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Alex Anzalone (2yr/$17M, Buccaneers) and Grant Stuard (2yr/$5M, Rams) both departed. Malcolm Rodriguez re-signed on a 1-year prove-it deal coming off a torn ACL. Jack Campbell (All-Pro, 178 tackles) and Derrick Barnes anchor the room, but depth is thin. Rodriguez is not a Anzalone-level replacement as signal-caller. LB stays at tier 2 \u2014 need a veteran or mid-round draft pick to add depth and ST value."
+      "reasoning": "Alex Anzalone's departure to Tampa escalated this need, but the Malcolm Rodriguez re-sign (depth only, recovering from torn ACL) does not offset it meaningfully. Detroit retains Jack Campbell and Derrick Barnes as starters, but lacks a quality third LB and a system-savvy WILL body. LB stays tier 2 \u2014 best addressed in rounds 3-5 of the draft or mid-tier free agency."
     },
     {
-      "position": "RB",
+      "position": "CB",
       "previous_tier": 2,
-      "recommended_tier": 3,
-      "reasoning": "David Montgomery traded to Texans. Isiah Pacheco signed on a 1-year, $1.81M fully guaranteed deal \u2014 a prove-it depth contract, not a starter investment. Jahmyr Gibbs remains an elite RB1 who can carry the load. The urgency of RB drops because Gibbs is elite, but the Lions still lack a reliable thunder to Gibbs' lightning. A late-round (4th-5th) power back in the draft would be ideal."
+      "recommended_tier": 2,
+      "reasoning": "Amik Robertson's departure (2yr/$16M to Washington) was a meaningful loss. Rock Ya-Sin (1yr/$4M re-sign) and Roger McCreary (1yr, terms undisclosed) partially offset this with depth/rotational players and one credible nickel option in McCreary. However, both are 1-year deals with no long-term commitment. Detroit still needs a CB with multi-year starter potential. CB stays tier 2, particularly for a corner opposite DJ Reed."
     },
     {
       "position": "S",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Brian Branch (Achilles) and Kerby Joseph (knee) are both recovering from season-ending injuries. Christian Izien (1-year, terms TBD) is depth/insurance only. Neither starter has been replaced or reinforced with a meaningful commitment. Safety remains a real concern \u2014 a developmental or veteran S should be targeted in rounds 3-5, and recovery timelines for Branch/Joseph will dictate how urgent this becomes."
+      "reasoning": "Brian Branch (Achilles) and Kerby Joseph (knee) are both returning from season-ending injuries with unclear timelines. Christian Izien (1yr, depth) provides minimal insurance. DJ Reed is returning. This secondary remains fragile from an injury-risk standpoint. Safety stays tier 2 \u2014 the Lions should target a developmental S in the draft."
+    },
+    {
+      "position": "IDL",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Roy Lopez left for Arizona and DJ Reader is likely not returning, leaving Alim McNeill, Tyleik Williams (developing 2nd-year player), and Levi Onwuzurike (returning from IR). The IDL group is thinner than last year. Williams' development is a reason for optimism, but depth is a real concern. IDL stays tier 2 \u2014 a rotational/depth DT in the draft (rounds 3-5) is warranted."
+    },
+    {
+      "position": "RB",
+      "previous_tier": 3,
+      "recommended_tier": 2,
+      "reasoning": "David Montgomery's trade created a RB2 need. Isiah Pacheco (1yr/$1.81M) partially addresses this with a physical complementary back in the Montgomery mold, but the 1-year deal at near-minimum salary reflects real injury risk and uncertainty. Gibbs will shoulder more load. Detroit should still target a RB in mid rounds of the draft as insurance and developmental depth."
+    },
+    {
+      "position": "TE",
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "Sam LaPorta (back) and Brock Wright (neck) are both recovering from injuries. Tyler Conklin (1yr) adds experienced depth but is a short-term solution. All three of Detroit's TEs are in the final year of their contracts. A developmental TE in the mid-to-late rounds of the draft would be prudent for long-term planning, but TE is not a pressing need for 2026 given LaPorta's upside."
     },
     {
       "position": "QB",
-      "previous_tier": 3,
+      "previous_tier": 4,
       "recommended_tier": 4,
-      "reasoning": "Kyle Allen departed (2yr/$6.1M, Bills) but Teddy Bridgewater returns on a low-cost deal as Goff's proven backup. QB2 is resolved for 2026 at minimal cap cost. Lions may still draft a developmental QB in rounds 3-5 given Bridgewater's age (34 in November), but it's no longer an urgent need."
+      "reasoning": "Teddy Bridgewater re-signed on a 1-year deal as the established backup to Jared Goff. He knows the system and is trusted by the coaching staff. QB2 need resolved. No change needed."
     }
   ],
   "team_page_additions": {
@@ -368,133 +413,135 @@
         "position": "IOL",
         "contract_summary": "3yr/$25M ($14M gtd)",
         "previous_team": "Carolina Panthers",
-        "headline": "26-year-old center fills Frank Ragnow's void with 0 sacks allowed in 726 snaps for Carolina in 2025"
-      },
-      {
-        "player": "Larry Borom",
-        "position": "OT",
-        "contract_summary": "1yr/~$2.5M",
-        "previous_team": "Miami Dolphins",
-        "headline": "Detroit native bridge-starts at tackle after Decker's release; Sewell shift to LT in play"
-      },
-      {
-        "player": "Isiah Pacheco",
-        "position": "RB",
-        "contract_summary": "1yr/$1.81M (fully gtd)",
-        "previous_team": "Kansas City Chiefs",
-        "headline": "Two-time Super Bowl champion replaces Montgomery as Gibbs' complement on a minimum-tier deal"
+        "headline": "26-year-old center fills critical void left by Ragnow retirement/Glasgow struggles; allowed zero sacks in 726 snaps in 2025"
       },
       {
         "player": "Juice Scruggs",
         "position": "IOL",
-        "contract_summary": "Existing contract ($0 guaranteed remaining); acquired via David Montgomery trade",
+        "contract_summary": "Via trade (DAV Montgomery deal)",
         "previous_team": "Houston Texans",
-        "headline": "Former 2nd-round pick adds IOL depth as part of the Montgomery trade haul along with a 2026 4th-round pick"
+        "headline": "Former 2nd-round pick adds interior OL depth and camp competition at guard/center"
+      },
+      {
+        "player": "Larry Borom",
+        "position": "OT",
+        "contract_summary": "1yr/$5M",
+        "previous_team": "Miami Dolphins",
+        "headline": "Versatile tackle veteran (38 career starts) provides swing tackle insurance after Taylor Decker release"
+      },
+      {
+        "player": "Isiah Pacheco",
+        "position": "RB",
+        "contract_summary": "1yr/$1.81M",
+        "previous_team": "Kansas City Chiefs",
+        "headline": "Physical KC Super Bowl winner steps into David Montgomery's RB2 role on a prove-it deal"
+      },
+      {
+        "player": "Roger McCreary",
+        "position": "CB",
+        "contract_summary": "1yr (terms TBD)",
+        "previous_team": "Los Angeles Rams",
+        "headline": "Former top-35 pick (26) with 38 career starts projects as starting nickelback and best secondary addition"
       },
       {
         "player": "Rock Ya-Sin",
         "position": "CB",
         "contract_summary": "1yr/$4M",
         "previous_team": "Detroit Lions (re-sign)",
-        "headline": "Versatile CB/S hybrid retained after Robertson departure; crucial depth with Branch and Joseph recovering"
-      },
-      {
-        "player": "Teddy Bridgewater",
-        "position": "QB",
-        "contract_summary": "1yr/terms TBD (low-cost)",
-        "previous_team": "Tampa Bay Buccaneers",
-        "headline": "Beloved locker-room presence returns as Goff's backup for the third time in his Lions tenure"
-      },
-      {
-        "player": "Malcolm Rodriguez",
-        "position": "LB",
-        "contract_summary": "1yr/terms TBD",
-        "previous_team": "Detroit Lions (re-sign)",
-        "headline": "Fan-favorite 'Rodrigo' returns on prove-it deal to rebuild after torn ACL; provides LB depth behind Campbell"
+        "headline": "Versatile veteran re-signs to provide secondary depth amid ongoing injury concerns at S and CB"
       },
       {
         "player": "Christian Izien",
         "position": "S",
-        "contract_summary": "1yr/terms TBD",
+        "contract_summary": "1yr (terms TBD)",
         "previous_team": "Tampa Bay Buccaneers",
-        "headline": "Versatile nickel/safety hybrid adds secondary depth while Branch and Joseph rehab season-ending injuries"
+        "headline": "Versatile DB/nickel hybrid adds secondary depth while Branch and Joseph recover from season-ending injuries"
+      },
+      {
+        "player": "Malcolm Rodriguez",
+        "position": "LB",
+        "contract_summary": "1yr (terms TBD)",
+        "previous_team": "Detroit Lions (re-sign)",
+        "headline": "Fan favorite 'Rodrigo' re-signs; returning from torn ACL, gives Lions depth behind Campbell and Barnes"
+      },
+      {
+        "player": "Tyler Conklin",
+        "position": "TE",
+        "contract_summary": "1yr (terms TBD)",
+        "previous_team": "Los Angeles Chargers",
+        "headline": "Michigan native and OC Drew Petzing's former Viking reunion adds veteran TE depth behind injured LaPorta"
+      },
+      {
+        "player": "Teddy Bridgewater",
+        "position": "QB",
+        "contract_summary": "1yr (terms TBD)",
+        "previous_team": "Retired/re-signed",
+        "headline": "Familiar face returns as Goff's backup after Kyle Allen signed with Buffalo; mentor role in locker room"
       }
     ],
     "key_losses": [
       {
         "player": "Taylor Decker",
         "position": "OT",
-        "contract_summary": "Released (requested release; saved $11.6M)",
-        "new_team": "Unsigned/Retired expected",
-        "headline": "Shocking departure of 10-year LT franchise cornerstone creates Detroit's most pressing draft need"
+        "contract_summary": "Released (10yr veteran)",
+        "new_team": "UFA",
+        "headline": "Surprise release of 10-year franchise LT after contract talks broke down; creates critical OT need and $9.4M dead cap"
       },
       {
         "player": "Al-Quadin Muhammad",
         "position": "EDGE",
-        "contract_summary": "1yr/up to $6M with Buccaneers",
+        "contract_summary": "Signed with Tampa Bay Buccaneers",
         "new_team": "Tampa Bay Buccaneers",
-        "headline": "Career-best 11-sack season in 2025 couldn't secure Detroit's bag; Lions now stripped of all EDGE depth behind Hutchinson"
+        "headline": "Second-leading pass rusher (11 sacks, 53 pressures) departs, leaving Hutchinson without an established complement"
       },
       {
         "player": "Alex Anzalone",
         "position": "LB",
         "contract_summary": "2yr/$17M with Buccaneers",
         "new_team": "Tampa Bay Buccaneers",
-        "headline": "Multi-year defensive captain departs, removing the signal-caller from Detroit's linebacker room"
+        "headline": "5-year Lions leader and defensive signal-caller joins division rival Tampa; major character and production loss"
       },
       {
         "player": "Amik Robertson",
         "position": "CB",
         "contract_summary": "2yr/$16M with Commanders",
         "new_team": "Washington Commanders",
-        "headline": "Reliable CB who became a near-starter due to Lions' injury woes earned a legitimate payday elsewhere"
+        "headline": "Versatile CB who effectively started in 2025 amid injury chaos departs, deepening secondary concerns"
       },
       {
         "player": "David Montgomery",
         "position": "RB",
-        "contract_summary": "Traded to Texans for Juice Scruggs + 2026 4th + 2027 7th",
+        "contract_summary": "Traded for Scruggs + 2026 4th + 2027 7th",
         "new_team": "Houston Texans",
-        "headline": "'Sonic and Knuckles' era ends; Lions received solid draft capital and depth in return for the aging bruiser"
+        "headline": "'Knuckles' trades out after 2,506 career rushing yards in Detroit; Lions recoup OL depth and draft capital"
       },
       {
         "player": "Roy Lopez",
         "position": "IDL",
-        "contract_summary": "2yr/$10.5\u201311.5M with Cardinals",
+        "contract_summary": "2yr deal with Arizona Cardinals",
         "new_team": "Arizona Cardinals",
-        "headline": "Two-sack interior disruptor returns to Arizona, thinning Detroit's already-depleted D-line rotation"
-      },
-      {
-        "player": "Graham Glasgow",
-        "position": "IOL",
-        "contract_summary": "Released (saved $5.5M)",
-        "new_team": "Unsigned",
-        "headline": "Overmatched center-of-necessity released after rough 2025 season filling in for retired Frank Ragnow"
+        "headline": "Best interior run-defender returns to Arizona, thinning a DT room already losing DJ Reader"
       },
       {
         "player": "Kalif Raymond",
         "position": "WR",
-        "contract_summary": "1yr/$5.1M (reported) with Bears",
+        "contract_summary": "1yr/$5.1M with Chicago Bears",
         "new_team": "Chicago Bears",
-        "headline": "Five-year Lion and returner specialist reunites with former OC Ben Johnson in Chicago"
+        "headline": "5-year Lion and special teams ace reunites with Ben Johnson in Chicago; depth loss only"
       }
     ]
   },
   "confidence": "high",
-  "confidence_notes": "All signings and departures confirmed by multiple credible sources (NFL Network, ESPN, The Athletic, Detroit News, Detroit Free Press). Contract figures for Mays ($25M/3yr, $14M gtd), Ya-Sin ($4M/1yr), Pacheco ($1.81M/1yr fully guaranteed), Borom (1yr ~$2.5M per SI), Anzalone ($17M/2yr), Robertson ($16M/2yr), Lopez ($10.5-11.5M/2yr), Muhammad (up to $6M/1yr), and Stuard (up to $5.05M/2yr) are sourced from NFL Network/Spotrac/team reporters. Bridgewater, Rodriguez, and Izien contract dollar amounts not yet publicly confirmed as of 2026-03-13. Larry Borom's exact guaranteed money not yet reported; total value estimated from SI reporting (~$2.5M). Cap figures sourced from OverTheCap.",
   "sources": [
-    "https://www.espn.com/nfl/story/_/id/48092610/lions-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
     "https://www.detroitnews.com/story/sports/nfl/lions/2026/03/09/detroit-lions-nfl-free-agency-news-signings-2026/89063192007/",
+    "https://www.espn.com/nfl/story/_/id/48092610/lions-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
     "https://www.prideofdetroit.com/detroit-lions-free-agency/158516/2026-detroit-lions-free-agency-offseason-tracker-latest-signings-trades",
-    "https://sidelionreport.com/detroit-lions-free-agency-tracker-hub",
+    "https://www.spotrac.com/nfl/player/_/id/77076/cade-mays",
+    "https://overthecap.com/player/cade-mays/10244",
     "https://www.nfl.com/news/david-montgomery-trade-texans-lions-juice-scruggs",
-    "https://www.si.com/nfl/lions/onsi/news/lions-2026-free-agency-tracker-latest-signings-losses",
+    "https://sidelionreport.com/detroit-lions-free-agency-tracker-hub",
+    "https://www.espn.com/nfl/story/_/id/48199022/lions-agree-cb-roger-mccreary-1-year-deal",
     "https://overthecap.com/salary-cap/detroit-lions",
-    "https://www.spotrac.com/nfl/detroit-lions/cap/_/year/2026",
-    "https://sports.yahoo.com/articles/detroit-lions-rb-isiah-pachecos-094706048.html",
-    "https://www.espn.com/nfl/story/_/id/48187673/source-al-quadin-muhammad-reaches-deal-buccaneers",
-    "https://www.prideofdetroit.com/detroit-lions-free-agency/159652/lions-free-agent-edge-al-quadin-muhammad-visiting-buccaneers",
-    "https://sports.yahoo.com/articles/lions-special-teams-captain-grant-104542294.html",
-    "https://www.detroitlions.com/news/this-is-home-newly-signed-ol-larry-borom-ecstatic-to-play-for-detroit",
-    "https://www.theoaklandpress.com/2026/03/11/lions-restructure-jared-goffs-contract-lessening-2026-cap-hit/"
+    "https://www.detroitnews.com/story/sports/nfl/lions/2026/03/09/taylor-decker-officially-released-after-10-seasons-with-detroit-lions/89072832007/"
   ]
 }

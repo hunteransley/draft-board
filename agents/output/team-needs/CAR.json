@@ -1,153 +1,163 @@
 {
   "team": "CAR",
   "team_full": "Carolina Panthers",
-  "updated_through": "2026-03-11",
+  "updated_through": "2026-03-16",
   "first_round_pick": 19,
   "total_draft_picks": 7,
-  "notable_pick_trades": "Traded Adam Thielen to MIN for 2026 5th-round pick and 2027 4th-round pick. No 7th-round pick (sent conditional 7th to MIN in same deal).",
-  "roster_context": "Surprising NFC South champions at 8-9, lost to Rams in Wild Card. Bryce Young took a step forward (3,011 yards, 23 TD) and is the franchise QB. Team made playoffs for the first time since 2017 but has significant roster holes, especially on defense (dead-last pass rush) and now at OT after Ikem Ekwonu's ruptured patellar tendon. Very tight cap space (~$9.5M effective) but can free up significant room via restructures and the expected A'Shawn Robinson trade/release ($10.5M savings). Dave Canales and GM Dan Morgan looking to build on playoff momentum.",
+  "notable_pick_trades": "Traded Adam Thielen to Vikings for 2026 5th-rounder and 2027 4th-rounder; gave up conditional 2026 7th-rounder and 2027 5th-rounder",
+  "roster_context": "NFC South champions at 8-9 in 2025, lost in Wild Card round to Rams. Bryce Young showed growth (3,011 passing yards) and Tetairoa McMillan won Offensive Rookie of the Year (70 catches, 1,014 yards). Team aggressively addressed pass rush and LB in free agency with Jaelan Phillips and Devin Lloyd. Lost Rico Dowdle, Cade Mays, and A'Shawn Robinson. Ikem Ekwonu ruptured patellar tendon in playoff loss, expected to miss most/all of 2026. Signed Rasheed Walker as 1-year LT replacement. Team is ascending but still has holes at DL depth, safety, WR2/WR3, and along the OL long-term.",
   "needs": [
     {
-      "position": "OT",
+      "position": "IDL",
       "tier": 1,
       "urgency": "critical",
-      "explanation": "Starting LT Ikem Ekwonu ruptured his patellar tendon in the playoff loss to the Rams. Recovery is 6-12 months, meaning he could miss most or all of the 2026 season. He is on his $17.5M fifth-year option and extension talks are on hold. Backup Yosh Nijman (who replaced him) is an unrestricted free agent, as is Brady Christensen. The Panthers have not drafted an offensive lineman in the past two drafts. RT Taylor Moton is under contract through 2027 but carries a $21M cap hit. This is now a critical need at LT specifically.",
-      "current_starter": "Ikem Ekwonu (LT, injured - may miss 2026), Taylor Moton (RT, under contract)",
-      "depth": "Yosh Nijman (UFA), Brady Christensen (UFA), Jake Curhan (UFA). Virtually no tackle depth under contract.",
+      "explanation": "Released A'Shawn Robinson ($10.5M cap savings), losing the team's second-most productive DL behind Derrick Brown (62.2% of defensive snaps in 2025). Tershawn Wharton dealt with injuries all year (9 games played) and Bobby Brown III is a limited nose tackle. Fifth-round pick Cam Jackson is raw. Need a legitimate rotational or starting interior DL who can absorb snaps alongside Brown.",
+      "current_starter": "Derrick Brown (DE), Tershawn Wharton (DT), Bobby Brown III (NT)",
+      "depth": "Cam Jackson (2025 5th-rounder, raw), LaBryan Ray (rotational), Jaden Crumedy. Very thin after releasing Robinson.",
       "draft_range_target": "Round 1-3"
-    },
-    {
-      "position": "IOL",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Starting center Cade Mays and guard Austin Corbett are both UFAs. Robert Hunt (RG, Pro Bowl 2024) is under contract but missed 15 regular-season games with a torn biceps and suffered a pectoral injury in the playoffs — his health is a concern. LG Damien Lewis is locked up. The Panthers had 10 different OL combinations in 2025 due to injuries. They need to re-sign at least one IOL free agent or add via draft for center and guard depth.",
-      "current_starter": "Damien Lewis (LG, under contract), Robert Hunt (RG, under contract but injury concerns), Cade Mays (C, UFA)",
-      "depth": "Austin Corbett (UFA), Chandler Zavala (under contract), Saahdiq Charles / Ja'Tyre Carter (futures deals). Center is a clear hole if Mays departs.",
-      "draft_range_target": "Round 2-4"
-    },
-    {
-      "position": "RB",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Chuba Hubbard is on a long-term deal and is the lead back. However, Rico Dowdle, whose emergence was crucial to the division title run, is an unrestricted free agent. Losing Dowdle without replacement would weaken a run game that was the 11th-best in the NFL (122.4 YPG). Jonathon Brooks (2024 2nd-round pick) has been dealing with injuries. Need a complementary back behind Hubbard.",
-      "current_starter": "Chuba Hubbard (under contract)",
-      "depth": "Rico Dowdle (UFA), Jonathon Brooks (under contract, injury-prone), Trevor Etienne (under contract). Losing Dowdle would hurt.",
-      "draft_range_target": "Round 4-5"
     },
     {
       "position": "S",
       "tier": 2,
       "urgency": "important",
-      "explanation": "Starting SS Nick Scott is an unrestricted free agent. Isaiah Simmons is also a UFA. FS Tre'von Moehrig is locked in on a 3-year deal, and Lathan Ransom (2025 4th-round pick) provides some depth. But the loss of Scott would leave a notable void opposite Moehrig. Demani Richardson started 4 games in the regular season but is a depth piece, not a starter.",
-      "current_starter": "Tre'von Moehrig (FS, under contract), Nick Scott (SS, UFA)",
-      "depth": "Lathan Ransom (under contract), Demani Richardson (futures deal). Need to replace Scott's starting role if he departs.",
+      "explanation": "Nick Scott was re-signed on a 1-year, $3.25M deal but is 30 and viewed as upgradeable despite 111 tackles. Tre'von Moehrig is the anchor but graded poorly in coverage. Lathan Ransom showed flashes as a rookie (51 tackles, INT) but is a similar skill set to Moehrig \u2014 both are box/run-support types. Ejiro Evero's big nickel scheme needs three safeties, and the Panthers lack a true center-field free safety.",
+      "current_starter": "Tre'von Moehrig (SS), Nick Scott (FS)",
+      "depth": "Lathan Ransom (2nd year), Demani Richardson, Isaiah Simmons (hybrid/ST). No true coverage FS on roster.",
+      "draft_range_target": "Round 1-2"
+    },
+    {
+      "position": "OT",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Ikem Ekwonu suffered a ruptured patellar tendon in the Wild Card game and is expected to miss most or all of 2026. Signed Rasheed Walker (1-year, $10M) as a stopgap LT, but Walker is on a short-term deal. RT Taylor Moton is aging and entering the back end of his contract. Yosh Nijman surprisingly retired. Stone Forsythe is emergency depth only. Long-term OT investment needed even with Walker filling the 2026 gap.",
+      "current_starter": "Rasheed Walker (LT, 1-year deal), Taylor Moton (RT)",
+      "depth": "Stone Forsythe (swing tackle depth), Ikem Ekwonu (on 5th-year option but rehabbing torn patellar tendon all year)",
+      "draft_range_target": "Round 1-3"
+    },
+    {
+      "position": "WR",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Tetairoa McMillan is the clear WR1 (OROY) and Jalen Coker emerged late (19 catches, 244 yards, 3 TDs in final 5 games). But after those two, the cupboard is thin. Xavier Legette has massively underperformed as a 2024 1st-round pick with worsening PFF grades. John Metchie III was signed on a 1-year deal but has only 73 career NFL catches. Jimmy Horn Jr. is a gadget/speed player, not a reliable WR3. Need a true complement to McMillan.",
+      "current_starter": "Tetairoa McMillan (WR1), Jalen Coker (WR2), Xavier Legette (WR3)",
+      "depth": "John Metchie III (1-year deal), Jimmy Horn Jr., David Moore (mentor role, 1 catch in 2025), Brycen Tremayne",
       "draft_range_target": "Round 2-4"
     },
     {
-      "position": "CB",
+      "position": "EDGE",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "Akayleb Evans re-signed on a one-year depth deal. Jaycee Horn (CB1) remains. But CB2 behind Horn is still depth-level only. Need is unchanged — still worth targeting in mid rounds of the draft.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
-    },
-    {
-      "position": "IDL",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "A'Shawn Robinson has been granted permission to seek a trade and is very likely to be traded or released, saving $10.5M in cap space. If he departs, the rotation is Derrick Brown (under contract, 5 sacks), Tershawn Wharton (under contract but struggled with injuries), Bobby Brown III, and rookie Cam Jackson. The interior line wasn't great against the run per PFF. Losing Robinson without replacement would open a rotational hole.",
-      "current_starter": "Derrick Brown (under contract), Tershawn Wharton (under contract), A'Shawn Robinson (likely traded/cut)",
-      "depth": "Bobby Brown III (under contract), Cam Jackson (under contract), Jared Harrison-Hunte. Adequate if Robinson is replaced, but depth would be thin.",
-      "draft_range_target": "Round 3-5"
+      "explanation": "Signed Jaelan Phillips to a massive 4-year, $120M deal \u2014 he immediately becomes the top pass rusher. But Phillips carries significant injury history. Nic Scourton (2nd-round pick, 5 sacks as rookie) and Princely Umanmielen provide young depth. DJ Wonnum and Trevis Gipson left in free agency. Patrick Jones II and Thomas Incoom are rotation pieces. Could still use another EDGE for insurance and rotation behind Phillips.",
+      "current_starter": "Jaelan Phillips, Nic Scourton",
+      "depth": "Princely Umanmielen, Patrick Jones II, Thomas Incoom. Phillips' injury history warrants depth investment.",
+      "draft_range_target": "Round 1-3 (if elite prospect falls to 19, take BPA)"
     },
     {
       "position": "TE",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "Ja'Tavion Sanders and Tommy Tremble combined for just 3 touchdowns in 2025. Carolina's offense ranked 24th in red-zone success. Multiple mock drafts project the Panthers taking Oregon TE Kenyon Sadiq at #19 overall. The position lacks a dynamic pass-catching weapon to complement Tetairoa McMillan and help Bryce Young. A true difference-maker at TE would elevate the entire offense.",
-      "current_starter": "Ja'Tavion Sanders, Tommy Tremble",
-      "depth": "James Mitchell (RFA), Bryce Pierre (futures deal). Neither current starter is a high-end playmaker.",
-      "draft_range_target": "Round 1-2"
+      "explanation": "Ja'Tavion Sanders was placed on IR late in 2025 and has shown worsening PFF grades two years running. Tommy Tremble had back surgery in 2025 and is a better blocker than receiver. James Mitchell is an RFA depth piece. Bryce Young needs a reliable middle-of-field weapon. Multiple mock drafts have the Panthers targeting TE Kenyon Sadiq at 19.",
+      "current_starter": "Tommy Tremble",
+      "depth": "Ja'Tavion Sanders (coming off IR, disappointing), James Mitchell (RFA). No reliable receiving TE on roster.",
+      "draft_range_target": "Round 1-3"
     },
     {
-      "position": "QB",
+      "position": "IOL",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Lost starting C Cade Mays to Lions (3-year, $25M) and Austin Corbett to free agency. Signed Luke Fortner (1-year, $4.75M) from Saints as center replacement. Guards Damien Lewis and Robert Hunt (returning from torn biceps) are strong starters, but Hunt missed 15 games in 2025. Chandler Zavala ended season on IR. Fortner is a stopgap \u2014 long-term center solution may be needed.",
+      "current_starter": "Damien Lewis (LG), Luke Fortner (C), Robert Hunt (RG)",
+      "depth": "Chandler Zavala (coming off IR), limited beyond starters. Brady Christensen and Jake Curhan left in FA.",
+      "draft_range_target": "Round 3-5"
+    },
+    {
+      "position": "RB",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Lost Rico Dowdle (1,076 rushing yards, 297 receiving yards) to Pittsburgh. Chuba Hubbard becomes the lead back again. Trevor Etienne is a capable backup. Jonathon Brooks (2024 2nd-rounder) is returning from back-to-back ACL tears \u2014 only 9 career carries \u2014 and is a huge question mark. Could use a complementary back in mid-to-late rounds.",
+      "current_starter": "Chuba Hubbard",
+      "depth": "Trevor Etienne, Jonathon Brooks (returning from 2nd ACL tear, major question mark), Montrell Johnson Jr.",
+      "draft_range_target": "Round 4-6"
+    },
+    {
+      "position": "LB",
       "tier": 4,
       "urgency": "minor",
-      "explanation": "Kenny Pickett (1yr/$7.5M) provides credible backup depth behind Bryce Young. One-year deal is a bridge, not a long-term answer — but the immediate depth need is satisfied. QB is no longer a pressing draft need in 2026.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
+      "explanation": "Signed Devin Lloyd (3-year, $45M) \u2014 the top off-ball LB in free agency with 5 INTs in 2025. This was a massive upgrade. Trevin Wallace (season-ending shoulder surgery) returns for Year 3. Lost Christian Rozeboom (team tackles leader) in free agency. Claudin Cherelus stepped in as starter late. Could still add depth behind Lloyd and Wallace, but this is no longer a glaring need.",
+      "current_starter": "Devin Lloyd (signed FA), Trevin Wallace (returning from shoulder surgery)",
+      "depth": "Claudin Cherelus (started 4 games), Isaiah Simmons (hybrid), Jacoby Windmon. Much improved after Lloyd signing.",
+      "draft_range_target": "Round 4-6"
     }
   ],
   "needs_summary": {
     "tier_1": [
-      "OT"
+      "IDL"
     ],
     "tier_2": [
-      "IOL",
-      "RB",
-      "S"
+      "S",
+      "OT",
+      "WR"
     ],
     "tier_3": [
-      "CB",
-      "IDL",
-      "TE"
+      "EDGE",
+      "TE",
+      "IOL",
+      "RB"
     ],
     "tier_4": [
-      "QB"
+      "LB"
     ]
   },
   "simple_needs": [
-    "OL",
-    "RB",
-    "DB",
     "DL",
+    "DB",
+    "OL",
+    "WR",
     "TE"
   ],
   "detailed_needs": {
+    "DL": 1,
+    "DB": 1,
     "OL": 1,
-    "RB": 2,
-    "DB": 2,
-    "DL": 3,
-    "TE": 3
+    "WR": 2,
+    "TE": 2,
+    "LB": 2,
+    "RB": 2
   },
   "free_agency_impact": [
-    "Cade Mays (IOL) → Detroit Lions",
-    "Rico Dowdle (RB) → Pittsburgh Steelers",
-    "A'Shawn Robinson (IDL) → Tampa Bay Buccaneers",
-    "Yosh Nijman (OT) → Retired",
-    "Christian Rozeboom (LB) → TBD/unsigned",
-    "Nick Scott (S) → TBD/unsigned",
-    "DJ Wonnum (EDGE) → TBD/unsigned",
-    "Trevis Gipson (EDGE) → TBD/unsigned",
-    "Damarri Mathis (CB) → TBD/unsigned",
-    "Signed Jaelan Phillips (EDGE) from Philadelphia Eagles — $30.0M AAV",
-    "Signed Devin Lloyd (LB) from Jacksonville Jaguars — $15.0M AAV",
-    "Signed Kenny Pickett (QB) from Las Vegas Raiders — $7.5M AAV",
-    "Signed Luke Fortner (IOL) from New Orleans Saints — $4.8M AAV",
-    "Signed Stone Forsythe (OT) from Las Vegas Raiders — $2.0M AAV",
-    "Signed John Metchie III (WR) from New York Jets — $2.0M AAV",
-    "Signed Akayleb Evans (CB) from Carolina Panthers (re-sign) — $2.0M AAV",
-    "Signed Isaiah Simmons (S) from Carolina Panthers (re-sign) — $2.0M AAV",
-    "Signed LaBryan Ray (IDL) from Carolina Panthers (re-sign) — $2.0M AAV",
-    "Signed Robert Rochell (CB) from Carolina Panthers (re-sign) — $1.5M AAV",
-    "Signed Thomas Incoom (EDGE) from Carolina Panthers (re-sign) — $1.5M AAV",
-    "Signed David Moore (WR) from Carolina Panthers (re-sign) — $1.5M AAV",
-    "Signed JJ Jansen (LS) from Carolina Panthers (re-sign) — $1.2M AAV"
+    "Signed EDGE Jaelan Phillips (4yr/$120M, $80M gtd) \u2014 transforms pass rush, reduces EDGE from critical to moderate depth need",
+    "Signed LB Devin Lloyd (3yr/$45M, $25M gtd) \u2014 fills biggest defensive void at off-ball LB, had 5 INTs in 2025",
+    "Signed QB Kenny Pickett (1yr/$7.5M) \u2014 backup to Bryce Young, replacing Andy Dalton",
+    "Signed OT Rasheed Walker (1yr/$10M) \u2014 starting LT while Ikem Ekwonu recovers from ruptured patellar tendon",
+    "Signed C Luke Fortner (1yr/$4.75M) \u2014 replaces Cade Mays who left for Lions",
+    "Signed OT Stone Forsythe (1yr) \u2014 emergency swing tackle depth",
+    "Signed WR John Metchie III (1yr) \u2014 former Bryce Young Alabama teammate, WR depth",
+    "Re-signed S Nick Scott (1yr/$3.25M) \u2014 returning starter at FS, still upgradeable",
+    "Re-signed S/LB Isaiah Simmons, CB Akayleb Evans, OLB Thomas Incoom, DE LaBryan Ray, CB Robert Rochell",
+    "Lost RB Rico Dowdle to Pittsburgh \u2014 had back-to-back 1,000-yard seasons",
+    "Lost C Cade Mays to Detroit Lions (3yr/$25M) \u2014 starting center departed",
+    "Lost OL Austin Corbett, Brady Christensen, Jake Curhan \u2014 OL depth gutted",
+    "Lost OLB DJ Wonnum, OLB Trevis Gipson, LB Christian Rozeboom, CB Damarri Mathis \u2014 defensive depth losses",
+    "Released DT A'Shawn Robinson \u2014 saved $10.5M cap, creates IDL need",
+    "OT Yosh Nijman retired \u2014 surprise retirement deepened OT need",
+    "Extended CB Jaycee Horn (4yr extension through 2029) \u2014 CB is NOT a need"
   ],
-  "scheme_fit_notes": "Ejiro Evero runs a 3-4 defense with three down linemen and four linebackers. EDGE prospects must be able to play as stand-up OLB pass rushers. The scheme creates extra snaps for LBs, making a true three-down MLB especially valuable. Interior DL must be able to two-gap in the base and push the pocket. On offense, Canales/Idzik run a West Coast-influenced scheme that relies on timing, play-action, and a strong ground game — protecting Bryce Young with a solid OL is paramount. A pass-catching TE who can create mismatches in the seam would be ideal for their red-zone issues.",
+  "scheme_fit_notes": "DC Ejiro Evero runs a 3-4 base with flexibility to shift to a 4-3. Heavy use of a big nickel package requiring three safeties on the field. Moehrig plays as a hybrid box/LB role, so the third safety needs to be a true center-field FS. Phillips fits as a 3-4 OLB/EDGE similar to his role under Vic Fangio in Philly. IDL prospects who can play 3-tech and generate interior pressure are especially valuable given the loss of Robinson. The offense under Dave Canales is a West Coast system that values YAC and middle-of-field passing \u2014 a receiving TE (like Sadiq) would be a scheme-perfect fit.",
   "confidence": "high",
   "sources": [
-    "https://www.panthers.com/news/complete-list-of-panthers-2026-free-agents-unrestricted-restricted-exclusive-rights",
+    "https://www.espn.com/nfl/story/_/id/48089128/carolina-panthers-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
+    "https://www.panthers.com/news/2026-nfl-free-agency-tracker-signings-extensions-reports-breaking-news",
+    "https://www.si.com/nfl/panthers/onsi/news/carolina-panthers-free-agency-tracker-latest-signings-losses-news-rumors",
+    "https://www.panthers.com/news/panthers-draft-picks-2026-trades-moves-nfl-list",
     "https://www.si.com/nfl/panthers/onsi/draft/carolina-panthers-2026-nfl-draft-primer-picks-needs-top-prospects",
-    "https://bleacherreport.com/articles/25351298-panthers-2026-free-agents-targets-and-draft-needs-after-nfl-playoff-loss",
-    "https://www.espn.com/nfl/story/_/id/47581651/panthers-lt-ickey-ekwonu-suffered-patellar-tendon-rupture",
-    "https://www.profootballrumors.com/2026/02/panthers-grant-dt-ashawn-robinson-permission-to-seek-trade-team-open-to-moving-qb-andy-dalton",
-    "https://www.si.com/nfl/panthers/onsi/what-is-the-panthers-most-glaring-hole-linebacker-or-edge-rusher-01kgr6qs71tm",
-    "https://www.drafttek.com/2026-NFL-Draft-Team-Pages/Panthers-Draft-Page.asp",
-    "https://www.panthers.com/news/carolina-panthers-2026-mock-draft-report-version-3-0",
-    "https://atozsports.com/nfl/carolina-panthers-news/panthers-offseason-restructures-extensions-trades-free-agent-signing-predictions-mock-draft/",
-    "https://www.yardbarker.com/nfl/articles/panthers_make_first_expected_roster_decision_ahead_of_free_agency_and_why_one_move_is_only_a_precursor_for_a_bigger_deal/s1_17313_43549999"
+    "https://www.si.com/nfl/panthers/onsi/news/carolina-panthers-projected-starting-lineup-free-agency-week-1",
+    "https://www.panthers.com/news/complete-list-of-panthers-2026-free-agents-unrestricted-restricted-exclusive-rights",
+    "https://twsn.net/2026/03/15/carolina-panthers-roster-needs-4-positions-still-to-fix-in-the-2026-offseason/",
+    "https://ca.sports.yahoo.com/news/panthers-release-veteran-defensive-lineman-175336248.html",
+    "https://www.panthers.com/news/panthers-offseason-positional-review-safety-trevon-moehrig-lathan-ransom-nick-scott",
+    "https://www.catscratchreader.com/carolina-panthers-analysis/58481/analyzing-the-panthers-needs-after-the-start-of-free-agency",
+    "https://www.si.com/nfl/panthers/onsi/news/carolina-panthers-sign-rasheed-walker-in-major-fix-offensive-line",
+    "https://www.panthers.com/news/reports-panthers-agree-to-terms-with-tackle-rasheed-walker-ikem-ekwonu",
+    "https://www.yardbarker.com/nfl/articles/panthers_s_nick_scott_agree_to_deal/s1_14819_43598052"
   ]
 }

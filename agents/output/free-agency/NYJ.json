@@ -1,37 +1,57 @@
 {
   "team": "NYJ",
   "team_full": "New York Jets",
-  "updated_through": "2026-03-13",
+  "updated_through": "2026-03-16",
   "cap_space_pre_fa": "$74000000",
-  "cap_space_post_fa": "$37124446",
+  "cap_space_post_fa": "$20000000",
   "key_departures": [
+    {
+      "player": "Sauce Gardner",
+      "position": "CB",
+      "age": 24,
+      "role": "starter",
+      "new_team": "Indianapolis Colts",
+      "impact": "Traded at the 2025 trade deadline in a full teardown. Gardner was a 2x All-Pro and franchise cornerstone. The Jets received two first-round picks in return. His departure left a massive hole at CB1 entering the offseason.",
+      "need_impact": "creates",
+      "need_position": "CB"
+    },
+    {
+      "player": "Quinnen Williams",
+      "position": "IDL",
+      "age": 27,
+      "role": "starter",
+      "new_team": "Dallas Cowboys",
+      "impact": "Traded at the 2025 trade deadline. Williams was the best interior defensive lineman on the roster and an All-Pro-caliber pass rusher. The Jets received a 2026 second-round pick, 2027 first-round pick, and DT Mazi Smith. Departure gutted IDL depth and pass-rush production.",
+      "need_impact": "creates",
+      "need_position": "IDL"
+    },
     {
       "player": "Jermaine Johnson II",
       "position": "EDGE",
       "age": 27,
       "role": "starter",
       "new_team": "Tennessee Titans",
-      "impact": "Traded to Titans for DT T'Vondre Sweat (Feb. 26 / officially Mar. 12). Johnson had 3 sacks in 2025 on his fifth-year option ($13.4M), declining from a 7.5-sack Pro Bowl year in 2023. The trade changed the position, not eliminated the need \u2014 EDGE depth was immediately required.",
+      "impact": "Traded in a player-for-player swap for DT T'Vondre Sweat. Johnson had just 3 sacks in 2025 post-Achilles tear and was entering his expensive $13.4M fifth-year option. Departure further depleted an already thin edge room, escalating EDGE as a critical need and signaling the Jets will target EDGE at No. 2 overall.",
       "need_impact": "escalates",
       "need_position": "EDGE"
     },
     {
       "player": "John Simpson",
       "position": "IOL",
-      "age": 28,
+      "age": 29,
       "role": "starter",
       "new_team": "Baltimore Ravens",
-      "impact": "Started all 17 games at guard in 2025. Signed 3yr/$30M with Baltimore. Departure alongside Vera-Tucker leaves a significant void at interior OL.",
+      "impact": "Starting left guard for two seasons, never missed a game. Signed a 3yr/$30M deal with Baltimore \u2014 a significant overpay relative to his market value (~$6.5M/yr projected). Departure creates a starting guard vacancy on the left side.",
       "need_impact": "creates",
       "need_position": "IOL"
     },
     {
       "player": "Alijah Vera-Tucker",
       "position": "IOL",
-      "age": 26,
+      "age": 27,
       "role": "starter",
       "new_team": "New England Patriots",
-      "impact": "Signed a 3yr/$42M deal ($21M guaranteed) with the Patriots. Former first-round pick. Loss of both starting guards in the same free agency period creates an acute IOL need.",
+      "impact": "Former first-round pick signed a 3yr/$42M deal (up to $48M) with the Patriots. Missed all of 2025 with a triceps tear \u2014 third major injury in five NFL seasons. Combined with Simpson's departure, the Jets lost both starting guards in one day. Jets reportedly never prioritized re-signing him.",
       "need_impact": "escalates",
       "need_position": "IOL"
     },
@@ -41,19 +61,9 @@
       "age": 30,
       "role": "starter",
       "new_team": "Cleveland Browns",
-      "impact": "Signed 2yr/$17M with Cleveland. Former All-Pro (2023) who declined in 2025 (83 tackles, scheme misfit). Departure partially mitigated by Davis signing, but still a notable hole at LB depth.",
+      "impact": "Signed a 2yr/$17M deal with the Browns. Former All-Pro LB in 2023, but regressed significantly in 2025 and was briefly benched. His departure was expected and planned for. Demario Davis arrival directly replaces him.",
       "need_impact": "escalates",
       "need_position": "LB"
-    },
-    {
-      "player": "Micheal Clemons",
-      "position": "EDGE",
-      "age": 26,
-      "role": "rotational",
-      "new_team": "Indianapolis Colts",
-      "impact": "Signed 3yr/$17.5M with Colts. Was a rotational edge rusher (8.5 sacks in Jets career). Departure was expected given new free agent additions. Depth loss at EDGE, not a starter hole.",
-      "need_impact": "none",
-      "need_position": "EDGE"
     },
     {
       "player": "Nick Folk",
@@ -61,9 +71,19 @@
       "age": 41,
       "role": "starter",
       "new_team": "Atlanta Falcons",
-      "impact": "Led NFL in field-goal percentage for three straight seasons. Departure creates a kicker vacancy \u2014 Jets now adding Cade York as a replacement candidate.",
+      "impact": "NFL's most accurate kicker (96.3%) since 2023. Signed with the Falcons. His departure creates a significant need at kicker. The Jets could not retain him despite interest.",
       "need_impact": "creates",
       "need_position": "K"
+    },
+    {
+      "player": "Tony Adams",
+      "position": "S",
+      "age": 25,
+      "role": "rotational",
+      "new_team": "TBD/unsigned",
+      "impact": "Depth safety entered free agency. Jets let him walk without a tender. Moderate loss of depth.",
+      "need_impact": "none",
+      "need_position": "S"
     }
   ],
   "signings": [
@@ -72,81 +92,80 @@
       "position": "S",
       "age": 29,
       "previous_team": "Miami Dolphins",
-      "acquisition_type": "trade",
-      "trade_details": "Jets sent 2026 7th-round pick (via Chargers) to Dolphins",
       "contract": {
         "years": 3,
         "total_value": 40000000,
-        "guaranteed": 0,
-        "guaranteed_note": "Guarantee structure not fully disclosed; AAV $13.33M on 3yr/$40M extension",
+        "guaranteed": 20000000,
         "aav": 13333333
       },
+      "trade_details": "Acquired via trade from Miami Dolphins in exchange for a 2026 seventh-round pick (originally from Chargers). Fitzpatrick signed a new 3yr/$40M extension upon arrival.",
+      "draft_picks_involved": "Jets sent 2026 7th-round pick to Dolphins",
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "S",
-      "analysis": "Five-time Pro Bowler and three-time All-Pro acquired for a seventh-round pick. Three-year commitment at age 29 at $13.33M AAV is solidly in the mid-to-upper starter tier at safety. The Jets had zero interceptions as a team in 2025 \u2014 Fitzpatrick brings immediate ball-hawking capability, leadership, and a starting-caliber floor. Safety goes from a critical need to a strength."
+      "analysis": "A steal. The Jets traded a 7th-round pick for a 5x Pro Bowler and 3x All-Pro who graded 81.8 on PFF in 2025. The 3-year extension with ~$20M guaranteed locks in a true starting safety. Fitzpatrick is the clear S1 and immediately becomes a top-3 player on the roster. S need goes from critical to fully addressed \u2014 Jets may still want developmental depth but the starter spot is solved."
+    },
+    {
+      "player": "Geno Smith",
+      "position": "QB",
+      "age": 35,
+      "previous_team": "Las Vegas Raiders",
+      "contract": {
+        "years": 1,
+        "total_value": 1300000,
+        "guaranteed": 1300000,
+        "aav": 1300000
+      },
+      "trade_details": "Acquired via trade from Las Vegas Raiders. Jets sent a 2026 6th-round pick and received Smith plus a 2027 7th-round pick. Raiders paying the majority of Smith's prior extension; Jets' cost is just over veteran minimum (~$1.3M).",
+      "draft_picks_involved": "Jets sent 2026 6th-round pick; received 2027 7th-round pick",
+      "expected_role": "starter",
+      "market_tier": "depth",
+      "need_impact": "partially_addressed",
+      "need_position": "QB",
+      "analysis": "At near-minimum cost, Smith provides an experienced starter for 2026. However, a 35-year-old on a 1-year near-minimum deal is transparently a bridge. Smith had a disastrous 2025 campaign with Las Vegas. The Jets are widely expected to target a franchise QB via trade or draft. QB remains a genuine long-term need \u2014 this move partially addresses the 2026 season only. Short-term solution, not long-term answer."
+    },
+    {
+      "player": "T'Vondre Sweat",
+      "position": "IDL",
+      "age": 24,
+      "previous_team": "Tennessee Titans",
+      "contract": {
+        "years": 2,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
+      },
+      "trade_details": "Acquired in a player-for-player trade sending Jermaine Johnson II to the Titans. Sweat has 2 years remaining on his rookie contract (cost-controlled). Exact rookie-scale figures: 2026 and 2027 year on original 2024 2nd-round deal \u2014 estimated ~$3.5M per year.",
+      "draft_picks_involved": "None. Straight player-for-player swap.",
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "partially_addressed",
+      "need_position": "IDL",
+      "analysis": "Excellent value acquisition. Sweat graded 5th among all DTs on PFF in 2025 (83.4 grade) and 4th in run defense. He is 24 years old with two more cheap contract years remaining \u2014 perfect for a rebuild. However, he is not a full-time player (played ~50% of snaps in 2025) and is not a pass-rush threat of Quinnen Williams' caliber. Adds with Onyemata (signed FA) helps meaningfully. IDL partially addressed with strong upside; no elite pass-rusher interior like Williams, but run defense is solidified."
     },
     {
       "player": "Joseph Ossai",
       "position": "EDGE",
       "age": 25,
       "previous_team": "Cincinnati Bengals",
-      "acquisition_type": "free_agent",
       "contract": {
         "years": 3,
-        "total_value": 36000000,
+        "total_value": 34500000,
         "guaranteed": 22500000,
-        "aav": 12000000
+        "aav": 11500000
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "EDGE",
-      "analysis": "Three-year deal with $22.5M guaranteed signals a real investment. Ossai, 25, had 5 sacks in each of the last two seasons and career highs in pressure rate and pass-rush win rate in 2025. He projects as a starter in the Jets' new 3-4 front. At $12M AAV he is mid-to-low-end starter money \u2014 not elite, but meaningful. With Will McDonald IV also returning, Ossai partially addresses the EDGE need, but production (5 sacks/year) is modest and the Jets still lack a dominant pass rusher. EDGE need drops but remains \u2014 they should still target EDGE in the draft (No. 2 overall is firmly in play)."
-    },
-    {
-      "player": "Kingsley Enagbare",
-      "position": "EDGE",
-      "age": 25,
-      "previous_team": "Green Bay Packers",
-      "acquisition_type": "free_agent",
-      "contract": {
-        "years": 1,
-        "total_value": 10000000,
-        "guaranteed": 10000000,
-        "aav": 10000000
-      },
-      "expected_role": "rotational",
-      "market_tier": "starter",
-      "need_impact": "minimal",
-      "need_position": "EDGE",
-      "analysis": "One-year deal at $10M fully guaranteed. Enagbare is a durable three-down player but a borderline starter \u2014 2.5 sacks in 2025 and career best of 4.0. Known primarily as a run defender. One-year structure signals a prove-it deal, not a solution. Adds quality depth and run-defense value but does not resolve the EDGE need long-term. Combined with Ossai, the depth is improved but elite pass-rushing remains absent."
-    },
-    {
-      "player": "Demario Davis",
-      "position": "LB",
-      "age": 37,
-      "previous_team": "New Orleans Saints",
-      "acquisition_type": "free_agent",
-      "contract": {
-        "years": 2,
-        "total_value": 22000000,
-        "guaranteed": 15000000,
-        "aav": 11000000
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "partially_addressed",
-      "need_position": "LB",
-      "analysis": "Two-year deal with $15M fully guaranteed is a real commitment, even for a 37-year-old. Davis set a career-high 143 tackles in 2025 (81.4 PFF grade) and brings elite leadership and run-defense capability. HC Aaron Glenn knows him from three seasons together in New Orleans. Davis replaces Quincy Williams with a significant upgrade in scheme fit and likely in production, allowing Jamien Sherwood to shift to his natural WILL role. However, the age (37, Year 15) and two-year window mean LB still carries moderate long-term risk. Need is partially addressed for 2026 but remains a long-term consideration."
+      "analysis": "The Jets' top EDGE signing. Ossai, 25, posted 5 sacks in each of the last two seasons and had career highs in pressure rate and pass-rush win rate in 2025. The 3-year deal with $22.5M guaranteed signals a real investment, not a bridge. He is projected as the starting defensive end in the Jets' new 3-4 front. However, 5 sacks is modest production and the Jets' EDGE room was so depleted (second-fewest sacks in NFL at 26 in 2025) that EDGE remains a critical need that still demands the No. 2 overall pick. Partially addresses the starter problem \u2014 a good player, not a difference-maker yet."
     },
     {
       "player": "David Onyemata",
       "position": "IDL",
       "age": 33,
       "previous_team": "Atlanta Falcons",
-      "acquisition_type": "free_agent",
       "contract": {
         "years": 1,
         "total_value": 10500000,
@@ -157,89 +176,47 @@
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "IDL",
-      "analysis": "One-year, $10.5M deal with $9.65M guaranteed. Onyemata is a run-stuffing DT (career-high run stop win rate in 2025, 62 tackles, 1 sack starting 17 games for ATL). Glenn coached him for five years in New Orleans. One-year structure limits the commitment, but combined with T'Vondre Sweat (trade), Harrison Phillips, and Jowon Briggs, the interior is substantially upgraded. The Jets finished 29th in run defense in 2025 \u2014 this group addresses that. IDL need meaningfully reduced for 2026."
+      "analysis": "Onyemata is a large run-stuffing DT (6-4, 310 lbs) who pairs with T'Vondre Sweat to address the Jets' 29th-ranked run defense. His 1-year deal at $10.5M with $9.65M guaranteed is a significant commitment for a 33-year-old \u2014 signals a clear starter role. However, at 33 on a 1-year deal, this is a bridge with no long-term certainty. IDL depth is improved; long-term IDL need remains for the draft."
     },
     {
-      "player": "T'Vondre Sweat",
-      "position": "IDL",
-      "age": 24,
-      "previous_team": "Tennessee Titans",
-      "acquisition_type": "trade",
-      "trade_details": "Jets sent EDGE Jermaine Johnson II to Titans; Sweat has 2 years remaining on rookie deal at ~$1.7M cap hit",
+      "player": "Demario Davis",
+      "position": "LB",
+      "age": 37,
+      "previous_team": "New Orleans Saints",
       "contract": {
         "years": 2,
-        "total_value": 9800000,
-        "guaranteed": 0,
-        "guaranteed_note": "Remaining rookie contract; signed through 2027 at ~$1.7M cap hit in 2026",
-        "aav": 4900000
+        "total_value": 22000000,
+        "guaranteed": 15000000,
+        "aav": 11000000
       },
       "expected_role": "starter",
-      "market_tier": "depth",
+      "market_tier": "starter",
       "need_impact": "partially_addressed",
-      "need_position": "IDL",
-      "analysis": "Exceptional value acquisition. Sweat (6-4, 366 lbs.) is PFF's 5th-best IDL and 4th-best run defender in 2025. Still on his rookie deal through 2027 at a trivial cap number (~$1.7M in 2026). The centerpiece of the Jets' new 3-4 nose tackle alignment. Paired with Onyemata, Harrison Phillips, and Jowon Briggs, the interior defensive line is now well-stocked. IDL transitions from a need to a strength for 2026."
+      "need_position": "LB",
+      "analysis": "Davis returns for a third stint with the Jets in a reunion with head coach Aaron Glenn (who coached him 3 years in New Orleans). The 2-year/$22M deal with $15M guaranteed is a significant investment. Davis graded 81.4 on PFF in 2025 and was elite in run defense. However, at 37 (year 15 of his career), pass-coverage metrics declined and his longevity is uncertain beyond 2026. This is a strong starter-level signing but the age and 2-year structure signal a bridge that buys time, not a permanent solution. LB is improved but the team should still target a long-term LB in the draft."
     },
     {
-      "player": "Geno Smith",
-      "position": "QB",
-      "age": 35,
-      "previous_team": "Las Vegas Raiders",
-      "acquisition_type": "trade",
-      "trade_details": "Jets sent 2026 6th-round pick (#208) to Raiders; received Smith and 2026 7th-round pick (#228). Raiders pay $16.2M of Smith's salary; Jets pay $3.3M.",
+      "player": "Kingsley Enagbare",
+      "position": "EDGE",
+      "age": 26,
+      "previous_team": "Green Bay Packers",
       "contract": {
         "years": 1,
-        "total_value": 3300000,
-        "guaranteed": 3300000,
-        "aav": 3300000
-      },
-      "expected_role": "starter",
-      "market_tier": "depth",
-      "need_impact": "partially_addressed",
-      "need_position": "QB",
-      "analysis": "Extraordinary cap efficiency \u2014 the Jets pay just $3.3M of Smith's total $19.5M salary, with the Raiders covering $16.2M. One-year restructured deal only. Smith (35) is a veteran bridge at best; he went 15 games for the Raiders with 19 TDs/17 INTs in a disastrous 2025 campaign. The one-year structure is the tell: this is a bridge, not a solution. QB remains a critical long-term need and the Jets are expected to address it in the draft (No. 2 pick). This partially addresses the 2026 season need only."
-    },
-    {
-      "player": "Dane Belton",
-      "position": "S",
-      "age": 25,
-      "previous_team": "New York Giants",
-      "acquisition_type": "free_agent",
-      "contract": {
-        "years": 1,
-        "total_value": 6000000,
-        "guaranteed": 3500000,
-        "aav": 6000000
+        "total_value": 10000000,
+        "guaranteed": 6000000,
+        "aav": 10000000
       },
       "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
-      "need_position": "S",
-      "analysis": "One-year deal worth up to $6M, with $3.5M guaranteed. Belton competes for the SS2 role alongside Fitzpatrick. He had 120 tackles and 1 INT for the Giants in 2025 and led all safeties in tackling efficiency (95%). Excellent special teams player. Provides quality depth behind Fitzpatrick \u2014 does not address any unmet need but solidifies the safety room. Good value signing."
-    },
-    {
-      "player": "Nahshon Wright",
-      "position": "CB",
-      "age": 26,
-      "previous_team": "Chicago Bears",
-      "acquisition_type": "free_agent",
-      "contract": {
-        "years": 1,
-        "total_value": 3500000,
-        "guaranteed": 3500000,
-        "aav": 3500000
-      },
-      "expected_role": "starter",
-      "market_tier": "depth",
-      "need_impact": "partially_addressed",
-      "need_position": "CB",
-      "analysis": "Bargain signing. Wright led all CBs tied for the league lead with 5 INTs in 2025 \u2014 ironic given the Jets infamously had zero team INTs. Fully guaranteed one-year deal at $3.5M (up to $5.5M with incentives) for a Pro Bowl selection is exceptional value. He is inconsistent in coverage and was on a Vikings practice squad a year before his breakout. One-year deal signals this is an opportunistic depth signing, not a long-term CB solution. CB remains a need for the draft, though Wright could win a starting job. Need drops slightly but is not resolved."
+      "need_position": "EDGE",
+      "analysis": "Enagbare is a durable rotational edge rusher who has never missed a game in 4 NFL seasons (68 of 68 possible games). He recorded 11.5 career sacks in 68 games, projecting as a rotational piece in the Jets' 3-4 front, not a starter. His 1-year prove-it structure signals depth/upside play, not a permanent solution. Raises the floor of the EDGE room but EDGE at No. 2 overall remains essentially locked in. EDGE need essentially unchanged at the top tier."
     },
     {
       "player": "Dylan Parham",
       "position": "IOL",
       "age": 26,
       "previous_team": "Las Vegas Raiders",
-      "acquisition_type": "free_agent",
       "contract": {
         "years": 2,
         "total_value": 16000000,
@@ -250,223 +227,255 @@
       "market_tier": "depth",
       "need_impact": "partially_addressed",
       "need_position": "IOL",
-      "analysis": "Two-year deal with $7.5M guaranteed addresses the immediate LG vacancy left by Simpson and Vera-Tucker. Parham, 26, has 63 starts and posted a career-high pass-block win rate in 2025 despite playing on the Raiders' historically bad OL (league-high 64 sacks). At $8M AAV he is firmly mid-tier/depth money. Two-year deal with modest guarantees signals a bridge starter. ESPN and team sources explicitly note they will still look to fortify IOL in the draft. Need partially addressed \u2014 IOL remains a draft target."
+      "analysis": "Parham replaces the departed John Simpson at left guard. He started 63 of 64 career games with the Raiders, graded PFF's 14th-best LG in 2025, and is ascending at just 26. The 2-year/$16M base deal (all $7.5M guaranteed in Year 1 only \u2014 no guaranteed money in Year 2) is solid value but the lack of Year 2 guarantees reflects modest commitment. Parham is slated to start at LG immediately. Partially addresses the double-guard loss \u2014 replaces Simpson reasonably well, but the IOL need created by Vera-Tucker's departure remains. The Jets still need another interior lineman (guard or center depth) via draft or additional FA."
     },
     {
-      "player": "Austin Schlottmann",
-      "position": "IOL",
-      "age": 28,
-      "previous_team": "Tennessee Titans",
-      "acquisition_type": "free_agent",
+      "player": "Dane Belton",
+      "position": "S",
+      "age": 25,
+      "previous_team": "New York Giants",
       "contract": {
-        "years": 2,
-        "total_value": 9000000,
+        "years": 1,
+        "total_value": 4000000,
+        "guaranteed": 4000000,
+        "aav": 4000000
+      },
+      "expected_role": "rotational",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "S",
+      "analysis": "Signed to pair with Fitzpatrick at safety. Belton's 1-year deal worth up to $6M is a depth/competition signing for the S2 job. He is a strong tackler (95% efficiency per NGS, 4th among all safeties in 2025) and a core special teamer. One-year structure means he is not the long-term answer at S2 but raises the floor significantly. Good value signing."
+    },
+    {
+      "player": "Nahshon Wright",
+      "position": "CB",
+      "age": 26,
+      "previous_team": "Chicago Bears",
+      "contract": {
+        "years": 1,
+        "total_value": 3500000,
         "guaranteed": 3500000,
-        "aav": 4500000
+        "aav": 3500000
+      },
+      "expected_role": "rotational",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "CB",
+      "analysis": "Wright led all CBs with 5 interceptions in 2025 (tied for the NFL lead). The Jets \u2014 who failed to record a single interception all season (an NFL first) \u2014 are adding a proven ballhawk at extremely modest cost: 1 year, $3.5M fully guaranteed. This is a tremendous value signing. However, a 1-year deal at depth money signals competition and rotational role, not a CB1 replacement for Sauce Gardner. CB remains a critical need \u2014 this is ball-hawk depth but the starting CB spot is still wide open."
+    },
+    {
+      "player": "Andre Cisco",
+      "position": "S",
+      "age": 25,
+      "previous_team": "New York Jets",
+      "contract": {
+        "years": 1,
+        "total_value": 2500000,
+        "guaranteed": 1250000,
+        "aav": 2500000
       },
       "expected_role": "depth",
       "market_tier": "depth",
       "need_impact": "minimal",
-      "need_position": "IOL",
-      "analysis": "Two-year deal worth up to $9M with $3.5M guaranteed. Depth/backup center signing. Provides interior versatility and competition. Does not resolve the starting IOL need, but improves the overall depth of the group after losing two starters. Low-impact signing in terms of need resolution."
-    },
-    {
-      "player": "Jelani Woods",
-      "position": "TE",
-      "age": 25,
-      "previous_team": "New York Jets",
-      "acquisition_type": "re_sign",
-      "contract": {
-        "years": 0,
-        "total_value": 0,
-        "guaranteed": 0,
-        "guaranteed_note": "Contract terms not yet reported; re-signed per NFL.com/team announcement",
-        "aav": 0
-      },
-      "expected_role": "rotational",
-      "market_tier": "depth",
-      "need_impact": "none",
-      "need_position": "TE",
-      "analysis": "Re-signed as a depth/rotational TE. Woods is a big-bodied receiving tight end (6-7). Terms not yet publicly reported. Retaining him maintains continuity at TE behind Jeremy Ruckert (already under contract extension). No new need addressed; merely maintains existing roster depth."
-    },
-    {
-      "player": "Breece Hall",
-      "position": "RB",
-      "age": 24,
-      "previous_team": "New York Jets",
-      "acquisition_type": "franchise_tag",
-      "contract": {
-        "years": 1,
-        "total_value": 14293000,
-        "guaranteed": 14293000,
-        "aav": 14293000
-      },
-      "expected_role": "starter",
-      "market_tier": "elite",
-      "need_impact": "fully_addressed",
-      "need_position": "RB",
-      "analysis": "Non-exclusive franchise tag ($14.293M, fully guaranteed). Hall rushed for 1,065 yards in 2025 \u2014 first Jets RB over 1,000 since 2015. Tag prevents him from testing free agency while long-term extension negotiations continue (deadline July 15). RB is not a need for the Jets in 2026 as a result. One-year tag does not fully lock in the future, but for draft purposes, RB is off the board as a priority."
-    },
-    {
-      "player": "Andrew Beck",
-      "position": "FB",
-      "age": 30,
-      "previous_team": "New York Jets",
-      "acquisition_type": "re_sign",
-      "contract": {
-        "years": 1,
-        "total_value": 1500000,
-        "guaranteed": 1500000,
-        "aav": 1500000
-      },
-      "expected_role": "depth",
-      "market_tier": "minimum",
-      "need_impact": "none",
-      "need_position": "FB",
-      "analysis": "One-year, $1.5M fully guaranteed re-sign. Beck is a fullback who played a role in both offense and special teams in 2025 under new OC Frank Reich, who clearly has plans for him. Low-cost continuity move. No need impact."
+      "need_position": "S",
+      "analysis": "Re-signed on a surprise 1-year deal worth up to $5.25M. Cisco is depth/competition behind Fitzpatrick and Belton. 1-year deal with minimal guarantees ($1.25M) confirms this is a depth signing only. Minimal impact on the need picture."
     },
     {
       "player": "Max Mitchell",
       "position": "OT",
       "age": 25,
       "previous_team": "New York Jets",
-      "acquisition_type": "re_sign",
       "contract": {
         "years": 1,
-        "total_value": 0,
-        "guaranteed": 0,
-        "guaranteed_note": "Terms not fully reported; one-year deal per sources",
-        "aav": 0
+        "total_value": 3000000,
+        "guaranteed": 1500000,
+        "aav": 3000000
       },
       "expected_role": "depth",
       "market_tier": "depth",
       "need_impact": "none",
       "need_position": "OT",
-      "analysis": "Re-signed as the Jets' swing tackle/sixth offensive lineman. Mitchell has 17 career starts and versatility at G/T. Retaining him maintains OL depth continuity entering 2026. No need impact \u2014 OT was not a pre-FA need and this signing does not create or resolve any tier-relevant need."
+      "analysis": "Re-signed as the Jets' 6th offensive lineman and swing tackle. Mitchell has 17 career starts, provides experienced OL depth and position flexibility. 1-year deal at modest cost \u2014 pure depth retention. OT was not a pressing need (starters Olu Fashanu and Armand Membou are locked in) and this doesn't change the need picture."
+    },
+    {
+      "player": "Chukwuma Okorafor",
+      "position": "OT",
+      "age": 28,
+      "previous_team": "New York Jets",
+      "contract": {
+        "years": 1,
+        "total_value": 2500000,
+        "guaranteed": 1000000,
+        "aav": 2500000
+      },
+      "expected_role": "depth",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "OT",
+      "analysis": "Re-signed swing tackle with 92 career games and 60 NFL starts, though he didn't play a single offensive snap in 2025 due to the health of the starters. Pure veteran OT depth retention. No impact on need picture."
     },
     {
       "player": "Mykal Walker",
       "position": "LB",
-      "age": 27,
+      "age": 28,
       "previous_team": "New York Jets",
-      "acquisition_type": "re_sign",
       "contract": {
         "years": 1,
-        "total_value": 0,
-        "guaranteed": 0,
-        "guaranteed_note": "Terms not publicly reported; one-year deal per sources",
-        "aav": 0
+        "total_value": 2000000,
+        "guaranteed": 1000000,
+        "aav": 2000000
       },
       "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "LB",
-      "analysis": "Re-signed on a one-year deal. Walker graded as PFF's 8th-best LB in Weeks 14-18 in 2025 (min. 130 snaps) and played 81% of special teams snaps. Depth LB re-sign that pairs with Demario Davis. Minimal impact on need tier \u2014 LB depth is improved but Davis is the only meaningful starter."
+      "analysis": "Re-signed after a strong late-season showing (PFF's 8th-highest graded LB in Weeks 14-18). Plays 81% of special teams snaps and provides LB depth behind Demario Davis. 1-year depth deal \u2014 does not change the LB picture materially but is solid depth/ST retention."
+    },
+    {
+      "player": "Kene Nwangwu",
+      "position": "RB",
+      "age": 26,
+      "previous_team": "New York Jets",
+      "contract": {
+        "years": 1,
+        "total_value": 2000000,
+        "guaranteed": 1000000,
+        "aav": 2000000
+      },
+      "expected_role": "depth",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "RB",
+      "analysis": "Re-signed elite kick returner who is arguably the best in the NFL when healthy. The Jets retained both of their dynamic returners (Nwangwu + Isaiah Williams) for 2026. This is a special teams depth signing, not a RB need move."
     },
     {
       "player": "Cade York",
       "position": "K",
       "age": 24,
-      "previous_team": "Unsigned/New Orleans Saints",
-      "acquisition_type": "free_agent",
+      "previous_team": "New Orleans Saints",
       "contract": {
         "years": 1,
-        "total_value": 0,
-        "guaranteed": 0,
-        "guaranteed_note": "Terms not publicly reported; one-year deal per sources",
-        "aav": 0
+        "total_value": 795000,
+        "guaranteed": 795000,
+        "aav": 795000
       },
       "expected_role": "starter",
       "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "K",
-      "analysis": "Signed after Nick Folk departed to Atlanta. York is a career 73% field-goal kicker and a former fourth-round pick (Browns, 2022). He last appeared in an NFL game in 2024. This is a training camp competition signing, not a solution. The kicker need created by Folk's departure remains real \u2014 York is unproven at this level."
+      "analysis": "Signed to attempt to replace the departed Nick Folk. York is a 2022 Browns 4th-round pick with a career 73% FG accuracy \u2014 well below the ~85% NFL average. He spent 2025 on the Saints' practice squad without a regular-season snap. This is a competition/camp signing, not a solution. A meaningful step down from Folk (96.3% accuracy since 2023). K remains an unresolved need \u2014 the Jets will likely continue searching for upgrades."
+    },
+    {
+      "player": "Andrew Beck",
+      "position": "FB",
+      "age": 29,
+      "previous_team": "New York Jets",
+      "contract": {
+        "years": 1,
+        "total_value": 1500000,
+        "guaranteed": 1500000,
+        "aav": 1500000
+      },
+      "expected_role": "rotational",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "FB",
+      "analysis": "Re-signed fullback on a fully guaranteed $1.5M deal. Beck has a role in new OC Frank Reich's offense (Reich ran fullback-heavy sets in Indianapolis). Minimum-tier retention, no impact on positional needs."
+    },
+    {
+      "player": "Jelani Woods",
+      "position": "TE",
+      "age": 25,
+      "previous_team": "New York Jets",
+      "contract": {
+        "years": 1,
+        "total_value": 1200000,
+        "guaranteed": 900000,
+        "aav": 1200000
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "TE",
+      "analysis": "Re-signed depth TE who appeared in only 4 games in 2025 after a waiver-wire addition. Frank Reich connection (Woods was his 3rd-round pick in Indianapolis in 2021) likely drove the re-signing. Minimum-tier depth retention."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
-      "S",
-      "RB"
+      "S"
     ],
     "partially_addressed": [
       "EDGE",
-      "LB",
       "IDL",
-      "QB",
       "IOL",
-      "CB"
+      "LB",
+      "QB"
     ],
     "minimally_addressed": [
+      "CB",
       "K"
     ],
     "unchanged": [
-      "WR"
+      "WR",
+      "TE",
+      "OT"
     ],
-    "escalated": [],
-    "new_needs_created": [
-      "K"
-    ]
+    "escalated": []
   },
   "recommended_need_adjustments": [
     {
       "position": "S",
       "previous_tier": 1,
-      "recommended_tier": 5,
-      "reasoning": "Minkah Fitzpatrick trade (3yr/$40M) + Dane Belton signing completely resolves the safety room. Fitzpatrick is a 5x Pro Bowler still playing at elite level (81.8 PFF grade in 2025). Safety is now a team strength. No draft capital needed here."
-    },
-    {
-      "position": "RB",
-      "previous_tier": 2,
-      "recommended_tier": 5,
-      "reasoning": "Breece Hall franchise tag ($14.293M, fully guaranteed) retains the starter through 2026. Hall rushed for 1,065 yards in 2025. Long-term deal discussions ongoing. RB is not a draft need in 2026."
-    },
-    {
-      "position": "IDL",
-      "previous_tier": 2,
       "recommended_tier": 4,
-      "reasoning": "T'Vondre Sweat trade (2 years remaining on rookie deal, PFF's 5th-best IDL) plus David Onyemata signing (1yr/$10.5M) plus Harrison Phillips and Jowon Briggs already on roster creates a very solid interior. IDL goes from a meaningful need to a luxury pick at best. No draft priority needed."
+      "reasoning": "Minkah Fitzpatrick trade (3yr/$40M, 5x Pro Bowler, 81.8 PFF grade in 2025) acquired for a 7th-round pick is a slam dunk. S1 is elite. Dane Belton and Andre Cisco provide legitimate S2 competition. Safety is no longer a draft need of any urgency."
     },
     {
       "position": "LB",
-      "previous_tier": 2,
+      "previous_tier": 1,
       "recommended_tier": 3,
-      "reasoning": "Demario Davis (2yr/$22M, $15M guaranteed) is a meaningful upgrade over Quincy Williams and provides veteran leadership. However, Davis is 37 and on a short effective window. Mykal Walker re-signed provides depth. LB drops one tier \u2014 still worth targeting in mid-rounds for long-term succession planning."
+      "reasoning": "Demario Davis (2yr/$22M, $15M gtd) is a legitimate starting LB even at 37 \u2014 81.4 PFF grade in 2025, elite run defender. Mykal Walker retained for depth/ST. However, Davis is 37 on a 2-year bridge and Quincy Williams' departure creates a medium-term hole. The Jets should still draft a LB in rounds 3-5 for development, but it is no longer a premium early-round need."
+    },
+    {
+      "position": "IDL",
+      "previous_tier": 1,
+      "recommended_tier": 2,
+      "reasoning": "T'Vondre Sweat (via trade, 2 cheap contract years remaining, 5th-best DT on PFF in 2025) + David Onyemata (1yr/$10.5M, clear run-stuffer) meaningfully addresses the void left by Quinnen Williams. However, neither is a Williams-level pass rusher and Onyemata is 33 on a 1-year bridge. IDL should still be targeted in the middle rounds (Rounds 2-4). Not a crisis, but long-term starter quality remains a need."
     },
     {
       "position": "EDGE",
       "previous_tier": 1,
-      "recommended_tier": 2,
-      "reasoning": "Joseph Ossai (3yr/$36M, $22.5M gtd) plus Kingsley Enagbare (1yr/$10M) plus Will McDonald IV give the Jets three viable edge players. But Ossai averages only 5 sacks/year, Enagbare is a prove-it one-year deal, and McDonald is still developing. The Jets recorded just 26 sacks as a team in 2025 \u2014 the pass rush is improved but not elite. EDGE is still a draft priority at No. 2 overall and should remain a Tier 2 need."
+      "recommended_tier": 1,
+      "reasoning": "Despite signing Ossai (3yr/$34.5M) and Enagbare (1yr/$10M), EDGE remains the No. 1 draft priority. The Jets recorded the second-fewest sacks in the NFL (26) in 2025. Trading Johnson confirmed the No. 2 overall pick is likely an EDGE. Ossai is a real starter but modest producer (5 sacks); Enagbare is rotational. The unit desperately needs an elite, disruptive EDGE anchor. This is the clearest draft-day need on the board."
+    },
+    {
+      "position": "CB",
+      "previous_tier": 1,
+      "recommended_tier": 1,
+      "reasoning": "Sauce Gardner was traded at the deadline and is now a Colt. Nahshon Wright (1yr/$3.5M fully gtd) is a legitimate ball-hawk but on a depth-value deal with no guarantee of the starting role. The Jets failed to record a single interception all of 2025. CB1 is entirely unsolved. No multi-year investment was made at this position. CB should be a top 2-round target and remains Tier 1."
     },
     {
       "position": "IOL",
       "previous_tier": 2,
-      "recommended_tier": 3,
-      "reasoning": "Dylan Parham (2yr/$16M, $7.5M gtd) fills the starting LG slot vacated by Simpson and Vera-Tucker. Austin Schlottmann adds backup depth. However, losing both starting guards to free agency is significant, Parham comes from a historically bad OL in Las Vegas, and the team explicitly plans to add IOL in the draft. Need drops one tier but remains a meaningful target in rounds 2-4."
-    },
-    {
-      "position": "CB",
-      "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Nahshon Wright (1yr/$3.5M fully gtd) is excellent value but a one-year, prove-it deal for an inconsistent player who had one breakout season. The Jets had zero INTs as a team in 2025 and still lack a lockdown CB1. With Sauce Gardner gone (traded to Colts in 2025), the CB room is thin outside of 2025 third-rounder Azareye'h Thomas. CB remains a Tier 2 draft need."
+      "reasoning": "Both starting guards (Simpson to Baltimore, Vera-Tucker to New England) departed. Dylan Parham (2yr/$16M, starting LG) partially fills the Simpson void but Year 2 has no guarantees. No center depth addition of note beyond re-signing Max Mitchell as a 6th lineman. The Jets' young core of Fashanu/Membou/Tippmann is solid at OT and RG, but LG and interior depth remain genuine needs for the draft (Rounds 2-4)."
     },
     {
       "position": "QB",
       "previous_tier": 1,
       "recommended_tier": 2,
-      "reasoning": "Geno Smith trade (1yr/$3.3M Jets portion) provides a veteran bridge for 2026 at near-minimum cost. However, Smith is 35 and on a one-year deal \u2014 the Jets' long-term QB need is completely unresolved. At No. 2 overall, QB could still be taken. Drops from Tier 1 (urgent starter need) to Tier 2 (bridge in place, but franchise QB still required through draft)."
+      "reasoning": "Geno Smith (1yr/~$1.3M, Raiders paying most of contract) is a stop-gap bridge. At 35 on a near-minimum deal, this is explicitly a 1-year solution. The Jets have the No. 2 overall pick and significant future draft capital. QB remains a legitimate long-term need but the 2026 season is stabilized at near-zero cost. If EDGE is taken at No. 2, QB becomes the clear priority for remainder of draft or via trade."
     },
     {
       "position": "WR",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "No meaningful WR additions in free agency. Garrett Wilson is under contract (extension) but a true WR2/WR3 remains absent from the roster. WR need is unchanged and should be addressed in the draft (rounds 2-4)."
+      "reasoning": "The Jets made no WR additions in free agency. Their receiver room (Garrett Wilson + depth) remains a genuine concern, and beat reporters flagged WR as the one glaring hole Mougey didn't address. WR need is unchanged \u2014 should target in Rounds 2-4 of the draft or via trade."
     },
     {
       "position": "K",
-      "previous_tier": 5,
+      "previous_tier": 3,
       "recommended_tier": 3,
-      "reasoning": "Nick Folk (3x NFL leader in FG% departed to Falcons) creates a new need. Cade York signed on a one-year deal is unproven (career 73% FG%). Kicker is now a legitimate concern \u2014 should be addressed via competition or draft/UDFA."
+      "reasoning": "Nick Folk (3x most accurate kicker since 2023) departed for Atlanta. Cade York signed on a minimum deal is a camp competition with a 73% career FG rate \u2014 well below average. The Jets may still add a legitimate kicker. K is an unresolved, modest need."
     }
   ],
   "team_page_additions": {
@@ -474,111 +483,139 @@
       {
         "player": "Minkah Fitzpatrick",
         "position": "S",
-        "contract_summary": "3yr/$40M (trade; 7th-round pick to MIA)",
+        "contract_summary": "3yr/$40M (via trade, ~$20M gtd)",
         "previous_team": "Miami Dolphins",
-        "headline": "Five-time Pro Bowler and three-time All-Pro acquired for a 7th-round pick to anchor a secondary that had zero INTs in 2025"
+        "headline": "5x Pro Bowl safety acquired for a 7th-round pick; immediately the Jets' best defensive player"
+      },
+      {
+        "player": "Geno Smith",
+        "position": "QB",
+        "contract_summary": "Trade (1yr/~$1.3M, Raiders paying majority)",
+        "previous_team": "Las Vegas Raiders",
+        "headline": "Smith returns to his original team on a near-minimum bridge deal, solving 2026 QB at essentially no cost"
       },
       {
         "player": "T'Vondre Sweat",
         "position": "IDL",
-        "contract_summary": "Trade (Jermaine Johnson II to TEN); rookie deal through 2027 (~$1.7M cap hit)",
+        "contract_summary": "Trade (2 remaining rookie contract years, ~$3.5M/yr)",
         "previous_team": "Tennessee Titans",
-        "headline": "PFF's 5th-best interior defender acquired on rookie deal to anchor the Jets' new 3-4 front as nose tackle"
+        "headline": "Cost-controlled 24-year-old DT (PFF's 5th-ranked DT in 2025) acquired for Jermaine Johnson in a clear rebuild win"
       },
       {
         "player": "Joseph Ossai",
         "position": "EDGE",
-        "contract_summary": "3yr/$36M ($22.5M gtd)",
+        "contract_summary": "3yr/$34.5M ($22.5M gtd)",
         "previous_team": "Cincinnati Bengals",
-        "headline": "25-year-old ascending edge rusher (5 sacks in each of last 2 seasons) brings youth and a three-year commitment to a depleted pass rush"
+        "headline": "25-year-old ascending edge rusher signed as Jets' starter in new 3-4 front with career-high pressure metrics in 2025"
       },
       {
         "player": "Demario Davis",
         "position": "LB",
         "contract_summary": "2yr/$22M ($15M gtd)",
         "previous_team": "New Orleans Saints",
-        "headline": "37-year-old linebacker returns for 3rd Jets stint, bringing elite run defense and veteran leadership to Aaron Glenn's revamped defense"
-      },
-      {
-        "player": "Geno Smith",
-        "position": "QB",
-        "contract_summary": "1yr/$3.3M Jets portion (trade; 6th-round pick to LV)",
-        "previous_team": "Las Vegas Raiders",
-        "headline": "Bridge starter acquired at near-minimum cost with Raiders covering $16.2M of his salary; returns to the franchise that drafted him in 2013"
-      },
-      {
-        "player": "Dylan Parham",
-        "position": "IOL",
-        "contract_summary": "2yr/$16M ($7.5M gtd)",
-        "previous_team": "Las Vegas Raiders",
-        "headline": "26-year-old veteran guard (63 career starts) fills starting vacancy after loss of both Simpson and Vera-Tucker"
-      },
-      {
-        "player": "Nahshon Wright",
-        "position": "CB",
-        "contract_summary": "1yr/$3.5M (fully gtd; up to $5.5M w/incentives)",
-        "previous_team": "Chicago Bears",
-        "headline": "League co-leader in INTs in 2025 (5) signed for virtually nothing to address a secondary that was historically turnover-starved"
+        "headline": "Legendary LB returns for 3rd Jets stint under HC Aaron Glenn; elite run defender and locker-room leader at 37"
       },
       {
         "player": "David Onyemata",
         "position": "IDL",
         "contract_summary": "1yr/$10.5M ($9.65M gtd)",
         "previous_team": "Atlanta Falcons",
-        "headline": "33-year-old run-stuffing DT (career-high run stop win rate in 2025) reunites with Aaron Glenn to fortify a run defense that ranked 29th in 2025"
+        "headline": "Veteran run-stuffing DT pairs with Sweat to address Jets' 29th-ranked run defense"
+      },
+      {
+        "player": "Dylan Parham",
+        "position": "IOL",
+        "contract_summary": "2yr/$16M ($7.5M gtd, up to $20M)",
+        "previous_team": "Las Vegas Raiders",
+        "headline": "26-year-old ascending LG steps in to replace departed John Simpson at left guard"
+      },
+      {
+        "player": "Kingsley Enagbare",
+        "position": "EDGE",
+        "contract_summary": "1yr/$10M",
+        "previous_team": "Green Bay Packers",
+        "headline": "Ironman edge rusher (0 missed games in 4 years) adds depth to a thin EDGE room ahead of expected No. 2 pick"
+      },
+      {
+        "player": "Nahshon Wright",
+        "position": "CB",
+        "contract_summary": "1yr/$3.5M (fully gtd, up to $5.5M)",
+        "previous_team": "Chicago Bears",
+        "headline": "Best-value signing of the offseason: CB who tied for NFL-high 5 INTs in 2025 signed for near-minimum money"
+      },
+      {
+        "player": "Dane Belton",
+        "position": "S",
+        "contract_summary": "1yr/$4M (up to $6M)",
+        "previous_team": "New York Giants",
+        "headline": "Elite tackler and special teams ace competes for S2 spot alongside Fitzpatrick"
       }
     ],
     "key_losses": [
       {
-        "player": "Jermaine Johnson II",
-        "position": "EDGE",
-        "contract_summary": "Traded for DT T'Vondre Sweat (TEN)",
-        "new_team": "Tennessee Titans",
-        "headline": "Former first-round EDGE traded away in savvy value swap, opening a starter-level hole at edge rusher that the draft (No. 2 pick) is expected to fill"
+        "player": "Sauce Gardner",
+        "position": "CB",
+        "contract_summary": "Traded to Colts (2025 deadline) for 2 first-round picks",
+        "new_team": "Indianapolis Colts",
+        "headline": "2x All-Pro cornerstone traded in full teardown; CB1 remains the biggest unsolved hole entering the draft"
       },
       {
-        "player": "Alijah Vera-Tucker",
-        "position": "IOL",
-        "contract_summary": "3yr/$42M ($21M gtd) with NE Patriots",
-        "new_team": "New England Patriots",
-        "headline": "Former first-round pick departs to New England on a $42M deal, leaving the Jets without both starting guards entering 2026"
+        "player": "Quinnen Williams",
+        "position": "IDL",
+        "contract_summary": "Traded to Cowboys (2025 deadline) for 2026 2nd, 2027 1st + DT Mazi Smith",
+        "new_team": "Dallas Cowboys",
+        "headline": "All-Pro interior pass rusher traded in rebuild; T'Vondre Sweat and Onyemata are partial replacements"
+      },
+      {
+        "player": "Jermaine Johnson II",
+        "position": "EDGE",
+        "contract_summary": "Traded to Titans for T'Vondre Sweat (player-for-player)",
+        "new_team": "Tennessee Titans",
+        "headline": "Former first-rounder traded to clear path for top EDGE at No. 2 overall in 2026 NFL Draft"
       },
       {
         "player": "John Simpson",
         "position": "IOL",
-        "contract_summary": "3yr/$30M with Baltimore Ravens",
+        "contract_summary": "3yr/$30M with Ravens",
         "new_team": "Baltimore Ravens",
-        "headline": "Durable starting guard (34 straight starts for NYJ) signs with the Ravens at above-market value, compounding the interior OL void"
+        "headline": "2-year starting LG departs on an overpay; Dylan Parham signed as direct replacement"
+      },
+      {
+        "player": "Alijah Vera-Tucker",
+        "position": "IOL",
+        "contract_summary": "3yr/$42M (up to $48M) with Patriots",
+        "new_team": "New England Patriots",
+        "headline": "Former first-round pick joins rival Patriots; three major injuries in 5 seasons made re-signing impractical"
       },
       {
         "player": "Quincy Williams",
         "position": "LB",
-        "contract_summary": "2yr/$17M with Cleveland Browns",
+        "contract_summary": "2yr/$17M with Browns",
         "new_team": "Cleveland Browns",
-        "headline": "Former All-Pro LB departs after falling out with the coaching staff, replaced by veteran Demario Davis in Aaron Glenn's defensive overhaul"
+        "headline": "Former All-Pro LB departs after regression; Demario Davis signed as direct replacement and upgrade"
       },
       {
         "player": "Nick Folk",
         "position": "K",
-        "contract_summary": "2yr deal with Atlanta Falcons",
+        "contract_summary": "Signed with Falcons (terms undisclosed)",
         "new_team": "Atlanta Falcons",
-        "headline": "Three-time NFL field-goal percentage leader departs, leaving the Jets with an unresolved kicker competition entering 2026"
+        "headline": "NFL's most accurate kicker (96.3% since 2023) departs; Cade York signed as unproven replacement"
       }
     ]
   },
   "confidence": "high",
-  "notes": "Contract details sourced from ESPN, NFL.com, Spotrac, OverTheCap, and credentialed reporters (Schefter, Rapoport, Pelissero, Garafolo). Ossai contract reported as both $34.5M (ESPN/AOL) and $36M (AP/TSN) \u2014 using $36M per AP/TSN and multiple reports. Dylan Parham contract reported as up to $20M by Rapoport/NFL.com but base confirmed at 2yr/$16M per ESPN. Jelani Woods and Max Mitchell re-sign terms not yet fully publicly reported. Austin Schlottmann contract sourced from NFL.com (2yr/$9M, $3.5M gtd). Minkah Fitzpatrick guarantee structure not fully disclosed. Cap space post-FA sourced from OverTheCap ($37,124,446 remaining as of March 13, 2026).",
   "sources": [
     "https://www.espn.com/nfl/story/_/id/48044871/new-york-jets-2026-free-agency-tracker-offseason-moves-signings-trades",
     "https://www.newyorkjets.com/news/jets-free-agency-tracker",
-    "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
-    "https://overthecap.com/salary-cap/new-york-jets",
-    "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/nyj",
     "https://thejetpress.com/jets-free-agency-tracker-2026-signings-departures-cap-space-analysis-more-01kjzffdzdx0",
-    "https://jetsxfactor.com/2026/03/12/jets-examining-needs-strong-free-agency-run/",
+    "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
+    "https://www.espn.com/nfl/story/_/id/48043185/sources-jets-trade-jermaine-johnson-titans-tvondre-sweat",
+    "https://www.espn.com/nfl/story/_/id/48176465/source-jets-add-o-line-reinforcement-dylan-parham",
+    "https://www.espn.com/nfl/story/_/id/48090048/sources-jets-place-franchise-tag-star-rb-breece-hall",
+    "https://jetsxfactor.com/2026/03/11/jets-john-simpson-walk-free-agency/",
+    "https://jetsxfactor.com/2026/03/12/jets-dylan-parham-signing-steal-free-agency/",
     "https://www.cbssports.com/nfl/news/2026-nfl-free-agency-rams-jets-chargers/",
-    "https://sports.yahoo.com/nfl/article/titans-trade-dt-tvondre-sweat-to-jets-for-de-jermaine-johnson-150433499.html",
-    "https://www.espn.com/nfl/story/_/id/48164552/sources-jets-get-their-qb-trade-raiders-geno-smith",
-    "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/raiders-will-pay-geno-smith-16-2-million-jets-will-pay-him-3-3-million-this-season"
+    "https://www.nfl.com/news/titans-jets-trade-tvondre-sweat-jermaine-johnson",
+    "https://www.si.com/nfl/jets/onsi/news/jets-losing-quincy-williams-to-17m-browns-deal-was-for-the-best-jackson3"
   ]
 }

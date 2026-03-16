@@ -1,9 +1,9 @@
 {
   "team": "JAX",
   "team_full": "Jacksonville Jaguars",
-  "updated_through": "2026-03-13",
-  "cap_space_pre_fa": "~$110000",
-  "cap_space_post_fa": "~-$1100000",
+  "updated_through": "2026-03-16",
+  "cap_space_pre_fa": "$6900000",
+  "cap_space_post_fa": "$7184040",
   "key_departures": [
     {
       "player": "Travis Etienne Jr.",
@@ -16,14 +16,15 @@
         "total_value": 52000000,
         "aav": 13000000
       },
-      "impact": "Etienne was the unquestioned starter and the face of the backfield, rushing for 1,107 yards and 7 TDs in 2025 plus 36 catches for 292 yards. His departure creates a clear RB1 vacancy. Bhayshul Tuten is the presumed successor but has only 307 rushing yards on his resume.",
+      "impact": "Etienne was the unquestioned RB1, rushing for 1,107 yards, 7 TDs, and adding 292 receiving yards and 6 receiving TDs in 2025 \u2014 1,399 total scrimmage yards and 13 TDs. The Jaguars could not match the Saints' 4yr/$52M offer due to cap constraints. The departure leaves a significant void in both early-down carries and the pass game out of the backfield.",
       "need_impact": "creates",
-      "need_position": "RB"
+      "need_position": "RB",
+      "comp_pick_projection": "2027 5th-round compensatory pick (per OverTheCap)"
     },
     {
       "player": "Devin Lloyd",
       "position": "LB",
-      "age": 26,
+      "age": 27,
       "role": "starter",
       "new_team": "Carolina Panthers",
       "contract_signed_elsewhere": {
@@ -31,48 +32,73 @@
         "total_value": 45000000,
         "aav": 15000000
       },
-      "impact": "Lloyd earned second-team All-Pro honors in 2025 with 81 tackles, 5 INTs, 1.5 sacks, and a 99-yard pick-six. He was the unquestioned defensive captain and signal-caller. His departure is the single largest need-creating event of Jacksonville's offseason \u2014 no internal replacement currently comes close to his production.",
+      "impact": "Lloyd was the Jaguars' defensive engine in 2025 \u2014 second-team All-Pro, first Pro Bowl, 81 tackles, career-high 5 interceptions, 1.5 sacks, 10 QB hits. The Jaguars declined his fifth-year option and he hit free agency after a breakout season. Internal replacement is projected to be Ventrell Miller, a significant step down. Creates a genuine need at WLB.",
       "need_impact": "creates",
-      "need_position": "LB"
+      "need_position": "LB",
+      "comp_pick_projection": "2027 4th/5th-round compensatory pick (per OverTheCap)"
     },
     {
       "player": "Greg Newsome II",
       "position": "CB",
-      "age": 26,
-      "role": "rotational",
+      "age": 25,
+      "role": "starter",
       "new_team": "New York Giants",
       "contract_signed_elsewhere": {
         "years": 1,
-        "total_value": 10000000,
-        "aav": 10000000
+        "total_value": 8000000,
+        "aav": 8000000
       },
-      "impact": "Newsome was mid-season trade acquisition from Cleveland who played 12 games and posted 29 tackles and 6 PDs. He was not a long-term fixture and his departure is partially offset by Brown's re-signing. CB depth takes a minor hit but CB2 is now solidified with Brown.",
-      "need_impact": "none",
-      "need_position": "CB"
+      "impact": "Newsome started 11 games after being acquired via trade from Cleveland in October 2025. He was the CB2/CB3 in Jacksonville's rotation. His departure is partially offset by the retention of Montaric Brown and the existing presence of Travis Hunter, Jarrian Jones, and Jourdan Lewis. CB depth is thinner but the starting two are locked in.",
+      "need_impact": "escalates",
+      "need_position": "CB",
+      "comp_pick_projection": "2027 6th-round compensatory pick (per OverTheCap)"
     },
     {
       "player": "Andrew Wingard",
       "position": "S",
-      "age": 28,
-      "role": "depth",
+      "age": 29,
+      "role": "starter",
       "new_team": "Arizona Cardinals",
       "contract_signed_elsewhere": {
         "years": 1,
         "total_value": null,
         "aav": null
       },
-      "impact": "Wingard was a depth/special teams safety who played limited defensive snaps. Eric Murray remains under contract. Minor depth loss at S; does not create a new need.",
+      "impact": "Wingard was a 7-year Jaguars veteran who worked from undrafted free agent into a starting safety. His departure leaves Eric Murray and Antonio Johnson as the starting safety duo, with rookie Caleb Ransaw (missed 2025 on IR) in the mix. Considered a depth/rotational loss at the starter level \u2014 the safety group has continuity without him.",
+      "need_impact": "escalates",
+      "need_position": "S",
+      "comp_pick_projection": "Unclear; one-year deal structure may limit comp formula impact"
+    },
+    {
+      "player": "Dyami Brown",
+      "position": "WR",
+      "age": 26,
+      "role": "rotational",
+      "new_team": "TBD/unsigned",
+      "contract_signed_elsewhere": null,
+      "impact": "Brown was a depth/rotational receiver. Departure noted but minimal impact given depth at WR with Brian Thomas Jr., Jakobi Meyers, Travis Hunter, and Tim Patrick.",
       "need_impact": "none",
-      "need_position": "S"
+      "need_position": "WR"
+    },
+    {
+      "player": "Tim Patrick",
+      "position": "WR",
+      "age": 31,
+      "role": "rotational",
+      "new_team": "TBD/unsigned",
+      "contract_signed_elsewhere": null,
+      "impact": "Patrick was acquired via trade from Detroit in the 2025 training camp and contributed as a veteran depth receiver. His departure reduces WR depth behind the top three but does not create a critical need.",
+      "need_impact": "none",
+      "need_position": "WR"
     },
     {
       "player": "Johnny Mundt",
       "position": "TE",
-      "age": 30,
+      "age": 31,
       "role": "depth",
-      "new_team": "Philadelphia Eagles",
+      "new_team": "released",
       "contract_signed_elsewhere": null,
-      "impact": "Mundt was released by the Jaguars in a cap-saving move that freed $2.7M. He was a depth TE who had minimal offensive role. Quintin Morris was re-signed to fill blocking TE duties. No meaningful need created.",
+      "impact": "Released to create $2.7M in cap space. Was backup TE behind Brenton Strange. Depth loss only.",
       "need_impact": "none",
       "need_position": "TE"
     }
@@ -85,52 +111,17 @@
       "previous_team": "Jacksonville Jaguars (re-sign)",
       "contract": {
         "years": 3,
-        "total_value": 33000000,
-        "guaranteed": null,
-        "aav": 11000000
+        "total_value": 31800000,
+        "guaranteed": 20650000,
+        "aav": 10600000
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "CB",
-      "analysis": "Brown re-signed on a 3-year, $33M deal just before the legal tampering window opened. He led the team with 12 PBUs in 2025 and was one of the defense's most consistent players. With Travis Hunter locked in at CB1, re-signing Brown locks in a genuine CB2 starter at a below-market rate (he likely could have earned more in open market per ESPN). Three-year deal with real commitment. CB is not a draft need. Jacksonville now has arguably one of the better CB rooms in the AFC with Hunter, Brown, Jourdan Lewis, and Jarrian Jones.",
-      "contract_confidence": "high"
-    },
-    {
-      "player": "Dennis Gardeck",
-      "position": "EDGE",
-      "age": 31,
-      "previous_team": "Jacksonville Jaguars (re-sign)",
-      "contract": {
-        "years": 2,
-        "total_value": 6500000,
-        "guaranteed": null,
-        "aav": 3250000
-      },
-      "expected_role": "rotational",
-      "market_tier": "depth",
-      "need_impact": "minimal",
-      "need_position": "EDGE",
-      "analysis": "Gardeck returned on a 2-year deal worth $6.5M (per OverTheCap/Big Cat Country). He plays a hybrid role \u2014 primarily special teams but did see edge rush usage in 2025, posting 2.5 sacks and 9 QB hits. His role may expand with Devin Lloyd gone. However, the contract is well below starter money and he is 31 years old. This is a depth/versatility retention, not a solution to EDGE depth concerns. EDGE remains a potential draft target.",
-      "contract_confidence": "high"
-    },
-    {
-      "player": "Quintin Morris",
-      "position": "TE",
-      "age": 27,
-      "previous_team": "Jacksonville Jaguars (re-sign)",
-      "contract": {
-        "years": 1,
-        "total_value": 2000000,
-        "guaranteed": null,
-        "aav": 2000000
-      },
-      "expected_role": "rotational",
-      "market_tier": "depth",
-      "need_impact": "minimal",
-      "need_position": "TE",
-      "analysis": "Morris re-signed on a modest 1-year, $2M deal. He was valued primarily for his pass-blocking skills and became an integral offensive piece in that role. His re-signing keeps the blocking TE spot filled, but his contract structure signals a depth piece, not a featured TE. If the Jaguars have a pre-existing need at TE, this does not resolve it.",
-      "contract_confidence": "high"
+      "analysis": "Brown had a breakout 2025 campaign \u2014 12 starts, team-high 12 PBUs, 2 INTs, 69.6 passer rating allowed (6th-best in NFL among CBs with 200+ coverage snaps). The 3yr/$31.8M deal with $20.65M guaranteed is a legitimate investment, locking him in alongside Travis Hunter as the two starting outside CBs. Per Spotrac, the combined cap hit of Jaguars top-4 CBs in 2026 is just $22.6M \u2014 extraordinary value. CB2 need is fully resolved. CB depth is still a consideration given Newsome's departure but the starter-level need is gone.",
+      "contract_confidence": "high",
+      "source": "Spotrac.com"
     },
     {
       "player": "Chris Rodriguez Jr.",
@@ -141,14 +132,55 @@
         "years": 2,
         "total_value": 10000000,
         "guaranteed": 6200000,
-        "aav": 5000000
+        "aav": 5000000,
+        "max_value": 12000000
       },
-      "expected_role": "rotational",
-      "market_tier": "depth",
+      "expected_role": "starter/co-starter",
+      "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "RB",
-      "analysis": "Rodriguez signed a 2-year, $10M deal (max $12M) with $6.2M fully guaranteed. He rushed for 500 yards and 6 TDs in 2025 for Washington and has a prior relationship with HC Liam Coen from Kentucky. He is expected to complement Bhayshul Tuten as the presumed RB1, not replace Etienne outright. The contract is mid-tier for depth RBs \u2014 $5M AAV is below the starter threshold. This partially addresses the RB void left by Etienne but does not fully resolve it. Tuten + Rodriguez is a credible but unproven starting duo; RB remains a potential draft target in the mid-rounds.",
-      "contract_confidence": "high"
+      "analysis": "Rodriguez rushed for 500 yards and 6 TDs on 112 carries in 2025 for Washington. The Jaguars project a committee with Rodriguez and second-year Bhayshul Tuten as the 1A/1B duo, with LeQuint Allen as the third-down back. Rodriguez's connection to HC Liam Coen (OC at Kentucky in 2021 during Rodriguez's best college season) adds scheme fit confidence. However, Rodriguez is not a bell-cow back, lacks significant pass-catching production, and is being asked to step into the role vacated by Etienne \u2014 a significant upgrade challenge. 2yr/$10M with $6.2M guaranteed is a starter-tier deal for RB market ($5M AAV is solidly in starter range). Need is PARTIALLY addressed: committee approach leaves open the possibility of drafting a RB to take the long-term lead role.",
+      "contract_confidence": "high",
+      "source": "Spotrac.com, ESPN"
+    },
+    {
+      "player": "Dennis Gardeck",
+      "position": "LB",
+      "age": 31,
+      "previous_team": "Jacksonville Jaguars (re-sign)",
+      "contract": {
+        "years": 2,
+        "total_value": 6500000,
+        "guaranteed": 3650000,
+        "aav": 3250000
+      },
+      "expected_role": "rotational/pass-rush specialist",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "LB",
+      "analysis": "Gardeck is a pure pass-rush specialist LB who had 2.5 sacks, 6 TFLs, 25 pressures (6th among all LBs) on just 39% of defensive snaps in 2025. The 2yr/$6.5M re-sign is excellent value for his specific role. However, Gardeck does NOT fill the every-down coverage void left by Devin Lloyd's departure \u2014 his role is situational. The WLB starter gap remains open, with Ventrell Miller as the current projection. LB need remains elevated.",
+      "contract_confidence": "high",
+      "source": "Spotrac.com, SI.com"
+    },
+    {
+      "player": "Quintin Morris",
+      "position": "TE",
+      "age": 27,
+      "previous_team": "Jacksonville Jaguars (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 2000000,
+        "guaranteed": null,
+        "aav": 2000000,
+        "max_value": 3000000
+      },
+      "expected_role": "depth/TE2",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "TE",
+      "analysis": "Morris is valued primarily as a blocker and special teamer. He caught 6 passes for 55 yards and 1 TD in 2025 as the TE2 behind Brenton Strange. One-year prove-it deal at $2M (up to $3M) is a depth retention. Brenton Strange is the clear TE1 and an extension candidate. TE is not a priority need \u2014 Morris maintains adequate TE2 depth.",
+      "contract_confidence": "high",
+      "source": "CBS Sports, SI.com"
     },
     {
       "player": "DeeJay Dallas",
@@ -161,12 +193,13 @@
         "guaranteed": null,
         "aav": 1300000
       },
-      "expected_role": "depth",
+      "expected_role": "depth/special teams",
       "market_tier": "minimum",
-      "need_impact": "minimal",
+      "need_impact": "none",
       "need_position": "RB",
-      "analysis": "Dallas re-signed on a 1-year, $1.3M deal. He provided depth coverage when Bhayshul Tuten dealt with a finger injury late in 2025. Veteran minimum-level deal; depth signing only. Does not move the needle on the RB need picture.",
-      "contract_confidence": "high"
+      "analysis": "Dallas served as RB depth in 2025 with 20 receptions, 227 yards, 1 TD and was a key special teamer. Veteran minimum re-sign. Provides depth behind Rodriguez/Tuten but does not address the bell-cow RB void meaningfully.",
+      "contract_confidence": "high",
+      "source": "Big Cat Country, Jaguars.com"
     },
     {
       "player": "Matt Dickerson",
@@ -179,54 +212,38 @@
         "guaranteed": null,
         "aav": 1500000
       },
-      "expected_role": "depth",
+      "expected_role": "rotational",
       "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "IDL",
-      "analysis": "Dickerson re-signed on a 1-year, $1.5M deal. He became a key rotational piece on the IDL after being promoted to the active roster mid-season in 2025. Near-minimum contract; quality depth but does not address any starter-level IDL need.",
-      "contract_confidence": "high"
+      "analysis": "Dickerson was signed to the active roster during 2025 and became a rotational piece on the interior defensive line. One-year, $1.5M re-sign is depth retention. IDL/DT remains a noted pre-FA need \u2014 the Jaguars led the league in rushing defense in 2025 but struggled at times to generate interior pass-rush pressure. Dickerson does not solve that problem.",
+      "contract_confidence": "high",
+      "source": "Big Cat Country, Jaguars.com"
     },
     {
-      "player": "Jakobi Meyers",
-      "position": "WR",
-      "age": 29,
-      "previous_team": "Las Vegas Raiders (via trade, re-signed via extension)",
+      "player": "Christian Braswell",
+      "position": "CB",
+      "age": 24,
+      "previous_team": "Jacksonville Jaguars (re-sign, ERFA tender)",
       "contract": {
-        "years": 3,
-        "total_value": 60000000,
-        "guaranteed": 40000000,
-        "aav": 20000000
+        "years": 1,
+        "total_value": 1100000,
+        "guaranteed": 1100000,
+        "aav": 1100000
       },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "fully_addressed",
-      "need_position": "WR",
-      "analysis": "Meyers was acquired at the 2025 trade deadline from Las Vegas for a 2026 4th and 6th round pick, then signed a 3-year, $60M extension with $40M guaranteed in December 2025. The $40M in guarantees and $20M AAV signals genuine starter-level investment. He immediately became the team's top receiver in 2025 (27 catches, 355 yards in 6 games with the Jaguars). This is a fully resolved WR position alongside Brian Thomas Jr. and Travis Hunter. Note: The 4th/6th round picks paid for this deal reduce 2026 draft capital.",
-      "contract_confidence": "high"
-    },
-    {
-      "player": "Cole Van Lanen",
-      "position": "OT",
-      "age": 27,
-      "previous_team": "Jacksonville Jaguars (extension)",
-      "contract": {
-        "years": 3,
-        "total_value": 51000000,
-        "guaranteed": 32500000,
-        "aav": 17000000
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "fully_addressed",
-      "need_position": "OT",
-      "analysis": "Van Lanen signed a 3-year, $51M extension ($32.5M guaranteed, can reach $55.5M) in January 2026, locking up the starting LT through 2029. His versatility (starts at LT, LG, RG, RT) and the commitment level of this deal signals that OT/LT is solidified. $17M AAV is solidly in the starter tier for OT. HC Liam Coen specifically identified Van Lanen as the permanent LT going forward. OT is no longer a primary draft need.",
-      "contract_confidence": "high"
+      "expected_role": "depth/special teams",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "CB",
+      "analysis": "Braswell was an ERFA retained at the minimum. Played 17 games in 2025 with 14 tackles and 3 PDs. Depth CB4/special teams contributor. No needle movement on CB need.",
+      "contract_confidence": "high",
+      "source": "Jaguars.com"
     },
     {
       "player": "Keith Taylor",
       "position": "CB",
-      "age": 26,
-      "previous_team": "Jacksonville Jaguars (re-sign)",
+      "age": 27,
+      "previous_team": "Jacksonville Jaguars (re-sign, RFA tender)",
       "contract": {
         "years": 1,
         "total_value": 1200000,
@@ -237,197 +254,169 @@
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "CB",
-      "analysis": "Taylor re-signed on a 1-year, $1.2M deal. He appeared in 17 games in 2025, primarily as depth. Near-minimum contract; does not change the CB need picture in any meaningful way.",
-      "contract_confidence": "high"
+      "analysis": "Taylor was retained as a depth CB. No impact on starting depth chart.",
+      "contract_confidence": "high",
+      "source": "Big Cat Country"
     },
     {
-      "player": "Christian Braswell",
-      "position": "CB",
-      "age": 24,
-      "previous_team": "Jacksonville Jaguars (re-sign, ERFA tender)",
+      "player": "Jakobi Meyers",
+      "position": "WR",
+      "age": 29,
+      "previous_team": "Jacksonville Jaguars (extension signed Dec. 19, 2025)",
       "contract": {
-        "years": 1,
-        "total_value": 1100000,
-        "guaranteed": null,
-        "aav": 1100000
+        "years": 3,
+        "total_value": 60000000,
+        "guaranteed": 40000000,
+        "aav": 20000000
       },
-      "expected_role": "depth",
-      "market_tier": "minimum",
+      "expected_role": "starter/WR2",
+      "market_tier": "starter",
       "need_impact": "none",
-      "need_position": "CB",
-      "analysis": "Braswell re-signed on an ERFA tender, 1-year, $1.1M. He had 14 tackles and 3 PDs in 2025. Exclusive rights tender; locks in developmental depth. No material impact on needs.",
-      "contract_confidence": "high"
+      "need_position": "WR",
+      "analysis": "Meyers was acquired via trade from the Las Vegas Raiders at the 2025 deadline and immediately transformed the offense (5-1 record after acquisition, 27 catches, 355 yards, 3 TDs over 6 games). He signed a 3yr/$60M extension in December 2025 with $40M guaranteed ($30M fully guaranteed at signing). This was a pre-free-agency retention that locked in the WR2 behind Brian Thomas Jr. through 2028. WR is not a need.",
+      "contract_confidence": "high",
+      "source": "NFL.com, OverTheCap.com, Spotrac.com"
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
-      "CB",
-      "WR",
-      "OT"
+      "CB"
     ],
     "partially_addressed": [
       "RB"
     ],
     "minimally_addressed": [
       "IDL",
-      "TE",
-      "EDGE"
+      "LB"
     ],
     "unchanged": [
-      "S"
+      "WR",
+      "TE",
+      "OT",
+      "IOL",
+      "EDGE",
+      "QB"
     ],
     "escalated": [
-      "LB"
+      "LB",
+      "S"
     ]
   },
   "recommended_need_adjustments": [
     {
+      "position": "RB",
+      "previous_tier": 1,
+      "recommended_tier": 2,
+      "reasoning": "Travis Etienne (1,107 rush yds, 13 total TDs) signed a 4yr/$52M deal with the Saints \u2014 a massive departure. Chris Rodriguez Jr. (2yr/$10M, $6.2M gtd) partially fills the void and enters as a potential co-starter with Bhayshul Tuten. The committee approach is credible but Rodriguez is not an elite bell-cow, lacks Etienne's receiving ability, and the Jaguars still project a 3-man backfield. RB drops from critical need (tier 1) to a meaningful need (tier 2) \u2014 still worth targeting in the mid-rounds of the draft to develop a long-term lead back."
+    },
+    {
       "position": "LB",
       "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Devin Lloyd \u2014 2025 second-team All-Pro (81 tackles, 5 INTs, 1.5 sacks) \u2014 departed for Carolina on a 3-year, $45M deal. No replacement was signed in free agency. Ventrell Miller and Jack Kiser are the internal options but neither is a proven starter. LB is now the team's most critical draft need \u2014 must be addressed in rounds 1-3 of the 2026 draft."
-    },
-    {
-      "position": "RB",
-      "previous_tier": 3,
-      "recommended_tier": 2,
-      "reasoning": "Travis Etienne signed a 4-year, $52M deal with New Orleans. The Jaguars replaced him with Chris Rodriguez Jr. (2yr/$10M, depth-tier AAV) and retained DeeJay Dallas ($1.3M). Bhayshul Tuten is the presumed RB1 but has only 307 career rushing yards. Rodriguez is a rotational back, not a proven feature back. RB escalates to a tier 2 mid-round draft need \u2014 likely rounds 3-5."
+      "reasoning": "Devin Lloyd (2nd-team All-Pro, 5 INTs, 81 tackles) signed a 3yr/$45M deal with Carolina \u2014 one of the biggest defensive departures in the offseason. Dennis Gardeck's re-sign (2yr/$6.5M) keeps a pass-rush specialist but does NOT replace Lloyd's every-down role in coverage. Internal replacement is Ventrell Miller, who has not proven himself as an NFL starter. LB escalates to tier 1 critical need \u2014 should be a priority in rounds 2-4 of the draft."
     },
     {
       "position": "CB",
       "previous_tier": 2,
-      "recommended_tier": 4,
-      "reasoning": "Montaric Brown re-signed on a 3-year, $33M deal, locking in the CB2 opposite Travis Hunter. Combined with Jourdan Lewis, Jarrian Jones, and Braswell, the Jaguars have outstanding CB depth. Greg Newsome's departure is immaterial given this depth. CB drops from a need to a luxury pick at best."
-    },
-    {
-      "position": "WR",
-      "previous_tier": 2,
-      "recommended_tier": 4,
-      "reasoning": "Jakobi Meyers signed a 3-year, $60M extension ($40M guaranteed) in December 2025. With Brian Thomas Jr. and Travis Hunter also under contract, Jacksonville has three legitimate starting-caliber receivers. WR is no longer a draft need."
-    },
-    {
-      "position": "OT",
-      "previous_tier": 2,
-      "recommended_tier": 4,
-      "reasoning": "Cole Van Lanen signed a 3-year, $51M extension ($32.5M guaranteed) cementing him as the starting LT. HC Coen publicly identified Van Lanen as the permanent LT. Walker Little remains on the roster as a swing tackle/potential trade asset. OT is no longer a primary draft need."
+      "recommended_tier": 3,
+      "reasoning": "Montaric Brown's 3yr/$31.8M re-sign ($20.65M gtd) locks in the CB2 alongside Travis Hunter. Brown led the team with 12 PBUs and posted elite coverage metrics in 2025. The starting CB need is fully resolved. Greg Newsome II's departure (signed 1yr/$8M with Giants) slightly thins the depth, leaving Jarrian Jones (slot), Jourdan Lewis, and Braswell/Taylor behind the top two. CB drops from tier 2 to tier 3 \u2014 depth/developmental pick only, not a premium need."
     },
     {
       "position": "IDL",
-      "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "Matt Dickerson's re-signing (1yr/$1.5M) is strictly depth. With Arik Armstead possibly a cap casualty candidate and Austin Johnson departed, IDL depth/starter quality is still a concern. No change in tier \u2014 IDL remains a mid-round draft target."
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Matt Dickerson's 1yr/$1.5M re-sign maintains rotational depth but does not address the interior pass-rush problem. The Jaguars noted pre-FA need at DT for interior pressure generation is UNCHANGED. With Arik Armstead's future uncertain (potential cut/restructure candidate) and no outside DT addition, IDL remains a tier 2 need heading into the draft. DT/IDL is commonly projected for Jacksonville in mock drafts."
     },
     {
-      "position": "EDGE",
+      "position": "S",
       "previous_tier": 3,
       "recommended_tier": 3,
-      "reasoning": "Gardeck's re-signing (2yr/$6.5M) is rotational/depth. He is 31 years old and at below-starter money. Travon Walker remains as the primary EDGE. EDGE is still a legitimate mid-round draft target \u2014 no change in tier."
+      "reasoning": "Andrew Wingard's departure (to Cardinals, 1yr deal) removes a starter-level safety who had been with the franchise for 7 years. Eric Murray and Antonio Johnson start with rookie Caleb Ransaw (returning from IR) in the depth mix. The loss is real but the team has reasonable continuity at the position. Safety remains a tier 3 depth need \u2014 Wingard's specific role was primarily run-stopping and special teams and the overall unit is adequate."
+    },
+    {
+      "position": "WR",
+      "previous_tier": 4,
+      "recommended_tier": 4,
+      "reasoning": "Jakobi Meyers (3yr/$60M, $40M gtd, Dec. 2025 extension) joins Brian Thomas Jr. and Travis Hunter as locked-in starters through the prime years. Dyami Brown and Tim Patrick departures thin depth but don't impact the starting group. WR is not a draft priority \u2014 tier 4 luxury at best."
     }
   ],
   "team_page_additions": {
     "key_additions": [
       {
-        "player": "Jakobi Meyers",
-        "position": "WR",
-        "contract_summary": "3yr/$60M ($40M gtd)",
-        "previous_team": "Las Vegas Raiders (trade + extension)",
-        "headline": "Slot receiver re-signed as starter; $40M guaranteed cost Jacksonville a 2026 4th and 6th round pick in trade"
-      },
-      {
-        "player": "Cole Van Lanen",
-        "position": "OT",
-        "contract_summary": "3yr/$51M ($32.5M gtd, up to $55.5M)",
-        "previous_team": "Jacksonville Jaguars (extension)",
-        "headline": "Versatile starting LT locked up through 2029, securing Trevor Lawrence's blindside"
-      },
-      {
         "player": "Montaric Brown",
         "position": "CB",
-        "contract_summary": "3yr/$33M",
+        "contract_summary": "3yr/$31.8M ($20.65M gtd)",
         "previous_team": "Jacksonville Jaguars (re-sign)",
-        "headline": "Team's top CB2 (12 PBUs in 2025) re-signed below market value, solidifying elite CB room opposite Travis Hunter"
+        "headline": "Team-high 12 PBUs and elite coverage metrics earn Brown a multi-year commitment as the locked-in CB2 opposite Travis Hunter"
       },
       {
         "player": "Chris Rodriguez Jr.",
         "position": "RB",
-        "contract_summary": "2yr/$10M ($6.2M gtd, up to $12M)",
+        "contract_summary": "2yr/$10M ($6.2M gtd, max $12M)",
         "previous_team": "Washington Commanders",
-        "headline": "Rotational RB with Coen connection added to complement Bhayshul Tuten after Etienne's departure"
+        "headline": "Former Coen pupil at Kentucky brought in as Etienne's replacement in a 1A/1B committee with Bhayshul Tuten"
       },
       {
         "player": "Dennis Gardeck",
-        "position": "EDGE",
-        "contract_summary": "2yr/$6.5M",
+        "position": "LB",
+        "contract_summary": "2yr/$6.5M ($3.65M gtd)",
         "previous_team": "Jacksonville Jaguars (re-sign)",
-        "headline": "Hybrid pass rusher/special teams ace retained; 2.5 sacks and 9 QB hits in 2025"
+        "headline": "Pass-rush specialist with 25 pressures and 2.5 sacks re-signed to maintain depth after Lloyd's departure"
       },
       {
-        "player": "Quintin Morris",
-        "position": "TE",
-        "contract_summary": "1yr/$2M",
-        "previous_team": "Jacksonville Jaguars (re-sign)",
-        "headline": "Blocking TE retained on depth deal to anchor the run/pass-protection TE role"
+        "player": "Jakobi Meyers",
+        "position": "WR",
+        "contract_summary": "3yr/$60M ($40M gtd) \u2014 extension signed Dec. 19, 2025",
+        "previous_team": "Jacksonville Jaguars (extension)",
+        "headline": "Midseason trade acquisition locked up through 2028 after transforming the offense; $40M guaranteed signals long-term WR2 commitment"
       }
     ],
     "key_losses": [
-      {
-        "player": "Devin Lloyd",
-        "position": "LB",
-        "contract_summary": "3yr/$45M with Panthers",
-        "new_team": "Carolina Panthers",
-        "headline": "Second-team All-Pro LB (5 INTs, 99-yd pick-six) departs; biggest hole on the 2026 roster"
-      },
       {
         "player": "Travis Etienne Jr.",
         "position": "RB",
         "contract_summary": "4yr/$52M with Saints",
         "new_team": "New Orleans Saints",
-        "headline": "Four-year Jaguar and 1,107-yard rusher in 2025 signs with hometown Saints; Tuten inherits RB1 role"
+        "headline": "Franchise RB (1,107 rush yds, 13 total TDs in 2025) returns home to Louisiana on a $52M deal the cap-strapped Jaguars could not match"
+      },
+      {
+        "player": "Devin Lloyd",
+        "position": "LB",
+        "contract_summary": "3yr/$45M ($25M gtd) with Panthers",
+        "new_team": "Carolina Panthers",
+        "headline": "Second-team All-Pro linebacker (5 INTs, 81 tackles) leaves after a breakout 2025 season, creating Jacksonville's biggest defensive hole"
       },
       {
         "player": "Greg Newsome II",
         "position": "CB",
-        "contract_summary": "1yr/$10M with Giants",
+        "contract_summary": "1yr/$8M with Giants",
         "new_team": "New York Giants",
-        "headline": "Mid-season trade acquisition (12 games, 6 PDs) departs; impact offset by Brown re-signing and deep CB room"
+        "headline": "Midseason trade acquisition and CB2/CB3 departs on a prove-it deal, thinning cornerback depth behind Brown and Hunter"
       },
       {
         "player": "Andrew Wingard",
         "position": "S",
         "contract_summary": "1yr deal with Cardinals",
         "new_team": "Arizona Cardinals",
-        "headline": "Depth/special teams safety departs on a 1-year deal; Eric Murray remains as starting S"
-      },
-      {
-        "player": "Johnny Mundt",
-        "position": "TE",
-        "contract_summary": "Released (saved $2.7M cap)",
-        "new_team": "Philadelphia Eagles",
-        "headline": "Depth TE released for cap savings; Quintin Morris fills blocking TE role"
+        "headline": "7-year Jaguars fan favorite and starter departs, ending a beloved tenure and adding to the safety depth question"
       }
     ]
   },
   "confidence": "high",
-  "notes": [
-    "Travis Etienne contract: ESPN/Schefter reported 4yr/$52M; Big Cat Country/OverTheCap cites 4yr/$48M. Using ESPN/Schefter as primary source ($52M). Guarantees not yet reported publicly.",
-    "Devin Lloyd contract: Multiple sources confirm 3yr/$45M with Panthers. Guarantees not yet reported.",
-    "Montaric Brown contract: Brown's exact guarantees not publicly reported. AAV $11M falls in the starter tier for CB.",
-    "Dennis Gardeck contract: Big Cat Country/OverTheCap reports 2yr/$6.5M; Roundtable and Black and Teal report 2yr/$12M. Using the OverTheCap-sourced figure ($6.5M) as the primary source per quality hierarchy.",
-    "Cap space figures reflect a heavily restructured cap situation. Pre-FA space was approximately $100K-$110K after restructures of Lewis, Murray, and Mekari. OverTheCap shows the team slightly over cap as of March 2026 at -$1.1M; more moves expected.",
-    "The Jaguars sacrificed 2026 4th and 6th round picks in the Meyers trade. This reduces their draft capital, currently holding 11 picks in the 2026 draft per Big Cat Country."
-  ],
   "sources": [
     "https://www.espn.com/nfl/story/_/id/48084055/jacksonville-jaguars-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
     "https://www.jaguars.com/news/k000591-2026-jaguars-free-agent-tracker",
-    "https://www.jaguars.com/news/k000591-jaguars-first-free-agent-acquisition-of-2026-rb-chris-rodriguez-jr",
-    "https://www.bigcatcountry.com/nfl-free-agency/83205/2026-nfl-free-agency-tracker-roster-moves",
-    "https://www.bigcatcountry.com/nfl-free-agency/83198/former-jaguars-lb-devin-lloyd-signs-with-panthers",
-    "https://blackandteal.com/jaguars-free-agency-tracker-2026-signings-departures-cap-space-analysis-01kk70j7apgb",
-    "https://roundtable.io/sports/nfl/jaguars/news/jacksonville-jaguars-free-agency-2026-roundup",
-    "https://www.espn.com/nfl/story/_/id/48154728/source-ex-jaguars-rb-travis-etienne-jr-sign-saints",
-    "https://www.espn.com/nfl/story/_/id/47350292/sources-jaguars-wr-jakobi-meyers-finalizing-3-year-60m-deal",
-    "https://www.espn.com/nfl/story/_/id/47487071/jaguars-cole-van-lanen-reach-3-year-contract-extension",
+    "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/jax",
     "https://overthecap.com/salary-cap/jacksonville-jaguars",
-    "https://www.spotrac.com/nfl/jacksonville-jaguars/cap"
+    "https://www.bigcatcountry.com/nfl-free-agency/83205/2026-nfl-free-agency-tracker-roster-moves",
+    "https://blackandteal.com/jaguars-free-agency-tracker-2026-signings-departures-cap-space-analysis-01kk70j7apgb",
+    "https://www.si.com/nfl/jaguars/onsi/jacksonville-found-friendly-solutions-with-montaric-brown-dennis-gardeck-deals",
+    "https://www.spotrac.com/nfl/player/_/id/82497/chris-rodriguez-jr",
+    "https://www.spotrac.com/nfl/player/_/id/72405/travis-etienne",
+    "https://www.spotrac.com/nfl/player/_/id/76881/devin-lloyd",
+    "https://www.nfl.com/news/panthers-signing-pass-rusher-jaelan-phillips-to-four-year-120-million-contract",
+    "https://www.jaguars.com/news/k000591-free-agency-26-just-getting-started",
+    "https://www.profootballrumors.com/2025/12/jaguars-finalizing-extension-with-wr-jakobi-meyers",
+    "https://overthecap.com/player/jakobi-meyers/8083"
   ]
 }

@@ -1,39 +1,25 @@
 {
   "team": "MIN",
   "team_full": "Minnesota Vikings",
-  "updated_through": "2026-03-13",
-  "cap_space_pre_fa": "$29600000",
-  "cap_space_post_fa": "$8913599",
+  "updated_through": "2026-03-16",
+  "cap_space_pre_fa": "28000000",
+  "cap_space_post_fa": "5914912",
   "key_departures": [
-    {
-      "player": "Ryan Kelly",
-      "position": "IOL",
-      "age": 32,
-      "role": "starter",
-      "new_team": "RETIRED",
-      "impact": "4x Pro Bowl center retired after suffering three concussions in 2025, playing only 8 games. Was PFF's 4th-ranked center when active. Leaves a clear void at the most important interior line position.",
-      "need_impact": "creates",
-      "need_position": "IOL"
-    },
     {
       "player": "Jalen Nailor",
       "position": "WR",
-      "age": 25,
+      "age": 27,
       "role": "starter",
       "new_team": "Las Vegas Raiders",
-      "impact": "Signed a 3yr/$35M deal with Raiders. Was WR3 behind Jefferson and Addison but a reliable speed threat. Departure leaves WR depth thin and may force Jordan Addison 5th-year option decision.",
-      "need_impact": "escalates",
+      "contract_signed_elsewhere": {
+        "years": 3,
+        "total_value": 35000000,
+        "guaranteed": 23000000,
+        "aav": 11666667
+      },
+      "impact": "Nailor was Minnesota's WR3 and primary slot/speed option behind Jefferson and Addison. Signed a 3yr/$35M deal with the Raiders. Vikings opted not to match at $11.7M/yr given tight cap. Creates a legitimate hole at WR depth.",
+      "need_impact": "creates",
       "need_position": "WR"
-    },
-    {
-      "player": "Harrison Smith",
-      "position": "S",
-      "age": 37,
-      "role": "starter",
-      "new_team": "TBD/unsigned",
-      "impact": "Released with post-June 1 designation while he weighs retirement. Franchise legend, 14-year career. Vikings said they'd welcome him back if he plays. Functional starter-level hole at S until decision made.",
-      "need_impact": "escalates",
-      "need_position": "S"
     },
     {
       "player": "Jonathan Allen",
@@ -41,27 +27,65 @@
       "age": 31,
       "role": "starter",
       "new_team": "Cincinnati Bengals",
-      "impact": "Cap casualty. Released post-June 1 to save ~$10M. Was Vikings' highest cap number at $23.87M. Underperformed on 3yr/$51M deal \u2014 only 1 sack, 14 pressures in 17 games. Signed 2yr/$28M with Bengals. Production loss is minimal given Redmond's emergence.",
-      "need_impact": "none",
+      "contract_signed_elsewhere": {
+        "years": 2,
+        "total_value": 28000000,
+        "guaranteed": null,
+        "aav": 14000000
+      },
+      "impact": "Released by MIN as a cap casualty ($6.5M savings) after a disappointing first year (1 sack, 14 pressures in 17 games \u2014 second-worst PFF grade among defensive starters). Departed as a cut, not a free agent walk. Leaves a hole at IDL but his performance was poor enough that departure is a net neutral-to-positive.",
+      "need_impact": "escalates",
       "need_position": "IDL"
     },
     {
       "player": "Javon Hargrave",
       "position": "IDL",
       "age": 33,
-      "role": "rotational",
+      "role": "starter",
       "new_team": "Green Bay Packers",
-      "impact": "Cap casualty. Released to free ~$10.9M in cap. Had 3.5 sacks, 6 QB hits in 16 games on 2yr/$30M deal. Signed 2yr/$23M with Packers ($13M gtd). Redmond's emergence made this loss manageable.",
-      "need_impact": "none",
+      "contract_signed_elsewhere": {
+        "years": 2,
+        "total_value": 23000000,
+        "guaranteed": 13000000,
+        "aav": 11500000
+      },
+      "impact": "Released as cap casualty ($10.9M savings). Generated 31 pressures and 4 sacks in 2025 \u2014 serviceable but costly. Departure alongside Allen leaves the IDL critically thin, now led only by ERFA Jalen Redmond.",
+      "need_impact": "escalates",
       "need_position": "IDL"
+    },
+    {
+      "player": "Harrison Smith",
+      "position": "S",
+      "age": 37,
+      "role": "starter",
+      "new_team": "TBD/unsigned (possibly retiring)",
+      "impact": "Released with post-June 1 designation. Future unclear \u2014 may retire, may return to MIN or sign elsewhere. 14-year Viking and franchise icon. Leaves a starter-caliber void at safety. Still unsettled \u2014 Vikings would welcome him back per reports.",
+      "need_impact": "escalates",
+      "need_position": "S"
+    },
+    {
+      "player": "Ryan Kelly",
+      "position": "IOL",
+      "age": 32,
+      "role": "starter",
+      "new_team": "RETIRED",
+      "impact": "Retired due to concussion history (3 documented concussions in 2025 season alone). Played only 8 games. Was brought in as starting center upgrade \u2014 now departed. Blake Brandel is the default internal option. No center has been signed externally. Massive hole created at the position.",
+      "need_impact": "creates",
+      "need_position": "IOL"
     },
     {
       "player": "Ryan Wright",
       "position": "P",
-      "age": 26,
+      "age": 25,
       "role": "starter",
       "new_team": "New Orleans Saints",
-      "impact": "Signed a 4yr/$14M deal with Saints ($8M gtd). Was the Vikings' punter for 4 seasons and also served as the critical holder for All-Pro kicker Will Reichard. Departure creates a real special teams void \u2014 finding a new holder is urgent.",
+      "contract_signed_elsewhere": {
+        "years": 4,
+        "total_value": 18000000,
+        "guaranteed": null,
+        "aav": 4500000
+      },
+      "impact": "Surprise departure. Coming off his best season (44.5 yards/punt average, league-high 77-yard punt). Also served as Will Reichard's holder \u2014 his departure disrupts kicking game continuity. Creates punter AND holder need.",
       "need_impact": "creates",
       "need_position": "P"
     },
@@ -69,40 +93,40 @@
       "player": "C.J. Ham",
       "position": "RB",
       "age": 31,
-      "role": "depth",
+      "role": "starter (FB)",
       "new_team": "RETIRED",
-      "impact": "Longtime starting fullback and team captain retired after 9 seasons. 2x Pro Bowler at FB. Minimal positional impact on team needs given scarcity of fullback usage in modern NFL.",
+      "impact": "Two-time Pro Bowl fullback retired after 2025 season. Loss of a fan favorite and key blocking piece. Vikings do not carry a clear FB successor.",
       "need_impact": "none",
       "need_position": "RB"
     },
     {
-      "player": "Ben Sims",
-      "position": "TE",
-      "age": 25,
+      "player": "Ty Chandler",
+      "position": "RB",
+      "age": 26,
       "role": "depth",
-      "new_team": "Miami Dolphins",
-      "impact": "Vikings elected not to tender restricted FA. Played 83 offensive snaps as TE3 blocking tight end. Minimal positional impact.",
+      "new_team": "TBD/unsigned",
+      "impact": "Depth RB not expected to return. Missed most of 2025 with injury. With Aaron Jones restructured and Mason in place, his departure has minimal impact.",
       "need_impact": "none",
-      "need_position": "TE"
+      "need_position": "RB"
     }
   ],
   "signings": [
     {
       "player": "Kyler Murray",
       "position": "QB",
-      "age": 28,
-      "previous_team": "Arizona Cardinals",
+      "age": 27,
+      "previous_team": "Arizona Cardinals (released)",
       "contract": {
         "years": 1,
         "total_value": 1300000,
         "guaranteed": 1300000,
         "aav": 1300000
       },
-      "expected_role": "starter",
+      "expected_role": "starter (competing with J.J. McCarthy)",
       "market_tier": "minimum",
       "need_impact": "partially_addressed",
       "need_position": "QB",
-      "analysis": "One-year veteran minimum deal worth only $1.3M to Minnesota \u2014 the Cardinals continue paying Murray $35.5M in 2026 guarantees from his previous contract. The deal includes a no-tag clause, guaranteeing Murray hits free agency after 2026. Despite the minimal contract cost to MIN, this is a legitimate starter-level acquisition: Murray is a 2x Pro Bowler, dual-threat QB who will almost certainly win the starting job over J.J. McCarthy (35.6 QBR in 2025, ranked 24th of 26 qualifiers). However, the 1-year structure signals this is a bridge, not a long-term solution. QB need is partially addressed \u2014 starter quality for 2026, but the long-term question around McCarthy and franchise QB identity remains unresolved. Vikings cannot franchise tag Murray next offseason per the deal terms. Injury history (torn ACL, foot injury) is a real risk."
+      "analysis": "One-year deal at veteran minimum ($1.3M) \u2014 Murray still being paid by Arizona on his old contract, allowing MIN to get him cheaply. This is a bridge/competition deal, not a long-term commitment. It adds a high-ceiling option to push McCarthy and provides short-term starter insurance, but the 1-year structure with minimal guarantees signals this is a prove-it/transition setup. Vikings still need a long-term QB answer via the draft. QB remains a real draft priority despite this signing."
     },
     {
       "player": "Eric Wilson",
@@ -119,7 +143,7 @@
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "LB",
-      "analysis": "Re-signed to a 3yr/$22.5M deal with $12.5M fully guaranteed. Wilson had a career year in 2025 after stepping in for injured Blake Cashman, posting 115 tackles, 17 TFLs, 4 forced fumbles and 6.5 sacks. The $12.5M in full guarantees on a 3-year deal represents real commitment \u2014 this is their LB1. At $7.5M AAV, this is mid-market for LB (starter tier). With Wilson and Cashman both under contract, LB need is fully addressed. The team may still want LB depth given Wilson is 31 and Cashman is 30, but it's no longer a top-tier draft need."
+      "analysis": "Wilson had a career year in 2025 (6.5 sacks, 17 TFLs, 115 tackles, 4 FFs) as the Green Dot LB in Flores' system. The 3-year deal with $12.5M fully guaranteed is a real investment \u2014 this is their guy. Paired with Blake Cashman (under contract), the LB corps is solidified. Need fully addressed. Their ages (31 and 30) make eventual depth development important, but for 2026 this position is closed."
     },
     {
       "player": "James Pierre",
@@ -132,11 +156,28 @@
         "guaranteed": 3715000,
         "aav": 4250000
       },
-      "expected_role": "depth",
+      "expected_role": "depth/CB3",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "CB",
-      "analysis": "2yr/$8.5M with $3.7M guaranteed. Pierre is primarily a special teams contributor \u2014 played 26% of Steelers' defensive snaps over 2024-25 but had an elite 86.2 PFF grade on 408 snaps in 2025. At $4.25M AAV, this is well below starter-CB money. The Vikings still only have Byron Murphy Jr. and Isaiah Rodgers as established starters, plus McGlothern and Vaughn behind them. Pierre adds depth and special teams value but does not resolve the CB depth concern, particularly as a true CB3/4 for defensive snaps. CB need is minimally addressed."
+      "analysis": "Pierre played 26% of defensive snaps for Pittsburgh over the last two seasons \u2014 he is a depth and special teams addition, not a starter. Vikings entered FA with only Murphy and Rodgers as established CBs. This signing adds a third body but does not solve the CB depth problem at a starter level. CB remains a draft need. The 2-year deal with only $3.7M guaranteed confirms this is a depth/competition signing."
+    },
+    {
+      "player": "Aaron Jones",
+      "position": "RB",
+      "age": 31,
+      "previous_team": "Minnesota Vikings (restructure/re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 5600000,
+        "guaranteed": 5000000,
+        "aav": 5600000
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "fully_addressed",
+      "need_position": "RB",
+      "analysis": "Jones restructured his deal down to $5.6M ($5M guaranteed) from a higher number, avoiding release. He rushed for 1,138 yards in 2025. Paired with Jordan Mason (already on roster, 2yr/$10.5M), the RB room is legitimate with a clear 1A/1B tandem. RB need is resolved for 2026. Jones is 31 with durability concerns \u2014 a developmental pick in the draft is still sensible long term but this is not a pressing draft need."
     },
     {
       "player": "Tavierre Thomas",
@@ -146,14 +187,14 @@
       "contract": {
         "years": 2,
         "total_value": 4600000,
-        "guaranteed": 0,
+        "guaranteed": 2300000,
         "aav": 2300000
       },
-      "expected_role": "depth",
+      "expected_role": "depth/special teams",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "S",
-      "analysis": "Re-signed on a 2yr/$4.6M deal. Thomas was the Vikings' best special teams player in 2025 with a team-high 19 tackles, but played only 18 defensive snaps all season. He is not a starter-level safety. With Harrison Smith released and only Josh Metellus, Theo Jackson, and Jay Ward as primary safety options, S remains a real need. This re-signing only addresses special teams continuity, not the starting-safety void left by Smith's departure."
+      "analysis": "Thomas was the team's top special teams player in 2025 (team-high 19 tackles, 83% ST snap rate) but played only 18 defensive snaps. He is a special teams ace, not a starter at safety. With Harrison Smith released and his return uncertain, safety remains a legitimate need. Thomas re-sign does nothing to fill the Smith void. S remains a priority draft/FA need."
     },
     {
       "player": "Andrew DePaola",
@@ -166,88 +207,88 @@
         "guaranteed": 1725000,
         "aav": 1725000
       },
-      "expected_role": "starter",
+      "expected_role": "starter (long snapper)",
       "market_tier": "starter",
       "need_impact": "none",
       "need_position": "LS",
-      "analysis": "Re-signed 1yr/$1.725M fully guaranteed. DePaola is one of the NFL's best long-snappers \u2014 named first- or second-team All-Pro in each of the past four seasons. His return provides critical continuity as the Vikings now seek a new punter/holder following Ryan Wright's departure. LS was not a need and remains addressed."
-    },
-    {
-      "player": "Bo Richter",
-      "position": "EDGE",
-      "age": 25,
-      "previous_team": "Minnesota Vikings (re-sign)",
-      "contract": {
-        "years": 1,
-        "total_value": 1075000,
-        "guaranteed": 1075000,
-        "aav": 1075000
-      },
-      "expected_role": "depth",
-      "market_tier": "minimum",
-      "need_impact": "none",
-      "need_position": "EDGE",
-      "analysis": "Re-signed on a 1yr/$1.075M deal (minimum). Richter is a core special teams player who played a career-high 372 special teams snaps in 2025 along with 52 defensive snaps. Not a factor in the EDGE pass-rush rotation in any meaningful capacity. Roster/special teams move only."
-    },
-    {
-      "player": "Aaron Jones",
-      "position": "RB",
-      "age": 31,
-      "previous_team": "Minnesota Vikings (restructure)",
-      "contract": {
-        "years": 1,
-        "total_value": 5600000,
-        "guaranteed": 5000000,
-        "aav": 5600000
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "partially_addressed",
-      "need_position": "RB",
-      "analysis": "Contract restructured to $5.6M with $5M guaranteed to keep Jones for 2026 after the Vikings considered releasing him. Jones had a down 2025 season \u2014 career-low 4.2 YPC in 12 games after a career-high 1,138 rushing yards in 2024. At 31 and on a 1-year deal, this is a bridge. RB is partially addressed for 2026 but the Vikings should still target a young RB in the draft."
+      "analysis": "Four-time consecutive All-Pro long snapper returns. Continuity move especially important after Ryan Wright's departure as holder. DePaola's return provides stability as Vikings search for a new punter/holder. Not a positional need area."
     },
     {
       "player": "Jalen Redmond",
       "position": "IDL",
       "age": 26,
-      "previous_team": "Minnesota Vikings (exclusive rights tender)",
+      "previous_team": "Minnesota Vikings (ERFA tender)",
       "contract": {
         "years": 1,
         "total_value": 1075000,
-        "guaranteed": 1075000,
+        "guaranteed": 0,
         "aav": 1075000
       },
       "expected_role": "starter",
       "market_tier": "minimum",
       "need_impact": "partially_addressed",
       "need_position": "IDL",
-      "analysis": "Tendered at exclusive rights minimum ($1.075M). Was arguably the Vikings' best defensive lineman in 2025 \u2014 6 sacks, 60+ tackles, started 15 games, played ~75% of defensive snaps. He's retained but only on a 1-year exclusive rights tender \u2014 he cannot negotiate with other teams. The Vikings likely want to extend him to a multi-year deal. With Allen and Hargrave both released, Redmond is now clearly IDL1 but the depth behind him is thin. IDL is partially addressed \u2014 starter is retained cheaply but the unit lacks proven depth and a multi-year commitment to Redmond is still needed."
+      "analysis": "Redmond was Minnesota's best IDL in 2025 (6 sacks, 12 TFLs, 15 starts, ~75% defensive snap rate). He is locked in via ERFA tender at minimum salary. However, the 1-year tender is not a long-term investment \u2014 extension talks are expected but nothing is signed. With Allen and Hargrave both gone, Redmond alone cannot shoulder the IDL. The group needs significant draft/FA reinforcement. IDL remains a tier 1 draft need despite Redmond's return. A multi-year extension would upgrade this assessment."
     },
     {
       "player": "Ivan Pace Jr.",
       "position": "LB",
       "age": 25,
-      "previous_team": "Minnesota Vikings (right-of-first-refusal tender)",
+      "previous_team": "Minnesota Vikings (RFA low tender)",
       "contract": {
         "years": 1,
-        "total_value": 3300000,
-        "guaranteed": 3300000,
-        "aav": 3300000
+        "total_value": 3547000,
+        "guaranteed": 0,
+        "aav": 3547000
       },
-      "expected_role": "rotational",
+      "expected_role": "rotational/depth",
       "market_tier": "depth",
       "need_impact": "none",
       "need_position": "LB",
-      "analysis": "Tendered at right-of-first-refusal level. Pace had a down 2025 season \u2014 career lows in starts (6), tackles (62), sacks (1), and QB hits (6). His missed tackle rate worsened each of his three seasons. The right-of-first-refusal tender means another team could sign him and the Vikings could match. LB was already addressed by Wilson's re-signing. Pace provides depth/rotational value."
+      "analysis": "Low tender (right of first refusal) applied. Pace started only 6 games in 2025, saw his production decline (62 tackles, 1 sack), and was displaced by Wilson. He is now a backup and special teamer. His retention at the low tender level signals the Vikings want insurance depth, not a starter. This is a non-move in terms of addressing needs \u2014 Wilson and Cashman are the starters."
+    },
+    {
+      "player": "Bo Richter",
+      "position": "EDGE",
+      "age": 25,
+      "previous_team": "Minnesota Vikings (ERFA tender)",
+      "contract": {
+        "years": 1,
+        "total_value": 1075000,
+        "guaranteed": 0,
+        "aav": 1075000
+      },
+      "expected_role": "special teams/depth EDGE",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "EDGE",
+      "analysis": "ERFA tender. Richter is a special teams ace (372 ST snaps in 2025, 52 defensive snaps). Not an impact pass rusher. Retention is a depth/ST continuity move only. Does not affect EDGE need picture."
+    },
+    {
+      "player": "Zavier Scott",
+      "position": "RB",
+      "age": 26,
+      "previous_team": "Minnesota Vikings (ERFA tender)",
+      "contract": {
+        "years": 1,
+        "total_value": 1075000,
+        "guaranteed": 0,
+        "aav": 1075000
+      },
+      "expected_role": "RB3/depth",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "RB",
+      "analysis": "ERFA tender. Scott rushed for 114 yards on 32 carries and caught 14 passes in 2025. He is RB3 depth behind Jones and Mason. The RB room is now adequately staffed for 2026. No RB need created or resolved by this move specifically."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
-      "LB"
+      "LB",
+      "RB"
     ],
     "partially_addressed": [
       "QB",
-      "RB",
       "IDL"
     ],
     "minimally_addressed": [
@@ -256,74 +297,76 @@
     ],
     "unchanged": [
       "EDGE",
-      "OT",
-      "TE",
-      "WR"
+      "OT"
     ],
     "escalated": [
       "IOL",
-      "WR",
-      "S"
+      "WR"
     ],
     "created": [
-      "IOL",
       "P"
     ]
   },
   "recommended_need_adjustments": [
     {
-      "position": "QB",
-      "previous_tier": 1,
-      "recommended_tier": 3,
-      "reasoning": "Kyler Murray signing provides a legitimate starter at near-zero cap cost ($1.3M to MIN). He is a 2x Pro Bowler expected to win the starting job. However, the 1-year deal with a no-tag clause means QB is still an unresolved long-term question \u2014 J.J. McCarthy's path is unclear and the team has no QB commitment beyond 2026. Drop from critical to tier 3: starter is set for 2026 but they may still want a developmental QB in the draft. Not a Round 1 need but a real mid-round consideration."
-    },
-    {
       "position": "IOL",
       "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Ryan Kelly's retirement (concussions, 8 games in 2025) leaves the center position vacant. Kelly was the fourth-ranked center by PFF when healthy. Michael Jurgens is the internal candidate entering Year 3, but the Vikings passed on every center in free agency (Tyler Linderbaum, Cade Mays, Luke Fortner, Tyler Biadsz, Elgton Jenkins all went elsewhere). Either the team loves Jurgens or center is a top-priority draft target. With no external addition made, IOL escalates to Tier 1 \u2014 a starter-level void exists."
+      "reasoning": "Ryan Kelly retired due to concussions after just 8 games. No external center has been signed. Most top FA centers (Linderbaum, Mays, Biadasz, Jenkins, Fortner) have already signed elsewhere per reports. Blake Brandel is the internal default \u2014 a clear downgrade from Kelly. Center is now the single most critical positional need on the entire roster heading into the draft."
+    },
+    {
+      "position": "IDL",
+      "previous_tier": 2,
+      "recommended_tier": 1,
+      "reasoning": "Both Jonathan Allen (released, signed Bengals) and Javon Hargrave (released, signed Packers) are gone. Jalen Redmond is retained via ERFA tender ($1.075M, no guarantees) and is the only established starter. The depth behind him is extremely thin. IDL is now a co-top need alongside IOL. One ERFA tender at minimum salary cannot address a two-starter departure."
     },
     {
       "position": "WR",
       "previous_tier": 3,
       "recommended_tier": 2,
-      "reasoning": "Jalen Nailor departed on a 3yr/$35M deal to Las Vegas. He was WR3 but a reliable speed option. Justin Jefferson (WR1) and Jordan Addison (WR2) remain, but Addison's 5th-year option decision ($18M for 2027) looms and he had a career-high 6 drops in 2025. No external WR added in free agency. WR depth is thin \u2014 escalates from tier 3 to tier 2. A Day 2 WR pick makes sense."
+      "reasoning": "Jalen Nailor signed a 3yr/$35M deal with the Raiders. WR3 spot is now open behind Jefferson and Addison. Tai Felton (2025 3rd-round pick) is the internal candidate but unproven. No WR signed in FA. Need escalated from depth to a real addressable concern in the mid-rounds of the draft."
     },
     {
       "position": "S",
       "previous_tier": 2,
-      "recommended_tier": 1,
-      "reasoning": "Harrison Smith released (post-June 1 designation, retirement decision pending). Even if Smith returns, he is 37 and a stop-gap. Josh Metellus, Theo Jackson, and Jay Ward are internal options \u2014 Ward showed promise late in 2025. Tavierre Thomas re-signed but plays almost no defensive snaps. The position lacks a proven starter-level presence. S escalates to tier 1; the draft must address this, likely Round 2-3."
-    },
-    {
-      "position": "IDL",
-      "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Allen and Hargrave released, but both were underperforming and expensive. Jalen Redmond (tendered) is retained as IDL1 \u2014 6 sacks, 60+ tackles in 2025 \u2014 and extension talks are expected. Depth behind Redmond is thin, but the net talent loss from releasing Allen and Hargrave is low given their poor production. IDL stays at tier 2 \u2014 Redmond is a cornerstone but depth and a potential extension are still needed."
+      "reasoning": "Harrison Smith released (post-June 1 designation, future uncertain). Tavierre Thomas re-signed but is a special teams player, not a starter (18 defensive snaps in 2025). Jay Ward is an internal candidate but also unproven as a full-time starter. Safety remains a clear need \u2014 unchanged from pre-FA. Still a tier 2 need."
     },
     {
-      "position": "LB",
+      "position": "QB",
       "previous_tier": 2,
-      "recommended_tier": 4,
-      "reasoning": "Eric Wilson re-signed 3yr/$22.5M ($12.5M guaranteed) \u2014 genuine multi-year starter commitment. Blake Cashman also under contract. LB drops to tier 4. The age (Wilson 31, Cashman 30) means a depth LB in Day 3 of the draft is sensible, but no longer a premium need."
+      "recommended_tier": 3,
+      "reasoning": "Kyler Murray signed on a 1-year/$1.3M veteran minimum deal. Adds a legitimate starter-caliber option alongside McCarthy and creates real QB room competition. However, the 1-year, minimum-salary structure is explicitly a bridge deal. This does NOT resolve the long-term QB question \u2014 the team still needs to determine if McCarthy is the franchise answer or if another QB is needed via the draft. Drops one tier due to the addition of a viable short-term starter, but QB development remains a relevant draft consideration."
     },
     {
       "position": "CB",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Pierre signing (2yr/$8.5M) is depth-only \u2014 minimal defensive snap projection. Byron Murphy Jr. and Isaiah Rodgers remain the only starters. The Vikings' safety-heavy nickel scheme reduces urgency for a CB3, but the lack of experienced depth still warrants a Day 2 cornerback in the draft. CB stays at tier 2."
+      "reasoning": "James Pierre signed on a 2yr/$8.5M deal ($3.7M gtd) as a depth CB3. Vikings entered FA with only Murphy and Rodgers as established CBs. Pierre adds a third body but is a depth/ST player, not a starter. CB depth is still a real need. Tier unchanged."
+    },
+    {
+      "position": "LB",
+      "previous_tier": 2,
+      "recommended_tier": 4,
+      "reasoning": "Eric Wilson re-signed on a 3yr/$22.5M deal with $12.5M fully guaranteed. He was one of the best LBs in the NFL in 2025 (6.5 sacks, 17 TFLs). Paired with Blake Cashman, and with Ivan Pace Jr. retained as depth, LB is fully stocked. Not a meaningful draft need."
     },
     {
       "position": "RB",
       "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "Aaron Jones restructured (1yr/$5.6M, $5M gtd) to remain as RB1 for 2026. Jones is 31 and had a down year. The Vikings have 3rd-year internal options (Ty Chandler, Zavier Scott) for depth. RB unchanged at tier 3 \u2014 a mid-round back to groom behind Jones makes sense given the age concern."
+      "recommended_tier": 4,
+      "reasoning": "Aaron Jones restructured to $5.6M and remains the starter. Jordan Mason already on roster (2yr/$10.5M, $7.23M gtd) as a proven co-starter. Zavier Scott re-signed as depth. RB room is one of the better ones in the NFC. Not a draft need in 2026."
     },
     {
       "position": "P",
       "previous_tier": 5,
       "recommended_tier": 2,
-      "reasoning": "Ryan Wright departure (4yr/$14M to Saints) creates a new need at punter. More critically, Wright was the holder for All-Pro kicker Will Reichard \u2014 losing the holder mid-continuity is a real risk for the kicking game. Vikings need to add a punter via free agency or draft (UDFA likely). Created need \u2014 treat as tier 2 urgency given the holding impact on Reichard."
+      "reasoning": "Ryan Wright unexpectedly signed with New Orleans on a 4yr/$18M deal. Wright was coming off his best season. No punter has been signed or identified by MIN. This also disrupts the holder role for All-Pro kicker Will Reichard. Punter is now a real and urgent need \u2014 rare for a position to jump this much but the hole is genuine."
+    },
+    {
+      "position": "EDGE",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "No EDGE signed externally. Bo Richter is a depth/ST player only. Jonathan Greenard trade discussions are ongoing per multiple reports \u2014 if he is traded, EDGE escalates to tier 1. Keeping Greenard leaves EDGE at tier 2 with Dallas Turner as the developmental piece. TIER UNCHANGED pending Greenard trade resolution."
     }
   ],
   "team_page_additions": {
@@ -331,133 +374,99 @@
       {
         "player": "Kyler Murray",
         "position": "QB",
-        "contract_summary": "1yr/$1.3M (vet min; ARI paying $35.5M in 2026 guarantees)",
+        "contract_summary": "1yr/$1.3M (fully gtd)",
         "previous_team": "Arizona Cardinals",
-        "headline": "2x Pro Bowl dual-threat QB joins at zero cap cost, expected to start over J.J. McCarthy in 2026"
+        "headline": "Former No. 1 overall pick and 2019 Offensive Rookie of the Year joins on minimum deal to compete with J.J. McCarthy"
       },
       {
         "player": "Eric Wilson",
         "position": "LB",
         "contract_summary": "3yr/$22.5M ($12.5M gtd)",
         "previous_team": "Minnesota Vikings (re-sign)",
-        "headline": "Breakout 2025 starter (6.5 sacks, 115 tackles) locked up on multi-year deal, eliminating LB as a draft need"
-      },
-      {
-        "player": "James Pierre",
-        "position": "CB",
-        "contract_summary": "2yr/$8.5M ($3.7M gtd)",
-        "previous_team": "Pittsburgh Steelers",
-        "headline": "Long cornerback (6-2) adds depth and elite special teams value; depth signing, not a starter solution"
-      },
-      {
-        "player": "Tavierre Thomas",
-        "position": "S",
-        "contract_summary": "2yr/$4.6M",
-        "previous_team": "Minnesota Vikings (re-sign)",
-        "headline": "Team's best special teams player retained; primarily a coverage ace on punts, not a defensive starter"
-      },
-      {
-        "player": "Jalen Redmond",
-        "position": "IDL",
-        "contract_summary": "1yr/$1.075M (exclusive rights tender)",
-        "previous_team": "Minnesota Vikings (tender)",
-        "headline": "2025's best Viking defender (6 sacks, 75% snap share) locked in on minimum tender; extension talks expected"
+        "headline": "Breakout 2025 starter (6.5 sacks, 17 TFLs) locked up long-term as the Green Dot LB in Flores' defense"
       },
       {
         "player": "Aaron Jones",
         "position": "RB",
         "contract_summary": "1yr/$5.6M ($5M gtd, restructured)",
         "previous_team": "Minnesota Vikings (restructure)",
-        "headline": "Veteran RB1 returns after contract restructure saves cap room; bridge option at 31 with limited ceiling"
+        "headline": "1,138-yard rusher avoids release after taking pay cut; returns as starter alongside Jordan Mason"
       },
       {
-        "player": "Andrew DePaola",
-        "position": "LS",
-        "contract_summary": "1yr/$1.725M (fully gtd)",
-        "previous_team": "Minnesota Vikings (re-sign)",
-        "headline": "4x All-Pro long snapper retained; critical continuity as team adjusts to a new punter/holder"
+        "player": "James Pierre",
+        "position": "CB",
+        "contract_summary": "2yr/$8.5M ($3.7M gtd)",
+        "previous_team": "Pittsburgh Steelers",
+        "headline": "Veteran depth corner adds third option to thin CB room primarily through special teams contributions"
       },
       {
-        "player": "Ivan Pace Jr.",
-        "position": "LB",
-        "contract_summary": "1yr/$3.3M (ROFR tender)",
+        "player": "Jalen Redmond",
+        "position": "IDL",
+        "contract_summary": "1yr/$1.075M (ERFA tender)",
         "previous_team": "Minnesota Vikings (tender)",
-        "headline": "Rotational linebacker retained on right-of-first-refusal tender after down 2025 season"
-      },
-      {
-        "player": "Bo Richter",
-        "position": "EDGE",
-        "contract_summary": "1yr/$1.075M",
-        "previous_team": "Minnesota Vikings (re-sign)",
-        "headline": "Core special teams contributor re-signed on minimum deal"
+        "headline": "Team's best IDL in 2025 (6 sacks, 12 TFLs) retained at minimum on ERFA tender; extension expected"
       }
     ],
     "key_losses": [
       {
+        "player": "Jalen Nailor",
+        "position": "WR",
+        "contract_summary": "3yr/$35M ($23M gtd) with Raiders",
+        "new_team": "Las Vegas Raiders",
+        "headline": "WR3 'Speedy' cashes in with Raiders at $11.7M/yr, leaving Minnesota's receiver depth chart thin behind Jefferson and Addison"
+      },
+      {
         "player": "Ryan Kelly",
         "position": "IOL",
         "contract_summary": "RETIRED",
-        "new_team": "RETIRED",
-        "headline": "4x Pro Bowl center retires after 3 concussions in 2025 (8 games played), leaving a starter-level void at center"
-      },
-      {
-        "player": "Jalen Nailor",
-        "position": "WR",
-        "contract_summary": "3yr/$35M ($23M gtd) with Las Vegas Raiders",
-        "new_team": "Las Vegas Raiders",
-        "headline": "WR3 speed threat departs for big Raiders contract, thinning an already shallow receiver depth chart"
-      },
-      {
-        "player": "Harrison Smith",
-        "position": "S",
-        "contract_summary": "Released (post-June 1); retirement TBD",
-        "new_team": "TBD/unsigned",
-        "headline": "Franchise legend (14 seasons, 39 INTs) released as cap casualty; decision on 2026 return still pending"
+        "new_team": "N/A",
+        "headline": "Starting center retired after three concussions in 2025 season, creating the team's single most critical positional void"
       },
       {
         "player": "Jonathan Allen",
         "position": "IDL",
-        "contract_summary": "2yr/$28M with Cincinnati Bengals",
+        "contract_summary": "Released (signed 2yr/$28M with Bengals)",
         "new_team": "Cincinnati Bengals",
-        "headline": "Cap casualty after underperforming 3yr/$51M deal (1 sack, 14 pressures); frees $10M+ in cap space"
+        "headline": "Cap casualty after disappointing first year (1 sack) \u2014 departure saves $6.5M but deepens IDL crisis"
       },
       {
         "player": "Javon Hargrave",
         "position": "IDL",
-        "contract_summary": "2yr/$23M ($13M gtd) with Green Bay Packers",
+        "contract_summary": "Released (signed 2yr/$23M with Packers)",
         "new_team": "Green Bay Packers",
-        "headline": "Cap casualty after disappointing 2yr/$30M deal; now joins rival Packers after freeing ~$10.9M in cap space"
+        "headline": "Second IDL starter released in cap purge ($10.9M savings), leaves Redmond as the only reliable piece on interior"
+      },
+      {
+        "player": "Harrison Smith",
+        "position": "S",
+        "contract_summary": "Released (post-June 1), future uncertain",
+        "new_team": "TBD/possibly retiring",
+        "headline": "14-year franchise icon released in procedural cap move while deciding on retirement; safety vacancy now looms large"
       },
       {
         "player": "Ryan Wright",
         "position": "P",
-        "contract_summary": "4yr/$14M ($8M gtd) with New Orleans Saints",
+        "contract_summary": "4yr/$18M with Saints",
         "new_team": "New Orleans Saints",
-        "headline": "4-year starting punter and critical holder for All-Pro kicker Will Reichard lost; creates new special teams void"
-      },
-      {
-        "player": "C.J. Ham",
-        "position": "RB",
-        "contract_summary": "RETIRED",
-        "new_team": "RETIRED",
-        "headline": "2x Pro Bowl fullback and 9-year team captain retires; minimal scheme impact in modern NFL"
+        "headline": "Surprise departure \u2014 punter and Reichard's holder signs with Saints after best season of career, disrupting Vikings' kicking operation"
       }
     ]
   },
   "confidence": "high",
+  "notes": "Jordan Mason (RB) was acquired via trade from the 49ers during the 2025 offseason (not 2026 FA), but is confirmed on roster at 2yr/$10.5M ($7.23M gtd) per OverTheCap/Spotrac \u2014 factored into RB need assessment. Jonathan Greenard trade rumors are active as of 3/16/2026 but no deal confirmed \u2014 EDGE tier held pending resolution. Harrison Smith future (retirement vs. return) unresolved; S tier could escalate further if he does not return. Kyler Murray contract reflects veteran minimum with Arizona still paying bulk of his salary per his Cardinals deal.",
   "sources": [
     "https://www.espn.com/nfl/story/_/id/48089146/minnestoa-vikings-2026-free-agency-tracker-offseason-moves-signings-contract",
-    "https://www.espn.com/nfl/story/_/id/48188052/kyler-murray-signs-one-year-deal-vikings",
-    "https://thevikingage.com/minnesota-vikings-free-agency-tracker-signings-departures-cap-space-analysis",
-    "https://www.kare11.com/article/sports/nfl/vikings/2026-vikings-free-agency-tracker-key-acquisitions-departures/89-3b9fba5f-1106-462e-b442-affc3c8c857d",
-    "https://www.cbsnews.com/minnesota/news/minnesota-vikings-free-agency-tracker-2026/",
     "https://www.vikings.com/news/nfl-free-agency-tracker-2026",
-    "https://www.dailynorseman.com/minnesota-vikings-2026-offseason/95296/2026-minnesota-vikings-free-agency-tracker-news-rumors-signings-trades",
     "https://overthecap.com/salary-cap/minnesota-vikings",
     "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/min",
+    "https://www.cbsnews.com/minnesota/news/minnesota-vikings-free-agency-tracker-2026/",
+    "https://www.startribune.com/minnesota-vikings-nfl-free-agency-2026-live-updates/601593308",
+    "https://thevikingage.com/minnesota-vikings-free-agency-tracker-signings-departures-cap-space-analysis",
     "https://vikingsterritory.com/2026/news/top_news/vikings-free-agent-tracker-2026-signings",
-    "https://www.profootballrumors.com/2026/03/vikings-to-release-dl-javon-hargrave",
-    "https://www.si.com/nfl/vikings/onsi/news/vikings-contract-restructure-details-emerge-big-2027-cap-hits-await",
-    "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/kyler-murray-signs-one-year-deal-with-vikings-gets-no-tag-clause"
+    "https://www.dailynorseman.com/minnesota-vikings-2026-offseason/95296/2026-minnesota-vikings-free-agency-tracker-news-rumors-signings-trades",
+    "https://www.kare11.com/article/sports/nfl/vikings/2026-vikings-free-agency-tracker-key-acquisitions-departures/89-3b9fba5f-1106-462e-b442-affc3c8c857d",
+    "https://www.si.com/nfl/vikings/onsi/news/vikings-winners-and-losers-through-one-week-nfl-free-agency",
+    "https://vikingsterritory.com/2026/roster/freeagency/ivan-pace-jr-vikings-restricted-free-agency",
+    "https://vikingsterritory.com/2026/news/top_news/ryan-wright-leaves-vikings"
   ]
 }

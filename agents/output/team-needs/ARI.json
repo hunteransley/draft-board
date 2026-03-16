@@ -1,184 +1,152 @@
 {
   "team": "ARI",
   "team_full": "Arizona Cardinals",
-  "updated_through": "2026-03-11",
+  "updated_through": "2026-03-16",
   "first_round_pick": 3,
   "total_draft_picks": 7,
-  "notable_pick_trades": "None — Cardinals hold all 7 original picks across rounds 1-7",
-  "roster_context": "Massive rebuild underway after a 3-14 season. New HC Mike LaFleur replacing fired Jonathan Gannon. Kyler Murray being released March 11, leaving a massive QB void. Likely to cut Dalvin Tomlinson, Sean Murphy-Bunting, and possibly James Conner to generate ~$25M+ in additional cap space. Roughly $28-30M in cap space post-Murray release, with avenues to create more. Heavily linked to FA QB Malik Willis. Core pieces to build around: Trey McBride (TE, locked through 2029), Marvin Harrison Jr. (WR), Paris Johnson Jr. (LT), Michael Wilson (WR), Budda Baker (S), Will Johnson (CB), Josh Sweat (EDGE).",
+  "notable_pick_trades": "None. One pick in each round (3, 34, 65, 104, 141, 182, 217).",
+  "roster_context": "Disastrous 3-14 season led to firing of HC Jonathan Gannon and release of franchise QB Kyler Murray. New HC Mike LaFleur (former Rams OC) installed with DC Nick Rallis retained. Team is in full rebuild mode \u2014 missed on top FA QB Malik Willis (went to Miami), signed bridge QBs Brissett and Minshew. GM Monti Ossenfort is on the hot seat. Arizona invested heavily in OL and depth in free agency, but has massive holes on defense and no long-term QB. Likely eyeing a top QB in the 2027 draft and building around young defensive talent and Marvin Harrison Jr. in the meantime.",
   "needs": [
+    {
+      "position": "EDGE",
+      "tier": 1,
+      "urgency": "critical",
+      "explanation": "Josh Sweat had a career-high 12 sacks in 2025 but reportedly requested a trade after Gannon's firing (though teammate Mack Wilson denied it). Even if Sweat stays, Arizona has no viable second edge rusher. Baron Browning has been a disappointment and BJ Ojulari's development was stunted by a torn ACL in 2024. The Cardinals need a premium pass-rush partner for Sweat \u2014 or his replacement entirely if traded before the March 20 option bonus deadline.",
+      "current_starter": "Josh Sweat (under contract but trade rumors), BJ Ojulari",
+      "depth": "Baron Browning (disappointing), Zaven Collins (hybrid), Xavier Thomas \u2014 very thin behind Sweat",
+      "draft_range_target": "Round 1 (No. 3 overall) \u2014 David Bailey or Rueben Bain Jr. are top targets"
+    },
+    {
+      "position": "OT",
+      "tier": 1,
+      "urgency": "critical",
+      "explanation": "Right tackle is the biggest hole on offense. Jonah Williams (former starter) left in free agency, and the Cardinals signed Elijah Wilkinson as a stopgap. However, Wilkinson is a journeyman, not a long-term answer. Multiple mock drafts have Arizona taking Francis Mauigoa at No. 3 overall. Paris Johnson Jr. is solid at LT but the team desperately needs a bookend RT for the future.",
+      "current_starter": "Paris Johnson Jr. (LT), Elijah Wilkinson (RT \u2014 new signing, placeholder)",
+      "depth": "Matt Pryor (veteran depth, can play multiple spots). No developmental RT on roster.",
+      "draft_range_target": "Round 1 (No. 3 overall) \u2014 Francis Mauigoa is the consensus OT1 target"
+    },
     {
       "position": "QB",
       "tier": 1,
       "urgency": "critical",
-      "explanation": "Kyler Murray is being released March 11 after going 38-48-1 in seven years and missing significant time due to injuries. The only QBs under contract are Jacoby Brissett (bridge veteran who produced statistically from Week 6 on but won just one game) and Kedon Slovis. Arizona is heavily linked to free agent Malik Willis, who could cost $25-33M/year. The 2026 draft class is QB-weak — Fernando Mendoza is the only consensus first-rounder and is going #1 to Las Vegas. Ty Simpson (Alabama) had a good combine meeting with Arizona and could be a Day 2 target. This is a franchise-defining need, though it may not be addressed at #3 due to the weak QB class.",
-      "current_starter": "Jacoby Brissett (bridge QB under contract)",
-      "depth": "Kedon Slovis only; Murray released, no franchise QB on roster",
-      "draft_range_target": "Free agency (Willis) + possible Round 2 QB (Ty Simpson)"
-    },
-    {
-      "position": "EDGE",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Arizona managed just 30 sacks in 2025, tied for third-fewest in the NFL. Josh Sweat is productive but Baron Browning has been a major disappointment and is a cut candidate ($9.4M cap hit). BJ Ojulari is still recovering from a 2024 torn ACL that stunted his development. The staff has openly stated they are seeking a production bump from their pass rushers. Rueben Bain Jr. and David Bailey are top EDGE prospects linked to Arizona at #3. Even if they don't go EDGE at 3, this must be addressed early.",
-      "current_starter": "Josh Sweat, Baron Browning (cut candidate)",
-      "depth": "BJ Ojulari (ACL recovery), Zaven Collins (hybrid LB/EDGE), Eku Leota, Jordan Burch",
-      "draft_range_target": "Round 1 if not taking OT at #3, otherwise Round 2-3"
+      "explanation": "Kyler Murray was released and signed with the Vikings. Arizona missed on Malik Willis (signed with Miami). The Cardinals signed Gardner Minshew as a backup but are rolling with Jacoby Brissett (1-11 as starter in 2025) as the presumptive QB1. There is no franchise quarterback on this roster. However, the 2026 QB class is considered weak \u2014 Arizona may be positioning for a top pick in 2027 to draft their franchise QB, making this a 'bridge year' at the position.",
+      "current_starter": "Jacoby Brissett (threw for 3,366 yards, 23 TD, 8 INT in 2025 but went 1-11)",
+      "depth": "Gardner Minshew (signed 1-year, $8.25M \u2014 backup/insurance)",
+      "draft_range_target": "Possibly Round 2 or trade-up in Round 1 for Ty Simpson (Alabama), or punt to 2027 draft class"
     },
     {
       "position": "IDL",
       "tier": 2,
       "urgency": "important",
-      "explanation": "Dalvin Tomlinson is a near-certain cut — he's 32, carries a $16.2M cap hit, and posted a dismal 43.2 PFF grade (120th of 134 IDL) with just 1 sack and 3 TFL. Bilal Nichols is also likely to be released (10 games in 2 years, $6M savings). Calais Campbell provided a feel-good return at age 39 but is a UFA turning 40. The interior line will need significant reinforcement. The Cardinals invested first-round picks on the DL in back-to-back years but still need depth and a run-stuffing presence.",
-      "current_starter": "Dalvin Tomlinson (likely cut), Calais Campbell (UFA, age 40)",
-      "depth": "Bilal Nichols (likely cut), young DL draft picks from recent years",
-      "draft_range_target": "Round 3-4, plus free agency"
+      "explanation": "The Cardinals released both Dalvin Tomlinson and Bilal Nichols this offseason, gutting the interior defensive line depth behind Walter Nolen. Nolen was impressive as a rookie (first-round pick) but needs support. Roy Lopez was re-signed and L.J. Collier returns, but both are replacement-level. Darius Robinson has been hampered by injuries. Jonah Williams (DL, from Saints) was signed on a one-year deal for depth but the interior is thin and aging behind Nolen.",
+      "current_starter": "Walter Nolen (promising 2025 1st-round pick)",
+      "depth": "Roy Lopez (re-signed, 2-year deal), L.J. Collier (re-signed), Darius Robinson (injury-prone), Jonah Williams (DL \u2014 1-year signing), Dante Stills",
+      "draft_range_target": "Round 3-4"
     },
     {
-      "position": "IOL",
+      "position": "LB",
       "tier": 2,
       "urgency": "important",
-      "explanation": "Center Hjalte Froholdt is entering the final year of his contract and was the only 17-game OL starter. LG Evan Brown also in his final year and missed the last 5 games for personal reasons. Isaiah Adams showed improvement at RG after replacing injured Will Hernandez. Jon Gaines II stepped in capably for Brown. The unit is adequate short-term but lacks long-term certainty at guard and center beyond 2026.",
-      "current_starter": "Hjalte Froholdt (C, final year), Evan Brown (LG, final year), Isaiah Adams (RG)",
-      "depth": "Jon Gaines II, Christian Jones",
-      "draft_range_target": "Round 4-6"
-    },
-    {
-      "position": "OT",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Right tackle is arguably the biggest hole on the roster. Jonah Williams suffered back-to-back season-ending injuries and is a UFA. Kelvin Beachum (also UFA) filled in but is not a long-term answer. The only players under contract who could compete are Demontrey Jacobs and Josh Fryar, neither of whom are starter-caliber. Arizona allowed 59 sacks (28th) and averaged 93.1 rushing YPG (31st). The consensus top OT prospect Francis Mauigoa is the most common mock draft pick for Arizona at #3 overall. Paris Johnson Jr. is solid at LT but RT is barren.",
-      "current_starter": "None — Jonah Williams (UFA), Kelvin Beachum (UFA)",
-      "depth": "Demontrey Jacobs, Josh Fryar (neither viewed as starters)",
-      "draft_range_target": "Round 1 (pick #3 — Mauigoa or Fano)"
+      "explanation": "Mack Wilson Sr. is a solid team captain and starter, but the Cardinals released Akeem Davis-Gaither (117 tackles in 2025) and have limited depth. Cody Simon is the projected starter alongside Wilson but is unproven. The defense had a top-10 scoring unit through Week 8 before injuries derailed it \u2014 LB depth is a real concern for sustainability.",
+      "current_starter": "Mack Wilson Sr. (team captain), Cody Simon",
+      "depth": "Owen Pappoe, Jordan Burch \u2014 very thin after releasing Davis-Gaither",
+      "draft_range_target": "Round 2-3 \u2014 Arvell Reese or Josiah Trotter could fill this role"
     },
     {
       "position": "S",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Jalen Thompson is an unrestricted free agent after starting 15 games and leading the team with 58 solo tackles. While Budda Baker is locked in through 2027 (8x Pro Bowler), the other safety spot needs addressing. Dadrion Taylor-Demerson and rookie Kitan Crawford are in the wings but unproven. Thompson could be re-signed but may seek a payday elsewhere. If Thompson walks, safety becomes a clear need opposite Baker.",
-      "current_starter": "Budda Baker (SS, locked up), Jalen Thompson (FS, UFA)",
-      "depth": "Dadrion Taylor-Demerson, Kitan Crawford (young/unproven)",
-      "draft_range_target": "Round 3-4 if Thompson not re-signed, free agency option"
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Jalen Thompson, a longtime starter, signed with the Dallas Cowboys in free agency (3-year, $36M). Budda Baker remains an elite anchor at the position. Dadrion Taylor-Demerson is projected to step into the starting role alongside Baker, and the Cardinals signed Andrew Wingard for competition/depth. Taylor-Demerson is unproven as a full-time starter but showed promise \u2014 this is a moderate need, not critical.",
+      "current_starter": "Budda Baker (elite), Dadrion Taylor-Demerson (projected starter)",
+      "depth": "Andrew Wingard (signed 1-year, $3M), Jammie Robinson, Kitan Crawford",
+      "draft_range_target": "Round 3-5"
     },
     {
       "position": "CB",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "Will Johnson (2025 2nd-round pick) had a strong rookie year with 10 pass breakups in 12 games and should be CB1 going forward. Max Melton has been inconsistent over two years and Garrett Williams has durability concerns (missed time in both 2024 and 2025). Sean Murphy-Bunting missed all of 2025 with a knee injury and is a near-certain cut ($7.2M savings). Denzel Burke provides depth. The room is young but health and consistency are concerns. Not a top priority but depth is needed.",
-      "current_starter": "Will Johnson, Max Melton / Garrett Williams (injury concerns)",
-      "depth": "Denzel Burke, Sean Murphy-Bunting (likely cut), Elijah Jones",
-      "draft_range_target": "Round 4-5 for depth"
+      "explanation": "The Cardinals have invested heavily in young cornerbacks \u2014 Will Johnson (2025 2nd round), Denzel Burke (2025 5th round, breakout rookie with 3 INTs), Max Melton (2024 2nd round), and Garrett Williams (2023 3rd round, recovering from Achilles). Sean Murphy-Bunting was restructured and returns from a knee injury. The talent is there but extremely young and injury-prone. Adding another CB for depth/competition would be wise but it's not a top priority.",
+      "current_starter": "Will Johnson, Denzel Burke (emerged as starter, benching Melton by season's end)",
+      "depth": "Max Melton, Garrett Williams (returning from Achilles), Sean Murphy-Bunting (restructured, returning from knee), Starling Thomas V (re-signed, returning from ACL), Elijah Jones",
+      "draft_range_target": "Round 4-6"
     },
     {
-      "position": "LB",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "Davis-Gaither was released but was below-average anyway (PFF 49.9). Cody Simon and Mack Wilson project as the starting LB duo. No LB free agent signed. Need unchanged — depth behind the starters remains thin but it's not a top-tier hole.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
-    },
-    {
-      "position": "WR",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "Marvin Harrison Jr. missed significant time with a season-ending injury in 2025 but remains the WR1. Michael Wilson had a breakout year and is extension-eligible. Beyond those two, the cupboard is bare — Zay Jones and Greg Dortch are UFAs, and the remaining WRs under contract (Baccellia, Brooks, Weaver, Smith-Marsette) combined for just 12 catches and 126 yards in 2025. A reliable WR3 is needed, though this is not a top-2 need given the Harrison/Wilson core.",
-      "current_starter": "Marvin Harrison Jr. (returning from injury), Michael Wilson",
-      "depth": "Extremely thin after top two — Zay Jones, Greg Dortch both UFAs",
-      "draft_range_target": "Round 3-5"
-    },
-    {
-      "position": "RB",
+      "position": "IOL",
       "tier": 4,
       "urgency": "minor",
-      "explanation": "James Conner (turning 31) suffered a season-ending foot injury after just 3 games in 2025 and is a strong cut candidate ($7.5M savings, $2.2M dead). Trey Benson was also plagued by injuries. If Conner is released, RB becomes a more pressing need. Jeremiyah Love from Notre Dame has been linked to Arizona at #3, though many analysts believe that's a reach. RB could be addressed in the mid-rounds or free agency (Breece Hall has been linked as a LaFleur reunion).",
-      "current_starter": "James Conner (cut candidate, 31, foot injury) / Trey Benson (injury-prone)",
-      "depth": "Michael Carter (UFA), Emari Demercado",
-      "draft_range_target": "Round 2-4 or free agency"
+      "explanation": "The interior line was addressed aggressively in free agency. Isaac Seumalo was signed to a 3-year, $31.5M deal and will start at LG, replacing the released Evan Brown. Isaiah Adams projects as the starting RG with Matt Pryor providing competition. Center Hjalte Froholdt is entrenched. The interior is now adequate, though adding a developmental guard in the mid-to-late rounds would be smart given Seumalo's age (32) and injury history.",
+      "current_starter": "Isaac Seumalo (LG \u2014 new signing), Hjalte Froholdt (C), Isaiah Adams (RG)",
+      "depth": "Matt Pryor (signed 1-year, competition for RG)",
+      "draft_range_target": "Round 5-7"
     }
   ],
   "needs_summary": {
     "tier_1": [
+      "EDGE",
+      "OT",
       "QB"
     ],
     "tier_2": [
-      "EDGE",
       "IDL",
-      "IOL",
-      "OT",
-      "S"
+      "LB"
     ],
     "tier_3": [
-      "CB",
-      "LB",
-      "WR"
+      "S",
+      "CB"
     ],
     "tier_4": [
-      "RB"
+      "IOL"
     ]
   },
   "simple_needs": [
-    "QB",
     "DL",
     "OL",
-    "DB",
+    "QB",
     "LB",
-    "WR"
+    "DB"
   ],
   "detailed_needs": {
+    "DL": 1,
+    "OL": 1,
     "QB": 1,
-    "DL": 2,
-    "OL": 2,
-    "DB": 2,
-    "LB": 3,
-    "WR": 3
+    "LB": 2,
+    "DB": 2
   },
   "free_agency_impact": [
-    "Kyler Murray (QB) → Minnesota Vikings",
-    "Jalen Thompson (S) → Dallas Cowboys",
-    "Dalvin Tomlinson (IDL) → TBD/unsigned",
-    "Bilal Nichols (IDL) → TBD/unsigned",
-    "Akeem Davis-Gaither (LB) → TBD/unsigned",
-    "Evan Brown (IOL) → TBD/unsigned",
-    "Will Hernandez (IOL) → TBD/unsigned",
-    "Jonah Williams (OT) → Signed back with ARI (1-year deal)",
-    "Calais Campbell (IDL) → TBD/unsigned",
-    "Signed Isaac Seumalo (IOL) from Pittsburgh Steelers — $10.5M AAV",
-    "Signed Roy Lopez (IDL) from Detroit Lions — $5.8M AAV",
-    "Signed Kendrick Bourne (WR) from San Francisco 49ers — $5.7M AAV",
-    "Signed Tyler Allgeier (RB) from Atlanta Falcons — $6.1M AAV",
-    "Signed Gardner Minshew (QB) from Kansas City Chiefs — $5.8M AAV",
-    "Signed Andrew Wingard (S) from Jacksonville Jaguars — $3.0M AAV",
-    "Signed Matt Pryor (IOL) from Philadelphia Eagles — terms TBD AAV",
-    "Signed Elijah Wilkinson (OT) from Atlanta Falcons — terms TBD AAV",
-    "Signed Jonah Williams (IDL) from New Orleans Saints — terms TBD AAV",
-    "Signed L.J. Collier (IDL) from Arizona Cardinals (re-sign) — $2.5M AAV",
-    "Signed James Conner (RB) from Arizona Cardinals (restructure) — terms TBD AAV",
-    "Signed Sean Murphy-Bunting (CB) from Arizona Cardinals (restructure) — terms TBD AAV",
-    "Signed Starling Thomas V (CB) from Arizona Cardinals (re-sign) — terms TBD AAV",
-    "Signed Chad Ryland (K) from Arizona Cardinals (re-sign) — terms TBD AAV",
-    "Signed Blake Gillikin (P) from Arizona Cardinals (re-sign) — $2.6M AAV",
-    "Signed Zonovan 'Bam' Knight (RB) from Arizona Cardinals (re-sign) — terms TBD AAV",
-    "Signed Casey Kreiter (LS) from New York Giants — terms TBD AAV"
+    "Released Kyler Murray \u2014 Murray signed with Vikings. Creates massive QB void, franchise now in full bridge/tank mode at QB.",
+    "Missed on Malik Willis (signed with Dolphins, 3-year/$67.5M) \u2014 Cardinals' top QB target went elsewhere, no Plan B at franchise QB.",
+    "Signed Gardner Minshew (1-year, $8.25M) \u2014 backup QB, not the answer long-term.",
+    "Signed Isaac Seumalo (3-year, $31.5M) \u2014 fills LG need, best IOL signing of the offseason. Replaces released Evan Brown.",
+    "Released Evan Brown \u2014 cleared cap space, Seumalo takes his starting LG spot.",
+    "Signed Elijah Wilkinson (2-year) \u2014 stopgap RT, competed in Atlanta but not a long-term solution. RT remains a top need.",
+    "Signed Kendrick Bourne (2-year, $10M) \u2014 fills WR3 hole behind Harrison Jr. and Michael Wilson. Reduces WR need significantly.",
+    "Signed Tyler Allgeier (2-year, $12.25M) \u2014 adds depth behind James Conner (restructured). RB no longer a pressing need.",
+    "Re-signed Roy Lopez (2-year, $11.5M) \u2014 helps fill void left by Tomlinson/Nichols releases on interior DL.",
+    "Signed DL Jonah Williams (1-year) \u2014 rotational DL depth from Saints.",
+    "Signed Andrew Wingard (1-year, $3M) \u2014 replacement-level safety depth after losing Jalen Thompson to Cowboys.",
+    "Lost Jalen Thompson to Cowboys (3-year, $36M) \u2014 significant loss at safety, increases S need.",
+    "Released Dalvin Tomlinson and Bilal Nichols \u2014 gutted IDL depth, increases DL need.",
+    "Released Akeem Davis-Gaither \u2014 lost starting LB (117 tackles), increases LB need.",
+    "Re-signed Starling Thomas V, Bam Knight, Simi Fehoko, Chad Ryland, Blake Gillikin \u2014 retained depth pieces.",
+    "Restructured James Conner and Sean Murphy-Bunting \u2014 kept both on revised deals.",
+    "Re-signed L.J. Collier (1-year) and P.J. Mustipher (tendered) \u2014 rotational DL retention.",
+    "Signed Devin Duvernay (1-year, $2.5M) \u2014 return specialist/WR depth.",
+    "Josh Sweat trade rumors linger \u2014 reported trade request after Gannon firing, denied by teammate. $7.2M option bonus due March 20. If traded, EDGE need escalates from tier 1 to catastrophic."
   ],
-  "scheme_fit_notes": "New HC Mike LaFleur is expected to call the offense, bringing a Shanahan/McVay-based scheme that prioritizes outside zone running, play-action, and a mobile QB. His brother Matt is the Packers HC, giving Arizona insider intel on Malik Willis. New DC Nick Rallis will run a defense with creative fronts. EDGE prospects who can rush from multiple alignments (stand-up or hand down) have elevated value. The run-heavy offensive philosophy increases the premium on OT and IOL prospects who excel in zone blocking. A mobile, accurate QB fits the scheme profile — Willis's dual-threat ability is a scheme match.",
+  "scheme_fit_notes": "DC Nick Rallis runs a 3-4/hybrid defense that values versatile edge players who can rush and drop. Arvell Reese-type EDGE/LB hybrids fit perfectly. New HC Mike LaFleur brings a Shanahan-tree offense emphasizing play-action, outside zone running, and bootlegs \u2014 making a dominant OT even more critical to protect play-fakes and the boot side. The offense will likely run heavy personnel groupings (12/13 personnel) given the strength of Trey McBride at TE and Allgeier/Conner at RB, so blocking at the point of attack matters more than pure pass-pro upside.",
   "confidence": "high",
   "sources": [
-    "https://www.sharpfootballanalysis.com/analysis/nfl-free-agency-signings-2026/",
-    "https://www.azcardinals.com/news/free-agent-primer-2026-outside-linebacker",
-    "https://www.azcardinals.com/news/free-agent-primer-2026-offensive-line",
-    "https://www.azcardinals.com/news/free-agent-primer-2026-wide-receiver",
-    "https://www.azcardinals.com/news/free-agent-primer-2026-defensive-line",
-    "https://www.azcardinals.com/news/free-agent-primer-2026-inside-linebacker",
+    "https://www.espn.com/nfl/story/_/id/48054811/arizona-cardinals-2026-free-agency-tracker-offseason-moves-signings",
+    "https://www.si.com/nfl/cardinals/onsi/news/arizona-cardinals-2026-free-agency-tracker-latest-signings-losses-news-rumors",
+    "https://arizonasports.com/nfl/arizona-cardinals/free-agency-tracker/3613969/",
     "https://bleacherreport.com/articles/25333063-arizona-cardinals-2026-nfl-draft-pick-order-and-big-board-top-needs",
-    "https://www.cbssports.com/nfl/news/2026-nfl-free-agency-primer-cap-space-for-all-32-teams/",
-    "https://www.espn.com/nfl/story/_/id/48092750/arizona-cardinals-kyler-murray-minnesota-vikings-draft-jimmy-garoppolo",
-    "https://www.si.com/nfl/cardinals/onsi/analysis/2026-nfl-combine-changed-arizona-cardinals-draft-board",
-    "https://www.nfldraftbuzz.com/DraftOrder/2026/Cardinals",
-    "https://cronkitenews.azpbs.org/2026/03/04/cardinals-move-on-from-kyler-murray/",
-    "https://heavy.com/sports/nfl/arizona-cardinals/dalvin-tomlinson-cut-candidate/",
-    "https://overthecap.com/salary-cap/arizona-cardinals",
-    "https://burncitysports.com/2026/02/28/cardinals-offensive-line-free-agency"
+    "https://www.azcardinals.com/news/cardinals-mock-draft-tracker-2026-1-0",
+    "https://rollingout.com/2026/03/12/arizona-cardinals-mock-draft-2026-trade/",
+    "https://burncitysports.com/2026/03/13/cardinals-done-in-free-agency-season/",
+    "https://www.cbssports.com/nfl/news/nfl-free-agency-tracker-2026-full-list-signings-trades-moves/",
+    "https://gophnx.com/grading-every-arizona-cardinals-free-agency-move/",
+    "https://www.nfl.com/news/vikings-sign-kyler-murray-one-year-deal-release-cardinals",
+    "https://arizonasports.com/nfl/arizona-cardinals/jalen-thompson-dal/3599883/",
+    "https://www.si.com/nfl/cardinals/onsi/news/arizona-cardinals-rookie-dubbed-secret-superstar-entering-2026"
   ]
 }

@@ -1,188 +1,153 @@
 {
   "team": "BAL",
   "team_full": "Baltimore Ravens",
-  "updated_through": "2026-03-11",
+  "updated_through": "2026-03-16",
   "first_round_pick": 14,
-  "total_draft_picks": 10,
-  "notable_pick_trades": "Projected to receive 4 compensatory picks (two 5th-rounders, two 7th-rounders) per OverTheCap. No major traded picks. Have LAC 5th-rounder (No. 160) from Odafe Oweh trade.",
-  "roster_context": "Coming off a hugely disappointing 8-9 season that led to John Harbaugh's firing after 18 years. Jesse Minter hired from the Chargers as the new defensive-minded HC. Lamar Jackson's $74.5M cap hit must be restructured/extended to unlock roster-building flexibility. The defense collapsed without Nnamdi Madubuike (neck injury, 15 games missed), finishing 30th in the NFL in sacks (30). The offensive interior line was a consistent weakness, and the Ravens face 19 unrestricted free agents including elite center Tyler Linderbaum, TE Isaiah Likely, EDGE Kyle Van Noy, and DE Dre'Mont Jones. The team is in retool mode with a new coaching staff but still has Lamar Jackson, Derrick Henry, Kyle Hamilton, Roquan Smith, and Zay Flowers as a strong core.",
+  "total_draft_picks": 11,
+  "notable_pick_trades": "Crosby trade rescinded \u2014 Ravens retain 2026 and 2027 first-round picks. Four compensatory picks awarded (2 fifth-rounders, 2 seventh-rounders).",
+  "roster_context": "New head coach Jesse Minter takes over an 8-9 team after John Harbaugh was fired. The Ravens lost a staggering number of starters in free agency \u2014 C Tyler Linderbaum, TE Isaiah Likely, TE Charlie Kolar, P Jordan Stout, S Alohi Gilman, S Ar'Darius Washington, EDGE Dre'Mont Jones, EDGE David Ojabo, EDGE Kyle Van Noy, and RB Keaton Mitchell. DT Nnamdi Madubuike's 2026 status remains uncertain after a potentially career-threatening neck injury. Baltimore signed EDGE Trey Hendrickson, IOL John Simpson, S Jaylinn Hawkins, CB Chidobe Awuzie (re-signed), QB Tyler Huntley (re-signed), and TE Durham Smythe. The interior OL is in shambles after Linderbaum's departure and guard play ranked 32nd in 2025. WR room is thin behind Zay Flowers with Rashod Bateman in trade rumors after a career-low 224-yard 2025 season. Eric DeCosta has signaled the draft is the primary roster-building tool this offseason.",
   "needs": [
     {
       "position": "IOL",
       "tier": 1,
       "urgency": "critical",
-      "explanation": "Tyler Linderbaum (3x Pro Bowl C) is an unrestricted free agent seeking $25M/year — contract talks are stalled and he may leave. Daniel Faalele (RG, UFA) was the 52nd-rated guard per PFF and widely criticized. Andrew Vorhees (LG) has struggled and is a cut candidate. If Linderbaum departs, the Ravens could need three new interior OL starters. Emery Jones Jr. (2025 3rd-round pick) is the only young internal option and projects to fill one guard spot.",
-      "current_starter": "Tyler Linderbaum (C, UFA), Andrew Vorhees (LG), Daniel Faalele (RG, UFA)",
-      "depth": "Emery Jones Jr. (G), Corey Bullock (C backup), Carson Vinson (developmental)",
-      "draft_range_target": "Round 1-2 for a guard; backup C plan if Linderbaum leaves"
+      "explanation": "Tyler Linderbaum signed a record $81M deal with the Raiders, leaving a massive void at center. The starting guards ranked dead last (32nd) in pass block win rate in 2025. John Simpson was signed to address one guard spot, but the Ravens still need a starting center and potentially another guard. Emery Jones Jr. (2025 3rd-round pick) and Andrew Vorhees are the only remaining interior options.",
+      "current_starter": "John Simpson (G, signed FA), Emery Jones Jr. or Andrew Vorhees (G), VACANT at center (Corey Bullock re-signed as depth)",
+      "depth": "Extremely thin. No proven center on roster after Linderbaum's departure. Simpson is the only proven starter among remaining guards.",
+      "draft_range_target": "Round 1-2 \u2014 center or versatile interior lineman"
     },
     {
-      "position": "IOL_C",
+      "position": "WR",
       "tier": 1,
       "urgency": "critical",
-      "explanation": "NEW NEED CREATED. Tyler Linderbaum departed on a record 3yr/$81M deal to the Raiders. This is the most specific sub-position need created in this free agency window. Center was not a need before FA — it is now a critical Tier 1 need. Corey Bullock is the only in-house option and is not a reliable starter. Draft (Auburn's Connor Lew, Kansas State's Sam Hecht, Iowa's Logan Jones) or late free agency are the primary paths to a solution.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
+      "explanation": "DeAndre Hopkins departed via voided contract. Rashod Bateman had a career-low 224 yards in 2025 and is the subject of active trade rumors. Zay Flowers (back-to-back 1,000-yard seasons, 2x Pro Bowler) is the only reliable weapon. Behind him, the depth chart features Devontez Walker, LaJohntay Wester, and Cornelius Johnson \u2014 none proven NFL contributors. The new offense under OC Declan Doyle will be more up-tempo, demanding better receiving talent.",
+      "current_starter": "Zay Flowers (WR1), Rashod Bateman (WR2, may be traded)",
+      "depth": "Devontez Walker, LaJohntay Wester, Cornelius Johnson \u2014 very thin after Flowers",
+      "draft_range_target": "Round 1-2 \u2014 top WR prospect to pair with Flowers"
+    },
+    {
+      "position": "CB",
+      "tier": 2,
+      "urgency": "important",
+      "explanation": "Marlon Humphrey is entering the final year of his deal and will turn 33 in 2026. Nate Wiggins (2024 1st-rounder) showed promise but is still developing. Chidobe Awuzie was re-signed on a one-year deal as a stopgap CB3. The secondary was inconsistent in 2025 and DeCosta has said CB is a 'big need every year.' Baltimore needs to invest in the long-term future of the position.",
+      "current_starter": "Marlon Humphrey (CB1, final year of deal), Nate Wiggins (CB2), Chidobe Awuzie (CB3, one-year deal)",
+      "depth": "Adequate for 2026 with Awuzie re-signing, but no long-term answer behind Humphrey",
+      "draft_range_target": "Round 1-3"
     },
     {
       "position": "DT",
       "tier": 2,
       "urgency": "important",
-      "explanation": "Nnamdi Madubuike suffered a potentially career-threatening neck injury in Week 2 and missed 15 games. His status for 2026 remains highly uncertain despite some positive signals. He carries a $31M cap hit. Broderick Washington (Achilles surgery) is a cut candidate ($4M savings). Travis Jones (extended) and John Jenkins (extended) are the only reliable pieces. The Ravens had the NFL's 2nd-lowest sack rate (4.6%) and desperately need interior pass-rush reinforcement regardless of Madubuike's return.",
-      "current_starter": "Nnamdi Madubuike (uncertain return), Travis Jones",
-      "depth": "John Jenkins (veteran NT), Broderick Washington (Achilles, cut candidate), Aeneas Peebles",
-      "draft_range_target": "Round 1-3, high priority for a 3-tech pass rusher"
-    },
-    {
-      "position": "IDL",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "No additions or departures to IDL in confirmed free agency moves. Nnamdi Madubuike's status (potential return from injury) is a key swing factor — if he returns healthy, IDL improves substantially. However, no signed additions yet. IDL remains a Tier 2 need, unchanged.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
-    },
-    {
-      "position": "P",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "NEW NEED. Jordan Stout's departure to the Giants (3yr/$12.3M, record punter deal) leaves a significant special teams hole. Stout was All-Pro and Pro Bowl in his contract year, averaging a career-high 44.9 net yards per punt. No replacement signed as of 3/13. Punter is now a legitimate need — could be addressed via mid-round draft pick or later free agency signing.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
-    },
-    {
-      "position": "TE",
-      "tier": 2,
-      "urgency": "important",
-      "explanation": "Isaiah Likely (UFA) appears headed out of Baltimore after a disappointing season (27 catches, 307 yards). Charlie Kolar (UFA) is also departing. Mark Andrews signed a 3-year extension but had a down 2025. The Ravens may need to draft a TE to develop as the future TE2/eventual replacement for the aging Andrews (33 in 2026).",
-      "current_starter": "Mark Andrews",
-      "depth": "No TEs under contract beyond Andrews after Likely and Kolar leave",
-      "draft_range_target": "Round 3-5"
-    },
-    {
-      "position": "CB",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "Marlon Humphrey is expected to return but is coming off a poor 2025, is entering his age-30 season, and carries a $26.3M cap hit that may require a restructure or pay cut. Nate Wiggins is the future CB1 entering Year 3. Chidobe Awuzie (UFA) is departing. Behind Wiggins and Humphrey, only T.J. Tampa and Keyon Martin remain, neither of whom have received significant playing time. The Ravens need a true CB2 long-term, especially with Humphrey aging and in a contract year.",
-      "current_starter": "Marlon Humphrey, Nate Wiggins",
-      "depth": "T.J. Tampa, Keyon Martin — very limited experience",
-      "draft_range_target": "Round 1-3"
+      "explanation": "Nnamdi Madubuike missed 15 games with a career-threatening neck injury and his 2026 availability remains deeply uncertain despite positive signals. The defense collapsed without him \u2014 the Ravens finished with just 30 sacks (30th in NFL). Travis Jones signed an extension and John Jenkins was re-signed, but the Ravens need a disruptive 3-tech pass rusher in case Madubuike cannot return or is limited. Broderick Washington was also limited to 3 games in 2025.",
+      "current_starter": "Nnamdi Madubuike (status TBD \u2014 $31M cap hit, neck injury), Travis Jones (NT), John Jenkins (rotational)",
+      "depth": "Aeneas Peebles, David Olajiga \u2014 extremely thin behind starters. If Madubuike can't play, this becomes a Tier 1 need.",
+      "draft_range_target": "Round 2-4 \u2014 insurance/complement for Madubuike"
     },
     {
       "position": "EDGE",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "Dre'Mont Jones departed to New England. The Maxx Crosby trade — agreed to on March 6 and expected to solve this position — fell through after a failed physical on March 11. Baltimore now retains their 2026 and 2027 first-round picks but has NO EDGE acquisition to show for it. Only Mike Green and Tavius Robinson remain as in-house options. Baltimore ranked 30th in the NFL in sacks in 2025 (the first year since 1996 without an EDGE recording 4.5+ sacks). EDGE remains an absolute Tier 1 critical need — possibly the highest priority on the board entering the draft.",
-      "current_starter": "",
-      "depth": "",
-      "draft_range_target": ""
+      "explanation": "Signing Trey Hendrickson (4-year, $112M) was a massive upgrade and addresses the primary pass rush need. However, the Ravens lost Dre'Mont Jones (Patriots), David Ojabo (Dolphins), and Kyle Van Noy (UFA, unsigned). Behind Hendrickson, the depth is very young: 2nd-year Mike Green, Tavius Robinson, and Adisa Isaac (4 games in 2 seasons). The Ravens need a complementary edge rusher \u2014 Hendrickson alone cannot carry the pass rush, especially given his weakness in run defense.",
+      "current_starter": "Trey Hendrickson (signed FA), Mike Green",
+      "depth": "Tavius Robinson, Adisa Isaac, Kaimon Rucker \u2014 Green is promising but the cupboard is thin",
+      "draft_range_target": "Round 2-4"
     },
     {
-      "position": "S",
+      "position": "TE",
       "tier": 3,
       "urgency": "moderate",
-      "explanation": "Kyle Hamilton is an All-Pro locked up long-term. Malaki Starks (2025 1st-round pick) is the FS alongside Hamilton. However, Alohi Gilman (UFA) and Ar'Darius Washington (UFA) are both departing, leaving a void at the third safety/sub-package role. The Ravens need a third safety to complement Hamilton and Starks.",
-      "current_starter": "Kyle Hamilton (SS/nickel), Malaki Starks (FS)",
-      "depth": "Thin after losing Gilman and Washington in FA",
-      "draft_range_target": "Round 4-6 or veteran FA"
+      "explanation": "Isaiah Likely signed with the Giants ($40M) and Charlie Kolar signed with the Chargers ($24.3M). Mark Andrews remains the TE1 but is a 3x Pro Bowler entering his age-31 season. Durham Smythe was signed as a blocking TE from Chicago. The Ravens need a receiving TE2 to complement Andrews \u2014 this has been a two-TE-heavy offense historically.",
+      "current_starter": "Mark Andrews (TE1), Durham Smythe (blocking TE)",
+      "depth": "No viable receiving TE behind Andrews after Likely and Kolar departed",
+      "draft_range_target": "Round 3-5"
     },
     {
-      "position": "WR",
-      "tier": 3,
-      "urgency": "moderate",
-      "explanation": "DeAndre Hopkins (33, UFA) is departing after a career-low 330 yards. Rashod Bateman had a career-low 224 yards in 2025 and is the current WR2 but underperformed badly. Zay Flowers is elite (back-to-back 1,000-yard seasons) but has no reliable complement. Devontez Walker and LaJohntay Wester are unproven depth. Baltimore needs a true outside WR to pair with Flowers. Multiple mock drafts have the Ravens targeting a WR in the first two rounds.",
-      "current_starter": "Zay Flowers (WR1), Rashod Bateman (WR2)",
-      "depth": "Devontez Walker, LaJohntay Wester, Cornelius Johnson — very thin",
-      "draft_range_target": "Round 1-3"
+      "position": "OT",
+      "tier": 4,
+      "urgency": "minor",
+      "explanation": "Ronnie Stanley (LT, 32 years old) is signed through 2027 on a 3-year, $60M deal and played 16 games in 2025. Roger Rosengarten (RT, 2024 draft pick) is the starting right tackle. However, Stanley's age and injury history (missed significant time 2020-2022) mean the Ravens should consider future planning here. Bleacher Report named Stanley the team's 'Top Trade Asset' this offseason.",
+      "current_starter": "Ronnie Stanley (LT), Roger Rosengarten (RT)",
+      "depth": "Carson Vinson (developmental), Jared Penning \u2014 serviceable but no swing tackle depth",
+      "draft_range_target": "Round 4-5 or future"
     },
     {
       "position": "LB",
       "tier": 4,
       "urgency": "minor",
-      "explanation": "Roquan Smith remains the anchor but had a down year and carries a $32.7M cap hit. Trenton Simpson has the ILB2 job but hasn't progressed as hoped. Jay Higgins IV is a developmental UDFA. The Ravens could use more depth and a long-term plan next to Smith, but it isn't a top-3 need.",
-      "current_starter": "Roquan Smith, Trenton Simpson",
-      "depth": "Jay Higgins IV, Carl Jones Jr. (ERFA)",
-      "draft_range_target": "Round 4-7"
+      "explanation": "Roquan Smith is elite and signed long-term. Trenton Simpson enters his 3rd year as the other starter. Teddye Buchanan provides depth. Jake Hummel departed (Raiders). The position is solid but could use a special teams contributor and developmental depth piece.",
+      "current_starter": "Roquan Smith (ILB1), Trenton Simpson (ILB2)",
+      "depth": "Teddye Buchanan \u2014 adequate but light after Hummel's departure",
+      "draft_range_target": "Round 5-7"
     }
   ],
   "needs_summary": {
     "tier_1": [
       "IOL",
-      "IOL_C"
-    ],
-    "tier_2": [
-      "DT",
-      "IDL",
-      "P",
-      "TE"
-    ],
-    "tier_3": [
-      "CB",
-      "EDGE",
-      "S",
       "WR"
     ],
+    "tier_2": [
+      "CB",
+      "DT"
+    ],
+    "tier_3": [
+      "EDGE",
+      "TE"
+    ],
     "tier_4": [
+      "OT",
       "LB"
     ]
   },
   "simple_needs": [
     "OL",
-    "IOL_C",
-    "DL",
-    "P",
-    "TE",
+    "WR",
     "DB",
-    "WR"
+    "DL",
+    "TE"
   ],
   "detailed_needs": {
     "OL": 1,
-    "IOL_C": 1,
+    "WR": 1,
+    "DB": 2,
     "DL": 2,
-    "P": 2,
     "TE": 2,
-    "DB": 3,
-    "WR": 3
+    "LB": 3
   },
   "free_agency_impact": [
-    "Tyler Linderbaum (IOL) → Las Vegas Raiders",
-    "Isaiah Likely (TE) → New York Giants",
-    "Charlie Kolar (TE) → Los Angeles Chargers",
-    "Alohi Gilman (S) → Kansas City Chiefs",
-    "Ar'Darius Washington (S) → New York Giants",
-    "Dre'Mont Jones (EDGE) → New England Patriots",
-    "Kyle Van Noy (EDGE) → TBD/Unsigned as of 3/13",
-    "Jordan Stout (P) → New York Giants",
-    "Patrick Ricard (FB) → New York Giants",
-    "Daniel Faalele (IOL) → TBD/Unsigned as of 3/13",
-    "DeAndre Hopkins (WR) → TBD/Unsigned as of 3/13",
-    "Jake Hummel (LB) → Las Vegas Raiders",
-    "Keaton Mitchell (RB) → Los Angeles Chargers",
-    "Signed Trey Hendrickson (EDGE) from Cincinnati Bengals — $28.0M AAV",
-    "Signed John Simpson (IOL) from New York Jets — $10.0M AAV",
-    "Signed Jaylinn Hawkins (S) from New England Patriots — $5.0M AAV",
-    "Signed Mark Andrews (TE) from Baltimore Ravens (re-signed/extension Dec 2025) — $13.1M AAV",
-    "Signed Durham Smythe (TE) from Chicago Bears — terms TBD AAV",
-    "Signed Tyler Huntley (QB) from Baltimore Ravens (re-signed) — $5.5M AAV",
-    "Signed Chidobe Awuzie (CB) from Baltimore Ravens (re-signed) — $5.0M AAV",
-    "Signed Jovaughn Gwyn (IOL) from Atlanta Falcons — terms TBD AAV"
+    "Lost C Tyler Linderbaum (Raiders, 3yr/$81M) \u2014 CRITICAL. Creates massive IOL need at center",
+    "Lost TE Isaiah Likely (Giants, 3yr/$40M) \u2014 creates TE2 need behind Mark Andrews",
+    "Lost TE Charlie Kolar (Chargers, 3yr/$24.3M) \u2014 deepens TE need, especially in run blocking",
+    "Lost EDGE Dre'Mont Jones (Patriots, 3yr/$39M) \u2014 thins edge depth",
+    "Lost EDGE David Ojabo (Dolphins, 1yr deal) \u2014 further thins edge group",
+    "Lost EDGE Kyle Van Noy (UFA, unsigned) \u2014 veteran pass rusher departed after 2-sack 2025",
+    "Lost S Alohi Gilman (Chiefs, 3yr/$24.75M) \u2014 major loss of 3rd safety starter",
+    "Lost S Ar'Darius Washington (Giants, 1yr deal) \u2014 backup safety gone",
+    "Lost P Jordan Stout (Giants, 3yr/$12.3M record deal) \u2014 All-Pro punter departed",
+    "Lost RB Keaton Mitchell (not tendered, signed with Chargers) \u2014 backup RB depth thinned",
+    "Signed EDGE Trey Hendrickson (4yr/$112M) \u2014 MASSIVE. Addresses #1 need at pass rusher, had 17.5 sacks in back-to-back years",
+    "Signed IOL John Simpson (3yr/$30M) \u2014 addresses one guard spot, started 17 games at LG in 2023",
+    "Signed S Jaylinn Hawkins (2yr/$10M) \u2014 replaces Gilman as 3rd safety alongside Hamilton and Starks",
+    "Re-signed CB Chidobe Awuzie (1yr deal) \u2014 retains CB3 who had lowest completion% allowed among Ravens CBs",
+    "Re-signed QB Tyler Huntley (2yr/$5M) \u2014 retains reliable backup who won 2 starts in 2025",
+    "Signed TE Durham Smythe (blocking TE from Bears) \u2014 replaces Kolar's blocking role",
+    "Crosby trade rescinded \u2014 Ravens get back 2026 and 2027 first-round picks due to failed physical"
   ],
-  "scheme_fit_notes": "New HC Jesse Minter brings a defensive-minded approach from the Chargers. Minter's system utilizes match coverages in the secondary (Hamilton/Starks are perfect fits) and demands versatile interior DL who can rush the passer and defend the run on all downs. Edge rushers in Minter's system are asked to do more than just pin-their-ears-back rushing — they must set edges and contribute in multiple responsibilities, meaning high-floor, versatile EDGE prospects have elevated value. Minter has emphasized building through the trenches. On offense, the Ravens run a heavy ground-and-pound scheme with Lamar Jackson's dual-threat ability, making IOL who can dominate in gap/power run blocking particularly valuable. WR prospects who can win contested catches and provide a big-bodied outside target are ideal complements to the undersized slot talent of Zay Flowers.",
+  "scheme_fit_notes": "Under new HC Jesse Minter (former Chargers DC), Baltimore will run an aggressive, multiple-front defense that prioritizes disruption up front. Minter's scheme asks edge rushers to be versatile \u2014 not just pin-their-ears-back speed rushers \u2014 which makes sturdy, high-motor EDGE prospects who can set the edge against the run valuable. Interior DL who can generate pressure as 3-techs are paramount, especially with Madubuike's uncertain status. On offense, new OC Declan Doyle (from Bears) will push a faster tempo \u2014 the Bears ran the most plays per game in 2025, while the Ravens ranked 29th. This elevates the need for WRs who can run the full route tree and operate both inside and outside. The run-heavy identity (Derrick Henry, Lamar Jackson) means IOL prospects must excel in zone-blocking schemes. Baltimore traditionally plays three safeties, making the 3rd safety role important \u2014 Hawkins fills this for now.",
   "confidence": "high",
   "sources": [
-    "https://www.baltimoreravens.com/news/ravens-offseason-free-agency-draft-salary-cap-trades-guide-jesse-minter",
-    "https://www.si.com/nfl/ravens/onsi/news/baltimore-ravens-2026-nfl-draft-primer-all-picks-team-needs-top-prospects",
-    "https://nfltraderumors.co/ravens-2026-offseason-team-needs-pending-fas-draft-picks-more/",
-    "https://www.espn.com/nfl/story/_/id/48082140/baltimore-ravens-nnamdi-madubuike-uncertain-future-2026-free-agency",
-    "https://www.espn.com/nfl/story/_/id/48023358/ravens-confident-contract-extension-lamar-jackson",
-    "https://russellstreetreport.com/2026/02/26/street-talk/ravens-free-agents-2026/",
-    "https://baltimorepositive.com/sizing-up-the-ravens-2026-class-of-free-agents/",
-    "https://ebonybird.com/baltimore-ravens-fortify-roster-to-solve-glaring-needs-in-3-round-2026-nfl-mock-draft",
-    "https://www.baltimorebeatdown.com/baltimore-ravens-free-agency/80663/ravens-potential-2026-free-agent-targets-edge-rusher",
-    "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
-    "https://sports.yahoo.com/articles/stay-predicting-fate-ravens-free-182916330.html",
-    "https://russellstreetreport.com/2026/01/22/baltimore-ravens-salary-cap/baltimore-ravens-2026-salary-cap-preview/"
+    "ESPN Ravens 2026 free agency tracker (Jamison Hensley, March 2026)",
+    "SI Baltimore Ravens free agency tracker (March 2026)",
+    "CBS Sports NFL free agency tracker (March 2026)",
+    "Baltimore Banner Ravens beat coverage (Jonas Shaffer, March 2026)",
+    "Baltimore Sun Ravens free agency tracker (March 2026)",
+    "FantasyPros 2026 NFL Draft team needs (February 2026)",
+    "NFL.com 2026 Draft order and team needs",
+    "Russell Street Report salary cap preview (January 2026)",
+    "Baltimore Ravens official site \u2014 free agency tracker and draft picks",
+    "ESPN \u2014 Nnamdi Madubuike injury status (March 2026)",
+    "Heavy.com \u2014 Madubuike return report (February 2026)",
+    "The Draft Network \u2014 Ravens 7-round mock draft (March 2026)",
+    "Yahoo Sports \u2014 Ravens compensatory picks (March 2026)",
+    "Baltimore Beatdown \u2014 Ravens free agency losses analysis (March 2026)"
   ]
 }

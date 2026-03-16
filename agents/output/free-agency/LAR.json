@@ -1,27 +1,47 @@
 {
   "team": "LAR",
   "team_full": "Los Angeles Rams",
-  "updated_through": "2026-03-13",
+  "updated_through": "2026-03-16",
   "cap_space_pre_fa": "$42000000",
-  "cap_space_post_fa": "$20481323",
+  "cap_space_post_fa": "$19691243",
   "key_departures": [
-    {
-      "player": "Cobie Durant",
-      "position": "CB",
-      "age": 28,
-      "role": "starter",
-      "new_team": "Dallas Cowboys (1-year deal)",
-      "impact": "Durant was the Rams' primary CB1 over the past two seasons, starting 32 games across 2024-25 and recording 3 INTs and 7 PDs in 2025. His departure leaves a slot/boundary corner hole, but is directly offset by the McDuffie trade and Watson signing. The McDuffie/Watson acquisitions made Durant expendable.",
-      "need_impact": "none",
-      "need_position": "CB"
-    },
     {
       "player": "Darious Williams",
       "position": "CB",
       "age": 32,
-      "role": "rotational",
+      "role": "starter/rotational",
       "new_team": "Retired",
-      "impact": "Williams announced his retirement and was placed on the Reserve/Retired list. Was a cap casualty candidate regardless. Saves ~$7.5M. Depth loss but not a starter-level departure.",
+      "impact": "Williams announced his retirement, placing him on the Reserve/Retired list. A 6-year veteran who spent 6 of 8 NFL seasons with the Rams and was part of the Super Bowl LVI roster, he was declining and his departure was expected. Saves approximately $7.5M in cap space.",
+      "need_impact": "escalates",
+      "need_position": "CB"
+    },
+    {
+      "player": "Cobie Durant",
+      "position": "CB",
+      "age": 25,
+      "role": "rotational/starter",
+      "new_team": "Dallas Cowboys",
+      "impact": "Durant, a fan favorite known for his ball-hawking ability, signed a 1-year prove-it deal with the Cowboys worth up to $5.5M. Was arguably the most dependable DB on the Rams in 2025 before the McDuffie trade displaced him. His departure further thins CB depth behind McDuffie and Watson.",
+      "need_impact": "escalates",
+      "need_position": "CB"
+    },
+    {
+      "player": "Roger McCreary",
+      "position": "CB",
+      "age": 26,
+      "role": "rotational",
+      "new_team": "Detroit Lions",
+      "impact": "McCreary, acquired mid-season via trade, signed a 1-year deal with Detroit. Slot-versatile corner who played well in limited reps during the playoffs. Departure strips CB depth but is mitigated by McDuffie and Watson additions.",
+      "need_impact": "escalates",
+      "need_position": "CB"
+    },
+    {
+      "player": "Ahkello Witherspoon",
+      "position": "CB",
+      "age": 31,
+      "role": "rotational",
+      "new_team": "TBD/unsigned",
+      "impact": "Witherspoon missed most of the 2025 season with multiple clavicle injuries. Became a UFA and has not been re-signed by the Rams. The team appears to have moved on given his injury history and the CB overhaul with McDuffie and Watson.",
       "need_impact": "none",
       "need_position": "CB"
     },
@@ -31,57 +51,47 @@
       "age": 34,
       "role": "starter",
       "new_team": "Retired",
-      "impact": "Havenstein retired after 11 seasons as the Rams' starting right tackle. Warren McClendon Jr. is expected to step into the starting RT role and graded out as PFF's 17th-ranked offensive tackle in 2025 while filling in. Creates a depth/developmental need at OT but McClendon is viewed as a capable successor.",
+      "impact": "Longtime starting right tackle Havenstein retired this offseason. His departure creates a genuine need at right tackle. The Rams only re-signed depth player David Quessenberry (1yr deal) to bridge the gap, leaving RT as an unresolved starter-level hole heading into the draft.",
       "need_impact": "creates",
       "need_position": "OT"
     },
     {
-      "player": "Jimmy Garoppolo",
-      "position": "QB",
-      "age": 35,
-      "role": "backup",
-      "new_team": "TBD/unsigned as of 2026-03-13",
-      "impact": "Garoppolo served as Matthew Stafford's backup for two seasons but barely played. His departure (or potential return on a minimum deal) creates a need for a backup QB. Cardinals interest reported. Rams have not yet replaced him.",
-      "need_impact": "creates",
-      "need_position": "QB"
-    },
-    {
-      "player": "Ahkello Witherspoon",
-      "position": "CB",
-      "age": 30,
-      "role": "rotational",
-      "new_team": "TBD/unsigned as of 2026-03-13",
-      "impact": "Witherspoon missed most of 2025 with multiple clavicle injuries. Depth departure; given injury history the Rams are expected to move on. CB room fully restructured around McDuffie and Watson.",
+      "player": "D.J. Humphries",
+      "position": "OT",
+      "age": 31,
+      "role": "backup/swing",
+      "new_team": "TBD/unsigned",
+      "impact": "Humphries, a veteran swing tackle, did not return. His departure is low-impact given Quessenberry's re-signing fills the depth role, but further underscores the thin OT depth behind Alaric Jackson.",
       "need_impact": "none",
-      "need_position": "CB"
-    },
-    {
-      "player": "Roger McCreary",
-      "position": "CB",
-      "age": 26,
-      "role": "rotational",
-      "new_team": "TBD/unsigned as of 2026-03-13",
-      "impact": "Mid-season trade deadline acquisition who played in the playoffs. Best fit in the slot. With McDuffie and Watson now in the fold, his return to the Rams seems unlikely. Moderate depth departure.",
-      "need_impact": "none",
-      "need_position": "CB"
+      "need_position": "OT"
     },
     {
       "player": "Tutu Atwell",
       "position": "WR",
       "age": 25,
       "role": "rotational",
-      "new_team": "TBD/unsigned as of 2026-03-13",
-      "impact": "Atwell was paid ~$10M APY in 2025 but featured in only 16.5% of snaps. Expected to depart. Creates mild need for a WR4/5 speedster but not a starter-level hole.",
-      "need_impact": "none",
+      "new_team": "TBD/unsigned",
+      "impact": "Atwell, a former second-round pick who never fully lived up to his draft status despite a 1-year, $10M deal in 2025, has not been re-signed. His departure is a moderate loss at WR depth/speed element but leaves WR as a positional concern behind Puka Nacua and Davante Adams.",
+      "need_impact": "escalates",
       "need_position": "WR"
+    },
+    {
+      "player": "Jimmy Garoppolo",
+      "position": "QB",
+      "age": 34,
+      "role": "backup",
+      "new_team": "TBD/unsigned",
+      "impact": "Garoppolo, the backup QB who threw only a handful of passes over two seasons in LA, is unsigned. The Cardinals have been reported as interested. His potential departure creates a need for a QB2 but is a low-stakes positional need.",
+      "need_impact": "creates",
+      "need_position": "QB"
     },
     {
       "player": "Jake McQuaide",
       "position": "LS",
-      "age": 37,
+      "age": 38,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "McQuaide was an emergency mid-season signing in 2025. His departure was expected; replaced directly by Joe Cardona signing.",
+      "impact": "The veteran long snapper who bridged the special teams chaos mid-season was not re-signed. The Rams replaced him with Joe Cardona. No need created.",
       "need_impact": "none",
       "need_position": "LS"
     }
@@ -91,38 +101,37 @@
       "player": "Trent McDuffie",
       "position": "CB",
       "age": 25,
-      "previous_team": "Kansas City Chiefs (via trade)",
+      "previous_team": "Kansas City Chiefs",
       "contract": {
         "years": 4,
         "total_value": 124000000,
         "guaranteed": 100000000,
-        "aav": 31000000
+        "aav": 31000000,
+        "notes": "4-year extension signed upon trade completion. Trade cost: 2026 1st (No. 29), 2026 5th, 2026 6th, 2027 3rd. Extension makes McDuffie the highest-paid CB in NFL history at $31M AAV."
       },
-      "trade_cost": "2026 1st-round pick (No. 29), 2026 5th-round pick, 2026 6th-round pick, 2027 3rd-round pick",
       "expected_role": "starter",
       "market_tier": "elite",
       "need_impact": "fully_addressed",
       "need_position": "CB",
-      "analysis": "The centerpiece move of the Rams' offseason. Two-time All-Pro, first-team All-Pro in 2023, second-team All-Pro in 2024. Contract ($31M AAV, $100M guaranteed) makes him the highest-paid CB in NFL history, surpassing Sauce Gardner. This is a long-term franchise cornerstone signing. CB goes from the team's most glaring need to a strength with McDuffie plus Watson. The pick cost (No. 29, two 2026 picks, 2027 3rd) is steep but reflects the Rams' all-in posture with Matthew Stafford. Rams retain the No. 13 overall pick.",
-      "notes": "Trade agreed March 5; extension agreed March 8 per NFL.com/ESPN. Official at start of new league year March 11."
+      "analysis": "All-Pro CB acquired via blockbuster trade and immediately locked up on a record-setting $124M/4yr extension with $100M guaranteed \u2014 the largest guarantee ever for a cornerback. McDuffie, 25, is a 2x Super Bowl champion, 2x All-Pro (1st team 2023, 2nd team 2024) and was the centerpiece signing the Rams needed. The $100M fully guaranteed at signing is the clearest possible signal: this is their CB1 for the long term. CB need fully addressed at the starter level with massive commitment. Rams traded away picks 29, 5th, 6th (2026) and a 2027 3rd to get him."
     },
     {
       "player": "Jaylen Watson",
       "position": "CB",
-      "age": 27,
+      "age": 25,
       "previous_team": "Kansas City Chiefs",
       "contract": {
         "years": 3,
         "total_value": 51000000,
         "guaranteed": 34000000,
-        "aav": 17000000
+        "aav": 17000000,
+        "notes": "Signed as UFA. Watson is McDuffie's former Chiefs teammate, reuniting them in LA."
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "CB",
-      "analysis": "Watson is coming off the best season of his career, finishing with career-highs in defensive snaps (96%), interceptions (2), and tackles (64). Reunited with former KC teammate Trent McDuffie. Three-year deal at $17M AAV with $34M guaranteed is a genuine starter investment, not a bridge deal. Paired with McDuffie, the Rams have completely rebuilt a cornerback room that was a Super Bowl-level liability. CB need is fully addressed for 2026 and beyond.",
-      "notes": "Reported by Ian Rapoport/Tom Pelissero/Mike Garafolo; official March 11."
+      "analysis": "Watson follows his ex-teammate McDuffie to LA on a 3yr/$51M deal with $34M guaranteed \u2014 a legitimate starter-tier contract. Coming off a career year in 2025 (career highs in snaps, interceptions, tackles), Watson is expected to start opposite McDuffie. Three years of guaranteed money signals a real commitment as CB2. Combined with McDuffie, the Rams have overhauled their entire CB1/CB2 situation. CB is no longer a top-tier draft need."
     },
     {
       "player": "Kamren Curl",
@@ -133,14 +142,32 @@
         "years": 3,
         "total_value": 36000000,
         "guaranteed": 24000000,
-        "aav": 12000000
+        "aav": 12000000,
+        "notes": "Max value $39M with incentives. $18.75M fully guaranteed at signing per OverTheCap. $7M of 2027 salary guaranteed."
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "S",
-      "analysis": "Curl was the Rams' second-leading tackler in 2025 (122 total tackles, 2nd-most among all NFL DBs), posted a career-best 77.8 PFF grade, and made the decisive playoff interception against the Bears in OT. Re-signing him at $12M AAV with $24M guaranteed locks in one half of a strong safety tandem (with Quentin Lake, who signed a 3-year extension in January 2026). S need is fully addressed. Max value of $39M further incentivizes performance.",
-      "notes": "Reported by Ian Rapoport/Tom Pelissero/Mike Garafolo on March 6; confirmed by multiple outlets."
+      "analysis": "Curl re-signed before hitting free agency on a 3yr/$36M deal with $24M guaranteed. Coming off his best season (122 tackles, 2 INTs regular season, 1 playoff INT that sent the Rams to the NFC Championship), he is the starting strong safety alongside Quentin Lake (already extended in January). Safety was a potential need if Curl walked; re-signing him at starter money eliminates it entirely. The S pairing of Lake and Curl is locked up with real contractual commitment from both."
+    },
+    {
+      "player": "Quentin Lake",
+      "position": "S",
+      "age": 26,
+      "previous_team": "Los Angeles Rams (extension \u2014 signed January 2026)",
+      "contract": {
+        "years": 3,
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0,
+        "notes": "Contract extension signed in January 2026 before the official FA period. Total value and guaranteed figures not publicly disclosed. Lake re-signed before free agency opened, locking up the safety position alongside Curl."
+      },
+      "expected_role": "starter",
+      "market_tier": "starter",
+      "need_impact": "fully_addressed",
+      "need_position": "S",
+      "analysis": "Lake's extension in January 2026 secured the starting safety duo before free agency began. Combined with Curl's re-signing, the Rams have both starting safeties under multi-year deals. S is not a draft need."
     },
     {
       "player": "Tyler Higbee",
@@ -150,33 +177,33 @@
       "contract": {
         "years": 2,
         "total_value": 8000000,
-        "guaranteed": null,
-        "aav": 4000000
+        "guaranteed": 0,
+        "aav": 4000000,
+        "notes": "$8M represents max value per agent; guarantees not publicly disclosed but expected to be minimal given age and injury history."
       },
-      "expected_role": "starter/rotational",
+      "expected_role": "rotational/starter",
       "market_tier": "depth",
       "need_impact": "partially_addressed",
       "need_position": "TE",
-      "analysis": "Re-signing Higbee keeps all four key TEs (Higbee, Colby Parkinson, Davis Allen, Terrance Ferguson) under contract, preserving the Rams' 13-personnel identity that led the NFL in total offense. At $4M AAV with a max of $8M and age-33/injury concerns, this is a low-cost veteran retention, not a long-term anchor. Higbee missed 7 games in 2025 with an ankle injury. TE depth is addressed but the position still warrants monitoring given injury history. Need partially addressed.",
-      "notes": "Agreed March 5, per therams.com. Agent Erik Burkhardt confirmed. Max $8M per ESPN's Adam Schefter."
+      "analysis": "Higbee's re-signing at $4M AAV (max $8M/2yr) keeps the 13-personnel-heavy offense intact. McVay's 2025 offense leaned heavily on three-TE sets (13 personnel) with Higbee, Colby Parkinson, Davis Allen, and Terrance Ferguson all returning. Higbee is a low-cost depth/rotational contributor who missed 7 games in 2025 and 14 in 2024 due to injuries. At 33, this is bridge money \u2014 partially addresses TE depth but is not a significant financial commitment. TE is not a pressing need given the deep group."
     },
     {
       "player": "Keir Thomas",
       "position": "EDGE",
-      "age": 26,
+      "age": 28,
       "previous_team": "Los Angeles Rams (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0,
+        "notes": "One-year deal; financial terms not disclosed. Thomas spent 2025 on injured reserve."
       },
-      "expected_role": "rotational",
+      "expected_role": "rotational/depth",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "EDGE",
-      "analysis": "Thomas returns for a fifth season as a rotational edge rusher. One-year deal signals depth/rotational role behind Jared Verse and Byron Young. Terms not disclosed. Low-impact signing that maintains roster continuity at EDGE depth.",
-      "notes": "Confirmed by therams.com."
+      "analysis": "Thomas is returning for a 5th season on a 1-year deal after spending all of 2025 on IR. Depth/rotational EDGE signing with minimal cap impact. Does not address any starter-level EDGE need and is essentially a camp body with some familiarity. Jared Verse is the team's primary young EDGE rusher under contract."
     },
     {
       "player": "Joe Cardona",
@@ -185,16 +212,34 @@
       "previous_team": "Miami Dolphins",
       "contract": {
         "years": 2,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "total_value": 3450000,
+        "guaranteed": 0,
+        "aav": 1725000,
+        "notes": "2-year deal reported at approximately $3.45M max value. Replaces Jake McQuaide."
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "LS",
-      "analysis": "11-year veteran long snapper (10 seasons with Patriots, 1 with Dolphins) directly addresses the Rams' special teams instability from 2025. Cardona overlapped with new Rams special teams coordinator Bubba Ventrone at New England (2015-17). Two-year deal provides stability. Replaces the stop-gap McQuaide. ST need fully addressed.",
-      "notes": "Reported March 10 by Orange County Register/multiple outlets. Confirmed by therams.com."
+      "analysis": "Cardona is an 11-year veteran who overlapped with new special teams coordinator Bubba Ventrone in New England (2015-2017). The Rams' special teams were an Achilles heel in 2025 \u2014 they changed kickers, long snappers, and fired the ST coordinator mid-season. Cardona stabilizes the long-snapper position at fair market value. Special teams need addressed."
+    },
+    {
+      "player": "Grant Stuard",
+      "position": "LB",
+      "age": 27,
+      "previous_team": "Detroit Lions",
+      "contract": {
+        "years": 2,
+        "total_value": 5050000,
+        "guaranteed": 0,
+        "aav": 2525000,
+        "notes": "2-year deal worth up to $5.05M per Aaron Wilson/KPRC2. Former Lions special teams captain."
+      },
+      "expected_role": "special teams/depth LB",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "LB",
+      "analysis": "Stuard is primarily a special teams specialist \u2014 18th overall special teamer by PFF in 2025, team-high 375 special teams snaps with Detroit. The Rams' special teams were among the worst in the NFL in 2025. Stuard provides elite coverage-unit play and depth LB value but does not address any off-ball linebacker starter need. Nate Landman and Omar Speights remain the projected starters. LB depth concern minimally addressed; starting LB need unchanged."
     },
     {
       "player": "David Quessenberry",
@@ -203,16 +248,16 @@
       "previous_team": "Los Angeles Rams (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 1487500,
-        "guaranteed": 1262500,
-        "aav": 1487500
+        "total_value": 1330000,
+        "guaranteed": 1300000,
+        "aav": 1330000,
+        "notes": "Re-signed February 2026 before official FA period on a 1-year deal. Estimated at approximately $1.33M based on his 2025 contract; 2026 terms not officially disclosed."
       },
-      "expected_role": "depth/special teams",
+      "expected_role": "depth/swing tackle",
       "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "OT",
-      "analysis": "Primarily a special teams player in 2025, seeing only 12 offensive snaps all season. Re-signs for approximately league minimum. Provides OT depth/swing tackle competition behind Alaric Jackson and Warren McClendon Jr. Does not address the post-Havenstein RT depth need in any meaningful starting capacity. OT depth need remains.",
-      "notes": "Re-signed February 18 per therams.com announcement. Spotrac contract data confirmed."
+      "analysis": "Quessenberry's re-signing is a 1-year veteran minimum-tier deal for a swing tackle who primarily played special teams in 2025. He does NOT address the starter-level void left by Rob Havenstein's retirement. His return allows the Rams to avoid a desperate OT pick early in the draft, but a starting-quality RT is still needed. OT remains a significant draft need."
     },
     {
       "player": "Harrison Mevis",
@@ -221,16 +266,16 @@
       "previous_team": "Los Angeles Rams (ERFA tender)",
       "contract": {
         "years": 1,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0,
+        "notes": "Tendered as exclusive rights free agent at league minimum. Cannot negotiate with other teams."
       },
       "expected_role": "starter",
       "market_tier": "minimum",
       "need_impact": "fully_addressed",
       "need_position": "K",
-      "analysis": "Tendered as an exclusive rights free agent (ERFA) at league minimum, locking him in for 2026. Mevis was outstanding after being signed mid-season, going 18-of-19 on FGs and 48-of-48 on XPs in 2025. Hit the game-winning OT FG vs. Bears in the divisional round. K need nonexistent \u2014 Mevis locked in for essentially nothing.",
-      "notes": "Tendered along with Justin Dedich and Xavier Smith. ERFA, cannot negotiate elsewhere."
+      "analysis": "Mevis was one of the surprises of the Rams' 2025 season \u2014 12/13 FGs and all 39 PATs in 9 regular-season games, plus 6/6 FGs and 9/9 PATs in three playoff games including a game-winning OT FG vs. the Bears. The ERFA tender locks him up at the minimum for another year. Kicker is resolved."
     },
     {
       "player": "Justin Dedich",
@@ -239,16 +284,16 @@
       "previous_team": "Los Angeles Rams (ERFA tender)",
       "contract": {
         "years": 1,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0,
+        "notes": "Tendered as exclusive rights free agent at league minimum."
       },
-      "expected_role": "depth/rotational",
+      "expected_role": "depth/spot starter",
       "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "IOL",
-      "analysis": "Interior OL depth retained at minimum via ERFA tender. Dedich can play both guard spots and started six games in 2025. Low-cost depth retention that does not address any starter-level IOL need but solidifies the back end of the interior line group.",
-      "notes": "Tendered as ERFA along with Mevis and Xavier Smith."
+      "analysis": "Dedich appeared in 32 games over 2 seasons with 10 starts. Cheap ERFA retention keeps interior depth intact. Does not address any starting IOL need \u2014 Steve Avila and Kevin Dotson are the starters, both entering the final year of their contracts."
     },
     {
       "player": "Xavier Smith",
@@ -257,35 +302,34 @@
       "previous_team": "Los Angeles Rams (ERFA tender)",
       "contract": {
         "years": 1,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0,
+        "notes": "Tendered as exclusive rights free agent at league minimum. Primary punt returner in 2025."
       },
-      "expected_role": "depth/special teams",
+      "expected_role": "depth WR/punt returner",
       "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "WR",
-      "analysis": "Primary punt returner and receiver depth retained at minimum. Posted career-high 303 receiving yards in 2025. With Tutu Atwell's likely departure, Smith could see expanded WR role. ERFA tender is low-risk roster management. Does not address the WR depth need created by Atwell's departure at a meaningful level.",
-      "notes": "Tendered as ERFA."
+      "analysis": "Smith posted career highs with 18 catches for 303 yards in 2025. The ERFA tender retains him cheaply as WR depth and a special teams contributor. He had a critical muffed punt in the NFC Championship game. His retention does not address the WR depth/starter need \u2014 Puka Nacua and Davante Adams (age 33) remain WR1/2, but the position behind them is thin with Atwell departed."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
       "CB",
       "S",
-      "K",
-      "LS"
+      "K"
     ],
     "partially_addressed": [
-      "TE"
+      "TE",
+      "EDGE"
     ],
     "minimally_addressed": [
-      "EDGE",
-      "IOL",
-      "WR"
+      "LB",
+      "WR",
+      "IOL"
     ],
     "unchanged": [
-      "LB",
       "IDL"
     ],
     "escalated": [
@@ -298,49 +342,49 @@
       "position": "CB",
       "previous_tier": 1,
       "recommended_tier": 4,
-      "reasoning": "McDuffie (4yr/$124M, $100M gtd, record AAV of $31M) + Watson (3yr/$51M, $34M gtd) = complete and generational overhaul of what was the team's single biggest weakness. McDuffie is the highest-paid CB in NFL history, a 2x All-Pro who starts immediately. Watson is a legit CB2 investment, not depth. CB went from a team-defining liability (gave up 346 yards/3 TDs to Darnold in the NFCCG) to a position of strength. Still retain Emmanuel Forbes Jr. CB need is fully eliminated. Only potential concern is long-term roster depth behind these two \u2014 a Day 3 camp body is all that's needed."
+      "reasoning": "The Rams completely overhauled their CB room with two blockbuster moves: Trent McDuffie (4yr/$124M, $100M gtd \u2014 record-setting, clear CB1) and Jaylen Watson (3yr/$51M, $34M gtd \u2014 legitimate CB2 commitment). Both are 25 years old. Three CBs departed (Williams retired, Durant to Dallas, McCreary to Detroit, Witherspoon unsigned) but the incoming pair is categorically superior. CB drops from a critical tier-1 need to a tier-4 luxury \u2014 depth corner in Day 3 at most."
     },
     {
       "position": "S",
       "previous_tier": 2,
-      "recommended_tier": 4,
-      "reasoning": "Curl re-signed (3yr/$36M, $24M gtd) locked in alongside Quentin Lake (3-year extension signed January 2026). Both starters under contract for multiple years. Safety is now a strength, not a need. No draft capital required at the position."
+      "recommended_tier": 5,
+      "reasoning": "Quentin Lake extended in January and Kamren Curl re-signed on a 3yr/$36M deal with $24M guaranteed. Both starting safeties are locked up under multi-year contracts. S is no longer a draft need whatsoever."
     },
     {
       "position": "OT",
-      "previous_tier": 3,
+      "previous_tier": 2,
+      "recommended_tier": 1,
+      "reasoning": "Rob Havenstein's retirement CREATED a genuine starting RT need that did not exist before. The only OT move was re-signing 35-year-old David Quessenberry on a ~$1.33M depth deal \u2014 he is not a starter solution. DJ Humphries also departed unsigned. The Rams need a legitimate starting RT, making this a top-2 remaining draft need heading into April. Pick No. 13 is in play for an OT prospect."
+    },
+    {
+      "position": "WR",
+      "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Rob Havenstein's retirement creates a starting RT vacancy that Warren McClendon Jr. is expected to fill (graded PFF 17th among OTs in 2025 while filling in). However, Havenstein's loss is real \u2014 he was a 11-year starter. Quessenberry's re-signing provides zero meaningful starting depth. The Rams need to address OT in the draft (Day 1 or 2) or via later free agency. Left tackle Alaric Jackson is set, but the RT depth chart is thin. Escalated from pre-draft need to a draft-day priority."
+      "reasoning": "Tutu Atwell departed without being replaced by a meaningful signing. Behind Puka Nacua (locked in) and Davante Adams (33 years old, $28M cap hit), the room is thin with only Jordan Whittington, Konata Mumpfield, and Xavier Smith (ERFA). WR remains a tier-2 need. Most mock drafts project the Rams taking a WR at pick 13 in April."
     },
     {
       "position": "QB",
+      "previous_tier": 4,
+      "recommended_tier": 3,
+      "reasoning": "Jimmy Garoppolo is unsigned. If he does not return, the Rams would head into the draft with Matthew Stafford (38) as the only quarterback under contract. QB2 is now a mild need that could be addressed in the mid-rounds of the draft or via a late free agency signing. Escalated from a non-issue to a tier-3 concern."
+    },
+    {
+      "position": "LB",
       "previous_tier": 3,
-      "recommended_tier": 2,
-      "reasoning": "Jimmy Garoppolo departed as a UFA and has not been replaced. The Rams need a backup QB capable of spot-starting behind the 38-year-old Matthew Stafford. Cardinals interest in Garoppolo has been reported; the Rams may attempt to re-sign him or pursue alternatives. This is a priority need that has been escalated by the absence of any QB signing to date. Matthew Stafford remains the unquestioned starter but the backup situation is unresolved."
+      "recommended_tier": 3,
+      "reasoning": "Grant Stuard signed (2yr/$5.05M) as a special teams specialist with LB depth upside. Nate Landman and Omar Speights return as starters. Troy Reeder departed unsigned. Stuard's signing is primarily a special teams upgrade \u2014 LB starting depth remains a concern but is not yet at crisis level. Need unchanged at tier 3."
+    },
+    {
+      "position": "IOL",
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "No IOL moves were made except ERFA tenders for Dedich (depth). Steve Avila and Kevin Dotson are starters on expiring contracts entering 2026. The Rams are approaching a decision point \u2014 both guards need extensions or replacements. IOL need unchanged as a mid-draft priority."
     },
     {
       "position": "TE",
       "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "Higbee re-signed (2yr/$8M max) preserves the full 4-TE group (Higbee, Parkinson, Allen, Ferguson) that powered the Rams' league-leading offense in 13-personnel. However, Higbee is 33 and injury-prone (7 missed games in 2025). This is a low-cost, short-term re-sign; Parkinson is the functional TE1. Need is partially managed but a developmental TE or a younger TE1 upgrade is still worth pursuing in mid-to-late draft rounds. Tier stays the same."
-    },
-    {
-      "position": "WR",
-      "previous_tier": 3,
-      "recommended_tier": 2,
-      "reasoning": "Tutu Atwell's likely departure ($10M APY in 2025 but barely used) leaves a WR4/5 vacancy. Xavier Smith retained via ERFA at minimum provides some depth. With Puka Nacua and Davante Adams in place, WR1/WR2 are set. But Adams is 33 and on a $28M cap hit, and there is no WR3 of consequence. The Rams are widely projected to target a WR at No. 13 in the draft (USC's Makai Lemon frequently mocked). Escalated slightly due to Atwell loss and long-term Adams concerns."
-    },
-    {
-      "position": "LB",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "No FA activity at LB. Nate Landman is signed on an extension, but the Rams did not address MLB in free agency despite Omar Speights being viewed as a weak link at MLB. No top-101 LB was available per reports. LB remains a genuine need \u2014 particularly at MLB \u2014 that the Rams will need to address in the draft. Tier unchanged."
-    },
-    {
-      "position": "IDL",
-      "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "No IDL movement in free agency. Kobie Turner and Braden Fiske anchor the interior. No changes to this need tier."
+      "recommended_tier": 4,
+      "reasoning": "Higbee re-signed on a 2yr/$8M deal (max value) and all four primary TEs from 2025 (Higbee, Parkinson, Davis Allen, Ferguson) return. The 13-personnel heavy offense continues intact. TE drops from a tier-3 need to tier-4 luxury \u2014 drafting a developmental TE is possible but not pressing."
     }
   ],
   "team_page_additions": {
@@ -348,37 +392,37 @@
       {
         "player": "Trent McDuffie",
         "position": "CB",
-        "contract_summary": "4yr/$124M ($100M gtd) + trade cost: 2026 1st (No. 29), 2026 5th, 2026 6th, 2027 3rd",
+        "contract_summary": "4yr/$124M ($100M gtd) + trade cost: 2026 1st (No. 29), 5th, 6th & 2027 3rd",
         "previous_team": "Kansas City Chiefs",
-        "headline": "Record-setting blockbuster trade lands 2x All-Pro, NFL's highest-paid CB to fix the Rams' most glaring weakness"
+        "headline": "NFL's new highest-paid CB ($31M AAV, 2x All-Pro) gives Rams an elite CB1 to anchor a rebuilt secondary"
       },
       {
         "player": "Jaylen Watson",
         "position": "CB",
         "contract_summary": "3yr/$51M ($34M gtd)",
         "previous_team": "Kansas City Chiefs",
-        "headline": "Reunited with McDuffie from KC, Watson provides legit CB2 investment to complete full secondary overhaul"
+        "headline": "McDuffie's former Chiefs running mate reunites with him in LA as a legitimate CB2 on a starter-money deal"
       },
       {
         "player": "Kamren Curl",
         "position": "S",
         "contract_summary": "3yr/$36M ($24M gtd, max $39M)",
-        "previous_team": "Los Angeles Rams (re-signed)",
-        "headline": "Career-best 2025 (122 tackles, playoff-deciding INT) earns Curl market-rate re-sign, locking in top safety tandem with Lake"
+        "previous_team": "Los Angeles Rams (re-sign)",
+        "headline": "Career-best season (122 tackles, 3 INTs including a playoff OT winner) earns Curl a long-term commitment as starting safety"
       },
       {
-        "player": "Tyler Higbee",
-        "position": "TE",
-        "contract_summary": "2yr/$8M max",
-        "previous_team": "Los Angeles Rams (re-signed)",
-        "headline": "Franchise TE legend returns on low-cost deal, preserving all four TEs that powered league-leading 13-personnel offense"
+        "player": "Grant Stuard",
+        "position": "LB",
+        "contract_summary": "2yr/$5.05M (max value)",
+        "previous_team": "Detroit Lions",
+        "headline": "Elite special teams ace (18th-ranked ST player per PFF, 375 ST snaps in 2025) addresses a major Rams weakness"
       },
       {
         "player": "Joe Cardona",
         "position": "LS",
-        "contract_summary": "2yr (terms TBD)",
+        "contract_summary": "2yr/$3.45M (approx.)",
         "previous_team": "Miami Dolphins",
-        "headline": "11-year veteran long snapper stabilizes chaotic special teams unit; reunited with new ST coordinator Bubba Ventrone"
+        "headline": "11-year veteran long snapper stabilizes a special teams unit that was a liability throughout 2025"
       }
     ],
     "key_losses": [
@@ -387,49 +431,58 @@
         "position": "OT",
         "contract_summary": "Retired",
         "new_team": "Retired",
-        "headline": "11-year franchise RT retires, leaving Warren McClendon Jr. as heir apparent and OT depth as a draft priority"
-      },
-      {
-        "player": "Cobie Durant",
-        "position": "CB",
-        "contract_summary": "1yr deal with Dallas Cowboys",
-        "new_team": "Dallas Cowboys",
-        "headline": "Starting CB departs for Dallas on one-year deal; his void made immaterial by the massive McDuffie/Watson CB overhaul"
+        "headline": "Starting RT of 10+ years retires, leaving an immediate hole at right tackle that depth signing Quessenberry cannot fill"
       },
       {
         "player": "Darious Williams",
         "position": "CB",
         "contract_summary": "Retired",
         "new_team": "Retired",
-        "headline": "Veteran CB and fan favorite retires; saves ~$7.5M in cap space as Rams fully rebuild cornerback room"
+        "headline": "6-year Ram retires, but his departure is softened by the arrivals of McDuffie and Watson"
       },
       {
-        "player": "Jimmy Garoppolo",
-        "position": "QB",
-        "contract_summary": "UFA, unsigned as of 2026-03-13",
-        "new_team": "TBD",
-        "headline": "Backup QB departs as UFA, leaving Stafford without a proven replacement and creating an unresolved need behind center"
+        "player": "Cobie Durant",
+        "position": "CB",
+        "contract_summary": "1yr/$5.5M (Cowboys)",
+        "new_team": "Dallas Cowboys",
+        "headline": "Fan-favorite and former starter reads the writing on the wall after McDuffie trade and signs prove-it deal in Dallas"
+      },
+      {
+        "player": "Roger McCreary",
+        "position": "CB",
+        "contract_summary": "1yr (Lions)",
+        "new_team": "Detroit Lions",
+        "headline": "Trade acquisition who shined in the playoffs departs on a 1-year deal as CB room overhaul renders him expendable"
+      },
+      {
+        "player": "Tutu Atwell",
+        "position": "WR",
+        "contract_summary": "Unsigned/departed",
+        "new_team": "TBD/unsigned",
+        "headline": "Former 2nd-round pick exits after underwhelming tenure, leaving WR depth behind Nacua and Adams thin"
       }
     ]
   },
   "confidence": "high",
-  "notes": "Contract guarantees for Higbee, Keir Thomas, and Cardona are partially confirmed (Higbee max $8M per ESPN; Cardona terms not fully disclosed; Thomas terms not disclosed). All other core contract data sourced from NFL.com, ESPN, Spotrac, and Ian Rapoport/Tom Pelissero/Mike Garafolo reports. McDuffie extension ($100M guaranteed) confirmed by ESPN's Adam Schefter. Curl guarantees ($24M) confirmed by AP/CBS. Watson guarantees ($34M) confirmed by NFL Network Insiders. Cap space figures from OverTheCap as of March 13, 2026. ERFA tender contract values are league minimum (exact dollar amounts not reported). Rams traded away 2026 picks Nos. 29 (1st), a 5th, and a 6th in the McDuffie deal, retaining their No. 13 overall pick (acquired from Atlanta). Draft capital impact is significant.",
   "sources": [
+    "https://www.espn.com/nfl/story/_/id/48015721/rams-2026-free-agency-tracker-offseason-moves-signings-trades",
     "https://www.nfl.com/news/trent-mcduffie-rams-agree-to-four-year-124-million-extension",
     "https://www.espn.com/nfl/story/_/id/48148479/sources-trent-mcduffie-rams-reach-4-year-124m-extension",
-    "https://www.espn.com/nfl/story/_/id/48015721/rams-2026-free-agency-tracker-offseason-moves-signings-trades",
-    "https://www.therams.com/news/free-agency",
-    "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
-    "https://www.profootballrumors.com/2026/03/rams-s-kamren-curl-agree-to-deal",
-    "https://www.profootballrumors.com/2026/03/rams-to-re-sign-te-tyler-higbee",
+    "https://overthecap.com/player/kamren-curl/8956",
     "https://www.spotrac.com/nfl/los-angeles-rams/cap",
     "https://overthecap.com/salary-cap/los-angeles-rams",
-    "https://www.cbssports.com/nfl/news/2026-nfl-free-agency-rams-jets-chargers/",
-    "https://www.turfshowtimes.com/los-angeles-rams-free-agency/136223/rams-free-agency-remaining-needs",
-    "https://www.profootballrumors.com/2026/03/cowboys-to-sign-cb-cobie-durant",
-    "https://www.redlandsdailyfacts.com/2026/03/10/rams-agree-to-terms-with-long-snapper-joe-cardona-on-2-year-deal/",
+    "https://www.therams.com/news/free-agency",
+    "https://www.therams.com/news/rams-acquire-cb-trent-mcduffie-in-trade-with-chiefs-agree-to-terms-with-mcduffie-on-four-year-contract-extension-nfl-free-agency-2026",
+    "https://www.therams.com/news/rams-re-sign-safety-kam-curl-to-three-year-deal-nfl-free-agency-2026",
+    "https://www.therams.com/news/rams-re-sign-tight-end-tyler-higbee-to-two-year-deal-nfl-free-agency-2026",
+    "https://www.therams.com/news/rams-agree-to-terms-with-olb-keir-thomas-on-one-year-deal-nfl-free-agency-2026",
+    "https://www.therams.com/news/rams-agree-to-terms-with-ls-joe-cardona-on-two-year-deal-nfl-free-agency-2026",
+    "https://www.therams.com/news/rams-place-cornerback-darious-williams-on-reserve-retired-list",
     "https://www.therams.com/news/rams-tender-exclusive-rights-free-agents-justin-dedich-harrison-mevis-and-xavier-smith-2026",
-    "https://www.therams.com/news/rams-re-sign-offensive-lineman-david-quessenberry-2026",
-    "https://www.spotrac.com/nfl/player/_/id/12458/david-quessenberry"
+    "https://www.profootballrumors.com/2026/03/rams-to-re-sign-te-tyler-higbee",
+    "https://ramblinfan.com/rams-silence-over-2-free-agent-veterans-departures-is-deafening-to-hopeful-fans-roger-mccreary",
+    "https://www.cbssports.com/nfl/news/2026-nfl-free-agency-rams-jets-chargers/",
+    "https://heavy.com/sports/nfl/los-angeles-rams/stuard-free-agency-mr-irrelevant-mcvay-roster/",
+    "https://www.turfshowtimes.com/los-angeles-rams-free-agency/136283/rams-free-agency-2026-moves-needs"
   ]
 }

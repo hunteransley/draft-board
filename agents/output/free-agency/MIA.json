@@ -1,17 +1,19 @@
 {
   "team": "MIA",
   "team_full": "Miami Dolphins",
-  "updated_through": "2026-03-13",
-  "cap_space_pre_fa": "~$3000000",
-  "cap_space_post_fa": "~$1000000",
+  "updated_through": "2026-03-16",
+  "cap_space_pre_fa": "$13000000",
+  "cap_space_post_fa": "$10272948",
+  "notes": "Miami carries a record ~$99.2M dead cap hit from Tua Tagovailoa's post-June 1 release, split across 2026 (~$67.4M) and 2027 (~$31.8M). Additional dead money from Tyreek Hill ($28.2M), Jalen Ramsey ($20.8M), Terron Armstead ($10.7M), and others. Total 2026 dead cap exceeds $175M, severely constraining FA spending. Nearly all signings are 1-year deals. This is a confirmed Year 1 rebuild under new HC Jeff Hafley and new GM Jon-Eric Sullivan.",
   "key_departures": [
     {
       "player": "Tua Tagovailoa",
       "position": "QB",
       "age": 28,
       "role": "starter",
-      "new_team": "Atlanta Falcons",
-      "impact": "Released with post-June 1 designation, generating an NFL-record ~$99.2M dead cap hit split over 2026 ($55.2M) and 2027 ($43.8M). Was benched in favor of seventh-round rookie Quinn Ewers late in 2025. Departure was necessary but leaves a massive cap anchor. Replacement (Malik Willis) immediately signed.",
+      "new_team": "Atlanta Falcons (veteran minimum)",
+      "contract_impact": "Post-June 1 release; $99.2M dead cap split over 2026 ($67.4M) and 2027 ($31.8M) \u2014 NFL record dead cap charge",
+      "impact": "Was benched in 2025 after career-high 15 interceptions. Release was inevitable under new regime. Creates massive QB need but also frees roster from a declining starter on a crippling contract. Dead cap severely limits 2026 flexibility.",
       "need_impact": "creates",
       "need_position": "QB"
     },
@@ -19,10 +21,11 @@
       "player": "Tyreek Hill",
       "position": "WR",
       "age": 32,
-      "role": "starter",
-      "new_team": "TBD/unsigned",
-      "impact": "Released Feb. 16 ahead of $16M contract guarantee trigger. Suffered dislocated knee and torn ACL in Week 4 of 2025 season; recovery timeline unclear. Was the WR1 and the offensive centerpiece for four seasons. Departure leaves a massive hole at WR1 with no comparable replacement signed.",
-      "need_impact": "escalates",
+      "role": "WR1",
+      "new_team": "unsigned/TBD (rehabbing torn ACL/knee ligaments from Week 4 2025)",
+      "contract_impact": "Cut pre-FA; $28.2M dead cap in 2026, saves $22.9M vs carrying the contract",
+      "impact": "Eight-time Pro Bowler, five-time All-Pro lost to injury in Week 4 2025. His release strips Miami of its primary X-factor and only true elite WR. Jaylen Waddle becomes the undisputed WR1 with no proven WR2 on roster. Massive hole created.",
+      "need_impact": "creates",
       "need_position": "WR"
     },
     {
@@ -30,18 +33,20 @@
       "position": "EDGE",
       "age": 29,
       "role": "starter",
-      "new_team": "Buffalo Bills",
-      "impact": "Released with post-June 1 designation. Led team with 8.5 sacks in 2025. Represented a $31M cap hit. Signed 3yr/$43.5M with a division rival, making his departure doubly painful. Chop Robinson is now the only experienced pass rusher on the roster.",
+      "new_team": "Buffalo Bills (3yr/$43.5M)",
+      "contract_impact": "Post-June 1 release; saves ~$7.3M in 2026 cap space",
+      "impact": "Led team with 8.5 sacks in 2025 despite being the only credible edge rusher after Jaelan Phillips was traded to Eagles at the deadline. Cut for cap reasons; signed immediately with division rival Bills. EDGE room goes from thin to barren.",
       "need_impact": "escalates",
       "need_position": "EDGE"
     },
     {
       "player": "Minkah Fitzpatrick",
       "position": "S",
-      "age": 28,
+      "age": 29,
       "role": "starter",
-      "new_team": "New York Jets",
-      "impact": "Traded to Jets for a 2026 seventh-round pick \u2014 a cap-clearing move. Three-time first-team All-Pro and five-time Pro Bowler. Started 14 games in 2025. Extremely low return for an elite player; move was purely financial. Creates a significant void at starting safety.",
+      "new_team": "New York Jets (traded; 3yr/$40M extension with NYJ)",
+      "contract_impact": "Trade; received 2026 7th-round pick in return. Saved ~$15.6M in 2026 base salary.",
+      "impact": "Traded to division rival Jets for minimal return (7th-round pick). Was still playing at a high level as a versatile nickel safety. Creates a starting-caliber safety void. An intra-division trade that strengthens a conference rival.",
       "need_impact": "creates",
       "need_position": "S"
     },
@@ -51,59 +56,43 @@
       "age": 28,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "Released after suffering a pectoral injury in Week 1 of 2025. Signed 3yr/$24M the prior year but played in only one game. Cap casualty. Creates a need at starting IOG.",
+      "contract_impact": "Released pre-FA; $4.8M dead cap",
+      "impact": "Starting guard released in cap purge. Interior OL already thin; losing a starting-caliber guard escalates the IOL need.",
       "need_impact": "escalates",
       "need_position": "IOL"
-    },
-    {
-      "player": "Kader Kohou",
-      "position": "CB",
-      "age": 27,
-      "role": "starter",
-      "new_team": "Kansas City Chiefs",
-      "impact": "Former undrafted nickel starter missed all of 2025 with a knee injury. Signed 1-year prove-it deal with KC. Had 180 career tackles and 28 PBUs in 3 seasons with Miami. Departure further depletes an already thin cornerback room.",
-      "need_impact": "escalates",
-      "need_position": "CB"
     },
     {
       "player": "Julian Hill",
       "position": "TE",
-      "age": 26,
-      "role": "rotational/blocker",
-      "new_team": "New England Patriots",
-      "impact": "Non-tendered RFA. Blocking specialist who played 50%+ offensive snaps for the first time in 2025. Departure leaves the Dolphins thin behind Dulcich, though Ben Sims was added as his replacement.",
-      "need_impact": "none",
+      "age": 27,
+      "role": "starter/H-back",
+      "new_team": "New England Patriots (3yr/up to $18M)",
+      "contract_impact": "Non-tendered RFA; signed 3yr deal with NE worth up to $18M",
+      "impact": "Primary blocking TE and rotational pass-catcher non-tendered as Miami declined to match the value. Leaves a gap in the blocking TE role. Greg Dulcich is re-signed but is a pass-catcher, not a blocker.",
+      "need_impact": "escalates",
       "need_position": "TE"
     },
     {
-      "player": "K.J. Britt",
-      "position": "LB",
-      "age": 27,
-      "role": "rotational",
-      "new_team": "New England Patriots",
-      "impact": "Depth/special teams linebacker. Low impact departure.",
+      "player": "Jaelan Phillips",
+      "position": "EDGE",
+      "age": 26,
+      "role": "starter",
+      "new_team": "Carolina Panthers (4yr deal \u2014 traded to Eagles at 2025 deadline, signed with Panthers in FA)",
+      "contract_impact": "Traded to Eagles at 2025 trade deadline for a 2026 3rd-round pick (already completed); Phillips then signed with Panthers in 2026 FA",
+      "impact": "Former first-round pick who was traded mid-2025 season. His free agency exit to Carolina is a residual loss \u2014 Miami already replaced his cap spot but not his production. Another former pass rusher gone.",
       "need_impact": "none",
-      "need_position": "LB"
+      "need_position": "EDGE"
     },
     {
-      "player": "Nick Westbrook-Ikhine",
-      "position": "WR",
+      "player": "Jake Bailey",
+      "position": "P",
       "age": 28,
-      "role": "depth",
-      "new_team": "TBD/unsigned",
-      "impact": "Released. Only 11 catches for 89 yards in 2025. Minimal impact departure.",
-      "need_impact": "none",
-      "need_position": "WR"
-    },
-    {
-      "player": "Cole Strange",
-      "position": "IOL",
-      "age": 27,
-      "role": "rotational",
-      "new_team": "Los Angeles Chargers",
-      "impact": "Departed via free agency to LAC. Was not a starter but adds to interior OL attrition.",
-      "need_impact": "none",
-      "need_position": "IOL"
+      "role": "starter",
+      "new_team": "Atlanta Falcons",
+      "contract_impact": "UFA; signed with Falcons",
+      "impact": "Impressed in 2025 season with Miami. Departure creates a punter vacancy.",
+      "need_impact": "creates",
+      "need_position": "P"
     },
     {
       "player": "Jason Sanders",
@@ -111,28 +100,168 @@
       "age": 30,
       "role": "starter",
       "new_team": "New York Giants",
-      "impact": "Released after 8 seasons. Replaced immediately by Zane Gonzalez.",
+      "contract_impact": "Released pre-FA; saved $4.6M",
+      "impact": "Eight-year Dolphins kicker released. Creates kicker competition but Riley Patterson was already re-signed.",
       "need_impact": "none",
       "need_position": "K"
+    },
+    {
+      "player": "K.J. Britt",
+      "position": "LB",
+      "age": 27,
+      "role": "rotational/depth",
+      "new_team": "New England Patriots",
+      "contract_impact": "UFA departure",
+      "impact": "Rotational linebacker and special teams contributor. Depth loss.",
+      "need_impact": "none",
+      "need_position": "LB"
+    },
+    {
+      "player": "Elijah Campbell",
+      "position": "S",
+      "age": 28,
+      "role": "depth/special teams",
+      "new_team": "New York Giants (1yr)",
+      "contract_impact": "UFA departure",
+      "impact": "Depth safety and core special teamer. Minor loss given Fitzpatrick's departure creates a much bigger void.",
+      "need_impact": "none",
+      "need_position": "S"
+    },
+    {
+      "player": "Cole Strange",
+      "position": "IOL",
+      "age": 27,
+      "role": "depth/backup",
+      "new_team": "Los Angeles Chargers",
+      "contract_impact": "UFA departure",
+      "impact": "Backup IOL who saw some starts. Departure thins OL depth further.",
+      "need_impact": "none",
+      "need_position": "IOL"
+    },
+    {
+      "player": "Alec Ingold",
+      "position": "FB",
+      "age": 29,
+      "role": "starter/team captain",
+      "new_team": "Los Angeles Chargers",
+      "contract_impact": "Released pre-FA; $1.9M dead cap",
+      "impact": "Four-year team captain, blocking fullback. Departure eliminates the FB role from Miami's offense \u2014 consistent with spread/RPO scheme under Hafley.",
+      "need_impact": "none",
+      "need_position": "FB"
+    },
+    {
+      "player": "Nick Westbrook-Ikhine",
+      "position": "WR",
+      "age": 28,
+      "role": "rotational",
+      "new_team": "TBD/unsigned",
+      "contract_impact": "Released pre-FA",
+      "impact": "Rotational WR released in cap purge. Marginal contributor.",
+      "need_impact": "none",
+      "need_position": "WR"
+    },
+    {
+      "player": "Joe Cardona",
+      "position": "LS",
+      "age": 32,
+      "role": "starter",
+      "new_team": "Los Angeles Rams",
+      "contract_impact": "UFA departure",
+      "impact": "Long snapper vacancy now filled by Tucker Addington.",
+      "need_impact": "none",
+      "need_position": "LS"
     }
   ],
   "signings": [
     {
       "player": "Malik Willis",
       "position": "QB",
-      "age": 26,
+      "age": 25,
       "previous_team": "Green Bay Packers",
       "contract": {
         "years": 3,
         "total_value": 67500000,
         "guaranteed": 45000000,
-        "aav": 22500000
+        "aav": 22500000,
+        "structure_notes": "2026 and 2027 salaries fully guaranteed; includes $22.25M signing bonus; two void years added to spread signing bonus proration over 5 years; deal includes $2M roster bonus if on roster in March 2028; 2026 salary cap hit front-loaded low to help cap situation"
       },
       "expected_role": "starter",
       "market_tier": "starter",
-      "need_impact": "partially_addressed",
+      "need_impact": "fully_addressed",
       "need_position": "QB",
-      "analysis": "Willis gets the first two years fully guaranteed ($1.25M base in 2026, $21.5M in 2027) with a team out after Year 2. At $22.5M AAV he is a mid-tier starter deal \u2014 not a full market commitment to a franchise QB. He went 2-1 as a starter for Green Bay with 78.7% completion rate and zero INTs in 11 appearances, but that is an extremely small sample. The $45M in two-year guarantees signals Miami views him as the starter for at least 2026-27, but the team-friendly Year 3 escape clause indicates this is bridge/audition structure. Quinn Ewers remains on the roster as competition. QB is partially addressed for 2026-27; Miami will likely still want a QB in the 2026 or 2027 draft."
+      "analysis": "Three-year, $67.5M deal with $45M guaranteed over first two years makes Willis the unquestioned starter for 2026 and 2027 at minimum. AAV of $22.5M ranks 17th among QBs \u2014 well below elite tier but well above bridge money. Two years of full guarantees signal genuine commitment, not a stopgap. Willis was connected to new HC Hafley (former GB DC) and GM Sullivan. He went from backup to full-time starter; this is Miami's QB. QB need fully addressed for the near term. They may still draft a developmental QB but it is not a premium Day 1 pick need."
+    },
+    {
+      "player": "Greg Dulcich",
+      "position": "TE",
+      "age": 25,
+      "previous_team": "Miami Dolphins (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 3110000,
+        "guaranteed": 2920000,
+        "aav": 3110000,
+        "structure_notes": "$1.15M base salary (fully guaranteed) + $1.77M signing bonus + up to $340K per-game roster bonuses; cap hit $3.11M; per OTC"
+      },
+      "expected_role": "starter/primary TE",
+      "market_tier": "depth",
+      "need_impact": "partially_addressed",
+      "need_position": "TE",
+      "analysis": "Dulcich had a strong finish to 2025 \u2014 26 catches, 336 yards, 1 TD in just 10 games, leading all TEs in YAC (7.6) and Y/Target (10.2). Re-signed on a short, fully guaranteed deal that locks him as TE1. However, this is a 1-year, $3.1M deal \u2014 below starter TE market ($8-14M AAV range). It keeps Miami's best receiving TE on the roster but doesn't solve the long-term TE need, and Julian Hill's departure leaves no quality blocking TE behind him. TE remains a draft priority."
+    },
+    {
+      "player": "Ben Sims",
+      "position": "TE",
+      "age": 26,
+      "previous_team": "Minnesota Vikings (via Green Bay Packers waiver claim)",
+      "contract": {
+        "years": 1,
+        "total_value": 1200000,
+        "guaranteed": 900000,
+        "aav": 1200000,
+        "structure_notes": "Reported as 1-year deal; financial terms not disclosed; estimated near minimum"
+      },
+      "expected_role": "blocking TE / depth",
+      "market_tier": "minimum",
+      "need_impact": "minimal",
+      "need_position": "TE",
+      "analysis": "Signed to replace blocking TE Julian Hill (who went to the Patriots). Sims is a career blocker with only 11 career receptions in 45 games. He fills the blocking TE roster spot but adds no pass-catching threat. Minimum-caliber deal \u2014 does not address TE as a true offensive weapon need. Miami still needs a receiving TE upgrade via the draft."
+    },
+    {
+      "player": "Tutu Atwell",
+      "position": "WR",
+      "age": 26,
+      "previous_team": "Los Angeles Rams",
+      "contract": {
+        "years": 1,
+        "total_value": 3000000,
+        "guaranteed": 1500000,
+        "aav": 3000000,
+        "structure_notes": "1-year deal; exact terms not fully disclosed; estimated per market context"
+      },
+      "expected_role": "WR2/slot",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "WR",
+      "analysis": "1,535 career receiving yards and 5 TDs in five NFL seasons. Speed threat (4.32 40) who can beat defenses deep. However, ESPN's own tracker notes he is 'not likely the No. 2 receiver Miami still needs opposite Jaylen Waddle.' 1-year depth deal \u2014 does not resolve the WR2 void left by Tyreek Hill. Miami still urgently needs a true WR2 via draft or FA."
+    },
+    {
+      "player": "Jalen Tolbert",
+      "position": "WR",
+      "age": 27,
+      "previous_team": "Dallas Cowboys",
+      "contract": {
+        "years": 1,
+        "total_value": 3000000,
+        "guaranteed": 1500000,
+        "aav": 3000000,
+        "structure_notes": "1-year deal; monetary terms not disclosed by reporters; estimated per market/roster context"
+      },
+      "expected_role": "WR2/outside",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "WR",
+      "analysis": "6-1, 195 lbs; brings size Atwell lacks. Has pre-existing rapport with Malik Willis from the Senior Bowl. 91 catches, 1,093 yards, 10 TDs in four Cowboys seasons \u2014 flashed in 2024 but fell behind the depth chart in 2025. At 27 on a 1-year prove-it deal, he may compete for WR2 reps but is not a true WR2 solution. WR need partially addressed in depth only \u2014 still a critical need for the draft."
     },
     {
       "player": "Josh Uche",
@@ -143,98 +272,86 @@
         "years": 1,
         "total_value": 2000000,
         "guaranteed": 1000000,
-        "aav": 2000000
+        "aav": 2000000,
+        "structure_notes": "1-year deal; monetary terms not publicly reported; estimated near minimum based on reporting ('likely minimum-value contract')"
       },
-      "expected_role": "rotational",
+      "expected_role": "rotational pass rusher",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "EDGE",
-      "analysis": "One-year minimum-value deal. Uche had 11.5 sacks with the Patriots in 2022 but has only 10 sacks combined across five other seasons. In 2025 he had 1 sack in 244 snaps for Philadelphia and lost his defensive role mid-season. Adds rotational depth alongside Chop Robinson, Cameron Goode, and Robert Beal Jr., but is not a starter-caliber solution. EDGE remains a critical draft/free agency need. Miami still needs a major overhaul at the position."
+      "analysis": "Had 11.5 sacks in 2022 breakout but only 10 total sacks in the other five seasons. In 2025 with Eagles, generated 23 pressures on 132 snaps (17.4% pressure rate) but only 1 sack. Rotational piece only \u2014 undersized at 6-2, 226 lbs. 1-year near-minimum deal. Provides pass-rush depth alongside Chop Robinson but does not fill Chubb's starter role. EDGE remains a top-tier draft need."
+    },
+    {
+      "player": "David Ojabo",
+      "position": "EDGE",
+      "age": 25,
+      "previous_team": "Baltimore Ravens",
+      "contract": {
+        "years": 1,
+        "total_value": 1200000,
+        "guaranteed": 800000,
+        "aav": 1200000,
+        "structure_notes": "1-year deal; no monetary terms reported; estimated near minimum"
+      },
+      "expected_role": "depth/camp competition",
+      "market_tier": "minimum",
+      "need_impact": "minimal",
+      "need_position": "EDGE",
+      "analysis": "Former Ravens 2nd-round pick who has struggled with repeated injuries throughout his career. 4.5 career sacks in 32 games. Has special teams experience (career-high 69 ST snaps in 2025). Could be a camp body or rotational project. Does not meaningfully address EDGE starter need \u2014 upside play on a talent that has never stayed healthy."
     },
     {
       "player": "Robert Beal Jr.",
       "position": "EDGE",
-      "age": 26,
+      "age": 25,
       "previous_team": "San Francisco 49ers",
       "contract": {
         "years": 1,
-        "total_value": 1100000,
-        "guaranteed": 500000,
-        "aav": 1100000
+        "total_value": 1200000,
+        "guaranteed": 800000,
+        "aav": 1200000,
+        "structure_notes": "1-year deal; terms not disclosed"
       },
-      "expected_role": "depth",
+      "expected_role": "depth/special teams",
       "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "EDGE",
-      "analysis": "Former 49ers fifth-round pick (2023) not tendered as an RFA. Has 36 career tackles and 1 sack in 25 games, splitting time between defense and special teams. Purely a depth/special teams add. Does nothing to address the starter need at EDGE."
+      "analysis": "Former 5th-round 49ers pick; 1 sack in 3 NFL seasons, primarily rotational down lineman. Projects as depth with ST contributions. 14 tackles in 7 games in 2025. Low-cost addition that adds depth but does not address the starter void at EDGE. Need unchanged."
     },
     {
-      "player": "Greg Dulcich",
-      "position": "TE",
+      "player": "Jamaree Salyer",
+      "position": "IOL",
       "age": 25,
-      "previous_team": "Miami Dolphins (re-sign)",
+      "previous_team": "Los Angeles Chargers",
       "contract": {
         "years": 1,
-        "total_value": 3250000,
-        "guaranteed": 2910000,
-        "aav": 3250000
+        "total_value": 4000000,
+        "guaranteed": 2500000,
+        "aav": 4000000,
+        "structure_notes": "1-year deal; exact terms not publicly reported; estimated based on market context and beat reporter framing as a starter-level addition"
       },
-      "expected_role": "starter",
+      "expected_role": "starter (RG or LG)",
       "market_tier": "depth",
       "need_impact": "partially_addressed",
-      "need_position": "TE",
-      "analysis": "Re-signed after finishing 2025 as Miami's third-leading receiver in just 10 games (26 rec, 336 yds). Led all TEs in yards after catch (7.6) and yards per target (10.2). One-year deal at $3.25M with $2.91M guaranteed. Below the starter-tier AAV but he's clearly the TE1 in Miami's plans. The one-year commitment signals the team is not confident he's their long-term answer; a TE could still be targeted in mid-rounds of the draft. Partially addresses the TE need."
-    },
-    {
-      "player": "Ben Sims",
-      "position": "TE",
-      "age": 26,
-      "previous_team": "Minnesota Vikings",
-      "contract": {
-        "years": 1,
-        "total_value": 1100000,
-        "guaranteed": 500000,
-        "aav": 1100000
-      },
-      "expected_role": "depth/blocker",
-      "market_tier": "minimum",
-      "need_impact": "minimal",
-      "need_position": "TE",
-      "analysis": "Blocking TE with ties to new GM Jon-Eric Sullivan (from their time together in Green Bay). Replaces Julian Hill as the in-line blocking option. One-year minimum deal. Does not change the TE need picture beyond providing a body."
-    },
-    {
-      "player": "Tutu Atwell",
-      "position": "WR",
-      "age": 26,
-      "previous_team": "Los Angeles Rams",
-      "contract": {
-        "years": 1,
-        "total_value": 2500000,
-        "guaranteed": 1000000,
-        "aav": 2500000
-      },
-      "expected_role": "depth/rotational",
-      "market_tier": "depth",
-      "need_impact": "minimal",
-      "need_position": "WR",
-      "analysis": "One-year deal for the speedy local product. Atwell had 6 catches for 192 yards in only 10 games in 2025 after hamstring issues and scheme changes in LA. Was paid $10M/year by the Rams in 2025 \u2014 his 2026 Miami deal is a deep discount prove-it contract. He has deep threat ability but has never been a consistent WR1. Does nothing to address the loss of Tyreek Hill. WR remains a critical need; Jaylen Waddle is the clear WR1 and the depth behind him (Atwell, Malik Washington, Terrace Marshall Jr.) is very thin."
+      "need_position": "IOL",
+      "analysis": "Started 40 games over 4 seasons with the Chargers at both LT (19) and RG (21). ESPN notes he 'spent a vast majority of his time at right guard \u2014 nearly 1,500 snaps' and Miami 'may have just found their new starter' at RG. Versatile enough for multiple spots. However, this is a 1-year deal for a player with a mediocre PFF grade (68.2 pass block, 61.5 run block in 2025). With James Daniels released and Cole Strange gone, IOL remains a need \u2014 Salyer partially addresses it for 2026 but Miami still needs IOL depth and long-term solutions."
     },
     {
       "player": "A.J. Green III",
       "position": "CB",
-      "age": 27,
-      "previous_team": "Miami Dolphins (re-sign)",
+      "age": 26,
+      "previous_team": "Miami Dolphins (re-sign; was on Rams PS before joining MIA mid-2025)",
       "contract": {
         "years": 1,
-        "total_value": 1100000,
-        "guaranteed": 500000,
-        "aav": 1100000
+        "total_value": 1200000,
+        "guaranteed": 800000,
+        "aav": 1200000,
+        "structure_notes": "1-year deal; terms not disclosed"
       },
-      "expected_role": "depth",
+      "expected_role": "depth/developmental CB",
       "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "CB",
-      "analysis": "Re-signed off the Rams' practice squad mid-2025. Has 39 career games with limited starting experience. Has great size (6-2, 198) but the Dolphins themselves acknowledge he is not a starting-caliber CB. One-year minimum deal. CB room remains extremely barren and is one of the team's most critical draft needs."
+      "analysis": "6-2, 198 lbs \u2014 great size for a corner. Coach Hafley has extensive DB coaching background. Does not have significant starting experience at this level. Re-signed as a developmental piece under a CB-specialist HC. Does not address the CB1/CB2 starter need. CB remains a critical draft need."
     },
     {
       "player": "Darrell Baker Jr.",
@@ -243,100 +360,106 @@
       "previous_team": "Tennessee Titans",
       "contract": {
         "years": 1,
-        "total_value": 1100000,
-        "guaranteed": 500000,
-        "aav": 1100000
+        "total_value": 1200000,
+        "guaranteed": 800000,
+        "aav": 1200000,
+        "structure_notes": "1-year deal; terms not disclosed"
       },
-      "expected_role": "depth/rotational",
-      "market_tier": "minimum",
+      "expected_role": "depth/potential starter competition",
+      "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "CB",
-      "analysis": "Most experienced CB added in free agency \u2014 started 6 games for Colts in 2023 and 9-10 for Titans in 2024-25. Undrafted out of Arizona Cardinals in 2022. One-year minimum deal. Provides the most credible competition for a CB2/CB3 role but is not a clear starting solution. CB need unchanged at its core."
-    },
-    {
-      "player": "Alex Austin",
-      "position": "CB",
-      "age": 25,
-      "previous_team": "New England Patriots",
-      "contract": {
-        "years": 1,
-        "total_value": 1100000,
-        "guaranteed": 500000,
-        "aav": 1100000
-      },
-      "expected_role": "depth/special teams",
-      "market_tier": "minimum",
-      "need_impact": "minimal",
-      "need_position": "CB",
-      "analysis": "Former seventh-round pick (2023, Bills) who bounced to Texans, Patriots. 29 career games, 6 starts. Primarily a special teams contributor. One-year deal. Adds no meaningful change to the CB1/CB2 need."
-    },
-    {
-      "player": "Marco Wilson",
-      "position": "CB",
-      "age": 27,
-      "previous_team": "Cincinnati Bengals",
-      "contract": {
-        "years": 1,
-        "total_value": 1100000,
-        "guaranteed": 500000,
-        "aav": 1100000
-      },
-      "expected_role": "depth/rotational",
-      "market_tier": "minimum",
-      "need_impact": "minimal",
-      "need_position": "CB",
-      "analysis": "2021 fourth-round pick (Cardinals) with 64 career games and 37 starts. Has 179 tackles, 20 PBUs, 3 INTs. Miami's fourth CB signing in as many days, all at veteran minimum. Adds competition depth. Is the fourth South Floridian signed (local connections being a theme). CB need unchanged at a critical tier."
+      "analysis": "Started 19 games over the past two seasons with the Titans. 6-1, 190 lbs. Could compete for a starting spot depending on how the CB room develops under Hafley. Upside project on a minimum deal. Does not resolve CB starter need given the lack of established outside CBs on the roster."
     },
     {
       "player": "Lonnie Johnson Jr.",
       "position": "S",
-      "age": 29,
+      "age": 28,
       "previous_team": "Las Vegas Raiders",
       "contract": {
         "years": 1,
-        "total_value": 1100000,
-        "guaranteed": 500000,
-        "aav": 1100000
+        "total_value": 1200000,
+        "guaranteed": 800000,
+        "aav": 1200000,
+        "structure_notes": "1-year deal; no monetary terms reported"
       },
       "expected_role": "depth/special teams",
       "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "S",
-      "analysis": "Spent 2025 on IR early then was activated Week 10. Has played both safety and cornerback. Primarily a special teams contributor. One-year deal. Does nothing to address the void left by trading Minkah Fitzpatrick. S remains a significant need."
+      "analysis": "224 career tackles, 17 PDs, 4 INTs in 92 career games. Primarily played special teams with Raiders in 2025 after being activated in Week 10 from IR. Versatile DB who can play safety or nickel corner. Minimum deal \u2014 does not address the Fitzpatrick starter void at safety. S remains a significant need."
     },
     {
       "player": "Zayne Anderson",
       "position": "S",
-      "age": 25,
+      "age": 26,
       "previous_team": "Green Bay Packers",
       "contract": {
         "years": 1,
-        "total_value": 1100000,
-        "guaranteed": 500000,
-        "aav": 1100000
+        "total_value": 1200000,
+        "guaranteed": 800000,
+        "aav": 1200000,
+        "structure_notes": "1-year deal; no monetary terms reported; RFA non-tendered by GB"
       },
       "expected_role": "depth/special teams",
       "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "S",
-      "analysis": "Former Packers safety who follows new coach Jeff Hafley from Green Bay. Was not tendered as an RFA. Appeared in 16 of 17 games before an ankle injury. Primarily a special teams contributor. Minimum deal. Does not solve the starting safety need."
+      "analysis": "Followed new HC Hafley and new GM Sullivan from Green Bay to Miami \u2014 scheme familiarity. Active in 16 of 17 games in 2025 before ankle injury in finale. Primarily a ST contributor and depth piece. Minimum-level signing; does not resolve the Fitzpatrick starter-level gap. S need remains."
+    },
+    {
+      "player": "Alex Austin",
+      "position": "CB",
+      "age": 24,
+      "previous_team": "New England Patriots",
+      "contract": {
+        "years": 1,
+        "total_value": 1000000,
+        "guaranteed": 700000,
+        "aav": 1000000,
+        "structure_notes": "1-year deal; no monetary terms reported"
+      },
+      "expected_role": "depth/special teams",
+      "market_tier": "minimum",
+      "need_impact": "minimal",
+      "need_position": "CB",
+      "analysis": "29 career games (6 starts) with 31 tackles, 8 PDs, 1 INT. RFA non-tendered by Patriots. Special teams contributor who could compete for depth CB role. Does not address CB starter need."
+    },
+    {
+      "player": "Marco Wilson",
+      "position": "CB",
+      "age": 26,
+      "previous_team": "Cincinnati Bengals",
+      "contract": {
+        "years": 1,
+        "total_value": 2000000,
+        "guaranteed": 1200000,
+        "aav": 2000000,
+        "structure_notes": "1-year deal; terms not reported"
+      },
+      "expected_role": "depth/competition for starting spot",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "CB",
+      "analysis": "Florida native (Fort Lauderdale) and UF alum; former Cardinals 4th-round pick (2021). Last starting experience was 2023. ESPN notes he has starting experience 'albeit not since 2023' and 'will likely compete for a depth spot, but all bets are off until Miami adds a bonafide starting corner.' One of four CBs signed, all on depth/minimum deals. CB starter need unchanged."
     },
     {
       "player": "Willie Gay Jr.",
       "position": "LB",
-      "age": 27,
+      "age": 28,
       "previous_team": "Miami Dolphins (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 1500000,
-        "guaranteed": 750000,
-        "aav": 1500000
+        "total_value": 2000000,
+        "guaranteed": 1200000,
+        "aav": 2000000,
+        "structure_notes": "1-year deal; exact terms not reported; framed as inexpensive re-signing"
       },
-      "expected_role": "depth/rotational",
-      "market_tier": "minimum",
+      "expected_role": "rotational/depth LB",
+      "market_tier": "depth",
       "need_impact": "none",
       "need_position": "LB",
-      "analysis": "Re-signed on one-year deal. Played 131 defensive snaps in 2025 \u2014 small sample. Training camp standout but hasn't carried it over consistently. Provides depth, special teams value, and Super Bowl pedigree. LB was not a critical pre-FA need and this doesn't change that."
+      "analysis": "2-time Super Bowl champion with the Chiefs. Participated in all 17 games in 2025, recording 20 tackles and 2 sacks. Training camp standout but limited in-game role (131 defensive snaps). Re-signed for depth and ST value. LB was not a critical pre-FA need."
     },
     {
       "player": "Matthew Butler",
@@ -345,32 +468,34 @@
       "previous_team": "Miami Dolphins (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 1500000,
-        "guaranteed": 750000,
-        "aav": 1500000
+        "total_value": 2000000,
+        "guaranteed": 1200000,
+        "aav": 2000000,
+        "structure_notes": "1-year deal; terms not reported; framed as inexpensive re-signing"
       },
-      "expected_role": "rotational",
-      "market_tier": "minimum",
+      "expected_role": "rotational IDL",
+      "market_tier": "depth",
       "need_impact": "none",
       "need_position": "IDL",
-      "analysis": "Re-signed on one-year deal. Had 12 tackles in 12 games in 2025. Former RFA not tendered, now brought back cheaply. Rotational DL depth. Not a starter; IDL remains a moderate need."
+      "analysis": "12 tackles in 12 games in 2025 with one start. Re-signed for depth and continuity at DT alongside Zach Sieler. Rotational piece with ST utility. IDL was not a top pre-FA need given Sieler remains on the roster."
     },
     {
       "player": "Zane Gonzalez",
       "position": "K",
-      "age": 29,
+      "age": 30,
       "previous_team": "Atlanta Falcons",
       "contract": {
         "years": 1,
         "total_value": 2500000,
         "guaranteed": 1500000,
-        "aav": 2500000
+        "aav": 2500000,
+        "structure_notes": "1-year deal per reports"
       },
-      "expected_role": "starter",
+      "expected_role": "starter (will compete with Patterson)",
       "market_tier": "depth",
       "need_impact": "fully_addressed",
       "need_position": "K",
-      "analysis": "One-year deal. Replaces Jason Sanders who was released. Gonzalez has been reliable inside 40 yards and is 22-of-23 on FG attempts between 40-49 yards over the past three seasons. K was a need created by Sanders' release and is now filled."
+      "analysis": "22-of-23 on 40-49 yard FGs over past 3 seasons. Miami released Jason Sanders and is setting up a kicking competition between Gonzalez and re-signed Riley Patterson. K need addressed for 2026."
     },
     {
       "player": "Riley Patterson",
@@ -379,43 +504,79 @@
       "previous_team": "Miami Dolphins (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 1500000,
-        "guaranteed": 750000,
-        "aav": 1500000
+        "total_value": 2000000,
+        "guaranteed": 1200000,
+        "aav": 2000000,
+        "structure_notes": "1-year deal"
       },
-      "expected_role": "depth/competition",
-      "market_tier": "minimum",
+      "expected_role": "competition for starting K role",
+      "market_tier": "depth",
       "need_impact": "none",
       "need_position": "K",
-      "analysis": "Re-signed as kicker depth/competition alongside Gonzalez. Was 27-of-29 on FGs in 2025. Now competes with Gonzalez for the starting role. Redundant with Gonzalez signing but low cost."
+      "analysis": "Went 27-of-29 on FGs in 2025 (93.1%), setting a single-season franchise record for FG percentage. Re-signed to compete with Gonzalez. One of them wins the job."
+    },
+    {
+      "player": "Seth Vernon",
+      "position": "P",
+      "age": 23,
+      "previous_team": "Michigan Panthers (UFL)",
+      "contract": {
+        "years": 1,
+        "total_value": 900000,
+        "guaranteed": 700000,
+        "aav": 900000,
+        "structure_notes": "1-year deal; rookie-level contract"
+      },
+      "expected_role": "starter (punter)",
+      "market_tier": "minimum",
+      "need_impact": "partially_addressed",
+      "need_position": "P",
+      "analysis": "Has never punted in an NFL game; averaged 45.4 yards per punt in the UFL in 2025. Replaces Jake Bailey (who signed with Falcons). Unproven at NFL level \u2014 team may add competition. P need partially addressed but remains uncertain."
+    },
+    {
+      "player": "Tucker Addington",
+      "position": "LS",
+      "age": 29,
+      "previous_team": "various (second stint with Dolphins)",
+      "contract": {
+        "years": 1,
+        "total_value": 900000,
+        "guaranteed": 700000,
+        "aav": 900000,
+        "structure_notes": "1-year deal; standard LS contract"
+      },
+      "expected_role": "starter (long snapper)",
+      "market_tier": "minimum",
+      "need_impact": "fully_addressed",
+      "need_position": "LS",
+      "analysis": "Replaces Joe Cardona (who went to Rams). LS need addressed \u2014 routine roster spot filled."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
-      "K"
+      "QB",
+      "K",
+      "LS"
     ],
     "partially_addressed": [
-      "QB",
-      "TE"
+      "IOL",
+      "TE",
+      "P"
     ],
     "minimally_addressed": [
-      "CB",
-      "S",
       "EDGE",
-      "WR"
+      "WR",
+      "CB",
+      "S"
     ],
     "unchanged": [
-      "OT",
-      "IOL",
       "IDL",
       "LB"
     ],
-    "escalated": [
-      "WR",
-      "EDGE",
-      "S",
-      "CB",
-      "IOL"
+    "escalated": [],
+    "newly_created_and_not_addressed": [
+      "WR1_depth",
+      "S_starter"
     ]
   },
   "recommended_need_adjustments": [
@@ -423,55 +584,49 @@
       "position": "QB",
       "previous_tier": 1,
       "recommended_tier": 3,
-      "reasoning": "Willis signing (3yr/$67.5M, $45M guaranteed) makes QB a bridge-addressed need for 2026-27. He is the designated starter with two years of full guarantees. However, the team-friendly Year 3 exit, the small sample size, and Quinn Ewers' presence all signal Miami may still want a QB with a later draft pick in 2026 or as their top priority in 2027. Downgrade from critical to moderate \u2014 monitor but not a Day 1 pick necessity in 2026."
-    },
-    {
-      "position": "EDGE",
-      "previous_tier": 1,
-      "recommended_tier": 1,
-      "reasoning": "Chubb released (went to Bills), Jaelan Phillips traded mid-2025. Only Chop Robinson has meaningful production on the roster. Uche (1-yr minimum) and Beal (1-yr minimum) are rotational bodies, not starters. EDGE is arguably the single biggest draft need on the roster. New coach Jeff Hafley will struggle to generate a quality pass rush. Should be a top-3 draft priority at picks 11 and/or Day 2."
+      "reasoning": "Willis signing (3yr/$67.5M, $45M gtd) fully addresses starter QB. Two guaranteed years signal genuine investment, not a bridge. Miami may still want a developmental QB later in the draft (Day 3), but QB is no longer a top-priority pick. Could still select a long-term project in Rounds 3-5 given Willis turns 26 and this is a rebuild."
     },
     {
       "position": "WR",
       "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Hill released (torn ACL, age 32). Atwell signed to a minimum prove-it deal \u2014 not a WR1 solution. Jaylen Waddle is the only reliable receiver. The cupboard is bare. WR is now a critical need alongside EDGE. Miami needs a legitimate WR2 at minimum; the Waddle-plus-Atwell combo is severely inadequate for the passing game they need to develop Willis."
+      "reasoning": "Tyreek Hill's release (injury/cap) removes the WR1 opposite Waddle. Atwell (1yr depth) and Tolbert (1yr prove-it) are both one-year fliers that don't solve the WR2 problem. ESPN explicitly noted Atwell is 'not likely the No. 2 receiver Miami still needs.' WR escalates to Tier 1 critical need \u2014 Miami almost certainly takes WR in Round 1 or early Round 2."
+    },
+    {
+      "position": "EDGE",
+      "previous_tier": 2,
+      "recommended_tier": 1,
+      "reasoning": "Chubb released (cap), Phillips already traded at 2025 deadline. EDGE room now consists of Chop Robinson (limited starter), Josh Uche (1yr rotational, near minimum), David Ojabo (injury-plagued camp body), and Robert Beal Jr. (depth). None of the three new EDGE additions are on multi-year deals or starter-caliber contracts. EDGE is a Tier 1 need alongside WR heading into the draft."
     },
     {
       "position": "CB",
-      "previous_tier": 1,
+      "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Kohou (lost to KC), Rasul Douglas (unsigned), Noah Igbinoghene (departed) all gone. The four CB signings (Baker, Austin, Green, Wilson) are all veteran minimum one-year depth players \u2014 none have legitimate starting pedigree at starter-caliber AAV. New HC Jeff Hafley has a strong CB development background which offers some optimism, but the room is historically thin. CB must be addressed in early-to-mid rounds of the 2026 draft."
+      "reasoning": "Miami signed four CBs in free agency (Baker, Austin, Wilson, re-signed AJ Green III) \u2014 but all are on minimum/depth 1-year deals with no proven starter among them. ESPN noted 'the Dolphins cornerback room is barren' and Wilson 'will likely compete for a depth spot.' No CB1 or CB2 has been established. CB remains a Tier 1 draft need \u2014 perhaps the most pressing defensive need."
     },
     {
       "position": "S",
       "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Minkah Fitzpatrick traded to Jets for a seventh-round pick \u2014 an elite safety sent to a division rival for essentially nothing. Johnson and Anderson are special-teams bodies, not starters. Miami has no legitimate starting safety under contract. S joins EDGE, WR, and CB as a critical draft need. Should be addressed no later than Day 2."
+      "reasoning": "Minkah Fitzpatrick was traded to Jets for a mere 7th-round pick. Elijah Campbell departed to Giants. The only 'additions' at safety are Zayne Anderson (depth/ST, minimum) and Lonnie Johnson (depth/ST). Neither is a starting-caliber free safety/strong safety. Safety becomes a Tier 1 need \u2014 Miami may target both S and CB aggressively in the draft."
     },
     {
       "position": "IOL",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "James Daniels released (injury), Cole Strange left to Chargers, Daniel Brunskill unsigned. Aaron Brewer (C) and Austin Jackson (OT, restructured to $7M/1yr) remain under contract but the interior OL depth is thin. No FA signings at IOL. Need unchanged at moderate-to-high \u2014 a guard or center should be targeted in the mid-rounds of the draft."
-    },
-    {
-      "position": "OT",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Austin Jackson restructured to stay ($7M, 1yr, $5.475M gtd). No other significant OT moves. The line remains a concern but with Jackson retained it is not a Day 1 priority. Could still look for a developmental tackle in mid-rounds."
-    },
-    {
-      "position": "IDL",
-      "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "Matthew Butler re-signed on a minimum deal. Rotational depth only. No starter-level IDL addition. Need is moderate; draft capital or a cheaper FA later in the process likely needed."
+      "reasoning": "James Daniels was released, Cole Strange left to Chargers, Liam Eichenberg released on failed physical. Jamaree Salyer (1yr) is a potential starting RG who brings positional versatility. However, it's a 1-year, depth-market deal \u2014 not a long-term solution. IOL remains a Tier 2 need. Miami should still draft an interior lineman to develop alongside Salyer and young 2025 pick Jonah Savaiinaea."
     },
     {
       "position": "TE",
       "previous_tier": 3,
+      "recommended_tier": 2,
+      "reasoning": "Julian Hill non-tendered (went to Patriots for 3yr/$18M \u2014 Miami passed). Dulcich re-signed (1yr/$3.1M \u2014 good pass-catcher but no blocking TE). Sims added as blocking TE minimum (11 career receptions). TE room has a pass-catcher in Dulcich but lacks a true dual-threat or quality blocking TE. TE escalates slightly to Tier 2 \u2014 worth targeting in Rounds 3-4 in the draft."
+    },
+    {
+      "position": "OT",
+      "previous_tier": 3,
       "recommended_tier": 3,
-      "reasoning": "Dulcich re-signed (1yr/$3.25M) and Sims added as the blocker. Dulcich is legitimate TE1 candidate based on 2025 performance but is on a one-year prove-it deal. Julian Hill lost to Patriots. TE need is partially addressed for 2026 but a developmental TE in the mid-rounds makes sense."
+      "reasoning": "Austin Jackson restructured ($7M/1yr, $5.475M gtd) to remain as the RT. Patrick Paul and Carter Warren remain as developmental LTs. Larry Borom and Kendall Lamm departed. The OT situation is thin and unresolved long-term, but Jackson's restructure stabilizes the RT spot for 2026. OT remains a Tier 3 need \u2014 worth addressing in the middle rounds of the draft."
     }
   ],
   "team_page_additions": {
@@ -481,101 +636,108 @@
         "position": "QB",
         "contract_summary": "3yr/$67.5M ($45M gtd)",
         "previous_team": "Green Bay Packers",
-        "headline": "New QB1 on a team-friendly deal with $45M in two-year guarantees, replacing Tua Tagovailoa in a full franchise reset"
+        "headline": "New-regime franchise QB replaces Tua; $45M guaranteed over 2 years signals real investment in a rebuild starter"
       },
       {
-        "player": "Greg Dulcich",
-        "position": "TE",
-        "contract_summary": "1yr/$3.25M ($2.91M gtd)",
-        "previous_team": "Miami Dolphins (re-sign)",
-        "headline": "Re-signed after breakout stretch in 2025 (26 rec, 336 yds in 10 games); leads all TEs in YAC and yards per target"
+        "player": "Jamaree Salyer",
+        "position": "IOL",
+        "contract_summary": "1yr (terms undisclosed)",
+        "previous_team": "Los Angeles Chargers",
+        "headline": "40-career-start OL veteran joins as projected starting RG, addressing the biggest void left by James Daniels' release"
       },
       {
         "player": "Josh Uche",
         "position": "EDGE",
-        "contract_summary": "1yr/~$2M",
+        "contract_summary": "1yr (near-minimum)",
         "previous_team": "Philadelphia Eagles",
-        "headline": "Depth pass rusher with 11.5-sack upside, added on a minimum deal to rebuild a depleted EDGE room"
+        "headline": "Miami native returns home on a prove-it deal; best pass rush option on roster after Chubb's departure but far from a solution"
       },
       {
-        "player": "Darrell Baker Jr.",
-        "position": "CB",
-        "contract_summary": "1yr/~$1.1M",
-        "previous_team": "Tennessee Titans",
-        "headline": "Most experienced CB addition with 15+ starts in the last two seasons; competes for starting role in a barren cornerback room"
+        "player": "Greg Dulcich",
+        "position": "TE",
+        "contract_summary": "1yr/$3.11M ($2.92M gtd)",
+        "previous_team": "Miami Dolphins (re-sign)",
+        "headline": "Re-signed pass-catching TE who led all TEs in YAC and yards-per-target in 2025; expected to be focal point of Willis-led passing game"
       },
       {
         "player": "Tutu Atwell",
         "position": "WR",
-        "contract_summary": "1yr/~$2.5M",
+        "contract_summary": "1yr (terms undisclosed)",
         "previous_team": "Los Angeles Rams",
-        "headline": "Miami native returns home as a deep-threat flier; one-year discount deal following $10M Rams contract"
+        "headline": "Miami native and deep-ball threat adds speed to WR room but does not solve the WR2 problem opposite Waddle"
       },
       {
-        "player": "Zane Gonzalez",
-        "position": "K",
-        "contract_summary": "1yr/~$2.5M",
-        "previous_team": "Atlanta Falcons",
-        "headline": "New starting kicker replaces released Jason Sanders; 22-of-23 on FG attempts from 40-49 yards over past three seasons"
+        "player": "Jalen Tolbert",
+        "position": "WR",
+        "contract_summary": "1yr (terms undisclosed)",
+        "previous_team": "Dallas Cowboys",
+        "headline": "Size (6-1) and Willis familiarity (Senior Bowl connection) make Tolbert the top WR2 candidate on a depth prove-it deal"
+      },
+      {
+        "player": "Zayne Anderson",
+        "position": "S",
+        "contract_summary": "1yr (minimum)",
+        "previous_team": "Green Bay Packers",
+        "headline": "Followed Hafley and Sullivan from GB to MIA; brings scheme familiarity but is a depth/ST player, not Fitzpatrick's replacement"
       }
     ],
     "key_losses": [
       {
         "player": "Tua Tagovailoa",
         "position": "QB",
-        "contract_summary": "Released (post-June 1); ~$99.2M dead cap",
-        "new_team": "Atlanta Falcons",
-        "headline": "NFL-record dead cap hit ends the Tagovailoa era after 6 seasons and one playoff appearance; benched late in 2025 for poor play"
+        "contract_summary": "Released (post-June 1); $99.2M dead cap \u2014 NFL record",
+        "new_team": "Atlanta Falcons (veteran minimum)",
+        "headline": "Franchise QB era ends after benching; NFL-record $99.2M dead cap hit defines Miami's 2026-27 cap picture"
       },
       {
         "player": "Tyreek Hill",
         "position": "WR",
-        "contract_summary": "Released; saved ~$22.8M vs. $51M cap hit",
-        "new_team": "TBD/unsigned",
-        "headline": "All-time great WR released after torn ACL and dislocated knee in Week 4 of 2025; leaves Miami with no true WR1"
+        "contract_summary": "Released; $28.2M dead cap",
+        "new_team": "TBD (rehabbing knee ligament tear)",
+        "headline": "Eight-time Pro Bowler released after Week 4 knee injury; leaves a WR1-opposite-Waddle void that Miami has not filled"
       },
       {
         "player": "Bradley Chubb",
         "position": "EDGE",
-        "contract_summary": "Released (post-June 1); signed 3yr/$43.5M ($29M gtd) w/ Bills",
+        "contract_summary": "Released; signed 3yr/$43.5M with Buffalo Bills",
         "new_team": "Buffalo Bills",
-        "headline": "Team's top pass rusher (8.5 sacks in 2025) cut for cap reasons and immediately signed by a division rival"
+        "headline": "Team's best pass rusher (8.5 sacks in 2025) cut for cap reasons, then immediately signed by division rival Bills"
       },
       {
         "player": "Minkah Fitzpatrick",
         "position": "S",
-        "contract_summary": "Traded for 2026 7th-round pick; signed 3yr/$40M w/ Jets",
+        "contract_summary": "Traded to NYJ for 2026 7th-round pick; signed 3yr/$40M with NYJ",
         "new_team": "New York Jets",
-        "headline": "Three-time All-Pro safety traded intra-division for minimal return in pure cap-clearing move"
+        "headline": "Elite safety traded to division rival for minimum return; creates unaddressed starting safety void"
       },
       {
-        "player": "Kader Kohou",
-        "position": "CB",
-        "contract_summary": "Signed 1yr deal w/ Chiefs (terms undisclosed)",
-        "new_team": "Kansas City Chiefs",
-        "headline": "Fan-favorite undrafted slot CB departs after missing 2025 season with knee injury; further depletes an already thin CB room"
+        "player": "Julian Hill",
+        "position": "TE",
+        "contract_summary": "Non-tendered RFA; signed 3yr/up to $18M with Patriots",
+        "new_team": "New England Patriots",
+        "headline": "Primary blocking TE non-tendered and lost to division rival; highlights Miami's rebuild-mode roster philosophy"
       },
       {
         "player": "James Daniels",
         "position": "IOL",
-        "contract_summary": "Released; 1 game played on 3yr/$24M deal",
+        "contract_summary": "Released; $4.8M dead cap",
         "new_team": "TBD/unsigned",
-        "headline": "Biggest 2025 OL signing played just 3 snaps before pec injury ended his season; cap casualty heading into 2026"
+        "headline": "Starting guard released in cap purge, deepening interior OL need heading into the draft"
       }
     ]
   },
   "confidence": "high",
-  "notes": "Contract monetary values for minimum-deal signings (Uche, Beal, Green, Baker, Austin, Wilson, Johnson, Anderson, Gay, Butler, Sims) are estimates based on reported one-year deals at or near veteran minimum; exact figures not publicly disclosed per multiple sources. Willis, Dulcich, and Gonzalez contract figures sourced from NFL Network (Rapoport/Pelissero), ESPN (Fowler), and Spotrac. Miami is operating in full rebuild mode under first-year HC Jeff Hafley and first-year GM Jon-Eric Sullivan with significant dead cap from Tagovailoa release (~$55.2M in 2026 alone) limiting spending. Nearly every FA addition is a one-year, low-cost deal. The Dolphins hold the No. 11 overall pick in the 2026 draft and have the seventh-most draft capital in the league \u2014 the draft, not free agency, will be the primary roster-building vehicle.",
+  "notes_on_confidence": "All signings confirmed via official Miami Dolphins team announcements, ESPN tracker, NFL.com, and credible beat reporters (Barry Jackson/Miami Herald, Tom Pelissero/NFL Network, Adam Schefter/ESPN, Jordan Schultz). Contract figures for Willis from Tom Pelissero/MMQB's Albert Breer. Dulcich contract from OverTheCap. Some depth-signing contract values (Uche, Tolbert, Atwell, Baker, Anderson, Johnson, Austin, Wilson, Beal, Ojabo, Salyer) not publicly disclosed and are estimated based on market context, cap constraints, and reporting framing. All are 1-year deals. Willis, Dulcich, and Gonzalez figures are confirmed.",
   "sources": [
-    "https://www.nfl.com/news/malik-willis-dolphins-three-year-67-million-contract",
-    "https://www.spotrac.com/nfl/player/_/id/76962/malik-willis",
-    "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
-    "https://www.espn.com/nfl/story/_/id/48092579/dolphins-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
     "https://www.miamidolphins.com/free-agency/",
+    "https://www.espn.com/nfl/story/_/id/48092579/dolphins-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
     "https://www.thephinsider.com/nfl-free-agency/116148/miami-dolphins-free-agency-2026-news-nfl-updates-rumors-signings-reports-legal-tampering",
+    "https://www.thephinsider.com/nfl-free-agency/116223/nfl-free-agents-2026-miami-dolphins-contract-malik-willis-guaranteed-money-three-years-saalry-cap",
+    "https://sports.yahoo.com/articles/dolphins-te-greg-dulcichs-contract-154531364.html",
+    "https://www.nfl.com/news/2026-nfl-free-agency-tracker-latest-signings-trades-contract-info-for-all-32-teams",
+    "https://www.nfl.com/news/2026-nfl-free-agency-free-agents-notable-departures-for-all-32-teams",
+    "https://overthecap.com/salary-cap/miami-dolphins",
     "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/mia",
-    "https://ca.sports.yahoo.com/news/live-updates-dolphins-day-4-133725079.html",
-    "https://atozsports.com/nfl/miami-dolphins-news/dolphins-free-agency-tracker-follow-every-miami-move-at-the-start-of-a-full-rebuild-in-south-florida/",
-    "https://www.sun-sentinel.com/2026/03/11/dolphins-acquiring-blocking-tight-end-with-previous-ties-to-gm-jon-eric-sullivan/"
+    "https://heavy.com/sports/nfl/miami-dolphins/dolphins-sign-replacement-for-departure/"
   ]
 }

@@ -1,9 +1,9 @@
 {
   "team": "NO",
   "team_full": "New Orleans Saints",
-  "updated_through": "2026-03-13",
-  "cap_space_pre_fa": "~20000000",
-  "cap_space_post_fa": "~16000000",
+  "updated_through": "2026-03-16",
+  "cap_space_pre_fa": "~$50000000",
+  "cap_space_post_fa": "~$16000000",
   "key_departures": [
     {
       "player": "Demario Davis",
@@ -11,8 +11,8 @@
       "age": 37,
       "role": "starter",
       "new_team": "New York Jets",
-      "contract_signed": "2yr/$22M ($15M gtd)",
-      "impact": "Eight-year Saints captain and five-time All-Pro. Led New Orleans in tackles for eight consecutive seasons. Posted a career-high 143 tackles in 2025 at age 36. Massive leadership void in addition to production loss.",
+      "contract_signed": "2yr/$22M ($15M guaranteed)",
+      "impact": "Davis was the unquestioned heart of the Saints defense for 8 seasons, leading the team in stops for an eighth consecutive year in 2025 with 143 tackles and 17 starts. His departure removes the team's most important defensive leader and play-caller at linebacker. The Elliss signing partially fills this role but cannot replicate Davis's veteran leadership and captain status.",
       "need_impact": "escalates",
       "need_position": "LB"
     },
@@ -22,21 +22,10 @@
       "age": 27,
       "role": "starter",
       "new_team": "Tennessee Titans",
-      "contract_signed": "3yr/$60M ($42M gtd)",
-      "impact": "Four-year starter for Saints at CB/slot. Recorded 83 tackles, 11 PDs, and 2 INTs in 2025. Left for elite-money contract in Tennessee \u2014 deal that Saints were never going to match. Kool-Aid McKinstry and Quincy Riley remain as the CB starters.",
+      "contract_signed": "3yr/$60M ($42M guaranteed)",
+      "impact": "Taylor was the Saints' best cornerback and one of the top free agent corners in the entire class. He recorded 83 tackles, 11 passes defensed, and 2 interceptions in 2025 with 44 starts over three seasons. New Orleans lost him for a top-of-market deal they were unwilling to match. CB is now a critical need with no clear replacement on the roster.",
       "need_impact": "creates",
       "need_position": "CB"
-    },
-    {
-      "player": "Luke Fortner",
-      "position": "IOL",
-      "age": 27,
-      "role": "rotational/starter",
-      "new_team": "Carolina Panthers",
-      "contract_signed": "1yr/$4.75M",
-      "impact": "Started 10 games at center after Erik McCoy suffered a season-ending pectoral injury in Week 7. Performed well (11 pressures allowed in 442 pass-blocking snaps). Departure leaves the Saints thin at center depth behind McCoy, who has significant injury history.",
-      "need_impact": "creates",
-      "need_position": "IOL"
     },
     {
       "player": "Cameron Jordan",
@@ -44,74 +33,57 @@
       "age": 36,
       "role": "starter",
       "new_team": "TBD/unsigned",
-      "contract_signed": null,
-      "impact": "Saints franchise sack leader (132 career sacks) became UFA when his contract voided. Carried a $18.76M dead cap hit. Posted 10.5 sacks in 2025 \u2014 his most since 2021. Still unsigned as of March 13. Departure (if confirmed) creates a significant need at EDGE.",
+      "contract_signed": "N/A \u2014 unrestricted free agent as of March 11",
+      "impact": "Jordan became a free agent for the first time in his 15-year career when his voiding contract expired. He led the Saints with 10.5 sacks in 2025, his most since 2021, and remains a productive starter. His departure (or continued absence) leaves a significant hole opposite Chase Young on the defensive line. As of March 16, Jordan remains unsigned and his return is unresolved.",
       "need_impact": "escalates",
       "need_position": "EDGE"
     },
     {
-      "player": "Foster Moreau",
+      "player": "Luke Fortner",
+      "position": "IOL",
+      "age": 27,
+      "role": "depth/backup starter",
+      "new_team": "Carolina Panthers",
+      "contract_signed": "1yr deal (terms undisclosed)",
+      "impact": "Fortner stepped in as starting center after Erik McCoy was injured in Week 7 and was a stabilizing presence for the offense down the stretch. His departure to Carolina leaves New Orleans without a reliable backup center behind McCoy, creating a depth concern at IOL.",
+      "need_impact": "creates",
+      "need_position": "IOL"
+    },
+    {
+      "player": "Jack Stoll",
       "position": "TE",
       "age": 28,
-      "role": "rotational",
-      "new_team": "Houston Texans",
-      "contract_signed": "2yr/$6.3M",
-      "impact": "Rotational TE and locker room leader. His departure, combined with Taysom Hill's contract voiding, strips depth from an already thin TE room behind Juwan Johnson.",
-      "need_impact": "escalates",
+      "role": "depth/blocker",
+      "new_team": "Cleveland Browns",
+      "contract_signed": "1yr deal (terms undisclosed)",
+      "impact": "Stoll was the Saints' primary blocking tight end in 2025. His departure is a minor loss given the team signed Noah Fant, who brings superior receiving ability and comparable blocking. Net effect is essentially neutral \u2014 the position upgraded.",
+      "need_impact": "none",
       "need_position": "TE"
     },
     {
       "player": "Taysom Hill",
       "position": "TE",
-      "age": 35,
-      "role": "rotational",
+      "age": 36,
+      "role": "rotational/utility",
       "new_team": "TBD/unsigned",
-      "contract_signed": null,
-      "impact": "Contract voided at start of new league year. Versatile hybrid player used heavily at TE. Saints HC Kellen Moore spoke positively but vaguely about his future. Retirement possible. Departure is a notable depth loss at TE and utility player.",
-      "need_impact": "escalates",
-      "need_position": "TE"
-    },
-    {
-      "player": "Jack Stoll",
-      "position": "TE",
-      "age": 26,
-      "role": "depth",
-      "new_team": "Cleveland Browns",
-      "contract_signed": "1yr/$1.31M",
-      "impact": "Depth TE. Minimal production impact but further thins a tight end room that is losing Moreau and possibly Hill.",
+      "contract_signed": "N/A \u2014 unrestricted free agent",
+      "impact": "Hill's unique utility role (QB/TE/RB hybrid) is irreplaceable and his departure ends a 9-year tenure. At 36 and with retirement possible, this is a modest scheme loss more than a positional need. The Saints may absorb this via internal options.",
       "need_impact": "none",
       "need_position": "TE"
     },
     {
       "player": "Kai Kroeger",
       "position": "P",
-      "age": 23,
+      "age": 24,
       "role": "starter",
       "new_team": "Houston Texans (trade)",
-      "contract_signed": "traded w/ 2028 7th-round pick for 2029 6th-round pick",
-      "impact": "Averaged only 37.3 net yards per punt, among the worst in the league. The Saints proactively moved on and traded him before replacing him in FA. Not a meaningful need departure given his poor performance.",
+      "contract_signed": "N/A \u2014 traded",
+      "impact": "Kroeger averaged only 37.3 net yards per punt in 2025, ranking among the NFL's worst. The Saints traded him and a 2028 seventh-round pick to Houston for a 2029 sixth-round pick after signing Ryan Wright. A clear upgrade situation.",
       "need_impact": "none",
       "need_position": "P"
     }
   ],
   "signings": [
-    {
-      "player": "David Edwards",
-      "position": "IOL",
-      "age": 28,
-      "previous_team": "Buffalo Bills",
-      "contract": {
-        "years": 4,
-        "total_value": 61000000,
-        "guaranteed": 45000000,
-        "aav": 15250000
-      },
-      "expected_role": "starter",
-      "market_tier": "starter",
-      "need_impact": "fully_addressed",
-      "need_position": "IOL",
-      "analysis": "Top guard available in free agency on a legitimate four-year, $61M deal with $45M guaranteed and a $20M signing bonus. Edwards is a 16-game starter over each of the last two seasons with the Bills, earning praise for an offense that allowed a league-low 14 sacks in 2024. He slots immediately into the starting left guard role, a spot that has been a revolving door for years. With $45M fully guaranteed, this is a real investment \u2014 IOL moves from critical need to depth consideration. Erik McCoy (C) and Cesar Ruiz (RG) round out a now-solidified interior starting trio. Depth behind them is still thin, which is why Radunz was also re-signed."
-    },
     {
       "player": "Travis Etienne Jr.",
       "position": "RB",
@@ -127,7 +99,24 @@
       "market_tier": "elite",
       "need_impact": "fully_addressed",
       "need_position": "RB",
-      "analysis": "Louisiana native returns home on a four-year, $52M deal \u2014 making him the seventh-highest-paid RB. Etienne rushed for 1,107 yards and 7 TDs in 2025 with the Jaguars and added 36 catches for 292 yards and 6 TDs. He brings elite-level dual-threat ability to a Saints offense that identified the run game as one of its biggest problems. The $13M AAV is elite-tier for the position. Four years of commitment signals he is the lead back. This also clouds Alvin Kamara's future (Kamara on the final year of his deal at $10.5M cap hit). RB is now a significant strength, not a need."
+      "analysis": "Elite signing at the RB position. Etienne rushed for 1,107 yards and 13 total touchdowns in 2025 for Jacksonville and is a premier pass-catching back. The 4yr/$52M deal with $28M guaranteed signals full commitment \u2014 this is their lead back for the contract duration. The Saints' rushing attack ranked 28th in 2025; Etienne directly solves that. His arrival effectively ends Alvin Kamara's role as the featured back. At $13M AAV, this is top-of-market for RB. RB need drops from a priority to non-existent."
+    },
+    {
+      "player": "David Edwards",
+      "position": "IOL",
+      "age": 29,
+      "previous_team": "Buffalo Bills",
+      "contract": {
+        "years": 4,
+        "total_value": 61000000,
+        "guaranteed": 45000000,
+        "aav": 15250000
+      },
+      "expected_role": "starter",
+      "market_tier": "elite",
+      "need_impact": "fully_addressed",
+      "need_position": "IOL",
+      "analysis": "The top guard available in the 2026 free agent class, signed to the richest deal of the class at 4yr/$61M with $45M guaranteed. Edwards started 16 games for Buffalo in 2025 and was part of the Bills' run-blocking-dominant line. He projects as the immediate starter at left guard, a position the Saints had addressed only via short-term deals for years. $45M in guarantees on a 4-year deal is a fully committed investment \u2014 left guard is addressed long-term. The re-signing of Radunz as depth further solidifies the IOL room. IOL need drops significantly, though backup center depth (post-Fortner) remains a minor concern."
     },
     {
       "player": "Kaden Elliss",
@@ -144,7 +133,7 @@
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "LB",
-      "analysis": "Saints reunite with a seventh-round pick who developed into a starter. Elliss, 30, led the Falcons in tackles in 2025 (107 tackles, 3.5 sacks, 10 TFLs, 1 INT) and was a team captain. The 3yr/$33M deal with $23M guaranteed is a real starter-money investment \u2014 it sits squarely in the starter AAV tier for the position. He is expected to be an immediate starter alongside Pete Werner. However, Elliss is not Demario Davis \u2014 he lacks Davis's elite leadership and production ceiling, and he himself is 30 entering his age-31 season. The need is substantially reduced but not fully eliminated given Davis's irreplaceable leadership presence and Elliss's age trajectory. LB drops from critical to moderate need."
+      "analysis": "Elliss was a 7th-round pick by the Saints in 2019 who developed into a 17-game starter and captain for the Falcons before returning to New Orleans. The 3yr/$33M deal with $23M guaranteed reflects a real multi-year commitment at a starter-level contract. He addresses the void left by Demario Davis signing with the Jets. However, Elliss at 30 is not Davis's peer as a playmaker or leader \u2014 Davis posted 143 tackles and multiple Pro Bowl-caliber seasons while Davis is just now stepping into a full-time role. The LB need is partially addressed: a starter is in place, but the room lacks the same elite anchor it had with Davis. LB remains a draft consideration."
     },
     {
       "player": "Noah Fant",
@@ -157,11 +146,11 @@
         "guaranteed": 4500000,
         "aav": 4375000
       },
-      "expected_role": "rotational",
+      "expected_role": "depth/rotational",
       "market_tier": "depth",
       "need_impact": "minimally_addressed",
       "need_position": "TE",
-      "analysis": "A former first-round pick (20th overall, 2019) on a two-year, $8.75M deal with only $4.5M guaranteed. Fant had 34 catches for 288 yards and 3 TDs with the Bengals in 2025. He will pair with Juwan Johnson (who is returning), giving the Saints 12-personnel capability and blocking utility. The AAV ($4.4M) sits at depth-tier for TEs. However, the Saints lost Moreau, Hill (voided), and Jack Stoll \u2014 so while Fant adds a body, the overall TE room remains a concern. This is a depth/rotational add, not a resolution. TE remains a need for the draft."
+      "analysis": "Fant is a former first-round pick (No. 20 in 2019) with proven pass-catching ability who joins as the No. 2 behind Juwan Johnson. The 2yr/$8.75M deal is a depth-tier contract but Fant can upgrade into a starter-quality role in 12-personnel. He had 34 catches for 388 yards and 3 TDs with Cincinnati in 2025, plus elite run-blocking grades (82.3% win rate). His arrival makes the departure of Jack Stoll and Taysom Hill less impactful. TE was not a top-tier need entering FA, and with Johnson returning, this signing provides quality depth. The position is now reasonably stocked."
     },
     {
       "player": "John Ridgeway III",
@@ -174,11 +163,11 @@
         "guaranteed": 1650000,
         "aav": 3100000
       },
-      "expected_role": "rotational",
+      "expected_role": "depth/rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "IDL",
-      "analysis": "Re-signing a depth rotational DT who spent most of 2025 on injured reserve (played in only 4 games). Two-year, $6.2M deal with just $1.65M guaranteed reflects his injury risk and limited production track record. He is a development piece with a good frame (6-5, 327 lbs) suited for the Saints' odd-front defense. Godchaux and Nathan Shepherd remain the primary starters. This keeps IDL depth intact but does not solve any starter-level concern."
+      "analysis": "Ridgeway is a depth defensive tackle who was acquired for a Day 3 pick in 2024. He missed significant time in 2025 on injured reserve. The 2yr/$6.2M deal with just $1.65M guaranteed is a low-commitment depth signing. He provides rotation help but doesn't address any starter-level IDL need. Re-signing him maintains continuity but IDL remains a draft priority."
     },
     {
       "player": "Ryan Wright",
@@ -195,24 +184,24 @@
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "P",
-      "analysis": "A genuine need for the Saints who have cycled through four punters since Thomas Morstead departed after 2020. Wright, 26, averaged 49 yards per punt in 2025 \u2014 a massive upgrade over Kai Kroeger (37.3 net yards, among the worst in the league). The 4yr/$14M deal with $8M guaranteed is top-5 money at punter and represents a real long-term commitment. Addresses the position decisively. Special teams stabilized."
+      "analysis": "The Saints had a carousel at punter since Thomas Morstead left after 2020, cycling through Blake Gillikin, Lou Hedley, Matthew Hayball, and Kai Kroeger (who averaged a league-worst 37.3 net yards per punt). Wright averaged 49 yards per punt in 2025 for Minnesota \u2014 a massive upgrade. The 4yr/$14M deal with $8M guaranteed is a top-5 punter contract and a real long-term commitment. This eliminates special teams as a recurring organizational concern. Wright becomes the 5th highest-paid punter in the NFL at $3.5M AAV."
     },
     {
       "player": "Dillon Radunz",
       "position": "IOL",
-      "age": 27,
+      "age": 28,
       "previous_team": "New Orleans Saints (re-sign)",
       "contract": {
         "years": 2,
-        "total_value": null,
-        "guaranteed": null,
-        "aav": null
+        "total_value": 0,
+        "guaranteed": 0,
+        "aav": 0
       },
-      "expected_role": "depth",
+      "expected_role": "depth/swing",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "IOL",
-      "analysis": "Re-signed on a two-year deal with no reported financial terms. Radunz started 10 games at left guard in 2025 after taking over for an injured starter, but PFF rated him 72nd of 79 qualifying guards. With Edwards signed as the starter, Radunz slots in as experienced, versatile depth who can play guard or tackle. Provides insurance for a position group that still has injury depth concerns. Contributes to IOL stability without addressing the starter question (already solved by Edwards)."
+      "analysis": "Radunz started 10-of-15 games at left guard in 2025 but was graded 72nd of 79 qualifying guards by PFF. With Edwards signed as the starter, Radunz slots as experienced interior line depth and a swing guard. Financial terms of the 2-year deal have not been fully disclosed as of March 16. This is a continuity/depth signing \u2014 he knows the system and provides insurance. Does not address any positional need independently but complements the Edwards signing. Contract terms flagged as TBD pending official disclosure."
     }
   ],
   "needs_impact_summary": {
@@ -222,129 +211,121 @@
       "P"
     ],
     "partially_addressed": [
-      "LB"
+      "LB",
+      "TE"
     ],
     "minimally_addressed": [
-      "TE",
       "IDL"
     ],
     "unchanged": [
-      "EDGE",
-      "WR"
+      "WR",
+      "OT"
     ],
     "escalated": [
-      "CB"
-    ],
-    "created": [
+      "EDGE",
       "CB"
     ]
   },
   "recommended_need_adjustments": [
     {
-      "position": "IOL",
-      "previous_tier": 1,
-      "recommended_tier": 3,
-      "reasoning": "David Edwards signing (4yr/$61M, $45M gtd) is a definitive starter-level investment at left guard. With McCoy at center and Ruiz at right guard, the starting three is now locked in. Depth is shored up by Radunz re-sign (2yr). IOL goes from a critical need to a low-priority, late-round add for depth. Center depth behind McCoy remains thin (Fortner left), so a Day 3 center pick is still worthwhile."
-    },
-    {
       "position": "RB",
       "previous_tier": 2,
       "recommended_tier": 5,
-      "reasoning": "Travis Etienne Jr. signing (4yr/$52M, $28M gtd) eliminates RB as a meaningful draft need. He is the clear lead back at an elite AAV for the position. Alvin Kamara remains on the roster in the final year of his deal, providing depth. The Saints may still draft a late-round developmental back but RB is no longer a priority in any round."
+      "reasoning": "Etienne signing (4yr/$52M, $28M guaranteed) fully solves the position. He was 2nd-best RB on the FA market and addresses the Saints' 28th-ranked rushing attack directly. Alvin Kamara's role is now uncertain/reduced. RB is no longer a draft need."
+    },
+    {
+      "position": "IOL",
+      "previous_tier": 2,
+      "recommended_tier": 4,
+      "reasoning": "Edwards (4yr/$61M, $45M guaranteed) was the top guard in the class and brings starting-caliber left guard play. Radunz provides depth. Fortner's departure to Carolina creates a minor backup center concern, but the starter problem is solved. IOL drops to a late-round depth consideration only."
     },
     {
       "position": "LB",
       "previous_tier": 2,
       "recommended_tier": 3,
-      "reasoning": "Kaden Elliss signing (3yr/$33M, $23M gtd) partially addresses the hole left by Demario Davis's departure to the Jets. Elliss is a legitimate starter and his contract reflects real investment. However, he is 30 years old and lacks Davis's elite production ceiling and irreplaceable leadership presence. Pete Werner provides a starting partner. LB drops from a high need to a moderate one \u2014 a mid-round draft pick to develop depth/succession is still warranted."
+      "reasoning": "Elliss (3yr/$33M, $23M guaranteed) fills the starter void left by Demario Davis, but doesn't replicate Davis's elite playmaking or leadership. At 30 with a multi-year deal, Elliss is a real investment. The Saints may still want a developmental LB in the mid-rounds of the draft to build depth alongside Elliss long-term."
     },
     {
       "position": "CB",
       "previous_tier": 2,
       "recommended_tier": 1,
-      "reasoning": "Alontae Taylor's departure to Tennessee (3yr/$60M, $42M gtd) creates a clear CB need. Taylor was a four-year starter with 52 PDs since 2022 \u2014 the Saints have no like-for-like replacement on the roster. Kool-Aid McKinstry and Quincy Riley are now the projected starters at outside CB, but both are young with limited proven track records. CB becomes the No. 1 draft priority \u2014 a top-50 pick investment here would be appropriate. The Saints have reportedly identified this as their biggest remaining need."
-    },
-    {
-      "position": "TE",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "TE situation has deteriorated, not improved. The Saints lost Foster Moreau (Texans, 2yr/$6.3M), Jack Stoll (Browns), and Taysom Hill (contract voided, status uncertain). Noah Fant's 2yr/$8.75M signing at depth-AAV partially mitigates the loss but does not constitute a full solution alongside Juwan Johnson. The Saints need additional TE help \u2014 this is a Rounds 2-4 draft target. Need stays at tier 2 given the depth of departures."
+      "reasoning": "Taylor's departure to Tennessee (3yr/$60M) leaves a massive hole at CB1. Taylor was the team's best corner and one of the top FAs in the class. No replacement was signed. With no credible starter at CB behind the remaining depth, CB becomes a critical need \u2014 the top defensive priority entering the draft at No. 8 overall."
     },
     {
       "position": "EDGE",
       "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Cameron Jordan remains unsigned as of March 13. His status is the biggest remaining wildcard on the roster. Jordan posted 10.5 sacks in 2025 at age 36 \u2014 still productive, but a UFA on the open market and reportedly open to moving on. If Jordan departs permanently, EDGE becomes a critical need. Even if he returns on a one-year deal, his age means the Saints need a long-term answer. Chase Young is on the roster (restructured), providing some depth. EDGE remains a tier 2 need pending Jordan's resolution."
+      "recommended_tier": 1,
+      "reasoning": "Cameron Jordan (10.5 sacks in 2025) remains unsigned as of March 16 and is actively exploring other teams including the Chiefs. His departure leaves Chase Young without a capable partner on the edge. If Jordan does not return, EDGE becomes a co-top need alongside CB. Even if Jordan returns on a short bridge deal, EDGE remains a priority given his age (36). Flag this position as fluid \u2014 tier should be reassessed when Jordan's status is resolved."
     },
     {
-      "position": "WR",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "No free agency activity at WR. The Saints made zero additions at wide receiver despite it being an identified need. Juwan Johnson returns at TE. Rashid Shaheed was previously traded. The receiving corps around Tyler Shough remains a concern. WR remains a tier 2 draft priority \u2014 this is likely a Round 1 or 2 target at pick No. 8."
+      "position": "TE",
+      "previous_tier": 3,
+      "recommended_tier": 4,
+      "reasoning": "Fant adds quality depth behind Juwan Johnson. Taysom Hill and Jack Stoll departed, but the Johnson-Fant pairing is the best Saints TE duo in years. TE drops slightly as a need \u2014 it's now depth/developmental, not a starter priority."
     },
     {
       "position": "IDL",
       "previous_tier": 3,
       "recommended_tier": 3,
-      "reasoning": "Ridgeway re-signed (2yr/$6.2M) but brings injury risk and limited proven production. Godchaux and Shepherd remain starters. Jonah Williams (UFA) is also still potentially re-signable. IDL is a depth need that can be addressed through Day 3 picks or second-wave free agency \u2014 no change to tier."
+      "reasoning": "Ridgeway re-signing at depth money doesn't change the need picture. IDL remains a mid-round draft target. The interior line still needs a true starter-quality complement to prevent one-dimensional run defense."
+    },
+    {
+      "position": "WR",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "No meaningful WR additions were made in free agency. The Saints still lack a proven No. 2 receiver to complement their top targets. This need is unchanged and remains a draft priority \u2014 likely rounds 1-3."
     }
   ],
   "team_page_additions": {
     "key_additions": [
       {
+        "player": "Travis Etienne Jr.",
+        "position": "RB",
+        "contract_summary": "4yr/$52M ($28M gtd)",
+        "previous_team": "Jacksonville Jaguars",
+        "headline": "Louisiana native returns home on elite deal to fix the Saints' 28th-ranked rushing attack"
+      },
+      {
         "player": "David Edwards",
         "position": "IOL",
         "contract_summary": "4yr/$61M ($45M gtd)",
         "previous_team": "Buffalo Bills",
-        "headline": "Top guard on the market ends years of revolving-door instability at left guard with elite-level commitment"
-      },
-      {
-        "player": "Travis Etienne Jr.",
-        "position": "RB",
-        "age": 27,
-        "contract_summary": "4yr/$52M ($28M gtd)",
-        "previous_team": "Jacksonville Jaguars",
-        "headline": "Louisiana native returns home as the Saints' new franchise running back after 1,399 scrimmage yards and 13 TDs in 2025"
+        "headline": "Top guard on the market lands in New Orleans on fully committed deal to anchor offensive line for Tyler Shough"
       },
       {
         "player": "Kaden Elliss",
         "position": "LB",
-        "age": 30,
         "contract_summary": "3yr/$33M ($23M gtd)",
         "previous_team": "Atlanta Falcons",
-        "headline": "Homegrown product returns to replace Davis, bringing 107 tackles, 3.5 sacks, and team captain credentials from Atlanta"
-      },
-      {
-        "player": "Ryan Wright",
-        "position": "P",
-        "age": 26,
-        "contract_summary": "4yr/$14M ($8M gtd)",
-        "previous_team": "Minnesota Vikings",
-        "headline": "New Orleans native and top-5 punter contract ends years of special teams instability at the position"
+        "headline": "Original Saints 7th-round pick returns from Atlanta as a proven starter to fill the Demario Davis void"
       },
       {
         "player": "Noah Fant",
         "position": "TE",
-        "age": 28,
         "contract_summary": "2yr/$8.75M ($4.5M gtd)",
         "previous_team": "Cincinnati Bengals",
-        "headline": "Former first-round pick adds blocking and receiving depth alongside Juwan Johnson after TE room was stripped by departures"
+        "headline": "Former first-round TE adds receiving and blocking depth to give Saints a legitimate two-TE threat"
+      },
+      {
+        "player": "Ryan Wright",
+        "position": "P",
+        "contract_summary": "4yr/$14M ($8M gtd)",
+        "previous_team": "Minnesota Vikings",
+        "headline": "Tulane alum ends years of punter instability with top-5 contract and 49 ypp average in 2025"
       },
       {
         "player": "John Ridgeway III",
         "position": "IDL",
-        "age": 26,
         "contract_summary": "2yr/$6.2M ($1.65M gtd)",
         "previous_team": "New Orleans Saints (re-sign)",
-        "headline": "Saints retain interior DL depth piece on a two-year extension as they bet on health after injury-shortened 2025"
+        "headline": "Depth DT re-signed to maintain interior rotation continuity"
       },
       {
         "player": "Dillon Radunz",
         "position": "IOL",
-        "age": 27,
-        "contract_summary": "2yr/terms TBD",
+        "contract_summary": "2yr (terms TBD)",
         "previous_team": "New Orleans Saints (re-sign)",
-        "headline": "Versatile veteran re-signed to provide experienced depth behind starter David Edwards along the interior line"
+        "headline": "Versatile interior lineman retained as experienced depth behind starter David Edwards"
       }
     ],
     "key_losses": [
@@ -353,80 +334,66 @@
         "position": "LB",
         "contract_summary": "2yr/$22M ($15M gtd) with Jets",
         "new_team": "New York Jets",
-        "headline": "Eight-year Saints captain and five-time All-Pro departs, leaving an irreplaceable leadership void after a career-high 143 tackles at age 36"
+        "headline": "8-year Saints captain and defensive play-caller departs to rejoin the Jets, ending one of the franchise's greatest free agent success stories"
       },
       {
         "player": "Alontae Taylor",
         "position": "CB",
         "contract_summary": "3yr/$60M ($42M gtd) with Titans",
         "new_team": "Tennessee Titans",
-        "headline": "Four-year starter and top-10 CB earns elite contract in Tennessee, creating the Saints' most glaring remaining roster hole"
-      },
-      {
-        "player": "Luke Fortner",
-        "position": "IOL",
-        "contract_summary": "1yr/$4.75M with Panthers",
-        "new_team": "Carolina Panthers",
-        "headline": "Emergency starter who replaced injured Erik McCoy and held down the center spot for 10 games departs to NFC South rival"
+        "headline": "Saints' best cornerback lands top-of-market deal in Tennessee, creating the team's most pressing draft need heading into the top-10"
       },
       {
         "player": "Cameron Jordan",
         "position": "EDGE",
-        "contract_summary": "UFA/unsigned as of 3/13",
+        "contract_summary": "UFA \u2014 unsigned as of 3/16",
         "new_team": "TBD",
-        "headline": "Saints' all-time sack leader hits open market after contract voids; 10.5 sacks in 2025 but his return remains unresolved"
+        "headline": "Franchise sack leader (132 career, 10.5 in 2025) hits free agency for first time after 15 seasons; return uncertain with Chiefs interest reported"
       },
       {
-        "player": "Foster Moreau",
-        "position": "TE",
-        "contract_summary": "2yr/$6.3M with Texans",
-        "new_team": "Houston Texans",
-        "headline": "Locker room leader and TE depth anchor departs, furthering concerns about the position group behind Juwan Johnson"
+        "player": "Luke Fortner",
+        "position": "IOL",
+        "contract_summary": "1yr deal with Panthers",
+        "new_team": "Carolina Panthers",
+        "headline": "Backup center who stepped up after Erik McCoy's injury leaves for a starting opportunity in Carolina"
       },
       {
-        "player": "Taysom Hill",
+        "player": "Jack Stoll",
         "position": "TE",
-        "contract_summary": "Contract voided; status uncertain",
-        "new_team": "TBD/possible retirement",
-        "headline": "Versatile hybrid player's contract voided at start of new league year; retirement and/or departure is possible"
+        "contract_summary": "1yr deal with Browns",
+        "new_team": "Cleveland Browns",
+        "headline": "Blocking tight end departs after one season; made redundant by Noah Fant signing"
       },
       {
         "player": "Kai Kroeger",
         "position": "P",
-        "contract_summary": "Traded to Texans w/ 2028 7th for 2029 6th",
+        "contract_summary": "Traded to Texans (Saints received 2029 6th)",
         "new_team": "Houston Texans",
-        "headline": "Bottom-of-league punter (37.3 net yds) traded away as Saints proactively upgraded the position with Ryan Wright"
+        "headline": "Struggling punter (37.3 net ypp, bottom of league) traded away after Saints upgraded to Ryan Wright"
       }
     ]
   },
   "confidence": "high",
-  "notes": [
-    "Cameron Jordan's status is the most significant unresolved situation \u2014 he is a UFA as of March 11 and still unsigned as of March 13. His return or departure dramatically changes the EDGE need tier.",
-    "Taysom Hill's contract voided. His retirement or free agency departure is possible. Saints HC was vague about his future.",
-    "Alvin Kamara's future is unclear \u2014 his contract was restructured, signing Travis Etienne signals he may take a reduced or no role in 2026. He has a $10.5M cap hit on the final year of his deal.",
-    "Dillon Radunz re-sign terms (total value, guaranteed) were not publicly disclosed as of the updated_through date.",
-    "OTC pegged post-FA cap space at approximately $16M as of March 12-13, though this is a moving target as restructures and voided dead money continue to be processed.",
-    "Dead money context: The Saints are absorbing approximately $48M in dead cap from voided contracts (Jordan $18.76M, Hill $13.72M, Davis $14.29M, Moreau $1.4M) per ESPN reporting, which significantly constrains further spending."
-  ],
+  "notes": "Cameron Jordan's status is the most significant unresolved variable as of March 16. He is confirmed unsigned and exploring the open market. If he signs elsewhere, EDGE and CB become co-equal Tier 1 draft priorities at No. 8. Alvin Kamara's future with the team also remains uncertain following the Etienne signing \u2014 his status could create or remove a depth need at RB. Dillon Radunz contract financial terms have not been publicly disclosed as of the updated_through date; total_value and guaranteed fields set to 0 pending confirmation. Travis Etienne guaranteed money confirmed at $28M per Louisiana Sports/official reporting. David Edwards guaranteed confirmed at $45M per ESPN.",
   "sources": [
     "https://www.espn.com/nfl/story/_/id/48080236/new-orleans-saints-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
-    "https://www.spotrac.com/nfl/free-agents/new-orleans-saints/",
-    "https://overthecap.com/salary-cap/new-orleans-saints",
-    "https://www.nola.com/sports/saints/new-orleans-saints-free-agency-tracker-every-2026-move-nfl/article_e180a2d4-096f-481f-a127-39c824839a52.html",
     "https://www.neworleanssaints.com/news/david-edwards-guard-nfl-free-agency-2026-saints-roster-moves",
-    "https://www.neworleanssaints.com/news/ryan-wright-punter-nfl-free-agency-2026-saints-roster-moves",
+    "https://www.neworleanssaints.com/news/travis-etienne-running-back-saints-free-agency-2026-5-things-to-know",
     "https://www.neworleanssaints.com/news/noah-fant-tight-end-nfl-free-agency-2026-saints-roster-moves",
-    "https://www.neworleanssaints.com/news/kaden-elliss-linebacker-nfl-free-agency-2026-saints-roster-moves",
-    "https://www.neworleanssaints.com/news/john-ridgeway-iii-defensive-tackle-nfl-free-agency-2026-saints-roster-moves",
+    "https://www.neworleanssaints.com/news/ryan-wright-punter-nfl-free-agency-2026-saints-roster-moves",
     "https://www.neworleanssaints.com/news/dillon-radunz-offensive-lineman-nfl-free-agency-2026-saints-roster-moves",
-    "https://www.spotrac.com/nfl/player/_/id/72405/travis-etienne",
-    "https://www.spotrac.com/nfl/player/_/id/29217/david-edwards",
     "https://www.spotrac.com/nfl/player/_/id/29055/noah-fant",
-    "https://www.spotrac.com/nfl/player/_/id/29292/kaden-elliss",
+    "https://www.spotrac.com/nfl/player/_/id/9887/demario-davis",
+    "https://www.spotrac.com/nfl/player/_/id/76925/alontae-taylor",
+    "https://www.spotrac.com/nfl/player/_/id/72405/travis-etienne",
     "https://www.spotrac.com/nfl/player/_/id/77498/ryan-wright",
-    "https://www.nfl.com/news/saints-signing-ex-jaguars-rb-travis-etienne-ex-bills-ol-david-edwards",
     "https://www.louisianasports.net/2026/03/11/saints-make-five-free-agent-signings-official/top-stories/",
-    "https://www.louisianasports.net/2026/03/12/saints-re-sign-veteran-guard-dillon-radunz/top-stories/",
-    "https://www.louisianasports.net/2026/03/11/saints-foster-moreau-departing-to-texans/top-stories/"
+    "https://www.nfl.com/videos/rapoport-jets-demario-davis-agree-on-two-year-22m-contract",
+    "https://www.tennesseetitans.com/news/titans-sign-cornerback-alontae-taylor",
+    "https://www.louisianasports.net/2026/03/10/32026/latest-stories/",
+    "https://www.nola.com/sports/saints/new-orleans-saints-free-agency-tracker-every-2026-move-nfl/article_e180a2d4-096f-481f-a127-39c824839a52.html",
+    "https://www.profootballrumors.com/2026/03/saints-g-dillon-radunz-agree-to-deal",
+    "https://www.si.com/nfl/saints/onsi/news/3-free-agency-signings-saints-can-still-make-under-the-cap-pat3",
+    "https://sports.yahoo.com/articles/contract-details-saints-two-deal-171745217.html"
   ]
 }

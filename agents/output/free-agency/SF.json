@@ -1,28 +1,78 @@
 {
   "team": "SF",
   "team_full": "San Francisco 49ers",
-  "updated_through": "2026-03-13",
+  "updated_through": "2026-03-16",
   "cap_space_pre_fa": "$38700000",
-  "cap_space_post_fa": "$16094894",
+  "cap_space_post_fa": "$10000000",
   "key_departures": [
     {
       "player": "Brandon Aiyuk",
       "position": "WR",
       "age": 27,
       "role": "starter",
-      "new_team": "TBD/released",
-      "impact": "Starter-caliber WR released at start of new league year (post-June 1 designation). Missed all of 2025 rehabbing knee injury. Contract guarantees voided after he went AWOL during rehab. Creates significant WR depth hole alongside Jennings departure.",
-      "need_impact": "creates",
+      "new_team": "Released/TBD",
+      "impact": "Aiyuk missed the entire 2025 season with ACL/MCL injuries, stopped communicating with the team, and had his future guarantees voided. GM Lynch confirmed he will not return. Team incurs roughly $29.6M in dead cap (split post-June 1 into ~$13.3M in 2026 and ~$21.2M in 2027). Was the nominal WR1 pre-injury; creates a significant hole even accounting for his lost 2025 season.",
+      "need_impact": "escalates",
       "need_position": "WR"
     },
     {
       "player": "Jauan Jennings",
       "position": "WR",
-      "age": 28,
+      "age": 29,
       "role": "starter",
-      "new_team": "TBD/unsigned",
-      "impact": "Team's leading receiver in 2025 with 55 catches, 643 yards, 9 TDs. Priced himself out of SF range, estimated market value ~$22.6M/yr per Spotrac. The 49ers chose not to match anticipated asking price. With Aiyuk also gone, SF loses both top WRs.",
+      "new_team": "Unsigned/TBD",
+      "impact": "Led the 49ers with 9 receiving TDs in 2025 (55 catches, 643 yards) and was their most reliable WR in a season ravaged by injury. Priced himself out of SF's comfort range; Evans signing effectively replaced him. Jennings remains unsigned as of March 16. Departure removes the team's most clutch possession receiver.",
+      "need_impact": "escalates",
+      "need_position": "WR"
+    },
+    {
+      "player": "Bryce Huff",
+      "position": "EDGE",
+      "age": 27,
+      "role": "starter/rotational",
+      "new_team": "Retired",
+      "impact": "Huff announced retirement on March 12, 2026, one day before a $1M roster bonus was due and before the team had to decide on a $14.635M option bonus. Finished 2025 with 4 sacks and 15 QB hits in 15 games but was inconsistent (0 sacks in final 10 regular-season and playoff games). Retirement saves the 49ers $5.392M in 2026 cap space. Leaves a significant void as the pass rusher opposite Nick Bosa.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Yetur Gross-Matos",
+      "position": "EDGE",
+      "age": 28,
+      "role": "rotational",
+      "new_team": "Unsigned/TBD",
+      "impact": "Void year triggered; departed as UFA. Rotational pass rusher whose loss compounds the EDGE need after Huff's retirement.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Jordan Elliott",
+      "position": "IDL",
+      "age": 29,
+      "role": "starter",
+      "new_team": "Tennessee Titans",
+      "impact": "Signed 2yr/$8M with Titans (reuniting with HC Robert Saleh). Combined with former starter Kalia Davis for just 0.5 sacks on 516 pass-rush snaps in 2025 \u2014 historically bad interior DL production. Departure frees up a need the team was already urgently addressing.",
       "need_impact": "creates",
+      "need_position": "IDL"
+    },
+    {
+      "player": "Kalia Davis",
+      "position": "IDL",
+      "age": 25,
+      "role": "starter",
+      "new_team": "Cleveland Browns",
+      "impact": "49ers declined to tender Davis as an RFA; he signed a 1yr/$3M deal with Cleveland. Was a primary DT starter in 2025 but combined with Elliott for negligible interior pass rush. Departure paired with Elliott's exit forced the team to trade for Odighizuwa.",
+      "need_impact": "escalates",
+      "need_position": "IDL"
+    },
+    {
+      "player": "Kendrick Bourne",
+      "position": "WR",
+      "age": 31,
+      "role": "rotational",
+      "new_team": "Arizona Cardinals",
+      "impact": "Signed 2yr/$12M with NFC West rival Cardinals. Was a rotational WR and locker-room leader; departure adds to the receiver room reshaping but was not a starter-caliber loss.",
+      "need_impact": "none",
       "need_position": "WR"
     },
     {
@@ -31,59 +81,19 @@
       "age": 27,
       "role": "starter",
       "new_team": "Green Bay Packers",
-      "impact": "Starting left guard for four seasons in SF. Signed 4yr/$77M deal with Packers. Creates a genuine starting hole at left guard with no direct replacement on roster.",
+      "impact": "Departed in the 2025 offseason (prior FA class) to Green Bay. Listed here for context as a comp pick driver (projected 4th-round comp pick). His loss left a void at left guard that the 49ers have not yet addressed with a starter-caliber signing.",
       "need_impact": "creates",
       "need_position": "IOL"
     },
     {
-      "player": "Bryce Huff",
-      "position": "EDGE",
-      "age": 27,
-      "role": "starter",
-      "new_team": "retired",
-      "impact": "Retired one day before a $1M roster bonus and before the team had to decide on a $14.635M option bonus. Had 4 sacks in 2025 but zero sacks in final 10 games. Retirement opens a bigger hole in an already-weak pass rush unit that finished last in the NFL with 20 sacks.",
-      "need_impact": "escalates",
-      "need_position": "EDGE"
-    },
-    {
-      "player": "Jordan Elliott",
-      "position": "IDL",
-      "age": 28,
-      "role": "starter",
-      "new_team": "Tennessee Titans",
-      "impact": "Starting DT for 2 seasons in SF, started 16 games in 2025. Left for 2yr/$8M deal with Titans. Was part of an interior DL that produced just 1.5 sacks from the DT position in 2025. His departure escalates the IDL need but Odighizuwa trade directly addresses it.",
-      "need_impact": "escalates",
-      "need_position": "IDL"
-    },
-    {
-      "player": "Kendrick Bourne",
-      "position": "WR",
-      "age": 30,
-      "role": "rotational",
-      "new_team": "Arizona Cardinals",
-      "impact": "Veteran rotational WR signed 2yr/$12M deal with Cardinals. Third WR off the board from SF's WR room in this cycle. Deepens the WR need but was not a starter.",
-      "need_impact": "escalates",
-      "need_position": "WR"
-    },
-    {
-      "player": "Skyy Moore",
-      "position": "WR",
-      "age": 24,
-      "role": "depth/special teams",
-      "new_team": "Green Bay Packers",
-      "impact": "Primary return specialist in 2025 (27.5 yds/KR avg, 11.6 yds/PR avg). Signed 1yr/$4.5M deal with Packers. Loss of elite return specialist creates a special teams need.",
-      "need_impact": "creates",
-      "need_position": "WR"
-    },
-    {
-      "player": "Robert Beal Jr.",
-      "position": "EDGE",
+      "player": "Spencer Burford",
+      "position": "IOL",
       "age": 26,
-      "role": "depth",
-      "new_team": "Miami Dolphins",
-      "impact": "49ers declined to tender him as an RFA, letting him walk. Rotational/depth EDGE. Modest impact given Huff also retiring.",
+      "role": "starter",
+      "new_team": "Unsigned/TBD",
+      "impact": "Departed as UFA. Was the primary LG in 2025. Leaves a hole at interior OL that the team has not addressed beyond depth signings.",
       "need_impact": "escalates",
-      "need_position": "EDGE"
+      "need_position": "IOL"
     },
     {
       "player": "Matt Hennessy",
@@ -91,9 +101,39 @@
       "age": 29,
       "role": "depth",
       "new_team": "Dallas Cowboys",
-      "impact": "Backup center/IOL departed to Cowboys. Toth signing signals he was the replacement anyway. Low individual impact.",
+      "impact": "Depth center departed. Compounds interior OL depth concerns but wasn't a starter.",
       "need_impact": "none",
       "need_position": "IOL"
+    },
+    {
+      "player": "Robert Beal Jr.",
+      "position": "EDGE",
+      "age": 27,
+      "role": "rotational",
+      "new_team": "Miami Dolphins",
+      "impact": "49ers declined to tender Beal as an RFA; signed 1yr deal with Dolphins. Rotational EDGE loss adds to pass-rush depth concerns.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
+      "player": "Jason Pinnock",
+      "position": "S",
+      "age": 27,
+      "role": "depth/rotational",
+      "new_team": "New York Giants",
+      "impact": "Depth safety departed. Minimal impact on starting lineup but reduces secondary depth.",
+      "need_impact": "none",
+      "need_position": "S"
+    },
+    {
+      "player": "Skyy Moore",
+      "position": "WR",
+      "age": 26,
+      "role": "depth",
+      "new_team": "Green Bay Packers",
+      "impact": "Signed 1yr/$4.5M with Packers. Depth WR loss; minor impact on a room being rebuilt anyway.",
+      "need_impact": "none",
+      "need_position": "WR"
     }
   ],
   "signings": [
@@ -104,16 +144,17 @@
       "previous_team": "Tampa Bay Buccaneers",
       "contract": {
         "years": 3,
-        "total_value": 42400000,
-        "guaranteed": 16300000,
-        "aav": 14133333,
-        "notes": "Base value $42.4M with incentives up to $60.4M per Adam Schefter/ESPN. $16.3M guaranteed per Ari Meirov/Spotrac. Incentive-heavy structure limits downside risk."
+        "total_value": 60400000,
+        "guaranteed": null,
+        "aav": 20133333
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "WR",
-      "analysis": "Evans is the clear WR1 and steps in as the 'X' receiver immediately, giving Purdy a proven downfield threat and red-zone weapon. The 3-year structure with only $16.3M guaranteed and heavy incentive reliance signals the team expects this to function as 1-2 real years of commitment. With Aiyuk and Jennings both gone, Evans partially addresses WR but does not fully close the need \u2014 the room behind him (Pearsall, Robinson, Cowing) lacks proven starters. WR remains a priority in the draft."
+      "analysis": "Marquee signing of the offseason. Evans posted 11 consecutive 1,000-yard seasons before injury limited him to 8 games in 2025. Three-year deal at ~$20M AAV is solid starter money, and the 3-year commitment signals genuine investment. However, Evans is 32 coming off an injury-plagued season, one of the top WR needs (a second WR to complement Pearsall/Evans) remains unresolved, and Jennings and Aiyuk are both gone. WR need drops significantly \u2014 Evans addresses WR1 \u2014 but the team still needs a WR2 opposite him. Partially addressed rather than fully, given the continued depth hole and Evans' age. Team will likely still target WR in the draft.",
+      "draft_pick_cost": null,
+      "notes": "Contract guaranteed amount not yet publicly reported. AAV positions Evans at solid starter tier for the position."
     },
     {
       "player": "Osa Odighizuwa",
@@ -124,33 +165,34 @@
         "years": 3,
         "total_value": 56250000,
         "guaranteed": 16250000,
-        "aav": 18750000,
-        "notes": "Trade acquisition \u2014 SF sent 2026 3rd-round pick (No. 92 overall) to DAL. Odighizuwa under contract through 2028: $16.25M fully guaranteed in 2026, $20M in 2027, $20M in 2028. Originally signed 4yr/$80M extension with DAL in March 2025 with $52M total guarantees per OTC/Spotrac."
+        "aav": 18750000
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "IDL",
-      "draft_pick_cost": "2026 3rd-round pick (No. 92 overall)",
-      "analysis": "Massive upgrade at a position that produced just 1.5 sacks from the DT spot in 2025 \u2014 the fewest in the NFL. Odighizuwa ranked 1st among DTs in QB hits (23) and 5th in pass rush win rate in 2025. His 3-year contract at $18.75M AAV is mid-to-upper starter tier for interior DL. With $16.25M fully guaranteed in Year 1 and $20M base salaries each of the following two seasons, this is a real multi-year commitment. IDL need is fully addressed. The cost of a 3rd-round pick is significant and reduces their draft capital at pick No. 92."
+      "acquisition_type": "trade",
+      "trade_cost": "2026 3rd-round pick (No. 92 overall)",
+      "analysis": "The most impactful defensive move of the offseason. SF traded their 3rd-round pick (No. 92) for Odighizuwa, who is under contract through 2028 with base salaries of $16.25M (fully guaranteed in 2026), $20M, and $20M. That 3-year, fully-on-the-books deal is a real commitment. Odighizuwa ranked 1st among DTs in QB hits (23) in 2025 despite just 3.5 sacks \u2014 elite interior pass rusher profile. He replaces the historically bad interior production of Elliott/Davis (0.5 sacks combined). The 49ers surrendered a Day 2 pick but gained a proven starter at their biggest defensive need under contract for 3 years. IDL need fully addressed at the starter level. Note: $56.25M total value is approximated from the 3-year remaining contract structure ($16.25M + $20M + $20M).",
+      "draft_pick_cost": "2026 3rd round (No. 92)"
     },
     {
       "player": "Dre Greenlaw",
       "position": "LB",
       "age": 28,
-      "previous_team": "Denver Broncos (via release)",
+      "previous_team": "Denver Broncos",
       "contract": {
         "years": 1,
         "total_value": 7500000,
-        "guaranteed": 7500000,
-        "aav": 7500000,
-        "notes": "One-year deal worth $7.5M per Ian Rapoport/NFL Network and multiple reports. Broncos released him as a post-June 1 designation."
+        "guaranteed": null,
+        "aav": 7500000
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "LB",
-      "analysis": "Greenlaw's reunion is welcome but the one-year structure is essentially a prove-it deal given his extensive injury history (torn Achilles in SB LVIII, quad/hamstring limiting him to 8 games in Denver in 2025). He slots back next to Fred Warner (returning from fractured ankle) as the starting ILB pair. At $7.5M AAV for LB that is solidly starter-tier. Partially addresses LB for 2026 but zero long-term guarantee means the need persists beyond this year."
+      "analysis": "Greenlaw returns to San Francisco after one tumultuous year in Denver. One-year, $7.5M deal is a reasonable prove-it contract for a player who has played just 10 games since tearing his Achilles in Super Bowl LVIII. If healthy, he reunites with Fred Warner to form one of the best LB duos in the NFC; if he misses time again, the 49ers have Dee Winters, Tatum Bethune, and Nick Martin as fallback options. One-year structure limits this to partially-addressed \u2014 the team still needs to find a long-term LB2 answer beyond 2026. Guaranteed money not yet disclosed; estimated modest given 1-year bridge structure.",
+      "draft_pick_cost": null
     },
     {
       "player": "Eddy Pi\u00f1eiro",
@@ -161,68 +203,14 @@
         "years": 4,
         "total_value": 17000000,
         "guaranteed": 10000000,
-        "aav": 4250000,
-        "notes": "Four-year extension per Ian Rapoport/NFL Network and agents Drew Rosenhaus and Robert Bailey. $10M guaranteed."
+        "aav": 4250000
       },
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "K",
-      "analysis": "Pi\u00f1eiro went 28-of-29 on FG attempts in 2025, leading the NFL in FG% at 96.6%. Re-signed before he could hit the open market. Four years with $10M guaranteed on a kicker at his level is fair value \u2014 Spotrac estimated his market at $21M AAV. Locks up the specialist position the 49ers desperately needed to stabilize after years of Jake Moody struggles. K need completely resolved for the foreseeable future."
-    },
-    {
-      "player": "Vederian Lowe",
-      "position": "OT",
-      "age": 25,
-      "previous_team": "New England Patriots",
-      "contract": {
-        "years": 2,
-        "total_value": 12000000,
-        "guaranteed": 5750000,
-        "aav": 6000000,
-        "notes": "2yr/$12M with $5.75M guaranteed per ESPN's Jeremy Fowler."
-      },
-      "expected_role": "depth/swing tackle",
-      "market_tier": "depth",
-      "need_impact": "minimal",
-      "need_position": "OT",
-      "analysis": "Lowe has 25 career starts in 4 NFL seasons with NE. He projects as a swing tackle in SF \u2014 potential LT1 if Trent Williams situation deteriorates, more likely as backup behind McKivitz. At $6M AAV this is depth/swing pricing. Does NOT resolve the Trent Williams uncertainty. OT remains a need, especially if Williams departs. Two years/$12M with only $5.75M guaranteed suggests limited commitment to him as a starter."
-    },
-    {
-      "player": "Jake Tonges",
-      "position": "TE",
-      "age": 25,
-      "previous_team": "San Francisco 49ers (re-sign)",
-      "contract": {
-        "years": 2,
-        "total_value": 8000000,
-        "guaranteed": 5500000,
-        "aav": 4000000,
-        "notes": "2yr/$8M with $5.5M guaranteed per Tom Pelissero/NFL Network."
-      },
-      "expected_role": "rotational/bridge starter",
-      "market_tier": "depth",
-      "need_impact": "partially_addressed",
-      "need_position": "TE",
-      "analysis": "Tonges is the bridge TE while Kittle (torn Achilles in January 2026) recovers. He stepped up with 34 catches, 293 yards, 5 TDs in 2025 filling in for Kittle. Re-signing him for 2 years with reasonable guarantees is the right move. He is NOT a Kittle-tier starter but is functional. TE need is partially addressed \u2014 when Kittle returns, this position is fine, but early 2026 games without Kittle are a concern. Good depth/insurance value."
-    },
-    {
-      "player": "Brett Toth",
-      "position": "IOL",
-      "age": 29,
-      "previous_team": "Philadelphia Eagles",
-      "contract": {
-        "years": 1,
-        "total_value": 2000000,
-        "guaranteed": 1900000,
-        "aav": 2000000,
-        "notes": "One-year deal per Dave Zangaro/NBC Sports Philadelphia and ESPN's Jeremy Fowler. 95% of deal guaranteed per Fowler. Exact figures not reported; estimate based on IOL depth market."
-      },
-      "expected_role": "depth/backup IOL",
-      "market_tier": "depth",
-      "need_impact": "minimal",
-      "need_position": "IOL",
-      "analysis": "Toth is a versatile backup who played LG and C for Eagles in 2025 (4 starts in 17 games). He replaces Matt Hennessy as the primary interior backup and can compete for the starting LG role, but his 6 career starts makes him a backup solution at best. The left guard starter vacancy (created by Banks departing) remains a genuine draft/free agency need. IOL minimally addressed \u2014 Toth adds depth but does not solve the starting LG hole."
+      "analysis": "Re-signed before free agency opened. Pi\u00f1eiro went 28-of-29 on field goals in 2025 (96.6% \u2014 league-leading) with 6-of-7 from 50+. The 4yr/$17M deal with $10M guaranteed locks up the team's most reliable specialist since Robbie Gould. Kicker is no longer a need for the foreseeable future. Signing signals strong organizational confidence.",
+      "draft_pick_cost": null
     },
     {
       "player": "Nate Hobbs",
@@ -231,41 +219,115 @@
       "previous_team": "Green Bay Packers",
       "contract": {
         "years": 1,
-        "total_value": 4000000,
-        "guaranteed": 3800000,
-        "aav": 4000000,
-        "notes": "1-year deal worth up to $4.5M per NFL Network's Tom Pelissero. Base $4M per Aaron Wilson. Packers cut Hobbs after giving him 4yr/$48M just one year ago."
+        "total_value": 4500000,
+        "guaranteed": null,
+        "aav": 4500000
       },
-      "expected_role": "rotational/depth CB",
+      "expected_role": "rotational",
       "market_tier": "depth",
       "need_impact": "minimal",
       "need_position": "CB",
-      "analysis": "Hobbs is a proven slot/CB who battled knee injuries limiting him to 11 games with Green Bay in 2025. PFF rated him among the best run-defending corners in football when healthy. At $4M base on a 1-year deal, this is a low-risk reclamation play. He competes with Lenoir, Green, and Stout for CB spots. SF's CB room (Lenoir, Green retained) is not dramatically thin, so this is quality depth, not a need-filler. CB need minimally addressed."
+      "analysis": "One-year prove-it deal after the Packers released Hobbs following an injury-plagued 2025 (only 221 snaps). Was signed to a 4yr/$48M deal by Green Bay just a year ago, so the talent ceiling is real but availability is a major concern. Projects as depth/competition opposite Deommodore Lenoir, potentially pushing Renardo Green (who fell out of favor in the playoffs). At $4.5M on a 1-year deal, this is a low-cost upside play \u2014 not a solution to the CB2 need. CB remains a moderate draft need.",
+      "draft_pick_cost": null
+    },
+    {
+      "player": "Vederian Lowe",
+      "position": "OT",
+      "age": 26,
+      "previous_team": "New England Patriots",
+      "contract": {
+        "years": 2,
+        "total_value": 12000000,
+        "guaranteed": 5750000,
+        "aav": 6000000
+      },
+      "expected_role": "depth/swing",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "OT",
+      "analysis": "Two-year depth signing at swing tackle. Lowe has 25 career starts over 3 seasons with New England, including 4 starts at LT in 2025. Projects as a swing tackle behind Colton McKivitz at RT, with potential to play left if Trent Williams situation is resolved via trade/retirement. At $6M AAV this is well below starter money. Does NOT address the critical Trent Williams contract impasse or the need for a true LT heir apparent. OT need remains elevated pending Williams' 2026 status resolution.",
+      "draft_pick_cost": null
+    },
+    {
+      "player": "Brett Toth",
+      "position": "IOL",
+      "age": 28,
+      "previous_team": "Philadelphia Eagles",
+      "contract": {
+        "years": 1,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "minimal",
+      "need_position": "IOL",
+      "analysis": "One-year depth deal for a swing interior lineman who can play both guard spots and center. Projects as a swing/backup with a chance to compete for a starting spot at LG, which is currently the 49ers' biggest unaddressed IOL need post-Burford/Banks. Doesn't move the needle on the need \u2014 the team still needs a quality starting guard.",
+      "draft_pick_cost": null,
+      "notes": "Contract terms not publicly disclosed as of March 16, 2026."
+    },
+    {
+      "player": "Jake Tonges",
+      "position": "TE",
+      "age": 27,
+      "previous_team": "San Francisco 49ers (re-sign)",
+      "contract": {
+        "years": 2,
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
+      },
+      "expected_role": "depth/TE2",
+      "market_tier": "depth",
+      "need_impact": "partially_addressed",
+      "need_position": "TE",
+      "analysis": "Re-signed as TE2 behind George Kittle (recovering from a torn Achilles suffered in January 2026). Tonges emerged from nowhere in 2025 with 34 catches, 293 yards, and 5 TDs when Kittle was injured. Two-year deal provides continuity and insurance as Kittle's return timeline remains uncertain. This doesn't fully address the TE need because Kittle is a legitimate injury concern for 2026. Tonges is a trustworthy backup \u2014 the team may still want another TE via draft.",
+      "draft_pick_cost": null,
+      "notes": "Contract total value not publicly disclosed as of March 16, 2026."
+    },
+    {
+      "player": "Luke Gifford",
+      "position": "LB",
+      "age": 31,
+      "previous_team": "San Francisco 49ers (re-sign)",
+      "contract": {
+        "years": 2,
+        "total_value": 5300000,
+        "guaranteed": null,
+        "aav": 2650000
+      },
+      "expected_role": "special teams/depth",
+      "market_tier": "depth",
+      "need_impact": "none",
+      "need_position": "LB",
+      "analysis": "Pro Bowl special teamer re-signed. Gifford tied for 6th in special teams tackles in 2025 (20). Re-signing maintains special teams continuity and costs minimal cap. With Greenlaw back, Gifford's defensive role should diminish. No impact on starting depth chart needs.",
+      "draft_pick_cost": null
     },
     {
       "player": "Jon Weeks",
       "position": "LS",
-      "age": 38,
+      "age": 40,
       "previous_team": "San Francisco 49ers (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 1200000,
-        "guaranteed": 1200000,
-        "aav": 1200000,
-        "notes": "One-year extension per team announcement. Exact value not publicly reported; estimate based on LS market."
+        "total_value": null,
+        "guaranteed": null,
+        "aav": null
       },
       "expected_role": "starter",
       "market_tier": "starter",
-      "need_impact": "fully_addressed",
+      "need_impact": "none",
       "need_position": "LS",
-      "analysis": "Veteran Pro Bowl long snapper re-signed to keep the special teams operation intact alongside Pi\u00f1eiro. Continuity signing. LS position locked up."
+      "analysis": "Veteran long snapper re-signed on 1-year extension. Maintains special teams stability. Not a positional need.",
+      "draft_pick_cost": null,
+      "notes": "Contract terms not publicly disclosed."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
       "IDL",
-      "K",
-      "LS"
+      "K"
     ],
     "partially_addressed": [
       "WR",
@@ -273,76 +335,72 @@
       "TE"
     ],
     "minimally_addressed": [
+      "CB",
       "OT",
-      "IOL",
-      "CB"
+      "IOL"
     ],
     "unchanged": [
       "S",
-      "QB"
+      "EDGE"
     ],
     "escalated": [
       "EDGE"
-    ],
-    "new_needs_created": [
-      "WR (mass exodus)",
-      "IOL (Banks/LG departure)"
     ]
   },
   "recommended_need_adjustments": [
     {
-      "position": "WR",
-      "previous_tier": 1,
-      "recommended_tier": 1,
-      "reasoning": "Evans signing partially addressed WR but with Aiyuk (released), Jennings (departed), Bourne (Cardinals), and Moore (Packers) all gone, SF lost 4 WRs this cycle. Evans is WR1 but the room behind him \u2014 Ricky Pearsall (injury-prone), Demarcus Robinson (slot/depth), Jacob Cowing, Jordan Watkins \u2014 is extremely thin. WR remains the top remaining need. Draft WR early and potentially still active in FA market."
-    },
-    {
-      "position": "EDGE",
-      "previous_tier": 1,
-      "recommended_tier": 1,
-      "reasoning": "Pre-FA top need and it got WORSE. Bryce Huff retired (was the team's top edge rusher with 4 sacks), Robert Beal Jr. left, and no EDGE was signed. Nick Bosa returns from torn ACL (missed all or most of 2025) but his return timeline and health are uncertain. The 49ers finished last in the NFL with 20 sacks in 2025. EDGE is a critical tier-1 need heading into the draft."
-    },
-    {
       "position": "IDL",
       "previous_tier": 1,
       "recommended_tier": 3,
-      "reasoning": "Odighizuwa trade fully addresses this. He ranked 1st in QB hits among DTs in 2025 (23) and his 3-year/$56.25M contract (under the original $80M/4yr deal structure) is a real commitment. With Odighizuwa in hand and Alfred Collins/Mykel Williams on the roster, IDL drops to a tier-3 developmental need at most."
+      "reasoning": "Odighizuwa trade (3yr/$56M remaining, fully guaranteed $16.25M in 2026) fully addresses the catastrophically weak interior that totaled 0.5 sacks in 2025. He ranked 1st in DT QB hits last year. The 49ers surrendered a 3rd-round pick and inherited 3 years of contract, signaling real commitment. IDL drops from critical need to luxury pick \u2014 a developmental backup would still be welcome but this is no longer a draft priority."
+    },
+    {
+      "position": "WR",
+      "previous_tier": 1,
+      "recommended_tier": 2,
+      "reasoning": "Evans signing (3yr/$60.4M, ~$20M AAV) addresses the WR1 vacancy left by Aiyuk's departure and Jennings' departure. However, with both Aiyuk and Jennings gone plus Bourne leaving, the team has Evans + Ricky Pearsall (injury-limited in 2025) + demarcus Robinson/Jacob Cowing/Jordan Watkins as depth. Evans is 32 coming off an injury year. The WR room is still thin and lacks a proven WR2. Drops from critical tier 1 to elevated tier 2 \u2014 still a strong draft priority in rounds 1-3."
+    },
+    {
+      "position": "EDGE",
+      "previous_tier": 2,
+      "recommended_tier": 1,
+      "reasoning": "Net escalation: Huff retired (removing the primary EDGE2 opposite Bosa), Yetur Gross-Matos departed as UFA, Robert Beal Jr. departed to Miami. The 49ers added NOTHING at EDGE in free agency. Nick Bosa (restructured contract) remains elite but the team finished LAST in the NFL in sacks (20) in 2025 and 31st in pressures. With Huff gone, there is no established pass rusher opposite Bosa. EDGE is now the single most critical unaddressed need entering the draft. Escalated to tier 1 \u2014 premium draft target in round 1 or 2."
     },
     {
       "position": "IOL",
       "previous_tier": 2,
-      "recommended_tier": 1,
-      "reasoning": "Aaron Banks departure (4yr/$77M to Packers) leaves a genuine starting LG vacancy. Toth (backup) and the existing internal competition (Nick Zakelj, Connor Colby) do not present starter-quality solutions. The Trent Williams situation also clouds the OT picture. IOL \u2014 specifically left guard \u2014 escalates to a tier-1 need heading into the draft."
+      "recommended_tier": 2,
+      "reasoning": "Aaron Banks departed last offseason to Green Bay (driving a comp pick). Spencer Burford (LG) departed this offseason. Only depth signings added: Brett Toth (1yr, minimal guaranteed, swing interior depth). The starting guard spot(s) remain unresolved. Toth provides competition/depth but is not a starter-quality answer at LG. IOL need stays elevated at tier 2 \u2014 team should target a starting guard in rounds 2-4."
     },
     {
       "position": "OT",
       "previous_tier": 2,
       "recommended_tier": 2,
-      "reasoning": "Trent Williams situation remains unresolved. He carries a $38.84M cap hit in 2026 and the two sides have been at an impasse on a restructure. Lowe's signing provides swing-tackle depth but does NOT address a potential Williams departure. If Williams is traded or released (unlikely given $34M dead cap), OT becomes tier-1. As-is, OT stays tier-2 given Williams is expected to remain despite the uncertainty."
-    },
-    {
-      "position": "LB",
-      "previous_tier": 2,
-      "recommended_tier": 3,
-      "reasoning": "Greenlaw re-signing (1yr/$7.5M) + Fred Warner's return from ankle injury gives the 49ers a legitimate starting pair. Dee Winters, Tatum Bethune, and Nick Martin provide depth. LB is adequately covered for 2026 barring another Greenlaw injury. Drops to tier-3 \u2014 still want long-term depth/succession since both starters are on one-year or injury-comeback timelines."
-    },
-    {
-      "position": "TE",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "George Kittle tore his Achilles in January 2026 and will miss the early portion of the season. Tonges re-signing (2yr/$8M) helps bridge the gap, but he is not a Kittle-level starter. 49ers should still target a developmental TE in middle rounds of the draft. TE stays tier-2 for now \u2014 need is acute early in 2026 and they need long-term succession planning behind Kittle (age 33)."
+      "reasoning": "Trent Williams' contract situation (38 in July, $38.84M 2026 cap hit, ongoing standoff) remains completely unresolved as of March 16. Williams could be restructured, traded, or retired. Vederian Lowe (2yr/$12M) adds depth/swing tackle capability but is NOT a replacement for Williams at LT if Williams departs or misses time. OT need remains tier 2 and could escalate to tier 1 if Williams is traded or retires before the draft."
     },
     {
       "position": "CB",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Hobbs signing (1yr/$4.5M) is a depth/competition move, not a solution. He played only 221 snaps for Green Bay in 2025 due to injuries and is coming off a career year that ended abruptly. Deommodore Lenoir is the CB1; CB2 between Renardo Green and Hobbs remains a legitimate competition. CB remains a tier 2 draft need \u2014 team should target a CB in rounds 2-4."
+    },
+    {
+      "position": "LB",
       "previous_tier": 3,
       "recommended_tier": 3,
-      "reasoning": "Lenoir and Green return as the top two CBs. Hobbs adds depth/competition on a low-risk 1yr deal. CB depth is adequate but not dominant \u2014 secondary has concerns at safety too. CB stays tier-3, likely addressed in mid-rounds of draft. New DC Raheem Morris expected to prioritize secondary improvement."
+      "reasoning": "Greenlaw re-signing (1yr/$7.5M) is a high-upside move but a bridge \u2014 his injury history (just 10 games played since Super Bowl LVIII) makes this a gamble. If healthy alongside Fred Warner, LB is a strength. But the 1-year deal means this need resurfaces in 2027. Unchanged at tier 3 \u2014 consider a developmental LB in rounds 4-6 as insurance."
+    },
+    {
+      "position": "TE",
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "Tonges re-signing provides legitimate TE2 depth behind Kittle, who tore his Achilles in January 2026 and faces an uncertain return timeline for the 2026 season opener. Tonges proved capable (34/293/5 TD in 2025). If Kittle misses significant time, the need escalates. For now, TE stays tier 3 \u2014 monitor Kittle's recovery; a TE via draft Day 2-3 would be prudent."
     },
     {
       "position": "S",
       "previous_tier": 3,
-      "recommended_tier": 2,
-      "reasoning": "Ji'Ayir Brown and Malik Mustapha were both inconsistent in 2025 and are primarily in-the-box types. No safety was added in FA. With Raheem Morris as new DC emphasizing coverage versatility, an over-the-top free safety type is a clear draft/FA target. Safety escalates to tier-2 given the new scheme demands and existing roster limitations."
+      "recommended_tier": 3,
+      "reasoning": "Jason Pinnock departed to Giants (depth loss). No meaningful additions at safety. The 49ers' safety room lacks a proven starter opposite whoever they deploy in the post-Hufanga era. Unchanged at tier 3 \u2014 addressable in rounds 3-5 in the draft."
     }
   ],
   "team_page_additions": {
@@ -350,134 +408,120 @@
       {
         "player": "Mike Evans",
         "position": "WR",
-        "contract_summary": "3yr/$42.4M ($16.3M gtd, up to $60.4M w/ incentives)",
+        "contract_summary": "3yr/$60.4M",
         "previous_team": "Tampa Bay Buccaneers",
-        "headline": "Future Hall of Famer ends 12-year Bucs tenure to give Purdy a true WR1 and elite red-zone target"
+        "headline": "Future Hall of Famer (11 straight 1,000-yard seasons) departs Tampa after 12 years to become the 49ers' new WR1 opposite Ricky Pearsall"
       },
       {
         "player": "Osa Odighizuwa",
         "position": "IDL",
-        "contract_summary": "Trade (3yr remaining/$56.25M, $16.25M gtd in 2026); cost: 2026 3rd-round pick (No. 92)",
+        "contract_summary": "3yr remaining/$56.25M ($16.25M gtd in 2026); via trade (gave up 3rd-round pick No. 92)",
         "previous_team": "Dallas Cowboys",
-        "headline": "Elite interior pass rusher (led DTs with 23 QB hits in 2025) addresses SF's worst 2025 weakness \u2014 a last-place NFL pass rush"
+        "headline": "Trade acquisition addresses the 49ers' catastrophic interior pass rush \u2014 Odighizuwa led all DTs with 23 QB hits in 2025 and is under contract through 2028"
       },
       {
         "player": "Dre Greenlaw",
         "position": "LB",
         "contract_summary": "1yr/$7.5M",
         "previous_team": "Denver Broncos",
-        "headline": "Prodigal linebacker returns to SF on a prove-it deal to reunite with Fred Warner after injury-plagued year in Denver"
+        "headline": "Fan-favorite LB returns to reunite with Fred Warner after one injury-shortened year in Denver \u2014 high-upside reclamation if healthy"
       },
       {
         "player": "Eddy Pi\u00f1eiro",
         "position": "K",
-        "contract_summary": "4yr/$17M ($10M gtd)",
-        "previous_team": "San Francisco 49ers (extension)",
-        "headline": "NFL's most accurate kicker in 2025 (96.6% FG rate) locked up long-term before hitting market, ending years of 49ers kicker instability"
+        "contract_summary": "4yr/$17M ($10M gtd) \u2014 extension",
+        "previous_team": "San Francisco 49ers (re-sign)",
+        "headline": "Re-signed before free agency: Pi\u00f1eiro went 28-of-29 on FGs in 2025 (96.6%, NFL-best) and locks in long-term stability at kicker"
+      },
+      {
+        "player": "Nate Hobbs",
+        "position": "CB",
+        "contract_summary": "1yr/$4.5M",
+        "previous_team": "Green Bay Packers",
+        "headline": "One-year upside play on a 26-year-old CB with elite run-defense grades who was released by Green Bay after injury-plagued 2025"
       },
       {
         "player": "Vederian Lowe",
         "position": "OT",
         "contract_summary": "2yr/$12M ($5.75M gtd)",
         "previous_team": "New England Patriots",
-        "headline": "Swing tackle depth amid Trent Williams contract uncertainty; provides insurance at LT if needed"
+        "headline": "Swing tackle depth signing provides OL flexibility as Trent Williams' contract situation remains unresolved"
       },
       {
         "player": "Jake Tonges",
         "position": "TE",
-        "contract_summary": "2yr/$8M ($5.5M gtd)",
+        "contract_summary": "2yr (terms TBD) \u2014 re-sign",
         "previous_team": "San Francisco 49ers (re-sign)",
-        "headline": "Breakout backup TE (34 catches, 5 TDs filling in for Kittle in 2025) retained as Kittle recovers from torn Achilles"
-      },
-      {
-        "player": "Nate Hobbs",
-        "position": "CB",
-        "contract_summary": "1yr/$4M (up to $4.5M)",
-        "previous_team": "Green Bay Packers",
-        "headline": "Packers cap casualty (previously $48M contract) adds depth and slot versatility to SF's secondary at minimal cost"
-      },
-      {
-        "player": "Brett Toth",
-        "position": "IOL",
-        "contract_summary": "1yr (95% gtd, est. ~$2M)",
-        "previous_team": "Philadelphia Eagles",
-        "headline": "Versatile interior backup (LG/C) adds depth after Aaron Banks departure; competes for starting LG role"
+        "headline": "Re-signed as TE2 insurance while Kittle recovers from torn Achilles \u2014 Tonges posted 34/293/5 TD in Kittle's absence in 2025"
       }
     ],
     "key_losses": [
       {
         "player": "Brandon Aiyuk",
         "position": "WR",
-        "contract_summary": "Released (post-June 1 designation)",
+        "contract_summary": "Released (dead cap ~$29.6M split post-June 1)",
         "new_team": "TBD",
-        "headline": "Former star WR released after missing all of 2025 rehabbing knee and going AWOL from team; 49ers voided his guarantees"
+        "headline": "49ers officially part ways with Aiyuk after he missed all of 2025 with ACL/MCL injuries and cut off communication with the team \u2014 ~$29.6M in dead cap"
       },
       {
         "player": "Jauan Jennings",
         "position": "WR",
-        "contract_summary": "UFA \u2014 departed",
-        "new_team": "TBD/unsigned",
-        "headline": "Team's 2025 lead receiver (55 catches, 9 TDs) expected to command $20M+/yr, pricing him out of San Francisco"
-      },
-      {
-        "player": "Aaron Banks",
-        "position": "IOL",
-        "contract_summary": "4yr/$77M with Packers",
-        "new_team": "Green Bay Packers",
-        "headline": "Four-year starting LG departs to Green Bay, leaving a genuine starting vacancy at left guard"
+        "contract_summary": "UFA \u2014 unsigned as of March 16",
+        "new_team": "Unsigned/TBD",
+        "headline": "Team's most reliable WR in 2025 (9 TDs, 55 catches) prices himself out of SF range after Evans signing \u2014 still unsigned on the open market"
       },
       {
         "player": "Bryce Huff",
         "position": "EDGE",
-        "contract_summary": "Retired (avoided $14.635M option bonus)",
+        "contract_summary": "Retired (saved 49ers $5.4M in 2026 cap)",
         "new_team": "Retired",
-        "headline": "Team's leading sack producer (4 sacks) retires at 27, deepening an already-critical EDGE pass-rush need"
+        "headline": "27-year-old edge rusher shockingly retires, leaving a gaping hole opposite Nick Bosa with no FA replacement signed \u2014 SF's most critical remaining draft need"
       },
       {
         "player": "Jordan Elliott",
         "position": "IDL",
         "contract_summary": "2yr/$8M with Titans",
         "new_team": "Tennessee Titans",
-        "headline": "Starting DT reunites with Robert Saleh in Tennessee; departure directly motivated Odighizuwa trade"
+        "headline": "Starting DT departs to reunite with HC Robert Saleh in Tennessee \u2014 his departure (alongside Davis) prompted the Odighizuwa trade"
       },
       {
         "player": "Kendrick Bourne",
         "position": "WR",
         "contract_summary": "2yr/$12M with Cardinals",
         "new_team": "Arizona Cardinals",
-        "headline": "Veteran WR departs as SF loses three receivers (Bourne, Jennings, Moore) in same FA cycle alongside Aiyuk release"
+        "headline": "Fan favorite and locker-room leader signs with NFC West rival Cardinals on a 2yr/$12M deal"
       },
       {
-        "player": "Skyy Moore",
-        "position": "WR",
-        "contract_summary": "1yr/$4.5M with Packers",
-        "new_team": "Green Bay Packers",
-        "headline": "Elite return specialist (27.5 yds/KR avg) departs, leaving SF without a proven returner"
+        "player": "Spencer Burford",
+        "position": "IOL",
+        "contract_summary": "UFA \u2014 unsigned as of March 16",
+        "new_team": "Unsigned/TBD",
+        "headline": "Starting LG departs as UFA, leaving San Francisco with an unaddressed hole at left guard heading into the draft"
       }
     ]
   },
+  "additional_notes": {
+    "trent_williams_situation": "Trent Williams (age 38 in July 2026) carries a $38.84M cap hit in 2026. The 49ers have been unable to agree on a contract restructure. Williams' camp has been granted permission to explore trade options. This situation is UNRESOLVED as of March 16, 2026 and could dramatically escalate OT to a tier-1 need if he is traded or retires.",
+    "bosa_restructure": "The 49ers restructured Nick Bosa's contract, clearing approximately $17.172M in 2026 cap space. Bosa remains set to earn $23.18M in 2026 with the move pushing money into future years.",
+    "draft_capital_note": "The 49ers surrendered their 2026 3rd-round pick (No. 92) in the Odighizuwa trade, leaving them with approximately 6 draft picks heading into the 2026 NFL Draft. This limits draft-based fixes to the EDGE and other needs.",
+    "sam_okuayinonu_tender": "The 49ers tendered RFA DE Sam Okuayinonu at the original-round level (1yr, $3.546M), retaining him as EDGE depth."
+  },
   "confidence": "high",
-  "notes": "Trent Williams contract situation remains unresolved as of 2026-03-13. Williams carries a $38.84M cap hit and the two sides have reportedly been at an impasse on a restructure. He has NOT been traded or released. Brandon Aiyuk release expected to be officially announced as a post-June 1 designation \u2014 confirmed by Lynch and Shanahan as decided but not yet officially processed per league timing. Mike Evans contract max value ($60.4M per Schefter) vs. base value ($42.4M per Spotrac/Meirov) discrepancy reflects heavy incentive structure \u2014 base value used in JSON as the contractually guaranteed structure. Jauan Jennings remains unsigned as of update date.",
   "sources": [
     "https://www.espn.com/nfl/story/_/id/48083531/san-francisco-49ers-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
-    "https://www.espn.com/nfl/story/_/id/48187169/sources-dre-greenlaw-back-49ers-year-broncos",
-    "https://www.espn.com/nfl/story/_/id/48177910/sources-cowboys-trade-dt-odighizuwa-49ers-3rd-round-pick",
-    "https://www.spotrac.com/nfl/player/_/id/14416/mike-evans",
-    "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/sf",
-    "https://overthecap.com/salary-cap/san-francisco-49ers",
     "https://www.49ers.com/news/free-agency-tracker",
+    "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/sf",
+    "https://www.spotrac.com/nfl/player/_/id/72551/nate-hobbs",
+    "https://www.spotrac.com/nfl/player/_/id/29196/dre-greenlaw",
     "https://www.nfl.com/news/niners-kicker-eddy-pineiro-agree-to-terms-on-a-four-year-17-million-contract",
-    "https://www.profootballrumors.com/2026/03/49ers-to-sign-wr-mike-evans",
-    "https://www.profootballrumors.com/2026/03/49ers-to-sign-lb-dre-greenlaw",
-    "https://www.profootballrumors.com/2026/03/49ers-to-sign-cb-nate-hobbs",
+    "https://www.espn.com/nfl/story/_/id/48136485/san-francisco-49ers-kicker-eddy-pineiro-agree-extension",
+    "https://www.espn.com/nfl/story/_/id/48177910/sources-cowboys-trade-dt-odighizuwa-49ers-3rd-round-pick",
+    "https://www.espn.com/nfl/story/_/id/48187169/sources-dre-greenlaw-back-49ers-year-broncos",
+    "https://www.nbcsportsbayarea.com/nfl/san-francisco-49ers/osa-odighizuwa-trade-cowboys/1923389/",
     "https://www.49erswebzone.com/articles/199548-agency-tracker-signings-interests-departures/",
     "https://ninernoise.com/49ers-free-agency-tracker-signings-departures-cap-space-analysis",
-    "https://www.nbcsportsbayarea.com/nfl/san-francisco-49ers/osa-odighizuwa-trade-cowboys/1923389/",
-    "https://www.cbssports.com/nfl/news/cowboys-trade-osa-odighizuwa-to-49ers-grade/",
-    "https://www.49erswebzone.com/articles/199590-potential-bargain-contract-details-emerge/",
-    "https://www.49erswebzone.com/articles/199611-49ers-lose-moore-packers-agency/",
-    "https://www.49erswebzone.com/articles/199614-49ers-jordan-elliott-titans-agency/",
-    "https://www.49erswebzone.com/articles/199693-49ers-signing-nate-hobbs-one-year/",
-    "https://www.nbcsportsbayarea.com/nfl/san-francisco-49ers/brett-toth-contract-free-agency/1923050/"
+    "https://www.profootballrumors.com/2026/03/49ers-de-bryce-huff-to-retire",
+    "https://nfltraderumors.co/2026-nfl-free-agency-tracker-every-move-so-far/",
+    "https://sfstandard.com/2026/03/12/dre-greenlaw-49ers-bryce-huff-retires/"
   ]
 }

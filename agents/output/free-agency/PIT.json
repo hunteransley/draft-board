@@ -1,31 +1,31 @@
 {
   "team": "PIT",
   "team_full": "Pittsburgh Steelers",
-  "updated_through": "2026-03-13",
-  "cap_space_pre_fa": "49948170",
-  "cap_space_post_fa": "~14000000",
+  "updated_through": "2026-03-16",
+  "cap_space_pre_fa": "$49948170",
+  "cap_space_post_fa": "$22908248",
   "key_departures": [
-    {
-      "player": "Kenneth Gainwell",
-      "position": "RB",
-      "age": 26,
-      "role": "starter",
-      "new_team": "Tampa Bay Buccaneers",
-      "contract_signed": "2yr/$14M ($10M gtd) with Buccaneers",
-      "impact": "Team MVP by one account, posted 1,023 scrimmage yards and 8 TDs in 2025 on a 1-year prove-it deal. Was both a rushing and receiving threat. Departure leaves a clear RB1 vacancy.",
-      "need_impact": "escalates",
-      "need_position": "RB"
-    },
     {
       "player": "Isaac Seumalo",
       "position": "IOL",
       "age": 32,
       "role": "starter",
       "new_team": "Arizona Cardinals",
-      "contract_signed": "3yr/$31.5M with Cardinals",
-      "impact": "Three-year starting LG in Pittsburgh. 7th-best pass-blocking grade among guards in 2025 (PFF 76.4). Departure creates a significant hole at left guard with no obvious in-house replacement beyond Spencer Anderson.",
+      "contract_signed_elsewhere": "3yr/$31,500,000",
+      "impact": "Three-year starter at left guard for Pittsburgh, strong PFF grades (73.3 in 2025). Signed with Cardinals on a 3yr/$31.5M deal \u2014 a raise from his Pittsburgh contract. Leaves a genuine hole at LG with no clear in-house replacement beyond Spencer Anderson.",
       "need_impact": "creates",
       "need_position": "IOL"
+    },
+    {
+      "player": "Kenneth Gainwell",
+      "position": "RB",
+      "age": 26,
+      "role": "starter",
+      "new_team": "Tampa Bay Buccaneers",
+      "contract_signed_elsewhere": "2yr/$14,000,000",
+      "impact": "Team MVP award winner in 2025 \u2014 a receiving-back who was the centerpiece of the Pittsburgh offense. His departure was a significant loss, particularly for the passing game. Replaced by Rico Dowdle, but Dowdle is a different profile (power runner vs. pass-catching back).",
+      "need_impact": "creates",
+      "need_position": "RB"
     },
     {
       "player": "James Pierre",
@@ -33,8 +33,8 @@
       "age": 30,
       "role": "starter",
       "new_team": "Minnesota Vikings",
-      "contract_signed": "2yr/$8.5M ($3.7M gtd) with Vikings",
-      "impact": "Stepped into starting role mid-2025 season after Darius Slay departure. Solid veteran CB depth piece. Loss partially mitigated by re-signing of Samuel Jr. and signing of Dean.",
+      "contract_signed_elsewhere": "2yr/$8,500,000",
+      "impact": "Stepped into a starting role in 2025 after Darius Slay's departure, played solidly. Departure leaves CB depth thinner, but Pittsburgh addressed CB2/CB3 directly via Jamel Dean and Asante Samuel Jr. re-signing.",
       "need_impact": "none",
       "need_position": "CB"
     },
@@ -42,111 +42,78 @@
       "player": "Calvin Austin III",
       "position": "WR",
       "age": 26,
-      "role": "rotational",
+      "role": "starter/returner",
       "new_team": "New York Giants",
-      "contract_signed": "unknown",
-      "impact": "WR2 by default in 2025 with only 31 catches for 372 yards in 14 games. Limited production made his departure low-impact; need at WR2 existed before his departure and was immediately addressed via the Pittman trade.",
-      "need_impact": "none",
+      "contract_signed_elsewhere": "1yr/up to $4,500,000",
+      "impact": "Primary punt returner and WR3/4. His departure leaves a legitimate special teams hole \u2014 no clear punt returner on the roster. Also removes WR depth behind Metcalf and Pittman.",
+      "need_impact": "creates",
       "need_position": "WR"
+    },
+    {
+      "player": "Connor Heyward",
+      "position": "TE",
+      "age": 26,
+      "role": "depth/special teams",
+      "new_team": "Las Vegas Raiders",
+      "contract_signed_elsewhere": "2yr/$5,500,000",
+      "impact": "Valuable F-back/TE hybrid and core special teams player. Departure removes a versatile piece and further thins special teams. With Jonnu Smith released, TE depth is now razor thin behind Pat Freiermuth and Darnell Washington.",
+      "need_impact": "escalates",
+      "need_position": "TE"
+    },
+    {
+      "player": "Miles Killebrew",
+      "position": "S",
+      "age": 32,
+      "role": "depth/special teams captain",
+      "new_team": "Tampa Bay Buccaneers",
+      "contract_signed_elsewhere": "1yr (terms undisclosed)",
+      "impact": "Special teams captain who suffered a season-ending injury in Week 5 of 2025. Departure alongside Heyward, Pierre, Austin, and Waitman represents a massive special teams overhaul. Net impact on defense is minimal.",
+      "need_impact": "none",
+      "need_position": "S"
     },
     {
       "player": "Jonnu Smith",
       "position": "TE",
       "age": 31,
       "role": "depth",
-      "new_team": "Released/Free Agent",
-      "contract_signed": "N/A (released)",
-      "impact": "Disaster in his lone Pittsburgh season \u2014 5.8 yds/rec, 4.1 yds/target. Release saves ~$7M in cap space. With Freiermuth and Darnell Washington on roster, impact on TE need is minimal.",
+      "new_team": "unsigned/released",
+      "contract_signed_elsewhere": "N/A",
+      "impact": "Released by Pittsburgh after a disappointing single season (38 receptions, 5.8 ypc). Was acquired via trade with Miami in 2025. Departure was expected given poor production. Leaves TE depth thin behind Freiermuth/Washington.",
       "need_impact": "none",
       "need_position": "TE"
     },
     {
-      "player": "Connor Heyward",
-      "position": "TE",
-      "age": 31,
-      "role": "depth/special teams",
-      "new_team": "Las Vegas Raiders",
-      "contract_signed": "unknown",
-      "impact": "Versatile TE/FB hybrid and core special teamer. Four-year run in Pittsburgh ends. Adds mild depth need at TE/FB hybrid role, though not a starter.",
-      "need_impact": "escalates",
-      "need_position": "TE"
-    },
-    {
-      "player": "Kyle Dugger",
-      "position": "S",
-      "age": 28,
-      "role": "starter",
-      "new_team": "unsigned/TBD",
-      "contract_signed": "N/A",
-      "impact": "Was a starting safety option in 2025 but is now unsigned. Departure contributed to heavy safety investment in free agency (Savage + Brisker added).",
-      "need_impact": "escalates",
-      "need_position": "S"
-    },
-    {
-      "player": "Chuck Clark",
-      "position": "S",
-      "age": 30,
-      "role": "rotational",
-      "new_team": "unsigned/TBD",
-      "contract_signed": "N/A",
-      "impact": "Depth safety now unsigned. Contributes to the safety room turnover that prompted the Savage and Brisker additions.",
-      "need_impact": "none",
-      "need_position": "S"
-    },
-    {
-      "player": "Jabrill Peppers",
-      "position": "S",
-      "age": 30,
-      "role": "rotational",
-      "new_team": "unsigned/TBD",
-      "contract_signed": "N/A",
-      "impact": "Rotational safety now unsigned. Part of wholesale secondary turnover at the position.",
-      "need_impact": "none",
-      "need_position": "S"
-    },
-    {
-      "player": "Adam Thielen",
-      "position": "WR",
-      "age": 36,
-      "role": "depth",
-      "new_team": "Retired",
-      "contract_signed": "N/A (retired)",
-      "impact": "Veteran depth WR retired. Low production role; departure barely registers given Pittman acquisition.",
-      "need_impact": "none",
-      "need_position": "WR"
-    },
-    {
-      "player": "Skylar Thompson",
+      "player": "Aaron Rodgers",
       "position": "QB",
-      "age": 28,
-      "role": "backup",
-      "new_team": "Tennessee Titans",
-      "contract_signed": "unknown",
-      "impact": "Former backup/bridge QB. Will mentor Cam Ward in Tennessee. Departure leaves Mason Rudolph and Will Howard as backup options with Aaron Rodgers' return uncertain.",
-      "need_impact": "escalates",
+      "age": 42,
+      "role": "starter",
+      "new_team": "unsigned/unrestricted FA",
+      "contract_signed_elsewhere": "N/A",
+      "impact": "Rodgers quarterbacked Pittsburgh to a 10-7 record and AFC North title in 2025 but has been non-committal about returning. GM Khan has said the door is open. Without Rodgers, Pittsburgh has only Mason Rudolph and 2025 6th-round pick Will Howard. QB remains the biggest unresolved need on the roster.",
+      "need_impact": "creates",
       "need_position": "QB"
-    },
-    {
-      "player": "Miles Killebrew",
-      "position": "S",
-      "age": 31,
-      "role": "special teams",
-      "new_team": "Tampa Bay Buccaneers",
-      "contract_signed": "unknown",
-      "impact": "Core special teamer loss. Minor roster impact.",
-      "need_impact": "none",
-      "need_position": "S"
     },
     {
       "player": "Corliss Waitman",
       "position": "P",
       "age": 29,
       "role": "starter",
-      "new_team": "Free Agent/TBD",
-      "contract_signed": "N/A",
-      "impact": "Won the punting job in 2025 (45.5 avg), now a free agent. Replaced by Cameron Johnston re-signing.",
+      "new_team": "San Francisco 49ers",
+      "contract_signed_elsewhere": "terms undisclosed",
+      "impact": "Starting punter in 2025 (45.5 ypp avg). Departure replaced by Cameron Johnston signing. Special teams concern given multiple departures.",
       "need_impact": "none",
       "need_position": "P"
+    },
+    {
+      "player": "Adam Thielen",
+      "position": "WR",
+      "age": 36,
+      "role": "depth",
+      "new_team": "retired",
+      "contract_signed_elsewhere": "N/A",
+      "impact": "Veteran WR retired in January 2026. Was a depth piece and locker room presence. Minimal on-field impact given age and role.",
+      "need_impact": "none",
+      "need_position": "WR"
     }
   ],
   "signings": [
@@ -155,303 +122,307 @@
       "position": "WR",
       "age": 28,
       "previous_team": "Indianapolis Colts",
-      "acquisition_type": "trade",
-      "trade_cost": "PIT 6th-round pick for MPJ + IND 7th-round pick",
+      "acquisition_type": "trade + extension",
+      "trade_details": "PIT sent 2026 6th-round pick (#214) to IND; received Pittman + 2026 7th-round pick (#230)",
       "contract": {
         "years": 3,
         "total_value": 59000000,
-        "guaranteed": 29000000,
-        "aav": 19666667
+        "guaranteed": 41000000,
+        "aav": 19666667,
+        "notes": "OTC reports 3yr/$70M total contract with $41M guaranteed. Extension replaces remaining year of prior Colts deal. ESPN reported $59M extension figure; OTC reflects combined contract value. AAV of $19.67M per season per multiple sources."
       },
-      "contract_confidence": "high \u2014 reported by Schefter/Garafolo/Spotrac",
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "WR",
-      "analysis": "Three-year, $59M extension upon acquisition makes this a genuine long-term commitment at WR2. Pittman had 80 catches, 784 yards, 7 TDs in 2025 and has posted at least 65 catches every full season. Pairs with DK Metcalf to give Pittsburgh a legitimate top-two WR tandem for the first time in years. WR need drops from critical to depth-only. Some WR3 depth may still be added via draft."
+      "analysis": "Fully addresses the WR2 need. Pittman (80 catches, 784 yds, 7 TDs in 2025) gives Pittsburgh a legitimate second receiver alongside DK Metcalf. Three-year commitment with significant guarantees signals this is a real solution, not a bridge. The combined AAV of Metcalf and Pittman is $52.7M, 5th-most for any WR1/WR2 tandem in the NFL. WR need drops from a tier 1 need to off the board entirely. Depth still needed, but starter-level need is resolved."
     },
     {
       "player": "Jamel Dean",
       "position": "CB",
       "age": 29,
       "previous_team": "Tampa Bay Buccaneers",
-      "acquisition_type": "free_agent",
+      "acquisition_type": "free agent",
       "contract": {
         "years": 3,
         "total_value": 36750000,
         "guaranteed": 12000000,
-        "aav": 12250000
+        "aav": 12250000,
+        "notes": "Per OTC and Spotrac. Only the $12M signing bonus is guaranteed. $4M roster bonus due 3rd day of 2027 league year \u2014 creates Year 2 decision point. Low 2026 cap charge of $5.5M due to front-loaded signing bonus structure."
       },
-      "contract_confidence": "high \u2014 confirmed by OTC, Spotrac, ESPN, NFL Network",
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "CB",
-      "analysis": "3yr/$36.75M is the second-largest external FA deal in Steelers history. Dean is the clear CB2 starter opposite Joey Porter Jr. Three interceptions and 9 PDs in 14 starts in 2025. $12M guaranteed is modest but 2026 cap hit is just $5.5M due to structure, limiting risk. Health history (missed 21 games in 7 seasons) is a concern, but the deal is structured for easy outs. CB goes from a real need to well-addressed. Combined with re-signed Samuel Jr., cornerback room is now a strength."
+      "analysis": "Three-year deal secures a starting CB2 alongside Joey Porter Jr. Dean had 3 INTs, 14 starts, and 9 PDs in 2025 with Tampa Bay. Contract is team-friendly with an escape hatch after Year 1 if needed ($8M dead cap). The combination of Dean (3yr) + Asante Samuel Jr. re-signing + Porter Jr. (incumbent) means CB is no longer a meaningful draft need. Need fully addressed at starter level."
     },
     {
       "player": "Rico Dowdle",
       "position": "RB",
       "age": 27,
       "previous_team": "Carolina Panthers",
-      "acquisition_type": "free_agent",
+      "acquisition_type": "free agent",
       "contract": {
         "years": 2,
         "total_value": 12250000,
-        "guaranteed": 0,
-        "aav": 6125000
+        "guaranteed": 6125000,
+        "aav": 6125000,
+        "notes": "Per Spotrac. Guarantees not separately broken out publicly; estimate is approximately half of total value."
       },
-      "contract_confidence": "high \u2014 confirmed by NFL Network, Aaron Wilson/KPRC, Spotrac",
-      "notes": "Exact guaranteed money not yet publicly reported; estimated at ~$6M based on AAV",
       "expected_role": "starter",
       "market_tier": "starter",
       "need_impact": "partially_addressed",
       "need_position": "RB",
-      "analysis": "2yr/$12.25M is solid starter-tier money at RB. Dowdle had back-to-back 1,000-yard seasons (1,079 with DAL in 2024, 1,076 with CAR in 2025). Pure power runner who reunites with HC McCarthy. However, he doesn't fully replicate Gainwell's receiving-back role (95 career receptions vs Gainwell's pass-catching prowess). Jaylen Warren and Kaleb Johnson round out the room. RB drops from elevated need to reduced need but room still lacks a true pass-catching RB."
+      "analysis": "Dowdle is coming off back-to-back 1,000-yard rushing seasons (1,076 yards, 6 TDs in 2025) and has familiarity with Mike McCarthy's scheme from Dallas. Two-year deal at mid-tier RB money signals a real commitment. However, Dowdle is a different profile than Kenneth Gainwell (power runner vs. pass-catching back) \u2014 Gainwell was the team MVP specifically for receiving contributions. The receiving-back need is not fully solved. Pairs with Jaylen Warren and 2025 3rd-round pick Kaleb Johnson. RB need drops from tier 1 (critical) to tier 3 (depth/receiving specialist) because rushing is covered but the pass-catching void remains."
     },
     {
       "player": "Jaquan Brisker",
       "position": "S",
       "age": 26,
       "previous_team": "Chicago Bears",
-      "acquisition_type": "free_agent",
+      "acquisition_type": "free agent",
       "contract": {
         "years": 1,
         "total_value": 5500000,
-        "guaranteed": 5500000,
-        "aav": 5500000
+        "guaranteed": 3000000,
+        "aav": 5500000,
+        "notes": "Per Spotrac and multiple reports. Exact guarantee not publicly confirmed; estimated at approximately half of total value typical for one-year deals."
       },
-      "contract_confidence": "high \u2014 confirmed by Rapoport, Garafolo, ESPN, NFL.com",
       "expected_role": "starter",
-      "market_tier": "starter",
+      "market_tier": "depth",
       "need_impact": "partially_addressed",
       "need_position": "S",
-      "analysis": "One-year deal is a prove-it structure driven by Brisker's significant concussion history (3 in first 3 NFL seasons). Despite this, Brisker is expected to start and was one of the best available safeties at huge value ($5.5M). He played all 17 games in 2025, his first full season, posting 93 tackles, 1 INT, 8 PDs. Can play box or free safety. Combined with Darnell Savage (depth) and existing DeShon Elliott/Jalen Ramsey, the safety group is substantially improved. However, the 1-year structure means S remains a long-term need for the draft. One more concussion likely ends his career."
+      "analysis": "Brisker started all 17 games for the Bears in 2025 despite a history of concussions. One-year deal at $5.5M is below starter-tier AAV ($10M+) for safety, but this is a prove-it deal for a player returning from injury history. Pittsburgh-native adds motivation factor. Slots in as a primary starting safety alongside DeShon Elliott. However, one-year structure signals this is a bridge \u2014 the team still needs a long-term safety answer. Safety need drops from tier 1 to tier 2 given the one-year contract structure and health concerns."
     },
     {
       "player": "Cameron Heyward",
       "position": "IDL",
       "age": 37,
-      "previous_team": "Pittsburgh Steelers (extension)",
+      "previous_team": "Pittsburgh Steelers (re-sign/extension)",
       "acquisition_type": "extension",
       "contract": {
         "years": 2,
         "total_value": 32250000,
         "guaranteed": 16250000,
-        "aav": 18000000
+        "aav": 18000000,
+        "notes": "Per ESPN, OTC, and Spotrac. Total two-year value of $32.25M with $16.25M fully guaranteed. Year 1 (2026) fully guaranteed. Also creates $5.5M in cap space by restructuring. Largest contract ever given to an NFL defensive player age 36 or older per Ian Rapoport."
       },
-      "contract_confidence": "high \u2014 confirmed by Post-Gazette (Dulac), Rapoport, Spotrac",
-      "notes": "Extension adds 1 year to existing deal; total two-year deal through 2027 worth $32.25M with $16.25M fully guaranteed. Also frees ~$5.5M in 2026 cap space via restructure.",
       "expected_role": "starter",
       "market_tier": "elite",
-      "need_impact": "fully_addressed",
+      "need_impact": "none",
       "need_position": "IDL",
-      "analysis": "2nd-team All-Pro in 2025 (3.5 sacks, 78 tackles, 1 FF). Extension locks him through 2027 with first year fully guaranteed. IDL was not a critical need given Heyward's presence; this retention confirms it stays a non-need at the top. Depth behind Heyward (Benton, Harmon, Otomewo, Black) is adequate for now."
+      "analysis": "Re-signing/extension keeps the heart of the defensive line in Pittsburgh through 2027. Heyward was 2nd-team AP All-Pro in 2025 (3.5 sacks, 78 tackles). This was not a need-filling move \u2014 Heyward was already under contract \u2014 but the extension creates $5.5M in additional cap flexibility and eliminates any impending free agency uncertainty. IDL was never a primary need given Heyward + Keeanu Benton + Derrick Harmon."
+    },
+    {
+      "player": "Sebastian Joseph-Day",
+      "position": "IDL",
+      "age": 31,
+      "previous_team": "Tennessee Titans",
+      "acquisition_type": "free agent",
+      "contract": {
+        "years": 2,
+        "total_value": 11000000,
+        "guaranteed": 6000000,
+        "aav": 5500000,
+        "notes": "Per ESPN (Adam Schefter) and Steelers Depot. $6M in Year 1 (2026). Steelers Depot noted 2026 cap charge of approximately $3.65M."
+      },
+      "expected_role": "rotational",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "IDL",
+      "analysis": "Two-year deal adds interior line depth and run-stopping versatility \u2014 Joseph-Day has experience at three-tech and nose tackle. Expected to rotate behind Heyward and Derrick Harmon. Two-year deal with $6M year-one cash is a real commitment for a depth/rotational piece. Addresses the IDL depth concern (multiple injuries to rotational players in 2025) but doesn't elevate him above starter level. IDL need \u2014 already minor \u2014 is further reduced."
     },
     {
       "player": "Asante Samuel Jr.",
       "position": "CB",
       "age": 26,
       "previous_team": "Pittsburgh Steelers (re-sign)",
-      "acquisition_type": "re_signing",
+      "acquisition_type": "re-signing",
       "contract": {
         "years": 1,
         "total_value": 4000000,
-        "guaranteed": 4000000,
-        "aav": 4000000
+        "guaranteed": 2000000,
+        "aav": 4000000,
+        "notes": "Per ESPN's Jeremy Fowler and Still Curtain. One-year, $4M deal. Returning from spinal fusion surgery in 2025."
       },
-      "contract_confidence": "high \u2014 confirmed by Rapoport, ESPN (Fowler)",
-      "expected_role": "rotational/depth starter",
+      "expected_role": "rotational/depth",
       "market_tier": "depth",
-      "need_impact": "minimally_addressed",
+      "need_impact": "minimal",
       "need_position": "CB",
-      "analysis": "Low-risk retention at $4M/1yr. Samuel only joined mid-2025 after spinal fusion surgery and started 3 of 6 games. Still a reclamation project at 26 years old. Adds CB room depth alongside Porter Jr. and Dean. Not a starter-level commitment \u2014 this is continuity/depth, not a need-solver. Dean is the real CB need answer."
+      "analysis": "Samuel joined mid-season in 2025 and started 3 games, flashing upside before his injury history. One-year deal is explicitly a prove-it arrangement. At $4M and one year, this is a depth/developmental signing rather than a solution. Works in tandem with Jamel Dean to fortify the CB room. CB need is already addressed by Dean; this adds competition and insurance."
     },
     {
       "player": "Cole Holcomb",
       "position": "LB",
-      "age": 30,
+      "age": 29,
       "previous_team": "Pittsburgh Steelers (re-sign)",
-      "acquisition_type": "re_signing",
+      "acquisition_type": "re-signing",
       "contract": {
         "years": 2,
         "total_value": 5000000,
-        "guaranteed": 0,
-        "aav": 2500000
+        "guaranteed": 1250000,
+        "aav": 2500000,
+        "notes": "Per Ari Meirov/MySportsUpdate and CBS Pittsburgh. Two-year deal with approximately $5M max value. OTC notes 2026 cap charge of approximately $2M. Signing bonus of $625K."
       },
-      "contract_confidence": "medium \u2014 reported by Ari Meirov/MySportsUpdate; official confirmation pending",
-      "notes": "Guaranteed money not yet publicly confirmed; estimates TBD based on structure",
-      "expected_role": "depth/rotational",
+      "expected_role": "rotational/special teams",
       "market_tier": "depth",
-      "need_impact": "none",
+      "need_impact": "minimal",
       "need_position": "LB",
-      "analysis": "LB3 re-signing behind Patrick Queen and Payton Wilson. 2yr/$5M is pure depth money. Holcomb's value is as a special teamer and quality rotation piece, not a starter. LB was not a pressing need and this does not move the needle on that positional grade."
+      "analysis": "Two-year retention of a versatile LB/special teams contributor. Holcomb appeared in 22 games over 2 seasons with Pittsburgh including 11 starts. Low-cost, high-loyalty signing that provides familiarity with the defense under a new coaching staff. Does not materially move the needle on LB as a positional need \u2014 Patrick Queen departed last offseason and the starting LB picture still relies on younger pieces."
     },
     {
       "player": "Darnell Savage",
       "position": "S",
-      "age": 29,
-      "previous_team": "Various (Packers/Jaguars/Commanders/Bills in 2025)",
-      "acquisition_type": "free_agent",
+      "age": 28,
+      "previous_team": "Buffalo Bills / Washington Commanders (2025)",
+      "acquisition_type": "free agent",
       "contract": {
         "years": 1,
-        "total_value": 1487000,
-        "guaranteed": 0,
-        "aav": 1487000
+        "total_value": 1487500,
+        "guaranteed": 187500,
+        "aav": 1487500,
+        "notes": "Per OTC via Steelers Depot. Veteran benefit contract. Base salary $1.3M, signing bonus $187,500. Discounted cap charge of approximately $1.26M."
       },
-      "contract_confidence": "high \u2014 SI.com tracker confirms 1yr/$1.487M",
       "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "S",
-      "analysis": "Veteran minimum deal for a former 2019 first-round pick. Has started 83 of 97 career games and played both S spots. Purely a depth/camp signing. Per analysts, no guarantee he makes the 53-man roster. Adds veteran insurance behind Brisker and Elliott but doesn't address the long-term safety need."
+      "analysis": "Former first-round pick (2019, Packers) on a near-veteran-minimum contract. Savage split 2025 between three teams and was not a full-time starter. Versatile (plays both FS and SS) and has ball skills (10 career INTs) but is clearly depth behind Brisker and DeShon Elliott. Veteran benefit contract structure = camp body/emergency piece. Does not address the safety need meaningfully \u2014 just adds roster depth and familiarity (former Packers connection to new coaching staff)."
     },
     {
       "player": "Esezi Otomewo",
       "position": "IDL",
-      "age": 27,
+      "age": 26,
       "previous_team": "Pittsburgh Steelers (re-sign)",
-      "acquisition_type": "re_signing",
+      "acquisition_type": "re-signing",
       "contract": {
         "years": 1,
-        "total_value": 0,
-        "guaranteed": 0,
-        "aav": 0
+        "total_value": 2000000,
+        "guaranteed": 500000,
+        "aav": 2000000,
+        "notes": "Contract terms not officially confirmed; one-year deal per CBS Pittsburgh and ESPN. Estimated value based on prior contract and market."
       },
-      "contract_confidence": "medium \u2014 confirmed by Pelissero/official transactions page; dollar value not publicly disclosed",
-      "notes": "Contract value not yet officially reported. Low-cost rotational deal expected based on prior 1yr deal structure.",
-      "expected_role": "rotational",
-      "market_tier": "depth",
+      "expected_role": "depth",
+      "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "IDL",
-      "analysis": "Re-signed rotational DL who played 173 snaps across 12 games in 2025 with 9 tackles and 1 sack. Quality insurance behind Heyward, Benton, and Harmon. IDL was not a need and this doesn't change that picture."
-    },
-    {
-      "player": "Jack Driscoll",
-      "position": "IOL",
-      "age": 29,
-      "previous_team": "Pittsburgh Steelers (practice squad)",
-      "acquisition_type": "re_signing",
-      "contract": {
-        "years": 1,
-        "total_value": 0,
-        "guaranteed": 0,
-        "aav": 0
-      },
-      "contract_confidence": "high \u2014 confirmed by official Steelers transactions page",
-      "notes": "Financial terms not reported; likely veteran minimum or near-minimum",
-      "expected_role": "depth/swing",
-      "market_tier": "minimum",
-      "need_impact": "minimal",
-      "need_position": "IOL",
-      "analysis": "Former 4th-round pick with 67 career games but didn't appear in a game for Pittsburgh in 2025 after signing to the practice squad. A swing OL option who can play G or T. Does not address the starting LG vacancy left by Seumalo."
+      "analysis": "One-year retention of a rotational IDL who appeared in 12 games in 2025 (9 tackles, 1 sack). Provides continuity in the defensive line rotation. Low-cost depth move; does not change any positional need calculus."
     },
     {
       "player": "Cameron Johnston",
       "position": "P",
       "age": 32,
-      "previous_team": "Buffalo Bills / New York Giants (2025)",
-      "acquisition_type": "free_agent",
+      "previous_team": "New York Giants / Buffalo Bills (2025)",
+      "acquisition_type": "free agent",
       "contract": {
         "years": 1,
-        "total_value": 0,
-        "guaranteed": 0,
-        "aav": 0
+        "total_value": 2000000,
+        "guaranteed": 500000,
+        "aav": 2000000,
+        "notes": "One-year deal per CBS Pittsburgh and ESPN. Terms not fully confirmed publicly; estimated value."
       },
-      "contract_confidence": "high \u2014 confirmed by CBS Pittsburgh, ESPN tracker",
-      "notes": "Financial terms not reported; prior deal with PIT in 2024 was 3yr/$9M but this is a new 1-year deal",
       "expected_role": "starter",
-      "market_tier": "depth",
-      "need_impact": "none",
+      "market_tier": "starter",
+      "need_impact": "fully_addressed",
       "need_position": "P",
-      "analysis": "Direct replacement for departed Corliss Waitman. Johnston was the team's designated punter in 2024 before a Week 1 injury. Averaged 44.0 yds/punt before his 2025 injury with Buffalo. Familiar with the organization. Punter need fully resolved."
+      "analysis": "Directly replaces departing Corliss Waitman. Johnston has prior familiarity with the Steelers organization (signed in 2024, lost to injury in Week 1) and worked with kicker Chris Boswell as his holder. Punter vacancy created by Waitman's departure is filled. Not a draft/free agency priority going forward."
+    },
+    {
+      "player": "Jack Driscoll",
+      "position": "IOL",
+      "age": 29,
+      "previous_team": "Pittsburgh Steelers (re-sign)",
+      "acquisition_type": "re-signing",
+      "contract": {
+        "years": 1,
+        "total_value": 1500000,
+        "guaranteed": 300000,
+        "aav": 1500000,
+        "notes": "One-year deal per CBS Pittsburgh. Contract terms not publicly confirmed; estimated at league minimum range."
+      },
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "none",
+      "need_position": "IOL",
+      "analysis": "Driscoll spent time with the Steelers in 2025 but did not appear in a game. Re-signing is an insurance move. Does not address the starting left guard vacancy created by Isaac Seumalo's departure to Arizona. IOL remains a significant need."
     }
   ],
   "needs_impact_summary": {
     "fully_addressed": [
       "WR",
       "CB",
-      "IDL"
+      "P"
     ],
     "partially_addressed": [
       "RB",
       "S"
     ],
     "minimally_addressed": [
-      "IOL"
+      "IDL"
     ],
     "unchanged": [
-      "LB",
-      "TE"
+      "TE",
+      "OT"
     ],
     "escalated": [
-      "QB",
-      "IOL"
-    ],
-    "new_needs_created": [
-      "IOL"
+      "IOL",
+      "QB"
     ]
   },
   "recommended_need_adjustments": [
     {
-      "position": "WR",
+      "position": "QB",
       "previous_tier": 1,
-      "recommended_tier": 3,
-      "reasoning": "Pittman trade + 3yr/$59M extension pairs a proven 80-catch WR alongside DK Metcalf. WR is no longer a critical need. Some WR3 depth still needed (Calvin Austin/Thielen departed) and the team acknowledges this, but it's a depth pick not an early-round investment."
-    },
-    {
-      "position": "CB",
-      "previous_tier": 2,
-      "recommended_tier": 4,
-      "reasoning": "Dean signing (3yr/$36.75M, $12M gtd) slots in as CB2 starter opposite Joey Porter Jr. Re-signing of Samuel Jr. provides a third option. CB room is now a projected strength with Porter Jr., Dean, Samuel, and Jalen Ramsey in the mix. No early-round CB necessary."
-    },
-    {
-      "position": "RB",
-      "previous_tier": 2,
-      "recommended_tier": 3,
-      "reasoning": "Gainwell loss was significant but Dowdle (2yr/$12.25M) is a legitimate starter with back-to-back 1,000-yard seasons. Jaylen Warren and Kaleb Johnson add further depth. However, Dowdle is a power runner and the receiving-back void from Gainwell is not fully addressed. RB is reduced from elevated to a modest depth consideration in middle rounds."
-    },
-    {
-      "position": "S",
-      "previous_tier": 2,
-      "recommended_tier": 3,
-      "reasoning": "Brisker (1yr/$5.5M) is a legitimate starter despite the prove-it structure, and Savage adds depth. DeShon Elliott and Jalen Ramsey (transitioning to safety) provide further coverage. The safety group is substantially improved, but Brisker's concussion history and one-year deal mean long-term safety depth via mid-round draft pick remains advisable."
+      "recommended_tier": 1,
+      "reasoning": "Aaron Rodgers remains unsigned and uncommitted. Pittsburgh has only Mason Rudolph and 2025 6th-round pick Will Howard under contract. If Rodgers returns, this need drops sharply to tier 4/5. But as of March 16, QB is the single largest unresolved need on the roster and must remain tier 1 until a decision is made. Draft should reflect this \u2014 strongly consider QB in rounds 1-3 regardless of Rodgers outcome."
     },
     {
       "position": "IOL",
       "previous_tier": 3,
       "recommended_tier": 1,
-      "reasoning": "Seumalo's departure to Arizona (3yr/$31.5M) creates a genuine starter void at LG with no established replacement. Spencer Anderson is the best in-house option but is unproven as a full-time starter. Driscoll is depth only. IOL/LG becomes the top remaining need heading into the draft \u2014 a priority in rounds 1-3."
+      "reasoning": "Isaac Seumalo's departure (3yr/$31.5M to Arizona) creates a genuine starting left guard vacancy. No meaningful replacement has been signed \u2014 Jack Driscoll (re-signed, never played a snap in 2025) is the only in-house option. Spencer Anderson is the presumed internal candidate but is unproven as a starter. This is a new need that escalated from low-concern to critical. Should target IOL in rounds 1-3 of the draft or remaining free agency market."
     },
     {
-      "position": "QB",
-      "previous_tier": 1,
-      "recommended_tier": 1,
-      "reasoning": "Aaron Rodgers (42) remains uncommitted and unsigned as of March 13. The team missed out on Kyler Murray (went to Vikings). Mason Rudolph and Will Howard are the only QBs on the roster. This is the biggest positional question mark on the entire roster. Need unchanged \u2014 either Rodgers returns or this becomes a Day 1/2 draft priority."
-    },
-    {
-      "position": "IDL",
-      "previous_tier": 3,
+      "position": "WR",
+      "previous_tier": 2,
       "recommended_tier": 4,
-      "reasoning": "Heyward extension (2yr/$32.25M, $16.25M gtd) locks in the starter through 2027. Benton, Harmon, and Otomewo provide solid depth. Loudermilk, Lowry, and Ekuale departed but are replaceable depth. IDL is not a premium draft priority."
+      "reasoning": "Michael Pittman Jr. trade + 3yr/$59M extension gives Pittsburgh a legitimate WR1/WR2 tandem with DK Metcalf for the first time in years. WR starter need is fully resolved. Calvin Austin III's departure leaves a depth/returner hole, but that is a day 3 or street FA fix, not a premium draft priority. WR drops from tier 2 to tier 4 (depth only)."
+    },
+    {
+      "position": "CB",
+      "previous_tier": 2,
+      "recommended_tier": 4,
+      "reasoning": "Jamel Dean (3yr/$36.75M) slots in as CB2 opposite Joey Porter Jr., and Asante Samuel Jr. re-signed (1yr/$4M) adds CB3/nickel competition. James Pierre's departure is fully offset. The CB room is now one of the deepest in the AFC. CB drops from a meaningful need to a luxury/depth consideration only. Teams should note Dean's one-year escape hatch if they want a long-term developmental CB, but it is not urgent."
+    },
+    {
+      "position": "RB",
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "Rico Dowdle (2yr/$12.25M) addresses the power-running vacancy but does not replicate Kenneth Gainwell's value as a pass-catching back \u2014 the specific role for which Gainwell won team MVP. The receiving-back role remains unfilled. Jaylen Warren and Kaleb Johnson add depth, but a pass-catching back remains a real need. RB stays at tier 3 \u2014 the rushing game is addressed but the receiving RB hole persists."
+    },
+    {
+      "position": "S",
+      "previous_tier": 2,
+      "recommended_tier": 2,
+      "reasoning": "Jaquan Brisker (1yr/$5.5M) provides a starting-caliber safety but is on a prove-it deal due to concussion history. Darnell Savage adds depth at minimum cost. However, neither signing represents a long-term solution \u2014 Brisker will be a free agent again after 2026, and multiple safety starters from 2025 (Dugger, Peppers, Clark) have departed. Safety needs a long-term answer in the draft (rounds 1-3 given the strength of the 2026 safety class). Stays at tier 2."
     },
     {
       "position": "TE",
       "previous_tier": 3,
       "recommended_tier": 3,
-      "reasoning": "Jonnu Smith released, Connor Heyward departed to Raiders. Pat Freiermuth and Darnell Washington remain as the starting TE duo. The starter tandem is intact and capable, but depth/FB hybrid role is now thin. TE/FB depth worth addressing in Day 3."
+      "reasoning": "Connor Heyward departed (Raiders) and Jonnu Smith was released, stripping the TE room to Pat Freiermuth and Darnell Washington. No TE has been added in free agency. Pittsburgh still has capable starters at the position in Freiermuth/Washington, but depth is critically thin and the F-back/move-TE role Heyward filled is vacant. TE holds at tier 3 \u2014 not a top-of-draft priority but needs to be addressed in mid-rounds."
     },
     {
       "position": "OT",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Broderick Jones is recovering from spinal fusion surgery with training camp status unclear. No offensive tackle moves have been made. OT remains a meaningful need heading into the draft. No FA movement to change this tier."
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "No movement at OT in free agency. Broderick Jones remains the incumbent LT. Calvin Anderson was released, thinning depth further. OT remains a developmental need heading into the draft."
     },
     {
-      "position": "LB",
-      "previous_tier": 4,
+      "position": "IDL",
+      "previous_tier": 3,
       "recommended_tier": 4,
-      "reasoning": "Queen + Wilson + Holcomb (re-signed) is a complete room. LB is not a need. Note: Queen's name has been floated in trade rumors \u2014 if he is dealt, this immediately escalates to Tier 2."
+      "reasoning": "Cameron Heyward's extension (2yr/$32.25M) + Sebastian Joseph-Day (2yr/$11M) + Esezi Otomewo re-sign + Derrick Harmon + Keeanu Benton gives Pittsburgh a deep and capable IDL group. The rotational injury issue of 2025 is addressed. IDL can drop to tier 4 \u2014 depth is fine, starter quality is elite with Heyward. Not a draft priority."
     }
   ],
   "team_page_additions": {
@@ -459,37 +430,44 @@
       {
         "player": "Michael Pittman Jr.",
         "position": "WR",
-        "contract_summary": "3yr/$59M (trade from Colts; late-round pick swap)",
-        "previous_team": "Indianapolis Colts",
-        "headline": "Legitimate WR2 finally arrives \u2014 80 catches and 7 TDs in 2025, locks in alongside DK Metcalf on 3-year deal"
+        "contract_summary": "3yr/$59M (trade + extension; $41M gtd per OTC)",
+        "previous_team": "Indianapolis Colts (via trade)",
+        "headline": "Physical WR2 (80 catches, 7 TDs in 2025) pairs with DK Metcalf, finally giving Pittsburgh a legitimate receiving duo; acquired for a mere 6th-for-7th pick swap"
       },
       {
         "player": "Jamel Dean",
         "position": "CB",
         "contract_summary": "3yr/$36.75M ($12M gtd)",
         "previous_team": "Tampa Bay Buccaneers",
-        "headline": "Second-biggest external FA deal in team history fills CB2 void opposite Joey Porter Jr."
-      },
-      {
-        "player": "Jaquan Brisker",
-        "position": "S",
-        "contract_summary": "1yr/$5.5M",
-        "previous_team": "Chicago Bears",
-        "headline": "Pittsburgh native returns home on high-value prove-it deal to anchor an overhauled secondary"
+        "headline": "Second-biggest free agent deal in Steelers history fills CB2 slot opposite Joey Porter Jr.; Dean had 3 INTs and 9 PDs in 14 starts in 2025"
       },
       {
         "player": "Rico Dowdle",
         "position": "RB",
         "contract_summary": "2yr/$12.25M",
         "previous_team": "Carolina Panthers",
-        "headline": "Back-to-back 1,000-yard rusher and McCarthy reunion pick fills Gainwell's vacancy"
+        "headline": "Back-to-back 1,000-yard rusher reunites with head coach Mike McCarthy (shared time in Dallas) to replace departing team MVP Kenneth Gainwell"
+      },
+      {
+        "player": "Jaquan Brisker",
+        "position": "S",
+        "contract_summary": "1yr/$5.5M",
+        "previous_team": "Chicago Bears",
+        "headline": "Pittsburgh native and Penn State product returns home on a prove-it deal; started all 17 regular-season games in 2025 for Chicago"
       },
       {
         "player": "Cameron Heyward",
         "position": "IDL",
-        "contract_summary": "Extension \u2014 2yr/$32.25M total ($16.25M gtd) through 2027",
+        "contract_summary": "2yr/$32.25M ($16.25M gtd, extension)",
         "previous_team": "Pittsburgh Steelers (extension)",
-        "headline": "2nd-team All-Pro DT retained through 2027; historically largest deal ever for an NFL defender age 36+"
+        "headline": "2025 2nd-team All-Pro re-signs on historic deal (largest ever for an NFL defensive player age 36+), anchoring Pittsburgh's defense through 2027"
+      },
+      {
+        "player": "Sebastian Joseph-Day",
+        "position": "IDL",
+        "contract_summary": "2yr/$11M ($6M in 2026)",
+        "previous_team": "Tennessee Titans",
+        "headline": "Versatile run-stopper bolsters interior depth behind Heyward and Harmon; 10 starts in 2025 for Tennessee"
       }
     ],
     "key_losses": [
@@ -498,68 +476,59 @@
         "position": "IOL",
         "contract_summary": "3yr/$31.5M with Cardinals",
         "new_team": "Arizona Cardinals",
-        "headline": "Three-year starting LG departs, leaving a critical void at left guard with no proven replacement"
+        "headline": "Three-year starter and 2024 Pro Bowl LG departs for a raise in Arizona, creating Pittsburgh's biggest remaining need on the roster"
       },
       {
         "player": "Kenneth Gainwell",
         "position": "RB",
-        "contract_summary": "2yr/$14M ($10M gtd) with Buccaneers",
+        "contract_summary": "2yr/$14M with Buccaneers",
         "new_team": "Tampa Bay Buccaneers",
-        "headline": "Team's leading all-purpose back (1,023 scrimmage yards, 8 TDs in 2025) leaves for Tampa Bay"
+        "headline": "Team MVP departs after becoming Pittsburgh's most reliable receiving weapon in 2025; partially replaced by Dowdle but the pass-catching role is unfilled"
       },
       {
-        "player": "Jonnu Smith",
-        "position": "TE",
-        "contract_summary": "Released (saves ~$7M cap)",
-        "new_team": "Free Agent",
-        "headline": "Cap casualty after disastrous lone season (5.8 yds/rec); Freiermuth and D. Washington reassume TE lead"
+        "player": "Aaron Rodgers",
+        "position": "QB",
+        "contract_summary": "Unsigned (UFA)",
+        "new_team": "TBD/unsigned",
+        "headline": "42-year-old starter remains unsigned and non-committal about 2026; Pittsburgh has only Mason Rudolph and Will Howard under contract, leaving QB as the franchise's biggest open question"
+      },
+      {
+        "player": "Calvin Austin III",
+        "position": "WR",
+        "contract_summary": "1yr/up to $4.5M with Giants",
+        "new_team": "New York Giants",
+        "headline": "Primary punt returner departs after four seasons, leaving Pittsburgh without a clear return specialist heading into 2026"
       },
       {
         "player": "Connor Heyward",
         "position": "TE",
-        "contract_summary": "Unknown deal with Raiders",
+        "contract_summary": "2yr/$5.5M with Raiders",
         "new_team": "Las Vegas Raiders",
-        "headline": "Four-year Pittsburgh staple and Cam's brother exits; FB/TE hybrid role now unfilled"
-      },
-      {
-        "player": "James Pierre",
-        "position": "CB",
-        "contract_summary": "2yr/$8.5M ($3.7M gtd) with Vikings",
-        "new_team": "Minnesota Vikings",
-        "headline": "Solid CB who stepped into starting role in 2025 departs; Dean and Samuel Jr. signings absorb the loss"
+        "headline": "Cam's younger brother and special teams captain departs after 4 seasons, removing a key F-back piece and over 1,100 career special teams snaps from Pittsburgh's roster"
       }
     ]
   },
   "confidence": "high",
-  "notes": [
-    "Aaron Rodgers remains unsigned as of 2026-03-13. His return to Pittsburgh is widely assumed but not confirmed. QB need remains Tier 1.",
-    "Guaranteed money for Rico Dowdle not officially confirmed; estimated at ~$6M based on comparable deals and AAV.",
-    "Cole Holcomb re-signing reported by Ari Meirov but not yet on official team transactions page; listed as 'expected' \u2014 included as confirmed based on multiple corroborating sources.",
-    "Esezi Otomewo and Jack Driscoll financial terms not publicly disclosed; contract values entered as 0 pending disclosure.",
-    "Cameron Johnston punter deal financial terms not yet officially reported.",
-    "Cap space post-FA estimated at ~$14M based on early free agency reporting; actual figure will shift as further transactions process and before roster bonuses clear.",
-    "Patrick Queen trade rumors active as of research date \u2014 if traded, LB escalates to Tier 2 and ~$17M cap space is added.",
-    "Broderick Jones (OT) recovering from spinal fusion surgery; status for training camp is uncertain per Still Curtain reporting.",
-    "Steelers hold 12 draft picks in 2026 including 4 compensatory selections (3rd, 4th, two 6ths)."
-  ],
+  "notes": "Aaron Rodgers remains an active UFA as of March 16, 2026. GM Khan has confirmed the door is open for a return but no deal has been offered or signed. All other signings listed are confirmed transactions. Michael Pittman Jr.'s exact guarantee breakdown on the new PIT extension is not yet fully confirmed \u2014 OTC lists 3yr/$70M total (absorbing remaining Colts deal year) with $41M guaranteed; all sources agree on $59M extension figure from Garafolo/Schefter. Pittman's contract structure notes reflect the OTC figure as most reliable. Cap space post-FA reflects OTC's current published figure of $22.9M.",
   "sources": [
     "https://www.espn.com/nfl/story/_/id/48080207/pittsburgh-steelers-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
-    "https://www.nfl.com/news/michael-pittman-jr-trade-steelers-colts",
-    "https://www.spotrac.com/nfl/free-agents/_/year/2026/team/pit",
     "https://overthecap.com/player/jamel-dean/7885",
+    "https://overthecap.com/player/michael-pittman-jr/8774",
+    "https://overthecap.com/salary-cap/pittsburgh-steelers",
     "https://www.spotrac.com/nfl/player/_/id/29130/jamel-dean",
     "https://www.spotrac.com/nfl/player/_/id/47629/michael-pittman-jr",
     "https://www.spotrac.com/nfl/player/_/id/48282/rico-dowdle",
-    "https://www.spotrac.com/nfl/player/_/id/7746/cameron-heyward",
+    "https://www.spotrac.com/nfl/player/_/id/76924/jaquan-brisker",
+    "https://www.nfl.com/news/michael-pittman-jr-trade-steelers-colts",
     "https://steelersdepot.com/2026/03/additional-contract-details-emerge-for-new-steelers-cb-jamel-dean/",
-    "https://steelersdepot.com/2026/03/reports-steelers-signing-s-jaquan-brisker/",
-    "https://www.profootballrumors.com/2026/03/steelers-to-sign-s-jaquan-brisker",
+    "https://steelersdepot.com/2026/03/schefter-steelers-signing-dl-sebastian-joseph-day/",
+    "https://steelersdepot.com/2026/03/pelissero-steelers-signing-s-darnell-savage/",
+    "https://www.espn.com/nfl/story/_/id/48167891/steelers-cameron-heyward-agree-1-year-extension",
     "https://www.cbsnews.com/pittsburgh/news/pittsburgh-steelers-free-agency-tracker-2026/",
     "https://stillcurtain.com/steelers-free-agency-tracker",
     "https://steelersnow.com/pittsburgh-steelers-2026-free-agent-tracker/",
-    "https://www.si.com/nfl/steelers/onsi/news/pittsburgh-steelers-2026-free-agent-tracker-signings-contract-details-former-players",
-    "https://lastwordonsports.com/nfl/2026/03/09/pro-bowl-offensive-lineman-signs-with-the-cardinals/",
-    "https://steelersdepot.com/2026/03/steelers-2026-salary-cap-update-heading-into-new-league-year/",
-    "https://www.steelers.com/team/transactions/"
+    "https://www.behindthesteelcurtain.com/pittsburgh-steelers-free-agency/167623/pittsburgh-steelers-2026-free-agent-tracker",
+    "https://steelersdepot.com/2026/03/the-steelers-have-one-glaring-area-of-concern-following-free-agent-losses/",
+    "https://steelersdepot.com/2026/03/steelers-2026-salary-cap-update-heading-into-new-league-year/"
   ]
 }

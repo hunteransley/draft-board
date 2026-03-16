@@ -1,99 +1,89 @@
 {
   "team": "CAR",
   "team_full": "Carolina Panthers",
-  "updated_through": "2026-03-13",
+  "updated_through": "2026-03-16",
   "cap_space_pre_fa": "$9000000",
-  "cap_space_post_fa": "~$0",
+  "cap_space_post_fa": "$2000000",
   "key_departures": [
-    {
-      "player": "Cade Mays",
-      "position": "IOL",
-      "age": 25,
-      "role": "starter",
-      "new_team": "Detroit Lions",
-      "impact": "Mays started 12 games in 2025 and was the incumbent center entering free agency. He signed a 3-year, $25M deal ($14M gtd) with Detroit. His departure immediately created a starting hole at center that the Panthers addressed with Luke Fortner (1-year bridge deal).",
-      "need_impact": "creates",
-      "need_position": "IOL"
-    },
     {
       "player": "Rico Dowdle",
       "position": "RB",
       "age": 27,
       "role": "starter",
       "new_team": "Pittsburgh Steelers",
-      "impact": "Dowdle posted back-to-back 1,000-yard rushing seasons, including with Carolina in 2025. His production was a key factor in the Panthers' NFC South title run. Departure leaves a void as the clear lead back; Chuba Hubbard, Jonathan Brooks, and Trevor Etienne remain but none has proven to be a true workhorse replacement.",
+      "impact": "Dowdle posted back-to-back 1,000-yard rushing seasons (1,373 yards, 7 TDs in 2025) and was the focal point of the Panthers' ground game. Signed a 2-year, $12.25M deal with Pittsburgh. Chuba Hubbard and Trevor Etienne are now the depth options. Clear starter-level departure.",
       "need_impact": "creates",
       "need_position": "RB"
     },
     {
-      "player": "A'Shawn Robinson",
-      "position": "IDL",
-      "age": 31,
-      "role": "rotational",
-      "new_team": "Tampa Bay Buccaneers",
-      "impact": "Released by Carolina to save $10.5M in cap space. Robinson was a two-year rotational starter who logged 65 tackles, 2.5 sacks, and 8 QB hits in 2025. His release frees cap but thins the IDL rotation behind Derrick Brown.",
-      "need_impact": "escalates",
-      "need_position": "IDL"
+      "player": "Cade Mays",
+      "position": "IOL",
+      "age": 25,
+      "role": "starter",
+      "new_team": "Detroit Lions",
+      "impact": "Starting center departed on a 3-year, $25M deal ($14M guaranteed) with Detroit. Left a glaring hole at center that the Panthers had to address in free agency immediately.",
+      "need_impact": "creates",
+      "need_position": "IOL"
     },
     {
       "player": "Yosh Nijman",
       "position": "OT",
       "age": 29,
-      "role": "backup",
-      "new_team": "Retired",
-      "impact": "Nijman announced his retirement on March 11. He was a depth tackle who served as the primary backup behind Ikem Ekwonu. With Ekwonu recovering from a ruptured patellar tendon and timeline unclear, losing Nijman to retirement escalates OT depth need. Panthers pivoted quickly with Stone Forsythe.",
+      "role": "rotational",
+      "new_team": "retired",
+      "impact": "Backup LT plan retired despite a 2-year offer from the Panthers. This escalated the OT need created by Ikem Ekwonu's ruptured patellar tendon (suffered in the Wild Card loss vs. Rams). Left the Panthers without a reliable LT option entering free agency.",
       "need_impact": "escalates",
       "need_position": "OT"
     },
     {
+      "player": "A'Shawn Robinson",
+      "position": "IDL",
+      "age": 30,
+      "role": "starter",
+      "new_team": "Tampa Bay Buccaneers",
+      "impact": "Released for cap savings of $10.5M. Started 33 games over two seasons with the Panthers (65 tackles, 2.5 sacks in 2025). Was a rotational starter alongside Derrick Brown. Cap casualty, now signed by a division rival. Leaves IDL depth thinner.",
+      "need_impact": "escalates",
+      "need_position": "IDL"
+    },
+    {
+      "player": "D.J. Wonnum",
+      "position": "EDGE",
+      "age": 28,
+      "role": "rotational",
+      "new_team": "TBD/unsigned",
+      "impact": "Rotational edge rusher with 7.5 sacks over two seasons not expected to return. His departure compounds the EDGE need but is partially mitigated by the Phillips signing.",
+      "need_impact": "escalates",
+      "need_position": "EDGE"
+    },
+    {
       "player": "Christian Rozeboom",
       "position": "LB",
-      "age": 29,
-      "role": "depth/special teams",
+      "age": 28,
+      "role": "rotational",
       "new_team": "TBD/unsigned",
-      "impact": "Rozeboom was a backup and special teams contributor. His departure is minor given the Devin Lloyd signing, but he was previously the primary depth LB. Low impact on need picture.",
+      "impact": "Was pushed into an every-down role in 2025 due to linebacker attrition and underperformed. Unrestricted FA, remains unsigned. His departure creates no new need given Lloyd's arrival but reduces linebacker depth.",
       "need_impact": "none",
       "need_position": "LB"
     },
     {
       "player": "Nick Scott",
       "position": "S",
-      "age": 29,
-      "role": "depth",
+      "age": 28,
+      "role": "starter",
       "new_team": "TBD/unsigned",
-      "impact": "Depth safety allowed to reach free agency. Minimal impact on starting lineup.",
-      "need_impact": "none",
+      "impact": "Posted a career-high 111 tackles and started all 17 games in 2025. Departed as a UFA and remains unsigned. Significant starter-level loss at safety \u2014 leaves a genuine hole at the position.",
+      "need_impact": "creates",
       "need_position": "S"
     },
     {
-      "player": "DJ Wonnum",
-      "position": "EDGE",
-      "age": 28,
+      "player": "Austin Corbett",
+      "position": "IOL",
+      "age": 30,
       "role": "rotational",
       "new_team": "TBD/unsigned",
-      "impact": "Rotational EDGE rusher allowed to reach free agency. Panthers largely replaced his role (and exceeded it) with the Jaelan Phillips signing. Minimal net impact.",
-      "need_impact": "none",
-      "need_position": "EDGE"
-    },
-    {
-      "player": "Trevis Gipson",
-      "position": "EDGE",
-      "age": 29,
-      "role": "depth/special teams",
-      "new_team": "TBD/unsigned",
-      "impact": "Depth EDGE rusher. Departure is low impact given Phillips addition.",
-      "need_impact": "none",
-      "need_position": "EDGE"
-    },
-    {
-      "player": "Damarri Mathis",
-      "position": "CB",
-      "age": 27,
-      "role": "depth",
-      "new_team": "TBD/unsigned",
-      "impact": "Depth corner. Minimal impact given Horn-led secondary and Evans re-sign.",
-      "need_impact": "none",
-      "need_position": "CB"
+      "impact": "Veteran guard/center departed as a UFA. Compound loss alongside Cade Mays thinning the interior line. Depth/injury concern.",
+      "need_impact": "escalates",
+      "need_position": "IOL"
     }
   ],
   "signings": [
@@ -112,7 +102,7 @@
       "market_tier": "elite",
       "need_impact": "fully_addressed",
       "need_position": "EDGE",
-      "analysis": "Landmark signing \u2014 the largest free-agent EDGE deal in franchise history. Phillips had 61 QB pressures (11th in the NFL) in 2025 split between Miami and Philadelphia. The 4-year/$120M deal with $80M guaranteed is a clear long-term investment at a position of critical need. The Panthers were last in the NFL in pressure rate (26.2%) in 2025 and tied for 28th in sacks. This fully addresses the EDGE need at starter level with elite guarantees. At $30M AAV, this is above the $25M+ elite market tier for EDGE. EDGE drops from a tier-1 critical need to a tier-4 luxury/depth consideration in the draft."
+      "analysis": "Top-of-market EDGE signing. Phillips received a $35M signing bonus with 2026 and 2027 salaries fully guaranteed \u2014 $60M fully guaranteed at signing. At $30M AAV he ranks among the top-8 EDGE contracts leaguewide. Ranked 9th in QB pressures in 2025 (73 pressures) despite only 5 sacks. GM Dan Morgan explicitly targeted pass rush as the team's biggest need. This is the Panthers' guy for 4 years. EDGE drops from a tier-1 critical need to a depth/developmental need. They may still want a EDGE developmental pick in later rounds to pair opposite Phillips alongside 2025 2nd-rounder Nic Scourton, but the need as a high-priority draft concern is fully resolved."
     },
     {
       "player": "Devin Lloyd",
@@ -126,44 +116,27 @@
         "aav": 15000000
       },
       "expected_role": "starter",
-      "market_tier": "elite",
+      "market_tier": "starter",
       "need_impact": "fully_addressed",
       "need_position": "LB",
-      "analysis": "Second major Day 1 signing. Lloyd earned second-team All-Pro honors in 2025 after a career-high 5 interceptions (tied 2nd in the NFL) and 81 tackles. The 3-year/$45M deal with $25M guaranteed represents a fully committed starter investment at $15M AAV \u2014 which ties for 5th among LBs per Spotrac. GM Dan Morgan had publicly promised to 'attack' the LB position. Lloyd fulfills that completely. He's expected to serve as the defensive signal-caller, the role Carolina has lacked since Luke Kuechly. LB drops from a tier-1 critical need to resolved/tier-5."
+      "analysis": "2025 Pro Bowl, Second-Team All-Pro linebacker. $25M guaranteed is real investment \u2014 effectively 1.7 years of fully guaranteed money on a 3-year deal, signaling a true starter commitment. Lloyd had 81 tackles, 5 INTs (including a 99-yard pick-six), and career-best pass-rush production in 2025. Morgan explicitly promised to 'attack' the linebacker position and delivered on the best available. LB goes from a tier-1 critical need to tier-3 depth. The Panthers still have Trevin Wallace alongside him, and may draft depth, but the hole that plagued them all of 2025 is genuinely filled."
     },
     {
-      "player": "Kenny Pickett",
-      "position": "QB",
-      "age": 27,
-      "previous_team": "Las Vegas Raiders",
-      "contract": {
-        "years": 1,
-        "total_value": 7500000,
-        "guaranteed": 4000000,
-        "aav": 7500000
-      },
-      "expected_role": "backup",
-      "market_tier": "depth",
-      "need_impact": "partially_addressed",
-      "need_position": "QB",
-      "analysis": "One-year deal to serve as Bryce Young's backup and replace aging Andy Dalton (38). Pickett is a former first-round pick with 27 NFL starts across Steelers, Eagles, Browns, and Raiders stints. At $7.5M/$4M guaranteed on a 1-year deal, this is a bridge/compete deal \u2014 he's not a long-term solution. QB depth need is partially addressed in that a capable veteran backup is now in place, but the Panthers should still monitor QB depth in later draft rounds. QB1 position is clearly Bryce Young's. Backup need moves from tier-2 to tier-3."
-    },
-    {
-      "player": "Luke Fortner",
-      "position": "IOL",
+      "player": "Rasheed Walker",
+      "position": "OT",
       "age": 26,
-      "previous_team": "New Orleans Saints",
+      "previous_team": "Green Bay Packers",
       "contract": {
         "years": 1,
-        "total_value": 4750000,
-        "guaranteed": 0,
-        "aav": 4750000
+        "total_value": 10000000,
+        "guaranteed": 5000000,
+        "aav": 10000000
       },
       "expected_role": "starter",
-      "market_tier": "depth",
+      "market_tier": "starter",
       "need_impact": "partially_addressed",
-      "need_position": "IOL",
-      "analysis": "Signed immediately after Cade Mays departed to Detroit to plug the starting center hole. Fortner started 10 games for the Saints in 2025 after Erik McCoy's injury, allowing QB pressure on only 4.3% of pass-blocking snaps (8th-lowest among qualifying centers). He's a capable veteran stopgap. However, this is a 1-year deal with reported minimal guarantees, which signals a bridge/placeholder \u2014 not a franchise answer. The Panthers are expected to draft a center for long-term development. IOL need remains elevated from a draft perspective (tier-2 still warranted)."
+      "need_position": "OT",
+      "analysis": "Ranked as the top LT available in free agency per USA Today's Nate Davis. Started 48 of 52 games over 3 years with the Packers. One-year deal at $10M (well below starter-market AAV of $12-20M) signals a bridge starter while Ekwonu recovers from patellar tendon rupture. Walker is the projected Week 1 LT starter. However, the one-year structure means OT remains a medium-term need \u2014 Ekwonu's future is uncertain, Walker is gone after 2026, and Taylor Moton's contract runs through 2027 at RT. Panthers will likely still draft a developmental OT, though the immediate 2026 crisis is averted. OT drops from tier-1 critical to tier-2 moderate need."
     },
     {
       "player": "Stone Forsythe",
@@ -177,10 +150,44 @@
         "aav": 2000000
       },
       "expected_role": "depth",
-      "market_tier": "depth",
+      "market_tier": "minimum",
       "need_impact": "minimal",
       "need_position": "OT",
-      "analysis": "Signed as swing tackle depth to cover for Ikem Ekwonu's uncertain recovery timeline from a ruptured patellar tendon. Forsythe has 27 career starts and familiarity with head coach Dave Canales from their shared time in Seattle. At $2M/year with $1.05M guaranteed, this is clearly depth insurance. He graded poorly in Las Vegas (55.2 PFF, 78th out of 89 qualifying tackles). OT remains a critical draft need \u2014 picking a tackle as high as 19th overall is possible. This signing does not move the needle on OT need."
+      "analysis": "Depth/swing tackle with familiarity with HC Dave Canales from their time together in Seattle. Signed before Walker arrived as insurance. With Walker now in hand, Forsythe is the swing tackle/backup. One-year, near-minimum deal. Has 27 starts over 5 seasons \u2014 PFF ranked him 72nd of 84 qualifying OTs in 2025. Provides OT depth but doesn't change the need picture on its own."
+    },
+    {
+      "player": "Luke Fortner",
+      "position": "IOL",
+      "age": 27,
+      "previous_team": "New Orleans Saints",
+      "contract": {
+        "years": 1,
+        "total_value": 4750000,
+        "guaranteed": 2000000,
+        "aav": 4750000
+      },
+      "expected_role": "starter",
+      "market_tier": "depth",
+      "need_impact": "partially_addressed",
+      "need_position": "IOL",
+      "analysis": "Signed to replace Cade Mays at center after Mays departed for Detroit. Fortner started 10 games for the Saints in 2025, ranking 17th of 37 qualifying centers per PFF \u2014 solid short-term option. His strong suit is pass blocking (allowed only 3 sacks in 2025). However, one-year deal at well below starter IOL AAV ($10-16M range) signals a bridge solution, not a long-term answer. ESPN noted the Panthers will likely still draft a center to develop as an eventual replacement. IOL need drops from tier-1 acute (post-Mays departure) to tier-2 moderate \u2014 addressed for 2026 but long-term C is still a draft priority."
+    },
+    {
+      "player": "Kenneth Pickett",
+      "position": "QB",
+      "age": 27,
+      "previous_team": "Las Vegas Raiders",
+      "contract": {
+        "years": 1,
+        "total_value": 7500000,
+        "guaranteed": 4000000,
+        "aav": 7500000
+      },
+      "expected_role": "depth",
+      "market_tier": "depth",
+      "need_impact": "minimal",
+      "need_position": "QB",
+      "analysis": "Signed as backup QB to Bryce Young, replacing 38-year-old Andy Dalton who is expected to be released or traded. One-year deal ($4M guaranteed) \u2014 this is a backup role, not a starter competition. Pickett (27, former 2022 first-rounder) provides experienced depth but this doesn't change the QB starter situation. Bryce Young is QB1 entering his third season. QB need remains essentially unchanged \u2014 Young is the clear starter, and Pickett is an upgrade over Dalton as a capable backup."
     },
     {
       "player": "John Metchie III",
@@ -189,15 +196,15 @@
       "previous_team": "New York Jets",
       "contract": {
         "years": 1,
-        "total_value": 2000000,
-        "guaranteed": 0,
-        "aav": 2000000
+        "total_value": 1900000,
+        "guaranteed": 1000000,
+        "aav": 1900000
       },
       "expected_role": "depth",
       "market_tier": "minimum",
-      "need_impact": "none",
+      "need_impact": "minimal",
       "need_position": "WR",
-      "analysis": "Low-cost depth/familiarity signing. Metchie was Young's college teammate at Alabama (96 catches, 1,142 yards, 8 TDs together in 2021). He had 33 catches for 274 yards in 2025 split between Philadelphia and New York. One-year deal at minimum-tier money; he projects as WR4 behind Tetairoa McMillan, Jalen Coker, and Xavier Legette. WR was not a primary need entering free agency and this doesn't change the calculus."
+      "analysis": "Former Alabama teammate of Bryce Young; signed for near-minimum money. Projects as WR4 behind Tetairoa McMillan, Jalen Coker, and Xavier Legette. Only 73 career catches across three seasons. One-year deal with $1M guaranteed is the definition of a low-risk flier on familiarity and upside. Does not address WR as a need \u2014 this is pure depth at minimum cost. WR need is unchanged."
     },
     {
       "player": "Akayleb Evans",
@@ -206,15 +213,32 @@
       "previous_team": "Carolina Panthers (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 2000000,
-        "guaranteed": 0,
-        "aav": 2000000
+        "total_value": 2500000,
+        "guaranteed": 1000000,
+        "aav": 2500000
       },
-      "expected_role": "depth/special teams",
+      "expected_role": "depth",
+      "market_tier": "minimum",
+      "need_impact": "minimal",
+      "need_position": "CB",
+      "analysis": "Re-signed depth/special teams CB. Played 17 games in 2025, accounting for 37.7% of all ST snaps. Filled in for Jaycee Horn at times. One-year deal at minimal value \u2014 this is depth and special teams continuity, not a starter acquisition. CB need (if any) is unchanged."
+    },
+    {
+      "player": "Robert Rochell",
+      "position": "CB",
+      "age": 28,
+      "previous_team": "Carolina Panthers (re-sign)",
+      "contract": {
+        "years": 1,
+        "total_value": 1500000,
+        "guaranteed": 500000,
+        "aav": 1500000
+      },
+      "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "CB",
-      "analysis": "Re-signed on a 1-year deal. Evans played 17 games in 2025 as a special teams stalwart (37.7% of all ST snaps) and occasional CB depth behind Jaycee Horn. This is a continuity/special teams retention, not a starter-level investment. CB was not a pressing pre-FA need with Horn entrenched."
+      "analysis": "Re-signed primarily as a special teams contributor. Depth CB only. No material impact on positional need."
     },
     {
       "player": "Isaiah Simmons",
@@ -223,100 +247,83 @@
       "previous_team": "Carolina Panthers (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 2000000,
-        "guaranteed": 0,
-        "aav": 2000000
+        "total_value": 3000000,
+        "guaranteed": 1500000,
+        "aav": 3000000
       },
-      "expected_role": "depth/rotational",
-      "market_tier": "minimum",
-      "need_impact": "none",
+      "expected_role": "rotational",
+      "market_tier": "depth",
+      "need_impact": "minimal",
       "need_position": "S",
-      "analysis": "Re-signed on a short-term deal. Simmons is a versatile LB/S hybrid who appeared in 5 games in 2025 after being claimed off waivers from the Vikings. At minimum/near-minimum money, this is a depth/flexibility retention for Ejiro Evero's defense. S was not a primary need."
+      "analysis": "Re-signed versatile LB/S hybrid. Appeared in 18 games with 1 start in 2025. Can provide safety depth following Nick Scott's departure, but is not a like-for-like replacement for a 17-game starting safety. One-year deal at depth money \u2014 S need is only minimally addressed. Panthers still need a true starting safety."
     },
     {
       "player": "LaBryan Ray",
-      "position": "IDL",
-      "age": 26,
-      "previous_team": "Carolina Panthers (re-sign)",
+      "position": "EDGE",
+      "age": 27,
+      "previous_team": "Carolina Panthers (re-sign, RFA)",
       "contract": {
         "years": 1,
-        "total_value": 2000000,
-        "guaranteed": 0,
-        "aav": 2000000
+        "total_value": 2500000,
+        "guaranteed": 1000000,
+        "aav": 2500000
       },
       "expected_role": "rotational",
-      "market_tier": "minimum",
-      "need_impact": "minimal",
-      "need_position": "IDL",
-      "analysis": "Restricted free agent re-signed on a low-cost deal. Ray started 9 games in 2024 filling in for Derrick Brown and provided rotational value in 2025 (65 tackles, 2.5 sacks over two years). His re-sign provides some IDL depth continuity after A'Shawn Robinson's release. Minimally offsets the Robinson departure at IDL."
-    },
-    {
-      "player": "Robert Rochell",
-      "position": "CB",
-      "age": 27,
-      "previous_team": "Carolina Panthers (re-sign)",
-      "contract": {
-        "years": 1,
-        "total_value": 1500000,
-        "guaranteed": 0,
-        "aav": 1500000
-      },
-      "expected_role": "depth/special teams",
-      "market_tier": "minimum",
+      "market_tier": "depth",
       "need_impact": "none",
-      "need_position": "CB",
-      "analysis": "Re-signed as a depth/special teams CB. Rochell is a journeyman who has appeared in 18 games (1 start) as a Panther, primarily on special teams. Minimal positional impact."
+      "need_position": "EDGE",
+      "analysis": "Re-signed restricted free agent. Key rotational DE \u2014 started 9 games in 2024 when Derrick Brown was out. Provides interior-exterior line depth. RFA tender, so Panthers retain him on a one-year basis. Depth signing \u2014 does not change the EDGE need picture materially (Phillips handles that)."
     },
     {
       "player": "Thomas Incoom",
       "position": "EDGE",
       "age": 26,
-      "previous_team": "Carolina Panthers (re-sign)",
+      "previous_team": "Carolina Panthers (re-sign, RFA)",
       "contract": {
         "years": 1,
         "total_value": 1500000,
-        "guaranteed": 0,
+        "guaranteed": 500000,
         "aav": 1500000
       },
-      "expected_role": "depth/special teams",
+      "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "EDGE",
-      "analysis": "Restricted free agent re-signed as depth EDGE/special teams contributor. Appeared in 18 games with 1 start after being claimed off waivers from the Vikings in 2024. EDGE need was fully addressed by Phillips; this is depth continuity."
+      "analysis": "Re-signed primarily as a special teams contributor. Appeared in 18 games with 1 start in 2025. Depth/ST only."
     },
     {
       "player": "David Moore",
       "position": "WR",
-      "age": 32,
+      "age": 31,
       "previous_team": "Carolina Panthers (re-sign)",
       "contract": {
         "years": 1,
-        "total_value": 1500000,
-        "guaranteed": 0,
-        "aav": 1500000
+        "total_value": 2000000,
+        "guaranteed": 750000,
+        "aav": 2000000
       },
-      "expected_role": "depth/special teams",
+      "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "none",
       "need_position": "WR",
-      "analysis": "Veteran depth WR re-signed at minimum-tier money. Moore is a locker room veteran and occasional contributor. WR depth was not a primary need with McMillan, Coker, Legette, and now Metchie all returning."
+      "analysis": "Re-signed veteran WR for depth and leadership. One-year minimum-range deal. Not a starter \u2014 depth and locker room presence. No need impact."
     },
     {
-      "player": "JJ Jansen",
-      "position": "LS",
-      "age": 40,
-      "previous_team": "Carolina Panthers (re-sign)",
+      "player": "Claudin Cherelus",
+      "position": "LB",
+      "age": 25,
+      "previous_team": "Carolina Panthers (re-sign, RFA)",
       "contract": {
         "years": 1,
         "total_value": 1200000,
-        "guaranteed": 0,
+        "guaranteed": 400000,
         "aav": 1200000
       },
-      "expected_role": "starter",
+      "expected_role": "depth",
       "market_tier": "minimum",
       "need_impact": "none",
-      "need_position": "LS",
-      "analysis": "Franchise record 18th season for Jansen, the franchise's all-time leader in games played (277). Routine annual re-signing at long snapper. No positional need implications."
+      "need_position": "LB",
+      "analysis": "Re-signed RFA linebacker. Started 4 games in 2025 plus the Wild Card game, key special teams contributor. Depth/ST role only."
     }
   ],
   "needs_impact_summary": {
@@ -325,71 +332,76 @@
       "LB"
     ],
     "partially_addressed": [
-      "IOL",
-      "QB"
+      "OT",
+      "IOL"
     ],
     "minimally_addressed": [
-      "IDL",
-      "OT"
+      "S",
+      "CB"
     ],
     "unchanged": [
       "WR",
-      "CB",
-      "S",
       "TE"
     ],
     "escalated": [
-      "RB"
+      "RB",
+      "IDL"
     ]
   },
   "recommended_need_adjustments": [
     {
       "position": "EDGE",
       "previous_tier": 1,
-      "recommended_tier": 5,
-      "reasoning": "Jaelan Phillips 4yr/$120M ($80M gtd) at $30M AAV is an elite-market commitment to a 26-year-old with 61 QB pressures in 2025. Carolina went from last in the NFL in pressure rate to having a franchise cornerstone pass rusher locked up for 4 years. EDGE is no longer a draft need at any meaningful tier. Depth rotation (Thomas Incoom re-signed, DJ Wonnum departed) could use a Day 3 addition but this is not a priority."
+      "recommended_tier": 4,
+      "reasoning": "Jaelan Phillips signing (4yr/$120M, $80M guaranteed, $60M fully guaranteed at signing) is a franchise-level commitment at EDGE. At $30M AAV he's among the top-8 EDGE deals leaguewide. Phillips plus 2025 2nd-rounder Nic Scourton give the Panthers a legitimate starting pair. EDGE is now a luxury/developmental day-3 pick at most, not a draft premium."
     },
     {
       "position": "LB",
       "previous_tier": 1,
-      "recommended_tier": 5,
-      "reasoning": "Devin Lloyd 3yr/$45M ($25M gtd) signing is the best off-ball LB available in 2026 free agency by most rankings. 2x All-Pro, 5 INTs in 2025, serves as the defensive captain/signal-caller. GM Dan Morgan fulfilled his combine promise to 'attack' this position. The starter problem is solved definitively. Isaiah Simmons re-sign adds flexibility depth. No draft investment needed at LB."
-    },
-    {
-      "position": "IOL",
-      "previous_tier": 2,
-      "recommended_tier": 2,
-      "reasoning": "Cade Mays (3yr/$25M Lions) departure created a new need, quickly patched with Luke Fortner on a 1-year/$4.75M bridge deal. Fortner is a capable veteran starter (ranked 17th among qualifying centers by PFF in 2025) but the 1-year structure signals the team is not committed long-term. They should strongly target a center in rounds 2-4 of the draft for multi-year development. IOL need unchanged in draft urgency."
+      "recommended_tier": 4,
+      "reasoning": "Devin Lloyd (3yr/$45M, $25M guaranteed) was the best LB in free agency \u2014 2025 Pro Bowl, Second-Team All-Pro. Dan Morgan explicitly 'attacked' this need and landed the target. Wallace remains as a complementary piece. LB is no longer a meaningful draft need in early rounds."
     },
     {
       "position": "OT",
+      "previous_tier": 1,
+      "recommended_tier": 2,
+      "reasoning": "Rasheed Walker (1yr/$10M) is a legitimate starting LT who started 48 of 52 games for Green Bay. Resolves the 2026 crisis created by Ekwonu's patellar tendon tear and Nijman's retirement. However, one-year structure means 2027 is still unsettled \u2014 Ekwonu's recovery is uncertain, Walker is a free agent after 2026, and Moton (RT) is aging. Draft a developmental OT to project long-term. Tier drops from urgent-1 to moderate-2."
+    },
+    {
+      "position": "IOL",
+      "previous_tier": 1,
+      "recommended_tier": 2,
+      "reasoning": "Luke Fortner (1yr/$4.75M) patches the starting C vacancy created by Cade Mays' departure to Detroit. Fortner was solid in 2025 (17th of 37 centers, PFF) but is on a bridge deal. Center remains a priority need in the draft for long-term planning. Still need to monitor Austin Corbett situation (also unsigned). IOL drops from tier-1 acute to tier-2 moderate."
+    },
+    {
+      "position": "S",
       "previous_tier": 2,
-      "recommended_tier": 1,
-      "reasoning": "Ikem Ekwonu's ruptured patellar tendon has an unclear return timeline \u2014 he could miss most or all of 2026. Yosh Nijman (primary backup) retired. Stone Forsythe (1yr/$2M, PFF 55.2 grade) is not a reliable starter. The Panthers are highly vulnerable at LT specifically. OT should ESCALATE to tier-1 draft priority. Taylor Moton is solid at RT, but LT cover is critical. Drafting a tackle at pick 19 is a genuine option."
+      "recommended_tier": 2,
+      "reasoning": "Nick Scott (career-high 111 tackles, 17-game starter) departed as a UFA and remains unsigned. Isaiah Simmons re-signed on a minimum-range deal but is a depth/hybrid player, not Scott's replacement as a full-time starter. Safety need remains at tier 2 \u2014 one of the clearer remaining gaps heading into the draft. Caleb Downs, Dillon Thieneman mentioned as first-round fits."
     },
     {
       "position": "RB",
       "previous_tier": 3,
       "recommended_tier": 2,
-      "reasoning": "Rico Dowdle (back-to-back 1,000-yard seasons) departed to Pittsburgh on a 2yr/$12.25M deal. The Panthers did not sign a direct RB replacement in free agency. The remaining room of Chuba Hubbard (lost starting role in 2025 with 3.8 ypc), Jonathan Brooks (injury history, 3rd-year developing), and Trevor Etienne is uncertain. RB escalates from a background need to a meaningful draft consideration in rounds 2-4. Not a Day 1 pick, but warrants attention."
+      "reasoning": "Rico Dowdle (1,373 yards, 7 TDs in 2025) signed a 2yr/$12.25M deal with Pittsburgh. Chuba Hubbard, Trevor Etienne, and potentially Jonathan Brooks (health permitting) remain. Hubbard has starting experience but is not a proven 300-carry bell cow. Dowdle's departure escalates RB from a non-need to a legitimate draft target in rounds 3-5."
     },
     {
       "position": "IDL",
       "previous_tier": 3,
-      "recommended_tier": 3,
-      "reasoning": "A'Shawn Robinson cut (cap savings) thins the IDL rotation behind Derrick Brown. LaBryan Ray re-sign provides some continuity but is a minimum-tier deal. Brown is healthy and the cornerstone; behind him the depth is thin. IDL need remains at tier-3 \u2014 a mid-round draft add would be prudent but it's not urgent."
-    },
-    {
-      "position": "QB",
-      "previous_tier": 3,
-      "recommended_tier": 4,
-      "reasoning": "Kenny Pickett on a 1yr/$7.5M deal gives Bryce Young a capable (if unspectacular) backup with starting experience. Andy Dalton (38) is expected to be released. QB depth improves from a concern (aging Dalton) to a reasonable backup situation with Pickett. Still a 1-year deal, so QB depth could re-enter consideration in Day 3 of the draft, but it's no longer a priority."
+      "recommended_tier": 2,
+      "reasoning": "A'Shawn Robinson cut (cap savings $10.5M) and signed by division rival Tampa Bay. Derrick Brown, Tershawn Wharton, Bobby Brown III, and Cam Jackson remain. Depth is thinner with Robinson gone \u2014 especially given Wharton's injury history. IDL moves up as a mid-round draft priority to replenish rotation depth."
     },
     {
       "position": "WR",
-      "previous_tier": 4,
-      "recommended_tier": 5,
-      "reasoning": "No major WR departures. Panthers return all four of their top WRs from 2025: Tetairoa McMillan (2025 Offensive Rookie of the Year candidate), Jalen Coker (tendered), Xavier Legette, and Brycen Tremayne (tendered). John Metchie III (1yr) adds depth with Bryce Young familiarity. WR is a non-need in the draft."
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "No meaningful upgrade at WR in free agency. Tetairoa McMillan, Jalen Coker (ERFA tender), Xavier Legette, and Brycen Tremayne return. John Metchie ($1.9M, 1yr) adds depth/familiarity but is not a starter. WR remains a mid-round need \u2014 a slot/speed receiver or true WR2 upgrade would still be welcomed in rounds 2-4."
+    },
+    {
+      "position": "TE",
+      "previous_tier": 3,
+      "recommended_tier": 3,
+      "reasoning": "No TE signings. Tommy Tremble led Panthers TEs with only 249 receiving yards in 2025. James Mitchell is a restricted FA. TE remains a genuine need, especially for a receiving weapon. Panthers were identified as a potential target for elite TE free agents pre-FA but did not act. Still a viable round 2-3 draft target."
     }
   ],
   "team_page_additions": {
@@ -397,44 +409,37 @@
       {
         "player": "Jaelan Phillips",
         "position": "EDGE",
-        "contract_summary": "4yr/$120M ($80M gtd)",
+        "contract_summary": "4yr/$120M ($80M gtd, $60M fully gtd at signing)",
         "previous_team": "Philadelphia Eagles",
-        "headline": "Panthers' largest EDGE deal ever; 61 QB pressures in 2025 gives Evero's defense the elite pass rusher it has desperately lacked"
+        "headline": "Top free-agent EDGE rusher lands on a franchise deal \u2014 73 QB pressures in 2025 finally fixes the Panthers' chronic pass-rush problem"
       },
       {
         "player": "Devin Lloyd",
         "position": "LB",
         "contract_summary": "3yr/$45M ($25M gtd)",
         "previous_team": "Jacksonville Jaguars",
-        "headline": "2025 Second-Team All-Pro and 5-INT linebacker fulfills GM Morgan's mission to 'attack' the position \u2014 Carolina's best LB addition in years"
+        "headline": "2025 Pro Bowl, Second-Team All-Pro linebacker (5 INTs, 81 tackles) addresses the Panthers' most glaring defensive weakness in one swing"
       },
       {
-        "player": "Kenny Pickett",
-        "position": "QB",
-        "contract_summary": "1yr/$7.5M ($4M gtd)",
-        "previous_team": "Las Vegas Raiders",
-        "headline": "Former first-round pick with 27 NFL starts replaces aging Andy Dalton as Bryce Young's backup"
+        "player": "Rasheed Walker",
+        "position": "OT",
+        "contract_summary": "1yr/$10M",
+        "previous_team": "Green Bay Packers",
+        "headline": "Top available LT on the market steps in at left tackle while Ikem Ekwonu recovers from torn patellar tendon"
       },
       {
         "player": "Luke Fortner",
         "position": "IOL",
         "contract_summary": "1yr/$4.75M",
         "previous_team": "New Orleans Saints",
-        "headline": "Bridge center arrives to fill Cade Mays' void; ranked 17th among qualifying centers by PFF in 2025 (8th-lowest QB pressure rate)"
+        "headline": "Bridge starter at center fills the hole created by Cade Mays' departure to Detroit"
       },
       {
-        "player": "Stone Forsythe",
-        "position": "OT",
-        "contract_summary": "1yr/$2M ($1.05M gtd)",
+        "player": "Kenneth Pickett",
+        "position": "QB",
+        "contract_summary": "1yr/$7.5M ($4M gtd)",
         "previous_team": "Las Vegas Raiders",
-        "headline": "Swing tackle depth signing to cover Ikem Ekwonu's uncertain recovery timeline from torn patellar tendon"
-      },
-      {
-        "player": "John Metchie III",
-        "position": "WR",
-        "contract_summary": "1yr (terms undisclosed)",
-        "previous_team": "New York Jets",
-        "headline": "Bryce Young's Alabama teammate reunites in Carolina as WR4 depth and potential deep threat"
+        "headline": "Former first-round pick upgrades backup QB room as younger, more athletic insurance behind Bryce Young"
       }
     ],
     "key_losses": [
@@ -443,42 +448,52 @@
         "position": "RB",
         "contract_summary": "2yr/$12.25M with Steelers",
         "new_team": "Pittsburgh Steelers",
-        "headline": "Back-to-back 1,000-yard rusher departs, leaving an unsettled backfield behind Chuba Hubbard and Jonathan Brooks"
+        "headline": "Back-to-back 1,000-yard rusher departs, leaving a backfield hole that Chuba Hubbard and Trevor Etienne must now fill"
       },
       {
         "player": "Cade Mays",
         "position": "IOL",
         "contract_summary": "3yr/$25M ($14M gtd) with Lions",
         "new_team": "Detroit Lions",
-        "headline": "Starting center leaves for Detroit, immediately creating a center need that was patched with bridge signing Luke Fortner"
+        "headline": "Starting center exits for a multi-year deal in Detroit, triggering the Luke Fortner bridge signing"
+      },
+      {
+        "player": "Nick Scott",
+        "position": "S",
+        "contract_summary": "UFA, unsigned",
+        "new_team": "TBD/unsigned",
+        "headline": "17-game starting safety (career-high 111 tackles) departs, leaving a meaningful hole at the back of Carolina's secondary"
       },
       {
         "player": "A'Shawn Robinson",
         "position": "IDL",
-        "contract_summary": "Released (cap savings $10.5M); 1yr with Buccaneers",
+        "contract_summary": "Released (cap savings $10.5M); 1yr deal with Buccaneers",
         "new_team": "Tampa Bay Buccaneers",
-        "headline": "Cap casualty release thins IDL rotation behind Derrick Brown after two productive seasons as a Panther"
+        "headline": "Veteran starting DT cut for cap space and signs with a division rival \u2014 thins an IDL rotation that now leans heavily on Derrick Brown"
       },
       {
         "player": "Yosh Nijman",
         "position": "OT",
-        "contract_summary": "Retired",
-        "new_team": "Retired",
-        "headline": "Backup tackle retires, compounding OT depth concern with Ekwonu injured; Panthers answered with Forsythe signing"
+        "contract_summary": "Retired (declined 2yr offer from Panthers)",
+        "new_team": "retired",
+        "headline": "Backup LT plan retires despite a multi-year offer, accelerating the team's pursuit of Rasheed Walker"
       }
     ]
   },
   "confidence": "high",
   "sources": [
     "https://www.espn.com/nfl/story/_/id/48089128/carolina-panthers-2026-free-agency-tracker-offseason-moves-signings-contract-trades",
-    "https://www.panthers.com/news/2026-nfl-free-agency-tracker-signings-extensions-reports-breaking-news",
     "https://www.nfl.com/news/panthers-signing-pass-rusher-jaelan-phillips-to-four-year-120-million-contract",
+    "https://www.nfl.com/news/panthers-ot-rasheed-walker-agree-to-terms-on-one-year-deal",
     "https://www.spotrac.com/nfl/player/_/id/72398/jaelan-phillips",
     "https://www.spotrac.com/nfl/player/_/id/76881/devin-lloyd",
     "https://www.spotrac.com/nfl/player/_/id/76871/kenny-pickett",
     "https://www.spotrac.com/nfl/player/_/id/72592/stone-forsythe",
-    "https://www.spotrac.com/nfl/player/_/id/48282/rico-dowdle",
-    "https://www.si.com/nfl/panthers/onsi/news/carolina-panthers-free-agency-tracker-latest-signings-losses-news-rumors",
-    "https://www.catscratchreader.com/carolina-panthers-free-agency/58390/carolina-panthers-free-agency-tracker-rumors-news-and-all-reported-signings-and-updates"
+    "https://www.spotrac.com/nfl/player/_/id/76920/john-metchie",
+    "https://overthecap.com/player/jaelan-phillips/9482",
+    "https://overthecap.com/player/stone-forsythe/9672",
+    "https://www.panthers.com/news/2026-nfl-free-agency-tracker-signings-extensions-reports-breaking-news",
+    "https://www.panthers.com/news/complete-list-of-panthers-2026-free-agents-unrestricted-restricted-exclusive-rights",
+    "https://www.si.com/nfl/panthers/onsi/news/carolina-panthers-free-agency-tracker-latest-signings-losses-news-rumors"
   ]
 }
