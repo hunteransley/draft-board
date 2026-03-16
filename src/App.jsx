@@ -25,7 +25,7 @@ import { ROSTER_BY_SLOT, ROSTER_BY_NAME, formatContract, formatTradeValue, TIER_
 import { computeAllSchemeFits, getTopTeamFits, getTeamSchemeFits, getPositionAvgFit, generateScoutReasoning, computeTeamScoutVision } from "./schemeFit.js";
 import SCOUTING_NARRATIVES from "./scoutingNarratives.json";
 import SCOUTING_RAW from "./scoutingTraits.json";
-import { MARCH_MADNESS_TEAMS, MADNESS_METRICS, REGION_COLORS } from "./marchMadnessData.js";
+import { MARCH_MADNESS_TEAMS, MADNESS_METRICS, REGION_COLORS, madnessLogo } from "./marchMadnessData.js";
 
 // Suffix-aware short name: "Rueben Bain Jr." → "Bain Jr." not "Jr."
 const GEN_SUFFIXES=/^(Jr\.?|Sr\.?|II|III|IV|V|VI|VII|VIII)$/i;
@@ -2715,7 +2715,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         </div>
 
         {/* Mode toggle */}
-        <div style={{display:"flex",gap:6,marginBottom:12,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",paddingBottom:2}}>
+        <div style={{display:"flex",gap:6,marginBottom:12,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",paddingBottom:2,paddingTop:8}}>
           <button onClick={()=>{setExplorerMode("scheme-fit");setSfPosFilter(null);if(!sfTeam)setSfTeam("49ers");navigate('/lab/scheme-fit');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="scheme-fit"?"linear-gradient(135deg,#0891b2,#06b6d4)":"transparent",color:explorerMode==="scheme-fit"?"#fff":"#0891b2",border:explorerMode==="scheme-fit"?"1px solid #0891b2":"1px solid #0891b244",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="scheme-fit"?"0 2px 8px rgba(8,145,178,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>🧬 scheme fit</button>
           <button onClick={()=>{setExplorerMode("combo");navigate('/lab/combo');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="combo"?"linear-gradient(135deg,#6366f1,#8b5cf6)":"transparent",color:explorerMode==="combo"?"#fff":"#7c3aed",border:explorerMode==="combo"?"1px solid #6366f1":"1px solid #7c3aed44",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="combo"?"0 2px 8px rgba(99,102,241,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>⚡ combo</button>
           <button onClick={()=>{setExplorerMode("free-agency");setFaView("position");setFaPosFilter(null);setFaTeamFilter(null);navigate('/lab/free-agency');}} style={{fontFamily:sans,fontSize:11,fontWeight:700,padding:"6px 14px",background:explorerMode==="free-agency"?"linear-gradient(135deg,#d97706,#f59e0b)":"transparent",color:explorerMode==="free-agency"?"#fff":"#d97706",border:explorerMode==="free-agency"?"1px solid #d97706":"1px solid #d9770644",borderRadius:99,cursor:"pointer",boxShadow:explorerMode==="free-agency"?"0 2px 8px rgba(217,119,6,0.3)":"none",whiteSpace:"nowrap",flexShrink:0}}>💰 free agency</button>
@@ -3923,8 +3923,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
               const yMin=Math.min(...yVals),yMax=Math.max(...yVals);
               const xRange=xMax-xMin||1,yRange=yMax-yMin||1;
               const xPad=xRange*0.08,yPad=yRange*0.08;
-              const sx=v=>pad.l+((v-(xMin-xPad))/(xRange+2*xPad))*plotW;
-              const sy=v=>pad.t+plotH-((v-(yMin-yPad))/(yRange+2*yPad))*plotH;
+              const sx=v=>{const norm=(v-(xMin-xPad))/(xRange+2*xPad);return pad.l+(xMeta.inverted?(1-norm):norm)*plotW;};
+              const sy=v=>{const norm=(v-(yMin-yPad))/(yRange+2*yPad);return pad.t+(yMeta.inverted?norm:(1-norm))*plotH;};
 
               // "best corner" distance for leaderboard
               const bestX=xMeta.inverted?xMin:xMax;
@@ -3960,8 +3960,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                     {Array.from({length:6}).map((_,i)=>{const x=pad.l+(plotW/5)*i;return<line key={`gx${i}`} x1={x} y1={pad.t} x2={x} y2={pad.t+plotH} stroke="#2a2a2a" strokeWidth={1}/>;})}
                     {Array.from({length:6}).map((_,i)=>{const y=pad.t+(plotH/5)*i;return<line key={`gy${i}`} x1={pad.l} y1={y} x2={pad.l+plotW} y2={y} stroke="#2a2a2a" strokeWidth={1}/>;})}
                     {/* Axis labels */}
-                    <text x={pad.l+plotW/2} y={svgH-6} textAnchor="middle" style={{fontFamily:sans,fontSize:11,fill:"#737373"}}>{xMeta.label}{xMeta.inverted?" (lower = better)":""}</text>
-                    <text x={14} y={pad.t+plotH/2} textAnchor="middle" transform={`rotate(-90,14,${pad.t+plotH/2})`} style={{fontFamily:sans,fontSize:11,fill:"#737373"}}>{yMeta.label}{yMeta.inverted?" (lower = better)":""}</text>
+                    <text x={pad.l+plotW/2} y={svgH-6} textAnchor="middle" style={{fontFamily:sans,fontSize:11,fill:"#737373"}}>{xMeta.label} →</text>
+                    <text x={14} y={pad.t+plotH/2} textAnchor="middle" transform={`rotate(-90,14,${pad.t+plotH/2})`} style={{fontFamily:sans,fontSize:11,fill:"#737373"}}>{yMeta.label} →</text>
                     {/* Tick labels */}
                     {Array.from({length:6}).map((_,i)=>{const v=xMin-xPad+(xRange+2*xPad)*(i/5);return<text key={`tx${i}`} x={pad.l+(plotW/5)*i} y={pad.t+plotH+16} textAnchor="middle" style={{fontFamily:mono,fontSize:9,fill:"#525252"}}>{v.toFixed(1)}</text>;})}
                     {Array.from({length:6}).map((_,i)=>{const v=yMax+yPad-(yRange+2*yPad)*(i/5);return<text key={`ty${i}`} x={pad.l-8} y={pad.t+(plotH/5)*i+4} textAnchor="end" style={{fontFamily:mono,fontSize:9,fill:"#525252"}}>{v.toFixed(1)}</text>;})}
@@ -3970,9 +3970,14 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                       const cx=sx(t[madnessX]),cy=sy(t[madnessY]);
                       const rc=REGION_COLORS[t.region]||"#737373";
                       const isHov=madnessHover?.team===t.team;
+                      const logoUrl=madnessLogo(t.team);
+                      const logoR=isHov?12:10;
                       return<g key={i} onMouseEnter={()=>setMadnessHover({...t,cx,cy})} onMouseLeave={()=>setMadnessHover(null)} style={{cursor:"pointer"}}>
-                        <circle cx={cx} cy={cy} r={isHov?8:6} fill={rc} opacity={isHov?1:0.85} stroke={isHov?"#fff":"none"} strokeWidth={2}/>
-                        {(isHov||validPts.length<=20)&&<text x={cx} y={cy-10} textAnchor="middle" style={{fontFamily:mono,fontSize:8,fontWeight:700,fill:"#e5e5e5",pointerEvents:"none"}}>{teamAbbr(t)}</text>}
+                        <circle cx={cx} cy={cy} r={logoR+1} fill="transparent" stroke="none"/>
+                        <circle cx={cx} cy={cy} r={logoR} fill="#f5f5f5" stroke={rc} strokeWidth={isHov?2.5:1.5}/>
+                        {logoUrl?<image href={logoUrl} x={cx-logoR+3} y={cy-logoR+3} width={(logoR-3)*2} height={(logoR-3)*2} style={{pointerEvents:"none"}}/>
+                        :<text x={cx} y={cy} textAnchor="middle" dominantBaseline="central" style={{fontFamily:mono,fontSize:7,fontWeight:700,fill:rc,pointerEvents:"none"}}>{teamAbbr(t)}</text>}
+                        {isHov&&<text x={cx} y={cy-logoR-4} textAnchor="middle" style={{fontFamily:mono,fontSize:8,fontWeight:700,fill:"#e5e5e5",pointerEvents:"none"}}>{t.team}</text>}
                       </g>;
                     })}
                   </svg>
