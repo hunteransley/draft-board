@@ -1471,6 +1471,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[boardShowAll,setBoardShowAll]=useState(false);
   const[boardTraitFilter,setBoardTraitFilter]=useState(new Set());
   const[boardMeasMode,setBoardMeasMode]=useState(false);
+  const[boardRadarGrid,setBoardRadarGrid]=useState(false);
   useEffect(()=>{setBoardTraitFilter(new Set());setBoardMeasMode(false);},[boardFilter]);
   useEffect(()=>{if(rankedGroups.size>0)setBoardTab("my");},[rankedGroups.size]);
   const[lockedPlayer,setLockedPlayer]=useState(null);
@@ -4661,6 +4662,31 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         {POSITION_GROUPS.map(pos=>{const active=boardFilter.has(pos);const c=POS_COLORS[pos];return<button key={pos} onClick={()=>setBoardFilter(prev=>{const n=new Set(prev);if(n.has(pos))n.delete(pos);else n.add(pos);return n;})} style={{fontFamily:mono,fontSize:10,padding:"3px 10px",background:active?`${c}11`:"transparent",color:active?c:"#a3a3a3",border:`1px solid ${active?c+"33":"#e5e5e5"}`,borderRadius:99,cursor:"pointer"}}>{pos}</button>;})}
       </div>
       {boardFilter.size===1&&(()=>{const rawPos=[...boardFilter][0];const posTraits=POSITION_TRAITS[rawPos]||[];if(!posTraits.length)return null;const c=POS_COLORS[rawPos]||"#525252";const relevantIds=filteredBoard.map(p=>p.id);const measPills=MEASURABLE_LIST.filter(m=>measurableThresholds[rawPos]?.[m]);return<div style={{display:"flex",alignItems:"center",gap:6,padding:"0 16px 6px"}}><button title={boardMeasMode?"Measurables mode — click for Traits":"Traits mode — click for Measurables"} onClick={()=>{setBoardMeasMode(v=>!v);setBoardTraitFilter(new Set());}} style={{width:40,height:22,borderRadius:11,border:"none",background:boardMeasMode?"linear-gradient(135deg,#00ffff,#1e3a5f)":"linear-gradient(135deg,#ec4899,#a855f7)",cursor:"pointer",position:"relative",transition:"background 0.2s",flexShrink:0}}><div style={{width:16,height:16,borderRadius:8,background:"#fff",position:"absolute",top:3,left:boardMeasMode?21:3,transition:"left 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:boardMeasMode?"#00ffff":"#a855f7",lineHeight:1}}>{boardMeasMode?"M":"T"}</span></div></button><div className="trait-pills-scroll" style={{display:"flex",gap:4,overflowX:"auto",WebkitOverflowScrolling:"touch",flexWrap:"nowrap",scrollbarWidth:"none",alignItems:"center",flex:1,minWidth:0}}>{!boardMeasMode?posTraits.map(trait=>{const active=boardTraitFilter.has(trait);const count=relevantIds.filter(id=>qualifiesForFilter(id,rawPos,trait)).length;return<button key={trait} onClick={()=>setBoardTraitFilter(prev=>{const n=new Set(prev);n.has(trait)?n.delete(trait):n.add(trait);return n;})} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",background:active?c+"18":"transparent",color:active?"#171717":"#525252",border:"1px solid "+(active?c+"44":c+"25"),borderRadius:99,cursor:"pointer",flexShrink:0,display:"flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{TRAIT_EMOJI[trait]}</span><span>{TRAIT_SHORT[trait]||trait}</span><span style={{fontSize:8,opacity:0.7}}>({count})</span></button>;}):(()=>{const groups=MEAS_GROUPS.map(g=>({...g,pills:g.keys.filter(m=>measPills.includes(m))})).filter(g=>g.pills.length>0);return groups.flatMap((g,gi)=>{const divider=gi>0?[<span key={"d"+gi} style={{color:"#d4d4d4",fontSize:10,flexShrink:0,padding:"0 1px",lineHeight:1}}>·</span>]:[];return[...divider,...g.pills.map(m=>{const active=boardTraitFilter.has(m);const count=relevantIds.filter(id=>qualifiesForMeasurableFilter(id,rawPos,m)).length;return<button key={m} onClick={()=>setBoardTraitFilter(prev=>{const n=new Set(prev);n.has(m)?n.delete(m):n.add(m);return n;})} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",background:active?g.border+"18":"transparent",color:active?"#171717":"#525252",border:"1px solid "+(active?g.border+"66":g.border+"30"),borderRadius:99,cursor:"pointer",flexShrink:0,display:"flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{MEASURABLE_EMOJI[m]}</span><span>{MEASURABLE_SHORT[m]}</span><span style={{fontSize:8,opacity:0.7}}>({count})</span></button>;})];});})()}</div></div>;})()}
+
+      {/* Small Multiples Radar Grid */}
+      {boardFilter.size===1&&(()=>{const rawPos=[...boardFilter][0];const posTraits=POSITION_TRAITS[rawPos]||[];if(!posTraits.length)return null;const c=POS_COLORS[rawPos]||"#525252";const topProspects=filteredBoard.slice(0,15);if(topProspects.length<2)return null;
+        return<div style={{borderBottom:"1px solid #f0f0f0"}}>
+          <button onClick={()=>setBoardRadarGrid(v=>!v)} style={{display:"flex",alignItems:"center",gap:6,width:"100%",padding:"8px 16px",background:"transparent",border:"none",cursor:"pointer",textAlign:"left"}}>
+            <span style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase"}}>{boardRadarGrid?"hide":"show"} trait profiles</span>
+            <span style={{fontSize:10,color:"#a3a3a3",transform:boardRadarGrid?"rotate(180deg)":"rotate(0deg)",transition:"transform 0.2s"}}>▼</span>
+          </button>
+          {boardRadarGrid&&<div style={{padding:"4px 12px 16px",display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(130px,1fr))",gap:8}}>
+            {topProspects.map(p=>{
+              const grade=boardTab==="consensus"?getScoutingGrade(p.id):getGrade(p.id);
+              const values=posTraits.map(t=>tv(traits,p.id,t,p.name,p.school));
+              const labelMap={};posTraits.forEach(t=>{labelMap[t]=TRAIT_ABBREV[t]||t.split(" ").map(w=>w[0]).join("");});
+              return<div key={p.id} style={{background:"#faf9f6",borderRadius:10,padding:"8px 6px 6px",textAlign:"center",cursor:"pointer",border:"1px solid #f0f0f0",transition:"border-color 0.15s"}} onClick={()=>openProfile(p)} onMouseEnter={e=>e.currentTarget.style.borderColor=c} onMouseLeave={e=>e.currentTarget.style.borderColor="#f0f0f0"}>
+                <RadarChart traits={posTraits} values={values} color={c} size={110} labelMap={labelMap}/>
+                <div style={{fontFamily:sans,fontSize:11,fontWeight:700,color:"#171717",marginTop:2,lineHeight:1.2}}>{p.name.split(" ").pop()}</div>
+                <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:4,marginTop:2}}>
+                  <span style={{fontFamily:mono,fontSize:9,color:c}}>{p.gpos||p.pos}</span>
+                  {(()=>{const rd=getConsensusRound(p.name);return<span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:rd.fg,background:rd.bg,padding:"1px 6px",borderRadius:3}}>{rd.label}</span>;})()}
+                </div>
+              </div>;
+            })}
+          </div>}
+        </div>;
+      })()}
 
       {/* Board content */}
       {boardTab==="my"&&userBoard.length===0?(
