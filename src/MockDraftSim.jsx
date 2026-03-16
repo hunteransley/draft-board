@@ -1156,12 +1156,27 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
             allowedSlots=["LT","RT"];
           }
         }
-        // Determine target tier: 1=starter, 2=second string, 3=third string, 0=overflow
+        // Determine target tier using roster talent comparison
+        // Map performance tiers to numeric scores for comparison
+        const tierScore={"elite":95,"pro_bowl":85,"quality_starter":75,"starter":65,"rotational":55,"backup":45,"declining":50};
+        const getIncumbentScore=(slot)=>{
+          const incumbent=chart[team][slot];
+          if(!incumbent||incumbent.isDraft)return 30; // empty or another rookie
+          const rv=ROSTER_BY_SLOT[team]?.[slot]||(incumbent.name&&ROSTER_BY_NAME[incumbent.name]);
+          return rv?tierScore[rv.performanceTier]||50:50;
+        };
+        // Rookie's projected talent: blend of grade, draft capital, and scheme fit
+        const schemeFit=schemeFits?.[team]?.[pk.playerId]?.score||50;
+        const schemeFitBonus=Math.round((schemeFit-50)*0.15); // ±7 points max
+        const rookieScore=Math.round(grade*0.6+(pk.round===1?85:pk.round===2?72:pk.round===3?62:pk.round<=5?52:42)*0.25+schemeFit*0.15)+schemeFitBonus;
+        // Find the right tier by comparing against incumbents at each allowed slot
         let tier=0;
-        if(pk.round===1){tier=1;}
-        else if(pk.round===2){tier=grade>=85?1:grade>=70?2:3;}
-        else if(pk.round===3){tier=grade>=80?2:3;}
-        else{tier=grade>=70?3:0;}
+        const s1Score=getIncumbentScore(allowedSlots[0]);
+        const s2Score=allowedSlots[1]?getIncumbentScore(allowedSlots[1]):0;
+        if(rookieScore>=s1Score-5){tier=1;} // better than or close to starter
+        else if(allowedSlots[1]&&rookieScore>=s2Score-5){tier=2;} // better than second string
+        else if(pk.round<=4||grade>=65){tier=allowedSlots.length>2?3:2;} // depth piece
+        else{tier=0;} // overflow
 
         if(tier===1){
           // Starter: take preferred slot, cascade everyone down
