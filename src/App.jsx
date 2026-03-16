@@ -395,6 +395,36 @@ const ScatterChart=memo(function ScatterChart({points,width,xLabel,yLabel,xInver
     {/* Tick labels */}
     {xTicks.map((v,i)=><text key={"xt"+i} x={sx(v)} y={padT+plotH+14} textAnchor="middle" style={{fontSize:"8px",fill:"#a3a3a3",fontFamily:"monospace"}}>{fmtTick(v)}</text>)}
     {yTicks.map((v,i)=><text key={"yt"+i} x={padL-4} y={sy(v)} textAnchor="end" dominantBaseline="middle" style={{fontSize:"8px",fill:"#a3a3a3",fontFamily:"monospace"}}>{fmtTick(v)}</text>)}
+    {/* Contour density overlay */}
+    {points.length>=8&&(()=>{
+      const gridN=40;const bwX=(xMax-xMin)/8;const bwY=(yMax-yMin)/8;
+      const grid=[];for(let j=0;j<gridN;j++){grid[j]=[];for(let i=0;i<gridN;i++){
+        const gx=xMin+(xMax-xMin)*(i/(gridN-1));const gy=yMin+(yMax-yMin)*(j/(gridN-1));
+        let d=0;for(const pt of points){const zx=(gx-pt.x)/bwX;const zy=(gy-pt.y)/bwY;d+=Math.exp(-0.5*(zx*zx+zy*zy));}
+        grid[j][i]=d;
+      }}
+      const maxD=Math.max(...grid.flat());if(maxD===0)return null;
+      // Marching squares for contour lines at 3 threshold levels
+      const thresholds=[0.15,0.35,0.6];
+      return thresholds.map((thr,ti)=>{
+        const level=thr*maxD;const segs=[];
+        for(let j=0;j<gridN-1;j++)for(let i=0;i<gridN-1;i++){
+          const v=[grid[j][i],grid[j][i+1],grid[j+1][i+1],grid[j+1][i]];
+          const idx=(v[0]>=level?8:0)|(v[1]>=level?4:0)|(v[2]>=level?2:0)|(v[3]>=level?1:0);
+          if(idx===0||idx===15)continue;
+          const lerp=(a,b)=>a===b?0.5:(level-a)/(b-a);
+          const t=lerp(v[0],v[1]),r2=lerp(v[1],v[2]),b2=lerp(v[3],v[2]),l=lerp(v[0],v[3]);
+          const px=(f,row)=>sx(xMin+(xMax-xMin)*((i+f)/(gridN-1)));
+          const py=(f,col)=>sy(yMin+(yMax-yMin)*((j+f)/(gridN-1)));
+          const edges=[[px(t),py(0)],[px(1),py(r2)],[px(b2),py(1)],[px(0),py(l)]];
+          const cases={1:[[3,2]],2:[[2,1]],3:[[3,1]],4:[[1,0]],5:[[1,0],[3,2]],6:[[2,0]],7:[[3,0]],8:[[0,3]],9:[[0,2]],10:[[0,1],[2,3]],11:[[0,1]],12:[[1,3]],13:[[1,2]],14:[[2,3]]};
+          (cases[idx]||[]).forEach(([a,b])=>segs.push(`M${edges[a][0]},${edges[a][1]}L${edges[b][0]},${edges[b][1]}`));
+        }
+        if(!segs.length)return null;
+        const opacity=ti===0?0.08:ti===1?0.12:0.18;
+        return<path key={ti} d={segs.join("")} fill="none" stroke={posColor||"#7c3aed"} strokeWidth={ti===2?1.5:1} opacity={opacity} style={{pointerEvents:"none"}}/>;
+      });
+    })()}
     {/* Axis titles */}
     <text x={padL+plotW/2} y={chartH-2} textAnchor="middle" style={{fontSize:"10px",fill:"#737373",fontFamily:"monospace"}}>{xLabel}</text>
     <text x={10} y={padT+plotH/2} textAnchor="middle" dominantBaseline="middle" transform={`rotate(-90,10,${padT+plotH/2})`} style={{fontSize:"10px",fill:"#737373",fontFamily:"monospace"}}>{yLabel}</text>
