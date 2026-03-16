@@ -1791,6 +1791,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[madnessUpsetSlider,setMadnessUpsetSlider]=useState(50);
   const[madnessHover,setMadnessHover]=useState(null);
   const[madnessMatchupDetail,setMadnessMatchupDetail]=useState(null);
+  const[madnessSelectedTeam,setMadnessSelectedTeam]=useState(null);
   const sfVision=useMemo(()=>{if(!sfTeam)return new Map();try{return computeTeamScoutVision(sfTeam,PROSPECTS,schemeFits,debouncedTraits);}catch(e){console.error("sfVision error:",e);return new Map();}},[sfTeam,schemeFits,debouncedTraits]);
   const explorerTraitsKey=useMemo(()=>explorerMode==="traits"?traits:null,[explorerMode,traits]);
   const explorerData=useMemo(()=>{
@@ -3972,7 +3973,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                       const isHov=madnessHover?.team===t.team;
                       const logoUrl=madnessLogo(t.team);
                       const logoR=isHov?12:10;
-                      return<g key={i} onMouseEnter={()=>setMadnessHover({...t,cx,cy})} onMouseLeave={()=>setMadnessHover(null)} style={{cursor:"pointer"}}>
+                      return<g key={i} onMouseEnter={e=>setMadnessHover({...t,cx:e.clientX,cy:e.clientY})} onMouseLeave={()=>setMadnessHover(null)} onClick={()=>setMadnessSelectedTeam(t)} style={{cursor:"pointer"}}>
                         <circle cx={cx} cy={cy} r={logoR+1} fill="transparent" stroke="none"/>
                         <circle cx={cx} cy={cy} r={logoR} fill="#f5f5f5" stroke={rc} strokeWidth={isHov?2.5:1.5}/>
                         {logoUrl?<image href={logoUrl} x={cx-logoR+3} y={cy-logoR+3} width={(logoR-3)*2} height={(logoR-3)*2} style={{pointerEvents:"none"}}/>
@@ -3983,7 +3984,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                   </svg>
                 </div>
                 {/* Hover tooltip */}
-                {madnessHover&&<div style={{position:"fixed",left:Math.min(madnessHover.cx+80,window.innerWidth-220),top:Math.max(60,8),background:"#1a1a1a",color:"#e5e5e5",padding:"10px 14px",borderRadius:12,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 16px rgba(0,0,0,0.5)",border:"1px solid #2a2a2a",maxWidth:240}}>
+                {madnessHover&&<div style={{position:"fixed",left:Math.min(madnessHover.cx+16,window.innerWidth-250),top:Math.max(madnessHover.cy-80,8),background:"#1a1a1a",color:"#e5e5e5",padding:"10px 14px",borderRadius:12,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 16px rgba(0,0,0,0.5)",border:"1px solid #2a2a2a",maxWidth:240}}>
                   <div style={{fontWeight:700,fontSize:14,marginBottom:4}}><span style={{color:REGION_COLORS[madnessHover.region]}}>{"\u25CF"}</span> {madnessHover.team}</div>
                   <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginBottom:4}}>({madnessHover.seed}) {madnessHover.region} · {madnessHover.record} · {madnessHover.conf}</div>
                   <div style={{fontFamily:mono,fontSize:11}}>{xMeta.label}: <b>{madnessHover[madnessX]!=null?madnessHover[madnessX].toFixed(2):"N/A"}</b></div>
@@ -4183,7 +4184,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                       const rc=REGION_COLORS[m.region]||"#737373";
                       const hot=m.score>=threshold;
                       const isHov=madnessHover?.key===`${m.higher.team}-${m.lower.team}`;
-                      return<g key={i} onMouseEnter={()=>setMadnessHover({...m,key:`${m.higher.team}-${m.lower.team}`,cx,cy})} onMouseLeave={()=>setMadnessHover(null)} onClick={()=>setMadnessMatchupDetail(m)} style={{cursor:"pointer"}}>
+                      return<g key={i} onMouseEnter={e=>setMadnessHover({...m,key:`${m.higher.team}-${m.lower.team}`,cx:e.clientX,cy:e.clientY})} onMouseLeave={()=>setMadnessHover(null)} onClick={()=>setMadnessMatchupDetail(m)} style={{cursor:"pointer"}}>
                         <circle cx={cx} cy={cy} r={isHov?10:hot?8:6} fill={hot?rc:"#3a3a3a"} opacity={hot?0.95:0.4} stroke={isHov?"#fff":hot?"#fff":"none"} strokeWidth={isHov?2:hot?1:0}/>
                         {(isHov||hot)&&<text x={cx} y={cy-12} textAnchor="middle" style={{fontFamily:mono,fontSize:7,fontWeight:700,fill:hot?"#e5e5e5":"#737373",pointerEvents:"none"}}>{m.lower.seed}v{m.higher.seed}</text>}
                       </g>;
@@ -4191,7 +4192,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                   </svg>
                 </div>
                 {/* Hover tooltip */}
-                {madnessHover&&madnessHover.higher&&<div style={{position:"fixed",left:Math.min((madnessHover.cx||200)+80,window.innerWidth-260),top:Math.max(60,8),background:"#1a1a1a",color:"#e5e5e5",padding:"12px 16px",borderRadius:12,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 16px rgba(0,0,0,0.5)",border:"1px solid #2a2a2a",maxWidth:280}}>
+                {madnessHover&&madnessHover.higher&&<div style={{position:"fixed",left:Math.min((madnessHover.cx||200)+16,window.innerWidth-280),top:Math.max((madnessHover.cy||200)-100,8),background:"#1a1a1a",color:"#e5e5e5",padding:"12px 16px",borderRadius:12,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 16px rgba(0,0,0,0.5)",border:"1px solid #2a2a2a",maxWidth:280}}>
                   <div style={{fontWeight:700,fontSize:14,marginBottom:4}}><span style={{color:REGION_COLORS[madnessHover.region]}}>{"\u25CF"}</span> ({madnessHover.higher.seed}) {madnessHover.higher.team} vs ({madnessHover.lower.seed}) {madnessHover.lower.team}</div>
                   <div style={{fontFamily:mono,fontSize:10,color:"#a3a3a3",marginBottom:4}}>{madnessHover.region} Region</div>
                   <div style={{fontFamily:mono,fontSize:11}}>Seed gap: {madnessHover.seedDiff} · SRS gap: {madnessHover.srsGap.toFixed(1)}</div>
@@ -4250,6 +4251,57 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         <TwitterFooter/>
         <div style={{textAlign:"center",padding:"4px 24px 16px",fontFamily:mono,fontSize:10,color:_isDark?"#3a3a3a":"#d4d4d4",letterSpacing:0.5}}>{"\u00A9"} {new Date().getFullYear()} Big Board Lab, LLC. All rights reserved.</div>
       </div>
+      {madnessSelectedTeam&&(()=>{
+        const t=madnessSelectedTeam;const logoUrl=madnessLogo(t.team);
+        const ranks={};MADNESS_METRICS.forEach(m=>{
+          if(m.key==="seed")return;const vals=MARCH_MADNESS_TEAMS.map(tm=>tm[m.key]).filter(v=>v!=null).sort((a,b)=>m.inverted?(a-b):(b-a));
+          const idx=vals.indexOf(t[m.key]);ranks[m.key]={rank:idx>=0?idx+1:"-",total:vals.length,pctile:idx>=0?Math.round(((vals.length-idx)/vals.length)*100):0};
+        });
+        return<>
+          <div onClick={()=>setMadnessSelectedTeam(null)} style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.6)",zIndex:10000}}/>
+          <div style={{position:"fixed",top:"50%",left:"50%",transform:"translate(-50%,-50%)",zIndex:10001,background:"#1a1a1a",border:"1px solid #2a2a2a",borderRadius:16,padding:"24px",width:"calc(100vw - 32px)",maxWidth:420,maxHeight:"80vh",overflowY:"auto",boxShadow:"0 20px 60px rgba(0,0,0,0.5)"}}>
+            <button onClick={()=>setMadnessSelectedTeam(null)} style={{position:"absolute",top:12,right:12,fontFamily:sans,fontSize:16,color:"#737373",background:"none",border:"none",cursor:"pointer"}}>✕</button>
+            <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:16}}>
+              {logoUrl&&<img src={logoUrl} alt={t.team} style={{width:48,height:48,objectFit:"contain"}}/>}
+              <div>
+                <div style={{fontFamily:font,fontSize:22,fontWeight:900,color:"#e5e5e5"}}>{t.team}</div>
+                <div style={{fontFamily:mono,fontSize:11,color:"#737373"}}>({t.seed}) {t.region} · {t.record} · {t.conf}</div>
+              </div>
+            </div>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:16}}>
+              <div style={{background:"#111",borderRadius:10,padding:"10px 12px",textAlign:"center"}}>
+                <div style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#525252",textTransform:"uppercase"}}>Net Rating</div>
+                <div style={{fontFamily:font,fontSize:24,fontWeight:900,color:t.netRtg>=30?"#22c55e":t.netRtg>=20?"#f59e0b":"#e5e5e5"}}>{t.netRtg?.toFixed(1)}</div>
+              </div>
+              <div style={{background:"#111",borderRadius:10,padding:"10px 12px",textAlign:"center"}}>
+                <div style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#525252",textTransform:"uppercase"}}>SRS</div>
+                <div style={{fontFamily:font,fontSize:24,fontWeight:900,color:t.srs>=25?"#22c55e":t.srs>=15?"#f59e0b":"#e5e5e5"}}>{t.srs?.toFixed(1)}</div>
+              </div>
+            </div>
+            {MADNESS_METRICS.filter(m=>m.key!=="seed").map(m=>{
+              const v=t[m.key];if(v==null)return null;
+              const r=ranks[m.key];const pct=r?.pctile||0;
+              const barColor=pct>=80?"#22c55e":pct>=60?"#f59e0b":pct>=40?"#525252":"#dc2626";
+              return<div key={m.key} style={{marginBottom:8}}>
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:2}}>
+                  <span style={{fontFamily:mono,fontSize:10,color:"#a3a3a3"}}>{m.label}</span>
+                  <span style={{fontFamily:mono,fontSize:10,color:"#737373"}}>#{r?.rank}/{r?.total}</span>
+                </div>
+                <div style={{display:"flex",alignItems:"center",gap:8}}>
+                  <div style={{flex:1,height:6,background:"#111",borderRadius:99,overflow:"hidden"}}>
+                    <div style={{height:"100%",width:`${pct}%`,background:barColor,borderRadius:99,transition:"width 0.3s"}}/>
+                  </div>
+                  <span style={{fontFamily:mono,fontSize:12,fontWeight:700,color:barColor,minWidth:40,textAlign:"right"}}>{typeof v==="number"?v.toFixed(v<1&&v>-1?3:1):v}</span>
+                </div>
+              </div>;
+            })}
+            <div style={{display:"flex",gap:6,marginTop:12}}>
+              <button onClick={()=>{setMadnessTeamA(t.team);setMadnessMode("matchup");setMadnessSelectedTeam(null);}} style={{flex:1,fontFamily:sans,fontSize:11,fontWeight:700,padding:"8px",background:"#222",color:"#e5e5e5",border:"1px solid #333",borderRadius:8,cursor:"pointer"}}>Set as Team A</button>
+              <button onClick={()=>{setMadnessTeamB(t.team);setMadnessMode("matchup");setMadnessSelectedTeam(null);}} style={{flex:1,fontFamily:sans,fontSize:11,fontWeight:700,padding:"8px",background:"#222",color:"#e5e5e5",border:"1px solid #333",borderRadius:8,cursor:"pointer"}}>Set as Team B</button>
+            </div>
+          </div>
+        </>;
+      })()}
       {profilePlayer&&<PlayerProfile player={profilePlayer} traits={traits} setTraits={setTraits} notes={notes} setNotes={setNotes} allProspects={PROSPECTS} getGrade={getGrade} onClose={closeProfile} onSelectPlayer={setProfilePlayer} consensus={CONSENSUS} ratings={ratings} isGuest={isGuest} onRequireAuth={onRequireAuth} schemeFits={schemeFits}/>}
     </div>);
   }
