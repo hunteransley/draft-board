@@ -6247,15 +6247,18 @@ function AdminGrades({onBack,onSave}){
 
   const handleSave=async()=>{
     setSaveStatus("saving");
-    // Clean up: remove entries where traits are empty and ceiling is default
+    // Clean up: remove entries with no actual changes from file baseline
     const clean={};
     for(const[key,ed] of Object.entries(pendingEdits)){
       const hasTraits=ed.traits&&Object.keys(ed.traits).length>0;
-      const hasCeiling=ed.ceiling&&ed.ceiling!=="normal";
-      if(hasTraits||hasCeiling)clean[key]=ed;
+      const baseCeil=SCOUTING_RAW[key]?.__ceiling||"normal";
+      const hasCeilingChange=ed.ceiling&&ed.ceiling!==baseCeil;
+      if(hasTraits||hasCeilingChange)clean[key]=ed;
     }
     try{
+      console.log('Admin save:',Object.keys(clean).length,'overrides',clean);
       const{data,error}=await supabase.from('admin_overrides').update({overrides:clean,updated_at:new Date().toISOString()}).eq('id',1).select();
+      console.log('Admin save result:',{data,error});
       if(error)throw error;
       if(!data||data.length===0)throw new Error('RLS blocked update — 0 rows affected');
       setSavedOverrides(clean);setPendingEdits(clean);
