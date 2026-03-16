@@ -934,6 +934,62 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
           {(()=>{const measData=getMeasRadarData(player.name,player.school);if(profileMeasMode&&measData)return<RadarChart traits={measData.labels} values={measData.values} color={c} size={200} proDaySpokes={measData.proDaySpokes}/>;return<RadarChart traits={posTraits} values={posTraits.map(t=>tv(traits,player.id,t,player.name,player.school))} color={c} size={200} labelMap={TRAIT_ABBREV}/>;})()}
         </div>
 
+        {/* Equalizer — traits + measurables */}
+        {(()=>{
+          const traitVals=posTraits.map(t=>({label:TRAIT_ABBREV[t]||t.split(" ").map(w=>w[0]).join(""),value:tv(traits,player.id,t,player.name,player.school),type:"trait"}));
+          const measData=getMeasRadarData(player.name,player.school);
+          const measVals=measData?measData.labels.map((l,i)=>({label:l,value:measData.values[i],type:"meas"})):[];
+          const allBars=[...traitVals,...measVals];
+          if(allBars.length<3)return null;
+          const barW=18;const gap=2;const totalW=allBars.length*(barW+gap)-gap;const maxBlocks=8;const blockH=4;const blockGap=1.5;const halfH=maxBlocks*(blockH+blockGap);
+          return<div style={{padding:"0 24px 16px"}}>
+            <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>equalizer</div>
+            <div style={{display:"flex",justifyContent:"center"}}>
+              <div style={{display:"flex",gap:gap,alignItems:"center"}}>
+                {allBars.map((bar,i)=>{
+                  const nBlocks=Math.max(1,Math.round((bar.value/100)*maxBlocks));
+                  const isFirst=i===0;const isSep=i===traitVals.length&&measVals.length>0;
+                  return<Fragment key={i}>
+                    {isSep&&<div style={{width:1,height:halfH*2+4,background:"#e5e5e5",margin:"0 4px",flexShrink:0}}/>}
+                    <div style={{display:"flex",flexDirection:"column",alignItems:"center",width:barW}}>
+                      {/* Upper half (blocks going up from center) */}
+                      <div style={{display:"flex",flexDirection:"column-reverse",gap:blockGap,height:halfH}}>
+                        {Array.from({length:maxBlocks}).map((_,bi)=>{
+                          const active=bi<nBlocks;
+                          const t=active?(bi/(maxBlocks-1)):0;
+                          const bg=bar.type==="trait"
+                            ?`rgb(${Math.round(236+(124-236)*t)},${Math.round(72+(58-72)*t)},${Math.round(153+(237-153)*t)})`
+                            :`rgb(${Math.round(160+(6-160)*t)},${Math.round(215+(182-215)*t)},${Math.round(220+(212-220)*t)})`;
+                          return<div key={bi} style={{width:barW,height:blockH,borderRadius:1.5,background:active?bg:bar.type==="trait"?"#f3f0f8":"#edf7f9",transition:"background 0.2s"}}/>;
+                        })}
+                      </div>
+                      {/* Center line */}
+                      <div style={{width:barW,height:1,background:"#d4d4d4",margin:`${blockGap}px 0`}}/>
+                      {/* Lower half (mirror) */}
+                      <div style={{display:"flex",flexDirection:"column",gap:blockGap,height:halfH}}>
+                        {Array.from({length:maxBlocks}).map((_,bi)=>{
+                          const active=bi<nBlocks;
+                          const t=active?(bi/(maxBlocks-1)):0;
+                          const bg=bar.type==="trait"
+                            ?`rgb(${Math.round(236+(124-236)*t)},${Math.round(72+(58-72)*t)},${Math.round(153+(237-153)*t)})`
+                            :`rgb(${Math.round(160+(6-160)*t)},${Math.round(215+(182-215)*t)},${Math.round(220+(212-220)*t)})`;
+                          return<div key={bi} style={{width:barW,height:blockH,borderRadius:1.5,background:active?bg:bar.type==="trait"?"#f3f0f8":"#edf7f9",transition:"background 0.2s"}}/>;
+                        })}
+                      </div>
+                      {/* Label */}
+                      <div style={{fontFamily:mono,fontSize:7,color:bar.type==="trait"?"#a3a3a3":"#0891b2",marginTop:4,textAlign:"center",lineHeight:1}}>{bar.label}</div>
+                    </div>
+                  </Fragment>;
+                })}
+              </div>
+            </div>
+            <div style={{display:"flex",justifyContent:"center",gap:16,marginTop:6}}>
+              <span style={{fontFamily:mono,fontSize:8,color:"#7c3aed"}}>◼ traits</span>
+              {measVals.length>0&&<span style={{fontFamily:mono,fontSize:8,color:"#0891b2"}}>◼ measurables</span>}
+            </div>
+          </div>;
+        })()}
+
         <div style={{padding:"0 24px 16px"}}>
           {(()=>{const ceil=traits[player.id]?.__ceiling||getScoutingTraits(player.name,player.school)?.__ceiling||"normal";const tiers=[
             {key:"capped",icon:"🔒",label:"Capped",desc:"What you see is what you get",bg:"linear-gradient(135deg, #1e1e1e, #2d2d2d)",border:"#404040",glow:"rgba(100,100,100,.3)",text:"#a3a3a3"},
