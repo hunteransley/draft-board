@@ -999,9 +999,12 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
           }
         }else if(group.posMatch==="OL"){
           // IOL/OG/OC/G/C -> guard/center slots, OT/T -> tackle slots
-          if(gpos==="IOL"||gpos==="OG"||gpos==="OC"||gpos==="G"||gpos==="C"){
+          if(gpos==="C"||gpos==="OC"){
+            preferredSlot="C";
+            allowedSlots=["C","LG","RG"];
+          }else if(gpos==="IOL"||gpos==="OG"||gpos==="G"){
             preferredSlot="LG";
-            allowedSlots=["LG","C","RG"];
+            allowedSlots=["LG","RG","C"];
           }else{
             preferredSlot="LT";
             allowedSlots=["LT","RT"];

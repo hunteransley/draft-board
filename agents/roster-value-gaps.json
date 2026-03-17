@@ -1,0 +1,507 @@
+{
+  "description": "Players on ESPN depth charts missing from roster value data. Agent should research ONLY these players and output in the standard roster-value schema.",
+  "total_missing": 89,
+  "teams": {
+    "ARI": {
+      "team_full": "Cardinals",
+      "players": [
+        {
+          "name": "Elijah Wilkinson",
+          "slot": "RT"
+        },
+        {
+          "name": "Andrew Wingard",
+          "slot": "FS"
+        }
+      ]
+    },
+    "ATL": {
+      "team_full": "Falcons",
+      "players": [
+        {
+          "name": "Tua Tagovailoa",
+          "slot": "QB2"
+        },
+        {
+          "name": "Da'Shawn Hand",
+          "slot": "DT1"
+        }
+      ]
+    },
+    "BAL": {
+      "team_full": "Ravens",
+      "players": [
+        {
+          "name": "Durham Smythe",
+          "slot": "TE2"
+        },
+        {
+          "name": "Danny Pinter",
+          "slot": "C"
+        },
+        {
+          "name": "Trey Hendrickson",
+          "slot": "LB4"
+        },
+        {
+          "name": "Jaylinn Hawkins",
+          "slot": "NB"
+        }
+      ]
+    },
+    "BUF": {
+      "team_full": "Bills",
+      "players": [
+        {
+          "name": "Bradley Chubb",
+          "slot": "LB4"
+        },
+        {
+          "name": "C.J. Gardner-Johnson",
+          "slot": "NB"
+        },
+        {
+          "name": "Geno Stone",
+          "slot": "SS"
+        }
+      ]
+    },
+    "CAR": {
+      "team_full": "Panthers",
+      "players": [
+        {
+          "name": "Nick Scott",
+          "slot": "FS"
+        }
+      ]
+    },
+    "CHI": {
+      "team_full": "Bears",
+      "players": [
+        {
+          "name": "T.J. Edwards",
+          "slot": "LB2"
+        },
+        {
+          "name": "D'Marco Jackson",
+          "slot": "LB3"
+        }
+      ]
+    },
+    "CIN": {
+      "team_full": "Bengals",
+      "players": [
+        {
+          "name": "Josh Johnson",
+          "slot": "QB2"
+        },
+        {
+          "name": "Boye Mafe",
+          "slot": "DE1"
+        },
+        {
+          "name": "Jonathan Allen",
+          "slot": "DT1"
+        }
+      ]
+    },
+    "CLE": {
+      "team_full": "Browns",
+      "players": [
+        {
+          "name": "Jack Stoll",
+          "slot": "TE2"
+        },
+        {
+          "name": "Jeremiah Owusu-Koramoah",
+          "slot": "LB1"
+        }
+      ]
+    },
+    "DAL": {
+      "team_full": "Cowboys",
+      "players": [
+        {
+          "name": "Otito Ogbonnia",
+          "slot": "DT1"
+        }
+      ]
+    },
+    "DET": {
+      "team_full": "Lions",
+      "players": [
+        {
+          "name": "Tyleik Williams",
+          "slot": "DT2"
+        }
+      ]
+    },
+    "GB": {
+      "team_full": "Packers",
+      "players": [
+        {
+          "name": "Brenton Cox Jr.",
+          "slot": "LB1"
+        },
+        {
+          "name": "Micah Parsons",
+          "slot": "LB4"
+        }
+      ]
+    },
+    "HOU": {
+      "team_full": "Texans",
+      "players": [
+        {
+          "name": "Evan Brown",
+          "slot": "LG"
+        },
+        {
+          "name": "Wyatt Teller",
+          "slot": "RG"
+        },
+        {
+          "name": "Calen Bullock",
+          "slot": "FS"
+        }
+      ]
+    },
+    "IND": {
+      "team_full": "Colts",
+      "players": [
+        {
+          "name": "DJ Giddens",
+          "slot": "RB2"
+        },
+        {
+          "name": "Mo Alie-Cox",
+          "slot": "TE2"
+        },
+        {
+          "name": "Jaylon Carlies",
+          "slot": "LB1"
+        },
+        {
+          "name": "John Bullock",
+          "slot": "LB2"
+        },
+        {
+          "name": "Juanyeh Thomas",
+          "slot": "SS"
+        }
+      ]
+    },
+    "JAX": {
+      "team_full": "Jaguars",
+      "players": [
+        {
+          "name": "Chris Rodriguez Jr.",
+          "slot": "RB2"
+        },
+        {
+          "name": "Ventrell Miller",
+          "slot": "LB2"
+        },
+        {
+          "name": "Travis Hunter",
+          "slot": "CB1"
+        }
+      ]
+    },
+    "KC": {
+      "team_full": "Chiefs",
+      "players": [
+        {
+          "name": "Emari Demercado",
+          "slot": "RB2"
+        },
+        {
+          "name": "Kader Kohou",
+          "slot": "CB1"
+        }
+      ]
+    },
+    "LV": {
+      "team_full": "Raiders",
+      "players": [
+        {
+          "name": "Jordan Meredith",
+          "slot": "LG"
+        }
+      ]
+    },
+    "LAC": {
+      "team_full": "Chargers",
+      "players": [
+        {
+          "name": "Trey Lance",
+          "slot": "QB2"
+        },
+        {
+          "name": "Dalvin Tomlinson",
+          "slot": "DT2"
+        }
+      ]
+    },
+    "MIA": {
+      "team_full": "Dolphins",
+      "players": [
+        {
+          "name": "Jalen Tolbert",
+          "slot": "WR2"
+        },
+        {
+          "name": "Tutu Atwell",
+          "slot": "WR3"
+        },
+        {
+          "name": "Ben Sims",
+          "slot": "TE2"
+        },
+        {
+          "name": "Jamaree Salyer",
+          "slot": "RG"
+        },
+        {
+          "name": "Jordan Phillips",
+          "slot": "DT2"
+        },
+        {
+          "name": "Joshua Uche",
+          "slot": "LB3"
+        },
+        {
+          "name": "Lonnie Johnson Jr.",
+          "slot": "NB"
+        },
+        {
+          "name": "Zayne Anderson",
+          "slot": "FS"
+        }
+      ]
+    },
+    "MIN": {
+      "team_full": "Vikings",
+      "players": [
+        {
+          "name": "Kyler Murray",
+          "slot": "QB1"
+        },
+        {
+          "name": "Tyrion Ingram-Dawkins",
+          "slot": "DE2"
+        },
+        {
+          "name": "Isaiah Rodgers",
+          "slot": "CB1"
+        },
+        {
+          "name": "Jay Ward",
+          "slot": "FS"
+        }
+      ]
+    },
+    "NE": {
+      "team_full": "Patriots",
+      "players": [
+        {
+          "name": "Cory Durden",
+          "slot": "DT2"
+        },
+        {
+          "name": "Kevin Byard III",
+          "slot": "FS"
+        }
+      ]
+    },
+    "NYG": {
+      "team_full": "Giants",
+      "players": [
+        {
+          "name": "Darnell Mooney",
+          "slot": "WR3"
+        },
+        {
+          "name": "Brian Burns",
+          "slot": "LB1"
+        },
+        {
+          "name": "Kayvon Thibodeaux",
+          "slot": "LB4"
+        }
+      ]
+    },
+    "NYJ": {
+      "team_full": "Jets",
+      "players": [
+        {
+          "name": "Brady Cook",
+          "slot": "QB2"
+        },
+        {
+          "name": "Dylan Parham",
+          "slot": "LG"
+        },
+        {
+          "name": "T'Vondre Sweat",
+          "slot": "DT2"
+        },
+        {
+          "name": "Kiko Mauigoa",
+          "slot": "LB1"
+        },
+        {
+          "name": "Andre Cisco",
+          "slot": "SS"
+        }
+      ]
+    },
+    "PHI": {
+      "team_full": "Eagles",
+      "players": [
+        {
+          "name": "Hollywood Brown",
+          "slot": "WR3"
+        },
+        {
+          "name": "Dallas Goedert",
+          "slot": "TE1"
+        },
+        {
+          "name": "Sydney Brown",
+          "slot": "SS"
+        }
+      ]
+    },
+    "PIT": {
+      "team_full": "Steelers",
+      "players": [
+        {
+          "name": "Roman Wilson",
+          "slot": "WR3"
+        },
+        {
+          "name": "Jaquan Brisker",
+          "slot": "SS"
+        }
+      ]
+    },
+    "SF": {
+      "team_full": "49ers",
+      "players": [
+        {
+          "name": "Christian Kirk",
+          "slot": "WR3"
+        },
+        {
+          "name": "C.J. West",
+          "slot": "DE1"
+        },
+        {
+          "name": "Dre Greenlaw",
+          "slot": "LB2"
+        },
+        {
+          "name": "Mykel Williams",
+          "slot": "LB4"
+        }
+      ]
+    },
+    "SEA": {
+      "team_full": "Seahawks",
+      "players": [
+        {
+          "name": "Emanuel Wilson",
+          "slot": "RB2"
+        },
+        {
+          "name": "Brandon Pili",
+          "slot": "DT2"
+        }
+      ]
+    },
+    "TB": {
+      "team_full": "Buccaneers",
+      "players": [
+        {
+          "name": "Jake Browning",
+          "slot": "QB2"
+        },
+        {
+          "name": "Al-Quadin Muhammad",
+          "slot": "DE1"
+        },
+        {
+          "name": "A'Shawn Robinson",
+          "slot": "DE2"
+        },
+        {
+          "name": "Yaya Diaby",
+          "slot": "LB1"
+        },
+        {
+          "name": "Benjamin Morrison",
+          "slot": "CB2"
+        }
+      ]
+    },
+    "TEN": {
+      "team_full": "Titans",
+      "players": [
+        {
+          "name": "Cordell Volson",
+          "slot": "RG"
+        },
+        {
+          "name": "Jermaine Johnson",
+          "slot": "DE1"
+        },
+        {
+          "name": "Jacob Martin",
+          "slot": "LB2"
+        },
+        {
+          "name": "Micah Robinson",
+          "slot": "CB2"
+        },
+        {
+          "name": "Tony Adams",
+          "slot": "SS"
+        }
+      ]
+    },
+    "WAS": {
+      "team_full": "Commanders",
+      "players": [
+        {
+          "name": "Rachaad White",
+          "slot": "RB2"
+        },
+        {
+          "name": "Treylon Burks",
+          "slot": "WR3"
+        },
+        {
+          "name": "John Bates",
+          "slot": "TE2"
+        },
+        {
+          "name": "Chris Paul",
+          "slot": "LG"
+        },
+        {
+          "name": "Tim Settle Jr.",
+          "slot": "DE1"
+        },
+        {
+          "name": "Javon Kinlaw",
+          "slot": "DE2"
+        },
+        {
+          "name": "K'Lavon Chaisson",
+          "slot": "LB4"
+        }
+      ]
+    }
+  }
+}
