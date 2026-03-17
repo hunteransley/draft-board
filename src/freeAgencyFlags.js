@@ -9,6 +9,7 @@ const FA_FLAGS = {
   "CIN": ["Boye Mafe", "Bryan Cook", "Jonathan Allen"],
   "CLE": ["Tytus Howard", "Zion Johnson", "Elgton Jenkins", "Quincy Williams", "Jack Stoll"],
   "DAL": ["Rashan Gary", "Jalen Thompson", "P.J. Locke", "Otito Ogbonnia", "Sam Howell"],
+  "DEN": ["Jaylen Waddle"],
   "DET": ["Cade Mays", "Juice Scruggs", "Larry Borom", "Isiah Pacheco", "Teddy Bridgewater", "Rock Ya-Sin", "Christian Izien"],
   "GB": ["Zaire Franklin", "Javon Hargrave", "Benjamin St-Juste", "Skyy Moore", "Andre Dillard"],
   "HOU": ["Braden Smith", "David Montgomery", "Reed Blankenship", "Dominique Robinson", "Foster Moreau", "Logan Hall", "Kai Kroeger", "Michael Thomas"],

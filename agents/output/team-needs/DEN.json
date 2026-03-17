@@ -1,20 +1,20 @@
 {
   "team": "DEN",
   "team_full": "Denver Broncos",
-  "updated_through": "2026-03-16",
-  "first_round_pick": 30,
+  "updated_through": "2026-03-17",
+  "first_round_pick": null,
   "total_draft_picks": 9,
-  "notable_pick_trades": "Acquired 4th-round pick (No. 108) from Saints in Devaughn Vele trade. Sent 6th-round pick to Jets in 2024 John Franklin-Myers trade. Received two 7th-round compensatory picks (No. 256, 257).",
+  "notable_pick_trades": "Acquired 4th-round pick (No. 108) from Saints in Devaughn Vele trade. Sent 6th-round pick to Jets in 2024 John Franklin-Myers trade. Received two 7th-round compensatory picks (No. 256, 257). Traded 1st (#30), 3rd (#94), 4th (#130) to Dolphins for WR Jaylen Waddle and 4th (#111).",
   "roster_context": "Denver went 14-3 in 2025 and reached the AFC Championship Game before losing 10-7 to New England. The roster is one of the NFL's most complete, built around franchise QB Bo Nix on a rookie deal and an elite top-3 defense led by Zach Allen, Nik Bonitto, and Pat Surtain II. Sean Payton's run-it-back approach to free agency kept almost all key pieces but did not add outside talent. The offensive line returns all five starters for a third straight year. Key losses: DL John Franklin-Myers (Titans), S P.J. Locke (Cowboys), LB Dre Greenlaw (49ers). The Broncos have a championship window with Nix's cheap contract through 2027.",
   "needs": [
     {
       "position": "WR",
-      "tier": 1,
-      "urgency": "critical",
-      "explanation": "Sean Payton publicly identified receiver as a contributing factor in Denver's playoff loss, citing the team's league-second-worst 43 drops and inability to beat man coverage consistently. Courtland Sutton (1,017 yards) is the WR1 but isn't an elite separator. Troy Franklin (709 yards) took a step forward in year two but the room lacks a true dynamic, contested-catch playmaker. Marvin Mims is primarily a gadget/return weapon. Pat Bryant showed late-season promise but is still raw. The Broncos were interested in Romeo Doubs, Kendrick Bourne, and Mike Evans in free agency but have not yet signed an outside WR. They are hosting draft prospect Omar Cooper Jr. on a top-30 visit.",
-      "current_starter": "Courtland Sutton (WR1), Troy Franklin (WR2), Marvin Mims Jr. (slot/gadget), Pat Bryant (WR4)",
+      "tier": 3,
+      "urgency": "moderate",
+      "explanation": "Addressed via blockbuster trade for Jaylen Waddle from Miami. WR room is now Waddle (WR1), Courtland Sutton (WR2), Troy Franklin (WR3), Marvin Mims (slot). Elite top-2 pairing. May still add depth on Day 3 but no longer a premium need.",
+      "current_starter": "Jaylen Waddle (WR1, acquired via trade), Courtland Sutton (WR2), Troy Franklin (WR3), Marvin Mims Jr. (slot)",
       "depth": "Lil'Jordan Humphrey re-signed as depth blocker/WR5. Decent quantity but lacks an elite difference-maker.",
-      "draft_range_target": "Round 1-2"
+      "draft_range_target": "Round 5-7 (depth only)"
     },
     {
       "position": "TE",
@@ -99,20 +99,20 @@
     ]
   },
   "simple_needs": [
-    "WR",
     "TE",
-    "DB",
+    "S",
     "LB",
-    "DL"
+    "IDL"
   ],
   "detailed_needs": {
-    "WR": 1,
+    "WR": 3,
     "TE": 1,
-    "DB": 1,
-    "LB": 1,
-    "DL": 2,
-    "OL": 2,
-    "RB": 2
+    "S": 2,
+    "LB": 2,
+    "IDL": 2,
+    "IOL": 3,
+    "OT": 3,
+    "RB": 4
   },
   "free_agency_impact": [
     "Lost DL John Franklin-Myers to Titans (3yr/$63M) \u2014 significant IDL need created, was a 14.5-sack starter over two years",

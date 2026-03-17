@@ -1,10 +1,10 @@
 {
   "team": "MIA",
   "team_full": "Miami Dolphins",
-  "updated_through": "2026-03-16",
-  "first_round_pick": 11,
+  "updated_through": "2026-03-17",
+  "first_round_pick": 30,
   "total_draft_picks": 9,
-  "notable_pick_trades": "Acquired 3rd-round pick (No. 87) from Eagles via Jaelan Phillips trade; Acquired 3rd-round pick (No. 90) from Chargers via Titans/Jets; Traded Minkah Fitzpatrick to Jets for 7th-round pick (No. 238); Traded own 6th-round pick (No. 192) to Panthers",
+  "notable_pick_trades": "Acquired 3rd-round pick (No. 87) from Eagles via Jaelan Phillips trade; Acquired 3rd-round pick (No. 90) from Chargers via Titans/Jets; Traded Minkah Fitzpatrick to Jets for 7th-round pick (No. 238); Traded own 6th-round pick (No. 192) to Panthers Traded WR Jaylen Waddle and 4th (#111) to Broncos for 1st (#30), 3rd (#94), 4th (#130).",
   "roster_context": "Full-scale rebuild under new GM Jon-Eric Sullivan and HC Jeff Hafley (both from Green Bay). Released Tua Tagovailoa (post-June 1, ~$42.9M dead money), Tyreek Hill (failed physical), Bradley Chubb, James Daniels, Liam Eichenberg, and Jason Sanders. Traded Minkah Fitzpatrick to Jets. Lost Kader Kohou to Chiefs in free agency. Signed Malik Willis as presumptive starting QB on 3-year/$67.5M deal. Cap-strapped team making mostly one-year, low-cost signings. Building through the draft with five top-100 picks.",
   "needs": [
     {
@@ -29,9 +29,9 @@
       "position": "WR",
       "tier": 1,
       "urgency": "critical",
-      "explanation": "Tyreek Hill was released (failed physical, coming off ACL). Jaylen Waddle is the only proven receiver left, and the room desperately lacks size and depth. Signed Tutu Atwell and Jalen Tolbert on one-year deals, but neither is a true WR2. ESPN notes Atwell is 'not likely the No. 2 receiver Miami still needs opposite Jaylen Waddle.' The WR room is facing a 'complete overhaul' per ESPN. Need a big-bodied complement to Waddle.",
-      "current_starter": "Jaylen Waddle, Jalen Tolbert",
-      "depth": "Tutu Atwell, Malik Washington, Dee Eskridge, Theo Wease Jr. \u2014 no proven WR2",
+      "explanation": "Traded Jaylen Waddle to Denver for draft capital including 1st-round pick (#30). WR room is now Malik Washington, Jalen Tolbert, Tutu Atwell \u2014 no proven WR1. This is now the most urgent need on the roster alongside CB. Must address in Round 1-2 of the draft.",
+      "current_starter": "Malik Washington (WR1 by default), Jalen Tolbert (WR2), Tutu Atwell (WR3)",
+      "depth": "Extremely thin. No established playmaker. Waddle departure leaves massive void.",
       "draft_range_target": "Round 1-2"
     },
     {
@@ -101,19 +101,22 @@
     ]
   },
   "simple_needs": [
-    "DB",
-    "OL",
+    "CB",
+    "IOL",
     "WR",
-    "DL",
-    "LB"
+    "S",
+    "EDGE",
+    "TE"
   ],
   "detailed_needs": {
-    "DB": 1,
-    "OL": 1,
+    "CB": 1,
+    "IOL": 1,
     "WR": 1,
-    "DL": 2,
-    "LB": 2,
-    "TE": 2
+    "S": 1,
+    "EDGE": 2,
+    "TE": 2,
+    "OT": 3,
+    "LB": 3
   },
   "free_agency_impact": [
     "Released Tua Tagovailoa (post-June 1 designation) \u2014 signed Malik Willis on 3-year/$67.5M deal, QB addressed for now",
