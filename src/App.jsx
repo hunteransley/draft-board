@@ -3589,8 +3589,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
               <div style={{position:"relative",marginTop:4}}>
                 <svg width={W} height={H} style={{display:"block"}}>
                   {/* Vertical threshold line at 65 */}
-                  <line x1={pad.left+((70-xMin)/(xMax-xMin))*cw} y1={pad.top} x2={pad.left+((70-xMin)/(xMax-xMin))*cw} y2={pad.top+ch} stroke="#0891b2" strokeWidth={1} strokeDasharray="6,4" opacity={0.4}/>
-                  <text x={pad.left+((70-xMin)/(xMax-xMin))*cw} y={pad.top-6} textAnchor="middle" style={{fontSize:8,fill:"#0891b2",fontFamily:"monospace",opacity:0.6}}>fit threshold (70)</text>
+                  <line x1={pad.left+((75-xMin)/(xMax-xMin))*cw} y1={pad.top} x2={pad.left+((75-xMin)/(xMax-xMin))*cw} y2={pad.top+ch} stroke="#0891b2" strokeWidth={1} strokeDasharray="6,4" opacity={0.4}/>
+                  <text x={pad.left+((75-xMin)/(xMax-xMin))*cw} y={pad.top-6} textAnchor="middle" style={{fontSize:8,fill:"#0891b2",fontFamily:"monospace",opacity:0.6}}>fit threshold (75)</text>
                   {/* Axes */}
                   <line x1={pad.left} y1={pad.top+ch} x2={pad.left+cw} y2={pad.top+ch} stroke="#e5e5e5" strokeWidth={1}/>
                   <line x1={pad.left} y1={pad.top} x2={pad.left} y2={pad.top+ch} stroke="#e5e5e5" strokeWidth={1}/>
