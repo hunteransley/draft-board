@@ -32,7 +32,7 @@ export const TEAM_SCHEME={
   Chiefs:{def:"425",off:"11"},
   Chargers:{def:"425",off:"11"},
   Rams:{def:"34",off:"12"},
-  Raiders:{def:"43",off:"12"},
+  Raiders:{def:"34",off:"12"},
   Dolphins:{def:"43",off:"11"},
   Vikings:{def:"34",off:"12"},
   Patriots:{def:"425",off:"11"},
