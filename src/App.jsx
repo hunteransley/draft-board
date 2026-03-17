@@ -3448,7 +3448,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
               const atPos=PROSPECTS.filter(p=>{const g=p.gpos||p.pos;return g===pos&&g!=="K/P";});
               if(!atPos.length||!teamFits)return null;
               const scores=atPos.map(p=>({p,score:teamFits[p.id]?.score||0}));
-              const fitCount=scores.filter(s=>s.score>=70).length;
+              const fitCount=scores.filter(s=>s.score>=75).length;
               const avgScore=Math.round(scores.reduce((s,x)=>s+x.score,0)/scores.length);
               const best=scores.sort((a,b)=>b.score-a.score)[0];
               return{pos,count:fitCount,total:atPos.length,avgScore,topScore:best.score,topName:best.p.name,pctFit:Math.round((fitCount/atPos.length)*100)};
@@ -3605,7 +3605,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                   {/* Dots / Logos */}
                   {(()=>{const myGuySet=new Set(myGuys.map(g=>g.name));return rankedPts.map((d,i)=>{
                     const cx=dotX(d),cy=dotY(d),r=dotR(d);
-                    const isFit=d.fit>=70;
+                    const isFit=d.fit>=75;
                     const isMyGuy=explorerMyGuys&&myGuySet.has(d.name);
                     const dimmed=explorerMyGuys&&myGuySet.size>0&&!isMyGuy;
                     const taken=sfClampedSlider>0&&d.rank<900&&d.rank<=sfCutoffPick;
@@ -3636,7 +3636,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                 {/* Dot tooltip */}
                 {explorerHover&&explorerHover.sfDot&&(()=>{
                   const d=explorerHover.sfDot;
-                  const isFit=d.fit>=70;
+                  const isFit=d.fit>=75;
                   const sv=d.sv;
                   const hlColor=isFit?"#06b6d4":d.fit>=55?"#fbbf24":"#f87171";
                   return<div style={{position:"fixed",left:Math.min(explorerHover.cx+12,window.innerWidth-320),top:Math.max(explorerHover.cy-140,8),background:"#171717",color:"#fff",padding:"12px 16px",borderRadius:12,fontFamily:sans,fontSize:12,pointerEvents:"none",zIndex:9999,boxShadow:"0 4px 16px rgba(0,0,0,0.4)",maxWidth:320}}>
@@ -3657,7 +3657,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
             {sfTeamPicks.length>0&&(()=>{
               const handlePct=(sfClampedSlider/sfTeamPicks.length)*100;
               const currentPick=sfClampedSlider>0?sfTeamPicks[sfClampedSlider-1]:null;
-              const availableGems=sfClampedSlider>0?points.filter(d=>(d.rank>sfCutoffPick||d.rank>=900)&&d.fit>=70).length:null;
+              const availableGems=sfClampedSlider>0?points.filter(d=>(d.rank>sfCutoffPick||d.rank>=900)&&d.fit>=75).length:null;
               const statusLabel=sfClampedSlider===0?"all rounds":`R${currentPick.round} · Pick #${currentPick.pick}${availableGems!==null?` · ${availableGems} fit gem${availableGems!==1?"s":""} available`:""}`;
               const showDots=sfTeamPicks.length<=14;
               return<div style={{margin:"16px 0 4px",padding:"12px 16px",background:`${tc}08`,border:`1px solid ${tc}33`,borderRadius:12}}>
@@ -3702,7 +3702,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
               {top10.map((d,i)=>{
                 const isOpen=sfExpandedId===d.id;
                 const svR=d.sv;
-                const fitColor=d.fit>=70?"#0891b2":d.fit>=55?"#d97706":"#a3a3a3";
+                const fitColor=d.fit>=75?"#0891b2":d.fit>=55?"#d97706":"#a3a3a3";
                 const lbTaken=sfClampedSlider>0&&d.rank<900&&d.rank<=sfCutoffPick;
                 return<div key={d.id} style={{opacity:lbTaken?0.35:1}}>
                   <div style={{display:"flex",alignItems:"center",gap:8,padding:"7px 14px",borderBottom:isOpen?"none":i<top10.length-1?"1px solid #f5f5f5":"none",cursor:"pointer"}}
