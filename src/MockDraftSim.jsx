@@ -595,7 +595,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     const n=picks.length;if(n>=totalPicks)return;
     const team=getPickTeam(n);const{round,pick}=fullDraftOrder[n];
     const traded=opts.traded||team!==fullDraftOrder[n].team;
-    const isUser=userTeams.has(team)&&!traded;
+    const isUser=userTeams.has(team);
     const np=[...picks,{pick,round,team,playerId,traded,isUser}];
     setPicks(np);setAvailable(prev=>prev.filter(id=>id!==playerId));
     // Making a pick dismisses any pending trade offer or trade panel
