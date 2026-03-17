@@ -151,7 +151,7 @@ function SchoolLogo({school,size=32}){const[err,setErr]=useState(false);const ur
 
 function TwitterFooter(){return<div style={{textAlign:"center",padding:"12px 24px 4px"}}><a href="https://x.com/seabadger" target="_blank" rel="noopener noreferrer" style={{display:"inline-flex",alignItems:"center",gap:6,textDecoration:"none",color:"#a3a3a3",fontFamily:"'SF Mono',SFMono-Regular,ui-monospace,monospace",fontSize:11,letterSpacing:0.3}} onMouseEnter={e=>e.currentTarget.style.color="#1DA1F2"} onMouseLeave={e=>e.currentTarget.style.color="#a3a3a3"}><svg width="14" height="14" viewBox="0 0 248 204" fill="currentColor"><path d="M221.95 51.29c.15 2.17.15 4.34.15 6.53 0 66.73-50.8 143.69-143.69 143.69v-.04A143.72 143.72 0 0 1 1 178.82a101.7 101.7 0 0 0 12.02.73c22.74.02 44.83-7.61 62.72-21.66-21.61-.41-40.56-14.5-47.18-35.07a50.34 50.34 0 0 0 22.8-.87c-23.56-4.76-40.51-25.46-40.51-49.5v-.64a50.18 50.18 0 0 0 22.92 6.32C11.58 63.31 4.74 33.79 18.14 10.71a143.33 143.33 0 0 0 104.08 52.76 50.53 50.53 0 0 1 14.61-48.25c20.34-19.12 52.13-18.14 71.25 2.19 11.31-2.23 22.15-6.38 32.07-12.26a50.69 50.69 0 0 1-22.2 27.93c10.01-1.2 19.79-3.86 29-7.95a102.6 102.6 0 0 1-25.2 26.16z"/></svg>@seabadger</a></div>;}
 
-function RadarChart({traits,values,color,size=180,labelMap,proDaySpokes}){const cx=size/2,cy=size/2,pad=labelMap?32:24,r=size/2-pad,n=traits.length;const K=1.8;const curve=(v)=>Math.pow(v/100,K)*100;const FLOOR=curve(40);const angles=traits.map((_,i)=>(Math.PI*2*i)/n-Math.PI/2);const pdSet=new Set(proDaySpokes||[]);const pv=angles.map((a,i)=>{const raw=values[i]||50;const v=Math.max(0,(curve(raw)-FLOOR)/(100-FLOOR));return[cx+r*v*Math.cos(a),cy+r*v*Math.sin(a)];});return(<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>{[50,60,70,80,90,100].map(lv=>{const frac=Math.max(0,(curve(lv)-FLOOR)/(100-FLOOR));return<polygon key={lv} points={angles.map(a=>`${cx+r*frac*Math.cos(a)},${cy+r*frac*Math.sin(a)}`).join(" ")} fill="none" stroke={lv===70?"#d4d4d4":"#e5e5e5"} strokeWidth={lv===70?"0.8":"0.5"}/>;})}{angles.map((a,i)=><line key={i} x1={cx} y1={cy} x2={cx+r*Math.cos(a)} y2={cy+r*Math.sin(a)} stroke="#e5e5e5" strokeWidth="0.5"/>)}<polygon points={pv.map(p=>p.join(",")).join(" ")} fill={`${color}18`} stroke={color} strokeWidth="2"/>{pv.map((p,i)=>{const isPD=pdSet.has(traits[i]);return<circle key={i} cx={p[0]} cy={p[1]} r={isPD?3.5:3} fill={isPD?"#fff":color} stroke={isPD?color:"none"} strokeWidth={isPD?1.5:0}>{isPD&&<title>Pro Day</title>}</circle>;})}{traits.map((t,i)=>{const lr=r+(labelMap?20:14);const label=labelMap?labelMap[t]||t:t.split(" ").map(w=>w[0]).join("");return<text key={t} x={cx+lr*Math.cos(angles[i])} y={cy+lr*Math.sin(angles[i])} textAnchor="middle" dominantBaseline="middle" style={{fontSize:labelMap?"7px":"8px",fill:"#737373",fontFamily:"monospace",fontWeight:labelMap?600:400}}>{label}</text>;})}</svg>);}
+function RadarChart({traits,values,color,size=180,labelMap,proDaySpokes}){const cx=size/2,cy=size/2,pad=labelMap?32:24,r=size/2-pad,n=traits.length;const K=1.8;const curve=(v)=>Math.pow(v/100,K)*100;const FLOOR=curve(40);const angles=traits.map((_,i)=>(Math.PI*2*i)/n-Math.PI/2);const pdSet=new Set(proDaySpokes||[]);const pv=angles.map((a,i)=>{const raw=values[i]||50;const v=Math.max(0,(curve(raw)-FLOOR)/(100-FLOOR));return[cx+r*v*Math.cos(a),cy+r*v*Math.sin(a)];});return(<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}><style>{`@keyframes radarDraw{0%{transform:scale(0);opacity:0}60%{transform:scale(1.05);opacity:0.8}100%{transform:scale(1);opacity:1}}@keyframes radarFill{0%{fill-opacity:0}100%{fill-opacity:1}}@keyframes radarDots{0%{opacity:0;transform:scale(0)}100%{opacity:1;transform:scale(1)}}`}</style>{[50,60,70,80,90,100].map(lv=>{const frac=Math.max(0,(curve(lv)-FLOOR)/(100-FLOOR));return<polygon key={lv} points={angles.map(a=>`${cx+r*frac*Math.cos(a)},${cy+r*frac*Math.sin(a)}`).join(" ")} fill="none" stroke={lv===70?"#d4d4d4":"#e5e5e5"} strokeWidth={lv===70?"0.8":"0.5"}/>;})}{angles.map((a,i)=><line key={i} x1={cx} y1={cy} x2={cx+r*Math.cos(a)} y2={cy+r*Math.sin(a)} stroke="#e5e5e5" strokeWidth="0.5"/>)}<polygon points={pv.map(p=>p.join(",")).join(" ")} fill={`${color}18`} stroke={color} strokeWidth="2" style={{transformOrigin:`${cx}px ${cy}px`,animation:"radarDraw 700ms cubic-bezier(0.34,1.3,0.64,1) both, radarFill 400ms ease-out 300ms both"}}/>{pv.map((p,i)=>{const isPD=pdSet.has(traits[i]);return<circle key={i} cx={p[0]} cy={p[1]} r={isPD?3.5:3} fill={isPD?"#fff":color} stroke={isPD?color:"none"} strokeWidth={isPD?1.5:0} style={{transformOrigin:`${p[0]}px ${p[1]}px`,animation:`radarDots 300ms ease-out ${400+i*50}ms both`}}>{isPD&&<title>Pro Day</title>}</circle>;})}{traits.map((t,i)=>{const lr=r+(labelMap?20:14);const label=labelMap?labelMap[t]||t:t.split(" ").map(w=>w[0]).join("");return<text key={t} x={cx+lr*Math.cos(angles[i])} y={cy+lr*Math.sin(angles[i])} textAnchor="middle" dominantBaseline="middle" style={{fontSize:labelMap?"7px":"8px",fill:"#737373",fontFamily:"monospace",fontWeight:labelMap?600:400}}>{label}</text>;})}</svg>);}
 
 function MiniRadar({values,color,size=28}){const cx=size/2,cy=size/2,r=size/2-1,n=values.length;if(n<3)return null;const K=1.8;const curve=(v)=>Math.pow(v/100,K)*100;const FLOOR=curve(40);const angles=values.map((_,i)=>(Math.PI*2*i)/n-Math.PI/2);const pts=angles.map((a,i)=>{const v=Math.max(0,(curve(values[i]||50)-FLOOR)/(100-FLOOR));return`${cx+r*v*Math.cos(a)},${cy+r*v*Math.sin(a)}`;}).join(" ");return<svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="mini-radar" style={{flexShrink:0}}><polygon points={angles.map(a=>`${cx+r*Math.cos(a)},${cy+r*Math.sin(a)}`).join(" ")} fill="none" stroke="#e5e5e5" strokeWidth="0.5"/><polygon points={pts} fill={`${color}20`} stroke={color} strokeWidth="1.2"/></svg>;}
 
@@ -663,6 +663,15 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
   const grade=getGrade(player.id);
   const similar=getSimilarPlayers(player,allProspects,traits,historicalData||{},5);
   const gradeColor=grade>=75?"#16a34a":grade>=55?"#ca8a04":"#dc2626";
+  const[displayGrade,setDisplayGrade]=useState(grade);
+  const prevGradeRef=useRef(grade);
+  useEffect(()=>{
+    const from=prevGradeRef.current;const to=grade;prevGradeRef.current=grade;
+    if(from===to){setDisplayGrade(to);return;}
+    const start=performance.now();const dur=300;
+    const tick=(now)=>{const t=Math.min((now-start)/dur,1);const eased=1-Math.pow(1-t,3);setDisplayGrade(Math.round(from+(to-from)*eased));if(t<1)requestAnimationFrame(tick);};
+    requestAnimationFrame(tick);
+  },[grade]);
   const[copiedProfile,setCopiedProfile]=useState(false);
 
   const shareProfile=async()=>{
@@ -937,7 +946,7 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
           <div style={{fontFamily:font,fontSize:28,fontWeight:900,color:"#171717",marginTop:12,lineHeight:1.1}}>{player.name}</div>
           <div style={{fontFamily:mono,fontSize:13,color:"#a3a3a3",marginTop:4}}>{player.school}</div>
           <div style={{marginTop:16,display:"inline-flex",alignItems:"baseline",gap:6}}>
-            <span style={{fontFamily:font,fontSize:48,fontWeight:900,color:gradeColor,lineHeight:1}}>{grade}</span>
+            <span style={{fontFamily:font,fontSize:48,fontWeight:900,color:gradeColor,lineHeight:1}}>{displayGrade}</span>
             <span style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>grade</span>
           </div>
         </div>
@@ -989,17 +998,19 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
           if(allBars.length<3)return null;
           const barW=18;const gap=2;const totalW=allBars.length*(barW+gap)-gap;const maxBlocks=8;const blockH=4;const blockGap=1.5;const halfH=maxBlocks*(blockH+blockGap);
           return<div style={{padding:"0 24px 16px"}}>
+            <style>{`@keyframes eqGrow{from{transform:scaleY(0)}to{transform:scaleY(1)}}`}</style>
             <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>equalizer</div>
             <div style={{display:"flex",justifyContent:"center"}}>
               <div style={{display:"flex",gap:gap,alignItems:"center"}}>
                 {allBars.map((bar,i)=>{
                   const nBlocks=Math.max(1,Math.round((bar.value/100)*maxBlocks));
                   const isFirst=i===0;const isSep=i===traitVals.length&&measVals.length>0;
+                  const colDelay=`${i*30}ms`;
                   return<Fragment key={i}>
                     {isSep&&<div style={{width:1,height:halfH*2+4,background:"#e5e5e5",margin:"0 4px",flexShrink:0}}/>}
                     <div style={{display:"flex",flexDirection:"column",alignItems:"center",width:barW}}>
                       {/* Upper half (blocks going up from center) */}
-                      <div style={{display:"flex",flexDirection:"column-reverse",gap:blockGap,height:halfH}}>
+                      <div style={{display:"flex",flexDirection:"column-reverse",gap:blockGap,height:halfH,transformOrigin:"center bottom",animation:`eqGrow 400ms ease-out ${colDelay} both`}}>
                         {Array.from({length:maxBlocks}).map((_,bi)=>{
                           const active=bi<nBlocks;
                           const t=active?(bi/(maxBlocks-1)):0;
@@ -1012,7 +1023,7 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
                       {/* Center line */}
                       <div style={{width:barW,height:1,background:"#d4d4d4",margin:`${blockGap}px 0`}}/>
                       {/* Lower half (mirror) */}
-                      <div style={{display:"flex",flexDirection:"column",gap:blockGap,height:halfH}}>
+                      <div style={{display:"flex",flexDirection:"column",gap:blockGap,height:halfH,transformOrigin:"center top",animation:`eqGrow 400ms ease-out ${colDelay} both`}}>
                         {Array.from({length:maxBlocks}).map((_,bi)=>{
                           const active=bi<nBlocks;
                           const t=active?(bi/(maxBlocks-1)):0;
@@ -4802,7 +4813,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
             <span style={{fontFamily:mono,fontSize:9,letterSpacing:1.5,color:"#a3a3a3",textTransform:"uppercase"}}>{boardRadarGrid?"hide":"show"} trait profiles</span>
             <span style={{fontSize:10,color:"#a3a3a3",transform:boardRadarGrid?"rotate(180deg)":"rotate(0deg)",transition:"transform 0.2s"}}>▼</span>
           </button>
-          {boardRadarGrid&&<><style>{`@media(max-width:600px){.eq-grid{grid-template-columns:repeat(2,1fr)!important;}}`}</style><div className="eq-grid" style={{padding:"4px 12px 16px",display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:8}}>
+          {boardRadarGrid&&<><style>{`@media(max-width:600px){.eq-grid{grid-template-columns:repeat(2,1fr)!important;}}@keyframes eqGrowGrid{from{transform:scaleY(0)}to{transform:scaleY(1)}}`}</style><div className="eq-grid" style={{padding:"4px 12px 16px",display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:8}}>
 
             {topProspects.map(p=>{
               const traitVals=posTraits.map(t=>({label:TRAIT_ABBREV[t]||t.split(" ").map(w=>w[0]).join(""),value:tv(traits,p.id,t,p.name,p.school),type:"trait"}));
@@ -4820,7 +4831,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                       return<Fragment key={i}>
                         {isSep&&<div style={{width:1,height:halfH*2+2,background:"#e5e5e5",margin:"0 2px",flexShrink:0}}/>}
                         <div style={{display:"flex",flexDirection:"column",alignItems:"center",width:barW}}>
-                          <div style={{display:"flex",flexDirection:"column-reverse",gap:blockGap,height:halfH}}>
+                          <div style={{display:"flex",flexDirection:"column-reverse",gap:blockGap,height:halfH,transformOrigin:"center bottom",animation:`eqGrowGrid 400ms ease-out ${i*30}ms both`}}>
                             {Array.from({length:maxBlocks}).map((_,bi)=>{
                               const active=bi<nBlocks;const t0=active?(bi/(maxBlocks-1)):0;
                               const bg=bar.type==="trait"
@@ -4830,7 +4841,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                             })}
                           </div>
                           <div style={{width:barW,height:0.5,background:"#d4d4d4",margin:`${blockGap}px 0`}}/>
-                          <div style={{display:"flex",flexDirection:"column",gap:blockGap,height:halfH}}>
+                          <div style={{display:"flex",flexDirection:"column",gap:blockGap,height:halfH,transformOrigin:"center top",animation:`eqGrowGrid 400ms ease-out ${i*30}ms both`}}>
                             {Array.from({length:maxBlocks}).map((_,bi)=>{
                               const active=bi<nBlocks;const t0=active?(bi/(maxBlocks-1)):0;
                               const bg=bar.type==="trait"
