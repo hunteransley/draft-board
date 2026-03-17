@@ -451,7 +451,7 @@ const ScatterChart=memo(function ScatterChart({points,width,xLabel,yLabel,xInver
           opacity={opacity}
           stroke={isSpotlit?"#171717":isMyGuy?"#ec4899":isHovered?"#171717":"none"}
           strokeWidth={isSpotlit?2.5:isMyGuy?2:isHovered?1.5:0}
-          style={{transition:"r 0.15s,stroke 0.15s,opacity 0.2s",pointerEvents:"none"}}/>}
+          style={{transition:"cx 0.3s,cy 0.3s,r 0.15s,stroke 0.15s,opacity 0.2s",pointerEvents:"none"}}/>}
         {isSpotlit&&<text x={cx} y={cy-r-6} textAnchor={cx>width*0.8?"end":cx<width*0.2?"start":"middle"} style={{fontSize:"10px",fontWeight:700,fill:"#171717",fontFamily:"sans-serif",pointerEvents:"none"}}>{pt.name}</text>}
       </g>;
     })}
@@ -3276,7 +3276,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                     style={{cursor:"pointer",opacity,transition:"opacity 0.2s"}}>
                     {isExpanded&&<circle cx={cx} cy={cy} r={r+5} fill="none" stroke={c} strokeWidth={1.5} strokeDasharray="4,3"/>}
                     {ringStyle&&<circle cx={cx} cy={cy} r={r+3} fill="none" {...ringStyle}/>}
-                    <circle cx={cx} cy={cy} r={r} fill={c+"22"} stroke={c} strokeWidth={2}/>
+                    <circle cx={cx} cy={cy} r={r} fill={c+"22"} stroke={c} strokeWidth={2} style={{transition:"cx 0.3s,cy 0.3s,r 0.3s"}}/>
                     <text x={cx} y={cy+1} textAnchor="middle" dominantBaseline="middle" style={{fontSize:Math.max(8,r*0.7),fill:c,fontFamily:"monospace",fontWeight:700,pointerEvents:"none"}}>{d.pos}</text>
                   </g>;})}
               </svg>
@@ -3614,7 +3614,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                     const logoUrl=explorerLogos?schoolLogo(d.school):null;
                     const handlers={onMouseEnter:e=>setExplorerHover({sfDot:d,cx:e.clientX,cy:e.clientY}),onMouseLeave:()=>setExplorerHover(null),onClick:()=>{const p=PROSPECTS.find(pr=>pr.id===d.id);if(p)openProfile(p);}};
                     if(logoUrl){const sz=isMyGuy?28:20;return<g key={d.id} {...handlers} style={{cursor:"pointer"}}><image href={logoUrl} x={cx-sz/2} y={cy-sz/2} width={sz} height={sz} opacity={opacity}/>{isMyGuy&&<circle cx={cx} cy={cy} r={sz/2+2} fill="none" stroke="#ec4899" strokeWidth={2} opacity={0.8}/>}</g>;}
-                    return<g key={d.id}>{isMyGuy&&<circle cx={cx} cy={cy} r={r+3} fill="none" stroke="#ec4899" strokeWidth={2} opacity={0.8}/>}<circle cx={cx} cy={cy} r={r} fill={(isFit?tc:pc)+(isFit?"55":"1a")} stroke={isFit?tc:pc} strokeWidth={isFit?1.5:1} opacity={opacity} {...handlers} style={{cursor:"pointer"}}/></g>;
+                    return<g key={d.id}>{isMyGuy&&<circle cx={cx} cy={cy} r={r+3} fill="none" stroke="#ec4899" strokeWidth={2} opacity={0.8} style={{transition:"cx 0.3s,cy 0.3s"}}/>}<circle cx={cx} cy={cy} r={r} fill={(isFit?tc:pc)+(isFit?"55":"1a")} stroke={isFit?tc:pc} strokeWidth={isFit?1.5:1} opacity={opacity} {...handlers} style={{cursor:"pointer",transition:"cx 0.3s,cy 0.3s,opacity 0.2s"}}/></g>;
                   });})()}
                 </svg>
                 {/* Center watermark */}
@@ -3843,7 +3843,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                       onMouseEnter={e=>setExplorerHover({faPos:d.pos,totalSpend:d.totalSpend,avgAAV:d.avgAAV,maxAAV:d.maxAAV,count:d.count,cx:e.clientX,cy:e.clientY})}
                       onMouseLeave={()=>setExplorerHover(null)}
                       style={{cursor:"pointer"}}>
-                      <circle cx={cx} cy={cy} r={r} fill={c+"22"} stroke={c} strokeWidth={2}/>
+                      <circle cx={cx} cy={cy} r={r} fill={c+"22"} stroke={c} strokeWidth={2} style={{transition:"cx 0.3s,cy 0.3s,r 0.3s"}}/>
                       <text x={cx} y={cy+1} textAnchor="middle" dominantBaseline="middle" style={{fontSize:Math.max(8,r*0.7),fill:c,fontFamily:"monospace",fontWeight:700,pointerEvents:"none"}}>{d.pos}</text>
                     </g>;})}
                 </svg>
