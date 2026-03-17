@@ -1,0 +1,818 @@
+{
+  "team": {
+    "name": "Atlanta Falcons",
+    "abbreviation": "ATL",
+    "division": "NFC South",
+    "current_draft_position": "No 1st round pick. R2: 48, R3: 79, R4: 114, R6: 195, R7: 231"
+  },
+  "front_office": {
+    "gm": {
+      "name": "Ian Cunningham",
+      "title": "General Manager",
+      "hired": "2026-01-29",
+      "previous_role": "Assistant General Manager, Chicago Bears (2022-2025)",
+      "drafts_as_gm": 0,
+      "confidence": "low"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "University of Virginia",
+          "role": "Offensive Lineman (Guard/Center)",
+          "years": "2003-2007",
+          "mentor": "Al Groh"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Undrafted Free Agent OL (waived)",
+          "years": "2008",
+          "mentor": "N/A"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "Player Personnel Assistant",
+          "years": "2008-2012",
+          "mentor": "Ozzie Newsome / Eric DeCosta"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "Southeast Area Scout",
+          "years": "2013-2014",
+          "mentor": "Ozzie Newsome / Eric DeCosta / Joe Hortiz"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "Southeast/Southwest Area Scout",
+          "years": "2015-2016",
+          "mentor": "Ozzie Newsome / Eric DeCosta"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Director of College Scouting",
+          "years": "2017-2018",
+          "mentor": "Howie Roseman"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Assistant Director of Player Personnel",
+          "years": "2019-2020",
+          "mentor": "Howie Roseman"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Director of Player Personnel",
+          "years": "2021",
+          "mentor": "Howie Roseman"
+        },
+        {
+          "org": "Chicago Bears",
+          "role": "Assistant General Manager",
+          "years": "2022-2025",
+          "mentor": "Ryan Poles"
+        }
+      ],
+      "primary_mentor": "Ozzie Newsome (Ravens) \u2014 foundational scouting philosophy; Howie Roseman (Eagles) \u2014 roster construction and collaborative leadership; Ryan Poles (Bears) \u2014 draft execution and BPA discipline",
+      "philosophical_lineage": "Newsome tree (BPA-first, 'you can never have enough good corners,' patient FA approach, value-first draft board, character emphasis, collaborative war room). Eagles tree (aggressive roster building, willingness to invest heavily in OL/DL, trade capital accumulation). Bears/Poles tree (strict BPA in round 1, offensive skill position investment, willingness to take non-need BPA picks like Loveland at TE when Cole Kmet was already on roster).",
+      "breakpoints": "No known breakpoints yet \u2014 zero drafts as GM. His stated philosophy exactly mirrors the Newsome/Poles DNA: BPA, build through the trenches, draft/develop/retain. Any breakpoints will emerge in 2026 draft and beyond.",
+      "lineage_weight": 0.85,
+      "lineage_weight_notes": "Zero drafts as GM means lineage weight is near-maximum. Reduced from 0.90 because his stated philosophy and four years observing Poles' execution provide some additional independent signal. Will drop to 0.60 after 2026 draft and 0.40 after 2027."
+    },
+    "primary_decision_maker": "Ian Cunningham \u2014 but reports to Matt Ryan (President of Football), who holds final decision-making authority per Arthur Blank's organizational structure",
+    "key_influencers": [
+      {
+        "name": "Matt Ryan",
+        "title": "President of Football",
+        "influence_level": "very_high",
+        "known_biases": "Former franchise QB. Values pass protection, QB development, and smart football. Emphasized wanting 'people that work well together' and collaborative decision-making. Stated vision is to run the football and stop the run. Has 'final decision-making authority' over GM and HC per Blank."
+      },
+      {
+        "name": "Kevin Stefanski",
+        "title": "Head Coach",
+        "influence_level": "high",
+        "known_biases": "Offensive-minded coach from Kubiak/Shanahan coaching tree. Prioritizes wide-zone run scheme, play-action passing, physical OL play. Values versatile offensive linemen who can zone block. Will want players who fit his run-first scheme. Two-time NFL Coach of the Year. Brought Bill Callahan as OL coach, Tommy Rees as OC."
+      },
+      {
+        "name": "Jeff Ulbrich",
+        "title": "Defensive Coordinator (retained)",
+        "influence_level": "medium",
+        "known_biases": "Runs multiple defense, mixing 3-4 and 4-3 looks. Emphasizes multiplicity in fronts and coverages. Uses heavy Cover-1 man concepts (28.6% with Jets, vs league average). Attack-style pass rush philosophy. Broke Falcons franchise sack record (57) in 2025. Wants versatile EDGE players and coverage-capable LBs."
+      },
+      {
+        "name": "Bob Quinn",
+        "title": "Senior Advisor to Head Coach",
+        "influence_level": "low_to_medium",
+        "known_biases": "Former Lions GM (2016-2020). Longtime Patriots personnel executive before that. New England scouting background may add another layer of Belichick-tree influence. Serves as go-between for front office and coaching staff."
+      }
+    ],
+    "power_dynamics": "Three-tiered collaborative structure: Matt Ryan (President of Football) sets vision and has final authority, Cunningham (GM) runs personnel/scouting/draft, Stefanski (HC) runs coaching staff and scheme. Ryan explicitly stated he wants the GM and HC to 'find ways to get to common ground.' Cunningham reports directly to Ryan. This is Cunningham's first GM job and Ryan's first executive role \u2014 both are invested in collaboration.",
+    "owner_interference": "medium \u2014 Arthur Blank has fired three HCs and two GMs since 2017, showing willingness to act. However, he restructured the organization specifically to insulate football ops through the President of Football role. Historically patient with coaching hires but results-oriented. Created the new President of Football structure to delegate day-to-day decisions."
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.75,
+    "bpa_weight_by_round": {
+      "1": 0.8,
+      "2": 0.7,
+      "3": 0.6,
+      "4_plus": 0.45
+    },
+    "stated_philosophy": "Best player available. Build through the trenches. Draft, develop, and retain. 'You can't have enough draft picks.' 'Smart, tough, physical.'",
+    "actual_philosophy": "Inferred from mentorship tree: Strong BPA lean in early rounds (Poles took Loveland at TE 10th overall despite having Cole Kmet; took Rome Odunze at WR 9th when EDGE was a bigger need; Newsome's Ravens consistently drafted BPA and accumulated corners regardless of roster). Cunningham learned from Newsome's 'best available player regardless of need' mantra and Poles' strict BPA-first approach. Expect Day 2 to shift toward need-filling, particularly with only 5 picks and no first-round selection in 2026.",
+    "philosophy_mismatch_notes": "Cannot yet assess mismatch between stated and actual behavior \u2014 zero drafts as GM. The strongest signal is Poles' track record with Cunningham alongside him: Poles' BPA discipline was genuine (Loveland over positional need in 2025, Odunze over EDGE in 2024). However, with only 5 picks and no R1 in 2026, pure BPA may yield to need-driven approach by necessity."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.4,
+    "trade_down_willingness": 0.65,
+    "trades_per_draft_average": "N/A as GM; Bears under Poles averaged 3-4 trades per draft",
+    "trade_triggers": [
+      "Desire to accumulate more draft picks \u2014 Cunningham explicitly stated at Combine that he wants more than the current 5 picks",
+      "Cunningham learned in Chicago 'to use every method as humanly possible in order to manufacture picks'",
+      "Potential player trades to recoup draft capital (Jessie Bates, Drake London mentioned as trade candidates by media)",
+      "Tier breaks on board where value falls to them"
+    ],
+    "draft_capital_philosophy": "Hoards picks aggressively. 'I love picks, man. You use those as currency.' Said he will never 'mortgage the future for the now.' In Chicago in 2022, Bears entered with 6 picks and ended with 11 through four trades. Cunningham told his staff this will be 'the last time we'll ever have five picks' going into a draft."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "OT",
+        "EDGE",
+        "DT",
+        "CB"
+      ],
+      "tier_2_high": [
+        "IOL",
+        "QB",
+        "WR",
+        "S"
+      ],
+      "tier_3_mid": [
+        "LB",
+        "TE"
+      ],
+      "tier_4_low": [
+        "RB",
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "RB in early rounds \u2014 Poles never drafted an RB higher than R4; Newsome rarely invested early RB capital after Jamal Lewis. Cunningham's stated 'build through the trenches' philosophy deprioritizes skill positions relative to OL/DL."
+    ],
+    "position_premium": [
+      "OT and DL \u2014 'build through the trenches' is the stated cornerstone. Ravens under Newsome drafted OL/DL in first 3 rounds almost every year from 2009-2018. Bears under Poles prioritized OT Darnell Wright at 10 in 2023. CB also premium per Newsome mantra 'you can never have enough good corners.'"
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Versatile, multiple-front EDGE who can stand up or put hand in dirt. Ulbrich's defense requires multiplicity \u2014 players must be scheme-diverse. Prefer length and explosiveness with pass-rush upside. The 2025 Falcons broke the franchise sack record with an attack-style defense that featured EDGE players used in multiple alignments. James Pearce Jr. (Tennessee, R1 2025, 6-5, 243, 4.41 40) led the team with 10.5 sacks as a rookie. Jalon Walker (Georgia, R1 2025) was drafted as a versatile LB/EDGE hybrid. The Bears under Poles valued EDGE rushers with length \u2014 Austin Booker (6-4, 245, Kansas) was drafted in R5 2024 as a developmental piece.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "240-270",
+        "arm_length_minimum": "33 inches preferred based on Ravens/Bears tree emphasis on length for EDGE",
+        "key_athletic_tests": "Explosive first step (vertical jump 34+, broad jump 118+). Speed-to-power conversion matters more than raw speed. 3-cone under 7.10 for change-of-direction ability in multiple front alignments.",
+        "speed_requirement": "4.55 or faster preferred; Pearce ran 4.41; Booker ran 4.56. Will accept slower times (4.60-4.65) if power and length are elite."
+      },
+      "playing_style": {
+        "primary_win_condition": "Versatility and scheme flexibility \u2014 must be able to rush from multiple alignments in Ulbrich's multiple front",
+        "most_valued_traits": [
+          "First-step explosion and get-off",
+          "Ability to play in both 3-4 and 4-3 alignments",
+          "Pass-rush upside and bend around the corner",
+          "Length and leverage at the point of attack",
+          "Motor and effort consistency"
+        ],
+        "least_important_traits": [
+          "Elite run defense \u2014 the 2025 Falcons defense struggled stopping the run (23rd in rush EPA) despite elite sack numbers, suggesting run defense is secondary to pass-rush upside"
+        ],
+        "deal_breakers": [
+          "One-dimensional players who can only rush from a single alignment",
+          "Stiff athletes who lack the hip flexibility to convert speed to power"
+        ],
+        "traits_that_make_them_reach": "Elite first-step explosion and athleticism \u2014 Pearce's 4.41 speed at 243 lbs made him worth a 1st-round trade-up"
+      },
+      "college_production": {
+        "production_floor": "5+ sacks in final college season for early-round picks based on Ravens/Bears lineage emphasis on production",
+        "production_trajectory": "Prefers ascending production \u2014 Pearce went from 5 sacks as sophomore to 10 as junior. Booker had 6.5 sacks in 2023.",
+        "context_sensitivity": "High \u2014 Ulbrich's defense values versatile defenders, so production in multiple roles (pass rush + coverage) is valued"
+      },
+      "evidence": {
+        "picks_analyzed": "2 (Falcons 2025 under prior regime, but Ulbrich's defensive scheme continuity makes these relevant); plus Bears EDGE picks under Poles/Cunningham",
+        "examples": [
+          "2025 R1 \u2014 James Pearce Jr. (Tennessee): 6-5, 243, 4.41 40. Speed rusher with elite first step. 10.5 sacks as rookie.",
+          "2025 R1 \u2014 Jalon Walker (Georgia): 6-2, 245. Hybrid LB/EDGE, versatile blitzer and coverage player.",
+          "2024 R5 (Bears) \u2014 Austin Booker (Kansas): 6-4, 245, 4.56 40. Developmental edge with length, played 26.5% of snaps as rookie."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "OT": {
+      "archetype_summary": "Athletic, technically sound offensive tackle who excels in zone-blocking schemes. Stefanski's offense is built on wide-zone runs and play-action, requiring tackles who can reach-block, seal defenders, and move laterally. Bill Callahan's presence as OL coach means high-IQ, disciplined linemen are prioritized. The Bears under Poles/Cunningham drafted Darnell Wright (Tennessee, R1 10th overall 2023, 6-5, 333) \u2014 a versatile, powerful tackle who became a quality starter. Braxton Jones (5th round 2022) also became a multi-year starter, showing willingness to develop Day 3 OL into starters. The Bears drafted Ozzy Trapilo (Boston College, R2 56 2025, 6-6, 312) and Kiran Amegadjie (Yale, R3 75 2024, 6-5, 305) as developmental tackles.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-7",
+        "weight_range": "305-340",
+        "arm_length_minimum": "34 inches \u2014 standard OT threshold; Wright had 34.5-inch arms; Amegadjie had 33.75",
+        "key_athletic_tests": "Lateral agility (short shuttle, 3-cone) most important for zone scheme. Must be able to move and reach in space. Poles emphasized 'lean mass' for OL \u2014 dense, athletic linemen.",
+        "speed_requirement": "N/A for OT specifically, but athleticism in space is critical for zone-blocking"
+      },
+      "playing_style": {
+        "primary_win_condition": "Zone-scheme fit \u2014 must excel at reach blocks, combo blocks, and climbing to second level in wide-zone run game",
+        "most_valued_traits": [
+          "Lateral movement and foot quickness for zone blocking",
+          "Technical discipline and IQ \u2014 Poles called Trapilo 'dependable, disciplined, technician, very intelligent'",
+          "Anchor strength and ability to sustain blocks in pass protection",
+          "Versatility to play both sides",
+          "Toughness and physicality at the point of attack"
+        ],
+        "least_important_traits": [
+          "Pure power/mauling ability in isolation \u2014 zone scheme values movement over phone-booth dominance"
+        ],
+        "deal_breakers": [
+          "Stiff, non-athletic linemen who can't move laterally in zone scheme",
+          "Poor technique that can't be coached up by Callahan"
+        ],
+        "traits_that_make_them_reach": "Elite athleticism combined with starting experience at a Power 5 program"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter preferred \u2014 Wright started 40 games at Tennessee; Trapilo started 34 at BC; Amegadjie was a late bloomer at Yale",
+        "production_trajectory": "Values multi-year starters with ascending play, but willing to bet on athletic upside from smaller schools (Amegadjie from Yale R3)",
+        "context_sensitivity": "High \u2014 understands that competition level matters; still drafted Amegadjie from Ivy League based on athletic traits"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2023 R1.10 (Bears) \u2014 Darnell Wright (Tennessee): 6-5, 333, 34.5 arms. Zone-fit tackle, PFF 82.2 run-blocking grade in 2024.",
+          "2022 R5.168 (Bears) \u2014 Braxton Jones (Southern Utah): 6-5, 310. Day 3 developmental tackle who became 3-year starter.",
+          "2025 R2.56 (Bears) \u2014 Ozzy Trapilo (Boston College): 6-6, 312. Poles described as 'dense player that can get movement at POA.'",
+          "2024 R3.75 (Bears) \u2014 Kiran Amegadjie (Yale): 6-5, 305. Athletic upside pick from Ivy League, limited by injuries as rookie."
+        ]
+      },
+      "confidence": "high"
+    },
+    "IOL": {
+      "archetype_summary": "Smart, athletic interior lineman who fits the zone-blocking scheme. Stefanski's offense and Callahan's coaching demand guards and centers who can pull, combo block, and reach at the second level. The Bears under Poles acquired quality IOL through FA (Joe Thuney, Drew Dalman) rather than early-round draft picks, but drafted Day 3 developmental pieces. The Falcons already have All-Pro Chris Lindstrom and Matthew Bergeron as IOL starters, so depth/development picks are more likely. Luke Newman (Michigan State, R6 2025) was a versatile IOL pick under Poles.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "300-325",
+        "arm_length_minimum": "32 inches for guards; 33+ preferred for centers",
+        "key_athletic_tests": "Short shuttle and 3-cone for lateral movement in zone scheme. Bench press for functional strength. Must show ability to get to the second level.",
+        "speed_requirement": "N/A but must demonstrate athletic ability to pull and reach-block"
+      },
+      "playing_style": {
+        "primary_win_condition": "Zone-blocking fit \u2014 ability to execute reach blocks, climb to linebackers, and sustain combos",
+        "most_valued_traits": [
+          "Intelligence and communication at the line of scrimmage",
+          "Lateral agility and movement skills for zone concepts",
+          "Functional strength and ability to anchor vs. bull rush",
+          "Versatility to play multiple IOL positions",
+          "Consistency and reliability"
+        ],
+        "least_important_traits": [
+          "Pure power-scheme dominance \u2014 not looking for road-graders who can't move"
+        ],
+        "deal_breakers": [
+          "Poor athletic profile that doesn't fit zone scheme",
+          "Limited football IQ"
+        ],
+        "traits_that_make_them_reach": "Center-capable versatility and elite zone-blocking traits"
+      },
+      "college_production": {
+        "production_floor": "2+ years starting experience preferred",
+        "production_trajectory": "Values consistency and durability over flashy traits",
+        "context_sensitivity": "Weights zone-blocking college systems favorably"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2025 R6.195 (Bears) \u2014 Luke Newman (Michigan State): 6-4, 305. Versatile IOL who can play guard and center.",
+          "Acquired via trade/FA (Bears) \u2014 Drew Dalman, Joe Thuney. Shows willingness to supplement draft IOL with veteran FA acquisitions."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "DT": {
+      "archetype_summary": "Penetrating, disruptive interior defender who can generate interior pressure. Ulbrich's attack-style defense needs DTs who can collapse the pocket and disrupt run lanes. The Bears under Poles/Cunningham drafted Gervon Dexter Sr. (Florida, R2 53rd 2023, 6-3, 312) as a high-upside 3-technique, and Zacch Pickens (South Carolina, R3 2023, 6-4, 305) and Shemar Turner (Texas A&M, R2 62nd 2025, 6-4, 285) as additional interior pieces. The Falcons' 2025 defense saw rapid growth from second-year DTs Brandon Dorlus and Ruke Orhorhoro. ESPN's Jordan Reid identified nose tackle as 'a clear need for the Falcons' in his 2026 mock.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "285-320 for 3-tech; 310-340 for nose tackle",
+        "arm_length_minimum": "33 inches preferred for interior defenders to control blockers",
+        "key_athletic_tests": "First-step quickness (10-yard split) most important. Vertical jump and broad jump as explosiveness indicators. Poles looked at 'lean mass for the bigs.'",
+        "speed_requirement": "N/A but quickness off the snap is critical"
+      },
+      "playing_style": {
+        "primary_win_condition": "Interior disruption \u2014 penetrate gaps and collapse the pocket from inside",
+        "most_valued_traits": [
+          "First-step quickness and get-off",
+          "Ability to generate interior pressure as a pass rusher",
+          "Strength at the point of attack to hold ground vs. double teams",
+          "Versatility to play multiple interior alignments in multiple fronts",
+          "Motor and effort"
+        ],
+        "least_important_traits": [
+          "Pure two-gap space-eating \u2014 Ulbrich's attack style prioritizes penetration over holding space"
+        ],
+        "deal_breakers": [
+          "Lack of pass-rush ability \u2014 Ulbrich's defense is built on generating pressure from everywhere",
+          "Poor first-step quickness"
+        ],
+        "traits_that_make_them_reach": "Elite interior pass-rush ability combined with position versatility"
+      },
+      "college_production": {
+        "production_floor": "3+ TFLs in final college season for early-round DTs",
+        "production_trajectory": "Values ascending production and development curve",
+        "context_sensitivity": "Adjusts for scheme and role \u2014 credits interior players who generated pressure in limited pass-rush opportunities"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2023 R2.53 (Bears) \u2014 Gervon Dexter Sr. (Florida): 6-3, 312. High-upside 3-technique who became starting DT in year 2.",
+          "2023 R3 (Bears) \u2014 Zacch Pickens (South Carolina): 6-4, 305. Value pick, struggled to crack depth chart.",
+          "2025 R2.62 (Bears) \u2014 Shemar Turner (Texas A&M): 6-4, 285. Interior DL with pass-rush ability."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "CB": {
+      "archetype_summary": "Physical, man-capable cornerback with length and ball skills. Ulbrich's defense ran heavy Cover-1 man concepts with the Jets (28.6% of snaps, 7th in NFL). This demands corners who can play press-man and mirror receivers one-on-one. Newsome's Ravens had the famous mantra 'you can never have enough good corners' and drafted CBs in the first 3 rounds in 6 of 8 years. The Bears under Poles/Cunningham drafted Kyler Gordon (Washington, R2 39th 2022, 5-11, 194, 4.52) and Tyrique Stevenson (Miami, R2 56th 2023, 6-0, 198, 4.35) as their top CB investments. A.J. Terrell anchors the Falcons secondary on a long-term deal through 2028.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-2",
+        "weight_range": "185-205",
+        "arm_length_minimum": "31 inches \u2014 length matters for press disruption in Ulbrich's man-heavy scheme",
+        "key_athletic_tests": "40-yard dash is critical \u2014 Stevenson ran 4.35, Gordon ran 4.52 (outlier \u2014 more of a zone/slot type). Short shuttle for hip fluidity. Vertical jump for ball skills.",
+        "speed_requirement": "4.50 or faster strongly preferred for outside corners in man coverage; slot corners can be slightly slower with better short-area quickness"
+      },
+      "playing_style": {
+        "primary_coverage_style": "Man-heavy coverage with Cover-1 emphasis per Ulbrich's scheme; must be able to press and mirror",
+        "most_valued_traits": [
+          "Man coverage ability and hip fluidity",
+          "Press technique and physicality at the line",
+          "Ball skills and play-on-ball ability \u2014 Falcons defense had 16 INTs in 2025 (6th in NFL)",
+          "Tackling willingness in run support",
+          "Competitive toughness"
+        ],
+        "least_important_traits": [
+          "Pure zone instincts \u2014 less critical given Ulbrich's man-heavy tendencies, though multiplicity means some zone ability is useful"
+        ],
+        "deal_breakers": [
+          "Inability to play man coverage",
+          "Lack of competitive toughness or avoidance of physical play"
+        ],
+        "traits_that_make_them_reach": "Elite man-coverage skills combined with plus ball skills and physical play"
+      },
+      "college_production": {
+        "production_floor": "No strict statistical floor \u2014 Newsome/DeCosta Ravens valued film over interception totals for CBs",
+        "production_trajectory": "Prefers multi-year starters, but willing to develop \u2014 Gordon had one elite season at Washington; Stevenson had two strong years at Miami",
+        "context_sensitivity": "High \u2014 values quality of competition and role in coverage scheme over raw PBU/INT numbers"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2022 R2.39 (Bears) \u2014 Kyler Gordon (Washington): 5-11, 194, 4.52 40. Versatile CB who became quality starter, more zone/slot profile.",
+          "2023 R2.56 (Bears) \u2014 Tyrique Stevenson (Miami): 6-0, 198, 4.35 40. Physical press-man corner with elite speed.",
+          "2025 R5.169 (Bears) \u2014 Zah Frazier (UTSA): Developmental DB pick on Day 3."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "S": {
+      "archetype_summary": "Rangy, ball-hawking safety who can play multiple roles in the secondary. Ulbrich's defense values safeties who can play single-high, split-field, and come down into the box. The Falcons' 2025 draft class included Xavier Watts (Notre Dame, R3) and Billy Bowman Jr. (Oklahoma, R4), both of whom became instant contributors \u2014 Watts had 5 INTs as a rookie. The Bears under Poles/Cunningham drafted Jaquan Brisker (Penn State, R2 48th 2022, 6-1, 199, 4.49) as a hybrid safety with range and physicality.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "195-215",
+        "arm_length_minimum": "31 inches",
+        "key_athletic_tests": "40-yard dash under 4.55 for range. Vertical jump 36+ for ball skills and closing speed. Short shuttle for change of direction in zone coverage.",
+        "speed_requirement": "4.55 or faster preferred; Brisker ran 4.49; Watts was a 4.46 type"
+      },
+      "playing_style": {
+        "primary_win_condition": "Versatility \u2014 must be able to play single-high free safety, split-field coverage, and come down as a box defender",
+        "most_valued_traits": [
+          "Range and ability to cover ground as a deep-half or single-high defender",
+          "Ball skills and ability to create turnovers \u2014 Watts/Bates combined for 8 INTs in 2025",
+          "Physicality in run support and willingness to tackle",
+          "Versatility to play multiple safety roles",
+          "Football IQ and communication ability"
+        ],
+        "least_important_traits": [
+          "Pure box safety/run-support-only profile \u2014 the defense needs coverage versatility more than a linebacker-sized hitter"
+        ],
+        "deal_breakers": [
+          "Limited range that restricts coverage assignments",
+          "Poor ball skills"
+        ],
+        "traits_that_make_them_reach": "Elite ball production (INTs) combined with range and coverage versatility"
+      },
+      "college_production": {
+        "production_floor": "2+ INTs in final college season for early-round safeties; Watts had 7 INTs at Notre Dame in 2023",
+        "production_trajectory": "Values high ball production \u2014 consistent with Newsome's emphasis on turnovers for the defense",
+        "context_sensitivity": "Moderately high \u2014 weights ball production heavily regardless of competition level"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2022 R2.48 (Bears) \u2014 Jaquan Brisker (Penn State): 6-1, 199, 4.49 40. Hybrid safety with range, physicality, and coverage ability.",
+          "2025 R3 (Falcons, prior regime but Ulbrich scheme) \u2014 Xavier Watts (Notre Dame): Ball-hawking FS, 5 INTs as rookie.",
+          "2025 R4 (Falcons, prior regime) \u2014 Billy Bowman Jr. (Oklahoma): Versatile DB who contributed immediately."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "LB": {
+      "archetype_summary": "Coverage-capable, sideline-to-sideline linebacker who can operate in Ulbrich's multiple defensive scheme. Must be able to cover TEs and RBs in man and zone, blitz effectively, and tackle in space. Ulbrich's Jets defenses featured LBs in heavy coverage roles. Kaden Elliss (2025 All-Pro candidate, 30 pressures, 100+ tackles) exemplifies the ideal: instinctive, productive, coverage-capable. The Bears under Poles drafted Noah Sewell (R5 2023) and Ruben Hyppolite II (R4 2025, Maryland) as developmental LBs. Poles typically addresses LB later in the draft.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "225-250",
+        "arm_length_minimum": "31.5 inches",
+        "key_athletic_tests": "40-yard dash under 4.60 for sideline-to-sideline range. 3-cone under 7.00 for change of direction in coverage. Short shuttle for mirror ability against TEs.",
+        "speed_requirement": "4.60 or faster preferred for modern coverage LB"
+      },
+      "playing_style": {
+        "primary_win_condition": "Three-down ability \u2014 must be able to play all three downs without being a liability in coverage",
+        "most_valued_traits": [
+          "Coverage ability against TEs and RBs in man and zone",
+          "Sideline-to-sideline speed and pursuit angles",
+          "Blitz ability and pass-rush effectiveness from LB depth",
+          "Tackling reliability in space",
+          "Football IQ and play recognition"
+        ],
+        "least_important_traits": [
+          "Pure run-stuffing thumper profile \u2014 modern game requires coverage ability above all for LBs"
+        ],
+        "deal_breakers": [
+          "Coverage liability who can be exploited by TEs and RBs in the passing game",
+          "Limited range and inability to cover ground sideline to sideline"
+        ],
+        "traits_that_make_them_reach": "Elite coverage skills combined with blitz ability \u2014 the hybrid LB/EDGE profile (like Jalon Walker)"
+      },
+      "college_production": {
+        "production_floor": "70+ tackles in final college season for Day 2 LBs",
+        "production_trajectory": "Values multi-year starters with ascending production",
+        "context_sensitivity": "High \u2014 values coverage stats (PBUs, INTs for LBs) as much as tackle numbers"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2025 R1 (Falcons, prior regime) \u2014 Jalon Walker (Georgia): 6-2, 245. Elite hybrid LB/EDGE with coverage and blitz ability.",
+          "2023 R5 (Bears) \u2014 Noah Sewell (Oregon): 6-1, 251. Developmental LB with sideline-to-sideline range.",
+          "2025 R4 (Bears) \u2014 Ruben Hyppolite II (Maryland): Developmental LB, wasn't invited to Combine but showed effort traits."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "WR": {
+      "archetype_summary": "Productive, physical, YAC-capable receiver who can operate in Stefanski's play-action-heavy offense. The Bears under Poles/Cunningham invested heavily in WR: Rome Odunze (Washington, R1 9th 2024, 6-3, 215) was a big-bodied, contested-catch X receiver with plus production (92 catches, 1640 yards). Luther Burden III (Missouri, R2 39th 2025, 6-0, 206) was an electric YAC weapon. Poles also drafted Velus Jones Jr. (R3 2022, 6-0, 204, 4.34) as a speed/special teams addition \u2014 a miss that shows willingness to swing on athletic traits. Stefanski's offense features play-action shots and needs reliable possession receivers who can win after the catch. Drake London is the Falcons' established WR1.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-3",
+        "weight_range": "190-220",
+        "arm_length_minimum": "No strict minimum \u2014 varies by role (outside vs slot)",
+        "key_athletic_tests": "YAC ability is paramount \u2014 Poles described Burden as 'the best [run-after-catch] in this class.' Speed matters but is role-dependent. Contested-catch ability for outside WRs.",
+        "speed_requirement": "4.50 or faster preferred for outside receivers; 4.40 or faster for designated speed threats"
+      },
+      "playing_style": {
+        "primary_win_condition": "Production and versatility \u2014 must be able to win at multiple levels of the field and contribute in multiple ways",
+        "most_valued_traits": [
+          "Run-after-catch ability and contact balance",
+          "Competitive toughness and contested-catch winning",
+          "Route-running ability and separation creation",
+          "Play-action integration \u2014 ability to attack soft spots created by run fakes",
+          "Versatility to play inside and outside"
+        ],
+        "least_important_traits": [
+          "Pure deep-speed specialist profile \u2014 Stefanski's offense is not a vertical-heavy system"
+        ],
+        "deal_breakers": [
+          "Drops and concentration issues",
+          "Inability to contribute after the catch"
+        ],
+        "traits_that_make_them_reach": "Elite YAC ability and competitive toughness \u2014 Poles drafted Burden partially because 'the run-after-the-catch is special, probably the best in this class'"
+      },
+      "college_production": {
+        "production_floor": "55+ catches or 800+ yards in final college season for Day 2 WRs; Odunze had 92/1640/13; Burden had 192 career catches",
+        "production_trajectory": "Values consistent multi-year production over single-season breakouts",
+        "context_sensitivity": "Moderate \u2014 weights production highly but adjusts for offensive system and target share"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2024 R1.9 (Bears) \u2014 Rome Odunze (Washington): 6-3, 215, 4.45 40. Big-bodied WR with elite college production (92/1640/13). Contested-catch specialist.",
+          "2025 R2.39 (Bears) \u2014 Luther Burden III (Missouri): 6-0, 206. Electric YAC weapon with 192 career catches. 'Best run-after-catch in this class.'",
+          "2022 R3.71 (Bears) \u2014 Velus Jones Jr. (Tennessee): 6-0, 204, 4.34 40. Speed/return specialist \u2014 a reach/miss that shows willingness to bet on athleticism."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "TE": {
+      "archetype_summary": "Versatile receiving tight end who can also hold up as an in-line blocker. Stefanski loves multiple TE sets \u2014 he ran heavy 12-personnel in Cleveland and his offense regularly featured TEs as primary pass-catchers. The Bears under Poles/Cunningham drafted Colston Loveland (Michigan, R1 10th 2025, 6-5, 253) as a pure BPA pick despite already having Cole Kmet. Loveland led the Bears with 700+ receiving yards as a rookie. This was the signature BPA pick of the Poles/Cunningham era \u2014 taking a TE at 10 when it wasn't a pressing need. Kyle Pitts is being franchise-tagged by the Falcons for 2026.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "240-260",
+        "arm_length_minimum": "32.5 inches",
+        "key_athletic_tests": "Speed for a TE (4.60 or faster preferred). Vertical jump and broad jump for contested-catch and red-zone ability. Agility tests for route-running capability.",
+        "speed_requirement": "4.65 or faster preferred for receiving TEs; Loveland ran approximately 4.60"
+      },
+      "playing_style": {
+        "primary_win_condition": "Receiving production from the TE position in Stefanski's heavy 12-personnel packages",
+        "most_valued_traits": [
+          "Receiving ability and route-running from the TE position",
+          "Ability to create mismatches against LBs and safeties",
+          "Enough blocking ability to stay on the field in all situations",
+          "Red-zone production and contested-catch ability",
+          "YAC ability and ability to threaten the seam"
+        ],
+        "least_important_traits": [
+          "Elite blocking as primary skill \u2014 receiving TEs are prioritized in Stefanski's system"
+        ],
+        "deal_breakers": [
+          "Pure blocking TE with no receiving upside",
+          "Inability to separate from LBs in coverage"
+        ],
+        "traits_that_make_them_reach": "Elite receiving ability at TE \u2014 Loveland was taken 10th overall as BPA even with Kmet already on roster"
+      },
+      "college_production": {
+        "production_floor": "40+ catches or 500+ yards in final college season for early-round TEs",
+        "production_trajectory": "Values ascending receiving production",
+        "context_sensitivity": "High \u2014 adjusts for TE usage rate in college scheme"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 R1.10 (Bears) \u2014 Colston Loveland (Michigan): 6-5, 253, ~4.60 40. Pure BPA pick \u2014 led Bears with 700+ receiving yards as a rookie despite Cole Kmet already on roster."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "RB": {
+      "archetype_summary": "Deprioritized in the draft. Both the Newsome/Ravens and Poles/Bears trees historically avoided early RB investment. The Bears under Poles never drafted an RB higher than R4 (Roschon Johnson, R4 115th 2023, Texas), with Trestan Ebner (R6 2022) as the only other drafted RB. Poles found his best RB production through UDFA Ian Wheeler and late-round pick Kyle Monangai (R7 2025, Rutgers). The Falcons already have Bijan Robinson, a top-3 NFL RB, so this position is extremely unlikely to be addressed early. Stefanski values a featured back in his wide-zone scheme, and Robinson is an elite fit.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-1",
+        "weight_range": "200-225",
+        "arm_length_minimum": "N/A \u2014 not a primary concern for RBs",
+        "key_athletic_tests": "Burst and vision more important than top-end speed. Short shuttle for lateral movement in zone scheme. Pass-catching ability valued.",
+        "speed_requirement": "4.55 or faster preferred but not a hard cutoff given zone-scheme fit"
+      },
+      "playing_style": {
+        "primary_win_condition": "Zone-scheme fit \u2014 must have patience, vision, and lateral agility to execute in wide-zone run concepts",
+        "most_valued_traits": [
+          "Vision and patience to let zone blocks develop",
+          "Lateral agility and one-cut ability",
+          "Pass-catching ability and pass protection",
+          "Durability and ability to handle high-volume workload"
+        ],
+        "least_important_traits": [
+          "Top-end breakaway speed \u2014 Stefanski's run game is about efficiency and sustained drives, not home-run plays"
+        ],
+        "deal_breakers": [
+          "Inability to pass protect",
+          "Poor vision and decisiveness in zone-blocking scheme"
+        ],
+        "traits_that_make_them_reach": "This front office is extremely unlikely to reach for an RB given philosophical deprioritization and Robinson's presence"
+      },
+      "college_production": {
+        "production_floor": "No established floor \u2014 late-round/UDFA is the preferred investment level",
+        "production_trajectory": "N/A \u2014 not a primary draft target",
+        "context_sensitivity": "Low priority \u2014 will draft for depth/special teams only"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2023 R4.115 (Bears) \u2014 Roschon Johnson (Texas): 6-0, 225. Short-yardage back, 502 yards and 8 TDs in two seasons.",
+          "2022 R6 (Bears) \u2014 Trestan Ebner (Baylor): Speed back, no longer in NFL.",
+          "2025 R7.233 (Bears) \u2014 Kyle Monangai (Rutgers): Late-round steal, contributed immediately."
+        ]
+      },
+      "confidence": "high"
+    },
+    "QB": {
+      "archetype_summary": "Not an immediate draft priority. The Falcons have Michael Penix Jr. (2024 R1 pick, currently rehabbing ACL injury) and Kirk Cousins (contract situation unresolved). Stefanski's offense asks the QB to operate from under center, execute play-action, manage the game, and make accurate intermediate throws. Stefanski coached Kirk Cousins in Minnesota and Baker Mayfield/Joe Flacco/Deshaun Watson in Cleveland \u2014 he tailors the offense to QB strengths but prefers a pocket-forward passer with enough mobility to escape pressure. The Bears under Poles/Cunningham drafted Caleb Williams (USC, R1 1st overall 2024) \u2014 an elite dual-threat talent \u2014 but that was a special circumstance (generational prospect at 1.01).",
+      "physical_profile": {
+        "height_range": "6-1 to 6-5",
+        "weight_range": "210-240",
+        "arm_length_minimum": "N/A",
+        "key_athletic_tests": "Arm strength and accuracy most important. Processing speed and decision-making under pressure. Enough mobility to extend plays.",
+        "speed_requirement": "N/A \u2014 pocket awareness and play-extension ability more important than 40 time"
+      },
+      "playing_style": {
+        "primary_win_condition": "Game management, accuracy, and play-action execution in Stefanski's system",
+        "most_valued_traits": [
+          "Accuracy on intermediate routes, especially off play-action",
+          "Processing speed and pre-snap reads",
+          "Pocket presence and ability to navigate pressure",
+          "Leadership and toughness",
+          "Enough mobility to extend plays \u2014 Stefanski has always catered the offense to fit the quarterback"
+        ],
+        "least_important_traits": [
+          "Elite rushing ability \u2014 Stefanski's offense doesn't require a running QB, though he adapted for Watson"
+        ],
+        "deal_breakers": [
+          "Poor accuracy on play-action shots \u2014 the bread and butter of Stefanski's offense",
+          "Inability to operate from under center"
+        ],
+        "traits_that_make_them_reach": "Elite processing and accuracy \u2014 but only if franchise QB caliber; will not draft developmental backup high"
+      },
+      "college_production": {
+        "production_floor": "Must be a multi-year starter at a competitive program",
+        "production_trajectory": "N/A \u2014 only relevant if franchise-caliber prospect available",
+        "context_sensitivity": "High \u2014 Stefanski and Matt Ryan both deeply understand QB evaluation"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 R1.1 (Bears) \u2014 Caleb Williams (USC): 6-1, 218. Generational talent, Heisman winner. Rare arm talent, mobility, and processing. Poles said 'He's all ball, wants to work, wants to get better, wants to win as a team.'"
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "QB evaluation from Bears tenure was a singular generational prospect scenario. Not indicative of how this front office would evaluate mid-round or developmental QBs. Penix and Cousins' status will determine if QB is addressed at all."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 6,
+    "max_observed_reach": 15,
+    "round_1_reach_tolerance": "N/A \u2014 no R1 pick in 2026",
+    "notes": "Inferred from Bears/Poles tenure with Cunningham: Poles was generally disciplined on value \u2014 traded back from 9 to 10 in 2023 to pick up an extra R4 pick while still getting Wright. Velus Jones Jr. at R3 71 in 2022 was perceived as a reach (WR who was 25 years old). Loveland at 10 was not a reach (universally seen as top-10 talent). Overall, the Poles/Cunningham Bears were value-disciplined in early rounds with occasional reaches on Day 2/3 for scheme-specific athletes."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.65,
+    "offensive_scheme": "Shanahan/Kubiak-influenced wide-zone run scheme with play-action passing. Stefanski was influenced by Gary Kubiak in Minnesota. Offense features under-center formations, heavy use of pre-snap motion, wide-zone runs, and play-action deep shots. Bill Callahan as OL coach ensures zone-blocking fundamentals. Tommy Rees as OC with play-calling duties. Values athletic, versatile offensive linemen who can zone-block.",
+    "defensive_scheme": "Multiple front defense mixing 3-4 and 4-3 looks under Jeff Ulbrich. Heavy Cover-1 man coverage tendency (28.6% with Jets, 7th in NFL). Attack-style pass rush philosophy \u2014 Falcons had franchise-record 57 sacks in 2025. 14 different players recorded sacks. Uses nickel as base (~70% of snaps). Values versatile EDGE players and coverage-capable LBs.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "MAJOR scheme change on offense. Previous regime under Raheem Morris ran a different offensive system. Stefanski's wide-zone, play-action scheme is a complete install. Offensive player archetypes may shift significantly. Defense retains Ulbrich continuity from 2025 \u2014 no scheme change on that side."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.45,
+    "risk_description": "Moderately conservative. Inferred from Newsome/Poles lineage: Newsome was historically risk-averse, preferring 'red star' players (smart, high-effort, high-character). Poles avoided Jalen Carter at 9 in 2023 partly due to character concerns, trading back one spot. However, Poles also took the BPA gamble on Loveland at 10 when it wasn't a need \u2014 showing willingness to take calculated risks. Cunningham likely falls in the conservative-to-moderate range.",
+    "recency_bias": 0.5,
+    "recency_description": "Moderate. Cunningham inherits a team with specific recent failures (no playoffs in 8 years, poor run defense in 2025, QB uncertainty). The franchise's frustration may push toward addressing immediate weaknesses. However, Cunningham's stated BPA philosophy and Poles' mentorship should provide some insulation against pure recency reactions.",
+    "sunk_cost_behavior": "Unknown as GM. Poles showed willingness to move on from investments that weren't working (traded Roquan Smith mid-season, moved on from N'Keal Harry quickly). Cunningham likely follows this pattern given shared philosophy.",
+    "combine_weight": 0.5,
+    "combine_description": "Balanced. Ravens lineage was film-first but valued the combine as a confirming tool. Newsome's draft process emphasized 'meticulous tape analysis and instinctual assessments.' Poles described wanting 'lean mass for the bigs' at the Combine, showing he uses measurables to filter but doesn't over-index on testing alone. Cunningham was described as emphasizing 'meticulous tape analysis' from his Ravens training.",
+    "character_weight": 0.7,
+    "character_description": "High character emphasis. Newsome's Ravens were known for avoiding character risks (he famously chose Ogden over Lawrence Phillips in 1996 despite owner pressure). Poles avoided Jalen Carter partly due to character concerns. Cunningham's introductory presser emphasized 'smart, tough, physical' \u2014 'smart' being the leading descriptor suggests high character/intelligence standards. However, the 2025 Falcons draft under the prior regime included James Pearce Jr., who was subsequently arrested on felony charges \u2014 Cunningham inherits this situation but didn't make the pick.",
+    "quarterback_philosophy": "Build around the franchise QB. Poles/Cunningham went all-in on Caleb Williams at 1.01 in 2024, then immediately surrounded him with weapons (Odunze, Loveland). In Atlanta, the QB situation is unclear \u2014 Penix is rehabbing ACL, Cousins' contract is unresolved. Stefanski has publicly been noncommittal. Cunningham is unlikely to draft a QB high with limited draft capital and existing investments, but Matt Ryan's presence as a former elite QB may shape how the organization evaluates the position."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.6,
+    "production_vs_projection": "Leans toward production but makes occasional projection bets. Odunze (92/1640/13) and Burden (192 career catches) were highly productive picks. Loveland was a productive college TE. However, Austin Booker (6.5 sacks in one year) and Amegadjie (Ivy League) were more projection-based. In tiebreakers, production likely wins \u2014 consistent with Newsome's value-first, disciplined approach.",
+    "production_thresholds_by_position": {
+      "WR": "55+ catches or 800+ yards in final season for Day 2 picks \u2014 Odunze had 92/1640, Burden had 56/714 in 2024 (lower year in his 3-year arc)",
+      "RB": "No minimum \u2014 only drafted late rounds; production less relevant than scheme fit",
+      "EDGE": "5+ sacks in final season for top picks \u2014 Pearce had 10 sacks at Tennessee",
+      "CB": "No clear statistical threshold \u2014 film-first for CBs per Ravens lineage",
+      "TE": "40+ catches preferred \u2014 Loveland had 59 catches at Michigan in 2024",
+      "OT": "Multi-year starter at Power 5 or equivalent"
+    },
+    "breakout_age_sensitivity": 0.55,
+    "dominator_rating_sensitivity": 0.5,
+    "notes": "Ravens lineage emphasizes that production matters but context does too. Newsome's mantra was BPA \u2014 and production is a key input to determining who the 'best player' is. Cunningham's Eagles tenure under Roseman also valued production \u2014 Roseman drafted highly productive players like DeVonta Smith, Jalen Hurts (at a value slot), and Dallas Goedert."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "40_yard_max": 4.5,
+        "min_arm_length": "31 inches",
+        "confidence": "medium"
+      },
+      "EDGE": {
+        "min_arm_length": "33 inches",
+        "confidence": "medium"
+      },
+      "WR": {
+        "no_clear_threshold": true,
+        "notes": "Bears drafted WRs across the athletic spectrum \u2014 Odunze (4.45), Jones (4.34), Burden (4.45). Values production and YAC over pure speed."
+      },
+      "OT": {
+        "min_arm_length": "33.75 inches",
+        "confidence": "medium"
+      },
+      "S": {
+        "40_yard_max": 4.55,
+        "confidence": "medium"
+      },
+      "DT": {
+        "no_clear_threshold": true,
+        "notes": "First-step quickness valued over combine numbers. Poles looked at 'lean mass' over raw weight."
+      }
+    },
+    "threshold_type": "Mostly soft preferences rather than hard cutoffs. The Ravens/Poles tree uses measurables as confirming data alongside film rather than eliminators. Will break thresholds for exceptional film grades.",
+    "size_preferences_by_position": {
+      "DT": "285+ for 3-tech, 310+ for nose \u2014 flexible based on production",
+      "LB": "225-250 range preferred for modern coverage LB",
+      "S": "6-0+ preferred for range safety",
+      "OT": "305+ minimum, 320+ preferred for zone-scheme tackle",
+      "WR": "No strong size preference \u2014 range from 5-10 to 6-3 in recent draft picks"
+    },
+    "athletic_testing_favorites": "Poles emphasized 'lean mass for the bigs' \u2014 values body composition and functional athleticism over raw testing numbers. Vertical jump and broad jump as explosiveness proxies. 3-cone and short shuttle for lateral movement (critical for zone-blocking OL and coverage defenders).",
+    "measurables_vs_film": "Film-first overall. Cunningham's Ravens training was described as emphasizing 'meticulous tape analysis and instinctual assessments.' However, measurables serve as a floor/filter at premium positions. Poles publicly stated Burden was 'the most talented player on the board' based on film first, with athleticism confirming."
+  },
+  "round_strategy": {
+    "round_1_strategy": "N/A for 2026 \u2014 Falcons have no first-round pick (traded to Rams for James Pearce Jr. in 2025). Historical Bears/Poles R1 approach: strict BPA regardless of need. Took Loveland (TE) at 10 when it wasn't a pressing need. Took Odunze (WR) at 9 over EDGE when EDGE was a bigger need. This BPA discipline should carry to future drafts when Cunningham has a R1 pick.",
+    "round_2_3_strategy": "This is where the Falcons' 2026 draft effectively begins. Expect a shift toward need-informed BPA \u2014 Cunningham has limited capital (5 picks) and needs to maximize every selection. Poles' Bears shifted toward need-filling on Day 2 \u2014 Stevenson (CB, R2) and Dexter (DT, R2) were both need-meeting BPA picks. With picks at 48 and 79, Cunningham will likely target the best available player at a position of need, prioritizing DL (nose tackle), WR, IOL, or EDGE.",
+    "day_3_strategy": "Developmental athletes and scheme-specific fits. Poles consistently found Day 3 contributors: Braxton Jones (R5 LT starter), Roschon Johnson (R4 short-yardage RB), Kyle Monangai (R7 steal). Expect Cunningham to target high-upside athletes with limited college production, special teams contributors, and positional depth. With only picks at 114, 195, and 231, every Day 3 pick must have a clear path to contributing.",
+    "compensatory_pick_usage": "No comp picks in 2026 draft. Cunningham will need to manufacture additional picks through trades to supplement limited capital."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "OL": {
+        "picks": 5,
+        "starters": 3,
+        "rate": 0.6,
+        "note": "Bears/Poles OL drafting was solid \u2014 Wright, Jones, Trapilo all starters. Amegadjie TBD. Cunningham's OL background (former guard) likely aids evaluation."
+      },
+      "WR": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Odunze and Burden were strong picks; Velus Jones was a miss."
+      },
+      "CB": {
+        "picks": 2,
+        "starters": 2,
+        "rate": 1.0,
+        "note": "Gordon and Stevenson both became starters, though Stevenson had off-field issues."
+      },
+      "DT": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Dexter became starter but Pickens and Bell struggled. Interior DL evaluation is a potential blind spot."
+      },
+      "S": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Brisker was a quality pick. Small sample size."
+      },
+      "EDGE": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Booker (R5) was developmental only. Bears didn't invest high capital at EDGE in the draft \u2014 traded for Montez Sweat instead."
+      },
+      "QB": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Caleb Williams at 1.01 \u2014 generational talent, not indicative of mid-round QB evaluation."
+      },
+      "TE": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Loveland at 10 \u2014 signature BPA pick that paid off immediately."
+      }
+    },
+    "blind_spots": [
+      "Interior DL evaluation appears inconsistent \u2014 Dexter worked out but Pickens and Bell did not. May need to adjust confidence for Day 2/3 DT picks."
+    ],
+    "strengths": [
+      "OL evaluation is a clear strength \u2014 consistent with Cunningham's playing background as a guard at Virginia. CB evaluation has been strong. WR evaluation improving after early miss on Jones."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Moderate and strategic. Cunningham explicitly said he won't 'mortgage the future for the now' and wants to avoid dead money. This aligns with Newsome's Ravens, who were 'patient and deliberate' in FA, often waiting out the initial frenzy. Poles' Bears were FA-active when roster holes demanded it (Thuney, Dalman, Byard) but always maintained draft as the primary building method. Expect Cunningham to be strategic in FA \u2014 filling 1-2 critical holes while preserving cap flexibility.",
+    "fa_draft_correlation": "When a position is addressed in FA, it drops in draft priority but isn't eliminated. Poles signed Keenan Allen in FA but still drafted Odunze (WR, R1) and Burden (WR, R2) \u2014 showing that FA additions don't prevent BPA picks at the same position. However, with only 5 picks, the Falcons may be more strategic about not doubling up.",
+    "roster_construction_philosophy": "Build through the draft at premium positions, supplement through FA and trades. 'Draft, develop, and retain' is the stated core. Cunningham values draft capital as currency \u2014 can be used for picks or traded for proven players. Prefers to retain homegrown talent rather than overpay in FA."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": "0 as Falcons GM; 40+ analyzed from Bears tenure (2022-2025) where Cunningham was AGM",
+    "notable_patterns": [
+      "Bears under Poles/Cunningham had offense-heavy early-round drafting: no defensive player in R1 from 2019-2024 (longest streak in NFL)",
+      "Strict BPA approach in round 1 \u2014 took Loveland at 10 despite having Kmet, took Odunze at 9 despite EDGE need",
+      "Active traders \u2014 averaged 3-4 trades per draft, frequently moving back to accumulate picks",
+      "OL investment through both draft and FA \u2014 prioritized building the trenches",
+      "Day 3 is for developmental athletes and special teams \u2014 Braxton Jones (R5 \u2192 starter) and Kyle Monangai (R7 \u2192 contributor) were best values"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2022,
+        "pick": "3.71",
+        "player": "Velus Jones Jr.",
+        "position": "WR",
+        "consensus_rank": "100+",
+        "reach_amount": 30,
+        "context": "25-year-old speed receiver with limited production. Poles compared him to Deebo Samuel/Tyreek Hill versatility. Has been the most criticized pick of the Poles/Cunningham tenure."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2022,
+        "pick": "5.168",
+        "player": "Braxton Jones",
+        "position": "OT",
+        "consensus_rank": "200+",
+        "value_amount": 32,
+        "context": "Small-school (Southern Utah) OT who became a 3-year starting left tackle."
+      },
+      {
+        "year": 2025,
+        "pick": "7.233",
+        "player": "Kyle Monangai",
+        "position": "RB",
+        "consensus_rank": "200+",
+        "value_amount": 30,
+        "context": "7th-round pick who became one of the draft's best steals per multiple outlets."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_notes": "Zero drafts as Falcons GM. Profile is 85% lineage-based (Newsome \u2192 Roseman \u2192 Poles mentorship tree) and 15% based on Cunningham's own stated philosophy, which perfectly mirrors his mentors. Bears draft history (2022-2025) is the best proxy data since Cunningham was intimately involved as AGM \u2014 Poles credited Cunningham extensively and brought him to key events like Williams' Pro Day. Key risk factors: first-time GM may deviate from mentor patterns; new coaching staff (Stefanski) creates scheme-driven draft needs that may override pure BPA; no first-round pick limits ability to express R1 tendencies; Matt Ryan's influence as President of Football is an unknown variable. Profile should be significantly refreshed after the 2026 draft.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

@@ -1,0 +1,872 @@
+{
+  "team": {
+    "name": "Tennessee Titans",
+    "abbreviation": "TEN",
+    "division": "AFC South",
+    "current_draft_position": 4
+  },
+  "front_office": {
+    "gm": {
+      "name": "Mike Borgonzi",
+      "title": "General Manager",
+      "hired": "2025-01-17",
+      "previous_role": "Assistant General Manager, Kansas City Chiefs",
+      "drafts_as_gm": 1,
+      "confidence": "low"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Brown University",
+          "role": "Player (Fullback)",
+          "years": "1998-2001",
+          "mentor": "N/A \u2014 Ivy League education, business management degree"
+        },
+        {
+          "org": "Amherst College",
+          "role": "Tight Ends Coach",
+          "years": "2002",
+          "mentor": "N/A \u2014 first coaching experience"
+        },
+        {
+          "org": "Financial Sector (Boston)",
+          "role": "Mutual fund accounting, sales",
+          "years": "2003-2006",
+          "mentor": "N/A \u2014 worked outside football"
+        },
+        {
+          "org": "Boston College",
+          "role": "Assistant Recruiting Coordinator",
+          "years": "2007-2008",
+          "mentor": "N/A \u2014 pro liaison work connecting him with NFL scouts"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "College Scouting Administrator",
+          "years": "2009",
+          "mentor": "Scott Pioli (GM)"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Manager of Football Operations",
+          "years": "2010",
+          "mentor": "Scott Pioli (GM)"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Pro Personnel Scout",
+          "years": "2011-2012",
+          "mentor": "Scott Pioli (GM 2009-2012), then John Dorsey (GM starting 2013)"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Assistant Director of Pro Scouting",
+          "years": "2013-2014",
+          "mentor": "John Dorsey (GM), Chris Ballard (Director of Player Personnel)"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Co-Director of Player Personnel (alongside Brett Veach)",
+          "years": "2015-2016",
+          "mentor": "John Dorsey (GM)"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Director of Player Personnel",
+          "years": "2017",
+          "mentor": "Brett Veach (GM, promoted mid-2017)"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Director of Football Operations",
+          "years": "2018-2020",
+          "mentor": "Brett Veach (GM), Andy Reid (HC)"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Assistant General Manager",
+          "years": "2021-2024",
+          "mentor": "Brett Veach (GM), Andy Reid (HC)"
+        },
+        {
+          "org": "Tennessee Titans",
+          "role": "General Manager",
+          "years": "2025-present",
+          "mentor": "N/A \u2014 first GM role"
+        }
+      ],
+      "primary_mentor": "Scott Pioli (gave him his NFL start), then Brett Veach (worked under/alongside him for 8 years as GM)",
+      "philosophical_lineage": "Pioli tree (Patriots/Parcells lineage emphasizing detail, process, structure, character) crossed with Veach/Reid Chiefs dynasty tree (build through trenches, BPA with positional value overlay, aggressive on elite talent, late-round development). Pioli was named NFL Executive of the Year five times and Executive of the Decade for 2000-2010. Borgonzi also worked under John Dorsey (2013-2016) and alongside Chris Ballard (2013-2016), both noted talent evaluators. The Chiefs tree values O-line and D-line as premium positions, leverages late-round scouting differentiation, and prioritizes football character.",
+      "breakpoints": "Limited data as first-year GM. His 2025 draft showed willingness to trade down (35 to 52+82) to accumulate capital, which aligns with Chiefs philosophy but was more aggressive than Veach's typical pattern. Drafted a developmental EDGE conversion project (Oladejo) in round 2, suggesting a higher tolerance for projection/athleticism bets than pure Pioli-school production emphasis. Stated he wants to create 'the model for the Tennessee Titans' rather than replicate KC.",
+      "lineage_weight": 0.75,
+      "lineage_weight_notes": "Only 1 draft as Titans GM. Chiefs lineage must be weighted heavily. After 2026 draft, lineage weight should drop to 0.50. After 3rd draft, drop to 0.30."
+    },
+    "primary_decision_maker": "Mike Borgonzi",
+    "key_influencers": [
+      {
+        "name": "Robert Saleh",
+        "title": "Head Coach",
+        "influence_level": "high",
+        "known_biases": "Defensive-minded HC from Seattle/San Francisco defensive lineage. Coached under Pete Carroll (Legion of Boom) and alongside Kyle Shanahan. Wants fast, violent, physical defense. Values versatile front-seven players who can rush and drop. Has developed All-Pro DL (Nick Bosa) and All-Pro CB (Sauce Gardner). Hired Gus Bradley as DC \u2014 another Pete Carroll disciple who runs wide-9/Cover-3 scheme. Preaches 'violence, speed, and talking shit.'"
+      },
+      {
+        "name": "Dave Ziegler",
+        "title": "Assistant General Manager",
+        "influence_level": "medium-high",
+        "known_biases": "New England Patriots tree (2013-2021) \u2014 emphasis on scheme versatility, positional flexibility, smart/dependable players. Was Raiders GM briefly (2022-2023). Brings Belichick-school evaluation DNA: values players who can do multiple things, discipline, football IQ. Broncos scouting background (2010-2012) as well."
+      },
+      {
+        "name": "Reggie McKenzie",
+        "title": "Vice President/Football Advisor",
+        "influence_level": "medium",
+        "known_biases": "Green Bay Packers tree (1994-2011) under Ron Wolf and Ted Thompson \u2014 draft-and-develop philosophy, BPA emphasis, character-first. Was Raiders GM (2012-2018) and won NFL Executive of the Year in 2016. Brings veteran perspective on building through the draft."
+      },
+      {
+        "name": "Brian Daboll",
+        "title": "Offensive Coordinator",
+        "influence_level": "medium",
+        "known_biases": "Belichick/Saban coaching tree. Former Giants HC. Values versatile offensive weapons, creative play design, and QB development. Was OC for Josh Allen's breakout in Buffalo. Will influence offensive draft preferences toward playmakers who fit his system."
+      },
+      {
+        "name": "Gus Bradley",
+        "title": "Defensive Coordinator",
+        "influence_level": "medium",
+        "known_biases": "Pete Carroll disciple. Runs Seattle-style Cover-3/wide-9 defense. Wants long, fast, physical defensive players. Needs specific archetype: EDGE rushers who can play in wide-9 alignment, long corners who can play press, rangy single-high safeties, linebackers with sideline-to-sideline speed."
+      },
+      {
+        "name": "Chad Brinker",
+        "title": "President of Football Operations",
+        "influence_level": "low-medium",
+        "known_biases": "Green Bay Packers background (came up in Packers organization). Oversees salary cap, analytics, R&D. Does not have final say on 53-man roster \u2014 that is Borgonzi's domain. Reports separately to owner. Influence is more structural/financial than talent evaluation."
+      }
+    ],
+    "power_dynamics": "Borgonzi has clear final say on 53-man roster and coaching staff, reporting directly to owner Amy Adams Strunk. Front office restructured in January 2026 to eliminate ambiguity: Borgonzi handles all player/coaching decisions, Brinker handles salary cap and operations. Both report to owner independently. Search committee for HC hire included Borgonzi (lead), Brinker, Ziegler, McKenzie, and VP of Player Personnel Dan Saganey. Collaborative evaluation process with multiple experienced voices, but Borgonzi holds the pen.",
+    "owner_interference": "low-medium \u2014 Amy Adams Strunk has fired two GMs in three years (Robinson in 2022, Carthon in 2025) and a HC mid-season (Callahan in Oct 2025), showing willingness to make decisive moves. However, the restructuring specifically gives Borgonzi traditional GM authority. Strunk appears engaged but not meddling in individual player decisions."
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.65,
+    "bpa_weight_by_round": {
+      "1": 0.75,
+      "2": 0.55,
+      "3": 0.55,
+      "4_plus": 0.4
+    },
+    "stated_philosophy": "Draft picks are our biggest form of currency. Build through the trenches. Take the best player available while accounting for positional value and scarcity. Draft, develop, and retain model. Accumulate top-100 picks.",
+    "actual_philosophy": "In his only draft (2025), took the consensus QB1 at 1.01 (clear BPA/need convergence), traded down to accumulate picks (35 to 52+82), then addressed need at EDGE with a developmental athlete (Oladejo at 52), took a falling safety prospect (Winston at 82), and loaded up on offensive skill players on Day 3. The trade-down and developmental EDGE pick suggest a willingness to deviate from pure BPA when accumulating capital or betting on athletic upside. Chiefs lineage strongly suggests positional value matters \u2014 Veach publicly states O-line and D-line get the tiebreaker 'if all things are equal.'",
+    "philosophy_mismatch_notes": "Insufficient data to determine mismatch after only 1 draft. The Oladejo pick at 52 was widely viewed as a reach for a raw conversion prospect, suggesting Borgonzi may lean more toward projection/athletic traits than his stated 'build through the trenches' philosophy would imply. Bears watching in 2026."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.25,
+    "trade_down_willingness": 0.7,
+    "trades_per_draft_average": 1.0,
+    "trade_triggers": [
+      "Accumulating top-100 picks \u2014 stated goal of 12 top-100 picks over 3 drafts",
+      "Clear tier break where moving back 15+ spots still lands quality prospects",
+      "QB availability when franchise need exists (held firm at 1.01 for Ward despite trade offers)"
+    ],
+    "draft_capital_philosophy": "Strongly values accumulating Day 2 picks. Traded 35th overall for 52nd and 82nd in 2025 \u2014 prioritized quantity in top-100 over single higher pick. Said 'draft picks are our biggest form of currency' and 'the goal is to get as many picks in the top 100 as you can.' Chiefs background: Veach was open to trading down when the value was right but also traded up 4 spots for Xavier Worthy in 2024. Borgonzi's early tendency leans toward accumulation over consolidation."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "QB",
+        "EDGE",
+        "OT",
+        "CB"
+      ],
+      "tier_2_high": [
+        "DT",
+        "WR",
+        "S"
+      ],
+      "tier_3_mid": [
+        "IOL",
+        "LB",
+        "TE"
+      ],
+      "tier_4_low": [
+        "RB",
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "RB in early rounds \u2014 Chiefs under Veach found RB value late (Pacheco in 7th round). Borgonzi compared Jeremiyah Love to Jahmyr Gibbs at 2026 Combine but beat writers doubt he takes RB at 4th overall. Likely addresses RB on Day 2-3 or FA."
+    ],
+    "position_premium": [
+      "EDGE \u2014 massive roster need, took developmental EDGE in round 2 of first draft, interviewed all top EDGE prospects at 2026 Combine (Bain, Bailey, Reese). Chiefs tree historically prioritized pass rush. Robert Saleh's defensive scheme demands high-end edge talent.",
+      "OT/IOL \u2014 Chiefs lineage: Veach said 'you're always going to stick to the premium positions, O-line and D-line.' Borgonzi immediately signed OL help (Dan Moore, Kevin Zeitler) before the 2025 draft, moved to extend Peter Skoronski."
+    ]
+  },
+  "player_archetype_preferences": {
+    "QB": {
+      "archetype_summary": "Dynamic playmaker with elite arm talent and off-script ability. Not a pure pocket passer or pure runner \u2014 wants a QB who can create from the pocket but extend plays. Selected Cam Ward 1.01: a mobile pocket passer with creative arm angles, off-platform throwing ability, and alpha leadership. Chiefs background valued Patrick Mahomes (the ultimate off-script playmaker), suggesting Borgonzi prizes improvisational ability and arm talent over mechanical perfection.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4",
+        "weight_range": "215-235",
+        "arm_length_minimum": "N/A for QBs",
+        "key_athletic_tests": "Arm velocity and throw power are non-negotiable. Pocket mobility matters more than 40 time. Hand size flagged as discussion point (Ward measured 9-inch hands) but did not deter selection.",
+        "speed_requirement": "No specific 40 threshold \u2014 Ward ran 4.87. Mobility is about play extension, not designed runs."
+      },
+      "playing_style": {
+        "primary_style": "Mobile pocket passer with off-script playmaking ability",
+        "most_valued_traits": [
+          "Elite arm talent with multiple arm angles",
+          "Off-platform throwing ability",
+          "Leadership and competitive alpha personality",
+          "Play extension and pocket escapability",
+          "Ability to generate explosive passing plays"
+        ],
+        "least_important_traits": [
+          "Textbook mechanics \u2014 Ward has unorthodox mechanics but produces",
+          "Designed rushing ability"
+        ],
+        "deal_breakers": [
+          "Passive personality \u2014 Borgonzi/Titans 'fell in love with' Ward's alpha personality and work ethic",
+          "Limited arm strength"
+        ],
+        "traits_that_make_them_reach": "Insufficient data \u2014 only 1 QB drafted"
+      },
+      "college_production": {
+        "production_floor": "Must be a proven multi-year starter with ascending production trajectory",
+        "production_trajectory": "Ward showed ascending trajectory: FCS star \u2192 Pac-12 starter \u2192 ACC Heisman finalist. 4,313 yards and 39 TDs in final season. Borgonzi values growth arc.",
+        "context_sensitivity": "High \u2014 Ward's production across three different programs and levels (FCS, Group of 5, Power 5) was viewed as evidence of adaptability"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 1.01 \u2014 Cam Ward: 6-1, 219 lbs, 9-inch hands. Miami (FL). 4,313 passing yards, 39 TD, 7 INT in 2024. Heisman finalist, Davey O'Brien Award winner. Mobile pocket passer with creative arm angles and off-platform ability."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 QB drafted, and it was the consensus QB1 at 1.01. Profile heavily inferred from Chiefs tree (Mahomes archetype) and Ward's specific traits. Cannot determine if Borgonzi would draft a pure pocket passer or pure runner at QB."
+    },
+    "EDGE": {
+      "archetype_summary": "Athletic, versatile pass rusher with length and upside. Willing to bet on raw athleticism and positional conversion over polished technique. Oladejo was a linebacker-to-EDGE convert with elite explosiveness but limited pass rush moves. The Gus Bradley/Robert Saleh wide-9 scheme needs EDGE players who can rush from a two-point stance, set the edge in the run game, and generate pressure with speed-to-power or pure burst. At the 2026 Combine, Borgonzi praised interviews with Rueben Bain (6-3, 270, power rusher), David Bailey (6-3, 250, explosive speed rusher), and Arvell Reese (hybrid LB/EDGE) \u2014 suggesting openness to multiple EDGE archetypes.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "245-275",
+        "arm_length_minimum": "33 inches preferred based on Oladejo pick (33 3/8 arms), though Bain's sub-31-inch arms being discussed suggests not an absolute dealbreaker if production is elite",
+        "key_athletic_tests": "Vertical jump (Oladejo: 36.5 inches) and broad jump (Oladejo: 120 inches) as explosiveness indicators. Bench press matters for power at POA (Oladejo: 20 reps).",
+        "speed_requirement": "4.70 or faster preferred \u2014 Oladejo ran 4.70 at pro day. But film-based burst/first step matters more than timed speed for this front office."
+      },
+      "playing_style": {
+        "primary_win_condition": "Versatility and explosive athleticism \u2014 Saleh/Bradley scheme wants EDGE players who can rush and set the edge. Not married to one win type.",
+        "most_valued_traits": [
+          "Explosive first step and closing burst",
+          "Versatility to stand up or hand in dirt",
+          "Length and leverage at point of attack",
+          "Motor and effort consistency",
+          "Run defense ability and edge-setting"
+        ],
+        "least_important_traits": [
+          "Polished pass rush repertoire \u2014 Borgonzi drafted Oladejo who was raw with limited moves but elite athletic traits"
+        ],
+        "deal_breakers": [
+          "One-dimensional pass rusher who cannot defend the run",
+          "Lack of athletic traits/explosiveness \u2014 this front office bets on upside"
+        ],
+        "traits_that_make_them_reach": "Elite explosiveness metrics (vertical, broad jump, first step) can make them reach \u2014 Oladejo was widely considered a reach at 52 but his athletic profile was exceptional"
+      },
+      "college_production": {
+        "production_floor": "No clear floor \u2014 Oladejo had only 4.5 sacks in his final season and 6 total career sacks. Production was not the driver; athletic projection was.",
+        "production_trajectory": "Ascending trajectory valued \u2014 Oladejo's move from LB to EDGE showed rapid improvement. Senior Bowl performance (2 sacks in the game) appeared to boost his stock significantly.",
+        "context_sensitivity": "Very high \u2014 Borgonzi credited Oladejo's scheme fit and position-switch context rather than raw sack totals"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 2.52 \u2014 Oluwafemi Oladejo: 6-3, 259 lbs, 33 3/8-inch arms, 9 3/4-inch hands. UCLA. Vert: 36.5 inches, Broad: 120 inches, 20 bench reps. 4.5 sacks, 13.5 TFL in final season. LB-to-EDGE conversion project. Raw but explosive."
+        ]
+      },
+      "confidence": "low-medium",
+      "confidence_note": "Only 1 EDGE drafted. 2026 Combine interviews (Bain, Bailey, Reese) provide supplementary signal. Saleh/Bradley scheme requirements provide additional constraint: wide-9 alignment needs. Chiefs tree also valued pass rush highly."
+    },
+    "OT": {
+      "archetype_summary": "Athletic, versatile lineman who can operate in multiple blocking schemes. Chiefs lineage valued athletic OTs who could pass protect and move in space. Borgonzi signed Dan Moore (FA) and moved to extend Peter Skoronski before drafting any OT, suggesting he prefers to address OT through FA/extensions when possible and draft OTs when BPA aligns. Saleh/Bradley scheme with Daboll offense likely wants OTs who can handle both zone concepts and pass protection at a high level.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-6",
+        "weight_range": "305-325",
+        "arm_length_minimum": "34 inches \u2014 Chiefs tree historically emphasized arm length for OTs (e.g., Jawaan Taylor: 35-inch arms)",
+        "key_athletic_tests": "Athleticism valued \u2014 Chiefs drafted athletic linemen like Trey Smith. Short shuttle and 3-cone for lateral movement ability in zone schemes.",
+        "speed_requirement": "N/A for OTs \u2014 movement skills matter more than straight-line speed"
+      },
+      "playing_style": {
+        "primary_style": "Pass-protection-first with zone-scheme versatility",
+        "most_valued_traits": [
+          "Pass protection technique and anchor",
+          "Lateral agility and mirror ability",
+          "Zone blocking reach and cutoff ability",
+          "Football IQ and recognition",
+          "Durability and availability"
+        ],
+        "least_important_traits": [
+          "Pure mauling run-blocking power without pass pro ability"
+        ],
+        "deal_breakers": [
+          "Cannot pass protect at NFL level",
+          "Poor athleticism for scheme requirements"
+        ],
+        "traits_that_make_them_reach": "Insufficient data from Borgonzi tenure \u2014 inferred from Chiefs tree"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter at Power 5 program preferred",
+        "production_trajectory": "Values experience and development over early starting \u2014 Chiefs historically drafted experienced OL",
+        "context_sensitivity": "Scheme matters \u2014 wants linemen from zone-based or versatile systems"
+      },
+      "evidence": {
+        "picks_analyzed": 0,
+        "examples": [
+          "No OT drafted in 2025. Borgonzi addressed OT through FA (Dan Moore) and extension talks (Skoronski). Chiefs tree reference: Trey Smith (6-6, 321, 2021 6th round \u2014 became All-Pro), Creed Humphrey (6-5, 302, 2021 2nd round), Jawaan Taylor (signed in FA)."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "No OTs drafted. Profile entirely inferred from Chiefs tree, scheme requirements, and FA behavior. Borgonzi publicly stated 'I felt like our priority was to build the offensive line first' before the 2025 draft."
+    },
+    "IOL": {
+      "archetype_summary": "Powerful, versatile interior lineman who can anchor in pass protection and move in zone concepts. Jackson Slater was a small-school (Sacramento State) guard who dominated FCS competition with tremendous power and exploded at the Senior Bowl. The pick suggests Borgonzi values raw power, Senior Bowl/all-star game performance, and is comfortable with small-school talent if the athletic traits translate.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "300-330",
+        "arm_length_minimum": "No clear minimum \u2014 Slater was a power player",
+        "key_athletic_tests": "Bench press and power metrics. Short shuttle for zone-scheme lateral movement.",
+        "speed_requirement": "N/A for IOL"
+      },
+      "playing_style": {
+        "primary_style": "Power-first guard with zone-scheme development potential",
+        "most_valued_traits": [
+          "Anchor strength and power at point of attack",
+          "Drive blocking ability",
+          "Versatility to play guard and center",
+          "Physicality and toughness",
+          "Football IQ and coachability"
+        ],
+        "least_important_traits": [
+          "Elite lateral movement \u2014 can be developed if power base is strong"
+        ],
+        "deal_breakers": [
+          "Cannot anchor against NFL power rushers",
+          "Lack of competitive toughness"
+        ],
+        "traits_that_make_them_reach": "Senior Bowl/all-star game standout performance"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter, conference honors preferred",
+        "production_trajectory": "Slater was a multi-year All-Big Sky performer before exploding at Senior Bowl",
+        "context_sensitivity": "Willing to look past small-school level if traits and all-star game performance validate"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 5.167 \u2014 Jackson Slater: G, Sacramento State. Small-school talent who dominated at Senior Bowl. Versatile enough to play guard and center. Selected as developmental piece behind Kevin Zeitler."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "1 IOL drafted (Day 3). Chiefs tree provides supplementary data: KC drafted Creed Humphrey (2nd round, 2021), Trey Smith (6th round, 2021), and Kingsley Suamataia \u2014 all became quality starters."
+    },
+    "DT": {
+      "archetype_summary": "No DT drafted in 2025, but roster context is instructive: Jeffery Simmons (4x Pro Bowler) anchors the interior. Saleh/Bradley's defense needs a disruptive interior presence next to Simmons. The 2025 roster also included T'Vondre Sweat (2024 2nd-round pick, Carthon era). Chiefs tree valued interior DL \u2014 Veach said 'interior D-line, edge rushers, they're hard to find.' Expect Borgonzi to value penetrating, disruptive interior players who complement Simmons.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4",
+        "weight_range": "280-330 (3-tech: 280-310, nose: 310-340)",
+        "arm_length_minimum": "33+ inches for interior DL preferred in Saleh/Bradley scheme",
+        "key_athletic_tests": "First-step quickness (10-yard split), short shuttle for lateral disruption. Vertical jump as explosiveness proxy.",
+        "speed_requirement": "N/A for DTs \u2014 quickness off the snap matters more than 40 time"
+      },
+      "playing_style": {
+        "primary_style": "Penetrating, disruptive interior rusher in Saleh/Bradley wide-9 scheme",
+        "most_valued_traits": [
+          "First-step quickness and interior penetration",
+          "Ability to collapse the pocket from inside",
+          "Versatility across interior alignments",
+          "Motor and relentless effort",
+          "Run-stuffing ability at point of attack"
+        ],
+        "least_important_traits": [
+          "Elite pass rush moves \u2014 can be developed if athletic traits are present"
+        ],
+        "deal_breakers": [
+          "Cannot hold point of attack against double teams",
+          "Low motor/effort"
+        ],
+        "traits_that_make_them_reach": "Elite interior pass rush ability \u2014 very rare trait"
+      },
+      "college_production": {
+        "production_floor": "N/A \u2014 no DT drafted under Borgonzi",
+        "production_trajectory": "N/A",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 0,
+        "examples": [
+          "No DT drafted in 2025. Roster already has Jeffery Simmons and T'Vondre Sweat. Chiefs tree reference: Chris Jones (2016 2nd round under Dorsey/Borgonzi era) became one of the NFL's best interior rushers."
+        ]
+      },
+      "confidence": "very_low",
+      "confidence_note": "No DTs drafted. Profile inferred entirely from scheme requirements (Saleh/Bradley), roster construction, and Chiefs tree (Chris Jones archetype)."
+    },
+    "CB": {
+      "archetype_summary": "Long, physical, athletic corner who can play press coverage. No CB drafted in rounds 1-4 of 2025, but Marcus Harris (6th round) fits the mold: Idaho-to-Cal transfer who ran a reported 4.38 at pro day and is aggressive and athletic. Saleh/Bradley's Cover-3 base defense needs long outside corners who can press and play man on the outside, plus a physical nickel. Chiefs tree valued CBs highly \u2014 Veach made DBs his go-to in round 4 (L'Jarius Sneed, Trent McDuffie in 1st round). Borgonzi noted CB as a position of value in the 2026 draft class. Beat reporters note this front office has 'size thresholds' they prefer for CBs.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-2",
+        "weight_range": "185-205",
+        "arm_length_minimum": "31+ inches \u2014 beat writers specifically noted 'size thresholds this front office prefer'",
+        "key_athletic_tests": "40-yard dash is critical \u2014 Harris ran 4.38. Speed is non-negotiable for outside CBs in Cover-3. Short shuttle for change of direction.",
+        "speed_requirement": "4.50 or faster \u2014 Saleh/Bradley scheme demands man-press capability which requires speed"
+      },
+      "playing_style": {
+        "primary_coverage_style": "Press-man capable in a Cover-3 shell \u2014 Saleh/Bradley defense asks CBs to press on the outside and funnel receivers inside to the single-high safety",
+        "most_valued_traits": [
+          "Length and press disruption at line of scrimmage",
+          "Speed to recover in man coverage",
+          "Physical tackling in run support",
+          "Ability to play outside in Cover-3",
+          "Competitive toughness and aggression"
+        ],
+        "least_important_traits": [
+          "Zone-only coverage skills \u2014 scheme demands man-press ability above all"
+        ],
+        "deal_breakers": [
+          "Cannot play press coverage",
+          "Lack of speed to match NFL receivers on the outside",
+          "Poor tackling \u2014 Saleh demands physical corners"
+        ],
+        "traits_that_make_them_reach": "Elite press technique with length \u2014 Sauce Gardner archetype (Saleh coached Gardner with Jets)"
+      },
+      "college_production": {
+        "production_floor": "No clear threshold \u2014 Harris had solid but unspectacular stats. Film and athletic traits appear to matter more than interception totals.",
+        "production_trajectory": "Prefers multi-year starters \u2014 Harris played 4 years across two schools",
+        "context_sensitivity": "Adjusts for conference and competition level"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 6.183 \u2014 Marcus Harris: CB, California. 4.38 pro day 40. Aggressive, athletic corner. Best tackling DB in draft class per some evaluators. Transferred from Idaho to Cal. Started 13 games in 2024: 46 tackles, 2 INTs, 6 PBUs."
+        ]
+      },
+      "confidence": "low-medium",
+      "confidence_note": "Only 1 CB drafted (Day 3). Saleh/Bradley scheme requirements provide strong constraint signal. Chiefs tree (McDuffie, Sneed) adds context. Borgonzi noted CB value in 2026 draft class at Combine. Beat writer noted 'size thresholds this front office prefer.'"
+    },
+    "S": {
+      "archetype_summary": "Big, physical, run-support safety with enough range to play in a Cover-3 shell. Kevin Winston Jr. (3rd round) embodies this: 6-2, 213 lbs, elite tackler, physical enforcer, strong in run support with developing coverage skills. Saleh/Bradley scheme typically uses a single-high free safety (needs range) and a strong safety who plays in the box and covers TEs. Winston fits the strong/box safety role. The Titans already have Amani Hooker as the ranging free safety type.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "200-220",
+        "arm_length_minimum": "32+ inches \u2014 Winston measured 32.5-inch arms, above 78th percentile for position",
+        "key_athletic_tests": "Explosiveness matters: vertical jump, broad jump, closing speed. Winston's pre-injury athleticism (reportedly 4.3 range) was elite. 40 time matters but context of injury recovery considered.",
+        "speed_requirement": "4.55 or faster preferred \u2014 Winston ran 4.50 at pro day post-ACL, was reportedly 4.3-range pre-injury"
+      },
+      "playing_style": {
+        "primary_role": "Physical box/strong safety with coverage development upside in Cover-3 shell",
+        "most_valued_traits": [
+          "Elite tackling ability and physicality",
+          "Run-support instincts and downhill explosion",
+          "Length and ability to cover tight ends",
+          "Linear explosiveness and closing speed",
+          "Leadership and competitive toughness"
+        ],
+        "least_important_traits": [
+          "Deep centerfield range \u2014 role doesn't demand it if paired with ranging FS",
+          "Ball-hawking instincts \u2014 Winston's INT production was low but coverage was sound"
+        ],
+        "deal_breakers": [
+          "Cannot tackle in space \u2014 tackling is the baseline requirement",
+          "Too small to play physical role in the box"
+        ],
+        "traits_that_make_them_reach": "Combination of size, speed, and physicality at the safety position \u2014 Winston was potentially a 1st-round talent pre-injury"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter preferred \u2014 Winston started 13 games in 2023 with 60 tackles, 2.5 TFL, 1 INT, 5 PBU before ACL in 2024",
+        "production_trajectory": "Ascending production valued \u2014 Winston broke out as a sophomore starter. Injury in junior year was evaluated as recoverable.",
+        "context_sensitivity": "Medical evaluation context: Borgonzi was willing to draft a player coming off an ACL tear in the 3rd round, suggesting medical staff clearance overrides injury concerns when talent warrants it"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 3.82 \u2014 Kevin Winston Jr.: S, Penn State. 6-2, 213 lbs, 32.5-inch arms. 4.50 pro day 40 (post-ACL). Led Penn State with 60 tackles in 2023. Physical enforcer with elite tackling. Fell due to ACL injury in 2024. Would have been top-50 pick healthy."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "1 safety drafted, but the pick is highly revealing: Borgonzi values physical, big-bodied safeties with run support ability. Matches Saleh defensive lineage (Kam Chancellor archetype in Seattle, Jamal Adams with Jets). Chiefs tree also valued safeties (Juan Thornhill, Justin Reid)."
+    },
+    "LB": {
+      "archetype_summary": "No traditional off-ball LB drafted in 2025, but the Saleh/Bradley scheme provides strong constraints. In Saleh's defenses, LBs need sideline-to-sideline speed, coverage ability (especially on TEs and RBs), and instincts against the run. Fred Warner became an All-Pro under Saleh in SF. C.J. Mosley returned to Pro Bowl form under Saleh with Jets. At the 2026 Combine, Borgonzi noted 'it's a good linebacker group' and interviewed Arvell Reese (Ohio State), a hybrid LB/EDGE who some project to LB in certain schemes.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "225-250",
+        "arm_length_minimum": "32+ inches preferred for Saleh/Bradley system",
+        "key_athletic_tests": "40-yard dash (sideline-to-sideline speed), 3-cone drill (change of direction for coverage), short shuttle. Explosiveness tests for blitz ability.",
+        "speed_requirement": "4.60 or faster for WILL/coverage LB. MIKE can be slightly slower if instincts compensate."
+      },
+      "playing_style": {
+        "primary_style": "Athletic, coverage-capable linebacker who can run sideline-to-sideline",
+        "most_valued_traits": [
+          "Coverage ability on TEs and RBs",
+          "Sideline-to-sideline range and speed",
+          "Football IQ and instincts against run and pass",
+          "Tackling ability in space",
+          "Versatility to play multiple LB spots"
+        ],
+        "least_important_traits": [
+          "Pure thumper/run-stuffer without coverage ability \u2014 Saleh scheme asks LBs to cover"
+        ],
+        "deal_breakers": [
+          "Cannot cover in space \u2014 coverage liability LBs don't fit Saleh's scheme",
+          "Slow processing speed"
+        ],
+        "traits_that_make_them_reach": "Elite coverage ability from LB \u2014 rare trait that commands premium (Fred Warner archetype)"
+      },
+      "college_production": {
+        "production_floor": "N/A \u2014 no LB drafted",
+        "production_trajectory": "N/A",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 0,
+        "examples": [
+          "No off-ball LB drafted in 2025. Acquired Jerome Baker (veteran LB) via trade. Saleh developed Fred Warner (All-Pro), C.J. Mosley (Pro Bowl), Quincy Williams (All-Pro) \u2014 all athletic, coverage-capable LBs."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "No LBs drafted. Profile inferred from Saleh coaching tree (Fred Warner archetype) and 2026 Combine interview intel (Arvell Reese). Borgonzi noted LB group strength in 2026 draft."
+    },
+    "WR": {
+      "archetype_summary": "Speed-first playmakers who can stretch the field and contribute on special teams, plus big-bodied contested-catch types. Borgonzi invested three 4th-round picks on pass-catchers in 2025: Chimere Dike (speed/returner), Gunnar Helm (TE/receiver), and Elic Ayomanor (big-bodied X receiver). Dike's 4.34 40 was a combine standout; Ayomanor is physical and explosive for his size. The diversity of profiles suggests Borgonzi values different WR archetypes for different roles rather than one template.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-3 (diverse \u2014 Dike 6-1, Ayomanor 6-2)",
+        "weight_range": "185-215",
+        "arm_length_minimum": "No clear minimum \u2014 Dike had 32-inch arms",
+        "key_athletic_tests": "40-yard dash is critical for deep threats (Dike: 4.34). Vertical jump for contested catch receivers (Ayomanor: explosive for his size). Short shuttle and 3-cone for route-running WRs.",
+        "speed_requirement": "Sub-4.45 preferred for primary outside/deep threat role. But route-running and contested catch ability can compensate for slower times."
+      },
+      "playing_style": {
+        "primary_roles": "Multiple archetypes targeted: speed/deep threat (Dike), big-bodied X/contested catch (Ayomanor), route-running technician (valued per Helm's development as TE/receiver)",
+        "most_valued_traits": [
+          "Explosive speed and vertical threat ability (Dike: 4.34)",
+          "Ball-tracking and contested catch ability (Ayomanor: 'physical, fast, smart')",
+          "Special teams/return value (Dike became starting punt/kick returner)",
+          "Route-running development potential",
+          "Toughness and ability to win at catch point"
+        ],
+        "least_important_traits": [
+          "Possession-only receiver with no speed or YAC ability"
+        ],
+        "deal_breakers": [
+          "Cannot separate against NFL coverage in any way \u2014 needs either speed or physicality or route craft",
+          "Drop issues \u2014 Ayomanor flagged for drops but drafted anyway, so not absolute dealbreaker if other traits compensate"
+        ],
+        "traits_that_make_them_reach": "Elite timed speed (sub-4.40) with return value \u2014 Dike was a combine riser based on his 4.34"
+      },
+      "college_production": {
+        "production_floor": "Moderate \u2014 Dike had 42 catches for 783 yards (not elite). Ayomanor had 63 catches for 831 yards. Neither was a dominant statistical producer.",
+        "production_trajectory": "Values ascending production and breakout final seasons \u2014 both Dike and Ayomanor had their best years in final college season. Helm had massive breakout in senior year.",
+        "context_sensitivity": "Adjusts for competition level and system \u2014 Dike came from Wisconsin/Florida, Ayomanor from Stanford (limited offensive context)"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2025 4.103 \u2014 Chimere Dike: WR, Florida. 6-1, 196 lbs, 32-inch arms. 4.34 40-yard dash (97th percentile), 38.5-inch vertical, 128-inch broad jump. 42 catches, 783 yards, 2 TD in 2024. Elite speed, return specialist. Became starting punt/kick returner and set NFL rookie all-purpose yards record.",
+          "2025 4.136 \u2014 Elic Ayomanor: WR, Stanford. 6-2. 63 catches, 831 yards, 6 TD in 2024. Second-team All-ACC. Big-bodied, physical, explosive for his size. Contested catch winner."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "2 WRs drafted (both Day 3). Diverse profiles suggest no single archetype preference. Chiefs tree provides supplementary context: Veach drafted Xavier Worthy (elite speed), Rashee Rice (production-first), Mecole Hardman (speed/returner) \u2014 similarly diverse."
+    },
+    "TE": {
+      "archetype_summary": "Athletic, receiving-first tight end with soft hands and route development potential. Gunnar Helm (4th round) is a 6-5, 241-lb receiving TE from Texas with a late breakout: 60 catches, 786 yards, 7 TD in his senior season. Basketball background shows in his ability to find space and make contested catches. Not an elite athlete by testing (sprained ankle affected combine numbers) but plays faster than he tests. Borgonzi values TE receiving ability \u2014 Daboll's offense will use TEs extensively.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-6",
+        "weight_range": "235-260",
+        "arm_length_minimum": "32.5+ inches \u2014 Helm measured 32.75-inch arms",
+        "key_athletic_tests": "3-cone drill for route-running (Helm: 7.15). Combine testing should be contextualized with injury (Helm sprained ankle). Film evaluation matters more for TEs.",
+        "speed_requirement": "Sub-4.90 preferred but not eliminator \u2014 Helm ran 4.84 on injured ankle"
+      },
+      "playing_style": {
+        "primary_style": "Receiving-first TE with developing blocking ability",
+        "most_valued_traits": [
+          "Soft hands and reliable catching ability",
+          "Route-running feel and ability to find space",
+          "RAC ability after the catch",
+          "Ascending production trajectory",
+          "High-effort blocking willingness"
+        ],
+        "least_important_traits": [
+          "Elite inline blocking power \u2014 developmental, not a requirement on Day 1"
+        ],
+        "deal_breakers": [
+          "Cannot catch the football reliably",
+          "No competitive toughness or effort in blocking"
+        ],
+        "traits_that_make_them_reach": "Late breakout production combined with athletic profile and multi-sport background"
+      },
+      "college_production": {
+        "production_floor": "Significant breakout required \u2014 Helm had only 236 yards through first 3 seasons but exploded to 786 yards and 7 TD as senior",
+        "production_trajectory": "Strong preference for late breakout/ascending trajectory \u2014 Helm's development arc was the selling point",
+        "context_sensitivity": "Evaluates within context of offensive system and usage \u2014 Helm's limited early production was attributed to depth chart and development, not lack of ability"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 4.120 \u2014 Gunnar Helm: TE, Texas. 6-5, 241 lbs, 32.75-inch arms, 9.875-inch hands. 40: 4.84 (injured ankle), 3-cone: 7.15. 60 catches, 786 yards, 7 TD in 2024 (senior breakout). Second-team All-SEC. Basketball background. Reliable hands, developing route runner."
+        ]
+      },
+      "confidence": "low-medium",
+      "confidence_note": "1 TE drafted on Day 3. Chiefs tree provides some supplementary data: KC drafted Travis Kelce (3rd round, 2013 \u2014 pre-Borgonzi's senior role) and Noah Gray (5th round, 2021). Borgonzi clearly values TE as an offensive weapon. Daboll's offense will feature TE heavily."
+    },
+    "RB": {
+      "archetype_summary": "Physical, versatile back who brings toughness, pass protection, and special teams value. Kalel Mullings (6th round) was a former LB who converted to RB at Michigan \u2014 a physically imposing power runner (6-1.5, 226 lbs) who brings linebacker mentality to the backfield. His LB background gives him elite pass protection instincts. This fits the Chiefs mold: Veach found Isiah Pacheco in the 7th round. Borgonzi compared Jeremiyah Love to Jahmyr Gibbs at the 2026 Combine, suggesting he values pass-catching backs at the top of drafts but addresses RB late if the value is there.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-2",
+        "weight_range": "210-235",
+        "arm_length_minimum": "N/A for RBs",
+        "key_athletic_tests": "No combine testing for Mullings (injury). Physical profile and film are the evaluators. Speed is secondary to toughness and versatility.",
+        "speed_requirement": "No minimum \u2014 Mullings did not participate in drills. Toughness and physicality matter more."
+      },
+      "playing_style": {
+        "primary_style": "Physical, downhill power runner with pass protection ability and special teams value",
+        "most_valued_traits": [
+          "Physicality and contact balance",
+          "Pass protection ability and blitz recognition",
+          "Special teams contribution",
+          "Toughness and competitive spirit",
+          "Versatility (Mullings played LB and RB)"
+        ],
+        "least_important_traits": [
+          "Home-run speed/breakaway ability \u2014 not required for a Day 3 RB selection"
+        ],
+        "deal_breakers": [
+          "Cannot pass protect \u2014 Borgonzi learned from Mahomes-era Chiefs where RB pass pro is essential"
+        ],
+        "traits_that_make_them_reach": "Versatility and positional conversion ability \u2014 Mullings' LB-to-RB switch was a selling point"
+      },
+      "college_production": {
+        "production_floor": "Not high \u2014 Mullings had 948 yards and 12 TD in his one full season as lead back (2024). Previously a backup/rotational player.",
+        "production_trajectory": "Late conversion/development is acceptable \u2014 Mullings only became a full-time RB in 2024. His 4-0 record vs. Ohio State and big-game performances mattered.",
+        "context_sensitivity": "Very high \u2014 credited Michigan's offensive system and Mullings' limited career opportunity rather than penalizing low career totals"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 6.188 \u2014 Kalel Mullings: RB, Michigan. 6-1.5, 226 lbs, 31.75-inch arms, 10-inch hands. No combine drills (injured). Former LB convert. 948 rushing yards, 12 TD in 2024. Physical runner, elite pass protector, special teams contributor. Won national championship at Michigan."
+        ]
+      },
+      "confidence": "low-medium",
+      "confidence_note": "1 RB drafted (Day 3). Chiefs tree strongly suggests RB is a late-round/UDFA position \u2014 Pacheco (7th round) was a franchise-changing pick. Borgonzi's Gibbs comparison for Love at 2026 Combine suggests he can see elite RBs as premium if they catch passes, but unlikely to take one high without exceptional circumstances."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 12,
+    "max_observed_reach": 20,
+    "round_1_reach_tolerance": 0,
+    "round_2_reach_tolerance": 15,
+    "notes": "Ward at 1.01 was consensus \u2014 no reach. Oladejo at 52 was widely viewed as a significant reach (many had him as a Day 3 prospect). This suggests high reach tolerance in rounds 2-3 when Borgonzi identifies athletic upside he values. Chiefs tree also reached on athletic profiles historically. Only 1 draft of data \u2014 treat with caution."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.65,
+    "offensive_scheme": "Brian Daboll offense: versatile, QB-centric system designed to maximize Cam Ward's playmaking. Expected to feature heavy play-action, RPOs, and multiple personnel groupings. Daboll ran creative, adaptable offenses in Buffalo (Josh Allen) and NY Giants. Will use multiple TEs, motion, and diverse run concepts. Values versatile offensive weapons who can line up in multiple spots.",
+    "defensive_scheme": "Gus Bradley defense: Seattle-style wide-9, Cover-3 base. Demands specific player archetypes: long, fast EDGE rushers in wide-9 alignment, physical press-man corners on the outside, a ranging single-high safety, a box/strong safety, athletic LBs with coverage ability. Robert Saleh calls defensive plays himself. Saleh wants team to be 'fast and violent.' This defense has historically produced elite front-seven play (Nick Bosa, Sauce Gardner, Quinnen Williams developed under Saleh).",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "MAJOR scheme change. Brian Callahan fired mid-2025. Robert Saleh (defensive-minded HC) hired Jan 2026 with Brian Daboll (OC) and Gus Bradley (DC). Complete offensive and defensive scheme overhaul from Callahan era. This will significantly impact draft preferences \u2014 Bradley's wide-9 has very specific player requirements that differ from the 2025 scheme. ALL defensive archetype preferences should be viewed through the Saleh/Bradley lens."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.6,
+    "risk_description": "Moderately aggressive. Drafted a raw LB-to-EDGE conversion project in round 2 (Oladejo) and a recovering-ACL safety in round 3 (Winston). Both were higher-risk, higher-upside selections. Also took a Day 3 flier on a LB-to-RB convert (Mullings). Chiefs background under Veach involved calculated risks (trading up for Mahomes, drafting Pacheco in 7th round). Borgonzi appears willing to bet on upside and development when the athletic traits are elite.",
+    "recency_bias": 0.55,
+    "recency_description": "Moderate. After inheriting a roster with no viable QB, immediately prioritized QB (Ward at 1.01) and pass rush (Oladejo at 52) \u2014 the two biggest holes. But also addressed WR need with three Day 3 pass-catchers. In 2026, facing massive EDGE need after 2025 EDGE investment underperformed (Oladejo had limited production). All three top EDGE prospects interviewed at Combine. Some recency bias likely.",
+    "sunk_cost_behavior": "Insufficient data \u2014 only 1 season of picks. However, Borgonzi inherited picks from two prior GMs (Robinson, Carthon) and quickly moved on from underperforming inherited players (released Harold Landry, traded Ernest Jones). Suggests willingness to cut ties rather than double down.",
+    "combine_weight": 0.55,
+    "combine_description": "Balanced but leans toward athletic testing. Dike's 4.34 combine was reportedly a big factor in his 4th-round selection. Oladejo's Senior Bowl performance (2 sacks in the game) was a key driver. Winston's pro day 40 (4.50 post-ACL) was important for evaluating his recovery. However, Borgonzi also trusted film over testing: Helm's poor combine numbers (sprained ankle) didn't tank his evaluation. Overall approach: testing confirms film, but elite testing can elevate a player significantly.",
+    "character_weight": 0.7,
+    "character_description": "High character emphasis. Chiefs tree under Pioli was character-first. Borgonzi's first extended interview: 'their football character \u2014 it really carries over to the next level.' Draft Network noted Titans 'drafted experienced, mature prospects who established themselves as leaders at their programs.' Ward's 'alpha personality and natural leadership' were selling points. Mullings was a team captain and national champion. McKenzie (advisor) comes from Green Bay character-first tradition. No character-risk picks observed in 2025.",
+    "quarterback_philosophy": "QB is the foundation. Borgonzi held firm at 1.01 for Ward despite trade offers. Said 'We have to solidify that position' about QB at the 2025 Combine. Coming from KC where Mahomes was the franchise, Borgonzi understands the value of an elite QB. Will go all-in on a franchise QB when the opportunity presents (Ward at 1.01) but won't reach for a developmental backup when the roster has bigger holes."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.45,
+    "production_vs_projection": "Leans toward projection and athletic upside over pure production. Oladejo (4.5 sacks, LB convert) and Mullings (1 full season as RB) had limited production but exceptional traits. However, Ward (4,313 yards, 39 TD) and Ayomanor (63 catches, 831 yards) were productive. The pattern: Borgonzi requires elite production OR elite projection, not necessarily both. When production and projection align (Ward), it's a slam-dunk pick. When production is modest but athletic traits are exceptional (Oladejo), he'll bet on the upside.",
+    "production_thresholds_by_position": {
+      "QB": "Must be a multi-year starter with ascending trajectory \u2014 Ward: 4,313 yards, 39 TD",
+      "EDGE": "No minimum sack threshold \u2014 Oladejo had only 4.5 sacks. Athletic traits and scheme fit matter more.",
+      "WR": "No clear minimum \u2014 Dike had 42 catches, Ayomanor had 63. Moderate production is acceptable if traits are elite.",
+      "S": "60+ tackles in a full starting season \u2014 Winston had 60 tackles in 13 starts in 2023",
+      "TE": "Breakout final season required \u2014 Helm: 60 catches, 786 yards, 7 TD",
+      "RB": "No clear minimum \u2014 Mullings had 948 yards in 1 full season. Context and traits dominate."
+    },
+    "breakout_age_sensitivity": 0.4,
+    "dominator_rating_sensitivity": 0.35,
+    "notes": "Borgonzi does not appear to be a strict production-threshold evaluator. He values ascending trajectories and contextual production more than raw numbers. Multiple picks (Oladejo, Mullings, Helm) had limited production histories but exceptional development arcs or athletic profiles. This may reflect the Chiefs' experience finding gems like Pacheco (7th round, limited college production) and developing them."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "QB": {
+        "no_clear_threshold": true,
+        "notes": "Ward: 6-1, 219, 9-inch hands. Arm talent matters more than any timed metric. Hand size flagged but did not prevent 1.01 selection.",
+        "confidence": "low"
+      },
+      "EDGE": {
+        "min_arm_length": "33 inches",
+        "vertical_min": "35 inches",
+        "broad_jump_min": "118 inches",
+        "notes": "Oladejo: 33 3/8 arms, 36.5 vert, 120 broad. Athletic explosiveness metrics heavily weighted. However, Borgonzi interviewed Rueben Bain at 2026 Combine whose sub-31-inch arms are a concern \u2014 production may override length.",
+        "confidence": "low"
+      },
+      "CB": {
+        "40_yard_max": 4.5,
+        "min_height": "5-11",
+        "notes": "Harris: 4.38 pro day 40. Speed is essential. Beat writers note 'size thresholds this front office prefer.'",
+        "confidence": "low"
+      },
+      "S": {
+        "min_height": "6-0",
+        "min_arm_length": "32 inches",
+        "notes": "Winston: 6-2, 213, 32.5 arms. Size and physicality at safety are valued.",
+        "confidence": "low-medium"
+      },
+      "WR": {
+        "no_clear_threshold": true,
+        "notes": "Dike ran 4.34 (elite speed) while Ayomanor was drafted for size/physicality. No single athletic threshold \u2014 values different traits for different WR roles.",
+        "confidence": "low"
+      },
+      "OT": {
+        "min_arm_length": "34 inches",
+        "notes": "Inferred from Chiefs tree. No OT drafted under Borgonzi.",
+        "confidence": "very_low"
+      },
+      "TE": {
+        "min_height": "6-4",
+        "notes": "Helm: 6-5, 241. Size is important for receiving TEs to win at catch point.",
+        "confidence": "low"
+      },
+      "RB": {
+        "no_clear_threshold": true,
+        "notes": "Mullings did not do combine drills. Physicality and versatility matter more than timed metrics.",
+        "confidence": "very_low"
+      }
+    },
+    "threshold_type": "Mostly soft preferences with 1 draft of data. EDGE arm length and CB speed appear most likely to be harder cutoffs based on scheme demands (Bradley wide-9 wants length, Cover-3 demands speed).",
+    "size_preferences_by_position": {
+      "EDGE": "250+ lbs preferred for wide-9 edge setting \u2014 Oladejo was 259",
+      "CB": "5-11+ for outside corners \u2014 scheme demands length at the catch point",
+      "S": "6-0+, 200+ lbs for physical safety role \u2014 Winston was 6-2, 213",
+      "WR": "No strong size preference \u2014 values speed (Dike 6-1) and size (Ayomanor 6-2) for different roles",
+      "DT": "Inferred: 290+ for 3-tech, 310+ for nose based on Simmons (6-4, 305) and Sweat profiles"
+    },
+    "athletic_testing_favorites": "Vertical jump and broad jump for explosiveness (EDGE, S). 40-yard dash for speed positions (CB, WR). Senior Bowl and all-star game performance weighted heavily (Oladejo, Slater both Senior Bowl standouts). Film-first overall but elite combine testing can push a player up significantly (Dike's 4.34 was reportedly a 'big factor').",
+    "measurables_vs_film": "Film-first with measurables as confirmers and occasionally as deal-makers. Helm's poor combine (sprained ankle) didn't tank his draft position because film was strong. Dike's elite combine elevated him. Oladejo's Senior Bowl film combined with explosive testing drove the selection. Overall: elite testing + strong film = reaches are acceptable. Poor testing + strong film = still draftable. Poor testing + average film = passed over."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium positions, franchise-altering talent. Took consensus QB1 at 1.01 in 2025. For 2026, holding 4th overall pick \u2014 all signals point toward EDGE rusher (Bain, Bailey, or Reese) given massive pass rush need and Saleh's defensive identity. Borgonzi has shown he will stay put if the player warrants it but is open to trade-down scenarios if the value isn't there. Would not be surprised to see him hold firm at 4 for an EDGE or trade down if non-premium BPA is available.",
+    "round_2_3_strategy": "This is where Borgonzi's value-accumulation approach shines. Traded 35 to 52+82 in 2025 to get two picks instead of one. Addressed EDGE need at 52 (Oladejo) and took falling value at 82 (Winston post-ACL). Expect similar approach in 2026: try to accumulate multiple top-100 picks. Shift toward need-filling but still willing to bet on upside/value. Stated goal of 12 top-100 picks over 3 years.",
+    "day_3_strategy": "Trait-based developmental picks with special teams value. 2025 Day 3: Dike (speed/returner), Helm (receiving TE development), Ayomanor (contested catch WR), Slater (power guard from small school), Harris (athletic CB/special teams), Mullings (physical RB/special teams). Clear pattern: every Day 3 pick had either an elite athletic trait OR a special teams pathway to the roster. Multiple 4th-round picks used on pass-catchers to surround Ward with weapons.",
+    "compensatory_pick_usage": "Insufficient data \u2014 no compensatory picks observed in distinct usage pattern yet."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "QB": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Ward started all 17 games as rookie, showed franchise QB potential despite 3-14 record"
+      },
+      "EDGE": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Oladejo played only 6 games with limited production (13 tackles, 2 TFL). Widely viewed as disappointing first year."
+      },
+      "S": {
+        "picks": 1,
+        "starters": 0.5,
+        "rate": 0.5,
+        "note": "Winston made 10 appearances, 6 starts, 34 tackles, 1 sack. Solid but limited by late-season injury recovery."
+      },
+      "WR": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Dike was excellent as returner (set NFL rookie all-purpose yards record) and contributing WR (48 catches). Ayomanor showed flashes as WR3."
+      },
+      "TE": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Helm played 16 games, 44 catches, 357 yards. Immediate contributor as receiving TE."
+      },
+      "IOL": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Slater was a developmental pick behind Zeitler. Expected to compete for starting role in 2026."
+      },
+      "RB": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Mullings placed on IR during rookie season."
+      },
+      "CB": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Harris played 14 games with 25 tackles and 5 PBU. Nickel/special teams contributor."
+      }
+    },
+    "blind_spots": [
+      "EDGE evaluation is a question mark \u2014 Oladejo was the biggest 'reach' in the draft and had limited Year 1 production. Need more data to determine if this was a miss or developmental patience."
+    ],
+    "strengths": [
+      "WR/skill position evaluation appears strong \u2014 Dike and Helm were immediate contributors. QB evaluation (Ward) looks promising. Day 3 value-finding ability appears solid."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Strategic, targeted FA spending to fill immediate holes and allow BPA drafting. In 2025, signed Dan Moore (OT) and Kevin Zeitler (G) to stabilize OL before the draft, which allowed Borgonzi to take BPA rather than forced OL pick. Also signed Tyler Lockett (WR) to provide veteran presence while developing young receivers. Traded for Jermaine Johnson (EDGE) at 2026 Combine to partially address pass rush before the draft.",
+    "fa_draft_correlation": "When veteran starters are signed at a position, that position drops in draft priority but doesn't disappear entirely (still took WRs on Day 3 despite signing Lockett). Uses FA to take pressure off early-round draft picks.",
+    "roster_construction_philosophy": "Draft, develop, and retain. Build through the draft at premium positions, use FA to fill gaps and provide veteran stability. Direct quote from Brinker about Borgonzi: 'the draft, develop and retain model.' Chiefs-learned approach: build the core through the draft, supplement through targeted FA. Borgonzi's 2025 offseason: addressed OL through FA, drafted QB/EDGE/S/WR/TE through draft."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 9,
+    "notable_patterns": [
+      "Traded down from 35 to 52+82 on Day 2 to accumulate top-100 picks \u2014 capital accumulation priority",
+      "Held firm at 1.01 for franchise QB despite trade offers \u2014 won't trade away generational/franchise-altering talent",
+      "Drafted 3 pass-catchers in 4th round (Dike WR, Helm TE, Ayomanor WR) \u2014 aggressive skill-position investment on Day 3",
+      "Every draft pick had either an elite athletic trait or special teams value or both",
+      "Prioritized experienced, mature, high-character prospects who were team leaders",
+      "Willing to draft injured players at a discount (Winston ACL, Mullings missed pre-draft process)",
+      "Small-school talent acceptable if traits and all-star game performance validate (Slater from Sacramento State, Harris from Idaho/Cal)"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2025,
+        "pick": "2.52",
+        "player": "Oluwafemi Oladejo",
+        "position": "EDGE",
+        "consensus_rank": "Day 3 prospect (most analysts had him rounds 5-7 pre-Senior Bowl, rounds 3-4 post-Senior Bowl)",
+        "reach_amount": "15-30 picks depending on source",
+        "context": "LB-to-EDGE conversion project with elite athleticism (36.5 vert, 120 broad). Senior Bowl standout with 2 sacks in game. Clear EDGE need after Landry release. Raw but explosive \u2014 classic Chiefs-tree upside bet."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2025,
+        "pick": "3.82",
+        "player": "Kevin Winston Jr.",
+        "position": "S",
+        "consensus_rank": "Top-50 player pre-ACL injury",
+        "value_amount": "30+ picks",
+        "context": "Would have been a potential 1st-round pick if healthy. Tore ACL in Week 2 of 2024 season, causing slide. Borgonzi bet on medical recovery and got a first-round talent in the third round."
+      },
+      {
+        "year": 2025,
+        "pick": "4.103",
+        "player": "Chimere Dike",
+        "position": "WR",
+        "consensus_rank": "Late Day 2 to early Day 3",
+        "value_amount": "Moderate value \u2014 became NFL's top rookie returner",
+        "context": "4.34 combine made him a riser. Moderate college production but elite speed and return ability translated immediately. Set NFL rookie all-purpose yards record."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_notes": "Only 1 draft as Titans GM. Previous role was Assistant GM in Kansas City \u2014 not the final decision-maker. Profile is heavily inferred from: (1) Chiefs/Veach/Pioli scouting tree, (2) one draft of actual picks, (3) Robert Saleh/Gus Bradley scheme requirements (brand new coaching staff), (4) public statements at Combine and press conferences. Major scheme change with Saleh/Bradley hire means defensive preferences are being reshaped. Profile should be significantly refreshed after the 2026 draft. The front office has multiple strong voices (Ziegler from Patriots tree, McKenzie from Packers tree) which may create evaluation diversity that doesn't perfectly match any one scouting lineage.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

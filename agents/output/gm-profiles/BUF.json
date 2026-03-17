@@ -1,0 +1,904 @@
+{
+  "team": {
+    "name": "Buffalo Bills",
+    "abbreviation": "BUF",
+    "division": "AFC East",
+    "current_draft_position": 26
+  },
+  "front_office": {
+    "gm": {
+      "name": "Brandon Beane",
+      "title": "President of Football Operations / General Manager",
+      "hired": "2017-05-09",
+      "previous_role": "Assistant General Manager, Carolina Panthers",
+      "drafts_as_gm": 8,
+      "confidence": "high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Carolina Panthers",
+          "role": "Public Relations Intern",
+          "years": "1998",
+          "mentor": "Dom Capers (HC)"
+        },
+        {
+          "org": "Carolina Panthers",
+          "role": "Football Operations Assistant",
+          "years": "1999-2007",
+          "mentor": "Marty Hurney (GM from 2002)"
+        },
+        {
+          "org": "Carolina Panthers",
+          "role": "Director of Football Operations",
+          "years": "2008-2012",
+          "mentor": "Marty Hurney (GM)"
+        },
+        {
+          "org": "Carolina Panthers",
+          "role": "Interim General Manager",
+          "years": "2012 (final 10 games)",
+          "mentor": "Jerry Richardson (Owner)"
+        },
+        {
+          "org": "Carolina Panthers",
+          "role": "Director of Football Operations (continued under new GM)",
+          "years": "2013-2014",
+          "mentor": "Dave Gettleman (GM)"
+        },
+        {
+          "org": "Carolina Panthers",
+          "role": "Assistant General Manager",
+          "years": "2015-2016",
+          "mentor": "Dave Gettleman (GM)"
+        },
+        {
+          "org": "Buffalo Bills",
+          "role": "General Manager",
+          "years": "2017-2025",
+          "mentor": "Self / Terry Pegula (Owner)"
+        },
+        {
+          "org": "Buffalo Bills",
+          "role": "President of Football Operations / General Manager",
+          "years": "2026-present",
+          "mentor": "Self"
+        }
+      ],
+      "primary_mentor": "Dave Gettleman and Marty Hurney (Carolina Panthers)",
+      "philosophical_lineage": "Hurney tree for cap management and roster construction. Gettleman tree for player evaluation methodology \u2014 Gettleman personally mentored Beane on film study and prospect grading starting in 2013. Beane's scouting education came relatively late in his career; he was operations-first and learned evaluation from Gettleman. Also worked under HCs Dom Capers, George Seifert, John Fox, and Ron Rivera in Carolina, giving him exposure to multiple defensive and offensive philosophies. His evaluation DNA is Gettleman-influenced: physicality, toughness, character, and 'hog mollies' (big physical linemen) are core values. Sean McDermott's defensive background (Andy Reid/Eagles tree) shaped the defensive side of draft selections for 8 years.",
+      "breakpoints": "Beane is more willing to draft raw/toolsy athletes than Gettleman was \u2014 the Josh Allen pick being the defining departure. Gettleman was more conservative and production-focused. Beane also more actively trades draft picks than Gettleman, who preferred to accumulate and stay pat. Beane has self-admitted aggressive tendencies in trading up that differ from Gettleman's more patient approach.",
+      "lineage_weight": 0.15,
+      "lineage_weight_notes": "8 drafts of own data make Beane's own track record the dominant signal. Gettleman/Hurney lineage is now background context only."
+    },
+    "primary_decision_maker": "Brandon Beane",
+    "key_influencers": [
+      {
+        "name": "Joe Brady",
+        "title": "Head Coach",
+        "influence_level": "medium-high",
+        "known_biases": "Offensive-minded, values pass protection and QB development around Josh Allen. Came from Sean Payton/Saints tree via Carolina and LSU. Committed to running the ball \u2014 led NFL's #1 rushing offense in 2025. Will want offensive weapons but is a new HC with less draft room authority than McDermott had."
+      },
+      {
+        "name": "Jim Leonhard",
+        "title": "Defensive Coordinator",
+        "influence_level": "medium",
+        "known_biases": "First-year DC. Runs a 3-4 base defense, shifting from Bills' prior 4-3. Values versatile defenders, aggressive pass rush philosophy. Wants to stop the run to create passing situations. Former safety \u2014 secondary-minded."
+      },
+      {
+        "name": "Brian Gaine",
+        "title": "Assistant General Manager",
+        "influence_level": "medium",
+        "known_biases": "Experienced NFL executive, former Texans GM. Key personnel evaluator alongside Beane."
+      },
+      {
+        "name": "Terrance Gray",
+        "title": "Director of Player Personnel",
+        "influence_level": "medium",
+        "known_biases": "Part of Beane's core scouting leadership team. Involved in college evaluation process."
+      }
+    ],
+    "power_dynamics": "Beane has full and final authority over the roster and draft. Was promoted to President of Football Operations in January 2026 after McDermott was fired, meaning the new HC Joe Brady reports to Beane. Previously, McDermott and Beane reported separately to owner Pegula. This is a significant power consolidation \u2014 Beane now has more unilateral control than at any point in his tenure.",
+    "owner_interference": "medium \u2014 Terry Pegula was directly involved in firing McDermott after emotional postgame reaction. He credited Beane with the Josh Allen pick. Pegula made public comments about WR Keon Coleman that drew criticism. Not a football operations meddler day-to-day but capable of emotional decisions."
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.6,
+    "bpa_weight_by_round": {
+      "1": 0.65,
+      "2": 0.5,
+      "3": 0.55,
+      "4_plus": 0.4
+    },
+    "stated_philosophy": "Best player available. Has repeatedly said 'We're going to take the best player' and told his staff to 'hold me accountable' if he reaches. Has also said 'you don't pass up good players to drop down to handle a need.'",
+    "actual_philosophy": "Leans BPA in round 1 but frequently addresses clear needs in rounds 2-3. The 2021 draft (EDGE-EDGE in rounds 1-2 after AFC Championship loss where Mahomes was sacked once) and 2025 draft (5 straight defensive picks after playoff defensive failures) show strong recency/need bias. However, picks like James Cook (RB in round 2 when RB wasn't a top need) and Dalton Kincaid (TE round 1 when TE wasn't a dire need) show genuine BPA leanings. The tension between stated BPA and actual need-filling is real \u2014 Beane leans BPA in theory but his board is influenced by organizational needs.",
+    "philosophy_mismatch_notes": "Claims pure BPA but traded up for Kaiir Elam at CB (clear need), traded up for Dalton Kincaid at TE, and took 5 straight defensive players in 2025 after playoff defensive collapse. His BPA claims hold mostly true in round 1 but rounds 2-3 are heavily need-influenced."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.65,
+    "trade_down_willingness": 0.5,
+    "trades_per_draft_average": 2.5,
+    "trade_triggers": [
+      "Franchise QB availability (traded up massively for Josh Allen in 2018)",
+      "A player with a first-round grade slipping into range (traded up for Elam, Kincaid, T.J. Sanders)",
+      "Clear tier break where value drops significantly after a target player",
+      "Interior pass rusher availability (traded up for Sanders in 2025)"
+    ],
+    "draft_capital_philosophy": "Self-admittedly aggressive trader. Has traded his original first-round pick 5 of 7 drafts before 2025. Moved up for Allen (2018) and Edmunds (2018), up for Elam (2022), up for Kincaid (2023), traded back for extra picks in 2024. Has candidly admitted: 'one of my downfalls is I probably get a little aggressive' and says he puts people around him to 'strap me down to the desk.' Willing to trade future picks to improve current-year position. Values getting 'his guy' over maximizing draft chart value."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "EDGE",
+        "DT",
+        "CB",
+        "QB"
+      ],
+      "tier_2_high": [
+        "OT",
+        "IOL",
+        "LB",
+        "S"
+      ],
+      "tier_3_mid": [
+        "TE",
+        "WR",
+        "RB"
+      ],
+      "tier_4_low": [
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "WR in round 1 \u2014 has never used a first-round pick on a WR in 8 drafts. Traded a first for Stefon Diggs instead. Only drafted WRs on Day 2 once (Keon Coleman at pick 33 in 2024). Consistently deprioritizes WR in early rounds.",
+      "QB after the franchise QB is set \u2014 has not drafted a high QB since Allen. Took Jake Fromm in round 5 as a flier only."
+    ],
+    "position_premium": [
+      "Defensive line (EDGE + DT) \u2014 has spent massive draft capital here. Took EDGE in round 1 three times (Rousseau 2021, traded up for pass rush repeatedly). In 2025, took 3 defensive linemen in first 4 picks including trading up for Sanders.",
+      "CB \u2014 has drafted CBs in rounds 1, 5, 6, 7 consistently. Found Christian Benford in round 6, Taron Johnson in round 4. Took Elam round 1 (bust) and Hairston round 1.",
+      "IOL \u2014 invested 2nd round picks on O'Cyrus Torrence (2023), and took multiple OL throughout tenure."
+    ]
+  },
+  "player_archetype_preferences": {
+    "QB": {
+      "archetype_summary": "Elite-arm, projection-over-production developmental athlete. The Josh Allen pick is the defining data point: Beane bet on a raw, toolsy QB with an enormous arm, limited college production, and elite physical traits from a small school. Allen was 56.2% completion in college. This was a pure projection bet that represents Beane's willingness to prioritize physical ceiling over polish when the upside is extraordinary.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "230-240",
+        "arm_length_minimum": "No clear threshold \u2014 Allen has 33.4-inch arms",
+        "key_athletic_tests": "Arm strength is the primary differentiator. Pocket mobility matters but not designed run speed.",
+        "speed_requirement": "Not a primary factor \u2014 wants pocket presence and escapability, not timed speed"
+      },
+      "playing_style": {
+        "primary_style": "Big-armed pocket passer with plus athleticism to extend plays and create off-schedule",
+        "most_valued_traits": [
+          "Elite arm strength",
+          "Physical toughness and durability",
+          "Ability to throw from multiple platforms/angles",
+          "Competitiveness and leadership",
+          "Mobility to extend plays under pressure"
+        ],
+        "least_important_traits": [
+          "College completion percentage \u2014 Allen was 56.2% and Beane still took him"
+        ],
+        "deal_breakers": [
+          "Weak arm \u2014 will not invest in a game-manager QB profile at a premium pick",
+          "Lack of physical toughness"
+        ],
+        "traits_that_make_them_reach": "Rare physical tools and arm talent \u2014 will override poor production profile"
+      },
+      "college_production": {
+        "production_floor": "No clear floor \u2014 Allen had modest stats at Wyoming. Beane bet on the physical tools entirely.",
+        "production_trajectory": "Not production-sensitive at QB. Context-adjusted \u2014 Allen's Wyoming supporting cast was weak.",
+        "context_sensitivity": "Very high \u2014 discounted Allen's stats due to talent around him at Wyoming"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2018 1.7 \u2014 Josh Allen: 6-5, 237, cannon arm, 56.2% completion at Wyoming. The prototypical Beane projection bet.",
+          "2020 5.167 \u2014 Jake Fromm: 6-2, 211, Georgia. Day 3 flier on a smart, high-character backup \u2014 not a developmental project."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only one meaningful QB pick (Allen). The Fromm pick was a throwaway. Profile heavily defined by the Allen selection, which was a once-in-a-career bet on physical ceiling."
+    },
+    "EDGE": {
+      "archetype_summary": "Long, athletic, high-ceiling developmental pass rushers. Beane consistently drafts EDGEs with elite length and raw athleticism over polished technique. Rousseau (6-7, 266, 15.5 sacks as a sophomore then opted out), Basham (6-3, 274, power rusher), Epenesa (6-5, 275, power rusher), and Landon Jackson (6-6, 264, athletic with length) all share extreme length. Production matters less than physical projection and scheme versatility. Willing to bet on raw athletes who can develop.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-7",
+        "weight_range": "260-280",
+        "arm_length_minimum": "33 inches \u2014 all EDGE picks have had 33+ inch arms",
+        "key_athletic_tests": "Length and explosiveness prioritized. Vertical jump and broad jump matter. Jackson's combine testing exceeded expectations per Beane.",
+        "speed_requirement": "4.70 or faster for the bigger body types; values play speed over timed speed"
+      },
+      "playing_style": {
+        "primary_win_condition": "Length-based power rushing with developmental upside. Not drafting polished technicians \u2014 drafting athletic freaks who can be coached.",
+        "most_valued_traits": [
+          "Extreme length and wingspan",
+          "Raw athleticism and explosion",
+          "Motor and effort consistency",
+          "Positional versatility (stand up or hand in dirt)",
+          "High character and coachability"
+        ],
+        "least_important_traits": [
+          "Polished pass rush repertoire \u2014 consistently drafts raw rushers with limited moves",
+          "Run defense refinement \u2014 values pass rush projection over complete play"
+        ],
+        "deal_breakers": [
+          "Short arms \u2014 has never drafted a short-armed EDGE in early rounds",
+          "Lack of athleticism \u2014 won't take a stiff player regardless of production"
+        ],
+        "traits_that_make_them_reach": "Elite length + athleticism combination \u2014 Beane described Jackson as having 'DNA' he wants"
+      },
+      "college_production": {
+        "production_floor": "No hard floor \u2014 Rousseau had 15.5 sacks but only one season, then opted out. Basham had 20.5 career sacks. Jackson had 16 career sacks across LSU and Arkansas.",
+        "production_trajectory": "Open to players who flashed in limited samples (Rousseau's one elite season). Ascending production valued.",
+        "context_sensitivity": "High \u2014 Beane noted Jackson 'went against a lot of premium talent in the SEC' as production context"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2020 2.54 \u2014 A.J. Epenesa: 6-5, 275, Iowa. 26.5 career sacks. Power rusher with length.",
+          "2021 1.30 \u2014 Greg Rousseau: 6-7, 266, Miami. 15.5 sacks in 2019, opted out 2020. Elite length, raw technique.",
+          "2021 2.61 \u2014 Boogie Basham: 6-3, 274, Wake Forest. 20.5 career sacks. Power rusher, could slide inside.",
+          "2025 3.72 \u2014 Landon Jackson: 6-6, 264, Arkansas. 16 career sacks. Athletic with length and power.",
+          "2024 6.207 \u2014 Javon Solomon: Troy. 88.2 PFF grade. Day 3 flier on productive mid-major rusher."
+        ]
+      },
+      "confidence": "high"
+    },
+    "OT": {
+      "archetype_summary": "Massive, raw, long-armed developmental athletes from smaller programs. Spencer Brown (6-8, 311, Northern Iowa, 35+ inch arms) and Tommy Doyle (6-8, 320, Miami OH) set the archetype \u2014 enormous humans with rare length who need NFL coaching. Cody Ford (6-4, 329, Oklahoma) was the outlier as a more conventional pick who didn't pan out. Beane values arm length and size over polish at OT, and is willing to develop small-school players.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-8",
+        "weight_range": "305-325",
+        "arm_length_minimum": "34 inches preferred \u2014 Brown had 35+ inch arms, Doyle had 35+ inch arms",
+        "key_athletic_tests": "Footwork and lateral agility matter for pass protection in a Josh Allen-centric offense. Length is the primary discriminator.",
+        "speed_requirement": "Not primary \u2014 values functional athleticism over timed speed"
+      },
+      "playing_style": {
+        "primary_style": "Long, athletic pass protectors who can develop in a zone-influenced scheme",
+        "most_valued_traits": [
+          "Elite arm length",
+          "Raw athleticism and movement skills for size",
+          "Size to anchor against power rushers",
+          "Versatility to play both tackle spots",
+          "Developmental upside over immediate polish"
+        ],
+        "least_important_traits": [
+          "Polished run blocking technique \u2014 willing to develop this over time",
+          "FBS pedigree \u2014 Brown and Doyle came from FCS/MAC programs"
+        ],
+        "deal_breakers": [
+          "Short arms \u2014 the one constant",
+          "Lack of functional athleticism despite size"
+        ],
+        "traits_that_make_them_reach": "Rare length (35+ inch arms) from smaller programs with high ceilings"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter required. Brown had 32 starts, Ford had 21.",
+        "production_trajectory": "Prefers players who started multiple years even at smaller schools",
+        "context_sensitivity": "Adjusts for competition level \u2014 Brown from Northern Iowa was fine"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2019 2.38 \u2014 Cody Ford: 6-4, 329, Oklahoma. Versatile OL, played RT and LG. Bust \u2014 traded after 2 years.",
+          "2021 3.93 \u2014 Spencer Brown: 6-8, 311, Northern Iowa. 32 starts, elite length (35+ arms). Became starter.",
+          "2021 5.161 \u2014 Tommy Doyle: 6-8, 320, Miami OH. Similar profile to Brown \u2014 massive with extreme length.",
+          "2025 6.206 \u2014 Chase Lundt: 6-5, Connecticut. OT depth, versatile guard/tackle."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "IOL": {
+      "archetype_summary": "Massive, mauling road-graders. O'Cyrus Torrence (6-5, 347, Florida) is the prototype \u2014 a mammoth guard with an 89.9 PFF run-blocking grade who anchors the interior. Nick Broeker (6-4, 307, Ole Miss) added versatility. Beane values power and anchor over athleticism at guard, wanting linemen who can physically dominate in the run game while being competent pass protectors.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5",
+        "weight_range": "305-350",
+        "arm_length_minimum": "No clear minimum \u2014 values mass and power over length at IOL",
+        "key_athletic_tests": "Short-area quickness matters but strength and anchor are primary. Not looking for track athletes at guard.",
+        "speed_requirement": "Not a factor \u2014 values power and mass"
+      },
+      "playing_style": {
+        "primary_style": "Power-blocking, road-grading interior linemen who can handle bull rushers",
+        "most_valued_traits": [
+          "Run blocking power and physicality",
+          "Anchor against interior pass rush",
+          "Durability and toughness",
+          "Versatility to play multiple interior spots",
+          "Experience in a pro-style or power run scheme"
+        ],
+        "least_important_traits": [
+          "Elite lateral agility \u2014 not prioritizing zone-scheme athletic guards",
+          "Flashy combine numbers"
+        ],
+        "deal_breakers": [
+          "Inability to anchor against power \u2014 gets driven back consistently",
+          "Lack of toughness or competitive fire"
+        ],
+        "traits_that_make_them_reach": "Dominant run blocking grade that translates to controlling the line of scrimmage"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter. Torrence was an All-American. Broeker started extensively at Ole Miss.",
+        "production_trajectory": "Prefers proven multi-year starters with All-Conference or All-American honors",
+        "context_sensitivity": "SEC/Power 5 experience preferred \u2014 Torrence transferred from Louisiana to Florida"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2023 2.59 \u2014 O'Cyrus Torrence: 6-5, 347, Florida. All-American guard. 89.9 PFF run-blocking grade. Starter from day one.",
+          "2023 7.230 \u2014 Nick Broeker: 6-4, 307, Ole Miss. Played OT and OG. Versatile interior depth.",
+          "2024 5.143 \u2014 Sedrick Van Pran: 6-4, 315, Georgia. Center. Allowed 1 sack on 1,400+ pass-blocking snaps."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "DT": {
+      "archetype_summary": "Undersized, explosive interior disruptors with elite first-step quickness and versatility. Ed Oliver (6-1, 287, Houston, Outland Trophy winner) is the archetype \u2014 a smaller, explosive 3-technique who wins with quickness and motor. DeWayne Carter (6-1, 280, Duke, 114 pressures since 2022), T.J. Sanders (6-4, 305, South Carolina, penetrating 3-tech), and Deone Walker (6-7, 331, Kentucky, massive nose) show range but the primary preference is interior pass rush. Beane has heavily invested in DT \u2014 taking 4 in one draft (2024-2025 combined).",
+      "physical_profile": {
+        "height_range": "6-1 to 6-7 (wide range, scheme-dependent)",
+        "weight_range": "280-335",
+        "arm_length_minimum": "No clear minimum \u2014 Oliver is short-armed for position",
+        "key_athletic_tests": "First-step quickness is king for 3-techniques. Explosion off the snap. Sanders described as having 'initial burst' and 'explosive first step.'",
+        "speed_requirement": "Values quickness and burst over timed speed"
+      },
+      "playing_style": {
+        "primary_style": "Penetrating, disruptive interior pass rusher. 3-technique primary, but also takes space-eating nose tackles as complements.",
+        "most_valued_traits": [
+          "First-step explosion and quickness",
+          "Interior pass rush ability",
+          "Motor and relentless effort",
+          "Hand violence and use at the point of attack",
+          "Positional versatility (can align at multiple interior spots)"
+        ],
+        "least_important_traits": [
+          "Pure size/mass for 2-gapping \u2014 prefers one-gap penetrators at 3-tech",
+          "Run defense consistency \u2014 values pass rush upside over stoutness"
+        ],
+        "deal_breakers": [
+          "Stiffness and inability to get off blocks",
+          "Low motor and poor effort"
+        ],
+        "traits_that_make_them_reach": "Interior pass rush production \u2014 traded up for Sanders specifically for this"
+      },
+      "college_production": {
+        "production_floor": "Values pressures and disruption over raw sack numbers. Carter had 114 pressures. Sanders had 9.5 sacks and 17.5 TFLs.",
+        "production_trajectory": "Sanders improved PFF pass-rushing grade each of past three seasons. Ascending production valued.",
+        "context_sensitivity": "Moderate \u2014 Oliver's sacks were low (3) but TFLs were elite (14.5)"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2019 1.9 \u2014 Ed Oliver: 6-1, 287, Houston. Outland Trophy. Elite quickness, undersized penetrator. Long-term starter.",
+          "2024 3.95 \u2014 DeWayne Carter: 6-1, 280, Duke. 114 pressures since 2022. 3-year captain. Interior disruptor.",
+          "2025 2.41 \u2014 T.J. Sanders: 6-4, 305, South Carolina. Traded up to get him. Ascending pass rusher, 9.5 career sacks.",
+          "2025 4.109 \u2014 Deone Walker: 6-7, 331, Kentucky. Massive nose tackle. Former projected 1st-round talent.",
+          "No DT drafted in 2023 \u2014 Beane noted the board didn't fall right for it that year."
+        ]
+      },
+      "confidence": "high"
+    },
+    "CB": {
+      "archetype_summary": "Two distinct tiers: Round 1 targets tall, physical press-man corners with speed and length (Elam, Hairston). Day 3 targets versatile, high-character developmental players regardless of size (Benford from Villanova in round 6, who became a star). Beane has an exceptional late-round CB hit rate. Values speed (Hairston ran 4.28), physical tools, and versatility. The Elam bust (6-2, 191, Florida, round 1) shows that pedigree alone doesn't guarantee success in this system. Benford (6-0, 190, Villanova, round 6) outperformed Elam dramatically.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-2 (very flexible based on round)",
+        "weight_range": "180-200",
+        "arm_length_minimum": "No hard minimum \u2014 Hairston has near 32-inch arms, Benford is smaller. Longer is preferred in round 1.",
+        "key_athletic_tests": "Speed is paramount. Hairston ran 4.28 (fastest DB at Combine). Elam was described as having 'speed and physical tools.' Hip fluidity matters.",
+        "speed_requirement": "4.50 or faster strongly preferred. Hairston at 4.28 is the ideal."
+      },
+      "playing_style": {
+        "primary_style": "Under McDermott: press-man/zone hybrid. Under Leonhard 2026: likely more man coverage with varied looks.",
+        "most_valued_traits": [
+          "Speed and play speed in coverage",
+          "Versatility \u2014 can play man and zone, inside and outside",
+          "Ball skills and interception production",
+          "Competitive toughness and physicality",
+          "Willingness to tackle in run support"
+        ],
+        "least_important_traits": [
+          "FBS pedigree \u2014 Benford from Villanova (FCS) is the star. Dorian Strong from VT taken Day 3."
+        ],
+        "deal_breakers": [
+          "Lack of speed/play speed",
+          "Poor competitive toughness"
+        ],
+        "traits_that_make_them_reach": "Elite speed with adequate length \u2014 Hairston's 4.28 at 6-0 with 32-inch arms was a clear round-1 target"
+      },
+      "college_production": {
+        "production_floor": "No clear floor \u2014 values film and athletic traits over interception totals. Hairston had 6 career INTs in 20 starts. Elam had 6 INTs and 26 PBUs.",
+        "production_trajectory": "Multi-year starters preferred but not required \u2014 Benford played at FCS level",
+        "context_sensitivity": "High \u2014 adjusts for competition level and scheme"
+      },
+      "evidence": {
+        "picks_analyzed": 8,
+        "examples": [
+          "2018 4.121 \u2014 Taron Johnson: 5-11, 192, Weber State. Became elite slot corner, All-Pro 2023. FCS gem.",
+          "2022 1.23 \u2014 Kaiir Elam: 6-2, 191, Florida. Press-man corner. First-round bust \u2014 started only 24% of games.",
+          "2022 6.185 \u2014 Christian Benford: 6-0, 190, Villanova. FCS developmental pick who became a starting star.",
+          "2025 1.30 \u2014 Maxwell Hairston: 6-0, 183, Kentucky. 4.28 40-yard dash. Speed and versatility.",
+          "2025 5.170 \u2014 Jordan Hancock: Ohio State. Versatile DB \u2014 nickel and safety experience.",
+          "2025 6.177 \u2014 Dorian Strong: Virginia Tech. Tall, experienced Day 3 corner."
+        ]
+      },
+      "confidence": "high"
+    },
+    "S": {
+      "archetype_summary": "Smart, versatile safeties who can play multiple roles. Cole Bishop (6-1, 205, Utah, 4.45 40) was taken in round 2 to replace the Jordan Poyer/Micah Hyde safety duo. Jaquan Johnson (5-10, 191, Miami) was a round 6 pick. Damar Hamlin (6-1, 200, Pitt) was a round 6 find. Beane values range, coverage instincts, and versatility at safety. Beane has specifically said he values safeties who can play both box and free roles, noting he'd love to 'find another Cole Bishop' who can be paired flexibly.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-2",
+        "weight_range": "195-210",
+        "arm_length_minimum": "No clear minimum",
+        "key_athletic_tests": "40-yard dash speed (Bishop ran 4.45). Range and closing speed. Processing speed.",
+        "speed_requirement": "4.50 or faster preferred"
+      },
+      "playing_style": {
+        "primary_style": "Versatile, coverage-capable safety who can play both deep and near the box",
+        "most_valued_traits": [
+          "Coverage range and instincts",
+          "Versatility to play multiple safety roles",
+          "Intelligence and play recognition",
+          "Tackling ability and physicality",
+          "Adaptability to different defensive schemes"
+        ],
+        "least_important_traits": [
+          "Pure box/run-support specialization \u2014 wants range over physicality-only",
+          "Elite ball-hawking \u2014 values coverage consistency over splash plays"
+        ],
+        "deal_breakers": [
+          "Limited to one role only \u2014 must be versatile",
+          "Poor tackler \u2014 scheme demands reliable tackling"
+        ],
+        "traits_that_make_them_reach": "Rare combination of range, coverage ability, and versatility"
+      },
+      "college_production": {
+        "production_floor": "No clear statistical threshold \u2014 Bishop was valued for smart, versatile play",
+        "production_trajectory": "Multi-year starters preferred",
+        "context_sensitivity": "Moderate"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2024 2.60 \u2014 Cole Bishop: 6-1, 205, Utah. 4.45 40. Smart, versatile, well-rounded safety. Replaced Poyer/Hyde.",
+          "2019 6.181 \u2014 Jaquan Johnson: 5-10, 191, Miami. Developmental safety.",
+          "2021 6.212 \u2014 Damar Hamlin: 6-1, 200, Pittsburgh. Late-round find, became serviceable starter.",
+          "2025 5.170 \u2014 Jordan Hancock: Ohio State. Versatile DB with safety experience."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "LB": {
+      "archetype_summary": "Rangy, sideline-to-sideline athletes with coverage ability and speed. Tremaine Edmunds (6-5, 253, Virginia Tech, 19 years old at draft) was the first LB pick \u2014 a rare physical specimen with elite range. Terrel Bernard (6-1, 224, Baylor, 16.5 career sacks) brought blitz ability. Dorian Williams (6-1, 228, Tulane, 4.49 40) brought speed and coverage. The common thread is speed and range \u2014 Beane wants LBs who can cover and move sideline-to-sideline, not pure thumpers.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-5 (wide range)",
+        "weight_range": "220-255",
+        "arm_length_minimum": "No clear minimum",
+        "key_athletic_tests": "40-yard dash speed is primary (Edmunds' rare athleticism for size, Williams' 4.49, Bernard's closing speed). Range and coverage ability.",
+        "speed_requirement": "4.55 or faster preferred \u2014 Williams ran 4.49"
+      },
+      "playing_style": {
+        "primary_style": "Coverage-capable, sideline-to-sideline linebacker with blitz ability",
+        "most_valued_traits": [
+          "Speed and sideline-to-sideline range",
+          "Coverage ability against TEs and RBs",
+          "Blitz capability and pass rush from LB spot",
+          "Leadership and high character",
+          "Ability to learn multiple LB positions"
+        ],
+        "least_important_traits": [
+          "Pure run-stuffing size \u2014 not drafting 260-lb thumpers",
+          "Instinctive play diagnosis \u2014 values athleticism over film IQ for Day 2+ picks"
+        ],
+        "deal_breakers": [
+          "Lack of coverage ability \u2014 scheme requires LBs in space",
+          "Slow processing against the pass"
+        ],
+        "traits_that_make_them_reach": "Rare athletic testing combined with coverage versatility \u2014 Edmunds was 19 years old with elite size/speed"
+      },
+      "college_production": {
+        "production_floor": "No hard minimum \u2014 Williams was a solid but not elite college producer. Bernard had 16.5 sacks, showing blitz upside.",
+        "production_trajectory": "Values ascending players \u2014 Edmunds was young and developing",
+        "context_sensitivity": "Moderate \u2014 adjusts for scheme usage"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2018 1.16 \u2014 Tremaine Edmunds: 6-5, 253, Virginia Tech. 19 years old. Rare size-speed combo. Starter from day one.",
+          "2022 3.89 \u2014 Terrel Bernard: 6-1, 224, Baylor. 16.5 career sacks. Blitzing LB with speed. Some considered it a reach.",
+          "2023 3.91 \u2014 Dorian Williams: 6-1, 228, Tulane. 4.49 40. Rangy, aggressive LB with coverage ability.",
+          "2022 7.231 \u2014 Baylon Spector: Clemson. Day 3 special teams/depth LB.",
+          "2019 5.147 \u2014 Vosean Joseph: Florida. 93 tackles. Whiff \u2014 never stuck."
+        ]
+      },
+      "confidence": "high"
+    },
+    "WR": {
+      "archetype_summary": "Big-bodied, physical contested-catch receivers and versatile slot/gadget players. This is Beane's weakest evaluation position. Has never used a first-round pick on WR. His two defining WR picks are Keon Coleman (6-4, 213, FSU, Round 2) \u2014 a big physical alpha who Beane described as 'the complete opposite of finesse' \u2014 and Khalil Shakir (6-0, 196, Boise State, Round 5) \u2014 a versatile inside-out slot. Gabe Davis (6-2, 210, UCF, Round 4) was a vertical threat. The pattern: big bodies for the outside, quick/smart players for the slot, both with physicality. Beane described wanting 'not all of the same small guys, fast guys, or big guys' \u2014 he wants variety.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-4 for outside, 5-11 to 6-1 for slot",
+        "weight_range": "190-215",
+        "arm_length_minimum": "No clear minimum \u2014 values physicality over measurables at WR",
+        "key_athletic_tests": "Not a speed-first position for Beane. Coleman ran 4.61 and was still taken. Beane noted 'play speed is faster than combine speed.' Values contested catch ability and physical play.",
+        "speed_requirement": "Not a primary factor \u2014 Coleman ran 4.61. Beane values play speed and physicality over timed speed at WR."
+      },
+      "playing_style": {
+        "primary_style": "Physical alpha outside receiver who wins at the catch point paired with versatile slot technicians",
+        "most_valued_traits": [
+          "Contested catch ability and physical play at the catch point",
+          "Toughness and blocking willingness",
+          "Versatility to align multiple spots",
+          "Basketball background/athletic traits over football-specific polish",
+          "Release ability off press coverage"
+        ],
+        "least_important_traits": [
+          "Timed 40-yard speed \u2014 Coleman's 4.61 didn't bother Beane",
+          "Route-running polish \u2014 willing to develop this"
+        ],
+        "deal_breakers": [
+          "Soft/passive at the catch point",
+          "Inability to fight through contact"
+        ],
+        "traits_that_make_them_reach": "Physicality at the catch point \u2014 Beane described Coleman as 'a tough dog' who would 'physically work through' defenders"
+      },
+      "college_production": {
+        "production_floor": "Moderate \u2014 Coleman had 50 catches for 658 yards and 11 TDs in one FSU season. Shakir had big Boise State numbers. No strict minimum.",
+        "production_trajectory": "Open to one-year transfers (Coleman transferred to FSU). Values impact plays over volume.",
+        "context_sensitivity": "Moderate \u2014 valued Coleman's 11 TDs in a chaotic FSU offense"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2024 2.33 \u2014 Keon Coleman: 6-4, 213, Florida State. 4.61 40. Physical alpha. 50 catches, 11 TDs. Contested-catch specialist.",
+          "2022 5.148 \u2014 Khalil Shakir: 6-0, 196, Boise State. Versatile inside-out receiver. Cooper Kupp comp. Major steal.",
+          "2020 4.128 \u2014 Gabriel Davis: 6-2, 210, UCF. Vertical threat, 12 TDs as a junior. Big-play ability.",
+          "2020 6.207 \u2014 Isaiah Hodgins: 6-4, 210, Oregon State. Big-bodied outside target.",
+          "2023 5.150 \u2014 Justin Shorter: 6-4, 229, Florida. Large, physical deep threat. 19.9 YPC. Major bust \u2014 never played."
+        ]
+      },
+      "confidence": "medium-low",
+      "confidence_note": "WR is Beane's documented blind spot. Has consistently deprioritized the position in early rounds and hit rate is low outside of Shakir (round 5 find)."
+    },
+    "TE": {
+      "archetype_summary": "Pass-catching weapons with receiving skill over blocking pedigree, plus late-round blocking specialists. Dalton Kincaid (6-4, 240, Utah) was the first-round target: best receiving TE in class, led FBS TEs with 70 catches. Beane compared him to Cole Beasley in a bigger body \u2014 'elite hands, good route runner, separation ability.' Dawson Knox (6-4, 254, Ole Miss) was a raw athletic TE who converted from QB. Jackson Hawes (6-4, 2025 5th round, Georgia Tech) was drafted specifically as a blocker. Pattern: receiving TEs early, blocking TEs late.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5",
+        "weight_range": "230-260",
+        "arm_length_minimum": "No clear minimum",
+        "key_athletic_tests": "Route-running ability and hands for receiving TEs. Blocking technique for late-round TEs.",
+        "speed_requirement": "Values play speed and movement skills over timed speed"
+      },
+      "playing_style": {
+        "primary_style": "Receiving-first tight end who can function as a big slot receiver",
+        "most_valued_traits": [
+          "Elite hands and catch radius",
+          "Route-running and separation ability for a TE",
+          "YAC ability and toughness after the catch",
+          "Feel and instincts \u2014 'great feel, great instinct' per Beane on Kincaid",
+          "Athleticism and movement skills"
+        ],
+        "least_important_traits": [
+          "Inline blocking for round 1 TEs \u2014 Kincaid was not drafted to block",
+          "Size/mass \u2014 Kincaid at 240 is light for position"
+        ],
+        "deal_breakers": [
+          "Limited receiving upside for early-round TEs \u2014 won't invest premium pick in blocking TE",
+          "Poor hands"
+        ],
+        "traits_that_make_them_reach": "Elite receiving traits in a TE body \u2014 Kincaid was PFF's 10th overall player, taken 25th for his receiving ceiling"
+      },
+      "college_production": {
+        "production_floor": "For receiving TEs: 50+ catches preferred. Kincaid had 70 catches, 890 yards. Knox had only 15 catches but elite YPC (18.9).",
+        "production_trajectory": "Values elite receiving production for pass-catching TEs. Knox was more of an athletic projection.",
+        "context_sensitivity": "Moderate \u2014 Kincaid was focal point of Utah offense"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2023 1.25 \u2014 Dalton Kincaid: 6-4, 240, Utah. 70 catches, 890 yards. 91.8 PFF receiving grade. Premier pass-catching TE.",
+          "2019 3.96 \u2014 Dawson Knox: 6-4, 254, Ole Miss. 15 catches, 18.9 YPC. Raw athlete, converted QB. Developed into starter.",
+          "2019 7.228 \u2014 Tommy Sweeney: 6-5, 260, Boston College. Blocking/receiving hybrid.",
+          "2025 5.173 \u2014 Jackson Hawes: 6-4, Georgia Tech. Dominant run blocker, limited receiving. Day 3 blocking TE."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "RB": {
+      "archetype_summary": "Pass-catching, versatile backs who complement the passing game. James Cook (5-11, 199, Georgia, national champion) is the defining pick \u2014 a back with 'stellar hands' who Beane valued for his receiving ability as much as rushing. Devin Singletary (5-7, 203, FAU, 67 career TDs) was a prolific scorer. Ray Davis (5-9, 211, Kentucky) was a late-round speed back. Zack Moss (5-9, 223, Utah, round 3) was supposed to be a power complement but didn't work out. Pattern: versatile backs who can catch, not pure power backs. Beane does NOT use premium draft capital on RBs \u2014 highest pick was Cook at 63.",
+      "physical_profile": {
+        "height_range": "5-7 to 5-11",
+        "weight_range": "195-225",
+        "arm_length_minimum": "Not a factor at RB",
+        "key_athletic_tests": "Burst, change of direction, and pass-catching ability. Cook's hands were the primary selling point.",
+        "speed_requirement": "Explosive burst preferred \u2014 Davis had 12 rushes of 20+ yards. Not about 40 time."
+      },
+      "playing_style": {
+        "primary_style": "Receiving-capable, versatile running back who complements Josh Allen",
+        "most_valued_traits": [
+          "Pass-catching ability and route running from backfield",
+          "Decisiveness and burst through the hole",
+          "Ability to line up as a receiver",
+          "Production in a championship-level program (Cook at Georgia)",
+          "Big-play ability (Davis had 12 rushes of 20+ yards)"
+        ],
+        "least_important_traits": [
+          "Pure between-the-tackles power \u2014 not seeking a 240-lb bruiser",
+          "Pass protection ability \u2014 not a primary draft consideration"
+        ],
+        "deal_breakers": [
+          "Cannot catch passes \u2014 non-starter in this offense",
+          "Lack of versatility"
+        ],
+        "traits_that_make_them_reach": "Elite receiving ability from the backfield \u2014 Cook could line up outside like a receiver per Beane"
+      },
+      "college_production": {
+        "production_floor": "High production expected \u2014 Singletary had 67 career TDs and 4,300 rushing yards. Cook was less prolific but won a natty.",
+        "production_trajectory": "Flexible \u2014 Cook was a complementary piece at Georgia, not the featured back",
+        "context_sensitivity": "Values SEC/big-stage production \u2014 Cook's big plays in the national championship were noted"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2022 2.63 \u2014 James Cook: 5-11, 199, Georgia. National champion. Elite pass catcher, lined up as WR. 3 straight 1,000-yard seasons in NFL.",
+          "2019 3.74 \u2014 Devin Singletary: 5-7, 203, FAU. 67 career TDs, 4,300 rushing yards. 'Motor' nickname.",
+          "2020 3.86 \u2014 Zack Moss: 5-9, 223, Utah. Power/receiving hybrid. Bust \u2014 traded after 2.5 seasons.",
+          "2024 4.126 \u2014 Ray Davis: 5-9, 211, Kentucky. Speed back with big-play ability. 12 rushes of 20+ yards."
+        ]
+      },
+      "confidence": "medium"
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 7,
+    "max_observed_reach": 15,
+    "round_1_reach_tolerance": 5,
+    "notes": "Beane self-described as anti-reach: 'When we get to draft day we're not going to reach. We're not. I have seen that and it rarely works when you reach.' However, the Basham pick in round 2 (2021) was widely considered a reach, and Bernard in round 3 (2022) was called a reach by analysts. Beane's stated resistance to reaching is stronger than his actual behavior \u2014 he'll reach 5-10 spots for a player he loves, especially at EDGE and CB."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.55,
+    "offensive_scheme": "Joe Brady's offense: balanced attack that led NFL in rushing yards/game (159.6 in 2025) and ranked 4th in points/game (28.3). Committed to the run game under Brady after years of pass-heavy approach. Zone-influenced run scheme that values athletic, versatile OL. Play-action heavy, built around Josh Allen's arm and mobility. Pete Carmichael as OC adds Saints/Payton flavor.",
+    "defensive_scheme": "MAJOR SCHEME CHANGE: Transitioning from Sean McDermott's 4-3 base to Jim Leonhard's 3-4 base in 2026. This is significant \u2014 Bills ran 4-3 for 9 years. Leonhard values aggressive pass rush, run-stopping to create advantageous passing situations, and versatile defenders. Separate ILB and OLB coaches now. 3-4 demands different EDGE/LB types than the 4-3. Leonhard said 'we want good football players' and won't 'force a square peg in a round hole.'",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "Critical: HC fired (McDermott), OC promoted to HC (Brady), new DC hired (Leonhard). Defensive scheme changing from 4-3 to 3-4. Offensive system stable (Brady continues). This means 2026 draft will heavily target 3-4 defense personnel: stand-up OLBs, nose tackles, versatile ILBs. Beane acknowledged personnel changes will be needed for the 3-4."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.65,
+    "risk_description": "Moderately aggressive risk-taker. The Josh Allen pick \u2014 a raw QB from Wyoming with a 56.2% completion rate at #7 overall \u2014 was one of the biggest projection bets in modern draft history. Has also taken projection bets at EDGE (Rousseau after 1 year, opting out) and WR (Coleman despite 4.61 40). However, balances this with high-floor picks like O'Cyrus Torrence and Cole Bishop. Self-aware about aggressiveness \u2014 says he puts people around him to restrain him.",
+    "recency_bias": 0.7,
+    "recency_description": "Strong recency bias pattern. After losing AFC Championship to Chiefs (Mahomes sacked once), took 2 EDGE rushers in rounds 1-2 (2021). After losing to Chiefs again in playoffs, invested heavily in defensive improvement. After 2025 defensive playoff failures (allowed 30+ points to Broncos), took 5 straight defensive players in 2025 draft. This pattern is consistent and strong.",
+    "sunk_cost_behavior": "Moves on quickly from busts. Traded Boogie Basham to Giants after 2 years. Traded Zack Moss to Colts. Released/traded Cody Ford. Does not double down at positions where he's missed. However, has invested repeatedly at EDGE and DT, suggesting the position itself isn't abandoned even when individual picks fail.",
+    "combine_weight": 0.55,
+    "combine_description": "Moderate combine influence. The Allen pick was partly a combine/athleticism bet, but Beane also says 'we're truly looking for the best players.' Has drafted players with poor combine numbers when film was strong (Coleman's 4.61 40). However, has also been swayed by elite testing (Hairston's 4.28 was clearly appealing, Edmunds' rare size-speed combo at 19). Uses combine data to confirm or deny film evaluations rather than as a standalone.",
+    "character_weight": 0.7,
+    "character_description": "High character emphasis. Multiple drafted captains (Carter was 3-year captain, Shakir, Bernard, Spector were all captains). Beane specifically probes character in combine interviews \u2014 described asking about suspensions and whether players own up to mistakes. Described wanting 'high character, DNA' players (on Landon Jackson). Three of 2022's seven picks were team captains.",
+    "quarterback_philosophy": "Built franchise around Josh Allen. Will not invest premium draft capital on backup QBs \u2014 took Fromm in round 5 as a flier only. All resources oriented around maximizing Allen's prime window. This drives every draft decision \u2014 offense supports Allen, defense must get stops to complement him."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.45,
+    "production_vs_projection": "Leans toward projection/physical tools over production when the physical ceiling is rare. Allen at 56.2% completion is the defining data point. Rousseau with one productive college season (then opted out) is another. However, also takes proven producers \u2014 Torrence was an All-American, Kincaid led FBS TEs in catches, Singletary had 67 career TDs. In tiebreakers between similar prospects, Beane appears to pick the one with superior physical traits rather than superior stats.",
+    "production_thresholds_by_position": {
+      "WR": "No clear minimum \u2014 Coleman had 50 catches in 1 FSU season. Shorter had 29 catches. No consistent floor.",
+      "RB": "No strict minimum \u2014 Cook had shared backfield at Georgia. Singletary was ultra-productive (67 TDs).",
+      "EDGE": "5+ sacks in final season typical but not absolute \u2014 values TFLs and pressures alongside sacks",
+      "CB": "No clear statistical threshold \u2014 values film and athletic traits over interception totals",
+      "DT": "Values disruption metrics (TFLs, pressures) over raw sack totals. Oliver had 14.5 TFLs but only 3 sacks.",
+      "TE": "50+ catches for receiving TEs in round 1 (Kincaid had 70). No floor for blocking TEs."
+    },
+    "breakout_age_sensitivity": 0.5,
+    "dominator_rating_sensitivity": 0.4,
+    "notes": "Beane's Gettleman mentorship would suggest production-first, but Beane has clearly diverged. The Allen and Rousseau picks show willingness to bet on projection. However, the Torrence, Kincaid, and Cook picks show he also values proven producers. It's position-dependent: at QB and EDGE, tools matter more; at IOL and TE, production matters more."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "40_yard_max": 4.5,
+        "notes": "Hairston 4.28, Elam was sub-4.45. Speed is non-negotiable.",
+        "confidence": "high"
+      },
+      "EDGE": {
+        "min_arm_length": "33 inches",
+        "notes": "All EDGE picks have had 33+ inch arms. Rousseau 6-7, Jackson 6-6, Epenesa 6-5. Length is king.",
+        "confidence": "high"
+      },
+      "WR": {
+        "no_clear_threshold": true,
+        "notes": "Coleman ran 4.61 and was taken at 33. Beane said play speed > timed speed at WR."
+      },
+      "OT": {
+        "min_arm_length": "34 inches",
+        "notes": "Brown and Doyle both had 35+ inch arms. Length-first at OT.",
+        "confidence": "medium"
+      },
+      "DT": {
+        "notes": "Values first-step quickness over size. Oliver was 6-1, 287 \u2014 undersized. Walker was 6-7, 331 \u2014 massive. Wide range.",
+        "confidence": "medium"
+      },
+      "S": {
+        "40_yard_max": 4.5,
+        "notes": "Bishop ran 4.45. Values range and closing speed.",
+        "confidence": "medium"
+      },
+      "LB": {
+        "40_yard_max": 4.55,
+        "notes": "Williams ran 4.49. Speed and range are primary LB filters.",
+        "confidence": "medium"
+      }
+    },
+    "threshold_type": "Mix of hard cutoffs (EDGE arm length, CB speed) and soft preferences. CB speed appears to be a hard cutoff. EDGE length appears to be a hard cutoff. WR speed is explicitly not a threshold per Beane's own statements.",
+    "size_preferences_by_position": {
+      "DT": "Ranges from 280 (Oliver) to 331 (Walker). Scheme-dependent \u2014 3-techs are smaller, nose tackles are massive.",
+      "LB": "220-255 range. Prefers lighter, faster LBs over heavy thumpers.",
+      "OT": "Prefers massive frames \u2014 305+ with elite length. Small-school developmental prospects OK.",
+      "IOL": "Wants maulers \u2014 305-350 range. Torrence at 347 is the ideal.",
+      "WR": "6-3+ for outside, flexible for slot. Physicality over size."
+    },
+    "athletic_testing_favorites": "Speed at CB (40-yard dash). Length at EDGE (arm measurement). Quickness at DT (first step). Range at LB (40-yard dash). Explosiveness matters broadly (vertical jump, broad jump) but no single test dominates across positions.",
+    "measurables_vs_film": "Film-first overall but measurables serve as eliminators at CB (speed) and EDGE (length). At WR, film clearly overrides testing \u2014 Coleman's 4.61 was explicitly discounted by Beane. At DT, film and production override size \u2014 Oliver was undersized but was the Outland Trophy winner. Beane is not a pure measurables GM but uses them as position-specific filters."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium position, high-ceiling player. Willing to trade up for a target (Allen, Edmunds, Elam, Kincaid) or trade back if value isn't there (traded out of round 1 entirely in 2024). Has stayed pat only 3 times in 8 drafts at his original first-round spot. Targets EDGE, DT, CB, TE, QB at this level. Has never taken WR, IOL, RB, LB, S, or OT in round 1.",
+    "round_2_3_strategy": "This is where need-filling accelerates. Addresses clear roster holes \u2014 Cook (RB need), Coleman (WR need), Bishop (S need), Torrence (IOL need), Bernard (LB need), Rousseau complement (Basham). Day 2 is where stated BPA philosophy gives way to actual need-filling most noticeably.",
+    "day_3_strategy": "Developmental athletes, special teams contributors, and positional versatility. Has found multiple starters on Day 3: Taron Johnson (round 4, became All-Pro), Christian Benford (round 6, became starter), Khalil Shakir (round 5, became #1 WR), Gabe Davis (round 4), Damar Hamlin (round 6). Beane has an exceptional Day 3 hit rate at CB and WR. Takes character-first players with athletic upside.",
+    "compensatory_pick_usage": "Uses comp picks and acquired late-round picks for slightly higher-risk swings \u2014 not a notable pattern of treating them differently."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "EDGE": {
+        "picks": 5,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "Rousseau became a starter, Epenesa was replacement-level, Basham was a bust, Jackson TBD, Solomon TBD. Mixed results despite heavy investment."
+      },
+      "DT": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Oliver has been solid long-term starter. Carter and Sanders are early. Walker is developmental."
+      },
+      "CB": {
+        "picks": 8,
+        "starters": 3,
+        "rate": 0.38,
+        "note": "Taron Johnson (round 4) is All-Pro. Benford (round 6) is a star. Elam (round 1) is a massive bust. Beane is elite at finding late-round CBs but his premium CB pick failed badly."
+      },
+      "LB": {
+        "picks": 5,
+        "starters": 3,
+        "rate": 0.6,
+        "note": "Edmunds was a starter from day one. Bernard and Williams are solid. Spector and Joseph were misses."
+      },
+      "WR": {
+        "picks": 5,
+        "starters": 1,
+        "rate": 0.2,
+        "note": "Shakir (round 5) is the only clear hit. Coleman TBD. Davis was OK. Shorter was a complete bust. Hodgins didn't stick. Documented blind spot."
+      },
+      "RB": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Cook is a Pro Bowler. Singletary was a solid starter. Moss was a bust."
+      },
+      "OT": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Spencer Brown became a starter. Ford was a bust. Doyle was depth."
+      },
+      "IOL": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Torrence is an excellent starter. Broeker is depth."
+      },
+      "TE": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Kincaid and Knox are both starters. Sweeney and Hawes are role players."
+      },
+      "S": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Bishop appears to be a starter. Hamlin was a backup/serviceable. J. Johnson was depth."
+      },
+      "QB": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Allen is an MVP. Fromm was a wasted pick. The Allen pick alone justifies Beane's tenure."
+      }
+    },
+    "blind_spots": [
+      "WR evaluation \u2014 only 1 starter from 5 WR picks, never invested round 1 capital. Shakir was a round 5 steal but the intentional WR picks have mostly missed.",
+      "First-round CB \u2014 Elam was a major bust, though late-round CBs have been excellent."
+    ],
+    "strengths": [
+      "Late-round CB evaluation \u2014 Taron Johnson (round 4) and Christian Benford (round 6) are both starters/stars. Exceptional at finding DB value on Day 3.",
+      "LB evaluation \u2014 3 of 5 LB picks have become starters.",
+      "RB evaluation \u2014 Cook is a Pro Bowler found in round 2.",
+      "QB \u2014 Allen is an MVP. The defining pick of Beane's career."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Moderate, targeted spender. Uses FA to fill 1-3 holes per year, then drafts around remaining needs. Signed Von Miller, traded for Stefon Diggs, signed Joey Bosa. Willing to make big moves for proven talent but also mindful of cap constraints with Josh Allen's contract. Currently $15-20M over cap for 2026 and needs to restructure contracts.",
+    "fa_draft_correlation": "When FA fills a position, deprioritizes it in draft but doesn't eliminate it. Signed Von Miller in 2022, then didn't take EDGE in round 1 (took CB instead). Traded for Diggs in 2020, then barely drafted WRs for 3 years. Uses FA to create flexibility for BPA approach in draft.",
+    "roster_construction_philosophy": "Build through the draft at premium positions (EDGE, DT, CB, LB), supplement through FA at non-premium positions and veterans. Extremely aggressive about accumulating draft capital and developing young talent. Values high-character roster with competitive depth. Cap-conscious with Josh Allen's massive deal \u2014 needs cheap rookie contracts to fill out roster."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 65,
+    "notable_patterns": [
+      "Traded original first-round pick 5 of 7 times before 2025 \u2014 rarely stays put in round 1",
+      "Has never used a first-round pick on a WR in 8 drafts",
+      "Consistently invests premium capital in defensive front (EDGE + DT)",
+      "Exceptional Day 3 DB evaluation \u2014 Johnson, Benford, Hamlin, Shakir all found late",
+      "Self-admitted aggressive trader \u2014 acknowledges tendency to trade up",
+      "Heavy defensive investment after playoff defensive failures (2021 and 2025 drafts)",
+      "Values character: frequently drafts team captains and high-character players",
+      "Invests heavily in versatile players who can line up at multiple positions"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2021,
+        "pick": "2.61",
+        "player": "Boogie Basham",
+        "position": "EDGE",
+        "consensus_rank": 85,
+        "reach_amount": 24,
+        "context": "Took 2nd EDGE after Rousseau in round 1. Widely questioned. Basham never developed and was traded to NYG."
+      },
+      {
+        "year": 2022,
+        "pick": "3.89",
+        "player": "Terrel Bernard",
+        "position": "LB",
+        "consensus_rank": 110,
+        "reach_amount": 21,
+        "context": "Analysts considered it a reach. Bernard had speed but was undersized. Has actually worked out as a starter."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2018,
+        "pick": "4.121",
+        "player": "Taron Johnson",
+        "position": "CB",
+        "consensus_rank": 160,
+        "value_amount": 39,
+        "context": "Weber State slot corner became an All-Pro. Beane's best late-round find."
+      },
+      {
+        "year": 2022,
+        "pick": "6.185",
+        "player": "Christian Benford",
+        "position": "CB",
+        "consensus_rank": 220,
+        "value_amount": 35,
+        "context": "Villanova FCS corner became a starting outside CB and key defensive piece."
+      },
+      {
+        "year": 2022,
+        "pick": "5.148",
+        "player": "Khalil Shakir",
+        "position": "WR",
+        "consensus_rank": 170,
+        "value_amount": 22,
+        "context": "Boise State slot receiver became Bills' most consistent WR. Signed extension."
+      },
+      {
+        "year": 2023,
+        "pick": "2.59",
+        "player": "O'Cyrus Torrence",
+        "position": "IOL",
+        "consensus_rank": 25,
+        "value_amount": 34,
+        "context": "PFF's 18th-ranked player overall fell to pick 59. All-American guard became immediate starter."
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_notes": "8 drafts of data as Bills GM provide extensive behavioral pattern evidence. Beane's tendencies are well-documented and consistent: aggressive trading, defensive front investment, late-round DB gems, WR deprioritization. The 2026 scheme change to 3-4 introduces uncertainty about defensive positional targeting, but Beane's core behavioral patterns (BPA lean, trade aggressiveness, character emphasis, athletic projection bets) should persist. New HC Joe Brady is an in-house promotion, maintaining offensive continuity.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

@@ -1,0 +1,852 @@
+{
+  "team": {
+    "name": "Los Angeles Chargers",
+    "abbreviation": "LAC",
+    "division": "AFC West",
+    "current_draft_position": 22
+  },
+  "front_office": {
+    "gm": {
+      "name": "Joe Hortiz",
+      "title": "General Manager",
+      "hired": "2024-01-30",
+      "previous_role": "Director of Player Personnel, Baltimore Ravens",
+      "drafts_as_gm": 2,
+      "confidence": "medium"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Auburn University",
+          "role": "Undergraduate Assistant Coach (QBs/WRs, Scout Team LBs/Secondary, Summer Camp Coordinator)",
+          "years": "1995-1997",
+          "mentor": "Terry Bowden"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "Football Personnel Assistant (Pro and College Scouting Staffs)",
+          "years": "1998-2000",
+          "mentor": "Ozzie Newsome / Pat Moriarty"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "Area Scout \u2014 Northeast Region",
+          "years": "2001-2002",
+          "mentor": "Ozzie Newsome"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "Area Scout \u2014 Southeast Region (SEC, ACC, C-USA)",
+          "years": "2003-2005",
+          "mentor": "Ozzie Newsome"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "National Scout (Eastern Half of Country)",
+          "years": "2006-2008",
+          "mentor": "Ozzie Newsome / Eric DeCosta"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "Director of College Scouting",
+          "years": "2009-2018",
+          "mentor": "Ozzie Newsome / Eric DeCosta"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "Director of Player Personnel (Overseeing College and Pro Scouting)",
+          "years": "2019-2023",
+          "mentor": "Eric DeCosta"
+        },
+        {
+          "org": "Los Angeles Chargers",
+          "role": "General Manager",
+          "years": "2024-present",
+          "mentor": "N/A \u2014 First GM role"
+        }
+      ],
+      "primary_mentor": "Ozzie Newsome and Eric DeCosta (Baltimore Ravens)",
+      "philosophical_lineage": "Pure Ravens tree. 26-year career spent entirely in Baltimore under Newsome (1998-2018) and DeCosta (2019-2023). The Ravens' draft philosophy \u2014 BPA, build through the draft, accumulate picks, trench-first, character-weighted evaluation \u2014 is deeply embedded. Also part of the Ravens '20/20 Club' (hired at ~20 years old for ~$20,000). Hortiz has publicly credited both Newsome and DeCosta for teaching him things he 'didn't even realize until he was sitting in the chair.' The Ravens approach of ranking the board 'based on the player, not by the position' is his foundation. DeCosta's philosophy that the draft is partly 'luck-driven' and the 'only rational approach' is to accumulate more picks also tracks with Hortiz's approach of trading up only minimally and finding Day 3 value.",
+      "breakpoints": "More willing to draft RB in Round 1 than the Ravens typically have been (Hampton at 22). Influenced by Jim Harbaugh's run-game philosophy. More aggressive filling needs at WR in consecutive Day 2 picks than the Ravens historically have been. Has shown willingness to use free agency strategically with short-term 1-year prove-it deals \u2014 a slight departure from the Ravens' more draft-centric model. Also traded for familiar Ravens players (Oweh, Bozeman), showing a preference for players he evaluated personally in Baltimore.",
+      "lineage_weight": 0.55,
+      "lineage_weight_notes": "2 drafts of own data as LAC GM reduce lineage weight from initial 0.75. However, Hortiz was deeply embedded in Ravens draft process for 15+ years (Director of College Scouting 2009-2018, Director of Player Personnel 2019-2023) so his Ravens influence is not just mentorship \u2014 it IS his evaluation framework. Will drop to 0.35 after 2026 draft."
+    },
+    "primary_decision_maker": "Joe Hortiz",
+    "key_influencers": [
+      {
+        "name": "Jim Harbaugh",
+        "title": "Head Coach",
+        "influence_level": "high",
+        "known_biases": "Run-game-first offensive philosophy. Values physical toughness and character. Coached at Michigan \u2014 has drafted players he previously coached (Colson, attempted connection with Cornelius Johnson). Pushed for the Hampton RB pick. Harbaugh described himself as 'Robin' to Hortiz's 'Batman' during the offseason and vice versa during the season. Strong voice on offensive personnel, especially run-game pieces."
+      },
+      {
+        "name": "Chad Alexander",
+        "title": "Assistant General Manager",
+        "influence_level": "high",
+        "known_biases": "Longtime Ravens colleague of Hortiz \u2014 they began their careers together in Baltimore's personnel department. Previously served as Director of Player Personnel for the New York Jets for five years. Strong evaluator with pro scouting expertise. His Jets connections have informed waiver and trade acquisitions (e.g., Marcus Maye). Alexander describes their core values as 'toughness, great teammates, high football IQ, speed, versatility.'"
+      },
+      {
+        "name": "John Spanos",
+        "title": "President of Football Operations",
+        "influence_level": "medium",
+        "known_biases": "Drove the GM search that landed Hortiz. Values analytics and progressive team-building. Praised Hortiz's 'progressive view on team building in regard to factoring in salary cap ramifications, the use of analytics.' Generally hands-off on specific picks but sets strategic direction."
+      }
+    ],
+    "power_dynamics": "Collaborative. Hortiz has final say on personnel, but Harbaugh has significant input especially on offensive personnel and scheme-fit players. Harbaugh approved the McConkey trade-up in real time during the 2024 draft. Alexander runs much of the day-to-day scouting operation. The dynamic works well \u2014 Harbaugh has publicly praised Hortiz extensively and deferred on offseason decisions.",
+    "owner_interference": "low"
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.7,
+    "bpa_weight_by_round": {
+      "1": 0.75,
+      "2": 0.6,
+      "3": 0.55,
+      "4_plus": 0.45
+    },
+    "stated_philosophy": "Best player available. 'You let the board come to you. You don't feel the pressure that you have to take this position.'",
+    "actual_philosophy": "Genuinely BPA-leaning in Round 1 \u2014 took Joe Alt (OT, a need) when he was clearly BPA at 5, then took Omarion Hampton (RB) at 22 when RB was NOT a top need but Hampton was their top-rated player. Turned down multiple trade offers to take Hampton. In Round 2, shifts to BPA-with-need-overlay: took McConkey (WR, massive need) and Tre Harris (WR, big need) in consecutive years. Day 3 balances developmental athletes, scheme fits, and special teams contributors.",
+    "philosophy_mismatch_notes": "Stated philosophy and actual behavior are closely aligned \u2014 a rarity. The Hampton pick at 22 over positions of greater need (EDGE, DT, OL) was the strongest evidence of genuine BPA commitment. Hortiz's Ravens training reinforced this: Ozzie Newsome said 'We rank the board based on the player, not by the position.' However, the Harbaugh influence creates a slight run-game bias \u2014 Hampton's selection was BPA but also fit Harbaugh's offensive vision perfectly."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.3,
+    "trade_down_willingness": 0.4,
+    "trades_per_draft_average": 1.5,
+    "trade_triggers": [
+      "A targeted player falling to within 3-5 picks of their spot (McConkey trade-up of 3 spots, Gadsden trade-up in round 5)",
+      "Hortiz keeps his cards extremely close \u2014 Ravens training taught him never to reveal targets. Will not divulge offensive/defensive interest to trade partners.",
+      "Familiar players from Ravens tenure (Oweh midseason trade, Bozeman free agent signing)"
+    ],
+    "draft_capital_philosophy": "Prefers to hold picks rather than trade up aggressively. Only moved up 3 spots in the 2024 draft (37\u219234) at modest cost. In 2025, traded two 6th-rounders to move up for Gadsden in Round 5 \u2014 small moves, not blockbuster trades. Ravens DNA: DeCosta preached accumulating picks as the 'only rational approach' and Hortiz absorbed that. However, has fewer total picks in 2026 (5) due to midseason trades (Oweh, Molden, Penning), showing willingness to spend future capital to win now."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "OT",
+        "WR",
+        "EDGE",
+        "QB"
+      ],
+      "tier_2_high": [
+        "CB",
+        "DT",
+        "RB",
+        "S"
+      ],
+      "tier_3_mid": [
+        "LB",
+        "IOL",
+        "TE"
+      ],
+      "tier_4_low": [
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "No clear avoidance \u2014 has drafted across the board. Has not used a top-100 pick on TE, IOL, or S in two drafts, but sample size is small."
+    ],
+    "position_premium": [
+      "WR \u2014 7 receivers drafted across the last 3 drafts (most in the NFL over that span). OT \u2014 used the 5th overall pick on Alt. RB \u2014 bucked convention by taking Hampton at 22. CB \u2014 invested two 5th-rounders on DBs in 2024, a 7th on CB in 2025. Overall, offensive skill positions and trenches dominate early picks."
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Productive college pass rusher with effort and motor over pure athletic traits. Hortiz has not used a top-3-round pick on EDGE in two Chargers drafts, instead drafting Kyle Kennard (Rd 4, 2025) \u2014 the reigning Nagurski Trophy winner and SEC DPOY. The pick screams 'production over projection' \u2014 Kennard won with effort and technique despite scouts questioning his bend. This aligns with Ravens DNA: Baltimore historically valued productive, high-motor pass rushers (Oweh was the exception as a traits bet). The Oweh midseason trade also reveals Hortiz's comfort with long, athletic EDGE players he personally evaluated in Baltimore.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "245-265",
+        "arm_length_minimum": "No clear minimum from Chargers picks \u2014 Kennard has ~33 inch arms. Oweh (traded for) is 6-5, 257 with 34+ inch arms.",
+        "key_athletic_tests": "Motor and effort appear to matter more than specific testing thresholds. Kennard's appeal was production, not combine numbers. Oweh was the opposite \u2014 elite athlete, raw rusher \u2014 but Hortiz knew him from Baltimore.",
+        "speed_requirement": "No clear threshold from draft picks. Values burst and closing speed on film over timed 40."
+      },
+      "playing_style": {
+        "primary_win_condition": "High motor, relentless effort, productive college track record. Kennard won with sheer effort and variety rather than one elite trait.",
+        "most_valued_traits": [
+          "College production and awards pedigree",
+          "Motor and effort consistency",
+          "Positional versatility (stand-up or hand-in-dirt)",
+          "Edge-setting ability in the run game",
+          "Character and competitiveness"
+        ],
+        "least_important_traits": [
+          "Pure bend/flexibility \u2014 Kennard's lack of bend was a known concern but didn't deter the pick"
+        ],
+        "deal_breakers": [
+          "Low college production despite athletic traits \u2014 Hortiz did NOT take Shemar Stewart (10.0 RAS, 1.5 sacks/year) despite Stewart being available and a perfect 'traits' pick"
+        ],
+        "traits_that_make_them_reach": "Elite college production (Nagurski winner, SEC DPOY) can make Hortiz comfortable taking a player with physical concerns"
+      },
+      "college_production": {
+        "production_floor": "Kennard had 10+ sacks and was the nation's top defender. For a Day 2-3 EDGE pick, appears to require significant production.",
+        "production_trajectory": "Breakout transfer year at South Carolina after modest production at Ohio State \u2014 values contextual production",
+        "context_sensitivity": "High \u2014 credits transfer success and conference-adjusted production"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 Rd 4 Pick 125 \u2014 Kyle Kennard, EDGE, South Carolina: ~6-3, ~250. Nagurski Trophy winner, SEC DPOY. Won with effort and technique over elite bend. Production-over-projection pick.",
+          "2025 Midseason Trade \u2014 Odafe Oweh, EDGE, Ravens: 6-5, 257, 4.36 40. Athletic freak Hortiz evaluated in Baltimore. Produced 7.5 sacks in 12 games for LAC."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 EDGE drafted in 2 drafts. Oweh trade supplements the profile. Ravens lineage heavily informs \u2014 Baltimore valued versatile, productive EDGE players (Za'Darius Smith, Oweh, Tyus Bowser)."
+    },
+    "OT": {
+      "archetype_summary": "Elite athlete with size, length, and scheme versatility. Joe Alt was the prototypical Hortiz OT pick: massive frame (6-8, 322), exceptional athleticism for his size, 34-inch arms, started as a true freshman, two-time All-American, effective in both gap and zone schemes. The selection of Alt at 5 overall \u2014 protecting franchise QB Justin Herbert \u2014 signals that OT is treated as a premium position. Alt's football pedigree (son of former KC OT John Alt) also fits the Ravens' emphasis on intangibles and football character.",
+      "physical_profile": {
+        "height_range": "6-5 to 6-8+",
+        "weight_range": "310-325",
+        "arm_length_minimum": "34 inches \u2014 Alt measured 34.25 inches. Ravens historically demanded 34+ for OTs.",
+        "key_athletic_tests": "Short shuttle (Alt: 4.51, 2nd among OTs at combine) and 3-cone (7.31) as measures of lateral agility. 40 time less critical but must show adequate movement skills. Overall athleticism score matters.",
+        "speed_requirement": "5.10 or faster for OT. Alt ran 5.05."
+      },
+      "playing_style": {
+        "primary_win_condition": "Scheme-versatile pass protector with run-blocking upside. Alt is effective in both gap and zone blocking, which fits a team transitioning to McDaniel's zone-based scheme.",
+        "most_valued_traits": [
+          "Pass protection \u2014 protecting Herbert is the stated priority",
+          "Scheme versatility \u2014 must fit multiple blocking schemes",
+          "Football IQ and processing",
+          "Lateral agility and foot quickness for size",
+          "Multi-year college starter with extensive snap count"
+        ],
+        "least_important_traits": [
+          "Pure mauling run-block power in isolation \u2014 Alt's weakness was absorbing bull rushes, but this didn't deter the pick"
+        ],
+        "deal_breakers": [
+          "Short arms below 33 inches",
+          "Limited college starting experience",
+          "One-scheme-only tackle"
+        ],
+        "traits_that_make_them_reach": "Elite combination of size and movement skills \u2014 Alt's flexibility at 6-8 was extraordinary"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter. Alt started as a true freshman and played 2,200+ snaps over 3 years.",
+        "production_trajectory": "Values early starters \u2014 Alt was a true freshman starter",
+        "context_sensitivity": "High \u2014 Alt allowed only 13 pressures across his final two seasons on 700+ pass-blocking snaps"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 Rd 1 Pick 5 \u2014 Joe Alt, OT, Notre Dame: 6-8, 322 lbs, 34.25-inch arms, 5.05 40, 4.51 shuttle. Two-time All-American, started as true freshman. Son of former NFL OT. Only allowed 13 pressures in final 2 seasons."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 1 OT drafted but it was the 5th overall pick \u2014 a massive investment that clearly signals archetype preference. Ravens tree reinforces: Baltimore drafted Ronnie Stanley (2016, 6th overall) under Hortiz's college scouting directorship \u2014 another elite athlete OT with premium length."
+    },
+    "IOL": {
+      "archetype_summary": "Versatile, tough interior lineman who can play multiple positions. The Chargers have not invested early picks on IOL under Hortiz \u2014 Branson Taylor was a 6th-round pick projected to move from college tackle to guard. Hortiz has preferred to address IOL through free agency (Bozeman, Becton, Zion Johnson retention) and late-round developmental picks. With the 2026 OL being a top priority and Mike McDaniel arriving, expect zone-scheme-friendly IOL to become a higher draft priority.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "300-330",
+        "arm_length_minimum": "No clear threshold from draft picks \u2014 Taylor was a tackle-to-guard convert",
+        "key_athletic_tests": "Lateral agility for zone-scheme blocking. With McDaniel arriving, expect increased emphasis on movement skills over anchor strength.",
+        "speed_requirement": "N/A \u2014 no IOL drafted high enough to establish threshold"
+      },
+      "playing_style": {
+        "primary_win_condition": "Positional versatility and toughness. Hortiz values linemen who can play multiple spots.",
+        "most_valued_traits": [
+          "Positional versatility (tackle-guard flexibility)",
+          "Toughness and competitiveness",
+          "Pass protection",
+          "Zone-blocking movement skills (increasingly important with McDaniel)",
+          "Character and leadership"
+        ],
+        "least_important_traits": [
+          "Pure power/anchor in isolation \u2014 valued but not the primary filter"
+        ],
+        "deal_breakers": [
+          "One-position-only lineman with no flexibility",
+          "Poor character or work ethic"
+        ],
+        "traits_that_make_them_reach": "Scheme versatility across multiple OL spots"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter preferred",
+        "production_trajectory": "Values experience \u2014 Taylor was a 5-year college player with 45 games and 21 starts",
+        "context_sensitivity": "Moderate"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 Rd 6 Pick 199 \u2014 Branson Taylor, OL, Pittsburgh: College tackle converting to guard. Team captain, 45 games played. Injury limited pre-draft process."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 IOL drafted (6th round). Hortiz has stated OL is a 2026 priority. Ravens lineage: Baltimore drafted Kevin Zeitler-types and valued versatile linemen like Bradley Bozeman (whom Hortiz later signed in LAC). With McDaniel's zone scheme arriving, expect a shift toward more athletic IOL."
+    },
+    "DT": {
+      "archetype_summary": "Versatile interior defender who can contribute immediately. Justin Eboigbe (Rd 4, 2024) was a character-over-ceiling pick \u2014 a comeback story from Alabama with limited athletic upside but strong character. Jamaree Caldwell (Rd 3, 2025) was a more traditional pick \u2014 an Oregon DT with size and physicality. Both picks were in the middle rounds, suggesting Hortiz views DT as a position to address in Rounds 3-4 rather than premium rounds, relying on free agency (Poona Ford, Teair Tart) for high-impact starters.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "285-310",
+        "arm_length_minimum": "No clear threshold \u2014 Eboigbe is 6-5, 292",
+        "key_athletic_tests": "Functional strength and anchor ability appear prioritized over timed athletic testing",
+        "speed_requirement": "N/A \u2014 DTs not filtered by 40 time"
+      },
+      "playing_style": {
+        "primary_win_condition": "Disruption at the point of attack. The Chargers' Minter-designed defense used two massive interior bodies to occupy blocks and free up EDGE rushers and LBs.",
+        "most_valued_traits": [
+          "Run-stuffing ability and hold-the-point strength",
+          "Motor and effort",
+          "Character, toughness, and resilience",
+          "Positional versatility along the interior",
+          "Special teams contributions"
+        ],
+        "least_important_traits": [
+          "Pure pass-rush upside from the interior \u2014 neither Eboigbe nor Caldwell projected as interior pass-rush threats"
+        ],
+        "deal_breakers": [
+          "Character concerns \u2014 Eboigbe was celebrated for his comeback story and character",
+          "One-dimensional player who can't hold up against the run"
+        ],
+        "traits_that_make_them_reach": "Exceptional character story or comeback narrative (Eboigbe's injury comeback was specifically cited)"
+      },
+      "college_production": {
+        "production_floor": "No minimum sack threshold \u2014 Eboigbe was not a stat-sheet stuffer. Values film and character over counting stats at DT.",
+        "production_trajectory": "Values durability and experience",
+        "context_sensitivity": "High \u2014 credits playing in elite programs (Alabama, Oregon)"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2024 Rd 4 Pick 105 \u2014 Justin Eboigbe, DT, Alabama: 6-5, 292. Comeback Player of Year finalist. Character-first pick. Nick Saban praised his character extensively.",
+          "2025 Rd 3 Pick 86 \u2014 Jamaree Caldwell, DT, Oregon: Honorable Mention All-Big Ten. Started all 14 games. Provides depth and physicality along the interior."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "CB": {
+      "archetype_summary": "Two distinct archetypes: (1) Twitchy, fast slot/outside CB with ball production (Tarheeb Still: 5-11ish, 4.4 speed, 4 INTs as a rookie) and (2) Long, physical press-man outside CB with size and athleticism (Cam Hart: 6-3, 202, 4.50, 39.5-inch vertical). Hortiz invested TWO 5th-round picks on CBs in 2024 and took a 7th-round CB in 2025 (Trikweze Bridges: 6-2, 6-9 wingspan). This suggests CB is a 'volume play' \u2014 draft multiple late-round CBs and develop the hits. Values length, athleticism, and special teams ability. Ball production on film matters but isn't a hard statistical threshold.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-3 \u2014 broad range, drafts both undersized slot types and long outside types",
+        "weight_range": "185-205",
+        "arm_length_minimum": "No hard minimum \u2014 Still is shorter/quicker, Hart and Bridges are long. Appears to value length at outside CB specifically (Bridges had a 6-9 wingspan).",
+        "key_athletic_tests": "Speed is critical \u2014 Still ran ~4.4, Hart ran 4.50. Vertical jump matters as an athleticism indicator (Hart: 39.5 inches).",
+        "speed_requirement": "4.50 or faster for outside CB. May accept slightly slower for elite length."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Multiple \u2014 Minter's defense used man and zone concepts. Values CBs who can play press-man but also drop into zone.",
+        "most_valued_traits": [
+          "Speed and coverage ability",
+          "Physicality and willingness to tackle",
+          "Ball skills and playmaking (Still had 4 INTs including a pick-six as a rookie)",
+          "Special teams value \u2014 explicitly mentioned as a factor",
+          "Length and wingspan for outside CBs"
+        ],
+        "least_important_traits": [
+          "Pedigree or recruiting stars \u2014 Still was a 5th-round project, Hart converted from WR in college"
+        ],
+        "deal_breakers": [
+          "Inability to contribute on special teams for Day 3 CB picks",
+          "Pure zone-only CB without any man-coverage ability"
+        ],
+        "traits_that_make_them_reach": "Elite measurables combined with special teams upside (Bridges: 6-2, 6-9 wingspan, 7th round)"
+      },
+      "college_production": {
+        "production_floor": "No clear statistical threshold \u2014 values film and traits over interception totals",
+        "production_trajectory": "Open to late developers \u2014 Hart allowed no TDs on 308 coverage snaps in his final year",
+        "context_sensitivity": "High \u2014 evaluates competition level and role"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2024 Rd 5 Pick 137 \u2014 Tarheeb Still, CB, Maryland: ~5-11, ~185, ~4.4 speed. Project corner who became a starter and finished 7th in DROY voting with 4 INTs.",
+          "2024 Rd 5 Pick 140 \u2014 Cam Hart, CB, Notre Dame: 6-3, 202, 4.50 40, 39.5-inch vertical. High-ceiling corner with great measurables. Allowed 0 TDs on 308 coverage snaps.",
+          "2025 Rd 7 Pick 256 \u2014 Trikweze Bridges, CB, Florida: 6-2, 6-9 wingspan. Developmental stash with elite length and special teams ability."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "S": {
+      "archetype_summary": "Versatile hybrid safety who can play multiple roles. RJ Mickens (Rd 6, 2025) was an athletic, versatile Clemson safety with NFL bloodlines. The Chargers' defense under Minter used Derwin James as a hybrid box/nickel safety on ~85% of snaps, with a true single-high FS behind him. Hortiz values safety versatility \u2014 the ability to play box, slot, and deep. Midseason trade for Elijah Molden from Tennessee (a slot/safety hybrid) reinforced this archetype.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-2",
+        "weight_range": "195-215",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Short-area quickness and change-of-direction for slot/box work. Speed for range in single-high looks.",
+        "speed_requirement": "4.50 or faster preferred for hybrid safety types"
+      },
+      "playing_style": {
+        "primary_win_condition": "Positional versatility \u2014 must be able to play multiple roles in Minter's (now O'Leary's) defense",
+        "most_valued_traits": [
+          "Versatility across multiple defensive alignments",
+          "Coverage ability in man and zone",
+          "Tackling and physicality",
+          "Football IQ and communication",
+          "Special teams value for Day 3 picks"
+        ],
+        "least_important_traits": [
+          "Pure ball-hawking ability \u2014 values coverage technique over interception totals"
+        ],
+        "deal_breakers": [
+          "One-dimensional safety who can only play single-high or only play in the box",
+          "Poor tackler"
+        ],
+        "traits_that_make_them_reach": "Multi-position versatility with special teams upside"
+      },
+      "college_production": {
+        "production_floor": "No clear statistical threshold \u2014 Mickens had 89.8 PFF coverage grade",
+        "production_trajectory": "Values multi-year starters with experience in multiple roles",
+        "context_sensitivity": "High"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 Rd 6 Pick 214 \u2014 RJ Mickens, S, Clemson: Led qualified ACC safeties with 89.8 PFF coverage grade. 3 years starting experience. NFL bloodlines. Athletic with special teams ability."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 safety drafted. Elijah Molden trade (7th-round pick cost) supplements. Scheme strongly informs \u2014 the defense deploys a box safety (James), a hybrid (Molden/Mickens), and a deep safety."
+    },
+    "LB": {
+      "archetype_summary": "Coverage-capable, rangy linebacker with length and athleticism who can match up on tight ends in man coverage. Junior Colson (Rd 3, 2024) was Dane Brugler's No. 1 LB prospect \u2014 a Michigan product who played under Harbaugh and Minter. At 6-2, 238 with a 4.58 40, Colson is a long, rangy, read-and-react LB who excels in coverage, particularly matching up man-to-man on TEs. His versatility to align in different locations mirrors how the Chargers use LBs in Minter/O'Leary's scheme.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-3",
+        "weight_range": "230-245",
+        "arm_length_minimum": "Colson has excellent length \u2014 no specific threshold but length appears valued",
+        "key_athletic_tests": "Lateral agility and coverage movement skills over pure straight-line speed. 40 time matters but not paramount \u2014 Colson ran 4.58, which is adequate not elite.",
+        "speed_requirement": "4.65 or faster preferred for off-ball LB"
+      },
+      "playing_style": {
+        "primary_win_condition": "Coverage versatility \u2014 man up on TEs, drop into Tampa 2, or play zone underneath",
+        "most_valued_traits": [
+          "Coverage ability in man and zone",
+          "Length and range to cover ground sideline-to-sideline",
+          "Stack-and-shed technique against blockers",
+          "Football IQ and instincts",
+          "Character and leadership (Colson won Lott IMPACT Trophy)"
+        ],
+        "least_important_traits": [
+          "Pure downhill thumping ability \u2014 Colson is more read-and-react than trigger-and-attack",
+          "Blitz production \u2014 not the primary role"
+        ],
+        "deal_breakers": [
+          "Liability in coverage against pass-catching TEs",
+          "Stiff hips or inability to change direction in space"
+        ],
+        "traits_that_make_them_reach": "Prior relationship with coaching staff (Colson played for Harbaugh and Minter at Michigan)"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter with 80+ tackles in final season. Colson led Michigan with 95 tackles in 2023.",
+        "production_trajectory": "Early starter \u2014 Colson started as a true freshman",
+        "context_sensitivity": "High \u2014 credits production in championship-level programs"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 Rd 3 Pick 69 \u2014 Junior Colson, LB, Michigan: 6-2, 238, 4.58 40. National championship team captain. 95 tackles in 2023. Coverage LB who matches up on TEs. Lott IMPACT Trophy winner. Coached by Harbaugh/Minter."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 1 LB drafted but it was a clear archetype selection. The Harbaugh/Minter connection adds a layer \u2014 this was both a talent evaluation and a scheme-fit/familiarity pick."
+    },
+    "WR": {
+      "archetype_summary": "Two distinct archetypes across two drafts: (1) Undersized, route-running technician with speed and YAC ability for the slot (McConkey: 5-11, 186, 4.39 40, prolific route runner from Georgia) and (2) Big-bodied, contested-catch X-receiver for the outside (Tre Harris: 6-2, 205, 4.54, elite contested-catch ability from Ole Miss; KeAndre Lambert-Smith: speed and toughness from Auburn). Hortiz has invested HEAVILY in WR \u2014 7 receivers drafted in the last 3 drafts, the most in the NFL. Values production, polish, and immediate contributor ability. McConkey was a two-time national champion with route-running savvy; Harris averaged 100+ yards/game at Ole Miss. Both were proven college producers.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-3 \u2014 drafts across the size spectrum",
+        "weight_range": "185-210",
+        "arm_length_minimum": "No hard minimum \u2014 McConkey had notably short arms (30.25 inches) which didn't deter the pick",
+        "key_athletic_tests": "For slot WRs: 40 time (McConkey 4.39), broad jump (10-4), vertical (36 inches). For outside WRs: catch radius and contested-catch ability matter more than timed speed. Harris ran 4.54 but wins with size and physicality.",
+        "speed_requirement": "4.45 or faster for slot/speed types. 4.55 acceptable for big-bodied outside receivers with elite film"
+      },
+      "playing_style": {
+        "primary_win_condition": "Route running and separation ability (McConkey) OR contested-catch dominance at the catch point (Harris)",
+        "most_valued_traits": [
+          "Route-running precision and separation creation",
+          "Contested-catch ability and ball skills",
+          "College production and proven track record",
+          "Football IQ and ability to pick up offense quickly",
+          "Toughness and competitiveness after the catch"
+        ],
+        "least_important_traits": [
+          "Raw speed without polish \u2014 hasn't drafted a pure deep-threat project",
+          "Size \u2014 will draft small WRs if production warrants it (McConkey)"
+        ],
+        "deal_breakers": [
+          "Inconsistent hands or drop issues",
+          "Low college production despite athletic tools"
+        ],
+        "traits_that_make_them_reach": "Elite college production and proven ability to produce in big games (McConkey: national championship game TDs; Harris: 6 games of 100+ yards in SEC)"
+      },
+      "college_production": {
+        "production_floor": "Substantial college production is required for early-round WRs. McConkey: 119 career catches, 1,687 yards, 14 TDs. Harris: 220 career catches, 3,532 yards, 29 TDs across two schools. Both were proven, productive players.",
+        "production_trajectory": "Open to late risers \u2014 Harris transferred from Louisiana Tech to Ole Miss and exploded. McConkey was a walk-on who earned a scholarship.",
+        "context_sensitivity": "High \u2014 values production against elite competition (SEC, national championship games)"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2024 Rd 2 Pick 34 \u2014 Ladd McConkey, WR, Georgia: 5-11, 186, 4.39 40, 30.25-inch arms. Two-time national champion. 119 career catches. Route technician with speed and YAC. Traded up 3 spots to select.",
+          "2025 Rd 2 Pick 55 \u2014 Tre Harris, WR, Ole Miss: 6-2, 205, 4.54 40, 31.88-inch arms. Second-Team All-American. 60 catches for 1,030 yards in 8 games (128.8 YPG). Big-bodied contested-catch specialist.",
+          "2025 Rd 5 Pick 158 \u2014 KeAndre Lambert-Smith, WR, Auburn: Speed and toughness. Unguardable at East-West Shrine Game per Eric Galko.",
+          "2024 Rd 7 Pick 225 \u2014 Brenden Rice, WR, USC: PFF's 125th prospect. Generated 117.3 passer rating when targeted.",
+          "2024 Rd 7 Pick 253 \u2014 Cornelius Johnson, WR, Michigan: Harbaugh connection. Did not make the roster."
+        ]
+      },
+      "confidence": "high"
+    },
+    "TE": {
+      "archetype_summary": "Athletic receiving threat with vertical ability and speed to separate in man coverage. Oronde Gadsden II (Rd 5, 2025) was a 6-5, 243-pound receiving TE from Syracuse who held school records for catches and yards by a TE. Hortiz traded UP to get Gadsden, sending two 6th-rounders for a 5th \u2014 signaling strong conviction. Hortiz described Gadsden as offering 'a great vertical presence in the middle of the field' with 'speed, the ability to separate versus man coverage.' Gadsden emerged as a productive rookie with 49 catches, 664 yards, and 3 TDs. The Chargers are reportedly interested in Oregon TE Kenyon Sadiq (4.39 40) in the 2026 draft, reinforcing the athletic receiving TE preference.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "235-250+",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Speed and ability to separate in man coverage are paramount. Gadsden's selling point was speed and vertical ability. Interest in Sadiq (fastest TE 40 ever at 4.39) reinforces this.",
+        "speed_requirement": "Must have enough speed to threaten vertically down the seam"
+      },
+      "playing_style": {
+        "primary_win_condition": "Pass-catching ability and vertical seam threat",
+        "most_valued_traits": [
+          "Receiving ability and route running",
+          "Vertical speed down the seam",
+          "Ability to separate in man coverage",
+          "Red zone target potential",
+          "NFL bloodlines/football character (Gadsden's father played 6 NFL seasons)"
+        ],
+        "least_important_traits": [
+          "Inline blocking ability \u2014 Gadsden was drafted as a pass-catcher, not a blocker, though he's adding weight"
+        ],
+        "deal_breakers": [
+          "Pure blocking TE without receiving upside",
+          "Inability to create separation against man coverage"
+        ],
+        "traits_that_make_them_reach": "Elite speed and receiving ability for a TE \u2014 Hortiz traded up to get Gadsden and is reportedly interested in Sadiq"
+      },
+      "college_production": {
+        "production_floor": "Significant receiving production. Gadsden: 141 career catches, 1,970 career yards (Syracuse records for a TE). 73 catches, 934 yards, 7 TDs in final season.",
+        "production_trajectory": "Values proven college producers",
+        "context_sensitivity": "Moderate"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 Rd 5 Pick 165 \u2014 Oronde Gadsden II, TE, Syracuse: 6-5, 243. Syracuse all-time leader in catches (141) and yards (1,970) by a TE. 73 catches, 934 yards, 7 TDs in 2024. Traded up to select. Father played 6 NFL seasons."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 1 TE drafted but the trade-up and Hortiz's specific comments about Gadsden's attributes clearly define the archetype. Ravens lineage: Baltimore drafted Mark Andrews (another athletic receiving TE) during Hortiz's college scouting tenure."
+    },
+    "RB": {
+      "archetype_summary": "Physical, downhill power back with enough burst and athleticism to be a three-down player. Omarion Hampton (Rd 1 Pick 22, 2025) was a prototypical Harbaugh/Hortiz RB: 6-0, 221 lbs, 4.46 40, 38-inch vertical, 130-inch broad jump. Back-to-back 1,500+ yard seasons at UNC with violent running style and contact balance. Hampton's selection at 22 was a BPA pick that also fit Harbaugh's run-first philosophy. Kimani Vidal (Rd 6, 2024) provides a complementary, compact change-of-pace back: 5-8, 215, explosive but undersized. The combination suggests Hortiz values a lead-back workhorse with size and power supplemented by a smaller, more explosive backup.",
+      "physical_profile": {
+        "height_range": "5-8 to 6-1 \u2014 broad range depending on role",
+        "weight_range": "210-225 for lead back, 210-215 for change of pace",
+        "arm_length_minimum": "N/A for RB",
+        "key_athletic_tests": "Burst metrics matter: vertical jump (Hampton: 38 inches), broad jump (Hampton: 130 inches). Speed score (size-adjusted 40) is important \u2014 Hampton's 111.7 speed score was 94th percentile.",
+        "speed_requirement": "4.50 or faster for a lead back. Hampton ran 4.46."
+      },
+      "playing_style": {
+        "primary_win_condition": "Power between the tackles with enough burst to break big runs. Hampton's running style is violent with strong leg drive and contact balance.",
+        "most_valued_traits": [
+          "Power and contact balance",
+          "Vision and patience as an inside runner",
+          "Burst through the hole",
+          "College production and durability (Hampton never missed a game)",
+          "Three-down potential \u2014 enough receiving ability to stay on field"
+        ],
+        "least_important_traits": [
+          "Elite top-end speed \u2014 Hampton is not a burner but is explosive enough",
+          "Receiving prowess as the primary value proposition"
+        ],
+        "deal_breakers": [
+          "Injury history or durability concerns",
+          "Pure speed back without power between the tackles"
+        ],
+        "traits_that_make_them_reach": "Back-to-back seasons of 1,500+ rushing yards against Power 5 competition made Hortiz comfortable taking Hampton over positions of greater need"
+      },
+      "college_production": {
+        "production_floor": "Massive production. Hampton: 3,565 career rushing yards, back-to-back 1,500+ yard seasons. Vidal: career-high 93.2 PFF rushing grade, 14 TDs, 94 missed tackles forced.",
+        "production_trajectory": "Values ascending, durable producers",
+        "context_sensitivity": "High \u2014 Hampton's ACC production against quality competition weighed heavily"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2025 Rd 1 Pick 22 \u2014 Omarion Hampton, RB, North Carolina: 6-0, 221, 4.46 40, 38-inch vert, 130-inch broad. 3,565 career rushing yards. 1,660 yards and 15 TDs as junior. Physical, violent runner with burst. BPA pick over positions of greater need.",
+          "2024 Rd 6 Pick 181 \u2014 Kimani Vidal, RB, Troy: 5-8, 215. Explosive compact back. 93.2 PFF rushing grade in 2023. 14 TDs, 94 forced missed tackles. Ran for 643 yards in backup role in 2025."
+        ]
+      },
+      "confidence": "high"
+    },
+    "QB": {
+      "archetype_summary": "Franchise-caliber pocket passer with arm talent, processing speed, and enough mobility to extend plays. Hortiz has not drafted a QB \u2014 Justin Herbert was already in place as a top-5 NFL QB. Hortiz's stated top priority is 'protecting Justin Herbert' and giving him weapons. The Chargers signed Trey Lance as a backup in 2025. Hortiz's Ravens background included selecting Joe Flacco (Rd 1, 2008 \u2014 Hortiz was the national scout who helped identify Flacco) and developing Lamar Jackson (Rd 1, 2018 \u2014 under Hortiz's college scouting direction). This suggests comfort with multiple QB archetypes but a preference for high-floor pocket passers (Flacco) over running QBs as franchise starters.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-6 \u2014 Flacco was 6-6, Jackson was 6-2. Broad range.",
+        "weight_range": "210-240",
+        "key_athletic_tests": "Arm strength is non-negotiable. Processing speed on film matters more than any combine test.",
+        "speed_requirement": "N/A \u2014 mobility is a plus, not a requirement"
+      },
+      "playing_style": {
+        "primary_style": "Pocket passer with arm talent and football IQ. Herbert is the prototype Hortiz builds around.",
+        "most_valued_traits": [
+          "Arm strength and accuracy",
+          "Processing speed and pre-snap reads",
+          "Pocket presence and poise under pressure",
+          "Leadership and character",
+          "Durability"
+        ],
+        "least_important_traits": [
+          "Designed rushing ability \u2014 not required but is a bonus"
+        ],
+        "deal_breakers": [
+          "Poor arm talent",
+          "Inability to process at NFL speed"
+        ],
+        "traits_that_make_them_reach": "N/A \u2014 no QB drafted"
+      },
+      "college_production": {
+        "production_floor": "Must be a proven multi-year college starter",
+        "production_trajectory": "Values consistency",
+        "context_sensitivity": "High"
+      },
+      "evidence": {
+        "picks_analyzed": 0,
+        "examples": []
+      },
+      "confidence": "very_low",
+      "confidence_note": "No QBs drafted under Hortiz as LAC GM. Profile entirely inferred from Ravens scouting tree (Flacco, Jackson) and the fact that Herbert is the franchise. Hortiz helped scout Flacco as a national scout and oversaw the college scouting process that identified Jackson."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 5,
+    "max_observed_reach": 12,
+    "round_1_reach_tolerance": 5,
+    "notes": "Hortiz appears comfortable with modest reaches. Joe Alt at 5 was consensus BPA \u2014 no reach. Hampton at 22 was projected as a mid-to-late first rounder by some, making it a slight reach of 5-10 picks for a RB. McConkey at 34 was valued as a first-round talent by multiple analysts (Jeremiah had him at 30, Brugler at 31) so pick 34 was actually value. Colson at 69 was Brugler's #1 LB but others had him as a 4th-round grade \u2014 mild reach. Overall, Hortiz stays close to consensus in early rounds but is willing to reach modestly for players who fit the culture and scheme."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.55,
+    "offensive_scheme": "Transitioning from Greg Roman's power-run/play-action scheme to Mike McDaniel's zone-based, motion-heavy system in 2026. McDaniel's scheme emphasizes speed in space, zone blocking, and creative play design around Herbert's arm talent. This is a MAJOR scheme change that will affect 2026 draft targets \u2014 expect increased emphasis on zone-scheme-fit OL (athletic, lateral movers), speed at WR/RB, and pass-catching TEs. Hortiz said McDaniel will 'create his scheme, create his offense based around the players we have.'",
+    "defensive_scheme": "4-down front, multiple coverage looks with heavy Nickel/Dime personnel. Jesse Minter left for the Ravens HC job; Chris O'Leary promoted from within to maintain continuity. O'Leary ran a similar scheme at Western Michigan. Derwin James used as a box/nickel hybrid (~85% of snaps near the box). Values versatile EDGE players who can stand up or put hand in dirt. Emphasizes 'block destruction, shocking effort, ball disruption, and obnoxious communication.'",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "MAJOR offensive scheme change with McDaniel replacing Roman. Jesse Minter also left for Ravens HC job, with O'Leary maintaining defensive continuity. The offensive change is the more significant one \u2014 it will shift OL draft targets from power/gap blockers to zone/athletic blockers. Confidence discount on offensive player archetype predictions: reduce by 15-20% until we see McDaniel's first draft influence."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.4,
+    "risk_description": "Moderately conservative. Prefers proven producers (McConkey, Harris, Hampton, Alt) over projection bets. Day 3 is where he takes higher-variance swings (Still as a 5th-round project who hit big, Bridges as a 7th-round developmental stash). His Ravens training emphasized 'hitting on 60% of draft picks' \u2014 a realistic, process-driven approach rather than swing-for-the-fences mentality.",
+    "recency_bias": 0.5,
+    "recency_description": "Moderate. After two consecutive playoff losses where offense was shut down (32-12 vs HOU, 16-3 vs NE), the Chargers hired Mike McDaniel and are prioritizing offensive line and Herbert's weapons. However, Hortiz explicitly warned against chasing perceived needs: 'If you chase perceived needs in free agency, in the draft, more often than not you're overpaying or making a mistake.'",
+    "sunk_cost_behavior": "Willing to move on quickly. Traded Keenan Allen and released Mike Williams in his first offseason. Cut 7th-round pick Cornelius Johnson before the season. Aggressively churned the 53-man roster throughout both seasons. Traded away safety Alohi Gilman mid-season when a better option (Oweh package) presented itself.",
+    "combine_weight": 0.45,
+    "combine_description": "Film-first evaluator in the Ravens tradition. Alt's combine confirmed his film. McConkey's 4.39 boosted his stock but route running and production drove the pick. Hampton's testing (38-inch vert, 130-inch broad) confirmed elite burst but his 1,500+ yard seasons were the foundation. Kennard was a production-over-testing pick \u2014 scouts questioned his bend but Hortiz valued his awards and output. However, the interest in Kenyon Sadiq (4.39 TE) and the Still/Hart picks show that combine numbers do inform Day 3 decisions.",
+    "character_weight": 0.75,
+    "character_description": "Very high character standards \u2014 clear Ravens DNA. Eboigbe was explicitly drafted for his character and comeback story. Colson won the Lott IMPACT Trophy (character award). Alexander stated their core values include 'toughness, great teammates, high football IQ.' Hortiz signed J.K. Dobbins, Kristian Fulton, and other prove-it veterans on 1-year deals \u2014 all chosen for competitiveness and fighter mentality. As safety Tony Jefferson said: 'Everybody's just, like, fighters.'",
+    "quarterback_philosophy": "Herbert is the franchise cornerstone. Everything is built around protecting and maximizing Herbert. Hortiz said 'protecting Justin Herbert' is a priority. Will not draft a QB prospect \u2014 Herbert is locked in long-term on a $262.5M extension."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.7,
+    "production_vs_projection": "Strongly leans toward productive college players. Every premium pick (Alt, McConkey, Hampton, Harris) was a proven, elite college producer. Alt: 2,200+ snaps, 2x All-American. McConkey: 119 catches, 14 TDs, 2 national titles. Hampton: 3,565 career rushing yards. Harris: 100+ YPG average at Ole Miss. The one projection-leaning pick was Tarheeb Still (5th round, limited production but athletic traits) \u2014 and that worked out spectacularly. Overall: production is the baseline filter, with athletic projection saved for Day 3 value plays.",
+    "production_thresholds_by_position": {
+      "WR": "Proven multi-year producers with significant catch totals. McConkey: 119 career catches. Harris: 220 career catches across two schools. No WR drafted in Rounds 1-3 with fewer than 50 catches in final season (McConkey had 30 in an injury-shortened year but had 58 the year before).",
+      "RB": "1,500+ rushing yards in at least one college season for lead back. Hampton: back-to-back 1,500+ yard seasons.",
+      "EDGE": "Elite production and/or awards. Kennard: Nagurski Trophy, SEC DPOY.",
+      "OT": "Multi-year starter with dominant film. Alt: true freshman starter, 2,200+ snaps.",
+      "CB": "No clear production threshold \u2014 film and traits drive CB picks more than stats.",
+      "LB": "High tackle totals for lead LB. Colson: 95 tackles, team-high at Michigan.",
+      "TE": "Elite receiving production for a TE. Gadsden: school-record 141 career catches."
+    },
+    "breakout_age_sensitivity": 0.5,
+    "dominator_rating_sensitivity": 0.55,
+    "notes": "Production is king for Hortiz, but he adjusts for context. McConkey was injury-limited in his final year (30 catches in 9 games) but had previously produced 58/762/7 as a sophomore. Harris transferred from Louisiana Tech to Ole Miss and exploded \u2014 Hortiz credited the ascent rather than penalizing the lower-level origin. Hampton's consistency (never missed a game, produced big in every season) matters as much as peak stats. Ravens lineage: Ozzie Newsome and DeCosta valued 'players that fit the Ravens' \u2014 production in the context of their program and competition level."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "OT": {
+        "min_arm_length": "34 inches",
+        "40_max": 5.1,
+        "confidence": "medium"
+      },
+      "WR_slot": {
+        "40_max": 4.45,
+        "confidence": "medium"
+      },
+      "WR_outside": {
+        "min_height": "6-1",
+        "40_max": 4.55,
+        "confidence": "medium"
+      },
+      "CB_outside": {
+        "40_max": 4.5,
+        "min_height": "6-0",
+        "confidence": "medium"
+      },
+      "RB": {
+        "40_max": 4.5,
+        "min_weight": 215,
+        "confidence": "medium"
+      },
+      "EDGE": {
+        "no_clear_threshold": true,
+        "notes": "Production matters more than testing at EDGE"
+      },
+      "DT": {
+        "no_clear_threshold": true,
+        "notes": "Character and film-based evaluation"
+      },
+      "LB": {
+        "40_max": 4.65,
+        "min_height": "6-1",
+        "confidence": "low"
+      },
+      "TE": {
+        "no_clear_threshold": true,
+        "notes": "Speed and receiving ability valued over specific testing marks, but interest in Sadiq (4.39 40) suggests elite speed is a differentiator"
+      },
+      "S": {
+        "no_clear_threshold": true,
+        "notes": "Versatility matters more than specific testing"
+      },
+      "QB": {
+        "no_picks": true
+      }
+    },
+    "threshold_type": "Soft preferences rather than hard cutoffs. Hortiz is film-first and will override testing when production and character are exceptional. McConkey's short arms (30.25 inches) were well below typical WR standards but didn't deter the pick.",
+    "size_preferences_by_position": {
+      "OT": "6-5+ with 34+ inch arms. Alt set the bar at 6-8, 322.",
+      "WR": "No strong size preference \u2014 drafts 5-11 slot types and 6-2+ outside types depending on role",
+      "DT": "285+ for rotational role. Values size and anchor.",
+      "LB": "6-1 to 6-3, 230-245. Values length and range.",
+      "CB": "Drafts across spectrum \u2014 5-11 twitchy types to 6-3 long types",
+      "RB": "220+ for lead back. 5-8+ acceptable for change-of-pace.",
+      "TE": "6-3+ with receiving body type"
+    },
+    "athletic_testing_favorites": "Vertical jump and broad jump as explosiveness proxies for RBs and CBs. Short shuttle and 3-cone for OTs. 40 time for WRs and CBs. Overall, uses testing to confirm film evaluation rather than as primary driver.",
+    "measurables_vs_film": "Film-first. When a player tests poorly but has elite film and production, Hortiz goes with the film. McConkey's short arms, Kennard's questioned bend, and Harris's 4.54 40 were all flagged by analysts but didn't deter Hortiz because the film and production supported the picks. Conversely, has not been seen drafting a combine warrior with poor film \u2014 no evidence of pure-athlete lottery tickets in early rounds."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium player, high floor. In both drafts, took a clearly defined top-of-board player: Alt (consensus top-5 talent) and Hampton (viewed as BPA despite RB not being a top need). Willing to stay put and take the best player rather than trade back. Turned down multiple trade offers for Pick 22 in 2025. Quote: 'We can literally let the board come to us.'",
+    "round_2_3_strategy": "Need-aware BPA with willingness to trade up slightly. In both Year 1 and Year 2, addressed the team's biggest need (WR) in Round 2 \u2014 McConkey and Harris. Will trade up 3 spots for a targeted player (McConkey). Round 3 targets scheme-fit players: Colson (LB, Michigan/Minter connection) and Caldwell (DT, run-stuffing depth). This is where the BPA-to-need shift happens.",
+    "day_3_strategy": "High volume, diverse approach. Day 3 targets: (1) developmental athletes with upside (Still, Hart), (2) special teams contributors (Bridges, Mickens), (3) scheme-specific role players (Vidal, Lambert-Smith), (4) character-driven/comeback picks (Eboigbe). Willing to trade up modestly for a targeted player (Gadsden: traded two 6ths for a 5th). Uses Day 3 to acquire 2 CBs, multiple WRs, and positional depth across the board.",
+    "compensatory_pick_usage": "Actively seeks comp picks through free agency management. Chargers received 3 comp picks in 2025 (two 6ths, one 7th). Ravens training: the Ravens were among the best in the league at manufacturing comp picks. Hortiz signed numerous 1-year prove-it deals in Year 1 specifically to generate comp picks in subsequent years."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "OT": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Alt was a Pro Bowl rookie. Perfect hit."
+      },
+      "WR": {
+        "picks": 5,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "McConkey was a star; Harris showed flashes; Rice, Johnson, Lambert-Smith varying degrees of contribution. Volume approach yields at least 1-2 hits per cycle."
+      },
+      "CB": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Still (4 INTs, 7th in DROY voting) and Hart both became key defenders for the #1 scoring defense. Exceptional Day 3 value."
+      },
+      "RB": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Hampton started as lead back; Vidal provided quality depth (643 yards in Year 2)."
+      },
+      "LB": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Colson made 11 appearances but only 1 start as a rookie. Still developing."
+      },
+      "DT": {
+        "picks": 2,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Eboigbe and Caldwell are rotational pieces. Neither has emerged as a starter yet."
+      },
+      "EDGE": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Kennard played only 25 defensive snaps as a rookie. Non-factor so far."
+      },
+      "TE": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Gadsden emerged as best pass-catching TE on roster: 49 catches, 664 yards, 3 TDs as a 5th-round rookie."
+      },
+      "S": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Mickens showed growing pains but factored into the Gilman trade decision."
+      },
+      "IOL": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Taylor did not make 53-man roster."
+      }
+    },
+    "blind_spots": [
+      "DT evaluation has not produced starters yet \u2014 both picks are rotational depth. EDGE evaluation TBD \u2014 Kennard has been a non-factor. Late-round IOL (Taylor) was a miss."
+    ],
+    "strengths": [
+      "CB evaluation is exceptional \u2014 found two starting-caliber corners in the 5th round. WR evaluation produced an immediate star in McConkey. OT evaluation perfect (one pick, one Pro Bowler). TE evaluation strong (Gadsden as 5th-round value). Overall roster construction ability \u2014 the Chargers went from 5-12 to 11-6 in Year 1."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Calculated, value-driven spender who uses FA to fill holes and set up BPA drafting. In Year 1, signed a wave of 1-year prove-it deals (Poona Ford, J.K. Dobbins, Kristian Fulton, Bradley Bozeman) to fill immediate needs cheaply, then drafted BPA. In Year 2, signed Najee Harris and Mekhi Becton to address needs, allowing the draft board to dictate picks. Quote: 'I don't want to spend recklessly... If you chase perceived needs in free agency, in the draft, more often than not you're overpaying or making a mistake.'",
+    "fa_draft_correlation": "When a position is addressed in FA, Hortiz doesn't avoid it in the draft if BPA warrants it. Signed Najee Harris (RB) in FA, then still drafted Hampton (RB) at 22 because Hampton was their top-rated player. Does not let FA signings constrain draft board. However, FA signings do reduce urgency at positions, enabling true BPA picks.",
+    "roster_construction_philosophy": "Build through the draft at premium positions (OT, WR, CB, RB), supplement through FA with value signings at non-premium positions (DT, IOL, S, LB). Uses midseason trades for targeted upgrades when opportunities arise (Oweh, Molden, Penning). Constantly churns the bottom of the roster \u2014 'always looking for a way to give Harbaugh the best overall roster possible.' Ravens DNA: prioritize sustained competitiveness through draft-and-develop over big FA splashes."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 19,
+    "notable_patterns": [
+      "Has not used a top-2-round pick on a defensive player in either draft \u2014 both first and second round picks have been offensive players (Alt, McConkey, Hampton, Harris)",
+      "7 wide receivers drafted across last 3 drafts \u2014 most in NFL over that span",
+      "Two 5th-round CBs became key starters on the #1 scoring defense",
+      "Drafted at least one player with Michigan/Harbaugh connection in each draft (Colson 2024, ties to Harbaugh tree in 2025)",
+      "Traded up only once in each draft, both times modestly (3 spots in Rd 2 for McConkey, traded two 6ths for a 5th for Gadsden)",
+      "Every premium pick (Rounds 1-3) has been a multi-year college starter with significant production",
+      "Values NFL bloodlines: Alt (father John Alt, KC OT), Gadsden (father Oronde Gadsden, MIA WR), Mickens (father NFL player)"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2025,
+        "pick": "1.22",
+        "player": "Omarion Hampton",
+        "position": "RB",
+        "consensus_rank": "~25-35 overall (late 1st to early 2nd)",
+        "reach_amount": 5,
+        "context": "RB was not a top-3 need after signing Najee Harris in FA. Hortiz believed Hampton was BPA and turned down multiple trade-down offers."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2024,
+        "pick": "5.137",
+        "player": "Tarheeb Still",
+        "position": "CB",
+        "consensus_rank": "~180-200",
+        "value_amount": 40,
+        "context": "5th-round project CB who finished 7th in DROY voting with 4 INTs including a pick-six. Became a starter on the #1 scoring defense."
+      },
+      {
+        "year": 2024,
+        "pick": "2.34",
+        "player": "Ladd McConkey",
+        "position": "WR",
+        "consensus_rank": "~30 (Jeremiah), ~31 (Brugler)",
+        "value_amount": 0,
+        "context": "Traded up 3 spots to get a consensus first-round talent at pick 34. Set franchise rookie records: 82 catches, 1,149 yards."
+      },
+      {
+        "year": 2025,
+        "pick": "5.165",
+        "player": "Oronde Gadsden II",
+        "position": "TE",
+        "consensus_rank": "~120-140 (4th-round projection)",
+        "value_amount": 0,
+        "context": "Traded up from 6th to 5th round. Gadsden posted 49 catches, 664 yards, 3 TDs as a rookie."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_notes": "2 drafts of data as Chargers GM. Previous 15+ years in Ravens scouting/personnel provides significant supplementary signal but different team context. Harbaugh's influence creates a unique variable \u2014 the HC has strong opinions on offensive personnel that blend with Hortiz's evaluation framework. Major scheme change on offense (McDaniel replacing Roman) and defensive coordinator change (O'Leary replacing Minter) add uncertainty to 2026 draft predictions. Profile should be refreshed after 2026 draft. Key monitoring items: (1) Does Hortiz prioritize zone-scheme OL to fit McDaniel? (2) Does he invest early defensive draft capital for the first time? (3) How does the FA period alter draft board flexibility?",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

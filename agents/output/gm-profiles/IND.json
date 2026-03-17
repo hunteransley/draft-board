@@ -1,0 +1,932 @@
+{
+  "team": {
+    "name": "Indianapolis Colts",
+    "abbreviation": "IND",
+    "division": "AFC South",
+    "current_draft_position": 47
+  },
+  "front_office": {
+    "gm": {
+      "name": "Chris Ballard",
+      "title": "General Manager",
+      "hired": "2017-01-29",
+      "previous_role": "Director of Football Operations, Kansas City Chiefs",
+      "drafts_as_gm": 9,
+      "confidence": "high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "University of Wisconsin",
+          "role": "Player (Wide Receiver)",
+          "years": "1988-1992",
+          "mentor": "Barry Alvarez"
+        },
+        {
+          "org": "Hitchcock Junior High (TX)",
+          "role": "History Teacher / Football Assistant",
+          "years": "1993",
+          "mentor": "N/A"
+        },
+        {
+          "org": "Texas A&M-Kingsville",
+          "role": "Wide Receivers Coach",
+          "years": "1994",
+          "mentor": "Ron Harms"
+        },
+        {
+          "org": "Texas A&M-Kingsville",
+          "role": "Secondary Coach",
+          "years": "1995-1999",
+          "mentor": "Ron Harms"
+        },
+        {
+          "org": "Texas A&M-Kingsville",
+          "role": "Defensive Coordinator",
+          "years": "2000",
+          "mentor": "Ron Harms"
+        },
+        {
+          "org": "Chicago Bears",
+          "role": "Southwest Area Scout",
+          "years": "2001-2011",
+          "mentor": "Jerry Angelo"
+        },
+        {
+          "org": "Chicago Bears",
+          "role": "Director of Pro Scouting",
+          "years": "2012",
+          "mentor": "Phil Emery"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Director of Player Personnel",
+          "years": "2013-2014",
+          "mentor": "John Dorsey / Andy Reid"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Director of Football Operations",
+          "years": "2015-2016",
+          "mentor": "John Dorsey / Andy Reid"
+        },
+        {
+          "org": "Indianapolis Colts",
+          "role": "General Manager",
+          "years": "2017-present",
+          "mentor": "N/A (top decision-maker)"
+        }
+      ],
+      "primary_mentor": "Jerry Angelo (Chicago Bears) for foundational scouting philosophy; John Dorsey / Andy Reid (Kansas City Chiefs) for front-office executive approach",
+      "philosophical_lineage": "Angelo-era Bears scouting tree \u2192 Dorsey/Reid-era Chiefs front office. Bears influence shows in emphasis on physical traits and toughness at every position. Chiefs influence shows in willingness to draft elite athletes and develop them, as well as an emphasis on accumulating draft capital. Ballard helped draft Charles Tillman, Matt Forte, Tommie Harris, Nathan Vasher with Bears and Travis Kelce, Tyreek Hill, Marcus Peters with Chiefs.",
+      "breakpoints": "Departed from Dorsey/Reid model in being more conservative in free agency spending \u2014 Ballard is significantly more draft-and-develop than the Chiefs model. More aggressive in trading down for picks than Chiefs typically were. Also broke from Angelo-era Bears in willingness to draft raw athletic traits over polished producers, particularly post-2021.",
+      "lineage_weight": 0.15,
+      "lineage_weight_notes": "9 drafts of own data make lineage weight very low. Ballard's own established patterns are the primary signal. Lineage only useful for understanding foundational biases."
+    },
+    "primary_decision_maker": "Chris Ballard",
+    "key_influencers": [
+      {
+        "name": "Shane Steichen",
+        "title": "Head Coach",
+        "influence_level": "moderate",
+        "known_biases": "Offensive-minded, favors versatile athletes especially at QB and skill positions. Tailors offensive scheme to personnel. Worked with Justin Herbert, Jalen Hurts, Philip Rivers \u2014 favors mobile QBs but adaptable. Emphasis on run game and RPO concepts. Hired Feb 2023."
+      },
+      {
+        "name": "Ed Dodds",
+        "title": "Assistant General Manager",
+        "influence_level": "high",
+        "known_biases": "Long-time Ballard lieutenant, previously with Seattle Seahawks scouting department. Shares Ballard's emphasis on athleticism and traits. Key voice in draft room evaluations."
+      },
+      {
+        "name": "Lou Anarumo",
+        "title": "Defensive Coordinator",
+        "influence_level": "moderate",
+        "known_biases": "Runs 4-3 base defense with versatile fronts. Previously DC with Cincinnati Bengals. Values versatile edge rushers and coverage-capable linebackers. Aggressive blitz schemes."
+      },
+      {
+        "name": "Carlie Irsay-Gordon",
+        "title": "Owner / CEO",
+        "influence_level": "low",
+        "known_biases": "Took over ownership after Jim Irsay's death in May 2025. Has retained Ballard and Steichen through disappointing results. Generally hands-off on football decisions but confirmed Steichen and Ballard return for 2026."
+      }
+    ],
+    "power_dynamics": "Collaborative but GM-led. Ballard has final say on all personnel decisions. Steichen has significant input on offensive personnel and QB evaluation. Ballard references his scouting staff frequently and values their input \u2014 describes the draft room as 'the Room of Candor' where titles don't matter. Ed Dodds is the key No. 2 voice.",
+    "owner_interference": "low"
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.7,
+    "bpa_weight_by_round": {
+      "1": 0.75,
+      "2": 0.6,
+      "3": 0.55,
+      "4_plus": 0.45
+    },
+    "stated_philosophy": "Best player available. 'Best player. Best talent. Yeah, absolutely. Now, if it's even, we'll go with the need.' Has repeatedly stated he won't force the issue, especially early in the draft.",
+    "actual_philosophy": "Leans BPA in round 1 but behavior shows strong positional preference toward trenches regardless of need. Has consistently invested early capital in OL/DL even when those units were strengths. When a clear generational talent or scheme-critical need arises (Anthony Richardson at QB, Tyler Warren at TE), will draft for need. Shifts to need-filling in rounds 2-4 more noticeably. Day 3 is heavily traits-and-upside focused.",
+    "philosophy_mismatch_notes": "Claims pure BPA but linemen have constituted a disproportionate share of early-round picks. In 2024 took Latu (EDGE) at 15 when the edge room was already a strength \u2014 a clear BPA move. In 2025 took Warren (TE) at 14 to address a glaring need \u2014 a clear need move. Both tendencies coexist."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.25,
+    "trade_down_willingness": 0.8,
+    "trades_per_draft_average": 2.0,
+    "trade_triggers": [
+      "Franchise quarterback availability (traded up to No. 4 for Anthony Richardson in 2023 is the one major trade-up exception)",
+      "All-Pro caliber established player available via trade (traded 1st-round pick for DeForest Buckner, traded 2025 1st for Sauce Gardner)",
+      "Clear tier break where accumulating extra picks provides more total value",
+      "Targeting a specific Day 3 player (has traded up in mid-rounds for safeties Khari Willis and Nick Cross)"
+    ],
+    "draft_capital_philosophy": "Strongly favors accumulating picks. Has traded down over a dozen times since 2017 \u2014 traded down in Day 2 in 2019, 2020, 2022, 2023, and 2024. Philosophy is 'the more picks you have the better chances you get.' Values quantity of Day 2 and Day 3 swings. Will sacrifice current 1st-round picks for proven established talent (Buckner, Gardner trades). For the 2026 draft, has publicly stated he expects to trade back and accumulate more picks."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "EDGE",
+        "OT",
+        "QB",
+        "DT"
+      ],
+      "tier_2_high": [
+        "CB",
+        "IOL",
+        "WR",
+        "S"
+      ],
+      "tier_3_mid": [
+        "LB",
+        "TE"
+      ],
+      "tier_4_low": [
+        "RB",
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "RB in early rounds \u2014 Jonathan Taylor (Rd 2, 2020) is the only top-3 round RB pick in 9 drafts. Otherwise RBs are Day 3 targets.",
+      "Specialists \u2014 has never drafted a kicker, punter, or long snapper in 9 drafts"
+    ],
+    "position_premium": [
+      "EDGE \u2014 has drafted edge rushers at an extremely high rate: Basham, Turay, Lewis, Banogu, Paye, Odeyingbo, Latu, Tuimoloau across multiple drafts",
+      "OL \u2014 has drafted OL or DL in top 3 rounds in all but 2 of his 9 drafts. Publicly says 'you can never have enough O-line, D-line'",
+      "DB \u2014 23.2% of all picks have been defensive backs, the most frequent position group drafted"
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Long, versatile edge defender who can rush the passer and set the edge. Ballard values hand usage, motor, and pass-rush productivity more than pure speed. Has drafted both finesse technicians (Latu) and powerful run-stuffers (Tuimoloau), but the common thread is length, versatility to play multiple alignments (2-point/3-point), and college production. Scheme demands 4-3 DE who can rush in sub packages.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "245-275",
+        "arm_length_minimum": "32.5 inches preferred \u2014 most EDGE picks have 33+ inch arms",
+        "key_athletic_tests": "Values explosiveness (vertical jump, broad jump) and first-step quickness. 3-cone has not been a consistent eliminator but speed-to-power conversion matters.",
+        "speed_requirement": "4.70 or faster preferred for stand-up EDGE. Has drafted Latu (4.66) and Paye (4.57). Not a pure speed threshold \u2014 technique and production can offset."
+      },
+      "playing_style": {
+        "primary_win_condition": "Hand usage and pass-rush repertoire \u2014 Latu won with diverse moves and counters; Paye with explosiveness off the edge; Tuimoloau with power and strength at point of attack",
+        "most_valued_traits": [
+          "Pass-rush production (sack numbers)",
+          "Motor and effort consistency",
+          "Hand technique and rush moves",
+          "Positional versatility (can play multiple fronts)",
+          "Length and leverage"
+        ],
+        "least_important_traits": [
+          "Pure straight-line speed \u2014 has drafted slower EDGE players with strong hands"
+        ],
+        "deal_breakers": [
+          "Lack of college production \u2014 every 1st/2nd round EDGE had significant sack totals",
+          "One-dimensional players who can only rush or only stop the run"
+        ],
+        "traits_that_make_them_reach": "Elite college production makes Ballard confident \u2014 Latu's nation-leading 23.5 sacks in two seasons made him a no-brainer at 15 despite medical concerns"
+      },
+      "college_production": {
+        "production_floor": "Strong sack numbers required in rounds 1-2. Latu: 24.0 career sacks. Paye: Michigan career leader in TFLs. Tuimoloau: came off best pass-rush stretch of his career.",
+        "production_trajectory": "Prefers ascending production. Latu went from 10.5 to 13.0 sacks. Paye's production trended up at Michigan.",
+        "context_sensitivity": "High \u2014 adjusts for scheme and usage. Willing to draft players from non-traditional programs if traits and production align."
+      },
+      "evidence": {
+        "picks_analyzed": 8,
+        "examples": [
+          "2018 R2 Kemoko Turay: 6-3, 252, EDGE, Rutgers. Speed rusher with upside.",
+          "2018 R2 Tyquan Lewis: 6-3, 260, EDGE, Ohio State. Versatile D-lineman.",
+          "2019 R2 Ben Banogu: 6-3, 250, EDGE, TCU. Athletic pass rusher.",
+          "2021 R1 #21 Kwity Paye: 6-2, 261, 4.57 40, EDGE, Michigan. Explosive athlete with length.",
+          "2021 R2 #54 Dayo Odeyingbo: 6-5, 276, EDGE, Vanderbilt. Long, powerful, coming off torn Achilles.",
+          "2024 R1 #15 Laiatu Latu: 6-5, 259, EDGE, UCLA. 24.0 career sacks, Lombardi Award winner, elite hand usage.",
+          "2025 R2 #45 JT Tuimoloau: ~6-4, 270, EDGE, Ohio State. Powerful, strong against run, high-end HS recruit."
+        ]
+      },
+      "confidence": "high"
+    },
+    "OT": {
+      "archetype_summary": "Athletic, versatile offensive tackle with developmental upside. Ballard drafts OTs who are scheme-flexible and can move \u2014 converted tight ends, former athletes at other positions. Values arm length and athleticism over polished technique, willing to develop raw players. Must fit a zone/gap hybrid run scheme.",
+      "physical_profile": {
+        "height_range": "6-5 to 6-8",
+        "weight_range": "300-340",
+        "arm_length_minimum": "33.5 inches \u2014 strong preference for long arms. Raimann: 6-6, 303. Freeland: 6-7, 302. Goncalves: 6-6, 313. Travis: 6-8, 339.",
+        "key_athletic_tests": "Prioritizes overall athleticism. Raimann was a converted TE with plus movement skills. Freeland was top NGS athlete at OT. Bortolini ran fastest 3-cone by an IOL since 1999.",
+        "speed_requirement": "No strict 40 time requirement but must demonstrate lateral agility and ability to reach block in zone scheme"
+      },
+      "playing_style": {
+        "primary_win_condition": "Athleticism and movement ability in run game, with pass protection as a developmental area",
+        "most_valued_traits": [
+          "Athletic movement skills and feet",
+          "Length and arm extension",
+          "Positional versatility (can play multiple OL spots)",
+          "Upside and development curve",
+          "Toughness and competitive nature"
+        ],
+        "least_important_traits": [
+          "Polished pass-protection technique at time of draft \u2014 willing to develop this"
+        ],
+        "deal_breakers": [
+          "Stiff athletes who can't move laterally",
+          "Short arms for the position"
+        ],
+        "traits_that_make_them_reach": "Elite athletic testing for an OL body type \u2014 the converted tight end or basketball player archetype excites this front office"
+      },
+      "college_production": {
+        "production_floor": "Must have meaningful starting experience, though position switches are accepted (Raimann was a TE-to-OT convert).",
+        "production_trajectory": "Ascending development welcomed \u2014 Raimann's growth from junior to senior year was explicitly cited by Ballard as a reason for the pick.",
+        "context_sensitivity": "Moderate \u2014 will draft from smaller programs (Central Michigan for Raimann, Princeton/Iowa State for Travis)"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2018 R4 Braden Smith: 6-6, 303, OT, Auburn. Started at guard then moved to RT, became long-term starter.",
+          "2022 R3 #77 Bernhard Raimann: 6-6, 303, OT, Central Michigan. Austrian TE convert with elite athleticism.",
+          "2023 R4 Blake Freeland: 6-7, 302, OT, BYU. Top-ranked NGS athlete at OT. Big, long, mobile.",
+          "2024 R3 #79 Matt Goncalves: 6-6, 313, OT, Pittsburgh. Traded up to get him. Versatile depth.",
+          "2025 R4 #127 Jalen Travis: 6-8, 339, OT, Iowa State. Massive frame, Princeton transfer with Ivy League pedigree."
+        ]
+      },
+      "confidence": "high"
+    },
+    "IOL": {
+      "archetype_summary": "Elite athletes with positional versatility who can play multiple interior spots. Ballard's signature draft pick was Quenton Nelson \u2014 a mauling, dominant guard. But beyond Nelson, the IOL picks have all been athletic, versatile linemen who can play guard and center. Combine testing matters significantly here.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-5",
+        "weight_range": "295-330",
+        "arm_length_minimum": "No strict minimum for IOL but values length",
+        "key_athletic_tests": "Heavily values agility testing. Bortolini ran fastest 3-cone by an IOL since 1999 (7.16). Nelson was a freakish athlete for his size. Short shuttle and 3-cone matter most.",
+        "speed_requirement": "Sub-5.10 40 preferred for IOL, but agility tests weighted more heavily"
+      },
+      "playing_style": {
+        "primary_win_condition": "Power at point of attack combined with athleticism to reach second level",
+        "most_valued_traits": [
+          "Positional versatility (must play multiple IOL spots)",
+          "Agility and movement in space",
+          "Anchor strength and toughness",
+          "Run-blocking physicality",
+          "Intelligence and communication"
+        ],
+        "least_important_traits": [
+          "Being locked to one position \u2014 Ballard explicitly states versatility is required for OL depth"
+        ],
+        "deal_breakers": [
+          "One-position-only linemen",
+          "Poor athletic testing for the position"
+        ],
+        "traits_that_make_them_reach": "Elite combine testing at IOL \u2014 Bortolini's record-setting 3-cone was a major factor"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter preferred. Bortolini started 28 games at 4 different positions at Wisconsin.",
+        "production_trajectory": "Values players who played extensively and at multiple positions in college.",
+        "context_sensitivity": "Has drafted from Big Ten programs frequently (Wisconsin for Bortolini, Notre Dame for Nelson)"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2018 R1 #6 Quenton Nelson: 6-5, 329, OG, Notre Dame. Consensus All-American, 7x Pro Bowler, All-Pro. Dominant mauler.",
+          "2020 R5 Danny Pinter: 6-4, 306, C/G, Ball State. Converted TE, versatile interior lineman.",
+          "2024 R4 #117 Tanor Bortolini: 6-4, 314, C/G, Wisconsin. Record-setting 3-cone (7.16), 4.94 40. Played C, LG, RG, RT, even TE at Wisconsin."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "DT": {
+      "archetype_summary": "Two types: run-stuffing nose tackle (Grover Stewart archetype \u2014 gap-plugging, double-team eating 1-tech) and penetrating 3-technique (Buckner archetype \u2014 acquired via trade). Ballard invests heavily in interior DL depth. Day 3 DT picks tend to be raw athletes or massive run-stuffers. Values size and anchor for nose tackles, quickness and disruption for 3-techs.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-5",
+        "weight_range": "280-330",
+        "arm_length_minimum": "No hard minimum but values length \u2014 Eric Johnson: 6-5, 298. Laulu: 6-5, 293. Tim Smith: 6-4, 306.",
+        "key_athletic_tests": "Values explosiveness for 3-techs. For nose tackles, anchor and size matter more than testing. Adebawore was #2 NGS athlete at DL in 2023 draft.",
+        "speed_requirement": "No strict 40 requirement \u2014 scheme demands anchor and disruption more than speed"
+      },
+      "playing_style": {
+        "primary_win_condition": "Gap control and disruption at the point of attack",
+        "most_valued_traits": [
+          "Anchor strength and ability to hold ground",
+          "Penetration quickness (for 3-tech)",
+          "Motor and effort",
+          "Size to absorb double teams (for 1-tech)",
+          "Positional versatility along the interior"
+        ],
+        "least_important_traits": [
+          "Pass-rush sack numbers \u2014 values disruption and pressures over sack totals for DTs"
+        ],
+        "deal_breakers": [
+          "Undersized DTs who can't hold the point of attack",
+          "One-gap-only players who can't adapt to multiple alignments"
+        ],
+        "traits_that_make_them_reach": "Rare explosive athleticism at DT size \u2014 Adebawore was a freak athlete from Northwestern that Ballard couldn't pass on"
+      },
+      "college_production": {
+        "production_floor": "No strict statistical floor for DTs \u2014 Stewart was a 7th-round pick with modest stats who became an elite nose tackle.",
+        "production_trajectory": "Values starting experience. Tim Smith: 64 career games at Alabama.",
+        "context_sensitivity": "High \u2014 understands DT stats are often suppressed. Values film over box score for interior linemen."
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2017 R7 Grover Stewart: 6-4, 315, DT, Albany State. Small-school gem, became elite nose tackle.",
+          "2020 TRADE DeForest Buckner: 6-7, 295, DT (traded 1st-round pick for established All-Pro 3-tech).",
+          "2022 R5 Eric Johnson: 6-5, 298, DT, Missouri State. Length and athleticism.",
+          "2022 R6 Curtis Brooks: 6-3, 280, DT, Cincinnati. Penetrating interior disruptor.",
+          "2023 R4 Adetomiwa Adebawore: 6-2, 282, DT, Northwestern. #2 NGS athlete at DL position.",
+          "2024 R7 Jonah Laulu: 6-5, 293, DT, Oklahoma. Size and length.",
+          "2025 R6 Tim Smith: 6-4, 306, DT, Alabama. 64 career games, 5-year player under Saban."
+        ]
+      },
+      "confidence": "high"
+    },
+    "CB": {
+      "archetype_summary": "Athletic, long cornerbacks with ball skills and physicality. Ballard has invested heavily at CB \u2014 23.2% of all picks are DBs. The pattern shows a strong preference for length, speed, and elite athletic testing, though results have been mixed. In 2023, he drafted three CBs in one class (Brents, Rush, Jones). Recently traded a 2026 1st for Sauce Gardner, showing how much he values the position. Scheme under Anarumo demands press-man and zone versatility.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-3",
+        "weight_range": "179-205",
+        "arm_length_minimum": "No hard minimum but values length \u2014 Brents: 6-3, 199. Rush: 6-2, 198. Walley: 5-10, 190 is the exception as a slot/nickel type.",
+        "key_athletic_tests": "Speed matters significantly. Brents had a 9.99 RAS. Ya-Sin was physical with 4.51 speed. Abraham: Marshall CB with elite athleticism. Simpson: athletic Auburn CB.",
+        "speed_requirement": "4.50 or faster strongly preferred for outside CBs. Slot corners can be slightly slower if instincts and ball skills compensate."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Man coverage ability required \u2014 scheme has been primarily 4-3 with man and zone concepts. Anarumo's scheme requires CBs who can play multiple coverages.",
+        "most_valued_traits": [
+          "Length and physicality at the catch point",
+          "Speed and recovery ability",
+          "Ball skills and interception production",
+          "Tackling and run support",
+          "Competitive toughness"
+        ],
+        "least_important_traits": [
+          "Polished zone technique \u2014 has drafted CBs who were primarily man-cover guys and developed zone skills"
+        ],
+        "deal_breakers": [
+          "Lack of athletic testing numbers \u2014 almost every CB pick has elite or near-elite measurables",
+          "Inability to tackle in run support"
+        ],
+        "traits_that_make_them_reach": "Elite RAS scores and freakish athleticism \u2014 Brents (9.99 RAS) was a Day 2 pick largely on traits"
+      },
+      "college_production": {
+        "production_floor": "No strict interception minimum \u2014 values film over stats for CBs. Walley had 7 career INTs. Brents was more projection-based.",
+        "production_trajectory": "Prefers multi-year starters. Walley: 49 career games, 42 starts. Ya-Sin rose dramatically after Senior Bowl week.",
+        "context_sensitivity": "High \u2014 Ballard puts 'a big emphasis on knowing a player's character and story' per his own words about Ya-Sin evaluation."
+      },
+      "evidence": {
+        "picks_analyzed": 9,
+        "examples": [
+          "2017 R2 Quincy Wilson: 6-2, 196, CB, Florida. Length and physicality.",
+          "2017 R5 Nate Hairston: 5-11, 190, CB, Temple. Day 3 value.",
+          "2019 R2 #34 Rock Ya-Sin: 6-0, 192, CB, Temple. Physical press corner. Shot up board after Senior Bowl.",
+          "2023 R2 Julius 'JuJu' Brents: 6-3, 199, CB, Kansas State. 9.99 RAS score, freakish athlete.",
+          "2023 R5 Darius Rush: 6-2, 198, CB, South Carolina. Long, athletic cornerback.",
+          "2023 R6 Jaylon Jones: 6-2, 200, CB, Texas A&M. Length-first Day 3 pick who became a starter.",
+          "2024 R5 Jaylin Simpson: 6-0, 179, CB, Auburn. Athletic safety converting to CB.",
+          "2024 R6 Micah Abraham: 6-1, 185, CB, Marshall. Small-school athlete.",
+          "2025 R3 #80 Justin Walley: 5-10, 190, CB, Minnesota. 49 games, 42 starts. 34 PD, 7 INTs. Ball-hawking slot corner."
+        ]
+      },
+      "confidence": "high"
+    },
+    "S": {
+      "archetype_summary": "Rangy, explosive athletes with coverage ability. Ballard's very first pick was Malik Hooker \u2014 a ball-hawking, range-centric free safety. Pattern shows preference for safeties with elite athletic testing and range to cover deep thirds. Has consistently traded up to get targeted safeties. Mixed results \u2014 Hooker was good when healthy, Cross has been inconsistent, Blackmon showed promise. Recently converting safeties to LB (Carlies, Wohler).",
+      "physical_profile": {
+        "height_range": "5-11 to 6-2",
+        "weight_range": "200-215",
+        "arm_length_minimum": "No strict minimum",
+        "key_athletic_tests": "Range and explosiveness are king. Hooker: elite ball-hawk with range. Cross: 'best athlete among safeties in his class.' Daniel Scott: 9.91 RAS. Speed and closing burst heavily valued.",
+        "speed_requirement": "4.55 or faster strongly preferred \u2014 safeties must be able to cover deep"
+      },
+      "playing_style": {
+        "primary_coverage_style": "Single-high free safety with range to play center field. Also values box safeties who can convert (Carlies was a safety moved to LB).",
+        "most_valued_traits": [
+          "Range and deep coverage ability",
+          "Ball-hawking instincts",
+          "Elite athletic testing / explosiveness",
+          "Tackling and physicality",
+          "Versatility to play multiple safety roles"
+        ],
+        "least_important_traits": [
+          "Run-support-only safeties \u2014 clearly prefers coverage-first players"
+        ],
+        "deal_breakers": [
+          "Slow safeties without range",
+          "Poor athletic testing \u2014 every safety pick has had elite or near-elite measurables"
+        ],
+        "traits_that_make_them_reach": "Elite combine performance \u2014 traded up for both Khari Willis and Nick Cross specifically, suggesting he targets safeties aggressively when he identifies his guy"
+      },
+      "college_production": {
+        "production_floor": "Values ball production \u2014 Hooker was a turnover machine at Ohio State. Walley (moved to CB) had 7 INTs.",
+        "production_trajectory": "Mix of early starters and late developers.",
+        "context_sensitivity": "Moderate \u2014 has drafted from Power 5 and smaller programs alike"
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2017 R1 #15 Malik Hooker: 6-1, 206, S, Ohio State. Ball-hawking free safety with elite range.",
+          "2019 R4 Khari Willis: S, Michigan State. Traded up to select. Solid 3-year starter before retiring.",
+          "2020 R4 Julian Blackmon: 6-1, 200, S, Utah. Ball-hawking safety with coverage range.",
+          "2022 R3 #96 Nick Cross: 6-0, 206, S, Maryland. 'Missile at safety.' Traded up to get. Elite athlete, project player.",
+          "2023 R5 Daniel Scott: 6-1, 208, S, California. 9.91 RAS score.",
+          "2025 R7 #232 Hunter Wohler: 6-2, 213, S/LB, Wisconsin. Converted to LB immediately. 229 career tackles."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "LB": {
+      "archetype_summary": "Coverage-capable, sideline-to-sideline linebackers with length and instincts. Ballard's best LB pick was Darius 'Shaquille' Leonard \u2014 an athletic, rangy, ball-hawking LB. Pattern shows preference for athletic LBs who can cover and create turnovers. Day 3 has been his sweet spot \u2014 Anthony Walker Jr, Zaire Franklin, and EJ Speed were all late-round hits. Recently converting safeties to LB (Carlies, Wohler), showing he values coverage ability at the position.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "215-240",
+        "arm_length_minimum": "33+ inches preferred per one analysis \u2014 Leonard, Okereke, Speed all had 33+ arms. But not a hard cutoff \u2014 Franklin had shorter arms.",
+        "key_athletic_tests": "Explosion grades and broad jump valued. Speed and range to cover sideline-to-sideline is critical.",
+        "speed_requirement": "4.65 or faster preferred \u2014 speed and range are essential"
+      },
+      "playing_style": {
+        "primary_win_condition": "Coverage and instincts \u2014 the ability to cover tight ends and running backs is the differentiator",
+        "most_valued_traits": [
+          "Coverage ability (especially converting safeties to LB)",
+          "Sideline-to-sideline range",
+          "Tackling reliability and volume",
+          "Forced fumbles and turnover creation",
+          "Special teams value as a developmental path"
+        ],
+        "least_important_traits": [
+          "Pure blitz ability \u2014 values coverage over pass rush from LBs",
+          "Run-stuffing-only thumpers"
+        ],
+        "deal_breakers": [
+          "Linebackers who cannot cover in space",
+          "Stiff athletes without range"
+        ],
+        "traits_that_make_them_reach": "Elite coverage metrics or safety-convert potential"
+      },
+      "college_production": {
+        "production_floor": "Tackle production matters \u2014 Wohler: 229 career tackles. Carlies: 221 career tackles.",
+        "production_trajectory": "Values consistent producers. Leonard was ultra-productive at South Carolina State. Franklin was a 7th-round pick who became a league-leading tackler.",
+        "context_sensitivity": "Moderate \u2014 has drafted from FCS (Leonard from SC State) and Power 5 alike"
+      },
+      "evidence": {
+        "picks_analyzed": 7,
+        "examples": [
+          "2017 R5 Anthony Walker Jr: 6-1, 236, LB, Northwestern. Multi-year starter, solid production.",
+          "2018 R2 #36 Darius Leonard: 6-2, 234, LB, South Carolina State. FCS prospect, DPOY as rookie, 3x All-Pro.",
+          "2018 R7 Zaire Franklin: 6-0, 230, LB, Syracuse. 7th-round pick who became NFL tackles leader.",
+          "2019 R3 Bobby Okereke: 6-1, 235, LB, Stanford. Coverage LB, 33+ arms.",
+          "2019 R5 EJ Speed: 6-3, 227, LB, Tarleton State. Raw athlete, became elite special teamer then starter.",
+          "2024 R5 Jaylon Carlies: 6-3, 227, S\u2192LB, Missouri. Safety converted to LB. 221 career tackles, 9 INTs.",
+          "2025 R7 Hunter Wohler: 6-2, 213, S\u2192LB, Wisconsin. Safety converted to LB immediately."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "WR": {
+      "archetype_summary": "Big, fast, vertical threats with elite athletic testing. The prototypical Ballard WR is tall (6-0+), fast (4.45 or faster 40), with a massive vertical jump. Alec Pierce (6-3, 211, 4.41, 40.5-inch vertical, 9.82 RAS) is the quintessential Ballard WR pick. Adonai Mitchell (4.34, 39.5-inch vertical) fits the same mold. Josh Downs (5-9, third round) was the exception as a slot receiver \u2014 a departure from the bigger-bodied preference. Ballard has admitted he values 'unique traits' and WR size/speed combination excites him.",
+      "physical_profile": {
+        "height_range": "5-8 to 6-4 (prefers 6-0+ for outside WR; slot can be smaller)",
+        "weight_range": "180-215",
+        "arm_length_minimum": "No strict minimum but values length for outside WRs \u2014 Pierce: 33-inch arms, 79-inch wingspan",
+        "key_athletic_tests": "Vertical jump and broad jump weighted extremely heavily. Pierce: 40.5-inch vertical. Mitchell: 39.5-inch vertical. 40-yard dash speed also critical.",
+        "speed_requirement": "4.45 or faster for outside WRs \u2014 Pierce ran 4.41, Mitchell ran 4.34, Campbell ran 4.31. Even slot Downs ran 4.48."
+      },
+      "playing_style": {
+        "primary_win_condition": "Vertical speed and contested-catch ability \u2014 the downfield threat who wins 50/50 balls",
+        "most_valued_traits": [
+          "Vertical speed / deep-threat ability",
+          "Explosive athletic testing (vertical jump, broad jump)",
+          "Size-speed combination",
+          "Competitive toughness at the catch point",
+          "YAC ability"
+        ],
+        "least_important_traits": [
+          "Polished route trees at draft time \u2014 willing to develop route runners if athleticism is elite"
+        ],
+        "deal_breakers": [
+          "Slow WRs without a clear athletic advantage",
+          "Lack of competitive toughness"
+        ],
+        "traits_that_make_them_reach": "Elite 40 time + vertical jump combination makes Ballard take notice \u2014 Pierce's combine performance directly led to his selection"
+      },
+      "college_production": {
+        "production_floor": "No strict catch/yard minimum but recent picks have had meaningful production. Pierce: 52 catches, 884 yards, 8 TDs in final season. Mitchell: 11 TDs at Texas. Downs: 1,029 yards at UNC.",
+        "production_trajectory": "Values ascending production \u2014 Mitchell had breakout freshman year at Georgia and starred at Texas. Gould: career-high 718 yards.",
+        "context_sensitivity": "Moderate \u2014 adjusts for offensive scheme. Pierce was in a conservative Cincinnati offense."
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2019 R2 Parris Campbell: 6-0, 205, 4.31, WR, Ohio State. Elite speed, slot/gadget player. Injury-plagued.",
+          "2020 R2 Michael Pittman Jr: 6-4, 223, WR, USC. Big-bodied, strong possession receiver. Became WR1.",
+          "2022 R2 #53 Alec Pierce: 6-3, 211, 4.41 40, 40.5-inch vertical, WR, Cincinnati. 9.82 RAS. Prototypical Ballard WR.",
+          "2023 R3 Josh Downs: 5-9, 171, WR, North Carolina. Slot exception \u2014 departed from size prototype.",
+          "2024 R2 #52 Adonai Mitchell: 6-2, 205, 4.34 40, 39.5-inch vertical, WR, Texas. Big-play deep threat.",
+          "2024 R5 Anthony Gould: 5-8, 175, WR, Oregon State. Speed/return specialist."
+        ]
+      },
+      "confidence": "high"
+    },
+    "TE": {
+      "archetype_summary": "Massive, athletic do-it-all tight ends who can block and receive. Ballard covets size-speed combination at TE to an extreme degree. Jelani Woods (6-7, 259, 10.0 RAS) and Tyler Warren (6-5, 256, Mackey Award winner with elite production) represent the spectrum \u2014 one was a pure athlete, the other was the most productive TE in college football. Warren selection in 2025 showed Ballard values the complete TE: blocking, receiving, availability, and 'violent intentions.' The Colts specifically wanted a Y (in-line) tight end who could block and catch.",
+      "physical_profile": {
+        "height_range": "6-5 to 6-7",
+        "weight_range": "245-265",
+        "arm_length_minimum": "No strict minimum but size is paramount \u2014 Woods: 6-7. Warren: 6-5/6-6. Ogletree: 6-6.",
+        "key_athletic_tests": "RAS scores weighted heavily. Woods: 10.0 RAS (perfect score). Warren was an elite athlete for his size. If testing is elite at TE size, Ballard will be aggressive.",
+        "speed_requirement": "4.65 or faster preferred for pass-catching TEs. Speed relative to size is the key metric."
+      },
+      "playing_style": {
+        "primary_win_condition": "Complete three-down tight end who can block in-line AND be a receiving threat",
+        "most_valued_traits": [
+          "Blocking physicality and willingness ('violent intentions' per Ballard on Warren)",
+          "Size-speed combination",
+          "Route-running from in-line and flex alignments",
+          "Contested-catch ability over the middle",
+          "Availability and durability"
+        ],
+        "least_important_traits": [
+          "Pure slot receiving \u2014 the Colts wanted a Y TE (in-line), not a glorified slot receiver"
+        ],
+        "deal_breakers": [
+          "TEs who can't block \u2014 the Colts explicitly wanted a blocker in 2025 TE selection",
+          "Injury-prone TEs (Woods and Mallory both battled injuries)"
+        ],
+        "traits_that_make_them_reach": "Elite college production combined with blocking ability \u2014 Warren's 104 catches AND blocking was what made Ballard compare the pick to drafting Nelson"
+      },
+      "college_production": {
+        "production_floor": "For 1st-round TE: elite production required. Warren: 104 catches, 1,233 yards, 8 TDs in final season.",
+        "production_trajectory": "Warren was a late bloomer \u2014 sat for years at Penn State before breakout 5th-year senior season. Ballard values patience and development.",
+        "context_sensitivity": "High \u2014 Warren's massive usage at Penn State was context-appropriate given their offense."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2022 R3 #73 Jelani Woods: 6-7, 259, TE, Virginia. 10.0 RAS \u2014 only human 'as big as Mo Alie-Cox.' Raw but freakish. Waived by 2025.",
+          "2022 R6 Andrew Ogletree: 6-6, 256, TE, Youngstown State. Athletic small-school TE, blocking-first.",
+          "2023 R5 Will Mallory: 6-4, 239, TE, Miami. Athletic pass-catching TE depth.",
+          "2025 R1 #14 Tyler Warren: 6-5, 256, TE, Penn State. Mackey Award winner. 104 catches, 1,233 yards. Complete TE. Ballard compared feeling to drafting Quenton Nelson."
+        ]
+      },
+      "confidence": "high"
+    },
+    "RB": {
+      "archetype_summary": "Versatile, explosive running backs with receiving ability. Jonathan Taylor (4.39 40, 9.53 RAS) is the gold standard \u2014 a complete back with speed, vision, and pass-catching ability from a run-heavy college program. Ballard doesn't invest heavily in RBs early but when he does, he wants elite athletes with multiple dimensions. Day 3 RB picks tend to be speed/receiving backs (Hines, Hull, Giddens) who complement the featured back.",
+      "physical_profile": {
+        "height_range": "5-8 to 6-0",
+        "weight_range": "195-226",
+        "arm_length_minimum": "No minimum for RBs",
+        "key_athletic_tests": "40-yard dash and explosiveness tests (vertical jump, broad jump) are the primary metrics. Taylor: 4.39, 36-inch vertical. Giddens: 9.78 RAS. Mack: 4.50, 33-inch vertical.",
+        "speed_requirement": "4.50 or faster preferred \u2014 Taylor ran 4.39, Giddens was an elite athlete"
+      },
+      "playing_style": {
+        "primary_win_condition": "Explosive running ability with pass-catching versatility",
+        "most_valued_traits": [
+          "Explosive acceleration and breakaway speed",
+          "Receiving ability out of backfield",
+          "Vision and patience in zone scheme",
+          "Durability and bell-cow potential (for featured back)",
+          "Special teams and return ability (for Day 3 backs)"
+        ],
+        "least_important_traits": [
+          "Pure between-the-tackles power \u2014 prefers speed/finesse over bruising style"
+        ],
+        "deal_breakers": [
+          "One-dimensional runners without receiving ability",
+          "RBs who are below average athletically"
+        ],
+        "traits_that_make_them_reach": "Dual-threat receiving and rushing ability with elite speed testing"
+      },
+      "college_production": {
+        "production_floor": "For Day 2 RBs: significant rushing production required. Taylor: 6,174 career yards at Wisconsin. Giddens: 3,087 yards, multiple 1,000-yard seasons.",
+        "production_trajectory": "Values consistent multi-year producers \u2014 Taylor was a three-year dominant producer at Wisconsin.",
+        "context_sensitivity": "Values running backs from run-heavy programs \u2014 Taylor from Wisconsin, Mack from South Florida"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2017 R4 Marlon Mack: 6-0, 210, RB, South Florida. Speed back with burst. 1,000-yard rusher.",
+          "2018 R4 Nyheim Hines: 5-9, 198, RB, NC State. Speed/receiving back, elite in pass game.",
+          "2018 R5 Jordan Wilkins: 6-1, 216, RB, Ole Miss. Bigger complementary back.",
+          "2020 R2 #41 Jonathan Taylor: 5-10, 226, 4.39, RB, Wisconsin. Consensus All-American. 3x 2,000-yard rusher in college. All-Pro in NFL.",
+          "2025 R5 #151 DJ Giddens: 6-0, 212, RB, Kansas State. 9.78 RAS, 3,087 career yards, 58 receptions. Dual-threat."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "QB": {
+      "archetype_summary": "Rare physical specimens with elite athletic traits and upside ceilings. Ballard swings big at QB \u2014 Anthony Richardson (6-4, 244, 4.43 40, 10.0 RAS) is the signature pick: a once-in-a-generation athlete with a cannon arm and limited college starts. Ballard values 'fast mind' and 'accuracy' but when forced to choose, has shown he'll take the ceiling over the floor. His Kansas City Chiefs background involved early scouting of Patrick Mahomes. Steichen's stated priorities: accuracy, decision-making, ability to create. Recently drafted Riley Leonard (6th round) as a developmental/backup option \u2014 a mobile, winning college QB.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-5 (prefers 6-2+)",
+        "weight_range": "210-244",
+        "arm_length_minimum": "No strict minimum but arm talent is critical \u2014 values 'can make all the throws'",
+        "key_athletic_tests": "Mobility and athleticism matter enormously \u2014 Richardson had a perfect 10.0 RAS. Leonard rushed for 2,130 career yards. Ballard wants QBs who can 'navigate the pocket, escape the pocket, make plays with their feet.'",
+        "speed_requirement": "No strict 40 time but athletic mobility is highly valued \u2014 Richardson ran 4.43"
+      },
+      "playing_style": {
+        "primary_style": "Dual-threat with arm talent \u2014 not a pure pocket passer, not a pure runner, but an athletic QB who can do both",
+        "most_valued_traits": [
+          "Elite arm strength and talent",
+          "Athletic mobility and escapability",
+          "Competitive fire and ability to win big games",
+          "Fast processing mind (stated by Ballard)",
+          "Upside ceiling potential"
+        ],
+        "least_important_traits": [
+          "Polished accuracy at draft time \u2014 Steichen said accuracy can be taught and improved through mechanics",
+          "Extensive college starting experience \u2014 Richardson started only 13 games"
+        ],
+        "deal_breakers": [
+          "Ballard hasn't shown a clear deal-breaker at QB \u2014 took Richardson despite limited experience and accuracy concerns",
+          "Character concerns would likely be significant given Ballard's emphasis on the person"
+        ],
+        "traits_that_make_them_reach": "Unprecedented athletic traits \u2014 Richardson's historic combine performance directly led to the No. 4 pick"
+      },
+      "college_production": {
+        "production_floor": "Surprisingly low \u2014 Richardson started only 13 college games. Ballard prioritized traits over production at QB.",
+        "production_trajectory": "Richardson showed ascending play in limited action. Leonard won at every level (Duke, Notre Dame CFP finalist).",
+        "context_sensitivity": "High \u2014 Ballard acknowledged Richardson was a 'roller coaster' and knew limited experience meant a development curve"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2023 R1 #4 Anthony Richardson: 6-4, 244, 4.43 40, 10.0 RAS, QB, Florida. Only 13 college starts. Historic combine. Elite ceiling, massive risk.",
+          "2025 R6 #189 Riley Leonard: 6-4, 213, QB, Notre Dame. 37 career starts. Led Notre Dame to CFP final. 45 TDs, 36 rushing TDs. Mobile, winning QB."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 2 QBs drafted. Richardson was a swing-for-the-fences pick. Leonard was a developmental late-rounder. Both show Ballard values athleticism and ceiling at QB. Insufficient data to establish strict thresholds."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 6,
+    "max_observed_reach": 15,
+    "round_1_reach_tolerance": 5,
+    "notes": "Generally stays near consensus in round 1 \u2014 Nelson, Hooker, Paye, Richardson, Latu, Warren were all within consensus range. Bigger reaches happen in Day 2 and Day 3 where Ballard targets specific players (traded up for Willis, Cross). The team's emphasis on athletic traits means they sometimes value players differently than consensus due to combine performance."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.55,
+    "offensive_scheme": "West Coast offense with zone-run concepts and heavy RPO usage under Steichen/Cooter. Run-first philosophy \u2014 'we're gonna throw to score points in this league and run to win' (Steichen). Top-10 rushing offense in consecutive seasons. Values versatile OL who can zone block and pull, receiving TEs, and mobile QBs. Heavy use of pre-snap motion.",
+    "defensive_scheme": "4-3 base defense under Lou Anarumo (hired 2025). Multiple fronts with five DB personnel packages. Values versatile edge rushers and coverage-capable linebackers. Anarumo previously ran aggressive, unpredictable blitz schemes with Cincinnati. Emphasis on getting 'younger and faster' in front 7 per Ballard's 2026 combine comments.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "Defensive coordinator changed from Gus Bradley (2023-2024) to Lou Anarumo (2025-present). Bradley ran a more conservative Cover 3 system; Anarumo brings more disguised coverages and blitz packages. This may shift defensive personnel preferences slightly \u2014 Anarumo values versatile, intelligent defenders. Offensive scheme stable under Steichen/Cooter since 2023."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.6,
+    "risk_description": "Moderate-to-high risk tolerance. Swings big at quarterback (Richardson at 4 despite 13 starts), drafts raw athletes on Day 3 (Jelani Woods 10.0 RAS, JuJu Brents 9.99 RAS), and trades 1st-round picks for established players. However, generally conservative in round 1 at non-QB positions \u2014 takes consensus-range players. Risk-seeking at QB and with athletic projects; risk-averse in free agency spending.",
+    "recency_bias": 0.55,
+    "recency_description": "Moderate recency bias. After secondary struggles in 2024, invested heavily in DBs in 2025 offseason (traded 1st for Sauce Gardner, drafted Walley, signed Charvarius Ward). After losing in Achilles injury to Jones in 2025, placed transition tag on Jones rather than moving on. However, historically has been patient with development timelines and doesn't overreact to single-season failures.",
+    "sunk_cost_behavior": "Mixed. Has cut/waived high-investment busts relatively quickly (Jelani Woods waived, JuJu Brents waived after 2 seasons). But held onto Anthony Richardson for 3 seasons despite limited returns and publicly backed him repeatedly. On balance, willing to admit mistakes at lower-investment picks but slower to give up on premium investments.",
+    "combine_weight": 0.75,
+    "combine_description": "Very high combine weight. This is the defining characteristic of Ballard's drafting style. In 2022, 'the Colts produced the second-most athletic draft class.' In 2023, 'each of Indianapolis' 12 draft picks scored at least 8.48 out of 10 RAS.' Ballard himself says 'the high-end players in our league, they have certain physical traits that allow them to be high-end players.' RAS scores of 9.0+ are consistently on his radar. However, he has stated that tape comes first and measurables are 'confirmatory' \u2014 but his actual behavior shows measurables are often the primary filter.",
+    "character_weight": 0.7,
+    "character_description": "High character emphasis. Ballard puts 'a big emphasis on knowing a player's character and story. The story leads us to the answers that we're trying to find out about each guy.' Has drafted players from smaller programs and walked-on players who have compelling personal stories. Calls his draft room 'the Room of Candor.' However, has taken some calculated risks (Tyreek Hill was drafted while Ballard was with KC) and values competitive fire even if it comes with some edge.",
+    "quarterback_philosophy": "Swing for the fences or don't swing at all. Ballard spent years cycling through veteran QBs (Rivers, Wentz, Ryan) before taking Richardson 4th overall \u2014 the ultimate ceiling bet. Now in 2026, the QB position remains unsettled with Jones on the transition tag and Richardson on the trade block. Ballard will draft a developmental QB late (did with Leonard in R6) but won't use premium capital unless the prospect has truly special traits. Has said 'we get caught up in arm strength, but guys that are accurate' \u2014 but his actual pick (Richardson) was the ultimate arm-strength/athleticism bet."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.45,
+    "production_vs_projection": "Leans projection/traits over production, but recent picks (Warren, Latu, Taylor) show he values both when available. In his own words about evolving philosophy: 'Making sure we are drafting not only the unique traits but also some substance with the tape.' Earlier drafts were more traits-heavy; recent drafts show more balance. In 2025, explicitly cited that Warren, Pierce, JT, Pittman, Raimann all 'played a lot of football' as an important consistency.",
+    "production_thresholds_by_position": {
+      "WR": "No hard floor but recent R1-3 WR picks all had significant production \u2014 Pierce: 52 catches, 884 yards; Mitchell: 11 TDs; Pittman: 100+ catches senior year; Downs: 1,029 yards",
+      "RB": "High production valued \u2014 Taylor: 6,174 career yards; Giddens: 3,087 career yards, multiple 1,000-yard seasons",
+      "EDGE": "Strong production required in rounds 1-2 \u2014 Latu: 24.0 career sacks; Paye: career TFL leader at Michigan",
+      "CB": "No clear statistical floor \u2014 values film and athletic testing over interception totals for CBs",
+      "TE": "For premium TE picks, elite production matters \u2014 Warren: 104 catches, 1,233 yards in final season",
+      "QB": "Production explicitly not a priority \u2014 Richardson had 13 career college starts"
+    },
+    "breakout_age_sensitivity": 0.4,
+    "dominator_rating_sensitivity": 0.4,
+    "notes": "Ballard has evolved over his tenure. Early drafts (2017-2019) were more traits-first, sometimes to a fault. His own stated evolution: 'making sure we are drafting not only the unique traits but also some substance with the tape.' Recent classes (2024-2025) show more balance between traits and production. The Tyler Warren pick was explicitly praised because he was both productive AND physical. Still, when traits are historically rare (Richardson at QB), production takes a backseat."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "RAS_minimum": 8.5,
+        "40_yard_max": 4.5,
+        "notes": "Almost every CB drafted has near-elite athleticism. Brents: 9.99 RAS. Jones: long athlete. Exception: Walley was more production/instinct at 5-10.",
+        "confidence": "high"
+      },
+      "EDGE": {
+        "min_arm_length": "32.5 inches",
+        "notes": "Values length \u2014 Latu: 6-5, 259. Paye: 6-2, 261 but 33.5 arms. Tuimoloau: ~6-4, 270.",
+        "confidence": "medium"
+      },
+      "WR": {
+        "40_yard_max": 4.5,
+        "min_vertical_jump": "36 inches",
+        "notes": "Pierce: 4.41, 40.5 vert. Mitchell: 4.34, 39.5 vert. Speed + explosiveness is non-negotiable for outside WRs.",
+        "confidence": "high"
+      },
+      "OT": {
+        "min_arm_length": "33.5 inches",
+        "notes": "Raimann: 6-6. Freeland: 6-7. Travis: 6-8. Massive frames with long arms.",
+        "confidence": "high"
+      },
+      "S": {
+        "RAS_minimum": 9.0,
+        "notes": "Cross: elite athlete. Scott: 9.91 RAS. Hooker: elite range. Ballard trades up for safeties he targets.",
+        "confidence": "high"
+      },
+      "QB": {
+        "no_threshold": true,
+        "notes": "Richardson: 10.0 RAS (perfect score). Ballard has only drafted two QBs \u2014 insufficient data for thresholds but the Richardson pick suggests elite athleticism is a major factor.",
+        "confidence": "low"
+      },
+      "IOL": {
+        "3_cone_emphasis": true,
+        "notes": "Bortolini: fastest 3-cone by IOL since 1999 (7.16). Nelson: freakish athlete for size. Agility testing heavily valued for guards/centers.",
+        "confidence": "medium"
+      },
+      "TE": {
+        "RAS_minimum": 9.0,
+        "notes": "Woods: 10.0 RAS. Warren: elite size-speed combo at 6-5, 256. Massive athletic TEs are the preference.",
+        "confidence": "medium"
+      }
+    },
+    "threshold_type": "Soft preferences that are rarely violated. The strongest pattern is the overall emphasis on RAS scores above 9.0 across all positions. Four of eight 2025 draft picks had RAS of 9.0+. In 2023, all 12 picks scored at least 8.48 RAS. This is the most consistent, cross-positional tendency in Ballard's entire tenure.",
+    "size_preferences_by_position": {
+      "DT": "Prefers 295+ for 3-technique, 315+ for nose (Stewart: 315). Tolerates 280+ for penetrating interior disruptors.",
+      "LB": "Prefers 225-240 range. Smaller coverage LBs accepted if converted from safety. Franklin succeeded at 230.",
+      "S": "Prefers 200-215 range. Values range over size.",
+      "WR": "Prefers 6-0+ and 200+ for outside WRs. Pierce: 6-3, 211. Mitchell: 6-2, 205. Pittman: 6-4, 223. Slot exception: Downs at 5-9.",
+      "TE": "Prefers massive TEs: 6-5+ and 250+. Woods: 6-7, 259. Warren: 6-5, 256.",
+      "OT": "Prefers 6-5+ and 300+. Travis: 6-8, 339 is the extreme."
+    },
+    "athletic_testing_favorites": "RAS (Relative Athletic Score) is the meta-metric Ballard's approach maps to most closely. Within that: vertical jump and broad jump as explosiveness proxies across positions; 3-cone drill for edge rushers, linebackers, and interior OL; 40-yard dash for CBs, WRs, and safeties. Ballard is 'stringent about certain measurables' by his own admission.",
+    "measurables_vs_film": "Ballard claims to be film-first but his actual drafting history shows elite measurables consistently move players up his board. Examples: Richardson (10.0 RAS, limited film) drafted 4th overall. Brents (9.99 RAS, limited college production) drafted in round 2. Pierce's combine performance elevated him. Woods (10.0 RAS) was drafted despite raw film. Conversely, Warren in 2025 and Latu in 2024 showed Ballard has evolved \u2014 both were elite on film AND at the combine, suggesting he's now looking for both rather than just traits alone."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium position, best player on their board who fits their athletic thresholds. Historically taken OG (Nelson), S (Hooker), EDGE (Paye), QB (Richardson), EDGE (Latu), TE (Warren). Won't force a position \u2014 takes BPA at premium spots. Comfortable sitting at their spot or trading down if value isn't there. For 2026: no first-round pick (traded for Sauce Gardner).",
+    "round_2_3_strategy": "This is where Ballard shifts toward need-filling while maintaining athletic standards. Historically trades back in Day 2 to accumulate extra picks \u2014 did this in 2019, 2020, 2022, 2023, and 2024. In 2025, notably stayed put at 45 and 80, breaking the trend. Targets specific players and will make small trade-ups (Goncalves, Cross). This is the round where trench picks and secondary investments cluster.",
+    "day_3_strategy": "Developmental athletes, special teams contributors, and positional depth. This is Ballard's strength \u2014 has found multiple starters on Day 3: Stewart (R7), Franklin (R7), Walker Jr (R5), Mack (R4), Hines (R4), Hairston (R5), Speed (R5), Jones (R7), Carlies (R5). Uses 10 of 11 seventh-round picks on linemen and defensive players. Traits-over-production emphasis maximized on Day 3.",
+    "compensatory_pick_usage": "Uses comp picks as additional dart throws \u2014 no discernible difference in approach between comp picks and regular picks. Values the sheer quantity of swings."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "IOL": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Nelson is All-Pro. Bortolini starting. Strong track record."
+      },
+      "OT": {
+        "picks": 5,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "Raimann became starting LT. Others have been depth/misses."
+      },
+      "EDGE": {
+        "picks": 8,
+        "starters": 3,
+        "rate": 0.38,
+        "note": "Paye and Latu are hits. Banogu, Basham were busts. Turay was decent. Mixed overall."
+      },
+      "DT": {
+        "picks": 6,
+        "starters": 2,
+        "rate": 0.33,
+        "note": "Stewart is an elite Day 3 find. Adebawore developing. Others mostly rotational."
+      },
+      "LB": {
+        "picks": 7,
+        "starters": 4,
+        "rate": 0.57,
+        "note": "Leonard (All-Pro), Franklin (league tackles leader), Okereke, Walker Jr. Excellent Day 3 LB scouting."
+      },
+      "S": {
+        "picks": 6,
+        "starters": 2,
+        "rate": 0.33,
+        "note": "Hooker good when healthy. Cross inconsistent. Willis was solid starter. Mixed results."
+      },
+      "CB": {
+        "picks": 9,
+        "starters": 2,
+        "rate": 0.22,
+        "note": "Ya-Sin was traded. Brents was waived. Jaylon Jones was a late-round hit. Walley TBD. Weakest position evaluation."
+      },
+      "WR": {
+        "picks": 6,
+        "starters": 3,
+        "rate": 0.5,
+        "note": "Pittman (WR1), Pierce (career year in 2025), Mitchell developing. Downs solid slot. Campbell injury bust."
+      },
+      "TE": {
+        "picks": 4,
+        "starters": 1,
+        "rate": 0.25,
+        "note": "Warren immediate impact as rookie Pro Bowler. Woods was waived. Ogletree injury issues. Mallory depth."
+      },
+      "RB": {
+        "picks": 5,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "Taylor is All-Pro. Mack was solid before injury. Hines was good receiving back. Day 3 RBs hit-or-miss."
+      },
+      "QB": {
+        "picks": 2,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Richardson: only 15 career games in 3 seasons, on trade block. Leonard: rookie backup. QB evaluation is the biggest question mark."
+      }
+    },
+    "blind_spots": [
+      "CB evaluation has been the weakest area \u2014 22% hit rate despite heavy investment. Brents, Wilson, Tell were all misses. Ballard eventually traded a 1st for Sauce Gardner to address the position with a proven player.",
+      "QB evaluation remains the biggest question \u2014 Richardson selection has not panned out through 3 seasons. Jones was a free agent signing, not a draft pick.",
+      "Safety development has been inconsistent \u2014 Hooker couldn't stay healthy, Cross took years to develop, Daniel Scott barely played."
+    ],
+    "strengths": [
+      "Day 3 linebacker evaluation is elite \u2014 Leonard (R2 but low pick), Franklin (R7), Walker Jr (R5), Speed (R5), Carlies (R5 safety-to-LB convert) are all hits",
+      "Offensive line evaluation is strong overall \u2014 Nelson is generational, Raimann became a starter, Bortolini stepping in, Smith was a long-term starter",
+      "7th-round scouting is exceptional \u2014 almost half of his 7th-round picks (5 of 11) became starters vs 10.7% league average",
+      "Running back evaluation is strong with limited investment \u2014 Taylor was an All-Pro, Mack was a 1,000-yard rusher"
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Historically very conservative spender \u2014 strongly draft-and-develop focused. Has repeatedly said 'you want to raise your own' and 'you can't buy a locker room.' However, evolved in 2025 offseason \u2014 signed Daniel Jones, Charvarius Ward, Germaine Pratt, and traded for Sauce Gardner. Ballard acknowledged he needed to 'dip into free agency' more after criticism. Still fundamentally a draft-first GM.",
+    "fa_draft_correlation": "When needs are filled in free agency, those positions drop in draft priority. After signing Jones at QB, didn't draft a QB until Round 6. After trading for Gardner at CB, still drafted Walley in R3 for depth. Will still draft depth/development at filled positions but not with premium picks. Exception: OL and DL are always drafted regardless of roster strength.",
+    "roster_construction_philosophy": "Build through the draft at premium positions (OL, DL, QB, CB). Supplement through FA at secondary need positions. 'You have to produce three or four guys that are going to help you every single year.' Values accumulating cheap, young talent on rookie deals. Has shifted slightly toward willingness to make major trades for proven talent (Buckner, Gardner) when the player is a clear difference-maker."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 82,
+    "notable_patterns": [
+      "53.7% of all picks are defensive players, slightly above league average (49.6%)",
+      "23.2% of all picks are defensive backs \u2014 the most-drafted position group",
+      "22% of all picks (18 players) come from Big Ten schools \u2014 the most-drafted conference",
+      "4 players drafted from Ohio State \u2014 the most from any individual school",
+      "Has drafted OL or DL in top 3 rounds in all but 2 of 9 drafts",
+      "Has never drafted a specialist (K, P, LS) in 9 drafts",
+      "Has traded down over a dozen times, with 11 of 18 draft-day trades being trade-downs",
+      "7th-round hit rate (45% starters) is over 4x the league average (10.7%)",
+      "Uses 10 of 11 seventh-round picks on linemen and defensive players",
+      "No 1st-round pick in 2026 (traded for Sauce Gardner)"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2023,
+        "pick": "1.4",
+        "player": "Anthony Richardson",
+        "position": "QB",
+        "consensus_rank": "Varied widely \u2014 some had him top 5, others much lower due to limited experience",
+        "reach_amount": "Debatable \u2014 a ceiling bet, not a traditional reach",
+        "context": "Colts had massive QB need after Matt Ryan disaster. Richardson's historic combine performance made him a polarizing pick."
+      },
+      {
+        "year": 2022,
+        "pick": "3.96",
+        "player": "Nick Cross",
+        "position": "S",
+        "consensus_rank": "~120-140 range on many boards",
+        "reach_amount": 15,
+        "context": "Traded UP to get Cross, giving up a 2023 3rd-round pick. Ballard had him targeted specifically."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2018,
+        "pick": "2.36",
+        "player": "Darius Leonard",
+        "position": "LB",
+        "consensus_rank": "60-90 range (FCS prospect)",
+        "value_amount": 25,
+        "context": "FCS linebacker taken in early 2nd who became Defensive Rookie of the Year and 3x All-Pro."
+      },
+      {
+        "year": 2017,
+        "pick": "7.144",
+        "player": "Grover Stewart",
+        "position": "DT",
+        "consensus_rank": "Undrafted by most boards",
+        "value_amount": "N/A \u2014 small school prospect",
+        "context": "Albany State DT in the 7th round who became an elite nose tackle and signed second contract."
+      },
+      {
+        "year": 2018,
+        "pick": "7.236",
+        "player": "Zaire Franklin",
+        "position": "LB",
+        "consensus_rank": "UDFA range",
+        "value_amount": "N/A",
+        "context": "7th-round pick who became NFL's leading tackler in 2024 with 173 tackles."
+      }
+    ]
+  },
+  "current_2026_context": {
+    "draft_picks": "No 1st-round pick (traded to NYJ for Sauce Gardner). Projected picks: R2 #47, R3 #78, R4 #113, R5 #154, R6 (comp), R7 #230, R7 (comp). Expect Ballard to trade back to accumulate additional picks.",
+    "key_needs": "EDGE (need younger/faster), LB (thin behind Franklin), DT (Buckner aging, need depth), IOL (pipeline depth), WR (Pierce UFA, Pittman expensive), QB (Jones on transition tag, Richardson trade block)",
+    "stated_offseason_priorities": "Ballard explicitly stated at 2026 Combine: need to get 'younger and faster' on defense, especially front 7. Expects defensive side of draft to be strong for their needs. Expects to acquire more picks via trade-backs. 'We like to acquire picks... there's a good chance that we'll end up moving back.'",
+    "roster_notes": "Daniel Jones given transition tag at $37.8M. Anthony Richardson on trade block. Alec Pierce is UFA (trying to re-sign). Michael Pittman Jr has $29M cap hit \u2014 possible cut candidate. DeForest Buckner returning from neck injury. Sauce Gardner expected to start at CB with Charvarius Ward."
+  },
+  "confidence": "high",
+  "confidence_notes": "9 drafts of data as Colts GM. 82 total picks analyzed. Extensive public record of press conferences and statements. Clear, well-documented behavioral patterns around athletic testing emphasis, trade-down tendencies, trench-first philosophy, and Day 3 scouting excellence. Primary uncertainty is around 2026 specifically due to no 1st-round pick and major roster turnover at QB, WR, and defense.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

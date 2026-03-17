@@ -1,0 +1,891 @@
+{
+  "team": {
+    "name": "Cincinnati Bengals",
+    "abbreviation": "CIN",
+    "division": "AFC North",
+    "current_draft_position": 10
+  },
+  "front_office": {
+    "gm": {
+      "name": "Duke Tobin",
+      "title": "Director of Player Personnel (de facto GM)",
+      "hired": "1999-02-01",
+      "promoted_to_director": "2002",
+      "previous_role": "Scout, Indianapolis Colts",
+      "drafts_as_decision_maker": 24,
+      "confidence": "high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Chicago Bears (childhood exposure)",
+          "role": "Ball boy / informal exposure",
+          "years": "1975\u20131992",
+          "mentor": "Father Bill Tobin, VP of Personnel",
+          "notes": "Grew up around Halas Hall; watched father build 1985 Bears dynasty including 6 Hall of Famers. Absorbed philosophy of drafting smart, tough, team-oriented players."
+        },
+        {
+          "org": "University of Illinois / University of Colorado",
+          "role": "College football player (QB)",
+          "years": "1988\u20131992",
+          "mentor": "N/A"
+        },
+        {
+          "org": "Orlando Predators (AFL)",
+          "role": "Player (QB)",
+          "years": "1994",
+          "mentor": "N/A"
+        },
+        {
+          "org": "Memphis Pharaohs (AFL)",
+          "role": "Player (QB)",
+          "years": "1995",
+          "mentor": "N/A",
+          "notes": "Injured knee playing Arena Football, transitioned to scouting."
+        },
+        {
+          "org": "Indianapolis Colts",
+          "role": "Area Scout",
+          "years": "1995\u20131998",
+          "mentor": "Bill Tobin (GM, 1994-96), then Bill Polian (GM, 1997-98)",
+          "notes": "Supported drafts that produced Marshall Faulk (Rd 1, 1994), Marvin Harrison (Rd 1, 1996), and Tarik Glenn (Rd 1, 1997). Covered Midwest college programs. Learned talent evaluation fundamentals from two distinct philosophical schools \u2014 his father's old-school toughness-and-character approach, followed by Polian's blend of athleticism and production."
+        },
+        {
+          "org": "Cincinnati Bengals",
+          "role": "Scouting Department Member",
+          "years": "1999\u20132001",
+          "mentor": "Mike Brown (Owner/de facto GM)"
+        },
+        {
+          "org": "Cincinnati Bengals",
+          "role": "Director of Player Personnel",
+          "years": "2002\u2013present",
+          "mentor": "Mike Brown (Owner); Bill Tobin (area scout/consultant 2003-2022)",
+          "notes": "Has overseen all draft, free agency, and trade decisions as de facto GM for 24 drafts. Father Bill joined as area scout in 2003 and served as trusted evaluator and mentor until passing in 2024. Named Sporting News 2021 NFL Executive of the Year."
+        }
+      ],
+      "primary_mentor": "Bill Tobin (father) \u2014 Bears/Colts philosophical lineage",
+      "philosophical_lineage": "Bill Tobin tree, originating from the 1970s-80s Bears scouting department under Jim Finks and George Halas. Philosophy emphasizes smart, tough, courageous, team-oriented players over raw physical measurables. Bill Tobin famously said of his drafting approach: 'They were smart. They were tough as nails. They were courageous. They were team oriented. They weren't always the biggest. They weren't always the fastest. But they were pretty damn smart and courageous, stable, and they liked the game.' Duke has described himself as 'an extension of' his father. Secondary Polian-era exposure in Indianapolis added an appreciation for elite athleticism at premium positions.",
+      "breakpoints": "Duke is more willing than his father to bet on raw athleticism (e.g., Shemar Stewart, Amarius Mims \u2014 both high-ceiling, low-floor picks). Father Bill was more production-focused. Duke also operates the smallest scouting staff in the NFL, relying on a small trusted circle rather than large analytics departments.",
+      "lineage_weight": 0.15,
+      "lineage_weight_notes": "24 drafts of own data. Lineage weight is informational context only at this tenure length. Duke's own track record IS the data."
+    },
+    "primary_decision_maker": "Duke Tobin, in collaboration with Mike Brown",
+    "key_influencers": [
+      {
+        "name": "Mike Brown",
+        "title": "Owner / President",
+        "influence_level": "high",
+        "known_biases": "Son of Paul Brown. Historically frugal with spending. Involved in all major personnel decisions. Supportive of Tobin but holds ultimate authority. Comfortable with patience and long-term development."
+      },
+      {
+        "name": "Zac Taylor",
+        "title": "Head Coach",
+        "influence_level": "medium-high",
+        "known_biases": "Offensive-minded (Sean McVay disciple). Values pass protection, QB development, and explosive playmakers. Father-in-law is Mike Sherman (former Packers HC). Emphasizes culture and accountability."
+      },
+      {
+        "name": "Mike Potts",
+        "title": "Assistant General Manager",
+        "influence_level": "high",
+        "known_biases": "Linchpin of college scouting operation. Has managed draft board development. Identified Ja'Marr Chase early as a sophomore at LSU. Respected across the scouting community. Strong eye for skill position talent."
+      },
+      {
+        "name": "Trey Brown",
+        "title": "Assistant General Manager / Senior Personnel Executive",
+        "influence_level": "high",
+        "known_biases": "Highly sought after for GM jobs around the league. Works across all facets of roster construction. Would be most likely internal successor to Tobin."
+      },
+      {
+        "name": "Steven Radicevic",
+        "title": "Assistant General Manager",
+        "influence_level": "medium",
+        "known_biases": "Former director of pro scouting. Mentored by Bill Tobin upon arrival in 2012, particularly on offensive line evaluation."
+      },
+      {
+        "name": "Al Golden",
+        "title": "Defensive Coordinator (hired 2025)",
+        "influence_level": "medium",
+        "known_biases": "Previously Bengals LB coach (2020-2022), then Notre Dame DC (2023-2024). Tobin specifically praised his hands-on involvement in draft evaluation and player alignment. Values disruption, simplicity, and versatile defenders."
+      }
+    ],
+    "power_dynamics": "Unique structure \u2014 no official GM title. Tobin and Brown collaborate closely on all major decisions. The Blackburn family (Katie and Troy, Brown's daughter and son-in-law) handles cap/contracts. Tobin runs scouting and personnel evaluation with an unusually small staff. Coaches provide input but Tobin holds the pen on draft day. Tobin consulted Joe Burrow before the Ja'Marr Chase pick, showing willingness to involve franchise QB in process.",
+    "owner_interference": "high \u2014 Mike Brown is directly involved as a decision-maker, not just an approver. He is a former assistant GM himself and has been involved in franchise operations since 1968. However, he generally aligns with Tobin's evaluations."
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.65,
+    "bpa_weight_by_round": {
+      "1": 0.7,
+      "2": 0.6,
+      "3": 0.55,
+      "4_plus": 0.45
+    },
+    "stated_philosophy": "Tobin at 2026 Combine: 'Our philosophy is we want guys worthy of the pick we're making. We're going to rank the 10 best players and go beyond that. If there are opportunities and we're not satisfied and there's an opportunity to trade back for more picks, we'll do that.' Also: 'When we have a guy that stands out on our board, we're normally not going to pass.'",
+    "actual_philosophy": "Moderate BPA lean in round 1 but heavily influenced by positional need convergence. The Chase-over-Sewell pick (2021) was BPA \u2014 Chase was their top-rated player. But 2022 (Dax Hill, DB need), 2023 (Murphy, EDGE need), 2024 (Mims, OT need), and 2025 (Stewart, EDGE need) all addressed obvious roster holes. Tobin admitted: 'There are times when maybe we had guys at the bottom of a bucket and guys at the top of a bucket and went with immediate need.' In rounds 2-4, need becomes a stronger driver. The Bengals' reliance on the draft over free agency means need pressure is higher than typical BPA-leaning teams.",
+    "philosophy_mismatch_notes": "Claims BPA but first-round picks have consistently addressed top-3 team needs in 5 of last 6 drafts. The only clear BPA-over-need pick was Chase in 2021 when OT was the conventional need. Tobin's actual behavior is 'BPA within a need range' \u2014 he won't reach for the 10th-best DT at pick 10, but when BPA aligns with need, he acts decisively."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.1,
+    "trade_down_willingness": 0.15,
+    "trades_per_draft_average": 0.3,
+    "trade_triggers": [
+      "Extremely rare \u2014 Bengals are historically one of the least active trading teams in the NFL",
+      "Only traded out of round 1 once in franchise history (1989)",
+      "Mid-season trades are becoming slightly more common (Joe Flacco trade 2025, Khalil Herbert trade 2024)"
+    ],
+    "draft_capital_philosophy": "Extreme aversion to trading draft picks. Tobin in 2020 described trades as 'equal to a loss.' The Bengals philosophy is to keep all picks and maximize each selection. They have never traded up in the first round under the Tobin/Taylor era. Trading down has been discussed hypothetically but almost never executed. This is one of the most trade-averse front offices in the NFL.",
+    "notes": "Tobin has shown slightly more willingness to make in-season trades recently (Flacco from CLE in 2025, Herbert from CHI in 2024), but draft-day trading remains essentially nonexistent."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "QB",
+        "WR",
+        "EDGE",
+        "OT"
+      ],
+      "tier_2_high": [
+        "CB",
+        "DT",
+        "S"
+      ],
+      "tier_3_mid": [
+        "LB",
+        "IOL",
+        "TE"
+      ],
+      "tier_4_low": [
+        "RB",
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "RB in rounds 1-2 \u2014 has not drafted an RB before round 5 in the Zac Taylor era. Chase Brown (2023 Rd 5) is the only meaningful RB draft investment.",
+      "IOL in round 1 \u2014 has consistently addressed guard/center through free agency rather than early draft capital"
+    ],
+    "position_premium": [
+      "EDGE and defensive front \u2014 3 of last 4 first-round picks are front-seven defenders (Hill/DB tweener 2022, Murphy/EDGE 2023, Stewart/EDGE 2025). Tobin at 2026 Combine: 'D-line is always on my mind.'",
+      "WR in early rounds \u2014 Ja'Marr Chase (Rd 1, 2021), Tee Higgins (Rd 2, 2020) demonstrate willingness to invest premium capital in receivers for Burrow",
+      "CB in rounds 2-3 \u2014 Cam Taylor-Britt (Rd 2, 2022), DJ Turner (Rd 2, 2023) show pattern of addressing secondary on Day 2"
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "High-ceiling athletic freak with elite physical tools, even at the expense of college production. Tobin and the Bengals bet on raw athleticism and development potential at EDGE rather than polished, productive college rushers. Think explosive, long, powerful defenders who can be developed \u2014 the opposite of a safe, proven sack artist. Shemar Stewart (2025 Rd 1) and Myles Murphy (2023 Rd 1) both fit this mold: former 5-star recruits with freakish measurables but modest college sack totals.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "250\u2013290",
+        "arm_length_minimum": "33 inches \u2014 Stewart had 34.25-inch arms, Murphy measured similarly long",
+        "key_athletic_tests": "Explosiveness is king: vertical jump (Stewart 40 inches), broad jump (Stewart 10-11), and first-step burst (Stewart 1.58 10-yard split). The Bengals chase upside over polish.",
+        "speed_requirement": "4.65 or faster at EDGE weight preferred. Stewart ran 4.59 at 267 lbs. Cameron Sample (Rd 4, 2021) and Joseph Ossai (Rd 3, 2021) were also plus athletes."
+      },
+      "playing_style": {
+        "primary_win_condition": "Speed-to-power conversion and raw explosiveness. The Bengals draft EDGEs who win with physical gifts and project to develop a pass-rush plan, not polished technicians.",
+        "most_valued_traits": [
+          "Explosive first step / get-off",
+          "Length and ability to set the edge",
+          "Raw power and strength at the point of attack",
+          "Versatility to play multiple alignments (stand-up and hand in dirt)",
+          "Motor and competitive drive"
+        ],
+        "least_important_traits": [
+          "Polished pass-rush repertoire \u2014 have repeatedly drafted raw rushers with limited moves (Stewart had 4.5 career sacks, Murphy had modest college production)",
+          "Consistent college sack production \u2014 clearly values traits over stats at EDGE"
+        ],
+        "deal_breakers": [
+          "Lack of athletic upside \u2014 will not draft a slow, stiff EDGE regardless of production",
+          "Poor effort/motor on film",
+          "Short arms at the position"
+        ],
+        "traits_that_make_them_reach": "Elite combine performance can override modest production. Stewart's historic combine (4.59/40-inch vert/10-11 broad at 267) made him a first-round pick despite only 4.5 career sacks."
+      },
+      "college_production": {
+        "production_floor": "Very low \u2014 Stewart had 4.5 career sacks in 37 games. Murphy had 6 sacks as a junior. Ossai had 5 sacks. This front office clearly does NOT require high sack numbers.",
+        "production_trajectory": "Tolerates late development and ascending trajectories. Accepts that elite athletes at EDGE may need NFL coaching to maximize potential.",
+        "context_sensitivity": "High \u2014 scouts for disruption metrics (pressures, TFLs, hurries) rather than raw sacks. Stewart had 39 pressures in his final season despite low sack numbers."
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2025 Rd 1 Pick 17 \u2014 Shemar Stewart, Texas A&M: 6-5, 267, 4.59 40, 34.25-inch arms, 40-inch vert, 10-11 broad. 4.5 career sacks in 37 games. Former 5-star recruit. Classic projection-over-production bet.",
+          "2023 Rd 1 Pick 28 \u2014 Myles Murphy, Clemson: 6-5, 268. Former 5-star recruit with 'all the physical tools.' Had 6 sacks as a junior. Described as having 'high upside and relentless motor.'",
+          "2021 Rd 3 Pick 69 \u2014 Joseph Ossai, Texas: 6-4, 256. Versatile stand-up rusher who also played LB. 5 sacks in final season. High-motor, explosive athlete.",
+          "2021 Rd 4 Pick 111 \u2014 Cameron Sample, Tulane: 6-3, 274. 5 sacks in final season. Athletic, versatile defensive end.",
+          "2024 Rd 6 Pick 196 \u2014 Cedric Johnson, Ole Miss: 6-4, 252. 5.5 sacks in 10 starts. Day 3 depth addition with size-speed combo.",
+          "2022 Rd 3 Pick 95 \u2014 Zachary Carter, Florida: 6-4, 282. Versatile DL who played both inside and outside."
+        ]
+      },
+      "confidence": "high"
+    },
+    "CB": {
+      "archetype_summary": "Speed-first, athletic cornerback with coverage versatility. The Bengals value blazing speed and combine performance at CB, targeting players who can play both outside and in the slot. DJ Turner (4.26 40) and Cam Taylor-Britt (4.38 40) both brought elite speed. Dax Hill (2022 Rd 1) was a hybrid DB who played both safety and corner. Ball production is secondary to athletic traits and coverage instincts.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-1",
+        "weight_range": "185\u2013200",
+        "arm_length_minimum": "No strict minimum \u2014 Turner is on the shorter side. Values speed over length at CB.",
+        "key_athletic_tests": "40-yard dash is critical: Turner ran 4.26 (fastest at 2023 combine), Taylor-Britt ran 4.38. 3-cone and short shuttle agility also valued for slot versatility.",
+        "speed_requirement": "4.45 or faster strongly preferred in rounds 1-3. Every CB drafted early in this era has been a sub-4.40 athlete."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Versatile \u2014 scheme under Anarumo featured both man and zone with heavy nickel usage. Al Golden continuing 4-3/4-2 nickel. Values corners who can play inside and outside.",
+        "most_valued_traits": [
+          "Elite speed and recovery ability",
+          "Man coverage skills and ability to mirror routes",
+          "Versatility (inside/outside capable)",
+          "Competitive toughness and willingness to tackle",
+          "Ball skills and ability to create turnovers"
+        ],
+        "least_important_traits": [
+          "Pure size/length \u2014 have drafted CBs as short as 5-10 (Turner) without concern",
+          "Press-man specialization \u2014 value versatility over press-only corners"
+        ],
+        "deal_breakers": [
+          "Slow 40 time \u2014 speed is clearly the threshold trait",
+          "Stiff hips / inability to transition and change direction",
+          "Inability to tackle in run support"
+        ],
+        "traits_that_make_them_reach": "Elite combine speed performance (Turner's 4.26) can push a player up the board significantly."
+      },
+      "college_production": {
+        "production_floor": "No clear statistical floor. Values film and athleticism over interception totals.",
+        "production_trajectory": "Prefers multi-year starters with SEC or Big Ten experience.",
+        "context_sensitivity": "High \u2014 adjusts for quality of competition and role in defensive system."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2022 Rd 1 Pick 31 \u2014 Dax Hill, Michigan: 6-0, 186. Hybrid DB who played safety and slot CB. Ran 4.38. Versatile, athletic coverage player.",
+          "2022 Rd 2 Pick 60 \u2014 Cam Taylor-Britt, Nebraska: 6-0, 196. Ran 4.38 40. Physical, competitive corner who transitioned from safety in college.",
+          "2023 Rd 2 Pick 60 \u2014 DJ Turner II, Michigan: 5-11, 178. Ran 4.26 40 (fastest at combine). Blazing speed, agility drills validated coverage skills. Initially slotted for nickel/slot role.",
+          "2024 Rd 5 Pick 163 \u2014 Josh Newton, TCU: 5-10, 191. Scheme-versatile CB with 87.7 PFF grade over two seasons."
+        ]
+      },
+      "confidence": "high"
+    },
+    "QB": {
+      "archetype_summary": "Franchise-defining pocket passer with elite processing, accuracy, and leadership. The Burrow pick (2020 #1 overall) defines the archetype: a Heisman-winning quarterback with exceptional accuracy, pocket presence, poise under pressure, and proven big-game performance. College production and winning pedigree are paramount. The Bengals will not draft developmental QBs \u2014 they either go all-in on a franchise guy or don't draft the position.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4",
+        "weight_range": "215\u2013230",
+        "arm_length_minimum": "No data \u2014 only one QB drafted",
+        "key_athletic_tests": "Arm talent matters but isn't measured by combine testing. Processing speed and pocket awareness are evaluated on film.",
+        "speed_requirement": "Mobility to extend plays preferred but not a running QB. Burrow's 4.65 40 is adequate."
+      },
+      "playing_style": {
+        "primary_style": "Pocket passer with play-extending ability. Burrow wins with accuracy, anticipation, and the ability to make throws under duress.",
+        "most_valued_traits": [
+          "Processing speed and pre-snap reads",
+          "Accuracy at all three levels",
+          "Pocket presence and poise under pressure",
+          "Leadership and competitive drive",
+          "Proven winner in big games"
+        ],
+        "least_important_traits": [
+          "Designed rushing ability \u2014 Burrow is not a run-first QB",
+          "Combine measurables \u2014 evaluated entirely on film and game tape"
+        ],
+        "deal_breakers": [
+          "Run-first quarterbacks with questionable passing mechanics",
+          "Low college win total / inability to perform in big moments",
+          "Character or leadership concerns"
+        ],
+        "traits_that_make_them_reach": "Heisman-caliber production with proven winning pedigree. Burrow was the obvious #1 pick \u2014 no reach involved."
+      },
+      "college_production": {
+        "production_floor": "Must be an elite college producer. Burrow won the Heisman with 60 TDs and 5,671 passing yards.",
+        "production_trajectory": "Late bloomer acceptable if breakout is elite. Burrow transferred from Ohio State to LSU before his legendary 2019 season.",
+        "context_sensitivity": "High \u2014 Burrow's LSU stats were historic but the supporting cast (Chase, Jefferson) was also elite."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2020 Rd 1 Pick 1 \u2014 Joe Burrow, LSU: 6-4, 221. Heisman Trophy winner, 60 TDs in final season. Led LSU to undefeated national championship. 4.65 40. Classic pocket passer with elite accuracy and leadership."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 QB drafted. Profile entirely based on Burrow selection \u2014 a consensus #1 overall pick that any GM would have made. Insufficient data to determine QB archetype preferences in non-obvious scenarios."
+    },
+    "OT": {
+      "archetype_summary": "Massive, high-ceiling athletic tackle with elite physical traits and length. The Bengals chase physical upside at OT, willing to bet on raw, inexperienced prospects with rare size-athleticism combinations. Amarius Mims (2024 Rd 1) at 6-8, 340 lbs with an 86.7-inch wingspan epitomizes this \u2014 rare physical tools but limited experience. The earlier Tobin era struggled badly at evaluating OT, but the Mims pick signals a shift toward prioritizing athletic ceiling.",
+      "physical_profile": {
+        "height_range": "6-5 to 6-8",
+        "weight_range": "305\u2013345",
+        "arm_length_minimum": "34 inches preferred \u2014 Mims had 86.7-inch wingspan (10th longest of any tackle measured at combine since 2003)",
+        "key_athletic_tests": "Athleticism in space and recovery ability. Mims described as 'rare-sized athlete' by Zac Taylor. Values ability to move and mirror edge rushers at massive size.",
+        "speed_requirement": "No 40 time requirement, but must show adequate lateral movement for pass protection."
+      },
+      "playing_style": {
+        "primary_style": "Pass protector first in a West Coast offense built around Joe Burrow. Length and ability to anchor are paramount.",
+        "most_valued_traits": [
+          "Elite length and wingspan to wall off rushers",
+          "Athletic movement skills for a massive frame",
+          "Upper body strength and ability to sustain blocks",
+          "Recovery talent when initially beaten",
+          "High developmental ceiling"
+        ],
+        "least_important_traits": [
+          "Immediate polish and refinement \u2014 willing to develop raw tackles (Mims had limited starts)",
+          "Run-blocking prowess \u2014 pass protection drives the evaluation in this offense"
+        ],
+        "deal_breakers": [
+          "Short arms/poor length for the position",
+          "Lack of athleticism or fluidity at required size",
+          "Inability to handle speed rushers"
+        ],
+        "traits_that_make_them_reach": "Elite length and size combined with unusual athleticism. Zac Taylor called Mims a 'rare-sized athlete' \u2014 physical ceiling matters."
+      },
+      "college_production": {
+        "production_floor": "Low \u2014 Mims had only 682 snaps over two seasons. Tobin acknowledged him as 'inexperienced, not raw.' Willing to take limited-experience tackles with elite tools.",
+        "production_trajectory": "Accepts limited college tape if physical traits are exceptional.",
+        "context_sensitivity": "Adjusts for program (Georgia produces NFL-ready linemen). Mims was behind other drafted Georgia OTs."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2024 Rd 1 Pick 18 \u2014 Amarius Mims, Georgia: 6-8, 340. 86.7-inch wingspan. High-ceiling prospect with limited starts but exceptional physical tools.",
+          "2025 Rd 5 Pick 155 \u2014 Jalen Rivers, USC: Day 3 depth addition at tackle.",
+          "2021 Rd 2 Pick 46 \u2014 Jackson Carman, Clemson: 6-5, 317. Was projected as a guard/tackle convert. Did not pan out \u2014 bust.",
+          "2021 Rd 4 Pick 139 \u2014 D'Ante Smith, East Carolina: 6-5, 295. Athletic tackle prospect. Did not pan out.",
+          "2022 Rd 4 Pick 136 \u2014 Cordell Volson, North Dakota State: 6-6, 315. Small-school tackle who converted to guard."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Poor historical hit rate at OT under Tobin (documented blind spot). Mims pick represents possible shift in approach toward prioritizing elite physical tools. Confidence in archetype pattern is moderate."
+    },
+    "IOL": {
+      "archetype_summary": "Physical, gap-scheme guard with wrestling/toughness background. Recent investment in Dylan Fairchild (2025 Rd 3) from Georgia signals a preference for powerful, experienced guards from top programs who fit a zone-and-gap hybrid scheme. The Bengals have historically underinvested at IOL in the draft, addressing it through free agency (Ted Karras, Alex Cappa). When they do draft IOL, they target functional strength over elite athleticism.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "305\u2013325",
+        "arm_length_minimum": "No strict minimum at guard",
+        "key_athletic_tests": "Functional strength and anchor ability over combine athleticism. Fairchild was an undefeated high school wrestler. Values wrestling/grappling background.",
+        "speed_requirement": "Not a primary concern. Must be adequate in space for zone concepts."
+      },
+      "playing_style": {
+        "primary_style": "Physical run blockers who can anchor in pass protection. Scheme mixes gap and zone concepts.",
+        "most_valued_traits": [
+          "Anchor strength and ability to hold the point of attack",
+          "Physical toughness and nasty streak",
+          "Wrestling/hand-fighting technique",
+          "Experience starting at a top program",
+          "Scheme versatility to handle gap and zone concepts"
+        ],
+        "least_important_traits": [
+          "Elite athletic testing numbers \u2014 guards are evaluated on film",
+          "Positional versatility (guard/center) \u2014 not a driving factor"
+        ],
+        "deal_breakers": [
+          "Inability to anchor against power rushers",
+          "Lack of functional strength"
+        ],
+        "traits_that_make_them_reach": "Not typically a position they reach for. IOL is addressed mid-to-late in the draft."
+      },
+      "college_production": {
+        "production_floor": "Must be a multi-year starter. Fairchild started 28 games at Georgia.",
+        "production_trajectory": "Prefers experienced starters from elite programs.",
+        "context_sensitivity": "Values pedigree \u2014 back-to-back Georgia OL picks (Mims 2024, Fairchild 2025) suggest program matters."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2025 Rd 3 Pick 81 \u2014 Dylan Fairchild, Georgia: 6-3, ~310. Second-team AP All-American. Started 28 games at LG. Undefeated high school wrestler. Physical, experienced guard.",
+          "2022 Rd 4 Pick 136 \u2014 Cordell Volson, North Dakota State: 6-6, 315. Converted from tackle to guard. Small-school, tough player who became a starter.",
+          "2024 Rd 7 Pick 237 \u2014 Matt Lee, Miami: Center. 6-3, ~305. 89.1 PFF pass-blocking grade in 2023. Late-round depth."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Historically addressed IOL through free agency more than draft. Limited early-round IOL draft history. Fairchild pick is most data-rich recent example."
+    },
+    "DT": {
+      "archetype_summary": "Versatile interior lineman who can play multiple alignments along the front. Values size, motor, and the ability to contribute against both run and pass. Kris Jenkins (2024 Rd 2) and McKinnley Jackson (2024 Rd 3) represent the range \u2014 Jenkins is an undersized but high-motor penetrating 3-technique, while Jackson is a massive nose-tackle type. The Bengals double-dipped at DT in 2024, showing how seriously they prioritize the position. Tyler Shelvin (2021 Rd 4) was a massive space-eater; Jackson is a similar profile.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4",
+        "weight_range": "295\u2013335",
+        "arm_length_minimum": "No strict minimum. Jenkins is 6-3, 305 \u2014 on the smaller end. Jackson is 6-1.5, 326.",
+        "key_athletic_tests": "Motor/effort is more important than combine testing. Explosive first step valued for 3-technique role. Jenkins 'flashes more rush talent than sack production would indicate.'",
+        "speed_requirement": "N/A \u2014 interior DL not evaluated by 40 time."
+      },
+      "playing_style": {
+        "primary_style": "Versatile interior lineman who can play multiple spots. Tobin specifically mentioned wanting DTs who have 'flexibility and the ability' to move around the line. Al Golden and DL coach Jerry Montgomery want multi-position players.",
+        "most_valued_traits": [
+          "Versatility to play 3-tech and 1-tech (or 5-tech as needed)",
+          "Non-stop motor and hustle \u2014 Jenkins' motor stays engaged, running down ball-carriers",
+          "Explosiveness off the snap to disrupt blocking schemes",
+          "Functional strength to hold the point of attack",
+          "Pedigree and winning background (Jenkins won national title at Michigan)"
+        ],
+        "least_important_traits": [
+          "Elite sack production \u2014 Jenkins had only 8.5 sacks in three seasons but flashed pass-rush talent",
+          "Pure two-gap nose tackle play \u2014 prefer disruptive, penetrating styles"
+        ],
+        "deal_breakers": [
+          "Low effort/motor \u2014 this is a non-negotiable trait for interior DL",
+          "One-dimensional player who can only play one technique"
+        ],
+        "traits_that_make_them_reach": "Rare pedigree and versatility. Jenkins' championship background and motor made him a Rd 2 pick despite modest size."
+      },
+      "college_production": {
+        "production_floor": "Moderate \u2014 Jenkins had 4.5 sacks in championship season. Values disruption over sack numbers.",
+        "production_trajectory": "Accepts ascending production in final college season.",
+        "context_sensitivity": "High \u2014 Jenkins' sack production was depressed by being part of a loaded Michigan defense."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2024 Rd 2 Pick 49 \u2014 Kris Jenkins, Michigan: 6-3, 305. National championship winner. Father was 4-time Pro Bowl DT. High motor, versatile interior presence.",
+          "2024 Rd 3 Pick 97 \u2014 McKinnley Jackson, Texas A&M: 6-1.5, 326. Explosive off snap, penetrating DT. Plays with good strength.",
+          "2021 Rd 4 Pick 122 \u2014 Tyler Shelvin, LSU: 6-3, 346. Massive space-eating nose tackle.",
+          "2022 Rd 3 Pick 95 \u2014 Zachary Carter, Florida: 6-4, 282. Tweener who played DT and DE. Versatile interior rusher."
+        ]
+      },
+      "confidence": "medium-high"
+    },
+    "S": {
+      "archetype_summary": "Athletic, rangy safety with hybrid versatility (safety/slot CB/LB). Dax Hill (2022 Rd 1) was a hybrid DB who played safety and nickel CB. Jordan Battle (2023 Rd 3) is a traditional strong safety with ball skills. Tycen Anderson (2022 Rd 5) was a big, rangy athlete. The Bengals value safeties who can cover multiple roles in a diverse defensive scheme, particularly players who can play down in the box or rotate to slot coverage.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-2",
+        "weight_range": "185\u2013210",
+        "arm_length_minimum": "No strict minimum",
+        "key_athletic_tests": "Speed (Hill ran 4.38, Anderson 6-2/185 with range), versatility to play multiple positions, ball-hawking ability.",
+        "speed_requirement": "4.45 or faster preferred. Both Hill and Anderson were plus athletes."
+      },
+      "playing_style": {
+        "primary_style": "Versatile defensive back who can play safety, slot, or even corner. The Bengals have employed hybrid safety/nickel roles extensively.",
+        "most_valued_traits": [
+          "Coverage versatility (man, zone, slot, single-high)",
+          "Ball skills and ability to create turnovers",
+          "Athletic range to cover ground in single-high looks",
+          "Tackling reliability in run support",
+          "Football IQ and communication ability"
+        ],
+        "least_important_traits": [
+          "Pure box safety thumper role \u2014 prefer coverage-capable players",
+          "Elite size \u2014 have drafted safeties from 185 to 210 lbs"
+        ],
+        "deal_breakers": [
+          "Stiff coverage player who can only play one role",
+          "Poor ball skills and inability to generate turnovers",
+          "Unreliable tackler"
+        ],
+        "traits_that_make_them_reach": "Hybrid versatility (DB/LB/slot) is extremely valued. Hill was picked at 31 partly for his ability to play multiple positions."
+      },
+      "college_production": {
+        "production_floor": "Battle had 7 career INTs at Alabama with picks returned for TDs.",
+        "production_trajectory": "Prefers multi-year SEC starters.",
+        "context_sensitivity": "Values SEC and Big Ten competition levels."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2022 Rd 1 Pick 31 \u2014 Dax Hill, Michigan: 6-0, 186. Hybrid DB, ran 4.38. Played safety and slot CB. Eventually moved to full-time CB role in Cincinnati.",
+          "2023 Rd 3 Pick 95 \u2014 Jordan Battle, Alabama: 6-1, 209. Traditional safety with ball skills. Tied for 2nd-most INT return TDs in Alabama history.",
+          "2022 Rd 5 Pick 166 \u2014 Tycen Anderson, Toledo: 6-2, 185. Rangy, athletic safety with coverage upside."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "LB": {
+      "archetype_summary": "Versatile, high-IQ linebacker with coverage ability and positional flexibility. Logan Wilson (2020 Rd 3) set the template \u2014 a productive college LB who could cover, tackle, and communicate. The 2025 double-dip on LBs (Demetrius Knight Rd 2, Barrett Carter Rd 4) continued the pattern with players who offer versatility. Knight's wingspan (80.5 inches, 2nd longest among LBs) and ability to play on/off ball or even as a DE speaks to the Bengals' preference. Al Golden, who coached LBs at Notre Dame, values versatility and disruption above all.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "225\u2013250",
+        "arm_length_minimum": "Long wingspan preferred \u2014 Knight had 80.5-inch wingspan. Wilson is 6-2, 241.",
+        "key_athletic_tests": "Short shuttle and 3-cone for coverage ability. Sideline-to-sideline speed valued.",
+        "speed_requirement": "Must be athletic enough to cover TEs and RBs. No specific 40 threshold but lateral quickness is essential."
+      },
+      "playing_style": {
+        "primary_style": "Versatile three-down linebacker who can cover, blitz, and play multiple positions. Golden's scheme demands players who can handle multiple responsibilities.",
+        "most_valued_traits": [
+          "Positional versatility (on-ball, off-ball, some DE alignment)",
+          "Coverage ability against TEs and RBs",
+          "Tackling reliability and range",
+          "Football IQ and leadership/communication",
+          "Length and wingspan to disrupt passing lanes"
+        ],
+        "least_important_traits": [
+          "Pure downhill thumper play \u2014 not looking for one-dimensional run stuffers",
+          "Elite blitz production \u2014 coverage and versatility matter more"
+        ],
+        "deal_breakers": [
+          "Liability in coverage \u2014 must be able to handle passing-game responsibilities",
+          "One-dimensional player without positional flexibility",
+          "Poor tackling technique"
+        ],
+        "traits_that_make_them_reach": "Versatility to align in multiple spots. Knight's ability to play on-ball, off-ball, or DE was the key selling point."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter with consistent tackle production. Wilson had 105 tackles his senior year. Knight had 82 tackles with 10.5 TFLs in final season. Carter had 62 tackles, 10.5 TFLs, 5.5 sacks as a sophomore.",
+        "production_trajectory": "Prefers ascending production and leadership roles. Knight was 'MVP of one of the best defenses in the country.'",
+        "context_sensitivity": "High \u2014 adjusts for conference quality and defensive role."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2020 Rd 3 Pick 65 \u2014 Logan Wilson, Wyoming: 6-2, 241. High-IQ LB, 105 tackles senior year. Became multi-year starter and team captain.",
+          "2025 Rd 2 Pick 49 \u2014 Demetrius Knight Jr., South Carolina: 6-2, ~240. 80.5-inch wingspan. 82 tackles, 10.5 TFLs, 3.5 sacks as a junior. Versatile \u2014 can play on-ball, off-ball, or DE. Butkus Award finalist.",
+          "2025 Rd 4 Pick 121 \u2014 Barrett Carter, Clemson: ~6-1, 225. Former 5-star recruit. 62 tackles, 10.5 TFLs, 5.5 sacks, 2 INTs as a sophomore. Versatile coverage LB with pass-rush ability.",
+          "2020 Rd 4 Pick 107 \u2014 Akeem Davis-Gaither, Appalachian State: 6-2, 215. Rangy, coverage-focused LB.",
+          "2021 Rd 3 Pick 69 \u2014 Joseph Ossai, Texas: Listed as LB but played EDGE. 6-4, 256. Versatile hybrid."
+        ]
+      },
+      "confidence": "high"
+    },
+    "WR": {
+      "archetype_summary": "Elite playmaker with game-changing explosion, route-running ability, and contested-catch skills. Ja'Marr Chase (2021 Rd 1) and Tee Higgins (2020 Rd 2) define the mold \u2014 big, physical receivers who can dominate in contested situations and create explosive plays. Chase ran 4.34 with a 3.99 3-cone. Higgins is 6-4, 219 and wins with physicality at the catch point. Jermaine Burton (2024 Rd 3) added a 6-0 receiver with 'ball skills to work all three levels.' The Bengals invest in WRs who give Burrow reliable, productive targets.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-4",
+        "weight_range": "190\u2013220",
+        "arm_length_minimum": "No strict minimum. Chase is 6-0, 201. Higgins is 6-4, 219. Burton is 6-0, 196.",
+        "key_athletic_tests": "Explosiveness: vertical jump, broad jump, 3-cone drill. Chase had a 3.99 3-cone. Speed is important but not the singular driver \u2014 route-running and contested-catch ability matter more.",
+        "speed_requirement": "4.50 or faster. Chase ran 4.34, Higgins ran 4.54 (slower but had elite size to compensate), Burton ran ~4.50."
+      },
+      "playing_style": {
+        "primary_style": "Outside receiver (X or Z) who can win in contested situations, create explosive plays, and run a full route tree. The Bengals West Coast offense asks WRs to work all levels.",
+        "most_valued_traits": [
+          "Contested-catch ability and physicality at the point of the catch",
+          "Route-running precision and ability to create separation",
+          "Explosiveness after the catch (YAC ability)",
+          "Reliability and hands \u2014 must be a trustworthy target for Burrow",
+          "Big-game production and competitive fire"
+        ],
+        "least_important_traits": [
+          "Return ability \u2014 considered a bonus, not a driver (Charlie Jones was a returner picked in Rd 4)",
+          "Blocking ability \u2014 not a priority for outside WR evaluation"
+        ],
+        "deal_breakers": [
+          "Unreliable hands \u2014 drops are a disqualifier for Burrow's offense",
+          "Inability to win contested catches \u2014 must be physical at the point of attack",
+          "Route-running limitations that limit the route tree"
+        ],
+        "traits_that_make_them_reach": "Generational playmaking ability. Chase was taken #5 over Penei Sewell specifically because his talent as 'the premier receiver in the draft' was too good to pass up."
+      },
+      "college_production": {
+        "production_floor": "High \u2014 Chase had 84 catches for 1,780 yards and 20 TDs in his final season. Higgins had 59 catches for 1,167 yards and 13 TDs. Burton was less productive (32 catches for 607 yards in 2023) but had traits and ball skills.",
+        "production_trajectory": "Prefers early breakout performers. Chase broke out as a sophomore. Higgins was productive as a sophomore and junior.",
+        "context_sensitivity": "High \u2014 Chase's LSU stats came with Joe Burrow throwing to him, but that connection was seen as a feature, not a bug."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2021 Rd 1 Pick 5 \u2014 Ja'Marr Chase, LSU: 6-0, 201, 4.34 40, 3.99 3-cone. Biletnikoff Award winner. 84 catches, 1,780 yards, 20 TDs. Unanimous All-American.",
+          "2020 Rd 2 Pick 33 \u2014 Tee Higgins, Clemson: 6-4, 219. 59 catches, 1,167 yards, 13 TDs as a junior. Physical, contested-catch specialist.",
+          "2024 Rd 3 Pick 80 \u2014 Jermaine Burton, Alabama: 6-0, 196. 'Can fight through press, get physical at the break point and carve out space on 50/50 balls.'",
+          "2023 Rd 4 Pick 131 \u2014 Charlie Jones, Purdue: 5-11, 178. Sure hands and return game. Lower-ceiling, role-player profile."
+        ]
+      },
+      "confidence": "high"
+    },
+    "TE": {
+      "archetype_summary": "Receiving-focused tight end with pass-catching ability and enough size to contribute as an in-line blocker. The Bengals have not invested premium draft capital at TE under Tobin/Taylor, but the 2024 double-dip (Erick All Rd 4, Tanner McLachlan Rd 5) shows they value the position. Tobin specifically mentioned TE as a first-round target if BPA lined up in 2023. They want TEs who can be reliable targets in the passing game with safe hands.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-6",
+        "weight_range": "240\u2013260",
+        "arm_length_minimum": "No established minimum",
+        "key_athletic_tests": "Receiving ability on film matters more than combine numbers. All ranked 3rd on PFF's TE board. McLachlan had zero drops on 45 catchable targets.",
+        "speed_requirement": "Must be athletic enough to separate in the middle of the field. No specific 40 threshold."
+      },
+      "playing_style": {
+        "primary_style": "Receiving TE who can flex out and win in the middle of the field. The Bengals West Coast offense uses TEs as intermediate targets.",
+        "most_valued_traits": [
+          "Sure hands and reliability as a pass-catcher",
+          "Ability to work the seam and intermediate routes",
+          "Competitive toughness and ability to make contested catches",
+          "Adequate blocking to hold up in-line",
+          "Football IQ and route-running"
+        ],
+        "least_important_traits": [
+          "Elite blocking ability \u2014 not drafting a blocking-only TE early",
+          "Elite speed/vertical athleticism \u2014 reliability matters more"
+        ],
+        "deal_breakers": [
+          "Drops and unreliable hands \u2014 McLachlan was specifically praised for zero drops",
+          "Inability to catch in traffic"
+        ],
+        "traits_that_make_them_reach": "Tobin said in 2023 he'd take a TE in round 1 'if the best guy available is a tight end.' Elite receiving TEs can move up the board."
+      },
+      "college_production": {
+        "production_floor": "Must show pass-catching ability. All had 2.62 yards per route (2nd among draft-eligible TEs). McLachlan had 530 receiving yards and 4 TDs.",
+        "production_trajectory": "Values consistent production over explosive single seasons.",
+        "context_sensitivity": "Adjusts for offensive system and TE usage."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2024 Rd 4 Pick 127 \u2014 Erick All, Iowa: 6-5, 245. 2.62 yards per route ranked 2nd among draft-eligible TEs. Ranked 3rd on PFF's TE big board.",
+          "2024 Rd 5 Pick 168 \u2014 Tanner McLachlan, Arizona: 6-5, 249. Zero drops on 45 catchable targets in 2023. 530 receiving yards and 4 TDs (career highs). Safe-handed."
+        ]
+      },
+      "confidence": "low-medium",
+      "confidence_note": "Only Day 3 TE investments to analyze. Tobin's 2023 comments about first-round TE suggest higher valuation than draft history shows. Tyler Eifert (2013 Rd 1) was the last early TE pick but predates Taylor era."
+    },
+    "RB": {
+      "archetype_summary": "Productive, durable workhorse back with receiving ability who can be found on Day 3. The Bengals do not invest premium draft capital at RB. Chase Brown (2023 Rd 5) and Tahj Brooks (2025 Rd 6) show a preference for high-volume college producers with dual-threat capability. Brown had 1,643 rushing yards and was a big-play threat; Brooks was Texas Tech's all-time leading rusher. Both offer receiving floor (20+ catches per season). The Bengals supplement RB through free agency and late-round picks.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-0",
+        "weight_range": "195\u2013220",
+        "arm_length_minimum": "N/A for RB",
+        "key_athletic_tests": "Speed and burst valued but evaluated on film. Brown ran 4.43 at the combine. Brooks is a bigger, more physical runner.",
+        "speed_requirement": "Adequate speed to break big plays. 4.50 or faster preferred."
+      },
+      "playing_style": {
+        "primary_style": "All-purpose back who can run between the tackles, catch passes, and contribute on third down. Not a specialist.",
+        "most_valued_traits": [
+          "Durability and ability to handle heavy workloads",
+          "Receiving ability out of the backfield (20+ catches)",
+          "Vision and ability to create after initial contact",
+          "Pass protection competence to keep Burrow clean",
+          "Big-play capability"
+        ],
+        "least_important_traits": [
+          "Elite size \u2014 have drafted both compact backs (Brown 5-9, 205) and bigger backs (Brooks ~5-11, 215)",
+          "Combine testing performance \u2014 evaluated on film production"
+        ],
+        "deal_breakers": [
+          "Inability to catch passes \u2014 must be a threat in receiving game",
+          "Durability concerns",
+          "Poor pass protection"
+        ],
+        "traits_that_make_them_reach": "N/A \u2014 Bengals do not reach for RBs. Addressed exclusively on Day 3."
+      },
+      "college_production": {
+        "production_floor": "High volume producers. Brown had 1,643 rushing yards as a senior. Brooks was his school's all-time leading rusher with 4,557 career yards.",
+        "production_trajectory": "Prefers proven college workhorses with high touch counts.",
+        "context_sensitivity": "Values multi-year production over single-season breakouts."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2023 Rd 5 Pick 163 \u2014 Chase Brown, Illinois: 5-9, 205, 4.43 40. 1,643 rushing yards as a senior (3rd in FBS). Led Illinois in rushing. Became 1,000-yard rusher in NFL.",
+          "2025 Rd 6 Pick 189 \u2014 Tahj Brooks, Texas Tech: ~5-11, 215. Texas Tech's all-time leading rusher (4,557 yards). 1,505 yards as a senior. 20+ catches in each of last 3 seasons.",
+          "2021 Rd 6 Pick 202 \u2014 Chris Evans, Michigan: 5-11, 211. Versatile back with receiving ability."
+        ]
+      },
+      "confidence": "medium"
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 6,
+    "max_observed_reach": 15,
+    "round_1_reach_tolerance": 8,
+    "notes": "Moderately willing to reach for traits-over-production picks. Stewart (2025 Rd 1) was considered a reach by some analysts given 4.5 career sacks \u2014 many had him in the 20-30 range. Murphy (2023 Rd 1) was also viewed as a slight reach for a raw player at 28. The Bengals are comfortable drafting above consensus for high-ceiling athletes they believe in. However, they rarely make extreme reaches \u2014 picks generally fall within 5-10 spots of consensus."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.55,
+    "offensive_scheme": "West Coast offense with zone-and-gap run concepts. Pass-heavy, built around Joe Burrow. Values versatile offensive linemen, explosive playmakers, and reliable pass-catching skill players. Zac Taylor is the offensive play-caller. Influenced by Sean McVay's Rams offense.",
+    "defensive_scheme": "4-3 base defense with 4-2 nickel as the primary sub-package. Al Golden (new DC, 2025) is maintaining continuity from Anarumo's scheme structure but simplifying concepts. Values versatile defenders who can handle multiple alignments. Golden specifically brings emphasis on disruption, turnovers, and simplified communication.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "Defensive coordinator changed from Lou Anarumo (2019-2024) to Al Golden (2025-present). Golden is maintaining the 4-3/4-2 nickel base but simplifying the scheme. Players noted 'no gray area' and clearer communication. Golden wants 'disruption' \u2014 getting after the QB and taking the ball away. Draft tendencies at defensive positions may shift toward Golden's preferences for versatile, multi-position defenders. Offensive scheme is stable under Taylor/Pitcher."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.55,
+    "risk_description": "Moderate. Willing to bet on high-ceiling, low-floor athletes at premium positions (Stewart, Mims) but generally conservative in overall roster construction. Runs the smallest scouting staff in the NFL and operates within tight budgets. The high-risk picks are typically at positions of great need where they believe the physical ceiling justifies the gamble.",
+    "recency_bias": 0.65,
+    "recency_description": "Moderate-to-high. After three consecutive losing/mediocre seasons with terrible defense (2023-2025), the 2025 draft was heavily defense-focused (EDGE Rd 1, LB Rd 2, LB Rd 4). The 2026 Combine comments were dominated by defensive needs. After Burrow's knee injury in 2020 \u2192 took Chase (weapon over protection). After brutal OL play in 2023 \u2192 took Mims (OT Rd 1, 2024). Pattern shows direct response to previous season's failures.",
+    "sunk_cost_behavior": "Moderate patience with early-round picks but willing to move on. Tobin said of underperforming DTs: 'I haven't given up on any of them.' Myles Murphy had a breakout in Year 3 (5.5 sacks in 2025) after being considered a bust. Dax Hill was moved from safety to cornerback in Year 2 \u2014 willingness to adjust usage rather than cut losses. Jackson Carman (2021 Rd 2 OT) was a clear bust who was cut.",
+    "combine_weight": 0.6,
+    "combine_description": "Above-average combine emphasis at premium positions. Stewart's historic combine performance (4.59/40-inch vert/10-11 broad at 267) directly drove his first-round selection despite modest production. Turner's 4.26 40 was a major factor. Mims' rare size-athleticism combo was highlighted repeatedly. At off-ball positions like LB and RB, film matters more. Tobin's approach: use combine to confirm film evaluations, but exceptional testing can elevate raw prospects at EDGE, OT, and CB.",
+    "character_weight": 0.6,
+    "character_description": "Moderate character emphasis. The Bill Tobin lineage emphasizes 'smart, stable' players who 'liked the game.' However, the Bengals have drafted players with some character questions (Jermaine Burton had off-field concerns in 2024 Rd 3). Tobin values competitive toughness and team orientation. Not a hard-line character team but prefers high-character players when possible. Knight was praised for his 'background and ability to become an immediate captain.'",
+    "quarterback_philosophy": "Franchise QB is the foundation \u2014 everything else is built around Joe Burrow. Tobin consulted Burrow before the Chase pick and keeps the QB in the loop on roster decisions. Will not draft a developmental backup QB. Treats the QB position as settled and builds the roster to maximize Burrow's effectiveness. At 2026 Combine: 'We're open to doing anything we need to do to improve our team where we're satisfied we're gonna win a championship.'"
+  },
+  "college_production_preferences": {
+    "production_weight": 0.4,
+    "production_vs_projection": "Leans toward projection over production at premium positions (EDGE, OT), but values high production at skill positions (WR, RB, LB). Stewart (4.5 career sacks \u2192 Rd 1 EDGE) and Mims (limited starts \u2192 Rd 1 OT) are clear projection bets. Chase (1,780 yards, 20 TDs), Brown (1,643 rushing yards), and Wilson (105 tackles) were high-production picks. The Bengals' approach is position-dependent: traits-first at the trenches, production-first at skill positions.",
+    "production_thresholds_by_position": {
+      "WR": "Chase had 84-1780-20, Higgins had 59-1167-13. Expect 1,000+ receiving yards in final season for Rd 1-2 WRs.",
+      "RB": "Only drafted on Day 3. Expect 1,000+ rushing yards and receiving ability.",
+      "EDGE": "NO production floor \u2014 Stewart had 4.5 career sacks, Murphy had 6 sacks. Physical ceiling overrides stats at EDGE.",
+      "CB": "No clear statistical floor. Film-first evaluation at corner.",
+      "LB": "80+ tackles in final season expected for Rd 2-3 LBs. Knight had 82, Wilson had 105.",
+      "OT": "No starts-floor. Mims had limited college experience. Traits are the driver."
+    },
+    "breakout_age_sensitivity": 0.4,
+    "dominator_rating_sensitivity": 0.55,
+    "notes": "The Bengals' split between production and projection is sharp and position-dependent. At EDGE and OT, they are one of the NFL's most traits-heavy evaluators. At WR and LB, they heavily value college production. This dual approach makes them harder to predict than a purely BPA or purely traits-driven team."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "40_yard_max": 4.45,
+        "min_arm_length": "No strict minimum",
+        "notes": "Turner 4.26, Hill 4.38, Taylor-Britt 4.38. All CBs drafted in Rds 1-3 were sub-4.40 athletes.",
+        "confidence": "high"
+      },
+      "EDGE": {
+        "min_arm_length": "33 inches",
+        "explosiveness_tests": "Vertical 36+, broad jump 10-0+ strongly preferred",
+        "notes": "Stewart had 34.25-inch arms, 40-inch vert, 10-11 broad. Murphy similarly long. Athleticism is the threshold, not speed alone.",
+        "confidence": "high"
+      },
+      "WR": {
+        "40_yard_max": 4.55,
+        "notes": "Chase 4.34, Burton ~4.50, Higgins 4.54. Speed matters but size can compensate (Higgins at 6-4).",
+        "confidence": "medium"
+      },
+      "OT": {
+        "min_arm_length": "34 inches",
+        "min_height": "6-5",
+        "notes": "Mims at 6-8 with 86.7-inch wingspan. Extreme length is highly valued.",
+        "confidence": "medium"
+      },
+      "S": {
+        "40_yard_max": 4.5,
+        "notes": "Hill 4.38, Anderson rangy athlete. Coverage speed is the priority.",
+        "confidence": "medium"
+      }
+    },
+    "threshold_type": "Hard cutoffs at CB (speed) and EDGE (length/explosiveness). Softer preferences at other positions where film can override testing.",
+    "size_preferences_by_position": {
+      "DT": "Versatile: 295+ for 3-technique, 325+ for nose. Values both penetrators and space-eaters.",
+      "LB": "225-250 range. Prefers longer wingspans (Knight 80.5 inches).",
+      "S": "No strong size preference \u2014 185 to 210 acceptable.",
+      "WR": "Prefers 6-0+ outside receivers. Will take smaller slot types (Jones 5-11) later in draft."
+    },
+    "athletic_testing_favorites": "Vertical jump and broad jump are key explosiveness indicators at EDGE and OT. 40-yard dash is the primary eliminator at CB. 3-cone drill and short shuttle matter for LBs and slot defenders. The Bengals weigh explosiveness metrics (vert, broad, 10-yard split) very heavily at defensive positions.",
+    "measurables_vs_film": "Measurables can override film at EDGE and OT when testing is historic (Stewart's combine). At skill positions (WR, RB), film is the primary driver with measurables as confirmation. At CB, speed is a hard threshold that film cannot override. Overall, the Bengals are a 'traits-first at premium positions, film-first at skill positions' team."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium positions with high physical ceiling. 5 of last 6 first-round picks: QB (Burrow), WR (Chase), DB (Hill), EDGE (Murphy), OT (Mims), EDGE (Stewart). Consistently addresses the most impactful position of need with the highest-ceiling athlete available. Willing to bet on projection over polish in round 1.",
+    "round_2_3_strategy": "Shifts toward filling specific roster holes. CB (Taylor-Britt Rd 2, Turner Rd 2), DT (Jenkins Rd 2), LB (Knight Rd 2), WR (Higgins Rd 2), S (Battle Rd 3), IOL (Fairchild Rd 3). Still values athletic upside but need becomes a stronger factor. Day 2 is where secondary and depth positions get addressed.",
+    "day_3_strategy": "Developmental athletes, depth, and special teams contributors. Chase Brown (Rd 5 RB), Tahj Brooks (Rd 6 RB), Matt Lee (Rd 7 C). Day 3 is for proven college producers at non-premium positions or depth pieces at positions of need. Occasional character-risk or injury-risk players taken here.",
+    "compensatory_pick_usage": "The Bengals have rarely received compensatory picks due to their conservative free agency approach. When available, used similarly to regular picks \u2014 no distinct behavioral difference observed."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "WR": {
+        "picks": 4,
+        "starters": 3,
+        "rate": 0.75,
+        "note": "Chase (superstar), Higgins (Pro Bowl), Burton (TBD), Jones (role player). Elite WR evaluation."
+      },
+      "QB": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Burrow \u2014 franchise-altering pick. Sample size of 1 at the position where he had no real choice."
+      },
+      "EDGE": {
+        "picks": 5,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "Murphy (5.5 sacks in Yr 3, improving), Stewart (injured rookie year), Ossai (injuries), Sample (depth), Carter (role player). Murphy trending up but overall mediocre hit rate."
+      },
+      "CB": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Taylor-Britt (starter, inconsistent), Turner (starter, developing), Hill (moved to CB, struggled before 2025 improvement), Newton (TBD). Mixed results."
+      },
+      "OT": {
+        "picks": 4,
+        "starters": 1,
+        "rate": 0.25,
+        "note": "Documented blind spot. Mims (TBD \u2014 just 1 year), Carman (bust), D'Ante Smith (bust), Volson (converted to guard). Historically poor OT evaluation."
+      },
+      "LB": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Wilson (multi-year starter, excellent), Davis-Gaither (depth), Knight (TBD), Carter (TBD). Wilson was an excellent find at Rd 3."
+      },
+      "DT": {
+        "picks": 4,
+        "starters": 1,
+        "rate": 0.25,
+        "note": "Jenkins (started, injured 2025), Jackson (depth), Shelvin (depth), Carter/Zachary (moved on). Below average."
+      },
+      "S": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Battle (starter), Anderson (role player)."
+      },
+      "RB": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Chase Brown (breakout 1,000-yard rusher) is an excellent Day 3 find."
+      }
+    },
+    "blind_spots": [
+      "Offensive tackle evaluation \u2014 documented decade-long pattern of missed OT picks. Only Andre Smith (2009) received a second contract in recent history. Mims is the latest bet.",
+      "Defensive tackle \u2014 Jenkins and Jackson both battled injuries and limited production. Below-average hit rate at DT."
+    ],
+    "strengths": [
+      "Wide receiver evaluation \u2014 Chase and Higgins are two of the best WR picks in franchise history. Mike Potts identified Chase as a sophomore.",
+      "Linebacker evaluation \u2014 Logan Wilson was an excellent Rd 3 find who became a multi-year starter.",
+      "Late-round value \u2014 Chase Brown (Rd 5 to 1,000-yard rusher), Evan McPherson (Rd 5 K who hit clutch playoff FGs)"
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Historically conservative spender who has begun to open up under pressure from the Burrow window. The 2021 free agency class (Hendrickson, Reader, Bell, Awuzie, Hilton, Apple) was a rare spending spree that directly fueled the Super Bowl run. Recent extensions for Chase and Higgins represent significant investment. Tobin at 2026 Combine: 'We're open to doing anything we need to do to improve our team.' But historically operates with one of the NFL's smallest staffs and tightest budgets.",
+    "fa_draft_correlation": "When a major FA signing addresses a position (Orlando Brown at LT in 2023, Trent Brown at RT in 2024), that position still gets draft attention but drops to Day 3 priority. The Bengals sign veteran starters at positions of need, then draft developmental players behind them. Exception: even after signing FA edge rushers, they've continued to invest early draft capital at EDGE (Murphy, Stewart) because it's a priority position.",
+    "roster_construction_philosophy": "Build the offense through the draft (Burrow, Chase, Higgins, Brown, Mims) and supplement defense through both draft and free agency. The 2021 Super Bowl defense was built largely through free agency, while the offense was built through the draft. The Bengals' limited scouting staff means they rely heavily on a small circle of trusted evaluators and prioritize the draft as their primary roster-building tool, with FA used to fill immediate holes."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 42,
+    "years_covered": "2020-2025 (Zac Taylor era)",
+    "notable_patterns": [
+      "First-round picks have consistently addressed the team's most pressing need position (Burrow/QB, Chase/WR, Hill/DB, Murphy/EDGE, Mims/OT, Stewart/EDGE)",
+      "Extremely trade-averse \u2014 zero draft-day trades up in the Taylor era. Only traded out of Rd 1 once in franchise history (1989).",
+      "Strong preference for SEC and Big Ten players \u2014 Chase (LSU), Burrow (LSU), Higgins (Clemson), Hill (Michigan), Jenkins (Michigan), Turner (Michigan), Battle (Alabama), Stewart (Texas A&M), Knight (South Carolina), Mims (Georgia), Fairchild (Georgia).",
+      "Double-dips at positions of need within the same draft \u2014 2 LBs in 2025, 2 DTs in 2024, 2 TEs in 2024",
+      "5-star and high-pedigree recruits heavily favored for Rd 1 picks \u2014 Stewart and Murphy were both former 5-star recruits",
+      "The smallest scouting department in the NFL operates with a tight inner circle of Tobin, Potts, Brown, and Radicevic"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2025,
+        "pick": "1.17",
+        "player": "Shemar Stewart",
+        "position": "EDGE",
+        "consensus_rank": "20-30 range",
+        "reach_amount": "5-13 picks",
+        "context": "Historic combine performance but only 4.5 career sacks. Many analysts had him as a late first/early second pick. Clear traits-over-production bet."
+      },
+      {
+        "year": 2023,
+        "pick": "1.28",
+        "player": "Myles Murphy",
+        "position": "EDGE",
+        "consensus_rank": "25-35 range",
+        "reach_amount": "3-7 picks",
+        "context": "Former 5-star recruit with high physical ceiling but limited college production. Raw pass rusher who needed development."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2023,
+        "pick": "5.163",
+        "player": "Chase Brown",
+        "position": "RB",
+        "consensus_rank": "140-160 range",
+        "value_amount": "3-20 picks",
+        "context": "Became 1,000-yard rusher by Year 2. Elite Day 3 value."
+      },
+      {
+        "year": 2021,
+        "pick": "5.149",
+        "player": "Evan McPherson",
+        "position": "K",
+        "consensus_rank": "N/A",
+        "value_amount": "N/A",
+        "context": "Clutch kicker who hit game-winning playoff field goals en route to Super Bowl."
+      },
+      {
+        "year": 2020,
+        "pick": "3.65",
+        "player": "Logan Wilson",
+        "position": "LB",
+        "consensus_rank": "80-100 range",
+        "value_amount": "15-35 picks",
+        "context": "Became multi-year starting LB and team leader."
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_notes": "24 drafts of data under Duke Tobin as Director of Player Personnel, 7 with Zac Taylor as HC. Deep behavioral pattern established. New DC Al Golden creates slight uncertainty at defensive position preferences. Bengals' 6-11 record in 2025 with 10th overall pick in 2026 creates strong defensive need pressure. Profile should be refreshed after 2026 draft. Key monitoring areas: (1) Does Golden's influence shift EDGE/LB archetype preferences? (2) Will the 10th overall pick follow the pattern of addressing top defensive need? (3) Any shift in trade-averse behavior with a top-10 pick for the first time since 2020?",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

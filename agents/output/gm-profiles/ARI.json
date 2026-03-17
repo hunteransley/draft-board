@@ -1,0 +1,861 @@
+{
+  "team": {
+    "name": "Arizona Cardinals",
+    "abbreviation": "ARI",
+    "division": "NFC West",
+    "current_draft_position": 3
+  },
+  "front_office": {
+    "gm": {
+      "name": "Monti Ossenfort",
+      "title": "General Manager",
+      "hired": "2023-01-16",
+      "previous_role": "Director of Player Personnel, Tennessee Titans",
+      "drafts_as_gm": 3,
+      "confidence": "medium"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Minnesota Vikings",
+          "role": "Training Camp Intern",
+          "years": "2001",
+          "mentor": "N/A (entry-level)"
+        },
+        {
+          "org": "Houston Texans",
+          "role": "Pro Personnel Intern",
+          "years": "2002",
+          "mentor": "Charley Casserly"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Personnel Assistant",
+          "years": "2003",
+          "mentor": "Scott Pioli / Bill Belichick"
+        },
+        {
+          "org": "Houston Texans",
+          "role": "Pro and College Scouting Assistant",
+          "years": "2004",
+          "mentor": "Charley Casserly"
+        },
+        {
+          "org": "Houston Texans",
+          "role": "College Scout",
+          "years": "2005",
+          "mentor": "Charley Casserly"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Area Scout",
+          "years": "2006\u20132007",
+          "mentor": "Bill Belichick / Scott Pioli / Thomas Dimitroff (scouting director at the time)"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "National Scout",
+          "years": "2008\u20132010",
+          "mentor": "Bill Belichick / Nick Caserio"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Assistant Director of College Scouting",
+          "years": "2011\u20132013",
+          "mentor": "Bill Belichick / Nick Caserio"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Director of College Scouting",
+          "years": "2014\u20132019",
+          "mentor": "Bill Belichick / Nick Caserio"
+        },
+        {
+          "org": "Tennessee Titans",
+          "role": "Director of Player Personnel",
+          "years": "2020\u20132022",
+          "mentor": "Jon Robinson"
+        }
+      ],
+      "primary_mentor": "Bill Belichick (New England Patriots, 15 combined seasons across two stints). Belichick was the de facto GM during Ossenfort's entire Patriots tenure, making him the dominant influence on Ossenfort's scouting and evaluation philosophy.",
+      "philosophical_lineage": "Belichick tree via Scott Pioli pathway. Pioli's call brought Ossenfort to New England in 2003. The Belichick tree emphasizes positional versatility, character, team-first culture, willingness to trade down and accumulate picks, and a heavy premium on special teams contributors even on Day 3. Secondary influence from Charley Casserly in Houston, known for systematic evaluation processes. Tertiary influence from Jon Robinson in Tennessee, who was himself a Belichick tree disciple \u2014 Robinson was NE's director of college scouting before Ossenfort replaced him in 2014.",
+      "breakpoints": "Ossenfort has shown a stronger willingness to pick BPA at the very top of the draft than the typical Belichick-tree GM, who historically preferred trading down from premium positions. At pick 4 in 2024, Ossenfort stayed put for Marvin Harrison Jr. despite exploring trade-back options \u2014 the classic Belichick move would have been to trade down. He has also shown more willingness to draft injured players who slide (Williams with torn ACL, Will Johnson with knee concerns) than the traditionally conservative Belichick medical approach. However, his love of trading and accumulating picks in his first draft (2023) was pure Belichick DNA.",
+      "lineage_weight": 0.35,
+      "lineage_weight_notes": "3 drafts of data as Cardinals GM bring lineage weight down substantially. Ossenfort has shown enough of his own tendencies \u2014 willingness to stay at top of draft, preference for sliding talent with medical flags, heavy defensive investment \u2014 to override pure lineage prediction. Will drop to 0.20 after 2026 draft."
+    },
+    "primary_decision_maker": "Monti Ossenfort",
+    "key_influencers": [
+      {
+        "name": "Dave Sears",
+        "title": "Assistant General Manager",
+        "influence_level": "high",
+        "known_biases": "Works closely with Ossenfort on final board construction and draft-day decisions. Co-leads post-draft press conferences. Trusted lieutenant in the scouting and evaluation process."
+      },
+      {
+        "name": "Mike LaFleur",
+        "title": "Head Coach (hired February 1, 2026)",
+        "influence_level": "high_projected",
+        "known_biases": "Shanahan/McVay offensive tree coach. Will likely prioritize offensive line athleticism and versatility, zone-run scheme fits, and versatile receiving weapons. This is his first draft with the Cardinals \u2014 influence level is projected, not confirmed. Retained DC Nick Rallis from prior staff, suggesting defensive scheme continuity while offense changes. Nathaniel Hackett is OC but LaFleur will call plays."
+      },
+      {
+        "name": "Nick Rallis",
+        "title": "Defensive Coordinator (retained from Gannon staff)",
+        "influence_level": "medium",
+        "known_biases": "Runs a scheme that emphasizes versatility along the defensive front and zone coverage principles in the secondary. Has been with the Cardinals for three seasons under Gannon, so there is philosophical alignment with how the defense has been built."
+      },
+      {
+        "name": "Michael Bidwill",
+        "title": "Owner/Chairman",
+        "influence_level": "low-to-medium",
+        "known_biases": "Involved in major decisions (GM hire, HC hire), participated in draft phone calls to drafted players. Pushed for 'ego-free' culture when hiring Ossenfort. Not known to override football decisions on draft day but stays informed."
+      }
+    ],
+    "power_dynamics": "Collaborative front office where the GM has final say on personnel. Ossenfort has been the clear decision-maker across all three drafts. He hired Gannon, fired Gannon, and hired LaFleur \u2014 all with Bidwill's backing but with Ossenfort leading the process. LaFleur is a new hire and the power dynamic between GM and HC on draft decisions is TBD for 2026, but Ossenfort's institutional control is well-established. Bidwill described the structure as aligned between ownership, GM, and HC during Ossenfort's introductory presser.",
+    "owner_interference": "low"
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.7,
+    "bpa_weight_by_round": {
+      "1": 0.75,
+      "2": 0.65,
+      "3": 0.6,
+      "4_plus": 0.45
+    },
+    "stated_philosophy": "Ossenfort has consistently stated he is looking for 'good players and good people' who fit culturally and on the field. He said in 2024: 'Our list of needs is good players that fit us.' He emphasizes that the game tape is 'the vast majority' of the evaluation pie, with combine testing, medical, and interviews filling in the rest.",
+    "actual_philosophy": "Leans BPA in round 1 but within the context of clear team needs. In 2023, he traded down from 3 and still picked Paris Johnson Jr. at OT (a need position but also a BPA-caliber pick). In 2024, he stayed at 4 for Marvin Harrison Jr. \u2014 the consensus #1 non-QB, who also addressed the team's biggest need at WR. In 2025, he took Walter Nolen (DT) at 16 to continue the defensive rebuild. His picks typically align with both BPA and need because he's in a full rebuild where every position is a need. However, his 2024 draft is most revealing: at pick 27 he took Darius Robinson (EDGE/DL) when CBs like Cooper DeJean were available \u2014 he chose the player with the most positional versatility and scheme fit rather than the higher-consensus CB. In rounds 2-3, he shifts toward need-filling: 3 CBs in the 2024 draft, 2 CBs in 2025, reflecting his willingness to stack a position of need.",
+    "philosophy_mismatch_notes": "Stated philosophy aligns reasonably well with actual behavior. Ossenfort genuinely appears to lean BPA but during a rebuild, BPA and need often converge. The biggest reveal is his willingness to reach slightly for scheme-versatile players (Robinson at 27 in 2024 was viewed by some analysts as a slight reach). He also clearly values sliding talent over pure positional need \u2014 taking Will Johnson at 47 in 2025 when the position was already being addressed."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.3,
+    "trade_down_willingness": 0.7,
+    "trades_per_draft_average": 2.3,
+    "trade_triggers": [
+      "Falling elite talent that slid past their projected range (Will Johnson in 2025 \u2014 stayed put and took him rather than trade back despite offers)",
+      "Opportunity to accumulate future first-round picks (2023 trade from 3 to Houston netted a future 1st)",
+      "Situational value \u2014 Ossenfort has said decisions are 'opportunity-based' rather than pre-planned",
+      "Clear tier break on board where trading back still nets a target player"
+    ],
+    "draft_capital_philosophy": "Ossenfort's Belichick DNA shows most clearly in trade behavior. In his first draft (2023), he executed a masterclass: traded from 3 to 12 (gaining Houston's 2024 1st and additional picks), then traded back up from 12 to 6 to get his guy (Paris Johnson Jr.). Net result: got his top target AND gained a future first-round pick and multiple Day 2 picks. In 2024, with 11 picks including two 1sts, he used the capital rather than hoarding. In 2025, he eschewed trade-back offers at picks 47 and 78 because he had specific players he wanted. He values future picks but stated 'we need players' and won't trade back purely to hoard. Prefers current-year players when the board falls favorably. From his Patriots background: New England made 46 draft-day trades from 2010-21, nearly all during Ossenfort's tenure \u2014 29 trade-downs, 16 trade-ups."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "DL",
+        "EDGE",
+        "CB",
+        "OT",
+        "WR"
+      ],
+      "tier_2_high": [
+        "LB",
+        "IOL",
+        "DT"
+      ],
+      "tier_3_mid": [
+        "S",
+        "TE",
+        "QB"
+      ],
+      "tier_4_low": [
+        "RB",
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "QB \u2014 Has not drafted a QB in rounds 1-3 in three drafts. Clayton Tune was a Day 3 developmental pick in 2023 (5th round). Now releasing Kyler Murray and heading into 2026 draft at pick 3 with massive QB need \u2014 this may change dramatically.",
+      "S \u2014 Has not used premium draft capital on safety. Dadrion Taylor-Demerson was a 4th-rounder in 2024, Kitan Crawford a 7th-rounder in 2025. Relies on Budda Baker as cornerstone.",
+      "TE \u2014 Only one TE drafted (Tip Reiman, 3rd round 2024) and he was a blocking-first selection."
+    ],
+    "position_premium": [
+      "CB \u2014 Has drafted 7 cornerbacks across 3 drafts (Williams, Clark, Melton, Elijah Jones, Jaden Davis, Will Johnson, Denzel Burke). Massive investment reflecting the Gannon DB-coach influence. Even without Gannon, Rallis retained.",
+      "DL/EDGE \u2014 Drafted Darius Robinson (1.27, 2024), Xavier Thomas (5.138, 2024), Walter Nolen (1.16, 2025), Jordan Burch (3.78, 2025). Two consecutive first-round defensive line picks. Also BJ Ojulari (2.41, 2023).",
+      "OT \u2014 Paris Johnson Jr. was the very first pick of the Ossenfort era at 6th overall. Christian Jones and Isaiah Adams also added as depth."
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Versatile, high-motor defensive linemen who can align at multiple positions along the front \u2014 both inside and on the edge. Ossenfort values scheme versatility, length, and the ability to affect both the pass and run game. Not seeking pure speed rushers; prefers physical, power-based players who win with effort and functional strength. Think big, long players who can kick inside on passing downs \u2014 Darius Robinson is the prototype, not a pure finesse bend rusher.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "248\u2013290",
+        "arm_length_minimum": "34 inches preferred based on Robinson (34.5 inches) and Ojulari (34 inches). Burch at 6-4.25 with massive frame. Length is clearly valued.",
+        "key_athletic_tests": "Values explosiveness (Robinson: 35-inch vert, 9-foot-3 broad). Motor and effort rank higher than pure timed speed. Short-area quickness to counter inside matters.",
+        "speed_requirement": "Not a primary factor. Robinson ran 4.95 at 285 lbs \u2014 speed is secondary to power and versatility. Ojulari ran 4.59 at 248 \u2014 faster, but valued for motor and production over speed alone."
+      },
+      "playing_style": {
+        "primary_win_condition": "Positional versatility and power at the point of attack. Robinson played DT before switching to edge. Burch can play multiple alignment techniques (5, 6, 9-tech). Ossenfort explicitly stated he values Burch's 'unique skillset for a guy who is his size and length and to be able to play on his feet and play on the edge.'",
+        "most_valued_traits": [
+          "Alignment versatility \u2014 can play inside and outside",
+          "Power and functional strength at POA",
+          "High motor and relentless effort",
+          "Length and ability to control blockers with arm extension",
+          "Run defense ability \u2014 Ossenfort wants three-down players"
+        ],
+        "least_important_traits": [
+          "Pure speed-to-power conversion off the edge \u2014 has not drafted a classic speed rusher",
+          "Polished pass-rush move repertoire \u2014 Robinson was raw in moves but had power"
+        ],
+        "deal_breakers": [
+          "One-dimensional speed rushers who cannot defend the run",
+          "Undersized pass-rush specialists without positional versatility",
+          "Low-motor players who take plays off"
+        ],
+        "traits_that_make_them_reach": "Elite positional versatility. Robinson at pick 27 was considered a mild reach by some analysts who had him as a late-1st/early-2nd prospect. The DT-to-edge versatility pushed him up Ossenfort's board."
+      },
+      "college_production": {
+        "production_floor": "Ascending production trajectory preferred. Robinson had 8.5 sacks and 14 TFL in his final season. Ojulari had 16.5 career sacks in 3 years at LSU. Burch had 11.5 sacks in two seasons at Oregon. Xavier Thomas had 22 career sacks at Clemson.",
+        "production_trajectory": "Strongly prefers ascending production. Robinson went from 3.5 sacks to 8.5 sacks in his final two years. Burch improved each year at Oregon.",
+        "context_sensitivity": "High. Ossenfort accounts for scheme, usage, and position changes. Robinson's interior-to-edge transition was credited as development, not instability."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2023 2.41 \u2014 BJ Ojulari, LSU: 6-2, 248, 4.59 40, 34-inch arms. High-motor pass rusher with deep collection of moves, SEC production leader.",
+          "2024 1.27 \u2014 Darius Robinson, Missouri: 6-5, 285, 4.95 40, 34.5-inch arms, 35-inch vert. Power rusher with DT-to-edge versatility, First-Team All-SEC.",
+          "2024 5.138 \u2014 Xavier Thomas, Clemson: 6-2, 260. Six-year veteran with 22 career sacks, high motor.",
+          "2025 3.78 \u2014 Jordan Burch, Oregon: 6-4.25, 279. Size of a DL with edge rusher production (11.5 sacks in 2 years). Versatile alignment player."
+        ]
+      },
+      "confidence": "high"
+    },
+    "OT": {
+      "archetype_summary": "Elite athletic tackles with positional versatility and scheme flexibility. Ossenfort's first-ever pick was Paris Johnson Jr. \u2014 a former guard who moved to tackle, with prototype size, elite athleticism, and the ability to play either side. Values length, movement skills, and the ability to operate in a variety of blocking schemes. Not seeking pure maulers; wants athletes who can pass protect and move in space.",
+      "physical_profile": {
+        "height_range": "6-5 to 6-6.5",
+        "weight_range": "305\u2013315",
+        "arm_length_minimum": "34 inches. Paris Johnson Jr. measured 36 1/8-inch arms \u2014 elite length clearly valued.",
+        "key_athletic_tests": "Broad jump as explosiveness proxy (Johnson: 110 inches). Bench press for functional strength (Johnson: 29 reps). Foot quickness in drills valued over 40 time.",
+        "speed_requirement": "Not a primary metric. Johnson did not run the 40 at the combine. Movement quality in OL drills matters more than timed speed."
+      },
+      "playing_style": {
+        "primary_win_condition": "Athletic pass protection with strong leverage and sustain in the run game. Johnson excelled in run blocking and uses leverage well despite his height.",
+        "most_valued_traits": [
+          "Positional versatility \u2014 guard/tackle flexibility",
+          "Elite arm length and wingspan",
+          "Athletic movement ability in space",
+          "Leadership and character (Johnson's family legacy, journalism degree)",
+          "Ability to sustain blocks and finish"
+        ],
+        "least_important_traits": [
+          "Pure power/mauling ability \u2014 not seeking a road-grading run blocker only",
+          "40-yard dash time"
+        ],
+        "deal_breakers": [
+          "Limited movement ability \u2014 stiff tackles who cannot redirect",
+          "Short arms for the position",
+          "Character concerns \u2014 Ossenfort emphasized Johnson's leadership traits"
+        ],
+        "traits_that_make_them_reach": "Elite combination of size, length, and athleticism. Johnson was the consensus top OT in a loaded 2023 class."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter preferred. Johnson was a 3-year contributor at Ohio State (guard in 2021, LT in 2022). Christian Jones (5th round, 2024) had 5 seasons at Texas with 3,219 career snaps.",
+        "production_trajectory": "Values multi-year experience and growth. Johnson's guard-to-tackle transition showed development arc.",
+        "context_sensitivity": "High. Considers offensive system and competition level. Johnson's Ohio State pedigree and PFF metrics heavily weighted."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2023 1.6 \u2014 Paris Johnson Jr., Ohio State: 6-6 3/8, 313, 36 1/8-inch arms, 29 bench reps, 110-inch broad jump. Elite athletic tackle with guard experience. Allowed only 14 pressures in final college season.",
+          "2024 3.71 \u2014 Isaiah Adams, Illinois: OT/G convert from Canada. 81.1 run-blocking PFF grade. Athletic with tackle experience but projects inside.",
+          "2024 5.162 \u2014 Christian Jones, Texas: 5-year starter with 3,219 career snaps. Depth/developmental piece."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "IOL": {
+      "archetype_summary": "Consistent, balanced interior linemen who can contribute in both run and pass protection. Not seeking flashy athletes; values reliability, balance, and positional versatility. The Cardinals have invested Day 3-4 picks on interior linemen who are polished and ready to contribute as depth or eventual starters.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "300\u2013315",
+        "arm_length_minimum": "No clear threshold from limited sample",
+        "key_athletic_tests": "Balance and consistency in blocking grades matter more than combine numbers. Hayden Conner (2025 6th round) was 6-6, 314 \u2014 size clearly valued.",
+        "speed_requirement": "N/A \u2014 not a meaningful metric for IOL in Ossenfort's evaluations."
+      },
+      "playing_style": {
+        "primary_win_condition": "Balance and consistency across run and pass blocking. Gaines graded 76.7 in run blocking and 77.4 in pass blocking \u2014 one of only three guards in his class to grade above 76 in both.",
+        "most_valued_traits": [
+          "Consistency in both pass and run blocking",
+          "Positional versatility \u2014 guard/center/tackle flexibility",
+          "Experienced college starters with high snap counts",
+          "Physical toughness and tenacity"
+        ],
+        "least_important_traits": [
+          "Elite athleticism or movement ability \u2014 IOL picks have been steady performers, not athletic freaks",
+          "Flashy traits in any single area"
+        ],
+        "deal_breakers": [
+          "One-dimensional blockers who can only run block or pass protect but not both",
+          "Lack of experience or starting reps in college"
+        ],
+        "traits_that_make_them_reach": "No evidence of reaching for IOL \u2014 all have been Day 3+ picks. Ossenfort fills IOL as depth, not premium investment."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter. Gaines was a reliable contributor. Adams had 4+ years at Illinois. Conner started 43 games at Texas.",
+        "production_trajectory": "Prefers experienced, proven starters over raw athletic projects at this position.",
+        "context_sensitivity": "Values Senior Bowl and pre-draft process performance. Adams impressed coaches at the Senior Bowl."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2023 4.105 \u2014 Jon Gaines II, UCLA: Guard with balanced run (76.7 PFF) and pass blocking (77.4 PFF) grades. Reliable and consistent.",
+          "2024 3.71 \u2014 Isaiah Adams, Illinois: OT who projects as guard in NFL. 81.1 run-blocking grade. Impressed at Senior Bowl.",
+          "2025 6.211 \u2014 Hayden Conner, Texas: 6-6, 314. Versatile IOL who started 43 games. Experience and size valued."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "DT": {
+      "archetype_summary": "Disruptive, penetrating interior defensive linemen with the athleticism to affect the quarterback from inside. Ossenfort took Walter Nolen 16th overall in 2025 \u2014 a powerful, athletic DT who earned the second-highest PFF run-defense grade in FBS (91.6) with 6.5 sacks and 14 TFL. This signals a premium on interior disruption and three-down impact. Combined with Darius Robinson's DT background, Ossenfort clearly values interior linemen who can rush the passer AND defend the run.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5",
+        "weight_range": "285\u2013300",
+        "arm_length_minimum": "No clear hard minimum from limited sample, but length valued across defensive front",
+        "key_athletic_tests": "Explosiveness off the snap. Nolen was graded as an elite athlete for his size. Short-area quickness to disrupt blocking schemes.",
+        "speed_requirement": "Not primary. Interior quickness and burst matter more than 40 time."
+      },
+      "playing_style": {
+        "primary_win_condition": "Interior disruption in both run and pass situations. Nolen shed blocks and made 32 tackles within two yards of the line of scrimmage. He's a three-down player, not a specialist.",
+        "most_valued_traits": [
+          "Elite run defense and ability to hold the point of attack",
+          "Interior pass-rush ability \u2014 sack production from DT alignment",
+          "Ability to shed blocks and make plays at/behind the LOS",
+          "Motor and effort play-to-play",
+          "Scheme versatility across multiple techniques"
+        ],
+        "least_important_traits": [
+          "Pure pass-rush specialization without run defense ability",
+          "Nose tackle-style two-gapping ability \u2014 Ossenfort wants penetrators"
+        ],
+        "deal_breakers": [
+          "Inconsistent effort or questions about passion for the game (notably, Nolen had 'major concerns around his love/passion for the game' pre-draft but the Cardinals still drafted him, suggesting they resolved the concern through their process)",
+          "One-dimensional run stuffers without pass-rush upside"
+        ],
+        "traits_that_make_them_reach": "Elite college production at DT (sacks and TFL from the interior position) can push a player up Ossenfort's board."
+      },
+      "college_production": {
+        "production_floor": "Nolen: 6.5 sacks, 14 TFL in final season. Robinson had 8.5 sacks in his final year playing both DT and edge.",
+        "production_trajectory": "Prefers ascending production. Nolen earned First-Team All-SEC in his final season.",
+        "context_sensitivity": "Adjusts for position \u2014 sack production from DT alignment is weighted higher than from edge."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2025 1.16 \u2014 Walter Nolen, Ole Miss: 6-3.75, 296. 6.5 sacks, 14 TFL, 32 tackles within 2 yards of LOS. Second-highest PFF run-defense grade in FBS (91.6). First-Team All-SEC. 7th-ranked prospect on PFF's big board.",
+          "2024 1.27 \u2014 Darius Robinson, Missouri: 6-5, 285. Originally a DT who transitioned to edge. Interior experience informs his versatility. First-Team All-SEC with 8.5 sacks."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "CB": {
+      "archetype_summary": "Ossenfort has invested more draft capital at CB than any other position \u2014 7 corners in 3 drafts. The archetype is clear: quick, technically sound corners with good ball skills and zone coverage ability who can play multiple spots in the secondary. Values instincts, ball production, competitive toughness, and willingness to tackle. Has consistently taken corners with injury or concern-related slides, getting higher-talent players at lower cost. Gannon's secondary-coach background heavily influenced CB investment; Rallis's retention suggests continued emphasis.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-1.75. Wide range \u2014 from Garrett Williams (5-10, 192) to Will Johnson (6-1.75, 194). No hard height minimum.",
+        "weight_range": "186\u2013194",
+        "arm_length_minimum": "No hard minimum. Williams has 31-inch arms. Melton at 5-11 is on the smaller side. Johnson at 6-1.75 has more traditional size. Range of body types drafted.",
+        "key_athletic_tests": "Speed matters \u2014 Melton ran sub-4.3 at the combine. Pappoe (LB, but 4.38 speed) and other athletic picks suggest Ossenfort values timed speed. However, Williams did not have elite timed speed and was still a Day 2 pick based on film.",
+        "speed_requirement": "Sub-4.50 preferred but not a hard cutoff. Values quickness, hip fluidity, and change-of-direction over pure straight-line speed. Williams estimated at 4.50 with ACL rehab. Melton was sub-4.3."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Zone coverage foundational ability. Gannon's scheme used heavy zone concepts, and Rallis continued that emphasis. Cardinals played 440 defensive snaps in zone in 2024 (tied 16th in NFL). Williams was praised for 'off-zone coverage ability.' But also values man-coverage versatility \u2014 Johnson was described as a 'lockdown' type who can shadow WR1s.",
+        "most_valued_traits": [
+          "Ball skills and instincts \u2014 Melton had 8 career INTs, Williams had multiple per year, Johnson had elite passer rating allowed in coverage",
+          "Competitive toughness and willingness to tackle in run support",
+          "Fluidity in transitions and hip movement",
+          "Ability to play multiple coverage roles (outside, slot, zone, man)",
+          "Football IQ and recognition skills"
+        ],
+        "least_important_traits": [
+          "Elite press-man technique as a prerequisite \u2014 zone-first scheme doesn't demand it",
+          "Elite size \u2014 has drafted CBs from 5-10 to 6-2"
+        ],
+        "deal_breakers": [
+          "Poor ball skills or inability to create turnovers",
+          "Lack of tackling willingness or ability in run support",
+          "Character or cultural fit issues \u2014 values 'good people'"
+        ],
+        "traits_that_make_them_reach": "Elite talent that slides due to injury. Williams was coming off a torn ACL and was drafted in round 3 (would have been higher healthy). Will Johnson was a projected top-10 talent who fell to 47 due to knee concerns. Ossenfort 'has a soft spot for talented players that slide.'"
+      },
+      "college_production": {
+        "production_floor": "No hard statistical floor. Values film over INT numbers. Williams had 4 INTs in college despite ACL-shortened season. Melton had 8 career INTs at Rutgers. Johnson had elite passer rating allowed.",
+        "production_trajectory": "Multi-year starters strongly preferred. Williams was a 3-year starter. Melton started multiple years. Johnson was a multi-year contributor at Michigan.",
+        "context_sensitivity": "High. Weights quality of competition heavily. All CBs drafted from Power 5 conferences."
+      },
+      "evidence": {
+        "picks_analyzed": 7,
+        "examples": [
+          "2023 3.72 \u2014 Garrett Williams, Syracuse: 5-10, 192, ~4.50 40, 31-inch arms. Three-year starter, torn ACL slide. Excellent ball skills, plus tackler.",
+          "2023 5.171 \u2014 Kei'Trel Clark, Louisville: Slot-capable nickel DB.",
+          "2024 2.43 \u2014 Max Melton, Rutgers: 5-11, sub-4.30 40. Eight career INTs, blocked 3 kicks. Speed and ball production.",
+          "2024 3.90 \u2014 Elijah Jones, Boston College: 6-2, 184. Size and speed enforcer.",
+          "2024 7.226 \u2014 Jaden Davis, Miami: Versatile DB who can play multiple positions.",
+          "2025 2.47 \u2014 Will Johnson, Michigan: 6-1.75, 194. Projected top-10 pick who slid due to knee concerns. Lockdown ability, 57.2 passer rating allowed over 3 years (94th percentile). Big, fluid, instinctive.",
+          "2025 5.174 \u2014 Denzel Burke, Ohio State: 5-11.25, 186. Arizona native. Started every game at OSU. Athleticism and game knowledge."
+        ]
+      },
+      "confidence": "very_high"
+    },
+    "S": {
+      "archetype_summary": "Ossenfort has not invested premium draft capital at safety, preferring to rely on established veterans (Budda Baker, Jalen Thompson). Late-round picks target athletic, special-teams-capable safeties who can develop. Baker's re-signing through 2027 and Thompson's presence reduce urgency. The profile for drafted safeties emphasizes athleticism, range, and special teams ability as a pathway to the roster.",
+      "physical_profile": {
+        "height_range": "5-10.75 to 6-1",
+        "weight_range": "195\u2013205",
+        "arm_length_minimum": "No clear threshold from limited data",
+        "key_athletic_tests": "Combine performance matters highly for late-round safety picks. Crawford 'showcased athleticism in spades at the NFL Scouting Combine.'",
+        "speed_requirement": "Above-average speed and range required to play single-high or cover in space."
+      },
+      "playing_style": {
+        "primary_win_condition": "Versatility and willingness to contribute on special teams first, then earn defensive reps.",
+        "most_valued_traits": [
+          "Elite athleticism and combine performance",
+          "Special teams ability and willingness",
+          "Positional versatility \u2014 ability to play multiple safety spots",
+          "Range in coverage",
+          "Tackling ability and physical play"
+        ],
+        "least_important_traits": [
+          "Immediate starting ability \u2014 Baker and Thompson handle that",
+          "Run-stopping specialization without coverage range"
+        ],
+        "deal_breakers": [
+          "Poor athleticism or limited range",
+          "Unwillingness to contribute on special teams"
+        ],
+        "traits_that_make_them_reach": "No evidence of reaching for safeties \u2014 all picks have been late rounds."
+      },
+      "college_production": {
+        "production_floor": "Crawford earned 88.5 PFF coverage grade in his lone starting season at Nevada. Taylor-Demerson was a 4th-round pick from Texas Tech. Production threshold is low given the round of investment.",
+        "production_trajectory": "Willing to take late-blooming safeties who transferred for playing time (Crawford transferred from Texas to Nevada for starting opportunity).",
+        "context_sensitivity": "Moderate. Values combine performance heavily for this position group."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2024 4.104 \u2014 Dadrion Taylor-Demerson, Texas Tech: Safety with positional versatility.",
+          "2025 7.225 \u2014 Kitan Crawford, Nevada: 5-10.75, 202. Athletic prospect who transferred from Texas for playing time. 88.5 PFF coverage grade. Elite combine athlete. Primary special teams pathway."
+        ]
+      },
+      "confidence": "low"
+    },
+    "LB": {
+      "archetype_summary": "Athletic, sideline-to-sideline linebackers who can cover in space and contribute on special teams. Ossenfort values physical traits (elite speed, range) combined with football instincts and production. The profile bridges traditional off-ball linebacker play with the coverage demands of modern NFL defenses. Wants players who can tackle, cover, and rush the passer.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-2",
+        "weight_range": "225\u2013235",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Speed is king. Owen Pappoe (2023 5th round) ran a 4.38 40 at the combine \u2014 an athletic freak. Cody Simon was selected for his production and instincts.",
+        "speed_requirement": "Sub-4.55 preferred. Pappoe's 4.38 suggests Ossenfort values elite speed at LB."
+      },
+      "playing_style": {
+        "primary_win_condition": "Sideline-to-sideline range and coverage ability combined with instinctive play and production.",
+        "most_valued_traits": [
+          "Sideline-to-sideline speed and range",
+          "Coverage ability \u2014 can drop and cover in space",
+          "Tackling production and instincts (Simon had 112 tackles and 7 sacks)",
+          "Special teams value (Pappoe was targeted as key ST player)",
+          "Blitz ability and pass-rush upside"
+        ],
+        "least_important_traits": [
+          "Pure size and run-stuffing ability \u2014 not seeking 250-lb thumpers",
+          "Specialization as only a run defender"
+        ],
+        "deal_breakers": [
+          "Inability to cover in space \u2014 modern defense demands it",
+          "Lack of speed or range \u2014 slow LBs are non-starters"
+        ],
+        "traits_that_make_them_reach": "Elite combine speed numbers (Pappoe's 4.38 pushed his stock despite being a Day 3 pick). Elite production at a big-time program (Simon was CFP National Championship Defensive MVP)."
+      },
+      "college_production": {
+        "production_floor": "Simon had 112 tackles and 7 sacks in his final season \u2014 rare combination. Pappoe was more of an athletic projection pick.",
+        "production_trajectory": "Values proven production. Simon was one of four FBS players with 100+ tackles and 7+ sacks.",
+        "context_sensitivity": "Weights program and competition level. Simon from Ohio State in CFP spotlight. Pappoe from Auburn with elite athleticism."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2023 5.168 \u2014 Owen Pappoe, Auburn: 6-1, 225, 4.38 40, 29 bench reps. Elite athletic freak targeted as special teams weapon with LB upside.",
+          "2025 4.115 \u2014 Cody Simon, Ohio State: 6-2, 229. 112 tackles, 7 sacks. CFP National Championship and Rose Bowl Defensive MVP. Productive, instinctive Mike linebacker."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "WR": {
+      "archetype_summary": "When Ossenfort invests in a WR, he goes for elite, franchise-caliber talent. Marvin Harrison Jr. at pick 4 was the consensus #1 non-QB \u2014 a generational route runner with contested-catch ability and elite size. At the other end, Michael Wilson (3rd round, 2023) and Tejhaun Palmer (6th round, 2024) represent big-bodied, physical receivers who bring size and toughness. The through-line: size, physicality, and the ability to win at the catch point. Not drafting undersized slot specialists in early rounds.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-4",
+        "weight_range": "200\u2013215",
+        "arm_length_minimum": "No hard minimum but has not drafted a small WR in early rounds",
+        "key_athletic_tests": "Route running technique and body control matter more than 40 time. Harrison did not participate in combine workouts. Wilson brings 6-2, 213 frame.",
+        "speed_requirement": "Not primary. Harrison's value was route savvy and technique, not timed speed. Palmer had quickness and YAC ability."
+      },
+      "playing_style": {
+        "primary_win_condition": "Contested-catch ability, route precision, and the ability to play the X (outside) receiver position. Harrison was described as a 'unicorn route savant at over 6-3.'",
+        "most_valued_traits": [
+          "Elite route running and separation ability",
+          "Contested-catch dominance at the catch point",
+          "Size to play outside and win against press",
+          "Physicality and competitiveness",
+          "Character and work ethic (Harrison's football pedigree, Wilson's Stanford background)"
+        ],
+        "least_important_traits": [
+          "Pure deep speed \u2014 not drafting track stars without route skills",
+          "Slot-only ability \u2014 wants outside playmakers"
+        ],
+        "deal_breakers": [
+          "Poor route running even with elite athleticism",
+          "Inability to win at the catch point",
+          "Character or professionalism concerns"
+        ],
+        "traits_that_make_them_reach": "Generational talent evaluation. Harrison at 4 was BPA and a need \u2014 Ossenfort said the decision to stay was easy given the prospect quality."
+      },
+      "college_production": {
+        "production_floor": "Harrison: 2,600+ career yards, 31 TDs at Ohio State. Wilson: limited by injuries at Stanford but showed 6-2, 213 frame and 76 yards/TD at Senior Bowl. Palmer: averaged 2.15 yards per route run at UAB.",
+        "production_trajectory": "Values elite production at the highest level. Harrison was a Biletnikoff Award winner. Injury-limited players get a pass if the tape is strong (Wilson).",
+        "context_sensitivity": "High. Credited Harrison despite 'step down in quarterback play' at OSU. Valued Wilson's Senior Bowl performance to supplement injury-limited college tape."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2024 1.4 \u2014 Marvin Harrison Jr., Ohio State: 6-4, 209. Consensus #1 non-QB prospect. Biletnikoff Award winner, 2,600+ career yards, 31 TDs. Route savant with contested-catch ability. Generational talent.",
+          "2023 3.94 \u2014 Michael Wilson, Stanford: 6-2, 213. Big, physical receiver with size and toughness. Injury history but strong intangibles.",
+          "2024 6.191 \u2014 Tejhaun Palmer, UAB: Productive receiver who averaged 2.15 yards per route run. Low drop rate (2.1%). 8.8 YAC. Day 3 depth pick."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "TE": {
+      "archetype_summary": "Blocking-first tight end with athletic upside. Ossenfort's only drafted TE is Tip Reiman, a workout warrior and elite blocker whose receiving resume was minimal in college. With Trey McBride already the Cardinals' All-Pro receiving TE, Ossenfort drafted the perfect complement: a physical in-line blocker who can develop as a receiver. The profile is old-school \u2014 physical, tough, and dominant in the run game.",
+      "physical_profile": {
+        "height_range": "6-5",
+        "weight_range": "270+",
+        "arm_length_minimum": "No data from single sample. Reiman had 10.5-inch hands (Gronkowski/Graham range).",
+        "key_athletic_tests": "Reiman was described as a 'workout warrior' who 'caught a ton of attention at the Shrine Bowl and NFL scouting combine.' Track athlete background in high school. Athletic testing matters for TE evaluation.",
+        "speed_requirement": "Functional speed to be a viable option in play-action. Not seeking a pure receiving TE given McBride's presence."
+      },
+      "playing_style": {
+        "primary_win_condition": "Dominant run blocking. Reiman did not allow a single sack in his final college season with just two pressures and three blown blocks in the run game.",
+        "most_valued_traits": [
+          "Elite run-blocking ability and physicality",
+          "Competitive toughness \u2014 said his favorite part was 'mauling somebody'",
+          "Athletic upside from track background",
+          "Large hands for reliable receiving potential",
+          "Willingness to do the dirty work"
+        ],
+        "least_important_traits": [
+          "Prolific receiving production in college \u2014 Reiman had only 24 targets",
+          "Route-running polish"
+        ],
+        "deal_breakers": [
+          "Inability to block at the NFL level",
+          "Softness or lack of physicality at the point of attack"
+        ],
+        "traits_that_make_them_reach": "Athletic combine/Shrine Bowl performance. Reiman was a 'late riser through the pre-draft process' whose stock rose on testing."
+      },
+      "college_production": {
+        "production_floor": "Very low for receiving stats. Reiman had 24 targets with zero drops. Production was run-blocking focused. Only 1 TE drafted \u2014 low data confidence.",
+        "production_trajectory": "N/A \u2014 single data point. Reiman was not asked to be a receiving weapon at Illinois.",
+        "context_sensitivity": "High. Fully understood that Reiman's limited receiving stats reflected usage, not ability. His blocking film and combine performance drove the evaluation."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 3.82 \u2014 Tip Reiman, Illinois: 6-5, 271. Zero sacks allowed, 2 pressures, 3 blown blocks. Workout warrior with track background and 10.5-inch hands. 'Mauler' mentality. Complementary blocking TE to McBride."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 TE drafted. Profile heavily inferred from scheme needs (McBride as receiving TE means blocking TE is complementary role). Will need more data points to confirm pattern."
+    },
+    "RB": {
+      "archetype_summary": "Explosive, power-speed backs who can handle early-down duties and provide a physical complement in the backfield. Trey Benson was the only RB drafted in three years, taken in the 3rd round (pick 66) in 2024. He was one of the top RBs in the class, a physical runner from Florida State with 900+ rushing yards. Ossenfort does not prioritize RB in early rounds but will take one in the mid-rounds when the value is right.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-1",
+        "weight_range": "215\u2013225",
+        "arm_length_minimum": "N/A for RB",
+        "key_athletic_tests": "Power metrics and burst. Benson was touted for his physical running style and ability to compete for touches immediately.",
+        "speed_requirement": "Above-average speed to complement power. Benson had the speed-power combination Ossenfort sought."
+      },
+      "playing_style": {
+        "primary_win_condition": "Physical, downhill running with enough speed to break long runs. Not a receiving-first or scat back.",
+        "most_valued_traits": [
+          "Physical running style and power between the tackles",
+          "Speed-power combination",
+          "Ability to immediately compete for carries",
+          "Durability and toughness",
+          "Production behind a quality offensive line"
+        ],
+        "least_important_traits": [
+          "Receiving ability as primary skill \u2014 not drafting pass-catching specialists",
+          "Elusiveness over power \u2014 wants physical runners"
+        ],
+        "deal_breakers": [
+          "Lack of physical running ability or willingness to run between the tackles",
+          "Pure speed backs without power element"
+        ],
+        "traits_that_make_them_reach": "No evidence of reaching for RBs. Ossenfort deprioritizes the position in early rounds."
+      },
+      "college_production": {
+        "production_floor": "Benson had 900+ rushing yards in his final season at Florida State. Only 1 RB drafted \u2014 minimal data.",
+        "production_trajectory": "Prefers productive backs from major programs.",
+        "context_sensitivity": "Moderate. Benson was a quality RB prospect at a school known for producing NFL backs."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 3.66 \u2014 Trey Benson, Florida State: ~6-0, 215. 900+ rushing yards in final season. Physical runner with speed-power combination. Immediately competed for touches behind James Conner."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 RB drafted in 3 years. Position is clearly deprioritized in early rounds. Profile represents what Ossenfort will take when value aligns, not a primary target."
+    },
+    "QB": {
+      "archetype_summary": "Ossenfort has not invested premium draft capital on a QB in three drafts as Cardinals GM \u2014 his only QB selection was Clayton Tune in the 5th round of the 2023 draft. However, the Cardinals are now releasing Kyler Murray and hold the 3rd overall pick in 2026, making QB the dominant storyline. Ossenfort's stated philosophy is 'all options are on the table' at QB. His Patriots background provides the strongest signal: New England valued pocket presence, processing speed, leadership, and poise under Belichick. The hire of Mike LaFleur (Shanahan/McVay tree) suggests the next QB will need to operate in a play-action-heavy, bootleg-and-movement-based offense. The profile is inferred largely from scouting tree and scheme context.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4 (inferred from Belichick tree preference for adequate size). Clayton Tune was 6-3, 220 from Houston \u2014 prototypical size.",
+        "weight_range": "215\u2013235",
+        "arm_length_minimum": "N/A for QB evaluation",
+        "key_athletic_tests": "Arm strength and velocity are likely prioritized based on Belichick tree. But with LaFleur's Shanahan/McVay influence, mobility and the ability to execute bootleg/play-action concepts will be heavily weighted.",
+        "speed_requirement": "Not requiring a running QB but wants mobility to move in the pocket, execute bootlegs, and extend plays. Tune was described as 'a good athlete' with 'rushing upside.'"
+      },
+      "playing_style": {
+        "primary_style": "Play-action and movement-based passing within a Shanahan/McVay-style offense. LaFleur's scheme demands a QB who can sell play-fakes, execute rollouts, and throw with anticipation on intermediate routes. Processing speed and accuracy are paramount.",
+        "most_valued_traits": [
+          "Processing speed and pre-snap reads",
+          "Accuracy on intermediate and deep throws",
+          "Ability to operate play-action bootleg concepts",
+          "Poise under pressure and pocket presence",
+          "Leadership and character (Ossenfort's 'ego will not be tolerated' culture)"
+        ],
+        "least_important_traits": [
+          "Pure rushing ability as a primary weapon \u2014 not seeking a run-first QB based on the Murray experience ending",
+          "40 time or straight-line speed"
+        ],
+        "deal_breakers": [
+          "Character or work ethic red flags \u2014 Ossenfort's culture demands accountability",
+          "Inability to process at NFL speed",
+          "Run-first mentality without passing development"
+        ],
+        "traits_that_make_them_reach": "Unknown \u2014 no premium QB picks to analyze. With pick 3 in 2026, Ossenfort may trade up or stay for a franchise QB for the first time."
+      },
+      "college_production": {
+        "production_floor": "Tune had back-to-back grades above 90.0 at Houston with 79.5% adjusted completion percentage (7th nationally). Multi-year starter.",
+        "production_trajectory": "Values consistency and sustained performance. Tune was an experienced passer with significant starting experience.",
+        "context_sensitivity": "High. Will adjust for supporting cast and offensive system. LaFleur's evaluation of scheme fit will be the primary filter for 2026 QB prospects."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2023 5.169 \u2014 Clayton Tune, Houston: 6-3, 220. Air-raid system passer with back-to-back 90.0+ PFF grades. Good athlete with rushing upside. 79.5% adjusted completion rate. Developmental pick."
+        ]
+      },
+      "confidence": "very_low",
+      "confidence_note": "Only 1 QB drafted (Day 3 developmental pick). Profile is heavily inferred from scouting tree (Belichick) and new HC scheme (LaFleur/Shanahan tree). The 2026 draft at pick 3 with Kyler Murray released will be the first true test of Ossenfort's QB evaluation philosophy. This profile should be substantially revised after the 2026 draft."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 5,
+    "max_observed_reach": 12,
+    "round_1_reach_tolerance": 5,
+    "notes": "Ossenfort generally drafts close to consensus in round 1. Harrison at 4 was consensus BPA. Johnson at 6 was consensus top-10. Nolen at 16 was 7th on PFF's big board but fell due to character concerns \u2014 arguably a value pick. Robinson at 27 was the most notable reach, viewed by some as a late-1st/early-2nd prospect taken at pick 27. In rounds 2-3, Ossenfort shows moderate willingness to reach for scheme fits and sliding talent. His biggest strength is getting value picks \u2014 Will Johnson (top-10 talent at pick 47) and Williams (higher talent than pick 72 without injury) represent his preferred approach of capitalizing on others' concerns."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.6,
+    "offensive_scheme": "Transitioning to Shanahan/McVay-style offense under Mike LaFleur with Nathaniel Hackett as OC. Will feature wide-zone running concepts, play-action bootlegs, and motion-heavy passing game. Previous offense under Drew Petzing/Jonathan Gannon was described as West Coast. LaFleur's scheme demands athletic OL who can pull and reach-block, mobile TE/FB types, and receivers who can win after the catch. LaFleur will call plays himself.",
+    "defensive_scheme": "Multiple-front defense under DC Nick Rallis (retained from Gannon staff). Emphasizes versatility along the defensive front \u2014 players who can align at multiple spots. Heavy zone coverage concepts (440 zone snaps in 2024, tied 16th in NFL). Values interior disruption paired with versatile edge rushers. Three seasons of continuity under Rallis.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "MAJOR OFFENSIVE SCHEME CHANGE: Mike LaFleur hired as HC on Feb 1, 2026, replacing Jonathan Gannon. LaFleur comes from the Shanahan/McVay coaching tree \u2014 his offense will differ significantly from Gannon/Petzing's system. Defensive scheme has continuity with Rallis retained. Offensive draft targets in 2026 should be evaluated through a Shanahan/McVay lens (zone-run OL, play-action QB, versatile receiving weapons). This is LaFleur's first draft as HC \u2014 the GM-HC dynamic on offensive player selection is TBD."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.6,
+    "risk_description": "Moderate-to-aggressive risk tolerance, particularly when it comes to injury-flagged players. Has consistently drafted players others avoided due to medical concerns: Garrett Williams (torn ACL), Michael Wilson (injury history), Will Johnson (knee concerns), Walter Nolen (passion/motivation questions). Ossenfort is willing to bet on talent when others are scared off by red flags. However, his non-medical picks tend to be safe, high-floor selections at positions of need.",
+    "recency_bias": 0.55,
+    "recency_description": "Moderate. The 2025 draft (6 of 7 picks on defense) was a direct response to the defense ranking 27th in 2024. However, this was also rational roster construction rather than pure reactionary behavior. The 2024 draft featured heavy CB investment after 2023's secondary struggles. Ossenfort appears to draft from a plan but adjusts that plan based on recent performance gaps.",
+    "sunk_cost_behavior": "Willing to move on from underperforming investments. Released Kyler Murray despite massive guaranteed money. Made 2024 roster moves indicating willingness to cut losses. Does not double down at positions where picks haven't worked.",
+    "combine_weight": 0.5,
+    "combine_description": "Balanced. Ossenfort said 'the vast majority' of evaluation 'is always going to go back to the game tape' but acknowledged the combine fills gaps with medical evaluations, interviews, and physical testing. His draft picks show a mix: some were combine risers (Reiman was a 'workout warrior'), others were drafted purely on film despite limited testing data (Harrison didn't participate in combine drills). An SI analysis noted 'the Cardinals clearly do like their players to be more on the athletic side' based on Relative Athletic Scores of drafted players.",
+    "character_weight": 0.75,
+    "character_description": "Very high. Ossenfort's introductory press conference was dominated by character themes. He said 'ego will not be tolerated' and emphasized finding 'good players and good people.' His Belichick background instilled a strong 'team-first' evaluation framework. He called his Patriots time a 'master class education' and stated 'we are not just collecting talent \u2014 we're going to build a team.' Every draft press conference references cultural fit alongside talent evaluation. The Murray release \u2014 despite talent \u2014 partly reflects Ossenfort's willingness to move on from players who don't fit the culture.",
+    "quarterback_philosophy": "In the process of defining this for the first time. Has not drafted a premium QB in three years as GM. Inherited Kyler Murray and committed to him initially but ultimately moved on after Murray couldn't stay healthy and the team went 3-14 in 2025. Now holding pick 3 in 2026 with Murray released, Ossenfort faces his defining QB decision. His stated approach: 'all options are on the table.' With LaFleur's hire from the Shanahan/McVay tree, the QB selection will likely prioritize play-action/bootleg fit, processing speed, and pocket mobility over pure arm talent or rushing ability."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.55,
+    "production_vs_projection": "Balanced but leans slightly toward production. Harrison was an elite producer. Robinson had ascending production. Simon was ultra-productive (112 tackles, 7 sacks). However, Ossenfort has also made clear projection bets: Reiman was drafted on athletic testing more than receiving production, Pappoe on speed rather than LB stats, and Robinson was still developing as a pass rusher when drafted. When forced to choose, Ossenfort leans toward productive players from elite programs but will project on athleticism when the physical profile is exceptional.",
+    "production_thresholds_by_position": {
+      "WR": "No WR drafted in rounds 1-3 with underwhelming production. Harrison was a Biletnikoff winner. Even Wilson, despite injuries, had strong Senior Bowl showing.",
+      "EDGE": "Ascending production required. Robinson had 8.5 sacks in final year. Ojulari had 16.5 career sacks. Burch had 11.5 sacks in 2 years.",
+      "CB": "No hard statistical floor. Film and passer rating allowed valued over INT totals. But multi-year starting experience is important.",
+      "DT": "Elite production for the position. Nolen had 6.5 sacks from DT \u2014 third among all DTs in FBS.",
+      "LB": "High-end production matters. Simon was one of only 4 FBS players with 100+ tackles and 7+ sacks.",
+      "RB": "900+ rushing yards in final season for mid-round picks (Benson)."
+    },
+    "breakout_age_sensitivity": 0.4,
+    "dominator_rating_sensitivity": 0.5,
+    "notes": "Ossenfort values production as a baseline but is clearly willing to look past limited production when the athletic profile or circumstance (injuries, scheme, position change) explains the gap. His Patriots background showed a willingness to project on traits over production (e.g., Jimmy Garoppolo, Sony Michel). But his own picks as Cardinals GM lean more toward productive college players than pure projection picks."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "no_hard_speed_cutoff": true,
+        "notes": "Has drafted CBs across speed spectrum from Williams (~4.50) to Melton (sub-4.30). Film-first approach at CB. Prefers sub-4.50 but no hard cutoff.",
+        "confidence": "medium"
+      },
+      "EDGE": {
+        "min_arm_length": "34 inches (Robinson 34.5, Ojulari 34)",
+        "notes": "Length clearly valued. All early-round EDGE picks have 34+ inch arms.",
+        "confidence": "medium"
+      },
+      "OT": {
+        "min_arm_length": "34 inches minimum, 36+ preferred",
+        "notes": "Johnson had 36 1/8-inch arms \u2014 elite length. Only 1 premium OT pick but length was clearly a factor.",
+        "confidence": "medium"
+      },
+      "DT": {
+        "no_clear_threshold": true,
+        "notes": "Nolen was 6-3.75, 296 \u2014 athletic for the position. Athleticism-to-size ratio matters more than any single number.",
+        "confidence": "low"
+      },
+      "LB": {
+        "speed_preference": "sub-4.55",
+        "notes": "Pappoe ran 4.38. Speed is clearly valued at LB.",
+        "confidence": "medium"
+      },
+      "WR": {
+        "size_preference": "6-0+ for early-round WRs",
+        "notes": "Harrison (6-4), Wilson (6-2). Size matters for outside WR evaluations.",
+        "confidence": "medium"
+      }
+    },
+    "threshold_type": "Mostly soft preferences rather than hard cutoffs. Ossenfort evaluates holistically \u2014 his 'pie' metaphor suggests no single measurement is an eliminator. However, arm length for EDGE and OT appears close to a hard threshold based on limited data.",
+    "size_preferences_by_position": {
+      "DT": "295+ for interior DL. Nolen at 296. Robinson at 285 played inside and out.",
+      "LB": "225-235 range. Not seeking oversized thumpers.",
+      "CB": "No strong size preference \u2014 has drafted from 5-10 to 6-2.",
+      "WR": "6-0+ for outside receivers. Undersized slot types not drafted in early rounds.",
+      "OT": "310+ preferred. Johnson at 313."
+    },
+    "athletic_testing_favorites": "Based on the SI analysis noting Cardinals 'clearly do like their players to be more on the athletic side,' athleticism is weighted as a positive signal across all positions. Specific tests: Broad jump and vertical jump for explosiveness (relevant for EDGE, DT, LB). 40-yard dash for speed positions (CB, LB). Combine interviews and medical evaluations are heavily weighted for the Cardinals' character and health evaluation process.",
+    "measurables_vs_film": "Film-first GM by his own admission. Ossenfort said 'the vast majority is always going to go back to the game tape.' However, combine risers (Reiman) can climb boards, and testing confirms or challenges film evaluations. When film and testing diverge, film wins \u2014 Harrison was drafted at 4 without combine workout participation. But athletic testing matters more for Day 2-3 picks where film differentiation is smaller."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium positions, franchise-caliber players. In round 1, Ossenfort has taken: an elite OT (Johnson, 2023), an elite WR (Harrison, 2024), a versatile DL (Robinson, 2024), and a disruptive DT (Nolen, 2025). All were players expected to start immediately and become cornerstones. Ossenfort will trade back from a top pick if the value is there (2023 from 3 to 6) but will stay put for a generational talent (2024 at 4 for Harrison). Not afraid to take a player with some question marks in round 1 if the talent is elite (Nolen's motivation concerns, Robinson's reach label).",
+    "round_2_3_strategy": "Shifts to need-filling while still targeting value. Heavy CB investment in rounds 2-3 across all three drafts. This is where Ossenfort capitalizes on sliding talent: Williams (torn ACL slide to 72), Will Johnson (knee concerns slide to 47). Also uses Day 2 for positional building blocks: Benson at RB, Adams at IOL, Reiman at TE, Burch at EDGE. Willing to take back-to-back picks at the same position (3 CBs in 2024, 2 CBs in 2025). Ossenfort turned down trade-back offers at picks 47 and 78 in 2025 when he had specific targets \u2014 won't sacrifice a player he wants for marginal pick accumulation.",
+    "day_3_strategy": "Developmental athletes, special teams contributors, and depth pieces. Pappoe (elite speed LB for special teams), Gaines (reliable IOL depth), Tune (developmental QB), Crawford (athletic safety for special teams), Burke (CB depth with local ties), Palmer (productive Day 3 WR). Ossenfort uses Day 3 to add depth and find players who can earn roster spots through special teams contribution. Character and program pedigree (Ohio State preference evident) matter here.",
+    "compensatory_pick_usage": "No clear pattern of treating comp picks differently. Has used acquired picks from trades similarly to original picks. All picks appear to be treated equally on the board."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "OT": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Paris Johnson Jr. became immediate starter at RT. Adams and Jones are depth. Still early in tenure to fully evaluate."
+      },
+      "EDGE": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Ojulari started 17 games as a rookie with 4 sacks before torn ACL in 2024. Robinson was injured in 2024 but played 15 games in 2025. Burch and Thomas are still developing. Early returns mixed due to injuries."
+      },
+      "CB": {
+        "picks": 7,
+        "starters": 2,
+        "rate": 0.29,
+        "note": "Williams became a quality starter. Will Johnson projected as CB1. Melton, Jones, Burke, Clark, and Davis are depth/developmental. Heavy investment but too early to evaluate most picks. Volume approach suggests Ossenfort expects some attrition."
+      },
+      "WR": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Harrison Jr. is the cornerstone WR. Wilson has been a contributor but not a star. Palmer is a depth piece. Harrison pick is a clear win."
+      },
+      "DT": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Nolen is a 2025 rookie \u2014 too early to evaluate. High expectations given the 16th overall pick."
+      },
+      "RB": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Benson competed for touches behind Conner. Contributor but not yet a starter."
+      },
+      "LB": {
+        "picks": 2,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Pappoe primarily a special teamer. Simon is a 2025 rookie."
+      },
+      "TE": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Reiman is a blocking TE behind All-Pro McBride. Fulfilling his role."
+      },
+      "IOL": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Gaines has started games. Adams and Conner are developmental."
+      }
+    },
+    "blind_spots": [
+      "Too early in tenure (only 3 drafts) to identify definitive blind spots. Injury-prone picks (Williams torn ACL, Ojulari torn ACL, Robinson calf injury in 2024) are a pattern worth monitoring \u2014 Ossenfort's willingness to draft injured players means a higher variance outcome set."
+    ],
+    "strengths": [
+      "Capitalizing on sliding talent \u2014 consistently gets higher-talent players at lower cost by being willing to accept medical/character risk that other teams avoid. Round 1 picks have been widely praised as strong selections. Trade execution in 2023 was masterful."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Moderate and targeted spender in free agency. Uses FA to fill specific veteran needs (Josh Sweat at EDGE, Calais Campbell on DL, Bilal Nichols, Sean Murphy-Bunting at CB, Jacoby Brissett at QB) while building the core through the draft. Not a big-splash FA team. Ossenfort said 'the draft has gotta be where we build and where this team forms the foundation.'",
+    "fa_draft_correlation": "When veterans are signed at a position, Ossenfort does NOT stop drafting that position. Signed Murphy-Bunting at CB before 2024 draft, then drafted 3 CBs. Signed Josh Sweat at EDGE in 2025 FA, then still drafted Jordan Burch at EDGE. Signed DL veterans (Campbell, Jones, Tomlinson, Nichols), then drafted Nolen in round 1. Ossenfort believes in stacking positions with both FA and draft capital to create competition.",
+    "roster_construction_philosophy": "Build through the draft at every position. Supplement with targeted FA signings of veteran starters and depth. The Cardinals' identity 'resembles a draft and develop team' per the team's own site. Ossenfort's rebuild approach: stockpile picks via trades in year 1, use that capital to add foundational players in years 2-3, supplement with strategic FA. Now entering year 4 with a new HC \u2014 the strategy shifts toward winning."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 28,
+    "notable_patterns": [
+      "7 of 28 picks (25%) have been cornerbacks \u2014 by far the most-invested position",
+      "4 first-round picks in 3 drafts have been OT (Johnson), WR (Harrison), DL (Robinson), and DT (Nolen) \u2014 premium positions only",
+      "Has taken an Ohio State player in every draft year: Johnson (2023), Harrison (2024), Simon and Burke (2025)",
+      "Consistently targets talented players who slide due to injury or character concerns at significant value",
+      "Heavy defensive investment: 2025 draft was 6 of 7 picks on defense",
+      "Has never drafted a QB in rounds 1-4 as Cardinals GM (Tune was 5th round)",
+      "Executed masterful 2023 trade sequence: 3\u219212 (gaining future 1st) then 12\u21926, getting Paris Johnson Jr. AND Houston's 2024 1st",
+      "Turned down trade-back offers in 2025 at picks 47 and 78 to take specific targets"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2024,
+        "pick": "1.27",
+        "player": "Darius Robinson",
+        "position": "EDGE/DL",
+        "consensus_rank": "35-40 range by many outlets",
+        "reach_amount": 8,
+        "context": "Robinson's DT-to-edge versatility pushed him up the Cardinals' board. Some analysts viewed him as a late-1st/early-2nd prospect. Ossenfort valued the scheme versatility and power profile."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2025,
+        "pick": "2.47",
+        "player": "Will Johnson",
+        "position": "CB",
+        "consensus_rank": "Top 10-15 talent",
+        "value_amount": 32,
+        "context": "Johnson was a projected top-10 pick whose knee concerns caused a massive slide. Ossenfort, true to his pattern of drafting sliding talent, grabbed a potential CB1 at pick 47. ESPN called him 'the steal of the draft.'"
+      },
+      {
+        "year": 2023,
+        "pick": "3.72",
+        "player": "Garrett Williams",
+        "position": "CB",
+        "consensus_rank": "Late 2nd/early 3rd without ACL",
+        "value_amount": 15,
+        "context": "Williams was projected higher before his torn ACL. Ossenfort's willingness to draft injured players got him a quality starter at a discount."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_notes": "3 drafts of data as Cardinals GM provide a meaningful sample but still limited. Ossenfort's tendencies are becoming clear: values versatility, targets sliding talent, invests heavily in defensive secondary and front, leans BPA with scheme-fit overlay, embraces trade flexibility. However, the 2026 draft will be his most consequential \u2014 first major QB decision, first draft with a new HC (LaFleur), and first draft holding a top-3 pick since the 2023 trade-down. The LaFleur hire adds significant uncertainty to offensive player evaluation. Defensive draft tendencies have high confidence; offensive tendencies and QB philosophy have low confidence and will need substantial revision after 2026.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

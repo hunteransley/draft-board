@@ -1,0 +1,901 @@
+{
+  "team": {
+    "name": "Minnesota Vikings",
+    "abbreviation": "MIN",
+    "division": "NFC North",
+    "current_draft_position": 18
+  },
+  "front_office": {
+    "gm": {
+      "name": "Rob Brzezinski",
+      "title": "Executive Vice President of Football Operations / Interim General Manager",
+      "hired_as_interim": "2026-01-30",
+      "hired_by_vikings": "1999",
+      "previous_role": "EVP of Football Operations, Minnesota Vikings (1999\u20132026)",
+      "drafts_as_gm": 0,
+      "note": "Kwesi Adofo-Mensah was fired January 30, 2026. Brzezinski is serving as interim GM through the 2026 NFL Draft. A permanent GM search will begin after the draft. This profile is built primarily from the Adofo-Mensah era (2022\u20132025) draft patterns, with Brzezinski's stated philosophy layered on top for the 2026 draft specifically.",
+      "confidence": "low"
+    },
+    "previous_gm": {
+      "name": "Kwesi Adofo-Mensah",
+      "title": "General Manager (fired)",
+      "hired": "2022-01-26",
+      "fired": "2026-01-30",
+      "drafts_as_gm": 4,
+      "draft_record_summary": "28 total picks across 4 drafts. 172 combined starts from those picks \u2014 second-fewest of any NFL team over that span. Best pick: WR Jordan Addison (Rd1, 2023). Worst class: 2022 (nearly all picks off roster by 2025)."
+    },
+    "scouting_tree": {
+      "career_path_brzezinski": [
+        {
+          "org": "Miami Dolphins",
+          "role": "Football Administration",
+          "years": "1993\u20131998",
+          "mentor": "Eddie Jones (Dolphins front office)"
+        },
+        {
+          "org": "Minnesota Vikings",
+          "role": "Director of Football Administration",
+          "years": "1999\u20132001",
+          "mentor": "Red McCombs ownership era"
+        },
+        {
+          "org": "Minnesota Vikings",
+          "role": "VP of Football Administration",
+          "years": "2002\u20132005",
+          "mentor": "Zygi Wilf (new ownership from 2005)"
+        },
+        {
+          "org": "Minnesota Vikings",
+          "role": "VP of Football Operations (triangle of authority with Rick Spielman)",
+          "years": "2006\u20132013",
+          "mentor": "Rick Spielman"
+        },
+        {
+          "org": "Minnesota Vikings",
+          "role": "EVP of Football Operations",
+          "years": "2014\u20132026",
+          "mentor": "Wilf family ownership"
+        }
+      ],
+      "career_path_adofo_mensah": [
+        {
+          "org": "Morgan Stanley",
+          "role": "Analyst",
+          "years": "2003\u20132005",
+          "mentor": "N/A (finance)"
+        },
+        {
+          "org": "JPMorgan Chase",
+          "role": "Trading Associate",
+          "years": "2005\u20132008",
+          "mentor": "N/A (finance)"
+        },
+        {
+          "org": "Credit Suisse",
+          "role": "Executive Director, Commodities Proprietary Group (energy derivatives trading)",
+          "years": "2008\u20132010",
+          "mentor": "N/A (finance)"
+        },
+        {
+          "org": "Taylor Woods Capital",
+          "role": "Associate Portfolio Manager",
+          "years": "2011",
+          "mentor": "Beau Taylor"
+        },
+        {
+          "org": "Stanford University",
+          "role": "Master's in Economics",
+          "years": "2011\u20132012",
+          "mentor": "Academic"
+        },
+        {
+          "org": "San Francisco 49ers",
+          "role": "Football Research and Development Analyst",
+          "years": "2013\u20132016",
+          "mentor": "Paraag Marathe / Trent Baalke"
+        },
+        {
+          "org": "San Francisco 49ers",
+          "role": "Manager of Football Research and Development",
+          "years": "2017",
+          "mentor": "John Lynch / Paraag Marathe"
+        },
+        {
+          "org": "San Francisco 49ers",
+          "role": "Director of Football Research and Development",
+          "years": "2018\u20132019",
+          "mentor": "John Lynch / Adam Peters"
+        },
+        {
+          "org": "Cleveland Browns",
+          "role": "Vice President of Football Operations",
+          "years": "2020\u20132021",
+          "mentor": "Andrew Berry"
+        },
+        {
+          "org": "Minnesota Vikings",
+          "role": "General Manager",
+          "years": "2022\u20132026",
+          "mentor": "N/A (primary decision-maker)"
+        }
+      ],
+      "primary_mentor_kam": "Andrew Berry (Browns GM). Berry provided what Adofo-Mensah called a 'boot camp' in scouting, teaching him tape evaluation and player report writing. Berry's influence is evident in the analytics-driven, trade-heavy approach KAM brought to Minnesota.",
+      "philosophical_lineage": "Finance/Wall Street quantitative background \u2192 49ers analytics department (Marathe/Lynch tree) \u2192 Browns progressive front office (Berry tree). Adofo-Mensah was the NFL's first GM from a primarily analytical background. His approach blended quantitative valuation of draft capital with traditional scouting input. Brzezinski comes from the Spielman-era Vikings and Dolphins cap management tree \u2014 a fundamentally different lineage focused on financial discipline, roster balance, and traditional scouting.",
+      "breakpoints_kam": "KAM diverged from the 49ers' willingness to swing big on Day 1 talent and instead heavily emphasized trading down and accumulating picks in his first draft (2022). By 2024, he reversed course and traded UP aggressively to get J.J. McCarthy and Dallas Turner, showing he was willing to consolidate capital for premium talent when the situation called for it.",
+      "breakpoints_brzezinski": "Brzezinski has explicitly stated he believes in setting the draft board objectively based on talent, not pushing players up for need. This represents a potential departure from KAM's tendency to address needs aggressively.",
+      "lineage_weight": 0.3,
+      "lineage_weight_notes": "With KAM fired and Brzezinski as interim, the lineage from KAM's tenure carries moderate weight. Brzezinski will likely rely heavily on the existing scouting staff (Ryan Grigson, Ryan Monnens, Chisom Opara, Jamaal Stephenson, Mike Sholiton) who were shaped by the KAM/Spielman eras. Kevin O'Connell's influence is expected to be elevated. Weight will shift dramatically once a permanent GM is hired."
+    },
+    "primary_decision_maker": "Rob Brzezinski (interim, final call if disagreement per Wilf family directive)",
+    "key_influencers": [
+      {
+        "name": "Kevin O'Connell",
+        "title": "Head Coach",
+        "influence_level": "very_high",
+        "known_biases": "Offensive-minded, values QB development and pass protection. Drove the 2025 first-round pick of Donovan Jackson for IOL. Likely to have elevated personnel influence with no permanent GM in place. Former Rams OC under Sean McVay \u2014 values offensive skill versatility and creative scheme fits."
+      },
+      {
+        "name": "Brian Flores",
+        "title": "Defensive Coordinator",
+        "influence_level": "high",
+        "known_biases": "Demands scheme versatility from all defensive players. Uses multiple fronts, pressure packages, and DB versatility. Values players who can play multiple positions. Signed a market-setting coordinator contract worth over $6M/year, giving him significant organizational pull."
+      },
+      {
+        "name": "Ryan Grigson",
+        "title": "Senior VP of Player Personnel",
+        "influence_level": "medium",
+        "known_biases": "Former Colts GM (2012\u20132016). Traditional scouting background. Provides experienced personnel voice in draft room."
+      },
+      {
+        "name": "Mike Sholiton",
+        "title": "Director of College Scouting",
+        "influence_level": "medium",
+        "known_biases": "Key voice in player evaluations. Has been quoted explaining specific draft rationale (e.g., Jaren Hall's intangibles, Khyree Jackson's physical tools). Values character and intangibles heavily."
+      },
+      {
+        "name": "Matt Thomas",
+        "title": "Offseason Consultant",
+        "influence_level": "low_to_medium",
+        "known_biases": "Former Seahawks VP of Football Operations (2013\u20132024). Hired specifically to assist Brzezinski with salary cap and draft logistics. Temporary role through the draft."
+      }
+    ],
+    "power_dynamics": "Highly collaborative but unusual. No permanent GM. Brzezinski has been given final-call authority by ownership if disagreements arise, but he describes the GM-HC relationship as a 'marriage.' O'Connell likely has more personnel influence than at any point in his tenure. Flores' defensive preferences will heavily influence defensive picks. The scouting staff (Grigson, Monnens, Sholiton, Stephenson, Opara) provides continuity from the KAM era.",
+    "owner_interference": "moderate \u2014 The Wilf family fired KAM despite a 43-25 record and a recent extension, indicating active ownership. Mark Wilf has publicly stated preference for a 'more traditional football guy' as the next permanent GM. They directed Brzezinski to hold final authority. Not hands-on with specific picks but set strategic direction."
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.5,
+    "bpa_weight_by_round": {
+      "1": 0.55,
+      "2": 0.45,
+      "3": 0.45,
+      "4_plus": 0.35
+    },
+    "stated_philosophy_kam": "Best player available with emphasis on value and analytics. 'Analytics is about evolution, not revolution.' Repeatedly spoke about making decisions under uncertainty using quantitative frameworks.",
+    "stated_philosophy_brzezinski": "'The core belief that I have is you have to get the board stacked objectively. When we go into the draft, you're obviously trying to fill your needs but you can't do that if you trick yourself and you're pushing guys up for need.' \u2014 Brzezinski at 2026 Combine. Strongly BPA-leaning in stated philosophy.",
+    "actual_philosophy_kam": "Despite BPA rhetoric, KAM was heavily need-driven in practice. 2022: 3 of first 4 picks addressed defensive secondary (the team's top need). 2023: WR (need after Thielen departure) and 2 CBs (top need). 2024: QB (obvious need) and EDGE (need after losing Danielle Hunter). 2025: IOL (stated top priority after playoff loss). Nearly every first-round pick addressed a clear team need.",
+    "philosophy_mismatch_notes": "Significant mismatch between KAM's stated BPA philosophy and actual behavior. 4 of 5 first-round picks (Cine, Addison, McCarthy, Jackson) addressed top-3 roster needs at the time. Brzezinski's approach may differ \u2014 he has explicitly warned against 'pushing guys up for need' \u2014 but with no draft track record, this is unproven."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.55,
+    "trade_down_willingness": 0.5,
+    "trades_per_draft_average": 3.25,
+    "trade_triggers": [
+      "Quarterback availability \u2014 traded up in 2024 to get J.J. McCarthy at pick 10",
+      "Positional value at EDGE \u2014 traded up in 2024 to get Dallas Turner at pick 17",
+      "Trade-down in early rounds when board doesn't match expectations (2022: traded from 12 to 32; 2023: traded from 87 to 102)"
+    ],
+    "draft_capital_philosophy": "Under KAM, highly volatile. In 2022, accumulated picks by trading down aggressively. By 2024, did the opposite \u2014 traded 2025 2nd, 3rd, and 4th round picks to consolidate into two first-rounders. This left Minnesota with only 4 picks in 2025 (fewest in the NFL). Brzezinski has signaled he will not 'sell the future' and intends to balance 2026 competitiveness with long-term health.",
+    "brzezinski_notes": "Brzezinski is unlikely to make aggressive trade-ups given his stated guardrails philosophy and the lack of draft capital in recent years. More likely to stay put or trade down to accumulate picks, given the roster's age and the need for young talent."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "CB",
+        "EDGE",
+        "QB",
+        "IOL"
+      ],
+      "tier_2_high": [
+        "WR",
+        "S",
+        "OT"
+      ],
+      "tier_3_mid": [
+        "DT",
+        "LB"
+      ],
+      "tier_4_low": [
+        "RB",
+        "TE",
+        "K"
+      ]
+    },
+    "position_avoidance": [
+      "RB \u2014 Never drafted a RB above round 7 under KAM. McBride (Rd7, 2023) was the only RB drafted in 4 years.",
+      "TE \u2014 Only one TE drafted (Gavin Bartholomew, Rd6, 2025) across 5 drafts including the Brzezinski-led 2025. The Vikings traded for T.J. Hockenson instead of drafting the position.",
+      "OT \u2014 Only drafted Walter Rouse (Rd6, 2024) and relied on free agency (Cam Robinson trade) for tackle depth."
+    ],
+    "position_premium": [
+      "CB/S (defensive backs) \u2014 6 of 28 picks (21%) in 4 KAM drafts were DBs: Cine, Booth, Evans, Blackmon, Ward, K. Jackson. The back end of the defense was addressed in every single draft.",
+      "IOL \u2014 Ed Ingram (Rd2, 2022), Donovan Jackson (Rd1, 2025), Michael Jurgens (Rd7, 2024). Frequently addressed with premium picks.",
+      "EDGE \u2014 Dallas Turner (Rd1, 2024), Tyrion Ingram-Dawkins (Rd5, 2025). Premium capital used when the position was a need."
+    ]
+  },
+  "player_archetype_preferences": {
+    "QB": {
+      "archetype_summary": "Poised, intelligent pocket passer with enough mobility to extend plays. Not a run-first QB. Values leadership, intangibles, and processing over raw arm talent. Willing to draft a QB who was not the primary statistical driver of his college offense if the intangibles and situation-ready traits are present. J.J. McCarthy was the archetype \u2014 a winner from a pro-style system with limited volume but elite efficiency on big-game throws.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "195\u2013220",
+        "arm_length_minimum": "No clear threshold from 1 pick",
+        "key_athletic_tests": "Arm velocity and accuracy valued over combine testing. McCarthy did not have an elite arm but demonstrated accuracy under pressure \u2014 67.9% completions when pressured (best among FBS QBs in 2023).",
+        "speed_requirement": "Adequate pocket mobility preferred. Not a 40-time position for this front office."
+      },
+      "playing_style": {
+        "primary_style": "Pocket passer with play-extending mobility and elite intangibles",
+        "most_valued_traits": [
+          "Processing speed and decision-making",
+          "Poise under pressure",
+          "Leadership and 'it factor'",
+          "Accuracy on intermediate and deep throws",
+          "Experience in pro-style or complex offensive systems"
+        ],
+        "least_important_traits": [
+          "Designed rushing ability \u2014 KAM/O'Connell specifically wanted a passer, not a runner"
+        ],
+        "deal_breakers": [
+          "Run-first QBs who cannot process from the pocket",
+          "QBs with poor ball security or turnover issues"
+        ],
+        "traits_that_make_them_reach": "Championship pedigree and leadership. The Vikings were enamored with McCarthy's winning record and big-game performance despite limited passing volume."
+      },
+      "college_production": {
+        "production_floor": "Must have been a starter for at least 1.5 seasons. McCarthy had 26 starts.",
+        "production_trajectory": "Interestingly, KAM drafted a QB (McCarthy) whose raw passing stats were modest (5,700 yards, 44 TDs in 2 seasons as starter). They valued context \u2014 a run-heavy Michigan system \u2014 over raw volume.",
+        "context_sensitivity": "Very high. KAM and O'Connell explicitly acknowledged McCarthy wasn't asked to do much volume-wise. They evaluated play-action efficiency (92.3 grade, 4th in FBS) and completion percentage when pressured instead."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2024 Rd1 Pick 10 \u2014 J.J. McCarthy, Michigan: 6-3, 197, 4.66 40. 21 years old. 44 TDs, 9 INTs over 2 seasons. Limited volume but elite in big moments. Traded up to get him.",
+          "2023 Rd5 Pick 164 \u2014 Jaren Hall, BYU: 6-0, 207. Mature 25-year-old with strong intangibles. 51/11 TD/INT over final 2 seasons. Similar mold \u2014 poised, accurate, limited ceiling but high floor."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 2 QBs drafted but the McCarthy pick (10th overall, traded up for) was the signature move of KAM's tenure and reveals clear preferences."
+    },
+    "EDGE": {
+      "archetype_summary": "Elite athlete with explosion, length, and scheme versatility. Must be able to rush from a two-point stance and drop into coverage in Brian Flores' multiple-front defense. Values first-step quickness and closing burst over refined pass-rush repertoire. Willing to draft developmental athletes with raw tools. Dallas Turner is the prototype \u2014 long, explosive, elite combine performer who can stand up or put hand in dirt.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "240\u2013265",
+        "arm_length_minimum": "33+ inches preferred. Turner: 34.375 inches (98th percentile). Otomewo: no combine data.",
+        "key_athletic_tests": "40-yard dash under 4.55, vertical jump 35+. Turner posted a 4.46 40, 40.5-inch vertical, and 10'7 broad jump \u2014 all elite.",
+        "speed_requirement": "4.55 or faster for premium picks. Turner's 4.46 was best-in-class for his weight."
+      },
+      "playing_style": {
+        "primary_win_condition": "First-step explosion and closing burst. Turner wins with speed-to-power conversion \u2014 dip-rip, ghost rush, and some bull-rush capability.",
+        "most_valued_traits": [
+          "Explosive first step",
+          "Length and arm usage",
+          "Versatility to stand up or rush with hand down",
+          "Coverage ability for Flores' scheme",
+          "Closing burst on the QB"
+        ],
+        "least_important_traits": [
+          "Power/anchor against the run \u2014 Turner was considered light (247 lbs) and run defense was a concern, but they drafted him anyway"
+        ],
+        "deal_breakers": [
+          "One-dimensional run-stoppers with no pass-rush upside",
+          "Stiff athletes without the movement skills for Flores' multiple-front scheme"
+        ],
+        "traits_that_make_them_reach": "Elite athleticism at the combine. Turner was the only front-seven player at the 2024 combine under 250 lbs who ran sub-4.5 AND jumped 40+ inches vertically."
+      },
+      "college_production": {
+        "production_floor": "No clear minimum from limited sample. Turner had 23.5 career sacks at Alabama (including 11 as a junior).",
+        "production_trajectory": "Prefers ascending production. Turner went from 8.5 sacks (freshman) to 5 sacks (sophomore) to 11 sacks (junior \u2014 breakout). The ascending trajectory was key.",
+        "context_sensitivity": "High. Turner played behind Will Anderson at Alabama and still produced. The front office credited his production in context."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2024 Rd1 Pick 17 \u2014 Dallas Turner, Alabama: 6-3, 247, 34.375\" arms, 4.46 40, 40.5\" vert. SEC DPOY. Traded up to get him. Explosive athlete, stand-up rusher in Flores' scheme.",
+          "2022 Rd5 Pick 165 \u2014 Esezi Otomewo, Minnesota: 6-5, 282. Local product. Raw, big-bodied DE. Burst potential but appeared in only 5 games.",
+          "2025 Rd5 Pick 139 \u2014 Tyrion Ingram-Dawkins, Georgia: Developmental edge from Georgia. Ran a 4.86 40 at combine. Shows the willingness to take Day 3 fliers on traits."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Turner is the clearest signal \u2014 elite athlete, traded up for. Limited additional picks at the position. Flores' scheme demands guide the archetype."
+    },
+    "OT": {
+      "archetype_summary": "Athletic, versatile tackle who can play both sides and has experience in zone-based run schemes. Pass protection is the primary evaluation criteria given O'Connell's pass-heavy offense. Rouse (the only OT drafted) had elite pass-blocking efficiency in college. The Vikings have relied more on free agency and trades (Cam Robinson, Justin Skule) than the draft for OT help.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-6",
+        "weight_range": "305\u2013325",
+        "arm_length_minimum": "33+ inches preferred",
+        "key_athletic_tests": "Athleticism and movement skills valued. Rouse described as having 'prototypical athleticism at his size.'",
+        "speed_requirement": "No clear threshold \u2014 Day 3 pick only"
+      },
+      "playing_style": {
+        "primary_style": "Pass-protecting athletic tackle",
+        "most_valued_traits": [
+          "Pass-blocking technique and efficiency",
+          "Ability to play both tackle spots (swing value)",
+          "Football IQ and processing ability",
+          "Experience against elite edge rushers"
+        ],
+        "least_important_traits": [
+          "Pure power run-blocking \u2014 the offense under O'Connell has been pass-first and zone-run focused, not a gap/power scheme"
+        ],
+        "deal_breakers": [
+          "One-dimensional maulers with no pass-protection ability",
+          "Stiff athletes who cannot mirror NFL speed rushers"
+        ],
+        "traits_that_make_them_reach": "Elite pass-blocking efficiency. Rouse led all FBS tackles in pass-blocking efficiency (99.3) in 2023."
+      },
+      "college_production": {
+        "production_floor": "No clear threshold from 1 pick. Rouse started 52 career games at Oklahoma and Stanford.",
+        "production_trajectory": "Multi-year starters preferred.",
+        "context_sensitivity": "Moderate. Rouse's dual-tackle experience (left and right) at the East-West Shrine Bowl was specifically noted."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 Rd6 Pick 177 \u2014 Walter Rouse, Oklahoma: 6-5, 313. 52 career starts at LT. Led FBS in pass-blocking efficiency (99.3). Zero sacks allowed in 481 pass-blocking snaps in 2023. Swing tackle value."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 OT drafted in 4 years \u2014 this is not a position KAM addressed through the draft. Vikings have used free agency (Cam Robinson, Justin Skule) and relied on existing talent (Christian Darrisaw, Brian O'Neill). Archetype largely inferred from scheme needs."
+    },
+    "IOL": {
+      "archetype_summary": "Physical, powerful guard with anchor strength and zone-run versatility. The Vikings have repeatedly invested in IOL \u2014 Ed Ingram was a Day 2 pick in 2022, Donovan Jackson was the 24th overall pick in 2025, and Michael Jurgens was a Day 3 center. They want guards who can hold up against bull rushers, pull effectively, and handle zone combinations. Versatility (ability to play multiple IOL spots or even slide to tackle) is a plus.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-4",
+        "weight_range": "310\u2013320",
+        "arm_length_minimum": "33+ inches. Ingram: 33.875\". Jackson: 33.5\".",
+        "key_athletic_tests": "Functional strength and power valued over combine testing numbers. Jackson did not run the 40 at the combine.",
+        "speed_requirement": "Not a primary factor. Adequate movement skills for zone blocking required."
+      },
+      "playing_style": {
+        "primary_style": "Powerful anchor guard with zone-blocking versatility",
+        "most_valued_traits": [
+          "Anchor/strength against bull rushers \u2014 specifically cited as a need by KAM and O'Connell after the 2024 playoff loss (Darnold sacked 9 times)",
+          "Ability to execute zone combinations and release to second level",
+          "Pulling ability for counter/pin-pull concepts",
+          "Positional versatility (Jackson can play guard and tackle)",
+          "Finishing mentality in the run game"
+        ],
+        "least_important_traits": [
+          "Pure athleticism scores \u2014 both Ingram and Jackson were more power-first than athletic movers"
+        ],
+        "deal_breakers": [
+          "Weak anchor \u2014 the Vikings specifically sought IOL who could 'solidify the interior of the pocket' per O'Connell",
+          "Inability to process stunts and blitzes"
+        ],
+        "traits_that_make_them_reach": "The ability to handle multiple IOL positions. Jackson's move from guard to tackle at Ohio State specifically impressed O'Connell and KAM during their pre-draft meeting."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starters preferred. Ingram: 35 career starts. Jackson: 40+ career starts.",
+        "production_trajectory": "Steady production preferred. Both Ingram and Jackson were 3-year starters.",
+        "context_sensitivity": "High. Jackson's performance against Abdul Carter (3rd overall pick) at Penn State was specifically cited as evidence."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2025 Rd1 Pick 24 \u2014 Donovan Jackson, Ohio State: 6-3.5, 315, 33.5\" arms. 3-year starter at LG, moved to LT in playoff run. Physical presence with zone versatility. Turned down trade-down offers to take him.",
+          "2022 Rd2 Pick 59 \u2014 Ed Ingram, LSU: 6-3.5, 312, 33.875\" arms. Started 35 games. Power guard with pulling ability. Described as 'butt-kicking pulling guard.'",
+          "2024 Rd7 Pick 230 \u2014 Michael Jurgens, Wake Forest: 6-3, 303. Center with power but limited athleticism. Backup/developmental pick."
+        ]
+      },
+      "confidence": "high"
+    },
+    "DT": {
+      "archetype_summary": "The Vikings under KAM primarily addressed DT through free agency (Jonathan Allen, Javon Hargrave, Harrison Phillips) rather than the draft. When they did draft DTs, they took late-round run-stoppers with developmental upside. Jaquelin Roy (Rd5, 2023) was described as a 'plus run stopper with some pass-rushing upside.' Levi Drake Rodriguez (Rd7, 2024) was a small-school flier. Tyrion Ingram-Dawkins (Rd5, 2025) from Georgia shows the willingness to draft Day 3 developmental DL.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4",
+        "weight_range": "290\u2013320",
+        "arm_length_minimum": "No clear threshold from late-round picks",
+        "key_athletic_tests": "Run-stopping ability valued over pass-rush testing. Ingram-Dawkins ran 4.86 40 at combine, so speed is not the emphasis.",
+        "speed_requirement": "Not a primary factor at this position for late-round picks"
+      },
+      "playing_style": {
+        "primary_style": "Run-stopping interior lineman with development potential",
+        "most_valued_traits": [
+          "Ability to hold the point of attack against the run",
+          "Strength and size at the point of attack",
+          "Versatility to play multiple DL spots in Flores' scheme",
+          "Developmental pass-rush upside"
+        ],
+        "least_important_traits": [
+          "Elite pass-rush production \u2014 the Vikings bought pass-rush from DTs in free agency and drafted developmental pieces"
+        ],
+        "deal_breakers": [
+          "Unable to hold up against the run",
+          "One-dimensional athletes without scheme fit"
+        ],
+        "traits_that_make_them_reach": "Not enough premium-round data to determine. DT has been a free agency position, not a draft priority."
+      },
+      "college_production": {
+        "production_floor": "No clear threshold \u2014 Day 3 picks only",
+        "production_trajectory": "N/A \u2014 limited data",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2023 Rd5 Pick 160 \u2014 Jaquelin Roy, LSU: 6-3, 305. Run-stuffing DT. 'Plus run stopper with some pass-rushing upside.'",
+          "2024 Rd7 Pick 232 \u2014 Levi Drake Rodriguez, Texas A&M-Commerce: Small-school DT flier. 'Preseason darling' who made the 53-man roster.",
+          "2025 Rd5 Pick 139 \u2014 Tyrion Ingram-Dawkins, Georgia: DL from Georgia pipeline. Developmental depth pick."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only Day 3 DT picks. Vikings addressed DT through free agency (Allen $25M, Hargrave $39M). Draft data is insufficient for strong archetype conclusions."
+    },
+    "CB": {
+      "archetype_summary": "The most heavily-drafted position under KAM \u2014 6 picks across 4 drafts. Values SIZE and PHYSICALITY over pure speed. Booth (6-0, 196), Evans (6-2, ~200), Blackmon (5-11, 178), Ward (6-1, 188), and K. Jackson (6-4, 194) \u2014 the range skews tall and physical. Scheme fit for Flores' defense demands press-man technique, tackling ability, and versatility. The Vikings appear to prefer long, physical corners who can press at the line and support the run, with less emphasis on pure ball production.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-4",
+        "weight_range": "178\u2013200",
+        "arm_length_minimum": "31+ inches. Booth: 31.5\". Blackmon: 31\". K. Jackson: N/A but 6-4 frame. Evans: drafted for length at 6-2.",
+        "key_athletic_tests": "Speed requirements vary. Blackmon: 4.47. Booth: did not run (quad strain). K. Jackson: 4.50. Ward: 4.46. The Vikings have taken CBs across the speed spectrum but 4.50 appears to be the soft ceiling.",
+        "speed_requirement": "4.50 or faster preferred but not an absolute cutoff"
+      },
+      "playing_style": {
+        "primary_coverage_style": "Press-man with Flores demanding versatility across coverage looks",
+        "most_valued_traits": [
+          "Physicality at the line of scrimmage and at the catch point",
+          "Run-support and tackling ability \u2014 Blackmon was specifically praised for 95.3% tackle rate",
+          "Positional versatility \u2014 Ward was valued for playing CB, safety, and nickel",
+          "Length to disrupt passing lanes",
+          "Ability to play press technique"
+        ],
+        "least_important_traits": [
+          "Ball production/interception totals \u2014 KAM/Flores did not prioritize interception numbers over film evaluation. Blackmon had only 1 INT in college at USC; they valued his tackling."
+        ],
+        "deal_breakers": [
+          "Pure zone-only corners without press experience",
+          "Small corners who cannot support the run \u2014 Flores' scheme demands physical DB play"
+        ],
+        "traits_that_make_them_reach": "Rare size at the CB position. Khyree Jackson (6-4, 194) was a fourth-round pick despite being a one-year starter at Oregon. His 'rare size and strength' per Lance Zierlein was clearly valued."
+      },
+      "college_production": {
+        "production_floor": "No clear statistical threshold. K. Jackson had only 3 INTs in one year as a starter. Blackmon transferred twice. The Vikings evaluated projection and traits over production.",
+        "production_trajectory": "Late bloomers accepted. K. Jackson switched from WR to CB at Fort Scott CC, played behind starters at Alabama, then had one starting year at Oregon. Blackmon played 5 years across 3 schools.",
+        "context_sensitivity": "High. Ward was valued for his versatility (only FBS player with 150+ snaps at safety, slot, and wide corner). Production context was evaluated."
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2022 Rd2 Pick 42 \u2014 Andrew Booth Jr., Clemson: 6-0, 196, 31.5\" arms. Did not run 40 (quad). Quick feet, aggressive tackler. Man and zone experience.",
+          "2022 Rd4 Pick 118 \u2014 Akayleb Evans, Missouri: 6-2, ~200. Long CB drafted for size. KAM's 'draft crush.' Showed promise then faded.",
+          "2023 Rd3 Pick 102 \u2014 Mekhi Blackmon, USC: 5-11, 178, 31\" arms, 4.47 40. Elite tackler (95.3% rate). Strong in press. Transferred from Colorado to USC.",
+          "2023 Rd4 Pick 119 \u2014 Jay Ward, LSU: 6-1, 188, 4.46 40. Versatile \u2014 played CB, safety, and nickel. Only FBS player with 150+ snaps at 3 secondary positions. Special teams value.",
+          "2024 Rd4 Pick 108 \u2014 Khyree Jackson, Oregon: 6-4, 194, 4.50 40. Rare size at CB. One-year starter. Physical at the catch point. Tragically killed before playing an NFL game.",
+          "NOTE: Tai Felton (2025, Rd3 Pick 102) was a WR, not CB"
+        ]
+      },
+      "confidence": "high"
+    },
+    "S": {
+      "archetype_summary": "Athletic, physical, hard-hitting safety with range and speed. Lewis Cine was the only pure safety drafted under KAM (Jay Ward has safety experience but was drafted as a versatile DB). Cine was a thumping downhill hitter with elite combine numbers \u2014 4.37 40, 36.5\" vert, 11'1\" broad. He embodied the 'violent, physical, range safety' mold. The Vikings' safety evaluation under KAM was considered the weakest spot \u2014 Cine was a complete bust (10 career games, 1 tackle with Minnesota after a leg fracture). Flores' scheme demands versatile safeties who can play in the box, cover, and blitz.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "195\u2013210",
+        "arm_length_minimum": "31+ inches. Cine: 32.25\".",
+        "key_athletic_tests": "Speed is paramount. Cine: 4.37 40 (5th fastest S at combine), 36.5\" vert, 11'1\" broad (best among safeties). RAS: 9.92. The Vikings drafted the most athletic safety available.",
+        "speed_requirement": "4.45 or faster appears to be the strong preference based on Cine's 4.37"
+      },
+      "playing_style": {
+        "primary_style": "Physical, downhill safety with range for single-high coverage",
+        "most_valued_traits": [
+          "Explosive athleticism and range",
+          "Physical tackling and hitting ability",
+          "Speed to cover deep thirds",
+          "Special teams value"
+        ],
+        "least_important_traits": [
+          "Ball production \u2014 Cine had only 1 INT in his final college season at Georgia"
+        ],
+        "deal_breakers": [
+          "Limited range \u2014 a safety who cannot play single-high is limited in Flores' scheme",
+          "Poor tackling or missed tackle rates"
+        ],
+        "traits_that_make_them_reach": "Elite combine testing. Cine's near-perfect RAS (9.92) suggests the front office was heavily swayed by athletic testing for the safety position."
+      },
+      "college_production": {
+        "production_floor": "No clear threshold. Cine had 73 tackles and 1 INT in 2021.",
+        "production_trajectory": "Ascending production preferred. Cine went from 20 tackles (freshman) to 52 (sophomore) to 73 (junior).",
+        "context_sensitivity": "Moderate. Cine's role on a loaded Georgia defense was considered."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2022 Rd1 Pick 32 \u2014 Lewis Cine, Georgia: 6-2, 199, 32.25\" arms, 4.37 40, 36.5\" vert, 11'1\" broad. RAS 9.92. Hard-hitting, violent tackler. National champion. Complete bust \u2014 broken leg in Week 4, released in 2024.",
+          "2023 Rd4 Pick 119 \u2014 Jay Ward, LSU: 6-1, 188, 4.46 40. Listed as CB/S versatile DB. Experience at safety, slot corner, and wide corner. Still on roster as depth/versatility piece."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 true safety drafted (Cine) plus versatile DB Ward. Cine was a spectacular bust, which may indicate a blind spot. Need could drive premium investment in 2026 with Harrison Smith aging (36) and Cam Bynum departed."
+    },
+    "LB": {
+      "archetype_summary": "Undersized, athletic, coverage-capable linebacker who can run sideline to sideline. Brian Asamoah (Rd3, 2022) was the only pure LB drafted \u2014 he was described as a 'fun but undersized inside linebacker' and 'three-down backer the Vikings have expertly cultivated.' In Flores' scheme, LBs need coverage ability and speed more than size. However, Asamoah (15 solo tackles in 46 games) was a bust, suggesting the archetype may shift.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-2",
+        "weight_range": "225\u2013240",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Speed and sideline-to-sideline range are premium. Asamoah was drafted for his coverage ability and speed.",
+        "speed_requirement": "4.55 or faster preferred for the LB position in Flores' scheme"
+      },
+      "playing_style": {
+        "primary_style": "Athletic coverage LB with sideline-to-sideline speed",
+        "most_valued_traits": [
+          "Coverage ability in space",
+          "Sideline-to-sideline range",
+          "Blitz ability off the edge",
+          "Special teams value"
+        ],
+        "least_important_traits": [
+          "Run-stuffing size \u2014 Asamoah was specifically described as 'undersized' and that was considered acceptable"
+        ],
+        "deal_breakers": [
+          "Pure thumper LBs with no coverage ability \u2014 Flores' defense asks LBs to cover TEs and RBs extensively",
+          "Stiff athletes who cannot change direction"
+        ],
+        "traits_that_make_them_reach": "Coverage versatility. Flores' scheme reduces the traditional LB role and asks them to function more like safeties in coverage."
+      },
+      "college_production": {
+        "production_floor": "No clear threshold from 1 pick",
+        "production_trajectory": "N/A",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2022 Rd3 Pick 66 \u2014 Brian Asamoah, Oklahoma: ~6-0, 228. 'Ball-hunter' LB with range. Selected to fit new 3-4 scheme. 15 solo tackles in 46 games \u2014 bust who was eventually cut."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 LB drafted in 4 years. The Vikings rely on UDFAs (Ivan Pace Jr.) and free agency at the position. Flores' scheme devalues traditional LB in favor of extra DBs."
+    },
+    "WR": {
+      "archetype_summary": "Route-running technician with production pedigree and YAC ability. Not a size/speed combine warrior \u2014 Jordan Addison (5-11, 173, 4.49) had underwhelming combine numbers but elite college production and route-running. The Vikings value receivers who can win with precision, separation quickness, and the ability to produce after the catch. Addison won the Biletnikoff Award and was a '100-catch, 17-TD' producer. Tai Felton (2025, Rd3) was similarly productive at Maryland. O'Connell's screen-heavy offense values YAC ability.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-1",
+        "weight_range": "170\u2013195",
+        "arm_length_minimum": "No clear threshold. Addison: 30.88\". Below average.",
+        "key_athletic_tests": "Route-running technique valued over raw speed. Addison's 4.49 was average for WRs but his route-running was elite.",
+        "speed_requirement": "Not a primary factor. Both Addison (4.49) and Nailor were not elite speed testers."
+      },
+      "playing_style": {
+        "primary_style": "Route-running WR2/slot capable of playing outside and inside",
+        "most_valued_traits": [
+          "Elite route-running technique and separation",
+          "YAC/run-after-catch ability \u2014 Addison had 6 screen-pass TDs in college (most in FBS)",
+          "Production pedigree (Biletnikoff Award, All-American)",
+          "Ability to thrive as a complementary threat alongside a WR1 (Justin Jefferson)",
+          "Hands and contested-catch ability"
+        ],
+        "least_important_traits": [
+          "Pure deep-threat speed \u2014 Addison was not an elite tester but produced vertically on film",
+          "Size/physicality \u2014 Addison at 173 lbs is one of the lightest WRs drafted in Rd1"
+        ],
+        "deal_breakers": [
+          "Raw athletes with poor route-running \u2014 production and polish are the baseline",
+          "WRs who cannot contribute in a diverse route tree"
+        ],
+        "traits_that_make_them_reach": "Elite college production (100+ catches, 15+ TDs). Addison's Biletnikoff Award and 100-1593-17 sophomore line made him a first-round lock despite middling combine numbers."
+      },
+      "college_production": {
+        "production_floor": "Addison: 59 catches, 875 yards, 8 TDs in his final USC season (injury-shortened). His Pitt season of 100-1593-17 was the primary evaluation point. High production appears valued for premium picks.",
+        "production_trajectory": "Breakout age sensitivity is moderate. Addison broke out as a true sophomore (100 catches at age 19-20). Early production valued.",
+        "context_sensitivity": "Moderate. Addison produced at both Pitt and USC with different QBs and systems."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2023 Rd1 Pick 23 \u2014 Jordan Addison, USC: 5-11, 173, 30.88\" arms, 4.49 40, 34\" vert. Biletnikoff Award winner. 219 career catches, 3,134 yards, 29 TDs. Elite route-runner, YAC threat.",
+          "2022 Rd6 Pick 191 \u2014 Jalen Nailor, Michigan State: 5-11, 185. Speed WR. 40 catches, 622 yards, 7 TDs with Vikings through 2024. Rotational role.",
+          "2025 Rd3 Pick 102 \u2014 Tai Felton, Maryland: WR drafted for production. Selected to add depth behind Jefferson and Addison."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "TE": {
+      "archetype_summary": "Low-priority draft position \u2014 only 2 TEs drafted across 5 drafts (Nick Muse Rd7 2022, Gavin Bartholomew Rd6 2025). The Vikings addressed TE through trades (T.J. Hockenson) and free agency rather than the draft. When they do draft TEs, they target Day 3 developmental pieces. O'Connell's offense uses TEs prominently (Hockenson was a featured receiving target) but they prefer to acquire proven TEs rather than develop them.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "245\u2013270",
+        "arm_length_minimum": "No clear threshold from Day 3 picks",
+        "key_athletic_tests": "Receiving ability valued \u2014 Muse generated attention for pass-catching skills at the East-West Shrine Bowl. Bartholomew from Pittsburgh fits as a receiving-capable TE.",
+        "speed_requirement": "Not a primary factor for Day 3 TE picks"
+      },
+      "playing_style": {
+        "primary_style": "Hybrid receiving/blocking TE for Day 3 developmental roles",
+        "most_valued_traits": [
+          "Pass-catching ability and route-running for a TE",
+          "Blocking competence to earn snaps",
+          "Versatility as inline and flexed out",
+          "Special teams value as a rookie"
+        ],
+        "least_important_traits": [
+          "Elite inline blocking \u2014 they acquired T.J. Hockenson (a receiving TE) rather than drafting a blocking-first TE"
+        ],
+        "deal_breakers": [
+          "Pure blocking TEs with no receiving upside in O'Connell's pass-heavy scheme"
+        ],
+        "traits_that_make_them_reach": "No data \u2014 TE has not been a position where the Vikings reach"
+      },
+      "college_production": {
+        "production_floor": "N/A \u2014 Day 3 picks only",
+        "production_trajectory": "N/A",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2022 Rd7 Pick 227 \u2014 Nick Muse, South Carolina: 6-5, 260. Blocking TE with developing pass-catching. 15 games over 3 seasons, then waived.",
+          "2025 Rd6 Pick 202 \u2014 Gavin Bartholomew, Pittsburgh: Day 3 TE to add depth after Johnny Mundt departure."
+        ]
+      },
+      "confidence": "very_low",
+      "confidence_note": "TE is essentially a non-draft position for this front office. They used a trade (Hockenson from DET for a 2nd-round pick) as their primary TE acquisition strategy."
+    },
+    "RB": {
+      "archetype_summary": "Explicitly deprioritized in the draft. KAM publicly and through action demonstrated that RBs are not worth premium draft capital. DeWayne McBride (Rd7, 2023) was the only RB drafted \u2014 a 7th-round power back with vision and contact balance but limited receiving production. The Vikings have relied on free agency for RBs (Aaron Jones, Dalvin Cook retention). Brzezinski/O'Connell may shift this in 2026 given the RB need, but the KAM-era data is clear.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-0",
+        "weight_range": "200\u2013215",
+        "arm_length_minimum": "N/A",
+        "key_athletic_tests": "Vision, contact balance, and toughness valued over elite speed based on McBride pick",
+        "speed_requirement": "Not a primary factor at this position \u2014 McBride was a power/vision back, not a speedster"
+      },
+      "playing_style": {
+        "primary_style": "Between-the-tackles power runner available on Day 3",
+        "most_valued_traits": [
+          "Vision and ability to find holes",
+          "Contact balance \u2014 McBride was praised for 'rare mix of vision, contact balance, and toughness'",
+          "Downhill running power",
+          "Ball security (though McBride had fumble issues)"
+        ],
+        "least_important_traits": [
+          "Receiving ability \u2014 McBride had 'almost zero receiving production in college' per scouting reports and they drafted him anyway",
+          "Speed \u2014 not a priority for Day 3 RB picks"
+        ],
+        "deal_breakers": [
+          "There are no deal-breakers because they simply don't draft RBs early. If forced to draft one, fumble issues would be a concern."
+        ],
+        "traits_that_make_them_reach": "N/A \u2014 they explicitly do not reach for RBs"
+      },
+      "college_production": {
+        "production_floor": "N/A \u2014 only 1 RB drafted in 4 years, and it was pick 222",
+        "production_trajectory": "N/A",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2023 Rd7 Pick 222 \u2014 DeWayne McBride, UAB: 5-11, 209. 1,713 rushing yards in 2022 (led nation). Physical between-the-tackles runner. Limited receiving and fumble concerns. 'The Vikings aren't big believers in selecting running backs high in the draft' \u2014 ESPN analysis."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "High confidence that RB is deprioritized in the draft, but low confidence on specific archetype preferences due to only 1 pick. The 2026 draft may see a shift if Aaron Jones (age 32) declines."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 6,
+    "max_observed_reach": 15,
+    "round_1_reach_tolerance": 5,
+    "notes": "KAM's first-round picks were generally close to consensus. Cine (Rd1, pick 32) was ranked ~35th on most boards \u2014 a slight reach. McCarthy (pick 10) was considered a consensus top-12 pick. Turner (pick 17) was widely mocked in the 10-20 range. Donovan Jackson (pick 24) was projected in the 24-36 range by most. The biggest reaches came on Day 2 \u2014 Ed Ingram (pick 59) was considered an early Day 3 prospect by some. Booth (pick 42) was considered value after falling from a possible first-round grade."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.65,
+    "offensive_scheme": "O'Connell runs a McVay/Shanahan-influenced offense: play-action heavy, outside zone run concepts, screen game, and vertical passing. Values pass protection highly. The 2025 offseason committed $106M to interior OL (Kelly, Fries) plus a first-round pick (Jackson). Wes Phillips is OC; Frank Smith (former Dolphins OC) was added as assistant HC to improve the run game.",
+    "defensive_scheme": "Brian Flores runs a multiple defense with heavy pressure packages. Uses disguised coverages, versatile personnel, and asks defenders to play multiple positions. Primarily 3-4 base but shifts to 4-2-5 nickel frequently. Values EDGE rushers who can stand up or rush with hand down. DBs must be physical and versatile. LBs need coverage ability. The defense was elite in 2024 and 2025.",
+    "scheme_change_flag": false,
+    "scheme_change_notes": "O'Connell (5th year) and Flores (3rd year) both retained. The coaching staff had significant turnover in assistant roles (lost 7 coaches) but the core scheme is stable. New addition: Frank Smith as assistant HC may shift run-game emphasis."
+  },
+  "psychological_profile": {
+    "risk_tolerance_kam": 0.55,
+    "risk_description_kam": "Moderate. KAM swung big on some picks (McCarthy at 10, Turner at 17, trading future capital) but also played it safe (trading down in 2022, taking consensus picks). The 2022 draft was conservative; 2024 was aggressive. His risk tolerance appeared to increase over time as he became more comfortable.",
+    "risk_tolerance_brzezinski": 0.35,
+    "risk_description_brzezinski": "Conservative. Brzezinski has explicitly stated he will operate with 'guardrails' and will not 'sell the future' or make desperate moves. As an interim GM, he is likely to be risk-averse. He will prioritize safe, high-floor players over upside bets.",
+    "recency_bias": 0.65,
+    "recency_description": "Moderate-to-high. After the 2024 playoff loss where Darnold was sacked 9 times, the Vikings used their 2025 first-round pick on an IOL (Donovan Jackson) and signed $106M in IOL free agents. After losing Danielle Hunter, they traded up for Dallas Turner. KAM consistently addressed the previous season's most glaring weakness.",
+    "sunk_cost_behavior": "Quick to cut losses. Nearly the entire 2022 draft class was off the roster by 2025. Cine was released after 2 years. Booth was traded. Ingram was traded. Asamoah was cut. KAM did not double down on failed picks.",
+    "combine_weight": 0.55,
+    "combine_description": "Moderate. KAM's analytics background suggested measurables would matter heavily, and they did at certain positions: Cine (9.92 RAS), Turner (elite combine), K. Jackson (6-4 size). But he also drafted Addison (below-average combine) when the film/production justified it. Measurables serve as a tiebreaker and eliminator at premium positions (S, EDGE), but film can override at WR and QB.",
+    "character_weight": 0.55,
+    "character_description": "Moderate. KAM valued intangibles and character \u2014 specifically citing McCarthy's leadership and Jaren Hall's 'it factor.' But he also drafted Ed Ingram despite significant off-field concerns that caused him to fall in the draft. Day 3 picks show more willingness to gamble on character. Overall, character is a factor but not a hard line.",
+    "quarterback_philosophy": "All-in or nothing. KAM did not take a developmental QB in his first 2 drafts, waiting until the exact right moment (2024, pick 10) to draft McCarthy. He signed Sam Darnold as a bridge and let McCarthy sit. The 2023 developmental QB (Jaren Hall, Rd5) was a low-cost backup option, not a franchise bet. When they went for a QB, they traded up and went big."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.55,
+    "production_vs_projection": "Balanced but leans toward production at premium positions. Addison was drafted for his Biletnikoff Award-winning production. McCarthy was a lower-volume exception where context adjusted the evaluation. At CB and S, traits and projection were weighted more heavily \u2014 K. Jackson was a one-year starter with modest stats. At WR, production is paramount.",
+    "production_thresholds_by_position": {
+      "WR": "High production valued \u2014 Addison had 100 catches and 17 TDs at Pitt. No WR drafted with fewer than 50 catches in final season (among early-round picks).",
+      "RB": "No minimum \u2014 only 1 RB drafted at pick 222",
+      "EDGE": "5+ sacks in final college season for Turner (11 sacks as a junior)",
+      "CB": "No clear statistical floor \u2014 film and traits over interception totals",
+      "QB": "Values context-adjusted efficiency over volume. McCarthy's 67.9% completion rate when pressured mattered more than his modest yardage totals.",
+      "IOL": "Multi-year starters preferred \u2014 Ingram (35 starts), Jackson (40+ starts)"
+    },
+    "breakout_age_sensitivity": 0.5,
+    "dominator_rating_sensitivity": 0.45,
+    "notes": "The front office under KAM was willing to draft players with non-traditional production profiles (McCarthy's low volume, K. Jackson's one-year breakout) when the athletic profile or context justified it. But at positions like WR and IOL, they clearly preferred proven multi-year producers."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "40_yard_soft_max": 4.5,
+        "min_height": "5-11",
+        "notes": "All CBs drafted were 5-11+. K. Jackson at 4.50 was the slowest. Booth did not run due to injury.",
+        "confidence": "medium"
+      },
+      "EDGE": {
+        "min_arm_length": "33 inches",
+        "40_yard_max": 4.55,
+        "notes": "Turner: 34.375\" arms, 4.46 40. Only 1 premium EDGE pick \u2014 threshold is inferred.",
+        "confidence": "low"
+      },
+      "S": {
+        "40_yard_max": 4.45,
+        "min_height": "6-0",
+        "notes": "Cine: 4.37, 6-2. Only 1 safety drafted \u2014 threshold inferred from extreme athletic profile.",
+        "confidence": "low"
+      },
+      "WR": {
+        "no_clear_threshold": true,
+        "notes": "Addison had below-average combine scores. Route-running and production override testing at WR."
+      },
+      "IOL": {
+        "min_weight": 310,
+        "notes": "Ingram: 312. Jackson: 315. Both 310+ lbs.",
+        "confidence": "medium"
+      },
+      "OT": {
+        "min_arm_length": "33 inches",
+        "notes": "Rouse: Day 3 pick. Threshold inferred from league norms.",
+        "confidence": "very_low"
+      }
+    },
+    "threshold_type": "Soft preferences at most positions. Hard cutoffs appear to exist only at CB (4.50 40, 5-11 height) based on limited data. At WR, measurables are clearly secondary to film and production.",
+    "size_preferences_by_position": {
+      "DT": "290+ for Day 3 developmental picks. Roy: 305.",
+      "LB": "225\u2013240 range. Asamoah was undersized at ~228.",
+      "S": "6-0+ preferred. Cine: 6-2.",
+      "CB": "5-11 to 6-4 \u2014 wide range but physical corners preferred. K. Jackson at 6-4 was the extreme."
+    },
+    "athletic_testing_favorites": "Vertical jump and broad jump matter for EDGE (Turner: 40.5\" vert, 10'7\" broad) and S (Cine: 36.5\" vert, 11'1\" broad). 40-yard dash matters for S and CB. Route-running trumps testing for WR.",
+    "measurables_vs_film": "Film-first at WR (Addison drafted despite mediocre combine). Measurables-heavy at S (Cine's 9.92 RAS was a clear driver) and EDGE (Turner's elite combine boosted him). At CB, the mix is balanced \u2014 physical traits (size, length) matter alongside film evaluation."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Under KAM, Round 1 was need-driven with BPA rhetoric. Every first-round pick addressed a top-3 team need (Cine for safety, Addison for WR2, McCarthy for QB, Turner for EDGE, Jackson for IOL). Willing to trade up or down in Round 1 depending on board. Brzezinski has stated he will stack the board objectively by talent, suggesting a possible shift toward true BPA in 2026.",
+    "round_2_3_strategy": "KAM frequently addressed needs on Day 2. Booth (CB need), Ingram (IOL need), Asamoah (LB need) in 2022. Blackmon (CB need) in 2023. This is where the BPA-to-need shift clearly happened. Limited Day 2 capital in recent years (no Rd2 or Rd3 picks in 2024 due to trade-ups).",
+    "day_3_strategy": "Developmental athletes and depth. Day 3 picks have been a mix of: (1) scheme-specific role players (Ward for DB versatility), (2) developmental athletes (K. Jackson, Otomewo, Ingram-Dawkins), (3) specialists (Reichard the kicker), and (4) late-round fliers on small-school players (Rodriguez from TAMU-Commerce). Day 3 has been used for corners, DL depth, and backup OL.",
+    "compensatory_pick_usage": "KAM was aware of the compensatory pick formula and factored it into roster decisions. He noted the Cam Robinson trade included consideration of the comp pick they'd receive when Robinson left in free agency. The Vikings are projected to receive a high comp pick in 2026 for Sam Darnold's departure to Seattle."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "WR": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Addison is a hit. Nailor is a rotational player. Felton too early to evaluate. Addison alone justifies moderate confidence."
+      },
+      "CB": {
+        "picks": 6,
+        "starters": 1,
+        "rate": 0.17,
+        "note": "Blackmon was the closest to a hit (1 good season then ACL). Booth, Evans, K. Jackson (deceased), Ward all failed to become starters with MIN. Major blind spot."
+      },
+      "S": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Cine was a total bust \u2014 broken leg, released after 2 years, 1 tackle with Vikings. Worst first-round pick of KAM's tenure."
+      },
+      "IOL": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Ingram started 41 games but was inconsistent and eventually traded. Jackson drafted in 2025 and too early to evaluate. Jurgens is a backup."
+      },
+      "EDGE": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Turner showed promise in Year 2 (8 sacks in 2025 season). Otomewo appeared in 5 games and was cut."
+      },
+      "QB": {
+        "picks": 2,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "McCarthy missed rookie year (torn meniscus), then struggled in 2025 (one of worst 6-game starts in past decade per ESPN). Hall was a backup. Jury still out but early returns poor."
+      },
+      "LB": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Asamoah: 15 solo tackles in 46 games. Bust."
+      },
+      "DT": {
+        "picks": 2,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Day 3 picks only. Roy and Rodriguez are depth pieces."
+      },
+      "RB": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "McBride was a 7th-round pick. Did not become a significant contributor."
+      }
+    },
+    "blind_spots": [
+      "CB evaluation \u2014 6 picks, near-zero starters. This is the most-drafted position and the worst-performing one. The Vikings have been unable to draft a quality starting CB under KAM.",
+      "S evaluation \u2014 Cine at pick 32 was a franchise-altering bust. The combine-driven athletic evaluation approach failed spectacularly.",
+      "QB evaluation \u2014 McCarthy's struggles in 2025 and the decision to let Darnold leave (who then led Seattle to the Super Bowl) represent the most consequential personnel failure."
+    ],
+    "strengths": [
+      "WR evaluation \u2014 Addison at pick 23 was the best pick of KAM's tenure. A clear hit.",
+      "EDGE \u2014 Turner showing Year 2 improvement (8 sacks in 2025). Still developing but trending positively.",
+      "Draft-day trading \u2014 KAM executed 11 trades across 3 drafts, showing comfort and skill in working the board."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Aggressive spender who used FA to fill starting-caliber holes and offset draft failures. The Vikings had an NFL-high $348M roster in 2025. Major FA investments: Jonathan Allen ($25M), Javon Hargrave ($39M), Sam Darnold (1-year), Jonathan Greenard, Andrew Van Ginkel, Aaron Jones, Ryan Kelly ($56M), Will Fries ($50M). This heavy spending was partly driven by draft class failures.",
+    "fa_draft_correlation": "When the Vikings signed veteran starters at a position, that position dropped to Day 3 priority. After signing Allen and Hargrave at DT, they only took Day 3 DTs. After signing Greenard and Van Ginkel at EDGE, Turner was drafted but as a developmental piece behind the FA starters. After massive IOL FA spending in 2025, they still used pick 24 on Jackson \u2014 showing willingness to double-dip at high-priority positions.",
+    "roster_construction_philosophy": "Under KAM: Build through free agency at most positions and hope the draft fills in around the edges. This was partially by design ('competitive rebuild') and partially by necessity (draft failures forced FA spending). Under Brzezinski: Stated that 'the draft must be the team's foundation, with free agents used to supplement it' \u2014 a potential philosophical shift."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 28,
+    "notable_patterns": [
+      "Defensive backs were the most-drafted position group: 6 of 28 picks (21%)",
+      "Every first-round pick addressed a top-3 team need despite BPA claims",
+      "The 2022 draft was a historic bust \u2014 nearly all picks off roster by 2025",
+      "KAM traded in every single draft \u2014 11+ trades across 4 drafts",
+      "The 2024 draft saw aggressive trade-ups (McCarthy at 10, Turner at 17) that consumed 2025 draft capital",
+      "RB and TE were essentially non-draft positions, addressed through FA and trades",
+      "Only 2 of 28 picks were made in the Vikings' original draft slot \u2014 the rest involved trades"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2022,
+        "pick": "2.59",
+        "player": "Ed Ingram",
+        "position": "IOL",
+        "consensus_rank": "75-90",
+        "reach_amount": 15,
+        "context": "Ingram was seen as an early Day 3 value by some analysts. The Vikings took him to fill a starting guard need. He started 41 games but was inconsistent."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2023,
+        "pick": "1.23",
+        "player": "Jordan Addison",
+        "position": "WR",
+        "consensus_rank": "20-25",
+        "value_amount": 0,
+        "context": "Addison was consensus value at 23. He became the best pick of KAM's tenure \u2014 70-911-10 as a rookie."
+      }
+    ]
+  },
+  "2026_draft_specific_notes": {
+    "interim_gm_impact": "Rob Brzezinski is leading the draft room as an interim GM with no previous draft-making experience. His 33-year career has been in football administration and salary cap management, not scouting. The scouting staff (Grigson, Monnens, Sholiton) and coaching staff (O'Connell, Flores) will have outsized influence on pick selection. Expect a more collaborative, committee-driven approach rather than one person's vision.",
+    "key_needs_2026": [
+      "CB \u2014 The most pressing need. Byron Murphy is the only proven starter. Harrison Smith is 36 at safety. The secondary needs youth desperately.",
+      "S \u2014 With Smith aging and Cam Bynum departed, safety is a high-value need.",
+      "RB \u2014 Aaron Jones is 32. The running game needs a long-term solution.",
+      "QB depth \u2014 J.J. McCarthy has been injury-prone and struggled. A veteran QB addition is expected via FA/trade, but a backup may be drafted.",
+      "DL depth \u2014 Hargrave may be traded or released. Allen's future unclear."
+    ],
+    "draft_position": "18th overall. The Vikings also have additional picks from compensatory formula (projected comp 3rd for Darnold) and potential trades.",
+    "brzezinski_stated_approach": "Stack the board objectively based on talent. Fill needs without 'tricking yourself' by pushing players up for need. Balance 2026 competitiveness with long-term health. Will not sell the future.",
+    "likely_behavioral_shift_from_kam": "Less aggressive trade-up behavior. More BPA-oriented. More conservative risk profile. The draft room will be more consensus-driven with O'Connell having significant input."
+  },
+  "confidence": "low",
+  "confidence_notes": "This is an unprecedented situation \u2014 no permanent GM, an interim administrator leading the draft room, and a stated philosophical shift from the previous regime. The KAM-era draft data (2022\u20132025) provides the primary behavioral baseline, but the 2026 draft will be led by a different person with a different background. Key influencers (O'Connell, Flores, Grigson, Sholiton) provide continuity from the scouting apparatus, but the final decision-maker is fundamentally different. Profile should be treated as LOW confidence for 2026 predictions and REFRESHED immediately after a permanent GM is hired.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft AND permanent GM hire"
+}

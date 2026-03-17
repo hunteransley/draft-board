@@ -1,0 +1,794 @@
+{
+  "team": {
+    "name": "Carolina Panthers",
+    "abbreviation": "CAR",
+    "division": "NFC South",
+    "current_draft_position": 19
+  },
+  "front_office": {
+    "gm": {
+      "name": "Dan Morgan",
+      "title": "President of Football Operations / General Manager",
+      "hired": "2024-01-22",
+      "previous_role": "Assistant General Manager, Carolina Panthers (2021-2023)",
+      "drafts_as_gm": 2,
+      "confidence": "medium"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Carolina Panthers",
+          "role": "Linebacker (Player)",
+          "years": "2001-2007",
+          "mentor": "John Fox (HC), Jack Del Rio (DC)"
+        },
+        {
+          "org": "New Orleans Saints",
+          "role": "Linebacker (Player)",
+          "years": "2008",
+          "mentor": "Sean Payton (HC)"
+        },
+        {
+          "org": "Seattle Seahawks",
+          "role": "Scouting Intern",
+          "years": "2010",
+          "mentor": "John Schneider (GM), Pete Carroll (HC)"
+        },
+        {
+          "org": "Seattle Seahawks",
+          "role": "Assistant Director of Pro Personnel",
+          "years": "2011-2014",
+          "mentor": "John Schneider (GM)"
+        },
+        {
+          "org": "Seattle Seahawks",
+          "role": "Director of Pro Personnel",
+          "years": "2015-2017",
+          "mentor": "John Schneider (GM)"
+        },
+        {
+          "org": "Buffalo Bills",
+          "role": "Director of Player Personnel",
+          "years": "2018-2020",
+          "mentor": "Brandon Beane (GM), Sean McDermott (HC)"
+        },
+        {
+          "org": "Carolina Panthers",
+          "role": "Assistant General Manager",
+          "years": "2021-2023",
+          "mentor": "Scott Fitterer (GM)"
+        },
+        {
+          "org": "Carolina Panthers",
+          "role": "President of Football Operations / General Manager",
+          "years": "2024-present",
+          "mentor": "N/A (top decision-maker)"
+        }
+      ],
+      "primary_mentor": "John Schneider (Seattle Seahawks GM) and Brandon Beane (Buffalo Bills GM)",
+      "philosophical_lineage": "Schneider/Carroll tree (Seattle) \u2192 Beane/McDermott tree (Buffalo). The Seahawks influence is visible in Morgan's willingness to draft developmental athletes, value physicality and 'dawg mentality', and project players into scheme fits. The Bills influence under Beane shows in roster-building discipline, culture-first evaluation, and collaborative front office approach. Morgan also carries his playing DNA \u2014 as a former Pro Bowl LB under John Fox's 'tough and smart' philosophy \u2014 which manifests in a heavy emphasis on character, toughness, and competitive fire.",
+      "breakpoints": "Morgan is more aggressive about trading up than either Schneider or Beane historically were. In his first two drafts, he traded up in rounds 1-3 multiple times (up to 32 in 2024 R1, up to 51 and 77 in 2025 R2/R3), showing a willingness to be assertive when he identifies targets. His mentors tended to trade down or stay put more often. Morgan also places a premium on skill-position weapons for Bryce Young that neither the Seahawks nor Bills historically prioritized as aggressively early.",
+      "lineage_weight": 0.45,
+      "lineage_weight_notes": "Two full drafts of own data as GM bring lineage weight down from initial 0.70. However, sample size is still small enough that scouting tree philosophy remains significant. Will drop to 0.30 after 2027 draft."
+    },
+    "primary_decision_maker": "Dan Morgan",
+    "key_influencers": [
+      {
+        "name": "Dave Canales",
+        "title": "Head Coach",
+        "influence_level": "high",
+        "known_biases": "Offensive-minded, former WR coach in Seattle. Values QB development and surrounding Bryce Young with weapons. Strong proponent of the run game. Committed to Ejiro Evero's 3-4 defensive scheme. Previously worked with Morgan in Seattle \u2014 their existing relationship makes collaboration smooth."
+      },
+      {
+        "name": "Brandt Tilis",
+        "title": "Executive Vice President of Football Operations",
+        "influence_level": "medium",
+        "known_biases": "Spent 14 seasons with Kansas City Chiefs. Handles salary cap, analytics, and contract negotiations. Provides financial framework for draft decisions. His KC background emphasizes building through the draft at premium positions."
+      },
+      {
+        "name": "Ejiro Evero",
+        "title": "Defensive Coordinator",
+        "influence_level": "medium",
+        "known_biases": "Runs a 3-4 base defense with heavy soft-zone coverage. Previously coordinated in Denver (Vic Fangio tree). His scheme dictates specific needs: stand-up OLBs who can rush and drop, two-gap nose tackles, rangy safeties. Contract extended through 2027."
+      }
+    ],
+    "power_dynamics": "Collaborative front office with Morgan holding final say. Morgan and Canales have a strong pre-existing relationship from Seattle and were hired to work as a partnership. Canales has significant input on offensive personnel, and Evero's defensive scheme requirements shape defensive draft targets. Owner David Tepper is engaged but has stepped back from direct football decisions after prior regime instability.",
+    "owner_interference": "medium \u2014 Tepper was historically very involved (fired coaches mid-season, forced the Bryce Young trade), but has appeared to give Morgan and Canales more operational latitude since their hire. The 2025 playoff run appears to have bought additional trust. However, Tepper's history suggests he could reassert control if results decline."
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.55,
+    "bpa_weight_by_round": {
+      "1": 0.65,
+      "2": 0.45,
+      "3": 0.4,
+      "4_plus": 0.35
+    },
+    "stated_philosophy": "Draft really good football players with 'dawg mentality' who are touchdown-makers and culture fits",
+    "actual_philosophy": "Leans BPA at the top of the draft \u2014 took McMillan at WR8 despite the defense being historically bad \u2014 but shifts heavily to need-filling in rounds 2-4. The 2024 draft was entirely need-based (WR, RB, LB, TE, CB, DT, LB to fill every hole). The 2025 draft mixed BPA (McMillan at 8) with aggressive need-filling (doubled up on EDGE in rounds 2-3 after trading up for both). Morgan articulates a BPA stance but his actual behavior shows he fills critical roster holes aggressively, especially on Day 2.",
+    "philosophy_mismatch_notes": "In 2025, taking McMillan WR at 8 when the defense was historically bad could be interpreted as BPA (he was a consensus top-10 talent). But every subsequent pick addressed defense, suggesting Morgan took BPA when the value was overwhelming in R1, then shifted to need-filling immediately after."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.65,
+    "trade_down_willingness": 0.45,
+    "trades_per_draft_average": 3.5,
+    "trade_triggers": [
+      "Specific EDGE or defensive target identified \u2014 traded up in both R2 and R3 in 2025 for EDGE rushers",
+      "Trade up one spot to secure a target (moved from 33 to 32 in 2024 R1 for Legette)",
+      "Mid-season trades to acquire draft capital (traded Diontae Johnson and Jonathan Mingo during 2024 season for picks)",
+      "Willingness to trade down when value is available (traded down from 39 in 2024 R2 to acquire future 2025 2nd)"
+    ],
+    "draft_capital_philosophy": "Uses mid-season trades of underperforming or expendable veterans to accumulate future draft picks. Not afraid to trade up for identified targets but also showed ability to trade down for value in the 2024 draft. Prefers consolidating Day 2 picks into higher selections rather than accumulating volume."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "EDGE",
+        "WR",
+        "CB"
+      ],
+      "tier_2_high": [
+        "DT",
+        "OT",
+        "S",
+        "LB"
+      ],
+      "tier_3_mid": [
+        "RB",
+        "TE",
+        "IOL"
+      ],
+      "tier_4_low": [
+        "QB (as backup developmental), K, P"
+      ]
+    },
+    "position_avoidance": [
+      "Has not drafted OT or IOL in any round across two drafts despite offensive line being a stated priority \u2014 filled OL needs entirely through free agency (Robert Hunt, Damien Lewis). May indicate he views OL as better acquired via FA than draft."
+    ],
+    "position_premium": [
+      "EDGE \u2014 spent both Day 2 picks in 2025 on EDGE, traded up for both. Publicly stated 'I don't think you can have too many really good pass-rushers.' Also values WR highly \u2014 drafted WR in R1 in both 2024 and 2025. LB is a position of personal significance given his playing background."
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Versatile, long-armed pass rushers with multiple pass-rush moves who can stand up or put hand in dirt in a 3-4 scheme. Values size, length, and technique variety over pure speed. Targets players with SEC/Big Ten experience against top competition. Willing to invest heavily here \u2014 doubled up in the same draft. Think power-to-finesse hybrid with a deep bag of rush moves, not a one-trick speed rusher.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5",
+        "weight_range": "244-260 (combine weight; playing weight can be higher \u2014 Scourton played at ~280)",
+        "arm_length_minimum": "33 inches \u2014 both Scourton (33\") and Umanmielen (33.875\") met this threshold",
+        "key_athletic_tests": "Burst and explosiveness indicators matter most (vertical jump, broad jump). Umanmielen: 38\" vert, 126\" broad. 3-cone and short shuttle valued for change-of-direction. Speed score less critical than film.",
+        "speed_requirement": "No hard cutoff observed. Umanmielen ran 4.72, Scourton did not run. Morgan appears to deprioritize 40 time for EDGE in favor of film and pass-rush technique."
+      },
+      "playing_style": {
+        "primary_win_condition": "Multiple pass-rush moves \u2014 both Scourton and Umanmielen win with spin moves, speed-to-power conversion, rip/chop combos, and inside counters. Not a single-move reliance.",
+        "most_valued_traits": [
+          "Pass-rush move repertoire and setup ability",
+          "Length usage and hand technique",
+          "Ability to play in both 2-point and 3-point stance (3-4 scheme versatility)",
+          "Motor and competitive effort",
+          "Run defense competence at the point of attack"
+        ],
+        "least_important_traits": [
+          "Elite 40-yard dash time \u2014 neither drafted EDGE was a timed speed freak",
+          "Coverage ability \u2014 these are rush-first OLBs"
+        ],
+        "deal_breakers": [
+          "One-dimensional rushers who can only win with speed around the edge",
+          "Players who cannot set the edge against the run \u2014 the 3-4 demands this",
+          "Lack of technique or limited pass-rush move arsenal"
+        ],
+        "traits_that_make_them_reach": "Youth and upside \u2014 Scourton was just 20 years old at the time of the draft. Morgan traded up for both EDGE picks, suggesting he'll pay a premium for pass-rush potential."
+      },
+      "college_production": {
+        "production_floor": "Both EDGE picks had significant sack production: Scourton had 10 sacks (2023) and 5 sacks (2024 in SEC), Umanmielen had 10.5 sacks at Ole Miss in 2024. Floor appears to be ~5 sacks in final season.",
+        "production_trajectory": "Prefers ascending production. Both Scourton and Umanmielen had their best seasons most recently before the draft, suggesting Morgan values current-year momentum.",
+        "context_sensitivity": "High \u2014 both players faced SEC competition, which Morgan clearly values. Scourton transferred from Purdue (Big Ten) to Texas A&M (SEC) and produced against top competition."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2025 2.51 \u2014 Nic Scourton (traded up): 6-3, 257, 33\" arms. 10 sacks at Purdue, 5 sacks vs SEC at Texas A&M. Power-finesse hybrid with spin move and bull rush. Just 20 years old.",
+          "2025 3.77 \u2014 Princely Umanmielen (traded up): 6-4, 244, 33.875\" arms, 4.72 40. 10.5 sacks at Ole Miss. Speed-to-power converter with deep pass-rush repertoire. First-Team All-SEC."
+        ]
+      },
+      "confidence": "medium-high"
+    },
+    "WR": {
+      "archetype_summary": "Big-bodied, physical contested-catch receivers with size, length, and playmaking ability. Not looking for slot-only or pure route-running technicians \u2014 wants receivers who can win in traffic, present a large catch radius, and make plays downfield. Think Mike Evans/DK Metcalf mold rather than Tyreek Hill or slot specialists. Values alignment versatility (outside and slot) and the ability to generate yards after catch through physicality, not just speed.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4",
+        "weight_range": "219-221",
+        "arm_length_minimum": "No clear minimum, but both picks had large catch radii \u2014 McMillan: 31.5\" arms, 10\" hands; Legette: strong build at 221 lbs",
+        "key_athletic_tests": "Vertical jump as explosiveness/ball-tracking proxy (Legette: 40\"). Speed matters but is secondary to contested-catch ability. McMillan ran a reported 4.55-4.58 and was still the pick at 8.",
+        "speed_requirement": "No hard 40-time cutoff. Legette ran 4.39, McMillan approximately 4.55-4.58. Morgan will take a slower but bigger/more productive receiver if the film supports it."
+      },
+      "playing_style": {
+        "primary_win_condition": "Contested catches and winning at the catch point through size, length, and body control",
+        "most_valued_traits": [
+          "Contested-catch ability and catch radius",
+          "Size and physicality to win in traffic",
+          "Alignment versatility (X, Z, and slot)",
+          "Yards-after-catch through physicality and balance",
+          "Red zone threat / scoring ability"
+        ],
+        "least_important_traits": [
+          "Elite 40-yard dash time \u2014 will take physical contested-catch winners over pure speed",
+          "Polished route running \u2014 both picks were described as needing route development"
+        ],
+        "deal_breakers": [
+          "Small-framed receivers without physical play style",
+          "Receivers who can't win contested catches despite size"
+        ],
+        "traits_that_make_them_reach": "Elite athletic testing combined with size \u2014 Legette's 4.39/40\" vert at 221 lbs earned a trade-up to R1. College production validates the athleticism."
+      },
+      "college_production": {
+        "production_floor": "Both WR picks were highly productive: Legette had 71-1255-7 in his final season; McMillan had 84-1319-8 as a junior and 213-3423-26 career. Morgan wants significant college production.",
+        "production_trajectory": "Mixed signals \u2014 Legette was a late breakout (5th-year senior, minimal prior production), while McMillan was a three-year starter who produced from day one as a true freshman. Morgan doesn't appear to penalize late breakouts if the final year production is dominant.",
+        "context_sensitivity": "Moderate \u2014 Legette was the only real threat in South Carolina's offense; McMillan was the primary target at Arizona. Morgan adjusts for role and opportunity."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2024 1.32 \u2014 Xavier Legette (traded up 1 spot): 6-1, 221, 4.39 40, 40\" vert. Late breakout at South Carolina: 71-1255-7 as 5th-year senior. DK Metcalf-type physical profile. Contested-catch specialist.",
+          "2025 1.8 \u2014 Tetairoa McMillan: 6-4, 219, 31.5\" arms, 10\" hands. 213-3423-26 career at Arizona. Won Offensive Rookie of the Year with 70-1014-7. Possession/X-receiver with size, hands, and catch-point dominance."
+        ]
+      },
+      "confidence": "high"
+    },
+    "LB": {
+      "archetype_summary": "Athletic, rangy linebackers with sideline-to-sideline speed, coverage ability, and leadership traits. As a former Pro Bowl MLB, Morgan has exceptionally high standards here and publicly calls this position one he wants to 'attack.' Values speed (4.51 or faster for off-ball), blitz ability, and the intangible of being the defensive signal-caller. Wants three-down players who can cover TEs and RBs, not just run stuffers.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-2",
+        "weight_range": "237-244",
+        "arm_length_minimum": "32+ inches (Wallace: 32.63\")",
+        "key_athletic_tests": "40-yard dash is critical \u2014 Wallace ran 4.51 (93rd percentile for LB). Broad jump (Wallace: 127\", 88th percentile). Morgan wants elite-level athletes at LB.",
+        "speed_requirement": "4.55 or faster preferred. Wallace's 4.51 was a key selling point."
+      },
+      "playing_style": {
+        "primary_win_condition": "Sideline-to-sideline range and coverage ability in a 3-4 scheme",
+        "most_valued_traits": [
+          "Elite athleticism and speed for the position",
+          "Coverage ability against TEs and RBs",
+          "Blitz ability and pass-rush upside",
+          "Leadership and communication ('standing in front of that huddle')",
+          "Tackling consistency in space"
+        ],
+        "least_important_traits": [
+          "Run-stuffing ability as a primary trait \u2014 Wallace was drafted more for athletic upside than run-stopping"
+        ],
+        "deal_breakers": [
+          "Slow, non-athletic thumpers who can't cover",
+          "Poor leadership/communication \u2014 Morgan explicitly stated the LB must be a leader the defense follows"
+        ],
+        "traits_that_make_them_reach": "Elite athletic testing at LB \u2014 Wallace's 9.65 RAS was a strong factor. Morgan also explicitly said at the 2026 combine he wants 'leaders, playmakers, and culture fits' at LB."
+      },
+      "college_production": {
+        "production_floor": "Wallace had 80 tackles, 5.5 sacks, 1 INT in final season. Also drafted Michael Barrett (R7): 84.3 PFF grade, 9th among FBS LBs. Production matters but athletic traits can override modest stats.",
+        "production_trajectory": "Wallace was a three-year contributor who peaked as a junior captain. Morgan values ascending production and maturity.",
+        "context_sensitivity": "Moderate \u2014 adjusts for defensive scheme usage and role."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2024 3.72 \u2014 Trevin Wallace: 6-1, 237, 4.51 40, 32.63\" arms, 127\" broad jump. 80 tackles, 5.5 sacks, 1 INT at Kentucky. Elite athlete, RAS 9.65. Drafted for 'dawg mentality.'",
+          "2024 7.240 \u2014 Michael Barrett: 5-11, 226. Michigan captain, 84.3 PFF grade. Three-down LB with leadership traits. Excellent value pick."
+        ]
+      },
+      "confidence": "medium-high"
+    },
+    "RB": {
+      "archetype_summary": "Dynamic, versatile backs who can contribute as runners and receivers, with enough explosion to create big plays. Not looking for pure power backs or plodders \u2014 wants twitchy, quick-cutting runners who can break tackles and score touchdowns. Values youth and upside. Willing to invest a Day 2 pick at the position, which is increasingly rare in the modern NFL. Morgan explicitly said he values players who 'can score.'",
+      "physical_profile": {
+        "height_range": "5-10 to 6-1",
+        "weight_range": "207-216",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Quickness and lateral agility prioritized (short shuttle, 3-cone). Brooks was unable to test at combine but film showed elite lateral explosion. Etienne: speed and return ability.",
+        "speed_requirement": "No hard 40 cutoff \u2014 Brooks didn't run. Values game speed and elusiveness over timed speed."
+      },
+      "playing_style": {
+        "primary_win_condition": "Explosiveness, vision, and ability to create yards in space",
+        "most_valued_traits": [
+          "Lateral agility and cut ability",
+          "Receiving ability out of the backfield",
+          "Tackle-breaking and elusiveness",
+          "Touchdown-scoring ability (Morgan: 'looking for guys who can score')",
+          "Versatility as runner/receiver/returner"
+        ],
+        "least_important_traits": [
+          "Pure between-the-tackles power \u2014 neither Brooks nor Etienne are power backs"
+        ],
+        "deal_breakers": [
+          "One-dimensional early-down grinders without receiving or big-play ability",
+          "Injury concerns alone don't disqualify \u2014 Brooks was drafted despite torn ACL"
+        ],
+        "traits_that_make_them_reach": "Dynamic playmaking ability and scoring upside. Morgan traded up for Brooks at 46 in R2 despite ACL recovery, showing willingness to bet on talent."
+      },
+      "college_production": {
+        "production_floor": "Brooks: 1,139 rushing yards, 10 TDs, 286 receiving yards in 11 games. Etienne: change-of-pace/return specialist role at Georgia. Floor varies by round \u2014 Day 2 RBs need significant production, Day 3 can be role players.",
+        "production_trajectory": "Brooks was ascending (6.1 YPC breakout season). Etienne was a complementary back. Morgan doesn't require bellcow usage history.",
+        "context_sensitivity": "Moderate \u2014 values production efficiency (YPC, missed tackles forced) over raw volume."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2024 2.46 \u2014 Jonathon Brooks (traded up): 6-0, 216. Texas, 1,139 yards, 6.1 YPC, 10 TDs, 286 rec yards. Explosive, twitchy back. Drafted despite ACL injury.",
+          "2025 4.114 \u2014 Trevor Etienne: Georgia. Dynamic returner and change-of-pace back. Brother of Travis Etienne Jr. Versatile skill set. Averaged 4.7 YPC as a rookie."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "TE": {
+      "archetype_summary": "Receiving-first tight end with enough size to contribute as a blocker. Wants athletic pass-catchers who can stress the seam and create mismatches, not traditional inline blockers. The Panthers haven't had a dynamic receiving TE since Greg Olsen, and Morgan is clearly trying to find one. Values size and speed combination at the position.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-5",
+        "weight_range": "245-260",
+        "arm_length_minimum": "No clear threshold from limited data",
+        "key_athletic_tests": "40-yard dash matters \u2014 Sanders ran 4.69, which is solid for TE. Mitchell Evans (R5, 2025) was 6-5, 260 and a strong run blocker. Morgan targets both receiving and blocking TEs.",
+        "speed_requirement": "Sub-4.75 preferred for receiving TEs. Blocking TEs can be slower."
+      },
+      "playing_style": {
+        "primary_win_condition": "Receiving ability and seam-stretching for pass-catching TEs; blocking competence for complementary pieces",
+        "most_valued_traits": [
+          "Receiving ability and route-running from TE alignments",
+          "Size to create mismatches against LBs and safeties",
+          "Red zone target potential",
+          "Run-blocking competence as secondary trait"
+        ],
+        "least_important_traits": [
+          "Elite inline blocking as a primary trait \u2014 drafted Sanders as a receiver-first TE"
+        ],
+        "deal_breakers": [
+          "TEs who are pure blockers with no receiving upside in early rounds",
+          "Limited route trees"
+        ],
+        "traits_that_make_them_reach": "Athletic pass-catching TEs who can be immediate weapons for Bryce Young. Morgan reportedly interested in Kenyon Sadiq for 2026 R1."
+      },
+      "college_production": {
+        "production_floor": "Sanders: 54 catches, 613 yards, 4 TDs at Texas in 2023. Evans was more of a blocking TE. Production bar appears lower for Day 3 blocking TEs.",
+        "production_trajectory": "Sanders was a multi-year contributor at Texas. Morgan values consistency.",
+        "context_sensitivity": "High \u2014 adjusts for TE usage in college offense and blocking role."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2024 4.101 \u2014 Ja'Tavion Sanders: 6-4, 245, 4.69 40. Texas, 54-613-4 in 2023. Receiving-first TE who became starter by mid-rookie year. 76% catch rate in 2025.",
+          "2025 5.163 \u2014 Mitchell Evans: 6-5, 260. Notre Dame. Versatile TE, better blocker than Sanders. 19 catches as rookie on 76% catch rate. 393 offensive snaps."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "CB": {
+      "archetype_summary": "Quick, ball-hawking slot/nickel corner with nose for the football, rather than big outside press-man corners. Limited data (one Day 5 pick), but existing roster context tells the story \u2014 Pro Bowl CB Jaycee Horn and Mike Jackson handle outside duties. Morgan fills CB depth with versatile, instinctive players who can play nickel. Values football IQ and takeaway ability.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-0 (for nickel/depth)",
+        "weight_range": "184-195",
+        "arm_length_minimum": "No clear threshold from limited data",
+        "key_athletic_tests": "Speed is valued but not elite \u2014 Smith-Wade ran 4.54. Instincts and ball skills prioritized.",
+        "speed_requirement": "4.55 or faster for nickel corners. May have different thresholds for outside CBs but hasn't drafted one."
+      },
+      "playing_style": {
+        "primary_win_condition": "Ball skills, instincts, and versatility in coverage",
+        "most_valued_traits": [
+          "Takeaway ability and ball skills (Smith-Wade had 2 INTs at Senior Bowl)",
+          "Versatility to play multiple secondary positions",
+          "Competitive toughness and willingness to tackle",
+          "Football IQ and recognition"
+        ],
+        "least_important_traits": [
+          "Elite size for outside press-man \u2014 filled that role through existing roster (Horn, Jackson)"
+        ],
+        "deal_breakers": [
+          "CB who cannot tackle or play physical in run support",
+          "One-dimensional coverage-only players without ball production"
+        ],
+        "traits_that_make_them_reach": "Ball production in college and demonstrated playmaking instincts"
+      },
+      "college_production": {
+        "production_floor": "Smith-Wade was a senior with solid ball production. Low sample size prevents definitive thresholds.",
+        "production_trajectory": "N/A \u2014 only one CB drafted.",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 5.146 \u2014 Chau Smith-Wade: 5-10, 184, 4.54 40. Washington State. 2 INTs at Senior Bowl. Nickel/slot projection. Special teamer and depth piece."
+        ]
+      },
+      "confidence": "low"
+    },
+    "S": {
+      "archetype_summary": "Physical, box-type safety who excels in run support and can play near the line of scrimmage. Think hard-hitting, versatile defensive backs who add physicality to the secondary. Not drafting rangey single-high free safeties \u2014 that role has been filled via free agency (Tre'von Moehrig). Morgan wants a safety who can be a 'heat-seeking missile' in the run game.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-1",
+        "weight_range": "206-210",
+        "arm_length_minimum": "No clear threshold from single pick",
+        "key_athletic_tests": "Run-game physicality metrics valued. Ransom: 4.53 40, 20 reps bench press. Not elite speed but physical testing.",
+        "speed_requirement": "4.55 or faster preferred. Ransom at 4.53 is adequate for a box safety."
+      },
+      "playing_style": {
+        "primary_win_condition": "Run defense and physicality near the line of scrimmage",
+        "most_valued_traits": [
+          "Run-support tackling and physicality",
+          "Versatility to play multiple safety positions and nickel",
+          "Special teams value",
+          "Championship experience and leadership",
+          "Blitz capability from the safety position"
+        ],
+        "least_important_traits": [
+          "Single-high free safety range \u2014 Ransom's coverage was graded lower than his run defense"
+        ],
+        "deal_breakers": [
+          "Liability in run support",
+          "Cannot tackle in space consistently"
+        ],
+        "traits_that_make_them_reach": "Elite run-defense ability that translates immediately. Ransom's 93.5 PFF run defense grade was likely a major draw."
+      },
+      "college_production": {
+        "production_floor": "Ransom: 76 tackles, 1 INT, 3 forced fumbles, 1 sack in final season. First-Team All-Big Ten at Ohio State. Production matters but physicality on film matters more.",
+        "production_trajectory": "Ransom was a five-year player who improved consistently despite multiple serious injuries. Resilience narrative appeals to Morgan.",
+        "context_sensitivity": "High \u2014 valued Ransom's experience against elite Big Ten competition and national championship performance."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 4.122 \u2014 Lathan Ransom: 6-0, 206, 4.53 40. Ohio State. 76 tackles, 3 FFs, national championship winner. Box safety, 93.5 PFF run defense grade. 51 tackles as a rookie."
+        ]
+      },
+      "confidence": "low-medium"
+    },
+    "DT": {
+      "archetype_summary": "Massive, space-eating interior linemen who can anchor the 3-4 nose tackle spot and absorb double teams. Not looking for penetrating 3-techniques \u2014 the scheme demands two-gap run stuffers who free up linebackers. Huge size (6-5+, 305-330) is prioritized. Pass-rush upside is a bonus, not a requirement.",
+      "physical_profile": {
+        "height_range": "6-5 to 6-6",
+        "weight_range": "305-330",
+        "arm_length_minimum": "34 inches \u2014 Cam Jackson had 34\" arms. Jaden Crumedy at 6-5. Length is critical for 3-4 nose.",
+        "key_athletic_tests": "Size and anchor strength valued over quickness testing. Neither drafted DT was an athletic freak \u2014 they were big, long bodies.",
+        "speed_requirement": "No significant speed requirement for nose tackles. Anchor and run-defense ability are paramount."
+      },
+      "playing_style": {
+        "primary_win_condition": "Two-gap anchor and space occupation in the 3-4 scheme",
+        "most_valued_traits": [
+          "Size and ability to hold the point of attack against double teams",
+          "Arm length and hand usage to control blockers",
+          "Run-stuffing ability and gap discipline",
+          "Push-the-pocket ability (Crumedy was noted for this)",
+          "Motor and effort"
+        ],
+        "least_important_traits": [
+          "Pass-rush move repertoire \u2014 these are run-first DTs",
+          "Athleticism testing numbers"
+        ],
+        "deal_breakers": [
+          "Undersized DTs who get washed out of gaps",
+          "Penetrating-only players who cannot hold the point in a two-gap scheme"
+        ],
+        "traits_that_make_them_reach": "Massive frame with length and run-stuffing ability. Cam Jackson at 6-6, 330, 34\" arms was drafted to take up space inside."
+      },
+      "college_production": {
+        "production_floor": "Neither DT had flashy sack numbers. These are run-defense-first picks. Morgan values film over box score for DT.",
+        "production_trajectory": "Both were SEC products with experience against top competition.",
+        "context_sensitivity": "High \u2014 SEC run defense experience valued."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2024 6.200 \u2014 Jaden Crumedy: 6-5, 305. Mississippi State. Push-the-pocket ability in 3-4 scheme. Depth piece.",
+          "2025 5.140 \u2014 Cam'Ron Jackson: 6-6, 330, 34\" arms. Florida. Massive run-stuffing nose tackle. Space-eater in Evero's 3-4."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "OT": {
+      "archetype_summary": "No OTs drafted in two drafts \u2014 Morgan has filled OL needs exclusively through free agency (Robert Hunt, Damien Lewis) and existing roster (Ikem Ekwonu, Taylor Moton). However, with Ekwonu's patellar tendon injury in the 2025 playoffs and his contract expiring after 2026, OT is now a critical need. Based on scouting tree (Seahawks valued big, athletic OTs; Bills valued versatile linemen), expect Morgan to target large, athletic pass protectors who can protect Bryce Young. Mock drafts project Carolina taking OT in R2-R3 of 2026.",
+      "physical_profile": {
+        "height_range": "6-5 to 6-7 (inferred from scheme and scouting tree)",
+        "weight_range": "310-330 (inferred)",
+        "arm_length_minimum": "34 inches (inferred from Seahawks/Bills OT preferences)",
+        "key_athletic_tests": "Foot speed and pass-blocking ability given Canales' QB-protection emphasis. Athletic testing for OTs likely matters.",
+        "speed_requirement": "N/A \u2014 no OT drafted"
+      },
+      "playing_style": {
+        "primary_win_condition": "Pass protection for Bryce Young \u2014 inferred from Canales' stated priorities",
+        "most_valued_traits": [
+          "Pass protection ability",
+          "Foot speed and lateral agility",
+          "Length and anchor strength",
+          "Experience at left tackle specifically (Ekwonu replacement need)",
+          "Versatility to play both sides"
+        ],
+        "least_important_traits": [
+          "Pure mauling run-blocking ability without pass-pro skills"
+        ],
+        "deal_breakers": [
+          "Cannot be inferred from draft history \u2014 using scouting tree inference only"
+        ],
+        "traits_that_make_them_reach": "Cannot be determined from draft history"
+      },
+      "college_production": {
+        "production_floor": "N/A \u2014 no OTs drafted",
+        "production_trajectory": "N/A",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 0,
+        "examples": []
+      },
+      "confidence": "very_low",
+      "confidence_note": "No OTs drafted under Morgan. Profile entirely inferred from scouting tree, scheme context, and 2026 need (Ekwonu injury). Will need significant revision after 2026 draft."
+    },
+    "IOL": {
+      "archetype_summary": "No IOL drafted in two drafts \u2014 all IOL needs filled via free agency (Robert Hunt $100M deal, Damien Lewis $45.5M deal). Morgan clearly views IOL as a free agency position rather than a draft priority. His first major moves as GM were spending $150M+ on guard upgrades. If forced to draft IOL, expect him to target athletic, scheme-versatile guards who can pull in Canales' zone-run concepts. Center is a 2026 need with Cade Mays and Austin Corbett entering FA.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5 (inferred)",
+        "weight_range": "305-325 (inferred from FA signings: Hunt 6-5/327, Lewis 6-2/327)",
+        "arm_length_minimum": "Cannot be inferred",
+        "key_athletic_tests": "Athleticism and pulling ability for zone concepts",
+        "speed_requirement": "N/A"
+      },
+      "playing_style": {
+        "primary_win_condition": "Run-blocking power and pass-protection anchor (inferred from FA targets)",
+        "most_valued_traits": [
+          "Run-blocking power and physicality",
+          "Pass-protection ability",
+          "Scheme versatility for zone concepts",
+          "Durability and consistency",
+          "Nastiness and physical temperament"
+        ],
+        "least_important_traits": [
+          "Cannot be determined"
+        ],
+        "deal_breakers": [
+          "Cannot be determined from draft history"
+        ],
+        "traits_that_make_them_reach": "Cannot be determined"
+      },
+      "college_production": {
+        "production_floor": "N/A",
+        "production_trajectory": "N/A",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 0,
+        "examples": []
+      },
+      "confidence": "very_low",
+      "confidence_note": "No IOL drafted under Morgan. All IOL upgrades handled via massive free agency spending. Profile inferred from FA targets and scouting tree only."
+    },
+    "QB": {
+      "archetype_summary": "Morgan inherited Bryce Young as the franchise QB and has committed to building around him. However, at the 2026 combine, Morgan stated he wants to 'get a little younger and a little more athletic at that backup quarterback spot.' This suggests he may draft a developmental QB \u2014 young, athletic, dual-threat type \u2014 in the mid-to-late rounds. Not looking for a QB to replace Young, but to develop behind him. Based on combine comments, athleticism matters.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-6 (inferred from stated preference for 'athletic' backup QBs and mock draft connections to Taylen Green at 6-6)",
+        "weight_range": "215-240 (inferred)",
+        "arm_length_minimum": "N/A",
+        "key_athletic_tests": "Athleticism is explicitly stated as important \u2014 Morgan said 'younger and more athletic' at backup QB. Mobility and rushing ability valued.",
+        "speed_requirement": "Must be mobile \u2014 Morgan's comments clearly indicate athletic/dual-threat preference for backup role"
+      },
+      "playing_style": {
+        "primary_win_condition": "Athletic upside and developmental traits as a backup",
+        "most_valued_traits": [
+          "Athleticism and mobility",
+          "Youth and developmental ceiling",
+          "Arm strength",
+          "Competitive toughness and work ethic"
+        ],
+        "least_important_traits": [
+          "Immediate pro-readiness \u2014 this is a developmental pick",
+          "Elite accuracy \u2014 can develop over time behind Young"
+        ],
+        "deal_breakers": [
+          "Pocket-only QBs without athletic upside for the backup role",
+          "Character concerns"
+        ],
+        "traits_that_make_them_reach": "Elite athletic testing at QB (mock drafts connect Panthers to Taylen Green: 4.37 40, 9.99 RAS)"
+      },
+      "college_production": {
+        "production_floor": "Unknown \u2014 no QBs drafted under Morgan. For a Day 3 developmental pick, production floor likely lower.",
+        "production_trajectory": "N/A",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 0,
+        "examples": []
+      },
+      "confidence": "low",
+      "confidence_note": "No QBs drafted under Morgan. Profile based entirely on 2026 combine quotes about wanting 'younger and more athletic' backup. Likely a mid-to-late round pick in 2026."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 8,
+    "max_observed_reach": 15,
+    "round_1_reach_tolerance": 5,
+    "notes": "In 2024, trading up for Legette at 32 was roughly consensus range for him (projected late R1/early R2). In 2025, McMillan at 8 was consensus top-10, so no significant reach. The biggest reaches were likely in middle rounds \u2014 trading up aggressively in R2 and R3 for Scourton and Umanmielen suggests Morgan will pay a premium (multiple picks) to reach identified targets. Scourton was projected mid-to-late 2nd round and was taken at 51 after a trade-up. Overall, Morgan doesn't make massive reaches on consensus boards but is willing to trade up to secure players slightly ahead of their projected slot."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.65,
+    "offensive_scheme": "West Coast foundations under Dave Canales (Pete Carroll coaching tree) with emphasis on establishing the run game and play-action passing. Brad Idzik takes over play-calling in 2026. Zone-run concepts requiring athletic, versatile OL. Quick game and movement-based passing concepts to suit Bryce Young's skill set. Values WR versatility in alignment.",
+    "defensive_scheme": "3-4 base defense under Ejiro Evero (Vic Fangio coaching tree). Heavy soft-zone coverage with bend-don't-break philosophy. Requires: two-gap nose tackles, stand-up OLBs who can rush and set the edge, rangy coverage LBs, and versatile safeties. The scheme directly shapes draft targets \u2014 every defensive pick Morgan has made fits 3-4 personnel requirements. Evero extended through 2027, so scheme stability is high.",
+    "scheme_change_flag": false,
+    "scheme_change_notes": "Play-calling on offense shifts from Canales to OC Brad Idzik in 2026, but the scheme foundation remains the same. Defensive scheme extremely stable with Evero extended. No scheme change expected."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.55,
+    "risk_description": "Moderately aggressive. Willing to draft players with injury risk (Brooks with torn ACL, Ransom with injury history) if the talent justifies it. Trades up assertively when he identifies targets. But most picks are consensus-range talent, not wild upside swings. His biggest gamble was taking McMillan (offense) at 8 when the defense was historically bad \u2014 showed conviction in BPA at the top.",
+    "recency_bias": 0.65,
+    "recency_description": "Moderate-to-significant recency bias. After the defense set historically bad records in 2024, his 2025 draft featured 4 of 8 picks on defense (both EDGE, S, DT). After the playoff loss to the Rams exposed pass-rush and LB deficiencies, he's publicly targeting EDGE and LB in 2026. His stated priorities closely mirror the previous season's exposed weaknesses.",
+    "sunk_cost_behavior": "Willing to move on from underperforming assets aggressively. Traded away Diontae Johnson (acquired via trade) and Jonathan Mingo (2023 2nd-round pick by previous GM) mid-season in 2024 for draft capital. Shows no attachment to players he didn't personally draft.",
+    "combine_weight": 0.45,
+    "combine_description": "Balanced but film-first. McMillan didn't participate in combine drills and was still picked 8th. Scourton refused to run the 40 and was still traded up for. But Legette's combine explosion (4.39/40\" vert at 221) likely helped him into R1. Morgan values combine data to confirm film assessments but won't let poor testing sink a player with great tape, nor will great testing alone earn a pick without film backing it up.",
+    "character_weight": 0.75,
+    "character_description": "Very high character standards. Morgan consistently emphasizes 'dawg mentality,' 'culture fits,' and toughness \u2014 language that reflects his playing background under John Fox's 'tough and smart' mantra. He has explicitly described looking for players others respect and follow. His mentors (Schneider, Beane) both emphasized culture heavily. Morgan has not drafted any known character risks in early rounds.",
+    "quarterback_philosophy": "Fully committed to Bryce Young as the franchise QB. Will not draft a first-round QB. However, open to drafting a young, athletic developmental backup in the mid-to-late rounds. Believes in surrounding Young with weapons and protection rather than hedging at the position. Has publicly defended and praised Young's growth repeatedly."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.6,
+    "production_vs_projection": "Leans toward productive college players but makes exceptions for elite athletes. McMillan (213-3423-26 career) and Legette (71-1255-7 final year) were both highly productive. Scourton had 15 career sacks across two schools. Even Day 3 picks like Barrett had strong PFF grades. Morgan's one clear projection bet was Legette \u2014 a late breakout with one productive season but elite athleticism \u2014 but even that came with massive final-year production. Overall, production is a baseline requirement, with athleticism and traits as tiebreakers.",
+    "production_thresholds_by_position": {
+      "WR": "Both WRs drafted had 70+ catches and 1,000+ yards in their final/peak college season",
+      "RB": "Brooks had 1,139 yards and 10 TDs in 11 games. Etienne was a change-of-pace back \u2014 lower bar for Day 3 RBs",
+      "EDGE": "Both EDGE picks had 5+ sacks minimum (Scourton: 10 + 5; Umanmielen: 10.5). 5 sacks appears to be a floor for Day 2 EDGE picks",
+      "LB": "Wallace: 80 tackles, 5.5 sacks. Barrett: 84.3 PFF grade. Production needs to be visible on the stat sheet or advanced metrics",
+      "CB": "No clear threshold \u2014 only 1 late-round CB drafted",
+      "DT": "No sack-based threshold \u2014 run defense film matters more than box score"
+    },
+    "breakout_age_sensitivity": 0.4,
+    "dominator_rating_sensitivity": 0.55,
+    "notes": "Legette was a clear late breakout (5th-year senior, prior seasons unremarkable) while McMillan produced from true freshman year. Morgan doesn't appear to strictly penalize or reward breakout age \u2014 final-season dominance matters more than when it started. Dominator rating matters moderately \u2014 McMillan dominated Arizona's target share, Legette was the only weapon at South Carolina."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "WR": {
+        "min_height": "6-1",
+        "min_weight": 219,
+        "notes": "Both WRs drafted were big-bodied. Appears to have a size floor for early-round WRs.",
+        "confidence": "medium"
+      },
+      "EDGE": {
+        "min_arm_length": "33 inches",
+        "notes": "Both EDGE picks had 33\"+ arms. Scheme demands length.",
+        "confidence": "medium"
+      },
+      "LB": {
+        "40_max": 4.55,
+        "notes": "Wallace ran 4.51. Morgan wants fast LBs.",
+        "confidence": "low-single pick"
+      },
+      "DT": {
+        "min_height": "6-5",
+        "min_weight": 305,
+        "notes": "Both DTs drafted were 6-5+, 305+. 3-4 nose demands size.",
+        "confidence": "medium"
+      },
+      "S": {
+        "no_hard_threshold": true,
+        "notes": "Ransom ran 4.53 at 206. Physical box safety profile valued over speed.",
+        "confidence": "low-single pick"
+      }
+    },
+    "threshold_type": "Mostly soft preferences given the small sample size. The EDGE arm length minimum (33\") and WR size (6-1+, 219+) appear to be the firmest patterns. DT size requirements are scheme-driven.",
+    "size_preferences_by_position": {
+      "WR": "6-1+ and 219+ lbs \u2014 both picks were big-bodied contested-catch receivers",
+      "EDGE": "6-3+ with 33\"+ arms \u2014 scheme demands length for the 3-4 OLB role",
+      "DT": "6-5+ and 305+ \u2014 massive two-gap nose tackles for 3-4",
+      "LB": "6-0 to 6-2, 237-244 \u2014 athletic and rangy",
+      "RB": "5-10 to 6-1 \u2014 versatile, not necessarily huge"
+    },
+    "athletic_testing_favorites": "Vertical jump and broad jump as explosiveness indicators appear to be valued across positions (Legette: 40\" vert; Wallace: 127\" broad; Umanmielen: 126\" broad, 38\" vert). Morgan may use these as cross-position explosiveness proxies. 40-yard dash matters for some positions (WR, LB) but not others (EDGE, DT).",
+    "measurables_vs_film": "Film-first. McMillan didn't participate in combine drills and was taken 8th overall. Scourton didn't run the 40 and was a trade-up target at 51. Morgan will draft players who refuse to test if the film is compelling. However, elite athletic testing (Legette, Wallace) can confirm a player and push them up the board."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Takes the best player available at a position of need, with a slight lean toward BPA when the talent gap is clear. Both R1 picks were WRs who were consensus top-tier talents. Willing to trade up one spot (2024) or sit and take the best available (2025). Premium positions only in R1.",
+    "round_2_3_strategy": "This is where Morgan shifts aggressively to need-filling and is most willing to trade up. Both 2025 Day 2 picks involved trading up to grab EDGE rushers. In 2024, traded up for RB Brooks. Day 2 is where Morgan is most active and most willing to pay a premium to fill critical roster holes. Expect 1-2 trade-ups per draft in this range.",
+    "day_3_strategy": "Fills remaining roster needs, targets scheme-specific role players, and takes developmental athletes. Day 3 picks include: TE (Sanders R4), CB (Smith-Wade R5), DT (Crumedy R6, Cam Jackson R5), S (Ransom R4), RB (Etienne R4), TE (Evans R5), WR (Horn Jr. R6), LB (Barrett R7). Wide position range with emphasis on defensive depth and special teams contributors. Takes occasional 'traits over production' bets here.",
+    "compensatory_pick_usage": "Panthers did not receive compensatory picks in 2025 due to being net FA spenders. No pattern to analyze yet."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "WR": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "McMillan was OROY with 70-1014-7. Legette has been outperformed by UDFA Jalen Coker. Split results \u2014 one hit, one miss so far."
+      },
+      "EDGE": {
+        "picks": 2,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Both 2025 picks showed promise (Scourton: 46 tackles, 3.5 sacks; Umanmielen: 24 tackles, 1.5 sacks) but neither started. Still developing \u2014 too early to judge. Scourton suffered collapsed lung in preseason."
+      },
+      "LB": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Wallace became a starter with 61 tackles in 12 games in 2025 before shoulder injury. Barrett contributed on special teams. Solid."
+      },
+      "RB": {
+        "picks": 2,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Brooks has been plagued by ACL recovery and barely played. Etienne contributed as returner and averaged 4.7 YPC in limited touches. Incomplete data."
+      },
+      "TE": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Sanders became starter by mid-2024. Evans exceeded expectations for a 5th-round pick with 19 catches. Solid hit rate."
+      },
+      "S": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Ransom had 51 tackles as a rookie in a rotational role. Promising but not yet a starter."
+      },
+      "DT": {
+        "picks": 2,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Late-round depth picks. Cam Jackson contributed in rotation. Appropriate expectations for R5-R6 picks."
+      },
+      "CB": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Smith-Wade is a backup and special teamer. Appropriate for a R5 pick."
+      }
+    },
+    "blind_spots": [
+      "RB evaluation is a potential concern \u2014 Brooks has barely played through two seasons due to ACL recovery, and that injury was known at draft time. WR evaluation is split \u2014 Legette was a possible reach who's been outplayed by an UDFA, though McMillan was a smash hit."
+    ],
+    "strengths": [
+      "WR evaluation at the top \u2014 McMillan was OROY. TE evaluation shows promise with two productive picks. LB evaluation (Wallace) has been solid. EDGE investment is heavy and still developing \u2014 too early to grade definitively but the process (trading up for two EDGE rushers) shows conviction."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Aggressive FA spender who fills immediate needs through veteran signings, then uses the draft for BPA and remaining needs. In his first offseason (2024), Morgan spent ~$150M on OL upgrades (Hunt, Lewis) and addressed other needs via trade (Diontae Johnson). In 2025, signed safety Tre'von Moehrig, EDGE Patrick Jones II, and RB Rico Dowdle. Uses FA to fill 2-3 starting-caliber holes, then drafts around them.",
+    "fa_draft_correlation": "When Morgan fills a position in FA, he deprioritizes it in the draft unless depth is needed. Spent big on OL in FA \u2192 has never drafted OL. Signed Moehrig at safety \u2192 drafted Ransom as a Day 3 complementary piece, not a premium pick. The positions he hasn't addressed in FA (EDGE, WR, LB) are where he invests premium draft capital.",
+    "roster_construction_philosophy": "Build the foundation through aggressive free agency spending at non-premium positions (OL, veteran safety, veteran EDGE), then use premium draft capital on high-ceiling young players at skill positions and pass rush. Draft for ceiling and development; sign for floor and immediate impact. This mirrors the Buffalo Bills model under Beane."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 15,
+    "notable_patterns": [
+      "7 of 15 picks were on defense (EDGE x2, LB x2, DT x2, S x1, CB x1), 8 on offense (WR x2, RB x2, TE x2, WR x1 Day 3, RB Day 3)",
+      "Both first-round picks were WRs \u2014 Morgan clearly values premier pass-catching weapons for Bryce Young",
+      "Doubled up on EDGE in 2025 (R2 + R3) and traded up for both \u2014 shows willingness to flood a position of need",
+      "Has never drafted an OT, IOL, or QB in any round \u2014 fills these through FA",
+      "Traded up in R1 (2024), R2 (2025), and R3 (2025) \u2014 aggressive trade-up tendencies on Day 1-2",
+      "Also traded down in 2024 (R2, 39 to 52 + 155 + 2025 2nd) \u2014 can go both directions",
+      "Every defensive pick fits the 3-4 scheme: stand-up EDGE, two-gap DT, athletic LB, box safety",
+      "Explicitly values 'dawg mentality' and 'culture fits' \u2014 character is a major evaluation criterion"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2024,
+        "pick": "1.32",
+        "player": "Xavier Legette",
+        "position": "WR",
+        "consensus_rank": "Late R1/early R2",
+        "reach_amount": 5,
+        "context": "Traded up 1 spot from 33 to 32 to get into R1 for Legette. Some analysts had him as a R2 pick. Morgan prioritized his elite athleticism and size. Has been outperformed by UDFA Jalen Coker through two seasons."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2025,
+        "pick": "1.8",
+        "player": "Tetairoa McMillan",
+        "position": "WR",
+        "consensus_rank": "Top 8-10",
+        "value_amount": 0,
+        "context": "Consensus top-10 pick who fell to 8. Won Offensive Rookie of the Year with 70-1014-7 line. Clear value pick."
+      },
+      {
+        "year": 2024,
+        "pick": "7.240",
+        "player": "Michael Barrett",
+        "position": "LB",
+        "consensus_rank": "198 on PFF Big Board",
+        "value_amount": 42,
+        "context": "PFF had Barrett ranked 198th overall. Taken at 240. Michigan captain with 84.3 PFF grade, 9th among FBS LBs. Excellent value in R7."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_notes": "Two drafts of data as Panthers GM. Previous roles in Seattle and Buffalo provide supplementary signal for evaluation philosophy but no direct draft picks to analyze. The 2024 draft was resource-constrained (no 1st-round pick, limited capital from prior regime's Bryce Young trade). The 2025 draft was Morgan's first with full resources and showed his most aggressive tendencies (trade-ups, EDGE doubling). Profile should be refreshed after 2026 draft, which will be Morgan's third and most informative cycle. Key areas of uncertainty: OT/IOL preferences (never drafted), QB archetype (never drafted), CB archetype (only one late-round pick). The 2026 draft is expected to address EDGE, LB, OT, and possibly QB \u2014 all positions with thin or no draft history under Morgan.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

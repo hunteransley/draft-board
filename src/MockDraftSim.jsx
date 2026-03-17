@@ -9,6 +9,7 @@ import { DEPTH_GROUPS, ALL_SLOTS, TEAM_SCHEME, TEAM_ABBR, getFormationPos, getSc
 import { POS_DRAFT_VALUE, RANK_OVERRIDES, GRADE_OVERRIDES, TEAM_PROFILES, SCHEME_INFLECTIONS, DRAFT_ORDER, getPickRound } from "./draftConfig.js";
 import { TEAM_NEEDS_COUNTS } from "./teamNeedsData.js";
 import { ROSTER_BY_SLOT, ROSTER_BY_NAME, formatContract, formatTradeValue, TIER_COLORS, AVAILABILITY_DISPLAY } from "./rosterValueData.js";
+import { GM_PARAMS, generateSimNoise, generateAllBoards, pickFromBoard, normalizeAbbr } from "./gmBoardGenerator.js";
 // Canvas-based share image (no html2canvas dependency)
 
 // Suffix-aware short name: "Rueben Bain Jr." → "Bain Jr." not "Jr."
@@ -73,6 +74,7 @@ const FormationChart=memo(({team,depthChart,mono,sans})=>{
   const faAbbr=TEAM_ABBR[team]||team;
   const faList=FA_FLAGS[faAbbr]||[];
   return(<svg viewBox="-2 -2 104 109" style={{width:"100%"}}>
+    <style>{`@keyframes draftPulse{0%{r:2.4;opacity:1}50%{r:4;opacity:.6}100%{r:2.4;opacity:1}}`}</style>
     <rect x="-2" y="-2" width="104" height="109" rx="4" fill="none" stroke="none"/>
     {[20,40,58,75,90].map(y=><line key={y} x1="2" y1={y} x2="98" y2={y} stroke="rgba(0,0,0,0.04)" strokeWidth="0.3"/>)}
     <line x1="2" y1="58" x2="98" y2="58" stroke={accent+"44"} strokeWidth="0.5" strokeDasharray="2,1.5"/>
@@ -87,7 +89,7 @@ const FormationChart=memo(({team,depthChart,mono,sans})=>{
       const isFa=filled&&!isDraft&&faList.includes(entry.name);
       return(<g key={slot}>
         {isFa&&<circle cx={pos.x} cy={pos.y} r={3.2} fill="none" stroke="#f97316" strokeWidth="0.4"/>}
-        <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={isDraft?"#7c3aed":filled?dotColor:"#a3a3a3"} strokeWidth={isDraft?"0.5":"0.2"}/>
+        <circle cx={pos.x} cy={pos.y} r={filled?2.4:1.6} fill={dotColor} stroke={isDraft?"#7c3aed":filled?dotColor:"#a3a3a3"} strokeWidth={isDraft?"0.5":"0.2"} style={isDraft?{animation:"draftPulse 1.2s ease-in-out 1"}:undefined}/>
         {isDraft&&<polygon transform={`translate(${pos.x},${pos.y})`} points="0,-1.2 0.28,-0.39 1.14,-0.37 0.46,0.15 0.71,0.97 0,0.48 -0.71,0.97 -0.46,0.15 -1.14,-0.37 -0.28,-0.39" fill="white" style={{pointerEvents:"none"}}/>}
         <text x={pos.x} y={pos.y-3} textAnchor="middle" fill="#a3a3a3" fontSize="1.8" fontFamily={mono}>{pos.label||slot.replace(/\d$/,'')}</text>
         {filled&&<text x={pos.x} y={pos.y+4.5} textAnchor="middle" fill={isDraft?"#7c3aed":"#525252"} fontSize={isDraft?"2.2":"1.8"} fontWeight={isDraft?"bold":"normal"} fontFamily={sans}>{lastName}</text>}
@@ -104,8 +106,10 @@ const DepthList=memo(({team,depthChart,mono,sans})=>{
   const baseGroupMap={};
   DEPTH_GROUPS.forEach(g=>{baseGroupMap[g.posMatch]=g.slots;});
   const faPill=(name)=>faList.includes(name)&&<span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:"#f97316",background:"rgba(249,115,22,0.08)",padding:"2px 6px",borderRadius:99}}>FA</span>;
+  const draftFadeStyle={animation:"draftNameFadeIn 0.4s ease-out both"};
   const tierDot=(slot,name)=>{const rv=ROSTER_BY_SLOT[team]?.[slot]||(name&&ROSTER_BY_NAME[name]);const tc=rv?TIER_COLORS[rv.performanceTier]:null;return tc?<span style={{width:5,height:5,borderRadius:3,background:tc,flexShrink:0}} title={rv.performanceTier}/>:null;};
   return(<div style={{marginTop:2}}>
+    <style>{`@keyframes draftNameFadeIn{from{opacity:0;transform:translateX(6px)}to{opacity:1;transform:translateX(0)}}`}</style>
     {groups.map((group,gi)=>{
       const entries=group.slots.map(s=>({slot:s,entry:chart[s]})).filter(x=>x.entry);
       const extras=Object.entries(chart).filter(([k])=>group.slots.some(s=>k.startsWith(s+"_d"))).map(([k,v])=>({slot:k,entry:v}));
@@ -117,13 +121,13 @@ const DepthList=memo(({team,depthChart,mono,sans})=>{
         {entries.map(({slot,entry})=>(<div key={slot} style={{fontFamily:sans,fontSize:11,padding:"2px 0",display:"flex",alignItems:"center",gap:6}}>
           <span style={{fontFamily:mono,color:"#d4d4d4",width:24,fontSize:9,flexShrink:0}}>{group.slotLabels?.[slot]||slot}</span>
           {entry.isDraft
-            ?<span style={{fontFamily:sans,fontWeight:700,fontSize:11,color:"#7c3aed",background:"rgba(124,58,237,0.06)",padding:"1px 6px",borderRadius:4}}>{entry.name}</span>
+            ?<span style={{fontFamily:sans,fontWeight:700,fontSize:11,color:"#7c3aed",background:"rgba(124,58,237,0.06)",padding:"1px 6px",borderRadius:4,...draftFadeStyle}}>{entry.name}</span>
             :<>{tierDot(slot,entry.name)}<span style={{fontFamily:sans,fontWeight:400,fontSize:11,color:entry.isTraded?"#a855f7":"#525252"}}>{entry.name}</span>{entry.isTraded&&<span style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 4px",borderRadius:2}}>TRD</span>}{faPill(entry.name)}</>}
         </div>))}
         {extras.map(({slot,entry})=>(<div key={slot} style={{fontFamily:sans,fontSize:11,padding:"2px 0",display:"flex",alignItems:"center",gap:6}}>
           <span style={{fontFamily:mono,color:"#d4d4d4",width:24,fontSize:9,flexShrink:0}}>+</span>
           {entry.isDraft
-            ?<span style={{fontFamily:sans,fontWeight:700,fontSize:11,color:"#7c3aed",background:"rgba(124,58,237,0.06)",padding:"1px 6px",borderRadius:4}}>{entry.name}</span>
+            ?<span style={{fontFamily:sans,fontWeight:700,fontSize:11,color:"#7c3aed",background:"rgba(124,58,237,0.06)",padding:"1px 6px",borderRadius:4,...draftFadeStyle}}>{entry.name}</span>
             :<>{tierDot(slot,entry.name)}<span style={{fontFamily:sans,fontWeight:400,fontSize:11,color:entry.isTraded?"#a855f7":"#525252"}}>{entry.name}</span>{entry.isTraded&&<span style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 4px",borderRadius:2}}>TRD</span>}{faPill(entry.name)}</>}
         </div>))}
       </div>);
@@ -372,8 +376,10 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
   const tradeDeclinedRef=useRef(0);
   const boardNoiseRef=useRef({});
   const wobbledProfilesRef=useRef({});
+  const gmBoardsRef=useRef({});
 
   const generateBoardNoise=useCallback((boardToUse)=>{
+    // Legacy noise generation (kept for trade evaluation compatibility)
     const noise={};const wobbled={};
     const teams=[...new Set(DRAFT_ORDER.map(d=>d.team))];
     teams.forEach(team=>{
@@ -388,7 +394,12 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     });
     boardNoiseRef.current=noise;
     wobbledProfilesRef.current=wobbled;
-  },[]);
+    // Generate per-GM boards using the new board generator
+    const prospectIds=boardToUse.map(p=>p.id);
+    const {noise:gmNoise,wobbled:gmWobbled}=generateSimNoise(prospectIds);
+    const boards=generateAllBoards(boardToUse,gmNoise,schemeFits);
+    gmBoardsRef.current=boards;
+  },[schemeFits]);
 
   // Auto-launch when coming from home screen CTA with a team pre-selected
   const hasAutoLaunched=useRef(false);
@@ -465,176 +476,35 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
   const picksRef=useRef(picks);picksRef.current=picks;
   const recentPosCountsRef=useRef(recentPosCounts);recentPosCountsRef.current=recentPosCounts;
   const cpuPick=useCallback((team,avail,pickNum)=>{
-    const needs=teamNeeds[team]||["QB","WR","DL"];
-    const dn=TEAM_NEEDS_COUNTS?.[team]||{};
-    const prof=wobbledProfilesRef.current[team]||TEAM_PROFILES[team]||{bpaLean:0.55,posBoost:[],posPenalty:[],stage:"retool",reachTolerance:0.3,variance:2,gposBoost:[]};
+    // #1 overall is always consensus #1
     if(pickNum===1){const m=avail.find(id=>{const p=prospectsMap[id];return p&&p.name==="Fernando Mendoza";});if(m)return m;}
 
-    // Elite slide protection removed — transcendent tier + ceiling bumps + EDGE flex handle this organically now
     const round=getPickRound(pickNum);
+    const abbr=normalizeAbbr(TEAM_ABBR[team]||team);
+    const board=gmBoardsRef.current[abbr];
 
-    // === STAGE-BASED BPA/NEED SHIFTS ===
-    // Dynasty: talent-first, can afford luxury picks — heavy BPA
-    // Contend: filling specific holes to make a run — heavy needs, willing to reach
-    // Rebuild: accumulate talent early, fill needs later — BPA early, needs late
-    // Retool: balanced approach
-    let stageBpaShift=0, stageNeedShift=0;
-    if(prof.stage==="dynasty"){stageBpaShift=0.15;stageNeedShift=-0.12;}
-    else if(prof.stage==="contend"){stageBpaShift=-0.08;stageNeedShift=0.18;}
-    else if(prof.stage==="rebuild"){stageBpaShift=round<=2?0.12:-0.05;stageNeedShift=round<=2?-0.1:0.15;}
+    // Fallback: if no board generated for this team, use first available
+    if(!board||board.length===0)return avail[0];
 
-    const bpaW=0.6+prof.bpaLean*0.8+stageBpaShift;
-    const needW=1.15-prof.bpaLean+stageNeedShift;
-    // Round shifts: all teams get more need-heavy later, but personality sets the baseline
-    const roundNeedShift=round<=2?0:round<=4?0.15:0.3;
-    const roundBpaShift=round<=2?0:round<=4?-0.1:-0.2;
-    const finalBpaW=Math.max(0.3,bpaW+roundBpaShift);
-    const finalNeedW=Math.max(0.2,needW+roundNeedShift);
+    // Build available set
+    const availSet=new Set(avail);
 
-    // Track positions already drafted this draft
-    const teamDrafted=picksRef.current.filter(pk=>pk.team===team).map(pk=>{const p=prospectsMap[pk.playerId];return p?p.pos:null;}).filter(Boolean);
-    const posCounts={};teamDrafted.forEach(pos=>{posCounts[pos]=(posCounts[pos]||0)+1;});
+    // Track positions already drafted by this team — with pick numbers for proximity
+    const teamPickHistory=picksRef.current.filter(pk=>pk.team===team).map(pk=>{const p=prospectsMap[pk.playerId];return p?{pos:p.gpos||p.pos,pick:pk.pick}:null;}).filter(Boolean);
+    const posCounts={};teamPickHistory.forEach(h=>{posCounts[h.pos]=(posCounts[h.pos]||0)+1;});
 
-    // Score every available player
-    const scored=[];
-    avail.forEach(id=>{
-      const p=prospectsMap[id];if(!p)return;
-      const pos=p.pos;
-      const rawBaseGrade=getConsensusGrade?getConsensusGrade(p.name):(gradeMap[id]||50);
-      const baseGrade=rawBaseGrade+(boardNoiseRef.current[team]?.[id]||0);
-      const grade=GRADE_OVERRIDES[p.name]?Math.max(baseGrade,GRADE_OVERRIDES[p.name]):baseGrade;
-      const rawRank=getConsensusRank?getConsensusRank(p.name):999;
-      const consRank=RANK_OVERRIDES[p.name]||rawRank;
-      const nc=dn[pos]||0;const ni=needs.indexOf(pos);
-      const nm=nc>=3?18:nc>=2?12:nc===1?8:ni>=0&&ni<3?5:ni>=0?2:(round>=3?-6:0);
-      // Elite-grade players (88+) bypass positional discount — their talent transcends position value
-      const gpos=p.gpos||p.pos;
-      let rawPm=POS_DRAFT_VALUE[gpos]||POS_DRAFT_VALUE[pos]||1.0;
-      // LB/EDGE flex: if LB prospect has EDGE traits and team runs 3-4 (wants stand-up rushers), use EDGE multiplier
-      if(gpos==="LB"&&(TEAM_SCHEME[team]?.def==="34"||TEAM_SCHEME[team]?.def==="w9")){
-        const flexSc=getScoutingTraits(p.name,p.school);
-        const flexCs=getCombineScores(p.name,p.school);
-        const pr=flexSc?.["Pass Rush"]||0;
-        const ath=flexCs?.athleticScore||flexSc?.["Athleticism"]||0;
-        const ps=getProspectStats?.(p.name,p.school);
-        const wt=flexCs?.weight||ps?.weight||260;
-        if(pr>=65&&ath>=70&&wt<=260)rawPm=Math.max(rawPm,POS_DRAFT_VALUE["EDGE"]);
-      }
-      const ceilingSc=getScoutingTraits(p.name,p.school);
-      const ceilingTag=ceilingSc?.__ceiling||"normal";
-      const ceilingPmBump=ceilingTag==="elite"?0.02:ceilingTag==="high"?0.01:0;
-      // Transcendent tier: elite ceiling + (grade>=95 & ath>=98) OR (grade>=98) → positional floor
-      const uiGrade=getGrade?getGrade(id):0;
-      const transAth=getCombineScores(p.name,p.school)?.athleticScore||0;
-      if(ceilingTag==="elite"&&((uiGrade>=95&&transAth>=98)||(uiGrade>=98))){const tFloor=gpos==="RB"?1.06:gpos==="S"?1.03:1.05;rawPm=Math.max(rawPm,tFloor);}
-      const pm=(grade>=88?Math.max(rawPm,1.0):rawPm)+ceilingPmBump;
-      const base=Math.pow(Math.max(grade,10),1.3);
-
-      const isBoosted=prof.posBoost.includes(pos);
-      const isPenalized=prof.posPenalty.includes(pos);
-      const teamPosBoost=isBoosted?1.12:isPenalized&&round<=3?0.75:1.0;
-
-      const slide=consRank<900?(pickNum-consRank):0;
-      const gradeSlideMultiplier=grade>=88?6:grade>=80?4.5:3;
-      const slideBoost=slide>6?Math.pow(slide-6,1.5)*gradeSlideMultiplier:0;
-      const reachThreshold=Math.round(12+prof.reachTolerance*15);
-      const reachPenalty=slide<-reachThreshold&&round<=3?Math.abs(slide+reachThreshold)*1.5:0;
-
-      const alreadyAtPos=posCounts[pos]||0;
-      const dimReturn=alreadyAtPos>=3?0.4:alreadyAtPos>=2?0.65:alreadyAtPos>=1?0.85:1.0;
-
-      const recentRun=recentPosCountsRef.current[pos]||0;
-      const runPenalty=recentRun>=4?0.72:recentRun>=3?0.84:recentRun>=2?0.93:1.0;
-
-      const isTopNeed=nc>=2||(ni===0);
-      const isSliding=slide>4&&grade>=70;
-      const urgencyBoost=isTopNeed&&isSliding?1.18:1.0;
-
-      if(pos==="K/P"&&round<=4)return;
-      const rbPen=(pos==="RB"&&round===1&&grade<85)?0.72:1.0;
-      const qbMod=pos==="QB"?(nc>=2?1.3:nc>=1?1.1:ni>=0?0.9:0.5):1.0;
-
-      // Scheme fit boost — uses precomputed scheme fit scores from the scoring engine
-      const schemeFitData=schemeFits?.[team]?.[id];
-      const schemeFitScore=schemeFitData?.score||50;
-      // Normalize: 50 = neutral (1.0x), 80 = strong boost, 20 = penalty
-      const schemeFitMult=1.0+(schemeFitScore-50)/200; // range: 0.75 to 1.25
-      // GM scheme sensitivity — derived from team stage and profile signals
-      const gmSchemeWeight=prof.schemeWeight??((prof.gposBoost?.length||0)>2?0.6:prof.stage==="rebuild"?0.3:prof.stage==="dynasty"?0.4:prof.stage==="contend"?0.7:0.5);
-      const schemeFitBoost=1.0+(schemeFitMult-1.0)*gmSchemeWeight;
-
-      // GM personality: athleticism, size, and ceiling preferences
-      const sc=getScoutingTraits(p.name,p.school);
-      const cs=getCombineScores(p.name,p.school);
-      const ath=cs?.athleticScore??null;
-      const ceiling=sc?.__ceiling||"normal";
-      // athBoost: tiered bonus for high athleticScore (85+/90+/95+)
-      const athMult=(prof.athBoost&&ath!=null&&ath>=85)?1+prof.athBoost*(ath>=95?1.0:ath>=90?0.6:0.3):1.0;
-      // ceilingChaser: bonus for high/elite ceiling prospects
-      const ceilingMult=(prof.ceilingChaser&&(ceiling==="elite"||ceiling==="high"))?1+prof.ceilingChaser*(ceiling==="elite"?1.0:0.6):1.0;
-      // sizePremium: small boost for above-avg measurables (height/weight percentiles)
-      let sizeMult=1.0;
-      if(prof.sizePremium&&cs?.percentiles){const hp=cs.percentiles.height??50;const wp=cs.percentiles.weight??50;if(hp>=75&&wp>=75)sizeMult=1.06;else if(hp>=60&&wp>=60)sizeMult=1.03;}
-
-      // Stage modifier — meaningful impact on scoring
-      let stageMod=1.0;
-      if(prof.stage==="dynasty"){
-        // Dynasty teams take luxury BPA picks, less urgency on needs
-        stageMod=grade>=85?1.15:nc>=2?1.05:0.95;
-        // Dynasty teams more willing to take "best athlete" even at filled positions
-        if(grade>=90&&alreadyAtPos<=1)stageMod*=1.1;
-      }else if(prof.stage==="contend"){
-        // Contenders aggressively fill needs, discount non-needs
-        stageMod=nc>=2?1.25:nc>=1?1.12:ni>=0?1.0:0.82;
-      }else if(prof.stage==="rebuild"){
-        // Rebuilders take BPA in early rounds, shift to needs later
-        if(round<=2){stageMod=grade>=80?1.15:1.0;}
-        else{stageMod=nc>=2?1.2:nc>=1?1.1:0.9;}
-      }else{
-        // Retool: slight need boost, balanced
-        stageMod=nc>=2?1.1:1.0;
-      }
-
-      const bpaComponent=base*finalBpaW*pm*rbPen*qbMod*teamPosBoost*schemeFitBoost*athMult*ceilingMult*sizeMult;
-      const needComponent=nm*finalNeedW*12;
-      const score=(bpaComponent+needComponent+slideBoost-reachPenalty)*dimReturn*stageMod*runPenalty*urgencyBoost;
-      scored.push({id,score,grade,consRank});
+    const result=pickFromBoard(board,GM_PARAMS[abbr]||GM_PARAMS[TEAM_ABBR[team]],{
+      available:availSet,
+      round,
+      currentPick:pickNum,
+      alreadyDrafted:posCounts,
+      recentPosCounts:recentPosCountsRef.current,
+      teamNeeds:teamNeeds[team],
+      teamPickHistory,
     });
 
-    if(scored.length===0)return avail[0];
-
-    // Sort by score descending
-    scored.sort((a,b)=>b.score-a.score);
-
-    // ── WEIGHTED RANDOM SELECTION ──
-    // Use softmax over a tier of close competitors. Tier is score-difference based, not
-    // percentage-based, so elite outliers (Love, Styles) don't get swamped by the pool.
-    const topScore=scored[0].score;
-    const topGrade=scored[0].grade||50;
-
-    // Tier window: how close must a player be to compete?
-    // Round 1 is tight. Elite top player (grade 88+) narrows it further — they're the consensus pick.
-    const baseTierPct=round<=1?0.09:round<=2?0.13:round<=3?0.18:round<=5?0.24:0.30;
-    // If top scorer is elite grade, compress tier so they win more often
-    const tierPct=topGrade>=88?baseTierPct*0.6:baseTierPct;
-    const tierCandidates=scored.filter(s=>s.score>=topScore*(1-tierPct));
-
-    const maxCandidates=Math.max(1,Math.min(tierCandidates.length,Math.round(1+prof.variance)));
-    const pool=tierCandidates.slice(0,maxCandidates);
-
-    if(pool.length===1)return pool[0].id;
-
-    // Softmax: top scorer wins most often but tier has real competition
-    const temp=round<=1?2.5:round<=3?1.8:1.2;
-    const weights=pool.map(s=>Math.exp(s.score/topScore/temp));
-    const totalW=weights.reduce((a,b)=>a+b,0);
-    let r=Math.random()*totalW;
-    for(let i=0;i<pool.length;i++){
-      r-=weights[i];
-      if(r<=0)return pool[i].id;
-    }
-    return pool[0].id;
-  },[teamNeeds,prospectsMap,gradeMap,getConsensusGrade,getConsensusRank,TEAM_NEEDS_COUNTS,schemeFits]);
+    return result?.id||avail[0];
+  },[teamNeeds,prospectsMap]);
 
   const isUserPick=useMemo(()=>{
     return picks.length<totalPicks&&userTeams.has(getPickTeam(picks.length));
@@ -764,43 +634,32 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     if(!cpuTrades)return null;
     const currentTeam=getPickTeam(currentIdx);
     const currentPick=fullDraftOrder[currentIdx]?.pick;
-    if(!currentPick||currentPick>64)return null; // only trade up in rounds 1-2
-
-    // Teams that already traded up recently can't trade again for 8 picks
+    if(!currentPick||currentPick>64)return null;
     const recentTraders=new Set(cpuTradeLog.filter(t=>currentIdx-t.pickIdx<8).map(t=>t.fromTeam));
 
     const candidateTeams=[];
     for(let i=currentIdx+2;i<Math.min(currentIdx+13,totalPicks);i++){
       const t=getPickTeam(i);
       if(!t||userTeams.has(t)||t===currentTeam)continue;
-      const prof=wobbledProfilesRef.current[t]||TEAM_PROFILES[t]||{reachTolerance:0.3,stage:"retool",variance:2,bpaLean:0.5,posBoost:[]};
-      if(recentTraders.has(t))continue; // cooldown
+      if(recentTraders.has(t))continue;
+      const tAbbr=normalizeAbbr(TEAM_ABBR[t]||t);
+      const gm=GM_PARAMS[tAbbr];
+      if(!gm)continue;
 
-      // === PATH 1: ANALYTICAL — team has a clear target they love ===
-      const needs=teamNeeds[t]||["QB","WR","DL"];
-      const dn=TEAM_NEEDS_COUNTS?.[t]||{};
+      // Use the team's board to find their best available player
+      const board=gmBoardsRef.current[tAbbr]||[];
+      const availSet=new Set(available);
       let bestPlayer=null,bestScore=0,secondScore=0;
-      available.forEach(id=>{
-        const p=prospectsMap[id];if(!p)return;
-        const pos=p.pos;
-        const rawBaseGrade=getConsensusGrade?getConsensusGrade(p.name):(0);
-        const baseGrade=rawBaseGrade+(boardNoiseRef.current[t]?.[id]||0);
-        const grade=GRADE_OVERRIDES[p.name]?Math.max(baseGrade,GRADE_OVERRIDES[p.name]):baseGrade;
-        if(grade<70)return;
-        const rawRank=getConsensusRank?getConsensusRank(p.name):999;
-        const consRank=RANK_OVERRIDES[p.name]||rawRank;
-        const nc=dn[pos]||0;const ni=needs.indexOf(pos);
-        const slide=consRank<900?(currentPick-consRank):0;
-        const needFit=nc>=2?2.0:nc>=1?1.5:ni>=0&&ni<3?1.2:ni>=0?1.0:0.5;
-        const gradeScore=Math.pow(grade,1.2);
-        const slideBonus=slide>3?slide*3:0;
-        const isBoosted=prof.posBoost?.includes(pos)?1.15:1.0;
-        const score=(gradeScore*needFit*isBoosted+slideBonus)*(0.85+Math.random()*0.30);
-        if(score>bestScore){secondScore=bestScore;bestScore=score;bestPlayer={id,name:p.name,grade,consRank,pos,score};}
-        else if(score>secondScore){secondScore=score;}
-      });
-
-      if(!bestPlayer)continue;
+      for(const entry of board){
+        if(!availSet.has(entry.id))continue;
+        const score=entry.boardScore*(0.85+Math.random()*0.30);
+        if(score>bestScore){
+          secondScore=bestScore;bestScore=score;
+          bestPlayer={id:entry.id,name:entry.name,grade:entry.grade,consRank:entry.consensusRank,pos:entry.pos,score};
+        }else if(score>secondScore){secondScore=score;}
+        if(secondScore>0&&bestScore/secondScore<1.10)break; // early exit: no clear separation
+      }
+      if(!bestPlayer||bestPlayer.grade<70)continue;
       const separation=secondScore>0?bestScore/secondScore:2.0;
 
       // Check trade value
@@ -813,43 +672,34 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         if(getPickOwner(j)===t){sweetenerIdx=j;sweetenerVal=getPickValue(getPickInfo(j)?.pick||999);break;}
       }
       let totalOffer=theirVal+sweetenerVal;
-      // Player sweetener: if pick package falls 15-40% short, add a tradeable player
       let sweetenerPlayer=null;
       const shortfall=currentVal-totalOffer;
       if(shortfall>0&&shortfall>=currentVal*0.15&&shortfall<=currentVal*0.40){
         const rosterData=ROSTER_BY_SLOT[t];
         if(rosterData){
           const tradeable=Object.values(rosterData).filter(p=>{
-            if(p.availability==="untouchable"||p.availability==="available_at_premium"&&currentPick>15)return false;
-            if(playerTradeMap[p.name])return false; // already traded
+            if(p.availability==="untouchable"||(p.availability==="available_at_premium"&&currentPick>15))return false;
+            if(playerTradeMap[p.name])return false;
             return p.tradeValue.valuePoints>=shortfall*0.5&&p.tradeValue.valuePoints<=shortfall*1.5;
           }).sort((a,b)=>{
-            // Prefer actively_shopable (3x weight) over available
             const aw=a.availability==="actively_shopable"?3:1;
             const bw=b.availability==="actively_shopable"?3:1;
-            // Pick cheapest sufficient player, weighted by availability
             return(a.tradeValue.valuePoints/aw)-(b.tradeValue.valuePoints/bw);
           });
           if(tradeable.length>0){sweetenerPlayer=tradeable[0];totalOffer+=sweetenerPlayer.tradeValue.valuePoints;}
         }
       }
-      if(totalOffer<currentVal*0.78)continue; // teams frequently overpay
+      if(totalOffer<currentVal*0.78)continue;
 
-      // === PATH 2: IMPULSE — random chance based on team personality ===
-      // Every aggressive team has a small chance to just trade up each pick
-      const baseImpulse=prof.stage==="dynasty"?0.04:prof.stage==="contend"?0.05:prof.reachTolerance>=0.4?0.035:0.015;
-      // Impulse increases in top 15 (more action at top of draft)
-      const topBoost=currentPick<=10?1.6:currentPick<=20?1.3:1.0;
-      // Impulse increases if their best player is a strong need fit
-      const needBoost=separation>=1.15?1.4:1.0;
-      const impulseChance=baseImpulse*topBoost*needBoost;
-
-      // Analytical path: higher separation = higher chance
-      const analyticalChance=separation>=1.30?0.35:separation>=1.15?0.18:0.0;
-
-      // Combined: either path can trigger the trade
-      const finalChance=Math.min(0.45,impulseChance+analyticalChance);
-      if(Math.random()>finalChance)continue;
+      // Trade probability: GM desire is high, but finding a willing partner is hard.
+      // Real R1 has ~3-5 trades across 32 picks. Base must be low per candidate.
+      let prob=gm.tradeUpAggression*0.08;
+      if(separation>=1.30)prob+=0.10;
+      else if(separation>=1.15)prob+=0.04;
+      if(currentPick<=10)prob*=1.3;
+      else if(currentPick<=20)prob*=1.15;
+      prob=Math.min(0.25,prob);
+      if(Math.random()>prob)continue;
 
       candidateTeams.push({
         team:t,theirPickIdx,theirPickNum,sweetenerIdx,
@@ -860,13 +710,12 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       });
     }
     if(candidateTeams.length===0)return null;
-    // Weighted random among candidates so different teams win each sim
     const weights=candidateTeams.map(c=>Math.pow(c.separation,2));
     const totalW=weights.reduce((a,b)=>a+b,0);
     let r=Math.random()*totalW;
     for(let ci=0;ci<candidateTeams.length;ci++){r-=weights[ci];if(r<=0)return candidateTeams[ci];}
     return candidateTeams[0];
-  },[cpuTrades,cpuTradeLog,getPickTeam,getPickOwner,getPickInfo,fullDraftOrder,totalPicks,userTeams,teamNeeds,available,prospectsMap,getConsensusGrade,getConsensusRank,TEAM_NEEDS_COUNTS,playerTradeMap]);
+  },[cpuTrades,cpuTradeLog,getPickTeam,getPickOwner,getPickInfo,fullDraftOrder,totalPicks,userTeams,available,playerTradeMap]);
 
   // CPU auto-pick — pauses when trade offer or trade panel is open
   useEffect(()=>{
@@ -893,7 +742,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         if(cpuTrade.sweetenerIdx!==null)gaveLabels.push(`Rd${cpuTrade.sweetenerRound} #${cpuTrade.sweetenerPick}`);
         if(cpuTrade.sweetenerPlayer)gaveLabels.push(cpuTrade.sweetenerPlayer.name);
         const gotLabels=[`Rd${fullDraftOrder[n].round} #${fullDraftOrder[n].pick}`];
-        setCpuTradeLog(prev=>[...prev,{fromTeam:tradingTeam,toTeam:team,pickIdx:n,gave:gaveLabels,got:gotLabels,targetPlayer:cpuTrade.targetPlayer.name}]);
+        const involvedPicks=[n,cpuTrade.theirPickIdx];
+        if(cpuTrade.sweetenerIdx!==null)involvedPicks.push(cpuTrade.sweetenerIdx);
+        setCpuTradeLog(prev=>[...prev,{fromTeam:tradingTeam,toTeam:team,pickIdx:n,involvedPicks,gave:gaveLabels,got:gotLabels,targetPlayer:cpuTrade.targetPlayer.name}]);
         // Execute the pick directly for the trading team (can't use makePick due to async tradeMap)
         const pid=cpuPick(tradingTeam,available,fullDraftOrder[n].pick);
         if(pid){
@@ -2333,16 +2184,17 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
 
   // === MAIN DRAFT SCREEN ===
   const picksPanel=(<div style={{maxHeight:isMobile?"none":"calc(100vh - 60px)",overflowY:"auto"}}>
+    <style>{`@keyframes pickSlideIn{from{transform:translateX(20px);opacity:0}to{transform:translateX(0);opacity:1}}`}</style>
     <div style={{fontFamily:mono,fontSize:9,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:6,padding:"0 4px"}}>picks</div>
     <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
       {picks.map((pick,i)=>{const p=prospectsMap[pick.playerId];if(!p)return null;const c=POS_COLORS[p.pos];const isU=pick.isUser;
         const showRound=i===0||pick.round!==picks[i-1].round;
-        return<div key={i}>{showRound&&<div style={{padding:"5px 10px",background:"#f5f5f5",fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>round {pick.round}</div>}<div style={{display:"flex",alignItems:"center",gap:5,padding:"5px 10px",borderBottom:"1px solid #f8f8f8",background:isU?"rgba(34,197,94,0.02)":"transparent"}}>
+        return<div key={i} style={{animation:"pickSlideIn 0.3s ease-out both"}}>{showRound&&<div style={{padding:"5px 10px",background:"#f5f5f5",fontFamily:mono,fontSize:8,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase"}}>round {pick.round}</div>}<div style={{display:"flex",alignItems:"center",gap:5,padding:"5px 10px",borderBottom:"1px solid #f8f8f8",background:isU?"rgba(34,197,94,0.02)":"transparent"}}>
           <span style={{fontFamily:mono,fontSize:9,color:"#d4d4d4",width:18,textAlign:"right"}}>{pick.pick}</span>
           <NFLTeamLogo team={pick.team} size={13}/>
           <span style={{fontFamily:mono,fontSize:8,color:c}}>{p.gpos||p.pos}</span>
           <span style={{fontFamily:sans,fontSize:10,fontWeight:isU?600:400,color:isU?"#171717":"#737373",flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{p.name}</span>
-          {pick.traded&&(()=>{const ct=cpuTradeLog.find(t=>t.pickIdx===i||t.fromTeam===pick.team||t.toTeam===pick.team);const tip=ct?`${ct.fromTeam} traded ${ct.gave.join(" + ")} to ${ct.toTeam} for ${ct.got.join(" + ")}`:`Trade: ${pick.team} acquired pick #${pick.pick}`;return<span title={tip} style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 4px",borderRadius:2,cursor:"help"}}>🔄 TRD</span>;})()}
+          {pick.traded&&(()=>{const ct=cpuTradeLog.find(t=>t.involvedPicks?t.involvedPicks.includes(i):t.pickIdx===i);const tip=ct?`${ct.fromTeam} traded ${ct.gave.join(" + ")} to ${ct.toTeam} for ${ct.got.join(" + ")}`:`Trade: ${pick.team} acquired pick #${pick.pick}`;return<span title={tip} style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 4px",borderRadius:2,cursor:"help"}}>🔄 TRD</span>;})()}
         </div></div>;
       })}
       {picks.length<totalPicks&&<div style={{padding:"8px 10px",display:"flex",alignItems:"center",gap:5}}>

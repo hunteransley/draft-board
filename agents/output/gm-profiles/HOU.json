@@ -1,0 +1,842 @@
+{
+  "team": {
+    "name": "Houston Texans",
+    "abbreviation": "HOU",
+    "division": "AFC South",
+    "current_draft_position": 28
+  },
+  "front_office": {
+    "gm": {
+      "name": "Nick Caserio",
+      "title": "Executive Vice President and General Manager",
+      "hired": "2021-01-07",
+      "previous_role": "Director of Player Personnel, New England Patriots (2008-2020)",
+      "drafts_as_gm": 5,
+      "confidence": "high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "John Carroll University",
+          "role": "Starting Quarterback (Player)",
+          "years": "1994-1997",
+          "mentor": "N/A"
+        },
+        {
+          "org": "Saginaw Valley State University",
+          "role": "Graduate Assistant Coach",
+          "years": "1999-2000",
+          "mentor": "N/A"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Personnel Assistant",
+          "years": "2001",
+          "mentor": "Bill Belichick / Scott Pioli"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Offensive Coaching Assistant",
+          "years": "2002",
+          "mentor": "Bill Belichick / Charlie Weis"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Area Scout",
+          "years": "2003",
+          "mentor": "Bill Belichick / Scott Pioli"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Director of Pro Personnel",
+          "years": "2004-2006",
+          "mentor": "Bill Belichick / Scott Pioli"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Wide Receivers Coach",
+          "years": "2007",
+          "mentor": "Bill Belichick / Josh McDaniels"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Director of Player Personnel",
+          "years": "2008-2020",
+          "mentor": "Bill Belichick"
+        }
+      ],
+      "primary_mentor": "Bill Belichick (New England Patriots)",
+      "philosophical_lineage": "Pure Belichick tree. Caserio spent 20 years under Belichick across scouting, coaching, and personnel. The Patriot Way emphasis on versatility, character, competition, scheme-fit over raw traits, and value-based drafting is deeply embedded. Unique among Belichick disciples in that he held both scouting AND coaching roles, giving him dual-lens evaluation ability.",
+      "breakpoints": "Significantly more aggressive trade-up tendencies than Belichick ever showed. Belichick famously traded down; Caserio leads all GMs with 13 draft-day trade-ups since 2021 vs. only 5 trade-downs. Also more willing to spend aggressively in free agency than the traditional Patriots model \u2014 2024 offseason was fourth-most guaranteed money in NFL. Has adopted a 'SWARM' cultural identity emphasizing physicality and aggression that diverges from Belichick's more cerebral approach.",
+      "lineage_weight": 0.25,
+      "lineage_weight_notes": "5 drafts of own data make the Belichick lineage secondary at this point. Caserio has clearly established his own identity, though Belichick DNA remains visible in positional versatility preference, competition-based roster building, and willingness to move on from veterans quickly."
+    },
+    "primary_decision_maker": "Nick Caserio, with strong collaborative input from DeMeco Ryans",
+    "key_influencers": [
+      {
+        "name": "DeMeco Ryans",
+        "title": "Head Coach",
+        "influence_level": "very_high",
+        "known_biases": "Defensive-minded, former LB. Values fast, physical, aggressive defenders. Came from 49ers/Robert Saleh coaching tree \u2014 emphasizes simplicity over complexity on defense. Wants defenders who play fast without overthinking. Strong voice on defensive personnel."
+      },
+      {
+        "name": "James Liipfert",
+        "title": "Assistant General Manager / Director of College Scouting",
+        "influence_level": "high",
+        "known_biases": "Runs Houston's scouting operation. Former Patriots scout (2009-2017). Carries additional Belichick-tree DNA into evaluations. Was finalist for Falcons GM opening in January 2026, signaling league-wide respect for his evaluation ability."
+      },
+      {
+        "name": "Cal McNair",
+        "title": "Chairman and CEO / Owner",
+        "influence_level": "moderate",
+        "known_biases": "Involved in major decisions like the 2023 trade up for Will Anderson. Caserio and Ryans keep major moves between themselves and McNair. Not a meddler on individual picks but is looped in on franchise-altering trades."
+      }
+    ],
+    "power_dynamics": "Highly collaborative between Caserio and Ryans. Caserio holds final say on personnel, but Ryans has significant input especially on defensive players. On major moves, the two plus McNair align before executing. Caserio described as keeping information extremely tight \u2014 even staff members sometimes don't know plans until execution.",
+    "owner_interference": "low"
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.6,
+    "bpa_weight_by_round": {
+      "1": 0.65,
+      "2": 0.55,
+      "3": 0.5,
+      "4_plus": 0.4
+    },
+    "stated_philosophy": "We've never drafted for need around here. Never going to. We're going to pick the best player we feel fits our program regardless of position.",
+    "actual_philosophy": "Leans BPA but heavily filtered through scheme fit and SWARM character standards. Claims pure BPA publicly but has consistently addressed top needs with early picks: QB/EDGE in 2023, CB/OT/S in 2024, WR/OT in 2025. The 'need' alignment may be coincidental with BPA at times, but the pattern across 5 drafts suggests need is a significant tiebreaker. Treats QB as a special case \u2014 openly said 'other than quarterback, pretty much any position is on the table.'",
+    "philosophy_mismatch_notes": "Stated BPA is partly smokescreen. Analysis of picks vs. team needs shows strong correlation. However, Caserio genuinely won't reach purely for need \u2014 he traded out of round 1 in both 2024 and 2025 rather than take a less-valued player at a need position."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.75,
+    "trade_down_willingness": 0.55,
+    "trades_per_draft_average": 5.0,
+    "trade_triggers": [
+      "Player they covet at a premium position (QB, EDGE) still available \u2014 traded from 12 to 3 for Will Anderson in 2023",
+      "Tier break on their board where target is about to go off board \u2014 traded up for Bullock in 2024 R3",
+      "Ability to accumulate Day 2 picks by moving back slightly \u2014 traded 13 to 15 in 2022, 25 to 34 in 2025",
+      "Positional double-dip opportunity \u2014 took two Iowa State WRs in 2025, two Alabama defenders in 2023"
+    ],
+    "draft_capital_philosophy": "Extremely active trader \u2014 leads all GMs with 25 draft-day trades since 2021. Traded all 7 original picks in 2025, an NFL first. Philosophy is 'more shots on goal' \u2014 prefers accumulating Day 2 picks. Will trade future picks for present impact (gave up 2024 1st and 3rd for Anderson) but also willing to trade current picks for future capital. Values positioning over raw pick count."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "EDGE",
+        "QB",
+        "CB",
+        "OT"
+      ],
+      "tier_2_high": [
+        "S",
+        "WR",
+        "IOL"
+      ],
+      "tier_3_mid": [
+        "DT",
+        "LB",
+        "TE"
+      ],
+      "tier_4_low": [
+        "RB",
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "Has never drafted a RB before round 4. Publicly deprioritizes RB in early rounds \u2014 has used FA/trades for RB (Mixon, Chubb). Only Day 3 RBs drafted: Dameon Pierce R4, Jawhar Jordan R6, Woody Marks R4."
+    ],
+    "position_premium": [
+      "EDGE \u2014 traded up 9 spots to take Anderson 3rd overall. CB \u2014 used 3rd overall on Stingley in 2022, took Lassiter early in R2 2024. Defense-first mentality when premium talent available. Has invested heavily in secondary (Stingley, Pitre, Lassiter, Bullock in top 3 rounds across 2 drafts)."
+    ]
+  },
+  "player_archetype_preferences": {
+    "QB": {
+      "archetype_summary": "Elite processing pocket passer with proven college production and leadership. Caserio targets QBs with exceptional accuracy, poise, and play-reading ability who thrive within structure. Not looking for running QBs. Values arm talent and competitive edge. Will go all-in (Stroud at 2nd overall) or take a developmental flier late (Mills R3, Mertz R6). No middle ground.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4",
+        "weight_range": "215-240",
+        "arm_length_minimum": "No clear threshold \u2014 values arm strength over length",
+        "key_athletic_tests": "Arm velocity and accuracy at pro day/combine throwing sessions matter more than any timed test. Pocket movement ability valued over straight-line speed.",
+        "speed_requirement": "Not a factor \u2014 does not value 40 time for QBs"
+      },
+      "playing_style": {
+        "primary_style": "Pocket passer with enough mobility to navigate pressure and extend plays, not a designed runner",
+        "most_valued_traits": [
+          "Processing speed and pre-snap reads",
+          "Accuracy at all three levels especially intermediate",
+          "Competitive edge and leadership",
+          "Poise under pressure",
+          "College production and winning pedigree"
+        ],
+        "least_important_traits": [
+          "Rushing ability \u2014 will not draft a QB whose primary value is legs"
+        ],
+        "deal_breakers": [
+          "Run-first QBs who haven't proven ability to win from the pocket",
+          "Limited college starts or unproven track record"
+        ],
+        "traits_that_make_them_reach": "Elite accuracy and processing \u2014 Stroud's combination of precision and poise made him the pick despite some wondering if they'd take a pass rusher"
+      },
+      "college_production": {
+        "production_floor": "Must be a multi-year starter with proven winning record. Stroud: 8,123 yards, 85 TDs, 21-4 record. Mills: limited starts but was a 5-star recruit with pro day arm talent.",
+        "production_trajectory": "Prefers ascending or consistently elite production. Stroud improved year-over-year at OSU.",
+        "context_sensitivity": "High \u2014 weights conference strength heavily. Stroud's Big Ten production and Heisman finalist status mattered. Mills' Stanford pedigree was a factor even with limited games."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2023 R1.2 \u2014 C.J. Stroud: 6-3, 218, Ohio State. 8,123 yards, 85 TDs, 12 INTs in 2 years as starter. Back-to-back Heisman finalist. Pure pocket passer with elite accuracy.",
+          "2021 R3.67 \u2014 Davis Mills: 6-4, 217, Stanford. Limited college experience but 5-star pedigree, beautiful release, pro-ready pocket mechanics. Developmental pick.",
+          "2025 R6.197 \u2014 Graham Mertz: 6-3, 215, Florida. Transfer from Wisconsin. Late-round developmental flier with starting experience across two programs."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Stroud pick is highly informative but only 1 franchise-QB selection. Mills and Mertz were low-investment picks. Pattern suggests Caserio treats QB as binary: franchise investment or cheap depth."
+    },
+    "EDGE": {
+      "archetype_summary": "Explosive, high-motor speed-to-power edge rusher with elite production and length. Caserio invested massively (traded up to 3rd overall) for Will Anderson \u2014 the archetype is a twitchy, relentless pass rusher who can turn speed into power. Values college sack production, motor, and leadership. Willing to pay premium draft capital for the right EDGE.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-4",
+        "weight_range": "235-265",
+        "arm_length_minimum": "32+ inches preferred based on Anderson (33.5 arms) and Horton profiles",
+        "key_athletic_tests": "First-step explosion and burst. Anderson ran 4.60 at 253 lbs. Values explosiveness metrics (vert, broad) over pure 40 time.",
+        "speed_requirement": "4.65 or faster preferred for 4-3 DE role, but film-first \u2014 motor and production override testing"
+      },
+      "playing_style": {
+        "primary_win_condition": "Speed-to-power conversion with relentless motor. Anderson wins with explosive first step, can convert speed rush into bull rush at the point of attack.",
+        "most_valued_traits": [
+          "First-step explosion and get-off",
+          "Relentless motor and effort on every snap",
+          "College sack production as proof of concept",
+          "Leadership and competitive character",
+          "Versatility to rush from multiple alignments in 4-3/nickel"
+        ],
+        "least_important_traits": [
+          "Polished pass rush repertoire \u2014 willing to develop raw rushers with elite physical tools"
+        ],
+        "deal_breakers": [
+          "Low motor or effort concerns",
+          "Poor college production relative to snaps/opportunity",
+          "Character red flags"
+        ],
+        "traits_that_make_them_reach": "Elite college production combined with explosive athleticism \u2014 Anderson's 34.5 sacks in 3 years at Alabama made Caserio trade a future 1st to move up"
+      },
+      "college_production": {
+        "production_floor": "Both EDGE picks in top 4 rounds had significant TFL/sack production. Anderson: 34.5 career sacks. Horton: 10.5 sacks senior year at TCU.",
+        "production_trajectory": "Values consistent multi-year producers. Anderson was a true freshman starter who dominated from Day 1.",
+        "context_sensitivity": "Weights SEC/Power 5 production heavily. Anderson's Alabama production against elite OLs was a major factor."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2023 R1.3 \u2014 Will Anderson Jr.: 6-3, 253, 4.60 40, 33.5-inch arms. Alabama. 34.5 career sacks, 58.5 TFL. Traded up from 12 to 3 to select him. Speed-to-power rusher, unanimous All-American. Won DROY.",
+          "2023 R4.109 \u2014 Dylan Horton: 6-3, 255, TCU. 10.5 sacks as senior, team-leading 15 TFL. Honorable mention All-Big 12. Power-based rusher with strong motor."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Anderson is a clear archetype statement but Horton is the only other pure EDGE drafted. Danielle Hunter FA signing (6-5, 263, elite speed-power combo) reinforces the preference for explosive, physical edge rushers."
+    },
+    "OT": {
+      "archetype_summary": "Versatile, technically sound offensive tackle from a Power 5 program with positional flexibility and physicality in the run game. Caserio values linemen who can play multiple spots, have been well-coached in college, and bring a blue-collar mentality. Recent emphasis on zone-blocking fit with the new offensive scheme.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-6",
+        "weight_range": "305-335",
+        "arm_length_minimum": "33+ inches \u2014 Ersery (33 1/8), Fisher (6-6, 310) both have adequate length",
+        "key_athletic_tests": "Values foot quickness and movement skills for zone blocking. Ersery's 89.5 PFF zone-blocking grade was appealing. Not a pure measurables-first approach.",
+        "speed_requirement": "5.10 or faster preferred for zone scheme fit \u2014 Ersery ran 5.01"
+      },
+      "playing_style": {
+        "primary_style": "Zone-capable blocker with enough power to handle gap scheme assignments. Must be technically refined.",
+        "most_valued_traits": [
+          "Positional versatility \u2014 can play multiple OL spots",
+          "Technical refinement and coaching pedigree",
+          "Physicality and toughness in run blocking",
+          "Pass protection feet and anchor",
+          "Character and work ethic alignment with SWARM"
+        ],
+        "least_important_traits": [
+          "Elite athleticism can be secondary if technique and football IQ are strong"
+        ],
+        "deal_breakers": [
+          "Inability to handle multiple positions",
+          "Poor character or effort concerns"
+        ],
+        "traits_that_make_them_reach": "Zone-blocking movement skills combined with Power 5 pedigree \u2014 Ersery's Big Ten OL of Year award at 48th overall was a slight reach per consensus boards"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter at Power 5 program. All drafted OTs started 25+ games in college.",
+        "production_trajectory": "Prefers ascending trajectory \u2014 Ersery won Big Ten OL of Year as senior.",
+        "context_sensitivity": "Values SEC/Big Ten competition level. Fisher at Notre Dame, Ersery at Minnesota, Deculus at LSU all faced high-level competition."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2025 R2.48 \u2014 Aireontae Ersery: 6-6, 331, 33 1/8 arms, 5.01 40. Minnesota. Big Ten OL of the Year. Zone-blocking specialist. Became starting LT as rookie.",
+          "2024 R2.59 \u2014 Blake Fisher: 6-6, 310. Notre Dame. 27 career starts primarily at RT. Technically refined, well-coached, powerful run blocker. Started down stretch of rookie year.",
+          "2022 R6.205 \u2014 Austin Deculus: 6-5, 321. LSU. Developmental Day 3 swing tackle pick."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "IOL": {
+      "archetype_summary": "Powerful, versatile interior lineman who can play guard and center. Values positional flexibility, physicality, and Power 5/SEC pedigree. Kenyon Green was the prototype \u2014 a mauler who started at 4 different OL positions in college. Has also used late-round picks on IOL for developmental depth.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "305-325",
+        "arm_length_minimum": "No clear hard cutoff \u2014 Green had 33 7/8 inch arms",
+        "key_athletic_tests": "Values short-area quickness for pulling and zone schemes. Not a pure athletic testing position for Caserio.",
+        "speed_requirement": "5.20 or faster preferred but not an eliminator"
+      },
+      "playing_style": {
+        "primary_style": "Mauling run blocker with enough athleticism to pull and reach-block in zone/gap schemes",
+        "most_valued_traits": [
+          "Positional versatility \u2014 ability to play guard and tackle",
+          "Physicality and nastiness at point of attack",
+          "Leadership and character",
+          "Multi-year starter at Power 5 program",
+          "Run-blocking dominance"
+        ],
+        "least_important_traits": [
+          "Elite pass protection technique can be developed \u2014 values run-game impact first"
+        ],
+        "deal_breakers": [
+          "One-position-only players with no flexibility",
+          "Soft or passive playing style"
+        ],
+        "traits_that_make_them_reach": "Versatility across the line \u2014 Green starting at 4 positions at A&M was a major selling point"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter. Green: 35 starts at 4 positions. Scruggs: 30+ starts at Purdue.",
+        "production_trajectory": "Values players who earned starting roles early and improved. Green was SEC All-Freshman.",
+        "context_sensitivity": "SEC/Big Ten competition level matters. Green (A&M) and Scruggs (Purdue) both Power 5."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2022 R1.15 \u2014 Kenyon Green: 6-4, 323, 33 7/8 arms. Texas A&M. Started 35 games at 4 different positions. First-team All-SEC. Described by Caserio as 'blue collar, humble, soft-spoken, lunch pail.'",
+          "2023 R3.65 \u2014 Juice Scruggs: 6-3, 312. Penn State. 30+ career starts. Physical, versatile center/guard.",
+          "2023 R6.201 \u2014 Jarrett Patterson: 6-4, 306. Notre Dame. Center who also played guard. Multi-year starter."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "DT": {
+      "archetype_summary": "Stout, physical interior defender who can hold the point and disrupt the run game in a 4-3 front. Caserio has only invested late-round capital at DT, relying on free agency for starter-caliber interior linemen (Rankins, Autry). Day 3 DT picks target high-motor run-stoppers with developmental upside.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4",
+        "weight_range": "290-320",
+        "arm_length_minimum": "No clear threshold \u2014 small sample of late-round picks",
+        "key_athletic_tests": "Values quickness and motor over pure size. Scheme asks for active, disruptive interior players.",
+        "speed_requirement": "Not a primary factor for DT evaluation"
+      },
+      "playing_style": {
+        "primary_style": "Run-stuffing anchor with enough pass-rush upside to contribute on third down in the 4-3",
+        "most_valued_traits": [
+          "Motor and relentless effort",
+          "Ability to hold point of attack against double teams",
+          "Quickness to disrupt in gaps",
+          "Physical toughness and durability",
+          "Scheme fit for Ryans' 4-3 front"
+        ],
+        "least_important_traits": [
+          "Elite pass-rush production not required for Day 3 DT picks \u2014 role is primarily run defense"
+        ],
+        "deal_breakers": [
+          "Low motor or effort inconsistency",
+          "Inability to hold up at the point of attack"
+        ],
+        "traits_that_make_them_reach": "No evidence of reaching for DTs \u2014 positions addressed primarily through FA"
+      },
+      "college_production": {
+        "production_floor": "Low bar given Day 3 investment. Booker: rotational player at Stanford. Hamilton: Rutgers starter. Lopez: developmental nose from Missouri.",
+        "production_trajectory": "Not a differentiator at this investment level.",
+        "context_sensitivity": "Minimal \u2014 willing to draft from any conference for Day 3 DTs"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2022 R5.150 \u2014 Thomas Booker: 6-3, 301. Stanford. Rotational defensive lineman with versatility across the front.",
+          "2021 R6.195 \u2014 Roy Lopez: 6-1, 318. Arizona. Nose tackle type, physical run-stuffer. Contributed as rotational player.",
+          "2025 R7.224 \u2014 Kyonte Hamilton: 6-3, 305. Rutgers. Late-round developmental pick with size and motor."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Caserio has never invested above R5 on a DT in Houston. Uses FA for starter-quality interior DL (Rankins, Autry, Ridgeway). Profile largely inferred from scheme requirements and late-round pick tendencies."
+    },
+    "CB": {
+      "archetype_summary": "Scheme-versatile, competitive cornerback who can play man and zone coverage with press ability and physicality. Not strictly a measurables-first approach \u2014 Caserio famously said Lassiter 'ran 4.65 but plays 4.5 or below.' Values film, competitive toughness, and football IQ over combine numbers. Willing to invest premium capital (Stingley at 3rd overall) for elite upside.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-1",
+        "weight_range": "185-200",
+        "arm_length_minimum": "No hard cutoff \u2014 Stingley (6-0, 190) and Lassiter (6-0, 186) both around 6-0 but varying arm lengths",
+        "key_athletic_tests": "Film-first. Caserio explicitly stated combine drills 'don't matter' to him, citing Lassiter's poor 40 time but elite play. Values hip fluidity and transition on tape over timed speed.",
+        "speed_requirement": "No hard 40 cutoff \u2014 Lassiter ran 4.65 and was still taken 42nd overall. Tape speed > timed speed."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Scheme-versatile \u2014 must be capable in both man and zone. Houston's defense uses multiple coverages (Cover 3, Cover 2, man). Not purely press-man or purely zone.",
+        "most_valued_traits": [
+          "Competitive toughness and physicality at the catch point",
+          "Football IQ and anticipation",
+          "Hip fluidity and ability to transition/mirror routes",
+          "Scheme versatility \u2014 can play man AND zone",
+          "Run support and tackling willingness"
+        ],
+        "least_important_traits": [
+          "Pure timed speed \u2014 will draft 'slow' corners who play fast on tape"
+        ],
+        "deal_breakers": [
+          "Lack of competitive fire or effort in run support",
+          "One-dimensional coverage ability (zone-only or man-only without versatility)"
+        ],
+        "traits_that_make_them_reach": "Elite ball skills or lockdown freshman film \u2014 Stingley's dominant freshman year (6 INTs, 15 PBUs) made Caserio overlook 2 years of injury concerns to take him 3rd overall"
+      },
+      "college_production": {
+        "production_floor": "No strict statistical floor. Stingley's production was front-loaded (freshman year). Lassiter had 8 PBUs but limited INTs. Values film over box score for CBs.",
+        "production_trajectory": "Has drafted CBs with front-loaded (Stingley) and steady (Lassiter) trajectories. No strong pattern.",
+        "context_sensitivity": "High \u2014 SEC competition level matters. Both Stingley (LSU) and Lassiter (Georgia) played against elite WR competition."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2022 R1.3 \u2014 Derek Stingley Jr.: 6-0, 190, 4.44 40. LSU. Dominant freshman (6 INT, 15 PBU). Elite upside bet despite injury concerns in years 2-3. Now an All-Pro.",
+          "2024 R2.42 \u2014 Kamari Lassiter: 6-0, 186, 4.55 40 (poor testing). Georgia. Two-time national champion. Scheme-versatile, smart, tough. Pro Bowl by year 2 despite testing concerns.",
+          "2025 R3.97 \u2014 Jaylin Smith: 5-11, USC. Multi-position DB with instincts and special teams value. Considered a reach \u2014 taken for motor and versatility.",
+          "2025 R6.187 \u2014 Jaylen Reed: Penn State safety but multi-position DB depth pick."
+        ]
+      },
+      "confidence": "high"
+    },
+    "S": {
+      "archetype_summary": "Ball-hawking, rangy safety with centerfield ability and coverage instincts. Caserio has drafted two very different but complementary safeties: Pitre (box/hybrid) and Bullock (deep free safety). Common thread is elite ball production and the ability to create turnovers. The scheme needs safeties who can play in the box AND cover, given Ryans' nickel-heavy approach.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-2",
+        "weight_range": "195-210",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Range and closing speed for center-field types (Bullock). Box physicality for hybrid types (Pitre). Values explosiveness and long speed.",
+        "speed_requirement": "4.55 or faster preferred \u2014 Pitre ran 4.46, Bullock ran 4.44"
+      },
+      "playing_style": {
+        "primary_coverage_style": "Multiple \u2014 scheme needs both a deep safety and a box/hybrid type who can play nickel",
+        "most_valued_traits": [
+          "Ball production \u2014 interceptions and forced turnovers",
+          "Range and ability to cover ground as single-high safety",
+          "Versatility to play multiple secondary roles",
+          "Football intelligence and communication",
+          "Physicality in run support without sacrificing coverage"
+        ],
+        "least_important_traits": [
+          "Pure run-stopping ability without coverage skills \u2014 scheme demands coverage first"
+        ],
+        "deal_breakers": [
+          "One-dimensional safety without coverage range",
+          "Poor ball skills or inability to create turnovers"
+        ],
+        "traits_that_make_them_reach": "Elite interception production \u2014 Bullock's 9 career INTs at USC made Caserio trade up in R3 for him"
+      },
+      "college_production": {
+        "production_floor": "Both safeties drafted in top 3 rounds had significant ball production. Pitre: All-American at Baylor with 5 INTs as rookie. Bullock: 9 career INTs at USC.",
+        "production_trajectory": "Multi-year starters with ascending production preferred.",
+        "context_sensitivity": "Values production against quality competition \u2014 Pitre in Big 12, Bullock in Pac-12"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2022 R2.37 \u2014 Jalen Pitre: 5-11, 198, 4.46 40. Baylor. Versatile hybrid safety/nickel. All-American. 5 INTs as a rookie. Box safety who can cover.",
+          "2024 R3.78 \u2014 Calen Bullock: 6-2, 188, 4.44 40. USC. 9 career INTs. Deep safety with elite range and ball-hawking ability. Traded up for him. Pro Bowler by year 2.",
+          "2025 R6.187 \u2014 Jaylen Reed: Penn State. Developmental depth safety pick."
+        ]
+      },
+      "confidence": "high"
+    },
+    "LB": {
+      "archetype_summary": "Fast, physical, sideline-to-sideline linebacker who can tackle in space and play in Ryans' nickel-heavy defense. Values multi-year starters from elite programs (especially Alabama/SEC). Must be athletic enough to stay on the field in nickel \u2014 the scheme asks LBs to cover and key on the run simultaneously. Character and leadership are non-negotiable.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-2",
+        "weight_range": "225-245",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Lateral agility and range matter most \u2014 must be able to flow sideline to sideline. Values short shuttle and 3-cone for LBs.",
+        "speed_requirement": "4.60 or faster preferred \u2014 scheme demands speed to be on the field in nickel"
+      },
+      "playing_style": {
+        "primary_style": "Rangy, athletic linebacker who plays fast within a simple defensive framework \u2014 Ryans' scheme asks LBs to be gap-sound and tackle, not make complex coverage reads",
+        "most_valued_traits": [
+          "Sideline-to-sideline range and closing speed",
+          "Tackling reliability in space",
+          "Gap discipline and run-fit discipline",
+          "Leadership and communication on defense",
+          "Ability to stay on the field in nickel situations"
+        ],
+        "least_important_traits": [
+          "Elite blitz ability \u2014 scheme blitzes at lowest rate in NFL. Pass rush from LBs is secondary."
+        ],
+        "deal_breakers": [
+          "Inability to tackle in space",
+          "Liability in coverage that forces them off the field in nickel"
+        ],
+        "traits_that_make_them_reach": "Leadership and Alabama pedigree \u2014 To'oTo'o was an Alabama captain and multi-year starter, which aligned perfectly with SWARM values"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter with high tackle totals. To'oTo'o: 112 tackles at Alabama. Harris: Alabama LB with tackle production.",
+        "production_trajectory": "Values players who were immediate starters. To'oTo'o started as true freshman at Tennessee, transferred to Alabama and led team in tackles.",
+        "context_sensitivity": "SEC production heavily weighted. Both Harris and To'oTo'o are Alabama products."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2023 R5.167 \u2014 Henry To'oTo'o: 6-1, 227. Alabama. Led team with 112 tackles. Multi-year starter at Tennessee and Alabama. Became full-time starter in Houston.",
+          "2022 R3.75 \u2014 Christian Harris: 6-0, 226. Alabama. Team captain, 3-year contributor. Rangy, athletic LB with speed.",
+          "2021 R5.170 \u2014 Garret Wallow: 6-2, 230. TCU. Sideline-to-sideline athlete, 3-year starter."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "WR": {
+      "archetype_summary": "Big, physical outside receiver who can win contested catches and create after the catch. Caserio has drafted a clear size-first archetype at WR: Nico Collins (6-4, 215), Jayden Higgins (6-4, 214), John Metchie (6-0, 195, but breakout Alabama producer), Tank Dell (5-8, 163, the speed outlier). The dominant pattern is Power 5 producers with size. Dell is the exception \u2014 a small-school speed/playmaking outlier.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-4 \u2014 but strong preference for 6-2+ outside receivers",
+        "weight_range": "190-215 for outside WRs",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Values route-running ability and contested-catch skills on tape over pure combine speed. Size matters more than timed speed for outside WRs. Slot WRs (Noel, Dell) have more speed emphasis.",
+        "speed_requirement": "No hard 40 cutoff \u2014 Collins ran 4.53, Higgins ran 4.45. Dell ran 4.49. Values play speed and separation ability on film."
+      },
+      "playing_style": {
+        "primary_role": "Outside X receiver with contested catch ability and YAC. Also targets slot speed/playmakers as complementary pieces.",
+        "most_valued_traits": [
+          "Contested catch ability and hands reliability",
+          "Physical presence and ability to win at catch point",
+          "College production \u2014 high catch totals and yardage",
+          "Route running and ability to separate",
+          "Competitive character and team-first mentality"
+        ],
+        "least_important_traits": [
+          "Pure deep-threat speed without other skills \u2014 has never drafted a one-dimensional speed receiver early"
+        ],
+        "deal_breakers": [
+          "Drops and unreliable hands",
+          "Lack of college production despite athletic traits",
+          "Non-Power 5 competition (Dell from Houston is only exception, and UH was transitioning to Power 5)"
+        ],
+        "traits_that_make_them_reach": "Big-bodied production \u2014 Higgins' 87 catches for 1,183 yards at 6-4 made him the first pick of the 2025 draft for Houston"
+      },
+      "college_production": {
+        "production_floor": "Rounds 2-3 WRs have been highly productive. Collins: multi-year Michigan contributor. Metchie: 96 catches, 1,142 yards at Alabama. Dell: 1,398 yards at Houston. Higgins: 87 catches, 1,183 yards. Noel: 1,194 yards.",
+        "production_trajectory": "Prefers WRs who showed improvement \u2014 Higgins transferred from Eastern Kentucky to Iowa State and improved dramatically. Dell exploded as a senior.",
+        "context_sensitivity": "Strongly prefers Power 5 competition. Dell (Houston) is the sole non-P5 pick and UH was becoming a Big 12 member. Caserio has publicly acknowledged the challenge of evaluating small-school players."
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2021 R3.89 \u2014 Nico Collins: 6-4, 215, 4.53 40. Michigan. Physical outside WR with contested catch ability. Became WR1.",
+          "2025 R2.34 \u2014 Jayden Higgins: 6-4, 214, 4.45 40. Iowa State. 87 catches, 1,183 yards, 9 TDs as senior. Reliable possession receiver with size.",
+          "2022 R2.44 \u2014 John Metchie III: 6-0, 195. Alabama. 96-1,142-8 as junior. Route technician from elite program. Missed rookie year (leukemia diagnosis).",
+          "2023 R3.69 \u2014 Tank Dell: 5-8, 163, 4.49 40. Houston. Dynamic slot/gadget with 1,398 yards as senior. Speed outlier who breaks the size mold.",
+          "2025 R3.79 \u2014 Jaylin Noel: 5-10, 194, 4.39 40. Iowa State. Burner with 1,194 yards. Speed/slot complement to Higgins.",
+          "2023 R5.133 \u2014 Xavier Hutchinson: 6-2, 203. Iowa State. 107 catches as senior \u2014 production monster from the slot."
+        ]
+      },
+      "confidence": "high"
+    },
+    "TE": {
+      "archetype_summary": "Athletic, hybrid tight end who can contribute as both a receiver and a blocker. Caserio targets TEs with receiving upside in mid-to-late rounds, not premium picks. Values connection between TE and QB (Stover reunited with Stroud from Ohio State). Day 3 investment level suggests TE is supplemental, not foundational.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5",
+        "weight_range": "245-260",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Values receiving ability \u2014 catch radius, YAC ability, and ability to create mismatches. Blocking is secondary for receiving TEs but valued.",
+        "speed_requirement": "4.70 or faster preferred for hybrid role"
+      },
+      "playing_style": {
+        "primary_style": "Hybrid receiving TE who can also block inline. Not a pure move TE or pure blocker.",
+        "most_valued_traits": [
+          "Receiving ability and catch-point skills",
+          "Run-after-catch ability",
+          "Willingness to block and compete physically",
+          "Roster familiarity and chemistry (Stover-Stroud OSU connection)",
+          "Positional versatility \u2014 inline and flex"
+        ],
+        "least_important_traits": [
+          "Elite athleticism not required \u2014 Stover described as 'mediocre athlete' but effective"
+        ],
+        "deal_breakers": [
+          "Unable to contribute in either receiving or blocking",
+          "No competitive edge"
+        ],
+        "traits_that_make_them_reach": "Connection to existing players and scheme fit \u2014 Stover's Ohio State relationship with Stroud was a factor"
+      },
+      "college_production": {
+        "production_floor": "Moderate \u2014 Day 3 investment means lower bar. Jordan: Miami TE with solid production. Stover: Ohio State TE with receiving upside. Quitoriano: blocking TE from Oregon State.",
+        "production_trajectory": "Not a strong differentiator at Day 3.",
+        "context_sensitivity": "Moderate"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2024 R4.123 \u2014 Cade Stover: 6-4, 255. Ohio State. Former Stroud teammate. Catch-point weapon with RAC ability despite mediocre athletic testing.",
+          "2021 R5.147 \u2014 Brevin Jordan: 6-3, 245. Miami. Athletic receiving TE with upside. Contributed early in career.",
+          "2022 R5.170 \u2014 Teagan Quitoriano: 6-6, 258. Oregon State. Blocking-first TE with some receiving ability. 'Well-rounded' per team.",
+          "2025 R7.255 \u2014 Luke Lachey: 6-4, 250. Iowa. Late-round receiving TE developmental pick."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "RB": {
+      "archetype_summary": "Physical, competitive runner who can handle contact and contribute in multiple phases. Caserio deprioritizes RB in the draft \u2014 never above R4 \u2014 and relies on free agency for starter-level backs (Mixon via trade, Chubb via FA). When he does draft RBs, they are physical, competitive runners with pass-catching or return ability.",
+      "physical_profile": {
+        "height_range": "5-7 to 5-11",
+        "weight_range": "200-225",
+        "arm_length_minimum": "Not a factor",
+        "key_athletic_tests": "Values contact balance, vision, and pass-catching ability on film over combine testing.",
+        "speed_requirement": "No hard threshold \u2014 Pierce was a power back, Jordan was a speed/return back, Marks is a receiving back"
+      },
+      "playing_style": {
+        "primary_style": "Physical, contact-balance runner who can keep drives alive and contribute in the passing game",
+        "most_valued_traits": [
+          "Contact balance and ability to gain yards after contact",
+          "Pass-catching ability and route-running from backfield",
+          "Toughness and competitive mentality",
+          "Special teams or return ability as bonus value",
+          "Character and team-first attitude"
+        ],
+        "least_important_traits": [
+          "Pure top-end speed \u2014 has not drafted a RB for breakaway ability alone"
+        ],
+        "deal_breakers": [
+          "Fumble problems or ball security concerns",
+          "Inability to contribute in pass protection or receiving game"
+        ],
+        "traits_that_make_them_reach": "No evidence of reaching for RBs \u2014 consistently takes them R4 or later"
+      },
+      "college_production": {
+        "production_floor": "Moderate college production expected. Pierce: 572 rushing yards as senior at Florida. Marks: receiving back from Mississippi State who led all FBS RBs in receptions twice.",
+        "production_trajectory": "Values multi-year contributors. Marks had 4 years of SEC experience.",
+        "context_sensitivity": "SEC production preferred. Pierce (Florida), Marks (Mississippi State) both SEC backs."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2022 R4.107 \u2014 Dameon Pierce: 5-10, 218. Florida. Physical runner with contact balance. Led team in rushing yards. Burst onto scene as rookie with 4 consecutive 100-yard scrimmage games.",
+          "2025 R4.116 \u2014 Woody Marks: 5-11, 210. Mississippi State via USC. Receiving specialist \u2014 led all FBS RBs in receptions twice. Multi-year SEC starter.",
+          "2024 R6.205 \u2014 Jawhar Jordan: 5-8, 186. Louisville. Speed/return specialist with limited offensive role but dynamic playmaking ability."
+        ]
+      },
+      "confidence": "medium"
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 10,
+    "max_observed_reach": 22,
+    "round_1_reach_tolerance": 12,
+    "notes": "Caserio is willing to reach significantly for players who fit his criteria. The 2023 trade up for Anderson was massive in capital (future 1st + 2nd + 3rd round). The 2025 R3 pick of Jaylin Smith (97th, projected late-round) was considered a significant reach. Ersery at 48 was slightly above consensus. Caserio's philosophy is 'we don't care what other people think the player is worth' \u2014 he trusts his own board and will reach for fit and character."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.65,
+    "offensive_scheme": "Shanahan-tree wide zone concepts evolving under new OC Nick Caley (Rams/McVay tree) into a more multiple system with gap-power elements and more pre-snap QB freedom. Run game shifting to be more physical and between-the-tackles. Pass game will give Stroud more control at the line. Zone-blocking OL traits still valued but power/gap versatility increasingly important.",
+    "defensive_scheme": "4-3 base nickel defense (75%+ nickel). Shanahan/Saleh tree via Ryans. Anti-blitz philosophy \u2014 ranked 32nd in blitz rate in 2025 but top 5 in most defensive metrics. Relies on 4-man rush to generate pressure. Simple, structurally sound system that lets players 'play fast.' Cover 3 foundation with man coverage elements. Asks corners to be versatile, safeties to cover ground, and linebackers to be gap-sound.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "OC change from Bobby Slowik (Shanahan tree) to Nick Caley (McVay/Rams tree) in February 2025. Offensive scheme is shifting but defensive scheme remains stable under Ryans. Draft tendencies for defensive positions should remain consistent. Offensive line preferences may shift slightly toward more power/gap versatility under Caley."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.65,
+    "risk_description": "Moderately aggressive. Willing to make bold moves when conviction is high (trading up for Anderson, taking Stingley 3rd despite injury history, drafting Lassiter despite poor combine). But also willing to trade back and accumulate picks when value isn't there. The 2025 draft showed both sides: tried to trade up in R1, couldn't make it work, traded back instead. Not reckless but not conservative.",
+    "recency_bias": 0.55,
+    "recency_description": "Moderate. After offensive struggles in 2024, the 2025 draft prioritized WR and OT. After losing Greenard/Cashman in 2024 FA, addressed defense heavily in 2024 draft (Lassiter, Bullock). Shows responsiveness to recent gaps but doesn't panic-draft.",
+    "sunk_cost_behavior": "Aggressively moves on from busts. Traded Kenyon Green (2022 1st rounder) and Tytus Howard. Released/traded underperforming veterans. Does not double down on failed picks \u2014 will address the position through other means.",
+    "combine_weight": 0.25,
+    "combine_description": "Film-first GM. Explicitly stated combine drills 'don't matter' and cited Lassiter's poor 40 time (4.65) as evidence that testing doesn't predict performance. Uses combine primarily for medical evaluations and interview time, not athletic testing. Will draft players who test poorly if film is elite.",
+    "character_weight": 0.8,
+    "character_description": "Very high character standards. SWARM identity is central: 'special work ethic, relentless mindset, high-level preparation, and clean off-field behavior.' Caserio said 'if you're going to be drafted by the Texans, you must fit the SWARM standard.' Has drafted team captains and program leaders at an extremely high rate. Strong Power 5 preference (only 1 non-P5 pick in 32 total) partly reflects wanting players tested in high-accountability environments.",
+    "quarterback_philosophy": "Binary approach \u2014 either makes franchise-defining investment (Stroud 2nd overall) or takes cheap developmental options (Mills R3, Mertz R6). Will not use premium Day 2 capital on a developmental QB. Believes in building around the franchise QB and has openly said 'other than quarterback, pretty much any position is on the table' for the draft."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.65,
+    "production_vs_projection": "Leans toward productive college players. Most picks in top 4 rounds were multi-year starters with significant statistical production. Has made some projection bets (Stingley's injury-limited years, Horton's modest counting stats) but overwhelmingly drafts proven producers. In tiebreakers, production combined with Power 5 pedigree wins.",
+    "production_thresholds_by_position": {
+      "WR": "All WRs drafted R2-R3 had 50+ catches in final season. Collins: Michigan WR1. Metchie: 96 catches. Dell: 1,398 yards. Higgins: 87 catches, 1,183 yards. Noel: 1,194 yards.",
+      "RB": "No strict threshold given Day 3 investment. Values receiving production as much as rushing stats.",
+      "EDGE": "Anderson had 34.5 career sacks. Horton had 10.5 as a senior. Values sack production as proof of concept.",
+      "CB": "No strict statistical threshold \u2014 film over INT totals. Lassiter had limited ball production but elite coverage tape.",
+      "S": "Values INT production \u2014 Pitre had turnovers, Bullock had 9 career INTs.",
+      "LB": "Values tackle production \u2014 To'oTo'o led Alabama in tackles. Harris was an Alabama starter.",
+      "OT": "Values multi-year starting experience at Power 5. All OT picks were 25+ game starters.",
+      "IOL": "Same \u2014 multi-year starters. Green had 35 starts at 4 positions."
+    },
+    "breakout_age_sensitivity": 0.45,
+    "dominator_rating_sensitivity": 0.5,
+    "notes": "Production must come against Power 5 competition. Caserio strongly prefers Power 5 players \u2014 only 1 of 32 Houston picks has been non-P5 (Tank Dell, Houston, which was transitioning to Big 12). He's publicly acknowledged the difficulty of evaluating small-school players. This is a major filter."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "40_yard_max": "None \u2014 Lassiter ran 4.65 and was taken 42nd overall. Film speed overrides timed speed.",
+        "confidence": "high"
+      },
+      "EDGE": {
+        "min_arm_length": "32+ inches preferred",
+        "confidence": "low"
+      },
+      "WR": {
+        "no_clear_threshold": true,
+        "notes": "Has drafted WRs from 5-8/163 (Dell) to 6-4/215 (Collins, Higgins). Values size for outside WRs but speed for slot."
+      },
+      "OT": {
+        "min_arm_length": "33+ inches based on Ersery/Fisher",
+        "confidence": "medium"
+      },
+      "S": {
+        "40_yard_max": 4.55,
+        "notes": "Both Pitre (4.46) and Bullock (4.44) had solid speed. Range is critical for single-high role.",
+        "confidence": "medium"
+      }
+    },
+    "threshold_type": "Very few hard cutoffs. Caserio is explicitly anti-measurables as eliminators. Film is the primary evaluator. Measurables confirm film, they don't drive the process.",
+    "size_preferences_by_position": {
+      "WR": "Strong preference for 6-2+ outside WRs (Collins 6-4, Higgins 6-4, Metchie excepted). Slot WRs can be smaller (Dell 5-8, Noel 5-10).",
+      "OT": "6-4+ with 310+ lbs preferred",
+      "DT": "290+ for 3-tech types, 310+ for nose",
+      "CB": "6-0 seems to be the sweet spot based on Stingley and Lassiter",
+      "LB": "225-245 range \u2014 athletic, not oversized"
+    },
+    "athletic_testing_favorites": "None explicitly. Caserio is on record saying combine drills 'don't matter' to him. Uses film as the primary evaluation tool. If anything, values the interview/personal interaction portion of the combine over the athletic testing.",
+    "measurables_vs_film": "Film overwhelmingly wins. The Lassiter pick is the definitive example: ran 4.65 in the 40 but was drafted 42nd overall because his tape showed a player who 'plays 4.5 or below.' Caserio explicitly uses this as his example of why testing doesn't matter. This is a film-first front office in the truest sense."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium positions, franchise-altering talent. Has used R1 picks on: CB (Stingley 3rd), IOL (Green 15th), QB (Stroud 2nd), EDGE (Anderson 3rd). Willing to trade up massively for conviction picks (Anderson) or trade out entirely if value isn't there (2024 traded R1 to MIN, 2025 traded R1 to NYG). No middle ground \u2014 either strikes big or moves back.",
+    "round_2_3_strategy": "Primary roster-building rounds. This is where the real team gets built. Addresses needs aggressively. Pitre R2, Metchie R2, Lassiter R2, Fisher R2, Bullock R3, Higgins R2, Ersery R2, Noel R3. Often trades into R2 or early R3 to secure targets. Double-dips at positions of need (2 WRs in 2025, 2 secondary picks in 2024).",
+    "day_3_strategy": "Developmental players with legitimate offensive/defensive roles, not pure special teamers. Caserio prefers 'rolling the dice on a high-ceiling prospect in a position of need rather than a lower-end positional prospect who can contribute on special teams.' Day 3 picks like Patterson (C), To'oTo'o (LB), Pierce (RB) have become starters. Targets Power 5 starters with positional versatility.",
+    "compensatory_pick_usage": "Treats comp picks similarly to regular picks. No evidence of using them differently for risk profiles."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "QB": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Stroud is a franchise QB. Mills became a valuable backup. Strong evaluation at the position."
+      },
+      "CB": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Stingley and Lassiter are both Pro Bowl-caliber. Smith and Reed too early to evaluate. Elite hit rate at top of draft."
+      },
+      "S": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Pitre and Bullock both became immediate starters and Pro Bowlers. Excellent position evaluation."
+      },
+      "EDGE": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Anderson is an All-Pro. Horton is a rotational player. Strong evaluation at premium."
+      },
+      "WR": {
+        "picks": 6,
+        "starters": 3,
+        "rate": 0.5,
+        "note": "Collins became WR1. Dell and Higgins contributing. Metchie missed time due to leukemia. Hutchinson and Noel rotational. Solid depth-building."
+      },
+      "OL": {
+        "picks": 5,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "Green was a bust (traded). Ersery became a starter. Fisher contributing. Patterson a backup. Mixed results \u2014 OL evaluation is a relative blind spot."
+      },
+      "RB": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Pierce had an explosive rookie year but faded. Marks contributing. Jordan didn't stick. Uses FA for RBs primarily."
+      },
+      "LB": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "To'oTo'o became a starter. Harris inconsistent. Wallow didn't contribute. Supplemented heavily through FA (Al-Shaair)."
+      },
+      "TE": {
+        "picks": 4,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "No TE draft pick has become a clear starter. Uses FA/trade for TE (Schultz). Lowest-priority position."
+      },
+      "DT": {
+        "picks": 3,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "All Day 3 picks. Uses FA exclusively for starting-caliber DTs (Rankins, Autry)."
+      }
+    },
+    "blind_spots": [
+      "Offensive line evaluation has been inconsistent \u2014 Green (R1) was a bust, early OL picks have had mixed results. TE evaluation has yielded no starters. DT is addressed exclusively through FA, suggesting low confidence in drafting the position."
+    ],
+    "strengths": [
+      "Secondary evaluation is elite \u2014 Stingley, Pitre, Lassiter, Bullock are all impact starters, with multiple Pro Bowlers. QB evaluation landed Stroud. EDGE evaluation landed Anderson. Premium position evaluation is Caserio's greatest strength."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Evolved from conservative (2021-2023) to aggressive (2024). Spent 4th-most in guaranteed money in 2024 FA (Hunter, Autry, Al-Shaair). Uses one-year prove-it deals for depth (Chubb, Speed) and bigger investments for impact defenders. Philosophy is to fill starting-caliber holes via FA at non-premium positions (DT, LB, RB) to allow draft capital for premium positions.",
+    "fa_draft_correlation": "When a position is addressed in FA, it drops to Day 3 or off the draft board entirely. Example: After signing Danielle Hunter and Denico Autry in 2024 FA, did not draft any DL until R7 in 2025. After trading for Mixon, did not draft a RB until R4 in 2025. FA fills the starter role, draft adds depth and future starters.",
+    "roster_construction_philosophy": "Build premium positions through the draft (QB, EDGE, CB, S, OT), supplement non-premium positions through FA and trades (DT, LB, RB, TE). Creates competition everywhere \u2014 Caserio's core philosophy is maximum competition at every position. Uses one-year deals extensively to maintain roster flexibility."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 42,
+    "notable_patterns": [
+      "25 draft-day trades in 5 years \u2014 most aggressive draft-day trader in the NFL",
+      "13 trade-ups vs. 5 trade-downs (through 2024) \u2014 heavily skews toward moving up for targeted players",
+      "Traded all 7 original picks in 2025, an NFL first",
+      "Only 1 non-Power 5 pick in 32+ selections (Tank Dell, Houston)",
+      "Has drafted team captains and program leaders at an extremely high rate \u2014 SWARM identity is real",
+      "Never drafted a RB before R4 or a DT before R5",
+      "Secondary investment is elite: Stingley (R1.3), Pitre (R2.37), Lassiter (R2.42), Bullock (R3.78) = 4 impact starters",
+      "Strong Alabama pipeline: Will Anderson, To'oTo'o, Harris, Metchie all from Tuscaloosa",
+      "Double-dips at position groups: 2 Alabama defenders in 2023, 2 Iowa State WRs in 2025, 2 DBs in 2024"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2025,
+        "pick": "3.97",
+        "player": "Jaylin Smith",
+        "position": "CB",
+        "consensus_rank": "150+",
+        "reach_amount": 53,
+        "context": "USC CB taken for versatility, motor, and special teams ability. Widely viewed as a reach. Suffered injury early in rookie season."
+      },
+      {
+        "year": 2025,
+        "pick": "2.48",
+        "player": "Aireontae Ersery",
+        "position": "OT",
+        "consensus_rank": "60-75",
+        "reach_amount": 15,
+        "context": "Minnesota OT taken for zone-blocking movement skills. Not widely mocked in R2. Became starting LT as rookie."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2024,
+        "pick": "3.78",
+        "player": "Calen Bullock",
+        "position": "S",
+        "consensus_rank": "55-65",
+        "value_amount": 15,
+        "context": "Traded up for ballhawking safety who became a Pro Bowler in year 2. Had 9 college INTs."
+      },
+      {
+        "year": 2022,
+        "pick": "4.107",
+        "player": "Dameon Pierce",
+        "position": "RB",
+        "consensus_rank": "120+",
+        "value_amount": 13,
+        "context": "Florida RB who burst onto the scene as a rookie with physical running style."
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_notes": "5 drafts of data as Texans GM plus 20 years in New England provide extensive behavioral data. The Caserio-Ryans partnership is well-established with consistent patterns. Profile should be refreshed after 2026 draft to capture any evolution under new OC Caley. High confidence on defensive positional preferences, trade behavior, and character emphasis. Moderate confidence on offensive archetype preferences given recent OC change.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

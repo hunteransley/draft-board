@@ -1,0 +1,900 @@
+{
+  "team": {
+    "name": "San Francisco 49ers",
+    "abbreviation": "SF",
+    "division": "NFC West",
+    "current_draft_position": 27
+  },
+  "front_office": {
+    "gm": {
+      "name": "John Lynch",
+      "title": "President of Football Operations/General Manager",
+      "hired": "2017-01-29",
+      "previous_role": "NFL Analyst, Fox Sports (2008\u20132016); 15-year NFL playing career as safety (Tampa Bay Buccaneers, Denver Broncos)",
+      "drafts_as_gm": 9,
+      "confidence": "high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Tampa Bay Buccaneers (Player)",
+          "role": "Safety",
+          "years": "1993\u20132003",
+          "mentor": "Tony Dungy, Jon Gruden \u2014 absorbed defensive evaluation principles and team-building philosophy from two Super Bowl-winning coaching staffs"
+        },
+        {
+          "org": "Denver Broncos (Player)",
+          "role": "Safety",
+          "years": "2004\u20132007",
+          "mentor": "Mike Shanahan \u2014 developed relationship with Shanahan coaching family, absorbed Shanahan offensive philosophy indirectly"
+        },
+        {
+          "org": "Fox Sports",
+          "role": "NFL Analyst / Color Commentator",
+          "years": "2008\u20132016",
+          "mentor": "None traditional; built extensive network of relationships with NFL front offices, coaches, and scouts through broadcast work"
+        },
+        {
+          "org": "San Francisco 49ers",
+          "role": "General Manager \u2192 President of Football Operations/General Manager",
+          "years": "2017\u2013present",
+          "mentor": "No traditional GM mentor. Learned on the job with support from Adam Peters (assistant GM, formerly of Broncos/Patriots scouting lineage), Paraag Marathe (cap/analytics), and Kyle Shanahan (offensive talent evaluation)"
+        }
+      ],
+      "primary_mentor": "No traditional scouting mentor \u2014 Lynch is a non-traditional GM who came from a playing/broadcasting background rather than a scouting pipeline. His closest mentorship analogue is Adam Peters (Broncos/Patriots scouting tree) who served as his de facto scouting director and later assistant GM from 2017-2023.",
+      "philosophical_lineage": "Unique hybrid. Lynch's playing background under Tony Dungy and Jon Gruden in Tampa gives him strong defensive evaluation instincts, particularly for safeties, linebackers, and defensive backs. His connection to the Shanahan family (Mike Shanahan coached him in Denver, Kyle is his HC) deeply shapes offensive personnel philosophy \u2014 particularly the wide-zone scheme fit requirements. Adam Peters brought Belichick/Elway scouting tree DNA to the operation (Peters worked under Ernie Accorsi, John Elway, and the Broncos front office). Peters' departure to Washington in 2024 was significant.",
+      "breakpoints": "Lynch diverges from traditional scouting-tree GMs in several key ways: (1) He is more willing to make aggressive all-in trades for proven veterans (McCaffrey, Trent Williams) than most scouting-tree GMs who value draft capital accumulation; (2) He has demonstrated higher risk tolerance at quarterback than his mentors would suggest (Trey Lance trade-up); (3) He relies heavily on coaching staff input for offensive evaluation, more than a traditional scouting-tree GM would.",
+      "lineage_weight": 0.15,
+      "lineage_weight_notes": "9 drafts of own data make lineage weight minimal. Lynch's draft record IS the profile at this point. Peters' departure in 2024 is a significant variable \u2014 early returns from 2024-2025 drafts are positive but sample is small without Peters."
+    },
+    "primary_decision_maker": "Collaborative \u2014 Lynch and Kyle Shanahan jointly make draft decisions. Shanahan has significant influence, particularly on offensive players.",
+    "key_influencers": [
+      {
+        "name": "Kyle Shanahan",
+        "title": "Head Coach",
+        "influence_level": "very_high",
+        "known_biases": "Offensive scheme-fit obsessed. Wants specific OL traits for wide-zone, values WR route-running and toughness, demands RBs who can pass-protect and catch. Notoriously hard on young WRs \u2014 rarely plays them early. Values versatility across all positions. Father-son coaching tree from Mike Shanahan creates strong preferences for outside-zone blocking fits."
+      },
+      {
+        "name": "Kwesi Adofo-Mensah",
+        "title": "Personnel Executive (newly hired Feb 2026)",
+        "influence_level": "medium_and_rising",
+        "known_biases": "Analytics-heavy background from Wall Street. Previously with 49ers R&D department (2013-2019), then Browns VP Football Ops, then Vikings GM. Brings cap management expertise and analytical player valuation. His exact title and role are still being defined \u2014 may have increasing influence going forward."
+      },
+      {
+        "name": "Tariq Ahmad",
+        "title": "Vice President, Player Personnel",
+        "influence_level": "high",
+        "known_biases": "11 years with the 49ers, manages college scouting department. Career trajectory mirrors Adam Peters' path. Day-to-day scouting operations leader."
+      },
+      {
+        "name": "RJ Gillen",
+        "title": "Assistant General Manager",
+        "influence_level": "medium",
+        "known_biases": "10 years with the 49ers, co-director of player personnel before promotion. Helps run pro and college scouting."
+      },
+      {
+        "name": "Brian Hampton",
+        "title": "Assistant General Manager",
+        "influence_level": "medium",
+        "known_biases": "Responsible for roster construction strategy, contract negotiations, salary cap management. Has been with the 49ers since 2003. Football operations and analytics background."
+      },
+      {
+        "name": "Matt Ploenzke",
+        "title": "Vice President, Football R&D",
+        "influence_level": "medium",
+        "known_biases": "Oversees research strategies for personnel department, develops player valuation metrics using advanced statistical techniques. 49ers have historically been one of the more analytics-forward organizations."
+      }
+    ],
+    "power_dynamics": "Collaborative front office, but Shanahan is widely described as 'the most important voice in the building.' Lynch and Shanahan were hired simultaneously in 2017 and operate as a partnership. Lynch has final GM authority, but Shanahan has significant input, especially on offensive players and scheme-fit assessments. Recent reports suggest the 49ers have discussed creating a de facto GM role beneath Lynch, potentially shifting Lynch to a more presidential/ambassador role \u2014 but nothing has materialized as of March 2026.",
+    "owner_interference": "low_to_moderate \u2014 Jed York hired Lynch and Shanahan together and generally lets them operate. York is visible and engaged but not a Jerry Jones-style meddler. He has been patient through losing seasons and roster transitions. However, the recent discussion about restructuring the front office suggests York is not entirely hands-off."
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.5,
+    "bpa_weight_by_round": {
+      "1": 0.55,
+      "2": 0.45,
+      "3": 0.4,
+      "4_plus": 0.35
+    },
+    "stated_philosophy": "Lynch publicly says he leans BPA in round 1: 'You can't go wrong picking a quality player. And if that isn't a glaring need on your team, that's all right.' He also acknowledges: 'You have to address your roster at some point.'",
+    "actual_philosophy": "Despite BPA rhetoric, Lynch consistently drafts for need in early rounds. Evidence: Solomon Thomas at 3 (DL need over McCaffrey BPA), Javon Kinlaw at 14 (DT need to replace Buckner over CeeDee Lamb/Tristan Wirfs who were consensus higher), Trey Lance at 3 (perceived QB need), Ricky Pearsall at 31 (WR need). The pattern is clear: Lynch drafts need in round 1 more often than not, then becomes an excellent BPA evaluator in later rounds where he finds gems (Kittle R5, Warner R3, Purdy R7, Greenlaw R5, Hufanga R5, Jennings R7).",
+    "philosophy_mismatch_notes": "Lynch says BPA but drafts need. Analysis from 49ers Webzone noted: 'It is my feeling that Lynch does poorly early and well late because he drafts for need early and looks only at talent later.' His best picks (Kittle, Warner, Purdy, Greenlaw, Hufanga, Jennings, Lenoir) were all mid-to-late round picks where he was free to take the best player. His worst picks (Solomon Thomas, Reuben Foster, Javon Kinlaw, Trey Lance, Dante Pettis) were early-round need picks."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.55,
+    "trade_down_willingness": 0.45,
+    "trades_per_draft_average": 2.0,
+    "trade_triggers": [
+      "Quarterback \u2014 made the most aggressive trade-up in recent draft history to move from 12 to 3 for Trey Lance in 2021, giving up three future first-round picks",
+      "Mid-round OL or positional need \u2014 traded up in 2024 to get Dominick Puni (moved up 8 spots in round 3) and Isaac Guerendo (packaged two 5ths to move into round 4)",
+      "Proven veteran acquisition \u2014 Lynch is aggressive at trading draft picks for established veterans mid-season (McCaffrey, Trent Williams, Chase Young, Jimmy Garoppolo, Dee Ford, Emmanuel Sanders, Keion White)",
+      "Lynch tried to trade up for Mykel Williams in 2025 but couldn't finalize a deal; Williams fell to him at 11"
+    ],
+    "draft_capital_philosophy": "Lynch is willing to mortgage future picks for immediate impact. Traded three 1st-round picks for Lance. Traded significant capital for McCaffrey. Has repeatedly traded future picks for veterans at the deadline. However, he also values Day 2 and Day 3 accumulation \u2014 the 49ers have had large draft classes (11 picks in 2025) when they have capital. Lynch expressed interest in trading down from 11 in 2025 to accumulate picks but acknowledged everyone else wanted to do the same."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "EDGE",
+        "DT",
+        "WR",
+        "CB"
+      ],
+      "tier_2_high": [
+        "OT",
+        "QB",
+        "LB",
+        "S"
+      ],
+      "tier_3_mid": [
+        "IOL",
+        "RB",
+        "TE"
+      ],
+      "tier_4_low": [
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "IOL in early rounds \u2014 only 3 OL drafted in first 3 rounds across 9 drafts (McGlinchey R1-OT, Banks R2-G, Puni R3). Lynch has historically underdrafted OL relative to need.",
+      "TE in early rounds \u2014 George Kittle was a 5th-round pick; Cameron Latu was the only other TE drafted (R3 2023, a miss). Lynch relies on FA/late rounds for TEs."
+    ],
+    "position_premium": [
+      "DL \u2014 6 defensive linemen drafted in first 3 rounds (Thomas, Kinlaw, Drake Jackson, Mykel Williams, Alfred Collins, plus Bosa at 2 overall). 40% of defensive early picks are DL.",
+      "DB \u2014 6 defensive backs drafted in first 3 rounds. Lynch invests heavily in the secondary.",
+      "WR \u2014 6 wide receivers drafted including multiple early picks (Aiyuk R1, Pettis R2, Deebo R2, Pearsall R1). Shanahan's offense demands WR investment.",
+      "RB in mid-to-late rounds \u2014 Shanahan drafts a running back in nearly every draft (Ty Davis-Price R3, Trey Sermon R3, Elijah Mitchell R6, Isaac Guerendo R4, Jordan James R5). It's a pattern."
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Elite athletic traits with length, explosion, and power at the point of attack. The 49ers want hand-in-the-dirt defensive ends who can set the edge in the run game AND rush the passer. They value run defense almost as much as pass rush. Long, powerful, explosive \u2014 think Nick Bosa's all-around dominance, not a finesse speed-rusher. Mykel Williams (2025 R1) is the same mold: 6-5, 260, wins with power and length, dominant run defender with pass-rush upside.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "250\u2013270",
+        "arm_length_minimum": "33 inches preferred based on Williams (85-inch wingspan) and Bosa profiles",
+        "key_athletic_tests": "Explosion metrics (vertical jump, broad jump) and first-step quickness. Williams showed explosive first step at combine. Bosa ran 4.79 40 but elite burst.",
+        "speed_requirement": "Not a primary filter \u2014 4.70-4.85 acceptable with elite burst and explosion. Bosa 4.79, Williams projected similar range."
+      },
+      "playing_style": {
+        "primary_win_condition": "Power and length at the point of attack with developing pass-rush repertoire. Williams was described as winning with 'a solid long arm and ability to win with power.' Bosa is the prototype \u2014 wins with technique, hands, leverage AND athleticism.",
+        "most_valued_traits": [
+          "Run defense dominance \u2014 Williams ranked 97th percentile in PFF run-defense grade among college EDGE defenders",
+          "First-step explosion and get-off",
+          "Length and power at point of contact",
+          "Motor/effort consistency and physicality when shedding blocks",
+          "Versatility to play multiple techniques along the defensive front"
+        ],
+        "least_important_traits": [
+          "Pure finesse/bend-only rush moves \u2014 they will develop technique over time",
+          "Blazing 40 time \u2014 not a requirement for their scheme"
+        ],
+        "deal_breakers": [
+          "Poor run defense \u2014 the 49ers scheme demands edge-setting ability",
+          "Undersized/unable to hold the point of attack",
+          "Inability to play with hand in the dirt in even fronts"
+        ],
+        "traits_that_make_them_reach": "Elite physical traits and explosion for a 20-year-old \u2014 Lynch said of Williams 'His best football is ahead.' The 49ers tried to trade UP for Williams, indicating they were willing to pay premium for his trait package."
+      },
+      "college_production": {
+        "production_floor": "Williams had 14 career sacks across 3 years at Georgia, approximately 4.5-5 per season. Not a massive sack total but context matters \u2014 rotational in one of college football's deepest DL rooms.",
+        "production_trajectory": "Prefer ascending arc. Williams was a Freshman All-American and produced immediately. Bosa was a 2-year starter with massive production. Ascending production is preferred but early pedigree counts.",
+        "context_sensitivity": "Very high \u2014 the 49ers heavily adjust for scheme, usage rate, and competition. Williams was in a rotation at Georgia; Lynch valued the traits over the raw numbers."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2019 1.2 \u2014 Nick Bosa: 6-4, 266. Ohio State. 17.5 sacks over 2 college seasons. Elite all-around edge player, power AND finesse. Consensus No. 1/2 player.",
+          "2025 1.11 \u2014 Mykel Williams: 6-5, 260. Georgia. 14 career sacks. 97th percentile run defense. Long, explosive, powerful. Tried to trade up for him.",
+          "2022 2.61 \u2014 Drake Jackson: 6-3, 254. USC. 12.5 career sacks. More finesse-oriented, speed rusher \u2014 represents a deviation from the power archetype, was less successful.",
+          "2017 1.3 \u2014 Solomon Thomas: 6-2, 273. Stanford. Shorter, stockier defensive lineman. DL need pick over McCaffrey. Bust \u2014 miscast as 3-4 DE."
+        ]
+      },
+      "confidence": "high"
+    },
+    "OT": {
+      "archetype_summary": "Athletic, scheme-versatile offensive tackles who can move in space for Shanahan's wide-zone run scheme. Must be able to reach-block, pull, and get to the second level. Pass protection technique matters but athletic movement skills are paramount for the outside zone. The 49ers traded for Trent Williams (elite athlete) and drafted Mike McGlinchey (Notre Dame, zone-scheme fit).",
+      "physical_profile": {
+        "height_range": "6-4 to 6-7",
+        "weight_range": "300\u2013330",
+        "arm_length_minimum": "34 inches \u2014 McGlinchey had 33.75-inch arms; Williams has 34.5-inch arms. Length valued but movement skills more important.",
+        "key_athletic_tests": "Short shuttle and 3-cone drill to measure lateral agility and movement skills critical for zone-blocking. 20-yard shuttle times under 4.60 preferred.",
+        "speed_requirement": "N/A for OT \u2014 focus is on lateral quickness and ability to move in space, not straight-line speed"
+      },
+      "playing_style": {
+        "primary_win_condition": "Athletic zone-blocking ability with enough anchor to hold up in pass protection. Must be able to reach-block the backside, get to the second level, and sustain blocks while moving laterally.",
+        "most_valued_traits": [
+          "Lateral movement and footwork for zone-blocking schemes",
+          "Ability to reach and seal at the second level",
+          "Athleticism and body control in space",
+          "Pass protection technique and hand placement",
+          "Versatility to play either tackle spot"
+        ],
+        "least_important_traits": [
+          "Pure power/mauling run blocking in gap schemes \u2014 Shanahan runs outside zone, not power",
+          "Extraordinary size \u2014 330+ is fine but not required"
+        ],
+        "deal_breakers": [
+          "Stiff athletes who cannot move laterally \u2014 zone scheme demands movement",
+          "Poor balance and body control at the point of attack"
+        ],
+        "traits_that_make_them_reach": "Elite movement skills for their size \u2014 Shanahan's scheme is highly specific in its OL requirements"
+      },
+      "college_production": {
+        "production_floor": "Must have been a multi-year starter. McGlinchey started 3+ years at Notre Dame.",
+        "production_trajectory": "Prefers experienced, polished blockers over raw athletes at this position.",
+        "context_sensitivity": "Moderate \u2014 zone-scheme experience in college is a plus but not required. McGlinchey came from a Notre Dame scheme that wasn't pure zone."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2018 1.9 \u2014 Mike McGlinchey: 6-7, 315. Notre Dame. 3-year starter, elite athlete for his size. Zone-scheme fit. Started immediately.",
+          "Trade acquisition \u2014 Trent Williams: 6-5, 320. Traded for in 2020. All-Pro, elite zone-blocking tackle. Defines the archetype."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 1 OT drafted in 9 drafts in rounds 1-3. Profile largely inferred from scheme requirements and the Trent Williams trade. The 49ers have chronically underdrafted OT."
+    },
+    "IOL": {
+      "archetype_summary": "Versatile interior linemen who fit the wide-zone scheme. Must be able to pull, reach, and move laterally. The 49ers prefer guards who played tackle in college and can flex to multiple spots. Dominick Puni (2024 R3) is the prototype: played LT at Kansas, moved inside to guard, mauling run blocker who didn't allow a sack.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "295\u2013320",
+        "arm_length_minimum": "No clear minimum \u2014 Puni and Banks had varying arm lengths",
+        "key_athletic_tests": "Short shuttle, 3-cone, and broad jump to measure lateral movement and explosion. Spencer Burford and Puni both showed athleticism in pre-draft testing.",
+        "speed_requirement": "N/A \u2014 lateral agility matters more than straight-line speed for IOL"
+      },
+      "playing_style": {
+        "primary_win_condition": "Zone-blocking athleticism and power in tight spaces. Must be able to execute reach blocks, combination blocks, and pull to the play-side in Shanahan's wide-zone scheme.",
+        "most_valued_traits": [
+          "Lateral movement and agility for zone-blocking",
+          "Power and anchor in pass protection",
+          "Versatility to play multiple OL positions",
+          "Run-blocking physicality and ability to finish blocks",
+          "Football intelligence and communication"
+        ],
+        "least_important_traits": [
+          "Pure strength/size for gap-scheme blocking \u2014 Shanahan runs zone",
+          "Experience at center specifically \u2014 they convert players"
+        ],
+        "deal_breakers": [
+          "Stiff athletes who cannot execute zone-blocking assignments",
+          "Poor pass protection technique that cannot be coached up"
+        ],
+        "traits_that_make_them_reach": "OL versatility (can play 3+ positions) \u2014 the 49ers moved up 8 spots to take Puni, described as 'a five-position backup' with starting upside"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter preferred. Puni was a 27-game starter at Kansas. Banks was a multi-year starter at Notre Dame.",
+        "production_trajectory": "Values experience and polish. Both early IOL picks were experienced college starters.",
+        "context_sensitivity": "Moderate \u2014 zone-scheme experience helps but is not required."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2024 3.86 \u2014 Dominick Puni: 6-5, 313. Kansas. 27-game starter at LT, projected to guard. Mauling run blocker, zero sacks allowed. Traded up for him.",
+          "2021 2.48 \u2014 Aaron Banks: 6-5, 325. Notre Dame. Power guard, moved to the zone scheme. Started and was solid for several years before FA departure.",
+          "2022 4.133 \u2014 Spencer Burford: 6-4, 305. UTSA. Athletic OL from small school, versatile. Started at guard.",
+          "2025 7.249 \u2014 Connor Colby: 6-6, 309. Iowa. Late-round depth add with zone-blocking experience."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "DT": {
+      "archetype_summary": "Large, disruptive interior defenders with length and versatility to play multiple techniques. The 49ers want DTs who can hold the point of attack, eat blocks to free up linebackers, AND provide interior pass-rush pressure. Alfred Collins (2025 R2) \u2014 6-6, 332, 85-inch wingspan \u2014 represents the new ideal: massive, long, versatile from 0-tech to 5-tech. Javon Kinlaw (2020 R1) was a similar profile but didn't pan out due to injuries.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-6",
+        "weight_range": "290\u2013340",
+        "arm_length_minimum": "No hard minimum but length is valued \u2014 Collins has 85-inch wingspan, Solomon Thomas had shorter arms and was miscast",
+        "key_athletic_tests": "Explosion metrics (vertical jump, broad jump) for interior disruption. Short-area quickness for penetration.",
+        "speed_requirement": "N/A \u2014 burst and first-step quickness matter more than 40 time for DT"
+      },
+      "playing_style": {
+        "primary_win_condition": "Combination of size, length, and versatility to play multiple techniques along the defensive front. Must anchor against double teams AND provide interior pressure.",
+        "most_valued_traits": [
+          "Run defense dominance \u2014 ability to hold the point of attack and control gaps",
+          "Length and wingspan to disrupt passing lanes",
+          "Versatility to align at multiple techniques (0 through 5-tech)",
+          "Interior pass-rush ability as a bonus, not a requirement for early investment",
+          "Physicality and violence when shedding blocks"
+        ],
+        "least_important_traits": [
+          "Pure penetrating quickness at the expense of gap integrity \u2014 the system values gap control"
+        ],
+        "deal_breakers": [
+          "One-dimensional players who can only rush the passer but get washed in run defense",
+          "Undersized DTs who cannot anchor against double teams"
+        ],
+        "traits_that_make_them_reach": "Exceptional length and versatility \u2014 Collins' 85-inch wingspan and ability to play anywhere on the front made him a round 2 pick"
+      },
+      "college_production": {
+        "production_floor": "Context-dependent. Collins had 7.5 career sacks over 63 games at Texas \u2014 modest counting stats but elite grades. Kinlaw had 6 sacks in his final season.",
+        "production_trajectory": "Prefers multi-year starters with ascending impact even if counting stats are modest.",
+        "context_sensitivity": "Very high \u2014 adjusts for DL rotation, conference strength, and role. Collins was in a loaded Texas DL room."
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2025 2.43 \u2014 Alfred Collins: 6-6, 332. Texas. 7.5 career sacks, 18 TFL. 85-inch wingspan. Second-team All-American. Versatile 0-to-5 tech. 85.0 PFF run-defense grade.",
+          "2025 4.113 \u2014 CJ West: 6-1, 316. Indiana. Shorter but thick and explosive nose tackle. 88.1 PFF run-defense grade.",
+          "2020 1.14 \u2014 Javon Kinlaw: 6-5, 319. South Carolina. Traded up for DT need to replace Buckner. Physically dominant but chronic injuries. Need pick over CeeDee Lamb.",
+          "2017 1.3 \u2014 Solomon Thomas: 6-2, 273. Stanford. DL need pick. Undersized for DT role, miscast. Bust.",
+          "2017 6.198 \u2014 DJ Jones: 6-0, 305. Ole Miss. Late-round find. Solid run-defending nose tackle who became a 6-year starter."
+        ]
+      },
+      "confidence": "high"
+    },
+    "CB": {
+      "archetype_summary": "Versatile, scheme-adaptable corners who can play zone coverage AND press when asked. The 49ers run a zone-heavy defense but also run a high rate of press coverage. They value ball production, physicality, and tackling. Renardo Green (2024 R2) is the prototype: physical, transitioned from safety to CB, 13 pass breakups. Deommodore Lenoir (2021 R5) is another \u2014 physical, tough, not a traditional long corner. Upton Stout (2025 R3) is short (5-9) but physical and instinctive \u2014 suggests size is not a hard requirement.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-2 \u2014 the 49ers have drafted corners across the size spectrum. No hard minimum height.",
+        "weight_range": "180\u2013200",
+        "arm_length_minimum": "No hard minimum \u2014 Stout at 5-9 breaks any traditional length threshold. Womack was 5-9, 189. Green is taller at roughly 6-0.",
+        "key_athletic_tests": "Speed is important. Stout ran 4.44 at the combine. Womack ran 4.39. Green had solid testing. 3-cone and short shuttle for change-of-direction ability.",
+        "speed_requirement": "4.50 or faster strongly preferred \u2014 Stout 4.44, Womack 4.39"
+      },
+      "playing_style": {
+        "primary_coverage_style": "Zone-heavy with press coverage usage. The 49ers are described as 'generally a zone-heavy defense' that also runs 'a high rate of press coverage.' Corners must be versatile.",
+        "most_valued_traits": [
+          "Physical tackling ability and willingness in run support",
+          "Ball-hawking instincts and pass breakup ability \u2014 Green had 13 PBUs, Stout had 21 career PBUs and 6 INTs",
+          "Versatility to play outside and slot",
+          "Speed and change-of-direction ability",
+          "Physicality at the catch point"
+        ],
+        "least_important_traits": [
+          "Elite height/length \u2014 they've drafted 5-9 corners in the top 100 without hesitation"
+        ],
+        "deal_breakers": [
+          "Poor tacklers who cannot support the run",
+          "Stiff athletes without the agility to match routes in space"
+        ],
+        "traits_that_make_them_reach": "Ball production and playmaking ability \u2014 interceptions and pass breakups seem to move players up their board even from small schools (Stout from Western Kentucky)"
+      },
+      "college_production": {
+        "production_floor": "Ball production matters \u2014 Green had 13 PBUs in his final season. Stout had 6 career INTs and 21 PBUs.",
+        "production_trajectory": "Prefers ascending production. Green's move from safety to corner in 2023 created a breakout year. Stout produced across multiple seasons.",
+        "context_sensitivity": "High \u2014 willing to take corners from smaller schools if traits and production are there (Stout from Western Kentucky, Womack from Toledo, Luter from South Alabama)"
+      },
+      "evidence": {
+        "picks_analyzed": 7,
+        "examples": [
+          "2024 2.64 \u2014 Renardo Green: ~6-0, 190. Florida State. Converted safety, 13 PBUs, physical. 74.3 PFF coverage grade as rookie.",
+          "2025 3.100 \u2014 Upton Stout: 5-9, 181. Western Kentucky. 4.44 40-yard dash. 6 career INTs, 21 PBUs. Physical slot/nickel projection. Earned Defensive Rookie of the Year buzz early.",
+          "2021 5.155 \u2014 Deommodore Lenoir: 5-11, 195. Oregon. Physical, tough, ascending player who became a starter.",
+          "2022 5.172 \u2014 Samuel Womack: 5-9, 189. Toledo. 4.39 40. Small-school ball hawk.",
+          "2017 3.66 \u2014 Ahkello Witherspoon: 6-3, 195. Colorado. Longer corner, more traditional size. Inconsistent career.",
+          "2021 3.102 \u2014 Ambry Thomas: 5-11, 191. Michigan. Mostly underwhelming but had some big-game moments."
+        ]
+      },
+      "confidence": "high"
+    },
+    "S": {
+      "archetype_summary": "Physical, versatile safeties who can play multiple roles \u2014 deep coverage, box support, and blitzing. The 49ers want safeties who tackle well, make plays on the ball, and can handle multiple responsibilities. Malik Mustapha (2024 R4) is the modern template: rangy, hard-hitting, chippy split-field safety. Talanoa Hufanga (2021 R5) was a late-round gem: physical, instinctive, ball-hawking strong safety.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-2",
+        "weight_range": "195\u2013215",
+        "arm_length_minimum": "No clear minimum",
+        "key_athletic_tests": "Broad jump and vertical for range, short shuttle for change-of-direction. 40 time matters for deep-coverage ability.",
+        "speed_requirement": "4.50 or faster preferred for starters. Mustapha and Hufanga both had adequate speed."
+      },
+      "playing_style": {
+        "primary_win_condition": "Versatility across coverage and run support roles. Must be able to play single-high, split-field, and in the box.",
+        "most_valued_traits": [
+          "Physical tackling and run-support ability",
+          "Ball-hawking instincts and playmaking",
+          "Versatility to play multiple safety positions",
+          "Aggressiveness and tone-setting physicality",
+          "Coverage range and ability to play deep"
+        ],
+        "least_important_traits": [
+          "Pure deep-center-field range at the expense of physicality \u2014 they want both",
+          "Slot-corner-type coverage skills as primary value"
+        ],
+        "deal_breakers": [
+          "Weak tacklers who cannot support the run game",
+          "One-dimensional players who can only cover OR hit but not both"
+        ],
+        "traits_that_make_them_reach": "Ball-production plus physicality combination \u2014 Mustapha's 3 INTs, 20 passes defended, 4 forced fumbles in college fit perfectly"
+      },
+      "college_production": {
+        "production_floor": "Significant tackles and ball production. Mustapha had 175 tackles, 3 INTs, 20 PDs, 4 FFs in college. Hufanga was similarly productive.",
+        "production_trajectory": "Multi-year starters preferred. Both Mustapha and Hufanga had extensive college production.",
+        "context_sensitivity": "Moderate"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2024 4.124 \u2014 Malik Mustapha: 6-0, 200. Wake Forest. 175 tackles, 3 INTs, 4 FFs. Rangy, hard-hitting. 755 snaps as rookie \u2014 66.3 PFF run-defense grade.",
+          "2025 5.160 \u2014 Marques Sigle: 5-11, 199. Kansas State. 3 INTs in 2024, 60 tackles. Ball-hawking free safety.",
+          "2021 5.180 \u2014 Talanoa Hufanga: 6-0, 200. USC. Instinctive, physical, ball-hawking SS. Became All-Pro caliber before injury.",
+          "2018 3.70 \u2014 Tarvarius Moore: 6-2, 200. Southern Miss. Rangy, athletic safety. Had flashes but injury-shortened career.",
+          "2023 3.87 \u2014 Ji'Ayir Brown: S, Penn State. Physical safety. Had some playing time."
+        ]
+      },
+      "confidence": "high"
+    },
+    "LB": {
+      "archetype_summary": "Fast, rangy, sideline-to-sideline linebackers who can cover, tackle, and play in space. Fred Warner (2018 R3) is the gold standard \u2014 elite speed, coverage ability, tackling, and instincts. The 49ers want LBs who can do everything in a modern defense. Nick Martin (2025 R3) is described as a 'rangy off-ball linebacker who flies around like his hair's on fire' \u2014 classic San Francisco LB.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "220\u2013240",
+        "arm_length_minimum": "No hard minimum \u2014 Warner is 6-3 with long arms, but Martin is 6-0, 221 \u2014 size is secondary to speed and instincts",
+        "key_athletic_tests": "40-yard dash and 3-cone drill are primary filters. Warner ran 4.65 at the combine. Speed and agility are non-negotiable.",
+        "speed_requirement": "4.65 or faster \u2014 the 49ers demand speed at LB. Martin and Warner both had the speed to cover sideline to sideline."
+      },
+      "playing_style": {
+        "primary_win_condition": "Coverage ability and range. The modern 49ers defense needs LBs who can match up with TEs and RBs in coverage while also being reliable tacklers.",
+        "most_valued_traits": [
+          "Sideline-to-sideline range and speed",
+          "Coverage ability against tight ends and running backs",
+          "Tackling reliability and physicality",
+          "Football intelligence and recognition/diagnosis speed",
+          "Blitzing ability and versatility"
+        ],
+        "least_important_traits": [
+          "Pure thumper/run-stuffing ability at the expense of coverage \u2014 the 49ers defense demands coverage LBs",
+          "Pass-rushing specialization \u2014 nice bonus but not the primary value"
+        ],
+        "deal_breakers": [
+          "Slow linebackers who cannot cover \u2014 Lynch noted he understood 'the speed necessary for the Niner defense' when drafting Warner",
+          "Poor tacklers despite athletic testing"
+        ],
+        "traits_that_make_them_reach": "Elite speed combined with production \u2014 Warner lasted to round 3 despite being one of the best LBs in the draft because he was undersized. Lynch valued his speed and took him anyway."
+      },
+      "college_production": {
+        "production_floor": "High tackle numbers. Warner had 90+ tackles per season. Martin had 140 tackles in 2023 \u2014 led Oklahoma State.",
+        "production_trajectory": "Multi-year starters with high tackle volume. Martin was a team captain with 140 tackles.",
+        "context_sensitivity": "Moderate \u2014 adjusts for scheme but wants to see high tackle production."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2018 3.70 \u2014 Fred Warner: 6-3, 236. BYU. Multiple All-Pro selections. Elite speed, coverage, tackling. Defining pick of the Lynch era.",
+          "2025 3.75 \u2014 Nick Martin: 6-0, 221. Oklahoma State. 140 tackles in 2023, team captain. Rangy, fast, flies around.",
+          "2024 7.251 \u2014 Tatum Bethune: 6-0, 225. Florida State. 142 tackles, 12.5 TFL. Physical, productive. Late-round value.",
+          "2023 7.255 \u2014 Jalen Graham: LB, Arizona State. Depth pick."
+        ]
+      },
+      "confidence": "high"
+    },
+    "WR": {
+      "archetype_summary": "Versatile, tough receivers who can win with route-running and hands rather than pure speed. Shanahan values WR toughness, blocking, and the ability to create after the catch. Deebo Samuel was the ultimate Shanahan WR: tough, YAC monster, could line up anywhere. Ricky Pearsall (2024 R1) has 'great hands and will be an asset in the run game as a blocker.' Brandon Aiyuk was a polished route-runner with contested-catch ability. The 49ers do NOT prioritize pure deep-threat burners.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-2",
+        "weight_range": "185\u2013215",
+        "arm_length_minimum": "No hard minimum",
+        "key_athletic_tests": "Short shuttle and 3-cone for route-running agility. YAC ability matters more than 40 time. Deebo's 4.48 was adequate; Pearsall was similar range.",
+        "speed_requirement": "4.55 or faster preferred, but will draft slower WRs with elite route-running and production. Not a speed-first evaluation."
+      },
+      "playing_style": {
+        "primary_win_condition": "Route-running precision, hands, toughness, and YAC ability. Shanahan's system creates schematic separation \u2014 the WR needs to be able to catch contested balls, block in the run game, and run precise routes.",
+        "most_valued_traits": [
+          "Reliable hands and low drop rate \u2014 Pearsall had tied-for-fewest drops among Power Five WRs with 200+ targets",
+          "Toughness and blocking ability in the run game",
+          "Route-running precision and ability to create separation",
+          "YAC/after-the-catch ability",
+          "Versatility to play inside and outside"
+        ],
+        "least_important_traits": [
+          "Pure straight-line deep speed \u2014 Shanahan's system creates separation schematically",
+          "Elite height/jump-ball ability \u2014 nice but not required"
+        ],
+        "deal_breakers": [
+          "Poor route running even if athleticism is elite \u2014 Shanahan demands route precision",
+          "Inability to block \u2014 Shanahan benches WRs who won't block",
+          "High drop rates"
+        ],
+        "traits_that_make_them_reach": "Versatility (can play multiple WR positions, return kicks, and contribute in the run game like Deebo) \u2014 the 'wide-back' archetype is uniquely valued"
+      },
+      "college_production": {
+        "production_floor": "Significant production. Pearsall had 65 catches, 965 yards in final season. Deebo had 62 catches, 882 yards, 11 TDs. Aiyuk had 65 catches, 1,192 yards. Cowing had 175 receptions over his career.",
+        "production_trajectory": "Prefers experienced producers. Most WR picks were multi-year contributors in college.",
+        "context_sensitivity": "Moderate \u2014 adjusts for system and role. Deebo's production in a run-heavy South Carolina offense was valued."
+      },
+      "evidence": {
+        "picks_analyzed": 8,
+        "examples": [
+          "2024 1.31 \u2014 Ricky Pearsall: 6-1, 190. Florida. 65 catches, 965 yards. Great hands, low drop rate, tough, route-runner.",
+          "2019 2.36 \u2014 Deebo Samuel: 6-0, 214. South Carolina. 62 catches, 882 yards, 11 TDs. YAC monster, versatile, tough. Defining Shanahan WR.",
+          "2020 1.25 \u2014 Brandon Aiyuk: 6-0, 200. Arizona State. Dynamic playmaker, route-runner, contested catches.",
+          "2024 4.135 \u2014 Jacob Cowing: 5-8, 165. Arizona. Small but electric, deep and YAC threat. 175 career receptions.",
+          "2025 4.138 \u2014 Jordan Watkins: 5-11, 196. Ole Miss. 142 career receptions, 2,096 career yards. Productive.",
+          "2018 2.44 \u2014 Dante Pettis: 6-1, 190. Washington. Route-runner. Bust \u2014 lacked toughness."
+        ]
+      },
+      "confidence": "high"
+    },
+    "TE": {
+      "archetype_summary": "Athletic, receiving-first tight ends who can also block in the run game. George Kittle (2017 R5) is the archetype: elite athlete who became one of the best receiving TEs in NFL history while also being an elite run blocker. Shanahan's offense uses the TE as a central piece \u2014 motioning, flexing, and creating mismatches. The TE must be an athlete first who can develop blocking over time.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "245\u2013260",
+        "arm_length_minimum": "No hard minimum \u2014 Kittle at 6-4, 247 is the model",
+        "key_athletic_tests": "Vertical jump and broad jump for explosive receiving ability. 40 time matters for creating mismatches. Kittle ran 4.52.",
+        "speed_requirement": "4.60 or faster preferred to create mismatches in the passing game"
+      },
+      "playing_style": {
+        "primary_win_condition": "Receiving ability with the athleticism to create mismatches against linebackers and safeties, combined with willingness and technique to be an inline blocker in Shanahan's run game.",
+        "most_valued_traits": [
+          "Receiving ability and athleticism to create matchup advantages",
+          "Inline blocking willingness and technique for the run game",
+          "YAC ability and toughness after the catch",
+          "Versatility to line up inline, flexed, or in the slot",
+          "Football intelligence and route-running"
+        ],
+        "least_important_traits": [
+          "Pure blocking-only tight ends \u2014 Shanahan needs receiving production from the position"
+        ],
+        "deal_breakers": [
+          "Inability to catch and create as a receiver \u2014 the scheme demands it",
+          "Unwillingness to block in the run game"
+        ],
+        "traits_that_make_them_reach": "Elite receiving athleticism with blocking willingness \u2014 Kittle's combination of both made him a steal"
+      },
+      "college_production": {
+        "production_floor": "Limited sample. Kittle had 48 catches, 314 yards in his final season (Iowa's run-heavy system). Cameron Latu had 30 catches, 377 yards in his final season at Alabama.",
+        "production_trajectory": "Adjusted for system. Kittle's modest stats were in Iowa's offense \u2014 context matters.",
+        "context_sensitivity": "Very high \u2014 Kittle is proof they value traits and film over counting stats at TE."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2017 5.146 \u2014 George Kittle: 6-4, 247. Iowa. 4.52 40. 48 catches in final season. Modest stats, elite athlete. Became All-Pro receiving TE and elite blocker.",
+          "2023 3.101 \u2014 Cameron Latu: 6-5, 249. Alabama. 30 catches, 377 yards in final season. Mackey Award watchlist. Has not panned out."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 2 TEs drafted in 9 years. Kittle was a once-in-a-generation find. Profile heavily inferred from scheme requirements and Kittle's archetype."
+    },
+    "RB": {
+      "archetype_summary": "Shanahan drafts a running back in nearly every draft, typically in mid-to-late rounds. He wants versatile backs who can run between the tackles, catch passes, and pass-protect. Speed backs (Guerendo), power backs (Davis-Price, Jordan James), and receiving backs (Elijah Mitchell) have all been drafted. The key: Shanahan believes he can make any reasonably talented RB productive in his system, so he doesn't invest premium capital.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-0",
+        "weight_range": "195\u2013220",
+        "arm_length_minimum": "N/A for RB",
+        "key_athletic_tests": "40-yard dash for speed backs (Guerendo ran 4.33). No clear minimum for power backs. Burst metrics (10-yard split) valued.",
+        "speed_requirement": "Variable \u2014 Guerendo at 4.33 was a speed pick; Jordan James at 4.55 was a power/goal-line pick. Depends on role."
+      },
+      "playing_style": {
+        "primary_win_condition": "Scheme-fit versatility in the wide-zone system. Must have the vision to read zone blocking, the speed to get to the edge, and the ability to contribute in the passing game.",
+        "most_valued_traits": [
+          "Vision and decisiveness in the zone-run scheme",
+          "Receiving ability out of the backfield",
+          "Pass protection willingness and technique",
+          "Burst and explosion through the hole",
+          "Toughness and goal-line ability"
+        ],
+        "least_important_traits": [
+          "Elite size \u2014 Shanahan has used backs of all sizes",
+          "College production volume \u2014 has drafted low-usage backs who flashed in limited touches (Guerendo had one year of steady production)"
+        ],
+        "deal_breakers": [
+          "Inability to pass-protect \u2014 non-negotiable in Shanahan's system",
+          "Poor hands/receiving ability \u2014 limits usage in the passing game"
+        ],
+        "traits_that_make_them_reach": "Blazing speed (Guerendo 4.33) or red-zone touchdown production (James scored 26 rushing TDs in 2 years at Oregon)"
+      },
+      "college_production": {
+        "production_floor": "No strict minimum. Guerendo averaged 6.1 yards per carry with limited total volume. James had more extensive production at Oregon.",
+        "production_trajectory": "Has drafted both one-year producers (Guerendo, Mitchell) and multi-year contributors (James).",
+        "context_sensitivity": "High \u2014 values per-carry efficiency over total volume"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2024 4.129 \u2014 Isaac Guerendo: 5-11, 221. Louisville. 4.33 40. 810 rushing yards, 11 TDs in final season. Speed back. Traded up for him.",
+          "2025 5.147 \u2014 Jordan James: 5-10, 205. Oregon. 26 rushing TDs over 2 years. 4.55 40. Tough, physical, goal-line back.",
+          "2022 3.93 \u2014 Ty Davis-Price: 6-1, 223. LSU. 1,003 yards as junior. Downhill runner. Did not pan out.",
+          "2021 3.88 \u2014 Trey Sermon: 6-1, 215. Ohio State. Did not pan out.",
+          "2021 6.194 \u2014 Elijah Mitchell: 5-10, 200. Louisiana. Late-round speed back who became starting RB as rookie."
+        ]
+      },
+      "confidence": "high"
+    },
+    "QB": {
+      "archetype_summary": "Shanahan's system needs a smart, accurate, quick-processing quarterback who can execute play-action, bootlegs, and make throws on the move. Arm talent matters less than accuracy and anticipation. Brock Purdy (2022 R7) is the system ideal: quick processor, accurate, poised, leverages the scheme. Trey Lance (2021 R1) was the opposite bet \u2014 raw tools over processing \u2014 and it failed spectacularly. The 49ers will likely not invest premium capital at QB again unless forced.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-4",
+        "weight_range": "210\u2013230",
+        "arm_length_minimum": "N/A for QB",
+        "key_athletic_tests": "Arm velocity and accuracy at the Senior Bowl/combine matter more than timed athleticism. Processing speed is evaluated through interviews and film.",
+        "speed_requirement": "Enough mobility to execute play-action bootlegs and move in the pocket. Not a running QB requirement. Purdy is mobile enough; Lance was a runner and it didn't work."
+      },
+      "playing_style": {
+        "primary_win_condition": "Quick processing, accuracy, and anticipation within Shanahan's play-action heavy offense. Must be able to make pre-snap reads, handle bootleg throws, and deliver with accuracy to the intermediate level.",
+        "most_valued_traits": [
+          "Processing speed and pre-snap reads",
+          "Accuracy to all levels, especially intermediate",
+          "Poise and pocket presence under pressure",
+          "Ability to execute play-action and bootleg concepts",
+          "Football intelligence and command of a complex offense"
+        ],
+        "least_important_traits": [
+          "Cannon arm strength \u2014 Purdy does not have elite arm strength but is extremely effective",
+          "Designed run ability \u2014 Shanahan wants a passer first"
+        ],
+        "deal_breakers": [
+          "Slow processor who cannot handle the rhythm and timing of the system",
+          "Run-first mentality that disrupts the offense's designed passing concepts"
+        ],
+        "traits_that_make_them_reach": "The Trey Lance trade-up remains an outlier \u2014 Lynch traded 3 first-round picks for a raw, toolsy QB with limited college starts. This is unlikely to be repeated."
+      },
+      "college_production": {
+        "production_floor": "Variable \u2014 Purdy was a 4-year starter with extensive production (71.7% completion). Lance started 1 full season at NDSU. Kurtis Rourke (2025 R7) had 69.4% completion rate.",
+        "production_trajectory": "Post-Lance, the preference appears to be experienced, proven producers. Purdy and Rourke were both multi-year starters.",
+        "context_sensitivity": "High \u2014 values system production and accuracy metrics over raw numbers"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2022 7.262 \u2014 Brock Purdy: 6-1, 212. Iowa State. 71.7% completion, First-Team All-Big 12. Mr. Irrelevant who became a franchise QB. Defines the Shanahan QB archetype.",
+          "2021 1.3 \u2014 Trey Lance: 6-4, 224. NDSU. Raw tools, limited college starts (17 games). Traded 3 first-round picks to move from 12 to 3. Bust \u2014 traded to Dallas for a 4th.",
+          "2025 7.227 \u2014 Kurtis Rourke: 6-4, 220. Indiana. 69.4% completion, 29 TDs. Late-round developmental pick.",
+          "2017 3.104 \u2014 CJ Beathard: 6-1, 215. Iowa. Tough, limited ceiling. Became long-term backup."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "The Lance disaster makes future QB drafting hard to predict. Purdy's success suggests the system can elevate an accurate processor, reducing the need for elite QB traits. The 49ers are unlikely to invest premium QB capital while Purdy is the starter."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 10,
+    "max_observed_reach": 25,
+    "round_1_reach_tolerance": 8,
+    "notes": "Lynch consistently drafts 'his guys' regardless of consensus rankings. Multiple picks have been described as reaches: Solomon Thomas over consensus-better players at 3, Kinlaw over Lamb/Wirfs at 14, Pearsall was 'a surprise' at 31. In 2025, Nick Martin and Upton Stout in round 3 were described as 'mild head-scratchers' and 'reaches' by multiple draft analysts \u2014 Martin and Stout 'were projected to go late Day 3.' The 49ers 'often march to the beat of their own evaluations.' Lynch once said the 49ers had 200 draftable players on their board vs. the typical 150-170 \u2014 they have their own evaluations and stick to them."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.7,
+    "offensive_scheme": "Kyle Shanahan wide-zone running attack with play-action passing. One of the most scheme-specific offenses in the NFL. Demands: athletic OL who can move laterally, versatile RBs, tough/precise WRs, athletic receiving TEs, smart QBs who process quickly. Klay Kubiak promoted to offensive coordinator for 2026 (Shanahan had been calling plays himself).",
+    "defensive_scheme": "4-3 base / even front with multiple alignments. Raheem Morris is the new DC for 2026, replacing Robert Saleh (Tennessee). Morris brings adaptability \u2014 ran multiple schemes with the Rams and Falcons. The 49ers have historically run a wide-9 / 4-3 under front that demands hand-in-the-dirt DEs, versatile DTs, rangy LBs, and physical DBs. Morris adds variety and some 3-4 elements from his experience.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "Raheem Morris hired as DC in February 2026, replacing Robert Saleh (hired as Titans HC). Morris previously was DC for the Rams (2021-2023) and HC of the Falcons (2024-2025). He is familiar with Shanahan's preferred defensive personnel from their overlapping time in Atlanta and Tampa. Lynch described Morris as having 'a lot of variety to the type of defense, schematically.' The 2025 draft was heavily defense-focused (5 straight defensive picks to start) under Saleh's influence. Morris may shift some personnel preferences but the core defensive philosophy (aggressive front, physical secondary) should remain. Defensive draft preferences may shift slightly."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.55,
+    "risk_description": "Moderate-to-aggressive. Lynch has made both the most conservative picks (BPA Bosa at 2) and the most aggressive bets (trading 3 firsts for Lance) in his tenure. The Lance disaster may have recalibrated his risk tolerance downward. Recent drafts (2024-2025) have been more conservative and need-driven. Day 3 picks show higher risk tolerance \u2014 Lynch drafts developmental athletes and small-school players late (Kittle from Iowa R5, Jennings R7, Purdy R7, Stout from Western Kentucky R3).",
+    "recency_bias": 0.65,
+    "recency_description": "Moderate recency bias. After losing DeFo Buckner, Lynch traded up for Kinlaw at DT. After getting destroyed in the Divisional Round in January 2026, the 49ers' 2026 priorities have shifted toward OT (Trent Williams situation), WR (Aiyuk/Jennings departures), and defensive depth. The 2025 draft was heavily defensive (5 straight D picks) after the 2024 season exposed defensive weaknesses.",
+    "sunk_cost_behavior": "Moves on from busts relatively quickly. Traded Trey Lance for a 4th-round pick after 2 seasons rather than doubling down. Cut Solomon Thomas. Didn't re-sign Dante Pettis. However, the Lance trade-up itself was arguably a sunk-cost-driven decision to find 'the guy' after the Garoppolo experiment.",
+    "combine_weight": 0.5,
+    "combine_description": "Balanced. The 49ers use the combine to confirm film evaluations. Lynch said the front office 'uses Indianapolis to confirm what the film already suggested.' Athletic thresholds exist at certain positions (speed for CB, explosion for EDGE) but film is primary. The 49ers have drafted players with underwhelming measurables when film was strong (Purdy) and drafted athletes from small schools when combine numbers popped (Stout, Womack).",
+    "character_weight": 0.6,
+    "character_description": "Moderate-to-high character standards. The Reuben Foster experience (first round 2017, off-field issues led to release) appeared to make Lynch more cautious. However, Lynch is not a hard-line character GM \u2014 he has taken Day 3 fliers on players with some flags and traded for veterans with baggage when the talent warranted it (Randy Gregory).",
+    "quarterback_philosophy": "Post-Lance, Lynch's QB philosophy is: find a smart, accurate processor who fits Shanahan's system. Don't overpay for raw tools. Purdy's success has validated this approach. The 49ers signed Mac Jones as a backup (2025) and drafted Kurtis Rourke in round 7 (2025) \u2014 both are developmental/backup investments, not franchise QB bets. Lynch is unlikely to make another aggressive QB trade-up while Purdy is the starter."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.55,
+    "production_vs_projection": "Lynch and Shanahan have drafted both high-production college players (Pearsall 65 catches, Warner high tackle numbers, Aiyuk 1,192 yards) and lower-production athletes with elite traits (Williams 14 career sacks in rotation, Kittle 48 catches at Iowa). When it comes to tiebreakers, traits win at premium positions (EDGE, DT) while production wins at skill positions (WR, LB). The biggest misses (Solomon Thomas, Dante Pettis) were players with adequate but not elite production whose traits didn't translate.",
+    "production_thresholds_by_position": {
+      "WR": "50+ catches in final college season for R1-R3 picks. Pearsall had 65, Deebo 62, Aiyuk 65.",
+      "RB": "No strict minimum \u2014 Guerendo had limited volume but high per-carry production. Shanahan trusts his system to create RB production.",
+      "EDGE": "No strict sack minimum \u2014 Williams had 5.0 in his best season. Bosa had 17.5 over 2 years. Context heavily weighted.",
+      "CB": "Ball production valued \u2014 PBUs and INTs. Green had 13 PBUs, Stout had 21 career PBUs.",
+      "LB": "High tackle numbers \u2014 Warner and Martin both had 90+ tackle seasons. Tackling volume is a proxy for range and effort.",
+      "DT": "No strict minimum \u2014 values PFF grades and film over counting stats. Collins had 7.5 career sacks over 5 years."
+    },
+    "breakout_age_sensitivity": 0.45,
+    "dominator_rating_sensitivity": 0.4,
+    "notes": "Lynch values experienced players who have produced over multiple seasons rather than one-year breakout types. Most successful picks were multi-year college starters (Bosa, Warner, Deebo, Aiyuk, Purdy, Pearsall). The Lance pick (minimal college experience) was the exception that proved the rule \u2014 it failed."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "40_yard_max": 4.5,
+        "min_height": "None \u2014 5-9 Stout drafted in R3",
+        "confidence": "medium"
+      },
+      "EDGE": {
+        "min_arm_length": "33 inches preferred",
+        "explosion_metrics": "Vertical jump 34+ and broad jump 120+ preferred",
+        "confidence": "medium"
+      },
+      "WR": {
+        "no_clear_threshold": true,
+        "notes": "Drafted WRs across the athletic spectrum. Pearsall was described as slightly stiff agility-wise. Values hands and route-running over speed."
+      },
+      "OT": {
+        "min_arm_length": "34 inches preferred based on scheme",
+        "lateral_agility": "Short shuttle under 4.60 preferred for zone scheme",
+        "confidence": "low \u2014 only 1 OT drafted"
+      },
+      "DT": {
+        "min_weight": "290 lbs",
+        "length_preferred": "Collins' 85-inch wingspan suggests length is highly valued",
+        "confidence": "medium"
+      },
+      "S": {
+        "40_yard_max": 4.55,
+        "notes": "Speed matters for range but physicality equally important",
+        "confidence": "medium"
+      },
+      "LB": {
+        "40_yard_max": 4.65,
+        "notes": "Speed is non-negotiable. Lynch valued Warner's speed and understanding of 'the speed necessary for the Niner defense.'",
+        "confidence": "medium"
+      }
+    },
+    "threshold_type": "Mostly soft preferences rather than hard cutoffs. The 49ers will break thresholds for exceptional film or production (Stout at 5-9 breaks any CB height threshold; Purdy breaks any QB athletic threshold). But at EDGE and LB, speed/explosion appear closer to hard floors.",
+    "size_preferences_by_position": {
+      "DT": "290+ for any alignment, 310+ for nose. Collins at 332 shows they like massive DTs with length.",
+      "LB": "No strong size preference \u2014 Warner at 236, Martin at 221. Speed and range trump size.",
+      "S": "5-11+ preferred. Mustapha at 6-0, 200. Hufanga at 6-0, 200.",
+      "WR": "No strong size preference \u2014 ranges from Cowing at 5-8 to Pearsall at 6-1",
+      "EDGE": "250+ preferred. Bosa 266, Williams 260. Want size to set the edge."
+    },
+    "athletic_testing_favorites": "Explosion metrics (vertical jump, broad jump) for EDGE and DT. 40-yard dash for CB and S. Short shuttle/3-cone for OL (zone-scheme fit). Less emphasis on specific testing for WR \u2014 film and hands matter more.",
+    "measurables_vs_film": "Film-first organization overall. Lynch has said the combine is about 'confirming what the film already suggested.' But measurables serve as eliminators at DB positions (speed) and as tiebreakers at other positions. The biggest combine-driven picks have been small-school players where film sample was limited (Stout from Western Kentucky, Womack from Toledo)."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Addresses perceived biggest need, often taking a premium position player (EDGE, DL, WR, QB) who also has high-floor traits. Despite BPA rhetoric, 7 of 9 first-round picks under Lynch addressed a clear team need. Will consider trading back but hasn't done so frequently. Had 20 players rated as first-rounders on their board for 2025. Lynch says 'you can't go wrong picking a quality player' in round 1 but consistently fills needs.",
+    "round_2_3_strategy": "Continues need-filling but becomes more willing to take BPA. This is where Lynch finds his best value \u2014 Fred Warner (R3), Deebo Samuel (R2), Renardo Green (R2), Nick Martin (R3). Day 2 is where the mismatch between stated BPA philosophy and actual need-driven behavior becomes less pronounced. Willing to trade up in round 3 for targeted players (Puni in 2024).",
+    "day_3_strategy": "This is where Lynch excels. Day 3 philosophy is clearly BPA/traits-driven: developmental athletes, scheme fits, and hidden gems. Kittle (R5), Purdy (R7), Jennings (R7), Hufanga (R5), Greenlaw (R5), Mitchell (R6), Lenoir (R5) \u2014 the 49ers' best draft value consistently comes on Day 3. Targets special teams contributors, positional versatility, and athletes with upside. Also regularly takes a mid-round RB (Shanahan's pattern).",
+    "compensatory_pick_usage": "Uses comp picks for slightly more aggressive selections. Upton Stout (R3 comp pick in 2025) was considered a reach by many analysts. Comp picks give the 49ers freedom to take higher-variance players since they're 'bonus' selections."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "EDGE": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Bosa is franchise-defining. Williams is too early to judge. Drake Jackson was a miss."
+      },
+      "DT": {
+        "picks": 4,
+        "starters": 1,
+        "rate": 0.25,
+        "note": "Kinlaw was a health-related bust. Thomas was miscast. DJ Jones was good but left. Collins TBD. Historically poor results despite heavy investment."
+      },
+      "WR": {
+        "picks": 8,
+        "starters": 4,
+        "rate": 0.5,
+        "note": "Hit: Deebo, Aiyuk, Jennings (R7), Pearsall (developing). Miss: Pettis (R2 bust), Hurd, others. Highly variable."
+      },
+      "CB": {
+        "picks": 7,
+        "starters": 3,
+        "rate": 0.43,
+        "note": "Green (R2) and Lenoir (R5) are hits. Stout showing promise. Witherspoon, Thomas, Womack, Luter inconsistent."
+      },
+      "LB": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Warner is All-Pro (all-time great pick). Martin showing promise. Foster was off-field bust but on-field talent was there."
+      },
+      "S": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Hufanga was excellent before injuries. Mustapha developing well. Moore and Brown less impactful."
+      },
+      "OL": {
+        "picks": 5,
+        "starters": 3,
+        "rate": 0.6,
+        "note": "McGlinchey started but was merely adequate. Banks was solid for years. Puni has been very good. Burford is a starter. Limited OL investment historically."
+      },
+      "RB": {
+        "picks": 5,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "Mitchell had a productive rookie year. Guerendo showed flashes. Davis-Price and Sermon were busts. James TBD."
+      },
+      "QB": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Purdy is an all-time hit (R7 franchise QB). Lance is an all-time bust (R1, traded 3 firsts). Beathard and Rourke are backups."
+      },
+      "TE": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Kittle is a Hall of Fame trajectory pick. Latu was a miss."
+      }
+    },
+    "blind_spots": [
+      "DT evaluation in the early rounds \u2014 Thomas at 3 and Kinlaw at 14 were both busts. Lynch has spent premium capital on DTs without success, though Collins (2025 R2) may change this.",
+      "First-round picks in general have been inconsistent. Only Bosa is a clear home-run among R1 picks; most others (Thomas, Kinlaw, Lance, Aiyuk traded/declined, McGlinchey merely adequate, Pearsall developing, Williams TBD) have been somewhere between acceptable and disaster.",
+      "Round 2 WR evaluation \u2014 Pettis (R2) was a notable bust."
+    ],
+    "strengths": [
+      "Day 3 evaluation is elite. Kittle (R5), Purdy (R7), Warner (R3), Greenlaw (R5), Hufanga (R5), Jennings (R7), Lenoir (R5), Mitchell (R6) \u2014 the 49ers consistently find impact players in mid-to-late rounds.",
+      "LB evaluation \u2014 Warner is an All-Pro, Martin showing early promise.",
+      "Interior OL in later rounds \u2014 Puni (R3) and Burford (R4) have both been solid starters."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Selective, strategic spender. Lynch makes targeted, impactful FA signings and trades (Richard Sherman, Trent Williams trade, McCaffrey trade, Charvarius Ward, Javon Hargrave, Bryce Huff) but does not scatter-shot money. He uses FA to fill 1-2 high-priority positions and drafts the rest. He has historically spent big on the defensive secondary and defensive line in FA while drafting offensive weapons.",
+    "fa_draft_correlation": "When a veteran starter is signed/traded for at a position, that position drops in draft priority but doesn't disappear entirely \u2014 Lynch still drafts depth. Example: After trading for Trent Williams, he didn't draft an OT high, but did take developmental OL in later rounds (Kingston, McKivitz). After signing Charvarius Ward, he still drafted CBs (Green, Stout) anticipating future departures.",
+    "roster_construction_philosophy": "Build the core through the draft, supplement with targeted veteran acquisitions. The 49ers' best players have been either drafted (Bosa, Warner, Kittle, Purdy, Deebo, Aiyuk) or acquired via trade (Williams, McCaffrey). FA spending is strategic and focused on filling specific holes, not broad roster-building."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 72,
+    "notable_patterns": [
+      "9 drafts, 72+ total picks under Lynch/Shanahan regime",
+      "First 5 picks of 2025 draft were all defensive \u2014 unprecedented for the regime. Signals willingness to go all-defense when roster dictates.",
+      "Consistently drafts mid-round RBs \u2014 Shanahan takes a RB in almost every draft",
+      "Day 3 genius: Kittle R5, Purdy R7, Warner R3, Greenlaw R5, Hufanga R5, Jennings R7, Lenoir R5, Mitchell R6",
+      "Trey Lance trade (3 first-round picks to move from 12 to 3) was the most aggressive move and biggest failure of the regime",
+      "Only 3 OL drafted in first 3 rounds across 9 drafts \u2014 chronic under-investment in OL through the draft",
+      "40% of defensive early-round picks were DL or DB",
+      "Lynch tried to trade up for Williams in 2025, showing he'll still be aggressive for players he covets",
+      "The 49ers use analytics and R&D (Ploenzke, Ramamurthy, now Adofo-Mensah) more than most teams to support decision-making"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2025,
+        "pick": "3.100",
+        "player": "Upton Stout",
+        "position": "CB",
+        "consensus_rank": "late Day 3 / UDFA range per some analysts",
+        "reach_amount": 50,
+        "context": "Undersized (5-9) small-school CB from Western Kentucky. Described as 'a bit of a head-scratcher in the top 100.' However, earned Defensive Rookie of the Year buzz early in 2025."
+      },
+      {
+        "year": 2020,
+        "pick": "1.14",
+        "player": "Javon Kinlaw",
+        "position": "DT",
+        "consensus_rank": 20,
+        "reach_amount": 6,
+        "context": "Need pick to replace DeForest Buckner. CeeDee Lamb and Tristan Wirfs were consensus higher. Kinlaw's injuries made this a bust."
+      },
+      {
+        "year": 2017,
+        "pick": "1.3",
+        "player": "Solomon Thomas",
+        "position": "DL",
+        "consensus_rank": 8,
+        "reach_amount": 5,
+        "context": "DL need pick over Christian McCaffrey, Jamal Adams, and others. Thomas was a solid prospect but miscast in the 49ers' scheme."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2022,
+        "pick": "7.262",
+        "player": "Brock Purdy",
+        "position": "QB",
+        "consensus_rank": "Mr. Irrelevant (last pick)",
+        "value_amount": "Incalculable",
+        "context": "The last pick of the entire draft became a franchise quarterback and led the 49ers to multiple NFC Championship games and a Super Bowl."
+      },
+      {
+        "year": 2017,
+        "pick": "5.146",
+        "player": "George Kittle",
+        "position": "TE",
+        "consensus_rank": "Day 3 pick",
+        "value_amount": 100,
+        "context": "Iowa TE who became a perennial All-Pro and one of the best TEs in NFL history. Arguably the best R5 pick in the last 20 years."
+      },
+      {
+        "year": 2018,
+        "pick": "3.70",
+        "player": "Fred Warner",
+        "position": "LB",
+        "consensus_rank": 55,
+        "value_amount": 15,
+        "context": "BYU LB selected after 8 other linebackers in the draft. Has become one of the best LBs in the NFL with multiple All-Pro selections."
+      },
+      {
+        "year": 2020,
+        "pick": "7.217",
+        "player": "Jauan Jennings",
+        "position": "WR",
+        "consensus_rank": "UDFA range",
+        "value_amount": 100,
+        "context": "7th-round pick from Tennessee who became a highly productive starting WR, leading the team in catches in 2024."
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_notes": "9 drafts of data under Lynch/Shanahan provide a robust behavioral profile. Key variables for 2026: (1) Raheem Morris as new DC may shift some defensive personnel preferences; (2) Kwesi Adofo-Mensah hire adds an analytics voice to the front office; (3) Adam Peters' departure in 2024 removes a key scouting influence \u2014 early returns (2024-2025 drafts) have been positive; (4) Trent Williams contract situation may force an OT pick in the first round, which would be unusual for this regime; (5) WR is a massive need with Aiyuk departing, Jennings potentially leaving, and Kittle injured \u2014 could drive a premium WR pick.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

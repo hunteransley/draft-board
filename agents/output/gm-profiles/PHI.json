@@ -1,0 +1,891 @@
+{
+  "team": {
+    "name": "Philadelphia Eagles",
+    "abbreviation": "PHI",
+    "division": "NFC East",
+    "current_draft_position": 23
+  },
+  "front_office": {
+    "gm": {
+      "name": "Howie Roseman",
+      "title": "Executive Vice President and General Manager",
+      "hired": "2010-01-29",
+      "previous_role": "Vice President of Player Personnel, Philadelphia Eagles",
+      "drafts_as_gm": 15,
+      "drafts_as_gm_notes": "GM from 2010-2014, stripped of personnel control in 2015 under Chip Kelly, returned as de facto GM in 2016, officially re-titled EVP/GM in 2019. Total drafts with meaningful personnel authority: ~14 (excluding 2015).",
+      "confidence": "very_high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Salary Cap/Football Administration Intern",
+          "years": "2000-2002",
+          "mentor": "Joe Banner (Team President)"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Director of Football Administration",
+          "years": "2003-2005",
+          "mentor": "Joe Banner / Andy Reid"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Vice President of Football Administration",
+          "years": "2006-2007",
+          "mentor": "Joe Banner / Andy Reid"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Vice President of Player Personnel",
+          "years": "2008-2009",
+          "mentor": "Andy Reid"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "General Manager",
+          "years": "2010-2014",
+          "mentor": "Andy Reid (2010-2012), Jeffrey Lurie (owner)"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Executive Vice President of Football Operations (stripped of personnel control under Chip Kelly)",
+          "years": "2015",
+          "mentor": "N/A \u2014 sidelined from personnel decisions"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Executive Vice President of Football Operations (de facto GM after Kelly firing)",
+          "years": "2016-2018",
+          "mentor": "Jeffrey Lurie"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Executive Vice President and General Manager",
+          "years": "2019-present",
+          "mentor": "Jeffrey Lurie"
+        }
+      ],
+      "primary_mentor": "Andy Reid / Joe Banner \u2014 Roseman learned scouting and team-building philosophy from Reid, who taught him the importance of hitting the road to evaluate players firsthand. Banner mentored him on the business/cap side.",
+      "philosophical_lineage": "Roseman is a unique case \u2014 not from a traditional scouting lineage. He entered the NFL through salary cap administration and law, not scouting. His evaluation philosophy was shaped by working under Andy Reid's system, the Eagles' analytics department (one of the NFL's earliest adopters), and his own self-taught scouting education. He learned roster-building from Banner and Reid but developed his own aggressive trade-centric approach that has no clear mentor origin. His philosophy represents a fusion of cap expertise, analytics integration, and traditional scouting.",
+      "breakpoints": "Roseman's approach diverged dramatically after the 2020 disaster season (Jalen Reagor over Justin Jefferson, 4-11-1 record). Post-2020 he became far more aggressive in trading for proven players (A.J. Brown), trading up for elite prospects (DeVonta Smith, Jalen Carter), and prioritizing premium positions in early rounds. His early tenure (2010-2014) featured more questionable reaches (Danny Watkins, Marcus Smith). The post-2020 era represents a fundamentally different evaluator.",
+      "lineage_weight": 0.1,
+      "lineage_weight_notes": "With 14+ drafts of his own data, Roseman's own track record IS the profile. Lineage weight is minimal \u2014 he didn't come from a traditional scouting tree. His own picks and trades are the primary evidence base."
+    },
+    "primary_decision_maker": "Howie Roseman",
+    "key_influencers": [
+      {
+        "name": "Jeffrey Lurie",
+        "title": "Chairman and CEO",
+        "influence_level": "high",
+        "known_biases": "Described as a 'draftaholic' and increasingly hands-on since the Chip Kelly era. Was influential in the Jalen Hurts selection in 2020. Pushed for JJ Arcega-Whiteside over Parris Campbell in 2018. Claims to have advocated for Lane Johnson, Russell Wilson (not drafted), and Jordan Mailata. Values analytics and has a psychology background that informs his interest in player evaluation. Dislikes risk-averse approaches."
+      },
+      {
+        "name": "Vic Fangio",
+        "title": "Defensive Coordinator",
+        "influence_level": "high",
+        "known_biases": "Strongly influences defensive personnel decisions. Reportedly 'pounded the table' for Jalyx Hunt in 2024. His 3-4 scheme with two-high safety looks directly shapes the type of defensive players the Eagles target. Values versatile defenders who can play multiple roles."
+      },
+      {
+        "name": "Nick Sirianni",
+        "title": "Head Coach",
+        "influence_level": "medium",
+        "known_biases": "Offensive-minded. Values competition and culture fit. Has input but Roseman clearly holds final authority on personnel. Came from the Colts system under Frank Reich."
+      },
+      {
+        "name": "Joe Douglas",
+        "title": "Senior Personnel Director/Advisor to the General Manager",
+        "influence_level": "medium",
+        "known_biases": "Former Jets GM and Eagles personnel exec. Provides experienced second opinion. His knowledge of players from his Jets tenure influenced the Michael Carter II trade."
+      },
+      {
+        "name": "Jeff Stoutland",
+        "title": "Run Game Coordinator/Offensive Line Coach",
+        "influence_level": "medium_on_OL_picks",
+        "known_biases": "Widely regarded as the NFL's best OL developer. His ability to develop raw athletes (Jordan Mailata from Australian rugby) gives the Eagles confidence to draft project OL players. Known as 'Stoutland University.'"
+      }
+    ],
+    "power_dynamics": "Roseman is the clear final decision-maker with immense job security after two Super Bowl wins. Lurie is hands-on but ultimately trusts Roseman. The front office is collaborative \u2014 Roseman values having experienced personnel executives on staff (Dave Caldwell, Matt Russell, Joe Douglas have all served as advisors). Roseman keeps his own draft board that may differ from scout rankings, which has been a source of internal tension historically.",
+    "owner_interference": "moderate \u2014 Lurie is an 'active participant' in the pre-draft process and has influenced specific picks (Hurts in 2020, Arcega-Whiteside in 2018). However, his influence is mostly supportive rather than overriding. After the Chip Kelly debacle, Lurie has given Roseman enormous latitude. Lurie's stated disdain for being 'risk-averse' aligns with and encourages Roseman's aggressive approach."
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.55,
+    "bpa_weight_by_round": {
+      "1": 0.6,
+      "2": 0.5,
+      "3": 0.45,
+      "4_plus": 0.4
+    },
+    "stated_philosophy": "Best player available, building through the trenches, aggressive when the right opportunity presents itself. 'We just want the right fits for the Philadelphia Eagles.'",
+    "actual_philosophy": "Roseman is a BPA-need hybrid who weights need more heavily than he admits. In round 1, he takes premium-position players who happen to fill needs \u2014 but the BPA claim is supported by several picks that weren't obvious needs (Hurts at QB in 2020 with Wentz on roster, Nolan Smith at EDGE in 2023 with Reddick and Sweat). Post-2020, his first-round picks have almost exclusively addressed top-3 team needs while also being high-value BPA selections. His real genius is engineering draft capital situations where BPA and need converge.",
+    "philosophy_mismatch_notes": "The gap between stated and actual philosophy is narrower than most GMs because Roseman is exceptionally skilled at trading to positions where his top-rated players align with needs. He doesn't just pick BPA \u2014 he trades aggressively to ensure BPA IS a need position. The 2024 draft is the clearest example: CB was the biggest need, and the board fell perfectly for Quinyon Mitchell at 22."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.75,
+    "trade_down_willingness": 0.7,
+    "trades_per_draft_average": 4.5,
+    "trade_triggers": [
+      "A top-10 caliber player sliding to within striking distance of their pick \u2014 will pay modest cost to move up 1-5 spots (Carter at 9, Campbell at 31, DeVonta Smith at 10)",
+      "Accumulating future draft capital when the current board doesn't present clear value \u2014 traded back extensively in 2022, stockpiling picks that became Jalen Carter and A.J. Brown",
+      "Converting draft picks into proven players mid-draft (traded pick 18 for A.J. Brown in 2022)",
+      "Quarterback availability \u2014 traded up to #2 overall for Carson Wentz in 2016",
+      "Tier breaks on the board where next-best player is significantly worse than current target"
+    ],
+    "draft_capital_philosophy": "Master accumulator and deployer of draft capital. Roseman treats picks as currency, not just selection opportunities. Has completed 55+ draft-weekend trades as GM. Willing to trade future firsts for transformative players but also excellent at extracting value (Carson Wentz trade yielded picks that became Jordan Davis and Jalen Carter). Prefers having multiple Day 2 picks to maximize value extraction. Will trade back aggressively on Day 2 and Day 3 to accumulate additional selections."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "DT",
+        "EDGE",
+        "OT",
+        "CB"
+      ],
+      "tier_2_high": [
+        "QB",
+        "WR",
+        "IOL",
+        "S"
+      ],
+      "tier_3_mid": [
+        "LB",
+        "TE"
+      ],
+      "tier_4_low": [
+        "RB",
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "LB in round 1 was historically avoided \u2014 first LB taken in round 1 since 1979 was Jihaad Campbell in 2025, signaling a potential shift",
+      "RB has never been a premium draft investment under Roseman \u2014 acquired Saquon Barkley via free agency instead",
+      "TE has been a Day 2 pick at highest (Dallas Goedert in 2nd round 2018, Grant Calcaterra in 6th round 2022)"
+    ],
+    "position_premium": [
+      "DL (DT and EDGE) \u2014 has invested massive draft capital in the defensive line: Fletcher Cox (1st, 2012), Jordan Davis (1st, 2022), Jalen Carter (1st, 2023), Nolan Smith (1st, 2023), Milton Williams (3rd, 2021), Jalyx Hunt (3rd, 2024)",
+      "OT \u2014 Lane Johnson (1st, 2013), Andre Dillard (1st, 2019), Jordan Mailata (7th, 2018 \u2014 massive development win)",
+      "CB \u2014 After years of neglect, massively invested in 2024 with Mitchell (1st) and DeJean (2nd)"
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Explosive speed-to-power athlete with elite burst. Roseman prioritizes freakish athletic testing and first-step quickness over polished pass-rush technique or college production. Think twitchy, fast, high-motor defenders who can stand up or put hand in dirt in Fangio's 3-4. Raw pass-rush moves are acceptable if the athletic ceiling is elite \u2014 development under coaching staff is baked into the pick. Nolan Smith (4.39 40, 41.5-inch vert at 238 lbs) and Brandon Graham (raw power rusher who took years to develop) are the bookend examples.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-5",
+        "weight_range": "238-270",
+        "arm_length_minimum": "No strict minimum \u2014 Smith has shorter arms for an EDGE but elite explosiveness compensated",
+        "key_athletic_tests": "40-yard dash and vertical jump are paramount. The Eagles drafted Smith with a 4.39 40 and 41.5-inch vertical at 238 lbs. Jalyx Hunt (6-5, 248, 4.56 40, 37-inch vert) and Jihaad Campbell (6-2, 235, elite speed for LB/EDGE hybrid) show the premium on explosive movement.",
+        "speed_requirement": "4.65 or faster strongly preferred. Smith ran 4.39, Hunt ran 4.56. Clear preference for top-end speed at the position."
+      },
+      "playing_style": {
+        "primary_win_condition": "First-step explosion and closing speed. The Eagles want edge rushers who win with burst off the snap rather than a refined repertoire of counter moves.",
+        "most_valued_traits": [
+          "First-step explosion and get-off",
+          "Motor and relentless effort",
+          "Versatility to play standing up or with hand in dirt",
+          "Run defense ability and edge-setting",
+          "Speed-to-power conversion potential"
+        ],
+        "least_important_traits": [
+          "Polished pass-rush move repertoire \u2014 willing to develop raw rushers with elite tools"
+        ],
+        "deal_breakers": [
+          "Lack of athleticism/explosion \u2014 will not draft a stiff, power-only rusher without elite burst",
+          "Poor motor or effort concerns"
+        ],
+        "traits_that_make_them_reach": "Elite athletic testing (40 time, vert) consistently causes Roseman to reach. Nolan Smith at 30 was considered a reach by many analysts who had him as a Day 2 prospect."
+      },
+      "college_production": {
+        "production_floor": "Low \u2014 Smith had only 3 sacks in injury-shortened 2022 season. Campbell had 5 sacks as a LB. Roseman clearly weights traits over production at EDGE.",
+        "production_trajectory": "No clear preference \u2014 has drafted both early producers and late bloomers",
+        "context_sensitivity": "High \u2014 adjusts for scheme, usage, and caliber of competition. Values players from championship programs (Georgia, Alabama)."
+      },
+      "evidence": {
+        "picks_analyzed": 7,
+        "examples": [
+          "2023 R1.30 \u2014 Nolan Smith, Georgia: 6-2, 238, 4.39 40, 41.5-inch vert. Elite athlete, limited college production. Clear projection pick based on physical tools.",
+          "2024 R3.94 \u2014 Jalyx Hunt, Houston Christian: 6-5, 248, 4.56 40, 37-inch vert. Small-school player Fangio 'pounded the table for.' Raw athletic upside bet.",
+          "2025 R1.31 \u2014 Jihaad Campbell, Alabama: 6-2, 235, LB/EDGE hybrid. Top-15 prospect who fell. 117 tackles, 5 sacks. Versatile defender.",
+          "2025 R6.209 \u2014 Antwaun Powell-Ryland, Virginia Tech: 16 sacks in 2024. Production-based late-round flier.",
+          "2010 R1.13 \u2014 Brandon Graham: Power rusher who took 5+ years to develop into a Pro Bowl EDGE.",
+          "2017 R1.14 \u2014 Derek Barnett, Tennessee: 6-3, 259. Broke Reggie White's sack record at Tennessee. More polished, productive pick but never became a star."
+        ]
+      },
+      "confidence": "high"
+    },
+    "CB": {
+      "archetype_summary": "Fast, competitive, ball-hawking corner with elite athleticism. Roseman prizes speed (4.45 or faster), competitiveness, and playmaking ability. Versatility to play inside and outside is a major plus given Fangio's scheme. The Mitchell-DeJean pairing in 2024 reveals the archetype perfectly: blazing speed, ball skills, physicality, and scheme versatility. Zone coverage instincts are valued alongside man-to-man ability in Fangio's disguise-heavy system.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-1",
+        "weight_range": "185-203",
+        "arm_length_minimum": "No strict minimum observed \u2014 values speed and playmaking over length",
+        "key_athletic_tests": "40-yard dash is the primary filter. Mitchell ran 4.33. Average of Eagles-drafted DBs since 2010 was 4.48 with 1.53 10-yard split. Height average was 6-0, weight average 195 lbs.",
+        "speed_requirement": "4.48 or faster strongly preferred. Mitchell at 4.33 is the gold standard. DeJean had limited testing due to injury but was an Iowa state champion in 100m dash."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Versatile \u2014 Fangio's scheme demands corners who can play press, off-man, and zone. Pre-snap disguise is critical, so corners must be comfortable in multiple looks.",
+        "most_valued_traits": [
+          "Competitive fire and physicality",
+          "Ball skills and playmaking (INTs, PBUs)",
+          "Speed and click-and-close ability",
+          "Versatility to play outside and slot",
+          "Tackling willingness in run support"
+        ],
+        "least_important_traits": [
+          "Pure press-man specialization \u2014 scheme requires versatility, not one-trick corners"
+        ],
+        "deal_breakers": [
+          "Lack of speed \u2014 has never invested significant capital in a slow corner",
+          "Poor competitive temperament or soft play"
+        ],
+        "traits_that_make_them_reach": "Elite speed combined with ball production. Mitchell's 4.33 40 and 15 PBUs in 2023 made him an easy choice. First-round grade on DeJean led to a trade up."
+      },
+      "college_production": {
+        "production_floor": "Values ball production \u2014 Mitchell had 15 PBUs, DeJean had 7 INTs over two years with 3 returned for TDs",
+        "production_trajectory": "Prefers multi-year starters with ascending production",
+        "context_sensitivity": "High \u2014 Mitchell came from Toledo (MAC) but crushed Senior Bowl against top competition, which validated his film."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2024 R1.22 \u2014 Quinyon Mitchell, Toledo: 6-0, 195, 4.33 40. First CB drafted in R1 by Roseman. Lockdown production, elite speed, Senior Bowl star.",
+          "2024 R2.40 \u2014 Cooper DeJean, Iowa: 6-0, 198. Versatile DB with ball skills. Had a first-round grade internally. Traded up to get him.",
+          "2025 R5.145 \u2014 Mac McWilliams, UCF: Chippy, sudden corner with Avonte Maddox-like versatility.",
+          "2018 R4.125 \u2014 Avonte Maddox, Pittsburgh: 5-9, 184. Undersized but versatile slot/safety hybrid who became a long-term contributor."
+        ]
+      },
+      "confidence": "high"
+    },
+    "DT": {
+      "archetype_summary": "Massive, freakish athlete with rare size-speed combination. Roseman's DT picks are defined by extreme physical profiles \u2014 enormous men who move like much smaller players. Jordan Davis (6-6, 341, 4.78 40) and Jalen Carter (6-3, 314, elite quickness) are the prototypes. In Fangio's 3-4, needs a run-stuffing nose (Davis) and a disruptive 3-technique (Carter). Prioritizes athletic upside and pedigree from elite programs.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "290-341",
+        "arm_length_minimum": "No strict minimum observed but prefers long, thick builds",
+        "key_athletic_tests": "Explosiveness relative to size is the key metric. Davis ran a 4.78 40 at 341 lbs (fastest player over 330 lbs since 2006). Broad jump and vertical matter as athleticism indicators.",
+        "speed_requirement": "Must be athletic for their size. No absolute 40 time cutoff but must show explosive movement on film."
+      },
+      "playing_style": {
+        "primary_win_condition": "Interior disruption through a combination of size and quickness. Carter wins with leverage, quickness, and power. Davis wins with sheer mass and surprising agility.",
+        "most_valued_traits": [
+          "Rare athleticism for size",
+          "Interior pass-rush ability (3-technique)",
+          "Run-stuffing dominance at the point of attack",
+          "Motor and effort",
+          "Pedigree from championship programs"
+        ],
+        "least_important_traits": [
+          "Polished pass-rush repertoire for nose tackles \u2014 willing to develop technique"
+        ],
+        "deal_breakers": [
+          "Stiff, non-athletic interior linemen",
+          "Conditioning/weight concerns (Carter's pro day weight gain was noted but Roseman still took him at 9)"
+        ],
+        "traits_that_make_them_reach": "Truly freakish athletic profiles at 300+ lbs. Davis's combine performance drove the trade-up to 13."
+      },
+      "college_production": {
+        "production_floor": "Moderate \u2014 Davis had limited counting stats at Georgia due to platoon role. Carter was dominant but limited pro day/combine data.",
+        "production_trajectory": "Values players from elite programs who dominated despite shared snaps",
+        "context_sensitivity": "Very high \u2014 heavily accounts for scheme usage and rotation at Georgia"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2023 R1.9 \u2014 Jalen Carter, Georgia: 6-3, 314. Considered best DT prospect in years. Traded up one spot despite off-field concerns. Became All-Pro by Year 2.",
+          "2022 R1.13 \u2014 Jordan Davis, Georgia: 6-6, 341, 4.78 40. Traded up from 15 to 13. Perfect 10 Relative Athletic Score. Run-stuffing nose.",
+          "2021 R3.73 \u2014 Milton Williams, Louisiana Tech: 6-3, 284. Undersized but explosive interior rusher. 4.94 40 at 284 lbs.",
+          "2025 R4.111 \u2014 Ty Robinson, Nebraska: 6-5, 305. Former wrestler, power rusher. 15 TFLs in 2024.",
+          "2012 R1.12 \u2014 Fletcher Cox, Mississippi State: 6-4, 298. Franchise-altering pick. Multi-time All-Pro."
+        ]
+      },
+      "confidence": "very_high"
+    },
+    "OT": {
+      "archetype_summary": "Massive, elite athletes developed through Jeff Stoutland's coaching. Roseman bets on extreme size and athleticism at OT, trusting Stoutland to teach technique. Jordan Mailata (6-8, 365, former Australian rugby player with zero football experience) is the ultimate example. Lane Johnson (6-6, 325, former TE with elite athleticism) was selected for his rare movement skills. Prefers tall, long-armed athletes who can dominate in a physical, run-heavy scheme.",
+      "physical_profile": {
+        "height_range": "6-5 to 6-8",
+        "weight_range": "305-365",
+        "arm_length_minimum": "34+ inches strongly preferred \u2014 Johnson has 34.75-inch arms",
+        "key_athletic_tests": "Athletic testing for their size class. Johnson was a former TE who converted. Mailata was a rugby player. Dillard (6-5, 315) ran 5.00 40. Eagles value movement skills in massive frames.",
+        "speed_requirement": "Must be athletic for their size. No absolute 40 cutoff but must show quick feet and agility."
+      },
+      "playing_style": {
+        "primary_win_condition": "Physical dominance in the run game combined with pass protection athleticism. The Eagles' run-heavy offense demands mauling run blockers who can also handle speed rushers.",
+        "most_valued_traits": [
+          "Elite size and length",
+          "Athleticism relative to size",
+          "Run-blocking physicality and nastiness",
+          "Versatility to play either tackle spot or kick inside",
+          "Developmental upside under Stoutland"
+        ],
+        "least_important_traits": [
+          "Polished pass-protection technique coming out of college \u2014 Stoutland will develop it"
+        ],
+        "deal_breakers": [
+          "Lack of athletic movement ability despite size",
+          "Short arms for a tackle prospect"
+        ],
+        "traits_that_make_them_reach": "Unique athletic profiles or physical tools \u2014 Mailata was drafted in the 7th round from rugby, Johnson was a former TE/QB in college"
+      },
+      "college_production": {
+        "production_floor": "Variable \u2014 Mailata had literally zero football experience. Johnson converted from TE. But recent picks like Andre Dillard were established college starters.",
+        "production_trajectory": "Willing to bet on developmental projects if the physical tools are extraordinary",
+        "context_sensitivity": "High \u2014 values unique stories and non-traditional paths"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2013 R1.4 \u2014 Lane Johnson, Oklahoma: 6-6, 303 (now 325). Former QB and TE who converted to OT. Elite athlete. Future HOF candidate.",
+          "2018 R7.233 \u2014 Jordan Mailata, South Sydney Rabbitohs (rugby): 6-8, 346 (now 365). Zero football experience. Became All-Pro LT.",
+          "2019 R1.22 \u2014 Andre Dillard, Washington State: 6-5, 315. Traded up to select. Elite pass protector from Air Raid system. Did not pan out as starter.",
+          "2025 R6.191 \u2014 Myles Hinton, Michigan: Developmental tackle from championship program.",
+          "2025 R6.207 \u2014 Cameron Williams, Texas: Developmental tackle depth."
+        ]
+      },
+      "confidence": "high"
+    },
+    "IOL": {
+      "archetype_summary": "Massive, physical interior linemen with positional versatility who fit the Eagles' power-running identity. Roseman targets IOL who can play multiple positions along the interior and are built for a physical, ground-and-pound offense. Landon Dickerson (6-6, 332) and Cam Jurgens (6-3, 303) define the mold \u2014 big, tough, smart linemen from top programs.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "300-335",
+        "arm_length_minimum": "No strict minimum \u2014 values size and power over arm length at IOL",
+        "key_athletic_tests": "Agility and movement skills are valued given the pulling/zone concepts in the offense. Dickerson was an elite athlete despite ACL history.",
+        "speed_requirement": "Must be able to pull and get to the second level. No strict 40 time requirement."
+      },
+      "playing_style": {
+        "primary_win_condition": "Powerful, physical run blocking in a scheme that emphasizes inside zone and power concepts. Interior linemen must be able to sustain blocks, move defenders, and create running lanes for a 2,000-yard back.",
+        "most_valued_traits": [
+          "Power and anchor at the point of attack",
+          "Positional versatility (guard/center flexibility)",
+          "Toughness and durability",
+          "Run-blocking physicality",
+          "Intelligence and communication skills"
+        ],
+        "least_important_traits": [
+          "Elite pass-blocking in a clean pocket \u2014 the Eagles' scheme is more run-first and play-action-based"
+        ],
+        "deal_breakers": [
+          "Lack of size and power for a physical run scheme",
+          "Injury history that threatens durability (though Dickerson had ACL concerns that were accepted)"
+        ],
+        "traits_that_make_them_reach": "Positional versatility \u2014 Jurgens played guard then moved to center. Dickerson has played guard and center."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starters from Power 5 programs preferred",
+        "production_trajectory": "Values experience and games started",
+        "context_sensitivity": "Moderate \u2014 considers quality of competition and scheme fit"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2021 R2.37 \u2014 Landon Dickerson, Alabama: 6-6, 332. Injury concerns dropped him to R2. Championship pedigree. Became Pro Bowl guard.",
+          "2022 R2.51 \u2014 Cam Jurgens, Nebraska: 6-3, 303. Groomed behind Jason Kelce. Now a Pro Bowl center.",
+          "2024 R5.150 \u2014 Trevor Keegan, Michigan: 6-5, 326. Championship program. Developmental depth.",
+          "2024 R6.220 \u2014 Dylan McMahon, NC State: Guard/center versatility.",
+          "2025 R5.168 \u2014 Drew Kendall, Boston College: Center/guard. Multi-year starter. Father was NFL player."
+        ]
+      },
+      "confidence": "high"
+    },
+    "WR": {
+      "archetype_summary": "Roseman's WR approach has evolved dramatically. Post-Reagor bust, he pivoted to trading for established receivers (A.J. Brown) rather than drafting them high. When he does draft WRs, he prioritizes route-running and hands over raw athleticism. DeVonta Smith (6-0, 170, Heisman winner) is the quintessential Roseman WR pick \u2014 elite college production and route-running despite undersized frame. Values contested-catch ability in outside receivers given the Eagles' compressed passing attack.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-5 \u2014 wide range",
+        "weight_range": "170-225",
+        "arm_length_minimum": "No strict minimum",
+        "key_athletic_tests": "No clear single-test preference. Has drafted speed receivers (Reagor, 4.22 40), route technicians (Smith, 4.41 40), and size receivers (Johnny Wilson, 6-6, 2024 late pick). Film over testing for WRs.",
+        "speed_requirement": "No strict speed requirement. Smith ran 4.41 \u2014 not blazing. Values route separation ability over pure timed speed."
+      },
+      "playing_style": {
+        "primary_win_condition": "Route running and separation. After the Reagor (pure speed) disaster, Roseman clearly shifted to valuing polished route runners who produce at the highest level of college football.",
+        "most_valued_traits": [
+          "Elite route running and separation",
+          "Hands and contested catch ability",
+          "College production (Heisman/All-American caliber)",
+          "Competitive toughness",
+          "YAC ability"
+        ],
+        "least_important_traits": [
+          "Pure straight-line speed without route-running chops \u2014 learned this lesson with Reagor"
+        ],
+        "deal_breakers": [
+          "Inability to separate against top competition",
+          "Character or work ethic concerns"
+        ],
+        "traits_that_make_them_reach": "Heisman-level production \u2014 Smith was a Heisman winner. Roseman traded up to get him despite concerns about his 170-lb frame."
+      },
+      "college_production": {
+        "production_floor": "High for premium WR investments \u2014 Smith was a Heisman winner with elite production. Reagor had underwhelming production relative to his draft slot, and that pick burned Roseman badly.",
+        "production_trajectory": "Strongly prefers dominant college producers over developmental athletes at WR after the Reagor lesson",
+        "context_sensitivity": "Moderate \u2014 Smith's production at Alabama against SEC competition was valued highly"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2021 R1.10 \u2014 DeVonta Smith, Alabama: 6-0, 170, 4.41 40. Heisman winner. Traded up past Dallas to get him. Elite route runner despite tiny frame. Franchise-altering pick.",
+          "2020 R1.21 \u2014 Jalen Reagor, TCU: 5-11, 206, 4.22 40. Speed-first pick over Justin Jefferson. Major bust. Changed Roseman's WR evaluation approach.",
+          "2024 R5.152 \u2014 Ainias Smith, Texas A&M: 5-10, 198. Versatile slot/return man.",
+          "2024 R6.188 \u2014 Johnny Wilson, Florida State: 6-6, 228. Size receiver developmental pick.",
+          "Note: Roseman now prefers to TRADE for proven WRs (A.J. Brown acquired via trade for pick 18 + pick 101 in 2022) rather than draft them."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Small sample of WR picks under the post-2020 philosophy. Brown was acquired via trade, not draft. Recent WR draft picks have been Day 3 depth only."
+    },
+    "TE": {
+      "archetype_summary": "Athletic, dual-threat tight end who can both block and receive. Dallas Goedert (6-5, 256, 4.64 40) is the archetype \u2014 a former walk-on who produced dominantly in college with a well-rounded skill set. Roseman hasn't invested heavily at TE via the draft but values TEs who can function as legitimate receiving threats while maintaining blocking ability in the Eagles' run-heavy offense.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-6",
+        "weight_range": "245-260",
+        "arm_length_minimum": "No strict minimum",
+        "key_athletic_tests": "Speed for position is valued \u2014 Goedert ran 4.64. Vertical jump matters as a red-zone/contested-catch indicator.",
+        "speed_requirement": "4.70 or faster preferred for a receiving TE"
+      },
+      "playing_style": {
+        "primary_win_condition": "Dual-threat ability to line up inline, in the slot, or flex out. Must be a legitimate receiving weapon AND a willing run blocker.",
+        "most_valued_traits": [
+          "Receiving ability and route running for a TE",
+          "Run-blocking willingness and physicality",
+          "Red zone target ability",
+          "Versatile alignment capability",
+          "Competitive toughness"
+        ],
+        "least_important_traits": [
+          "Pure move-TE ability without blocking \u2014 the Eagles' run game demands inline blocking"
+        ],
+        "deal_breakers": [
+          "Inability to block in the run game",
+          "One-dimensional receiving-only profile"
+        ],
+        "traits_that_make_them_reach": "Elite college production at the position \u2014 Goedert had back-to-back 1,000-yard FCS seasons"
+      },
+      "college_production": {
+        "production_floor": "High \u2014 Goedert was an FCS All-American with dominant production. Zach Ertz before him was also a productive Stanford TE.",
+        "production_trajectory": "Prefers established college producers",
+        "context_sensitivity": "Moderate"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2018 R2.49 \u2014 Dallas Goedert, South Dakota State: 6-5, 256, 4.64 40, 32.8-inch arms. Back-to-back 1,000-yard FCS seasons. Dual-threat producer.",
+          "2022 R6.198 \u2014 Grant Calcaterra, SMU: 6-4, 241. Receiving TE with injury history. Day 3 flier.",
+          "Note: TE has been a low-investment position in the Roseman era. Only one TE drafted in Rounds 1-3 (Goedert). May change in 2026 with Goedert as a free agent and deep TE class available."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Very limited TE draft sample. Goedert is the only significant TE draft investment. Profile largely inferred from Goedert's traits and scheme requirements."
+    },
+    "S": {
+      "archetype_summary": "Versatile, ball-hawking safety who can play both deep and come down into the box/slot. Fangio's two-high scheme demands safeties who can disguise coverages, range deep, and also come downhill. Andrew Mukuba (5-11, 186, 4.45 40) represents the current target \u2014 a cover safety with ball skills and versatility to play slot. Roseman's statement: 'It's really hard to find cover safeties \u2014 guys who have the ability to come down and play over the slot, play in the middle of the field, have natural instincts, play the ball.'",
+      "physical_profile": {
+        "height_range": "5-10 to 6-2",
+        "weight_range": "186-210",
+        "arm_length_minimum": "No strict minimum",
+        "key_athletic_tests": "Speed and range are critical in Fangio's two-high scheme. Mukuba ran 4.45. Ball skills and instincts matter more than raw testing.",
+        "speed_requirement": "4.50 or faster preferred for the coverage-heavy role"
+      },
+      "playing_style": {
+        "primary_win_condition": "Coverage versatility and ball-hawking instincts. Fangio's defense asks safeties to disguise coverages pre-snap and rotate post-snap into multiple looks.",
+        "most_valued_traits": [
+          "Ball-hawking instincts and turnover creation",
+          "Coverage versatility (deep, slot, box)",
+          "Football intelligence and recognition",
+          "Tackling and physicality downhill",
+          "Ability to disguise coverages pre-snap"
+        ],
+        "least_important_traits": [
+          "Pure box safety/run-support-only profiles \u2014 Fangio's scheme doesn't value one-dimensional safeties"
+        ],
+        "deal_breakers": [
+          "Lack of coverage ability",
+          "Limited range to play deep in two-high looks"
+        ],
+        "traits_that_make_them_reach": "Ball production (INTs) and slot versatility \u2014 Mukuba's 5 INTs in 2024 and C.J. Gardner-Johnson-like versatility drove the pick despite reach concerns."
+      },
+      "college_production": {
+        "production_floor": "Values ball production \u2014 Mukuba had 5 INTs, CJGJ was a productive college DB",
+        "production_trajectory": "Prefers multi-year starters with ascending trajectory",
+        "context_sensitivity": "Moderate \u2014 adjusts for scheme and conference"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2025 R2.64 \u2014 Andrew Mukuba, Texas: 5-11, 186, 4.45 40. 5 INTs in 2024. Coverage safety with slot versatility. Drafted as CJGJ replacement.",
+          "2023 R3.83 \u2014 Sydney Brown, Illinois: 5-11, 211. Ball-hawking safety with 7 INTs in final college season.",
+          "2022 R3.83 \u2014 Nakobe Dean, Georgia: 5-11, 225. Originally drafted as LB but versatile enough to play multiple roles.",
+          "Note: The Eagles also acquired CJGJ via trade (2022) \u2014 a ball-hawking, versatile safety/slot hybrid. This archetype is clearly what Roseman and Fangio want."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "LB": {
+      "archetype_summary": "Historically deprioritized position that Roseman has dramatically re-invested in starting 2025. The Campbell pick signals a shift: the new LB archetype is a versatile, sideline-to-sideline player who can rush the passer AND cover. Fangio's scheme demands LBs who can drop into coverage and play in space \u2014 pure thumpers are not valued. Zack Baun's breakout in 2024 as a coverage LB solidified this archetype. Campbell (6-2, 235, LB/EDGE hybrid) represents the future: explosive athletes who can do multiple things.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-3",
+        "weight_range": "225-250",
+        "arm_length_minimum": "No strict minimum",
+        "key_athletic_tests": "Speed and agility are paramount. Must be able to cover tight ends and running backs in Fangio's scheme. 40 time in the 4.5s range or faster.",
+        "speed_requirement": "4.55 or faster strongly preferred for the coverage demands of Fangio's scheme"
+      },
+      "playing_style": {
+        "primary_win_condition": "Coverage ability and sideline-to-sideline range. Fangio's defense asks LBs to drop into coverage frequently and handle pass-game responsibilities.",
+        "most_valued_traits": [
+          "Coverage ability against TEs and RBs",
+          "Sideline-to-sideline speed and range",
+          "Versatility to rush the passer from LB alignment",
+          "Instincts and football intelligence",
+          "Character and competitive toughness"
+        ],
+        "least_important_traits": [
+          "Pure run-stuffing/downhill thumping ability without coverage chops"
+        ],
+        "deal_breakers": [
+          "Inability to cover in space \u2014 liabilities in pass coverage are not tolerated in Fangio's scheme",
+          "Slow processing speed"
+        ],
+        "traits_that_make_them_reach": "LB/EDGE dual-threat ability \u2014 Campbell's ability to rush and cover was specifically cited by Roseman as driving the pick"
+      },
+      "college_production": {
+        "production_floor": "High for premium investments \u2014 Campbell had 117 tackles and 5 sacks as a first-team All-SEC player. Dean had 72 tackles and 10.5 TFLs.",
+        "production_trajectory": "Values ascending production at championship programs",
+        "context_sensitivity": "High \u2014 heavily values SEC and top-program production"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2025 R1.31 \u2014 Jihaad Campbell, Alabama: 6-2, 235. First LB drafted in R1 since 1979. LB/EDGE hybrid. 117 tackles, 5 sacks. Former 5-star recruit. 'Top-10 player on our board' per Roseman.",
+          "2025 R5.161 \u2014 Smael Mondon Jr., Georgia: Coverage LB from championship program. One of best coverage LBs in the class.",
+          "2022 R3.83 \u2014 Nakobe Dean, Georgia: 5-11, 225. Medical concerns caused him to fall from projected R1 to R3. Coverage-capable LB.",
+          "2024 R5.154 \u2014 Jeremiah Trotter Jr., Clemson: LB legacy pick with coverage upside.",
+          "Note: For years, Roseman publicly defended his strategy of finding low-cost LB options rather than investing premium picks. The Campbell pick signals a dramatic philosophical shift."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "The Campbell pick represents a potential paradigm shift in how Roseman values LB. Only one data point at the premium level. Watch 2026+ to see if this continues."
+    },
+    "QB": {
+      "archetype_summary": "Roseman has drafted two significant QBs: Carson Wentz (R1, traded up to #2 overall in 2016) and Jalen Hurts (R2, 2020). Both are mobile pocket passers with arm talent, but the approaches were very different. Wentz was a massive trade-up for a franchise QB \u2014 Roseman traded the house to get him. Hurts was a mid-round 'insurance policy' that was heavily owner-influenced. The Eagles value dual-threat QBs who can run and throw \u2014 both Wentz and Hurts are mobile QBs who can extend plays. Arm talent and toughness are non-negotiable.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-5",
+        "weight_range": "215-240",
+        "arm_length_minimum": "No strict minimum",
+        "key_athletic_tests": "Mobility matters \u2014 both Wentz and Hurts are mobile QBs. But arm talent is the baseline requirement.",
+        "speed_requirement": "Must have functional mobility. Both Wentz and Hurts were above-average athletes for the position."
+      },
+      "playing_style": {
+        "primary_style": "Dual-threat QB who can win from the pocket but also create with his legs. The Eagles' offensive system under Sirianni utilizes QB runs and RPOs extensively.",
+        "most_valued_traits": [
+          "Arm strength and accuracy",
+          "Mobility and rushing ability",
+          "Toughness and competitive drive",
+          "Leadership and intangible qualities",
+          "Ability to operate RPO-heavy system"
+        ],
+        "least_important_traits": [
+          "Pure pocket-passer with no mobility \u2014 the Eagles' system demands a QB who can run"
+        ],
+        "deal_breakers": [
+          "Inability to move in the pocket or create on scrambles",
+          "Lack of arm talent"
+        ],
+        "traits_that_make_them_reach": "The QB position \u2014 Roseman will trade the farm for a franchise QB (traded multiple picks to move to #2 for Wentz)"
+      },
+      "college_production": {
+        "production_floor": "Variable \u2014 Wentz was an FCS player (North Dakota State). Hurts was a Heisman runner-up at Oklahoma after transferring from Alabama.",
+        "production_trajectory": "Both QBs drafted showed ascending trajectories",
+        "context_sensitivity": "High \u2014 Wentz from FCS was a risk that Roseman's analytics flagged but he took anyway"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2016 R1.2 \u2014 Carson Wentz, North Dakota State: 6-5, 237. Traded multiple picks to move from 8 to 2. FCS QB with elite arm talent and athleticism. Analytics outlier that Roseman bet on anyway.",
+          "2020 R2.53 \u2014 Jalen Hurts, Oklahoma: 6-1, 223. Selected despite having Wentz under massive contract. Owner Lurie was influential. Dual-threat Heisman finalist.",
+          "2025 R6.181 \u2014 Kyle McCord, Syracuse: 6-3, 215. Developmental backup QB. Led FBS with 4,779 passing yards in 2024. Late-round QB factory pick."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only two significant QB investments in 15+ years. Wentz and Hurts were very different prospects and draft situations. McCord in R6 shows willingness to take late-round QB developmental picks."
+    },
+    "RB": {
+      "archetype_summary": "Roseman has never invested significant draft capital at RB. The Eagles' approach is to acquire proven RBs via free agency (Saquon Barkley, LeGarrette Blount, Jay Ajayi) rather than draft them early. When RBs are drafted, they're Day 3 picks or late Day 2 at most. The archetype for drafted RBs is a versatile, three-down back who can contribute on special teams and as a pass catcher \u2014 but this is always a supplementary pick, never a premium investment.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-0",
+        "weight_range": "195-220",
+        "arm_length_minimum": "N/A for RB",
+        "key_athletic_tests": "Speed and agility for pass-catching and return ability. Short shuttle and 3-cone matter for elusiveness.",
+        "speed_requirement": "4.50 or faster preferred for versatility"
+      },
+      "playing_style": {
+        "primary_win_condition": "Versatility \u2014 must catch passes, contribute on special teams, and provide quality depth behind the lead back.",
+        "most_valued_traits": [
+          "Pass-catching ability",
+          "Special teams value",
+          "Versatility as a three-down backup",
+          "Ball security",
+          "Physicality between the tackles"
+        ],
+        "least_important_traits": [
+          "Pure power rushing \u2014 the OL creates the running lanes, not the RB"
+        ],
+        "deal_breakers": [
+          "One-dimensional running style without passing-game ability",
+          "Investing premium draft capital at the position"
+        ],
+        "traits_that_make_them_reach": "Nothing \u2014 Roseman does not reach for RBs"
+      },
+      "college_production": {
+        "production_floor": "Low threshold for Day 3 picks \u2014 values well-rounded skill sets over dominant rushing numbers",
+        "production_trajectory": "Variable",
+        "context_sensitivity": "Low \u2014 RB is a value position for Roseman"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2024 R4.127 \u2014 Will Shipley, Clemson: 5-10, 209. Versatile, three-down back with pass-catching ability. Special teams contributor.",
+          "2020 R4.145 \u2014 Jason Huntley, New Mexico State: Speed back with return ability.",
+          "Note: Roseman's RB strategy is overwhelmingly free agency-based: Saquon Barkley (FA 2024), Miles Sanders (FA 2019 R2 was the one exception), Jay Ajayi (trade 2017). The position is deprioritized in the draft."
+        ]
+      },
+      "confidence": "high",
+      "confidence_note": "High confidence in the PATTERN (not investing at RB) even if individual pick sample is small."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 6,
+    "max_observed_reach": 15,
+    "round_1_reach_tolerance": 8,
+    "notes": "Roseman will reach for elite athletes (Nolan Smith at 30, Reagor at 21) but has also shown ability to let the board come to him (Mitchell at 22, Campbell at 31). Mukuba at 64 was considered a reach by some analysts (Brugler had him at 109). Post-2020, Roseman has been better at combining value and need \u2014 his reaches tend to be backed by internal conviction based on athletic testing and character rather than just need-filling."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.65,
+    "offensive_scheme": "Run-heavy, RPO-based offense with play-action passing. Record-setting rushing attack (3,048 yards in 2024). Massive offensive line built to dominate in the ground game. QB runs are a significant part of the design. New OC Sean Mannion in 2026 may adjust the passing concepts but the physical identity is unlikely to change.",
+    "defensive_scheme": "Vic Fangio's 3-4 base with two-high safety shell. Quarters and Cover 6/Cover 8 heavy. Disguises coverages pre-snap with two deep safeties, rotates post-snap. Rarely blitzes \u2014 trusts front four to generate pressure. Demands versatile defenders at every level: EDGE players who can stand up or hand-in-dirt, LBs who can cover, and safeties who can play deep, slot, and box. Nickel personnel used ~90% of the time.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "New OC Sean Mannion hired for 2026 after Kellen Moore's departure. Mannion brings a different passing philosophy from his time in Green Bay. The offensive scheme may evolve, but the run-first identity is expected to persist given the personnel (Barkley, elite OL). Defensive scheme stable under Fangio entering Year 3."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.7,
+    "risk_description": "Aggressive risk-taker by GM standards. Owner Lurie explicitly dislikes risk-averse approaches. Roseman has consistently made bold moves: trading the house for Wentz, drafting Hurts with Wentz still on the roster, taking Jalen Carter despite off-field concerns, aggressively trading at the deadline. Self-described: 'Being aggressive has always been part of my DNA.' However, his risks are calculated \u2014 he rarely gambles without conviction and usually has contingency plans.",
+    "recency_bias": 0.65,
+    "recency_description": "Moderate-to-high recency bias. After the secondary collapse in 2023, he invested both top picks in 2024 on DBs (Mitchell and DeJean). After defensive struggles in 2020, he rebuilt the defense aggressively. The Reagor-Jefferson miss in 2020 caused a dramatic shift in WR evaluation philosophy. Roseman learns from mistakes quickly and overcorrects \u2014 which is recency bias but also adaptability.",
+    "sunk_cost_behavior": "Moves on quickly from busts. Traded Reagor to Minnesota after 2 seasons. Moved on from Wentz when the relationship deteriorated. Cut/traded Andre Dillard. Does not double down on failed investments. Will eat the cap hit and move forward rather than justify past picks.",
+    "combine_weight": 0.6,
+    "combine_description": "Moderate-to-high combine weight, especially at EDGE and DT. Nolan Smith's 4.39 40 clearly elevated his stock. Jordan Davis's combine performance drove a trade-up. The Eagles have been described as loving 'moldable athletes' \u2014 players with elite physical tools they believe coaching can develop. However, Mitchell's Senior Bowl performance was weighted as heavily as his combine, suggesting Roseman values the full picture.",
+    "character_weight": 0.6,
+    "character_description": "Moderate character standards with willingness to take calculated risks on talented players with concerns. Drafted Jalen Carter at 9 despite reckless driving arrest. Brought in Michael Vick under Lurie. But also values culture fit \u2014 Roseman frequently mentions character, family, and person alongside talent in his pick explanations. The Jihaad Campbell pick was praised for being a 'local kid, great character.' Multiple advisors on staff (Caldwell, Douglas, Russell) suggests an emphasis on thorough vetting.",
+    "quarterback_philosophy": "Will go all-in for a franchise QB (Wentz trade-up) but also willing to invest a Day 2 pick on a developmental option (Hurts). Unique willingness to draft a QB with an established starter (Hurts behind Wentz). McCord in R6 shows continued interest in developing backups. Philosophy shaped by Lurie's obsession with the QB position."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.5,
+    "production_vs_projection": "Balanced but position-dependent. At WR, Roseman strongly shifted toward production post-Reagor (Smith was a Heisman winner). At EDGE and DT, he clearly weights athletic projection over production (Smith had limited sacks, Davis had limited counting stats). At CB, Mitchell's ball production was valued alongside his elite testing. Overall, Roseman uses production as a baseline but won't let it override exceptional physical tools at positions where he trusts the coaching staff to develop technique.",
+    "production_thresholds_by_position": {
+      "WR": "Post-2020: Clear preference for elite producers. Smith was a Heisman winner. Pre-2020: Reagor had 46 catches in final season \u2014 no longer acceptable.",
+      "EDGE": "No clear minimum \u2014 Smith had 3 sacks in shortened 2022 season and was still drafted at 30.",
+      "DT": "Adjusts heavily for usage \u2014 Davis was a platoon player at Georgia with limited stats but was a R1 pick.",
+      "CB": "Values ball production \u2014 Mitchell had 15 PBUs, DeJean had 7 INTs over two years.",
+      "LB": "High for R1 investment \u2014 Campbell had 117 tackles and 11.5 TFLs."
+    },
+    "breakout_age_sensitivity": 0.45,
+    "dominator_rating_sensitivity": 0.5,
+    "notes": "Roseman heavily values pedigree from championship programs. Since 2022, has drafted 6+ Georgia Bulldogs. Values players from winning programs who have been battle-tested in big games. This is a form of production weighting \u2014 winning at the highest level is valued alongside individual stats."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "40_yard_max": 4.48,
+        "notes": "Average 40 time of Eagles-drafted DBs since 2010 was 4.48. Mitchell at 4.33 is the ideal.",
+        "confidence": "high"
+      },
+      "EDGE": {
+        "notes": "No hard 40 cutoff but strong preference for sub-4.60. Smith at 4.39 is extreme. Vertical jump 37+ inches preferred as explosiveness indicator.",
+        "confidence": "medium"
+      },
+      "DT": {
+        "notes": "Athletic testing relative to size is the key metric. Davis at 4.78/341 lbs, Williams at 4.94/284 lbs. Must show movement ability on film and in testing.",
+        "confidence": "high"
+      },
+      "OT": {
+        "min_arm_length": "34 inches \u2014 Lane Johnson has 34.75-inch arms. Dillard had 33.5 inches (shorter). Strong preference for 34+.",
+        "confidence": "medium"
+      },
+      "WR": {
+        "no_clear_threshold": true,
+        "notes": "Has drafted WRs across the athletic spectrum. Smith ran 4.41, Reagor ran 4.22, Wilson is 6-6. No consistent athletic filter at WR."
+      },
+      "S": {
+        "40_yard_max": 4.5,
+        "notes": "Mukuba ran 4.45. Coverage demands require speed.",
+        "confidence": "medium"
+      },
+      "LB": {
+        "notes": "Speed matters \u2014 Campbell and Dean are both sub-4.55 range athletes. Coverage ability is the key filter.",
+        "confidence": "medium"
+      }
+    },
+    "threshold_type": "Mostly soft preferences that can be overridden by exceptional film and character. Hard cutoffs are rare \u2014 Roseman has shown willingness to bet on film-based evaluations even when testing is imperfect. But at EDGE and DT, elite athletic testing is clearly a major driver.",
+    "size_preferences_by_position": {
+      "DT": "Wide range: 284 (Williams) to 341 (Davis). No strict minimum but must be built to hold up against NFL linemen.",
+      "OT": "Massive. Eagles starting OL in 2024 averaged 6-6, 338 lbs. Lane Johnson at 325 called himself the 'smallest Eagle.'",
+      "IOL": "Big: Dickerson at 332, Jurgens at 303, Becton at 364. The Eagles value size on the interior.",
+      "LB": "Lighter, coverage-capable: Campbell at 235, Dean at 225. Not looking for 260-lb thumpers.",
+      "S": "Smaller is acceptable if coverage and ball skills compensate: Mukuba at 5-11, 186."
+    },
+    "athletic_testing_favorites": "Vertical jump and broad jump at DT and EDGE as explosiveness indicators. 40-yard dash at CB and S as speed requirements. 3-cone and short shuttle at LB for coverage ability. For OL, values athletic movement skills in massive frames over pure testing numbers.",
+    "measurables_vs_film": "Balanced with a slight lean toward measurables/athletic projection at certain positions. The Nolan Smith pick is the clearest example of measurables over film (elite combine, modest college production). But Mitchell's pick was heavily film-driven \u2014 his Senior Bowl tape was decisive. Roseman self-described philosophy: analytics integrated with traditional scouting, but willing to go outside his comfort zone for exceptional prospects."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Target premium-position players who are high on their board \u2014 ideally players who fell further than expected, creating BPA-need convergence. Will trade up 1-5 spots for conviction picks (Carter at 9, Campbell at 31, DeVonta Smith at 10) but also willing to stand pat and let the board come to him (Mitchell at 22). Post-2020, round 1 picks have been defensive linemen, edge rushers, corners, and WR. Building blocks only.",
+    "round_2_3_strategy": "Shifts toward need-filling but still values high-upside picks. This is where Roseman finds future starters: Dickerson, Jurgens, DeJean, Goedert were all Day 2 picks. Willing to trade up aggressively on Day 2 (traded up 10 spots for DeJean at 40). Also trades back on Day 2 to accumulate Day 3 picks.",
+    "day_3_strategy": "Developmental athletes and positional depth. Day 3 is where Roseman takes 'traits over production' bets: Mailata (rugby player, R7), offensive line depth, coverage LBs from championship programs, developmental QBs. Uses Day 3 to take multiple picks at positions of depth need. Always seems to draft at least one OL depth piece on Day 3.",
+    "compensatory_pick_usage": "Treats comp picks as additional currency. Willing to use them for slightly riskier picks but doesn't have a clearly differentiated approach from regular picks at the same slot."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "DT": {
+        "picks": 5,
+        "starters": 4,
+        "rate": 0.8,
+        "note": "Exceptional. Fletcher Cox (HOF caliber), Jalen Carter (All-Pro), Jordan Davis (starter), Milton Williams (quality starter). Best position evaluation in the organization."
+      },
+      "OT": {
+        "picks": 5,
+        "starters": 3,
+        "rate": 0.6,
+        "note": "Strong when it hits: Lane Johnson (HOF caliber), Jordan Mailata (All-Pro). But Dillard was a R1 bust."
+      },
+      "IOL": {
+        "picks": 5,
+        "starters": 4,
+        "rate": 0.8,
+        "note": "Dickerson (Pro Bowl), Jurgens (Pro Bowl), Kelce (R6 HOF). Watkins (R1, 2011) is the notable bust from the early era."
+      },
+      "EDGE": {
+        "picks": 6,
+        "starters": 3,
+        "rate": 0.5,
+        "note": "Mixed. Brandon Graham (eventual Pro Bowl), Nolan Smith (emerging). But Marcus Smith (2014 R1 bust), Derek Barnett (inconsistent). Improving in recent years."
+      },
+      "CB": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Small sample but strong recent hits: Mitchell and DeJean both All-Pro in Year 2. Limited R1 CB history."
+      },
+      "WR": {
+        "picks": 5,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "DeVonta Smith is a home run. Jalen Reagor is one of the worst R1 picks in recent history. Nelson Agholor was inconsistent. JJ Arcega-Whiteside was a major bust. Volatile position evaluation."
+      },
+      "S": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Sydney Brown showed promise but injuries limited him. Mukuba too early to evaluate."
+      },
+      "LB": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Dean has been inconsistent. Campbell too early. Historically underinvested position."
+      },
+      "QB": {
+        "picks": 2,
+        "starters": 2,
+        "rate": 1.0,
+        "note": "Both Wentz and Hurts started and produced, though Wentz eventually deteriorated. Hurts became a franchise QB and Super Bowl winner."
+      }
+    },
+    "blind_spots": [
+      "WR evaluation has been historically volatile \u2014 the Reagor and Arcega-Whiteside busts were franchise-impacting misses. Roseman has acknowledged this by pivoting to trading for proven WRs.",
+      "EDGE development has been slow \u2014 Graham took 5+ years, Smith took 2 years, Marcus Smith was a bust. High-pick EDGE investments have not yielded immediate returns.",
+      "LB evaluation is unproven \u2014 historically deprioritized, now changing with Campbell pick"
+    ],
+    "strengths": [
+      "DL evaluation is elite \u2014 Cox, Carter, Davis, Williams represent exceptional hit rate at the most important defensive position group",
+      "OL evaluation and development is the best in the NFL \u2014 even projects like Mailata become All-Pros under Stoutland",
+      "QB identification \u2014 found two franchise QBs in Wentz and Hurts, both in different ways"
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Moderate-to-strategic spender who uses FA to fill specific holes, not to overhaul rosters. Major FA acquisitions (Saquon Barkley, Haason Reddick, Darius Slay, Zack Baun) are targeted additions to complement drafted core. Philosophy is 'draft, develop, re-sign' with FA as supplementary. Roseman's stated approach: 'Draft really well and sign their own players and just sporadically go into free agency.'",
+    "fa_draft_correlation": "When a major FA signing fills a position, Roseman will still draft depth there on Day 3 but not use premium picks. When a position is NOT addressed in FA, it becomes a draft target. The 2024 CB double-dip happened because FA didn't adequately address the secondary. The 2025 LB investment came after Baun's breakout showed the value of the position.",
+    "roster_construction_philosophy": "Build the core through the draft (OL, DL, CB, QB), supplement with targeted FA for proven playmakers (WR, RB, veteran safety), and use trades to acquire established stars at market-value or below. Re-sign your own players as the primary roster retention mechanism. Use cap manipulation (void years, bonus structures) to create flexibility. Roseman views draft picks as both selection assets AND trade currency."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 50,
+    "notable_patterns": [
+      "Heavy investment in the defensive and offensive lines \u2014 trenches are the foundation of Roseman's roster construction",
+      "Strong preference for players from championship programs, especially Georgia (6+ Bulldogs drafted since 2022) and Alabama (Campbell in 2025)",
+      "Post-2020 transformation: Roseman dramatically improved his hit rate after the Reagor disaster, becoming more value-conscious and less willing to reach on raw athletes at skill positions",
+      "Draft-day trades are not occasional \u2014 they are the primary operating mode. 55+ draft-weekend trades as GM. 4-5 trades per draft is typical.",
+      "First-round picks since 2021 have all been BPA-need convergence picks: Smith, Davis, Dean, Carter, Nolan Smith, Mitchell, Campbell",
+      "Round 1 EDGE picks have been consistently reach-y based on athletic testing: Marcus Smith (2014), Barnett (2017), Nolan Smith (2023)",
+      "Has never drafted a RB in Rounds 1-2 and likely never will \u2014 acquires proven RBs via FA/trade"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2025,
+        "pick": "2.64",
+        "player": "Andrew Mukuba",
+        "position": "S",
+        "consensus_rank": "76-109 depending on analyst",
+        "reach_amount": "12-45 picks",
+        "context": "Safety need after trading CJGJ. Roseman acknowledged they considered trading back but took their guy."
+      },
+      {
+        "year": 2023,
+        "pick": "1.30",
+        "player": "Nolan Smith",
+        "position": "EDGE",
+        "consensus_rank": "40-55",
+        "reach_amount": "10-25 picks",
+        "context": "Elite combine performer (4.39 40, 41.5-inch vert at 238 lbs) but limited college production. Classic Roseman athletic-projection pick."
+      },
+      {
+        "year": 2020,
+        "pick": "1.21",
+        "player": "Jalen Reagor",
+        "position": "WR",
+        "consensus_rank": "28-35",
+        "reach_amount": "7-14 picks",
+        "context": "Selected over Justin Jefferson. Speed-first pick that became one of the worst draft decisions of the Roseman era."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2025,
+        "pick": "1.31",
+        "player": "Jihaad Campbell",
+        "position": "LB",
+        "consensus_rank": "10-15",
+        "value_amount": "16-21 picks",
+        "context": "Top-15 prospect who fell due to shoulder injury concerns. Roseman had him as a top-10 player on their board."
+      },
+      {
+        "year": 2024,
+        "pick": "1.22",
+        "player": "Quinyon Mitchell",
+        "position": "CB",
+        "consensus_rank": "12-18",
+        "value_amount": "4-10 picks",
+        "context": "First CB off the board fell to 22 due to a run on QBs. Eagles internally expected him gone by 15."
+      },
+      {
+        "year": 2018,
+        "pick": "7.233",
+        "player": "Jordan Mailata",
+        "position": "OT",
+        "consensus_rank": "Undrafted by consensus \u2014 zero football experience",
+        "value_amount": "N/A \u2014 unique pick",
+        "context": "Australian rugby player with zero football experience. Became an All-Pro left tackle. One of the greatest late-round picks in NFL history."
+      }
+    ]
+  },
+  "confidence": "very_high",
+  "confidence_notes": "Roseman has 14+ drafts of data as Eagles GM/EVP. His patterns are well-documented and his behavioral tendencies are clear. The post-2020 era represents a meaningfully different (and more successful) evaluator than the pre-2020 era, so recent drafts (2021-2025) should be weighted more heavily than earlier ones. The 2025 draft (Campbell LB, Mukuba S) may signal emerging changes in positional value priorities that should be monitored.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

@@ -1,0 +1,937 @@
+{
+  "team": {
+    "name": "Green Bay Packers",
+    "abbreviation": "GB",
+    "division": "NFC North",
+    "current_draft_position": null
+  },
+  "front_office": {
+    "gm": {
+      "name": "Brian Gutekunst",
+      "title": "General Manager",
+      "hired": "2018-01-08",
+      "previous_role": "Director of Player Personnel, Green Bay Packers",
+      "drafts_as_gm": 8,
+      "confidence": "high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "UW-La Crosse",
+          "role": "Student Assistant Coach / Linebackers Coach",
+          "years": "1995\u20131997",
+          "mentor": "Roger Harring"
+        },
+        {
+          "org": "New Orleans Saints",
+          "role": "Training Camp Coaching Assistant",
+          "years": "1995 (summer)",
+          "mentor": "N/A"
+        },
+        {
+          "org": "Green Bay Packers",
+          "role": "Scouting Intern",
+          "years": "1997 (summer)",
+          "mentor": "Ron Wolf"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Scouting Assistant",
+          "years": "1998",
+          "mentor": "John Schneider (followed him to KC)"
+        },
+        {
+          "org": "Green Bay Packers",
+          "role": "East Coast College Scout",
+          "years": "1999\u20132000",
+          "mentor": "Ron Wolf / Ted Thompson"
+        },
+        {
+          "org": "Green Bay Packers",
+          "role": "Southeast College Scout",
+          "years": "2001\u20132011",
+          "mentor": "Ted Thompson"
+        },
+        {
+          "org": "Green Bay Packers",
+          "role": "Director of College Scouting",
+          "years": "2012\u20132015",
+          "mentor": "Ted Thompson"
+        },
+        {
+          "org": "Green Bay Packers",
+          "role": "Director of Player Personnel",
+          "years": "2016\u20132017",
+          "mentor": "Ted Thompson"
+        },
+        {
+          "org": "Green Bay Packers",
+          "role": "General Manager",
+          "years": "2018\u2013present",
+          "mentor": "Self (with Thompson legacy)"
+        }
+      ],
+      "primary_mentor": "Ted Thompson (direct boss for nearly 20 years) / Ron Wolf (organizational founder of the Packers' scouting philosophy)",
+      "philosophical_lineage": "Ron Wolf tree \u2192 Ted Thompson branch. Wolf built the Packers' modern scouting infrastructure and instilled a 'draft and develop' philosophy with an emphasis on big, fast, athletic prospects. Thompson refined this with extreme patience in free agency and an almost religious commitment to BPA drafting. Gutekunst inherited both influences but has been more willing to engage in free agency and trades than Thompson ever was. The Wolf tree also produced John Schneider (SEA), John Dorsey (KC/CLE), Reggie McKenzie (OAK), and Scot McCloughan (WAS/SF), all of whom share an emphasis on elite athleticism and size at the point of evaluation.",
+      "breakpoints": "More active in free agency than Thompson \u2014 signed Za'Darius Smith, Adrian Amos (2019), Josh Jacobs, Xavier McKinney (2024), Aaron Banks, Nate Hobbs (2025). More willing to trade up in the first round (traded up in 4 of first 6 drafts). Thompson almost never traded up. Gutekunst also traded Davante Adams and Aaron Rodgers \u2014 bold roster-shaping trades Thompson likely would not have made. However, the core evaluation DNA \u2014 prioritizing elite athleticism, size, youth, and versatility \u2014 remains identical to the Wolf/Thompson lineage.",
+      "lineage_weight": 0.2,
+      "lineage_weight_notes": "8 drafts of his own data make the lineage weight very low as a predictive signal. Gutekunst's own track record is now the dominant signal. The Wolf/Thompson DNA is baked into everything he does but his own patterns are well-established."
+    },
+    "primary_decision_maker": "Brian Gutekunst",
+    "key_influencers": [
+      {
+        "name": "Matt LaFleur",
+        "title": "Head Coach",
+        "influence_level": "high",
+        "known_biases": "Offensive-minded, runs a Shanahan/McVay-style outside zone scheme. Values pass protection for Jordan Love. Significant input on defensive coordinator hires (chose Hafley, then Gannon) which shapes defensive personnel needs. Has described the Gannon scheme as 'genius.' Collaborative relationship with Gutekunst."
+      },
+      {
+        "name": "Jon-Eric Sullivan (departed Jan 2026)",
+        "title": "Former Vice President of Player Personnel (now Miami GM)",
+        "influence_level": "was_high_now_departed",
+        "known_biases": "Was a hot name on interview circuit. Hired as Dolphins GM in Jan 2026 after 20+ years with Packers. His departure is notable \u2014 he was a key part of the evaluation apparatus. New VP of Player Personnel TBD."
+      },
+      {
+        "name": "John Wojciechowski",
+        "title": "Director of Player Personnel",
+        "influence_level": "medium",
+        "known_biases": "Identified as a future GM candidate. Rising internal evaluator within the Wolf tree system."
+      },
+      {
+        "name": "Jonathan Gannon",
+        "title": "Defensive Coordinator (hired Feb 2026)",
+        "influence_level": "medium",
+        "known_biases": "New DC replacing Jeff Hafley. Will run a 3-4 base with quarters coverage emphasis and three-safety looks. Prefers scheme versatility and coverage disguises. His scheme demands will influence defensive draft targets \u2014 particularly versatile safeties, speed/bend edge rushers, and cornerbacks who can play multiple coverages."
+      }
+    ],
+    "power_dynamics": "Collaborative front office where Gutekunst has final say but LaFleur has significant input, especially on offensive personnel. The Packers are a publicly-owned franchise with no single owner to interfere. Team President Mark Murphy (now departed) and successor have historically stayed out of football decisions. Gutekunst and LaFleur signed simultaneous contract extensions in Jan 2026, signaling organizational alignment.",
+    "owner_interference": "none \u2014 publicly owned franchise, unique in NFL"
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.6,
+    "bpa_weight_by_round": {
+      "1": 0.7,
+      "2": 0.55,
+      "3": 0.45,
+      "4_plus": 0.35
+    },
+    "stated_philosophy": "Best player available, 'build through the draft,' draft-and-develop philosophy inherited from Ted Thompson. Gutekunst has said 'traits are very, very important to us' and emphasizes that 'there are certain athletic traits you have to have to compete at the level we want to.'",
+    "actual_philosophy": "Leans BPA in round 1 but with a strong athleticism/traits filter that functionally limits the pool. Seven of nine first-round picks had RAS of 9.0+; eight of nine were 22 or younger. In rounds 2-3, shifts notably toward need-filling \u2014 drafted skill position players on offense in six straight second-round picks (2019-2023) when the roster needed them, then pivoted to defense in 2024 when the secondary was the biggest hole. Has a pattern of doubling up at positions of need (2 WRs in 2022, 2 WRs + 2 TEs in 2023, 3 safeties in 2024, 2 WRs in 2025). This doubling-up strategy is a signature Gutekunst move.",
+    "philosophy_mismatch_notes": "Claims BPA but the 2020 draft (Love, Dillon, Deguara) was widely perceived as ignoring immediate needs. The 2022 draft leaned heavily toward filling gaps left by the Davante Adams trade. In 2024, every pick in rounds 1-4 addressed a position of need. The mismatch has narrowed in recent years \u2014 Gutekunst now more openly integrates need into his BPA framework."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.55,
+    "trade_down_willingness": 0.45,
+    "trades_per_draft_average": 2.5,
+    "trade_triggers": [
+      "QB availability \u2014 traded up for Jordan Love in 2020",
+      "First-round target sliding \u2014 traded up for Jaire Alexander (2018), Darnell Savage (2019), Lukas Van Ness (2023)",
+      "Acquiring future capital \u2014 traded down from 14 to 27 in 2018 to gain an extra 2019 first-rounder",
+      "Blockbuster player acquisition \u2014 traded two 1sts and Kenny Clark for Micah Parsons in Aug 2025",
+      "Day 2 pick consolidation \u2014 frequently trades to move up within rounds 2-3"
+    ],
+    "draft_capital_philosophy": "Willing to spend future picks for elite talent (Parsons trade). Historically values having quantity of picks but will consolidate aggressively for targets. Traded up in first round in 4 of first 6 drafts. Also leveraged Rodgers and Adams trades to acquire significant draft capital. Entering 2026 without a first-round pick for first time due to Parsons trade."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "EDGE",
+        "CB",
+        "OT",
+        "QB"
+      ],
+      "tier_2_high": [
+        "WR",
+        "S",
+        "LB",
+        "DT"
+      ],
+      "tier_3_mid": [
+        "IOL",
+        "TE",
+        "RB"
+      ],
+      "tier_4_low": [
+        "K",
+        "P",
+        "LS"
+      ]
+    },
+    "position_avoidance": [
+      "Has never drafted a RB in round 1 but took AJ Dillon in round 2 (2020) and MarShawn Lloyd in round 3 (2024) \u2014 willing to invest Day 2 capital",
+      "Has never drafted a WR in round 1 until Matthew Golden in 2025 \u2014 a 23-year drought at the position in round 1",
+      "Has never drafted a TE higher than round 3"
+    ],
+    "position_premium": [
+      "EDGE \u2014 drafted Rashan Gary (1.12), Lukas Van Ness (1.13), and also traded for Micah Parsons. Highest positional priority.",
+      "CB \u2014 drafted Jaire Alexander (1.18), Eric Stokes (1.29), plus multiple Day 3 CBs. Consistent early investment.",
+      "Defense in round 1 \u2014 7 of 10 first-round picks have been defensive players",
+      "Safety \u2014 unprecedented 3 safeties in 2024 draft (Bullard Rd2, Williams Rd4, Oladapo Rd5)",
+      "OL \u2014 drafted 3 OL in 2020, 3 OL in 2022. Frequently invests heavily in offensive line"
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Massive, elite-athleticism power rusher with length and upside. Gutekunst drafts EDGEs who are physical specimens \u2014 6-3+ tall, 255+ lbs, 34+ inch arms, sub-4.60 40s at their weight. Both first-round EDGEs (Gary, Van Ness) were raw prospects with underwhelming college sack production relative to their draft position but possessed elite physical tools. Gutekunst bets on traits over production at this position. He also supplemented via trade (Parsons) and free agency (Za'Darius Smith). The archetype is clear: big, explosive, developmental with motor and length.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5",
+        "weight_range": "256\u2013277",
+        "arm_length_minimum": "34 inches \u2014 both Gary (34.13) and Van Ness (34.00) meet this threshold",
+        "key_athletic_tests": "40-yard dash (sub-4.60 for both), vertical jump (Gary 38.0), broad jump (Gary 120 in, Van Ness 118 in). Explosion tests matter most. Speed Score (weight-adjusted 40) extremely important given size requirements.",
+        "speed_requirement": "4.60 or faster \u2014 Gary 4.58, Van Ness 4.58. Both hit exact same time at massive weights."
+      },
+      "playing_style": {
+        "primary_win_condition": "Power and explosion \u2014 both Gary and Van Ness were drafted as power-first rushers who win with violent hands and bull rush, not finesse or bend",
+        "most_valued_traits": [
+          "First-step explosion",
+          "Length and long arms for tackle-radius disruption",
+          "Power at the point of attack",
+          "Motor and relentless effort",
+          "Scheme versatility \u2014 can stand up or hand in dirt"
+        ],
+        "least_important_traits": [
+          "Refined pass rush repertoire \u2014 has drafted EDGEs who were raw and needed NFL coaching to develop moves",
+          "College sack production \u2014 Gary had only 3.5 sacks his final season at Michigan"
+        ],
+        "deal_breakers": [
+          "Lack of elite physical tools \u2014 pure technique/finesse rushers without top-end athleticism not valued in round 1",
+          "Short arms \u2014 34 inches appears to be a hard minimum"
+        ],
+        "traits_that_make_them_reach": "Elite RAS / athleticism score. Gary was the #1 overall recruit and RAS 9.95. Van Ness RAS 9.39. Gutekunst will reach for physical tools."
+      },
+      "college_production": {
+        "production_floor": "No clear floor \u2014 Gary had only 3.5 sacks his final season. Van Ness had 6.5 sacks as a sophomore. Production is secondary to traits at this position.",
+        "production_trajectory": "Prefers ascending production (Van Ness went from 4 sacks to 8 sacks) but will tolerate a dip if explained by injury or scheme (Gary's senior year).",
+        "context_sensitivity": "High \u2014 credits pressure rates and TFLs, not just sack totals. Gary generated pressures that didn't convert to sacks. Van Ness played in Iowa's conservative defense."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2019 1.12 \u2014 Rashan Gary: 6-5, 277, 4.58 40, 34.13 arms, RAS 9.95. Michigan. 3.5 sacks in final year. Elite athlete, raw pass rusher. Now a Pro Bowler.",
+          "2023 1.13 \u2014 Lukas Van Ness: 6-5, 272, 4.58 40, 34.00 arms, RAS 9.39. Iowa. 6.5 sacks as sophomore. Power-first, violent hands, limited experience.",
+          "2025 4.124 \u2014 Barryn Sorrell: 6-3, 256. Texas. 15.5 career sacks over 3 seasons. Developmental Day 3 EDGE.",
+          "2025 5.159 \u2014 Collin Oliver: Oklahoma State. Early producer (11.5 sacks as freshman). Pass-rush specialist type."
+        ]
+      },
+      "confidence": "high"
+    },
+    "CB": {
+      "archetype_summary": "Tall (5-10+), fast (4.45 or faster), high-RAS press-capable corner. The Packers have a historically documented minimum height threshold at CB dating back to the Ron Wolf era. Jaire Alexander at 5-10 1/4 is the shortest CB drafted since 2005. Weight minimum is approximately 184 lbs. They value speed first and foremost but have drafted across the athletic spectrum otherwise. Ball production in college is NOT required \u2014 film and traits matter more. Press-man capability is strongly preferred.",
+      "physical_profile": {
+        "height_range": "5-10 1/4 to 6-2 \u2014 5-10 1/4 is the absolute floor (Alexander). Preference is 5-11+.",
+        "weight_range": "184\u2013202 lbs. Jean-Charles (184) is the lightest. Preference is 190+.",
+        "arm_length_minimum": "No clear hard cutoff but 31+ inches preferred for outside corners. Slot corners can be shorter-armed.",
+        "key_athletic_tests": "40-yard dash is paramount. Alexander 4.38, Stokes 4.31, Valentine 4.44, Josh Jackson 4.56 (the slowest). RAS scores: Alexander 9.53, Stokes 9.35, Valentine 9.29. Gutekunst explicitly wants high-RAS corners.",
+        "speed_requirement": "4.50 absolute maximum for outside corners. Ideally 4.45 or faster. Stokes' 4.31 was a standout."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Press-man capability required. Valentine described himself as 'a physical press-man corner.' Stokes was drafted for his speed to play man. Alexander is an elite press-man technician.",
+        "most_valued_traits": [
+          "Speed \u2014 non-negotiable at the position",
+          "Press technique and physicality at the line",
+          "Length and disruption at catch point",
+          "Versatility to play multiple coverage types",
+          "Tackling \u2014 size matters in part for this reason"
+        ],
+        "least_important_traits": [
+          "Interception totals \u2014 Stokes had just 1 INT in college, Valentine had modest numbers. Film matters more than box-score ball production."
+        ],
+        "deal_breakers": [
+          "Height under 5-10 \u2014 Mike Sainristil (5-9) was explicitly identified as someone NOT on GB's board despite being a top prospect",
+          "Weight under 184 lbs \u2014 has only violated once (Jean-Charles, a bust)",
+          "Slow 40 time \u2014 never drafted a CB over 4.56 in rounds 1-3"
+        ],
+        "traits_that_make_them_reach": "Elite 40 time combined with adequate size. Stokes' 4.31 40 at 6-1, 194 was a profile Gutekunst couldn't pass up at 29."
+      },
+      "college_production": {
+        "production_floor": "No clear statistical floor \u2014 values film over INT totals. Stokes had just 1 INT in his final season. Valentine had 2 INTs across 3 years.",
+        "production_trajectory": "Prefers multi-year starters \u2014 Valentine started 25 consecutive games at Kentucky. Stokes started 2 years at Georgia.",
+        "context_sensitivity": "Very high \u2014 adjusts for conference strength (SEC/Big Ten corners valued) and scheme."
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2018 1.18 \u2014 Jaire Alexander: 5-10 1/4, 196, 4.38 40, RAS 9.53. Louisville. Traded up to get him. Elite press corner, 2x All-Pro.",
+          "2021 1.29 \u2014 Eric Stokes: 6-1, 194, 4.31 40, RAS 9.35. Georgia. Blazing speed, developmental. Struggled post-injury.",
+          "2023 7.232 \u2014 Carrington Valentine: 6-0, 193, 4.44 40, RAS 9.29. Kentucky. 3-year starter. Press-man corner. Emerged as starter.",
+          "2018 2.45 \u2014 Josh Jackson: 6-0, 196, 4.56 40. Iowa. Production-based pick (8 INTs). Didn't pan out \u2014 slowest CB Gutekunst has drafted.",
+          "2024 7.255 \u2014 Kalen King: Penn State. High-upside late flier."
+        ]
+      },
+      "confidence": "high"
+    },
+    "QB": {
+      "archetype_summary": "The Packers have a documented organizational philosophy of drafting QBs even when they have a franchise starter \u2014 Rodgers behind Favre, Love behind Rodgers. The archetype is an athletic, young, high-ceiling QB with dual-threat ability. Jordan Love (6-4, 224, RAS 8.46) was a project pick who sat for 3 years. They value arm talent, mobility, and youth over immediate readiness. Sullivan (now MIA GM) said: 'If you can help it, don't wait till you don't have a quarterback to find one.' Gutekunst is likely to draft a developmental QB in 2026 given Malik Willis departing in free agency.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-4. Love is 6-4. They hosted Jalon Daniels (6-0) at the 2026 combine, suggesting some flexibility on height.",
+        "weight_range": "215\u2013230",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Mobility and athleticism matter \u2014 Love's RAS 8.46 reflects good overall athleticism. They are reportedly interested in Taylen Green (elite athleticism score projected). Arm strength is a prerequisite.",
+        "speed_requirement": "Not a timed-speed position but must have enough mobility to extend plays and be a run threat. Love had rushing ability in college."
+      },
+      "playing_style": {
+        "primary_style": "Athletic dual-threat with enough arm talent to push the ball downfield. Not a pure pocket passer, not a pure runner \u2014 a balanced quarterback with upside.",
+        "most_valued_traits": [
+          "Arm strength and ability to make all the throws",
+          "Mobility and athleticism to extend plays",
+          "Youth and developmental ceiling",
+          "Ability to read defenses (developing, not necessarily ready-made)"
+        ],
+        "least_important_traits": [
+          "Immediate readiness \u2014 Love sat 3 years. The Packers are willing to develop QBs."
+        ],
+        "deal_breakers": [
+          "Lack of arm talent",
+          "Below-average athleticism for the position"
+        ],
+        "traits_that_make_them_reach": "Franchise QB upside \u2014 traded up in the first round for Love when no one expected it, despite having Rodgers in MVP form"
+      },
+      "college_production": {
+        "production_floor": "Love had a down senior season (20 TDs, 17 INTs) and the Packers still drafted him 26th overall. College production is secondary to physical tools and upside at QB.",
+        "production_trajectory": "Not a major factor \u2014 Love's production actually declined in his final year and they still drafted him in round 1",
+        "context_sensitivity": "High \u2014 Love's supporting cast at Utah State was poor. Gutekunst clearly credited context."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2020 1.26 \u2014 Jordan Love: 6-4, 224, RAS 8.46. Utah State. Traded up from 30. Controversial at the time \u2014 Rodgers was still elite. Now the franchise QB.",
+          "2023 6.? \u2014 Sean Clifford: Penn State. Late-round developmental backup. Cut after 1 year.",
+          "2024 7.245 \u2014 Michael Pratt: Tulane. 4-year starter, AAC Offensive Player of the Year. Developmental backup.",
+          "2025 interest \u2014 Hosted Jalon Daniels (Kansas) at combine for 2026 draft evaluation."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 1 premium QB drafted (Love). Strong organizational philosophy provides additional signal. The late-round QB picks (Clifford, Pratt) confirm the habit of always having a developmental arm."
+    },
+    "OT": {
+      "archetype_summary": "Versatile, athletic offensive tackle who can play multiple positions. Jordan Morgan (6-5, 311, RAS 9.25) was drafted 25th overall in 2024 from Arizona as a left tackle who could also play guard. Rasheed Walker (6-6, 313) was a Day 3 pick who developed into a starter. Anthony Belton (6-6, 336) in 2025 round 2 was a massive prospect drafted for his size and run-blocking power despite being viewed as a reach. The Packers want big, athletic OTs with positional versatility.",
+      "physical_profile": {
+        "height_range": "6-5 to 6-7. Morgan 6-5, Walker 6-6, Belton 6-6.",
+        "weight_range": "311\u2013336. Belton at 336 is notably heavy. Gutekunst said Belton has 'great size and can move people in the run game.'",
+        "arm_length_minimum": "34 inches preferred for outside tackle play",
+        "key_athletic_tests": "RAS matters \u2014 Morgan 9.25 RAS. Athletic movement skills in space for zone-blocking scheme. Walker developed despite modest combine numbers, showing film can override testing.",
+        "speed_requirement": "N/A for tackles, but must be athletic enough for zone-blocking reach blocks and pull blocks in LaFleur's scheme"
+      },
+      "playing_style": {
+        "primary_style": "Zone-scheme versatile tackle who can pass protect and reach-block in the run game. LaFleur's offense demands athletic OL who can get to the second level.",
+        "most_valued_traits": [
+          "Positional versatility \u2014 ability to play tackle and guard (Morgan played both)",
+          "Athletic movement in space",
+          "Size and strength combination",
+          "Youth and developmental ceiling",
+          "Pass protection anchor"
+        ],
+        "least_important_traits": [
+          "Pure power/mauling run blocking without athletic component \u2014 scheme requires movement skills"
+        ],
+        "deal_breakers": [
+          "Lack of foot speed for zone scheme",
+          "Inability to play multiple positions"
+        ],
+        "traits_that_make_them_reach": "Multi-position versatility combined with elite size. Belton was considered a reach at 54 but had 14 top-30 visits with teams."
+      },
+      "college_production": {
+        "production_floor": "Wants multi-year starters. Morgan started 45+ games. Walker started 12 games at LT his senior year. Belton had 32 starts.",
+        "production_trajectory": "Prefers ascending trajectory \u2014 Morgan earned first-team All-Pac-12 as a senior",
+        "context_sensitivity": "Weighs conference strength \u2014 all recent OT picks from Power 5 programs"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2024 1.25 \u2014 Jordan Morgan: 6-5, 311, RAS 9.25. Arizona. Left tackle, can play guard. Multi-year starter.",
+          "2025 2.54 \u2014 Anthony Belton: 6-6, 336. NC State. Massive tackle with run-blocking power. 32 starts at LT.",
+          "2022 5.140 \u2014 Rasheed Walker: 6-6, 313. Penn State. Started every game in 2024 at RT. Day 3 development success.",
+          "2022 4.132 \u2014 Zach Tom: 6-5, 304. Wake Forest. Ultra-versatile \u2014 played tackle and guard. Started every game 2024.",
+          "2025 7.250 \u2014 John Williams: 6-4, 322. Cincinnati. Developmental OT/guard prospect."
+        ]
+      },
+      "confidence": "high"
+    },
+    "IOL": {
+      "archetype_summary": "Versatile interior lineman who can play multiple positions along the line. Elgton Jenkins (2019, Rd 2) is the prototype \u2014 started at LG, C, and RT in a single season and made the Pro Bowl. Sean Rhyan (2022, Rd 3) played guard and center. Jacob Monk (2024, Rd 5) played RG, RT, and C in college. The Packers prize positional versatility above all else at IOL. Gutekunst has explicitly stated: 'We've always strived here to have guys that can play versatile roles.'",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5. Jenkins 6-5, Rhyan 6-5, Jon Runyan Jr 6-4, Josh Myers 6-5.",
+        "weight_range": "300\u2013320. Jenkins 310, Rhyan 321, Myers 310.",
+        "arm_length_minimum": "No strict cutoff \u2014 values overall frame and power",
+        "key_athletic_tests": "Movement skills are critical for zone scheme \u2014 must be able to pull and reach-block. Jenkins' ability to play 4 different positions demonstrates the athletic standard.",
+        "speed_requirement": "Must be mobile enough for outside zone scheme. Heavy-footed, anchor-only guards not valued."
+      },
+      "playing_style": {
+        "primary_style": "Zone-scheme guard/center with positional flexibility. Must be able to get to the second level and block in space.",
+        "most_valued_traits": [
+          "Multi-position versatility \u2014 this is THE defining trait GB seeks",
+          "Athletic movement in LaFleur's zone scheme",
+          "Physical strength and nastiness in run game",
+          "Intelligence to play center if needed",
+          "Durability"
+        ],
+        "least_important_traits": [
+          "Pure anchor-and-hold strength without mobility \u2014 the scheme demands movement"
+        ],
+        "deal_breakers": [
+          "One-position-only players with limited scheme fit",
+          "Lack of movement skills for zone blocking"
+        ],
+        "traits_that_make_them_reach": "Demonstrated multi-position capability in college"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starters preferred. Jenkins started 3 years at Mississippi State. Monk started at 3 positions at Duke.",
+        "production_trajectory": "Ascending. Rhyan was a multi-year starter at UCLA.",
+        "context_sensitivity": "Considers conference strength and scheme fit"
+      },
+      "evidence": {
+        "picks_analyzed": 7,
+        "examples": [
+          "2019 2.44 \u2014 Elgton Jenkins: 6-5, 310. Mississippi St. 2x Pro Bowl. Played LG, C, RT in same season. Prototype.",
+          "2022 3.92 \u2014 Sean Rhyan: 6-5, 321. UCLA. Guard who can play center. Started every game in 2024.",
+          "2020 6.209 \u2014 Jon Runyan Jr: 6-4, 307. Michigan. Became starting LG. Versatile.",
+          "2021 2.62 \u2014 Josh Myers: 6-5, 310. Ohio State. Center. Let go after rookie deal.",
+          "2024 5.163 \u2014 Jacob Monk: Duke. Played RG, RT, and C. 5-year starter. Versatility pick.",
+          "2020 4.136 \u2014 Simon Stepaniak: 6-4, 314. Indiana. OL pick that didn't pan out (retired).",
+          "2020 6.192 \u2014 Jake Hanson: 6-5, 296. Oregon. Center depth pick."
+        ]
+      },
+      "confidence": "high"
+    },
+    "DT": {
+      "archetype_summary": "Explosive, athletic interior disruptor. Devonte Wyatt (2022, Rd 1) is the recent flagship pick \u2014 a 6-3, 304-lb Georgia DT with a 4.77 40 and RAS 9.59. Gutekunst values pass-rush upside from the interior over pure run-stuffing. TJ Slaton (2021, Rd 5) at 6-4, 330 represented the bigger run-stuffing archetype on Day 3. The Packers have historically leaned toward explosion and pass rush ability at DT, though the Gannon scheme may shift priorities toward a true nose tackle.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-4. Wyatt 6-3, Slaton 6-4. No DT drafted shorter than 6-2 3/8.",
+        "weight_range": "290\u2013330. Wyatt 304 (3-tech), Slaton 330 (nose). Position-dependent.",
+        "arm_length_minimum": "No clear cutoff \u2014 but length is valued",
+        "key_athletic_tests": "Explosion tests matter most. Wyatt: 4.77 40, RAS 9.59. The Packers drafted Wyatt for his athleticism from Georgia despite questions about production. 3-tech DTs need quickness; nose tackles need mass.",
+        "speed_requirement": "Sub-5.00 40 for 3-technique. Less important for nose."
+      },
+      "playing_style": {
+        "primary_style": "Penetrating 3-technique who disrupts the backfield. Under new DC Gannon, may need more two-gap nose capability.",
+        "most_valued_traits": [
+          "First-step quickness and burst off the ball",
+          "Pass rush upside from the interior",
+          "Athleticism \u2014 explosive movement for size",
+          "Versatility to play multiple DL alignments",
+          "Motor and effort"
+        ],
+        "least_important_traits": [
+          "Space-eating run stopping without pass rush ability \u2014 Gutekunst has historically undervalued pure run stuffers in early rounds"
+        ],
+        "deal_breakers": [
+          "Lack of athletic upside \u2014 one-dimensional run stuffers without pass rush get pushed to Day 3",
+          "Stiff, non-explosive movement profile"
+        ],
+        "traits_that_make_them_reach": "Elite athletic testing at massive size (Wyatt's 4.77 at 304 lbs)"
+      },
+      "college_production": {
+        "production_floor": "Modest \u2014 Wyatt had 2.5 sacks his final year at Georgia but was still taken in round 1. Production is secondary to physical traits.",
+        "production_trajectory": "Values upward trajectory but not required",
+        "context_sensitivity": "High \u2014 Wyatt played alongside other first-round DL at Georgia and his stats were suppressed by talent around him"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2022 1.28 \u2014 Devonte Wyatt: 6-3, 304, 4.77 40, RAS 9.59. Georgia. Explosive 3-tech. Round 1 pick for athleticism.",
+          "2021 5.173 \u2014 TJ Slaton: 6-4, 330. Florida. Run-stuffing nose tackle on Day 3.",
+          "2023 3.? \u2014 Colby Wooden: Auburn. Versatile DL. 3-tech type.",
+          "2023 5.? \u2014 Karl Brooks: Bowling Green. Developmental.",
+          "2025 6.198 \u2014 Warren Brinson: Georgia. Run-stopping DT. Day 3 depth."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "WR": {
+      "archetype_summary": "Two distinct archetypes: (1) Speed/deep threat with elite athleticism (Watson 6-4/208/4.36, Golden 5-11/195/4.29, MVS 6-4/206/4.37) and (2) Productive route runner with strong hands (Doubs 6-2/204/4.47, Reed 5-11/187/4.45). Gutekunst frequently doubles up at WR \u2014 3 in 2018, 2 in 2022, 2 in 2023, 2 in 2025. He values both production AND speed, often drafting one of each type. He said of Golden: 'Obviously he has elite speed... arguably some of the best hands in the draft.' The height/size emphasis is notable \u2014 Watson (6-4), Savion Williams (6-4), Golden (5-11 but elite speed), MVS (6-4). They like big targets.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-4. Wide range. The Packers draft both smaller slot types (Reed 5-11) and big outside receivers (Watson 6-4, Williams 6-4). Size is valued for outside receivers.",
+        "weight_range": "187\u2013222. Reed 187 at the low end, Savion Williams 222 at the high end. For outside WRs, 200+ preferred.",
+        "arm_length_minimum": "No strict cutoff",
+        "key_athletic_tests": "40-yard dash is king. Watson 4.36, MVS 4.37, Golden 4.29. Speed is the most coveted trait. Scouts specifically noted Golden as 'the fastest WR in the draft.' Even Reed was reportedly timed under 4.40 by the Packers.",
+        "speed_requirement": "4.50 or faster for early-round WRs. Sub-4.40 gets premium attention. Doubs (4.47 pro day) is the 'slowest' successful WR pick."
+      },
+      "playing_style": {
+        "primary_style": "Field-stretching speed threat who can also win at the catch point. Secondarily: productive slot receivers with YAC ability.",
+        "most_valued_traits": [
+          "Elite speed / ability to stretch the field",
+          "Strong hands and contested catch ability",
+          "Versatility \u2014 can play multiple WR positions",
+          "Return ability (Golden returned kicks, Reed returned punts)",
+          "Route-running development potential"
+        ],
+        "least_important_traits": [
+          "Polished route tree entering the NFL \u2014 willing to develop raw speed players (Watson was a project from NDSU)",
+          "Elite college production is NOT required for speed types \u2014 Watson had modest stats from North Dakota State"
+        ],
+        "deal_breakers": [
+          "Lack of speed AND lack of size \u2014 a slow, small WR won't get drafted",
+          "Drop issues without compensating elite speed"
+        ],
+        "traits_that_make_them_reach": "Elite 40 time. Watson was traded up for despite coming from FCS. Golden's 4.29 made him a first-round lock."
+      },
+      "college_production": {
+        "production_floor": "Varies by archetype. For productive types: Doubs had back-to-back 1,000-yard seasons at Nevada. Reed had 1,000 yards at MSU. For speed types: Watson had only 36 catches as a junior at NDSU. Production matters more for route-runner types than speed types.",
+        "production_trajectory": "Prefers ascending production. Golden went from 584 yards as a freshman to 987 yards as a junior at Texas.",
+        "context_sensitivity": "High \u2014 Watson's NDSU production was credited given the level of competition. Golden's numbers at Texas were weighted by strong conference play."
+      },
+      "evidence": {
+        "picks_analyzed": 9,
+        "examples": [
+          "2025 1.23 \u2014 Matthew Golden: 5-11, 195, 4.29 40. Texas. 58 catches, 987 yards, 9 TDs. First WR in round 1 since 2002.",
+          "2022 2.34 \u2014 Christian Watson: 6-4, 208, 4.36 40. North Dakota St. Speed/athleticism pick from FCS. Led team in TD catches as rookie.",
+          "2022 4.132 \u2014 Romeo Doubs: 6-2, 204, 4.47 40 (pro day). Nevada. 2x 1,000-yard receiver. Production-based pick.",
+          "2023 2.50 \u2014 Jayden Reed: 5-11, 187, 4.45 40. Michigan St. 1,000-yard season. Slot/versatile receiver. Also a punt returner.",
+          "2025 3.87 \u2014 Savion Williams: 6-4, 222, 4.48 40. TCU. Big-bodied WR with rushing ability. 130 catches over 3 years.",
+          "2018 5.174 \u2014 Marquez Valdes-Scantling: 6-4, 206, 4.37 40. Speed deep threat. 4 years with Packers.",
+          "2023 5.? \u2014 Dontayvion Wicks: Virginia. Day 3 WR with athleticism.",
+          "2018 4.133 \u2014 J'Mon Moore: Missouri. 4.50 40. Did not pan out.",
+          "2021 3.85 \u2014 Amari Rodgers: 5-9, 212, 4.51 40. Clemson. Slot type. Bust \u2014 Gutekunst described as 'short, but not small.'"
+        ]
+      },
+      "confidence": "high"
+    },
+    "TE": {
+      "archetype_summary": "Athletic receiving tight end with development upside. Gutekunst doubled up at TE in 2023, drafting Luke Musgrave (Rd 2) and Tucker Kraft (Rd 3). Kraft has emerged as a legitimate weapon. The Packers want athletic TEs who can create mismatches in the passing game, not primarily blockers. Earlier TE picks (Sternberger Rd 3 2019, Deguara Rd 3 2020) were busts, creating a documented 'third-round TE curse' that Kraft broke.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-6. Kraft 6-5, Musgrave 6-6, Sternberger 6-5, Deguara 6-2.",
+        "weight_range": "240\u2013253. Kraft 253, Musgrave 250, Deguara 240.",
+        "arm_length_minimum": "No strict cutoff",
+        "key_athletic_tests": "Receiving ability and athleticism in space. Vertical jump and broad jump as explosion indicators for TEs. Speed enough to create mismatches vs. LBs.",
+        "speed_requirement": "Sub-4.75 preferred for receiving TEs. Kraft and Musgrave both had adequate tested speed."
+      },
+      "playing_style": {
+        "primary_style": "Receiving-first tight end who can flex out and create mismatches. Blocking is secondary.",
+        "most_valued_traits": [
+          "Receiving ability \u2014 hands, route running, YAC",
+          "Athletic ability to create mismatches vs. linebackers",
+          "Red zone target capability",
+          "Versatility to align inline or in the slot"
+        ],
+        "least_important_traits": [
+          "Elite in-line blocking \u2014 Gutekunst has consistently drafted TEs for their receiving, not blocking"
+        ],
+        "deal_breakers": [
+          "Pure blocking TE without receiving upside \u2014 never drafted this type in early rounds",
+          "Slow, unathletic movement profile"
+        ],
+        "traits_that_make_them_reach": "Receiving production combined with athleticism \u2014 Kraft had 58 receptions as a senior at South Dakota State"
+      },
+      "college_production": {
+        "production_floor": "Varies \u2014 Kraft was a prolific FCS producer. Musgrave had modest stats at Oregon State. Sternberger had 48 catches at Texas A&M.",
+        "production_trajectory": "Prefers breakout seasons",
+        "context_sensitivity": "Adjusts for level of competition \u2014 Kraft from FCS, Musgrave from Pac-12"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2023 3.78 \u2014 Tucker Kraft: 6-5, 253. South Dakota St. 81 receptions in first 2 NFL seasons, emerging weapon. Best TE pick.",
+          "2023 2.42 \u2014 Luke Musgrave: 6-6, 250. Oregon State. Athletic receiving TE. Injuries limited impact.",
+          "2020 3.94 \u2014 Josiah Deguara: 6-2, 240. Cincinnati. H-back/fullback hybrid. Niche role player.",
+          "2019 3.75 \u2014 Jace Sternberger: 6-5, 251. Texas A&M. Receiving TE. Bust \u2014 off-field issues."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "S": {
+      "archetype_summary": "Versatile, multi-role safety who can play multiple spots in the secondary. The 2024 draft was a watershed \u2014 Gutekunst drafted THREE safeties (Bullard Rd 2, Williams Rd 4, Oladapo Rd 5). Bullard (5-10, 199, 4.47 40) is a nickel/slot hybrid. Williams (6-0, 203) is a box/run-support safety. Oladapo (6-2, 213) is a traditional strong safety. The earlier Darnell Savage (2019 Rd 1) was a speed/range free safety (5-11, 198, 4.36 40, RAS 8.37). Gutekunst values versatility and speed at safety, with an emerging preference for multiple safety packages (3-safety looks) that the Gannon scheme will emphasize.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-2. Savage 5-11, Bullard 5-10, Williams 6-0, Oladapo 6-2. Wide range reflecting different sub-roles.",
+        "weight_range": "198\u2013213. Savage 198, Oladapo 213. Heavier safeties for box role, lighter for coverage role.",
+        "arm_length_minimum": "No strict cutoff",
+        "key_athletic_tests": "Speed (Savage 4.36, Bullard 4.47). Range and closing speed matter for free safeties. Physical testing matters for box safeties (Oladapo's 91.3 PFF run defense grade).",
+        "speed_requirement": "4.50 or faster for coverage safeties. Box safeties can be slightly slower if physical."
+      },
+      "playing_style": {
+        "primary_style": "Versatile safety who can play multiple roles \u2014 free safety, strong safety, slot/nickel, or box. Gutekunst prizes positional flexibility.",
+        "most_valued_traits": [
+          "Versatility to play multiple spots in the secondary",
+          "Speed and range for coverage",
+          "Run defense ability \u2014 Williams was specifically valued for run support",
+          "Ball skills and instincts",
+          "Tackling physicality"
+        ],
+        "least_important_traits": [
+          "Single-role limitation \u2014 a pure free safety who can't play in the box, or vice versa, is less valued"
+        ],
+        "deal_breakers": [
+          "Lack of versatility \u2014 one-dimensional safeties deprioritized",
+          "Poor speed for coverage roles"
+        ],
+        "traits_that_make_them_reach": "Combination of coverage and run-support versatility. Bullard's versatility (played nickel and safety at Georgia) made him a round 2 pick."
+      },
+      "college_production": {
+        "production_floor": "Moderate. Savage had 4 INTs over final 2 college seasons. Bullard had 4 INTs in 3 seasons. Williams had 4 career INTs.",
+        "production_trajectory": "Prefers ascending \u2014 Savage was the first DB off the board in 2019 after a breakout junior year",
+        "context_sensitivity": "Very high \u2014 credits Georgia's Bullard playing in Kirby Smart's system, Williams in Oregon's competitive secondary"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2019 1.21 \u2014 Darnell Savage: 5-11, 198, 4.36 40, RAS 8.37. Maryland. Traded up two 4th-round picks to get him. Free safety. Left after 5 years.",
+          "2024 2.58 \u2014 Javon Bullard: 5-10, 199, 4.47 40. Georgia. Defensive MVP of 2022 national championship. Nickel/safety hybrid.",
+          "2024 4.111 \u2014 Evan Williams: 6-0, 203. Oregon (via Fresno St). 5-year player. Box safety, run support specialist. Earned All-Rookie honors.",
+          "2024 5.169 \u2014 Kitan Oladapo: 6-2, 213. Oregon St. Strong safety. 91.3 PFF run defense grade. Physical tackler.",
+          "2018 3.? \u2014 Oren Burks: Vanderbilt. Safety/LB hybrid. Did not pan out as Packer."
+        ]
+      },
+      "confidence": "high"
+    },
+    "LB": {
+      "archetype_summary": "Fast, sideline-to-sideline linebacker with coverage ability and blitz capacity. The two primary investments are Quay Walker (2022 Rd 1, from Georgia, RAS 9.63) and Edgerrin Cooper (2024 Rd 2, from Texas A&M). Both are speed-first LBs \u2014 Walker was drafted for his elite athleticism, Cooper for his coverage ability and playmaking. The Packers want LBs who can cover tight ends and running backs, not just stuff the run. Cooper was an All-Rookie selection. Under Gannon's 3-4 scheme with three-safety looks, only 1-2 LBs will be on the field at a time, making coverage ability paramount.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-4. Walker 6-4, Cooper 6-1. Wide range.",
+        "weight_range": "218\u2013241. Cooper 225, Walker 241. Cooper is lean/fast, Walker is bigger.",
+        "arm_length_minimum": "No strict cutoff",
+        "key_athletic_tests": "Speed is paramount. Walker RAS 9.63. Cooper ran in the 4.5s. Gutekunst explicitly said he wanted the defense to 'get faster' before the Cooper pick. 3-cone drill for change of direction matters for coverage LBs.",
+        "speed_requirement": "Sub-4.60 preferred. Speed and range are the defining traits."
+      },
+      "playing_style": {
+        "primary_style": "Fast, coverage-capable off-ball linebacker who can chase sideline-to-sideline and match up with backs/TEs. Under Gannon, must also be instinctive and disciplined positionally.",
+        "most_valued_traits": [
+          "Sideline-to-sideline range and play speed",
+          "Coverage ability against TEs and RBs",
+          "Blitz effectiveness \u2014 Cooper had 8 sacks and 17 TFLs as a senior",
+          "Instincts and football IQ \u2014 Gannon demands LBs who 'know where to be'",
+          "Tackling physicality"
+        ],
+        "least_important_traits": [
+          "Pure run-stuffing size \u2014 the Packers have moved away from thumper LBs. Walker's run defense has been inconsistent despite his size."
+        ],
+        "deal_breakers": [
+          "Inability to cover in space \u2014 Walker's coverage struggles (120.8 passer rating when targeted in 2025) have made him expendable",
+          "Slow, non-athletic movement profile"
+        ],
+        "traits_that_make_them_reach": "Elite speed + coverage ability. Cooper's combination made him the target despite being available later than expected."
+      },
+      "college_production": {
+        "production_floor": "Cooper: 75+ tackles, 13+ TFL, 3+ sacks, INT, FF, FR in his rookie year. College production matters here \u2014 Cooper was the top-rated LB in the 2024 class.",
+        "production_trajectory": "Ascending \u2014 Cooper had 8 sacks and 17 TFL as a senior",
+        "context_sensitivity": "Credits SEC/Power 5 production heavily"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2022 1.22 \u2014 Quay Walker: 6-4, 241, RAS 9.63. Georgia. Elite athlete, raw. Started immediately but has been inconsistent. May not be re-signed.",
+          "2024 2.45 \u2014 Edgerrin Cooper: 6-1, 225. Texas A&M. Top LB in class. All-Rookie. 85.7 PFF grade. The new anchor at LB.",
+          "2024 3.91 \u2014 Ty'Ron Hopper: Missouri. Athletic LB with special teams value.",
+          "2018 3.88 \u2014 Oren Burks: 6-3, 233. Vanderbilt. Versatile S/LB tweener. Mainly special teams.",
+          "2019 5.150 \u2014 Ty Summers: TCU. Speed LB. Special teams contributor."
+        ]
+      },
+      "confidence": "high"
+    },
+    "RB": {
+      "archetype_summary": "Two archetypes drafted: (1) Big power back (AJ Dillon 2020 Rd 2, 6-0, 247 \u2014 a true bruiser from Boston College) and (2) Explosive change-of-pace back with receiving ability (MarShawn Lloyd 2024 Rd 3, 5-9, 220, 4.46 40). Gutekunst is willing to invest Day 2 capital at RB but supplements heavily in free agency (Josh Jacobs signed 2024, Aaron Jones developed from Day 3 pick pre-Gutekunst). He values versatility and pass-catching ability from RBs in LaFleur's scheme.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-0. Dillon 6-0, Lloyd 5-9. Wide range.",
+        "weight_range": "220\u2013247. Dillon was a uniquely massive back. Lloyd more typical at 220.",
+        "arm_length_minimum": "Not a factor",
+        "key_athletic_tests": "Speed matters \u2014 Lloyd's 4.46 was important. But Dillon was not a speed back (4.53). The key is that the RB fits a specific offensive role.",
+        "speed_requirement": "Depends on role. Speed backs need sub-4.50. Power backs can be slower."
+      },
+      "playing_style": {
+        "primary_style": "Versatile back who can contribute in multiple phases. LaFleur's offense uses RBs as receivers and needs pass protection.",
+        "most_valued_traits": [
+          "Versatility \u2014 rushing and receiving dual-threat",
+          "Fit within LaFleur's zone-running scheme",
+          "Pass protection ability",
+          "Durability and contact balance",
+          "Big-play ability"
+        ],
+        "least_important_traits": [
+          "Position-specific role limitation \u2014 Gutekunst described Lloyd as 'short, but not little,' valuing his well-rounded skill set"
+        ],
+        "deal_breakers": [
+          "One-dimensional skill set without receiving or pass protection ability"
+        ],
+        "traits_that_make_them_reach": "Elite yards-per-carry efficiency combined with receiving chops. Lloyd led FBS in YPC (7.1) at USC."
+      },
+      "college_production": {
+        "production_floor": "No strict floor \u2014 Lloyd had modest total carries at USC (116). Dillon was a 3-year bellcow at BC with 1,685 yards as a sophomore.",
+        "production_trajectory": "Varies \u2014 Dillon was a proven workhorse. Lloyd was more of an efficiency/upside bet.",
+        "context_sensitivity": "High \u2014 credits YPC and usage context"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2020 2.62 \u2014 AJ Dillon: 6-0, 247, 4.53 40. Boston College. Pure power back. Controversial pick at the time. 4-year Packer.",
+          "2024 3.88 \u2014 MarShawn Lloyd: 5-9, 220, 4.46 40. USC. Explosive, versatile. 7.1 YPC as senior. Disappointing rookie year.",
+          "2020 7.236 \u2014 Dexter Williams: 5-11, 212. Notre Dame. Late flier, did not contribute."
+        ]
+      },
+      "confidence": "medium"
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 10,
+    "max_observed_reach": 20,
+    "round_1_reach_tolerance": 8,
+    "notes": "Gutekunst is comfortable reaching for athletic traits. Rashan Gary at 12 was a significant reach over consensus given his modest production. AJ Dillon at 62 was widely viewed as a reach for a RB. Quay Walker at 22 was debatable. Belton at 54 in 2025 was considered a reach (projected 3rd-4th round). Van Ness at 13 was seen as slight overdraft. The pattern is clear: Gutekunst will reach for physical traits and upside, especially in rounds 1-2."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.55,
+    "offensive_scheme": "Matt LaFleur's outside zone/play-action offense derived from the Shanahan/McVay coaching tree. Values athletic, versatile offensive linemen who can reach-block and get to the second level. QB mobility is valued. Deep passing game emphasis with speed receivers. TE usage growing (Kraft emerging). RBs need to catch passes and pass protect.",
+    "defensive_scheme": "Transitioning to Jonathan Gannon's system for 2026 \u2014 3-4 base with quarters coverage emphasis, three-safety looks (~30% of snaps), disguised coverages, and a preference for generating pressure with the front four rather than heavy blitzing. Previously ran Jeff Hafley's 4-3 base Cover 3/Cover 2 for 2024-2025. The scheme change is significant and will impact draft priorities \u2014 need versatile safeties, coverage LBs, and edge rushers who can play in a 3-4.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "Defensive coordinator changed from Jeff Hafley (departed to Miami as HC) to Jonathan Gannon (hired Feb 2, 2026). Transitioning from 4-3 base to 3-4 base. Gannon's scheme emphasizes multiple safety packages and coverage disguises. This will likely influence 2026 draft priorities: CB is the #1 need, DT/nose tackle needed for 3-4, coverage-capable LBs valued. Micah Parsons fits the 3-4 OLB role well."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.65,
+    "risk_description": "Moderate-to-aggressive risk taker. Gutekunst's signature moves are high-risk, high-reward: drafting Love at 26 while Rodgers was in MVP form, trading for Parsons at the cost of two 1sts, drafting raw athletic prospects (Gary, Watson, Wyatt) over polished college performers. He consistently bets on upside and traits over floor and production. His 'project pick' tendency has been widely documented \u2014 he 'frequently drafts project players in early and late rounds.' However, he has learned from misses and the 2024 draft (Cooper, Bullard, Williams) featured more polished players.",
+    "recency_bias": 0.55,
+    "recency_description": "Moderate recency bias. After losing to the 49ers in the 2021 divisional round partly due to special teams, he invested in special teams contributors. After the secondary was exposed in 2023-2024, he drafted 3 safeties. After WR production stalled, he finally took a WR in round 1 (2025). He responds to roster weaknesses but not in a panicky way \u2014 the doubling-up strategy is more systematic than reactive.",
+    "sunk_cost_behavior": "Moves on from busts relatively quickly. Let Savage, Stokes, Myers, Burks, and others depart after their rookie deals without overpaying. Did not double down on positions where he'd already invested and missed. However, extended Rashan Gary to a $96M deal after his ACL, which could be viewed as sunk-cost behavior. Mixed signals.",
+    "combine_weight": 0.7,
+    "combine_description": "One of the most measurables-driven GMs in the NFL. 7 of 9 first-round picks had RAS of 9.0+. Gutekunst has some sort of 'height-weight-speed system that it typically sticks to in the draft' per reporting. Has hard cutoffs at certain positions (CB height, CB speed). However, he insists he doesn't use RAS specifically and says he won't let a fast 40 or bad vertical drastically change his board. The truth is somewhere in between \u2014 measurables are eliminators and confirmers, not the sole driver.",
+    "character_weight": 0.55,
+    "character_description": "Moderate character emphasis. Has taken chances on some character-question players (Amari Rodgers) and cut them for off-field reasons. The Wolf/Thompson tree historically had high character standards. Gutekunst maintains a baseline but is not as rigid as some GMs \u2014 he's willing to take Day 3 fliers on players with minor concerns.",
+    "quarterback_philosophy": "Organizational philosophy is to always have a developmental QB in the pipeline. Drafted Rodgers behind Favre, Love behind Rodgers, Clifford and Pratt as late-round backups. Sullivan explicitly stated: 'don't wait till you don't have a quarterback to find one.' With Willis likely departing as a free agent in 2026, expect Gutekunst to draft a developmental QB again this cycle, likely on Day 2 or Day 3."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.4,
+    "production_vs_projection": "Leans heavily toward projection/traits over production for most positions. Gary (3.5 sacks his last year), Wyatt (2.5 sacks), Love (down senior year), Watson (FCS production) \u2014 all were picks where traits trumped stats. Exception is WR, where production is weighted higher: Doubs had 2x 1,000-yard seasons, Golden had 987 yards, Reed had 1,000+ yards. At CB, production is nearly irrelevant \u2014 Stokes had 1 INT. Gutekunst's draft room comments frequently emphasize physical attributes over statistical performance.",
+    "production_thresholds_by_position": {
+      "WR": "Production matters more here than any other position. Packers evaluators specifically mentioned WR stats in post-draft pressers. Doubs and Reed were productive. Watson was the exception as a speed/traits pick from FCS.",
+      "EDGE": "No production minimum \u2014 Gary's 3.5 sacks as a senior didn't deter a top-12 pick. Traits dominate.",
+      "CB": "No clear statistical floor \u2014 film over interception totals. Stokes had 1 INT in final college season.",
+      "LB": "Some production expected \u2014 Cooper was the top-rated LB with 8 sacks and 17 TFL. But Walker's modest stats at Georgia didn't hurt.",
+      "QB": "Production secondary to tools \u2014 Love's declining stats in his final year didn't deter a first-round selection."
+    },
+    "breakout_age_sensitivity": 0.5,
+    "dominator_rating_sensitivity": 0.4,
+    "notes": "Gutekunst's evaluation philosophy is clearly traits-first, production-second. The post-draft quotes from Gutekunst and his staff emphasize physical attributes ('twitchy', 'explosive', 'dynamic athlete', 'size and speed', 'big and fast') more than any statistical achievements. The one exception is WR, where they consistently reference production numbers."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "min_height": "5-10 1/4",
+        "min_weight": 184,
+        "40_yard_max": 4.56,
+        "preferred_40_max": 4.45,
+        "preferred_RAS_min": 9.0,
+        "confidence": "very_high"
+      },
+      "EDGE": {
+        "min_arm_length": "34 inches",
+        "40_yard_max": 4.6,
+        "preferred_RAS_min": 9.0,
+        "confidence": "high"
+      },
+      "OT": {
+        "min_height": "6-5",
+        "preferred_RAS_min": 9.0,
+        "confidence": "medium"
+      },
+      "DT": {
+        "min_height": "6-2 3/8",
+        "preferred_RAS_min": 9.0,
+        "confidence": "medium"
+      },
+      "S": {
+        "40_yard_max": 4.5,
+        "confidence": "medium"
+      },
+      "WR": {
+        "40_yard_max": 4.5,
+        "preferred_speed": "sub-4.40 for deep threats",
+        "confidence": "medium"
+      },
+      "LB": {
+        "preferred_RAS_min": 9.0,
+        "confidence": "medium"
+      },
+      "round_1_overall": {
+        "preferred_RAS_min": 9.0,
+        "preferred_age_max": 22,
+        "confidence": "very_high"
+      }
+    },
+    "threshold_type": "Mostly hard cutoffs for CB (height, weight, speed). Softer preferences at other positions. The round 1 RAS threshold of 9.0+ has been violated only once (Jordan Love at 8.46, who was a QB). For non-QB positions in round 1, 9.0+ RAS appears to be a near-hard cutoff.",
+    "size_preferences_by_position": {
+      "CB": "5-10 1/4 minimum height, 184+ lbs minimum weight. Historically the most rigid size requirements.",
+      "EDGE": "6-3+, 255+ preferred. Both first-round EDGEs were 6-5, 270+.",
+      "OT": "6-5+, 310+ preferred. Morgan 311, Belton 336, Walker 313.",
+      "DT": "6-2+, 290+ for 3-tech. 310+ for nose.",
+      "WR": "No strict minimum but outside receivers tend to be 6-2+. Slot receivers can be smaller (Reed 5-11).",
+      "LB": "No strict minimum \u2014 Cooper 6-1/225, Walker 6-4/241. Wide range accepted.",
+      "S": "No strict minimum \u2014 Bullard 5-10/199, Oladapo 6-2/213. Varies by role."
+    },
+    "athletic_testing_favorites": "RAS (Relative Athletic Score) is the single best proxy for what Gutekunst values, even though he says he doesn't use it. 40-yard dash is the most important individual test across positions. Vertical jump and broad jump serve as explosion indicators. 3-cone matters for EDGE and LB evaluations. The Packers appear to have an internal height-weight-speed composite system that functions similarly to RAS.",
+    "measurables_vs_film": "Measurables serve as eliminators \u2014 below-threshold athletes are eliminated regardless of film. But among players who clear the athletic threshold, film determines the final ranking. Example: Josh Jackson (CB, 2018) was drafted for production (8 INTs at Iowa) despite being the slowest CB Gutekunst has drafted \u2014 his film was exceptional. He busted, which may have reinforced the athletic threshold approach. Gutekunst's 'film first but athletes only' philosophy is well-documented."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium positions + elite athletes. 7 of 10 first-round picks were defensive players. RAS 9.0+ is nearly mandatory. Average age at pick: 21.3 years. Willing to trade up aggressively (4 of 6 first-round trades were moves up). Gutekunst targets the intersection of positional value + elite measurables + youth. In 2026, he has no first-round pick due to the Parsons trade.",
+    "round_2_3_strategy": "This is where the BPA-to-need shift happens most dramatically. Drafted skill position players on offense 6 straight times in round 2 (2019-2023), then pivoted to defense when secondary became the biggest need (2024). Doubles up at positions of need \u2014 2 WRs in 2022, 2 TEs in 2023, 2 LBs in 2024. In 2026, with no 1st-round pick, rounds 2-3 become critical. Expect the first pick (~52nd) to address the biggest need (likely CB or DT).",
+    "day_3_strategy": "Developmental athletes, OL depth, and special teams contributors. Has found legitimate starters on Day 3: Zach Tom (Rd 4, 2022 \u2014 now starting OT), Romeo Doubs (Rd 4, 2022), Carrington Valentine (Rd 7, 2023 \u2014 starting CB), Jon Runyan Jr (Rd 6, 2020 \u2014 starting OG). Also takes late-round QBs (Clifford Rd 6, Pratt Rd 7). Day 3 picks still tend toward athletes \u2014 Gutekunst quoted as saying 'there are certain athletic traits you have to have' even for later picks.",
+    "compensatory_pick_usage": "Aware of comp pick implications but doesn't let them drive decisions. Gutekunst explicitly said: 'It's about winning now. If there's players who we can sign that give us the opportunity to win now more so than holding out for a compensatory pick in 2027, that's the decision we're going to make.'"
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "EDGE": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Gary has been the flagship hit. Van Ness still developing. Parsons acquired via trade."
+      },
+      "CB": {
+        "picks": 6,
+        "starters": 2,
+        "rate": 0.33,
+        "note": "Alexander is elite. Stokes has been disappointing. Valentine emerging as Day 3 steal. Josh Jackson bust."
+      },
+      "OL": {
+        "picks": 10,
+        "starters": 5,
+        "rate": 0.5,
+        "note": "Jenkins, Tom, Rhyan, Runyan, Walker all became starters. Myers and others didn't last. Strong overall."
+      },
+      "WR": {
+        "picks": 9,
+        "starters": 3,
+        "rate": 0.33,
+        "note": "Watson, Doubs, Reed are the hits. MVS was useful. Multiple busts (J'Mon Moore, Amari Rodgers)."
+      },
+      "S": {
+        "picks": 5,
+        "starters": 3,
+        "rate": 0.6,
+        "note": "Savage was decent. Bullard and Williams both All-Rookie. Strong recent hit rate."
+      },
+      "LB": {
+        "picks": 5,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "Cooper is an emerging star. Walker is inconsistent. Burks and Summers were ST-only."
+      },
+      "DT": {
+        "picks": 5,
+        "starters": 1,
+        "rate": 0.2,
+        "note": "Wyatt is a rotational starter at best. Slaton, Wooden, Brooks all depth. Weakest position historically."
+      },
+      "TE": {
+        "picks": 4,
+        "starters": 1,
+        "rate": 0.25,
+        "note": "Kraft is the hit. Musgrave, Sternberger, Deguara all disappointments or busts. Third-round TE curse."
+      },
+      "RB": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Dillon was a solid contributor for 4 years. Lloyd had a bad rookie year."
+      },
+      "QB": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Love is the franchise QB \u2014 the biggest hit. Clifford and Pratt were late-round backups who didn't stick."
+      }
+    },
+    "blind_spots": [
+      "DT evaluation has been inconsistent \u2014 Wyatt was a first-round pick but hasn't been a difference-maker. Interior DL has been addressed more through free agency (Jarran Reed, Kenny Clark retention).",
+      "TE evaluation in rounds 2-3 was poor until Kraft \u2014 Sternberger, Deguara, Musgrave all underwhelmed.",
+      "Third-round picks overall have been a documented weakness \u2014 referred to as the 'third-round curse' by Packers media."
+    ],
+    "strengths": [
+      "OL evaluation is elite \u2014 Jenkins, Tom, Rhyan, Runyan, Walker all developed into starters from various rounds.",
+      "Safety evaluation has improved dramatically \u2014 the 2024 triple-safety draft (Bullard, Williams, Oladapo) has been highly successful.",
+      "Late-round CB finds \u2014 Valentine (Rd 7) and Ballentine (UDFA) have both contributed, showing the evaluation staff can find value at CB on Day 3."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "More active than predecessor Ted Thompson but still draft-focused. Has made significant FA signings (Za'Darius Smith/Amos 2019, Jacobs/McKinney 2024, Banks/Hobbs 2025) to address holes the draft hasn't filled. The 2024 McKinney signing (All-Pro) and Jacobs signing (Pro Bowl) were home runs. Uses FA to fill 1-2 major starting-caliber holes per year.",
+    "fa_draft_correlation": "When a veteran starter is signed at a position, Gutekunst de-prioritizes that position in the early draft rounds but may still add depth later. Signed McKinney \u2192 still drafted 3 safeties (depth/future). Signed Jacobs \u2192 still drafted Lloyd as developmental backup. Does not stop drafting a position entirely after FA, but shifts timing to Day 2-3.",
+    "roster_construction_philosophy": "Build through the draft at premium positions (QB, EDGE, CB, OT), supplement through FA at non-premium positions (RB, S, IOL). The Parsons trade represents a new willingness to acquire elite talent via blockbuster trades. Still fundamentally a draft-and-develop organization but increasingly willing to use all acquisition methods. Has built the youngest roster in the NFL (weighted age 25.58 in 2023, 25.72 in 2024)."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 80,
+    "notable_patterns": [
+      "7 of 10 first-round picks have been defensive players",
+      "8 of 9 first-round picks (pre-Golden) had RAS of 8.0+, 7 had 9.0+",
+      "8 of 9 first-round picks were 22 or younger at draft time",
+      "Consistently doubles up at positions of need (2+ picks at same position group in a single draft)",
+      "Traded up in the first round in 4 of 6 drafts where he had a first-round pick",
+      "Never drafted a WR in round 1 until 2025 (23-year drought)",
+      "Has drafted at least one OL in every draft since becoming GM",
+      "Frequently drafts players from Georgia (Walker, Wyatt, Bullard, Brinson \u2014 4+ Bulldogs drafted)",
+      "Day 3 OL picks have been exceptionally productive (Tom, Runyan, Walker, Rhyan)"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2019,
+        "pick": "1.12",
+        "player": "Rashan Gary",
+        "position": "EDGE",
+        "consensus_rank": "15-25 range",
+        "reach_amount": 8,
+        "context": "Gary had only 3.5 sacks as a senior at Michigan. Drafted for being the #1 recruit and elite RAS 9.95. Many expected him to go later. Justified \u2014 now a Pro Bowler."
+      },
+      {
+        "year": 2020,
+        "pick": "1.26",
+        "player": "Jordan Love",
+        "position": "QB",
+        "consensus_rank": "25-35 range",
+        "reach_amount": 5,
+        "context": "Controversial pick with Rodgers still on roster. Traded up to get him. Production had declined. Now the franchise QB."
+      },
+      {
+        "year": 2020,
+        "pick": "2.62",
+        "player": "AJ Dillon",
+        "position": "RB",
+        "consensus_rank": "75-90 range",
+        "reach_amount": 15,
+        "context": "Round 2 RB when the team had Aaron Jones. Widely criticized. Contributed as a power complement for 4 years."
+      },
+      {
+        "year": 2025,
+        "pick": "2.54",
+        "player": "Anthony Belton",
+        "position": "OT",
+        "consensus_rank": "70-100 range",
+        "reach_amount": 20,
+        "context": "Projected 3rd-4th round. LaFleur revealed Belton attended 14 top-30 visits. Massive OT. Played RG as rookie."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2022,
+        "pick": "4.132",
+        "player": "Zach Tom",
+        "position": "OT",
+        "consensus_rank": "100-120",
+        "value_amount": 15,
+        "context": "Versatile OL from Wake Forest. Now starts every game at OT. Day 3 steal."
+      },
+      {
+        "year": 2023,
+        "pick": "7.232",
+        "player": "Carrington Valentine",
+        "position": "CB",
+        "consensus_rank": "180-210",
+        "value_amount": 30,
+        "context": "7th-round CB from Kentucky. Now a starting cornerback. RAS 9.29. Classic Packers late-round CB find."
+      },
+      {
+        "year": 2022,
+        "pick": "4.128",
+        "player": "Romeo Doubs",
+        "position": "WR",
+        "consensus_rank": "100-130",
+        "value_amount": 5,
+        "context": "Productive WR from Nevada. Immediate starter. Career bests in receiving as a 4th-year pro."
+      },
+      {
+        "year": 2024,
+        "pick": "2.45",
+        "player": "Edgerrin Cooper",
+        "position": "LB",
+        "consensus_rank": "40-55",
+        "value_amount": 5,
+        "context": "Top LB in the class fell to 45. All-Rookie honors. 85.7 PFF grade. Could be the best pick of the class."
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_notes": "8 drafts of data as Packers GM provides a robust sample. Extensive public statements, post-draft pressers, and media coverage corroborate behavioral patterns. Key uncertainty: the Gannon defensive scheme change may shift defensive draft priorities for 2026. Also, the departure of VP of Player Personnel Jon-Eric Sullivan to Miami introduces some uncertainty about internal evaluation dynamics. Entering the 2026 draft without a first-round pick for the first time in Gutekunst's tenure adds a unique wrinkle.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

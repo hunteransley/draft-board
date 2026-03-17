@@ -1,0 +1,901 @@
+{
+  "team": {
+    "name": "Baltimore Ravens",
+    "abbreviation": "BAL",
+    "division": "AFC North",
+    "current_draft_position": null
+  },
+  "front_office": {
+    "gm": {
+      "name": "Eric DeCosta",
+      "title": "Executive Vice President and General Manager",
+      "hired": "2019-02-01",
+      "previous_role": "Assistant General Manager, Baltimore Ravens (2012-2018)",
+      "drafts_as_gm": 7,
+      "confidence": "high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Trinity College (Hartford)",
+          "role": "Graduate Fellow / Football Coach (DL/LBs)",
+          "years": "1993-1995",
+          "mentor": "College coaching staff"
+        },
+        {
+          "org": "Washington Redskins",
+          "role": "Training Camp / Personnel Intern",
+          "years": "1995",
+          "mentor": "Charley Casserly (Redskins GM)"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "Personnel Intern",
+          "years": "1996",
+          "mentor": "Ozzie Newsome"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "Pro Personnel Assistant",
+          "years": "1996-1997",
+          "mentor": "Ozzie Newsome"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "Midwest Area Scout",
+          "years": "1998-2002",
+          "mentor": "Ozzie Newsome"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "Director of College Scouting",
+          "years": "2003-2008",
+          "mentor": "Ozzie Newsome"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "Director of Player Personnel",
+          "years": "2009-2011",
+          "mentor": "Ozzie Newsome"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "Assistant General Manager",
+          "years": "2012-2018",
+          "mentor": "Ozzie Newsome"
+        },
+        {
+          "org": "Baltimore Ravens",
+          "role": "Executive Vice President and General Manager",
+          "years": "2019-present",
+          "mentor": "Ozzie Newsome (advisory)"
+        }
+      ],
+      "primary_mentor": "Ozzie Newsome (Ravens GM 1996-2018, Hall of Fame player/executive)",
+      "philosophical_lineage": "Pure Ravens/Ozzie Newsome tree. DeCosta is the only GM in the modern NFL who has worked for a single franchise his entire career. His evaluation DNA is 100% Baltimore \u2014 forged under Newsome's tutelage across every level of the scouting department over 23 years before becoming GM. Newsome's philosophy emphasized BPA drafting, building through the trenches, defensive physicality, character evaluation, and accumulating draft capital. DeCosta has maintained this core philosophy while adding a stronger emphasis on analytics, technology, and offensive skill position investment. The early career Gil Brandt/Dallas Cowboys influence DeCosta cites as a childhood inspiration manifests in his willingness to find talent everywhere and use unconventional methods.",
+      "breakpoints": "DeCosta has diverged from Newsome in several notable ways: (1) Greater investment in WR in early rounds \u2014 Newsome rarely drafted WRs high, DeCosta has taken Brown (Rd 1), Bateman (Rd 1), and Flowers (Rd 1) in his first five drafts. (2) Embraced analytics and technology more aggressively than Newsome. (3) More willing to make in-season trades for veterans (Marcus Peters 2019, Roquan Smith 2022, Dre'Mont Jones 2025). (4) More aggressive salary cap management focused on extensions before free agency. However, DeCosta has maintained Newsome's core BPA philosophy, preference for trading down, and emphasis on character.",
+      "lineage_weight": 0.25,
+      "lineage_weight_notes": "7 drafts of his own data brings lineage weight down significantly. DeCosta's own track record is the primary evidence now. Newsome remains in an advisory role but DeCosta is fully established as his own decision-maker."
+    },
+    "primary_decision_maker": "Eric DeCosta",
+    "key_influencers": [
+      {
+        "name": "Jesse Minter",
+        "title": "Head Coach (hired January 2026)",
+        "influence_level": "high",
+        "known_biases": "Defensive-minded, runs a 3-4 defense predicated on versatility and zone coverage (80.7% zone with Chargers). Values defensive line play, multiple fronts, split-safety looks. Product of the Ravens defensive coaching tree (2017-2020 on Baltimore staff). Will call defensive plays himself. Believes the league is driven by offensive and defensive lines. First-time head coach, so influence on draft may be less initially as he defers to DeCosta's established process."
+      },
+      {
+        "name": "Ozzie Newsome",
+        "title": "Senior Advisor (non-titled advisory role)",
+        "influence_level": "low",
+        "known_biases": "Hall of Fame executive who built two Super Bowl rosters. Traditional scouting-first evaluator who valued BPA drafting, defensive playmakers, and offensive linemen. Still consulted but DeCosta has full autonomy."
+      },
+      {
+        "name": "Mark Azevedo",
+        "title": "Director of Player Personnel",
+        "influence_level": "medium",
+        "known_biases": "Colby College connection to DeCosta (same alma mater). Elevated after Joe Hortiz left for Chargers GM role. Rising star in the organization who has been with the Ravens since 2005. Works closely with DeCosta on both college and pro scouting."
+      },
+      {
+        "name": "George Kokinis",
+        "title": "Pro Player Personnel",
+        "influence_level": "medium",
+        "known_biases": "Has been with the organization since its inception as the Cleveland Browns (1991). Brief stint as Browns GM in 2009 before returning. Handles pro player personnel evaluation and veteran acquisitions."
+      },
+      {
+        "name": "Steve Bisciotti",
+        "title": "Owner",
+        "influence_level": "low-to-medium",
+        "known_biases": "Values consistency and long-term stability. Wants the team in the playoff hunt every season. Made the decision to fire Harbaugh despite DeCosta's apparent reluctance. Generally hands-off on personnel decisions but sets the organizational culture and expectations. Willing to make difficult changes when championship window is at risk."
+      }
+    ],
+    "power_dynamics": "DeCosta has clear final say on all personnel decisions. The Ravens are regarded as the second-best run organization in the NFL per a 2025 poll of NFL coaches and executives. The coaching change to Minter introduces some uncertainty but Minter is a product of the same defensive coaching tree and DeCosta led the coaching search. The GM-HC relationship is new and collaborative \u2014 DeCosta interviewed 16 candidates. Minter's defensive play-calling authority could influence defensive draft priorities.",
+    "owner_interference": "low"
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.7,
+    "bpa_weight_by_round": {
+      "1": 0.75,
+      "2": 0.65,
+      "3": 0.55,
+      "4_plus": 0.45
+    },
+    "stated_philosophy": "Best player available. 'I learned under Ozzie Newsome, and we've always been a best-player-available team. That's important to me. That's in my DNA.' DeCosta has also said: 'You have to do it within reason. You're not going to be crazy and just draft the best available player and end up with 17 different outside linebackers.' He wants to treat the draft 'like an open highway with no cars.'",
+    "actual_philosophy": "DeCosta genuinely leans BPA but his BPA picks consistently align with needs \u2014 suggesting either excellent pre-draft roster construction that creates alignment, or a sliding scale where need nudges BPA decisions. In 2020 he needed a LB and took Queen (BPA/need). In 2022 he needed a safety and Hamilton fell to 14 (BPA). In 2023 he needed WR and took Flowers at 22 (BPA/need). In 2024 he needed CB and took Wiggins at 30 (BPA/need). In 2025 he needed S and Starks fell to 27 (BPA). The pattern: DeCosta fills roster holes in free agency first, then drafts BPA \u2014 but the remaining needs conveniently overlap with BPA because the roster is already strong. When BPA and need clearly diverge, he takes BPA: the Lamar Jackson pick at 32 in 2018 with Joe Flacco on the roster is the definitive example.",
+    "philosophy_mismatch_notes": "Very little mismatch. DeCosta's stated BPA philosophy is largely authentic. He bolsters the roster in free agency to reduce acute needs, then lets the board come to him. The one area of tension: he sometimes refuses to trade up even when a coveted player is available just a few picks ahead, preferring to let the draft come to him. He turned down a first-round trade offer from the Eagles in 2025."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.15,
+    "trade_down_willingness": 0.7,
+    "trades_per_draft_average": 1.5,
+    "trade_triggers": [
+      "Franchise-altering QB talent (Lamar Jackson trade back into round 1 in 2018 is the model \u2014 but this was a once-in-a-career move)",
+      "Clear tier break where valued player is about to be taken (rare \u2014 DeCosta prefers to let the board come to him)",
+      "Accumulating Day 2-3 picks (primary trade motivation)"
+    ],
+    "draft_capital_philosophy": "DeCosta is one of the league's strongest advocates of accumulating draft picks. He has publicly stated that 'the only rational approach is to get more at-bats, is to pick more' because the draft has an inherent luck element. The Ravens lead the NFL with 60 compensatory picks since 1996. DeCosta views picks as 'currency' and consistently trades back or acquires mid-round picks through player trades. In 2025, he made 11 selections (tied for most in the draft). He has made 27 trades in his first 6 years as GM. Strongly prefers trading down over trading up. Has described his approach as 'more conservative first-round trades and a preference for quantity over high-end quality in draft capital.'"
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "EDGE",
+        "CB",
+        "OT",
+        "S"
+      ],
+      "tier_2_high": [
+        "WR",
+        "LB",
+        "DT",
+        "IOL"
+      ],
+      "tier_3_mid": [
+        "TE",
+        "RB",
+        "QB"
+      ],
+      "tier_4_low": [
+        "K",
+        "P",
+        "FB"
+      ]
+    },
+    "position_avoidance": [
+      "QB in early rounds \u2014 DeCosta has not drafted a QB in rounds 1-5 as GM. Lamar Jackson was the last first-round QB and that was Newsome's final draft (though DeCosta advocated for it). Only QBs drafted: Trace McSorley (Rd 6, 2019) and Devin Leary (Rd 6, 2024).",
+      "TE in early rounds \u2014 no TE drafted before round 4 under DeCosta. Isaiah Likely (Rd 4, 2022) and Charlie Kolar (Rd 4, 2022) were the highest. Has Mark Andrews (Newsome-era pick) as franchise TE.",
+      "RB before round 2 \u2014 J.K. Dobbins at pick 55 (Rd 2, 2020) is the highest RB taken. Otherwise RBs are Day 3 picks (Justice Hill Rd 4, Rasheen Ali Rd 5, Tyler Badie Rd 6)."
+    ],
+    "position_premium": [
+      "CB \u2014 has drafted CBs in every single draft as GM. Has used first-round picks on CBs (Wiggins 2024), plus mid-round CBs every year. Called CBs 'Bugattis' that 'just break down and you've got to have them in reserve.' Has taken 2 CBs in a single draft multiple times.",
+      "EDGE \u2014 consistently addresses pass rush through draft or trade. Drafted Oweh (Rd 1, 2021), Ojabo (Rd 2, 2022), Robinson (Rd 4, 2023), Isaac (Rd 3, 2024), Green (Rd 2, 2025). Also trades for veteran pass rushers.",
+      "WR \u2014 has invested unprecedented (for Ravens) draft capital at WR. Three first-round WRs in first five drafts (Brown 2019, Bateman 2021, Flowers 2023). This represents a major departure from Newsome's approach.",
+      "OT \u2014 consistently invests Day 1-2 capital in tackles. Rosengarten (Rd 2, 2024), Jones (Rd 3, 2025), Faalele (Rd 4, 2022)."
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Athletic freak with explosive first step and upside. DeCosta consistently targets EDGE rushers with elite physical tools \u2014 especially length and speed \u2014 who may still be raw as pass rushers. He bets on ceiling over floor at this position. The Odafe Oweh pick (6-5, 257, 4.37 forty, zero sacks his final college season) is the purest expression: all traits, no production. Mike Green (Rd 2, 2025) is more balanced \u2014 17 sacks leading the nation with explosive bend \u2014 but fell due to off-field concerns. David Ojabo (Rd 2, 2022) was a top-15 talent who tore his Achilles at his Pro Day. DeCosta buys the discount on EDGE rushers with red flags (injury, character, rawness) and trusts Baltimore's development system.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "239-260",
+        "arm_length_minimum": "No hard cutoff observed but tends toward long-armed players. Oweh had 33.5-inch arms at 6-5. Robinson was 6-6.",
+        "key_athletic_tests": "40-yard dash and explosive testing (vertical, broad jump) are paramount. Oweh: 4.37/39-inch vert/134-inch broad. DeCosta clearly values elite explosiveness.",
+        "speed_requirement": "Sub-4.65 preferred for Day 1-2 EDGE picks. Will take slower players on Day 3 (Isaac ran 4.74 but was a Rd 3 pick)."
+      },
+      "playing_style": {
+        "primary_win_condition": "Speed-to-power and explosive first step. DeCosta drafts rushers who win with burst off the line and length, not finesse.",
+        "most_valued_traits": [
+          "First-step explosion and get-off",
+          "Length and long-lever power",
+          "Bend and ability to turn the corner",
+          "Motor and relentless effort",
+          "Run defense ability (viewed as non-negotiable for Baltimore's scheme)"
+        ],
+        "least_important_traits": [
+          "Polished pass rush repertoire \u2014 DeCosta has repeatedly drafted raw rushers (Oweh, Ojabo) with limited moves and trusted development"
+        ],
+        "deal_breakers": [
+          "Lack of athletic upside \u2014 every EDGE drafted in Rd 1-2 has elite measurables",
+          "Inability to set the edge in the run game \u2014 Baltimore demands two-way players"
+        ],
+        "traits_that_make_them_reach": "Elite burst and length. The Oweh pick at 31 overall with zero sacks his final college season is the clearest evidence that tools trump production at this position."
+      },
+      "college_production": {
+        "production_floor": "No strict floor. Oweh had 0 sacks his final year and was still a first-round pick. Green had 17 sacks. Isaac had 7.5. DeCosta evaluates context and tools over raw sack totals.",
+        "production_trajectory": "Prefers ascending trajectory when production exists. Green went from 4.5 sacks in 2023 to 17 in 2024. Oweh's lack of production was contextualized by his limited football experience.",
+        "context_sensitivity": "Very high. DeCosta adjusts for scheme, usage, and development curve. Willing to bet on tools over stats."
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2021 Rd 1 Pick 31 \u2014 Odafe Oweh: 6-5, 257 lbs, 4.37 forty, 39-inch vert, 134-inch broad. Zero sacks final college season. Pure athletic traits bet.",
+          "2022 Rd 2 Pick 45 \u2014 David Ojabo: 6-5, 250 lbs, estimated 4.55 pre-injury. Tore Achilles at Pro Day. Was projected top-15 pick before injury. Classic DeCosta discount buy.",
+          "2023 Rd 4 Pick 124 \u2014 Tavius Robinson: 6-6, 252 lbs. Canadian-born developmental prospect from Ole Miss. Long and raw.",
+          "2024 Rd 3 Pick 93 \u2014 Adisa Isaac: 6-4, 244 lbs, 4.74 forty. Led Penn State with 7.5 sacks and 16 TFL. Film-over-testing pick.",
+          "2025 Rd 2 Pick 59 \u2014 Mike Green: 6-3, 242 lbs. Led FBS with 17 sacks in 2024. Explosive bend and power. Fell due to off-field concerns \u2014 DeCosta bought the discount."
+        ]
+      },
+      "confidence": "high"
+    },
+    "CB": {
+      "archetype_summary": "Long, fast, athletic cover corner. DeCosta heavily invests in CB and targets tall, speedy corners with elite athletic profiles who can play press-man coverage. He values speed above almost everything \u2014 Nate Wiggins (4.28 forty) is the exemplar. He also takes mid-round corners from the Senior Bowl pipeline who are sticky man-to-man players. Drafts CBs in bunches to create depth and competition.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-2",
+        "weight_range": "173-210 \u2014 DeCosta is willing to draft very light corners (Wiggins weighed 173 at combine) if speed and length are elite",
+        "arm_length_minimum": "No strict minimum. Wiggins had 30.5-inch arms. Brandon Stephens was 6-0.5 with standard arms. DeCosta values speed more than length at CB.",
+        "key_athletic_tests": "40-yard dash is the primary filter. Wiggins: 4.28. DeCosta clearly gravitates toward elite timed speed at CB.",
+        "speed_requirement": "Sub-4.50 strongly preferred for Day 1-2 CBs. T.J. Tampa (Rd 4, 2024) fit this profile. Has taken slower CBs on Day 3."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Man-to-man capable with zone versatility. Wiggins was described by DeCosta as 'the best cover corner in the draft' with 'true shutdown-type' potential. Values corners who can play multiple alignments.",
+        "most_valued_traits": [
+          "Elite recovery speed and closing burst",
+          "Hip fluidity and ability to mirror routes",
+          "Ball skills and playmaking in coverage",
+          "Versatility to play outside and slot",
+          "Physicality at the catch point despite lean frames"
+        ],
+        "least_important_traits": [
+          "Run defense physicality \u2014 DeCosta has consistently drafted lighter corners who struggle initially in run support (Wiggins at 173 lbs)"
+        ],
+        "deal_breakers": [
+          "Lack of speed \u2014 every CB drafted in early rounds has exceptional timed speed",
+          "Poor ball skills \u2014 interception production matters on film even if stats don't show a strict threshold"
+        ],
+        "traits_that_make_them_reach": "Elite speed. Wiggins' 4.28 forty was a significant factor in his Rd 1 selection."
+      },
+      "college_production": {
+        "production_floor": "No strict statistical floor. Values film and coverage grades over interception totals. Wiggins had only 3 career INTs at Clemson.",
+        "production_trajectory": "Prefers multi-year starters but has taken raw corners who showed flashes. Brandon Stephens was a converted RB taken in Rd 3.",
+        "context_sensitivity": "High \u2014 adjusts for quality of opposition and role in college defense."
+      },
+      "evidence": {
+        "picks_analyzed": 9,
+        "examples": [
+          "2019 Rd 4 Pick 127 \u2014 Iman Marshall: 6-1, 205 lbs. Physical corner from USC.",
+          "2021 Rd 3 Pick 104 \u2014 Brandon Stephens: 6-0.5, 210 lbs. Converted RB from SMU. Athletic and physical.",
+          "2022 Rd 4 Pick 119 \u2014 Jalyn Armour-Davis: 6-1, 196 lbs. Athletic corner from Alabama.",
+          "2023 Rd 5 Pick 157 \u2014 Kyu Blu Kelly: Stanford. Four-year starter, sticky man coverage, Senior Bowl standout.",
+          "2024 Rd 1 Pick 30 \u2014 Nate Wiggins: 6-1, 173 lbs, 4.28 forty, 30.5-inch arms, 36-inch vert. Elite speed/length profile. DeCosta called him 'best cover corner in the draft.'",
+          "2024 Rd 4 Pick 130 \u2014 T.J. Tampa: Iowa State. Mel Kiper called him 'one of the steals of the draft,' ranked 38th overall on Kiper's board.",
+          "2025 Rd 6 Pick 178 \u2014 Bilhal Kone: Western Michigan. Ball-hawking corner with 3 career INTs.",
+          "2025 Rd 6 Pick 212 \u2014 Robert Longerbeam: Rutgers. 5 career INTs, man-to-man specialist."
+        ]
+      },
+      "confidence": "high"
+    },
+    "S": {
+      "archetype_summary": "Versatile, instinctive playmaker with elite football IQ and positional versatility. The Kyle Hamilton pick (Rd 1, Pick 14 in 2022) is the gold standard \u2014 a rangy, intelligent, do-everything safety who can play deep, in the box, and in the slot. Malaki Starks (Rd 1, Pick 27 in 2025) continued this theme: a consensus All-American with elite ball skills, tackling, and positional versatility. DeCosta values safeties who can be deployed as chess pieces across the secondary.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-4 \u2014 DeCosta loves size at safety. Hamilton is 6-4. Starks is 6-1.",
+        "weight_range": "197-220 lbs",
+        "arm_length_minimum": "No strict minimum observed. Values length when available (Hamilton's 6-4 frame is unusual).",
+        "key_athletic_tests": "Football intelligence and instincts matter more than timed speed. Starks ran 4.50 at combine \u2014 solid but not elite. Hamilton ran 4.59. DeCosta values processing speed over timed speed at safety.",
+        "speed_requirement": "Sub-4.55 preferred but not a hard cutoff. Will take slower safeties with elite range on film (Hamilton)."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Versatile hybrid who can play single-high, split safety, box, and slot. The Ravens want safeties who can be moved around pre-snap to disguise coverages.",
+        "most_valued_traits": [
+          "Football intelligence and anticipation",
+          "Ball skills and playmaking ability",
+          "Versatility to play multiple secondary positions",
+          "Tackling reliability and physicality",
+          "Communication and leadership"
+        ],
+        "least_important_traits": [
+          "Pure timed speed \u2014 both Hamilton and Starks were not the fastest safeties in their classes but had elite instincts and range on film"
+        ],
+        "deal_breakers": [
+          "One-dimensional safeties who can only play one role (pure box or pure deep)",
+          "Poor tackling \u2014 Baltimore demands physical safeties"
+        ],
+        "traits_that_make_them_reach": "Positional versatility and elite ball skills. Starks' ability to play deep safety, slot corner, and near the line of scrimmage was the key selling point."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter preferred. Hamilton started as a true freshman. Starks started 40 of 41 games at Georgia. Both were consensus All-Americans.",
+        "production_trajectory": "Values early producers. Both Hamilton and Starks were immediate impact players as freshmen.",
+        "context_sensitivity": "High \u2014 values production at elite programs (Notre Dame, Georgia) against top competition."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2022 Rd 1 Pick 14 \u2014 Kyle Hamilton: 6-4, 220 lbs, 4.59 forty. All-American from Notre Dame. Fell due to slow 40 time but was consensus top-5 prospect. DeCosta took the value.",
+          "2024 Rd 7 Pick 250 \u2014 Sanoussi Kane: Purdue. 6-0, 205 lbs. Versatile safety who played some LB and slot CB.",
+          "2025 Rd 1 Pick 27 \u2014 Malaki Starks: 6-1, 203 lbs, 4.50 forty, 33-inch vert. Two-time first-team All-American at Georgia. 6 career INTs, 23 passes defensed. Started 40 of 41 games. DeCosta 'let the board fall to him' and landed his dream player."
+        ]
+      },
+      "confidence": "high"
+    },
+    "WR": {
+      "archetype_summary": "Quick-twitch playmaker with route running and YAC ability, not necessarily a prototypical big-bodied X receiver. DeCosta has broken Baltimore's historical aversion to drafting WRs early by taking three first-rounders (Brown, Bateman, Flowers), and the throughline is versatile receivers who can separate and create after the catch rather than pure contested-catch big-body types. Marquise Brown was a speedster. Bateman was a polished route technician. Flowers was an electric YAC threat. The archetype: a dynamic playmaker who wins with quickness, route craft, and explosion rather than size.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-2 \u2014 DeCosta does not require prototypical size. Brown was 5-9, 170 lbs. Flowers was 5-10, 182 lbs. Bateman was 6-1, 193 lbs and was the biggest first-round WR.",
+        "weight_range": "170-210 lbs. Willing to draft very light receivers if speed and quickness are elite.",
+        "arm_length_minimum": "No minimum observed. Values route-running and separation over catch radius.",
+        "key_athletic_tests": "Speed (40 time) and agility/quickness metrics. Brown ran 4.34. Bateman ran 4.41. Flowers ran 4.42 at his Pro Day.",
+        "speed_requirement": "Sub-4.50 strongly preferred for Day 1-2 WRs."
+      },
+      "playing_style": {
+        "primary_role": "Dynamic playmaker who can win from multiple alignments. Values versatility \u2014 Flowers plays slot and outside. Brown was a deep threat. Bateman was a polished X.",
+        "most_valued_traits": [
+          "Route running precision and ability to create separation",
+          "Run-after-catch ability and elusiveness",
+          "Speed and deep-ball tracking",
+          "Willingness to block in the run game (important in Baltimore's run-heavy scheme)",
+          "Competitive toughness despite smaller frames"
+        ],
+        "least_important_traits": [
+          "Contested catch dominance \u2014 has not drafted a prototypical 50-50 ball winner in the early rounds"
+        ],
+        "deal_breakers": [
+          "Inability to separate \u2014 DeCosta values receivers who get open, not body-catch specialists",
+          "Poor route running even with elite athleticism"
+        ],
+        "traits_that_make_them_reach": "Elite quickness and YAC ability. Flowers was 'by far' the No. 1 prospect on DeCosta's pre-draft board. DeCosta told Flowers: 'I can't think of a player that I've drafted that I feel as strongly about as you.'"
+      },
+      "college_production": {
+        "production_floor": "Multi-year productive player preferred for early rounds. Flowers had 200 catches for 3,056 yards and 29 TDs across four years at BC. Bateman had 1,219 yards and 11 TDs as a sophomore. Brown had 1,318 yards as a junior.",
+        "production_trajectory": "Values ascending production. Flowers' senior year (78 catches, 1,077 yards, 12 TDs) was his best. Bateman broke out as a sophomore.",
+        "context_sensitivity": "Moderate \u2014 weights production but also accounts for offense style and supporting cast."
+      },
+      "evidence": {
+        "picks_analyzed": 7,
+        "examples": [
+          "2019 Rd 1 Pick 25 \u2014 Marquise Brown: 5-9, 170 lbs, 4.34 forty. Oklahoma speedster. Deep threat for Lamar Jackson.",
+          "2019 Rd 3 Pick 93 \u2014 Miles Boykin: 6-4, 220 lbs, 4.42 forty. Athletic freak from Notre Dame. Did not develop \u2014 suggests the big-bodied athletic WR type is not DeCosta's forte.",
+          "2020 Rd 3 Pick 92 \u2014 Devin Duvernay: 5-10, 210 lbs, 4.39 forty. Texas WR/returner. Speed specialist and two-time All-Pro returner.",
+          "2021 Rd 1 Pick 27 \u2014 Rashod Bateman: 6-1, 193 lbs, 4.41 forty. Route technician from Minnesota with strong hands and RAC ability.",
+          "2021 Rd 4 Pick 131 \u2014 Tylan Wallace: 5-11.5, 179 lbs. Oklahoma State receiver.",
+          "2023 Rd 1 Pick 22 \u2014 Zay Flowers: 5-10, 182 lbs, 4.42 forty. Boston College. Electric route runner and YAC threat. Dubbed 'Joystick' by Lamar Jackson.",
+          "2024 Rd 4 Pick 113 \u2014 Devontez Walker: North Carolina. Sub-4.4 speed, 40-inch vertical.",
+          "2025 Rd 6 Pick 203 \u2014 LaJohntay Wester: Colorado. Explosive WR/returner."
+        ]
+      },
+      "confidence": "high"
+    },
+    "OT": {
+      "archetype_summary": "Athletic, mobile tackle who can pass protect at a high level. DeCosta targets OTs who are excellent athletes for their size \u2014 Rosengarten ran a 4.92 forty at 300+ pounds (fastest of any OL at 2024 combine). The Ravens' run-heavy offense demands tackles who can move in space and reach block, but protecting Lamar Jackson's blind side is the priority. Values versatility \u2014 players who can play both tackle spots or kick inside.",
+      "physical_profile": {
+        "height_range": "6-5 to 6-8 \u2014 DeCosta likes big tackles. Daniel Faalele (Rd 4, 2022) was 6-8, 380 lbs. Rosengarten is 6-6, 305.",
+        "weight_range": "300-380 lbs. Wide range reflects willingness to take massive anchors (Faalele) and athletic movers (Rosengarten).",
+        "arm_length_minimum": "34+ inches strongly preferred for OT. Standard NFL threshold.",
+        "key_athletic_tests": "40-yard dash and agility for OTs matter. Rosengarten's 4.92 was the fastest 300+ pound player at the 2024 combine. Athletic OTs fit the zone-running scheme.",
+        "speed_requirement": "Sub-5.10 preferred for Day 1-2 OT picks."
+      },
+      "playing_style": {
+        "primary_role": "Pass protection is paramount \u2014 protecting Lamar Jackson drives OT evaluation. Also must be able to move in the run game.",
+        "most_valued_traits": [
+          "Pass protection technique and ability to handle speed rushers",
+          "Athleticism and ability to move in space",
+          "Anchor strength to handle power rushers in the AFC North",
+          "Versatility to play left or right tackle",
+          "Durability and football character"
+        ],
+        "least_important_traits": [
+          "Pure mauling run-blocking power \u2014 not the primary filter, though it's valued"
+        ],
+        "deal_breakers": [
+          "Stiff, non-athletic tackles who can't handle speed",
+          "Poor pass protection metrics \u2014 the Ravens cannot afford to get Lamar Jackson hit"
+        ],
+        "traits_that_make_them_reach": "Elite athleticism for the position. Rosengarten's combine performance clearly elevated him."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter preferred. Rosengarten had zero sacks allowed in two years as a starting RT (1,158 pass blocking plays).",
+        "production_trajectory": "Values immediate starters but also takes developmental projects on Day 3 (Carson Vinson from Alabama A&M in Rd 5, 2025).",
+        "context_sensitivity": "Moderate \u2014 considers conference strength and level of competition."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2022 Rd 4 Pick 110 \u2014 Daniel Faalele: 6-8, 380 lbs. Australian-born OT from Minnesota. Massive developmental project.",
+          "2024 Rd 2 Pick 62 \u2014 Roger Rosengarten: 6-6, 305 lbs, 4.92 forty (fastest 300+ lb player at combine). Washington. No sacks allowed in 1,158 pass blocking snaps. Started 14 games as a rookie.",
+          "2025 Rd 3 Pick 91 \u2014 Emery Jones Jr.: 6-4, 312 lbs. LSU RT who may transition to guard. Athletic with quick hands.",
+          "2025 Rd 5 Pick 141 \u2014 Carson Vinson: Alabama A&M. Only HBCU player drafted in 2025. Developmental tackle.",
+          "2025 Rd 7 Pick 243 \u2014 Garrett Dellinger: LSU. OL versatility pick."
+        ]
+      },
+      "confidence": "high"
+    },
+    "IOL": {
+      "archetype_summary": "Technically excellent interior lineman with elite processing and anchor. Tyler Linderbaum (Rd 1, Pick 25 in 2022) is the archetype: a consensus All-American center with elite technique, intelligence, and hand placement. DeCosta also targets guard prospects who can pull and move in the zone-run scheme. Ben Cleveland (6-6, 341 from Georgia) was a massive power guard prospect. Ben Powers (Rd 4, 2019) became a high-quality starter. Values centers who can quarterback the offensive line.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-6 \u2014 wide range. Linderbaum is 6-2, 302. Cleveland was 6-6, 341.",
+        "weight_range": "295-345 lbs",
+        "arm_length_minimum": "No strict minimum for IOL. Linderbaum had shorter arms but compensated with elite technique.",
+        "key_athletic_tests": "Processing speed and hand technique matter more than measurables at IOL. Linderbaum's pre-snap IQ was the selling point.",
+        "speed_requirement": "No speed requirement per se, but athletic guards who can pull are valued."
+      },
+      "playing_style": {
+        "primary_role": "Anchor the interior of a zone-run and pass-heavy offensive line. Must protect Lamar Jackson's interior pocket.",
+        "most_valued_traits": [
+          "Technique and hand placement",
+          "Processing speed and ability to handle stunts/twists",
+          "Anchor strength to hold the point of attack",
+          "Ability to work in combination blocks",
+          "Versatility (center-guard flex)"
+        ],
+        "least_important_traits": [
+          "Pure athleticism in space \u2014 functional technique matters more than combine testing at IOL"
+        ],
+        "deal_breakers": [
+          "Poor anchor \u2014 cannot allow interior pressure that collapses Lamar's pocket",
+          "Mental errors and inability to handle NFL-level blitz schemes"
+        ],
+        "traits_that_make_them_reach": "Elite technique and football IQ. Linderbaum was consensus top IOL prospect and DeCosta took him 25th overall."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter. Linderbaum was a three-year starter and Rimington Award winner.",
+        "production_trajectory": "Values early starters who dominated at the college level.",
+        "context_sensitivity": "High \u2014 Power 5 conference production weighted heavily."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2019 Rd 4 Pick 123 \u2014 Ben Powers: IOL, Oklahoma. Developed into one of the best guards in the NFL by 2022.",
+          "2020 Rd 3 Pick 106 \u2014 Tyre Phillips: 6-5, 331 lbs. Mississippi State. Attempted at both tackle and guard.",
+          "2020 Rd 4 Pick 143 \u2014 Ben Bredeson: Michigan guard. Eventually traded to Giants.",
+          "2021 Rd 3 Pick 94 \u2014 Ben Cleveland: 6-6, 341 lbs. Georgia. Massive power guard prospect.",
+          "2022 Rd 1 Pick 25 \u2014 Tyler Linderbaum: 6-2, 302 lbs. Iowa. Consensus All-American center, Rimington Award winner. Pro Bowl caliber from Day 1."
+        ]
+      },
+      "confidence": "high"
+    },
+    "DT": {
+      "archetype_summary": "Disruptive interior pass rusher with penetration ability. Justin Madubuike (Rd 3, Pick 71 in 2020) is the model: a 3-technique who developed into an All-Pro interior disruptor. DeCosta values DTs who can get upfield and generate pressure from the interior, not just hold the point of attack. Travis Jones (Rd 3, 2022) added a run-stuffing nose element. DeCosta has said he views defensive tackle as 'one of the most important positions in football.'",
+      "physical_profile": {
+        "height_range": "6-1 to 6-5",
+        "weight_range": "290-325 lbs. Madubuike was 6-3, 293 at the combine. Travis Jones was 6-4, 325. Broderick Washington was 6-1, 305.",
+        "arm_length_minimum": "No strict minimum but values length. Jones had 34-inch arms.",
+        "key_athletic_tests": "First-step quickness and explosiveness. Values DTs who win with quickness off the snap.",
+        "speed_requirement": "No strict 40 time requirement but values agility and get-off."
+      },
+      "playing_style": {
+        "primary_role": "Interior disruption through penetration and pass rush. Baltimore's scheme demands active, disruptive DTs.",
+        "most_valued_traits": [
+          "First-step quickness and upfield penetration",
+          "Ability to generate interior pressure",
+          "Run defense stoutness",
+          "Motor and effort play-to-play",
+          "Versatility to play multiple interior positions"
+        ],
+        "least_important_traits": [
+          "Pure two-gap nose tackle ability \u2014 Baltimore values penetration over space-eating"
+        ],
+        "deal_breakers": [
+          "Lack of pass rush upside \u2014 DeCosta wants DTs who can affect the quarterback",
+          "One-dimensional run stuffers without pass rush ability"
+        ],
+        "traits_that_make_them_reach": "Interior pass rush ability. Madubuike was a Day 2 steal who became an All-Pro."
+      },
+      "college_production": {
+        "production_floor": "Must show disruption stats \u2014 TFLs and pressures, not just sack totals which are lower for DTs.",
+        "production_trajectory": "Values ascending production curves.",
+        "context_sensitivity": "High \u2014 adjusts for scheme and usage."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2020 Rd 3 Pick 71 \u2014 Justin Madubuike: 6-3, 293 lbs. Texas A&M. Developed into All-Pro DT. Disruptive interior pass rusher.",
+          "2020 Rd 5 Pick 170 \u2014 Broderick Washington: 6-1, 305 lbs. Rotational DT who became solid contributor.",
+          "2022 Rd 3 Pick 76 \u2014 Travis Jones: 6-4, 325 lbs. UConn. Powerful nose tackle with run-stuffing ability.",
+          "2025 Rd 6 Pick 210 \u2014 Aeneas Peebles: Virginia Tech. 91.2 PFF pass-rush grade on true pass sets. Day 3 interior pass rush value."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "LB": {
+      "archetype_summary": "Athletic, rangy linebacker who can cover and run sideline-to-sideline. Patrick Queen (Rd 1, Pick 28 in 2020) and Trenton Simpson (Rd 3, Pick 86 in 2023) both fit this mold: fast, athletic LBs who bring coverage ability and range. DeCosta values LBs who can match up with TEs and RBs in the passing game and have sideline-to-sideline speed. Also proved willing to trade a premium for an established star \u2014 the Roquan Smith trade (2022) was a 2nd-round pick for a proven All-Pro.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-2",
+        "weight_range": "225-250 lbs. Queen was 6-0, 229. Simpson was 6-2, 232 with elite athleticism. Buchanan (2025) was a coverage-skilled LB.",
+        "arm_length_minimum": "No strict minimum at LB.",
+        "key_athletic_tests": "40-yard dash and 3-cone drill. Values speed and agility at LB. Queen ran 4.50. Simpson's freakish athleticism was the main selling point.",
+        "speed_requirement": "Sub-4.60 strongly preferred for Day 1-2 LBs."
+      },
+      "playing_style": {
+        "primary_role": "Three-down linebacker who can cover, blitz, and tackle. Baltimore's 3-4 defense demands LBs who can drop into coverage.",
+        "most_valued_traits": [
+          "Coverage ability \u2014 matching up with TEs and RBs in space",
+          "Sideline-to-sideline range and pursuit speed",
+          "Blitz ability and pass rush upside",
+          "Tackling in space",
+          "Instincts and play recognition"
+        ],
+        "least_important_traits": [
+          "Pure thumping run defense \u2014 DeCosta values coverage-capable LBs over traditional downhill thumpers"
+        ],
+        "deal_breakers": [
+          "Inability to cover \u2014 a LB who is a liability in the passing game won't be drafted early by Baltimore",
+          "Poor lateral agility and range"
+        ],
+        "traits_that_make_them_reach": "Elite coverage ability from the LB position. Simpson was described as 'freakishly athletic and versatile.'"
+      },
+      "college_production": {
+        "production_floor": "Must be a productive college player. Queen was the defensive leader on LSU's national championship team in 2019.",
+        "production_trajectory": "Values big-game producers from elite programs.",
+        "context_sensitivity": "High \u2014 LSU national champion (Queen), Clemson (Simpson), Cal (Buchanan)."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2020 Rd 1 Pick 28 \u2014 Patrick Queen: 6-0, 229 lbs, 4.50 forty. LSU. National championship game hero. Coverage-capable three-down LB.",
+          "2020 Rd 3 Pick 98 \u2014 Malik Harrison: 6-3, 247 lbs. Ohio State. More traditional LB \u2014 bigger, more physical.",
+          "2023 Rd 3 Pick 86 \u2014 Trenton Simpson: 6-2, 232 lbs. Clemson. Freakish athlete with coverage skills. Kiper had him ranked 35th overall.",
+          "2025 Rd 4 Pick 129 \u2014 Teddye Buchanan: Cal. Coverage-skilled LB who was a 'scheme fit' in Baltimore's defense."
+        ]
+      },
+      "confidence": "high"
+    },
+    "TE": {
+      "archetype_summary": "Receiving-capable TE with positional versatility. DeCosta has not heavily invested early draft capital at TE because Mark Andrews (Newsome-era Rd 3 pick) has been the franchise TE. Isaiah Likely (Rd 4, 2022) and Charlie Kolar (Rd 4, 2022) were both mid-round picks who offered receiving upside. Likely is the preferred archetype: athletic, versatile, can flex out wide and create mismatches. Baltimore's offense demands TEs who can both block in the run game and create as receivers. The Ravens historically use heavy TE sets (12 and 13 personnel).",
+      "physical_profile": {
+        "height_range": "6-4 to 6-6 \u2014 standard TE height range",
+        "weight_range": "240-260 lbs",
+        "arm_length_minimum": "No strict minimum observed.",
+        "key_athletic_tests": "Route running ability and receiving skills matter most. Likely was a mismatch as a flex TE.",
+        "speed_requirement": "Sub-4.70 preferred for receiving TEs. Blocking TEs have no speed requirement."
+      },
+      "playing_style": {
+        "primary_role": "Hybrid TE who can inline block and flex as a receiver. Baltimore's scheme demands TEs who are willing and able blockers.",
+        "most_valued_traits": [
+          "Receiving ability and route running for a TE",
+          "Run-blocking willingness and technique",
+          "Red zone and contested catch ability",
+          "Positional versatility (inline, slot, flex)",
+          "Football IQ and rapport with QB"
+        ],
+        "least_important_traits": [
+          "Pure speed \u2014 Baltimore values functional receiving ability over timed speed at TE"
+        ],
+        "deal_breakers": [
+          "Inability or unwillingness to block \u2014 Baltimore's run-first identity demands blocking TEs",
+          "One-dimensional players who can only do one thing"
+        ],
+        "traits_that_make_them_reach": "Receiving upside as a mismatch weapon. Likely's ability to flex out and create was valued."
+      },
+      "college_production": {
+        "production_floor": "Must show receiving production. Likely had 59 catches for 912 yards and 12 TDs in his final college season at Coastal Carolina.",
+        "production_trajectory": "Values ascending production.",
+        "context_sensitivity": "Moderate \u2014 values production from any level."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2022 Rd 4 Pick 128 \u2014 Charlie Kolar: 6-6, 252 lbs. Iowa State. Red zone threat and reliable possession TE.",
+          "2022 Rd 4 Pick 139 \u2014 Isaiah Likely: 6-4, 240 lbs. Coastal Carolina. Dynamic receiving TE who can flex out as a WR. Biggest TE receiving threat.",
+          "2021 Rd 5 Pick 184 \u2014 Ben Mason: 6-3, 254 lbs. Michigan. Fullback/blocking TE hybrid."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only mid-round TEs drafted under DeCosta. Mark Andrews' presence reduced the need for early TE investment. Profile largely inferred from scheme demands and actual selections."
+    },
+    "RB": {
+      "archetype_summary": "Explosive, versatile back who can complement Lamar Jackson's rushing ability. J.K. Dobbins (Rd 2, Pick 55 in 2020) is the primary model: a powerful, explosive runner with excellent vision and the ability to break long runs. DeCosta does not invest premium draft capital at RB \u2014 Dobbins at pick 55 is the highest RB taken in his tenure. Prefers to address RB in later rounds or via free agency (Derrick Henry signing in 2024). Values backs who can handle a complementary role in a run-heavy offense where the QB is also a significant rusher.",
+      "physical_profile": {
+        "height_range": "5-9 to 5-11",
+        "weight_range": "200-220 lbs. Dobbins was 5-10, 209.",
+        "arm_length_minimum": "No minimum at RB.",
+        "key_athletic_tests": "Vision, burst, and cutting ability matter more than raw 40 speed. Dobbins was a decisive, one-cut runner.",
+        "speed_requirement": "No strict speed requirement. Values burst and explosiveness over timed speed."
+      },
+      "playing_style": {
+        "primary_role": "Complementary back in a run-heavy offense. Must be able to share carries and thrive in zone-run concepts.",
+        "most_valued_traits": [
+          "Vision and ability to find cutback lanes",
+          "Burst and explosiveness through the hole",
+          "Durability and ability to handle a workload",
+          "Pass protection capability",
+          "Receiving ability as a check-down option"
+        ],
+        "least_important_traits": [
+          "Top-end breakaway speed \u2014 Baltimore's offense creates running lanes through scheme and Lamar Jackson's ability to hold defenders"
+        ],
+        "deal_breakers": [
+          "Inability to pass protect \u2014 Baltimore cannot expose Lamar Jackson",
+          "Fumbling issues"
+        ],
+        "traits_that_make_them_reach": "Elite vision and decisiveness. Dobbins was regarded as the best pure runner in the 2020 class."
+      },
+      "college_production": {
+        "production_floor": "No strict minimum. Values efficient runners over volume producers. Justice Hill (Rd 4, 2019) was a speed back from Oklahoma State.",
+        "production_trajectory": "Prefers productive college runners with multiple years of starting experience.",
+        "context_sensitivity": "Moderate."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2019 Rd 4 Pick 113 \u2014 Justice Hill: 5-10, 200 lbs. Oklahoma State. Speed back and change-of-pace option.",
+          "2020 Rd 2 Pick 55 \u2014 J.K. Dobbins: 5-10, 209 lbs. Ohio State. Powerful, explosive one-cut runner. 2,003 yards and 21 TDs in final college season.",
+          "2022 Rd 6 Pick 196 \u2014 Tyler Badie: 5-8, 197 lbs. Missouri. Small, shifty receiving back.",
+          "2024 Rd 5 Pick 165 \u2014 Rasheen Ali: Marshall. Physical runner."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "QB": {
+      "archetype_summary": "DeCosta has not drafted a QB with meaningful draft capital during his GM tenure. The franchise is built around Lamar Jackson, the two-time MVP who was drafted at No. 32 overall in 2018 when DeCosta was assistant GM (and was DeCosta's primary advocate for the pick). Jackson represents the archetype DeCosta believes in: a transcendent dual-threat talent who can transform an entire offense. DeCosta signed Jackson to a 5-year, $260M extension. Late-round QBs drafted (McSorley Rd 6, Leary Rd 6) are pure backups. DeCosta does not use significant capital on developmental QBs.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-4 (based on Jackson at 6-2)",
+        "weight_range": "210-230 lbs",
+        "arm_length_minimum": "N/A \u2014 insufficient data",
+        "key_athletic_tests": "Arm talent and processing speed matter, but DeCosta's one QB conviction (Jackson) was an elite dual-threat. Mobility and ability to create outside the pocket are clearly valued based on the Jackson pick.",
+        "speed_requirement": "N/A for traditional pocket passers. Jackson's elite mobility was the selling point."
+      },
+      "playing_style": {
+        "primary_style": "Dual-threat quarterback who can win with both arm and legs. DeCosta's advocacy for Jackson suggests he values transformative athletic ability at QB.",
+        "most_valued_traits": [
+          "Transcendent athletic ability",
+          "Arm talent",
+          "Competitive drive and leadership",
+          "Ability to elevate the entire offense",
+          "Clutch playmaking"
+        ],
+        "least_important_traits": [
+          "Prototypical size and pocket presence \u2014 DeCosta was willing to bet on Jackson when many teams weren't"
+        ],
+        "deal_breakers": [
+          "Insufficient data to identify"
+        ],
+        "traits_that_make_them_reach": "Transformative talent. DeCosta described Jackson as a 'magician' during the pre-draft process."
+      },
+      "college_production": {
+        "production_floor": "N/A \u2014 only relevant data point is Jackson, a Heisman Trophy winner.",
+        "production_trajectory": "N/A",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2018 Rd 1 Pick 32 (DeCosta as Asst. GM, primary advocate) \u2014 Lamar Jackson: 6-2, 212 lbs. Louisville. Heisman Trophy winner, two-time NFL MVP.",
+          "2019 Rd 6 Pick 197 \u2014 Trace McSorley: Penn State. Backup/developmental.",
+          "2024 Rd 6 Pick 218 \u2014 Devin Leary: Kentucky. Backup."
+        ]
+      },
+      "confidence": "very_low",
+      "confidence_note": "DeCosta has not drafted a QB before Rd 6 as GM. The Jackson pick was made as assistant GM. Profile is largely inferred from the Jackson decision and overall philosophy. If Baltimore ever needs to draft a QB, this profile would need complete rebuilding."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 3,
+    "max_observed_reach": 8,
+    "round_1_reach_tolerance": 4,
+    "notes": "DeCosta is NOT a reach-prone GM. His philosophy of letting the board come to him means he consistently takes consensus-value or value picks rather than reaching. Multiple analysts have noted the Ravens 'simply pick the best player on their board every time their name is called \u2014 and it almost always works.' Hamilton at 14 was seen as a value (top-5 talent who fell due to 40 time). Wiggins at 30 was seen as a value (consensus mid-first-round talent). Starks at 27 was described as a steal (many had him as a top-15 prospect). The rare reaches have been for raw EDGE players (Oweh) but even those were within range of consensus projections."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.55,
+    "offensive_scheme": "Run-heavy RPO and play-action offense built around Lamar Jackson's dual-threat ability. Heavy use of tight ends (12/13 personnel). Zone-run concepts with designed QB runs. Todd Monken was OC from 2023-2025 and added more vertical passing. New OC Declan Doyle (from Chargers) may bring more balance. The offense demands athletic offensive linemen who can move in space, versatile tight ends, and receivers who can block.",
+    "defensive_scheme": "3-4 base defense transitioning to Jesse Minter's system: versatile 3-4 predicated on zone coverage (80.7% zone with Chargers), split-safety looks, limited blitzing (primarily 4-man pressures), and disguised fronts. Minter will call plays himself. Anthony Weaver (DC) brings additional experience. Values versatile defenders who can play multiple roles. DeCosta noted the scheme change 'may end up bringing some different players into the mix that maybe in past years we might not have been as interested in.'",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "MAJOR COACHING CHANGE: John Harbaugh fired January 2026 after 18 seasons. Jesse Minter hired as HC. Minter's defensive scheme differs from the previous Zach Orr/Harbaugh system \u2014 more zone-heavy, less blitz-oriented, more split-safety looks. Offensive coordinator also changed (Monken left for Browns HC job). This introduces meaningful uncertainty about player type preferences, particularly on defense. DeCosta acknowledged the scheme change could shift the player pool they're interested in. However, DeCosta's core evaluation tendencies (BPA, athletic traits, character) should persist regardless of coaching staff."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.55,
+    "risk_description": "Moderate risk-taker who calculates his bets. DeCosta is willing to take high-upside players with red flags (Ojabo's torn Achilles, Green's off-field concerns, Oweh's zero-sack season) but mitigates risk by buying at a discount \u2014 these players all fell from their projected draft position. He is NOT reckless. He won't trade up aggressively to take risks. He waits for value and then pounces on discounted talent. His stated philosophy: 'the only rational approach is to get more at-bats.' This is fundamentally a risk-management strategy \u2014 diversify through quantity.",
+    "recency_bias": 0.4,
+    "recency_description": "Low-to-moderate recency bias. DeCosta sticks to his process regardless of recent outcomes. After the devastating 2021 injury season, he didn't panic-draft for depth. After the 2023 AFCCG loss, he addressed roster holes methodically. After the 2025 8-9 collapse, he has maintained his approach while acknowledging the need to 'augment the pass rush' and strengthen the trenches.",
+    "sunk_cost_behavior": "Willing to move on from failed investments. Traded first-round pick Marquise Brown after year 3 (with a 3rd rounder) to Arizona. Traded first-round pick Odafe Oweh to the Chargers in 2025 when he wasn't producing. Did not extend first-round pick Patrick Queen, letting him walk to Pittsburgh. Shows no sentimental attachment to draft picks.",
+    "combine_weight": 0.55,
+    "combine_description": "Balanced with a lean toward athletic testing for certain positions. The Oweh pick (4.37 forty, 39-inch vert, 134-inch broad at 257 lbs with zero sacks) is the clearest example of combine results driving a pick. At CB, the Wiggins pick (4.28 forty) was heavily influenced by speed testing. But DeCosta also took Adisa Isaac (4.74 forty, slower than most EDGE peers) based on film. Hamilton fell because of his 4.59 forty, but DeCosta took the value. Overall, combine data confirms or eliminates but doesn't override film for most positions.",
+    "character_weight": 0.65,
+    "character_description": "High character standards as part of the Ravens' organizational DNA. DeCosta has publicly discussed the importance of character in evaluation. However, he IS willing to take character-risk players when the discount is significant \u2014 Mike Green fell to Rd 2 due to off-field concerns and DeCosta took him. The pattern: character is a significant factor, but it's not an absolute disqualifier \u2014 it's a price adjustment. Major character risks are more likely on Day 2-3 where the cost is lower.",
+    "quarterback_philosophy": "Entirely committed to Lamar Jackson. DeCosta signed Jackson to a record 5-year, $260M extension in 2023. He advocated for drafting Jackson in 2018 even with Flacco on the roster. He will not draft a QB as a developmental backup with meaningful draft capital. Only Day 3 backups (McSorley Rd 6, Leary Rd 6). The entire roster construction philosophy revolves around maximizing Jackson's talent."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.5,
+    "production_vs_projection": "DeCosta is comfortable drafting projection over production at specific positions \u2014 particularly EDGE (Oweh with 0 sacks) and CB (values film and athletic profile over INT totals). But at WR, LB, and S, he strongly values productive college players. At IOL, he drafted the most dominant college center (Linderbaum). The tiebreaker depends on position: at skill positions and LB, production wins. At EDGE and CB, traits can overcome modest production.",
+    "production_thresholds_by_position": {
+      "WR": "Multi-year producers with ascending stats. Brown: 1,318 yards. Bateman: 1,219 yards. Flowers: 1,077 yards/12 TDs. All had 1,000+ yard seasons.",
+      "RB": "No strict threshold. Dobbins had 2,003 yards his final season, but Justice Hill had only 930.",
+      "EDGE": "No production floor. Oweh had 0 sacks. DeCosta values tools over stats at EDGE.",
+      "CB": "No clear statistical threshold \u2014 film and athletic testing matter more.",
+      "S": "Values multi-year starters at power programs. Hamilton and Starks were consensus All-Americans.",
+      "LB": "Values production at elite programs. Queen was LSU's defensive leader in their national championship season.",
+      "IOL": "Values dominance. Linderbaum was the best center in college football."
+    },
+    "breakout_age_sensitivity": 0.5,
+    "dominator_rating_sensitivity": 0.45,
+    "notes": "DeCosta evaluates production in context. He's comfortable with modest statistical profiles if the athletic testing and film support upside. But for skill positions (WR, TE), production is a more significant factor. The Ravens' analytics department likely applies more sophisticated production metrics than traditional stats."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "40_yard_max": 4.5,
+        "notes": "Wiggins 4.28, preference for elite speed. No CB drafted in Rd 1-3 slower than 4.50.",
+        "confidence": "medium"
+      },
+      "EDGE": {
+        "min_height": "6-3",
+        "notes": "All EDGE picks in Rd 1-2 have been 6-3+. Oweh 6-5, Ojabo 6-5, Robinson 6-6, Green 6-3. Values length.",
+        "confidence": "medium"
+      },
+      "WR": {
+        "40_yard_max": 4.45,
+        "notes": "Brown 4.34, Bateman 4.41, Flowers 4.42, Duvernay 4.39. Speed is a common thread for Day 1-2 WRs.",
+        "confidence": "medium"
+      },
+      "S": {
+        "no_hard_threshold": true,
+        "notes": "Hamilton ran 4.59 and was still taken 14th. Starks ran 4.50. Film and instincts override testing at S.",
+        "confidence": "medium"
+      },
+      "OT": {
+        "notes": "Values athletic OTs. Rosengarten's 4.92 was the fastest 300-lb player at the combine. Faalele at 6-8/380 shows willingness to take massive bodies too.",
+        "confidence": "low"
+      },
+      "LB": {
+        "40_yard_max": 4.6,
+        "notes": "Queen 4.50, Simpson elite athlete. Speed matters at LB.",
+        "confidence": "medium"
+      },
+      "DT": {
+        "no_hard_threshold": true,
+        "notes": "Values interior quickness on film rather than specific combine metrics.",
+        "confidence": "low"
+      }
+    },
+    "threshold_type": "Mostly soft preferences rather than hard cutoffs. DeCosta has shown willingness to draft players who test modestly if film is exceptional (Hamilton, Isaac). But at CB and WR, speed appears to be a near-hard cutoff for early-round picks.",
+    "size_preferences_by_position": {
+      "DT": "3-technique: 290-310 lbs. Nose: 310-330 lbs.",
+      "LB": "225-250 lbs. Not overly large \u2014 values speed over size.",
+      "S": "195-220 lbs. Values size at safety \u2014 Hamilton at 6-4/220 is the extreme.",
+      "CB": "No size minimum \u2014 took Wiggins at 173 lbs. Speed overrides size.",
+      "EDGE": "240-260 lbs with length. 6-3+ minimum for early-round picks."
+    },
+    "athletic_testing_favorites": "40-yard dash drives CB and WR evaluation. Explosive testing (vertical, broad jump) matters for EDGE and DT. Processing speed (film-based) matters most for S, IOL, and LB. DeCosta uses analytics to supplement traditional testing \u2014 the Ravens have one of the most advanced analytics departments in the league.",
+    "measurables_vs_film": "Film-first overall, but measurables serve as validators and eliminators at certain positions. The Hamilton pick (fell due to slow 40, taken on film) shows film wins when the two diverge. The Oweh pick (elite measurables, no production) shows measurables can drive a pick when the physical profile is truly exceptional. DeCosta's stated view: both matter, but the draft has enough luck involved that tools and upside are worth betting on."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Take the best player on the board at a premium position. Rarely reaches. Prefers to trade back if no player within a few picks of board value is available. Has traded back in Rd 1 in 2019 (22 to 25) and 2022 (23 to 25). Turned down trade offers when he liked his player (stayed put for Flowers in 2023, stayed put for Starks in 2025 despite Eagles trade offer). Positional emphasis: EDGE, CB, WR, S, OT, IOL, LB \u2014 all have been first-round targets. Will not draft a QB or RB in Rd 1.",
+    "round_2_3_strategy": "Shifts slightly toward need-filling but still heavily BPA. This is where DeCosta buys discounted talent \u2014 players who fell due to injury (Ojabo Rd 2), character (Green Rd 2), or position value (Simpson Rd 3). Day 2 is where Baltimore excels at finding value. DeCosta has stated he loves having multiple Day 2 picks and will trade to acquire them.",
+    "day_3_strategy": "Developmental athletes, positional depth, special teams contributors, and higher-risk gambles. Day 3 is where DeCosta takes fliers on raw athletes (Robinson at 6-6, Faalele at 6-8/380), small-school prospects (Vinson from Alabama A&M, Kone from Western Michigan), and specialists (Loop the kicker). Also targets backup OL depth here. The Ravens' development system gives them confidence to project Day 3 picks into contributors.",
+    "compensatory_pick_usage": "The Ravens LOVE comp picks. They lead the NFL with 60 compensatory picks since 1996. DeCosta treats comp picks as valuable assets, not throwaways. He has said he 'loves comp picks' and views all picks as 'currency.' The Ravens have the third-best success rate using comp picks (by AV). Comp picks are treated with the same rigor as regular picks."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "S": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Hamilton is an All-Pro. Starks started 15 games as a rookie. Elite evaluation."
+      },
+      "CB": {
+        "picks": 9,
+        "starters": 3,
+        "rate": 0.33,
+        "note": "Wiggins and Brandon Stephens became starters. High volume but inconsistent Day 3 hits."
+      },
+      "WR": {
+        "picks": 7,
+        "starters": 2,
+        "rate": 0.29,
+        "note": "Flowers has been excellent. Bateman had an injury-filled start but got extension. Brown was traded. Boykin was a bust. Historical weakness for the franchise."
+      },
+      "EDGE": {
+        "picks": 6,
+        "starters": 2,
+        "rate": 0.33,
+        "note": "Oweh eventually traded. Ojabo busted. Green still developing. Isaac hurt as rookie. DeCosta's high-risk/high-reward approach at EDGE has had mixed results."
+      },
+      "IOL": {
+        "picks": 5,
+        "starters": 3,
+        "rate": 0.6,
+        "note": "Linderbaum is a Pro Bowler. Powers became a top guard. Cleveland didn't develop. Strong center evaluation."
+      },
+      "OT": {
+        "picks": 5,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "Rosengarten was an immediate starter. Faalele became a rotation piece. Jones still developing."
+      },
+      "LB": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Queen became a starter (but left in FA). Simpson has found a role. Buchanan showed promise. Good value finding."
+      },
+      "DT": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Madubuike became an All-Pro. Travis Jones is a quality starter. Strong interior DL evaluation."
+      },
+      "RB": {
+        "picks": 4,
+        "starters": 1,
+        "rate": 0.25,
+        "note": "Dobbins was excellent when healthy but suffered devastating injuries. Hill has been a quality rotational piece."
+      },
+      "TE": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Likely emerged as a receiving weapon. Kolar is a role player. Low investment."
+      }
+    },
+    "blind_spots": [
+      "EDGE development \u2014 DeCosta's traits-over-production approach at EDGE has produced inconsistent results. Oweh was traded, Ojabo never developed, Robinson hasn't contributed. The hit rate at EDGE is concerning despite heavy investment.",
+      "WR \u2014 historical franchise weakness that DeCosta has tried to address. Brown was traded, Boykin busted, Bateman had injuries. Flowers has been the clear success."
+    ],
+    "strengths": [
+      "Safety evaluation \u2014 Hamilton and Starks are both excellent picks. DeCosta knows what he wants at this position.",
+      "IOL \u2014 Linderbaum and Powers were both excellent selections. DeCosta evaluates interior linemen at a high level.",
+      "DT \u2014 Madubuike developed into an All-Pro. Travis Jones is a quality player. Strong interior DL evaluation.",
+      "Value identification \u2014 DeCosta consistently finds players at a discount (Hamilton falling due to 40 time, Green falling due to character, Rosengarten in Rd 2)."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Moderate spender who uses FA strategically to fill specific holes, then drafts BPA. Baltimore's long-standing model: 'draft well, develop in-house, reward your own, bargain shop in free agency.' DeCosta has been more aggressive than Newsome in making splash signings (Derrick Henry 2024, DeAndre Hopkins 2025, Roquan Smith trade 2022). Uses FA to reduce the number of acute needs before the draft, which enables the BPA approach. Also aggressive in extending homegrown talent before they hit free agency.",
+    "fa_draft_correlation": "When a starter is signed or extended at a position, that position drops in draft priority but is not completely ignored. DeCosta still drafts depth at filled positions (e.g., still drafted CBs after Humphrey was established). Does not entirely stop drafting a position after FA acquisition \u2014 views depth as critical.",
+    "roster_construction_philosophy": "Build through the draft at premium positions, supplement through FA at positions of need. Extends homegrown stars before they hit the market. Uses comp pick formula strategically \u2014 lets certain free agents walk to generate compensatory picks, then uses those picks as additional draft capital. Views the entire system (draft, FA, trades, comp picks) as an integrated machine for roster construction."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 65,
+    "notable_patterns": [
+      "Has never had a top-10 pick and only one pick in the top 20 (Hamilton at 14) \u2014 always drafting 22nd or later in Rd 1",
+      "Averaged 9.3 picks per draft across 7 drafts (2019-2025) \u2014 consistently above league average",
+      "3 first-round WRs in 7 drafts (Brown, Bateman, Flowers) \u2014 unprecedented for the Ravens franchise",
+      "Drafts CBs every single year \u2014 has taken 2 or more CBs in 5 of 7 drafts",
+      "Trades back more often than trades up \u2014 prefers accumulating picks over consolidating",
+      "Strong preference for SEC and ACC prospects in early rounds",
+      "Consistently targets Senior Bowl participants in mid-to-late rounds",
+      "Led the NFL with 11 picks in 2025 draft",
+      "The Ravens lead the NFL with 60 compensatory picks since 1996"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2021,
+        "pick": "1.31",
+        "player": "Odafe Oweh",
+        "position": "EDGE",
+        "consensus_rank": "35-45",
+        "reach_amount": 5,
+        "context": "Zero sacks in final college season. Pure traits/athletic projection pick. 4.37 forty at 257 lbs. Eventually traded to Chargers in 2025."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2022,
+        "pick": "1.14",
+        "player": "Kyle Hamilton",
+        "position": "S",
+        "consensus_rank": "3-5",
+        "value_amount": 10,
+        "context": "Consensus top-5 prospect who fell due to slow 40 time (4.59). DeCosta took the value without hesitation. Hamilton became an All-Pro."
+      },
+      {
+        "year": 2025,
+        "pick": "1.27",
+        "player": "Malaki Starks",
+        "position": "S",
+        "consensus_rank": "10-15",
+        "value_amount": 12,
+        "context": "Regarded as top safety in the class and a top-15 prospect by many. Fell to 27 and DeCosta was waiting. 'Dream player' per team insiders."
+      },
+      {
+        "year": 2025,
+        "pick": "2.59",
+        "player": "Mike Green",
+        "position": "EDGE",
+        "consensus_rank": "15-25",
+        "value_amount": 35,
+        "context": "Top-10 prospect on PFF's big board who fell to 59 due to off-field concerns. DeCosta bought the discount on a player who led FBS in sacks."
+      },
+      {
+        "year": 2020,
+        "pick": "3.71",
+        "player": "Justin Madubuike",
+        "position": "DT",
+        "consensus_rank": "55-65",
+        "value_amount": 10,
+        "context": "Developed into an All-Pro DT. Third-round pick became the anchor of the defensive line."
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_notes": "7 drafts of data as Ravens GM provides a robust behavioral profile. DeCosta has been with the organization since 1996 and his evaluation philosophy is deeply established. The major uncertainty is the coaching change to Jesse Minter \u2014 this could shift defensive player type preferences and scheme fit priorities. DeCosta acknowledged the scheme change 'may end up bringing some different players into the mix.' However, DeCosta's core behavioral tendencies (BPA, trade-down preference, athletic traits emphasis, accumulate picks, character evaluation) should persist. Profile should be updated after the 2026 draft to assess Minter's influence on player selection.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

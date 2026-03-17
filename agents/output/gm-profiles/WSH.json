@@ -1,0 +1,821 @@
+{
+  "team": {
+    "name": "Washington Commanders",
+    "abbreviation": "WSH",
+    "division": "NFC East",
+    "current_draft_position": 7
+  },
+  "front_office": {
+    "gm": {
+      "name": "Adam Peters",
+      "title": "General Manager",
+      "hired": "2024-01-15",
+      "previous_role": "Assistant General Manager, San Francisco 49ers",
+      "drafts_as_gm": 2,
+      "confidence": "medium"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "UCLA",
+          "role": "Football Operations Graduate Assistant",
+          "years": "2002",
+          "mentor": "UCLA coaching staff"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Scouting Assistant",
+          "years": "2003\u20132004",
+          "mentor": "Scott Pioli, Nick Caserio"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Pro Scout",
+          "years": "2005",
+          "mentor": "Scott Pioli, Bill Belichick"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Area Scout",
+          "years": "2006\u20132008",
+          "mentor": "Nick Caserio, Bill Belichick"
+        },
+        {
+          "org": "Denver Broncos",
+          "role": "Regional Scout",
+          "years": "2009\u20132010",
+          "mentor": "Josh McDaniels, Brian Xanders"
+        },
+        {
+          "org": "Denver Broncos",
+          "role": "National Scout",
+          "years": "2011\u20132013",
+          "mentor": "John Elway, Matt Russell"
+        },
+        {
+          "org": "Denver Broncos",
+          "role": "Assistant Director of College Scouting",
+          "years": "2014\u20132015",
+          "mentor": "John Elway, Matt Russell"
+        },
+        {
+          "org": "Denver Broncos",
+          "role": "Director of College Scouting",
+          "years": "2016",
+          "mentor": "John Elway"
+        },
+        {
+          "org": "San Francisco 49ers",
+          "role": "Vice President of Player Personnel",
+          "years": "2017\u20132020",
+          "mentor": "John Lynch, Kyle Shanahan"
+        },
+        {
+          "org": "San Francisco 49ers",
+          "role": "Assistant General Manager",
+          "years": "2021\u20132023",
+          "mentor": "John Lynch, Kyle Shanahan"
+        },
+        {
+          "org": "Washington Commanders",
+          "role": "General Manager",
+          "years": "2024\u2013present",
+          "mentor": "N/A \u2014 top decision-maker"
+        }
+      ],
+      "primary_mentor": "John Lynch / Kyle Shanahan (49ers); John Elway (Broncos); Scott Pioli / Bill Belichick (Patriots)",
+      "philosophical_lineage": "Belichick-Pioli tree (Patriots) \u2192 Elway tree (Broncos) \u2192 Lynch-Shanahan tree (49ers). Peters synthesizes three distinct philosophical lineages: (1) Patriots emphasis on versatile, high-character, smart football players who can play multiple roles, (2) Broncos emphasis on athletic upside and college scouting depth, and (3) 49ers emphasis on scheme-versatile athletes, using analytics alongside film, and valuing the defensive line and offensive skill positions. The 49ers influence is strongest as he spent 7 years there and ascended to AGM. Created the 'GTFO' metric (explosion off the ball in first two yards) for evaluating defensive linemen, demonstrating his analytics-forward approach.",
+      "breakpoints": "More willing to use draft capital for veteran trades (Tunsil, Lattimore, Samuel) than the 49ers typically were under Lynch. Peters has traded significant future draft capital in a way Lynch/Shanahan rarely did. Also more aggressive on short-term veteran signings to fill roster immediately vs. SF's patient developmental approach.",
+      "lineage_weight": 0.45,
+      "lineage_weight_notes": "2 drafts of own data bring lineage weight down from initial 0.75. However, limited pick counts in 2025 (5 picks) reduce data confidence. Will drop to 0.30 after 2026 draft."
+    },
+    "primary_decision_maker": "Adam Peters",
+    "key_influencers": [
+      {
+        "name": "Dan Quinn",
+        "title": "Head Coach",
+        "influence_level": "high",
+        "known_biases": "Defensive-minded; historically favors 4-3 base with multiple fronts. Values aggressive, physical defensive players. Comes from Pete Carroll coaching tree (Seattle). Quinn's defensive scheme demands versatile front-seven players and physical corners who can play man coverage. In 2026, hired Daronte Jones as DC who will install a new multiple scheme."
+      },
+      {
+        "name": "Lance Newmark",
+        "title": "Assistant General Manager",
+        "influence_level": "medium-high",
+        "known_biases": "Came from 49ers with Peters. Trusted deputy who co-presents at draft press conferences. Likely helps manage the draft board and has input on Day 2-3 selections."
+      },
+      {
+        "name": "Josh Harris",
+        "title": "Managing Partner/Owner",
+        "influence_level": "medium",
+        "known_biases": "New ownership group (acquired team 2023). Hired Bob Myers (ex-Warriors GM) and Rick Spielman (ex-Vikings GM) as advisors during initial GM/HC search. Harris is involved in major structural decisions but appears to defer to Peters on football operations. Willing to spend for competitive roster."
+      }
+    ],
+    "power_dynamics": "Peters holds final say on all football decisions. Quinn has significant influence on defensive personnel. The GM-HC relationship appears genuinely collaborative \u2014 Peters consulted Quinn on the Newton pick in 2024 and Conerly in 2025. Ownership is supportive and resource-committed but not micromanaging draft decisions.",
+    "owner_interference": "low"
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.7,
+    "bpa_weight_by_round": {
+      "1": 0.75,
+      "2": 0.65,
+      "3": 0.6,
+      "4_plus": 0.45
+    },
+    "stated_philosophy": "Best player available blended with need. Peters: 'I think you always want to blend that and blend your needs and your best player and best player available.' Also stated: 'I don't think we have a philosophy of going for premium positions in any round.' Wants to build through the draft with longer-term contracts.",
+    "actual_philosophy": "Strongly BPA in early rounds. Took DT Jer'Zhan Newton at 36 despite DT not being a top need \u2014 had a first-round grade on him and he was 'clearly higher than anybody else on the board.' Took OT Josh Conerly Jr. at 29 in 2025 despite EDGE being a more pressing need, because 'he was the highest player on our board.' Peters genuinely drafts BPA in rounds 1-2 and shifts toward need-filling only on Day 3. However, his FA/trade activity heavily addresses needs, which frees him to draft BPA.",
+    "philosophy_mismatch_notes": "Minimal mismatch. Peters' stated and actual philosophies are unusually aligned. He addresses needs aggressively via free agency and trades (Tunsil, Lattimore, Deebo Samuel), which allows him to genuinely follow BPA in the draft without being forced into need picks."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.25,
+    "trade_down_willingness": 0.5,
+    "trades_per_draft_average": 1.5,
+    "trade_triggers": [
+      "Player with significantly higher grade than alternatives still on the board at current pick",
+      "Veteran player available via trade who fills an immediate need (Tunsil, Lattimore, Deebo Samuel)",
+      "Opportunity to acquire extra Day 2 picks by moving back"
+    ],
+    "draft_capital_philosophy": "Peters says he wants to 'build through the draft' but has been a net spender of draft capital in his first two years \u2014 trading away picks for Tunsil (2nd, 3rd, 4th, 7th), Lattimore (3rd, 7th), and Samuel (5th). In 2024, he traded with division rival Eagles to acquire an extra 2nd-round pick. In 2025 pre-draft presser he said adding picks 'is something you'd like to do' and was open to trading back from 29 but ultimately stayed put for Conerly. Has stated willingness to trade within the NFC East: 'I don't personally believe in being scared about trading with a team within the division.'"
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "QB",
+        "OT",
+        "DT",
+        "CB"
+      ],
+      "tier_2_high": [
+        "EDGE",
+        "WR",
+        "IOL"
+      ],
+      "tier_3_mid": [
+        "TE",
+        "LB",
+        "S"
+      ],
+      "tier_4_low": [
+        "RB",
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "RB \u2014 has never drafted an RB higher than the 7th round across 2 drafts. Took Jacory Croskey-Merritt at pick 245 in 2025 as a Day 3 flier. Appears to view RB as replaceable via FA/UDFA."
+    ],
+    "position_premium": [
+      "DT/DL \u2014 Peters learned in San Francisco 'you can't have too many great defensive linemen.' Took Newton at 36 despite already having Allen and Payne. OT also prioritized \u2014 took Coleman Rd 3 in 2024 and Conerly Rd 1 in 2025, plus traded for Tunsil. CB is also premium \u2014 Sainristil Rd 2 in 2024, Amos Rd 2 in 2025."
+    ]
+  },
+  "player_archetype_preferences": {
+    "QB": {
+      "archetype_summary": "Dynamic dual-threat with elite rushing ability and adequate arm talent. Peters chose Jayden Daniels \u2014 the most mobile QB in the 2024 class \u2014 over traditional pocket passers like Drake Maye and J.J. McCarthy. Values leadership, character, and work ethic. Peters: 'The way you lead is being yourself and leading in your own way.' The Daniels pick suggests Peters values dynamic playmaking ability and upside over pure pocket passing, but still requires competent throwing ability across all three levels.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-5",
+        "weight_range": "205\u2013235",
+        "arm_length_minimum": "No clear threshold \u2014 only 1 QB drafted",
+        "key_athletic_tests": "Rushing ability and elusiveness matter most. Daniels had a reported 4.50 40 and was the most dynamic rushing QB prospect in the class. Peters values mobility but it must come with adequate arm talent.",
+        "speed_requirement": "Elite mobility preferred \u2014 4.60 or faster at the position"
+      },
+      "playing_style": {
+        "primary_style": "Dual-threat who can beat you with legs and arm. Daniels set NFL rookie rushing records.",
+        "most_valued_traits": [
+          "Elite rushing/scrambling ability",
+          "Leadership and character",
+          "Accuracy at all three levels",
+          "Pocket movement and escapability",
+          "Competitive toughness"
+        ],
+        "least_important_traits": [
+          "Prototypical size \u2014 chose the leaner Daniels (6-3, 210) over bigger QBs"
+        ],
+        "deal_breakers": [
+          "Poor leadership/character",
+          "Inability to make anticipatory throws"
+        ],
+        "traits_that_make_them_reach": "Not enough data \u2014 only 1 QB drafted. But elite dual-threat ability clearly elevated Daniels on Peters' board."
+      },
+      "college_production": {
+        "production_floor": "Must be a multi-year starter with elite production. Daniels had 40 TDs, 1,134 rush yards, Heisman Trophy in final season.",
+        "production_trajectory": "Values improvement arc \u2014 Daniels developed from ASU to elite at LSU",
+        "context_sensitivity": "High \u2014 evaluated Daniels in SEC context"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 1.02 \u2014 Jayden Daniels, QB, LSU: 6-3, 210, 4.50 (reported). Heisman winner, 40 TDs, 1,134 rush yards. Elite dual-threat."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 QB drafted. Profile heavily inferred from the Daniels selection and Peters' stated emphasis on leadership."
+    },
+    "EDGE": {
+      "archetype_summary": "Peters has NOT drafted an EDGE rusher in the top 4 rounds across 2 drafts. His only EDGE pick was Javontae Jean-Baptiste (Notre Dame) at pick 222 in the 7th round of 2024 \u2014 a 6-5, 252 lb developmental prospect who wins by setting the edge in the run game with limited pass-rush upside. EDGE is clearly a position Peters has addressed via FA/trades (Dorance Armstrong, Jacob Martin, Deatrich Wise, Von Miller) rather than the draft. From his 49ers background, the archetype would be versatile, high-motor defensive linemen who can line up in multiple spots (Nick Bosa, Dee Ford model). Quinn's system historically demands EDGE players who can pin ears back in a 4-3 while also occasionally dropping into coverage.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5 (based on JJB and 49ers tree)",
+        "weight_range": "245\u2013270",
+        "arm_length_minimum": "Peters at 2026 Combine: 'Some guys have shorter arms that play with great length and extension all the time. Some guys have really long arms that don't use that.' Does NOT appear to have a hard arm-length cutoff.",
+        "key_athletic_tests": "First-step explosion. Peters created the 'GTFO' metric in SF measuring explosion off the ball in first two yards. This is the primary athletic metric he values for front-seven players.",
+        "speed_requirement": "Prefers explosive athletes but only 7th-round data exists for his own picks"
+      },
+      "playing_style": {
+        "primary_win_condition": "Versatility and motor. The 49ers tree values EDGE rushers who can play multiple techniques and contribute against the run.",
+        "most_valued_traits": [
+          "First-step explosion (GTFO metric)",
+          "Versatility to play multiple alignments",
+          "Run defense/edge setting",
+          "Motor and effort",
+          "Length usage"
+        ],
+        "least_important_traits": [
+          "Pure finesse/bend \u2014 insufficient data but JJB was a power/length player"
+        ],
+        "deal_breakers": [
+          "One-dimensional players who can only rush the passer",
+          "Poor run defense"
+        ],
+        "traits_that_make_them_reach": "Elite get-off/first step \u2014 consistent with GTFO metric emphasis"
+      },
+      "college_production": {
+        "production_floor": "Insufficient data from own picks. JJB had modest production.",
+        "production_trajectory": "Unknown \u2014 only 1 Day 3 EDGE drafted",
+        "context_sensitivity": "Unknown"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 7.222 \u2014 Javontae Jean-Baptiste, EDGE, Notre Dame: 6-5, 252. Developmental prospect, sets edge in run defense. Not overly dynamic as an athlete."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 EDGE drafted (7th round). Profile heavily inferred from 49ers scouting tree (Bosa, Ford, etc.) and Quinn's defensive scheme demands. EDGE is the #1 need entering 2026 draft and will be the biggest test of Peters' archetype preferences."
+    },
+    "OT": {
+      "archetype_summary": "Athletic, zone-scheme-fit tackle with elite movement skills and developmental upside. Peters has drafted two OL prospects who can play tackle: Brandon Coleman (Rd 3, 2024) and Josh Conerly Jr. (Rd 1, 2025). Both are fluid movers with strong athleticism who fit zone-blocking schemes. Conerly is the clearer archetype signal \u2014 a former RB/basketball player with exceptional lateral agility, smooth feet in pass protection, but concerns about anchor and power. Coleman is a thicker, more powerful player with long arms and OT/OG versatility. Peters clearly prioritizes athletes on the OL who can move in space over pure power blockers.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-6",
+        "weight_range": "310\u2013320",
+        "arm_length_minimum": "33+ inches. Conerly: 33.5 inches. Coleman: 34.625 inches. Both exceed the 33-inch threshold teams typically require.",
+        "key_athletic_tests": "Prioritizes movement skills. Conerly: 5.05 40, 1.71 10-yard split, 34.5-inch vertical. Coleman: 4.99 40, 34-inch vertical, 9-6 broad, 7.40 3-cone. Both tested as elite athletes at OL. Peters clearly values explosive, fluid movers.",
+        "speed_requirement": "Sub-5.10 40 preferred for tackles"
+      },
+      "playing_style": {
+        "primary_style": "Athletic zone-scheme tackle who can move laterally and reach the second level",
+        "most_valued_traits": [
+          "Lateral agility and mirror ability in pass protection",
+          "Ability to move in space on zone runs and pulls",
+          "Length and arm usage",
+          "Versatility (OT/OG flex)",
+          "Developmental upside and youth"
+        ],
+        "least_important_traits": [
+          "Pure power/anchor \u2014 both Conerly and Coleman had anchor concerns but were still drafted. Peters values movement over anchor."
+        ],
+        "deal_breakers": [
+          "Stiff, non-athletic linemen who cannot operate in space",
+          "Inability to pass protect against speed"
+        ],
+        "traits_that_make_them_reach": "Elite athletic testing and movement ability. Conerly was taken at 29 largely because of his rare movement skills despite anchor concerns."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter. Conerly: 2-year starter at Oregon LT. Coleman: 3-year starter at TCU.",
+        "production_trajectory": "Values ascending trajectory. Conerly earned All-American honors as a junior with just 1 sack allowed in 521 pass-blocking snaps.",
+        "context_sensitivity": "Weighs conference strength \u2014 both played in Power 5 conferences"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2025 1.29 \u2014 Josh Conerly Jr., OT, Oregon: 6-4.5, 311, 33.5-inch arms, 5.05 40, 34.5-inch vert. Elite movement skills, former RB. Zone-scheme fit. Peters stayed at 29 despite trade-back offers because Conerly was the highest player on their board.",
+          "2024 3.67 \u2014 Brandon Coleman, OL, TCU: 6-4.5, 313, 34.625-inch arms, 4.99 40, 34-inch vert, 7.40 3-cone. OT/OG versatility. Highest Athleticism Score among all OL at 2024 Combine."
+        ]
+      },
+      "confidence": "high"
+    },
+    "IOL": {
+      "archetype_summary": "Peters has not drafted a pure interior-only lineman. Brandon Coleman was drafted as an OT/OG swing player and has played both positions. Peters' approach appears to be drafting versatile OL athletes who can play multiple spots rather than dedicated guards or centers. The 49ers tree valued athletic guards who could pull and reach-block in Shanahan's zone scheme (Aaron Banks, Laken Tomlinson). Peters signed Tyler Biadasz (C) and Nick Allegretti (G) in FA rather than drafting interior linemen early.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5",
+        "weight_range": "305\u2013325",
+        "arm_length_minimum": "33+ inches preferred for OT/OG versatility",
+        "key_athletic_tests": "Movement skills and ability to operate in space. Zone scheme demands athletic interior linemen who can pull and reach the second level.",
+        "speed_requirement": "Sub-5.10 40 preferred"
+      },
+      "playing_style": {
+        "primary_style": "Athletic, zone-scheme interior lineman who can pull and reach-block",
+        "most_valued_traits": [
+          "Lateral movement and ability to reach second level",
+          "Versatility across multiple OL positions",
+          "Hand placement and technique",
+          "Run blocking in zone concepts",
+          "Pass protection anchor at the point of attack"
+        ],
+        "least_important_traits": [
+          "Pure power without movement ability"
+        ],
+        "deal_breakers": [
+          "Stiff movers who cannot handle zone-blocking assignments",
+          "Players limited to one position"
+        ],
+        "traits_that_make_them_reach": "Elite athleticism combined with positional versatility"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter at Power 5 program",
+        "production_trajectory": "Values experience and improvement",
+        "context_sensitivity": "Weighs scheme background"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 3.67 \u2014 Brandon Coleman, OL, TCU: 6-4.5, 313. 34 starts at LT/LG. Elite athletic testing. Versatile OT/OG prospect."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "No pure IOL drafted. Coleman is a swing OT/OG. Profile inferred from 49ers tree and scheme requirements."
+    },
+    "DT": {
+      "archetype_summary": "Disruptive, penetrating 3-technique with quickness and pass-rush ability. Peters took Jer'Zhan Newton at pick 36 \u2014 a 6-2, 295 lb undersized but explosive interior disruptor who was the Big Ten Defensive Player of the Year. Newton wins with hand quickness, leverage, and agility rather than brute size. Peters had a first-round grade on Newton and couldn't believe he fell to 36. This aligns perfectly with the 49ers philosophy of valuing interior disruption (Nick Bosa, Javon Kinlaw, DeForest Buckner). Peters created the 'GTFO' metric measuring first-step explosion \u2014 Newton embodies this. Peters also signed Javon Kinlaw (ex-49er) in FA, further confirming the 49ers DL evaluation DNA.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4",
+        "weight_range": "285\u2013310",
+        "arm_length_minimum": "No hard cutoff \u2014 Newton had 32-inch arms (below average) but was still a top target. Peters values production and disruption over ideal measurements.",
+        "key_athletic_tests": "First-step quickness and explosion (GTFO metric). Newton tested around 4.95 40 at 295 lbs. Quickness and agility matter more than size or bench press.",
+        "speed_requirement": "Sub-5.00 40 preferred for 3-technique prospects"
+      },
+      "playing_style": {
+        "primary_win_condition": "Interior disruption via quickness, hand usage, and leverage",
+        "most_valued_traits": [
+          "First-step explosion/get-off",
+          "Active hands and pass-rush repertoire",
+          "Ability to penetrate and disrupt",
+          "Versatility to line up in multiple alignments",
+          "Motor and competitive toughness"
+        ],
+        "least_important_traits": [
+          "Two-gap, space-eating nose tackle ability \u2014 Peters' DT pick is a penetrator, not a run-stuffer"
+        ],
+        "deal_breakers": [
+          "Slow, lumbering interior linemen without pass-rush ability",
+          "Players who cannot win with quickness against NFL guards"
+        ],
+        "traits_that_make_them_reach": "Elite interior pass-rush production and disruption. Peters was willing to take Newton at a position of non-need because of how disruptive he was."
+      },
+      "college_production": {
+        "production_floor": "Elite production required. Newton: 18 career sacks (tied Illinois DT record), 7.5 sacks in final season, Big Ten DPOY, consensus All-American.",
+        "production_trajectory": "Values ascending production \u2014 Newton improved each year at Illinois",
+        "context_sensitivity": "High \u2014 adjusts for conference strength. Newton dominated Big Ten competition."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 2.36 \u2014 Jer'Zhan Newton, DT, Illinois: 6-2, 295 (304 at combine), 32-inch arms, ~4.95 40. Big Ten DPOY, 7.5 sacks, consensus All-American. Peters had a first-round grade and 'could not believe he was still there.' Explosive, violent, team captain."
+        ]
+      },
+      "confidence": "medium-high"
+    },
+    "CB": {
+      "archetype_summary": "Peters has drafted two very different CB archetypes across two drafts, suggesting he values versatility and football IQ over a single physical profile. Mike Sainristil (2024, pick 50) is a 5-10, 182 lb converted WR with elite agility and ball skills but undersized. Trey Amos (2025, pick 61) is a 6-1, 195 lb long press-man corner with physicality at the catch point. The common thread is: football intelligence, ball skills, competitive toughness, and scheme versatility. Both were multi-year starters who earned All-American/All-SEC honors. Peters values players who understand offense \u2014 Sainristil was a WR first, giving him receiver-route knowledge. Dan Quinn's system demands physical corners who can play man coverage.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-2 (wide range \u2014 drafted both undersized slot and tall outside)",
+        "weight_range": "182\u2013195",
+        "arm_length_minimum": "No hard minimum \u2014 Sainristil had 30.875-inch arms (below average), while Amos had 31.25-inch arms. Peters will go short if the player compensates with other traits.",
+        "key_athletic_tests": "Explosive athleticism. Sainristil: 40-inch vert (94th percentile), 10-11 broad (95th). Amos: 4.43 40. Both tested as excellent athletes. Peters values explosive testing.",
+        "speed_requirement": "4.47 or faster \u2014 Sainristil ran 4.47 (77th percentile), Amos ran 4.43 (83rd percentile). Neither was slow."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Versatile \u2014 must be able to play both man and zone. Quinn's system demands man coverage ability but Peters has drafted corners with zone instincts too.",
+        "most_valued_traits": [
+          "Ball skills and playmaking ability (Sainristil had 6 INTs, Amos had 13 PBUs)",
+          "Football intelligence and route recognition",
+          "Competitive toughness and physicality relative to size",
+          "Scheme versatility (can play slot and outside)",
+          "Leadership and character (both were team captains)"
+        ],
+        "least_important_traits": [
+          "Prototypical size \u2014 Sainristil at 5-10 was very undersized but Peters took him anyway for his football acumen and ball skills"
+        ],
+        "deal_breakers": [
+          "Poor ball skills/inability to create turnovers",
+          "Lack of competitive fire or physicality"
+        ],
+        "traits_that_make_them_reach": "Elite ball skills and football intelligence. Sainristil's WR background gave him natural coverage instincts. Amos' 13 PBUs in the SEC were a major draw."
+      },
+      "college_production": {
+        "production_floor": "Must be a proven playmaker. Sainristil: 6 INTs, 2 returned for TDs in final season, National Championship MVP performance. Amos: 13 PBUs, 3 INTs in final season.",
+        "production_trajectory": "Values late development and positional switches. Sainristil was a WR until 2022. Amos played at three schools and improved at each stop.",
+        "context_sensitivity": "High \u2014 Sainristil proved himself in Big Ten and CFP; Amos proved he could jump from Sun Belt to SEC"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2024 2.50 \u2014 Mike Sainristil, CB, Michigan: 5-10, 182, 4.47 40, 30.875-inch arms, 40-inch vert. Converted WR, national champion, 6 INTs. Drafted for football IQ and ball skills despite undersized frame.",
+          "2025 2.61 \u2014 Trey Amos, CB, Ole Miss: 6-1, 195, 4.43 40, 31.25-inch arms. Long press corner, 13 PBUs, 3 INTs. First Team All-SEC. Described as 'long press cornerback who proved he could make the jump from Sun Belt to SEC.'"
+        ]
+      },
+      "confidence": "medium-high"
+    },
+    "S": {
+      "archetype_summary": "Big, long, rangy safety with developmental upside. Peters took Dominique Hampton at pick 161 in 2024 \u2014 a 6-2, 215 lb safety from Washington with length and speed but limited coverage refinement. Hampton fits the mold of a high-ceiling athlete with size to play in the box and range to play deep. This aligns with the 49ers tree that developed Talanoa Hufanga (similar undersized-but-physical profile) and valued versatile safeties. The Commanders' scheme under Quinn demands a safety who can play both high and in the box.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "200\u2013220",
+        "arm_length_minimum": "No clear data \u2014 only 1 safety drafted",
+        "key_athletic_tests": "Size and speed combination. Hampton was described as 'big, fast and long.' Peters values athletic traits at safety for developmental picks.",
+        "speed_requirement": "Must have range \u2014 sub-4.55 preferred"
+      },
+      "playing_style": {
+        "primary_style": "Read-and-react high safety with box versatility",
+        "most_valued_traits": [
+          "Size and length",
+          "Range and speed to cover deep thirds",
+          "Physicality in run support",
+          "Versatility to play multiple safety alignments",
+          "Special teams value"
+        ],
+        "least_important_traits": [
+          "Refined man coverage technique \u2014 Peters took Hampton as a developmental piece despite coverage limitations"
+        ],
+        "deal_breakers": [
+          "Lack of athleticism or range",
+          "Unable to contribute on special teams as a Day 3 pick"
+        ],
+        "traits_that_make_them_reach": "Elite size-speed combination at the position"
+      },
+      "college_production": {
+        "production_floor": "Multi-year contributor. Hampton: 6 seasons at Washington, 151 tackles, 11 PBUs.",
+        "production_trajectory": "Late bloomer acceptable \u2014 Hampton didn't become full-time starter until year 4",
+        "context_sensitivity": "Pac-12/Big Ten context adjusted"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 5.161 \u2014 Dominique Hampton, S, Washington: 6-2, 215. Six-year player, 151 tackles, 11 PBUs. Big, fast, long safety. Developmental Day 3 pick with special teams upside."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 safety drafted (Day 3). Profile heavily inferred from 49ers tree (Hufanga, Ji'Ayir Brown) and scheme requirements."
+    },
+    "LB": {
+      "archetype_summary": "Athletic, rangy, coverage-capable linebacker with hybrid safety traits. Peters has drafted two LBs: Jordan Magee (2024, Rd 5) and Kain Medrano (2025, Rd 6). Both are undersized, athletic, and better in coverage than traditional thumper roles. Magee (Temple) was one of the most athletic LB prospects in his class. Medrano (UCLA, 6-3, 222) was described by Zierlein as having a 'frame more reminiscent of a strong safety than a linebacker.' This perfectly reflects the modern NFL trend and the 49ers' Fred Warner archetype \u2014 lean, fast, coverage-first linebackers.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "220\u2013240",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Speed and agility. Both Magee and Medrano were valued for their athleticism and ability to cover. Peters wants LBs who can run with TEs and RBs in coverage.",
+        "speed_requirement": "Sub-4.60 preferred \u2014 must be able to cover in space"
+      },
+      "playing_style": {
+        "primary_style": "Coverage-first, sideline-to-sideline linebacker",
+        "most_valued_traits": [
+          "Coverage ability \u2014 can match up with TEs and RBs",
+          "Sideline-to-sideline range and speed",
+          "Football intelligence and instincts",
+          "Versatility to play multiple LB spots",
+          "Blitz capability"
+        ],
+        "least_important_traits": [
+          "Pure run-stuffing/gap-filling ability \u2014 Peters takes leaner, faster LBs over traditional thumpers"
+        ],
+        "deal_breakers": [
+          "Liability in coverage",
+          "Lack of range or speed to play in space"
+        ],
+        "traits_that_make_them_reach": "Elite athletic testing with coverage versatility"
+      },
+      "college_production": {
+        "production_floor": "No clear high floor for Day 3 LBs. Medrano: 72 tackles, 1.5 sacks, 2 INTs in final year. Magee: athletic standout.",
+        "production_trajectory": "Values late developers and captain-level leaders. Both were multi-year contributors.",
+        "context_sensitivity": "Moderate"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2024 5.139 \u2014 Jordan Magee, LB, Temple: One of the most athletic LB prospects in the class. Day 3 developmental pick.",
+          "2025 6.205 \u2014 Kain Medrano, LB, UCLA: 6-3, 222. Third Team All-Big Ten, 72 tackles, 2 INTs. 'Long, lean frame more reminiscent of a strong safety than a linebacker.' Team captain."
+        ]
+      },
+      "confidence": "low-medium",
+      "confidence_note": "Only Day 3 LBs drafted. Peters signed Bobby Wagner and Frankie Luvu in FA to handle LB needs. Profile largely inferred from 49ers tree (Fred Warner archetype)."
+    },
+    "WR": {
+      "archetype_summary": "Versatile, football-smart receivers with route-running nuance and positional flexibility. Peters has drafted two WRs: Luke McCaffrey (2024, Rd 3, pick 100) and Jaylin Lane (2025, Rd 4, pick 128). McCaffrey (Rice) is a former QB turned WR with NFL bloodlines \u2014 Peters specifically valued his quarterback background for understanding defensive concepts. Lane (Va Tech) is a 5-10, 196 lb slot receiver with 4.34 speed and return ability. The common thread: football intelligence, versatility, and the ability to separate with quickness rather than pure size. Peters traded for Deebo Samuel in 2025, further confirming his preference for versatile offensive weapons who can be deployed in multiple ways.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-2 (wide range \u2014 both slot-type receivers)",
+        "weight_range": "185\u2013210",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Speed and quickness. Lane: 4.34 40. McCaffrey: quick feet, plus acceleration. Peters values separation ability.",
+        "speed_requirement": "4.50 or faster preferred. Lane's 4.34 was a major draw."
+      },
+      "playing_style": {
+        "primary_style": "Slot-capable, versatile receivers who separate with quickness and football IQ",
+        "most_valued_traits": [
+          "Route-running technique and separation ability",
+          "Football intelligence (understanding coverages)",
+          "Versatility to play multiple receiver spots",
+          "YAC ability and quickness with ball in hands",
+          "Speed to threaten vertically"
+        ],
+        "least_important_traits": [
+          "Contested-catch ability \u2014 neither McCaffrey nor Lane are big-bodied X receivers. Peters uses FA/trades for that (McLaurin, Samuel)."
+        ],
+        "deal_breakers": [
+          "One-dimensional deep-only threats without route nuance",
+          "Poor football IQ"
+        ],
+        "traits_that_make_them_reach": "Positional versatility and football background. McCaffrey's QB experience was specifically cited by Peters as an advantage."
+      },
+      "college_production": {
+        "production_floor": "Moderate \u2014 McCaffrey had a short WR career at Rice. Lane had 69 receptions for 940 yards at MTSU before transferring to VT.",
+        "production_trajectory": "Values improvement and positional development",
+        "context_sensitivity": "High \u2014 adjusts for school, scheme, and usage"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2024 3.100 \u2014 Luke McCaffrey, WR, Rice: Former QB with NFL bloodlines. 'Foot quickness, plus-level acceleration, and ball skills.' Peters valued his QB understanding of defensive schemes.",
+          "2025 4.128 \u2014 Jaylin Lane, WR, Virginia Tech: 5-10, 196, 4.34 40. Slot receiver with return ability. 2,532 career yards, 18 TDs across MTSU and VT."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "TE": {
+      "archetype_summary": "Versatile hybrid TE/FB who can line up in multiple alignments and contribute as both blocker and receiver. Peters drafted Ben Sinnott (2024, Rd 2, pick 53) \u2014 a former walk-on at Kansas State who played FB before becoming a TE. Sinnott is 6-4, 250 with a 4.68 40 and elite explosiveness (40-inch vert, 10-6 broad). He doesn't do any one thing at an elite level but can do everything well. This perfectly reflects the 49ers TE philosophy that produced George Kittle \u2014 athletic, tough, versatile TEs who can both block and catch. Peters also values the 'tough guy' archetype \u2014 Sinnott was described as 'exactly the type of tough guy Adam Peters covets.'",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5",
+        "weight_range": "240\u2013260",
+        "arm_length_minimum": "No hard cutoff \u2014 Sinnott had 32.375-inch arms (25th percentile for TEs) but was still drafted in Round 2",
+        "key_athletic_tests": "Explosiveness matters most. Sinnott: 40-inch vert (elite), 10-6 broad (elite), 4.68 40, 6.82 3-cone. Peters wants athletic TEs who can make plays after the catch.",
+        "speed_requirement": "Sub-4.75 preferred"
+      },
+      "playing_style": {
+        "primary_style": "Hybrid TE/FB who can line up inline, in the backfield, or flexed out",
+        "most_valued_traits": [
+          "Versatility to line up in multiple alignments",
+          "Toughness and willingness to block",
+          "YAC ability and explosiveness after the catch",
+          "Strong hands and reliable catching",
+          "Football IQ and route-running development potential"
+        ],
+        "least_important_traits": [
+          "Elite receiving production \u2014 Sinnott had 49 catches in his final year, not a dominant stat line. Peters values the total package over pure receiving numbers."
+        ],
+        "deal_breakers": [
+          "Inability or unwillingness to block",
+          "Lack of athletic upside"
+        ],
+        "traits_that_make_them_reach": "Elite athletic testing combined with positional versatility (FB/TE hybrid)"
+      },
+      "college_production": {
+        "production_floor": "Moderate. Sinnott: 49 receptions, 676 yards, 6 TDs in final season. Not elite numbers but steady production.",
+        "production_trajectory": "Walk-on who earned his way to 2x All-Big 12. Peters values players who develop and earn their role.",
+        "context_sensitivity": "Moderate \u2014 adjusts for role and scheme"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 2.53 \u2014 Ben Sinnott, TE, Kansas State: 6-4, 250, 4.68 40, 40-inch vert, 10-6 broad. Former walk-on, played FB before TE. 49 receptions, 676 yards, 6 TDs. 'Exactly the type of tough guy Adam Peters covets.'"
+        ]
+      },
+      "confidence": "medium"
+    },
+    "RB": {
+      "archetype_summary": "Day 3 developmental back with explosiveness and upside. Peters has only drafted one RB: Jacory Croskey-Merritt (2025, Rd 7, pick 245) \u2014 a 5-10, 206 lb back from Arizona who transferred from Alabama State. This is a clear Day 3 flier on athletic traits. Peters views RB as a position to address via FA (signed Austin Ekeler, Brian Robinson was already on roster) rather than early draft capital. The 49ers tree under Peters produced RB evaluation through later rounds and trades (Elijah Mitchell Rd 6, Christian McCaffrey via trade), confirming this approach.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-0",
+        "weight_range": "200\u2013215",
+        "arm_length_minimum": "N/A",
+        "key_athletic_tests": "Explosiveness and burst. Day 3 RBs are valued for their traits over polished production.",
+        "speed_requirement": "4.50 or faster preferred"
+      },
+      "playing_style": {
+        "primary_style": "Explosive, multi-purpose back",
+        "most_valued_traits": [
+          "Explosiveness and burst",
+          "Receiving ability out of the backfield",
+          "Versatility in multiple roles",
+          "Contact balance",
+          "Vision"
+        ],
+        "least_important_traits": [
+          "Pure power/short-yardage specialization \u2014 Peters hasn't invested early capital in any RB type"
+        ],
+        "deal_breakers": [
+          "One-dimensional backs without receiving ability"
+        ],
+        "traits_that_make_them_reach": "N/A \u2014 Peters does not reach for RBs. Will only take them as Day 3 value picks."
+      },
+      "college_production": {
+        "production_floor": "No clear floor \u2014 Croskey-Merritt was a transfer with limited pedigree",
+        "production_trajectory": "N/A",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 7.245 \u2014 Jacory Croskey-Merritt, RB, Arizona: 5-10, 206. Transfer from Alabama State via New Mexico. Day 3 developmental flier."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 RB drafted in the 7th round. Peters clearly deprioritizes RB in the draft. Profile inferred from 49ers tree (late-round RBs, McCaffrey via trade)."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 5,
+    "max_observed_reach": 12,
+    "round_1_reach_tolerance": 5,
+    "notes": "Peters generally drafts at or near consensus value. Newton at 36 was widely considered a steal (first-round grade on many boards). Conerly at 29 was near consensus range. Sainristil at 50 was close to his expected range. Sinnott at 53 was considered a slight reach by PFF (ranked 105th on their board). Peters doesn't appear to be a significant reacher \u2014 he lets BPA come to him rather than reaching for need."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.55,
+    "offensive_scheme": "Spread/RPO-based offense under new OC David Blough (promoted from assistant QBs coach after Kliff Kingsbury was fired following 2025 season). Previously ran Kingsbury's Air Raid concepts. The offense centers on Jayden Daniels' dual-threat ability with RPOs, play-action, and designed QB runs. Zone-run concepts are primary in the run game. OL needs to be athletic and able to execute zone blocking.",
+    "defensive_scheme": "Transitioning to a new multiple scheme under DC Daronte Jones (hired Feb 2026, ex-Vikings defensive pass game coordinator). Previously ran Quinn's 4-3 base with multiple fronts. Jones will install his own system with '3-4, 4-3, they're just numbers' approach. Quinn emphasized wanting diverse looks to confuse offenses. Historical Quinn defense demands: aggressive style, man coverage emphasis, need pass-rushers who can pin ears back, physical corners, versatile front-seven.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "MAJOR SCHEME CHANGE entering 2026. Both OC (Kingsbury fired, Blough promoted) and DC (Whitt fired, Daronte Jones hired) are new. Jones will install an entirely new defensive system \u2014 Quinn gave him full control. This creates uncertainty about exact defensive player archetypes needed but Quinn's core preferences (physicality, aggression, man coverage ability) should persist. Offensive scheme likely shifts from pure Air Raid toward something incorporating more of Blough's vision."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.55,
+    "risk_description": "Moderately aggressive. Peters makes bold moves when he identifies value \u2014 trading significant draft capital for Tunsil and Lattimore, taking the dual-threat Daniels over 'safer' pocket passers, and drafting Newton at a position of non-need. However, he also shows conservative tendencies: staying put at his picks rather than trading up, signing established veterans in FA. The 'recalibration not rebuild' philosophy suggests someone who wants to compete immediately while building for the long term.",
+    "recency_bias": 0.65,
+    "recency_description": "Moderate-to-high recency bias. After the 2024 NFC Championship loss where the defense was shredded (55-23 by Eagles), Peters aggressively addressed defensive needs in the 2025 offseason (traded for Lattimore CB, signed defensive veterans). After the disastrous 5-12 2025 season plagued by injuries and defensive collapse, Peters is now targeting 'young, really fast, exciting, explosive talent' and fired both coordinators. The 2025 season failure clearly shifted his 2026 approach.",
+    "sunk_cost_behavior": "Willing to move on from underperforming assets. Traded Jahan Dotson (2022 1st-round pick by previous regime) to Eagles for a 5th-round pick and conditional 3rd. Also appears ready to move on from Daron Payne despite his $90M contract if he doesn't perform.",
+    "combine_weight": 0.55,
+    "combine_description": "Balanced but created his own proprietary metrics (GTFO) to supplement standard combine data. Peters values combine testing as confirmation of film traits rather than as a standalone evaluation tool. He has drafted undersized players with great testing (Newton's quickness despite small frame) and undersized players with mixed testing (Sainristil below average size but elite explosiveness). His 2026 Combine comments about arm length ('Some guys have shorter arms that play with great length') suggest he doesn't rigidly apply thresholds.",
+    "character_weight": 0.75,
+    "character_description": "High character standards. Peters consistently emphasizes leadership and character. Daniels was chosen partly for leadership qualities. Peters values team captains \u2014 Newton, Sainristil, Coleman, and Sinnott were all captains. His introductory presser emphasized 'being a great person, a great human being that people will follow.' NFL agents praised Peters for honesty and treating people with compassion. This suggests character is a near-prerequisite for early-round picks.",
+    "quarterback_philosophy": "Will invest the highest draft capital for a franchise QB when the opportunity aligns. Used the #2 overall pick on Daniels. Chose a dual-threat with elite rushing over pure pocket passers. Believes in building around the QB \u2014 traded for Tunsil and invested heavily in OL to protect Daniels. Will not draft a backup QB with valuable capital."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.6,
+    "production_vs_projection": "Leans toward production but will bet on traits for Day 3 picks. In rounds 1-2, every pick has had strong college production (Daniels: Heisman winner; Newton: Big Ten DPOY; Sainristil: All-American; Sinnott: 2x All-Big 12; Conerly: All-American; Amos: All-SEC). On Day 3, Peters is more willing to take athletic upside (Hampton, Croskey-Merritt). In a tiebreaker between production and projection in early rounds, production appears to win.",
+    "production_thresholds_by_position": {
+      "QB": "Must be elite producer \u2014 Daniels won the Heisman with 40 TDs",
+      "DT": "Must show pass-rush disruption \u2014 Newton had 7.5 sacks as an interior lineman",
+      "CB": "Must be a playmaker \u2014 Sainristil had 6 INTs, Amos had 13 PBUs + 3 INTs",
+      "OT": "Must be a proven starter with limited sacks allowed \u2014 Conerly allowed 1 sack in 521 pass-blocking snaps",
+      "WR": "No clear high floor \u2014 both WR picks were mid-round with moderate college stats",
+      "TE": "Moderate production acceptable if traits are present \u2014 Sinnott had 49 catches"
+    },
+    "breakout_age_sensitivity": 0.5,
+    "dominator_rating_sensitivity": 0.4,
+    "notes": "Peters values awards and accolades as validation of production (Heisman, All-American, conference DPOY, team captain). Every early-round pick has had significant postseason/all-conference recognition. He also values players who developed over their college careers rather than one-hit wonders \u2014 Sainristil switched positions, Coleman grew into his role, Sinnott walked on and earned everything."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "40_yard_max": 4.47,
+        "notes": "Sainristil 4.47, Amos 4.43. Both ran 4.47 or faster.",
+        "confidence": "medium"
+      },
+      "DT": {
+        "notes": "Values quickness over size. Newton at 6-2, 295 was undersized but disruptive. No hard size minimums apparent.",
+        "confidence": "medium"
+      },
+      "OT": {
+        "min_arm_length": "33 inches",
+        "notes": "Conerly 33.5, Coleman 34.625. Both above 33-inch threshold. But Peters' Combine comments suggest arm length is nuanced.",
+        "confidence": "medium"
+      },
+      "WR": {
+        "no_clear_threshold": true,
+        "notes": "Both WR picks were mid-to-late round. Lane's 4.34 speed was a draw. No clear size minimums."
+      },
+      "TE": {
+        "notes": "Values explosiveness over size. Sinnott had 40-inch vert and 10-6 broad despite below-average arm length.",
+        "confidence": "medium"
+      },
+      "S": {
+        "notes": "Values size. Hampton at 6-2, 215 was big for a safety.",
+        "confidence": "low"
+      }
+    },
+    "threshold_type": "Mostly soft preferences rather than hard cutoffs. Peters has shown willingness to break from ideal measurables when the player compensates with other traits (Sainristil's undersized frame, Newton's short arms). His 2026 Combine comments explicitly stated he doesn't rigidly apply arm-length thresholds.",
+    "size_preferences_by_position": {
+      "DT": "Comfortable with undersized penetrating DTs (Newton at 6-2, 295)",
+      "CB": "Wide range \u2014 from 5-10 slot CBs to 6-1 outside CBs",
+      "OT": "Prefers 310+ lbs with 33+ inch arms",
+      "LB": "Lean and athletic \u2014 both LB picks were under 230 lbs",
+      "S": "Prefers 6-0+ with 210+ lbs"
+    },
+    "athletic_testing_favorites": "Created the GTFO metric measuring first-step explosion in the first 2 yards \u2014 this is the single most important athletic metric for front-seven players. For CBs and WRs, values explosive testing (vert, broad) as much as 40 time. For OL, values 10-yard split and movement drills over raw 40 time.",
+    "measurables_vs_film": "Film-first but uses proprietary analytics (GTFO metric) and combine testing as confirmation. Peters: 'Some guys have shorter arms that play with great length and extension all the time. Some guys have really long arms that don't use that.' This philosophy prioritizes how players use their traits on film over raw measurements."
+  },
+  "round_strategy": {
+    "round_1_strategy": "True BPA regardless of position. Took QB Daniels at 2 (obvious pick). Took OT Conerly at 29 despite EDGE being a bigger need. Peters will not reach for a need position in Round 1 \u2014 he takes the highest-rated player on his board. Stayed put at 29 despite trade-back offers because Conerly was the top player available.",
+    "round_2_3_strategy": "Still heavily BPA-leaning but begins to factor in positional need. Newton at 36 was BPA at a non-need position. Sainristil at 50 filled a need AND was BPA. Sinnott at 53 was a slight reach per PFF but filled a need at TE. Amos at 61 filled a need at outside CB. Coleman at 67 filled an OL need. Day 2 is where Peters addresses needs \u2014 but only when the player also rates highly on his board.",
+    "day_3_strategy": "Developmental athletes and role-specific contributors. Day 3 picks are athletic upside bets (Hampton, Magee), positional-switch projects (McCaffrey from QB to WR), speed/return specialists (Lane), lean athletes (Medrano), and UDFA-caliber fliers (Croskey-Merritt, Jean-Baptiste). Peters uses Day 3 for high-ceiling/low-floor developmental players and special teams contributors.",
+    "compensatory_pick_usage": "Had one comp pick in 2024 (3.100 \u2014 used on Luke McCaffrey). Treated it like a normal pick \u2014 took a player he liked regardless of the pick's origin."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "QB": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Daniels was 2024 OROY and franchise QB. Home run pick."
+      },
+      "DT": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Newton had 3 sacks as a rookie in 2024, then 5 sacks in Year 2. Emerging starter."
+      },
+      "CB": {
+        "picks": 2,
+        "starters": 2,
+        "rate": 1.0,
+        "note": "Sainristil started 16 games as rookie with 93 tackles, 14 PD, 2 INTs (including 2 in playoff win). Amos started 10 games before fractured fibula in Week 10."
+      },
+      "OT": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Conerly started 16 games as a rookie. Coleman has been more of a depth piece."
+      },
+      "TE": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Sinnott has been a rotational player, not yet a consistent starter behind Ertz."
+      },
+      "WR": {
+        "picks": 2,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "McCaffrey and Lane have been depth/special teams contributors, not starters."
+      },
+      "S": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Hampton has been a special teams contributor."
+      },
+      "LB": {
+        "picks": 2,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Both Day 3 developmental picks."
+      },
+      "RB": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "7th-round flier."
+      },
+      "EDGE": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "7th-round developmental pick."
+      }
+    },
+    "blind_spots": [
+      "WR evaluation has produced no starters through 2 drafts \u2014 both picks were mid-to-late round developmental types. May need to invest higher capital at WR.",
+      "EDGE evaluation is completely untested \u2014 has never invested draft capital at the position. This is the #1 position to watch in 2026."
+    ],
+    "strengths": [
+      "QB and defensive evaluation (DT, CB) have been excellent. Early-round picks at these positions have all become starters or significant contributors. OT evaluation is solid with Conerly starting as a rookie."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Aggressive spender who fills needs in FA to allow BPA drafting. In 2024, signed 27 free agents to overhaul the roster. In 2025, traded for Tunsil, Lattimore, and Deebo Samuel. Peters uses FA and trades as the primary need-filling mechanism, reserving the draft for BPA talent accumulation.",
+    "fa_draft_correlation": "When Peters signs or trades for a veteran starter at a position, he still drafts that position but at a lower priority. Example: Traded for Tunsil (LT) but still drafted Conerly (OT) at 29 \u2014 for long-term depth/succession planning. Signed veteran CBs but still drafted Amos in Rd 2 for future development.",
+    "roster_construction_philosophy": "Build premium positions through the draft; supplement with veteran FA signings and trades for immediate competitiveness. Peters' 'recalibration' approach means competing now while building for the future simultaneously. He's willing to mortgage some draft capital for win-now moves (Tunsil trade) but sees the draft as the long-term foundation."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 14,
+    "notable_patterns": [
+      "9 of 14 total picks addressed defensive or offensive line positions (4 OL, 1 DT, 2 CB, 1 S, 1 LB, 1 EDGE) \u2014 strong emphasis on building from the trenches outward",
+      "Every Round 1-2 pick has been a team captain or award winner at the college level \u2014 character and leadership are non-negotiable for early investments",
+      "Has never traded up during the draft itself \u2014 stays put or considers trading back",
+      "Has traded significant pre-draft capital for veteran upgrades (Tunsil, Lattimore, Samuel)",
+      "BPA philosophy is genuine \u2014 took Newton (DT) over other needs at 36, took Conerly (OT) over EDGE at 29",
+      "Has drafted 0 EDGE rushers in rounds 1-6 across 2 drafts despite it being a persistent need \u2014 EDGE is clearly addressed via FA/trades rather than draft",
+      "Values versatile, position-flexible players: Sainristil (WR\u2192CB), McCaffrey (QB\u2192WR), Coleman (OT/OG), Sinnott (FB/TE)"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2024,
+        "pick": "2.53",
+        "player": "Ben Sinnott",
+        "position": "TE",
+        "consensus_rank": "105 (PFF Big Board)",
+        "reach_amount": 52,
+        "context": "PFF ranked Sinnott 105th overall. Taken at 53. Peters likely had a significantly higher grade based on Sinnott's athleticism and versatility. TE was a need."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2024,
+        "pick": "2.36",
+        "player": "Jer'Zhan Newton",
+        "position": "DT",
+        "consensus_rank": "12-25 range",
+        "value_amount": 15,
+        "context": "Peters had a first-round grade on Newton. Multiple analysts ranked him in the top 15-25. 'We could not believe he was still there. We looked at moving up to get him.'"
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_notes": "2 drafts as WSH GM. Previous 7-year tenure with 49ers provides strong supplementary signal on evaluation philosophy (especially DL, TE, LB, CB). Profile should be refreshed after 2026 draft \u2014 particularly EDGE and WR archetype preferences which are currently under-evidenced. The 2026 draft with pick #7 will be the most revealing data point for Peters' evaluation approach at premium positions. Scheme change (new OC and DC) adds uncertainty to which player archetypes the coaching staff will prioritize.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

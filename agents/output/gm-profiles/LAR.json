@@ -1,0 +1,863 @@
+{
+  "team": {
+    "name": "Los Angeles Rams",
+    "abbreviation": "LAR",
+    "division": "NFC West",
+    "current_draft_position": 13
+  },
+  "front_office": {
+    "gm": {
+      "name": "Les Snead",
+      "title": "General Manager",
+      "hired": "2012-02-10",
+      "previous_role": "Director of Player Personnel, Atlanta Falcons",
+      "drafts_as_gm": 14,
+      "confidence": "high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Auburn University",
+          "role": "Player (Tight End)",
+          "years": "1992\u20131993",
+          "mentor": "Pat Dye / Terry Bowden"
+        },
+        {
+          "org": "Auburn University",
+          "role": "Graduate Assistant",
+          "years": "1993\u20131994",
+          "mentor": "Terry Bowden coaching staff"
+        },
+        {
+          "org": "Jacksonville Jaguars",
+          "role": "Pro Scout",
+          "years": "1995\u20131997",
+          "mentor": "Tom Coughlin / Michael Lombardi"
+        },
+        {
+          "org": "Atlanta Falcons",
+          "role": "Pro Scout",
+          "years": "1998\u20132008",
+          "mentor": "Rich McKay / Thomas Dimitroff"
+        },
+        {
+          "org": "Atlanta Falcons",
+          "role": "Director of Pro Personnel",
+          "years": "2005\u20132008",
+          "mentor": "Rich McKay"
+        },
+        {
+          "org": "Atlanta Falcons",
+          "role": "Director of Player Personnel",
+          "years": "2009\u20132011",
+          "mentor": "Thomas Dimitroff"
+        },
+        {
+          "org": "Los Angeles Rams (St. Louis)",
+          "role": "General Manager",
+          "years": "2012\u2013present",
+          "mentor": "Self / Sean McVay collaboration from 2017"
+        }
+      ],
+      "primary_mentor": "Rich McKay (Atlanta Falcons president/GM) and Thomas Dimitroff (Atlanta Falcons GM)",
+      "philosophical_lineage": "McKay tree (Tampa Bay Super Bowl era \u2192 Atlanta) with Dimitroff influence. McKay was known for aggressive roster-building and trading. Dimitroff was known for bold draft-day trades (trading up for Julio Jones). Snead absorbed both the aggressiveness in player acquisition and a willingness to trade premium draft capital for proven talent. The Jaguars expansion-era experience under Tom Coughlin also instilled a comfort with unconventional roster construction methods.",
+      "breakpoints": "Snead dramatically diverged from both mentors in his willingness to consistently trade first-round picks for veteran players, a practice neither McKay nor Dimitroff employed at the same frequency. Snead's 'F*** Them Picks' philosophy is uniquely his own, taking the aggressiveness he learned and amplifying it to an extreme during the 2018-2021 Super Bowl window. Post-Super Bowl, Snead pivoted to a 'remodel' philosophy emphasizing Day 2-3 drafting and developing young players, showing tactical flexibility neither mentor displayed.",
+      "lineage_weight": 0.15,
+      "lineage_weight_notes": "14 drafts of own data make lineage weight minimal. Snead's track record speaks for itself. The McKay/Dimitroff influence is now deeply embedded in his approach rather than a predictive signal."
+    },
+    "primary_decision_maker": "Les Snead in partnership with Sean McVay",
+    "key_influencers": [
+      {
+        "name": "Sean McVay",
+        "title": "Head Coach",
+        "influence_level": "co-equal",
+        "known_biases": "Offensive-minded, values pass protection and playmakers for his scheme. Became 'obsessed' with Vic Fangio-style defense after 2018 Super Bowl loss. Has strong input on offensive personnel and defensive scheme direction. McVay and Snead operate as true partners \u2014 Snead has described their alignment as a key strength."
+      },
+      {
+        "name": "John McKay",
+        "title": "Assistant General Manager",
+        "influence_level": "high",
+        "known_biases": "Son of Rich McKay. Has been with the Rams for a decade under McVay/Snead. Previously director of pro personnel. Credited with helping build the current roster and sign key players like Nate Landman. Interviewed for Dolphins GM job. Represents continuity in scouting philosophy."
+      },
+      {
+        "name": "Chris Shula",
+        "title": "Defensive Coordinator",
+        "influence_level": "medium",
+        "known_biases": "Runs a Fangio-Phillips hybrid scheme with Cover 3/Cover 6 emphasis and heavy dime usage. Values versatile defensive linemen who can play multiple alignments. Prioritizes pass rush and limiting explosive plays over blitzing. Shula's scheme requirements directly influence which defensive players are drafted."
+      },
+      {
+        "name": "Kliff Kingsbury",
+        "title": "Assistant Head Coach",
+        "influence_level": "low-medium",
+        "known_biases": "Hired in 2026 after two years as Washington OC. Air Raid background with modern NFL adaptations. May influence offensive skill position preferences going forward."
+      }
+    ],
+    "power_dynamics": "True partnership between Snead and McVay. They describe each other as aligned philosophically. Snead handles the macro team-building strategy and draft capital management; McVay has significant influence on positional priorities and scheme fit. Owner Stan Kroenke is hands-off on personnel decisions but provides full financial support. The collaboration has produced a 92-57 record since 2017, seven playoff appearances, two Super Bowl trips, and one championship.",
+    "owner_interference": "very_low"
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.55,
+    "bpa_weight_by_round": {
+      "1": 0.65,
+      "2": 0.5,
+      "3": 0.45,
+      "4_plus": 0.35
+    },
+    "stated_philosophy": "Use free agency to fill needs so the team is not desperate in the draft. Take the best player available without reaching for need.",
+    "actual_philosophy": "Snead's approach is heavily context-dependent. When contending, he aggressively trades draft picks for proven veterans (Ramsey, Stafford, Von Miller, now McDuffie). When 'remodeling' (2023-present), he pivots to accumulating Day 2-3 picks and finding value. His 2026 combine quote is telling: 'If we can use free agency to not be desperate in the draft, we more than likely will be better drafters.' He also warned: 'If you reach for a need when it's all said and done, you still have a need, but you used a draft pick on it.' In practice, defensive line and offensive line have been consistently prioritized in early rounds under the McVay era, reflecting both BPA alignment and scheme need.",
+    "philosophy_mismatch_notes": "Snead claims BPA but his actions show significant positional targeting. The 2023 draft (Avila IOL, Byron Young EDGE, Kobie Turner DT as first three picks) and 2024 draft (Verse EDGE, Fiske DT as first two picks) show a clear defensive front and OL emphasis that is both BPA and need-driven. The 'F*** Them Picks' era (2017-2022) saw almost no traditional draft philosophy applied \u2014 picks were currency to acquire proven stars. Post-2022, the philosophy shifted dramatically toward developing drafted talent."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.65,
+    "trade_down_willingness": 0.7,
+    "trades_per_draft_average": 2.5,
+    "trade_triggers": [
+      "Proven All-Pro talent available at a position of need (Ramsey, Stafford, McDuffie pattern)",
+      "Accumulating future first-round picks when current roster is strong (2025 trade back with Atlanta for 2026 1st)",
+      "Moving up aggressively on Day 2 for a targeted player (traded up to 39 for Fiske in 2024)",
+      "Window-maximizing when franchise QB timeline is short (Stafford is 38, entering final contract year)"
+    ],
+    "draft_capital_philosophy": "Uniquely flexible. Snead has traded away first-round picks in 7 of 9 drafts from 2017-2025 \u2014 more than any other GM. He has orchestrated 87+ trades during his tenure. However, he pivoted to stockpiling picks during the 2023 'remodel' (14 picks) and engineered two first-rounders for 2026 before trading one for McDuffie. He treats draft picks as a liquid asset \u2014 sometimes currency for proven players, sometimes investments in homegrown talent. The phase of the team's competitive cycle determines which approach he uses. Currently in 'win-now with young core' mode."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "EDGE",
+        "DT",
+        "CB",
+        "QB"
+      ],
+      "tier_2_high": [
+        "OT",
+        "IOL",
+        "WR",
+        "S"
+      ],
+      "tier_3_mid": [
+        "LB",
+        "TE",
+        "RB"
+      ],
+      "tier_4_low": [
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "LB in early rounds \u2014 consistently addresses LB in free agency (Bobby Wagner, Nate Landman) or late rounds rather than investing premium draft capital",
+      "QB in premium rounds while franchise QB is in place \u2014 last QB drafted was Stetson Bennett in Round 4 of 2023 as a developmental pick"
+    ],
+    "position_premium": [
+      "Defensive line (EDGE + DT combined) \u2014 has used first pick in 3 of last 4 drafts on DL: Byron Young EDGE Rd3 2023, Jared Verse EDGE Rd1 2024, Terrance Ferguson TE Rd2 2025 was exception but Josaiah Stewart EDGE came in Rd3",
+      "Interior offensive line \u2014 Steve Avila was first pick in 2023 (Rd2), Beaux Limmer drafted Rd6 2024, Kevin Dotson acquired by trade"
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Explosive power rusher with plus athleticism and violent hands. Snead/McVay EDGE picks consistently feature elite burst and speed-to-power conversion over pure finesse. Byron Young (4.43 forty, 6-2, 250), Jared Verse (4.58, 6-4, 254), and Josaiah Stewart (Michigan, 8.5 sacks senior year) all share explosive first-step quickness and power at the point of attack. The Rams want EDGEs who can convert speed into power and win with physicality rather than bend-only rushers. Samson Ebukam (2017 Rd4) and Nick Hampton (2023 Rd5) were Day 3 developmental athletes who fit the same mold. Pure finesse rushers without power have been consistently passed over.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-5",
+        "weight_range": "245\u2013265",
+        "arm_length_minimum": "32 inches \u2014 Byron Young at 32.5, Verse at 33.5. No EDGE drafted in top 4 rounds under 32 inches",
+        "key_athletic_tests": "Explosive burst is the primary athletic differentiator. Verse: 35-inch vert, 127-inch broad. Byron Young: 38-inch vert, 132-inch broad, 4.43 forty. Short-area quickness (3-cone, shuttle) valued but not as much as raw explosiveness.",
+        "speed_requirement": "4.65 or faster preferred for early-round EDGEs. Byron Young at 4.43 was exceptional. Verse at 4.58 is more typical. Late-round picks can be slower with other traits."
+      },
+      "playing_style": {
+        "primary_win_condition": "Speed-to-power conversion \u2014 Verse wins with overwhelming strength at contact after explosive get-off. Byron Young wins with pure speed and closing burst. Both convert first-step explosion into pressure.",
+        "most_valued_traits": [
+          "First-step explosion/get-off",
+          "Power at point of contact",
+          "Violent hands",
+          "Motor/relentless effort",
+          "Versatility to play standing up or hand-in-dirt in hybrid 3-4"
+        ],
+        "least_important_traits": [
+          "Refined pass-rush repertoire \u2014 Snead has drafted raw rushers (Verse was described as winning with strength rather than 'meticulous hand fighting') and developed them"
+        ],
+        "deal_breakers": [
+          "Lack of explosion/first-step quickness",
+          "Pure finesse-only rushers with no power element",
+          "One-dimensional players who cannot contribute against the run"
+        ],
+        "traits_that_make_them_reach": "Elite first-step explosion and burst scores. The Rams drafted Byron Young in Round 3 despite him being a 25-year-old rookie because of his 4.43 speed and 38-inch vertical. Athletic testing at extreme levels moves players up their board."
+      },
+      "college_production": {
+        "production_floor": "5+ sacks in final college season for Rounds 1-3 picks. Verse had 9 sacks at FSU in 2022 and returned for 2023. Byron Young had 5.5 sacks. Josaiah Stewart had 8.5 sacks.",
+        "production_trajectory": "Open to late risers and transfer portal risers. Byron Young walked on at Georgia Military College. Verse transferred from Albany (FCS) to Florida State. Stewart transferred from Coastal Carolina to Michigan. The Rams are comfortable with non-traditional paths.",
+        "context_sensitivity": "High \u2014 evaluates production relative to opportunity and competition level. Verse's FCS-to-FBS production arc was credited, not discounted."
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2024 1.19 \u2014 Jared Verse: 6-4, 254, 4.58 forty, 33.5-inch arms, 35-inch vert, 127-inch broad. DROY winner. Power rusher who wins with speed-to-power and violent hands.",
+          "2023 3.77 \u2014 Byron Young: 6-2, 250, 4.43 forty, 32.5-inch arms, 38-inch vert, 132-inch broad. 8 sacks as rookie. Elite burst, non-traditional path (JUCO to Tennessee).",
+          "2025 3.90 \u2014 Josaiah Stewart: Michigan EDGE, transferred from Coastal Carolina. 8.5 sacks in 2024. Led team in TFLs.",
+          "2017 4.125 \u2014 Samson Ebukam: 6-3, 245. Eastern Washington. 4.62 forty. Developmental power rusher.",
+          "2023 5.167 \u2014 Nick Hampton: Day 3 developmental EDGE from Appalachian State."
+        ]
+      },
+      "confidence": "high"
+    },
+    "DT": {
+      "archetype_summary": "Explosive, high-motor penetrating interior disruptor. The Aaron Donald shadow looms large. Kobie Turner (6-2, 288, 9 sacks as rookie) and Braden Fiske (6-5, 292, 4.78 forty, 8.5 sacks as rookie) represent the archetype \u2014 twitchy, relentless, quick-twitch penetrators who win with first-step quickness and motor rather than massive size. The Rams have consistently prioritized interior quickness and pass-rush ability over two-gap run-stuffing bulk. Tyler Davis (2024 Rd5) provides depth in a similar mold. Desjuan Johnson (2023 Rd7) studied Donald. Even Ty Hamilton (2025 Rd5) from Ohio State fits the high-motor profile.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-5",
+        "weight_range": "280\u2013300 \u2014 lighter than traditional NTs. Kobie Turner at 288, Fiske at 292.",
+        "arm_length_minimum": "No strict arm length minimum \u2014 Fiske had short 31-inch arms but was still drafted in Round 2 because of his elite athleticism and motor",
+        "key_athletic_tests": "40-yard dash speed relative to position is paramount. Fiske ran 4.78 (fastest DT at combine). Vertical jump and broad jump matter. Short shuttle valued for change-of-direction. Motor and effort override testing deficits.",
+        "speed_requirement": "Sub-5.0 forty preferred for early-round DTs. Fiske at 4.78 is the gold standard. The Rams want DTs who can chase plays and close on the quarterback."
+      },
+      "playing_style": {
+        "primary_win_condition": "First-step quickness and penetration. One-gap disruptors who get upfield and into the backfield. Fiske was described as winning with 'explosive hands and revving motor.'",
+        "most_valued_traits": [
+          "First-step explosion off the snap",
+          "Relentless motor/effort",
+          "Interior pass-rush ability",
+          "Alignment versatility (3-tech, 5-tech, nose)",
+          "Active, violent hands"
+        ],
+        "least_important_traits": [
+          "Two-gap ability \u2014 the Rams do not prioritize traditional space-eating nose tackles in the draft (signed Poona Ford in FA for that role)"
+        ],
+        "deal_breakers": [
+          "Low motor/effort inconsistency",
+          "Stiff athlete who cannot penetrate gaps",
+          "One-dimensional run-stuffer without pass-rush upside"
+        ],
+        "traits_that_make_them_reach": "Elite combine athleticism relative to position. Fiske went from borderline 4th-rounder to Rd2 pick 39 after his combine performance (4.78 forty, 4.37 shuttle). The Rams traded up to get him \u2014 Snead gave up 'nearly the house' per reporting."
+      },
+      "college_production": {
+        "production_floor": "2+ sacks in final college season for Day 2 picks. Kobie Turner had 2 sacks at Wake Forest but was a scheme-fit projection. Fiske had 6 sacks at FSU.",
+        "production_trajectory": "Comfortable with late-bloomers and transfers. Turner went from FCS walk-on (Richmond) to Wake Forest. Fiske transferred from Western Michigan to FSU. Both were non-traditional paths.",
+        "context_sensitivity": "Very high \u2014 adjusts heavily for opportunity and scheme. Turner's limited sack production at Wake Forest was not held against him because film showed disruptive traits."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2024 2.39 \u2014 Braden Fiske: 6-5, 292, 4.78 forty, 31-inch arms, 33.5-inch vert, 4.37 shuttle. Rookie sack leader with 8.5. Elite motor.",
+          "2023 3.89 \u2014 Kobie Turner: 6-2, 288, 32-inch arms. FCS walk-on to Wake Forest. 9 sacks as rookie, tying Aaron Donald's franchise record. Quick-twitch interior disruptor.",
+          "2024 5.155 \u2014 Tyler Davis: Rotational DT depth. Played 25%+ of snaps in 9 of 12 late-season games.",
+          "2023 7.262 \u2014 Desjuan Johnson: Toledo DT, 5.5 sacks. Day 3 developmental pick.",
+          "2025 5.148 \u2014 Ty Hamilton: Ohio State DT. High-motor interior lineman."
+        ]
+      },
+      "confidence": "high"
+    },
+    "OT": {
+      "archetype_summary": "Versatile, experienced multi-position linemen with proven college production. The Rams' tackle philosophy has been shaped by necessity \u2014 they've relied on veteran free agent additions (Andrew Whitworth, Rob Havenstein was a Rd2 pick in 2015) and have drafted OTs primarily on Day 3 in recent years. Warren McClendon (2023 Rd6, Georgia) broke out in his third year as a starter at RT. The preference is for technically sound, multi-year college starters from Power 5 programs who can play immediately. Athletic ceiling is secondary to floor and football IQ.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "300\u2013330",
+        "arm_length_minimum": "33 inches preferred for outside tackles. McClendon and Havenstein both had adequate length.",
+        "key_athletic_tests": "Foot quickness and agility matter more than raw speed. The McVay offense requires linemen who can execute zone concepts and reach blocks. Short shuttle and 3-cone are more predictive than 40 time.",
+        "speed_requirement": "No hard speed cutoff for OTs. Football IQ and technique are prioritized over raw athleticism."
+      },
+      "playing_style": {
+        "primary_win_condition": "Technical soundness in pass protection with ability to execute wide-zone and outside-zone blocking schemes.",
+        "most_valued_traits": [
+          "Pass protection technique and anchor",
+          "Zone-blocking footwork and reach ability",
+          "Positional versatility (guard/tackle flexibility)",
+          "Football IQ and mental processing",
+          "Durability and multi-year starting experience"
+        ],
+        "least_important_traits": [
+          "Elite pure athleticism \u2014 the Rams have been comfortable with less-athletic but technically sound OTs"
+        ],
+        "deal_breakers": [
+          "Inability to move laterally in zone concepts",
+          "Poor football IQ/mental processing errors"
+        ],
+        "traits_that_make_them_reach": "Not a position where Snead typically reaches. Has preferred to address OT through free agency or mid-to-late round picks rather than premium draft capital."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter preferred. McClendon started 41 games at Georgia. Havenstein started 36 games at Wisconsin.",
+        "production_trajectory": "Prefers players who started 2+ years in college, especially from programs known for OL development.",
+        "context_sensitivity": "Values playing in pro-style or zone-heavy offenses in college."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2023 6.174 \u2014 Warren McClendon: Georgia OT, 6-4, 306. Multi-year starter on national championship team. Broke out in Year 3 as RT starter.",
+          "2015 2.57 \u2014 Rob Havenstein: Wisconsin OT, 6-8, 321. Power program lineman, immediate starter.",
+          "2024 7.249 \u2014 KT Leveston: Kansas State OT, Day 3 developmental pick."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "IOL": {
+      "archetype_summary": "Powerful, physical maulers with positional versatility across the interior. Steve Avila (2023 Rd2, 6-3, 332, TCU) is the prototype \u2014 a wide-bodied, powerful guard who can also play center, with strong grip technique and the ability to move defenders off the ball. Beaux Limmer (2024 Rd6, Arkansas) and Logan Bruss (2022 Rd3, Wisconsin) fit a similar physical, strong-anchor profile. The Rams want IOL who can dominate at the point of attack in run blocking while being technically sound enough for pass protection.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "310\u2013340 \u2014 Avila at 332 represents the preferred mass",
+        "arm_length_minimum": "32 inches. Avila had 33-inch arms.",
+        "key_athletic_tests": "Strength indicators (bench press) and short-area quickness valued. Avila ran 5.21 forty, which is adequate. Raw power and grip strength matter more than athletic testing.",
+        "speed_requirement": "No hard speed cutoff. Anchor strength and power output matter more than mobility."
+      },
+      "playing_style": {
+        "primary_win_condition": "Dominant power at the point of attack in run blocking, with a strong anchor in pass protection.",
+        "most_valued_traits": [
+          "Raw power and play strength to displace defenders",
+          "Position versatility (guard/center flex)",
+          "Strong anchor against bull rush",
+          "Technical hand placement and grip",
+          "Experience in zone and gap schemes"
+        ],
+        "least_important_traits": [
+          "Elite lateral mobility \u2014 Avila was noted for below-average redirect skills but his power made up for it"
+        ],
+        "deal_breakers": [
+          "Inability to anchor against power rushers",
+          "Pure finesse lineman without play strength"
+        ],
+        "traits_that_make_them_reach": "Consensus All-American status and proven versatility. Avila was a Consensus All-American and TCU team captain who never allowed a sack in his final season \u2014 that kind of proven production can pull the trigger early."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter with All-Conference honors at minimum for Day 2 investment.",
+        "production_trajectory": "Avila was a 3-year starter who earned Consensus All-American honors as a senior. The Rams want proven commodities here, not projects.",
+        "context_sensitivity": "Values production in spread/Air Raid systems as well as pro-style \u2014 Avila played in TCU's Air Raid."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2023 2.36 \u2014 Steve Avila: 6-3, 332, 33-inch arms, TCU. Consensus All-American. Started all 17 games as rookie. Power guard who never allowed a sack in final college season.",
+          "2024 6.192 \u2014 Beaux Limmer: Arkansas guard. 16 starts as rookie across interior OL.",
+          "2022 3.104 \u2014 Logan Bruss: Wisconsin guard, 6-5, 309. Injured in preseason, never established."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "CB": {
+      "archetype_summary": "Snead addresses CB through trades for elite veterans rather than the draft. The Rams traded for Jalen Ramsey (2019), signed Darious Williams and Tre White (2024), and just traded for Trent McDuffie (2026). When drafting CBs, they target value \u2014 Cobie Durant (2022 Rd4), Tre'Vius Hodges-Tomlinson (2023 Rd6), and Derion Kendrick (2022 Rd6) were all Day 3 picks. The drafted CBs tend to be undersized but productive college players with ball skills and instincts. The scheme under Shula is zone-heavy (Cover 3/Cover 6) rather than man, so zone instincts and football IQ matter more than pure press ability.",
+      "physical_profile": {
+        "height_range": "5-8 to 6-1 \u2014 willingness to draft undersized CBs like Hodges-Tomlinson (5-8) and Durant (5-10)",
+        "weight_range": "175\u2013200",
+        "arm_length_minimum": "No strict minimum \u2014 Hodges-Tomlinson had short arms but elite instincts and ball skills",
+        "key_athletic_tests": "Ball skills and instincts outweigh testing. Hodges-Tomlinson won the Jim Thorpe Award despite small size. Durant was a Day 3 value pick. The Rams don't chase CB athleticism in the draft \u2014 they trade for elite corners instead.",
+        "speed_requirement": "4.55 or faster preferred but not absolute. Zone coverage allows slightly slower corners if instincts compensate."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Zone-heavy \u2014 Cover 3 and Cover 6 are the base coverages under Shula. The Rams run more Dime (6 DBs) than any team in the NFL.",
+        "most_valued_traits": [
+          "Zone coverage instincts and pattern recognition",
+          "Ball skills and playmaking (interceptions, PBUs)",
+          "Tackling ability in run support",
+          "Versatility to play outside or nickel",
+          "Football IQ and discipline"
+        ],
+        "least_important_traits": [
+          "Elite press-man technique \u2014 scheme doesn't demand it as primary skill"
+        ],
+        "deal_breakers": [
+          "Poor tackler in run support",
+          "Inability to play in zone coverage concepts",
+          "Character concerns at premium investment levels"
+        ],
+        "traits_that_make_them_reach": "Snead does NOT reach for CBs in the draft. He addresses the position via trade for proven All-Pro talent. The McDuffie trade (2026 1st-rounder + additional picks) is the latest example following the Ramsey trade (two 1sts + 4th)."
+      },
+      "college_production": {
+        "production_floor": "Ball production matters. Hodges-Tomlinson had 3 INTs and 15 PDs in his final season. Kinchens (safety/DB) had 11 career INTs at Miami.",
+        "production_trajectory": "Values proven college producers with awards and recognition. Hodges-Tomlinson won the Jim Thorpe Award.",
+        "context_sensitivity": "Adjusts for competition \u2014 Power 5 experience valued."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2023 6.182 \u2014 Tre'Vius Hodges-Tomlinson: 5-8, 178, TCU. Jim Thorpe Award winner. 3 INTs, 15 PDs. Nephew of LaDainian Tomlinson. Small but elite instincts.",
+          "2022 4.142 \u2014 Cobie Durant: 5-10, 180, South Carolina State. Small-school ball hawk. Developed into starting-caliber corner.",
+          "TRADE 2026 \u2014 Trent McDuffie: Acquired from Chiefs for 29th overall pick + 5th + 6th + 2027 3rd. Two-time All-Pro. Zone-versatile corner.",
+          "TRADE 2019 \u2014 Jalen Ramsey: Acquired from Jaguars for two 1st-round picks + 4th."
+        ]
+      },
+      "confidence": "high"
+    },
+    "S": {
+      "archetype_summary": "Versatile, ball-hawking safeties with physicality and instincts. Kamren Kinchens (2024 Rd3, 5-11, 203, Miami) is the recent prototype \u2014 a physical, instinctive safety with 11 career college INTs who projects as a hybrid nickel/safety in Shula's dime-heavy scheme. Jason Taylor II (2023 Rd6) had a 43-inch vertical and 6 INTs in his final college season. Quentin Lake (2022 Rd7, UCLA) developed into a full-time starter playing 100% of defensive snaps in a star/nickel role. The Rams value safeties who can operate in the slot, support the run, and make plays on the ball \u2014 not just traditional single-high free safeties.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-2",
+        "weight_range": "195\u2013215",
+        "arm_length_minimum": "No strict minimum \u2014 role flexibility matters more",
+        "key_athletic_tests": "Vertical jump is a key indicator of ball-hawking ability. Taylor had a 43-inch vert (2nd-best at 2023 combine). Kinchens had a 35-inch vert. Explosiveness matters more than 40 time for the Rams' zone-heavy scheme.",
+        "speed_requirement": "4.65 or faster preferred. Kinchens ran 4.65 which was seen as a slight negative but his instincts and ball production compensated."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Hybrid \u2014 must be comfortable in slot/nickel role in Shula's dime-heavy scheme as well as traditional safety duties. Quentin Lake plays the star position and is ranked 4th in slot havoc.",
+        "most_valued_traits": [
+          "Ball skills and turnover creation",
+          "Versatility to play safety and slot/nickel",
+          "Physicality against the run",
+          "Football IQ and instincts in zone coverage",
+          "Tackle reliability"
+        ],
+        "least_important_traits": [
+          "Single-high range as a center-field safety \u2014 scheme doesn't require a classic free safety"
+        ],
+        "deal_breakers": [
+          "Inability to play in the slot or match up with tight ends",
+          "Poor tackler",
+          "No ball production in college"
+        ],
+        "traits_that_make_them_reach": "Elite ball production (INTs) in college can make the Rams draft a safety earlier than consensus. Kinchens' 11 career INTs at Miami were a major draw."
+      },
+      "college_production": {
+        "production_floor": "3+ INTs in college career for Day 2-3 investment. Kinchens had 11, Taylor had 6 in his final year.",
+        "production_trajectory": "Values consistent ball production across multiple seasons rather than single-season spikes.",
+        "context_sensitivity": "Values production against quality competition \u2014 Kinchens' ACC production and Taylor's Big 12 production both well-regarded."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2024 3.99 \u2014 Kamren Kinchens: 5-11, 203, 4.65 forty, 35-inch vert, Miami. 11 career INTs. Physical, instinctive hybrid safety. 4 INTs as rookie (tied 2nd among NFL rookies).",
+          "2023 6.215 \u2014 Jason Taylor II: 6-0, 200, 43-inch vert (2nd at combine), Oklahoma State. 6 INTs in 2022. Elite vertical leap, ball-hawking profile.",
+          "2022 7.211 \u2014 Quentin Lake: UCLA safety, 6-1, 200. Played 100% of defensive snaps by Year 3. Star/nickel specialist."
+        ]
+      },
+      "confidence": "medium-high"
+    },
+    "LB": {
+      "archetype_summary": "Coverage-capable, instinctive linebackers who can tackle in space. The Rams consistently deprioritize LB in the draft \u2014 they've addressed the position almost exclusively through free agency (Bobby Wagner, Nate Landman) or late Day 3 picks. When they do draft LBs, they target productive, instinctive college players with coverage skills and tackle reliability. Brennan Jackson (2024 Rd5, 6-3, 245, Washington State) was a hybrid LB/EDGE. Chris 'Pooh' Paul Jr. (2025 Rd5, Ohio State) was an All-American finalist with elite tackle numbers. The scheme requires LBs who can flow to the ball and not be exposed in coverage given the heavy dime usage.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "225\u2013250",
+        "arm_length_minimum": "No strict minimum \u2014 instincts and speed matter more",
+        "key_athletic_tests": "Sideline-to-sideline speed matters most. The Rams' zone scheme requires LBs who can flow and cover ground. Short shuttle and 3-cone are more important than bench press.",
+        "speed_requirement": "4.65 or faster preferred to be effective in coverage situations."
+      },
+      "playing_style": {
+        "primary_win_condition": "Coverage ability and sideline-to-sideline range in a scheme that uses Dime more than base.",
+        "most_valued_traits": [
+          "Coverage ability against TEs and RBs",
+          "Tackle reliability and low missed-tackle rate",
+          "Sideline-to-sideline range",
+          "Football IQ in zone scheme",
+          "Special teams value on Day 3 picks"
+        ],
+        "least_important_traits": [
+          "Pure downhill run-stuffing \u2014 the Rams use their DL and scheme to stop the run rather than relying on LB physicality at the point of attack"
+        ],
+        "deal_breakers": [
+          "Coverage liability who cannot match TEs or RBs",
+          "Poor tackler in space"
+        ],
+        "traits_that_make_them_reach": "Snead does NOT reach for LBs. This is a value-only position in the draft for the Rams. FA is the preferred method."
+      },
+      "college_production": {
+        "production_floor": "High tackle numbers and coverage stats for late-round picks. Paul Jr. was an All-American finalist with 88 tackles and 3.5 sacks.",
+        "production_trajectory": "Values multi-year starters with awards recognition.",
+        "context_sensitivity": "Adjusts for scheme and role \u2014 converted EDGEs or hybrid players are acceptable."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2025 5.172 \u2014 Chris 'Pooh' Paul Jr.: Ohio State LB. All-American finalist. 88 tackles, 3.5 sacks, 4 PBUs. Coverage-capable with instincts.",
+          "2024 5.152 \u2014 Brennan Jackson: Washington State hybrid LB/EDGE. 6-3, 245. Scheme-versatile player.",
+          "FA acquisitions preferred: Bobby Wagner (2022 FA), Nate Landman (2025 FA), Ernest Jones (traded from elsewhere before being traded away)."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "WR": {
+      "archetype_summary": "Route technicians with elite hands, football IQ, and yards-after-catch ability over pure speed. Cooper Kupp (2017 Rd3, 6-2, 204, 4.62 forty, Eastern Washington) is the enduring archetype \u2014 a non-elite athlete who dominated with route running, hands, and YAC. Puka Nacua (2023 Rd5, 6-2, 212, 4.57 forty, BYU) is the modern version \u2014 a big-bodied receiver with exceptional hands and balance who broke NFL rookie records. Jordan Whittington (2024 Rd5, Texas) is a physical, versatile receiver. The Rams consistently find WR value in Day 2-3 by targeting production, route quality, and hands over pure speed. They've never invested a premium pick on a pure deep threat under McVay.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3 \u2014 size is valued. Kupp 6-2, Nacua 6-2, Robert Woods 6-0, Josh Reynolds 6-3",
+        "weight_range": "195\u2013215",
+        "arm_length_minimum": "No strict minimum but adequate catch radius valued",
+        "key_athletic_tests": "Hands testing and route-running evaluation on film matter more than athletic combine numbers. Kupp ran a pedestrian 4.62. Nacua ran 4.57. Neither was a speed demon.",
+        "speed_requirement": "No hard speed cutoff. 4.50-4.65 range is acceptable if route running and hands are elite. The Rams have never drafted a WR in the top 4 rounds who was selected primarily for 40 speed."
+      },
+      "playing_style": {
+        "primary_win_condition": "Route precision, hands, and yards-after-catch. Both Kupp and Nacua win with technical route running and contested-catch ability rather than creating separation with speed.",
+        "most_valued_traits": [
+          "Elite hands and catch reliability",
+          "Route-running precision and technique",
+          "Yards-after-catch ability and balance",
+          "Football IQ and ability to work within McVay's scheme",
+          "Contested-catch ability and body control"
+        ],
+        "least_important_traits": [
+          "Blazing straight-line 40 speed \u2014 has never been a primary selection criterion for Rams WRs"
+        ],
+        "deal_breakers": [
+          "Poor hands/drop issues",
+          "One-dimensional deep threat without route-running foundation",
+          "Inability to create after the catch"
+        ],
+        "traits_that_make_them_reach": "Elite college production at massive volume. Kupp had 428 career receptions. Nacua set BYU records. The Rams want WRs who have proven they can dominate with production, even if the athletic profile isn't elite."
+      },
+      "college_production": {
+        "production_floor": "45+ catches in final college season for Day 2-3 investment. Nacua had 48 catches for 625 yards. Kupp had 117 catches for 1,700 yards.",
+        "production_trajectory": "Values consistent, multi-year production. Kupp had four 1,400+ yard seasons. Nacua had two seasons as BYU's leading receiver.",
+        "context_sensitivity": "Very high \u2014 Nacua's numbers at BYU were not eye-popping raw numbers, but his dominance of his team's offense and his tape convinced the Rams. Kupp's FCS production was not discounted \u2014 his film against Power 5 competition was valued."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2023 5.177 \u2014 Puka Nacua: 6-2, 212, 4.57 forty, BYU. 48 catches, 625 yards, 5 TDs in final season. Set NFL rookie records: 105 receptions, 1,486 yards. Production-over-athleticism archetype.",
+          "2017 3.69 \u2014 Cooper Kupp: 6-2, 204, 4.62 forty, Eastern Washington. FCS all-time records in catches (428), yards (6,464), TDs (73). Super Bowl MVP. Route technician.",
+          "2024 5.167 \u2014 Jordan Whittington: Texas WR. 6-0, 205. Physical, versatile receiver. 30+ catches in year-and-a-half.",
+          "2017 4.117 \u2014 Josh Reynolds: Texas A&M WR. 6-3, 196. Big-bodied, contested-catch specialist.",
+          "2025 7.242 \u2014 Konata Mumpfield: Pittsburgh WR. Led team with 813 receiving yards and 52 catches."
+        ]
+      },
+      "confidence": "high"
+    },
+    "TE": {
+      "archetype_summary": "Versatile, athletic tight ends who can both block and contribute in the passing game. The McVay offense runs heavy 11-personnel (3 WR, 1 TE) so the TE must be a complete player. Tyler Higbee (2016 Rd4, 6-6, 255, Western Kentucky) was a reliable blocker and receiver for years. Gerald Everett (2017 Rd2, 6-3, 240, 4.62 forty) was the athletic pass-catching TE. Davis Allen (2023 Rd5, Clemson) is a blocking-first TE. Terrance Ferguson (2025 Rd2, 6-5, 248, Oregon) is the most recent \u2014 a complete TE who set Oregon school records for career receptions by a TE (134) and receiving TDs (16). The Rams want TEs who can do both, with increasing investment in pass-catching ability.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "240\u2013260",
+        "arm_length_minimum": "33 inches preferred for blocking and catch-radius purposes. Everett had 33-inch arms.",
+        "key_athletic_tests": "Receiving athleticism valued \u2014 speed, vert, and ability to create separation. Everett was a 4.62 runner. Ferguson was a productive receiving TE. But blocking ability is non-negotiable.",
+        "speed_requirement": "4.70 or faster preferred for pass-catching TEs. Blocking-first TEs can be slower."
+      },
+      "playing_style": {
+        "primary_win_condition": "Versatility \u2014 must block effectively in 11-personnel while contributing as a reliable receiving option in the intermediate areas of the field.",
+        "most_valued_traits": [
+          "Inline blocking ability",
+          "Reliable hands in traffic",
+          "Route-running from inline and flexed positions",
+          "YAC ability and balance",
+          "Red-zone target ability"
+        ],
+        "least_important_traits": [
+          "Elite deep-threat speed \u2014 McVay scheme uses TEs primarily on intermediate routes, seam concepts, and play-action"
+        ],
+        "deal_breakers": [
+          "Inability to block at the point of attack",
+          "Unreliable hands/drops in contested situations"
+        ],
+        "traits_that_make_them_reach": "Complete TE profile with both blocking and receiving production. Ferguson was taken at 46th overall (Rd2) in 2025 after a record-setting career at Oregon \u2014 high investment for a TE indicates strong conviction in the complete archetype."
+      },
+      "college_production": {
+        "production_floor": "30+ catches in final season for Day 2 investment. Ferguson had 52 catches for 813 yards. Allen had lower volume but was blocking-valued.",
+        "production_trajectory": "Values ascending production and multi-year contributions. Ferguson set Oregon school records across his career.",
+        "context_sensitivity": "Adjusts for scheme \u2014 values TEs who were asked to do both in college."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2025 2.46 \u2014 Terrance Ferguson: Oregon TE, 6-5, 248. Set school records for career receptions (134) and receiving TDs (16) by a TE. Capable run blocker. Standout rookie season.",
+          "2017 2.44 \u2014 Gerald Everett: South Alabama TE, 6-3, 240, 4.62 forty, 33-inch arms. Athletic pass-catching TE in McVay's first draft.",
+          "2023 5.174 \u2014 Davis Allen: Clemson TE. Blocking-first TE who had 10 catches for 95 yards and 1 TD as rookie.",
+          "2016 4.110 \u2014 Tyler Higbee: Western Kentucky TE, 6-6, 255. Long-tenured Rams TE, reliable blocker and receiver."
+        ]
+      },
+      "confidence": "medium-high"
+    },
+    "RB": {
+      "archetype_summary": "Productive, durable college backs with vision and contact balance \u2014 found exclusively in Day 3. The Rams have never used a first-round pick on a running back under McVay/Snead (Todd Gurley was pre-McVay). Kyren Williams (2022 Rd5, Notre Dame) became a full-time starter. Blake Corum (2024 Rd3, 5-8, 205, Michigan) was the highest recent investment. Jarquez Hunter (2025 Rd4, Auburn) adds a bigger power-back option. The common thread is proven college production, vision, and ability to make defenders miss rather than elite testing numbers.",
+      "physical_profile": {
+        "height_range": "5-7 to 5-11 \u2014 willing to draft shorter backs. Corum is 5-8, Williams is 5-9.",
+        "weight_range": "195\u2013220",
+        "arm_length_minimum": "No minimum \u2014 position doesn't require it",
+        "key_athletic_tests": "Vision and contact balance on film matter more than testing. Corum ran only 4.53 which was seen as underwhelming. Williams was a 5th-round pick. Testing does not drive RB decisions for the Rams.",
+        "speed_requirement": "4.55 or faster preferred but not a hard cutoff. Hunter was noted for power (squats 600 lbs) more than speed."
+      },
+      "playing_style": {
+        "primary_win_condition": "Vision, contact balance, and ability to maximize McVay's zone-run concepts. The Rams want backs who can find cutback lanes in wide zone and make the first defender miss.",
+        "most_valued_traits": [
+          "Vision and patience in zone concepts",
+          "Contact balance and ability to break tackles",
+          "Durability and three-down capability",
+          "Pass protection competence",
+          "Receiving ability out of the backfield"
+        ],
+        "least_important_traits": [
+          "Top-end straight-line speed \u2014 the Rams run a zone scheme where vision matters more than breakaway speed"
+        ],
+        "deal_breakers": [
+          "Poor pass protection \u2014 McVay's offense requires RBs to pick up blitzes",
+          "Inability to catch passes out of the backfield"
+        ],
+        "traits_that_make_them_reach": "Championship-caliber college production and leadership. Corum's 58 career touchdowns and national championship with Michigan elevated his stock. Hunter led Auburn in rushing two consecutive years."
+      },
+      "college_production": {
+        "production_floor": "700+ rushing yards in final college season for Day 3 investment. Corum had over 1,000. Hunter had 1,201.",
+        "production_trajectory": "Values consistent multi-year producers. Corum and Hunter both had ascending production across their careers.",
+        "context_sensitivity": "Adjusts for team context and usage. Hunter's production despite sharing time at Auburn was valued."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2024 3.83 \u2014 Blake Corum: 5-8, 205, 4.53 forty, Michigan. 3,700+ career rushing yards, 58 TDs, national champion. Power/vision back.",
+          "2025 4.117 \u2014 Jarquez Hunter: Auburn RB. 1,201 rushing yards, 6.4 YPC, 8 TDs in 2024. Squats 600 lbs. Power back with receiving ability.",
+          "2022 5.164 \u2014 Kyren Williams: Notre Dame, 5-9, 194. Became starting RB by Year 2. Vision and versatility.",
+          "2023 7.219 \u2014 Zach Evans: Ole Miss RB. Day 3 athlete flier."
+        ]
+      },
+      "confidence": "medium-high"
+    },
+    "QB": {
+      "archetype_summary": "The Rams have only drafted one QB under the McVay/Snead era: Stetson Bennett (2023 Rd4, Georgia). The franchise approach to QB has been through trade (Matthew Stafford acquired for two 1sts, a 3rd, and Jared Goff; Jared Goff was drafted #1 overall pre-McVay). McVay's offense requires a pocket passer with arm talent, processing speed, and the ability to manipulate defenses with pre-snap reads and play-action. Stafford is the archetype: strong-armed, experienced, pocket passer with enough mobility to extend plays. Bennett was a developmental pick based on winning pedigree. Jimmy Garoppolo was recently the backup. The Rams do not draft QBs as premium investments while a franchise QB is in place.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-5 \u2014 Bennett was 5-11, Goff was 6-4, Stafford is 6-3. Flexible on height.",
+        "weight_range": "210\u2013240",
+        "arm_length_minimum": "No strict minimum \u2014 arm talent and accuracy matter more",
+        "key_athletic_tests": "Processing speed and arm strength are not measured at the combine but are the primary evaluation criteria. Pocket presence and play-action ability are scheme-critical.",
+        "speed_requirement": "No speed requirement. Pocket mobility to avoid pressure is sufficient. The McVay offense does not design QB runs."
+      },
+      "playing_style": {
+        "primary_style": "Pocket passer with elite play-action and intermediate accuracy who can operate McVay's pre-snap motion and scheme concepts.",
+        "most_valued_traits": [
+          "Arm strength for all field throws",
+          "Pre-snap processing and ability to read coverages",
+          "Accuracy on intermediate and deep routes",
+          "Play-action execution and eye manipulation",
+          "Poise under pressure and ability to extend plays"
+        ],
+        "least_important_traits": [
+          "Designed run ability \u2014 McVay's system has never featured a running QB"
+        ],
+        "deal_breakers": [
+          "Run-first QBs without pocket processing skills",
+          "Inaccuracy on intermediate routes (core of McVay's passing game)"
+        ],
+        "traits_that_make_them_reach": "Not enough data \u2014 only Bennett was drafted. The Rams' approach is to acquire franchise QBs via trade (Goff trade-up, Stafford trade) rather than develop them through the draft."
+      },
+      "college_production": {
+        "production_floor": "Must be a proven winner \u2014 Bennett won back-to-back national championships at Georgia.",
+        "production_trajectory": "Values winning pedigree and leadership over raw statistical production.",
+        "context_sensitivity": "Heavily weights team context and supporting cast quality."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2023 4.134 \u2014 Stetson Bennett: Georgia QB, 5-11, 192. Two-time national champion. Developmental/backup pick. Has not become a regular contributor through 2025.",
+          "TRADE 2021 \u2014 Matthew Stafford: Acquired from Detroit for Goff + two 1st-round picks + 3rd. Arm talent, processing, pocket passer archetype. 2025 MVP.",
+          "2016 1.1 \u2014 Jared Goff (pre-McVay): Cal QB, 6-4, 215. Pocket passer with arm talent. Traded up from 15 to 1 to select."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 QB drafted in McVay era. Profile heavily inferred from scheme requirements and acquisition history. The Rams will almost certainly not draft a QB in 2026 with Stafford returning."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 10,
+    "max_observed_reach": 25,
+    "round_1_reach_tolerance": 5,
+    "notes": "Snead has shown moderate reach tolerance when conviction is high. Verse at 19 was roughly in line with consensus. Fiske at 39 was a significant reach from his original mid-Day 2 grade, but the Rams traded UP to get him, indicating strong conviction. On Day 3, the Rams regularly take prospects well outside consensus range (Nacua at 177 was considered a reach at the time but became a historic steal). Snead values his own board heavily over consensus."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.7,
+    "offensive_scheme": "McVay's West Coast system with heavy play-action, pre-snap motion, outside zone running, and 11-personnel (3 WR, 1 TE, 1 RB) emphasis. Requires versatile OL who can execute zone concepts, WRs who run precise routes, TEs who block and catch, and a pocket QB with processing speed. Nate Scheelhaase is the new OC with Kliff Kingsbury as assistant head coach.",
+    "defensive_scheme": "Chris Shula's Fangio-Phillips hybrid \u2014 3-4 base with heavy sub-packages. The Rams run more Dime (6 DBs) than any team in the NFL. Cover 3 and Cover 6 are the primary coverages. Emphasis on limiting explosive plays, generating pressure with the front four without blitzing (low blitz rate). Requires versatile EDGE players who can stand up or put hand in dirt, explosive interior DL who can rush the passer, and DBs with zone instincts.",
+    "scheme_change_flag": false,
+    "scheme_change_notes": "Mike LaFleur departed as OC to become Cardinals HC. Nate Scheelhaase promoted to OC, Dave Ragone elevated as co-OC/QBs coach. Kliff Kingsbury hired as assistant HC. The offensive system should remain largely consistent as McVay retains play-calling authority. Shula remains as DC \u2014 defensive scheme is stable entering Year 3."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.7,
+    "risk_description": "Snead is a high-risk, high-reward operator. He traded two first-round picks for Jalen Ramsey. He gave up two firsts and a third for Matthew Stafford. He just traded a first-round pick for Trent McDuffie. On the draft side, he's drafted FCS/JUCO/transfer portal players who were perceived as risky (Verse from Albany-to-FSU, Turner from Richmond-to-Wake, Byron Young from JUCO-to-Tennessee). He bets on traits and conviction over consensus safety. However, he balances this with a disciplined Day 3 approach, looking for overlooked value (Nacua, Kyren Williams).",
+    "recency_bias": 0.65,
+    "recency_description": "Moderate-to-high recency bias. After the 2025 season ended in the NFC Championship with secondary as the clear weakness, Snead immediately traded for an All-Pro cornerback (McDuffie) and publicly stated the need to find 'an All-Pro' for the secondary. The 2024 draft heavily targeted DL after Aaron Donald's retirement. Pattern: the most recent failure drives immediate aggressive action.",
+    "sunk_cost_behavior": "Moves on quickly. Traded Jalen Ramsey to Miami after his cap hit became unsustainable. Traded Ernest Jones to Tennessee. Cut/moved on from Greg Robinson (2nd overall pick) after three disappointing seasons. Snead is not sentimental about past investments \u2014 the 'remodel' philosophy after the 5-12 season in 2022 demonstrated willingness to reset.",
+    "combine_weight": 0.55,
+    "combine_description": "Balanced with a tilt toward valuing elite athletes. Fiske's combine performance rocketed him from borderline Rd4 to Rd2 pick 39 \u2014 Snead traded up to get him specifically because of his testing. Verse's elite burst scores were highlighted. Byron Young's 4.43 forty was a major factor. But the Rams also draft non-elite testers when film is strong \u2014 Nacua (4.57), Kupp (4.62), Avila (5.21). Testing is used as a confirming or differentiating data point rather than an eliminator.",
+    "character_weight": 0.6,
+    "character_description": "Moderate character standards. The Rams have generally avoided high-profile character risks in the draft. Bennett's off-field incident delayed his debut. The team values leadership \u2014 multiple draft picks were team captains (Avila, Corum, Ferguson, Stewart). However, they've shown willingness to acquire players via trade who had some controversy (Ramsey's drama in Jacksonville). Character is a factor but not an absolute deal-breaker if talent is exceptional.",
+    "quarterback_philosophy": "Acquire franchise QBs via trade, not the draft. The Rams traded up to #1 for Goff (pre-McVay), then traded Goff + massive capital for Stafford. Snead will not draft a developmental QB in premium rounds while a franchise QB is in place. Stafford is returning for 2026 at age 38 \u2014 the Rams are taking a year-to-year approach. The next QB acquisition will likely be another trade or high-profile FA/draft investment when Stafford retires."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.6,
+    "production_vs_projection": "Balanced with a lean toward production. Nacua's BYU production was modest (48 catches) but he dominated on tape and Snead trusted the film. Kupp had historic FCS production. Avila was a Consensus All-American. Turner had limited sack numbers but showed disruptive traits on film. The Rams will bet on projection when the athletic profile is special (Byron Young, Fiske) but default to proven producers when the projection is less certain.",
+    "production_thresholds_by_position": {
+      "WR": "45+ catches in final college season for Rounds 2-5 investment. Nacua had 48, Kupp had 117, Whittington had 30+ (lower but compensated by versatility).",
+      "RB": "700+ rushing yards in final season. Corum over 1,000. Hunter 1,201.",
+      "EDGE": "5+ sacks in final college season for Rounds 1-3. Verse 9, Byron Young 5.5, Stewart 8.5.",
+      "DT": "No strict threshold \u2014 values film disruption metrics over raw sack numbers. Turner had 2 sacks at Wake Forest but was still drafted Rd3.",
+      "CB": "No clear threshold \u2014 addresses position via trade for proven NFL producers rather than college stats.",
+      "IOL": "Must be a multi-year college starter with All-Conference recognition minimum."
+    },
+    "breakout_age_sensitivity": 0.35,
+    "dominator_rating_sensitivity": 0.45,
+    "notes": "The Rams are comfortable with older prospects and late bloomers. Byron Young was 25 as a rookie. Fiske was 24. Turner spent years in FCS. Bennett was 26 when drafted. Breakout age is not a disqualifier \u2014 the Rams weight current ability and trajectory over the age at which a player first produced."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "EDGE": {
+        "preferred_40_max": 4.65,
+        "min_arm_length": "32 inches",
+        "burst_emphasis": "Vert 34+ and broad 120+",
+        "confidence": "high"
+      },
+      "DT": {
+        "preferred_40_max": 5.0,
+        "motor_emphasis": "Relentless effort is non-negotiable",
+        "burst_emphasis": "Sub-4.85 forty is a differentiator",
+        "confidence": "high"
+      },
+      "IOL": {
+        "min_arm_length": "32 inches",
+        "strength_emphasis": "Power and anchor over mobility",
+        "confidence": "medium"
+      },
+      "WR": {
+        "no_strict_threshold": true,
+        "notes": "Values route running and hands over timed speed. Has drafted WRs ranging from 4.57 to 4.62 forty without hesitation."
+      },
+      "CB": {
+        "no_strict_threshold": true,
+        "notes": "Addresses position via trade. Day 3 CB picks are instinct/production driven, not measurable driven."
+      },
+      "S": {
+        "preferred_vert_min": "34 inches",
+        "preferred_int_production": "3+ career INTs",
+        "confidence": "medium"
+      },
+      "OT": {
+        "min_arm_length": "33 inches preferred",
+        "foot_quickness_emphasis": "Zone-scheme demands lateral agility",
+        "confidence": "low"
+      },
+      "RB": {
+        "no_strict_threshold": true,
+        "notes": "Vision and contact balance on film drive evaluation. Corum's 4.53 was considered underwhelming but he was still drafted Rd3."
+      }
+    },
+    "threshold_type": "Mostly soft preferences rather than hard cutoffs. The Rams have violated apparent thresholds when film was strong (Fiske's 31-inch arms at DT, Nacua's 4.57 at WR). The exception is EDGE explosion \u2014 every EDGE drafted in Rounds 1-3 has elite burst metrics.",
+    "size_preferences_by_position": {
+      "DT": "280-300 preferred \u2014 lighter, quicker penetrators over massive NTs",
+      "EDGE": "245-265 with length and explosiveness",
+      "IOL": "310+ with mass and power",
+      "WR": "6-0+ preferred for outside WRs",
+      "S": "5-10 to 6-1 with physicality"
+    },
+    "athletic_testing_favorites": "Vertical jump and broad jump for EDGE and DT (explosion indicators). 40-yard dash for EDGE and DT relative to position. Short shuttle for IOL. Ball drills and instinct evaluation for CBs and WRs over pure speed testing.",
+    "measurables_vs_film": "Film-first but combine performance can dramatically move players up the board. The Fiske case is the clearest example \u2014 his combine performance (4.78 forty, 4.37 shuttle at 292 lbs) caused the Rams to trade up and select him. Verse's elite combine solidified his Rd1 status. But Nacua was drafted despite a pedestrian 4.57 because his film was exceptional."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium positions, high-conviction players. The Rams rarely have first-round picks \u2014 only 2 picks in Round 1 since 2016 (Verse 2024, and the traded-for 13th pick in 2026). When they do pick in Round 1, it's for a foundational defensive piece. Alternatively, they trade the pick for a proven All-Pro (Ramsey, McDuffie). In 2026, with pick 13 and a win-now roster, expect either a premium defensive player or another blockbuster trade.",
+    "round_2_3_strategy": "This is where the Rams build their roster. Avila (Rd2), Byron Young (Rd3), Kobie Turner (Rd3), Fiske (Rd2), Corum (Rd3), Kinchens (Rd3), Ferguson (Rd2), Stewart (Rd3) \u2014 the Rams' entire core was built on Day 2. Snead shifts toward positional targeting here, addressing specific needs with high-conviction players. Willing to trade up (moved up 13 spots for Fiske). This is where scheme fit becomes paramount.",
+    "day_3_strategy": "Value hunting and developmental athletes. The Rams' Day 3 track record is exceptional \u2014 Nacua (Rd5), Kyren Williams (Rd5), Cobie Durant (Rd4), Cooper Kupp (Rd3), John Johnson (Rd3). They target productive college players who fell due to athleticism concerns or small-school pedigree. Also takes developmental athletes and special teams contributors. Uses Day 3 for positional depth at OL, DL, and secondary.",
+    "compensatory_pick_usage": "Uses comp picks for mid-round value. The 2024 Rd3 comp pick (99th) was used on Kamren Kinchens (safety). The 2023 Rd5 comp pick (167th) was used on Puka Nacua. The Rams treat comp picks as normal picks \u2014 no philosophical difference in risk profile."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "DL_EDGE": {
+        "picks": 8,
+        "starters": 6,
+        "rate": 0.75,
+        "note": "Exceptional. Verse (DROY), Fiske (8.5 sacks), Turner (9 sacks as rookie), Byron Young (8 sacks as rookie). Strongest evaluation area by far."
+      },
+      "WR": {
+        "picks": 6,
+        "starters": 2,
+        "rate": 0.33,
+        "note": "Nacua is a home run (NFL rookie records). Kupp was a franchise player. But Tutu Atwell (Rd2 2021) and others have not contributed. High variance."
+      },
+      "IOL": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Avila is a strong hit. Limmer is depth. Bruss was a miss (injury). Moderate success."
+      },
+      "RB": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Williams and Corum both contribute. Solid value-round drafting."
+      },
+      "S": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Kinchens and Lake both developed into starters. Good evaluation."
+      },
+      "CB": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Only Durant has been a clear hit among drafted CBs. Rams prefer to trade for proven CB talent."
+      },
+      "TE": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Ferguson is a promising Rd2 pick. Higbee was a long-tenured starter. Everett was serviceable. Allen is depth."
+      },
+      "QB": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Bennett has not contributed meaningfully. Not a priority position for draft investment."
+      }
+    },
+    "blind_spots": [
+      "CB evaluation in the draft has been inconsistent \u2014 the Rams have acknowledged this by addressing CB almost exclusively through trades for proven veterans (Ramsey, now McDuffie).",
+      "WR evaluation is high-variance \u2014 Nacua and Kupp are home runs but other WR picks have not contributed."
+    ],
+    "strengths": [
+      "Defensive line evaluation is elite \u2014 the Rams' ability to find EDGE and DT talent across all rounds (Verse Rd1, Fiske Rd2, Turner Rd3, Byron Young Rd3) is among the best in the NFL.",
+      "Day 3 value finding is exceptional \u2014 Nacua, Williams, Durant, Lake all became significant contributors from Rounds 4-7."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Strategic, targeted spending. Snead uses FA to fill 1-2 key starter-level holes to avoid desperation in the draft. Recent examples: signed Darious Williams and Tre White at CB in 2024 FA, signed Poona Ford at NT and Nate Landman at LB in 2025. Trades for proven stars (Ramsey, Stafford, now McDuffie) are the preferred method for elite talent acquisition over FA bidding wars.",
+    "fa_draft_correlation": "When a premium starter is acquired in FA or via trade, that position drops in draft priority. After signing Williams/White at CB in 2024, the Rams did not draft a CB. After trading for McDuffie in 2026, CB is now addressed \u2014 the 2026 draft will not prioritize CB. Conversely, when a position is NOT addressed in FA, it becomes a draft priority (DL in 2023 and 2024 after Donald's retirement was anticipated).",
+    "roster_construction_philosophy": "Build the core through the draft at DL, OL, and skill positions. Supplement with FA for depth and specific needs. Trade for elite proven talent at premium positions (CB, QB) when the competitive window demands it. The Rams operate in phases: 'all-in' mode involves trading picks for proven players; 'remodel' mode involves stockpiling picks and developing young players. Currently transitioning from remodel back to all-in as the 2023 draft class matures and Stafford's window narrows."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 45,
+    "notable_patterns": [
+      "Defensive line has been the top priority \u2014 3 of 4 most recent first/highest picks were DL (Verse EDGE, Fiske DT, Byron Young EDGE)",
+      "Day 3 value mining is a core competency \u2014 Nacua (Rd5), Williams (Rd5), Durant (Rd4), Lake (Rd7) all became starters",
+      "Trades for proven All-Pro talent at CB and QB rather than drafting \u2014 Ramsey, Stafford, McDuffie",
+      "Non-traditional player backgrounds valued \u2014 FCS (Turner, Kupp, Verse at Albany), JUCO (Byron Young), transfer portal (Fiske, Verse, Turner)",
+      "Only 2 first-round picks made since 2016 (Verse 2024, traded-for pick 13 in 2026) \u2014 unprecedented in NFL history",
+      "87+ trades orchestrated during Snead tenure \u2014 among highest in NFL",
+      "2023 'remodel' draft (14 picks) produced franchise cornerstones: Avila, Turner, Byron Young, Nacua"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2024,
+        "pick": "2.39",
+        "player": "Braden Fiske",
+        "position": "DT",
+        "consensus_rank": 65,
+        "reach_amount": 26,
+        "context": "Traded UP from 52 to 39 to select Fiske. Was projected as mid-Day 2 to early Day 3. Combine performance (4.78 forty at 292 lbs) caused massive Rams conviction. Justified by 8.5 rookie sacks."
+      },
+      {
+        "year": 2023,
+        "pick": "4.134",
+        "player": "Stetson Bennett",
+        "position": "QB",
+        "consensus_rank": 200,
+        "reach_amount": 66,
+        "context": "26-year-old national championship QB drafted as developmental backup. Has not contributed meaningfully. Significant miss to date."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2023,
+        "pick": "5.177",
+        "player": "Puka Nacua",
+        "position": "WR",
+        "consensus_rank": 140,
+        "value_amount": 37,
+        "context": "Set NFL rookie records for receptions (105) and receiving yards (1,486). Currently an All-Pro caliber WR. Among the greatest Day 3 steals in NFL history."
+      },
+      {
+        "year": 2023,
+        "pick": "3.89",
+        "player": "Kobie Turner",
+        "position": "DT",
+        "consensus_rank": 120,
+        "value_amount": 31,
+        "context": "FCS walk-on to Wake Forest transfer. 9 sacks as rookie, tying Aaron Donald's franchise record. 24 career sacks through 3 seasons."
+      },
+      {
+        "year": 2024,
+        "pick": "1.19",
+        "player": "Jared Verse",
+        "position": "EDGE",
+        "consensus_rank": 12,
+        "value_amount": 7,
+        "context": "Third EDGE off the board but became AP Defensive Rookie of the Year. 89 total pressures including postseason (most in NFL). True top-5 caliber talent."
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_notes": "14 drafts as Rams GM provides extensive behavioral data. The McVay-Snead partnership since 2017 is the primary evaluation period (9 drafts, 7 playoff appearances). Recent 2023 and 2024 draft classes have been among the best in the NFL, providing strong pattern data. The just-announced McDuffie trade further confirms the 'trade picks for proven talent' pattern. Scheme is stable entering 2026 with McVay, Shula, and Scheelhaase all returning. Profile should be refreshed after the 2026 draft. Note: the Rams skipped attending the 2026 combine in person (GM and HC did not attend), conducting their evaluation remotely \u2014 this is a notable philosophical signal about their evaluation process.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

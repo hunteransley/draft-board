@@ -1,0 +1,862 @@
+{
+  "team": {
+    "name": "Chicago Bears",
+    "abbreviation": "CHI",
+    "division": "NFC North",
+    "current_draft_position": 25
+  },
+  "front_office": {
+    "gm": {
+      "name": "Ryan Poles",
+      "title": "General Manager",
+      "hired": "2022-01-25",
+      "previous_role": "Executive Director of Player Personnel, Kansas City Chiefs",
+      "drafts_as_gm": 4,
+      "confidence": "high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Boston College",
+          "role": "Player (Offensive Tackle)",
+          "years": "2003-2007",
+          "mentor": "Tom O'Brien (HC)"
+        },
+        {
+          "org": "Chicago Bears",
+          "role": "Undrafted Free Agent (OL)",
+          "years": "2008",
+          "mentor": "N/A \u2014 cut before season"
+        },
+        {
+          "org": "Boston College",
+          "role": "Graduate Assistant / Recruiting Assistant",
+          "years": "2008-2009",
+          "mentor": "Jeff Jagodzinski / Frank Spaziani (HC)"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Player Personnel Assistant",
+          "years": "2009",
+          "mentor": "Scott Pioli (GM)"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "College Scouting Administrator",
+          "years": "2010-2012",
+          "mentor": "Scott Pioli (GM)"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "College Scouting Coordinator",
+          "years": "2013-2016",
+          "mentor": "John Dorsey (GM), Andy Reid (HC)"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Director of College Scouting",
+          "years": "2017",
+          "mentor": "Brett Veach (GM), Andy Reid (HC)"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Assistant Director of Player Personnel",
+          "years": "2018-2020",
+          "mentor": "Brett Veach (GM), Mike Borgonzi (Asst GM)"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Executive Director of Player Personnel",
+          "years": "2021",
+          "mentor": "Brett Veach (GM)"
+        },
+        {
+          "org": "Chicago Bears",
+          "role": "General Manager",
+          "years": "2022-present",
+          "mentor": "Self-directed"
+        }
+      ],
+      "primary_mentor": "Collectively: Scott Pioli, John Dorsey, Brett Veach, and Andy Reid. Poles worked under three different GMs in Kansas City (Pioli 2009-2012, Dorsey 2013-2017, Veach 2017-2021), absorbing different philosophies from each.",
+      "philosophical_lineage": "Pioli tree (Bill Belichick disciple) \u2192 Dorsey tree (traditional Midwest scouting school, prioritizes physical traits and character) \u2192 Veach tree (aggressive, modern analytics-informed). Poles synthesizes all three: Pioli's organizational rigor, Dorsey's love of size/speed/physicality, and Veach's willingness to make bold trades. The Kansas City Chiefs DNA \u2014 build through the draft, find franchise QB, surround with talent \u2014 is Poles' guiding blueprint. He was instrumental in scouting Patrick Mahomes and Travis Kelce.",
+      "breakpoints": "More aggressive in midseason trades than any of his KC mentors were. The Claypool trade was a departure from KC's conservative approach. Also much more willing to rebuild aggressively \u2014 stripping the roster to the studs \u2014 which the Chiefs never had to do under his watch. Poles is bolder with Day 1 trades (trading down from #1 overall) than the typical KC tree GM.",
+      "lineage_weight": 0.25,
+      "lineage_weight_notes": "4 drafts of own data as Bears GM substantially reduces reliance on scouting tree. Poles' own patterns now dominate the profile. Lineage weight is for filling gaps where limited picks at a position exist."
+    },
+    "primary_decision_maker": "Ryan Poles",
+    "key_influencers": [
+      {
+        "name": "Ben Johnson",
+        "title": "Head Coach",
+        "influence_level": "high",
+        "known_biases": "Offensive-minded, formerly Lions OC. Values versatile offensive weapons, 12-personnel heavy (two TE sets), physical run game, and creative play design. Wants a diverse backfield and tall receiving targets. His scheme emphasizes run-pass balance and misdirection."
+      },
+      {
+        "name": "Dennis Allen",
+        "title": "Defensive Coordinator",
+        "influence_level": "medium",
+        "known_biases": "Former Saints HC and Raiders HC. Runs a 4-3 base with multiple fronts. Values motor, relentlessness, and violence on the defensive line. Prefers versatile defensive linemen who can align in multiple spots. Experienced enough to shape defensive draft targets."
+      },
+      {
+        "name": "Jeff King",
+        "title": "Assistant General Manager",
+        "influence_level": "medium",
+        "known_biases": "Former NFL tight end (Panthers, Cardinals). Rose from scouting intern with Bears in 2015 to AGM in 2026. Credits his playing experience for helping evaluate NFL readiness. Replaced Ian Cunningham who left to become Falcons GM."
+      }
+    ],
+    "power_dynamics": "Collaborative front office with Poles holding final say. Ben Johnson was a marquee HC hire after Eberflus was fired; Johnson has significant offensive scheme input. Poles received a contract extension through 2029, indicating strong organizational support. The 2025 playoff run validated Poles' rebuild approach.",
+    "owner_interference": "low-to-moderate. George McCaskey is the chairman and historically hands-off on personnel decisions. Kevin Warren (President/CEO) oversees football operations structurally but focuses primarily on business/stadium matters. McCaskey tapped Bill Polian to help with the GM search in 2022, suggesting the family seeks outside counsel rather than directly meddling."
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.7,
+    "bpa_weight_by_round": {
+      "1": 0.8,
+      "2": 0.6,
+      "3": 0.55,
+      "4_plus": 0.4
+    },
+    "stated_philosophy": "Best player available. Poles has been emphatic at every combine presser: 'It's going to be the best player available. I know that may not be the most popular thing... but especially in the early rounds, you really got to pick the best player available.' He cited taking Colston Loveland at 10 when the Bears already had Cole Kmet as validation.",
+    "actual_philosophy": "Strongly BPA in round 1 \u2014 confirmed by taking a TE (Loveland) at #10 when other needs existed, and taking Rome Odunze at #9 when EDGE and OL were bigger needs. In rounds 2-3, Poles shifts toward a BPA-need hybrid, often doubling up at positions of weakness (two DBs in 2022 R2, two DTs in 2023 R2-3, two OL in 2025 R2). Day 3 is more need/developmental athlete driven.",
+    "philosophy_mismatch_notes": "Stated and actual philosophy are relatively aligned. Poles genuinely drafts BPA in round 1. The only caveat is that his 'board' may be shaped by need \u2014 he's admitted he looks for players who 'match the DNA' and are 'culture fits,' which could subtly favor need positions. The Loveland pick (TE at #10 with Kmet already on roster) is the strongest evidence he truly follows BPA."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.3,
+    "trade_down_willingness": 0.65,
+    "trades_per_draft_average": 2.5,
+    "trade_triggers": [
+      "Accumulating Day 2 picks \u2014 traded down from #1 overall in 2023, traded #41 for two 2nd-rounders and a 4th in 2025",
+      "High-conviction targets slightly out of reach \u2014 traded up 5 spots in R2 for Tyrique Stevenson in 2023, traded back into draft for Austin Booker in 2024",
+      "Midseason acquisitions of proven talent \u2014 traded for Montez Sweat (2023 deadline), Keenan Allen (2024 offseason)"
+    ],
+    "draft_capital_philosophy": "Strongly prefers accumulating picks, especially Day 2 capital. His signature move \u2014 the #1 overall trade with Carolina \u2014 netted a massive haul. In 2025, he traded down from #41 to accumulate picks at #56 and #62. Poles has been willing to trade future picks for proven players mid-season but regrets the Claypool trade. Prefers current-year picks over future picks when trading down."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "QB",
+        "OT",
+        "WR",
+        "DT"
+      ],
+      "tier_2_high": [
+        "CB",
+        "EDGE",
+        "TE"
+      ],
+      "tier_3_mid": [
+        "IOL",
+        "S",
+        "LB"
+      ],
+      "tier_4_low": [
+        "RB",
+        "P",
+        "K"
+      ]
+    },
+    "position_avoidance": [
+      "RB in early rounds \u2014 did not draft a RB until round 4 (Roschon Johnson, 2023 R4) and round 7 (Kyle Monangai, 2025 R7). Uses free agency for RBs (D'Andre Swift signing).",
+      "LB in early rounds \u2014 zero LBs drafted in rounds 1-3 across 4 drafts. Addressed LB through free agency (Tremaine Edmunds, T.J. Edwards)."
+    ],
+    "position_premium": [
+      "DT \u2014 drafted 4 DTs in first 2 drafts (Dexter R2, Pickens R3, Bell R7 in 2023; Turner R2 in 2025). Clearly views interior DL as foundational.",
+      "OT \u2014 used R1 pick on Darnell Wright (2023), R5 on Braxton Jones (2022), R3 on Amegadjie (2024), R2 on Trapilo (2025). Constant OL investment.",
+      "DB \u2014 drafted 2 in R2 in his very first draft (Gordon, Brisker), CB Stevenson in R2 (2023). Heavy secondary investment early."
+    ]
+  },
+  "player_archetype_preferences": {
+    "QB": {
+      "archetype_summary": "Franchise-caliber, dual-threat passer with elite arm talent and playmaking ability. Poles went all-in on Caleb Williams \u2014 the consensus #1 overall pick \u2014 who represents the modern prototype: exceptional arm talent, pocket mobility, ability to create off-script. Not a run-first QB, but one who extends plays and makes throws from multiple platforms. Poles' KC background (scouted Mahomes) shows a preference for dynamic QBs with transcendent arm talent over safe game-managers.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-4, prefers 6-1+",
+        "weight_range": "210-230",
+        "arm_length_minimum": "No clear threshold \u2014 arm talent (velocity, trajectory) matters more than measured arm length",
+        "key_athletic_tests": "Arm velocity and ball placement are non-negotiable. Mobility measured more by pocket movement and escapability than raw 40 time.",
+        "speed_requirement": "No strict 40 threshold \u2014 Williams ran a 4.59. Values functional athleticism over timed speed."
+      },
+      "playing_style": {
+        "primary_style": "Dynamic pocket passer who can extend plays and create off-platform. Mahomes-influenced archetype.",
+        "most_valued_traits": [
+          "Elite arm talent and ball placement",
+          "Playmaking ability under pressure / off-script",
+          "Processing speed and field vision",
+          "Competitive fire and leadership presence",
+          "Pocket mobility and escapability"
+        ],
+        "least_important_traits": [
+          "Designed rushing ability \u2014 will not draft a QB valued primarily as a runner"
+        ],
+        "deal_breakers": [
+          "Limited arm talent or inability to make full-field throws",
+          "Poor processing speed or slow reads",
+          "Character/maturity concerns at the most important position"
+        ],
+        "traits_that_make_them_reach": "Transcendent arm talent \u2014 the Mahomes connection from KC is real. Poles has seen firsthand what an elite arm unlocks for an offense."
+      },
+      "college_production": {
+        "production_floor": "Must be a proven multi-year starter with big-game experience. Williams started 3 years, won a Heisman.",
+        "production_trajectory": "Prefers ascending trajectory with demonstrated ability to carry an offense",
+        "context_sensitivity": "High \u2014 evaluates supporting cast and scheme context. Williams played in Lincoln Riley's system which inflates some stats, but Poles looked past that."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 1.01 \u2014 Caleb Williams, QB, USC: 6-1, 215. Heisman winner, 93 passing TDs in 3 seasons. Elite arm talent, off-platform playmaker."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 1 QB drafted. Profile heavily informed by the Williams selection and Poles' KC scouting background (instrumental in Mahomes evaluation). Strong BPA conviction \u2014 Poles would not have drafted Williams if he didn't believe he was the clear #1."
+    },
+    "EDGE": {
+      "archetype_summary": "Long, high-upside developmental pass rusher with length and motor. Poles has not invested early draft capital at EDGE through the draft (highest pick: Austin Booker at 5.09 in 2024, Dominique Robinson at 5.05 in 2022), preferring instead to acquire proven EDGE talent via trade (Montez Sweat) or free agency (Dayo Odeyingbo). When he does draft EDGE, he targets long, athletic, raw prospects with high ceilings who can be developed \u2014 not polished products.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5",
+        "weight_range": "240-265",
+        "arm_length_minimum": "33 inches \u2014 both Booker (33 7/8\") and Robinson had 33\"+ arms",
+        "key_athletic_tests": "First-step explosion and length are prioritized. Vertical jump and broad jump matter as explosiveness indicators.",
+        "speed_requirement": "4.80 or faster preferred. Booker ran 4.79, Robinson was a converted QB/WR with elite raw athleticism."
+      },
+      "playing_style": {
+        "primary_win_condition": "Length and athleticism-based pass rush. Both EDGE picks were developmental prospects who win with length, motor, and evolving technique rather than refined move sets.",
+        "most_valued_traits": [
+          "Length and arm usage",
+          "Motor and relentlessness",
+          "First-step explosion / get-off",
+          "Versatility to play stand-up or hand-in-dirt",
+          "High ceiling / developmental upside"
+        ],
+        "least_important_traits": [
+          "Polished pass-rush repertoire \u2014 has drafted raw rushers and developed them",
+          "Elite college sack production \u2014 Booker had 8 sacks in one college season as a starter"
+        ],
+        "deal_breakers": [
+          "Short arms or compact frame that limits NFL projection",
+          "Low motor or effort inconsistency",
+          "Inability to set the edge in the run game at a minimum level"
+        ],
+        "traits_that_make_them_reach": "Elite length combined with explosion \u2014 Poles traded a future pick to get back into the 2024 draft specifically for Booker's upside."
+      },
+      "college_production": {
+        "production_floor": "No strict production floor \u2014 Robinson barely had DE production (converted from QB/WR). Booker had only one year as a starter with 8 sacks.",
+        "production_trajectory": "Values ascending production and traits over multi-year dominance. Both EDGE picks were late bloomers who flashed upside.",
+        "context_sensitivity": "Very high \u2014 credits production in context. Booker's 8 sacks in limited starts was weighted heavily. Robinson was drafted purely on athletic projection."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2024 5.144 \u2014 Austin Booker, EDGE, Kansas: 6-4.5, 240, 4.79 40, 33 7/8\" arms. 8 sacks, 12 TFL in one season as starter. Long, high-upside developmental rusher. Traded back into draft to select him.",
+          "2022 5.174 \u2014 Dominique Robinson, EDGE, Miami (OH): 6-2, 253. Converted QB/WR with raw athleticism. Drafted on athletic profile, not production."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 2 EDGE players drafted, both on Day 3. Poles has preferred acquiring proven EDGE talent via trade (Montez Sweat, cost a 2nd-round pick). For the 2026 draft, Ben Johnson has publicly stated pass rush is a top priority, making EDGE a likely early-round target for the first time under Poles."
+    },
+    "OT": {
+      "archetype_summary": "Big, powerful, athletic tackles with prototypical size and SEC/Power 5 pedigree. Poles consistently invests in OTs \u2014 Darnell Wright (R1, 2023), Braxton Jones (R5, 2022), Kiran Amegadjie (R3, 2024), Ozzy Trapilo (R2, 2025). The archetype is clear: big frames (6-4+), long arms (33\"+), power-based blockers who can handle NFL pass rushers physically. Former five-star recruits or players with elite size-athleticism combinations are preferred.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-8 \u2014 Wright is 6-5, Trapilo is 6-8, Jones is 6-5, Amegadjie is 6-5",
+        "weight_range": "305-340 \u2014 Wright at 333, Trapilo at 310+, Jones at 310",
+        "arm_length_minimum": "33 inches \u2014 Wright measured 33 3/4\", which appears to be a baseline",
+        "key_athletic_tests": "Values functional athleticism \u2014 Wright ran 5.01 (88th percentile for OL). Speed Score and burst matter.",
+        "speed_requirement": "Sub-5.10 40 preferred for tackles. Wright's 5.01 was elite for his size."
+      },
+      "playing_style": {
+        "primary_win_condition": "Physical, powerful run blockers who can also protect the passer. Wright wins with devastating power, heavy hands, and anchor strength.",
+        "most_valued_traits": [
+          "Play strength and power at the point of attack",
+          "Anchor ability against bull rush",
+          "Size and length to control the edge",
+          "Run blocking physicality \u2014 finish and nastiness",
+          "Functional athleticism for size"
+        ],
+        "least_important_traits": [
+          "Elite lateral agility \u2014 Poles has drafted OTs with average foot quickness who compensate with power and length"
+        ],
+        "deal_breakers": [
+          "Undersized frame with no room to add mass",
+          "Weak anchor / inability to handle power rushers",
+          "Injury history at the position \u2014 though Amegadjie was drafted coming off injury, which backfired"
+        ],
+        "traits_that_make_them_reach": "Prototypical size with five-star pedigree \u2014 Wright was a former 5-star recruit. Poles values the ceiling of big, athletic OT prospects."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter preferred (Wright: 42 career starts). But willing to take high-upside tackles with limited starts (Amegadjie had durability concerns).",
+        "production_trajectory": "Prefers proven SEC/Power 5 starters who performed against top competition",
+        "context_sensitivity": "Heavily weights strength of schedule \u2014 Wright played in the SEC, Trapilo at Boston College against ACC competition"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2023 1.10 \u2014 Darnell Wright, OT, Tennessee: 6-5, 333, 5.01 40, 33 3/4\" arms. Former 5-star recruit, 42 career starts. Power-based blocker, named to PFWA All-Rookie team.",
+          "2022 5.168 \u2014 Braxton Jones, OT, Southern Utah: 6-5, 310. Small-school prospect who became a starting LT. Senior Bowl standout. Developmental pick that hit.",
+          "2024 3.75 \u2014 Kiran Amegadjie, OT, Yale: 6-5, 318. Athletic Ivy League tackle with injury concerns. Swing tackle/developmental pick.",
+          "2025 2.56 \u2014 Ozzy Trapilo, OT, Boston College: 6-8, 310+. Second-tallest player at combine. 36 starts at LT and RT. Big frame with developmental upside."
+        ]
+      },
+      "confidence": "high"
+    },
+    "IOL": {
+      "archetype_summary": "Versatile interior linemen who provide depth and competition. Poles has addressed IOL primarily through free agency (Joe Thuney, Jonah Jackson, Drew Dalman in 2025; Nate Davis, Ryan Bates in 2023-24) rather than early draft picks. When he drafts IOL, it's on Day 3 for depth \u2014 Luke Newman (R6, 2025). The archetype is a versatile lineman who can play multiple interior spots and compete for a role.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "295-320",
+        "arm_length_minimum": "No clear threshold established \u2014 limited IOL draft picks",
+        "key_athletic_tests": "Functional mobility and ability to pull/reach-block in zone scheme",
+        "speed_requirement": "No strict threshold \u2014 values functional movement"
+      },
+      "playing_style": {
+        "primary_win_condition": "Versatility and scheme fit. Poles wants IOL who can play in a zone-based system with the ability to reach and pull.",
+        "most_valued_traits": [
+          "Positional versatility \u2014 ability to play guard and center",
+          "Zone blocking ability \u2014 reach blocks and combo blocks",
+          "Anchor strength against interior rushers",
+          "Intelligence and communication skills"
+        ],
+        "least_important_traits": [
+          "Pure mauling power in a gap/power scheme \u2014 scheme has shifted to more zone concepts under Ben Johnson"
+        ],
+        "deal_breakers": [
+          "Inability to move laterally in zone scheme",
+          "Single-position limitation with no versatility"
+        ],
+        "traits_that_make_them_reach": "Not enough draft data to determine \u2014 Poles fills IOL primarily through FA"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter preferred",
+        "production_trajectory": "N/A \u2014 insufficient draft data",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 6.195 \u2014 Luke Newman, IOL, Michigan State: Versatile OL drafted for depth. Described as a player who can play multiple positions."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Poles has barely drafted IOL, preferring free agency for this position. The scheme under Ben Johnson will be run-heavy and zone-based, which should inform IOL preferences going forward."
+    },
+    "DT": {
+      "archetype_summary": "Big, long, fast, and explosive interior linemen who can disrupt. This is one of Poles' most heavily invested positions. He drafted Gervon Dexter (R2, 2023), Zacch Pickens (R3, 2023), Travis Bell (R7, 2023), and Shemar Turner (R2, 2025). The archetype is unmistakable: big frames (6-3+), exceptional athleticism for their size (Dexter ran 4.88 at 310 lbs), high motor, and positional versatility to play multiple spots on the D-line. Poles covets 3-technique penetrators who can also hold up against the run.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-6 \u2014 Dexter is 6-6, Pickens is 6-4, Turner is 6-3, Bell is 6-0",
+        "weight_range": "285-315 \u2014 Dexter at 310, Pickens at 295, Turner at 290",
+        "arm_length_minimum": "No strict threshold, but length is valued. Dexter's 6-6 frame provides natural length advantage.",
+        "key_athletic_tests": "40-yard dash relative to size is paramount. Dexter's 4.88 at 310 lbs was the 5th fastest DL at the combine. Explosion and get-off matter enormously.",
+        "speed_requirement": "Sub-5.00 strongly preferred for 3-technique types. Dexter (4.88), Turner (~4.80) both fit this."
+      },
+      "playing_style": {
+        "primary_win_condition": "Interior penetration and disruption. Poles' DT picks are upfield, penetrating players who win with explosion and athleticism.",
+        "most_valued_traits": [
+          "Explosive first step / get-off",
+          "Motor and relentlessness \u2014 Poles specifically cited these traits at 2026 combine",
+          "Positional versatility \u2014 can play nose, 3-tech, or 5-tech",
+          "Violence and physicality at the point of attack",
+          "Athleticism relative to size"
+        ],
+        "least_important_traits": [
+          "Elite college sack production \u2014 Pickens and Bell had modest pass-rush numbers. Dexter had 24 starts in 38 games. Traits matter more than stats for iDL."
+        ],
+        "deal_breakers": [
+          "Lack of motor or effort \u2014 Poles explicitly demands 'motor, relentlessness, violence' from DL",
+          "Inability to penetrate \u2014 pure two-gap space-eaters don't fit the archetype"
+        ],
+        "traits_that_make_them_reach": "Combination of elite size and elite speed/explosion. Dexter's size-speed combination at 6-6, 310, 4.88 40 was clearly irresistible."
+      },
+      "college_production": {
+        "production_floor": "No strict sack/TFL threshold. Values traits and explosion over raw numbers for iDL.",
+        "production_trajectory": "Ascending production valued \u2014 Turner had 10.5 TFL and 6 sacks in his final season",
+        "context_sensitivity": "High \u2014 adjusts for role. Dexter was a rotational player at Florida who showed flashes. Poles trusted the athletic testing over the limited production."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2023 2.53 \u2014 Gervon Dexter Sr., DT, Florida: 6-6, 310, 4.88 40. Athletic freak, positional versatility. Matt Eberflus called the 3-tech 'the engine that makes everything go.'",
+          "2023 3.64 \u2014 Zacch Pickens, DT, South Carolina: 6-4, 295. Disruptive interior lineman with quickness.",
+          "2025 2.62 \u2014 Shemar Turner, DT, Texas A&M: 6-3, 290. High-motor, athletic DL with 10.5 TFL and 6 sacks. Said on draft night: 'I want to take their lunch money.'",
+          "2023 7.228 \u2014 Travis Bell, DT, Kennesaw State: 6-0, 310. First Kennesaw State player drafted. 30 reps on bench press, 24.5 TFL and 11 sacks in career."
+        ]
+      },
+      "confidence": "high"
+    },
+    "CB": {
+      "archetype_summary": "Athletic, versatile cornerback with positional flexibility to play outside and slot. Poles has drafted Kyler Gordon (R2, 2022) and Tyrique Stevenson (R2, 2023) \u2014 both athletic corners with inside/outside versatility, physicality, and ball skills. The profile leans toward physical, aggressive corners who can tackle in run support and are scheme-versatile rather than pure press-man or pure zone specialists.",
+      "physical_profile": {
+        "height_range": "5-11.5 to 6-1 \u2014 Gordon is 5-11.5, Stevenson is 6-0",
+        "weight_range": "190-200 \u2014 Gordon at 194, Stevenson at 198",
+        "arm_length_minimum": "31 inches \u2014 Gordon measured 31\", Stevenson had similar length",
+        "key_athletic_tests": "Agility and burst matter. Gordon had elite 3-cone (10.63s, 97th percentile) and shuttle (10.31s, 94th percentile). Values twitchiness and change-of-direction.",
+        "speed_requirement": "4.52 or faster preferred. Gordon ran 4.52, Stevenson ran 4.45."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Versatile \u2014 both inside and outside capable. Scheme shifted from Eberflus' zone-heavy approach to Dennis Allen's 4-3 multiple. Allen values physicality and ball disruption.",
+        "most_valued_traits": [
+          "Positional versatility \u2014 outside/slot flexibility",
+          "Physicality in run support and tackling",
+          "Ball skills and playmaking ability",
+          "Agility and change-of-direction quickness",
+          "Competitive toughness"
+        ],
+        "least_important_traits": [
+          "Pure straight-line speed \u2014 Gordon's 4.52 was adequate, not elite. Values quickness over top-end speed."
+        ],
+        "deal_breakers": [
+          "Poor tackling or avoidance of contact in run support",
+          "Inability to play multiple coverage techniques",
+          "Limited ball skills or awareness"
+        ],
+        "traits_that_make_them_reach": "Elite agility scores combined with physicality \u2014 Gordon's ballet background translated to exceptional body control."
+      },
+      "college_production": {
+        "production_floor": "No clear interception threshold \u2014 Stevenson had only 3 INTs in 4 college seasons. Values film over stat-sheet production for CBs.",
+        "production_trajectory": "Prefers multi-year starters \u2014 Gordon became a full-time starter in his final season, Stevenson was a regular starter",
+        "context_sensitivity": "High \u2014 understands that CB stats are often misleading"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2022 2.39 \u2014 Kyler Gordon, CB, Washington: 5-11.5, 194, 4.52 40, 31\" arms. Elite agility (97th percentile 3-cone). Physical, versatile corner who plays outside and slot. Led Huskies in PDs and INTs.",
+          "2023 2.56 \u2014 Tyrique Stevenson, CB, Miami (FL): 6-0, 198, 4.45 40. Physical corner, traded up 5 spots to select. Limited ball production but scheme-versatile."
+        ]
+      },
+      "confidence": "medium-high"
+    },
+    "S": {
+      "archetype_summary": "Physical, box-capable safety with positional versatility and defensive leadership. Jaquan Brisker (R2, 2022) is the prototype \u2014 a physical, hard-hitting safety who can play in the box, deep, or in the slot. Brisker was described as 'the defensive coordinator on the field for Penn State.' Poles values safeties who are physical tacklers, versatile in alignment, and bring intensity to the secondary.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-2 \u2014 Brisker is 6-1",
+        "weight_range": "200-210 \u2014 Brisker at 204",
+        "arm_length_minimum": "No clear threshold established with limited data",
+        "key_athletic_tests": "Values size, physicality, and functional coverage ability. Brisker's 6-1, 204 frame with flexibility and physicality was ideal.",
+        "speed_requirement": "4.50 or faster preferred \u2014 Brisker ran approximately 4.49"
+      },
+      "playing_style": {
+        "primary_coverage_style": "Hybrid \u2014 box/strong safety with range to play deep. Brisker primarily played in the box at Penn State but has NFL versatility.",
+        "most_valued_traits": [
+          "Physical tackling and run support",
+          "Positional versatility (box, deep, slot)",
+          "Leadership and communication",
+          "Physicality and intimidation factor",
+          "Ball-hawking ability"
+        ],
+        "least_important_traits": [
+          "Pure deep centerfield range \u2014 Poles' safety pick was a box-safety type, not a single-high free safety"
+        ],
+        "deal_breakers": [
+          "Poor tackling technique or avoidance of contact",
+          "Inability to communicate and organize the secondary"
+        ],
+        "traits_that_make_them_reach": "Combination of physicality and coverage versatility \u2014 Brisker's ability to do everything made him a R2 priority."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter. Brisker was a two-year starter at Penn State.",
+        "production_trajectory": "N/A \u2014 limited data",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2022 2.48 \u2014 Jaquan Brisker, S, Penn State: 6-1, 204. Physical, versatile safety. Described as 'defensive coordinator on the field.' Mostly box snaps in college but NFL-versatile."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 1 safety drafted in top 4 rounds. Safety is a major need heading into 2026 (Kevin Byard and Brisker contracts expired). Dennis Allen's scheme will shape the next safety pick."
+    },
+    "LB": {
+      "archetype_summary": "Athletic, fast linebacker with special teams value and sideline-to-sideline range. Poles has consistently deprioritized LB in the draft, addressing it through free agency (Tremaine Edmunds, T.J. Edwards). His only drafted LBs are Day 3 picks: Noah Sewell (R5, 2023) and Ruben Hyppolite II (R4, 2025). The archetype from limited data: athletic, fast players who can cover ground and contribute on special teams. Hyppolite ran a 4.42 40 at his pro day.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-2 \u2014 Sewell is 6-1, Hyppolite's size similar",
+        "weight_range": "225-250 \u2014 Sewell at 248, Hyppolite lighter",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Speed and range are paramount. Hyppolite's 4.42 40 was a key factor. Bears want LBs who can run.",
+        "speed_requirement": "4.55 or faster strongly preferred based on Hyppolite's 4.42"
+      },
+      "playing_style": {
+        "primary_win_condition": "Sideline-to-sideline speed and special teams contribution",
+        "most_valued_traits": [
+          "Speed and range \u2014 ability to cover ground",
+          "Special teams value",
+          "Tackling ability and physicality",
+          "Versatility to play MIKE or WILL"
+        ],
+        "least_important_traits": [
+          "Pass rush ability from LB \u2014 Poles gets pass rush from DL and EDGE, not LBs"
+        ],
+        "deal_breakers": [
+          "Slow lateral movement or inability to cover",
+          "Liability in pass coverage against TEs/RBs"
+        ],
+        "traits_that_make_them_reach": "Elite speed for a linebacker \u2014 the 4.42 pro day time made Hyppolite a target despite not being invited to the combine"
+      },
+      "college_production": {
+        "production_floor": "Consistent starter preferred \u2014 Hyppolite started 51 games over 5 seasons at Maryland",
+        "production_trajectory": "Steady, durable production valued",
+        "context_sensitivity": "N/A \u2014 limited data"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2025 4.132 \u2014 Ruben Hyppolite II, LB, Maryland: 4.42 pro day 40. 51 starts, career-high 66 tackles in 2024. Speed-and-range LB with special teams upside.",
+          "2023 5.148 \u2014 Noah Sewell, LB, Oregon: 6-1, 248. Brother of Penei Sewell. Athletic but injury-plagued in NFL."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Poles has never drafted a LB above round 4. This position is heavily addressed via free agency. LB is a potential need in 2026 after Edmunds was granted permission to seek a trade."
+    },
+    "WR": {
+      "archetype_summary": "Big-bodied, versatile receivers who win with physicality, contested catches, and YAC ability. Rome Odunze (R1, 2024) is the prime example \u2014 6-3, 212, elite contested catch ability, deep-ball tracking, and physical play after the catch. Luther Burden III (R2, 2025) adds a Deebo Samuel-like YAC/slot dimension. Poles has also drafted speed-only WRs (Velus Jones Jr., Tyler Scott) on Day 2-3, but those have been misses. The successful WR picks are the big, productive, physically imposing receivers.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-3 \u2014 Odunze is 6-3, Burden is 5-11, Scott is 5-10, Jones was 6-0",
+        "weight_range": "180-215 \u2014 Odunze at 212, Burden at ~195",
+        "arm_length_minimum": "No clear threshold \u2014 values catch radius and body control",
+        "key_athletic_tests": "Speed Score (combination of speed and size) matters. Odunze had 94th percentile Speed Score. Burst Score also valued. But production and tape trump testing.",
+        "speed_requirement": "4.50 or faster for outside WRs. Odunze ran 4.45. Jones Jr. was drafted for speed (blazing fast) but busted."
+      },
+      "playing_style": {
+        "primary_win_condition": "Contested catch ability and physicality. Odunze's 24 contested catches led FBS in 2023. Burden draws Deebo Samuel comparisons for his contact balance and power after the catch.",
+        "most_valued_traits": [
+          "Contested catch ability and body control",
+          "Physicality and YAC ability after the catch",
+          "Deep-ball tracking and adjustment",
+          "Versatility to play multiple WR roles (X, Z, slot)",
+          "Route diversity and release quality"
+        ],
+        "least_important_traits": [
+          "Pure top-end speed without production \u2014 Jones Jr. was a speed-only pick who busted. Poles appears to have learned from this."
+        ],
+        "deal_breakers": [
+          "Limited college production relative to opportunity",
+          "Inability to win in contested situations despite physical tools",
+          "Age \u2014 Jones Jr. was already 25 at the time of the draft, which was flagged"
+        ],
+        "traits_that_make_them_reach": "Elite contested catch rate and FBS-leading production. Odunze's FBS-leading 1,640 yards and 21 catches on 20+ air yards made him irresistible at #9."
+      },
+      "college_production": {
+        "production_floor": "55+ catches in final college season for early-round WRs. Odunze had 92 catches, Burden had ~60+ in his best year (1,212 yards in 2023).",
+        "production_trajectory": "Values ascending production and breakout seasons. Burden's production dip in 2024 was excused by Bears scouts as a scheme byproduct, not a talent issue.",
+        "context_sensitivity": "Very high \u2014 Breck Ackley (director of college scouting) specifically said about Burden's dip: 'It was just a byproduct of what they were doing there... you still saw the flashes of the same skill set.'"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2024 1.09 \u2014 Rome Odunze, WR, Washington: 6-3, 212, 4.45 40, 32\" arms. FBS-leading 1,640 yards, 92 catches, 13 TDs. Elite contested catch ability.",
+          "2025 2.39 \u2014 Luther Burden III, WR, Missouri: ~5-11, 195. 1,212 yards in 2023 (one more than Marvin Harrison Jr.). Deebo Samuel-like YAC ability.",
+          "2022 3.71 \u2014 Velus Jones Jr., WR, Tennessee: 6-0, 200+, blazing speed. Already 25. Speed/return specialist pick \u2014 BUST.",
+          "2023 4.133 \u2014 Tyler Scott, WR, Cincinnati: ~5-10, 178. Speed receiver who fell further than expected."
+        ]
+      },
+      "confidence": "medium-high"
+    },
+    "TE": {
+      "archetype_summary": "Dynamic, athletic receiving TE who creates mismatches from multiple alignments. Colston Loveland (R1, 2025) \u2014 the first TE taken in R1 by the Bears since the 1960s \u2014 defines the new archetype perfectly: 6-6, 248, basketball background, natural pass catcher with elite catch radius and route running from inline and flexed alignments. Ben Johnson's 12-personnel heavy scheme demands two quality TEs, making this a premium position under the current regime.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-6+",
+        "weight_range": "240-260",
+        "arm_length_minimum": "32 inches+ \u2014 Loveland measured 32 3/4\"",
+        "key_athletic_tests": "Route running ability and catch radius matter most. Loveland has basketball background showing body control. Estimated 4.70 40 speed \u2014 fast for a TE.",
+        "speed_requirement": "4.75 or faster preferred for the receiving TE archetype"
+      },
+      "playing_style": {
+        "primary_win_condition": "Receiving mismatch creator. Loveland wins by being too fast for LBs and too big for safeties. Can align inline, in the slot, or flexed out wide.",
+        "most_valued_traits": [
+          "Natural pass-catching ability and ball skills",
+          "Route running from multiple alignments",
+          "Size-speed combination that creates matchup nightmares",
+          "Body control and catch radius",
+          "Versatility in alignment (inline, slot, flexed)"
+        ],
+        "least_important_traits": [
+          "Elite run blocking \u2014 Loveland's blocking is a work in progress. Poles took him despite this, showing run blocking is secondary for the receiving TE."
+        ],
+        "deal_breakers": [
+          "Limited receiving ability \u2014 a blocking-only TE would never be drafted this high",
+          "Inability to separate from linebackers in coverage"
+        ],
+        "traits_that_make_them_reach": "Elite receiving ability from a TE with prototype size \u2014 Loveland at #10 overall when the Bears already had Cole Kmet is the ultimate BPA pick."
+      },
+      "college_production": {
+        "production_floor": "40+ catches in final season for a R1 TE. Loveland had 56 catches in his final year, 45 the year before.",
+        "production_trajectory": "Ascending \u2014 Loveland went from 16 catches as freshman to 45 to 56, breaking Michigan's single-season TE reception record.",
+        "context_sensitivity": "Very high \u2014 Loveland produced in a run-first Michigan offense with inconsistent QB play. Poles recognized he was limited by his situation."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 1.10 \u2014 Colston Loveland, TE, Michigan: 6-6 (listed 6-5), 248, est. 4.70 40, 32 3/4\" arms. 56 catches, 582 yards, 5 TDs in final year. National championship winner. Basketball background. Taken at #10 when Bears already had Cole Kmet \u2014 pure BPA."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 1 TE drafted. However, Loveland as a top-10 pick is a strong signal of the archetype Poles (and especially Ben Johnson) values. Johnson's 12-personnel scheme was the driving force."
+    },
+    "RB": {
+      "archetype_summary": "Complementary, physical back drafted on Day 3 for depth. Poles has never invested significant draft capital at RB \u2014 Roschon Johnson (R4, 2023) and Kyle Monangai (R7, 2025) are his only picks. He signed D'Andre Swift in free agency as the primary back. The archetype: physical, between-the-tackles runners who can protect the passer and contribute in short-yardage. Poles views RB as a fungible, replaceable position not worth early-round investment.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-1 \u2014 Johnson is 6-0",
+        "weight_range": "210-225 \u2014 Johnson at 219",
+        "arm_length_minimum": "N/A for RB",
+        "key_athletic_tests": "Size, physicality, and pass protection ability matter more than combine speed for Poles' RB picks.",
+        "speed_requirement": "No strict threshold \u2014 values between-the-tackles physicality over breakaway speed"
+      },
+      "playing_style": {
+        "primary_win_condition": "Physical, reliable back who can contribute in pass protection and short yardage",
+        "most_valued_traits": [
+          "Physical running style \u2014 between-the-tackles toughness",
+          "Pass protection ability",
+          "Reliability and durability",
+          "Special teams value"
+        ],
+        "least_important_traits": [
+          "Elite breakaway speed \u2014 Poles is not chasing speed at RB in the draft",
+          "Receiving ability as a primary trait \u2014 he gets that from other positions"
+        ],
+        "deal_breakers": [
+          "Liability in pass protection",
+          "Fumbling issues / ball security concerns"
+        ],
+        "traits_that_make_them_reach": "N/A \u2014 Poles does not reach for RBs. Day 3 or free agency only."
+      },
+      "college_production": {
+        "production_floor": "No strict threshold \u2014 values role players who bring physicality",
+        "production_trajectory": "N/A",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2023 4.115 \u2014 Roschon Johnson, RB, Texas: 6-0, 219. Physical, between-the-tackles runner. Converted QB. Drafted for short-yardage and pass-pro.",
+          "2025 7.233 \u2014 Kyle Monangai, RB, Rutgers: Physical runner taken in final round for depth."
+        ]
+      },
+      "confidence": "medium"
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 6,
+    "max_observed_reach": 15,
+    "round_1_reach_tolerance": 3,
+    "notes": "Poles generally drafts close to consensus value in round 1 \u2014 Wright, Odunze, and Williams were all consensus top-10 picks when selected. Loveland at #10 was slightly above some boards but within range. The biggest reaches have been on Day 2-3 (Velus Jones Jr. at R3 was widely considered a reach of 15+ picks). Poles is conservative in R1 and more willing to reach in R2-3 for conviction picks."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.55,
+    "offensive_scheme": "Ben Johnson's system: Pro-style, run-heavy offense with heavy 12-personnel usage (two TE sets). Zone-run concepts with play-action, RPOs, and misdirection. Emphasizes creative play design, motion, and pre-snap shifts. Wants a physical run game (Johnson's Lions led NFL in rushing attempts) combined with explosive passing. Values versatile offensive weapons and athletic OL who can execute zone concepts.",
+    "defensive_scheme": "Dennis Allen's 4-3 base with multiple fronts. Emphasizes physicality on the D-line, speed at linebacker, and man-capable corners. Allen's scheme from his Saints tenure valued versatile defensive linemen who could play multiple techniques. Pass rush generation is a stated priority for 2026.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "Major scheme change in 2025: Ben Johnson (HC) replaced Matt Eberflus, Dennis Allen (DC) replaced Eric Washington/Alan Williams. The 2025 draft was the first under the new coaching staff. Eberflus ran a modified 4-3 Indianapolis Cover-2 scheme; Allen runs a more aggressive, multiple 4-3. Offensive scheme shifted from Getsy/Waldron West Coast concepts to Johnson's Detroit-style physicality. The 2025 draft (Loveland, Burden, Trapilo, Turner) clearly reflects Johnson's scheme preferences."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.55,
+    "risk_description": "Moderate risk-taker. Poles is willing to bet on upside (Booker, Robinson, Amegadjie) but his R1 picks have been safe, consensus selections. The Claypool trade was an aggressive gamble that failed; the #1 overall trade was a conservative masterstroke. Net: takes calculated risks, not wild swings. His biggest failures (Claypool, Jones Jr.) came from reaching for traits over production.",
+    "recency_bias": 0.55,
+    "recency_description": "Moderate recency bias. After the Bears gave up 68 sacks in 2024, Poles overhauled the OL in 2025 free agency (Thuney, Jackson, Dalman) and drafted OT Trapilo. After 2025 defensive struggles late in playoffs, Poles and Johnson have publicly prioritized defensive line additions for 2026.",
+    "sunk_cost_behavior": "Moves on quickly from busts. Cut Velus Jones Jr. Released Dominique Robinson. Traded Chase Claypool for a Day 3 pick after he flopped. Does not double down on failed investments. Granted Edmunds permission to seek a trade despite the $72M investment.",
+    "combine_weight": 0.55,
+    "combine_description": "Balanced with a slight lean toward athletic testing for certain positions. The Dexter pick (4.88 40 at 310 lbs) and Hyppolite pick (4.42 40 at pro day) were clearly testing-influenced. Robinson was drafted entirely on athletic projection. However, Poles' best picks (Wright, Odunze, Williams) were tape-first evaluations where testing confirmed what film showed.",
+    "character_weight": 0.65,
+    "character_description": "Moderately high character standards. Poles reportedly passed on Jalen Carter at #9 in 2023 (traded down one spot to let Eagles take him) partly due to character concerns. His introductory presser emphasized culture and character. He values 'culture fit' \u2014 'They're passionate about football. They're tough. They're team-oriented.' The Claypool trade was an exception where talent trumped fit, and it backfired.",
+    "quarterback_philosophy": "Go all-in or don't go at all. Poles passed on drafting a QB with the #1 overall pick in 2023 (had Justin Fields), traded down, and then went all-in on Caleb Williams with #1 overall in 2024 when he was 'blown away.' Will not draft developmental backup QBs \u2014 prefers UDFA route (Tyson Bagent). If the franchise QB is settled, QB is off the board entirely."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.55,
+    "production_vs_projection": "Leans toward production but has made clear projection bets. His best picks (Wright, Odunze, Williams, Loveland) were highly productive college players. His worst picks (Robinson, Jones Jr.) were projection-over-production gambles that failed. Appears to be learning: recent drafts show more emphasis on production. Tiebreaker goes to the more productive player.",
+    "production_thresholds_by_position": {
+      "WR": "50+ catches in final college season for R1-2 picks. Odunze had 92, Burden had 86 (in 2023).",
+      "RB": "No clear threshold \u2014 low draft capital invested",
+      "EDGE": "No production floor established \u2014 has drafted raw EDGE prospects with modest stats",
+      "CB": "No clear statistical threshold \u2014 values film over INT totals. Stevenson had only 3 INTs in 4 college years.",
+      "DT": "No sack/TFL floor \u2014 traits trump stats for interior DL",
+      "TE": "40+ catches in final season for early-round TE picks (Loveland had 56)",
+      "OT": "30+ career starts preferred (Wright had 42)"
+    },
+    "breakout_age_sensitivity": 0.5,
+    "dominator_rating_sensitivity": 0.45,
+    "notes": "Poles values context-adjusted production. His scouting staff specifically cited Burden's production dip as a scheme byproduct, not talent regression. This shows sophisticated context analysis. For positions like DT and EDGE, traits and athletic profile clearly trump production."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "40_yard_max": 4.52,
+        "min_arm_length": "31 inches",
+        "agility_emphasis": "3-cone and shuttle heavily weighted \u2014 Gordon's elite agility was a key factor",
+        "confidence": "medium"
+      },
+      "EDGE": {
+        "min_arm_length": "33 inches",
+        "40_max": 4.8,
+        "confidence": "medium"
+      },
+      "DT": {
+        "40_max_at_300_plus": 5.0,
+        "explosion_emphasis": "Get-off speed and first-step valued over raw bench press",
+        "confidence": "medium-high"
+      },
+      "OT": {
+        "min_arm_length": "33 inches",
+        "40_max": 5.15,
+        "confidence": "medium"
+      },
+      "WR": {
+        "40_max": 4.55,
+        "notes": "Has drafted WRs across speed spectrum but R1 WR (Odunze) had 4.45. Speed matters but is not the only factor.",
+        "confidence": "medium"
+      },
+      "S": {
+        "40_max": 4.55,
+        "confidence": "low"
+      },
+      "TE": {
+        "40_max": 4.75,
+        "confidence": "low"
+      }
+    },
+    "threshold_type": "Soft preferences rather than hard cutoffs. Poles has violated speed thresholds for exceptional tape (Loveland didn't run at the combine but was still taken at #10). Athletic testing serves as a confirmation tool for film evaluation, not an eliminator.",
+    "size_preferences_by_position": {
+      "DT": "Prefers 290+ with elite athleticism for size. Dexter at 310, Turner at 290, Pickens at 295.",
+      "OT": "330+ for tackles preferred. Wright at 333, Trapilo measured over 310 at 6-8.",
+      "WR": "6-0+ for outside WRs preferred. Odunze at 6-3 is the template for X receivers.",
+      "CB": "5-11+ with physicality. Not a strict height requirement but both CB picks were 5-11.5 or taller.",
+      "LB": "No strong size preference \u2014 values speed over size at LB."
+    },
+    "athletic_testing_favorites": "Explosion metrics (vertical jump, broad jump) for skill positions. 40-yard dash relative to size for DT and OT. 3-cone and shuttle for CB. Pro day 40 time for LB prospects not invited to the combine.",
+    "measurables_vs_film": "Film-first but measurables serve as eliminators at premium positions. Poles has explicitly said he wants to see 'a reflection of what you saw on tape' \u2014 testing should confirm film. The Dexter pick is the clearest case where athletic testing elevated a prospect: his combine performance pushed him from a Day 2 projection to a clear R2 selection."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium positions, BPA conviction. Poles takes the highest-graded player on his board regardless of position. Has taken OT (Wright), QB (Williams), WR (Odunze), and TE (Loveland) in R1 \u2014 showing no positional bias. Will trade down if no player he loves is available (traded from #1 to #9 in 2023). Very willing to trade back a spot or two to accumulate an extra pick (traded #9 to #10 in 2023 for an additional 4th-rounder).",
+    "round_2_3_strategy": "This is where Poles shifts toward need-filling and positional doubling. Has consistently used R2 to address specific needs: secondary (2022), DL/CB (2023), offense (2025). Frequently makes 2 picks in R2 by trading down from R1 or accumulating Day 2 capital. R3 has been his weakest round \u2014 Velus Jones Jr. (bust), Zacch Pickens (underperforming), Kiran Amegadjie (injured). Willing to reach 5-10 spots for a conviction target in R2.",
+    "day_3_strategy": "Developmental athletes and depth pieces. Takes at least one traits-over-production bet (Robinson in R5, Booker in R5). Also targets OL depth (Jones in R5, Newman in R6) and special teams contributors. Uses Day 3 for positions he won't invest in early (RB, LB, P). Has found value here: Braxton Jones (R5 starting LT) is his best Day 3 hit.",
+    "compensatory_pick_usage": "No clear distinct pattern with comp picks versus regular picks. Treats all picks as assets to be used or traded."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "QB": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Williams at #1 \u2014 too early to fully evaluate but became a playoff QB in year 2"
+      },
+      "OT": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Wright is a clear hit. Jones is a solid starter. Amegadjie and Trapilo TBD (injuries)."
+      },
+      "DT": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Dexter has become a productive starter (6 sacks in 2025). Turner TBD. Pickens and Bell have not emerged."
+      },
+      "CB": {
+        "picks": 2,
+        "starters": 2,
+        "rate": 1.0,
+        "note": "Gordon and Stevenson are both starters. Gordon earned extension consideration."
+      },
+      "S": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Brisker is a starter when healthy, though concussion history is concerning."
+      },
+      "WR": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Odunze and Burden are starters/contributors. Jones Jr. was a bust. Scott has been a role player."
+      },
+      "EDGE": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Booker has emerged as a contributor. Robinson was a bust."
+      },
+      "TE": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Loveland was an immediate contributor as a rookie in Ben Johnson's scheme."
+      },
+      "RB": {
+        "picks": 2,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Johnson and Monangai are depth pieces. Starting RB addressed via free agency."
+      },
+      "LB": {
+        "picks": 2,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Sewell injury-plagued, Hyppolite TBD as a 2025 draft pick. LB addressed via free agency."
+      }
+    },
+    "blind_spots": [
+      "Round 3 evaluation has been weak \u2014 Jones Jr. (R3, bust), Pickens (R3, underperforming), Amegadjie (R3, injury derailed). Poles' worst value picks cluster in this round.",
+      "Speed-only skill players without production \u2014 Jones Jr. and Robinson were both drafted on athletic traits with limited production, and both busted. Poles appears to have learned from this."
+    ],
+    "strengths": [
+      "Round 1 evaluation is excellent \u2014 Wright, Odunze, Williams, and Loveland have all been successes or on track.",
+      "Round 2 DB evaluation \u2014 Gordon and Brisker in 2022 were an outstanding double-dip that forms the secondary core.",
+      "Day 3 OT value \u2014 Braxton Jones in R5 becoming a starting LT is one of the best value picks of any GM in the 2022 class.",
+      "Blockbuster trade execution \u2014 the #1 overall trade with Carolina is one of the best trades in NFL history."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Evolved from very conservative (2022-2023, when rebuilding) to aggressive (2025, when competing). In his first two years, Poles was selective and avoided big free agent spending while accumulating draft capital. In 2025, after hiring Ben Johnson, Poles signed Thuney, Jackson, Dalman (OL), Swift (RB), and others to fill holes and let the draft focus on BPA.",
+    "fa_draft_correlation": "When Poles signs veteran starters in free agency, he deprioritizes that position in early draft rounds but still drafts depth. After signing 3 starting OL in 2025 FA, he still drafted OT Trapilo in R2 for depth/competition. After signing Edmunds/Edwards at LB, he avoided early LB picks entirely for 3 drafts.",
+    "roster_construction_philosophy": "Build through the draft at premium positions (QB, WR, OT, DT, CB), supplement via free agency at positions of need. Use mid-season trades to add impact players (Sweat, Allen). Poles explicitly stated at his introductory presser: 'We're gonna build through the draft. We're gonna acquire young, fast and physical football players. We're gonna be selective through free agency.' This has evolved toward more free agency spending as the team becomes competitive."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 30,
+    "notable_patterns": [
+      "8 of 10 first and second-round picks addressed premium positions: QB, OT, WR, DT, CB, S, TE",
+      "Consistently doubles up at positions of need in R2: two DBs (2022), two DL (2023), multiple offensive weapons (2025)",
+      "Has never traded up more than 5 spots in any round",
+      "Consistently trades down in R1 to accumulate picks \u2014 did so in 2023 (from #1 to #9) and 2025 (from #41 to #56/#62)",
+      "Day 3 is used for developmental athletes, OL depth, special teams, and RBs",
+      "Zero LBs or IOL drafted in rounds 1-3 across 4 drafts \u2014 addresses through free agency",
+      "Strong preference for players described as 'young, fast, and physical' \u2014 his stated DNA"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2022,
+        "pick": "3.71",
+        "player": "Velus Jones Jr.",
+        "position": "WR",
+        "consensus_rank": "100+",
+        "reach_amount": 30,
+        "context": "Already 25 years old. Blazing speed and return ability but limited route tree. Widely panned as a reach. Eventually released \u2014 clear bust."
+      },
+      {
+        "year": 2023,
+        "pick": "2.56",
+        "player": "Tyrique Stevenson",
+        "position": "CB",
+        "consensus_rank": "65-75",
+        "reach_amount": 10,
+        "context": "Traded up 5 spots to select. Limited ball production (3 INTs in 4 years). Need-driven reach for CB depth."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2022,
+        "pick": "5.168",
+        "player": "Braxton Jones",
+        "position": "OT",
+        "consensus_rank": "170-200",
+        "value_amount": 10,
+        "context": "Small-school OT from Southern Utah who became a starting left tackle as a rookie. Outstanding Day 3 value."
+      },
+      {
+        "year": 2024,
+        "pick": "5.144",
+        "player": "Austin Booker",
+        "position": "EDGE",
+        "consensus_rank": "90-120",
+        "value_amount": 0,
+        "context": "Bears traded back into the draft for Booker, showing strong conviction. High upside as a developmental pass rusher."
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_notes": "4 drafts of data as Bears GM provide a robust behavioral profile. Poles' scouting tree (13 years in Kansas City) adds additional context. The hiring of Ben Johnson as HC in 2025 introduces a scheme change that shifts some positional priorities (more 12-personnel, run-heavy offense; more aggressive defense under Allen). The 2025 draft was the first under the new staff and already shows their influence (Loveland for 12-personnel, Turner for Allen's DL). Contract extension through 2029 provides stability. Profile should be refreshed after the 2026 draft.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

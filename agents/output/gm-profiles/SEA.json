@@ -1,0 +1,904 @@
+{
+  "team": {
+    "name": "Seattle Seahawks",
+    "abbreviation": "SEA",
+    "division": "NFC West",
+    "current_draft_position": null
+  },
+  "front_office": {
+    "gm": {
+      "name": "John Schneider",
+      "title": "President of Football Operations / General Manager",
+      "hired": "2010-01-19",
+      "previous_role": "Director of Football Operations, Green Bay Packers",
+      "drafts_as_gm": 16,
+      "confidence": "very_high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Green Bay Packers",
+          "role": "Scouting Intern",
+          "years": "1992",
+          "mentor": "Ron Wolf"
+        },
+        {
+          "org": "Green Bay Packers",
+          "role": "Pro Personnel Assistant / Area Scout",
+          "years": "1993\u20131996",
+          "mentor": "Ron Wolf"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Director of Pro Personnel",
+          "years": "1997\u20131999",
+          "mentor": "Carl Peterson / Marty Schottenheimer"
+        },
+        {
+          "org": "Seattle Seahawks",
+          "role": "Director of Player Personnel",
+          "years": "2000",
+          "mentor": "Mike Holmgren"
+        },
+        {
+          "org": "Washington Redskins",
+          "role": "Vice President of Player Personnel",
+          "years": "2001",
+          "mentor": "Marty Schottenheimer"
+        },
+        {
+          "org": "Green Bay Packers",
+          "role": "Personnel Analyst to the General Manager",
+          "years": "2002\u20132007",
+          "mentor": "Ted Thompson"
+        },
+        {
+          "org": "Green Bay Packers",
+          "role": "Director of Football Operations",
+          "years": "2008\u20132009",
+          "mentor": "Ted Thompson"
+        },
+        {
+          "org": "Seattle Seahawks",
+          "role": "General Manager",
+          "years": "2010\u20132012",
+          "mentor": "Pete Carroll (collaborative)"
+        },
+        {
+          "org": "Seattle Seahawks",
+          "role": "Executive Vice President / General Manager",
+          "years": "2013\u20132023",
+          "mentor": "Self-directed with Pete Carroll collaboration"
+        },
+        {
+          "org": "Seattle Seahawks",
+          "role": "President of Football Operations / General Manager",
+          "years": "2024\u2013present",
+          "mentor": "Self-directed with Mike Macdonald collaboration"
+        }
+      ],
+      "primary_mentor": "Ron Wolf (Green Bay Packers, Hall of Fame GM) and Ted Thompson (Green Bay Packers GM)",
+      "philosophical_lineage": "Ron Wolf tree \u2192 Ted Thompson extension. Wolf's influence shows in aggressive transaction volume, willingness to make bold trades, and building through all avenues. Thompson's influence shows in draft-centric roster building, patience in development, and valuing character. Schneider also spent time under Marty Schottenheimer in KC and Washington, which contributed a physical, tough identity to his roster preferences.",
+      "breakpoints": "Schneider diverged from Thompson's extreme conservatism in free agency \u2014 while Thompson was famously tight-fisted, Schneider has been more willing to sign veteran free agents (DeMarcus Lawrence, Sam Darnold, Cooper Kupp in 2025). Also diverged on transaction volume \u2014 Thompson was measured while Schneider has averaged more than 250 roster transactions per year. Recently adopted Ravens-style compensatory pick accumulation strategy after hiring Mike Macdonald from Baltimore.",
+      "lineage_weight": 0.15,
+      "lineage_weight_notes": "16 drafts of independent data virtually eliminates need for lineage inference. Schneider IS the tree now \u2014 multiple current GMs (Scott Fitterer, Trent Kirchner candidates) came up under him."
+    },
+    "primary_decision_maker": "John Schneider",
+    "key_influencers": [
+      {
+        "name": "Mike Macdonald",
+        "title": "Head Coach",
+        "influence_level": "high",
+        "known_biases": "Defensive-minded, Baltimore Ravens coaching tree. Values versatile defensive players who can play multiple positions. Scheme demands disruptive interior DL, press-capable CBs, and hybrid safeties. Prefers four-man pressure over blitzing. Offensive philosophy favors outside-zone run scheme."
+      },
+      {
+        "name": "Nolan Teasley",
+        "title": "Assistant General Manager",
+        "influence_level": "high",
+        "known_biases": "Homegrown Schneider protege \u2014 joined as scouting intern in 2013, rose through pro personnel ranks. Oversees football operations collaboratively with Schneider on all player acquisition. Has been considered for GM jobs elsewhere."
+      },
+      {
+        "name": "Matt Berry",
+        "title": "Vice President / Player Acquisition",
+        "influence_level": "medium",
+        "known_biases": "Former director of college scouting (2015-2022), joined as southwest regional scout in 2008. Deep institutional knowledge of Schneider's draft board construction."
+      },
+      {
+        "name": "Trent Kirchner",
+        "title": "Vice President of Player Personnel",
+        "influence_level": "medium",
+        "known_biases": "Being mentioned as GM candidate for other teams. Involved in cross-department player evaluation."
+      },
+      {
+        "name": "Jody Allen",
+        "title": "Chair / Owner",
+        "influence_level": "low_to_medium",
+        "known_biases": "Schneider has stated she is 'thoughtful, engaging, and willing to make tough decisions.' Was involved in the decision to trade DK Metcalf and move on from Pete Carroll. Generally supports front office but engages on major roster decisions. Paul G. Allen Estate commenced formal team sale process in 2025 \u2014 ownership transition may affect dynamics."
+      }
+    ],
+    "power_dynamics": "Schneider has full authority over the roster and draft. Under Pete Carroll (2010-2023), the relationship was described as 'Schneider sets the menu and Carroll picks specific players off of it.' Since Carroll's departure and Macdonald's hire in January 2024, Schneider holds clearly more power \u2014 he was the one who led the HC search and hired Macdonald. Macdonald has significant input on defensive personnel specifically, given his scheme demands. Schneider added the President of Football Operations title in January 2024, formally consolidating authority.",
+    "owner_interference": "low"
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.55,
+    "bpa_weight_by_round": {
+      "1": 0.6,
+      "2": 0.5,
+      "3": 0.45,
+      "4_plus": 0.35
+    },
+    "stated_philosophy": "Build through the draft while making strategic acquisitions via trade and free agency. Schneider's official bio emphasizes 'building through the draft' and 'strategic acquisitions.'",
+    "actual_philosophy": "Schneider is a moderate BPA drafter who tilts toward need more than he admits. In 2024, he took DT Byron Murphy II at 16 despite guard being the biggest need \u2014 but Murphy was widely considered the best defensive player in the draft and addressed the 31st-ranked run defense. In 2025, he took IOL Grey Zabel at 18 to directly address the biggest need. He consistently fills positional holes in rounds 2-4. Schneider also values athletic upside heavily \u2014 he has repeatedly drafted elite athletes with raw skill sets (DK Metcalf, Tariq Woolen, Nick Emmanwori) and developed them.",
+    "philosophy_mismatch_notes": "Claims BPA but has consistently addressed pressing needs in round 1 when the value aligns. The 2022 draft (Cross at OT, Mafe at EDGE) directly addressed post-Wilson holes. 2023 saw him take the top-rated CB at 5 and a WR at 20 to replace aging starters. 2024 was DT to fix run defense. 2025 was IOL to fix interior OL. The pattern is clear: Schneider takes BPA only when BPA and need overlap, and he engineers that overlap by trading actively."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.4,
+    "trade_down_willingness": 0.65,
+    "trades_per_draft_average": 3.5,
+    "trade_triggers": [
+      "Clear tier break on board where desired player is available but at risk of being taken",
+      "Trading down when his board suggests remaining players are similar and he can accumulate Day 2 picks",
+      "Trading up on Day 2 or 3 for a specific player he covets (traded up for DK Metcalf, Tyler Lockett, Nick Emmanwori)",
+      "Trading veterans for draft capital (Russell Wilson, Geno Smith, DK Metcalf all traded for picks)",
+      "Accumulating Day 2 capital \u2014 has consistently valued picks in the 35-100 range"
+    ],
+    "draft_capital_philosophy": "Schneider is one of the most prolific draft-day traders in NFL history. PFF ranked him second among GMs in average value gained per draft from 2017-2021. He historically traded down in round 1 in six consecutive drafts (2013-2019), but has stayed put at his pick in the top-10/top-20 in recent years (2020 at 27, 2022 at 9, 2023 at 5 and 20, 2024 at 16, 2025 at 18). He values current-year Day 2 picks over future picks, and will trade future mid-rounders to get current-year picks. Recently began playing the compensatory pick game (Ravens influence via Macdonald hire)."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "EDGE",
+        "OT",
+        "CB",
+        "DT"
+      ],
+      "tier_2_high": [
+        "WR",
+        "S",
+        "IOL"
+      ],
+      "tier_3_mid": [
+        "LB",
+        "RB",
+        "TE",
+        "QB"
+      ],
+      "tier_4_low": [
+        "K",
+        "P",
+        "FB"
+      ]
+    },
+    "position_avoidance": [
+      "QB in early rounds \u2014 has drafted only Russell Wilson (3rd round, 2012), Alex McGough (7th, 2018), and Jalen Milroe (3rd, 2025) across 16 drafts. Prefers acquiring QBs via trade/FA rather than early-round draft capital.",
+      "IOL in round 1 \u2014 Grey Zabel in 2025 at pick 18 was his FIRST round-1 IOL selection in 16 drafts. Historically addressed interior OL in round 3 or later.",
+      "TE before round 4 \u2014 Elijah Arroyo at pick 50 in 2025 was his highest TE pick ever. Previously drafted TEs only on Day 3."
+    ],
+    "position_premium": [
+      "EDGE \u2014 has drafted Bruce Irvin (Rd 1), Frank Clark (Rd 2), Darrell Taylor (Rd 2), Boye Mafe (Rd 2), Derick Hall (Rd 2), and L.J. Collier (Rd 1) at the position. Consistently invests early capital here.",
+      "CB \u2014 took Devon Witherspoon at 5 overall (2023), Tariq Woolen in Rd 5 (2022), Coby Bryant Rd 4 (2022), plus multiple late-round CBs. Heavy investment across all rounds.",
+      "WR \u2014 has drafted more WRs than any other position (16+), including DK Metcalf (Rd 2), Jaxon Smith-Njigba (Rd 1), Golden Tate (Rd 2), Tyler Lockett (Rd 3), Paul Richardson (Rd 2).",
+      "OT \u2014 Charles Cross (Rd 1), Russell Okung (Rd 1), Abraham Lucas (Rd 3) \u2014 consistently addresses tackle."
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Explosive, high-motor edge rusher who can contribute in run defense. Schneider has drafted a mix of speed rushers and power-to-speed converters, but the consistent thread is first-step explosion and motor. Recent picks under Macdonald skew toward versatile stand-up/hand-in-dirt types who can fit a multiple front. Think Boye Mafe profile \u2014 explosive athlete who develops technique over time \u2014 rather than polished technician.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "240\u2013265",
+        "arm_length_minimum": "32 inches \u2014 no clear hard cutoff but leans long",
+        "key_athletic_tests": "Values first-step explosion. Vertical jump and broad jump matter as proxies for explosiveness. Speed (sub-4.65 40) strongly preferred.",
+        "speed_requirement": "4.65 or faster preferred. Boye Mafe ran 4.53, Darrell Taylor 4.57, Bruce Irvin 4.48. L.J. Collier's 4.91 was the outlier and a bust."
+      },
+      "playing_style": {
+        "primary_win_condition": "First-step explosion and closing speed \u2014 Schneider's best EDGE picks (Frank Clark, Mafe, Irvin) all won with burst off the line. Under Macdonald's scheme, versatility to rush from multiple alignments is now critical.",
+        "most_valued_traits": [
+          "First-step explosion/get-off",
+          "High motor and relentless effort",
+          "Versatility to play multiple fronts (stand-up and hand-in-dirt)",
+          "Run defense discipline and setting the edge",
+          "Speed-to-power conversion"
+        ],
+        "least_important_traits": [
+          "Polished pass rush repertoire \u2014 has drafted raw athletes and developed them (Mafe, Irvin had limited moves entering NFL)"
+        ],
+        "deal_breakers": [
+          "Stiff athletes with limited burst \u2014 Collier's 4.91 was the exception and it was a disastrous pick",
+          "One-dimensional pass-rush-only players who can't defend the run"
+        ],
+        "traits_that_make_them_reach": "Elite burst and closing speed \u2014 traded up for Irvin, took Mafe and Taylor in round 2 despite questions about technique"
+      },
+      "college_production": {
+        "production_floor": "No strict sack threshold \u2014 Mafe had 7 sacks as a senior, Irvin had 8, Taylor had 8.5. Collier had 6.",
+        "production_trajectory": "Prefers ascending production \u2014 Mafe broke out as a senior (7 sacks after modest prior years). Taylor was a late breakout.",
+        "context_sensitivity": "Moderate \u2014 values production but will bet on traits when the athletic profile is exceptional"
+      },
+      "evidence": {
+        "picks_analyzed": 8,
+        "examples": [
+          "2012 1.15 \u2014 Bruce Irvin: 6-3, 245, 4.48 40. Speed rusher with elite get-off. Raw but explosive.",
+          "2015 2.63 \u2014 Frank Clark: 6-3, 271, 4.79 40. Power rusher with closing speed. 9.5 sacks as senior.",
+          "2020 2.48 \u2014 Darrell Taylor: 6-4, 255, 4.57 40. Explosive but raw, bendable edge. Developmental.",
+          "2022 2.40 \u2014 Boye Mafe: 6-4, 261, 4.53 40. Explosive speed-to-power EDGE from Minnesota. Raw but elite athletic profile.",
+          "2023 2.37 \u2014 Derick Hall: 6-3, 254, 4.51 40. Auburn EDGE with burst and motor. Productive senior year (8.5 sacks).",
+          "2019 1.29 \u2014 L.J. Collier: 6-3, 283, 4.91 40. Power rusher with poor speed. BUST \u2014 represents a clear departure from the archetype that failed."
+        ]
+      },
+      "confidence": "high"
+    },
+    "OT": {
+      "archetype_summary": "Pass-protection-first tackle with athletic ability to operate in zone-blocking schemes. Schneider has consistently drafted tackles who are technically sound in pass protection over mauling run blockers. Charles Cross (2022) epitomizes the prototype \u2014 a fluid, agile pass protector from Mike Leach's Air Raid offense who has developed into a franchise LT. Under the new outside-zone scheme, lateral agility and ability to reach-block are even more important.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-8",
+        "weight_range": "295\u2013335",
+        "arm_length_minimum": "33.5 inches \u2014 Cross had 34+ inch arms, Okung had 34+, Lucas had 33.5. Long arms are non-negotiable at tackle.",
+        "key_athletic_tests": "Values foot quickness and lateral agility. Not a 40-time position but wants nimble feet for pass sets. Michael Jerrell (D-II pick) ran a 4.94 40 which is elite for OT.",
+        "speed_requirement": "Sub-5.10 preferred \u2014 values movement skills over straight-line speed"
+      },
+      "playing_style": {
+        "primary_win_condition": "Pass protection technique and foot quickness. Cross was selected 9th overall primarily for his pass-blocking prowess in Mississippi State's pass-heavy offense.",
+        "most_valued_traits": [
+          "Pass protection technique and mirror ability",
+          "Lateral agility for zone-scheme reach blocks",
+          "Length to keep rushers at bay",
+          "Durability and multi-year starting experience",
+          "Football IQ and ability to handle stunts/twists"
+        ],
+        "least_important_traits": [
+          "Dominant run blocking power \u2014 can be developed; Schneider prioritizes pass-pro first"
+        ],
+        "deal_breakers": [
+          "Short arms \u2014 will not draft a tackle with sub-33 inch arms",
+          "Stiff hips that can't redirect against speed rushers"
+        ],
+        "traits_that_make_them_reach": "Elite foot quickness and mirror ability in pass protection"
+      },
+      "college_production": {
+        "production_floor": "Minimum two-year starter preferred. Cross started 2 years, Okung was a 4-year starter, Lucas was a multi-year starter.",
+        "production_trajectory": "Values proven multi-year starters over one-year wonders",
+        "context_sensitivity": "High \u2014 Cross came from an Air Raid offense (pass-heavy), which Schneider recognized as a premium pass-pro proving ground"
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2010 1.6 \u2014 Russell Okung: 6-5, 310, 34.75-inch arms. Oklahoma State LT, multi-year starter. Pass-pro technician.",
+          "2022 1.9 \u2014 Charles Cross: 6-5, 307, 34.25-inch arms. Mississippi State LT, pass-protection specialist from Air Raid offense.",
+          "2022 3.72 \u2014 Abraham Lucas: 6-6, 315, 33.5-inch arms. Washington State RT, another Air Raid pass-pro tackle.",
+          "2021 6.208 \u2014 Stone Forsythe: 6-8, 310. Florida OT, massive frame with developmental upside.",
+          "2024 6.207 \u2014 Michael Jerrell: 6-5, 303. D-II Findlay OT, ran 4.94 40. Athletic development project."
+        ]
+      },
+      "confidence": "high"
+    },
+    "IOL": {
+      "archetype_summary": "Athletic, versatile interior lineman who fits an outside-zone scheme. Schneider historically underinvested in IOL (never took one in Rd 1 until 2025), but the Zabel pick at 18 overall signals a major shift. He values athleticism and movement ability over raw power \u2014 Zabel posted the best vertical jump among OL at the combine (36.5 inches), and Christian Haynes was lauded for his athletic profile. Versatility to play multiple spots is strongly preferred.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-6",
+        "weight_range": "300\u2013330",
+        "arm_length_minimum": "No strict minimum for guards \u2014 Zabel has 32-inch arms (short for a lineman, but acceptable inside). Haynes also has adequate but not elite length.",
+        "key_athletic_tests": "Vertical jump and broad jump as explosiveness proxies. Zabel's 36.5-inch vertical was a key selling point. Shuttle and 3-cone for lateral agility. Schneider wants guards who can pull and reach-block in zone schemes.",
+        "speed_requirement": "No strict 40 time requirement, but movement skills matter. Values OL who move like tight ends."
+      },
+      "playing_style": {
+        "primary_win_condition": "Athletic ability to execute zone-scheme reach blocks and pulls. Must be able to get to the second level and block in space.",
+        "most_valued_traits": [
+          "Athleticism and movement skills in space",
+          "Versatility to play multiple OL positions",
+          "Zone-blocking technique (reach blocks, combo blocks)",
+          "Competitive toughness and nastiness",
+          "Football IQ and communication skills"
+        ],
+        "least_important_traits": [
+          "Pure anchor strength in phone-booth pass protection \u2014 not the scheme requirement in an outside-zone system"
+        ],
+        "deal_breakers": [
+          "Stiff, non-athletic linemen who can't pull or reach block",
+          "Players who can only play one position on the interior"
+        ],
+        "traits_that_make_them_reach": "Elite athletic testing combined with versatility \u2014 Zabel was the top-rated practice player at the Senior Bowl"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter preferred. Zabel had 41 starts across 4 positions. Haynes was a 4-year starter.",
+        "production_trajectory": "Values durability and longevity \u2014 every IOL drafted had extensive starting experience",
+        "context_sensitivity": "Moderate \u2014 values scheme fit (zone schemes) over raw production metrics"
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2025 1.18 \u2014 Grey Zabel: 6-6, 312, 32-inch arms, 36.5-inch vertical. NDSU OL, played all 5 positions. Zone-fit athletic marvel.",
+          "2024 3.81 \u2014 Christian Haynes: 6-3, 313. UConn RG, 4-year starter. Athletic guard who thrives in wide zone (89.2 PFF run grade in 2023).",
+          "2020 3.69 \u2014 Damien Lewis: 6-2, 327. LSU guard, physical run blocker from championship team.",
+          "2025 6.192 \u2014 Bryce Cabeldue: 6-4, 308. Kansas OT-to-guard convert. Athletic traits profile.",
+          "2025 7.234 \u2014 Mason Richman: Iowa guard. Physical zone-scheme blocker from power program."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "DT": {
+      "archetype_summary": "Disruptive interior pass rusher who can also stuff the run. Schneider's DT investments accelerated dramatically with the Macdonald hire. Byron Murphy II (2024, pick 16) is the prototype \u2014 a penetrating 3-technique with elite burst, power, and the ability to play nose. Under Macdonald, the front four must dominate without blitzing (Seattle has one of the lowest blitz rates in the NFL). The DT must be a force multiplier who collapses the pocket from inside.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-4",
+        "weight_range": "290\u2013320",
+        "arm_length_minimum": "32 inches \u2014 Murphy II had 32.4-inch arms",
+        "key_athletic_tests": "First-step quickness and explosion off the ball are paramount. Murphy II ran a 4.87 40 at 297 lbs, which was elite for his position. Vertical and broad jump for explosiveness.",
+        "speed_requirement": "Sub-5.00 40 preferred for 3-technique types. Two-gap nose tackles have more flexibility."
+      },
+      "playing_style": {
+        "primary_win_condition": "Interior pass rush disruption through first-step quickness and power. Murphy II's 12.5% pressure rate ranked 3rd among DTs (2021-2023). Must also be stout against the run \u2014 Seattle runs the #1 run defense under Macdonald.",
+        "most_valued_traits": [
+          "First-step explosion and quickness off the snap",
+          "Interior pass rush disruption and pocket collapse",
+          "Run defense strength and anchor",
+          "Alignment versatility (3-tech and nose)",
+          "Motor and effort on every play"
+        ],
+        "least_important_traits": [
+          "Elite pass rush finesse moves \u2014 power and quickness are the priority over counter moves"
+        ],
+        "deal_breakers": [
+          "One-dimensional run stuffers with zero pass rush",
+          "Players who can only play one gap assignment"
+        ],
+        "traits_that_make_them_reach": "Elite burst for an interior lineman \u2014 Murphy II was taken at 16 when many mocked a guard there because his explosiveness was too rare to pass up"
+      },
+      "college_production": {
+        "production_floor": "Multiple sacks and high pressure rate expected. Murphy II had 40 pressures including 6 sacks as a junior.",
+        "production_trajectory": "Breakout junior year is acceptable \u2014 Murphy II made the leap in year 3",
+        "context_sensitivity": "High \u2014 Murphy II played next to T'Vondre Sweat yet still dominated, which showed he wasn't scheme-dependent"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2024 1.16 \u2014 Byron Murphy II: 6-0.5, 297, 4.87 40, 32.4-inch arms. Texas DT, elite first-step quickness, 12.5% pressure rate. 2 sacks in Super Bowl LX.",
+          "2025 5.142 \u2014 Rylie Mills: Notre Dame DE/DT. Versatile interior/edge player.",
+          "2016 2.49 \u2014 Jarran Reed: 6-3, 307. Alabama DT, two-gap run stuffer who also rushed the passer.",
+          "2019 7.236 \u2014 Demarcus Christmas: 6-3, 293. Florida State DT, developmental."
+        ]
+      },
+      "confidence": "high"
+    },
+    "CB": {
+      "archetype_summary": "Schneider has drafted two distinct CB archetypes that reveal his range: (1) Elite physical specimens with freakish size-speed combinations (Tariq Woolen: 6-4, 4.26 40, converted WR), and (2) Aggressive, physical cover corners who play with dog in them regardless of size (Devon Witherspoon: 5-11, taken 5th overall). The unifying thread is elite athleticism, physicality, and competitiveness. Under Macdonald's scheme, which requires both man and zone ability plus occasional blitzing, versatility is now an added requirement.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-4 \u2014 extremely wide range. Schneider has no height cutoff; he'll take 5-9 Tre Brown or 6-4 Tariq Woolen.",
+        "weight_range": "175\u2013210",
+        "arm_length_minimum": "No hard cutoff \u2014 Witherspoon had average length; Woolen had 33.6-inch arms. Values length but not at the expense of coverage ability.",
+        "key_athletic_tests": "Speed is critical. Woolen ran 4.26 (historic), Coby Bryant ran 4.46, Nehemiah Pritchett ran 4.48. Ball skills and physicality matter more than pure 40 time for some prospects though \u2014 Witherspoon didn't run at the combine but was taken 5th overall on film alone.",
+        "speed_requirement": "4.50 or faster strongly preferred. No CB drafted in top-5 rounds has been slower than 4.50."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Multiple \u2014 Macdonald's scheme requires both man and zone. Witherspoon excels in press-man and is used as a blitzer. Woolen plays more off-zone coverage. The scheme demands versatility.",
+        "most_valued_traits": [
+          "Physicality and willingness to tackle/hit",
+          "Competitive fire and aggression",
+          "Ball skills and ability to create turnovers",
+          "Versatility in man and zone coverages",
+          "Ability to play outside and in the slot"
+        ],
+        "least_important_traits": [
+          "Ideal size \u2014 Schneider has proven he will take any size CB if the ability is there"
+        ],
+        "deal_breakers": [
+          "Passive corners who avoid contact",
+          "One-scheme-only corners who can't play both man and zone"
+        ],
+        "traits_that_make_them_reach": "Freakish athletic profiles \u2014 Woolen's 4.26 at 6-4 made him a 5th-round steal. Schneider loves combine standouts at CB."
+      },
+      "college_production": {
+        "production_floor": "No strict interception threshold \u2014 values film over stats at CB. Woolen had limited production as a converted WR.",
+        "production_trajectory": "Willing to bet on late-blooming CBs \u2014 Woolen converted from WR to CB late. But also takes proven producers (Witherspoon, Coby Bryant).",
+        "context_sensitivity": "Very high \u2014 Woolen had minimal CB experience but freakish measurables. Schneider trusts development."
+      },
+      "evidence": {
+        "picks_analyzed": 9,
+        "examples": [
+          "2023 1.5 \u2014 Devon Witherspoon: 5-11, 181. Illinois CB, consensus All-American. Elite press-man technician, aggressive tackler. Pro Bowl in each of first 2 seasons.",
+          "2022 5.153 \u2014 Tariq Woolen: 6-4, 205, 4.26 40, 33.6-inch arms. UTSA converted WR-to-CB. Pro Bowl as rookie with 6 INTs.",
+          "2022 4.109 \u2014 Coby Bryant: 6-1, 193, 4.46 40. Cincinnati CB, Jim Thorpe Award winner. Production-first pick.",
+          "2024 5.136 \u2014 Nehemiah Pritchett: Auburn CB. Physical corner.",
+          "2024 6.192 \u2014 D.J. James: Auburn CB. Athletic coverage corner.",
+          "2021 4.137 \u2014 Tre Brown: 5-10, 185, 4.32 40. Oklahoma CB. Undersized speedster."
+        ]
+      },
+      "confidence": "very_high"
+    },
+    "S": {
+      "archetype_summary": "Large, physical, versatile safety who can play multiple roles \u2014 box safety, single-high, slot defender, and occasional blitzer. Schneider's safety archetypes draw directly from the Legion of Boom DNA (Earl Thomas, Kam Chancellor). The 2025 selection of Nick Emmanwori (6-3, 220, 4.38 40) explicitly channels Chancellor \u2014 Schneider himself noted the physical resemblance. Under Macdonald, safeties must be scheme-versatile: able to play deep zone, cover tight ends, come downhill against the run, and disguise pre-snap looks.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-3",
+        "weight_range": "195\u2013225",
+        "arm_length_minimum": "No strict minimum, but values length \u2014 Emmanwori had 32.5-inch arms",
+        "key_athletic_tests": "Speed is critical \u2014 Emmanwori ran 4.38 at 220 lbs, which was a historic combine performance (43-inch vertical, 11-foot-6 broad jump). Earl Thomas ran 4.46 at 195 lbs. Range and explosion are non-negotiable.",
+        "speed_requirement": "4.50 or faster strongly preferred for starting safeties"
+      },
+      "playing_style": {
+        "primary_coverage_style": "Hybrid \u2014 Macdonald's defense requires safeties to play multiple roles within the same game. Emmanwori lined up as an edge rusher on one play and dropped into coverage the next during training camp.",
+        "most_valued_traits": [
+          "Elite range and sideline-to-sideline speed",
+          "Physicality in run support and tackling",
+          "Versatility to play box, deep, and slot",
+          "Ball skills and turnover creation",
+          "Size to match up with tight ends in coverage"
+        ],
+        "least_important_traits": [
+          "Pure free safety skills only \u2014 Schneider wants do-it-all safeties, not single-role players"
+        ],
+        "deal_breakers": [
+          "Liability in run support or tackling",
+          "One-dimensional safeties who can only play deep"
+        ],
+        "traits_that_make_them_reach": "Freakish size-speed-explosion combination \u2014 Schneider traded up 17 spots to get Emmanwori at 35, comparing him to Kam Chancellor"
+      },
+      "college_production": {
+        "production_floor": "No strict statistical floor \u2014 but multi-year starting experience is preferred. Thomas, Chancellor, and Emmanwori were all multi-year starters.",
+        "production_trajectory": "Values early production \u2014 Emmanwori was a 3-year starter with 244 tackles and 6 INTs",
+        "context_sensitivity": "Moderate \u2014 values film and measurables over raw stats"
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2025 2.35 \u2014 Nick Emmanwori: 6-3, 220, 4.38 40, 43-inch vert, 32.5-inch arms. South Carolina S. Historic combine. Schneider compared to Kam Chancellor. DROY finalist.",
+          "2010 1.14 \u2014 Earl Thomas: 5-10, 202, 4.46 40. Texas S, three-time first-team All-Pro. Rangy center-field safety.",
+          "2010 5.133 \u2014 Kam Chancellor: 6-3, 225, 4.62 40. Virginia Tech SS. Physical enforcer.",
+          "2019 2.47 \u2014 Marquise Blair: 6-2, 195, 4.48 40. Utah SS. Physical hitter, Kam Chancellor comp."
+        ]
+      },
+      "confidence": "high"
+    },
+    "LB": {
+      "archetype_summary": "Schneider's LB history reveals two eras: the Pete Carroll era valued sideline-to-sideline athletes who could cover (Bobby Wagner, K.J. Wright), and the Macdonald era adds emphasis on tackling production and run-stuffing. The common thread is high-volume tacklers with instincts. Tyrice Knight (2024, Rd 4) led the nation in solo tackles. Jordyn Brooks (2020, Rd 1) was also a tackling machine. Wagner was the gold standard \u2014 elite processing, sideline-to-sideline range, coverage ability.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "225\u2013255",
+        "arm_length_minimum": "No strict minimum for LBs",
+        "key_athletic_tests": "Speed matters but isn't an eliminator \u2014 Wagner ran 4.55, Brooks ran 4.55, Knight ran 4.63. Processing speed and instincts trump timed speed for Schneider at this position.",
+        "speed_requirement": "Sub-4.70 preferred but not a hard cutoff"
+      },
+      "playing_style": {
+        "primary_win_condition": "Tackling volume and defensive processing. Wagner's elite NFL career validated Schneider's preference for LBs who diagnose and close.",
+        "most_valued_traits": [
+          "Elite tackling ability and pursuit angles",
+          "Sideline-to-sideline range",
+          "Instincts and play recognition",
+          "Coverage ability vs. TEs and RBs",
+          "Durability and ability to play every down"
+        ],
+        "least_important_traits": [
+          "Pass rush/blitz ability \u2014 nice to have but not a primary LB evaluation trait for Schneider"
+        ],
+        "deal_breakers": [
+          "Poor tacklers despite athletic testing",
+          "LBs who are liabilities in coverage against modern passing attacks"
+        ],
+        "traits_that_make_them_reach": "Elite production (tackle totals) combined with instincts \u2014 Brooks at 27th overall was seen as a reach but justified by his tackling machine profile"
+      },
+      "college_production": {
+        "production_floor": "High \u2014 Wagner had 453 career tackles, Brooks led Texas Tech in tackles, Knight had 388 tackles since 2020 (tied 3rd in FBS). Schneider loves productive LBs.",
+        "production_trajectory": "Multi-year starters who produced consistently",
+        "context_sensitivity": "Moderate \u2014 production from any conference is valued"
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2012 2.47 \u2014 Bobby Wagner: 6-0, 241, 4.55 40. Utah State LB. Potential Hall of Famer. Elite processor and tackler.",
+          "2020 1.27 \u2014 Jordyn Brooks: 6-0, 240, 4.55 40. Texas Tech LB. Tackling machine, 108 tackles as senior.",
+          "2024 4.118 \u2014 Tyrice Knight: 6-2, 234, 4.63 40. UTEP LB. Led nation with 84 solo tackles. Physical run defender.",
+          "2019 3.88 \u2014 Cody Barton: 6-1, 237. Utah LB. Coverage-capable, versatile player."
+        ]
+      },
+      "confidence": "high"
+    },
+    "WR": {
+      "archetype_summary": "Schneider has drafted more WRs than any other position (16+) and targets two primary archetypes: (1) Physical freaks with elite size-speed combinations who win with athleticism (DK Metcalf: 6-3, 229, 4.33 40), and (2) Polished route technicians who win with precision and hands (Jaxon Smith-Njigba: 6-0, 197, the most polished route runner in the 2023 class). He is willing to bet on raw athletic upside at WR more than any other position, as evidenced by multiple developmental Day 3 WR picks.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-4 \u2014 extremely wide range. Takes all sizes.",
+        "weight_range": "175\u2013230",
+        "arm_length_minimum": "No minimum \u2014 varies by archetype",
+        "key_athletic_tests": "Speed is highly valued but not absolute \u2014 Metcalf's 4.33 at 229 was legendary, but Smith-Njigba ran 4.52 and was taken 20th overall. Values explosion and play speed on film over pure combine numbers.",
+        "speed_requirement": "No hard cutoff \u2014 willing to take route technicians (JSN) and deep threats (Metcalf)"
+      },
+      "playing_style": {
+        "primary_win_condition": "Depends on archetype \u2014 Metcalf wins with speed and physicality, JSN wins with route running and separation. The constant is competitive blocking \u2014 Pete Carroll valued blocking WRs and Schneider still does.",
+        "most_valued_traits": [
+          "Competitive toughness and willingness to block",
+          "Ability to create separation through speed or routes",
+          "Contested catch ability for bigger receivers",
+          "Return ability and special teams value (Lockett, Eskridge)",
+          "Football character and maturity"
+        ],
+        "least_important_traits": [
+          "Pure route-tree diversity as a prospect \u2014 Schneider will develop routes if the athletic traits are there (Metcalf was raw coming out)"
+        ],
+        "deal_breakers": [
+          "Passivity and lack of competitive fire",
+          "WRs who won't block in the run game \u2014 Carroll and now Macdonald demand it"
+        ],
+        "traits_that_make_them_reach": "Historic combine performances \u2014 Metcalf's combine made him a must-have. Schneider is a known combine-performance drafter at WR."
+      },
+      "college_production": {
+        "production_floor": "Surprisingly low \u2014 Metcalf had just 26 catches in 7 games (injury-shortened final year). Schneider trusts film and traits over production at WR when the upside is exceptional.",
+        "production_trajectory": "Will draft WRs with limited production if the traits are rare. But also drafts productive WRs (JSN: 100+ catches at OSU, Tate: 2-year producer at Notre Dame, Lockett: prolific at K-State).",
+        "context_sensitivity": "High \u2014 adjusts for offense, injury, and competition level"
+      },
+      "evidence": {
+        "picks_analyzed": 10,
+        "examples": [
+          "2019 2.64 \u2014 DK Metcalf: 6-3, 229, 4.33 40, 40.5-inch vert. Ole Miss WR. Historic combine. Physical freak, limited college production due to injury.",
+          "2023 1.20 \u2014 Jaxon Smith-Njigba: 6-0, 197, 4.52 40. Ohio State WR. Elite route runner, 100+ catches as sophomore. Polished technician archetype.",
+          "2015 3.69 \u2014 Tyler Lockett: 5-10, 182, 4.40 40. Kansas State WR. Return specialist and precise route runner.",
+          "2010 2.60 \u2014 Golden Tate: 5-10, 199, 4.42 40. Notre Dame WR. Physical, YAC-focused, excellent blocker.",
+          "2025 5.166 \u2014 Tory Horton: 6-1, 200. Colorado State WR. 88 catches, 1,483 yards (16.9 avg) as a junior. Productive mid-round pick.",
+          "2021 2.56 \u2014 D'Wayne Eskridge: 5-9, 190, 4.38 40. Western Michigan WR. Speed/return specialist \u2014 bust."
+        ]
+      },
+      "confidence": "very_high"
+    },
+    "TE": {
+      "archetype_summary": "Schneider historically deprioritized TE in the draft (no pick above round 4 until 2025), preferring to acquire TEs via trade (Jimmy Graham) or free agency (Greg Olsen, Noah Fant). The 2025 selection of Elijah Arroyo at pick 50 signals an evolution. Arroyo is a receiving-first TE with enough blocking ability to be an in-line player. Under Macdonald, the TE must be a passing-game weapon who can also hold up as a blocker \u2014 hybrid profile. AJ Barner (2024, Rd 4) was described as a blocking TE first.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "235\u2013260",
+        "arm_length_minimum": "No established minimum",
+        "key_athletic_tests": "Values athleticism for the position \u2014 receiving TEs need speed and route running. Blocking TEs need functional strength. Arroyo (6-4, ~250) represents the athletic hybrid.",
+        "speed_requirement": "Sub-4.75 for receiving TEs preferred"
+      },
+      "playing_style": {
+        "primary_win_condition": "Versatility \u2014 must contribute in both pass and run game. Under Macdonald's influence (and new OC Brian Fleury from SF), the TE position is becoming more central to the offense.",
+        "most_valued_traits": [
+          "Receiving ability and hands",
+          "Blocking competency",
+          "Versatility to play inline, flex, and move",
+          "Red zone target ability",
+          "Football intelligence"
+        ],
+        "least_important_traits": [
+          "Pure blocking-only TEs \u2014 those are acquired as veterans, not drafted early"
+        ],
+        "deal_breakers": [
+          "Cannot catch or run routes at all \u2014 defeats the purpose of investing draft capital",
+          "Injury history at the position"
+        ],
+        "traits_that_make_them_reach": "Athletic profiles that suggest receiving upside \u2014 Arroyo (Rd 2) and Barner (Rd 4) both had significant receiving production"
+      },
+      "college_production": {
+        "production_floor": "Limited data \u2014 only 3 TEs drafted in top-4 rounds. Arroyo had strong receiving numbers at Miami.",
+        "production_trajectory": "Values production for TEs drafted in top-4 rounds",
+        "context_sensitivity": "High \u2014 adjusts for TE usage in college offense"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2025 2.50 \u2014 Elijah Arroyo: 6-4, ~250. Miami TE. Receiving-first hybrid with 35 catches, 590 yards, 7 TDs as senior.",
+          "2024 4.121 \u2014 AJ Barner: 6-4, 242. Michigan TE. Reliable receiver and blocker.",
+          "2025 5.175 \u2014 Robbie Ouzts: 6-2, ~250. Alabama FB/TE. First FB drafted by Seattle since 2014. H-back type."
+        ]
+      },
+      "confidence": "low"
+    },
+    "RB": {
+      "archetype_summary": "Schneider values physical, downhill runners who can also contribute in the passing game. Kenneth Walker III (2022, Rd 2) is the archetype \u2014 an explosive, powerful runner with home-run ability and decent pass-catching skills. The regime prefers acquiring starting-caliber RBs in round 2-3, not round 1. They also value depth and committee approaches \u2014 frequently drafting complementary backs (Zach Charbonnet, Rashaad Penny, Chris Carson via UDFA). Physical toughness and ability to absorb punishment are non-negotiable.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-1",
+        "weight_range": "205\u2013230",
+        "arm_length_minimum": "N/A for RBs",
+        "key_athletic_tests": "Burst and explosion \u2014 vertical jump and broad jump. Walker ran 4.38 with a 36-inch vertical. Speed matters but vision and power are equally important.",
+        "speed_requirement": "Sub-4.55 preferred for early-round RBs. Walker ran 4.38. Charbonnet ran 4.53."
+      },
+      "playing_style": {
+        "primary_win_condition": "Decisive, physical running between the tackles with enough burst to break long runs. Walker's 89-yard TD run in the Super Bowl embodied the archetype.",
+        "most_valued_traits": [
+          "Explosive burst through the hole",
+          "Physical running style and contact balance",
+          "Breakaway speed for home-run plays",
+          "Receiving ability out of the backfield",
+          "Pass protection willingness"
+        ],
+        "least_important_traits": [
+          "Elite pass-catching ability \u2014 nice to have but not required. Physical running comes first."
+        ],
+        "deal_breakers": [
+          "Lack of physicality between the tackles",
+          "Liability in pass protection"
+        ],
+        "traits_that_make_them_reach": "Home-run speed combined with physical running \u2014 Walker's combine (4.38, 36-inch vert) at 211 lbs was electric"
+      },
+      "college_production": {
+        "production_floor": "High \u2014 Walker had 1,636 yards and 18 TDs at Michigan State. Charbonnet had 1,357 yards and 14 TDs at UCLA. Schneider wants proven producers.",
+        "production_trajectory": "Transfer portal success is valued \u2014 both Walker (Wake Forest to Michigan State) and Charbonnet (Michigan to UCLA) thrived after transferring",
+        "context_sensitivity": "Moderate \u2014 production in any conference is valued"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2022 2.41 \u2014 Kenneth Walker III: 5-9, 211, 4.38 40, 36-inch vert. Michigan State RB, 1,636 yards, 18 TDs. Super Bowl MVP (2025).",
+          "2023 2.52 \u2014 Zach Charbonnet: 6-1, 214, 4.53 40. UCLA RB, 1,357 yards, 14 TDs. Physical complementary back.",
+          "2018 1.27 \u2014 Rashaad Penny: 5-11, 220, 4.46 40. San Diego State RB. Explosive home-run hitter.",
+          "2025 7.223 \u2014 Damien Martinez: Miami/Oregon State RB. 4.51 40. Pac-12 Freshman of the Year 2022."
+        ]
+      },
+      "confidence": "high"
+    },
+    "QB": {
+      "archetype_summary": "Schneider has only drafted three QBs in 16 drafts: Russell Wilson (Rd 3, 2012), Alex McGough (Rd 7, 2018), and Jalen Milroe (Rd 3, 2025). This extreme scarcity makes QB archetype analysis low-confidence. Wilson was a dual-threat with elite processing and deep-ball accuracy. Milroe is a dual-threat with elite rushing ability and developing passing. The common thread is mobility and playmaking ability beyond the pocket, combined with arm talent. Schneider has historically preferred acquiring QBs via trade/FA (Geno Smith trade, Sam Darnold FA) rather than committing high draft capital. He publicly stated the 2025 QB class was 'deeper than advertised' and used a 3rd-rounder on Milroe behind Darnold, suggesting a developmental approach.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-3 \u2014 Wilson was 5-11, Milroe is 6-1. No height premium.",
+        "weight_range": "210\u2013230",
+        "arm_length_minimum": "N/A",
+        "key_athletic_tests": "Mobility is clearly valued \u2014 both Wilson and Milroe are dual-threats. Arm talent matters (Milroe had 23 TDs, 6 INTs as Alabama starter). But pure running ability is tolerated more than most assume \u2014 Milroe led Alabama with 20 rushing TDs in 2024.",
+        "speed_requirement": "Mobility valued but not strict 40 time \u2014 it's about play-extending ability and rushing upside"
+      },
+      "playing_style": {
+        "primary_style": "Dual-threat QBs who can beat you with both arm and legs. Not pure pocket passers \u2014 both Wilson and Milroe are dynamic runners who extend plays.",
+        "most_valued_traits": [
+          "Arm talent and ability to make all the throws",
+          "Mobility and play-extending ability",
+          "Competitive fire and clutch performance",
+          "Leadership and intangible qualities",
+          "Processing speed and decision-making under pressure"
+        ],
+        "least_important_traits": [
+          "Prototype size \u2014 Schneider has shown zero height bias by drafting Wilson at 5-11"
+        ],
+        "deal_breakers": [
+          "Limited arm talent",
+          "Poor decision-making under pressure"
+        ],
+        "traits_that_make_them_reach": "N/A \u2014 too few data points. But Wilson's 3rd-round selection was itself a bet on a unique player."
+      },
+      "college_production": {
+        "production_floor": "Must be a proven starter. Wilson started multiple years at NC State and Wisconsin. Milroe started 2 years at Alabama.",
+        "production_trajectory": "Values winners \u2014 Wilson won 33 of 37 starts in college. Milroe won a Manning Award finalist nod.",
+        "context_sensitivity": "Very high \u2014 adjusts for talent around QB and conference"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2012 3.75 \u2014 Russell Wilson: 5-11, 206, 4.55 40. Wisconsin/NC State QB. 33-1 record as starter. Elite processor, accurate deep ball, dual-threat. Won Super Bowl XLVIII.",
+          "2025 3.92 \u2014 Jalen Milroe: 6-1, ~215. Alabama QB. 23 TDs, 6 INTs passing; 20 rushing TDs as senior. Campbell Trophy winner. Developmental pick behind Darnold.",
+          "2018 7.220 \u2014 Alex McGough: FIU QB. Developmental flier."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 3 QBs drafted across 16 drafts. Schneider's QB evaluation is more apparent in trade/FA acquisitions (Wilson retention, Smith trade, Darnold signing) than draft picks."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 12,
+    "max_observed_reach": 25,
+    "round_1_reach_tolerance": 10,
+    "notes": "Schneider has a documented history of 'surprising' picks that analysts viewed as reaches. L.J. Collier at 29 in 2019 was widely seen as a 2nd-round talent. Jordyn Brooks at 27 in 2020 was viewed as a reach by many. Marquise Blair at 47 in 2019 was considered overdrafted. However, his recent top-10/top-15 picks (Cross at 9, Witherspoon at 5, Murphy at 16, Zabel at 18) have been in-line with or better than consensus. The pattern is: the later in the 1st round Schneider picks, the more likely he reaches. When picking in the top-20, he's more disciplined."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.65,
+    "offensive_scheme": "Outside-zone run scheme under new OC Brian Fleury (hired from 49ers). Values athletic, mobile linemen who can pull and reach-block. Passing game built around play-action and quick-game concepts off zone-run action. Previously ran Klint Kubiak's offense in 2024-2025 (also zone-based).",
+    "defensive_scheme": "Multiple front defense under Mike Macdonald (Ravens coaching tree). Primarily 4-down nickel personnel (87% nickel usage, leading NFL in 2025). Generates pressure through four-man rushes with interior stunts and edge games, NOT blitzing (one of lowest blitz rates in NFL). Demands versatile defenders who can play multiple roles and disguise coverages. Both man and zone coverage used. Front four dominance is non-negotiable \u2014 DT and EDGE must be disruptive without extra help.",
+    "scheme_change_flag": false,
+    "scheme_change_notes": "Macdonald hired January 2024. The defensive scheme transition happened in 2024 (Year 1 growing pains, dominant second half). By 2025, it was fully installed \u2014 Seattle won Super Bowl LX with the #1-ranked run defense and top-5 overall defense. OC changed from Kubiak to Fleury after SB LX, but both run outside-zone concepts so minimal disruption expected."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.6,
+    "risk_description": "Moderate-to-aggressive. Schneider takes calculated risks. He drafted Tariq Woolen (converted WR with minimal CB experience) in round 5 \u2014 huge upside bet that paid off. He traded Russell Wilson when others would have held on. He traded DK Metcalf and Geno Smith when they wanted out rather than overpaying. But he also takes 'safe' picks like Cross (proven pass protector) and Zabel (Senior Bowl dominant). His Day 3 picks tend to be higher-risk athletic projects.",
+    "recency_bias": 0.55,
+    "recency_description": "Moderate. After terrible run defense in 2022-2023, he took DT Byron Murphy II at 16 in 2024. After IOL being the clear weakness in 2024, he took Zabel at 18 in 2025. But he won't force a need pick if the value isn't there \u2014 he took Murphy over a guard when the DT value was clearly superior.",
+    "sunk_cost_behavior": "Moves on quickly from busts. Cut Jamal Adams after 4 injury-riddled seasons despite giving up 2 first-round picks. Traded DK Metcalf rather than overpaying. Released Tyler Lockett for cap reasons. Does not double-down on past investments if they're not working.",
+    "combine_weight": 0.65,
+    "combine_description": "High combine weight \u2014 one of the most notable combine-influenced drafters in the NFL. DK Metcalf's historic combine made him a must-pick. Tariq Woolen's 4.26 at 6-4 made him a 5th-round steal. Nick Emmanwori's historic combine (4.38 at 220 lbs, 43-inch vert) prompted a trade-up. Seattle selected a league-high 4 players with athleticism scores of 85+ in 2025. Schneider clearly uses combine data to identify athletic outliers at premium positions.",
+    "character_weight": 0.7,
+    "character_description": "High character emphasis. The team's culture page emphasizes 'competitive guys that are about football, about the process, smart, tough and reliable.' Schneider's own quotes emphasize looking at 'the whole person.' Grey Zabel turned down significant NIL offers to stay at NDSU \u2014 character trait Schneider specifically valued. Macdonald has moved away from Carroll's tolerance for individualism toward team-first culture.",
+    "quarterback_philosophy": "Extremely conservative QB drafter. Only 3 QBs drafted in 16 years. Prefers to acquire starting QBs via trade (Wilson retention) or free agency (Darnold at $100.5M). Will draft a developmental QB in rounds 3-7 behind an established starter (Milroe behind Darnold in 2025) but will not use round 1-2 capital on a QB. Has never traded up for a QB. The only scenario for early QB draft investment would be a franchise-altering prospect falling in a year where Seattle lacks a long-term answer."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.5,
+    "production_vs_projection": "Balanced but tilts toward projection when the athletic profile is historic. Schneider will take a less productive player with elite traits (Metcalf with 26 catches, Woolen as a converted WR) over a more productive player with average traits. However, at most positions, he wants proven multi-year starters with real production (Wagner, Brooks, Walker, Cross, Witherspoon all had strong college production). The production-vs-projection split varies sharply by position: at WR and CB, he'll bet on traits; at LB and OL, he wants production.",
+    "production_thresholds_by_position": {
+      "WR": "No minimum \u2014 Metcalf had 26 catches in shortened final year. Traits override production here.",
+      "RB": "1,000+ yards preferred for Day 2 picks. Walker had 1,636; Charbonnet had 1,357; Penny had 2,248.",
+      "EDGE": "5+ sacks in final season for Day 2 picks. Mafe had 7, Hall had 8.5, Taylor had 8.5.",
+      "CB": "No clear statistical threshold \u2014 trusts film over interception totals. Woolen had minimal CB stats.",
+      "LB": "High tackle totals valued \u2014 Wagner 453 career, Brooks 108 as senior, Knight 388 over 4 years.",
+      "OL": "Multi-year starting experience is the threshold, not statistical production."
+    },
+    "breakout_age_sensitivity": 0.4,
+    "dominator_rating_sensitivity": 0.35,
+    "notes": "Schneider is NOT a breakout-age drafter. He has taken late bloomers (Woolen converting from WR as a redshirt junior) and early producers (Wagner starting as a sophomore). What matters more than breakout age is the athletic profile and competitive traits. The combine is where Schneider identifies the players whose athletic profiles make them worth the projection risk."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "40_yard_max": 4.5,
+        "notes": "No CB drafted in top-5 rounds slower than 4.50. Speed is critical.",
+        "confidence": "high"
+      },
+      "EDGE": {
+        "40_yard_max": 4.65,
+        "notes": "Collier's 4.91 was the exception and the biggest bust. Mafe 4.53, Hall 4.51, Taylor 4.57.",
+        "confidence": "high"
+      },
+      "WR": {
+        "no_clear_threshold": true,
+        "notes": "Ranges from 4.33 (Metcalf) to 4.52 (JSN). Values play speed over combine speed but loves freakish testers."
+      },
+      "OT": {
+        "min_arm_length": "33.5 inches",
+        "notes": "Cross 34.25, Lucas 33.5, Okung 34.75. Long arms are non-negotiable at tackle.",
+        "confidence": "high"
+      },
+      "S": {
+        "40_yard_max": 4.5,
+        "notes": "Emmanwori 4.38, Thomas 4.46, Blair 4.48. Speed and range are essential.",
+        "confidence": "high"
+      },
+      "DT": {
+        "40_yard_max": 5.0,
+        "notes": "Murphy II 4.87 at 297 lbs. Burst matters for 3-technique types.",
+        "confidence": "medium"
+      },
+      "IOL": {
+        "no_clear_threshold": true,
+        "notes": "Values athletic testing (Zabel's 36.5 vert) but no strict 40 cutoff."
+      }
+    },
+    "threshold_type": "Mostly soft preferences with occasional hard cutoffs at premium positions (CB speed, OT arm length). Schneider's testing thresholds function more as 'must-hit to trigger interest' than 'miss-and-you're-eliminated.' The exception is OT arm length, which appears to be a genuine hard cutoff.",
+    "size_preferences_by_position": {
+      "DT": "297-320 range for 3-technique. Two-gap nose can be heavier (Jarran Reed 307+).",
+      "LB": "225-255, no strong size preference \u2014 has drafted from 237 (Barton) to 241 (Wagner) to 240 (Brooks)",
+      "S": "Prefers 6'0\"+ safeties with range. Emmanwori at 6-3/220 is the new prototype.",
+      "CB": "No size preference whatsoever. Takes any size from 5-9 (Tre Brown) to 6-4 (Woolen).",
+      "WR": "No size preference. Takes any profile from 5-9 (Eskridge) to 6-3/229 (Metcalf)."
+    },
+    "athletic_testing_favorites": "Vertical jump is weighted heavily as an explosiveness proxy across multiple positions (Zabel 36.5, Metcalf 40.5, Emmanwori 43.0, Walker 36.0). 40-yard dash is critical at CB, S, WR, and EDGE. Schneider is one of the most combine-influenced GMs in the league \u2014 a league-high 4 players with 85+ athleticism scores in 2025.",
+    "measurables_vs_film": "Schneider uses measurables as an amplifier, not a replacement for film. When a player has both elite film AND elite testing, Schneider is aggressive (Witherspoon at 5, Murphy at 16, Metcalf trade-up). When testing contradicts film, film wins for experienced players (Witherspoon didn't run at the combine, taken 5th) but testing wins for raw prospects (Woolen's 4.26 overrode limited CB experience). The synthesis: Schneider is a film-first evaluator who uses measurables to identify upside that film alone might not fully capture."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium positions with the highest-rated player on his board, with a slight lean toward addressable need. Has stayed put at his pick in rounds 1 for recent drafts (2020-2025), reversing the 2013-2019 trend of trading down. When picking in the top-20, takes safe, high-floor, high-ceiling players (Cross, Witherspoon, Murphy, Zabel). Rarely swings for pure upside in round 1 \u2014 saves that for later rounds.",
+    "round_2_3_strategy": "This is where Schneider does his best work. Round 2-3 is where he finds franchise-altering players: Russell Wilson (Rd 3), Bobby Wagner (Rd 2), Frank Clark (Rd 2), DK Metcalf (Rd 2), Boye Mafe (Rd 2), Kenneth Walker (Rd 2), Nick Emmanwori (Rd 2), Derick Hall (Rd 2). He shifts toward need-filling here but still demands athletic upside. This is also where he's most active in trading \u2014 will trade up for a specific target (Metcalf, Lockett, Emmanwori) or trade down to accumulate more Day 2 picks.",
+    "day_3_strategy": "Athletic development projects and role players. Schneider uses Day 3 to take fliers on exceptional athletes with limited college production (Woolen in Rd 5, converted WR-to-CB) and special teams contributors. He also targets OL depth, backup QBs, and positional redundancy. Has taken at least one 'traits over production' pick on Day 3 in nearly every draft. This is where he mines small schools (UTSA for Woolen, D-II Findlay for Jerrell, NDSU for Zabel) and converts position-changers.",
+    "compensatory_pick_usage": "Historically didn't play the comp pick game (only 1 comp pick in 7 years before 2024). Since hiring Macdonald (Ravens influence), Seattle has begun accumulating comp picks. In 2025, had three comp picks (Rds 5, 5, 7). Uses comp picks for similar purposes as regular picks \u2014 not noticeably higher-risk."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "EDGE": {
+        "picks": 8,
+        "starters": 5,
+        "rate": 0.63,
+        "note": "Strong evaluation. Irvin, Clark, Mafe, Hall all became starters. Collier and Taylor were misses."
+      },
+      "CB": {
+        "picks": 9,
+        "starters": 4,
+        "rate": 0.44,
+        "note": "Excellent when hits land \u2014 Witherspoon (Pro Bowl), Woolen (Pro Bowl), Sherman (HoF-caliber UDFA). But many late-round CBs haven't panned out."
+      },
+      "WR": {
+        "picks": 16,
+        "starters": 5,
+        "rate": 0.31,
+        "note": "Mixed \u2014 Metcalf, JSN, Lockett, Tate are smashes. But Eskridge, Jennings, and many Day 3 WRs were busts. Volume compensates for misses."
+      },
+      "OL": {
+        "picks": 12,
+        "starters": 6,
+        "rate": 0.5,
+        "note": "Cross (franchise LT), Okung, Lucas, Zabel (expected starter). But Ifedi, Pocic, and several interior picks disappointed."
+      },
+      "DT": {
+        "picks": 5,
+        "starters": 3,
+        "rate": 0.6,
+        "note": "Murphy II (dominant), Jarran Reed (solid starter), Mebane (holdover). Collier cross-listed as DE/DT miss."
+      },
+      "LB": {
+        "picks": 6,
+        "starters": 4,
+        "rate": 0.67,
+        "note": "Wagner (potential HoF), Brooks (solid starter), Knight (emerging). Excellent evaluation."
+      },
+      "S": {
+        "picks": 6,
+        "starters": 4,
+        "rate": 0.67,
+        "note": "Thomas (HoF), Chancellor (HoF-caliber), Emmanwori (DROY finalist). Historically elite."
+      },
+      "RB": {
+        "picks": 5,
+        "starters": 3,
+        "rate": 0.6,
+        "note": "Walker (SB MVP), Penny (flash but injury-prone), Charbonnet (quality RB2)."
+      },
+      "QB": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Wilson was a 3rd-round pick who won a Super Bowl \u2014 one of the greatest draft steals ever. Milroe TBD."
+      },
+      "TE": {
+        "picks": 3,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Arroyo (2025 rookie, TBD), Barner (role player), Sullivan (bust). Historically weak position in the draft."
+      }
+    },
+    "blind_spots": [
+      "Late-round WR evaluation has been poor \u2014 most Day 3 WR picks have been busts",
+      "TE evaluation is virtually non-existent due to lack of draft investment \u2014 rely on trade/FA",
+      "IOL evaluation was historically weak (Ifedi, Pocic) but 2024-2025 picks (Haynes, Zabel) suggest improvement"
+    ],
+    "strengths": [
+      "S evaluation is historically elite \u2014 Thomas, Chancellor, Emmanwori",
+      "LB evaluation is above-average \u2014 Wagner, Brooks, Knight",
+      "Finding athletic outliers at CB in mid-to-late rounds \u2014 Woolen and Sherman (UDFA) are both legendary finds",
+      "EDGE evaluation in round 2 has been consistently strong \u2014 Clark, Mafe, Hall"
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Strategic, targeted spending. Fills 1-2 high-priority holes with veteran starters (DeMarcus Lawrence, Sam Darnold, Cooper Kupp in 2025; Leonard Williams re-signing in 2024), then uses the draft for the remaining needs. Not a top spender but willing to invest significant dollars when the fit is right. Recently adopted a comp-pick-conscious approach, signing players whose deals won't offset comp picks (Laken Tomlinson).",
+    "fa_draft_correlation": "When a veteran starter is signed at a position, that position drops in draft priority but isn't completely abandoned. Example: signed Lawrence at EDGE in 2025 but still drafted Rylie Mills (DE) in round 5 for depth. Signed Darnold at QB but still drafted Milroe in round 3 as developmental backup. Schneider believes in building positional depth through every avenue.",
+    "roster_construction_philosophy": "Build foundational talent through the draft at premium positions (EDGE, CB, OT, DT, S), supplement through FA at positions where veterans can bridge gaps (QB, LB, IOL), and use trade market aggressively for both acquisition and divestiture. Schneider has completed over 3,900 roster transactions as GM \u2014 the most prolific transaction-maker in the modern NFL. His philosophy is: never stop turning over the bottom of the roster, protect the core, and be willing to make bold moves (trading Wilson, trading Metcalf) when the long-term math demands it."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 120,
+    "notable_patterns": [
+      "Has traded down in round 1 in 6 of 16 drafts, but has stayed put in the last 6 years when picking in the top-20",
+      "Has taken at least one defensive player in round 1 or 2 in every single draft",
+      "16+ WRs drafted \u2014 more than any other position \u2014 reflecting Schneider's belief in taking multiple shots",
+      "Only 3 QBs drafted in 16 years \u2014 most extreme QB avoidance in the draft among long-tenured GMs",
+      "2022 draft was the best in franchise history and one of the best single-year draft classes in NFL history (Cross, Mafe, Walker, Lucas, Bryant, Woolen)",
+      "League-high 4 players with 85+ athleticism scores drafted in 2025 \u2014 Schneider is an elite combine evaluator",
+      "Every first-round pick since 2022 has been a productive starter or better (Cross, Witherspoon, JSN, Murphy, Zabel)"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2019,
+        "pick": "1.29",
+        "player": "L.J. Collier",
+        "position": "DE",
+        "consensus_rank": 55,
+        "reach_amount": 26,
+        "context": "Post-Frank Clark trade, needed a DE. Collier's 4.91 40 was a red flag. Biggest bust of Schneider's tenure."
+      },
+      {
+        "year": 2020,
+        "pick": "1.27",
+        "player": "Jordyn Brooks",
+        "position": "LB",
+        "consensus_rank": 42,
+        "reach_amount": 15,
+        "context": "LB wasn't seen as a premium-round need. Wagner and Wright were still on the roster. Viewed as a reach at the time but Brooks became a solid starter."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2022,
+        "pick": "5.153",
+        "player": "Tariq Woolen",
+        "position": "CB",
+        "consensus_rank": 85,
+        "value_amount": 68,
+        "context": "Converted WR with 4.26 speed at 6-4. Made Pro Bowl as rookie with 6 INTs. One of the biggest steals in modern draft history."
+      },
+      {
+        "year": 2012,
+        "pick": "3.75",
+        "player": "Russell Wilson",
+        "position": "QB",
+        "consensus_rank": 65,
+        "value_amount": 0,
+        "context": "Third-round QB who won Super Bowl XLVIII. Arguably the greatest draft steal in Seahawks history."
+      },
+      {
+        "year": 2019,
+        "pick": "2.64",
+        "player": "DK Metcalf",
+        "position": "WR",
+        "consensus_rank": 30,
+        "value_amount": 34,
+        "context": "Fell due to injury concerns and poor 3-cone time despite historic combine. Schneider traded up to get him."
+      }
+    ]
+  },
+  "confidence": "very_high",
+  "confidence_notes": "16 drafts of data as Seattle GM make this the highest-confidence profile possible. Schneider is the longest-tenured GM in the NFL and his patterns are well-established across multiple roster cycles (Legion of Boom era, post-Wilson rebuild, Macdonald era). The only uncertainty is how the Macdonald hire continues to shift defensive player archetypes \u2014 the first two Macdonald-era drafts (2024-2025) already show clear Ravens-influenced preferences (interior DL premium, versatile defensive players, comp pick strategy). Profile should be refreshed after 2026 draft to capture continued Macdonald-era evolution.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

@@ -1,0 +1,875 @@
+{
+  "team": {
+    "name": "Denver Broncos",
+    "abbreviation": "DEN",
+    "division": "AFC West",
+    "current_draft_position": null
+  },
+  "front_office": {
+    "gm": {
+      "name": "George Paton",
+      "title": "General Manager",
+      "hired": "2021-01-12",
+      "previous_role": "Assistant General Manager / Vice President of Player Personnel, Minnesota Vikings",
+      "drafts_as_gm": 5,
+      "confidence": "high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "UCLA Bruins",
+          "role": "Defensive Back (Player)",
+          "years": "1988-1991",
+          "mentor": "Terry Donahue"
+        },
+        {
+          "org": "Italian/Austrian Football Leagues",
+          "role": "Professional Player",
+          "years": "1992-1995",
+          "mentor": "N/A"
+        },
+        {
+          "org": "Loyola High School (Los Angeles)",
+          "role": "Head Coach, Sophomore Team",
+          "years": "1996",
+          "mentor": "N/A"
+        },
+        {
+          "org": "Chicago Bears",
+          "role": "Scouting Assistant",
+          "years": "1997",
+          "mentor": "Mark Hatley (Director of Player Personnel)"
+        },
+        {
+          "org": "Chicago Bears",
+          "role": "Pro Scout",
+          "years": "1998-1999",
+          "mentor": "Mark Hatley"
+        },
+        {
+          "org": "Chicago Bears",
+          "role": "Assistant Director of Pro Personnel",
+          "years": "2000-2001",
+          "mentor": "Mark Hatley / Jerry Angelo"
+        },
+        {
+          "org": "Miami Dolphins",
+          "role": "Director of Pro Personnel",
+          "years": "2001-2006",
+          "mentor": "Rick Spielman (early years), Nick Saban (2005-2006)"
+        },
+        {
+          "org": "Minnesota Vikings",
+          "role": "Director of Player Personnel",
+          "years": "2007-2011",
+          "mentor": "Rick Spielman"
+        },
+        {
+          "org": "Minnesota Vikings",
+          "role": "Assistant General Manager",
+          "years": "2012-2018",
+          "mentor": "Rick Spielman"
+        },
+        {
+          "org": "Minnesota Vikings",
+          "role": "Assistant GM / Vice President of Player Personnel",
+          "years": "2019-2020",
+          "mentor": "Rick Spielman"
+        },
+        {
+          "org": "Denver Broncos",
+          "role": "General Manager",
+          "years": "2021-present",
+          "mentor": "Self (first GM tenure)"
+        }
+      ],
+      "primary_mentor": "Rick Spielman \u2014 Paton worked alongside Spielman across three organizations (Chicago, Miami, Minnesota) spanning nearly two decades. Spielman's draft philosophy of valuing athleticism, youth, and BPA heavily influenced Paton's approach.",
+      "philosophical_lineage": "Bears scouting roots (late-90s traditional scouting) \u2192 Dolphins/Saban exposure (disciplined evaluation, character emphasis) \u2192 Spielman/Vikings tree (athletic testing emphasis, youth-oriented drafting, willingness to trade down for pick volume). Paton also absorbed Saban's emphasis on digging into character and mental makeup during their Dolphins overlap. The Vikings under Spielman consistently targeted young, athletic players and found mid-round value \u2014 tendencies Paton has replicated in Denver.",
+      "breakpoints": "Paton is more willing to trade up aggressively than Spielman was in Minnesota, particularly on Day 2. He traded up for Javonte Williams (2021), Marvin Mims Jr. (2023), Riley Moss (2023), and Troy Franklin (2024). Spielman was historically a trade-down GM. Paton has also shown more willingness to take BPA over need in Round 1 (Surtain over a QB in 2021, Barron at CB20 in 2025 despite RB need) than Spielman typically did.",
+      "lineage_weight": 0.25,
+      "lineage_weight_notes": "With 5 full drafts of his own data as Broncos GM, lineage weight is reduced significantly. Paton has established a clear, distinct identity. However, the Spielman influence remains visible in his emphasis on athleticism and youth."
+    },
+    "primary_decision_maker": "Collaborative \u2014 George Paton and Sean Payton. Paton manages the board and scouting process; Payton has significant input on offensive player evaluation and scheme fit. Paton has final say on the board, but Payton's influence is high, particularly on offensive picks and Day 1 decisions.",
+    "key_influencers": [
+      {
+        "name": "Sean Payton",
+        "title": "Head Coach",
+        "influence_level": "very_high",
+        "known_biases": "Payton historically favors trading up over trading down (22 of 25 draft-day trades in New Orleans were trade-ups). Values WRs who remind him of Michael Thomas (size, route running, contested catch). Wants a 'Joker' mismatch TE. Prefers experienced, high-floor QBs. Wants physical WRs who can block. Payton's offensive scheme demands specific OL traits (zone-blocking versatility). His influence is credited with the Bo Nix selection and the Troy Franklin pick reuniting Nix with his Oregon teammate."
+      },
+      {
+        "name": "Reed Burckhardt",
+        "title": "Assistant General Manager",
+        "influence_level": "moderate",
+        "known_biases": "Promoted from within after working alongside Paton for 13+ years in Minnesota and Denver. Shares Paton's philosophical foundation. Replaced Darren Mougey who left for Jets GM job in 2025."
+      },
+      {
+        "name": "Vance Joseph",
+        "title": "Defensive Coordinator",
+        "influence_level": "moderate",
+        "known_biases": "Runs an aggressive, man-coverage-heavy defense. Prefers long, physical corners who can play press. Values pass-rush versatility in EDGE players (stand-up or hand-in-dirt). His scheme demands specific DB traits \u2014 speed, length, physicality at the catch point. Joseph's Cardinals/Broncos defensive scheme directly shapes what type of defensive players Denver targets."
+      },
+      {
+        "name": "Greg Penner",
+        "title": "Owner & CEO",
+        "influence_level": "low",
+        "known_biases": "Walton-Penner ownership group purchased team in 2022. Penner is hands-off on personnel decisions. Has publicly supported Paton and Payton partnership. Extension for Paton reportedly on the Broncos' radar."
+      }
+    ],
+    "power_dynamics": "Collaborative partnership between Paton and Payton. Paton builds the board and manages scouting; Payton has significant voice, especially on offensive players. Despite different draft philosophies (Paton prefers trading down/accumulating picks; Payton historically trades up), they've found balance. Payton is the more publicly visible decision-maker, but Paton has final say on the overall draft board. No reported friction \u2014 they worked through disagreements in pre-draft meetings by watching more tape together.",
+    "owner_interference": "low"
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.7,
+    "bpa_weight_by_round": {
+      "1": 0.8,
+      "2": 0.65,
+      "3": 0.55,
+      "4_plus": 0.45
+    },
+    "stated_philosophy": "Best player available. Paton has consistently stated BPA as his approach, saying in 2021 'You do want to draft the best player available' and reaffirming this ahead of the 2025 draft. He also emphasized 'if they are in similar graded areas, you take the value position.'",
+    "actual_philosophy": "Strongly BPA in Round 1, shifting toward need-filling on Days 2-3. Evidence: Took Surtain II at CB9 in 2021 when QB was the perceived need (Justin Fields available). Took Jahdae Barron at CB20 in 2025 when RB was the glaring need. However, traded up for Javonte Williams (RB need) in 2021 R2, and for Marvin Mims (WR, Payton's ask) in 2023 R2. When BPA and need align, he moves aggressively to secure the player. When they diverge in R1, he takes BPA. In later rounds, need becomes more prominent.",
+    "philosophy_mismatch_notes": "Paton's R1 behavior is genuinely BPA. Surtain over Fields (2021), Bo Nix as QB6 at 12 (2024 \u2014 need and BPA aligned), and Barron at CB despite RB need (2025) all support this. The mismatch appears on Day 2 where he has traded up multiple times for need players (Williams, Mims, Moss, Franklin). The stated philosophy holds in R1; need creeps in significantly on Day 2."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.55,
+    "trade_down_willingness": 0.5,
+    "trades_per_draft_average": 2.8,
+    "trade_triggers": [
+      "Targeted player falling close to pick range on Day 2 \u2014 Paton said 'we had some players that we had targeted, if they fell close enough to us, we'd go get' them (2023 post-draft)",
+      "Tier break on board where value players are drying up \u2014 will move up 5-10 spots on Day 2 to secure a player rather than let the board dictate",
+      "Accumulating Day 3 capital when sitting on Day 2 picks \u2014 traded down twice in R3 in 2021 to accumulate extra picks",
+      "Payton's influence since 2023 has pushed more trade-up activity (3 of 4 draft-day trades in 2023-2024 were trade-ups)"
+    ],
+    "draft_capital_philosophy": "Paton values pick volume but is willing to consolidate when a target falls. In his first two drafts (pre-Payton), he traded down 4 times and up twice. Since Payton arrived, the Broncos have traded up more frequently (3 trade-ups in 2 drafts). In 2025, they executed 5 trades including trading back multiple times in Round 2 before selecting Harvey \u2014 showing Paton and Payton finding a middle ground. Paton has never traded future first-round picks (the Wilson trade predated his partnership with Payton and was an outlier)."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "CB",
+        "EDGE",
+        "QB"
+      ],
+      "tier_2_high": [
+        "WR",
+        "RB",
+        "IOL"
+      ],
+      "tier_3_mid": [
+        "LB",
+        "DT",
+        "S",
+        "OT"
+      ],
+      "tier_4_low": [
+        "TE",
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "OT in early rounds \u2014 has not drafted an offensive tackle in any of his 5 drafts, addressing the position exclusively through free agency (Mike McGlinchey) and trades",
+      "TE in premium rounds \u2014 highest TE pick was Greg Dulcich at 80 (R3 in 2022), a bust. Only other TE drafted was Caleb Lohner at 241 (R7 in 2025)"
+    ],
+    "position_premium": [
+      "CB \u2014 Paton has drafted 6 cornerbacks including his first-ever pick (Surtain at 9, 2021) and his 2025 first-rounder (Barron at 20). Broncos play the most man coverage in the NFL, requiring constant CB investment",
+      "EDGE \u2014 5 edge rushers drafted: Jonathon Cooper (R7, 2021), Nik Bonitto (R2, 2022), Jonah Elliss (R3, 2024), Sai'vion Jones (R3, 2025), Que Robinson (R4, 2025). Both Cooper and Bonitto became Pro Bowlers/All-Pros",
+      "WR \u2014 6 wide receivers drafted across 5 classes: Seth Williams (R6, 2021), Montrell Washington (R5, 2022), Marvin Mims Jr. (R2, 2023), Troy Franklin (R4, 2024), Devaughn Vele (R7, 2024), Pat Bryant (R3, 2025)"
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Speed-to-power hybrid with explosiveness. Paton targets EDGE players who win primarily with first-step quickness and developing power, not pure bull-rush types. Think explosive, high-motor pass rushers who can stand up or put hand in dirt in a 3-4 hybrid front. The archetype is defined by Nik Bonitto (speed rusher who added power) and Jonathon Cooper (high-motor developmental type). Both became double-digit sack players. More recently, Jonah Elliss and Que Robinson continue the explosive, versatile mold.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4",
+        "weight_range": "235-260",
+        "arm_length_minimum": "No clear hard minimum \u2014 Cooper (6-3, 257) and Bonitto (6-3, 248) both had adequate but not elite length. Elliss was 6-3, 248.",
+        "key_athletic_tests": "First-step explosion is the dominant trait. Vertical jump and broad jump matter as explosiveness proxies. Bonitto ran a 4.54 40 at 248 lbs with elite agility. Que Robinson was praised for explosive pass rushing.",
+        "speed_requirement": "4.65 or faster preferred. Bonitto (4.54) and Cooper had adequate speed. Not a hard cutoff but explosiveness off the snap is non-negotiable."
+      },
+      "playing_style": {
+        "primary_win_condition": "First-step explosion and speed-to-power conversion. Bonitto initially won with pure speed/bend, then added power. Elliss wins with heavy hands and grip strength. Cooper is a high-motor effort rusher. The common thread is explosive get-off and relentless motor.",
+        "most_valued_traits": [
+          "First-step explosion off the snap",
+          "Motor and effort consistency \u2014 Cooper was a 7th-round pick whose relentless effort earned him a contract extension",
+          "Versatility to play in multiple fronts (stand-up OLB or hand in dirt DE in Vance Joseph's scheme)",
+          "Pass-rush productivity and sack production in college",
+          "Special teams value as a development pathway for Day 3 picks"
+        ],
+        "least_important_traits": [
+          "Polished pass-rush repertoire at draft time \u2014 Bonitto was considered a one-trick speed rusher who developed; Cooper was raw. Paton drafts athletes and develops them"
+        ],
+        "deal_breakers": [
+          "Lack of explosion/first-step quickness \u2014 every EDGE drafted shows burst off the line",
+          "Pure run-stuffing EDGE with no pass-rush upside \u2014 Paton wants pass-rush projection"
+        ],
+        "traits_that_make_them_reach": "Elite motor and college sack production. Bonitto had 16 sacks in two college seasons. Elliss had 12 sacks in his final year. Robinson had 9.5 TFLs. Consistent production gets Paton's attention."
+      },
+      "college_production": {
+        "production_floor": "5+ sacks or significant TFL numbers in final college season for Day 2 picks. Elliss had 12 sacks, Bonitto had 7 sacks + 14 career. Robinson had 7 TFLs in limited action.",
+        "production_trajectory": "Prefers ascending production curves. Bonitto improved from 7 to 9 sacks at Oklahoma. Elliss exploded for 12 sacks in his final season. Cooper had 3.5 sacks (limited by injury) but was graded as a consistent effort player.",
+        "context_sensitivity": "Adjusts for injuries and scheme usage \u2014 drafted Elliss who didn't work out at combine/pro day due to shoulder injury, and Cooper who had injury history at Ohio State."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2021 R7.239 \u2014 Jonathon Cooper, Ohio State: 6-3, 257 lbs. High-motor DE, 3.5 sacks in final season (injury-limited). Became 10+ sack player by 2024, earned extension.",
+          "2022 R2.64 \u2014 Nik Bonitto, Oklahoma: 6-3, 248 lbs, 4.54 40. Speed rusher with elite bend. 7 sacks in 2021. Developed into DPOY candidate by 2024 with 13.5 sacks.",
+          "2024 R3.76 \u2014 Jonah Elliss, Utah: 6-3, 248 lbs. 16 TFL, 12 sacks in final season. Heavy hands, grip strength. NFL bloodlines (father Luther Elliss played for DEN).",
+          "2025 R3.101 \u2014 Sai'vion Jones, LSU: Developmental DE prospect, expected to grow in Joseph's scheme.",
+          "2025 R4.134 \u2014 Que Robinson, Alabama: OLB, explosive pass rusher. Paton said he 'may have the most upside of anyone in our draft class.' Had sack in AFC Championship Game as rookie."
+        ]
+      },
+      "confidence": "high"
+    },
+    "CB": {
+      "archetype_summary": "Long, physical, man-coverage cornerback with ball skills and tackling ability. Paton has invested more draft capital at CB than any other position \u2014 6 corners drafted including two first-rounders. The archetype is defined by Pat Surtain II: tall, technically refined, physical in press, excellent ball skills, willing tackler. Subsequent picks (Moss, Mathis, Abrams-Draine, Barron) all share physicality and man-coverage capability. Denver plays the most man coverage in the NFL, making this a scheme-critical archetype.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-2. Surtain (6-2, 208), Moss (6-1, 193), Barron (5-11, 194), Mathis (5-11, 196), Abrams-Draine (5-11, 180). Preference is clearly 5-11+.",
+        "weight_range": "180-210",
+        "arm_length_minimum": "No strict minimum, but longer corners preferred. Surtain has elite length. Vincent Jr. (5-10) was a late-round slot corner.",
+        "key_athletic_tests": "Speed is critical \u2014 Mathis ran 4.39, Surtain ran 4.42, Moss ran 4.45, Barron ran approximately 4.38. Vertical jump matters as an explosion indicator (Mathis had 43.5-inch vertical).",
+        "speed_requirement": "4.50 or faster for Day 1-3 picks. Every CB drafted in first 4 rounds ran 4.45 or faster. This appears to be a hard cutoff."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Man coverage \u2014 the Broncos play more man than any team in the NFL under Vance Joseph. Non-negotiable scheme requirement.",
+        "most_valued_traits": [
+          "Man-coverage technique and hip fluidity \u2014 Surtain was described as the most technically advanced CB in his class",
+          "Physicality and willingness to tackle in run support \u2014 Surtain's run defense grade was elite at Alabama",
+          "Ball skills and instincts \u2014 Moss had 11 career interceptions at Iowa, Abrams-Draine had 40 passes defensed",
+          "Versatility to play boundary and slot \u2014 Surtain played inside and outside at Alabama; Barron is deployed as dime/slot/LB hybrid",
+          "Competitive toughness at the catch point"
+        ],
+        "least_important_traits": [
+          "Zone instincts \u2014 scheme doesn't ask for it. Denver had the fifth-lowest zone percentage in the NFL in 2024"
+        ],
+        "deal_breakers": [
+          "Inability to play man coverage \u2014 zone-only corners are not viable in Joseph's defense",
+          "Poor tackling \u2014 the defense requires DBs who support the run aggressively"
+        ],
+        "traits_that_make_them_reach": "Elite man-coverage technique with ball production. The Broncos traded up to get Moss (trading a 4th and future 3rd) specifically because they didn't want to lose him. Barron was taken at 20 over the team's biggest need (RB) because they had him graded as a top-10 player."
+      },
+      "college_production": {
+        "production_floor": "No strict statistical minimum \u2014 values film over INT totals. However, prefers multi-year starters with experience in major conferences. Surtain started all 26 games at Alabama. Moss had 40 games started at Iowa.",
+        "production_trajectory": "Prefers experienced, multi-year starters over one-year wonders. Every CB drafted in Rounds 1-3 was a multi-year college starter.",
+        "context_sensitivity": "High \u2014 weights strength of conference and quality of competition. SEC and Big Ten corners preferred based on draft history."
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2021 R1.9 \u2014 Pat Surtain II, Alabama: 6-2, 208 lbs, 4.42 40. Two-time All-Pro, DPOY (2024). Ultimate scheme fit \u2014 press-man technician with elite ball skills.",
+          "2022 R4.115 \u2014 Damarri Mathis, Pittsburgh: 5-11, 196 lbs, 4.39 40, 43.5-inch vertical. Athletic freak, physical at LOS. Slot/outside versatility.",
+          "2023 R3.83 \u2014 Riley Moss, Iowa: 6-1, 193 lbs, 4.45 40. 11 career INTs. Ball hawk with physicality. Became boundary starter opposite Surtain by 2024.",
+          "2024 R5.145 \u2014 Kris Abrams-Draine, Missouri: 5-11, 180 lbs. First-team All-SEC, 40 passes defensed in 3 seasons.",
+          "2025 R1.20 \u2014 Jahdae Barron, Texas: 5-11, 194 lbs. Versatile \u2014 used as dime back, slot CB, even weak-side LB in nickel. Graded as top-10 player on Broncos' board."
+        ]
+      },
+      "confidence": "very_high"
+    },
+    "QB": {
+      "archetype_summary": "Experienced, high-floor, efficient pocket passer with enough mobility to extend plays and avoid sacks. Not a run-first QB. Payton's offense demands quick processing, accuracy, and pre-snap reads. Bo Nix embodies this perfectly: 61 college games of experience, elite completion rate (74.9% at Oregon), sack avoidance, and mobility to scramble when needed. Paton/Payton are willing to wait for 'their guy' rather than force a QB pick \u2014 they passed on Fields/Jones in 2021 and waited until 2024 for Nix.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3. Nix is 6-2, 216 lbs.",
+        "weight_range": "210-235",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Arm strength matters but isn't the primary discriminator. Nix's arm was questioned but deemed adequate. Pocket movement, sack avoidance, and play-under-pressure ability matter more than 40 time.",
+        "speed_requirement": "Above-average mobility, not a running QB. Nix was described as 'above-average athlete for the position, always a threat to keep an RPO or scramble.'"
+      },
+      "playing_style": {
+        "primary_style": "Efficient pocket passer who excels at quick reads, pre-snap diagnosis, and sack avoidance. Enough mobility to extend plays.",
+        "most_valued_traits": [
+          "College experience and game reps \u2014 Nix had 61 career college games, more than almost any QB prospect",
+          "Accuracy and efficiency \u2014 Nix completed 74.9% at Oregon, had 70% accurate pass rate (2nd among Power Five QBs)",
+          "Pre-snap reads and processing speed \u2014 Payton's West Coast system demands this",
+          "Sack avoidance \u2014 Nix had a 1.2% sack rate (2nd among all QBs) in his final college season",
+          "Pocket presence and composure under pressure \u2014 Nix earned a career 75.6 PFF grade under pressure"
+        ],
+        "least_important_traits": [
+          "Elite arm strength \u2014 Nix's arm was questioned; Payton/Paton still drafted him 12th overall",
+          "Designed rushing ability \u2014 not seeking a running QB"
+        ],
+        "deal_breakers": [
+          "Run-first QBs with limited pocket processing",
+          "One-year starters with limited college experience \u2014 Nix's 61 games were a selling point"
+        ],
+        "traits_that_make_them_reach": "Not enough data. Only one QB drafted (Nix at 12). But the Broncos did take him as QB6 off the board, suggesting they were targeting their specific archetype rather than consensus QB ranking."
+      },
+      "college_production": {
+        "production_floor": "Must be a proven multi-year starter. Nix had 61 career games across Auburn and Oregon.",
+        "production_trajectory": "Ascending production is valued \u2014 Nix went from 16 TDs at Auburn to 29 and 45 TDs in his two Oregon seasons.",
+        "context_sensitivity": "Very high \u2014 Nix's Auburn tape was concerning but his Oregon production in a better system convinced the Broncos."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 R1.12 \u2014 Bo Nix, Oregon: 6-2, 216 lbs. 61 college games, 74.9% completion, 45 TDs in final year. Set franchise rookie records: 376/567 (66.3%), 3,775 yards, 29 TDs. Led Broncos to playoffs in Year 1."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 QB drafted. Profile heavily influenced by Payton's known preferences and the Nix selection. Paton passed on QBs in 2021 (Fields, Jones at pick 9) when QB was a need, suggesting extreme selectivity at the position."
+    },
+    "OT": {
+      "archetype_summary": "Paton has never drafted an offensive tackle in five drafts. This is a clear positional avoidance pattern. OT has been addressed exclusively through free agency (Mike McGlinchey, $68M deal in 2023) and retaining incumbents (Garett Bolles extension). This suggests Paton views OT as a position better filled through free agency or that he hasn't found OT value aligned with his board position. Inferences must be drawn from scheme demands and the types of OTs he's acquired via FA.",
+      "physical_profile": {
+        "height_range": "6-5 to 6-7 (inferred from FA acquisitions \u2014 McGlinchey is 6-8, 315; Bolles is 6-5, 301)",
+        "weight_range": "295-320",
+        "arm_length_minimum": "34+ inches inferred from typical NFL OT thresholds and scheme demands",
+        "key_athletic_tests": "Zone-blocking scheme demands athleticism and lateral movement. Bolles was a first-round athlete. McGlinchey was a run-blocking specialist.",
+        "speed_requirement": "N/A \u2014 standard OT athletic thresholds expected"
+      },
+      "playing_style": {
+        "primary_style": "Zone-blocking tackle who can reach and seal in the run game while providing adequate pass protection. Sean Payton's offense features a mix of gap and zone concepts.",
+        "most_valued_traits": [
+          "Run-blocking ability \u2014 McGlinchey was known as an elite run blocker from the 49ers system",
+          "Lateral agility for zone-scheme reach blocks",
+          "Durability and availability",
+          "Veteran experience preferred (FA approach suggests comfort with proven commodities)"
+        ],
+        "least_important_traits": [
+          "Elite pass-blocking technique at draft time \u2014 willing to develop through FA rather than draft raw tackles"
+        ],
+        "deal_breakers": [
+          "N/A \u2014 insufficient draft data"
+        ],
+        "traits_that_make_them_reach": "N/A \u2014 has never drafted an OT"
+      },
+      "college_production": {
+        "production_floor": "N/A",
+        "production_trajectory": "N/A",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 0,
+        "examples": [
+          "No OTs drafted in 5 drafts (2021-2025). Position addressed via FA: Mike McGlinchey (2023 FA), Garett Bolles (extension). This is the clearest positional avoidance in Paton's tenure."
+        ]
+      },
+      "confidence": "very_low",
+      "confidence_note": "Zero OTs drafted. Profile is entirely inferred from scheme context and FA acquisitions. If Paton were to draft an OT, the Payton offense's zone-blocking demands would dictate the archetype."
+    },
+    "IOL": {
+      "archetype_summary": "Powerful, nasty interior lineman with elite effort and physicality who can dominate at the point of attack. Quinn Meinerz defines this archetype: a D-III mauler who dominated the Senior Bowl and developed into a first-team All-Pro guard. Paton values interior OL who play with a mean streak, show developmental upside, and can anchor the run game. Luke Wattenberg at center represents the developmental Day 3 model \u2014 a patient, cost-effective starter.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5. Meinerz (6-3, 320), Wattenberg (6-5, 300), Gargiulo (6-4, 295), Forsyth (6-3, 305).",
+        "weight_range": "295-320",
+        "arm_length_minimum": "No clear minimum \u2014 values functional strength over length",
+        "key_athletic_tests": "Senior Bowl/all-star game performance weighted heavily \u2014 Meinerz dominated the 2021 Senior Bowl and that made him a R3 pick from D-III. Functional power and pad level matter more than combine numbers.",
+        "speed_requirement": "Not a primary factor. Adequate agility to pull and move laterally in zone concepts."
+      },
+      "playing_style": {
+        "primary_style": "Mauling, physical interior lineman who finishes blocks and plays with a nasty edge. Must be able to handle power at the point of attack.",
+        "most_valued_traits": [
+          "Nastiness and finishing ability \u2014 Meinerz was known for 'nastiness and finishing' per scouts",
+          "Functional power and anchor strength",
+          "Developmental ceiling with technical improvement potential",
+          "Versatility to play guard or center \u2014 Wattenberg and Gargiulo can play multiple interior spots",
+          "Intelligence and technique in pass protection"
+        ],
+        "least_important_traits": [
+          "Elite combine measurables \u2014 Meinerz was from D-III, Wattenberg was a R5 pick. Values performance over testing"
+        ],
+        "deal_breakers": [
+          "Lack of physicality or competitive fire",
+          "Inability to anchor against power rushes"
+        ],
+        "traits_that_make_them_reach": "Dominant performance in all-star game settings or elite functional strength that shows up on film despite limited pedigree."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter preferred. Forsyth was a 28-game starter at center who didn't allow a sack in 2022. Meinerz dominated D-III before his Senior Bowl breakout.",
+        "production_trajectory": "Ascending development curve valued. Meinerz went from D-III unknown to Senior Bowl star.",
+        "context_sensitivity": "High \u2014 Paton identified Meinerz's talent despite D-III competition level, suggesting film evaluation trumps level of competition."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2021 R3.98 \u2014 Quinn Meinerz, Wisconsin-Whitewater: 6-3, 320 lbs. D-III prospect who dominated Senior Bowl. First-team All-Pro by 2024. Defining IOL pick of the Paton era.",
+          "2022 R5.171 \u2014 Luke Wattenberg, Washington: 6-5, 300 lbs. Developed for two years, became starting center. Cost-effective starter.",
+          "2023 R7.257 \u2014 Alex Forsyth, Oregon: 6-3, 305 lbs. 28-game starter at center, no sacks allowed in 2022. Depth/developmental pick.",
+          "2024 R7.256 \u2014 Nick Gargiulo, South Carolina: 6-4, 295 lbs. Guard/center versatility. Yale transfer to South Carolina. Day 3 depth investment."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "DT": {
+      "archetype_summary": "Versatile, big-bodied defensive lineman who can play multiple techniques in Vance Joseph's 3-4 front. Paton has drafted DTs sparingly \u2014 Eyioma Uwazurike (R4, 2022) and Matt Henningsen (R6, 2022) \u2014 preferring to address DT through free agency (D.J. Jones, Zach Allen trade). The drafted DTs share massive size and versatility to play multiple alignments.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6. Uwazurike (6-6, 316), Henningsen (6-3, 294).",
+        "weight_range": "290-320",
+        "arm_length_minimum": "33+ inches preferred \u2014 Uwazurike had 35-inch arms",
+        "key_athletic_tests": "Size and explosion matter more than speed. Uwazurike had a 33-inch vertical at 316 lbs and a 7.14 3-cone at that size, which was impressive. Henningsen was a high-motor player.",
+        "speed_requirement": "Not a primary factor for DTs. Quickness off the snap matters more."
+      },
+      "playing_style": {
+        "primary_style": "Versatile defensive lineman who can play 3-technique, 4i-technique, or 5-technique depending on the front. Joseph's defense demands DTs who can hold the point and occasionally penetrate.",
+        "most_valued_traits": [
+          "Versatility to play multiple techniques \u2014 Uwazurike could play DE in the scheme",
+          "Size and length to control the line of scrimmage",
+          "Pad level and technique to anchor against double teams",
+          "Motor and effort in pursuit \u2014 Henningsen was described as a 'high-motor pressure machine'"
+        ],
+        "least_important_traits": [
+          "Elite pass-rush production \u2014 DTs are acquired via FA/trade for premium pass rushing (Zach Allen trade). Draft picks are for run-stopping depth"
+        ],
+        "deal_breakers": [
+          "Inability to hold point of attack against the run",
+          "One-dimensional players who can't play multiple alignments"
+        ],
+        "traits_that_make_them_reach": "Elite size/explosion combination. Uwazurike was taken at 116 despite being ranked 199th on consensus boards \u2014 a clear reach for his size/athletic profile."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter. Uwazurike was a four-year starter at Iowa State.",
+        "production_trajectory": "Consistent production over multiple seasons preferred over single-season spikes.",
+        "context_sensitivity": "Moderate \u2014 adjusts for scheme but values proven durability."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2022 R4.116 \u2014 Eyioma Uwazurike, Iowa State: 6-6, 316 lbs, 35-inch arms, 33-inch vertical, 7.14 3-cone. Massive, versatile DL. Four-year starter. Suspended in 2023 but showed potential as depth player.",
+          "2022 R6.206 \u2014 Matt Henningsen, Wisconsin: 6-3, 294 lbs. High-motor, undersized DT. Described as a 'high-motor pressure machine.' Depth contributor."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 2 DTs drafted, both on Day 3 in the same draft. DT appears to be a position Paton addresses via FA/trade rather than the draft. Zach Allen (trade acquisition) became an All-Pro."
+    },
+    "S": {
+      "archetype_summary": "Big, physical, hard-hitting safety who fits Denver's tradition of thumping safeties. Paton has drafted 4 safeties, with JL Skinner (6-4, 209) being the most notable \u2014 a physical enforcer in the Steve Atwater mold. Caden Sterns represented the rangy, coverage-first model but injuries derailed him. The size/physicality lean is clear from the draft data.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-4. Sterns (6-0, 210), Johnson (6-1, 197), Turner-Yell (5-10, 170), Skinner (6-4, 209). Wide range, but the higher-drafted safeties tend to be bigger.",
+        "weight_range": "170-210",
+        "arm_length_minimum": "No clear minimum",
+        "key_athletic_tests": "Range and closing speed matter. Size matters for the box/hybrid role. Skinner's 6-4 frame was a selling point despite not working out at combine (torn pec).",
+        "speed_requirement": "Adequate coverage speed required \u2014 Sterns had excellent range before injuries."
+      },
+      "playing_style": {
+        "primary_style": "Physical, versatile safety who can play in the box and support the run while providing adequate coverage. Vance Joseph's defense asks safeties to be aggressive near the line of scrimmage.",
+        "most_valued_traits": [
+          "Physical tackling and run support \u2014 Skinner was described as hitting 'very hard', maintaining Denver's safety tradition",
+          "Ball skills and turnover production \u2014 Skinner had 4 INTs in his final college season; Sterns had 4 INTs in 2020",
+          "Size and length for matchup versatility \u2014 Skinner at 6-4 can cover tight ends",
+          "Special teams value \u2014 both Turner-Yell and Skinner contributed on special teams"
+        ],
+        "least_important_traits": [
+          "Elite single-high range in pure Cover 1 \u2014 Denver's man-heavy scheme uses safeties more as hybrid players than deep-third patrollers"
+        ],
+        "deal_breakers": [
+          "Inability to tackle reliably",
+          "Lack of competitive physicality"
+        ],
+        "traits_that_make_them_reach": "Exceptional size/speed combination for the position, even if technique is raw. Skinner fell due to injury but his 6-4 frame with speed was exactly what Denver wanted."
+      },
+      "college_production": {
+        "production_floor": "Ball production valued \u2014 INTs and passes defensed. Skinner had 4 INTs, Sterns had 4 INTs.",
+        "production_trajectory": "Multi-year starters preferred where possible.",
+        "context_sensitivity": "Adjusted for injury (Skinner's torn pec dropped him from Day 2 to R6). Paton saw through the medical issue."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2021 R5.152 \u2014 Caden Sterns, Texas: 6-0, 210 lbs. Rangy free safety, 4 INTs in 2020. Showed promise before hip injury ended career trajectory.",
+          "2021 R5.164 \u2014 Jamar Johnson, Indiana: 6-1, 197 lbs. 4 INTs in 2020, 32 solo tackles.",
+          "2022 R5.152 \u2014 Delarrin Turner-Yell, Oklahoma: 5-10, 170 lbs. Undersized but tough. Special teams contributor.",
+          "2023 R6.183 \u2014 JL Skinner, Boise State: 6-4, 209 lbs. Physical enforcer, 65 tackles, 4 INTs in final season. Torn pec dropped him. Special teams contributor, developing."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "4 safeties drafted but all on Day 3. Paton addresses starting safety through FA (signed Talanoa Hufanga in 2025 FA). Safety appears to be a Day 3 developmental position."
+    },
+    "LB": {
+      "archetype_summary": "Versatile, athletic linebacker with pass-rush ability and size to play multiple roles. Drew Sanders (6-4, 235) was the defining pick \u2014 a five-star recruit from Alabama with elite physical traits, ILB/OLB versatility, and 9.5 sacks. Baron Browning (6-2, 245) from Ohio State brought similar athletic testing with positional flexibility. Paton wants LBs who can blitz, cover, and move sideline to sideline \u2014 true three-down players.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-4. Browning (6-2, 245), Sanders (6-4, 235).",
+        "weight_range": "235-250",
+        "arm_length_minimum": "No clear minimum but length valued \u2014 Sanders at 6-4 has exceptional reach",
+        "key_athletic_tests": "Speed and explosiveness are paramount. Browning ran 4.56 at 245 lbs with elite testing numbers. Sanders was a former five-star who ran well for his size. Paton specifically said 'No. 1 trait is instincts' for LBs but backs it up by drafting elite athletes.",
+        "speed_requirement": "4.60 or faster preferred for Day 2 LBs. Both Browning and Sanders had sub-4.60 speed at 235+ lbs."
+      },
+      "playing_style": {
+        "primary_style": "Versatile, athletic linebacker who can play inside or stand-up edge. Blitz ability is valued \u2014 Sanders had 9.5 sacks at Arkansas. Coverage ability is important in Vance Joseph's man-heavy scheme.",
+        "most_valued_traits": [
+          "Positional versatility \u2014 Sanders was drafted to play ILB or stand-up OLB; Browning converted from OLB to ILB to EDGE in Denver",
+          "Pass-rush ability from the LB spot \u2014 both Sanders and Browning had blitz/rush skills",
+          "Athletic testing that suggests coverage ceiling",
+          "Instincts and football IQ \u2014 Paton explicitly stated instincts are the #1 trait",
+          "Length and physicality to shed blocks"
+        ],
+        "least_important_traits": [
+          "Polished zone-coverage technique at draft time \u2014 both picks were projected to develop their coverage game"
+        ],
+        "deal_breakers": [
+          "Lack of athleticism/speed \u2014 will not draft a slow, one-dimensional thumper",
+          "Poor positional versatility \u2014 needs to project to multiple roles"
+        ],
+        "traits_that_make_them_reach": "Elite athletic profile combined with pass-rush production. Sanders was considered a late-first/early-second-round talent who fell to pick 67 \u2014 massive value that Paton jumped on."
+      },
+      "college_production": {
+        "production_floor": "Significant production expected \u2014 Sanders had 103 tackles, 13.5 TFL, 9.5 sacks. Browning was 'double-take worthy' in testing.",
+        "production_trajectory": "Sanders transferred from Alabama to Arkansas and immediately produced at an elite level. Late production at a different school is acceptable.",
+        "context_sensitivity": "Adjusts for role \u2014 Sanders was used in multiple alignments at Arkansas."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2021 R3.105 \u2014 Baron Browning, Ohio State: 6-2, 245 lbs, 4.56 40. Elite athlete, played both strong- and weakside LB. Pass coverage potential + spot pass-rusher. Converted to EDGE in Denver.",
+          "2023 R3.67 \u2014 Drew Sanders, Arkansas: 6-4, 235 lbs. Alabama transfer. 103 tackles, 13.5 TFL, 9.5 sacks. Five-star recruit with ILB/OLB versatility. Injuries have limited NFL contribution."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 2 LBs drafted in Rounds 1-5. Browning was converted to EDGE, muddying the LB archetype. Sanders' injury issues limit the data. Paton addresses ILB through FA (Alex Singleton, Dre Greenlaw in 2025 FA)."
+    },
+    "WR": {
+      "archetype_summary": "Two distinct archetypes emerge: (1) Speed/deep-threat WR for vertical stretching (Marvin Mims Jr., Troy Franklin) and (2) Big-bodied, physical WR who can block and win contested catches (Pat Bryant, Devaughn Vele). Payton's influence is clear \u2014 he wants WRs who remind him of Michael Thomas (size, routes, contested catches) while also maintaining a speed element. The Broncos draft WRs across the spectrum but consistently value toughness and willingness to block.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-4. Mims (5-11, 183), Franklin (6-2, 175), Bryant (6-2, 204), Vele (6-4, 210). Wide range \u2014 Payton wants both speed and size in the WR room.",
+        "weight_range": "175-210",
+        "arm_length_minimum": "No clear minimum",
+        "key_athletic_tests": "Speed for the vertical/slot role (Mims ran 4.38). Size and physicality for the X/flanker role (Bryant is 6-2, 204; Vele is 6-4). Payton wants players who can win after the catch.",
+        "speed_requirement": "For speed WRs: 4.45 or faster (Mims 4.38, Franklin had sub-4.40 speed). For big-bodied WRs: speed is less critical \u2014 Vele was 'not the fastest receiver' but a solid route-runner."
+      },
+      "playing_style": {
+        "primary_style": "Versatile receiving corps with speed/slot specialists and big-bodied possession receivers. Payton values WRs who can block in the run game \u2014 Bryant's blocking was his path to playing time as a rookie.",
+        "most_valued_traits": [
+          "Toughness and willingness to block \u2014 Payton 'clearly loves' Bryant's blocking skills; Mims was praised for being 'really tough' for his size",
+          "Deep-ball ability and tracking \u2014 Mims had 34 career deep catches at Oklahoma, 13 for 602 yards in 2022 (3rd nationally)",
+          "Route-running development potential \u2014 Franklin was a 'movement-Z' with separation ability",
+          "After-the-catch ability \u2014 Mims praised for 'transition after the catch on screens'",
+          "Character and leadership \u2014 Bryant, Barron, and Harvey were all team captains. Payton/Paton value high-character players"
+        ],
+        "least_important_traits": [
+          "Polished route tree at draft time \u2014 Mims 'ran a limited route tree at Oklahoma' but Denver drafted him for his athletic traits and development potential"
+        ],
+        "deal_breakers": [
+          "Lack of competitive toughness \u2014 Paton specifically praised Mims' toughness despite small size",
+          "Unwillingness to contribute in the run game as a blocker"
+        ],
+        "traits_that_make_them_reach": "Elite speed (Mims) or elite rapport with the drafted QB (Franklin was Bo Nix's college teammate at Oregon, drafted specifically to maintain chemistry)."
+      },
+      "college_production": {
+        "production_floor": "For Day 2 speed WRs: significant deep-ball production. Mims had 123 career receptions, 2,398 yards, 20 TDs with 20+ yards/catch average in 2 of 3 seasons. For Day 3 big-bodied WRs: 40+ catches in final season. Bryant had 54 catches, 984 yards, 10 TDs. Vele had 43 catches, 593 yards (lower volume in a run-heavy offense).",
+        "production_trajectory": "Ascending production valued. Mims improved each year. Franklin had 81 catches, 1,383 yards, 14 TDs in his final year. Bryant led the Illini in receiving.",
+        "context_sensitivity": "Moderate \u2014 adjusts for system. Paton acknowledged Mims wasn't as productive early but 'got better' in year 3."
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2023 R2.63 \u2014 Marvin Mims Jr., Oklahoma: 5-11, 183 lbs, 4.38 40. Deep-threat specialist. 123 career catches, 20 TDs. Pro Bowler as returner, developing offensive role.",
+          "2024 R4.102 \u2014 Troy Franklin, Oregon: 6-2, 175 lbs. Speed WR, Nix's college teammate. 81 catches, 1,383 yards, 14 TDs in final year. Projects as WR2.",
+          "2024 R7.235 \u2014 Devaughn Vele, Utah: 6-4, 210 lbs. Big-bodied, route-running WR. 43 catches, 593 yards. Possession/contested-catch type.",
+          "2025 R3.74 \u2014 Pat Bryant, Illinois: 6-2, 204 lbs. Physical WR who blocks. 54 catches, 984 yards, 10 TDs. Payton compared him to Michael Thomas. 31 receptions as rookie.",
+          "2022 R5.162 \u2014 Montrell Washington, Samford: 5-8, 168 lbs. Return specialist/speed option. Small-school, high-ceiling athlete.",
+          "2021 R6.219 \u2014 Seth Williams, Auburn: 6-3, 211 lbs. Contested-catch WR with size. Late-round dart."
+        ]
+      },
+      "confidence": "high"
+    },
+    "TE": {
+      "archetype_summary": "Receiving-first tight end with athletic upside and seam-stretching ability. Greg Dulcich (R3, 2022) was a smooth, fast TE who could run up the seam \u2014 but he busted. Caleb Lohner (R7, 2025) was a raw, former basketball player converted to TE \u2014 the ultimate upside bet. Paton generally addresses TE through FA (signed Evan Engram in 2025) rather than significant draft investment. Payton wants a 'Joker' mismatch TE who can flex out and create matchup problems.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-7. Dulcich (6-4, 245), Lohner (6-7, 250).",
+        "weight_range": "240-260",
+        "arm_length_minimum": "No clear data",
+        "key_athletic_tests": "Speed and explosion for receiving TEs. Dulcich had great explosion and speed grades per RAS. Lohner was a basketball convert valued for raw athleticism.",
+        "speed_requirement": "Sub-4.70 for receiving TEs. Dulcich was athletic enough to be a seam threat."
+      },
+      "playing_style": {
+        "primary_style": "Receiving-first TE who can create mismatches in the passing game. Payton's 'Joker' role demands a TE who can line up in multiple alignments.",
+        "most_valued_traits": [
+          "Receiving ability and seam-stretching speed \u2014 Dulcich was drafted for his ability to threaten vertically",
+          "Mismatch potential when flexed out \u2014 the 'Joker' role in Payton's offense",
+          "Size and contested-catch ability",
+          "Athletic upside and developmental ceiling \u2014 Lohner represents the extreme end of this"
+        ],
+        "least_important_traits": [
+          "Inline blocking at draft time \u2014 both drafted TEs were weak blockers. Blocking TEs acquired via FA/UDFA"
+        ],
+        "deal_breakers": [
+          "Lack of receiving skills \u2014 run-blocking-only TEs won't be drafted by Paton/Payton",
+          "Athletic limitations that prevent the mismatch role"
+        ],
+        "traits_that_make_them_reach": "Elite athletic traits that suggest receiving upside, even with limited football experience (Lohner played football for one year before being drafted)."
+      },
+      "college_production": {
+        "production_floor": "Limited data \u2014 Dulcich had moderate UCLA production. Lohner had only 4 catches (all TDs) in one season of football.",
+        "production_trajectory": "N/A \u2014 too few data points",
+        "context_sensitivity": "High \u2014 willing to bet on athleticism over production (Lohner)."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2022 R3.80 \u2014 Greg Dulcich, UCLA: 6-4, 245 lbs. Smooth athlete, receiving TE. Good speed and explosion. Bust \u2014 never panned out, waived before final year of rookie contract.",
+          "2025 R7.241 \u2014 Caleb Lohner, Utah: 6-7, 250 lbs. Former basketball player who played one year of college football. 4 catches, all TDs. Pure projection pick."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 2 TEs drafted, both busts or extreme projects. Paton addresses TE through FA (Evan Engram, Adam Trautman trade). TE remains a low draft-capital position."
+    },
+    "RB": {
+      "archetype_summary": "Physical, contact-balance back with receiving ability who can contribute in multiple phases. Javonte Williams was the archetype: an explosive, powerful back with elite broken-tackle ability who was also developing as a receiver. RJ Harvey represents a newer mold \u2014 a 'pet cat'/joker-style back with explosive playmaking and receiving chops. Audric Estime was a pure power back. Paton wants backs who can be three-down contributors, not one-dimensional runners.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-0. Williams (5-10, 220), Harvey (5-10, 209 est.), Estime (5-11, 238).",
+        "weight_range": "209-238. Wide range reflecting different RB roles.",
+        "arm_length_minimum": "N/A for RBs",
+        "key_athletic_tests": "Contact balance and explosion matter more than straight-line speed. Williams was described as having elite broken-tackle ability (75 broken tackles on 182 touches). Harvey was praised for 'vision, instincts, contact balance, highly explosive.'",
+        "speed_requirement": "Adequate \u2014 not a 4.3 burner requirement. Williams ran 4.55-4.60 range. Harvey valued for explosive plays, not 40 time."
+      },
+      "playing_style": {
+        "primary_style": "Versatile, physical running back with receiving ability. Payton's offense uses RBs in the passing game extensively and wants multiple RBs in rotation.",
+        "most_valued_traits": [
+          "Contact balance and broken-tackle ability \u2014 Williams had the highest broken-tackle rate in college football",
+          "Vision and instincts \u2014 Paton said Harvey 'maybe had the best vision in the draft'",
+          "Receiving ability \u2014 Harvey had 47 receptions as a rookie; Payton wants backs who catch",
+          "Explosive playmaking ability \u2014 touchdown production valued (Harvey had 12 TDs as rookie, Estime averaged 6.4 YPC with 18 TDs at Notre Dame)",
+          "Toughness and physicality"
+        ],
+        "least_important_traits": [
+          "Pass protection at draft time \u2014 can be taught",
+          "Elite straight-line speed as a primary trait"
+        ],
+        "deal_breakers": [
+          "One-dimensional runners who can't contribute in the passing game",
+          "Lack of competitive toughness or physicality"
+        ],
+        "traits_that_make_them_reach": "Elite contact balance and broken-tackle rate. Paton traded up 5 spots in R2 to get Williams in 2021, showing willingness to pay for the right RB archetype."
+      },
+      "college_production": {
+        "production_floor": "Significant rushing production in final season. Williams: 1,140 yards, 19 TDs, 7.3 YPC. Estime: 1,341 yards, 18 TDs, 6.4 YPC. Harvey: 2,993 rushing yards and 38 TDs in last 2 years.",
+        "production_trajectory": "Ascending production valued \u2014 Williams' stats grew year-over-year at UNC. Harvey was elite over his last two UCF seasons.",
+        "context_sensitivity": "Moderate \u2014 values dominant production regardless of conference level (Harvey was from UCF/AAC)."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2021 R2.35 \u2014 Javonte Williams, UNC: 5-10, 220 lbs. 1,140 yards, 19 TDs, 7.3 YPC. 75 broken tackles in 182 touches. PFF's top-rated RB. Traded up to get him. Torn ACL in 2022 derailed career.",
+          "2024 R5.147 \u2014 Audric Estime, Notre Dame: 5-11, 238 lbs. Pure power back. 1,341 yards, 18 TDs, 6.4 YPC. Compared to David Montgomery-type yardage generator.",
+          "2025 R2.60 \u2014 RJ Harvey, UCF: ~5-10, 209 lbs. Explosive, dynamic. 2,993 rushing yards, 38 TDs in last 2 years. Led rookie RBs in TDs (12). Paton called him the 'pet cat' of the RB room."
+        ]
+      },
+      "confidence": "high"
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 7,
+    "max_observed_reach": 15,
+    "round_1_reach_tolerance": 5,
+    "notes": "Paton generally stays close to consensus in R1 \u2014 Surtain was consensus top-10, Bo Nix was consensus mid-first, Barron was graded as a top-10 player internally. On Day 2-3, he shows more willingness to reach: Uwazurike was ranked 199th on consensus boards but taken at 116 (83-spot reach). He also drafted Mims at 63 after trading up \u2014 Mims was considered a slight overdraft by some. Overall, Paton trusts his own board over consensus but doesn't take huge swings in R1."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.65,
+    "offensive_scheme": "Sean Payton's West Coast offense with zone-run concepts, RPOs, and play-action passing. Features the 'Joker' mismatch position (TE/WR hybrid). Demands quick-processing QBs who can read pre-snap, versatile OL who can pull and zone-block, physical WRs who can block, and receiving-capable RBs. Payton's scheme is the primary filter for offensive player evaluation.",
+    "defensive_scheme": "Vance Joseph's 3-4/hybrid defense with heavy man coverage (lowest zone percentage in NFL, 2024) and aggressive blitzing. Led NFL in sacks in both 2024 (61) and 2025 (64). Demands press-man corners, versatile EDGE rushers who can stand up or put hand in dirt, big physical safeties, and athletic LBs who can blitz and cover. This scheme directly shapes the CB, EDGE, and DB archetypes Paton targets.",
+    "scheme_change_flag": false,
+    "scheme_change_notes": "Vance Joseph interviewed for multiple HC jobs (Baltimore, Las Vegas, Tennessee, Arizona, NY) in January 2026 but remained as DC. If Joseph leaves, the defensive scheme could shift significantly, affecting which defensive player archetypes Denver targets. Flag for monitoring."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.5,
+    "risk_description": "Moderate risk tolerance. In R1, Paton is conservative \u2014 takes high-floor, consensus-valued players (Surtain, Nix, Barron). On Day 2-3, he's willing to take bigger swings: Meinerz from D-III in R3, Caleb Lohner (basketball convert) in R7, Montrell Washington from Samford in R5. His risk profile varies by round \u2014 safe at the top, aggressive with lottery tickets at the bottom.",
+    "recency_bias": 0.45,
+    "recency_description": "Low-to-moderate recency bias. After losing to the Patriots in the AFC Championship Game due to offensive shortcomings, the 2026 draft needs will likely focus on offense. However, Paton's track record shows he doesn't overcorrect \u2014 he took Barron (CB) in 2025 despite the biggest need being RB. He tends to address recent failures through FA (signed Dre Greenlaw and Talanoa Hufanga in 2025 FA to fill needs) and draft BPA.",
+    "sunk_cost_behavior": "Paton cuts losses aggressively. He released Russell Wilson after eating a record $85 million in dead cap. He waived Greg Dulcich (R3 pick) before his rookie contract expired. Drew Sanders may be cut after failing to contribute due to injuries. This is a GM who will not let sunk cost dictate future decisions.",
+    "combine_weight": 0.6,
+    "combine_description": "Above-average combine weight. Analysis of his 2022 draft shows his first three picks all had elite RAS (Relative Athletic Score) grades. Mathis's 4.39 and 43.5-inch vertical, Uwazurike's size/explosion combo, and Bonitto's speed testing all mattered. Beat writers noted 'it appears that George Paton puts an emphasis on RAS grades.' However, he's also drafted players who didn't test (Elliss skipped combine due to injury, Skinner had a torn pec). Film-first, but athletic testing serves as a significant tiebreaker.",
+    "character_weight": 0.75,
+    "character_description": "High character standards. Multiple sources trace this to his Nick Saban exposure in Miami. Paton has said 'you've got to dig deeper into each player, whether it's his mental, whether it's his character, psychological testing.' Three of his 2025 draft picks (Barron, Harvey, Bryant) were team captains. The team has avoided players with significant character red flags in early rounds. Paton's father was a high school football coach, and the emphasis on character appears deeply personal.",
+    "quarterback_philosophy": "Extremely selective. Will not force a QB pick. Passed on Justin Fields and Mac Jones at pick 9 in 2021 to take Surtain. Waited three full drafts before taking Bo Nix at 12 in 2024 when the alignment was right (QB need + Payton's endorsement + Nix fitting the system). Will acquire bridge QBs through trade (Bridgewater, Zach Wilson) rather than draft one who doesn't fit. Believes in building around a franchise QB once found \u2014 Nix is now 'the guy.'"
+  },
+  "college_production_preferences": {
+    "production_weight": 0.6,
+    "production_vs_projection": "Leans toward productive college players but makes 1-2 projection bets per draft, typically on Day 3. In R1-2, production floor matters: Surtain was Alabama's most experienced CB, Nix had 61 games, Williams had elite stats. On Day 3, projection bets are more common: Meinerz from D-III, Lohner with 4 career catches, Montrell Washington from Samford. When forced to choose between production and projection in early rounds, production wins \u2014 but elite athleticism can override in mid-rounds (Mathis, Uwazurike).",
+    "production_thresholds_by_position": {
+      "WR": "For Day 2 WRs: 40+ career catches minimum. Mims had 123 career catches. For Day 3: lower threshold acceptable.",
+      "RB": "1,000+ rushing yards in final college season for Day 1-2 picks: Williams (1,140), Harvey (1,500+), Estime (1,341).",
+      "EDGE": "5+ sacks in final college season for Day 2 picks: Bonitto (7), Elliss (12). Day 3 EDGE picks have lower floors.",
+      "CB": "No clear statistical threshold \u2014 values film, physicality, and technique over INT totals. Surtain had 3 INTs, Moss had 11. Both were valued.",
+      "LB": "Significant production required: Sanders had 103 tackles, 9.5 sacks. Browning was valued for testing over stats."
+    },
+    "breakout_age_sensitivity": 0.55,
+    "dominator_rating_sensitivity": 0.45,
+    "notes": "Paton values youth \u2014 his drafts average ~21.7 years old per player. He's willing to draft younger players with upside over older polished products, except at QB where experience mattered for Nix. The Vikings lineage is visible here \u2014 Minnesota under Spielman/Paton consistently targeted young, athletic players."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "40_yard_max": 4.5,
+        "preferred_speed": "4.45 or faster",
+        "min_height": "5-10",
+        "confidence": "high"
+      },
+      "EDGE": {
+        "preferred_weight_min": 240,
+        "first_step_explosion": "elite required",
+        "confidence": "high"
+      },
+      "WR_speed": {
+        "40_yard_max": 4.45,
+        "notes": "For speed/slot WRs like Mims. Big-bodied WRs have different thresholds.",
+        "confidence": "medium"
+      },
+      "WR_size": {
+        "min_height": "6-1",
+        "min_weight": 200,
+        "notes": "For physical X/Z WRs like Bryant, Vele.",
+        "confidence": "medium"
+      },
+      "RB": {
+        "no_clear_speed_threshold": true,
+        "notes": "Values contact balance and explosion over 40 time.",
+        "confidence": "medium"
+      },
+      "IOL": {
+        "min_weight": 295,
+        "notes": "All IOL drafted were 295+ lbs.",
+        "confidence": "medium"
+      },
+      "S": {
+        "no_clear_threshold": true,
+        "notes": "Wide range of profiles drafted. Size valued but not required.",
+        "confidence": "low"
+      }
+    },
+    "threshold_type": "Mostly soft preferences with one apparent hard cutoff at CB speed (4.50 max). At most positions, Paton uses athletic testing as a confirmation tool rather than an eliminator. The exception is CB speed \u2014 no corner drafted under his tenure has run slower than 4.45.",
+    "size_preferences_by_position": {
+      "CB": "5-10+ minimum, prefers 6-0+",
+      "EDGE": "240+ lbs preferred, 248+ for Day 2 picks",
+      "DT": "310+ for nose, 290+ for 3-technique (based on Uwazurike at 316 and Henningsen at 294)",
+      "WR": "Wide range. Speed WRs 5-8 to 6-0, physical WRs 6-1 to 6-4",
+      "RB": "5-9 to 6-0, 200-240 lbs depending on role"
+    },
+    "athletic_testing_favorites": "Paton and his staff appear to weight vertical jump and broad jump (explosiveness indicators) heavily at EDGE and CB. For IOL, Senior Bowl/all-star game performance is the most trusted 'test.' For WRs, 40-yard dash matters for speed roles. 3-cone is monitored for EDGE and LB evaluations. Overall, RAS (Relative Athletic Score) is reportedly a significant factor in mid-round evaluations.",
+    "measurables_vs_film": "Film-first overall, but measurables serve as significant tiebreakers and occasionally as eliminators (CB speed). Paton drafted Elliss despite no combine workout (shoulder injury) and Skinner despite no combine or pro day (torn pec), indicating film can override testing. But he also drafted Mathis largely on athletic testing (4.39, 43.5-inch vertical). The balance shifts toward measurables on Day 2-3 when film evaluation is less clear-cut."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium position, high-floor player who Paton has graded as a top-10 talent on his board. BPA-dominant approach. Will not reach significantly. Historical R1 picks: CB (Surtain, Barron) and QB (Nix) \u2014 all premium positions with high floors. Paton's R1 philosophy is patience and value \u2014 takes the best player available even if it doesn't match the perceived need. May trade back if no player within 5 picks of board value is available.",
+    "round_2_3_strategy": "This is where the BPA-to-need transition happens. Paton is aggressive on Day 2 \u2014 has traded up in R2 or R3 in four of five drafts (Williams 2021, Mims and Moss 2023, Franklin 2024, Harvey after trade-backs 2025). Day 2 is where he targets specific players he's identified in pre-draft process and won't let them pass. Need becomes a more significant factor. Payton's influence is strongest here on offensive picks.",
+    "day_3_strategy": "Developmental athletes, special teams contributors, and positional depth. Takes fliers on high-ceiling projects: Meinerz (D-III in R3, 2021), Lohner (basketball convert, R7, 2025), Montrell Washington (Samford returner, R5, 2022). Also targets backup OL (Gargiulo, Forsyth, Wattenberg) and physical safeties (Skinner, Turner-Yell) on Day 3. At least one 'traits over production' pick per draft on Day 3.",
+    "compensatory_pick_usage": "The Broncos have not received compensatory picks in recent drafts due to the Wilson/Payton trade capital losses. Not enough data to assess compensatory pick behavior specifically."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "CB": {
+        "picks": 6,
+        "starters_or_significant_contributors": 4,
+        "rate": 0.67,
+        "note": "Surtain (All-Pro), Moss (starter), Barron (developing starter), Mathis (depth). Strong position evaluation."
+      },
+      "EDGE": {
+        "picks": 5,
+        "starters_or_significant_contributors": 3,
+        "rate": 0.6,
+        "note": "Bonitto (All-Pro), Cooper (10+ sacks, extended), Elliss (contributing). Jones and Robinson still developing. Excellent Day 2-3 EDGE evaluation."
+      },
+      "IOL": {
+        "picks": 4,
+        "starters_or_significant_contributors": 2,
+        "rate": 0.5,
+        "note": "Meinerz (All-Pro), Wattenberg (starting C). Forsyth and Gargiulo are depth. Meinerz was a home run pick."
+      },
+      "WR": {
+        "picks": 6,
+        "starters_or_significant_contributors": 3,
+        "rate": 0.5,
+        "note": "Mims (Pro Bowler as returner), Franklin (emerging WR2), Bryant (contributing WR3). Washington, Williams, Vele have not panned out offensively."
+      },
+      "RB": {
+        "picks": 3,
+        "starters_or_significant_contributors": 2,
+        "rate": 0.67,
+        "note": "Williams was elite before ACL tear. Harvey led rookie RBs in TDs. Estime has underperformed."
+      },
+      "TE": {
+        "picks": 2,
+        "starters_or_significant_contributors": 0,
+        "rate": 0.0,
+        "note": "Dulcich was a bust (waived). Lohner is a lottery ticket. TE evaluation is a clear weakness."
+      },
+      "LB": {
+        "picks": 2,
+        "starters_or_significant_contributors": 0,
+        "rate": 0.0,
+        "note": "Browning converted to EDGE (moved off LB). Sanders derailed by injuries. Neither has panned out at LB."
+      },
+      "S": {
+        "picks": 4,
+        "starters_or_significant_contributors": 1,
+        "rate": 0.25,
+        "note": "Sterns had promise but hip injury ended trajectory. Skinner is a special teams contributor. Turner-Yell and Johnson didn't pan out. Safety evaluation is below average."
+      },
+      "DT": {
+        "picks": 2,
+        "starters_or_significant_contributors": 0,
+        "rate": 0.0,
+        "note": "Uwazurike was suspended. Henningsen is depth. DT evaluation via draft has been poor (addresses through FA/trade instead)."
+      }
+    },
+    "blind_spots": [
+      "TE evaluation \u2014 0-for-2 on drafted TEs. Dulcich was a bust.",
+      "Safety evaluation \u2014 1-for-4, largely Day 3 picks",
+      "DT evaluation via draft \u2014 0-for-2, but addresses through FA/trade instead"
+    ],
+    "strengths": [
+      "CB evaluation \u2014 Surtain and Moss are both starters, with Surtain being arguably the best CB in the NFL",
+      "EDGE evaluation \u2014 Bonitto and Cooper both became Pro Bowl/All-Pro caliber players from Day 2-3 picks",
+      "IOL evaluation \u2014 Meinerz from D-III in R3 became a first-team All-Pro. Elite developmental IOL evaluation",
+      "Day 2-3 value finding \u2014 consistently finds starters and impact players outside Round 1"
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Moderate-to-strategic spender. Uses FA to fill 2-3 major needs (OT McGlinchey in 2023, TE Engram + LB Greenlaw + S Hufanga in 2025) so the draft can focus on BPA. Prefers shorter-term FA deals to minimize sunk cost \u2014 learned from the Wilson extension disaster. Since 2023, has been more judicious with long-term FA commitments while extending homegrown draft picks (Surtain, Meinerz, Cooper, Bonitto).",
+    "fa_draft_correlation": "When a veteran starter is signed at a position, that position drops to Day 3 or is skipped entirely in the draft. Examples: Signed McGlinchey at OT \u2192 no OT drafted. Signed Engram at TE \u2192 only took Lohner in R7. Signed Greenlaw at LB \u2192 no LB drafted in 2025. Conversely, positions NOT addressed in FA become Day 2 draft targets (RB Harvey in 2025 R2 after no FA RB signing).",
+    "roster_construction_philosophy": "Build through the draft at premium defensive positions (CB, EDGE) and IOL, supplement through FA at OT, TE, LB, and veteran depth. Extend homegrown talent early (Surtain, Meinerz, Cooper all extended before hitting FA). The Broncos' core is almost entirely draft-built under Paton: Surtain, Bonitto, Cooper, Meinerz, Wattenberg, Nix, Mims, Moss, Harvey, Elliss."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 38,
+    "notable_patterns": [
+      "CB and EDGE are the most heavily invested positions, with 11 picks combined (6 CB, 5 EDGE) \u2014 reflecting the man-coverage, pass-rush-heavy defensive scheme",
+      "No offensive tackle drafted in 5 drafts \u2014 OT is addressed exclusively through FA",
+      "Day 2-3 value finding is elite \u2014 Meinerz (R3, All-Pro), Bonitto (R2, All-Pro), Cooper (R7, 10+ sacks), Wattenberg (R5, starting C), Harvey (R2, led rookie TDs)",
+      "Heavy secondary investment \u2014 10 of 38 picks (26%) were defensive backs (6 CB, 4 S)",
+      "Sean Payton's arrival in 2023 shifted trade behavior toward more trade-ups; Paton's natural tendency is to trade down",
+      "In R1, takes BPA even against popular need narratives (Surtain over Fields 2021, Barron over RB 2025)",
+      "Has made 33 trades as GM across all contexts, averaging significant transaction activity"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2022,
+        "pick": "4.116",
+        "player": "Eyioma Uwazurike",
+        "position": "DT",
+        "consensus_rank": 199,
+        "reach_amount": 83,
+        "context": "Massive reach for a size/athletic profile. 6-6, 316 lbs with 35-inch arms. Eventually suspended \u2014 pick did not pan out."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2021,
+        "pick": "3.98",
+        "player": "Quinn Meinerz",
+        "position": "IOL",
+        "consensus_rank": "Mid-to-late Day 2",
+        "value_amount": 30,
+        "context": "D-III player who dominated Senior Bowl. Became first-team All-Pro guard by 2024. One of the best value picks of the Paton era."
+      },
+      {
+        "year": 2021,
+        "pick": "7.239",
+        "player": "Jonathon Cooper",
+        "position": "EDGE",
+        "consensus_rank": "Late Day 3/UDFA",
+        "value_amount": 40,
+        "context": "7th-round developmental DE from Ohio State. Had 10+ sack season by 2024, earned multi-year extension. Elite Day 3 find."
+      },
+      {
+        "year": 2023,
+        "pick": "3.67",
+        "player": "Drew Sanders",
+        "position": "LB",
+        "consensus_rank": "Late R1/early R2",
+        "value_amount": 25,
+        "context": "Many had Sanders graded as a late-first-round talent. Injuries have prevented him from realizing the value, but the selection itself was a clear steal on paper."
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_notes": "5 full drafts of data as Broncos GM provide a robust behavioral sample. The Paton-Payton partnership is now entering its 4th draft together (2026), with clear patterns established. Key areas of lower confidence: OT (no data), TE (poor results), QB (only 1 pick). All defensive position profiles are well-supported. Profile should be refreshed after 2026 draft, particularly if Vance Joseph departs as DC.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

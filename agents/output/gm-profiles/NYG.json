@@ -1,0 +1,833 @@
+{
+  "team": {
+    "name": "New York Giants",
+    "abbreviation": "NYG",
+    "division": "NFC East",
+    "current_draft_position": 5
+  },
+  "front_office": {
+    "gm": {
+      "name": "Joe Schoen",
+      "title": "Senior Vice President and General Manager",
+      "hired": "2022-01-21",
+      "previous_role": "Assistant General Manager, Buffalo Bills",
+      "drafts_as_gm": 4,
+      "confidence": "medium-high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Carolina Panthers",
+          "role": "Ticket Office Intern",
+          "years": "2000",
+          "mentor": "Brandon Beane (football ops)"
+        },
+        {
+          "org": "Carolina Panthers",
+          "role": "Scouting Assistant",
+          "years": "2001",
+          "mentor": "Jack Bushofsky (Dir. Player Personnel), Brandon Beane"
+        },
+        {
+          "org": "Carolina Panthers",
+          "role": "Southeast/Southwest Area Scout",
+          "years": "2002-2007",
+          "mentor": "Marty Hurney (GM), Brandon Beane"
+        },
+        {
+          "org": "Miami Dolphins",
+          "role": "National Scout",
+          "years": "2008-2012",
+          "mentor": "Bill Parcells (EVP Football Ops, 2008-2010), Jeff Ireland (GM)"
+        },
+        {
+          "org": "Miami Dolphins",
+          "role": "Assistant Director of College Scouting",
+          "years": "2013",
+          "mentor": "Jeff Ireland (GM), Dennis Hickey"
+        },
+        {
+          "org": "Miami Dolphins",
+          "role": "Director of Player Personnel",
+          "years": "2014-2016",
+          "mentor": "Dennis Hickey (GM 2014), Mike Tannenbaum (EVP Football Ops), Chris Grier (GM from 2016)"
+        },
+        {
+          "org": "Buffalo Bills",
+          "role": "Assistant General Manager",
+          "years": "2017-2021",
+          "mentor": "Brandon Beane (GM)"
+        },
+        {
+          "org": "New York Giants",
+          "role": "Senior Vice President and General Manager",
+          "years": "2022-present",
+          "mentor": "N/A \u2014 primary decision-maker"
+        }
+      ],
+      "primary_mentor": "Brandon Beane (Carolina 2001-2007, Buffalo 2017-2021)",
+      "philosophical_lineage": "Beane/Carolina tree with Parcells influence from Miami years. Beane built Buffalo into a contender via aggressive trade-ups for franchise QB (Josh Allen), supplemented by mid-round role players and opportunistic veteran acquisitions. Parcells influence visible in character emphasis and organizational discipline. Schoen's stated mantra is 'smart, tough, and dependable' \u2014 classic Parcells-era language. The Bills under Beane/Schoen valued athletic upside at premium positions and were willing to trade up aggressively for their target players.",
+      "breakpoints": "Unlike Beane in Buffalo, Schoen has been less willing to trade back and accumulate picks \u2014 averaged only 6.7 picks per draft from 2023-2025 compared to Beane's consistent 7+ approach. His first draft (2022) featured trade-downs in round 2 that yielded useful players (McFadden, Belton), but he abandoned that approach afterward. Traded UP in 2023 (twice) and 2025 (once for Dart). Also diverges from Beane in his first-round emphasis on defensive players \u2014 5 of 6 first-round picks were defensive or OT players before taking Nabers in 2024.",
+      "lineage_weight": 0.3,
+      "lineage_weight_notes": "4 full drafts of own data reduce lineage weight significantly. Schoen's own patterns are now the primary signal. However, the Beane DNA is still visible in his willingness to trade up for targeted players and his premium-position emphasis. The Parcells influence remains in his character standards. New HC John Harbaugh may shift 2026 draft approach \u2014 Harbaugh's Ravens consistently stockpiled picks and traded back."
+    },
+    "primary_decision_maker": "Joe Schoen (nominally), but power dynamics are shifting toward John Harbaugh in 2026",
+    "key_influencers": [
+      {
+        "name": "John Harbaugh",
+        "title": "Head Coach",
+        "influence_level": "very_high",
+        "known_biases": "Harbaugh reports directly to ownership, not to Schoen \u2014 a significant structural change. Spent 18 years in Baltimore building teams around elite defense and strong running game. Values 'good, tough, hard-nosed players that want to play hard.' Baltimore under Harbaugh consistently stockpiled draft picks via trade-backs. Favors elite defensive backs \u2014 publicly praised Caleb Downs and compared him to Kyle Hamilton. May push for safety/DB at 5 over Schoen's traditional preference for premium positions (EDGE/OT)."
+      },
+      {
+        "name": "Dawn Aponte",
+        "title": "Senior Vice President of Football Operations and Strategy",
+        "influence_level": "medium",
+        "known_biases": "Reports to Harbaugh, not Schoen. Oversees analytics, salary cap management, and contract negotiations. Was heavily involved in Harbaugh's hire. Her appointment reduced Schoen's portfolio \u2014 he is reportedly 'relegated to handling scouting.' Former NFL chief administrator of football operations."
+      },
+      {
+        "name": "John Mara",
+        "title": "President and CEO",
+        "influence_level": "high",
+        "known_biases": "Has publicly stated he would veto draft picks with questionable character if front office and coaching staff wanted them. Currently battling cancer, with brother Chris Mara stepping up in leadership. Has historically been patient with GMs but the 22-45-1 record is testing that patience. Chris Mara described Harbaugh as 'the most important cog in the wheel.'"
+      }
+    ],
+    "power_dynamics": "Highly fluid in 2026. Org chart was restructured so Harbaugh and Schoen both report directly to ownership rather than the traditional HC-reports-to-GM structure. Schoen's role has been narrowed to scouting and draft evaluation while Aponte handles cap/contracts and reports to Harbaugh. Schoen is in the final year of his contract with no extension announced. Harbaugh brought 14 former Ravens coaches and is putting 'his stamp on everything.' For the 2026 draft, expect Harbaugh's voice to carry significant weight \u2014 perhaps equal to or greater than Schoen's on final decisions.",
+    "owner_interference": "medium \u2014 Mara has historically been hands-off on specific picks but has veto power on character-risk players and has weighed in on big-picture direction (e.g., supporting QB pursuit in 2025). Chris Mara now more involved due to John's health."
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.6,
+    "bpa_weight_by_round": {
+      "1": 0.7,
+      "2": 0.5,
+      "3": 0.45,
+      "4_plus": 0.35
+    },
+    "stated_philosophy": "Best player available with character, athleticism, and football ability that mirrors what we're looking for. 'Smart, tough, and dependable.'",
+    "actual_philosophy": "Leans BPA in round 1 \u2014 took Thibodeaux (EDGE) over OL-needy picks at 5 in 2022, took Carter (EDGE) at 3 in 2025 despite already having Burns and Thibodeaux. However, most round 1 picks have also addressed clear team needs (Neal at OT, Banks at CB, Nabers at WR). In rounds 2-3, shifts heavily toward need \u2014 every Day 2 pick under Schoen has filled an obvious roster hole. Early drafts (2022-2023) showed significant reaching for need players in mid-rounds; later drafts (2024-2025) showed much better alignment of BPA and need.",
+    "philosophy_mismatch_notes": "Claims BPA but has traded up to ensure he gets specific need-position players (Banks at CB in 2023, Hyatt at WR in 2023, Dart at QB in 2025). The 2024 draft was his most BPA-aligned \u2014 every pick close to consensus board position. His draft process has visibly improved: 2022 picks were consistently taken far above consensus value (reaches), while 2024-2025 picks were at or below consensus (steals)."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.55,
+    "trade_down_willingness": 0.25,
+    "trades_per_draft_average": 1.5,
+    "trade_triggers": [
+      "Quarterback availability \u2014 traded up from 34 to 25 in 2025 for Dart, giving up two third-round picks",
+      "Specific targeted player about to be taken \u2014 traded up 1 spot in 2023 for Banks, traded up in round 3 for Hyatt",
+      "Senior Bowl and Top 30 visit targets \u2014 Schoen's process heavily relies on these meetings, and he will move to get players he's met"
+    ],
+    "draft_capital_philosophy": "Has not traded back since 2022 (twice in round 2). Averaged only 6.7 picks per draft from 2023-2025. Historically prefers to stay put or move up rather than accumulate extra picks. However, Harbaugh's influence in 2026 may shift this \u2014 Ravens under Harbaugh consistently had 7+ picks and traded back often. Schoen said at 2026 combine he is 'open to moving back if an opportunity is there.'"
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "EDGE",
+        "OT",
+        "CB",
+        "WR",
+        "QB"
+      ],
+      "tier_2_high": [
+        "DT",
+        "S",
+        "IOL"
+      ],
+      "tier_3_mid": [
+        "LB",
+        "TE",
+        "RB"
+      ],
+      "tier_4_low": [
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "Has historically avoided QB \u2014 did not draft one in his first three drafts (2022-2024) despite persistent need, only addressing it in 2025 when forced by dire circumstances. Has never used a top-2 round pick on RB or LB."
+    ],
+    "position_premium": [
+      "EDGE \u2014 has invested two first-round picks (Thibodeaux at 5, Carter at 3) plus traded two 2nds for Brian Burns. CB \u2014 first-round pick on Banks, Day 2/3 secondary picks in every draft. WR \u2014 Nabers at 6 and Wan'Dale Robinson at 43. Schoen has prioritized premium positions (EDGE/OT/CB) at the top of the draft, consistent with his stated belief in cost-controlled premium players."
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Elite first-step athletes with positional versatility. Schoen targets EDGE rushers with explosive burst off the snap who can line up in multiple alignments. Not purely size-driven \u2014 values speed-to-power conversion and motor. Thibodeaux (6-4, 254, 4.58) was a bend/speed rusher with questions about effort that proved unfounded. Carter (6-3, 247) is an undersized but explosive former LB who converts speed to power. Both were consensus top-5 talents \u2014 Schoen does not reach for EDGE in round 1 but will pay premium draft capital to acquire elite ones.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "247-260",
+        "arm_length_minimum": "No clear minimum \u2014 Carter's arms measured ~33 inches, Thibodeaux ~33.5 inches",
+        "key_athletic_tests": "First-step quickness and burst are non-negotiable. Vertical jump and broad jump as explosiveness proxies. Thibodeaux had elite explosiveness metrics. Carter's college tape showed elite get-off.",
+        "speed_requirement": "4.58 or faster preferred based on Thibodeaux's 40 time. Carter did not run at combine due to injury but tested as elite athlete at Penn State Pro Day."
+      },
+      "playing_style": {
+        "primary_win_condition": "Speed-to-power conversion with explosive first step. Both Thibodeaux and Carter win with burst off the ball and the ability to convert speed into power at the point of attack.",
+        "most_valued_traits": [
+          "First-step explosion/get-off",
+          "Positional versatility (can rush from multiple alignments)",
+          "Motor and competitive effort",
+          "Ability to set the edge in run defense",
+          "Pass rush productivity trajectory (ascending production preferred)"
+        ],
+        "least_important_traits": [
+          "Polished pass rush repertoire \u2014 both Thibodeaux and Carter were somewhat raw as rushers but had elite physical tools"
+        ],
+        "deal_breakers": [
+          "Effort/motor concerns nearly sank Thibodeaux pre-draft but Schoen took him anyway after investigation. However, Schoen has stated character concerns will remove players from board entirely.",
+          "Inability to play the run \u2014 both picks were capable run defenders"
+        ],
+        "traits_that_make_them_reach": "Schoen has not reached for EDGE \u2014 both Thibodeaux (consensus ~3-5) and Carter (consensus ~3) were taken at or near their board position. He will pay fair price for elite talent."
+      },
+      "college_production": {
+        "production_floor": "Thibodeaux had 19 sacks in 3 seasons at Oregon (7 as junior). Carter had 12 sacks in his first year as full-time EDGE in 2024 with 66 pressures. Both were highly productive.",
+        "production_trajectory": "Values ascending production and positional development. Carter literally converted from LB to EDGE and broke out. Thibodeaux produced early as a freshman.",
+        "context_sensitivity": "High \u2014 Schoen evaluates within scheme context. Carter's production came in only one year at EDGE but the film and athleticism justified the pick."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2022 R1.5 \u2014 Kayvon Thibodeaux, Oregon: 6-4, 254, 4.58 40. 19 career sacks. Speed/bend rusher with explosive first step. Consensus top-5 pick.",
+          "2025 R1.3 \u2014 Abdul Carter, Penn State: 6-3, 247. Unanimous All-American. 12 sacks, 66 pressures in first year as full-time EDGE. Elite burst, converted LB with speed-to-power ability."
+        ]
+      },
+      "confidence": "medium \u2014 only 2 picks but both were top-5 selections showing clear preference for elite athletic EDGE talent"
+    },
+    "OT": {
+      "archetype_summary": "Massive, battle-tested tackle with positional versatility and elite physical tools. Evan Neal (6-7.5, 337, 34-inch arms) was a prototypical Schoen OT pick \u2014 enormous frame, multi-position experience (LT, RT, LG at Alabama), physically dominant. The pick didn't work out, but the archetype is clear: Schoen wants huge, athletic tackles who can handle either side. Marcus Mbow (2025 R5) adds data as a versatile OL who played both guard and tackle at Purdue.",
+      "physical_profile": {
+        "height_range": "6-5 to 6-8",
+        "weight_range": "310-340",
+        "arm_length_minimum": "34 inches \u2014 Neal measured 34.0 inches",
+        "key_athletic_tests": "Movement skills in pass protection. Neal was valued for his ability to mirror pass rushers despite his massive frame.",
+        "speed_requirement": "N/A for OT \u2014 values lateral agility and footwork over straight-line speed"
+      },
+      "playing_style": {
+        "primary_win_condition": "Physical dominance at the point of attack combined with enough athleticism to mirror speed rushers",
+        "most_valued_traits": [
+          "Positional versatility (ability to play LT/RT/G)",
+          "Physical dominance and anchor strength",
+          "Battle-tested experience against top competition",
+          "Pass protection consistency over 1000+ snaps"
+        ],
+        "least_important_traits": [
+          "Zone blocking agility \u2014 Neal was more of a power blocker than a zone-scheme fit"
+        ],
+        "deal_breakers": [
+          "Inability to pass protect \u2014 pass blocking is non-negotiable for early-round OT investment",
+          "Narrow positional fit (RT-only or LT-only players less valued)"
+        ],
+        "traits_that_make_them_reach": "Multi-position flexibility. Neal played three positions at Alabama, which was heavily cited as a positive."
+      },
+      "college_production": {
+        "production_floor": "40+ career starts \u2014 Neal started 40 games at Alabama across multiple positions",
+        "production_trajectory": "Values multi-year starters with high-level competition experience",
+        "context_sensitivity": "Heavily weights conference strength \u2014 Neal was an Alabama product facing elite SEC pass rushers"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2022 R1.7 \u2014 Evan Neal, Alabama: 6-7.5, 337 lbs, 34.0-inch arms. 40 career starts at LT, RT, and LG. Consensus top-4 prospect.",
+          "2025 R5.154 \u2014 Marcus Mbow, Purdue: 36 games, 32 starts split between RG (20) and RT (12). Versatile OL valued as significant Day 3 steal."
+        ]
+      },
+      "confidence": "low-medium \u2014 only 1 early-round OT pick (Neal), supplemented by Mbow on Day 3. Neal was a bust, so limited data on Schoen's OT evaluation success."
+    },
+    "IOL": {
+      "archetype_summary": "Schoen's IOL picks favor strong, experienced centers/guards with zone-blocking capability. John Michael Schmitz (6-4, 301, R2 in 2023) was a technically sound center with excellent leverage and zone-blocking angles who allowed only 1 sack in ~1,000 pass-blocking snaps. Joshua Ezeudu (6-4.5, 308, R3 in 2022) was a big, versatile blocker who could play inside or outside. Both were need-driven picks to rebuild an OL from scratch.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5",
+        "weight_range": "300-315",
+        "arm_length_minimum": "34 inches for guards \u2014 Ezeudu measured 34.0 inches",
+        "key_athletic_tests": "Mirror-and-slide quickness for pass protection, pulling/reach-block ability for zone runs. Schmitz valued for wrestling leverage.",
+        "speed_requirement": "N/A \u2014 interior movement skills matter more than straight-line speed. Ezeudu ran 5.19."
+      },
+      "playing_style": {
+        "primary_win_condition": "Anchor strength and leverage in pass protection, ability to execute zone-blocking angles",
+        "most_valued_traits": [
+          "Pass protection reliability",
+          "Zone-blocking capability and second-level reach",
+          "Positional versatility (C/G flex)",
+          "Toughness and durability"
+        ],
+        "least_important_traits": [
+          "Athletic testing numbers \u2014 Schmitz was not a great tester but his film was elite"
+        ],
+        "deal_breakers": [
+          "Poor anchor in pass protection",
+          "Inability to snap \u2014 Schoen valued Schmitz's center exclusivity as a feature, not a bug"
+        ],
+        "traits_that_make_them_reach": "Zone-blocking fit and pass-protection consistency on tape can override average athletic testing"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter with minimal sacks/pressures allowed. Schmitz allowed 1 sack in ~1,000 career pass-blocking snaps.",
+        "production_trajectory": "Values experienced multi-year starters",
+        "context_sensitivity": "Moderate \u2014 looks at level of competition"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2023 R2.57 \u2014 John Michael Schmitz, C, Minnesota: 6-4, 301. First-team All-Big Ten. 1 sack allowed in ~1,000 career pass-blocking snaps. Zone blocker with wrestling leverage.",
+          "2022 R3.67 \u2014 Joshua Ezeudu, G, North Carolina: 6-4.5, 308, 34.0-inch arms, 5.19 40. Versatile \u2014 played multiple positions in same game. Length to play OT but projected as guard.",
+          "2025 R5.154 \u2014 Marcus Mbow, G/T, Purdue: 32 starts at RG and RT. Valued for versatility. Taken ~90 picks later than consensus."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "DT": {
+      "archetype_summary": "Schoen targets big, powerful interior linemen who can penetrate and disrupt. D.J. Davidson (2022, R5) was a 6-3, 327-lb nose tackle from Arizona State. Darius Alexander (2025, R3) was a 6-4, 305-lb Toledo product with elite power (28 bench press reps at combine) and high ceiling as a penetrating 3-technique. Schoen's DT investments have been modest in draft capital (no DT above round 3) but he values the position \u2014 he acquired Dexter Lawrence via the existing roster and made DT a priority in 2025.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5",
+        "weight_range": "295-330",
+        "arm_length_minimum": "No clear minimum from small sample",
+        "key_athletic_tests": "Bench press strength (Alexander had 28 reps). Explosiveness off the snap. Short-area quickness.",
+        "speed_requirement": "N/A \u2014 interior quickness and power valued over speed"
+      },
+      "playing_style": {
+        "primary_win_condition": "Power at the point of attack with ability to penetrate gaps and collapse the pocket",
+        "most_valued_traits": [
+          "Raw power and strength",
+          "High motor and effort",
+          "Ability to two-gap or penetrate depending on scheme",
+          "Toughness and physicality \u2014 Alexander said 'I love taking my opponents' will'"
+        ],
+        "least_important_traits": [
+          "Pass rush move repertoire \u2014 developmental players accepted at DT",
+          "Elite athletic testing not required"
+        ],
+        "deal_breakers": [
+          "Lack of effort/motor",
+          "Inability to hold point of attack against double teams"
+        ],
+        "traits_that_make_them_reach": "Power and high-ceiling athleticism combination. Alexander was considered a high-upside pick to complement Lawrence."
+      },
+      "college_production": {
+        "production_floor": "Modest production acceptable if tools are elite. Alexander was second-team All-MAC, not a major conference star, but his combine and physical tools justified the pick.",
+        "production_trajectory": "Ascending production valued. Alexander's breakout came in final college season.",
+        "context_sensitivity": "Moderate \u2014 adjusts for level of competition. Alexander was a small-school product but earned combine invite."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2025 R3.65 \u2014 Darius Alexander, DT, Toledo: 6-4, 305. 28 bench press reps at combine. Second-team All-MAC. High ceiling, paired with Dexter Lawrence.",
+          "2022 R5.147 \u2014 D.J. Davidson, DT, Arizona State: 6-3, 327. Large nose tackle profile.",
+          "2023 R7.243 \u2014 Jordon Riley, DL, Oregon: 6-5, 300+. Depth/rotational piece."
+        ]
+      },
+      "confidence": "medium \u2014 no early-round DT picks, but scheme emphasis is clear"
+    },
+    "CB": {
+      "archetype_summary": "Athletic, physical press-man corner with elite speed. Deonte Banks (R1.24 in 2023) was the archetype: 6-0, 197, 4.35 40, 42-inch vertical, 11-foot-4 broad jump. Explosive combine performer drafted specifically for press-man coverage in Wink Martindale's defense. Andru Phillips (R3.70 in 2024) was a physical press corner from Kentucky who 'graded out in 75th percentile in single coverage.' Cor'Dale Flott (R3.81 in 2022) was a tall slot CB with 'incredibly light feet.' Schoen consistently invests in the secondary across every draft.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-1",
+        "weight_range": "175-200",
+        "arm_length_minimum": "No hard minimum observed, but values length. Flott was 6-0.5, Banks was 6-0.",
+        "key_athletic_tests": "40-yard dash is critical \u2014 Banks ran 4.35, Hawkins in 4.4 range. Vertical jump (Banks: 42 inches). Broad jump (Banks: 11-4). Elite explosiveness indicators strongly valued.",
+        "speed_requirement": "4.45 or faster strongly preferred \u2014 Banks at 4.35, Hawkins in 4.4s"
+      },
+      "playing_style": {
+        "primary_coverage_style": "Press-man coverage \u2014 Banks was drafted specifically for Martindale's aggressive press-man scheme. Phillips was valued for press coverage comfort.",
+        "most_valued_traits": [
+          "Elite speed and explosiveness",
+          "Press technique and physicality at the line",
+          "Competitive toughness and tackling ability",
+          "Hip fluidity and transition quickness",
+          "Ability to mirror and shadow receivers in man coverage"
+        ],
+        "least_important_traits": [
+          "Ball production/interceptions \u2014 Banks had only 2 INTs in 4 college seasons and Schoen still took him R1. Film-based evaluation over statistical production at CB."
+        ],
+        "deal_breakers": [
+          "Zone-only corners without press experience \u2014 scheme demanded press-man",
+          "Lack of speed \u2014 no CB drafted under Schoen has been a sub-par athlete"
+        ],
+        "traits_that_make_them_reach": "Elite combine performance. Banks' 4.35/42-inch vertical/11-4 broad jump was a combine show-stopper that confirmed film evaluation. Schoen traded up 1 spot to ensure he got Banks."
+      },
+      "college_production": {
+        "production_floor": "No interception minimum \u2014 Banks had only 2 career INTs but was still drafted R1. Schoen values coverage film over ball production at CB.",
+        "production_trajectory": "Multi-year starters preferred. Banks was a multi-year starter at Maryland. Hawkins had special physical tools as a late-round flier.",
+        "context_sensitivity": "High \u2014 evaluated Banks heavily based on tape against elite receivers (Ohio State game specifically cited)"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2023 R1.24 \u2014 Deonte Banks, CB, Maryland: 6-0, 197, 4.35 40, 42-inch vert, 11-4 broad. Press-man specialist. Traded up 1 spot to secure him.",
+          "2024 R3.70 \u2014 Andru Phillips, CB, Kentucky: Physical press corner. Some teams had second-round grade. Comfortable in press coverage.",
+          "2022 R3.81 \u2014 Cor'Dale Flott, CB, LSU: 6-0.5, 175. Tall slot CB with light feet and ball skills. Slender frame.",
+          "2023 R6.209 \u2014 Tre Hawkins III, CB, Old Dominion: 6-1, 188, ~4.4 range. Physical tools-based pick.",
+          "2025 R7.246 \u2014 Korie Black, CB, Oklahoma State: Speedy, feisty cornerback. Day 3 flier."
+        ]
+      },
+      "confidence": "high \u2014 consistent pattern across all 4 drafts"
+    },
+    "S": {
+      "archetype_summary": "Instinctive, versatile safety with coverage range and high football IQ. Tyler Nubin (R2.47 in 2024) was PFF's top-ranked safety prospect \u2014 valued for instincts, versatility (deep/box/slot), and elite coverage grades (90.1 coverage grade, 33.0 passer rating allowed). Dane Belton (R4.114 in 2022) was an Iowa safety known for ball skills and zone instincts. Schoen addresses safety in rounds 2-4, not round 1 \u2014 consistent with positional value hierarchy.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-2",
+        "weight_range": "195-210",
+        "arm_length_minimum": "No clear minimum",
+        "key_athletic_tests": "Instincts and football IQ valued over raw athletic testing. Nubin 'may not have tested off the charts, yet he's always the first to get to the ball.'",
+        "speed_requirement": "Adequate speed required but not a 4.4 threshold \u2014 film instincts can compensate"
+      },
+      "playing_style": {
+        "primary_coverage_style": "Versatile \u2014 can play single-high, box, or slot. Schoen values safeties who can handle multiple alignments.",
+        "most_valued_traits": [
+          "Football IQ and instincts",
+          "Coverage versatility (deep/box/slot)",
+          "Quick reads and pursuit angles",
+          "Ball-hawking ability and playmaking",
+          "Run support tackling"
+        ],
+        "least_important_traits": [
+          "Elite athletic testing \u2014 Nubin wasn't an athletic freak but was elite on film"
+        ],
+        "deal_breakers": [
+          "Poor instincts/processing \u2014 safety is a reads-and-reacts position for Schoen",
+          "Inability to cover \u2014 coverage grades are primary evaluator"
+        ],
+        "traits_that_make_them_reach": "Elite coverage grades and film IQ. Nubin's 90.1 coverage grade was the top among Power Five safeties."
+      },
+      "college_production": {
+        "production_floor": "Interceptions valued \u2014 Belton had ball skills, Nubin allowed a 33.0 passer rating in coverage",
+        "production_trajectory": "Multi-year starters preferred",
+        "context_sensitivity": "Moderate"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2024 R2.47 \u2014 Tyler Nubin, S, Minnesota: PFF's top safety prospect. 90.1 coverage grade. Versatile alignment capability.",
+          "2022 R4.114 \u2014 Dane Belton, S, Iowa: Ball-skills safety from Iowa's defense-first program.",
+          "2023 R7.254 \u2014 Gervarrius Owens, DB, Houston: Late-round depth pick."
+        ]
+      },
+      "confidence": "medium \u2014 limited early-round sample but Nubin pick is revealing"
+    },
+    "LB": {
+      "archetype_summary": "Schoen has never invested premium draft capital at off-ball LB \u2014 it is clearly a low-priority position for early rounds. Micah McFadden (R5.146 in 2022) has been his most successful LB pick \u2014 a high-IQ, productive Indiana LB who outperformed his draft slot. Darrian Beavers (R6.182 in 2022) was a big, physical LB from Cincinnati who played well against the run before his ACL. Darius Muasau (R6.183 in 2024) was a Hawaii-to-UCLA transfer with tackle production. Schoen's LB profile is clear: instinctive, productive, tackling machines \u2014 not athletic freaks.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "230-250",
+        "arm_length_minimum": "No clear minimum",
+        "key_athletic_tests": "Processing speed and instincts valued far more than athletic testing at LB",
+        "speed_requirement": "No hard speed threshold \u2014 McFadden was not an elite athlete but was a productive player"
+      },
+      "playing_style": {
+        "primary_win_condition": "Run defense reliability and tackling consistency",
+        "most_valued_traits": [
+          "Tackle reliability and production",
+          "Run defense instincts",
+          "Toughness and physicality",
+          "Ability to play in space for modern schemes"
+        ],
+        "least_important_traits": [
+          "Coverage ability \u2014 LBs have been picked as run-defense-first players",
+          "Pass rush ability \u2014 not a requirement"
+        ],
+        "deal_breakers": [
+          "Poor tackling fundamentals",
+          "Inability to process quickly"
+        ],
+        "traits_that_make_them_reach": "N/A \u2014 Schoen does not reach for LBs. All have been Day 3 picks."
+      },
+      "college_production": {
+        "production_floor": "High tackle numbers expected. Muasau led UCLA in tackles two consecutive years (91 in 2022, 75 in 2023). McFadden was a productive Big Ten LB.",
+        "production_trajectory": "Values proven producers over projection at LB",
+        "context_sensitivity": "Moderate"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2022 R5.146 \u2014 Micah McFadden, LB, Indiana: Productive Big Ten LB. Has outperformed draft slot significantly.",
+          "2022 R6.182 \u2014 Darrian Beavers, LB, Cincinnati: 6-3+, big physical LB. Good vs. the run and surprisingly effective in space before ACL.",
+          "2024 R6.183 \u2014 Darius Muasau, LB, UCLA: 166 career tackles in 2 seasons. Second-team All-Pac-12. Tackling machine."
+        ]
+      },
+      "confidence": "medium \u2014 consistent pattern of Day 3 LB picks but no early-round data"
+    },
+    "WR": {
+      "archetype_summary": "Schoen's WR preferences have evolved significantly. His 2022 pick of Wan'Dale Robinson (5-8, 178, R2.43) was an undersized, gadget-type slot receiver who was widely considered a reach. His 2024 pick of Malik Nabers (6-0, 200, R1.6) was an explosive, versatile receiver who could line up anywhere including the slot. The common thread: YAC ability, versatility in alignment (especially slot capability), and explosiveness with the ball in hands. Schoen has also drafted Jalin Hyatt (2023 R3) as a deep threat speedster. The WR archetype favors explosive playmakers who can win after the catch.",
+      "physical_profile": {
+        "height_range": "5-8 to 6-0 \u2014 wide range; values playmaking over prototype size",
+        "weight_range": "178-200",
+        "arm_length_minimum": "No clear minimum",
+        "key_athletic_tests": "Explosiveness metrics: vertical jump (Nabers: 42 inches), broad jump (Nabers: 10-9). 40 time (Nabers: 4.38, Robinson: 4.44, Hyatt: 4.40). Values speed and explosion.",
+        "speed_requirement": "4.45 or faster for primary WR targets"
+      },
+      "playing_style": {
+        "primary_win_condition": "YAC ability and explosiveness with the ball in hands. Slot versatility is a clear preference.",
+        "most_valued_traits": [
+          "Yards after catch ability",
+          "Slot alignment versatility \u2014 regime 'loves its receivers to be able to work out of the slot'",
+          "Speed and explosiveness",
+          "Route running/separation creation",
+          "Competitive toughness"
+        ],
+        "least_important_traits": [
+          "Contested catch ability \u2014 Robinson was undersized, Nabers was valued more for YAC than contested catches",
+          "Red zone/jump-ball threat \u2014 not a primary selection criterion"
+        ],
+        "deal_breakers": [
+          "Lack of speed/explosiveness \u2014 all WR picks have been 4.45 or faster",
+          "One-dimensional alignment (outside-only X receiver with no slot flex)"
+        ],
+        "traits_that_make_them_reach": "Elite YAC ability and slot versatility. Nabers had 1,009 slot receiving yards \u2014 4th most in FBS. Robinson was specifically valued for change-of-direction and slot work."
+      },
+      "college_production": {
+        "production_floor": "High production required. Nabers: 89 catches, 1,569 yards, 14 TDs in final season. Robinson: 104 catches, 1,334 yards in final season. Hyatt had 67 catches and 15 TDs as a deep threat.",
+        "production_trajectory": "Ascending production trajectory valued. Nabers went from 72/1,017 to 89/1,569.",
+        "context_sensitivity": "Moderate \u2014 Nabers produced in elite SEC offense, Robinson was Kentucky's entire offense"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2024 R1.6 \u2014 Malik Nabers, WR, LSU: 6-0, 200, 4.38 40, 42-inch vert. 89 catches, 1,569 yards, 14 TDs. All-American. Explosive slot/outside versatility. 30 forced missed tackles.",
+          "2022 R2.43 \u2014 Wan'Dale Robinson, WR, Kentucky: 5-8, 178, 4.44 40. 104 catches, 1,334 yards. Change-of-direction specialist. Slot/gadget role.",
+          "2023 R3.73 \u2014 Jalin Hyatt, WR, Tennessee: ~5-11, 4.40 40. Deep threat speed. 15 TDs in breakout season. Traded up to acquire."
+        ]
+      },
+      "confidence": "high \u2014 clear pattern across 3 drafts with consistent archetype"
+    },
+    "TE": {
+      "archetype_summary": "Schoen's TE picks favor athletic, pass-catching TEs with size and speed over traditional blockers. Theo Johnson (R4.107 in 2024) was a 6-6, 259-lb athletic freak from Penn State with elite size/speed combination but underwhelming college production \u2014 a classic 'traits over production' bet. Daniel Bellinger (R4.112 in 2022) was a more traditional San Diego State TE. Thomas Fidone II (R7.219 in 2025) was a receiving-focused TE from Nebraska with career highs of 36 catches, 373 yards in final year.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-6",
+        "weight_range": "245-260",
+        "arm_length_minimum": "No clear minimum",
+        "key_athletic_tests": "Size/speed combination. Johnson was noted for 'elite size, speed and athleticism' at 6-6, 259.",
+        "speed_requirement": "No hard threshold but athletic upside clearly valued"
+      },
+      "playing_style": {
+        "primary_win_condition": "Athletic receiving threat with size to be a matchup problem",
+        "most_valued_traits": [
+          "Size/speed/athleticism combination",
+          "Pass-catching ability and receiving upside",
+          "Ability to create mismatches in the passing game",
+          "Blocking willingness (even if not elite)"
+        ],
+        "least_important_traits": [
+          "Elite blocking \u2014 Johnson was 'ironically not a great blocker despite his towering, filled-out body type'"
+        ],
+        "deal_breakers": [
+          "Lack of athletic upside \u2014 Schoen's TE picks are athletes first",
+          "No receiving ability whatsoever"
+        ],
+        "traits_that_make_them_reach": "Elite size/speed combination at TE \u2014 this was the primary selling point for Johnson"
+      },
+      "college_production": {
+        "production_floor": "Low \u2014 Johnson was a 'low-volume option at Penn State' but was drafted on traits. Production is secondary to athletic upside at TE for Schoen.",
+        "production_trajectory": "Late-bloomer model accepted. Johnson was described as a likely 'better pro than college player.'",
+        "context_sensitivity": "High \u2014 adjusts for TE usage in college offense"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2024 R4.107 \u2014 Theo Johnson, TE, Penn State: 6-6, 259. Elite size/speed. Low college production but massive upside. Compared to Darren Waller scouting profile.",
+          "2022 R4.112 \u2014 Daniel Bellinger, TE, San Diego State: Traditional TE profile. Solid but not flashy.",
+          "2025 R7.219 \u2014 Thomas Fidone II, TE, Nebraska: 36 catches, 373 yards in 2024. Receiving-focused TE."
+        ]
+      },
+      "confidence": "medium \u2014 no early-round TE picks but clear athletic preference"
+    },
+    "RB": {
+      "archetype_summary": "Schoen has never invested premium capital on RB (highest pick: R4 for Skattebo and R5 for Tracy). Both feature picks emphasize toughness, versatility, and physicality. Cam Skattebo (2025 R4.105) was the archetype: a punishing, physical runner who loves contact \u2014 'physicality is definitely who I am.' Tyrone Tracy Jr. (2024 R5.166) was a converted WR with receiving ability. Eric Gray (2023 R5.172) was a one-cut runner with pass-catching chops. The thread: versatile backs who can catch passes and contribute beyond just rushing.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-0",
+        "weight_range": "200-220",
+        "arm_length_minimum": "N/A for RB",
+        "key_athletic_tests": "No specific combine thresholds. Values film-demonstrated toughness and physicality over testing.",
+        "speed_requirement": "Adequate speed required but not a premium trait. Contact balance and toughness valued over 40 time."
+      },
+      "playing_style": {
+        "primary_win_condition": "Physicality between the tackles combined with pass-catching versatility",
+        "most_valued_traits": [
+          "Toughness and physicality \u2014 Skattebo's defining trait",
+          "Pass-catching ability \u2014 Gray and Tracy were both receiving backs",
+          "Versatility in usage (rush/receive/situational)",
+          "Vision and one-cut decisiveness"
+        ],
+        "least_important_traits": [
+          "Breakaway speed \u2014 none of Schoen's RB picks were pure speed backs",
+          "Home run ability \u2014 values consistency over explosive plays"
+        ],
+        "deal_breakers": [
+          "Inability to catch passes \u2014 all RB picks have been pass-catching capable",
+          "Poor durability indicators"
+        ],
+        "traits_that_make_them_reach": "Skattebo was taken at his approximate value. Schoen does not reach for RBs."
+      },
+      "college_production": {
+        "production_floor": "High production expected \u2014 Skattebo finished 5th in Heisman voting with 21 rushing TDs. Gray was productive at Oklahoma. Tracy was raw but had receiving background.",
+        "production_trajectory": "Ascending production valued. Skattebo's breakout senior season drove his draft stock.",
+        "context_sensitivity": "Moderate \u2014 Skattebo was a late-blooming transfer star"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2025 R4.105 \u2014 Cam Skattebo, RB, Arizona State: ~5-10, 215. 21 rushing TDs. 5th in Heisman voting. Physical, punishing runner and receiver. 617 scrimmage yards and 7 TDs in 8 rookie games before ankle injury.",
+          "2024 R5.166 \u2014 Tyrone Tracy Jr., RB, Purdue: Converted WR with receiving skills. Raw runner but developmental upside.",
+          "2023 R5.172 \u2014 Eric Gray, RB, Oklahoma: One-cut runner with pass-catching ability."
+        ]
+      },
+      "confidence": "medium \u2014 consistent Day 3 investment pattern with clear archetype"
+    },
+    "QB": {
+      "archetype_summary": "Schoen waited 3 full drafts before addressing QB, then went all-in with a trade-up in 2025. Jaxson Dart (R1.25) was a dual-threat QB from Ole Miss who led the FBS in deep passing (1,517 yards, 17 TDs on 20+ air yard throws). Not a pure pocket passer \u2014 described as tough, willing to take hits, with tendency to run. Schoen's QB philosophy: address it through all avenues (FA, trade, draft), pair rookie with veteran, and only draft a QB you believe in \u2014 'you can't draft a quarterback just to say you did it.' Values 'gotta have it' moments and clutch performance.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3 \u2014 Dart measured ~6-1",
+        "weight_range": "210-225",
+        "arm_length_minimum": "N/A for QB",
+        "key_athletic_tests": "Arm talent over combine testing. Schoen 'will never downgrade' QBs for not throwing at the combine. Values pro day evaluation. Mobility is valued \u2014 Dart was a dual-threat.",
+        "speed_requirement": "Enough mobility to extend plays and run when needed. Dart was notably tough and willing to absorb hits."
+      },
+      "playing_style": {
+        "primary_style": "Dual-threat QB with strong arm and toughness. Dart was not a pure pocket passer \u2014 he made plays with his legs and threw deep.",
+        "most_valued_traits": [
+          "Deep passing ability \u2014 Dart led FBS in deep passing stats",
+          "Toughness and willingness to compete",
+          "Clutch performance in 'gotta have it' moments",
+          "Ability to make plays outside the pocket",
+          "Quick ascent to starting role"
+        ],
+        "least_important_traits": [
+          "Pure pocket passing pedigree \u2014 Dart came from a 'gimmicky offense' at Ole Miss that raised questions"
+        ],
+        "deal_breakers": [
+          "Lack of competitive fire/toughness",
+          "Schoen explicitly passed on J.J. McCarthy in 2024 \u2014 had a list of 6 acceptable players at pick 6 and McCarthy was not on it, suggesting he has a clear QB standard and won't settle"
+        ],
+        "traits_that_make_them_reach": "Schoen traded up from 34 to 25 (giving up two third-round picks) to get Dart. QB is the one position where Schoen will aggressively trade up."
+      },
+      "college_production": {
+        "production_floor": "Must be a multi-year starter with elite statistical production. Dart threw for 12,000+ career yards at Ole Miss over multiple seasons.",
+        "production_trajectory": "Ascending production valued. Dart's deep-ball numbers peaked in his final season.",
+        "context_sensitivity": "High \u2014 aware of 'gimmicky offense' concerns at Ole Miss. Some analysts questioned how Dart's production would translate."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 R1.25 \u2014 Jaxson Dart, QB, Ole Miss: ~6-1, 215. Led FBS with 1,517 deep passing yards and 17 deep TDs. Dual-threat. Traded up from 34 to 25. First QB Schoen drafted in 4 years."
+        ]
+      },
+      "confidence": "low \u2014 only 1 QB pick. But the trade-up and public statements provide significant signal about his approach."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 12,
+    "max_observed_reach": 50,
+    "round_1_reach_tolerance": 3,
+    "notes": "Schoen's reach behavior has improved dramatically over time. In 2022, his Day 2-3 picks were taken an average of 50-238 picks above consensus (massive reaches). By 2024, every pick was close to consensus board position. By 2025, every pick from R3 onward was taken at or BELOW consensus (value picks). His round 1 picks have always been close to consensus: Thibodeaux and Neal were consensus top-5, Banks was consensus ~20-27, Nabers was consensus top-6, Carter was consensus top-3, Dart was consensus ~30-35 (slight reach). The pattern shows Schoen has learned to stop reaching in mid-rounds."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.55,
+    "offensive_scheme": "Matt Nagy (OC) brings a Kansas City/Andy Reid-influenced West Coast passing attack. Greg Roman (senior offensive assistant) adds Ravens-style power running influence. Brian Callahan (QB coach/passing game coordinator) brings Bengals passing game concepts. Expect a balanced attack built around Jaxson Dart with play-action concepts, RPOs, and a physical running game with Skattebo and Tracy. This is a massive scheme change from Daboll's offense.",
+    "defensive_scheme": "Dennard Wilson (DC) ran a defense in Tennessee that ranked 2nd in yards allowed and 2nd in passing defense. His background is in defensive backs coaching with stints in Ravens, Eagles (press-man heavy), Jets, and Rams. Expect a multiple defensive front that can shift between 3-4 and 4-3, with strong emphasis on coverage and secondary play. Charlie Bullen (OLB coach/run game coordinator) retains the pass rush emphasis. Harbaugh's Ravens defenses historically featured physical, versatile fronts with elite secondary play.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "MASSIVE coaching overhaul in 2026. New HC (Harbaugh), new OC (Nagy), new DC (Wilson), new QB coach (Callahan). 14 of 31 coaches came from Baltimore. This is essentially a Ravens coaching transplant. Defensive scheme shifting from Daboll-era (Wink Martindale 2022-23, Shane Bowen 2024, Charlie Bullen interim 2025) to Wilson's multiple look. Offensive scheme shifting from Daboll's system to Nagy/Reid-tree concepts. Draft picks may reflect new scheme priorities that differ from Schoen's historical pattern."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.5,
+    "risk_description": "Moderate risk taker. Willing to draft players with questions (Thibodeaux's 'fire' concerns, Dart from a 'gimmicky offense,' Carter as a converted LB) but typically only at positions where the physical tools are undeniable. Has made one clear upside-over-production bet per draft on Day 3 (e.g., Theo Johnson's traits over production). Not afraid to trade up but only for players he's extensively researched through Senior Bowl meetings and Top 30 visits.",
+    "recency_bias": 0.55,
+    "recency_description": "Moderate recency bias. After losing Xavier McKinney in free agency, he drafted Tyler Nubin (S) in round 2 the next draft. After years without a QB, the desperate need finally drove him to trade up for Dart in 2025. After Brian Burns proved the value of pass rush, he doubled down on EDGE with Carter in 2025 despite already having Burns and Thibodeaux.",
+    "sunk_cost_behavior": "Mixed. Cut Daniel Jones mid-contract ($160M deal signed in 2023, released in November 2024) \u2014 willing to move on from sunk cost. But held onto Evan Neal for multiple seasons despite poor performance. Has not doubled down at positions where he's whiffed \u2014 after Neal at OT, did not invest another premium pick at the position.",
+    "combine_weight": 0.55,
+    "combine_description": "Moderate combine influence. Banks' elite combine performance (4.35, 42-inch vert, 11-4 broad) clearly boosted his stock. Alexander's 28 bench press reps were cited. But Schoen explicitly stated he 'will never downgrade' QBs for not throwing at the combine. Film-first evaluator who uses combine to confirm or invalidate film evaluation. Senior Bowl and Top 30 visits are more predictive of his picks than pure combine numbers.",
+    "character_weight": 0.75,
+    "character_description": "High character standards. Schoen: 'If it's a guy that we don't think fits from a character standpoint, we'll just take him off the board. If he goes on and has a really good career somewhere else, that's fine.' Mara has veto power on character risks. However, took Thibodeaux despite pre-draft 'fire' questions after investigating thoroughly. Carter had some disciplinary issues as a rookie (tardiness) but was a clean prospect pre-draft. Character evaluation runs through his stated mantra: 'smart, tough, and dependable.'",
+    "quarterback_philosophy": "Believes QB is 'the most important position in football' but will not draft one 'just to say you did it.' Waited three full drafts before addressing QB in the draft, preferring to explore every avenue (FA, trade, draft). When he finally committed, he traded up aggressively and paired the rookie (Dart) with veterans (Wilson, Winston). Passed on J.J. McCarthy at pick 6 in 2024 \u2014 had a specific list of 6 acceptable players and McCarthy wasn't on it. Will go all-in or not draft a QB at all."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.55,
+    "production_vs_projection": "Moderate lean toward production but will bet on traits at specific positions. WR picks have all been highly productive (Nabers: 89 catches, Robinson: 104 catches, Hyatt: 15 TDs). EDGE picks have also been productive. However, at TE specifically, he made a clear traits-over-production bet with Theo Johnson (low college production, elite athletic profile). At CB, he explicitly does NOT weight interception totals \u2014 Banks had only 2 career INTs. His approach has evolved: early drafts featured more projection-based picks that busted; recent drafts lean more toward proven producers.",
+    "production_thresholds_by_position": {
+      "WR": "All WR picks in rounds 1-3 had 50+ catches in final college season (Nabers: 89, Robinson: 104, Hyatt: 67)",
+      "RB": "No clear minimum \u2014 values film and versatility over raw rushing stats",
+      "EDGE": "High pressure/sack production required for R1 picks. Carter: 66 pressures, 12 sacks. Thibodeaux: 19 career sacks.",
+      "CB": "No statistical floor \u2014 values coverage film over interception totals. Banks: only 2 career INTs.",
+      "IOL": "Pass protection metrics valued \u2014 Schmitz: 1 sack allowed in ~1,000 pass-blocking snaps"
+    },
+    "breakout_age_sensitivity": 0.45,
+    "dominator_rating_sensitivity": 0.5,
+    "notes": "Schoen's production weighting has increased over time as his drafts have improved. Early picks (2022) included several reaches on players with modest production. By 2024-2025, he was consistently drafting highly productive players. Senior Bowl meetings and Top 30 visits have become 'ridiculously accurate indicators of whom the Giants are going to draft' \u2014 suggesting his process now heavily integrates in-person evaluation with production data."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "40_yard_max": 4.45,
+        "notes": "Banks: 4.35, Hawkins: ~4.40 range. All CBs have been fast.",
+        "confidence": "high"
+      },
+      "EDGE": {
+        "notes": "Values explosive first step but no hard 40 cutoff. Thibodeaux: 4.58. Athletic explosiveness (vertical, broad jump) matters more than 40.",
+        "confidence": "medium"
+      },
+      "WR": {
+        "40_yard_max": 4.45,
+        "notes": "Nabers: 4.38, Robinson: 4.44, Hyatt: 4.40. All WRs have been 4.45 or faster.",
+        "confidence": "high"
+      },
+      "OT": {
+        "min_arm_length": "34 inches",
+        "notes": "Neal: 34.0 inches. Small sample.",
+        "confidence": "low"
+      },
+      "S": {
+        "notes": "No clear athletic thresholds \u2014 instincts and film valued over testing at safety",
+        "confidence": "low"
+      }
+    },
+    "threshold_type": "Soft preferences at most positions. Speed appears to be a hard cutoff for CB and WR (4.45 or faster). OT arm length may be a hard cutoff (34+ inches) but sample is too small to confirm.",
+    "size_preferences_by_position": {
+      "EDGE": "247-260 range \u2014 Schoen accepts undersized EDGEs (Carter at 247) if athletic tools are elite",
+      "OT": "310+ for tackles \u2014 Neal was 337, Mbow was in 310 range",
+      "DT": "295-330 range \u2014 values both 3-technique penetrators and nose tackles",
+      "CB": "5-11 to 6-1 \u2014 values adequate size but not oversized corners",
+      "WR": "No strong size preference \u2014 has drafted 5-8 (Robinson) to 6-0 (Nabers)"
+    },
+    "athletic_testing_favorites": "Vertical jump and broad jump appear heavily weighted for skill positions (Nabers: 42/10-9, Banks: 42/11-4). Bench press valued for DT (Alexander: 28 reps). 40-yard dash is an eliminator at CB and WR. 3-cone and shuttle do not appear to be primary evaluators.",
+    "measurables_vs_film": "Film-first evaluator with athletic testing serving as confirmation. Schoen explicitly stated he won't downgrade QBs for combine non-participation. Banks' elite combine confirmed his film evaluation and likely contributed to the trade-up. Johnson's elite size/speed at TE justified drafting him despite low production. When testing and film conflict, Schoen appears to lean toward film for most positions."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium positions (EDGE, OT, CB, WR, QB) taken at or near consensus board value. Will not reach significantly in round 1. Willing to trade up if a clear target falls to a specific spot (Dart trade-up from 34 to 25). Prefers to stay put and take one of the best players on the board. Schoen: 'If it blows your doors off, then you think about it.' In 2025, he took BPA (Carter) even though EDGE was already a strength, because Carter was a consensus elite talent.",
+    "round_2_3_strategy": "Shifts toward need-filling. Every Day 2 pick under Schoen has addressed an obvious roster hole (Nubin at S, Phillips at CB, Schmitz at C, Hyatt at WR, Alexander at DT). Willing to trade up in this range for targeted players (traded up for Banks in R1 from 25 to 24, traded up into R3 for Hyatt). This is where the BPA-to-need transition happens.",
+    "day_3_strategy": "Developmental athletes and depth pieces. Has taken at least one traits-over-production pick on Day 3 in most drafts (Johnson at TE, Hawkins at CB). Also targets backup OL depth (McKethan, Mbow). LBs consistently addressed here (McFadden, Beavers, Muasau). RBs also Day 3 targets (Gray, Tracy, Skattebo). Special teams contributors and depth at DB (Owens, Black).",
+    "compensatory_pick_usage": "Has used compensatory picks for both need and value \u2014 no clear differentiated strategy versus regular picks."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "EDGE": {
+        "picks": 2,
+        "starters": 2,
+        "rate": 1.0,
+        "note": "Both Thibodeaux and Carter became starters. Thibodeaux had 11.5 sacks in 2023 breakout. Carter started by end of rookie year. Elite position evaluation."
+      },
+      "OT": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Evan Neal was a bust \u2014 described as 'unmitigated disaster.' Massive miss at pick 7."
+      },
+      "CB": {
+        "picks": 5,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "Banks became a starter but has been inconsistent. Phillips and Flott have shown flashes. Hawkins showed promise before injury. Volume approach."
+      },
+      "WR": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Nabers is a star. Robinson topped 1,000 yards in 2025. Hyatt has been a disappointment."
+      },
+      "S": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Nubin has started. Belton was a depth piece."
+      },
+      "IOL": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Schmitz has been a starter. Ezeudu struggled and fell out of favor."
+      },
+      "TE": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Johnson is developing with upside. Bellinger is a backup."
+      },
+      "LB": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "McFadden has been productive but all were Day 3 picks."
+      },
+      "RB": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Tracy became a starter as a rookie. Skattebo was a revelation before injury. Strong Day 3 RB evaluation."
+      },
+      "QB": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Dart became the starter and showed flashes as a franchise QB. Too early to fully evaluate."
+      },
+      "DT": {
+        "picks": 2,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Alexander in year 1, too early. Davidson was a depth piece."
+      }
+    },
+    "blind_spots": [
+      "OT evaluation \u2014 Neal at 7 was a massive miss. Has not drafted another premium OT since.",
+      "Day 2-3 picks in early tenure (2022-2023) \u2014 significant reaching led to multiple busts (Ezeudu, Hyatt). Process has improved significantly in 2024-2025."
+    ],
+    "strengths": [
+      "EDGE evaluation is elite \u2014 both first-round EDGEs have been productive starters.",
+      "Day 3 RB evaluation has been surprisingly strong \u2014 Tracy and Skattebo both hit.",
+      "2024-2025 drafts showed dramatic improvement in value picks \u2014 almost every pick was at or below consensus, and most became contributors."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Moderate FA spender who fills specific starting holes in FA, then drafts to supplement. In 2024, added 17 veteran players via FA including Brian Burns trade. In 2025, signed Paulson Adebo and Jevon Holland for the secondary, Russell Wilson and Jameis Winston at QB. Uses FA to establish a veteran foundation, then drafts developmental pieces and future starters.",
+    "fa_draft_correlation": "When major FA signings are made at a position, Schoen still drafts the same position but at lower draft capital. Signed Holland at S in 2025 FA, but still had Nubin from 2024 draft. Signed Wilson/Winston at QB, then still drafted Dart. Does not completely stop investing in a position after FA signing \u2014 builds depth through the draft.",
+    "roster_construction_philosophy": "Build through the draft at premium positions (EDGE, CB, WR, QB), supplement through FA at positions of immediate need (S, OL). Has avoided big WR contracts \u2014 closest was Darius Slayton's 3-year/$36M deal. Schoen has been willing to let expensive players walk (Saquon Barkley, Xavier McKinney) and replace via draft/FA at lower cost. Draft capital is the primary roster construction tool."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 31,
+    "notable_patterns": [
+      "5 of 6 first-round picks from 2022-2024 were defensive players or OT (Thibodeaux, Neal, Banks, Nabers, Carter). Nabers (WR) was the only offensive skill player taken R1 until Dart (QB) in 2025.",
+      "Traded up in 3 of 4 drafts \u2014 traded up for Banks (2023), Hyatt (2023), and Dart (2025). Never traded back after 2022.",
+      "Has drafted at least one CB in every draft (Flott, Banks/Hawkins, Phillips, Black).",
+      "Senior Bowl meetings and Top 30 visits are 'ridiculously accurate indicators' of his picks. The process heavily relies on in-person evaluation.",
+      "Draft quality has improved markedly: 2022 picks were massive reaches at non-premium positions; 2024-2025 picks were at or below consensus with almost all becoming contributors.",
+      "Has never drafted a QB until his 4th draft (2025), despite persistent need at the position."
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2022,
+        "pick": "2.43",
+        "player": "Wan'Dale Robinson",
+        "position": "WR",
+        "consensus_rank": "~80-100 on most boards",
+        "reach_amount": 40,
+        "context": "Traded down twice in R2 then took Robinson, who was widely considered a significant reach. Schoen insisted from the beginning they knew how he fit the offense."
+      },
+      {
+        "year": 2023,
+        "pick": "1.24",
+        "player": "Deonte Banks",
+        "position": "CB",
+        "consensus_rank": "~20-27 on consensus boards",
+        "reach_amount": 3,
+        "context": "Small reach after trading up 1 spot. Dane Brugler had him CB4 at ~27. Not a massive reach but Schoen moved up to ensure he got his target."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2025,
+        "pick": "5.154",
+        "player": "Marcus Mbow",
+        "position": "IOL",
+        "consensus_rank": "~65",
+        "value_amount": 89,
+        "context": "Consensus had Mbow going around pick 65. Taken 89 picks later at 154. Biggest steal of 2025 draft per Giants.com analysis."
+      },
+      {
+        "year": 2024,
+        "pick": "5.166",
+        "player": "Tyrone Tracy Jr.",
+        "position": "RB",
+        "consensus_rank": "~130",
+        "value_amount": 36,
+        "context": "Became a starting RB as a 5th-round pick. Would have likely taken Trey Benson earlier if Cardinals hadn't selected him first."
+      }
+    ]
+  },
+  "confidence": "medium-high",
+  "confidence_notes": "4 drafts of data as Giants GM provide substantial behavioral evidence. However, the 2026 draft introduces massive uncertainty due to Harbaugh's hiring. Schoen's role has been narrowed to scouting, while Harbaugh reports directly to ownership and has brought his own coaching staff and front office additions (Aponte). The power dynamic for the 2026 draft is genuinely uncertain \u2014 Schoen's historical patterns may be overridden by Harbaugh's preferences (e.g., Harbaugh may push for Caleb Downs at safety at pick 5, which conflicts with Schoen's premium-position philosophy). Schoen's drafting has improved significantly from 2022 to 2025, but his job security is tenuous (final year of contract, 22-45-1 record). Profile should be refreshed after 2026 draft to assess Harbaugh's actual influence.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

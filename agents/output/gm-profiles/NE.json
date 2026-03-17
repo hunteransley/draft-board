@@ -1,0 +1,858 @@
+{
+  "team": {
+    "name": "New England Patriots",
+    "abbreviation": "NE",
+    "division": "AFC East",
+    "current_draft_position": 31
+  },
+  "front_office": {
+    "gm": {
+      "name": "Eliot Wolf",
+      "title": "Executive Vice President of Player Personnel",
+      "hired": "2024-06-01",
+      "previous_role": "Director of Scouting, New England Patriots (promoted internally)",
+      "drafts_as_primary_decision_maker": 2,
+      "confidence": "medium"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Green Bay Packers (unofficial)",
+          "role": "Draft Room Assistant / Son of GM Ron Wolf",
+          "years": "1993\u20132000",
+          "mentor": "Ron Wolf"
+        },
+        {
+          "org": "University of Miami",
+          "role": "Volunteer, Football Recruiting Department",
+          "years": "2000\u20132003",
+          "mentor": "N/A"
+        },
+        {
+          "org": "Green Bay Packers",
+          "role": "Pro Personnel Assistant",
+          "years": "2004\u20132007",
+          "mentor": "Ted Thompson, Mark Hatley"
+        },
+        {
+          "org": "Green Bay Packers",
+          "role": "Assistant Director of Pro Personnel",
+          "years": "2008\u20132010",
+          "mentor": "Ted Thompson, John Dorsey"
+        },
+        {
+          "org": "Green Bay Packers",
+          "role": "Assistant Director of Player Personnel",
+          "years": "2011",
+          "mentor": "Ted Thompson"
+        },
+        {
+          "org": "Green Bay Packers",
+          "role": "Director of Pro Personnel",
+          "years": "2012\u20132014",
+          "mentor": "Ted Thompson"
+        },
+        {
+          "org": "Green Bay Packers",
+          "role": "Director of Player Personnel",
+          "years": "2015",
+          "mentor": "Ted Thompson"
+        },
+        {
+          "org": "Green Bay Packers",
+          "role": "Director of Football Operations",
+          "years": "2016\u20132017",
+          "mentor": "Ted Thompson"
+        },
+        {
+          "org": "Cleveland Browns",
+          "role": "Assistant General Manager",
+          "years": "2018\u20132019",
+          "mentor": "John Dorsey"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Scouting Consultant",
+          "years": "2020\u20132021",
+          "mentor": "Bill Belichick"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Director of Scouting",
+          "years": "2022\u20132023",
+          "mentor": "Bill Belichick"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Executive Vice President of Player Personnel (de facto GM)",
+          "years": "2024\u2013present",
+          "mentor": "Self / Robert Kraft"
+        }
+      ],
+      "primary_mentor": "Ron Wolf (father, Hall of Fame GM) and Ted Thompson (Packers GM 2005-2017)",
+      "philosophical_lineage": "Ron Wolf tree \u2192 Ted Thompson branch \u2192 Belichick cross-pollination. Ron Wolf's scouting DNA (simple grading scale, trust your scouts, BPA-oriented, emphasis on character and toughness) passed directly to Eliot. Ted Thompson refined this with extreme patience and draft-centric roster building. Belichick years added emphasis on scheme versatility and positional value flexibility. The Packers tree also produced John Schneider (Seahawks), John Dorsey (Chiefs/Browns), Scot McCloughan, and Reggie McKenzie \u2014 all share core evaluation principles around work ethic and thorough scouting.",
+      "breakpoints": "Wolf willing to be more aggressive in need-filling than Thompson was (Thompson famously drafted Aaron Rodgers over need positions). Wolf's 2024 draft was heavily offense-oriented (7 of 8 picks), a departure from classic Packers balance. Also showed willingness to take OT with shorter arms (Campbell at 32 5/8 inches) that Thompson might have avoided \u2014 prioritizing film over measurable thresholds at certain positions.",
+      "lineage_weight": 0.4,
+      "lineage_weight_notes": "2 full drafts as decision-maker provide growing data. Lineage weight dropping from initial 0.75. Ron Wolf's simple grading philosophy and character emphasis remain clearly visible. Belichick influence visible in trade-back tendency and special-teams picks on Day 3."
+    },
+    "primary_decision_maker": "Eliot Wolf (with Mike Vrabel having significant input and final say on personnel in 2025)",
+    "key_influencers": [
+      {
+        "name": "Mike Vrabel",
+        "title": "Head Coach",
+        "influence_level": "very_high",
+        "known_biases": "Defensive-minded, values toughness and physicality. Came from Titans system. Emphasis on culture-fit players. Prefers physical, defensive-minded football. Dynasty-era Patriot player \u2014 internalized Belichick culture. Had final say on personnel decisions in 2025 season."
+      },
+      {
+        "name": "Ryan Cowden",
+        "title": "Vice President of Player Personnel",
+        "influence_level": "high",
+        "known_biases": "Carolina Panthers scouting tree (16 years). Systematic thinker. Emphasizes character evaluation heavily \u2014 stated 'if you don't get the person right, then a lot of that other stuff can go by the wayside.' Values communication skills and football IQ in prospects. Worked with Vrabel in Tennessee for 5 years. Interim Titans GM in 2022."
+      },
+      {
+        "name": "Ron Wolf",
+        "title": "Father / Informal Advisor (retired Hall of Fame GM)",
+        "influence_level": "low_to_medium",
+        "known_biases": "BPA advocate. Eliot speaks with his father daily and sends him daily transaction reports. Ron publicly advocated for taking best player available when Eliot had pick 3 in 2024. Still watches film and offers opinions."
+      }
+    ],
+    "power_dynamics": "Collaborative triumvirate \u2014 Wolf, Vrabel, and Cowden work together. Vrabel had final say on personnel in 2025 but the relationship has become genuinely collaborative. Albert Breer reported 'the relationship between Mike Vrabel and Eliot Wolf worked from the start.' Wolf is formally the top personnel executive. Vrabel's coaching staff influences which archetypes fit the scheme.",
+    "owner_interference": "low \u2014 Robert Kraft observed the Wolf-Mayo working relationship before formalizing Wolf's role in 2024. Kraft and son Jonathan ran HC search directly but do not appear to meddle in draft decisions. Kraft publicly praised Wolf's management style."
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.55,
+    "bpa_weight_by_round": {
+      "1": 0.6,
+      "2": 0.45,
+      "3": 0.45,
+      "4_plus": 0.35
+    },
+    "stated_philosophy": "Take the best player available. Wolf stated at 2026 combine: 'If you're doing your job, you're going to be able to find players rounds one through seven that can help your team.' Ron Wolf advocated for BPA when advising his son.",
+    "actual_philosophy": "Leans need in practice. In 2024, 7 of 8 picks were offensive players after a historically bad offensive season. Round 1 picks have addressed biggest needs both years (QB in 2024, OT in 2025). But willing to take BPA when need and value align \u2014 Campbell at 4 was BPA and need simultaneously. Cowden stated philosophy of 'investing in the people' and prioritizing cultural fit alongside talent.",
+    "philosophy_mismatch_notes": "Claims BPA but both first-round picks addressed the team's single biggest need. Need heavily influenced Day 2 picks in both drafts. 2024 was almost exclusively offense; 2025 Day 1-2 was all offense before pivoting to defense on Day 3."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.3,
+    "trade_down_willingness": 0.65,
+    "trades_per_draft_average": 3.5,
+    "trade_triggers": [
+      "Accumulating additional Day 2 and Day 3 picks via trade-downs",
+      "Sliding back a few spots when their target will still be available",
+      "Acquiring future draft capital (took 2026 4th via trade-down in 2025 R3)"
+    ],
+    "draft_capital_philosophy": "Prefers accumulating picks by trading back. In 2024, traded down from 34 to 37 in R2 to gain an extra pick. In 2025, made two trade-downs from pick 77 (to 85, then to 95) to accumulate extra picks. Attempted to trade back into R1 in 2024 but couldn't find a deal. Has shown willingness to use R1 pick as trade bait \u2014 Wolf said at 2026 combine 'We're open to anything if we think it's going to help the team.' Belichick influence clearly visible in trade-back tendencies."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "QB",
+        "OT",
+        "EDGE",
+        "CB"
+      ],
+      "tier_2_high": [
+        "WR",
+        "IOL",
+        "RB",
+        "S"
+      ],
+      "tier_3_mid": [
+        "DT",
+        "LB",
+        "TE"
+      ],
+      "tier_4_low": [
+        "K",
+        "P",
+        "LS"
+      ]
+    },
+    "position_avoidance": [
+      "LB in early rounds \u2014 no off-ball LBs drafted in first 4 rounds across 2 drafts despite defense needing help. TE has been Day 3 only."
+    ],
+    "position_premium": [
+      "OL \u2014 5 of 19 total picks across 2 drafts were offensive linemen including R1 pick in 2025. WR \u2014 drafted 3 WRs across 2 drafts in first 4 rounds. EDGE acknowledged as 'obvious need' heading into 2026, suggesting high priority."
+    ]
+  },
+  "player_archetype_preferences": {
+    "QB": {
+      "archetype_summary": "Prototypical pocket passer with elite arm talent, dual-threat mobility, and poise under pressure. Wants a big, athletic QB who can make every throw and extend plays. Values arm strength and processing over pure running ability. Drake Maye embodies the archetype: big frame, cannon arm, mobile enough to scramble but wins from the pocket.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "220\u2013245",
+        "arm_length_minimum": "No clear threshold \u2014 Maye measured 32.25 inches",
+        "key_athletic_tests": "Arm velocity is the top measurable. Mobility matters but is not about 40 time \u2014 it's about pocket movement and play extension. Joe Milton III (6-5, 246, elite arm) drafted late as a developmental prospect further emphasizes arm talent priority.",
+        "speed_requirement": "Not a primary factor for QB. Maye's 4.60 pro day time shows adequate mobility is sufficient."
+      },
+      "playing_style": {
+        "primary_style": "Pocket passer with enough athleticism to extend plays and navigate pressure. Dual-threat capability preferred but not run-first.",
+        "most_valued_traits": [
+          "Elite arm talent and velocity",
+          "Poise and composure under pressure",
+          "Ability to work through progressions",
+          "Play-extending mobility",
+          "Athletic bloodlines and competitive makeup"
+        ],
+        "least_important_traits": [
+          "Designed rushing ability \u2014 will not draft a run-first QB as a franchise option"
+        ],
+        "deal_breakers": [
+          "Inadequate arm strength",
+          "Run-first playing style as primary value proposition"
+        ],
+        "traits_that_make_them_reach": "Exceptional arm talent. Maye was taken at 3 as the clear choice; Milton drafted in R6 purely on arm strength as a development piece."
+      },
+      "college_production": {
+        "production_floor": "Must have been a multi-year starter in a competitive conference. Maye: 2 years as starter, 7,929 passing yards, 62 TDs at UNC.",
+        "production_trajectory": "Values consistency and ascending performance. Maye's 2022 breakout was elite; 2023 showed ability to maintain production with worse supporting cast.",
+        "context_sensitivity": "High. Adjusted for Maye's poor OL and declining supporting cast at UNC. Values film evidence of processing over raw numbers."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2024 1.03 \u2014 Drake Maye: 6-4 3/8, 223 lbs, 32.25-inch arms. 4.60 pro day 40. Elite arm talent, dual-threat, franchise QB profile. 7,929 pass yards, 62 TDs at UNC.",
+          "2024 6.193 \u2014 Joe Milton III: 6-5, 246 lbs. Strongest arm in 2024 class. Developmental prospect with physical traits. Traded to Dallas for 2025 R5 comp pick after one year."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 1 franchise QB drafted plus 1 developmental project. Maye pick was obvious at 3. Milton pick further confirms arm-talent emphasis. Profile largely inferred from scouting tree (Packers: Rodgers, Love \u2014 always valued arm talent)."
+    },
+    "EDGE": {
+      "archetype_summary": "Speed-to-power converter with pass-rush upside, ideally with active hands and ability to win with multiple moves. Wolf acknowledged at 2026 combine that edge rush is a deep class and 'an area of need for our team.' The one EDGE drafted (Swinson) was a twitchy, lean edge with speed-to-power and inside counters. Historical Packers/Belichick lineage suggests preference for versatile edge players who can stand up or put hand in dirt.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "240\u2013270",
+        "arm_length_minimum": "No clear minimum from limited data \u2014 Swinson measured approximately 33 inches",
+        "key_athletic_tests": "First-step quickness and explosion. Pass-rush win rate more important than raw 40 time. Vertical and broad jump as explosiveness proxies.",
+        "speed_requirement": "4.65 or faster preferred. Swinson profiled as twitchy and quick off the edge."
+      },
+      "playing_style": {
+        "primary_win_condition": "Speed-to-power conversion with active hands. Swinson showed 'good speed-to-power, swipe/stabs, inside counters' per team analysis.",
+        "most_valued_traits": [
+          "First-step explosion",
+          "Active hand usage and pass-rush technique",
+          "Speed-to-power conversion",
+          "High pass-rush win rate",
+          "Motor and effort"
+        ],
+        "least_important_traits": [
+          "Run defense consistency \u2014 Swinson fell partly due to inconsistent run defense and was still drafted"
+        ],
+        "deal_breakers": [
+          "One-dimensional rushers without scheme versatility",
+          "Poor effort/motor on film"
+        ],
+        "traits_that_make_them_reach": "Elite pass-rush productivity. Swinson had 60 total pressures and 8.5 sacks in final season. PFF had him as a top-50 player, making his R5 selection a major value pick."
+      },
+      "college_production": {
+        "production_floor": "Minimum 7+ sacks or 40+ pressures in final college season for Day 2 consideration",
+        "production_trajectory": "Tolerant of late bloomers \u2014 Swinson didn't become a full-time starter until his final season",
+        "context_sensitivity": "High \u2014 adjusts for role and scheme. Values high pass-rush win rates even in rotation."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 5.146 \u2014 Bradyn Swinson, LSU: ~6-3, ~245 lbs. 60 total pressures, 8.5 sacks in 2024. Speed-to-power rusher with active hands. PFF top-50 player who fell to R5. Inconsistent run defender but elite pass-rush technique."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 EDGE drafted across 2 drafts (and on Day 3). EDGE was addressed in free agency (Chaisson, Landry). 2026 expected to be EDGE-heavy in draft. Profile supplemented heavily by scouting tree \u2014 Packers historically valued versatile edge players. Vrabel's Titans defense valued multiple-front versatility."
+    },
+    "OT": {
+      "archetype_summary": "Athletic, technically polished pass protector with nasty competitive demeanor and proven SEC/Power 5 production. Willing to overlook short arm length if film demonstrates elite technique. Values football character, leadership, and toughness alongside athleticism. Will Campbell is the exemplar: 3-year SEC starter, sub-5.00 40 at 319 lbs, team captain, Jacobs Blocking Trophy winner \u2014 but with 32 5/8 inch arms that broke traditional thresholds.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-7",
+        "weight_range": "305\u2013330",
+        "arm_length_minimum": "No hard floor \u2014 Campbell drafted at 32 5/8 inches which is below traditional OT threshold of 33+. Wolf stated: 'He has a set of skills that enable him to play with that arm length.' Film trumps measurables at this position.",
+        "key_athletic_tests": "40-yard dash relative to size (Campbell ran 4.98 at 319 lbs \u2014 fastest OL at combine). Vertical jump (Campbell: 32 inches). Explosion and footwork matter more than arm length.",
+        "speed_requirement": "Sub-5.10 preferred for tackles. Athleticism is a premium trait."
+      },
+      "playing_style": {
+        "primary_style": "Technically refined pass protector first, capable run blocker second. Campbell's 'masterful kick-slides and precise hand placement' were praised.",
+        "most_valued_traits": [
+          "Pass protection technique and consistency",
+          "Competitive toughness and nasty demeanor",
+          "Athletic ability and footwork",
+          "Football character and leadership",
+          "Durability and multi-year starting experience"
+        ],
+        "least_important_traits": [
+          "Arm length \u2014 willingness to break traditional OT arm-length thresholds when film is dominant"
+        ],
+        "deal_breakers": [
+          "Lack of competitive fire or toughness",
+          "Inconsistent pass protection on film regardless of measurables"
+        ],
+        "traits_that_make_them_reach": "Combination of elite athleticism at size and proven SEC production. Campbell was taken 4th overall \u2014 highest OL pick for Patriots since John Hannah in 1974."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter at Power 5 level. Campbell: 38 starts, allowed only 5 sacks over 2,553 snaps at LSU.",
+        "production_trajectory": "Prefers early starters who develop over multiple seasons. Campbell was a true freshman starter.",
+        "context_sensitivity": "Very high \u2014 weights SEC experience heavily. Wolf cited the value of playing in the SEC as closest thing to the NFL."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2025 1.04 \u2014 Will Campbell, OT, LSU: 6-5 7/8, 319 lbs, 32 5/8-inch arms, 4.98 40. 38 starts, 5 sacks allowed in career. Jacobs Blocking Trophy. Consensus All-American. 'Nasty' demeanor.",
+          "2024 3.68 \u2014 Caedan Wallace, OT, Penn State: Projected as R3 value. Ranked 142nd on PFF board, 186th on consensus. Solid pass protector \u2014 72.8 PFF pass-blocking grade, 13 pressures from 359 snaps. Reach pick.",
+          "2025 7.220 \u2014 Marcus Bryant, OT, Missouri: Day 3 developmental OL with tools to compete for roster spot."
+        ]
+      },
+      "confidence": "high"
+    },
+    "IOL": {
+      "archetype_summary": "Athletic, versatile interior lineman with center-guard flexibility. Values range and ability to execute zone-scheme concepts \u2014 lateral agility and ability to get to second level are premium traits. Not locked into one position \u2014 wants players who can play multiple IOL spots.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "300\u2013325",
+        "arm_length_minimum": "No clear minimum from data",
+        "key_athletic_tests": "Lateral agility and range in zone concepts. Wilson praised for ability to 'get out of his stance quickly' and reach blocks. Short shuttle and 3-cone matter for IOL.",
+        "speed_requirement": "Adequate athleticism to pull and reach block in zone scheme"
+      },
+      "playing_style": {
+        "primary_style": "Zone-scheme fit with center-guard versatility. McDaniels' offense requires IOL who can execute combo blocks and reach the second level.",
+        "most_valued_traits": [
+          "Center-guard versatility and positional flexibility",
+          "Range and lateral agility in zone concepts",
+          "Pass protection reliability",
+          "Football intelligence and communication",
+          "Young developmental upside"
+        ],
+        "least_important_traits": [
+          "Elite pure power/anchor \u2014 adequate is sufficient if athlete is good enough"
+        ],
+        "deal_breakers": [
+          "Limited positional flexibility \u2014 want players who can play multiple IOL spots",
+          "Poor communication skills"
+        ],
+        "traits_that_make_them_reach": "Combination of youth, versatility, and high ceiling. Wilson drafted as a 21-year-old one-year starter."
+      },
+      "college_production": {
+        "production_floor": "At least one full season as starter. Wilson was a one-year starter at Georgia. Robinson had multi-year experience at Texas A&M.",
+        "production_trajectory": "Tolerant of late starters if athletic traits and football IQ are present. Wilson was 'basically the sixth man at Georgia prior to this year.'",
+        "context_sensitivity": "High \u2014 values SEC/elite program context. Both IOL picks came from top programs (Georgia, Texas A&M)."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2025 3.95 \u2014 Jared Wilson, C/G, Georgia: 6-3, 310 lbs. One-year starter. Wolf confirmed view as future center. Range and ability to get out of stance quickly stood out on film. Graded as high as R2 by some experts.",
+          "2024 4.103 \u2014 Layden Robinson, G, Texas A&M: Surrendered only 6 sacks across 1,206 career pass-blocking snaps. Allowed just 1 sack all of 2023. Reliable pass protector."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "DT": {
+      "archetype_summary": "Powerful, quick-footed interior lineman with plus size and length. Values run-stuffing ability and interior anchor. Drafted Farmer as a powerful, thick-bodied interior presence to complement smaller/quicker pass rushers. Vrabel's defensive scheme requires DTs who can hold the point of attack.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "290\u2013320",
+        "arm_length_minimum": "Farmer described as having 'immense length' \u2014 suggests arm length matters for interior DL",
+        "key_athletic_tests": "Quick feet and first-step explosion for an interior player. Power indicators important.",
+        "speed_requirement": "Not a primary factor for DT"
+      },
+      "playing_style": {
+        "primary_style": "Run-stuffing interior lineman with enough quickness to generate occasional interior pressure. Vrabel's defense values holding the point of attack.",
+        "most_valued_traits": [
+          "Run defense and hold-the-point ability",
+          "Size and length at the position",
+          "Quick feet for a big man",
+          "Ability to absorb double teams",
+          "Interior pass-rush potential as a bonus"
+        ],
+        "least_important_traits": [
+          "Pure penetrating 3-technique pass-rush ability \u2014 not the primary archetype targeted"
+        ],
+        "deal_breakers": [
+          "Undersized interior players who can't hold up at the point of attack",
+          "One-dimensional sub-package-only rushers"
+        ],
+        "traits_that_make_them_reach": "Combination of size, length, and quick feet"
+      },
+      "college_production": {
+        "production_floor": "Solid run-defense grades. Production metrics less important than physical traits for DT.",
+        "production_trajectory": "No clear pattern from limited data",
+        "context_sensitivity": "Moderate \u2014 values Power 5 experience"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 4.137 \u2014 Joshua Farmer, DT, Florida State: ~6-3, ~300 lbs. Described as 'powerful, quick-footed interior lineman' and 'run-stuffing DT' with 'plus size and immense length.' Day 3 value pick to develop behind signed veterans."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 DT drafted across 2 drafts. DT addressed via free agency (Tonga, Milton Williams). Packers tree historically valued DTs highly (Kenny Clark drafted R1 during Wolf's time). Confidence should increase after 2026 draft."
+    },
+    "CB": {
+      "archetype_summary": "Versatile, ball-skilled corner who can play outside and in the slot. Values football IQ, movement skills, and ball production over pure speed. Willing to take late-round fliers on corners with coverage ability. Scheme under Vrabel requires corners who can play man and zone.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-2",
+        "weight_range": "180\u2013200",
+        "arm_length_minimum": "No clear threshold \u2014 limited CB data",
+        "key_athletic_tests": "Movement skills and change of direction. Ball skills emphasized over raw speed.",
+        "speed_requirement": "4.55 or faster preferred. Minor at 5-11, 188 lbs is a quick-twitch profile."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Versatile \u2014 able to play man and zone, outside and slot",
+        "most_valued_traits": [
+          "Ball skills and playmaking ability",
+          "Football intelligence and pattern recognition",
+          "Versatility to play multiple coverage alignments",
+          "Movement skills and fluid hips",
+          "Solid tackling ability"
+        ],
+        "least_important_traits": [
+          "Pure straight-line speed \u2014 values movement skills over 40 time for CBs"
+        ],
+        "deal_breakers": [
+          "Inability to play multiple coverage schemes",
+          "Poor ball skills and instincts"
+        ],
+        "traits_that_make_them_reach": "Ball-hawk ability and coverage versatility. Christian Gonzalez (pre-Wolf, but maintained as franchise corner) epitomizes what they value."
+      },
+      "college_production": {
+        "production_floor": "No clear statistical floor \u2014 values film over interception totals",
+        "production_trajectory": "No strong pattern from limited data",
+        "context_sensitivity": "Moderate \u2014 adjusts for quality of competition"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2024 6.180 \u2014 Marcellas Dial, CB/S, South Carolina: Lone defensive pick in 2024 draft. Day 3 developmental DB.",
+          "2025 7.257 \u2014 Kobee Minor, CB, Memphis: 5-11, 182 lbs. Outside and slot versatility. Solid movement and ball skills per team evaluation. Mr. Irrelevant pick. Patriots 'had him on their radar' via a pre-draft visit."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 2 CBs drafted, both on Day 3. CB largely addressed via pre-Wolf acquisitions (Gonzalez in 2023) and free agency (Carlton Davis III). Profile heavily inferred from scheme requirements and scouting tree."
+    },
+    "S": {
+      "archetype_summary": "Versatile, high-IQ safety who can play multiple roles \u2014 box, deep half, man coverage. Communication skills and football intelligence are paramount. Wolf stated safeties 'have to be able to play down in the box, man cover, tackle in space' and values interchangeability. Craig Woodson exemplifies this: a smart communicator from Cal with versatility.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-2",
+        "weight_range": "195\u2013215",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Athleticism and instincts more valued than any single combine test. Change of direction matters for coverage.",
+        "speed_requirement": "Adequate speed to cover \u2014 not a pure speed position in their evaluation"
+      },
+      "playing_style": {
+        "primary_style": "Versatile, interchangeable safety who can play multiple roles in the defensive backfield",
+        "most_valued_traits": [
+          "Communication skills \u2014 Cowden specifically cited this as what 'sets him apart' for Woodson",
+          "Football intelligence and processing",
+          "Versatility to play box, deep, and man coverage",
+          "Instincts and ball-hawking ability",
+          "Tackling reliability in space"
+        ],
+        "least_important_traits": [
+          "Pure straight-line speed \u2014 not prioritized over instincts and IQ"
+        ],
+        "deal_breakers": [
+          "Poor communicator or low football IQ",
+          "One-dimensional safety who can only play one role"
+        ],
+        "traits_that_make_them_reach": "Elite communication skills and defensive quarterback ability. Woodson was taken in R4 despite being seen as a possible reach by consensus \u2014 Cowden defended the pick citing process and evaluation."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter at a program known for producing smart defensive players. Cowden noted Cal 'had a history of having really good communicators.'",
+        "production_trajectory": "Values multi-year starters over one-year wonders",
+        "context_sensitivity": "High \u2014 adjusts for program pedigree and defensive system"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2025 4.106 \u2014 Craig Woodson, S, California: ~6-0, ~205 lbs. 'Great person, high level of character, really smart football player.' Communication skills were primary selling point. Perceived as a reach by consensus but defended by front office.",
+          "2024 6.180 \u2014 Marcellas Dial, CB/S, South Carolina: Listed as CB but cross-trained at safety. Developmental Day 3 DB."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "LB": {
+      "archetype_summary": "No off-ball linebackers have been drafted in early rounds under Wolf's tenure. LB has been addressed primarily through free agency (Spillane, Gibbens). Profile must be inferred from scheme and scouting tree. Vrabel's defense historically values sideline-to-sideline speed, coverage ability, and tackling in space. Packers tree values athletic LBs who can play in space.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "225\u2013250",
+        "arm_length_minimum": "No data available",
+        "key_athletic_tests": "Speed and lateral agility for coverage assignments. 40 time matters for LBs in this scheme. 3-cone and short shuttle as indicators of change of direction.",
+        "speed_requirement": "4.60 or faster preferred for starting-caliber LB"
+      },
+      "playing_style": {
+        "primary_style": "Coverage-capable, sideline-to-sideline LB who can tackle in space. Vrabel's defense requires LBs to match backs and TEs in coverage.",
+        "most_valued_traits": [
+          "Sideline-to-sideline range and speed",
+          "Coverage ability against backs and TEs",
+          "Tackling reliability and technique",
+          "Football intelligence and play recognition",
+          "Special teams value"
+        ],
+        "least_important_traits": [
+          "Pure thumper/run-stuffer ability without coverage skills"
+        ],
+        "deal_breakers": [
+          "Inability to play in coverage",
+          "Limited range and lateral movement"
+        ],
+        "traits_that_make_them_reach": "Elite coverage ability for the position"
+      },
+      "college_production": {
+        "production_floor": "No data \u2014 no LBs drafted in early rounds",
+        "production_trajectory": "N/A",
+        "context_sensitivity": "N/A"
+      },
+      "evidence": {
+        "picks_analyzed": 0,
+        "examples": []
+      },
+      "confidence": "very_low",
+      "confidence_note": "Zero off-ball LBs drafted in rounds 1\u20134 across 2 drafts. LB completely addressed via free agency. Profile inferred from Vrabel's defensive scheme and FA signings (Spillane \u2014 coverage-capable, high-IQ LB). Packers tree traditionally values athletic LBs."
+    },
+    "WR": {
+      "archetype_summary": "Size-speed-hands hybrid who can win contested catches and play multiple alignment spots. Not drafting pure burners \u2014 values reliable hands, body control, contested catch ability, and physical route running over pure deep speed. Polk and Baker were both 6-1+, 200+ lbs with strong hands and below-average long speed. Kyle Williams added more of a route-running/YAC dimension. Overall: wants WRs who are 'quarterback-friendly' and reliable, not just athletes.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "195\u2013210",
+        "arm_length_minimum": "No clear threshold \u2014 Baker and Polk both around 32+ inches",
+        "key_athletic_tests": "Broad jump and vertical as explosiveness indicators. Burst score more valued than 40 time. Hands/catch radius not measured at combine but evaluated heavily on film.",
+        "speed_requirement": "Not a hard cutoff. Polk ran 4.52, Baker ran 4.54, Williams is a quicker/YAC type. Not targeting burners \u2014 all 3 WR picks ran 4.50+ at combine."
+      },
+      "playing_style": {
+        "primary_style": "Versatile, alignment-flexible receiver who can play X, Z, or slot. Strong hands and contested-catch ability are the common thread.",
+        "most_valued_traits": [
+          "Reliable hands and contested-catch ability",
+          "Body control and catch-point skills",
+          "Alignment versatility (outside and slot)",
+          "Willingness to block in the run game",
+          "Route precision and football IQ"
+        ],
+        "least_important_traits": [
+          "Pure deep speed \u2014 has consistently drafted WRs who run 4.50+ rather than sub-4.40 burners"
+        ],
+        "deal_breakers": [
+          "Unreliable hands and high drop rates",
+          "Inability to win contested situations despite adequate size"
+        ],
+        "traits_that_make_them_reach": "Elite contested catch ability and reliable hands. Polk's 'knack for making tough plays look routine' was specifically cited."
+      },
+      "college_production": {
+        "production_floor": "50+ catches in final college season for Day 2 consideration. Polk: 69 catches, 1,159 yards, 9 TDs in 2023. Baker: 52 catches, 1,139 yards, 7 TDs (21.9 YPC). Williams: 65 catches, 1,077 yards. All were productive starters.",
+        "production_trajectory": "Tolerant of transfers and late bloomers if final-year production is strong. Baker transferred from Alabama to UCF. Polk transferred from Texas Tech to Washington. Williams transferred from UNLV to Wazzu.",
+        "context_sensitivity": "Moderate \u2014 adjusts for system and QB quality. Noted Baker's productivity despite 'three different quarterbacks.'"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2024 2.37 \u2014 Ja'Lynn Polk, WR, Washington: 6-1, 203 lbs, 4.52 40. 69 catches, 1,159 yards, 9 TDs. Contested-catch specialist with strong hands. QB-friendly target. Run-blocker. Struggled in NFL, traded after 1 season.",
+          "2024 4.110 \u2014 Javon Baker, WR, UCF: 6-1, 202 lbs, 4.54 40, 32.25-inch arms. Led Big 12 with 1,139 yards. 21.9 YPC. Vertical threat with ball-tracking ability. Developmental route runner.",
+          "2025 3.69 \u2014 Kyle Williams, WR, Washington State: Route runner with YAC juice. 14 catches on 20+ yard passes in 2024. Explosive change of direction. Wolf noted his 'really productive junior year.'"
+        ]
+      },
+      "confidence": "high"
+    },
+    "TE": {
+      "archetype_summary": "Athletic, versatile tight end with receiving upside and YAC ability. Day 3 investment only so far. Jaheim Bell was a late-round athletic freak with position flexibility. Values ball skills and ability with the ball in his hands over traditional inline blocking.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "225\u2013255",
+        "arm_length_minimum": "No data",
+        "key_athletic_tests": "Vertical jump and broad jump as receiving-TE athleticism indicators. YAC ability important.",
+        "speed_requirement": "4.65 or faster preferred for receiving TE"
+      },
+      "playing_style": {
+        "primary_style": "Receiving-first tight end with athletic ability and YAC upside. Not a traditional inline blocker.",
+        "most_valued_traits": [
+          "Athletic ability and YAC skills",
+          "Versatility to line up inline and flexed out",
+          "Ball skills and body control",
+          "Route running for the position",
+          "Competitive toughness"
+        ],
+        "least_important_traits": [
+          "Traditional inline blocking ability \u2014 not a priority for early TE picks"
+        ],
+        "deal_breakers": [
+          "Pure blocking TEs without receiving dimension",
+          "Stiff athletes without YAC ability"
+        ],
+        "traits_that_make_them_reach": "Elite athletic profile for the position"
+      },
+      "college_production": {
+        "production_floor": "No clear floor from limited data. Bell: 73.4 PFF grade in 2023, 7th among FBS TEs in YAC.",
+        "production_trajectory": "N/A \u2014 only 1 TE drafted",
+        "context_sensitivity": "Low confidence"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 7.231 \u2014 Jaheim Bell, TE, Florida State: Athletic TE with exceptional YAC ability (ranked 7th among FBS TEs with 315 YAC in 2023). 73.4 PFF grade. Multi-positional athlete. Great value in R7. Also signed CJ Dippre as UDFA in 2025."
+        ]
+      },
+      "confidence": "very_low",
+      "confidence_note": "Only 1 TE drafted (R7). TE addressed via FA signings (Hooper, Henry retained). McDaniels' offense historically features TEs prominently \u2014 expect more TE investment as roster stabilizes."
+    },
+    "RB": {
+      "archetype_summary": "Dynamic, explosive playmaker with elite speed, big-play ability, and pass-catching/pass-protection versatility. TreVeyon Henderson represents the archetype perfectly: blazing 4.43 speed, 38.5-inch vertical, home-run threat, capable in pass protection, and reliable ball security. Willing to invest Day 2 pick on the right RB profile despite position being traditionally devalued.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-1",
+        "weight_range": "195\u2013215",
+        "arm_length_minimum": "Not a factor for RB evaluation",
+        "key_athletic_tests": "Speed (40 time), explosion (vertical jump, broad jump). Henderson: 4.43 40, 38.5-inch vertical, 128-inch broad jump \u2014 92nd percentile athleticism.",
+        "speed_requirement": "4.50 or faster for Day 2 RB. Henderson's 4.43 was elite."
+      },
+      "playing_style": {
+        "primary_style": "Explosive, speed-based runner with home-run ability and three-down capability. Not a pure power back.",
+        "most_valued_traits": [
+          "Elite burst and acceleration",
+          "Big-play/home-run ability",
+          "Pass-catching skills and route running from backfield",
+          "Pass protection willingness and technique",
+          "Ball security \u2014 Henderson had zero fumbles at Ohio State"
+        ],
+        "least_important_traits": [
+          "Pure between-the-tackles power \u2014 values speed and explosion over grind-it-out running"
+        ],
+        "deal_breakers": [
+          "Fumble-prone runners",
+          "One-dimensional backs who can't contribute in pass game or protect the QB"
+        ],
+        "traits_that_make_them_reach": "Elite speed combined with pass-protection ability and ball security. Henderson's complete skill set justified a R2 investment."
+      },
+      "college_production": {
+        "production_floor": "3,000+ career rushing yards or 1,000+ yards in final season. Henderson: 3,761 career rushing yards, 48 TDs at Ohio State.",
+        "production_trajectory": "Tolerant of shared backfields if talent is obvious. Henderson split carries throughout Ohio State career but showed elite production per touch.",
+        "context_sensitivity": "High \u2014 adjusted for Henderson's role split at Ohio State. 7.0+ YPC with 1,000+ rushing yards demonstrated elite efficiency."
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 2.38 \u2014 TreVeyon Henderson, RB, Ohio State: 5-10, 202 lbs, 4.43 40, 38.5-inch vertical, 128-inch broad. National champion. 3,761 career rushing yards, 48 TDs, zero fumbles. 911 rushing yards, 9 TDs as rookie plus 35 catches. Multiple 50+ yard TDs. AFC Offensive Player of the Month (November)."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 1 RB drafted but it was a R2 investment \u2014 significant commitment to the position. Henderson's profile is very clear: explosive, dynamic, three-down back. Packers tree influence visible (Aaron Jones, a similar speed/explosion back, was a Wolf-era Packers find in R5)."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 12,
+    "max_observed_reach": 25,
+    "round_1_reach_tolerance": 0,
+    "notes": "In R1, has taken consensus top-5 talent both years (Maye at 3, Campbell at 4) \u2014 no reaching. Reached significantly in R3 2024: Caedan Wallace ranked 142nd on PFF board, 186th on consensus, taken at pick 68 \u2014 approximately a 75-pick reach. Craig Woodson in R4 2025 was considered the 'biggest reach' of the class by outside consensus. Willing to reach on Day 2-3 for players they've evaluated highly in their own process. Cowden defended reaches: 'We have a process here that we believe in.'"
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.6,
+    "offensive_scheme": "Josh McDaniels West Coast / Erhardt-Perkins system with zone-run concepts. Dynasty-era system returned. Thomas Brown adds Andy Reid tree passing concepts. Values versatile OL who can execute zone concepts. Pass-first when leading, physical run game to close out. Quick passing game with play-action to set up deep shots.",
+    "defensive_scheme": "Multiple-front defense under Terrell Williams (DC) / Zak Kuhr (promoted DC for 2026). Vrabel-influenced physical, defensive-minded identity. 3-4 base with ability to flex to multiple fronts. Values versatile defensive players who can play multiple roles. Secondary must be interchangeable. Wolf noted defense needs to 'affect the quarterback from interior or exterior.'",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "Vrabel installed new defensive system in 2025, replacing Jerod Mayo era. Zak Kuhr promoted to DC for 2026 after Williams battled cancer. McDaniels returned as OC \u2014 continuity from dynasty era. Scheme is stabilizing but still evolving. Defensive coordinator change from Williams to Kuhr could slightly adjust personnel needs."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.45,
+    "risk_description": "Moderately conservative. R1 picks have been high-floor, safe selections (Maye was consensus top-3 QB, Campbell was consensus top-5 OT). Day 2-3 has shown more willingness to take calculated risks on developmental players (Milton at QB, Bell at TE, Swinson falling due to interview concerns). Overall: safe in R1, calculated gambles on Day 2-3.",
+    "recency_bias": 0.65,
+    "recency_description": "Moderate-to-high recency bias. After historically bad offensive season in 2023-2024, drafted 7 of 8 offensive players in 2024. After making Super Bowl in 2025, identified pass rush and OL depth as needs based on playoff exposure. Wolf acknowledged Super Bowl performance changed perception of needs.",
+    "sunk_cost_behavior": "Willing to move on quickly. Traded Joe Milton III to Dallas for a R5 pick after one year. Ja'Lynn Polk, a R2 pick, was reportedly on the roster bubble and traded to New Orleans after disappointing first year. Does not double down on failed picks \u2014 reinvests at the position (drafted Kyle Williams to replace Polk's production).",
+    "combine_weight": 0.45,
+    "combine_description": "Balanced between film and measurables, but film is the tiebreaker. Drafted Campbell despite arm-length concerns because film was dominant. Wolf stated: 'I know everyone talks about the arm length, but he has a set of skills that enable him to play with that arm length.' However, athletic testing matters \u2014 Henderson's 4.43 and Campbell's 4.98 at 319 lbs clearly boosted their profiles. Ron Wolf's system is a 'simple numbers-only grading scale' that Eliot still follows.",
+    "character_weight": 0.8,
+    "character_description": "Very high character emphasis. Cowden stated 'if you don't get the person right, then a lot of that other stuff can go by the wayside.' Vrabel emphasized 'loyal, trustworthy coaches who are diverse in background.' Campbell praised for being a 'great person' and team captain. Woodson praised for character. Henderson was a straight-A student with 4.0 GPA. Every press conference mentions character and culture fit. Swinson reportedly fell partly due to pre-draft interview concerns \u2014 Patriots still took him but only in R5.",
+    "quarterback_philosophy": "Franchise QB is the cornerstone. Went all-in on Maye at 3 \u2014 no hedging. Also willing to draft developmental QB projects (Milton in R6). Now that franchise QB is in place, will not draft another QB high. Building everything around protecting and weaponizing Maye."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.65,
+    "production_vs_projection": "Leans productive college players. Both R1 picks were elite multi-year producers (Maye \u2014 7,929 pass yards; Campbell \u2014 38 starts, Jacobs Blocking Trophy). WR picks all had 1,000+ yard seasons. Henderson had 3,761 career rushing yards. However, willing to bet on projection in late rounds (Milton's arm, Bell's athleticism, Swinson's pass-rush potential). In tiebreakers, production wins.",
+    "production_thresholds_by_position": {
+      "WR": "All WRs drafted in rounds 2-3 had 50+ catches and 1,000+ yards in final college season",
+      "RB": "3,000+ career yards or 1,000+ final season. Henderson: 3,761 career, 1,016 final year",
+      "OT": "Multi-year starter at Power 5 level with elite PFF grades. Campbell: 38 starts, 95th percentile pass-blocking grade on true pass sets",
+      "QB": "Multi-year starter with 3,500+ passing yards in breakout season",
+      "EDGE": "No clear production floor \u2014 Swinson had 8.5 sacks and 60 pressures but only 1 year as full-time starter",
+      "IOL": "At least 1 full season as starter at Power 5 level"
+    },
+    "breakout_age_sensitivity": 0.5,
+    "dominator_rating_sensitivity": 0.45,
+    "notes": "Packers lineage shows strong production emphasis. Wolf personally found productive Packers players like Aaron Jones and Greg Jennings. Transfer portal players are acceptable if production post-transfer is strong. Not breakout-age sensitive \u2014 multiple picks were transfers who broke out late (Polk, Baker, Williams)."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "QB": {
+        "no_hard_threshold": true,
+        "notes": "Arm talent is the primary measurable. 6-2+ height and 220+ lbs preferred. Mobility valued but not measured by 40 time.",
+        "confidence": "medium"
+      },
+      "OT": {
+        "no_arm_length_minimum": true,
+        "notes": "Film over measurables. Campbell drafted at 32 5/8 inch arms, well below traditional 33+ threshold. Sub-5.00 40 at 315+ lbs is elite and valued.",
+        "confidence": "high"
+      },
+      "WR": {
+        "40_yard_range": "4.50-4.55 seems acceptable. No sub-4.45 WR drafted. Burst and explosion tests (vertical, broad) more valued than 40.",
+        "confidence": "medium"
+      },
+      "RB": {
+        "40_yard_max": 4.5,
+        "vertical_min": "35 inches",
+        "notes": "Henderson at 4.43 and 38.5 vertical set a clear athletic bar. Speed is premium for RB evaluation.",
+        "confidence": "medium"
+      },
+      "S": {
+        "no_clear_threshold": true,
+        "notes": "Football IQ and communication more valued than any athletic test for safeties.",
+        "confidence": "low"
+      },
+      "CB": {
+        "no_clear_threshold": true,
+        "notes": "Only Day 3 CBs drafted. Movement skills valued over straight-line speed.",
+        "confidence": "low"
+      },
+      "EDGE": {
+        "no_clear_threshold": true,
+        "notes": "Pass-rush win rate and technique matter more than size. Swinson was lean and twitchy.",
+        "confidence": "low"
+      }
+    },
+    "threshold_type": "Mostly soft preferences rather than hard cutoffs. Film-first evaluation philosophy. The Campbell arm-length example proves willingness to break traditional measurable thresholds when film is dominant.",
+    "size_preferences_by_position": {
+      "WR": "6-0+ and 200+ lbs preferred \u2014 all 3 WR picks were 6-1+, 200+ lbs",
+      "QB": "6-2+ and 220+ preferred. Both QB picks (Maye 6-4/223, Milton 6-5/246) were big-framed",
+      "OT": "6-4+ and 310+ lbs. Campbell at 6-5 7/8, 319 lbs",
+      "RB": "5-10 to 6-1, 200+ lbs. Henderson at 5-10/202"
+    },
+    "athletic_testing_favorites": "Vertical jump and broad jump as explosiveness indicators across positions. 40-yard dash relative to position weight is important (Campbell's sub-5.00 at 319 was cited widely). Short shuttle and 3-cone for IOL and EDGE evaluation. Raw 40 time matters most for RB and WR. Arm velocity for QBs \u2014 not formally tested but evaluated informally.",
+    "measurables_vs_film": "Film-first, measurables as confirmatory data. Wolf/Cowden process trusts film evaluation over testing. Campbell example is definitive: taken top-5 despite arms that would have been a red flag to many teams. Wolf's stated approach: 'The tape, there's not one play on there where you say that's because he has shorter arms.' Ron Wolf's scouting system is a 'simple numbers-only grading scale' based on film evaluation."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Address biggest team need with safest, most polished prospect available. High-floor, multi-year producers from elite programs. Maye (can't-miss QB) and Campbell (3-year SEC starter, All-American) both fit this pattern. Will not swing for upside in R1.",
+    "round_2_3_strategy": "Mix of BPA and need-filling. Willing to reach for targeted players. Trades down to accumulate extra picks in this range. Henderson (R2, RB) was need + value. Williams (R3, WR) and Wilson (R3, C) were need-fills. 2024 R2 was WR Polk \u2014 clear need after worst-offense season. Shift from pure BPA to targeted need-filling happens in R2.",
+    "day_3_strategy": "Developmental athletes, special teams contributors, and calculated gambles. Drafted a kicker (Borregales, R6), long snapper (Ashby, R7), and Mr. Irrelevant CB (Minor, R7) in 2025. Day 3 is where character risks and physical tools get prioritized \u2014 Swinson fell due to interview concerns but was taken as a value pick. Milton (raw QB with elite arm, R6) is a classic Day 3 traits-over-production bet. Also uses Day 3 for OL depth (Bryant, R7).",
+    "compensatory_pick_usage": "Treats comp picks similarly to regular picks but may use them for higher-risk players. Farmer (comp R4 via SEA) was a developmental DT; Ashby and Minor (comp R7s via KC) were specialists and developmental players."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "QB": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Maye became borderline MVP candidate in year 2 \u2014 elite hit. Milton traded after 1 year."
+      },
+      "OT": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Campbell started at LT as rookie but struggled in playoffs. Wallace hasn't emerged. Bryant is developmental. Too early to judge."
+      },
+      "WR": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Polk was a bust (traded after 1 year). Baker struggled. Williams showed promise as a rookie. WR evaluation is a clear weak spot."
+      },
+      "IOL": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Wilson started at LG as rookie. Robinson has contributed. Both early but solid."
+      },
+      "RB": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Henderson was AFC Offensive Player of the Month as a rookie. Excellent hit."
+      },
+      "S": {
+        "picks": 2,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Woodson and Dial are developmental. Too early to judge."
+      },
+      "EDGE": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Swinson was cut from initial 53 \u2014 spent most of year on practice squad. Very early."
+      },
+      "DT": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Farmer is developmental. Too early."
+      },
+      "TE": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Bell drafted R7. Low investment."
+      },
+      "CB": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Minor was Mr. Irrelevant. Low investment."
+      }
+    },
+    "blind_spots": [
+      "WR evaluation has been inconsistent \u2014 Polk was a bust, Baker struggled. Pattern of drafting physical, non-explosive WRs who don't separate at NFL level. Simulation should slightly discount WR pick confidence."
+    ],
+    "strengths": [
+      "QB evaluation appears strong (Maye). RB evaluation (Henderson). Offensive line investment has been heavy and shows commitment to the trenches. Day 3 value-finding appears strong (Swinson, Henderson's steal in R2)."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Moderate-to-aggressive spender who uses FA to fill immediate starter-level needs, then drafts for long-term building. 2025 FA: signed Diggs, Hollins (WR), Bradbury (C), Moses (OT), Tonga and Milton Williams (DT), Chaisson and Landry (EDGE), Spillane (LB), Davis III (CB) \u2014 filled many holes to set up draft for long-term pieces.",
+    "fa_draft_correlation": "After signing veteran starters at a position, still drafts at that position for development. Signed Bradbury at C, then drafted Wilson (C) in R3. Signed Diggs and Hollins at WR, then drafted Williams (WR) in R3. Uses FA to bridge gaps while drafting young successors.",
+    "roster_construction_philosophy": "Build through the draft at premium positions (QB, OT, CB, EDGE), use FA aggressively to fill the rest while young players develop. 2025 was a master class in this approach: FA addressed defense wholesale, draft focused on offense and long-term building. Wolf stated: 'Every year is an opportunity in free agency and the draft to improve the roster... It's trades, it's waiver claims, it's restricted free agency, all those things.'"
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 19,
+    "notable_patterns": [
+      "7 of 8 picks in 2024 were offensive players \u2014 heavily offensive drafting when team needs demand it",
+      "Both R1 picks addressed single biggest team need (QB in 2024, OT in 2025) \u2014 need drives R1 despite BPA rhetoric",
+      "Consistently trades down to accumulate extra picks (Belichick influence). Traded down in R2 2024 and twice in R3 2025",
+      "Heavy investment in offensive line: 5 OL across 2 drafts (Campbell, Wallace, Robinson, Wilson, Bryant)",
+      "Drafted 3 WRs in first 4 rounds across 2 drafts \u2014 offensive weapons prioritized for Maye",
+      "Character and culture fit repeatedly emphasized in every press conference and pick explanation",
+      "Willing to break traditional measurable thresholds (Campbell arm length) when film justifies it",
+      "Day 3 used for special teams (K, LS) and developmental athletes \u2014 Belichick-era pattern continued"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2024,
+        "pick": "3.68",
+        "player": "Caedan Wallace",
+        "position": "OT",
+        "consensus_rank": "142 (PFF) / 186 (consensus)",
+        "reach_amount": 74,
+        "context": "OT was a massive need. Reached significantly for positional need after missing on preferred targets."
+      },
+      {
+        "year": 2025,
+        "pick": "4.106",
+        "player": "Craig Woodson",
+        "position": "S",
+        "consensus_rank": "~140-150 range",
+        "reach_amount": 35,
+        "context": "Perceived as biggest reach of 2025 class by consensus. Cowden defended: 'We have a process here that we believe in.'"
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2025,
+        "pick": "5.146",
+        "player": "Bradyn Swinson",
+        "position": "EDGE",
+        "consensus_rank": 68,
+        "value_amount": 78,
+        "context": "PFF top-50 player who fell to R5. Pre-draft interview concerns contributed to slide. 60 pressures and 8.5 sacks at LSU."
+      },
+      {
+        "year": 2025,
+        "pick": "3.95",
+        "player": "Jared Wilson",
+        "position": "C",
+        "consensus_rank": "~50-60 range (some had him R2)",
+        "value_amount": 35,
+        "context": "Graded as high as R2 by some experts. Patriots traded down twice to this spot and still landed him."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_notes": "2 full drafts as primary decision-maker provide moderate data. Scouting tree (Packers/Ron Wolf) is exceptionally well-documented and clearly visible in Wolf's approach. Vrabel's influence adds a defensive/toughness dimension that is newer and still being calibrated. Wolf ranked 2nd in 2025 NFL Executive of the Year voting. The triumvirate of Wolf, Vrabel, and Cowden appears stable heading into 2026. Profile should be refreshed after 2026 draft, which will be the first where the team picks late (31st) rather than in the top 5.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

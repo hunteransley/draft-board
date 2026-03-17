@@ -1,0 +1,895 @@
+{
+  "team": {
+    "name": "New Orleans Saints",
+    "abbreviation": "NO",
+    "division": "NFC South",
+    "current_draft_position": 8
+  },
+  "front_office": {
+    "gm": {
+      "name": "Mickey Loomis",
+      "title": "Executive Vice President / General Manager",
+      "hired": "2002-01-01",
+      "previous_role": "Director of Football Administration, New Orleans Saints (2000-2002); Executive Vice President, Seattle Seahawks (1992-1998)",
+      "drafts_as_gm": 24,
+      "confidence": "high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "CPA Firm (Oregon)",
+          "role": "Accountant",
+          "years": "1980-1982",
+          "mentor": "N/A \u2014 pre-NFL career"
+        },
+        {
+          "org": "University of Oregon",
+          "role": "Athletic Department Intern",
+          "years": "1982-1983",
+          "mentor": "N/A \u2014 academic sports administration"
+        },
+        {
+          "org": "Seattle Seahawks",
+          "role": "Business Manager / Entry-Level Administration",
+          "years": "1983-1989",
+          "mentor": "Mike McCormack (Seahawks President)"
+        },
+        {
+          "org": "Seattle Seahawks",
+          "role": "Vice President / Finance",
+          "years": "1990-1991",
+          "mentor": "Tom Flores (HC), Chuck Allen (GM)"
+        },
+        {
+          "org": "Seattle Seahawks",
+          "role": "Executive Vice President",
+          "years": "1992-1998",
+          "mentor": "Dennis Erickson (HC), Randy Mueller (VP of Football Ops)"
+        },
+        {
+          "org": "New Orleans Saints",
+          "role": "Director of Football Administration",
+          "years": "2000-2001",
+          "mentor": "Randy Mueller (GM), Jim Haslett (HC)"
+        },
+        {
+          "org": "New Orleans Saints",
+          "role": "General Manager / Executive Vice President",
+          "years": "2002-present",
+          "mentor": "Self \u2014 became primary decision-maker. Sean Payton (HC, 2006-2021) was key collaborative partner."
+        }
+      ],
+      "primary_mentor": "Randy Mueller \u2014 Loomis was brought to New Orleans by Mueller, a former Seahawks colleague. Loomis' finance/administration background is unique among NFL GMs; he came up through the business side rather than scouting.",
+      "philosophical_lineage": "Loomis is unusual in having no traditional scouting tree lineage. His background is financial/administrative, which manifests in aggressive salary cap manipulation and a willingness to mortgage future assets for present value. His draft philosophy was significantly shaped by his 16-year partnership with Sean Payton and later by Jeff Ireland (Parcells tree), who overhauled the scouting department starting in 2015. The Ireland/Parcells influence is visible in the emphasis on size/length prototypes at premium positions, particularly EDGE and OT.",
+      "breakpoints": "The 2015 hiring of Jeff Ireland as college scouting director was the single biggest philosophical shift. Pre-Ireland Saints drafts (2002-2014) were inconsistent; post-Ireland (2015-present) the drafting improved markedly, peaking with the legendary 2017 class. Loomis has consistently deferred to Ireland on college evaluation while retaining final say on trade-up decisions.",
+      "lineage_weight": 0.15,
+      "lineage_weight_notes": "24 drafts of own data make lineage weight minimal. Loomis IS his own tree at this point. However, Ireland's Parcells-descended scouting philosophy carries significant weight on player-type preferences."
+    },
+    "primary_decision_maker": "Mickey Loomis \u2014 final authority on all draft decisions, trades, and personnel moves since 2002",
+    "key_influencers": [
+      {
+        "name": "Jeff Ireland",
+        "title": "Senior Vice President / Assistant General Manager - College Personnel",
+        "influence_level": "very_high",
+        "known_biases": "Parcells-tree evaluator. Values size/length prototypes, Senior Bowl performers, character/leadership, physical traits at premium positions. Overhauled Saints scouting in 2015. Previously GM of Miami Dolphins (2008-2013) under Parcells. Stepson of Chiefs HOFer E.J. Holub, grandson of Bears personnel exec Jim Parmer \u2014 football evaluation is in his DNA. Credited with the 2017 draft class (Lattimore, Ramczyk, Kamara, Williams, Hendrickson)."
+      },
+      {
+        "name": "Kellen Moore",
+        "title": "Head Coach",
+        "influence_level": "medium_high",
+        "known_biases": "Offensive-minded; former QB. Values passing game infrastructure. Spent two weeks embedded with Ireland's scouting department before 2026 combine. First-year HC in 2025; influence on draft growing. Ran Eagles' top-8 offense in 2024. Will push for offensive weapons, QB development, and pass protection."
+      },
+      {
+        "name": "Brandon Staley",
+        "title": "Defensive Coordinator",
+        "influence_level": "medium",
+        "known_biases": "Vic Fangio disciple. Installed 3-4 base defense in 2025 after Saints ran 4-3 for decades. Values versatile, multi-positional defenders. Prefers zone-heavy coverage (67% zone with Chargers vs. Saints' historic 60% man). Wants standup edge rushers and big nose tackles. The scheme shift will directly influence draft target archetypes at EDGE, DT, LB, and secondary positions."
+      },
+      {
+        "name": "Thomas Dimitroff",
+        "title": "Front Office Consultant",
+        "influence_level": "low_medium",
+        "known_biases": "Former Falcons GM (2008-2020). Patriots scouting tree. Known for aggressive trade-ups (Julio Jones). Hired as consultant in 2025 to support Loomis on roster strategy and talent evaluation. Advisory role, not decision-making."
+      }
+    ],
+    "power_dynamics": "Loomis has final say and has held that authority for 24 years. Ireland runs the college scouting department with significant autonomy \u2014 he leads the board-building process. Loomis and Ireland collaborate closely but Loomis makes the trade-up/down calls. Moore is a first-time HC who is gaining influence but defers to the established Loomis/Ireland evaluation infrastructure. Owner Gayle Benson is supportive and hands-off on personnel decisions.",
+    "owner_interference": "very_low"
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.55,
+    "bpa_weight_by_round": {
+      "1": 0.6,
+      "2": 0.5,
+      "3": 0.45,
+      "4_plus": 0.35
+    },
+    "stated_philosophy": "Loomis stated in January 2026: 'I think we're going to be in a position to kind of take the best player that's available that can impact our team.' He consistently claims BPA.",
+    "actual_philosophy": "Moderate need-lean disguised as BPA. The Saints consistently address top needs in early rounds: OT Fuaga (2024 R1) after losing Armstead and Ramczyk declining; OT Banks (2025 R1) after Penning traded; DT Bresee (2023 R1) after losing Onyemata and Davenport; OT Penning (2022 R1) after Armstead left; EDGE Turner (2021 R1) after losing Hendrickson. The pattern is clear: first-round picks almost always address the team's most pressing need, but at a position Loomis considers premium. They draft BPA *within* need positions.",
+    "philosophy_mismatch_notes": "Significant gap between stated and actual behavior. Loomis says BPA but has drafted offensive or defensive linemen in Round 1 in 2020, 2021, 2022 (x2), 2023, 2024, and 2025 \u2014 every year. The 2022 Olave pick is the exception (WR), but even that addressed their #1 offensive skill need after Michael Thomas' decline."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.8,
+    "trade_down_willingness": 0.1,
+    "trades_per_draft_average": 2.5,
+    "trade_triggers": [
+      "A player they have a high conviction grade on is available within 5-15 spots of their pick",
+      "EDGE or OT they love in round 1",
+      "QB availability if coaching staff identifies one (traded up for Olave in 2022, traded to get Haener in 2023)",
+      "Consolidation of Day 3 picks into Day 2 picks \u2014 routinely packages later picks to move up"
+    ],
+    "draft_capital_philosophy": "Consolidate over accumulate. Loomis is the NFL's most aggressive trade-up GM. He has not traded back in Round 1 during his entire tenure since 2007. He has made 26+ trades to move up since 2007. He openly acknowledges his record 'says something different' but insists he's not philosophically opposed to trading back. He famously stated: 'If you like the player, go get him. That's our philosophy.' He prefers 'quality over quantity' and believes in his board strongly enough that getting a lesser-graded player for more picks is unacceptable. Has mortgaged future draft capital repeatedly (traded future 1sts for Payton Turner positioning, Marcus Davenport, the Olave/Penning double-first-round haul in 2022)."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "OT",
+        "EDGE",
+        "DT",
+        "CB"
+      ],
+      "tier_2_high": [
+        "WR",
+        "IOL",
+        "LB",
+        "S"
+      ],
+      "tier_3_mid": [
+        "QB",
+        "TE",
+        "RB"
+      ],
+      "tier_4_low": [
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "QB in Round 1 \u2014 the Saints have not drafted a QB in the first round since Archie Manning in 1971. Loomis prefers to acquire QBs via free agency (Brees, Carr) or mid-rounds (Shough R2 in 2025 was the highest QB drafted under Loomis).",
+      "RB before Round 3 \u2014 Kamara (2017, R3) and Kendre Miller (2023, R3) are the earliest RBs. Never taken one in R1 or R2."
+    ],
+    "position_premium": [
+      "OT \u2014 First-round OTs in 2017 (Ramczyk), 2022 (Penning), 2024 (Fuaga), 2025 (Banks). Loomis prioritizes OT above all positions.",
+      "EDGE/DL \u2014 First-round EDGE/DTs in 2018 (Davenport), 2021 (Turner), 2023 (Bresee). Has drafted OL or DL in Round 1 every single year from 2020-2025.",
+      "CB \u2014 Lattimore R1 2017, Adebo R3 2021 traded up, Taylor R2 2022, McKinstry R2 2024 traded up. Consistently invests early in corners."
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Long, powerful, high-motor defensive end with size to play 3-4 OLB or 4-3 DE. Parcells-prototype: 6-4+, 260+, 33+ inch arms. Wins with length and power at the point of attack. Raw pass rushers with elite physical traits are preferred over polished but undersized finesse rushers. The Saints have consistently reached for these profiles (Turner at 28, Davenport at 14 via trade). With the 2025 shift to Staley's 3-4, versatile EDGE players who can stand up or put hand in dirt are now prioritized.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "255-280",
+        "arm_length_minimum": "33 inches \u2014 Cameron Jordan (33.75), Marcus Davenport (34), Payton Turner (34.25), Isaiah Foskey (33.5) all exceed this threshold",
+        "key_athletic_tests": "Vertical jump (explosiveness), broad jump, and 3-cone valued. Combine testing matters but film comes first for this front office at EDGE.",
+        "speed_requirement": "4.80 or faster \u2014 not a speed-rusher position for the Saints. They want power first."
+      },
+      "playing_style": {
+        "primary_win_condition": "Power and length at the point of attack. Every significant EDGE investment has been a player who wins with bull rush, long-arm, and strength.",
+        "most_valued_traits": [
+          "Arm length and length usage",
+          "Power/bull rush ability",
+          "Motor and effort consistency",
+          "Run defense/edge setting",
+          "Versatility to stand up or hand in dirt (new under Staley)"
+        ],
+        "least_important_traits": [
+          "Polished pass rush repertoire \u2014 they have drafted raw EDGE rushers (Turner, Davenport) with limited moves and attempted to develop them"
+        ],
+        "deal_breakers": [
+          "Undersized EDGE rushers with short arms (sub-32 inches) regardless of production",
+          "Pure speed rushers without anchor strength"
+        ],
+        "traits_that_make_them_reach": "Elite length + explosiveness combination. Davenport (traded from 27 to 14) and Turner (pick 28, widely seen as a reach) were both drafted because of size/length/athleticism prototype."
+      },
+      "college_production": {
+        "production_floor": "No firm statistical floor \u2014 Turner had only 5 sacks in 5 games, Davenport had 8.5 sacks in his final year. Production is secondary to traits for EDGE.",
+        "production_trajectory": "Ascending production preferred. Turner went from 4 sacks to 5 in a shortened year. Foskey had 11 sacks his junior year.",
+        "context_sensitivity": "High \u2014 adjusts for sample size and scheme. Turner's production in only 5 games was credited."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2018 R1.14 \u2014 Marcus Davenport: 6-6, 264, 4.58 40, 34 inch arms. Traded up 13 spots (from 27) to get him. Power rusher, raw but immense physical tools.",
+          "2021 R1.28 \u2014 Payton Turner: 6-6, 270, 4.60 40, 34.25 inch arms. Widely considered a reach. Senior Bowl riser with length and power.",
+          "2023 R2.40 \u2014 Isaiah Foskey: 6-5, 265, 4.73 40, 33.5 inch arms. 11 sacks as junior at Notre Dame. Long, productive, high-motor.",
+          "2017 R3.103 \u2014 Trey Hendrickson: 6-4, 270, 4.65 40, 33 inch arms. FAU edge who became an All-Pro after leaving. Motor and effort pick."
+        ]
+      },
+      "confidence": "high"
+    },
+    "OT": {
+      "archetype_summary": "Massive, athletic, mauling offensive tackle. The Saints have invested more first-round capital at OT than any other position under Loomis/Ireland. They want 6-5+ tackles who can both pass protect and dominate in the run game. The profile favors raw athleticism and nastiness (Penning) or polished dominance (Ramczyk, Banks). Senior Bowl performers are heavily favored. The archetype has trended toward more polished pass protectors in recent drafts (Fuaga, Banks) after the Penning project failed.",
+      "physical_profile": {
+        "height_range": "6-5 to 6-7",
+        "weight_range": "310-335",
+        "arm_length_minimum": "34 inches \u2014 Ramczyk (33.88), Penning (34.75), Fuaga (33.75), Banks (34.5). Slight exception for Fuaga but compensated by other traits.",
+        "key_athletic_tests": "Broad jump and short shuttle for athleticism. Bench press matters for OTs. 40-time less important but sub-5.20 preferred.",
+        "speed_requirement": "Sub-5.20 40 preferred but not a hard cutoff for OTs."
+      },
+      "playing_style": {
+        "primary_win_condition": "Balance of pass protection and run blocking dominance. Ramczyk was a 3x All-Pro in both phases. Banks was Lombardi/Outland winner. Fuaga was described as 'a bully' with 'nimble' feet.",
+        "most_valued_traits": [
+          "Ability to start immediately as a rookie",
+          "Run blocking aggression and physicality",
+          "Pass set anchor and technique",
+          "Versatility to play left or right side",
+          "Senior Bowl/all-star game performance"
+        ],
+        "least_important_traits": [
+          "Zone-scheme specificity \u2014 Saints have valued both zone and power blockers across different coaching staffs"
+        ],
+        "deal_breakers": [
+          "Short arms (sub-33 inches)",
+          "Poor anchor against power rushers",
+          "Significant injury history limiting availability"
+        ],
+        "traits_that_make_them_reach": "Elite run blocking with sufficient pass pro. Penning was drafted 19th despite being a small-school prospect because of his mauling run-blocking style."
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter (2+ years starting) at an FBS program. Penning (Northern Iowa) is the small-school exception but was a Senior Bowl standout.",
+        "production_trajectory": "Full-time starters by sophomore/junior year preferred. Banks started all 42 career games. Ramczyk was a one-year starter but came from the Wisconsin pipeline.",
+        "context_sensitivity": "Senior Bowl performance is a major data point. Fuaga and Penning both attended the Senior Bowl and excelled."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2025 R1.9 \u2014 Kelvin Banks Jr.: 6-5, 315, 34.5 inch arms. Lombardi/Outland winner. Started all 42 career games at Texas. Unanimous All-American.",
+          "2024 R1.14 \u2014 Taliese Fuaga: 6-5, 318, 33.75 inch arms. Oregon State two-year starter. Senior Bowl standout. Described as 'nimble big human' and 'a bully.'",
+          "2022 R1.19 \u2014 Trevor Penning: 6-7, 325, 34.75 inch arms. Northern Iowa mauler. Aggressive run blocker but struggled in NFL. Senior Bowl performer.",
+          "2017 R1.32 \u2014 Ryan Ramczyk: 6-6, 314, 33.88 inch arms. Wisconsin one-year starter. 3x All-Pro RT. Acquired via trade (Brandin Cooks to NE)."
+        ]
+      },
+      "confidence": "very_high"
+    },
+    "IOL": {
+      "archetype_summary": "Versatile, anchor-first interior lineman who can play center and guard. The Saints value IOL versatility highly \u2014 Cesar Ruiz plays guard despite being drafted as a center, Nick Saldiveri was drafted as a tackle/guard swing. Erik McCoy was a center who started immediately. The profile emphasizes intelligence, strength, and the ability to play multiple spots.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "295-325",
+        "arm_length_minimum": "No strict minimum for IOL \u2014 shorter arms acceptable for guards/centers",
+        "key_athletic_tests": "Short shuttle and 3-cone for lateral agility. Bench press for strength baseline.",
+        "speed_requirement": "N/A \u2014 not a speed-tested position"
+      },
+      "playing_style": {
+        "primary_win_condition": "Anchor strength and positional versatility. McCoy was a 3-year starter at center who started immediately. Ruiz was drafted R1 for his ability to play center or guard.",
+        "most_valued_traits": [
+          "Multi-position versatility (C/G)",
+          "Anchor strength against power rushers",
+          "Immediate starting ability",
+          "Leadership/captain credentials",
+          "Consistency in pass protection"
+        ],
+        "least_important_traits": [
+          "Elite athleticism in space \u2014 they want smart, strong players rather than athletic projects at IOL"
+        ],
+        "deal_breakers": [
+          "Inability to pass protect at NFL level",
+          "Single-position limitation for early-round IOL"
+        ],
+        "traits_that_make_them_reach": "Day-one starting capability. Ruiz at 24 overall was a surprise pick for a contending team that didn't have IOL as a top need."
+      },
+      "college_production": {
+        "production_floor": "2+ years starting at a Power 5 conference program preferred. McCoy started every game for 3 seasons at Texas A&M.",
+        "production_trajectory": "Multi-year starters preferred. Saldiveri was an exception as a lower-profile pick.",
+        "context_sensitivity": "Moderate \u2014 values consistency and durability over one-year flash."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2020 R1.24 \u2014 Cesar Ruiz: 6-3, 307, 5.08 40. Michigan center drafted to contending team. Surprised many as the pick. Versatile C/G.",
+          "2019 R2.48 \u2014 Erik McCoy: 6-4, 303. Texas A&M 3-year starter. Started every game his career. Captain. Traded up to draft him.",
+          "2023 R4.103 \u2014 Nick Saldiveri: 6-5, 305. Old Dominion. OT/G versatility. Traded up to get him (sent two picks to CHI)."
+        ]
+      },
+      "confidence": "high"
+    },
+    "DT": {
+      "archetype_summary": "Two-gapping, anchor-and-disrupt interior defender for the Saints' new 3-4 scheme. The Saints want DTs who can hold the point of attack and collapse the pocket. Bresee was drafted for his disruptive upside at 3-tech; Broughton was a two-gap projection. With Staley's 3-4, the DT archetype is shifting toward bigger nose tackles (310+) who can eat blocks and true 3-4 DEs (280-300) who can penetrate.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "285-330 (position dependent: 3-4 DE vs nose)",
+        "arm_length_minimum": "No strict minimum observed but length preferred \u2014 Bresee has 34.5 inch arms, Broughton is 6-5",
+        "key_athletic_tests": "Short shuttle for quickness. Bench press for strength. Vertical jump for explosiveness.",
+        "speed_requirement": "Sub-5.10 40 preferred for penetrating DTs."
+      },
+      "playing_style": {
+        "primary_win_condition": "Interior disruption through power and leverage. Bresee was drafted for his ability to disrupt at 3-tech with quickness and power. Broughton was drafted for his size and run-stuffing ability.",
+        "most_valued_traits": [
+          "Run defense anchor ability",
+          "Interior pass rush with power",
+          "Motor and relentless effort",
+          "Ability to play multiple techniques (3-tech, 5-tech, nose)",
+          "Size to absorb double teams"
+        ],
+        "least_important_traits": [
+          "Pure sack production \u2014 DTs are valued for disruption metrics (TFLs, pressures) more than sack totals"
+        ],
+        "deal_breakers": [
+          "Inability to hold point of attack against the run",
+          "One-dimensional pass-rush-only DT"
+        ],
+        "traits_that_make_them_reach": "Elite upside with disruptive physical traits. Bresee was taken at 29 despite only 4.5 sacks as a junior, because of his first-round talent ceiling."
+      },
+      "college_production": {
+        "production_floor": "4+ TFLs in final college season for early-round DTs. Bresee had 4.5 sacks; Broughton had 4.5 TFLs and 3 sacks.",
+        "production_trajectory": "Late bloomers accepted \u2014 Broughton emerged as a starter only in his final season after waiting behind early NFL draft picks.",
+        "context_sensitivity": "High \u2014 credit given for production in rotation or behind high-caliber players."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2023 R1.29 \u2014 Bryan Bresee: 6-5, 300, 4.86 40, 34.5 inch arms. Clemson. Former #1 overall recruit. High-ceiling 3-tech. 4.5 sacks as junior.",
+          "2025 R3.71 \u2014 Vernon Broughton: 6-5, 300+. Texas. Played behind early NFL picks, stepped into starting role as senior. 4.5 TFLs, 3 sacks in final year.",
+          "2022 R6.194 \u2014 Jordan Jackson: 6-4, 294. Air Force. 7.5 sacks in final year. High-motor small-school DT.",
+          "2024 R6.199 \u2014 Khristian Boyd: DT, Northern Iowa. Small-school interior disruptor."
+        ]
+      },
+      "confidence": "medium_high"
+    },
+    "CB": {
+      "archetype_summary": "Long, physical, competitive cornerback with ball skills and tackling ability. The Saints under Loomis/Ireland have consistently drafted CBs who are 6-0+, physical in press, and willing tacklers. Lattimore (6-0, 4.36) set the mold. Adebo (6-1, 4.42), Taylor (6-0, 4.36), McKinstry (6-1, 4.45), and Riley (6-0, 4.40) all fit the same profile. The scheme is now shifting from heavy man to more zone under Staley, which may broaden the archetype slightly.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-2",
+        "weight_range": "185-200",
+        "arm_length_minimum": "31 inches preferred \u2014 Lattimore (31.5), Adebo (31.75), McKinstry (31.5). Taylor was an outlier at 30.25 but had elite speed.",
+        "key_athletic_tests": "40-yard dash is primary: 4.45 or faster for boundary CBs. Every early-round CB drafted has been sub-4.45. Vertical jump matters for ball skills.",
+        "speed_requirement": "4.45 or faster \u2014 Lattimore 4.36, Taylor 4.36, Adebo 4.42, McKinstry 4.45, Riley 4.40. No early-round CB drafted slower than 4.45."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Transitioning from press-man (2017-2024) to more zone under Staley. But physical press ability remains valued \u2014 versatile CBs who can play man or zone preferred.",
+        "most_valued_traits": [
+          "Speed (sub-4.45)",
+          "Length and physicality at the catch point",
+          "Willingness and ability to tackle in run support",
+          "Ball skills / pass breakups",
+          "Competitive toughness and football IQ"
+        ],
+        "least_important_traits": [
+          "Pure zone instincts without man press ability \u2014 though this may shift under Staley's zone-heavy scheme"
+        ],
+        "deal_breakers": [
+          "Slow CBs (4.50+) regardless of other traits",
+          "Poor tacklers who avoid contact",
+          "Off-field character concerns at premium positions"
+        ],
+        "traits_that_make_them_reach": "Elite speed with length. McKinstry (6-1, 4.45, first-team All-American) triggered a trade up in Round 2 (moved from 45 to 41)."
+      },
+      "college_production": {
+        "production_floor": "No strict statistical floor \u2014 values film over INT totals. Adebo had 8 career INTs but Taylor had only 4.",
+        "production_trajectory": "Multi-year starters preferred. All CBs drafted in Rounds 1-3 had at least 2 years of college starting experience.",
+        "context_sensitivity": "High \u2014 credits pass breakups and film over INT totals. Ireland said of one CB pick: 'He didn't have just this outrageous number of interceptions, but he had a really high number of batted balls, PBUs.'"
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2017 R1.11 \u2014 Marshon Lattimore: 6-0, 193, 4.36 40, 31.5 inch arms. Ohio State. DROY winner. Press-man specialist. 4 INTs in 2016.",
+          "2021 R3.76 \u2014 Paulson Adebo: 6-1, 198, 4.42 40, 31.75 inch arms. Stanford. Traded up to get him. 8 career INTs, elite ball skills.",
+          "2022 R2.49 \u2014 Alontae Taylor: 6-0, 193, 4.36 40. Tennessee. Converted WR. Physical, fast, willing tackler. 4 career INTs.",
+          "2024 R2.41 \u2014 Kool-Aid McKinstry: 6-1, 4.45 40, 31.5 inch arms. Alabama. First-team All-American. Traded up 4 spots to get him. 25 career passes defensed.",
+          "2025 R4.131 \u2014 Quincy Riley: 6-0, 4.40 40. Louisville. Multi-year starter. Ball-hawking CB. Became starter by Week 3 of rookie year."
+        ]
+      },
+      "confidence": "very_high"
+    },
+    "S": {
+      "archetype_summary": "Versatile, ball-hawking safety with range and football IQ. The Saints value safeties who can play multiple roles \u2014 free safety, strong safety, nickel/dime. Marcus Williams (2017 R2) was a centerfield free safety; Chauncey Gardner-Johnson (2019 R4) was a slot/safety hybrid. Jonas Sanker (2025 R3) is a do-it-all type. The profile emphasizes versatility, instincts, and physicality over pure athletic measurables.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-2",
+        "weight_range": "200-215",
+        "arm_length_minimum": "No strict minimum for safeties",
+        "key_athletic_tests": "40-yard dash for range. 3-cone and short shuttle for change-of-direction. Sanker ran 4.48 at the combine.",
+        "speed_requirement": "4.55 or faster preferred for starting safeties."
+      },
+      "playing_style": {
+        "primary_win_condition": "Versatility \u2014 ability to play split-safety coverage, come down into the box, and cover slot receivers.",
+        "most_valued_traits": [
+          "Multi-position versatility (FS/SS/nickel)",
+          "Ball-hawking instincts and INTs",
+          "Run-support tackling willingness",
+          "Special teams value as a rookie",
+          "Football IQ and leadership"
+        ],
+        "least_important_traits": [
+          "Elite straight-line speed \u2014 they want smart, instinctive players rather than pure range athletes"
+        ],
+        "deal_breakers": [
+          "One-dimensional safeties who can only play a single role",
+          "Poor tackling or effort on run support"
+        ],
+        "traits_that_make_them_reach": "Ball production + versatility. Gardner-Johnson's 9 career INTs at Florida drove a trade-up in Round 4."
+      },
+      "college_production": {
+        "production_floor": "Ball production is valued \u2014 Williams had 4 INTs as a junior, CGJ had 9 career INTs, Sanker had 7+ career INTs.",
+        "production_trajectory": "Multi-year contributors preferred. Sanker led the Big 12 in tackles as a sophomore.",
+        "context_sensitivity": "Ireland explicitly values special teams production for safety picks \u2014 mentioned Howden's 500+ career special teams snaps."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2017 R2.42 \u2014 Marcus Williams: 6-1, 195, 4.56 40. Utah. 4 INTs as junior. Free safety with range and ball skills. Left for Baltimore in 2022 FA.",
+          "2019 R4.105 \u2014 Chauncey Gardner-Johnson: 5-11, 210. Florida. 9 career INTs. Traded up to get him. Hybrid S/nickel.",
+          "2025 R3.93 \u2014 Jonas Sanker: 6-1, 208, 4.48 40. Virginia. Led Big 12 in tackles (125). 7+ career INTs. Started by Week 2 as rookie.",
+          "2023 R5.146 \u2014 Jordan Howden: 6-0, 207. Minnesota. 4 career INTs, 240 career tackles. 500+ special teams snaps."
+        ]
+      },
+      "confidence": "high"
+    },
+    "LB": {
+      "archetype_summary": "Coverage-capable, sideline-to-sideline linebacker with tackling production and football IQ. The Saints pair their LBs with All-Pro Demario Davis and need complementary players who can cover TEs and RBs. Pete Werner (2021 R2) was drafted for coverage ability. Danny Stutsman (2025 R4) brings instincts and versatility. With Staley's 3-4, the ILB role remains coverage-focused while OLBs double as edge rushers.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-3",
+        "weight_range": "232-250",
+        "arm_length_minimum": "No strict minimum \u2014 Werner at 6-3, 238 is the prototype size",
+        "key_athletic_tests": "40-yard dash for sideline-to-sideline range (sub-4.65 preferred). Short shuttle for change of direction in coverage.",
+        "speed_requirement": "4.65 or faster preferred. Werner ran 4.62. Stutsman at Oklahoma was a rangy athlete."
+      },
+      "playing_style": {
+        "primary_win_condition": "Coverage ability and tackling consistency. The Saints want LBs who can stay on the field in nickel/dime packages.",
+        "most_valued_traits": [
+          "Coverage ability against TEs and RBs",
+          "Sideline-to-sideline range",
+          "Tackling consistency and production",
+          "Football IQ and instincts",
+          "Ability to play in Staley's 3-4 ILB role"
+        ],
+        "least_important_traits": [
+          "Pass rush/blitz production \u2014 OLBs handle pass rush in 3-4, ILBs focus on coverage and run fits"
+        ],
+        "deal_breakers": [
+          "Liability in coverage \u2014 cannot stay on the field in pass-heavy situations",
+          "Slow processing that leads to blown assignments"
+        ],
+        "traits_that_make_them_reach": "Elite coverage skills at the LB position. Werner was drafted 60th overall for his coverage profile despite modest pass rush production."
+      },
+      "college_production": {
+        "production_floor": "60+ tackles in final college season for Day 1-2 LBs. Werner had 54 in a shortened 2020 season. Stutsman was a prolific tackler.",
+        "production_trajectory": "Multi-year starters preferred. Werner was a 3-year starter at Ohio State.",
+        "context_sensitivity": "Values football IQ and scheme-fit over raw statistics."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2021 R2.60 \u2014 Pete Werner: 6-3, 238, 4.62 40. Ohio State. 3-year starter. First-team All-Big Ten. Coverage LB prototype.",
+          "2025 R4.112 \u2014 Danny Stutsman: LB, Oklahoma. Productive and instinctive tackler. Rotated in increasingly throughout rookie year.",
+          "2020 R3.74 \u2014 Zack Baun: 6-2, 238, 4.65 40. Wisconsin. Versatile LB/EDGE tweener. Projected first-round talent who fell.",
+          "2017 R3.76 \u2014 Alex Anzalone: 6-3, 235. Florida. Coverage-capable LB. 4-year Saint before leaving for Detroit.",
+          "2024 R5.175 \u2014 Jaylan Ford: 6-3, 240. Texas. First-team All-Big 12. 6 career INTs \u2014 elite ball production for a LB."
+        ]
+      },
+      "confidence": "high"
+    },
+    "WR": {
+      "archetype_summary": "Route-running technician with vertical speed and the ability to win at all three levels. The Saints under Loomis/Ireland have drafted few WRs in early rounds, but when they do, they want polished route runners with production and speed. Chris Olave (2022 R1) is the archetype \u2014 6-0, 4.39, exceptional route runner with big college production at Ohio State. Michael Thomas (pre-Ireland era, 2016 R2) was a different archetype: big-bodied possession receiver. The current preference appears to favor speed + route running over pure size.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-3",
+        "weight_range": "185-220",
+        "arm_length_minimum": "No strict minimum \u2014 Olave at 6-0 is smaller than typical X receivers",
+        "key_athletic_tests": "40-yard dash (4.45 or faster for early-round WRs). Vertical jump for contested catch ability.",
+        "speed_requirement": "4.45 or faster for early-round WRs. Olave ran 4.39. Means ran 4.43."
+      },
+      "playing_style": {
+        "primary_win_condition": "Route running precision and separation creation. Olave is an elite route technician. A.T. Perry is a contested-catch specialist.",
+        "most_valued_traits": [
+          "Route running technique and precision",
+          "Speed/deep threat capability",
+          "College production and consistency",
+          "Ability to separate against NFL coverage",
+          "Football IQ and playbook mastery"
+        ],
+        "least_important_traits": [
+          "Pure size/contested catch ability as the primary skill \u2014 they prefer receivers who create separation over physical 50/50 ball winners"
+        ],
+        "deal_breakers": [
+          "Slow receivers (4.55+) regardless of production",
+          "Limited route tree or one-trick deep threats"
+        ],
+        "traits_that_make_them_reach": "Elite production at a top program + speed. Olave prompted a trade up (from 16 to 11) after 65 catches, 936 yards, 13 TDs at Ohio State."
+      },
+      "college_production": {
+        "production_floor": "50+ catches in final college season for early-round WRs. Olave had 65 catches/13 TDs. Perry had 57 catches/11 TDs at Wake Forest.",
+        "production_trajectory": "Multi-year producers at major programs preferred. Olave had 176 career catches over 4 years.",
+        "context_sensitivity": "Moderate \u2014 values TD production highly. Perry's 28 career TDs stood out."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2022 R1.11 \u2014 Chris Olave: 6-0, 187, 4.39 40. Ohio State. Traded up from 16 to 11. 65 catches, 936 yards, 13 TDs as senior. Elite route runner.",
+          "2023 R6.195 \u2014 A.T. Perry: 6-5, 200, 4.49 40. Wake Forest. 171 career catches, 2,662 yards, 28 TDs. Contested-catch specialist. Late-round value bet.",
+          "2024 R5.170 \u2014 Bub Means: 6-2, 215, 4.43 40. Pittsburgh. 41 catches, 721 yards, 6 TDs. Speed + size.",
+          "2021 R7.255 \u2014 Kawaan Baker: 6-1, 215. South Alabama. Day 3 flier on athletic upside."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "TE": {
+      "archetype_summary": "Hybrid receiving/blocking tight end with size and athletic upside. The Saints have not invested early draft capital in TE under Loomis/Ireland \u2014 Adam Trautman (2020 R3) is the highest pick, and he was a small-school prospect (Dayton) with athletic traits. Moliki Matavao (2025 R7) is a developmental athletic TE. The Saints have historically acquired TEs via free agency (Jimmy Graham) or undrafted (Juwan Johnson). When they do draft TEs, they want athletic, versatile players.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "245-265",
+        "arm_length_minimum": "No strict minimum \u2014 limited data",
+        "key_athletic_tests": "Vertical jump for receiving ability. 40-yard dash for field-stretching ability. Trautman ran 4.80.",
+        "speed_requirement": "4.80 or faster for hybrid TEs. Blocking-first TEs have no speed requirement."
+      },
+      "playing_style": {
+        "primary_win_condition": "Versatility \u2014 ability to line up inline, flex, or in the slot. Must block and catch.",
+        "most_valued_traits": [
+          "Receiving ability and hands",
+          "Blocking willingness and technique",
+          "Athletic versatility to align in multiple spots",
+          "Red zone/contested catch potential",
+          "Developmental ceiling"
+        ],
+        "least_important_traits": [
+          "Elite inline blocking as a prospect \u2014 they want TEs who can develop as blockers while contributing as receivers immediately"
+        ],
+        "deal_breakers": [
+          "Complete inability to block \u2014 must be willing",
+          "Poor hands or drops"
+        ],
+        "traits_that_make_them_reach": "Insufficient data \u2014 TE is not a position the Saints reach for."
+      },
+      "college_production": {
+        "production_floor": "No clear floor \u2014 Trautman had 70 catches and 14 TDs at Dayton (low-level competition). Matavao had limited receiving production.",
+        "production_trajectory": "Limited data \u2014 this is a developmental pick position for the Saints.",
+        "context_sensitivity": "High \u2014 willing to credit small-school or rotational production if athletic ceiling is high."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2020 R3.105 \u2014 Adam Trautman: 6-5, 255, 4.80 40. Dayton. Small-school TE with athletic ceiling. 70 catches, 14 TDs in college. Traded up to draft him.",
+          "2025 R7.248 \u2014 Moliki Matavao: 6-5, 255. UCLA. Athletic, developmental TE. Limited receiving production (41 catches, 506 yards in final year)."
+        ]
+      },
+      "confidence": "low"
+    },
+    "RB": {
+      "archetype_summary": "Versatile, three-down back with receiving ability. The Kamara selection (2017 R3) defines the archetype \u2014 a dynamic receiving back who can create mismatches in the passing game. Kendre Miller (2023 R3) was a more traditional power runner with burst. Devin Neal (2025 R6) is a workhorse with receiving chops. The Saints prefer RBs who can do everything rather than specialists, and never draft them before Round 3.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-0",
+        "weight_range": "210-230",
+        "arm_length_minimum": "N/A for RBs",
+        "key_athletic_tests": "3-cone and short shuttle for agility. 40-yard dash for burst. Kamara's receiving testing mattered. Vertical jump for explosiveness.",
+        "speed_requirement": "4.55 or faster preferred. Kamara ran 4.56. Miller ran 4.49."
+      },
+      "playing_style": {
+        "primary_win_condition": "Receiving ability and versatility. The Saints' offensive system under Payton and now Moore values RBs who can catch passes and line up in multiple spots.",
+        "most_valued_traits": [
+          "Pass-catching ability and route running",
+          "Lateral agility and vision",
+          "Three-down capability including pass protection",
+          "Durability and workhorse potential",
+          "Burst and explosive play ability"
+        ],
+        "least_important_traits": [
+          "Pure straight-line speed \u2014 they want agile, elusive runners rather than pure speed backs"
+        ],
+        "deal_breakers": [
+          "Inability to catch passes or contribute in the passing game",
+          "Poor pass protection \u2014 their RBs must be on the field on 3rd down"
+        ],
+        "traits_that_make_them_reach": "Dynamic receiving ability. Kamara at pick 67 was considered a reach by some for a committee back, but his dual-threat ability made him Offensive ROY."
+      },
+      "college_production": {
+        "production_floor": "500+ rushing yards in final season for Day 2-3 RBs. Kamara had 596 rushing yards at Tennessee (committee). Miller had 1,399 yards. Neal had 1,266 yards.",
+        "production_trajectory": "Diverse \u2014 Kamara was a committee back; Miller and Neal were workhorse backs. Values the receiving component regardless.",
+        "context_sensitivity": "High \u2014 Kamara's limited rushing stats were contextualized by his receiving production and electric playmaking ability."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2017 R3.67 \u2014 Alvin Kamara: 5-10, 215, 4.56 40. Tennessee. 596 rush yards, 40 catches. Dual-threat weapon. Offensive ROY. 6x Pro Bowler.",
+          "2023 R3.71 \u2014 Kendre Miller: 5-11, 220, 4.49 40. TCU. 1,399 yards, 17 TDs. Power runner with burst and lateral agility.",
+          "2025 R6.184 \u2014 Devin Neal: 5-11, 215. Kansas. 4,343 career rush yards. 49 career rush TDs. Workhorse with 24 receptions in final year."
+        ]
+      },
+      "confidence": "medium_high"
+    },
+    "QB": {
+      "archetype_summary": "The Saints do not draft QBs early and prefer to acquire starters via free agency (Brees, Carr) or let them develop from mid-to-late rounds. Tyler Shough (2025 R2.40) is the highest QB drafted since Archie Manning in 1971. The profile under the new Moore regime emphasizes pocket passing with enough mobility to extend plays, arm strength, and intelligence. Shough was a multi-program transfer (Oregon, Texas Tech, Louisville) with a strong arm and pocket presence who succeeded as a starter in his rookie year.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-5",
+        "weight_range": "210-235",
+        "arm_length_minimum": "N/A \u2014 arm strength matters more than length",
+        "key_athletic_tests": "Arm velocity and accuracy are paramount. Mobility is valued for pocket movement, not designed runs.",
+        "speed_requirement": "N/A \u2014 not a testing-driven position for this front office"
+      },
+      "playing_style": {
+        "primary_style": "Pocket passer with enough mobility to extend plays. Shough has a strong arm and can move in the pocket. Rattler and Haener were mid-round developmental swings.",
+        "most_valued_traits": [
+          "Arm strength and accuracy",
+          "Pocket presence and poise under pressure",
+          "Intelligence and ability to run the offense",
+          "Competitive toughness and leadership",
+          "Experience and maturity (Shough was 25 when drafted)"
+        ],
+        "least_important_traits": [
+          "Designed running ability \u2014 the Saints don't draft run-first QBs",
+          "Elite combine measurables \u2014 film and intangibles matter more"
+        ],
+        "deal_breakers": [
+          "Run-first QBs with questionable passing ability",
+          "Major accuracy concerns"
+        ],
+        "traits_that_make_them_reach": "Not enough data \u2014 the Saints have never reached for a QB. Even Shough at 40 was considered value-appropriate."
+      },
+      "college_production": {
+        "production_floor": "Starting experience required. Shough had 5+ years of college experience across 3 programs. Rattler had 48 career starts.",
+        "production_trajectory": "Values maturity and experience over early breakout age.",
+        "context_sensitivity": "High \u2014 credits multiple programs and adversity. Shough's multiple transfers and injury comeback were viewed positively by the coaching staff."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2025 R2.40 \u2014 Tyler Shough: 6-5, 225. Louisville. 5-year college career (Oregon, Texas Tech, Louisville). Highest QB drafted by Saints since 1971. Won starting job, became franchise QB in Year 1.",
+          "2024 R5.150 \u2014 Spencer Rattler: 6-0, 211. South Carolina. Former 5-star with 48 career starts. Development pick who started 6 games as rookie.",
+          "2023 R4.127 \u2014 Jake Haener: QB, Fresno State. Senior Bowl MVP. Pocket passer with leadership. Developmental depth.",
+          "2021 R4.133 \u2014 Ian Book: 6-0, 211. Notre Dame. Former HS recruit who evolved at ND. Developmental pocket passer."
+        ]
+      },
+      "confidence": "medium"
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 10,
+    "max_observed_reach": 18,
+    "round_1_reach_tolerance": 12,
+    "notes": "Loomis is comfortable with significant reaches in Round 1 when his board says the player is worth it. Payton Turner at 28 was widely considered a 15+ pick reach. Marcus Davenport required trading up 13 spots. Cesar Ruiz at 24 surprised many who didn't see IOL as a need. The Saints' internal board frequently diverges from consensus, and Loomis explicitly trusts his process: 'I believe in our evaluation process, I believe in our grades.'"
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.55,
+    "offensive_scheme": "Kellen Moore's offense is a West Coast-influenced system with RPO concepts and a strong run game. Featured Saquon Barkley's 2,000-yard season in Philadelphia. Doug Nussmeier runs the day-to-day offense as OC. The system values versatile offensive linemen who can pass protect and execute zone/gap run concepts, and pass-catching RBs.",
+    "defensive_scheme": "Brandon Staley's 3-4 base defense, a major shift from the Saints' decades-long 4-3 alignment. Vic Fangio coaching tree scheme. Emphasizes split-safety coverage shells, zone-heavy coverage (Cover 3, Cover 6), and the ability to rush from multiple positions. Wants big nose tackles (310+), versatile 3-4 DEs (280-300), standup OLBs who can rush and drop into coverage, and cover-capable ILBs.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "MAJOR scheme change in 2025. The Saints shifted from a 4-3 base (run since the 1990s) to Staley's 3-4. This will affect 2026 draft targets significantly: standup EDGE/OLB, bigger DTs for nose, and versatile defenders who can play zone are now premium. The man-press CB prototype may evolve toward more zone-capable corners. This is the first full offseason with the 3-4 installed, and the 2026 draft will be the first class built specifically for it."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.65,
+    "risk_description": "Moderately aggressive. Loomis will bet on physical upside (Turner, Davenport, Penning) and has a history of high-risk/high-reward first-round picks. Two of his biggest misses (Davenport, Penning, Turner) were aggressive bets on physical tools over proven production. But he also takes safe picks (Banks, Fuaga, Olave). The pattern is: aggressive at EDGE/OT, safer at other positions.",
+    "recency_bias": 0.55,
+    "recency_description": "Moderate. After losing Terron Armstead in FA, drafted Penning immediately. After OL struggled in 2023, drafted Fuaga in 2024 and Banks in 2025. After losing Hendrickson and Davenport, invested heavily in EDGE. The Saints have drafted an offensive or defensive lineman in Round 1 every year since 2020 \u2014 the OL/DL pipeline is responding to years of decline at those positions.",
+    "sunk_cost_behavior": "Moves on relatively quickly from busts. Traded Penning (2022 R1) for a 7th-round pick after he failed to develop. Cut Adam Trautman (2020 R3) quickly and traded him. But extended Kamara through struggles. The pattern: moves on fast from mid-round busts, gives more rope to high-round picks but ultimately cuts bait.",
+    "combine_weight": 0.55,
+    "combine_description": "Moderately combine-influenced, particularly at EDGE and OT where physical measurables (arm length, explosiveness) serve as eliminators. But Ireland has said he values 'height, weight, speed' explicitly \u2014 the combine confirms film rather than overriding it. Will draft players with underwhelming measurables if the film is strong (A.T. Perry, 4.49 40, drafted despite being slower than typical Saints WRs).",
+    "character_weight": 0.65,
+    "character_description": "Values character and leadership. Senior Bowl performance and captain credentials are frequently mentioned in draft pick explanations. Ireland praised Bresee's character after personal tragedy. Multiple picks (McCoy, Fuaga, Banks) were team captains. But not a hard-line character organization \u2014 they drafted Rattler despite mixed reputation and took some Day 3 character risks.",
+    "quarterback_philosophy": "Historically acquires franchise QBs via free agency (Brees 2006, Carr 2023) or trade rather than draft. The 2025 Shough pick at R2.40 represents a shift \u2014 the first QB drafted in the first two rounds since 1971. Loomis stated: 'You're always wanting to take swings and develop the position. That's good business. I think the thing that you have to really resist is over-drafting and taking someone way sooner.' The Saints have drafted a QB in three straight drafts (Haener R4, Rattler R5, Shough R2), suggesting an evolving willingness to invest in the position. However, they have never and likely will never trade up for a QB in Round 1."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.55,
+    "production_vs_projection": "Balanced but leans slightly toward production. At WR (Olave), IOL (McCoy), LB (Werner), and CB (Lattimore, McKinstry), the Saints draft highly productive college players. But at EDGE (Turner, Davenport), they have repeatedly bet on physical traits over production. The dichotomy: production matters at most positions, but at EDGE, size/length/athleticism can override it.",
+    "production_thresholds_by_position": {
+      "WR": "50+ catches and/or 10+ TDs in final season for early-round WRs",
+      "RB": "No strict floor \u2014 Kamara had modest rushing numbers but electric playmaking",
+      "EDGE": "No strict floor \u2014 Turner had 5 sacks in 5 games, Davenport had 8.5 sacks",
+      "CB": "No strict statistical floor \u2014 values PBUs and film quality over INT totals",
+      "OT": "2+ years starting preferred; multi-year dominance at a high level",
+      "IOL": "Multi-year starter with consistency",
+      "DT": "4+ TFLs in final season for early-round picks",
+      "LB": "60+ tackles in final season for Day 1-2 LBs",
+      "S": "Ball production valued \u2014 3+ career INTs preferred for early picks"
+    },
+    "breakout_age_sensitivity": 0.4,
+    "dominator_rating_sensitivity": 0.45,
+    "notes": "Ireland values the Senior Bowl pipeline heavily \u2014 multiple Saints picks each year come from the Senior Bowl. The game serves as a de facto extra evaluation data point. Ireland frequently mentions height/weight/speed as a starting baseline before getting into film evaluation. Production validates the physical profile rather than standing alone."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "40_yard_max": 4.45,
+        "min_arm_length": "31 inches",
+        "min_height": "5-11",
+        "confidence": "very_high"
+      },
+      "EDGE": {
+        "min_arm_length": "33 inches",
+        "min_height": "6-3",
+        "min_weight": 255,
+        "confidence": "high"
+      },
+      "OT": {
+        "min_arm_length": "33.75 inches",
+        "min_height": "6-5",
+        "min_weight": 310,
+        "confidence": "high"
+      },
+      "WR": {
+        "40_yard_max": 4.5,
+        "notes": "Olave 4.39, Means 4.43, Perry 4.49. Speed matters but no hard cutoff above 4.50",
+        "confidence": "medium"
+      },
+      "S": {
+        "40_yard_max": 4.55,
+        "notes": "Williams 4.56 is the exception \u2014 generally prefer sub-4.55",
+        "confidence": "medium"
+      },
+      "DT": {
+        "min_height": "6-2",
+        "min_weight": 285,
+        "confidence": "medium"
+      },
+      "LB": {
+        "40_yard_max": 4.65,
+        "notes": "Werner 4.62, Baun 4.65. Want sideline-to-sideline range",
+        "confidence": "medium"
+      },
+      "IOL": {
+        "no_clear_threshold": true,
+        "notes": "Values strength testing and versatility over athletic measurables",
+        "confidence": "low"
+      },
+      "RB": {
+        "no_clear_threshold": true,
+        "notes": "Has drafted across the athletic spectrum",
+        "confidence": "low"
+      }
+    },
+    "threshold_type": "Hard cutoffs at CB (speed), EDGE (arm length), and OT (arm length/size). Softer preferences at other positions where film can override testing.",
+    "size_preferences_by_position": {
+      "DT": "Shifting to 310+ for nose tackle in 3-4, 285-305 for 3-4 DE",
+      "LB": "232-250 for ILB. OLB/EDGE size handled in EDGE profile.",
+      "S": "200+ preferred for physicality in run support",
+      "WR": "No strong size preference \u2014 5-11 Olave to 6-5 Perry. Values speed over size.",
+      "TE": "6-4+ with athletic testing upside"
+    },
+    "athletic_testing_favorites": "Arm length is the single most important measurable for EDGE and OT. 40-yard dash is the eliminator for CBs. Vertical jump and broad jump matter for explosiveness assessment at EDGE and WR. The Saints appear to weight the Senior Bowl evaluation process as heavily as combine testing \u2014 multiple picks annually come from the Senior Bowl pool.",
+    "measurables_vs_film": "Film-first organization overall, with measurables serving as eliminators at specific positions. Ireland's Parcells-tree background creates hard cutoffs at premium positions (length for EDGE/OT, speed for CB). When a player tests poorly but has great film, the Saints will still draft them on Day 3 (Perry, 4.49 WR) but typically not in Rounds 1-2. When a player tests well but has questionable film, they have bet on upside in Round 1 (Turner, Davenport, Penning) \u2014 sometimes to their detriment."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium positions (OT, EDGE, DT, CB, WR) only. High-floor players who can start immediately preferred, but will bet on upside for EDGE/OT. Trades up aggressively \u2014 has never traded down in Round 1 since 2007. Typically addresses the team's biggest need at a premium position. OL or DL in Round 1 every year since 2020.",
+    "round_2_3_strategy": "Aggressive need-filling with willingness to trade up. CB is a frequent Round 2 target (Taylor R2, McKinstry R2, Adebo traded up in R3). EDGE and RB addressed here. The BPA-to-need transition happens decisively in Round 2. Will package picks to move up for targeted players.",
+    "day_3_strategy": "Developmental athletes, special teams contributors, and position-specific depth. QBs have been drafted on Day 3 in 3 of last 4 years (Book R4, Haener R4, Rattler R5 before Shough R2). Uses Day 3 for WR depth, backup OL, and small-school athletes with upside (Boyd from Northern Iowa, Jackson from Air Force, Perry from Wake Forest, Saldiveri from Old Dominion).",
+    "compensatory_pick_usage": "Uses comp picks normally \u2014 no distinct behavioral difference observed. In 2024, used 3 comp 5th-rounders on need positions (Rattler, Means, Ford)."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "OT": {
+        "picks": 5,
+        "starters": 3,
+        "rate": 0.6,
+        "note": "Ramczyk was elite; Fuaga and Banks look good. Penning was a bust. Mixed but recent trend positive."
+      },
+      "EDGE": {
+        "picks": 5,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "Jordan (pre-Ireland) was elite. Hendrickson became a star elsewhere. Davenport and Turner were busts. Foskey still developing. Concerning hit rate at a premium position."
+      },
+      "CB": {
+        "picks": 5,
+        "starters": 4,
+        "rate": 0.8,
+        "note": "Lattimore was DROY and 4x Pro Bowler. Adebo became a starter. Taylor became a starter. McKinstry contributing. Excellent CB evaluation."
+      },
+      "IOL": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "McCoy became a long-term starter. Ruiz has been adequate. Saldiveri is a swing backup. Solid."
+      },
+      "DT": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Bresee has not lived up to first-round billing. Broughton too early to judge. Below average."
+      },
+      "WR": {
+        "picks": 4,
+        "starters": 1,
+        "rate": 0.25,
+        "note": "Olave was an immediate impact starter. Perry, Means, Baker have been depth/minor contributors. Low volume of early investment."
+      },
+      "LB": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Werner became a starter. Baun became a star in Philadelphia after leaving. Anzalone started for Detroit. The Saints develop LBs who succeed elsewhere."
+      },
+      "RB": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Kamara was an All-Pro. Miller had injury issues. Neal too early to judge."
+      },
+      "S": {
+        "picks": 4,
+        "starters": 3,
+        "rate": 0.75,
+        "note": "Williams became a starter and earned a big FA deal. CGJ became an All-Pro in Philly. Sanker started as a rookie. Excellent evaluation."
+      },
+      "QB": {
+        "picks": 4,
+        "starters": 1,
+        "rate": 0.25,
+        "note": "Shough won the starting job in his rookie year and appears to be the franchise QB. Book and Haener were non-factors. Rattler started 6 games as a fill-in. Too early for final judgment."
+      }
+    },
+    "blind_spots": [
+      "EDGE evaluation has been inconsistent \u2014 Davenport, Turner, and the pre-Ireland EDGE picks were costly misses. The physical-traits-over-production approach has burned them repeatedly at this position.",
+      "DT evaluation post-Bresee is a concern \u2014 first-round DT has not panned out."
+    ],
+    "strengths": [
+      "CB evaluation is elite \u2014 4 of 5 early-round CBs became starters or significant contributors",
+      "Safety evaluation is excellent \u2014 Williams, CGJ, and Sanker all panned out",
+      "OT evaluation has improved significantly in recent drafts (Banks, Fuaga) after the Penning miss"
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Historically aggressive cap manipulators who spent heavily in FA to maintain a win-now window with Brees/Payton. Now entering a rebuild phase with Kellen Moore. Loomis is infamous for pushing salary cap obligations into the future \u2014 the Saints have been over the cap entering the offseason for multiple consecutive years. The 2025-26 offseason features less cap hell ($13M over) than historic levels ($50M+). Expected to spend moderately in 2026 FA on middle-tier players while building through the draft.",
+    "fa_draft_correlation": "When a veteran starter is acquired at a position, the Saints typically still draft developmental players there on Day 3 but won't invest early capital. After signing Carr in 2023, they drafted Haener (R4) and Rattler (R5) \u2014 developmental swings. After signing Chase Young in 2024, they didn't draft EDGE until 2025. The pattern: FA fills the immediate need, draft develops the future.",
+    "roster_construction_philosophy": "Historically built through a combination of aggressive FA spending and targeted drafting at premium positions. Now shifting toward a draft-centric rebuild under Moore. The 2025 draft class (9 picks) was the most draft-heavy approach in years, and the 2026 draft with pick 8 overall will continue this trend. Loomis has acknowledged the team is in 'rebuilding mode.'"
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 65,
+    "notable_patterns": [
+      "OL or DL drafted in Round 1 every year from 2020-2025 (6 consecutive years)",
+      "Has never traded back in Round 1 since 2007 \u2014 26+ trades up in that span",
+      "Senior Bowl pipeline is critical \u2014 multiple picks annually come from Senior Bowl participants (Haener, Fuaga, Turner all Senior Bowl performers)",
+      "CB drafted in Rounds 1-3 in 2017, 2021, 2022, 2024, and 2025 \u2014 consistent early investment",
+      "QB never drafted in Round 1 (last time was 1971). Shough at R2.40 in 2025 is highest since then.",
+      "Has not drafted a QB in the first round despite decades of need \u2014 acquires starters via FA or trade",
+      "Ohio State is a frequent source: Lattimore, Werner, Olave, Adebo's mentor was former Buckeye. 8 OSU picks since 2003."
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2021,
+        "pick": "1.28",
+        "player": "Payton Turner",
+        "position": "EDGE",
+        "consensus_rank": 50,
+        "reach_amount": 22,
+        "context": "Widely seen as a 2nd-round prospect. Senior Bowl riser. 6-6, 270, 34.25 inch arms. Fit the Parcells EDGE prototype. Plagued by injuries in NFL."
+      },
+      {
+        "year": 2018,
+        "pick": "1.14",
+        "player": "Marcus Davenport",
+        "position": "EDGE",
+        "consensus_rank": 25,
+        "reach_amount": 11,
+        "context": "Traded up from 27 to 14, giving up a future 1st. UTSA small-school prospect with elite physical traits (6-6, 264, 34 inch arms). Inconsistent NFL career."
+      },
+      {
+        "year": 2020,
+        "pick": "1.24",
+        "player": "Cesar Ruiz",
+        "position": "IOL",
+        "consensus_rank": 35,
+        "reach_amount": 11,
+        "context": "IOL was not widely seen as a top need for a Super Bowl contender. Surprised many analysts."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2017,
+        "pick": "3.67",
+        "player": "Alvin Kamara",
+        "position": "RB",
+        "consensus_rank": 50,
+        "value_amount": 17,
+        "context": "Fell to the 3rd round despite elite receiving ability. Became Offensive ROY and 6x Pro Bowler."
+      },
+      {
+        "year": 2017,
+        "pick": "3.103",
+        "player": "Trey Hendrickson",
+        "position": "EDGE",
+        "consensus_rank": 120,
+        "value_amount": 17,
+        "context": "Small-school FAU EDGE who became an All-Pro with the Bengals after leaving New Orleans."
+      },
+      {
+        "year": 2019,
+        "pick": "4.105",
+        "player": "Chauncey Gardner-Johnson",
+        "position": "S",
+        "consensus_rank": 70,
+        "value_amount": 35,
+        "context": "Versatile S/nickel who became an All-Pro in Philadelphia. 9 career college INTs. Traded up to get him."
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_notes": "24 drafts of data under Loomis provides an extremely robust behavioral profile. Ireland's 11-year tenure as college scouting lead adds further consistency. The major uncertainty is the 2025 coaching staff change (Moore, Staley) and the 3-4 scheme shift, which will alter defensive draft archetypes. The 2025 draft (Banks, Shough, Broughton, Sanker) is the first data point under the new regime and shows continuity in OL-first philosophy with some new wrinkles (2nd-round QB, 3-4 defensive picks). The 2026 draft at pick 8 will be a critical test of how the new coaching staff influences Loomis/Ireland's established patterns.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

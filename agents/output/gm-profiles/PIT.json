@@ -1,0 +1,833 @@
+{
+  "team": {
+    "name": "Pittsburgh Steelers",
+    "abbreviation": "PIT",
+    "division": "AFC North",
+    "current_draft_position": 21
+  },
+  "front_office": {
+    "gm": {
+      "name": "Omar Khan",
+      "title": "General Manager",
+      "hired": "2022-05-25",
+      "previous_role": "Vice President of Football and Business Administration, Pittsburgh Steelers",
+      "drafts_as_gm": 3,
+      "confidence": "medium"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Tulane University",
+          "role": "Undergraduate Assistant (Football)",
+          "years": "1995-1997",
+          "mentor": "Tulane coaching staff"
+        },
+        {
+          "org": "New Orleans Saints",
+          "role": "Scouting/Personnel Intern",
+          "years": "1996-1997",
+          "mentor": "Saints front office"
+        },
+        {
+          "org": "New Orleans Saints",
+          "role": "Player Personnel Assistant",
+          "years": "1998-1999",
+          "mentor": "Randy Mueller / Jim Haslett"
+        },
+        {
+          "org": "New Orleans Saints",
+          "role": "Football Operations/Coaching Assistant",
+          "years": "2000",
+          "mentor": "Jim Haslett"
+        },
+        {
+          "org": "Pittsburgh Steelers",
+          "role": "Football Operations Coordinator",
+          "years": "2001-2010",
+          "mentor": "Kevin Colbert"
+        },
+        {
+          "org": "Pittsburgh Steelers",
+          "role": "Director of Football Administration",
+          "years": "2011-2015",
+          "mentor": "Kevin Colbert"
+        },
+        {
+          "org": "Pittsburgh Steelers",
+          "role": "Vice President of Football and Business Administration",
+          "years": "2016-2022",
+          "mentor": "Kevin Colbert / Art Rooney II"
+        },
+        {
+          "org": "Pittsburgh Steelers",
+          "role": "General Manager",
+          "years": "2022-present",
+          "mentor": "N/A \u2014 principal decision-maker"
+        }
+      ],
+      "primary_mentor": "Kevin Colbert (Pittsburgh Steelers, 2001-2022)",
+      "philosophical_lineage": "Khan spent 21 years alongside Kevin Colbert, absorbing the Steelers' draft-and-develop ethos. His cap/business background, however, differentiates him. Khan's first hire was bringing in Andy Weidl from the Eagles/Ravens scouting tree, merging the Steelers' traditional toughness-first philosophy with Ozzie Newsome/Howie Roseman-lineage evaluation. Weidl's influence is visible in the heavy trench emphasis and willingness to draft athletes and develop them.",
+      "breakpoints": "More aggressive than Colbert on draft-day trades \u2014 traded up in round 1 in his very first draft (2023). Also more aggressive in free agency and mid-season trades (DK Metcalf, Jalen Ramsey, Patrick Queen). Willing to make splashy transactions Colbert historically avoided.",
+      "lineage_weight": 0.35,
+      "lineage_weight_notes": "3 full drafts of own data, plus Khan has demonstrably diverged from Colbert in trade/FA aggression. Weidl's influence as the actual board-builder is arguably more predictive than Khan's Colbert lineage. Weight will drop further after 2026 draft."
+    },
+    "primary_decision_maker": "Omar Khan (final say), with Andy Weidl constructing the draft board",
+    "key_influencers": [
+      {
+        "name": "Andy Weidl",
+        "title": "Assistant General Manager",
+        "influence_level": "very_high",
+        "known_biases": "Former offensive lineman \u2014 loves scouting OL. Schooled under Ozzie Newsome (Ravens) and Howie Roseman (Eagles). Emphasizes physical and mental toughness. Credited as the architect of the OL rebuild (Jones, Fautanu, Frazier, McCormick). Loves linemen who are 'dogs' \u2014 physical, high-motor, finishers. May depart for a GM job (interviewed with Falcons, linked to Vikings)."
+      },
+      {
+        "name": "Mike McCarthy",
+        "title": "Head Coach",
+        "influence_level": "high",
+        "known_biases": "Offensive-minded, West Coast offense background. Wants athletic, mobile QBs who can play within rhythm and extend plays. Committed to keeping 3-4 defense. Values QB development. Known for maximizing QB talent (Favre, Rodgers, Prescott). Will likely push for offensive weapons and pass protection in the draft."
+      },
+      {
+        "name": "Patrick Graham",
+        "title": "Defensive Coordinator",
+        "influence_level": "medium",
+        "known_biases": "New DC hire under McCarthy. Experience running both 3-4 and 4-3. Ran heavy Cover 3 in Las Vegas in 2025. Will maintain Steelers' 3-4 base. Flexible schematically but values versatile defensive players."
+      },
+      {
+        "name": "Art Rooney II",
+        "title": "Team President/Owner",
+        "influence_level": "medium",
+        "known_biases": "Values organizational stability and 'the Steeler Way.' Extended Khan through 2028. Does not typically meddle in specific draft picks, but sets philosophical direction. Emphasized maintaining the 3-4 defensive tradition."
+      }
+    ],
+    "power_dynamics": "Khan has final say on selections, but Weidl builds the actual draft board. This is a critical distinction \u2014 beat reporters note Weidl, not Khan, is responsible for constructing the team's draft board. Khan's background is in cap management and contract negotiation rather than traditional scouting. McCarthy will have significant input on offensive personnel in his first draft with the team. With Tomlin gone, Khan may now be the primary driving force behind roster decisions.",
+    "owner_interference": "low"
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.55,
+    "bpa_weight_by_round": {
+      "1": 0.6,
+      "2": 0.5,
+      "3": 0.45,
+      "4_plus": 0.35
+    },
+    "stated_philosophy": "Best player available who fits the Steelers' DNA \u2014 physical, tough, high-character players",
+    "actual_philosophy": "Leans BPA in round 1 but with a clear positional hierarchy favoring the trenches. In 3 drafts, 3 of 3 first-round picks have been OT or DT. When BPA and trench need align, they pounce. They shift heavily toward need-filling in rounds 2-3 (Frazier at C was a clear need pick; Roman Wilson at WR was a need pick). Day 3 is developmental athletes and 'Steelers DNA' types.",
+    "philosophy_mismatch_notes": "Claims BPA but has taken a trench player with every single first-round pick across 3 drafts. The trench obsession is the actual philosophy, not pure BPA. Khan himself hinted at 2026 combine that the team may finally move away from trenches in round 1 after 3 straight years there."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.55,
+    "trade_down_willingness": 0.45,
+    "trades_per_draft_average": 2.0,
+    "trade_triggers": [
+      "A targeted player at a premium position begins to slide toward their pick range (traded up for Broderick Jones in 2023)",
+      "Opportunity to accumulate additional Day 2/3 picks by trading back in mid-rounds (traded back in round 3 in 2023 to gain extra 4th rounder)",
+      "Mid-season trades for undervalued veterans (Claypool for a 2nd, DK Metcalf for a 2nd, Jalen Ramsey trade)",
+      "Reporter Aditi Kinkhabwala noted Khan is 'certainly more aggressive than Kevin Colbert' who only traded up in round 1 three times total"
+    ],
+    "draft_capital_philosophy": "Willing to consolidate and spend picks to move up for targeted players. Also adept at extracting value from outgoing players (Claypool trade was a masterclass). Has sent 2nd-round picks for veterans (Metcalf). More aggressive with draft capital than predecessor Colbert. In 2026, the Steelers project to have 12 picks, giving them ammunition to package picks aggressively."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "OT",
+        "DT",
+        "EDGE",
+        "CB"
+      ],
+      "tier_2_high": [
+        "IOL",
+        "LB",
+        "WR"
+      ],
+      "tier_3_mid": [
+        "TE",
+        "S",
+        "QB"
+      ],
+      "tier_4_low": [
+        "RB",
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "QB in round 1 \u2014 Khan/Weidl have not drafted a QB in rounds 1-5 in 3 drafts (only Will Howard in round 6 in 2025). Prefer to address QB via trade/FA (Russell Wilson, Justin Fields, Aaron Rodgers). Reported to have 'little if no intention' of taking a QB with their 2026 first-round pick.",
+      "RB in early rounds \u2014 only drafted Kaleb Johnson in round 3 (2025) after losing Najee Harris in FA. Not a position they invest premium capital in."
+    ],
+    "position_premium": [
+      "Offensive line \u2014 4 of first 5 picks in 2024 draft were OL; OT taken in round 1 in both 2023 and 2024. Weidl used 14 of 30 pre-draft visits on OL in 2024.",
+      "Interior defensive line \u2014 Keeanu Benton (Rd 2, 2023), Logan Lee (Rd 6, 2024), Derrick Harmon (Rd 1, 2025), Yahya Black (Rd 5, 2025). Four DT/DE picks in 3 drafts.",
+      "EDGE/OLB \u2014 Nick Herbig (Rd 4, 2023), Jack Sawyer (Rd 4, 2025). Essential to 3-4 scheme."
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Productive, high-motor, undersized pass rush specialist who fits the 3-4 OLB mold. The Khan/Weidl regime has not invested premium draft capital at EDGE (TJ Watt and Alex Highsmith predate them), instead targeting Day 2-3 productive college rushers who can develop behind established starters. They value sack production and motor over elite length or size.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-4",
+        "weight_range": "235-265",
+        "arm_length_minimum": "No hard minimum \u2014 drafted Herbig at 31.25 inches, well below typical EDGE thresholds",
+        "key_athletic_tests": "First-step quickness and pass-rush win rate valued over raw speed. Herbig: 4.65 40. Jack Sawyer: 6-4, 260, more traditional size. Speed is secondary to motor and technique.",
+        "speed_requirement": "4.70 or faster preferred but not a hard cutoff"
+      },
+      "playing_style": {
+        "primary_win_condition": "Motor, effort, and relentless pass rush \u2014 Herbig led NFL in pass-rush win rate (26.3%) on limited snaps in 2025",
+        "most_valued_traits": [
+          "High motor and effort consistency",
+          "Pass rush productivity (sacks, TFLs)",
+          "Ability to set the edge in 3-4 scheme",
+          "Versatility to stand up or put hand in dirt",
+          "Forced fumble/turnover creation"
+        ],
+        "least_important_traits": [
+          "Elite length \u2014 willingness to draft shorter-armed rushers like Herbig shows length is not a priority",
+          "Coverage ability \u2014 these are rush specialists"
+        ],
+        "deal_breakers": [
+          "Low college production \u2014 both Herbig (11 sacks) and Sawyer were highly productive",
+          "Inability to play in a 3-4 scheme"
+        ],
+        "traits_that_make_them_reach": "High sack production in a Power 5 conference"
+      },
+      "college_production": {
+        "production_floor": "9+ sacks or equivalent disruption in final college season for early-round picks",
+        "production_trajectory": "Values ascending production \u2014 Herbig went from 1 sack to 9 to 11. Sawyer had strip sack in CFP Cotton Bowl as signature play.",
+        "context_sensitivity": "Moderate \u2014 both Herbig and Sawyer came from strong programs (Wisconsin, Ohio State)"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2023 4.132 \u2014 Nick Herbig: 6-2, 240, 4.65 40, 31.25 arms. 11 sacks as junior at Wisconsin. High motor, undersized but productive.",
+          "2025 4.123 \u2014 Jack Sawyer: 6-4, 260, Ohio State. High-motor DE with run-stopping ability, signature Cotton Bowl strip sack."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 2 EDGE picks in rounds 1-4 under Khan/Weidl. Both Day 3 selections. The regime has not needed to invest premium capital at EDGE due to having TJ Watt and Alex Highsmith. Profile largely inferred from scheme needs."
+    },
+    "OT": {
+      "archetype_summary": "Athletic, long-armed tackles with upside who can move people in the run game. Both OT picks under Khan/Weidl were first-rounders \u2014 athletic specimens with 34+ inch arms, strong pass protection traits, and the agility to work in zone-blocking concepts. They want tackles who are finishers with a mean streak.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-5",
+        "weight_range": "311-317",
+        "arm_length_minimum": "34 inches \u2014 both Jones (34\") and Fautanu (34.5\") meet this threshold",
+        "key_athletic_tests": "40-yard dash (both sub-5.01), explosiveness metrics. Jones: 4.97 40 (92nd percentile for OT), 30\" vert. Fautanu: 5.01 40, 32.5\" vert, 113\" broad jump.",
+        "speed_requirement": "Sub-5.05 40 preferred \u2014 values athletic OT who can reach the second level"
+      },
+      "playing_style": {
+        "primary_win_condition": "Athletic pass protectors who can also reach-block and climb to the second level in the run game",
+        "most_valued_traits": [
+          "Athleticism and foot speed for pass protection",
+          "Length usage and hand placement",
+          "Finishing mentality \u2014 'mean streak'",
+          "Agility to work in zone concepts",
+          "High college-level pass blocking grades"
+        ],
+        "least_important_traits": [
+          "Pure mauling power \u2014 both picks were athletes first, power blockers second"
+        ],
+        "deal_breakers": [
+          "Short arms (sub-34 inches)",
+          "Poor lateral agility",
+          "Cannot mirror speed rushers"
+        ],
+        "traits_that_make_them_reach": "Elite athleticism score for the position \u2014 both Jones and Fautanu had 88th+ percentile speed scores for OT"
+      },
+      "college_production": {
+        "production_floor": "Must be multi-year starter at a Power 5 school. Jones: started every game in 2022 for Georgia, zero sacks allowed. Fautanu: started every game for 2 years at Washington, won Morris Trophy.",
+        "production_trajectory": "Values ascending arc \u2014 both were redshirts who developed into All-Conference starters",
+        "context_sensitivity": "High \u2014 both came from elite programs (Georgia, Washington)"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2023 1.14 \u2014 Broderick Jones: 6-5, 311, 4.97 40, 34\" arms. Georgia. Zero sacks allowed in 2022. Traded UP to select him. Khan: 'Love his athleticism. Love his upside.'",
+          "2024 1.20 \u2014 Troy Fautanu: 6-4, 317, 5.01 40, 34.5\" arms. Washington. Won Morris Trophy, Joe Moore Award. Khan: 'He was the player we wanted.'"
+        ]
+      },
+      "confidence": "high"
+    },
+    "IOL": {
+      "archetype_summary": "Tough, physical, high-character interior linemen who are plug-and-play starters. Values toughness and wrestling background (Frazier), positional versatility, and the ability to anchor. Not looking for pure athletes \u2014 looking for technicians who play with a nasty edge and can start immediately.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-4",
+        "weight_range": "305-320",
+        "arm_length_minimum": "No hard minimum \u2014 Frazier at 32.25\" arms is below typical thresholds but excels technically",
+        "key_athletic_tests": "Bench press (Frazier: 30 reps) and short shuttle valued. Anchor strength matters more than straight-line speed.",
+        "speed_requirement": "Not a priority \u2014 Frazier's 5.24 40 is slow but fine for IOL"
+      },
+      "playing_style": {
+        "primary_win_condition": "Anchor strength, hand fighting, and finishing ability at the point of attack",
+        "most_valued_traits": [
+          "Toughness and physicality \u2014 Frazier bear-crawled off field with broken fibula",
+          "Mauling run blocking with leg drive",
+          "Multi-year starting experience",
+          "Positional versatility (McCormick can play guard; Anderson is versatile)",
+          "Wrestling/combat sports background valued"
+        ],
+        "least_important_traits": [
+          "Raw athleticism \u2014 they've taken technically sound, tough players over athletic freaks"
+        ],
+        "deal_breakers": [
+          "Cannot anchor against power rushers",
+          "Injury-prone history (though Frazier was taken despite broken fibula)"
+        ],
+        "traits_that_make_them_reach": "Elite college production metrics (McCormick had 90.3 PFF grade, best among draft-eligible guards)"
+      },
+      "college_production": {
+        "production_floor": "Must be multi-year starter with All-Conference honors. Frazier: 4-year starter, 2x All-American, 3x team captain. McCormick: school-record 57 consecutive starts.",
+        "production_trajectory": "Values durability and consistency \u2014 both had extended starting runs",
+        "context_sensitivity": "Willing to draft from small schools (McCormick from South Dakota State)"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2024 2.51 \u2014 Zach Frazier: 6-3, 313, 32.25\" arms. West Virginia C. 2x All-American. Wrestling background. PFWA All-Rookie Team.",
+          "2024 4.119 \u2014 Mason McCormick: 6-4, 308. South Dakota State G. School-record 57 consecutive starts. 90.3 PFF grade.",
+          "2023 7.251 \u2014 Spencer Anderson: Maryland OL. Versatile interior player, developmental pick."
+        ]
+      },
+      "confidence": "high"
+    },
+    "DT": {
+      "archetype_summary": "Big, long, powerful interior defenders with versatility to play multiple techniques in the 3-4 front. The Steelers consistently target DTs with 34+ inch arms, 300+ pounds, and the ability to two-gap AND penetrate. They want players who can be disruptive against both the run and pass, with size/length to fill gaps and the athleticism to generate interior pressure.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-5",
+        "weight_range": "309-315",
+        "arm_length_minimum": "34 inches \u2014 Harmon (34.375\"), Benton (likely similar). The Steelers explicitly noted Harmon's 34+ inch arms as ideal.",
+        "key_athletic_tests": "40-yard dash matters for DT (Harmon: 4.95, Benton: 5.09). 10-yard split important for first-step burst. Values combination of mass AND movement.",
+        "speed_requirement": "Sub-5.10 40 preferred for early-round DT"
+      },
+      "playing_style": {
+        "primary_win_condition": "Versatility to play 3-technique, 2i-technique, or nose in the 3-4 front. Must be stout against the run AND generate interior pressure.",
+        "most_valued_traits": [
+          "Length and wingspan for controlling blockers",
+          "Upper body strength and powerful hands",
+          "Run defense versatility \u2014 can two-gap or penetrate",
+          "Interior pass rush ability (Harmon led FBS DTs with 55 pressures in 2024)",
+          "Motor and high snap count tolerance (Benton played 80-85% of snaps)"
+        ],
+        "least_important_traits": [
+          "Pure finesse pass-rush moves \u2014 these are power-first defenders"
+        ],
+        "deal_breakers": [
+          "Cannot hold the point of attack against double teams",
+          "Limited positional versatility \u2014 must play multiple alignments in 3-4"
+        ],
+        "traits_that_make_them_reach": "Rare combination of size, length, and pass-rush production from the interior"
+      },
+      "college_production": {
+        "production_floor": "4+ sacks or 10+ TFLs for early-round DT. Harmon: 5 sacks, 10.5 TFLs. Benton: 4.5 sacks, 10 TFLs.",
+        "production_trajectory": "Open to transfer portal risers \u2014 Harmon transferred from Michigan State to Oregon and exploded. Benton was a steady multi-year producer at Wisconsin.",
+        "context_sensitivity": "Adjusts for scheme \u2014 Harmon's breakout was partly attributed to Oregon's scheme unleashing him"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2025 1.21 \u2014 Derrick Harmon: 6-4.5, 313, 4.95 40, 34.375\" arms, 83\" wingspan. Oregon. 5 sacks, 10.5 TFLs, 55 pressures. Tomlin: 'He has Steelers DNA.'",
+          "2023 2.49 \u2014 Keeanu Benton: 6-4, 309, 5.09 40, 7.34 3-cone. Wisconsin. 4.5 sacks, 10 TFLs. 'Big strong guy. Really active. Good hands.'",
+          "2024 6.178 \u2014 Logan Lee: Iowa DL. Run defense specialist. Ranked 5th in Big Ten DT run-defense grade.",
+          "2025 5.156 \u2014 Yahya Black: Iowa DL. Versatile 4-technique. Run defense focus."
+        ]
+      },
+      "confidence": "high"
+    },
+    "CB": {
+      "archetype_summary": "Long, physical, press-man corners with length, size, and physicality at the catch point. Joey Porter Jr. is the prototype \u2014 6-2+, 34\" arms, physical in press coverage, disrupts at the catch point. They value length and press technique over pure speed or ball production. Perfect for a man-heavy scheme that relies on blitzing.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-3",
+        "weight_range": "189-198",
+        "arm_length_minimum": "No hard floor but strong preference for 32+ inches. Porter Jr: 34\" arms. Ryan Watts: 6-2 with physicality. Cory Trice: 6-3.",
+        "key_athletic_tests": "Speed matters but is not the primary filter. Porter Jr: 4.46 40. Values length metrics (arm length, wingspan) over pure timed speed.",
+        "speed_requirement": "4.50 or faster preferred but will go slower for elite length/physicality"
+      },
+      "playing_style": {
+        "primary_coverage_style": "Press-man \u2014 the Steelers' blitz-heavy scheme demands corners who can hold up one-on-one",
+        "most_valued_traits": [
+          "Length and disruption at the catch point",
+          "Press technique and physicality at the line",
+          "Run support and willingness to tackle",
+          "Hip fluidity and transition in man coverage",
+          "Competitive toughness \u2014 Porter Jr was called 'most physical CB in the draft class'"
+        ],
+        "least_important_traits": [
+          "Interception production \u2014 Porter Jr had limited INT numbers but elite PBUs (11 in final season)"
+        ],
+        "deal_breakers": [
+          "Cannot play man coverage",
+          "Poor tackler",
+          "Soft at the catch point"
+        ],
+        "traits_that_make_them_reach": "Elite length combined with press technique \u2014 Porter Jr's 34\" arms are freakish for a CB"
+      },
+      "college_production": {
+        "production_floor": "No clear statistical floor \u2014 Porter Jr had only 2 INTs in college. Values PBUs and film over raw INT numbers.",
+        "production_trajectory": "Prefers ascending producers \u2014 Porter Jr went from 4 PBUs to 11 in breakout junior year",
+        "context_sensitivity": "High \u2014 adjusts for competition level faced"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2023 2.32 \u2014 Joey Porter Jr.: 6-2.5, 193, 4.46 40, 34\" arms. Penn State. 11 PBUs as junior. Physical press-man specialist. Legacy pick but also BPA.",
+          "2023 7.241 \u2014 Cory Trice Jr.: 6-3, Purdue. Physically imposing, aggressive at the LOS. Day 3 flier on size/length.",
+          "2024 6.195 \u2014 Ryan Watts: 6-2, Texas. 84.9 run-defense grade. Physical corner with tackling prowess."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "S": {
+      "archetype_summary": "The Khan/Weidl regime has not drafted a safety in rounds 1-4 across 3 drafts. Safety has been addressed through trades (Minkah Fitzpatrick predated them; traded for Jalen Ramsey in 2025) and free agency. Based on Steelers' defensive scheme and scouting tree, they likely value versatile safeties who can play single-high, come down into the box, and support against the run in the AFC North.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-2",
+        "weight_range": "200-215",
+        "arm_length_minimum": "No data \u2014 no safeties drafted in early rounds",
+        "key_athletic_tests": "Range (40 time, vertical) and change-of-direction (3-cone) would be inferred priorities based on single-high demands",
+        "speed_requirement": "4.50 or faster likely required for a single-high role"
+      },
+      "playing_style": {
+        "primary_coverage_style": "Versatile \u2014 must play both single-high and in the box. The Steelers' blitz-heavy scheme demands safeties who can cover when extra rushers are sent.",
+        "most_valued_traits": [
+          "Range and ability to cover ground from a deep alignment",
+          "Physicality and willingness to support against the run",
+          "Versatility to play multiple safety roles",
+          "Tackling reliability \u2014 non-negotiable in AFC North"
+        ],
+        "least_important_traits": [
+          "Slot coverage ability \u2014 typically use nickel corners for that role"
+        ],
+        "deal_breakers": [
+          "Poor tackler in run support",
+          "Limited range for single-high alignment"
+        ],
+        "traits_that_make_them_reach": "No data to determine"
+      },
+      "college_production": {
+        "production_floor": "No data \u2014 no early-round S picks under this regime",
+        "production_trajectory": "Unknown",
+        "context_sensitivity": "Unknown"
+      },
+      "evidence": {
+        "picks_analyzed": 0,
+        "examples": []
+      },
+      "confidence": "very_low",
+      "confidence_note": "Zero safeties drafted in rounds 1-4 across 3 drafts. Profile entirely inferred from scheme needs and scouting tree. Weidl's Ravens background valued versatile safeties (Ed Reed, Matt Elam types). The Steelers have addressed S through veteran acquisitions (Fitzpatrick, Ramsey)."
+    },
+    "LB": {
+      "archetype_summary": "Length, athleticism, and coverage ability in a do-it-all linebacker who can blitz, cover, and tackle sideline-to-sideline. Payton Wilson is the prototype \u2014 6-4, 242 lbs, elite coverage grades, first-round talent who fell due to medical concerns. The regime is willing to bet on upside and medical risk at LB when the talent justifies it.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4",
+        "weight_range": "225-242",
+        "arm_length_minimum": "No hard threshold but values length \u2014 Payton Wilson at 6-4 is among the longest LBs in his class",
+        "key_athletic_tests": "Coverage athleticism is paramount. Payton Wilson earned 90.4 coverage grade at NC State. Speed and range valued.",
+        "speed_requirement": "4.55 or faster preferred to cover in the modern passing game"
+      },
+      "playing_style": {
+        "primary_coverage_style": "Three-down linebacker who can cover tight ends and running backs",
+        "most_valued_traits": [
+          "Coverage ability \u2014 Payton Wilson's 90.4 coverage grade was elite",
+          "Sideline-to-sideline range and tackling volume (138 tackles)",
+          "Blitz ability (6 sacks for Payton Wilson)",
+          "Length and intelligence",
+          "Ball-hawking ability (3 INTs for Payton Wilson)"
+        ],
+        "least_important_traits": [
+          "Pure thumping/run-stuffing ability without coverage skills"
+        ],
+        "deal_breakers": [
+          "Cannot cover in space \u2014 the modern NFL requires LBs to match up in passing game",
+          "Low tackle reliability"
+        ],
+        "traits_that_make_them_reach": "Elite coverage grades combined with blitz production \u2014 will take medical risks for this profile"
+      },
+      "college_production": {
+        "production_floor": "Must be a high-volume tackler with coverage production. Payton Wilson: 138 tackles, 6 sacks, 3 INTs.",
+        "production_trajectory": "Willing to bet on late breakouts if the athletic profile is elite",
+        "context_sensitivity": "Moderate \u2014 values production but medical evaluation clearly a major factor (Payton Wilson's missing ACL was known)"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2024 3.98 \u2014 Payton Wilson: 6-4, 242. NC State. 138 tackles, 18.5 TFLs, 6 sacks, 3 INTs. 89.9 PFF grade, 90.4 coverage grade. Fell due to missing ACL in one knee. First-round talent at third-round price.",
+          "2025 7.226 \u2014 Carson Bruener: Washington LB. 104 tackles, 3 INTs. Son of former Steelers TE Mark Bruener. Special teams contributor profile.",
+          "Note: Nick Herbig (4.132, 2023) plays OLB/EDGE, covered under EDGE section."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "WR": {
+      "archetype_summary": "The regime has invested minimal draft capital at WR \u2014 only one pick in rounds 1-4 across 3 drafts (Roman Wilson, Rd 3, 2024). That pick was a slot/versatile receiver who is a willing blocker. The regime has preferred to address WR through trades (DK Metcalf, George Pickens was a Colbert pick). When they do draft a WR, they want a complementary piece, not a true alpha receiver. Willing blockers with versatility are preferred.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-0 (Roman Wilson: 5-11)",
+        "weight_range": "185-195",
+        "arm_length_minimum": "No data \u2014 only one WR drafted in early rounds",
+        "key_athletic_tests": "Route running and slot versatility valued over raw speed or size",
+        "speed_requirement": "4.50 or faster preferred"
+      },
+      "playing_style": {
+        "primary_role": "Slot-capable, versatile receiver who can block and play multiple roles",
+        "most_valued_traits": [
+          "Willingness to block \u2014 Roman Wilson was noted as 'a willing blocker'",
+          "Versatility to play multiple receiver positions",
+          "Big-game production (Wilson caught TDs in Michigan wins over Ohio State and Alabama)",
+          "Route running and separation ability"
+        ],
+        "least_important_traits": [
+          "Contested catch ability \u2014 they acquire that via trade (Pickens, Metcalf)",
+          "Deep threat speed \u2014 not the primary target of drafted WRs"
+        ],
+        "deal_breakers": [
+          "Cannot block \u2014 the Steelers' run-first identity demands WRs who engage",
+          "Character concerns"
+        ],
+        "traits_that_make_them_reach": "No clear pattern from such limited data"
+      },
+      "college_production": {
+        "production_floor": "No clear threshold \u2014 Roman Wilson had 12 TDs but was a complementary piece at Michigan",
+        "production_trajectory": "Unknown with only one data point",
+        "context_sensitivity": "Wilson came from a run-heavy national championship team, so production was contextually strong"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2024 3.84 \u2014 Roman Wilson: 5-11, 189. Michigan. 12 TDs in championship season. Slot/versatile profile. Willing blocker. Missed most of rookie season with ankle injury."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 WR drafted in rounds 1-4 across 3 drafts. The regime clearly prefers to acquire WR1/WR2 types via trade (DK Metcalf for 2nd-round pick, George Pickens inherited from Colbert). Draft WR picks are role players and complementary pieces. McCarthy's WR-heavy offensive philosophy may shift this in 2026."
+    },
+    "TE": {
+      "archetype_summary": "Massive, physically dominant blocking tight end who is a mismatch weapon due to sheer size. Darnell Washington is the archetype \u2014 6-7, 264 (combine weight, reportedly plays at 280-315), 4.64 40-yard dash. The Steelers want a tight end who can be an extra offensive lineman in the run game while also being too big for defenders to cover in the red zone.",
+      "physical_profile": {
+        "height_range": "6-5 to 6-8",
+        "weight_range": "260-280 (play weight potentially 300+)",
+        "arm_length_minimum": "No specific threshold but extreme size is the differentiator",
+        "key_athletic_tests": "40-yard dash matters relative to size \u2014 Washington ran 4.64 at 272 lbs (combine). Broad jump important for explosiveness (Washington: 10-2).",
+        "speed_requirement": "4.70 or faster at 260+ lbs \u2014 must be athletic for size"
+      },
+      "playing_style": {
+        "primary_role": "Blocking-first TE who provides a mismatch in the passing game due to size",
+        "most_valued_traits": [
+          "Elite inline blocking ability \u2014 Washington was considered best blocking TE in 2023 class",
+          "Freakish size/speed combination",
+          "Red zone threat due to sheer physical dominance",
+          "Run game enhancement \u2014 essentially a 6th offensive lineman",
+          "Durability"
+        ],
+        "least_important_traits": [
+          "Route running refinement \u2014 size IS the route-running tool",
+          "Receiving volume \u2014 Washington had only 45 catches in 3 years at Georgia"
+        ],
+        "deal_breakers": [
+          "Cannot block \u2014 the Steelers already had Pat Freiermuth for receiving",
+          "Undersized for the blocking role they need"
+        ],
+        "traits_that_make_them_reach": "Rare size/athleticism combination that doesn't exist at other positions"
+      },
+      "college_production": {
+        "production_floor": "Low receiving production is acceptable if blocking is elite. Washington: 45 catches for 774 yards in 3 years.",
+        "production_trajectory": "Not applicable \u2014 blocking value is the primary metric",
+        "context_sensitivity": "Washington came from Georgia's loaded offense, limiting volume"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2023 3.93 \u2014 Darnell Washington: 6-7, 272 (combine), 4.64 40. Georgia. 'Mount Washington.' Russell Wilson says he plays at 315 lbs. Top-5 TE run-blocking grade in 2022. Khan traded back to get him plus an extra 4th-round pick."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 1 TE drafted in rounds 1-4 across 3 drafts. The Steelers already had Pat Freiermuth (pre-Khan) as their receiving TE, so Washington filled a specific need. McCarthy's offense may use more 11-personnel (3 WR) than 12-personnel (2 TE), potentially changing TE draft approach."
+    },
+    "RB": {
+      "archetype_summary": "Physical, between-the-tackles runner who fits the 'Steelers DNA' ethos of toughness. Only one RB drafted across 3 drafts (Kaleb Johnson, Rd 3, 2025), taken to replace Najee Harris after he left in free agency. Not a position they invest premium capital in \u2014 Johnson at pick 83 is the highest they've gone. Prefer bigger backs who can handle the physical AFC North style.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-1",
+        "weight_range": "220-230",
+        "arm_length_minimum": "Not applicable for RB",
+        "key_athletic_tests": "Size and physicality matter more than timed speed",
+        "speed_requirement": "Not a primary concern \u2014 values physicality over speed"
+      },
+      "playing_style": {
+        "primary_role": "Physical, between-the-tackles early-down back who can handle a high workload",
+        "most_valued_traits": [
+          "Physical running style \u2014 Johnson at 6-1, 224 is a physical back",
+          "Ability to handle cold-weather AFC North football",
+          "Durability to be a lead back",
+          "Complementary to smaller, faster backs already on roster (Jaylen Warren, Kenneth Gainwell)"
+        ],
+        "least_important_traits": [
+          "Receiving ability \u2014 not the primary role",
+          "Breakaway speed"
+        ],
+        "deal_breakers": [
+          "Cannot run between the tackles",
+          "Fumble-prone"
+        ],
+        "traits_that_make_them_reach": "No data \u2014 they don't reach for RBs"
+      },
+      "college_production": {
+        "production_floor": "Must be a productive college runner. Johnson was Iowa's lead back.",
+        "production_trajectory": "Unknown with one data point",
+        "context_sensitivity": "Johnson came from Iowa's run-heavy system"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 3.83 \u2014 Kaleb Johnson: 6-1, 224. Iowa. Physical runner who 'seamlessly fills the shoes' of Najee Harris per ESPN. Bigger than Warren and Gainwell."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 RB drafted across 3 drafts. The regime clearly deprioritizes early RB investment. Najee Harris (Rd 1, 2021) was a Colbert pick."
+    },
+    "QB": {
+      "archetype_summary": "The Khan regime has pointedly avoided investing premium draft capital in quarterback. Kenny Pickett (Rd 1, 2022) was the last Colbert draft; Khan traded him to the Eagles. The regime has preferred veteran acquisitions (Russell Wilson, Justin Fields, Aaron Rodgers) and took only a Day 3 flier on Will Howard (Rd 6, 2025). When Khan does describe what they want, he emphasizes toughness to handle the AFC North \u2014 cold weather, physicality, rivalries. McCarthy wants an athletic passer who can play within rhythm and extend plays.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5 (Howard: 6-4, 235)",
+        "weight_range": "215-240",
+        "key_athletic_tests": "Arm strength and pocket mobility valued. McCarthy: 'You want a more athletic player in that position, the man that can extend plays.'",
+        "speed_requirement": "Not a running QB preference but must have enough mobility to escape and extend"
+      },
+      "playing_style": {
+        "primary_style": "Pocket passer with mobility to extend plays, play within rhythm and timing of West Coast concepts",
+        "most_valued_traits": [
+          "Toughness to handle AFC North physicality and cold weather",
+          "Ability to process quickly within West Coast timing concepts",
+          "Arm strength for cold-weather division play",
+          "Leadership and winning pedigree (Howard won national championship)",
+          "Development potential to be a 10-15 year starter"
+        ],
+        "least_important_traits": [
+          "Designed rushing ability \u2014 not looking for a run-first QB"
+        ],
+        "deal_breakers": [
+          "Cannot handle physical AFC North play",
+          "Khan: 'We have to find someone who can handle it'",
+          "Poor accuracy in short-to-intermediate game (McCarthy's system demands it)"
+        ],
+        "traits_that_make_them_reach": "Khan views only Fernando Mendoza as a first-round QB in 2026 \u2014 suggests very high bar for round 1 QB investment"
+      },
+      "college_production": {
+        "production_floor": "Must have starting experience and winning pedigree. Howard: led Ohio State to national championship.",
+        "production_trajectory": "Values proven winners",
+        "context_sensitivity": "Heavy emphasis on program quality and competition level"
+      },
+      "evidence": {
+        "picks_analyzed": 1,
+        "examples": [
+          "2025 6.185 \u2014 Will Howard: 6-4, 235. Ohio State. National championship winner. 13 consecutive completions in title game, 231 yards, 2 TDs, 0 INT. Sixth-round developmental pick. Khan praises his development. Missed entire 2025 season with hand injury."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 1 QB drafted (Day 3). The regime has avoided premium QB investment, preferring veterans. McCarthy's hiring may shift this \u2014 he's a 'renowned developer of quarterbacks.' The Steelers reportedly have 'little if no intention' of taking a QB in round 1 of the 2026 draft. They may target a QB in Day 2 only if they believe the ceiling exceeds Will Howard's."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 5,
+    "max_observed_reach": 8,
+    "round_1_reach_tolerance": 5,
+    "notes": "Generally has drafted at or near consensus value. The trade up for Jones (from 17 to 14) was modest and Jones was projected in the 12-18 range. Fautanu at 20 was consensus value. Harmon at 21 was slightly ahead of some boards (Brugler had him 19th). The regime does not make wild reaches \u2014 Weidl's Ravens/Eagles background emphasizes board discipline."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.65,
+    "offensive_scheme": "West Coast offense under McCarthy, evolving into what he calls a 'power spread' \u2014 horizontal passing game with play-action off the run game. More shotgun, quick passing, and QB freedom than the Arthur Smith/Matt Canada systems. Values athletic, versatile OL who can work in zone-blocking concepts. WR-heavy formations expected to increase.",
+    "defensive_scheme": "3-4 base defense maintained under new DC Patrick Graham. Has been the Steelers' scheme since 1992. Blitz-heavy, relies on elite OLBs (TJ Watt, Alex Highsmith, Nick Herbig). Graham expected to add more Cover 3 elements. Needs versatile DL who can play multiple techniques and LBs who can cover.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "MAJOR coaching change: Mike Tomlin resigned January 2026 after 19 years. Mike McCarthy hired as replacement January 27, 2026. Entire coaching staff replaced. Offensive scheme will change significantly (West Coast concepts replacing Arthur Smith's run-heavy approach). Defensive scheme retaining 3-4 base but new DC Patrick Graham will add his own wrinkles. Draft tendencies on offense may shift toward WR and QB given McCarthy's preferences."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.55,
+    "risk_description": "Moderately aggressive. Willing to take calculated risks \u2014 traded up for Jones in his first draft, traded 2nd-round pick for DK Metcalf, took Payton Wilson despite missing ACL. But also takes safe, high-floor picks at other positions (Frazier, McCormick). Generally 1 high-upside bet per draft with 'safer' picks elsewhere.",
+    "recency_bias": 0.55,
+    "recency_description": "Moderate. The 2025 draft (Harmon, Johnson, Sawyer, Black) was heavily influenced by the Steelers' disastrous final game \u2014 a 30-6 playoff loss where the Ravens ran for 299 yards on 50 carries. The run defense emphasis was a direct response.",
+    "sunk_cost_behavior": "Moves on quickly. Traded Kenny Pickett (1st-round QB pick from Colbert's final draft) to the Eagles after just 2 seasons. Did not double-down on the investment. Traded George Pickens (Colbert's 2nd-round WR) to Dallas when the relationship soured. Decisive and unsentimental about roster moves.",
+    "combine_weight": 0.55,
+    "combine_description": "Balanced but leans toward valuing measurables at certain positions. Clearly values OT athleticism (both Jones and Fautanu had elite athletic scores for the position). At DT, values the size/length/speed combination. At CB, values length over speed. But has also drafted players with modest testing who excelled on film (Frazier didn't run at the combine, McCormick from a small school).",
+    "character_weight": 0.75,
+    "character_description": "High character emphasis. Khan repeatedly uses the phrase 'Steelers DNA' to describe the types of players they target. Tomlin (and now McCarthy) emphasize physical and mental toughness. Weidl has talked about 'physical and mental toughness' throughout his career. The regime avoids character risks \u2014 no notable character-concern picks in 3 drafts.",
+    "quarterback_philosophy": "Avoids premium QB investment in the draft. Prefers veteran solutions (Wilson, Fields, Rodgers) and developmental Day 3 picks (Howard). Khan: 'Like all the fans, we're all searching for the next franchise player, the guy that's going to be our quarterback for 10 to 15 years.' But has not been willing to trade up or use a 1st-round pick on QB in his tenure. The only 1st-round QB under his watch was Pickett (Colbert's pick), whom Khan traded away. With McCarthy's QB development reputation, this may evolve."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.65,
+    "production_vs_projection": "Leans toward productive college players but will bet on projection at premium positions when the athletic profile is elite. Jones was a high-floor/high-ceiling pick. The regime generally avoids pure projection bets \u2014 even their 'developmental' picks (Herbig, McCormick) were highly productive in college.",
+    "production_thresholds_by_position": {
+      "OT": "Must be a multi-year starter at a Power 5 program with All-Conference honors",
+      "DT": "Minimum 4 sacks or 10 TFLs in final college season for rounds 1-2",
+      "CB": "No clear statistical floor \u2014 values film and PBUs over interception totals",
+      "IOL": "Must be a multi-year starter with All-Conference recognition",
+      "LB": "High tackle volume required \u2014 Payton Wilson had 138 tackles",
+      "EDGE": "Minimum 9+ sacks for early-round investment",
+      "WR": "Only one WR drafted \u2014 insufficient data for thresholds"
+    },
+    "breakout_age_sensitivity": 0.45,
+    "dominator_rating_sensitivity": 0.4,
+    "notes": "The regime values proven college production more than breakout age or dominator ratings. Multi-year starters and team captains (Frazier: 3x captain) are preferred. However, they accepted Harmon's one-year transfer breakout at Oregon, showing flexibility when the film and measurables support it."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "OT": {
+        "min_arm_length": "34 inches",
+        "40_max": 5.05,
+        "confidence": "high"
+      },
+      "DT": {
+        "min_arm_length": "34 inches",
+        "40_max": 5.1,
+        "min_weight": 305,
+        "confidence": "high"
+      },
+      "CB": {
+        "min_height": "5-11",
+        "40_max": 4.5,
+        "confidence": "medium"
+      },
+      "IOL": {
+        "no_hard_threshold": true,
+        "notes": "Values toughness and technique over athletic testing. Frazier didn't even run the 40 at the combine.",
+        "confidence": "medium"
+      },
+      "EDGE": {
+        "no_hard_threshold": true,
+        "notes": "Drafted Herbig with 31.25 inch arms, breaking typical EDGE length thresholds. Production matters more than measurables.",
+        "confidence": "low"
+      }
+    },
+    "threshold_type": "Hard cutoffs at OT (arm length, athleticism) and DT (arm length, size). More flexible at other positions where production and film carry more weight.",
+    "size_preferences_by_position": {
+      "OT": "310+ lbs with 34+ inch arms \u2014 both picks met this exactly",
+      "DT": "305+ lbs with 34+ inch arms in 3-4 scheme",
+      "CB": "Prefers 6-0+ with length but has drafted smaller Day 3 CBs (Donte Kent: 5-10)",
+      "IOL": "305-320 range, no strict minimums",
+      "TE": "Extreme size preference \u2014 6-5+ and 260+ for blocking TEs"
+    },
+    "athletic_testing_favorites": "40-yard dash relative to size is valued at OT and DT (looking for 'athletes' at big-man positions). Bench press matters for IOL (Frazier: 30 reps). At CB, 40 time matters less than length metrics. Vertical jump and broad jump are secondary across positions.",
+    "measurables_vs_film": "Film-first at most positions, but measurables serve as eliminators at OT and DT. The 34-inch arm length threshold at tackle and DT appears to be a hard line. At other positions, film and production outweigh testing \u2014 Frazier was drafted despite not running the 40 at the combine."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium trench players \u2014 3 consecutive first-round picks have been OT or DT. Willing to trade up modestly (3 spots for Jones). Targets the highest-rated player at a position of need, with a clear preference for the trenches. Khan hinted at 2026 combine that they may move away from trenches in round 1 for the first time, pivoting toward WR or other offensive positions.",
+    "round_2_3_strategy": "Fills remaining premium needs. Round 2 picks have been CB (Porter Jr.) and C (Frazier) \u2014 high-value contributors at need positions. Round 3 picks address secondary needs (Washington at TE, Roman Wilson at WR, Kaleb Johnson at RB). Willing to trade back in this range to accumulate picks (traded back in round 3 in 2023 to get extra 4th).",
+    "day_3_strategy": "Productive college players who embody 'Steelers DNA' \u2014 tough, physical, high-character. Day 3 picks include developmental athletes (Herbig, McCormick, Payton Wilson at compensatory 3rd) and legacy/connection picks (Carson Bruener, son of former Steeler). Special teams contributors and positional depth. Late-round QB developmental pick (Howard). Willing to take medical risks on Day 3 (Cory Trice had injury history).",
+    "compensatory_pick_usage": "Have not received compensatory picks in recent years due to FA acquisition patterns. When they've had extra picks via trade (the Claypool-derived 2nd rounder), they've used them on premium talents (Porter Jr.)."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "OT": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Jones is starting RT; Fautanu lost rookie season to injury but expected to start in 2025. Both are long-term starters if healthy."
+      },
+      "DT": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Benton is a full-time starter, Harmon projected as immediate starter. Lee and Black are depth pieces. Strong evaluation track record."
+      },
+      "IOL": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Frazier earned PFWA All-Rookie Team and Joe Greene Award. McCormick started as a rookie. Anderson is depth. Excellent hit rate."
+      },
+      "CB": {
+        "picks": 3,
+        "starters": 1,
+        "rate": 0.33,
+        "note": "Porter Jr. is a full-time starter. Trice and Watts are depth pieces. Porter Jr. alone justifies the position investment."
+      },
+      "EDGE": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Herbig has been highly productive on limited snaps (NFL-best 26.3% pass-rush win rate, 7.5 sacks in 2025). Sawyer is a rookie."
+      },
+      "LB": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Payton Wilson earned significant playing time as a rookie, made key plays (INT vs Ravens, fumble recovery TD vs Bengals). Bruener is a special teamer."
+      },
+      "WR": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Roman Wilson missed most of rookie season with injury. Too early to evaluate but concerning that only 1 WR has been drafted."
+      },
+      "TE": {
+        "picks": 1,
+        "starters": 1,
+        "rate": 1.0,
+        "note": "Washington has carved out a significant role as blocking TE and red zone target."
+      },
+      "RB": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Johnson is a 2025 rookie \u2014 too early to evaluate."
+      },
+      "QB": {
+        "picks": 1,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Howard missed entire 2025 season with hand injury. Developmental pick, too early to evaluate."
+      }
+    },
+    "blind_spots": [
+      "WR evaluation is a concern \u2014 only 1 WR drafted in 3 years, and that pick (Roman Wilson) has not yet contributed significantly",
+      "QB evaluation \u2014 traded away Colbert's Pickett pick, have avoided premium QB investment entirely"
+    ],
+    "strengths": [
+      "Offensive line evaluation is elite \u2014 Frazier, Jones, McCormick, Fautanu represent a complete OL rebuild via the draft",
+      "Interior defensive line evaluation is strong \u2014 Benton and Harmon are high-quality starters",
+      "Day 2/3 value extraction \u2014 Herbig (Rd 4) and Payton Wilson (comp Rd 3) are above-draft-slot contributors"
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Increasingly aggressive. Khan has been described as having 'utilized an aggressive approach in free agency.' Signed Isaac Seumalo (3-year, $24M for G), Patrick Queen (LB), Darius Slay (CB), Aaron Rodgers ($13.6M). Traded for DK Metcalf (gave up 2nd-round pick), Jalen Ramsey, Jonnu Smith. Willing to give up draft capital and spend money to fill needs, then still draft BPA. Khan at 2026 combine: 'We have the flexibility to maybe do some things that might not be normal.'",
+    "fa_draft_correlation": "When a position is addressed aggressively in FA/trade, it drops as a draft priority. After trading for Metcalf in 2025, the Steelers did not draft a WR that year. After signing Rodgers, they only drafted a 6th-round QB. When a veteran starter leaves (Najee Harris to Chargers), they draft a replacement (Kaleb Johnson). There IS double-dipping at the trenches \u2014 they signed Seumalo AND drafted multiple OL.",
+    "roster_construction_philosophy": "Build through the draft at premium positions (OL, DL, EDGE, CB, LB), supplement through FA and trades at positions where immediate help is needed (QB, WR, S). Khan is increasingly willing to be aggressive in FA/trades compared to predecessor Colbert, but the draft remains the primary talent acquisition vehicle. With 12 projected picks in 2026 and cap space, the regime has maximum flexibility."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 21,
+    "notable_patterns": [
+      "3 consecutive first-round picks on the trenches (OT-OT-DT) \u2014 unprecedented positional concentration",
+      "10 of 21 picks (48%) have been offensive or defensive linemen \u2014 building from the inside out",
+      "Only 1 WR and 1 QB drafted across 3 drafts \u2014 premium offensive skill positions addressed via trade/FA",
+      "Heavy Big Ten pipeline \u2014 2025 draft was nearly all-Big Ten (6 of 7 picks from Big Ten schools)",
+      "Khan traded up in round 1 in his very first draft (2023) \u2014 more aggressive than predecessor Colbert",
+      "Weidl used 14 of 30 pre-draft visits on OL in 2024, confirming the trench obsession"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2025,
+        "pick": "1.21",
+        "player": "Derrick Harmon",
+        "position": "DT",
+        "consensus_rank": 19,
+        "reach_amount": 2,
+        "context": "Modest reach if any \u2014 Brugler had Harmon 19th overall. Clear need after run defense collapse in playoff loss (Ravens ran for 299 yards)."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2024,
+        "pick": "3.98",
+        "player": "Payton Wilson",
+        "position": "LB",
+        "consensus_rank": 35,
+        "value_amount": 63,
+        "context": "First-round talent who fell to compensatory 3rd due to medical concerns (missing ACL in one knee). PFF: 'If it weren't for that recent news, this would be an elite grade.'"
+      },
+      {
+        "year": 2023,
+        "pick": "2.32",
+        "player": "Joey Porter Jr.",
+        "position": "CB",
+        "consensus_rank": 17,
+        "value_amount": 15,
+        "context": "Expected first-round pick who fell to early 2nd round. Steelers had the pick via the Chase Claypool trade (Khan's shrewd mid-season deal with Bears)."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_notes": "3 drafts of data as Steelers GM. Khan's background is in cap management and business administration rather than traditional scouting \u2014 Andy Weidl (assistant GM) is the actual board-builder, making Weidl's potential departure to a GM job a significant variable. Additionally, the coaching change from Tomlin to McCarthy represents a major regime shift that could alter draft approach, particularly on offense. The 2026 draft will be revealing \u2014 Khan hinted at moving away from trenches in round 1 for the first time. Profile should be refreshed after the 2026 NFL Draft.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

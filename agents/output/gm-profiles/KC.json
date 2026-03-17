@@ -1,0 +1,907 @@
+{
+  "team": {
+    "name": "Kansas City Chiefs",
+    "abbreviation": "KC",
+    "division": "AFC West",
+    "current_draft_position": 9
+  },
+  "front_office": {
+    "gm": {
+      "name": "Brett Veach",
+      "title": "General Manager",
+      "hired": "2017-07-10",
+      "previous_role": "Co-Director of Player Personnel, Kansas City Chiefs",
+      "drafts_as_gm": 8,
+      "confidence": "high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "University of Delaware",
+          "role": "Student-Athlete (WR/KR)",
+          "years": "1998\u20132001",
+          "mentor": "Tubby Raymond"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Training Camp Intern",
+          "years": "2004",
+          "mentor": "Andy Reid"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Coaching Intern / Personal Assistant to Andy Reid",
+          "years": "2005\u20132006",
+          "mentor": "Andy Reid"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Coaches' Assistant to Andy Reid",
+          "years": "2007\u20132009",
+          "mentor": "Andy Reid / Howie Roseman / Ryan Grigson"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Pro and College Scout",
+          "years": "2010",
+          "mentor": "Howie Roseman / Anthony Patch"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Southeast Regional Scout",
+          "years": "2011\u20132012",
+          "mentor": "Howie Roseman"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Pro and College Personnel Analyst",
+          "years": "2013\u20132014",
+          "mentor": "John Dorsey / Andy Reid"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "Co-Director of Player Personnel",
+          "years": "2015\u20132017",
+          "mentor": "John Dorsey / Andy Reid"
+        },
+        {
+          "org": "Kansas City Chiefs",
+          "role": "General Manager",
+          "years": "2017\u2013present",
+          "mentor": "Andy Reid / Clark Hunt"
+        }
+      ],
+      "primary_mentor": "Andy Reid \u2014 Veach has worked with or under Reid since 2004. Reid gave Veach his first NFL opportunity and brought him to Kansas City when he was hired as HC in 2013.",
+      "philosophical_lineage": "Reid tree (coaching/offensive philosophy) with Eagles personnel influence from Howie Roseman and Ryan Grigson. Veach learned player evaluation under the Eagles scouting department (2010-2012) where he was credited with pounding the table for Fletcher Cox (12th overall, 2012) and advocating for LeSean McCoy and DeSean Jackson in earlier drafts. The overlap with John Dorsey (2013-2017) in Kansas City added a layer of aggressive talent acquisition. Veach's evaluation DNA comes from a cross-training model where pro and college scouts collaborate \u2014 a structure he praised publicly in 2015.",
+      "breakpoints": "Veach is significantly more aggressive than the Dorsey/Reid precedent in trades, both on draft day and at trade deadlines. He is willing to sacrifice future draft capital for current-year impact (traded 1st-round picks in both 2018 and 2019, traded Tyreek Hill for draft capital, traded for Frank Clark). He has also shown a willingness to trade star players when the value proposition makes sense (Hill, Marcus Peters, L'Jarius Sneed), which Dorsey was less inclined to do.",
+      "lineage_weight": 0.15,
+      "lineage_weight_notes": "8 drafts of GM data make Veach's own track record the dominant signal. Lineage weight is minimal at this point, reserved only for inferring preferences at positions with very thin draft history (QB, TE)."
+    },
+    "primary_decision_maker": "Brett Veach \u2014 reports directly to Clark Hunt on all personnel matters. Has final say on draft picks.",
+    "key_influencers": [
+      {
+        "name": "Andy Reid",
+        "title": "Head Coach",
+        "influence_level": "very_high",
+        "known_biases": "Offensive-minded. Values pass protection for Mahomes above almost everything. Has input on offensive personnel decisions. Reid's relationship with Veach dates to 2004 \u2014 they have a collaborative partnership but Veach has publicly stated they disagree and that Reid respects independent thinking."
+      },
+      {
+        "name": "Steve Spagnuolo",
+        "title": "Defensive Coordinator",
+        "influence_level": "high",
+        "known_biases": "Values versatile defensive backs who can play multiple roles (safety, slot, linebacker). Favors blitz-capable players and defensive backs with football IQ. Runs pressure-intensive 4-3 base with heavy use of dime packages. Needs EDGE rushers who can play in multiple alignments and DBs who understand zone concepts."
+      },
+      {
+        "name": "Mike Bradway",
+        "title": "Assistant General Manager",
+        "influence_level": "medium",
+        "known_biases": "Promoted from Senior Director of Player Personnel in 2025 after Mike Borgonzi left for Tennessee. Excellent scout who plays integral role in draft process. Key voice in evaluation meetings."
+      },
+      {
+        "name": "Chris Shea",
+        "title": "Assistant General Manager",
+        "influence_level": "medium",
+        "known_biases": "Promoted alongside Bradway in 2025. Specializes in contract negotiations and salary cap strategy. Previously with Dolphins and Eagles. His cap expertise shapes which positions must be addressed via draft vs. free agency."
+      },
+      {
+        "name": "Ryne Nutt",
+        "title": "VP of Player Personnel (College Scouting)",
+        "influence_level": "medium",
+        "known_biases": "Leads college scouting efforts. Key evaluator whose college board feeds directly into draft decisions."
+      },
+      {
+        "name": "Clark Hunt",
+        "title": "Chairman and CEO",
+        "influence_level": "low_to_medium",
+        "known_biases": "Generally hands-off on individual picks but provides approval for major trades involving significant draft capital. Praised Veach's 'aggressive approach' and 'creativity.' Must sign off on large trade-ups per Veach's own admission ('Got to get the owner's approval on that')."
+      }
+    ],
+    "power_dynamics": "Highly collaborative front office with Veach holding final draft authority. Reid has significant influence on offensive personnel and overall roster construction philosophy. Spagnuolo shapes defensive draft targets. The departure of longtime assistant GM Mike Borgonzi to Tennessee (2025) was a significant loss, but the Chiefs promoted internally (Bradway, Shea, Nutt, Terry) to maintain continuity. Veach frequently cites his staff's contributions and describes the process as deeply collaborative.",
+    "owner_interference": "low \u2014 Clark Hunt is supportive and trusts Veach. Provides organizational direction and must approve major capital expenditures but does not meddle in individual draft picks."
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.6,
+    "bpa_weight_by_round": {
+      "1": 0.7,
+      "2": 0.5,
+      "3": 0.45,
+      "4_plus": 0.35
+    },
+    "stated_philosophy": "Veach consistently cites 'take the best player available' as his guiding principle. At the 2026 Combine he said: 'stick to that old mantra and take the best player available.' He emphasizes positional value of O-line and D-line ('you're always gonna O-line, D-line \u2014 those positional values are there'). He believes in building through the trenches.",
+    "actual_philosophy": "Veach leans BPA in round 1 at premium positions but is heavily need-driven in rounds 2-3. His first-round picks at premium positions (EDGE, CB, WR, OT) support a BPA-at-premium-positions approach. However, in round 2 he has consistently filled immediate roster holes: IOL after the Super Bowl LV OL collapse (Humphrey 2021), LB when needed (Bolton 2021, Gay 2020), WR when thin at the position (Hardman 2019, Rice 2023), and DT when the D-line was depleted (Norman-Lott 2025). Half his second-round picks addressed urgent team needs. The 2025 draft is instructive: after a 6-11 season, he filled OT (Simmons R1), DT (Norman-Lott R2), EDGE (Gillotte R3), and CB (Williams R3) \u2014 all clear needs.",
+    "philosophy_mismatch_notes": "Claims pure BPA but draft history shows he almost never takes a non-premium position in round 1 (the one exception being CEH at RB in 2020, widely viewed as an Andy Reid influence pick). He acknowledges the tension between BPA and positional value publicly. The 2020 CEH pick is the clearest example of a need/desire pick overriding BPA \u2014 multiple analysts had higher-rated players available."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.8,
+    "trade_down_willingness": 0.15,
+    "trades_per_draft_average": 2.5,
+    "trade_triggers": [
+      "A specific player sliding into range that Veach has conviction on (e.g., McDuffie falling, Worthy in range)",
+      "QB availability for a trade partner near Veach's pick (he sees these as opportunities to extract value)",
+      "A need-player about to be taken by a team picking ahead (traded up for Speaks, Nnadi, Hardman, McDuffie, Worthy)",
+      "Day 3 pick swaps to optimize board alignment"
+    ],
+    "draft_capital_philosophy": "Veach is one of the most aggressive GMs in the NFL when it comes to trading draft capital. He has initiated a trade involving the first-round selection in 6 of 8 drafts. Prior to 2025, he had NEVER traded down on draft weekend \u2014 not once across 7 drafts. In 2025 he traded back one spot (31 to 32) with Philadelphia, his first-ever trade down. He has traded away first-round picks for players (Mahomes trade-up in 2017, Frank Clark trade in 2019, Orlando Brown trade in 2021). He has also shown willingness to trade star players for draft capital (Tyreek Hill for 5 picks including 2 firsts, L'Jarius Sneed for a 3rd, Marcus Peters for a 2nd). Veach believes in spending capital aggressively when conviction is high."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "EDGE",
+        "CB",
+        "OT",
+        "WR"
+      ],
+      "tier_2_high": [
+        "DT",
+        "IOL",
+        "S",
+        "LB"
+      ],
+      "tier_3_mid": [
+        "TE",
+        "RB"
+      ],
+      "tier_4_low": [
+        "QB",
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "QB \u2014 With Mahomes, Veach has never drafted a QB and will not waste capital on the position",
+      "TE in early rounds \u2014 Has never taken a TE before round 4 (Wiley R4 2024, Gray R5 2021). Travis Kelce's presence deprioritizes the position",
+      "RB before Day 3 in recent drafts \u2014 CEH at 32 in 2020 was the lone exception and is widely viewed as a miss. Since then, Pacheco was a 7th-rounder (2022) and Smith was a 7th-rounder (2025). Veach has said the value discrepancy at RB means elite backs can be found late"
+    ],
+    "position_premium": [
+      "EDGE \u2014 Has drafted EDGE in round 1 three times (Karlaftis R1 2022, Anudike-Uzomah R1 2023) and round 3 twice (Gillotte R3 2025), plus traded significant capital for Frank Clark",
+      "CB \u2014 Has drafted a cornerback in every single draft of his tenure (8 for 8). Took McDuffie at 21 overall by trading up. Drafted 5 DBs in the 2022 draft alone. Fourth-round DBs are his signature move (5 of 7 R4 picks have been secondary players)",
+      "OT \u2014 Has aggressively pursued the position: traded for Orlando Brown, drafted Suamataia R2 2024, drafted Simmons R1 2025, drafted Morris R3 2023",
+      "DT \u2014 Veach has said 'pass-rushing three-techs' are impossible to find in free agency. Has invested early picks (Speaks R2 2018, Nnadi R3 2018, Norman-Lott R2 2025) and retained Chris Jones at major cost"
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Versatile, productive college pass rusher who can play in multiple alignments. Not a pure speed rusher \u2014 Veach and Spagnuolo want EDGE players who can set the edge against the run, kick inside on passing downs, and play with a high motor. Think George Karlaftis: not the flashiest athlete, but relentless, technically sound, and scheme-versatile. Veach has drafted across the athletic spectrum at EDGE, suggesting he values production and motor over elite measurables. Recent misses at the position (Anudike-Uzomah's slow development) may shift preferences toward more NFL-ready prospects.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "250\u2013275",
+        "arm_length_minimum": "No clear hard cutoff \u2014 Karlaftis (6-4, 275, 33.25-inch arms), Anudike-Uzomah (6-3, 255, 32.75-inch arms), Gillotte (6-2, 260, 32.5-inch arms). Has taken players with arms as short as 32.5 inches.",
+        "key_athletic_tests": "Not a combine-driven position for Veach. Karlaftis was a modest combine performer who dominated on film. Values power and motor indicators (bench press, broad jump) over raw speed. Gillotte was described as a 'good knee bender' by Spagnuolo.",
+        "speed_requirement": "No hard 40-time cutoff. Karlaftis ran 4.74, Anudike-Uzomah ran 4.63, Gillotte ran approximately 4.60. These are not elite combine times."
+      },
+      "playing_style": {
+        "primary_win_condition": "Relentless motor and positional versatility. Karlaftis wins with effort, hand technique, and consistency \u2014 a 'B+ in every aspect' per Arrowhead Pride. Anudike-Uzomah was drafted for his explosion and forced fumble production at Kansas State. Gillotte was described as 'physical and persistent.'",
+        "most_valued_traits": [
+          "High motor / relentless effort",
+          "Versatility to play multiple alignments (hand in dirt, stand-up, kick inside)",
+          "Run defense ability / setting the edge",
+          "College sack production (ascending trajectory preferred)",
+          "Football IQ and scheme fit for Spagnuolo's blitz packages"
+        ],
+        "least_important_traits": [
+          "Elite straight-line speed / 40 time \u2014 has never drafted a sub-4.50 EDGE",
+          "Highlight-reel bend \u2014 values power and technique over pure finesse"
+        ],
+        "deal_breakers": [
+          "One-dimensional players who can only rush the passer and offer nothing against the run",
+          "Low college production without an obvious physical excuse",
+          "Inability to play in Spagnuolo's multiple-front system"
+        ],
+        "traits_that_make_them_reach": "Elite college sack production \u2014 Anudike-Uzomah had 19.5 sacks his last two seasons at Kansas State. Karlaftis had 14 career sacks at Purdue. Forced fumble production clearly caught Veach's eye with Anudike-Uzomah (6 FF in one season)."
+      },
+      "college_production": {
+        "production_floor": "8+ sacks across final two college seasons for round 1 picks. Karlaftis: 14 career sacks. Anudike-Uzomah: 19.5 sacks in final 2 years. Gillotte: 16 sacks in final 2 years at Louisville.",
+        "production_trajectory": "Prefers ascending production \u2014 breakout junior/senior years. Anudike-Uzomah broke out as a sophomore (11 sacks), maintained production as a junior (8.5 sacks). Gillotte's sack numbers rose from 5.5 to 10.5 in his final two years.",
+        "context_sensitivity": "Moderate \u2014 values production in context of conference strength."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2022 R1 Pick 30 \u2014 George Karlaftis: 6-4, 275, 4.74 40, 33.25-inch arms. Purdue. 14 career sacks. Power rusher with relentless motor. Now franchise-tagged EDGE with 24.5 NFL sacks in 3 seasons.",
+          "2023 R1 Pick 31 \u2014 Felix Anudike-Uzomah: 6-3, 255, 4.63 40, 32.75-inch arms. Kansas State. 19.5 sacks final 2 years, 6 forced fumbles in one season. Explosive but undersized. Has disappointed with only 3 NFL sacks in 2 seasons.",
+          "2025 R3 Pick 66 \u2014 Ashton Gillotte: 6-2, 260. Louisville. 16 sacks in final 2 years. Described as 'densely built' with good knee bend. Physical and persistent.",
+          "2018 R2 Pick 46 \u2014 Breeland Speaks: 6-3, 285, 4.84 40. Ole Miss. Scheme versatility project (DL to OLB conversion). Bust \u2014 cut after 1 season.",
+          "Pre-GM influence: Veach scouted Fletcher Cox at Mississippi State for Eagles (6-4, 298, 4.79 40, 34-inch arms, 12th overall 2012). Penetrating interior presence."
+        ]
+      },
+      "confidence": "high"
+    },
+    "CB": {
+      "archetype_summary": "Versatile, high-IQ cornerback who can play outside and in the slot, with enough speed and physicality to function in Spagnuolo's multiple coverage schemes. The Trent McDuffie archetype: not the biggest or fastest, but football-smart, technically refined, and capable of playing press or zone. Veach drafts corners at every level of the draft \u2014 from trading up for McDuffie at 21 to finding Jaylen Watson in the 7th round and L'Jarius Sneed in the 4th. He values versatility (slot + outside), ball production, and competitive toughness over pure size or elite 40 times.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-2 \u2014 wide range. McDuffie is 5-11, Watson is 6-2, Sneed was 6-1, Williams (2022 R4) is 6-3, Nohl Williams (2025 R3) is 6-1.",
+        "weight_range": "175\u2013205",
+        "arm_length_minimum": "No hard cutoff. McDuffie at 5-11 with shorter arms was drafted 21st overall. Does not require elite length.",
+        "key_athletic_tests": "Speed matters but is not an eliminator. McDuffie ran 4.44, Sneed ran 4.37, Jaylen Watson ran approximately 4.48. Veach values 3-cone and short shuttle as indicators of change-of-direction ability in zone schemes.",
+        "speed_requirement": "Soft preference for sub-4.50. Has drafted slower corners late (Joshua Williams, 4.57, R4 2022) when size and physicality compensated."
+      },
+      "playing_style": {
+        "primary_coverage_style": "Versatile \u2014 must be able to play both man and zone. Spagnuolo's defense runs the 3rd-highest rate of Cover 2 in the NFL and uses heavy dime packages. Corners must be comfortable in zone and willing to tackle.",
+        "most_valued_traits": [
+          "Versatility to play outside and slot (McDuffie played 448 slot snaps in 2023)",
+          "Football IQ and instincts \u2014 Spagnuolo's scheme is complex and demanding",
+          "Competitive toughness and willingness to tackle in run support",
+          "Ball skills and playmaking ability \u2014 Sneed had 10 INTs in 4 years",
+          "Special teams value for Day 2-3 picks"
+        ],
+        "least_important_traits": [
+          "Pure size/length \u2014 has drafted corners from 5-10 to 6-3",
+          "Elite 40 time as a standalone trait"
+        ],
+        "deal_breakers": [
+          "Unable to learn complex coverage schemes \u2014 Spagnuolo's system is described as 'overwhelming at first'",
+          "Pure man-only or zone-only corners with no versatility",
+          "Liability in run support"
+        ],
+        "traits_that_make_them_reach": "Scheme versatility \u2014 McDuffie's ability to play inside and outside made Veach trade up 8 spots to 21st overall."
+      },
+      "college_production": {
+        "production_floor": "No hard statistical threshold. Values film over INT totals. McDuffie had only 1 INT in his final college season but was elite on film. Sneed had 3 INTs as a senior at Louisiana Tech.",
+        "production_trajectory": "Prefers multi-year starters. McDuffie started 3 years at Washington. Sneed started 3 years.",
+        "context_sensitivity": "High \u2014 adjusts for competition level. Has drafted from Group of 5 schools (Sneed from Louisiana Tech, Watson from Washington State) as well as Power 5."
+      },
+      "evidence": {
+        "picks_analyzed": 12,
+        "examples": [
+          "2022 R1 Pick 21 \u2014 Trent McDuffie: 5-11, 193, 4.44 40. Washington. Multi-year starter. All-Pro in 2023 and 2024. Versatile inside/outside corner.",
+          "2022 R4 Pick 135 \u2014 Joshua Williams: 6-3, 195, 4.57 40. Fayetteville State (D2). Elite size, physical press corner. Developmental projection.",
+          "2022 R7 Pick 243 \u2014 Jaylen Watson: 6-2, 197, ~4.48 40. Washington State. Steady starting corner despite being a 7th-round pick.",
+          "2020 R4 Pick 138 \u2014 L'Jarius Sneed: 6-1, 192, 4.37 40. Louisiana Tech. Transitioned from safety to CB. Became elite slot corner. Traded for 3rd-round pick in 2024.",
+          "2025 R3 Pick 85 \u2014 Nohl Williams: 6-1, ~190. California. Veach traded up to select. Described as 'student of football' by Spagnuolo.",
+          "2024 R6 Pick 211 \u2014 Kamal Hadden: 6-2, 192. Tennessee. Day 3 developmental corner with size.",
+          "2023 R4 Pick 119 \u2014 Chamarri Conner: 5-11, 204. Virginia Tech. Hybrid safety/slot corner. Versatility pick."
+        ]
+      },
+      "confidence": "very_high"
+    },
+    "QB": {
+      "archetype_summary": "Not applicable in the traditional sense \u2014 Veach has Patrick Mahomes and has never drafted a QB during his tenure. However, Veach was the driving force behind the Mahomes selection in 2017 (while Co-Director of Player Personnel). He identified Mahomes during his freshman year at Texas Tech and 'pounded the table' to trade up from 27 to 10. The archetype Veach fell in love with: an electric arm talent with improvisation ability, unconventional throwing platforms, and the processing speed to handle Andy Reid's complex West Coast offense. Veach values upside and creativity at QB over polished pocket mechanics.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-3 (Mahomes is 6-3, 230)",
+        "weight_range": "220\u2013235",
+        "arm_length_minimum": "Not established \u2014 only 1 data point",
+        "key_athletic_tests": "Arm velocity and ability to make throws from unorthodox platforms matter most. Pocket mobility over designed running.",
+        "speed_requirement": "Not a primary factor. Mahomes is not an elite runner but has enough mobility to extend plays."
+      },
+      "playing_style": {
+        "primary_style": "Creative, improvisational passer with elite arm talent who can handle a complex West Coast offense",
+        "most_valued_traits": [
+          "Elite arm talent and throw variety",
+          "Ability to improvise and create off-script",
+          "Processing speed to handle Andy Reid's playbook",
+          "Competitive drive and leadership"
+        ],
+        "least_important_traits": [
+          "Polished mechanics \u2014 Mahomes was seen as mechanically raw coming out"
+        ],
+        "deal_breakers": [
+          "Limited arm talent",
+          "Inability to process complex offensive concepts"
+        ],
+        "traits_that_make_them_reach": "Not enough data \u2014 Veach's conviction on Mahomes drove a massive trade-up (27 to 10), suggesting he would be willing to move heaven and earth for a QB he believes in."
+      },
+      "college_production": {
+        "production_floor": "Not established with sufficient data",
+        "production_trajectory": "Mahomes was a prolific passer at Texas Tech (5,052 yards, 41 TDs as a junior)",
+        "context_sensitivity": "High \u2014 Veach evaluated Mahomes in the Air Raid context of Texas Tech and projected his talent to Reid's system."
+      },
+      "evidence": {
+        "picks_analyzed": 0,
+        "examples": [
+          "Pre-GM: Veach's fingerprints were all over the 2017 trade up for Patrick Mahomes (6-3, 230, 10th overall from Texas Tech). Alex Smith came out publicly saying Veach was 'enamored with Mahomes during his freshman year.'"
+        ]
+      },
+      "confidence": "very_low",
+      "confidence_note": "Zero QBs drafted during Veach's GM tenure. Profile entirely inferred from the Mahomes scouting process and Veach's stated philosophy of addressing QB first."
+    },
+    "OT": {
+      "archetype_summary": "Athletic, versatile pass protector who can handle speed rushers in the Andy Reid pass-heavy offense. Veach has repeatedly pursued OTs with movement skills, flexibility, and experience at left tackle. Josh Simmons (2025 R1) embodies the ideal: elite feet, balance, and hand technique with the frame to anchor against bull rushes. Suamataia (2024 R2) was a raw but physically powerful tackle with both-side experience. Wanya Morris (2023 R3) was an athletic project. Veach is willing to take medical risks at the position if the talent ceiling is high (Simmons slid from top-15 to 32 due to a knee injury and Veach took him without hesitation).",
+      "physical_profile": {
+        "height_range": "6-4 to 6-6. Simmons: 6-5, 310. Suamataia: 6-6, 326. Morris: 6-5, 307. Niang (2020 R3): 6-5, 315.",
+        "weight_range": "305\u2013330",
+        "arm_length_minimum": "Soft preference for 34+ inches. Simmons: 34.5-inch arms. Suamataia: 35.5-inch arms. Morris: 34.25-inch arms.",
+        "key_athletic_tests": "Prioritizes foot speed and lateral agility. Simmons was praised for 'impressive movement skills, flexibility and balance.' Suamataia's raw power was the draw. Lateral agility and short shuttle performance appear more important than 40 time.",
+        "speed_requirement": "Not a 40-time position for Veach. Values feet in pass sets."
+      },
+      "playing_style": {
+        "primary_style": "Athletic pass protector for a high-volume passing offense. Must be able to mirror speed rushers.",
+        "most_valued_traits": [
+          "Pass protection technique and foot speed \u2014 protecting Mahomes is the top organizational priority",
+          "Flexibility and balance in pass sets",
+          "Ability to play left tackle (Veach has said 'you typically don't find left tackles in free agency')",
+          "Experience at multiple tackle positions"
+        ],
+        "least_important_traits": [
+          "Elite run blocking / mauler traits \u2014 the offense runs zone concepts where athletic OTs fit naturally"
+        ],
+        "deal_breakers": [
+          "Stiff athletes who can't mirror speed rushers",
+          "Inability to handle NFL-caliber pass rushers in protection"
+        ],
+        "traits_that_make_them_reach": "True left tackle ability with proven pass protection film. Veach said of Simmons: 'it puts him in the upper echelon of what he could be as a future starter and difference-maker at left tackle.'"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter preferred. Simmons started 2+ years (SDSU + Ohio State). Suamataia started at both RT and LT at BYU.",
+        "production_trajectory": "Values ascending trajectory. Suamataia went from RT to LT and improved his PFF pass-blocking grade from 80.9 to 86.1.",
+        "context_sensitivity": "Moderate \u2014 values Power 5 competition but will draft from smaller schools with the right tools."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2025 R1 Pick 32 \u2014 Josh Simmons: 6-5, 310, 34.5-inch arms. Ohio State. Elite movement skills, 82.2 PFF pass-blocking grade on true pass sets. Slid due to knee injury. Veach took the medical risk.",
+          "2024 R2 Pick 63 \u2014 Kingsley Suamataia: 6-6, 326, 35.5-inch arms. BYU. Raw but strong, experience at both tackle spots. Struggled in 2024 and moved to guard.",
+          "2023 R3 Pick 92 \u2014 Wanya Morris: 6-5, 307, 34.25-inch arms. Oklahoma (transfer from Tennessee). Athletic but inconsistent. Started some games at LT in 2024 but was benched.",
+          "2020 R3 Pick 96 \u2014 Lucas Niang: 6-5, 315. TCU. Opt-out in 2020 season due to COVID. Injury-plagued career."
+        ]
+      },
+      "confidence": "high"
+    },
+    "IOL": {
+      "archetype_summary": "Versatile, powerful interior lineman who can play multiple positions. Veach hit a home run with the Humphrey/Trey Smith duo in 2021 and has pursued similar profiles since. Humphrey is the prototypical Veach IOL: smart, technically polished, can pull and reach-block in zone concepts, and serves as the communication hub of the OL. Trey Smith is the power complement: a 6th-round steal who became one of the NFL's best mauling run blockers. Veach values guard/center versatility and has drafted IOL who can play multiple interior spots (Allegretti played G and C).",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5. Humphrey: 6-5, 302. Trey Smith: 6-5, 320. Allegretti: 6-4, 320. Nourzad: 6-4, 300. Hanson: 6-3, 300.",
+        "weight_range": "300\u2013325",
+        "arm_length_minimum": "No hard cutoff established. Values hand placement and technique over raw length.",
+        "key_athletic_tests": "Values versatility indicators \u2014 short shuttle and 3-cone for guards who need to pull in zone schemes. Bench press matters as a strength indicator. Trey Smith was a combine standout despite medical concerns (blood clots).",
+        "speed_requirement": "Not applicable as a standalone test. Must be able to pull and reach block in wide-zone concepts."
+      },
+      "playing_style": {
+        "primary_style": "Zone-scheme fit with guard-center versatility",
+        "most_valued_traits": [
+          "Guard-center versatility (Veach: 'You guys know how we feel about guys who have versatility')",
+          "Pulling ability and movement in space for Andy Reid's zone-run concepts",
+          "Strength at point of attack \u2014 Trey Smith is an elite mauler",
+          "Intelligence and communication skills (Humphrey directs protection calls)",
+          "Medical risks with elite upside \u2014 Trey Smith fell to round 6 due to blood clot history and Veach pounced"
+        ],
+        "least_important_traits": [
+          "Pure anchor strength without mobility \u2014 the zone scheme needs athletes, not statues"
+        ],
+        "deal_breakers": [
+          "Inability to play in a zone-blocking scheme",
+          "Stiff players who can't pull or reach-block"
+        ],
+        "traits_that_make_them_reach": "Guard-center versatility. Veach specifically cited Allegretti's ability to play both guard and center at the East-West Shrine Game as 'what caught our eye.'"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter preferred. Humphrey started 4 years at Oklahoma. Smith started 3 years at Tennessee. Allegretti was a 2-time captain at Illinois.",
+        "production_trajectory": "Values durability and consistency. Humphrey didn't miss a start. Allegretti didn't miss a start his final 3 years.",
+        "context_sensitivity": "Values Power 5 experience. All IOL drafted in top 4 rounds came from major conference programs."
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2021 R2 Pick 63 \u2014 Creed Humphrey: 6-5, 302. Oklahoma. 4-year starter. NFL's best center. 3x Pro Bowler. Anchor of the OL rebuild post-Super Bowl LV.",
+          "2021 R6 Pick 226 \u2014 Trey Smith: 6-5, 320. Tennessee. Fell due to blood clot history. One of NFL's best run-blocking guards. Franchise tagged in 2025.",
+          "2019 R7 Pick 216 \u2014 Nick Allegretti: 6-4, 320. Illinois. Guard-center versatility. Veach loved his East-West Shrine Game center tape.",
+          "2024 R5 Pick 159 \u2014 Hunter Nourzad: 6-4, 300. Penn State. Versatile IOL, described as ideal Allegretti replacement.",
+          "2024 R7 Pick 248 \u2014 C.J. Hanson: 6-3, 300. Holy Cross. Small-school guard depth."
+        ]
+      },
+      "confidence": "high"
+    },
+    "DT": {
+      "archetype_summary": "Interior pass-rush disruptor \u2014 the penetrating 3-technique who can generate pressure from the interior. Veach has Chris Jones as the prototype: an athletic, explosive interior rusher who wins with quickness and power. Recent draft investments suggest Veach wants to stockpile interior pass-rush talent alongside Jones. Norman-Lott (2025 R2) was 'arguably the best true pass-rushing DT in this draft' with an 18.9% pass-rush win rate. Nnadi (2018 R3) was more of a run-stuffing nose tackle \u2014 a different profile used for depth and run defense.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4. Norman-Lott: 6-2, 290. Nnadi: 6-1, 300. Speaks: 6-3, 285. Coburn (2023 R6): 6-2, 332.",
+        "weight_range": "285\u2013335 (wide range depending on role: 3-tech pass rusher vs. nose tackle)",
+        "arm_length_minimum": "No hard cutoff identified. Chris Jones (6-6, 310, 34-inch arms) is the franchise archetype with elite length, but Veach has drafted shorter DTs.",
+        "key_athletic_tests": "First-step quickness and explosiveness are paramount for the 3-technique role. Vertical jump and broad jump as explosiveness indicators. Norman-Lott's 18.9% pass-rush win rate was the key stat.",
+        "speed_requirement": "Not a 40-time position. Interior quickness and get-off matter more."
+      },
+      "playing_style": {
+        "primary_style": "Penetrating interior pass rusher who can collapse the pocket and disrupt the QB",
+        "most_valued_traits": [
+          "Interior pass-rush ability \u2014 the primary differentiator for early-round DT investment",
+          "Explosiveness and first-step quickness off the snap",
+          "Ability to play multiple interior alignments (1-tech, 3-tech)",
+          "Power at point of attack \u2014 Spagnuolo said Norman-Lott has 'a lot of power'",
+          "Run-stuffing ability for nose tackle types (Nnadi role)"
+        ],
+        "least_important_traits": [
+          "Pure size without pass-rush ability \u2014 Veach won't draft a big body just to eat space"
+        ],
+        "deal_breakers": [
+          "One-dimensional run stuffer in early rounds \u2014 must offer pass-rush value to justify investment above Day 3",
+          "Undisciplined play \u2014 Brugler noted Norman-Lott has 'undisciplined tendencies' which suggests Veach is willing to take this risk but it is acknowledged"
+        ],
+        "traits_that_make_them_reach": "Elite interior pass-rush productivity. Norman-Lott led the nation in pass-rush win rate."
+      },
+      "college_production": {
+        "production_floor": "For pass-rushing DTs: expects demonstrable ability to get to the QB. Norman-Lott had an 88.3 PFF pass-rush grade. For run-stuffing nose tackles: fewer expectations on sack numbers.",
+        "production_trajectory": "Norman-Lott was an ascending producer at Tennessee over multiple years.",
+        "context_sensitivity": "Values SEC and Power 5 competition. Norman-Lott and Speaks both came from SEC programs."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2025 R2 Pick 63 \u2014 Omarr Norman-Lott: 6-2, 290. Tennessee. Led nation with 18.9% pass-rush win rate. 88.3 PFF pass-rush grade. Explosive disruptor.",
+          "2018 R3 Pick 75 \u2014 Derrick Nnadi: 6-1, 300. Florida State. Run-stuffing nose tackle. Solid contributor for Super Bowl teams but only 1 career sack.",
+          "2018 R2 Pick 46 \u2014 Breeland Speaks: 6-3, 285. Ole Miss. Versatility project. Complete bust.",
+          "2023 R6 Pick 194 \u2014 Keondre Coburn: 6-2, 332. Texas. Day 3 nose tackle depth."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "WR": {
+      "archetype_summary": "Speed-first playmaker who can stretch the field and create explosive plays after the catch. Since trading Tyreek Hill, Veach has obsessively pursued speed at the position. Xavier Worthy (2024 R1) was the fastest player in combine history at 4.21. Mecole Hardman (2019 R2) was drafted for his 4.33 speed. Rashee Rice (2023 R2) was more of a high-volume possession receiver but still offered after-the-catch explosiveness. Veach wants to give Mahomes a field-stretching weapon \u2014 size is secondary to speed and playmaking ability.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-0 \u2014 notably undersized. Worthy: 5-11, 165. Hardman: 5-10, 187. Rice: 6-1, 204. Royals (2025 R4): 5-10, 185.",
+        "weight_range": "165\u2013205",
+        "arm_length_minimum": "No minimum identified. Worthy at 165 pounds is one of the lightest WRs drafted in round 1 in recent memory.",
+        "key_athletic_tests": "40-yard dash is the key metric. Worthy: 4.21 (NFL Combine record). Hardman: 4.33. Speed is the primary athletic requirement. Also values short-area quickness and ability to create after the catch.",
+        "speed_requirement": "Sub-4.45 for Day 1-2 speed receivers. Exceptions made for possession receivers like Rice (4.49)."
+      },
+      "playing_style": {
+        "primary_style": "Deep threat / explosive playmaker who can create big plays in Andy Reid's schemed passing game",
+        "most_valued_traits": [
+          "Game-breaking speed \u2014 Veach specifically traded up for Worthy's 4.21 speed to replace Tyreek Hill's explosiveness",
+          "Ability to produce explosive plays and YAC",
+          "Versatility within Reid's offense (motions, screens, jet sweeps)",
+          "College production \u2014 Rice led SMU with 96 catches and 1,355 yards as a senior",
+          "Return ability / special teams value for Day 2-3 picks (Hardman made Pro Bowl as returner, Royals projects as kick returner)"
+        ],
+        "least_important_traits": [
+          "Size and contested catch ability \u2014 has been willing to draft undersized WRs (Worthy at 165 lbs)",
+          "Traditional X-receiver traits \u2014 does not prioritize big-bodied outside WRs"
+        ],
+        "deal_breakers": [
+          "Slow players at the WR position in early rounds \u2014 if investing Day 1-2 capital, must bring explosive speed or elite production",
+          "Poor hands / unreliable catch rate"
+        ],
+        "traits_that_make_them_reach": "Elite 40 time. Veach traded up 4 spots for Worthy, who ran the fastest combine 40 ever. Previously traded up 5 spots for Hardman's speed."
+      },
+      "college_production": {
+        "production_floor": "Expects significant college production for Day 1-2 WRs. Rice: 96 catches, 1,355 yards, 10 TDs as a senior. Worthy: 62 catches, 981 yards as a freshman, then 60 catches, 760 yards as a sophomore. Hardman: 52 catches, 943 yards.",
+        "production_trajectory": "Values early producers. Worthy was a freshman All-American. Rice was a prolific 4-year producer at SMU.",
+        "context_sensitivity": "Moderate \u2014 has drafted from both Power 5 (Worthy from Texas) and Group of 5 (Rice from SMU, Royals from Utah State)."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2024 R1 Pick 28 \u2014 Xavier Worthy: 5-11, 165, 4.21 40. Texas. Fastest combine performer ever. 742 scrimmage yards and 9 TDs as a rookie. Traded up 4 spots to select.",
+          "2023 R2 Pick 55 \u2014 Rashee Rice: 6-1, 204, 4.49 40. SMU. 96 catches, 1,355 yards as a senior. Explosive after the catch.",
+          "2019 R2 Pick 56 \u2014 Mecole Hardman: 5-10, 187, 4.33 40. Georgia. Speed merchant. Made Pro Bowl as return specialist but inconsistent as a receiver.",
+          "2025 R4 Pick 133 \u2014 Jalen Royals: 5-10, 185. Utah State. Day 3 speed receiver / kick returner.",
+          "2021 R5 Pick 181 \u2014 Cornell Powell: 6-0, 205. Clemson. Day 3 pick who failed to make the roster."
+        ]
+      },
+      "confidence": "high"
+    },
+    "TE": {
+      "archetype_summary": "Athletic, receiving-oriented tight end with enough size to block in-line when needed. With Travis Kelce dominating the position for the duration of Veach's tenure, TE has been a low draft priority \u2014 never addressed before round 4. Jared Wiley (2024 R4) and Noah Gray (2021 R5) represent the archetypes: athletic pass-catchers who can contribute in the passing game and develop behind Kelce. Wiley at 6-6 and 249 pounds has rare movement ability for his size. Gray has been a reliable complementary piece.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-6. Wiley: 6-6, 249. Gray: 6-4, 240.",
+        "weight_range": "240\u2013255",
+        "arm_length_minimum": "Not established \u2014 too few picks to determine threshold.",
+        "key_athletic_tests": "Values movement skills and athletic ability for the position. Wiley was praised for rare movement ability at 6-6.",
+        "speed_requirement": "No hard cutoff. Values enough speed to create mismatches in the passing game."
+      },
+      "playing_style": {
+        "primary_style": "Receiving-capable TE who can develop into a starter once Kelce retires",
+        "most_valued_traits": [
+          "Receiving ability and route-running at the TE position",
+          "Movement skills relative to size",
+          "Ability to create mismatches against linebackers",
+          "Red zone touchdown production (Wiley had 8 receiving TDs, tied for 1st among FBS TEs)",
+          "Blocking competence (not elite, but functional)"
+        ],
+        "least_important_traits": [
+          "Elite in-line blocking \u2014 not what they're spending draft capital on at TE"
+        ],
+        "deal_breakers": [
+          "Pure blocking TE with no receiving upside \u2014 not worth the draft capital given Kelce's presence",
+          "Injury history that limits availability"
+        ],
+        "traits_that_make_them_reach": "Rare athletic profile at the position \u2014 Wiley's movement skills for his size were the differentiator."
+      },
+      "college_production": {
+        "production_floor": "Expects functional receiving production. Wiley: 47 catches, 520 yards, 8 TDs as a senior at TCU. Gray: 22 catches, 282 yards at Duke.",
+        "production_trajectory": "Ascending trajectory preferred. Wiley's production rose significantly in his final year after transferring from Texas to TCU.",
+        "context_sensitivity": "Values production in context of offense type and receiving corps competition."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2024 R4 Pick 131 \u2014 Jared Wiley: 6-6, 249. TCU. 47 catches, 520 yards, 8 TDs. Rare movement ability for his size. Suffered torn ACL in November 2024.",
+          "2021 R5 Pick 162 \u2014 Noah Gray: 6-4, 240. Duke. Reliable complementary TE. Signed a second contract with KC."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 2 TEs drafted (both Day 3) during Veach's 8-draft tenure. Kelce's presence has deprioritized the position. Profile will need updating once Kelce retires and Veach must invest significant draft capital at TE."
+    },
+    "S": {
+      "archetype_summary": "Versatile hybrid safety who can play multiple roles \u2014 deep single-high, in the box, slot coverage, and as a blitzer. Spagnuolo's defense leans heavily on safety versatility, with Justin Reid moving between free safety, slot defender, and pseudo-linebacker. Veach drafts safeties who can wear multiple hats: Juan Thornhill (2019 R2) was a rangey free safety, Bryan Cook (2022 R2) was a box safety/run supporter, Chamarri Conner (2023 R4) was a safety/slot hybrid, and Jaden Hicks (2024 R4) had experience at safety, inside linebacker, and slot corner.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-1. Thornhill: 6-0, 205. Cook: 6-1, 210. Conner: 5-11, 204. Hicks: 6-1, 207. Watts (2018 R4): 5-11, 203.",
+        "weight_range": "200\u2013215",
+        "arm_length_minimum": "No clear cutoff established.",
+        "key_athletic_tests": "Values change-of-direction skills and closing speed. Thornhill was known for range and ball-hawking ability. Cook was known for physicality and box-safety traits.",
+        "speed_requirement": "Soft preference for sub-4.50. Thornhill: 4.42. Hicks had buzz as the top safety in the 2024 class."
+      },
+      "playing_style": {
+        "primary_style": "Versatile defensive back who can fill multiple roles in Spagnuolo's dime-heavy defense",
+        "most_valued_traits": [
+          "Multi-positional versatility \u2014 ability to play safety, slot corner, and pseudo-linebacker roles",
+          "Football IQ to handle Spagnuolo's complex coverage rotations",
+          "Physicality and willingness to come up in run support",
+          "Blitz capability \u2014 Spagnuolo uses safeties as blitzers frequently",
+          "Special teams value for Day 2-3 picks"
+        ],
+        "least_important_traits": [
+          "Pure single-high free safety traits in isolation \u2014 needs versatility",
+          "Ball production as a standalone metric"
+        ],
+        "deal_breakers": [
+          "One-dimensional safeties who can only play deep or only play in the box",
+          "Inability to cover in the slot \u2014 Spagnuolo regularly plays 6+ DBs"
+        ],
+        "traits_that_make_them_reach": "Elite versatility \u2014 Hicks's experience at safety, ILB, and slot corner made him an ideal Spagnuolo chess piece."
+      },
+      "college_production": {
+        "production_floor": "Values playmaking ability. Thornhill had 3 INTs and 2 FF. Cook had 4 INTs at Cincinnati. Conner had multiple INTs.",
+        "production_trajectory": "Multi-year starters preferred.",
+        "context_sensitivity": "Moderate."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2022 R2 Pick 62 \u2014 Bryan Cook: 6-1, 210. Cincinnati. Box safety who hits hard. Part of the elite 2022 draft class.",
+          "2019 R2 Pick 63 \u2014 Juan Thornhill: 6-0, 205, 4.42 40. Virginia. Rangey free safety. Played well before injuries.",
+          "2024 R4 Pick 133 \u2014 Jaden Hicks: 6-1, 207. Washington State. Safety/LB/slot hybrid. Had buzz as top safety in 2024 class.",
+          "2023 R4 Pick 119 \u2014 Chamarri Conner: 5-11, 204. Virginia Tech. Safety/slot hybrid. Versatility pick.",
+          "2018 R4 Pick 124 \u2014 Armani Watts: 5-11, 203, 4.52 40. Texas A&M. Depth safety."
+        ]
+      },
+      "confidence": "high"
+    },
+    "LB": {
+      "archetype_summary": "Instinctive, downhill linebacker who can tackle, blitz, and contribute in Spagnuolo's scheme. Nick Bolton (2021 R2) is the prototype: a compact, instinctive tackler with sideline-to-sideline speed who plays the MIKE position. Leo Chenal (2022 R3) is the blitz specialist: an insanely strong, explosive LB used as a weapon in Spagnuolo's pressure packages. Veach values football IQ, tackling reliability, and scheme versatility at the LB position. Coverage ability is useful but not mandatory \u2014 Spagnuolo uses safeties for coverage more than LBs.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-2. Bolton: 5-11, 237. Chenal: 6-2, 250. Gay: 6-1, 243. O'Daniel (2018 R3): 6-1, 222. Bassa (2025 R5): 6-1, 220.",
+        "weight_range": "220\u2013250",
+        "arm_length_minimum": "No clear cutoff.",
+        "key_athletic_tests": "Values explosiveness and change-of-direction for blitzing and sideline-to-sideline pursuit. Chenal's bench press and explosion testing were remarkable. Bassa was described as a 'change of direction guy' by Spagnuolo.",
+        "speed_requirement": "Values sideline-to-sideline speed but no hard 40 cutoff. Bolton (4.66) is not elite speed. Values closing speed and lateral agility."
+      },
+      "playing_style": {
+        "primary_style": "Instinctive run-stopping MIKE/WILL LB who can also blitz effectively",
+        "most_valued_traits": [
+          "Instinctive tackling and run defense \u2014 Bolton had 95+ tackles multiple seasons",
+          "Blitz ability \u2014 Chenal is described as 'elite' in his blitzing role and is 'a dangerous weapon in huge games'",
+          "Football IQ and ability to make pre-snap reads",
+          "Versatility to play inside and outside (Bassa was put at MIKE in rookie minicamp despite being drafted as an outside LB)",
+          "Motor and effort plays"
+        ],
+        "least_important_traits": [
+          "Elite coverage skills \u2014 Spagnuolo uses safeties for most coverage responsibilities, so LB coverage is less critical",
+          "Pure athleticism over instincts"
+        ],
+        "deal_breakers": [
+          "Inability to tackle reliably",
+          "Poor instincts and slow processing"
+        ],
+        "traits_that_make_them_reach": "Elite blitz production or tackling efficiency. Chenal's 'insane strength and blitzing potential' have made him a key piece despite not being a three-down player."
+      },
+      "college_production": {
+        "production_floor": "Expects high tackle numbers for MIKE LBs. Bolton had 107 tackles at Missouri his final year. Gay had character concerns that dropped him but was productive at Mississippi State.",
+        "production_trajectory": "Values early starters. Bolton was a 2-year starter at Missouri. Chenal was a multi-year starter at Wisconsin.",
+        "context_sensitivity": "Moderate \u2014 adjusts for role and scheme context."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2021 R2 Pick 58 \u2014 Nick Bolton: 5-11, 237. Missouri. 107 tackles as a senior. Instinctive MIKE linebacker. Multi-year starter for Chiefs.",
+          "2022 R3 Pick 103 \u2014 Leo Chenal: 6-2, 250. Wisconsin. Elite blitzer and run stuffer. Used as a specialist weapon in Spagnuolo's defense.",
+          "2020 R2 Pick 63 \u2014 Willie Gay Jr.: 6-1, 243. Mississippi State. Athletic, versatile LB with character concerns. Decent contributor but eventually released.",
+          "2018 R3 Pick 100 \u2014 Dorian O'Daniel: 6-1, 222. Clemson. Coverage LB project. Did not develop as hoped.",
+          "2025 R5 Pick 156 \u2014 Jeffrey Bassa: 6-1, 220. Oregon. Versatile LB with COD skills. Put at MIKE in rookie minicamp."
+        ]
+      },
+      "confidence": "medium-high"
+    },
+    "RB": {
+      "archetype_summary": "Late-round or undrafted back with contact balance, toughness, and ability to contribute in the passing game. Veach believes elite RB value can be found late because of how the NFL market depresses the position's draft value. Isiah Pacheco (2022 R7) is the poster child: a 7th-round pick who became the team's lead back through sheer toughness and contact balance. The lone exception \u2014 Clyde Edwards-Helaire at pick 32 in 2020 \u2014 is widely considered a reach/miss influenced by Andy Reid's desire for a pass-catching back. Since then, Veach has exclusively used Day 3 picks on RBs.",
+      "physical_profile": {
+        "height_range": "5-8 to 5-11. CEH: 5-8, 209. Pacheco: 5-10, 216. Darwin Thompson (2019 R6): 5-8, 200. Brashard Smith (2025 R7): 5-10, 190.",
+        "weight_range": "190\u2013216",
+        "arm_length_minimum": "Not applicable.",
+        "key_athletic_tests": "Values contact balance and tackle-breaking ability more than pure speed. Pacheco was described as having great contact balance despite modest size. Thompson was described as 'rocked up at 200 pounds with great contact balance.'",
+        "speed_requirement": "Not a primary factor. Pacheco ran ~4.37 but was still a 7th-rounder. CEH ran 4.60."
+      },
+      "playing_style": {
+        "primary_style": "Tough, physical back who can handle lead-back duties and contribute in the passing game",
+        "most_valued_traits": [
+          "Contact balance and yards after contact \u2014 consistently drafted backs who break tackles",
+          "Receiving ability / pass-catching out of the backfield (CEH was an elite pass-catcher at LSU)",
+          "Toughness and ability to finish runs moving forward",
+          "Return ability / special teams value for Day 3 picks",
+          "Veach stated at the 2026 Combine that he wants to 'cultivate an explosive running game'"
+        ],
+        "least_important_traits": [
+          "Pure straight-line speed as a standalone trait \u2014 values contact balance more",
+          "Size \u2014 has drafted RBs from 5-8 to 5-10, no preference for big backs"
+        ],
+        "deal_breakers": [
+          "Spending premium draft capital on RBs \u2014 after the CEH miss, Veach has exclusively used Day 3 picks. He publicly stated RBs with 1,000+ yard seasons can be found in the 5th-7th rounds while 'a lineman that maybe has played a limited amount, but they have the size, the length, the athletic ability to work with \u2014 those guys probably go ahead of running backs'"
+        ],
+        "traits_that_make_them_reach": "Nothing \u2014 Veach appears allergic to reaching for RBs after the CEH experience. He was reportedly interested in Breece Hall at the 2025 trade deadline but would not pay a 3rd-round pick."
+      },
+      "college_production": {
+        "production_floor": "No minimum for Day 3 backs. Pacheco had 729 rushing yards as a senior at Rutgers. Thompson had 1,044 yards at Utah State.",
+        "production_trajectory": "Not strongly weighted. Values film and contact balance over raw numbers.",
+        "context_sensitivity": "Low \u2014 will draft from any level of college football at this position."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2020 R1 Pick 32 \u2014 Clyde Edwards-Helaire: 5-8, 209, 4.60 40. LSU. Pass-catching back. Widely viewed as a reach/miss. Did not live up to first-round selection.",
+          "2022 R7 Pick 251 \u2014 Isiah Pacheco: 5-10, 216, 4.37 40. Rutgers. Incredible value pick. Became starting RB through toughness and contact balance.",
+          "2019 R6 Pick 214 \u2014 Darwin Thompson: 5-8, 200. Utah State. Contact balance back praised by Veach for finishing runs.",
+          "2025 R7 Pick 228 \u2014 Brashard Smith: 5-10, 190. SMU. Day 3 depth back."
+        ]
+      },
+      "confidence": "medium"
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 6,
+    "max_observed_reach": 15,
+    "round_1_reach_tolerance": 5,
+    "notes": "Veach generally does not make massive reaches in round 1. When he has first-round picks, he tends to select players who are consensus first-rounders, though sometimes at the margins (CEH was viewed as a late first-round pick taken at 32, Anudike-Uzomah was a late first-rounder taken at 31). His biggest reaches have been in round 2 (Speaks at 46 was widely considered a reach). In 2024, selecting Worthy at 28 was near consensus. In 2025, Simmons at 32 was a value pick (ranked 18-20 on most boards but slid due to injury). In 2022, trading up for McDuffie at 21 was near consensus range. Veach is more of a value/conviction drafter than a reacher."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.65,
+    "offensive_scheme": "Andy Reid's West Coast offense with RPO concepts and wide-zone run game. Built around Patrick Mahomes' arm talent and improvisation. Requires athletic OL who can pass protect and pull in zone concepts. Values versatile skill players who can operate in multiple alignments. The offense emphasizes efficiency, quick passes, and deep shots off play-action.",
+    "defensive_scheme": "Steve Spagnuolo's 4-3 base with heavy use of dime packages (6+ DBs). Pressure-intensive scheme with exotic blitz packages. Runs high rate of Cover 2 (3rd-highest in NFL) and Quarters coverage. Demands versatile defensive backs who can play multiple roles. Edge rushers must be capable of standing up or putting hand in dirt. Interior DTs must generate pressure. Safeties are the key chess pieces \u2014 used as blitzers, slot defenders, and pseudo-linebackers.",
+    "scheme_change_flag": false,
+    "scheme_change_notes": "Reid and Spagnuolo have been in place since 2013 and 2019 respectively. No scheme change anticipated. However, Spagnuolo's contract status bears monitoring \u2014 he has been mentioned as a potential Andy Reid successor."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.65,
+    "risk_description": "Moderately aggressive. Veach has shown willingness to take medical risks (Simmons' knee injury 2025, Trey Smith's blood clot history 2021), character risks on Day 3 (Willie Gay's off-field concerns 2020), and projection risks (Speaks 2018). However, he is not reckless \u2014 his first-round picks at premium positions are generally considered safe/moderate picks rather than boom-or-bust swings. His biggest calculated gambles have paid off spectacularly (Trey Smith) or failed miserably (Speaks).",
+    "recency_bias": 0.7,
+    "recency_description": "Moderate to high recency bias. After the Super Bowl LV loss where the OL was dominated, Veach overhauled the entire offensive line in the 2021 offseason (Humphrey, Smith, traded for Orlando Brown, signed Joe Thuney). After the 2025 season (6-11, missed playoffs, Mahomes ACL tear), Veach's 2026 draft priorities clearly focus on rebuilding \u2014 his Combine statements about cultivating an explosive running game and needing to 'rebuild this thing' reflect the 2025 failure. He has consistently responded to the previous season's biggest weakness.",
+    "sunk_cost_behavior": "Moves on relatively quickly. Cut Speaks after 1 season. Traded Marcus Peters and L'Jarius Sneed rather than overpaying. Has shown willingness to acknowledge mispicks (the Anudike-Uzomah fifth-year option discussion suggests he may move on from that pick). However, gave CEH multiple seasons before transitioning to Pacheco as the lead back.",
+    "combine_weight": 0.4,
+    "combine_description": "Film-first with combine data as a confirming/eliminating tool. Veach has stated: 'In your primary rounds, you have to just maintain consistency [with measurable standards], and when you get into the later rounds, sometimes you just let the tape speak for itself.' He has drafted players who tested poorly but had great film (Karlaftis ran 4.74 but dominated on tape). However, elite speed at WR clearly moves the needle (Worthy's 4.21 drove a trade-up). At the 2019 Combine, Veach said: 'You want to maintain the standards you have set \u2014 a certain height, weight, speed \u2014 all those kinds of things early on. Every year is different. There is always a unique player that will kind of break that philosophy.'",
+    "character_weight": 0.55,
+    "character_description": "Moderate. Veach has drafted players with character concerns (Willie Gay had domestic violence allegations, Speaks had drug suspensions) but generally on Day 2-3. He has not made a first-round pick on a player with major character red flags. He places heavy emphasis on getting to know prospects personally \u2014 local visits, combine interviews, and pro day interactions. Veach has said the pre-draft visit process is 'extremely important to us.'",
+    "quarterback_philosophy": "Veach was the person who identified Mahomes and drove the trade-up in 2017. He believes you must have a franchise QB first and foremost. With Mahomes, the QB position is set. However, Mahomes' ACL tear in 2025 may force Veach to consider a developmental QB for the first time. His stated philosophy is that you build outward from the QB: 'you need to take care of getting a quarterback first.'"
+  },
+  "college_production_preferences": {
+    "production_weight": 0.6,
+    "production_vs_projection": "Leans productive in rounds 1-2 but has taken significant projection bets on Day 3. Trey Smith (R6) was a projection bet on medical, not production \u2014 he was a productive college player who fell due to health concerns. Speaks (R2) was more of a projection bet that failed. In general, Veach's successful picks have been productive college players (McDuffie, Humphrey, Bolton, Rice, Karlaftis), while his misses tend to be projection picks (Speaks, CEH to some extent). Recent trend is toward more proven college producers.",
+    "production_thresholds_by_position": {
+      "WR": "For Day 1-2 WRs: expects 50+ catches in final season minimum. Rice had 96 catches. Worthy had 60+. Hardman had 52.",
+      "RB": "No clear threshold \u2014 has drafted low-usage backs who produced in limited roles (Thompson, 1,044 yards in 1 year).",
+      "EDGE": "8+ sacks across final 2 college seasons for R1 picks. Karlaftis: 14 career. Anudike-Uzomah: 19.5 in final 2 years.",
+      "CB": "No clear statistical floor \u2014 values film over INT totals. McDuffie had 1 INT in final season.",
+      "LB": "80+ tackles in final season for MIKE LBs. Bolton: 107 tackles.",
+      "IOL": "Multi-year starter. Humphrey: 4-year starter. Smith: 3-year starter.",
+      "DT": "For pass-rushing DTs: demonstrable college pass-rush metrics. Norman-Lott: 18.9% pass-rush win rate (led nation)."
+    },
+    "breakout_age_sensitivity": 0.5,
+    "dominator_rating_sensitivity": 0.55,
+    "notes": "Veach values proven college production as a floor but is willing to bet on traits when the athletic or physical profile is exceptional. The key differentiator: his best picks (Humphrey, McDuffie, Bolton, Karlaftis) have been productive college players at premium positions. His worst picks (Speaks, CEH) involved more projection or deviation from optimal positional value. He appears to have learned from early misses and now leans more toward proven producers."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "notes": "Soft preference for sub-4.50 40. Has taken 4.57 CB (Joshua Williams R4) with compensating size (6-3). McDuffie 4.44. Sneed 4.37.",
+        "confidence": "medium"
+      },
+      "EDGE": {
+        "notes": "No hard speed cutoff. Karlaftis ran 4.74. Values power and motor over timed speed.",
+        "confidence": "medium"
+      },
+      "WR": {
+        "40_yard_preferred": "Sub-4.45 for Day 1-2 speed WRs. Rice at 4.49 was the exception as a possession receiver.",
+        "confidence": "medium"
+      },
+      "OT": {
+        "min_arm_length": "34 inches (soft). Simmons: 34.5, Suamataia: 35.5, Morris: 34.25.",
+        "confidence": "medium"
+      },
+      "S": {
+        "notes": "Sub-4.50 preferred. Thornhill: 4.42.",
+        "confidence": "low"
+      },
+      "DT": {
+        "notes": "No clear measurable thresholds \u2014 values film and pass-rush metrics.",
+        "confidence": "low"
+      }
+    },
+    "threshold_type": "Mostly soft preferences rather than hard cutoffs. Veach has violated his typical profiles when compensating traits are present (Joshua Williams was slow for a CB but had elite size). Veach said: 'There is always a unique player that will kind of break that philosophy.'",
+    "size_preferences_by_position": {
+      "DT": "Prefers 285-300 for 3-technique pass rushers, 300+ for nose tackles.",
+      "LB": "No strong size preference \u2014 drafted LBs from 220 (Bassa) to 250 (Chenal).",
+      "S": "Prefers 200+ safeties. No undersized safeties drafted.",
+      "WR": "Willing to draft very undersized WRs (Worthy at 165 lbs) if speed compensates.",
+      "OT": "Prefers 305+ with 34+ inch arms."
+    },
+    "athletic_testing_favorites": "40-yard dash is the deciding test at WR. Broad jump and vertical jump as explosiveness indicators at EDGE and DT. 3-cone and short shuttle for IOL and LB. Film dominates over testing at most positions \u2014 Veach is not a 'combine warrior' GM.",
+    "measurables_vs_film": "Film-first at most positions. Veach has drafted combine underperformers with great tape (Karlaftis's 4.74 40 didn't deter a first-round pick). However, elite athletic testing at WR clearly moves the needle (Worthy's 4.21). Trey Smith's medical red flags were overcome by film dominance. Veach's stated philosophy: 'In your primary rounds, maintain the standards you have set. In the later rounds, let the tape speak for itself.'"
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium positions (EDGE, CB, OT, WR), high-floor players. Has never taken a non-premium position in round 1 except CEH (RB, 2020 \u2014 widely viewed as an outlier/mistake). Will trade up aggressively for a specific target. Has traded involving the first-round pick in 6 of 8 drafts. In 2025, took a medical value play (Simmons fell from top-15 to 32 due to knee injury). With a top-10 pick for the first time in 2026, behavior may change \u2014 Veach expressed excitement about being 'at nine' and having better options.",
+    "round_2_3_strategy": "Shifts toward need-filling. This is where the BPA-to-need transition happens. Half of his second-round picks have been at premium positions, but the round has produced key contributors at 'need' positions: Humphrey and Bolton (2021) after the Super Bowl LV loss, Norman-Lott (2025) after D-line departures. Round 3 has historically been for trenches: 4 of 6 third-round picks have been OL or DT. Will trade up in round 2-3 for specific targets (traded up for Nnadi in 2018, for Nohl Williams in 2025).",
+    "day_3_strategy": "Developmental athletes, scheme-specific role players, and special teams contributors. Round 4 is his signature secondary round (5 of 7 R4 picks have been DBs). Rounds 5-7 target defensive backs, offensive linemen, and depth pieces. Late-round fliers on players with medical or character concerns who slid (Trey Smith R6, Pacheco R7). Uses late-round board as his UDFA target list \u2014 Veach said his 6th and 7th round board becomes his 'free agency board.'",
+    "compensatory_pick_usage": "Has used compensatory picks for a variety of positions. No clear pattern of using comp picks differently from regular picks."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "EDGE": {
+        "picks": 5,
+        "starters": 1,
+        "rate": 0.2,
+        "note": "Karlaftis is the lone clear hit. Anudike-Uzomah has disappointed. Speaks was a bust. Gillotte TBD. Possible blind spot."
+      },
+      "CB": {
+        "picks": 12,
+        "starters": 4,
+        "rate": 0.33,
+        "note": "McDuffie is a home run. Sneed was excellent. Watson and Fenton were solid finds. High volume approach with frequent hits."
+      },
+      "IOL": {
+        "picks": 6,
+        "starters": 3,
+        "rate": 0.5,
+        "note": "Humphrey and Trey Smith are home runs. Allegretti was solid. Strength of the Veach era."
+      },
+      "OT": {
+        "picks": 4,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Simmons TBD. Suamataia moved to guard. Morris benched. Niang injury-plagued. Clear weakness."
+      },
+      "WR": {
+        "picks": 5,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "Rice looks promising pre-injury. Worthy had solid rookie year. Hardman was inconsistent. Powell was a miss."
+      },
+      "LB": {
+        "picks": 5,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "Bolton is a solid starter. Chenal is an elite specialist. Gay was a mixed bag. O'Daniel was a miss."
+      },
+      "S": {
+        "picks": 5,
+        "starters": 2,
+        "rate": 0.4,
+        "note": "Cook is a quality starter. Thornhill was good pre-injury. Hicks TBD. Watts was decent depth."
+      },
+      "DT": {
+        "picks": 4,
+        "starters": 1,
+        "rate": 0.25,
+        "note": "Nnadi was a solid contributor but unspectacular. Norman-Lott TBD. Speaks was a bust."
+      },
+      "RB": {
+        "picks": 4,
+        "starters": 1,
+        "rate": 0.25,
+        "note": "Pacheco is a massive home run (7th round). CEH was a miss at R1 pick 32. Late-round strategy works better than early investment."
+      },
+      "TE": {
+        "picks": 2,
+        "starters": 0,
+        "rate": 0.0,
+        "note": "Gray is a solid backup. Wiley TBD (injury). Too few picks to evaluate."
+      }
+    },
+    "blind_spots": [
+      "Offensive tackle \u2014 has not successfully developed a drafted OT during his tenure. Has relied on free agency (Thuney, Jawaan Taylor) and trades (Orlando Brown) instead.",
+      "EDGE in round 1 \u2014 Karlaftis was a hit at 30, but Anudike-Uzomah at 31 is trending toward bust. The Speaks pick at 46 was also a bust. Only 1 of 3 EDGE investments in rounds 1-2 has been clearly successful.",
+      "RB in round 1 \u2014 the CEH pick stands as his most criticized early-round selection."
+    ],
+    "strengths": [
+      "Interior offensive line \u2014 Humphrey and Trey Smith may be the best IOL duo found in a single draft (2021 R2 and R6). Both are franchise-caliber players.",
+      "Cornerback \u2014 consistently finds contributors at every level of the draft. McDuffie (R1), Sneed (R4), Watson (R7), Fenton (R6). The 2022 draft class produced 4 contributing defensive backs.",
+      "Late-round value \u2014 Trey Smith (R6), Pacheco (R7), Watson (R7), Gray (R5), Fenton (R6), Allegretti (R7). Veach's late-round hit rate is among the best in the NFL.",
+      "Defensive back evaluation across the board \u2014 has hit on corners and safeties at multiple draft levels."
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Strategic spender. Uses FA to fill 1-2 starting holes, then drafts remaining needs. Veach signed Tyrann Mathieu (elite FA splash), Joe Thuney (targeted OL fix after Super Bowl LV), and Jawaan Taylor (RT need). More recently has been more conservative in FA spending, relying on internal development. Veach has said the Chiefs are 'trying to manage our resources' and maintains a 'three-year perspective' on the cap.",
+    "fa_draft_correlation": "When a veteran is signed at a position, that position drops in draft priority but doesn't disappear entirely. After signing Kristian Fulton at CB in 2025 FA, Veach still drafted Nohl Williams in round 3. After retaining Chris Jones at DT, still drafted Norman-Lott. Veach believes in depth and competition \u2014 does not stop investing in a position group just because a starter is in place.",
+    "roster_construction_philosophy": "Build through the draft at premium positions, supplement through targeted FA at spots where the draft hasn't delivered. The 2022 draft class (McDuffie, Karlaftis, Cook, Watson, Chenal, Pacheco) became the defensive core. Veach has said the Chiefs have been in a 'maintenance stage' for years but now need to 'rebuild this thing again' after the 2025 collapse. Expects a more aggressive rebuild approach in 2026."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 57,
+    "notable_patterns": [
+      "Has initiated a trade involving the first-round pick in 6 of 8 drafts \u2014 the most trade-active GM in the NFL in round 1",
+      "Had never traded DOWN on draft weekend until 2025 (traded back 1 spot with Eagles). Overwhelmingly trades up.",
+      "Has drafted a cornerback in every single draft of his 8-year tenure (8 for 8)",
+      "5 of 7 fourth-round picks have been defensive backs \u2014 his signature Day 2 move",
+      "Round 3 is his trench round: 4 of 6 R3 picks have been OL or DT",
+      "Late-round hit rate is exceptional: Trey Smith (R6), Pacheco (R7), Watson (R7), Gray (R5), Fenton (R6)",
+      "Has never drafted a QB during his 8-year tenure",
+      "The 2022 draft class is one of the best in recent NFL history: McDuffie, Karlaftis, Cook, Williams, Chenal, Watson, Pacheco produced 5+ starters"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2018,
+        "pick": "2.46",
+        "player": "Breeland Speaks",
+        "position": "DE/OLB",
+        "consensus_rank": "65-75",
+        "reach_amount": 20,
+        "context": "Traded up 8 spots. Versatility projection from DL to OLB. Complete bust \u2014 cut after 1 season."
+      },
+      {
+        "year": 2020,
+        "pick": "1.32",
+        "player": "Clyde Edwards-Helaire",
+        "position": "RB",
+        "consensus_rank": "35-45",
+        "reach_amount": 5,
+        "context": "First-round RB when many had higher-rated players available. Widely viewed as Andy Reid influence. Did not live up to draft position."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2021,
+        "pick": "6.226",
+        "player": "Trey Smith",
+        "position": "OG",
+        "consensus_rank": "65-80",
+        "value_amount": 150,
+        "context": "Fell due to blood clot history. Became one of NFL's best guards. Franchise tagged in 2025."
+      },
+      {
+        "year": 2022,
+        "pick": "7.251",
+        "player": "Isiah Pacheco",
+        "position": "RB",
+        "consensus_rank": "180-200",
+        "value_amount": 50,
+        "context": "7th-round pick who became starting RB. Elite contact balance and toughness."
+      },
+      {
+        "year": 2022,
+        "pick": "7.243",
+        "player": "Jaylen Watson",
+        "position": "CB",
+        "consensus_rank": "175-200",
+        "value_amount": 50,
+        "context": "7th-round pick who became a reliable starting cornerback."
+      },
+      {
+        "year": 2025,
+        "pick": "1.32",
+        "player": "Josh Simmons",
+        "position": "OT",
+        "consensus_rank": "18-20",
+        "value_amount": 12,
+        "context": "Would have been a top-15 pick without knee injury. Chiefs got a potential franchise LT at 32."
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_notes": "8 drafts of data as KC GM provides robust behavioral patterns. Veach has been remarkably consistent in his approach: aggressive in trades, premium positions in round 1, need-filling in rounds 2-3, secondary and depth on Day 3, and exceptional late-round value hunting. The 2025 disappointing season (6-11, Mahomes ACL) creates a new dynamic \u2014 Veach now has a top-10 pick for the first time and has said he's in 'rebuild' mode. His 2026 draft behavior may deviate from the 'maintenance stage' patterns of 2022-2024. Profile should be refreshed after the 2026 draft.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

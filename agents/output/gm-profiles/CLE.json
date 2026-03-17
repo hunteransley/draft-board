@@ -1,0 +1,893 @@
+{
+  "team": {
+    "name": "Cleveland Browns",
+    "abbreviation": "CLE",
+    "division": "AFC North",
+    "current_draft_position": 6
+  },
+  "front_office": {
+    "gm": {
+      "name": "Andrew Berry",
+      "title": "Executive Vice President of Football Operations and General Manager",
+      "hired": "2020-01-27",
+      "previous_role": "Vice President of Football Operations, Philadelphia Eagles (2019)",
+      "drafts_as_gm": 6,
+      "confidence": "high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "Harvard University",
+          "role": "Player (Cornerback), B.A. Economics / M.S. Computer Science",
+          "years": "2005-2009",
+          "mentor": "Tim Murphy (HC)"
+        },
+        {
+          "org": "Indianapolis Colts",
+          "role": "Scouting Assistant",
+          "years": "2009-2010",
+          "mentor": "Bill Polian (President/GM), Chris Polian (GM)"
+        },
+        {
+          "org": "Indianapolis Colts",
+          "role": "Pro Scout",
+          "years": "2011",
+          "mentor": "Chris Polian (GM), Ryan Grigson (incoming GM)"
+        },
+        {
+          "org": "Indianapolis Colts",
+          "role": "Pro Scouting Coordinator",
+          "years": "2012-2015",
+          "mentor": "Ryan Grigson (GM)"
+        },
+        {
+          "org": "Cleveland Browns",
+          "role": "Vice President of Player Personnel",
+          "years": "2016-2018",
+          "mentor": "Sashi Brown (EVP Football Ops, 2016-2017), John Dorsey (GM, 2018), Paul DePodesta (Chief Strategy Officer)"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Vice President of Football Operations",
+          "years": "2019",
+          "mentor": "Howie Roseman (GM/EVP)"
+        },
+        {
+          "org": "Cleveland Browns",
+          "role": "EVP of Football Operations and General Manager",
+          "years": "2020-present",
+          "mentor": "Paul DePodesta (Chief Strategy Officer, departed Nov 2025)"
+        }
+      ],
+      "primary_mentor": "Bill Polian (Colts), Paul DePodesta (Browns)",
+      "philosophical_lineage": "Polian tree provided traditional scouting foundation \u2014 emphasis on character, athleticism, and positional value. DePodesta overlay introduced analytics-driven decision-making, data-first evaluation, and process-oriented philosophy. Berry uniquely blends old-school scouting instincts with modern analytics, reinforced by his Harvard computer science background. The Sashi Brown era at Cleveland (tear-it-down, accumulate-picks approach) also clearly influenced his willingness to trade down and accumulate draft capital. One year under Howie Roseman in Philadelphia exposed him to an aggressive roster-building model that leverages both the draft and trades. John Dorsey's brief influence visible in willingness to acquire established veterans via trade (Amari Cooper, Jerry Jeudy).",
+      "breakpoints": "More analytically driven than Polian tree peers. More willing to trade down aggressively than typical Colts-tree GMs. The Deshaun Watson trade showed a willingness to make massive, concentrated bets \u2014 a departure from the incremental, process-driven approach he otherwise exhibits. DePodesta's departure in November 2025 removes a key 'thought partner' and may shift Berry's process slightly.",
+      "lineage_weight": 0.2,
+      "lineage_weight_notes": "6 drafts of own data reduce lineage weight substantially. Berry has established a very clear, distinct identity. Lineage only relevant for inferring behavior at positions where draft sample is thin."
+    },
+    "primary_decision_maker": "Andrew Berry",
+    "key_influencers": [
+      {
+        "name": "Todd Monken",
+        "title": "Head Coach (hired January 2026)",
+        "influence_level": "medium-high",
+        "known_biases": "Offensive-minded coordinator background (Georgia OC, Baltimore OC). Aggressive passing game philosophy. Values quarterback play and vertical passing concepts. First-year HC \u2014 influence on draft likely growing but still deferring to Berry on talent evaluation. Offensive coordinator Travis Switzer comes from Ravens run-game background."
+      },
+      {
+        "name": "Glenn Cook",
+        "title": "Vice President of Player Personnel",
+        "influence_level": "medium",
+        "known_biases": "Long-time Berry deputy, visible in draft room and press conferences. Handles day-to-day scouting operations. Likely aligned philosophically with Berry."
+      },
+      {
+        "name": "Jimmy and Dee Haslam",
+        "title": "Managing and Principal Partners (Owners)",
+        "influence_level": "medium",
+        "known_biases": "Historically interventionist owners who have cycled through many GMs and coaches. Supported the Watson trade. Gave Berry a contract extension in June 2024 despite poor results. Fired Stefanski but retained Berry after 2025 season, indicating trust. DePodesta was their hire and his departure may shift dynamics."
+      }
+    ],
+    "power_dynamics": "Berry has final say on all football decisions. He operated collaboratively with DePodesta as a 'thought partner' for nearly 6 years, but DePodesta departed in November 2025 to run Colorado Rockies baseball operations. The Haslams are engaged owners who have historically intervened (arranged marriages between GMs and coaches), but Berry has survived multiple down seasons and appears to have strong owner trust. New HC Todd Monken will have input on offensive personnel but is a first-year HC likely deferring to Berry's process.",
+    "owner_interference": "medium"
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.6,
+    "bpa_weight_by_round": {
+      "1": 0.65,
+      "2": 0.55,
+      "3": 0.5,
+      "4_plus": 0.4
+    },
+    "stated_philosophy": "The draft is really for highest sustainable impact. Be flexible and adaptable in terms of where the player pool and talent pool is.",
+    "actual_philosophy": "Berry leans BPA in round 1 but is pragmatic \u2014 he has historically prioritized trenches and defense in early rounds, even when skill positions were greater needs. In 2022, he took CB Martin Emerson (non-need) as his first pick when WR and DT were bigger needs, showing BPA instinct. But the 2025 draft (Mason Graham DT at 5 when WR was desperate need) and 2020 draft (Jedrick Wills OT at 10 to protect Baker Mayfield) show clear willingness to prioritize trenches over skill positions as a philosophical stance. His BPA is filtered through a positional value hierarchy that heavily weights the trenches and defense.",
+    "philosophy_mismatch_notes": "Claims 'highest sustainable impact' and 'flexibility' but has consistently drafted defense and trenches with premium picks while deferring skill positions to mid-rounds. The 2025 draft is the clearest example: traded back from 2 to 5, took DT Mason Graham when WR was the team's most glaring need, then took LB Carson Schwesinger at 33 and RB Quinshon Judkins at 36 \u2014 not a single WR in the first 4 rounds."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.25,
+    "trade_down_willingness": 0.7,
+    "trades_per_draft_average": 1.8,
+    "trade_triggers": [
+      "Opportunity to accumulate additional Day 2 picks while moving down small number of spots",
+      "Acquiring future first-round picks \u2014 Berry insisted on a 2026 first from Jacksonville as a 'non-starter' in 2025 trade-down negotiations",
+      "Targeted player still available after a modest move back (traded from 2 to 5 knowing Graham would still be there)",
+      "Berry traded UP for JOK in 2021 (59 to 52), showing willingness to move up for a falling player he loves"
+    ],
+    "draft_capital_philosophy": "Strong preference for accumulating picks, particularly Day 2 capital. The Watson trade depleted three first-round picks (2022-2024), which shaped Berry's subsequent behavior \u2014 he has been aggressive about recouping draft capital since. The 2025 trade-down from 2 to 5 netted a future first and additional Day 2 picks. Berry views the draft as a multi-year process and will sacrifice short-term needs for long-term resource accumulation."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "DT",
+        "EDGE",
+        "OT",
+        "CB"
+      ],
+      "tier_2_high": [
+        "LB",
+        "S",
+        "QB"
+      ],
+      "tier_3_mid": [
+        "WR",
+        "IOL",
+        "TE",
+        "RB"
+      ],
+      "tier_4_low": [
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "WR in early rounds \u2014 has never drafted a WR before round 3 in six drafts. Every WR drafted has been round 3 or later (Schwartz R3, Bell R3, Tillman R3, Peoples-Jones R6, Woods R6, Thrash R5). This is a consistent, defining pattern.",
+      "QB in early rounds \u2014 only QB drafted before 2025 was Dorian Thompson-Robinson in round 5 (2023). In 2025 took Dillon Gabriel in round 3 and Shedeur Sanders in round 5, but still avoided premium QB capital."
+    ],
+    "position_premium": [
+      "Defensive line (DT/EDGE) \u2014 has drafted defensive linemen at the highest rate of any position group. DT Mason Graham (R1, 2025), DT Mike Hall Jr (R2, 2024), DT Siaki Ika (R3, 2023), DE Isaiah McGuire (R4, 2023), DT Perrion Winfrey (R4, 2022), DE Alex Wright (R3, 2022), DE Isaiah Thomas (R7, 2022), DT Jordan Elliott (R3, 2020), DT Tommy Togiai (R4, 2021).",
+      "CB \u2014 drafted Greg Newsome II (R1, 2021), Martin Emerson (R3, 2022), Cameron Mitchell (R5, 2023), Myles Harden (R7, 2024). Values secondary depth.",
+      "OT \u2014 Jedrick Wills (R1, 2020), James Hudson (R4, 2021), Dawand Jones (R4, 2023). Prioritizes protecting the QB."
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Long, projectable, high-upside pass rusher with positional versatility. Berry has not used premium draft capital on EDGE during his tenure (Myles Garrett was pre-Berry), instead targeting mid-round developmental prospects with length and raw tools. Alex Wright (6-5, 270, UAB) and Isaiah McGuire (6-4, 260, Missouri) exemplify the archetype: tall, long-armed, productive-enough college pass rushers from non-blue-blood programs who can develop behind Garrett. Values sack production and length over polish.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-7",
+        "weight_range": "255-275",
+        "arm_length_minimum": "33 inches \u2014 Wright and McGuire both had elite length",
+        "key_athletic_tests": "Prioritizes length and explosiveness (vertical jump, broad jump). Values raw measurables that project to NFL pass rush.",
+        "speed_requirement": "Not a primary filter \u2014 willing to draft 4.70+ EDGE rushers if length and power are there"
+      },
+      "playing_style": {
+        "primary_win_condition": "Length and power projection \u2014 every EDGE Berry has drafted wins primarily with length-based power moves and uses frame to convert speed to power",
+        "most_valued_traits": [
+          "Length/reach at the point of attack",
+          "Pass rush production trajectory (ascending)",
+          "Motor and effort",
+          "Positional versatility (stand-up or hand-in-dirt)",
+          "Power/bull rush potential"
+        ],
+        "least_important_traits": [
+          "Polished pass rush repertoire \u2014 has drafted raw rushers with limited moves",
+          "Run defense in isolation"
+        ],
+        "deal_breakers": [
+          "Short arms/compact frame for EDGE",
+          "Low motor/effort concerns"
+        ],
+        "traits_that_make_them_reach": "Elite length combined with ascending production \u2014 McGuire's 7.5 sacks in final year at Missouri made him attractive despite being a 4th-round talent"
+      },
+      "college_production": {
+        "production_floor": "6+ sacks in final college season for mid-round EDGE picks (Wright had 7.5, McGuire had 7.5)",
+        "production_trajectory": "Prefers ascending production \u2014 both Wright and McGuire had their best seasons as upperclassmen",
+        "context_sensitivity": "Willing to draft from smaller programs (UAB for Wright) if traits and production are there"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2022 R3.78 \u2014 Alex Wright, UAB: 6-5, 270, 33.75\" arms, 4.71 40. 7.5 sacks final year. Long, raw, projectable.",
+          "2023 R4.126 \u2014 Isaiah McGuire, Missouri: 6-4, 260, 33.5\" arms. 7.5 sacks and 13 TFL in 2022. Power rusher with length.",
+          "2022 R7.223 \u2014 Isaiah Thomas, Oklahoma: 6-5, 266. Developmental depth piece.",
+          "Note: Berry inherited Myles Garrett (6-4, 272, 35.5\" arms, elite first step) and has built the defense around him."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "CB": {
+      "archetype_summary": "Physically tough, scheme-versatile corner with size and competitiveness. Berry values corners who can play press-man or off-zone and are willing tacklers. Greg Newsome II (6-1, 192, Northwestern) was the round 1 prototype \u2014 long, fast, competitive. Martin Emerson (6-2, 202, Mississippi State) was a physical, bigger-bodied corner taken as BPA. Berry has consistently invested in the secondary at premium rates.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-2",
+        "weight_range": "185-205",
+        "arm_length_minimum": "31 inches \u2014 Newsome (31.5\"), Emerson (32.25\")",
+        "key_athletic_tests": "Speed is important but not an absolute cutoff. Newsome ran 4.38, but Emerson ran 4.53. Berry will take physicality and length over raw speed. Ball skills (interceptions) valued.",
+        "speed_requirement": "4.55 or faster preferred, but has drafted 4.53+ Emerson with physicality"
+      },
+      "playing_style": {
+        "primary_coverage_style": "Versatile \u2014 must be able to play both press-man and zone. Schwartz's scheme (now continued under Rutenberg) demands corners who can play multiple coverages.",
+        "most_valued_traits": [
+          "Physicality and willingness to tackle",
+          "Length and disruption at the catch point",
+          "Versatility to play inside or outside",
+          "Competitiveness in contested catch situations",
+          "Football IQ and instincts"
+        ],
+        "least_important_traits": [
+          "Pure speed/track speed \u2014 Emerson's 4.53 was fine",
+          "Flashy ball production \u2014 Newsome had 0 INTs through year 3"
+        ],
+        "deal_breakers": [
+          "Soft tackling or avoidance of contact in run support",
+          "Size deficiency below 5-10"
+        ],
+        "traits_that_make_them_reach": "Physical toughness and SEC-caliber competition level \u2014 Emerson was taken as BPA at a non-need position because of his toughness"
+      },
+      "college_production": {
+        "production_floor": "No clear statistical floor \u2014 values film over interception totals. Newsome had just 1 INT in his final season.",
+        "production_trajectory": "Prefers multi-year starters who played against quality competition",
+        "context_sensitivity": "High \u2014 SEC experience weighted heavily (Emerson from Mississippi State, Denzel Ward from Ohio State)"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2021 R1.26 \u2014 Greg Newsome II, Northwestern: 6-1, 192, 4.38, 31.5\" arms. Press-man capable, smooth hips, limited college production but excellent traits.",
+          "2022 R3.68 \u2014 Martin Emerson, Mississippi State: 6-2, 202, 4.53, 32.25\" arms. Physical, tough, SEC-tested. Taken as BPA at a non-need position.",
+          "2023 R5.142 \u2014 Cameron Mitchell, Northwestern: 5-11, 193, 4.47. Former teammate of Newsome. Competitive slot corner.",
+          "2024 R7 \u2014 Myles Harden, South Dakota: 6-1, 190. Small-school developmental pick with size."
+        ]
+      },
+      "confidence": "high"
+    },
+    "QB": {
+      "archetype_summary": "Berry has historically avoided investing premium draft capital at quarterback, instead acquiring QBs via trade (Watson) or mid/late rounds (DTR R5 2023, Gabriel R3 2025, Sanders R5 2025). When he has drafted QBs, they have been mobile, experienced college starters with dual-threat capability. The Watson trade (despite its disaster) reveals Berry values elite arm talent and the ability to produce out of structure. His 2026 combine comments about Sanders emphasized 'playing more efficiently' and 'generating explosive plays' \u2014 suggesting he values efficiency and playmaking equally.",
+      "physical_profile": {
+        "height_range": "5-11 to 6-3 \u2014 no hard minimum; Gabriel is 6-0, Sanders is 6-2, DTR was 6-1",
+        "weight_range": "200-215",
+        "arm_length_minimum": "No clear threshold",
+        "key_athletic_tests": "Mobility valued but not primary. Arm talent and processing speed prioritized over timed speed. All three drafted QBs were mobile.",
+        "speed_requirement": "Not a primary filter \u2014 values pocket mobility and escapability over 40 time"
+      },
+      "playing_style": {
+        "primary_style": "Mobile quarterback who can generate explosive plays both in and out of structure. Not a pure pocket passer and not a pure runner \u2014 wants a dual-threat who can extend plays.",
+        "most_valued_traits": [
+          "Ability to produce out of structure and generate explosive plays (Berry's words re: Sanders)",
+          "Playing efficiency / decision-making",
+          "Arm talent sufficient for NFL throws",
+          "College starting experience (all three drafted QBs had 2+ years starting)",
+          "Competitive drive"
+        ],
+        "least_important_traits": [
+          "Prototypical size \u2014 has drafted undersized QBs (Gabriel 6-0, 200)",
+          "Pure arm strength as a standalone trait"
+        ],
+        "deal_breakers": [
+          "Extremely limited mobility",
+          "Turnover-prone play style \u2014 Berry specifically mentioned wanting Sanders to 'not put the ball in harm's way'"
+        ],
+        "traits_that_make_them_reach": "Not enough data to determine. Berry has never reached for a QB \u2014 always taken them at or below consensus value."
+      },
+      "college_production": {
+        "production_floor": "Must be experienced \u2014 DTR had 5 years at UCLA, Gabriel had 6 years across multiple schools, Sanders had 3 years starting at Colorado",
+        "production_trajectory": "Values extensive college experience and starting reps over raw talent",
+        "context_sensitivity": "High \u2014 Gabriel's extensive multi-school experience was viewed as a positive, not a negative"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2023 R5.140 \u2014 Dorian Thompson-Robinson, UCLA: 6-1, 203. Five-year starter, dual-threat, 5,753 passing yards and 51 TDs in final 2 seasons. Mobile but struggled with reads.",
+          "2025 R3.94 \u2014 Dillon Gabriel, Oregon: 6-0, 200. Six-year college QB, Heisman finalist, 40+ starts. Undersized but experienced and efficient.",
+          "2025 R5.144 \u2014 Shedeur Sanders, Colorado: 6-2, 215. Polished passer with arm talent, started 7 games as rookie showing promise.",
+          "Trade context: Watson trade (3 firsts + 3 fourths) showed willingness to go all-in at QB, but outcome was catastrophic."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Three QBs drafted, but all in rounds 3-5. No round 1-2 QB investment to analyze. Watson trade via trade is the highest-investment QB decision. Berry said he 'wouldn't put any restraints' on drafting another QB in 2026."
+    },
+    "OT": {
+      "archetype_summary": "Massive, powerful run-blocking-first tackles who can handle NFL pass protection demands. Berry's OT picks have been enormous \u2014 Jedrick Wills (6-4, 312, Alabama), Dawand Jones (6-8, 374, Ohio State), and James Hudson (6-5, 310, Cincinnati). The common thread is elite size, proven starting experience at a Power 5 program, and the ability to anchor in pass protection. Berry does NOT draft small, finesse tackles \u2014 he wants maulers with NFL frames.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-8",
+        "weight_range": "310-374",
+        "arm_length_minimum": "33 inches \u2014 Wills (33.5\"), Jones (36\"), Hudson (34\")",
+        "key_athletic_tests": "Not a primary filter at OT. Berry drafts massive tackles and accepts limited athleticism if the size and power are there. Jones at 6-8/374 was a clear 'size over athletic testing' pick.",
+        "speed_requirement": "Not applicable for OT \u2014 Berry values anchor strength and run-blocking power over footwork agility"
+      },
+      "playing_style": {
+        "primary_win_condition": "Size and power in the run game. Berry's OTs are run-blocking-first players who use their massive frames to create movement at the point of attack.",
+        "most_valued_traits": [
+          "Sheer physical size and frame",
+          "Power 5 starting experience",
+          "Run-blocking ability and physicality",
+          "Arm length for pass protection reach",
+          "Ability to play either tackle spot"
+        ],
+        "least_important_traits": [
+          "Elite foot quickness or agility testing",
+          "Experience exclusively at left tackle (Wills played RT at Alabama and transitioned)"
+        ],
+        "deal_breakers": [
+          "Undersized frame for NFL tackle (under 6-3 or under 300 lbs)",
+          "Poor anchor strength against power rushers"
+        ],
+        "traits_that_make_them_reach": "Exceptional size combined with starting experience \u2014 Jones at 6-8/374 was a rare physical specimen Berry was willing to bet on despite concerns"
+      },
+      "college_production": {
+        "production_floor": "Must have 1+ full seasons as a starter at a competitive program",
+        "production_trajectory": "Prefers multi-year starters (Wills 2 years starting, Jones 2 years starting)",
+        "context_sensitivity": "Values quality of competition \u2014 Wills from Alabama, Jones from Ohio State, Hudson from Cincinnati"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2020 R1.10 \u2014 Jedrick Wills Jr., Alabama: 6-4, 312, 33.5\" arms. Two-year starter at RT. Run-blocking-first OT from premier program. Transitioned to LT in NFL.",
+          "2021 R4.110 \u2014 James Hudson, Cincinnati: 6-5, 310, 34\" arms. Transfer from Michigan. Raw but massive frame with upside.",
+          "2023 R4.111 \u2014 Dawand Jones, Ohio State: 6-8, 374, 36\" arms. One of the biggest players ever drafted. Two-year starter. Elite size but questions about foot speed."
+        ]
+      },
+      "confidence": "high"
+    },
+    "IOL": {
+      "archetype_summary": "Berry has invested modestly in interior offensive line through the draft, targeting late-round centers with intelligence and versatility rather than premium guards. Nick Harris (R5, 2020, Washington, C), Luke Wypler (R6, 2023, Ohio State, C), Zak Zinter (R3, 2024, Michigan, G), and Dawson Deaton (R7, 2022, Texas Tech, C) represent the profile: smart, experienced college starters with solid technique rather than elite athletic traits. The emphasis on centers suggests Berry values the QB-center exchange and mental processing of protections.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-5",
+        "weight_range": "295-325",
+        "arm_length_minimum": "No clear threshold \u2014 IOL picks have varied",
+        "key_athletic_tests": "Intelligence and football IQ weighted more than combine numbers. Wypler was noted for his 'football acumen.'",
+        "speed_requirement": "Not a primary filter \u2014 values technique and mental processing"
+      },
+      "playing_style": {
+        "primary_win_condition": "Intelligence and technique \u2014 Berry's IOL picks win with mental processing, proper hand placement, and understanding of blocking schemes rather than raw power.",
+        "most_valued_traits": [
+          "Football intelligence and ability to process protections",
+          "Center-capable versatility",
+          "Starting experience at competitive programs",
+          "Toughness and durability",
+          "Scheme fit for zone-blocking concepts"
+        ],
+        "least_important_traits": [
+          "Elite athleticism or combine testing",
+          "Dominant run-blocking power"
+        ],
+        "deal_breakers": [
+          "Poor mental processing or inability to handle protection calls",
+          "Significant injury history"
+        ],
+        "traits_that_make_them_reach": "Not enough data at premium picks to determine \u2014 most IOL picks have been Day 3"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter at competitive program",
+        "production_trajectory": "Values experience \u2014 Wypler was 3-year starter, Zinter was multi-year starter at Michigan",
+        "context_sensitivity": "Weights quality of program heavily \u2014 Ohio State, Michigan, Alabama pipeline"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2020 R5.160 \u2014 Nick Harris, Washington: 6-1, 302, C. Three-year starter. Smart, undersized but technically sound.",
+          "2022 R7.246 \u2014 Dawson Deaton, Texas Tech: 6-5, 307, C. Multi-year All-Big 12 center. Developmental.",
+          "2023 R6.190 \u2014 Luke Wypler, Ohio State: 6-3, 303, C. Three-year starter. Praised for football IQ.",
+          "2024 R3.67 \u2014 Zak Zinter, Michigan: 6-3, 316, G. Multi-year starter on national championship team. Suffered severe injury but Berry bet on talent."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "DT": {
+      "archetype_summary": "Disruptive interior penetrator with the ability to affect the pocket from inside. Berry has invested more draft capital at DT than any other position \u2014 Mason Graham (R1.5, 2025), Mike Hall Jr. (R2.54, 2024), Siaki Ika (R3.98, 2023), Perrion Winfrey (R4.108, 2022), Jordan Elliott (R3.88, 2020), and Tommy Togiai (R4.132, 2021). The archetype has evolved: earlier picks (Elliott, Winfrey) were athletic upside bets; later picks (Graham, Hall) are more polished, physical, high-motor players. Berry has explicitly stated he wants 'disruptive interior penetrators' who can 'affect the pocket from inside.' Wrestling background is a noted plus.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4",
+        "weight_range": "285-358 \u2014 wide range reflecting both 3-technique (Elliott, Hall, Graham at ~295-310) and nose tackle (Ika at 335-358)",
+        "arm_length_minimum": "32 inches \u2014 values leverage and hand usage",
+        "key_athletic_tests": "Explosiveness (vertical jump, broad jump) valued for 3-technique types. For nose tackles, sheer mass and anchor strength. Berry specifically praised Graham's wrestling background and grip strength.",
+        "speed_requirement": "Not a primary filter \u2014 values first-step quickness over 40 time. Interior players not expected to run fast."
+      },
+      "playing_style": {
+        "primary_win_condition": "Interior disruption and pass rush from the inside. Berry explicitly said Graham is a 'disruptive interior penetrator' who can 'affect the pocket from inside.' This is the defining trait.",
+        "most_valued_traits": [
+          "Interior pass rush ability \u2014 non-negotiable in Schwartz/Rutenberg 4-3 scheme",
+          "High motor and effort plays",
+          "Physicality and toughness",
+          "Wrestling background / leverage usage / hand technique",
+          "Multi-sport athletic background"
+        ],
+        "least_important_traits": [
+          "Two-gap nose tackle ability \u2014 the scheme is attack-oriented, not read-and-react",
+          "Pure run-stuffing without pass rush upside"
+        ],
+        "deal_breakers": [
+          "Low motor/effort \u2014 Berry specifically praised Graham as a 'high motor player'",
+          "One-dimensional run stuffer without pass rush potential",
+          "Character/maturity concerns \u2014 Winfrey was cut after 1 year due to attitude issues"
+        ],
+        "traits_that_make_them_reach": "Elite interior pass rush traits combined with physicality \u2014 Graham was taken 5th overall, and Berry said he was 'one of the more dominant trench prospects in this year's class'"
+      },
+      "college_production": {
+        "production_floor": "Variable \u2014 Ika had only 0.5 sacks in final year but was valued for size; Graham was dominant without gaudy sack numbers. Berry weighs overall disruption over sack totals at DT.",
+        "production_trajectory": "Values ascending trajectory \u2014 Hall was an explosive Ohio State DT whose draft stock was rising before personal issues",
+        "context_sensitivity": "High \u2014 values interior disruption metrics (TFL, QB hits, pressures) over raw sack totals"
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2025 R1.5 \u2014 Mason Graham, Michigan: 6-3, 318. Berry called him a 'DNA match for our defense.' Praised his wrestling background, leverage, grip strength, and overall athleticism.",
+          "2024 R2.54 \u2014 Mike Hall Jr., Ohio State: 6-2, 290. Explosive interior rusher. 14 tackles, 3 TFL, 1 sack in limited rookie action. Character concerns (suspended early in career).",
+          "2023 R3.98 \u2014 Siaki Ika, Baylor: 6-2, 335. Massive nose tackle. 4.5 career sacks at Baylor. First-team All-Big 12. Run-stuffing nose with some pass rush pop.",
+          "2022 R4.108 \u2014 Perrion Winfrey, Oklahoma: 6-4, 290. Senior Bowl MVP. Athletic, explosive. Cut after 1 season due to attitude/maturity issues.",
+          "2021 R4.132 \u2014 Tommy Togiai, Ohio State: 6-2, 300. Stout, powerful. Limited pass rush upside. Didn't pan out.",
+          "2020 R3.88 \u2014 Jordan Elliott, Missouri: 6-4, 302. Athletic 3-tech with upside. Never became a starter \u2014 98 tackles, 5 sacks in 4 years."
+        ]
+      },
+      "confidence": "very_high"
+    },
+    "S": {
+      "archetype_summary": "Versatile, chess-piece safety who can play multiple roles \u2014 box, slot, and deep. Grant Delpit (R2.44, 2020, LSU) is the definitive Berry safety pick: a highly drafted, athletic, rangey safety from a premier program who can move all over the formation. Berry values positional versatility and instincts over specialization at safety.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "200-215",
+        "arm_length_minimum": "No hard threshold \u2014 values length but not a primary filter at safety",
+        "key_athletic_tests": "Range and athleticism are king. Delpit ran 4.39 at 6-2/213. Explosiveness metrics (vertical jump, broad jump) valued for range and closing speed.",
+        "speed_requirement": "4.50 or faster preferred for range/coverage ability"
+      },
+      "playing_style": {
+        "primary_win_condition": "Versatility \u2014 Berry's ideal safety can play box/strong, free safety, and slot coverage depending on the matchup. Delpit was described as a 'chess piece' who was 'moved all over the place.'",
+        "most_valued_traits": [
+          "Positional versatility across safety/slot alignments",
+          "Athletic range and closing speed",
+          "Instincts and ball-hawking ability",
+          "Tackling reliability",
+          "Coverage ability in man and zone"
+        ],
+        "least_important_traits": [
+          "Pure run-stuffing ability as a standalone trait",
+          "Size/physicality as a box safety specialist"
+        ],
+        "deal_breakers": [
+          "Limited coverage range \u2014 scheme demands versatile safeties",
+          "Poor instincts/diagnosis against the pass"
+        ],
+        "traits_that_make_them_reach": "Elite range combined with ball-hawking instincts from a premier program"
+      },
+      "college_production": {
+        "production_floor": "Values turnover production \u2014 Delpit had 7 INTs in 2018 at LSU. Richard LeCounte (R5, 2021, Georgia) had 8 career INTs.",
+        "production_trajectory": "Prefers early producers \u2014 Delpit was a unanimous All-American as a sophomore",
+        "context_sensitivity": "Premier program experience weighted heavily (LSU, Georgia)"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2020 R2.44 \u2014 Grant Delpit, LSU: 6-2, 213, 4.39. Unanimous All-American. 7 INTs as sophomore. Versatile chess piece who plays box, slot, and deep. Tore Achilles as rookie but became quality starter.",
+          "2021 R5.169 \u2014 Richard LeCounte III, Georgia: 6-0, 190, 4.50. Ball-hawking safety with 8 career INTs. Small and inconsistent tackler. Was cut \u2014 first Berry draft pick to be released."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 2 safeties drafted in 6 years. Delpit is the primary data point. Berry acquired Juan Thornhill in free agency (2023), suggesting he fills safety via FA as well."
+    },
+    "LB": {
+      "archetype_summary": "Undersized, hyper-athletic coverage linebacker with speed and versatility. Jeremiah Owusu-Koramoah (R2.52, 2021, Notre Dame) is the defining Berry LB pick \u2014 a 6-1, 221-pound missile with elite speed and coverage ability who was considered 'undersized' by traditional LB standards but perfectly suited for the modern NFL. Carson Schwesinger (R2.33, 2025, UCLA) continued the trend as a high-motor, productive linebacker. Berry's LB picks prioritize athleticism and coverage over traditional thumper traits.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-2",
+        "weight_range": "220-245 \u2014 willing to go smaller than traditional LB (JOK at 221, though Schwesinger was ~240)",
+        "arm_length_minimum": "No hard threshold at LB",
+        "key_athletic_tests": "Speed is the primary filter. JOK ran 4.40 at 221 lbs \u2014 that kind of sideline-to-sideline speed is what Berry values. Short shuttle and 3-cone for change of direction in coverage.",
+        "speed_requirement": "4.55 or faster \u2014 Berry clearly values speed at LB (JOK 4.40, Jacob Phillips 4.55)"
+      },
+      "playing_style": {
+        "primary_win_condition": "Coverage and sideline-to-sideline speed. In Schwartz's 4-3 scheme, the LBs must be able to cover backs and TEs in space. JOK's Pro Bowl season came in Schwartz's defense where he thrived in coverage.",
+        "most_valued_traits": [
+          "Sideline-to-sideline speed and range",
+          "Coverage ability against TEs and RBs",
+          "Blitz capability and pass rush upside",
+          "Motor and effort (Schwesinger's calling card)",
+          "Versatility to play multiple LB alignments"
+        ],
+        "least_important_traits": [
+          "Size/mass for taking on blocks at the point of attack",
+          "Traditional 2-down thumper ability"
+        ],
+        "deal_breakers": [
+          "Slow processing speed that negates athletic ability (Phillips was athletic but couldn't diagnose plays)",
+          "Pure run-stuffer without coverage ability"
+        ],
+        "traits_that_make_them_reach": "Elite speed combined with coverage instincts \u2014 Berry traded UP from 59 to 52 to draft JOK, his only trade-up in round 2"
+      },
+      "college_production": {
+        "production_floor": "Values well-rounded production \u2014 JOK had 7.5 TFL and 1.5 sacks in his final year at Notre Dame. Schwesinger was UCLA's leading tackler.",
+        "production_trajectory": "Values ascending production and breakout performances",
+        "context_sensitivity": "Values competition level \u2014 JOK from Notre Dame, Phillips from LSU, Schwesinger from UCLA"
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2021 R2.52 \u2014 Jeremiah Owusu-Koramoah, Notre Dame: 6-1, 221, 4.40. Berry TRADED UP for him. Undersized missile with elite speed and coverage. Made Pro Bowl in 2023 under Schwartz. 302 career tackles, 8 sacks, 3 INTs.",
+          "2025 R2.33 \u2014 Carson Schwesinger, UCLA: ~6-2, 240. Led UCLA in tackles. High motor, instinctive, productive.",
+          "2020 R3.97 \u2014 Jacob Phillips, LSU: 6-3, 229, 4.55. Athletic sideline-to-sideline LB. Injuries and poor play diagnosis limited him to 20 games in 3 years.",
+          "2021 R5.153 \u2014 Tony Fields II, West Virginia: 6-1, 222. Speed LB. Special teams contributor. Injuries limited playing time."
+        ]
+      },
+      "confidence": "high"
+    },
+    "WR": {
+      "archetype_summary": "Berry has NEVER invested premium draft capital (rounds 1-2) in a wide receiver. His WR picks have been a scattered mix of archetypes: speed (Schwartz 4.26), size (Tillman 6-3/213), production (Bell, 93 catches), and athleticism (Peoples-Jones, elite combine). Berry stated his WR evaluation criteria are simple: 'get open, catch the ball, make plays with the ball in your hands.' He has clearly prioritized speed and explosiveness but has failed to find a consistent producer. His most recent acquisition approach has been via trade (Cooper, Jeudy) rather than the draft.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-3 \u2014 no clear preference; has drafted across the size spectrum",
+        "weight_range": "180-213",
+        "arm_length_minimum": "No hard threshold at WR",
+        "key_athletic_tests": "Speed matters \u2014 Berry 'LOVES fast WRs' per local media. Schwartz ran 4.26, Peoples-Jones was an elite combine performer. But Bell (4.65) and Tillman (4.54) show Berry doesn't exclusively draft speedsters.",
+        "speed_requirement": "No hard cutoff \u2014 has drafted 4.26 (Schwartz) to 4.65 (Bell). Speed is preferred but not an eliminator."
+      },
+      "playing_style": {
+        "primary_win_condition": "Ability to separate and create after the catch. Berry's stated criteria: 'get open, catch the ball, make plays with the ball in your hands.' He values the complete package.",
+        "most_valued_traits": [
+          "Ability to get open via any means (speed, size, routes, change of direction)",
+          "Reliable hands and catch rate",
+          "Yards after catch / playmaking ability",
+          "Size for contested catch situations (Tillman 6-3)",
+          "Speed to stretch the field vertically"
+        ],
+        "least_important_traits": [
+          "Specific route-running polish \u2014 has drafted raw athletes (Schwartz) and polished possession WRs (Bell)",
+          "Specific positional designation (X vs slot)"
+        ],
+        "deal_breakers": [
+          "Cannot catch the ball reliably (Schwartz had severe drop issues)",
+          "Cannot get open at the NFL level (Bell couldn't separate)",
+          "Significant injury history that limits availability (Woods, Tillman)"
+        ],
+        "traits_that_make_them_reach": "Not enough data \u2014 Berry has never reached for a WR; all picks have been at or below value"
+      },
+      "college_production": {
+        "production_floor": "Variable \u2014 Schwartz had just 29 catches in his final year at Auburn but had elite speed. Bell had 93 catches. Tillman had 64 catches and 12 TDs in his best year. No clear statistical floor.",
+        "production_trajectory": "Has drafted both early producers (Bell) and late bloomers (Peoples-Jones, Schwartz projection picks)",
+        "context_sensitivity": "Medium \u2014 has drafted from SEC (Schwartz/Auburn), Big Ten (Bell/Purdue, Peoples-Jones/Michigan), SEC (Tillman/Tennessee)"
+      },
+      "evidence": {
+        "picks_analyzed": 6,
+        "examples": [
+          "2021 R3.91 \u2014 Anthony Schwartz, Auburn: 5-10, 186, 4.26. World-class speed. Just 29 catches final year. Couldn't catch at NFL level \u2014 pure speed gamble that failed.",
+          "2022 R3.99 \u2014 David Bell, Purdue: 6-1, 212, 4.65. FBS-best 232 receptions since 2019. Ultra-productive but slow. Couldn't get open at NFL level.",
+          "2023 R3.74 \u2014 Cedric Tillman, Tennessee: 6-3, 213, 4.54. Physical, big-bodied X receiver. 64 catches, 1,081 yards, 12 TDs in 2021 breakout. Concussions derailed career.",
+          "2024 R5.155 \u2014 Jamari Thrash, Louisville: 6-0, 175, 4.42. Speed/versatility player. Has barely seen the field.",
+          "2020 R6.187 \u2014 Donovan Peoples-Jones, Michigan: 6-2, 212, 4.48. Elite combine performer (44.5\" vert). Underdeveloped at Michigan but had tools. Best WR pick of Berry era (597 and 839 yards in 2021-22).",
+          "2022 R6.202 \u2014 Michael Woods II, Oklahoma: 6-1, 201. Depth piece."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Berry has acknowledged his WR draft struggles and stated clearer criteria heading into 2026. With two first-round picks, he may invest premium capital at WR for the first time."
+    },
+    "TE": {
+      "archetype_summary": "Pass-catching, athletic tight end who can create mismatches in the passing game. Berry's TE draft investment has been limited \u2014 Harrison Bryant (R4.115, 2020, FAU) was a Mackey Award winner with elite receiving production, and Harold Fannin Jr. (R2.36, 2025, Bowling Green) set FBS records for TE receptions (117) and yards (1,555). Both picks prioritized receiving production and pass-catching ability over blocking. Berry wants TEs who are offensive weapons first.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-5",
+        "weight_range": "240-255",
+        "arm_length_minimum": "No hard threshold at TE",
+        "key_athletic_tests": "Receiving route-running ability and athleticism in space more valued than blocking measurables. Catch radius and hands.",
+        "speed_requirement": "4.65 or faster preferred for pass-catching TEs \u2014 wants mismatches in the seam"
+      },
+      "playing_style": {
+        "primary_win_condition": "Pass-catching production. Both Bryant and Fannin were elite college receivers at TE. Berry wants TEs who threaten in the passing game and create matchup problems.",
+        "most_valued_traits": [
+          "Receiving production and reliable hands",
+          "Route-running ability for a TE",
+          "Ability to create mismatches against LBs and safeties",
+          "YAC ability after the catch",
+          "Red zone target capability"
+        ],
+        "least_important_traits": [
+          "Inline blocking prowess \u2014 Berry's TEs are pass-catchers first",
+          "Traditional Y-TE blocking ability"
+        ],
+        "deal_breakers": [
+          "Pure blocking TE without receiving upside",
+          "Limited college receiving production"
+        ],
+        "traits_that_make_them_reach": "Record-breaking receiving production \u2014 Fannin literally set FBS records and Berry drafted him in round 2"
+      },
+      "college_production": {
+        "production_floor": "Extremely high \u2014 Bryant won the Mackey Award (66 catches, 1,004 yards, 7 TDs in 2019). Fannin set FBS records (117 catches, 1,555 yards). Berry clearly wants elite receiving production at TE.",
+        "production_trajectory": "Values breakout seasons \u2014 both Bryant and Fannin had historic final-year production",
+        "context_sensitivity": "Willing to draft from smaller programs (FAU for Bryant, Bowling Green for Fannin) if production is undeniable"
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2020 R4.115 \u2014 Harrison Bryant, FAU: 6-5, 243. John Mackey Award winner. 66 catches, 1,004 yards, 7 TDs in 2019. Receiving TE. Had decent blocking but was drafted for pass-catching. Career was underwhelming (877 yards in 5 NFL years).",
+          "2025 R2.36 \u2014 Harold Fannin Jr., Bowling Green: 6-4, 240. Set FBS records: 117 catches, 1,555 yards. MAC Offensive Player of the Year. First TE in FBS history to win conference Player of the Year. Emerged as top pass catcher as rookie."
+        ]
+      },
+      "confidence": "medium",
+      "confidence_note": "Only 2 TEs drafted. Fannin pick validates the receiving-TE archetype. Berry also maintained David Njoku via extension \u2014 another receiving-first TE."
+    },
+    "RB": {
+      "archetype_summary": "Berry has historically deprioritized RB in early rounds but shifted in 2025 by taking Quinshon Judkins (R2.36) and Dylan Sampson (R4.126). The archetype is a physical, productive college runner who can handle a featured workload. Judkins (5-11, 215, Ole Miss/Ohio State) is a power back with elite missed tackle forcing ability. Jerome Ford (R5, 2022, Cincinnati) was a complementary speed back. Berry appears to value running back committees and has invested in multiple backs in the same draft.",
+      "physical_profile": {
+        "height_range": "5-9 to 5-11",
+        "weight_range": "195-220",
+        "arm_length_minimum": "No threshold at RB",
+        "key_athletic_tests": "Burst and acceleration more than top-end speed. Judkins valued for contact balance and power. Sampson valued for speed. Berry seems to want different archetypes to complement each other.",
+        "speed_requirement": "No hard threshold \u2014 has drafted power backs (Judkins) and speed backs (Sampson, Ford)"
+      },
+      "playing_style": {
+        "primary_win_condition": "Physical running and ability to force missed tackles. Judkins had 179 forced missed tackles since 2022 (4th most in FBS). Berry wants backs who gain yards after contact.",
+        "most_valued_traits": [
+          "Yards after contact / contact balance / missed tackle forcing",
+          "Rushing production and durability",
+          "Ability to contribute in receiving game",
+          "Toughness and workhorse capability",
+          "Complementary skills to pair in committee"
+        ],
+        "least_important_traits": [
+          "Pass protection \u2014 not a primary filter",
+          "Elite top-end speed as a standalone trait"
+        ],
+        "deal_breakers": [
+          "Injury-prone back who can't handle workload",
+          "One-dimensional back without receiving ability"
+        ],
+        "traits_that_make_them_reach": "Elite college production combined with physical running style \u2014 Judkins was a Day 2 investment because of undeniable tape"
+      },
+      "college_production": {
+        "production_floor": "High \u2014 Judkins had 1,000+ rushing yards in 3 consecutive seasons. Sampson led SEC with 1,491 yards and 22 TDs. Ford had 1,319 yards and 19 TDs in final college season. Berry demands proven college production at RB.",
+        "production_trajectory": "Values multi-year producers \u2014 Judkins was a 3-year starter, Sampson had back-to-back explosive seasons",
+        "context_sensitivity": "SEC production weighted heavily \u2014 Judkins (Ole Miss/Ohio State), Sampson (Tennessee)"
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2025 R2.36 \u2014 Quinshon Judkins, Ohio State: 5-11, 215. Physical power back. 179 forced missed tackles since 2022. Three years of 1,000+ yard rushing production across Ole Miss and Ohio State.",
+          "2025 R4.126 \u2014 Dylan Sampson, Tennessee: 5-11, 195. 2024 SEC Offensive Player of the Year. 1,491 rushing yards, 22 TDs. Speed complement to Judkins.",
+          "2022 R5.156 \u2014 Jerome Ford, Cincinnati: 5-11, 210. 1,319 yards, 19 TDs in final college season. Speed/change-of-pace back who became solid NFL complementary piece."
+        ]
+      },
+      "confidence": "medium"
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 10,
+    "max_observed_reach": 18,
+    "round_1_reach_tolerance": 8,
+    "notes": "Berry's first-round picks have generally been at or near consensus value (Wills at 10 was top-12 consensus, Newsome at 26 was borderline first-round consensus, Graham at 5 was consensus top-5). He has been more willing to reach in mid-rounds \u2014 Schwartz at 91 in 2021 was widely seen as a significant reach for a track athlete. Ika at 98 in 2023 was also seen as a reach by many analysts. Berry appears comfortable with moderate reaches when he believes in the physical traits."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.65,
+    "offensive_scheme": "Under new HC Todd Monken and OC Travis Switzer (former Ravens run game coordinator): expects an aggressive passing offense with play-action emphasis off a physical run game. Monken's Georgia background suggests vertical passing concepts and spread formations. Switzer's Ravens background suggests zone-running concepts with power elements. The offensive line will need to be versatile \u2014 both zone and power capable.",
+    "defensive_scheme": "4-3 attack-style defense, carried over from Jim Schwartz (departed after 2025) to new DC Mike Rutenberg (promoted from within). Front four is the 'engine' of the defense. Interior penetration from DTs is prioritized. EDGE rushers attack upfield rather than read-and-react. The scheme demands versatile, coverage-capable LBs and physical, scheme-versatile CBs. Safeties must be able to play multiple alignments.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "MAJOR coaching change: Todd Monken replaced Kevin Stefanski as HC in January 2026. Offensive scheme will shift from Stefanski's zone-run-heavy, play-action system to Monken's more aggressive passing attack. Defensive scheme largely maintained \u2014 Rutenberg is retaining Schwartz's scheme with his own wrinkles. Defensive continuity is a stabilizing factor. Offensive picks may shift to reflect Monken's preferences (more emphasis on vertical passing weapons)."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.55,
+    "risk_description": "Moderate risk-taker. Berry has made some of the biggest boom-or-bust swings in recent NFL history (Watson trade) but has also played it safe with many draft picks (trenches over skill positions, trade-downs over aggressive moves up). The Watson trade catastrophe appears to have pushed him toward more conservative, capital-accumulating behavior since 2023. His 2025 trade-down from 2 to 5 was fundamentally risk-averse \u2014 choosing more picks over a singular franchise-altering talent (Hunter). Day 3 picks show more willingness to swing (Schwartz, Winfrey were high-risk, high-reward bets).",
+    "recency_bias": 0.55,
+    "recency_description": "Moderate. After Watson's injuries exposed the need for defensive depth, Berry invested heavily in DL (Graham at 5 in 2025). After getting burned by thin OL depth in 2024-2025, he is now prioritizing OL in 2026. The pattern suggests Berry responds to on-field failures by prioritizing those positions in subsequent drafts, but not at the expense of fundamental positional value hierarchy.",
+    "sunk_cost_behavior": "Berry has shown willingness to cut losses \u2014 Perrion Winfrey was cut after 1 season despite being a 4th-round pick. Anthony Schwartz was held too long. He traded Greg Newsome (his own 1st-round pick) midseason when the value proposition made sense. Overall: moderate willingness to move on, but can be slow to admit failure.",
+    "combine_weight": 0.55,
+    "combine_description": "Balanced but with clear athletic-testing influence. Berry drafted Anthony Schwartz based heavily on 4.26 speed (track athlete projection). He praised Mason Graham's wrestling background and overall athleticism. His Harvard CS background and analytics orientation suggest he weighs combine data meaningfully, but the Bell pick (4.65 WR taken for production) shows he can override testing with film/production. He has a specific section on scouting reports for multi-sport backgrounds.",
+    "character_weight": 0.5,
+    "character_description": "Mixed. The Watson trade (despite serious sexual assault allegations) was the most significant character-discounting decision in recent NFL history. However, Berry cut Winfrey quickly for attitude issues. Mike Hall Jr. (2024 R2 pick) had off-field issues (Commissioner's Exempt list, suspension) that didn't prevent Berry from drafting him. Berry appears to weight talent over character concerns but will cut bait quickly if issues manifest post-draft.",
+    "quarterback_philosophy": "Berry has historically avoided premium QB investment in the draft, instead acquiring QBs via trade (Watson) or mid-rounds (DTR R5, Gabriel R3, Sanders R5). He clearly views QB as the most important position ('quarterback-centric team') but has struggled to solve it. He is now open to drafting another QB in 2026 ('I wouldn't put any restraints on that'). His approach suggests he would rather invest in the infrastructure around the QB (OL, defense) and find the QB opportunistically rather than force a pick."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.55,
+    "production_vs_projection": "Berry is split. He has made clear production-over-projection picks (Bell at WR for 93 catches, Fannin at TE for 117 catches, Tillman at WR for 1,081 yards) but has also made pure projection bets (Schwartz for speed, Wright for length, Winfrey for athletic testing). The pattern suggests Berry defaults to production but will override it when the athletic profile is truly exceptional. When he bets on projection, the hit rate has been poor (Schwartz, Winfrey, Elliott all busts).",
+    "production_thresholds_by_position": {
+      "WR": "No hard threshold \u2014 has drafted from 29 catches (Schwartz) to 93 catches (Bell). Berry stated he wants WRs who can 'get open, catch the ball, make plays with the ball in your hands' but hasn't enforced a statistical floor.",
+      "RB": "1,000+ rushing yards in final college season for Day 2 picks (Judkins, Sampson both exceeded this). Ford had 1,319 yards.",
+      "EDGE": "6+ sacks in final college season for mid-round picks (Wright 7.5, McGuire 7.5)",
+      "DT": "No clear sack threshold \u2014 values overall disruption metrics. Graham was dominant without gaudy sack numbers.",
+      "TE": "Extremely high \u2014 both TE picks were award-winning, record-setting producers (Bryant: Mackey Award, Fannin: FBS records)",
+      "CB": "No clear threshold \u2014 values film over stats. Newsome had just 1 INT in final year.",
+      "LB": "Values well-rounded stat lines \u2014 JOK had tackles, TFL, sacks, and coverage stats"
+    },
+    "breakout_age_sensitivity": 0.45,
+    "dominator_rating_sensitivity": 0.5,
+    "notes": "Berry's stated WR criteria at 2026 combine \u2014 'get open, catch the ball, make plays with the ball in your hands' \u2014 suggests he's moving toward a more production-weighted approach at receiver after years of failed athletic bets. The Fannin pick (record-breaking production from small school) reinforces this shift."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "CB": {
+        "40_yard_max": 4.55,
+        "min_arm_length": "31 inches",
+        "min_height": "5-11",
+        "confidence": "medium",
+        "notes": "Emerson at 4.53 is the slowest CB drafted. Newsome (4.38) and Mitchell (4.47) were faster. Length clearly valued (Emerson 32.25 arms)."
+      },
+      "EDGE": {
+        "min_arm_length": "33 inches",
+        "min_height": "6-3",
+        "confidence": "medium",
+        "notes": "Wright (33.75\"), McGuire (33.5\") \u2014 all EDGE picks have had elite length."
+      },
+      "WR": {
+        "no_clear_threshold": true,
+        "notes": "Has drafted WRs across entire speed spectrum \u2014 4.26 (Schwartz) to 4.65 (Bell). No consistent physical filter."
+      },
+      "OT": {
+        "min_arm_length": "33 inches",
+        "min_height": "6-4",
+        "min_weight": 310,
+        "confidence": "high",
+        "notes": "Every OT drafted has been 6-4+ and 310+. Jones at 6-8/374 is extreme. Wills (33.5\"), Hudson (34\"), Jones (36\") \u2014 all had long arms."
+      },
+      "DT": {
+        "no_clear_threshold": true,
+        "notes": "Has drafted 3-techs (Elliott 6-4/302, Hall 6-2/290) and nose tackles (Ika 6-2/335). Wide range of sizes. Values disruption traits over specific measurables."
+      },
+      "LB": {
+        "40_yard_max": 4.55,
+        "confidence": "medium",
+        "notes": "JOK (4.40) and Phillips (4.55) \u2014 speed is clearly a priority. Berry traded UP for JOK's speed/coverage profile."
+      },
+      "S": {
+        "40_yard_max": 4.5,
+        "min_height": "6-0",
+        "confidence": "low",
+        "notes": "Only 2 safeties drafted. Delpit (6-2, 4.39) sets the standard. Small sample."
+      }
+    },
+    "threshold_type": "Mostly soft preferences with occasional hard cutoffs. OT size appears to be a hard cutoff (never drafted under 310 lbs). EDGE length appears to be a hard cutoff (never drafted under 33\" arms). Most other positions have softer preferences.",
+    "size_preferences_by_position": {
+      "DT": "Wide range: 290-335. 3-technique (290-310) and nose (330+) both drafted",
+      "OT": "Massive \u2014 310+ minimum. Prefers 320+ with elite arm length",
+      "LB": "Undersized acceptable \u2014 221 (JOK) to 240 (Schwesinger). Speed over size",
+      "WR": "No strong size preference \u2014 5-10 (Schwartz) to 6-3 (Tillman)",
+      "CB": "6-0+ preferred \u2014 Newsome (6-1), Emerson (6-2)",
+      "S": "6-0+ preferred based on limited sample"
+    },
+    "athletic_testing_favorites": "Berry appears to overweight the 40-yard dash for skill positions (especially WR \u2014 love of speed confirmed by media). For defensive linemen, wrestling background and leverage/hand technique matter more than timed events. For LBs, 40 time and short shuttle are key. Berry has a specific scouting report field for multi-sport athletic backgrounds.",
+    "measurables_vs_film": "Film-first with analytics overlay, but measurables serve as confirmers and can elevate players. The Schwartz pick was the clearest example of measurables overriding film (4.26 speed with limited college production). The Bell pick was the opposite (elite production, poor measurables). Post-Schwartz, Berry appears to have shifted toward requiring both film AND measurables to align."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Trench players and defensive premium positions. Berry has used his round 1 picks on OT (Wills, 2020), CB (Newsome, 2021), and DT (Graham, 2025). He has never drafted a skill position player (WR, TE, RB, QB) in round 1. Willing to trade down if value presents itself. Prefers high-floor, scheme-fit players in round 1 rather than upside swings.",
+    "round_2_3_strategy": "Shifts toward BPA with moderate need-filling. Round 2 picks have been his best hits: Delpit (S, 2020), JOK (LB, 2021), Schwesinger (LB, 2025), Judkins (RB, 2025), Fannin (TE, 2025). He traded UP in round 2 for JOK \u2014 his only aggressive trade-up move. Round 3 has been more volatile: Schwartz (WR bust), Bell (WR bust), Tillman (WR injury-plagued), but also Emerson (CB hit), Zinter (G, TBD), Gabriel (QB). Day 2 is where Berry takes his biggest swings.",
+    "day_3_strategy": "Developmental athletes, depth pieces, and occasional projection bets. Day 3 picks target specific roles (backup OL, special teams LB) or swing for upside (Peoples-Jones R6, Ford R5). Berry has also taken fliers on QBs here (DTR R5, Sanders R5). Character-risk or injury-risk players may appear here (Hall had concerns, Harden was a small-school dart throw).",
+    "compensatory_pick_usage": "Has used compensatory picks on players who might carry slightly more risk or are developmental prospects. No clear pattern of treating them differently from regular picks."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "DT": {
+        "picks": 6,
+        "starters_or_contributors": 2,
+        "rate": 0.33,
+        "note": "Graham TBD, Hall TBD. Elliott, Winfrey, Togiai, Ika were all disappointments. Graham could change the trajectory."
+      },
+      "CB": {
+        "picks": 4,
+        "starters_or_contributors": 2,
+        "rate": 0.5,
+        "note": "Newsome (traded after 4 years) and Emerson (solid starter) were hits. Mitchell and Harden TBD."
+      },
+      "LB": {
+        "picks": 4,
+        "starters_or_contributors": 2,
+        "rate": 0.5,
+        "note": "JOK was a clear hit (Pro Bowl). Phillips was a bust. Schwesinger and Fields TBD."
+      },
+      "OT": {
+        "picks": 3,
+        "starters_or_contributors": 2,
+        "rate": 0.67,
+        "note": "Wills was a starter for 5 years (though underperformed). Jones has started. Hudson washed out."
+      },
+      "S": {
+        "picks": 2,
+        "starters_or_contributors": 1,
+        "rate": 0.5,
+        "note": "Delpit became a quality starter. LeCounte was cut."
+      },
+      "WR": {
+        "picks": 6,
+        "starters_or_contributors": 1,
+        "rate": 0.17,
+        "note": "Only Peoples-Jones (6th round) was a meaningful contributor. Schwartz, Bell, Tillman, Woods, Thrash all busts or non-contributors. CLEAR BLIND SPOT."
+      },
+      "EDGE": {
+        "picks": 3,
+        "starters_or_contributors": 1,
+        "rate": 0.33,
+        "note": "McGuire has been decent. Wright and Thomas limited contributors."
+      },
+      "RB": {
+        "picks": 3,
+        "starters_or_contributors": 2,
+        "rate": 0.67,
+        "note": "Ford was a solid complementary back. Judkins and Sampson TBD but early results promising."
+      },
+      "TE": {
+        "picks": 2,
+        "starters_or_contributors": 1,
+        "rate": 0.5,
+        "note": "Fannin emerging as star. Bryant was underwhelming."
+      },
+      "QB": {
+        "picks": 3,
+        "starters_or_contributors": 1,
+        "rate": 0.33,
+        "note": "Sanders showed promise. DTR was a bust. Gabriel TBD."
+      },
+      "IOL": {
+        "picks": 4,
+        "starters_or_contributors": 1,
+        "rate": 0.25,
+        "note": "Wypler has potential. Harris and Deaton didn't work out. Zinter TBD."
+      }
+    },
+    "blind_spots": [
+      "WR evaluation has been disastrous \u2014 1 contributor out of 6 drafted. Berry himself acknowledged this by outlining simple criteria (get open, catch, make plays). Simulation should significantly discount WR pick confidence.",
+      "DT evaluation has been inconsistent despite massive investment \u2014 6 DTs drafted with mostly poor returns before Graham. Berry keeps trying at DT, suggesting he values the position but may misjudge talent.",
+      "IOL evaluation below average \u2014 limited investment and poor returns from Day 3 picks"
+    ],
+    "strengths": [
+      "LB evaluation above average \u2014 JOK trade-up was Berry's best single pick. Schwesinger looks promising.",
+      "RB evaluation solid despite low investment \u2014 Ford was a quality Day 3 find, Judkins/Sampson look promising.",
+      "TE evaluation improving \u2014 Fannin was a home run Day 2 pick.",
+      "Trade execution \u2014 Berry consistently wins trades (Jacksonville trade-down, Newsome-Campbell swap, etc.)"
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Conservative to moderate spender. Berry said at 2026 combine: 'It'll be targeted and opportunistic. Realistically we may be one more offseason away from being hyper-aggressive.' He uses FA to fill 1-2 specific holes rather than overhauling the roster. Examples: signed DT Maliek Collins, traded for OT Tytus Howard in 2026 offseason.",
+    "fa_draft_correlation": "Berry fills some needs in FA then addresses remaining gaps in the draft. After signing Collins and trading for Howard, the remaining draft needs shift. He does NOT stop drafting a position entirely after FA signings \u2014 signed Austin Hooper at TE but still drafted Harrison Bryant in 2020.",
+    "roster_construction_philosophy": "Build through the draft at premium positions (DL, CB, LB, OT), supplement through FA and trades at non-premium positions. Berry has been forced to use trades heavily (Cooper, Jeudy, Flacco) to fill gaps created by the Watson trade's pick depletion. Now with restored draft capital (two 1st-rounders in 2026), expects a return to draft-centric building."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 43,
+    "notable_patterns": [
+      "Defensive line has received more draft capital than any other position group (6+ picks including a top-5 selection)",
+      "Has NEVER drafted a WR before round 3 in six drafts \u2014 consistent avoidance of premium WR investment",
+      "Has NEVER drafted a QB before round 3 (only DTR R5, Gabriel R3, Sanders R5)",
+      "Three of four first-round picks have been trench players (Wills OT, Newsome CB, Graham DT)",
+      "Willing to trade down in round 1 \u2014 traded from 2 to 5 in 2025 and previously traded back in 2020 and 2022",
+      "Only trade-UP in Berry's tenure was for JOK (59 to 52 in 2021 R2) \u2014 suggesting he only moves up for falling players he has strong conviction on",
+      "Heavy Ohio State pipeline \u2014 Jones, Wypler, Hall, Zinter all from OSU or nearby Big Ten programs",
+      "2023 draft class carried a 'size' theme \u2014 Tillman (6-3), Ika (335 lbs), Jones (6-8/374)"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2021,
+        "pick": "3.91",
+        "player": "Anthony Schwartz",
+        "position": "WR",
+        "consensus_rank": "130-150 range",
+        "reach_amount": 40,
+        "context": "Pure speed play \u2014 4.26 40. Track athlete from Auburn with 29 catches in final year. Widely seen as a massive reach. Did not pan out."
+      },
+      {
+        "year": 2023,
+        "pick": "3.98",
+        "player": "Siaki Ika",
+        "position": "DT",
+        "consensus_rank": "120-140 range",
+        "reach_amount": 25,
+        "context": "335-pound nose tackle from Baylor. Analytics-driven pick for interior run-stuffing. Production didn't translate."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2021,
+        "pick": "2.52",
+        "player": "Jeremiah Owusu-Koramoah",
+        "position": "LB",
+        "consensus_rank": "25-35",
+        "value_amount": 20,
+        "context": "JOK fell due to size concerns (221 lbs) and heart condition red flag. Berry traded up to get him. Made Pro Bowl in year 3."
+      },
+      {
+        "year": 2020,
+        "pick": "6.187",
+        "player": "Donovan Peoples-Jones",
+        "position": "WR",
+        "consensus_rank": "140-160",
+        "value_amount": 25,
+        "context": "Former 5-star recruit with elite combine (4.48, 44.5\" vert). Underdeveloped at Michigan. Became Berry's best WR find (839 yards in 2022)."
+      },
+      {
+        "year": 2025,
+        "pick": "5.144",
+        "player": "Shedeur Sanders",
+        "position": "QB",
+        "consensus_rank": "40-70",
+        "value_amount": 75,
+        "context": "Historic draft slide. Berry's Browns spent extensive time evaluating Sanders pre-draft. Started final 7 games of 2025, showing enough to compete for 2026 starter role."
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_notes": "6 drafts of data as Browns GM. Extensive public statements, press conferences, and insider reporting available. Coaching staff change (Monken replacing Stefanski) introduces some uncertainty about offensive scheme preferences, but Berry's core tendencies (trench-first, analytics-driven, trade-down willingness, WR avoidance) are deeply established patterns. DePodesta's departure (Nov 2025) removes a key influencer but Berry has been the primary decision-maker throughout. Profile should be refreshed after 2026 draft to calibrate for Monken-era offensive priorities.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}

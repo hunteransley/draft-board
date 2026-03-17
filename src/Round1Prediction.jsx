@@ -6,6 +6,7 @@ import { getProspectStats } from "./prospectStats.js";
 import { TEAM_SCHEME } from "./depthChartUtils.js";
 import { POS_DRAFT_VALUE, RANK_OVERRIDES, GRADE_OVERRIDES, TEAM_PROFILES, SCHEME_INFLECTIONS, DRAFT_ORDER, getPickRound } from "./draftConfig.js";
 import { TEAM_NEEDS_COUNTS, TEAM_NEEDS_SIMPLE } from "./teamNeedsData.js";
+import { GM_PARAMS, generateSimNoise as gmGenerateSimNoise, generateAllBoards, pickFromBoard, normalizeAbbr } from "./gmBoardGenerator.js";
 
 // ── STATIC DATA ──
 
@@ -19,38 +20,7 @@ function getPickValue(n){return JJ_VALUES[n]||Math.max(5,Math.round(100-((n-100)
 // POS_DRAFT_VALUE, RANK_OVERRIDES, GRADE_OVERRIDES, TEAM_PROFILES, SCHEME_INFLECTIONS imported from draftConfig.js
 // TEAM_NEEDS_COUNTS, TEAM_NEEDS_SIMPLE imported from teamNeedsData.js
 
-// Central-limit-theorem gaussian approximation (sum of 6 uniforms)
-function gaussRandom(sigma){
-  let s=0;for(let i=0;i<6;i++)s+=Math.random();
-  return(s-3)*sigma;
-}
-
-function generateSimNoise(board){
-  const noise={};const wobbled={};
-  const teams=[...new Set(DRAFT_ORDER.map(d=>d.team))];
-  teams.forEach(team=>{
-    const prof=TEAM_PROFILES[team]||{variance:2,bpaLean:0.5};
-    const sigma=prof.variance*0.9;
-    const tn={};
-    board.forEach(p=>{tn[p.id]=Math.max(-8,Math.min(8,gaussRandom(sigma)));});
-    noise[team]=tn;
-    const ws=0.03*prof.variance;
-    wobbled[team]={...prof,bpaLean:Math.max(0.2,Math.min(0.9,prof.bpaLean+gaussRandom(ws)))};
-  });
-  return{noise,wobbled};
-}
-
-
-// Per-archetype coefficients: TE→WR and LB→EDGE are real positional value jumps (0.18).
-// RB dual-threat is still the same position — tiny seasoning only (0.03).
-function traitFlexScore(pos,gpos,sc,teamInflections){
-  if(!sc)return 0;
-  const t=sc;
-  if(pos==='TE'){const avg=((t.Receiving||0)+(t['Route Running']||0)+(t.Hands||0)+(t.Speed||0))/4;if(avg>=78)return((avg-78)/22)*(teamInflections.teRec||0)*0.18;}
-  if(pos==='LB'){const avg=((t['Pass Rush']||0)*0.65+(t.Athleticism||0)*0.65+(t['Block Shedding']||0)*0.35+(t.Range||0)*0.35)/2;if(avg>=78)return((avg-78)/22)*(teamInflections.lbRush||0)*0.18;}
-  if(pos==='RB'){const avg=((t['Pass Catching']||0)+(t.Speed||0))/2;if(avg>=78)return((avg-78)/22)*(teamInflections.rbDual||0)*0.03;}
-  return 0;
-}
+// (Old scoring functions removed — board generation now handled by gmBoardGenerator.js)
 
 const TEAM_ABBR={Raiders:"LV",Jets:"NYJ",Cardinals:"ARI",Titans:"TEN",Giants:"NYG",Browns:"CLE",Commanders:"WAS",Saints:"NO",Chiefs:"KC",Bengals:"CIN",Dolphins:"MIA",Cowboys:"DAL",Rams:"LAR",Falcons:"ATL",Ravens:"BAL",Buccaneers:"TB",Colts:"IND",Lions:"DET",Vikings:"MIN",Panthers:"CAR",Packers:"GB",Steelers:"PIT",Chargers:"LAC",Eagles:"PHI",Bears:"CHI","49ers":"SF",Texans:"HOU",Jaguars:"JAX",Seahawks:"SEA",Patriots:"NE",Broncos:"DEN",Bills:"BUF"};
 
@@ -68,148 +38,28 @@ function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y)
 
 // ── PURE SIMULATION FUNCTIONS ──
 
-function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap, boardNoise, wobbledProfiles, getGrade) {
-  const needs = TEAM_NEEDS_SIMPLE[team] || ["QB","WR","DL"];
-  const dn = TEAM_NEEDS_COUNTS?.[team] || {};
-  const prof = (wobbledProfiles&&wobbledProfiles[team])||TEAM_PROFILES[team]||{bpaLean:0.55,posBoost:[],posPenalty:[],stage:"retool",reachTolerance:0.3,variance:2,gposBoost:[],athBoost:0,sizePremium:false,ceilingChaser:0};
-
+function pureCpuPick(team, avail, pickNum, picks, recentPosCounts, prospectsMap, boards) {
   if(pickNum===1){const m=avail.find(id=>{const p=prospectsMap[id];return p&&p.name==="Fernando Mendoza";});if(m)return m;}
-
-  // Elite slide protection removed — transcendent tier + ceiling bumps + EDGE flex handle this organically now
   const round=getPickRound(pickNum);
-  let stageBpaShift=0, stageNeedShift=0;
-  if(prof.stage==="dynasty"){stageBpaShift=0.15;stageNeedShift=-0.12;}
-  else if(prof.stage==="contend"){stageBpaShift=-0.08;stageNeedShift=0.18;}
-  else if(prof.stage==="rebuild"){stageBpaShift=round<=2?0.12:-0.05;stageNeedShift=round<=2?-0.1:0.15;}
+  const abbr=normalizeAbbr(TEAM_ABBR[team]||team);
+  const board=boards[abbr];
+  const gm=GM_PARAMS[abbr];
+  if(!board||!gm)return avail[0];
 
-  const bpaW=0.6+prof.bpaLean*0.8+stageBpaShift;
-  const needW=1.15-prof.bpaLean+stageNeedShift;
-  const roundNeedShift=round<=2?0:round<=4?0.15:0.3;
-  const roundBpaShift=round<=2?0:round<=4?-0.1:-0.2;
-  const finalBpaW=Math.max(0.3,bpaW+roundBpaShift);
-  const finalNeedW=Math.max(0.2,needW+roundNeedShift);
+  const availSet=new Set(avail);
+  const teamPickHistory=picks.filter(pk=>pk.team===team).map(pk=>{const p=prospectsMap[pk.playerId];return p?{pos:p.gpos||p.pos,pick:pk.pick}:null;}).filter(Boolean);
+  const posCounts={};teamPickHistory.forEach(h=>{posCounts[h.pos]=(posCounts[h.pos]||0)+1;});
 
-  const teamDrafted=picks.filter(pk=>pk.team===team).map(pk=>{const p=prospectsMap[pk.playerId];return p?p.pos:null;}).filter(Boolean);
-  const posCounts={};teamDrafted.forEach(pos=>{posCounts[pos]=(posCounts[pos]||0)+1;});
-
-  const scored=[];
-  avail.forEach(id=>{
-    const p=prospectsMap[id];if(!p)return;
-    const pos=p.pos;
-    const rawBaseGrade=getConsensusGrade(p.name);
-    const baseGrade=rawBaseGrade+(boardNoise?.[team]?.[id]||0);
-    const grade=GRADE_OVERRIDES[p.name]?Math.max(baseGrade,GRADE_OVERRIDES[p.name]):baseGrade;
-    const rawRank=getConsensusRank(p.name);
-    const consRank=RANK_OVERRIDES[p.name]||rawRank;
-    const nc=dn[pos]||0;const ni=needs.indexOf(pos);
-    const nm=nc>=3?18:nc>=2?12:nc===1?8:ni>=0&&ni<3?5:ni>=0?2:(round>=3?-6:0);
-    const gpos=p.gpos||p.pos;
-    let rawPm=POS_DRAFT_VALUE[gpos]||POS_DRAFT_VALUE[pos]||1.0;
-    // LB/EDGE flex: if LB prospect has EDGE traits and team runs 3-4 (wants stand-up rushers), use EDGE multiplier
-    if(gpos==="LB"&&(TEAM_SCHEME[team]?.def==="34"||TEAM_SCHEME[team]?.def==="w9")){
-      const flexSc=getScoutingTraits(p.name,p.school);
-      const flexCs=getCombineScores(p.name,p.school);
-      const pr=flexSc?.["Pass Rush"]||0;
-      const ath2=flexCs?.athleticScore||flexSc?.["Athleticism"]||0;
-      const ps=getProspectStats?.(p.name,p.school);
-      const wt=flexCs?.weight||ps?.weight||260;
-      if(pr>=65&&ath2>=70&&wt<=260)rawPm=Math.max(rawPm,POS_DRAFT_VALUE["EDGE"]);
-    }
-    const ceilingSc=getScoutingTraits(p.name,p.school);
-    const ceilingTag=ceilingSc?.__ceiling||"normal";
-    const ceilingPmBump=ceilingTag==="elite"?0.02:ceilingTag==="high"?0.01:0;
-    // Transcendent tier: elite ceiling + (grade>=95 & ath>=98) OR (grade>=98) → positional floor
-    const uiGrade=getGrade?getGrade(id):0;
-    const transAth=getCombineScores(p.name,p.school)?.athleticScore||0;
-    if(ceilingTag==="elite"&&((uiGrade>=95&&transAth>=98)||(uiGrade>=98))){const tFloor=gpos==="RB"?1.06:gpos==="S"?1.03:1.05;rawPm=Math.max(rawPm,tFloor);}
-    const pm=(grade>=88?Math.max(rawPm,1.0):rawPm)+ceilingPmBump;
-    const base=Math.pow(Math.max(grade,10),1.3);
-
-    const isBoosted=prof.posBoost.includes(pos);
-    const isPenalized=prof.posPenalty.includes(pos);
-    const teamPosBoost=isBoosted?1.12:isPenalized&&round<=3?0.75:1.0;
-
-    const slide=consRank<900?(pickNum-consRank):0;
-    const gradeSlideMultiplier=grade>=88?6:grade>=80?4.5:3;
-    const slideBoost=slide>6?Math.pow(slide-6,1.5)*gradeSlideMultiplier:0;
-    const reachThreshold=Math.round(12+prof.reachTolerance*15);
-    const reachPenalty=slide<-reachThreshold&&round<=3?Math.abs(slide+reachThreshold)*1.5:0;
-
-    const alreadyAtPos=posCounts[pos]||0;
-    const dimReturn=alreadyAtPos>=3?0.4:alreadyAtPos>=2?0.65:alreadyAtPos>=1?0.85:1.0;
-
-    const recentRun=recentPosCounts[pos]||0;
-    const runPenalty=recentRun>=4?0.72:recentRun>=3?0.84:recentRun>=2?0.93:1.0;
-
-    const isTopNeed=nc>=2||(ni===0);
-    const isSliding=slide>4&&grade>=70;
-    const urgencyBoost=isTopNeed&&isSliding?1.18:1.0;
-
-    if(pos==="K/P"&&round<=4)return;
-    const rbPen=(pos==="RB"&&round===1&&grade<85)?0.72:1.0;
-    const qbMod=pos==="QB"?(nc>=2?1.3:nc>=1?1.1:ni>=0?0.9:0.5):1.0;
-
-    const isSchemefit=(prof.gposBoost||[]).includes(gpos);
-    const schemeBoost=isSchemefit?1.15:1.0;
-
-    const sc=getScoutingTraits(p.name,p.school);
-    const cs=getCombineScores(p.name,p.school);
-    const ath=cs?.athleticScore??null;
-    const ceiling=sc?.__ceiling||"normal";
-    const athMult=(prof.athBoost&&ath!=null&&ath>=85)?1+prof.athBoost*(ath>=95?1.0:ath>=90?0.6:0.3):1.0;
-    const ceilingMult=(prof.ceilingChaser&&(ceiling==="elite"||ceiling==="high"))?1+prof.ceilingChaser*(ceiling==="elite"?1.0:0.6):1.0;
-    let sizeMult=1.0;
-    if(prof.sizePremium&&cs?.percentiles){const hp=cs.percentiles.height??50;const wp=cs.percentiles.weight??50;if(hp>=75&&wp>=75)sizeMult=1.06;else if(hp>=60&&wp>=60)sizeMult=1.03;}
-
-    const schemeInf=SCHEME_INFLECTIONS[team]||{};
-    const flexRaw=traitFlexScore(pos,gpos,sc,schemeInf);
-    const gmFactor=Math.max(0.15,1.0-(prof.bpaLean-0.35)*1.8);
-    const traitFlexBoost=1.0+flexRaw*gmFactor;
-
-    let stageMod=1.0;
-    if(prof.stage==="dynasty"){
-      stageMod=grade>=85?1.15:nc>=2?1.05:0.95;
-      if(grade>=90&&alreadyAtPos<=1)stageMod*=1.1;
-    }else if(prof.stage==="contend"){
-      stageMod=nc>=2?1.25:nc>=1?1.12:ni>=0?1.0:0.82;
-    }else if(prof.stage==="rebuild"){
-      if(round<=2){stageMod=grade>=80?1.15:1.0;}
-      else{stageMod=nc>=2?1.2:nc>=1?1.1:0.9;}
-    }else{
-      stageMod=nc>=2?1.1:1.0;
-    }
-
-    const bpaComponent=base*finalBpaW*pm*rbPen*qbMod*teamPosBoost*schemeBoost*athMult*ceilingMult*sizeMult*traitFlexBoost;
-    const needComponent=nm*finalNeedW*12;
-    const score=(bpaComponent+needComponent+slideBoost-reachPenalty)*dimReturn*stageMod*runPenalty*urgencyBoost;
-    scored.push({id,score,grade,consRank});
+  const result=pickFromBoard(board,gm,{
+    available:availSet,round,currentPick:pickNum,
+    alreadyDrafted:posCounts,recentPosCounts,
+    teamNeeds:TEAM_NEEDS_SIMPLE[team],
+    teamPickHistory,
   });
-
-  if(scored.length===0)return avail[0];
-  scored.sort((a,b)=>b.score-a.score);
-
-  const topScore=scored[0].score;
-  const topGrade=scored[0].grade||50;
-  const baseTierPct=round<=1?0.09:round<=2?0.13:round<=3?0.18:round<=5?0.24:0.30;
-  const tierPct=topGrade>=88?baseTierPct*0.6:baseTierPct;
-  const tierCandidates=scored.filter(s=>s.score>=topScore*(1-tierPct));
-  const maxCandidates=Math.max(1,Math.min(tierCandidates.length,Math.round(1+prof.variance)));
-  const pool=tierCandidates.slice(0,maxCandidates);
-
-  if(pool.length===1)return pool[0].id;
-
-  const temp=round<=1?2.5:round<=3?1.8:1.2;
-  const weights=pool.map(s=>Math.exp(s.score/topScore/temp));
-  const totalW=weights.reduce((a,b)=>a+b,0);
-  let r=Math.random()*totalW;
-  for(let i=0;i<pool.length;i++){
-    r-=weights[i];
-    if(r<=0)return pool[i].id;
-  }
-  return pool[0].id;
+  return result?.id||avail[0];
 }
 
-function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, prospectsMap, boardNoise, wobbledProfiles) {
+function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, prospectsMap, boards) {
   const fullDraftOrder = DRAFT_ORDER;
   const totalPicks = fullDraftOrder.length;
   const getPickTeam = (idx) => tradeMap[idx] || fullDraftOrder[idx]?.team;
@@ -219,61 +69,48 @@ function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, pro
 
   const recentTraders = new Set(cpuTradeLog.filter(t => currentIdx - t.pickIdx < 8).map(t => t.fromTeam));
   const candidateTeams = [];
+  const availSet=new Set(available);
 
   for(let i = currentIdx + 2; i < Math.min(currentIdx + 13, totalPicks); i++){
     const t = getPickTeam(i);
     if(!t || t === currentTeam) continue;
-    const prof = (wobbledProfiles&&wobbledProfiles[t])||TEAM_PROFILES[t]||{reachTolerance:0.3,stage:"retool",variance:2,bpaLean:0.5,posBoost:[]};
+    const tAbbr=normalizeAbbr(TEAM_ABBR[t]||t);
+    const gm=GM_PARAMS[tAbbr];
+    if(!gm)continue;
     if(recentTraders.has(t)) continue;
 
-    const needs = TEAM_NEEDS_SIMPLE[t] || ["QB","WR","DL"];
-    const dn = TEAM_NEEDS_COUNTS?.[t] || {};
-    let bestPlayer = null, bestScore = 0, secondScore = 0;
+    const board=boards[tAbbr]||[];
+    let bestPlayer=null,bestScore=0,secondScore=0;
+    for(const entry of board){
+      if(!availSet.has(entry.id))continue;
+      const score=entry.boardScore*(0.85+Math.random()*0.30);
+      if(score>bestScore){secondScore=bestScore;bestScore=score;bestPlayer={id:entry.id,name:entry.name,grade:entry.grade,consRank:entry.consensusRank,pos:entry.pos,score};}
+      else if(score>secondScore){secondScore=score;}
+      if(secondScore>0&&bestScore/secondScore<1.10)break;
+    }
+    if(!bestPlayer||bestPlayer.grade<70)continue;
+    const separation=secondScore>0?bestScore/secondScore:2.0;
 
-    available.forEach(id => {
-      const p = prospectsMap[id]; if(!p) return;
-      const pos = p.pos;
-      const rawBaseGrade = getConsensusGrade(p.name);
-      const baseGrade = rawBaseGrade+(boardNoise?.[t]?.[id]||0);
-      const grade = GRADE_OVERRIDES[p.name] ? Math.max(baseGrade, GRADE_OVERRIDES[p.name]) : baseGrade;
-      if(grade < 70) return;
-      const rawRank = getConsensusRank(p.name);
-      const consRank = RANK_OVERRIDES[p.name] || rawRank;
-      const nc = dn[pos] || 0; const ni = needs.indexOf(pos);
-      const slide = consRank < 900 ? (currentPick - consRank) : 0;
-      const needFit = nc >= 2 ? 2.0 : nc >= 1 ? 1.5 : ni >= 0 && ni < 3 ? 1.2 : ni >= 0 ? 1.0 : 0.5;
-      const gradeScore = Math.pow(grade, 1.2);
-      const slideBonus = slide > 3 ? slide * 3 : 0;
-      const isBoosted = prof.posBoost?.includes(pos) ? 1.15 : 1.0;
-      const score = (gradeScore * needFit * isBoosted + slideBonus) * (0.85 + Math.random() * 0.30);
-      if(score > bestScore){ secondScore = bestScore; bestScore = score; bestPlayer = {id, name: p.name, grade, consRank, pos, score}; }
-      else if(score > secondScore){ secondScore = score; }
-    });
-
-    if(!bestPlayer) continue;
-    const separation = secondScore > 0 ? bestScore / secondScore : 2.0;
-
-    const theirPickIdx = i;
-    const theirPickNum = fullDraftOrder[theirPickIdx]?.pick;
+    const theirPickNum = fullDraftOrder[i]?.pick;
     const currentVal = getPickValue(currentPick);
     const theirVal = getPickValue(theirPickNum);
     let sweetenerIdx = null, sweetenerVal = 0;
-    for(let j = theirPickIdx + 1; j < totalPicks; j++){
+    for(let j = i + 1; j < totalPicks; j++){
       if(getPickTeam(j) === t){ sweetenerIdx = j; sweetenerVal = getPickValue(fullDraftOrder[j]?.pick || 999); break; }
     }
     const totalOffer = theirVal + sweetenerVal;
     if(totalOffer < currentVal * 0.78) continue;
 
-    const baseImpulse = prof.stage === "dynasty" ? 0.04 : prof.stage === "contend" ? 0.05 : prof.reachTolerance >= 0.4 ? 0.035 : 0.015;
-    const topBoost = currentPick <= 10 ? 1.6 : currentPick <= 20 ? 1.3 : 1.0;
-    const needBoost = separation >= 1.15 ? 1.4 : 1.0;
-    const impulseChance = baseImpulse * topBoost * needBoost;
-    const analyticalChance = separation >= 1.30 ? 0.35 : separation >= 1.15 ? 0.18 : 0.0;
-    const finalChance = Math.min(0.45, impulseChance + analyticalChance);
-    if(Math.random() > finalChance) continue;
+    let prob=gm.tradeUpAggression*0.08;
+    if(separation>=1.30)prob+=0.10;
+    else if(separation>=1.15)prob+=0.04;
+    if(currentPick<=10)prob*=1.3;
+    else if(currentPick<=20)prob*=1.15;
+    prob=Math.min(0.25,prob);
+    if(Math.random()>prob)continue;
 
     candidateTeams.push({
-      team: t, theirPickIdx, theirPickNum, sweetenerIdx,
+      team: t, theirPickIdx: i, theirPickNum, sweetenerIdx,
       sweetenerPick: sweetenerIdx !== null ? fullDraftOrder[sweetenerIdx]?.pick : null,
       sweetenerRound: sweetenerIdx !== null ? fullDraftOrder[sweetenerIdx]?.round : null,
       targetPlayer: bestPlayer, separation, totalOffer, currentVal
@@ -288,8 +125,12 @@ function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, pro
   return candidateTeams[0];
 }
 
-function runSingleSim(board, prospectsMap, getGrade) {
-  const{noise:boardNoise,wobbled:wobbledProfiles}=generateSimNoise(board);
+function runSingleSim(board, prospectsMap, getGrade, schemeFits) {
+  // Generate per-GM boards with variance for this sim iteration
+  const prospectIds=board.map(p=>p.id);
+  const{noise,wobbled}=gmGenerateSimNoise(prospectIds);
+  const boards=generateAllBoards(board,noise,schemeFits);
+
   const fullDraftOrder = DRAFT_ORDER;
   const available = board.map(p => p.id);
   const picks = [];
@@ -302,8 +143,7 @@ function runSingleSim(board, prospectsMap, getGrade) {
     const team = getPickTeam(idx);
     const pickNum = fullDraftOrder[idx]?.pick || (idx + 1);
 
-    // Try CPU trade-up
-    const trade = pureCpuTradeUp(idx, available, picks, tradeMap, cpuTradeLog, prospectsMap, boardNoise, wobbledProfiles);
+    const trade = pureCpuTradeUp(idx, available, picks, tradeMap, cpuTradeLog, prospectsMap, boards);
     let actualTeam = team;
     let traded = false;
     let origTeam = team;
@@ -319,7 +159,7 @@ function runSingleSim(board, prospectsMap, getGrade) {
       origTeam = team;
     }
 
-    const playerId = pureCpuPick(actualTeam, available, pickNum, picks, recentPosCounts, prospectsMap, boardNoise, wobbledProfiles, getGrade);
+    const playerId = pureCpuPick(actualTeam, available, pickNum, picks, recentPosCounts, prospectsMap, boards);
     const player = prospectsMap[playerId];
     const pos = player?.pos;
 
@@ -345,7 +185,7 @@ function runSingleSim(board, prospectsMap, getGrade) {
   return picks;
 }
 
-function runBatchAsync(board, prospectsMap, numSims, onProgress, getGrade) {
+function runBatchAsync(board, prospectsMap, numSims, onProgress, getGrade, schemeFits) {
   return new Promise(resolve => {
     const allResults = [];
     let done = 0;
@@ -354,7 +194,7 @@ function runBatchAsync(board, prospectsMap, numSims, onProgress, getGrade) {
     function runChunk() {
       const end = Math.min(done + CHUNK, numSims);
       for(let i = done; i < end; i++){
-        allResults.push(runSingleSim(board, prospectsMap, getGrade));
+        allResults.push(runSingleSim(board, prospectsMap, getGrade, schemeFits));
       }
       done = end;
       if(onProgress) onProgress(done, numSims);
@@ -460,7 +300,7 @@ function aggregateResults(allResults, prospectsMap) {
 
 export default function Round1Prediction({
   board, PROSPECTS, POS_COLORS, NFLTeamLogo, SchoolLogo,
-  font, mono, sans, onClose, onResults, trackEvent, userId, getGrade
+  font, mono, sans, onClose, onResults, trackEvent, userId, getGrade, schemeFits
 }) {
   const [phase, setPhase] = useState("loading");
   const [progress, setProgress] = useState(0);
@@ -477,7 +317,7 @@ export default function Round1Prediction({
     let cancelled = false;
     runBatchAsync(board, prospectsMap, 100, (done, total) => {
       if(!cancelled) setProgress(Math.round(done / total * 100));
-    }, getGrade).then(allResults => {
+    }, getGrade, schemeFits).then(allResults => {
       if(cancelled) return;
       const agg = aggregateResults(allResults, prospectsMap);
       setSlots(agg);

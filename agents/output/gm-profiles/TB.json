@@ -1,0 +1,940 @@
+{
+  "team": {
+    "name": "Tampa Bay Buccaneers",
+    "abbreviation": "TB",
+    "division": "NFC South",
+    "current_draft_position": 15
+  },
+  "front_office": {
+    "gm": {
+      "name": "Jason Licht",
+      "title": "General Manager",
+      "hired": "2014-01-21",
+      "previous_role": "Vice President of Player Personnel, Arizona Cardinals",
+      "drafts_as_gm": 12,
+      "confidence": "high"
+    },
+    "scouting_tree": {
+      "career_path": [
+        {
+          "org": "University of Nebraska / Nebraska Wesleyan",
+          "role": "College Player (LB/OG/DT)",
+          "years": "1989-1993",
+          "mentor": "Tom Osborne (Nebraska)"
+        },
+        {
+          "org": "Miami Dolphins",
+          "role": "Scouting Department Assistant",
+          "years": "1995",
+          "mentor": "Tom Heckert Sr."
+        },
+        {
+          "org": "Miami Dolphins",
+          "role": "Offensive Assistant / Quality Control Coach",
+          "years": "1996",
+          "mentor": "Don Shula / Jimmy Johnson staff"
+        },
+        {
+          "org": "National Football Scouting",
+          "role": "College Scout",
+          "years": "1997",
+          "mentor": "N/A (scouting service)"
+        },
+        {
+          "org": "Carolina Panthers",
+          "role": "Scouting Department",
+          "years": "1998",
+          "mentor": "Panthers scouting staff"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "College Scout / Area Scout",
+          "years": "1999-2000",
+          "mentor": "Bill Belichick / Scott Pioli"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "National Scout",
+          "years": "2001",
+          "mentor": "Bill Belichick / Scott Pioli"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Assistant Director of Player Personnel",
+          "years": "2002",
+          "mentor": "Bill Belichick / Scott Pioli"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Assistant Director of Player Personnel",
+          "years": "2003-2005",
+          "mentor": "Tom Heckert Jr. / Andy Reid"
+        },
+        {
+          "org": "Philadelphia Eagles",
+          "role": "Vice President of Player Personnel",
+          "years": "2006-2008 (fired May 2008)",
+          "mentor": "Tom Heckert Jr. (promoted to GM in 2006)"
+        },
+        {
+          "org": "Arizona Cardinals",
+          "role": "Personnel Executive / Director of Player Personnel",
+          "years": "2008 (June-Dec)",
+          "mentor": "Steve Keim / Rod Graves"
+        },
+        {
+          "org": "New England Patriots",
+          "role": "Director of Pro Personnel",
+          "years": "2009-2011",
+          "mentor": "Bill Belichick / Nick Caserio"
+        },
+        {
+          "org": "Arizona Cardinals",
+          "role": "Vice President of Player Personnel",
+          "years": "2012-2013",
+          "mentor": "Steve Keim"
+        },
+        {
+          "org": "Tampa Bay Buccaneers",
+          "role": "General Manager",
+          "years": "2014-present",
+          "mentor": "Self (synthesized from Belichick/Heckert/Keim trees)"
+        }
+      ],
+      "primary_mentor": "Bill Belichick / Scott Pioli (New England Patriots) and Tom Heckert Sr./Jr. (Dolphins/Eagles)",
+      "philosophical_lineage": "Multi-tree synthesis: Belichick/Pioli Patriots tree (value-driven drafting, positional versatility, character emphasis, willingness to trade around the board); Heckert/Eagles tree (trenches-first philosophy, offensive line investment); Keim/Cardinals tree (athletic testing appreciation, willingness to bet on upside). Licht has blended these into a unique approach that emphasizes character, athleticism, versatility, and building through the draft while supplementing with value free agency.",
+      "breakpoints": "Licht departed from the Belichick tree's extreme trade-down tendencies \u2014 he has historically traded UP more often than down (9 trade-ups vs 4 trade-downs through 2022). Also departed from Belichick's willingness to draft character risks. Around 2019, Licht overhauled his entire scouting process, shifting to an extreme character-first approach that dramatically improved his hit rate. This was a conscious, self-directed evolution.",
+      "lineage_weight": 0.15,
+      "lineage_weight_notes": "12 drafts of own data as Bucs GM make lineage weight minimal. Licht's own track record IS the profile. Lineage only useful for understanding foundational biases."
+    },
+    "primary_decision_maker": "Jason Licht",
+    "key_influencers": [
+      {
+        "name": "Todd Bowles",
+        "title": "Head Coach",
+        "influence_level": "high",
+        "known_biases": "Defensive-minded, runs aggressive 3-4 with heavy blitzing. Values speed and versatility on defense. Explicitly stated 'I want ballhawks' heading into 2025 draft. Wants players who can play multiple positions on defense."
+      },
+      {
+        "name": "Rob McCartney",
+        "title": "Assistant General Manager",
+        "influence_level": "high",
+        "known_biases": "Key scouting voice. Licht has credited McCartney as one of his top personnel people. Has been with Bucs organization for 10+ seasons. Expressed excitement about drafting players who 'brought joy to us in the process' \u2014 values film study engagement."
+      },
+      {
+        "name": "Mike Biehl",
+        "title": "Vice President of Personnel",
+        "influence_level": "medium-high",
+        "known_biases": "Senior scouting voice. Named by Licht as key personnel decision-maker. Spoke about fielding trade calls and staying put when conviction on a player is high."
+      },
+      {
+        "name": "Mike Greenberg",
+        "title": "Assistant General Manager (Football Administration)",
+        "influence_level": "medium",
+        "known_biases": "Handles salary cap and contract negotiations. Advises Licht on financial flexibility, which influences draft-day trade decisions."
+      },
+      {
+        "name": "Zac Robinson",
+        "title": "Offensive Coordinator (2026)",
+        "influence_level": "medium",
+        "known_biases": "New OC from Atlanta Falcons/Rams tree. Fifth OC in five years under Bowles. McVay/Shanahan offensive lineage \u2014 values versatile playmakers and zone-scheme offensive linemen."
+      }
+    ],
+    "power_dynamics": "Licht has clear final authority on all personnel decisions. He has delegated cap and contract work to Greenberg and scouting operations to McCartney and Biehl, which he says allows him to focus on watching tape. Bowles has significant input on defensive personnel and has publicly stated draft priorities (e.g., 'I want ballhawks'). Collaborative but GM-led. Licht survived three coaching changes before Bowles, demonstrating his independent authority.",
+    "owner_interference": "low \u2014 The Glazer family has been hands-off on football decisions. Licht has said 'their number one priority is winning' and they've stood by him through early struggles. Extended Licht multiple times including multi-year extension in June 2025. Ownership is supportive, not interventionist."
+  },
+  "draft_philosophy": {
+    "bpa_weight": 0.6,
+    "bpa_weight_by_round": {
+      "1": 0.65,
+      "2": 0.55,
+      "3": 0.5,
+      "4_plus": 0.4
+    },
+    "stated_philosophy": "Build through the draft. That's where we find our stars. Supplement through free agency but look for value and spend wisely.",
+    "actual_philosophy": "Leans BPA in round 1 but has shown willingness to address clear needs, particularly on the trenches and defense. Recent first-round picks have often aligned with both BPA and need: Calijah Kancey (DT need + BPA), Graham Barton (C need + BPA at IOL), Emeka Egbuka (WR not a top need but BPA value too good to pass up at 19). Character is effectively a tiebreaker that can override pure talent ranking \u2014 Licht has passed on more talented players with character red flags in favor of lower-rated players with exceptional character. Since 2019, every player drafted in rounds 1-6 made an NFL roster, an extraordinary hit rate that validates his character-first recalibration.",
+    "philosophy_mismatch_notes": "Claims pure BPA but character evaluation functions as a hidden filter that removes prospects from consideration before BPA comparison occurs. This explains why his picks sometimes diverge from consensus boards \u2014 he's operating from a shorter board that has already excluded character risks."
+  },
+  "trade_behavior": {
+    "trade_up_aggression": 0.5,
+    "trade_down_willingness": 0.45,
+    "trades_per_draft_average": 1.3,
+    "trade_triggers": [
+      "Targeted offensive lineman falling near their pick (traded up for Goedeke, traded up 1 spot for Wirfs)",
+      "Opportunity to accumulate Day 2 picks by trading out of round 1 (2018 traded 7 to 12 gaining two 2nds; 2022 traded 27 to 33 gaining extra picks)",
+      "Tier break where a coveted player is about to slip away (traded up for Marpet in 2015, for Kwon Alexander in 2015)",
+      "Speed/production at WR when value appears (traded up for Trey Palmer in 2023)"
+    ],
+    "draft_capital_philosophy": "Strongly values accumulating picks and historically reluctant to trade premium picks for established players. Has stated 'I wouldn't say that's in my DNA' regarding blockbuster trades. Prefers smaller, surgical trades on draft day \u2014 moving 3-5 spots in either direction rather than massive jumps. Recent trend (2024-2025): made zero trades during the draft in back-to-back years for the first time in his tenure, suggesting either increased confidence in board accuracy or a shift toward patience."
+  },
+  "positional_value": {
+    "position_value_tiers": {
+      "tier_1_premium": [
+        "DL",
+        "OL",
+        "EDGE",
+        "CB"
+      ],
+      "tier_2_high": [
+        "WR",
+        "S",
+        "LB"
+      ],
+      "tier_3_mid": [
+        "RB",
+        "TE",
+        "QB"
+      ],
+      "tier_4_low": [
+        "K",
+        "P"
+      ]
+    },
+    "position_avoidance": [
+      "QB in early rounds \u2014 Only drafted Jameis Winston (1st overall, 2015) and Kyle Trask (2nd round, 2021) as notable QB investments. Has preferred to find QB solutions via free agency (Baker Mayfield) since the Winston era.",
+      "TE in early rounds \u2014 Has never used a pick higher than the 4th round on a TE under his tenure (Cade Otton R4, Ko Kieft R6, Devin Culp R7, Payne Durham R7). Prefers to develop TEs from mid-to-late rounds."
+    ],
+    "position_premium": [
+      "Defensive line \u2014 DL is the most-drafted first-round position in Bucs franchise history (12 times). Licht has drafted DL in round 1 or early round 2 in 2018 (Vita Vea, R1), 2021 (Tryon-Shoyinka, R1 \u2014 edge), 2022 (Logan Hall, R2), and 2023 (Calijah Kancey, R1). Three consecutive years (2021-2023) his top pick went to the defensive front.",
+      "Offensive line \u2014 Has invested heavily: Donovan Smith R2 2015, Ali Marpet R2 2015, Tristan Wirfs R1 2020, Luke Goedeke R2 2022, Cody Mauch R2 2023, Graham Barton R1 2024, Elijah Klein R6 2024. Licht has publicly said 'football is won in the trenches.'",
+      "Cornerback \u2014 Heavy investment in secondary: Vernon Hargreaves R1 2016, MJ Stewart R2 2018, Carlton Davis R2 2018, Sean Murphy-Bunting R2 2019, Jamel Dean R3 2019, Zyon McCollum R5 2022, Benjamin Morrison R2 2025, Jacob Parrish R3 2025."
+    ]
+  },
+  "player_archetype_preferences": {
+    "EDGE": {
+      "archetype_summary": "Athletic, long, high-motor speed-to-power EDGE rusher with scheme versatility to stand up or put hand in dirt in Todd Bowles' 3-4. Licht wants explosive, fast EDGEs who can generate pressure with speed and convert to power. The regime values combine freaks with length who can develop pass-rush repertoire. Think Yaya Diaby profile \u2014 long arms, elite 40 time, raw but explosive \u2014 rather than a polished technician.",
+      "physical_profile": {
+        "height_range": "6-2 to 6-5",
+        "weight_range": "250-285",
+        "arm_length_minimum": "33 inches \u2014 Yaya Diaby (33.88 in), Chris Braswell (6-3, 251), Joe Tryon-Shoyinka (6-5, 259) all had plus length",
+        "key_athletic_tests": "40-yard dash and explosiveness metrics (vertical, broad jump) are weighted extremely heavily. Diaby ran 4.51 with a 37-inch vertical and 120-inch broad at 270 lbs. Braswell was a power-based rusher from Alabama. Licht and Bowles prioritize speed at this position.",
+        "speed_requirement": "4.55 or faster strongly preferred \u2014 Diaby (4.51), David Walker (4th round 2025) was a production-based pick. Licht wants EDGEs who can threaten the edge with speed."
+      },
+      "playing_style": {
+        "primary_win_condition": "Speed-to-power conversion and motor. Diaby wins with explosive first step and bull rush. Braswell was a power-based rusher who led SEC in pressures. The regime wants EDGEs who affect the QB through relentless pressure.",
+        "most_valued_traits": [
+          "First-step explosion/get-off speed",
+          "Length and long-arm usage",
+          "Motor and effort \u2014 high snap counts expected in Bowles' rotation",
+          "Versatility to play standing up or with hand in dirt",
+          "Run defense anchor \u2014 must hold the edge"
+        ],
+        "least_important_traits": [
+          "Polished pass-rush repertoire \u2014 has drafted raw rushers like Diaby (JUCO product) with limited moves but elite traits and developed them"
+        ],
+        "deal_breakers": [
+          "Lack of speed/explosion \u2014 the regime has consistently passed on slower EDGEs even with better college production",
+          "Poor effort/motor \u2014 conflicts with the character-first philosophy"
+        ],
+        "traits_that_make_them_reach": "Elite combine numbers \u2014 Diaby's 4.51/37-inch vert profile made him a 3rd-round selection despite modest college production at Louisville (9 sacks in final year)"
+      },
+      "college_production": {
+        "production_floor": "No hard statistical floor \u2014 Diaby had only 9 sacks in his final college season and was drafted in Round 3. David Walker had 39 career sacks at Central Arkansas (FCS). Licht will draft on traits and projection if the athletic profile is elite.",
+        "production_trajectory": "Values late risers and developmental paths \u2014 Diaby came from JUCO, Walker from FCS. Licht is willing to look beyond Power 5 schools for edge talent.",
+        "context_sensitivity": "High \u2014 credits production from smaller schools and adjusts for competition level. Walker's FCS dominance (39 sacks, 82.5 TFLs) was valued despite lower competition."
+      },
+      "evidence": {
+        "picks_analyzed": 7,
+        "examples": [
+          "2021 R1.32 \u2014 Joe Tryon-Shoyinka: 6-5, 259, Washington. Athletic edge with length. 8 sacks in 2019 (opted out 2020).",
+          "2023 R3.82 \u2014 Yaya Diaby: 6-4, 270, Louisville. 4.51 40, 33.88-inch arms, 37-inch vert, 120-inch broad. 9 sacks as senior. Elite athlete, raw rusher.",
+          "2024 R2.57 \u2014 Chris Braswell: 6-3, 251, Alabama. Power-based rusher. Led SEC in pressures in 2023 with 8 sacks. Consistent motor.",
+          "2025 R4.121 \u2014 David Walker: Central Arkansas. 39 career sacks, 82.5 TFLs. FCS All-American. Production-based pick at small school.",
+          "2025 R5.157 \u2014 Elijah Roberts: 6-5, 285, SMU. 4.78 40, power rusher. 17.5 sacks over final two seasons. Versatile \u2014 can play inside or outside."
+        ]
+      },
+      "confidence": "high"
+    },
+    "OT": {
+      "archetype_summary": "Elite athlete with versatility, nasty temperament, and zone-scheme fit. Licht wants offensive tackles who test off the charts athletically, play with aggression and finishing ability, and can ideally play multiple positions. The Tristan Wirfs pick is the gold standard \u2014 a record-breaking combine athlete who plays with power and technique. Must have 34-inch arms minimum for true tackle consideration.",
+      "physical_profile": {
+        "height_range": "6-4 to 6-6",
+        "weight_range": "310-325",
+        "arm_length_minimum": "34 inches for tackle (Wirfs: 34 inches). Shorter-armed players get moved inside (Barton: 32 7/8 inches, drafted as C/G despite playing LT in college).",
+        "key_athletic_tests": "Wirfs set OL combine records: 36.5-inch vertical, 121-inch broad jump, 4.85 40. Licht clearly prioritizes explosive athleticism at OT. Short shuttle and 3-cone matter for zone scheme fit.",
+        "speed_requirement": "Sub-5.0 40 preferred for tackles. Wirfs ran 4.85 at 320 lbs."
+      },
+      "playing_style": {
+        "primary_win_condition": "Athletic pass protection with zone-run scheme versatility. Must be able to move in space, reach-block, and climb to the second level while anchoring against power rushers.",
+        "most_valued_traits": [
+          "Elite athleticism and movement skills",
+          "Nasty temperament / finishing mentality",
+          "Technical proficiency in pass protection",
+          "Positional versatility (tackle/guard flexibility valued)",
+          "Anchor strength against bull rush"
+        ],
+        "least_important_traits": [
+          "Pure mauling run-blocking ability without pass-pro technique \u2014 the regime values balanced linemen"
+        ],
+        "deal_breakers": [
+          "Lack of athleticism/movement skills \u2014 a stiff tackle will not fit the zone scheme",
+          "Short arms without the ability to move inside"
+        ],
+        "traits_that_make_them_reach": "Combine freak athleticism \u2014 Licht traded up one spot to ensure he got Wirfs at 13 in 2020"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter required \u2014 Wirfs was a 3-year starter at Iowa. Values players who started at Power 5 programs.",
+        "production_trajectory": "Prefers ascending players who showed development. Wirfs improved each year at Iowa.",
+        "context_sensitivity": "Medium \u2014 evaluates blocking performance on film rather than box score stats. Conference strength matters."
+      },
+      "evidence": {
+        "picks_analyzed": 3,
+        "examples": [
+          "2020 R1.13 \u2014 Tristan Wirfs: 6-5, 320, Iowa. 34-inch arms, 4.85 40, 36.5-inch vert (OL combine record), 121-inch broad. All-Pro, highest-paid OT in NFL history.",
+          "2015 R2.34 \u2014 Donovan Smith: 6-6, 338, Penn State. Started 8 years for Bucs. Physical, powerful left tackle.",
+          "2022 R2.57 \u2014 Luke Goedeke: 6-5, 312, Central Michigan. Former TE turned OL. Nasty run blocker. Traded up 3 spots to select him. Moved to RT and signed extension."
+        ]
+      },
+      "confidence": "high"
+    },
+    "IOL": {
+      "archetype_summary": "Athletic, versatile interior lineman with nasty temperament and positional flexibility. Licht has said the ingredients he looks for in OL are 'great base, good anchor, and nasty temperament.' Wants IOL who can play multiple positions (center-guard-tackle versatility prized). Zone-scheme fit with ability to pull and reach-block. The Ali Marpet and Graham Barton picks define this archetype \u2014 former small-school or position-convert athletes who play with intelligence and aggression.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "300-320",
+        "arm_length_minimum": "No strict minimum for interior \u2014 Barton had 32 7/8-inch arms. Marpet was from Hobart College (D-III). Values athleticism over length inside.",
+        "key_athletic_tests": "Short shuttle, 3-cone, and 40-yard dash. Barton ran sub-5.0 40, 4.54 shuttle, 7.31 3-cone at pro day. Cody Mauch (NDSU) was a converted OT with athleticism. Marpet's athletic profile at a D-III school was a standout.",
+        "speed_requirement": "Sub-5.10 40 preferred for interior linemen to fit the zone-run scheme."
+      },
+      "playing_style": {
+        "primary_win_condition": "Combination of anchor strength, athleticism, and intelligence to execute zone-run concepts and pass protect. Must be able to process quickly at center and adjust to defensive stunts.",
+        "most_valued_traits": [
+          "Positional versatility (C/G/T flexibility)",
+          "Athletic movement in zone scheme",
+          "Nasty temperament and finishing ability",
+          "Intelligence and processing speed",
+          "Anchor and base in pass protection"
+        ],
+        "least_important_traits": [
+          "Pure power/mauling ability without movement skills \u2014 the regime prioritizes athletes"
+        ],
+        "deal_breakers": [
+          "Stiff, non-athletic profiles that can't execute zone concepts",
+          "Character concerns \u2014 Licht specifically praised Barton's 'personality' comparing him to Wirfs"
+        ],
+        "traits_that_make_them_reach": "Multi-position versatility \u2014 Barton's ability to play C/G/T was explicitly cited as a reason for the pick"
+      },
+      "college_production": {
+        "production_floor": "Multi-year starter at minimum. Barton started 34 games at LT + center starts. Mauch was an FCS standout at NDSU. Marpet was from Hobart (D-III).",
+        "production_trajectory": "Willing to take athletes from small schools (Marpet from Hobart, Mauch from NDSU) if athletic testing and film are elite.",
+        "context_sensitivity": "Very high \u2014 willing to look far beyond Power 5 for IOL talent. This is distinctive."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2024 R1.26 \u2014 Graham Barton: 6-5, 313, Duke. 32 7/8-inch arms. Played C and LT. Sub-5.0 40, 4.54 shuttle, 7.31 3-cone. Licht said he 'reminds us of Ali Marpet with some Ryan Jensen and the personality of Tristan Wirfs.'",
+          "2023 R2.48 \u2014 Cody Mauch: 6-5, 303, North Dakota State. FCS offensive tackle converted to NFL guard. Athletic with nastiness.",
+          "2015 R2.61 \u2014 Ali Marpet: 6-4, 307, Hobart (D-III). Traded up to select. Became Pro Bowl guard. Epitomized Licht's willingness to draft athleticism from any level.",
+          "2024 R6.193 \u2014 Elijah Klein: UTEP. Guard with 93.5 PFF pass-blocking grade. Late-round IOL depth pick.",
+          "2021 R3.95 \u2014 Robert Hainsey: 6-4, 306, Notre Dame. OT in college, moved to C in NFL. Versatility pick."
+        ]
+      },
+      "confidence": "high"
+    },
+    "DT": {
+      "archetype_summary": "Two distinct archetypes: (1) Massive, immovable nose tackle anchor who can two-gap and push the pocket (Vita Vea profile \u2014 6-4, 347 lbs); (2) Undersized but explosive penetrating 3-technique who disrupts with quickness (Calijah Kancey profile \u2014 6-1, 281 lbs). Licht has drafted both types and values interior DL who can affect the QB, whether through pocket collapse (Vea) or interior pass rush (Kancey). The common thread is elite athleticism for their size.",
+      "physical_profile": {
+        "height_range": "6-1 to 6-5 (wide range reflecting two archetypes)",
+        "weight_range": "280-350 (Kancey 281 to Vea 347)",
+        "arm_length_minimum": "No strict minimum \u2014 Kancey at 6-1 with shorter arms was drafted for his quickness. Vea at 32 inches.",
+        "key_athletic_tests": "40-yard dash relative to size. Kancey ran 4.67 at 281 \u2014 fastest DT at combine since 2003. Vea ran 5.10 at 347 \u2014 impressive for his size. Logan Hall (6-6, 275) was a versatile DL with length. Explosive first step is paramount.",
+        "speed_requirement": "Sub-4.70 for 3-tech types, sub-5.15 for nose tackle types."
+      },
+      "playing_style": {
+        "primary_win_condition": "Interior disruption. Vea: anchor at the point of attack, pocket collapse, two-gap dominance. Kancey: penetration, quickness off the snap, interior pressure. Both were drafted to affect the QB from the interior.",
+        "most_valued_traits": [
+          "Explosive first step / get-off",
+          "Versatility to line up at multiple DL positions",
+          "Pass-rush ability from interior \u2014 Licht explicitly stated 'in this day and age it's hard to find interior pass rushers'",
+          "Motor and competitive toughness",
+          "Maturity and intelligence \u2014 Licht praised Kancey's extreme maturity in pre-draft meetings"
+        ],
+        "least_important_traits": [
+          "Pure run-stuffing without pass-rush upside \u2014 even Vea was valued for his pass-rush ability"
+        ],
+        "deal_breakers": [
+          "Lack of pass-rush potential",
+          "Limited versatility to play multiple positions along the front"
+        ],
+        "traits_that_make_them_reach": "Elite interior pass-rush ability \u2014 Kancey's quickness and Aaron Donald comparisons made him a top-20 pick despite being 6-1, 281"
+      },
+      "college_production": {
+        "production_floor": "Strong production expected. Kancey had 14.5 sacks over two seasons, leading FBS DTs in TFLs. Vea was Pac-12 DPOY. Logan Hall had 6.5 sacks at Houston.",
+        "production_trajectory": "Values ascending production. Kancey improved dramatically from sophomore to junior year.",
+        "context_sensitivity": "High \u2014 Kancey's dominance at Pitt was weighted more than raw stats because of his impact on every snap."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2023 R1.19 \u2014 Calijah Kancey: 6-1, 281, Pittsburgh. 4.67 40 (fastest DT since 2003). Unanimous All-American. 14.5 sacks in 2 years. Licht: 'interior pass rushers are very few and far between.'",
+          "2018 R1.12 \u2014 Vita Vea: 6-4, 347, Washington. 5.10 40 at 347 lbs. Pac-12 DPOY. Traded down from 7 to 12 to accumulate picks and still got him. Pro Bowl NT.",
+          "2022 R2.33 \u2014 Logan Hall: 6-6, 275, Houston. Versatile DL who plays 3-tech. Traded out of R1 and took him at top of R2.",
+          "2020 R6.194 \u2014 Khalil Davis: Nebraska. DT depth pick."
+        ]
+      },
+      "confidence": "high"
+    },
+    "CB": {
+      "archetype_summary": "Long, physical, versatile cornerbacks who can play multiple coverage techniques. Licht drafts CBs in volume \u2014 often multiple in the same draft \u2014 and values length, speed, ball production, and tackling ability. Both outside and slot profiles are targeted. Recent emphasis on ball-hawking ability per Bowles' directive. The regime has drafted press-man corners (Carlton Davis), zone-capable players, and nickel specialists (Tykee Smith, Jacob Parrish). Size and speed are the baseline; ball skills separate.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-2 (wide range: outside CBs 5-11+ preferred, nickel/slot 5-9 to 5-11 acceptable)",
+        "weight_range": "185-205",
+        "arm_length_minimum": "No strict minimum across the board \u2014 Zyon McCollum (6-2) was drafted for his size-speed-length profile. Parrish (5-9) was a nickel. The regime values different CB profiles for different roles.",
+        "key_athletic_tests": "40-yard dash is paramount. McCollum ran in the 4.3s. Morrison (2025 R2) was drafted for ball production. Parrish ran 4.35 at combine (4th fastest DB in 2025). Speed is non-negotiable.",
+        "speed_requirement": "4.50 or faster for outside corners. Sub-4.40 for nickel/slot types. Parrish ran 4.35."
+      },
+      "playing_style": {
+        "primary_win_condition": "Ball production and versatility. Bowles' scheme demands CBs who can play man and zone, press and off. The 2025 draft was driven by Bowles' statement 'I want ballhawks' after only 7 INTs in 2025.",
+        "most_valued_traits": [
+          "Ball-hawking ability \u2014 Morrison had 9 INTs in 2 seasons, 19 PBUs",
+          "Speed and recovery ability",
+          "Tackling and run support",
+          "Versatility to play outside and slide to nickel",
+          "Physicality at the catch point"
+        ],
+        "least_important_traits": [
+          "Pure size without ball skills \u2014 the regime has drafted smaller but more productive CBs when ball production was elite"
+        ],
+        "deal_breakers": [
+          "Inability to tackle \u2014 Bowles' defense demands physicality from all DBs",
+          "Slow 40 times that limit ability to play man coverage"
+        ],
+        "traits_that_make_them_reach": "Elite ball production \u2014 Morrison's 9 INTs in 2 years and zero TDs allowed in 159 coverage snaps in 2024 was irresistible"
+      },
+      "college_production": {
+        "production_floor": "Values ball production highly \u2014 Morrison had 9 INTs. Parrish was a high-upside nickel with speed. Earlier CBs like Dean and Davis were more physical/length-based picks.",
+        "production_trajectory": "Prefers multi-year starters. Morrison started from freshman year. Davis was a multi-year SEC starter.",
+        "context_sensitivity": "High \u2014 weights strength of conference and receivers faced."
+      },
+      "evidence": {
+        "picks_analyzed": 10,
+        "examples": [
+          "2025 R2.53 \u2014 Benjamin Morrison: 6-0, 193, Notre Dame. 9 INTs in 2 seasons, 19 PBUs. Zero TDs allowed in 159 coverage snaps in 2024. Ball hawk.",
+          "2025 R3.85 \u2014 Jacob Parrish: 5-9, Kansas State. 4.35 40 (4th fastest DB at 2025 combine). Nickel corner. 11 INTs in 3 years.",
+          "2024 R3.90 \u2014 Tykee Smith: Georgia. Nickel/safety hybrid. Physical. Played 13 games, 54 tackles, 2 INTs as rookie.",
+          "2022 R5.157 \u2014 Zyon McCollum: 6-2, Sam Houston State. Elite size-speed-length profile. Became starter and signed extension.",
+          "2019 R2.39 \u2014 Sean Murphy-Bunting: 6-0, Central Michigan. Versatile CB. All-Rookie team.",
+          "2019 R3.94 \u2014 Jamel Dean: 6-1, 206, Auburn. Long, fast, physical. 17 PDs as a rookie.",
+          "2018 R2.63 \u2014 Carlton Davis III: 6-1, 206, Auburn. Physical press-man corner. 19 PDs in year 2.",
+          "2016 R1.11 \u2014 Vernon Hargreaves III: 5-10, 204, Florida. Undersized but productive. Didn't pan out."
+        ]
+      },
+      "confidence": "high"
+    },
+    "S": {
+      "archetype_summary": "Playmaking, do-it-all safety who can cover, blitz, tackle, and create turnovers. The Antoine Winfield Jr. pick is the archetype \u2014 a ball-hawking hybrid safety with elite football IQ who can play near the line or deep. Despite being undersized (5-10, 205), Winfield's instincts, versatility, and production made him a premium pick. Licht values safeties who are true football players rather than one-dimensional athletes.",
+      "physical_profile": {
+        "height_range": "5-10 to 6-1",
+        "weight_range": "195-210",
+        "arm_length_minimum": "No strict minimum \u2014 Winfield at 5-10 was drafted for football ability over measurables",
+        "key_athletic_tests": "Film-driven evaluation at safety more than combine numbers. Winfield's ball production (7 INTs in 2019) mattered more than his 40 time. Tykee Smith was drafted as a nickel/safety hybrid for physicality.",
+        "speed_requirement": "4.55 or faster preferred, but football speed and instincts can override timed speed."
+      },
+      "playing_style": {
+        "primary_win_condition": "Playmaking versatility \u2014 safeties in Bowles' defense are asked to blitz, play in the box, cover the slot, and play single-high. Winfield does all of it at an All-Pro level.",
+        "most_valued_traits": [
+          "Ball-hawking ability / turnover creation",
+          "Versatility to play multiple safety/nickel roles",
+          "Run support and physicality near the line of scrimmage",
+          "Football intelligence and instincts",
+          "Blitzing ability \u2014 Bowles' scheme sends safeties frequently"
+        ],
+        "least_important_traits": [
+          "Pure deep-field range without box skills \u2014 Bowles doesn't play a traditional cover-2 shell that demands a pure centerfielder"
+        ],
+        "deal_breakers": [
+          "One-dimensional players who can only play deep or only play in the box",
+          "Poor tackling in a defense that demands it"
+        ],
+        "traits_that_make_them_reach": "Elite ball production relative to position \u2014 Winfield's 7 INTs tying a school record was the catalyst"
+      },
+      "college_production": {
+        "production_floor": "Significant ball production expected for early-round picks. Winfield had 7 INTs. Tykee Smith was drafted for his versatility and physicality (3rd-best run-defense grade among safeties in SEC).",
+        "production_trajectory": "Winfield was healthy for only one full season but that single year was so dominant it justified a 2nd-round pick. Production when available matters more than longevity.",
+        "context_sensitivity": "High \u2014 Winfield's production against Big Ten competition was valued highly."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2020 R2.45 \u2014 Antoine Winfield Jr.: 5-10, 205, Minnesota. 7 INTs, 88 tackles, 3 sacks in 2019. All-Pro, franchise-tagged, then extended. Ball hawk and blitzer.",
+          "2024 R3.90 \u2014 Tykee Smith: 5-11, Georgia. Versatile safety/nickel hybrid. Physical run supporter. Third-best run-defense grade among SEC safeties.",
+          "2019 R3.99 \u2014 Mike Edwards: 5-10, 196, Kentucky. Ball-hawking safety. Contributed on SB team.",
+          "2025 UDFA \u2014 J.J. Roberts: Marshall. Safety/nickel versatility. Impressed in training camp before knee injury. Licht called him a 'bonus draft pick.'"
+        ]
+      },
+      "confidence": "medium-high"
+    },
+    "LB": {
+      "archetype_summary": "Fast, athletic, sideline-to-sideline linebacker who can blitz, cover, and dominate in volume tackling. The Devin White pick at 5th overall (2019) was the ultimate expression of this preference \u2014 elite speed for LB (4.42 40) with sideline-to-sideline range and blitzing ability. However, White's character issues eventually led to a departure, reinforcing Licht's post-2019 character emphasis. The more recent LB archetype is SirVocea Dennis \u2014 rangy, instinctive, productive from a later round.",
+      "physical_profile": {
+        "height_range": "6-0 to 6-3",
+        "weight_range": "225-245",
+        "arm_length_minimum": "No strict minimum at LB",
+        "key_athletic_tests": "40-yard dash and sideline-to-sideline speed are paramount. White ran 4.42. Dennis was an instinctive, rangy player from Pitt. Bowles' scheme asks LBs to blitz heavily and cover RBs/TEs.",
+        "speed_requirement": "4.55 or faster preferred for early-round LBs. Speed to cover and blitz is essential in Bowles' scheme."
+      },
+      "playing_style": {
+        "primary_win_condition": "Sideline-to-sideline range and blitz ability in Bowles' aggressive 3-4. LBs must be comfortable in space, covering backs and tight ends, while also rushing the passer on designed blitzes.",
+        "most_valued_traits": [
+          "Speed and range in pursuit",
+          "Blitzing ability and pass-rush skills",
+          "Coverage ability against RBs and TEs",
+          "Tackling volume and reliability",
+          "Football instincts and processing speed"
+        ],
+        "least_important_traits": [
+          "Pure thumping/run-stuffing ability without coverage skills \u2014 Bowles' scheme needs coverage LBs"
+        ],
+        "deal_breakers": [
+          "Slow, non-athletic LBs who can't cover",
+          "Character red flags \u2014 White's eventual departure reinforced this"
+        ],
+        "traits_that_make_them_reach": "Elite speed at the position \u2014 White's 4.42 40 at 237 lbs justified a top-5 pick"
+      },
+      "college_production": {
+        "production_floor": "High volume tackling expected. White led SEC in tackles. Dennis had impressive range and blitzing ability at Pitt. Kwon Alexander was a volume tackler.",
+        "production_trajectory": "Prefers ascending production. White went from strong to dominant at LSU.",
+        "context_sensitivity": "Values SEC and Power 5 production for LBs."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2019 R1.5 \u2014 Devin White: 6-0, 237, LSU. 4.42 40. Led SEC in tackles 2017-2018. Butkus Award winner. Licht: 'we love what he can do on the blitz.'",
+          "2023 R5.153 \u2014 SirVocea Dennis: Pittsburgh. Rangy ILB with blitzing ability. Became starter by year 2.",
+          "2015 R4.124 \u2014 Kwon Alexander: LSU. Traded up to select. Physical, fast, Pro Bowl LB.",
+          "2021 R5.176 \u2014 K.J. Britt: Auburn. Depth/special teams LB."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "WR": {
+      "archetype_summary": "Productive, versatile, route-savvy receivers who can win at all three levels. Licht's WR drafting spans the full archetype spectrum \u2014 from Mike Evans (6-5, X receiver, contested-catch king) to Chris Godwin (versatile slot/outside producer) to Emeka Egbuka (do-everything route technician) to Jalen McMillan (speed/YAC) to Tez Johnson (diminutive slot/returner). The common thread is HIGH college production and route-running ability over pure speed/size. Character and detail-oriented work habits are paramount \u2014 Licht called Egbuka 'our type of guy.'",
+      "physical_profile": {
+        "height_range": "5-10 to 6-5 (extremely wide range \u2014 Evans 6-5 to Tez Johnson 5-10, 154 lbs)",
+        "weight_range": "154-231 (Evans 231, Godwin 209, Egbuka 205, Johnson 154)",
+        "arm_length_minimum": "No strict minimum \u2014 the regime drafts production and skill over measurables at WR",
+        "key_athletic_tests": "Not a primary driver at WR. The regime values route running, hands, and production over combine numbers. Evans was not an elite tester but was an elite prospect. Trey Palmer ran 4.33 and was a speed pick (R6 2023).",
+        "speed_requirement": "No hard speed floor \u2014 varies by archetype. Deep threats need 4.40 or faster. Slot/possession types are judged on quickness and route running."
+      },
+      "playing_style": {
+        "primary_win_condition": "Route running, production, and versatility. Egbuka was described as profiling 'much like Chris Godwin' \u2014 productive, detail-oriented, can play X/Z/slot. The regime wants WRs who produce in college and can do multiple things.",
+        "most_valued_traits": [
+          "Route-running precision and detail orientation",
+          "High college production (catches, yards, TDs)",
+          "Versatility to play multiple WR positions",
+          "Character and work ethic \u2014 Licht specifically praised Egbuka's 'detail-oriented approach'",
+          "Contested-catch ability for X receivers (Evans profile)"
+        ],
+        "least_important_traits": [
+          "Pure straight-line speed without route-running ability or production"
+        ],
+        "deal_breakers": [
+          "Low college production \u2014 Licht has consistently drafted highly productive college WRs",
+          "Character concerns that conflict with culture"
+        ],
+        "traits_that_make_them_reach": "Elite college production combined with character \u2014 Egbuka at 19 overall was taken despite WR not being a top need because 'he offered too much value at a premium position to pass up'"
+      },
+      "college_production": {
+        "production_floor": "Very high. Egbuka: 81 catches, 1,011 yards, 10 TDs in 2024 at Ohio State. McMillan: 86 catches in 2023 at Washington. Godwin: 1,000+ yard season at Penn State. Evans: 69 catches, 1,394 yards at Texas A&M. Trey Palmer: 4.33 speed AND 52 catches at Nebraska. Tez Johnson: 86 catches in 2023, 83 in 2024 at Oregon.",
+        "production_trajectory": "Multi-year production preferred. Egbuka was a multi-year starter at Ohio State. Godwin broke out as a sophomore.",
+        "context_sensitivity": "Medium-high \u2014 adjusts for offensive system but expects volume production. Palmer's production in a run-heavy Nebraska offense was notable."
+      },
+      "evidence": {
+        "picks_analyzed": 8,
+        "examples": [
+          "2025 R1.19 \u2014 Emeka Egbuka: 6-1, 205, Ohio State. 81 catches, 1,011 yards, 10 TDs in 2024. National champion. Licht: 'our type of guy.' BPA value pick despite loaded WR room.",
+          "2024 R3.92 \u2014 Jalen McMillan: 6-1, 191, Washington. 86 catches, 1,182 yards, 10 TDs in 2023. Speed and YAC.",
+          "2025 R7.235 \u2014 Tez Johnson: 5-10, 154, Oregon. 86 catches in 2023, 83 in 2024. Slot specialist/punt returner. Elite production despite small frame.",
+          "2023 R6.171 \u2014 Trey Palmer: Nebraska. 4.33 40. Deep threat speed. Traded up to select him.",
+          "2017 R3.84 \u2014 Chris Godwin: 6-1, 209, Penn State. Versatile, productive. Became Pro Bowl WR.",
+          "2014 R1.7 \u2014 Mike Evans: 6-5, 231, Texas A&M. 69 catches, 1,394 yards, 5 TDs. Potential Hall of Famer."
+        ]
+      },
+      "confidence": "high"
+    },
+    "TE": {
+      "archetype_summary": "Hybrid tight end who can block and catch, with emphasis on blocking ability as the baseline. Licht has never used a premium pick on a TE \u2014 the highest was Cade Otton at R4.106 in 2022, and OJ Howard at R1.19 in 2017 (pre-character evolution). Post-2019, TE has been a Day 3 value position. Otton is the current archetype \u2014 a 6-5 all-around TE with blocking chops and reliable hands. Ko Kieft (R6 2022) was a pure blocking/fullback-type TE. Devin Culp (R7 2024) was a speed TE.",
+      "physical_profile": {
+        "height_range": "6-3 to 6-6",
+        "weight_range": "240-260",
+        "arm_length_minimum": "No clear minimum at TE",
+        "key_athletic_tests": "Blocking ability is evaluated more on film than combine. Otton was valued for 'tools and attitude to excel as a blocker' while also being capable as a receiver. Culp had 'elite speed.'",
+        "speed_requirement": "No hard speed floor \u2014 varies by role. Blocking TEs can be slower. Receiving TEs need to separate."
+      },
+      "playing_style": {
+        "primary_win_condition": "All-around contribution. Must be able to block competently (non-negotiable) while providing receiving threat. The regime has found TE value in mid-to-late rounds rather than investing premium capital.",
+        "most_valued_traits": [
+          "Blocking technique and willingness",
+          "Reliable hands and intermediate route running",
+          "Football intelligence and ability to read coverages",
+          "Size to compete at the catch point",
+          "Special teams contribution for Day 3 picks"
+        ],
+        "least_important_traits": [
+          "Pure receiving ability without blocking skills \u2014 the offense needs inline blockers"
+        ],
+        "deal_breakers": [
+          "Inability to block \u2014 every TE drafted under current regime (post-2019) has had blocking as a baseline skill",
+          "Character flags"
+        ],
+        "traits_that_make_them_reach": "Not applicable \u2014 Licht does not reach for TEs. This is a value-round position for him."
+      },
+      "college_production": {
+        "production_floor": "Modest \u2014 Otton had 26 catches for 378 yards in his final season at Washington. Not a high-volume college producer but reliable. Culp had just 16 catches for 208 yards. Production floor is very low at TE because blocking is weighted heavily.",
+        "production_trajectory": "Not a major factor \u2014 blocking evaluation drives TE picks.",
+        "context_sensitivity": "Low \u2014 blocking evaluation is scheme-independent."
+      },
+      "evidence": {
+        "picks_analyzed": 5,
+        "examples": [
+          "2022 R4.106 \u2014 Cade Otton: 6-5, 247, Washington. Blocking-first with reliable receiving. 59 catches each of past two years. Solid all-around TE.",
+          "2022 R6.218 \u2014 Ko Kieft: 6-5, 258, Minnesota. Pure blocking TE / fullback type. Special teams contributor.",
+          "2024 R7.220 \u2014 Devin Culp: 6-4, 235, Washington. Speed TE. Elite athleticism. 16 catches in final season. Developmental.",
+          "2023 R7.211 \u2014 Payne Durham: 6-5, 253, Purdue. Blocking TE. Late-round depth.",
+          "2017 R1.19 \u2014 OJ Howard: 6-6, 251, Alabama. Pre-character evolution pick. Elite athlete TE."
+        ]
+      },
+      "confidence": "medium"
+    },
+    "RB": {
+      "archetype_summary": "Elusive, versatile, three-down back who can contribute in the passing game. Licht has found exceptional RB value in the middle rounds \u2014 Bucky Irving (R4, 2024) and Rachaad White (R3, 2022) are the defining picks. Irving was one of the toughest backs to tackle in his class (136 forced missed tackles in 2 years). White was valued for his receiving ability. The regime does NOT invest premium capital at RB but finds difference-makers on Day 2-3.",
+      "physical_profile": {
+        "height_range": "5-9 to 6-2",
+        "weight_range": "195-215",
+        "arm_length_minimum": "Not a factor at RB",
+        "key_athletic_tests": "Elusiveness and contact balance on film matter more than combine numbers. Irving was valued for his missed-tackles-forced rate. White was valued for pass-catching ability.",
+        "speed_requirement": "Adequate speed required but not a primary driver. Game speed and elusiveness on film are weighted over 40 time."
+      },
+      "playing_style": {
+        "primary_win_condition": "Elusiveness, vision, and receiving ability. Irving showcases 'elusiveness and ballcarrier vision as well as his use in the passing game.' White was 'a gliding running/receiving threat.' The regime wants RBs who add value in the pass game.",
+        "most_valued_traits": [
+          "Elusiveness and missed-tackles-forced ability",
+          "Pass-catching ability and route running from the backfield",
+          "Vision and one-cut decisiveness",
+          "Three-down capability",
+          "Contact balance"
+        ],
+        "least_important_traits": [
+          "Pure between-the-tackles power \u2014 the regime drafts shiftier, more versatile backs",
+          "Return ability as a standalone skill"
+        ],
+        "deal_breakers": [
+          "One-dimensional early-down thumpers with no passing-game value",
+          "Injury-prone profiles"
+        ],
+        "traits_that_make_them_reach": "Elite elusiveness/missed tackle rate \u2014 Irving's 136 forced missed tackles over two seasons (2nd among Power 5 RBs) made him a R4 value steal"
+      },
+      "college_production": {
+        "production_floor": "Strong rushing production expected. Irving had elite PFF rushing grades. White had 1,000+ rushing yards at ASU. Ke'Shawn Vaughn had good production at Vanderbilt.",
+        "production_trajectory": "Transfer/late-bloomer friendly \u2014 White transferred from Mt. San Antonio College to ASU. Irving broke out at Oregon after transferring from Minnesota.",
+        "context_sensitivity": "Medium \u2014 values production in context of offensive system and usage."
+      },
+      "evidence": {
+        "picks_analyzed": 4,
+        "examples": [
+          "2024 R4.125 \u2014 Bucky Irving: 5-10, 195, Oregon. 136 forced missed tackles in 2 seasons (2nd among Power 5 RBs). 96.1 PFF rushing grade. Elusive, versatile.",
+          "2022 R3.91 \u2014 Rachaad White: 6-0, 214, Arizona State. Receiving-back profile. Three-down potential. 'Gliding running/receiving threat.'",
+          "2020 R3.76 \u2014 Ke'Shawn Vaughn: 5-10, 214, Vanderbilt. Power-speed back from SEC.",
+          "2018 R2.38 \u2014 Ronald Jones II: 6-0, 208, USC. Speed back with breakaway ability."
+        ]
+      },
+      "confidence": "medium-high"
+    },
+    "QB": {
+      "archetype_summary": "Pocket-capable quarterback with accuracy, processing speed, and competitive toughness. Licht's QB history is limited in the draft \u2014 Jameis Winston at 1st overall (2015) and Kyle Trask at R2.64 (2021) are the only notable QB investments. Since 2023, he has preferred to find QB solutions via free agency (Baker Mayfield). Mayfield's success (Pro Bowl, franchise records under Coen) suggests Licht values competitive fire, accuracy, and mental toughness over prototypical size. Licht described Mayfield as 'mentally and physically tough and an elite competitor.'",
+      "physical_profile": {
+        "height_range": "6-1 to 6-4 (Winston 6-4, Trask 6-5, but Mayfield at 6-1 succeeded as FA signing)",
+        "weight_range": "215-240",
+        "arm_length_minimum": "Not a stated threshold",
+        "key_athletic_tests": "Arm strength and processing speed evaluated on film. Not a combine-driven evaluation at QB.",
+        "speed_requirement": "Enough mobility to navigate the pocket and extend plays. Not seeking a running QB."
+      },
+      "playing_style": {
+        "primary_win_condition": "Accuracy, processing speed, and competitive toughness. Mayfield's success in Tampa reflects what the regime values \u2014 a tough, accurate QB who makes quick decisions and competes on every snap.",
+        "most_valued_traits": [
+          "Competitive toughness and mental resilience",
+          "Accuracy \u2014 Mayfield set franchise completion percentage record (71.5%)",
+          "Processing speed and decision-making",
+          "Pocket presence and ability to extend plays",
+          "Leadership and locker room presence"
+        ],
+        "least_important_traits": [
+          "Prototypical size \u2014 Mayfield at 6-1 succeeded despite size concerns",
+          "Designed rushing ability \u2014 not seeking a run-first QB"
+        ],
+        "deal_breakers": [
+          "Character/maturity concerns \u2014 Trask's failure and Winston's departure both involved non-performance factors",
+          "Inability to process quickly in a timing-based offense"
+        ],
+        "traits_that_make_them_reach": "Insufficient data from draft history \u2014 only 2 QBs drafted in 12 years"
+      },
+      "college_production": {
+        "production_floor": "Winston was a Heisman winner. Trask was highly productive at Florida. Both were volume producers in college. Production matters.",
+        "production_trajectory": "Multi-year starter preferred based on limited sample.",
+        "context_sensitivity": "Values big-game performance and leadership intangibles."
+      },
+      "evidence": {
+        "picks_analyzed": 2,
+        "examples": [
+          "2015 R1.1 \u2014 Jameis Winston: 6-4, 231, Florida State. Heisman winner, national champion. Arm talent and production drove the pick.",
+          "2021 R2.64 \u2014 Kyle Trask: 6-5, 236, Florida. Highly productive passer (43 TDs in 2020). Developmental backup who never panned out."
+        ]
+      },
+      "confidence": "low",
+      "confidence_note": "Only 2 QBs drafted in 12 years. Licht has moved to free agency (Baker Mayfield) as his QB acquisition strategy. Unlikely to draft a QB unless a clear franchise talent falls or Mayfield's tenure ends."
+    }
+  },
+  "reach_tolerance": {
+    "average_reach_picks": 6,
+    "max_observed_reach": 15,
+    "round_1_reach_tolerance": 5,
+    "notes": "Generally stays close to consensus value in round 1 \u2014 Kancey at 19 was consensus top-20, Barton at 26 was a slight reach for IOL, Egbuka at 19 was within consensus range. More willing to reach in rounds 2-3 for targeted positions (traded up for Goedeke, Marpet). The Aguayo pick (R2 kicker in 2016) was a historically bad reach that Licht learned from and has not repeated. Post-2019 reach tolerance has been much more disciplined."
+  },
+  "scheme_fit": {
+    "scheme_weight": 0.65,
+    "offensive_scheme": "West Coast foundation with zone-run concepts. Under Liam Coen (2024), set franchise records in completion percentage (71.5%), yards per rush (5.3). New OC Zac Robinson comes from Rams/McVay tree (via Atlanta), maintaining the same offensive family. Scheme demands athletic, zone-blocking OL, versatile WRs who can play multiple positions, and RBs who can catch.",
+    "defensive_scheme": "3-4 base with multiple fronts and aggressive blitzing under Todd Bowles. Scheme demands versatile EDGEs who can stand up or hand-in-dirt, athletic ILBs who can cover and blitz, and safeties who can play multiple roles. Bowles sends exotic pressures from all positions. This scheme drives the emphasis on speed and versatility on defense.",
+    "scheme_change_flag": true,
+    "scheme_change_notes": "New OC Zac Robinson hired for 2026 (5th OC in 5 years under Bowles). Robinson comes from the same McVay/Shanahan coaching tree as predecessors Coen and Canales, so offensive scheme should remain largely consistent. Josh Grizzard fired after 1 year as OC in 2025. Defense remains stable under Bowles. This OC carousel introduces some uncertainty but the McVay-tree continuity mitigates it."
+  },
+  "psychological_profile": {
+    "risk_tolerance": 0.45,
+    "risk_description": "Moderately conservative with a clear character filter. Licht's post-2019 philosophy overhaul moved him firmly toward high-floor, high-character picks. He described his early approach as 'fearless' but has evolved toward disciplined evaluation. Still willing to bet on athletic upside from small schools (Marpet from Hobart D-III, Mauch from NDSU, Walker from Central Arkansas FCS) but only if character checks out. The Aguayo disaster (R2 kicker in 2016) was a formative risk-taking failure that permanently recalibrated him.",
+    "recency_bias": 0.55,
+    "recency_description": "Moderate recency bias. After the 2025 defense collapsed (8-9 record, 20th in points allowed), the 2026 offseason has clearly prioritized defensive improvement. Licht acknowledged at the 2026 Combine that pass rush is a major need. This mirrors 2019 when 6 of 8 picks were defensive after a bad defensive season. However, he still took Egbuka (WR) at 19 in 2025 when defense was the stated need, showing he won't force need-filling when BPA value is compelling.",
+    "sunk_cost_behavior": "Moves on quickly from busts. Released Aguayo after 1 year. Let Joe Tryon-Shoyinka walk in free agency. Cut Kyle Trask. Does not double down on failed investments. This is a strength.",
+    "combine_weight": 0.55,
+    "combine_description": "Athletic testing matters significantly at certain positions \u2014 EDGE (Diaby's 4.51), OL (Wirfs' record-setting combine), and DT (Kancey's 4.67). But Licht has also drafted players with modest testing when film was exceptional. He seems to use combine data as a confirming tool and occasionally as an eliminator at speed-dependent positions, but film comes first.",
+    "character_weight": 0.85,
+    "character_description": "Extremely high character standards. This is the single most defining characteristic of Licht's post-2019 philosophy. He explicitly overhauled his entire scouting process around 2019 to prioritize character evaluation. Licht stated on the Pat McAfee Show that he tore apart his old approach and rebuilt it around 'the person, not the player.' Since 2019, every player drafted in rounds 1-6 made an NFL roster \u2014 38 consecutive players. Licht specifically praised Kancey's 'extreme mature nature' and Egbuka's 'detail-oriented approach.' Character is not a tiebreaker \u2014 it is a prerequisite.",
+    "quarterback_philosophy": "Believes in building around a franchise QB but prefers to find one via free agency rather than draft. Baker Mayfield's success (signed as FA in 2023, earned Pro Bowl, franchise records) has validated this approach. Licht expressed full confidence in Mayfield at the 2026 Combine. Unlikely to draft a QB in early rounds unless Mayfield's situation fundamentally changes."
+  },
+  "college_production_preferences": {
+    "production_weight": 0.65,
+    "production_vs_projection": "Leans toward productive college players. Kancey was the leading FBS DT in TFLs. Egbuka had 200+ career receptions. Evans was a 1,400-yard receiver. Irving had elite forced-missed-tackle rates. Godwin was a 1,000-yard receiver. However, Licht has made athletic-projection bets at EDGE (Diaby) and IOL (Marpet from D-III, Mauch from FCS). At WR and DT, production is weighted heavily. At EDGE and OL, athletic traits can override modest production.",
+    "production_thresholds_by_position": {
+      "WR": "55+ catches in final college season for rounds 1-3 picks. Egbuka had 81, McMillan had 86, Godwin had 72. Even Day 3 WR Tez Johnson had 83.",
+      "RB": "No strict minimum \u2014 values efficiency metrics (missed tackles forced, yards per carry) over volume. Irving had elite PFF grades.",
+      "EDGE": "No strict production floor \u2014 Diaby had 9 sacks in final year. Walker had 39 career sacks at FCS. Production is secondary to athletic traits at EDGE.",
+      "DT": "Impact production expected \u2014 Kancey had 14.5 TFLs leading all FBS DTs. Vea was Pac-12 DPOY.",
+      "CB": "Ball production valued \u2014 Morrison had 9 INTs in 2 years. Dean had 17 PDs as rookie."
+    },
+    "breakout_age_sensitivity": 0.4,
+    "dominator_rating_sensitivity": 0.5,
+    "notes": "Licht's approach varies by position. At WR, production is nearly mandatory \u2014 he drafts productive college receivers. At EDGE, he's willing to bet on athletic traits with modest production (Diaby). At OL, he's willing to draft from any level of college football if the athlete is exceptional (D-III, FCS, mid-major). Character evaluation appears to be the universal filter across all positions."
+  },
+  "measurable_thresholds": {
+    "athletic_thresholds_by_position": {
+      "EDGE": {
+        "40_max": 4.6,
+        "min_arm_length": "33 inches",
+        "vertical_min": "34 inches",
+        "confidence": "medium-high"
+      },
+      "OT": {
+        "min_arm_length": "34 inches for tackle role",
+        "40_max": 5.0,
+        "confidence": "high"
+      },
+      "IOL": {
+        "40_max": 5.1,
+        "no_arm_length_minimum": true,
+        "confidence": "medium"
+      },
+      "DT_3tech": {
+        "40_max": 4.75,
+        "confidence": "medium"
+      },
+      "DT_nose": {
+        "weight_min": 310,
+        "confidence": "medium"
+      },
+      "CB": {
+        "40_max": 4.5,
+        "confidence": "high"
+      },
+      "S": {
+        "no_clear_threshold": true,
+        "notes": "Football instincts over pure athleticism. Winfield at 5-10, 205 was not an elite tester but was an elite prospect.",
+        "confidence": "low"
+      },
+      "WR": {
+        "no_clear_threshold": true,
+        "notes": "Has drafted WRs from Evans (6-5, 231) to Tez Johnson (5-10, 154). No consistent measurable threshold. Production and route running override size/speed.",
+        "confidence": "low"
+      },
+      "LB": {
+        "40_max": 4.55,
+        "notes": "White ran 4.42. Speed is paramount at LB in Bowles' scheme.",
+        "confidence": "medium"
+      },
+      "RB": {
+        "no_clear_threshold": true,
+        "notes": "Elusiveness on film matters more than combine numbers.",
+        "confidence": "low"
+      }
+    },
+    "threshold_type": "Mostly soft preferences with hard cutoffs only at CB speed (4.50 max) and OT arm length (34 inches for tackle role). At most other positions, elite film can override testing.",
+    "size_preferences_by_position": {
+      "DT": "Two distinct archetypes: 280+ for 3-tech, 310+ for nose tackle",
+      "OL": "310+ for tackles and guards preferred, but athletic smaller linemen considered for interior (Marpet was 307)",
+      "LB": "225-245 range preferred, flexible based on speed/coverage ability",
+      "S": "No strong size preference \u2014 Winfield at 5-10 became All-Pro",
+      "CB": "Outside: 5-11+ preferred. Nickel: 5-9+ acceptable with elite speed"
+    },
+    "athletic_testing_favorites": "Vertical jump and broad jump as explosiveness indicators at EDGE and DT (Diaby: 37-inch vert, 120-inch broad; Kancey: 4.67 40). 40-yard dash at CB and EDGE is the primary screening tool. Short shuttle and 3-cone valued for OL zone-scheme fit.",
+    "measurables_vs_film": "Film-first overall, but measurables serve as eliminators at certain positions (CB speed, OT arm length) and as confirmation tools elsewhere. A bad combine won't kill a player with great film, but elite combine numbers can elevate a player from late Day 2 to early Day 2 (Diaby was projected as a R4 pick by some but his 4.51 40 pushed him to R3)."
+  },
+  "round_strategy": {
+    "round_1_strategy": "Premium positions, high-floor players with elite character. Historically targets DL, OL, and CB in round 1. Has taken BPA even when it doesn't fill the biggest need (Egbuka at WR in 2025 when defense was the stated priority). Will trade back if value drops below threshold (traded from 7 to 12 in 2018, from 27 to 33 in 2022). Will trade up 1-2 spots to secure a targeted player (moved up 1 spot for Wirfs in 2020).",
+    "round_2_3_strategy": "Fills primary needs while still maintaining quality floor. This is where the BPA-to-need transition occurs. EDGE, OL, and CB are frequently targeted on Day 2. Has traded up small amounts to secure specific targets (up 3 spots for Goedeke in 2022, swapped with Packers for Mauch in 2023). Day 2 is where Licht has found some of his best value \u2014 Winfield (R2), Davis (R2), Marpet (R2), Mauch (R2), Braswell (R2), Morrison (R2).",
+    "day_3_strategy": "Developmental athletes, value picks, and special teams contributors. This is where Licht finds Day 3 gems: Otton (R4 TE), McCollum (R5 CB), Dennis (R5 LB), Irving (R4 RB). Willing to take small-school players and long-term projects. Also uses Day 3 for roster depth at OL, DL, and TE. Will take pure special teams players (Ko Kieft R6 blocking TE).",
+    "compensatory_pick_usage": "No distinctive pattern \u2014 treats comp picks similarly to regular picks at their position in the draft order."
+  },
+  "hit_rate_analysis": {
+    "hit_rate_by_position": {
+      "DL": {
+        "picks": 6,
+        "starters": 5,
+        "rate": 0.83,
+        "note": "Elite DL evaluation \u2014 Vea, Kancey, Hall all became starters. Franchise strength."
+      },
+      "OL": {
+        "picks": 7,
+        "starters": 6,
+        "rate": 0.86,
+        "note": "Exceptional OL evaluation \u2014 Wirfs (All-Pro), Marpet (Pro Bowl), Goedeke (extended), Barton (starter), Mauch (starter). Franchise strength."
+      },
+      "CB": {
+        "picks": 10,
+        "starters": 6,
+        "rate": 0.6,
+        "note": "Good but inconsistent \u2014 Davis, Dean, McCollum worked. Hargreaves, Stewart didn't. Volume approach hedges risk."
+      },
+      "EDGE": {
+        "picks": 5,
+        "starters": 3,
+        "rate": 0.6,
+        "note": "Mixed \u2014 Diaby working well, Tryon-Shoyinka underperformed, Braswell still developing. Position is acknowledged as a need."
+      },
+      "WR": {
+        "picks": 7,
+        "starters": 5,
+        "rate": 0.71,
+        "note": "Strong \u2014 Evans (HoF trajectory), Godwin (Pro Bowl), Egbuka (immediate starter), McMillan (breakout). Palmer was a speed-only miss."
+      },
+      "RB": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "Irving is an excellent hit. White was productive but may leave in FA. Vaughn didn't pan out."
+      },
+      "S": {
+        "picks": 3,
+        "starters": 2,
+        "rate": 0.67,
+        "note": "Winfield is All-Pro caliber. Edwards contributed. Smith transitioning. Strong evaluation."
+      },
+      "LB": {
+        "picks": 4,
+        "starters": 2,
+        "rate": 0.5,
+        "note": "White was productive but character issues. Dennis is a good Day 3 find. Position has been inconsistent."
+      },
+      "TE": {
+        "picks": 5,
+        "starters": 1,
+        "rate": 0.2,
+        "note": "Low hit rate on TEs \u2014 only Otton became a consistent starter. Low draft capital invested limits evaluation."
+      },
+      "QB": {
+        "picks": 2,
+        "starters": 1,
+        "rate": 0.5,
+        "note": "Winston was a starter for 5 years but flawed. Trask was a complete miss. QB evaluation is a known weakness."
+      }
+    },
+    "blind_spots": [
+      "QB evaluation \u2014 Winston and Trask both failed to become long-term solutions. Licht has wisely moved to FA for QB.",
+      "TE evaluation \u2014 low investment and low hit rate. Only Otton has contributed meaningfully in recent years.",
+      "EDGE consistency \u2014 despite heavy investment, has not developed a true double-digit sack player through the draft since Barrett (FA signing)"
+    ],
+    "strengths": [
+      "Offensive line evaluation is elite \u2014 Wirfs, Marpet, Goedeke, Barton, Mauch all became quality starters",
+      "Defensive interior evaluation is elite \u2014 Vea and Kancey form one of the NFL's best DT tandems",
+      "WR evaluation is strong \u2014 Evans and Godwin are franchise cornerstones, Egbuka and McMillan are ascending",
+      "Day 3 value finding is exceptional \u2014 Otton, McCollum, Dennis, Irving all became starters from rounds 4-5"
+    ]
+  },
+  "free_agency_draft_interaction": {
+    "fa_spending_philosophy": "Moderate, value-oriented spender. Uses FA to fill 1-2 specific holes or bring back own players. Biggest FA splash was Tom Brady (2020) \u2014 an unprecedented move. More typically signs value deals: Baker Mayfield (1-year prove-it deal), Haason Reddick (2025), Jordan Whitehead. Licht has said he prefers 'smaller signings that produce more production than large splash signings that could jeopardize the future.'",
+    "fa_draft_correlation": "When a veteran starter is signed at a position, that position becomes a lower draft priority but not eliminated. After signing Reddick at EDGE in 2025, still drafted Walker and Roberts (EDGE/DL). After signing Mayfield, did not draft a QB. The draft remains the primary roster-building vehicle regardless of FA activity.",
+    "roster_construction_philosophy": "Build through the draft at premium positions (OL, DL, CB, WR), supplement through FA at positions of immediate need. Re-sign own players as the first priority. Licht has evolved from big FA swings (the 2020 Brady/Gronk era was a unique championship window play) to a more sustainable draft-and-develop model."
+  },
+  "draft_history_summary": {
+    "total_picks_analyzed": 80,
+    "notable_patterns": [
+      "Three consecutive years (2021-2023) the first pick in the draft went to the defensive front (Tryon-Shoyinka R1, Logan Hall R2, Kancey R1)",
+      "Traded down from round 1 twice (2018: 7\u219212, 2022: 27\u219233) to accumulate picks, then took DL both times",
+      "Made zero draft-day trades in consecutive years (2024, 2025) for first time in tenure \u2014 a notable recent shift",
+      "Every player drafted in rounds 1-6 since 2019 made an NFL roster \u2014 38 consecutive players",
+      "Post-2019 character-first overhaul dramatically improved draft hit rate across all positions",
+      "Has never traded future first-round picks as GM of the Buccaneers",
+      "Historically trades UP more than DOWN on draft day (9 up, 4 down through 2022)",
+      "Heavy small-school drafting at OL (Hobart, NDSU, Central Michigan, UTEP) and EDGE (Louisville via JUCO, Central Arkansas FCS)"
+    ],
+    "biggest_reaches": [
+      {
+        "year": 2016,
+        "pick": "2.59",
+        "player": "Roberto Aguayo",
+        "position": "K",
+        "consensus_rank": "Not in most top-100 boards",
+        "reach_amount": "40+",
+        "context": "Traded up (gave up R3 and R4) to draft a kicker in Round 2. Released after 1 year. Licht's most notorious draft mistake and formative learning experience."
+      },
+      {
+        "year": 2022,
+        "pick": "2.33",
+        "player": "Logan Hall",
+        "position": "DT",
+        "consensus_rank": "72 (PFF)",
+        "reach_amount": 15,
+        "context": "Traded out of R1 then took Hall at top of R2. PFF considered it a reach. Has developed into a solid starter."
+      }
+    ],
+    "biggest_steals": [
+      {
+        "year": 2024,
+        "pick": "4.125",
+        "player": "Bucky Irving",
+        "position": "RB",
+        "consensus_rank": "60-80 range",
+        "value_amount": 45,
+        "context": "Elite elusiveness and production fell to round 4. Became immediate starter and star."
+      },
+      {
+        "year": 2022,
+        "pick": "5.157",
+        "player": "Zyon McCollum",
+        "position": "CB",
+        "consensus_rank": "120-140 range",
+        "value_amount": 20,
+        "context": "Elite size-speed-length profile at CB. Traded back into round 5 to select him. Became starter and signed extension."
+      },
+      {
+        "year": 2015,
+        "pick": "2.61",
+        "player": "Ali Marpet",
+        "position": "IOL",
+        "consensus_rank": "80-100 range",
+        "value_amount": 20,
+        "context": "D-III player from Hobart College. Became Pro Bowl guard and one of best OL in franchise history."
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_notes": "12 drafts as Buccaneers GM provide extensive behavioral data. Clear patterns across all dimensions. The post-2019 character-first overhaul is well-documented and has produced consistently strong results. The 2026 draft priorities are clear: pass rush and defensive improvement. Scheme continuity on offense (McVay-tree OC) and defense (Bowles) provides stable context for predictions. Key uncertainty: new OC Zac Robinson's specific positional preferences may shift offensive draft targets.",
+  "last_researched": "2026-03-04",
+  "needs_refresh_after": "2026 NFL Draft"
+}
