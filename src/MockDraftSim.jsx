@@ -835,7 +835,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     const pid=cpuPick(ct,available,fullDraftOrder[ui].pick);
     if(pid){const{round,pick}=fullDraftOrder[ui];setPicks(prev=>[...prev,{pick,round,team:ct,playerId:pid,traded:true,isUser:false}]);setAvailable(prev=>prev.filter(id=>id!==pid));}
     setTradeOffer(null);
-  },[tradeOffer,cpuPick,available,fullDraftOrder,getPickTeam]);
+    if(showTradeUp)closeTradeUp();
+  },[tradeOffer,cpuPick,available,fullDraftOrder,getPickTeam,showTradeUp]);
 
   const declineTrade=()=>{tradeDeclinedRef.current=Date.now();setTradeOffer(null);};
   const openTradeUp=()=>{setShowTradeUp(true);setTradeTarget([]);setTradeUserPicks([]);setTradePartner(null);setTradePlayerTarget([]);setTradeUserPlayers([]);setShowGetPlayers(false);setShowGivePlayers(false);};
