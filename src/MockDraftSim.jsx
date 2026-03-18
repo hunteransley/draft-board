@@ -1059,16 +1059,28 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         // Determine target tier using roster talent comparison
         // Map performance tiers to numeric scores for comparison
         const tierScore={"elite":95,"pro_bowl":85,"quality_starter":75,"starter":65,"rotational":55,"backup":45,"declining":50};
+        const roundCapital={1:85,2:72,3:58,4:48,5:42,6:36,7:32};
+        const getRookieScore=(rd,gr,sf)=>Math.round(gr*0.5+(roundCapital[rd]||35)*0.35+(sf||50)*0.15);
         const getIncumbentScore=(slot)=>{
           const incumbent=chart[team][slot];
-          if(!incumbent||incumbent.isDraft)return 30; // empty or another rookie
+          if(!incumbent)return 20; // empty
+          if(incumbent.isDraft){
+            // Another rookie — find their draft round and grade to score them properly
+            const draftPk=picks.find(dpk=>dpk.team===team&&prospectsMap[dpk.playerId]?.name===incumbent.name);
+            if(draftPk){
+              const dp=prospectsMap[draftPk.playerId];
+              const dGrade=getConsensusGrade?getConsensusGrade(dp.name):70;
+              const dSf=schemeFits?.[team]?.[draftPk.playerId]?.score||50;
+              return getRookieScore(draftPk.round,dGrade,dSf);
+            }
+            return 55; // drafted but can't find details — treat as rotational
+          }
           const rv=ROSTER_BY_SLOT[team]?.[slot]||(incumbent.name&&ROSTER_BY_NAME[incumbent.name]);
-          return rv?tierScore[rv.performanceTier]||50:50;
+          return rv?tierScore[rv.performanceTier]||65:65;
         };
-        // Rookie's projected talent: blend of grade, draft capital, and scheme fit
+        // Rookie's projected talent
         const schemeFit=schemeFits?.[team]?.[pk.playerId]?.score||50;
-        const schemeFitBonus=Math.round((schemeFit-50)*0.15); // ±7 points max
-        const rookieScore=Math.round(grade*0.6+(pk.round===1?85:pk.round===2?72:pk.round===3?62:pk.round<=5?52:42)*0.25+schemeFit*0.15)+schemeFitBonus;
+        const rookieScore=getRookieScore(pk.round,grade,schemeFit);
         // Find the right tier by comparing against incumbents at each allowed slot
         let tier=0;
         const s1Score=getIncumbentScore(allowedSlots[0]);
@@ -1078,34 +1090,35 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         else if(pk.round<=4||grade>=65){tier=allowedSlots.length>2?3:2;} // depth piece
         else{tier=0;} // overflow
 
+        // Helper: find next available depth key (LG_d0, LG_d1, etc.)
+        const nextDepthKey=(slot)=>{
+          let n=0;while(chart[team][slot+"_d"+n])n++;
+          return slot+"_d"+n;
+        };
+
         if(tier===1){
-          // Starter: take preferred slot, cascade everyone down
+          // Starter: take the preferred slot ONLY. No cross-position cascading.
           const s1=preferredSlot;
-          const idx=allowedSlots.indexOf(s1);
-          if(idx>=0&&chart[team][s1]){
-            // Save the player who will fall off the end
-            const lastSlot=allowedSlots[allowedSlots.length-1];
-            const bumped=chart[team][lastSlot];
-            // Shift all players from preferred slot down by one
-            for(let j=allowedSlots.length-1;j>idx;j--){
-              if(chart[team][allowedSlots[j-1]])chart[team][allowedSlots[j]]=chart[team][allowedSlots[j-1]];
-              else delete chart[team][allowedSlots[j]];
-            }
-            // Veteran bumped off the end is dropped from the depth chart
+          if(chart[team][s1]){
+            // Bumped player (roster or rookie) goes to depth
+            chart[team][nextDepthKey(s1)]=chart[team][s1];
           }
           chart[team][s1]=entry;
         }else if(tier===2){
-          // Second string
-          const target=allowedSlots[1]||allowedSlots[0];
+          // Find the weakest incumbent across allowed slots
+          let weakestSlot=null,weakestScore=999;
+          for(const s of allowedSlots){
+            const sc=getIncumbentScore(s);
+            if(sc<weakestScore){weakestScore=sc;weakestSlot=s;}
+          }
+          const target=weakestSlot||allowedSlots[1]||allowedSlots[0];
           if(!chart[team][target]){
             chart[team][target]=entry;
+          }else if(rookieScore>=weakestScore-5){
+            chart[team][nextDepthKey(target)]=chart[team][target];
+            chart[team][target]=entry;
           }else{
-            const emptySlot=allowedSlots.find(s=>!chart[team][s]);
-            if(emptySlot)chart[team][emptySlot]=entry;
-            else{
-              const oi=Object.keys(chart[team]).filter(k=>k.startsWith(allowedSlots[allowedSlots.length-1]+"_d")).length;
-              chart[team][allowedSlots[allowedSlots.length-1]+"_d"+oi]=entry;
-            }
+            chart[team][nextDepthKey(allowedSlots[allowedSlots.length-1])]=entry;
           }
         }else if(tier===3){
           // Third string
