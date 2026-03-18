@@ -2520,7 +2520,15 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
                 <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}} onClick={()=>setProfilePlayer(p)}>{p.name}</span>
                 {scoutTeam&&!isUserPick&&svScore>0&&<span onClick={()=>setExpandedScoutId(prev=>prev===id?null:id)} style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#fff",background:"linear-gradient(135deg,#6366f1,#a855f7)",padding:"2px 6px",borderRadius:4,cursor:"pointer",flexShrink:0,display:"inline-flex",alignItems:"center",gap:2}}>{svScore}<span style={{fontSize:7,opacity:0.8}}>{expandedScoutId===id?"−":"+"}</span></span>}
                 {isUserPick&&tags.map(t=><span key={t.tag} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:t.color,background:t.bg,padding:"2px 5px",borderRadius:3,flexShrink:0,letterSpacing:0.5}}>{t.tag}</span>)}
-                {!scoutTeam&&traitFilter.size>0&&(prospectBadges&&prospectBadges[id]||[]).filter(b=>traitFilter.has(b.trait)).map(b=><span key={b.trait} title={b.trait+" "+b.score} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:c,background:c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{b.emoji}</span>)}
+                {!scoutTeam&&(()=>{
+                  const MAX_PILLS=5;const pills=[];
+                  if(archetypeFilter.size>0){const tags=prospectTagsMap[id]||[];[...archetypeFilter].forEach(t=>{if(tags.includes(t)&&pills.length<MAX_PILLS)pills.push({key:"arch-"+t,emoji:ARCHETYPE_EMOJI[t]||"",label:ARCHETYPE_DISPLAY[t]||t,type:"arch"});});}
+                  if(traitFilter.size>0&&measMode){[...traitFilter].forEach(t=>{if(pills.length<MAX_PILLS&&qualifiesForMeasurableFilter&&qualifiesForMeasurableFilter(id,(p.gpos||p.pos)==="IDL"?"DL":(p.gpos||p.pos),t))pills.push({key:"meas-"+t,emoji:(MEASURABLE_EMOJI||{})[t]||"",label:t,type:"meas"});});}
+                  const traitBadges=prospectBadges&&prospectBadges[id]||[];
+                  traitBadges.forEach(b=>{if(pills.length<MAX_PILLS)pills.push({key:"trait-"+b.trait,emoji:b.emoji,label:b.trait+" "+b.score,type:"trait"});});
+                  if(!pills.length)return null;
+                  return pills.map(pl=><span key={pl.key} title={pl.label} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:pl.type==="arch"?"#171717":pl.type==="meas"?"#0d9488":c,background:pl.type==="arch"?"#17171712":pl.type==="meas"?"#0d948812":c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{pl.emoji}</span>);
+                })()}
                 {renderGradeOrPill(p)}
                 {isUserPick&&!scoutTeam&&<button onClick={()=>makePick(id)} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"4px 10px",background:"#22c55e",color:"#fff",border:"none",borderRadius:6,cursor:"pointer",flexShrink:0}}>draft</button>}
                 {isUserPick&&scoutTeam&&svScore>0&&<span onClick={()=>setExpandedScoutId(prev=>prev===id?null:id)} style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#fff",background:"linear-gradient(135deg,#6366f1,#a855f7)",padding:"4px 10px",borderRadius:6,cursor:"pointer",flexShrink:0,display:"inline-flex",alignItems:"center",gap:3,minWidth:42,justifyContent:"center"}}>{svScore}<span style={{fontSize:8,opacity:0.85,fontWeight:400}}>{expandedScoutId===id?"−":"+"}</span></span>}
@@ -2969,7 +2977,17 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
                 {scoutTeam&&!isUserPick&&svScore>0&&<span onClick={()=>setExpandedScoutId(prev=>prev===id?null:id)} style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#fff",background:"linear-gradient(135deg,#6366f1,#a855f7)",padding:"2px 6px",borderRadius:4,cursor:"pointer",flexShrink:0,display:"inline-flex",alignItems:"center",gap:2}}>{svScore}<span style={{fontSize:7,opacity:0.8}}>{expandedScoutId===id?"−":"+"}</span></span>}
                 {scoutTeam&&svReason&&<span style={{fontFamily:mono,fontSize:8,color:"#6366f1",flexShrink:0,maxWidth:120,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{svReason.roleLabel}</span>}
                 {isUserPick&&tags.map(t=><span key={t.tag} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:t.color,background:t.bg,padding:"2px 5px",borderRadius:3,flexShrink:0,letterSpacing:0.5}}>{t.tag}</span>)}
-                {!scoutTeam&&(prospectBadges&&prospectBadges[id]||[]).map(b=><span key={b.trait} title={b.trait+" "+b.score} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:c,background:c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{b.emoji}</span>)}
+                {!scoutTeam&&(()=>{
+                  const MAX_PILLS=5;const pills=[];
+                  // 1. Archetype emojis (if filter active and prospect matches)
+                  if(archetypeFilter.size>0){const tags=prospectTagsMap[id]||[];[...archetypeFilter].forEach(t=>{if(tags.includes(t)&&pills.length<MAX_PILLS)pills.push({key:"arch-"+t,emoji:ARCHETYPE_EMOJI[t]||"",label:ARCHETYPE_DISPLAY[t]||t,type:"arch"});});}
+                  // 2. Measurable emojis (if filter active and prospect qualifies)
+                  if(traitFilter.size>0&&measMode){[...traitFilter].forEach(t=>{if(pills.length<MAX_PILLS&&qualifiesForMeasurableFilter&&qualifiesForMeasurableFilter(id,(p.gpos||p.pos)==="IDL"?"DL":(p.gpos||p.pos),t))pills.push({key:"meas-"+t,emoji:(MEASURABLE_EMOJI||{})[t]||"",label:t,type:"meas"});});}
+                  // 3. Trait badges fill remaining slots
+                  const traitBadges=prospectBadges&&prospectBadges[id]||[];
+                  traitBadges.forEach(b=>{if(pills.length<MAX_PILLS)pills.push({key:"trait-"+b.trait,emoji:b.emoji,label:b.trait+" "+b.score,type:"trait"});});
+                  return pills.map(pl=><span key={pl.key} title={pl.label} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:pl.type==="arch"?"#171717":pl.type==="meas"?"#0d9488":c,background:pl.type==="arch"?"#17171712":pl.type==="meas"?"#0d948812":c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{pl.emoji}</span>);
+                })()}
                 {renderGradeOrPill(p)}
                 <button onClick={()=>toggleCompare(p)} style={{fontFamily:mono,fontSize:7,padding:"2px 5px",background:inC?"#3b82f6":"transparent",color:inC?"#fff":"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:4,cursor:"pointer"}}>{inC?"✓":"+"}</button>
                 {isUserPick&&!scoutTeam&&<button onClick={()=>makePick(id)} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"3px 10px",background:"#22c55e",color:"#fff",border:"none",borderRadius:6,cursor:"pointer"}}>draft</button>}
