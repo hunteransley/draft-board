@@ -373,6 +373,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
   const[tradeUserPlayers,setTradeUserPlayers]=useState([]); // players user wants to GIVE
   const[showGetPlayers,setShowGetPlayers]=useState(false); // toggle for partner players section
   const[showGivePlayers,setShowGivePlayers]=useState(false); // toggle for user players section
+  const[showMobilePicks,setShowMobilePicks]=useState(false);
   const tradeDeclinedRef=useRef(0);
   const boardNoiseRef=useRef({});
   const wobbledProfilesRef=useRef({});
@@ -2290,10 +2291,28 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
           {pick.traded&&(()=>{const ct=cpuTradeLog.find(t=>t.involvedPicks?t.involvedPicks.includes(i):t.pickIdx===i);const tip=ct?`${ct.fromTeam} traded ${ct.gave.join(" + ")} to ${ct.toTeam} for ${ct.got.join(" + ")}`:`Trade: ${pick.team} acquired pick #${pick.pick}`;return<span title={tip} style={{fontFamily:mono,fontSize:7,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"1px 4px",borderRadius:2,cursor:"help"}}>🔄 TRD</span>;})()}
         </div></div>;
       })}
-      {picks.length<totalPicks&&<div style={{padding:"8px 10px",display:"flex",alignItems:"center",gap:5}}>
+      {/* Current pick indicator */}
+      {picks.length<totalPicks&&<div style={{padding:"8px 10px",display:"flex",alignItems:"center",gap:5,background:"rgba(99,102,241,0.04)"}}>
+        <span style={{fontFamily:mono,fontSize:9,color:"#6366f1",width:18,textAlign:"right",fontWeight:700}}>→</span>
         <NFLTeamLogo team={currentTeam} size={13}/>
-        <span style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>#{picks.length+1} {currentTeam}...</span>
+        <span style={{fontFamily:mono,fontSize:9,color:"#6366f1",fontWeight:600}}>#{fullDraftOrder[picks.length]?.pick} {currentTeam}</span>
       </div>}
+      {/* Upcoming picks */}
+      {picks.length<totalPicks&&fullDraftOrder.slice(picks.length+1).map((d,i)=>{
+        const idx=picks.length+1+i;
+        const team=getPickTeam(idx);
+        const isMyPick=userTeams.has(team);
+        const showRound=i===0?d.round!==fullDraftOrder[picks.length]?.round:d.round!==fullDraftOrder[picks.length+i]?.round;
+        return<div key={"up"+idx}>
+          {showRound&&<div style={{padding:"5px 10px",background:"#f5f5f5",fontFamily:mono,fontSize:8,letterSpacing:2,color:"#d4d4d4",textTransform:"uppercase"}}>round {d.round}</div>}
+          <div style={{display:"flex",alignItems:"center",gap:5,padding:"4px 10px",borderBottom:"1px solid #f8f8f8",background:isMyPick?"rgba(34,197,94,0.08)":"transparent",opacity:isMyPick?1:0.45}}>
+            <span style={{fontFamily:mono,fontSize:9,color:"#d4d4d4",width:18,textAlign:"right"}}>{d.pick}</span>
+            <NFLTeamLogo team={team} size={13}/>
+            <span style={{fontFamily:sans,fontSize:10,color:isMyPick?"#16a34a":"#a3a3a3",fontWeight:isMyPick?600:400}}>{team}</span>
+            {isMyPick&&<span style={{fontFamily:mono,fontSize:7,color:"#16a34a",background:"rgba(34,197,94,0.1)",padding:"1px 4px",borderRadius:2}}>YOU</span>}
+          </div>
+        </div>;
+      })}
     </div>
   </div>);
 
@@ -2724,9 +2743,17 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         <span style={{fontFamily:sans,fontSize:11,color:"#525252"}}>{lastVerdict.player} — consensus #{lastVerdict.rank} at pick #{lastVerdict.pick}</span>
       </div>}
 
+      {/* Mobile picks drawer */}
+      {isMobile&&showMobilePicks&&<div style={{position:"fixed",top:0,left:0,right:0,bottom:0,zIndex:300,display:"flex"}}>
+        <div style={{width:300,maxWidth:"85vw",background:"#faf9f6",borderRight:"1px solid #e5e5e5",overflowY:"auto",padding:"50px 8px 20px",boxShadow:"4px 0 20px rgba(0,0,0,0.1)"}}>{picksPanel}</div>
+        <div style={{flex:1,background:"rgba(0,0,0,0.3)"}} onClick={()=>setShowMobilePicks(false)}/>
+      </div>}
+      {/* Mobile picks toggle button */}
+      {isMobile&&!showMobilePicks&&<button onClick={()=>setShowMobilePicks(true)} style={{position:"fixed",left:0,top:"50%",transform:"translateY(-50%)",zIndex:150,background:"#171717",color:"#faf9f6",border:"none",borderRadius:"0 8px 8px 0",padding:"14px 8px",cursor:"pointer",fontFamily:mono,fontSize:10,fontWeight:700,letterSpacing:1,writingMode:"vertical-rl",textOrientation:"mixed",boxShadow:"2px 2px 8px rgba(0,0,0,0.2)"}}>PICKS</button>}
+
       <div style={{display:"flex",gap:12,maxWidth:1400,margin:"0 auto",padding:"44px 12px 20px"}}>
-        {/* LEFT: Pick history */}
-        <div style={{width:280,flexShrink:0,maxHeight:"calc(100vh - 60px)",overflowY:"auto"}}>{picksPanel}</div>
+        {/* LEFT: Pick history + upcoming */}
+        {!isMobile&&<div style={{width:280,flexShrink:0,maxHeight:"calc(100vh - 60px)",overflowY:"auto",position:"sticky",top:44}}>{picksPanel}</div>}
 
         {/* CENTER */}
         <div style={{flex:1,minWidth:0}}>
