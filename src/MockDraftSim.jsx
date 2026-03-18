@@ -881,6 +881,16 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
 
   const declineTrade=()=>{tradeDeclinedRef.current=Date.now();setTradeOffer(null);};
   const autoPausedForTradeRef=useRef(false);
+  // When trading with multiple teams, determine which user team to trade as
+  // (whichever has the next upcoming pick)
+  const tradeAsTeam=useMemo(()=>{
+    if(userTeams.size<=1)return[...userTeams][0]||null;
+    for(let i=picks.length;i<totalPicks;i++){
+      const t=getPickTeam(i);
+      if(userTeams.has(t))return t;
+    }
+    return[...userTeams][0];
+  },[userTeams,picks.length,totalPicks,getPickTeam]);
   const openTradeUp=()=>{
     if(!paused){setPaused(true);autoPausedForTradeRef.current=true;}
     setShowTradeUp(true);setTradeTarget([]);setTradeUserPicks([]);setTradePartner(null);setTradePlayerTarget([]);setTradeUserPlayers([]);setShowGetPlayers(false);setShowGivePlayers(false);
@@ -923,7 +933,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
 
   // User's tradable picks (current draft + future)
   const userAllPicks=useMemo(()=>{
-    const ut=userTeams.size>=ALL_TEAMS.length?getPickTeam(picks.length):[...userTeams][0];
+    const ut=tradeAsTeam||getPickTeam(picks.length);
     if(!ut)return{thisDraft:[],futurePicks:[]};
     // Remaining picks — full 7-round catalog, not just simulated rounds
     const thisDraft=[];
@@ -950,7 +960,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
 
   // Tradeable players from user team (all non-untouchable)
   const userPlayers=useMemo(()=>{
-    const ut=userTeams.size>=ALL_TEAMS.length?getPickTeam(picks.length):[...userTeams][0];
+    const ut=tradeAsTeam||getPickTeam(picks.length);
     if(!ut)return[];
     const data=ROSTER_BY_SLOT[ut];if(!data)return[];
     return Object.values(data).filter(p=>p.availability!=="untouchable"&&!playerTradeMap[p.name]).sort((a,b)=>b.tradeValue.valuePoints-a.tradeValue.valuePoints);
@@ -961,7 +971,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     const tv=tradeTarget.reduce((s,p)=>s+(p.value||0),0)+tradePlayerTarget.reduce((s,p)=>s+(p.tradeValue?.valuePoints||0),0);
     const ov=tradeUserPicks.reduce((s,p)=>s+(p.value||0),0)+tradeUserPlayers.reduce((s,p)=>s+(p.tradeValue?.valuePoints||0),0);
     if(ov<tv*1.05)return;
-    const ut=userTeams.size>=ALL_TEAMS.length?getPickTeam(picks.length):[...userTeams][0];const nm={...tradeMap};
+    const ut=tradeAsTeam||getPickTeam(picks.length);const nm={...tradeMap};
     // Reassign their current-draft picks to user
     tradeTarget.filter(p=>p.type==="current"&&p.idx!=null).forEach(p=>{nm[p.idx]=ut;});
     // Reassign user's current-draft picks to the partner
