@@ -1955,7 +1955,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
       const applicablePositions=EXPLORER_GROUPS.filter(pos=>POSITION_TRAITS[pos]?.includes(explorerTrait));
       PROSPECTS.forEach(p=>{
         const gpos=p.gpos||p.pos;
-        const group=(gpos==="K"||gpos==="P"||gpos==="LS")?"K/P":gpos;
+        const group=(gpos==="K"||gpos==="P"||gpos==="LS")?"K/P":(gpos==="C"||gpos==="OG")?"IOL":gpos;
         if(!applicablePositions.includes(group))return;
         const val=tv(traits,p.id,explorerTrait,p.name,p.school);
         if(val==null)return;
@@ -1974,7 +1974,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
       const useAbsolute=explorerAbsolute&&isDrill;
       PROSPECTS.forEach(p=>{
         const gpos=p.gpos||p.pos;
-        const group=(gpos==="K"||gpos==="P"||gpos==="LS")?"K/P":gpos;
+        const group=(gpos==="K"||gpos==="P"||gpos==="LS")?"K/P":(gpos==="C"||gpos==="OG")?"IOL":gpos;
         if(!EXPLORER_GROUPS.includes(group))return;
         const pctVal=getMeasVal(p.name,p.school,m);
         if(pctVal==null)return;
@@ -1999,7 +1999,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
       const usePercentile=!explorerAbsolute&&!isBreakout;
       PROSPECTS.forEach(p=>{
         const gpos=p.gpos||p.pos;
-        const group=(gpos==="K"||gpos==="P"||gpos==="LS")?"K/P":gpos;
+        const group=(gpos==="K"||gpos==="P"||gpos==="LS")?"K/P":(gpos==="C"||gpos==="OG")?"IOL":gpos;
         if(!applicablePositions.includes(group))return;
         if(isBreakout){
           const raw=getStatVal(p.name,p.school,stat);
@@ -3036,7 +3036,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         </div>):explorerMode==="stats"?(<div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",msOverflowStyle:"none",scrollbarWidth:"none",alignItems:"center"}}>
           {STAT_CATEGORIES.map(grp=>{const isOpen=explorerStatOpen.has(grp.label);const hasSelection=grp.keys.includes(explorerStat);return<Fragment key={grp.label}><button onClick={gateAuth(()=>{setExplorerStatOpen(prev=>{const next=new Set(prev);if(next.has(grp.label))next.delete(grp.label);else next.add(grp.label);return next;});})} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"5px 12px",background:hasSelection?grp.border:isOpen?grp.border+"18":"transparent",color:hasSelection?"#fff":isOpen?grp.border:"#737373",border:`1.5px solid ${hasSelection||isOpen?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{isOpen?"− ":"+ "}{grp.label}</button>{isOpen&&grp.keys.map(k=><button key={k} onClick={gateAuth(()=>setExplorerStat(k))} style={{fontFamily:mono,fontSize:10,fontWeight:explorerStat===k?700:500,padding:"5px 10px",background:explorerStat===k?grp.border+"18":"transparent",color:explorerStat===k?grp.border:"#a3a3a3",border:`1.5px solid ${explorerStat===k?grp.border:"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{STAT_EMOJI[k]||""} {STAT_SHORT[k]||k}</button>)}</Fragment>;})}
         </div>):(<div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:8,WebkitOverflowScrolling:"touch",flexWrap:"nowrap",msOverflowStyle:"none",scrollbarWidth:"none"}}>
-          {allTraits.map(t=><button key={t} onClick={gateAuth(()=>setExplorerTrait(t))} style={{fontFamily:sans,fontSize:10,fontWeight:explorerTrait===t?700:500,padding:"5px 10px",background:explorerTrait===t?"#6366f118":"transparent",color:explorerTrait===t?"#6366f1":"#a3a3a3",border:`1.5px solid ${explorerTrait===t?"#6366f1":"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{TRAIT_EMOJI[t]||""} {TRAIT_SHORT[t]||t} <span style={{fontSize:8,opacity:0.6}}>({traitPosCounts[t]})</span></button>)}
+          {allTraits.filter(t=>{const positions=EXPLORER_GROUPS.filter(pos=>POSITION_TRAITS[pos]?.includes(t));return!positions.every(pos=>pos==="K/P");}).map(t=><button key={t} onClick={gateAuth(()=>setExplorerTrait(t))} style={{fontFamily:sans,fontSize:10,fontWeight:explorerTrait===t?700:500,padding:"5px 10px",background:explorerTrait===t?"#6366f118":"transparent",color:explorerTrait===t?"#6366f1":"#a3a3a3",border:`1.5px solid ${explorerTrait===t?"#6366f1":"#e5e5e5"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,transition:"all 0.15s"}}>{TRAIT_EMOJI[t]||""} {TRAIT_SHORT[t]||t} <span style={{fontSize:8,opacity:0.6}}>({traitPosCounts[t]})</span></button>)}
         </div>))}
 
         {/* Absolute/percentile toggle — drills only (measurables) */}
