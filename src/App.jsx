@@ -1150,6 +1150,7 @@ const PlayerProfile=memo(function PlayerProfile({player,traits,setTraits,notes,s
           const matchEmoji=(text)=>{const t=text.toLowerCase();for(const[trait,rx]of traitKw){if(rx.test(t))return TRAIT_EMOJI[trait.split(" ").map(w=>w[0].toUpperCase()+w.slice(1)).join(" ")]||null;}return null;};
           return<div style={{padding:"0 24px 20px"}}>
           <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>scouting report</div>
+          {(()=>{const archs=getArchetypes(player.name,player.school);if(!archs.length)return null;return<div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:12}}>{archs.map(a=><span key={a} style={{fontFamily:mono,fontSize:10,fontWeight:600,color:"#171717",background:"#17171708",border:"1px solid #17171718",padding:"4px 10px",borderRadius:99,display:"inline-flex",alignItems:"center",gap:4}}><span>{ARCHETYPE_EMOJI[a]||""}</span>{ARCHETYPE_DISPLAY[a]||a}</span>)}</div>;})()}
           {eliteCombo&&<div style={{background:"linear-gradient(135deg,#fefce8,#fef9c3)",border:"1px solid #fbbf24",borderRadius:10,padding:"10px 14px",marginBottom:12}}>
             <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:4}}>
               <span style={{fontSize:13}}>⚡</span>
@@ -7929,6 +7930,7 @@ export default function App(){
   const[showAdmin,setShowAdmin]=useState(()=>{const h=window.location.hash;return h==="#admin"?"dashboard":h==="#admin/grades"?"grades":null;});
   const[showOG,setShowOG]=useState(()=>window.location.hash==="#og-preview");
   const[showGuide,setShowGuide]=useState(()=>window.location.pathname==='/guide');
+  const[showGlossary,setShowGlossary]=useState(()=>window.location.pathname==='/glossary');
   const[showGmQuiz,setShowGmQuiz]=useState(()=>window.location.pathname==='/gm'||window.location.pathname==='/which-gm-are-you');
   const[showDraftBracket,setShowDraftBracket]=useState(()=>window.location.pathname==='/draft-bracket');
   const[gmQuizMockLaunch,setGmQuizMockLaunch]=useState(null);// {team} from quiz CTA
@@ -7945,7 +7947,7 @@ export default function App(){
   },[]);
 
   useEffect(()=>{
-    const onPop=()=>{setShowGuide(window.location.pathname==='/guide');setShowGmQuiz(window.location.pathname==='/gm'||window.location.pathname==='/which-gm-are-you');setShowDraftBracket(window.location.pathname==='/draft-bracket');};
+    const onPop=()=>{setShowGuide(window.location.pathname==='/guide');setShowGlossary(window.location.pathname==='/glossary');setShowGmQuiz(window.location.pathname==='/gm'||window.location.pathname==='/which-gm-are-you');setShowDraftBracket(window.location.pathname==='/draft-bracket');};
     window.addEventListener("popstate",onPop);
     return()=>window.removeEventListener("popstate",onPop);
   },[]);
@@ -7970,6 +7972,40 @@ export default function App(){
 
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
   if(showGuide)return<GuidePage onBack={()=>{window.history.back();}}/>;
+  if(showGlossary)return(
+    <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:"'DM Sans',sans-serif"}}>
+      <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}>
+        <div style={{display:"flex",alignItems:"center",gap:8}}>
+          <img src="/logo.png" alt="" style={{height:20}}/>
+          <span style={{fontFamily:"'DM Serif Display',serif",fontSize:16,fontWeight:900,color:"#171717"}}>glossary</span>
+        </div>
+        <button onClick={()=>window.history.back()} style={{fontFamily:"'DM Sans',sans-serif",fontSize:11,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 12px",cursor:"pointer"}}>← back</button>
+      </div>
+      <div style={{maxWidth:700,margin:"0 auto",padding:"60px 20px 80px"}}>
+        <h1 style={{fontFamily:"'DM Serif Display',serif",fontSize:28,fontWeight:900,color:"#171717",marginBottom:4}}>Emoji Glossary</h1>
+        <p style={{fontFamily:"'DM Sans',sans-serif",fontSize:13,color:"#a3a3a3",marginBottom:32}}>Every archetype used across Big Board Lab — what they mean and how to read them.</p>
+        {[
+          {pos:"QB",items:[["🗽","Pocket Passer","Classic drop-back passer. Wins from the pocket with arm talent and processing."],["🎭","Dual-Threat","Genuine running ability combined with passing. Creates with legs and arm."],["👔","Game Manager","High-floor, smart decision-maker. Limits turnovers, moves the chains."],["🔫","Gunslinger","Big arm, aggressive mentality. Makes throws others won't attempt."]]},
+          {pos:"RB",items:[["🐗","Power Back","Wins between the tackles with physicality, contact balance, and leg drive."],["🏁","Speed Back","Home-run threat. Explosive long speed, takes it to the house."],["🪃","Receiving Back","Pass-catching weapon out of the backfield. Routes, screens, dual-threat."],["♠️","All-Purpose / Three-Down","Does everything well. No glaring weakness. Stays on the field all three downs."]]},
+          {pos:"WR",items:[["🍿","X / Boundary","Plays outside. Wins at the catch point, beats press, works the sideline."],["🎰","Slot","Works inside. Quick-twitch, route craft, finds soft spots in zone."],["🐆","Deep Threat","Vertical specialist. Speed is the defining trait. Stretches the field."],["🛟","Possession","Reliable hands, chain-mover. The QB's security blanket."],["🦇","YAC Weapon","Dangerous after the catch. Turns short throws into big gains."]]},
+          {pos:"TE",items:[["🐏","Y / Inline","Traditional tight end. Blocks first, attached to the formation."],["🏄","F / Move","Flexes out, lines up in slot, motions. More receiver than blocker."],["🎣","Receiving TE","Primary weapon in the passing game. Targeted as a matchup piece."],["🧰","H-Back / Versatile","Does multiple things. Blocks, catches, lines up everywhere."]]},
+          {pos:"OT",items:[["🚧","Pass Protector","Elite in pass protection. Footwork, mirror ability, anchor."],["🦣","Road Grader","Dominant run blocker. Moves people. Physical finisher."],["🦑","Athletic Tackle","Wins with movement skills. Excels in zone schemes."]]},
+          {pos:"IOL",items:[["↔️","Zone Scheme","Light-footed, reach blocks. Built for outside zone concepts."],["⬆️","Gap / Power Scheme","Anchor, drive blocks, pulls. Built for man/gap concepts."],["🔄","Versatile","Plays multiple interior spots. Guard-center flexibility."]]},
+          {pos:"EDGE",items:[["🌪️","Speed Rusher","Wins with first step, bend, and closing speed. Gets around the corner."],["🦏","Power Rusher","Wins with bull rush, long arms, and strength at the point of attack."],["🐉","Versatile / Complete","Has both speed and power moves. Full pass-rush repertoire."],["🦍","Run Defender","Primary value is setting the edge and stopping the run."]]},
+          {pos:"DL",items:[["🦡","Penetrating 3-Tech","Quick first step, gets into the backfield. Interior pass-rush threat."],["🐘","Nose Tackle","Anchors the middle. Eats blocks, frees up linebackers. Space-eater."],["🐊","Two-Gap","Holds the point of attack and controls two gaps."]]},
+          {pos:"LB",items:[["☂️","Coverage LB","Ranges in space, mirrors backs and tight ends, drops into zones."],["🔨","Thumper / Run Stuffer","Downhill, physical, fills gaps. Old-school thumper."],["🦈","Pass Rusher","Blitzes effectively. Interior or edge blitz threat from LB."],["🐺","Sideline-to-Sideline","Elite range and athleticism. Gets to the ball from anywhere."],["👽","Hybrid / Chess Piece","Defies classification. Part safety, part edge, part LB."]]},
+          {pos:"CB",items:[["🧟","Press Man","Physical at the line. Jams receivers, mirrors in man coverage."],["🕸️","Zone Corner","Reads the QB's eyes, breaks on the ball. Pattern-matching and instincts."],["🦎","Slot","Works inside. Handles quick receivers and tight ends in the slot."]]},
+          {pos:"S",items:[["🦂","Box Safety","Plays near the line. Physical tackler, run support, blitzer."],["🛸","Center Field","Ranges deep. Ball hawk. Covers ground sideline to sideline."],["🎲","Hybrid","Plays multiple roles. Lines up at LB, slot, deep. Versatile chess piece."]]},
+        ].map(({pos,items})=><div key={pos} style={{marginBottom:28}}>
+          <div style={{fontFamily:"'SF Mono',monospace",fontSize:11,fontWeight:700,letterSpacing:2,color:POS_COLORS[pos]||"#525252",textTransform:"uppercase",marginBottom:10,paddingBottom:6,borderBottom:"1px solid #f0f0f0"}}>{pos}</div>
+          {items.map(([emoji,label,desc])=><div key={label} style={{display:"flex",alignItems:"flex-start",gap:10,marginBottom:10}}>
+            <span style={{fontSize:20,flexShrink:0,width:28,textAlign:"center"}}>{emoji}</span>
+            <div><div style={{fontFamily:"'DM Sans',sans-serif",fontSize:13,fontWeight:700,color:"#171717"}}>{label}</div><div style={{fontFamily:"'DM Sans',sans-serif",fontSize:12,color:"#737373",lineHeight:1.5}}>{desc}</div></div>
+          </div>)}
+        </div>)}
+      </div>
+    </div>
+  );
   if(showOG)return<OGPreview/>;
   if(showGmQuiz)return<GmQuiz user={user} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} trackEvent={trackEvent} userId={user?.id} onLaunchMock={(team)=>{setGmQuizMockLaunch(team);setShowGmQuiz(false);window.history.pushState({},'','/');}} onHome={()=>{setShowGmQuiz(false);window.history.pushState({},'','/');window.dispatchEvent(new PopStateEvent("popstate"));}}/>;
   if(showDraftBracket)return<DraftBracket SchoolLogo={SchoolLogo} onHome={()=>{setShowDraftBracket(false);window.history.pushState({},'','/');window.dispatchEvent(new PopStateEvent("popstate"));}}/>;
