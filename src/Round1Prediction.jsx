@@ -68,16 +68,21 @@ function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, pro
   if(!currentPick || currentPick > 64) return null;
 
   const recentTraders = new Set(cpuTradeLog.filter(t => currentIdx - t.pickIdx < 8).map(t => t.fromTeam));
+  const tradedPickIdxs = new Set(cpuTradeLog.flatMap(t => t.involvedPicks || [t.pickIdx]));
   const candidateTeams = [];
   const availSet=new Set(available);
 
   for(let i = currentIdx + 2; i < Math.min(currentIdx + 13, totalPicks); i++){
+    if(tradedPickIdxs.has(i)) continue;
     const t = getPickTeam(i);
     if(!t || t === currentTeam) continue;
     const tAbbr=normalizeAbbr(TEAM_ABBR[t]||t);
     const gm=GM_PARAMS[tAbbr];
     if(!gm)continue;
     if(recentTraders.has(t)) continue;
+
+    // Recipient must be willing to trade down
+    if(Math.random()>gm.tradeDownWillingness) continue;
 
     const board=boards[tAbbr]||[];
     let bestPlayer=null,bestScore=0,secondScore=0;
@@ -96,6 +101,7 @@ function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, pro
     const theirVal = getPickValue(theirPickNum);
     let sweetenerIdx = null, sweetenerVal = 0;
     for(let j = i + 1; j < totalPicks; j++){
+      if(tradedPickIdxs.has(j)) continue;
       if(getPickTeam(j) === t){ sweetenerIdx = j; sweetenerVal = getPickValue(fullDraftOrder[j]?.pick || 999); break; }
     }
     const totalOffer = theirVal + sweetenerVal;
@@ -153,7 +159,9 @@ function runSingleSim(board, prospectsMap, getGrade, schemeFits) {
       tradeMap[idx] = tradingTeam;
       tradeMap[trade.theirPickIdx] = team;
       if(trade.sweetenerIdx !== null) tradeMap[trade.sweetenerIdx] = team;
-      cpuTradeLog.push({pickIdx: idx, fromTeam: tradingTeam, toTeam: team});
+      const involvedPicks=[idx,trade.theirPickIdx];
+      if(trade.sweetenerIdx!==null)involvedPicks.push(trade.sweetenerIdx);
+      cpuTradeLog.push({pickIdx: idx, fromTeam: tradingTeam, toTeam: team, involvedPicks});
       actualTeam = tradingTeam;
       traded = true;
       origTeam = team;

@@ -637,14 +637,23 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     if(!currentPick||currentPick>64)return null;
     const recentTraders=new Set(cpuTradeLog.filter(t=>currentIdx-t.pickIdx<8).map(t=>t.fromTeam));
 
+    // Track picks already involved in a trade this draft (can't trade same pick twice)
+    const tradedPickIdxs=new Set(cpuTradeLog.flatMap(t=>t.involvedPicks||[t.pickIdx]));
+
     const candidateTeams=[];
     for(let i=currentIdx+2;i<Math.min(currentIdx+13,totalPicks);i++){
+      if(tradedPickIdxs.has(i))continue; // pick already traded — can't offer it again
       const t=getPickTeam(i);
       if(!t||userTeams.has(t)||t===currentTeam)continue;
       if(recentTraders.has(t))continue;
       const tAbbr=normalizeAbbr(TEAM_ABBR[t]||t);
       const gm=GM_PARAMS[tAbbr];
       if(!gm)continue;
+
+      // RECIPIENT WILLINGNESS: the team being asked to trade DOWN must actually want to.
+      // Their tradeDownWillingness from the GM profile gates whether they'd even consider it.
+      // Most GMs are reluctant to move back (NO has 0.1, KC has 0.15).
+      if(Math.random()>gm.tradeDownWillingness)continue;
 
       // Use the team's board to find their best available player
       const board=gmBoardsRef.current[tAbbr]||[];
@@ -657,7 +666,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
           secondScore=bestScore;bestScore=score;
           bestPlayer={id:entry.id,name:entry.name,grade:entry.grade,consRank:entry.consensusRank,pos:entry.pos,score};
         }else if(score>secondScore){secondScore=score;}
-        if(secondScore>0&&bestScore/secondScore<1.10)break; // early exit: no clear separation
+        if(secondScore>0&&bestScore/secondScore<1.10)break;
       }
       if(!bestPlayer||bestPlayer.grade<70)continue;
       const separation=secondScore>0?bestScore/secondScore:2.0;
@@ -669,6 +678,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       const theirVal=getPickValue(theirPickNum);
       let sweetenerIdx=null,sweetenerVal=0;
       for(let j=theirPickIdx+1;j<DRAFT_ORDER.length;j++){
+        if(tradedPickIdxs.has(j))continue; // sweetener pick already traded
         if(getPickOwner(j)===t){sweetenerIdx=j;sweetenerVal=getPickValue(getPickInfo(j)?.pick||999);break;}
       }
       let totalOffer=theirVal+sweetenerVal;
@@ -691,8 +701,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       }
       if(totalOffer<currentVal*0.78)continue;
 
-      // Trade probability: GM desire is high, but finding a willing partner is hard.
-      // Real R1 has ~3-5 trades across 32 picks. Base must be low per candidate.
+      // Trade probability: initiator's aggression AND recipient already passed willingness check above
       let prob=gm.tradeUpAggression*0.08;
       if(separation>=1.30)prob+=0.10;
       else if(separation>=1.15)prob+=0.04;
