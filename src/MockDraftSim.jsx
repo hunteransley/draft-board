@@ -1191,10 +1191,40 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
   },[baseDepthChart,picks,prospectsMap,getConsensusGrade,gradeMap,playerTradeMap]);
 
   const liveNeeds=useMemo(()=>{
+    // Does this prospect's position satisfy this need key?
+    const NEED_SATISFIERS={
+      DL:new Set(["DL","DT","IDL","NT","EDGE","DE"]),
+      DB:new Set(["DB","CB","S","FS","SS"]),
+      OL:new Set(["OL","OT","IOL","C","OG"]),
+      IOL:new Set(["IOL","C","OG","OL"]),
+      IDL:new Set(["IDL","DT","NT","DL"]),
+      EDGE:new Set(["EDGE","DE","OLB","DL"]),
+      OT:new Set(["OT","OL"]),
+      CB:new Set(["CB","DB"]),
+      S:new Set(["S","FS","SS","DB"]),
+    };
+    const satisfiesNeed=(needKey,gpos)=>{
+      if(needKey===gpos)return true;
+      return NEED_SATISFIERS[needKey]?.has(gpos)||false;
+    };
     const needs={};
     [...userTeams].forEach(team=>{
       const base=TEAM_NEEDS_COUNTS?.[team]||{};const rem={...base};
-      picks.filter(pk=>pk.team===team).forEach(pk=>{const p=prospectsMap[pk.playerId];if(!p)return;[p.pos,p.gpos].filter(Boolean).forEach(pos=>{if(rem[pos]>0)rem[pos]=0;});});
+      picks.filter(pk=>pk.team===team).forEach(pk=>{
+        const p=prospectsMap[pk.playerId];if(!p)return;
+        const gpos=p.gpos||p.pos;
+        // Match granular keys first (IDL before DL, CB before DB, IOL before OL)
+        // so the visible pill updates, not the hidden broad key
+        const sortedKeys=Object.keys(rem).sort((a,b)=>{
+          const broad=["DL","DB","OL"];
+          const aIsBroad=broad.includes(a)?1:0;
+          const bIsBroad=broad.includes(b)?1:0;
+          return aIsBroad-bIsBroad;
+        });
+        for(const needKey of sortedKeys){
+          if(rem[needKey]>0&&satisfiesNeed(needKey,gpos)){rem[needKey]=0;break;}
+        }
+      });
       needs[team]=rem;
     });
     return needs;
