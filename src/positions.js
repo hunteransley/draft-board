@@ -15,6 +15,12 @@ export const TRAIT_TEACHABILITY={"Arm Strength":.1,"Accuracy":.7,"Pocket Presenc
 
 export const POSITION_GROUPS=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S","K/P"];
 
-export const POS_EMOJI={QB:"🎯",RB:"🏃",WR:"🧤",TE:"🦾",OT:"🛡️",IOL:"🧱",EDGE:"🌪️",DL:"🦬",LB:"💥",CB:"🏝️",S:"🦅","K/P":"🦵"};
+// C and OG are IOL sub-positions — alias traits, weights, and display to IOL
+POSITION_TRAITS.C=POSITION_TRAITS.IOL;
+POSITION_TRAITS.OG=POSITION_TRAITS.IOL;
+TRAIT_WEIGHTS.C=TRAIT_WEIGHTS.IOL;
+TRAIT_WEIGHTS.OG=TRAIT_WEIGHTS.IOL;
 
-export const POS_COLORS={QB:"#dc2626",RB:"#ea580c",WR:"#ca8a04",TE:"#65a30d",OT:"#16a34a",IOL:"#059669",OL:"#16a34a",EDGE:"#0d9488",DL:"#0284c7",LB:"#2563eb",CB:"#4f46e5",S:"#7c3aed",DB:"#4f46e5","K/P":"#78716c"};
+export const POS_EMOJI={QB:"🎯",RB:"🏃",WR:"🧤",TE:"🦾",OT:"🛡️",IOL:"🧱",C:"🧱",OG:"🧱",EDGE:"🌪️",DL:"🦬",LB:"💥",CB:"🏝️",S:"🦅","K/P":"🦵"};
+
+export const POS_COLORS={QB:"#dc2626",RB:"#ea580c",WR:"#ca8a04",TE:"#65a30d",OT:"#16a34a",IOL:"#059669",C:"#059669",OG:"#059669",OL:"#16a34a",EDGE:"#0d9488",DL:"#0284c7",LB:"#2563eb",CB:"#4f46e5",S:"#7c3aed",DB:"#4f46e5","K/P":"#78716c"};
