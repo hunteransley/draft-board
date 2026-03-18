@@ -2743,13 +2743,13 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         <span style={{fontFamily:sans,fontSize:11,color:"#525252"}}>{lastVerdict.player} — consensus #{lastVerdict.rank} at pick #{lastVerdict.pick}</span>
       </div>}
 
-      {/* Picks drawer + toggle — CSS media query hides on desktop, no JS gating */}
-      <style>{`@media(min-width:769px){.bbl-picks-drawer,.bbl-picks-btn{display:none!important;}}`}</style>
-      {showMobilePicks&&<div className="bbl-picks-drawer" style={{position:"fixed",top:0,left:0,right:0,bottom:0,zIndex:300,display:"flex"}}>
+      {/* Mobile picks drawer */}
+      {isMobile&&showMobilePicks&&<div style={{position:"fixed",top:0,left:0,right:0,bottom:0,zIndex:300,display:"flex"}}>
         <div style={{width:300,maxWidth:"85vw",background:"#faf9f6",borderRight:"1px solid #e5e5e5",overflowY:"auto",padding:"50px 8px 20px",boxShadow:"4px 0 20px rgba(0,0,0,0.1)"}}>{picksPanel}</div>
         <div style={{flex:1,background:"rgba(0,0,0,0.3)"}} onClick={()=>setShowMobilePicks(false)}/>
       </div>}
-      {!showMobilePicks&&<button className="bbl-picks-btn" onClick={()=>setShowMobilePicks(true)} style={{position:"fixed",left:0,top:"50%",transform:"translateY(-50%)",zIndex:150,background:"#171717",color:"#faf9f6",border:"none",borderRadius:"0 8px 8px 0",padding:"14px 8px",cursor:"pointer",fontFamily:mono,fontSize:10,fontWeight:700,letterSpacing:1,writingMode:"vertical-rl",textOrientation:"mixed",boxShadow:"2px 2px 8px rgba(0,0,0,0.2)"}}>PICKS</button>}
+      {/* Mobile picks toggle button */}
+      {isMobile&&!showMobilePicks&&<button onClick={()=>setShowMobilePicks(true)} style={{position:"fixed",left:0,top:"50%",transform:"translateY(-50%)",zIndex:150,background:"#171717",color:"#faf9f6",border:"none",borderRadius:"0 8px 8px 0",padding:"14px 8px",cursor:"pointer",fontFamily:mono,fontSize:10,fontWeight:700,letterSpacing:1,writingMode:"vertical-rl",textOrientation:"mixed",boxShadow:"2px 2px 8px rgba(0,0,0,0.2)"}}>PICKS</button>}
 
       <div style={{display:"flex",gap:12,maxWidth:1400,margin:"0 auto",padding:"44px 12px 20px"}}>
         {/* LEFT: Pick history + upcoming */}
