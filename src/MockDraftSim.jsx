@@ -10,6 +10,33 @@ import { POS_DRAFT_VALUE, RANK_OVERRIDES, GRADE_OVERRIDES, TEAM_PROFILES, SCHEME
 import { TEAM_NEEDS_COUNTS } from "./teamNeedsData.js";
 import { ROSTER_BY_SLOT, ROSTER_BY_NAME, formatContract, formatTradeValue, TIER_COLORS, AVAILABILITY_DISPLAY } from "./rosterValueData.js";
 import { GM_PARAMS, generateSimNoise, generateAllBoards, pickFromBoard, normalizeAbbr } from "./gmBoardGenerator.js";
+import SCOUTING_NARRATIVES from "./scoutingNarratives.json";
+
+// Archetype tags per position group — surfaced as filterable pills
+const ARCHETYPE_TAGS={
+  QB:["spread_offense","west_coast","play_action","rpo_fit"],
+  RB:["power_back","receiving_back","zone_run","gap_scheme"],
+  WR:["slot_receiver","boundary_receiver"],
+  TE:["inline_te","move_te"],
+  OT:["zone_run","gap_scheme"],
+  IOL:["zone_run","gap_scheme"],
+  C:["zone_run","gap_scheme"],
+  OG:["zone_run","gap_scheme"],
+  EDGE:["standup_edge","hands_in_dirt","pass_rush_specialist"],
+  IDL:["run_stuffer","pass_rush_specialist"],
+  DL:["run_stuffer","pass_rush_specialist"],
+  LB:["coverage_lb","run_stuffer","pass_rush_specialist"],
+  CB:["press_man","zone_coverage"],
+  S:["hybrid_safety","zone_coverage"],
+};
+const ARCHETYPE_LABEL={"slot_receiver":"Slot","boundary_receiver":"X/Boundary","power_back":"Power","receiving_back":"Receiving","zone_run":"Zone","gap_scheme":"Gap/Power","inline_te":"Inline","move_te":"Move TE","standup_edge":"Stand-Up","hands_in_dirt":"Hand Down","pass_rush_specialist":"Pass Rush","run_stuffer":"Run Stuffer","coverage_lb":"Coverage","press_man":"Press Man","zone_coverage":"Zone","nickel_coverage":"Nickel","hybrid_safety":"Hybrid/Box","spread_offense":"Spread","west_coast":"West Coast","play_action":"Play Action","rpo_fit":"RPO"};
+const ARCHETYPE_EMOJI={"slot_receiver":"🎰","boundary_receiver":"📍","power_back":"🐂","receiving_back":"🎣","zone_run":"↔️","gap_scheme":"⬆️","inline_te":"🐏","move_te":"🏄","standup_edge":"🧍","hands_in_dirt":"👇","pass_rush_specialist":"☄️","run_stuffer":"🪨","coverage_lb":"☂️","press_man":"🧟","zone_coverage":"🕸️","hybrid_safety":"🔀","spread_offense":"🌐","west_coast":"🌊","play_action":"🎭","rpo_fit":"💫"};
+
+function getProspectTags(name,school){
+  const key=(name||"").toLowerCase().replace(/\./g,"").replace(/\s+(jr|sr|ii|iii|iv|v)\s*$/i,"").replace(/\s+/g," ").trim()+"|"+(school||"").toLowerCase().trim();
+  return SCOUTING_NARRATIVES[key]?.scheme_fit_tags||[];
+}
+
 // Canvas-based share image (no html2canvas dependency)
 
 // Suffix-aware short name: "Rueben Bain Jr." → "Bain Jr." not "Jr."
@@ -339,8 +366,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
   const[paused,setPaused]=useState(false);
   const[filterPos,setFilterPos]=useState(new Set());
   const[traitFilter,setTraitFilter]=useState(new Set());
+  const[archetypeFilter,setArchetypeFilter]=useState(new Set());
   const[measMode,setMeasMode]=useState(false);
-  useEffect(()=>{setTraitFilter(new Set());setMeasMode(false);},[filterPos]);
+  useEffect(()=>{setTraitFilter(new Set());setArchetypeFilter(new Set());setMeasMode(false);},[filterPos]);
   const[profilePlayer,setProfilePlayer]=useState(null);
   const[compareList,setCompareList]=useState([]);
   const[scoutVision,setScoutVision]=useState(false);
@@ -432,6 +460,18 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
   },[picks,prospectsMap]);
 
   const gradeMap=useMemo(()=>{const m={};activeBoard.forEach(p=>m[p.id]=activeGrade(p.id));return m;},[activeBoard,activeGrade]);
+  // Precompute archetype tags per prospect ID from scouting narratives
+  const prospectTagsMap=useMemo(()=>{
+    const m={};
+    activeBoard.forEach(p=>{
+      // Try exact key formats that scouting narratives use
+      const n=(p.name||"").toLowerCase().replace(/\./g,"").replace(/\s+(jr|sr|ii|iii|iv|v)\s*$/i,"").replace(/\s+/g," ").trim();
+      const s=(p.school||"").toLowerCase().trim();
+      const key=n+"|"+s;
+      m[p.id]=SCOUTING_NARRATIVES[key]?.scheme_fit_tags||[];
+    });
+    return m;
+  },[activeBoard]);
   const positions=["QB","RB","WR","TE","OT","IOL","EDGE","IDL","LB","CB","S","K/P"];
   // Map granular filter labels to prospect fields
   const posFilterMatch=(p,filterLabel)=>{
@@ -1236,8 +1276,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     let result=available;
     if(filterPos.size>0)result=result.filter(id=>{const p=prospectsMap[id];return p&&[...filterPos].some(f=>posFilterMatch(p,f));});
     if(traitFilter.size>0&&filterPos.size===1){const rawPos=[...filterPos][0];const pos=rawPos==="IDL"?"DL":rawPos;result=result.filter(id=>measMode?[...traitFilter].some(m=>qualifiesForMeasurableFilter&&qualifiesForMeasurableFilter(id,pos,m)):[...traitFilter].some(t=>qualifiesForFilter&&qualifiesForFilter(id,pos,t)));}
+    if(archetypeFilter.size>0)result=result.filter(id=>{const tags=prospectTagsMap[id]||[];return[...archetypeFilter].every(t=>tags.includes(t));});
     return result;
-  },[available,filterPos,prospectsMap,traitFilter,qualifiesForFilter,measMode,qualifiesForMeasurableFilter]);
+  },[available,filterPos,prospectsMap,traitFilter,archetypeFilter,qualifiesForFilter,measMode,qualifiesForMeasurableFilter]);
 
   // Scout Vision: precomputed reasoning data
   const scoutData=useMemo(()=>{
@@ -2369,11 +2410,14 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
             <div style={{display:"flex",gap:4}}>
               {userPickCount>0&&<button onClick={undo} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:"#fef3c7",color:"#92400e"}}>↩</button>}
 
+              <button onClick={()=>setShowMobilePicks(v=>!v)} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:showMobilePicks?"#171717":"transparent",color:showMobilePicks?"#faf9f6":"#a3a3a3"}}>picks</button>
               {isUserPick&&<button onClick={openTradeUp} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #a855f7",borderRadius:99,cursor:"pointer",background:"rgba(168,85,247,0.03)",color:"#a855f7"}}>📞</button>}
               <button onClick={()=>setPaused(!paused)} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:paused?"#fef3c7":"transparent",color:paused?"#92400e":"#a3a3a3"}}>{paused?"▶":"⏸"}</button>
               <button onClick={onClose} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 8px",cursor:"pointer"}}>✕</button>
             </div>
           </div>
+          {/* Mobile picks panel — toggled from header */}
+          {showMobilePicks&&<div style={{maxHeight:"50vh",overflowY:"auto",borderBottom:"1px solid #e5e5e5",padding:"4px 0"}}>{picksPanel}</div>}
           {/* Position filter — horizontal scroll, with scout vision toggle inline */}
           <div style={{display:"flex",gap:4,padding:"0 12px 8px",overflowX:"auto",WebkitOverflowScrolling:"touch",alignItems:"center"}}>
             {<div style={{position:"relative",flexShrink:0}}>
@@ -2384,6 +2428,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
             {positions.map(pos=><button key={pos} onClick={()=>setFilterPos(prev=>{const n=new Set(prev);if(n.has(pos))n.delete(pos);else n.add(pos);return n;})} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.has(pos)?granularPosColor(pos):"transparent",color:filterPos.has(pos)?"#fff":granularPosColor(pos),border:"1px solid "+(filterPos.has(pos)?granularPosColor(pos):"#e5e5e5"),borderRadius:99,cursor:"pointer",flexShrink:0}}>{pos}</button>)}
           </div>
           {filterPos.size===1&&(()=>{const rawPos=[...filterPos][0];const pos=rawPos==="IDL"?"DL":rawPos;const posTraits=(POSITION_TRAITS||{})[pos]||[];if(!posTraits.length)return null;const c=(POS_COLORS||{})[pos]||(POS_COLORS||{})[rawPos]||"#525252";const measPills=(MEASURABLE_LIST||[]).filter(m=>measurableThresholds&&measurableThresholds[pos]?.[m]);const posAvail=available.filter(id=>{const p=prospectsMap[id];return p&&posFilterMatch(p,rawPos);});return<div style={{display:"flex",alignItems:"center",gap:6,padding:"0 12px 6px"}}><button title={measMode?"Measurables mode — click for Traits":"Traits mode — click for Measurables"} onClick={()=>{setMeasMode(v=>!v);setTraitFilter(new Set());}} style={{width:40,height:22,borderRadius:11,border:"none",background:measMode?"linear-gradient(135deg,#00ffff,#1e3a5f)":"linear-gradient(135deg,#ec4899,#a855f7)",cursor:"pointer",position:"relative",transition:"background 0.2s",flexShrink:0}}><div style={{width:16,height:16,borderRadius:8,background:"#fff",position:"absolute",top:3,left:measMode?21:3,transition:"left 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:measMode?"#00ffff":"#a855f7",lineHeight:1}}>{measMode?"M":"T"}</span></div></button><div className="trait-pills-scroll" style={{display:"flex",gap:4,overflowX:"auto",WebkitOverflowScrolling:"touch",flexWrap:"nowrap",scrollbarWidth:"none",alignItems:"center",flex:1,minWidth:0}}>{!measMode?posTraits.map(trait=>{const active=traitFilter.has(trait);const count=posAvail.filter(id=>qualifiesForFilter&&qualifiesForFilter(id,pos,trait)).length;return<button key={trait} onClick={()=>setTraitFilter(prev=>{const n=new Set(prev);n.has(trait)?n.delete(trait):n.add(trait);return n;})} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",background:active?c+"18":"transparent",color:active?"#171717":"#525252",border:"1px solid "+(active?c+"44":c+"25"),borderRadius:99,cursor:"pointer",flexShrink:0,display:"flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{(TRAIT_EMOJI||{})[trait]}</span><span>{TRAIT_SHORT[trait]||trait}</span><span style={{fontSize:8,opacity:0.7}}>({count})</span></button>;}):(()=>{const groups=(MEAS_GROUPS||[]).map(g=>({...g,pills:g.keys.filter(m=>measPills.includes(m))})).filter(g=>g.pills.length>0);return groups.flatMap((g,gi)=>{const divider=gi>0?[<span key={"d"+gi} style={{color:"#d4d4d4",fontSize:10,flexShrink:0,padding:"0 1px",lineHeight:1}}>·</span>]:[];return[...divider,...g.pills.map(m=>{const active=traitFilter.has(m);const count=posAvail.filter(id=>qualifiesForMeasurableFilter&&qualifiesForMeasurableFilter(id,pos,m)).length;return<button key={m} onClick={()=>setTraitFilter(prev=>{const n=new Set(prev);n.has(m)?n.delete(m):n.add(m);return n;})} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",background:active?g.border+"18":"transparent",color:active?"#171717":"#525252",border:"1px solid "+(active?g.border+"66":g.border+"30"),borderRadius:99,cursor:"pointer",flexShrink:0,display:"flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{(MEASURABLE_EMOJI||{})[m]}</span><span>{(MEASURABLE_SHORT||{})[m]}</span><span style={{fontSize:8,opacity:0.7}}>({count})</span></button>;})];});})()}</div></div>;})()}
+          {/* Archetype pills */}
+          {filterPos.size===1&&(()=>{const rawPos=[...filterPos][0];const tags=ARCHETYPE_TAGS[rawPos]||ARCHETYPE_TAGS[rawPos==="IDL"?"DL":rawPos]||[];if(!tags.length)return null;const posAvail=available.filter(id=>{const p=prospectsMap[id];return p&&posFilterMatch(p,rawPos);});return<div className="trait-pills-scroll" style={{display:"flex",gap:4,overflowX:"auto",WebkitOverflowScrolling:"touch",flexWrap:"nowrap",scrollbarWidth:"none",alignItems:"center",padding:"0 12px 6px"}}><span style={{fontFamily:mono,fontSize:8,color:"#a3a3a3",flexShrink:0,letterSpacing:1}}>ROLE</span>{tags.map(tag=>{const active=archetypeFilter.has(tag);const count=posAvail.filter(id=>{const p=prospectsMap[id];return p&&(prospectTagsMap[id]||[]).includes(tag);}).length;if(!count)return null;return<button key={tag} onClick={()=>setArchetypeFilter(prev=>{const n=new Set(prev);n.has(tag)?n.delete(tag):n.add(tag);return n;})} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",background:active?"#171717":"transparent",color:active?"#faf9f6":"#525252",border:"1px solid "+(active?"#171717":"#d4d4d4"),borderRadius:99,cursor:"pointer",flexShrink:0,display:"flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{ARCHETYPE_EMOJI[tag]||""}</span><span>{ARCHETYPE_LABEL[tag]||tag}</span><span style={{fontSize:8,opacity:0.7}}>({count})</span></button>;})}</div>;})()}
         </div>
 
         {/* Verdict toast */}
@@ -2743,13 +2789,6 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         <span style={{fontFamily:sans,fontSize:11,color:"#525252"}}>{lastVerdict.player} — consensus #{lastVerdict.rank} at pick #{lastVerdict.pick}</span>
       </div>}
 
-      {/* Mobile picks drawer */}
-      {isMobile&&showMobilePicks&&<div style={{position:"fixed",top:0,left:0,right:0,bottom:0,zIndex:300,display:"flex"}}>
-        <div style={{width:300,maxWidth:"85vw",background:"#faf9f6",borderRight:"1px solid #e5e5e5",overflowY:"auto",padding:"50px 8px 20px",boxShadow:"4px 0 20px rgba(0,0,0,0.1)"}}>{picksPanel}</div>
-        <div style={{flex:1,background:"rgba(0,0,0,0.3)"}} onClick={()=>setShowMobilePicks(false)}/>
-      </div>}
-      {/* Mobile picks toggle button */}
-      {isMobile&&!showMobilePicks&&<button onClick={()=>setShowMobilePicks(true)} style={{position:"fixed",left:0,top:"50%",transform:"translateY(-50%)",zIndex:150,background:"#171717",color:"#faf9f6",border:"none",borderRadius:"0 8px 8px 0",padding:"14px 8px",cursor:"pointer",fontFamily:mono,fontSize:10,fontWeight:700,letterSpacing:1,writingMode:"vertical-rl",textOrientation:"mixed",boxShadow:"2px 2px 8px rgba(0,0,0,0.2)"}}>PICKS</button>}
 
       <div style={{display:"flex",gap:12,maxWidth:1400,margin:"0 auto",padding:"44px 12px 20px"}}>
         {/* LEFT: Pick history + upcoming */}
@@ -2876,7 +2915,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
             <button onClick={()=>setFilterPos(new Set())} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.size===0?"#171717":"transparent",color:filterPos.size===0?"#faf9f6":"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>all</button>
             {positions.map(pos=><button key={pos} onClick={()=>setFilterPos(prev=>{const n=new Set(prev);if(n.has(pos))n.delete(pos);else n.add(pos);return n;})} style={{fontFamily:mono,fontSize:10,padding:"4px 10px",background:filterPos.has(pos)?granularPosColor(pos):"transparent",color:filterPos.has(pos)?"#fff":granularPosColor(pos),border:"1px solid "+(filterPos.has(pos)?granularPosColor(pos):"#e5e5e5"),borderRadius:99,cursor:"pointer"}}>{pos}</button>)}
           </div>
-          {filterPos.size===1&&(()=>{const rawPos=[...filterPos][0];const pos=rawPos==="IDL"?"DL":rawPos;const posTraits=(POSITION_TRAITS||{})[pos]||[];if(!posTraits.length)return null;const c=(POS_COLORS||{})[pos]||(POS_COLORS||{})[rawPos]||"#525252";const measPills=(MEASURABLE_LIST||[]).filter(m=>measurableThresholds&&measurableThresholds[pos]?.[m]);const posAvail=available.filter(id=>{const p=prospectsMap[id];return p&&posFilterMatch(p,rawPos);});return<div style={{display:"flex",alignItems:"center",gap:6,marginBottom:6}}><button title={measMode?"Measurables mode — click for Traits":"Traits mode — click for Measurables"} onClick={()=>{setMeasMode(v=>!v);setTraitFilter(new Set());}} style={{width:40,height:22,borderRadius:11,border:"none",background:measMode?"linear-gradient(135deg,#00ffff,#1e3a5f)":"linear-gradient(135deg,#ec4899,#a855f7)",cursor:"pointer",position:"relative",transition:"background 0.2s",flexShrink:0}}><div style={{width:16,height:16,borderRadius:8,background:"#fff",position:"absolute",top:3,left:measMode?21:3,transition:"left 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:measMode?"#00ffff":"#a855f7",lineHeight:1}}>{measMode?"M":"T"}</span></div></button><div className="trait-pills-scroll" style={{display:"flex",gap:4,overflowX:"auto",WebkitOverflowScrolling:"touch",flexWrap:"nowrap",scrollbarWidth:"none",alignItems:"center",flex:1,minWidth:0}}>{!measMode?posTraits.map(trait=>{const active=traitFilter.has(trait);const count=posAvail.filter(id=>qualifiesForFilter&&qualifiesForFilter(id,pos,trait)).length;return<button key={trait} onClick={()=>setTraitFilter(prev=>{const n=new Set(prev);n.has(trait)?n.delete(trait):n.add(trait);return n;})} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",background:active?c+"18":"transparent",color:active?"#171717":"#525252",border:"1px solid "+(active?c+"44":c+"25"),borderRadius:99,cursor:"pointer",flexShrink:0,display:"flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{(TRAIT_EMOJI||{})[trait]}</span><span>{TRAIT_SHORT[trait]||trait}</span><span style={{fontSize:8,opacity:0.7}}>({count})</span></button>;}):(()=>{const groups=(MEAS_GROUPS||[]).map(g=>({...g,pills:g.keys.filter(m=>measPills.includes(m))})).filter(g=>g.pills.length>0);return groups.flatMap((g,gi)=>{const divider=gi>0?[<span key={"d"+gi} style={{color:"#d4d4d4",fontSize:10,flexShrink:0,padding:"0 1px",lineHeight:1}}>·</span>]:[];return[...divider,...g.pills.map(m=>{const active=traitFilter.has(m);const count=posAvail.filter(id=>qualifiesForMeasurableFilter&&qualifiesForMeasurableFilter(id,pos,m)).length;return<button key={m} onClick={()=>setTraitFilter(prev=>{const n=new Set(prev);n.has(m)?n.delete(m):n.add(m);return n;})} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",background:active?g.border+"18":"transparent",color:active?"#171717":"#525252",border:"1px solid "+(active?g.border+"66":g.border+"30"),borderRadius:99,cursor:"pointer",flexShrink:0,display:"flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{(MEASURABLE_EMOJI||{})[m]}</span><span>{(MEASURABLE_SHORT||{})[m]}</span><span style={{fontSize:8,opacity:0.7}}>({count})</span></button>;})];});})()}</div></div>;})()}
+          {filterPos.size===1&&(()=>{const rawPos=[...filterPos][0];const pos=rawPos==="IDL"?"DL":rawPos;const posTraits=(POSITION_TRAITS||{})[pos]||[];if(!posTraits.length)return null;const c=(POS_COLORS||{})[pos]||(POS_COLORS||{})[rawPos]||"#525252";const measPills=(MEASURABLE_LIST||[]).filter(m=>measurableThresholds&&measurableThresholds[pos]?.[m]);const posAvail=available.filter(id=>{const p=prospectsMap[id];return p&&posFilterMatch(p,rawPos);});const archTags=ARCHETYPE_TAGS[rawPos]||ARCHETYPE_TAGS[rawPos==="IDL"?"DL":rawPos]||[];const archButtons=archTags.map(tag=>{const active=archetypeFilter.has(tag);const count=posAvail.filter(id=>(prospectTagsMap[id]||[]).includes(tag)).length;if(!count)return null;return<button key={"arch-"+tag} onClick={()=>setArchetypeFilter(prev=>{const n=new Set(prev);n.has(tag)?n.delete(tag):n.add(tag);return n;})} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",background:active?"#171717":"transparent",color:active?"#faf9f6":"#525252",border:"1px solid "+(active?"#171717":"#d4d4d4"),borderRadius:99,cursor:"pointer",flexShrink:0,display:"flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{ARCHETYPE_EMOJI[tag]||""}</span><span>{ARCHETYPE_LABEL[tag]||tag}</span><span style={{fontSize:8,opacity:0.7}}>({count})</span></button>;}).filter(Boolean);return<div style={{display:"flex",alignItems:"center",gap:6,marginBottom:6}}><button title={measMode?"Measurables mode — click for Traits":"Traits mode — click for Measurables"} onClick={()=>{setMeasMode(v=>!v);setTraitFilter(new Set());}} style={{width:40,height:22,borderRadius:11,border:"none",background:measMode?"linear-gradient(135deg,#00ffff,#1e3a5f)":"linear-gradient(135deg,#ec4899,#a855f7)",cursor:"pointer",position:"relative",transition:"background 0.2s",flexShrink:0}}><div style={{width:16,height:16,borderRadius:8,background:"#fff",position:"absolute",top:3,left:measMode?21:3,transition:"left 0.2s",boxShadow:"0 1px 3px rgba(0,0,0,0.2)",display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:measMode?"#00ffff":"#a855f7",lineHeight:1}}>{measMode?"M":"T"}</span></div></button><div className="trait-pills-scroll" style={{display:"flex",gap:4,overflowX:"auto",WebkitOverflowScrolling:"touch",flexWrap:"nowrap",scrollbarWidth:"none",alignItems:"center",flex:1,minWidth:0}}>{!measMode?posTraits.map(trait=>{const active=traitFilter.has(trait);const count=posAvail.filter(id=>qualifiesForFilter&&qualifiesForFilter(id,pos,trait)).length;return<button key={trait} onClick={()=>setTraitFilter(prev=>{const n=new Set(prev);n.has(trait)?n.delete(trait):n.add(trait);return n;})} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",background:active?c+"18":"transparent",color:active?"#171717":"#525252",border:"1px solid "+(active?c+"44":c+"25"),borderRadius:99,cursor:"pointer",flexShrink:0,display:"flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{(TRAIT_EMOJI||{})[trait]}</span><span>{TRAIT_SHORT[trait]||trait}</span><span style={{fontSize:8,opacity:0.7}}>({count})</span></button>;}):(()=>{const groups=(MEAS_GROUPS||[]).map(g=>({...g,pills:g.keys.filter(m=>measPills.includes(m))})).filter(g=>g.pills.length>0);return groups.flatMap((g,gi)=>{const divider=gi>0?[<span key={"d"+gi} style={{color:"#d4d4d4",fontSize:10,flexShrink:0,padding:"0 1px",lineHeight:1}}>·</span>]:[];return[...divider,...g.pills.map(m=>{const active=traitFilter.has(m);const count=posAvail.filter(id=>qualifiesForMeasurableFilter&&qualifiesForMeasurableFilter(id,pos,m)).length;return<button key={m} onClick={()=>setTraitFilter(prev=>{const n=new Set(prev);n.has(m)?n.delete(m):n.add(m);return n;})} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",background:active?g.border+"18":"transparent",color:active?"#171717":"#525252",border:"1px solid "+(active?g.border+"66":g.border+"30"),borderRadius:99,cursor:"pointer",flexShrink:0,display:"flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{(MEASURABLE_EMOJI||{})[m]}</span><span>{(MEASURABLE_SHORT||{})[m]}</span><span style={{fontSize:8,opacity:0.7}}>({count})</span></button>;})];});})()}{archButtons.length>0&&<><span style={{color:"#d4d4d4",fontSize:12,flexShrink:0,padding:"0 2px"}}>|</span>{archButtons}</>}</div></div>;})()}
 
           {/* Compare bar */}
           {compareList.length>0&&<div style={{background:"#fff",border:"1px solid #3b82f6",borderRadius:8,padding:"6px 10px",marginBottom:6,display:"flex",alignItems:"center",gap:6,flexWrap:"wrap"}}>
