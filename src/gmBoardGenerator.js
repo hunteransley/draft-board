@@ -683,6 +683,12 @@ export function pickFromBoard(board, gm, context) {
 
     let liveScore = entry.boardScore;
 
+    // ── Round-specific evaluation noise ──
+    // R1 is tight consensus. By R4+, evaluations genuinely diverge.
+    // This creates more varied late-round outcomes without affecting R1 accuracy.
+    const roundNoiseSigma = round <= 1 ? 0 : round <= 2 ? 0.02 : round <= 3 ? 0.04 : round <= 5 ? 0.07 : 0.10;
+    if (roundNoiseSigma > 0) liveScore *= (1.0 + gaussRandom(roundNoiseSigma));
+
     // ── Round-specific avoidance re-evaluation ──
     // Board was scored with round 1 avoidance. For later rounds, recalculate.
     if (round > 1) {

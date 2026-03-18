@@ -1069,31 +1069,45 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
           }
         }else if(group.posMatch==="DB"){
           const isSafety=gpos==="S"||gpos==="SAF"||gpos==="FS"||gpos==="SS";
-          // Nickel routing: all teams have NB slot from Ourlads roster data
-          const cs=getCombineScores(p.name,p.school);
-          const sc=getScoutingTraits(p.name,p.school);
-          const nk=sc?.["Nickel"]||50;
-          const mc=sc?.["Man Coverage"]||50;
-          const wt=cs?.weight||null;
-          const isElite=grade>=90;
-          let toNickel=false;
-          if(!isElite){
-            if(isSafety){
-              toNickel=nk>=85&&mc>=70;
-            }else if(wt){
-              if(wt<190)toNickel=nk>=70;
-              else if(wt<=200)toNickel=nk>=80;
-              else toNickel=nk>=90;
+          // Value-based DB slotting: find the weakest incumbent across eligible slots
+          // CB → prefers CB1, CB2, then NB if prospect has nickel traits
+          // S → prefers FS or SS based on archetype, then the weaker of the two
+          // NB is a real starting position — don't treat it as the bottom slot
+          const archs=getArchetypes(p.name,p.school);
+          if(isSafety){
+            // Route by archetype: box → SS, center field → FS, hybrid → weaker slot
+            const isBox=archs.includes("Box Safety / Run Support");
+            const isCF=archs.includes("Center Field / Free Safety");
+            const ssScore=getIncumbentScore("SS");
+            const fsScore=getIncumbentScore("FS");
+            if(isBox&&!isCF){
+              preferredSlot="SS";allowedSlots=["SS","FS"];
+            }else if(isCF&&!isBox){
+              preferredSlot="FS";allowedSlots=["FS","SS"];
             }else{
-              toNickel=nk>=85;
+              // Hybrid or both: go to weaker slot
+              preferredSlot=ssScore<=fsScore?"SS":"FS";
+              allowedSlots=ssScore<=fsScore?["SS","FS"]:["FS","SS"];
             }
-          }
-          if(toNickel){
-            preferredSlot="NB";allowedSlots=["NB","CB1","CB2"];
-          }else if(isSafety){
-            preferredSlot="SS";allowedSlots=["SS","FS"];
           }else{
-            preferredSlot="CB1";allowedSlots=["CB1","CB2"];
+            // CB prospect: try outside CB spots first, NB as fallback
+            // Exception: if Nickel score is way above Man Coverage, this is a true slot specialist — try NB first
+            const sc=getScoutingTraits(p.name,p.school);
+            const nk=sc?.["Nickel"]||50;
+            const mc=sc?.["Man Coverage"]||50;
+            const isSlotSpecialist=nk>=80&&(nk-mc)>=15;
+            const cb1Score=getIncumbentScore("CB1");
+            const cb2Score=getIncumbentScore("CB2");
+            if(isSlotSpecialist){
+              // True nickel — try NB first, then weaker CB
+              preferredSlot="NB";
+              allowedSlots=cb1Score<=cb2Score?["NB","CB1","CB2"]:["NB","CB2","CB1"];
+            }else{
+              // Outside CB — try weaker CB first, NB only as fallback if they have some nickel ability
+              const weakerFirst=cb1Score<=cb2Score?["CB1","CB2"]:["CB2","CB1"];
+              preferredSlot=weakerFirst[0];
+              allowedSlots=nk>=65?[...weakerFirst,"NB"]:weakerFirst;
+            }
           }
         }else if(group.posMatch==="OL"){
           // IOL/OG/OC/G/C -> guard/center slots, OT/T -> tackle slots
@@ -1149,10 +1163,22 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         };
 
         if(tier===1){
-          // Starter: take the preferred slot ONLY. No cross-position cascading.
+          // Starter: cascade within same-position hierarchy (RB1→RB2, WR1→WR2→WR3)
+          // but NOT across different sub-positions (C→LG→RG)
           const s1=preferredSlot;
-          if(chart[team][s1]){
-            // Bumped player (roster or rookie) goes to depth
+          const prefix=s1.replace(/\d+$/,"");
+          const isSamePosition=allowedSlots.every(s=>s.replace(/\d+$/,"")===prefix);
+          if(isSamePosition&&chart[team][s1]){
+            // Cascade down: shift everyone from preferred slot down by one
+            const lastSlot=allowedSlots[allowedSlots.length-1];
+            if(chart[team][lastSlot])chart[team][nextDepthKey(lastSlot)]=chart[team][lastSlot];
+            const idx=allowedSlots.indexOf(s1);
+            for(let j=allowedSlots.length-1;j>idx;j--){
+              if(chart[team][allowedSlots[j-1]])chart[team][allowedSlots[j]]=chart[team][allowedSlots[j-1]];
+              else delete chart[team][allowedSlots[j]];
+            }
+          }else if(chart[team][s1]){
+            // Different sub-positions (OL): just bump to depth, no cascade
             chart[team][nextDepthKey(s1)]=chart[team][s1];
           }
           chart[team][s1]=entry;
