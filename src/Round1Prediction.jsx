@@ -69,8 +69,38 @@ function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, pro
 
   const recentTraders = new Set(cpuTradeLog.filter(t => currentIdx - t.pickIdx < 8).map(t => t.fromTeam));
   const tradedPickIdxs = new Set(cpuTradeLog.flatMap(t => t.involvedPicks || [t.pickIdx]));
+
+  // ── TRADE-DOWN EVALUATION: situational willingness ──
+  const currentAbbr = normalizeAbbr(TEAM_ABBR[currentTeam]||currentTeam);
+  const currentGm = GM_PARAMS[currentAbbr];
+  if(!currentGm) return null;
+  const currentBoard = boards[currentAbbr] || [];
+  const availSet = new Set(available);
+  let currentBest=null,currentSecond=null;
+  for(const entry of currentBoard){
+    if(!availSet.has(entry.id))continue;
+    if(!currentBest)currentBest=entry;
+    else if(!currentSecond){currentSecond=entry;break;}
+  }
+  if(!currentBest) return null;
+  let clusterCount=0;
+  if(currentBest){
+    const threshold=currentBest.boardScore*0.92;
+    for(const entry of currentBoard){
+      if(!availSet.has(entry.id))continue;
+      if(entry.boardScore>=threshold)clusterCount++;
+      else break;
+      if(clusterCount>=6)break;
+    }
+  }
+  const slotExpectedGrade=96-currentPick*0.5;
+  const disappointment=Math.max(0,(slotExpectedGrade-currentBest.grade)/10);
+  const clusterBoost=clusterCount>=4?1.5:clusterCount>=3?1.25:1.0;
+  const disappointmentBoost=1.0+disappointment*2.0;
+  const situationalWillingness=Math.min(0.9,currentGm.tradeDownWillingness*clusterBoost*disappointmentBoost);
+  if(Math.random()>situationalWillingness) return null;
+
   const candidateTeams = [];
-  const availSet=new Set(available);
 
   for(let i = currentIdx + 2; i < Math.min(currentIdx + 13, totalPicks); i++){
     if(tradedPickIdxs.has(i)) continue;
@@ -80,9 +110,6 @@ function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, pro
     const gm=GM_PARAMS[tAbbr];
     if(!gm)continue;
     if(recentTraders.has(t)) continue;
-
-    // Recipient must be willing to trade down
-    if(Math.random()>gm.tradeDownWillingness) continue;
 
     const board=boards[tAbbr]||[];
     let bestPlayer=null,bestScore=0,secondScore=0;
@@ -105,14 +132,13 @@ function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, pro
       if(getPickTeam(j) === t){ sweetenerIdx = j; sweetenerVal = getPickValue(fullDraftOrder[j]?.pick || 999); break; }
     }
     const totalOffer = theirVal + sweetenerVal;
-    if(totalOffer < currentVal * 0.78) continue;
+    if(totalOffer < currentVal) continue;
 
-    let prob=gm.tradeUpAggression*0.08;
-    if(separation>=1.30)prob+=0.10;
-    else if(separation>=1.15)prob+=0.04;
+    const separationBoost=separation>=1.30?2.5:separation>=1.20?1.8:separation>=1.15?1.3:1.0;
+    let prob=gm.tradeUpAggression*0.10*separationBoost;
     if(currentPick<=10)prob*=1.3;
     else if(currentPick<=20)prob*=1.15;
-    prob=Math.min(0.25,prob);
+    prob=Math.min(0.35,prob);
     if(Math.random()>prob)continue;
 
     candidateTeams.push({

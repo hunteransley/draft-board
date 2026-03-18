@@ -640,9 +640,51 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
     // Track picks already involved in a trade this draft (can't trade same pick twice)
     const tradedPickIdxs=new Set(cpuTradeLog.flatMap(t=>t.involvedPicks||[t.pickIdx]));
 
+    // ── TRADE-DOWN EVALUATION: Does the team on the clock want to move back? ──
+    // Driven by board disappointment: if the best available player is much worse
+    // than what they expected at this pick, they're open to trading down.
+    const currentAbbr=normalizeAbbr(TEAM_ABBR[currentTeam]||currentTeam);
+    const currentGm=GM_PARAMS[currentAbbr];
+    if(!currentGm)return null;
+    const currentBoard=gmBoardsRef.current[currentAbbr]||[];
+    const availSet=new Set(available);
+    // Find the current team's best available and their expected value at this pick
+    let currentBest=null,currentSecond=null;
+    for(const entry of currentBoard){
+      if(!availSet.has(entry.id))continue;
+      if(!currentBest)currentBest=entry;
+      else if(!currentSecond){currentSecond=entry;break;}
+    }
+    if(!currentBest)return null;
+    // Board disappointment: compare best available grade to what this pick slot "deserves"
+    // A pick at #5 expects ~grade 94. If best available is 87, that's a 7-point disappointment.
+    const expectedGrade=getConsensusGrade?getConsensusGrade("__pick__")||0:0;
+    // Simpler: use the best available's board score relative to the next few available
+    // If top 3-4 are clustered, the team is more willing to slide (they'll get similar value later)
+    let clusterCount=0;
+    if(currentBest){
+      const threshold=currentBest.boardScore*0.92; // within 8% = clustered
+      for(const entry of currentBoard){
+        if(!availSet.has(entry.id))continue;
+        if(entry.boardScore>=threshold)clusterCount++;
+        else break;
+        if(clusterCount>=6)break;
+      }
+    }
+    // Disappointment: best available grade vs expected grade at this slot
+    const slotExpectedGrade=96-currentPick*0.5; // rough: pick 1 expects ~95.5, pick 10 expects ~91, pick 20 expects ~86
+    const disappointment=Math.max(0,(slotExpectedGrade-currentBest.grade)/10); // 0-1 scale
+    // Willingness = baseline × situational boost from disappointment and clustering
+    // High cluster (4+ similar players) = more willing (can get comparable talent later)
+    // High disappointment = more willing (nobody exciting here)
+    const clusterBoost=clusterCount>=4?1.5:clusterCount>=3?1.25:1.0;
+    const disappointmentBoost=1.0+disappointment*2.0; // 7-point miss = 1.0+0.7*2 = 2.4x
+    const situationalWillingness=Math.min(0.9,currentGm.tradeDownWillingness*clusterBoost*disappointmentBoost);
+    if(Math.random()>situationalWillingness)return null;
+
     const candidateTeams=[];
     for(let i=currentIdx+2;i<Math.min(currentIdx+13,totalPicks);i++){
-      if(tradedPickIdxs.has(i))continue; // pick already traded — can't offer it again
+      if(tradedPickIdxs.has(i))continue;
       const t=getPickTeam(i);
       if(!t||userTeams.has(t)||t===currentTeam)continue;
       if(recentTraders.has(t))continue;
@@ -650,14 +692,10 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       const gm=GM_PARAMS[tAbbr];
       if(!gm)continue;
 
-      // RECIPIENT WILLINGNESS: the team being asked to trade DOWN must actually want to.
-      // Their tradeDownWillingness from the GM profile gates whether they'd even consider it.
-      // Most GMs are reluctant to move back (NO has 0.1, KC has 0.15).
-      if(Math.random()>gm.tradeDownWillingness)continue;
-
-      // Use the team's board to find their best available player
+      // ── TRADE-UP EVALUATION: Does this candidate desperately want to move up? ──
+      // Driven by board separation: their #1 is SO much better than #2 that they
+      // can't risk waiting. The wider the gap, the more aggressive.
       const board=gmBoardsRef.current[tAbbr]||[];
-      const availSet=new Set(available);
       let bestPlayer=null,bestScore=0,secondScore=0;
       for(const entry of board){
         if(!availSet.has(entry.id))continue;
@@ -678,7 +716,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       const theirVal=getPickValue(theirPickNum);
       let sweetenerIdx=null,sweetenerVal=0;
       for(let j=theirPickIdx+1;j<DRAFT_ORDER.length;j++){
-        if(tradedPickIdxs.has(j))continue; // sweetener pick already traded
+        if(tradedPickIdxs.has(j))continue;
         if(getPickOwner(j)===t){sweetenerIdx=j;sweetenerVal=getPickValue(getPickInfo(j)?.pick||999);break;}
       }
       let totalOffer=theirVal+sweetenerVal;
@@ -699,15 +737,14 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
           if(tradeable.length>0){sweetenerPlayer=tradeable[0];totalOffer+=sweetenerPlayer.tradeValue.valuePoints;}
         }
       }
-      if(totalOffer<currentVal*0.78)continue;
+      if(totalOffer<currentVal)continue; // offer must meet or exceed pick value
 
-      // Trade probability: initiator's aggression AND recipient already passed willingness check above
-      let prob=gm.tradeUpAggression*0.08;
-      if(separation>=1.30)prob+=0.10;
-      else if(separation>=1.15)prob+=0.04;
+      // Trade-up probability: baseline aggression scaled by how desperate they are (separation)
+      const separationBoost=separation>=1.30?2.5:separation>=1.20?1.8:separation>=1.15?1.3:1.0;
+      let prob=gm.tradeUpAggression*0.10*separationBoost;
       if(currentPick<=10)prob*=1.3;
       else if(currentPick<=20)prob*=1.15;
-      prob=Math.min(0.25,prob);
+      prob=Math.min(0.35,prob);
       if(Math.random()>prob)continue;
 
       candidateTeams.push({
