@@ -12,6 +12,7 @@ import { ROSTER_BY_SLOT, ROSTER_BY_NAME, formatContract, formatTradeValue, TIER_
 import { GM_PARAMS, generateSimNoise, generateAllBoards, pickFromBoard, normalizeAbbr } from "./gmBoardGenerator.js";
 import ARCHETYPE_DATA from "./archetypeData.json";
 
+function getArchetypes(name,school){const n=(name||"").toLowerCase().replace(/\./g,"").replace(/\s+(jr|sr|ii|iii|iv|v)\s*$/i,"").replace(/\s+/g," ").trim();const s=(school||"").toLowerCase().trim();return ARCHETYPE_DATA[n+"|"+s]||[];}
 // Archetype display label overrides (when the data key is too long or needs cleanup)
 const ARCHETYPE_DISPLAY={"Slot / Nickel":"Slot","All-Purpose / Three-Down":"All-Purpose","Thumper / Run Stuffer":"Thumper","Hybrid / Chess Piece":"Chess Piece","Box Safety / Run Support":"Box","Center Field / Free Safety":"Center Field","Versatile / Complete":"Complete","Gap / Power Scheme":"Gap/Power","H-Back / Versatile":"H-Back","Y / Inline":"Inline","F / Move":"Move","X / Boundary":"Boundary"};
 // Archetype emojis — unique per archetype, no conflicts with trait or measurable emojis
@@ -1015,6 +1016,26 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         let group=DEPTH_GROUPS.find(g=>g.posMatch===p.pos);if(!group)return;
         const grade=getConsensusGrade?getConsensusGrade(p.name):(gradeMap[pk.playerId]||50);
         const entry={name:p.name,isDraft:true};
+        // Incumbent scoring — needed by both position routing (DB) and tier comparison
+        const tierScore={"elite":95,"pro_bowl":85,"quality_starter":75,"starter":65,"rotational":55,"backup":45,"declining":50};
+        const roundCapital={1:85,2:72,3:58,4:48,5:42,6:36,7:32};
+        const getRookieScore=(rd,gr,sf)=>Math.round(gr*0.5+(roundCapital[rd]||35)*0.35+(sf||50)*0.15);
+        const getIncumbentScore=(slot)=>{
+          const incumbent=chart[team][slot];
+          if(!incumbent)return 20;
+          if(incumbent.isDraft){
+            const draftPk=picks.find(dpk=>dpk.team===team&&prospectsMap[dpk.playerId]?.name===incumbent.name);
+            if(draftPk){
+              const dp=prospectsMap[draftPk.playerId];
+              const dGrade=getConsensusGrade?getConsensusGrade(dp.name):70;
+              const dSf=schemeFits?.[team]?.[draftPk.playerId]?.score||50;
+              return getRookieScore(draftPk.round,dGrade,dSf);
+            }
+            return 55;
+          }
+          const rv=ROSTER_BY_SLOT[team]?.[slot]||(incumbent.name&&ROSTER_BY_NAME[incumbent.name]);
+          return rv?tierScore[rv.performanceTier]||65:65;
+        };
         // Determine preferred starting slot based on granular position
         const gpos=p.gpos||p.pos;
         let preferredSlot=group.slots[0];
@@ -1122,28 +1143,6 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
             allowedSlots=["LT","RT"];
           }
         }
-        // Determine target tier using roster talent comparison
-        // Map performance tiers to numeric scores for comparison
-        const tierScore={"elite":95,"pro_bowl":85,"quality_starter":75,"starter":65,"rotational":55,"backup":45,"declining":50};
-        const roundCapital={1:85,2:72,3:58,4:48,5:42,6:36,7:32};
-        const getRookieScore=(rd,gr,sf)=>Math.round(gr*0.5+(roundCapital[rd]||35)*0.35+(sf||50)*0.15);
-        const getIncumbentScore=(slot)=>{
-          const incumbent=chart[team][slot];
-          if(!incumbent)return 20; // empty
-          if(incumbent.isDraft){
-            // Another rookie — find their draft round and grade to score them properly
-            const draftPk=picks.find(dpk=>dpk.team===team&&prospectsMap[dpk.playerId]?.name===incumbent.name);
-            if(draftPk){
-              const dp=prospectsMap[draftPk.playerId];
-              const dGrade=getConsensusGrade?getConsensusGrade(dp.name):70;
-              const dSf=schemeFits?.[team]?.[draftPk.playerId]?.score||50;
-              return getRookieScore(draftPk.round,dGrade,dSf);
-            }
-            return 55; // drafted but can't find details — treat as rotational
-          }
-          const rv=ROSTER_BY_SLOT[team]?.[slot]||(incumbent.name&&ROSTER_BY_NAME[incumbent.name]);
-          return rv?tierScore[rv.performanceTier]||65:65;
-        };
         // Rookie's projected talent
         const schemeFit=schemeFits?.[team]?.[pk.playerId]?.score||50;
         const rookieScore=getRookieScore(pk.round,grade,schemeFit);
@@ -1151,10 +1150,21 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         let tier=0;
         const s1Score=getIncumbentScore(allowedSlots[0]);
         const s2Score=allowedSlots[1]?getIncumbentScore(allowedSlots[1]):0;
-        if(rookieScore>=s1Score-5){tier=1;} // better than or close to starter
-        else if(allowedSlots[1]&&rookieScore>=s2Score-5){tier=2;} // better than second string
-        else if(pk.round<=4||grade>=65){tier=allowedSlots.length>2?3:2;} // depth piece
-        else{tier=0;} // overflow
+        // Round gates who you can displace:
+        // R1: anyone. R2: starter or below (QS only if dominant). R3: rotational/backup. R4+: backup/empty.
+        const canDisplace=(score)=>{
+          if(pk.round===1)return rookieScore>=score-5;
+          if(pk.round===2)return score<=65?rookieScore>=score-3:(rookieScore>=score+8); // QS(75) needs rookie 83+
+          if(pk.round===3)return score<=55&&rookieScore>=score-3; // rotational or worse
+          return score<=45; // R4+: backup or empty only
+        };
+        if(canDisplace(s1Score)){tier=1;}
+        else if(allowedSlots[1]&&canDisplace(s2Score)){tier=2;}
+        else{
+          // Can't displace anyone — go to depth
+          tier=allowedSlots.length>2?3:((pk.round<=4||grade>=65)?2:0);
+          // But tier 2/3 here means depth/backup, NOT displacing — handled below
+        }
 
         // Helper: find next available depth key (LG_d0, LG_d1, etc.)
         const nextDepthKey=(slot)=>{
@@ -1183,20 +1193,28 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
           }
           chart[team][s1]=entry;
         }else if(tier===2){
-          // Find the weakest incumbent across allowed slots
-          let weakestSlot=null,weakestScore=999;
-          for(const s of allowedSlots){
-            const sc=getIncumbentScore(s);
-            if(sc<weakestScore){weakestScore=sc;weakestSlot=s;}
-          }
-          const target=weakestSlot||allowedSlots[1]||allowedSlots[0];
-          if(!chart[team][target]){
-            chart[team][target]=entry;
-          }else if(rookieScore>=weakestScore-5){
-            chart[team][nextDepthKey(target)]=chart[team][target];
-            chart[team][target]=entry;
+          // Tier 2 via canDisplace: can take a secondary slot
+          // Tier 2 via fallback: depth only, don't displace
+          const canTake=canDisplace(s2Score!=null?s2Score:999);
+          if(canTake){
+            // canDisplace approved — find the weakest slot and take it
+            let weakestSlot=null,weakestScore=999;
+            for(const s of allowedSlots){
+              const sc=getIncumbentScore(s);
+              if(sc<weakestScore){weakestScore=sc;weakestSlot=s;}
+            }
+            const target=weakestSlot||allowedSlots[1]||allowedSlots[0];
+            if(!chart[team][target]){
+              chart[team][target]=entry;
+            }else{
+              chart[team][nextDepthKey(target)]=chart[team][target];
+              chart[team][target]=entry;
+            }
           }else{
-            chart[team][nextDepthKey(allowedSlots[allowedSlots.length-1])]=entry;
+            // Fallback depth — find an empty slot or go to depth
+            const emptySlot=allowedSlots.find(s=>!chart[team][s]);
+            if(emptySlot){chart[team][emptySlot]=entry;}
+            else{chart[team][nextDepthKey(allowedSlots[allowedSlots.length-1])]=entry;}
           }
         }else if(tier===3){
           // Third string
