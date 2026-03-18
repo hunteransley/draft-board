@@ -7223,20 +7223,22 @@ function GuidePage({onBack}){
 
   const sections=[
     {id:"mock",num:"01",title:"Mock Draft Against 32 AI GMs"},
-    {id:"grade",num:"02",title:"Grade Every Trait"},
-    {id:"traits",num:"03",title:"Filter by Standout Traits"},
-    {id:"board",num:"04",title:"Build Your Big Board"},
-    {id:"combine",num:"05",title:"Explore Combine Measurables"},
-    {id:"college-stats",num:"06",title:"College Stats & Historical Percentiles"},
-    {id:"dominator",num:"07",title:"Dominator Ratings & Breakout Year"},
-    {id:"depth",num:"08",title:"Live Depth Chart Updates"},
-    {id:"rank",num:"09",title:"Rank Prospects Head-to-Head"},
-    {id:"mock-trends",num:"10",title:"Team Specific Draft Trends"},
-    {id:"compare",num:"11",title:"Compare Players Side by Side"},
-    {id:"track",num:"12",title:"Track Your Guys"},
-    {id:"share",num:"13",title:"Share Your Board"},
-    {id:"profiles",num:"14",title:"Player Profiles"},
-    {id:"reorder",num:"15",title:"Drag to Reorder"},
+    {id:"scheme-fits",num:"02",title:"Scheme Fits & Scout Vision"},
+    {id:"grade",num:"03",title:"Grade Every Trait"},
+    {id:"traits",num:"04",title:"Filter by Standout Traits"},
+    {id:"board",num:"05",title:"Build Your Big Board"},
+    {id:"combine",num:"06",title:"Explore Combine Measurables"},
+    {id:"college-stats",num:"07",title:"College Stats & Historical Percentiles"},
+    {id:"dominator",num:"08",title:"Dominator Ratings & Breakout Year"},
+    {id:"depth",num:"09",title:"Live Depth Chart Updates"},
+    {id:"rank",num:"10",title:"Rank Prospects Head-to-Head"},
+    {id:"mock-trends",num:"11",title:"Team Specific Draft Trends"},
+    {id:"compare",num:"12",title:"Compare Players Side by Side"},
+    {id:"track",num:"13",title:"Track Your Guys"},
+    {id:"share",num:"14",title:"Share Your Board"},
+    {id:"profiles",num:"15",title:"Player Profiles"},
+    {id:"reorder",num:"16",title:"Drag to Reorder"},
+    {id:"glossary",num:"17",title:"Glossary"},
   ];
 
   const card={background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:"28px 24px",maxWidth:720,margin:"0 auto 24px"};
@@ -7312,9 +7314,63 @@ function GuidePage({onBack}){
         <div style={tip}>💡 Each AI GM has unique tendencies — the Ravens take BPA, the Saints reach for need, and the Eagles take the guy everyone else let fall for some reason.</div>
       </div>
 
-      {/* 02 — Grade Every Trait */}
-      <div id="guide-grade" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
+      {/* 02 — Scheme Fits & Scout Vision */}
+      <div id="guide-scheme-fits" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
         <div style={sectionNum("02")}>02</div>
+        <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
+        <h2 style={h2s}>Scheme Fits & Scout Vision</h2>
+        <p style={desc}>Every prospect is scored against every team's offensive or defensive scheme. The same player can be a perfect fit for one team and a poor fit for another.</p>
+
+        {/* Mock Scout Vision available list */}
+        <div style={{margin:"16px 0",background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
+          <div style={{padding:"8px 12px",background:"rgba(99,102,241,0.04)",borderBottom:"1px solid rgba(99,102,241,0.1)",display:"flex",alignItems:"center",gap:6}}>
+            <div style={{width:32,height:18,borderRadius:9,background:"linear-gradient(135deg,#4f46e5,#7c3aed,#a855f7)",position:"relative"}}><div style={{width:13,height:13,borderRadius:7,background:"#fff",position:"absolute",top:2.5,left:17,display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:mono,fontSize:6,fontWeight:700,color:"#6366f1"}}>SV</span></div></div>
+            <span style={{fontFamily:mono,fontSize:8,letterSpacing:1,color:"#6366f1",textTransform:"uppercase"}}>scout vision — 49ers</span>
+          </div>
+          {[
+            {name:"David Bailey",pos:"EDGE",score:92,fit:"Elite 40 paired with elite pass rush",tags:["NEED","FIT"]},
+            {name:"Keldric Faulk",pos:"EDGE",score:84,fit:"3-4 Stand-Up Edge",tags:["NEED","FIT"]},
+            {name:"Carnell Tate",pos:"WR",score:78,fit:"Timing Route Runner",tags:["FIT"]},
+            {name:"Arvell Reese",pos:"LB",score:61,fit:"Run & Chase LB",tags:[]},
+          ].map((d,i)=><div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"8px 12px",borderBottom:i<3?"1px solid #f8f8f8":"none"}}>
+            <span style={{fontFamily:mono,fontSize:8,color:POS_COLORS[d.pos]||"#525252",width:30}}>{d.pos}</span>
+            <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1}}>{d.name}</span>
+            <span style={{fontFamily:mono,fontSize:8,color:"#6366f1",maxWidth:100,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{d.fit}</span>
+            {d.tags.map(t=><span key={t} style={{fontFamily:mono,fontSize:6,fontWeight:700,color:t==="NEED"?"#16a34a":t==="FIT"?"#0891b2":"#737373",background:t==="NEED"?"rgba(34,197,94,0.08)":t==="FIT"?"rgba(8,145,178,0.08)":"#f5f5f5",padding:"1px 4px",borderRadius:2,border:`1px solid ${t==="NEED"?"rgba(34,197,94,0.15)":t==="FIT"?"rgba(8,145,178,0.15)":"#e5e5e5"}`}}>{t}</span>)}
+            <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#fff",background:"linear-gradient(135deg,#6366f1,#a855f7)",padding:"2px 6px",borderRadius:4,flexShrink:0}}>{d.score}</span>
+          </div>)}
+        </div>
+
+        {/* Mini scatter plot */}
+        <div style={{margin:"16px 0",position:"relative"}}>
+          <svg width="100%" viewBox="0 0 400 160" style={{display:"block"}}>
+            <line x1={50} y1={140} x2={380} y2={140} stroke="#e5e5e5" strokeWidth={1}/>
+            <line x1={50} y1={10} x2={50} y2={140} stroke="#e5e5e5" strokeWidth={1}/>
+            <line x1={250} y1={10} x2={250} y2={140} stroke="#0891b2" strokeWidth={1} strokeDasharray="4,3" opacity={0.4}/>
+            <text x={250} y={8} textAnchor="middle" style={{fontSize:7,fill:"#0891b2",fontFamily:"monospace"}}>fit threshold</text>
+            <text x={215} y={155} textAnchor="middle" style={{fontSize:8,fill:"#a3a3a3",fontFamily:"monospace"}}>Scheme Fit Score →</text>
+            <text x={15} y={80} textAnchor="middle" style={{fontSize:8,fill:"#a3a3a3",fontFamily:"monospace"}} transform="rotate(-90,15,80)">Consensus Rank ↑</text>
+            {[{x:340,y:20,r:7,fit:true},{x:310,y:35,r:6,fit:true},{x:290,y:25,r:7,fit:true},{x:270,y:50,r:5,fit:true},{x:260,y:40,r:6,fit:true},
+              {x:320,y:65,r:5,fit:true},{x:280,y:70,r:5,fit:true},{x:300,y:80,r:4,fit:true},{x:260,y:90,r:4,fit:true},
+              {x:220,y:45,r:5,fit:false},{x:200,y:60,r:5,fit:false},{x:180,y:55,r:4,fit:false},{x:160,y:75,r:4,fit:false},
+              {x:140,y:85,r:3,fit:false},{x:120,y:95,r:3,fit:false},{x:100,y:110,r:3,fit:false},{x:80,y:120,r:3,fit:false},
+              {x:190,y:100,r:3,fit:false},{x:150,y:115,r:3,fit:false},{x:110,y:130,r:3,fit:false},
+            ].map((d,i)=><circle key={i} cx={d.x} cy={d.y} r={d.r} fill={d.fit?"#0891b244":"#0d948815"} stroke={d.fit?"#0891b2":"#0d9488"} strokeWidth={d.fit?1.5:0.8} opacity={d.fit?1:0.4}/>)}
+          </svg>
+          <div style={{position:"absolute",top:8,right:12,background:"#171717",color:"#fff",fontFamily:sans,fontSize:10,padding:"6px 10px",borderRadius:8,maxWidth:160,lineHeight:1.4}}>
+            <div style={{fontWeight:700,marginBottom:2}}>David Bailey</div>
+            <div style={{fontFamily:mono,fontSize:8,color:"#22c55e"}}>Strong fit — PR 94 + 1ST 91</div>
+          </div>
+        </div>
+
+        <p style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.6,margin:"0 0 12px"}}>In the <strong>Data Lab</strong>, the scheme fit scatter shows every prospect at a position plotted against a team's scheme. Filter by archetype to spotlight speed rushers, zone corners, or any role. Swap teams and the whole landscape shifts.</p>
+
+        <div style={tip}>💡 Scheme fit explains why the same prospect might be a top-10 pick for one team and a day-two value for another. It's not just about talent — it's about fit.</div>
+      </div>
+
+      {/* 03 — Grade Every Trait */}
+      <div id="guide-grade" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
+        <div style={sectionNum("03")}>03</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Grade Every Trait</h2>
         <p style={desc}>Slide trait scores from 0–100 for position-specific attributes. Watch radar charts and overall grades update in real time.</p>
@@ -7339,9 +7395,9 @@ function GuidePage({onBack}){
         <div style={tip}>💡 <strong>Ceiling grades</strong> factor in how teachable each trait is — raw athleticism matters more than technique for upside.</div>
       </div>
 
-      {/* 03 — Filter by Standout Traits */}
+      {/* 05 — Filter by Standout Traits */}
       <div id="guide-traits" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("03")}>03</div>
+        <div style={sectionNum("04")}>04</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Filter by Standout Traits</h2>
         <p style={desc}>Most tools only let you filter by position. BBL lets you rank, mock draft, and browse by individual traits — want to only rank the best pass rushers? Tap the 🚀 Pass Rush pill and pair-rank just the elite rushers across EDGE and DL. Running a mock? Filter the draft board by Speed to see who your team should target.</p>
@@ -7367,9 +7423,9 @@ function GuidePage({onBack}){
         <div style={tip}>💡 Trait filters work everywhere — on the big board, during pair ranking, and in mock drafts. Select "Speed" and you'll see the fastest WRs, RBs, and CBs all in one view.</div>
       </div>
 
-      {/* 04 — Build Your Big Board */}
+      {/* 05 — Build Your Big Board */}
       <div id="guide-board" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("04")}>04</div>
+        <div style={sectionNum("05")}>05</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Build Your Big Board</h2>
         <p style={desc}>As you rank and grade, your big board assembles itself. Filter by position, toggle between your board and consensus, and see grades at a glance.</p>
@@ -7390,9 +7446,9 @@ function GuidePage({onBack}){
         </div>
       </div>
 
-      {/* 05 — Explore Combine Measurables */}
+      {/* 06 — Explore Combine Measurables */}
       <div id="guide-combine" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("05")}>05</div>
+        <div style={sectionNum("06")}>06</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Explore Combine Measurables</h2>
         <p style={desc}>See how every prospect's 40-yard dash, speed score, athletic score, and more compare — both across this class and against 26 years of combine history.</p>
@@ -7435,9 +7491,9 @@ function GuidePage({onBack}){
         <div style={tip}>💡 Toggle between raw times and position percentiles to see who's truly elite relative to their position.</div>
       </div>
 
-      {/* 06 — College Stats & Historical Percentiles */}
+      {/* 07 — College Stats & Historical Percentiles */}
       <div id="guide-college-stats" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("06")}>06</div>
+        <div style={sectionNum("07")}>07</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>College Stats & Historical Percentiles</h2>
         <p style={desc}>Raw college production — passing yards, rushing yards, receptions, tackles — compared against 10 years of FBS data. See exactly where each prospect ranks historically.</p>
@@ -7462,9 +7518,9 @@ function GuidePage({onBack}){
         <div style={tip}>💡 Switch between raw stats and historical percentile to see if a player's numbers are truly elite or just volume.</div>
       </div>
 
-      {/* 07 — Dominator Ratings & Breakout Year */}
+      {/* 08 — Dominator Ratings & Breakout Year */}
       <div id="guide-dominator" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("07")}>07</div>
+        <div style={sectionNum("08")}>08</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Dominator Ratings & Breakout Year</h2>
         <p style={desc}>Dominator rating measures what share of their team's production a player commanded. Breakout year identifies the earliest season a player crossed that threshold — a strong predictor of NFL success.</p>
@@ -7483,9 +7539,9 @@ function GuidePage({onBack}){
         <div style={tip}>💡 Freshman breakout + elite dominator is the most predictive combination for NFL receivers. Filter by Breakout Year in the Data Lab to find them.</div>
       </div>
 
-      {/* 08 — Live Depth Chart Updates */}
+      {/* 09 — Live Depth Chart Updates */}
       <div id="guide-depth" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("08")}>08</div>
+        <div style={sectionNum("09")}>09</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Live Depth Chart Updates</h2>
         <p style={desc}>Every pick in the mock draft lands on the team's actual roster in real time. Watch starters get displaced, needs get filled, and see exactly where each rookie slots into the depth chart as the draft unfolds.</p>
@@ -7508,9 +7564,9 @@ function GuidePage({onBack}){
         <div style={tip}>💡 Depth charts update after every single pick, so you always know which needs are still open and which starters just got replaced.</div>
       </div>
 
-      {/* 09 — Rank Prospects Head-to-Head */}
+      {/* 10 — Rank Prospects Head-to-Head */}
       <div id="guide-rank" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("09")}>09</div>
+        <div style={sectionNum("10")}>10</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Rank Prospects Head-to-Head</h2>
         <p style={desc}>Pick a position, and we'll serve up two prospects at a time. Choose who you'd draft first — your picks feed an Elo algorithm that builds your rankings automatically.</p>
@@ -7529,9 +7585,9 @@ function GuidePage({onBack}){
         <div style={tip}>💡 <strong>Focus mode:</strong> tap the 📌 icon next to any player in the live rankings sidebar to lock matchups on them. Every comparison will include that player until you unlock, so you can place them precisely on your board.</div>
       </div>
 
-      {/* 10 — Team Specific Draft Trends */}
+      {/* 11 — Team Specific Draft Trends */}
       <div id="guide-mock-trends" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("10")}>10</div>
+        <div style={sectionNum("11")}>11</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Team Specific Draft Trends</h2>
         <p style={desc}>See where prospects are getting drafted across the entire Big Board Lab community. ADP, positional trends, and team-level draft patterns — all aggregated in real time.</p>
@@ -7551,9 +7607,9 @@ function GuidePage({onBack}){
         <div style={tip}>💡 Use community ADP to spot where your evaluations diverge from the crowd — that's where you find your edge.</div>
       </div>
 
-      {/* 11 — Compare Players Side by Side */}
+      {/* 12 — Compare Players Side by Side */}
       <div id="guide-compare" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("11")}>11</div>
+        <div style={sectionNum("12")}>12</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Compare Players Side by Side</h2>
         <p style={desc}>Pin up to 4 players from the same position and compare radar charts, individual trait scores, and overall grades in one view.</p>
@@ -7579,9 +7635,9 @@ function GuidePage({onBack}){
         })()}
       </div>
 
-      {/* 12 — Track Your Guys */}
+      {/* 13 — Track Your Guys */}
       <div id="guide-track" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("12")}>12</div>
+        <div style={sectionNum("13")}>13</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Track Your Guys</h2>
         <p style={desc}>After running mock drafts, see which prospects you keep drafting. Your scouting fingerprint reveals the trait patterns you gravitate toward.</p>
@@ -7604,9 +7660,9 @@ function GuidePage({onBack}){
         </div>
       </div>
 
-      {/* 13 — Share Your Board */}
+      {/* 14 — Share Your Board */}
       <div id="guide-share" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("13")}>13</div>
+        <div style={sectionNum("14")}>14</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Share Your Results</h2>
         <p style={desc}>Share your big board, mock draft results, or your "My Guys" list — each generates a branded image card you can download and post to Twitter, Discord, or your group chat.</p>
@@ -7637,9 +7693,9 @@ function GuidePage({onBack}){
         </div>
       </div>
 
-      {/* 14 — Player Profiles */}
+      {/* 15 — Player Profiles */}
       <div id="guide-profiles" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("14")}>14</div>
+        <div style={sectionNum("15")}>15</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Player Profiles</h2>
         <p style={desc}>Tap any prospect to open a detailed profile with school logo, measurables, combine data, trait radar chart, and similar player comps.</p>
@@ -7667,9 +7723,9 @@ function GuidePage({onBack}){
         })()}
       </div>
 
-      {/* 15 — Drag to Reorder */}
+      {/* 16 — Drag to Reorder */}
       <div id="guide-reorder" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
-        <div style={sectionNum("15")}>15</div>
+        <div style={sectionNum("16")}>16</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
         <h2 style={h2s}>Drag to Reorder</h2>
         <p style={desc}>Not happy with where someone landed? Grab the drag handle and move any prospect up or down your board to fine-tune your rankings.</p>
@@ -7717,6 +7773,90 @@ function GuidePage({onBack}){
             <p style={{fontFamily:sans,fontSize:13,color:"#525252",lineHeight:1.6,margin:0}}>{faq.a}</p>
           </div>
         </details>)}
+      </div>
+    </div>
+
+    {/* Glossary Section */}
+    <div id="glossary" style={{maxWidth:720,margin:"40px auto",padding:"0 24px"}}>
+      <h2 style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717",marginBottom:4}}>Glossary</h2>
+      <p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",marginBottom:16}}>Everything you see on Big Board Lab — what it means and how to read it.</p>
+      <div className="trait-pills-scroll" style={{display:"flex",gap:5,marginBottom:24,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",paddingBottom:4}}>
+        {[{id:"g-archetypes",label:"Archetypes"},{id:"g-traits",label:"Traits"},{id:"g-measurables",label:"Measurables"},{id:"g-ui",label:"UI & Tools"},{id:"g-positions",label:"Positions"},{id:"g-depth",label:"Depth Chart"}].map(n=><a key={n.id} href={"#"+n.id} style={{fontFamily:mono,fontSize:10,padding:"5px 12px",background:"#171717",color:"#faf9f6",borderRadius:99,textDecoration:"none",whiteSpace:"nowrap",flexShrink:0}}>{n.label}</a>)}
+      </div>
+
+      <div id="g-archetypes"/>
+      <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>player archetypes</div>
+      <p style={{fontFamily:sans,fontSize:12,color:"#737373",marginBottom:16,lineHeight:1.6}}>Archetypes describe what kind of player a prospect is. A player can have multiple. These appear as dark pills on the available player list and scouting reports.</p>
+      {[
+        {pos:"QB",items:[["🗽","Pocket Passer"],["🎭","Dual-Threat"],["👔","Game Manager"],["🔫","Gunslinger"]]},
+        {pos:"RB",items:[["🐗","Power Back"],["🏁","Speed Back"],["🪃","Receiving Back"],["♠️","All-Purpose"]]},
+        {pos:"WR",items:[["🍿","Boundary / X"],["🎰","Slot"],["🐆","Deep Threat"],["🛟","Possession"],["🦇","YAC Weapon"]]},
+        {pos:"TE",items:[["🐏","Inline / Y"],["🏄","Move / F"],["🎣","Receiving TE"],["🧰","H-Back"]]},
+        {pos:"OT",items:[["🚧","Pass Protector"],["🦣","Road Grader"],["🦑","Athletic Tackle"]]},
+        {pos:"IOL",items:[["↔️","Zone Scheme"],["⬆️","Gap / Power"],["🔄","Versatile"]]},
+        {pos:"EDGE",items:[["🌪️","Speed Rusher"],["🦏","Power Rusher"],["🐉","Complete"],["🦍","Run Defender"]]},
+        {pos:"DL",items:[["🦡","Penetrating 3-Tech"],["🐘","Nose Tackle"],["🐊","Two-Gap"]]},
+        {pos:"LB",items:[["☂️","Coverage"],["🔨","Thumper"],["🦈","Pass Rusher"],["🐺","Sideline-to-Sideline"],["👽","Chess Piece"]]},
+        {pos:"CB",items:[["🧟","Press Man"],["🕸️","Zone Corner"],["🦎","Slot"]]},
+        {pos:"S",items:[["🦂","Box Safety"],["🛸","Center Field"],["🎲","Hybrid"]]},
+      ].map(({pos,items})=><div key={pos} style={{marginBottom:12}}>
+        <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:POS_COLORS[pos]||"#525252",letterSpacing:1}}>{POS_EMOJI[pos]||""} {pos}</span>
+        <div style={{display:"flex",gap:4,flexWrap:"wrap",marginTop:4}}>{items.map(([emoji,label])=><span key={label} style={{fontFamily:mono,fontSize:9,color:"#171717",background:"#17171708",border:"1px solid #17171718",padding:"3px 8px",borderRadius:99,display:"inline-flex",alignItems:"center",gap:3}}>{emoji} {label}</span>)}</div>
+      </div>)}
+
+      <div id="g-ui" style={{marginTop:28}}/>
+      <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:12}}>ui elements</div>
+      <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:28}}>
+        {[
+          {el:<div style={{width:40,height:22,borderRadius:11,background:"linear-gradient(135deg,#4f46e5,#7c3aed,#a855f7)",position:"relative",flexShrink:0}}><div style={{width:16,height:16,borderRadius:8,background:"#fff",position:"absolute",top:3,left:21,display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#6366f1"}}>SV</span></div></div>,label:"Scout Vision",desc:"Reorders prospects by scheme fit for the team on the clock."},
+          {el:<span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"2px 5px",borderRadius:3}}>🔄 TRD</span>,label:"Trade",desc:"Pick was involved in a trade. Hover for details."},
+          {el:<span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#16a34a",background:"rgba(34,197,94,0.08)",padding:"2px 5px",borderRadius:3,border:"1px solid rgba(34,197,94,0.15)"}}>NEED</span>,label:"Need",desc:"Team on the clock needs this position."},
+          {el:<span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#dc2626",background:"rgba(239,68,68,0.08)",padding:"2px 5px",borderRadius:3,border:"1px solid rgba(239,68,68,0.15)"}}>RIVAL</span>,label:"Rival",desc:"A divisional rival picks soon and might take this player."},
+          {el:<span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#ca8a04",background:"rgba(234,179,8,0.08)",padding:"2px 5px",borderRadius:3,border:"1px solid rgba(234,179,8,0.15)"}}>SLIDE</span>,label:"Slide",desc:"Prospect has fallen past their consensus rank. Value opportunity."},
+          {el:<span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#0891b2",background:"rgba(8,145,178,0.08)",padding:"2px 5px",borderRadius:3,border:"1px solid rgba(8,145,178,0.15)"}}>FIT</span>,label:"Scheme Fit",desc:"Prospect fits the team's scheme above the fit threshold."},
+          {el:<span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:"#f97316",background:"rgba(249,115,22,0.08)",padding:"2px 6px",borderRadius:99}}>FA</span>,label:"Free Agent",desc:"Player acquired in free agency or via trade this offseason."},
+          {el:<div style={{display:"flex",gap:1,alignItems:"flex-end"}}>{[70,85,55,90,75,60,80,65,72,88].map((v,i)=><div key={i} style={{width:3,height:v/5,background:i<5?"#a855f7":"#0d9488",borderRadius:1}}/>)}</div>,label:"Equalizer",desc:"Bar chart on player profiles. Purple = trait scores, teal = measurables. A visual fingerprint at a glance."},
+          {el:<svg width={28} height={28} viewBox="0 0 28 28"><polygon points="14,3 25,9 23,22 5,22 3,9" fill="rgba(168,85,247,0.12)" stroke="#a855f7" strokeWidth={1.2}/><polygon points="14,6 21,14 18,22 10,22 7,14" fill="rgba(13,148,136,0.12)" stroke="#0d9488" strokeWidth={1.2}/></svg>,label:"Spider Chart",desc:"Radar chart on player profiles. Purple polygon = traits, teal polygon = measurables. Shows the shape of strengths and weaknesses."},
+        ].map(({el,label,desc})=><div key={label} style={{display:"flex",alignItems:"center",gap:10}}>
+          <div style={{flexShrink:0,width:50,display:"flex",justifyContent:"center"}}>{el}</div>
+          <span style={{fontFamily:sans,fontSize:12,color:"#525252"}}><strong>{label}</strong> — {desc}</span>
+        </div>)}
+      </div>
+
+      <div id="g-traits" style={{marginTop:28}}/>
+      <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>scouting traits</div>
+      <p style={{fontFamily:sans,fontSize:12,color:"#737373",marginBottom:12,lineHeight:1.6}}>1-100 grades for each skill area at every position. Emoji badges appear when a prospect ranks in the 90th percentile.</p>
+      <div style={{display:"flex",flexWrap:"wrap",gap:4,marginBottom:28}}>{Object.entries(TRAIT_EMOJI).filter(([t])=>!["Leg Strength","Consistency","Clutch","Directional Control","Hang Time"].includes(t)).map(([trait,emoji])=><span key={trait} title={trait} style={{fontFamily:mono,fontSize:9,color:"#525252",background:"#f5f5f5",padding:"3px 8px",borderRadius:99,display:"inline-flex",alignItems:"center",gap:3}}>{emoji} {TRAIT_SHORT[trait]||trait}</span>)}</div>
+
+      <div id="g-measurables" style={{marginTop:28}}/>
+      <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>combine measurables</div>
+      <p style={{fontFamily:sans,fontSize:12,color:"#737373",marginBottom:12,lineHeight:1.6}}>Athletic testing from the NFL Combine and pro days. Shown as position percentiles.</p>
+      <div style={{display:"flex",flexWrap:"wrap",gap:4,marginBottom:28}}>{Object.entries(MEASURABLE_EMOJI).map(([code,emoji])=><span key={code} title={MEASURABLE_SHORT[code]||code} style={{fontFamily:mono,fontSize:9,color:"#525252",background:"#f5f5f5",padding:"3px 8px",borderRadius:99,display:"inline-flex",alignItems:"center",gap:3}}>{emoji} {MEASURABLE_SHORT[code]||code}</span>)}</div>
+
+      <div id="g-positions" style={{marginTop:28}}/>
+      <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>position groups</div>
+      <div style={{display:"flex",flexWrap:"wrap",gap:4,marginBottom:28}}>{POSITION_GROUPS.map(pos=><span key={pos} style={{fontFamily:mono,fontSize:10,fontWeight:700,color:POS_COLORS[pos],background:POS_COLORS[pos]+"11",border:`1px solid ${POS_COLORS[pos]}33`,padding:"4px 12px",borderRadius:99}}>{POS_EMOJI[pos]} {pos}</span>)}</div>
+
+      <div id="g-depth" style={{marginTop:28}}/>
+      <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8}}>depth chart & formation</div>
+      <p style={{fontFamily:sans,fontSize:12,color:"#737373",marginBottom:12,lineHeight:1.6}}>During mock drafts, every pick slots into the team's real depth chart. The formation view shows starters as dots in their on-field positions.</p>
+      <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:20}}>
+        {[
+          {el:<svg width={20} height={20}><circle cx={10} cy={10} r={6} fill="#d4d4d4" stroke="#a3a3a3" strokeWidth={0.5}/></svg>,label:"Empty slot",desc:"No current starter at this position."},
+          {el:<svg width={20} height={20}><circle cx={10} cy={10} r={6} fill="#a8a29e" stroke="#a8a29e" strokeWidth={0.5}/></svg>,label:"Rostered player",desc:"A current NFL player filling this depth chart slot."},
+          {el:<svg width={20} height={20}><circle cx={10} cy={10} r={6} fill="#7c3aed" stroke="#7c3aed" strokeWidth={1}/><polygon transform="translate(10,10)" points="0,-3 0.7,-1 2.8,-0.9 1.1,0.4 1.7,2.4 0,1.2 -1.7,2.4 -1.1,0.4 -2.8,-0.9 -0.7,-1" fill="white"/></svg>,label:"Drafted player",desc:"A prospect you just drafted, shown with a purple dot and star."},
+          {el:<svg width={20} height={20}><circle cx={10} cy={10} r={5} fill="none" stroke="#f97316" strokeWidth={1}/><circle cx={10} cy={10} r={3} fill="#a8a29e"/></svg>,label:"Free agent acquisition",desc:"Player with an orange ring was signed or traded for this offseason."},
+          {el:<div style={{display:"flex",gap:2}}><div style={{width:6,height:6,borderRadius:3,background:"#6d28d9"}}/><div style={{width:6,height:6,borderRadius:3,background:"#8b5cf6"}}/><div style={{width:6,height:6,borderRadius:3,background:"#a78bfa"}}/><div style={{width:6,height:6,borderRadius:3,background:"#78716c"}}/><div style={{width:6,height:6,borderRadius:3,background:"#d6d3d1"}}/></div>,label:"Performance tier dots",desc:"Purple-scale dots next to depth chart names indicating player caliber. Dark purple = elite, medium = pro bowl, light = quality starter, gray = starter/rotational, faded = backup."},
+        ].map(({el,label,desc})=><div key={label} style={{display:"flex",alignItems:"center",gap:10}}>
+          <div style={{flexShrink:0,width:50,display:"flex",justifyContent:"center"}}>{el}</div>
+          <span style={{fontFamily:sans,fontSize:12,color:"#525252"}}><strong>{label}</strong> — {desc}</span>
+        </div>)}
+      </div>
+      <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:8,marginTop:20}}>defensive schemes</div>
+      <div style={{display:"flex",flexDirection:"column",gap:6,marginBottom:28}}>
+        <div style={{fontFamily:sans,fontSize:12,color:"#525252"}}><strong>3-4</strong> — Three down linemen, four linebackers. OLBs rush the edge.</div>
+        <div style={{fontFamily:sans,fontSize:12,color:"#525252"}}><strong>4-3</strong> — Four down linemen, three linebackers. DEs rush the edge.</div>
+        <div style={{fontFamily:sans,fontSize:12,color:"#525252"}}><strong>4-2-5 / Wide 9</strong> — Nickel-heavy with five defensive backs. Modern passing-game defense.</div>
       </div>
     </div>
 
@@ -7972,40 +8112,178 @@ export default function App(){
 
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
   if(showGuide)return<GuidePage onBack={()=>{window.history.back();}}/>;
-  if(showGlossary)return(
-    <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:"'DM Sans',sans-serif"}}>
-      <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}>
-        <div style={{display:"flex",alignItems:"center",gap:8}}>
-          <img src="/logo.png" alt="" style={{height:20}}/>
-          <span style={{fontFamily:"'DM Serif Display',serif",fontSize:16,fontWeight:900,color:"#171717"}}>glossary</span>
-        </div>
-        <button onClick={()=>window.history.back()} style={{fontFamily:"'DM Sans',sans-serif",fontSize:11,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 12px",cursor:"pointer"}}>← back</button>
-      </div>
-      <div style={{maxWidth:700,margin:"0 auto",padding:"60px 20px 80px"}}>
-        <h1 style={{fontFamily:"'DM Serif Display',serif",fontSize:28,fontWeight:900,color:"#171717",marginBottom:4}}>Emoji Glossary</h1>
-        <p style={{fontFamily:"'DM Sans',sans-serif",fontSize:13,color:"#a3a3a3",marginBottom:32}}>Every archetype used across Big Board Lab — what they mean and how to read them.</p>
-        {[
-          {pos:"QB",items:[["🗽","Pocket Passer","Classic drop-back passer. Wins from the pocket with arm talent and processing."],["🎭","Dual-Threat","Genuine running ability combined with passing. Creates with legs and arm."],["👔","Game Manager","High-floor, smart decision-maker. Limits turnovers, moves the chains."],["🔫","Gunslinger","Big arm, aggressive mentality. Makes throws others won't attempt."]]},
-          {pos:"RB",items:[["🐗","Power Back","Wins between the tackles with physicality, contact balance, and leg drive."],["🏁","Speed Back","Home-run threat. Explosive long speed, takes it to the house."],["🪃","Receiving Back","Pass-catching weapon out of the backfield. Routes, screens, dual-threat."],["♠️","All-Purpose / Three-Down","Does everything well. No glaring weakness. Stays on the field all three downs."]]},
-          {pos:"WR",items:[["🍿","X / Boundary","Plays outside. Wins at the catch point, beats press, works the sideline."],["🎰","Slot","Works inside. Quick-twitch, route craft, finds soft spots in zone."],["🐆","Deep Threat","Vertical specialist. Speed is the defining trait. Stretches the field."],["🛟","Possession","Reliable hands, chain-mover. The QB's security blanket."],["🦇","YAC Weapon","Dangerous after the catch. Turns short throws into big gains."]]},
-          {pos:"TE",items:[["🐏","Y / Inline","Traditional tight end. Blocks first, attached to the formation."],["🏄","F / Move","Flexes out, lines up in slot, motions. More receiver than blocker."],["🎣","Receiving TE","Primary weapon in the passing game. Targeted as a matchup piece."],["🧰","H-Back / Versatile","Does multiple things. Blocks, catches, lines up everywhere."]]},
-          {pos:"OT",items:[["🚧","Pass Protector","Elite in pass protection. Footwork, mirror ability, anchor."],["🦣","Road Grader","Dominant run blocker. Moves people. Physical finisher."],["🦑","Athletic Tackle","Wins with movement skills. Excels in zone schemes."]]},
-          {pos:"IOL",items:[["↔️","Zone Scheme","Light-footed, reach blocks. Built for outside zone concepts."],["⬆️","Gap / Power Scheme","Anchor, drive blocks, pulls. Built for man/gap concepts."],["🔄","Versatile","Plays multiple interior spots. Guard-center flexibility."]]},
-          {pos:"EDGE",items:[["🌪️","Speed Rusher","Wins with first step, bend, and closing speed. Gets around the corner."],["🦏","Power Rusher","Wins with bull rush, long arms, and strength at the point of attack."],["🐉","Versatile / Complete","Has both speed and power moves. Full pass-rush repertoire."],["🦍","Run Defender","Primary value is setting the edge and stopping the run."]]},
-          {pos:"DL",items:[["🦡","Penetrating 3-Tech","Quick first step, gets into the backfield. Interior pass-rush threat."],["🐘","Nose Tackle","Anchors the middle. Eats blocks, frees up linebackers. Space-eater."],["🐊","Two-Gap","Holds the point of attack and controls two gaps."]]},
-          {pos:"LB",items:[["☂️","Coverage LB","Ranges in space, mirrors backs and tight ends, drops into zones."],["🔨","Thumper / Run Stuffer","Downhill, physical, fills gaps. Old-school thumper."],["🦈","Pass Rusher","Blitzes effectively. Interior or edge blitz threat from LB."],["🐺","Sideline-to-Sideline","Elite range and athleticism. Gets to the ball from anywhere."],["👽","Hybrid / Chess Piece","Defies classification. Part safety, part edge, part LB."]]},
-          {pos:"CB",items:[["🧟","Press Man","Physical at the line. Jams receivers, mirrors in man coverage."],["🕸️","Zone Corner","Reads the QB's eyes, breaks on the ball. Pattern-matching and instincts."],["🦎","Slot","Works inside. Handles quick receivers and tight ends in the slot."]]},
-          {pos:"S",items:[["🦂","Box Safety","Plays near the line. Physical tackler, run support, blitzer."],["🛸","Center Field","Ranges deep. Ball hawk. Covers ground sideline to sideline."],["🎲","Hybrid","Plays multiple roles. Lines up at LB, slot, deep. Versatile chess piece."]]},
-        ].map(({pos,items})=><div key={pos} style={{marginBottom:28}}>
-          <div style={{fontFamily:"'SF Mono',monospace",fontSize:11,fontWeight:700,letterSpacing:2,color:POS_COLORS[pos]||"#525252",textTransform:"uppercase",marginBottom:10,paddingBottom:6,borderBottom:"1px solid #f0f0f0"}}>{pos}</div>
-          {items.map(([emoji,label,desc])=><div key={label} style={{display:"flex",alignItems:"flex-start",gap:10,marginBottom:10}}>
-            <span style={{fontSize:20,flexShrink:0,width:28,textAlign:"center"}}>{emoji}</span>
-            <div><div style={{fontFamily:"'DM Sans',sans-serif",fontSize:13,fontWeight:700,color:"#171717"}}>{label}</div><div style={{fontFamily:"'DM Sans',sans-serif",fontSize:12,color:"#737373",lineHeight:1.5}}>{desc}</div></div>
-          </div>)}
+  if(showGlossary){
+    const glossSec=(title,subtitle,items)=><div style={{marginBottom:36}}>
+      <div style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",marginBottom:2}}>{title}</div>
+      {subtitle&&<div style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",marginBottom:12}}>{subtitle}</div>}
+      <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:14,overflow:"hidden"}}>
+        {items.map(([emoji,label,desc],i)=><div key={label} style={{display:"flex",alignItems:"flex-start",gap:10,padding:"10px 14px",borderBottom:i<items.length-1?"1px solid #f5f5f5":"none"}}>
+          <span style={{fontSize:18,flexShrink:0,width:24,textAlign:"center",marginTop:1}}>{emoji}</span>
+          <div style={{flex:1,minWidth:0}}><div style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>{label}</div><div style={{fontFamily:sans,fontSize:12,color:"#737373",lineHeight:1.5}}>{desc}</div></div>
         </div>)}
       </div>
+    </div>;
+    const glossNav=[{id:"archetypes",label:"Archetypes"},{id:"traits",label:"Traits"},{id:"measurables",label:"Measurables"},{id:"ui",label:"UI & Tools"},{id:"positions",label:"Positions"},{id:"depth",label:"Depth Chart"}];
+    return(
+    <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:sans}}>
+      <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 16px",background:"#fff",borderBottom:"1px solid #f0f0f0"}}>
+        <div style={{display:"flex",alignItems:"center",gap:8,cursor:"pointer"}} onClick={()=>window.history.back()}>
+          <img src="/logo.png" alt="" style={{height:20}}/>
+          <span style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717"}}>glossary</span>
+        </div>
+        <button onClick={()=>window.history.back()} style={{fontFamily:sans,fontSize:11,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 12px",cursor:"pointer"}}>← back</button>
+      </div>
+      <div style={{maxWidth:700,margin:"0 auto",padding:"60px 20px 80px"}}>
+        <h1 style={{fontFamily:font,fontSize:28,fontWeight:900,color:"#171717",marginBottom:4}}>Glossary</h1>
+        <p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",marginBottom:16}}>Everything you see on Big Board Lab — what it means and how to read it.</p>
+        <div className="trait-pills-scroll" style={{display:"flex",gap:5,marginBottom:32,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",paddingBottom:4}}>
+          {glossNav.map(n=><a key={n.id} href={"#"+n.id} style={{fontFamily:mono,fontSize:10,padding:"5px 12px",background:"#171717",color:"#faf9f6",borderRadius:99,textDecoration:"none",whiteSpace:"nowrap",flexShrink:0}}>{n.label}</a>)}
+        </div>
+
+        <div id="archetypes"/>
+        <div style={{fontFamily:mono,fontSize:10,letterSpacing:2,color:"#a3a3a3",textTransform:"uppercase",marginBottom:16}}>player archetypes</div>
+        <p style={{fontFamily:sans,fontSize:12,color:"#737373",marginBottom:20,lineHeight:1.6}}>Archetypes describe what kind of player a prospect is — how scouts and GMs categorize them within a position. A player can have multiple archetypes. These appear as dark pills on the available player list and on scouting reports.</p>
+        {[
+          {pos:"QB",items:[["🗽","Pocket Passer","Classic drop-back passer. Wins from the pocket with arm talent, processing, and anticipation."],["🎭","Dual-Threat","Genuine running ability combined with passing. Creates with legs when the pocket breaks down."],["👔","Game Manager","High-floor, smart decision-maker. Limits turnovers, moves the chains, won't lose you the game."],["🔫","Gunslinger","Big arm, aggressive mentality. Makes throws others won't attempt. High reward, higher risk."]]},
+          {pos:"RB",items:[["🐗","Power Back","Wins between the tackles with physicality, contact balance, and leg drive. Punishes defenders."],["🏁","Speed Back","Home-run threat. Explosive long speed, takes it to the house from anywhere on the field."],["🪃","Receiving Back","Pass-catching weapon out of the backfield. Runs routes, works in screens, dual-threat in the passing game."],["♠️","All-Purpose","Does everything well. No glaring weakness. Can stay on the field for all three downs."]]},
+          {pos:"WR",items:[["🍿","Boundary / X","Plays outside. Wins at the catch point, beats press coverage, works the sideline. Typically bigger-framed."],["🎰","Slot","Works from the inside. Quick-twitch, route craft, finds soft spots in zone coverage."],["🐆","Deep Threat","Vertical specialist. Speed is the defining trait. Stretches the field and forces safety help over the top."],["🛟","Possession","Reliable hands, chain-mover. Catches everything thrown his way. The quarterback's security blanket."],["🦇","YAC Weapon","Dangerous after the catch. Turns short throws into big gains with elusiveness and open-field ability."]]},
+          {pos:"TE",items:[["🐏","Inline / Y","Traditional tight end. Blocks first, receives second. Lines up attached to the formation."],["🏄","Move / F","Flexes out, lines up in the slot, motions across the formation. More receiver than blocker."],["🎣","Receiving TE","Primary threat in the passing game. Targeted as a matchup weapon against linebackers and safeties."],["🧰","H-Back","Does multiple things — blocks, catches, lines up everywhere. Swiss army knife."]]},
+          {pos:"OT",items:[["🚧","Pass Protector","Elite in pass protection. Footwork, mirror ability, and anchor. Built to protect the quarterback."],["🦣","Road Grader","Dominant run blocker. Moves people at the point of attack. Physical finisher."],["🦑","Athletic Tackle","Wins with movement skills. Lateral agility, reach blocks. Excels in zone schemes."]]},
+          {pos:"IOL",items:[["↔️","Zone Scheme","Light-footed, reach blocks, works at angles. Built for outside zone and wide zone concepts."],["⬆️","Gap / Power","Anchor, drive blocks, pulls. Built for man/gap concepts and downhill running."],["🔄","Versatile","Can play multiple interior spots. Guard-center flexibility. Scheme-adaptable."]]},
+          {pos:"EDGE",items:[["🌪️","Speed Rusher","Wins with first step, bend, and closing speed. Gets around the corner and finishes at the quarterback."],["🦏","Power Rusher","Wins with bull rush, long arms, and strength at the point of attack. Collapses the pocket."],["🐉","Complete","Has both speed and power moves. Full pass-rush repertoire. The total package."],["🦍","Run Defender","Primary value is setting the edge and stopping the run. Disciplined and physical."]]},
+          {pos:"DL",items:[["🦡","Penetrating 3-Tech","Quick first step, gets into the backfield. Interior pass-rush threat who disrupts from the inside."],["🐘","Nose Tackle","Anchors the middle. Eats double teams, frees up linebackers. Space-eater."],["🐊","Two-Gap","Holds the point of attack and controls two gaps. Versatile run defender."]]},
+          {pos:"LB",items:[["☂️","Coverage","Ranges in space, mirrors running backs and tight ends, drops into zones effectively."],["🔨","Thumper","Downhill, physical, fills gaps, stacks and sheds blocks. Old-school run stuffer."],["🦈","Pass Rusher","Blitzes effectively. Edge-setting or interior blitz threat from the linebacker position."],["🐺","Sideline-to-Sideline","Elite range and athleticism. Gets to the ball from anywhere on the field."],["👽","Chess Piece","Defies traditional linebacker classification. Part safety, part edge, part LB. Used creatively by defensive coordinators."]]},
+          {pos:"CB",items:[["🧟","Press Man","Physical at the line of scrimmage. Jams receivers, mirrors in man coverage. Built for man-heavy schemes."],["🕸️","Zone Corner","Reads the quarterback's eyes, breaks on the ball, patrols areas. Pattern-matching and instincts."],["🦎","Slot","Works inside. Handles quick slot receivers and tight ends. May play some safety."]]},
+          {pos:"S",items:[["🦂","Box Safety","Plays near the line of scrimmage. Physical tackler, run support, blitzer. An extra defender in the box."],["🛸","Center Field","Ranges deep. Ball hawk. Covers ground sideline to sideline from the back end."],["🎲","Hybrid","Plays multiple roles. Lines up at linebacker, slot, deep safety. A versatile chess piece."]]},
+        ].map(({pos,items})=><div key={pos} style={{marginBottom:20}}>
+          <div style={{fontFamily:mono,fontSize:10,fontWeight:700,letterSpacing:2,color:POS_COLORS[pos]||"#525252",textTransform:"uppercase",marginBottom:8}}>{POS_EMOJI[pos]||""} {pos}</div>
+          <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:12,overflow:"hidden"}}>
+            {items.map(([emoji,label,desc],i)=><div key={label} style={{display:"flex",alignItems:"flex-start",gap:10,padding:"10px 14px",borderBottom:i<items.length-1?"1px solid #f5f5f5":"none"}}>
+              <span style={{fontSize:18,flexShrink:0,width:24,textAlign:"center",marginTop:1}}>{emoji}</span>
+              <div><span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>{label}</span><span style={{fontFamily:sans,fontSize:12,color:"#737373",marginLeft:6}}> — {desc}</span></div>
+            </div>)}
+          </div>
+        </div>)}
+
+        <div id="traits" style={{marginTop:40}}/>
+        {glossSec("Scouting Traits","Trait grades are 1-100 scores for each skill area at every position. Emoji badges appear next to prospect names when they rank in the 90th percentile.",[
+          ["💪","Arm Strength","Raw throwing power. Ability to drive the ball into tight windows and push it downfield."],
+          ["🎯","Accuracy","Ball placement and precision. Hitting receivers in stride at every level of the field."],
+          ["🧊","Pocket Presence","Composure and awareness under pressure. Feeling the rush without seeing it."],
+          ["🏃","Mobility","Ability to move, scramble, and create outside the pocket."],
+          ["🧠","Decision Making","Processing speed, reading coverage, going through progressions."],
+          ["👑","Leadership","Intangibles. Commanding the huddle, competitive fire, elevating teammates."],
+          ["👁️","Vision","Seeing the field. Finding creases, reading blocks, anticipating lanes."],
+          ["⚖️","Contact Balance","Staying upright through contact. Yards after first hit."],
+          ["🦬","Power","Physical strength at the point of contact. Breaking tackles, driving piles."],
+          ["💨","Elusiveness","Making defenders miss in space. Lateral agility and change of direction."],
+          ["✂️","Route Running","Precision, tempo, and craft in running routes. Manipulating defenders."],
+          ["👻","Separation","Creating space from defensive backs at every level of the route."],
+          ["🤲","Hands","Catch reliability. Plucking the ball, hands away from the body, no drops."],
+          ["🔥","YAC Ability","Yards after catch. What a player does with the ball once they have it."],
+          ["🏎️","Speed","Straight-line speed. Ability to run past coverage or chase down ball carriers."],
+          ["🏈","Contested Catches","Winning 50/50 balls. High-pointing, body control, strength at the catch point."],
+          ["🪽","Release Package","Getting off the line of scrimmage. Beating press coverage at the snap."],
+          ["🛡️","Pass Protection","Keeping the quarterback clean. Technique, positioning, and anchor in pass sets."],
+          ["🚜","Run Blocking","Moving defenders in the run game. Drive blocks, reach blocks, second level."],
+          ["👟","Footwork","Technique and precision with the feet. Kick slides, lateral movement, balance."],
+          ["⚓","Anchor","Holding the point of attack against power. Not giving ground."],
+          ["🏋️","Strength","Raw physical strength. Bench press, functional power, play strength."],
+          ["🚂","Pulling","Pulling across the formation on run plays. Getting to the second level."],
+          ["🃏","Versatility","Ability to play multiple positions or roles. Scheme flexibility."],
+          ["🚀","Pass Rush","Ability to get to the quarterback. Moves, counters, finishing."],
+          ["🐍","Bend","Flexibility to flatten around the edge. Dip and rip, cornering ability."],
+          ["⚡","First Step","Explosiveness off the snap. The initial burst that puts blockers on their heels."],
+          ["🤚","Hand Usage","Technical hand fighting. Swipes, clubs, rips, and placement."],
+          ["🔥","Motor","Effort and hustle. Playing hard every snap, chasing plays from behind."],
+          ["🧱","Run Defense","Stopping the run. Gap integrity, edge setting, point of attack strength."],
+          ["💥","Tackling","Finishing plays. Wrapping up, driving through ball carriers, reliability."],
+          ["🪂","Coverage","Dropping into coverage from the linebacker position. Matching routes, zone discipline."],
+          ["💡","Instincts","Football IQ in action. Anticipation, diagnosis, being in the right place."],
+          ["📡","Range","Sideline-to-sideline pursuit. Closing speed and ability to cover ground."],
+          ["🧲","Ball Skills","Tracking and catching the ball in the air. Interceptions, deflections, ball-hawking."],
+          ["🔒","Man Coverage","Locking up receivers one-on-one. Mirroring, hip fluidity, staying in phase."],
+          ["🗺️","Zone Coverage","Reading the quarterback's eyes and breaking on the ball from zone. Pattern recognition."],
+          ["✋","Press","Disrupting receivers at the line of scrimmage. Physical jamming and re-routing."],
+          ["🪙","Nickel","Slot coverage ability. Handling quick, shifty receivers in the middle of the field."],
+          ["🪓","Block Shedding","Getting off blocks to make plays. Hands, leverage, and violence at the point."],
+          ["🔮","Pre-Snap Diagnosis","Reading the offense before the snap. Identifying formations, motions, and tendencies."],
+        ])}
+
+        <div id="measurables" style={{marginTop:40}}/>
+        {glossSec("Combine & Pro Day Measurables","Athletic testing data from the NFL Combine and college pro days. Displayed as percentiles relative to the prospect's position group.",[
+          ["🔫","40-Yard Dash","Straight-line speed over 40 yards. The signature combine event."],
+          ["🦘","Vertical Jump","Standing vertical leap. Measures lower-body explosiveness."],
+          ["🏔️","Broad Jump","Standing long jump. Another measure of lower-body power and explosion."],
+          ["🔻","3-Cone Drill","Agility and change-of-direction in a tight space. L-shaped cone drill."],
+          ["♻️","Shuttle","20-yard shuttle. Lateral quickness and change-of-direction ability."],
+          ["📏","Height","Listed height in cleats at the combine."],
+          ["🪨","Weight","Listed weight at the combine."],
+          ["🦾","Arm Length","Length from shoulder to fingertip. Critical for offensive and defensive linemen."],
+          ["🖐️","Hand Size","Measured hand span. Important for ball security and hand fighting."],
+          ["🪽","Wingspan","Fingertip to fingertip. Total length measurement."],
+          ["🏅","Athletic Score","Composite athletic score blending all drills. Position-adjusted."],
+          ["🛩️","Speed Score","Size-adjusted speed metric. Heavier players with fast 40s score higher."],
+          ["🐇","Agility Score","Composite of 3-cone and shuttle. Change-of-direction ability."],
+          ["🌋","Explosion Score","Composite of vertical and broad jump. Lower-body power."],
+        ])}
+
+        <div id="ui" style={{marginTop:40}}/>
+        <div style={{marginBottom:36}}>
+          <div style={{fontFamily:font,fontSize:20,fontWeight:900,color:"#171717",marginBottom:2}}>UI & Tools</div>
+          <div style={{fontFamily:sans,fontSize:12,color:"#a3a3a3",marginBottom:12}}>Features, indicators, and tools you'll see across Big Board Lab.</div>
+          <div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:14,overflow:"hidden"}}>
+            {[
+              {el:<div style={{width:40,height:22,borderRadius:11,background:"linear-gradient(135deg,#4f46e5,#7c3aed,#a855f7)",position:"relative",flexShrink:0}}><div style={{width:16,height:16,borderRadius:8,background:"#fff",position:"absolute",top:3,left:21,display:"flex",alignItems:"center",justifyContent:"center"}}><span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#6366f1"}}>SV</span></div></div>,label:"Scout Vision",desc:"Toggle that reorders the available player list by scheme fit for the team on the clock. Shows how well each prospect fits that team's offensive or defensive system."},
+              {el:<div style={{display:"flex",gap:1,alignItems:"flex-end"}}>{[70,85,60,90,75].map((v,i)=><div key={i} style={{width:4,height:v/5,background:i<3?"#a855f7":"#0d9488",borderRadius:1}}/>)}</div>,label:"Equalizer",desc:"The bar chart on player profiles showing trait scores (purple) and measurable scores (teal) side by side. A quick visual fingerprint of a prospect's profile."},
+              {el:<svg width={28} height={28} viewBox="0 0 28 28"><polygon points="14,2 26,10 22,24 6,24 2,10" fill="rgba(168,85,247,0.15)" stroke="#a855f7" strokeWidth={1.5}/></svg>,label:"Spider Chart",desc:"The radar/polygon chart on player profiles. Traits on the left, measurables on the right. Shows the shape of a prospect's strengths and weaknesses."},
+              {el:<span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#fff",background:"linear-gradient(135deg,#6366f1,#a855f7)",padding:"2px 6px",borderRadius:4}}>82</span>,label:"Scheme Fit Score",desc:"A 0-100 score measuring how well a prospect fits a specific team's scheme. Appears in Scout Vision mode. Higher = better fit."},
+              {el:<span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#16a34a",background:"#dcfce7",padding:"2px 6px",borderRadius:4,border:"1px solid rgba(34,197,94,0.2)"}}>RD 1</span>,label:"Round Pill",desc:"Projected draft round based on consensus rank. Green = Round 1, yellow = Round 2, orange = Round 3+."},
+              {el:<span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#a855f7",background:"rgba(168,85,247,0.08)",padding:"2px 5px",borderRadius:3}}>🔄 TRD</span>,label:"Trade Pill",desc:"Purple indicator on picks in the mock draft. Hover to see the full trade details — who traded what to whom."},
+              {el:<span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#16a34a",background:"rgba(34,197,94,0.08)",padding:"2px 5px",borderRadius:3,border:"1px solid rgba(34,197,94,0.15)"}}>NEED</span>,label:"Need Pill",desc:"Appears next to available players when the team on the clock has that position as a draft need."},
+              {el:<span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#dc2626",background:"rgba(239,68,68,0.08)",padding:"2px 5px",borderRadius:3,border:"1px solid rgba(239,68,68,0.15)"}}>RIVAL</span>,label:"Rival Pill",desc:"A divisional rival picks in the next few slots and might take this player before you."},
+              {el:<span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#ca8a04",background:"rgba(234,179,8,0.08)",padding:"2px 5px",borderRadius:3,border:"1px solid rgba(234,179,8,0.15)"}}>SLIDE</span>,label:"Slide Pill",desc:"This prospect has fallen significantly past their consensus rank. Potential value pick."},
+              {el:<span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:"#0891b2",background:"rgba(8,145,178,0.08)",padding:"2px 5px",borderRadius:3,border:"1px solid rgba(8,145,178,0.15)"}}>FIT</span>,label:"Scheme Fit Pill",desc:"This prospect scores above the scheme fit threshold for the team on the clock. Visible when Scout Vision is on."},
+              {el:<span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:"#f97316",background:"rgba(249,115,22,0.08)",padding:"2px 6px",borderRadius:99}}>FA</span>,label:"Free Agent Pill",desc:"Orange tag on depth chart players who were acquired in free agency or via trade this offseason."},
+              {el:<span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#171717",background:"#17171708",border:"1px solid #17171718",padding:"3px 8px",borderRadius:99,display:"inline-flex",alignItems:"center",gap:3}}><span>🌪️</span>Speed Rusher</span>,label:"Archetype Pill",desc:"Dark pills showing a prospect's archetype classification. Appear on scouting reports and in the available player list when archetype filters are active."},
+              {el:<span style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#171717"}}>87</span>,label:"Overall Grade",desc:"Your personal grade for a prospect, computed from the trait scores you've set or accepted. Reflects your evaluation, not consensus."},
+            ].map(({el,label,desc},i)=><div key={label} style={{display:"flex",alignItems:"flex-start",gap:12,padding:"12px 14px",borderBottom:i<11?"1px solid #f5f5f5":"none"}}>
+              <div style={{flexShrink:0,width:40,display:"flex",alignItems:"center",justifyContent:"center",marginTop:2}}>{el}</div>
+              <div style={{flex:1,minWidth:0}}><span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:"#171717"}}>{label}</span><span style={{fontFamily:sans,fontSize:12,color:"#737373",marginLeft:6}}> — {desc}</span></div>
+            </div>)}
+          </div>
+        </div>
+
+        <div id="positions" style={{marginTop:40}}/>
+        {glossSec("Position Groups","How Big Board Lab categorizes the 11 position groups.",[
+          ["🎯","QB — Quarterback","The passer. Evaluated on arm talent, processing, mobility, and leadership."],
+          ["🏃","RB — Running Back","Ball carriers. Evaluated on vision, speed, power, and receiving ability."],
+          ["🧤","WR — Wide Receiver","Pass catchers who line up outside or in the slot. Route running, hands, speed."],
+          ["🦾","TE — Tight End","Hybrid players who block and catch. Inline, move, and receiving variants."],
+          ["🛡️","OT — Offensive Tackle","Protect the edges of the offensive line. Pass protection and run blocking."],
+          ["🧱","IOL — Interior O-Line","Guards and centers. Includes C (center) and OG (guard) sub-positions."],
+          ["🌪️","EDGE — Edge Rusher","Pass rushers who line up on the edge. DEs in 4-3, OLBs in 3-4."],
+          ["🦬","DL — Defensive Line","Interior defenders. Includes IDL (interior DL), DT, and NT."],
+          ["💥","LB — Linebacker","Second-level defenders. Coverage, run-stopping, and blitzing."],
+          ["🏝️","CB — Cornerback","Cover the opposing receivers. Man, zone, and slot variants."],
+          ["🦅","S — Safety","Last line of defense. Box, center field, and hybrid variants."],
+        ])}
+
+        <div id="depth" style={{marginTop:40}}/>
+        {glossSec("Depth Chart & Formation","What you see on the team depth chart and formation view during mock drafts.",[
+          ["⚪","Empty Dot","An unfilled roster spot. No current starter at that position on the depth chart."],
+          ["🟤","Filled Dot","A rostered player occupying a depth chart slot. Color indicates performance tier."],
+          ["🟣","Draft Dot (Pulsing)","A player you just drafted, shown with a purple pulse animation on the formation view."],
+          ["⭐","Star Icon","Appears on drafted players in the formation view to distinguish them from existing roster."],
+          ["🏗️","3-4 Defense","Three down linemen, four linebackers. OLBs rush the edge. Used by ~half the NFL."],
+          ["🏟️","4-3 Defense","Four down linemen, three linebackers. DEs rush the edge. Traditional front."],
+          ["🎲","4-2-5 / Wide 9","Nickel-heavy defense with five defensive backs. Modern passing-game defense."],
+        ])}
+
+        <TwitterFooter/>
+      </div>
     </div>
-  );
+  );}
   if(showOG)return<OGPreview/>;
   if(showGmQuiz)return<GmQuiz user={user} NFLTeamLogo={NFLTeamLogo} SchoolLogo={SchoolLogo} trackEvent={trackEvent} userId={user?.id} onLaunchMock={(team)=>{setGmQuizMockLaunch(team);setShowGmQuiz(false);window.history.pushState({},'','/');}} onHome={()=>{setShowGmQuiz(false);window.history.pushState({},'','/');window.dispatchEvent(new PopStateEvent("popstate"));}}/>;
   if(showDraftBracket)return<DraftBracket SchoolLogo={SchoolLogo} onHome={()=>{setShowDraftBracket(false);window.history.pushState({},'','/');window.dispatchEvent(new PopStateEvent("popstate"));}}/>;
