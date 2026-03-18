@@ -2410,10 +2410,10 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
             <div style={{display:"flex",gap:4}}>
               {userPickCount>0&&<button onClick={undo} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:"#fef3c7",color:"#92400e"}}>↩</button>}
 
-              <button onClick={()=>setShowMobilePicks(v=>!v)} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:showMobilePicks?"#171717":"transparent",color:showMobilePicks?"#faf9f6":"#a3a3a3"}}>picks</button>
-              {isUserPick&&<button onClick={openTradeUp} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #a855f7",borderRadius:99,cursor:"pointer",background:"rgba(168,85,247,0.03)",color:"#a855f7"}}>📞</button>}
-              <button onClick={()=>setPaused(!paused)} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:paused?"#fef3c7":"transparent",color:paused?"#92400e":"#a3a3a3"}}>{paused?"▶":"⏸"}</button>
-              <button onClick={onClose} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 8px",cursor:"pointer"}}>✕</button>
+              <button onPointerDown={(e)=>{e.preventDefault();setShowMobilePicks(v=>!v);}} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:showMobilePicks?"#171717":"transparent",color:showMobilePicks?"#faf9f6":"#a3a3a3",touchAction:"manipulation"}}>picks</button>
+              {isUserPick&&<button onPointerDown={(e)=>{e.preventDefault();openTradeUp();}} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #a855f7",borderRadius:99,cursor:"pointer",background:"rgba(168,85,247,0.03)",color:"#a855f7",touchAction:"manipulation"}}>📞</button>}
+              <button onPointerDown={(e)=>{e.preventDefault();setPaused(p=>!p);}} style={{fontFamily:sans,fontSize:10,padding:"4px 8px",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",background:paused?"#fef3c7":"transparent",color:paused?"#92400e":"#a3a3a3",touchAction:"manipulation"}}>{paused?"▶":"⏸"}</button>
+              <button onPointerDown={(e)=>{e.preventDefault();onClose();}} style={{fontFamily:sans,fontSize:10,color:"#a3a3a3",background:"none",border:"1px solid #e5e5e5",borderRadius:99,padding:"4px 8px",cursor:"pointer",touchAction:"manipulation"}}>✕</button>
             </div>
           </div>
           {/* Mobile picks panel — toggled from header */}
