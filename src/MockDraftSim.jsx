@@ -377,8 +377,18 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
   const[tradeOffer,setTradeOffer]=useState(null);
   const[showResults,setShowResults]=useState(false);
   useEffect(()=>{window.scrollTo(0,0);},[setupDone,showResults]);
+  // Auto-generate share image preview when results appear
+  useEffect(()=>{
+    if(!showResults){setSharePreviewUrl(null);return;}
+    if(userTeams.size!==1&&userTeams.size!==32)return;
+    let active=true;
+    shareDraft(true).then(url=>{if(active&&url)setSharePreviewUrl(url);}).catch(()=>{});
+    return()=>{active=false;};
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[showResults]);
   const[showMyGuysOverlay,setShowMyGuysOverlay]=useState(false);
   const[copiedDraft,setCopiedDraft]=useState(false);
+  const[sharePreviewUrl,setSharePreviewUrl]=useState(null);
   const[lastVerdict,setLastVerdict]=useState(null);
   const[tradeMap,setTradeMap]=useState({});
   const[showTradeUp,setShowTradeUp]=useState(false);
@@ -1396,7 +1406,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
   const resultsRef=useRef(null);
   const ctaPickRef=useRef(null);
 
-  const shareDraft=useCallback(async()=>{
+  const shareDraft=useCallback(async(previewOnly=false)=>{
     const up=picks.filter(pk=>pk.isUser);
     if(up.length===0)return;
     const isSingleTeam=userTeams.size===1;
@@ -1830,7 +1840,15 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       }
     }
 
-    // === EXPORT — preview mode returns data URL, otherwise clipboard/share ===
+    // === EXPORT — preview mode returns blob URL, otherwise clipboard/share ===
+    if(previewOnly){
+      return new Promise(resolve=>{
+        canvas.toBlob(blob=>{
+          if(!blob){resolve(null);return;}
+          resolve(URL.createObjectURL(blob));
+        },'image/png');
+      });
+    }
     const label=isSingleTeam?team:'mock-draft';
     canvas.toBlob(async blob=>{
       if(trackEvent)trackEvent(userId,'share_triggered',{type:isAllTeams?'mock_all32':'mock_single',team:[...userTeams].join(','),grade:draftGrade?.grade||null,guest:!!isGuestUser});
@@ -2037,8 +2055,23 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
             {tradeValueDelta!==0&&<div style={{fontFamily:mono,fontSize:10,color:tradeValueDelta>0?"#16a34a":"#dc2626",marginTop:4}}>trade surplus: {tradeValueDelta>0?"+":""}{tradeValueDelta} pts</div>}
           </div>}
           {userTeams.size===32&&<div style={{fontFamily:mono,fontSize:11,color:"#a3a3a3",marginBottom:24,letterSpacing:1}}>2026 NFL DRAFT · FIRST ROUND PREDICTIONS</div>}
+          {(userTeams.size===1||userTeams.size===32)&&<div style={{background:"#fff",border:"1px solid #e5e5e5",borderRadius:16,padding:"16px 20px",marginBottom:24,display:"flex",alignItems:"center",gap:16,textAlign:"left"}}>
+            <div onClick={()=>shareDraft()} style={{width:80,height:116,borderRadius:8,overflow:"hidden",flexShrink:0,background:"#f5f5f5",cursor:"pointer"}}>
+              {sharePreviewUrl
+                ?<img src={sharePreviewUrl} style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"top"}} alt=""/>
+                :<div style={{width:"100%",height:"100%",background:"linear-gradient(90deg,#f0ede8 0%,#e8e5e0 50%,#f0ede8 100%)"}}/>}
+            </div>
+            <div style={{flex:1}}>
+              <div style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#171717",marginBottom:6}}>Share your draft</div>
+              <div style={{fontFamily:sans,fontSize:13,color:"#737373",lineHeight:1.5}}>Show everyone your picks and make them defend theirs.</div>
+            </div>
+            <button onClick={()=>shareDraft()} style={{fontFamily:sans,fontSize:14,fontWeight:700,padding:"12px 28px",background:"#171717",color:"#fff",border:"none",borderRadius:99,cursor:"pointer",flexShrink:0,whiteSpace:"nowrap",position:"relative"}}>
+              <span style={{visibility:copiedDraft?"hidden":"visible"}}><span className="shimmer-text">share results</span></span>
+              {copiedDraft&&<span style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",fontWeight:400,fontSize:13}}>copied ✓</span>}
+            </button>
+          </div>}
           <div style={{display:"flex",gap:8,justifyContent:"center",marginBottom:24}}>
-            {(userTeams.size===1||userTeams.size===32)&&<button onClick={shareDraft} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 24px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",position:"relative"}}><span style={{visibility:copiedDraft?"hidden":"visible"}}><span className="shimmer-text">share results</span></span>{copiedDraft&&<span style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#a3a3a3",fontWeight:400}}>copied</span>}</button>}
+            {(userTeams.size===1||userTeams.size===32)&&<button onClick={()=>shareDraft()} style={{fontFamily:sans,fontSize:13,fontWeight:700,padding:"10px 24px",background:"transparent",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",display:"inline-flex",alignItems:"center",position:"relative"}}><span style={{visibility:copiedDraft?"hidden":"visible"}}><span className="shimmer-text">share results</span></span>{copiedDraft&&<span style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",color:"#a3a3a3",fontWeight:400}}>copied</span>}</button>}
             <button onClick={onClose} style={{fontFamily:sans,fontSize:12,padding:"8px 20px",background:"transparent",color:"#525252",border:"1px solid #e5e5e5",borderRadius:99,cursor:"pointer"}}>draft again</button>
             {myGuys&&<button onClick={()=>{if(isGuest){onRequireAuth("want to see and share the guys you draft more than others?");return;}if(trackEvent)trackEvent(userId,'my_guys_viewed',{count:(myGuys||[]).length});setShowMyGuysOverlay(true);if(setMyGuysUpdated)setMyGuysUpdated(false);}} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"8px 16px",background:myGuysUpdated?"linear-gradient(135deg,#ec4899,#7c3aed)":mockCount>0?"#171717":"transparent",color:myGuysUpdated||mockCount>0?"#fff":"#a3a3a3",border:myGuysUpdated||mockCount>0?"none":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",position:"relative",transition:"all 0.2s"}}>
               👀 my guys
