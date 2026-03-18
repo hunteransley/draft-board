@@ -1415,119 +1415,109 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
 
     if(isSingleTeam){
       // ================================================================
-      // SINGLE TEAM — matching all-32 style picks, inline radar, web-matching depth chart
+      // SINGLE TEAM — portrait, large fonts, equalizer bars, dual radars
       // ================================================================
-      const W=1200,pad=32,colGap=24;
-      const rowH=47; // matching all-32 row height
-      const radarSize=200;
-
-      // Best pick for inline radar expansion
-      const bestPick=teamPicks.reduce((best,pk)=>{const g=activeGrade(pk.playerId);return(!best||g>best.grade)?{pk,grade:g}:best;},null);
-      const radarExpandH=bestPick?radarSize+60:0;
-
-      // Strategy fingerprint pills
+      const W=800,pad=28;
+      const accent=NFL_TEAM_COLORS[team]||'#6366f1';
+      const PURPLE='#7c3aed',TEAL='#0d9488';
       const fpPills=draftFingerprint(teamPicks);
+      const bestPick=teamPicks.reduce((best,pk)=>{const g=activeGrade(pk.playerId);return(!best||g>best.grade)?{pk,grade:g}:best;},null);
+      const bestPlayer=bestPick?prospectsMap[bestPick.pk.playerId]:null;
+      const measBest=bestPlayer&&getMeasRadarData?getMeasRadarData(bestPlayer.name,bestPlayer.school):null;
+      const hasMeas=!!(measBest&&measBest.labels&&measBest.labels.length>0);
 
-      // Depth chart data — matching web UI DepthList (scheme-aware)
-      const chart=depthChart[team]||{};
-      const schemeGroups=getSchemeDepthGroups(team);
-      const baseGroupMap={};
-      DEPTH_GROUPS.forEach(g=>{baseGroupMap[g.posMatch]=g.slots;});
-      const depthGroupsRendered=schemeGroups.map(group=>{
-        const entries=group.slots.map(s=>({slot:s,label:group.slotLabels?.[s]||s,entry:chart[s]})).filter(x=>x.entry);
-        const extras=Object.entries(chart).filter(([k])=>group.slots.some(s=>k.startsWith(s+'_d'))).map(([k,v])=>({slot:k,label:'+',entry:v}));
-        const baseSlots=baseGroupMap[group.posMatch]||[];
-        const hiddenRoster=baseSlots.filter(s=>!group.slots.includes(s)&&chart[s]).map(s=>({slot:s,label:'+',entry:chart[s]}));
-        extras.push(...hiddenRoster);
-        return{label:group.label,items:[...entries,...extras]};
-      }).filter(g=>g.items.length>0);
-      const depthRowH=18;
-      const depthGroupGap=10;
-      const depthRowCount=depthGroupsRendered.reduce((s,g)=>s+g.items.length,0);
-      const depthTotalH=depthRowCount*depthRowH+depthGroupsRendered.length*depthGroupGap+24;
-
-      // Picks container height
-      const picksTotalH=teamPicks.length*rowH+radarExpandH;
-
-      // Strategy pills row
-      const strategyH=fpPills.length>0?36:0;
-
-      const headerH=76;
-      const bodyH=Math.max(picksTotalH,depthTotalH)+strategyH;
-      const footerH=44;
-      const H=headerH+bodyH+footerH+pad;
+      const rowH=76;
+      const headerH=92;
+      const radarSize=160;
+      const radarH=bestPlayer?268:0;
+      const stratH=fpPills.length>0?46:0;
+      const footerH=56;
+      const H=headerH+teamPicks.length*rowH+radarH+stratH+footerH;
 
       canvas.width=W*scale;canvas.height=H*scale;
       ctx.scale(scale,scale);
-
       ctx.fillStyle='#faf9f6';ctx.fillRect(0,0,W,H);
 
-      // === HEADER — team identity left (vertically centered), logo+wordmark right ===
-      const hMidY=headerH/2;
+      function rr(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
 
-      // NFL team logo
-      let tLogoImg=null;
-      try{tLogoImg=await loadImg(nflLogoUrl(team));}catch(e){}
-      const tLogoSize=44;
-      if(tLogoImg)ctx.drawImage(tLogoImg,pad,hMidY-tLogoSize/2,tLogoSize,tLogoSize);
-
-      // Team name — vertically centered with logo
-      ctx.textBaseline='middle';ctx.textAlign='left';
-      ctx.fillStyle='#171717';ctx.font=`bold 24px ${sans}`;
-      ctx.fillText(team,pad+tLogoSize+10,hMidY);
-
-      // Grade pill — vertically centered with team name
-      if(draftGrade){
-        ctx.font=`bold 22px ${sans}`;
-        const gradeW=ctx.measureText(draftGrade.grade).width+18;
-        ctx.font=`bold 24px ${sans}`;
-        const teamW=ctx.measureText(team).width;
-        const gpX=pad+tLogoSize+10+teamW+12;
-        const gpH=32;
-        ctx.fillStyle=draftGrade.color+'18';rr(gpX,hMidY-gpH/2,gradeW,gpH,6);ctx.fill();
-        ctx.strokeStyle=draftGrade.color+'40';ctx.lineWidth=1;rr(gpX,hMidY-gpH/2,gradeW,gpH,6);ctx.stroke();
-        ctx.fillStyle=draftGrade.color;ctx.font=`bold 22px ${sans}`;
-        ctx.textAlign='center';ctx.fillText(draftGrade.grade,gpX+gradeW/2,hMidY);ctx.textAlign='left';
+      function drawMeasRadar(labels,values,cy,cx,size,color){
+        const r=size/2-28;const n=labels.length;
+        const K=1.2;const curve=(v)=>Math.pow(v/100,K)*100;const FLOOR=curve(30);
+        const angles=labels.map((_,i)=>(Math.PI*2*i)/n-Math.PI/2);
+        [50,70,90].forEach(lv=>{
+          const frac=Math.max(0,(curve(lv)-FLOOR)/(100-FLOOR));
+          ctx.beginPath();angles.forEach((a,i)=>{const px=cx+r*frac*Math.cos(a);const py2=cy+r*frac*Math.sin(a);i===0?ctx.moveTo(px,py2):ctx.lineTo(px,py2);});
+          ctx.closePath();ctx.strokeStyle=lv===70?'#d4d4d4':'#e5e5e5';ctx.lineWidth=lv===70?0.8:0.5;ctx.stroke();
+        });
+        angles.forEach(a=>{ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+r*Math.cos(a),cy+r*Math.sin(a));ctx.strokeStyle='#e5e5e5';ctx.lineWidth=0.5;ctx.stroke();});
+        ctx.beginPath();
+        angles.forEach((a,i)=>{const v=Math.max(0,(curve(values[i]||50)-FLOOR)/(100-FLOOR));const px=cx+r*v*Math.cos(a);const py2=cy+r*v*Math.sin(a);i===0?ctx.moveTo(px,py2):ctx.lineTo(px,py2);});
+        ctx.closePath();ctx.fillStyle=color+'28';ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=2;ctx.stroke();
+        angles.forEach((a,i)=>{const v=Math.max(0,(curve(values[i]||50)-FLOOR)/(100-FLOOR));ctx.beginPath();ctx.arc(cx+r*v*Math.cos(a),cy+r*v*Math.sin(a),3,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();});
+        ctx.fillStyle='#737373';ctx.font=`bold 9px ${sans}`;ctx.textAlign='center';ctx.textBaseline='middle';
+        labels.forEach((t,i)=>{
+          const lr=r+22;const lx=cx+lr*Math.cos(angles[i]);const ly=cy+lr*Math.sin(angles[i]);
+          const lbl=(MEASURABLE_SHORT&&MEASURABLE_SHORT[t])||t.substring(0,6);
+          ctx.textAlign=Math.abs(Math.cos(angles[i]))>0.3?(Math.cos(angles[i])>0?'left':'right'):'center';
+          ctx.fillText(lbl,lx,ly);
+        });
+        ctx.textAlign='left';ctx.textBaseline='top';
       }
 
-      // Trade value delta — small, below center line
-      if(tradeValueDelta!==0){ctx.fillStyle=tradeValueDelta>0?'#16a34a':'#dc2626';ctx.font=`9px ${mono}`;ctx.textBaseline='top';ctx.fillText('trade: '+(tradeValueDelta>0?'+':'')+tradeValueDelta+' pts',pad+tLogoSize+10,hMidY+16);ctx.textBaseline='middle';}
-
-      // Logo + wordmark — top-right, vertically centered
-      let logoImg=null;
-      try{logoImg=new Image();logoImg.crossOrigin='anonymous';logoImg.src='/logo.png';await new Promise((r,j)=>{logoImg.onload=r;logoImg.onerror=j;setTimeout(j,2000);});}catch(e){logoImg=null;}
-      const bLogoH=36,bLogoW=logoImg?Math.round(logoImg.naturalWidth/logoImg.naturalHeight*bLogoH):0;
-      ctx.font=`800 28px ${font}`;
-      const wmW=ctx.measureText('big board lab').width;
-      const brandTotalW=bLogoW+(bLogoW?10:0)+wmW;
-      const brandX=W-pad-brandTotalW;
-      if(logoImg)ctx.drawImage(logoImg,brandX,hMidY-bLogoH/2,bLogoW,bLogoH);
-      ctx.fillStyle='#171717';
-      ctx.fillText('big board lab',brandX+(bLogoW?bLogoW+10:0),hMidY);
-      ctx.textBaseline='top';
-
-      // Separator
-      ctx.fillStyle='#e5e5e5';ctx.fillRect(pad,headerH-4,W-pad*2,1);
-
-      // === TWO COLUMNS ===
-      const bodyY=headerH+8;
-      const leftW=Math.round((W-pad*2-colGap)*0.65);
-      const rightX=pad+leftW+colGap;
-      const rightW=W-pad-rightX;
-
-      // Load school logos
+      // Load all images in parallel
       const pickSchools=[...new Set(teamPicks.map(pk=>prospectsMap[pk.playerId]?.school).filter(Boolean))];
       const schoolCache={};
-      await Promise.all(pickSchools.map(async s=>{
-        const url=schoolLogo(s);if(!url)return;
-        try{schoolCache[s]=await loadImg(url,2000);}catch(e){}
-      }));
+      const [tLogoImg,logoImg,...schoolImgs]=await Promise.all([
+        loadImg(nflLogoUrl(team)).catch(()=>null),
+        (()=>{const img=new Image();img.crossOrigin='anonymous';img.src='/logo.png';return new Promise(res=>{img.onload=()=>res(img);img.onerror=()=>res(null);setTimeout(()=>res(null),2000);});})(),
+        ...pickSchools.map(s=>{const url=schoolLogo(s);if(!url)return Promise.resolve(null);return loadImg(url,2000).catch(()=>null);})
+      ]);
+      pickSchools.forEach((s,i)=>{if(schoolImgs[i])schoolCache[s]=schoolImgs[i];});
 
-      // LEFT: PICKS — single white container like all-32
-      ctx.fillStyle='#fff';rr(pad,bodyY,leftW,picksTotalH,12);ctx.fill();
-      ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;rr(pad,bodyY,leftW,picksTotalH,12);ctx.stroke();
+      // === HEADER ===
+      const hMid=headerH/2;
+      ctx.textBaseline='middle';ctx.textAlign='left';
+      const tLogoSize=48;
+      if(tLogoImg)ctx.drawImage(tLogoImg,pad,hMid-tLogoSize/2,tLogoSize,tLogoSize);
+      const teamNameX=pad+(tLogoImg?tLogoSize+12:0);
+      ctx.fillStyle='#171717';ctx.font=`bold 26px ${sans}`;
+      const teamNameW=ctx.measureText(team).width;
+      ctx.fillText(team,teamNameX,hMid-8);
 
-      let py=bodyY;
+      if(draftGrade){
+        ctx.font=`bold 18px ${sans}`;
+        const gpText=draftGrade.grade;
+        const gpW=ctx.measureText(gpText).width+20;
+        const gpH=28;
+        const gpX=teamNameX+teamNameW+12;
+        ctx.fillStyle=draftGrade.color+'18';rr(gpX,hMid-gpH/2-8,gpW,gpH,14);ctx.fill();
+        ctx.strokeStyle=draftGrade.color+'40';ctx.lineWidth=1;rr(gpX,hMid-gpH/2-8,gpW,gpH,14);ctx.stroke();
+        ctx.fillStyle=draftGrade.color;ctx.textAlign='center';ctx.fillText(gpText,gpX+gpW/2,hMid-8);ctx.textAlign='left';
+      }
+      if(tradeValueDelta!==0){
+        ctx.fillStyle=tradeValueDelta>0?'#16a34a':'#dc2626';ctx.font=`8px ${mono}`;ctx.textBaseline='top';
+        ctx.fillText((tradeValueDelta>0?'+':'')+tradeValueDelta+' trade pts',teamNameX,hMid+8);
+        ctx.textBaseline='middle';
+      }
+
+      // BBL branding — right
+      const bLogoH=30;
+      const bLogoW=logoImg?Math.round(logoImg.naturalWidth/logoImg.naturalHeight*bLogoH):0;
+      ctx.font=`800 20px ${font}`;
+      const wmW=ctx.measureText('big board lab').width;
+      const brandX=W-pad-bLogoW-(bLogoW?8:0)-wmW;
+      if(logoImg)ctx.drawImage(logoImg,brandX,hMid-bLogoH/2-6,bLogoW,bLogoH);
+      ctx.fillStyle='#171717';ctx.textBaseline='middle';
+      ctx.fillText('big board lab',brandX+(bLogoW?bLogoW+8:0),hMid-6);
+      ctx.fillStyle='#a3a3a3';ctx.font=`9px ${mono}`;ctx.textAlign='right';
+      ctx.fillText('bigboardlab.com',W-pad,hMid+12);
+      ctx.textAlign='left';ctx.textBaseline='top';
+
+      ctx.fillStyle='#e5e5e5';ctx.fillRect(pad,headerH-1,W-pad*2,1);
+
+      // === PICKS ===
+      const innerW=W-pad*2;
+      let py=headerH;
       for(let pi=0;pi<teamPicks.length;pi++){
         const pk=teamPicks[pi];
         const p=prospectsMap[pk.playerId];if(!p)continue;
@@ -1536,161 +1526,150 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         const g2=getConsensusGrade?getConsensusGrade(p.name):g;
         const v=pickVerdict(pk.pick,rank,g2);
         const c=POS_COLORS[p.gpos||p.pos]||POS_COLORS[p.pos]||'#525252';
-        const isBest=bestPick&&pk.playerId===bestPick.pk.playerId;
-
-        // Detect trade
         const pickIdx=picks.findIndex(x=>x.pick===pk.pick&&x.round===pk.round&&x.playerId===pk.playerId);
         const origOwner=pickIdx>=0?fullDraftOrder[pickIdx]?.team:null;
         const wasTrade=origOwner&&origOwner!==pk.team;
 
-        // Row separator (between rows, not first)
-        if(pi>0){ctx.fillStyle='#f5f5f5';ctx.fillRect(pad+1,py-0.5,leftW-2,1);}
+        if(pi>0){ctx.fillStyle='#ede9e3';ctx.fillRect(pad,py,innerW,1);}
 
-        const midY=py+rowH/2;
+        // — Name row —
+        const nameRowY=py+24;
         ctx.textBaseline='middle';
 
-        // Pick # — right-aligned in left column (matching all-32)
-        ctx.fillStyle='#d4d4d4';ctx.font=`12px ${mono}`;ctx.textAlign='right';
-        ctx.fillText('R'+pk.round+' #'+pk.pick,pad+56,midY);ctx.textAlign='left';
+        // Pick # — solid black pill
+        ctx.font=`bold 11px ${mono}`;
+        const pickLabel='R'+pk.round+' #'+pk.pick;
+        const pickPillW=ctx.measureText(pickLabel).width+16;
+        const pickPillH=26;
+        ctx.fillStyle='#171717';rr(pad,nameRowY-pickPillH/2,pickPillW,pickPillH,4);ctx.fill();
+        ctx.fillStyle='#ffffff';ctx.fillText(pickLabel,pad+8,nameRowY);
 
-        // Position pill
+        // Position pill — starts after pick pill
+        const posStartX=pad+pickPillW+6;
         const posText=p.gpos||p.pos;
         ctx.font=`bold 10px ${mono}`;
         const posW=ctx.measureText(posText).width+12;
-        ctx.fillStyle=c+'18';rr(pad+62,midY-10,posW,20,4);ctx.fill();
-        ctx.fillStyle=c;ctx.fillText(posText,pad+68,midY);
+        ctx.fillStyle=c+'18';rr(posStartX,nameRowY-11,posW,22,4);ctx.fill();
+        ctx.fillStyle=c;ctx.fillText(posText,posStartX+6,nameRowY);
 
-        // School logo
         const sLogo=schoolCache[p.school];
-        const slx=pad+62+posW+8;
-        if(sLogo)ctx.drawImage(sLogo,slx,midY-10,20,20);
+        const slx=posStartX+posW+8;
+        if(sLogo)ctx.drawImage(sLogo,slx,nameRowY-11,22,22);
 
-        // Player name
-        const nameX=slx+(sLogo?26:0);
-        ctx.fillStyle='#171717';ctx.font=`bold 13px ${sans}`;
-        const nameEnd=pad+leftW-10;
-        // Reserve space for school + trade pill on right
-        ctx.font=`11px ${mono}`;
-        const schoolStr=p.school||'';
-        const schoolW=ctx.measureText(schoolStr).width;
-        let tradeW=0,tradeTxt='';
-        if(wasTrade){tradeTxt='via '+(TEAM_ABBR[origOwner]||origOwner);ctx.font=`bold 7px ${mono}`;tradeW=ctx.measureText(tradeTxt).width+8;}
-        const reservedRight=schoolW+8+(tradeW?tradeW+6:0)+(v?ctx.measureText(v.text).width+20:0);
-
-        ctx.fillStyle='#171717';ctx.font=`bold 13px ${sans}`;
-        const nameMaxW=nameEnd-nameX-reservedRight;
-        const fullNameW=ctx.measureText(p.name).width;
-        const nameDrawW=Math.min(fullNameW,Math.max(nameMaxW,60));
-        drawTrunc(ctx,p.name,nameX,midY,nameDrawW);
-
-        // School text after name
-        const schoolX=nameX+nameDrawW+8;
-        ctx.fillStyle='#a3a3a3';ctx.font=`11px ${mono}`;
-        let afterSchoolX=schoolX;
-        if(schoolX+schoolW<=nameEnd-(tradeW?tradeW+6:0)){ctx.fillText(schoolStr,schoolX,midY);afterSchoolX=schoolX+schoolW+6;}
-        else{drawTrunc(ctx,schoolStr,schoolX,midY,nameEnd-schoolX-(tradeW?tradeW+6:0));afterSchoolX=nameEnd-(tradeW?tradeW+6:0);}
-
-        // Badge emoji pills after school
-        const pBadges=prospectBadges&&prospectBadges[pk.playerId]||[];
-        if(pBadges.length>0){
-          let bx=afterSchoolX;
-          pBadges.forEach(b=>{
-            const bc=POS_COLORS[p.gpos||p.pos]||'#525252';
-            ctx.font=`10px ${sans}`;
-            const ew=ctx.measureText(b.emoji).width+8;
-            if(bx+ew>nameEnd-(tradeW?tradeW+6:0)-4)return;
-            ctx.fillStyle=bc+'0d';rr(bx,midY-8,ew,16,3);ctx.fill();
-            ctx.fillStyle=bc;ctx.font=`bold 10px ${sans}`;
-            ctx.fillText(b.emoji,bx+4,midY);
-            bx+=ew+3;
-          });
-        }
-
-        // Trade pill at right edge
-        if(wasTrade){
-          const pillX=nameEnd-tradeW;
-          ctx.fillStyle='rgba(168,85,247,0.08)';rr(pillX,midY-7,tradeW,14,2);ctx.fill();
-          ctx.fillStyle='#a855f7';ctx.font=`bold 7px ${mono}`;ctx.fillText(tradeTxt,pillX+4,midY);
-        }
-
-        // Verdict pill — far right
+        // Verdict pill — far right, reserve space first
+        let verdictRight=W-pad;
         if(v){
           ctx.font=`bold 9px ${mono}`;
-          const vw=ctx.measureText(v.text).width+14;
-          const vx=pad+leftW-vw-8;
-          ctx.fillStyle=v.bg;rr(vx,midY-9,vw,18,9);ctx.fill();
-          ctx.fillStyle=v.color;ctx.textAlign='center';ctx.fillText(v.text,vx+vw/2,midY);ctx.textAlign='left';
+          const vw=ctx.measureText(v.text).width+16;
+          const vx=W-pad-vw;
+          ctx.fillStyle=v.bg;rr(vx,nameRowY-10,vw,20,10);ctx.fill();
+          ctx.fillStyle=v.color;ctx.textAlign='center';ctx.fillText(v.text,vx+vw/2,nameRowY);ctx.textAlign='left';
+          verdictRight=vx-4;
+        }
+
+        const nameStartX=slx+(sLogo?28:0);
+        ctx.fillStyle='#171717';ctx.font=`bold 17px ${sans}`;
+        drawTrunc(ctx,p.name,nameStartX,nameRowY,verdictRight-nameStartX);
+
+        // Trade note — small text under name
+        if(wasTrade){
+          ctx.fillStyle='#a855f7';ctx.font=`8px ${mono}`;ctx.textBaseline='top';
+          ctx.fillText('via '+(TEAM_ABBR[origOwner]||origOwner),nameStartX,nameRowY+10);
+          ctx.textBaseline='middle';
+        }
+
+        // — Equalizer bars row —
+        const barTopY=py+48;
+        const barH2=6,lblH=8;
+        const posTraits=(POSITION_TRAITS[p.gpos||p.pos]||POSITION_TRAITS[p.pos]||[]).slice(0,5);
+        const measD=getMeasRadarData?getMeasRadarData(p.name,p.school):null;
+        const measItems=measD?measD.labels.slice(0,4).map((l,i2)=>({label:l,val:measD.values[i2]})):[];
+        const nT=posTraits.length,nM=measItems.length;
+        const grpGap=nM>0?12:0;
+        const slotW=nT+nM>0?Math.floor((innerW-grpGap)/(nT+nM)):0;
+        let bx=pad;
+        posTraits.forEach(trait=>{
+          const val=tvFn(p.id,trait);
+          const lbl=TRAIT_SHORT[trait]||trait;
+          const bw=slotW-6;
+          ctx.fillStyle='#737373';ctx.font=`8px ${mono}`;ctx.textBaseline='top';
+          ctx.fillText(lbl,bx,barTopY);
+          ctx.fillStyle='#ede9fe';rr(bx,barTopY+lblH+2,bw,barH2,2);ctx.fill();
+          ctx.fillStyle=PURPLE+'cc';rr(bx,barTopY+lblH+2,Math.max(3,(val/100)*bw),barH2,2);ctx.fill();
+          bx+=slotW;
+        });
+        if(nM>0){
+          bx+=grpGap;
+          measItems.forEach(item=>{
+            const bw=slotW-6;
+            const fullMeasLbl=(MEASURABLE_SHORT&&MEASURABLE_SHORT[item.label])||item.label;
+            ctx.fillStyle='#737373';ctx.font=`8px ${mono}`;ctx.textBaseline='top';
+            ctx.fillText(fullMeasLbl,bx,barTopY);
+            ctx.fillStyle='#ccfbf1';rr(bx,barTopY+lblH+2,bw,barH2,2);ctx.fill();
+            ctx.fillStyle=TEAL+'cc';rr(bx,barTopY+lblH+2,Math.max(3,(item.val/100)*bw),barH2,2);ctx.fill();
+            bx+=slotW;
+          });
         }
 
         ctx.textBaseline='top';
         py+=rowH;
-
-        // Inline radar expansion for best pick
-        if(isBest&&bestPick){
-          // Thin divider
-          ctx.fillStyle='#f5f5f5';ctx.fillRect(pad+1,py-0.5,leftW-2,1);
-          const radarCx=pad+leftW/2;
-          const radarCy=py+radarExpandH/2;
-          drawRadarChart(ctx,p,radarCy,radarCx,radarSize,accent);
-          py+=radarExpandH;
-        }
       }
 
-      // === STRATEGY PILLS — below picks container ===
+      // === BEST PICK — dual radar charts ===
+      if(bestPlayer&&radarH>0){
+        const sectionY=py+20;
+        // White card
+        ctx.fillStyle='#ffffff';rr(pad,py+10,W-pad*2,radarH-20,12);ctx.fill();
+        ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;rr(pad,py+10,W-pad*2,radarH-20,12);ctx.stroke();
+        ctx.textBaseline='top';ctx.textAlign='left';
+        ctx.fillStyle=accent;ctx.fillRect(pad+16,sectionY,3,36);
+        ctx.fillStyle='#a3a3a3';ctx.font=`bold 9px ${mono}`;
+        ctx.fillText('BEST PICK',pad+26,sectionY);
+        ctx.fillStyle='#171717';ctx.font=`bold 20px ${sans}`;
+        ctx.fillText(bestPlayer.name,pad+26,sectionY+13);
+        ctx.fillStyle='#737373';ctx.font=`10px ${mono}`;
+        ctx.fillText((bestPlayer.gpos||bestPlayer.pos)+' · '+(bestPlayer.school||''),pad+26,sectionY+37);
+
+        const radarCy=sectionY+72+radarSize/2;
+        const halfW=(W-pad*2)/2;
+        const traitCx=hasMeas?pad+halfW/2:W/2;
+        const measCx=pad+halfW+halfW/2;
+
+        ctx.font=`bold 8px ${mono}`;ctx.textAlign='center';ctx.textBaseline='top';
+        ctx.fillStyle=PURPLE;ctx.fillText('TRAITS',traitCx,sectionY+57);
+        drawRadarChart(ctx,bestPlayer,radarCy,traitCx,radarSize,PURPLE);
+
+        if(hasMeas){
+          ctx.font=`bold 8px ${mono}`;ctx.textAlign='center';ctx.textBaseline='top';
+          ctx.fillStyle=TEAL;ctx.fillText('MEASURABLES',measCx,sectionY+57);
+          drawMeasRadar(measBest.labels,measBest.values,radarCy,measCx,radarSize,TEAL);
+        }
+        ctx.textAlign='left';ctx.textBaseline='top';
+      }
+
+      // === STRATEGY PILLS ===
       if(fpPills.length>0){
-        const spY=bodyY+picksTotalH+10;
+        const spY=py+radarH+8;
         let fpX=pad;
-        ctx.font=`11px ${sans}`;ctx.textBaseline='middle';
+        ctx.textBaseline='middle';ctx.font=`bold 11px ${sans}`;
         fpPills.forEach(pill=>{
           const label=`${pill.emoji} ${pill.text}`;
-          ctx.font=`bold 11px ${sans}`;
           const tw=ctx.measureText(label).width+16;
-          ctx.fillStyle=pill.color+'18';rr(fpX,spY,tw,22,11);ctx.fill();
-          ctx.fillStyle=pill.color;
-          ctx.fillText(label,fpX+8,spY+11);
+          ctx.fillStyle=pill.color+'18';rr(fpX,spY,tw,24,12);ctx.fill();
+          ctx.fillStyle=pill.color;ctx.fillText(label,fpX+8,spY+12);
           fpX+=tw+8;
         });
         ctx.textBaseline='top';
       }
 
-      // RIGHT: DEPTH CHART — matching web DepthList exactly
-      ctx.fillStyle='#fff';rr(rightX,bodyY,rightW,depthTotalH,12);ctx.fill();
-      ctx.strokeStyle='#e5e5e5';ctx.lineWidth=1;rr(rightX,bodyY,rightW,depthTotalH,12);ctx.stroke();
-
-      let dy=bodyY+12;
-      for(let gi=0;gi<depthGroupsRendered.length;gi++){
-        const group=depthGroupsRendered[gi];
-        // Group separator (not first)
-        if(gi>0){ctx.fillStyle='#f5f5f5';ctx.fillRect(rightX+12,dy,rightW-24,1);dy+=depthGroupGap;}
-        for(const{slot,label,entry}of group.items){
-          const isDraft=entry.isDraft;
-          ctx.textBaseline='middle';
-          const rmid=dy+depthRowH/2;
-          // Slot label — matching web: mono 9px #d4d4d4, fixed 28px width
-          ctx.fillStyle='#d4d4d4';ctx.font=`9px ${mono}`;
-          ctx.fillText(label,rightX+12,rmid);
-          // Player name — matching web: sans 11px, drafted = bold purple with bg, else normal #525252
-          if(isDraft){
-            ctx.font=`bold 11px ${sans}`;
-            const nw=ctx.measureText(entry.name).width+12;
-            ctx.fillStyle='rgba(124,58,237,0.06)';rr(rightX+42,rmid-8,nw,16,4);ctx.fill();
-            ctx.fillStyle='#7c3aed';
-            ctx.fillText(entry.name,rightX+48,rmid);
-          }else{
-            ctx.fillStyle='#525252';ctx.font=`11px ${sans}`;
-            drawTrunc(ctx,entry.name,rightX+42,rmid,rightW-56);
-          }
-          ctx.textBaseline='top';
-          dy+=depthRowH;
-        }
-      }
-
-      // === FOOTER — separator + centered CTA ===
+      // === FOOTER ===
       const fy=H-footerH;
       ctx.fillStyle='#e5e5e5';ctx.fillRect(pad,fy,W-pad*2,1);
       ctx.textBaseline='middle';ctx.textAlign='center';
-      ctx.fillStyle='#a3a3a3';ctx.font=`13px ${mono}`;
-      ctx.fillText('draft smarter at bigboardlab.com',W/2,fy+footerH/2);
+      ctx.fillStyle='#525252';ctx.font=`bold 13px ${sans}`;
+      ctx.fillText('Build your mock draft → bigboardlab.com',W/2,fy+footerH*0.38);
+      ctx.fillStyle='#a3a3a3';ctx.font=`10px ${mono}`;
+      ctx.fillText('The most realistic NFL mock draft simulator',W/2,fy+footerH*0.72);
       ctx.textAlign='left';ctx.textBaseline='top';
 
     }else{
@@ -1875,7 +1854,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         setTimeout(()=>URL.revokeObjectURL(url),3000);
       }
     },'image/png');
-  },[picks,userTeams,prospectsMap,activeGrade,getConsensusRank,getConsensusGrade,draftGrade,tradeValueDelta,depthChart,POS_COLORS,cpuTradeLog,fullDraftOrder]);
+  },[picks,userTeams,prospectsMap,activeGrade,getConsensusRank,getConsensusGrade,draftGrade,tradeValueDelta,depthChart,POS_COLORS,cpuTradeLog,fullDraftOrder,getMeasRadarData]);
 
   // Canvas helper: rounded rectangle path
   function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();}
