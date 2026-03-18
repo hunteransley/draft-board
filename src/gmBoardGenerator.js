@@ -549,8 +549,9 @@ function scoreProspect(prospect, gm, noise, schemeFits, round) {
   const ceiling = traits?.__ceiling || "normal";
   const combineScores = getCombineScores(name, school);
   const athScore = combineScores?.athleticScore || 0;
+  let isTranscendent = false;
   if (ceiling === "elite") {
-    const isTranscendent =
+    isTranscendent =
       (grade >= 95 && athScore >= 98) ||   // path 1: elite athlete + elite grade
       (grade >= 98) ||                      // path 2: generational grade alone
       (consensusRank <= 5 && grade >= 95);  // path 3: consensus top 5 + elite grade
@@ -576,7 +577,10 @@ function scoreProspect(prospect, gm, noise, schemeFits, round) {
   const ceilingMod = getCeilingModifier(traits, gm);
 
   // 7. POSITION AVOIDANCE: heavy penalty for positions the GM historically avoids
-  const avoidPenalty = getAvoidancePenalty(gpos, gm, round || 1);
+  // Transcendent prospects bypass avoidance entirely — they transcend the position, period.
+  // The gate is strict (elite ceiling + elite grade/athleticism/consensus). Only 1-3 per class qualify.
+  let avoidPenalty = getAvoidancePenalty(gpos, gm, round || 1);
+  if (isTranscendent) avoidPenalty = 1.0;
 
   // 8. NEED: light boost for positions the team needs
   const needBoost = getNeedBoost(gpos, gm.abbr);

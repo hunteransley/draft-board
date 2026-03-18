@@ -135,7 +135,7 @@ function pureCpuTradeUp(currentIdx, available, picks, tradeMap, cpuTradeLog, pro
     if(totalOffer < currentVal) continue;
 
     const separationBoost=separation>=1.30?2.5:separation>=1.20?1.8:separation>=1.15?1.3:1.0;
-    let prob=gm.tradeUpAggression*0.10*separationBoost;
+    let prob=gm.tradeUpAggression*0.15*separationBoost;
     if(currentPick<=10)prob*=1.3;
     else if(currentPick<=20)prob*=1.15;
     prob=Math.min(0.35,prob);

@@ -782,7 +782,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
 
       // Trade-up probability: baseline aggression scaled by how desperate they are (separation)
       const separationBoost=separation>=1.30?2.5:separation>=1.20?1.8:separation>=1.15?1.3:1.0;
-      let prob=gm.tradeUpAggression*0.10*separationBoost;
+      let prob=gm.tradeUpAggression*0.13*separationBoost;
       if(currentPick<=10)prob*=1.3;
       else if(currentPick<=20)prob*=1.15;
       prob=Math.min(0.35,prob);
