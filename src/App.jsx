@@ -1931,6 +1931,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[faDrop,setFaDrop]=useState(null);
   const[sfTeam,setSfTeam]=useState("49ers");
   const[sfPosFilter,setSfPosFilter]=useState("WR");
+  const[sfArchetype,setSfArchetype]=useState(null);
   const[sfExpandedId,setSfExpandedId]=useState(null);
   const[sfPickSlider,setSfPickSlider]=useState(0);
   // March Madness Lab state
@@ -3441,8 +3442,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
 
           // Position pills
           const posPills=<div style={{display:"flex",gap:5,overflowX:"auto",paddingBottom:6,WebkitOverflowScrolling:"touch",scrollbarWidth:"none",marginBottom:4}}>
-            <button onClick={gateAuth(()=>{setSfPosFilter(null);setExplorerHover(null);})} style={{fontFamily:mono,fontSize:10,fontWeight:700,padding:"5px 12px",background:!sfPosFilter?"#171717":"transparent",color:!sfPosFilter?"#fff":"#737373",border:!sfPosFilter?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>ALL</button>
-            {SF_GROUPS.map(pos=>{const c=POS_COLORS[pos]||"#525252";const active=sfPosFilter===pos;const needLevel=sfTeam?(TEAM_NEEDS_COUNTS[sfTeam]?.[pos]||0):0;const needDot=needLevel>=3?"#dc2626":needLevel>=2?"#f59e0b":null;return<button key={pos} onClick={gateAuth(()=>{setSfPosFilter(active?null:pos);setExplorerHover(null);})} style={{fontFamily:mono,fontSize:10,fontWeight:700,padding:"5px 12px",background:active?c:"transparent",color:active?"#fff":c,border:`1.5px solid ${active?c:c+"33"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,display:"flex",alignItems:"center",gap:4}}>{needDot&&<span style={{width:5,height:5,borderRadius:"50%",background:active?"rgba(255,255,255,0.8)":needDot,flexShrink:0,display:"inline-block"}}/>}{pos}</button>;})}
+            <button onClick={gateAuth(()=>{setSfPosFilter(null);setSfArchetype(null);setExplorerHover(null);})} style={{fontFamily:mono,fontSize:10,fontWeight:700,padding:"5px 12px",background:!sfPosFilter?"#171717":"transparent",color:!sfPosFilter?"#fff":"#737373",border:!sfPosFilter?"1px solid #171717":"1px solid #e5e5e5",borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>ALL</button>
+            {SF_GROUPS.map(pos=>{const c=POS_COLORS[pos]||"#525252";const active=sfPosFilter===pos;const needLevel=sfTeam?(TEAM_NEEDS_COUNTS[sfTeam]?.[pos]||0):0;const needDot=needLevel>=3?"#dc2626":needLevel>=2?"#f59e0b":null;return<button key={pos} onClick={gateAuth(()=>{setSfPosFilter(active?null:pos);setSfArchetype(null);setExplorerHover(null);})} style={{fontFamily:mono,fontSize:10,fontWeight:700,padding:"5px 12px",background:active?c:"transparent",color:active?"#fff":c,border:`1.5px solid ${active?c:c+"33"}`,borderRadius:99,cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,display:"flex",alignItems:"center",gap:4}}>{needDot&&<span style={{width:5,height:5,borderRadius:"50%",background:active?"rgba(255,255,255,0.8)":needDot,flexShrink:0,display:"inline-block"}}/>}{pos}</button>;})}
           </div>;
 
           if(!sfTeam){
@@ -3582,9 +3583,20 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
           const sfClampedSlider=Math.min(sfPickSlider,sfTeamPicks.length);
           const sfCutoffPick=sfClampedSlider>0?(sfTeamPicks[sfClampedSlider-1]?.pick||999):999;
 
+          // Archetype pills for scheme fit scatter (single-select)
+          const sfArchPills=(()=>{
+            const archTagCounts={};atPos.forEach(p=>{getArchetypes(p.name,p.school).forEach(t=>{archTagCounts[t]=(archTagCounts[t]||0)+1;});});
+            const archTags=Object.entries(archTagCounts).sort((a,b)=>b[1]-a[1]).map(([t])=>t);
+            if(!archTags.length)return null;
+            return<div className="trait-pills-scroll" style={{display:"flex",gap:4,overflowX:"auto",WebkitOverflowScrolling:"touch",flexWrap:"nowrap",scrollbarWidth:"none",alignItems:"center",marginBottom:8}}>
+              {archTags.map(tag=>{const active=sfArchetype===tag;return<button key={tag} onClick={()=>setSfArchetype(active?null:tag)} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",background:active?"#171717":"transparent",color:active?"#faf9f6":"#525252",border:"1px solid "+(active?"#171717":"#d4d4d4"),borderRadius:99,cursor:"pointer",flexShrink:0,display:"flex",alignItems:"center",gap:3,whiteSpace:"nowrap"}}><span>{ARCHETYPE_EMOJI[tag]||""}</span><span>{ARCHETYPE_DISPLAY[tag]||tag}</span><span style={{fontSize:8,opacity:0.7}}>({archTagCounts[tag]})</span></button>;})}
+            </div>;
+          })();
+
           return<>
             {teamRow}
             {posPills}
+            {sfArchPills}
             <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:8}}>
               <NFLTeamLogo team={sfTeam} size={20}/>
               <span style={{fontFamily:sans,fontSize:13,fontWeight:700,color:tc}}>{sfTeam}</span>
@@ -3616,8 +3628,9 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                     const isMyGuy=explorerMyGuys&&myGuySet.has(d.name);
                     const dimmed=explorerMyGuys&&myGuySet.size>0&&!isMyGuy;
                     const taken=sfClampedSlider>0&&d.rank<900&&d.rank<=sfCutoffPick;
+                    const archMatch=sfArchetype?getArchetypes(d.name,d.school).includes(sfArchetype):true;
                     const baseOpacity=taken?0.06:(isFit?1:0.4);
-                    const opacity=dimmed?0.1:baseOpacity;
+                    const opacity=dimmed?0.1:(!archMatch?0.1:baseOpacity);
                     const logoUrl=explorerLogos?schoolLogo(d.school):null;
                     const handlers={onMouseEnter:e=>setExplorerHover({sfDot:d,cx:e.clientX,cy:e.clientY}),onMouseLeave:()=>setExplorerHover(null),onClick:()=>{const p=PROSPECTS.find(pr=>pr.id===d.id);if(p)openProfile(p);}};
                     if(logoUrl){const sz=isMyGuy?28:20;return<g key={d.id} {...handlers} style={{cursor:"pointer"}}><image href={logoUrl} x={cx-sz/2} y={cy-sz/2} width={sz} height={sz} opacity={opacity}/>{isMyGuy&&<circle cx={cx} cy={cy} r={sz/2+2} fill="none" stroke="#ec4899" strokeWidth={2} opacity={0.8}/>}</g>;}
