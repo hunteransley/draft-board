@@ -333,7 +333,7 @@ function aggregateResults(allResults, prospectsMap) {
 // ── REACT COMPONENT ──
 
 export default function Round1Prediction({
-  board, PROSPECTS, POS_COLORS, NFLTeamLogo, SchoolLogo,
+  board, PROSPECTS, POS_COLORS, NFLTeamLogo, SchoolLogo, schoolLogo,
   font, mono, sans, onClose, onResults, trackEvent, userId, getGrade, schemeFits
 }) {
   const [phase, setPhase] = useState("loading");
@@ -380,121 +380,164 @@ export default function Round1Prediction({
     }
   };
 
-  // ── CANVAS SHARE ──
+  // ── CANVAS SHARE (matches all-32 mock draft style) ──
   const shareImage = async () => {
     if(trackEvent) trackEvent(userId, 'round1_prediction_share', {});
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     const scale = 2;
-    const W = 1200, H = 750;
+    const W = 1200;
+    const pad = 24, colGap = 10, numCols = 3;
+    const colW = (W - pad * 2 - (numCols - 1) * colGap) / numCols;
+    const rowH = 47, numRows = 11;
+    const gridY = 16;
+    const gridH = numRows * rowH;
+    const H = gridY + gridH + 16;
+    const colPicks = [11, 11, 10];
+
     canvas.width = W * scale; canvas.height = H * scale;
     ctx.scale(scale, scale);
-
-    // Background
     ctx.fillStyle = '#faf9f6'; ctx.fillRect(0, 0, W, H);
 
-    // Top gradient bar
-    const grad = ctx.createLinearGradient(0, 0, W, 0);
-    grad.addColorStop(0, '#ec4899'); grad.addColorStop(1, '#7c3aed');
-    ctx.fillStyle = grad; ctx.fillRect(0, 0, W, 4);
-
-    // Header
-    const pad = 24;
-    ctx.textBaseline = 'top';
-    ctx.textAlign = 'center'; ctx.fillStyle = '#171717';
-    ctx.font = 'bold 18px -apple-system,system-ui,sans-serif';
-    ctx.fillText('2026 NFL DRAFT \u2014 ROUND 1 PREDICTION', W / 2, 14);
-    ctx.fillStyle = '#a3a3a3'; ctx.font = '11px ui-monospace,monospace';
-    ctx.fillText('AI-POWERED MOCK SIMULATION', W / 2, 36);
-    ctx.textAlign = 'left';
-
-    // Separator
-    ctx.fillStyle = '#e5e5e5'; ctx.fillRect(pad, 52, W - pad * 2, 1);
-    const sepGrad = ctx.createLinearGradient(pad, 0, W - pad, 0);
-    sepGrad.addColorStop(0, '#ec4899'); sepGrad.addColorStop(1, '#7c3aed');
-    ctx.fillStyle = sepGrad; ctx.fillRect(pad, 53, W - pad * 2, 2);
-
-    const bodyY = 62, cols = 4, rows = 8;
-    const colW = (W - pad * 2 - ((cols - 1) * 10)) / cols;
-    const rowH = 74;
+    function rrLocal(x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y); ctx.quadraticCurveTo(x + w, y, x + w, y + r); ctx.lineTo(x + w, y + h - r); ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h); ctx.lineTo(x + r, y + h); ctx.quadraticCurveTo(x, y + h, x, y + h - r); ctx.lineTo(x, y + r); ctx.quadraticCurveTo(x, y, x + r, y); ctx.closePath(); }
 
     // Load logos
-    const logoCache = {};
+    const logoCache = {}, schoolCache = {};
     const uniqueTeams = [...new Set(slots.map(s => s.team))];
-    await Promise.all(uniqueTeams.map(async t => {
-      try { logoCache[t] = await loadImg(nflLogoUrl(t), 2000); } catch(e) {}
-    }));
+    const uniqueSchools = [...new Set(slots.map(s => { const p = s.primary?.playerId ? prospectsMap[s.primary.playerId] : null; return p?.school; }).filter(Boolean))];
+    let siteLogo = null;
+    try { siteLogo = await loadImg('/logo.png', 2000); } catch(e) {}
+    await Promise.all([
+      ...uniqueTeams.map(async t => { try { logoCache[t] = await loadImg(nflLogoUrl(t), 2000); } catch(e) {} }),
+      ...uniqueSchools.map(async s => { const url = schoolLogo(s); if (!url) return; try { schoolCache[s] = await loadImg(url, 2000); } catch(e) {} })
+    ]);
 
-    for(let i = 0; i < Math.min(slots.length, 32); i++){
-      const slot = slots[i];
-      const player = slot.primary?.playerId ? prospectsMap[slot.primary.playerId] : null;
-      if(!player) continue;
-      const col = Math.floor(i / rows), row = i % rows;
-      const x = pad + col * (colW + 10), y = bodyY + row * rowH;
-      const tAccent = NFL_TEAM_COLORS[slot.team] || '#6366f1';
+    let pickIdx = 0;
+    for (let c = 0; c < numCols; c++) {
+      const cx = pad + c * (colW + colGap);
+      const nPicks = colPicks[c];
+      const colH = nPicks * rowH;
 
-      ctx.fillStyle = '#fff'; rr(ctx, x, y, colW, rowH - 6, 5); ctx.fill();
-      ctx.strokeStyle = '#f0f0f0'; ctx.lineWidth = 0.5; ctx.stroke();
-      ctx.fillStyle = tAccent; ctx.fillRect(x, y + 2, 3, rowH - 10);
+      // Column container
+      ctx.fillStyle = '#fff'; rrLocal(cx, gridY, colW, colH, 12); ctx.fill();
+      ctx.strokeStyle = '#e5e5e5'; ctx.lineWidth = 1; rrLocal(cx, gridY, colW, colH, 12); ctx.stroke();
 
-      // Pick number
-      ctx.fillStyle = '#a3a3a3'; ctx.font = 'bold 12px ui-monospace,monospace'; ctx.textAlign = 'left';
-      ctx.fillText('#' + (i + 1), x + 10, y + 14);
+      for (let r = 0; r < nPicks; r++) {
+        const i = pickIdx + r;
+        if (i >= Math.min(slots.length, 32)) break;
+        const slot = slots[i];
+        const player = slot.primary?.playerId ? prospectsMap[slot.primary.playerId] : null;
+        if (!player) continue;
+        const ry = gridY + r * rowH;
+        const midY = ry + rowH / 2;
 
-      // Team logo
-      if(logoCache[slot.team]) ctx.drawImage(logoCache[slot.team], x + 38, y + 5, 24, 24);
+        // Row separator
+        if (r < nPicks - 1) { ctx.fillStyle = '#f5f5f5'; ctx.fillRect(cx + 1, ry + rowH - 0.5, colW - 2, 1); }
 
-      // Team name
-      ctx.fillStyle = '#737373'; ctx.font = '10px -apple-system,system-ui,sans-serif';
-      drawTrunc(ctx, TEAM_ABBR[slot.team] || slot.team, x + 66, y + 10, colW - 76);
+        ctx.textBaseline = 'middle';
 
-      // Trade badge
-      if(slot.isTrade){
-        const tradeTxt = 'via ' + (TEAM_ABBR[slot.origTeam] || slot.origTeam);
-        ctx.fillStyle = 'rgba(168,85,247,0.08)';
-        const tw = ctx.measureText(tradeTxt).width + 8;
-        rr(ctx, x + 66, y + 18, tw, 12, 3); ctx.fill();
-        ctx.fillStyle = '#a855f7'; ctx.font = 'bold 7px ui-monospace,monospace';
-        ctx.fillText(tradeTxt, x + 70, y + 24);
+        // Pick #
+        ctx.fillStyle = '#d4d4d4'; ctx.font = '12px ui-monospace,monospace'; ctx.textAlign = 'right';
+        ctx.fillText(String(i + 1), cx + 28, midY); ctx.textAlign = 'left';
+
+        // NFL team logo
+        if (logoCache[slot.team]) ctx.drawImage(logoCache[slot.team], cx + 34, midY - 10, 20, 20);
+
+        // Position
+        const posKey = player.gpos || player.pos;
+        const posColor = POS_COLORS[posKey] || POS_COLORS[player.pos] || '#737373';
+        ctx.fillStyle = posColor; ctx.font = 'bold 10px ui-monospace,monospace';
+        ctx.fillText(posKey, cx + 60, midY);
+
+        // School logo
+        const slx = cx + 100;
+        if (schoolCache[player.school]) {
+          ctx.drawImage(schoolCache[player.school], slx, midY - 10, 20, 20);
+        } else {
+          ctx.fillStyle = '#f0f0f0'; ctx.beginPath(); ctx.arc(slx + 10, midY, 10, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = '#a3a3a3'; ctx.font = 'bold 8px -apple-system,system-ui,sans-serif'; ctx.textAlign = 'center';
+          ctx.fillText((player.school || '?').charAt(0), slx + 10, midY); ctx.textAlign = 'left';
+        }
+
+        // Player name + school + confidence
+        const nameX = slx + 26;
+        const rowEnd = cx + colW - 10;
+
+        ctx.font = '11px ui-monospace,monospace';
+        const schoolStr = player.school || '';
+        const schoolW = ctx.measureText(schoolStr).width;
+
+        // Confidence % + trade badge
+        const pctTxt = slot.primary.pct + '%';
+        ctx.font = 'bold 9px ui-monospace,monospace';
+        const pctW = ctx.measureText(pctTxt).width + 8;
+
+        let tradeW = 0, tradeTxt = '';
+        if (slot.isTrade) {
+          tradeTxt = 'via ' + (TEAM_ABBR[slot.origTeam] || slot.origTeam);
+          ctx.font = 'bold 7px ui-monospace,monospace';
+          tradeW = ctx.measureText(tradeTxt).width + 8;
+        }
+
+        const reservedRight = schoolW + 8 + pctW + 4 + (tradeW ? tradeW + 6 : 0);
+        const nameMaxW = rowEnd - nameX - reservedRight;
+
+        ctx.fillStyle = '#171717'; ctx.font = 'bold 13px -apple-system,system-ui,sans-serif';
+        const fullNameW = ctx.measureText(player.name).width;
+        const nameDrawW = Math.min(fullNameW, Math.max(nameMaxW, 60));
+        drawTrunc(ctx, player.name, nameX, midY, nameDrawW);
+
+        const schoolX = nameX + nameDrawW + 8;
+        ctx.fillStyle = '#a3a3a3'; ctx.font = '11px ui-monospace,monospace';
+        const availSchoolW = rowEnd - schoolX - pctW - 4 - (tradeW ? tradeW + 6 : 0);
+        if (availSchoolW > 20) drawTrunc(ctx, schoolStr, schoolX, midY, availSchoolW);
+
+        // Confidence pill
+        ctx.fillStyle = 'rgba(100,116,139,0.08)';
+        rrLocal(rowEnd - pctW, midY - 7, pctW, 14, 3); ctx.fill();
+        ctx.fillStyle = '#64748b'; ctx.font = 'bold 9px ui-monospace,monospace'; ctx.textAlign = 'center';
+        ctx.fillText(pctTxt, rowEnd - pctW / 2, midY); ctx.textAlign = 'left';
+
+        // Trade badge
+        if (slot.isTrade) {
+          const pillX = rowEnd - pctW - tradeW - 6;
+          ctx.fillStyle = 'rgba(168,85,247,0.08)'; rrLocal(pillX, midY - 7, tradeW, 14, 2); ctx.fill();
+          ctx.fillStyle = '#a855f7'; ctx.font = 'bold 7px ui-monospace,monospace';
+          ctx.fillText(tradeTxt, pillX + 4, midY);
+        }
+
+        ctx.textBaseline = 'top';
       }
 
-      // Position
-      const posKey = player.gpos || player.pos;
-      const c = POS_COLORS[posKey] || POS_COLORS[player.pos] || '#737373';
-      ctx.fillStyle = c; ctx.font = 'bold 10px ui-monospace,monospace';
-      ctx.fillText(posKey, x + 10, y + 38);
+      // Branding module below column 3
+      if (c === 2) {
+        const brandY = gridY + colH + 6;
+        const brandH = rowH;
+        ctx.fillStyle = '#fff'; rrLocal(cx, brandY, colW, brandH, 12); ctx.fill();
+        ctx.strokeStyle = '#e5e5e5'; ctx.lineWidth = 1; rrLocal(cx, brandY, colW, brandH, 12); ctx.stroke();
 
-      // Player name
-      ctx.fillStyle = '#171717'; ctx.font = 'bold 13px -apple-system,system-ui,sans-serif';
-      drawTrunc(ctx, player.name, x + 48, y + 38, colW - 56);
+        const brandMidY = brandY + brandH / 2;
+        ctx.textBaseline = 'middle';
 
-      // School
-      ctx.fillStyle = '#a3a3a3'; ctx.font = '10px -apple-system,system-ui,sans-serif';
-      drawTrunc(ctx, player.school || '', x + 48, y + 54, colW - 80);
+        let bx = cx + 12;
+        if (siteLogo) {
+          const bLogoH = 24, bLogoW = Math.round(siteLogo.naturalWidth / siteLogo.naturalHeight * bLogoH);
+          ctx.drawImage(siteLogo, bx, brandMidY - bLogoH / 2, bLogoW, bLogoH);
+          bx += bLogoW + 8;
+        }
 
-      // Confidence %
-      const pctTxt = slot.primary.pct + '%';
-      ctx.fillStyle = '#64748b'; ctx.font = 'bold 10px ui-monospace,monospace';
-      ctx.textAlign = 'right';
-      ctx.fillText(pctTxt, x + colW - 8, y + 54);
-      ctx.textAlign = 'left';
+        ctx.fillStyle = '#171717'; ctx.font = "bold 14px 'Literata',Georgia,serif";
+        ctx.fillText('big board lab', bx, brandMidY);
+        bx += ctx.measureText('big board lab').width + 10;
+
+        ctx.fillStyle = '#a3a3a3'; ctx.font = '10px ui-monospace,monospace';
+        ctx.fillText('R1 prediction at bigboardlab.com', bx, brandMidY);
+
+        ctx.textBaseline = 'top';
+      }
+
+      pickIdx += nPicks;
     }
-
-    // Dark footer
-    const footerH = 48;
-    ctx.fillStyle = '#111111'; ctx.fillRect(0, H - footerH, W, footerH);
-    let logo = null;
-    try { logo = await loadImg('/logo.png', 2000); } catch(e) {}
-    const logoH = 32, logoW = logo ? Math.round(logo.naturalWidth / logo.naturalHeight * logoH) : 0;
-    const lo = logo ? logoW + 4 : 0;
-    if(logo) ctx.drawImage(logo, pad, H - footerH + 8, logoW, logoH);
-    ctx.fillStyle = '#ffffff'; ctx.font = 'bold 13px -apple-system,system-ui,sans-serif'; ctx.textBaseline = 'top';
-    ctx.fillText('bigboardlab.com', pad + lo + 4, H - footerH + 10);
-    ctx.fillStyle = '#737373'; ctx.font = '10px -apple-system,system-ui,sans-serif';
-    ctx.fillText('AI-powered Round 1 prediction', pad + lo + 4, H - footerH + 26);
-    const bGrad = ctx.createLinearGradient(0, 0, W, 0);
-    bGrad.addColorStop(0, '#ec4899'); bGrad.addColorStop(1, '#7c3aed');
-    ctx.fillStyle = bGrad; ctx.fillRect(0, H - 3, W, 3);
 
     // Export
     canvas.toBlob(async blob => {
