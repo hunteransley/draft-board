@@ -1192,24 +1192,6 @@ export const MARCH_MADNESS_TEAMS = [
     "orbPct": 26.4
   },
   {
-    "team": "Lehigh",
-    "seed": 16,
-    "region": "South",
-    "record": "22-12",
-    "conf": "Patriot",
-    "srsRank": 999,
-    "ortg": 105.5,
-    "drtg": 103.0,
-    "netRtg": 2.5,
-    "sos": -8.0,
-    "srs": -2.0,
-    "pace": 67.1,
-    "ftr": 0.323,
-    "threePAr": 0.389,
-    "tovPct": 15.8,
-    "orbPct": 23.6
-  },
-  {
     "team": "Howard",
     "seed": 16,
     "region": "Midwest",
@@ -1309,15 +1291,15 @@ export const MADNESS_ESPN_ID = {
   "Houston":248,"Michigan State":127,"Gonzaga":2250,"Virginia":258,"Illinois":356,"Kansas":2305,
   "Arkansas":8,"Alabama":333,"Nebraska":158,"St. John's":2599,"Louisville":97,"UCLA":26,
   "Ohio State":194,"TCU":2628,"UCF":2116,"South Florida":58,"Northern Iowa":2460,"Cal Baptist":2856,
-  "North Dakota State":2449,"Furman":231,"Siena":2547,"Florida":57,"Houston":248,
+  "North Dakota State":2449,"Furman":231,"Siena":2561,"Florida":57,"Houston":248,
   "Vanderbilt":238,"North Carolina":153,"St. Mary's":2608,"Clemson":228,"Iowa":2294,
-  "Texas A&M":245,"VCU":2670,"McNeese":2377,"Troy":2653,"Penn":2235,"Idaho":70,
+  "Texas A&M":245,"VCU":2670,"McNeese":2377,"Troy":2653,"Penn":219,"Idaho":70,
   "Prairie View A&M":2504,"Wisconsin":275,"BYU":252,"Miami":2390,"Villanova":222,
-  "Utah State":328,"Missouri":142,"High Point":2272,"Hawaii":62,"Kennesaw State":2320,
-  "Queens":2511,"LIU":2344,"Kentucky":96,"Tennessee":2633,"Texas Tech":2641,
+  "Utah State":328,"Missouri":142,"High Point":2272,"Hawaii":62,"Kennesaw State":338,
+  "Queens":2511,"LIU":112358,"Kentucky":96,"Tennessee":2633,"Texas Tech":2641,
   "Georgia":61,"St. Louis":139,"Santa Clara":2541,"SMU":2567,"Akron":2006,
   "Hofstra":2275,"Wright State":2750,"Tennessee State":2634,"UMBC":2378,
-  "NC State":152,"Miami (OH)":193,"Lehigh":2329,"Howard":47,"Texas":251
+  "NC State":152,"Miami (OH)":193,"Howard":47,"Texas":251
 };
 export function madnessLogo(team){const id=MADNESS_ESPN_ID[team];return id?`https://a.espncdn.com/i/teamlogos/ncaa/500/${id}.png`:null;}
 
@@ -1331,7 +1313,7 @@ export const MADNESS_SCHOOL_COLORS = {
   "Vanderbilt":"#cfae70","North Carolina":"#7bafd4","St. Mary's":"#c41230","Clemson":"#f56600",
   "Iowa":"#ffcd00","Texas A&M":"#500000","VCU":"#ffb300","McNeese":"#005da6",
   "Troy":"#8b2332","Penn":"#011f5b","Idaho":"#b5985a","Prairie View A&M":"#582c83",
-  "Lehigh":"#653819","Arizona":"#cc0033","Purdue":"#cfb991","Gonzaga":"#002a5c",
+  "Arizona":"#cc0033","Purdue":"#cfb991","Gonzaga":"#002a5c",
   "Arkansas":"#9d2235","Wisconsin":"#c5050c","BYU":"#002e5d","Miami":"#f47321",
   "Villanova":"#003366","Utah State":"#0f2439","Missouri":"#f1b82d","Texas":"#bf5700",
   "NC State":"#cc0000","High Point":"#330072","Hawaii":"#024731","Kennesaw State":"#fdbb30",

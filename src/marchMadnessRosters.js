@@ -3370,57 +3370,6 @@ export const MADNESS_ROSTERS = [
     "last10": "10-0"
   },
   {
-    "team": "Lehigh",
-    "starters": [
-      {
-        "name": "Nasir Whitlock",
-        "pos": "G",
-        "year": "Junior",
-        "height": "6' 2\"",
-        "weight": 184,
-        "mpg": 34.9
-      },
-      {
-        "name": "Hank Alvey",
-        "pos": "F",
-        "year": "Sophomore",
-        "height": "6' 9\"",
-        "weight": 251,
-        "mpg": 30.7
-      },
-      {
-        "name": "Joshua Ingram",
-        "pos": "G",
-        "year": "Junior",
-        "height": "6' 4\"",
-        "weight": 176,
-        "mpg": 34.8
-      },
-      {
-        "name": "Edouard Benoit",
-        "pos": "F",
-        "year": "Sophomore",
-        "height": "6' 8\"",
-        "weight": 207,
-        "mpg": 28.4
-      },
-      {
-        "name": "Peter Kramer",
-        "pos": "G",
-        "year": "Sophomore",
-        "height": "6' 5\"",
-        "weight": 196,
-        "mpg": 20.4
-      }
-    ],
-    "threePPct": 0.359,
-    "ftPct": 0.731,
-    "opp3PPct": 0.326,
-    "benchAvgMin": 7.3,
-    "totalBenchMin": null,
-    "last10": "6-4"
-  },
-  {
     "team": "Howard",
     "starters": [
       {

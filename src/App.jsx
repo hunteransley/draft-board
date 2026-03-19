@@ -4522,9 +4522,23 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                 //   Tier 1 (core): Def Eff 16%, Turnover% 11%, Experience 10%, Off Eff 10%
                 //   Tier 2 (key):  3PT Def 9%, SOS 8%, FT Rate 7%, ORB% 6%
                 //   Tier 3 (edge): 3PT Shooting 5%, Size 5%, Pace 5%, Last 10 4%, Bench 4%
-                const total=defScore*0.16+tovScore*0.11+expScore*0.10+offScore*0.10+opp3Score*0.09+sosScore*0.08+ftScore*0.07+orbScore*0.06+shootScore*0.05+sizeScore*0.05+paceScore*0.05+l10Score*0.04+benchScore*0.04;
+                let total=defScore*0.16+tovScore*0.11+expScore*0.10+offScore*0.10+opp3Score*0.09+sosScore*0.08+ftScore*0.07+orbScore*0.06+shootScore*0.05+sizeScore*0.05+paceScore*0.05+l10Score*0.04+benchScore*0.04;
+                // Health penalty — dock score for injured players based on MPG impact
+                const injs=MADNESS_INJURIES[team.team]||[];
+                let healthPenalty=0;
+                const rosterStarters=roster.starters||[];
+                injs.forEach(inj=>{
+                  const match=rosterStarters.find(s=>s.name.split(" ").pop().toLowerCase()===inj.player.split(" ").pop().toLowerCase());
+                  const mpg=match?.mpg||0;
+                  if(mpg<5)return; // irrelevant
+                  const impact=(mpg/200)*100; // % of total starter minutes lost
+                  if(inj.status==="out")healthPenalty+=impact;
+                  else if(inj.status==="questionable")healthPenalty+=impact*0.4;
+                });
+                const healthScore=Math.max(0,100-healthPenalty*8); // scale so 12.5% minutes lost ≈ 0 health score
+                total=total*0.92+healthScore*0.08; // health is 8% of total
                 return {
-                  total,exp:expScore,off:offScore,def:defScore,shoot:shootScore,opp3:opp3Score,tov:tovScore,ft:ftScore,orb:orbScore,sos:sosScore,size:sizeScore,bench:benchScore,l10:l10Score,pace:paceScore,
+                  total,exp:expScore,off:offScore,def:defScore,shoot:shootScore,opp3:opp3Score,tov:tovScore,ft:ftScore,orb:orbScore,sos:sosScore,size:sizeScore,bench:benchScore,l10:l10Score,pace:paceScore,health:healthScore,healthPenalty,
                   avgYr,avgHt
                 };
               };
@@ -4535,19 +4549,45 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
               const edgeLabel=Math.abs(edge)<3?"Coin Flip":Math.abs(edge)<8?"Slight Edge":Math.abs(edge)<15?"Clear Edge":"Strong Edge";
               const favored=edge>0?tA:edge<0?tB:null;
 
+              // Logo click: first click = Team A, second = Team B, click selected = deselect
+              const pickTeam=(team)=>{
+                if(madnessTeamA===team){setMadnessTeamA(madnessTeamB);setMadnessTeamB(null);}
+                else if(madnessTeamB===team){setMadnessTeamB(null);}
+                else if(!madnessTeamA){setMadnessTeamA(team);}
+                else if(!madnessTeamB){setMadnessTeamB(team);}
+                else{setMadnessTeamA(madnessTeamB);setMadnessTeamB(team);}
+              };
+
               return<>
-                {/* Team dropdowns */}
-                <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:16,flexWrap:"wrap"}}>
-                  <select value={madnessTeamA||""} onChange={e=>{setMadnessTeamA(e.target.value||null);}} style={{fontFamily:sans,fontSize:13,fontWeight:600,padding:"8px 14px",borderRadius:10,border:"1px solid #2a2a2a",background:"#1a1a1a",color:"#e5e5e5",cursor:"pointer",minWidth:180}}>
-                    <option value="">Select Team A</option>
-                    {allTeams.map(t=><option key={t.team} value={t.team}>({t.seed}) {t.team} — {t.region}</option>)}
-                  </select>
-                  <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#525252"}}>vs</span>
-                  <select value={madnessTeamB||""} onChange={e=>{setMadnessTeamB(e.target.value||null);}} style={{fontFamily:sans,fontSize:13,fontWeight:600,padding:"8px 14px",borderRadius:10,border:"1px solid #2a2a2a",background:"#1a1a1a",color:"#e5e5e5",cursor:"pointer",minWidth:180}}>
-                    <option value="">Select Team B</option>
-                    {allTeams.map(t=><option key={t.team} value={t.team}>({t.seed}) {t.team} — {t.region}</option>)}
-                  </select>
+                {/* Team selector — logos by region */}
+                <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:16}}>
+                  {["East","South","West","Midwest"].map(region=>{
+                    const rc=REGION_COLORS[region];
+                    const teams=MARCH_MADNESS_TEAMS.filter(t=>t.region===region).sort((a,b)=>a.seed-b.seed);
+                    return<div key={region} style={{background:"#1a1a1a",border:"1px solid #2a2a2a",borderRadius:10,padding:"8px 10px"}}>
+                      <div style={{fontFamily:mono,fontSize:9,fontWeight:700,color:rc,letterSpacing:1,textTransform:"uppercase",marginBottom:6}}>{region}</div>
+                      <div style={{display:"flex",flexWrap:"wrap",gap:4}}>
+                        {teams.map(t=>{
+                          const logo=madnessLogo(t.team);
+                          const isA=madnessTeamA===t.team;
+                          const isB=madnessTeamB===t.team;
+                          const sel=isA||isB;
+                          const sc=isA?(MADNESS_SCHOOL_COLORS[t.team]||"#dc2626"):isB?(MADNESS_SCHOOL_COLORS[t.team]||"#2563eb"):null;
+                          return<button key={t.team} onClick={()=>pickTeam(t.team)} title={`(${t.seed}) ${t.team}`} style={{width:32,height:32,borderRadius:8,border:sel?`2px solid ${sc}`:"1px solid #333",background:"#fff",cursor:"pointer",padding:1,display:"flex",alignItems:"center",justifyContent:"center",transition:"all 0.1s",position:"relative",overflow:"hidden"}}>
+                            {logo?<img src={logo} alt={t.team} style={{width:22,height:22,objectFit:"contain",opacity:sel?1:0.7}}/>:<span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:sel?"#e5e5e5":"#737373"}}>{t.seed}</span>}
+                            {sel&&<div style={{position:"absolute",bottom:0,left:0,right:0,height:3,background:sc}}/>}
+                          </button>;
+                        })}
+                      </div>
+                    </div>;
+                  })}
                 </div>
+                {/* Selected teams summary */}
+                {(madnessTeamA||madnessTeamB)&&<div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:12,marginBottom:16}}>
+                  {madnessTeamA?<div style={{display:"flex",alignItems:"center",gap:6}}>{madnessLogo(madnessTeamA)&&<img src={madnessLogo(madnessTeamA)} alt="" style={{width:24,height:24,objectFit:"contain"}}/>}<span style={{fontFamily:sans,fontSize:14,fontWeight:700,color:MADNESS_SCHOOL_COLORS[madnessTeamA]||"#e5e5e5"}}>({tA?.seed}) {madnessTeamA}</span></div>:<span style={{fontFamily:mono,fontSize:12,color:"#525252"}}>pick a team</span>}
+                  <span style={{fontFamily:font,fontSize:16,fontWeight:900,color:"#525252"}}>vs</span>
+                  {madnessTeamB?<div style={{display:"flex",alignItems:"center",gap:6}}>{madnessLogo(madnessTeamB)&&<img src={madnessLogo(madnessTeamB)} alt="" style={{width:24,height:24,objectFit:"contain"}}/>}<span style={{fontFamily:sans,fontSize:14,fontWeight:700,color:MADNESS_SCHOOL_COLORS[madnessTeamB]||"#e5e5e5"}}>({tB?.seed}) {madnessTeamB}</span></div>:<span style={{fontFamily:mono,fontSize:12,color:"#525252"}}>pick a team</span>}
+                </div>}
 
                 {tA&&tB&&rosterA&&rosterB&&(()=>{
                   const colorA=MADNESS_SCHOOL_COLORS[tA.team]||"#dc2626";
@@ -4641,6 +4681,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                           {label:"Pace Control",a:wA.pace,b:wB.pace},
                           {label:"Last 10",a:wA.l10,b:wB.l10},
                           {label:"Bench Depth",a:wA.bench,b:wB.bench},
+                          {label:"Health",a:wA.health,b:wB.health},
                         ].map(f=>{const winner=f.a>f.b?"A":f.b>f.a?"B":"tie";const wc=winner==="A"?colorA:winner==="B"?colorB:txt3;return<div key={f.label} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",borderRadius:99,border:`1px solid ${wc}44`,background:wc+"0d",color:wc,fontWeight:700}}>{f.label}</div>;})}
                       </div>}
                     </div>
