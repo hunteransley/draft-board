@@ -4853,11 +4853,17 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                       if(undW1.length>=2)lines.push({text:`${und.team} fights back with ${undW1.map(f=>f.l).join(" and ")} — that's not nothing in March.`,team:undSide});
                       else if(undW1.length===1)lines.push({text:`${und.team}'s edge in ${undW1[0].l} is their best path to staying competitive.`,team:undSide});
 
-                      // Upset signal
+                      // Upset / seed analysis
                       const lowerSide=higher===tA?"B":"A";
-                      if(!sameSeed&&lower.seed-higher.seed>=3){
-                        if(lWins1.length>=2)lines.push({text:`Upset signal: ${lower.team} (${lower.seed} seed) wins ${lWins1.length} of the 4 most predictive factors. When lower seeds own defense and experience, they tend to outperform their seed.`,team:lowerSide});
-                        else if(lWins1.length<=1&&lW.def<40&&lW.exp<40)lines.push({text:`Upset risk is low — ${lower.team} doesn't have the defensive profile or experience that typically fuels tournament runs from lower seeds.`,team:higher===tA?"A":"B"});
+                      const higherSide=higher===tA?"A":"B";
+                      const seedGap=Math.abs(seedA-seedB);
+                      if(!sameSeed&&seedGap>=3){
+                        // Lower seed is actually FAVORED by BBL Weight
+                        if(fav===lower&&gap>=3)lines.push({text:`The ${lower.seed} seed ${lower.team} is the BBL Weight favorite here despite being the lower seed — the data says this isn't really an upset, it's a mispricing by the committee.`,team:lowerSide});
+                        // Lower seed losing but has tier 1 factors
+                        else if(lWins1.length>=2)lines.push({text:`Upset signal: ${lower.team} (${lower.seed} seed) wins ${lWins1.length} of the 4 most predictive factors. When lower seeds own defense and experience, they tend to outperform their seed.`,team:lowerSide});
+                        // Lower seed has no path
+                        else if(lWins1.length<=1&&lW.def<40&&lW.exp<40)lines.push({text:`Upset risk is low — ${lower.team} doesn't have the defensive profile or experience that typically fuels tournament runs from lower seeds.`,team:higherSide});
                       }
 
                       // SOS context
