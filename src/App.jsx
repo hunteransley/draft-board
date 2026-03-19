@@ -4687,6 +4687,53 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                         </div>;
                       })}
                     </div>
+
+                    {/* ── SPIDER CHART ── */}
+                    {(()=>{
+                      const spiderMetrics=[
+                        {label:"Def Eff",a:wA.def,b:wB.def},
+                        {label:"Turnovers",a:wA.tov,b:wB.tov},
+                        {label:"Experience",a:wA.exp,b:wB.exp},
+                        {label:"Off Eff",a:wA.off,b:wB.off},
+                        {label:"3PT Def",a:wA.opp3,b:wB.opp3},
+                        {label:"SOS",a:wA.sos,b:wB.sos},
+                        {label:"FT Rate",a:wA.ft,b:wB.ft},
+                        {label:"Off Reb",a:wA.orb,b:wB.orb},
+                        {label:"3PT%",a:wA.shoot,b:wB.shoot},
+                        {label:"Size",a:wA.size,b:wB.size},
+                        {label:"Pace Ctrl",a:wA.pace,b:wB.pace},
+                        {label:"Last 10",a:wA.l10,b:wB.l10},
+                        {label:"Bench",a:wA.bench,b:wB.bench},
+                      ];
+                      const n=spiderMetrics.length;
+                      const cx=200,cy=200,maxR=150;
+                      const angleStep=(2*Math.PI)/n;
+                      const startAngle=-Math.PI/2; // top
+                      const pt=(i,pct)=>{const a=startAngle+i*angleStep;const r=maxR*(pct/100);return[cx+r*Math.cos(a),cy+r*Math.sin(a)];};
+                      const poly=(vals)=>vals.map((v,i)=>pt(i,v).join(",")).join(" ");
+                      const rings=[25,50,75,100];
+                      return<div style={{background:bg,border:`1px solid ${border1}`,borderRadius:14,padding:"16px 20px"}}>
+                        <div style={{fontFamily:mono,fontSize:10,letterSpacing:1,color:txt3,textTransform:"uppercase",marginBottom:8}}>Profile Overlay</div>
+                        <div style={{display:"flex",alignItems:"center",gap:16,marginBottom:8,justifyContent:"center"}}>
+                          <div style={{display:"flex",alignItems:"center",gap:4}}><div style={{width:12,height:3,borderRadius:2,background:colorA}}/><span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:colorA}}>{tA.team}</span></div>
+                          <div style={{display:"flex",alignItems:"center",gap:4}}><div style={{width:12,height:3,borderRadius:2,background:colorB}}/><span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:colorB}}>{tB.team}</span></div>
+                        </div>
+                        <svg viewBox="0 0 400 400" style={{width:"100%",maxWidth:420,display:"block",margin:"0 auto"}}>
+                          {/* Grid rings */}
+                          {rings.map(r=><polygon key={r} points={Array.from({length:n}).map((_,i)=>pt(i,r).join(",")).join(" ")} fill="none" stroke={border1} strokeWidth={r===50?"1":"0.5"} opacity={r===100?0.6:0.3}/>)}
+                          {/* Axis lines */}
+                          {spiderMetrics.map((_,i)=>{const[x,y]=pt(i,100);return<line key={i} x1={cx} y1={cy} x2={x} y2={y} stroke={border1} strokeWidth="0.5" opacity={0.3}/>;} )}
+                          {/* Team A polygon */}
+                          <polygon points={poly(spiderMetrics.map(m=>m.a))} fill={colorA+"22"} stroke={colorA} strokeWidth="2" strokeLinejoin="round"/>
+                          {/* Team B polygon */}
+                          <polygon points={poly(spiderMetrics.map(m=>m.b))} fill={colorB+"22"} stroke={colorB} strokeWidth="2" strokeLinejoin="round"/>
+                          {/* Dots at vertices */}
+                          {spiderMetrics.map((m,i)=>{const[xa,ya]=pt(i,m.a);const[xb,yb]=pt(i,m.b);return<Fragment key={i}><circle cx={xa} cy={ya} r="3" fill={colorA}/><circle cx={xb} cy={yb} r="3" fill={colorB}/></Fragment>;})}
+                          {/* Labels */}
+                          {spiderMetrics.map((m,i)=>{const a=startAngle+i*angleStep;const lr=maxR+18;const x=cx+lr*Math.cos(a);const y=cy+lr*Math.sin(a);const anchor=Math.abs(Math.cos(a))<0.1?"middle":Math.cos(a)>0?"start":"end";const dy=Math.abs(Math.sin(a))<0.1?4:Math.sin(a)>0?10:-4;return<text key={i} x={x} y={y+dy} textAnchor={anchor} style={{fontFamily:"'DM Mono',monospace",fontSize:8,fill:txt2,fontWeight:600}}>{m.label}</text>;})}
+                        </svg>
+                      </div>;
+                    })()}
                   </div>;
                 })()}
 
