@@ -127,7 +127,7 @@ const DepthList=memo(({team,depthChart,mono,sans})=>{
   DEPTH_GROUPS.forEach(g=>{baseGroupMap[g.posMatch]=g.slots;});
   const faPill=(name)=>faList.includes(name)&&<span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:"#f97316",background:"rgba(249,115,22,0.08)",padding:"2px 6px",borderRadius:99}}>FA</span>;
   const draftFadeStyle={animation:"draftNameFadeIn 0.4s ease-out both"};
-  const tierDot=(slot,name)=>{const rv=ROSTER_BY_SLOT[team]?.[slot]||(name&&ROSTER_BY_NAME[name]);const tc=rv?TIER_COLORS[rv.performanceTier]:null;return tc?<span style={{width:5,height:5,borderRadius:3,background:tc,flexShrink:0}} title={rv.performanceTier}/>:null;};
+  const tierDot=(slot,name)=>{const rv=(name&&ROSTER_BY_NAME[name])||ROSTER_BY_SLOT[team]?.[slot];const tc=rv?TIER_COLORS[rv.performanceTier]:null;return tc?<span style={{width:5,height:5,borderRadius:3,background:tc,flexShrink:0}} title={rv.performanceTier}/>:null;};
   return(<div style={{marginTop:2}}>
     <style>{`@keyframes draftNameFadeIn{from{opacity:0;transform:translateX(6px)}to{opacity:1;transform:translateX(0)}}`}</style>
     {groups.map((group,gi)=>{
@@ -1183,25 +1183,25 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
         };
 
         if(tier===1){
-          // Starter: cascade within same-position hierarchy (RB1→RB2, WR1→WR2→WR3)
-          // but NOT across different sub-positions (C→LG→RG)
-          const s1=preferredSlot;
-          const prefix=s1.replace(/\d+$/,"");
+          // Starter: displace the WEAKEST incumbent among allowed slots
+          const prefix=allowedSlots[0].replace(/\d+$/,"");
           const isSamePosition=allowedSlots.every(s=>s.replace(/\d+$/,"")===prefix);
-          if(isSamePosition&&chart[team][s1]){
-            // Cascade down: shift everyone from preferred slot down by one
-            const lastSlot=allowedSlots[allowedSlots.length-1];
-            if(chart[team][lastSlot])chart[team][nextDepthKey(lastSlot)]=chart[team][lastSlot];
-            const idx=allowedSlots.indexOf(s1);
-            for(let j=allowedSlots.length-1;j>idx;j--){
-              if(chart[team][allowedSlots[j-1]])chart[team][allowedSlots[j]]=chart[team][allowedSlots[j-1]];
-              else delete chart[team][allowedSlots[j]];
+          // Find the slot with the weakest incumbent
+          let targetSlot=preferredSlot;
+          if(isSamePosition&&allowedSlots.length>1){
+            let weakest=Infinity;
+            for(const s of allowedSlots){
+              const sc=getIncumbentScore(s);
+              if(sc<weakest){weakest=sc;targetSlot=s;}
             }
-          }else if(chart[team][s1]){
-            // Different sub-positions (OL): just bump to depth, no cascade
-            chart[team][nextDepthKey(s1)]=chart[team][s1];
           }
-          chart[team][s1]=entry;
+          if(isSamePosition&&chart[team][targetSlot]){
+            // Bump the weakest incumbent to depth — don't cascade others
+            chart[team][nextDepthKey(targetSlot)]=chart[team][targetSlot];
+          }else if(chart[team][targetSlot]){
+            chart[team][nextDepthKey(targetSlot)]=chart[team][targetSlot];
+          }
+          chart[team][targetSlot]=entry;
         }else if(tier===2){
           // Tier 2 via canDisplace: can take a secondary slot
           // Tier 2 via fallback: depth only, don't displace
@@ -1304,7 +1304,9 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       OL:new Set(["OL","OT","IOL","C","OG"]),
       IOL:new Set(["IOL","C","OG","OL"]),
       IDL:new Set(["IDL","DT","NT","DL"]),
-      EDGE:new Set(["EDGE","DE","OLB","DL"]),
+      DT:new Set(["IDL","DT","NT","DL"]),
+      NT:new Set(["IDL","DT","NT","DL"]),
+      EDGE:new Set(["EDGE","DE","OLB"]),
       OT:new Set(["OT","OL"]),
       CB:new Set(["CB","DB"]),
       S:new Set(["S","FS","SS","DB"]),
