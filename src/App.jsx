@@ -7744,7 +7744,7 @@ function GuidePage({onBack}){
     {id:"dominator",num:"08",title:"Dominator Ratings & Breakout Year"},
     {id:"depth",num:"09",title:"Live Depth Chart Updates"},
     {id:"rank",num:"10",title:"Rank Prospects Head-to-Head"},
-    {id:"mock-trends",num:"11",title:"Team Specific Draft Trends"},
+    {id:"mock-trends",num:"11",title:"Team Insights"},
     {id:"compare",num:"12",title:"Compare Players Side by Side"},
     {id:"track",num:"13",title:"Track Your Guys"},
     {id:"share",num:"14",title:"Share Your Board"},
@@ -8101,22 +8101,33 @@ function GuidePage({onBack}){
       <div id="guide-mock-trends" className="guide-card" style={{...card,scrollMarginTop:70,transition:"box-shadow 0.2s"}}>
         <div style={sectionNum("11")}>11</div>
         <div style={{width:"100%",height:1,background:"linear-gradient(90deg,#ec4899,#7c3aed,transparent)",margin:"4px 0 12px"}}/>
-        <h2 style={h2s}>Team Specific Draft Trends</h2>
-        <p style={desc}>See where prospects are getting drafted across the entire Big Board Lab community. ADP, positional trends, and team-level draft patterns — all aggregated in real time.</p>
-        <div style={{border:"1px solid #e5e5e5",borderRadius:10,overflow:"hidden"}}>
+        <h2 style={h2s}>Team Insights</h2>
+        <p style={desc}>Deep-dive into every NFL team's draft profile. Select any team to see their full picture — scheme fit rankings, positional needs, free agency impact, depth chart, community draft patterns, and GM tendencies — all in one place.</p>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:14}}>
           {[
-            {rank:1,name:"Rueben Bain Jr.",pos:"EDGE",adp:"1.3",team:"Raiders"},
-            {rank:2,name:"Caleb Downs",pos:"S",adp:"2.7",team:"Jets"},
-            {rank:3,name:"Garrett Nussmeier",pos:"QB",adp:"4.1",team:"Cardinals"},
-          ].map((row,i)=>{const c=POS_COLORS[row.pos];return<div key={row.name} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderBottom:i<2?"1px solid #f5f5f5":"none"}}>
-            <span style={{fontFamily:mono,fontSize:11,fontWeight:700,color:"#a3a3a3",width:20,textAlign:"right"}}>{row.rank}</span>
-            <NFLTeamLogo team={row.team} size={20}/>
-            <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:c,background:`${c}0d`,padding:"2px 8px",borderRadius:99}}>{row.pos}</span>
-            <span style={{fontFamily:sans,fontSize:12,fontWeight:600,color:"#171717",flex:1}}>{row.name}</span>
-            <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#7c3aed"}}>ADP: {row.adp}</span>
-          </div>;})}
+            {emoji:"🏈",label:"Scheme Fit Rankings",desc:"Every prospect scored against the team's actual offensive and defensive scheme"},
+            {emoji:"📋",label:"Positional Needs",desc:"AI-assessed needs by tier, updated with free agency signings and departures"},
+            {emoji:"🔄",label:"Free Agency Impact",desc:"Key additions and losses with contract details and how they shift draft priorities"},
+            {emoji:"📊",label:"Community Picks",desc:"See who the BBL community drafts for this team — ADP, positional tendencies, draft fingerprint"},
+          ].map(item=><div key={item.label} style={{background:"#faf9f6",border:"1px solid #f0f0f0",borderRadius:10,padding:"12px"}}>
+            <div style={{fontSize:18,marginBottom:4}}>{item.emoji}</div>
+            <div style={{fontFamily:sans,fontSize:12,fontWeight:700,color:"#171717",marginBottom:2}}>{item.label}</div>
+            <div style={{fontFamily:sans,fontSize:11,color:"#737373",lineHeight:1.4}}>{item.desc}</div>
+          </div>)}
         </div>
-        <div style={tip}>💡 Use community ADP to spot where your evaluations diverge from the crowd — that's where you find your edge.</div>
+        <div style={{border:"1px solid #e5e5e5",borderRadius:10,overflow:"hidden",marginBottom:14}}>
+          <div style={{display:"flex",alignItems:"center",gap:10,padding:"10px 14px",background:"#faf9f6",borderBottom:"1px solid #f0f0f0"}}>
+            <NFLTeamLogo team="Titans" size={28}/>
+            <div>
+              <div style={{fontFamily:font,fontSize:14,fontWeight:900,color:"#171717"}}>Tennessee Titans</div>
+              <div style={{fontFamily:mono,fontSize:9,color:"#a3a3a3"}}>4-3 Under · Wide-9 · Saleh/Bradley Defense</div>
+            </div>
+          </div>
+          <div style={{display:"flex",gap:0}}>
+            {["Scheme Fits","Community Picks"].map((tab,i)=><div key={tab} style={{flex:1,padding:"8px 12px",textAlign:"center",fontFamily:mono,fontSize:10,fontWeight:700,color:i===0?"#7c3aed":"#a3a3a3",borderBottom:i===0?"2px solid #7c3aed":"2px solid transparent",background:i===0?"#f5f3ff":"transparent"}}>{tab}</div>)}
+          </div>
+        </div>
+        <div style={tip}>💡 Use Team Insights to scout YOUR team's needs before mock drafting — know exactly which positions and scheme traits to prioritize.</div>
       </div>
 
       {/* 12 — Compare Players Side by Side */}
@@ -8289,7 +8300,7 @@ function GuidePage({onBack}){
     </div>
 
     {/* Glossary Section */}
-    <div id="glossary" style={{maxWidth:720,margin:"40px auto",padding:"0 24px"}}>
+    <div id="guide-glossary" style={{maxWidth:720,margin:"40px auto",padding:"0 24px",scrollMarginTop:70}}>
       <h2 style={{fontFamily:font,fontSize:24,fontWeight:900,color:"#171717",marginBottom:4}}>Glossary</h2>
       <p style={{fontFamily:sans,fontSize:13,color:"#a3a3a3",marginBottom:16}}>Everything you see on Big Board Lab — what it means and how to read it.</p>
       <div className="trait-pills-scroll" style={{display:"flex",gap:5,marginBottom:24,overflowX:"auto",WebkitOverflowScrolling:"touch",scrollbarWidth:"none",paddingBottom:4}}>
