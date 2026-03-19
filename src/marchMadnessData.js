@@ -1320,3 +1320,24 @@ export const MADNESS_ESPN_ID = {
   "NC State":152,"Miami (OH)":193,"Lehigh":2329,"Howard":47,"Texas":251
 };
 export function madnessLogo(team){const id=MADNESS_ESPN_ID[team];return id?`https://a.espncdn.com/i/teamlogos/ncaa/500/${id}.png`:null;}
+
+// Primary school colors for BBL Weight comparisons
+export const MADNESS_SCHOOL_COLORS = {
+  "Duke":"#003087","UConn":"#0e1a3a","Michigan State":"#18453b","Kansas":"#0051ba",
+  "St. John's":"#c8102e","Louisville":"#ad0000","UCLA":"#2d68c4","Ohio State":"#bb0000",
+  "TCU":"#4d1979","UCF":"#ba9b37","South Florida":"#006747","Northern Iowa":"#4b116f",
+  "Cal Baptist":"#002855","North Dakota State":"#0a5640","Furman":"#582c83","Siena":"#006a4d",
+  "Florida":"#0021a5","Houston":"#c8102e","Illinois":"#e84a27","Nebraska":"#d00000",
+  "Vanderbilt":"#cfae70","North Carolina":"#7bafd4","St. Mary's":"#c41230","Clemson":"#f56600",
+  "Iowa":"#ffcd00","Texas A&M":"#500000","VCU":"#ffb300","McNeese":"#005da6",
+  "Troy":"#8b2332","Penn":"#011f5b","Idaho":"#b5985a","Prairie View A&M":"#582c83",
+  "Lehigh":"#653819","Arizona":"#cc0033","Purdue":"#cfb991","Gonzaga":"#002a5c",
+  "Arkansas":"#9d2235","Wisconsin":"#c5050c","BYU":"#002e5d","Miami":"#f47321",
+  "Villanova":"#003366","Utah State":"#0f2439","Missouri":"#f1b82d","Texas":"#bf5700",
+  "NC State":"#cc0000","High Point":"#330072","Hawaii":"#024731","Kennesaw State":"#fdbb30",
+  "Queens":"#c4a030","LIU":"#005596","Michigan":"#00274c","Iowa State":"#c8102e",
+  "Virginia":"#232d4b","Alabama":"#9e1b32","Texas Tech":"#cc0000","Tennessee":"#ff8200",
+  "Kentucky":"#0033a0","Georgia":"#ba0c2f","St. Louis":"#003da5","Santa Clara":"#862633",
+  "SMU":"#c8102e","Akron":"#041e42","Hofstra":"#004f9f","Wright State":"#007a33",
+  "Tennessee State":"#003da5","UMBC":"#d7a730","Miami (OH)":"#c3142d","Howard":"#003a63",
+};

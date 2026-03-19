@@ -27,7 +27,8 @@ import { computeAllSchemeFits, getTopTeamFits, getTeamSchemeFits, getPositionAvg
 import SCOUTING_NARRATIVES from "./scoutingNarratives.json";
 import SCOUTING_RAW from "./scoutingTraits.json";
 import ARCHETYPE_DATA from "./archetypeData.json";
-import { MARCH_MADNESS_TEAMS, MADNESS_METRICS, REGION_COLORS, madnessLogo } from "./marchMadnessData.js";
+import { MARCH_MADNESS_TEAMS, MADNESS_METRICS, REGION_COLORS, madnessLogo, MADNESS_SCHOOL_COLORS } from "./marchMadnessData.js";
+import { MADNESS_ROSTERS } from "./marchMadnessRosters.js";
 
 // Archetype display constants (shared with MockDraftSim)
 const ARCHETYPE_DISPLAY={"Slot / Nickel":"Slot","All-Purpose / Three-Down":"All-Purpose","Thumper / Run Stuffer":"Thumper","Hybrid / Chess Piece":"Chess Piece","Box Safety / Run Support":"Box","Center Field / Free Safety":"Center Field","Versatile / Complete":"Complete","Gap / Power Scheme":"Gap/Power","H-Back / Versatile":"H-Back","Y / Inline":"Inline","F / Move":"Move","X / Boundary":"Boundary"};
@@ -4072,7 +4073,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
           const winProb=(teamSrs,oppSrs)=>{const diff=teamSrs-oppSrs;const p=0.5+diff*0.02;return Math.max(0.1,Math.min(0.9,p));};
 
           // Sub-mode tabs
-          const subModes=[{key:"combo",label:"Scatter",icon:"\u2B50"},{key:"matchup",label:"Matchup",icon:"\u2694\uFE0F"},{key:"upset",label:"Upset Finder",icon:"\uD83D\uDD25"}];
+          const subModes=[{key:"combo",label:"Scatter",icon:"\u2B50"},{key:"matchup",label:"Matchup",icon:"\u2694\uFE0F"},{key:"upset",label:"Upset Finder",icon:"\uD83D\uDD25"},{key:"weight",label:"BBL Weight",icon:"\u2696\uFE0F"}];
 
           return<div style={{marginTop:4}}>
             {/* Sub-mode tabs */}
@@ -4409,6 +4410,250 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                     </div>;
                   })}
                 </div>
+              </>;
+            })()}
+
+            {/* BBL WEIGHT MODE */}
+            {madnessMode==="weight"&&(()=>{
+              const allTeams=[...MARCH_MADNESS_TEAMS].sort((a,b)=>a.team.localeCompare(b.team));
+              const tA=madnessTeamA?MARCH_MADNESS_TEAMS.find(t=>t.team===madnessTeamA):null;
+              const tB=madnessTeamB?MARCH_MADNESS_TEAMS.find(t=>t.team===madnessTeamB):null;
+              const rosterA=madnessTeamA?MADNESS_ROSTERS.find(r=>r.team===madnessTeamA):null;
+              const rosterB=madnessTeamB?MADNESS_ROSTERS.find(r=>r.team===madnessTeamB):null;
+
+              // Year to numeric for experience scoring
+              const yrVal=y=>{const l=(y||"").toLowerCase();return l.includes("senior")||l==="sr"?4:l.includes("junior")||l==="jr"?3:l.includes("sophomore")||l==="so"?2:l.includes("freshman")||l==="fr"?1:l.includes("redshirt")?3:2;};
+              const yrAbbr=y=>{const v=yrVal(y);return v===4?"SR":v===3?"JR":v===2?"SO":"FR";};
+              const yrColor=v=>v>=4?"#a855f7":v>=3?"#3b82f6":v>=2?"#fbbf24":"#f87171";
+
+              // Parse height string to inches
+              const htInches=h=>{if(!h)return 0;const m=h.match(/(\d+)['\u2032]\s*(\d+)/);if(m)return parseInt(m[1])*12+parseInt(m[2]);const m2=h.match(/(\d+)-(\d+)/);if(m2)return parseInt(m2[1])*12+parseInt(m2[2]);return 0;};
+
+              // BBL Weight comparison metrics
+              const weightMetrics=[
+                {key:"ortg",label:"Off. Efficiency",desc:"Points per 100 possessions",higher:"better",source:"team"},
+                {key:"drtg",label:"Def. Efficiency",desc:"Opponent points per 100 possessions",higher:"worse",inverted:true,source:"team"},
+                {key:"threePPct",label:"3PT%",desc:"Three-point shooting percentage",higher:"better",source:"roster",fmt:v=>(v*100).toFixed(1)+"%"},
+                {key:"opp3PPct",label:"Opp 3PT%",desc:"Opponent three-point percentage",higher:"worse",inverted:true,source:"roster",fmt:v=>(v*100).toFixed(1)+"%"},
+                {key:"ftPct",label:"FT%",desc:"Free throw percentage",higher:"better",source:"roster",fmt:v=>(v*100).toFixed(1)+"%"},
+                {key:"orbPct",label:"Off. Reb %",desc:"Offensive rebound percentage",higher:"better",source:"team"},
+                {key:"srs",label:"SRS",desc:"Simple Rating System",higher:"better",source:"team"},
+                {key:"sos",label:"Strength of Sched.",desc:"Average opponent quality",higher:"tougher",source:"team"},
+              ];
+
+              const getVal=(team,roster,m)=>{
+                if(m.source==="roster"&&roster)return roster[m.key];
+                return team?team[m.key]:null;
+              };
+
+              // Compute BBL Weight score
+              const norm=(val,arr,inverted)=>{const min=Math.min(...arr),max=Math.max(...arr),range=max-min||1;return inverted?((max-val)/range)*100:((val-min)/range)*100;};
+              const computeWeight=(team,roster)=>{
+                if(!team||!roster)return null;
+                const starters=roster.starters||[];
+                // Experience: avg class year (4=senior,1=fr), normalized 0-100
+                const avgYr=starters.length>0?starters.reduce((s,p)=>s+yrVal(p.year),0)/starters.length:2;
+                const expScore=((avgYr-1)/3)*100;
+                // Offensive efficiency
+                const offScore=norm(team.ortg,MARCH_MADNESS_TEAMS.map(t=>t.ortg),false);
+                // Defensive efficiency (lower is better)
+                const defScore=norm(team.drtg,MARCH_MADNESS_TEAMS.map(t=>t.drtg),true);
+                // 3PT shooting
+                const shootScore=roster.threePPct!=null?norm(roster.threePPct,MADNESS_ROSTERS.map(r=>r.threePPct).filter(v=>v!=null),false):50;
+                // Opp 3PT defense (lower is better)
+                const opp3Score=roster.opp3PPct!=null?norm(roster.opp3PPct,MADNESS_ROSTERS.map(r=>r.opp3PPct).filter(v=>v!=null),true):50;
+                // FT%
+                const ftScore=roster.ftPct!=null?norm(roster.ftPct,MADNESS_ROSTERS.map(r=>r.ftPct).filter(v=>v!=null),false):50;
+                // Size: avg height of starters in inches
+                const avgHt=starters.length>0?starters.reduce((s,p)=>s+htInches(p.height),0)/starters.length:76;
+                const sizeScore=Math.min(100,Math.max(0,((avgHt-72)/(82-72))*100));
+                // Bench depth (higher avg bench min = deeper bench)
+                const benchScore=roster.benchAvgMin!=null?Math.min(100,Math.max(0,(roster.benchAvgMin/20)*100)):50;
+                // Last 10 momentum
+                const l10w=roster.last10?parseInt(roster.last10):5;
+                const l10Score=(l10w/10)*100;
+                // Weighted composite
+                const total=expScore*0.12+offScore*0.12+defScore*0.14+shootScore*0.12+opp3Score*0.10+ftScore*0.08+sizeScore*0.10+benchScore*0.06+l10Score*0.08+((team.srs||0)>0?5:0);
+                return {
+                  total,exp:expScore,off:offScore,def:defScore,shoot:shootScore,opp3:opp3Score,ft:ftScore,size:sizeScore,bench:benchScore,l10:l10Score,
+                  avgYr,avgHt
+                };
+              };
+
+              const wA=computeWeight(tA,rosterA);
+              const wB=computeWeight(tB,rosterB);
+              const edge=wA&&wB?(wA.total-wB.total):0;
+              const edgeLabel=Math.abs(edge)<3?"Coin Flip":Math.abs(edge)<8?"Slight Edge":Math.abs(edge)<15?"Clear Edge":"Strong Edge";
+              const favored=edge>0?tA:edge<0?tB:null;
+
+              return<>
+                {/* Team dropdowns */}
+                <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:16,flexWrap:"wrap"}}>
+                  <select value={madnessTeamA||""} onChange={e=>{setMadnessTeamA(e.target.value||null);}} style={{fontFamily:sans,fontSize:13,fontWeight:600,padding:"8px 14px",borderRadius:10,border:"1px solid #2a2a2a",background:"#1a1a1a",color:"#e5e5e5",cursor:"pointer",minWidth:180}}>
+                    <option value="">Select Team A</option>
+                    {allTeams.map(t=><option key={t.team} value={t.team}>({t.seed}) {t.team} — {t.region}</option>)}
+                  </select>
+                  <span style={{fontFamily:font,fontSize:18,fontWeight:900,color:"#525252"}}>vs</span>
+                  <select value={madnessTeamB||""} onChange={e=>{setMadnessTeamB(e.target.value||null);}} style={{fontFamily:sans,fontSize:13,fontWeight:600,padding:"8px 14px",borderRadius:10,border:"1px solid #2a2a2a",background:"#1a1a1a",color:"#e5e5e5",cursor:"pointer",minWidth:180}}>
+                    <option value="">Select Team B</option>
+                    {allTeams.map(t=><option key={t.team} value={t.team}>({t.seed}) {t.team} — {t.region}</option>)}
+                  </select>
+                </div>
+
+                {tA&&tB&&rosterA&&rosterB&&(()=>{
+                  // Brighten dark school colors for dark-mode readability
+                  const brighten=hex=>{const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);const lum=0.299*r+0.587*g+0.114*b;if(lum>100)return hex;const f=Math.min(2.2,140/Math.max(lum,1));const cl=v=>Math.min(255,Math.round(v*f+(255-v*f)*0.15));return`#${cl(r).toString(16).padStart(2,'0')}${cl(g).toString(16).padStart(2,'0')}${cl(b).toString(16).padStart(2,'0')}`;};
+                  const colorA=brighten(MADNESS_SCHOOL_COLORS[tA.team]||"#dc2626");
+                  const colorB=brighten(MADNESS_SCHOOL_COLORS[tB.team]||"#2563eb");
+                  const logoA=madnessLogo(tA.team);
+                  const logoB=madnessLogo(tB.team);
+
+                  return<div style={{display:"flex",flexDirection:"column",gap:16}}>
+                    {/* ── VERDICT BANNER ── */}
+                    <div style={{background:"linear-gradient(135deg,#1a1a1a,#111)",border:"1px solid #2a2a2a",borderRadius:14,padding:"20px 24px"}}>
+                      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
+                        <div style={{display:"flex",alignItems:"center",gap:10}}>
+                          {logoA&&<img src={logoA} alt="" style={{width:36,height:36,objectFit:"contain"}}/>}
+                          <div>
+                            <div style={{fontFamily:font,fontSize:18,fontWeight:900,color:colorA}}>{tA.team}</div>
+                            <div style={{fontFamily:mono,fontSize:10,color:"#737373"}}>({tA.seed}) {tA.region} · {tA.record}{rosterA.last10?` · L10: ${rosterA.last10}`:""}</div>
+                          </div>
+                        </div>
+                        <div style={{textAlign:"center"}}>
+                          <div style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#525252",textTransform:"uppercase",marginBottom:2}}>BBL Weight</div>
+                          {wA&&wB?<>
+                            <div style={{fontFamily:font,fontSize:28,fontWeight:900,color:Math.abs(edge)<3?"#a3a3a3":edge>0?colorA:colorB,lineHeight:1}}>{edgeLabel}</div>
+                            <div style={{fontFamily:mono,fontSize:11,color:Math.abs(edge)<3?"#525252":edge>0?colorA:colorB,marginTop:2}}>{favored?favored.team:"—"} {Math.abs(edge)>=3?`+${Math.abs(edge).toFixed(0)}`:"~"}</div>
+                          </>:<div style={{fontFamily:mono,fontSize:12,color:"#525252"}}>calculating...</div>}
+                        </div>
+                        <div style={{display:"flex",alignItems:"center",gap:10,justifyContent:"flex-end"}}>
+                          <div style={{textAlign:"right"}}>
+                            <div style={{fontFamily:font,fontSize:18,fontWeight:900,color:colorB}}>{tB.team}</div>
+                            <div style={{fontFamily:mono,fontSize:10,color:"#737373"}}>({tB.seed}) {tB.region} · {tB.record}{rosterB.last10?` · L10: ${rosterB.last10}`:""}</div>
+                          </div>
+                          {logoB&&<img src={logoB} alt="" style={{width:36,height:36,objectFit:"contain"}}/>}
+                        </div>
+                      </div>
+                      {/* Win prob bar */}
+                      {wA&&wB&&<div style={{display:"flex",height:6,borderRadius:99,overflow:"hidden",background:"#0f0f0f"}}>
+                        <div style={{width:`${Math.max(10,Math.min(90,(wA.total/(wA.total+wB.total))*100))}%`,background:colorA,transition:"width 0.3s"}}/>
+                        <div style={{flex:1,background:colorB,transition:"width 0.3s"}}/>
+                      </div>}
+                      {/* Weight breakdown pills */}
+                      {wA&&wB&&<div style={{display:"flex",gap:6,marginTop:10,flexWrap:"wrap",justifyContent:"center"}}>
+                        {[
+                          {label:"Experience",a:wA.exp,b:wB.exp},
+                          {label:"Off. Efficiency",a:wA.off,b:wB.off},
+                          {label:"Def. Efficiency",a:wA.def,b:wB.def},
+                          {label:"3PT Shooting",a:wA.shoot,b:wB.shoot},
+                          {label:"3PT Defense",a:wA.opp3,b:wB.opp3},
+                          {label:"FT%",a:wA.ft,b:wB.ft},
+                          {label:"Size",a:wA.size,b:wB.size},
+                          {label:"Bench Depth",a:wA.bench,b:wB.bench},
+                          {label:"Last 10",a:wA.l10,b:wB.l10},
+                        ].map(f=>{const winner=f.a>f.b?"A":f.b>f.a?"B":"tie";const wc=winner==="A"?colorA:winner==="B"?colorB:"#525252";return<div key={f.label} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",borderRadius:99,border:`1px solid ${wc}44`,background:wc+"11",color:wc,fontWeight:700}}>{f.label}</div>;})}
+                      </div>}
+                    </div>
+
+                    {/* ── STARTING 5 DEPTH CHART ── */}
+                    <div style={{background:"#1a1a1a",border:"1px solid #2a2a2a",borderRadius:14,padding:"16px 20px"}}>
+                      <div style={{fontFamily:mono,fontSize:10,letterSpacing:1,color:"#525252",textTransform:"uppercase",marginBottom:12}}>Starting 5</div>
+                      <div style={{display:"grid",gridTemplateColumns:"1fr 60px 1fr",gap:0}}>
+                        {/* Header */}
+                        <div style={{fontFamily:mono,fontSize:9,color:colorA,fontWeight:700,textAlign:"right",padding:"0 8px 6px",borderBottom:"1px solid #2a2a2a"}}>{tA.team}</div>
+                        <div style={{fontFamily:mono,fontSize:9,color:"#525252",textAlign:"center",padding:"0 4px 6px",borderBottom:"1px solid #2a2a2a"}}>POS</div>
+                        <div style={{fontFamily:mono,fontSize:9,color:colorB,fontWeight:700,padding:"0 8px 6px",borderBottom:"1px solid #2a2a2a"}}>{tB.team}</div>
+                        {/* Rows */}
+                        {Array.from({length:5}).map((_,i)=>{
+                          const pA=(rosterA.starters||[])[i]||{};
+                          const pB=(rosterB.starters||[])[i]||{};
+                          const htA=htInches(pA.height);const htB=htInches(pB.height);
+                          const wtA=pA.weight||0;const wtB=pB.weight||0;
+                          const yrA=yrVal(pA.year);const yrB=yrVal(pB.year);
+                          const htWin=htA>htB?"A":htB>htA?"B":"tie";
+                          const wtWin=wtA>wtB?"A":wtB>wtA?"B":"tie";
+                          const yrWin=yrA>yrB?"A":yrB>yrA?"B":"tie";
+                          return<Fragment key={i}>
+                            {/* Team A player */}
+                            <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:6,padding:"8px 8px",borderBottom:i<4?"1px solid #1f1f1f":"none"}}>
+                              <div style={{textAlign:"right"}}>
+                                <div style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#e5e5e5"}}>{pA.name||"—"}</div>
+                                <div style={{display:"flex",gap:4,justifyContent:"flex-end",marginTop:2}}>
+                                  <span style={{fontFamily:mono,fontSize:9,color:yrWin==="A"?colorA:"#525252",fontWeight:yrWin==="A"?700:400}}>{yrAbbr(pA.year)}</span>
+                                  <span style={{fontFamily:mono,fontSize:9,color:htWin==="A"?colorA:"#525252",fontWeight:htWin==="A"?700:400}}>{pA.height||"—"}</span>
+                                  <span style={{fontFamily:mono,fontSize:9,color:wtWin==="A"?colorA:"#525252",fontWeight:wtWin==="A"?700:400}}>{pA.weight?pA.weight+"lb":"—"}</span>
+                                </div>
+                              </div>
+                              <div style={{width:6,height:6,borderRadius:99,background:yrColor(yrA),flexShrink:0}}/>
+                            </div>
+                            {/* Position */}
+                            <div style={{display:"flex",alignItems:"center",justifyContent:"center",padding:"8px 4px",borderBottom:i<4?"1px solid #1f1f1f":"none"}}>
+                              <span style={{fontFamily:mono,fontSize:11,fontWeight:900,color:"#737373"}}>{pA.pos||pB.pos||"—"}</span>
+                            </div>
+                            {/* Team B player */}
+                            <div style={{display:"flex",alignItems:"center",gap:6,padding:"8px 8px",borderBottom:i<4?"1px solid #1f1f1f":"none"}}>
+                              <div style={{width:6,height:6,borderRadius:99,background:yrColor(yrB),flexShrink:0}}/>
+                              <div>
+                                <div style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#e5e5e5"}}>{pB.name||"—"}</div>
+                                <div style={{display:"flex",gap:4,marginTop:2}}>
+                                  <span style={{fontFamily:mono,fontSize:9,color:yrWin==="B"?colorB:"#525252",fontWeight:yrWin==="B"?700:400}}>{yrAbbr(pB.year)}</span>
+                                  <span style={{fontFamily:mono,fontSize:9,color:htWin==="B"?colorB:"#525252",fontWeight:htWin==="B"?700:400}}>{pB.height||"—"}</span>
+                                  <span style={{fontFamily:mono,fontSize:9,color:wtWin==="B"?colorB:"#525252",fontWeight:wtWin==="B"?700:400}}>{pB.weight?pB.weight+"lb":"—"}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </Fragment>;
+                        })}
+                      </div>
+                      {/* Experience + Size summary */}
+                      {wA&&wB&&<div style={{display:"flex",gap:12,marginTop:12,justifyContent:"center",fontFamily:mono,fontSize:10}}>
+                        <span style={{color:"#525252"}}>Avg Class: <b style={{color:wA.avgYr>wB.avgYr?colorA:wB.avgYr>wA.avgYr?colorB:"#737373"}}>{wA.avgYr.toFixed(1)}</b> vs <b style={{color:wB.avgYr>wA.avgYr?colorB:wA.avgYr>wB.avgYr?colorA:"#737373"}}>{wB.avgYr.toFixed(1)}</b></span>
+                        <span style={{color:"#525252"}}>Avg Height: <b style={{color:wA.avgHt>wB.avgHt?colorA:wB.avgHt>wA.avgHt?colorB:"#737373"}}>{Math.floor(wA.avgHt/12)}'{Math.round(wA.avgHt%12)}"</b> vs <b style={{color:wB.avgHt>wA.avgHt?colorB:wA.avgHt>wB.avgHt?colorA:"#737373"}}>{Math.floor(wB.avgHt/12)}'{Math.round(wB.avgHt%12)}"</b></span>
+                      </div>}
+                    </div>
+
+                    {/* ── STAT COMPARISON BARS ── */}
+                    <div style={{background:"#1a1a1a",border:"1px solid #2a2a2a",borderRadius:14,padding:"16px 20px"}}>
+                      <div style={{fontFamily:mono,fontSize:10,letterSpacing:1,color:"#525252",textTransform:"uppercase",marginBottom:12}}>Statistical Comparison</div>
+                      {weightMetrics.map(m=>{
+                        const vA=getVal(tA,rosterA,m);
+                        const vB=getVal(tB,rosterB,m);
+                        if(vA==null||vB==null)return<div key={m.key} style={{display:"flex",alignItems:"center",gap:8,padding:"6px 0",borderBottom:"1px solid #1f1f1f"}}>
+                          <span style={{fontFamily:mono,fontSize:10,color:"#525252",width:110,textAlign:"center",flexShrink:0}}>{m.label}</span>
+                          <span style={{fontFamily:sans,fontSize:11,color:"#525252",flex:1,textAlign:"center"}}>N/A</span>
+                        </div>;
+                        const better=m.inverted?(vA<vB?"A":vA>vB?"B":"tie"):(vA>vB?"A":vA<vB?"B":"tie");
+                        // Normalize bar width against full field
+                        const allVals=m.source==="roster"?MADNESS_ROSTERS.map(r=>r[m.key]).filter(v=>v!=null):MARCH_MADNESS_TEAMS.map(t=>t[m.key]).filter(v=>v!=null);
+                        const mMin=Math.min(...allVals),mMax=Math.max(...allVals),mRange=mMax-mMin||1;
+                        const norm=Math.abs(vA-vB)/mRange;const barPct=Math.min(norm*100,50);
+                        const fmtV=v=>m.fmt?m.fmt(v):typeof v==="number"?v.toFixed(v<1&&v>-1?3:1):v;
+                        return<div key={m.key} style={{display:"flex",alignItems:"center",gap:0,padding:"5px 0",borderBottom:"1px solid #1f1f1f"}}>
+                          <span style={{fontFamily:mono,fontSize:11,fontWeight:better==="A"?900:500,color:better==="A"?colorA:"#525252",width:55,textAlign:"right",flexShrink:0}}>{fmtV(vA)}</span>
+                          <div style={{flex:1,display:"flex",alignItems:"center",height:20,margin:"0 8px",position:"relative"}}>
+                            <div style={{position:"absolute",left:0,right:0,top:"50%",height:2,background:"#2a2a2a",transform:"translateY(-50%)"}}/>
+                            <div style={{position:"absolute",left:"50%",top:0,width:1,height:20,background:"#333"}}/>
+                            {better==="A"&&<><div style={{position:"absolute",right:"50%",top:"50%",height:8,width:`${barPct}%`,background:colorA,borderRadius:"4px 0 0 4px",transform:"translateY(-50%)",transition:"width 0.3s",border:"1px solid rgba(255,255,255,0.25)",borderRight:"none"}}/><div style={{position:"absolute",right:`${50+barPct}%`,top:"50%",transform:"translate(50%,-50%)",width:12,height:12,borderRadius:99,background:colorA,border:"2px solid rgba(255,255,255,0.4)",zIndex:2}}/></>}
+                            {better==="B"&&<><div style={{position:"absolute",left:"50%",top:"50%",height:8,width:`${barPct}%`,background:colorB,borderRadius:"0 4px 4px 0",transform:"translateY(-50%)",transition:"width 0.3s",border:"1px solid rgba(255,255,255,0.25)",borderLeft:"none"}}/><div style={{position:"absolute",left:`${50+barPct}%`,top:"50%",transform:"translate(-50%,-50%)",width:12,height:12,borderRadius:99,background:colorB,border:"2px solid rgba(255,255,255,0.4)",zIndex:2}}/></>}
+                            {better==="tie"&&<div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",width:6,height:6,borderRadius:99,background:"#525252"}}/>}
+                          </div>
+                          <span style={{fontFamily:mono,fontSize:11,fontWeight:better==="B"?900:500,color:better==="B"?colorB:"#525252",width:55,textAlign:"left",flexShrink:0}}>{fmtV(vB)}</span>
+                          <span style={{fontFamily:mono,fontSize:9,color:"#525252",width:110,textAlign:"right",flexShrink:0,marginLeft:4}}>{m.label}</span>
+                        </div>;
+                      })}
+                      {/* Bench + Last 10 row */}
+                      <div style={{display:"flex",gap:16,marginTop:12,justifyContent:"center",flexWrap:"wrap"}}>
+                        {rosterA.benchAvgMin!=null&&rosterB.benchAvgMin!=null&&<div style={{fontFamily:mono,fontSize:10,color:"#525252"}}>Bench Avg Min: <b style={{color:rosterA.benchAvgMin>rosterB.benchAvgMin?colorA:"#737373"}}>{rosterA.benchAvgMin}</b> vs <b style={{color:rosterB.benchAvgMin>rosterA.benchAvgMin?colorB:"#737373"}}>{rosterB.benchAvgMin}</b></div>}
+                        {rosterA.last10&&rosterB.last10&&<div style={{fontFamily:mono,fontSize:10,color:"#525252"}}>Last 10: <b style={{color:parseInt(rosterA.last10)>parseInt(rosterB.last10)?colorA:"#737373"}}>{rosterA.last10}</b> vs <b style={{color:parseInt(rosterB.last10)>parseInt(rosterA.last10)?colorB:"#737373"}}>{rosterB.last10}</b></div>}
+                      </div>
+                    </div>
+                  </div>;
+                })()}
+
+                {(!tA||!tB)&&<div style={{textAlign:"center",padding:"60px 20px"}}>
+                  <p style={{fontFamily:sans,fontSize:16,color:"#525252",marginBottom:6}}>select two teams to compare</p>
+                  <p style={{fontFamily:mono,fontSize:11,color:"#3a3a3a"}}>depth chart + efficiency + shooting + experience — who has the edge?</p>
+                </div>}
               </>;
             })()}
           </div>;
