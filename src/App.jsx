@@ -4757,49 +4757,47 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                       const gap=Math.abs(edge);
                       const sameSeed=seedA===seedB;
 
-                      // Build narrative
-                      const lines=[];
+                      // Build narrative — each line has a team reference for logo bullet
+                      const lines=[]; // {text, team: "A"|"B"|null}
+                      const fav=edge>=0?tA:tB;const und=edge>=0?tB:tA;
+                      const favSide=edge>=0?"A":"B";const undSide=edge>=0?"B":"A";
                       // Verdict line
-                      if(gap<3)lines.push(`This is a true toss-up. The BBL Weight is essentially even, which means this game likely comes down to matchup execution and who hits shots on the day.`);
-                      else if(gap<8){
-                        const fav=favored;const und=fav===tA?tB:tA;
-                        lines.push(`${fav.team} has a slight edge here, but this is close enough that ${und.team} can absolutely win it.`);
-                      }else if(gap<15){
-                        lines.push(`${favored.team} has a clear advantage in the metrics that historically predict tournament success.`);
-                      }else{
-                        lines.push(`${favored.team} is significantly stronger across the board. An upset here would require a special performance.`);
-                      }
+                      if(gap<3)lines.push({text:`This is a true toss-up. The BBL Weight is essentially even, which means this game likely comes down to matchup execution and who hits shots on the day.`,team:null});
+                      else if(gap<8)lines.push({text:`${fav.team} has a slight edge here, but this is close enough that ${und.team} can absolutely win it.`,team:favSide});
+                      else if(gap<15)lines.push({text:`${fav.team} has a clear advantage in the metrics that historically predict tournament success.`,team:favSide});
+                      else lines.push({text:`${fav.team} is significantly stronger across the board. An upset here would require a special performance.`,team:favSide});
 
                       // Tier 1 analysis
-                      const fav=edge>=0?tA:tB;const und=edge>=0?tB:tA;
                       const favW1=edge>=0?winsA1:winsB1;const undW1=edge>=0?winsB1:winsA1;
-                      if(favW1.length>=3)lines.push(`${fav.team} owns the high-impact factors — ${favW1.map(f=>f.l).join(", ")}. Those are the metrics that hold up under single-elimination pressure.`);
-                      else if(favW1.length>=2)lines.push(`${fav.team} wins ${favW1.map(f=>f.l).join(" and ")} among the top-tier factors, which gives them the foundation.`);
-                      if(undW1.length>=2)lines.push(`But ${und.team} fights back with ${undW1.map(f=>f.l).join(" and ")} — that's not nothing in March.`);
-                      else if(undW1.length===1)lines.push(`${und.team}'s edge in ${undW1[0].l} is their best path to staying competitive.`);
+                      if(favW1.length>=3)lines.push({text:`${fav.team} owns the high-impact factors — ${favW1.map(f=>f.l).join(", ")}. Those are the metrics that hold up under single-elimination pressure.`,team:favSide});
+                      else if(favW1.length>=2)lines.push({text:`${fav.team} wins ${favW1.map(f=>f.l).join(" and ")} among the top-tier factors, which gives them the foundation.`,team:favSide});
+                      if(undW1.length>=2)lines.push({text:`${und.team} fights back with ${undW1.map(f=>f.l).join(" and ")} — that's not nothing in March.`,team:undSide});
+                      else if(undW1.length===1)lines.push({text:`${und.team}'s edge in ${undW1[0].l} is their best path to staying competitive.`,team:undSide});
 
                       // Upset signal
+                      const lowerSide=higher===tA?"B":"A";
                       if(!sameSeed&&lower.seed-higher.seed>=3){
-                        if(lWins1.length>=2){
-                          lines.push(`Upset signal: ${lower.team} (${lower.seed} seed) wins ${lWins1.length} of the 4 most predictive factors. When lower seeds own defense and experience, they tend to outperform their seed.`);
-                        }else if(lWins1.length<=1&&lW.def<40&&lW.exp<40){
-                          lines.push(`Upset risk is low — ${lower.team} doesn't have the defensive profile or experience that typically fuels tournament runs from lower seeds.`);
-                        }
+                        if(lWins1.length>=2)lines.push({text:`Upset signal: ${lower.team} (${lower.seed} seed) wins ${lWins1.length} of the 4 most predictive factors. When lower seeds own defense and experience, they tend to outperform their seed.`,team:lowerSide});
+                        else if(lWins1.length<=1&&lW.def<40&&lW.exp<40)lines.push({text:`Upset risk is low — ${lower.team} doesn't have the defensive profile or experience that typically fuels tournament runs from lower seeds.`,team:higher===tA?"A":"B"});
                       }
 
                       // SOS context
                       const favSos=edge>=0?wA.sos:wB.sos;const undSos=edge>=0?wB.sos:wA.sos;
-                      if(Math.abs(favSos-undSos)>30)lines.push(`The schedule strength gap is massive here — ${favSos>undSos?fav.team:und.team} was battle-tested against far tougher competition all season.`);
+                      if(Math.abs(favSos-undSos)>30){const sosWinner=favSos>undSos?fav:und;const sosSide=sosWinner===tA?"A":"B";lines.push({text:`The schedule strength gap is massive — ${sosWinner.team} was battle-tested against far tougher competition all season.`,team:sosSide});}
 
                       // Experience edge
                       const favExp=edge>=0?wA.exp:wB.exp;const undExp=edge>=0?wB.exp:wA.exp;
-                      if(favExp>75&&undExp<35)lines.push(`${fav.team}'s veteran roster is a real factor. Experienced teams handle tournament pressure, hostile crowds, and tight late-game situations at a much higher rate.`);
-                      else if(undExp>75&&favExp<35)lines.push(`Watch out — ${und.team} has the more experienced roster, and veteran teams historically outperform their seed in March.`);
+                      if(favExp>75&&undExp<35)lines.push({text:`${fav.team}'s veteran roster is a real factor. Experienced teams handle tournament pressure, hostile crowds, and tight late-game situations at a much higher rate.`,team:favSide});
+                      else if(undExp>75&&favExp<35)lines.push({text:`Watch out — ${und.team} has the more experienced roster, and veteran teams historically outperform their seed in March.`,team:undSide});
 
+                      const logoForSide=s=>s==="A"?logoA:s==="B"?logoB:null;
                       return<div style={{background:bg,border:`1px solid ${border1}`,borderRadius:14,padding:"16px 20px"}}>
                         <div style={{fontFamily:mono,fontSize:10,letterSpacing:1,color:txt3,textTransform:"uppercase",marginBottom:10}}>Matchup Analysis</div>
                         <div style={{fontFamily:sans,fontSize:13,color:txt,lineHeight:1.6}}>
-                          {lines.map((line,i)=><p key={i} style={{margin:i===0?"0 0 8px":"8px 0"}}>{line}</p>)}
+                          {lines.map((line,i)=>{const logo=logoForSide(line.team);return<div key={i} style={{display:"flex",alignItems:"flex-start",gap:8,margin:i===0?"0 0 8px":"8px 0"}}>
+                            {logo?<img src={logo} alt="" style={{width:18,height:18,objectFit:"contain",marginTop:2,flexShrink:0}}/>:<div style={{width:18,height:18,flexShrink:0}}/>}
+                            <p style={{margin:0}}>{line.text}</p>
+                          </div>;})}
                         </div>
                       </div>;
                     })()}
