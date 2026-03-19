@@ -4795,7 +4795,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                         <div style={{fontFamily:mono,fontSize:10,letterSpacing:1,color:txt3,textTransform:"uppercase",marginBottom:10}}>Matchup Analysis</div>
                         <div style={{fontFamily:sans,fontSize:13,color:txt,lineHeight:1.6}}>
                           {lines.map((line,i)=>{const logo=logoForSide(line.team);return<div key={i} style={{display:"flex",alignItems:"flex-start",gap:8,margin:i===0?"0 0 8px":"8px 0"}}>
-                            {logo?<img src={logo} alt="" style={{width:18,height:18,objectFit:"contain",marginTop:2,flexShrink:0}}/>:<div style={{width:18,height:18,flexShrink:0}}/>}
+                            {logo?<img src={logo} alt="" style={{width:18,height:18,objectFit:"contain",marginTop:2,flexShrink:0}}/>:<span style={{fontSize:14,lineHeight:"18px",width:18,textAlign:"center",flexShrink:0}}>{"\uD83C\uDFC0"}</span>}
                             <p style={{margin:0}}>{line.text}</p>
                           </div>;})}
                         </div>
