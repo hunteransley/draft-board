@@ -29,6 +29,7 @@ import SCOUTING_RAW from "./scoutingTraits.json";
 import ARCHETYPE_DATA from "./archetypeData.json";
 import { MARCH_MADNESS_TEAMS, MADNESS_METRICS, REGION_COLORS, madnessLogo, MADNESS_SCHOOL_COLORS } from "./marchMadnessData.js";
 import { MADNESS_ROSTERS } from "./marchMadnessRosters.js";
+import { MADNESS_INJURIES } from "./marchMadnessInjuries.js";
 
 // Archetype display constants (shared with MockDraftSim)
 const ARCHETYPE_DISPLAY={"Slot / Nickel":"Slot","All-Purpose / Three-Down":"All-Purpose","Thumper / Run Stuffer":"Thumper","Hybrid / Chess Piece":"Chess Piece","Box Safety / Run Support":"Box","Center Field / Free Safety":"Center Field","Versatile / Complete":"Complete","Gap / Power Scheme":"Gap/Power","H-Back / Versatile":"H-Back","Y / Inline":"Inline","F / Move":"Move","X / Boundary":"Boundary"};
@@ -4790,13 +4791,41 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                       if(favExp>75&&undExp<35)lines.push({text:`${fav.team}'s veteran roster is a real factor. Experienced teams handle tournament pressure, hostile crowds, and tight late-game situations at a much higher rate.`,team:favSide});
                       else if(undExp>75&&favExp<35)lines.push({text:`Watch out — ${und.team} has the more experienced roster, and veteran teams historically outperform their seed in March.`,team:undSide});
 
+                      // Injury report — cross-reference with roster MPG to assess impact
+                      const injA=MADNESS_INJURIES[tA.team]||[];
+                      const injB=MADNESS_INJURIES[tB.team]||[];
+                      const enrichInj=(injs,roster)=>{
+                        const starters=roster?.starters||[];
+                        return injs.map(inj=>{
+                          const match=starters.find(s=>s.name.split(" ").pop().toLowerCase()===inj.player.split(" ").pop().toLowerCase());
+                          const mpg=match?.mpg||null;
+                          const isStarter=!!match;
+                          return{...inj,mpg,isStarter};
+                        }).filter(inj=>inj.mpg==null||inj.mpg>=10); // drop guys under 10 MPG unless we can't find them
+                      };
+                      const fmtInj=(injs,team)=>{
+                        if(!injs.length)return null;
+                        const sorted=[...injs].sort((a,b)=>(b.mpg||0)-(a.mpg||0));
+                        const parts=sorted.map(i=>{
+                          const role=i.isStarter?"starter":"rotation";
+                          const mins=i.mpg?`${i.mpg} MPG ${role}`:"";
+                          const stat=i.status==="out"?"OUT":"questionable";
+                          return`${i.player} (${mins?mins+", ":""}${i.note}) — ${stat}`;
+                        });
+                        return`${team}: ${parts.join(". ")}`;
+                      };
+                      const eInjA=enrichInj(injA,rosterA);
+                      const eInjB=enrichInj(injB,rosterB);
+                      if(eInjA.length){const txt=fmtInj(eInjA,tA.team);if(txt)lines.push({text:txt,team:null,injury:true});}
+                      if(eInjB.length){const txt=fmtInj(eInjB,tB.team);if(txt)lines.push({text:txt,team:null,injury:true});}
+
                       const logoForSide=s=>s==="A"?logoA:s==="B"?logoB:null;
                       return<div style={{background:bg,border:`1px solid ${border1}`,borderRadius:14,padding:"16px 20px"}}>
                         <div style={{fontFamily:mono,fontSize:10,letterSpacing:1,color:txt3,textTransform:"uppercase",marginBottom:10}}>Matchup Analysis</div>
                         <div style={{fontFamily:sans,fontSize:13,color:txt,lineHeight:1.6}}>
                           {lines.map((line,i)=>{const logo=logoForSide(line.team);return<div key={i} style={{display:"flex",alignItems:"flex-start",gap:8,margin:i===0?"0 0 8px":"8px 0"}}>
-                            {logo?<img src={logo} alt="" style={{width:18,height:18,objectFit:"contain",marginTop:2,flexShrink:0}}/>:<span style={{fontSize:14,lineHeight:"18px",width:18,textAlign:"center",flexShrink:0}}>{"\uD83C\uDFC0"}</span>}
-                            <p style={{margin:0}}>{line.text}</p>
+                            {line.injury?<span style={{fontSize:14,lineHeight:"18px",width:18,textAlign:"center",flexShrink:0}}>{"\uD83C\uDFE5"}</span>:logo?<img src={logo} alt="" style={{width:18,height:18,objectFit:"contain",marginTop:2,flexShrink:0}}/>:<span style={{fontSize:14,lineHeight:"18px",width:18,textAlign:"center",flexShrink:0}}>{"\uD83C\uDFC0"}</span>}
+                            <p style={{margin:0,color:line.injury?"#dc2626":undefined,fontWeight:line.injury?600:undefined}}>{line.text}</p>
                           </div>;})}
                         </div>
                       </div>;
