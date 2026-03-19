@@ -4473,7 +4473,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                 const l10w=roster.last10?parseInt(roster.last10):5;
                 const l10Score=(l10w/10)*100;
                 // Weighted composite
-                const total=expScore*0.12+offScore*0.12+defScore*0.14+shootScore*0.12+opp3Score*0.10+ftScore*0.08+sizeScore*0.10+benchScore*0.06+l10Score*0.08+((team.srs||0)>0?5:0);
+                const total=defScore*0.20+expScore*0.15+opp3Score*0.13+offScore*0.12+ftScore*0.10+sizeScore*0.09+shootScore*0.08+l10Score*0.07+benchScore*0.06;
                 return {
                   total,exp:expScore,off:offScore,def:defScore,shoot:shootScore,opp3:opp3Score,ft:ftScore,size:sizeScore,bench:benchScore,l10:l10Score,
                   avgYr,avgHt
