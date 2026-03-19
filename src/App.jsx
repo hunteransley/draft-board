@@ -4462,8 +4462,14 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                 const shootScore=roster.threePPct!=null?norm(roster.threePPct,MADNESS_ROSTERS.map(r=>r.threePPct).filter(v=>v!=null),false):50;
                 // Opp 3PT defense (lower is better)
                 const opp3Score=roster.opp3PPct!=null?norm(roster.opp3PPct,MADNESS_ROSTERS.map(r=>r.opp3PPct).filter(v=>v!=null),true):50;
+                // Turnover % (lower is better — protect the ball)
+                const tovScore=norm(team.tovPct,MARCH_MADNESS_TEAMS.map(t=>t.tovPct),true);
                 // FT Rate (FTA/FGA — how often you get to the line)
                 const ftScore=norm(team.ftr,MARCH_MADNESS_TEAMS.map(t=>t.ftr),false);
+                // Offensive rebounding % (second-chance points)
+                const orbScore=norm(team.orbPct,MARCH_MADNESS_TEAMS.map(t=>t.orbPct),false);
+                // Strength of schedule (battle-tested)
+                const sosScore=norm(team.sos,MARCH_MADNESS_TEAMS.map(t=>t.sos),false);
                 // Size: avg height of starters in inches
                 const avgHt=starters.length>0?starters.reduce((s,p)=>s+htInches(p.height),0)/starters.length:76;
                 const sizeScore=Math.min(100,Math.max(0,((avgHt-72)/(82-72))*100));
@@ -4472,10 +4478,15 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                 // Last 10 momentum
                 const l10w=roster.last10?parseInt(roster.last10):5;
                 const l10Score=(l10w/10)*100;
-                // Weighted composite
-                const total=defScore*0.20+expScore*0.15+opp3Score*0.13+offScore*0.12+ftScore*0.10+sizeScore*0.09+shootScore*0.08+l10Score*0.07+benchScore*0.06;
+                // Pace (slower = more controlled, slight edge historically)
+                const paceScore=norm(team.pace,MARCH_MADNESS_TEAMS.map(t=>t.pace),true);
+                // Weighted composite — 13 factors, historically calibrated
+                //   Tier 1 (core): Def Eff 16%, Turnover% 11%, Experience 10%, Off Eff 10%
+                //   Tier 2 (key):  3PT Def 9%, SOS 8%, FT Rate 7%, ORB% 6%
+                //   Tier 3 (edge): 3PT Shooting 5%, Size 5%, Pace 5%, Last 10 4%, Bench 4%
+                const total=defScore*0.16+tovScore*0.11+expScore*0.10+offScore*0.10+opp3Score*0.09+sosScore*0.08+ftScore*0.07+orbScore*0.06+shootScore*0.05+sizeScore*0.05+paceScore*0.05+l10Score*0.04+benchScore*0.04;
                 return {
-                  total,exp:expScore,off:offScore,def:defScore,shoot:shootScore,opp3:opp3Score,ft:ftScore,size:sizeScore,bench:benchScore,l10:l10Score,
+                  total,exp:expScore,off:offScore,def:defScore,shoot:shootScore,opp3:opp3Score,tov:tovScore,ft:ftScore,orb:orbScore,sos:sosScore,size:sizeScore,bench:benchScore,l10:l10Score,pace:paceScore,
                   avgYr,avgHt
                 };
               };
@@ -4514,7 +4525,11 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                   // Build field arrays once for percentile computation
                   const fieldOrtg=MARCH_MADNESS_TEAMS.map(t=>t.ortg);
                   const fieldDrtg=MARCH_MADNESS_TEAMS.map(t=>t.drtg);
+                  const fieldTov=MARCH_MADNESS_TEAMS.map(t=>t.tovPct);
                   const fieldFtr=MARCH_MADNESS_TEAMS.map(t=>t.ftr);
+                  const fieldOrb=MARCH_MADNESS_TEAMS.map(t=>t.orbPct);
+                  const fieldSos=MARCH_MADNESS_TEAMS.map(t=>t.sos);
+                  const fieldPace=MARCH_MADNESS_TEAMS.map(t=>t.pace);
                   const field3P=MADNESS_ROSTERS.map(r=>r.threePPct).filter(v=>v!=null);
                   const fieldOpp3=MADNESS_ROSTERS.map(r=>r.opp3PPct).filter(v=>v!=null);
                   const fieldBench=MADNESS_ROSTERS.map(r=>r.benchAvgMin).filter(v=>v!=null);
@@ -4526,16 +4541,21 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                   const avgHtA=wA?.avgHt||76,avgHtB=wB?.avgHt||76;
                   const fmtHt=h=>`${Math.floor(h/12)}'${Math.round(h%12)}"`;
 
+                  // Bars ordered by formula weight (highest impact first)
                   const allMetrics=[
-                    {key:"avgYr",label:"Avg Class Year",vA:avgYrA,vB:avgYrB,fA:avgYrA.toFixed(1),fB:avgYrB.toFixed(1),pctA:pctRank(avgYrA,fieldAvgYr),pctB:pctRank(avgYrB,fieldAvgYr)},
-                    {key:"avgHt",label:"Avg Height",vA:avgHtA,vB:avgHtB,fA:fmtHt(avgHtA),fB:fmtHt(avgHtB),pctA:pctRank(avgHtA,fieldAvgHt),pctB:pctRank(avgHtB,fieldAvgHt)},
-                    {key:"ortg",label:"Off. Efficiency",vA:tA.ortg,vB:tB.ortg,pctA:pctRank(tA.ortg,fieldOrtg),pctB:pctRank(tB.ortg,fieldOrtg)},
                     {key:"drtg",label:"Def. Efficiency",vA:tA.drtg,vB:tB.drtg,inv:true,pctA:pctRank(tA.drtg,fieldDrtg,true),pctB:pctRank(tB.drtg,fieldDrtg,true)},
-                    {key:"threePPct",label:"3PT%",vA:rosterA.threePPct,vB:rosterB.threePPct,pct:true,pctA:pctRank(rosterA.threePPct,field3P),pctB:pctRank(rosterB.threePPct,field3P)},
+                    {key:"tovPct",label:"Turnover %",vA:tA.tovPct,vB:tB.tovPct,inv:true,pctA:pctRank(tA.tovPct,fieldTov,true),pctB:pctRank(tB.tovPct,fieldTov,true)},
+                    {key:"avgYr",label:"Avg Class Year",vA:avgYrA,vB:avgYrB,fA:avgYrA.toFixed(1),fB:avgYrB.toFixed(1),pctA:pctRank(avgYrA,fieldAvgYr),pctB:pctRank(avgYrB,fieldAvgYr)},
+                    {key:"ortg",label:"Off. Efficiency",vA:tA.ortg,vB:tB.ortg,pctA:pctRank(tA.ortg,fieldOrtg),pctB:pctRank(tB.ortg,fieldOrtg)},
                     {key:"opp3PPct",label:"Opp 3PT%",vA:rosterA.opp3PPct,vB:rosterB.opp3PPct,inv:true,pct:true,pctA:pctRank(rosterA.opp3PPct,fieldOpp3,true),pctB:pctRank(rosterB.opp3PPct,fieldOpp3,true)},
+                    {key:"sos",label:"Sched. Strength",vA:tA.sos,vB:tB.sos,pctA:pctRank(tA.sos,fieldSos),pctB:pctRank(tB.sos,fieldSos)},
                     {key:"ftr",label:"FT Rate",vA:tA.ftr,vB:tB.ftr,pct:true,pctA:pctRank(tA.ftr,fieldFtr),pctB:pctRank(tB.ftr,fieldFtr)},
-                    {key:"benchAvgMin",label:"Bench Avg Min",vA:rosterA.benchAvgMin,vB:rosterB.benchAvgMin,pctA:pctRank(rosterA.benchAvgMin||0,fieldBench),pctB:pctRank(rosterB.benchAvgMin||0,fieldBench)},
+                    {key:"orbPct",label:"Off. Reb %",vA:tA.orbPct,vB:tB.orbPct,pctA:pctRank(tA.orbPct,fieldOrb),pctB:pctRank(tB.orbPct,fieldOrb)},
+                    {key:"threePPct",label:"3PT%",vA:rosterA.threePPct,vB:rosterB.threePPct,pct:true,pctA:pctRank(rosterA.threePPct,field3P),pctB:pctRank(rosterB.threePPct,field3P)},
+                    {key:"avgHt",label:"Avg Height",vA:avgHtA,vB:avgHtB,fA:fmtHt(avgHtA),fB:fmtHt(avgHtB),pctA:pctRank(avgHtA,fieldAvgHt),pctB:pctRank(avgHtB,fieldAvgHt)},
+                    {key:"pace",label:"Pace Control",vA:tA.pace,vB:tB.pace,inv:true,pctA:pctRank(tA.pace,fieldPace,true),pctB:pctRank(tB.pace,fieldPace,true)},
                     {key:"last10",label:"Last 10",vA:rosterA.last10?parseInt(rosterA.last10):null,vB:rosterB.last10?parseInt(rosterB.last10):null,fA:rosterA.last10,fB:rosterB.last10,pctA:pctRank(rosterA.last10?parseInt(rosterA.last10):5,fieldL10),pctB:pctRank(rosterB.last10?parseInt(rosterB.last10):5,fieldL10)},
+                    {key:"benchAvgMin",label:"Bench Avg Min",vA:rosterA.benchAvgMin,vB:rosterB.benchAvgMin,pctA:pctRank(rosterA.benchAvgMin||0,fieldBench),pctB:pctRank(rosterB.benchAvgMin||0,fieldBench)},
                   ];
 
                   return<div style={{display:"flex",flexDirection:"column",gap:16}}>
@@ -4570,15 +4590,19 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                       </div>}
                       {wA&&wB&&<div style={{display:"flex",gap:6,marginTop:10,flexWrap:"wrap",justifyContent:"center"}}>
                         {[
+                          {label:"Def. Efficiency",a:wA.def,b:wB.def},
+                          {label:"Turnover %",a:wA.tov,b:wB.tov},
                           {label:"Experience",a:wA.exp,b:wB.exp},
                           {label:"Off. Efficiency",a:wA.off,b:wB.off},
-                          {label:"Def. Efficiency",a:wA.def,b:wB.def},
-                          {label:"3PT Shooting",a:wA.shoot,b:wB.shoot},
                           {label:"3PT Defense",a:wA.opp3,b:wB.opp3},
+                          {label:"Sched. Strength",a:wA.sos,b:wB.sos},
                           {label:"FT Rate",a:wA.ft,b:wB.ft},
+                          {label:"Off. Reb %",a:wA.orb,b:wB.orb},
+                          {label:"3PT Shooting",a:wA.shoot,b:wB.shoot},
                           {label:"Size",a:wA.size,b:wB.size},
-                          {label:"Bench Depth",a:wA.bench,b:wB.bench},
+                          {label:"Pace Control",a:wA.pace,b:wB.pace},
                           {label:"Last 10",a:wA.l10,b:wB.l10},
+                          {label:"Bench Depth",a:wA.bench,b:wB.bench},
                         ].map(f=>{const winner=f.a>f.b?"A":f.b>f.a?"B":"tie";const wc=winner==="A"?colorA:winner==="B"?colorB:txt3;return<div key={f.label} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",borderRadius:99,border:`1px solid ${wc}44`,background:wc+"0d",color:wc,fontWeight:700}}>{f.label}</div>;})}
                       </div>}
                     </div>
