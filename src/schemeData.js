@@ -63,11 +63,15 @@ function classifyFront(text) {
   if (/3-4|3–4|odd front/.test(t) && !/4-3/.test(t)) return "34";
   if (/4-3|4–3|even front/.test(t) && !/3-4/.test(t)) return "43";
   if (/4-2-5|nickel/.test(t) && !/3-4|4-3/.test(t)) return "425";
-  // If both mentioned, check which comes first or which is "base"
+  // If both mentioned, check which is the BASE front (tight match — within 20 chars)
   if (/3-4/.test(t) && /4-3/.test(t)) {
-    // "3-4 primary" or "3-4 base" → 34
-    if (/3-4.*(?:primary|base|lean)/.test(t)) return "34";
-    if (/4-3.*(?:primary|base|lean)/.test(t)) return "43";
+    if (/4-3.{0,15}(?:base|primary|under)/.test(t)) return "43";
+    if (/3-4.{0,15}(?:base|primary)/.test(t)) return "34";
+    // Check which appears first with "base" nearby
+    const idx43 = t.indexOf("4-3");
+    const idx34 = t.indexOf("3-4");
+    if (idx43 < idx34) return "43";
+    if (idx34 < idx43) return "34";
     return "multiple";
   }
   if (/multiple|hybrid/.test(t)) {
@@ -174,8 +178,8 @@ function classifyTeRole(text) {
 function classifyEdgeType(text) {
   if (!text) return "hybrid";
   const t = text.toLowerCase();
-  const standup = (t.match(/stand-up|stand up|\bolb\b|two-point/gi) || []).length;
-  const dirt = (t.match(/hand-in-dirt|hands-in-dirt|4-3 de|hands-down|4-down|hand down/gi) || []).length;
+  const standup = (t.match(/stand-up|(?<!\balso\s)stand up(?!\s+in)|\bolb\b|two-point/gi) || []).length;
+  const dirt = (t.match(/hand-in-dirt|hands-in-dirt|4-3 de|hands-down|4-down|hand down|wide[- ]9|wide[- ]nine|\bleo\b|\b[579]-tech/gi) || []).length;
   if (standup > dirt + 1) return "standup";
   if (dirt > standup + 1) return "hands_dirt";
   if (standup > 0 && dirt > 0) return "hybrid";

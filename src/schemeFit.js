@@ -948,7 +948,7 @@ function getSchemeRoleLabel(pos, scheme) {
     return { hybrid_box: "Hybrid Box Safety", versatile: "Versatile Safety", deep_first: "Deep/FS", traditional_split: "Safety" }[scheme.safetyRole] || "Safety";
   }
   if (pos === "EDGE") {
-    const front = scheme.defFront === "34" ? "3-4" : "4-3";
+    const front = scheme.defFront === "34" ? "3-4" : scheme.defFront === "425" ? "4-2-5" : "4-3";
     return { standup: `${front} Stand-Up Edge`, hands_dirt: `${front} Hand-Down DE`, hybrid: `${front} Versatile Edge` }[scheme.edgeType] || "Edge Rusher";
   }
   if (pos === "LB") {
