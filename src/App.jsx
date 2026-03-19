@@ -4716,7 +4716,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                         <div style={{fontFamily:mono,fontSize:10,letterSpacing:1,color:txt3,textTransform:"uppercase",marginBottom:8}}>Profile Overlay</div>
                         <div style={{display:"flex",alignItems:"center",gap:16,marginBottom:8,justifyContent:"center"}}>
                           <div style={{display:"flex",alignItems:"center",gap:4}}><div style={{width:12,height:3,borderRadius:2,background:colorA}}/><span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:colorA}}>{tA.team}</span></div>
-                          <div style={{display:"flex",alignItems:"center",gap:4}}><div style={{width:12,height:3,borderRadius:2,background:colorB}}/><span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:colorB}}>{tB.team}</span></div>
+                          <div style={{display:"flex",alignItems:"center",gap:4}}><svg width="16" height="3"><line x1="0" y1="1.5" x2="16" y2="1.5" stroke={colorB} strokeWidth="2.5" strokeDasharray="4 2"/></svg><span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:colorB}}>{tB.team}</span></div>
                         </div>
                         <svg viewBox="0 0 400 400" style={{width:"100%",maxWidth:420,display:"block",margin:"0 auto"}}>
                           {/* Grid rings */}
@@ -4725,8 +4725,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                           {spiderMetrics.map((_,i)=>{const[x,y]=pt(i,100);return<line key={i} x1={cx} y1={cy} x2={x} y2={y} stroke={border1} strokeWidth="0.5" opacity={0.3}/>;} )}
                           {/* Team A polygon */}
                           <polygon points={poly(spiderMetrics.map(m=>m.a))} fill={colorA+"22"} stroke={colorA} strokeWidth="2" strokeLinejoin="round"/>
-                          {/* Team B polygon */}
-                          <polygon points={poly(spiderMetrics.map(m=>m.b))} fill={colorB+"22"} stroke={colorB} strokeWidth="2" strokeLinejoin="round"/>
+                          {/* Team B polygon (dashed to distinguish from A) */}
+                          <polygon points={poly(spiderMetrics.map(m=>m.b))} fill={colorB+"22"} stroke={colorB} strokeWidth="2.5" strokeLinejoin="round" strokeDasharray="6 3"/>
                           {/* Dots at vertices */}
                           {spiderMetrics.map((m,i)=>{const[xa,ya]=pt(i,m.a);const[xb,yb]=pt(i,m.b);return<Fragment key={i}><circle cx={xa} cy={ya} r="3" fill={colorA}/><circle cx={xb} cy={yb} r="3" fill={colorB}/></Fragment>;})}
                           {/* Labels */}
