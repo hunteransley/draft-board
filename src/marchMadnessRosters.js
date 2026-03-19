@@ -659,9 +659,9 @@ export const MADNESS_ROSTERS = [
         "mpg": 22.8
       }
     ],
-    "threePPct": 3,
+    "threePPct": 0.337,
     "ftPct": 0.719,
-    "opp3PPct": 3,
+    "opp3PPct": 0.297,
     "benchAvgMin": 11.8,
     "totalBenchMin": 94.4,
     "last10": "8-2"
@@ -2597,9 +2597,9 @@ export const MADNESS_ROSTERS = [
         "mpg": 28.4
       }
     ],
-    "threePPct": 3,
+    "threePPct": 0.359,
     "ftPct": 0.726,
-    "opp3PPct": 3,
+    "opp3PPct": 0.309,
     "benchAvgMin": 10.7,
     "totalBenchMin": null,
     "last10": "7-3"
@@ -2750,9 +2750,9 @@ export const MADNESS_ROSTERS = [
         "mpg": 17.7
       }
     ],
-    "threePPct": 3,
+    "threePPct": 0.334,
     "ftPct": 0.694,
-    "opp3PPct": 3,
+    "opp3PPct": 0.306,
     "benchAvgMin": 9.2,
     "totalBenchMin": null,
     "last10": "5-5"
@@ -3158,9 +3158,9 @@ export const MADNESS_ROSTERS = [
         "mpg": 22.6
       }
     ],
-    "threePPct": 3,
+    "threePPct": 0.361,
     "ftPct": 0.736,
-    "opp3PPct": 3,
+    "opp3PPct": 0.33,
     "benchAvgMin": 10.5,
     "totalBenchMin": null,
     "last10": "6-4"
