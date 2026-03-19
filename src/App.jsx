@@ -4436,12 +4436,12 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                 {key:"threePPct",label:"3PT%",desc:"Three-point shooting percentage",higher:"better",source:"roster",fmt:v=>(v*100).toFixed(1)+"%"},
                 {key:"opp3PPct",label:"Opp 3PT%",desc:"Opponent three-point percentage",higher:"worse",inverted:true,source:"roster",fmt:v=>(v*100).toFixed(1)+"%"},
                 {key:"ftPct",label:"FT%",desc:"Free throw percentage",higher:"better",source:"roster",fmt:v=>(v*100).toFixed(1)+"%"},
-                {key:"orbPct",label:"Off. Reb %",desc:"Offensive rebound percentage",higher:"better",source:"team"},
-                {key:"srs",label:"SRS",desc:"Simple Rating System",higher:"better",source:"team"},
-                {key:"sos",label:"Strength of Sched.",desc:"Average opponent quality",higher:"tougher",source:"team"},
+                {key:"benchAvgMin",label:"Bench Avg Min",desc:"Average minutes per bench player",higher:"deeper",source:"roster",fmt:v=>v.toFixed(1)},
+                {key:"last10",label:"Last 10",desc:"Record in last 10 games",higher:"better",source:"roster",fmt:v=>v,isLast10:true},
               ];
 
               const getVal=(team,roster,m)=>{
+                if(m.isLast10){const v=roster?.last10;if(!v)return null;return parseInt(v);}
                 if(m.source==="roster"&&roster)return roster[m.key];
                 return team?team[m.key]:null;
               };
@@ -4462,8 +4462,8 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                 const shootScore=roster.threePPct!=null?norm(roster.threePPct,MADNESS_ROSTERS.map(r=>r.threePPct).filter(v=>v!=null),false):50;
                 // Opp 3PT defense (lower is better)
                 const opp3Score=roster.opp3PPct!=null?norm(roster.opp3PPct,MADNESS_ROSTERS.map(r=>r.opp3PPct).filter(v=>v!=null),true):50;
-                // FT%
-                const ftScore=roster.ftPct!=null?norm(roster.ftPct,MADNESS_ROSTERS.map(r=>r.ftPct).filter(v=>v!=null),false):50;
+                // FT Rate (FTA/FGA — how often you get to the line)
+                const ftScore=norm(team.ftr,MARCH_MADNESS_TEAMS.map(t=>t.ftr),false);
                 // Size: avg height of starters in inches
                 const avgHt=starters.length>0?starters.reduce((s,p)=>s+htInches(p.height),0)/starters.length:76;
                 const sizeScore=Math.min(100,Math.max(0,((avgHt-72)/(82-72))*100));
@@ -4501,45 +4501,73 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                 </div>
 
                 {tA&&tB&&rosterA&&rosterB&&(()=>{
-                  // Brighten dark school colors for dark-mode readability
-                  const brighten=hex=>{const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);const lum=0.299*r+0.587*g+0.114*b;if(lum>100)return hex;const f=Math.min(2.2,140/Math.max(lum,1));const cl=v=>Math.min(255,Math.round(v*f+(255-v*f)*0.15));return`#${cl(r).toString(16).padStart(2,'0')}${cl(g).toString(16).padStart(2,'0')}${cl(b).toString(16).padStart(2,'0')}`;};
-                  const colorA=brighten(MADNESS_SCHOOL_COLORS[tA.team]||"#dc2626");
-                  const colorB=brighten(MADNESS_SCHOOL_COLORS[tB.team]||"#2563eb");
+                  const colorA=MADNESS_SCHOOL_COLORS[tA.team]||"#dc2626";
+                  const colorB=MADNESS_SCHOOL_COLORS[tB.team]||"#2563eb";
                   const logoA=madnessLogo(tA.team);
                   const logoB=madnessLogo(tB.team);
+                  // Light-mode palette
+                  const bg="#fff",bg2="#faf9f6",border1="#e5e5e5",border2="#f0f0f0",txt="#171717",txt2="#525252",txt3="#a3a3a3";
+
+                  // Percentile rank helper: where does val sit among sorted arr? (0-100, higher=better)
+                  const pctRank=(val,arr,inv)=>{if(!arr.length)return 50;const sorted=[...arr].sort((a,b)=>a-b);const below=sorted.filter(v=>v<val).length;const equal=sorted.filter(v=>v===val).length;const raw=(below+equal*0.5)/sorted.length*100;return inv?100-raw:raw;};
+
+                  // Build field arrays once for percentile computation
+                  const fieldOrtg=MARCH_MADNESS_TEAMS.map(t=>t.ortg);
+                  const fieldDrtg=MARCH_MADNESS_TEAMS.map(t=>t.drtg);
+                  const fieldFtr=MARCH_MADNESS_TEAMS.map(t=>t.ftr);
+                  const field3P=MADNESS_ROSTERS.map(r=>r.threePPct).filter(v=>v!=null);
+                  const fieldOpp3=MADNESS_ROSTERS.map(r=>r.opp3PPct).filter(v=>v!=null);
+                  const fieldBench=MADNESS_ROSTERS.map(r=>r.benchAvgMin).filter(v=>v!=null);
+                  const fieldL10=MADNESS_ROSTERS.map(r=>r.last10?parseInt(r.last10):null).filter(v=>v!=null);
+                  const fieldAvgYr=MADNESS_ROSTERS.map(r=>{const s=r.starters||[];return s.length?s.reduce((sum,p)=>sum+yrVal(p.year),0)/s.length:2;});
+                  const fieldAvgHt=MADNESS_ROSTERS.map(r=>{const s=r.starters||[];return s.length?s.reduce((sum,p)=>sum+htInches(p.height),0)/s.length:76;});
+
+                  const avgYrA=wA?.avgYr||2,avgYrB=wB?.avgYr||2;
+                  const avgHtA=wA?.avgHt||76,avgHtB=wB?.avgHt||76;
+                  const fmtHt=h=>`${Math.floor(h/12)}'${Math.round(h%12)}"`;
+
+                  const allMetrics=[
+                    {key:"avgYr",label:"Avg Class Year",vA:avgYrA,vB:avgYrB,fA:avgYrA.toFixed(1),fB:avgYrB.toFixed(1),pctA:pctRank(avgYrA,fieldAvgYr),pctB:pctRank(avgYrB,fieldAvgYr)},
+                    {key:"avgHt",label:"Avg Height",vA:avgHtA,vB:avgHtB,fA:fmtHt(avgHtA),fB:fmtHt(avgHtB),pctA:pctRank(avgHtA,fieldAvgHt),pctB:pctRank(avgHtB,fieldAvgHt)},
+                    {key:"ortg",label:"Off. Efficiency",vA:tA.ortg,vB:tB.ortg,pctA:pctRank(tA.ortg,fieldOrtg),pctB:pctRank(tB.ortg,fieldOrtg)},
+                    {key:"drtg",label:"Def. Efficiency",vA:tA.drtg,vB:tB.drtg,inv:true,pctA:pctRank(tA.drtg,fieldDrtg,true),pctB:pctRank(tB.drtg,fieldDrtg,true)},
+                    {key:"threePPct",label:"3PT%",vA:rosterA.threePPct,vB:rosterB.threePPct,pct:true,pctA:pctRank(rosterA.threePPct,field3P),pctB:pctRank(rosterB.threePPct,field3P)},
+                    {key:"opp3PPct",label:"Opp 3PT%",vA:rosterA.opp3PPct,vB:rosterB.opp3PPct,inv:true,pct:true,pctA:pctRank(rosterA.opp3PPct,fieldOpp3,true),pctB:pctRank(rosterB.opp3PPct,fieldOpp3,true)},
+                    {key:"ftr",label:"FT Rate",vA:tA.ftr,vB:tB.ftr,pct:true,pctA:pctRank(tA.ftr,fieldFtr),pctB:pctRank(tB.ftr,fieldFtr)},
+                    {key:"benchAvgMin",label:"Bench Avg Min",vA:rosterA.benchAvgMin,vB:rosterB.benchAvgMin,pctA:pctRank(rosterA.benchAvgMin||0,fieldBench),pctB:pctRank(rosterB.benchAvgMin||0,fieldBench)},
+                    {key:"last10",label:"Last 10",vA:rosterA.last10?parseInt(rosterA.last10):null,vB:rosterB.last10?parseInt(rosterB.last10):null,fA:rosterA.last10,fB:rosterB.last10,pctA:pctRank(rosterA.last10?parseInt(rosterA.last10):5,fieldL10),pctB:pctRank(rosterB.last10?parseInt(rosterB.last10):5,fieldL10)},
+                  ];
 
                   return<div style={{display:"flex",flexDirection:"column",gap:16}}>
                     {/* ── VERDICT BANNER ── */}
-                    <div style={{background:"linear-gradient(135deg,#1a1a1a,#111)",border:"1px solid #2a2a2a",borderRadius:14,padding:"20px 24px"}}>
+                    <div style={{background:bg,border:`1px solid ${border1}`,borderRadius:14,padding:"20px 24px"}}>
                       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
                         <div style={{display:"flex",alignItems:"center",gap:10}}>
                           {logoA&&<img src={logoA} alt="" style={{width:36,height:36,objectFit:"contain"}}/>}
                           <div>
                             <div style={{fontFamily:font,fontSize:18,fontWeight:900,color:colorA}}>{tA.team}</div>
-                            <div style={{fontFamily:mono,fontSize:10,color:"#737373"}}>({tA.seed}) {tA.region} · {tA.record}{rosterA.last10?` · L10: ${rosterA.last10}`:""}</div>
+                            <div style={{fontFamily:mono,fontSize:10,color:txt3}}>({tA.seed}) {tA.region} · {tA.record}{rosterA.last10?` · L10: ${rosterA.last10}`:""}</div>
                           </div>
                         </div>
                         <div style={{textAlign:"center"}}>
-                          <div style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#525252",textTransform:"uppercase",marginBottom:2}}>BBL Weight</div>
+                          <div style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:txt3,textTransform:"uppercase",marginBottom:2}}>BBL Weight</div>
                           {wA&&wB?<>
-                            <div style={{fontFamily:font,fontSize:28,fontWeight:900,color:Math.abs(edge)<3?"#a3a3a3":edge>0?colorA:colorB,lineHeight:1}}>{edgeLabel}</div>
-                            <div style={{fontFamily:mono,fontSize:11,color:Math.abs(edge)<3?"#525252":edge>0?colorA:colorB,marginTop:2}}>{favored?favored.team:"—"} {Math.abs(edge)>=3?`+${Math.abs(edge).toFixed(0)}`:"~"}</div>
-                          </>:<div style={{fontFamily:mono,fontSize:12,color:"#525252"}}>calculating...</div>}
+                            <div style={{fontFamily:font,fontSize:28,fontWeight:900,color:Math.abs(edge)<3?txt3:edge>0?colorA:colorB,lineHeight:1}}>{edgeLabel}</div>
+                            <div style={{fontFamily:mono,fontSize:11,color:Math.abs(edge)<3?txt2:edge>0?colorA:colorB,marginTop:2}}>{favored?favored.team:"—"} {Math.abs(edge)>=3?`+${Math.abs(edge).toFixed(0)}`:"~"}</div>
+                          </>:<div style={{fontFamily:mono,fontSize:12,color:txt2}}>calculating...</div>}
                         </div>
                         <div style={{display:"flex",alignItems:"center",gap:10,justifyContent:"flex-end"}}>
                           <div style={{textAlign:"right"}}>
                             <div style={{fontFamily:font,fontSize:18,fontWeight:900,color:colorB}}>{tB.team}</div>
-                            <div style={{fontFamily:mono,fontSize:10,color:"#737373"}}>({tB.seed}) {tB.region} · {tB.record}{rosterB.last10?` · L10: ${rosterB.last10}`:""}</div>
+                            <div style={{fontFamily:mono,fontSize:10,color:txt3}}>({tB.seed}) {tB.region} · {tB.record}{rosterB.last10?` · L10: ${rosterB.last10}`:""}</div>
                           </div>
                           {logoB&&<img src={logoB} alt="" style={{width:36,height:36,objectFit:"contain"}}/>}
                         </div>
                       </div>
-                      {/* Win prob bar */}
-                      {wA&&wB&&<div style={{display:"flex",height:6,borderRadius:99,overflow:"hidden",background:"#0f0f0f"}}>
+                      {wA&&wB&&<div style={{display:"flex",height:6,borderRadius:99,overflow:"hidden",background:border1}}>
                         <div style={{width:`${Math.max(10,Math.min(90,(wA.total/(wA.total+wB.total))*100))}%`,background:colorA,transition:"width 0.3s"}}/>
                         <div style={{flex:1,background:colorB,transition:"width 0.3s"}}/>
                       </div>}
-                      {/* Weight breakdown pills */}
                       {wA&&wB&&<div style={{display:"flex",gap:6,marginTop:10,flexWrap:"wrap",justifyContent:"center"}}>
                         {[
                           {label:"Experience",a:wA.exp,b:wB.exp},
@@ -4547,23 +4575,21 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                           {label:"Def. Efficiency",a:wA.def,b:wB.def},
                           {label:"3PT Shooting",a:wA.shoot,b:wB.shoot},
                           {label:"3PT Defense",a:wA.opp3,b:wB.opp3},
-                          {label:"FT%",a:wA.ft,b:wB.ft},
+                          {label:"FT Rate",a:wA.ft,b:wB.ft},
                           {label:"Size",a:wA.size,b:wB.size},
                           {label:"Bench Depth",a:wA.bench,b:wB.bench},
                           {label:"Last 10",a:wA.l10,b:wB.l10},
-                        ].map(f=>{const winner=f.a>f.b?"A":f.b>f.a?"B":"tie";const wc=winner==="A"?colorA:winner==="B"?colorB:"#525252";return<div key={f.label} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",borderRadius:99,border:`1px solid ${wc}44`,background:wc+"11",color:wc,fontWeight:700}}>{f.label}</div>;})}
+                        ].map(f=>{const winner=f.a>f.b?"A":f.b>f.a?"B":"tie";const wc=winner==="A"?colorA:winner==="B"?colorB:txt3;return<div key={f.label} style={{fontFamily:mono,fontSize:9,padding:"3px 8px",borderRadius:99,border:`1px solid ${wc}44`,background:wc+"0d",color:wc,fontWeight:700}}>{f.label}</div>;})}
                       </div>}
                     </div>
 
                     {/* ── STARTING 5 DEPTH CHART ── */}
-                    <div style={{background:"#1a1a1a",border:"1px solid #2a2a2a",borderRadius:14,padding:"16px 20px"}}>
-                      <div style={{fontFamily:mono,fontSize:10,letterSpacing:1,color:"#525252",textTransform:"uppercase",marginBottom:12}}>Starting 5</div>
+                    <div style={{background:bg,border:`1px solid ${border1}`,borderRadius:14,padding:"16px 20px"}}>
+                      <div style={{fontFamily:mono,fontSize:10,letterSpacing:1,color:txt3,textTransform:"uppercase",marginBottom:12}}>Starting 5</div>
                       <div style={{display:"grid",gridTemplateColumns:"1fr 60px 1fr",gap:0}}>
-                        {/* Header */}
-                        <div style={{fontFamily:mono,fontSize:9,color:colorA,fontWeight:700,textAlign:"right",padding:"0 8px 6px",borderBottom:"1px solid #2a2a2a"}}>{tA.team}</div>
-                        <div style={{fontFamily:mono,fontSize:9,color:"#525252",textAlign:"center",padding:"0 4px 6px",borderBottom:"1px solid #2a2a2a"}}>POS</div>
-                        <div style={{fontFamily:mono,fontSize:9,color:colorB,fontWeight:700,padding:"0 8px 6px",borderBottom:"1px solid #2a2a2a"}}>{tB.team}</div>
-                        {/* Rows */}
+                        <div style={{fontFamily:mono,fontSize:9,color:colorA,fontWeight:700,textAlign:"right",padding:"0 8px 6px",borderBottom:`1px solid ${border1}`}}>{tA.team}</div>
+                        <div style={{fontFamily:mono,fontSize:9,color:txt3,textAlign:"center",padding:"0 4px 6px",borderBottom:`1px solid ${border1}`}}>POS</div>
+                        <div style={{fontFamily:mono,fontSize:9,color:colorB,fontWeight:700,padding:"0 8px 6px",borderBottom:`1px solid ${border1}`}}>{tB.team}</div>
                         {Array.from({length:5}).map((_,i)=>{
                           const pA=(rosterA.starters||[])[i]||{};
                           const pB=(rosterB.starters||[])[i]||{};
@@ -4574,85 +4600,75 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                           const wtWin=wtA>wtB?"A":wtB>wtA?"B":"tie";
                           const yrWin=yrA>yrB?"A":yrB>yrA?"B":"tie";
                           return<Fragment key={i}>
-                            {/* Team A player */}
-                            <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:6,padding:"8px 8px",borderBottom:i<4?"1px solid #1f1f1f":"none"}}>
+                            <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:6,padding:"8px 8px",borderBottom:i<4?`1px solid ${border2}`:"none"}}>
                               <div style={{textAlign:"right"}}>
-                                <div style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#e5e5e5"}}>{pA.name||"—"}</div>
+                                <div style={{fontFamily:sans,fontSize:11,fontWeight:600,color:txt}}>{pA.name||"—"}</div>
                                 <div style={{display:"flex",gap:4,justifyContent:"flex-end",marginTop:2}}>
-                                  <span style={{fontFamily:mono,fontSize:9,color:yrWin==="A"?colorA:"#525252",fontWeight:yrWin==="A"?700:400}}>{yrAbbr(pA.year)}</span>
-                                  <span style={{fontFamily:mono,fontSize:9,color:htWin==="A"?colorA:"#525252",fontWeight:htWin==="A"?700:400}}>{pA.height||"—"}</span>
-                                  <span style={{fontFamily:mono,fontSize:9,color:wtWin==="A"?colorA:"#525252",fontWeight:wtWin==="A"?700:400}}>{pA.weight?pA.weight+"lb":"—"}</span>
+                                  <span style={{fontFamily:mono,fontSize:9,color:yrWin==="A"?colorA:txt3,fontWeight:yrWin==="A"?700:400}}>{yrAbbr(pA.year)}</span>
+                                  <span style={{fontFamily:mono,fontSize:9,color:htWin==="A"?colorA:txt3,fontWeight:htWin==="A"?700:400}}>{pA.height||"—"}</span>
+                                  <span style={{fontFamily:mono,fontSize:9,color:wtWin==="A"?colorA:txt3,fontWeight:wtWin==="A"?700:400}}>{pA.weight?pA.weight+"lb":"—"}</span>
                                 </div>
                               </div>
                               <div style={{width:6,height:6,borderRadius:99,background:yrColor(yrA),flexShrink:0}}/>
                             </div>
-                            {/* Position */}
-                            <div style={{display:"flex",alignItems:"center",justifyContent:"center",padding:"8px 4px",borderBottom:i<4?"1px solid #1f1f1f":"none"}}>
-                              <span style={{fontFamily:mono,fontSize:11,fontWeight:900,color:"#737373"}}>{pA.pos||pB.pos||"—"}</span>
+                            <div style={{display:"flex",alignItems:"center",justifyContent:"center",padding:"8px 4px",borderBottom:i<4?`1px solid ${border2}`:"none"}}>
+                              <span style={{fontFamily:mono,fontSize:11,fontWeight:900,color:txt3}}>{pA.pos||pB.pos||"—"}</span>
                             </div>
-                            {/* Team B player */}
-                            <div style={{display:"flex",alignItems:"center",gap:6,padding:"8px 8px",borderBottom:i<4?"1px solid #1f1f1f":"none"}}>
+                            <div style={{display:"flex",alignItems:"center",gap:6,padding:"8px 8px",borderBottom:i<4?`1px solid ${border2}`:"none"}}>
                               <div style={{width:6,height:6,borderRadius:99,background:yrColor(yrB),flexShrink:0}}/>
                               <div>
-                                <div style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#e5e5e5"}}>{pB.name||"—"}</div>
+                                <div style={{fontFamily:sans,fontSize:11,fontWeight:600,color:txt}}>{pB.name||"—"}</div>
                                 <div style={{display:"flex",gap:4,marginTop:2}}>
-                                  <span style={{fontFamily:mono,fontSize:9,color:yrWin==="B"?colorB:"#525252",fontWeight:yrWin==="B"?700:400}}>{yrAbbr(pB.year)}</span>
-                                  <span style={{fontFamily:mono,fontSize:9,color:htWin==="B"?colorB:"#525252",fontWeight:htWin==="B"?700:400}}>{pB.height||"—"}</span>
-                                  <span style={{fontFamily:mono,fontSize:9,color:wtWin==="B"?colorB:"#525252",fontWeight:wtWin==="B"?700:400}}>{pB.weight?pB.weight+"lb":"—"}</span>
+                                  <span style={{fontFamily:mono,fontSize:9,color:yrWin==="B"?colorB:txt3,fontWeight:yrWin==="B"?700:400}}>{yrAbbr(pB.year)}</span>
+                                  <span style={{fontFamily:mono,fontSize:9,color:htWin==="B"?colorB:txt3,fontWeight:htWin==="B"?700:400}}>{pB.height||"—"}</span>
+                                  <span style={{fontFamily:mono,fontSize:9,color:wtWin==="B"?colorB:txt3,fontWeight:wtWin==="B"?700:400}}>{pB.weight?pB.weight+"lb":"—"}</span>
                                 </div>
                               </div>
                             </div>
                           </Fragment>;
                         })}
                       </div>
-                      {/* Experience + Size summary */}
                       {wA&&wB&&<div style={{display:"flex",gap:12,marginTop:12,justifyContent:"center",fontFamily:mono,fontSize:10}}>
-                        <span style={{color:"#525252"}}>Avg Class: <b style={{color:wA.avgYr>wB.avgYr?colorA:wB.avgYr>wA.avgYr?colorB:"#737373"}}>{wA.avgYr.toFixed(1)}</b> vs <b style={{color:wB.avgYr>wA.avgYr?colorB:wA.avgYr>wB.avgYr?colorA:"#737373"}}>{wB.avgYr.toFixed(1)}</b></span>
-                        <span style={{color:"#525252"}}>Avg Height: <b style={{color:wA.avgHt>wB.avgHt?colorA:wB.avgHt>wA.avgHt?colorB:"#737373"}}>{Math.floor(wA.avgHt/12)}'{Math.round(wA.avgHt%12)}"</b> vs <b style={{color:wB.avgHt>wA.avgHt?colorB:wA.avgHt>wB.avgHt?colorA:"#737373"}}>{Math.floor(wB.avgHt/12)}'{Math.round(wB.avgHt%12)}"</b></span>
+                        <span style={{color:txt3}}>Avg Class: <b style={{color:colorA}}>{wA.avgYr.toFixed(1)}</b> vs <b style={{color:colorB}}>{wB.avgYr.toFixed(1)}</b></span>
+                        <span style={{color:txt3}}>Avg Height: <b style={{color:colorA}}>{fmtHt(avgHtA)}</b> vs <b style={{color:colorB}}>{fmtHt(avgHtB)}</b></span>
                       </div>}
                     </div>
 
                     {/* ── STAT COMPARISON BARS ── */}
-                    <div style={{background:"#1a1a1a",border:"1px solid #2a2a2a",borderRadius:14,padding:"16px 20px"}}>
-                      <div style={{fontFamily:mono,fontSize:10,letterSpacing:1,color:"#525252",textTransform:"uppercase",marginBottom:12}}>Statistical Comparison</div>
-                      {weightMetrics.map(m=>{
-                        const vA=getVal(tA,rosterA,m);
-                        const vB=getVal(tB,rosterB,m);
-                        if(vA==null||vB==null)return<div key={m.key} style={{display:"flex",alignItems:"center",gap:8,padding:"6px 0",borderBottom:"1px solid #1f1f1f"}}>
-                          <span style={{fontFamily:mono,fontSize:10,color:"#525252",width:110,textAlign:"center",flexShrink:0}}>{m.label}</span>
-                          <span style={{fontFamily:sans,fontSize:11,color:"#525252",flex:1,textAlign:"center"}}>N/A</span>
+                    <div style={{background:bg,border:`1px solid ${border1}`,borderRadius:14,padding:"16px 20px"}}>
+                      <div style={{fontFamily:mono,fontSize:10,letterSpacing:1,color:txt3,textTransform:"uppercase",marginBottom:12}}>Statistical Comparison</div>
+                      {allMetrics.map(m=>{
+                        const vA=m.vA,vB=m.vB;
+                        if(vA==null||vB==null)return<div key={m.key} style={{display:"flex",alignItems:"center",gap:8,padding:"6px 0",borderBottom:`1px solid ${border2}`}}>
+                          <span style={{fontFamily:mono,fontSize:10,color:txt3,width:110,textAlign:"center",flexShrink:0}}>{m.label}</span>
+                          <span style={{fontFamily:sans,fontSize:11,color:txt3,flex:1,textAlign:"center"}}>N/A</span>
                         </div>;
-                        const better=m.inverted?(vA<vB?"A":vA>vB?"B":"tie"):(vA>vB?"A":vA<vB?"B":"tie");
-                        // Normalize bar width against full field
-                        const allVals=m.source==="roster"?MADNESS_ROSTERS.map(r=>r[m.key]).filter(v=>v!=null):MARCH_MADNESS_TEAMS.map(t=>t[m.key]).filter(v=>v!=null);
-                        const mMin=Math.min(...allVals),mMax=Math.max(...allVals),mRange=mMax-mMin||1;
-                        const norm=Math.abs(vA-vB)/mRange;const barPct=Math.min(norm*100,50);
-                        const fmtV=v=>m.fmt?m.fmt(v):typeof v==="number"?v.toFixed(v<1&&v>-1?3:1):v;
-                        return<div key={m.key} style={{display:"flex",alignItems:"center",gap:0,padding:"5px 0",borderBottom:"1px solid #1f1f1f"}}>
-                          <span style={{fontFamily:mono,fontSize:11,fontWeight:better==="A"?900:500,color:better==="A"?colorA:"#525252",width:55,textAlign:"right",flexShrink:0}}>{fmtV(vA)}</span>
+                        // Bar = percentile advantage over opponent. Scaled so typical gaps are visible.
+                        const better=m.pctA>m.pctB?"A":m.pctB>m.pctA?"B":"tie";
+                        const pctGap=Math.abs(m.pctA-m.pctB);
+                        const barPct=Math.min(pctGap*0.48,48); // straight percentile gap → bar width, no inflation
+                        const fA=m.fA||(m.pct?(vA*100).toFixed(1)+"%":typeof vA==="number"?vA.toFixed(1):vA);
+                        const fB=m.fB||(m.pct?(vB*100).toFixed(1)+"%":typeof vB==="number"?vB.toFixed(1):vB);
+                        return<div key={m.key} style={{display:"flex",alignItems:"center",gap:0,padding:"5px 0",borderBottom:`1px solid ${border2}`}}>
+                          <span style={{fontFamily:mono,fontSize:11,fontWeight:better==="A"?900:500,color:better==="A"?colorA:txt3,width:55,textAlign:"right",flexShrink:0,position:"relative",zIndex:3}}>{fA}</span>
                           <div style={{flex:1,display:"flex",alignItems:"center",height:20,margin:"0 8px",position:"relative"}}>
-                            <div style={{position:"absolute",left:0,right:0,top:"50%",height:2,background:"#2a2a2a",transform:"translateY(-50%)"}}/>
-                            <div style={{position:"absolute",left:"50%",top:0,width:1,height:20,background:"#333"}}/>
-                            {better==="A"&&<><div style={{position:"absolute",right:"50%",top:"50%",height:8,width:`${barPct}%`,background:colorA,borderRadius:"4px 0 0 4px",transform:"translateY(-50%)",transition:"width 0.3s",border:"1px solid rgba(255,255,255,0.25)",borderRight:"none"}}/><div style={{position:"absolute",right:`${50+barPct}%`,top:"50%",transform:"translate(50%,-50%)",width:12,height:12,borderRadius:99,background:colorA,border:"2px solid rgba(255,255,255,0.4)",zIndex:2}}/></>}
-                            {better==="B"&&<><div style={{position:"absolute",left:"50%",top:"50%",height:8,width:`${barPct}%`,background:colorB,borderRadius:"0 4px 4px 0",transform:"translateY(-50%)",transition:"width 0.3s",border:"1px solid rgba(255,255,255,0.25)",borderLeft:"none"}}/><div style={{position:"absolute",left:`${50+barPct}%`,top:"50%",transform:"translate(-50%,-50%)",width:12,height:12,borderRadius:99,background:colorB,border:"2px solid rgba(255,255,255,0.4)",zIndex:2}}/></>}
-                            {better==="tie"&&<div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",width:6,height:6,borderRadius:99,background:"#525252"}}/>}
+                            <div style={{position:"absolute",left:0,right:0,top:"50%",height:2,background:border1,transform:"translateY(-50%)"}}/>
+                            <div style={{position:"absolute",left:"50%",top:0,width:1,height:20,background:border1}}/>
+                            {better==="A"&&<><div style={{position:"absolute",right:"50%",top:"50%",height:8,width:`${barPct}%`,background:colorA,borderRadius:"4px 0 0 4px",transform:"translateY(-50%)",transition:"width 0.3s",border:`1px solid ${colorA}`,boxShadow:`0 0 4px ${colorA}33`}}/><div style={{position:"absolute",right:`${50+barPct}%`,top:"50%",transform:"translate(50%,-50%)",width:12,height:12,borderRadius:99,background:colorA,border:`2px solid ${bg}`,zIndex:2,boxShadow:`0 1px 4px rgba(0,0,0,0.2)`}}/></>}
+                            {better==="B"&&<><div style={{position:"absolute",left:"50%",top:"50%",height:8,width:`${barPct}%`,background:colorB,borderRadius:"0 4px 4px 0",transform:"translateY(-50%)",transition:"width 0.3s",border:`1px solid ${colorB}`,boxShadow:`0 0 4px ${colorB}33`}}/><div style={{position:"absolute",left:`${50+barPct}%`,top:"50%",transform:"translate(-50%,-50%)",width:12,height:12,borderRadius:99,background:colorB,border:`2px solid ${bg}`,zIndex:2,boxShadow:`0 1px 4px rgba(0,0,0,0.2)`}}/></>}
+                            {better==="tie"&&<div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",width:6,height:6,borderRadius:99,background:txt3}}/>}
                           </div>
-                          <span style={{fontFamily:mono,fontSize:11,fontWeight:better==="B"?900:500,color:better==="B"?colorB:"#525252",width:55,textAlign:"left",flexShrink:0}}>{fmtV(vB)}</span>
-                          <span style={{fontFamily:mono,fontSize:9,color:"#525252",width:110,textAlign:"right",flexShrink:0,marginLeft:4}}>{m.label}</span>
+                          <span style={{fontFamily:mono,fontSize:11,fontWeight:better==="B"?900:500,color:better==="B"?colorB:txt3,width:55,textAlign:"left",flexShrink:0,position:"relative",zIndex:3}}>{fB}</span>
+                          <span style={{fontFamily:mono,fontSize:9,color:txt3,width:110,textAlign:"right",flexShrink:0,marginLeft:4}}>{m.label}</span>
                         </div>;
                       })}
-                      {/* Bench + Last 10 row */}
-                      <div style={{display:"flex",gap:16,marginTop:12,justifyContent:"center",flexWrap:"wrap"}}>
-                        {rosterA.benchAvgMin!=null&&rosterB.benchAvgMin!=null&&<div style={{fontFamily:mono,fontSize:10,color:"#525252"}}>Bench Avg Min: <b style={{color:rosterA.benchAvgMin>rosterB.benchAvgMin?colorA:"#737373"}}>{rosterA.benchAvgMin}</b> vs <b style={{color:rosterB.benchAvgMin>rosterA.benchAvgMin?colorB:"#737373"}}>{rosterB.benchAvgMin}</b></div>}
-                        {rosterA.last10&&rosterB.last10&&<div style={{fontFamily:mono,fontSize:10,color:"#525252"}}>Last 10: <b style={{color:parseInt(rosterA.last10)>parseInt(rosterB.last10)?colorA:"#737373"}}>{rosterA.last10}</b> vs <b style={{color:parseInt(rosterB.last10)>parseInt(rosterA.last10)?colorB:"#737373"}}>{rosterB.last10}</b></div>}
-                      </div>
                     </div>
                   </div>;
                 })()}
 
                 {(!tA||!tB)&&<div style={{textAlign:"center",padding:"60px 20px"}}>
                   <p style={{fontFamily:sans,fontSize:16,color:"#525252",marginBottom:6}}>select two teams to compare</p>
-                  <p style={{fontFamily:mono,fontSize:11,color:"#3a3a3a"}}>depth chart + efficiency + shooting + experience — who has the edge?</p>
+                  <p style={{fontFamily:mono,fontSize:11,color:"#a3a3a3"}}>depth chart + efficiency + shooting + experience — who has the edge?</p>
                 </div>}
               </>;
             })()}
