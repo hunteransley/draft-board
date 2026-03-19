@@ -2257,7 +2257,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
               })}
             </>;
           })()}
-          <style>{`@media(max-width:640px){.fp-pill-hide{display:none!important;}.full-draft-round{flex-direction:column!important;}}`}</style>
+          <style>{`@media(max-width:640px){.fp-pill-hide{display:none!important;}.full-draft-round{flex-direction:column!important;}.mock-trait-pill{display:none!important;}}`}</style>
           {/* URL footer — always visible in screenshot */}
           <div style={{marginTop:32,paddingTop:20,borderTop:"2px solid #e5e5e5",textAlign:"center",background:"#fff",borderRadius:12,padding:"16px 24px"}}>
             <div style={{fontFamily:sans,fontSize:15,fontWeight:700,color:"#171717",marginBottom:2}}>bigboardlab.com</div>
@@ -2462,7 +2462,8 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
       <div style={{minHeight:"100vh",background:"#faf9f6",fontFamily:font,display:"flex",flexDirection:"column"}}>
         <style>{`.trait-pills-scroll::-webkit-scrollbar{display:none;}
 @keyframes svFadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
-@keyframes svFadeOut{from{opacity:1}to{opacity:0}}`}</style>
+@keyframes svFadeOut{from{opacity:1}to{opacity:0}}
+@media(max-width:640px){.mock-trait-pill{display:none!important;}}`}</style>
         {/* Sticky top: round/pick + actions */}
         <div style={{position:"sticky",top:0,zIndex:100,background:"#fff",borderBottom:"1px solid #e5e5e5"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 12px"}}>
@@ -2583,7 +2584,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
                   const traitBadges=prospectBadges&&prospectBadges[id]||[];
                   traitBadges.forEach(b=>{if(pills.length<MAX_PILLS)pills.push({key:"trait-"+b.trait,emoji:b.emoji,label:b.trait+" "+b.score,type:"trait"});});
                   if(!pills.length)return null;
-                  return pills.map(pl=><span key={pl.key} title={pl.label} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:pl.type==="arch"?"#171717":pl.type==="meas"?"#0d9488":c,background:pl.type==="arch"?"#17171712":pl.type==="meas"?"#0d948812":c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{pl.emoji}</span>);
+                  return pills.map(pl=><span key={pl.key} className="mock-trait-pill" title={pl.label} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:pl.type==="arch"?"#171717":pl.type==="meas"?"#0d9488":c,background:pl.type==="arch"?"#17171712":pl.type==="meas"?"#0d948812":c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{pl.emoji}</span>);
                 })()}
                 {renderGradeOrPill(p)}
                 {isUserPick&&!scoutTeam&&<button onClick={()=>makePick(id)} style={{fontFamily:sans,fontSize:10,fontWeight:700,padding:"4px 10px",background:"#22c55e",color:"#fff",border:"none",borderRadius:6,cursor:"pointer",flexShrink:0}}>draft</button>}
@@ -3042,7 +3043,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
                   // 3. Trait badges fill remaining slots
                   const traitBadges=prospectBadges&&prospectBadges[id]||[];
                   traitBadges.forEach(b=>{if(pills.length<MAX_PILLS)pills.push({key:"trait-"+b.trait,emoji:b.emoji,label:b.trait+" "+b.score,type:"trait"});});
-                  return pills.map(pl=><span key={pl.key} title={pl.label} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:pl.type==="arch"?"#171717":pl.type==="meas"?"#0d9488":c,background:pl.type==="arch"?"#17171712":pl.type==="meas"?"#0d948812":c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{pl.emoji}</span>);
+                  return pills.map(pl=><span key={pl.key} className="mock-trait-pill" title={pl.label} style={{fontFamily:mono,fontSize:7,fontWeight:700,color:pl.type==="arch"?"#171717":pl.type==="meas"?"#0d9488":c,background:pl.type==="arch"?"#17171712":pl.type==="meas"?"#0d948812":c+"0d",padding:"2px 4px",borderRadius:3,flexShrink:0}}>{pl.emoji}</span>);
                 })()}
                 {renderGradeOrPill(p)}
                 <button onClick={()=>toggleCompare(p)} style={{fontFamily:mono,fontSize:7,padding:"2px 5px",background:inC?"#3b82f6":"transparent",color:inC?"#fff":"#a3a3a3",border:"1px solid #e5e5e5",borderRadius:4,cursor:"pointer"}}>{inC?"✓":"+"}</button>
