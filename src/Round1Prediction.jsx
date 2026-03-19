@@ -560,7 +560,8 @@ export default function Round1Prediction({
         {shareToast && <div style={{position:"fixed",top:20,left:"50%",transform:"translateX(-50%)",fontFamily:sans,fontSize:12,fontWeight:600,color:"#fff",background:"#171717",padding:"8px 20px",borderRadius:99,zIndex:9999}}>Copied to clipboard</div>}
 
         {/* Two-column layout */}
-        <style>{`@media(max-width:700px){.r1p-cols{flex-direction:column!important;}}`}</style>
+        <style>{`@media(max-width:700px){.r1p-cols{flex-direction:column!important;}}
+@keyframes donutFill{from{stroke-dashoffset:${2*Math.PI*18}}}`}</style>
         {(()=>{
           const renderCard = (slot, i) => {
             const player = slot.primary?.playerId ? prospectsMap[slot.primary.playerId] : null;
@@ -633,7 +634,7 @@ export default function Round1Prediction({
                       <div style={{fontFamily:mono,fontSize:9,letterSpacing:1,textTransform:"uppercase",color:"#a3a3a3",marginBottom:6}}>position distribution</div>
                       <div style={{display:"flex",alignItems:"center",gap:12}}>
                         <svg width={48} height={48} viewBox="0 0 48 48" style={{flexShrink:0}}>
-                          {(()=>{let cum=0;return donutSegs.map(([pos,cnt],si)=>{const frac=cnt/donutTotal;const len=frac*DONUT_CIRC;const off=-cum;cum+=len;const sc=PURPLE_SCALE[Math.min(si,PURPLE_SCALE.length-1)];return<circle key={pos} cx={24} cy={24} r={DONUT_R} fill="none" stroke={sc} strokeWidth={6} strokeDasharray={`${len} ${DONUT_CIRC}`} strokeDashoffset={off} transform="rotate(-90 24 24)"/>;});})()}
+                          {(()=>{let cum=0;return donutSegs.map(([pos,cnt],si)=>{const frac=cnt/donutTotal;const len=frac*DONUT_CIRC;const off=-cum;cum+=len;const sc=PURPLE_SCALE[Math.min(si,PURPLE_SCALE.length-1)];return<circle key={pos} cx={24} cy={24} r={DONUT_R} fill="none" stroke={sc} strokeWidth={6} strokeDasharray={`${len} ${DONUT_CIRC}`} strokeDashoffset={off} transform="rotate(-90 24 24)" style={{animation:`donutFill 0.8s ${si*0.15}s ease-out both`}}/>;});})()}
                         </svg>
                         <div style={{display:"flex",flexWrap:"wrap",gap:4}}>
                           {donutSegs.map(([pos,cnt],si)=>{const pct=Math.round(cnt/donutTotal*100);const bg=PURPLE_SCALE[Math.min(si,PURPLE_SCALE.length-1)];const textColor=si<2?"#fff":"#525252";return(
