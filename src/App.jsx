@@ -4049,9 +4049,46 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
         })()}
         {explorerMode==="madness"&&(()=>{
           const MM_REGIONS=["ALL","East","South","West","Midwest"];
-          const filtered=madnessRegion==="ALL"?MARCH_MADNESS_TEAMS:MARCH_MADNESS_TEAMS.filter(t=>t.region===madnessRegion);
-          const xMeta=MADNESS_METRICS.find(m=>m.key===madnessX)||MADNESS_METRICS[0];
-          const yMeta=MADNESS_METRICS.find(m=>m.key===madnessY)||MADNESS_METRICS[1];
+          // Enrich teams with roster-derived metrics for scatter
+          const _yrVal=y=>{const l=(y||"").toLowerCase();return l.includes("senior")||l==="sr"?4:l.includes("junior")||l==="jr"?3:l.includes("sophomore")||l==="so"?2:l.includes("freshman")||l==="fr"?1:2;};
+          const _htIn=h=>{if(!h)return 0;const m=h.match(/(\d+)['\u2032]\s*(\d+)/);if(m)return parseInt(m[1])*12+parseInt(m[2]);const m2=h.match(/(\d+)-(\d+)/);if(m2)return parseInt(m2[1])*12+parseInt(m2[2]);return 0;};
+          const enrichedTeams=MARCH_MADNESS_TEAMS.map(t=>{
+            const r=MADNESS_ROSTERS.find(x=>x.team===t.team);if(!r)return t;
+            const s=r.starters||[];
+            const avgYr=s.length?+(s.reduce((a,p)=>a+_yrVal(p.year),0)/s.length).toFixed(2):null;
+            const avgHt=s.length?+(s.reduce((a,p)=>a+_htIn(p.height),0)/s.length).toFixed(1):null;
+            const l10w=r.last10?parseInt(r.last10):null;
+            return{...t,avgClassYr:avgYr,avgHeight:avgHt,threePPct:r.threePPct!=null?+(r.threePPct*100).toFixed(1):null,opp3PPct:r.opp3PPct!=null?+(r.opp3PPct*100).toFixed(1):null,ftPctVal:r.ftPct!=null?+(r.ftPct*100).toFixed(1):null,benchMin:r.benchAvgMin,last10W:l10w};
+          });
+          // Compute composite scores (percentile-based) — need all teams first, then rank
+          const _pctRank=(val,arr,inv)=>{if(!arr.length||val==null)return 50;const sorted=[...arr].sort((a,b)=>a-b);const below=sorted.filter(v=>v<val).length;const equal=sorted.filter(v=>v===val).length;const raw=(below+equal*0.5)/sorted.length*100;return inv?100-raw:raw;};
+          const allNetRtg=enrichedTeams.map(t=>t.netRtg);
+          const allAvgYr=enrichedTeams.map(t=>t.avgClassYr).filter(v=>v!=null);
+          const allSos=enrichedTeams.map(t=>t.sos);
+          const allAvgHt2=enrichedTeams.map(t=>t.avgHeight).filter(v=>v!=null);
+          for(const t of enrichedTeams){
+            const pNR=_pctRank(t.netRtg,allNetRtg,false);
+            const pExp=_pctRank(t.avgClassYr,allAvgYr,false);
+            const pSos=_pctRank(t.sos,allSos,false);
+            const pHt=_pctRank(t.avgHeight,allAvgHt2,false);
+            t.coreComposite=+((pNR+pExp+pSos)/3).toFixed(1);
+            t.coreCompHeight=+((pNR+pExp+pSos+pHt)/4).toFixed(1);
+          }
+          const EXTRA_METRICS=[
+            {key:"coreComposite",label:"Composite (NR+Exp+SOS)",desc:"Net Rating + Experience + Strength of Schedule",higher:"better"},
+            {key:"coreCompHeight",label:"Composite + Height",desc:"Net Rating + Experience + SOS + Avg Height",higher:"better"},
+            {key:"avgClassYr",label:"Avg Class Year",desc:"Average starter class (4=SR, 1=FR)",higher:"more experienced"},
+            {key:"avgHeight",label:"Avg Height (in)",desc:"Average starter height in inches",higher:"taller"},
+            {key:"threePPct",label:"3PT%",desc:"Three-point shooting percentage",higher:"better"},
+            {key:"opp3PPct",label:"Opp 3PT%",desc:"Opponent 3PT%",higher:"worse",inverted:true},
+            {key:"ftPctVal",label:"FT%",desc:"Free throw percentage",higher:"better"},
+            {key:"benchMin",label:"Bench Avg Min",desc:"Average bench player minutes",higher:"deeper"},
+            {key:"last10W",label:"Last 10 Wins",desc:"Wins in last 10 games",higher:"hotter"},
+          ];
+          const ALL_MADNESS_METRICS=[...MADNESS_METRICS,...EXTRA_METRICS];
+          const filtered=madnessRegion==="ALL"?enrichedTeams:enrichedTeams.filter(t=>t.region===madnessRegion);
+          const xMeta=ALL_MADNESS_METRICS.find(m=>m.key===madnessX)||ALL_MADNESS_METRICS[0];
+          const yMeta=ALL_MADNESS_METRICS.find(m=>m.key===madnessY)||ALL_MADNESS_METRICS[1];
           const svgW=860,svgH=440,pad={t:30,r:30,b:50,l:60};
           const plotW=svgW-pad.l-pad.r,plotH=svgH-pad.t-pad.b;
           const teamAbbr=t=>{const n=t.team;return n.length<=4?n:n.replace(/^(North |South |East |West |Northern |Southern |Eastern |Western |Central )/,'').slice(0,4).toUpperCase();};
@@ -4111,14 +4148,14 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                   <div style={{display:"flex",alignItems:"center",gap:5}}>
                     <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#737373",textTransform:"uppercase"}}>X</span>
                     <select value={madnessX} onChange={e=>setMadnessX(e.target.value)} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"6px 10px",borderRadius:8,border:"1px solid #2a2a2a",background:"#1a1a1a",color:"#e5e5e5",cursor:"pointer"}}>
-                      {MADNESS_METRICS.map(m=><option key={m.key} value={m.key}>{m.label}</option>)}
+                      {ALL_MADNESS_METRICS.map(m=><option key={m.key} value={m.key}>{m.label}</option>)}
                     </select>
                   </div>
                   <button onClick={()=>{setMadnessX(madnessY);setMadnessY(madnessX);}} style={{fontSize:14,color:"#737373",background:"#1a1a1a",border:"1px solid #2a2a2a",borderRadius:8,padding:"3px 7px",cursor:"pointer",lineHeight:1}}>{"\uD83D\uDD00"}</button>
                   <div style={{display:"flex",alignItems:"center",gap:5}}>
                     <span style={{fontFamily:mono,fontSize:9,letterSpacing:1,color:"#737373",textTransform:"uppercase"}}>Y</span>
                     <select value={madnessY} onChange={e=>setMadnessY(e.target.value)} style={{fontFamily:sans,fontSize:12,fontWeight:600,padding:"6px 10px",borderRadius:8,border:"1px solid #2a2a2a",background:"#1a1a1a",color:"#e5e5e5",cursor:"pointer"}}>
-                      {MADNESS_METRICS.map(m=><option key={m.key} value={m.key}>{m.label}</option>)}
+                      {ALL_MADNESS_METRICS.map(m=><option key={m.key} value={m.key}>{m.label}</option>)}
                     </select>
                   </div>
                 </div>
