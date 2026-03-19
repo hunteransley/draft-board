@@ -4701,7 +4701,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                         {label:"Off Reb",a:wA.orb,b:wB.orb},
                         {label:"3PT%",a:wA.shoot,b:wB.shoot},
                         {label:"Size",a:wA.size,b:wB.size},
-                        {label:"Pace Ctrl",a:wA.pace,b:wB.pace},
+                        {label:"Pace",a:wA.pace,b:wB.pace},
                         {label:"Last 10",a:wA.l10,b:wB.l10},
                         {label:"Bench",a:wA.bench,b:wB.bench},
                       ];
