@@ -4734,6 +4734,75 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                         </svg>
                       </div>;
                     })()}
+
+                    {/* ── MATCHUP ANALYSIS ── */}
+                    {(()=>{
+                      // Tier 1 factors (top 4 by weight): def, tov, exp, off
+                      // Tier 2: opp3, sos, ft, orb
+                      // Tier 3: shoot, size, pace, l10, bench
+                      const t1=[{k:"def",l:"defensive efficiency"},{k:"tov",l:"turnover discipline"},{k:"exp",l:"experience"},{k:"off",l:"offensive efficiency"}];
+                      const t2=[{k:"opp3",l:"3PT defense"},{k:"sos",l:"strength of schedule"},{k:"ft",l:"FT rate"},{k:"orb",l:"offensive rebounding"}];
+                      const t3=[{k:"shoot",l:"3PT shooting"},{k:"size",l:"size"},{k:"pace",l:"pace control"},{k:"l10",l:"recent form"},{k:"bench",l:"bench depth"}];
+                      const winsA1=t1.filter(f=>wA[f.k]>wB[f.k]);
+                      const winsB1=t1.filter(f=>wB[f.k]>wA[f.k]);
+                      const winsA2=t2.filter(f=>wA[f.k]>wB[f.k]);
+                      const winsB2=t2.filter(f=>wB[f.k]>wA[f.k]);
+                      const winsA3=t3.filter(f=>wA[f.k]>wB[f.k]);
+                      const winsB3=t3.filter(f=>wB[f.k]>wA[f.k]);
+                      const seedA=tA.seed,seedB=tB.seed;
+                      const higher=seedA<=seedB?tA:tB;const lower=seedA<=seedB?tB:tA;
+                      const hW=higher===tA?wA:wB;const lW=higher===tA?wB:wA;
+                      const hWins1=higher===tA?winsA1:winsB1;const lWins1=higher===tA?winsB1:winsA1;
+                      const hWins2=higher===tA?winsA2:winsB2;const lWins2=higher===tA?winsB2:winsA2;
+                      const gap=Math.abs(edge);
+                      const sameSeed=seedA===seedB;
+
+                      // Build narrative
+                      const lines=[];
+                      // Verdict line
+                      if(gap<3)lines.push(`This is a true toss-up. The BBL Weight is essentially even, which means this game likely comes down to matchup execution and who hits shots on the day.`);
+                      else if(gap<8){
+                        const fav=favored;const und=fav===tA?tB:tA;
+                        lines.push(`${fav.team} has a slight edge here, but this is close enough that ${und.team} can absolutely win it.`);
+                      }else if(gap<15){
+                        lines.push(`${favored.team} has a clear advantage in the metrics that historically predict tournament success.`);
+                      }else{
+                        lines.push(`${favored.team} is significantly stronger across the board. An upset here would require a special performance.`);
+                      }
+
+                      // Tier 1 analysis
+                      const fav=edge>=0?tA:tB;const und=edge>=0?tB:tA;
+                      const favW1=edge>=0?winsA1:winsB1;const undW1=edge>=0?winsB1:winsA1;
+                      if(favW1.length>=3)lines.push(`${fav.team} owns the high-impact factors — ${favW1.map(f=>f.l).join(", ")}. Those are the metrics that hold up under single-elimination pressure.`);
+                      else if(favW1.length>=2)lines.push(`${fav.team} wins ${favW1.map(f=>f.l).join(" and ")} among the top-tier factors, which gives them the foundation.`);
+                      if(undW1.length>=2)lines.push(`But ${und.team} fights back with ${undW1.map(f=>f.l).join(" and ")} — that's not nothing in March.`);
+                      else if(undW1.length===1)lines.push(`${und.team}'s edge in ${undW1[0].l} is their best path to staying competitive.`);
+
+                      // Upset signal
+                      if(!sameSeed&&lower.seed-higher.seed>=3){
+                        if(lWins1.length>=2){
+                          lines.push(`Upset signal: ${lower.team} (${lower.seed} seed) wins ${lWins1.length} of the 4 most predictive factors. When lower seeds own defense and experience, they tend to outperform their seed.`);
+                        }else if(lWins1.length<=1&&lW.def<40&&lW.exp<40){
+                          lines.push(`Upset risk is low — ${lower.team} doesn't have the defensive profile or experience that typically fuels tournament runs from lower seeds.`);
+                        }
+                      }
+
+                      // SOS context
+                      const favSos=edge>=0?wA.sos:wB.sos;const undSos=edge>=0?wB.sos:wA.sos;
+                      if(Math.abs(favSos-undSos)>30)lines.push(`The schedule strength gap is massive here — ${favSos>undSos?fav.team:und.team} was battle-tested against far tougher competition all season.`);
+
+                      // Experience edge
+                      const favExp=edge>=0?wA.exp:wB.exp;const undExp=edge>=0?wB.exp:wA.exp;
+                      if(favExp>75&&undExp<35)lines.push(`${fav.team}'s veteran roster is a real factor. Experienced teams handle tournament pressure, hostile crowds, and tight late-game situations at a much higher rate.`);
+                      else if(undExp>75&&favExp<35)lines.push(`Watch out — ${und.team} has the more experienced roster, and veteran teams historically outperform their seed in March.`);
+
+                      return<div style={{background:bg,border:`1px solid ${border1}`,borderRadius:14,padding:"16px 20px"}}>
+                        <div style={{fontFamily:mono,fontSize:10,letterSpacing:1,color:txt3,textTransform:"uppercase",marginBottom:10}}>Matchup Analysis</div>
+                        <div style={{fontFamily:sans,fontSize:13,color:txt,lineHeight:1.6}}>
+                          {lines.map((line,i)=><p key={i} style={{margin:i===0?"0 0 8px":"8px 0"}}>{line}</p>)}
+                        </div>
+                      </div>;
+                    })()}
                   </div>;
                 })()}
 
