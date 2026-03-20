@@ -1287,15 +1287,15 @@ function AuthScreen({onSignIn,onSkip,onOpenGuide}){
   const[tickerData,setTickerData]=useState(null);
 
   useEffect(()=>{
-    supabase.from('public_adp').select('*').then(({data})=>{
-      if(!data||data.length===0){setTickerData(seedTicker);return;}
+    supabase.from('public_adp').select('*').then(({data,error})=>{
+      if(error||!data||data.length===0){setTickerData(seedTicker);return;}
       const movers=data.filter(d=>d.avg_pick_7d!=null&&d.avg_pick_prev_7d!=null).map(d=>({
         name:d.prospect_name,pos:d.prospect_pos,
         delta:Math.round((d.avg_pick_prev_7d-d.avg_pick_7d)*10)/10,
         picks:d.times_picked
       })).filter(d=>Math.abs(d.delta)>=1);
       setTickerData(movers.length>=5?movers:seedTicker);
-    });
+    }).catch(()=>setTickerData(seedTicker));
   },[]);
 
   const handleGoogle=async()=>{
@@ -7388,9 +7388,9 @@ function AdminGrades({onBack,onSave}){
   const[savedOverrides,setSavedOverrides]=useState({}); // what's currently in Supabase
 
   // Load existing admin overrides from Supabase on mount
-  useEffect(()=>{supabase.from('admin_overrides').select('overrides').eq('id',1).single().then(({data})=>{
-    if(data?.overrides&&Object.keys(data.overrides).length){setSavedOverrides(data.overrides);setPendingEdits(data.overrides);}
-  });},[]);
+  useEffect(()=>{supabase.from('admin_overrides').select('overrides').eq('id',1).single().then(({data,error})=>{
+    if(!error&&data?.overrides&&Object.keys(data.overrides).length){setSavedOverrides(data.overrides);setPendingEdits(data.overrides);}
+  }).catch(()=>{});},[]);
 
   const positions=useMemo(()=>{const s=new Set();prospectList.forEach(p=>s.add(p.pos));return["ALL",...[...s].sort()];},[prospectList]);
 
@@ -8630,7 +8630,7 @@ export default function App(){
     return()=>subscription.unsubscribe();
   },[]);
 
-  useEffect(()=>{supabase.from('admin_overrides').select('overrides').eq('id',1).single().then(({data})=>{if(data?.overrides)setAdminOverrides(data.overrides);});},[]);
+  useEffect(()=>{supabase.from('admin_overrides').select('overrides').eq('id',1).single().then(({data,error})=>{if(!error&&data?.overrides)setAdminOverrides(data.overrides);}).catch(()=>{});},[]);
   const signOut=async()=>{try{await supabase.auth.signOut();}catch(e){}setUser(null);};
 
   if(loading)return<div style={{minHeight:"100vh",background:"#faf9f6",display:"flex",alignItems:"center",justifyContent:"center"}}><p style={{fontFamily:"'DM Sans',sans-serif",fontSize:14,color:"#a3a3a3"}}>loading...</p></div>;
