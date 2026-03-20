@@ -62,7 +62,8 @@ function getSchemeWeights(pos, scheme, teamName) {
   if (!base) return null;
 
   // Agent-provided per-team weights (v2 blueprint data)
-  const agentWeights = teamName && SCHEME_BLUEPRINT_WEIGHTS[teamName]?.[pos];
+  const bpPos = (pos === "C" || pos === "OG") ? "IOL" : pos;
+  const agentWeights = teamName && SCHEME_BLUEPRINT_WEIGHTS[teamName]?.[bpPos];
   if (agentWeights && Object.keys(agentWeights).length > 0) {
     const posTraits = POSITION_TRAITS[pos];
     if (posTraits) {
@@ -227,7 +228,7 @@ function getSchemeWeights(pos, scheme, teamName) {
   }
 
   // ── IOL scheme weights (driven by offFamily) ──
-  if (pos === "IOL") {
+  if (pos === "IOL" || pos === "C" || pos === "OG") {
     if (scheme.offFamily === "shanahan_zone") {
       w["Pass Protection"] = 0.18; w["Run Blocking"] = 0.22; w["Pulling"] = 0.20;
       w["Strength"] = 0.14; w["Anchor"] = 0.10; w["Versatility"] = 0.16;
@@ -406,7 +407,7 @@ function archetypeMatchScore(prospect, scheme, teamName, userTraits) {
   }
 
   // ── IOL ──
-  if (pos === "IOL") {
+  if (pos === "IOL" || pos === "C" || pos === "OG") {
     matchCount++;
     const pp = t("Pass Protection"), rbk = t("Run Blocking"), pul = t("Pulling");
     const str = t("Strength"), anc = t("Anchor"), vrs = t("Versatility");
@@ -684,7 +685,7 @@ function positionalSchemeValue(prospect, scheme) {
     if (scheme.offFamily === "shanahan_zone") mod += 4;
     if (scheme.offFamily === "spread_rpo") mod += 2;
   }
-  if (pos === "IOL") {
+  if (pos === "IOL" || pos === "C" || pos === "OG") {
     if (scheme.offFamily === "power_run" || scheme.runScheme === "gap") mod += 4;
     if (scheme.offFamily === "shanahan_zone") mod += 2;
   }
@@ -806,7 +807,7 @@ function generateSummary(prospect, teamName, scheme, components) {
       else if (scheme.offFamily === "power_run") parts.push(`strength and anchor fit ${teamName}'s power blocking scheme`);
       else if (scheme.offFamily === "spread_rpo") parts.push(`pass protection fits ${teamName}'s pass-heavy scheme`);
       else parts.push(`strong trait alignment with ${teamName}'s scheme`);
-    } else if (pos === "IOL") {
+    } else if (pos === "IOL" || pos === "C" || pos === "OG") {
       if (scheme.offFamily === "shanahan_zone") parts.push(`pulling and combo blocking fit ${teamName}'s zone run game`);
       else if (scheme.offFamily === "power_run") parts.push(`strength and run blocking fit ${teamName}'s gap scheme`);
       else if (scheme.offFamily === "spread_rpo") parts.push(`pass protection and anchor fit ${teamName}'s pass-heavy scheme`);
@@ -935,7 +936,7 @@ function getSchemeRoleLabel(pos, scheme) {
   if (pos === "OT") {
     return { shanahan_zone: "Zone Scheme OT", power_run: "Power Scheme OT", spread_rpo: "Pass-Pro OT", west_coast: "West Coast OT", pro_style: "Pro Style OT" }[scheme.offFamily] || "Offensive Tackle";
   }
-  if (pos === "IOL") {
+  if (pos === "IOL" || pos === "C" || pos === "OG") {
     return { shanahan_zone: "Zone Scheme IOL", power_run: "Gap/Power IOL", spread_rpo: "Pass-Pro IOL", west_coast: "West Coast IOL", pro_style: "Pro Style IOL" }[scheme.offFamily] || "Interior OL";
   }
   if (pos === "DL") {
