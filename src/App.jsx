@@ -8038,8 +8038,8 @@ function GuidePage({onBack}){
         <p style={desc}>Dominator rating measures what share of their team's production a player commanded. Breakout year identifies the earliest season a player crossed that threshold — a strong predictor of NFL success.</p>
         <div style={{border:"1px solid #e5e5e5",borderRadius:10,overflow:"hidden"}}>
           {[
-            {name:"Tetairoa McMillan",pos:"WR",dom:"38.2% Rec Dom",breakout:"So"},
-            {name:"Rueben Bain",pos:"EDGE",dom:"14.8% Pressure",breakout:"Fr"},
+            {name:"Carnell Tate",pos:"WR",dom:"34.1% Rec Dom",breakout:"So"},
+            {name:"Rueben Bain Jr.",pos:"EDGE",dom:"14.8% Pressure",breakout:"Fr"},
             {name:"Fernando Mendoza",pos:"QB",dom:"90.8% Pass Dom",breakout:"Jr"},
           ].map((row,i)=>{const c=POS_COLORS[row.pos];return<div key={row.name} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderBottom:i<2?"1px solid #f5f5f5":"none"}}>
             <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:c,background:`${c}0d`,padding:"2px 8px",borderRadius:99}}>{row.pos}</span>
