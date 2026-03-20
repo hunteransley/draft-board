@@ -62,7 +62,7 @@ function getSchemeWeights(pos, scheme, teamName) {
   if (!base) return null;
 
   // Agent-provided per-team weights (v2 blueprint data)
-  const bpPos = (pos === "C" || pos === "OG") ? "IOL" : pos;
+  const bpPos = (pos === "C" || pos === "OG") ? "IOL" : pos === "IDL" ? "DL" : pos;
   const agentWeights = teamName && SCHEME_BLUEPRINT_WEIGHTS[teamName]?.[bpPos];
   if (agentWeights && Object.keys(agentWeights).length > 0) {
     const posTraits = POSITION_TRAITS[pos];
@@ -243,7 +243,7 @@ function getSchemeWeights(pos, scheme, teamName) {
   }
 
   // ── DL scheme weights (driven by defFront) ──
-  if (pos === "DL") {
+  if (pos === "DL" || pos === "IDL") {
     if (scheme.defFront === "34") {
       w["Pass Rush"] = 0.08; w["Run Defense"] = 0.28; w["First Step"] = 0.06;
       w["Hand Usage"] = 0.18; w["Motor"] = 0.16; w["Strength"] = 0.24;
@@ -429,7 +429,7 @@ function archetypeMatchScore(prospect, scheme, teamName, userTraits) {
   }
 
   // ── DL ──
-  if (pos === "DL") {
+  if (pos === "DL" || pos === "IDL") {
     matchCount++;
     const pr = t("Pass Rush"), rd = t("Run Defense"), fs = t("First Step");
     const hnd = t("Hand Usage"), mtr = t("Motor"), str = t("Strength");
@@ -653,9 +653,9 @@ function positionalSchemeValue(prospect, scheme) {
   if (scheme.defFront === "34") {
     if (pos === "EDGE") mod += 8;
     if (pos === "LB") mod += 5;
-    if (pos === "DL") mod -= 4;
+    if (pos === "DL" || pos === "IDL") mod -= 4;
   } else if (scheme.defFront === "43") {
-    if (pos === "DL") mod += 6;
+    if (pos === "DL" || pos === "IDL") mod += 6;
     if (pos === "EDGE") mod += 3;
     if (pos === "LB") mod -= 4;
   } else if (scheme.defFront === "425") {
@@ -689,7 +689,7 @@ function positionalSchemeValue(prospect, scheme) {
     if (scheme.offFamily === "power_run" || scheme.runScheme === "gap") mod += 4;
     if (scheme.offFamily === "shanahan_zone") mod += 2;
   }
-  if (pos === "DL") {
+  if (pos === "DL" || pos === "IDL") {
     if (scheme.defFront === "34") mod += 3; // partially offsets existing -4
     if (scheme.blitzTendency === "heavy") mod += 2;
   }
@@ -812,7 +812,7 @@ function generateSummary(prospect, teamName, scheme, components) {
       else if (scheme.offFamily === "power_run") parts.push(`strength and run blocking fit ${teamName}'s gap scheme`);
       else if (scheme.offFamily === "spread_rpo") parts.push(`pass protection and anchor fit ${teamName}'s pass-heavy scheme`);
       else parts.push(`strong trait alignment with ${teamName}'s scheme`);
-    } else if (pos === "DL") {
+    } else if (pos === "DL" || pos === "IDL") {
       if (scheme.defFront === "34") parts.push(`run-stuffing profile fits ${teamName}'s 3-4 nose role`);
       else if (scheme.defFront === "43") parts.push(`pass-rush upside matches ${teamName}'s 4-3 interior rush`);
       else if (scheme.defFront === "425") parts.push(`penetration ability fits ${teamName}'s 4-2-5 interior`);
@@ -939,7 +939,7 @@ function getSchemeRoleLabel(pos, scheme) {
   if (pos === "IOL" || pos === "C" || pos === "OG") {
     return { shanahan_zone: "Zone Scheme IOL", power_run: "Gap/Power IOL", spread_rpo: "Pass-Pro IOL", west_coast: "West Coast IOL", pro_style: "Pro Style IOL" }[scheme.offFamily] || "Interior OL";
   }
-  if (pos === "DL") {
+  if (pos === "DL" || pos === "IDL") {
     return { "34": "3-4 Nose/5-Tech", "43": "4-3 Interior Rusher", "425": "Penetrating 3-Tech", multiple: "Multiple-Front DL" }[scheme.defFront] || "Defensive Line";
   }
   if (pos === "TE") {

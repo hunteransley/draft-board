@@ -52,7 +52,7 @@ function trackEvent(userId,event,metadata={}){
 // ============================================================
 // DATA: All 2026 NFL Draft Prospects (450+)
 // ============================================================
-const PROSPECTS = PROSPECTS_RAW.map((p,i)=>{let gpos=(getProspectStats(p.name,p.school)?.gpos)||p.pos;return{...p,id:`p${i}`,gpos};});
+const PROSPECTS = PROSPECTS_RAW.map((p,i)=>{let gpos=(getProspectStats(p.name,p.school)?.gpos)||p.pos;if(gpos==="DL")gpos="IDL";return{...p,id:`p${i}`,gpos};});
 const SCHOOL_ESPN_ID={"Alabama":333,"Arizona State":9,"Arizona St.":9,"Arizona":12,"Arkansas":8,"Arkansas State":2032,"Arkansas St.":2032,"Auburn":2,"BYU":252,"Baylor":239,"Boise State":68,"Boise St.":68,"Boston College":103,"Boston Col.":103,"Bowling Green":189,"Buffalo":2084,"Ball State":2050,"Cal":25,"California":25,"Central Florida":2116,"Central Michigan":2117,"Charlotte":2429,"Cincinnati":2132,"Clemson":228,"Coastal Carolina":324,"Colorado":38,"Colorado State":36,"Colorado St.":36,"Connecticut":41,"Dartmouth":159,"Duke":150,"East Carolina":151,"Eastern Washington":331,"East. Washington":331,"Florida Atlantic":2226,"Florida International":2229,"Florida State":52,"Florida St.":52,"Florida":57,"Fresno State":278,"Georgia Southern":290,"Georgia State":2247,"Georgia Tech":59,"Georgia":61,"Grambling State":2755,"Hawaii":62,"Houston":248,"Howard":47,"Idaho":70,"Illinois":356,"Illinois State":2287,"Incarnate Word":2916,"Indiana":84,"Iowa State":66,"Iowa St.":66,"Iowa":2294,"Jackson State":2296,"Jacksonville State":55,"James Madison":256,"Kansas State":2306,"Kansas St.":2306,"Kansas":2305,"Kentucky":96,"LSU":99,"Louisiana St":99,"Louisiana Tech":2348,"Louisiana-Lafayette":309,"Louisiana":309,"Louisville":97,"Liberty":2335,"Marshall":276,"Maryland":120,"Massachusetts":113,"Memphis":235,"Miami":2390,"Miami (FL)":2390,"Miami (OH)":193,"Miami (Ohio)":193,"Michigan State":127,"Michigan St.":127,"Michigan":130,"Middle Tennessee State":2393,"Minnesota":135,"Mississippi State":344,"Mississippi St.":344,"Mississippi":145,"Missouri":142,"Montana":149,"Montana State":147,"N.C. State":152,"NC State":152,"North Carolina State":152,"North Carolina St.":152,"Navy":2426,"Nebraska":158,"Nevada":2440,"New Mexico":167,"North Carolina":153,"North Carolina A&T":2448,"North Dakota State":2449,"North Texas":249,"Northern Illinois":2459,"Northwestern":77,"Notre Dame":87,"Ohio":195,"Ohio State":194,"Ohio St.":194,"Oklahoma":201,"Oklahoma State":197,"Oklahoma St.":197,"Old Dominion":295,"Oregon":2483,"Oregon State":204,"Oregon St.":204,"Penn State":213,"Penn St.":213,"Pittsburgh":221,"Purdue":2509,"Rice":242,"Rutgers":164,"SMU":2567,"San Diego State":21,"San Diego St.":21,"San Jose State":23,"San Jose St.":23,"Slippery Rock":2596,"South Alabama":6,"South Carolina":2579,"South Carolina State":2569,"South Dakota State":2571,"South Florida":58,"Southeastern Louisiana":2545,"Southern Illinois":79,"Southern Miss":2572,"Stanford":24,"Stephen F. Austin":2617,"Syracuse":183,"TCU":2628,"Temple":218,"Tennessee":2633,"Tennessee State":2634,"Texas A&M":245,"Texas State":326,"Texas Tech":2641,"Texas":251,"Texas-El Paso":2638,"Toledo":2649,"Troy":2653,"Tulane":2655,"Tulsa":202,"UCF":2116,"UCLA":26,"UConn":41,"UNLV":2439,"USC":30,"UTSA":2636,"Utah":254,"Utah State":328,"Vanderbilt":238,"Virginia":258,"Virginia Tech":259,"Virginia Union":2762,"Wake Forest":154,"Washington":264,"Washington State":265,"Washington St.":265,"West Virginia":277,"West. Michigan":2711,"Western Kentucky":98,"Western Michigan":2711,"Air Force":2005,"Akron":2006,"Appalachian State":2026,"Appalachian St.":2026,"Wisconsin":275,"Wyoming":2751,"Ala-Birmingham":5,"UAB":5,"Tenn-Chattanooga":236,"Tennessee-Chattanooga":236,"NW State (LA)":2466,"Northwestern St. (LA)":2466,"Northwestern State":2466,"La-Monroe":2433,"Louisiana-Monroe":2433,"East. Kentucky":2198,"Eastern Kentucky":2198,"East. Illinois":2197,"Eastern Illinois":2197,"East. Michigan":2199,"Eastern Michigan":2199,"Ark-Pine Bluff":2029,"University of Arkansas at Pine Bluff":2029,"Richmond":257,"Weber State":2692,"Northern Iowa":2460,"Central Arkansas":2110,"Furman":231,"Portland State":2502,"Harvard":108,"Florida A&M":50,"West Texas A&M":2704,"William & Mary":2729,"New Mexico State":166,"Southern Utah":253,"Southern Utah St.":253,"Youngstown State":2754,"Kent State":2309,"Kent St.":2309,"Northern Arizona":2464,"Cal Poly":13,"Villanova":222,"Norfolk State":2450,"Princeton":163,"Samford":2535,"Maine":311,"Abilene Christian":2000,"Citadel":2643,"Cornell":172,"South Dakota":233,"South Dakota St.":2571,"North Dakota St.":2449,"North Dakota":2448,"Elon":2210,"Army":349,"New Hampshire":160,"Idaho State":304,"Fordham":2230,"Lehigh":2329,"Rhode Island":227,"California-Davis":302,"UC Davis":302,"Northwest Missouri State":138,"Indiana (PA)":2291,"Fresno St.":278,"SE Louisiana":2545,"Texas-San Antonio":2636,"West. Carolina":2717,"West. Illinois":2710,"Western Illinois":2710,"Murray State":2413,"Morgan State":2404,"Central Oklahoma":2085,"McNeese State":2377,"Nicholls State":2447,"Nicholls St.":2447,"Sacramento State":16,"Sacramento St.":16,"Stony Brook":2617,"North Carolina Central":2428};
 function schoolLogo(s){const id=SCHOOL_ESPN_ID[s];return id?`https://a.espncdn.com/i/teamlogos/ncaa/500/${id}.png`:null;}
 const MEASURABLE_EMOJI={"HT":"📏","WT":"🪨","ARM":"🦾","HND":"🖐️","WING":"🪽","40":"🔫","VRT":"🦘","BRD":"🏔️","3C":"🔻","SHT":"♻️","ATH":"🏅","SPD":"🛩️","AGI":"🐇","EXP":"🌋"};
@@ -67,7 +67,7 @@ const STAT_CATEGORIES=[
   {label:"Passing",keys:["passing_YDS","passing_PCT","passing_TD","passing_INT","passing_TDINT","passing_YPA","passing_DOM","breakout_year"],border:"#1e3a5f",positions:["QB"]},
   {label:"Rushing",keys:["rushing_CAR","rushing_YDS","rushing_YPC","rushing_TD","rushing_DOM","breakout_year"],border:"#5b21b6",positions:["QB","RB"]},
   {label:"Receiving",keys:["receiving_REC","receiving_YDS","receiving_YPR","receiving_TD","receiving_DOM","breakout_year"],border:"#0d9488",positions:["RB","WR","TE"]},
-  {label:"Defensive",keys:["defensive_TKL","defensive_TFL","defensive_SACKS","defensive_QBHUR","defensive_PD","defensive_INT","defensive_FF","defensive_FR","defensive_TD","defensive_DOM","breakout_year"],border:"#15803d",positions:["EDGE","DL","LB","CB","S"]},
+  {label:"Defensive",keys:["defensive_TKL","defensive_TFL","defensive_SACKS","defensive_QBHUR","defensive_PD","defensive_INT","defensive_FF","defensive_FR","defensive_TD","defensive_DOM","breakout_year"],border:"#15803d",positions:["EDGE","IDL","LB","CB","S"]},
 ];
 const STAT_SHORT={"passing_YDS":"Pass Yds","passing_TD":"Pass TD","passing_INT":"INT","passing_COMP":"Comp","passing_ATT":"Att","passing_PCT":"Comp%","passing_YPA":"YPA","passing_TDINT":"TD:INT","passing_DOM":"Dominator","rushing_CAR":"Carries","rushing_YDS":"Rush Yds","rushing_TD":"Rush TD","rushing_YPC":"YPC","rushing_DOM":"Dominator","receiving_REC":"Rec","receiving_YDS":"Rec Yds","receiving_TD":"Rec TD","receiving_YPR":"Y/Rec","receiving_DOM":"Dominator","breakout_year":"Breakout Year","defensive_TKL":"Tackles","defensive_TFL":"TFL","defensive_SACKS":"Sacks","defensive_QBHUR":"QB Hurries","defensive_PD":"PD","defensive_INT":"Def INT","defensive_FF":"FF","defensive_FR":"FR","defensive_TD":"Def TD","defensive_DOM":"Dominator"};
 const STAT_EMOJI={"passing_YDS":"🏈","passing_TD":"🎯","passing_INT":"🚨","passing_PCT":"📊","passing_YPA":"📐","passing_TDINT":"⚖️","passing_DOM":"👑","rushing_CAR":"🏃","rushing_YDS":"💨","rushing_TD":"🔥","rushing_YPC":"📏","rushing_DOM":"👑","receiving_REC":"🧤","receiving_YDS":"📡","receiving_TD":"🎯","receiving_YPR":"📐","receiving_DOM":"👑","breakout_year":"💥","defensive_TKL":"💪","defensive_TFL":"🚧","defensive_SACKS":"🌪️","defensive_QBHUR":"💥","defensive_PD":"🖐️","defensive_INT":"🧲","defensive_FF":"💣","defensive_FR":"🏈","defensive_TD":"🏈","defensive_DOM":"👑"};
@@ -166,7 +166,7 @@ function MiniRadar({values,color,size=28}){const cx=size/2,cy=size/2,r=size/2-1,
 // ============================================================
 // Beeswarm Chart — Combine Explorer
 // ============================================================
-const EXPLORER_GROUPS=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"];
+const EXPLORER_GROUPS=["QB","RB","WR","TE","OT","IOL","EDGE","IDL","LB","CB","S"];
 const INVERTED_MEAS=new Set(["40","3C","SHT"]);
 
 const COMBO_DEFAULTS={EDGE:["defensive_SACKS","meas_40"],WR:["receiving_YDS","meas_SPD"],RB:["rushing_YDS","meas_SPD"],QB:["passing_YDS","passing_TDINT"],TE:["receiving_YDS","meas_ATH"],OT:["meas_ATH","meas_WT"],IOL:["meas_ATH","meas_WT"],DL:["defensive_TFL","meas_ATH"],LB:["defensive_TKL","meas_SPD"],CB:["meas_40","defensive_PD"],S:["meas_40","defensive_INT"]};
@@ -1270,19 +1270,19 @@ function AuthScreen({onSignIn,onSkip,onOpenGuide}){
     // Risers (20)
     {name:"Carson Beck",pos:"QB",delta:3.4},{name:"Garrett Nussmeier",pos:"QB",delta:2.1},{name:"Carnell Tate",pos:"WR",delta:2.8},
     {name:"Jordyn Tyson",pos:"WR",delta:1.7},{name:"Denzel Boston",pos:"WR",delta:2.3},{name:"Kenyon Sadiq",pos:"TE",delta:1.9},
-    {name:"Spencer Fano",pos:"OL",delta:2.6},{name:"Francis Mauigoa",pos:"OL",delta:1.4},{name:"Rueben Bain Jr.",pos:"DL",delta:3.1},
-    {name:"T.J. Parker",pos:"DL",delta:1.8},{name:"Caleb Downs",pos:"DB",delta:2.5},{name:"Sonny Styles",pos:"LB",delta:1.6},
+    {name:"Spencer Fano",pos:"OL",delta:2.6},{name:"Francis Mauigoa",pos:"OL",delta:1.4},{name:"Rueben Bain Jr.",pos:"IDL",delta:3.1},
+    {name:"T.J. Parker",pos:"IDL",delta:1.8},{name:"Caleb Downs",pos:"DB",delta:2.5},{name:"Sonny Styles",pos:"LB",delta:1.6},
     {name:"Jeremiyah Love",pos:"RB",delta:2.2},{name:"Makai Lemon",pos:"WR",delta:1.3},{name:"Arvell Reese",pos:"LB",delta:1.9},
     {name:"Mansoor Delane",pos:"DB",delta:2.4},{name:"KC Concepcion",pos:"WR",delta:1.5},{name:"Eli Stowers",pos:"TE",delta:1.1},
-    {name:"Peter Woods",pos:"DL",delta:1.7},{name:"Kadyn Proctor",pos:"OL",delta:1.2},
+    {name:"Peter Woods",pos:"IDL",delta:1.7},{name:"Kadyn Proctor",pos:"OL",delta:1.2},
     // Fallers (20)
     {name:"Drew Allar",pos:"QB",delta:-2.9},{name:"Cade Klubnik",pos:"QB",delta:-1.7},{name:"Dillon Gabriel",pos:"QB",delta:-2.3},
-    {name:"Avieon Terrell",pos:"DB",delta:-1.4},{name:"Blake Miller",pos:"OL",delta:-1.8},{name:"Gracen Halton",pos:"DL",delta:-1.1},
-    {name:"Dillon Thieneman",pos:"DB",delta:-1.6},{name:"Harold Perkins Jr.",pos:"LB",delta:-2.1},{name:"Keldric Faulk",pos:"DL",delta:-1.3},
-    {name:"Dani Dennis-Sutton",pos:"DL",delta:-1.5},{name:"Anthony Hill Jr.",pos:"LB",delta:-1.9},{name:"Jonah Coleman",pos:"RB",delta:-1.2},
+    {name:"Avieon Terrell",pos:"DB",delta:-1.4},{name:"Blake Miller",pos:"OL",delta:-1.8},{name:"Gracen Halton",pos:"IDL",delta:-1.1},
+    {name:"Dillon Thieneman",pos:"DB",delta:-1.6},{name:"Harold Perkins Jr.",pos:"LB",delta:-2.1},{name:"Keldric Faulk",pos:"IDL",delta:-1.3},
+    {name:"Dani Dennis-Sutton",pos:"IDL",delta:-1.5},{name:"Anthony Hill Jr.",pos:"LB",delta:-1.9},{name:"Jonah Coleman",pos:"RB",delta:-1.2},
     {name:"Chris Bell",pos:"WR",delta:-2.4},{name:"Omar Cooper Jr.",pos:"WR",delta:-1.1},{name:"Monroe Freeling",pos:"OL",delta:-1.7},
     {name:"CJ Allen",pos:"LB",delta:-1.4},{name:"Davison Igbinosun",pos:"DB",delta:-2.6},{name:"Malik Muhammad",pos:"DB",delta:-1.3},
-    {name:"Kamari Ramsey",pos:"DB",delta:-1.8},{name:"Anthony Lucas",pos:"DL",delta:-1.5}
+    {name:"Kamari Ramsey",pos:"DB",delta:-1.8},{name:"Anthony Lucas",pos:"IDL",delta:-1.5}
   ];
   const[tickerData,setTickerData]=useState(null);
 
@@ -1421,7 +1421,7 @@ function AuthScreen({onSignIn,onSkip,onOpenGuide}){
             </span>)}
           </div>
           <div style={{borderRadius:8,overflow:"hidden",border:"1px solid #f0f0f0"}}>
-            {[{name:"Bain Jr.",pos:"EDGE",val:92},{name:"Parker",pos:"EDGE",val:88},{name:"Bailey",pos:"DL",val:85}].map((p,i)=>{const c=POS_COLORS[p.pos];return<div key={p.name} style={{display:"flex",alignItems:"center",gap:6,padding:"4px 8px",borderBottom:i<2?"1px solid #f5f5f5":"none"}}>
+            {[{name:"Bain Jr.",pos:"EDGE",val:92},{name:"Parker",pos:"EDGE",val:88},{name:"Bailey",pos:"IDL",val:85}].map((p,i)=>{const c=POS_COLORS[p.pos];return<div key={p.name} style={{display:"flex",alignItems:"center",gap:6,padding:"4px 8px",borderBottom:i<2?"1px solid #f5f5f5":"none"}}>
               <span style={{fontFamily:mono,fontSize:8,fontWeight:700,color:c,background:`${c}0d`,padding:"1px 6px",borderRadius:99}}>{p.pos}</span>
               <span style={{fontFamily:sans,fontSize:11,fontWeight:600,color:"#171717",flex:1}}>{p.name}</span>
               <span style={{fontFamily:mono,fontSize:10,fontWeight:700,color:"#7c3aed"}}>{p.val}</span>
@@ -1903,7 +1903,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
   const[showMyGuys,setShowMyGuys]=useState(()=>window.location.pathname==='/my-guys');
   const isLabPath=p=>p==='/lab'||p==='/data-lab'||p.startsWith('/lab/')||p.startsWith('/data-lab/');
   const labSuffix=p=>{const m=p.match(/^\/(?:data-lab|lab)\/(.+)/);return m?m[1]:null;};
-  const posFromSlug=(slug)=>{const upper=slug?.toUpperCase();return upper==='K-P'?'K/P':upper;};
+  const posFromSlug=(slug)=>{const upper=slug?.toUpperCase();return upper==='K-P'?'K/P':upper==='DL'?'IDL':upper;};
   const posToSlug=(pos)=>pos==='K/P'?'k-p':pos.toLowerCase();
   const[showExplorer,setShowExplorer]=useState(()=>isLabPath(window.location.pathname));
   const[explorerMeas,setExplorerMeas]=useState("ATH");
@@ -2759,7 +2759,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
             </div>;})}
           </div>;})();
 
-          const schemeFitPills=["ALL","QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"];
+          const schemeFitPills=["ALL","QB","RB","WR","TE","OT","IOL","EDGE","IDL","LB","CB","S"];
           const sfList=getTeamSchemeFits(trendsTeam,schemeFits,PROSPECTS,schemeFitPos,65);
           const sfVisible=schemeFitExpanded?sfList:sfList.slice(0,12);
 
@@ -3172,7 +3172,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
           <div style={{display:"flex",alignItems:"center",gap:6,marginTop:4}}>
             <span style={{fontSize:9,fontWeight:700,padding:"2px 6px",borderRadius:4,background:POS_COLORS[explorerHover.pos]||"#525252",color:"#fff"}}>{explorerHover.group}</span>
             <span style={{fontFamily:mono,fontSize:12,fontWeight:700}}>{(()=>{const mc=explorerHover.measCode;const sc=explorerHover.statCode;const dv=explorerHover.displayVal;if(sc){if(sc==="breakout_year")return dv;const suffix=sc.endsWith("_DOM")||sc.endsWith("_PCT")?"%":"";if(DECIMAL_STATS.has(sc))return(typeof dv==="number"?dv.toFixed(sc.endsWith("_PCT")||sc.endsWith("_DOM")?1:2):dv)+suffix;return(typeof dv==="number"?Math.round(dv):dv)+suffix;}if(!mc)return explorerHover.val;if(mc==="HT")return formatHeight(dv);if(mc==="WT")return dv+" lbs";if(mc==="ARM"||mc==="HND"||mc==="WING")return dv+'"';if(mc==="40"||mc==="3C"||mc==="SHT")return dv+"s";return dv!=null?dv:explorerHover.val;})()}</span>
-            {explorerHover.statCode?.endsWith("_DOM")&&<div style={{fontSize:9,color:"#a3a3a3",marginTop:2}}>{(()=>{const sc=explorerHover.statCode;const g=explorerHover.group;if(sc==="passing_DOM")return"share of team passing yds + TDs";if(sc==="rushing_DOM")return"share of team rushing yds + TDs";if(sc==="receiving_DOM")return"share of team receiving yds + TDs";if(sc==="defensive_DOM"){if(g==="EDGE")return"pressure share (sacks + hurries)";if(g==="DL")return"TFL share of team";if(g==="LB")return"tackle impact (tkl + TFL + sacks)";if(g==="CB")return"coverage share (INT + PD)";if(g==="S")return"playmaker share (INT + PD + tkl)";}return"share of team production";})()}</div>}
+            {explorerHover.statCode?.endsWith("_DOM")&&<div style={{fontSize:9,color:"#a3a3a3",marginTop:2}}>{(()=>{const sc=explorerHover.statCode;const g=explorerHover.group;if(sc==="passing_DOM")return"share of team passing yds + TDs";if(sc==="rushing_DOM")return"share of team rushing yds + TDs";if(sc==="receiving_DOM")return"share of team receiving yds + TDs";if(sc==="defensive_DOM"){if(g==="EDGE")return"pressure share (sacks + hurries)";if(g==="IDL")return"TFL share of team";if(g==="LB")return"tackle impact (tkl + TFL + sacks)";if(g==="CB")return"coverage share (INT + PD)";if(g==="S")return"playmaker share (INT + PD + tkl)";}return"share of team production";})()}</div>}
           </div>
         </div>}
         {/* Tooltip — combo mode */}
@@ -3755,7 +3755,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
           </>;
         })()}
         {explorerMode==="free-agency"&&(()=>{
-          const FA_POS_GROUPS=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S","K/P"];
+          const FA_POS_GROUPS=["QB","RB","WR","TE","OT","IOL","EDGE","IDL","LB","CB","S","K/P"];
           const FA_AXIS_OPTIONS=[
             {key:"aav",label:"AAV"},
             {key:"totalValue",label:"Total Value"},
@@ -5736,7 +5736,7 @@ function _posPlayers(pos){return PROSPECTS.filter(p=>(p.gpos||p.pos)===pos);}
 function _withCombine(players){return players.map(p=>({...p,cs:getCombineScores(p.name,p.school),cd:getCombineData(p.name,p.school)})).filter(x=>x.cs);}
 
 function genCombineOutlier(){
-  const positions=_shuffle(["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"]);
+  const positions=_shuffle(["QB","RB","WR","TE","OT","IOL","EDGE","IDL","LB","CB","S"]);
   const sub=Math.floor(Math.random()*5);
   for(const pos of positions){
     const guys=_withCombine(_posPlayers(pos));
@@ -5873,7 +5873,7 @@ function genClassDepth(){
   if(sub===1){
     const top32=allRanked.filter(p=>p.rank<=32);
     const counts={};top32.forEach(p=>{const pos=p.gpos||p.pos;counts[pos]=(counts[pos]||0)+1;});
-    const all=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"];
+    const all=["QB","RB","WR","TE","OT","IOL","EDGE","IDL","LB","CB","S"];
     const scarce=all.map(pos=>[pos,counts[pos]||0]).sort((a,b)=>a[1]-b[1]);
     if(scarce.length){const[pos,ct]=scarce[0];
       return{category:'class_depth',spice:_spice(1,ct<=1,true),
@@ -5890,7 +5890,7 @@ function genClassDepth(){
         image:`Rankings → top 20`,hook:`Conference controls the top`,player:null};}
   }
   if(sub===3){
-    const positions=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"];
+    const positions=["QB","RB","WR","TE","OT","IOL","EDGE","IDL","LB","CB","S"];
     const combCounts={};
     positions.forEach(pos=>{combCounts[pos]=_withCombine(_posPlayers(pos)).length;});
     const sorted=Object.entries(combCounts).sort((a,b)=>b[1]-a[1]);
@@ -5919,7 +5919,7 @@ function genDraftValueGap(){
         image:`Combine Explorer → ${p.gpos||p.pos} → ATH`,hook:`High rank, low athleticism`,player:p.name};}
   }
   if(sub===2){
-    const positions=_shuffle(["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"]);
+    const positions=_shuffle(["QB","RB","WR","TE","OT","IOL","EDGE","IDL","LB","CB","S"]);
     for(const pos of positions){
       const guys=_withCombine(_posPlayers(pos)).map(g=>({...g,rank:getConsensusRank(g.name)}));
       if(guys.length<5)continue;
@@ -5944,7 +5944,7 @@ function genConferenceBreakdown(){
   const sub=Math.floor(Math.random()*3);
   const allRanked=PROSPECTS.map(p=>({...p,rank:getConsensusRank(p.name)}));
   if(sub===0){
-    const positions=_shuffle(["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"]);
+    const positions=_shuffle(["QB","RB","WR","TE","OT","IOL","EDGE","IDL","LB","CB","S"]);
     for(const pos of positions){
       const guys=allRanked.filter(p=>(p.gpos||p.pos)===pos).sort((a,b)=>a.rank-b.rank).slice(0,10);
       const confCounts={};guys.forEach(g=>{const conf=SCHOOL_CONFERENCE[g.school];if(conf&&conf!=="Ind")confCounts[conf]=(confCounts[conf]||0)+1;});
@@ -6017,7 +6017,7 @@ function genHistoricalComparison(historicalData){
 
 function genRadarSpotlight(){
   const sub=Math.floor(Math.random()*3);
-  const positions=_shuffle(["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"]);
+  const positions=_shuffle(["QB","RB","WR","TE","OT","IOL","EDGE","IDL","LB","CB","S"]);
   for(const pos of positions){
     const guys=_posPlayers(pos);
     if(guys.length<5)continue;
@@ -6069,7 +6069,7 @@ function genRadarSpotlight(){
 function genCeilingTags(){
   const sub=Math.floor(Math.random()*3);
   if(sub===0){
-    const positions=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S"];
+    const positions=["QB","RB","WR","TE","OT","IOL","EDGE","IDL","LB","CB","S"];
     const ceilCounts={};
     positions.forEach(pos=>{
       ceilCounts[pos]=_posPlayers(pos).filter(p=>{const sc=getScoutingTraits(p.name,p.school);return sc?.__ceiling==="elite";}).length;
@@ -6109,7 +6109,7 @@ function genTeamMockAlignment(){
       const topNeed=Object.entries(needs).sort((a,b)=>b[1]-a[1])[0];
       if(!topNeed)continue;
       const needPos=topNeed[0];
-      const posMap={QB:["QB"],WR:["WR"],RB:["RB"],TE:["TE"],OL:["OT","IOL"],DL:["DL","EDGE"],DB:["CB","S"],LB:["LB"]};
+      const posMap={QB:["QB"],WR:["WR"],RB:["RB"],TE:["TE"],OL:["OT","IOL"],DL:["IDL","EDGE"],DB:["CB","S"],LB:["LB"]};
       const matchPositions=posMap[needPos]||[needPos];
       const bestAtNeed=allRanked.filter(p=>matchPositions.includes(p.gpos||p.pos))[0];
       if(bestAtNeed){
@@ -6142,7 +6142,7 @@ function genCollegeStats(){
 
   // Variant 0: Individual dominator rarity
   if(sub===0){
-    const positions=_shuffle(["QB","RB","WR","TE","EDGE","DL","LB","CB","S"]);
+    const positions=_shuffle(["QB","RB","WR","TE","EDGE","IDL","LB","CB","S"]);
     for(const pos of positions){
       const guys=_posPlayers(pos);
       for(const p of _shuffle(guys).slice(0,10)){
@@ -6169,7 +6169,7 @@ function genCollegeStats(){
 
   // Variant 1: Breakout year highlight
   if(sub<=1){
-    const positions=_shuffle(["WR","TE","RB","QB","EDGE","DL","LB","CB","S"]);
+    const positions=_shuffle(["WR","TE","RB","QB","EDGE","IDL","LB","CB","S"]);
     for(const pos of positions){
       const guys=_posPlayers(pos);
       const withBreakout=guys.filter(p=>{const s=_statLookup(p.name,p.school);return s?.breakout_year==="Fr";});
@@ -6190,7 +6190,7 @@ function genCollegeStats(){
 
   // Variant 2: Class-level breakout depth
   if(sub<=2){
-    const positions=_shuffle(["WR","RB","EDGE","LB","CB","S","TE","DL","QB"]);
+    const positions=_shuffle(["WR","RB","EDGE","LB","CB","S","TE","IDL","QB"]);
     for(const pos of positions){
       const guys=_posPlayers(pos);
       const withBreakout=guys.filter(p=>{const s=_statLookup(p.name,p.school);return s?.breakout_year==="Fr"||s?.breakout_year==="So";});
@@ -7729,7 +7729,7 @@ function GuidePage({onBack}){
     {name:"Caleb Downs",pos:"S",rank:2,prev:2},
     {name:"Francis Mauigoa",pos:"OT",rank:3,prev:5},
     {name:"Garrett Nussmeier",pos:"QB",rank:4,prev:1},
-    {name:"David Bailey",pos:"DL",rank:5,prev:7},
+    {name:"David Bailey",pos:"IDL",rank:5,prev:7},
   ];
   const mockTeams=["Raiders","Jets","Cardinals","Titans","Giants","Browns","Commanders","Saints"];
 
@@ -7925,7 +7925,7 @@ function GuidePage({onBack}){
           {[
             {name:"Rueben Bain Jr.",pos:"EDGE",val:92},
             {name:"T.J. Parker",pos:"EDGE",val:88},
-            {name:"David Bailey",pos:"DL",val:85},
+            {name:"David Bailey",pos:"IDL",val:85},
           ].map((p,i)=>{const c=POS_COLORS[p.pos];return<div key={p.name} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 12px",borderBottom:i<2?"1px solid #f5f5f5":"none"}}>
             <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:c,background:`${c}0d`,padding:"2px 8px",borderRadius:99}}>{p.pos}</span>
             <span style={{fontFamily:sans,fontSize:13,fontWeight:600,color:"#171717",flex:1}}>{p.name}</span>
@@ -8318,7 +8318,7 @@ function GuidePage({onBack}){
         {pos:"OT",items:[["🚧","Pass Protector"],["🦣","Road Grader"],["🦑","Athletic Tackle"]]},
         {pos:"IOL",items:[["↔️","Zone Scheme"],["⬆️","Gap / Power"],["🔄","Versatile"]]},
         {pos:"EDGE",items:[["🌪️","Speed Rusher"],["🦏","Power Rusher"],["🐉","Complete"],["🦍","Run Defender"]]},
-        {pos:"DL",items:[["🦡","Penetrating 3-Tech"],["🐘","Nose Tackle"],["🐊","Two-Gap"]]},
+        {pos:"IDL",items:[["🦡","Penetrating 3-Tech"],["🐘","Nose Tackle"],["🐊","Two-Gap"]]},
         {pos:"LB",items:[["☂️","Coverage"],["🔨","Thumper"],["🦈","Pass Rusher"],["🐺","Sideline-to-Sideline"],["👽","Chess Piece"]]},
         {pos:"CB",items:[["🧟","Press Man"],["🕸️","Zone Corner"],["🦎","Slot"]]},
         {pos:"S",items:[["🦂","Box Safety"],["🛸","Center Field"],["🎲","Hybrid"]]},
@@ -8554,7 +8554,7 @@ function OGPreview(){
                 <div style={{fontFamily:mono,fontSize:7,letterSpacing:1,color:"#a3a3a3",textTransform:"uppercase",padding:"5px 8px",borderBottom:"1px solid #f0f0f0",display:"flex",alignItems:"center",gap:4}}>
                   <span style={{fontSize:8}}>🚀</span> ranking by: pass rush
                 </div>
-                {[{name:"Bain Jr.",pos:"EDGE",val:92},{name:"Parker",pos:"EDGE",val:88},{name:"Bailey",pos:"DL",val:85},{name:"Halton",pos:"DL",val:82}].map((p,i)=>{const c=POS_COLORS[p.pos];return<div key={p.name} style={{display:"flex",alignItems:"center",gap:5,padding:"3px 8px",borderBottom:i<3?"1px solid #f8f8f8":"none"}}>
+                {[{name:"Bain Jr.",pos:"EDGE",val:92},{name:"Parker",pos:"EDGE",val:88},{name:"Bailey",pos:"IDL",val:85},{name:"Halton",pos:"IDL",val:82}].map((p,i)=>{const c=POS_COLORS[p.pos];return<div key={p.name} style={{display:"flex",alignItems:"center",gap:5,padding:"3px 8px",borderBottom:i<3?"1px solid #f8f8f8":"none"}}>
                   <span style={{fontFamily:mono,fontSize:7,fontWeight:700,color:c,background:`${c}0d`,padding:"1px 5px",borderRadius:99}}>{p.pos}</span>
                   <span style={{fontFamily:sans,fontSize:9,fontWeight:600,color:"#171717",flex:1}}>{p.name}</span>
                   <span style={{fontFamily:mono,fontSize:9,fontWeight:700,color:"#7c3aed"}}>{p.val}</span>
@@ -8674,7 +8674,7 @@ export default function App(){
           {pos:"OT",items:[["🚧","Pass Protector","Elite in pass protection. Footwork, mirror ability, and anchor. Built to protect the quarterback."],["🦣","Road Grader","Dominant run blocker. Moves people at the point of attack. Physical finisher."],["🦑","Athletic Tackle","Wins with movement skills. Lateral agility, reach blocks. Excels in zone schemes."]]},
           {pos:"IOL",items:[["↔️","Zone Scheme","Light-footed, reach blocks, works at angles. Built for outside zone and wide zone concepts."],["⬆️","Gap / Power","Anchor, drive blocks, pulls. Built for man/gap concepts and downhill running."],["🔄","Versatile","Can play multiple interior spots. Guard-center flexibility. Scheme-adaptable."]]},
           {pos:"EDGE",items:[["🌪️","Speed Rusher","Wins with first step, bend, and closing speed. Gets around the corner and finishes at the quarterback."],["🦏","Power Rusher","Wins with bull rush, long arms, and strength at the point of attack. Collapses the pocket."],["🐉","Complete","Has both speed and power moves. Full pass-rush repertoire. The total package."],["🦍","Run Defender","Primary value is setting the edge and stopping the run. Disciplined and physical."]]},
-          {pos:"DL",items:[["🦡","Penetrating 3-Tech","Quick first step, gets into the backfield. Interior pass-rush threat who disrupts from the inside."],["🐘","Nose Tackle","Anchors the middle. Eats double teams, frees up linebackers. Space-eater."],["🐊","Two-Gap","Holds the point of attack and controls two gaps. Versatile run defender."]]},
+          {pos:"IDL",items:[["🦡","Penetrating 3-Tech","Quick first step, gets into the backfield. Interior pass-rush threat who disrupts from the inside."],["🐘","Nose Tackle","Anchors the middle. Eats double teams, frees up linebackers. Space-eater."],["🐊","Two-Gap","Holds the point of attack and controls two gaps. Versatile run defender."]]},
           {pos:"LB",items:[["☂️","Coverage","Ranges in space, mirrors running backs and tight ends, drops into zones effectively."],["🔨","Thumper","Downhill, physical, fills gaps, stacks and sheds blocks. Old-school run stuffer."],["🦈","Pass Rusher","Blitzes effectively. Edge-setting or interior blitz threat from the linebacker position."],["🐺","Sideline-to-Sideline","Elite range and athleticism. Gets to the ball from anywhere on the field."],["👽","Chess Piece","Defies traditional linebacker classification. Part safety, part edge, part LB. Used creatively by defensive coordinators."]]},
           {pos:"CB",items:[["🧟","Press Man","Physical at the line of scrimmage. Jams receivers, mirrors in man coverage. Built for man-heavy schemes."],["🕸️","Zone Corner","Reads the quarterback's eyes, breaks on the ball, patrols areas. Pattern-matching and instincts."],["🦎","Slot","Works inside. Handles quick slot receivers and tight ends. May play some safety."]]},
           {pos:"S",items:[["🦂","Box Safety","Plays near the line of scrimmage. Physical tackler, run support, blitzer. An extra defender in the box."],["🛸","Center Field","Ranges deep. Ball hawk. Covers ground sideline to sideline from the back end."],["🎲","Hybrid","Plays multiple roles. Lines up at linebacker, slot, deep safety. A versatile chess piece."]]},

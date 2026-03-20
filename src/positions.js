@@ -13,14 +13,17 @@ export const TRAIT_WEIGHTS={QB:{"Accuracy":.25,"Decision Making":.22,"Pocket Pre
 
 export const TRAIT_TEACHABILITY={"Arm Strength":.1,"Accuracy":.7,"Pocket Presence":.6,"Mobility":.1,"Decision Making":.65,"Leadership":.5,"Vision":.4,"Contact Balance":.2,"Power":.2,"Elusiveness":.15,"Pass Catching":.6,"Pass Protection":.7,"Route Running":.75,"Separation":.5,"Hands":.5,"YAC Ability":.3,"Speed":.05,"Contested Catches":.4,"Receiving":.6,"Blocking":.7,"Athleticism":.05,"Versatility":.3,"Run Blocking":.7,"Footwork":.65,"Anchor":.3,"Pulling":.6,"Strength":.2,"Pass Rush":.4,"Bend":.15,"First Step":.1,"Hand Usage":.65,"Motor":.2,"Run Defense":.6,"Tackling":.6,"Coverage":.5,"Man Coverage":.5,"Zone Coverage":.5,"Nickel":.45,"Instincts":.35,"Range":.1,"Ball Skills":.3,"Press":.55,"Leg Strength":.1,"Consistency":.5,"Clutch":.3,"Directional Control":.6,"Hang Time":.2,"Release Package":.55,"Block Shedding":.45,"Pre-Snap Diagnosis":.6};
 
-export const POSITION_GROUPS=["QB","RB","WR","TE","OT","IOL","EDGE","DL","LB","CB","S","K/P"];
+export const POSITION_GROUPS=["QB","RB","WR","TE","OT","IOL","EDGE","IDL","LB","CB","S","K/P"];
 
 // C and OG are IOL sub-positions — alias traits, weights, and display to IOL
 POSITION_TRAITS.C=POSITION_TRAITS.IOL;
 POSITION_TRAITS.OG=POSITION_TRAITS.IOL;
 TRAIT_WEIGHTS.C=TRAIT_WEIGHTS.IOL;
 TRAIT_WEIGHTS.OG=TRAIT_WEIGHTS.IOL;
+// IDL is the canonical UI name for interior DL — alias traits and weights
+POSITION_TRAITS.IDL=POSITION_TRAITS.DL;
+TRAIT_WEIGHTS.IDL=TRAIT_WEIGHTS.DL;
 
-export const POS_EMOJI={QB:"🎯",RB:"🏃",WR:"🧤",TE:"🦾",OT:"🛡️",IOL:"🧱",C:"🧱",OG:"🧱",EDGE:"🌪️",DL:"🦬",LB:"💥",CB:"🏝️",S:"🦅","K/P":"🦵"};
+export const POS_EMOJI={QB:"🎯",RB:"🏃",WR:"🧤",TE:"🦾",OT:"🛡️",IOL:"🧱",C:"🧱",OG:"🧱",EDGE:"🌪️",DL:"🦬",IDL:"🦬",LB:"💥",CB:"🏝️",S:"🦅","K/P":"🦵"};
 
-export const POS_COLORS={QB:"#dc2626",RB:"#ea580c",WR:"#ca8a04",TE:"#65a30d",OT:"#16a34a",IOL:"#059669",C:"#059669",OG:"#059669",OL:"#16a34a",EDGE:"#0d9488",DL:"#0284c7",LB:"#2563eb",CB:"#4f46e5",S:"#7c3aed",DB:"#4f46e5","K/P":"#78716c"};
+export const POS_COLORS={QB:"#dc2626",RB:"#ea580c",WR:"#ca8a04",TE:"#65a30d",OT:"#16a34a",IOL:"#059669",C:"#059669",OG:"#059669",OL:"#16a34a",EDGE:"#0d9488",DL:"#0284c7",IDL:"#0284c7",LB:"#2563eb",CB:"#4f46e5",S:"#7c3aed",DB:"#4f46e5","K/P":"#78716c"};
