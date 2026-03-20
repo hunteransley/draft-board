@@ -6,6 +6,7 @@ import { getCombineScores } from "./combineTraits.js";
 import { getStatBasedTraits } from "./statTraits.js";
 import { getProspectStats } from "./prospectStats.js";
 import { DEPTH_GROUPS, ALL_SLOTS, TEAM_SCHEME, TEAM_ABBR, getFormationPos, getSchemeDepthGroups } from "./depthChartUtils.js";
+import { NFL_TEAM_COLORS, NFL_TEAM_ESPN as NFL_TEAM_ESPN_IDS } from "./teamConfig.js";
 import { POS_DRAFT_VALUE, RANK_OVERRIDES, GRADE_OVERRIDES, TEAM_PROFILES, SCHEME_INFLECTIONS, DRAFT_ORDER, getPickRound } from "./draftConfig.js";
 import { TEAM_NEEDS_COUNTS } from "./teamNeedsData.js";
 import { ROSTER_BY_SLOT, ROSTER_BY_NAME, formatContract, formatTradeValue, TIER_COLORS, AVAILABILITY_DISPLAY } from "./rosterValueData.js";
@@ -80,8 +81,7 @@ function scoreTeamPicks(teamPicks,team,prospectsMap,getConsensusRank,liveNeeds,T
 
 // TEAM_ABBR, TEAM_SCHEME imported from depthChartUtils.js
 
-const NFL_TEAM_COLORS={"49ers":"#AA0000",Raiders:"#A5ACAF",Jets:"#125740",Cardinals:"#97233F",Titans:"#4B92DB",Giants:"#0B2265",Browns:"#FF3C00",Commanders:"#5A1414",Saints:"#D3BC8D",Chiefs:"#E31837",Bengals:"#FB4F14",Dolphins:"#008E97",Cowboys:"#003594",Rams:"#003594",Falcons:"#A71930",Ravens:"#241773",Buccaneers:"#D50A0A",Colts:"#002C5F",Lions:"#0076B6",Vikings:"#4F2683",Panthers:"#0085CA",Packers:"#203731",Steelers:"#FFB612",Chargers:"#0080C6",Eagles:"#004C54",Bears:"#C83200",Bills:"#00338D",Texans:"#03202F",Broncos:"#FB4F14",Patriots:"#002244",Seahawks:"#69BE28",Jaguars:"#006778"};
-const NFL_TEAM_ESPN_IDS={Raiders:13,Jets:20,Cardinals:22,Titans:10,Giants:19,Browns:5,Commanders:28,Saints:18,Chiefs:12,Bengals:4,Dolphins:15,Cowboys:6,Rams:14,Ravens:33,Buccaneers:27,Lions:8,Vikings:16,Panthers:29,Steelers:23,Chargers:24,Eagles:21,Bears:3,Bills:2,"49ers":25,Texans:34,Broncos:7,Patriots:17,Seahawks:26,Falcons:1,Colts:11,Jaguars:30,Packers:9};
+// NFL_TEAM_COLORS, NFL_TEAM_ESPN_IDS imported from teamConfig.js
 function nflLogoUrl(team){const id=NFL_TEAM_ESPN_IDS[team];return id?`https://a.espncdn.com/i/teamlogos/nfl/500/${id}.png`:null;}
 function loadImg(src,timeout=3000){return new Promise((res,rej)=>{const img=new Image();img.crossOrigin="anonymous";img.onload=()=>res(img);img.onerror=()=>rej();setTimeout(rej,timeout);img.src=src;});}
 function drawTrunc(ctx,text,x,y,maxW){let t=text;while(ctx.measureText(t).width>maxW&&t.length>1)t=t.slice(0,-1);if(t!==text)t=t.slice(0,-1)+'…';ctx.fillText(t,x,y);}
