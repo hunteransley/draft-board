@@ -34,7 +34,7 @@ import { ABBR_TO_TEAM } from "./teamConfig.js";
 
 const ALL = {ARI,ATL,BAL,BUF,CAR,CHI,CIN,CLE,DAL,DEN,DET,GB,HOU,IND,JAX,KC,LAC,LAR,LV,MIA,MIN,NE,NO,NYG,NYJ,PHI,PIT,SEA,SF,TB,TEN,WSH};
 
-const POS_GROUP_MAP = { IDL: "DL", DT: "DL", K: "K/P", P: "K/P", LS: "K/P" };
+const POS_GROUP_MAP = { DT: "IDL", NT: "IDL", C: "IOL", OG: "IOL", FB: "RB", K: "K/P", P: "K/P", LS: "K/P" };
 
 const FA_CONTRACTS = [];
 Object.entries(ALL).forEach(([abbr, data]) => {

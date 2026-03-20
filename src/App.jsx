@@ -3863,7 +3863,7 @@ function DraftBoard({user,onSignOut,isGuest,onRequireAuth,onOpenGuide,gmQuizMock
                     const cx=pad.left+sx(d),cy=pad.top+sy(d),r=sr(d),c=POS_COLORS[d.pos]||"#525252";
                     return<g key={d.pos}
                       onClick={gateAuth(()=>{setFaView("contracts");setFaPosFilter(d.pos);})}
-                      onMouseEnter={e=>setExplorerHover({faPos:d.pos,totalSpend:d.totalSpend,avgAAV:d.avgAAV,maxAAV:d.maxAAV,count:d.count,cx:e.clientX,cy:e.clientY})}
+                      onMouseEnter={e=>setExplorerHover({faPos:d.pos,totalSpend:d.totalValue,avgAAV:d.aav,maxAAV:d.maxAAV,count:d.count,cx:e.clientX,cy:e.clientY})}
                       onMouseLeave={()=>setExplorerHover(null)}
                       style={{cursor:"pointer"}}>
                       <circle cx={cx} cy={cy} r={r} fill={c+"22"} stroke={c} strokeWidth={2} style={{transition:"cx 0.3s,cy 0.3s,r 0.3s"}}/>
