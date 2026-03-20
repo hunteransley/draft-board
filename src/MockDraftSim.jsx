@@ -1091,7 +1091,7 @@ export default function MockDraftSim({board,myBoard,getGrade,teamNeeds,onClose,o
           preferredSlot="LB1";allowedSlots=["LB1","LB2"];
         }else if(group.posMatch==="DL"){
           // 4-3/w9: EDGE/DE -> DE slots only, IDL/DT/NT -> DT slots only
-          if(gpos==="IDL"||gpos==="DT"||gpos==="NT"){
+          if(gpos==="IDL"||gpos==="DL"||gpos==="DT"||gpos==="NT"){
             preferredSlot="DT1";
             allowedSlots=["DT1","DT2"];
           }else{
