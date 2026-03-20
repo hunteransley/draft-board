@@ -4,7 +4,7 @@
 
 import { SCHEME_PROFILES, SCHEME_NARRATIVES, SCHEME_BLUEPRINT_WEIGHTS } from "./schemeData.js";
 import { TEAM_PROFILES, SCHEME_INFLECTIONS } from "./draftConfig.js";
-import { POSITION_TRAITS, TRAIT_WEIGHTS, TRAIT_ABBREV } from "./positions.js";
+import { POSITION_TRAITS, TRAIT_WEIGHTS, TRAIT_ABBREV, POS_GROUP_MAP } from "./positions.js";
 import { TEAM_SCHEME } from "./depthChartUtils.js";
 import { getScoutingTraits } from "./scoutingData.js";
 import { getStatBasedTraits } from "./statTraits.js";
@@ -62,7 +62,7 @@ function getSchemeWeights(pos, scheme, teamName) {
   if (!base) return null;
 
   // Agent-provided per-team weights (v2 blueprint data)
-  const bpPos = (pos === "C" || pos === "OG") ? "IOL" : pos === "IDL" ? "DL" : pos;
+  const bpPos = pos === "IDL" ? "DL" : POS_GROUP_MAP[pos] || pos;
   const agentWeights = teamName && SCHEME_BLUEPRINT_WEIGHTS[teamName]?.[bpPos];
   if (agentWeights && Object.keys(agentWeights).length > 0) {
     const posTraits = POSITION_TRAITS[pos];

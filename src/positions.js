@@ -24,6 +24,11 @@ TRAIT_WEIGHTS.OG=TRAIT_WEIGHTS.IOL;
 POSITION_TRAITS.IDL=POSITION_TRAITS.DL;
 TRAIT_WEIGHTS.IDL=TRAIT_WEIGHTS.DL;
 
+// Canonical sub-position → group mapping (single source of truth)
+// Use this everywhere instead of ad-hoc ternaries
+export const POS_GROUP_MAP={C:"IOL",OG:"IOL",DL:"IDL",DT:"IDL",NT:"IDL",FB:"RB",K:"K/P",P:"K/P",LS:"K/P"};
+export function posGroup(pos){return POS_GROUP_MAP[pos]||pos;}
+
 export const POS_EMOJI={QB:"🎯",RB:"🏃",WR:"🧤",TE:"🦾",OT:"🛡️",IOL:"🧱",C:"🧱",OG:"🧱",EDGE:"🌪️",DL:"🦬",IDL:"🦬",LB:"💥",CB:"🏝️",S:"🦅","K/P":"🦵"};
 
 export const POS_COLORS={QB:"#dc2626",RB:"#ea580c",WR:"#ca8a04",TE:"#65a30d",OT:"#16a34a",IOL:"#059669",C:"#059669",OG:"#059669",OL:"#16a34a",EDGE:"#0d9488",DL:"#0284c7",IDL:"#0284c7",LB:"#2563eb",CB:"#4f46e5",S:"#7c3aed",DB:"#4f46e5","K/P":"#78716c"};
