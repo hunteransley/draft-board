@@ -452,7 +452,7 @@ const NFL_ROSTERS = {
     "DT2": "Khyiris Tonga",
     "DE2": "Felix Anudike-Uzomah",
     "LB1": "Drue Tranquill",
-    "LB2": "Cooper McDonald",
+    "LB2": "Nick Bolton",
     "CB1": "Kader Kohou",
     "CB2": "Kristian Fulton",
     "NB": "Chris Roland-Wallace",
