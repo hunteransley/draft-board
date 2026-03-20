@@ -12,6 +12,7 @@ import { writeFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import { TEAM_SCHEME, TEAM_ABBR } from "./depthChartUtils.js";
+import { TEAMS as TEAM_CONFIG } from "./teamConfig.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -21,16 +22,8 @@ const ABBR_TO_NAME = Object.fromEntries(
   Object.entries(TEAM_ABBR).map(([name, abbr]) => [abbr, name])
 );
 
-const TEAMS = [
-  {id:22,abbr:"ARI"},{id:1,abbr:"ATL"},{id:33,abbr:"BAL"},{id:2,abbr:"BUF"},
-  {id:29,abbr:"CAR"},{id:3,abbr:"CHI"},{id:4,abbr:"CIN"},{id:5,abbr:"CLE"},
-  {id:6,abbr:"DAL"},{id:7,abbr:"DEN"},{id:8,abbr:"DET"},{id:9,abbr:"GB"},
-  {id:34,abbr:"HOU"},{id:11,abbr:"IND"},{id:30,abbr:"JAX"},{id:12,abbr:"KC"},
-  {id:13,abbr:"LV"},{id:24,abbr:"LAC"},{id:14,abbr:"LAR"},{id:15,abbr:"MIA"},
-  {id:16,abbr:"MIN"},{id:17,abbr:"NE"},{id:18,abbr:"NO"},{id:19,abbr:"NYG"},
-  {id:20,abbr:"NYJ"},{id:21,abbr:"PHI"},{id:23,abbr:"PIT"},{id:25,abbr:"SF"},
-  {id:26,abbr:"SEA"},{id:27,abbr:"TB"},{id:10,abbr:"TEN"},{id:28,abbr:"WAS"}
-];
+// Derive ESPN team list from teamConfig (single source of truth)
+const TEAMS = Object.entries(TEAM_CONFIG).map(([abbr, t]) => ({id: t.espnId, abbr}));
 
 /* ── Scheme-aware defensive slot priority tables ──
    For each BBL slot, try ESPN position keys in order;
